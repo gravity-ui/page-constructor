@@ -1,0 +1,55 @@
+@import '../../../../styles/variables';
+
+$block: '.#{$ns}demo';
+
+#{$block} {
+    padding: 20px;
+
+    &__title {
+        margin: 0 0 20px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid var(--yc-color-line-generic);
+
+        font-family: 'YS Display', Helvetica, Arial, sans-serif;
+        font-weight: 500;
+        font-size: 26px;
+        line-height: 30px;
+
+        color: var(--yc-color-text-complementary);
+    }
+
+    &__row {
+        &:not(:last-child) {
+            margin-bottom: 20px;
+        }
+
+        &-title {
+            margin: 0 0 10px;
+
+            font-weight: 500;
+            font-size: 15px;
+            line-height: 20px;
+
+            color: var(--yc-color-text-complementary);
+        }
+
+        &-content {
+            display: flex;
+            align-items: flex-end;
+        }
+    }
+
+    &__cell {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        &:not(:last-child) {
+            margin-right: 20px;
+        }
+
+        &-title {
+            margin-top: 5px;
+        }
+    }
+}

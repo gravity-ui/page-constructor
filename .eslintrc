@@ -1,0 +1,9 @@
+{
+    "extends": "data-ui/common",
+    "plugins": ["local"],
+    "rules": {
+        "template-curly-spacing": "off",
+
+        "local/no-bem-cn-lite": "error"
+    }
+}
