@@ -1,13 +1,16 @@
 import React from 'react';
+import block from 'bem-cn-lite';
 
 import i18n from './i18n';
-import {block} from '../../utils/cn';
-import {ClassNameProps} from '../types';
 
-const b = block('hello-world');
+import './HelloWorld.scss';
 
-export const HelloWorld: React.FC<ClassNameProps> = ({className}) => {
-    return <div className={b(null, className)}>{i18n('text')}</div>;
-};
+export interface HelloWorldProps {
+    className?: string;
+}
 
-HelloWorld.displayName = 'HelloWorld';
+const b = block('pc-hello-world');
+
+export function HelloWorld({className}: HelloWorldProps) {
+    return <span className={b(null, className)}>{i18n('text')}</span>;
+}
