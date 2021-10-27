@@ -1,0 +1,4 @@
+{
+    "extends": "data-ui/common",
+    "root": true
+}

@@ -1,0 +1,29 @@
+.demo-container {
+    min-height: calc(100vh - 1px);
+    padding: 50px;
+}
+
+.demo-header {
+    margin-bottom: 20px;
+    font-size: var(--yc-text-body-font-size);
+    font-weight: bold;
+    text-transform: uppercase;
+    color: var(--yc-color-text-primary);
+}
+
+.demo-description {
+    margin-bottom: 25px;
+    font-size: var(--yc-text-body2-font-size);
+    line-height: var(--yc-text-body2-line-height);
+}
+
+.demo-markdown {
+    .markdown-body {
+        padding: 20px;
+        color: var(--yc-color-text-primary);
+
+        a {
+            color: var(--yc-color-text-link);
+        }
+    }
+}

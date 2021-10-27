@@ -1,0 +1,6 @@
+{
+    "extends": "data-ui/client",
+    "env": {
+        "node": true
+    }
+}
