@@ -1,13 +1,12 @@
-import React, {Fragment, ReactNode} from 'react';
+import React, {Fragment, ReactNode, useContext} from 'react';
 import block from 'bem-cn-lite';
 import {HTML} from '@doc-tools/components';
 
 import {TextSize, TitleProps} from '../../models';
-import {getHeaderTag} from '../../utils';
+import {getHeaderTag, getLinkProps} from '../../utils';
 import Anchor from '../Anchor/Anchor';
 import ToggleArrow from '../ToggleArrow/ToggleArrow';
-import {getLinkProps} from 'utils';
-import withRouter, {WithRouterProps} from 'hoc/withRouter';
+import {SSRContext} from '../../context/ssrContext';
 
 import './Title.scss';
 
@@ -25,25 +24,15 @@ export function getArrowSize(size: TextSize) {
     }
 }
 
-export interface TitleFullProps extends TitleProps, WithRouterProps {
+export interface TitleFullProps extends TitleProps {
     className?: string;
     onClick?: () => void;
     dataQa?: string;
 }
 
 const Title: React.FunctionComponent<TitleFullProps> = (props) => {
-    const {
-        textSize = 'm',
-        text,
-        anchor,
-        justify,
-        url,
-        router,
-        onClick,
-        custom,
-        className,
-        dataQa,
-    } = props;
+    const {textSize = 'm', text, anchor, justify, url, onClick, custom, className, dataQa} = props;
+    const {hostname} = useContext(SSRContext);
     const textMarkup = (
         <React.Fragment>
             <HTML className={b('text')}>{text}</HTML>
@@ -75,7 +64,7 @@ const Title: React.FunctionComponent<TitleFullProps> = (props) => {
         content = textMarkup;
     } else if (url) {
         content = (
-            <a className={b('link')} href={url} {...getLinkProps(url, router)} onClick={onClick}>
+            <a className={b('link')} href={url} {...getLinkProps(url, hostname)} onClick={onClick}>
                 {insideClickableContent}
             </a>
         );
@@ -102,4 +91,4 @@ const Title: React.FunctionComponent<TitleFullProps> = (props) => {
     );
 };
 
-export default withRouter(Title);
+export default Title;

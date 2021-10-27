@@ -1,3 +1,4 @@
+import React from 'react';
 import {MediaProps, Block} from './blocks';
 
 export interface Menu {
@@ -40,4 +41,10 @@ export interface CustomConfig {
     blocks?: CustomBlock;
     headers?: CustomBlock;
     loadable?: LoadableConfig;
+    renderMenu?: () => React.ReactNode;
+}
+
+export interface SSRConfig {
+    hostname: string;
+    isServer?: boolean;
 }

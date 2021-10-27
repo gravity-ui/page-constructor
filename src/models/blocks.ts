@@ -1,4 +1,4 @@
-import {ReactElement, ReactNode} from 'react';
+import {ReactNode} from 'react';
 import {ButtonSize, ButtonView, SocialNetwork} from '@yandex-data-ui/common';
 import {ClassNameProps} from '@yandex-data-ui/cloud-components';
 import {EventPublic, ServicePublic} from '@yandex-data-ui/cloud-schemas/build/models/ui-api';
@@ -140,12 +140,6 @@ export enum PlayButtonType {
 export enum PlayButtonThemes {
     Blue = 'blue',
     Grey = 'grey',
-}
-
-export interface MenuItem {
-    text: string | ReactElement;
-    url: string;
-    desktopOnly?: boolean;
 }
 
 export interface PlayButtonProps extends ClassNameProps {

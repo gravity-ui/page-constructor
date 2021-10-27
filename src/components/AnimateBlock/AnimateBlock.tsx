@@ -1,8 +1,7 @@
-import React, {CSSProperties, useState} from 'react';
+import React, {CSSProperties, useContext, useState} from 'react';
 import block from 'bem-cn-lite';
 import {Waypoint} from 'react-waypoint';
-import withAnimateContext from '../../hoc/withAnimateContext';
-import {AnimateContextProps} from '../../context/animateContext/AnimateContext';
+import {AnimateContext, AnimateContextProps} from '../../context/animateContext/AnimateContext';
 
 const b = block('AnimateBlock');
 
@@ -15,16 +14,8 @@ interface AnimateBlockProps extends AnimateContextProps {
 }
 
 const AnimateBlock: React.FC<AnimateBlockProps> = (props) => {
-    const {
-        children,
-        className,
-        offset = 100,
-        onScroll,
-        style,
-        animated,
-        animate = animated,
-    } = props;
-
+    const {animated} = useContext(AnimateContext);
+    const {children, className, offset = 100, onScroll, style, animate = animated} = props;
     const [playAnimation, setPlayAnimation] = useState<boolean>(false);
 
     const divClassName = animate
@@ -48,4 +39,4 @@ const AnimateBlock: React.FC<AnimateBlockProps> = (props) => {
     );
 };
 
-export default withAnimateContext(AnimateBlock);
+export default AnimateBlock;
