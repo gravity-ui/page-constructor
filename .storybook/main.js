@@ -8,23 +8,9 @@ const srcRoot = path.resolve(root, 'src');
 const stylesRoot = path.resolve(root, 'styles');
 const assetsRoot = path.resolve(root, 'assets');
 
-const chartKitRoot = path.resolve(root, 'node_modules/@yandex-data-ui/chartkit');
-const ymapsRoot = path.resolve(root, 'node_modules/@yandex-data-ui/ymaps-polygonmap');
-const dt100Root = path.resolve(root, 'node_modules/@yandex-data-ui/dt100');
-
 const storybookRoot = path.resolve(root, '.storybook');
 
-const ruleIncludes = [
-    srcRoot,
-    stylesRoot,
-    assetsRoot,
-
-    chartKitRoot,
-    ymapsRoot,
-    dt100Root,
-
-    storybookRoot,
-];
+const ruleIncludes = [srcRoot, stylesRoot, assetsRoot, storybookRoot];
 
 const config = new ConfigBuilder();
 
@@ -91,32 +77,9 @@ module.exports = {
             include: [root],
             use: [{loader: 'html-loader'}, {loader: 'markdown-loader'}],
         });
-        // aliases to build ChartKit based on current @yandex-data-ui/common
-        // storybookBaseConfig.resolve.alias['@yandex-data-ui/common/assets'] = assetsRoot;
-        // storybookBaseConfig.resolve.alias['@yandex-data-ui/common'] = srcRoot;
 
         // без этого fileName в context.parameters в продакшн сборке становится цифрой, а не путём, и ссылку на сорсы не сформировать
         storybookBaseConfig.optimization.moduleIds = 'named';
         return storybookBaseConfig;
     },
-
-    // Ссылки на связанные сторибуки
-    // FIXME: пока скрыли из-за баги в Сафари DATAUI-894
-    // refs: (_, {configType}) => {
-    //     if (configType === 'PRODUCTION') {
-    //         // внешние сторибуки показывать только в продакшн моде
-    //         return {
-    //             navigation: {
-    //                 title: '🔗 Navigation',
-    //                 url: 'https://s3.mds.yandex.net/cloud-storybooks/master/navigation/',
-    //             },
-    //             'infra-components': {
-    //                 title: '🎨 Infra components',
-    //                 url: 'https://s3.mds.yandex.net/cloud-storybooks/master/infra-components/',
-    //             },
-    //         };
-    //     }
-
-    //     return {};
-    // },
 };

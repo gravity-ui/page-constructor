@@ -9,7 +9,6 @@ import {withTheme} from '../src/demo/decorators/withTheme';
 import {withLang} from '../src/demo/decorators/withLang';
 import {withMobile} from '../src/demo/decorators/withMobile';
 import {DocsWithReadme} from '../src/demo/DocsWithReadme';
-import {useEventBroker} from '../src';
 
 const withCommonProvider = (Story, context) => {
     const theme = context.globals.theme;
@@ -24,8 +23,6 @@ const withCommonProvider = (Story, context) => {
 
     // TODO: в будущем возможно появится вариант изменять динамически тему доки, нужно будет перейти на новый способ
     // context.parameters.docs.theme = theme === 'light' ? CommonTheme.light : CommonTheme.dark;
-
-    useEventBroker((data) => console.log('New event has been published', data));
 
     return (
         <CommonProvider>
