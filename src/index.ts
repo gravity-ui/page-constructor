@@ -1,6 +1,6 @@
-export * from './components/theme';
-export * from './components/mobileContext';
-export * from './components/commonContext';
+export * from './context/theme';
+export * from './context/mobileContext';
+export * from './context/commonContext';
 
 export * from './components/HelloWorld';
 
