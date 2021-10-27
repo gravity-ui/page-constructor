@@ -87,7 +87,7 @@
       "prettier --write"
     ],
     "*.{js,jsx,ts,tsx}": [
-      "eslint --fix --fix-type problem --quiet",
+      "eslint --fix --quiet",
       "prettier --write"
     ]
   },
