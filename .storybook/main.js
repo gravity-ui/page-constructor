@@ -28,23 +28,7 @@ config
         styles({
             ruleIncludes,
         }),
-    )
-    .apply(
-        assets({
-            ruleIncludes,
-            ruleExcludes: [path.resolve(assetsRoot, 'icons')],
-        }),
-    )
-    .module.addRule({
-        test: /\.svg$/,
-        include: [path.resolve(assetsRoot, 'icons')],
-        loader: 'svg-sprite-loader',
-        options: {
-            extract: true,
-            spriteFilename: 'sprite-[hash:6].svg',
-        },
-    })
-    .plugins.addPlugin(new SpriteLoaderPlugin({plainSprite: true}));
+    );
 
 const projectConfig = config.build();
 

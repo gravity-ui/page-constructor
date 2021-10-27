@@ -74,8 +74,6 @@
     "prettier": "2.2.1",
     "prettier-config-data-ui": "^1.0.2",
     "react-router-dom": "^5.2.0",
-    "storybook-host": "^5.1.0",
-    "storybook-readme": "^5.0.8",
     "stylelint": "^13.13.1",
     "stylelint-config-data-ui": "^1.0.4",
     "stylelint-scss": "^3.18.0",
