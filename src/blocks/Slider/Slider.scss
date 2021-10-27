@@ -1,0 +1,304 @@
+@import 'mixins';
+@import 'variables';
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+$slideOffset: 10px;
+
+@mixin fullscreen-card() {
+    .slick-slide {
+        width: 100%;
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'sm')) {
+        &:not(&_one-slide) {
+            margin-left: 0;
+            padding-left: 0;
+            width: 100%;
+            overflow: inherit;
+
+            .slick-list {
+                margin: 0;
+            }
+
+            .slick-slide {
+                &:last-child {
+                    padding-right: 10px;
+                }
+            }
+        }
+    }
+}
+
+.SliderBlock {
+    $root: &;
+
+    .slick-list {
+        padding: 24px 0 $indentS;
+        margin: 0 -16px;
+    }
+
+    .slick-slide {
+        padding: 0 16px;
+        box-sizing: border-box;
+        flex-shrink: 0;
+    }
+
+    .slick-track {
+        display: flex;
+        min-width: 100%;
+
+        .slick-slide {
+            height: auto;
+        }
+
+        .slick-slide > div {
+            height: 100%;
+        }
+    }
+
+    .slick-arrow {
+        position: absolute;
+        top: -#{$sliderArrowSize};
+        right: 0;
+
+        z-index: 2;
+
+        &.slick-prev {
+            right: $sliderArrowSize;
+        }
+    }
+
+    &__dots {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+    &__dots-list {
+        @include reset-list-style();
+
+        position: relative;
+        display: inline-flex;
+        justify-content: center;
+
+        div#{$root}__bar,
+        div#{$root}__dot {
+            margin: calc(#{$indentXXS} / 2) $indentXXXS;
+            top: 0;
+        }
+    }
+
+    &__dot {
+        margin-top: $indentXXS;
+        width: 8px;
+        height: 8px;
+
+        border-radius: 100%;
+        background-color: var(--yc-color-line-generic-accent);
+        cursor: pointer;
+
+        &:hover {
+            background-color: var(--yc-color-line-generic-accent-hover);
+        }
+
+        & + & {
+            margin-left: 16px;
+        }
+
+        &_active {
+            background-color: var(--yc-color-line-generic-active);
+        }
+    }
+
+    &__bar {
+        position: absolute;
+        top: $indentXXS;
+        left: 0;
+        width: 24px;
+        height: 8px;
+        border-radius: 20px;
+
+        transition: left 0.3s;
+        background-color: var(--www-color-line-generic-active-solid);
+    }
+
+    &_align-left {
+        .slick-track {
+            /* stylelint-disable-next-line declaration-no-important */
+            width: inherit !important;
+        }
+    }
+
+    &_only-arrows {
+        padding-top: $sliderArrowSize;
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'sm')) {
+        &:not(&_one-slide) {
+            margin-left: -20px;
+            padding-left: 20px;
+            width: calc(100% + 40px);
+            overflow-x: auto;
+
+            .slick-list {
+                margin-left: -10px;
+                margin-right: 0;
+            }
+
+            .slick-slide {
+                padding: 0 $slideOffset;
+
+                &:last-child {
+                    padding-right: 0;
+                }
+            }
+        }
+    }
+
+    &__footer {
+        display: flex;
+        position: relative;
+
+        #{$root}__disclaimer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            color: var(--yc-color-text-secondary);
+
+            &_size {
+                &_l {
+                    @include text-size(header);
+                }
+
+                &_m {
+                    @include text-size(body2);
+                }
+
+                &_s {
+                    @include text-size(body);
+                }
+            }
+        }
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'md')) {
+        &__footer {
+            display: block;
+
+            #{$root}__disclaimer {
+                position: relative;
+                width: 100%;
+                padding-bottom: $indentS;
+            }
+        }
+    }
+
+    &__animate-slides {
+        @include animate-slides('.slick-slide');
+    }
+
+    &_type_media-card {
+        @include fullscreen-card();
+
+        padding: 0;
+
+        #{$root}__dots {
+            position: absolute;
+            bottom: 24px;
+            left: 0;
+            width: 100%;
+        }
+
+        &:hover {
+            .slider-block-arrow {
+                display: flex;
+            }
+        }
+
+        .slider-block-arrow {
+            display: none;
+            height: 100%;
+            width: 64px;
+            top: 0;
+
+            button {
+                top: 50%;
+                transform: translate(0, -50%);
+            }
+        }
+
+        .slick-prev {
+            left: 0;
+        }
+
+        .slick-next {
+            right: 0;
+        }
+
+        .slick-list {
+            padding: 0;
+        }
+
+        @media (max-width: map-get($gridBreakpoints, 'md')) {
+            &:hover {
+                .slider-block-arrow {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    &_type_header-card {
+        @include fullscreen-card();
+
+        $arrowIndent: 16px;
+
+        padding-top: 0;
+
+        #{$root}__wrapper {
+            position: relative;
+        }
+
+        #{$root}__dots {
+            position: absolute;
+            bottom: 16px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 100;
+        }
+
+        .slick-arrow {
+            top: 50%;
+            transform: translateY(-50%);
+            right: $arrowIndent;
+
+            &.slick-prev {
+                left: $arrowIndent;
+            }
+        }
+
+        .slick-list {
+            padding: 0;
+        }
+
+        @media (min-width: $headerSliderLargeBreakpoint) {
+            .slick-arrow {
+                $indentFromContent: $indentM;
+                $arrowIndent: calc((100% - #{$contentWidth}) / 2 - #{$indentFromContent});
+
+                right: $arrowIndent;
+
+                &.slick-prev {
+                    left: $arrowIndent;
+                }
+            }
+        }
+
+        @media (max-width: map-get($gridBreakpoints, 'sm')) {
+            .slick-arrow {
+                display: none;
+            }
+        }
+    }
+}

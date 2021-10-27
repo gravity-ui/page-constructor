@@ -1,0 +1,60 @@
+@import '../../../../styles/mixins.scss';
+@import '../../../styles/variables.scss';
+
+%flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slider-block-arrow {
+    @include desktop-tablet-only();
+    @extend %flex;
+
+    $root: &;
+
+    width: $sliderArrowSize;
+    height: $sliderArrowSize;
+    cursor: pointer;
+
+    &_type_left {
+        #{$root}__icon-wrapper {
+            transform: rotate(180deg);
+        }
+        margin-right: 16px;
+    }
+
+    &__button {
+        @include reset-button-style();
+        @include shadow();
+        @extend %flex;
+
+        width: $sliderArrowSize;
+        height: $sliderArrowSize;
+
+        color: var(--yc-color-text-secondary);
+        border-radius: 100%;
+        background-color: var(--yc-color-base-background);
+        box-shadow: 0px 4px 24px var(--www-color-sfx-shadow),
+            0px 2px 8px var(--www-color-sfx-shadow);
+
+        transition: box-shadow 0.3s $ease-out-cubic, color 0.3s $ease-out-cubic;
+    }
+
+    &:hover {
+        #{$root}__button {
+            color: var(--yc-color-text-complementary);
+            box-shadow: 0 2px 12px var(--www-color-sfx-shadow),
+                0 4px 24px var(--yc-color-sfx-shadow);
+        }
+    }
+
+    &__icon-wrapper {
+        @extend %flex;
+    }
+
+    &__icon {
+        position: relative;
+        left: 2px;
+    }
+}

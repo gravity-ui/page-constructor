@@ -1,0 +1,5 @@
+@import '../../../styles/mixins.scss';
+
+.Anchor {
+    @include anchor($offset: var(--anchor-offset, 0px));
+}

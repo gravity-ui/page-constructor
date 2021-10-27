@@ -1,0 +1,32 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+@import '../../../styles/mixins.scss';
+
+.BlockHeader {
+    &__col-reset {
+        @include reset-col-indents();
+    }
+
+    &__title {
+        margin-top: 0;
+
+        &_no-description {
+            position: relative;
+            top: -3px;
+        }
+    }
+
+    &__description {
+        @include text-size(body2);
+
+        margin-top: $indentXS;
+
+        &_titleSize_s {
+            margin-top: 8px;
+        }
+
+        &_titleSize_l {
+            @include text-size(body3);
+        }
+    }
+}

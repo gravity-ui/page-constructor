@@ -40,9 +40,13 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@doc-tools/components": "^1.11.0",
     "@storybook/addon-viewport": "^6.4.0-alpha.27",
     "bem-cn-lite": "^4.0.0",
+    "hoist-non-react-statics": "^3.3.2",
     "lodash": "^4.17.21",
+    "react-slick": "^0.28.1",
+    "react-waypoint": "^10.1.0",
     "svg-sprite-loader": "^6.0.11"
   },
   "peerDependencies": {
@@ -51,8 +55,8 @@
     "react": "^16.0.0"
   },
   "devDependencies": {
-    "@doc-tools/transform": "^2.0.0-alpha.4",
     "@babel/core": "^7.11.6",
+    "@doc-tools/transform": "^2.0.0-alpha.4",
     "@storybook/addon-actions": "^6.2.9",
     "@storybook/addon-essentials": "^6.2.9",
     "@storybook/addon-knobs": "^6.2.9",
@@ -60,6 +64,9 @@
     "@types/lodash": "^4.14.159",
     "@types/react": "^16.9.46",
     "@types/react-router-dom": "^5.1.5",
+    "@types/react-slick": "^0.23.7",
+    "@yandex-data-ui/cloud-components": "^6.45.0",
+    "@yandex-data-ui/cloud-schemas": "^2.123.1",
     "@yandex-data-ui/common": "^8.28.7",
     "@yandex-data-ui/i18n": "^0.12.3",
     "@yandex-data-ui/tsconfig": "^0.4.0",

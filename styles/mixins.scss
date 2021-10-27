@@ -1,0 +1,36 @@
+@import './variables.scss';
+@import '../src/grid/styles/variables.scss';
+
+@mixin text-size() {
+}
+
+@mixin desktop-only() {
+    @media (max-width: map-get($gridBreakpoints, 'md') - 1) {
+        display: none;
+    }
+}
+
+@mixin desktop-tablet-only() {
+    @media (max-width: map-get($gridBreakpoints, 'sm') - 1) {
+        display: none;
+    }
+}
+
+@mixin mobile-tablet-only() {
+    @media (min-width: map-get($gridBreakpoints, 'md')) {
+        display: none;
+    }
+}
+
+@mixin mobile-only() {
+    @media (min-width: map-get($gridBreakpoints, 'sm')) {
+        display: none;
+    }
+}
+
+@mixin anchor($offset: 0px) {
+    display: block;
+    position: relative;
+    top: calc(-#{$headerMenuHeight} - #{$offset});
+    visibility: hidden;
+}

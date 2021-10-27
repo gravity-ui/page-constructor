@@ -1,0 +1,91 @@
+@import '../../styles/mixins.scss';
+@import './variables.scss';
+
+.yfm_constructor {
+    p {
+        color: var(--yc-color-text-primary);
+    }
+
+    &_theme_dark p {
+        color: var(--yc-color-text-light-primary);
+    }
+
+    &_footnote_text p,
+    &_footnote_page p {
+        opacity: 0.5;
+    }
+
+    &_footnote_text p {
+        @include text-size(body2);
+    }
+
+    &_footnote_page p {
+        display: inline-flex;
+        @include text-size(body);
+    }
+
+    &_header_description p {
+        //TODO manage with text-size
+        @include text-size(body3);
+        color: var(--www-text-header-color);
+    }
+
+    &_list_style ul {
+        padding-left: $indentS;
+    }
+
+    &_list_style_dash ul {
+        list-style-type: none;
+        position: relative;
+
+        li:before {
+            content: '\2014';
+            position: absolute;
+            margin-left: -$indentS;
+        }
+    }
+
+    p {
+        margin: 0 0 $indentXXS;
+    }
+
+    p strong {
+        font-weight: 500;
+    }
+}
+
+.yfm_constructor_table {
+    $firstColumnWidth: 172px;
+    $columnWidth: 120px;
+
+    table {
+        border: 0;
+        table-layout: fixed;
+    }
+
+    thead,
+    tr {
+        background-color: transparent !important; /* stylelint-disable-line declaration-no-important */
+    }
+
+    tbody tr {
+        border-top: 1px solid var(--yc-color-line-generic);
+    }
+
+    td,
+    th {
+        min-width: $columnWidth;
+        width: $columnWidth;
+        box-sizing: content-box;
+        white-space: inherit !important; /* stylelint-disable-line declaration-no-important */
+
+        &:first-child {
+            min-width: $firstColumnWidth;
+            width: $firstColumnWidth;
+        }
+    }
+
+    th {
+        text-align: left !important; /* stylelint-disable-line declaration-no-important */
+    }
+}
