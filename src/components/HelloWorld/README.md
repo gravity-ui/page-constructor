@@ -1,1 +1,1 @@
-## Hello World Component
+## Hello World
