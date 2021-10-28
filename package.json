@@ -9,6 +9,7 @@
     "url": "git@github.yandex-team.ru:data-ui/page-constructor.git"
   },
   "files": [
+    "assets",
     "build",
     "styles"
   ],

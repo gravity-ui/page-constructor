@@ -6,13 +6,13 @@ import {setUrlTld} from '../../utils';
 import {ButtonProps as ButtonParams, isNewMetrikaFormat} from '../../models';
 import {OldButtonSize, OldButtonTheme, toCommonSize, toCommonView} from './utils';
 import {MetrikaContext} from '../../context/metrikaContext';
+import {LocaleContext} from '../../context/localeContext/localeContext';
 
 import githubIcon from '@yandex-data-ui/common/assets/icons/social/github.svg';
-import {LocaleContext} from '../../context/localeContext/localeContext';
 
 import './Button.scss';
 
-interface ButtonProps extends Omit<ButtonParams, 'url'> {
+export interface ButtonProps extends Omit<ButtonParams, 'url'> {
     className?: string;
     url?: string;
     onClick?: () => void;
