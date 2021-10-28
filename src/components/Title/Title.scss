@@ -1,6 +1,7 @@
-@import 'variables';
-@import 'mixins';
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
 @import '../../styles/variables.scss';
+@import '../../grid/styles/variables.scss';
 @import '../../styles/mixins.scss';
 
 .title-block {

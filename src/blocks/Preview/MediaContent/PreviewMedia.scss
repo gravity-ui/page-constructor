@@ -1,7 +1,8 @@
-@import '../../../../mixins';
-@import '../../../../variables';
+@import '../../../../styles/mixins';
+@import '../../../../styles/variables';
 @import '../../../styles/variables.scss';
-@import '../../../gird/styles/variables.scss';
+@import '../../../grid/styles/variables.scss';
+@import '../../../styles/mixins.scss';
 
 .preview-media-block {
     @include animate(&__media);

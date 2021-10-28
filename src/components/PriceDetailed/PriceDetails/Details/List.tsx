@@ -2,7 +2,7 @@ import React, {Fragment} from 'react';
 import block from 'bem-cn-lite';
 import {PriceDetailsListProps, TextSize} from '../../../../models';
 
-import checkLogoListMark from 'assets/images/check-logo-list-mark.svg';
+import checkLogoListMark from '../../../assets/images/check-logo-list-mark.svg';
 
 import './List.scss';
 

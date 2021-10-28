@@ -1,5 +1,5 @@
-@import 'mixins';
-@import 'variables';
+@import '../../../styles/mixins';
+@import '../../../styles/variables';
 
 $controlSize: 64px;
 
@@ -38,10 +38,10 @@ $controlSize: 64px;
         background-size: contain;
         margin: auto;
 
-        background-image: url('../../images/unmute.svg');
+        background-image: url('../../../assests/images/unmute.svg');
 
         &_muted {
-            background-image: url('../../images/mute.svg');
+            background-image: url('../../../assests/images/mute.svg');
         }
     }
 }

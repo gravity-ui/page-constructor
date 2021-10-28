@@ -1,4 +1,5 @@
 @import './variables.scss';
+@import '../grid/styles/variables.scss';
 
 @mixin block {
     margin-top: $indentL;
@@ -178,5 +179,29 @@
                 }
             }
         }
+    }
+}
+
+@mixin desktop-only() {
+    @media (max-width: map-get($gridBreakpoints, 'md') - 1) {
+        display: none;
+    }
+}
+
+@mixin desktop-tablet-only() {
+    @media (max-width: map-get($gridBreakpoints, 'sm') - 1) {
+        display: none;
+    }
+}
+
+@mixin mobile-tablet-only() {
+    @media (min-width: map-get($gridBreakpoints, 'md')) {
+        display: none;
+    }
+}
+
+@mixin mobile-only() {
+    @media (min-width: map-get($gridBreakpoints, 'sm')) {
+        display: none;
     }
 }

@@ -1,5 +1,6 @@
 @import '../../../styles/mixins';
 @import '../../styles/variables.scss';
+@import '../../grid/styles/variables.scss';
 
 .table {
     $root: &;

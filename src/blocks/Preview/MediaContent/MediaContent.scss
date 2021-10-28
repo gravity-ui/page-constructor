@@ -1,7 +1,7 @@
-@import '../../../../mixins';
-@import '../../../../variables';
+@import '../../../../styles/mixins';
+@import '../../../../styles/variables';
 @import '../../../styles/variables.scss';
-@import '../../../gird/styles/variables.scss';
+@import '../../../grid/styles/variables.scss';
 
 .preview-media-content-block {
     &__header {

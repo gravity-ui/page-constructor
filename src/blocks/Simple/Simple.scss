@@ -1,12 +1,12 @@
 @import '../../styles/mixins.scss';
-@import '../../../mixins';
+@import '../../../styles/mixins';
 
 .simple-block {
     $class: &;
     @include animate(#{$class}__animate-block, 0.5s);
 
     &__animate-block {
-        margin-top: $caseMarginS;
+        margin-top: $indentS;
     }
 
     &__description {

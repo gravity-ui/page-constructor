@@ -2,3 +2,15 @@ $ns: 'pc-';
 
 //TODO set css variable;
 $headerMenuHeight: var(--header-menu-height, 64px);
+$videoPlayButtonGrey: #eff2f8;
+$animationDuration: 300ms;
+$normalOffset: 20px;
+
+$fileExtColors: (
+    'pdf': var(--yc-color-promo-highlight-tomato),
+    'doc': var(--yc-color-promo-highlight-sky),
+    'xls': var(--yc-color-promo-highlight-mint),
+    'ppt': var(--yc-color-promo-highlight-copper),
+    'fig': var(--yc-color-promo-highlight-neon),
+    'zip': var(--yc-color-promo-highlight-asphalt),
+);

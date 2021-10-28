@@ -1,5 +1,6 @@
-@import 'mixins';
-@import 'variables';
+@import '../../../styles/mixins';
+@import '../../../styles/variables';
+@import '../../grid/styles/variables.scss';
 
 .ReactPlayer {
     $block: &;

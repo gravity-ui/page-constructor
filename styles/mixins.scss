@@ -1,30 +1,21 @@
 @import './variables.scss';
-@import '../src/grid/styles/variables.scss';
 
-@mixin text-size() {
+@mixin text-size($name) {
+    font-size: var(--yc-text-#{$name}-font-size);
+    line-height: var(--yc-text-#{$name}-line-height);
 }
 
-@mixin desktop-only() {
-    @media (max-width: map-get($gridBreakpoints, 'md') - 1) {
-        display: none;
-    }
-}
+@mixin link() {
+    @include islands-focus();
 
-@mixin desktop-tablet-only() {
-    @media (max-width: map-get($gridBreakpoints, 'sm') - 1) {
-        display: none;
-    }
-}
+    color: var(--yc-color-text-link);
+    text-decoration: none;
+    cursor: pointer;
 
-@mixin mobile-tablet-only() {
-    @media (min-width: map-get($gridBreakpoints, 'md')) {
-        display: none;
-    }
-}
-
-@mixin mobile-only() {
-    @media (min-width: map-get($gridBreakpoints, 'sm')) {
-        display: none;
+    &:hover,
+    &:active {
+        --www-text-header-color: var(--yc-color-text-link-hover);
+        color: var(--yc-color-text-link-hover);
     }
 }
 
@@ -33,4 +24,137 @@
     position: relative;
     top: calc(-#{$headerMenuHeight} - #{$offset});
     visibility: hidden;
+}
+
+@mixin mobile-scrollable($offset: $normalOffset) {
+    margin-left: -$offset;
+    padding-left: $offset;
+    padding-right: $offset;
+    width: calc(100% + #{$offset} * 2);
+    overflow-x: auto;
+
+    &::after {
+        content: '';
+        height: 1px;
+        padding-right: $offset;
+    }
+}
+
+@mixin add-file-ext-colors() {
+    @each $name, $value in $fileExtColors {
+        &_ext_#{$name} {
+            --www-file-label-color: #{$value};
+        }
+    }
+}
+
+@mixin reset-button-style() {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    font: inherit;
+    border: none;
+    outline: none;
+    color: inherit;
+    background: none;
+    cursor: pointer;
+}
+
+@mixin reset-link-style() {
+    color: inherit;
+    text-decoration: none;
+}
+
+@mixin reset-list-style() {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+@mixin islands-focus() {
+    outline: none;
+
+    .utilityfocus &:focus {
+        outline: 2px solid #ffdb4d;
+    }
+}
+
+@mixin shadow($pseudo: before) {
+    position: relative;
+
+    &::#{$pseudo} {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
+
+        border-radius: inherit;
+        box-shadow: var(--shadow-offset-x, 0) var(--shadow-offset-y, 0) var(--shadow-blur, 10px)
+            var(--shadow-spread, 0) var(--shadow-color, --www-color-sfx-shadow);
+        opacity: var(--shadow-opacity, 0.4);
+        transition: opacity ease-in var(--shadow-transition-time, 0.15s);
+    }
+}
+
+@mixin up-hover($color: var(--www-color-sfx-shadow)) {
+    @include shadow(before);
+
+    --shadow-offset-y: 5px;
+    --shadow-blur: 12px;
+    --shadow-color: #{$color};
+    --shadow-opacity: 0;
+
+    &:hover {
+        --shadow-opacity: 1;
+    }
+
+    .mobile &::before {
+        box-shadow: none;
+    }
+}
+
+@mixin header-link() {
+    @include link;
+
+    --www-text-header-color: var(--yc-color-text-link);
+
+    &:hover,
+    &:active {
+        --www-text-header-color: var(--yc-color-text-link-hover);
+    }
+}
+
+@mixin icon($size: 32px) {
+    width: $size;
+    height: $size;
+    background-size: cover;
+}
+
+@mixin top-content-offset($offset) {
+    top: calc(var(--header-height) + #{$offset});
+}
+
+@mixin label($size: m) {
+    @include text-size(body);
+
+    $label-height: 20px;
+
+    display: inline-block;
+    padding: 0 8px;
+    border-radius: 2px;
+    height: $label-height;
+    line-height: $label-height;
+
+    @if $size == s {
+        @include text-size(caption);
+
+        $label-height: 16px;
+
+        padding: 0 4px;
+        height: $label-height;
+        line-height: $label-height;
+    }
 }
