@@ -1,8 +1,8 @@
 import React from 'react';
 import {Subtract} from 'utility-types';
-import {MobileContext, MobileContextProps} from './MobileContext';
+import {MobileAppContext, MobileAppContextProps} from './MobileAppContext';
 
-export interface WithMobileProps extends MobileContextProps {}
+export interface WithMobileProps extends MobileAppContextProps {}
 
 export function withMobile<T extends WithMobileProps>(
     WrappedComponent: React.ComponentType<T>,
@@ -11,7 +11,7 @@ export function withMobile<T extends WithMobileProps>(
 
     return class WithMobileComponent extends React.Component<Subtract<T, WithMobileProps>> {
         static displayName = `withMobile(${componentName})`;
-        static contextType = MobileContext;
+        static contextType = MobileAppContext;
 
         render() {
             return (

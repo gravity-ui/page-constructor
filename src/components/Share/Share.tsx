@@ -3,16 +3,15 @@ import block from 'bem-cn-lite';
 import {SocialShareLink} from '@yandex-data-ui/common';
 
 import {ShareProps} from '../../models';
-import {MobileContext} from '../../context/mobileContext';
 import {getAbsolutePath} from '../../utils';
+import {LocationContext} from '../../context/locationContext';
 
 import './Share.scss';
 
 const b = block('share-block');
 
 const Share: React.FunctionComponent<ShareProps> = ({items, title}) => {
-    const {useLocation} = useContext(MobileContext);
-    const {pathname, hostname} = useLocation();
+    const {pathname, hostname} = useContext(LocationContext);
 
     return (
         <div className={b()}>

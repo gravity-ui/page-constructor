@@ -78,7 +78,7 @@ const SliderBlock: FC<SliderProps> = (props) => {
     } = props;
 
     const {isServer} = useContext(SSRContext);
-    const {mobile} = useContext(MobileContext);
+    const isMobile = useContext(MobileContext);
     const [breakpoint, setBreakpoint] = useState<number>(BREAKPOINTS.xl);
     const [disclosedChildren] = useState<React.ReactChildren[]>(() =>
         discloseAllNestedChildren(children as React.ReactElement[]),
@@ -286,7 +286,7 @@ const SliderBlock: FC<SliderProps> = (props) => {
         };
 
         return (
-            <OutsideClick onOutsideClick={mobile ? unsetFocus : _.noop}>
+            <OutsideClick onOutsideClick={isMobile ? unsetFocus : _.noop}>
                 <SlickSlider {...settings}>{disclosedChildren}</SlickSlider>
                 <div className={b('footer')}>
                     {renderDisclaimer()}

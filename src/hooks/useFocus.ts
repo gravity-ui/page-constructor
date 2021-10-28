@@ -4,7 +4,7 @@ import {MobileContext} from '../context/mobileContext';
 import {useCallback, useContext, useEffect, useState} from 'react';
 
 export default function useFocus(element?: HTMLElement) {
-    const {mobile} = useContext(MobileContext);
+    const isMobile = useContext(MobileContext);
 
     const [hasFocus, setHasFocus] = useState(false);
     const setFocus = useCallback(() => setHasFocus(true), []);
@@ -12,7 +12,7 @@ export default function useFocus(element?: HTMLElement) {
 
     useEffect(() => {
         if (element) {
-            if (mobile) {
+            if (isMobile) {
                 element.addEventListener('pointerdown', setFocus);
             } else {
                 element.addEventListener('mouseenter', setFocus);
@@ -20,7 +20,7 @@ export default function useFocus(element?: HTMLElement) {
             }
 
             return () => {
-                if (mobile) {
+                if (isMobile) {
                     element.removeEventListener('pointerdown', setFocus);
                 } else {
                     element.removeEventListener('mouseenter', setFocus);
@@ -30,7 +30,7 @@ export default function useFocus(element?: HTMLElement) {
         }
 
         return _.noop;
-    }, [element, mobile, setFocus, unsetFocus]);
+    }, [element, isMobile, setFocus, unsetFocus]);
 
     return {
         hasFocus,

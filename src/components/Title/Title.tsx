@@ -6,7 +6,7 @@ import {TextSize, TitleProps} from '../../models';
 import {getHeaderTag, getLinkProps} from '../../utils';
 import Anchor from '../Anchor/Anchor';
 import ToggleArrow from '../ToggleArrow/ToggleArrow';
-import {MobileContext} from '../../context/mobileContext';
+import {LocationContext} from '../../context/locationContext';
 
 import './Title.scss';
 
@@ -32,8 +32,7 @@ export interface TitleFullProps extends TitleProps {
 
 const Title: React.FunctionComponent<TitleFullProps> = (props) => {
     const {textSize = 'm', text, anchor, justify, url, onClick, custom, className, dataQa} = props;
-    const {useLocation} = useContext(MobileContext);
-    const {hostname} = useLocation();
+    const {hostname} = useContext(LocationContext);
     const textMarkup = (
         <React.Fragment>
             <HTML className={b('text')}>{text}</HTML>

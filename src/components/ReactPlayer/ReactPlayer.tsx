@@ -50,7 +50,7 @@ export interface ReactPlayerBlockHandler {
 // eslint-disable-next-line react/display-name
 const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactPlayerBlockProps>(
     (props, originRef) => {
-        const {mobile} = useContext(MobileContext);
+        const isMobile = useContext(MobileContext);
         const {metrika} = useContext(MetrikaContext);
         const {
             src,
@@ -224,10 +224,10 @@ const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactPlayerBl
         }, [controls, setIsPlaying, setPause]);
 
         const onStart = useCallback(() => {
-            if (mobile && !muted) {
+            if (isMobile && !muted) {
                 setMute(false);
             }
-        }, [mobile, muted]);
+        }, [isMobile, muted]);
 
         useEffect(() => {
             setMute(muted);

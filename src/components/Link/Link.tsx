@@ -9,7 +9,8 @@ import chevron from '../../../assets/icons/navigation-chevron.svg';
 import FileLink from '../FileLink/FileLink';
 import BackLink from '../BackLink/BackLink';
 import {getLinkProps, setUrlTld} from '../../utils';
-import {MobileContext} from '../../context/mobileContext';
+import {LocaleContext} from '../../context/localeContext/localeContext';
+import {LocationContext} from '../../context/locationContext/locationContext';
 
 import './Link.scss';
 
@@ -29,8 +30,8 @@ const LinkBlock: React.FunctionComponent<LinkFullProps> = (props) => {
         children,
     } = props;
 
-    const {useLocation} = useContext(MobileContext);
-    const {hostname, tld} = useLocation();
+    const {hostname} = useContext(LocationContext);
+    const {tld} = useContext(LocaleContext);
     const href = setUrlTld(props.url, tld);
     const defaultTextSize = theme === 'back' ? 'l' : 'm';
 

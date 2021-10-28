@@ -3,7 +3,7 @@ import React, {ReactNode, useContext} from 'react';
 
 import {getLinkProps} from '../../utils';
 import {TextSize} from '../../models';
-import {MobileContext} from '../../context/mobileContext';
+import {LocationContext} from '../../context/locationContext';
 
 import './FileLink.scss';
 
@@ -38,8 +38,7 @@ export function getFileExt(name: string) {
 }
 
 const FileLink: React.FunctionComponent<FileLinkProps> = (props) => {
-    const {useLocation} = useContext(MobileContext);
-    const {hostname} = useLocation();
+    const {hostname} = useContext(LocationContext);
     const {href, text, type = 'vertical', textSize = 'm'} = props;
     const fileExt = getFileExt(href) as FileExtension;
 

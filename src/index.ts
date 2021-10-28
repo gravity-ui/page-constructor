@@ -1,6 +1,6 @@
 //strotybook
 export * from './context/theme';
-export * from './context/mobileContext';
+export * from './context/mobileAppContext';
 export * from './context/commonContext';
 
 export * from './components/HelloWorld';

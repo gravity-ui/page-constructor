@@ -30,6 +30,8 @@ import {
 import {SSRContext} from '../../context/ssrContext';
 import {MetrikaContext} from '../../context/metrikaContext';
 import {MobileContext} from '../../context/mobileContext';
+import {LocationContext, LocationContextProps} from '../../context/locationContext';
+import {LocaleContext, LocaleContextProps} from '../../context/localeContext';
 
 import '../../styles/yfm.scss';
 
@@ -47,6 +49,8 @@ export interface PageConstructorProps {
     renderMenu?: () => React.ReactNode;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     metrika?: any;
+    location?: LocationContextProps;
+    locale?: LocaleContextProps;
 }
 
 export default class PageConstructor extends React.Component<PageConstructorProps> {
@@ -61,6 +65,8 @@ export default class PageConstructor extends React.Component<PageConstructorProp
             isMobile,
             ssrConfig,
             metrika,
+            location = {},
+            locale = {},
         } = this.props;
 
         const hasFootnotes = footnotes.length > 0;
@@ -70,23 +76,30 @@ export default class PageConstructor extends React.Component<PageConstructorProp
         return (
             <div className={b({'has-footnotes': hasFootnotes})}>
                 <div className={b('wrapper')}>
-                    <MobileContext.Provider value={{mobile: Boolean(isMobile)}}>
-                        <MetrikaContext.Provider value={{metrika}}>
-                            <SSRContext.Provider value={{isServer: ssrConfig?.isServer}}>
-                                <AnimateContext.Provider value={{animated}}>
-                                    <BackgroundMedia {...background} className={b('background')} />
-                                    {renderMenu && renderMenu()}
-                                    {header && this.renderHeader(header)}
-                                    <Grid className={b('grid')}>
-                                        {restBlocks &&
-                                            this.renderRow(this.renderBlocks(restBlocks))}
-                                        {hasFootnotes &&
-                                            this.renderRow(this.renderFootnotes(footnotes))}
-                                    </Grid>
-                                </AnimateContext.Provider>
-                            </SSRContext.Provider>
-                        </MetrikaContext.Provider>
-                    </MobileContext.Provider>
+                    <LocaleContext.Provider value={locale}>
+                        <LocationContext.Provider value={location}>
+                            <MobileContext.Provider value={Boolean(isMobile)}>
+                                <MetrikaContext.Provider value={{metrika}}>
+                                    <SSRContext.Provider value={{isServer: ssrConfig?.isServer}}>
+                                        <AnimateContext.Provider value={{animated}}>
+                                            <BackgroundMedia
+                                                {...background}
+                                                className={b('background')}
+                                            />
+                                            {renderMenu && renderMenu()}
+                                            {header && this.renderHeader(header)}
+                                            <Grid className={b('grid')}>
+                                                {restBlocks &&
+                                                    this.renderRow(this.renderBlocks(restBlocks))}
+                                                {hasFootnotes &&
+                                                    this.renderRow(this.renderFootnotes(footnotes))}
+                                            </Grid>
+                                        </AnimateContext.Provider>
+                                    </SSRContext.Provider>
+                                </MetrikaContext.Provider>
+                            </MobileContext.Provider>
+                        </LocationContext.Provider>
+                    </LocaleContext.Provider>
                 </div>
             </div>
         );

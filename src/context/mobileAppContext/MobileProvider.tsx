@@ -1,5 +1,5 @@
 import React from 'react';
-import {MobileContext, MobileContextProps, History, Location} from './MobileContext';
+import {MobileAppContext, MobileAppContextProps, History, Location} from './MobileAppContext';
 import {Platform} from './constants';
 import {useHistory, useLocation} from 'react-router-dom';
 
@@ -12,7 +12,7 @@ interface MobileProviderDefaultProps {
     useLocation: () => Location;
 }
 
-interface MobileProviderState extends MobileContextProps {}
+interface MobileProviderState extends MobileAppContextProps {}
 
 export interface MobileProviderProps
     extends MobileProviderExternalProps,
@@ -41,9 +41,9 @@ export class MobileProvider extends React.Component<
 
     render() {
         return (
-            <MobileContext.Provider value={this.state}>
+            <MobileAppContext.Provider value={this.state}>
                 {this.props.children}
-            </MobileContext.Provider>
+            </MobileAppContext.Provider>
         );
     }
 }

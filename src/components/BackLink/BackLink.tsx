@@ -1,7 +1,7 @@
 import React, {ReactNode, useCallback, useContext} from 'react';
 import {Button, ButtonSize, Icon} from '@yandex-data-ui/common';
 import arrowIcon from '@yandex-data-ui/common/assets/icons/arrow-sidebar.svg';
-import {MobileContext} from '../../context/mobileContext';
+import {LocationContext} from '../../context/locationContext';
 export type Theme = 'default' | 'special';
 
 export interface BackLinkProps {
@@ -14,8 +14,7 @@ export interface BackLinkProps {
 }
 
 export default function BackLink(props: BackLinkProps) {
-    const {useHistory} = useContext(MobileContext);
-    const {push, goBack, navigationHistory} = useHistory();
+    const {history} = useContext(LocationContext);
     const {
         url,
         title,
@@ -26,12 +25,16 @@ export default function BackLink(props: BackLinkProps) {
     } = props;
 
     const backActionHandler = useCallback(async () => {
-        if (navigationHistory?.length > 1) {
-            goBack();
-        } else {
-            push({pathname: url});
+        if (!history) {
+            return;
         }
-    }, [navigationHistory, goBack, push, url]);
+
+        if (history.length > 1) {
+            history.goBack();
+        } else {
+            history.push({pathname: url});
+        }
+    }, [history, url]);
 
     return (
         <Button
