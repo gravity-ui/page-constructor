@@ -16,7 +16,6 @@ import {
     ImageBlock,
     Scrollable,
     Tiles,
-    Event,
     Partner,
     PriceDetailed,
     MediaCard,

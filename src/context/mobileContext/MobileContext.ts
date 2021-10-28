@@ -8,6 +8,7 @@ export interface History {
     goBack(): void;
     navigationHistory: string[];
 }
+
 export interface Location {
     pathname: string;
     search: string;

@@ -16,7 +16,6 @@ const b = block('section-block');
 const Section: React.FunctionComponent<SectionProps> = ({
     children,
     anchor,
-    justify,
     background,
     theme = 'light',
 }) => (
@@ -32,7 +31,7 @@ const Section: React.FunctionComponent<SectionProps> = ({
                 )}
             </FullWidthBackground>
         )}
-        <Grid justify={justify}>{children}</Grid>
+        <Grid>{children}</Grid>
     </section>
 );
 

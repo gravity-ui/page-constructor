@@ -3,5 +3,3 @@ declare module '*.svg' {
 
     export default content;
 }
-
-declare let __IS_SERVER__: boolean;

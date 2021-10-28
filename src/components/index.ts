@@ -18,6 +18,5 @@ export {default as Table} from './Table/Table';
 export {default as Scrollable} from './Scrollable/Scrollable';
 export {default as Tiles} from './Tiles/Tiles';
 export {default as Arrow} from './Arrow/Arrow';
-export {default as Event} from './Event/Event'; //вынести
 export {default as Partner} from './Partner/Partner';
 export {default as MediaCard} from './MediaCard/MediaCard';

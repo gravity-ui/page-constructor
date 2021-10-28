@@ -1,7 +1,7 @@
 import React, {CSSProperties} from 'react';
 import block from 'bem-cn-lite';
 
-import Image from 'components/Image/Image';
+import Image from '../Image/Image';
 
 import './BackgroundImage.scss';
 

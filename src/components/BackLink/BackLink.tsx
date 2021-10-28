@@ -1,6 +1,6 @@
 import React, {ReactNode, useCallback, useContext} from 'react';
 import {Button, ButtonSize, Icon} from '@yandex-data-ui/common';
-import arrowIcon from '@yandex-data-ui/coXmmon/assets/icons/arrow-sidebar.svg';
+import arrowIcon from '@yandex-data-ui/common/assets/icons/arrow-sidebar.svg';
 import {MobileContext} from '../../context/mobileContext';
 export type Theme = 'default' | 'special';
 

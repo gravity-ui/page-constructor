@@ -1,8 +1,9 @@
-import React, {useEffect, useState, useCallback, useRef, ReactNode} from 'react';
+import React, {useEffect, useState, useCallback, useRef, ReactNode, useContext} from 'react';
 import _ from 'lodash';
 import block from 'bem-cn-lite';
 
 import './BalancedMasonry.scss';
+import {SSRContext} from '../../context/ssrContext';
 
 const b = block('BalancedMasonry');
 
@@ -17,7 +18,7 @@ interface BalancedMasonryProps {
 
 const BalancedMasonry: React.FC<BalancedMasonryProps> = (props) => {
     const {className, columnClassName, children = [], breakpointCols} = props;
-
+    const {isServer} = useContext(SSRContext);
     const getCurrentColumnsCount = useCallback(() => {
         const breakpoints = Object.entries(breakpointCols).sort(
             ([firstBreakpoint], [secondBreakpoint]) => {
@@ -28,7 +29,7 @@ const BalancedMasonry: React.FC<BalancedMasonryProps> = (props) => {
         // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         let [, result] = _.first(breakpoints)!;
 
-        if (__IS_SERVER__) {
+        if (isServer) {
             return result;
         }
 

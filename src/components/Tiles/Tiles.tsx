@@ -2,7 +2,7 @@ import React from 'react';
 import block from 'bem-cn-lite';
 import {HTML} from '@doc-tools/components';
 
-import {TilesProps} from '../../models';
+import {Modifiers, TilesProps} from '../../models';
 import {Row, GridColumnSize} from '../../grid';
 
 import './Tiles.scss';
@@ -14,7 +14,7 @@ const Tiles: React.FunctionComponent<TilesProps> = ({
     items,
 }) => (
     <Row className={b()}>
-        <div className={b('item-wrapper', columns)}>
+        <div className={b('item-wrapper', columns as Modifiers)}>
             {items.map(({text, icon, url}) => {
                 return (
                     <a key={text} href={url} className={b('item', {with_icon: Boolean(icon)})}>

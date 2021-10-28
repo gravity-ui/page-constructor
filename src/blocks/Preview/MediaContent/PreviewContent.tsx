@@ -1,7 +1,8 @@
 import React from 'react';
-import block, {Modifications} from 'bem-cn-lite';
+import block from 'bem-cn-lite';
 
 import YFMWrapper from '../../../components/YFMWrapper/YFMWrapper';
+import {Modifiers} from '../../../models';
 
 import './PreviewContent.scss';
 
@@ -13,7 +14,7 @@ interface PreviewContentProps {
     description?: string;
     switching: boolean;
     onClick: () => void;
-    mods: Modifications | null;
+    mods: Modifiers | null;
 }
 
 const PreviewContent: React.FC<PreviewContentProps> = (props) => {

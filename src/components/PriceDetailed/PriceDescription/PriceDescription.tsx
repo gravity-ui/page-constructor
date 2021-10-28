@@ -38,7 +38,7 @@ const PriceDescription: React.FunctionComponent<PriceDescriptionExtendProps> = (
     const {pricesDetailedDescriptionHeight, setStyles} = useContext(StylesContext);
 
     const setDescriptionHeight = useCallback(() => {
-        if (!descriptionRef) {
+        if (!descriptionRef || !descriptionRef.current) {
             return;
         }
 

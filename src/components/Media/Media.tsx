@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import block from 'bem-cn-lite';
 import React, {ReactNode, useCallback, useEffect, useMemo, useRef, useState} from 'react';
-import {useSpring, animated, config} from 'react-spring';
+import {useSpring, animated, config, Interpolation} from 'react-spring';
 
 import {MediaProps, PlayButtonProps, MediaVideoType} from '../../models';
 import {getVideoTypesWithPriority, unifyImageToObject} from './utils';
@@ -52,7 +52,7 @@ const Media: React.FC<MediaAllProps> = (props) => {
 
     const ref = useRef<HTMLVideoElement>(null);
     let imageContent: ReactNode = null;
-    let parallaxInterpolate = '';
+    let parallaxInterpolate: Interpolation<number, string> | string = '';
 
     useEffect(() => {
         if (parallax) {

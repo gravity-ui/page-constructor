@@ -1,8 +1,8 @@
 import React from 'react';
-import block, {Modifications} from 'bem-cn-lite';
+import block from 'bem-cn-lite';
 
 import Media from '../../../components/Media/Media';
-import {MediaProps} from '../../../models';
+import {MediaProps, Modifiers} from '../../../models';
 
 import './PreviewMedia.scss';
 
@@ -12,7 +12,7 @@ interface PreviewMediaProps {
     id: number;
     media: MediaProps;
     play: boolean;
-    mods: Modifications | null;
+    mods: Modifiers | null;
 }
 
 const PreviewMedia: React.FC<PreviewMediaProps> = (props) => {

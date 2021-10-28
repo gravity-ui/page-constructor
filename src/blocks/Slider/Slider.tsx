@@ -24,6 +24,7 @@ import useFocus from '../../hooks/useFocus';
 
 import './slick.scss';
 import './Slider.scss';
+import {SSRContext} from '../../context/ssrContext';
 
 const b = block('SliderBlock');
 const slick = block('slick-origin');
@@ -76,6 +77,7 @@ const SliderBlock: FC<SliderProps> = (props) => {
         onBeforeChange: handleBeforeChange,
     } = props;
 
+    const {isServer} = useContext(SSRContext);
     const {mobile} = useContext(MobileContext);
     const [breakpoint, setBreakpoint] = useState<number>(BREAKPOINTS.xl);
     const [disclosedChildren] = useState<React.ReactChildren[]>(() =>
@@ -260,7 +262,7 @@ const SliderBlock: FC<SliderProps> = (props) => {
 
     const renderSlider = () => {
         /* Disable adding of width in inline styles when SSR to prevent overriding of default styles */
-        const variableWidth = __IS_SERVER__;
+        const variableWidth = isServer;
 
         const settings = {
             ref: (slickSlider: SlickSliderFull) => setSlider(slickSlider),

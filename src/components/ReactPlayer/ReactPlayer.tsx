@@ -24,7 +24,7 @@ import CustomBarControls from './CustomBarControls';
 import {VideoContext} from '../../context/videoContext';
 import {MetrikaContext} from '../../context/metrikaContext';
 
-import playVideoIcon from 'icons/play-video.svg';
+import playVideoIcon from '../../../assets/icons/play-video.svg';
 
 import './ReactPlayer.scss';
 

@@ -5,7 +5,7 @@ import block from 'bem-cn-lite';
 import {Icon} from '@yandex-data-ui/common';
 
 import chevron from '@yandex-data-ui/common/assets/icons/chevron.svg';
-import navigationChevron from 'icons/navigation-chevron.svg';
+import navigationChevron from '../../../assets/icons/navigation-chevron.svg';
 
 import './ToggleArrow.scss';
 
