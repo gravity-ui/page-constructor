@@ -33,7 +33,7 @@ const initData = {
 };
 
 const Loadable: React.FC<LoadableComponentsProps> = (props) => {
-    const {Component, ChildComponent, fetch, block, i18nK, blockKey} = props;
+    const {Component, ChildComponent, fetch, block, blockKey} = props;
     const [dataState, setDataState] = useState<LoadableState>(initData);
     const [refetchIndex, setRefetchIndex] = useState<number>(0);
     const onTryAgain = useCallback(() => {
@@ -73,8 +73,9 @@ const Loadable: React.FC<LoadableComponentsProps> = (props) => {
     return (
         <ErrorWrapper
             isError={error}
-            text={i18nK('loadable-load-error')}
-            buttonText={i18nK('loadable-try-again')}
+            //{/* TODO: add i18n for loadable-load-error and loadable-try-agai*/}
+            text={'loadable-load-error'}
+            buttonText={'loadable-try-again'}
             handler={onTryAgain}
         >
             <Component {...block}>

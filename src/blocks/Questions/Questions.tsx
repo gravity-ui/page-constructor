@@ -2,13 +2,13 @@ import React from 'react';
 import block from 'bem-cn-lite';
 import {HTML} from '@doc-tools/components';
 
-import {QuestionsProps} from 'units/constructor/models';
-import Link from 'units/constructor/components/Link/Link';
+import {QuestionsProps} from '../../models';
+import Link from '../../components/Link/Link';
 
-import Foldable from 'components/Foldable/Foldable';
-import ToggleArrow from 'components/ToggleArrow/ToggleArrow';
-import {Row, Col} from 'components/Grid';
-import YFMWrapper from 'components/YFMWrapper/YFMWrapper';
+import Foldable from '../../components/Foldable/Foldable';
+import ToggleArrow from '../../components/ToggleArrow/ToggleArrow';
+import YFMWrapper from '../../components/YFMWrapper/YFMWrapper';
+import {Row, Col} from '../../grid';
 
 import './Questions.scss';
 

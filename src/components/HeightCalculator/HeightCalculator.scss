@@ -1,0 +1,10 @@
+.height-calculator {
+    position: relative;
+    width: 100%;
+    opacity: 0;
+    pointer-events: none;
+
+    &__item-wrapper {
+        position: absolute;
+    }
+}

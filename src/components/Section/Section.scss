@@ -1,0 +1,23 @@
+@import '../../../variables';
+@import '../../styles/variables.scss';
+@import '../../grid/styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.section-block {
+    @include add-theme();
+    $root: &;
+
+    position: relative;
+    padding-top: $indentXS;
+    padding-bottom: $indentXL;
+
+    @media (max-width: map-get($gridBreakpoints, 'sm')) {
+        padding-bottom: $indentL;
+        padding-top: 0;
+    }
+
+    &__image {
+        width: 100%;
+        height: 100%;
+    }
+}

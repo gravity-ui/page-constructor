@@ -2,9 +2,9 @@ import block from 'bem-cn-lite';
 import React, {forwardRef, Fragment, useEffect, useState} from 'react';
 import {HTML} from '@doc-tools/components';
 
-import {Col, GridColumnSize} from 'components/Grid';
-import {PreviewItemProps, PreviewRatioMediaContent, Refable} from 'units/constructor/models';
-import YFMWrapper from 'components/YFMWrapper/YFMWrapper';
+import {Col, GridColumnSize} from '../../../grid';
+import {PreviewItemProps, PreviewRatioMediaContent, Refable} from '../../../models';
+import YFMWrapper from '../../../components/YFMWrapper/YFMWrapper';
 import PreviewContent from './PreviewContent';
 import PreviewMedia from './PreviewMedia';
 

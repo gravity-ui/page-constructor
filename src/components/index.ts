@@ -7,6 +7,7 @@ export {default as Button} from './Button/Button';
 export {default as Header} from './Header/Header';
 export {default as HeaderWithImage} from './HeaderWithImage/HeaderWithImage';
 export {default as Title} from './Title/Title';
+
 export {default as Divider} from './Divider/Divider';
 export {default as Features} from './Features/Features';
 export {default as ImageBlock} from './ImageBlock/ImageBlock';
@@ -16,14 +17,7 @@ export {default as Link} from './Link/Link';
 export {default as Table} from './Table/Table';
 export {default as Scrollable} from './Scrollable/Scrollable';
 export {default as Tiles} from './Tiles/Tiles';
-export {default as Form} from './Form/Form';
-export {default as Quotes} from './Quotes/Quotes';
 export {default as Arrow} from './Arrow/Arrow';
-export {default as Card} from './Card/Card';
-export {default as Quote} from './Quote/Quote';
-export {default as Event} from './Event/Event';
-export {default as Post} from './Post/Post';
+export {default as Event} from './Event/Event'; //вынести
 export {default as Partner} from './Partner/Partner';
-export {default as ServiceCard} from './ServiceCard/ServiceCard';
-export {default as ServicePreviewCard} from './ServicePreviewCard/ServicePreviewCard';
 export {default as MediaCard} from './MediaCard/MediaCard';

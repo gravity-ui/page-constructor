@@ -1,0 +1,27 @@
+@import '../../../styles/mixins';
+@import '../../../styles/variables';
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.header-block {
+    @include add-theme();
+    @include background();
+
+    &__content {
+        @include background();
+
+        position: relative;
+        padding: $indentXXL 0;
+    }
+
+    &__subtitle {
+        margin-top: $indentS;
+        font-weight: normal;
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'sm')) {
+        &__content {
+            padding: $indentXL 0;
+        }
+    }
+}

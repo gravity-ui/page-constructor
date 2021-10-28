@@ -1,0 +1,15 @@
+@import '../../../styles/variables.scss';
+
+.separate-price-detailed-block {
+    & .price-description {
+        margin-bottom: 0;
+    }
+
+    & .price-details > * {
+        padding-top: $indentXXS;
+    }
+
+    & .price-details {
+        margin-top: $indentSM;
+    }
+}

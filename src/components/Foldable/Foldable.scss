@@ -1,0 +1,10 @@
+@import '../../../mixins';
+@import '../../../variables';
+
+.foldable-block {
+    &__content-container {
+        height: 0;
+        overflow-y: hidden;
+        transition: height $animationDuration, margin-bottom $animationDuration;
+    }
+}

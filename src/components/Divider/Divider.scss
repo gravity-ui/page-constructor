@@ -1,0 +1,34 @@
+@import '../../styles/variables.scss';
+
+.divider-block {
+    &_size {
+        &_xxs {
+            margin-top: $indentXXS;
+        }
+        &_xs {
+            margin-top: $indentXS;
+        }
+        &_s {
+            margin-top: $indentM;
+        }
+        &_m {
+            margin-top: $indentM;
+        }
+        &_l {
+            margin-top: $indentL;
+        }
+        &_xl {
+            margin-top: $indentXL;
+        }
+        &_xxl {
+            margin-top: $indentXXL;
+        }
+    }
+    &_size_xxxl {
+        margin-top: $indentXXXL;
+    }
+
+    &_border {
+        border-top: 1px solid var(--yc-color-line-generic);
+    }
+}

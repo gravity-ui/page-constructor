@@ -1,0 +1,37 @@
+@import '../../../mixins';
+@import '../../styles/variables.scss';
+@import '../../grid/styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.text-block {
+    @include justify();
+    $root: &;
+
+    margin-top: $indentXS;
+
+    &_border_top {
+        margin-top: $indentS;
+        padding-top: $indentXXS;
+        border-top: 1px solid var(--yc-color-line-generic);
+    }
+
+    &__text_hasfold p:last-child {
+        display: inline;
+    }
+
+    &__button {
+        @include reset-button-style();
+        @include islands-focus();
+        @include header-link();
+    }
+
+    &__indent {
+        margin-right: 8px;
+    }
+
+    &__text {
+        & + & p {
+            margin-top: $indentXXS;
+        }
+    }
+}

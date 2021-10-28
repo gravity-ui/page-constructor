@@ -1,8 +1,8 @@
 import React from 'react';
 import block, {Modifications} from 'bem-cn-lite';
 
-import Media from 'units/constructor/components/Media/Media';
-import {MediaProps} from 'units/constructor/models';
+import Media from '../../../components/Media/Media';
+import {MediaProps} from '../../../models';
 
 import './PreviewMedia.scss';
 

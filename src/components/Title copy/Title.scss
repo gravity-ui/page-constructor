@@ -1,0 +1,61 @@
+@import 'variables';
+@import 'mixins';
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.title-block {
+    @include justify();
+    $root: &;
+
+    &_size_s {
+        margin-top: $indentM;
+    }
+
+    &_size_m {
+        margin-top: $indentL;
+    }
+
+    &_size_l {
+        margin-top: $indentXL;
+    }
+
+    &__arrow {
+        margin: 8px 0 0 10px;
+        transition: margin-left 0.3s $ease-out-cubic;
+
+        &_size_s {
+            margin: 6px 0 0 4px;
+        }
+    }
+
+    &__link {
+        @include reset-link-style();
+        @include reset-link-hover();
+
+        &:hover {
+            cursor: pointer;
+
+            #{$root}__arrow {
+                margin-left: 18px;
+
+                &_size_s {
+                    margin-left: 8px;
+                }
+            }
+        }
+    }
+
+    &__text {
+        white-space: normal;
+    }
+
+    &__wrapper {
+        white-space: nowrap;
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'sm')) {
+        &_size_l {
+            margin-top: $indentL;
+        }
+    }
+}

@@ -1,10 +1,10 @@
 import React from 'react';
 import block from 'bem-cn-lite';
-import {TextTableBlockProps} from 'units/constructor/models';
-import YFMWrapper from 'components/YFMWrapper/YFMWrapper';
-import {Button} from 'units/constructor/components';
-import AnimateBlock from 'units/constructor/components/AnimateBlock/AnimateBlock';
-import BlockHeader from 'units/constructor/components/BlockHeader/BlockHeader';
+import {TextTableBlockProps} from '../../models';
+import YFMWrapper from '../../components/YFMWrapper/YFMWrapper';
+import {Button} from '../../components';
+import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
+import BlockHeader from '../../components/BlockHeader/BlockHeader';
 
 import './TextTable.scss';
 

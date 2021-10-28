@@ -1,0 +1,10 @@
+@import '../../../styles/mixins';
+@import '../../styles/variables.scss';
+
+.partner-block {
+    &__logo {
+        margin-bottom: $indentXXS;
+        height: 32px;
+        object-fit: contain;
+    }
+}

@@ -1,5 +1,7 @@
-@import 'variables';
-@import '../../../styles/mixins.scss';
+@import '../../../../mixins';
+@import '../../../../variables';
+@import '../../../styles/variables.scss';
+@import '../../../gird/styles/variables.scss';
 
 .preview-media-block {
     @include animate(&__media);

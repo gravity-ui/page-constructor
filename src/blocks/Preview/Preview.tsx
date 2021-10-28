@@ -1,14 +1,14 @@
 import block from 'bem-cn-lite';
 import React, {useCallback, useContext, useEffect, useState} from 'react';
 
-import BreakpointContext from 'contexts/BreakpointContext';
-import AnimateBlock from 'units/constructor/components/AnimateBlock/AnimateBlock';
+import {BreakpointContext} from '../../context/breakpointContext';
+import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
 import MediaContent from './MediaContent/MediaContent';
-import {useIntersection} from 'hooks/useIntersection';
-import {Row} from 'components/Grid';
-import {PreviewBlockProps} from 'units/constructor/models';
-import {BREAKPOINTS} from '../../../../constants';
-import {doSmoothScroll, ScrollOptions} from 'units/constructor/utils';
+import {useIntersection} from '../../hooks/useIntersection';
+import {Row} from '../../grid';
+import {PreviewBlockProps} from '../../models';
+import {BREAKPOINTS} from '../../constants';
+import {doSmoothScroll, ScrollOptions} from '../../utils';
 
 import './Preview.scss';
 

@@ -1,9 +1,9 @@
 import React from 'react';
 import block from 'bem-cn-lite';
 
-import {Grid, Row, Col, GridColumnSize} from 'components/Grid';
-import {TableBlockProps} from 'units/constructor/models';
-import {Table} from 'units/constructor/components';
+import {Grid, Row, Col, GridColumnSize} from '../../grid';
+import {TableBlockProps} from '../../models';
+import {Table} from '../../components';
 
 import './Table.scss';
 

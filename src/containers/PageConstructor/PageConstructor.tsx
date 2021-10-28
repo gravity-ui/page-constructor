@@ -29,11 +29,11 @@ import {
 } from '../../utils';
 import {SSRContext} from '../../context/ssrContext';
 import {MetrikaContext} from '../../context/metrikaContext';
+import {MobileContext} from '../../context/mobileContext';
 
 import '../../styles/yfm.scss';
 
 import './PageConstructor.scss';
-import {MobileContext} from 'src/context/mobileContext';
 
 const b = blockCn('page-constructor');
 
@@ -70,7 +70,7 @@ export default class PageConstructor extends React.Component<PageConstructorProp
         return (
             <div className={b({'has-footnotes': hasFootnotes})}>
                 <div className={b('wrapper')}>
-                    <MobileContext.Provider value={{mobile: isMobile}}>
+                    <MobileContext.Provider value={{mobile: Boolean(isMobile)}}>
                         <MetrikaContext.Provider value={{metrika}}>
                             <SSRContext.Provider value={{isServer: ssrConfig?.isServer}}>
                                 <AnimateContext.Provider value={{animated}}>
@@ -145,7 +145,9 @@ export default class PageConstructor extends React.Component<PageConstructorProp
     private renderBlock = (block: Block, blockKey: string, children?: (ReactElement | null)[]) => {
         const {type, ...rest} = block;
         const Component = this.fullComponentsMap[type] as React.ComponentType<
-            React.ComponentProps<typeof this.fullComponentsMap[typeof type]>
+            // TODO fix
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            React.ComponentProps<any>
         >;
 
         return (
@@ -180,7 +182,9 @@ export default class PageConstructor extends React.Component<PageConstructorProp
         const {type} = block;
         const {fetch, component: ChildComponent} = config;
         const Component = this.fullComponentsMap[type] as React.ComponentType<
-            React.ComponentProps<typeof this.fullComponentsMap[typeof type]>
+            //TODO fix
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            React.ComponentProps<any>
         >;
 
         return (

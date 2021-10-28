@@ -1,0 +1,73 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
+@import '../../../../styles/mixins';
+@import '../../../../styles/variables';
+
+.price-description {
+    margin-bottom: $caseMarginXS;
+
+    &__title,
+    &__description,
+    &__detailed-title,
+    &__label {
+        &_size_l {
+            @include text-size(header);
+        }
+
+        &_size_m {
+            @include text-size(body2);
+        }
+
+        &_size_s {
+            @include text-size(body);
+        }
+    }
+
+    &__main-title {
+        font-weight: 500;
+
+        &_color_cornflower {
+            color: var(--yc-color-text-info);
+        }
+
+        &_color_black {
+            color: var(--yc-color-text-primary);
+        }
+    }
+
+    &__title {
+        display: flex;
+        padding: $indentXS 0 $indentXXS 0;
+        align-items: flex-end;
+    }
+
+    &__description {
+        font-weight: 400;
+    }
+
+    &__detailed-title {
+        margin-left: 4px;
+    }
+
+    &__label {
+        padding: 4px $indentXXS;
+        border-radius: 4px;
+        width: fit-content;
+
+        &_color_blue {
+            background: var(--yc-color-promo-highlight-sky);
+        }
+
+        &_color_green {
+            background: var(--yc-color-promo-highlight-mint);
+        }
+
+        &_color_yellow {
+            background: var(--yc-color-promo-highlight-gold);
+        }
+
+        &_color_purple {
+            background: var(--yc-color-promo-highlight-neon);
+        }
+    }
+}

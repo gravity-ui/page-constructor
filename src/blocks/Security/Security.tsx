@@ -2,12 +2,12 @@ import React from 'react';
 import block from 'bem-cn-lite';
 import {HTML} from '@doc-tools/components';
 
-import {SecurityBlockProps} from 'units/constructor/models';
-import FullWidthBackground from 'components/FullWidthBackground/FullWidthBackground';
-import {Grid, Row, Col} from 'components/Grid';
-import Link from 'units/constructor/components/Link/Link';
-import Media from 'units/constructor/components/Media/Media';
-import AnimateBlock from 'units/constructor/components/AnimateBlock/AnimateBlock';
+import {SecurityBlockProps} from '../../models';
+import FullWidthBackground from '../../components/FullWidthBackground/FullWidthBackground';
+import {Grid, Row, Col} from '../../grid';
+import Link from '../../components/Link/Link';
+import Media from '../../components/Media/Media';
+import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
 
 import './Security.scss';
 

@@ -1,0 +1,14 @@
+@import '../../styles/variables.scss';
+
+.arrow-block {
+    color: var(--www-text-content-color);
+    opacity: 0.9;
+
+    &_direction_right {
+        transform: rotate(180deg);
+    }
+
+    &:hover {
+        opacity: 1;
+    }
+}

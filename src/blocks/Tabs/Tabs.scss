@@ -1,6 +1,7 @@
 @import '../../styles/variables.scss';
 @import '../../styles/mixins.scss';
-@import 'mixins';
+@import '../../grid/styles/mixins.scss';
+@import '../../../mixins';
 
 .TabsBlock {
     $class: &;

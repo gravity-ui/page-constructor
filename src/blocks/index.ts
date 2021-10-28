@@ -12,5 +12,4 @@ export {default as QuestionsBlock} from './Questions/Questions';
 export {default as TableBlock} from './Table/Table';
 export {default as TabsBlock} from './Tabs/Tabs';
 export {default as TextTableBlock} from './TextTable/TextTable';
-export {default as ServicesBlock} from './Services/Services';
 export {default as LinkTableBlock} from './LinkTable/LinkTable';

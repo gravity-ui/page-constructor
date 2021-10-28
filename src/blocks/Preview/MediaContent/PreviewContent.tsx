@@ -1,7 +1,7 @@
 import React from 'react';
 import block, {Modifications} from 'bem-cn-lite';
 
-import YFMWrapper from 'components/YFMWrapper/YFMWrapper';
+import YFMWrapper from '../../../components/YFMWrapper/YFMWrapper';
 
 import './PreviewContent.scss';
 

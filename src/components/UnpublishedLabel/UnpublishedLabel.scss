@@ -1,0 +1,14 @@
+@import '../../../styles/mixins';
+
+.UnpublishedLabel {
+    background-color: var(--yc-color-base-danger-heavy);
+
+    &_type_line {
+        @include text-size(body3);
+        padding: 15px;
+    }
+
+    &_type_label {
+        @include label();
+    }
+}

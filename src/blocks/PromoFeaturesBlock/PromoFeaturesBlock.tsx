@@ -1,14 +1,14 @@
 import React from 'react';
 import block from 'bem-cn-lite';
-import {BREAKPOINTS} from '../../../../constants';
-import YFMWrapper from 'components/YFMWrapper/YFMWrapper';
+import {BREAKPOINTS} from '../../constants';
+import YFMWrapper from '../../components/YFMWrapper/YFMWrapper';
 
-import {PromoFeaturesProps} from 'units/constructor/models';
-import Media from 'units/constructor/components/Media/Media';
-import BlockHeader from 'units/constructor/components/BlockHeader/BlockHeader';
-import AnimateBlock from 'units/constructor/components/AnimateBlock/AnimateBlock';
-import FullWidthBackground from 'components/FullWidthBackground/FullWidthBackground';
-import BalancedMasonry from 'units/constructor/components/BalancedMasonry/BalancedMasonry';
+import {PromoFeaturesProps} from '../../models';
+import Media from '../../components/Media/Media';
+import BlockHeader from '../../components/BlockHeader/BlockHeader';
+import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
+import FullWidthBackground from '../../components/FullWidthBackground/FullWidthBackground';
+import BalancedMasonry from '../../components/BalancedMasonry/BalancedMasonry';
 
 import './PromoFeaturesBlock.scss';
 

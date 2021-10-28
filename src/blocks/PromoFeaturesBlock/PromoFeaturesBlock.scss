@@ -1,6 +1,7 @@
 @import '../../styles/variables.scss';
+@import '../../grid/styles/variables.scss';
 @import '../../styles/mixins.scss';
-@import 'mixins';
+@import '../../../mixins';
 
 .PromoFeaturesBlock {
     $class: &;

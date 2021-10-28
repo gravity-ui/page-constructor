@@ -1,6 +1,7 @@
-@import 'mixins';
-@import 'variables';
+@import '../../../mixins';
+@import '../../../variables';
 @import '../../styles/variables.scss';
+@import '../../grid/styles/variables.scss';
 @import '../../styles/mixins.scss';
 
 .preview-block {

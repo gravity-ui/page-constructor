@@ -1,10 +1,10 @@
 import React from 'react';
 import block from 'bem-cn-lite';
 
-import {SimpleBlockProps} from 'units/constructor/models';
-import AnimateBlock from 'units/constructor/components/AnimateBlock/AnimateBlock';
-import BlockHeader from 'units/constructor/components/BlockHeader/BlockHeader';
-import YFMWrapper from 'components/YFMWrapper/YFMWrapper';
+import {SimpleBlockProps} from '../../models';
+import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
+import BlockHeader from '../../components/BlockHeader/BlockHeader';
+import YFMWrapper from '../../components/YFMWrapper/YFMWrapper';
 
 import './Simple.scss';
 

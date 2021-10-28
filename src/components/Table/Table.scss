@@ -1,0 +1,103 @@
+@import '../../../styles/mixins';
+@import '../../styles/variables.scss';
+
+.table {
+    $root: &;
+    @include text-size(body2);
+
+    margin-top: $indentM;
+
+    &__table {
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    &__row {
+        display: flex;
+        &:first-child {
+            font-weight: 500;
+
+            #{$root}__cell {
+                border-bottom-color: var(--yc-color-line-generic-active);
+                align-items: flex-end;
+                padding-top: 0;
+            }
+        }
+    }
+
+    &__cell {
+        padding: $indentXXS 0;
+        display: flex;
+        flex: 1;
+        align-items: center;
+        border-bottom: 1px solid var(--yc-color-line-generic);
+
+        &:first-child {
+            flex: 2;
+        }
+
+        &_justify {
+            &_center {
+                justify-content: center;
+                text-align: center;
+            }
+            &_right {
+                justify-content: flex-end;
+                text-align: right;
+            }
+        }
+    }
+
+    &__marker {
+        display: inline-block;
+
+        &_type_disk {
+            width: 16px;
+            height: 16px;
+            border-radius: 100%;
+            flex-shrink: 0;
+            box-sizing: border-box;
+
+            &#{$root}__marker_index_0 {
+                background-color: var(--yc-color-infographics-neutral-light);
+            }
+
+            &#{$root}__marker_index_1 {
+                background-color: var(--yc-color-text-info);
+            }
+
+            &#{$root}__marker_index_2 {
+                border: 1px solid var(--yc-color-text-hint);
+            }
+        }
+    }
+
+    &__legend {
+        display: flex;
+        margin-top: $indentS;
+        color: var(--yc-color-text-secondary);
+    }
+
+    &__legend-item {
+        display: flex;
+        align-items: center;
+
+        & + & {
+            margin-left: $indentM;
+        }
+    }
+
+    &__legent-item-text {
+        margin-left: 6px;
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'sm')) {
+        &__cell {
+            min-width: 120px;
+
+            &:first-child {
+                min-width: 230px;
+            }
+        }
+    }
+}

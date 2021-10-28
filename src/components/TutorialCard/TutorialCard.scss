@@ -1,0 +1,9 @@
+@import '../../../mixins';
+@import '../../styles/variables.scss';
+
+.tutorial-card {
+    &__title {
+        margin-bottom: $indentXXS;
+        font-weight: 500;
+    }
+}

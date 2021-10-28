@@ -3,14 +3,14 @@ import block from 'bem-cn-lite';
 import {Tabs} from '@yandex-data-ui/common';
 import {HTML} from '@doc-tools/components';
 
-import {Row, Col, GridColumnOrderClasses} from 'components/Grid';
-import YFMWrapper from 'components/YFMWrapper/YFMWrapper';
-import {ImageObjectProps, TabsBlockProps} from 'units/constructor/models';
-import AnimateBlock from 'units/constructor/components/AnimateBlock/AnimateBlock';
-import BlockHeader from 'units/constructor/components/BlockHeader/BlockHeader';
-import FullScreenImage from 'units/constructor/components/FullscreenImage/FullscreenImage';
-import Media from 'units/constructor/components/Media/Media';
-import Links from 'units/constructor/components/Link/Links';
+import {Row, Col, GridColumnOrderClasses} from '../../grid';
+import YFMWrapper from '../../components/YFMWrapper/YFMWrapper';
+import {ImageObjectProps, TabsBlockProps} from '../../models';
+import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
+import BlockHeader from '../../components/BlockHeader/BlockHeader';
+import FullScreenImage from '../../components/FullscreenImage/FullscreenImage';
+import Media from '../../components/Media/Media';
+import Links from '../../components/Link/Links';
 
 import './Tabs.scss';
 

@@ -57,7 +57,6 @@ export enum BlockType {
     TextTableBlock = 'text-table-block',
     SimpleBlock = 'simple-block',
     HeaderSliderBlock = 'header-slider-block',
-    ServicesBlock = 'services-block',
     LinkTableBlock = 'link-table-block',
 }
 
@@ -94,7 +93,6 @@ export type TilesColumns = Partial<Record<GridColumnSize, ColumnsCount>>;
 export type LinkTheme = 'file-link' | 'normal' | 'back' | 'underline';
 export type MediaDirection = 'media-content' | 'content-media';
 export type PriceDescriptionColor = 'cornflower' | 'black';
-export type ServicesBlockSize = 's' | 'm';
 export type PreviewRatioMediaContent = '2-1' | '1-1';
 
 export interface Background {
@@ -694,10 +692,6 @@ export interface TextTableBlockProps extends Animatable {
     button: ButtonProps;
 }
 
-export interface ServicesBlockProps extends BlockHeader {
-    size?: ServicesBlockSize;
-}
-
 export interface LinkTableBlockProps extends BlockHeader {
     items: LinkProps[][];
     linkTheme?: LinkTheme;
@@ -875,10 +869,6 @@ export type SimpleBlock = {
     type: BlockType.SimpleBlock;
 } & SimpleBlockProps;
 
-export type ServicesBlock = {
-    type: BlockType.ServicesBlock;
-} & ServicesBlockProps;
-
 export type LinkTableBlock = {
     type: BlockType.LinkTableBlock;
 } & LinkTableBlockProps;
@@ -926,7 +916,6 @@ type BlockV2Raw =
     | TabsBlock
     | TextTableBlock
     | SimpleBlock
-    | ServicesBlock
     | LinkTableBlock;
 
 export type BlockV1 = BlockV1Raw & AdaptiveProps;

@@ -1,4 +1,4 @@
-import {parse} from 'url';
+import {parse, format} from 'url';
 
 export type Query = Record<string, number | string | null>;
 
@@ -37,3 +37,18 @@ export const getPageSearchParams = (query: Query = {}) => {
 
     return searchParams;
 };
+
+export function getAbsolutePath(hostname?: string, pathname?: string, url?: string) {
+    if (!pathname) {
+        return url ?? '';
+    }
+
+    const parsed = parse(url || '');
+
+    return format({
+        ...parsed,
+        protocol: parsed.protocol || 'https',
+        hostname: parsed.hostname || hostname,
+        pathname: parsed.pathname || pathname,
+    });
+}
