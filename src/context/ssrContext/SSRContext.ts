@@ -1,7 +1,6 @@
 import React from 'react';
-export interface StylesContextProps {
+export interface SSRContextProps {
     isServer?: boolean;
-    hostname?: string;
 }
 
-export const SSRContext = React.createContext<StylesContextProps>({});
+export const SSRContext = React.createContext<SSRContextProps>({});

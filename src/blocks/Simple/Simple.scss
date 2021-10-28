@@ -1,0 +1,16 @@
+@import '../../styles/mixins.scss';
+@import 'mixins';
+
+.simple-block {
+    $class: &;
+    @include animate(#{$class}__animate-block, 0.5s);
+
+    &__animate-block {
+        margin-top: $caseMarginS;
+    }
+
+    &__description {
+        margin-top: $indentXS;
+        font-size: var(--yc-text-body2-font-size);
+    }
+}

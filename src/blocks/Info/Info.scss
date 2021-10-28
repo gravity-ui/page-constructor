@@ -1,0 +1,59 @@
+@import '../../../mixins';
+@import '../../../variables';
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+@import '../../grid/styles/mixins.scss';
+
+.info-block {
+    @include add-theme();
+
+    &__background {
+        background-color: var(--yc-color-base-special);
+    }
+
+    &__content {
+        padding: $indentXXL 0 $indentXXXL;
+    }
+
+    &__buttons {
+        margin-top: $indentM - $indentXS;
+    }
+
+    &__button {
+        margin-top: $indentXS;
+
+        &:not(:last-child) {
+            margin-right: $indentXS;
+        }
+    }
+
+    &__links {
+        @include text-size(body2);
+
+        margin-top: $indentS;
+    }
+
+    &__link {
+        margin-top: 0;
+    }
+
+    &__link + &__link {
+        margin-top: $indentXXS;
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'lg')) {
+        &__content {
+            padding: $indentXXL 0;
+        }
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'sm')) {
+        &__content {
+            padding: $indentXL 0;
+        }
+
+        &__buttons {
+            margin-bottom: $indentXL;
+        }
+    }
+}

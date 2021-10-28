@@ -45,8 +45,11 @@
     "bem-cn-lite": "^4.0.0",
     "hoist-non-react-statics": "^3.3.2",
     "lodash": "^4.17.21",
+    "react-player": "^2.9.0",
     "react-slick": "^0.28.1",
+    "react-spring": "^9.3.0",
     "react-waypoint": "^10.1.0",
+    "snakecase-keys": "^5.1.0",
     "svg-sprite-loader": "^6.0.11"
   },
   "peerDependencies": {

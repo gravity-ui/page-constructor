@@ -1,0 +1,68 @@
+@import '../../styles/variables.scss';
+@import '../../grid/styles/variables.scss';
+@import '../../styles/mixins.scss';
+@import '../../../styles/mixins.scss';
+
+.BackgroundMedia {
+    $class: &;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    &__media {
+        margin: 0 auto;
+        max-width: 1440px;
+        text-align: center;
+    }
+
+    &__image {
+        height: 100%;
+        width: 100%;
+    }
+
+    &__video {
+        position: relative;
+
+        video {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+
+    &__video,
+    video {
+        width: auto;
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'md')) {
+        &__image {
+            display: block;
+        }
+
+        &__video {
+            display: none;
+        }
+    }
+
+    @include animate-wrap {
+        &__image {
+            position: relative;
+            bottom: 100px;
+            opacity: 0;
+        }
+
+        &.animate {
+            #{$class}__image {
+                $timing: 1.5s;
+
+                bottom: 0;
+                opacity: 1;
+                transition: bottom $timing $ease-out-quadratic, opacity $timing $ease-out-quadratic;
+            }
+        }
+    }
+}

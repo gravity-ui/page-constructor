@@ -1,5 +1,9 @@
 import React from 'react';
-import {MediaProps, Block} from './blocks';
+import {MediaProps, Block, Animatable} from './blocks';
+
+export interface PageData {
+    content: PageContent;
+}
 
 export interface Menu {
     title: string;
@@ -45,6 +49,5 @@ export interface CustomConfig {
 }
 
 export interface SSRConfig {
-    hostname: string;
     isServer?: boolean;
 }

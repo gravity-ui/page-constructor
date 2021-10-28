@@ -1,0 +1,20 @@
+@import '../../../mixins';
+@import '../../../variables';
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.companies-block {
+    $class: &;
+
+    text-align: center;
+
+    &__images {
+        margin-top: $indentM;
+    }
+
+    &__image {
+        max-width: 100%;
+    }
+
+    @include animate-fade(#{$class}__images);
+}

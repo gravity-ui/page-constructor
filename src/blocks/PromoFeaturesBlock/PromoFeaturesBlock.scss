@@ -1,0 +1,98 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+@import 'mixins';
+
+.PromoFeaturesBlock {
+    $class: &;
+
+    &__card-container {
+        display: flex;
+
+        &-column {
+            & + & {
+                margin-left: $indentM;
+            }
+        }
+    }
+
+    &__header {
+        margin-bottom: $indentM;
+    }
+
+    &__background {
+        background-color: inherit;
+
+        &_grey {
+            background-color: var(--yc-color-base-misc);
+        }
+    }
+
+    &_grey {
+        padding: $indentXL 0;
+    }
+
+    &__card {
+        $block: &;
+
+        @include reset-link-style();
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border-radius: 12px;
+
+        &-info {
+            padding: $indentM $indentM 0 $indentM;
+        }
+
+        &-title {
+            margin-bottom: $indentXXXS;
+        }
+
+        &-text {
+            @include text-size(body2);
+        }
+
+        &-media {
+            margin-top: $indentXS;
+        }
+
+        & + & {
+            margin-top: $indentM;
+        }
+
+        &_no-media {
+            #{$block}-info {
+                padding: $indentM;
+            }
+        }
+
+        &_light {
+            background-color: var(--yc-color-base-background);
+        }
+
+        &_default {
+            background-color: var(--yc-color-base-misc);
+        }
+
+        &_accent {
+            color: var(--yc-color-text-light-primary);
+            background-color: var(--yc-color-base-special);
+
+            #{$block}-title,
+            #{$block}-text > .yfm {
+                color: var(--yc-color-text-light-primary);
+            }
+
+            &-light {
+                background-color: var(--yc-color-base-selection);
+            }
+        }
+
+        &_primary {
+            background-color: var(--yc-color-promo-base-gold);
+        }
+    }
+
+    @include animate-slides(#{$class}__card-container-column);
+}

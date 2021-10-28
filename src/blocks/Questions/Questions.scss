@@ -1,0 +1,46 @@
+@import 'variables';
+@import 'mixins';
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.QuestionsBlock {
+    &__title {
+        position: sticky;
+        margin-bottom: $indentM;
+
+        @include top-content-offset($offset: $indentM);
+    }
+
+    &__item {
+        padding-bottom: $indentM;
+        border-bottom: 1px solid var(--yc-color-line-generic);
+
+        & + & {
+            padding-top: $indentM;
+        }
+    }
+
+    &__item-title {
+        position: relative;
+        padding-right: 24px;
+
+        cursor: pointer;
+    }
+
+    &__text {
+        @include text-size(body2);
+
+        margin-top: $indentXXS;
+    }
+
+    &__arrow {
+        position: absolute;
+        right: 0;
+        top: 0;
+        color: var(--yc-color-text-info);
+    }
+
+    &__link {
+        @include text-size(body2);
+    }
+}

@@ -1,0 +1,26 @@
+@import 'mixins';
+@import 'variables';
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.table-block {
+    $class: &;
+
+    &__title {
+        position: sticky;
+        margin-right: $indentM;
+
+        @include top-content-offset($offset: $indentM);
+    }
+
+    &__table {
+        margin-top: 0;
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'lg')) {
+        &__title {
+            margin-right: 0;
+            padding-bottom: $indentM;
+        }
+    }
+}

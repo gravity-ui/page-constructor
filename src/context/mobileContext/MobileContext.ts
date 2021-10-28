@@ -6,11 +6,14 @@ export interface History {
     replace(location: Partial<Location>): void;
     push(location: Partial<Location>): void;
     goBack(): void;
+    navigationHistory: string[];
 }
 export interface Location {
     pathname: string;
     search: string;
     hash: string;
+    hostname?: string;
+    tld?: string;
 }
 
 export interface MobileContextProps {
@@ -25,7 +28,7 @@ export interface MobileContextProps {
 const initialValue: MobileContextProps = {
     mobile: false,
     platform: Platform.BROWSER,
-    useHistory: () => ({action: '', replace() {}, push() {}, goBack() {}}),
+    useHistory: () => ({action: '', replace() {}, push() {}, goBack() {}, navigationHistory: []}),
     useLocation: () => ({pathname: '', search: '', hash: ''}),
     setMobile: () => {},
     setPlatform: () => {},

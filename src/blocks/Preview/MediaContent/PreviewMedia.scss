@@ -1,0 +1,33 @@
+@import 'variables';
+@import '../../../styles/mixins.scss';
+
+.preview-media-block {
+    @include animate(&__media);
+
+    &__media {
+        @include image-shadow();
+        overflow: hidden;
+
+        img {
+            width: 100%;
+        }
+
+        img,
+        video,
+        iframe {
+            border-radius: $indentXXS; // special for safari
+        }
+
+        display: none;
+
+        &_active {
+            display: block;
+        }
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'md')) {
+        &__media_active {
+            width: 100%;
+        }
+    }
+}

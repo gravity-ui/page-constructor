@@ -1,0 +1,21 @@
+@import '../../../styles/mixins.scss';
+@import '../../styles/variables.scss';
+@import '../../grid/styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.block-base {
+    $root: &;
+    --anchor-offset: #{$indentL};
+
+    @include reset-col-indents();
+    @include block();
+
+    &_reset-paddings#{$root} {
+        margin: 0;
+        padding: 0;
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'sm')) {
+        --anchor-offset: #{$indentM};
+    }
+}
