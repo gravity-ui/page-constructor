@@ -5,6 +5,7 @@ import '@doc-tools/transform/dist/js/yfm';
 
 import {TextProps as TextParams} from '../../models';
 import YFMWrapper from '../YFMWrapper/YFMWrapper';
+import i18n from './i18n';
 
 import './Text.scss';
 
@@ -58,8 +59,7 @@ export default class Text extends React.Component<TextParams, TextState> {
             this.renderText(folded)
         ) : (
             <button className={b('button')} onClick={this.toggle}>
-                {/* TODO: add i18n for constructor_read_all*/}
-                {'constructor_read_all'}
+                {i18n('constructor_read_all')}
             </button>
         );
     }

@@ -1,9 +1,11 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import {I18N} from '@yandex-data-ui/i18n';
+
 import {AnimateContext} from '../../context/animateContext';
 import {MetrikaContext} from '../../context/metrikaContext';
 import {MobileContext} from '../../context/mobileContext';
 import {SSRContext} from '../../context/ssrContext';
-import {LocaleContext, LocaleContextProps} from '../../context/localeContext';
+import {Lang, LocaleContext, LocaleContextProps} from '../../context/localeContext';
 import {LocationContext, LocationContextProps} from '../../context/locationContext';
 import {SSRConfig} from '../../models';
 import {PageConstructor, PageConstructorProps} from './PageConstructor';
@@ -27,6 +29,10 @@ export const PageConstructorProvider: React.FC<PageConstructorProviderProps> = (
         locale = {},
         ...rest
     } = props;
+
+    useEffect(() => {
+        I18N.setLang(locale.lang || Lang.Ru);
+    }, [locale]);
 
     return (
         <LocaleContext.Provider value={locale}>

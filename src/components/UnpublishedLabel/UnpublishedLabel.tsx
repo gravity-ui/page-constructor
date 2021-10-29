@@ -1,6 +1,8 @@
 import React from 'react';
 import block from 'bem-cn-lite';
 
+import i18n from './i18n';
+
 import './UnpublishedLabel.scss';
 
 const b = block('UnpublishedLabel');
@@ -16,7 +18,6 @@ const UnpublishedLabel: React.FC<UnpublishedLabelProps> = ({
     className,
     children,
     type = 'line',
-    //  {/* TODO: add i18n for label_non_published*/}
-}) => <div className={b({type}, className)}>{children || 'label_non_published'}</div>;
+}) => <div className={b({type}, className)}>{children || i18n('label_non_published')}</div>;
 
 export default UnpublishedLabel;

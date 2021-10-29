@@ -1,13 +1,13 @@
 import {i18n, I18N} from '../../../i18n';
 
-const COMPONENT = 'helloWorld';
+const COMPONENT = 'UnpublishedLabel';
 
 i18n.registerKeyset(I18N.LANGS.en, COMPONENT, {
-    text: 'Hello, World',
+    label_non_published: 'Unpublished',
 });
 
 i18n.registerKeyset(I18N.LANGS.ru, COMPONENT, {
-    text: 'Привет, Мир',
+    label_non_published: 'Не опубликовано',
 });
 
 export default i18n.keyset(COMPONENT);

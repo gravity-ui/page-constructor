@@ -4,6 +4,7 @@ import blockCn from 'bem-cn-lite';
 
 import {Block, FetchLoadableData} from '../../models';
 import ErrorWrapper from '../../components/ErrorWrapper/ErrorWrapper';
+import i18n from './i18n';
 
 import './Loadable.scss';
 
@@ -73,9 +74,8 @@ const Loadable: React.FC<LoadableComponentsProps> = (props) => {
     return (
         <ErrorWrapper
             isError={error}
-            //{/* TODO: add i18n for loadable-load-error and loadable-try-agai*/}
-            text={'loadable-load-error'}
-            buttonText={'loadable-try-again'}
+            text={i18n('loadable-load-error')}
+            buttonText={i18n('loadable-try-again')}
             handler={onTryAgain}
         >
             <Component {...block}>

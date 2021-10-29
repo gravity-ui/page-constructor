@@ -7,7 +7,6 @@ export {default as Button} from './Button/Button';
 export {default as Header} from './Header/Header';
 export {default as HeaderWithImage} from './HeaderWithImage/HeaderWithImage';
 export {default as Title} from './Title/Title';
-
 export {default as Divider} from './Divider/Divider';
 export {default as Features} from './Features/Features';
 export {default as ImageBlock} from './ImageBlock/ImageBlock';

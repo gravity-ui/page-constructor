@@ -1,13 +1,13 @@
 import {i18n, I18N} from '../../../i18n';
 
-const COMPONENT = 'helloWorld';
+const COMPONENT = 'Share';
 
 i18n.registerKeyset(I18N.LANGS.en, COMPONENT, {
-    text: 'Hello, World',
+    'constructor-share': 'Share',
 });
 
 i18n.registerKeyset(I18N.LANGS.ru, COMPONENT, {
-    text: 'Привет, Мир',
+    'constructor-share': 'Поделиться',
 });
 
 export default i18n.keyset(COMPONENT);
