@@ -1,4 +1,8 @@
-.ToggleArrow {
+@import '../../../styles/variables.scss';
+
+$block: '.#{$ns}ToggleArrow';
+
+#{$block} {
     transition: transform 0.15s;
     stroke-width: 2px;
     $root: &;

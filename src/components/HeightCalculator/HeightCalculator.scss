@@ -1,4 +1,8 @@
-.height-calculator {
+@import '../../../styles/variables.scss';
+
+$block: '.#{$ns}height-calculator';
+
+#{$block} {
     position: relative;
     width: 100%;
     opacity: 0;

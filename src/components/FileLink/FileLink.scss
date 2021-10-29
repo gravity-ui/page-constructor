@@ -1,6 +1,9 @@
+@import '../../../styles/variables.scss';
 @import '../../../styles/mixins';
 
-.file-link {
+$block: '.#{$ns}file-link';
+
+#{$block} {
     @include add-file-ext-colors();
     $root: &;
 

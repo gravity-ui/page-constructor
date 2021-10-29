@@ -1,4 +1,8 @@
-.storage-background-image {
+@import '../../../styles/variables.scss';
+
+$block: '.#{$ns}.storage-background-image';
+
+#{$block} {
     position: relative;
     overflow: hidden;
 

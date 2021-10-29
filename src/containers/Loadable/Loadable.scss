@@ -1,4 +1,8 @@
-.loadable-block {
+@import '../../../styles/variables.scss';
+
+$block: '.#{$ns}loadable-block';
+
+#{$block} {
     &__loader {
         padding: 20px;
         text-align: center;

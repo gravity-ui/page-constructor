@@ -1,6 +1,8 @@
 @import '../../../styles/mixins';
 
-.VideoBlock {
+$block: '.#{$ns}VideoBlock';
+
+#{$block} {
     position: relative;
 
     &__preview {

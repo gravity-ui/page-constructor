@@ -1,6 +1,9 @@
 @import '../../../styles/mixins.scss';
+@import '../../../styles/variables.scss';
 
-.ErrorWrapper {
+$block: '.#{$ns}ErrorWrapper';
+
+#{$block} {
     @include text-size(body);
 
     white-space: nowrap;

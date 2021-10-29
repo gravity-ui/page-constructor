@@ -1,5 +1,8 @@
+@import '../../../styles/variables.scss';
 @import '../../../styles/mixins.scss';
 
-.Anchor {
+$block: '.#{$ns}Anchor';
+
+#{$block} {
     @include anchor($offset: var(--anchor-offset, 0px));
 }

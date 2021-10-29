@@ -1,7 +1,10 @@
+@import '../../../styles/variables';
 @import '../../styles/mixins.scss';
 @import '../../../styles/mixins';
 
-.simple-block {
+$block: '.#{$ns}.simple-block';
+
+#{$block} {
     $class: &;
     @include animate(#{$class}__animate-block, 0.5s);
 

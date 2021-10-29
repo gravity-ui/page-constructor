@@ -1,4 +1,8 @@
-.marked-list {
+@import '../../../../../styles/variables.scss';
+
+$block: '.#{$ns}marked-list';
+
+#{$block} {
     &__list-item {
         display: flex;
     }

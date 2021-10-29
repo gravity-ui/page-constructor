@@ -1,4 +1,8 @@
-.BalancedMasonry {
+@import '../../../styles/variables.scss';
+
+$block: '.#{$ns}BalancedMasonry';
+
+#{$block} {
     position: relative;
 
     &__hidden-container {
