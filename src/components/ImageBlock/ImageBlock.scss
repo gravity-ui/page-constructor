@@ -1,6 +1,9 @@
+@import '../../../styles/variables.scss';
 @import '../../styles/variables.scss';
 
-.image-block {
+$block: '.#{$ns}image-block';
+
+#{$block} {
     margin-top: $indentM;
     object-fit: contain;
 }

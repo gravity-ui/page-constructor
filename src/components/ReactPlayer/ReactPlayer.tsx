@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import block from 'bem-cn-lite';
+import {block} from '../../utils';
 import ReactPlayer from 'react-player';
 import React, {
     useCallback,

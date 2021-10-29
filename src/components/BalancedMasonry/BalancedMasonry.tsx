@@ -1,6 +1,6 @@
 import React, {useEffect, useState, useCallback, useRef, ReactNode, useContext} from 'react';
 import _ from 'lodash';
-import block from 'bem-cn-lite';
+import {block} from '../../utils';
 
 import './BalancedMasonry.scss';
 import {SSRContext} from '../../context/ssrContext';

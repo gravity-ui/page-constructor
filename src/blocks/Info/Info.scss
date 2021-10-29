@@ -4,7 +4,9 @@
 @import '../../styles/mixins.scss';
 @import '../../grid/styles/variables.scss';
 
-.info-block {
+$block: '.#{$ns}info-block';
+
+#{$block} {
     @include add-theme();
 
     &__background {

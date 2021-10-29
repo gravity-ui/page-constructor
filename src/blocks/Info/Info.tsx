@@ -1,5 +1,5 @@
 import React from 'react';
-import block from 'bem-cn-lite';
+import {block} from '../../utils';
 
 import {InfoBlockProps} from '../../models';
 import FullWidthBackground from '../../components/FullWidthBackground/FullWidthBackground';

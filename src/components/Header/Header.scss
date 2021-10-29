@@ -3,7 +3,9 @@
 @import '../../styles/variables.scss';
 @import '../../styles/mixins.scss';
 
-.header-block {
+$block: '.#{$ns}header-block';
+
+#{$block} {
     @include add-theme();
     @include background();
 

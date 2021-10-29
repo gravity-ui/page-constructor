@@ -1,6 +1,9 @@
+@import '../../../styles/variables.scss';
 @import '../styles/variables.scss';
 
-.Grid {
+$block: '.#{$ns}Grid';
+
+#{$block} {
     $maxContentWidth: $newContentWidth;
     $gutter: $gridGutter;
     $gutterMobile: $gridGutterMobile;

@@ -1,5 +1,5 @@
 import React, {CSSProperties} from 'react';
-import block from 'bem-cn-lite';
+import {block} from '../../utils';
 
 import Image from '../Image/Image';
 

@@ -1,5 +1,5 @@
 import React, {useRef, useState, useCallback, useEffect} from 'react';
-import block from 'bem-cn-lite';
+import {block} from '../../utils';
 
 import HeightCalculator from '../../components/HeightCalculator/HeightCalculator';
 

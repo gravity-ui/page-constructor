@@ -3,7 +3,9 @@
 @import '../../styles/variables.scss';
 @import '../../styles/mixins.scss';
 
-.companies-block {
+$block: '.#{$ns}companies-block';
+
+#{$block} {
     $class: &;
 
     text-align: center;

@@ -3,7 +3,9 @@
 @import '../../styles/variables.scss';
 @import '../../grid/styles/variables.scss';
 
-.tiles-block {
+$block: '.#{$ns}tiles-block';
+
+#{$block} {
     $iconSize: 44px;
     $columnsCount: 4;
 

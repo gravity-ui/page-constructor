@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import React, {Fragment, useCallback, useEffect, useState} from 'react';
-import block from 'bem-cn-lite';
+import {block} from '../../../utils';
 
 import CardBase from '../../CardBase/CardBase';
 import {

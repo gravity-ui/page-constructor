@@ -1,9 +1,12 @@
+@import '../../../../../styles/variables.scss';
 @import '../../../../styles/variables.scss';
 @import '../../../../styles/mixins.scss';
 @import '../../../../styles/mixins';
 @import '../../../../../styles/mixins.scss';
 
-.settings-list {
+$block: '.#{$ns}settings-list';
+
+#{$block} {
     &__title,
     &__description {
         font-weight: 400;

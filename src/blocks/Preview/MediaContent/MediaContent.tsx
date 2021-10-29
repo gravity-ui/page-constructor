@@ -1,4 +1,4 @@
-import block from 'bem-cn-lite';
+import {block} from '../../../utils';
 import React, {forwardRef, Fragment, useEffect, useState} from 'react';
 import {HTML} from '@doc-tools/components';
 

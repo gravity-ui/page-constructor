@@ -1,9 +1,10 @@
 @import '../../../styles/mixins';
 @import '../../../styles/variables';
 
+$block: '.#{$ns}CustomBarControls';
 $controlSize: 64px;
 
-.CustomBarControls {
+#{$block} {
     &__wrapper {
         position: absolute;
         bottom: 0;

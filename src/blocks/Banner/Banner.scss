@@ -4,7 +4,9 @@
 @import '../../grid/styles/variables.scss';
 @import '../../styles/mixins.scss';
 
-.banner-block {
+$block: '.#{$ns}banner-block';
+
+#{$block} {
     $class: &;
     $borderRadius: 12px;
 

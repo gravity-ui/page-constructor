@@ -1,6 +1,9 @@
+@import '../../../styles/variables.scss';
 @import '../../styles/variables.scss';
 
-.features-block {
+$block: '.#{$ns}features-block';
+
+#{$block} {
     &__item {
         margin-top: $indentS;
         padding-top: $indentXXS;

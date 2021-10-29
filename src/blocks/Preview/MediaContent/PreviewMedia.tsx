@@ -1,5 +1,5 @@
 import React from 'react';
-import block from 'bem-cn-lite';
+import {block} from '../../../utils';
 
 import Media from '../../../components/Media/Media';
 import {MediaProps, Modifiers} from '../../../models';

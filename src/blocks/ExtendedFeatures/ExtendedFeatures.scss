@@ -1,9 +1,12 @@
+@import '../../../styles/variables.scss';
 @import '../../../styles/mixins';
 @import '../../styles/variables.scss';
 @import '../../styles/mixins.scss';
 @import '../../grid/styles/variables.scss';
 
-.ExtendedFeaturesBlock {
+$block: '.#{$ns}.ExtendedFeaturesBlock';
+
+#{$block} {
     $class: &;
     $itemMargin: $indentM;
 

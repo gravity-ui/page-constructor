@@ -1,5 +1,5 @@
 import React from 'react';
-import block from 'bem-cn-lite';
+import {block} from '../../utils';
 
 import '../styles/bootstrap.scss';
 import './Grid.scss';

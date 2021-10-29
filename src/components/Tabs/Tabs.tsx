@@ -2,7 +2,7 @@ import React, {Children} from 'react';
 import {Tabs as TabsCommon} from '@yandex-data-ui/common';
 import {CSSTransition, TransitionGroup} from 'react-transition-group';
 
-import block from 'bem-cn-lite';
+import {block} from '../../utils';
 import {TabsProps as TabsParams} from '../../models';
 import HeightCalculator from '../HeightCalculator/HeightCalculator';
 

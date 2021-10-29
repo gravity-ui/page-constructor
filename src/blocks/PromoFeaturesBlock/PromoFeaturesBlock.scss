@@ -3,7 +3,9 @@
 @import '../../styles/mixins.scss';
 @import '../../../styles/mixins';
 
-.PromoFeaturesBlock {
+$block: '.#{$ns}PromoFeaturesBlock';
+
+#{$block} {
     $class: &;
 
     &__card-container {

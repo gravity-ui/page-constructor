@@ -1,6 +1,8 @@
 @import '../../../styles/variables';
 
-.container-block {
+$block: '.#{$ns}container-block';
+
+#{$block} {
     &_sticky {
         position: sticky;
         top: $headerMenuHeight;

@@ -1,5 +1,5 @@
 import React, {FC, useCallback, useContext, useEffect, useRef, useState} from 'react';
-import block from 'bem-cn-lite';
+import {block} from '../../utils';
 import SlickSlider, {Settings} from 'react-slick';
 import _ from 'lodash';
 import {ClassNameProps, Timeout} from '@yandex-data-ui/cloud-components';

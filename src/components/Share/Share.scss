@@ -2,7 +2,9 @@
 @import '../../styles/variables.scss';
 @import '../../grid/styles/variables.scss';
 
-.share-block {
+$block: '.#{$ns}share-block';
+
+#{$block} {
     &__title {
         text-align: center;
         font-weight: normal;

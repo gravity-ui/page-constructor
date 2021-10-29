@@ -5,6 +5,8 @@
 
 $slideOffset: 10px;
 
+$block: '.#{$ns}SliderBlock';
+
 @mixin fullscreen-card() {
     .slick-slide {
         width: 100%;
@@ -30,7 +32,7 @@ $slideOffset: 10px;
     }
 }
 
-.SliderBlock {
+#{$block} {
     $root: &;
 
     .slick-list {

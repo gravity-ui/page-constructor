@@ -4,7 +4,9 @@
 @import '../../../grid/styles/variables.scss';
 @import '../../../styles/mixins.scss';
 
-.preview-media-block {
+$block: '.#{$ns}preview-media-block';
+
+#{$block} {
     @include animate(&__media);
 
     &__media {

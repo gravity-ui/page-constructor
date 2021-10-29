@@ -1,5 +1,5 @@
 import React, {Children} from 'react';
-import block from 'bem-cn-lite';
+import {block} from '../../utils';
 import _ from 'lodash';
 
 import './HeightCalculator.scss';

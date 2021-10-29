@@ -1,8 +1,11 @@
+@import '../../../styles/variables.scss';
 @import '../../styles/variables.scss';
 @import '../../styles/mixins.scss';
 @import '../../../styles/mixins.scss';
 
-.BlockHeader {
+$block: '.#{$ns}BlockHeader';
+
+#{$block} {
     &__col-reset {
         @include reset-col-indents();
     }

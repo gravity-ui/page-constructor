@@ -1,7 +1,6 @@
-import block from 'bem-cn-lite';
+import {block, getLinkProps} from '../../utils';
 import React, {ReactNode, useContext} from 'react';
 
-import {getLinkProps} from '../../utils';
 import {TextSize} from '../../models';
 import {LocationContext} from '../../context/locationContext';
 

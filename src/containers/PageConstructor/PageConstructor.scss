@@ -2,7 +2,9 @@
 @import '../../../styles/mixins';
 @import '../../styles/variables.scss';
 
-.page-constructor {
+$block: '.#{$ns}page-constructor';
+
+#{$block} {
     $borderRadius: 12px;
 
     margin-top: 0;

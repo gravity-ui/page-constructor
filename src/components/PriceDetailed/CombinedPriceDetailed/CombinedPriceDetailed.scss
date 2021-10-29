@@ -1,11 +1,13 @@
+@import '../../../../styles/variables.scss';
 @import '../../../styles/variables.scss';
 @import '../../../styles/mixins.scss';
 @import '../../../../styles/mixins';
 
-/* stylelint-disable declaration-no-important */
+$block: '.#{$ns}combined-price-detailed-block';
 
-.combined-price-detailed-block {
+#{$block} {
     &__row {
+        /* stylelint-disable declaration-no-important */
         margin: 0 !important;
     }
 

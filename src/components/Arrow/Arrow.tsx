@@ -1,5 +1,5 @@
 import React from 'react';
-import block from 'bem-cn-lite';
+import {block} from '../../utils';
 import {Icon} from '@yandex-data-ui/common';
 
 import arrow from '../../../assets/icons/arrow-constructor.svg';

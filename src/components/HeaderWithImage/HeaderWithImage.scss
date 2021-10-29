@@ -3,7 +3,9 @@
 @import '../../styles/variables.scss';
 @import '../../styles/mixins.scss';
 
-.header-with-image-block {
+$block: '.#{$ns}header-with-image-block';
+
+#{$block} {
     $root: &;
 
     &__content {

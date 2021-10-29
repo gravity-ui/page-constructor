@@ -1,7 +1,9 @@
+@import '../../../styles/variables.scss';
 @import '../../styles/variables.scss';
 
-.button-block {
-    $block: &;
+$block: '.#{$ns}button-block';
+
+#{$block} {
     margin-top: $indentS;
 
     &__content {

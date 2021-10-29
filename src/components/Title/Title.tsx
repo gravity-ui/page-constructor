@@ -1,9 +1,8 @@
 import React, {Fragment, ReactNode, useContext} from 'react';
-import block from 'bem-cn-lite';
+import {block, getHeaderTag, getLinkProps} from '../../utils';
 import {HTML} from '@doc-tools/components';
 
 import {TextSize, TitleProps} from '../../models';
-import {getHeaderTag, getLinkProps} from '../../utils';
 import Anchor from '../Anchor/Anchor';
 import ToggleArrow from '../ToggleArrow/ToggleArrow';
 import {LocationContext} from '../../context/locationContext';

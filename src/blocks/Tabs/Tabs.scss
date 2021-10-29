@@ -3,7 +3,9 @@
 @import '../../grid/styles/variables.scss';
 @import '../../../styles/mixins';
 
-.TabsBlock {
+$block: '.#{$ns}TabsBlock';
+
+#{$block} {
     $class: &;
 
     &__block-title {

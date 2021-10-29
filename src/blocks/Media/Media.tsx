@@ -1,5 +1,5 @@
 import React, {useMemo, useState} from 'react';
-import block from 'bem-cn-lite';
+import {block} from '../../utils';
 
 import {Grid, Row, Col, GridColumnSize} from '../../grid';
 import {MediaBlockProps} from '../../models';

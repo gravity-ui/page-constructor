@@ -4,7 +4,9 @@
 @import '../../grid/styles/variables.scss';
 @import '../../styles/mixins.scss';
 
-.title-block {
+$block: '.#{$ns}title-block';
+
+#{$block} {
     @include justify();
     $root: &;
 

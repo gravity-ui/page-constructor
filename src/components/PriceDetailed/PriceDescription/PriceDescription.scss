@@ -1,9 +1,12 @@
+@import '../../../../styles/variables.scss';
 @import '../../../styles/variables.scss';
 @import '../../../styles/mixins.scss';
 @import '../../../../styles/mixins';
 @import '../../../../styles/variables';
 
-.price-description {
+$block: '.#{$ns}price-description';
+
+#{$block} {
     margin-bottom: $indentXXS;
 
     &__title,

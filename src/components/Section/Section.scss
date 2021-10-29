@@ -3,7 +3,9 @@
 @import '../../grid/styles/variables.scss';
 @import '../../styles/mixins.scss';
 
-.section-block {
+$block: '.#{$ns}section-block';
+
+#{$block} {
     @include add-theme();
     $root: &;
 

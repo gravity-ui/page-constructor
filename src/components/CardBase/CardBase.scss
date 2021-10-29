@@ -1,7 +1,10 @@
+@import '../../../styles/variables.scss';
 @import '../../styles/variables.scss';
 @import '../../grid/styles/variables.scss';
 @import '../../styles/mixins.scss';
 @import '../../../styles/mixins';
+
+$block: '.#{$ns}card-base-block';
 
 %flex-column {
     display: flex;
@@ -9,7 +12,7 @@
     justify-content: space-between;
 }
 
-.card-base-block {
+#{$block} {
     @include card();
     @extend %flex-column;
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import block from 'bem-cn-lite';
+import {block} from '../../utils';
 
 import '@doc-tools/transform/dist/js/yfm';
 

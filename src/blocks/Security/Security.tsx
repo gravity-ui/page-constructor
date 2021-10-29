@@ -1,5 +1,5 @@
 import React from 'react';
-import block from 'bem-cn-lite';
+import {block} from '../../utils';
 import {HTML} from '@doc-tools/components';
 
 import {SecurityBlockProps} from '../../models';

@@ -1,15 +1,13 @@
 import React, {useCallback, useContext} from 'react';
-import block from 'bem-cn-lite';
+import {block, getLinkProps, setUrlTld} from '../../utils';
 
 import {Icon} from '@yandex-data-ui/common';
 import {ClassNameProps} from '@yandex-data-ui/cloud-components';
 
 import {LinkProps} from '../../models';
-// import chevron from 'assets/icons/navigation-chevron.svg';
 import chevron from '../../../assets/icons/navigation-chevron.svg';
 import FileLink from '../FileLink/FileLink';
 import BackLink from '../BackLink/BackLink';
-import {getLinkProps, setUrlTld} from '../../utils';
 import {LocaleContext} from '../../context/localeContext/localeContext';
 import {LocationContext} from '../../context/locationContext/locationContext';
 

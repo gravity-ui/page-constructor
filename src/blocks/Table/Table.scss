@@ -3,7 +3,9 @@
 @import '../../styles/variables.scss';
 @import '../../styles/mixins.scss';
 
-.table-block {
+$block: '.#{$ns}table-block';
+
+#{$block} {
     $class: &;
 
     &__title {

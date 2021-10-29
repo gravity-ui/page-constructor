@@ -1,9 +1,12 @@
+@import '../../../styles/variables.scss';
 @import '../../../styles/mixins';
 @import '../../styles/variables.scss';
 @import '../../grid/styles/variables.scss';
 @import '../../styles/mixins.scss';
 
-.text-block {
+$block: '.#{$ns}text-block';
+
+#{$block} {
     @include justify();
     $root: &;
 

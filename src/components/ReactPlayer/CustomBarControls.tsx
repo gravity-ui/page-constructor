@@ -1,4 +1,4 @@
-import block from 'bem-cn-lite';
+import {block} from '../../utils';
 import React, {useCallback} from 'react';
 import {ClassNameProps} from '@yandex-data-ui/cloud-components';
 

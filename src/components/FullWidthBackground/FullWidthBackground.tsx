@@ -1,5 +1,5 @@
 import React, {Component, createRef, CSSProperties} from 'react';
-import block from 'bem-cn-lite';
+import {block} from '../../utils';
 import _ from 'lodash';
 import {ClassNameProps} from '@yandex-data-ui/cloud-components';
 import {BREAKPOINTS} from '../../constants';

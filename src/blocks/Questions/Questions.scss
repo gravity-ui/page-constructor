@@ -4,7 +4,9 @@
 @import '../../grid/styles/variables.scss';
 @import '../../styles/mixins.scss';
 
-.QuestionsBlock {
+$block: '.#{$ns}QuestionsBlock';
+
+#{$block} {
     &__title {
         position: sticky;
         margin-bottom: $indentM;

@@ -1,6 +1,9 @@
 @import '../../../../styles/mixins.scss';
 @import '../../../styles/mixins.scss';
 @import '../../../styles/variables.scss';
+@import '../../../../styles/variables.scss';
+
+$block: '.#{$ns}slider-block-arrow';
 
 %flex {
     display: flex;
@@ -8,7 +11,7 @@
     justify-content: center;
 }
 
-.slider-block-arrow {
+#{$block} {
     @include desktop-tablet-only();
     @extend %flex;
 

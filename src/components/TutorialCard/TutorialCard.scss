@@ -1,6 +1,9 @@
+@import '../../../styles/variables.scss';
 @import '../../styles/variables.scss';
 
-.tutorial-card {
+$block: '.#{$ns}tutorial-card';
+
+#{$block} {
     &__title {
         margin-bottom: $indentXXS;
         font-weight: 500;

@@ -1,4 +1,4 @@
-import block from 'bem-cn-lite';
+import {block} from '../../../utils';
 import React, {Fragment} from 'react';
 
 import CardBase from '../../CardBase/CardBase';

@@ -1,7 +1,10 @@
 @import '../../../styles/mixins';
 @import '../../styles/variables.scss';
+@import '../../styles/variables.scss';
 
-.scrollable-block {
+$block: '.#{$ns}scrollable-block';
+
+#{$block} {
     @include mobile-scrollable();
 
     display: flex;

@@ -1,5 +1,5 @@
 import React, {Fragment} from 'react';
-import block from 'bem-cn-lite';
+import {block} from '../../../../utils';
 import {PriceDetailsSettingsProps, TextSize} from '../../../../models';
 
 import './Settings.scss';

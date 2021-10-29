@@ -1,7 +1,9 @@
 @import '../../../styles/mixins';
 @import '../../../styles/variables';
 
-.foldable-block {
+$block: '.#{$ns}foldable-block';
+
+#{$block} {
     &__content-container {
         height: 0;
         overflow-y: hidden;

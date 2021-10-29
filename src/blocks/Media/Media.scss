@@ -4,7 +4,9 @@
 @import '../../grid/styles/variables.scss';
 @import '../../styles/mixins.scss';
 
-.media-block {
+$block: '.#{$ns}media-block';
+
+#{$block} {
     $class: &;
 
     &__card {

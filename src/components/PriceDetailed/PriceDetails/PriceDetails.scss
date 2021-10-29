@@ -1,10 +1,13 @@
+@import '../../../../styles/variables.scss';
 @import '../../../styles/variables.scss';
 @import '../../../styles/mixins.scss';
 @import '../../../../styles/mixins';
 
+$block: '.#{$ns}price-details';
+
 $settingsIndentBetweenTitleAndDescriptionHeight: 2px;
 
-.price-details {
+#{$block} {
     @media (min-width: map-get($gridBreakpoints, 'lg')) {
         &__non_foldable {
             display: block;

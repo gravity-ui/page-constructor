@@ -2,7 +2,9 @@
 @import '../../grid/styles/variables';
 @import '../../styles/variables.scss';
 
-.tabs-block {
+$block: '.#{$ns}tabs-block';
+
+#{$block} {
     position: relative;
 
     &__tab {

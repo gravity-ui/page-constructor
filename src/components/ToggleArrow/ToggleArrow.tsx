@@ -1,7 +1,7 @@
 //MOVE to cloud-components
 
 import React from 'react';
-import block from 'bem-cn-lite';
+import {block} from '../../utils';
 import {Icon} from '@yandex-data-ui/common';
 
 import chevron from '@yandex-data-ui/common/assets/icons/chevron.svg';

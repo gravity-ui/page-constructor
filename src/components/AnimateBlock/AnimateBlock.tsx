@@ -1,5 +1,5 @@
 import React, {CSSProperties, useContext, useState} from 'react';
-import block from 'bem-cn-lite';
+import {block} from '../../utils';
 import {Waypoint} from 'react-waypoint';
 import {AnimateContext, AnimateContextProps} from '../../context/animateContext/AnimateContext';
 

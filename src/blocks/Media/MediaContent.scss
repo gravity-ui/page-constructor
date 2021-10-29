@@ -4,7 +4,9 @@
 @import '../../styles/mixins.scss';
 @import '../../grid/styles/variables.scss';
 
-.media-content {
+$block: '.#{$ns}media-content';
+
+#{$block} {
     &__info {
         margin-right: $indentM;
 

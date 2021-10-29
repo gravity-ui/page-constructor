@@ -1,8 +1,11 @@
+@import '../../../styles/variables.scss';
 @import '../../styles/variables.scss';
 @import '../../styles/mixins.scss';
 @import '../../../styles/mixins';
 
-.MediaCard {
+$block: '.#{$ns}MediaCard';
+
+#{$block} {
     &__body {
         padding: 0;
     }

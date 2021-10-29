@@ -1,8 +1,7 @@
 import React, {useCallback, useContext} from 'react';
-import block from 'bem-cn-lite';
+import {block, setUrlTld} from '../../utils';
 import {Platform, StoreBadge, Button as CommonButton, Icon} from '@yandex-data-ui/common';
 
-import {setUrlTld} from '../../utils';
 import {ButtonProps as ButtonParams, isNewMetrikaFormat} from '../../models';
 import {OldButtonSize, OldButtonTheme, toCommonSize, toCommonView} from './utils';
 import {MetrikaContext} from '../../context/metrikaContext';

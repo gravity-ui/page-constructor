@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import block from 'bem-cn-lite';
+import {block} from '../../utils';
 import React, {ReactNode, useCallback, useEffect, useMemo, useRef, useState} from 'react';
 import {useSpring, animated, config, Interpolation} from 'react-spring';
 

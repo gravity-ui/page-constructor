@@ -1,9 +1,12 @@
+@import '../../../styles/variables.scss';
 @import '../../styles/variables.scss';
 @import '../../grid/styles/variables.scss';
 @import '../../styles/mixins.scss';
 @import '../../../styles/mixins.scss';
 
-.BackgroundMedia {
+$block: '.#{$ns}BackgroundMedia';
+
+#{$block} {
     $class: &;
 
     position: absolute;

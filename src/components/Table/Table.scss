@@ -1,8 +1,11 @@
 @import '../../../styles/mixins';
+@import '../../../styles/variables.scss';
 @import '../../styles/variables.scss';
 @import '../../grid/styles/variables.scss';
 
-.table {
+$block: '.#{$ns}table';
+
+#{$block} {
     $root: &;
     @include text-size(body2);
 

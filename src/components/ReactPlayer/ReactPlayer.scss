@@ -2,9 +2,9 @@
 @import '../../../styles/variables';
 @import '../../grid/styles/variables.scss';
 
-.ReactPlayer {
-    $block: &;
+$block: '.#{$ns}ReactPlayer';
 
+#{$block} {
     &__wrapper {
         position: relative;
         // Player ratio: 100 / (1280 / 720)

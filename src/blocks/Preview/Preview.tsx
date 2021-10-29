@@ -1,4 +1,4 @@
-import block from 'bem-cn-lite';
+import {block, doSmoothScroll, ScrollOptions} from '../../utils';
 import React, {useCallback, useContext, useEffect, useState} from 'react';
 
 import {BreakpointContext} from '../../context/breakpointContext';
@@ -8,7 +8,6 @@ import {useIntersection} from '../../hooks/useIntersection';
 import {Row} from '../../grid';
 import {PreviewBlockProps} from '../../models';
 import {BREAKPOINTS} from '../../constants';
-import {doSmoothScroll, ScrollOptions} from '../../utils';
 
 import './Preview.scss';
 

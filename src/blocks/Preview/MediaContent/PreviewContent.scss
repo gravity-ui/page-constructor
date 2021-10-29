@@ -3,7 +3,9 @@
 @import '../../../styles/variables.scss';
 @import '../../../grid/styles/variables.scss';
 
-.preview-content-block {
+$block: '.#{$ns}preview-content-block';
+
+#{$block} {
     $class: &;
 
     &__content {

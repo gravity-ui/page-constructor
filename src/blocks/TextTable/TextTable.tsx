@@ -1,5 +1,5 @@
 import React from 'react';
-import block from 'bem-cn-lite';
+import {block} from '../../utils';
 import {TextTableBlockProps} from '../../models';
 import YFMWrapper from '../../components/YFMWrapper/YFMWrapper';
 import {Button} from '../../components';

@@ -4,7 +4,9 @@
 @import '../../grid/styles/variables.scss';
 @import '../../styles/mixins.scss';
 
-.SecurityBlock {
+$block: '.#{$ns}SecurityBlock';
+
+#{$block} {
     $class: &;
 
     @include add-theme();

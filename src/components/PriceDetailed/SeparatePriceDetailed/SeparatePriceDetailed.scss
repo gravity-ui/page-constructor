@@ -1,6 +1,9 @@
+@import '../../../../styles/variables.scss';
 @import '../../../styles/variables.scss';
 
-.separate-price-detailed-block {
+$block: '.#{$ns}separate-price-detailed-block';
+
+#{$block} {
     & .price-description {
         margin-bottom: 0;
     }

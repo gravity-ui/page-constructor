@@ -1,5 +1,5 @@
 import React, {Fragment, useCallback, useState} from 'react';
-import block from 'bem-cn-lite';
+import {block} from '../../../utils';
 import Foldable from '../../Foldable/Foldable';
 import {ToggleArrow} from '@doc-tools/components';
 import {

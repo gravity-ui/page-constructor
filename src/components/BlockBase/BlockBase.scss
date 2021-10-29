@@ -1,9 +1,12 @@
+@import '../../../styles/variables.scss';
 @import '../../../styles/mixins.scss';
 @import '../../styles/variables.scss';
 @import '../../grid/styles/variables.scss';
 @import '../../styles/mixins.scss';
 
-.block-base {
+$block: '.#{$ns}block-base';
+
+#{$block} {
     $root: &;
     --anchor-offset: #{$indentL};
 

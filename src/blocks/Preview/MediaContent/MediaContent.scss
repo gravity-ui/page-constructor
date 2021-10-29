@@ -3,7 +3,9 @@
 @import '../../../styles/variables.scss';
 @import '../../../grid/styles/variables.scss';
 
-.preview-media-content-block {
+$block: '.#{$ns}preview-media-content-block';
+
+#{$block} {
     &__header {
         margin-bottom: $indentSM;
     }

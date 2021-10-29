@@ -1,5 +1,5 @@
 import React from 'react';
-import block from 'bem-cn-lite';
+import {block} from '../../utils';
 
 import {ContainerProps as ContainerParams} from '../../models';
 import {Grid} from '../../components';

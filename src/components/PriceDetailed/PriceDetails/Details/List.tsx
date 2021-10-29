@@ -1,8 +1,8 @@
 import React, {Fragment} from 'react';
-import block from 'bem-cn-lite';
+import {block} from '../../../../utils';
 import {PriceDetailsListProps, TextSize} from '../../../../models';
 
-// import checkLogoListMark from '../../../assets/images/check-logo-list-mark.svg';
+import checkLogoListMark from '../../../../../assets/images/check-logo-list-mark.svg';
 
 import './List.scss';
 
@@ -20,7 +20,7 @@ const List: React.FunctionComponent<ListProps> = (props) => {
         <Fragment>
             {items.map((item, id) => (
                 <div key={id} className={b('list-item')}>
-                    {/* <img className={b('img')} src={checkLogoListMark} /> */}
+                    <img className={b('img')} src={checkLogoListMark} />
                     <div className={b('text', {size: titleSize})}>{item.text}</div>
                 </div>
             ))}

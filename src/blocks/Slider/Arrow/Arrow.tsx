@@ -1,5 +1,5 @@
 import React from 'react';
-import block from 'bem-cn-lite';
+import {block} from '../../../utils';
 import {ClassNameProps} from '@yandex-data-ui/cloud-components';
 
 import ToggleArrow from '../../../components/ToggleArrow/ToggleArrow';
