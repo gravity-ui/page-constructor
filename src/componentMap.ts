@@ -57,7 +57,6 @@ const components = {
     [BlockType.Image]: ImageBlock,
     [BlockType.Scrollable]: Scrollable,
     [BlockType.Tiles]: Tiles,
-    [BlockType.Event]: Event,
     [BlockType.TutorialCard]: TutorialCard,
     [BlockType.Partner]: Partner,
     [BlockType.PriceDetailed]: PriceDetailed,

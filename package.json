@@ -9,7 +9,6 @@
     "url": "git@github.yandex-team.ru:data-ui/page-constructor.git"
   },
   "files": [
-    "assets",
     "build",
     "styles"
   ],
@@ -117,6 +116,8 @@
     }
   },
   "ui-core": {
+    "images": ["assets/images"],
+    "icons": ["assets/icons"],
     "lib": {
       "internalDirs": [
         "stories",
