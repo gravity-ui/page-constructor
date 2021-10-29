@@ -6,7 +6,7 @@ import {ClassNameProps} from '@yandex-data-ui/cloud-components';
 
 import {LinkProps} from '../../models';
 // import chevron from 'assets/icons/navigation-chevron.svg';
-import chevron from '../../../assests/icons/navigation-chevron.svg';
+import chevron from '../../../assets/icons/navigation-chevron.svg';
 import FileLink from '../FileLink/FileLink';
 import BackLink from '../BackLink/BackLink';
 import {getLinkProps, setUrlTld} from '../../utils';

@@ -2,7 +2,7 @@ import React from 'react';
 import block from 'bem-cn-lite';
 import {Icon} from '@yandex-data-ui/common';
 
-import arrow from '../../../assests/icons/arrow-constructor.svg';
+import arrow from '../../../assets/icons/arrow-constructor.svg';
 
 import './Arrow.scss';
 

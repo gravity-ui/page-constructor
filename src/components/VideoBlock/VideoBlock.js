@@ -4,7 +4,7 @@ import block from 'bem-cn-lite';
 import _ from 'lodash';
 import {Icon} from '@yandex-data-ui/common';
 import {getPageSearchParams} from 'utils';
-import playIcon from '../../../assests/icons/play-video.svg';
+import playIcon from '../../../assets/icons/play-video.svg';
 
 import './VideoBlock.scss';
 
