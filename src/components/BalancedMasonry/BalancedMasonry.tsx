@@ -42,7 +42,7 @@ const BalancedMasonry: React.FC<BalancedMasonryProps> = (props) => {
         }
 
         return result;
-    }, [breakpointCols]);
+    }, [breakpointCols, isServer]);
 
     const [columnCount, setColumnCount] = useState(getCurrentColumnsCount());
     const [columns, setColumns] = useState<React.ReactNode[][]>([]);

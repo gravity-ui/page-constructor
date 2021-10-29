@@ -1,2 +1,8 @@
+# System
+.idea
+.vscode
+.history
+
+# Build
 build/
 storybook-static/

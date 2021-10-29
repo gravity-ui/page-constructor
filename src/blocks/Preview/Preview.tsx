@@ -101,10 +101,10 @@ const PreviewBlock: React.FC<PreviewBlockProps> = (props) => {
                 current: menuRef.current,
                 nextSlide,
                 currentSlide: activeSlide,
-                timerId: (timerId as unknown) as number,
+                timerId: timerId as unknown as number,
             });
         }, SWITCHING_INTERVAL);
-        setAutoSwitchTimerId((timerId as unknown) as number);
+        setAutoSwitchTimerId(timerId as unknown as number);
 
         return () => clearTimeout(timerId);
     }, [changeActiveSlide, activeSlide, items.length, stopSwitching, inViewport]);

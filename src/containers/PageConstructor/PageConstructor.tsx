@@ -45,10 +45,8 @@ export class PageConstructor extends React.Component<PageConstructorProps> {
     fullHeaderBlockTypes = [...HeaderBlockTypes, ...getCustomHeaderTypes(this.props.custom)];
 
     render() {
-        const {
-            content: {blocks = [], background = {}, footnotes = []} = {},
-            renderMenu,
-        } = this.props;
+        const {content: {blocks = [], background = {}, footnotes = []} = {}, renderMenu} =
+            this.props;
 
         const hasFootnotes = footnotes.length > 0;
         const header = blocks?.find(this.isHeaderBlock);
