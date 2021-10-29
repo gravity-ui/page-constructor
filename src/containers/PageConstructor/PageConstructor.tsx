@@ -11,11 +11,9 @@ import {
     CustomConfig,
     BlockType,
     LoadableConfigItem,
-    SSRConfig,
     PageContent,
 } from '../../models';
 import componentMap from '../../componentMap';
-import {AnimateContext} from '../../context/animateContext';
 import Loadable from '../Loadable/Loadable';
 import {Col, Grid, Row} from '../../grid';
 import BlockBase from '../../components/BlockBase/BlockBase';
@@ -27,12 +25,6 @@ import {
     getCustomComponents,
     getCustomHeaderTypes,
 } from '../../utils';
-import {SSRContext} from '../../context/ssrContext';
-import {MetrikaContext} from '../../context/metrikaContext';
-import {MobileContext} from '../../context/mobileContext';
-import {LocationContext, LocationContextProps} from '../../context/locationContext';
-import {LocaleContext, LocaleContextProps} from '../../context/localeContext';
-
 import '../../styles/yfm.scss';
 
 import './PageConstructor.scss';
@@ -44,29 +36,18 @@ export interface PageConstructorProps {
     shouldRenderBlock?: ShouldRenderBlock;
     //TODO manage with external block types CLOUDFRONT-8475
     custom?: CustomConfig;
-    ssrConfig?: SSRConfig;
-    isMobile?: boolean;
     renderMenu?: () => React.ReactNode;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    metrika?: any;
-    location?: LocationContextProps;
-    locale?: LocaleContextProps;
 }
 
-export default class PageConstructor extends React.Component<PageConstructorProps> {
+export class PageConstructor extends React.Component<PageConstructorProps> {
     fullComponentsMap = {...componentMap, ...getCustomComponents(this.props.custom)};
     fullBlockV2Types = [...BlockV2Types, ...getCustomBlockTypes(this.props.custom)];
     fullHeaderBlockTypes = [...HeaderBlockTypes, ...getCustomHeaderTypes(this.props.custom)];
 
     render() {
         const {
-            content: {blocks = [], background = {}, animated = true, footnotes = []} = {},
+            content: {blocks = [], background = {}, footnotes = []} = {},
             renderMenu,
-            isMobile,
-            ssrConfig,
-            metrika,
-            location = {},
-            locale = {},
         } = this.props;
 
         const hasFootnotes = footnotes.length > 0;
@@ -76,30 +57,13 @@ export default class PageConstructor extends React.Component<PageConstructorProp
         return (
             <div className={b({'has-footnotes': hasFootnotes})}>
                 <div className={b('wrapper')}>
-                    <LocaleContext.Provider value={locale}>
-                        <LocationContext.Provider value={location}>
-                            <MobileContext.Provider value={Boolean(isMobile)}>
-                                <MetrikaContext.Provider value={{metrika}}>
-                                    <SSRContext.Provider value={{isServer: ssrConfig?.isServer}}>
-                                        <AnimateContext.Provider value={{animated}}>
-                                            <BackgroundMedia
-                                                {...background}
-                                                className={b('background')}
-                                            />
-                                            {renderMenu && renderMenu()}
-                                            {header && this.renderHeader(header)}
-                                            <Grid className={b('grid')}>
-                                                {restBlocks &&
-                                                    this.renderRow(this.renderBlocks(restBlocks))}
-                                                {hasFootnotes &&
-                                                    this.renderRow(this.renderFootnotes(footnotes))}
-                                            </Grid>
-                                        </AnimateContext.Provider>
-                                    </SSRContext.Provider>
-                                </MetrikaContext.Provider>
-                            </MobileContext.Provider>
-                        </LocationContext.Provider>
-                    </LocaleContext.Provider>
+                    <BackgroundMedia {...background} className={b('background')} />
+                    {renderMenu && renderMenu()}
+                    {header && this.renderHeader(header)}
+                    <Grid className={b('grid')}>
+                        {restBlocks && this.renderRow(this.renderBlocks(restBlocks))}
+                        {hasFootnotes && this.renderRow(this.renderFootnotes(footnotes))}
+                    </Grid>
                 </div>
             </div>
         );
