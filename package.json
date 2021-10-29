@@ -10,7 +10,8 @@
   },
   "files": [
     "build",
-    "styles"
+    "styles",
+    "assets"
   ],
   "sideEffects": [
     "*.css",
