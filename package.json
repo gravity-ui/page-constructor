@@ -1,6 +1,6 @@
 {
   "name": "@yandex-data-ui/page-constructor",
-  "version": "0.0.1-alpha-1",
+  "version": "0.0.1-alpha-2",
   "description": "Cloud Page Constructor",
   "author": "DataUI Team <data-ui@yandex-team.ru>",
   "license": "UNLICENSED",
@@ -41,7 +41,6 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@doc-tools/components": "^1.11.0",
     "bem-cn-lite": "^4.0.0",
     "hoist-non-react-statics": "^3.3.2",
     "lodash": "^4.17.21",
@@ -55,10 +54,12 @@
   "peerDependencies": {
     "@yandex-data-ui/common": "^8.0.0",
     "@yandex-data-ui/i18n": "^0.13.0",
+    "@doc-tools/components": "^1.0.0",
     "react": "^16.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.15.8",
+    "@doc-tools/components": "^1.11.0",
     "@doc-tools/transform": "^2.1.1",
     "@storybook/addon-actions": "^6.3.12",
     "@storybook/addon-essentials": "^6.3.12",

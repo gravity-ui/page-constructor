@@ -38,11 +38,5 @@ $controlSize: 64px;
         background-repeat: no-repeat;
         background-size: contain;
         margin: auto;
-
-        background-image: url('../../../assets/images/unmute.svg');
-
-        &_muted {
-            background-image: url('../../../assets/images/mute.svg');
-        }
     }
 }
