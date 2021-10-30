@@ -25,7 +25,7 @@ import {
     getCustomComponents,
     getCustomHeaderTypes,
 } from '../../utils';
-import '../../styles/yfm.scss';
+import '../../../styles/yfm.scss';
 
 import './PageConstructor.scss';
 
