@@ -1,13 +1,15 @@
 import {i18n, I18N} from '../../../i18n';
 
-const COMPONENT = 'Text';
+const COMPONENT = 'Loadable';
 
 i18n.registerKeyset(I18N.LANGS.en, COMPONENT, {
-    constructor_read_all: 'Read more',
+    'loadable-load-error': '"Error occured',
+    'loadable-try-again': '"Try again',
 });
 
 i18n.registerKeyset(I18N.LANGS.ru, COMPONENT, {
-    constructor_read_all: 'Читать полностью',
+    'loadable-load-error': 'Произошла ошибка',
+    'loadable-try-again': 'Повторить',
 });
 
 export default i18n.keyset(COMPONENT);
