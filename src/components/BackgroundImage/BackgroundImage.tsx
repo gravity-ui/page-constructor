@@ -1,6 +1,6 @@
 import React, {CSSProperties} from 'react';
-import {block} from '../../utils';
 
+import {block} from '../../utils';
 import Image from '../Image/Image';
 
 import './BackgroundImage.scss';

@@ -1,7 +1,8 @@
 import React from 'react';
-import {block} from '../../utils';
 import {Button} from '@yandex-data-ui/common';
 import {ClassNameProps} from '@yandex-data-ui/cloud-components';
+
+import {block} from '../../utils';
 
 import './ErrorWrapper.scss';
 

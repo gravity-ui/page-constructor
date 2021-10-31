@@ -1,9 +1,10 @@
 import React, {useEffect, useState, useCallback, useRef, ReactNode, useContext} from 'react';
 import _ from 'lodash';
+
 import {block} from '../../utils';
+import {SSRContext} from '../../context/ssrContext';
 
 import './BalancedMasonry.scss';
-import {SSRContext} from '../../context/ssrContext';
 
 const b = block('BalancedMasonry');
 

@@ -1,6 +1,6 @@
-import {block} from '../../../utils';
 import React, {useCallback, useContext, useEffect, useMemo} from 'react';
 
+import {block} from '../../../utils';
 import {
     PriceDescriptionColor,
     PriceDescriptionProps,

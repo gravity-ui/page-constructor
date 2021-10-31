@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import React, {Fragment, useCallback, useEffect, useState} from 'react';
-import {block} from '../../../utils';
 
+import {block} from '../../../utils';
 import CardBase from '../../CardBase/CardBase';
 import {
     CardBorder,

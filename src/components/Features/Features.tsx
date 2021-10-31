@@ -1,6 +1,6 @@
 import React from 'react';
-import {block} from '../../utils';
 
+import {block} from '../../utils';
 import {FeaturesProps} from '../../models';
 import {Row, Col} from '../../grid';
 import YFMWrapper from '../YFMWrapper/YFMWrapper';

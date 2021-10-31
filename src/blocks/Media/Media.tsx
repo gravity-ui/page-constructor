@@ -1,6 +1,6 @@
 import React, {useMemo, useState} from 'react';
-import {block} from '../../utils';
 
+import {block} from '../../utils';
 import {Grid, Row, Col, GridColumnSize} from '../../grid';
 import {MediaBlockProps} from '../../models';
 import Media from '../../components/Media/Media';

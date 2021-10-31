@@ -1,6 +1,6 @@
 import React from 'react';
-import {block} from '../../utils';
 
+import {block} from '../../utils';
 import {ScrollableProps as ScrollableParams} from '../../models';
 
 import './Scrollable.scss';

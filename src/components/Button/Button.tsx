@@ -1,13 +1,12 @@
 import React, {useCallback, useContext} from 'react';
-import {block, setUrlTld} from '../../utils';
 import {Platform, StoreBadge, Button as CommonButton, Icon} from '@yandex-data-ui/common';
+import githubIcon from '@yandex-data-ui/common/assets/icons/social/github.svg';
 
+import {block, setUrlTld} from '../../utils';
 import {ButtonProps as ButtonParams, isNewMetrikaFormat} from '../../models';
 import {OldButtonSize, OldButtonTheme, toCommonSize, toCommonView} from './utils';
 import {MetrikaContext} from '../../context/metrikaContext';
 import {LocaleContext} from '../../context/localeContext/localeContext';
-
-import githubIcon from '@yandex-data-ui/common/assets/icons/social/github.svg';
 
 import './Button.scss';
 

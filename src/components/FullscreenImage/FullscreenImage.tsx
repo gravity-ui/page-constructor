@@ -1,8 +1,10 @@
 import React, {useState, useCallback, CSSProperties} from 'react';
-import {block} from '../../utils';
 import {Icon, Modal} from '@yandex-data-ui/common';
-import closeIcon from '@yandex-data-ui/common/assets/icons/preview-close.svg';
+
+import {block} from '../../utils';
 import Image from '../Image/Image';
+
+import closeIcon from '@yandex-data-ui/common/assets/icons/preview-close.svg';
 
 import './FullScreenImage.scss';
 

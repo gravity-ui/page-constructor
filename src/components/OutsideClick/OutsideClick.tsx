@@ -1,5 +1,4 @@
 //TODO move into cloud components?
-
 import React, {createRef} from 'react';
 
 export interface OutsideClickProps {

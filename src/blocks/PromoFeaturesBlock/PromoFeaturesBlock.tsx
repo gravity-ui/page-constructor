@@ -1,8 +1,8 @@
 import React from 'react';
+
 import {block} from '../../utils';
 import {BREAKPOINTS} from '../../constants';
 import YFMWrapper from '../../components/YFMWrapper/YFMWrapper';
-
 import {PromoFeaturesProps} from '../../models';
 import Media from '../../components/Media/Media';
 import BlockHeader from '../../components/BlockHeader/BlockHeader';

@@ -1,8 +1,7 @@
 import React from 'react';
-import {block} from '../../utils';
-
 import '@doc-tools/transform/dist/js/yfm';
 
+import {block} from '../../utils';
 import {TextProps as TextParams} from '../../models';
 import YFMWrapper from '../YFMWrapper/YFMWrapper';
 import i18n from './i18n';

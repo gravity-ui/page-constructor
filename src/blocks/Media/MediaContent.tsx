@@ -1,7 +1,7 @@
 import React from 'react';
-import {block} from '../../utils';
 import {HTML} from '@doc-tools/components';
 
+import {block} from '../../utils';
 import {ButtonProps, LinkProps} from '../../models';
 import {Button} from '../../components';
 import YFMWrapper from '../../components/YFMWrapper/YFMWrapper';

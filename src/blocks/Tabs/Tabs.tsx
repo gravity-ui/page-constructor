@@ -1,8 +1,8 @@
 import React, {Fragment, useState} from 'react';
-import {block} from '../../utils';
 import {Tabs} from '@yandex-data-ui/common';
 import {HTML} from '@doc-tools/components';
 
+import {block} from '../../utils';
 import {Row, Col, GridColumnOrderClasses} from '../../grid';
 import YFMWrapper from '../../components/YFMWrapper/YFMWrapper';
 import {ImageObjectProps, TabsBlockProps} from '../../models';

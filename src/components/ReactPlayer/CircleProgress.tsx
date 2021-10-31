@@ -1,6 +1,7 @@
-import {block} from '../../utils';
 import React, {useMemo} from 'react';
 import {ClassNameProps} from '@yandex-data-ui/cloud-components';
+
+import {block} from '../../utils';
 
 import './CircleProgress.scss';
 

@@ -1,6 +1,6 @@
 import React from 'react';
-import {block} from '../../utils';
 
+import {block} from '../../utils';
 import {SimpleBlockProps} from '../../models';
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
 import BlockHeader from '../../components/BlockHeader/BlockHeader';

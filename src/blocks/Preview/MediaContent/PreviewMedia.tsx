@@ -1,6 +1,6 @@
 import React from 'react';
-import {block} from '../../../utils';
 
+import {block} from '../../../utils';
 import Media from '../../../components/Media/Media';
 import {MediaProps, Modifiers} from '../../../models';
 

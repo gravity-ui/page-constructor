@@ -1,6 +1,7 @@
 import React from 'react';
-import {block} from '../../utils';
 import {Icon} from '@yandex-data-ui/common';
+
+import {block} from '../../utils';
 
 import arrow from '../../../assets/icons/arrow-constructor.svg';
 

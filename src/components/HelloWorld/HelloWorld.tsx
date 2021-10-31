@@ -1,6 +1,6 @@
 import React from 'react';
-import {block} from '../../utils';
 
+import {block} from '../../utils';
 import i18n from './i18n';
 
 import './HelloWorld.scss';

@@ -1,8 +1,8 @@
 import React from 'react';
-import {block} from '../../utils';
 import {HTML} from '@doc-tools/components';
 import {ClassNameProps} from '@yandex-data-ui/cloud-components';
 
+import {block} from '../../utils';
 import {TableProps, Justify, LegendTableMarkerType} from '../../models';
 import YFMWrapper from '../YFMWrapper/YFMWrapper';
 

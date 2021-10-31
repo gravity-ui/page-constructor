@@ -1,6 +1,6 @@
 import React, {useRef, useState, useCallback, useEffect} from 'react';
-import {block} from '../../utils';
 
+import {block} from '../../utils';
 import HeightCalculator from '../../components/HeightCalculator/HeightCalculator';
 
 import './Foldable.scss';

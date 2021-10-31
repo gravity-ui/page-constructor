@@ -1,6 +1,6 @@
 import React from 'react';
-import {block} from '../../utils';
 
+import {block} from '../../utils';
 import {Grid, Row, Col, GridColumnSize} from '../../grid';
 import {TableBlockProps} from '../../models';
 import {Table} from '../../components';

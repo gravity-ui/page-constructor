@@ -1,9 +1,10 @@
 import React, {useRef, useState, useCallback, useEffect} from 'react';
 import PropTypes from 'prop-types';
-import {block} from '../../utils';
 import _ from 'lodash';
 import {Icon} from '@yandex-data-ui/common';
-import {getPageSearchParams} from 'utils';
+
+import {block, getPageSearchParams} from '../../utils';
+
 import playIcon from '../../../assets/icons/play-video.svg';
 
 import './VideoBlock.scss';

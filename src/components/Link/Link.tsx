@@ -1,9 +1,8 @@
 import React, {useCallback, useContext} from 'react';
-import {block, getLinkProps, setUrlTld} from '../../utils';
-
 import {Icon} from '@yandex-data-ui/common';
 import {ClassNameProps} from '@yandex-data-ui/cloud-components';
 
+import {block, getLinkProps, setUrlTld} from '../../utils';
 import {LinkProps} from '../../models';
 import chevron from '../../../assets/icons/navigation-chevron.svg';
 import FileLink from '../FileLink/FileLink';

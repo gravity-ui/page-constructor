@@ -1,6 +1,6 @@
 import React from 'react';
-import {block} from '../../../utils';
 
+import {block} from '../../../utils';
 import YFMWrapper from '../../../components/YFMWrapper/YFMWrapper';
 import {Modifiers} from '../../../models';
 

@@ -1,6 +1,6 @@
 import React from 'react';
-import {block} from '../../utils';
 
+import {block} from '../../utils';
 import {Grid} from '../../grid';
 import {SectionProps as SectionParams} from '../../models';
 import Anchor from '../Anchor/Anchor';

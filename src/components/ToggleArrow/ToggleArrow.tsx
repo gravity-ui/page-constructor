@@ -1,8 +1,8 @@
 //MOVE to cloud-components
-
 import React from 'react';
-import {block} from '../../utils';
 import {Icon} from '@yandex-data-ui/common';
+
+import {block} from '../../utils';
 
 import chevron from '@yandex-data-ui/common/assets/icons/chevron.svg';
 import navigationChevron from '../../../assets/icons/navigation-chevron.svg';

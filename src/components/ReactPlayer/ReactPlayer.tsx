@@ -1,5 +1,4 @@
 import _ from 'lodash';
-import {block} from '../../utils';
 import ReactPlayer from 'react-player';
 import React, {
     useCallback,
@@ -13,6 +12,7 @@ import React, {
 import {Icon, MobileContext} from '@yandex-data-ui/common';
 import {ClassNameProps} from '@yandex-data-ui/cloud-components';
 
+import {block} from '../../utils';
 import {
     PlayButtonProps,
     PlayButtonThemes,

@@ -1,8 +1,8 @@
 //TODO move to cloud components
 import React from 'react';
-import {block} from '../../utils';
 import {ClassNameProps} from '@yandex-data-ui/cloud-components';
 
+import {block} from '../../utils';
 import './Anchor.scss';
 
 const b = block('Anchor');

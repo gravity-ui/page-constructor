@@ -1,7 +1,7 @@
 import React from 'react';
-import {block} from '../../utils';
 import {ClassNameProps} from '@yandex-data-ui/cloud-components';
 
+import {block} from '../../utils';
 import {BlockBaseProps} from '../../models';
 import Anchor from '../Anchor/Anchor';
 import {Col} from '../../grid';

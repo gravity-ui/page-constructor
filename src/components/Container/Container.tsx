@@ -1,6 +1,6 @@
 import React from 'react';
-import {block} from '../../utils';
 
+import {block} from '../../utils';
 import {ContainerProps as ContainerParams} from '../../models';
 import {Grid} from '../../components';
 

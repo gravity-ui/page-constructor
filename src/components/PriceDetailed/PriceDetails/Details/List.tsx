@@ -1,4 +1,5 @@
 import React, {Fragment} from 'react';
+
 import {block} from '../../../../utils';
 import {PriceDetailsListProps, TextSize} from '../../../../models';
 

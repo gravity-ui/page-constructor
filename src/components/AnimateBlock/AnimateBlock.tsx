@@ -1,7 +1,8 @@
 import React, {CSSProperties, useContext, useState} from 'react';
-import {block} from '../../utils';
 import {Waypoint} from 'react-waypoint';
+
 import {AnimateContext, AnimateContextProps} from '../../context/animateContext/AnimateContext';
+import {block} from '../../utils';
 
 const b = block('AnimateBlock');
 

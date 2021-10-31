@@ -1,8 +1,8 @@
 import _ from 'lodash';
-import {block} from '../../utils';
 import React, {ReactNode, useCallback, useEffect, useMemo, useRef, useState} from 'react';
 import {useSpring, animated, config, Interpolation} from 'react-spring';
 
+import {block} from '../../utils';
 import {MediaProps, PlayButtonProps, MediaVideoType} from '../../models';
 import {getVideoTypesWithPriority, unifyImageToObject} from './utils';
 import YoutubeBlock from '../VideoBlock/VideoBlock';

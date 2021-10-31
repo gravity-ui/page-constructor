@@ -1,6 +1,6 @@
 import React from 'react';
-import {block} from '../../utils';
 
+import {block} from '../../utils';
 import {InfoBlockProps} from '../../models';
 import FullWidthBackground from '../../components/FullWidthBackground/FullWidthBackground';
 import {Grid, Row, Col} from '../../grid';

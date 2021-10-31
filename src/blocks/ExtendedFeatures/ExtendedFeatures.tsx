@@ -1,7 +1,7 @@
 import React from 'react';
-import {block} from '../../utils';
 import {HTML} from '@doc-tools/components';
 
+import {block} from '../../utils';
 import {ExtendedFeaturesProps} from '../../models';
 import {Row, Col} from '../../grid';
 import Link from '../../components/Link/Link';

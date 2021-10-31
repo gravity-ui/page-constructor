@@ -1,7 +1,7 @@
 import React from 'react';
-import {block} from '../../utils';
 import {HTML} from '@doc-tools/components';
 
+import {block} from '../../utils';
 import {Modifiers, TilesProps} from '../../models';
 import {Row, GridColumnSize} from '../../grid';
 

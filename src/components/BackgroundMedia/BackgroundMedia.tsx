@@ -1,6 +1,6 @@
 import React from 'react';
-import {block} from '../../utils';
 
+import {block} from '../../utils';
 import {MediaProps, Animatable} from '../../models';
 import Media from '../Media/Media';
 import AnimateBlock from '../AnimateBlock/AnimateBlock';

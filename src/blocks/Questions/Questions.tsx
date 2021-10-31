@@ -1,7 +1,7 @@
 import React from 'react';
-import {block} from '../../utils';
 import {HTML} from '@doc-tools/components';
 
+import {block} from '../../utils';
 import {QuestionsProps} from '../../models';
 import Link from '../../components/Link/Link';
 

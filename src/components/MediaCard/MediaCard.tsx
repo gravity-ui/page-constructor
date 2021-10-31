@@ -1,6 +1,6 @@
 import React from 'react';
-import {block} from '../../utils';
 
+import {block} from '../../utils';
 import {MediaCardProps} from '../../models';
 import Media from '../Media/Media';
 import CardBase from '../CardBase/CardBase';

@@ -1,7 +1,7 @@
 import React from 'react';
-import {block} from '../../utils';
 import {HTML} from '@doc-tools/components';
 
+import {block} from '../../utils';
 import {HeaderProps as HeaderParams, HeaderWidth} from '../../models';
 import {Grid, Row, Col} from '../../grid';
 import BackgroundImage from '../BackgroundImage/BackgroundImage';

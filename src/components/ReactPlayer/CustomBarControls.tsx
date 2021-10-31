@@ -1,7 +1,7 @@
-import {block} from '../../utils';
 import React, {useCallback} from 'react';
 import {ClassNameProps} from '@yandex-data-ui/cloud-components';
 
+import {block} from '../../utils';
 import CircleProgress from './CircleProgress';
 
 import muteIcon from '../../../assets/images/mute.svg';

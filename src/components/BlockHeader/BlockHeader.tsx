@@ -1,7 +1,7 @@
 import React from 'react';
-import {block} from '../../utils';
 import {HTML} from '@doc-tools/components';
 
+import {block} from '../../utils';
 import {BlockHeader as BlockHeaderParams, TitleProps} from '../../models';
 import {Col} from '../../grid';
 import Title from '../Title/Title';

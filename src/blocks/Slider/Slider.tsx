@@ -1,9 +1,9 @@
 import React, {FC, useCallback, useContext, useEffect, useRef, useState} from 'react';
-import {block} from '../../utils';
 import SlickSlider, {Settings} from 'react-slick';
 import _ from 'lodash';
 import {ClassNameProps, Timeout} from '@yandex-data-ui/cloud-components';
 
+import {block} from '../../utils';
 import {Refable, SliderProps as SliderParams} from '../../models';
 import Arrow, {ArrowType} from './Arrow/Arrow';
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';

@@ -1,7 +1,7 @@
 import React from 'react';
-import {block} from '../../utils';
 import {HTML} from '@doc-tools/components';
 
+import {block} from '../../utils';
 import {BannerBlockProps} from '../../models';
 import Button from '../../components/Button/Button';
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';

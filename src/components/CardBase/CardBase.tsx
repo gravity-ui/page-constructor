@@ -1,6 +1,6 @@
 import React, {Children, ReactElement, Fragment, HTMLAttributeAnchorTarget} from 'react';
-import {block} from '../../utils';
 
+import {block} from '../../utils';
 import {CardBaseProps as CardBaseParams, ImageProps} from '../../models';
 import BackgroundImage from '../BackgroundImage/BackgroundImage';
 

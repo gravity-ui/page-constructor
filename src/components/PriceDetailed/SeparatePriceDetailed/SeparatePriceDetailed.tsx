@@ -1,6 +1,6 @@
-import {block} from '../../../utils';
 import React, {Fragment} from 'react';
 
+import {block} from '../../../utils';
 import CardBase from '../../CardBase/CardBase';
 import {
     CardBorder,

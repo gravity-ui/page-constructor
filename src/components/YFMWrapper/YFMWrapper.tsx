@@ -1,8 +1,9 @@
 import React from 'react';
-import {block} from '../../utils';
 import toSnakeCase from 'snakecase-keys';
 import {HTML} from '@doc-tools/components';
 import {ClassNameProps} from '@yandex-data-ui/cloud-components';
+
+import {block} from '../../utils';
 import {Modifiers} from '../../models';
 
 const yfm = block('yfm');

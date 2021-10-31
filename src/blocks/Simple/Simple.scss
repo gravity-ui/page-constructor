@@ -1,7 +1,7 @@
 @import '../../../styles/variables';
 @import '../../../styles/mixins';
 
-$block: '.#{$ns}.simple-block';
+$block: '.#{$ns}simple-block';
 
 #{$block} {
     $class: &;

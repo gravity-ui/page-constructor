@@ -1,6 +1,6 @@
 import React from 'react';
-import {block} from '../../utils';
 
+import {block} from '../../utils';
 import {LinkTableBlockProps} from '../../models';
 import {Row, Col, GridColumnSize} from '../../grid';
 import Link from '../../components/Link/Link';

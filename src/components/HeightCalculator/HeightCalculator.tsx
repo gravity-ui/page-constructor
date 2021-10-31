@@ -1,6 +1,7 @@
 import React, {Children} from 'react';
-import {block} from '../../utils';
 import _ from 'lodash';
+
+import {block} from '../../utils';
 
 import './HeightCalculator.scss';
 
