@@ -17,7 +17,7 @@ export {default as FileLink} from './FileLink/FileLink';
 export {default as Foldable} from './Foldable/Foldable';
 export {default as FullscreenImage} from './FullscreenImage/FullscreenImage';
 export {default as FullWidthBackground} from './FullWidthBackground/FullWidthBackground';
-export {default as Grid} from './Grid/Grid';
+export {default as GridBlock} from './Grid/Grid';
 export {default as Header} from './Header/Header';
 export {default as HeaderWithImage} from './HeaderWithImage/HeaderWithImage';
 export {default as HeightCalculator} from './HeightCalculator/HeightCalculator';

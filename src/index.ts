@@ -6,6 +6,6 @@ export * from './components/HelloWorld';
 
 export * from './containers/PageConstructor';
 export * from './grid';
-export * as Blocks from './blocks';
-export * as Components from './components';
-export * as Models from './models';
+export * from './blocks';
+export * from './components';
+export * from './models';

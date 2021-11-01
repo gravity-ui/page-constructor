@@ -2,7 +2,7 @@ import React from 'react';
 
 import {block} from '../../utils';
 import {ContainerProps as ContainerParams} from '../../models';
-import {Grid} from '../../components';
+import {GridBlock} from '../../components';
 
 import './Container.scss';
 
@@ -13,7 +13,7 @@ export interface ContainerProps extends Omit<ContainerParams, 'children'> {}
 const Section: React.FunctionComponent<ContainerProps> = ({children, justify, sticky}) =>
     children ? (
         <div className={b({sticky})}>
-            <Grid justify={justify}>{children}</Grid>
+            <GridBlock justify={justify}>{children}</GridBlock>
         </div>
     ) : null;
 

@@ -125,7 +125,7 @@ export interface AdaptiveProps {
     mobileOnly?: boolean;
 }
 
-export interface BlockHeader {
+export interface BlockHeaderProps {
     title?: TitleProps | string;
     description?: string;
 }
@@ -203,7 +203,7 @@ export interface TitleBaseProps {
     onClick?: () => void;
 }
 
-export interface Anchor {
+export interface AnchorProps {
     text: string;
     url: string;
 }
@@ -217,7 +217,7 @@ export interface ImageObjectProps {
 export type ImageProps = string | ImageObjectProps;
 
 export interface BlockBaseProps {
-    anchor?: Anchor;
+    anchor?: AnchorProps;
     visible?: GridColumnSize;
     resetPaddings?: boolean;
 }
@@ -424,9 +424,9 @@ export interface FeaturesProps {
 export interface ExtendedFeaturesItem {
     title?: string;
     text?: string;
-    link?: Link;
     label?: string;
     icon?: string;
+    link?: LinkProps;
 }
 
 export interface ExtendedFeaturesProps extends Animatable {
@@ -462,8 +462,8 @@ export interface TabsProps extends Childable {
 export interface QuestionItem {
     title: string;
     text: string;
-    link?: Link;
     listStyle?: 'dash' | 'disk';
+    link?: LinkProps;
 }
 
 export interface QuestionsProps {
@@ -618,7 +618,7 @@ export interface InfoBlockProps {
     theme?: Theme;
     backgroundColor?: string;
     title: string;
-    buttons?: Pick<Button, 'url' | 'text' | 'theme'>[];
+    buttons?: Pick<ButtonProps, 'url' | 'text' | 'theme'>[];
     sectionsTitle: string;
     links?: Pick<LinkProps, 'text' | 'url'>[];
 }
@@ -680,7 +680,7 @@ export interface TabsBlockItem {
     links?: LinkProps[];
 }
 
-export interface TabsBlockProps extends BlockHeader, Animatable {
+export interface TabsBlockProps extends BlockHeaderProps, Animatable {
     items: TabsBlockItem[];
 }
 
@@ -691,231 +691,231 @@ export interface TextTableBlockProps extends Animatable {
     button: ButtonProps;
 }
 
-export interface LinkTableBlockProps extends BlockHeader {
+export interface LinkTableBlockProps extends BlockHeaderProps {
     items: LinkProps[][];
     linkTheme?: LinkTheme;
 }
 
-export type Header = {
+export type HeaderModel = {
     type: BlockType.Header;
 } & HeaderProps;
 
-export type Button = {
+export type ButtonModel = {
     type: BlockType.Button;
 } & ButtonProps;
 
-export type Container = {
+export type ContainerModel = {
     type: BlockType.Container;
 } & ContainerProps;
 
-export type Section = {
+export type SectionModel = {
     type: BlockType.Section;
 } & SectionProps;
 
-export type Text = {
+export type TextModel = {
     type: BlockType.Text;
 } & TextProps;
 
-export type Title = {
+export type TitleModel = {
     type: BlockType.Title;
 } & TitleProps;
 
-export type Divider = {
+export type DividerModel = {
     type: BlockType.Divider;
 } & DividerProps;
 
-export type Features = {
+export type FeaturesModel = {
     type: BlockType.Features;
 } & FeaturesProps;
 
-export type Image = {
+export type ImageModel = {
     type: BlockType.Image;
 } & ImageBlockProps;
 
-export type Tabs = {
+export type TabsModel = {
     type: BlockType.Tabs;
 } & TabsProps;
 
-export type Share = {
+export type ShareModel = {
     type: BlockType.Share;
 } & ShareProps;
 
-export type Link = {
+export type LinkModel = {
     type: BlockType.Link;
 } & LinkProps;
 
-export type Table = {
+export type TableModel = {
     type: BlockType.Table;
 } & TableProps;
 
-export type Scrollable = {
+export type ScrollableModel = {
     type: BlockType.Table;
 } & ScrollableProps;
 
-export type Tiles = {
+export type TilesModel = {
     type: BlockType.Tiles;
 } & TilesProps;
 
-export type Form = {
+export type FormModel = {
     type: BlockType.Form;
 } & FormProps;
 
-export type Quotes = {
+export type QuotesModel = {
     type: BlockType.Quotes;
 } & QuotesProps;
 
-export type Card = {
+export type CardModel = {
     type: BlockType.Card;
 } & CardProps;
 
-export type Quote = {
+export type QuoteModel = {
     type: BlockType.Quote;
 } & QuoteProps;
 
-export type Event = {
+export type EventModel = {
     type: BlockType.Event;
 } & EventProps;
 
-export type Post = {
+export type PostModel = {
     type: BlockType.Post;
 } & PostProps;
 
-export type TutorialCard = {
+export type TutorialCardModel = {
     type: BlockType.TutorialCard;
 } & TutorialCardProps;
 
-export type Partner = {
+export type PartnerModel = {
     type: BlockType.Partner;
 } & PartnerProps;
 
-export type PriceDetailed = {
+export type PriceDetailedModel = {
     type: BlockType.PriceDetailed;
 } & PriceDetailedProps;
 
-export type ServiceCard = {
+export type ServiceCardModel = {
     type: BlockType.ServiceCard;
 } & ServiceCardProps;
 
-export type ServicePreviewCard = {
+export type ServicePreviewCardModel = {
     type: BlockType.ServicePreviewCard;
 } & ServicePreviewCardProps;
 
-export type MediaCard = {
+export type MediaCardModel = {
     type: BlockType.MediaCard;
 } & MediaCardProps;
 
-export type CalculatorBlock = {
+export type CalculatorBlockModel = {
     type: BlockType.CalculatorBlock;
 } & CalculatorProps;
 
-export type SliderBlock = {
+export type SliderBlockModel = {
     type: BlockType.SliderBlock;
 } & SliderProps;
 
-export type ServiceDemoBlock = {
+export type ServiceDemoBlockModel = {
     type: BlockType.ServiceDemoBlock;
 } & ServiceDemoProps;
 
-export type ExtendedFeaturesBlock = {
+export type ExtendedFeaturesBlockModel = {
     type: BlockType.ExtendedFeaturesBlock;
 } & ExtendedFeaturesProps;
 
-export type PromoFeaturesBlock = {
+export type PromoFeaturesBlockModel = {
     type: BlockType.PromoFeaturesBlock;
 } & ExtendedFeaturesProps;
 
-export type QuestionsBlock = {
+export type QuestionsBlockModel = {
     type: BlockType.QuestionsBlock;
 } & QuestionsProps;
 
-export type BannerBlock = {
+export type BannerBlockModel = {
     type: BlockType.BannerBlock;
 } & BannerBlockProps;
 
-export type CompaniesBlock = {
+export type CompaniesBlockModel = {
     type: BlockType.BannerBlock;
 } & CompaniesBlockProps;
 
-export type MediaBlock = {
+export type MediaBlockModel = {
     type: BlockType.MediaBlock;
 } & MediaBlockProps;
 
-export type PreviewBlock = {
+export type PreviewBlockModel = {
     type: BlockType.PreviewBlock;
 } & PreviewBlockProps;
 
-export type InfoBlock = {
+export type InfoBlockModel = {
     type: BlockType.InfoBlock;
 } & InfoBlockProps;
 
-export type SecurityBlock = {
+export type SecurityBlockModel = {
     type: BlockType.SecurityBlock;
 } & SecurityBlockProps;
 
-export type TableBlock = {
+export type TableBlockModel = {
     type: BlockType.TableBlock;
 } & TableBlockProps;
 
-export type TabsBlock = {
+export type TabsBlockModel = {
     type: BlockType.TabsBlock;
 } & TabsBlockProps;
 
-export type TextTableBlock = {
+export type TextTableBlockModel = {
     type: BlockType.TextTableBlock;
 } & TextTableBlockProps;
 
-export type SimpleBlock = {
+export type SimpleBlockModel = {
     type: BlockType.SimpleBlock;
 } & SimpleBlockProps;
 
-export type LinkTableBlock = {
+export type LinkTableBlockModel = {
     type: BlockType.LinkTableBlock;
 } & LinkTableBlockProps;
 
 export type BlockV1Raw =
-    | Header
-    | Button
-    | Container
-    | Section
-    | Text
-    | Title
-    | Divider
-    | Features
-    | Image
-    | Tabs
-    | Share
-    | Link
-    | Scrollable
-    | Table
-    | Tiles
-    | Form
-    | Quotes
-    | Card
-    | Quote
-    | Event
-    | Post
-    | Partner
-    | PriceDetailed
-    | ServiceCard
-    | MediaCard;
+    | HeaderModel
+    | ButtonModel
+    | ContainerModel
+    | SectionModel
+    | TextModel
+    | TitleModel
+    | DividerModel
+    | FeaturesModel
+    | ImageModel
+    | TabsModel
+    | ShareModel
+    | LinkModel
+    | ScrollableModel
+    | TableModel
+    | TilesModel
+    | FormModel
+    | QuotesModel
+    | CardModel
+    | QuoteModel
+    | EventModel
+    | PostModel
+    | PartnerModel
+    | PriceDetailedModel
+    | ServiceCardModel
+    | MediaCardModel;
 
 type BlockV2Raw =
-    | SliderBlock
-    | ServiceDemoBlock
-    | ExtendedFeaturesBlock
-    | PromoFeaturesBlock
-    | QuestionsBlock
-    | CalculatorBlock
-    | BannerBlock
-    | CompaniesBlock
-    | MediaBlock
-    | InfoBlock
-    | SecurityBlock
-    | TableBlock
-    | TabsBlock
-    | TextTableBlock
-    | SimpleBlock
-    | LinkTableBlock;
+    | SliderBlockModel
+    | ServiceDemoBlockModel
+    | ExtendedFeaturesBlockModel
+    | PromoFeaturesBlockModel
+    | QuestionsBlockModel
+    | CalculatorBlockModel
+    | BannerBlockModel
+    | CompaniesBlockModel
+    | MediaBlockModel
+    | InfoBlockModel
+    | SecurityBlockModel
+    | TableBlockModel
+    | TabsBlockModel
+    | TextTableBlockModel
+    | SimpleBlockModel
+    | LinkTableBlockModel;
 
 export type BlockV1 = BlockV1Raw & AdaptiveProps;
 export type BlockV2 = BlockV2Raw & BlockBaseProps & AdaptiveProps;
