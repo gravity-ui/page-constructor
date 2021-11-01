@@ -43,12 +43,15 @@
   "dependencies": {
     "bem-cn-lite": "^4.0.0",
     "lodash": "^4.17.21",
+    "mini-css-extract-plugin": "^2.4.3",
     "react-player": "^2.9.0",
     "react-slick": "^0.28.1",
     "react-spring": "^9.3.0",
     "react-transition-group": "^4.4.2",
     "react-waypoint": "^10.1.0",
-    "snakecase-keys": "^5.1.0"
+    "sass-loader": "^10.2.0",
+    "snakecase-keys": "^5.1.0",
+    "style-loader": "^2.0.0"
   },
   "peerDependencies": {
     "@yandex-data-ui/common": "^8.0.0",
