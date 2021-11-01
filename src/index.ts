@@ -5,7 +5,7 @@ export * from './context/commonContext';
 export * from './components/HelloWorld';
 
 export * from './containers/PageConstructor';
-export * as Grid from './grid';
+export * from './grid';
 export * as Blocks from './blocks';
 export * as Components from './components';
 export * as Models from './models';

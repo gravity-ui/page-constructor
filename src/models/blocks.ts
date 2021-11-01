@@ -189,7 +189,6 @@ export interface MediaProps extends Animatable {
 
 export interface LoadableProps {
     source: string;
-    minCount?: number;
 }
 
 export interface LoadableChildren {

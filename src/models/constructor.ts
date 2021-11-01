@@ -36,7 +36,6 @@ export interface LoadableConfigItem {
     //TODO: remove any after removing withTranslation hoc in package
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     component: React.ComponentType<any>;
-    minCount?: number;
 }
 
 export type LoadableConfig = Record<string, LoadableConfigItem>;
@@ -45,9 +44,4 @@ export interface CustomConfig {
     blocks?: CustomBlock;
     headers?: CustomBlock;
     loadable?: LoadableConfig;
-    renderMenu?: () => React.ReactNode;
-}
-
-export interface SSRConfig {
-    isServer?: boolean;
 }
