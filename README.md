@@ -1,7 +1,6 @@
 # Page Constructor &middot; [![build status](<https://teamcity.yandex-team.ru/app/rest/builds/buildType:(DataUI_Instruments_Common_BuildAndDeploy)/statusIcon.svg>)](https://teamcity.yandex-team.ru/viewType.html?buildTypeId=DataUI_Instruments_Common_BuildAndDeploy) [![npm version](https://badger.yandex-team.ru/npm/@yandex-data-ui/page-constructor/version.svg)](https://npm.yandex-team.ru/@yandex-data-ui/page-constructor) [![dependencies health](https://badger.yandex-team.ru/oko/repo/data-ui/page-constructor/health.svg)](https://oko.yandex-team.ru/repo/data-ui/common) [![distribution health](https://badger.yandex-team.ru/oko/pkg/@yandex-data-ui/common/health.svg)](https://oko.yandex-team.ru/pkg/@yandex-data-ui/common) [![maintainer](https://badger.yandex-team.ru/custom/[Maintainer]/[vladvlad][f5a522]/badge.svg)](https://staff.yandex-team.ru/vladvlad)
 
 [comment]: <> (//TODO: Поменять ссылыку на иконку)
-Конструктор страниц.
 
 ## Конструктор страниц
 
@@ -88,7 +87,7 @@ interface Metrika = {
 
 3. Передать созданный объект в параметр `custom.blocks` или `custom.headers` комопнента `PageConstructor` (в `custom.headers` указываются блоки заголовков, которые должны рисоваться отдельно над общим контентом)
 
-4. Теперь во вхожных данных (параметр `content`) можно использовать созданный блок, указав его тип и данные
+4. Теперь во входных данных (параметр `content`) можно использовать созданный блок, указав его тип и данные
 
 Для того, чтобы при создании собственных блоков использовать миксины и стилевые переменные конструктора нужно в своем файле стилей добавить импорт:
 
@@ -115,7 +114,7 @@ type FetchLoadableData<TData = any> = (blockKey: string) => Promise<TData>;
 
 Конструктор страниц использует сетку `bootstrap` и ее реализацию на основе реакт-компонентов, которую можно использовать в своем проекте (в том числе отдельно от конструтора).
 
-Пример использования
+Пример использования:
 
 ```jsx
 
@@ -132,7 +131,6 @@ const Page: React.FC<PageProps> = ({children}) => (
 );
 
 ```
-
 
 ### Блоки
 
