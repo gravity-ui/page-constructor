@@ -8,12 +8,13 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const srcRoot = path.resolve(root, 'src');
 const stylesRoot = path.resolve(root, 'styles');
 const assetsRoot = path.resolve(root, 'assets');
-const commonRoot = path.resolve(__dirname, '..', 'node_modules/@yandex-data-ui/common');
-const docToolsRoot = path.resolve(__dirname, '..', 'node_modules/@doc-tools');
+// const commonRoot = path.resolve(__dirname, '..', 'node_modules/@yandex-data-ui/common');
+// const docToolsRoot = path.resolve(__dirname, '..', 'node_modules/@doc-tools');
 
 const storybookRoot = path.resolve(root, '.storybook');
 
-const ruleIncludes = [srcRoot, stylesRoot, assetsRoot, storybookRoot, commonRoot, docToolsRoot];
+// const ruleIncludes = [srcRoot, stylesRoot, assetsRoot, storybookRoot, commonRoot, docToolsRoot];
+const ruleIncludes = [srcRoot, stylesRoot, assetsRoot, storybookRoot];
 
 const config = new ConfigBuilder();
 
@@ -27,11 +28,7 @@ config
             ruleIncludes,
         }),
     )
-    .apply(
-        styles({
-            ruleIncludes,
-        }),
-    )
+    .apply(styles({}))
     .apply(
         assets({
             ruleIncludes,
@@ -47,21 +44,21 @@ config
             spriteFilename: 'sprite-[hash:6].svg',
         },
     })
-    .module.addRule({
-        test: /\.s?css$/,
-        use: [
-            'style-loader',
-            'css-loader',
-            {
-                loader: 'sass-loader',
-                // options: {
-                //     sassOptions: {
-                //         indentedSyntax: true,
-                //     }
-                // }
-            },
-        ],
-    })
+    // .module.addRule({
+    //     test: /\.s?css$/,
+    //     use: [
+    //         'style-loader',
+    //         'css-loader',
+    //         {
+    //             loader: 'sass-loader',
+    //             // options: {
+    //             //     sassOptions: {
+    //             //         indentedSyntax: true,
+    //             //     }
+    //             // }
+    //         },
+    //     ],
+    // })
     .plugins.addPlugin(new SpriteLoaderPlugin({plainSprite: true}));
 
 const projectConfig = config.build();
