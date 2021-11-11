@@ -1,0 +1,10 @@
+@import '../../../styles/variables.scss';
+
+$block: '.#{$ns}text-table-block';
+
+#{$block} {
+    &__container {
+        margin-top: 24px;
+        overflow-x: auto;
+    }
+}

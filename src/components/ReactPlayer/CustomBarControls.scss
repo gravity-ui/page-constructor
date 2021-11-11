@@ -1,0 +1,42 @@
+@import '../../../styles/mixins';
+@import '../../../styles/variables';
+
+$block: '.#{$ns}CustomBarControls';
+$controlSize: 64px;
+
+#{$block} {
+    &__wrapper {
+        position: absolute;
+        bottom: 0;
+    }
+
+    &__button {
+        margin: 12px;
+        border-radius: 50%;
+        display: flex;
+        cursor: pointer;
+        position: relative;
+        width: $controlSize;
+        height: $controlSize;
+
+        background: var(--yc-color-base-background);
+        transition: background-color $animationDuration;
+
+        &:hover {
+            background: $videoPlayButtonGrey;
+        }
+    }
+
+    &__icon {
+        margin: auto;
+    }
+
+    &__mute-button {
+        width: inherit;
+        height: 22px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        margin: auto;
+    }
+}

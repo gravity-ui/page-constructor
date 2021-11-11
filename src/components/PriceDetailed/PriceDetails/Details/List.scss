@@ -1,0 +1,18 @@
+@import '../../../../../styles/variables.scss';
+
+$block: '.#{$ns}marked-list';
+
+#{$block} {
+    &__list-item {
+        display: flex;
+    }
+
+    &__text {
+        margin-left: 8px;
+    }
+
+    &__img {
+        margin-top: 5px;
+        height: fit-content;
+    }
+}

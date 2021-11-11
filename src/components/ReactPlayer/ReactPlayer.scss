@@ -1,0 +1,79 @@
+@import '../../../styles/mixins';
+@import '../../../styles/variables';
+
+$block: '.#{$ns}ReactPlayer';
+
+#{$block} {
+    &__wrapper {
+        position: relative;
+        // Player ratio: 100 / (1280 / 720)
+        padding-top: 56.25%;
+
+        #{$block}__player {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    }
+
+    &__button {
+        @include reset-button-style();
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        width: 64px;
+        height: 64px;
+
+        border-radius: 166px;
+
+        &_theme_blue {
+            color: var(--yc-color-base-background);
+            background-color: var(--yc-color-base-action);
+        }
+
+        &_theme_grey {
+            color: var(--www-text-header-color);
+            background-color: $videoPlayButtonGrey;
+        }
+
+        &_text {
+            padding: 16px 32px;
+            font-weight: 400;
+            font-size: 24px;
+            line-height: 32px;
+
+            width: auto;
+            height: auto;
+        }
+    }
+
+    &__icon {
+        margin-left: 6px;
+    }
+
+    &:hover {
+        & #{$block}__custom-bar-controls {
+            opacity: 1;
+            transition: opacity $animationDuration ease 0s;
+        }
+    }
+
+    &__custom-bar-controls {
+        opacity: 0;
+        transition: opacity $animationDuration ease 3s;
+    }
+
+    &__custom-bar-controls_muted {
+        opacity: 1;
+        transition: opacity 0s ease 0s;
+    }
+
+    @media only screen and (max-width: map-get($gridBreakpoints, 'sm')) {
+        &__button_text {
+            font-size: 20px;
+            line-height: 24px;
+        }
+    }
+}

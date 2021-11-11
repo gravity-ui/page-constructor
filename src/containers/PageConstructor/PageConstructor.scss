@@ -1,0 +1,52 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+$block: '.#{$ns}page-constructor';
+
+#{$block} {
+    $borderRadius: 12px;
+
+    margin-top: 0;
+    background-color: var(--yc-color-base-background);
+    z-index: 10;
+
+    &__wrapper {
+        position: relative;
+    }
+
+    &__background {
+        top: -$headerMenuHeight;
+    }
+
+    &__row {
+        &:last-child {
+            margin-bottom: -$indentXL;
+        }
+    }
+
+    &__block {
+        &_type_info-block {
+            // redefine grid column paddings
+            /* stylelint-disable-next-line declaration-no-important */
+            padding-bottom: 0 !important;
+        }
+    }
+
+    &__footnotes {
+        margin: 0;
+        padding: $indentM 0 $indentM $indentXS;
+
+        @include text-size(body);
+        color: var(--yc-color-text-hint);
+
+        &-item + &-item {
+            margin-top: $indentXXS;
+        }
+    }
+
+    &__menu-title {
+        color: var(--yc-color-text-primary);
+
+        font-weight: 500;
+    }
+}

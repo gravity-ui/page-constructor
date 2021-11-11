@@ -1,0 +1,62 @@
+@import '../../../styles/variables';
+
+$block: '.#{$ns}FullScreenImage';
+$closeButtonSize: 44px;
+
+#{$block} {
+    &__image {
+        cursor: pointer;
+    }
+
+    &__modal-content {
+        position: relative;
+    }
+
+    &__modal-image {
+        display: block;
+        max-width: $newContentWidth;
+        max-height: 70vh;
+
+        overflow: hidden;
+    }
+
+    &__modal .modal__content,
+    &__modal-image {
+        border-radius: 12px;
+    }
+
+    &__close-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        right: 0;
+        top: calc(-#{$closeButtonSize} - #{$indentXS});
+        width: $closeButtonSize;
+        height: $closeButtonSize;
+
+        border-radius: 50%;
+        background-color: var(--yc-color-base-background);
+        cursor: pointer;
+    }
+
+    &__icon {
+        color: var(--yc-color-text-hint);
+
+        &:hover {
+            color: var(--yc-color-text-secondary);
+        }
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'lg')) {
+        &__image {
+            pointer-events: none;
+        }
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'lg')) {
+        &__modal {
+            display: none !important; /* stylelint-disable-line declaration-no-important */
+        }
+    }
+}

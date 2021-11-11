@@ -1,0 +1,7 @@
+@import '../../../styles/variables.scss';
+
+$block: '.#{$ns}CircleProgress';
+
+#{$block} {
+    position: absolute;
+}

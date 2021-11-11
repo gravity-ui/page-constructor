@@ -1,85 +1,91 @@
-// переопределение стилей из '~@doc-tools/transform/dist/css/yfm.css'
+@import './mixins.scss';
+@import './variables.scss';
 
-.yc-root .yfm:not(.yfm_only-light) {
-    color: var(--yc-color-text-primary);
-
-    --yfm-color-hljs-background: var(--yc-color-base-background);
-    --yfm-color-hljs-subst: var(--yc-color-text-complementary);
-    --yfm-color-hljs-comment: var(--yc-color-text-secondary);
-    --yfm-color-hljs-deletion: var(--yc-color-text-danger);
-    --yfm-color-hljs-section: var(--yc-color-text-danger);
-
-    a {
-        color: var(--yc-color-text-link);
-
-        &:hover,
-        &:active {
-            color: var(--yc-color-text-link-hover);
-        }
-    }
-
-    img {
-        background-color: var(--yc-color-base-background);
-    }
-
-    $backgroundColors: (
-        yfm-accent-info: var(--yc-color-base-info),
-        yfm-accent-tip: var(--yc-color-base-positive),
-        yfm-accent-alert: var(--yc-color-base-danger),
-        yfm-accent-warning: var(--yc-color-base-warning),
-    );
-
-    @each $type, $color in $backgroundColors {
-        &.#{$type} {
-            background: $color;
-        }
-    }
-
-    code {
-        background: var(--yc-color-base-misc);
-        color: var(--yc-color-text-misc);
-    }
-
-    pre > code {
-        background: var(--yc-color-base-misc);
-        color: var(--yc-color-text-complementary);
-    }
-
-    table {
+.yfm_constructor {
+    p {
         color: var(--yc-color-text-primary);
-        border-color: var(--yc-color-line-generic);
-        background: var(--yc-color-base-background);
     }
 
-    table thead,
-    table tr:nth-child(2n) {
-        background: var(--yc-color-base-generic);
+    &_theme_dark p {
+        color: var(--yc-color-text-light-primary);
     }
 
-    hr {
-        background-color: var(--yc-color-base-background);
+    &_footnote_text p,
+    &_footnote_page p {
+        opacity: 0.5;
     }
 
-    blockquote {
-        border-left-color: var(--yc-color-line-info);
+    &_footnote_text p {
+        @include text-size(body2);
     }
 
-    .yfm-tab-list {
-        border-bottom-color: var(--yc-color-line-generic);
+    &_footnote_page p {
+        display: inline-flex;
+        @include text-size(body);
     }
 
-    .yfm-tab:hover,
-    .yfm-tab:active {
-        color: var(--yc-color-text-link-hover);
+    &_header_description p {
+        //TODO manage with text-size
+        @include text-size(body3);
+        color: var(--www-text-header-color);
     }
 
-    .yfm-tab.active {
-        border-bottom-color: var(--yc-color-line-selection-active);
+    &_list_style ul {
+        padding-left: $indentS;
+    }
+
+    &_list_style_dash ul {
+        list-style-type: none;
+        position: relative;
+
+        li:before {
+            content: '\2014';
+            position: absolute;
+            margin-left: -$indentS;
+        }
+    }
+
+    p {
+        margin: 0 0 $indentXXS;
+    }
+
+    p strong {
+        font-weight: 500;
     }
 }
 
-.yc-root_theme_dark .yfm {
-    .yfm-cut-title:before {
-        background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiAxNiI+PHBhdGggc3Ryb2tlPSJyZ2JhKDI1NSwgMjU1LCAyNTUsIDAuNykiIGZpbGw9Im5vbmUiIGQ9Ik0zIDZsNSA1IDUtNSI+PC9wYXRoPjwvc3ZnPg==');
+.yfm_constructor_table {
+    $firstColumnWidth: 172px;
+    $columnWidth: 120px;
+
+    table {
+        border: 0;
+        table-layout: fixed;
+    }
+
+    thead,
+    tr {
+        background-color: transparent !important; /* stylelint-disable-line declaration-no-important */
+    }
+
+    tbody tr {
+        border-top: 1px solid var(--yc-color-line-generic);
+    }
+
+    td,
+    th {
+        min-width: $columnWidth;
+        width: $columnWidth;
+        box-sizing: content-box;
+        white-space: inherit !important; /* stylelint-disable-line declaration-no-important */
+
+        &:first-child {
+            min-width: $firstColumnWidth;
+            width: $firstColumnWidth;
+        }
+    }
+
+    th {
+        text-align: left !important; /* stylelint-disable-line declaration-no-important */
     }
 }

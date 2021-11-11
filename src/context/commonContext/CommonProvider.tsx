@@ -1,6 +1,6 @@
 import React from 'react';
 import {ThemeProvider, ThemeProviderProps} from '../theme';
-import {MobileProvider, MobileProviderProps} from '../mobileContext';
+import {MobileProvider, MobileProviderProps} from '../mobileAppContext';
 
 export interface CommonProviderProps extends ThemeProviderProps, MobileProviderProps {}
 

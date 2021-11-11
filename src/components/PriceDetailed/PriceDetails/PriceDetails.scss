@@ -1,0 +1,59 @@
+@import '../../../../styles/variables.scss';
+@import '../../../../styles/mixins.scss';
+
+$block: '.#{$ns}price-details';
+
+$settingsIndentBetweenTitleAndDescriptionHeight: 2px;
+
+#{$block} {
+    @media (min-width: map-get($gridBreakpoints, 'lg')) {
+        &__non_foldable {
+            display: block;
+        }
+
+        &__foldable {
+            display: none;
+        }
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'lg') - 1) {
+        &__non_foldable {
+            display: none;
+        }
+
+        &__foldable {
+            display: block;
+        }
+    }
+
+    &__delimiter-line {
+        border-top: 1px solid var(--yc-color-line-generic);
+    }
+
+    &__arrow {
+        margin: auto 10px;
+    }
+
+    &__foldable_title {
+        cursor: pointer;
+        display: flex;
+        font-weight: 400;
+        @include text-size(body2);
+
+        &_color_cornflower {
+            color: var(--yc-color-text-info);
+        }
+
+        &_color_black {
+            color: var(--yc-color-text-primary);
+        }
+    }
+
+    &__foldable_block > * {
+        padding-top: $indentXXS;
+    }
+
+    & .settings-list__title {
+        margin-bottom: $settingsIndentBetweenTitleAndDescriptionHeight;
+    }
+}

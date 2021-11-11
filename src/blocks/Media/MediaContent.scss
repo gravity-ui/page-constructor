@@ -1,0 +1,38 @@
+@import '../../../styles/mixins';
+@import '../../../styles/variables';
+
+$block: '.#{$ns}media-content';
+
+#{$block} {
+    &__info {
+        margin-right: $indentM;
+
+        height: 100%;
+        align-items: baseline;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        &_center {
+            justify-content: center;
+        }
+    }
+
+    &__description {
+        @include text-size(body2);
+
+        margin-top: $indentXS;
+    }
+
+    &__button {
+        margin-top: $indentM;
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'md')) {
+        &__info {
+            margin-right: 0;
+            padding-bottom: $indentM;
+        }
+    }
+}

@@ -24,11 +24,7 @@ config
             ruleIncludes,
         }),
     )
-    .apply(
-        styles({
-            ruleIncludes,
-        }),
-    )
+    .apply(styles({}))
     .apply(
         assets({
             ruleIncludes,
@@ -76,6 +72,12 @@ module.exports = {
             test: /\.md$/,
             include: [root],
             use: [{loader: 'html-loader'}, {loader: 'markdown-loader'}],
+        });
+        storybookBaseConfig.module.rules.push({
+            test: /\.(ico|bmp|gif|jpe?g|png|svg)$/,
+            loader: 'url-loader',
+            include: [root],
+            exclude: [path.resolve(assetsRoot, 'icons')],
         });
 
         // без этого fileName в context.parameters в продакшн сборке становится цифрой, а не путём, и ссылку на сорсы не сформировать

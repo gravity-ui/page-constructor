@@ -1,0 +1,26 @@
+@import '../../../styles/mixins';
+@import '../../../styles/variables';
+
+$block: '.#{$ns}table-block';
+
+#{$block} {
+    $class: &;
+
+    &__title {
+        position: sticky;
+        margin-right: $indentM;
+
+        @include top-content-offset($offset: $indentM);
+    }
+
+    &__table {
+        margin-top: 0;
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'lg')) {
+        &__title {
+            margin-right: 0;
+            padding-bottom: $indentM;
+        }
+    }
+}

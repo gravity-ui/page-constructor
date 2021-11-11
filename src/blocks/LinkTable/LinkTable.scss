@@ -1,0 +1,9 @@
+@import '../../../styles/variables.scss';
+
+$block: '.#{$ns}LinkTable';
+
+#{$block} {
+    &__links {
+        padding-top: $indentXS;
+    }
+}

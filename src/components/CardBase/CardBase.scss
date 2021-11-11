@@ -1,0 +1,60 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins';
+
+$block: '.#{$ns}card-base-block';
+
+%flex-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#{$block} {
+    @include card();
+    @extend %flex-column;
+
+    $padding: $indentM;
+
+    display: flex;
+
+    &__header {
+        position: relative;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+
+    &__header-content {
+        padding: $padding;
+    }
+
+    &__body {
+        @include text-size(body2);
+        @extend %flex-column;
+
+        flex: 1;
+        padding: $padding;
+    }
+
+    &__header + &__body {
+        padding: 24px $padding $padding;
+    }
+
+    &__content {
+        flex: 1;
+    }
+
+    &__footer {
+        margin-top: 14px;
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'sm')) {
+        min-height: unset;
+    }
+}
+
+a.card-base-block {
+    @include reset-link-style();
+    @include reset-link-hover();
+    @include card($hover: true);
+}

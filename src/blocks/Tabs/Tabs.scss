@@ -1,0 +1,65 @@
+@import '../../../styles/mixins';
+@import '../../../styles/variables';
+
+$block: '.#{$ns}TabsBlock';
+
+#{$block} {
+    $class: &;
+
+    &__block-title {
+        margin-bottom: 12px;
+    }
+
+    &__tabs {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        margin-bottom: $indentM;
+    }
+
+    &__image {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    &__image,
+    &__media {
+        @include image-shadow();
+    }
+
+    &__caption {
+        display: inline-block;
+        margin-top: $indentXXS;
+
+        text-align: left;
+        @include text-size(body2);
+        color: var(--yc-color-text-secondary);
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__content-margin {
+        margin: $indentSM 0 0 $contentMargin;
+    }
+
+    &__content-title {
+        margin-bottom: $indentXXS;
+    }
+
+    &__tabs,
+    &__link {
+        @include text-size(body2);
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'md')) {
+        &__content-margin {
+            margin: 0 0 $contentMargin 0;
+        }
+    }
+
+    @include animate(#{$class}__media);
+    @include animate(#{$class}__image);
+}

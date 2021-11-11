@@ -1,0 +1,15 @@
+@import '../../../styles/variables.scss';
+
+$block: '.#{$ns}BalancedMasonry';
+
+#{$block} {
+    position: relative;
+
+    &__hidden-container {
+        position: absolute;
+        visibility: hidden;
+        overflow: hidden;
+        height: 100%;
+        z-index: -1;
+    }
+}

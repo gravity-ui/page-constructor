@@ -1,0 +1,76 @@
+@import '../../../styles/mixins';
+@import '../../../styles/variables';
+
+$block: '.#{$ns}SecurityBlock';
+
+#{$block} {
+    $class: &;
+
+    @include add-theme();
+
+    &_theme_light {
+        #{$class}__background {
+            background-color: var(--yc-color-base-background);
+        }
+
+        #{$class}__content {
+            padding: 0;
+        }
+
+        #{$class}__point-icon {
+            color: var(--yc-color-text-complementary);
+        }
+
+        #{$class}__point-text {
+            color: var(--yc-color-text-complementary);
+        }
+    }
+
+    &__background {
+        background-color: var(--yc-color-promo-base-asphalt);
+    }
+
+    &__content {
+        padding: $indentXXL 0 $indentXXXL;
+    }
+
+    &__points {
+        padding-top: $indentS;
+    }
+
+    &__point {
+        &-icon {
+            width: 48px;
+            height: 48px;
+        }
+
+        &-text {
+            color: var(--yc-color-text-light-primary);
+        }
+
+        &-text,
+        &-link {
+            @include text-size(body2);
+            margin-top: 8px;
+        }
+    }
+
+    &__media {
+        margin-top: $indentL;
+        border-radius: 12px;
+        overflow: hidden;
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'sm')) {
+        &__content {
+            padding: $indentXL 0;
+        }
+
+        &__point + &__point {
+            margin-top: $indentS;
+        }
+    }
+
+    @include animate-slides(#{$class}__point, 0s);
+    @include animate(#{$class}__media, 0.5s);
+}

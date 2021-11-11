@@ -1,0 +1,65 @@
+@import '../../../styles/variables.scss';
+
+$block: '.#{$ns}Grid';
+
+#{$block} {
+    $maxContentWidth: $newContentWidth;
+    $gutter: $gridGutter;
+    $gutterMobile: $gridGutterMobile;
+    $containerPaddingMobile: $gridGutterMobile;
+    $columns: 12;
+
+    .container-fluid,
+    .container {
+        max-width: calc(#{$maxContentWidth} + #{$gutter * 4});
+    }
+
+    .row {
+        margin-right: 0;
+        margin-left: 0;
+    }
+
+    .Grid {
+        .container-fluid,
+        .container {
+            padding: 0;
+        }
+    }
+
+    .row .row {
+        margin: 0 -#{$gutter};
+    }
+
+    &_debug {
+        .container,
+        .container-fluid,
+        [class*='col-'] {
+            box-sizing: border-box;
+            border: 1px solid var(--yc-color-line-generic);
+        }
+    }
+
+    @media only screen and (max-width: map-get($gridBreakpoints, 'sm')) {
+        .container,
+        .container-fluid {
+            padding: 0 $containerPaddingMobile;
+        }
+
+        .col,
+        .col-sm-auto,
+        .col-auto {
+            padding: 0 $gutterMobile;
+        }
+
+        @for $i from 0 through $columns {
+            .col-sm-#{$i},
+            .col-#{$i} {
+                padding: 0 $gutterMobile;
+            }
+        }
+
+        .row .row {
+            margin: 0 -#{$gutterMobile};
+        }
+    }
+}

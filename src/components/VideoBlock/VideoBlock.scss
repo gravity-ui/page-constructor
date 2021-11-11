@@ -1,0 +1,44 @@
+@import '../../../styles/mixins';
+@import '../../../styles/variables';
+
+$block: '.#{$ns}VideoBlock';
+
+#{$block} {
+    position: relative;
+
+    &__preview {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    &__image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    &__button {
+        @include reset-button-style();
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        width: 64px;
+        height: 64px;
+
+        color: var(--yc-color-base-background);
+        background-color: var(--yc-color-base-action);
+        border-radius: 50%;
+    }
+
+    &__icon {
+        margin-left: 6px;
+    }
+}

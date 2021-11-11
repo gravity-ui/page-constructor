@@ -1,0 +1,64 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins';
+
+$block: '.#{$ns}link-block';
+
+#{$block} {
+    $root: &;
+    margin-top: $indentXS;
+
+    &__link {
+        display: flex;
+        align-items: center;
+
+        &_theme_dark {
+            color: var(--yc-color-text-light-primary);
+
+            &:hover {
+                color: var(--yc-color-text-light-secondary);
+            }
+        }
+
+        &_has-arrow {
+            &:hover,
+            &:active {
+                --www-text-header-color: inherit;
+                color: var(--yc-color-text-link);
+            }
+        }
+
+        &:hover {
+            #{$root}__arrow {
+                margin-left: 7px;
+            }
+        }
+
+        &#{&}_has-arrow#{&}_theme_dark {
+            &:hover {
+                color: var(--yc-color-text-light-primary);
+            }
+        }
+    }
+
+    &__arrow {
+        position: relative;
+        margin-left: 2px;
+
+        transition: margin-left 0.3s $ease-out-cubic;
+        transform: rotate(-90deg);
+    }
+
+    &_size {
+        &_l {
+            @include text-size(body3);
+        }
+
+        &_m {
+            @include text-size(body2);
+        }
+
+        &_s {
+            @include text-size(body);
+        }
+    }
+}

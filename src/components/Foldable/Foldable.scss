@@ -1,0 +1,12 @@
+@import '../../../styles/mixins';
+@import '../../../styles/variables';
+
+$block: '.#{$ns}foldable-block';
+
+#{$block} {
+    &__content-container {
+        height: 0;
+        overflow-y: hidden;
+        transition: height $animationDuration, margin-bottom $animationDuration;
+    }
+}
