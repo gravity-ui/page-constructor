@@ -4,12 +4,11 @@ import {Icon} from '@yandex-data-ui/common';
 import {block} from '../../utils';
 
 import arrow from '../../../assets/icons/arrow-constructor.svg';
+import {ArrowDirection} from '../../models/components';
 
 import './Arrow.scss';
 
 const b = block('arrow-block');
-
-export type ArrowDirection = 'left' | 'right';
 
 export interface ArrowProps {
     direction?: ArrowDirection;

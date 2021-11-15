@@ -3,14 +3,14 @@ import React, {ReactNode, useCallback, useEffect, useMemo, useRef, useState} fro
 import {useSpring, animated, config, Interpolation} from 'react-spring';
 
 import {block} from '../../utils';
-import {MediaProps, PlayButtonProps, MediaVideoType} from '../../models';
+import {MediaProps, PlayButtonProps, MediaVideoType, SliderType} from '../../models';
 import {getVideoTypesWithPriority, unifyImageToObject} from './utils';
 import YoutubeBlock from '../VideoBlock/VideoBlock';
 import FullScreenImage from '../FullscreenImage/FullscreenImage';
 import Image from '../Image/Image';
 import BackgroundImage from '../BackgroundImage/BackgroundImage';
 import ReactPlayerBlock from '../ReactPlayer/ReactPlayer';
-import SliderBlock, {SliderType} from '../../blocks/Slider/Slider';
+import SliderBlock from '../../blocks/Slider/Slider';
 
 import './Media.scss';
 

@@ -5,7 +5,6 @@ import {EventPublic, ServicePublic} from '@yandex-data-ui/cloud-schemas/build/mo
 
 import {Lang, PixelEventType} from './common';
 import {GridColumnSize, GridColumnSizesType} from '../grid';
-import {SlidesToShow} from '../blocks/Slider/models';
 
 export enum BlockType {
     Header = 'header',
@@ -339,6 +338,19 @@ export interface PriceDetailedProps extends CardBaseProps {
 export type CardBorder = 'shadow' | 'line';
 
 export type ServiceDemoProps = Animatable;
+
+export enum SliderBreakpointNames {
+    Sm = 'sm',
+    Md = 'md',
+    Lg = 'lg',
+    Xl = 'xl',
+}
+export enum SliderType {
+    MediaCard = 'media-card',
+    HeaderCard = 'header-card',
+}
+export type SliderBreakpointParams = Record<SliderBreakpointNames, number>;
+export type SlidesToShow = Partial<SliderBreakpointParams> | number;
 
 export interface SliderProps extends Childable, Animatable, LoadableChildren {
     dots?: boolean;

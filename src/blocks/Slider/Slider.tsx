@@ -4,7 +4,7 @@ import _ from 'lodash';
 import {ClassNameProps, Timeout} from '@yandex-data-ui/cloud-components';
 
 import {block} from '../../utils';
-import {Refable, SliderProps as SliderParams} from '../../models';
+import {Refable, SliderProps as SliderParams, SliderType} from '../../models';
 import Arrow, {ArrowType} from './Arrow/Arrow';
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
 import Anchor from '../../components/Anchor/Anchor';
@@ -31,11 +31,6 @@ const slick = block('slick-origin');
 
 const DOT_WIDTH = 8;
 const DOT_GAP = 16;
-
-export enum SliderType {
-    MediaCard = 'media-card',
-    HeaderCard = 'header-card',
-}
 
 export interface SlickSliderFull extends SlickSlider {
     innerSlider?: {
