@@ -2,9 +2,9 @@ import React from 'react';
 import {Icon} from '@yandex-data-ui/common';
 
 import {block} from '../../utils';
+import {ArrowDirection} from '../../models/components';
 
 import arrow from '../../../assets/icons/arrow-constructor.svg';
-import {ArrowDirection} from '../../models/components';
 
 import './Arrow.scss';
 
