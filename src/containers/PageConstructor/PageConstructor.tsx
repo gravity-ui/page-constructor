@@ -21,7 +21,7 @@ import BackgroundMedia from '../../components/BackgroundMedia/BackgroundMedia';
 import YFMWrapper from '../../components/YFMWrapper/YFMWrapper';
 import {
     getBlockKey,
-    getCustomBlockTypes,
+    getCustomBlockV2Types,
     getCustomComponents,
     getCustomHeaderTypes,
 } from '../../utils';
@@ -41,7 +41,7 @@ export interface PageConstructorProps {
 
 export class PageConstructor extends React.Component<PageConstructorProps> {
     fullComponentsMap = {...componentMap, ...getCustomComponents(this.props.custom)};
-    fullBlockV2Types = [...BlockV2Types, ...getCustomBlockTypes(this.props.custom)];
+    fullBlockV2Types = [...BlockV2Types, ...getCustomBlockV2Types(this.props.custom)];
     fullHeaderBlockTypes = [...HeaderBlockTypes, ...getCustomHeaderTypes(this.props.custom)];
 
     render() {

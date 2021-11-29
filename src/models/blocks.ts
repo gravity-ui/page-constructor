@@ -5,6 +5,7 @@ import {EventPublic, ServicePublic} from '@yandex-data-ui/cloud-schemas/build/mo
 
 import {Lang, PixelEventType} from './common';
 import {GridColumnSize, GridColumnSizesType} from '../grid';
+import {isV2BlockType} from '../utils';
 
 export enum BlockType {
     Header = 'header',
@@ -59,7 +60,7 @@ export enum BlockType {
     LinkTableBlock = 'link-table-block',
 }
 
-export const BlockV2Types = Object.values(BlockType).filter((type) => type.includes('-block'));
+export const BlockV2Types = Object.values(BlockType).filter((type) => isV2BlockType(type));
 export const HeaderBlockTypes = [BlockType.Header];
 
 export enum PriceDetailsType {

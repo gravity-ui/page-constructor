@@ -18,7 +18,7 @@ export interface ArrowProps {
     onClick?: (direction: ArrowDirection) => void;
 }
 
-const Image: React.FunctionComponent<ArrowProps> = ({
+const Arrow: React.FunctionComponent<ArrowProps> = ({
     direction = 'left',
     width = 16,
     height = 40,
@@ -34,4 +34,4 @@ const Image: React.FunctionComponent<ArrowProps> = ({
     />
 );
 
-export default Image;
+export default Arrow;

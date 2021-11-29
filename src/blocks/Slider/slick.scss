@@ -1,4 +1,8 @@
-.slick-origin {
+@import '../../../styles/variables';
+
+$block: '.#{$ns}slick-origin';
+
+#{$block} {
     &.slick-slider {
         position: relative;
         display: block;
