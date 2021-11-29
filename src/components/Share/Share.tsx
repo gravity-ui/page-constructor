@@ -1,9 +1,8 @@
 import React, {useContext} from 'react';
-import block from 'bem-cn-lite';
+import {block, getAbsolutePath} from '../../utils';
 import {SocialShareLink} from '@yandex-data-ui/common';
 
 import {ShareProps} from '../../models';
-import {getAbsolutePath} from '../../utils';
 import {LocationContext} from '../../context/locationContext';
 import i18n from './i18n';
 

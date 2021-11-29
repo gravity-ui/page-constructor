@@ -10,11 +10,11 @@ const b = block('container-block');
 
 export interface ContainerProps extends Omit<ContainerParams, 'children'> {}
 
-const Section: React.FunctionComponent<ContainerProps> = ({children, justify, sticky}) =>
+const Container: React.FunctionComponent<ContainerProps> = ({children, justify, sticky}) =>
     children ? (
         <div className={b({sticky})}>
             <GridBlock justify={justify}>{children}</GridBlock>
         </div>
     ) : null;
 
-export default Section;
+export default Container;

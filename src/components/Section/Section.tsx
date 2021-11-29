@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {block} from '../../utils';
-import {Grid} from '../../grid';
+import {GridBlock} from '../../components';
 import {SectionProps as SectionParams} from '../../models';
 import Anchor from '../Anchor/Anchor';
 import FullWidthBackground from '../FullWidthBackground/FullWidthBackground';
@@ -17,6 +17,7 @@ const Section: React.FunctionComponent<SectionProps> = ({
     children,
     anchor,
     background,
+    justify,
     theme = 'light',
 }) => (
     <section className={b({theme, background: Boolean(background)})}>
@@ -31,7 +32,7 @@ const Section: React.FunctionComponent<SectionProps> = ({
                 )}
             </FullWidthBackground>
         )}
-        <Grid>{children}</Grid>
+        <GridBlock justify={justify}>{children}</GridBlock>
     </section>
 );
 

@@ -1,6 +1,10 @@
 //common
+
+:root {
+    --header-menu-height: 64px;
+}
+
 $ns: 'pc-';
-$headerMenuHeight: var(--header-menu-height, 64px);
 
 //indents
 $indentXXXS: 8px;
