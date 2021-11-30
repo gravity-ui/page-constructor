@@ -24,7 +24,7 @@
 @mixin anchor($offset: 0px) {
     display: block;
     position: relative;
-    top: calc(-#{$headerMenuHeight} - #{$offset});
+    top: calc(-1 * var(--header-menu-height) - #{$offset});
     visibility: hidden;
 }
 

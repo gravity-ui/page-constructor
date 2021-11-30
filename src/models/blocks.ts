@@ -5,7 +5,7 @@ import {EventPublic, ServicePublic} from '@yandex-data-ui/cloud-schemas/build/mo
 
 import {Lang, PixelEventType} from './common';
 import {GridColumnSize, GridColumnSizesType} from '../grid';
-import {SlidesToShow} from '../blocks/Slider/models';
+import {isV2BlockType} from '../utils';
 
 export enum BlockType {
     Header = 'header',
@@ -60,7 +60,7 @@ export enum BlockType {
     LinkTableBlock = 'link-table-block',
 }
 
-export const BlockV2Types = Object.values(BlockType).filter((type) => type.includes('-block'));
+export const BlockV2Types = Object.values(BlockType).filter((type) => isV2BlockType(type));
 export const HeaderBlockTypes = [BlockType.Header];
 
 export enum PriceDetailsType {
@@ -339,6 +339,19 @@ export interface PriceDetailedProps extends CardBaseProps {
 export type CardBorder = 'shadow' | 'line';
 
 export type ServiceDemoProps = Animatable;
+
+export enum SliderBreakpointNames {
+    Sm = 'sm',
+    Md = 'md',
+    Lg = 'lg',
+    Xl = 'xl',
+}
+export enum SliderType {
+    MediaCard = 'media-card',
+    HeaderCard = 'header-card',
+}
+export type SliderBreakpointParams = Record<SliderBreakpointNames, number>;
+export type SlidesToShow = Partial<SliderBreakpointParams> | number;
 
 export interface SliderProps extends Childable, Animatable, LoadableChildren {
     dots?: boolean;

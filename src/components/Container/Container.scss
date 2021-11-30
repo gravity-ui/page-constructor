@@ -5,6 +5,6 @@ $block: '.#{$ns}container-block';
 #{$block} {
     &_sticky {
         position: sticky;
-        top: $headerMenuHeight;
+        top: var(--header-menu-height);
     }
 }

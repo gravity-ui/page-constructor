@@ -2,14 +2,13 @@ import React from 'react';
 import {Icon} from '@yandex-data-ui/common';
 
 import {block} from '../../utils';
+import {ArrowDirection} from '../../models/components';
 
 import arrow from '../../../assets/icons/arrow-constructor.svg';
 
 import './Arrow.scss';
 
 const b = block('arrow-block');
-
-export type ArrowDirection = 'left' | 'right';
 
 export interface ArrowProps {
     direction?: ArrowDirection;
@@ -19,7 +18,7 @@ export interface ArrowProps {
     onClick?: (direction: ArrowDirection) => void;
 }
 
-const Image: React.FunctionComponent<ArrowProps> = ({
+const Arrow: React.FunctionComponent<ArrowProps> = ({
     direction = 'left',
     width = 16,
     height = 40,
@@ -35,4 +34,4 @@ const Image: React.FunctionComponent<ArrowProps> = ({
     />
 );
 
-export default Image;
+export default Arrow;

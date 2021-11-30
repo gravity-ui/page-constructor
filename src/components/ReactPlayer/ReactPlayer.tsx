@@ -19,6 +19,7 @@ import {
     PlayButtonType,
     MediaVideoProps,
     MediaVideoControlsType,
+    ReactPlayerBlockHandler,
 } from '../../models';
 import CustomBarControls from './CustomBarControls';
 import {VideoContext} from '../../context/videoContext';
@@ -41,10 +42,6 @@ export interface ReactPlayerBlockProps
     customBarControlsClassName?: string;
     showPreview?: boolean;
     onClickPreview?: () => void;
-}
-
-export interface ReactPlayerBlockHandler {
-    pause: () => void;
 }
 
 // eslint-disable-next-line react/display-name
