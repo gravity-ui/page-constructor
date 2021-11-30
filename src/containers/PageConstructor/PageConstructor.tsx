@@ -119,10 +119,9 @@ export class PageConstructor extends React.Component<PageConstructorProps> {
 
     private renderBlock = (block: Block, blockKey: string, children?: (ReactElement | null)[]) => {
         const {type, ...rest} = block;
-        const Component = this.fullComponentsMap[type] as React.ComponentType<
-            // TODO fix
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            React.ComponentProps<any>
+        const components = this.fullComponentsMap;
+        const Component = components[type] as React.ComponentType<
+            React.ComponentProps<typeof components[typeof type]>
         >;
 
         return (
@@ -156,10 +155,9 @@ export class PageConstructor extends React.Component<PageConstructorProps> {
     private renderLoadable(block: Block, blockKey: string, config: LoadableConfigItem) {
         const {type} = block;
         const {fetch, component: ChildComponent} = config;
-        const Component = this.fullComponentsMap[type] as React.ComponentType<
-            //TODO fix
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            React.ComponentProps<any>
+        const components = this.fullComponentsMap;
+        const Component = components[type] as React.ComponentType<
+            React.ComponentProps<typeof components[typeof type]>
         >;
 
         return (
