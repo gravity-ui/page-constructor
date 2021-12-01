@@ -110,7 +110,10 @@ const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactPlayerBl
 
             if (metrika && videoMetrika) {
                 const {play, counterName} = videoMetrika;
-                metrika.reachGoals(play, counterName);
+
+                if (play) {
+                    metrika.reachGoals(play, counterName);
+                }
             }
         }, [onClickPreview, setIsPlaying, videoMetrika, metrika]);
 
@@ -180,7 +183,11 @@ const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactPlayerBl
 
                 if (metrika && videoMetrika) {
                     const {play, stop, counterName} = videoMetrika;
-                    metrika.reachGoals(isMuted ? play : stop, counterName);
+                    const goal = isMuted ? play : stop;
+
+                    if (goal) {
+                        metrika.reachGoals(goal, counterName);
+                    }
                 }
 
                 if (isMuted) {
