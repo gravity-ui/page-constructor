@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-import {TextSize, Block, CustomBlock} from '../models';
+import {TextSize, Block, CustomConfig} from '../models';
 
 export const isV2BlockType = (type: string) => type.includes('-block');
 
@@ -20,7 +20,7 @@ export function getBlockKey(block: Block, index: number) {
     return `${block.type}-${index}`;
 }
 
-export const getCustomBlockV2Types = (customBlocks: CustomBlock = {}) => {
+export const getCustomBlockV2Types = (customBlocks: CustomConfig = {}) => {
     const {blocks = {}, headers = {}} = customBlocks;
 
     return [
@@ -29,13 +29,13 @@ export const getCustomBlockV2Types = (customBlocks: CustomBlock = {}) => {
     ];
 };
 
-export const getCustomComponents = (customBlocks: CustomBlock = {}) => {
+export const getCustomComponents = (customBlocks: CustomConfig = {}) => {
     const {blocks = {}, headers = {}} = customBlocks;
 
     return {...blocks, ...headers};
 };
 
-export const getCustomHeaderTypes = (customBlocks: CustomBlock = {}) => {
+export const getCustomHeaderTypes = (customBlocks: CustomConfig = {}) => {
     const {headers = {}} = customBlocks;
 
     return Object.keys(headers);

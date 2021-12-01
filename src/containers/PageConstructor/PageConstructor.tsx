@@ -12,6 +12,7 @@ import {
     BlockType,
     LoadableConfigItem,
     PageContent,
+    CustomBlocks,
 } from '../../models';
 import componentMap from '../../componentMap';
 import Loadable from '../Loadable/Loadable';
@@ -34,13 +35,17 @@ const b = blockCn('page-constructor');
 export interface PageConstructorProps {
     content?: PageContent;
     shouldRenderBlock?: ShouldRenderBlock;
-    //TODO manage with external block types CLOUDFRONT-8475
     custom?: CustomConfig;
     renderMenu?: () => React.ReactNode;
 }
 
+export type FullComponentsMap = typeof componentMap & CustomBlocks;
+
 export class PageConstructor extends React.Component<PageConstructorProps> {
-    fullComponentsMap = {...componentMap, ...getCustomComponents(this.props.custom)};
+    fullComponentsMap: FullComponentsMap = {
+        ...componentMap,
+        ...getCustomComponents(this.props.custom),
+    };
     fullBlockV2Types = [...BlockV2Types, ...getCustomBlockV2Types(this.props.custom)];
     fullHeaderBlockTypes = [...HeaderBlockTypes, ...getCustomHeaderTypes(this.props.custom)];
 

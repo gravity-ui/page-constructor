@@ -7,7 +7,6 @@ export enum Lang {
     En = 'en',
 }
 
-//TODO manage with types CLOUDFRONT-8475
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type PixelEventType = any;
 

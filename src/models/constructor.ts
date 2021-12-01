@@ -16,32 +16,30 @@ export interface PageContent extends Animatable {
     footnotes?: string[];
 }
 
-// TODO manage with types CLOUDFRONT-8475
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type FetchLoadableData<TData = any> = (blockKey: string) => Promise<TData>;
-
-export type ShouldRenderBlock = (block: Block, blockKey: string) => Boolean;
-
 export interface InitConstrucorState {
     hasMenu: boolean;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type LoadableData = any;
+export type FetchLoadableData<TData = LoadableData> = (blockKey: string) => Promise<TData>;
+export type ShouldRenderBlock = (block: Block, blockKey: string) => Boolean;
 export type OnInit = (data: InitConstrucorState) => void;
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type CustomBlock = Record<any, any>;
+type CustomComponent = React.ComponentType<any>;
+
+export type CustomBlocks = Record<string, CustomComponent>;
 
 export interface LoadableConfigItem {
     fetch: FetchLoadableData;
-    //TODO: remove any after removing withTranslation hoc in package
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    component: React.ComponentType<any>;
+    component: CustomComponent;
 }
 
 export type LoadableConfig = Record<string, LoadableConfigItem>;
 
 export interface CustomConfig {
-    blocks?: CustomBlock;
-    headers?: CustomBlock;
+    blocks?: CustomBlocks;
+    headers?: CustomBlocks;
     loadable?: LoadableConfig;
 }
