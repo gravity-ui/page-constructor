@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-import {TextSize, Block, CustomConfig} from '../models';
+import {TextSize, CustomConfig, ConstructorBlock} from '../models';
 
 export const isV2BlockType = (type: string) => type.includes('-block');
 
@@ -16,7 +16,7 @@ export function getHeaderTag(size: TextSize) {
     }
 }
 
-export function getBlockKey(block: Block, index: number) {
+export function getBlockKey(block: ConstructorBlock, index: number) {
     return `${block.type}-${index}`;
 }
 

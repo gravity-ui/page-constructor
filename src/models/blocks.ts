@@ -384,19 +384,19 @@ export interface SectionProps extends ContainerProps, Themable {
     anchor?: string;
 }
 
-export interface MetrikaGoal {
+export interface NewMetrikaGoal {
     name: string;
     isCrossSite?: boolean;
     counterName?: string;
     params?: Record<string, string>;
 }
 
-export type Metrika = string | string[] | MetrikaGoal[];
+export type MetrikaGoal = string | string[] | NewMetrikaGoal[];
 
 export interface MetrikaVideo {
     counterName?: string;
-    play?: Metrika;
-    stop?: Metrika;
+    play?: MetrikaGoal;
+    stop?: MetrikaGoal;
 }
 
 export interface PixelEvent {
@@ -413,7 +413,7 @@ export interface ButtonProps {
     size?: ButtonSize;
     theme?: ButtonView | 'github' | 'app-store' | 'google-play' | 'scale';
     img?: ButtonImageProps | string;
-    metrikaGoals?: Metrika;
+    metrikaGoals?: MetrikaGoal;
     pixelEvents?: ButtonPixel;
     target?: string;
 }
@@ -938,6 +938,6 @@ export function isV2Block(block: Block): block is BlockV2 {
     return BlockV2Types.includes(block.type);
 }
 
-export function isNewMetrikaFormat(metrika: Metrika): metrika is MetrikaGoal[] {
+export function isNewMetrikaFormat(metrika: MetrikaGoal): metrika is NewMetrikaGoal[] {
     return Boolean(Array.isArray(metrika) && metrika.length && typeof metrika[0] === 'object');
 }
