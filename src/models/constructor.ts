@@ -31,7 +31,7 @@ export type ConstructorBlock = Block | CustomBlock;
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type LoadableData = any;
 export type FetchLoadableData<TData = LoadableData> = (blockKey: string) => Promise<TData>;
-export type ShouldRenderBlock = (block: Block, blockKey: string) => Boolean;
+export type ShouldRenderBlock = (block: ConstructorBlock, blockKey: string) => Boolean;
 export type OnInit = (data: InitConstrucorState) => void;
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type CustomComponent = React.ComponentType<any>;
