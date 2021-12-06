@@ -2,17 +2,13 @@ import React, {useState, useEffect, useCallback} from 'react';
 import {Spin} from '@yandex-data-ui/common';
 import blockCn from 'bem-cn-lite';
 
-import {Block, FetchLoadableData} from '../../models';
+import {Block, FetchLoadableData, LoadableData} from '../../models';
 import ErrorWrapper from '../../components/ErrorWrapper/ErrorWrapper';
 import i18n from './i18n';
 
 import './Loadable.scss';
 
 const b = blockCn('loadable-block');
-
-//TODO type CLOUDFRONT-8475
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-type LoadableData = any;
 
 export interface LoadableState {
     loading: boolean;

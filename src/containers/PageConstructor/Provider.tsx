@@ -19,7 +19,7 @@ export const PageConstructorProvider: React.FC<PageConstructorProviderProps> = (
     const {
         content: {animated = true} = {},
         isMobile,
-        metrika,
+        metrika = {},
         ssrConfig = {},
         location = {},
         locale = {},
@@ -30,7 +30,7 @@ export const PageConstructorProvider: React.FC<PageConstructorProviderProps> = (
         <LocaleContext.Provider value={locale}>
             <LocationContext.Provider value={location}>
                 <MobileContext.Provider value={Boolean(isMobile)}>
-                    <MetrikaContext.Provider value={{metrika}}>
+                    <MetrikaContext.Provider value={metrika}>
                         <SSRContext.Provider value={{isServer: ssrConfig?.isServer}}>
                             <AnimateContext.Provider value={{animated}}>
                                 <PageConstructor content={props.content} {...rest} />

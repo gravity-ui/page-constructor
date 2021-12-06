@@ -1,10 +1,9 @@
 import React from 'react';
+import {Metrika, Pixel} from '../../models';
 
 export interface MetrikaContextProps {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    metrika?: any;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    pixel?: any;
+    metrika?: Metrika;
+    pixel?: Pixel;
 }
 
 export const MetrikaContext = React.createContext<MetrikaContextProps>({});

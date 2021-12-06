@@ -12,6 +12,7 @@ import {
     BlockType,
     LoadableConfigItem,
     PageContent,
+    CustomBlocks,
 } from '../../models';
 import componentMap from '../../componentMap';
 import Loadable from '../Loadable/Loadable';
@@ -34,13 +35,17 @@ const b = blockCn('page-constructor');
 export interface PageConstructorProps {
     content?: PageContent;
     shouldRenderBlock?: ShouldRenderBlock;
-    //TODO manage with external block types CLOUDFRONT-8475
     custom?: CustomConfig;
     renderMenu?: () => React.ReactNode;
 }
 
+export type FullComponentsMap = typeof componentMap & CustomBlocks;
+
 export class PageConstructor extends React.Component<PageConstructorProps> {
-    fullComponentsMap = {...componentMap, ...getCustomComponents(this.props.custom)};
+    fullComponentsMap: FullComponentsMap = {
+        ...componentMap,
+        ...getCustomComponents(this.props.custom),
+    };
     fullBlockV2Types = [...BlockV2Types, ...getCustomBlockV2Types(this.props.custom)];
     fullHeaderBlockTypes = [...HeaderBlockTypes, ...getCustomHeaderTypes(this.props.custom)];
 
@@ -119,10 +124,9 @@ export class PageConstructor extends React.Component<PageConstructorProps> {
 
     private renderBlock = (block: Block, blockKey: string, children?: (ReactElement | null)[]) => {
         const {type, ...rest} = block;
-        const Component = this.fullComponentsMap[type] as React.ComponentType<
-            // TODO fix
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            React.ComponentProps<any>
+        const components = this.fullComponentsMap;
+        const Component = components[type] as React.ComponentType<
+            React.ComponentProps<typeof components[typeof type]>
         >;
 
         return (
@@ -156,10 +160,9 @@ export class PageConstructor extends React.Component<PageConstructorProps> {
     private renderLoadable(block: Block, blockKey: string, config: LoadableConfigItem) {
         const {type} = block;
         const {fetch, component: ChildComponent} = config;
-        const Component = this.fullComponentsMap[type] as React.ComponentType<
-            //TODO fix
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            React.ComponentProps<any>
+        const components = this.fullComponentsMap;
+        const Component = components[type] as React.ComponentType<
+            React.ComponentProps<typeof components[typeof type]>
         >;
 
         return (
