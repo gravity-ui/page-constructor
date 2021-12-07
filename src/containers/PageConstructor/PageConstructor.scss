@@ -15,7 +15,7 @@ $block: '.#{$ns}page-constructor';
     }
 
     &__background {
-        top: calc(-1 * var(--header-menu-height));
+        top: calc(-1 * var(--header-height));
     }
 
     &__row {
