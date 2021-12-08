@@ -1,9 +1,12 @@
 @import '../../../styles/variables';
 @import '../../../styles/mixins';
+@import '../../../styles/root';
 
 $block: '.#{$ns}page-constructor';
 
 #{$block} {
+    @include typografy();
+
     $borderRadius: 12px;
 
     margin-top: 0;
@@ -15,7 +18,7 @@ $block: '.#{$ns}page-constructor';
     }
 
     &__background {
-        top: calc(-1 * var(--header-menu-height));
+        top: calc(-1 * var(--header-height));
     }
 
     &__row {

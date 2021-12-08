@@ -1,5 +1,4 @@
 import React, {ReactElement, ReactNode} from 'react';
-import blockCn from 'bem-cn-lite';
 import _ from 'lodash';
 
 import {
@@ -25,12 +24,13 @@ import {
     getCustomBlockV2Types,
     getCustomComponents,
     getCustomHeaderTypes,
+    block,
 } from '../../utils';
-import '../../../styles/yfm.scss';
 
+import '../../../styles/yfm.scss';
 import './PageConstructor.scss';
 
-const b = blockCn('page-constructor');
+const b = block('page-constructor');
 
 export interface PageConstructorProps {
     content?: PageContent;
