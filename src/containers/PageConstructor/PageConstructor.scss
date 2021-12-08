@@ -1,9 +1,12 @@
 @import '../../../styles/variables';
 @import '../../../styles/mixins';
+@import '../../../styles/root';
 
 $block: '.#{$ns}page-constructor';
 
 #{$block} {
+    @include typografy();
+
     $borderRadius: 12px;
 
     margin-top: 0;
