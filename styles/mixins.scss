@@ -183,18 +183,6 @@
     }
 }
 
-@mixin reset-col-indents {
-    /* stylelint-disable declaration-no-important */
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-
-    @media only screen and (max-width: map-get($gridBreakpoints, 'sm')) {
-        padding-left: 0 !important;
-        padding-right: 0 !important;
-        /* stylelint-enable declaration-no-important */
-    }
-}
-
 @mixin add-theme() {
     &_theme_dark {
         color: var(--yc-color-text-light-primary);

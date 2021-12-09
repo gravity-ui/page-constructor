@@ -29,7 +29,7 @@ const BlockHeader: React.FunctionComponent<BlockHeaderProps> = ({
     return (
         <div className={b(null, className)}>
             {text && (
-                <Col className={b('col-reset')} sizes={{all: 12, sm: 8}}>
+                <Col reset sizes={{all: 12, sm: 8}}>
                     <Title
                         text={text}
                         {...titleProps}
@@ -38,7 +38,7 @@ const BlockHeader: React.FunctionComponent<BlockHeaderProps> = ({
                 </Col>
             )}
             {description && (
-                <Col className={b('col-reset')} sizes={{all: 12, sm: 8}}>
+                <Col reset sizes={{all: 12, sm: 8}}>
                     <div className={b('description', {titleSize: titleProps?.textSize})}>
                         <HTML>{description}</HTML>
                     </div>

@@ -4,10 +4,6 @@
 $block: '.#{$ns}BlockHeader';
 
 #{$block} {
-    &__col-reset {
-        @include reset-col-indents();
-    }
-
     &__title {
         margin-top: 0;
 
