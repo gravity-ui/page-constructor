@@ -184,11 +184,11 @@
 }
 
 @mixin reset-col-indents {
-    padding-left: 0;
-    padding-right: 0;
+    /* stylelint-disable declaration-no-important */
+    padding-left: 0 !important;
+    padding-right: 0 !important;
 
     @media only screen and (max-width: map-get($gridBreakpoints, 'sm')) {
-        /* stylelint-disable declaration-no-important */
         padding-left: 0 !important;
         padding-right: 0 !important;
         /* stylelint-enable declaration-no-important */
