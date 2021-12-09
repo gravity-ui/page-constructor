@@ -14,7 +14,7 @@ const BlockBase: React.FC<BlockBaseProps & ClassNameProps> = (props) => {
     const {anchor, visible, children, className, resetPaddings} = props;
 
     return (
-        <Col className={b({['reset-paddings']: resetPaddings}, className)} visible={visible}>
+        <Col className={b(null, className)} visible={visible} reset={resetPaddings}>
             {anchor && <Anchor id={anchor.url} className={b('anchor')} />}
             {children}
         </Col>

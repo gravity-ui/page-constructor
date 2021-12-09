@@ -1640,3 +1640,14 @@ html {
         align-self: stretch !important;
     }
 }
+
+.col-reset {
+    padding-left: 0;
+    padding-right: 0;
+    margin: 0;
+
+    @media only screen and (max-width: map-get($gridBreakpoints, 'sm')) {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}

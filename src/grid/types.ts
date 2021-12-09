@@ -56,4 +56,5 @@ export interface GridColumnClassParams {
     visible?: GridColumnSize;
     alignSelf?: GridColumnAlignSelf;
     justifyContent?: GridJustifyContent;
+    reset?: boolean;
 }

@@ -54,6 +54,10 @@ export function getJustifyClass(justifyContent: GridJustifyContent): string {
     return `d-flex ${justifyContent}`;
 }
 
+export function getResetClass() {
+    return 'col-reset';
+}
+
 export function getColClass(params: GridColumnClassParams) {
     const {
         className = '',
@@ -64,6 +68,7 @@ export function getColClass(params: GridColumnClassParams) {
         visible,
         alignSelf,
         justifyContent,
+        reset,
     } = params;
     return [
         GridColumnClassPrefix.Col,
@@ -75,6 +80,7 @@ export function getColClass(params: GridColumnClassParams) {
         orders && getOrderClass(orders),
         hidden && getVisibilityClasses(hidden, GridColumnVisibilityClass.None),
         visible && getVisibilityClasses(visible, GridColumnVisibilityClass.Block),
+        reset && getResetClass(),
     ]
         .filter(Boolean)
         .join(' ');
