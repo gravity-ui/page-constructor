@@ -22,8 +22,8 @@ html {
 
 .container {
     width: 100%;
-    padding-right: 16px;
-    padding-left: 16px;
+    padding-right: $gridContainerPadding;
+    padding-left: $gridContainerPadding;
     margin-right: auto;
     margin-left: auto;
 }
@@ -54,8 +54,8 @@ html {
 
 .container-fluid {
     width: 100%;
-    padding-right: 16px;
-    padding-left: 16px;
+    padding-right: $gridContainerPadding;
+    padding-left: $gridContainerPadding;
     margin-right: auto;
     margin-left: auto;
 }
@@ -63,8 +63,8 @@ html {
 .row {
     display: flex;
     flex-wrap: wrap;
-    margin-right: -16px;
-    margin-left: -16px;
+    margin-right: -#{$gridGutter};
+    margin-left: -#{$gridGutter};
 }
 
 .no-gutters {
@@ -151,8 +151,8 @@ html {
     position: relative;
     width: 100%;
     min-height: 1px;
-    padding-right: 16px;
-    padding-left: 16px;
+    padding-right: $gridGutter;
+    padding-left: $gridGutter;
 }
 
 .col {

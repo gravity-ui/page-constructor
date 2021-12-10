@@ -21,7 +21,7 @@ $block: '.#{$ns}preview-media-block';
         img,
         video,
         iframe {
-            border-radius: $indentXXS; // special for safari
+            border-radius: $borderRadius; // special for safari
         }
 
         display: none;

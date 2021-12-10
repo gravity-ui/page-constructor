@@ -13,6 +13,6 @@ $block: '.#{$ns}FullWidthBackground';
     pointer-events: none;
 
     &_rounded {
-        border-radius: 12px;
+        border-radius: $borderRadius;
     }
 }

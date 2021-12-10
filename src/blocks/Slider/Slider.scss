@@ -35,11 +35,11 @@ $block: '.#{$ns}SliderBlock';
 
     .slick-list {
         padding: 24px 0 $indentS;
-        margin: 0 -16px;
+        margin: 0 -#{$gridGutter};
     }
 
     .slick-slide {
-        padding: 0 16px;
+        padding: 0 #{$gridGutter};
         box-sizing: border-box;
         flex-shrink: 0;
     }
@@ -124,7 +124,7 @@ $block: '.#{$ns}SliderBlock';
         left: 0;
         width: 24px;
         height: 8px;
-        border-radius: 20px;
+        border-radius: $borderRadius;
 
         transition: left 0.3s;
         background-color: var(--www-color-line-generic-active-solid);

@@ -10,10 +10,11 @@ $block: '.#{$ns}card-base-block';
 }
 
 #{$block} {
-    @include card();
-    @extend %flex-column;
-
     $padding: $indentM;
+
+    @include card();
+    @include slider-shadow-fix(&);
+    @extend %flex-column;
 
     display: flex;
 

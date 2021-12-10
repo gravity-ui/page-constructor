@@ -22,7 +22,7 @@ $closeButtonSize: 44px;
 
     &__modal .modal__content,
     &__modal-image {
-        border-radius: 12px;
+        border-radius: $borderRadius;
     }
 
     &__close-button {

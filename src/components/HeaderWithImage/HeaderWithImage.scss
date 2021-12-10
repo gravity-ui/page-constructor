@@ -39,7 +39,7 @@ $block: '.#{$ns}header-with-image-block';
         background-size: cover;
         background-position: center;
 
-        border-radius: 12px;
+        border-radius: $borderRadius;
     }
 
     @media (max-width: map-get($gridBreakpoints, 'md')) {

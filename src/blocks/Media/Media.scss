@@ -14,7 +14,7 @@ $block: '.#{$ns}media-block';
         img,
         video,
         iframe {
-            border-radius: 12px; // special for safari
+            border-radius: $borderRadius; // special for safari
         }
 
         &_shadow {

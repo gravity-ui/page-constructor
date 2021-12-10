@@ -10,7 +10,7 @@ $block: '.#{$ns}preview-content-block';
         height: 100%;
         display: block;
         cursor: pointer;
-        border-radius: $indentXXS;
+        border-radius: $borderRadius;
 
         overflow: hidden;
         position: relative;

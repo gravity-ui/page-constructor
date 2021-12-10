@@ -1,6 +1,7 @@
 //common
 
 $ns: 'pc-';
+$borderRadius: 24px;
 
 //indents
 $indentXXXS: 8px;
@@ -39,7 +40,7 @@ $fileExtColors: (
 );
 
 //grid
-$newContentWidth: 1120px;
+$newContentWidth: 1232px;
 $gridBreakpoints: (
     'sm': 577px,
     'md': 769px,
@@ -47,6 +48,8 @@ $gridBreakpoints: (
     'xl': 1185px,
     'xxl': 1248px,
 );
-$gridGutter: 16px;
-$gridGutterMobile: 10px;
-$contentWidth: calc(#{$newContentWidth} + #{$gridGutter} * 4);
+
+$gridGutter: 8px;
+$gridContainerPadding: 40px;
+$gridGutterMobile: 8px;
+$contentWidth: calc(#{$newContentWidth} + #{$gridGutter} * 2 + #{$gridContainerPadding} * 2);

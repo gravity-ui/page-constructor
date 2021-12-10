@@ -11,7 +11,7 @@ $block: '.#{$ns}Grid';
 
     .container-fluid,
     .container {
-        max-width: calc(#{$maxContentWidth} + #{$gutter * 4});
+        max-width: $contentWidth;
     }
 
     .row {

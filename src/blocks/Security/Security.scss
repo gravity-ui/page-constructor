@@ -61,7 +61,7 @@ $block: '.#{$ns}SecurityBlock';
 
     &__media {
         margin-top: $indentL;
-        border-radius: 12px;
+        border-radius: $borderRadius;
         overflow: hidden;
     }
 

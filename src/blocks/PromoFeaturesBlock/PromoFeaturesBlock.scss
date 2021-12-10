@@ -15,7 +15,7 @@ $block: '.#{$ns}PromoFeaturesBlock';
 
         &-column {
             & + & {
-                margin-left: $indentM;
+                margin-left: calc(#{$gridGutter} * 2);
             }
         }
     }
@@ -44,7 +44,7 @@ $block: '.#{$ns}PromoFeaturesBlock';
         display: flex;
         flex-direction: column;
         justify-content: center;
-        border-radius: 12px;
+        border-radius: $borderRadius;
 
         &-info {
             padding: $indentM $indentM 0 $indentM;
@@ -63,7 +63,7 @@ $block: '.#{$ns}PromoFeaturesBlock';
         }
 
         & + & {
-            margin-top: $indentM;
+            margin-top: $indentXS;
         }
 
         &_no-media {
