@@ -19,7 +19,7 @@ $block: '.#{$ns}Grid';
         margin-left: 0;
     }
 
-    .Grid {
+    #{$block} {
         .container-fluid,
         .container {
             padding: 0;
