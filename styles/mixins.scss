@@ -401,7 +401,7 @@
     }
 }
 
-/* use this for style redefenitions to awoid problems with
+/* use this for style redefinitions to awoid problems with
 unpredictable css rules order in build */
 
 @mixin add-specificity($class) {
