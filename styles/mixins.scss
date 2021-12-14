@@ -360,7 +360,7 @@
     h1 {
         @include text-size(display3);
 
-        @media (min-width: map-get($gridBreakpoints, 'sm')) {
+        @media (max-width: map-get($gridBreakpoints, 'sm')) {
             @include text-size(display2);
         }
     }
@@ -398,5 +398,16 @@
     sup {
         font-size: 0.75em;
         line-height: 0;
+    }
+}
+
+/* use this for style redefenitions to awoid problems with
+unpredictable css rules order in build */
+
+@mixin add-specificity($class) {
+    @at-root {
+        #{$class}#{$class} {
+            @content;
+        }
     }
 }

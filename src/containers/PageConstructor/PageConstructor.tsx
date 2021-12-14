@@ -27,8 +27,8 @@ import {
     block,
 } from '../../utils';
 
-import '../../../styles/yfm.scss';
 import './PageConstructor.scss';
+import '../../../styles/yfm.scss';
 
 const b = block('page-constructor');
 

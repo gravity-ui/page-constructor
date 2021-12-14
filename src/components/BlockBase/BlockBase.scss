@@ -4,10 +4,16 @@
 $block: '.#{$ns}block-base';
 
 #{$block} {
-    $root: &;
     --anchor-offset: #{$indentL};
 
     @include block();
+
+    &_reset-paddings#{$block} {
+        @include add-specificity(&) {
+            padding: 0;
+            margin: 0;
+        }
+    }
 
     @media (max-width: map-get($gridBreakpoints, 'sm')) {
         --anchor-offset: #{$indentM};
