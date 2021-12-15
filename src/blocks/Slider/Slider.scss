@@ -69,6 +69,13 @@ $block: '.#{$ns}SliderBlock';
         }
     }
 
+    &__header {
+        &_no-description {
+            position: relative;
+            top: -3px;
+        }
+    }
+
     &__dots {
         display: flex;
         justify-content: center;

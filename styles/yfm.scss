@@ -45,12 +45,14 @@
         }
     }
 
-    p {
-        margin: 0 0 $indentXXS;
-    }
+    @include add-specificity(&) {
+        p {
+            margin: 0 0 $indentXXS;
+        }
 
-    p strong {
-        font-weight: 500;
+        p strong {
+            font-weight: 500;
+        }
     }
 }
 

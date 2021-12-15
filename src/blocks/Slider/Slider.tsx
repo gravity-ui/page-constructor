@@ -305,7 +305,11 @@ const SliderBlock: FC<SliderProps> = (props) => {
                 )}
             >
                 {anchorId && <Anchor id={anchorId} />}
-                <BlockHeader title={title} description={description} />
+                <BlockHeader
+                    title={title}
+                    description={description}
+                    className={b('header', {'no-description': !description})}
+                />
                 <AnimateBlock className={b('animate-slides')} animate={animated}>
                     {renderSlider()}
                 </AnimateBlock>
