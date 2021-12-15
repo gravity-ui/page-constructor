@@ -7,11 +7,6 @@ $block: '.#{$ns}BlockHeader';
     &__title {
         @include add-specificity(&) {
             margin-top: 0;
-
-            &_no-description {
-                position: relative;
-                top: -3px;
-            }
         }
     }
 
