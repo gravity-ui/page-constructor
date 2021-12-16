@@ -2,8 +2,17 @@
 @import './variables.scss';
 
 .yfm_constructor {
-    p {
-        color: var(--yc-color-text-primary);
+    $block: &;
+
+    @include add-specificity(&) {
+        p {
+            color: var(--yc-color-text-primary);
+            margin: 0 0 $indentXXS;
+        }
+
+        p strong {
+            font-weight: 500;
+        }
     }
 
     &_theme_dark p {
@@ -24,10 +33,15 @@
         @include text-size(body);
     }
 
-    &_header_description p {
-        //TODO manage with text-size
-        @include text-size(body3);
-        color: var(--www-text-header-color);
+    &_header_description {
+        @include add-specificity(&) {
+            p {
+                //TODO manage with text-size
+                @include text-size(body3);
+                color: var(--www-text-header-color);
+                margin: 0 0 15px;
+            }
+        }
     }
 
     &_list_style ul {
@@ -42,16 +56,6 @@
             content: '\2014';
             position: absolute;
             margin-left: -$indentS;
-        }
-    }
-
-    @include add-specificity(&) {
-        p {
-            margin: 0 0 $indentXXS;
-        }
-
-        p strong {
-            font-weight: 500;
         }
     }
 }

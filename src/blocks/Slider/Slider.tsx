@@ -61,7 +61,7 @@ const SliderBlock: FC<SliderProps> = (props) => {
         arrows,
         adaptive,
         autoplay = undefined,
-        dots = false,
+        dots = true,
         dotsClassName,
         disclaimer,
         children,
@@ -233,7 +233,7 @@ const SliderBlock: FC<SliderProps> = (props) => {
     };
 
     const renderNavigation = () => {
-        if (!showNavigation && !dots) {
+        if (!showNavigation || !dots) {
             return null;
         }
 
