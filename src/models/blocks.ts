@@ -73,6 +73,7 @@ export enum PriceLabelColor {
     GREEN = 'green',
     YELLOW = 'yellow',
     PURPLE = 'purple',
+    RED = 'red',
 }
 
 export enum PreviewItemType {

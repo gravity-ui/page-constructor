@@ -2,6 +2,7 @@ import React, {Fragment} from 'react';
 
 import {block} from '../../../../utils';
 import {PriceDetailsSettingsProps, TextSize} from '../../../../models';
+import {YFMWrapper} from '../../../../components';
 
 import './Settings.scss';
 
@@ -22,7 +23,7 @@ const Settings: React.FunctionComponent<SettingsComponentProps> = (props) => {
                 <div key={id}>
                     <div className={b('title', {size: titleSize})}>{item.title}</div>
                     <div className={b('description', {size: descriptionSize})}>
-                        {item.description}
+                        <YFMWrapper content={item.description} />
                     </div>
                 </div>
             ))}

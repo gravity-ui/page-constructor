@@ -2,6 +2,7 @@ import React, {Fragment} from 'react';
 
 import {block} from '../../../../utils';
 import {PriceDetailsListProps, TextSize} from '../../../../models';
+import {YFMWrapper} from '../../../../components';
 
 import checkLogoListMark from '../../../../../assets/images/check-logo-list-mark.svg';
 
@@ -22,7 +23,9 @@ const List: React.FunctionComponent<ListProps> = (props) => {
             {items.map((item, id) => (
                 <div key={id} className={b('list-item')}>
                     <img className={b('img')} src={checkLogoListMark} />
-                    <div className={b('text', {size: titleSize})}>{item.text}</div>
+                    <div className={b('text', {size: titleSize})}>
+                        <YFMWrapper content={item.text} />
+                    </div>
                 </div>
             ))}
         </Fragment>

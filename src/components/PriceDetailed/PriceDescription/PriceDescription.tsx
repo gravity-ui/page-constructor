@@ -8,6 +8,7 @@ import {
     TextSize,
 } from '../../../models';
 import {StylesContext} from '../../../context/stylesContext';
+import {YFMWrapper} from '../../../components';
 
 import './PriceDescription.scss';
 
@@ -97,7 +98,9 @@ const PriceDescription: React.FunctionComponent<PriceDescriptionExtendProps> = (
         <div className={b(null, className)} ref={descriptionRef}>
             {labelElement}
             {titleElement}
-            <div className={b('description', {size: descriptionSize})}>{description}</div>
+            <div className={b('description', {size: descriptionSize})}>
+                <YFMWrapper content={description} />
+            </div>
         </div>
     );
 };

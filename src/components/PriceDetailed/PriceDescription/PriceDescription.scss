@@ -69,5 +69,9 @@ $block: '.#{$ns}price-description';
         &_color_purple {
             background: var(--yc-color-promo-highlight-neon);
         }
+
+        &_color_red {
+            background: var(--yc-color-promo-highlight-tomato);
+        }
     }
 }
