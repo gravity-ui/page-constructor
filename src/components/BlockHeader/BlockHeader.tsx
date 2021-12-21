@@ -3,7 +3,8 @@ import {HTML} from '@doc-tools/components';
 
 import {block} from '../../utils';
 import {BlockHeaderProps as BlockHeaderParams, TitleProps} from '../../models';
-import {Col} from '../../grid';
+import {Col, GridColumnSizesType} from '../../grid';
+import {ClassNameProps} from '@yandex-data-ui/cloud-components';
 import Title from '../Title/Title';
 
 import './BlockHeader.scss';
@@ -11,13 +12,14 @@ import './BlockHeader.scss';
 const b = block('BlockHeader');
 
 export interface BlockHeaderProps extends BlockHeaderParams {
-    className?: string;
+    colSizes?: GridColumnSizesType;
 }
 
-const BlockHeader: React.FunctionComponent<BlockHeaderProps> = ({
+const BlockHeader: React.FunctionComponent<BlockHeaderProps & ClassNameProps> = ({
     title,
     description,
     className,
+    colSizes = {all: 12, sm: 8},
 }) => {
     if (!title && !description) {
         return null;
@@ -29,7 +31,7 @@ const BlockHeader: React.FunctionComponent<BlockHeaderProps> = ({
     return (
         <div className={b(null, className)}>
             {text && (
-                <Col reset sizes={{all: 12, sm: 8}}>
+                <Col reset sizes={colSizes}>
                     <Title
                         text={text}
                         {...titleProps}
