@@ -1,6 +1,6 @@
 {
   "name": "@yandex-data-ui/page-constructor",
-  "version": "0.0.10",
+  "version": "0.0.12",
   "description": "Cloud Page Constructor",
   "author": "DataUI Team <data-ui@yandex-team.ru>",
   "license": "UNLICENSED",
@@ -37,7 +37,7 @@
     "docker:build": "docker build . -t registry.yandex.net/data-ui/page-constructor:${npm_package_version}",
     "docker:push": "docker push registry.yandex.net/data-ui/page-constructor:${npm_package_version}",
     "docker:release": "ya tool dctl release docker --release-type stable -t ${npm_package_version} data-ui/page-constructor",
-    "prepublishOnly": "npm run lint && npm run test && npm run build",
+    "prepublishOnly": "npm run lint && npm run build",
     "prepare": "husky install"
   },
   "dependencies": {
