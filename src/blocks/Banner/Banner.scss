@@ -10,9 +10,11 @@ $block: '.#{$ns}banner-block';
     @include animate();
 
     &_theme_dark {
-        #{$class}__title,
-        #{$class}__subtitle {
-            color: var(--yc-color-text-light-primary);
+        @include add-specificity(&) {
+            #{$class}__title,
+            #{$class}__subtitle {
+                color: var(--yc-color-text-light-primary);
+            }
         }
     }
 
