@@ -10,3 +10,4 @@ node_modules
 /build
 /storybook-static
 *.tgz
+.env
