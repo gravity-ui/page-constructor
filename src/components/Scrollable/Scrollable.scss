@@ -1,0 +1,17 @@
+@import '../../../styles/mixins';
+@import '../../../styles/variables';
+
+$block: '.#{$ns}scrollable-block';
+
+#{$block} {
+    @include mobile-scrollable();
+
+    display: flex;
+    align-items: center;
+
+    &__item {
+        & + & {
+            margin-left: $indentS;
+        }
+    }
+}

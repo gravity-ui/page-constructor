@@ -1,0 +1,26 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
+
+$block: '.#{$ns}BlockHeader';
+
+#{$block} {
+    &__title {
+        @include add-specificity(&) {
+            margin-top: 0;
+        }
+    }
+
+    &__description {
+        @include text-size(body2);
+
+        margin-top: $indentXS;
+
+        &_titleSize_s {
+            margin-top: 8px;
+        }
+
+        &_titleSize_l {
+            @include text-size(body3);
+        }
+    }
+}

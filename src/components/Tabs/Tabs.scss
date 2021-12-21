@@ -1,0 +1,45 @@
+@import '../../../styles/variables';
+
+$block: '.#{$ns}tabs-block';
+
+#{$block} {
+    position: relative;
+
+    &__tab {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    &,
+    &__container {
+        margin-top: $indentXS;
+    }
+
+    &__container {
+        position: relative;
+    }
+
+    &__item-enter {
+        opacity: 0;
+    }
+
+    &__item-enter-active {
+        opacity: 1;
+        transition: opacity $animationDuration ease-in;
+    }
+
+    &__item-exit {
+        opacity: 1;
+    }
+
+    &__item-exit-active {
+        opacity: 0;
+        transition: opacity $animationDuration ease-in;
+    }
+
+    .yc-tabs {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+    }
+}

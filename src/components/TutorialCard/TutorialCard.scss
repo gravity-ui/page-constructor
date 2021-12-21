@@ -1,0 +1,10 @@
+@import '../../../styles/variables.scss';
+
+$block: '.#{$ns}tutorial-card';
+
+#{$block} {
+    &__title {
+        margin-bottom: $indentXXS;
+        font-weight: 500;
+    }
+}

@@ -1,0 +1,10 @@
+@import '../../../styles/variables';
+
+$block: '.#{$ns}container-block';
+
+#{$block} {
+    &_sticky {
+        position: sticky;
+        top: var(--header-height);
+    }
+}

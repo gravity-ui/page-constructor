@@ -1,0 +1,27 @@
+@import '../../../../../styles/variables.scss';
+@import '../../../../../styles/mixins.scss';
+
+$block: '.#{$ns}settings-list';
+
+#{$block} {
+    &__title,
+    &__description {
+        font-weight: 400;
+
+        &_size_l {
+            @include text-size(header);
+        }
+
+        &_size_m {
+            @include text-size(body2);
+        }
+
+        &_size_s {
+            @include text-size(body);
+        }
+    }
+
+    &__title {
+        color: var(--yc-color-text-hint);
+    }
+}

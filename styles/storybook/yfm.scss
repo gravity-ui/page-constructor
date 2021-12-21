@@ -1,0 +1,85 @@
+// переопределение стилей из '~@doc-tools/transform/dist/css/yfm.css'
+
+.yc-root .yfm:not(.yfm_only-light) {
+    color: var(--yc-color-text-primary);
+
+    --yfm-color-hljs-background: var(--yc-color-base-background);
+    --yfm-color-hljs-subst: var(--yc-color-text-complementary);
+    --yfm-color-hljs-comment: var(--yc-color-text-secondary);
+    --yfm-color-hljs-deletion: var(--yc-color-text-danger);
+    --yfm-color-hljs-section: var(--yc-color-text-danger);
+
+    a {
+        color: var(--yc-color-text-link);
+
+        &:hover,
+        &:active {
+            color: var(--yc-color-text-link-hover);
+        }
+    }
+
+    img {
+        background-color: var(--yc-color-base-background);
+    }
+
+    $backgroundColors: (
+        yfm-accent-info: var(--yc-color-base-info),
+        yfm-accent-tip: var(--yc-color-base-positive),
+        yfm-accent-alert: var(--yc-color-base-danger),
+        yfm-accent-warning: var(--yc-color-base-warning),
+    );
+
+    @each $type, $color in $backgroundColors {
+        &.#{$type} {
+            background: $color;
+        }
+    }
+
+    code {
+        background: var(--yc-color-base-misc);
+        color: var(--yc-color-text-misc);
+    }
+
+    pre > code {
+        background: var(--yc-color-base-misc);
+        color: var(--yc-color-text-complementary);
+    }
+
+    table {
+        color: var(--yc-color-text-primary);
+        border-color: var(--yc-color-line-generic);
+        background: var(--yc-color-base-background);
+    }
+
+    table thead,
+    table tr:nth-child(2n) {
+        background: var(--yc-color-base-generic);
+    }
+
+    hr {
+        background-color: var(--yc-color-base-background);
+    }
+
+    blockquote {
+        border-left-color: var(--yc-color-line-info);
+    }
+
+    .yfm-tab-list {
+        border-bottom-color: var(--yc-color-line-generic);
+    }
+
+    .yfm-tab:hover,
+    .yfm-tab:active {
+        color: var(--yc-color-text-link-hover);
+    }
+
+    .yfm-tab.active {
+        border-bottom-color: var(--yc-color-line-selection-active);
+    }
+}
+
+.yc-root_theme_dark .yfm {
+    .yfm-cut-title:before {
+        background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiAxNiI+PHBhdGggc3Ryb2tlPSJyZ2JhKDI1NSwgMjU1LCAyNTUsIDAuNykiIGZpbGw9Im5vbmUiIGQ9Ik0zIDZsNSA1IDUtNSI+PC9wYXRoPjwvc3ZnPg==');
+    }
+}

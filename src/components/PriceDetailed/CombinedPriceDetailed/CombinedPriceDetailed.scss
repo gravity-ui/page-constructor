@@ -1,0 +1,47 @@
+@import '../../../../styles/variables.scss';
+@import '../../../../styles/mixins.scss';
+
+$block: '.#{$ns}combined-price-detailed-block';
+
+#{$block} {
+    &__row {
+        /* stylelint-disable declaration-no-important */
+        margin: 0 !important;
+    }
+
+    &__row .col {
+        padding: 0;
+        margin: $indentXXS;
+    }
+
+    &__row > * {
+        display: flex;
+        width: 100%;
+    }
+
+    &__row:not(:last-child) {
+        border-bottom: 1px solid var(--yc-color-line-generic);
+        margin-bottom: $indentXXS !important;
+        padding-bottom: $indentXXS;
+    }
+
+    @media (min-width: map-get($gridBreakpoints, 'lg')) {
+        &__description > * {
+            padding-top: $indentXXS;
+        }
+
+        &__description_delimiter > * {
+            border-top: 1px solid var(--yc-color-line-generic);
+        }
+
+        &__empty-column {
+            border-top: 0;
+        }
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'lg') - 1) {
+        &__description > * {
+            margin-top: 0 !important;
+        }
+    }
+}

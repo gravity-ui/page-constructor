@@ -1,0 +1,71 @@
+@import '../../../styles/mixins.scss';
+@import '../../../styles/variables.scss';
+
+$block: '.#{$ns}banner-block';
+
+#{$block} {
+    $class: &;
+    $borderRadius: 12px;
+
+    @include animate();
+
+    &_theme_dark {
+        @include add-specificity(&) {
+            #{$class}__title,
+            #{$class}__subtitle {
+                color: var(--yc-color-text-light-primary);
+
+                p {
+                    color: var(--yc-color-text-light-primary);
+                }
+            }
+        }
+    }
+
+    &__content {
+        width: 100%;
+        border-radius: $borderRadius;
+        display: flex;
+
+        min-height: 320px;
+    }
+
+    &__info,
+    &__image {
+        flex: 1;
+    }
+
+    &__info {
+        padding: 32px;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        align-items: baseline;
+    }
+
+    &__subtitle {
+        display: inline-block;
+        margin-top: 8px;
+        color: var(--yc-color-text-primary);
+    }
+
+    &__button {
+        margin-top: 28px;
+    }
+
+    &__image {
+        border-top-right-radius: $borderRadius;
+        border-bottom-right-radius: $borderRadius;
+
+        img {
+            object-fit: cover;
+            object-position: left;
+        }
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'sm') - 1) {
+        &__image {
+            display: none;
+        }
+    }
+}

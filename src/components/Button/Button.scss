@@ -1,0 +1,57 @@
+@import '../../../styles/variables.scss';
+
+$block: '.#{$ns}button-block';
+
+#{$block} {
+    margin-top: $indentS;
+
+    &__content {
+        display: flex;
+        align-items: center;
+    }
+
+    &__image {
+        width: 18px;
+        height: 18px;
+    }
+
+    &__image + &__text,
+    &__text + &__image {
+        margin-left: var(--btn-image-margin);
+    }
+
+    &_theme {
+        &_github {
+            color: var(--yc-color-text-light-primary);
+            background-color: var(--yc-color-github);
+
+            &:hover {
+                color: var(--yc-color-text-light-primary);
+                background-color: #000;
+            }
+        }
+
+        &_scale::before,
+        &_scale::after {
+            border-radius: 300px;
+        }
+    }
+
+    &_size {
+        &_s {
+            --btn-image-margin: 10px;
+        }
+
+        &_m {
+            --btn-image-margin: 13px;
+        }
+
+        &_l {
+            --btn-image-margin: 18px;
+        }
+
+        &_xl {
+            --btn-image-margin: 25px;
+        }
+    }
+}

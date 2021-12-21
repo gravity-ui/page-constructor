@@ -1,0 +1,79 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins';
+
+$block: '.#{$ns}file-link';
+
+#{$block} {
+    @include add-file-ext-colors();
+    $root: &;
+
+    align-items: baseline;
+
+    &_type_horizontal {
+        display: flex;
+
+        #{$root}__file-label {
+            margin-right: 8px;
+        }
+    }
+
+    &__file-label {
+        flex: 0 0 auto;
+        width: 44px;
+        height: 24px;
+        line-height: 24px;
+        background-color: var(--www-file-label-color);
+        color: var(--yc-color-text-light-primary);
+        border-radius: 4px;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    &__file-label {
+        color: var(--yc-color-text-primary);
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    &__link > a {
+        color: var(--yc-color-text-primary);
+    }
+
+    &__link > a:hover {
+        color: var(--yc-color-text-info);
+    }
+
+    &_size {
+        &_l {
+            #{$root}__file-label {
+                @include text-size(body3);
+                width: 44px;
+                height: 24px;
+                padding: 2px 6px;
+            }
+        }
+
+        &_m,
+        &_s {
+            #{$root}__file-label {
+                @include text-size(body);
+                width: 36px;
+                height: 20px;
+                padding: 1px 4px;
+            }
+        }
+
+        &_m {
+            #{$root}__file-label {
+                @include text-size(body2);
+            }
+        }
+
+        &_s {
+            #{$root}__file-label {
+                @include text-size(body);
+            }
+        }
+    }
+}

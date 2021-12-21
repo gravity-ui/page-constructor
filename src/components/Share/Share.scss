@@ -1,0 +1,60 @@
+@import '../../../styles/variables';
+
+$block: '.#{$ns}share-block';
+
+#{$block} {
+    &__title {
+        text-align: center;
+        font-weight: normal;
+    }
+
+    &__items {
+        display: flex;
+        justify-content: center;
+        margin-top: $indentXS;
+    }
+
+    &__item {
+        display: flex;
+        justify-content: center;
+        width: 48px;
+        height: 48px;
+        border-radius: 100%;
+
+        &_type_vk {
+            background-color: var(--yc-color-vk);
+        }
+
+        &_type_facebook {
+            background-color: var(--yc-color-facebook);
+        }
+
+        &_type_twitter {
+            background-color: var(--yc-color-twitter);
+        }
+
+        &_type_telegram {
+            background-color: var(--yc-color-telegram);
+        }
+
+        &:before {
+            border-radius: 100%;
+        }
+
+        &:hover {
+            &:before {
+                //redefine component style
+                /* stylelint-disable-next-line declaration-no-important */
+                background-color: var(--yc-color-base-generic) !important;
+            }
+        }
+
+        & + & {
+            margin-left: 12px;
+        }
+
+        svg {
+            color: var(--yc-color-base-background);
+        }
+    }
+}

@@ -1,0 +1,14 @@
+@import '../../../styles/variables.scss';
+
+$block: '.#{$ns}features-block';
+
+#{$block} {
+    &__item {
+        margin-top: $indentS;
+        padding-top: $indentXXS;
+
+        &_border {
+            border-top: 1px solid var(--yc-color-line-generic);
+        }
+    }
+}

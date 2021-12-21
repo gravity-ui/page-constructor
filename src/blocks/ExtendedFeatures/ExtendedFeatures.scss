@@ -1,0 +1,65 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins';
+
+$block: '.#{$ns}ExtendedFeaturesBlock';
+
+#{$block} {
+    $class: &;
+    $itemMargin: $indentM;
+
+    &__items {
+        margin-top: -$itemMargin;
+    }
+
+    &__header + &__items {
+        margin-top: 0;
+    }
+
+    &__item {
+        margin-top: $itemMargin;
+
+        &-title {
+            display: flex;
+            position: relative;
+            margin-bottom: 8px;
+        }
+
+        &-label {
+            @include text-size(caption);
+
+            position: relative;
+            top: 5px;
+            height: 16px;
+            margin-left: 8px;
+            padding: 0 5px;
+
+            color: var(--yc-color-base-background);
+            background-color: var(--yc-color-text-info);
+            border-radius: 3px;
+        }
+
+        &-text,
+        &-link {
+            @include text-size(body2);
+        }
+
+        &-link {
+            margin-top: 8px;
+            color: var(--yc-color-text-link);
+        }
+    }
+
+    &__icon {
+        @include icon();
+
+        margin-bottom: 12px;
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'sm')) {
+        &__item {
+            margin-top: $indentM;
+        }
+    }
+
+    @include animate-slides(#{$class}__item);
+}

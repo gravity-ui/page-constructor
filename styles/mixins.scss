@@ -1,0 +1,413 @@
+@import './variables.scss';
+
+//common
+
+@mixin text-size($name) {
+    font-size: var(--yc-text-#{$name}-font-size);
+    line-height: var(--yc-text-#{$name}-line-height);
+}
+
+@mixin link() {
+    @include islands-focus();
+
+    color: var(--yc-color-text-link);
+    text-decoration: none;
+    cursor: pointer;
+
+    &:hover,
+    &:active {
+        --www-text-header-color: var(--yc-color-text-link-hover);
+        color: var(--yc-color-text-link-hover);
+    }
+}
+
+@mixin anchor($offset: 0px) {
+    display: block;
+    position: relative;
+    top: calc(-1 * var(--header-height) - #{$offset});
+    visibility: hidden;
+}
+
+@mixin mobile-scrollable($offset: $normalOffset) {
+    margin-left: -$offset;
+    padding-left: $offset;
+    padding-right: $offset;
+    width: calc(100% + #{$offset} * 2);
+    overflow-x: auto;
+
+    &::after {
+        content: '';
+        height: 1px;
+        padding-right: $offset;
+    }
+}
+
+@mixin add-file-ext-colors() {
+    @each $name, $value in $fileExtColors {
+        &_ext_#{$name} {
+            --www-file-label-color: #{$value};
+        }
+    }
+}
+
+@mixin reset-button-style() {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    font: inherit;
+    border: none;
+    outline: none;
+    color: inherit;
+    background: none;
+    cursor: pointer;
+}
+
+@mixin reset-link-style() {
+    color: inherit;
+    text-decoration: none;
+}
+
+@mixin reset-list-style() {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+@mixin islands-focus() {
+    outline: none;
+
+    .utilityfocus &:focus {
+        outline: 2px solid #ffdb4d;
+    }
+}
+
+@mixin shadow-hover($pseudo: before) {
+    position: relative;
+
+    &::#{$pseudo} {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
+
+        border-radius: inherit;
+        box-shadow: var(--shadow-offset-x, 0) var(--shadow-offset-y, 0) var(--shadow-blur, 10px)
+            var(--shadow-spread, 0) var(--shadow-color, --www-color-sfx-shadow);
+        opacity: var(--shadow-opacity, 0.4);
+        transition: opacity ease-in var(--shadow-transition-time, 0.15s);
+    }
+}
+
+@mixin up-hover($color: var(--www-color-sfx-shadow)) {
+    @include shadow-hover(before);
+
+    --shadow-offset-y: 5px;
+    --shadow-blur: 12px;
+    --shadow-color: #{$color};
+    --shadow-opacity: 0;
+
+    &:hover {
+        --shadow-opacity: 1;
+    }
+
+    .mobile &::before {
+        box-shadow: none;
+    }
+}
+
+@mixin header-link() {
+    @include link;
+
+    --www-text-header-color: var(--yc-color-text-link);
+
+    &:hover,
+    &:active {
+        --www-text-header-color: var(--yc-color-text-link-hover);
+    }
+}
+
+@mixin icon($size: 32px) {
+    width: $size;
+    height: $size;
+    background-size: cover;
+}
+
+@mixin top-content-offset($offset) {
+    top: calc(var(--header-height) + #{$offset});
+}
+
+@mixin label($size: m) {
+    @include text-size(body);
+
+    $label-height: 20px;
+
+    display: inline-block;
+    padding: 0 8px;
+    border-radius: 2px;
+    height: $label-height;
+    line-height: $label-height;
+
+    @if $size == s {
+        @include text-size(caption);
+
+        $label-height: 16px;
+
+        padding: 0 4px;
+        height: $label-height;
+        line-height: $label-height;
+    }
+}
+
+//constructor
+
+@mixin block {
+    margin-top: $indentL;
+    padding: 0 0 $indentL;
+
+    &:first-child {
+        margin-top: $indentXXL;
+    }
+
+    @media only screen and (max-width: map-get($gridBreakpoints, 'sm')) {
+        margin-top: $indentM;
+        // redefine grid column paddings
+        /* stylelint-disable-next-line declaration-no-important */
+        padding-bottom: $indentM !important;
+
+        &:first-child {
+            margin-top: $indentXL;
+        }
+    }
+}
+
+@mixin add-theme() {
+    &_theme_dark {
+        color: var(--yc-color-text-light-primary);
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        .yfm {
+            color: var(--yc-color-text-light-primary);
+        }
+    }
+}
+
+@mixin justify() {
+    &_justify_center {
+        text-align: center;
+    }
+
+    &_justify_end {
+        text-align: right;
+    }
+}
+
+@mixin background() {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+@mixin shadow() {
+    @extend %shadow-hover;
+}
+
+%shadow {
+    box-shadow: 0px 4px 24px var(--www-color-sfx-shadow), 0px 2px 8px var(--www-color-sfx-shadow);
+}
+
+%shadow-hover {
+    @extend %shadow;
+
+    &:hover {
+        box-shadow: 0px 4px 24px var(--yc-color-sfx-shadow), 0px 2px 8px var(--yc-color-sfx-shadow);
+        cursor: pointer;
+    }
+}
+
+@mixin image-shadow() {
+    box-shadow: 0 2px 8px var(--www-color-sfx-shadow), 0 4px 24px var(--www-color-sfx-shadow);
+    overflow-x: hidden;
+    border-radius: 12px;
+}
+
+@mixin card($hover: false) {
+    min-height: 248px;
+    height: 100%;
+    overflow-x: hidden;
+    border-radius: 12px;
+    background-color: var(--yc-color-base-background);
+
+    transition: box-shadow 0.3s $ease-out-cubic;
+
+    &_border_line {
+        border: 1px solid var(--yc-color-line-generic);
+    }
+
+    &_border_shadow {
+        @extend %shadow;
+    }
+
+    @if $hover {
+        @extend %shadow-hover;
+    }
+}
+
+@mixin reset-link-hover {
+    &:hover,
+    &:active {
+        --www-text-header-color: inherit;
+        color: inherit;
+    }
+}
+
+@mixin animate-wrap {
+    @media (min-width: map-get($gridBreakpoints, 'md')) {
+        &.AnimateBlock,
+        .AnimateBlock & {
+            @content;
+        }
+    }
+}
+
+@mixin animate($class: null, $delay: 0s) {
+    @include animate-wrap {
+        & #{$class} {
+            position: relative;
+            top: 100px;
+            opacity: 0;
+        }
+
+        &.animate #{$class} {
+            top: 0;
+            opacity: 1;
+            transition: top $transition, opacity $transition;
+            transition-delay: $delay;
+        }
+    }
+}
+
+@mixin animate-fade($class: null, $delay: 0s) {
+    @include animate-wrap {
+        & #{$class} {
+            opacity: 0;
+        }
+
+        &.animate #{$class} {
+            opacity: 1;
+            transition: opacity $transition;
+            transition-delay: $delay;
+        }
+    }
+}
+
+@mixin animate-slides($item-class, $delay: 0s) {
+    @include animate-wrap {
+        & #{$item-class} {
+            position: relative;
+            top: 100px;
+            opacity: 0;
+        }
+
+        &.animate {
+            #{$item-class} {
+                top: 0;
+                opacity: 1;
+                transition: top $transition, opacity $transition;
+            }
+
+            @for $i from 0 through 9 {
+                #{$item-class}:nth-child(#{$i}) {
+                    transition-delay: $i * 0.1s + $delay;
+                }
+            }
+        }
+    }
+}
+
+@mixin desktop-only() {
+    @media (max-width: map-get($gridBreakpoints, 'md') - 1) {
+        display: none;
+    }
+}
+
+@mixin desktop-tablet-only() {
+    @media (max-width: map-get($gridBreakpoints, 'sm') - 1) {
+        display: none;
+    }
+}
+
+@mixin mobile-tablet-only() {
+    @media (min-width: map-get($gridBreakpoints, 'md')) {
+        display: none;
+    }
+}
+
+@mixin mobile-only() {
+    @media (min-width: map-get($gridBreakpoints, 'sm')) {
+        display: none;
+    }
+}
+
+@mixin typografy() {
+    h1 {
+        @include text-size(display3);
+
+        @media (max-width: map-get($gridBreakpoints, 'sm')) {
+            @include text-size(display2);
+        }
+    }
+
+    h2 {
+        @include text-size(display1);
+    }
+
+    h3 {
+        @include text-size(title);
+    }
+
+    h4 {
+        @include text-size(header);
+    }
+
+    h5 {
+        @include text-size(body3);
+    }
+
+    h6 {
+        @include text-size(body3);
+    }
+
+    p,
+    div.p {
+        margin: 0 0 20px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    sub,
+    sup {
+        font-size: 0.75em;
+        line-height: 0;
+    }
+}
+
+/* use this for style redefinitions to awoid problems with
+unpredictable css rules order in build */
+
+@mixin add-specificity($class) {
+    @at-root {
+        #{$class}#{$class} {
+            @content;
+        }
+    }
+}

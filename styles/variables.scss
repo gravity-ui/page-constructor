@@ -1,0 +1,52 @@
+//common
+
+$ns: 'pc-';
+
+//indents
+$indentXXXS: 8px;
+$indentXXS: 12px;
+$indentXS: 16px;
+$indentS: 20px;
+$indentSM: 24px;
+$indentM: 32px;
+$indentL: 48px;
+$indentXL: 64px;
+$indentXXL: 96px;
+$indentXXXL: 128px;
+$indent4XL: 160px;
+$normalOffset: 20px;
+$contentMargin: $indentM;
+
+//slider
+$sliderArrowSize: 42px;
+$headerSliderLargeBreakpoint: 1300px;
+
+//animation
+$ease-out-quadratic: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+$ease-out-cubic: cubic-bezier(0.22, 0.61, 0.36, 1);
+$transition: 0.8s $ease-out-quadratic;
+$animationDuration: 300ms;
+
+//colors
+$videoPlayButtonGrey: #eff2f8;
+$fileExtColors: (
+    'pdf': var(--yc-color-promo-highlight-tomato),
+    'doc': var(--yc-color-promo-highlight-sky),
+    'xls': var(--yc-color-promo-highlight-mint),
+    'ppt': var(--yc-color-promo-highlight-copper),
+    'fig': var(--yc-color-promo-highlight-neon),
+    'zip': var(--yc-color-promo-highlight-asphalt),
+);
+
+//grid
+$newContentWidth: 1120px;
+$gridBreakpoints: (
+    'sm': 577px,
+    'md': 769px,
+    'lg': 1081px,
+    'xl': 1185px,
+    'xxl': 1248px,
+);
+$gridGutter: 16px;
+$gridGutterMobile: 10px;
+$contentWidth: calc(#{$newContentWidth} + #{$gridGutter} * 4);

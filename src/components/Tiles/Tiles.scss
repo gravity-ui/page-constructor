@@ -1,0 +1,65 @@
+@import '../../../styles/mixins';
+@import '../../../styles/variables';
+
+$block: '.#{$ns}tiles-block';
+
+#{$block} {
+    $iconSize: 44px;
+    $columnsCount: 4;
+
+    @mixin generateSizeClasses($prefix) {
+        @for $i from 1 through $columnsCount {
+            &_#{$prefix}_#{$i} {
+                grid-template-columns: repeat($i, 1fr);
+            }
+        }
+    }
+
+    &__item-wrapper {
+        @include generateSizeClasses(all);
+        @each $name, $size in $gridBreakpoints {
+            @media (min-width: #{$size}) {
+                @include generateSizeClasses($name);
+            }
+        }
+
+        display: grid;
+        grid-auto-rows: 1fr;
+        margin-top: $indentM;
+        width: 100%;
+        padding: 0 $gridGutter;
+    }
+
+    &__item {
+        @include reset-link-style();
+        @include up-hover($color: var(--yc-color-sfx-shadow-heavy));
+
+        position: relative;
+        margin: 0 2px 2px 0;
+        padding: $indentM;
+        box-sizing: border-box;
+        background-color: var(--yc-color-base-background);
+
+        &:hover {
+            color: inherit;
+        }
+
+        &_with_icon {
+            padding-left: calc(#{$indentM} + #{$iconSize} + #{$indentXS});
+        }
+    }
+
+    &__icon {
+        position: absolute;
+        top: $indentM;
+        left: $indentM;
+        width: $iconSize;
+        height: $iconSize;
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'sm')) {
+        &__item-wrapper {
+            padding: 0 $gridGutterMobile;
+        }
+    }
+}
