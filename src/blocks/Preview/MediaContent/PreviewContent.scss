@@ -44,9 +44,11 @@ $block: '.#{$ns}preview-content-block';
     }
 
     &__title {
-        @include text-size(header);
-        font-weight: 500;
-        position: relative;
+        @include add-specificity(&) {
+            @include text-size(header);
+            font-weight: 500;
+            position: relative;
+        }
     }
 
     &__description {
