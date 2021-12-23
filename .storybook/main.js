@@ -28,7 +28,7 @@ config
     .apply(
         assets({
             ruleIncludes,
-            ruleExcludes: [path.resolve(assetsRoot, 'icons')],
+            ruleExcludes: [path.resolve(assetsRoot, 'icons'), path.resolve(assetsRoot, 'images')],
         }),
     )
     .module.addRule({

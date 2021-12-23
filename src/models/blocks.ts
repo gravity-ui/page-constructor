@@ -58,6 +58,7 @@ export enum BlockType {
     SimpleBlock = 'simple-block',
     HeaderSliderBlock = 'header-slider-block',
     LinkTableBlock = 'link-table-block',
+    CardsWithImageBlock = 'cards-with-image-block',
 }
 
 export const BlockV2Types = Object.values(BlockType).filter((type) => isV2BlockType(type));
@@ -710,6 +711,22 @@ export interface LinkTableBlockProps extends BlockHeaderProps {
     linkTheme?: LinkTheme;
 }
 
+export interface CardWithImageProps extends ClassNameProps {
+    title?: string;
+    description?: string;
+    image: string;
+    links: {
+        title: string;
+        link: string;
+    }[];
+}
+
+export interface CardsWithImageBlockProps {
+    title: string;
+    cards: CardWithImageProps[];
+    colSizes?: GridColumnSizesType;
+}
+
 export type HeaderModel = {
     type: BlockType.Header;
 } & HeaderProps;
@@ -886,6 +903,10 @@ export type LinkTableBlockModel = {
     type: BlockType.LinkTableBlock;
 } & LinkTableBlockProps;
 
+export type CardsWithImageBlockModel = {
+    type: BlockType.CardsWithImageBlock;
+} & CardsWithImageBlockProps;
+
 export type BlockV1Raw =
     | HeaderModel
     | ButtonModel
@@ -929,7 +950,8 @@ type BlockV2Raw =
     | TabsBlockModel
     | TextTableBlockModel
     | SimpleBlockModel
-    | LinkTableBlockModel;
+    | LinkTableBlockModel
+    | CardsWithImageBlockModel;
 
 export type BlockV1 = BlockV1Raw & AdaptiveProps;
 export type BlockV2 = BlockV2Raw & BlockBaseProps & AdaptiveProps;

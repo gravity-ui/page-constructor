@@ -1,0 +1,39 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
+
+$block: '.#{$ns}card-with-image';
+
+#{$block} {
+    margin-top: $indentSM;
+
+    &__image {
+        width: 100%;
+        margin-bottom: $indentXS;
+        // TODO: change after redesign merge CLOUDFRONT-8837
+        border-radius: 12px;
+    }
+
+    &__title {
+        @include add-specificity(&) {
+            @include text-size(header);
+            margin: 0 0 8px;
+            font-weight: 500;
+        }
+    }
+
+    &__description,
+    &__links {
+        @include text-size(body2);
+        color: var(--yc-color-text-complementary);
+    }
+
+    &__description {
+        @include add-specificity(&) {
+            margin: 0 0 8px;
+        }
+    }
+
+    &__links-item {
+        padding-right: $indentXXXS;
+    }
+}

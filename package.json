@@ -34,6 +34,7 @@
     "build": "NODE_OPTIONS=\"--max-old-space-size=4096\" ui-core build",
     "storybook:start": "start-storybook -p 7009",
     "storybook:build": "build-storybook -c .storybook -o storybook-static .storybook/public",
+    "storybook:deploy": "curl -sS https://raw.github.yandex-team.ru/data-ui/storybook-tools/master/scripts/deploy-storybook.sh | bash -s deploy",
     "docker:build": "docker build . -t registry.yandex.net/data-ui/page-constructor:${npm_package_version}",
     "docker:push": "docker push registry.yandex.net/data-ui/page-constructor:${npm_package_version}",
     "docker:release": "ya tool dctl release docker --release-type stable -t ${npm_package_version} data-ui/page-constructor",

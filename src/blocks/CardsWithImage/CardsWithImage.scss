@@ -1,0 +1,13 @@
+@import '../../../styles/mixins';
+@import '../../../styles/variables';
+
+$block: '.#{$ns}cards-with-image-block';
+
+#{$block} {
+    &__header {
+        h2 {
+            @include text-size(display1);
+            font-weight: 500;
+        }
+    }
+}

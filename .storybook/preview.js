@@ -4,7 +4,7 @@ import '../styles/storybook/index.scss';
 import React from 'react';
 import CommonTheme from './commonTheme.js';
 import {MINIMAL_VIEWPORTS} from '@storybook/addon-viewport';
-import {CommonProvider} from '../src';
+import {CommonProvider, Grid, PageConstructor, Row} from '../src';
 import {withTheme} from '../src/demo/decorators/withTheme';
 import {withLang} from '../src/demo/decorators/withLang';
 import {withMobile} from '../src/demo/decorators/withMobile';
