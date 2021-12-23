@@ -8,6 +8,7 @@ $block: '.#{$ns}card-with-image';
 
     &__image {
         width: 100%;
+        display: block;
         margin-bottom: $indentXS;
         // TODO: change after redesign merge CLOUDFRONT-8837
         border-radius: 12px;
