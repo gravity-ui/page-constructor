@@ -37,4 +37,8 @@ $block: '.#{$ns}card-with-image';
     &__links-item {
         padding-right: $indentXXXS;
     }
+
+    a {
+        @include link();
+    }
 }
