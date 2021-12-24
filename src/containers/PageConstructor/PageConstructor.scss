@@ -52,8 +52,4 @@ $block: '.#{$ns}page-constructor';
 
         font-weight: 500;
     }
-
-    a {
-        @include link();
-    }
 }
