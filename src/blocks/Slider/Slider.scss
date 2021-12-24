@@ -218,12 +218,12 @@ $block: '.#{$ns}SliderBlock';
         }
 
         &:hover {
-            .slider-block-arrow {
+            .slick-arrow {
                 display: flex;
             }
         }
 
-        .slider-block-arrow {
+        .slick-arrow {
             display: none;
             height: 100%;
             width: 64px;
@@ -249,7 +249,7 @@ $block: '.#{$ns}SliderBlock';
 
         @media (max-width: map-get($gridBreakpoints, 'md')) {
             &:hover {
-                .slider-block-arrow {
+                .slick-arrow {
                     display: none;
                 }
             }
