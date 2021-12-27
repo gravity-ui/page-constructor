@@ -26,6 +26,10 @@ $block: '.#{$ns}SecurityBlock';
         }
     }
 
+    &__title {
+        @include heading2();
+    }
+
     &__background {
         background-color: var(--yc-color-promo-base-asphalt);
     }

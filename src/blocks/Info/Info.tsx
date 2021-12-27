@@ -21,7 +21,7 @@ const InfoBlock: React.FC<InfoBlockProps> = (props) => {
                 <Grid>
                     <Row>
                         <Col sizes={{lg: 4, sm: 6, all: 12}}>
-                            <h2>{title}</h2>
+                            <h2 className={b('content-title')}>{title}</h2>
                             {buttons && (
                                 <div className={b('buttons')}>
                                     {buttons.map((button, index) => (
@@ -36,7 +36,7 @@ const InfoBlock: React.FC<InfoBlockProps> = (props) => {
                             )}
                         </Col>
                         <Col sizes={{lg: 4, sm: 6, all: 12}} offsets={{lg: 2, md: 0}}>
-                            <h2>{sectionsTitle}</h2>
+                            <h2 className={b('sections-title')}>{sectionsTitle}</h2>
                             <div className={b('links')}>
                                 {links &&
                                     links.map((link, index) => (

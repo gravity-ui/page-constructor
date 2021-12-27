@@ -27,7 +27,7 @@ const HeaderWithImage: React.FunctionComponent<HeaderWithImageProps> = (props) =
             <Grid containerClass={b('container')} className={b('content')}>
                 <Row>
                     <Col className={b('titles')} sizes={headerWithImageSizes}>
-                        <h1>
+                        <h1 className={b('title')}>
                             <HTML>{title}</HTML>
                         </h1>
                         {subtitle && (

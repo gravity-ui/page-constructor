@@ -14,7 +14,13 @@ $block: '.#{$ns}header-block';
         padding: $indentXXL 0;
     }
 
+    &__title {
+        @include heading1();
+    }
+
     &__subtitle {
+        @include heading4();
+
         margin-top: $indentS;
         font-weight: normal;
     }

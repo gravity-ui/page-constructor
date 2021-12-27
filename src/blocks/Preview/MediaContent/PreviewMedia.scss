@@ -6,6 +6,10 @@ $block: '.#{$ns}preview-media-block';
 #{$block} {
     @include animate(&__media);
 
+    &__title {
+        @include heading2();
+    }
+
     &__media {
         @include image-shadow();
         overflow: hidden;

@@ -8,6 +8,10 @@ $block: '.#{$ns}companies-block';
 
     text-align: center;
 
+    &__title {
+        @include heading2();
+    }
+
     &__images {
         margin-top: $indentM;
     }

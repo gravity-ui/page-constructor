@@ -7,10 +7,11 @@ $block: '.#{$ns}table-block';
     $class: &;
 
     &__title {
+        @include heading2();
+        @include top-content-offset($offset: $indentM);
+
         position: sticky;
         margin-right: $indentM;
-
-        @include top-content-offset($offset: $indentM);
     }
 
     &__table {

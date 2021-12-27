@@ -4,6 +4,10 @@
 $block: '.#{$ns}media-content';
 
 #{$block} {
+    &__title {
+        @include heading2();
+    }
+
     &__info {
         margin-right: $indentM;
 
