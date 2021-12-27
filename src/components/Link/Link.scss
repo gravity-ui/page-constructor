@@ -8,6 +8,8 @@ $block: '.#{$ns}link-block';
     margin-top: $indentXS;
 
     &__link {
+        @include link();
+
         display: flex;
         align-items: center;
 
