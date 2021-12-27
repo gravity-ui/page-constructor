@@ -357,8 +357,12 @@
 }
 
 //typografy
+%haeding-margin-reset {
+    margin: 0;
+}
 
 @mixin heading1 {
+    @extend %haeding-margin-reset;
     @include text-size(display3);
 
     @media (max-width: map-get($gridBreakpoints, 'sm')) {
@@ -367,22 +371,27 @@
 }
 
 @mixin heading2 {
+    @extend %haeding-margin-reset;
     @include text-size(display1);
 }
 
 @mixin heading3 {
+    @extend %haeding-margin-reset;
     @include text-size(title);
 }
 
 @mixin heading4 {
+    @extend %haeding-margin-reset;
     @include text-size(header);
 }
 
 @mixin heading5 {
+    @extend %haeding-margin-reset;
     @include text-size(body3);
 }
 
 @mixin heading6 {
+    @extend %haeding-margin-reset;
     @include text-size(body3);
 }
 
