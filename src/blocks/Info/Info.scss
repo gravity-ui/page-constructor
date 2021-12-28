@@ -6,6 +6,11 @@ $block: '.#{$ns}info-block';
 #{$block} {
     @include add-theme();
 
+    &__content-title,
+    &__sections-title {
+        @include heading2();
+    }
+
     &__background {
         background-color: var(--yc-color-base-special);
     }

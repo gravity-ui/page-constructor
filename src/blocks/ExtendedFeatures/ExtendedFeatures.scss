@@ -19,6 +19,8 @@ $block: '.#{$ns}ExtendedFeaturesBlock';
         margin-top: $itemMargin;
 
         &-title {
+            @include heading5();
+
             display: flex;
             position: relative;
             margin-bottom: 8px;

@@ -5,10 +5,11 @@ $block: '.#{$ns}QuestionsBlock';
 
 #{$block} {
     &__title {
+        @include heading2();
+        @include top-content-offset($offset: $indentM);
+
         position: sticky;
         margin-bottom: $indentM;
-
-        @include top-content-offset($offset: $indentM);
     }
 
     &__item {
@@ -21,6 +22,8 @@ $block: '.#{$ns}QuestionsBlock';
     }
 
     &__item-title {
+        @include heading4();
+
         position: relative;
         padding-right: 24px;
 

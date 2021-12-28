@@ -1,9 +1,12 @@
 @import '../../../styles/variables';
+@import '../../../styles/mixins';
 
 $block: '.#{$ns}share-block';
 
 #{$block} {
     &__title {
+        @include heading5();
+
         text-align: center;
         font-weight: normal;
     }

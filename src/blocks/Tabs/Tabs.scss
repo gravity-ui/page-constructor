@@ -46,6 +46,8 @@ $block: '.#{$ns}TabsBlock';
     }
 
     &__content-title {
+        @include heading4();
+
         margin-bottom: $indentXXS;
     }
 

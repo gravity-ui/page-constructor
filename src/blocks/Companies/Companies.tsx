@@ -15,7 +15,7 @@ const CompaniesBlock: React.FC<CompaniesBlockProps> = ({title, images = {}, anim
     return (
         <AnimateBlock className={b()} offset={150} animate={animated}>
             <div className={b('content')}>
-                <h2>{title}</h2>
+                <h2 className={b('title')}>{title}</h2>
                 <div className={b('images')}>
                     <picture>
                         <source srcSet={desktop} media={`(min-width: ${BREAKPOINTS.md}px)`} />

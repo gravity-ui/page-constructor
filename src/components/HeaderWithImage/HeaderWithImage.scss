@@ -17,7 +17,13 @@ $block: '.#{$ns}header-with-image-block';
         justify-content: center;
     }
 
+    &__title {
+        @include heading1();
+    }
+
     &__subtitle {
+        @include heading4();
+
         margin-top: $indentS;
         font-weight: normal;
     }

@@ -22,6 +22,10 @@ $block: '.#{$ns}banner-block';
         }
     }
 
+    &__title {
+        @include heading2();
+    }
+
     &__content {
         width: 100%;
         border-radius: $borderRadius;

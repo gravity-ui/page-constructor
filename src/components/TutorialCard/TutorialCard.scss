@@ -1,9 +1,12 @@
 @import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
 
 $block: '.#{$ns}tutorial-card';
 
 #{$block} {
     &__title {
+        @include heading6();
+
         margin-bottom: $indentXXS;
         font-weight: 500;
     }

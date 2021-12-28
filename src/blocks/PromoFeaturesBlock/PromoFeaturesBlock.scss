@@ -6,6 +6,10 @@ $block: '.#{$ns}PromoFeaturesBlock';
 #{$block} {
     $class: &;
 
+    &__card-title {
+        @include heading4();
+    }
+
     &__card-container {
         display: flex;
 

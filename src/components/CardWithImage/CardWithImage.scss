@@ -15,11 +15,10 @@ $block: '.#{$ns}card-with-image';
     }
 
     &__title {
-        @include add-specificity(&) {
-            @include text-size(header);
-            margin: 0 0 8px;
-            font-weight: 500;
-        }
+        @include text-size(header);
+
+        margin: 0 0 8px;
+        font-weight: 500;
     }
 
     &__description,
@@ -29,16 +28,12 @@ $block: '.#{$ns}card-with-image';
     }
 
     &__description {
-        @include add-specificity(&) {
-            margin: 0 0 8px;
-        }
+        margin: 0 0 8px;
     }
 
     &__links-item {
-        padding-right: $indentXXXS;
-    }
-
-    a {
         @include link();
+
+        padding-right: $indentXXXS;
     }
 }

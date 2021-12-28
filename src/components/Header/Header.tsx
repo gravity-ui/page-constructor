@@ -50,7 +50,7 @@ const Header: React.FunctionComponent<HeaderProps> = (props) => {
                     <Grid className={b('content')}>
                         <Row>
                             <Col className={b('titles', {theme})} sizes={getTitleSizes(width)}>
-                                <h1>
+                                <h1 className={b('title')}>
                                     <HTML>{title}</HTML>
                                 </h1>
                                 {subtitle && (

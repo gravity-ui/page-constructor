@@ -356,48 +356,50 @@
     }
 }
 
-@mixin typografy() {
-    h1 {
-        @include text-size(display3);
+//typografy
+%haeding-margin-reset {
+    margin: 0;
+}
 
-        @media (max-width: map-get($gridBreakpoints, 'sm')) {
-            @include text-size(display2);
-        }
+@mixin heading1 {
+    @extend %haeding-margin-reset;
+    @include text-size(display3);
+
+    @media (max-width: map-get($gridBreakpoints, 'sm')) {
+        @include text-size(display2);
     }
+}
 
-    h2 {
-        @include text-size(display1);
-    }
+@mixin heading2 {
+    @extend %haeding-margin-reset;
+    @include text-size(display1);
+}
 
-    h3 {
-        @include text-size(title);
-    }
+@mixin heading3 {
+    @extend %haeding-margin-reset;
+    @include text-size(title);
+}
 
-    h4 {
-        @include text-size(header);
-    }
+@mixin heading4 {
+    @extend %haeding-margin-reset;
+    @include text-size(header);
+}
 
-    h5 {
-        @include text-size(body3);
-    }
+@mixin heading5 {
+    @extend %haeding-margin-reset;
+    @include text-size(body3);
+}
 
-    h6 {
-        @include text-size(body3);
-    }
+@mixin heading6 {
+    @extend %haeding-margin-reset;
+    @include text-size(body3);
+}
 
-    p,
-    div.p {
-        margin: 0 0 20px;
+@mixin paragraph {
+    margin: 0 0 20px;
 
-        &:last-child {
-            margin-bottom: 0;
-        }
-    }
-
-    sub,
-    sup {
-        font-size: 0.75em;
-        line-height: 0;
+    &:last-child {
+        margin-bottom: 0;
     }
 }
 
