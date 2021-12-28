@@ -10,25 +10,25 @@ $block: '.#{$ns}card-with-image';
         width: 100%;
         display: block;
         margin-bottom: $indentXS;
-        // TODO: change after redesign merge CLOUDFRONT-8837
-        border-radius: 12px;
+        border-radius: $borderRadius;
     }
 
     &__title {
-        @include text-size(header);
+        @include heading4();
 
-        margin: 0 0 8px;
+        margin-bottom: $indentXXXS;
         font-weight: 500;
     }
 
     &__description,
     &__links {
+        @include heading5();
         @include text-size(body2);
-        color: var(--yc-color-text-complementary);
     }
 
     &__description {
-        margin: 0 0 8px;
+        margin-bottom: $indentXXXS;
+        padding-right: $indentM;
     }
 
     &__links-item {
