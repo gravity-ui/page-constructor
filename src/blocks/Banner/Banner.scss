@@ -5,7 +5,7 @@ $block: '.#{$ns}banner-block';
 
 #{$block} {
     $class: &;
-    $borderRadius: 12px;
+    $borderRadius: $borderRadius;
 
     @include animate();
 

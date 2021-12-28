@@ -235,14 +235,14 @@
 @mixin image-shadow() {
     box-shadow: 0 2px 8px var(--www-color-sfx-shadow), 0 4px 24px var(--www-color-sfx-shadow);
     overflow-x: hidden;
-    border-radius: 12px;
+    border-radius: $borderRadius;
 }
 
 @mixin card($hover: false) {
     min-height: 248px;
     height: 100%;
     overflow-x: hidden;
-    border-radius: 12px;
+    border-radius: $borderRadius;
     background-color: var(--yc-color-base-background);
 
     transition: box-shadow 0.3s $ease-out-cubic;
