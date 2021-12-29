@@ -4,8 +4,8 @@ import {ClassNameProps} from '@yandex-data-ui/cloud-components';
 import {EventPublic, ServicePublic} from '@yandex-data-ui/cloud-schemas/build/models/ui-api';
 
 import {Lang, PixelEventType} from './common';
-import {GridColumnSize, GridColumnSizesType} from '../grid';
-import {isV2BlockType} from '../utils';
+import {GridColumnSize, GridColumnSizesType} from '../grid/types';
+import {isV2BlockType} from '../utils/blocks';
 
 export enum BlockType {
     Header = 'header',
@@ -120,11 +120,6 @@ export interface Childable {
 
 export interface Animatable {
     animated?: boolean;
-}
-
-export interface AdaptiveProps {
-    desktopOnly?: boolean;
-    mobileOnly?: boolean;
 }
 
 export interface BlockHeaderProps {
@@ -451,7 +446,7 @@ export interface ExtendedFeaturesProps extends Animatable {
     colSizes?: GridColumnSizesType;
 }
 
-interface PromoFeaturesItem {
+export interface PromoFeaturesItem {
     title: string;
     text: string;
     theme?: 'accent' | 'accent-light' | 'primary';
@@ -953,8 +948,8 @@ type BlockV2Raw =
     | LinkTableBlockModel
     | CardsWithImageBlockModel;
 
-export type BlockV1 = BlockV1Raw & AdaptiveProps;
-export type BlockV2 = BlockV2Raw & BlockBaseProps & AdaptiveProps;
+export type BlockV1 = BlockV1Raw;
+export type BlockV2 = BlockV2Raw & BlockBaseProps;
 export type Block = BlockV1 | BlockV2;
 
 export function isV2Block(block: Block): block is BlockV2 {
