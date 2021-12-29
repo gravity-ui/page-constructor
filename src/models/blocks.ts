@@ -597,7 +597,7 @@ export interface MediaBlockProps extends Animatable {
     title: string;
     description?: string;
     media: MediaProps;
-    button: Pick<ButtonProps, 'text' | 'url'>;
+    button: Pick<ButtonProps, 'text' | 'url' | 'theme'>;
     direction?: MediaDirection;
     mobileDirection?: MediaDirection;
     largeMedia?: boolean;
