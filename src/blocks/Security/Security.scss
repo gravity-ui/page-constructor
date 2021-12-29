@@ -17,12 +17,9 @@ $block: '.#{$ns}SecurityBlock';
             padding: 0;
         }
 
-        #{$class}__point-icon {
-            color: var(--yc-color-text-complementary);
-        }
-
+        #{$class}__point-icon,
         #{$class}__point-text {
-            color: var(--yc-color-text-complementary);
+            color: var(--yc-color-text-primary);
         }
     }
 
