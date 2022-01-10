@@ -5,6 +5,15 @@ $slideOffset: 10px;
 
 $block: '.#{$ns}SliderBlock';
 
+#{$block} {
+    &__header {
+        h2 {
+            @include heading2();
+            font-weight: 500;
+        }
+    }
+}
+
 @mixin fullscreen-card() {
     .slick-slide {
         width: 100%;
@@ -125,9 +134,8 @@ $block: '.#{$ns}SliderBlock';
         width: 24px;
         height: 8px;
         border-radius: $borderRadius;
-
         transition: left 0.3s;
-        background-color: var(--www-color-line-generic-active-solid);
+        background-color: var(--yc-color-line-solid);
     }
 
     &_align-left {

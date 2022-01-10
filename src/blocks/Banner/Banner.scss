@@ -61,6 +61,8 @@ $block: '.#{$ns}banner-block';
         border-top-right-radius: $borderRadius;
         border-bottom-right-radius: $borderRadius;
 
+        @include card-image();
+
         img {
             object-fit: cover;
             object-position: left;

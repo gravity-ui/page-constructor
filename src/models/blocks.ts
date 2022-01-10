@@ -894,7 +894,7 @@ export type BannerBlockModel = {
 } & BannerBlockProps;
 
 export type CompaniesBlockModel = {
-    type: BlockType.BannerBlock;
+    type: BlockType.CompaniesBlock;
 } & CompaniesBlockProps;
 
 export type MediaBlockModel = {
