@@ -20,7 +20,7 @@ $block: '.#{$ns}title-block';
     }
 
     &__arrow {
-        margin: 8px 0 0 10px;
+        margin: 8px 0 0 4px;
 
         &_size_s {
             margin: 6px 0 0 4px;
@@ -37,7 +37,7 @@ $block: '.#{$ns}title-block';
             cursor: pointer;
 
             #{$root}__arrow {
-                margin-left: 18px;
+                margin-left: 12px;
 
                 &_size_s {
                     margin-left: 8px;
