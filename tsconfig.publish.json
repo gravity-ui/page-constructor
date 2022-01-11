@@ -3,7 +3,5 @@
   "compilerOptions": {
     "paths": {}
   },
-  "exclude": [
-    "src/stories",
-  ]
+  "exclude": ["src/stories"]
 }

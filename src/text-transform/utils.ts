@@ -98,7 +98,7 @@ export function typografToText(text: string, lang: Lang) {
 }
 
 export const transformMarkdown = (input: string, options: Options) => {
-    const {result} = transformYFM(input, {
+    const {result} = transformYFM(input || '', {
         ...options,
     });
 

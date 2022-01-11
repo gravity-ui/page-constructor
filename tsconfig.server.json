@@ -9,9 +9,7 @@
     "baseUrl": ".",
     "paths": {
       "*": ["./node_modules/*"]
-    },
+    }
   },
-  "include": [
-    "src/server.ts",
-  ],
+  "include": ["src/server.ts"]
 }

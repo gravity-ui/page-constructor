@@ -24,13 +24,13 @@ import {
     getCustomBlockV2Types,
     getCustomComponents,
     getCustomHeaderTypes,
-    block,
+    block as cnBlock,
 } from '../../utils';
 
 import './PageConstructor.scss';
 import '../../../styles/yfm.scss';
 
-const b = block('page-constructor');
+const b = cnBlock('page-constructor');
 
 export interface PageConstructorProps {
     content?: PageContent;

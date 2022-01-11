@@ -17,9 +17,7 @@
 ```jsx
 import {PageConstructor} from '@yandex-data-ui/page-constructor';
 
-const Page: React.FC<PageProps> = ({content}) => (
-    <PageConstructor content={content}/>
-);
+const Page: React.FC<PageProps> = ({content}) => <PageConstructor content={content} />;
 ```
 
 ### Параметры
@@ -75,6 +73,7 @@ interface Metrika = {
 }
 
 ```
+
 ### Пользователькие блоки
 
 Конструктор страниц поддерживает возможность работы с блоками, определенными пользователем в его приложении. Блоки представляют собой обычные реакт-компоненты.
@@ -103,8 +102,8 @@ interface Metrika = {
 
 ```typescript
 export interface LoadableConfigItem {
-    fetch: FetchLoadableData; // функция загрузки данных
-    component: React.ComponentType; //блок, в который нужно передать загруженные данные
+  fetch: FetchLoadableData; // функция загрузки данных
+  component: React.ComponentType; //блок, в который нужно передать загруженные данные
 }
 
 type FetchLoadableData<TData = any> = (blockKey: string) => Promise<TData>;
@@ -117,19 +116,15 @@ type FetchLoadableData<TData = any> = (blockKey: string) => Promise<TData>;
 Пример использования:
 
 ```jsx
-
-import {Grid, Row, Col} from '@yandex-data-ui/page-constructor/'
+import {Grid, Row, Col} from '@yandex-data-ui/page-constructor/';
 
 const Page: React.FC<PageProps> = ({children}) => (
-    <Grid>
-        <Row>
-            <Col sizes={{lg: 4, sm: 6, all: 12}}>
-                {children}
-            </Col>
-        </Row>
-    </Grid>
+  <Grid>
+    <Row>
+      <Col sizes={{lg: 4, sm: 6, all: 12}}>{children}</Col>
+    </Row>
+  </Grid>
 );
-
 ```
 
 ### Блоки

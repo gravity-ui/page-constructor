@@ -3,3 +3,4 @@ node_modules
 /eslint-plugin-local
 /build
 /storybook-static
+/server
