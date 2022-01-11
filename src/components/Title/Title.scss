@@ -21,7 +21,6 @@ $block: '.#{$ns}title-block';
 
     &__arrow {
         margin: 8px 0 0 10px;
-        transition: margin-left 0.3s $ease-out-cubic;
 
         &_size_s {
             margin: 6px 0 0 4px;
@@ -31,6 +30,8 @@ $block: '.#{$ns}title-block';
     &__link {
         @include reset-link-style();
         @include reset-link-hover();
+
+        padding-right: 8px;
 
         &:hover {
             cursor: pointer;

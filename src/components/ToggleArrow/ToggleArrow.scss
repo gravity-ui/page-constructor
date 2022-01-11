@@ -9,6 +9,7 @@ $block: '.#{$ns}ToggleArrow';
 
     &_type {
         &_horizontal {
+            transition: margin-left 0.3s $ease-out-cubic;
             transform: rotate(-90deg);
         }
 
