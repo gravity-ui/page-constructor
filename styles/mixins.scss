@@ -377,7 +377,7 @@
 
 @mixin heading2 {
     @extend %heading-margin-reset;
-    @include text-size(display1);
+    @include text-size(display2);
 }
 
 @mixin heading3 {
@@ -426,4 +426,8 @@ unpredictable css rules order in build */
             box-shadow: none;
         }
     }
+}
+
+@mixin font-feature-settings {
+    font-feature-settings: 'liga', 'kern', 'pnum' on, 'lnum' on, 'ss03' on;
 }

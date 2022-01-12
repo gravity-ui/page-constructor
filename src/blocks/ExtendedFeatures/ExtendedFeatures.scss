@@ -8,9 +8,9 @@ $block: '.#{$ns}ExtendedFeaturesBlock';
     $itemMargin: $indentM;
 
     &__header {
-        @include heading4();
-
         h1 {
+            @include heading1();
+
             margin-bottom: 0;
             font-weight: 500;
         }
@@ -29,12 +29,12 @@ $block: '.#{$ns}ExtendedFeaturesBlock';
         padding-right: $indentM;
 
         &-title {
-            @include heading5();
+            @include heading4();
 
             display: flex;
             position: relative;
-
             margin-bottom: $indentXXXS;
+            font-weight: 500;
         }
 
         &-label {
