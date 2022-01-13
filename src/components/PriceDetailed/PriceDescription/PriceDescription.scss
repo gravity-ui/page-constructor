@@ -74,4 +74,8 @@ $block: '.#{$ns}price-description';
             background: var(--yc-color-promo-highlight-tomato);
         }
     }
+
+    @media (max-width: map-get($gridBreakpoints, 'sm')) {
+        min-width: 160px;
+    }
 }

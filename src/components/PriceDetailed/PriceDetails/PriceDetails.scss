@@ -53,7 +53,7 @@ $settingsIndentBetweenTitleAndDescriptionHeight: 2px;
         padding-top: $indentXXS;
     }
 
-    & .settings-list__title {
+    & .#{$ns}settings-list__title {
         margin-bottom: $settingsIndentBetweenTitleAndDescriptionHeight;
     }
 }

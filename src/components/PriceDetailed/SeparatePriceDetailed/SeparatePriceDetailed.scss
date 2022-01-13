@@ -4,15 +4,15 @@
 $block: '.#{$ns}separate-price-detailed-block';
 
 #{$block} {
-    & .price-description {
+    & .#{$ns}price-description {
         margin-bottom: 0;
     }
 
-    & .price-details > * {
+    & .#{$ns}price-details > * {
         padding-top: $indentXXS;
     }
 
-    & .price-details {
+    & .#{$ns}price-details {
         margin-top: $indentSM;
     }
 }
