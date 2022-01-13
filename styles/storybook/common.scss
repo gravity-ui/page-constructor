@@ -27,3 +27,9 @@
         }
     }
 }
+
+.pc-page-constructor {
+    .pc-block-base:first-child {
+        margin-top: 0;
+    }
+}

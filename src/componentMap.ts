@@ -38,6 +38,7 @@ import {
     TextTableBlock,
     LinkTableBlock,
     CardsWithImageBlock,
+    HeaderBlock,
 } from './blocks';
 import TutorialCard from './components/TutorialCard/TutorialCard';
 
@@ -81,6 +82,7 @@ const components = {
     [BlockType.TextTableBlock]: TextTableBlock,
     [BlockType.LinkTableBlock]: LinkTableBlock,
     [BlockType.CardsWithImageBlock]: CardsWithImageBlock,
+    [BlockType.HeaderBlock]: HeaderBlock,
 };
 
 export default components;

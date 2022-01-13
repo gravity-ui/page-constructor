@@ -59,6 +59,7 @@ export enum BlockType {
     HeaderSliderBlock = 'header-slider-block',
     LinkTableBlock = 'link-table-block',
     CardsWithImageBlock = 'cards-with-image-block',
+    HeaderBlock = 'header-block',
 }
 
 export const BlockV2Types = Object.values(BlockType).filter((type) => isV2BlockType(type));
@@ -722,6 +723,40 @@ export interface CardsWithImageBlockProps {
     colSizes?: GridColumnSizesType;
 }
 
+export interface HeaderBlockProps {
+    title: string;
+    overtitle?: string;
+    description?: string;
+    buttons?: Pick<ButtonProps, 'url' | 'text' | 'theme' | 'primary' | 'size'>[];
+    width?: HeaderWidth;
+    imageSize?: HeaderImageSize;
+    offset?: HeaderOffset;
+    image?: ImageProps;
+    video?: MediaVideoProps;
+    background?: HeaderBlockBackground;
+    theme?: 'default' | 'dark';
+    verticalOffset: 's' | 'm' | 'l' | 'xl';
+}
+
+interface HeaderBackgroundProps {
+    fullWidth?: boolean;
+    color?: string;
+    url?: string;
+    disableCompress?: boolean;
+}
+
+export type HeaderBlockBackground = HeaderBackgroundProps | MediaProps;
+
+export function headerHasMediaBackground(
+    background: HeaderBackgroundProps | MediaProps,
+): background is MediaProps {
+    return 'image' in background || 'video' in background || 'youtube' in background;
+}
+
+export type HeaderBlockModel = {
+    type: BlockType.HeaderBlock;
+} & HeaderBlockProps;
+
 export type HeaderModel = {
     type: BlockType.Header;
 } & HeaderProps;
@@ -946,7 +981,8 @@ type BlockV2Raw =
     | TextTableBlockModel
     | SimpleBlockModel
     | LinkTableBlockModel
-    | CardsWithImageBlockModel;
+    | CardsWithImageBlockModel
+    | HeaderBlockModel;
 
 export type BlockV1 = BlockV1Raw;
 export type BlockV2 = BlockV2Raw & BlockBaseProps;
