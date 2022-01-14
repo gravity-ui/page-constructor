@@ -151,9 +151,9 @@ $block: '.#{$ns}SliderBlock';
 
     @media (max-width: map-get($gridBreakpoints, 'sm')) {
         &:not(&_one-slide) {
-            margin-left: -20px;
-            padding-left: 20px;
-            width: calc(100% + 40px);
+            margin-left: -$indentXS;
+            padding-left: $indentXS;
+            width: calc(100% + #{$indentXS * 2});
             overflow-x: auto;
 
             .slick-list {
