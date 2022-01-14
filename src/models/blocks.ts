@@ -199,6 +199,7 @@ export interface TitleBaseProps {
     url?: string;
     custom?: string | ReactNode;
     onClick?: () => void;
+    arrowSize?: number;
 }
 
 export interface AnchorProps {
@@ -718,7 +719,7 @@ export interface CardWithImageProps extends ClassNameProps {
 }
 
 export interface CardsWithImageBlockProps {
-    title: string;
+    title: TitleProps | string;
     cards: CardWithImageProps[];
     colSizes?: GridColumnSizesType;
 }

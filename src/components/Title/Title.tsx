@@ -30,7 +30,18 @@ export interface TitleFullProps extends TitleProps {
 }
 
 const Title: React.FunctionComponent<TitleFullProps> = (props) => {
-    const {textSize = 'm', text, anchor, justify, url, onClick, custom, className, dataQa} = props;
+    const {
+        textSize = 'm',
+        text,
+        anchor,
+        justify,
+        url,
+        onClick,
+        custom,
+        className,
+        dataQa,
+        arrowSize,
+    } = props;
     const {hostname} = useContext(LocationContext);
     const textMarkup = (
         <React.Fragment>
@@ -51,7 +62,7 @@ const Title: React.FunctionComponent<TitleFullProps> = (props) => {
             &nbsp;
             <ToggleArrow
                 className={b('arrow', {size: textSize})}
-                size={getArrowSize(textSize)}
+                size={arrowSize || getArrowSize(textSize)}
                 type={'horizontal'}
                 iconType="navigation"
                 open={false}

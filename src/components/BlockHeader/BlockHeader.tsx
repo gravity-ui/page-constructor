@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {HTML} from '@doc-tools/components';
 
 import {block} from '../../utils';
@@ -8,6 +8,7 @@ import {ClassNameProps} from '@yandex-data-ui/cloud-components';
 import Title from '../Title/Title';
 
 import './BlockHeader.scss';
+import {MobileContext} from '../../context/mobileContext';
 
 const b = block('BlockHeader');
 
@@ -21,6 +22,8 @@ const BlockHeader: React.FunctionComponent<BlockHeaderProps & ClassNameProps> = 
     className,
     colSizes = {all: 12, sm: 8},
 }) => {
+    const isMobile = useContext(MobileContext);
+
     if (!title && !description) {
         return null;
     }
@@ -36,6 +39,7 @@ const BlockHeader: React.FunctionComponent<BlockHeaderProps & ClassNameProps> = 
                         text={text}
                         {...titleProps}
                         className={b('title', {'no-description': !description})}
+                        arrowSize={isMobile ? 20 : 24}
                     />
                 </Col>
             )}

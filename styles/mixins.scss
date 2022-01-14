@@ -378,6 +378,10 @@
 @mixin heading2 {
     @extend %heading-margin-reset;
     @include text-size(display2);
+
+    @media (max-width: map-get($gridBreakpoints, 'sm') - 1) {
+        @include text-size(display1);
+    }
 }
 
 @mixin heading3 {

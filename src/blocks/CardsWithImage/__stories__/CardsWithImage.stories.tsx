@@ -17,7 +17,7 @@ export const Default = DefaultTemplate.bind({});
 
 Default.args = {
     type: BlockType.CardsWithImageBlock,
-    title: 'Executive leads',
+    title: {text: 'Executive leads', url: '#'},
     cards: [
         {
             image: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/card-with-image/bashkeev.png',
