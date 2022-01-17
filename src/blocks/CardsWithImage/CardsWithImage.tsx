@@ -6,8 +6,6 @@ import {Row, Col} from '../../grid';
 import {BlockHeader} from '../../components';
 import CardWithImage from '../../components/CardWithImage/CardWithImage';
 
-import './CardsWithImage.scss';
-
 const b = block('cards-with-image-block');
 
 const DEFAULT_SIZES = {

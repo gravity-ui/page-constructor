@@ -199,7 +199,6 @@ export interface TitleBaseProps {
     url?: string;
     custom?: string | ReactNode;
     onClick?: () => void;
-    arrowSize?: number;
 }
 
 export interface AnchorProps {

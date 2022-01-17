@@ -16,7 +16,7 @@ export const Default = DefaultTemplate.bind({});
 
 Default.args = {
     type: BlockType.SliderBlock,
-    title: {text: 'Мероприятия и вебинары', url: '/events'},
+    title: {text: 'Мероприятия и вебинары', url: '/events', textSize: 'l'},
     children: [
         {
             // @ts-ignore

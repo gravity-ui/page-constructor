@@ -5,15 +5,6 @@ $slideOffset: 10px;
 
 $block: '.#{$ns}SliderBlock';
 
-#{$block} {
-    &__header {
-        h2 {
-            @include heading2();
-            font-weight: 500;
-        }
-    }
-}
-
 @mixin fullscreen-card() {
     .slick-slide {
         width: 100%;

@@ -6,18 +6,20 @@ import {TextSize, TitleProps} from '../../models';
 import Anchor from '../Anchor/Anchor';
 import ToggleArrow from '../ToggleArrow/ToggleArrow';
 import {LocationContext} from '../../context/locationContext';
+import {MobileContext} from '../../context/mobileContext';
 
 import './Title.scss';
 
 const b = block('title-block');
 
-export function getArrowSize(size: TextSize) {
+export function getArrowSize(size: TextSize, isMobile: boolean) {
     switch (size) {
-        case 'l':
-            return 24;
         case 's':
-            return 14;
+            return 16;
         case 'm':
+            return isMobile ? 20 : 24;
+        case 'l':
+            return isMobile ? 20 : 24;
         default:
             return 20;
     }
@@ -30,18 +32,9 @@ export interface TitleFullProps extends TitleProps {
 }
 
 const Title: React.FunctionComponent<TitleFullProps> = (props) => {
-    const {
-        textSize = 'm',
-        text,
-        anchor,
-        justify,
-        url,
-        onClick,
-        custom,
-        className,
-        dataQa,
-        arrowSize,
-    } = props;
+    const isMobile = useContext(MobileContext);
+
+    const {textSize = 'm', text, anchor, justify, url, onClick, custom, className, dataQa} = props;
     const {hostname} = useContext(LocationContext);
     const textMarkup = (
         <React.Fragment>
@@ -62,7 +55,7 @@ const Title: React.FunctionComponent<TitleFullProps> = (props) => {
             &nbsp;
             <ToggleArrow
                 className={b('arrow', {size: textSize})}
-                size={arrowSize || getArrowSize(textSize)}
+                size={getArrowSize(textSize, isMobile)}
                 type={'horizontal'}
                 iconType="navigation"
                 open={false}
