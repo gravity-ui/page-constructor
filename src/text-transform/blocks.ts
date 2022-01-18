@@ -318,6 +318,12 @@ const config: BlocksConfig = {
             parser: parsePriceDetailedBlock,
         },
     ],
+    [BlockType.HeaderBlock]: [
+        {
+            fields: ['description'],
+            transformer: yfmTransformer,
+        },
+    ],
 };
 
 function addRandomOrder(block: ConstructorBlock) {

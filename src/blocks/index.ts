@@ -14,3 +14,4 @@ export {default as TabsBlock} from './Tabs/Tabs';
 export {default as TextTableBlock} from './TextTable/TextTable';
 export {default as LinkTableBlock} from './LinkTable/LinkTable';
 export {default as CardsWithImageBlock} from './CardsWithImage/CardsWithImage';
+export {default as HeaderBlock} from './Header/Header';

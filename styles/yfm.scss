@@ -38,7 +38,7 @@
             p {
                 //TODO manage with text-size
                 @include text-size(body3);
-                color: var(--www-text-header-color);
+                color: var(--yc-color-text-primary);
                 margin: 0 0 15px;
             }
         }
