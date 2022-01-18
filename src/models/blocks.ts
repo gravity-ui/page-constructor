@@ -711,7 +711,9 @@ export interface CardWithImageProps extends ClassNameProps {
     title?: string;
     description?: string;
     image: string;
-    links: {
+    border?: boolean;
+    fullScreen?: boolean;
+    links?: {
         title: string;
         link: string;
     }[];
@@ -720,6 +722,7 @@ export interface CardWithImageProps extends ClassNameProps {
 export interface CardsWithImageBlockProps {
     title: TitleProps | string;
     cards: CardWithImageProps[];
+    description?: string;
     colSizes?: GridColumnSizesType;
 }
 

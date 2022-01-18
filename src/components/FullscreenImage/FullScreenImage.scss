@@ -1,7 +1,7 @@
 @import '../../../styles/variables';
 
 $block: '.#{$ns}FullScreenImage';
-$closeButtonSize: 44px;
+$closeButtonSize: 36px;
 
 #{$block} {
     &__image {
@@ -30,13 +30,13 @@ $closeButtonSize: 44px;
         align-items: center;
         justify-content: center;
         position: absolute;
-        right: 0;
-        top: calc(-#{$closeButtonSize} - #{$indentXS});
+        right: $indentXS;
+        top: $indentXS;
         width: $closeButtonSize;
         height: $closeButtonSize;
 
-        border-radius: 50%;
-        background-color: var(--yc-color-base-background);
+        border-radius: 8px;
+        background-color: var(--yc-color-base-simple-hover-solid);
         cursor: pointer;
     }
 

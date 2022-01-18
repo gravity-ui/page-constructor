@@ -7,6 +7,7 @@ const {ConfigBuilder, javascript, styles, assets} = require('@yandex-data-ui/web
 const srcRoot = path.resolve(root, 'src');
 const stylesRoot = path.resolve(root, 'styles');
 const assetsRoot = path.resolve(root, 'assets');
+const nodeModulesRoot = path.resolve(root, 'node_modules');
 
 const storybookRoot = path.resolve(root, '.storybook');
 
@@ -33,7 +34,10 @@ config
     )
     .module.addRule({
         test: /\.svg$/,
-        include: [path.resolve(assetsRoot, 'icons')],
+        include: [
+            path.resolve(assetsRoot, 'icons'),
+            path.resolve(nodeModulesRoot, '@yandex-data-ui/common/assets/icons'),
+        ],
         loader: 'svg-sprite-loader',
         options: {
             extract: true,
@@ -77,7 +81,10 @@ module.exports = {
             test: /\.(ico|bmp|gif|jpe?g|png|svg)$/,
             loader: 'url-loader',
             include: [root],
-            exclude: [path.resolve(assetsRoot, 'icons')],
+            exclude: [
+                path.resolve(assetsRoot, 'icons'),
+                path.resolve(nodeModulesRoot, '@yandex-data-ui/common/assets/icons'),
+            ],
         });
 
         // без этого fileName в context.parameters в продакшн сборке становится цифрой, а не путём, и ссылку на сорсы не сформировать
