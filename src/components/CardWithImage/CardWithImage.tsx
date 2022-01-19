@@ -19,8 +19,11 @@ const CardWithImage: React.FC<CardWithImageProps> = ({
 }) => (
     <div className={b(null, className)}>
         <div className={b('image', {border})}>
-            {fullScreen && <FullScreenImage src={image} imageClassName={b('image-item')} />}
-            {!fullScreen && <img className={b('image-item')} src={image} alt={'card-image'} />}
+            {fullScreen ? (
+                <FullScreenImage src={image} imageClassName={b('image-item')} />
+            ) : (
+                <img className={b('image-item')} src={image} alt={'card-image'} />
+            )}
         </div>
         {title && <h3 className={b('title')}>{title}</h3>}
         {description && <p className={b('description')}>{description}</p>}

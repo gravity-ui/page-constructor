@@ -1,3 +1,4 @@
+@import '../../../styles/mixins';
 @import '../../../styles/variables';
 
 $block: '.#{$ns}FullScreenImage';
@@ -6,6 +7,10 @@ $closeButtonSize: 36px;
 #{$block} {
     &__image {
         cursor: pointer;
+
+        &-wrapper {
+            position: relative;
+        }
     }
 
     &__modal-content {
@@ -25,7 +30,7 @@ $closeButtonSize: 36px;
         border-radius: $borderRadius;
     }
 
-    &__close-button {
+    &__icon-wrapper {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -34,16 +39,21 @@ $closeButtonSize: 36px;
         top: $indentXS;
         width: $closeButtonSize;
         height: $closeButtonSize;
-
         border-radius: 8px;
         background-color: var(--yc-color-base-simple-hover-solid);
         cursor: pointer;
+        opacity: 0;
+        transition: 0.3s;
+
+        &_visible {
+            opacity: 1;
+        }
     }
 
     &__icon {
         color: var(--yc-color-text-hint);
 
-        &:hover {
+        &_hover:hover {
             color: var(--yc-color-text-secondary);
         }
     }
@@ -52,9 +62,11 @@ $closeButtonSize: 36px;
         &__image {
             pointer-events: none;
         }
-    }
 
-    @media (max-width: map-get($gridBreakpoints, 'lg')) {
+        &__icon-wrapper {
+            display: none;
+        }
+
         &__modal {
             display: none !important; /* stylelint-disable-line declaration-no-important */
         }
