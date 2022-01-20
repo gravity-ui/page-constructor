@@ -7,8 +7,17 @@ $block: '.#{$ns}ExtendedFeaturesBlock';
     $class: &;
     $itemMargin: $indentM;
 
+    &__header {
+        h1 {
+            @include heading1();
+
+            margin-bottom: 0;
+            font-weight: 500;
+        }
+    }
+
     &__items {
-        margin-top: -$itemMargin;
+        margin-top: -$indentM;
     }
 
     &__header + &__items {
@@ -16,14 +25,16 @@ $block: '.#{$ns}ExtendedFeaturesBlock';
     }
 
     &__item {
-        margin-top: $itemMargin;
+        margin-top: $indentM;
+        padding-right: $indentM;
 
         &-title {
-            @include heading5();
+            @include heading4();
 
             display: flex;
             position: relative;
-            margin-bottom: 8px;
+            margin-bottom: $indentXXXS;
+            font-weight: 500;
         }
 
         &-label {
@@ -46,7 +57,7 @@ $block: '.#{$ns}ExtendedFeaturesBlock';
         }
 
         &-link {
-            margin-top: 8px;
+            margin-top: $indentXXXS;
             color: var(--yc-color-text-link);
         }
     }
@@ -54,7 +65,8 @@ $block: '.#{$ns}ExtendedFeaturesBlock';
     &__icon {
         @include icon();
 
-        margin-bottom: 12px;
+        display: block;
+        margin-bottom: $indentXXXS;
     }
 
     @media (max-width: map-get($gridBreakpoints, 'sm')) {

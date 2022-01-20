@@ -235,14 +235,14 @@
 @mixin image-shadow() {
     box-shadow: 0 2px 8px var(--www-color-sfx-shadow), 0 4px 24px var(--www-color-sfx-shadow);
     overflow-x: hidden;
-    border-radius: 12px;
+    border-radius: $borderRadius;
 }
 
 @mixin card($hover: false) {
     min-height: 248px;
     height: 100%;
     overflow-x: hidden;
-    border-radius: 12px;
+    border-radius: $borderRadius;
     background-color: var(--yc-color-base-background);
 
     transition: box-shadow 0.3s $ease-out-cubic;
@@ -258,6 +258,11 @@
     @if $hover {
         @extend %shadow-hover;
     }
+}
+
+@mixin card-image {
+    margin: $borderRadiusPadding;
+    border-radius: calc(#{$borderRadius} - #{$borderRadiusPadding});
 }
 
 @mixin reset-link-hover {
@@ -357,12 +362,12 @@
 }
 
 //typografy
-%haeding-margin-reset {
+%heading-margin-reset {
     margin: 0;
 }
 
 @mixin heading1 {
-    @extend %haeding-margin-reset;
+    @extend %heading-margin-reset;
     @include text-size(display3);
 
     @media (max-width: map-get($gridBreakpoints, 'sm')) {
@@ -371,27 +376,31 @@
 }
 
 @mixin heading2 {
-    @extend %haeding-margin-reset;
-    @include text-size(display1);
+    @extend %heading-margin-reset;
+    @include text-size(display2);
+
+    @media (max-width: map-get($gridBreakpoints, 'sm') - 1) {
+        @include text-size(display1);
+    }
 }
 
 @mixin heading3 {
-    @extend %haeding-margin-reset;
+    @extend %heading-margin-reset;
     @include text-size(title);
 }
 
 @mixin heading4 {
-    @extend %haeding-margin-reset;
+    @extend %heading-margin-reset;
     @include text-size(header);
 }
 
 @mixin heading5 {
-    @extend %haeding-margin-reset;
+    @extend %heading-margin-reset;
     @include text-size(body3);
 }
 
 @mixin heading6 {
-    @extend %haeding-margin-reset;
+    @extend %heading-margin-reset;
     @include text-size(body3);
 }
 
@@ -421,4 +430,8 @@ unpredictable css rules order in build */
             box-shadow: none;
         }
     }
+}
+
+@mixin font-feature-settings {
+    font-feature-settings: 'liga', 'kern', 'pnum' on, 'lnum' on, 'ss03' on;
 }

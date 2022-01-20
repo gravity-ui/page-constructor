@@ -5,7 +5,7 @@ $block: '.#{$ns}banner-block';
 
 #{$block} {
     $class: &;
-    $borderRadius: 12px;
+    $borderRadius: $borderRadius;
 
     @include animate();
 
@@ -60,6 +60,8 @@ $block: '.#{$ns}banner-block';
     &__image {
         border-top-right-radius: $borderRadius;
         border-bottom-right-radius: $borderRadius;
+
+        @include card-image();
 
         img {
             object-fit: cover;

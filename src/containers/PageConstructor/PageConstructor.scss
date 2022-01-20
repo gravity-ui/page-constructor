@@ -5,7 +5,7 @@
 $block: '.#{$ns}page-constructor';
 
 #{$block} {
-    $borderRadius: 12px;
+    @include font-feature-settings();
 
     margin-top: 0;
     background-color: var(--yc-color-base-background);

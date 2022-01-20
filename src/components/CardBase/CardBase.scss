@@ -23,6 +23,7 @@ $block: '.#{$ns}card-base-block';
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
+        @include card-image();
     }
 
     &__header-content {

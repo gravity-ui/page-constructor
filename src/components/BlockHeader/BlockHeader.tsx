@@ -10,7 +10,6 @@ import Title from '../Title/Title';
 import './BlockHeader.scss';
 
 const b = block('BlockHeader');
-
 export interface BlockHeaderProps extends BlockHeaderParams {
     colSizes?: GridColumnSizesType;
 }

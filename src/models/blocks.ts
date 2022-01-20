@@ -597,7 +597,7 @@ export interface MediaBlockProps extends Animatable {
     title: string;
     description?: string;
     media: MediaProps;
-    button: Pick<ButtonProps, 'text' | 'url'>;
+    button: Pick<ButtonProps, 'text' | 'url' | 'theme'>;
     direction?: MediaDirection;
     mobileDirection?: MediaDirection;
     largeMedia?: boolean;
@@ -718,7 +718,7 @@ export interface CardWithImageProps extends ClassNameProps {
 }
 
 export interface CardsWithImageBlockProps {
-    title: string;
+    title: TitleProps | string;
     cards: CardWithImageProps[];
     colSizes?: GridColumnSizesType;
 }
@@ -894,7 +894,7 @@ export type BannerBlockModel = {
 } & BannerBlockProps;
 
 export type CompaniesBlockModel = {
-    type: BlockType.BannerBlock;
+    type: BlockType.CompaniesBlock;
 } & CompaniesBlockProps;
 
 export type MediaBlockModel = {

@@ -5,7 +5,7 @@ $block: '.#{$ns}tutorial-card';
 
 #{$block} {
     &__title {
-        @include heading6();
+        @include heading4();
 
         margin-bottom: $indentXXS;
         font-weight: 500;

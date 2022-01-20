@@ -125,9 +125,8 @@ $block: '.#{$ns}SliderBlock';
         width: 24px;
         height: 8px;
         border-radius: $borderRadius;
-
         transition: left 0.3s;
-        background-color: var(--www-color-line-generic-active-solid);
+        background-color: var(--yc-color-line-solid);
     }
 
     &_align-left {
@@ -143,9 +142,9 @@ $block: '.#{$ns}SliderBlock';
 
     @media (max-width: map-get($gridBreakpoints, 'sm')) {
         &:not(&_one-slide) {
-            margin-left: -20px;
-            padding-left: 20px;
-            width: calc(100% + 40px);
+            margin-left: -$indentXS;
+            padding-left: $indentXS;
+            width: calc(100% + #{$indentXS * 2});
             overflow-x: auto;
 
             .slick-list {
