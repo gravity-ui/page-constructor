@@ -44,3 +44,4 @@ export {default as TutorialCard} from './TutorialCard/TutorialCard';
 export {default as UnpublishedLabel} from './UnpublishedLabel/UnpublishedLabel';
 export {default as VideoBlock} from './VideoBlock/VideoBlock';
 export {default as YFMWrapper} from './YFMWrapper/YFMWrapper';
+export {default as YandexForm} from './YandexForm/YandexForm';
