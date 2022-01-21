@@ -31,7 +31,7 @@ export enum BlockType {
     Card = 'card',
     Quote = 'quote',
     Event = 'event',
-    Post = 'post',
+    NewsCard = 'news-card',
     Partner = 'partner',
     PriceDetailed = 'price-detailed',
     ServiceCard = 'service-card',
@@ -344,10 +344,12 @@ export enum SliderBreakpointNames {
     Lg = 'lg',
     Xl = 'xl',
 }
+
 export enum SliderType {
     MediaCard = 'media-card',
     HeaderCard = 'header-card',
 }
+
 export type SliderBreakpointParams = Record<SliderBreakpointNames, number>;
 export type SlidesToShow = Partial<SliderBreakpointParams> | number;
 
@@ -421,6 +423,7 @@ export interface ButtonImageProps {
     position?: 'left' | 'right';
     alt?: string;
 }
+
 export interface SimpleBlockProps extends Animatable, Childable {
     title: TitleBaseProps;
     description: string;
@@ -557,7 +560,7 @@ export interface EventProps extends EventPublic, CardBaseProps {
     lang?: Lang;
 }
 
-export interface PostData {
+export interface NewsCardData {
     id: number;
     slug: string;
     title: string;
@@ -565,7 +568,7 @@ export interface PostData {
     url: string;
 }
 
-export interface PostProps extends PostData, CardBaseProps {}
+export type NewsCardProps = Pick<NewsCardData, 'title' | 'url' | 'date'> & CardBaseProps;
 
 export interface TutorialCardProps extends CardBaseProps {
     url: string;
@@ -837,9 +840,9 @@ export type EventModel = {
     type: BlockType.Event;
 } & EventProps;
 
-export type PostModel = {
-    type: BlockType.Post;
-} & PostProps;
+export type NewsCardModel = {
+    type: BlockType.NewsCard;
+} & NewsCardProps;
 
 export type TutorialCardModel = {
     type: BlockType.TutorialCard;
@@ -958,11 +961,12 @@ export type BlockV1Raw =
     | CardModel
     | QuoteModel
     | EventModel
-    | PostModel
+    | NewsCardModel
     | PartnerModel
     | PriceDetailedModel
     | ServiceCardModel
-    | MediaCardModel;
+    | MediaCardModel
+    | TutorialCardModel;
 
 type BlockV2Raw =
     | SliderBlockModel
