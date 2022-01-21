@@ -152,10 +152,6 @@ $block: '.#{$ns}header-block';
     }
 
     @media (max-width: map-get($gridBreakpoints, 'sm')) {
-        &__content {
-            padding-bottom: 0;
-        }
-
         &__background {
             left: calc(-#{$indentXXS});
             width: calc(100% + (#{$indentXXS} * 2));
