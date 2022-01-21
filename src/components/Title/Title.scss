@@ -7,7 +7,6 @@ $block: '.#{$ns}title-block';
     @include justify();
     $root: &;
 
-    @include heading2();
     font-weight: 500;
 
     &_size_s {
@@ -17,10 +16,12 @@ $block: '.#{$ns}title-block';
     }
 
     &_size_m {
+        @include heading2();
         margin-top: $indentL;
     }
 
     &_size_l {
+        @include heading1();
         margin-top: $indentXL;
     }
 
