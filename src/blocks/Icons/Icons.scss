@@ -1,0 +1,51 @@
+@import '../../../styles/mixins';
+@import '../../../styles/variables';
+
+$block: '.#{$ns}icons-block';
+
+#{$block} {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    @include text-size(body2);
+
+    &_size_s {
+        #{$block}__item {
+            max-width: 96px;
+        }
+    }
+
+    &_size_m {
+        #{$block}__item {
+            max-width: 128px;
+        }
+    }
+
+    &_size_l {
+        #{$block}__item {
+            max-width: 160px;
+        }
+    }
+
+    &__header {
+        width: 100%;
+        padding-bottom: $indentSM;
+        text-align: center;
+    }
+
+    &__text {
+        margin: $indentXXXS 0 0;
+        text-align: center;
+    }
+
+    &__item {
+        margin: 0 $indentXXXS $indentSM;
+    }
+
+    &__image {
+        max-width: 100%;
+        margin: 0 auto;
+        display: block;
+    }
+}

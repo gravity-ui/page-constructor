@@ -41,6 +41,7 @@ import {
     LinkTableBlock,
     CardsWithImageBlock,
     HeaderBlock,
+    IconsBlock,
 } from './blocks';
 
 const components = {
@@ -85,6 +86,7 @@ const components = {
     [BlockType.LinkTableBlock]: LinkTableBlock,
     [BlockType.CardsWithImageBlock]: CardsWithImageBlock,
     [BlockType.HeaderBlock]: HeaderBlock,
+    [BlockType.IconsBlock]: IconsBlock,
 };
 
 export default components;

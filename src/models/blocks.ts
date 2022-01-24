@@ -60,6 +60,7 @@ export enum BlockType {
     LinkTableBlock = 'link-table-block',
     CardsWithImageBlock = 'cards-with-image-block',
     HeaderBlock = 'header-block',
+    IconsBlock = 'icons-block',
 }
 
 export const BlockV2Types = Object.values(BlockType).filter((type) => isV2BlockType(type));
@@ -732,6 +733,15 @@ export interface CardsWithImageBlockProps {
     colSizes?: GridColumnSizesType;
 }
 
+export interface IconsBlockProps {
+    title?: string;
+    size: 's' | 'm' | 'l';
+    items: {
+        url: string;
+        text: string;
+    }[];
+}
+
 export interface HeaderBlockProps {
     title: string;
     overtitle?: string;
@@ -946,6 +956,10 @@ export type CardsWithImageBlockModel = {
     type: BlockType.CardsWithImageBlock;
 } & CardsWithImageBlockProps;
 
+export type IconsBlockModel = {
+    type: BlockType.IconsBlock;
+} & IconsBlockProps;
+
 export type BlockV1Raw =
     | HeaderModel
     | ButtonModel
@@ -993,7 +1007,8 @@ type BlockV2Raw =
     | LinkTableBlockModel
     | CardsWithImageBlockModel
     | HeaderBlockModel
-    | PreviewBlockModel;
+    | PreviewBlockModel
+    | IconsBlockModel;
 
 export type BlockV1 = BlockV1Raw;
 export type BlockV2 = BlockV2Raw & BlockBaseProps;
