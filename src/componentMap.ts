@@ -19,6 +19,8 @@ import {
     Partner,
     PriceDetailed,
     MediaCard,
+    NewsCard,
+    TutorialCard,
 } from './components';
 
 import {
@@ -40,7 +42,6 @@ import {
     CardsWithImageBlock,
     HeaderBlock,
 } from './blocks';
-import TutorialCard from './components/TutorialCard/TutorialCard';
 
 const components = {
     [BlockType.Section]: Section,
@@ -64,6 +65,7 @@ const components = {
     [BlockType.PriceDetailed]: PriceDetailed,
     [BlockType.MediaCard]: MediaCard,
     [BlockType.BannerCard]: BannerBlock,
+    [BlockType.NewsCard]: NewsCard,
 
     // Blocks
     [BlockType.SliderBlock]: SliderBlock,

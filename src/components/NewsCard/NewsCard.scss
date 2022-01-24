@@ -1,0 +1,15 @@
+@import '../../../styles/mixins';
+@import '../../../styles/variables';
+
+.news-card {
+    &__date {
+        display: block;
+        margin-bottom: $indentXXXS;
+        color: var(--yc-color-text-secondary);
+    }
+
+    &__title {
+        @include heading4();
+        font-weight: 500;
+    }
+}
