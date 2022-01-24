@@ -168,7 +168,7 @@
     padding: 0 0 $indentL;
 
     &:first-child {
-        margin-top: $indentXXL;
+        margin-top: var(--pc-first-block-indent, #{$indentXXL});
     }
 
     @media only screen and (max-width: map-get($gridBreakpoints, 'sm')) {
