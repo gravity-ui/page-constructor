@@ -2,6 +2,7 @@ import React from 'react';
 
 import {block} from '../../utils';
 import {CardWithImageProps} from '../../models';
+import FullScreenImage from '../FullscreenImage/FullscreenImage';
 
 import './CardWithImage.scss';
 
@@ -12,10 +13,18 @@ const CardWithImage: React.FC<CardWithImageProps> = ({
     description,
     image,
     links,
+    border,
+    fullScreen,
     className,
 }) => (
     <div className={b(null, className)}>
-        <img className={b('image')} src={image} alt={'card-image'} />
+        <div className={b('image', {border})}>
+            {fullScreen ? (
+                <FullScreenImage src={image} imageClassName={b('image-item')} />
+            ) : (
+                <img className={b('image-item')} src={image} alt={'card-image'} />
+            )}
+        </div>
         {title && <h3 className={b('title')}>{title}</h3>}
         {description && <p className={b('description')}>{description}</p>}
         {links && (

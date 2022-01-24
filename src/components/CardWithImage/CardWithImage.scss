@@ -11,6 +11,16 @@ $block: '.#{$ns}card-with-image';
         display: block;
         margin-bottom: $indentXS;
         border-radius: $borderRadius;
+
+        &_border {
+            border: 1px solid var(--yc-color-line-generic);
+        }
+
+        &-item {
+            width: 100%;
+            display: block;
+            border-radius: $borderRadius;
+        }
     }
 
     &__title {

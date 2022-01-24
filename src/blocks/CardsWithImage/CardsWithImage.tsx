@@ -16,11 +16,12 @@ const DEFAULT_SIZES = {
 
 const CardsWithImage: React.FC<CardsWithImageBlockProps> = ({
     title,
+    description,
     cards,
     colSizes = DEFAULT_SIZES,
 }) => (
     <div className={b()}>
-        <BlockHeader className={b('header')} title={title} />
+        <BlockHeader className={b('header')} title={title} description={description} />
         <div className={b('items')}>
             <Row>
                 {cards.map((card, i) => (
