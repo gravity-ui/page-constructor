@@ -4,10 +4,10 @@ import React, {useCallback, useContext, useEffect, useState} from 'react';
 import {BreakpointContext} from '../../context/breakpointContext';
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
 import MediaContent from './MediaContent/MediaContent';
-import {useIntersection} from '../../hooks/useIntersection';
 import {Row} from '../../grid';
 import {PreviewBlockProps} from '../../models';
 import {BREAKPOINTS} from '../../constants';
+import {useIntersection} from '../../hooks/useIntersection';
 
 import './Preview.scss';
 
@@ -37,6 +37,9 @@ const PreviewBlock: React.FC<PreviewBlockProps> = (props) => {
         title,
         description,
         ratioMediaContent = '1-1',
+        stopVideo = false,
+        // TODO YDB-server doesn't see previewRef.current and doesn't update the component CLOUDFRONT-9395
+        showImmediately = false,
     } = props;
 
     const breakpoint = useContext(BreakpointContext);
@@ -47,7 +50,7 @@ const PreviewBlock: React.FC<PreviewBlockProps> = (props) => {
 
     const inViewport = useIntersection(previewRef.current as Element);
 
-    const [stopSwitching, setStopSwitching] = useState<boolean>(false);
+    const [stopSwitching, setStopSwitching] = useState<boolean>(stopVideo);
     const [activeSlide, setActiveSlide] = useState<number>(-1);
     const [autoSwitchTimerId, setAutoSwitchTimerId] = useState<number>(0);
 
@@ -75,14 +78,15 @@ const PreviewBlock: React.FC<PreviewBlockProps> = (props) => {
     );
 
     useEffect(() => {
-        if (inViewport && !items[activeSlide]) {
+        // TODO YDB-server doesn't see previewRef.current and doesn't update the component CLOUDFRONT-9395
+        if (!items[activeSlide] && (showImmediately || inViewport)) {
             setActiveSlide(0);
 
             if (isDesktop) {
                 changeDescriptionHeight(menuRef.current, 0);
             }
         }
-    }, [inViewport, activeSlide, isDesktop, items]);
+    }, [inViewport, activeSlide, isDesktop, items, showImmediately]);
 
     useEffect(() => {
         if (stopSwitching || !inViewport) {

@@ -627,6 +627,8 @@ export interface PreviewBlockProps extends Animatable {
     description?: string;
     direction?: MediaDirection;
     ratioMediaContent?: PreviewRatioMediaContent;
+    stopVideo?: boolean;
+    showImmediately?: boolean;
 }
 
 export interface InfoBlockProps {
@@ -990,7 +992,8 @@ type BlockV2Raw =
     | SimpleBlockModel
     | LinkTableBlockModel
     | CardsWithImageBlockModel
-    | HeaderBlockModel;
+    | HeaderBlockModel
+    | PreviewBlockModel;
 
 export type BlockV1 = BlockV1Raw;
 export type BlockV2 = BlockV2Raw & BlockBaseProps;
