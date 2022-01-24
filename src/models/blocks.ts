@@ -64,7 +64,11 @@ export enum BlockType {
 }
 
 export const BlockV2Types = Object.values(BlockType).filter((type) => isV2BlockType(type));
-export const HeaderBlockTypes = [BlockType.Header];
+export const HeaderBlockTypes = [
+    BlockType.Header,
+    BlockType.HeaderBlock,
+    BlockType.HeaderSliderBlock,
+];
 
 export enum PriceDetailsType {
     MARKED_LIST = 'marked-list',

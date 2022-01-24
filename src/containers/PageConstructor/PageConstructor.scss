@@ -21,7 +21,7 @@ $block: '.#{$ns}page-constructor';
 
     &__row {
         &:last-child {
-            margin-bottom: -$indentXL;
+            margin-bottom: -$contentLiftIndent;
         }
     }
 
