@@ -568,6 +568,7 @@ export interface PostData {
 export interface PostProps extends PostData, CardBaseProps {}
 
 export interface TutorialCardProps extends CardBaseProps {
+    icon: ImageProps;
     url: string;
     title: string;
     text: string;

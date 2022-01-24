@@ -10,4 +10,11 @@ $block: '.#{$ns}tutorial-card';
         margin-bottom: $indentXXS;
         font-weight: 500;
     }
+
+    &__icon {
+        @include icon();
+
+        display: block;
+        margin-bottom: $indentXXS;
+    }
 }
