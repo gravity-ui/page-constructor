@@ -572,10 +572,10 @@ export interface NewsCardData {
 export type NewsCardProps = Pick<NewsCardData, 'title' | 'url' | 'date'> & CardBaseProps;
 
 export interface TutorialCardProps extends CardBaseProps {
-    icon: ImageProps;
     url: string;
     title: string;
     text: string;
+    icon?: ImageProps;
 }
 
 export interface BannerBlockProps extends Animatable {
