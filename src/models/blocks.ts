@@ -739,6 +739,7 @@ export interface IconsBlockProps {
     items: {
         url: string;
         text: string;
+        src: string;
     }[];
 }
 
