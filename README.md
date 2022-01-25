@@ -141,7 +141,7 @@ const Page: React.FC<PageProps> = ({children}) => (
 
 1. В директории `src/blocks` или `src/components` создаем папку с кодом блока/компонета
 
-2. Добавляем название блока в enum `BlockType`, описываем его свойства и добавляем блок в тип `BlockV2Raw` в файле `units/constructor/models.ts`
+2. Добавляем название блока в enum `BlockType`, описываем его свойства и добавляем блок в тип `BlockV2Raw` в файле `src/models/blocks.ts`
 
 3. Добавляем экспорт блока в файле `src/blocks/index.ts` или компонента в файле `src/components/index.ts`
 

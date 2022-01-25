@@ -1,9 +1,6 @@
 @import '../../../styles/mixins.scss';
 @import '../../../styles/variables.scss';
 
-// TODO: change after redesign
-$borderRadius: 12px;
-
 $block: '.#{$ns}header-block';
 
 #{$block} {
