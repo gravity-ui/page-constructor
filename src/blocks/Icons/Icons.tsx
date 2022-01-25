@@ -1,23 +1,33 @@
-import React from 'react';
+import React, {useContext} from 'react';
 
-import {block} from '../../utils';
+import {block, getLinkProps} from '../../utils';
 import {IconsBlockProps} from '../../models';
 import {BlockHeader, Image} from '../../components';
+import {LocationContext} from '../../context/locationContext';
 
 import './Icons.scss';
 
 const b = block('icons-block');
 
-const Icons: React.FC<IconsBlockProps> = ({title, size = 's', items}) => (
-    <div className={b({size})}>
-        {title && <BlockHeader className={b('header')} title={title} colSizes={{all: 12}} />}
-        {items.map((item) => (
-            <div className={b('item')} key={item.url}>
-                <Image className={b('image')} src={item.url} />
-                <p className={b('text')}>{item.text}</p>
-            </div>
-        ))}
-    </div>
-);
+const Icons: React.FC<IconsBlockProps> = ({title, size = 's', items}) => {
+    const {hostname} = useContext(LocationContext);
+
+    return (
+        <div className={b({size})}>
+            {title && <BlockHeader className={b('header')} title={title} colSizes={{all: 12}} />}
+            {items.map((item) => (
+                <a
+                    className={b('item')}
+                    key={item.url}
+                    href={item.url}
+                    {...getLinkProps(item.url, hostname)}
+                >
+                    <Image className={b('image')} src={item.src} />
+                    <p className={b('text')}>{item.text}</p>
+                </a>
+            ))}
+        </div>
+    );
+};
 
 export default Icons;
