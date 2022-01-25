@@ -95,13 +95,13 @@
 
         border-radius: inherit;
         box-shadow: var(--shadow-offset-x, 0) var(--shadow-offset-y, 0) var(--shadow-blur, 10px)
-            var(--shadow-spread, 0) var(--shadow-color, --www-color-sfx-shadow);
+            var(--shadow-spread, 0) var(--shadow-color, --pc-color-sfx-shadow);
         opacity: var(--shadow-opacity, 0.4);
         transition: opacity ease-in var(--shadow-transition-time, 0.15s);
     }
 }
 
-@mixin up-hover($color: var(--www-color-sfx-shadow)) {
+@mixin up-hover($color: var(--pc-color-sfx-shadow)) {
     @include shadow-hover(before);
 
     --shadow-offset-y: 5px;
@@ -220,7 +220,7 @@
 }
 
 %shadow {
-    box-shadow: 0px 4px 24px var(--www-color-sfx-shadow), 0px 2px 8px var(--www-color-sfx-shadow);
+    box-shadow: 0px 4px 24px var(--pc-color-sfx-shadow), 0px 2px 8px var(--pc-color-sfx-shadow);
 }
 
 %shadow-hover {
@@ -233,7 +233,7 @@
 }
 
 @mixin image-shadow() {
-    box-shadow: 0 2px 8px var(--www-color-sfx-shadow), 0 4px 24px var(--www-color-sfx-shadow);
+    box-shadow: 0 2px 8px var(--pc-color-sfx-shadow), 0 4px 24px var(--pc-color-sfx-shadow);
     overflow-x: hidden;
     border-radius: $borderRadius;
 }

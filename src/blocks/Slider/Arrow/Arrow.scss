@@ -37,7 +37,7 @@ $block: '.#{$ns}slider-block-arrow';
         color: var(--yc-color-text-secondary);
         border-radius: 100%;
         background-color: var(--yc-color-base-background);
-        box-shadow: 0 4px 24px var(--www-color-sfx-shadow), 0 2px 8px var(--www-color-sfx-shadow);
+        box-shadow: 0 4px 24px var(--pc-color-sfx-shadow), 0 2px 8px var(--pc-color-sfx-shadow);
 
         transition: box-shadow 0.3s $ease-out-cubic, color 0.3s $ease-out-cubic;
     }
@@ -45,8 +45,7 @@ $block: '.#{$ns}slider-block-arrow';
     &:hover {
         #{$root}__button {
             color: var(--yc-color-text-primary);
-            box-shadow: 0 2px 12px var(--www-color-sfx-shadow),
-                0 4px 24px var(--yc-color-sfx-shadow);
+            box-shadow: 0 2px 12px var(--pc-color-sfx-shadow), 0 4px 24px var(--pc-color-sfx-shadow);
         }
     }
 

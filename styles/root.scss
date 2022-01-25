@@ -22,3 +22,7 @@
     --yc-text-disclaimer-font-size: 9px;
     --yc-text-disclaimer-line-height: 12px;
 }
+
+.yc-root {
+    --pc-color-sfx-shadow: var(--yc-color-private-black-50);
+}
