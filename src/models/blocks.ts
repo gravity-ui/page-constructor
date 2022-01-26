@@ -571,9 +571,11 @@ export interface NewsCardData {
     title: string;
     date: string;
     url: string;
+    isoDate?: string;
 }
 
-export type NewsCardProps = Pick<NewsCardData, 'title' | 'url' | 'date'> & CardBaseProps;
+export type NewsCardProps = Pick<NewsCardData, 'title' | 'url' | 'date' | 'isoDate'> &
+    CardBaseProps;
 
 export interface TutorialCardProps extends CardBaseProps {
     url: string;
