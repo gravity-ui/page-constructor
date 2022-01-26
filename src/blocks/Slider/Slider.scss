@@ -126,7 +126,7 @@ $block: '.#{$ns}SliderBlock';
         height: 8px;
         border-radius: $borderRadius;
         transition: left 0.3s;
-        background-color: var(--yc-color-line-solid);
+        background-color: var(--pc-color-line-generic-active-solid);
     }
 
     &_align-left {

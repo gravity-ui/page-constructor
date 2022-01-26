@@ -42,6 +42,7 @@ import {
     CardsWithImageBlock,
     HeaderBlock,
     IconsBlock,
+    HeaderSliderBlock,
 } from './blocks';
 
 const components = {
@@ -87,6 +88,7 @@ const components = {
     [BlockType.CardsWithImageBlock]: CardsWithImageBlock,
     [BlockType.HeaderBlock]: HeaderBlock,
     [BlockType.IconsBlock]: IconsBlock,
+    [BlockType.HeaderSliderBlock]: HeaderSliderBlock,
 };
 
 export default components;

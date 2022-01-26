@@ -64,7 +64,7 @@ export enum BlockType {
 }
 
 export const BlockV2Types = Object.values(BlockType).filter((type) => isV2BlockType(type));
-export const HeaderBlockTypes = [BlockType.Header];
+export const HeaderBlockTypes = [BlockType.Header, BlockType.HeaderSliderBlock];
 
 export enum PriceDetailsType {
     MARKED_LIST = 'marked-list',
@@ -500,6 +500,10 @@ export type HeaderWithImageProps = Omit<
     HeaderProps,
     keyof Themable | 'background' | 'width' | 'color'
 >;
+
+export interface HeaderSliderBlockProps extends Omit<SliderProps, 'title' | 'description'> {
+    items: HeaderBlockProps[];
+}
 
 export interface TextProps extends Justifyable {
     text: string;
@@ -961,6 +965,10 @@ export type IconsBlockModel = {
     type: BlockType.IconsBlock;
 } & IconsBlockProps;
 
+export type HeaderSliderBlockModel = {
+    type: BlockType.HeaderSliderBlock;
+} & HeaderSliderBlockProps;
+
 export type BlockV1Raw =
     | HeaderModel
     | ButtonModel
@@ -1009,7 +1017,8 @@ type BlockV2Raw =
     | CardsWithImageBlockModel
     | HeaderBlockModel
     | PreviewBlockModel
-    | IconsBlockModel;
+    | IconsBlockModel
+    | HeaderSliderBlockModel;
 
 export type BlockV1 = BlockV1Raw;
 export type BlockV2 = BlockV2Raw & BlockBaseProps;
