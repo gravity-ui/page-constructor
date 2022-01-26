@@ -66,9 +66,7 @@ const TabsBlock: React.FunctionComponent<TabsBlockProps> = ({
                                     alt={imageProps && imageProps.alt}
                                 />
                                 {activeTabData.caption && (
-                                    <caption className={b('caption')}>
-                                        {activeTabData.caption}
-                                    </caption>
+                                    <p className={b('caption')}>{activeTabData.caption}</p>
                                 )}
                             </Fragment>
                         )}

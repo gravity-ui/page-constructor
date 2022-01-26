@@ -20,6 +20,7 @@ $block: '.#{$ns}TabsBlock';
         width: 100%;
         height: auto;
         object-fit: cover;
+        display: block;
     }
 
     &__image,
@@ -28,11 +29,9 @@ $block: '.#{$ns}TabsBlock';
     }
 
     &__caption {
-        display: inline-block;
-        margin-top: $indentXXS;
-
-        text-align: left;
         @include text-size(body2);
+
+        margin: $indentXXS 0 0;
         color: var(--yc-color-text-secondary);
     }
 
