@@ -1,5 +1,5 @@
 import React from 'react';
-import block from 'bem-cn-lite';
+import {block} from '../../utils';
 import {HTML} from '@doc-tools/components';
 import {CardBase} from '../index';
 
@@ -10,12 +10,18 @@ import './NewsCard.scss';
 const b = block('news-card');
 
 const NewsCard: React.FC<NewsCardProps> = (props) => {
-    const {date, title, border, url} = props;
+    const {date, isoDate, title, border, url} = props;
 
     return (
         <CardBase className={b()} url={url} border={border}>
             <CardBase.Content>
-                <p className={b('date')}>{date}</p>
+                {isoDate ? (
+                    <time className={b('date')} dateTime={isoDate}>
+                        {date}
+                    </time>
+                ) : (
+                    <p className={b('date')}>{date}</p>
+                )}
                 <h4 className={b('title')}>
                     <HTML>{title}</HTML>
                 </h4>

@@ -1,7 +1,9 @@
 @import '../../../styles/mixins';
 @import '../../../styles/variables';
 
-.news-card {
+$block: '.#{$ns}news-card';
+
+#{$block} {
     &__date {
         display: block;
         margin-bottom: $indentXXXS;
