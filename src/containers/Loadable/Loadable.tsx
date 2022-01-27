@@ -22,6 +22,7 @@ interface LoadableComponentsProps {
     block: Block;
     blockKey: string;
     fetch: FetchLoadableData;
+    serviceId?: number;
 }
 
 const initData = {
@@ -30,7 +31,7 @@ const initData = {
 };
 
 const Loadable: React.FC<LoadableComponentsProps> = (props) => {
-    const {Component, ChildComponent, fetch, block, blockKey} = props;
+    const {Component, ChildComponent, fetch, block, blockKey, serviceId} = props;
     const [dataState, setDataState] = useState<LoadableState>(initData);
     const [refetchIndex, setRefetchIndex] = useState<number>(0);
     const onTryAgain = useCallback(() => {
@@ -44,7 +45,7 @@ const Loadable: React.FC<LoadableComponentsProps> = (props) => {
             let data, error;
 
             try {
-                data = await fetch(blockKey);
+                data = await fetch({blockKey, serviceId});
                 error = false;
 
                 setDataState({data, loading: false, error});
@@ -55,7 +56,7 @@ const Loadable: React.FC<LoadableComponentsProps> = (props) => {
         }
 
         processData();
-    }, [refetchIndex, fetch, blockKey]);
+    }, [refetchIndex, fetch, blockKey, serviceId]);
 
     const {error, loading, data} = dataState;
 

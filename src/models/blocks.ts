@@ -188,6 +188,7 @@ export interface MediaProps extends Animatable {
 
 export interface LoadableProps {
     source: string;
+    serviceId?: number;
 }
 
 export interface LoadableChildren {

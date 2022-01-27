@@ -41,6 +41,13 @@ export interface PageConstructorProps {
 
 export type FullComponentsMap = typeof componentMap & CustomBlocks;
 
+type RenderLoadableParams = {
+    block: Block;
+    blockKey: string;
+    config: LoadableConfigItem;
+    serviceId?: number;
+};
+
 export class PageConstructor extends React.Component<PageConstructorProps> {
     fullComponentsMap: FullComponentsMap = {
         ...componentMap,
@@ -98,14 +105,13 @@ export class PageConstructor extends React.Component<PageConstructorProps> {
             const blockKey = getBlockKey(block, index);
 
             if ('loadable' in block && block.loadable) {
-                const {source} = block.loadable;
+                const {source, serviceId} = block.loadable;
                 const config: LoadableConfigItem = _.get(this.props, `custom.loadable[${source}]`);
-
                 if (!config) {
                     return null;
                 }
 
-                blockElement = this.renderLoadable(block, blockKey, config);
+                blockElement = this.renderLoadable({block, blockKey, config, serviceId});
             } else {
                 if ('children' in block && block.children) {
                     children = block.children.map(renderer);
@@ -157,7 +163,8 @@ export class PageConstructor extends React.Component<PageConstructorProps> {
         );
     }
 
-    private renderLoadable(block: Block, blockKey: string, config: LoadableConfigItem) {
+    private renderLoadable(params: RenderLoadableParams) {
+        const {block, blockKey, config, serviceId} = params;
         const {type} = block;
         const {fetch, component: ChildComponent} = config;
         const components = this.fullComponentsMap;
@@ -173,6 +180,7 @@ export class PageConstructor extends React.Component<PageConstructorProps> {
                 Component={Component}
                 ChildComponent={ChildComponent}
                 fetch={fetch}
+                serviceId={serviceId}
             />
         );
     }
