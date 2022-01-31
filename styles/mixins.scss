@@ -178,7 +178,7 @@
         padding-bottom: $indentM !important;
 
         &:first-child {
-            margin-top: $indentXL;
+            margin-top: var(--pc-first-block-mobile-indent, #{$indentXL});
         }
     }
 }
