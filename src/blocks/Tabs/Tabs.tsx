@@ -1,6 +1,5 @@
 import React, {Fragment, useState} from 'react';
 import {Tabs} from '@yandex-data-ui/common';
-import {HTML} from '@doc-tools/components';
 
 import {block} from '../../utils';
 import {Row, Col, GridColumnOrderClasses} from '../../grid';
@@ -74,7 +73,12 @@ const TabsBlock: React.FunctionComponent<TabsBlockProps> = ({
                     <Col sizes={{all: 12, md: 4}} className={b('content')}>
                         <div className={b('content-margin')}>
                             <h4 className={b('content-title')}>
-                                <HTML>{activeTabData.title}</HTML>
+                                <YFMWrapper
+                                    content={activeTabData.title}
+                                    modifiers={{
+                                        constructor: true,
+                                    }}
+                                />
                             </h4>
                             <YFMWrapper
                                 content={activeTabData.text}

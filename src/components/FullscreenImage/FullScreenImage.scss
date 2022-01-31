@@ -58,6 +58,12 @@ $closeButtonSize: 36px;
         }
     }
 
+    @media (max-width: map-get($gridBreakpoints, 'xl')) {
+        &__modal-image {
+            width: 100%;
+        }
+    }
+
     @media (max-width: map-get($gridBreakpoints, 'lg')) {
         &__image {
             pointer-events: none;

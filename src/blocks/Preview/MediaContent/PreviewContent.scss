@@ -44,7 +44,7 @@ $block: '.#{$ns}preview-content-block';
     }
 
     &__title {
-        @include text-size(header);
+        @include heading4();
         font-weight: 500;
         position: relative;
     }

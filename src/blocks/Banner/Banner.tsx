@@ -44,7 +44,6 @@ const BannerBlock: React.FC<BannerBlockProps> = (props) => {
                                 content={subtitle}
                                 modifiers={{
                                     constructor: true,
-                                    redefinitions: true,
                                     constructorThemeDark: theme === 'dark',
                                 }}
                             />

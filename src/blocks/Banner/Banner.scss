@@ -24,6 +24,7 @@ $block: '.#{$ns}banner-block';
 
     &__title {
         @include heading2();
+        font-weight: 500;
     }
 
     &__content {
@@ -51,6 +52,12 @@ $block: '.#{$ns}banner-block';
         display: inline-block;
         margin-top: 8px;
         color: var(--yc-color-text-primary);
+
+        @include heading5();
+
+        & p {
+            @include heading5();
+        }
     }
 
     &__button {
