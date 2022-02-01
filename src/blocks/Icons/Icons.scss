@@ -12,19 +12,19 @@ $block: '.#{$ns}icons-block';
 
     &_size_s {
         #{$block}__item {
-            max-width: 96px;
+            width: 96px;
         }
     }
 
     &_size_m {
         #{$block}__item {
-            max-width: 128px;
+            width: 128px;
         }
     }
 
     &_size_l {
         #{$block}__item {
-            max-width: 160px;
+            width: 160px;
         }
     }
 

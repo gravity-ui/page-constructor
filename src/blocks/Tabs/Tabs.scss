@@ -51,6 +51,8 @@ $block: '.#{$ns}TabsBlock';
 
         & > * {
             @include heading4();
+
+            font-weight: 500;
         }
     }
 
