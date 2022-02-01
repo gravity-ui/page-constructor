@@ -40,14 +40,18 @@ $block: '.#{$ns}TabsBlock';
         flex-direction: column;
     }
 
-    &__content-margin {
-        margin: $indentSM 0 0 $contentMargin;
+    &__content-wrapper {
+        &_margin {
+            margin: $indentSM 0 0 $contentMargin;
+        }
     }
 
     &__content-title {
-        @include heading4();
+        margin: 0 auto $indentXXS;
 
-        margin-bottom: $indentXXS;
+        & > * {
+            @include heading4();
+        }
     }
 
     &__tabs,
