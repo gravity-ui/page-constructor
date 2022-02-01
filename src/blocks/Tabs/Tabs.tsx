@@ -32,6 +32,8 @@ const TabsBlock: React.FunctionComponent<TabsBlockProps> = ({
             ? {src: activeTabData.image}
             : activeTabData.image);
 
+    const showMedia = Boolean(activeTabData?.media || imageProps);
+
     return (
         <AnimateBlock className={b()} onScroll={() => setPlay(true)} animate={animated}>
             <BlockHeader title={title} description={description} className={b('block-title')} />
@@ -43,35 +45,42 @@ const TabsBlock: React.FunctionComponent<TabsBlockProps> = ({
             />
             {activeTabData && (
                 <Row>
-                    <Col
-                        sizes={{all: 12, md: 8}}
-                        orders={{
-                            all: GridColumnOrderClasses.Last,
-                            md: GridColumnOrderClasses.First,
-                        }}
-                    >
-                        {activeTabData.media ? (
-                            <Media
-                                key={activeTab}
-                                className={b('media')}
-                                {...activeTabData.media}
-                                playVideo={play}
-                            />
-                        ) : (
-                            <Fragment>
-                                <FullScreenImage
-                                    imageClassName={b('image')}
-                                    src={(imageProps && imageProps.src) || 'default_image'}
-                                    alt={imageProps && imageProps.alt}
+                    {showMedia && (
+                        <Col
+                            sizes={{all: 12, md: 8}}
+                            orders={{
+                                all: GridColumnOrderClasses.Last,
+                                md: GridColumnOrderClasses.First,
+                            }}
+                        >
+                            {activeTabData?.media && (
+                                <Media
+                                    key={activeTab}
+                                    className={b('media')}
+                                    {...activeTabData.media}
+                                    playVideo={play}
                                 />
-                                {activeTabData.caption && (
-                                    <p className={b('caption')}>{activeTabData.caption}</p>
-                                )}
-                            </Fragment>
-                        )}
-                    </Col>
-                    <Col sizes={{all: 12, md: 4}} className={b('content')}>
-                        <div className={b('content-margin')}>
+                            )}
+                            {imageProps && (
+                                <Fragment>
+                                    <FullScreenImage
+                                        imageClassName={b('image')}
+                                        src={(imageProps && imageProps.src) || 'default_image'}
+                                        alt={imageProps && imageProps.alt}
+                                    />
+                                    {activeTabData && (
+                                        <p className={b('caption')}>{activeTabData.caption}</p>
+                                    )}
+                                </Fragment>
+                            )}
+                        </Col>
+                    )}
+                    <Col sizes={{all: 12, md: showMedia ? 4 : 8}} className={b('content')}>
+                        <div
+                            className={b('content-wrapper', {
+                                margin: Boolean(activeTabData?.media || imageProps),
+                            })}
+                        >
                             <h4 className={b('content-title')}>
                                 <YFMWrapper
                                     content={activeTabData.title}
