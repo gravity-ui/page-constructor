@@ -192,6 +192,14 @@ const config: BlocksConfig = {
         fields: ['text', 'title'],
         transformer: typografTransformer,
     },
+    [BlockType.BackgroundCard]: {
+        fields: ['text', 'title'],
+        transformer: typografTransformer,
+    },
+    [BlockType.CardWithImage]: {
+        fields: ['text', 'title'],
+        transformer: typografTransformer,
+    },
     [BlockType.Quote]: {
         fields: ['text'],
         transformer: typografTransformer,

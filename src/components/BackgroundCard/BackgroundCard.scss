@@ -1,0 +1,53 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
+
+$block: '.#{$ns}background-card';
+
+#{$block} {
+    position: relative;
+    margin-top: $indentSM;
+
+    &_padding {
+        &_s {
+            padding-bottom: 80px;
+        }
+
+        &_m {
+            padding-bottom: 160px;
+        }
+
+        &_l {
+            padding-bottom: 240px;
+        }
+
+        &_xl {
+            padding-bottom: 320px;
+        }
+    }
+
+    &__title {
+        @include heading4();
+
+        margin-bottom: $indentXXS;
+        font-weight: 500;
+    }
+
+    &__title,
+    &__text {
+        z-index: 10;
+        position: relative;
+    }
+
+    &__image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+
+        img {
+            object-fit: cover;
+            object-position: left;
+        }
+    }
+}

@@ -39,6 +39,8 @@ export enum BlockType {
     MediaCard = 'media-card',
     BannerCard = 'banner-card',
     TutorialCard = 'tutoral-card',
+    CardWithImage = 'card-with-image',
+    BackgroundCard = 'background-card',
 
     PromoFeaturesBlock = 'promo-features-block',
     ExtendedFeaturesBlock = 'extended-features-block',
@@ -61,6 +63,7 @@ export enum BlockType {
     CardsWithImageBlock = 'cards-with-image-block',
     HeaderBlock = 'header-block',
     IconsBlock = 'icons-block',
+    CardLayoutBlock = 'cards-layout-block',
 }
 
 export const BlockV2Types = Object.values(BlockType).filter((type) => isV2BlockType(type));
@@ -585,6 +588,14 @@ export interface TutorialCardProps extends CardBaseProps {
     icon?: ImageProps;
 }
 
+export interface BackgroundCardProps extends CardBaseProps {
+    url: string;
+    title: string;
+    text: string;
+    background?: ImageObjectProps;
+    paddingBottom?: 's' | 'm' | 'l' | 'xl';
+}
+
 export interface BannerBlockProps extends Animatable {
     title: string;
     subtitle?: string;
@@ -740,6 +751,12 @@ export interface CardsWithImageBlockProps {
     colSizes?: GridColumnSizesType;
 }
 
+export interface CardLayoutBlockProps extends Childable, Animatable, LoadableChildren {
+    title: TitleProps | string;
+    description?: string;
+    colSizes?: GridColumnSizesType;
+}
+
 export interface IconsBlockProps {
     title?: string;
     size: 's' | 'm' | 'l';
@@ -868,9 +885,17 @@ export type NewsCardModel = {
     type: BlockType.NewsCard;
 } & NewsCardProps;
 
+export type CardWithImageModel = {
+    type: BlockType.CardWithImage;
+} & CardWithImageProps;
+
 export type TutorialCardModel = {
     type: BlockType.TutorialCard;
 } & TutorialCardProps;
+
+export type BackgroundCardModel = {
+    type: BlockType.BackgroundCard;
+} & BackgroundCardProps;
 
 export type PartnerModel = {
     type: BlockType.Partner;
@@ -964,6 +989,10 @@ export type CardsWithImageBlockModel = {
     type: BlockType.CardsWithImageBlock;
 } & CardsWithImageBlockProps;
 
+export type CardLayoutBlockModel = {
+    type: BlockType.CardLayoutBlock;
+} & CardLayoutBlockProps;
+
 export type IconsBlockModel = {
     type: BlockType.IconsBlock;
 } & IconsBlockProps;
@@ -998,7 +1027,9 @@ export type BlockV1Raw =
     | PriceDetailedModel
     | ServiceCardModel
     | MediaCardModel
-    | TutorialCardModel;
+    | TutorialCardModel
+    | CardWithImageModel
+    | BackgroundCardModel;
 
 type BlockV2Raw =
     | SliderBlockModel
@@ -1021,7 +1052,8 @@ type BlockV2Raw =
     | HeaderBlockModel
     | PreviewBlockModel
     | IconsBlockModel
-    | HeaderSliderBlockModel;
+    | HeaderSliderBlockModel
+    | CardLayoutBlockModel;
 
 export type BlockV1 = BlockV1Raw;
 export type BlockV2 = BlockV2Raw & BlockBaseProps;

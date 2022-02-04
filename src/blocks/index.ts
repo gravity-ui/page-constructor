@@ -17,3 +17,4 @@ export {default as CardsWithImageBlock} from './CardsWithImage/CardsWithImage';
 export {default as HeaderBlock} from './Header/Header';
 export {default as IconsBlock} from './Icons/Icons';
 export {default as HeaderSliderBlock} from './HeaderSlider/HeaderSlider';
+export {default as CardLayoutBlock} from './CardLayout/CardLayout';

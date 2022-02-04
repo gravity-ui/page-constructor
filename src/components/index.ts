@@ -46,3 +46,5 @@ export {default as VideoBlock} from './VideoBlock/VideoBlock';
 export {default as YFMWrapper} from './YFMWrapper/YFMWrapper';
 export {default as YandexForm} from './YandexForm/YandexForm';
 export {default as NewsCard} from './NewsCard/NewsCard';
+export {default as CardWithImage} from './CardWithImage/CardWithImage';
+export {default as BackgroundCard} from './BackgroundCard/BackgroundCard';
