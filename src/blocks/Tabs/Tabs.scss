@@ -62,8 +62,10 @@ $block: '.#{$ns}TabsBlock';
     }
 
     @media (max-width: map-get($gridBreakpoints, 'md')) {
-        &__content-margin {
-            margin: 0 0 $contentMargin 0;
+        &__content-wrapper {
+            &_margin {
+                margin: 0 0 $contentMargin 0;
+            }
         }
     }
 
