@@ -81,7 +81,10 @@ function parseSlider(transformer: Transformer, block: SliderProps) {
         ...title,
         text: transformer(title ? title.text : ''),
     };
-    block.description = description && transformer(description);
+
+    if (description) {
+        block.description = transformer(description);
+    }
 }
 
 function parseCard(transformer: Transformer, card: CardProps) {
