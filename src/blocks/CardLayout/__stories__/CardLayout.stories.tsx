@@ -137,6 +137,7 @@ BackgroundCards.args = {
         {
             type: BlockType.CardLayoutBlock,
             title: 'Карточки с фоном paddingBottom = s',
+            animated: false,
             children: [
                 {
                     type: BlockType.BackgroundCard,
@@ -221,6 +222,7 @@ BackgroundCards.args = {
         {
             type: BlockType.CardLayoutBlock,
             title: 'Карточки с фоном paddingBottom = l',
+            animated: true,
             children: [
                 {
                     type: BlockType.BackgroundCard,

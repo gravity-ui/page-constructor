@@ -63,7 +63,7 @@ export enum BlockType {
     CardsWithImageBlock = 'cards-with-image-block',
     HeaderBlock = 'header-block',
     IconsBlock = 'icons-block',
-    CardLayoutBlock = 'cards-layout-block',
+    CardLayoutBlock = 'card-layout-block',
 }
 
 export const BlockV2Types = Object.values(BlockType).filter((type) => isV2BlockType(type));
