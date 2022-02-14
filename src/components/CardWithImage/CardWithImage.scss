@@ -4,8 +4,6 @@
 $block: '.#{$ns}card-with-image';
 
 #{$block} {
-    margin-top: $indentSM;
-
     &__image {
         width: 100%;
         display: block;

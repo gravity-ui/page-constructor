@@ -42,6 +42,7 @@ $block: '.#{$ns}icons-block';
     &__item {
         @include reset-link-style();
         margin: 0 $indentXXXS $indentSM;
+        max-width: 44%;
     }
 
     &__image {
