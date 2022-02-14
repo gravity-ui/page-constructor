@@ -67,6 +67,7 @@ const TabsBlock: React.FunctionComponent<TabsBlockProps> = ({
                                         imageClassName={b('image')}
                                         src={(imageProps && imageProps.src) || 'default_image'}
                                         alt={imageProps && imageProps.alt}
+                                        disableCompress={imageProps?.disableCompress}
                                     />
                                     {activeTabData && (
                                         <p className={b('caption')}>{activeTabData.caption}</p>

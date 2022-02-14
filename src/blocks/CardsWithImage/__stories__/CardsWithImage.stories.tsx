@@ -45,6 +45,7 @@ Default.args = {
             image: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/card-with-image/bashkeev.png',
             title: 'Алексей Башкеев',
             description: 'CEO, руководитель платформы',
+            disableCompress: true,
             links: [{link: 'https://yandex.ru', title: 'LinkedIn'}],
         },
     ],
@@ -69,6 +70,7 @@ FullScreen.args = {
                 'Вы сами определяете число ядер процессора и объём памяти и контролируете стоимость виртуальной машины.',
             fullScreen: true,
             border: true,
+            disableCompress: true,
         },
         {
             image: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/ydb-assets/scheme.png',

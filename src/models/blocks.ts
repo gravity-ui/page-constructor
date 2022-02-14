@@ -711,6 +711,7 @@ export interface TabsBlockItem {
     text: string;
     link?: LinkProps;
     image?: ImageProps;
+    disableCompress?: boolean;
     caption?: string;
     media?: MediaProps;
     links?: LinkProps[];
@@ -733,9 +734,10 @@ export interface LinkTableBlockProps extends BlockHeaderProps {
 }
 
 export interface CardWithImageProps extends ClassNameProps {
+    image: string;
     title?: string;
     description?: string;
-    image: string;
+    disableCompress?: boolean;
     border?: boolean;
     fullScreen?: boolean;
     links?: {
