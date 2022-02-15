@@ -63,7 +63,7 @@ export enum BlockType {
     CardsWithImageBlock = 'cards-with-image-block',
     HeaderBlock = 'header-block',
     IconsBlock = 'icons-block',
-    CardLayoutBlock = 'cards-layout-block',
+    CardLayoutBlock = 'card-layout-block',
 }
 
 export const BlockV2Types = Object.values(BlockType).filter((type) => isV2BlockType(type));
@@ -711,6 +711,7 @@ export interface TabsBlockItem {
     text: string;
     link?: LinkProps;
     image?: ImageProps;
+    disableCompress?: boolean;
     caption?: string;
     media?: MediaProps;
     links?: LinkProps[];
@@ -733,9 +734,10 @@ export interface LinkTableBlockProps extends BlockHeaderProps {
 }
 
 export interface CardWithImageProps extends ClassNameProps {
+    image: string;
     title?: string;
     description?: string;
-    image: string;
+    disableCompress?: boolean;
     border?: boolean;
     fullScreen?: boolean;
     links?: {

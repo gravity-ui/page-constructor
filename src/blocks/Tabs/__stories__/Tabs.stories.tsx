@@ -59,14 +59,19 @@ Media.args = {
         {
             tabName: 'Розничная торговля',
             title: 'Розничная торговля',
-            image: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/ydb-assets/graph.png',
+            image: {
+                src: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/ydb-assets/graph.png',
+                disableCompress: true,
+            },
             caption: 'GitOps Release Strategy',
             text: ' * Сократите время выхода на рынок\n * Сократите время выхода на рынок',
         },
         {
             tabName: 'Сайт объявлений',
             title: 'Сайт объявлений',
-            image: 'https://storage.yandexcloud.net/cloud-www-assets/solutions/schemes/data-platform.png',
+            image: {
+                src: 'https://storage.yandexcloud.net/cloud-www-assets/solutions/schemes/data-platform.png',
+            },
             caption: 'Платформа данных в Yandex.Cloud',
             text: 'Настройте и разверните инфраструктуру в один клик, чтобы получить необходимые ресурсы для разработки, тестирования и запуска своего приложения в production-среде.',
         },

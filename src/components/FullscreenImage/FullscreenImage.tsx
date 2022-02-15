@@ -2,16 +2,14 @@ import React, {useState, useCallback, CSSProperties} from 'react';
 import {Icon, Modal} from '@yandex-data-ui/common';
 
 import {block} from '../../utils';
-import Image from '../Image/Image';
+import Image, {ImageProps} from '../Image/Image';
 
 import closeIcon from '@yandex-data-ui/common/assets/icons/preview-close.svg';
 import fullScreenIcon from '../../../assets/icons/full-screen.svg';
 
 import './FullScreenImage.scss';
 
-export interface FullScreenImageProps {
-    src: string;
-    alt?: string;
+export interface FullScreenImageProps extends ImageProps {
     imageClassName?: string;
     modalImageClass?: string;
     imageStyle?: CSSProperties;
@@ -23,6 +21,7 @@ const FullScreenImage: React.FunctionComponent<FullScreenImageProps> = ({
     src,
     alt,
     imageClassName,
+    disableCompress,
     modalImageClass,
     imageStyle,
 }) => {
@@ -46,6 +45,7 @@ const FullScreenImage: React.FunctionComponent<FullScreenImageProps> = ({
                     alt={alt}
                     onClick={openModal}
                     style={imageStyle}
+                    disableCompress={disableCompress}
                 />
                 <div className={b('icon-wrapper', {visible: isMouseEnter})} onClick={openModal}>
                     <Icon data={fullScreenIcon} width={18} height={18} className={b('icon')} />
@@ -62,7 +62,12 @@ const FullScreenImage: React.FunctionComponent<FullScreenImageProps> = ({
                                 className={b('icon', {hover: true})}
                             />
                         </div>
-                        <Image className={b('modal-image', modalImageClass)} src={src} alt={alt} />
+                        <Image
+                            className={b('modal-image', modalImageClass)}
+                            src={src}
+                            alt={alt}
+                            disableCompress={disableCompress}
+                        />
                     </div>
                 </Modal>
             )}

@@ -1,0 +1,8 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins';
+
+$block: '.#{$ns}card-layout-block';
+
+#{$block} {
+    @include animate-slides(#{$block}__item);
+}
