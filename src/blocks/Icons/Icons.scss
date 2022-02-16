@@ -42,12 +42,17 @@ $block: '.#{$ns}icons-block';
     &__item {
         @include reset-link-style();
         margin: 0 $indentXXXS $indentSM;
-        max-width: 44%;
     }
 
     &__image {
         max-width: 100%;
         margin: 0 auto;
         display: block;
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'sm') - 1) {
+        &__item {
+            max-width: calc(50% - #{$indentXXXS} * 2);
+        }
     }
 }
