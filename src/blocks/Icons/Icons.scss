@@ -49,4 +49,10 @@ $block: '.#{$ns}icons-block';
         margin: 0 auto;
         display: block;
     }
+
+    @media (max-width: map-get($gridBreakpoints, 'sm') - 1) {
+        &__item {
+            max-width: calc(50% - #{$indentXXXS} * 2);
+        }
+    }
 }

@@ -4,5 +4,9 @@
 $block: '.#{$ns}card-layout-block';
 
 #{$block} {
+    &__item {
+        margin-top: $indentSM;
+    }
+
     @include animate-slides(#{$block}__item);
 }
