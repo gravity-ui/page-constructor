@@ -1,0 +1,22 @@
+@import '../../../styles/mixins.scss';
+@import '../../../styles/variables.scss';
+
+$block: '.#{$ns}content-layout-block';
+
+#{$block} {
+    &__files {
+        margin-top: $indentM;
+
+        &_size_l {
+            @include heading5();
+        }
+
+        a {
+            text-decoration: none;
+        }
+    }
+
+    &__file {
+        margin-bottom: $indentXXS;
+    }
+}

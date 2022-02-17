@@ -3,6 +3,7 @@ import {
     Block,
     BlockType,
     CardProps,
+    ContentBlockProps,
     ExtendedFeaturesItem,
     PriceDetailedProps,
     PriceDetailsListProps,
@@ -130,6 +131,27 @@ function parsePriceDetailedBlock(transformer: Transformer, block: PriceDetailedP
     block.items = transformedBlockItems;
 
     return block;
+}
+
+const parseContentLayout = (transformer: Transformer, content: ContentBlockProps) => {
+    if (content) {
+        const {text, additionalInfo} = content;
+
+        content.text = text && transformer(text);
+        content.additionalInfo = additionalInfo && transformer(additionalInfo);
+    }
+
+    return content;
+};
+
+function parseContentLayoutTitle(transformer: Transformer, content: ContentBlockProps) {
+    if (content) {
+        const {title} = content;
+
+        content.title = title && parseTitle(transformer, title);
+    }
+
+    return content;
 }
 
 export function yfmTransformer(lang: Lang, content: string) {
@@ -333,6 +355,29 @@ const config: BlocksConfig = {
         {
             fields: ['description'],
             transformer: yfmTransformer,
+        },
+    ],
+    [BlockType.ContentLayoutBlock]: [
+        {
+            fields: ['textContent'],
+            transformer: yfmTransformer,
+            parser: parseContentLayout,
+        },
+        {
+            fields: ['textContent'],
+            transformer: typografTransformer,
+            parser: parseContentLayoutTitle,
+        },
+    ],
+    [BlockType.Content]: [
+        {
+            fields: ['text', 'additionalInfo'],
+            transformer: yfmTransformer,
+        },
+        {
+            fields: ['title'],
+            transformer: typografTransformer,
+            parser: parseTitle,
         },
     ],
 };

@@ -43,6 +43,7 @@ export enum BlockType {
     TutorialCard = 'tutoral-card',
     CardWithImage = 'card-with-image',
     BackgroundCard = 'background-card',
+    Content = 'content',
 
     PromoFeaturesBlock = 'promo-features-block',
     ExtendedFeaturesBlock = 'extended-features-block',
@@ -65,6 +66,7 @@ export enum BlockType {
     HeaderBlock = 'header-block',
     IconsBlock = 'icons-block',
     CardLayoutBlock = 'card-layout-block',
+    ContentLayoutBlock = 'content-layout-block',
 }
 
 export const BlockV2Types = Object.values(BlockType).filter((type) => isV2BlockType(type));
@@ -102,6 +104,8 @@ export type LinkTheme = 'file-link' | 'normal' | 'back' | 'underline';
 export type MediaDirection = 'media-content' | 'content-media';
 export type PriceDescriptionColor = 'cornflower' | 'black';
 export type PreviewRatioMediaContent = '2-1' | '1-1';
+export type ContentSize = 's' | 'l';
+export type FileLinkType = 'vertical' | 'horizontal';
 
 export interface Background {
     image?: string;
@@ -806,6 +810,31 @@ export function headerHasMediaBackground(
     return 'image' in background || 'video' in background || 'youtube' in background;
 }
 
+export interface FileLinkProps extends ClassNameProps {
+    href: string;
+    text: ReactNode;
+    type?: FileLinkType;
+    textSize?: TextSize;
+}
+
+export interface ContentLayoutBlockProps {
+    properties?: {
+        size: ContentSize;
+    };
+    textContent: ContentBlockProps;
+    fileContent?: FileLinkProps[];
+}
+
+export interface ContentBlockProps {
+    title?: TitleBaseProps | string;
+    text?: string;
+    additionalInfo?: string;
+    link?: LinkProps;
+    buttons?: ButtonProps[];
+    size?: ContentSize;
+    colSizes?: GridColumnSizesType;
+}
+
 export type HeaderBlockModel = {
     type: BlockType.HeaderBlock;
 } & HeaderBlockProps;
@@ -1006,6 +1035,10 @@ export type HeaderSliderBlockModel = {
     type: BlockType.HeaderSliderBlock;
 } & HeaderSliderBlockProps;
 
+export type ContentLayoutBlockModel = {
+    type: BlockType.ContentLayoutBlock;
+} & ContentLayoutBlockProps;
+
 export type BlockV1Raw =
     | HeaderModel
     | ButtonModel
@@ -1057,7 +1090,8 @@ type BlockV2Raw =
     | PreviewBlockModel
     | IconsBlockModel
     | HeaderSliderBlockModel
-    | CardLayoutBlockModel;
+    | CardLayoutBlockModel
+    | ContentLayoutBlockModel;
 
 export type BlockV1 = BlockV1Raw;
 export type BlockV2 = BlockV2Raw & BlockBaseProps;

@@ -24,6 +24,7 @@ import {
     TutorialCard,
     CardWithImage,
     BackgroundCard,
+    Content,
 } from './components';
 
 import {
@@ -46,6 +47,7 @@ import {
     IconsBlock,
     HeaderSliderBlock,
     CardLayoutBlock,
+    ContentLayoutBlock,
 } from './blocks';
 
 const components = {
@@ -74,6 +76,7 @@ const components = {
     [BlockType.NewsCard]: NewsCard,
     [BlockType.CardWithImage]: CardWithImage,
     [BlockType.BackgroundCard]: BackgroundCard,
+    [BlockType.Content]: Content,
 
     // Blocks
     [BlockType.SliderBlock]: SliderBlock,
@@ -95,6 +98,7 @@ const components = {
     [BlockType.IconsBlock]: IconsBlock,
     [BlockType.HeaderSliderBlock]: HeaderSliderBlock,
     [BlockType.CardLayoutBlock]: CardLayoutBlock,
+    [BlockType.ContentLayoutBlock]: ContentLayoutBlock,
 };
 
 export default components;

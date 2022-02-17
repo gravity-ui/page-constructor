@@ -1,0 +1,101 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
+
+$block: '.#{$ns}content';
+
+#{$block} {
+    &__notice {
+        .yfm,
+        .yfm > * {
+            color: var(--yc-color-text-secondary);
+        }
+
+        .yfm a {
+            color: var(--yc-color-text-primary);
+
+            &:hover {
+                color: var(--yc-color-text-secondary);
+            }
+        }
+    }
+
+    &__button {
+        margin-top: 0;
+        margin-right: $indentXXS;
+    }
+
+    &_centered {
+        margin: 0 auto;
+        text-align: center;
+
+        #{$block}__link {
+            a {
+                justify-content: center;
+            }
+        }
+    }
+
+    &_size {
+        &_l {
+            #{$block}__title,
+            #{$block}__text {
+                margin-bottom: $indentXXS;
+            }
+
+            #{$block}__text .yfm,
+            #{$block}__notice .yfm,
+            #{$block}__notice .yfm > *,
+            #{$block}__notice .yfm > * {
+                @include heading5();
+            }
+
+            #{$block}__link {
+                margin-top: $indentM;
+                margin-bottom: $indentM;
+            }
+        }
+    }
+
+    &_theme {
+        &_dark {
+            #{$block}__title,
+            #{$block}__text .yfm,
+            #{$block}__text .yfm > *,
+            #{$block}__link a {
+                color: var(--yc-color-text-light-primary);
+            }
+
+            #{$block}__notice .yfm,
+            #{$block}__notice .yfm > * {
+                color: var(--yc-color-text-light-secondary);
+            }
+
+            #{$block}__text {
+                .yfm a {
+                    color: var(--yc-color-text-light-secondary);
+
+                    &:hover {
+                        color: var(--yc-color-text-light-primary);
+                    }
+                }
+            }
+
+            #{$block}__notice {
+                .yfm,
+                .yfm > * {
+                    color: var(--yc-color-text-secondary);
+                }
+            }
+
+            #{$block}__link {
+                margin-top: $indentM;
+                margin-bottom: $indentM;
+            }
+        }
+    }
+
+    &__button {
+        margin-top: 0;
+        margin-right: $indentXXS;
+    }
+}

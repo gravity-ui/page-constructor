@@ -1,5 +1,5 @@
-import '../styles/styles.scss';
 import '../styles/storybook/index.scss';
+import '../styles/styles.scss';
 
 import React from 'react';
 import CommonTheme from './commonTheme.js';
