@@ -4,6 +4,7 @@ import {block} from '../../utils';
 import {CardWithImageProps} from '../../models';
 import FullScreenImage from '../FullscreenImage/FullscreenImage';
 import {Image} from '../index';
+import {HTML} from '@doc-tools/components';
 
 import './CardWithImage.scss';
 
@@ -36,8 +37,16 @@ const CardWithImage: React.FC<CardWithImageProps> = ({
                 />
             )}
         </div>
-        {title && <h3 className={b('title')}>{title}</h3>}
-        {description && <p className={b('description')}>{description}</p>}
+        {title && (
+            <h3 className={b('title')}>
+                <HTML>{title}</HTML>
+            </h3>
+        )}
+        {description && (
+            <p className={b('description')}>
+                <HTML>{description}</HTML>
+            </p>
+        )}
         {links && (
             <div className={b('links')}>
                 {links.map((item) => (
