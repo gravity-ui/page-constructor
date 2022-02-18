@@ -29,11 +29,11 @@ export function getFileExt(name: string) {
 
 const FileLink: React.FC<FileLinkProps> = (props) => {
     const {hostname} = useContext(LocationContext);
-    const {href, text, type = 'vertical', textSize = 'm', className} = props;
+    const {href, text, type = 'vertical', textSize = 'm', className, theme = 'default'} = props;
     const fileExt = getFileExt(href) as FileExtension;
 
     return (
-        <div className={b({ext: fileExt, type, size: textSize}, className)}>
+        <div className={b({ext: fileExt, type, size: textSize, theme}, className)}>
             {Object.values(FileExtension).includes(fileExt) && (
                 <div className={b('file-label')}>{fileExt}</div>
             )}

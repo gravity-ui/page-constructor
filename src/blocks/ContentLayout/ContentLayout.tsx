@@ -43,13 +43,14 @@ const ContentLayoutBlock: React.FC<ContentLayoutBlockProps> = (props) => {
     const colSizes = useCallback(() => getTextWidth(textWidth), [textWidth]);
 
     return (
-        <div className={b({size, theme, background: Boolean(background)})}>
+        <div className={b({size, background: Boolean(background)})}>
             <Content
                 className={b('content')}
                 {...textContent}
                 size={size}
                 centered={centered}
                 colSizes={colSizes()}
+                theme={theme}
             />
             {fileContent && (
                 <Col className={b('files', {size, centered})} reset sizes={colSizes()}>
@@ -60,6 +61,7 @@ const ContentLayoutBlock: React.FC<ContentLayoutBlockProps> = (props) => {
                             key={file.href}
                             type="horizontal"
                             textSize={getFileTextSize(size)}
+                            theme={theme}
                         />
                     ))}
                 </Col>

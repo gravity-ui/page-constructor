@@ -5,6 +5,7 @@ $block: '.#{$ns}content';
 
 #{$block} {
     &__notice {
+        .yfm,
         .yfm > * {
             color: var(--yc-color-text-secondary);
         }
@@ -76,9 +77,19 @@ $block: '.#{$ns}content';
                 color: var(--yc-color-text-light-primary);
             }
 
-            #{$block}__notice .yfm,
-            #{$block}__notice .yfm > * {
-                color: var(--yc-color-text-light-secondary);
+            #{$block}__notice {
+                .yfm,
+                .yfm > * {
+                    color: var(--yc-color-text-light-secondary);
+                }
+
+                .yfm a {
+                    color: var(--yc-color-text-light-primary);
+
+                    &:hover {
+                        color: var(--yc-color-text-light-secondary);
+                    }
+                }
             }
 
             #{$block}__text {
@@ -88,13 +99,6 @@ $block: '.#{$ns}content';
                     &:hover {
                         color: var(--yc-color-text-light-primary);
                     }
-                }
-            }
-
-            #{$block}__notice {
-                .yfm,
-                .yfm > * {
-                    color: var(--yc-color-text-secondary);
                 }
             }
         }

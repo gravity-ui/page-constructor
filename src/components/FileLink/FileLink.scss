@@ -76,4 +76,21 @@ $block: '.#{$ns}file-link';
             }
         }
     }
+
+    &_theme {
+        &_dark {
+            #{$block}__file-label {
+                color: var(--yc-color-text-light-primary);
+                background-color: var(--yc-color-base-light-simple-hover);
+            }
+
+            #{$block}__link > a {
+                color: var(--yc-color-text-light-primary);
+            }
+
+            #{$block}__link > a:hover {
+                color: var(--yc-color-text-light-secondary);
+            }
+        }
+    }
 }

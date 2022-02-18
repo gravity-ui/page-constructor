@@ -107,6 +107,7 @@ export type PriceDescriptionColor = 'cornflower' | 'black';
 export type PreviewRatioMediaContent = '2-1' | '1-1';
 export type ContentSize = 's' | 'l';
 export type ContentTextSize = 's' | 'm' | 'l';
+export type ContentTheme = 'default' | 'dark' | 'monochrome';
 export type FileLinkType = 'vertical' | 'horizontal';
 
 export interface Background {
@@ -817,6 +818,7 @@ export interface FileLinkProps extends ClassNameProps {
     text: ReactNode;
     type?: FileLinkType;
     textSize?: TextSize;
+    theme?: ContentTheme;
 }
 
 export interface ContentLayoutBlockProps {
@@ -824,7 +826,7 @@ export interface ContentLayoutBlockProps {
         size?: ContentSize;
         background?: BackgroundImageProps;
         centered?: boolean;
-        theme?: 'default' | 'dark' | 'monochrome';
+        theme?: ContentTheme;
         textWidth?: ContentTextSize;
     };
     textContent: ContentBlockProps;
@@ -840,6 +842,7 @@ export interface ContentBlockProps {
     size?: ContentSize;
     colSizes?: GridColumnSizesType;
     centered?: boolean;
+    theme?: ContentTheme;
 }
 
 export type HeaderBlockModel = {

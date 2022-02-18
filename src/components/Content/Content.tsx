@@ -54,6 +54,7 @@ const Content: React.FC<ContentBlockProps & ClassNameProps> = (props) => {
         buttons,
         colSizes = {all: 12, sm: 8},
         centered,
+        theme,
         className,
     } = props;
 
@@ -63,7 +64,7 @@ const Content: React.FC<ContentBlockProps & ClassNameProps> = (props) => {
             : title;
 
     return (
-        <Col className={b({size, centered}, className)} reset sizes={colSizes}>
+        <Col className={b({size, centered, theme}, className)} reset sizes={colSizes}>
             {title && <Title className={b('title')} text={titleText} {...titleProps} resetMargin />}
             {text && (
                 <div className={b('text')}>
