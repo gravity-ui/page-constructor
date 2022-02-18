@@ -11,16 +11,17 @@ export interface BackgroundImageProps extends React.HTMLProps<HTMLDivElement> {
     disableCompress?: boolean;
     style?: CSSProperties;
     imageClassName?: string;
+    hide?: boolean;
 }
 
 const b = block('storage-background-image');
 
 const BackgroundImage: React.FC<BackgroundImageProps> = (props) => {
-    const {children, src, alt, disableCompress, className, imageClassName, style} = props;
+    const {children, src, alt, disableCompress, className, imageClassName, style, hide} = props;
 
     return (
         <div className={b(null, className)} style={style}>
-            {src && (
+            {src && !hide && (
                 <Image
                     className={b('img', imageClassName)}
                     src={src}

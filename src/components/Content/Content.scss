@@ -100,8 +100,15 @@ $block: '.#{$ns}content';
         }
     }
 
-    &__button {
-        margin-top: 0;
-        margin-right: $indentXXS;
+    @media (max-width: map-get($gridBreakpoints, 'sm')) {
+        &__button {
+            margin-bottom: $indentXXS;
+        }
+
+        &__buttons {
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
     }
 }

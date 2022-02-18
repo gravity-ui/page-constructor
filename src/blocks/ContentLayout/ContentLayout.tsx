@@ -1,9 +1,11 @@
-import React from 'react';
+import React, {useCallback, useContext} from 'react';
 
 import {block} from '../../utils';
-import {ContentLayoutBlockProps, ContentSize} from '../../models';
+import {ContentLayoutBlockProps, ContentSize, ContentTextSize} from '../../models';
 import Content from '../../components/Content/Content';
-import {FileLink} from '../../components';
+import {BackgroundImage, FileLink} from '../../components';
+import {Col} from '../../grid';
+import {MobileContext} from '../../context/mobileContext';
 
 import './ContentLayout.scss';
 
@@ -20,15 +22,37 @@ function getFileTextSize(size: ContentSize) {
     }
 }
 
+function getTextWidth(size: ContentTextSize) {
+    switch (size) {
+        case 'l':
+            return {all: 12, md: 12};
+        case 'm':
+            return {all: 12, md: 8};
+        case 's':
+            return {all: 12, md: 6};
+        default:
+            return {all: 12, md: 8};
+    }
+}
+
 const ContentLayoutBlock: React.FC<ContentLayoutBlockProps> = (props) => {
+    const isMobile = useContext(MobileContext);
     const {textContent, fileContent, properties = {size: 'l'}} = props;
-    const {size} = properties;
+    const {size = 'l', background, centered, theme = 'default', textWidth = 'm'} = properties;
+
+    const colSizes = useCallback(() => getTextWidth(textWidth), [textWidth]);
 
     return (
-        <div className={b({size})}>
-            <Content {...textContent} size={size} />
+        <div className={b({size, theme, background: Boolean(background)})}>
+            <Content
+                className={b('content')}
+                {...textContent}
+                size={size}
+                centered={centered}
+                colSizes={colSizes()}
+            />
             {fileContent && (
-                <div className={b('files', {size})}>
+                <Col className={b('files', {size, centered})} reset sizes={colSizes()}>
                     {fileContent.map((file) => (
                         <FileLink
                             className={b('file')}
@@ -38,6 +62,15 @@ const ContentLayoutBlock: React.FC<ContentLayoutBlockProps> = (props) => {
                             textSize={getFileTextSize(size)}
                         />
                     ))}
+                </Col>
+            )}
+            {background && (
+                <div className={b('background')}>
+                    <BackgroundImage
+                        className={b('background-item')}
+                        {...background}
+                        hide={isMobile}
+                    />
                 </div>
             )}
         </div>

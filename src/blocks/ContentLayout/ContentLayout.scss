@@ -4,6 +4,12 @@
 $block: '.#{$ns}content-layout-block';
 
 #{$block} {
+    &__content,
+    &__files {
+        z-index: 10;
+        position: relative;
+    }
+
     &__files {
         margin-top: $indentM;
 
@@ -16,6 +22,15 @@ $block: '.#{$ns}content-layout-block';
             @include heading5();
         }
 
+        &_centered {
+            margin-left: auto;
+            margin-right: auto;
+
+            #{$block}__file {
+                justify-content: center;
+            }
+        }
+
         a {
             text-decoration: none;
         }
@@ -23,5 +38,36 @@ $block: '.#{$ns}content-layout-block';
 
     &__file {
         margin-bottom: $indentXXS;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &__background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+
+        &-item {
+            height: 100%;
+            border-radius: $borderRadius;
+        }
+    }
+
+    &_background {
+        padding: $indentXL $indentXL $indentXS;
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'sm')) {
+        &_background {
+            padding: $indentM $indentM 0;
+
+            picture {
+                display: none;
+            }
+        }
     }
 }

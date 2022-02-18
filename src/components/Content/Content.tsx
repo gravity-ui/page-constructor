@@ -2,6 +2,7 @@ import React from 'react';
 
 import {block} from '../../utils';
 import {ContentBlockProps, ContentSize, TitleProps} from '../../models';
+import {ClassNameProps} from '@yandex-data-ui/cloud-components';
 import {Title, YFMWrapper, Button} from '../index';
 import LinkBlock from '../Link/Link';
 import {Col} from '../../grid';
@@ -43,7 +44,7 @@ function getButtonSize(size: ContentSize) {
     }
 }
 
-const Content: React.FC<ContentBlockProps> = (props) => {
+const Content: React.FC<ContentBlockProps & ClassNameProps> = (props) => {
     const {
         title,
         text,
@@ -52,15 +53,18 @@ const Content: React.FC<ContentBlockProps> = (props) => {
         link,
         buttons,
         colSizes = {all: 12, sm: 8},
+        centered,
+        className,
     } = props;
+
     const {text: titleText, ...titleProps} =
         !title || typeof title === 'string'
             ? ({text: title, textSize: getTextSize(size)} as TitleProps)
             : title;
 
     return (
-        <Col className={b({size})} reset sizes={colSizes}>
-            {title && <Title className={b('title')} text={titleText} {...titleProps} />}
+        <Col className={b({size, centered}, className)} reset sizes={colSizes}>
+            {title && <Title className={b('title')} text={titleText} {...titleProps} resetMargin />}
             {text && (
                 <div className={b('text')}>
                     <YFMWrapper content={text} modifiers={{constructor: true}} />

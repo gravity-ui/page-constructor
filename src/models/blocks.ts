@@ -7,6 +7,7 @@ import {Lang, PixelEventType} from './common';
 import {ThemeSupporting} from '../utils/theme';
 import {GridColumnSize, GridColumnSizesType} from '../grid/types';
 import {isV2BlockType} from '../utils/blocks';
+import {BackgroundImageProps} from '../components/BackgroundImage/BackgroundImage';
 
 export enum BlockType {
     Header = 'header',
@@ -105,6 +106,7 @@ export type MediaDirection = 'media-content' | 'content-media';
 export type PriceDescriptionColor = 'cornflower' | 'black';
 export type PreviewRatioMediaContent = '2-1' | '1-1';
 export type ContentSize = 's' | 'l';
+export type ContentTextSize = 's' | 'm' | 'l';
 export type FileLinkType = 'vertical' | 'horizontal';
 
 export interface Background {
@@ -819,7 +821,11 @@ export interface FileLinkProps extends ClassNameProps {
 
 export interface ContentLayoutBlockProps {
     properties?: {
-        size: ContentSize;
+        size?: ContentSize;
+        background?: BackgroundImageProps;
+        centered?: boolean;
+        theme?: 'default' | 'dark' | 'monochrome';
+        textWidth?: ContentTextSize;
     };
     textContent: ContentBlockProps;
     fileContent?: FileLinkProps[];
@@ -833,6 +839,7 @@ export interface ContentBlockProps {
     buttons?: ButtonProps[];
     size?: ContentSize;
     colSizes?: GridColumnSizesType;
+    centered?: boolean;
 }
 
 export type HeaderBlockModel = {
