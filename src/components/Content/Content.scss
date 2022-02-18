@@ -102,6 +102,32 @@ $block: '.#{$ns}content';
                 }
             }
         }
+
+        &_light {
+            #{$block}__text {
+                .yfm a {
+                    color: var(--yc-color-text-secondary);
+
+                    &:hover {
+                        color: var(--yc-color-text-primary);
+                    }
+                }
+            }
+
+            #{$block}__notice {
+                .yfm a {
+                    color: var(--yc-color-text-primary);
+
+                    &:hover {
+                        color: var(--yc-color-text-secondary);
+                    }
+                }
+            }
+
+            #{$block}__link a {
+                color: var(--yc-color-text-primary);
+            }
+        }
     }
 
     @media (max-width: map-get($gridBreakpoints, 'sm')) {

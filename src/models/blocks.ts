@@ -107,7 +107,7 @@ export type PriceDescriptionColor = 'cornflower' | 'black';
 export type PreviewRatioMediaContent = '2-1' | '1-1';
 export type ContentSize = 's' | 'l';
 export type ContentTextSize = 's' | 'm' | 'l';
-export type ContentTheme = 'default' | 'dark' | 'monochrome';
+export type ContentTheme = 'default' | 'dark' | 'light';
 export type FileLinkType = 'vertical' | 'horizontal';
 
 export interface Background {
