@@ -769,6 +769,14 @@ export interface IconsBlockProps {
     }[];
 }
 
+export interface HeaderBreadCrumbsProps extends ClassNameProps {
+    items: {
+        url: string;
+        text: ReactNode;
+    }[];
+    theme?: Theme;
+}
+
 export interface HeaderBlockProps {
     title: string;
     overtitle?: string;
@@ -782,6 +790,7 @@ export interface HeaderBlockProps {
     background?: HeaderBlockBackground;
     theme?: 'default' | 'dark';
     verticalOffset: 's' | 'm' | 'l' | 'xl';
+    breadcrumbs?: HeaderBreadCrumbsProps;
 }
 
 interface HeaderBackgroundProps {

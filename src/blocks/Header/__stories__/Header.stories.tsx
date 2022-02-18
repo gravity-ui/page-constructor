@@ -25,10 +25,20 @@ const ThemeTemplate: Story<HeaderBlockModel> = (args) => (
     <PageConstructor content={{blocks: [args]}} />
 );
 
+const BreadcrumbsTemplate: Story<HeaderBlockModel> = (args) => (
+    <PageConstructor content={{blocks: [args]}} />
+);
+
+const BreadcrumbsDarkTemplate: Story<HeaderBlockModel> = (args) => (
+    <PageConstructor content={{blocks: [args]}} />
+);
+
 export const Default = DefaultTemplate.bind({});
 export const Image = ImageTemplate.bind({});
 export const Background = BackgroundTemplate.bind({});
 export const Theme = ThemeTemplate.bind({});
+export const Breadcrumbs = BreadcrumbsTemplate.bind({});
+export const BreadcrumbsDark = BreadcrumbsDarkTemplate.bind({});
 
 Default.args = {
     type: BlockType.HeaderBlock,
@@ -128,4 +138,82 @@ Theme.args = {
             url: '/#contact-form',
         },
     ],
+};
+
+Breadcrumbs.args = {
+    type: BlockType.HeaderBlock,
+    title: 'Партнёрская программа Yandex Cloud Professionals',
+    theme: 'default',
+    description:
+        'Продавайте сервисы Yandex.Cloud и ежемесячно получайте партнёрскую премию от 12% до 20% потребления ваших клиентов. Получайте гранты для знакомства с сервисами Yandex.Cloud или для проведения пилотных проектов ваших клиентов.',
+    width: 's',
+    verticalOffset: 'm',
+    background: {
+        url: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/bg-2.png',
+        color: '#E3EBFF',
+        fullWidth: true,
+    },
+    buttons: [
+        {
+            text: 'Подключиться',
+            theme: 'action',
+            url: 'https://console.cloud.yandex.${tld}/',
+        },
+        {
+            text: 'Связаться с нами',
+            theme: 'outlined',
+            url: '/#contact-form',
+        },
+    ],
+    breadcrumbs: {
+        items: [
+            {
+                text: 'Blog',
+                url: '#1',
+            },
+            {
+                text: 'Services',
+                url: '#2',
+            },
+        ],
+    },
+};
+
+BreadcrumbsDark.args = {
+    type: BlockType.HeaderBlock,
+    title: 'Партнёрская программа Yandex Cloud Professionals',
+    theme: 'dark',
+    description:
+        'Продавайте сервисы Yandex.Cloud и ежемесячно получайте партнёрскую премию от 12% до 20% потребления ваших клиентов. Получайте гранты для знакомства с сервисами Yandex.Cloud или для проведения пилотных проектов ваших клиентов.',
+    width: 'l',
+    verticalOffset: 'm',
+    background: {
+        url: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/bg-1.png',
+        color: '#E3EBFF',
+        fullWidth: false,
+    },
+    buttons: [
+        {
+            text: 'Подключиться',
+            theme: 'normal-contrast',
+            url: 'https://console.cloud.yandex.${tld}/',
+        },
+        {
+            text: 'Связаться с нами',
+            theme: 'outlined-contrast',
+            url: '/#contact-form',
+        },
+    ],
+    breadcrumbs: {
+        items: [
+            {
+                text: 'Blog',
+                url: '#1',
+            },
+            {
+                text: 'Services',
+                url: '#2',
+            },
+        ],
+    },
 };

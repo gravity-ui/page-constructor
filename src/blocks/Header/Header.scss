@@ -109,6 +109,11 @@ $block: '.#{$ns}header-block';
         border-radius: $borderRadius;
     }
 
+    &__breadcrumbs {
+        position: absolute;
+        top: $indentXS;
+    }
+
     &__content,
     &__content-outer {
         position: relative;

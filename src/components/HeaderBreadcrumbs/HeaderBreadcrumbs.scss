@@ -1,0 +1,43 @@
+@import '/styles/variables.scss';
+@import '/styles/mixins.scss';
+
+$block: '.#{$ns}header-breadcrumbs';
+
+#{$block} {
+    z-index: 11;
+
+    &__item {
+        display: inline-block;
+    }
+
+    &__text {
+        @include text-size(body2);
+        @include link();
+
+        color: var(--yc-color-text-secondary);
+
+        &:after {
+            content: '\a0/ ';
+            margin: 0 8px 0 6px;
+            color: var(--yc-color-text-secondary);
+        }
+
+        &:hover {
+            color: var(--yc-color-text-primary);
+        }
+    }
+
+    &_theme_dark {
+        #{$block}__text {
+            color: var(--yc-color-text-light-secondary);
+
+            &:after {
+                color: var(--yc-color-text-light-secondary);
+            }
+
+            &:hover {
+                color: var(--yc-color-text-light-primary);
+            }
+        }
+    }
+}

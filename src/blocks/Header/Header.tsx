@@ -15,6 +15,7 @@ import {Grid, Row, Col} from '../../grid';
 
 import YFMWrapper from '../../components/YFMWrapper/YFMWrapper';
 import FullWidthBackground from '../../components/FullWidthBackground/FullWidthBackground';
+import HeaderBreadcrumbs from '../../components/HeaderBreadcrumbs/HeaderBreadcrumbs';
 
 import './Header.scss';
 
@@ -95,6 +96,8 @@ const HeaderBlock: React.FunctionComponent<HeaderBlockFullProps> = (props) => {
         theme = 'default',
         verticalOffset,
         className,
+        breadcrumbs,
+        children,
     } = props;
     const hasMedia = Boolean(image || video);
     const titleSizes = hasMedia ? titleWithImageSizes(imageSize) : getTitleSizes(width);
@@ -111,6 +114,9 @@ const HeaderBlock: React.FunctionComponent<HeaderBlockFullProps> = (props) => {
                 className,
             )}
         >
+            {breadcrumbs && (
+                <HeaderBreadcrumbs {...breadcrumbs} className={b('breadcrumbs')} theme={theme} />
+            )}
             {background && renderFullWidthBackground(background)}
             <Grid className={b('content', {offset, theme, 'vertical-offset': curVerticalOffset})}>
                 {background && renderBackground(background)}
@@ -147,6 +153,7 @@ const HeaderBlock: React.FunctionComponent<HeaderBlockFullProps> = (props) => {
                                     ))}
                             </div>
                         )}
+                        {children}
                     </Col>
                 </Row>
                 {hasMedia && (
