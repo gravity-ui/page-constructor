@@ -21,6 +21,17 @@ function getTextSize(size: ContentSize) {
     }
 }
 
+function getLinkSize(size: ContentSize) {
+    switch (size) {
+        case 'l':
+            return 'l';
+        case 's':
+            return 'm';
+        default:
+            return 'l';
+    }
+}
+
 function getButtonSize(size: ContentSize) {
     switch (size) {
         case 'l':
@@ -60,7 +71,7 @@ const Content: React.FC<ContentBlockProps> = (props) => {
                     <YFMWrapper content={additionalInfo} />
                 </div>
             )}
-            {link && <LinkBlock className={b('link')} {...link} />}
+            {link && <LinkBlock className={b('link')} {...link} textSize={getLinkSize(size)} />}
             <div className={b('buttons')}>
                 {buttons &&
                     buttons.map((item) => (

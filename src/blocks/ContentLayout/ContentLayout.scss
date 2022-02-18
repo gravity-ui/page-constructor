@@ -7,6 +7,11 @@ $block: '.#{$ns}content-layout-block';
     &__files {
         margin-top: $indentM;
 
+        &_size_s {
+            @extend %heading-margin-reset;
+            @include text-size(body2);
+        }
+
         &_size_l {
             @include heading5();
         }

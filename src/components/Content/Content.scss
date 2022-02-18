@@ -5,7 +5,6 @@ $block: '.#{$ns}content';
 
 #{$block} {
     &__notice {
-        .yfm,
         .yfm > * {
             color: var(--yc-color-text-secondary);
         }
@@ -36,6 +35,18 @@ $block: '.#{$ns}content';
     }
 
     &_size {
+        &_s {
+            #{$block}__title,
+            #{$block}__text {
+                margin-bottom: $indentXXXS;
+            }
+
+            #{$block}__link {
+                margin-top: $indentSM;
+                margin-bottom: $indentSM;
+            }
+        }
+
         &_l {
             #{$block}__title,
             #{$block}__text {
@@ -85,11 +96,6 @@ $block: '.#{$ns}content';
                 .yfm > * {
                     color: var(--yc-color-text-secondary);
                 }
-            }
-
-            #{$block}__link {
-                margin-top: $indentM;
-                margin-bottom: $indentM;
             }
         }
     }
