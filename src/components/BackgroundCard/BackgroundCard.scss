@@ -49,4 +49,8 @@ $block: '.#{$ns}background-card';
             object-position: left;
         }
     }
+
+    &__text {
+        margin: 0;
+    }
 }

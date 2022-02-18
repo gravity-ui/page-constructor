@@ -20,7 +20,9 @@ const BackgroundCard: React.FC<BackgroundCardProps> = (props) => {
                 <h6 className={b('title')}>
                     <HTML>{title}</HTML>
                 </h6>
-                <HTML className={b('text')}>{text}</HTML>
+                <p className={b('text')}>
+                    <HTML>{text}</HTML>
+                </p>
             </CardBase.Content>
         </CardBase>
     );

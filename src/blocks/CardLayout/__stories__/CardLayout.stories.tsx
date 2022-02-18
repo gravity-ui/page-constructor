@@ -29,8 +29,8 @@ CardsWithImage.args = {
                 {
                     type: BlockType.CardWithImage,
                     image: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/card-with-image/bashkeev.png',
-                    title: 'Алексей Башкеев',
-                    description: 'CEO, руководитель платформы',
+                    title: 'Алексей&nbsp;Башкеев',
+                    description: 'CEO, руководитель&nbsp;платформы',
                     links: [{link: 'https://yandex.ru', title: 'LinkedIn'}],
                 },
                 {
