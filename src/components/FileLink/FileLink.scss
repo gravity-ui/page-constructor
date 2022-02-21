@@ -41,7 +41,7 @@ $block: '.#{$ns}file-link';
     }
 
     &__link > a:hover {
-        color: var(--yc-color-text-info);
+        color: var(--yc-color-text-secondary);
     }
 
     &_size {
@@ -90,6 +90,17 @@ $block: '.#{$ns}file-link';
 
             #{$block}__link > a:hover {
                 color: var(--yc-color-text-light-secondary);
+            }
+        }
+
+        &_light {
+            #{$block}__file-label {
+                color: var(--yc-color-text-primary);
+                background-color: var(--yc-color-base-generic-accent-disabled);
+            }
+
+            #{$block}__link > a:hover {
+                color: var(--yc-color-text-secondary);
             }
         }
     }

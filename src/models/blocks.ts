@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import React, {CSSProperties, ReactNode} from 'react';
 import {ButtonSize, ButtonView, SocialNetwork} from '@yandex-data-ui/common';
 import {ClassNameProps} from '@yandex-data-ui/cloud-components';
 import {EventPublic, ServicePublic} from '@yandex-data-ui/cloud-schemas/build/models/ui-api';
@@ -7,7 +7,6 @@ import {Lang, PixelEventType} from './common';
 import {ThemeSupporting} from '../utils/theme';
 import {GridColumnSize, GridColumnSizesType} from '../grid/types';
 import {isV2BlockType} from '../utils/blocks';
-import {BackgroundImageProps} from '../components/BackgroundImage/BackgroundImage';
 
 export enum BlockType {
     Header = 'header',
@@ -26,6 +25,7 @@ export enum BlockType {
     Features = 'features',
     Tabs = 'tabs',
     Link = 'link',
+    FileLink = 'file-link',
     Table = 'table',
     Scrollable = 'scrollable',
     Tiles = 'tiles',
@@ -427,7 +427,7 @@ export interface ButtonProps {
     url: string;
     primary?: boolean;
     size?: ButtonSize;
-    theme?: ButtonView | 'github' | 'app-store' | 'google-play' | 'scale';
+    theme?: ButtonView | 'github' | 'app-store' | 'google-play' | 'scale' | 'monochrome';
     img?: ButtonImageProps | string;
     metrikaGoals?: MetrikaGoal;
     pixelEvents?: ButtonPixel;
@@ -779,6 +779,15 @@ export interface HeaderBreadCrumbsProps extends ClassNameProps {
         text: ReactNode;
     }[];
     theme?: TextTheme;
+}
+
+export interface BackgroundImageProps extends React.HTMLProps<HTMLDivElement> {
+    src?: string;
+    alt?: string;
+    disableCompress?: boolean;
+    style?: CSSProperties;
+    imageClassName?: string;
+    hide?: boolean;
 }
 
 export interface HeaderBlockProps {

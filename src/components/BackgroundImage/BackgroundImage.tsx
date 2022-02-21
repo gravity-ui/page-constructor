@@ -1,18 +1,10 @@
-import React, {CSSProperties} from 'react';
+import React from 'react';
 
 import {block} from '../../utils';
+import {BackgroundImageProps} from '../../models';
 import Image from '../Image/Image';
 
 import './BackgroundImage.scss';
-
-export interface BackgroundImageProps extends React.HTMLProps<HTMLDivElement> {
-    src?: string;
-    alt?: string;
-    disableCompress?: boolean;
-    style?: CSSProperties;
-    imageClassName?: string;
-    hide?: boolean;
-}
 
 const b = block('storage-background-image');
 

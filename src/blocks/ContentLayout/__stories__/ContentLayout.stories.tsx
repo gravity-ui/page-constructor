@@ -532,12 +532,12 @@ Theme.args = {
                 buttons: [
                     {
                         text: 'Подключиться',
-                        theme: 'normal-contrast',
+                        theme: 'monochrome',
                         url: 'https://console.cloud.yandex.${tld}/',
                     },
                     {
                         text: 'Связаться с нами',
-                        theme: 'outlined-contrast',
+                        theme: 'outlined',
                         url: '/#contact-form',
                     },
                 ],
