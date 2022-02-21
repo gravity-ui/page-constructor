@@ -9,6 +9,7 @@ import {isV2BlockType} from '../utils/blocks';
 
 export enum BlockType {
     Header = 'header',
+    HeaderBreadcrumbs = 'header-breadcrumbs',
     HeaderWithImage = 'header-with-image',
     Text = 'text',
     Section = 'section',
