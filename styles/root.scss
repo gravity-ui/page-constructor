@@ -24,6 +24,10 @@
 }
 
 .yc-root {
-    --pc-color-sfx-shadow: var(--yc-color-private-black-50);
+    --pc-color-sfx-shadow: var(--yc-color-base-simple-hover);
     --pc-color-line-generic-active-solid: #b3b3b3;
+
+    &.yc-root_theme_dark {
+        --pc-color-line-generic-active-solid: #6c6c70;
+    }
 }

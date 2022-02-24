@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {HTML} from '@doc-tools/components';
 import {ClassNameProps} from '@yandex-data-ui/cloud-components';
 
@@ -16,6 +16,8 @@ import {Grid, Row, Col} from '../../grid';
 import YFMWrapper from '../../components/YFMWrapper/YFMWrapper';
 import FullWidthBackground from '../../components/FullWidthBackground/FullWidthBackground';
 import HeaderBreadcrumbs from '../../components/HeaderBreadcrumbs/HeaderBreadcrumbs';
+import {getThemedValue} from '../../../src/utils/theme';
+import {ThemeValueContext} from '../../../src/context/theme/ThemeValueContext';
 
 import './Header.scss';
 
@@ -93,12 +95,13 @@ const HeaderBlock: React.FunctionComponent<HeaderBlockFullProps> = (props) => {
         offset = 'default',
         imageSize = 'm',
         background,
-        theme = 'default',
+        theme: textTheme = 'default',
         verticalOffset,
         className,
         breadcrumbs,
         children,
     } = props;
+    const {themeValue: theme} = useContext(ThemeValueContext);
     const hasMedia = Boolean(image || video);
     const titleSizes = hasMedia ? titleWithImageSizes(imageSize) : getTitleSizes(width);
     let curVerticalOffset = verticalOffset;
@@ -106,6 +109,10 @@ const HeaderBlock: React.FunctionComponent<HeaderBlockFullProps> = (props) => {
     if (hasMedia && !verticalOffset) {
         curVerticalOffset = 'm';
     }
+
+    const backgroundThemed = background && getThemedValue(background, theme);
+    const imageThemed = image && getThemedValue(image, theme);
+    const videoThemed = video && getThemedValue(video, theme);
 
     return (
         <header
@@ -115,11 +122,21 @@ const HeaderBlock: React.FunctionComponent<HeaderBlockFullProps> = (props) => {
             )}
         >
             {breadcrumbs && (
-                <HeaderBreadcrumbs {...breadcrumbs} className={b('breadcrumbs')} theme={theme} />
+                <HeaderBreadcrumbs
+                    {...breadcrumbs}
+                    className={b('breadcrumbs')}
+                    theme={textTheme}
+                />
             )}
-            {background && renderFullWidthBackground(background)}
-            <Grid className={b('content', {offset, theme, 'vertical-offset': curVerticalOffset})}>
-                {background && renderBackground(background)}
+            {backgroundThemed && renderFullWidthBackground(backgroundThemed)}
+            <Grid
+                className={b('content', {
+                    offset,
+                    theme: textTheme,
+                    'vertical-offset': curVerticalOffset,
+                })}
+            >
+                {backgroundThemed && renderBackground(backgroundThemed)}
                 <Row className={b('content-outer')}>
                     <Col sizes={titleSizes} className={b('content-inner')}>
                         {overtitle && (
@@ -161,8 +178,8 @@ const HeaderBlock: React.FunctionComponent<HeaderBlockFullProps> = (props) => {
                         className={b('media', {[imageSize]: true})}
                         videoClassName={b('video')}
                         imageClassName={b('image')}
-                        video={video}
-                        image={image}
+                        video={videoThemed}
+                        image={imageThemed}
                     />
                 )}
             </Grid>

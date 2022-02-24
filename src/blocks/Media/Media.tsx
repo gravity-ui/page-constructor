@@ -1,4 +1,4 @@
-import React, {useMemo, useState} from 'react';
+import React, {useContext, useMemo, useState} from 'react';
 
 import {block} from '../../utils';
 import {Grid, Row, Col, GridColumnSize} from '../../grid';
@@ -7,6 +7,8 @@ import Media from '../../components/Media/Media';
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
 import BlockHeader from '../../components/BlockHeader/BlockHeader';
 import MediaContent from './MediaContent';
+import {ThemeValueContext} from '../../../src/context/theme/ThemeValueContext';
+import {getThemedValue} from '../../../src/utils/theme';
 
 import './Media.scss';
 
@@ -28,6 +30,8 @@ const MediaBlock: React.FC<MediaBlockProps> = (props) => {
     } = props;
 
     const [play, setPlay] = useState<boolean>(false);
+    const {themeValue: theme} = useContext(ThemeValueContext);
+    const mediaThemed = getThemedValue(media, theme);
 
     const mediaSizes = useMemo(() => {
         return mediaOnly
@@ -60,7 +64,7 @@ const MediaBlock: React.FC<MediaBlockProps> = (props) => {
                     </Col>
                     <Col sizes={mediaSizes}>
                         <div className={b('card', {shadow: !disableShadow})}>
-                            <Media {...media} playVideo={play} />
+                            <Media {...mediaThemed} playVideo={play} />
                         </div>
                     </Col>
                 </Row>

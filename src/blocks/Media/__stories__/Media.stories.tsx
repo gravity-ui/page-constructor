@@ -12,7 +12,13 @@ export default {
 const DefaultTemplate: Story<MediaBlockModel> = (args) => (
     <PageConstructor content={{blocks: [args]}} />
 );
+
+const ThemeTemplate: Story<MediaBlockModel> = (args) => (
+    <PageConstructor content={{blocks: [args]}} />
+);
+
 export const Default = DefaultTemplate.bind({});
+export const Theme = ThemeTemplate.bind({});
 
 Default.args = {
     type: BlockType.MediaBlock,
@@ -31,6 +37,27 @@ Default.args = {
             loop: {start: 0},
         },
         image: 'https://storage.yandexcloud.net/cloud-www-assets/constructor/main/calc.png',
+    },
+    button: {
+        text: 'Рассчитать стоимость',
+        theme: 'outlined',
+        url: '/prices#calculator',
+    },
+};
+
+Theme.args = {
+    type: BlockType.MediaBlock,
+    direction: 'media-content',
+    title: 'Вы всегда знаете, сколько потратили и на что',
+    description:
+        'Тарифы Yandex.Cloud подойдут как высоконагруженным сервисам больших компаний, так и небольшим проектам со скромными требованиями.Платите только за используемые ресурсы или зарезервируйте определенный объём на 1 или 3 года и сэкономьте до 49%. Следить за расходами можно прямо в консоли управления.',
+    media: {
+        system: {
+            image: 'https://storage.yandexcloud.net/cloud-www-assets/constructor/main/calc.png',
+        },
+        dark: {
+            image: 'https://storage.yandexcloud.net/cloud-www-assets/constructor/main/support_x2.png',
+        },
     },
     button: {
         text: 'Рассчитать стоимость',

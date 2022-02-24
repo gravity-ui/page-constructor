@@ -1,4 +1,4 @@
-import React, {forwardRef, Fragment, useEffect, useState} from 'react';
+import React, {forwardRef, Fragment, useContext, useEffect, useState} from 'react';
 import {HTML} from '@doc-tools/components';
 
 import {block} from '../../../utils';
@@ -7,6 +7,8 @@ import {PreviewItemProps, PreviewRatioMediaContent, Refable} from '../../../mode
 import YFMWrapper from '../../../components/YFMWrapper/YFMWrapper';
 import PreviewContent from './PreviewContent';
 import PreviewMedia from './PreviewMedia';
+import {getThemedValue} from '../../../../src/utils/theme';
+import {ThemeValueContext} from '../../../../src/context/theme/ThemeValueContext';
 
 import './MediaContent.scss';
 
@@ -34,6 +36,7 @@ const MediaContent: React.FC<MediaContentProps> = forwardRef<HTMLDivElement, Med
             showMediaContent,
         } = props;
 
+        const {themeValue: theme} = useContext(ThemeValueContext);
         const [mediaSizes, setMediaSizes] = useState({[GridColumnSize.All]: 12});
         const [contentSizes, setContentSizes] = useState({[GridColumnSize.All]: 12});
 
@@ -76,7 +79,13 @@ const MediaContent: React.FC<MediaContentProps> = forwardRef<HTMLDivElement, Med
                 />,
             );
             mediaComponents.push(
-                <PreviewMedia key={id} id={id} media={media} play={isActive} mods={mediaMods} />,
+                <PreviewMedia
+                    key={id}
+                    id={id}
+                    media={media && getThemedValue(media, theme)}
+                    play={isActive}
+                    mods={mediaMods}
+                />,
             );
         });
 

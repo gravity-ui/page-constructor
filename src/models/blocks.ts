@@ -4,6 +4,7 @@ import {ClassNameProps} from '@yandex-data-ui/cloud-components';
 import {EventPublic, ServicePublic} from '@yandex-data-ui/cloud-schemas/build/models/ui-api';
 
 import {Lang, PixelEventType} from './common';
+import {ThemeSupporting} from '../utils/theme';
 import {GridColumnSize, GridColumnSizesType} from '../grid/types';
 import {isV2BlockType} from '../utils/blocks';
 
@@ -88,7 +89,7 @@ export enum PreviewItemType {
     Image = 'image',
 }
 
-export type Theme = 'light' | 'dark';
+export type TextTheme = 'light' | 'dark';
 export type TextSize = 's' | 'm' | 'l';
 export type DividerSize = '0' | 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl' | 'xxxl';
 export type HeaderWidth = 's' | 'm' | 'l';
@@ -109,7 +110,7 @@ export interface Background {
 }
 
 export interface Themable {
-    theme?: Theme;
+    theme?: TextTheme;
 }
 
 export interface Justifyable {
@@ -178,6 +179,7 @@ export interface MediaVideoProps {
     controls?: MediaVideoControlsType;
     metrika?: MetrikaVideo;
 }
+export type ThemedMediaVideoProps = ThemeSupporting<MediaVideoProps>;
 
 export interface MediaProps extends Animatable {
     color?: string;
@@ -189,6 +191,7 @@ export interface MediaProps extends Animatable {
     height?: number;
     metrika?: MetrikaVideo;
 }
+export type ThemedMediaProps = ThemeSupporting<MediaProps>;
 
 export interface LoadableProps {
     source: string;
@@ -219,6 +222,7 @@ export interface ImageObjectProps {
 }
 
 export type ImageProps = string | ImageObjectProps;
+export type ThemedImage = ThemeSupporting<ImageProps>;
 
 export interface BlockBaseProps {
     anchor?: AnchorProps;
@@ -521,7 +525,7 @@ export interface LinkProps extends Stylable {
     text?: string;
     textSize?: TextSize;
     theme?: LinkTheme;
-    colorTheme?: Theme;
+    colorTheme?: TextTheme;
     arrow?: boolean;
 }
 
@@ -600,10 +604,10 @@ export interface BackgroundCardProps extends CardBaseProps {
 export interface BannerBlockProps extends Animatable {
     title: string;
     subtitle?: string;
-    image?: string;
+    image?: ThemeSupporting<string>;
     disableCompress?: boolean;
-    color?: string;
-    theme?: Theme;
+    color?: ThemeSupporting<string>;
+    theme?: TextTheme;
     button: Pick<ButtonProps, 'text' | 'url' | 'target'>;
 }
 
@@ -620,7 +624,7 @@ export interface CompaniesBlockProps extends Animatable {
 export interface MediaBlockProps extends Animatable {
     title: string;
     description?: string;
-    media: MediaProps;
+    media: ThemeSupporting<MediaProps>;
     button: Pick<ButtonProps, 'text' | 'url' | 'theme'>;
     direction?: MediaDirection;
     mobileDirection?: MediaDirection;
@@ -637,7 +641,7 @@ export interface PreviewContentItemProps {
 
 export interface PreviewItemProps {
     type: PreviewItemType;
-    media: MediaProps;
+    media: ThemedMediaProps;
     content: PreviewContentItemProps;
 }
 
@@ -652,8 +656,8 @@ export interface PreviewBlockProps extends Animatable {
 }
 
 export interface InfoBlockProps {
-    theme?: Theme;
-    backgroundColor?: string;
+    theme?: TextTheme;
+    backgroundColor?: ThemeSupporting<string>;
     title: string;
     buttons?: Pick<ButtonProps, 'url' | 'text' | 'theme'>[];
     sectionsTitle: string;
@@ -694,7 +698,7 @@ export interface SecurityBlockPoint {
 }
 
 export interface SecurityBlockProps extends Animatable {
-    theme?: Theme;
+    theme?: TextTheme;
     backgroundColor?: string;
     title: string;
     points?: SecurityBlockPoint[];
@@ -711,10 +715,10 @@ export interface TabsBlockItem {
     title: string;
     text: string;
     link?: LinkProps;
-    image?: ImageProps;
+    image?: ThemedImage;
     disableCompress?: boolean;
     caption?: string;
-    media?: MediaProps;
+    media?: ThemedMediaProps;
     links?: LinkProps[];
 }
 
@@ -775,7 +779,7 @@ export interface HeaderBreadCrumbsProps extends ClassNameProps {
         url: string;
         text: ReactNode;
     }[];
-    theme?: Theme;
+    theme?: TextTheme;
 }
 
 export interface HeaderBlockProps {
@@ -786,9 +790,9 @@ export interface HeaderBlockProps {
     width?: HeaderWidth;
     imageSize?: HeaderImageSize;
     offset?: HeaderOffset;
-    image?: ImageProps;
-    video?: MediaVideoProps;
-    background?: HeaderBlockBackground;
+    image?: ThemedImage;
+    video?: ThemedMediaVideoProps;
+    background?: ThemedHeaderBlockBackground;
     theme?: 'default' | 'dark';
     verticalOffset: 's' | 'm' | 'l' | 'xl';
     breadcrumbs?: HeaderBreadCrumbsProps;
@@ -802,6 +806,7 @@ interface HeaderBackgroundProps {
 }
 
 export type HeaderBlockBackground = HeaderBackgroundProps | MediaProps;
+export type ThemedHeaderBlockBackground = ThemeSupporting<HeaderBackgroundProps | MediaProps>;
 
 export function headerHasMediaBackground(
     background: HeaderBackgroundProps | MediaProps,

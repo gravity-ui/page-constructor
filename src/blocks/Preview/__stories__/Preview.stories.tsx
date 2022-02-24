@@ -24,13 +24,24 @@ Default.args = {
         {
             type: PreviewItemType.Video,
             media: {
-                video: {
-                    type: MediaVideoType.Player,
-                    src: ['https://youtu.be/2dgZ8c-MGlc'],
-                    loop: true,
+                system: {
+                    video: {
+                        type: MediaVideoType.Player,
+                        src: ['https://youtu.be/2dgZ8c-MGlc'],
+                        loop: true,
+                    },
+                    previewImg:
+                        'https://storage.yandexcloud.net/cloud-www-assets/solutions/data-warehouse/scale-managed-greenplum.png',
                 },
-                previewImg:
-                    'https://storage.yandexcloud.net/cloud-www-assets/solutions/data-warehouse/scale-managed-greenplum.png',
+                dark: {
+                    video: {
+                        type: MediaVideoType.Player,
+                        src: ['https://youtu.be/eR6XrldgrpM'],
+                        loop: true,
+                    },
+                    previewImg:
+                        'https://storage.yandexcloud.net/cloud-www-assets/solutions/data-warehouse/greenplum-cover.png',
+                },
             },
             content: {
                 title: 'Managed Greenplum: хранилище данных в облаке',

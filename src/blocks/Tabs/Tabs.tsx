@@ -1,4 +1,4 @@
-import React, {Fragment, useState} from 'react';
+import React, {Fragment, useContext, useState} from 'react';
 import {Tabs} from '@yandex-data-ui/common';
 
 import {block} from '../../utils';
@@ -10,6 +10,8 @@ import BlockHeader from '../../components/BlockHeader/BlockHeader';
 import FullScreenImage from '../../components/FullscreenImage/FullscreenImage';
 import Media from '../../components/Media/Media';
 import Links from '../../components/Link/Links';
+import {ThemeValueContext} from '../../../src/context/theme/ThemeValueContext';
+import {getThemedValue} from '../../../src/utils/theme';
 
 import './Tabs.scss';
 
@@ -23,14 +25,16 @@ const TabsBlock: React.FunctionComponent<TabsBlockProps> = ({
 }) => {
     const [activeTab, setActiveTab] = useState(items[0].tabName);
     const [play, setPlay] = useState<boolean>(false);
+    const {themeValue: theme} = useContext(ThemeValueContext);
     const tabs = items.map(({tabName}) => ({title: tabName, id: tabName}));
     const activeTabData = items.find(({tabName}) => tabName === activeTab);
 
-    const imageProps: ImageObjectProps | undefined =
-        activeTabData &&
-        (typeof activeTabData.image === 'string'
-            ? {src: activeTabData.image}
-            : activeTabData.image);
+    let imageProps: ImageObjectProps | undefined;
+
+    if (activeTabData) {
+        const themedImage = getThemedValue(activeTabData.image, theme);
+        imageProps = typeof themedImage === 'string' ? {src: themedImage} : themedImage;
+    }
 
     const showMedia = Boolean(activeTabData?.media || imageProps);
 
@@ -55,9 +59,9 @@ const TabsBlock: React.FunctionComponent<TabsBlockProps> = ({
                         >
                             {activeTabData?.media && (
                                 <Media
+                                    {...getThemedValue(activeTabData.media, theme)}
                                     key={activeTab}
                                     className={b('media')}
-                                    {...activeTabData.media}
                                     playVideo={play}
                                 />
                             )}

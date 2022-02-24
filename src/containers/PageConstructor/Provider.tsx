@@ -1,11 +1,13 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import {AnimateContext} from '../../context/animateContext';
 import {MetrikaContext, MetrikaContextProps} from '../../context/metrikaContext';
 import {MobileContext} from '../../context/mobileContext';
 import {SSRContext, SSRContextProps} from '../../context/ssrContext';
 import {LocaleContext, LocaleContextProps} from '../../context/localeContext';
 import {LocationContext, LocationContextProps} from '../../context/locationContext';
+import {ThemeValueContext} from '../../context/theme/ThemeValueContext';
 import {PageConstructor, PageConstructorProps} from './PageConstructor';
+import {DEFAULT_THEME} from '../../../src/components/constants';
 
 export interface PageConstructorProviderProps extends PageConstructorProps {
     isMobile?: boolean;
@@ -13,6 +15,7 @@ export interface PageConstructorProviderProps extends PageConstructorProps {
     ssrConfig?: SSRContextProps;
     location?: LocationContextProps;
     locale?: LocaleContextProps;
+    theme?: string;
 }
 
 export const PageConstructorProvider: React.FC<PageConstructorProviderProps> = (props) => {
@@ -23,22 +26,23 @@ export const PageConstructorProvider: React.FC<PageConstructorProviderProps> = (
         ssrConfig = {},
         location = {},
         locale = {},
+        theme = DEFAULT_THEME,
         ...rest
     } = props;
 
-    return (
-        <LocaleContext.Provider value={locale}>
-            <LocationContext.Provider value={location}>
-                <MobileContext.Provider value={Boolean(isMobile)}>
-                    <MetrikaContext.Provider value={metrika}>
-                        <SSRContext.Provider value={{isServer: ssrConfig?.isServer}}>
-                            <AnimateContext.Provider value={{animated}}>
-                                <PageConstructor content={props.content} {...rest} />
-                            </AnimateContext.Provider>
-                        </SSRContext.Provider>
-                    </MetrikaContext.Provider>
-                </MobileContext.Provider>
-            </LocationContext.Provider>
-        </LocaleContext.Provider>
-    );
+    const constructor = <PageConstructor content={props.content} {...rest} />;
+
+    /* eslint-disable react/jsx-key */
+    const context = [
+        <ThemeValueContext.Provider value={{themeValue: theme}} />,
+        <LocaleContext.Provider value={locale} />,
+        <LocationContext.Provider value={location} />,
+        <MobileContext.Provider value={Boolean(isMobile)} />,
+        <MetrikaContext.Provider value={metrika} />,
+        <SSRContext.Provider value={{isServer: ssrConfig?.isServer}} />,
+        <AnimateContext.Provider value={{animated}} />,
+    ].reduceRight((prev, provider) => React.cloneElement(provider, {}, prev), constructor);
+    /* eslint-enable react/jsx-key */
+
+    return <Fragment>{context}</Fragment>;
 };

@@ -69,7 +69,12 @@ Image.args = {
     imageSize: 's',
     verticalOffset: 'm',
     image: {
-        src: 'https://storage.cloud-preprod.yandex.net/cloud-www-assets/solutions/e-commerce/ecommerce-big.png',
+        system: {
+            src: 'https://storage.cloud-preprod.yandex.net/cloud-www-assets/solutions/e-commerce/ecommerce-big.png',
+        },
+        dark: {
+            src: 'https://storage.cloud-preprod.yandex.net/cloud-www-assets/solutions/e-commerce/retail-banner.png',
+        },
     },
     // theme: 'dark',
     buttons: [
@@ -95,9 +100,16 @@ Background.args = {
     width: 's',
     verticalOffset: 'm',
     background: {
-        url: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/bg-2.png',
-        color: '#E3EBFF',
-        fullWidth: true,
+        system: {
+            url: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/bg-2.png',
+            color: '#E3EBFF',
+            fullWidth: true,
+        },
+        dark: {
+            url: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/bg-2.png',
+            color: '#000',
+            fullWidth: true,
+        },
     },
     buttons: [
         {

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {HTML} from '@doc-tools/components';
 
 import {block} from '../../utils';
@@ -7,6 +7,8 @@ import Button from '../../components/Button/Button';
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
 import YFMWrapper from '../../components/YFMWrapper/YFMWrapper';
 import BackgroundImage from '../../components/BackgroundImage/BackgroundImage';
+import {getThemedValue} from '../../../src/utils/theme';
+import {ThemeValueContext} from '../../../src/context/theme/ThemeValueContext';
 
 import './Banner.scss';
 
@@ -18,20 +20,20 @@ const BannerBlock: React.FC<BannerBlockProps> = (props) => {
         subtitle,
         button: {url, text, target},
         color,
-        theme = 'light',
+        theme: textTheme = 'light',
         image,
         disableCompress,
         animated,
     } = props;
-
+    const {themeValue: theme} = useContext(ThemeValueContext);
     const contentStyle: Record<string, string> = {};
 
     if (color) {
-        contentStyle.backgroundColor = color;
+        contentStyle.backgroundColor = getThemedValue(color, theme);
     }
 
     return (
-        <AnimateBlock className={b({theme})} animate={animated}>
+        <AnimateBlock className={b({theme: textTheme})} animate={animated}>
             <div className={b('content')} style={contentStyle}>
                 <div className={b('info')}>
                     <div className={b('text')}>
@@ -44,7 +46,7 @@ const BannerBlock: React.FC<BannerBlockProps> = (props) => {
                                 content={subtitle}
                                 modifiers={{
                                     constructor: true,
-                                    constructorThemeDark: theme === 'dark',
+                                    constructorThemeDark: textTheme === 'dark',
                                 }}
                             />
                         )}
@@ -60,7 +62,7 @@ const BannerBlock: React.FC<BannerBlockProps> = (props) => {
                 </div>
                 <BackgroundImage
                     className={b('image')}
-                    src={image}
+                    src={getThemedValue(image, theme)}
                     disableCompress={disableCompress}
                 />
             </div>

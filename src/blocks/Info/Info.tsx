@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 
 import {block} from '../../utils';
 import {InfoBlockProps} from '../../models';
@@ -6,18 +6,32 @@ import FullWidthBackground from '../../components/FullWidthBackground/FullWidthB
 import {Grid, Row, Col} from '../../grid';
 import Button from '../../components/Button/Button';
 import Link from '../../components/Link/Link';
+import {ThemeValueContext} from '../../../src/context/theme/ThemeValueContext';
+import {getThemedValue} from '../../../src/utils/theme';
 
 import './Info.scss';
 
 const b = block('info-block');
 
 const InfoBlock: React.FC<InfoBlockProps> = (props) => {
-    const {backgroundColor, theme = 'dark', buttons, title, sectionsTitle, links} = props;
+    const {
+        backgroundColor,
+        theme: textTheme = 'dark',
+        buttons,
+        title,
+        sectionsTitle,
+        links,
+    } = props;
+
+    const {themeValue: theme} = useContext(ThemeValueContext);
 
     return (
-        <div className={b({theme})}>
+        <div className={b({theme: textTheme})}>
             <div className={b('content')}>
-                <FullWidthBackground className={b('background')} style={{backgroundColor}} />
+                <FullWidthBackground
+                    className={b('background')}
+                    style={{backgroundColor: getThemedValue(backgroundColor, theme)}}
+                />
                 <Grid>
                     <Row>
                         <Col sizes={{lg: 4, sm: 6, all: 12}}>
@@ -44,7 +58,7 @@ const InfoBlock: React.FC<InfoBlockProps> = (props) => {
                                             {...link}
                                             key={index}
                                             className={b('link')}
-                                            colorTheme={theme}
+                                            colorTheme={textTheme}
                                             theme={'normal'}
                                             arrow={true}
                                         />
