@@ -62,7 +62,6 @@ export enum BlockType {
     SimpleBlock = 'simple-block',
     HeaderSliderBlock = 'header-slider-block',
     LinkTableBlock = 'link-table-block',
-    CardsWithImageBlock = 'cards-with-image-block',
     HeaderBlock = 'header-block',
     IconsBlock = 'icons-block',
     CardLayoutBlock = 'card-layout-block',
@@ -751,13 +750,6 @@ export interface CardWithImageProps extends ClassNameProps {
     }[];
 }
 
-export interface CardsWithImageBlockProps {
-    title: TitleProps | string;
-    cards: CardWithImageProps[];
-    description?: string;
-    colSizes?: GridColumnSizesType;
-}
-
 export interface CardLayoutBlockProps extends Childable, Animatable, LoadableChildren {
     title: TitleProps | string;
     description?: string;
@@ -1002,10 +994,6 @@ export type LinkTableBlockModel = {
     type: BlockType.LinkTableBlock;
 } & LinkTableBlockProps;
 
-export type CardsWithImageBlockModel = {
-    type: BlockType.CardsWithImageBlock;
-} & CardsWithImageBlockProps;
-
 export type CardLayoutBlockModel = {
     type: BlockType.CardLayoutBlock;
 } & CardLayoutBlockProps;
@@ -1065,7 +1053,6 @@ type BlockV2Raw =
     | TextTableBlockModel
     | SimpleBlockModel
     | LinkTableBlockModel
-    | CardsWithImageBlockModel
     | HeaderBlockModel
     | PreviewBlockModel
     | IconsBlockModel
