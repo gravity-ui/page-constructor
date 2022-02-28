@@ -38,4 +38,10 @@ $block: '.#{$ns}Media';
         justify-content: center;
         overflow: hidden;
     }
+
+    // fix for safari iOS < 13
+    &__youtube {
+        border-radius: $borderRadius;
+        overflow: hidden;
+    }
 }
