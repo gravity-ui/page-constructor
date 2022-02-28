@@ -2,7 +2,7 @@ import React, {useContext} from 'react';
 import {HTML} from '@doc-tools/components';
 import {ClassNameProps} from '@yandex-data-ui/cloud-components';
 
-import {block} from '../../utils';
+import {block, getThemedValue} from '../../utils';
 import {
     HeaderBlockBackground,
     HeaderBlockProps,
@@ -16,8 +16,7 @@ import {Grid, Row, Col} from '../../grid';
 import YFMWrapper from '../../components/YFMWrapper/YFMWrapper';
 import FullWidthBackground from '../../components/FullWidthBackground/FullWidthBackground';
 import HeaderBreadcrumbs from '../../components/HeaderBreadcrumbs/HeaderBreadcrumbs';
-import {getThemedValue} from '../../../src/utils/theme';
-import {ThemeValueContext} from '../../../src/context/theme/ThemeValueContext';
+import {ThemeValueContext} from '../../context/theme/ThemeValueContext';
 
 import './Header.scss';
 

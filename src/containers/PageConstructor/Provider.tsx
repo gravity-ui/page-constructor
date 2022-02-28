@@ -7,7 +7,7 @@ import {LocaleContext, LocaleContextProps} from '../../context/localeContext';
 import {LocationContext, LocationContextProps} from '../../context/locationContext';
 import {ThemeValueContext} from '../../context/theme/ThemeValueContext';
 import {PageConstructor, PageConstructorProps} from './PageConstructor';
-import {DEFAULT_THEME} from '../../../src/components/constants';
+import {DEFAULT_THEME} from '../../components/constants';
 
 export interface PageConstructorProviderProps extends PageConstructorProps {
     isMobile?: boolean;

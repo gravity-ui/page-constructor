@@ -1,14 +1,13 @@
 import React, {forwardRef, Fragment, useContext, useEffect, useState} from 'react';
 import {HTML} from '@doc-tools/components';
 
-import {block} from '../../../utils';
+import {block, getThemedValue} from '../../../utils';
 import {Col, GridColumnSize} from '../../../grid';
 import {PreviewItemProps, PreviewRatioMediaContent, Refable} from '../../../models';
 import YFMWrapper from '../../../components/YFMWrapper/YFMWrapper';
 import PreviewContent from './PreviewContent';
 import PreviewMedia from './PreviewMedia';
-import {getThemedValue} from '../../../../src/utils/theme';
-import {ThemeValueContext} from '../../../../src/context/theme/ThemeValueContext';
+import {ThemeValueContext} from '../../../context/theme/ThemeValueContext';
 
 import './MediaContent.scss';
 

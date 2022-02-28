@@ -1,14 +1,13 @@
 import React, {useContext, useMemo, useState} from 'react';
 
-import {block} from '../../utils';
+import {block, getThemedValue} from '../../utils';
 import {Grid, Row, Col, GridColumnSize} from '../../grid';
 import {MediaBlockProps} from '../../models';
 import Media from '../../components/Media/Media';
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
 import BlockHeader from '../../components/BlockHeader/BlockHeader';
 import MediaContent from './MediaContent';
-import {ThemeValueContext} from '../../../src/context/theme/ThemeValueContext';
-import {getThemedValue} from '../../../src/utils/theme';
+import {ThemeValueContext} from '../../context/theme/ThemeValueContext';
 
 import './Media.scss';
 

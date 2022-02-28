@@ -1,13 +1,12 @@
 import React, {useContext} from 'react';
 
-import {block} from '../../utils';
+import {block, getThemedValue} from '../../utils';
 import {InfoBlockProps} from '../../models';
 import FullWidthBackground from '../../components/FullWidthBackground/FullWidthBackground';
 import {Grid, Row, Col} from '../../grid';
 import Button from '../../components/Button/Button';
 import Link from '../../components/Link/Link';
-import {ThemeValueContext} from '../../../src/context/theme/ThemeValueContext';
-import {getThemedValue} from '../../../src/utils/theme';
+import {ThemeValueContext} from '../../context/theme/ThemeValueContext';
 
 import './Info.scss';
 

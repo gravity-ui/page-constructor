@@ -1,14 +1,13 @@
 import React, {useContext} from 'react';
 import {HTML} from '@doc-tools/components';
 
-import {block} from '../../utils';
+import {block, getThemedValue} from '../../utils';
 import {BannerBlockProps} from '../../models';
 import Button from '../../components/Button/Button';
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
 import YFMWrapper from '../../components/YFMWrapper/YFMWrapper';
 import BackgroundImage from '../../components/BackgroundImage/BackgroundImage';
-import {getThemedValue} from '../../../src/utils/theme';
-import {ThemeValueContext} from '../../../src/context/theme/ThemeValueContext';
+import {ThemeValueContext} from '../../context/theme/ThemeValueContext';
 
 import './Banner.scss';
 

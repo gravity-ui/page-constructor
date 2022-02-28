@@ -1,7 +1,7 @@
 import React, {Fragment, useContext, useState} from 'react';
 import {Tabs} from '@yandex-data-ui/common';
 
-import {block} from '../../utils';
+import {block, getThemedValue} from '../../utils';
 import {Row, Col, GridColumnOrderClasses} from '../../grid';
 import YFMWrapper from '../../components/YFMWrapper/YFMWrapper';
 import {ImageObjectProps, TabsBlockProps} from '../../models';
@@ -10,8 +10,7 @@ import BlockHeader from '../../components/BlockHeader/BlockHeader';
 import FullScreenImage from '../../components/FullscreenImage/FullscreenImage';
 import Media from '../../components/Media/Media';
 import Links from '../../components/Link/Links';
-import {ThemeValueContext} from '../../../src/context/theme/ThemeValueContext';
-import {getThemedValue} from '../../../src/utils/theme';
+import {ThemeValueContext} from '../../context/theme/ThemeValueContext';
 
 import './Tabs.scss';
 
