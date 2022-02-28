@@ -140,28 +140,6 @@ $block: '.#{$ns}SliderBlock';
         padding-top: $sliderArrowSize;
     }
 
-    @media (max-width: map-get($gridBreakpoints, 'sm')) {
-        &:not(&_one-slide) {
-            margin-left: -$indentXS;
-            padding-left: $indentXS;
-            width: calc(100% + #{$indentXS * 2});
-            overflow-x: auto;
-
-            .slick-list {
-                margin-left: -10px;
-                margin-right: 0;
-            }
-
-            .slick-slide {
-                padding: 0 $slideOffset;
-
-                &:last-child {
-                    padding-right: 0;
-                }
-            }
-        }
-    }
-
     &__footer {
         display: flex;
         position: relative;
@@ -184,18 +162,6 @@ $block: '.#{$ns}SliderBlock';
                 &_s {
                     @include text-size(body);
                 }
-            }
-        }
-    }
-
-    @media (max-width: map-get($gridBreakpoints, 'md')) {
-        &__footer {
-            display: block;
-
-            #{$root}__disclaimer {
-                position: relative;
-                width: 100%;
-                padding-bottom: $indentS;
             }
         }
     }
@@ -304,6 +270,54 @@ $block: '.#{$ns}SliderBlock';
         @media (max-width: map-get($gridBreakpoints, 'sm')) {
             .slick-arrow {
                 display: none;
+            }
+        }
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'lg')) {
+        .slick-track {
+            .slick-slide {
+                max-width: calc(50vw - (#{$indentS} * 2));
+            }
+        }
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'md')) {
+        &__footer {
+            display: block;
+
+            #{$root}__disclaimer {
+                position: relative;
+                width: 100%;
+                padding-bottom: $indentS;
+            }
+        }
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'sm')) {
+        .slick-track {
+            .slick-slide {
+                max-width: calc(100vw - (#{$indentXS} + #{$indentS}));
+            }
+        }
+
+        &:not(&_one-slide) {
+            margin-left: -$indentXS;
+            padding-left: $indentXS;
+            width: calc(100% + #{$indentXS * 2});
+            overflow-x: auto;
+
+            .slick-list {
+                margin-left: -10px;
+                margin-right: 0;
+            }
+
+            .slick-slide {
+                padding: 0 $slideOffset;
+
+                &:last-child {
+                    padding-right: 0;
+                }
             }
         }
     }
