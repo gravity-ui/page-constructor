@@ -17,8 +17,13 @@ const ThemeTemplate: Story<MediaBlockModel> = (args) => (
     <PageConstructor content={{blocks: [args]}} />
 );
 
+const VideoTemplate: Story<MediaBlockModel> = (args) => (
+    <PageConstructor content={{blocks: [args]}} />
+);
+
 export const Default = DefaultTemplate.bind({});
 export const Theme = ThemeTemplate.bind({});
+export const Video = VideoTemplate.bind({});
 
 Default.args = {
     type: BlockType.MediaBlock,
@@ -63,5 +68,20 @@ Theme.args = {
         text: 'Рассчитать стоимость',
         theme: 'outlined',
         url: '/prices#calculator',
+    },
+};
+
+Video.args = {
+    type: BlockType.MediaBlock,
+    direction: 'content-media',
+    title: 'Посмотрите вебинар',
+    description:
+        'Узнайте, как как реализовать архитектуру обработки больших данных на базе управляемых сервисов Yandex.Cloud.',
+    largeMedia: true,
+    media: {
+        youtube:
+            'https://www.youtube.com/watch?v=FHUnirudntU&list=PL1x4ET76A10awoGRia_EmYnEU_RPmRsRz&index=5A',
+        previewImg:
+            'https://storage.yandexcloud.net/cloud-www-assets/solutions/e-commerce/retail-video.png',
     },
 };
