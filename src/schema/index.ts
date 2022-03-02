@@ -192,6 +192,7 @@ export function generateDefaultSchema(config?: SchemaCustomConfig) {
                             'tutoral-card',
                             'background-card',
                             'news-card',
+                            'card-with-image',
                             ...Object.keys(cards),
                         ],
                     },
