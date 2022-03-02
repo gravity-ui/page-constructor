@@ -274,14 +274,6 @@ $block: '.#{$ns}SliderBlock';
         }
     }
 
-    @media (max-width: map-get($gridBreakpoints, 'lg')) {
-        .slick-track {
-            .slick-slide {
-                max-width: calc(50vw - (#{$indentS} * 2));
-            }
-        }
-    }
-
     @media (max-width: map-get($gridBreakpoints, 'md')) {
         &__footer {
             display: block;

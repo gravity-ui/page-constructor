@@ -74,7 +74,6 @@ const SliderBlock: FC<SliderProps> = (props) => {
 
     const {isServer} = useContext(SSRContext);
     const isMobile = useContext(MobileContext);
-    const isTablet = useContext(MobileContext);
     const [breakpoint, setBreakpoint] = useState<number>(BREAKPOINTS.xl);
     const [disclosedChildren] = useState<React.ReactChildren[]>(() =>
         discloseAllNestedChildren(children as React.ReactElement[]),
@@ -258,7 +257,8 @@ const SliderBlock: FC<SliderProps> = (props) => {
 
     const renderSlider = () => {
         /* Disable adding of width in inline styles when SSR to prevent overriding of default styles */
-        const variableWidth = isServer && isTablet;
+        /* Calculate appropriate breakpoint for mobile devices with user agent */
+        const variableWidth = isServer && isMobile;
 
         const settings = {
             ref: (slickSlider: SlickSliderFull) => setSlider(slickSlider),
