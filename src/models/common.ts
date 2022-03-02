@@ -9,8 +9,17 @@ export enum Lang {
     En = 'en',
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type PixelEventType = any;
+export enum Theme {
+    Light = 'light',
+    Dark = 'dark',
+    System = 'system',
+}
+
+export enum PixelEventType {
+    Contact = 'Contact',
+    Lead = 'Lead',
+    SubmitApplication = 'SubmitApplication',
+}
 
 export type Modifiers = {[name: string]: string | boolean | undefined};
 

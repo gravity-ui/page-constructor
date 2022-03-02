@@ -149,16 +149,16 @@ const Page: React.FC<PageProps> = ({children}) => (
 
 5. Добавляем в [`cloud-backoffice`](https://github.yandex-team.ru/data-ui/cloud-backoffice) валидатор для нового блока, для этого нужно:
 
-   - добавялем файл блока/карточки в `src/ui/schema/pages/v2/` по примеру с остальными блоками
-   - экспортируем его в индекс-файле с карточками/блоками
-   - добавляем его в `enum` и `selectCases` в файле `src/ui/schema/pages/index.ts`
-   - открываем нужную страницу в бэкофисе, добавляем блок в код страницы, проверяем, что валидация работает
+   - добавляем в папку блока/карточки файл `schema.ts`, где описываем валидатор параметров для данного компонента в формате [`json-schema`](http://json-schema.org/)
+   - экспортируем его в файле `src/schema/v2/index.ts`
+   - добавляем его в `enum` и `selectCases` в файле `src/ui/schema/index.ts`
+   - не забываем проверить в бэкофисе, что валидотор работает
 
 6. Добавляем описание блока на [страницу документации](https://github.yandex-team.ru/data-ui/cloud-backoffice/wiki/Страницы)
 
 ## Разработка
 
 ```
-npm install
+npm ci
 npm run dev
 ```
