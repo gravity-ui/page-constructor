@@ -257,7 +257,8 @@ const SliderBlock: FC<SliderProps> = (props) => {
 
     const renderSlider = () => {
         /* Disable adding of width in inline styles when SSR to prevent overriding of default styles */
-        const variableWidth = isServer;
+        /* Calculate appropriate breakpoint for mobile devices with user agent */
+        const variableWidth = isServer && isMobile;
 
         const settings = {
             ref: (slickSlider: SlickSliderFull) => setSlider(slickSlider),
