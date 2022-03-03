@@ -846,7 +846,7 @@ export interface ContentBlockProps {
     title?: TitleBaseProps | string;
     text?: string;
     additionalInfo?: string;
-    link?: LinkProps;
+    links?: LinkProps[];
     buttons?: ButtonProps[];
     size?: ContentSize;
     colSizes?: GridColumnSizesType;

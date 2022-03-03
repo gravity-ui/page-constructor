@@ -50,7 +50,7 @@ const Content: React.FC<ContentBlockProps & ClassNameProps> = (props) => {
         text,
         additionalInfo,
         size = 'l',
-        link,
+        links,
         buttons,
         colSizes = {all: 12, sm: 8},
         centered,
@@ -76,7 +76,18 @@ const Content: React.FC<ContentBlockProps & ClassNameProps> = (props) => {
                     <YFMWrapper content={additionalInfo} />
                 </div>
             )}
-            {link && <LinkBlock className={b('link')} {...link} textSize={getLinkSize(size)} />}
+            {links && (
+                <div className={b('links')}>
+                    {links.map((link) => (
+                        <LinkBlock
+                            className={b('link')}
+                            {...link}
+                            textSize={getLinkSize(size)}
+                            key={link.url}
+                        />
+                    ))}
+                </div>
+            )}
             <div className={b('buttons')}>
                 {buttons &&
                     buttons.map((item) => (
