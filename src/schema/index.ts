@@ -61,6 +61,7 @@ export type SchemaBlock = object;
 export interface SchemaCustomConfig {
     blocks?: Record<string, SchemaBlock>;
     cards?: Record<string, SchemaBlock>;
+    extensions?: object;
 }
 
 export const getBlocksCases = (blocks: SchemaBlock) => {
@@ -71,7 +72,7 @@ export const getBlocksCases = (blocks: SchemaBlock) => {
 };
 
 export function generateDefaultSchema(config?: SchemaCustomConfig) {
-    const {cards = {}, blocks = {}} = config ?? {};
+    const {cards = {}, blocks = {}, extensions = {}} = config ?? {};
 
     return {
         $id: 'self',
@@ -225,10 +226,6 @@ export function generateDefaultSchema(config?: SchemaCustomConfig) {
                 },
             },
             menu: MenuProps,
-            form: {
-                type: 'string',
-                enum: ['contact-sales', 'interconnect', 'preview'],
-            },
             background: BackgroundProps,
             footnotes: {
                 type: 'array',
@@ -236,6 +233,7 @@ export function generateDefaultSchema(config?: SchemaCustomConfig) {
                     type: 'string',
                 },
             },
+            ...extensions,
         },
     };
 }
