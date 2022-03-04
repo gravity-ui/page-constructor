@@ -64,13 +64,13 @@
     "@yandex-data-ui/common": "^8.0.0",
     "@yandex-data-ui/i18n": "^0.13.0",
     "@doc-tools/components": "^1.0.0",
-    "@doc-tools/transform": "^1.0.0",
+    "@doc-tools/transform": "^2.0.0",
     "react": "^16.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.15.8",
-    "@doc-tools/components": "^1.11.0",
-    "@doc-tools/transform": "^1.9.6",
+    "@doc-tools/components": "^1.12.3",
+    "@doc-tools/transform": "^2.5.4",
     "@storybook/addon-actions": "^6.3.12",
     "@storybook/addon-essentials": "^6.3.12",
     "@storybook/addon-knobs": "^6.3.1",

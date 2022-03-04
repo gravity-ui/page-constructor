@@ -1,11 +1,15 @@
 import Typograf from 'typograf';
 import sanitize from 'sanitize-html';
-import transformYFM, {Options} from '@doc-tools/transform';
+import transformYFM, {Options, Output} from '@doc-tools/transform';
 import {Lang} from '../models/common';
 
 export enum TransformType {
     Text = 'text',
     Html = 'html',
+}
+
+interface TransformOptions extends Options {
+    lang: Lang;
 }
 
 export const DEFAULT_ALLOWED_TAGS = [
@@ -97,25 +101,19 @@ export function typografToText(text: string, lang: Lang) {
     return text && sanitizeHtml(typograf(text, lang));
 }
 
-export const transformMarkdown = (input: string, options: Options) => {
-    const {result} = transformYFM(input || '', {
-        ...options,
-    });
-
+export const transformMarkdown = (input = '', options: TransformOptions): Output['result'] => {
+    const {result} = transformYFM(input, options);
     return result;
 };
 
-export function fullTransform(
-    input = '',
-    {lang, ...options}: Options,
-): {html: string; title: string} {
+export function fullTransform(input = '', {lang, ...options}: TransformOptions): Output['result'] {
     const result = transformMarkdown(input, {lang, ...options});
     const {html, title} = result;
 
     return {
         ...result,
         html: typograf(html, lang),
-        title: typograf(title, lang),
+        title: title && typograf(title, lang),
     };
 }
 
