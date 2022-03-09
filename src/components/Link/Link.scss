@@ -31,7 +31,7 @@ $block: '.#{$ns}link-block';
 
         &:hover {
             #{$root}__arrow {
-                margin-left: 7px;
+                transform: translateX(5px) rotate(-90deg);
             }
         }
 
@@ -46,7 +46,7 @@ $block: '.#{$ns}link-block';
         position: relative;
         margin-left: 2px;
 
-        transition: margin-left 0.3s $ease-out-cubic;
+        transition: transform 0.3s $ease-out-cubic;
         transform: rotate(-90deg);
     }
 

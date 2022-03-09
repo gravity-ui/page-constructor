@@ -11,10 +11,11 @@ $block: '.#{$ns}content';
         }
 
         .yfm a {
-            color: var(--yc-color-text-primary);
+            color: var(--yc-color-text-secondary);
+            text-decoration: underline;
 
             &:hover {
-                color: var(--yc-color-text-secondary);
+                color: var(--yc-color-text-primary);
             }
         }
     }
@@ -96,7 +97,7 @@ $block: '.#{$ns}content';
                 }
 
                 .yfm a {
-                    text-decoration: underline;
+                    color: var(--yc-color-text-light-secondary);
 
                     &:hover {
                         color: var(--yc-color-text-light-primary);
@@ -106,6 +107,7 @@ $block: '.#{$ns}content';
 
             #{$block}__text {
                 .yfm a {
+                    color: var(--yc-color-text-light-primary);
                     text-decoration: underline;
 
                     &:hover {
@@ -123,17 +125,6 @@ $block: '.#{$ns}content';
 
                     &:hover {
                         color: var(--yc-color-text-secondary);
-                    }
-                }
-            }
-
-            #{$block}__notice {
-                .yfm a {
-                    color: var(--yc-color-text-secondary);
-                    text-decoration: underline;
-
-                    &:hover {
-                        color: var(--yc-color-text-primary);
                     }
                 }
             }

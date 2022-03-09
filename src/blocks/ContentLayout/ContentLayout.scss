@@ -65,7 +65,7 @@ $block: '.#{$ns}content-layout-block';
 
     @media (max-width: map-get($gridBreakpoints, 'sm')) {
         &_background {
-            padding: $indentM $indentM 0;
+            padding: $indentM;
 
             picture {
                 display: none;

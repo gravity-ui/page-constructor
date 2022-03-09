@@ -3,7 +3,7 @@ import {Icon} from '@yandex-data-ui/common';
 import {ClassNameProps} from '@yandex-data-ui/cloud-components';
 
 import {block, getLinkProps, setUrlTld} from '../../utils';
-import {LinkProps} from '../../models';
+import {LinkProps, TextSize} from '../../models';
 import chevron from '../../../assets/icons/navigation-chevron.svg';
 import FileLink from '../FileLink/FileLink';
 import BackLink from '../BackLink/BackLink';
@@ -15,6 +15,19 @@ import './Link.scss';
 const b = block('link-block');
 
 type LinkFullProps = LinkProps & ClassNameProps;
+
+function getArrowSize(size: TextSize) {
+    switch (size) {
+        case 'l':
+            return 14;
+        case 'm':
+            return 12;
+        case 's':
+            return 12;
+        default:
+            return 12;
+    }
+}
 
 const LinkBlock: React.FunctionComponent<LinkFullProps> = (props) => {
     const {
@@ -55,7 +68,13 @@ const LinkBlock: React.FunctionComponent<LinkFullProps> = (props) => {
                         {...getLinkProps(url, hostname)}
                     >
                         {children || text}
-                        {arrow && <Icon className={b('arrow')} data={chevron} />}
+                        {arrow && (
+                            <Icon
+                                className={b('arrow')}
+                                data={chevron}
+                                size={getArrowSize(textSize)}
+                            />
+                        )}
                     </a>
                 );
             default:

@@ -88,9 +88,9 @@ const Content: React.FC<ContentBlockProps & ClassNameProps> = (props) => {
                     ))}
                 </div>
             )}
-            <div className={b('buttons')}>
-                {buttons &&
-                    buttons.map((item) => (
+            {buttons && (
+                <div className={b('buttons')}>
+                    {buttons.map((item) => (
                         <Button
                             className={b('button')}
                             {...item}
@@ -98,7 +98,8 @@ const Content: React.FC<ContentBlockProps & ClassNameProps> = (props) => {
                             size={getButtonSize(size)}
                         />
                     ))}
-            </div>
+                </div>
+            )}
         </Col>
     );
 };
