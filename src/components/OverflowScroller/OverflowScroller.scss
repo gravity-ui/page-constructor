@@ -1,0 +1,46 @@
+@import '../../../styles/variables.scss';
+
+$block: '.#{$ns}overflow-scroller';
+
+#{$block} {
+    position: relative;
+
+    overflow-x: hidden;
+
+    &__wrapper {
+        position: relative;
+
+        transition: left 0.3s;
+    }
+
+    &__scroller {
+        position: absolute;
+        z-index: 10;
+
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+
+        width: 32px;
+
+        cursor: pointer;
+
+        color: var(--yc-color-text-secondary);
+        background: linear-gradient(
+                to left,
+                var(--yc-color-base-background) 70%,
+                var(--pc-transparent) 100%
+            )
+            no-repeat;
+
+        &_type_left {
+            left: 0;
+
+            transform: rotate(180deg);
+        }
+
+        &_type_right {
+            right: 0;
+        }
+    }
+}

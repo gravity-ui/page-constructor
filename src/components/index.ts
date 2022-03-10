@@ -49,3 +49,5 @@ export {default as YandexForm} from './YandexForm/YandexForm';
 export {default as NewsCard} from './NewsCard/NewsCard';
 export {default as CardWithImage} from './CardWithImage/CardWithImage';
 export {default as BackgroundCard} from './BackgroundCard/BackgroundCard';
+export {default as Control} from './Control/Control';
+export {default as OverflowScroller} from './OverflowScroller/OverflowScroller';

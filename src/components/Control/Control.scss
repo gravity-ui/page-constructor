@@ -1,0 +1,106 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+$block: '.#{$ns}control';
+
+#{$block} {
+    $transitionTime: 0.2s;
+
+    %transition-color {
+        transition: color $transitionTime;
+    }
+
+    %transition-opacity {
+        transition: opacity $transitionTime;
+    }
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: color $transitionTime;
+
+    @include reset-button-style();
+    @include islands-focus();
+
+    &_size {
+        &_xs {
+            width: 24px;
+            height: 24px;
+        }
+
+        &_s {
+            width: 28px;
+            height: 28px;
+        }
+
+        &_m {
+            width: 32px;
+            height: 32px;
+        }
+
+        &_l {
+            width: 36px;
+            height: 36px;
+        }
+    }
+
+    &_theme {
+        &_primary {
+            color: var(--yc-color-text-complementary);
+
+            &:hover {
+                color: var(--yc-color-text-primary);
+            }
+        }
+
+        &_secondary {
+            color: var(--yc-color-text-secondary);
+
+            &:hover {
+                color: var(--yc-color-text-complementary);
+            }
+        }
+
+        &_link {
+            color: var(--yc-color-text-complementary);
+
+            &:hover {
+                color: var(--yc-color-text-link-hover);
+            }
+        }
+
+        &_accent {
+            @extend %transition-opacity;
+
+            opacity: 0.7;
+            color: var(--yc-color-text-yandex-red);
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+
+        &_primary,
+        &_secondary,
+        &_link {
+            @extend %transition-color;
+        }
+    }
+
+    &_disabled {
+        cursor: default;
+
+        color: var(--yc-color-text-secondary);
+
+        &:hover {
+            color: var(--yc-color-text-secondary);
+        }
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'md') - 1) {
+        &:hover {
+            color: inherit;
+        }
+    }
+}
