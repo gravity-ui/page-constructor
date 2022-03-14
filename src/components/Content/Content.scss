@@ -2,21 +2,28 @@
 @import '../../../styles/mixins.scss';
 
 $block: '.#{$ns}content';
+$primary: var(--yc-color-text-primary);
+$secondary: var(--yc-color-text-secondary);
+$lightPrimary: var(--yc-color-text-light-primary);
+$lightSecondary: var(--yc-color-text-light-secondary);
+
+@mixin contentLink($baseColor: $primary, $hoverColor: $secondary) {
+    color: $baseColor;
+    text-decoration: underline;
+    &:hover {
+        color: $hoverColor;
+    }
+}
 
 #{$block} {
     &__notice {
         .yfm,
         .yfm > * {
-            color: var(--yc-color-text-secondary);
+            color: $secondary;
         }
 
         .yfm a {
-            color: var(--yc-color-text-secondary);
-            text-decoration: underline;
-
-            &:hover {
-                color: var(--yc-color-text-primary);
-            }
+            @include contentLink($secondary, $primary);
         }
     }
 
@@ -66,7 +73,6 @@ $block: '.#{$ns}content';
 
             #{$block}__text .yfm,
             #{$block}__notice .yfm,
-            #{$block}__notice .yfm > *,
             #{$block}__notice .yfm > * {
                 @include heading5();
             }
@@ -87,32 +93,23 @@ $block: '.#{$ns}content';
             #{$block}__text .yfm,
             #{$block}__text .yfm > *,
             #{$block}__link a {
-                color: var(--yc-color-text-light-primary);
+                color: $lightPrimary;
             }
 
             #{$block}__notice {
                 .yfm,
                 .yfm > * {
-                    color: var(--yc-color-text-light-secondary);
+                    color: $lightSecondary;
                 }
 
                 .yfm a {
-                    color: var(--yc-color-text-light-secondary);
-
-                    &:hover {
-                        color: var(--yc-color-text-light-primary);
-                    }
+                    @include contentLink($lightSecondary, $lightPrimary);
                 }
             }
 
             #{$block}__text {
                 .yfm a {
-                    color: var(--yc-color-text-light-primary);
-                    text-decoration: underline;
-
-                    &:hover {
-                        color: var(--yc-color-text-light-secondary);
-                    }
+                    @include contentLink($lightPrimary, $lightSecondary);
                 }
             }
         }
@@ -120,17 +117,12 @@ $block: '.#{$ns}content';
         &_light {
             #{$block}__text {
                 .yfm a {
-                    color: var(--yc-color-text-primary);
-                    text-decoration: underline;
-
-                    &:hover {
-                        color: var(--yc-color-text-secondary);
-                    }
+                    @include contentLink($primary, $secondary);
                 }
             }
 
             #{$block}__link a {
-                color: var(--yc-color-text-primary);
+                color: $primary;
             }
         }
     }

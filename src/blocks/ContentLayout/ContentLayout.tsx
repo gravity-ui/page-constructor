@@ -1,4 +1,4 @@
-import React, {useCallback, useContext} from 'react';
+import React, {useContext, useMemo} from 'react';
 
 import {block} from '../../utils';
 import {ContentLayoutBlockProps, ContentSize, ContentTextSize} from '../../models';
@@ -13,10 +13,9 @@ const b = block('content-layout-block');
 
 function getFileTextSize(size: ContentSize) {
     switch (size) {
-        case 'l':
-            return 'l';
         case 's':
             return 's';
+        case 'l':
         default:
             return 'l';
     }
@@ -24,12 +23,11 @@ function getFileTextSize(size: ContentSize) {
 
 function getTextWidth(size: ContentTextSize) {
     switch (size) {
-        case 'l':
-            return {all: 12, md: 12};
-        case 'm':
-            return {all: 12, md: 8};
         case 's':
             return {all: 12, md: 6};
+        case 'm':
+        case 'l':
+            return {all: 12, md: 12};
         default:
             return {all: 12, md: 8};
     }
@@ -37,10 +35,16 @@ function getTextWidth(size: ContentTextSize) {
 
 const ContentLayoutBlock: React.FC<ContentLayoutBlockProps> = (props) => {
     const isMobile = useContext(MobileContext);
-    const {textContent, fileContent, properties = {size: 'l'}} = props;
-    const {size = 'l', background, centered, theme = 'default', textWidth = 'm'} = properties;
+    const {textContent, fileContent, properties: cardLayoutProperties = {size: 'l'}} = props;
+    const {
+        size = 'l',
+        background,
+        centered,
+        theme = 'default',
+        textWidth = 'm',
+    } = cardLayoutProperties;
 
-    const colSizes = useCallback(() => getTextWidth(textWidth), [textWidth]);
+    const colSizes = useMemo(() => getTextWidth(textWidth), [textWidth]);
 
     return (
         <div className={b({size, background: Boolean(background)})}>
@@ -49,11 +53,11 @@ const ContentLayoutBlock: React.FC<ContentLayoutBlockProps> = (props) => {
                 {...textContent}
                 size={size}
                 centered={centered}
-                colSizes={colSizes()}
+                colSizes={colSizes}
                 theme={theme}
             />
             {fileContent && (
-                <Col className={b('files', {size, centered})} reset sizes={colSizes()}>
+                <Col className={b('files', {size, centered})} reset sizes={colSizes}>
                     {fileContent.map((file) => (
                         <FileLink
                             className={b('file')}

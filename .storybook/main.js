@@ -11,7 +11,7 @@ const nodeModulesRoot = path.resolve(root, 'node_modules');
 
 const storybookRoot = path.resolve(root, '.storybook');
 
-const ruleIncludes = [storybookRoot, srcRoot, stylesRoot, assetsRoot];
+const ruleIncludes = [srcRoot, stylesRoot, assetsRoot, storybookRoot];
 
 const config = new ConfigBuilder();
 

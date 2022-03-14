@@ -13,10 +13,9 @@ const b = block('content');
 
 function getTextSize(size: ContentSize) {
     switch (size) {
-        case 'l':
-            return 'm';
         case 's':
             return 's';
+        case 'l':
         default:
             return 'm';
     }
@@ -24,10 +23,9 @@ function getTextSize(size: ContentSize) {
 
 function getLinkSize(size: ContentSize) {
     switch (size) {
-        case 'l':
-            return 'l';
         case 's':
             return 'm';
+        case 'l':
         default:
             return 'l';
     }
@@ -35,10 +33,9 @@ function getLinkSize(size: ContentSize) {
 
 function getButtonSize(size: ContentSize) {
     switch (size) {
-        case 'l':
-            return 'xl';
         case 's':
             return 'm';
+        case 'l':
         default:
             return 'xl';
     }
@@ -58,14 +55,14 @@ const Content: React.FC<ContentBlockProps & ClassNameProps> = (props) => {
         className,
     } = props;
 
-    const {text: titleText, ...titleProps} =
+    const {...titleProps} =
         !title || typeof title === 'string'
             ? ({text: title, textSize: getTextSize(size)} as TitleProps)
             : title;
 
     return (
         <Col className={b({size, centered, theme}, className)} reset sizes={colSizes}>
-            {title && <Title className={b('title')} text={titleText} {...titleProps} resetMargin />}
+            {title && <Title className={b('title')} {...titleProps} resetMargin />}
             {text && (
                 <div className={b('text')}>
                     <YFMWrapper content={text} modifiers={{constructor: true}} />
