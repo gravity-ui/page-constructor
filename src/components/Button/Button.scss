@@ -35,6 +35,16 @@ $block: '.#{$ns}button-block';
         &_scale::after {
             border-radius: 300px;
         }
+
+        &_monochrome {
+            color: var(--yc-color-text-light-primary);
+            background-color: var(--yc-color-github);
+
+            &:hover {
+                color: var(--yc-color-text-light-primary);
+                background-color: #000;
+            }
+        }
     }
 
     &_size {

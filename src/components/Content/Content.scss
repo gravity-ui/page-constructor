@@ -1,0 +1,141 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
+
+$block: '.#{$ns}content';
+$primary: var(--yc-color-text-primary);
+$secondary: var(--yc-color-text-secondary);
+$lightPrimary: var(--yc-color-text-light-primary);
+$lightSecondary: var(--yc-color-text-light-secondary);
+
+@mixin contentLink($baseColor: $primary, $hoverColor: $secondary) {
+    color: $baseColor;
+    text-decoration: underline;
+    &:hover {
+        color: $hoverColor;
+    }
+}
+
+#{$block} {
+    &__notice {
+        .yfm,
+        .yfm > * {
+            color: $secondary;
+        }
+
+        .yfm a {
+            @include contentLink($secondary, $primary);
+        }
+    }
+
+    &__button {
+        margin-top: 0;
+        margin-right: $indentXXS;
+    }
+
+    &__link {
+        display: inline-block;
+        margin-top: $indentXS;
+        margin-right: $indentM;
+    }
+
+    &_centered {
+        margin: 0 auto;
+        text-align: center;
+
+        #{$block}__link {
+            a {
+                justify-content: center;
+            }
+        }
+    }
+
+    &_size {
+        &_s {
+            #{$block}__text,
+            #{$block}__notice {
+                margin-top: $indentXXXS;
+            }
+
+            #{$block}__links {
+                margin-top: $indentXXXS;
+            }
+
+            #{$block}__buttons {
+                margin-top: $indentSM;
+            }
+        }
+
+        &_l {
+            #{$block}__text,
+            #{$block}__notice {
+                margin-top: $indentXXS;
+            }
+
+            #{$block}__text .yfm,
+            #{$block}__notice .yfm,
+            #{$block}__notice .yfm > * {
+                @include heading5();
+            }
+
+            #{$block}__links {
+                margin-top: $indentXS;
+            }
+
+            #{$block}__buttons {
+                margin-top: $indentM;
+            }
+        }
+    }
+
+    &_theme {
+        &_dark {
+            #{$block}__title,
+            #{$block}__text .yfm,
+            #{$block}__text .yfm > *,
+            #{$block}__link a {
+                color: $lightPrimary;
+            }
+
+            #{$block}__notice {
+                .yfm,
+                .yfm > * {
+                    color: $lightSecondary;
+                }
+
+                .yfm a {
+                    @include contentLink($lightSecondary, $lightPrimary);
+                }
+            }
+
+            #{$block}__text {
+                .yfm a {
+                    @include contentLink($lightPrimary, $lightSecondary);
+                }
+            }
+        }
+
+        &_light {
+            #{$block}__text {
+                .yfm a {
+                    @include contentLink($primary, $secondary);
+                }
+            }
+
+            #{$block}__link a {
+                color: $primary;
+            }
+        }
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'sm')) {
+        &__button {
+            margin-bottom: $indentXXS;
+        }
+
+        &__buttons {
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}

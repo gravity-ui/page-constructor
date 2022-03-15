@@ -13,6 +13,7 @@ import {
     Tabs,
     Share,
     Link,
+    FileLink,
     Table,
     ImageBlock,
     Scrollable,
@@ -24,6 +25,7 @@ import {
     TutorialCard,
     CardWithImage,
     BackgroundCard,
+    Content,
 } from './components';
 
 import {
@@ -46,6 +48,7 @@ import {
     IconsBlock,
     HeaderSliderBlock,
     CardLayoutBlock,
+    ContentLayoutBlock,
 } from './blocks';
 
 const components = {
@@ -62,6 +65,7 @@ const components = {
     [BlockType.Tabs]: Tabs,
     [BlockType.Share]: Share,
     [BlockType.Link]: Link,
+    [BlockType.FileLink]: FileLink,
     [BlockType.Table]: Table,
     [BlockType.Image]: ImageBlock,
     [BlockType.Scrollable]: Scrollable,
@@ -74,6 +78,7 @@ const components = {
     [BlockType.NewsCard]: NewsCard,
     [BlockType.CardWithImage]: CardWithImage,
     [BlockType.BackgroundCard]: BackgroundCard,
+    [BlockType.Content]: Content,
 
     // Blocks
     [BlockType.SliderBlock]: SliderBlock,
@@ -95,6 +100,7 @@ const components = {
     [BlockType.IconsBlock]: IconsBlock,
     [BlockType.HeaderSliderBlock]: HeaderSliderBlock,
     [BlockType.CardLayoutBlock]: CardLayoutBlock,
+    [BlockType.ContentLayoutBlock]: ContentLayoutBlock,
 };
 
 export default components;

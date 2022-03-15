@@ -1,7 +1,7 @@
 import {block, getLinkProps} from '../../utils';
-import React, {ReactNode, useContext} from 'react';
+import React, {useContext} from 'react';
 
-import {TextSize} from '../../models';
+import {FileLinkProps} from '../../models';
 import {LocationContext} from '../../context/locationContext';
 
 import './FileLink.scss';
@@ -19,15 +19,6 @@ export enum FileExtension {
     ZIP = 'zip',
 }
 
-export type FileLinkType = 'vertical' | 'horizontal';
-
-export interface FileLinkProps {
-    href: string;
-    text: ReactNode;
-    type?: FileLinkType;
-    textSize?: TextSize;
-}
-
 export function getFileExt(name: string) {
     if (name.includes(FIGMA_URL)) {
         return FileExtension.FIG;
@@ -36,13 +27,13 @@ export function getFileExt(name: string) {
     return name && name.split('.').pop()!.toLowerCase();
 }
 
-const FileLink: React.FunctionComponent<FileLinkProps> = (props) => {
+const FileLink: React.FC<FileLinkProps> = (props) => {
     const {hostname} = useContext(LocationContext);
-    const {href, text, type = 'vertical', textSize = 'm'} = props;
+    const {href, text, type = 'vertical', textSize = 'm', className, theme = 'default'} = props;
     const fileExt = getFileExt(href) as FileExtension;
 
     return (
-        <div className={b({ext: fileExt, type, size: textSize})}>
+        <div className={b({ext: fileExt, type, size: textSize, theme}, className)}>
             {Object.values(FileExtension).includes(fileExt) && (
                 <div className={b('file-label')}>{fileExt}</div>
             )}

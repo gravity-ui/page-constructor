@@ -6,7 +6,8 @@
     $block: &;
 
     @include add-specificity(&) {
-        p {
+        p,
+        li {
             color: var(--yc-color-text-primary);
             margin: 0 0 $indentXXS;
         }

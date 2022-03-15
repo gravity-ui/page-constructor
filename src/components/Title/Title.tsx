@@ -29,12 +29,25 @@ export interface TitleFullProps extends TitleProps {
     className?: string;
     onClick?: () => void;
     dataQa?: string;
+    resetMargin?: boolean;
 }
 
 const Title: React.FunctionComponent<TitleFullProps> = (props) => {
     const isMobile = useContext(MobileContext);
 
-    const {textSize = 'm', text, anchor, justify, url, onClick, custom, className, dataQa} = props;
+    const {
+        textSize = 'm',
+        text,
+        anchor,
+        justify,
+        url,
+        onClick,
+        custom,
+        className,
+        dataQa,
+        resetMargin,
+    } = props;
+
     const {hostname} = useContext(LocationContext);
     const textMarkup = (
         <React.Fragment>
@@ -85,7 +98,7 @@ const Title: React.FunctionComponent<TitleFullProps> = (props) => {
             {React.createElement(
                 getHeaderTag(textSize),
                 {
-                    className: b({size: textSize, justify}, className),
+                    className: b({size: textSize, justify, 'reset-margin': resetMargin}, className),
                     'data-qa': `${dataQa}-header`,
                 },
                 content,

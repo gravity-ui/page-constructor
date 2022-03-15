@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import React, {CSSProperties, ReactNode} from 'react';
 import {ButtonSize, ButtonView, SocialNetwork} from '@yandex-data-ui/common';
 import {ClassNameProps} from '@yandex-data-ui/cloud-components';
 import {EventPublic, ServicePublic} from '@yandex-data-ui/cloud-schemas/build/models/ui-api';
@@ -25,6 +25,7 @@ export enum BlockType {
     Features = 'features',
     Tabs = 'tabs',
     Link = 'link',
+    FileLink = 'file-link',
     Table = 'table',
     Scrollable = 'scrollable',
     Tiles = 'tiles',
@@ -43,6 +44,7 @@ export enum BlockType {
     TutorialCard = 'tutoral-card',
     CardWithImage = 'card-with-image',
     BackgroundCard = 'background-card',
+    Content = 'content',
 
     PromoFeaturesBlock = 'promo-features-block',
     ExtendedFeaturesBlock = 'extended-features-block',
@@ -65,6 +67,7 @@ export enum BlockType {
     HeaderBlock = 'header-block',
     IconsBlock = 'icons-block',
     CardLayoutBlock = 'card-layout-block',
+    ContentLayoutBlock = 'content-layout-block',
 }
 
 export const BlockV2Types = Object.values(BlockType).filter((type) => isV2BlockType(type));
@@ -102,6 +105,10 @@ export type LinkTheme = 'file-link' | 'normal' | 'back' | 'underline';
 export type MediaDirection = 'media-content' | 'content-media';
 export type PriceDescriptionColor = 'cornflower' | 'black';
 export type PreviewRatioMediaContent = '2-1' | '1-1';
+export type ContentSize = 's' | 'l';
+export type ContentTextSize = 's' | 'm' | 'l';
+export type ContentTheme = 'default' | 'dark' | 'light';
+export type FileLinkType = 'vertical' | 'horizontal';
 
 export interface Background {
     image?: string;
@@ -420,7 +427,7 @@ export interface ButtonProps {
     url: string;
     primary?: boolean;
     size?: ButtonSize;
-    theme?: ButtonView | 'github' | 'app-store' | 'google-play' | 'scale';
+    theme?: ButtonView | 'github' | 'app-store' | 'google-play' | 'scale' | 'monochrome';
     img?: ButtonImageProps | string;
     metrikaGoals?: MetrikaGoal;
     pixelEvents?: ButtonPixel;
@@ -774,6 +781,15 @@ export interface HeaderBreadCrumbsProps extends ClassNameProps {
     theme?: TextTheme;
 }
 
+export interface BackgroundImageProps extends React.HTMLProps<HTMLDivElement> {
+    src?: string;
+    alt?: string;
+    disableCompress?: boolean;
+    style?: CSSProperties;
+    imageClassName?: string;
+    hide?: boolean;
+}
+
 export interface HeaderBlockProps {
     title: string;
     overtitle?: string;
@@ -804,6 +820,38 @@ export function headerHasMediaBackground(
     background: HeaderBackgroundProps | MediaProps,
 ): background is MediaProps {
     return 'image' in background || 'video' in background || 'youtube' in background;
+}
+
+export interface FileLinkProps extends ClassNameProps {
+    href: string;
+    text: ReactNode;
+    type?: FileLinkType;
+    textSize?: TextSize;
+    theme?: ContentTheme;
+}
+
+export interface ContentLayoutBlockProps {
+    properties?: {
+        size?: ContentSize;
+        background?: BackgroundImageProps;
+        centered?: boolean;
+        theme?: ContentTheme;
+        textWidth?: ContentTextSize;
+    };
+    textContent: ContentBlockProps;
+    fileContent?: FileLinkProps[];
+}
+
+export interface ContentBlockProps {
+    title?: TitleBaseProps | string;
+    text?: string;
+    additionalInfo?: string;
+    links?: LinkProps[];
+    buttons?: ButtonProps[];
+    size?: ContentSize;
+    colSizes?: GridColumnSizesType;
+    centered?: boolean;
+    theme?: ContentTheme;
 }
 
 export type HeaderBlockModel = {
@@ -1006,6 +1054,10 @@ export type HeaderSliderBlockModel = {
     type: BlockType.HeaderSliderBlock;
 } & HeaderSliderBlockProps;
 
+export type ContentLayoutBlockModel = {
+    type: BlockType.ContentLayoutBlock;
+} & ContentLayoutBlockProps;
+
 export type BlockV1Raw =
     | HeaderModel
     | ButtonModel
@@ -1057,7 +1109,8 @@ type BlockV2Raw =
     | PreviewBlockModel
     | IconsBlockModel
     | HeaderSliderBlockModel
-    | CardLayoutBlockModel;
+    | CardLayoutBlockModel
+    | ContentLayoutBlockModel;
 
 export type BlockV1 = BlockV1Raw;
 export type BlockV2 = BlockV2Raw & BlockBaseProps;

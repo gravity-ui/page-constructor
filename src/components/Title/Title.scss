@@ -60,6 +60,10 @@ $block: '.#{$ns}title-block';
         white-space: nowrap;
     }
 
+    &_reset-margin {
+        margin-top: 0;
+    }
+
     @media (max-width: map-get($gridBreakpoints, 'sm')) {
         &_size_l {
             margin-top: $indentL;
