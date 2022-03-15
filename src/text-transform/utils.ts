@@ -101,12 +101,15 @@ export function typografToText(text: string, lang: Lang) {
     return text && sanitizeHtml(typograf(text, lang));
 }
 
-export const transformMarkdown = (input = '', options: TransformOptions): Output['result'] => {
-    const {result} = transformYFM(input, options);
+export const transformMarkdown = (input: string, options: TransformOptions): Output['result'] => {
+    const {result} = transformYFM(input ?? '', options);
     return result;
 };
 
-export function fullTransform(input = '', {lang, ...options}: TransformOptions): Output['result'] {
+export function fullTransform(
+    input: string,
+    {lang, ...options}: TransformOptions,
+): Output['result'] {
     const result = transformMarkdown(input, {lang, ...options});
     const {html, title} = result;
 
