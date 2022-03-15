@@ -25,9 +25,9 @@ function getTextWidth(size: ContentTextSize) {
     switch (size) {
         case 's':
             return {all: 12, md: 6};
-        case 'm':
         case 'l':
             return {all: 12, md: 12};
+        case 'm':
         default:
             return {all: 12, md: 8};
     }
