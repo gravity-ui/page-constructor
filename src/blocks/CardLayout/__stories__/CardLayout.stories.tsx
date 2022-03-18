@@ -75,7 +75,7 @@ CardsWithImage.args = {
             children: [
                 {
                     type: BlockType.CardWithImage,
-                    image: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/ydb-assets/scheme.png',
+                    image: 'https://storage.yandexcloud.net/ydb-www-prod-site-assets/clients/jaeger-new.png',
                     title: 'Перераспределение нагрузки',
                     description:
                         'Вы сами определяете число ядер процессора и объём памяти и контролируете стоимость виртуальной машины.',
