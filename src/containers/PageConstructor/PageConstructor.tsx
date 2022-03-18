@@ -25,7 +25,9 @@ import {
     getCustomComponents,
     getCustomHeaderTypes,
     block as cnBlock,
+    getThemedValue,
 } from '../../utils';
+import {withThemeValue, WithThemeValueProps} from '../../../src/context/theme/withThemeValue';
 
 import './PageConstructor.scss';
 import '../../../styles/yfm.scss';
@@ -39,6 +41,8 @@ export interface PageConstructorProps {
     renderMenu?: () => React.ReactNode;
 }
 
+type Props = PageConstructorProps & WithThemeValueProps;
+
 export type FullComponentsMap = typeof componentMap & CustomBlocks;
 
 type RenderLoadableParams = {
@@ -48,7 +52,7 @@ type RenderLoadableParams = {
     serviceId?: number;
 };
 
-export class PageConstructor extends React.Component<PageConstructorProps> {
+class Constructor extends React.Component<Props> {
     fullComponentsMap: FullComponentsMap = {
         ...componentMap,
         ...getCustomComponents(this.props.custom),
@@ -57,17 +61,21 @@ export class PageConstructor extends React.Component<PageConstructorProps> {
     fullHeaderBlockTypes = [...HeaderBlockTypes, ...getCustomHeaderTypes(this.props.custom)];
 
     render() {
-        const {content: {blocks = [], background = {}, footnotes = []} = {}, renderMenu} =
-            this.props;
+        const {
+            content: {blocks = [], background = {}, footnotes = []} = {},
+            renderMenu,
+            themeValue: theme,
+        } = this.props;
 
         const hasFootnotes = footnotes.length > 0;
         const header = blocks?.find(this.isHeaderBlock);
         const restBlocks = blocks?.filter((block: Block) => !this.isHeaderBlock(block));
+        const themedBackground = getThemedValue(background, theme);
 
         return (
             <div className={b({'has-footnotes': hasFootnotes})}>
                 <div className={b('wrapper')}>
-                    <BackgroundMedia {...background} className={b('background')} />
+                    <BackgroundMedia {...themedBackground} className={b('background')} />
                     {renderMenu && renderMenu()}
                     {header && this.renderHeader(header)}
                     <Grid className={b('grid')}>
@@ -211,3 +219,5 @@ export class PageConstructor extends React.Component<PageConstructorProps> {
         return this.fullBlockV2Types.includes(block.type);
     }
 }
+
+export const PageConstructor = withThemeValue(Constructor);

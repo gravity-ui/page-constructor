@@ -1,5 +1,5 @@
 import React from 'react';
-import {MediaProps, Block, Animatable} from './blocks';
+import {Block, Animatable, ThemedMediaProps} from './blocks';
 
 export interface PageData {
     content: PageContent;
@@ -12,7 +12,7 @@ export interface Menu {
 export interface PageContent extends Animatable {
     blocks: Block[];
     menu?: Menu;
-    background?: MediaProps;
+    background?: ThemedMediaProps;
     footnotes?: string[];
 }
 

@@ -54,7 +54,7 @@ import {
     CardWithImage,
 } from './v2';
 
-import {AnimatableProps, BackgroundProps, MenuProps} from './common';
+import {AnimatableProps, BackgroundProps, MenuProps, withTheme} from './common';
 import {filteredItem} from './utils';
 
 export type SchemaBlock = object;
@@ -226,7 +226,7 @@ export function generateDefaultSchema(config?: SchemaCustomConfig) {
                 },
             },
             menu: MenuProps,
-            background: BackgroundProps,
+            background: withTheme(BackgroundProps),
             footnotes: {
                 type: 'array',
                 items: {

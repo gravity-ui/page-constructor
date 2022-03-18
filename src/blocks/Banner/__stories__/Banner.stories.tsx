@@ -10,7 +10,19 @@ export default {
 } as Meta;
 
 const DefaultTemplate: Story<BannerBlockModel> = (args) => (
-    <PageConstructor content={{blocks: [args]}} />
+    <PageConstructor
+        content={{
+            blocks: [args],
+            background: {
+                system: {
+                    image: 'https://storage.yandexcloud.net/cloud-www-assets/edu/bnr-education-blue.png',
+                },
+                dark: {
+                    image: 'https://storage.yandexcloud.net/cloud-www-assets/edu/bnr-compscience-new.png',
+                },
+            },
+        }}
+    />
 );
 
 export const Default = DefaultTemplate.bind({});
