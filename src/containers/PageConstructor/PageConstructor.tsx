@@ -27,7 +27,7 @@ import {
     block as cnBlock,
     getThemedValue,
 } from '../../utils';
-import {withThemeValue, WithThemeValueProps} from '../../../src/context/theme/withThemeValue';
+import {withThemeValue, WithThemeValueProps} from '../../context/theme/withThemeValue';
 
 import './PageConstructor.scss';
 import '../../../styles/yfm.scss';
