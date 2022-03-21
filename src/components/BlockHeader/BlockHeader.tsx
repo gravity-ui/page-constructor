@@ -10,6 +10,7 @@ import Title from '../Title/Title';
 import './BlockHeader.scss';
 
 const b = block('BlockHeader');
+
 export interface BlockHeaderProps extends BlockHeaderParams {
     colSizes?: GridColumnSizesType;
 }
@@ -31,11 +32,7 @@ const BlockHeader: React.FunctionComponent<BlockHeaderProps & ClassNameProps> = 
         <div className={b(null, className)}>
             {text && (
                 <Col reset sizes={colSizes}>
-                    <Title
-                        text={text}
-                        {...titleProps}
-                        className={b('title', {'no-description': !description})}
-                    />
+                    <Title text={text} {...titleProps} resetMargin />
                 </Col>
             )}
             {description && (

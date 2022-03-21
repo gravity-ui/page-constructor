@@ -4,10 +4,6 @@
 $block: '.#{$ns}BlockHeader';
 
 #{$block} {
-    &__title {
-        margin-top: 0;
-    }
-
     &__description {
         @include text-size(body2);
 
