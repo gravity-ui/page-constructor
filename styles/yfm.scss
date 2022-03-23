@@ -31,7 +31,6 @@
     }
 
     &_footnote_page p {
-        display: inline-flex;
         @include text-size(body);
     }
 
