@@ -1,0 +1,22 @@
+@import '../../../../styles/variables.scss';
+@import '../../../../styles/mixins';
+
+$block: '.#{$ns}media-component-video';
+
+#{$block} {
+    &__wrap {
+        position: relative;
+        overflow: hidden;
+    }
+
+    &__item {
+        width: 100%;
+    }
+
+    &__react-player {
+        display: flex;
+        position: relative;
+        justify-content: center;
+        overflow: hidden;
+    }
+}

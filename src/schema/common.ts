@@ -174,6 +174,22 @@ export const ImageProps = {
     ],
 };
 
+export const DataLensObjectProps = {
+    type: 'object',
+    additionalProperties: false,
+    required: ['id'],
+    properties: {
+        id: {
+            type: 'string',
+        },
+        theme: ThemeProps,
+    },
+};
+
+export const DataLensProps = {
+    oneOf: [{type: 'string'}, DataLensObjectProps],
+};
+
 export const BackgroundProps = {
     additionalProperties: false,
     properties: {

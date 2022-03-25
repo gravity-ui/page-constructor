@@ -187,16 +187,38 @@ export interface MediaVideoProps {
 }
 export type ThemedMediaVideoProps = ThemeSupporting<MediaVideoProps>;
 
-export interface MediaProps extends Animatable {
-    color?: string;
-    image?: ImageProps | ImageProps[];
-    parallax?: boolean;
-    video?: MediaVideoProps;
-    youtube?: string;
-    previewImg?: string;
+export interface MediaComponentVideoProps {
+    video: MediaVideoProps;
     height?: number;
     metrika?: MetrikaVideo;
+    previewImg?: string;
 }
+
+export interface MediaComponentYoutubeProps {
+    youtube: string;
+    previewImg?: string;
+}
+
+export interface MediaComponentImageProps {
+    image: ImageProps | ImageProps[];
+    video?: MediaVideoProps;
+    parallax?: boolean;
+    height?: number;
+}
+
+export interface MediaComponentDataLensProps {
+    dataLens: DataLensProps;
+}
+
+export interface MediaProps
+    extends Animatable,
+        Partial<MediaComponentDataLensProps>,
+        Partial<MediaComponentYoutubeProps>,
+        Partial<MediaComponentImageProps>,
+        Partial<MediaComponentVideoProps> {
+    color?: string;
+}
+
 export type ThemedMediaProps = ThemeSupporting<MediaProps>;
 
 export interface LoadableProps {
@@ -226,6 +248,13 @@ export interface ImageObjectProps {
     alt?: string;
     disableCompress?: boolean;
 }
+
+export interface DataLensObjectProps {
+    id: string;
+    theme: 'dark' | 'light';
+}
+
+export type DataLensProps = string | DataLensObjectProps;
 
 export type ImageProps = string | ImageObjectProps;
 export type ThemedImage = ThemeSupporting<ImageProps>;

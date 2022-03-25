@@ -2,6 +2,7 @@ import {
     BaseProps,
     ButtonProps,
     containerSizesArray,
+    DataLensProps,
     ImageProps,
     textSize,
     VideoProps,
@@ -90,4 +91,5 @@ export const MediaProps = {
     previewImg: {
         type: 'string',
     },
+    dataLens: DataLensProps,
 };

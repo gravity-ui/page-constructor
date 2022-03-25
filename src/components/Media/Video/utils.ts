@@ -1,5 +1,3 @@
-import {ImageObjectProps, ImageProps} from '../../models';
-
 export enum VideoExt {
     Mp4 = 'mp4',
     Webm = 'webm',
@@ -13,16 +11,16 @@ export enum VideoType {
     Ogg = 'video/ogg',
 }
 
+export interface ParsedVideo {
+    src: string;
+    type: VideoType | undefined;
+}
+
 const VideoTypePriority = {
     [VideoType.Webm]: 1,
     [VideoType.Ogg]: 2,
     [VideoType.Mp4]: 3,
 };
-
-export interface ParsedVideo {
-    src: string;
-    type: VideoType | undefined;
-}
 
 function parseVideoType(src: string): VideoType | undefined {
     const [path] = src.split('?');
@@ -53,7 +51,3 @@ export const getVideoTypesWithPriority = (sources: string[]): ParsedVideo[] =>
             }
             return VideoTypePriority[typeA] - VideoTypePriority[typeB];
         });
-
-export function unifyImageToObject(image: ImageProps): ImageObjectProps {
-    return typeof image === 'string' ? {src: image} : image;
-}

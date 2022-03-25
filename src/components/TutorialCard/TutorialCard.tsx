@@ -6,7 +6,7 @@ import CardBase from '../../components/CardBase/CardBase';
 import {ImageProps, TutorialCardProps} from '../../models';
 import Image from '../../components/Image/Image';
 
-import {unifyImageToObject} from '../Media/utils';
+import {unifyImageToObject} from '../Media/Image/utils';
 
 import './TutorialCard.scss';
 

@@ -1,0 +1,29 @@
+@import '../../../../styles/variables.scss';
+@import '../../../../styles/mixins';
+
+$block: '.#{$ns}media-component-data-lens';
+
+#{$block} {
+    // TODO https://st.yandex-team.ru/CLOUDFRONT-9932
+    &__wrap {
+        height: 400px;
+        overflow: hidden;
+        margin: $indentSM;
+
+        #{$block}__iframe {
+            border-radius: 0;
+        }
+    }
+
+    &__iframe {
+        width: calc(100% + 4px);
+        height: calc(100% + 4px);
+        margin: -1px -2px 0;
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'sm')) {
+        &__wrap {
+            margin: $indentSM 0;
+        }
+    }
+}
