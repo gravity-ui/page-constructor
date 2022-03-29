@@ -1,4 +1,4 @@
-import React, {ReactElement, useState} from 'react';
+import React, {Fragment, ReactElement, useState} from 'react';
 
 import {block} from '../../utils';
 import {MediaProps} from '../../models';
@@ -74,7 +74,7 @@ const Media: React.FC<MediaAllProps> = (props) => {
 
     return (
         <Wrapper>
-            <>
+            <Fragment>
                 {video ? (
                     <Video
                         video={video}
@@ -100,7 +100,7 @@ const Media: React.FC<MediaAllProps> = (props) => {
                         hasVideoFallback={hasVideoFallback}
                     />
                 ) : null}
-            </>
+            </Fragment>
         </Wrapper>
     );
 };

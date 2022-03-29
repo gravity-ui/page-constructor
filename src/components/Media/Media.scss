@@ -6,14 +6,11 @@ $block: '.#{$ns}Media';
 #{$block} {
     overflow: hidden;
 
-    & > * {
-        display: flex;
-        align-items: center;
-    }
-
     // fix for safari iOS < 13
     &__youtube {
         border-radius: $borderRadius;
         overflow: hidden;
+        display: flex;
+        align-items: center;
     }
 }
