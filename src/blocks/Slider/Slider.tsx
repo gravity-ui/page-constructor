@@ -95,7 +95,6 @@ const SliderBlock: FC<SliderProps> = (props) => {
     const showNavigation = arrows === undefined ? childrenCount > slidesCountByBreakpoint : arrows;
 
     const [currentIndex, setCurrentIndex] = useState<number>(0);
-    const [animating, setAnimating] = useState<boolean>(false);
     const [childStyles, setChildStyles] = useState<Object>({});
     const [slider, setSlider] = useState<SlickSliderFull>();
     const autoplayTimeId = useRef<Timeout>();
@@ -113,7 +112,6 @@ const SliderBlock: FC<SliderProps> = (props) => {
             if (newBreakpoint !== breakpoint) {
                 setBreakpoint(newBreakpoint);
                 setCurrentIndex(0);
-                setAnimating(false);
 
                 slider.slickGoTo(0);
             }
@@ -156,54 +154,63 @@ const SliderBlock: FC<SliderProps> = (props) => {
         return () => window.removeEventListener('resize', onResize);
     }, [onResize]);
 
-    const handleArrowClick = (direction: ArrowType) => {
-        let nextIndex;
+    const handleArrowClick = useCallback(
+        (direction: ArrowType) => {
+            let nextIndex;
 
-        if (direction === 'right') {
-            nextIndex =
-                currentIndex === childrenCount - slidesCountByBreakpoint ? 0 : currentIndex + 1;
-        } else {
-            nextIndex =
-                currentIndex === 0 ? childrenCount - slidesCountByBreakpoint : currentIndex - 1;
-        }
+            if (direction === 'right') {
+                nextIndex =
+                    currentIndex === childrenCount - slidesCountByBreakpoint ? 0 : currentIndex + 1;
+            } else {
+                nextIndex =
+                    currentIndex === 0 ? childrenCount - slidesCountByBreakpoint : currentIndex - 1;
+            }
 
-        if (slider) {
-            slider.slickGoTo(nextIndex);
-        }
-    };
+            if (slider) {
+                slider.slickGoTo(nextIndex);
+            }
+        },
+        [childrenCount, currentIndex, slider, slidesCountByBreakpoint],
+    );
 
-    const onBeforeChange = (current: number, next: number) => {
-        if (handleBeforeChange) {
-            handleBeforeChange(current, next);
-        }
+    const onBeforeChange = useCallback(
+        (current: number, next: number) => {
+            if (handleBeforeChange) {
+                handleBeforeChange(current, next);
+            }
 
-        setCurrentIndex(next);
-        setAnimating(true);
-    };
+            setCurrentIndex(next);
+        },
+        [handleBeforeChange],
+    );
 
-    const onAfterChange = (current: number) => {
-        if (handleAfterChange) {
-            handleAfterChange(current);
-        }
+    const onAfterChange = useCallback(
+        (current: number) => {
+            if (handleAfterChange) {
+                handleAfterChange(current);
+            }
 
-        setAnimating(false);
+            if (autoplayTimeId.current) {
+                clearTimeout(autoplayTimeId.current);
+            }
 
-        if (autoplayTimeId.current) {
-            clearTimeout(autoplayTimeId.current);
-        }
+            if (!hasFocus) {
+                scrollLastSlide();
+            }
+        },
+        [hasFocus, scrollLastSlide, handleAfterChange],
+    );
 
-        if (!hasFocus) {
-            scrollLastSlide();
-        }
-    };
+    const handleDotClick = useCallback(
+        (index: number) => {
+            const nextIndex = index > currentIndex ? index + 1 - slidesCountByBreakpoint : index;
 
-    const handleDotClick = (index: number) => {
-        const nextIndex = index > currentIndex ? index + 1 - slidesCountByBreakpoint : index;
-
-        if (slider) {
-            slider.slickGoTo(nextIndex);
-        }
-    };
+            if (slider) {
+                slider.slickGoTo(nextIndex);
+            }
+        },
+        [slider, currentIndex, slidesCountByBreakpoint],
+    );
 
     const renderBar = () => {
         const barPosition = (DOT_GAP + DOT_WIDTH) * currentIndex;
@@ -227,7 +234,7 @@ const SliderBlock: FC<SliderProps> = (props) => {
             <div
                 key={index}
                 className={b('dot', {active: index === currentIndex})}
-                onClick={() => !animating && handleDotClick(index)}
+                onClick={() => handleDotClick(index)}
             />
         );
     };
