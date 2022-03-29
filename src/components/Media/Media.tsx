@@ -1,4 +1,4 @@
-import React, {Fragment, ReactElement, useState} from 'react';
+import React, {ReactElement, useMemo, useState} from 'react';
 
 import {block} from '../../utils';
 import {MediaProps} from '../../models';
@@ -14,10 +14,6 @@ const b = block('Media');
 interface MediaAllProps extends MediaProps, VideoAdditionProps, ImageAdditionProps {
     className?: string;
     youtubeClassName?: string;
-}
-
-interface WrapperProps {
-    children: ReactElement | ReactElement[];
 }
 
 const Media: React.FC<MediaAllProps> = (props) => {
@@ -45,63 +41,79 @@ const Media: React.FC<MediaAllProps> = (props) => {
 
     const [hasVideoFallback, setHasVideoFallback] = useState(false);
 
-    const Wrapper = ({children}: WrapperProps) => (
-        <div className={b(null, className)} style={{backgroundColor: color}}>
-            {children}
-        </div>
-    );
+    const content = useMemo(() => {
+        let result: ReactElement | ReactElement[] = [];
 
-    if (youtube) {
-        return (
-            <Wrapper>
+        if (image) {
+            result.push(
+                <Image
+                    parallax={parallax}
+                    image={image}
+                    height={height}
+                    imageClassName={imageClassName}
+                    isBackground={isBackground}
+                    video={video}
+                    hasVideoFallback={hasVideoFallback}
+                />,
+            );
+        }
+
+        if (video) {
+            result.push(
+                <Video
+                    video={video}
+                    videoClassName={videoClassName}
+                    height={height}
+                    metrika={metrika}
+                    playVideo={playVideo}
+                    previewImg={previewImg}
+                    playButton={playButton}
+                    customBarControlsClassName={customBarControlsClassName}
+                    hasVideoFallback={hasVideoFallback}
+                    setHasVideoFallback={setHasVideoFallback}
+                />,
+            );
+        }
+
+        if (youtube) {
+            result = (
                 <YoutubeBlock
                     className={b('youtube', youtubeClassName)}
                     record={youtube}
                     attributes={{color: 'white', rel: '0'}}
                     previewImg={previewImg}
                 />
-            </Wrapper>
-        );
-    }
+            );
+        }
 
-    if (dataLens) {
-        return (
-            <Wrapper>
-                <DataLens dataLens={dataLens} />
-            </Wrapper>
-        );
-    }
+        if (dataLens) {
+            result = <DataLens dataLens={dataLens} />;
+        }
+
+        return result;
+    }, [
+        image,
+        video,
+        youtube,
+        dataLens,
+        parallax,
+        height,
+        imageClassName,
+        isBackground,
+        hasVideoFallback,
+        videoClassName,
+        metrika,
+        playVideo,
+        previewImg,
+        playButton,
+        customBarControlsClassName,
+        youtubeClassName,
+    ]);
 
     return (
-        <Wrapper>
-            <Fragment>
-                {video ? (
-                    <Video
-                        video={video}
-                        videoClassName={videoClassName}
-                        height={height}
-                        metrika={metrika}
-                        playVideo={playVideo}
-                        previewImg={previewImg}
-                        playButton={playButton}
-                        customBarControlsClassName={customBarControlsClassName}
-                        hasVideoFallback={hasVideoFallback}
-                        setHasVideoFallback={setHasVideoFallback}
-                    />
-                ) : null}
-                {image ? (
-                    <Image
-                        parallax={parallax}
-                        image={image}
-                        height={height}
-                        imageClassName={imageClassName}
-                        isBackground={isBackground}
-                        video={video}
-                        hasVideoFallback={hasVideoFallback}
-                    />
-                ) : null}
-            </Fragment>
-        </Wrapper>
+        <div className={b(null, className)} style={{backgroundColor: color}}>
+            {content}
+        </div>
     );
 };
 
