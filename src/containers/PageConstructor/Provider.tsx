@@ -1,36 +1,32 @@
 import React, {Fragment} from 'react';
-import {AnimateContext} from '../../context/animateContext';
 import {MetrikaContext, MetrikaContextProps} from '../../context/metrikaContext';
 import {MobileContext} from '../../context/mobileContext';
 import {SSRContext, SSRContextProps} from '../../context/ssrContext';
 import {LocaleContext, LocaleContextProps} from '../../context/localeContext';
 import {LocationContext, LocationContextProps} from '../../context/locationContext';
 import {ThemeValueContext} from '../../context/theme/ThemeValueContext';
-import {PageConstructor, PageConstructorProps} from './PageConstructor';
 import {DEFAULT_THEME} from '../../components/constants';
 
-export interface PageConstructorProviderProps extends PageConstructorProps {
+export interface PageConstructorProviderProps {
+    animated?: boolean;
     isMobile?: boolean;
+    locale?: LocaleContextProps;
+    location?: LocationContextProps;
     metrika?: MetrikaContextProps;
     ssrConfig?: SSRContextProps;
-    location?: LocationContextProps;
-    locale?: LocaleContextProps;
     theme?: string;
 }
 
 export const PageConstructorProvider: React.FC<PageConstructorProviderProps> = (props) => {
     const {
-        content: {animated = true} = {},
         isMobile,
+        locale = {},
+        location = {},
         metrika = {},
         ssrConfig = {},
-        location = {},
-        locale = {},
         theme = DEFAULT_THEME,
-        ...rest
+        children,
     } = props;
-
-    const constructor = <PageConstructor content={props.content} {...rest} />;
 
     /* eslint-disable react/jsx-key */
     const context = [
@@ -40,8 +36,7 @@ export const PageConstructorProvider: React.FC<PageConstructorProviderProps> = (
         <MobileContext.Provider value={Boolean(isMobile)} />,
         <MetrikaContext.Provider value={metrika} />,
         <SSRContext.Provider value={{isServer: ssrConfig?.isServer}} />,
-        <AnimateContext.Provider value={{animated}} />,
-    ].reduceRight((prev, provider) => React.cloneElement(provider, {}, prev), constructor);
+    ].reduceRight((prev, provider) => React.cloneElement(provider, {}, prev), children);
     /* eslint-enable react/jsx-key */
 
     return <Fragment>{context}</Fragment>;

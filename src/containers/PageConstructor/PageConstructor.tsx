@@ -28,6 +28,7 @@ import {
     getThemedValue,
 } from '../../utils';
 import {withThemeValue, WithThemeValueProps} from '../../context/theme/withThemeValue';
+import {AnimateContext} from '../../context/animateContext';
 
 import './PageConstructor.scss';
 import '../../../styles/yfm.scss';
@@ -220,4 +221,14 @@ class Constructor extends React.Component<Props> {
     }
 }
 
-export const PageConstructor = withThemeValue(Constructor);
+const ThemedConstructor = withThemeValue(Constructor);
+
+export const PageConstructor: React.FC<PageConstructorProps> = (props) => {
+    const {content: {animated = true} = {}, ...rest} = props;
+
+    return (
+        <AnimateContext.Provider value={{animated}}>
+            <ThemedConstructor content={props.content} {...rest} />
+        </AnimateContext.Provider>
+    );
+};
