@@ -12,7 +12,6 @@ export enum Lang {
 export enum Theme {
     Light = 'light',
     Dark = 'dark',
-    System = 'system',
 }
 
 export enum PixelEventType {

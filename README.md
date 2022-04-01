@@ -40,6 +40,7 @@ interface PageConstructorProviderProps {
     location?: Location; //api истории браузера или роутера, информация о url страницы
     metrika?: Metrika; //функции для отправки данных аналитики
     ssrConfig?: SSR; //содержит признак того, что код выполняется на стороне сервера
+    theme?: 'light' | 'dark'; //тема, с которой будет отрисована страница
 }
 
 export interface PageContent extends Animatable {

@@ -69,7 +69,7 @@ Image.args = {
     imageSize: 's',
     verticalOffset: 'm',
     image: {
-        system: {
+        light: {
             src: 'https://storage.cloud-preprod.yandex.net/cloud-www-assets/solutions/e-commerce/ecommerce-big.png',
         },
         dark: {
@@ -100,7 +100,7 @@ Background.args = {
     width: 's',
     verticalOffset: 'm',
     background: {
-        system: {
+        light: {
             url: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/bg-2.png',
             color: '#E3EBFF',
             fullWidth: true,

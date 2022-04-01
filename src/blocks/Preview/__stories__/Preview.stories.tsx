@@ -24,7 +24,7 @@ Default.args = {
         {
             type: PreviewItemType.Video,
             media: {
-                system: {
+                light: {
                     video: {
                         type: MediaVideoType.Player,
                         src: ['https://youtu.be/2dgZ8c-MGlc'],

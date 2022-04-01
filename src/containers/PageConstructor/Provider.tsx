@@ -4,17 +4,16 @@ import {MobileContext} from '../../context/mobileContext';
 import {SSRContext, SSRContextProps} from '../../context/ssrContext';
 import {LocaleContext, LocaleContextProps} from '../../context/localeContext';
 import {LocationContext, LocationContextProps} from '../../context/locationContext';
-import {ThemeValueContext} from '../../context/theme/ThemeValueContext';
+import {ConstructorTheme, ThemeValueContext} from '../../context/theme/ThemeValueContext';
 import {DEFAULT_THEME} from '../../components/constants';
 
 export interface PageConstructorProviderProps {
-    animated?: boolean;
     isMobile?: boolean;
     locale?: LocaleContextProps;
     location?: LocationContextProps;
     metrika?: MetrikaContextProps;
     ssrConfig?: SSRContextProps;
-    theme?: string;
+    theme?: ConstructorTheme;
 }
 
 export const PageConstructorProvider: React.FC<PageConstructorProviderProps> = (props) => {
