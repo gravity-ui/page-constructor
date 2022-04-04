@@ -137,8 +137,13 @@ const parseContentLayout = (transformer: Transformer, content: ContentBlockProps
     if (content) {
         const {text, additionalInfo} = content;
 
-        content.text = text && transformer(text);
-        content.additionalInfo = additionalInfo && transformer(additionalInfo);
+        if (text) {
+            content.text = transformer(text);
+        }
+
+        if (additionalInfo) {
+            content.additionalInfo = transformer(additionalInfo);
+        }
     }
 
     return content;
