@@ -773,17 +773,21 @@ export interface LinkTableBlockProps extends BlockHeaderProps {
     linkTheme?: LinkTheme;
 }
 
-export interface CardWithImageProps extends ClassNameProps {
+export interface CardWithImageLinkProps extends Omit<LinkProps, 'text' | 'url'> {
+    title: string;
+    link: string;
+}
+
+export type ExcludedCardImageProps = 'text' | 'size' | 'links' | 'colSizes' | 'centered';
+export interface CardWithImageProps
+    extends ClassNameProps,
+        Omit<ContentBlockProps, ExcludedCardImageProps> {
     image: string;
-    title?: string;
     description?: string;
     disableCompress?: boolean;
     border?: boolean;
     fullScreen?: boolean;
-    links?: {
-        title: string;
-        link: string;
-    }[];
+    links?: CardWithImageLinkProps[];
 }
 
 export interface CardLayoutBlockProps extends Childable, Animatable, LoadableChildren {

@@ -1,5 +1,7 @@
 import React from 'react';
 import {Meta, Story} from '@storybook/react/types-6-0';
+import yfm from '@doc-tools/transform';
+
 import CardLayout from '../CardLayout';
 import {BlockType, CardLayoutBlockModel} from '../../../models';
 import {PageConstructor} from '../../../containers/PageConstructor/PageConstructor';
@@ -126,6 +128,144 @@ CardsWithImage.args = {
                         'Вы сами определяете число ядер процессора и объём памяти и контролируете стоимость виртуальной машины.',
                     fullScreen: true,
                     border: true,
+                },
+            ],
+        },
+        {
+            type: BlockType.CardLayoutBlock,
+            title: 'Карточки с фото со всем возможным наполнением',
+            description:
+                'Выбор инфраструктуры во многом определяет возможности бизнеса — доступность, надежность, масштабируемость. Yandex.Cloud — технологическая платформа',
+            colSizes: {
+                all: 12,
+                md: 4,
+                sm: 6,
+            },
+            children: [
+                {
+                    type: BlockType.CardWithImage,
+                    image: 'https://storage.yandexcloud.net/ydb-www-prod-site-assets/clients/jaeger-new.png',
+                    title: {
+                        text: 'Программа содействия образованию и науке в области Computer Science',
+                        url: 'https://yandex.ru',
+                        textSize: 's',
+                    },
+                    fullScreen: true,
+                    border: true,
+                    links: [
+                        {
+                            link: '/security',
+                            title: 'Заполнить форму',
+                            theme: 'back',
+                            arrow: true,
+                        },
+                        {
+                            link: '#',
+                            title: 'Подробнее',
+                            theme: 'normal',
+                            arrow: true,
+                        },
+                    ],
+                    buttons: [
+                        {
+                            text: 'Подключиться',
+                            theme: 'action',
+                            url: 'https://console.cloud.yandex.${tld}/',
+                        },
+                        {
+                            text: 'Связаться с нами',
+                            theme: 'outlined',
+                            url: '/#contact-form',
+                        },
+                    ],
+                    description: yfm(
+                        '**Yandex.Cloud — публичная облачная платформа**, которая [предоставляет](https://ya.com) корпорациям, среднему бизнесу и частным разработчикам масштабируемую инфраструктуру, сервисы хранения данных, инструменты машинного обучения и средства разработки.',
+                    ).result.html,
+                    additionalInfo: yfm(
+                        'Яндекс [представил](https://ya.com) Yandex.Cloud в 2018 году. С момента запуска платформа выросла вдвое. Причём не только по суммарному доходу, но и по клиентской базе: ежедневно наши сервисы используют более 10 тысяч компаний.',
+                    ).result.html,
+                },
+                {
+                    type: BlockType.CardWithImage,
+                    image: 'https://storage.yandexcloud.net/ydb-www-prod-site-assets/clients/jaeger-new.png',
+                    title: 'Перераспределение нагрузки',
+                    fullScreen: true,
+                    border: true,
+                    links: [
+                        {
+                            link: '/security',
+                            title: 'Заполнить форму',
+                            theme: 'back',
+                            arrow: true,
+                        },
+                        {
+                            link: '#',
+                            title: 'Подробнее',
+                            theme: 'normal',
+                            arrow: true,
+                        },
+                    ],
+                    buttons: [
+                        {
+                            text: 'Подключиться',
+                            theme: 'action',
+                            // theme: 'normal-contrast', // dark-theme
+                            url: 'https://console.cloud.yandex.${tld}/',
+                        },
+                        {
+                            text: 'Связаться с нами',
+                            theme: 'outlined',
+                            // theme: 'outlined-contrast', // dark-theme
+                            url: '/#contact-form',
+                        },
+                    ],
+                    description: yfm(
+                        '**Yandex.Cloud — публичная облачная платформа**, которая [предоставляет](https://ya.com) корпорациям, среднему бизнесу и частным разработчикам масштабируемую инфраструктуру, сервисы хранения данных, инструменты машинного обучения и средства разработки.',
+                    ).result.html,
+                    additionalInfo: yfm(
+                        'Яндекс [представил](https://ya.com) Yandex.Cloud в 2018 году. С момента запуска платформа выросла вдвое. Причём не только по суммарному доходу, но и по клиентской базе: ежедневно наши сервисы используют более 10 тысяч компаний.',
+                    ).result.html,
+                },
+                {
+                    type: BlockType.CardWithImage,
+                    image: 'https://storage.yandexcloud.net/ydb-www-prod-site-assets/clients/jaeger-new.png',
+                    title: 'Перераспределение нагрузки',
+                    fullScreen: true,
+                    border: true,
+                    links: [
+                        {
+                            link: '/security',
+                            title: 'Заполнить форму',
+                            theme: 'back',
+                            arrow: true,
+                        },
+                        {
+                            link: '#',
+                            title: 'Подробнее',
+                            theme: 'normal',
+                            arrow: true,
+                        },
+                    ],
+                    buttons: [
+                        {
+                            text: 'Подключиться',
+                            theme: 'action',
+                            // theme: 'normal-contrast', // dark-theme
+                            url: 'https://console.cloud.yandex.${tld}/',
+                        },
+                        {
+                            text: 'Связаться с нами',
+                            theme: 'outlined',
+                            // theme: 'outlined-contrast', // dark-theme
+                            url: '/#contact-form',
+                        },
+                    ],
+                    description: yfm(
+                        '**Yandex.Cloud — публичная облачная платформа**, которая [предоставляет](https://ya.com) корпорациям, среднему бизнесу и частным разработчикам масштабируемую инфраструктуру, сервисы хранения данных, инструменты машинного обучения и средства разработки.',
+                    ).result.html,
+                    additionalInfo: yfm(
+                        'Яндекс [представил](https://ya.com) Yandex.Cloud в 2018 году. С момента запуска платформа выросла вдвое. Причём не только по суммарному доходу, но и по клиентской базе: ежедневно наши сервисы используют более 10 тысяч компаний.',
+                    ).result.html,
                 },
             ],
         },

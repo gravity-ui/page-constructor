@@ -56,12 +56,8 @@ $lightSecondary: var(--yc-color-text-light-secondary);
                 margin-top: $indentXXXS;
             }
 
-            #{$block}__links {
-                margin-top: $indentXXXS;
-            }
-
             #{$block}__buttons {
-                margin-top: $indentSM;
+                margin-top: $indentXS;
             }
         }
 
