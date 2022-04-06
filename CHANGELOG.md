@@ -1,5 +1,16 @@
 # Лог изменений
 
+## 0.22.0
+
+### Breaking changes
+
+- Отдельно вынесен `PageConstructorProvider`, для корректной работы `PageConstructor` необходимо обернуть в этот провайдер.
+  Подробнее в [readme](https://github.yandex-team.ru/data-ui/page-constructor/blob/master/README.md#начало-работы)
+  
+- Удалена `system` theme - вместо нее по дефолту используется `light`. 
+
+- В компоненте `ReactPlayer` изменены дефолтные значения параметров `muted` и `autoplay` с `true` на `false`
+
 ## 0.21.0
 
 - В `background-card` добавлен контент кубик, заливка карточки, темы
