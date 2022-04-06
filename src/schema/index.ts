@@ -52,6 +52,7 @@ import {
     BackgroundCard,
     NewsCard,
     CardWithImage,
+    ContentLayoutBlock,
 } from './v2';
 
 import {AnimatableProps, BackgroundProps, MenuProps, withTheme} from './common';
@@ -128,6 +129,7 @@ export function generateDefaultSchema(config?: SchemaCustomConfig) {
                             'cards-with-image-block',
                             'icons-block',
                             'card-layout-block',
+                            'content-layout-block',
                             ...Object.keys(blocks),
                         ],
                     },
@@ -174,6 +176,7 @@ export function generateDefaultSchema(config?: SchemaCustomConfig) {
                     ...HeaderSliderBlock,
                     ...IconsBlock,
                     ...CardLayoutBlock,
+                    ...ContentLayoutBlock,
                     ...getBlocksCases(blocks),
                 },
             }),

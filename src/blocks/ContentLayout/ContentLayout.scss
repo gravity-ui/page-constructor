@@ -13,7 +13,7 @@ $block: '.#{$ns}content-layout-block';
     }
 
     &__files {
-        margin-top: $indentM;
+        margin-top: $indentSM;
 
         &_size_s {
             @extend %heading-margin-reset;

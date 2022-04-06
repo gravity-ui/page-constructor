@@ -309,6 +309,7 @@ export interface CardData {
 
 export interface CardBaseProps {
     border?: CardBorder;
+    backgroundColor?: string;
 }
 
 export interface CardProps extends CardBaseProps, CardData {}
@@ -628,11 +629,11 @@ export interface TutorialCardProps extends CardBaseProps {
     icon?: ImageProps;
 }
 
-export interface BackgroundCardProps extends CardBaseProps {
-    url: string;
-    title: string;
-    text: string;
-    background?: ImageObjectProps;
+export interface BackgroundCardProps
+    extends CardBaseProps,
+        Omit<ContentBlockProps, 'colSizes' | 'centered'> {
+    url?: string;
+    background: ImageObjectProps;
     paddingBottom?: 's' | 'm' | 'l' | 'xl';
 }
 

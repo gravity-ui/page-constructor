@@ -411,7 +411,7 @@ BackgroundCards.args = {
                     title: 'Концепция безопасности',
                     text: 'Мы открыты в отношении наших обязательств и нашей ответственности за защиту и управление данными клиента в облаке.',
                     background: {
-                        src: 'https://storage.yandexcloud.net/cloud-www-assets/security-new/background/scrt_0001.png',
+                        src: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/bg_card_0001.png',
                         alt: 'card-background',
                         disableCompress: true,
                     },
@@ -423,7 +423,7 @@ BackgroundCards.args = {
                     title: 'Что мы делаем для безопасности',
                     text: 'Защита конфиденциальности информации, размещенной в облаке, данных и сервисов клиентов — наша важнейшая задача и ключевой приоритет.',
                     background: {
-                        src: 'https://storage.yandexcloud.net/cloud-www-assets/security-new/background/scrt_0002.png',
+                        src: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/bg_card_0002.png',
                         alt: 'card-background',
                         disableCompress: true,
                     },
@@ -435,12 +435,321 @@ BackgroundCards.args = {
                     title: 'Соответствие стандартам',
                     text: 'Мы постоянно совершенствуем процессы информационной безопасности, механизмы создания и эксплуатации наших сервисов, чтобы соответствовать не только федеральным, но и мировым стандартам.',
                     background: {
-                        src: 'https://storage.yandexcloud.net/cloud-www-assets/security-new/background/scrt_0003.png',
+                        src: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/bg_card_0003.png',
                         alt: 'card-background',
                         disableCompress: true,
                     },
                     url: '#',
                     paddingBottom: 'xl',
+                },
+            ],
+        },
+        {
+            type: BlockType.CardLayoutBlock,
+            title: 'Карточки с заливкой фона цветом',
+            animated: false,
+            children: [
+                {
+                    type: BlockType.BackgroundCard,
+                    title: 'Концепция безопасности',
+                    text: 'Мы открыты в отношении наших обязательств и нашей ответственности за защиту и управление данными клиента в облаке.',
+                    background: {
+                        src: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/bg_card_0001.png',
+                        alt: 'card-background',
+                        disableCompress: true,
+                    },
+                    url: '#',
+                    paddingBottom: 's',
+                    backgroundColor: '#4680ff',
+                    theme: 'dark',
+                },
+                {
+                    type: BlockType.BackgroundCard,
+                    title: 'Что мы делаем для безопасности',
+                    text: 'Защита конфиденциальности информации, размещенной в облаке, данных и сервисов клиентов — наша важнейшая задача и ключевой приоритет.',
+                    background: {
+                        src: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/bg_card_0002.png',
+                        alt: 'card-background',
+                        disableCompress: true,
+                    },
+                    url: '#',
+                    paddingBottom: 's',
+                    backgroundColor: '#262626',
+                    theme: 'dark',
+                },
+                {
+                    type: BlockType.BackgroundCard,
+                    title: 'Соответствие стандартам',
+                    text: 'Мы постоянно совершенствуем процессы информационной безопасности, механизмы создания и эксплуатации наших сервисов, чтобы соответствовать не только федеральным, но и мировым стандартам.',
+                    background: {
+                        src: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/bg_card_0003.png',
+                        alt: 'card-background',
+                        disableCompress: true,
+                    },
+                    url: '#',
+                    paddingBottom: 's',
+                    backgroundColor: '#eef2f8',
+                },
+            ],
+        },
+        {
+            type: BlockType.CardLayoutBlock,
+            title: 'Карточки с разным размером контента',
+            children: [
+                {
+                    type: BlockType.BackgroundCard,
+                    title: 'Размер l',
+                    text: yfm(
+                        '**Yandex.Cloud — публичная облачная платформа**, которая [предоставляет](https://ya.com) корпорациям, среднему бизнесу и частным разработчикам масштабируемую инфраструктуру, сервисы хранения данных, инструменты машинного обучения и средства разработки. С этими технологиями, проверенными временем и опытом Яндекса, каждый может создавать и непрерывно совершенствовать собственные ультрасовременные цифровые сервисы и приложения.',
+                    ).result.html,
+                    additionalInfo: yfm(
+                        'Яндекс [представил](https://ya.com) Yandex.Cloud в 2018 году. С момента запуска платформа выросла вдвое. Причём не только по суммарному доходу, но и по клиентской базе: ежедневно наши сервисы используют более 10 тысяч компаний.',
+                    ).result.html,
+                    links: [
+                        {
+                            url: '/security',
+                            text: 'Подробнее',
+                            theme: 'normal',
+                            arrow: true,
+                        },
+                        {
+                            url: '/security',
+                            text: 'Читать далее',
+                            theme: 'normal',
+                            arrow: true,
+                        },
+                    ],
+                    buttons: [
+                        {
+                            text: 'Подключиться',
+                            theme: 'action',
+                            url: 'https://console.cloud.yandex.${tld}/',
+                        },
+                        {
+                            text: 'Связаться с нами',
+                            theme: 'outlined',
+                            url: '/#contact-form',
+                        },
+                    ],
+                    background: {
+                        src: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/bg_card_0001.png',
+                        alt: 'card-background',
+                        disableCompress: true,
+                    },
+                    size: 'l',
+                },
+                {
+                    type: BlockType.BackgroundCard,
+                    title: 'Размер s - по умолчанию',
+                    text: yfm(
+                        '**Yandex.Cloud — публичная облачная платформа**, которая [предоставляет](https://ya.com) корпорациям, среднему бизнесу и частным разработчикам масштабируемую инфраструктуру, сервисы хранения данных, инструменты машинного обучения и средства разработки. С этими технологиями, проверенными временем и опытом Яндекса, каждый может создавать и непрерывно совершенствовать собственные ультрасовременные цифровые сервисы и приложения.',
+                    ).result.html,
+                    additionalInfo: yfm(
+                        'Яндекс [представил](https://ya.com) Yandex.Cloud в 2018 году. С момента запуска платформа выросла вдвое. Причём не только по суммарному доходу, но и по клиентской базе: ежедневно наши сервисы используют более 10 тысяч компаний.',
+                    ).result.html,
+                    links: [
+                        {
+                            url: '/security',
+                            text: 'Подробнее',
+                            theme: 'normal',
+                            arrow: true,
+                        },
+                        {
+                            url: '/security',
+                            text: 'Читать далее',
+                            theme: 'normal',
+                            arrow: true,
+                        },
+                    ],
+                    buttons: [
+                        {
+                            text: 'Подключиться',
+                            theme: 'action',
+                            url: 'https://console.cloud.yandex.${tld}/',
+                        },
+                        {
+                            text: 'Связаться с нами',
+                            theme: 'outlined',
+                            url: '/#contact-form',
+                        },
+                    ],
+                    background: {
+                        src: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/bg_card_0002.png',
+                        alt: 'card-background',
+                        disableCompress: true,
+                    },
+                },
+            ],
+        },
+        {
+            type: BlockType.CardLayoutBlock,
+            title: 'Темы карточек',
+            children: [
+                {
+                    type: BlockType.BackgroundCard,
+                    title: 'Theme = dark',
+                    text: 'Мы открыты в отношении наших обязательств и нашей ответственности за защиту и управление данными клиента в облаке.',
+                    background: {
+                        src: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/bg_card_0003.png',
+                        alt: 'card-background',
+                        disableCompress: true,
+                    },
+                    paddingBottom: 's',
+                    url: '#',
+                    theme: 'dark',
+                },
+                {
+                    type: BlockType.BackgroundCard,
+                    title: 'Theme = light',
+                    text: 'Защита конфиденциальности информации, размещенной в облаке, данных и сервисов клиентов — наша важнейшая задача и ключевой приоритет.',
+                    background: {
+                        src: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/bg_card_0002.png',
+                        alt: 'card-background',
+                        disableCompress: true,
+                    },
+                    paddingBottom: 's',
+                    url: '#',
+                    theme: 'light',
+                },
+                {
+                    type: BlockType.BackgroundCard,
+                    title: 'Theme = default',
+                    text: 'Мы постоянно совершенствуем процессы информационной безопасности, механизмы создания и эксплуатации наших сервисов, чтобы соответствовать не только федеральным, но и мировым стандартам.',
+                    background: {
+                        src: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/bg_card_0001.png',
+                        alt: 'card-background',
+                        disableCompress: true,
+                    },
+                    paddingBottom: 's',
+                    url: '#',
+                },
+                {
+                    type: BlockType.BackgroundCard,
+                    title: 'Theme = dark',
+                    text: yfm(
+                        '**Yandex.Cloud — публичная облачная платформа**, которая [предоставляет](https://ya.com) корпорациям, среднему бизнесу и частным разработчикам масштабируемую инфраструктуру, сервисы хранения данных, инструменты машинного обучения и средства разработки. С этими технологиями, проверенными временем и опытом Яндекса, каждый может создавать и непрерывно совершенствовать собственные ультрасовременные цифровые сервисы и приложения.',
+                    ).result.html,
+                    additionalInfo: yfm(
+                        'Яндекс [представил](https://ya.com) Yandex.Cloud в 2018 году. С момента запуска платформа выросла вдвое. Причём не только по суммарному доходу, но и по клиентской базе: ежедневно наши сервисы используют более 10 тысяч компаний.',
+                    ).result.html,
+                    links: [
+                        {
+                            url: '/security',
+                            text: 'Подробнее',
+                            theme: 'normal',
+                            arrow: true,
+                        },
+                        {
+                            url: '/security',
+                            text: 'Читать далее',
+                            theme: 'normal',
+                            arrow: true,
+                        },
+                    ],
+                    buttons: [
+                        {
+                            text: 'Подключиться',
+                            theme: 'normal-contrast',
+                            url: 'https://console.cloud.yandex.${tld}/',
+                        },
+                        {
+                            text: 'Связаться с нами',
+                            theme: 'outlined-contrast',
+                            url: '/#contact-form',
+                        },
+                    ],
+                    background: {
+                        src: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/bg_card_0003.png',
+                        alt: 'card-background',
+                        disableCompress: true,
+                    },
+                    paddingBottom: 's',
+                    theme: 'dark',
+                },
+                {
+                    type: BlockType.BackgroundCard,
+                    title: 'Theme = light',
+                    text: yfm(
+                        '**Yandex.Cloud — публичная облачная платформа**, которая [предоставляет](https://ya.com) корпорациям, среднему бизнесу и частным разработчикам масштабируемую инфраструктуру, сервисы хранения данных, инструменты машинного обучения и средства разработки. С этими технологиями, проверенными временем и опытом Яндекса, каждый может создавать и непрерывно совершенствовать собственные ультрасовременные цифровые сервисы и приложения.',
+                    ).result.html,
+                    additionalInfo: yfm(
+                        'Яндекс [представил](https://ya.com) Yandex.Cloud в 2018 году. С момента запуска платформа выросла вдвое. Причём не только по суммарному доходу, но и по клиентской базе: ежедневно наши сервисы используют более 10 тысяч компаний.',
+                    ).result.html,
+                    links: [
+                        {
+                            url: '/security',
+                            text: 'Подробнее',
+                            theme: 'normal',
+                            arrow: true,
+                        },
+                        {
+                            url: '/security',
+                            text: 'Читать далее',
+                            theme: 'normal',
+                            arrow: true,
+                        },
+                    ],
+                    buttons: [
+                        {
+                            text: 'Подключиться',
+                            theme: 'monochrome',
+                            url: 'https://console.cloud.yandex.${tld}/',
+                        },
+                        {
+                            text: 'Связаться с нами',
+                            theme: 'outlined',
+                            url: '/#contact-form',
+                        },
+                    ],
+                    background: {
+                        src: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/bg_card_0002.png',
+                        alt: 'card-background',
+                        disableCompress: true,
+                    },
+                    paddingBottom: 's',
+                    theme: 'light',
+                },
+                {
+                    type: BlockType.BackgroundCard,
+                    title: 'Theme = default',
+                    text: yfm(
+                        '**Yandex.Cloud — публичная облачная платформа**, которая [предоставляет](https://ya.com) корпорациям, среднему бизнесу и частным разработчикам масштабируемую инфраструктуру, сервисы хранения данных, инструменты машинного обучения и средства разработки. С этими технологиями, проверенными временем и опытом Яндекса, каждый может создавать и непрерывно совершенствовать собственные ультрасовременные цифровые сервисы и приложения.',
+                    ).result.html,
+                    additionalInfo: yfm(
+                        'Яндекс [представил](https://ya.com) Yandex.Cloud в 2018 году. С момента запуска платформа выросла вдвое. Причём не только по суммарному доходу, но и по клиентской базе: ежедневно наши сервисы используют более 10 тысяч компаний.',
+                    ).result.html,
+                    links: [
+                        {
+                            url: '/security',
+                            text: 'Подробнее',
+                            theme: 'normal',
+                            arrow: true,
+                        },
+                        {
+                            url: '/security',
+                            text: 'Читать далее',
+                            theme: 'normal',
+                            arrow: true,
+                        },
+                    ],
+                    buttons: [
+                        {
+                            text: 'Подключиться',
+                            theme: 'action',
+                            url: 'https://console.cloud.yandex.${tld}/',
+                        },
+                        {
+                            text: 'Связаться с нами',
+                            theme: 'outlined',
+                            url: '/#contact-form',
+                        },
+                    ],
+                    background: {
+                        src: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/bg_card_0001.png',
+                        alt: 'card-background',
+                        disableCompress: true,
+                    },
+                    paddingBottom: 's',
                 },
             ],
         },

@@ -3,8 +3,21 @@
 
 $block: '.#{$ns}background-card';
 
+@mixin theme() {
+    &_theme {
+        &_light {
+            background-color: var(--yc-color-promo-base-silver);
+        }
+
+        &_dark {
+            background-color: var(--yc-color-promo-base-asphalt);
+        }
+    }
+}
+
 #{$block} {
     position: relative;
+    @include theme();
 
     &_padding {
         &_s {
@@ -24,17 +37,10 @@ $block: '.#{$ns}background-card';
         }
     }
 
-    &__title {
-        @include heading4();
-
-        margin-bottom: $indentXXS;
-        font-weight: 500;
-    }
-
-    &__title,
-    &__text {
-        z-index: 10;
-        position: relative;
+    &_border_none {
+        box-shadow: none;
+        cursor: default;
+        border: none;
     }
 
     &__image {
@@ -49,8 +55,8 @@ $block: '.#{$ns}background-card';
             object-position: left;
         }
     }
+}
 
-    &__text {
-        margin: 0;
-    }
+a#{$block} {
+    @include theme();
 }

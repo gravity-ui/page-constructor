@@ -18,6 +18,7 @@ export * from '../../components/PriceDetailed/schema';
 export * from '../../blocks/HeaderSlider/schema';
 export * from '../../blocks/Icons/schema';
 export * from '../../blocks/CardLayout/schema';
+export * from '../../blocks/ContentLayout/schema';
 
 //cards
 export * from '../../components/BackgroundCard/schema';

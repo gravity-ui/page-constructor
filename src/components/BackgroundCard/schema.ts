@@ -1,18 +1,16 @@
 import {BaseProps, ImageObjectProps} from '../../schema/common';
+import {CardBase} from '../CardBase/schema';
+import {ContentBase} from '../Content/schema';
 
 export const BackgroundCard = {
     'background-card': {
         additionalProperties: false,
-        required: ['url', 'title', 'text'],
+        required: ['title', 'text', 'background'],
         properties: {
             ...BaseProps,
+            ...CardBase,
+            ...ContentBase,
             url: {
-                type: 'string',
-            },
-            title: {
-                type: 'string',
-            },
-            text: {
                 type: 'string',
             },
             background: ImageObjectProps,

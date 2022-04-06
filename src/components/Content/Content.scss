@@ -34,7 +34,6 @@ $lightSecondary: var(--yc-color-text-light-secondary);
 
     &__link {
         display: inline-block;
-        margin-top: $indentXS;
         margin-right: $indentM;
     }
 
@@ -56,8 +55,11 @@ $lightSecondary: var(--yc-color-text-light-secondary);
                 margin-top: $indentXXXS;
             }
 
-            #{$block}__buttons {
-                margin-top: $indentXS;
+            #{$block}__links,
+            #{$block}__link,
+            #{$block}__buttons,
+            #{$block}__button {
+                margin-top: $indentXXXS;
             }
         }
 
@@ -73,12 +75,11 @@ $lightSecondary: var(--yc-color-text-light-secondary);
                 @include heading5();
             }
 
-            #{$block}__links {
-                margin-top: $indentXS;
-            }
-
-            #{$block}__buttons {
-                margin-top: $indentM;
+            #{$block}__links,
+            #{$block}__link,
+            #{$block}__buttons,
+            #{$block}__button {
+                margin-top: $indentXXS;
             }
         }
     }
@@ -119,18 +120,6 @@ $lightSecondary: var(--yc-color-text-light-secondary);
 
             #{$block}__link a {
                 color: $primary;
-            }
-        }
-    }
-
-    @media (max-width: map-get($gridBreakpoints, 'sm')) {
-        &__button {
-            margin-bottom: $indentXXS;
-        }
-
-        &__buttons {
-            &:last-child {
-                margin-bottom: 0;
             }
         }
     }

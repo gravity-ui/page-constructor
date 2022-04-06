@@ -1,10 +1,13 @@
 import {filteredArray} from '../../schema/utils';
 import {BaseProps, LinkProps} from '../../schema/common';
 
-const CardBase = {
+export const CardBase = {
     border: {
         type: 'string',
         enum: ['border', 'shadow'],
+    },
+    backgroundColor: {
+        type: 'string',
     },
 };
 

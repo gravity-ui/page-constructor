@@ -222,10 +222,16 @@ const config: BlocksConfig = {
         fields: ['text', 'title'],
         transformer: typografTransformer,
     },
-    [BlockType.BackgroundCard]: {
-        fields: ['text', 'title'],
-        transformer: typografTransformer,
-    },
+    [BlockType.BackgroundCard]: [
+        {
+            fields: ['text', 'additionalInfo'],
+            transformer: yfmTransformer,
+        },
+        {
+            fields: ['title'],
+            transformer: typografTransformer,
+        },
+    ],
     [BlockType.CardWithImage]: [
         {
             fields: ['description', 'additionalInfo'],

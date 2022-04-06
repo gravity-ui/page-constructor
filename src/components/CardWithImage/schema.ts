@@ -1,5 +1,6 @@
-import {BaseProps} from '../../schema/common';
+import {BaseProps, textSize} from '../../schema/common';
 import {filteredArray} from '../../schema/utils';
+import {ButtonBlock, TitleProps} from '../../schema/v2/common';
 
 const CardWithImageLinks = {
     type: 'object',
@@ -13,6 +14,17 @@ const CardWithImageLinks = {
         link: {
             type: 'string',
         },
+        arrow: {
+            type: 'boolean',
+        },
+        theme: {
+            type: 'string',
+            enum: ['back', 'file-link', 'normal'],
+        },
+        textSize: {
+            type: 'string',
+            enum: textSize,
+        },
     },
 };
 
@@ -25,9 +37,12 @@ export const CardWithImageItem = {
             type: 'string',
         },
         title: {
-            type: 'string',
+            oneOf: [{type: 'string'}, TitleProps],
         },
         description: {
+            type: 'string',
+        },
+        additionalInfo: {
             type: 'string',
         },
         disableCompress: {
@@ -39,10 +54,8 @@ export const CardWithImageItem = {
         fullScreen: {
             type: 'boolean',
         },
-        links: {
-            type: 'array',
-            items: filteredArray(CardWithImageLinks),
-        },
+        links: filteredArray(CardWithImageLinks),
+        buttons: filteredArray(ButtonBlock),
     },
 };
 

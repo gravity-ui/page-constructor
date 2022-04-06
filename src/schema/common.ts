@@ -6,15 +6,20 @@ export const mediaDirection = ['media-content', 'content-media'];
 export const textSize = ['s', 'm', 'l'];
 export const containerSizesArray = ['sm', 'md', 'lg', 'xl', 'all'];
 export const sliderSizesArray = ['sm', 'md', 'lg', 'xl'];
+export const contentSizes = ['s', 'l'];
+export const contentTextWidth = ['s', 'm', 'l'];
 
 export const videoTypes = ['default', 'player'];
 export const playIconTypes = ['default', 'text'];
 export const playIconThemes = ['blue', 'grey'];
 export const videoControlsTypes = ['default', 'custom'];
+export const fileLinkTypes = ['vertical', 'horizontal'];
 
 export const dividerEnum = {enum: [0, 'xxs', 'xs', 's', 'm', 'l', 'xl', 'xxl', 'xxxl']};
 export const sizeNumber = {type: 'number', maximum: 12, minimum: 1};
 export const tileSizeNumber = {type: 'number', enum: [1, 2, 3, 4]};
+
+export const contentThemes = ['default', 'dark', 'light'];
 
 export const BaseProps = {
     type: {},
@@ -237,6 +242,32 @@ export const LinkProps = {
     },
 };
 
+export const FileLinkProps = {
+    type: 'object',
+    additionalProperties: false,
+    required: ['href', 'text'],
+    properties: {
+        href: {
+            type: 'string',
+        },
+        text: {
+            type: 'string',
+        },
+        type: {
+            type: 'string',
+            enum: fileLinkTypes,
+        },
+        textSize: {
+            type: 'string',
+            enum: textSize,
+        },
+        theme: {
+            type: 'string',
+            enum: contentThemes,
+        },
+    },
+};
+
 export const author = {
     type: 'object',
     required: ['firstName', 'secondName'],
@@ -330,6 +361,7 @@ export const ButtonProps = {
             'google-play',
             'scale',
             'github',
+            'monochrome',
         ],
     },
     img: {

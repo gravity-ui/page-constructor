@@ -43,6 +43,7 @@ export default class Layout extends React.Component<CardBaseProps> {
             url,
             target,
             border = 'shadow',
+            backgroundColor,
         } = this.props;
         let header, content, footer, image, headerClass, footerClass;
 
@@ -86,7 +87,7 @@ export default class Layout extends React.Component<CardBaseProps> {
             </Fragment>
         );
 
-        const fullClassName = b({border}, className);
+        const fullClassName = b({border: border}, className);
 
         return url ? (
             <a
@@ -100,7 +101,9 @@ export default class Layout extends React.Component<CardBaseProps> {
                 {cardContent}
             </a>
         ) : (
-            <div className={fullClassName}>{cardContent}</div>
+            <div className={fullClassName} style={{backgroundColor}}>
+                {cardContent}
+            </div>
         );
     }
 }

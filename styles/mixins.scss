@@ -255,8 +255,10 @@
         @extend %shadow;
     }
 
-    @if $hover {
-        @extend %shadow-hover;
+    &:not(&_border_none) {
+        @if $hover {
+            @extend %shadow-hover;
+        }
     }
 }
 
