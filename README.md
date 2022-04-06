@@ -12,12 +12,16 @@
 
 ### Начало работы
 
-Конструктор страниц импортируется в виде реакт-компонента:
+Конструктор страниц импортируется в виде реакт-компонента. Для корректной работы его необходимо обернуть в `PageConstructorProvider`:
 
 ```jsx
-import {PageConstructor} from '@yandex-data-ui/page-constructor';
+import {PageConstructor, PageConstructorProvider} from '@yandex-data-ui/page-constructor';
 
-const Page: React.FC<PageProps> = ({content}) => <PageConstructor content={content} />;
+const Page: React.FC<PageProps> = ({content}) => (
+  <PageConstructorProvider>
+    <PageConstructor content={content} />
+  </PageConstructorProvider>
+);
 ```
 
 ### Параметры
@@ -27,12 +31,16 @@ interface PageConstructorProps {
     content: PageContent; //описание блоков в формате json
     shouldRenderBlock?: ShouldRenderBlock; // функция которая вызывается при отрисовке каждого блока и позволяет задавать условия его отображения
     custom?: Custom; //пользовательские блоки (см. раздел `Кастомизация`)
-    metrika?: Metrika; //функции для оптправки данных аналитики
-    ssrConfig?: SSR; //содержит признак того, что код выполнякется на стороне сервера
-    location?: Location; //api истории браузера или роутера, информация о url страницы
-    locale?: LocaleContextProps; //информация о языке и домене (используется при генерации и оформлении ссылок)
+    renderMenu?: () => React.ReactNode; //функция, которая отрисовывает меню страницы с навигацией (планируется добавить отрисовку варианта меню по умолчанию)
+}
+
+interface PageConstructorProviderProps {
     isMobile?: boolean; //признак того, что код выполняется в режиме мобильного устройства
-    renderMenu?: () => React.ReactNode; //функция, которая отрисовывает меню страницы с навигагацией (планируется добавить отрисовку варианта меню по умолчанию)
+    locale?: LocaleContextProps; //информация о языке и домене (используется при генерации и оформлении ссылок)
+    location?: Location; //api истории браузера или роутера, информация о url страницы
+    metrika?: Metrika; //функции для отправки данных аналитики
+    ssrConfig?: SSR; //содержит признак того, что код выполняется на стороне сервера
+    theme?: 'light' | 'dark'; //тема, с которой будет отрисована страница
 }
 
 export interface PageContent extends Animatable {
@@ -137,7 +145,7 @@ const Page: React.FC<PageProps> = ({children}) => (
 
 Более подробно о блоках можно в [документации](https://github.yandex-team.ru/data-ui/cloud-backoffice/wiki/Страницы).
 
-### Как добавить новый блок в `page-constructor`:
+### Как добавить новый блок в `page-constructor`
 
 1. В директории `src/blocks` или `src/components` создаем папку с кодом блока/компонета
 
@@ -170,7 +178,7 @@ const Page: React.FC<PageProps> = ({children}) => (
 
 ## Разработка
 
-```
+```bash
 npm ci
 npm run dev
 ```

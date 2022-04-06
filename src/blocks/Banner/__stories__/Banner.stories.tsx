@@ -14,7 +14,7 @@ const DefaultTemplate: Story<BannerBlockModel> = (args) => (
         content={{
             blocks: [args],
             background: {
-                system: {
+                light: {
                     image: 'https://storage.yandexcloud.net/cloud-www-assets/edu/bnr-education-blue.png',
                 },
                 dark: {
@@ -33,12 +33,12 @@ Default.args = {
     subtitle:
         'Получите грант на вычислительные ресурсы для учебно-исследовательской работы по машинному обучению, компьютерному зрению и анализу данных.',
     image: {
-        system: 'https://storage.yandexcloud.net/cloud-www-assets/edu/bnr-compscience-new.png',
+        light: 'https://storage.yandexcloud.net/cloud-www-assets/edu/bnr-compscience-new.png',
         dark: 'https://storage.yandexcloud.net/cloud-www-assets/edu/bnr-education-blue.png',
     },
     disableCompress: true,
     color: {
-        system: '#EEF3FE',
+        light: '#EEF3FE',
         dark: '#000',
     },
     button: {

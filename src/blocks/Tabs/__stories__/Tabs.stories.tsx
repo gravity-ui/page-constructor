@@ -60,7 +60,7 @@ Media.args = {
             tabName: 'Розничная торговля',
             title: 'Розничная торговля',
             image: {
-                system: {
+                light: {
                     src: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/ydb-assets/graph.png',
                     disableCompress: true,
                 },
@@ -75,7 +75,7 @@ Media.args = {
             tabName: 'Сайт объявлений',
             title: 'Сайт объявлений',
             image: {
-                system: {
+                light: {
                     src: 'https://storage.yandexcloud.net/cloud-www-assets/solutions/schemes/data-platform.png',
                 },
                 dark: {

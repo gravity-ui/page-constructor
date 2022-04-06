@@ -9,7 +9,7 @@ import React, {
     useRef,
     useState,
 } from 'react';
-import {Icon, MobileContext} from '@yandex-data-ui/common';
+import {Icon} from '@yandex-data-ui/common';
 import {ClassNameProps} from '@yandex-data-ui/cloud-components';
 
 import {block} from '../../utils';
@@ -24,6 +24,7 @@ import {
 import CustomBarControls from './CustomBarControls';
 import {VideoContext} from '../../context/videoContext';
 import {MetrikaContext} from '../../context/metrikaContext';
+import {MobileContext} from '../../context/mobileContext';
 
 import playVideoIcon from '../../../assets/icons/play-video.svg';
 
@@ -54,9 +55,8 @@ const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactPlayerBl
             previewImgUrl,
             loop = false,
             controls = MediaVideoControlsType.Default,
-            muted = true,
-            autoplay = true,
-            elapsedTime = 0,
+            muted: initiallyMuted = false,
+            elapsedTime,
             playButton,
             className,
             customBarControlsClassName,
@@ -72,29 +72,30 @@ const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactPlayerBl
             className: buttonClassName,
         } = playButton || ({} as PlayButtonProps);
 
+        const autoPlay = Boolean(!isMobile && !previewImgUrl && props.autoplay);
+        const mute = initiallyMuted || autoPlay;
+
         const {playingVideoRef, setProps} = useContext(VideoContext);
 
         const ref = useRef<HTMLDivElement>(null);
 
         const [playerRef, setPlayerRef] = useState<ReactPlayer>();
-        const [isPlaying, setIsPlaying] = useState(autoplay && !previewImgUrl);
-        const [totalTime, setTotalTime] = useState<number>(0);
+        const [isPlaying, setIsPlaying] = useState(autoPlay);
+        const [playedPercent, setPlayedPercent] = useState<number>(0);
         const [height, setHeight] = useState<number>(0);
         const [width, setWidth] = useState<number>(0);
-        const [mute, setMute] = useState<boolean>(muted);
-        const [pause, setPause] = useState<boolean>(false);
-        const [end, setEnd] = useState<boolean>(false);
-        const [playedPercent, setPlayedPercent] = useState<number>(0);
+        const [muted, setMuted] = useState<boolean>(mute);
+        const [started, setStarted] = useState(autoPlay);
+        const [paused, setPaused] = useState<boolean>(false);
+        const [ended, setEnded] = useState<boolean>(false);
 
         useImperativeHandle(originRef, () => ({
-            pause: () => {
-                setIsPlaying(false);
-            },
+            pause: () => setIsPlaying(false),
         }));
 
         useEffect(() => {
             if (ref.current && !playingVideoRef?.contains(ref.current)) {
-                setMute(true);
+                setMuted(true);
             }
         }, [playingVideoRef]);
 
@@ -104,24 +105,25 @@ const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactPlayerBl
             }
         }, [showPreview, playerRef]);
 
-        const handleClickPreview = useCallback(() => {
-            setIsPlaying(true);
-            onClickPreview?.();
-
-            if (metrika && videoMetrika) {
-                const {play, counterName} = videoMetrika;
-
-                if (play) {
-                    metrika.reachGoals(play, counterName);
-                }
-            }
-        }, [onClickPreview, setIsPlaying, videoMetrika, metrika]);
-
         useEffect(() => {
             if (playerRef) {
-                setIsPlaying(autoplay);
+                setIsPlaying(autoPlay);
             }
-        }, [autoplay, playerRef]);
+        }, [autoPlay, playerRef]);
+
+        useEffect(() => setMuted(mute), [mute]);
+
+        useEffect(() => {
+            if (!started && isPlaying) {
+                setStarted(true);
+            }
+        }, [isPlaying, started]);
+
+        useEffect(() => {
+            if (started && !Number.isNaN(Number(elapsedTime))) {
+                playerRef?.seekTo(elapsedTime ?? 0, 'seconds');
+            }
+        }, [elapsedTime, playerRef, started]);
 
         useEffect(() => {
             const updateSize = _.debounce(() => {
@@ -146,13 +148,7 @@ const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactPlayerBl
             };
         }, []);
 
-        useEffect(() => {
-            if (elapsedTime !== undefined && playerRef && totalTime) {
-                playerRef.seekTo(elapsedTime / totalTime);
-            }
-        }, [playerRef, totalTime, elapsedTime]);
-
-        const getPlayButton = useMemo(() => {
+        const playIcon = useMemo(() => {
             let playButtonContent;
 
             switch (type) {
@@ -195,47 +191,76 @@ const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactPlayerBl
                 }
 
                 // In order to the progress bar to update (equals 0) before displaying
-                setTimeout(() => setMute(!isMuted), 0);
+                setTimeout(() => setMuted(!isMuted), 0);
             },
             [playerRef, setProps, videoMetrika, metrika],
         );
 
-        const handlePlay = useCallback(
-            (isMuted: boolean, isPaused: boolean, isEnded: boolean) => {
-                setIsPlaying(true);
+        const handleClick = useCallback(() => changeMute(muted), [changeMute, muted]);
 
-                if (controls === MediaVideoControlsType.Custom) {
-                    if (isEnded) {
-                        changeMute(false);
-                    } else if (isPaused) {
-                        changeMute(isMuted);
-                    }
-                    setEnd(false);
-                    setPause(false);
+        const handleClickPreview = useCallback(() => {
+            setIsPlaying(true);
+            onClickPreview?.();
+
+            if (metrika && videoMetrika) {
+                const {play, counterName} = videoMetrika;
+
+                if (play) {
+                    metrika.reachGoals(play, counterName);
                 }
-            },
-            [controls, setIsPlaying, changeMute, setPause, setEnd],
-        );
+            }
+        }, [onClickPreview, setIsPlaying, videoMetrika, metrika]);
 
-        const handlePause = useCallback(() => {
+        const onPause = useCallback(() => {
             // For support correct state for youtube
             setIsPlaying(false);
 
             if (controls === MediaVideoControlsType.Custom) {
-                setPause(true);
+                setPaused(true);
                 setIsPlaying(true);
             }
-        }, [controls, setIsPlaying, setPause]);
+        }, [controls, setIsPlaying, setPaused]);
 
         const onStart = useCallback(() => {
-            if (isMobile && !muted) {
-                setMute(false);
+            if (!autoPlay && !initiallyMuted) {
+                setMuted(false);
             }
-        }, [isMobile, muted]);
+        }, [autoPlay, initiallyMuted]);
 
-        useEffect(() => {
-            setMute(muted);
-        }, [muted]);
+        const onPlay = useCallback(() => {
+            setIsPlaying(true);
+
+            if (controls === MediaVideoControlsType.Custom) {
+                if (ended) {
+                    changeMute(false);
+                } else if (paused) {
+                    changeMute(muted);
+                }
+                setEnded(false);
+                setPaused(false);
+            }
+        }, [changeMute, controls, ended, muted, paused]);
+
+        const onProgress = useCallback((progress) => {
+            setPlayedPercent(progress.played);
+
+            if (progress.played === 1) {
+                setMuted(true);
+            }
+        }, []);
+
+        const onEnded = useCallback(() => {
+            // Youtube videos not muted after finishing playing and start again.
+            // 'onEnded' does not fire when 'loop' is set to true.
+            // It is custom loop with muted sound after finishing playing and start again.
+            if (loop) {
+                setPlayedPercent(0);
+                setIsPlaying(true);
+                playerRef?.seekTo(0);
+            }
+
+            setEnded(true);
+        }, [loop, playerRef]);
 
         const renderCustomBarControls = useCallback(
             (isMuted: boolean, elapsedTimePercent: number) => {
@@ -265,49 +290,27 @@ const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactPlayerBl
         );
 
         return (
-            <div
-                className={b({wrapper: !height}, className)}
-                ref={ref}
-                onClick={() => changeMute(mute)}
-            >
+            <div className={b({wrapper: !height}, className)} ref={ref} onClick={handleClick}>
                 <ReactPlayer
-                    ref={(player: ReactPlayer) => setPlayerRef(player)}
                     className={b('player')}
                     url={src}
-                    muted={mute}
+                    muted={muted}
                     controls={controls === MediaVideoControlsType.Default}
                     height={height || '100%'}
                     width={width || '100%'}
                     light={previewImgUrl}
                     playing={isPlaying}
-                    playIcon={getPlayButton}
+                    playIcon={playIcon}
                     progressInterval={FPS}
                     onClickPreview={handleClickPreview}
                     onStart={onStart}
-                    onReady={(player: ReactPlayer) => setTotalTime(player.getDuration())}
-                    onPlay={() => handlePlay(mute, pause, end)}
-                    onPause={handlePause}
-                    onProgress={(progress) => {
-                        setPlayedPercent(progress.played);
-
-                        if (progress.played === 1) {
-                            setMute(true);
-                        }
-                    }}
-                    onEnded={() => {
-                        // Youtube videos not muted after finishing playing and start again.
-                        // 'onEnded' does not fire when 'loop' is set to true.
-                        // It is custom loop with muted sound after finishing playing and start again.
-                        if (loop) {
-                            setPlayedPercent(0);
-                            setIsPlaying(true);
-                            playerRef?.seekTo(0);
-                        }
-
-                        setEnd(true);
-                    }}
+                    onReady={setPlayerRef}
+                    onPlay={onPlay}
+                    onPause={onPause}
+                    onProgress={onProgress}
+                    onEnded={onEnded}
                 />
-                {renderCustomBarControls(mute, playedPercent)}
+                {renderCustomBarControls(muted, playedPercent)}
             </div>
         );
     },

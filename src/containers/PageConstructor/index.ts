@@ -1,2 +1,4 @@
-export type {PageConstructorProviderProps as PageConstructorProps} from './Provider';
-export {PageConstructorProvider as PageConstructor} from './Provider';
+export type {PageConstructorProps} from './PageConstructor';
+export {PageConstructor} from './PageConstructor';
+export type {PageConstructorProviderProps} from './Provider';
+export {PageConstructorProvider} from './Provider';

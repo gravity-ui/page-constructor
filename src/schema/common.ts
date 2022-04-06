@@ -434,7 +434,7 @@ export function withTheme<T>(value: T) {
             {
                 type: 'object',
                 additionalProperties: false,
-                required: [Theme.System],
+                required: [Theme.Light],
                 properties: Object.values(Theme).reduce(
                     (result, themeName) => ({
                         ...result,
