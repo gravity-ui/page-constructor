@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button} from '@yandex-data-ui/common';
+import {Button} from '@yandex-cloud/uikit';
 import {ClassNameProps} from '@yandex-data-ui/cloud-components';
 
 import {block} from '../../utils';

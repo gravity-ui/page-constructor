@@ -1,6 +1,6 @@
 //MOVE to cloud-components
 import React from 'react';
-import {Icon} from '@yandex-data-ui/common';
+import {Icon} from '@yandex-cloud/uikit';
 
 import {block} from '../../utils';
 

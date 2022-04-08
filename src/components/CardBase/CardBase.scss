@@ -31,7 +31,7 @@ $block: '.#{$ns}card-base-block';
     }
 
     &__body {
-        @include text-size(body2);
+        @include text-size(body-2);
         @extend %flex-column;
 
         flex: 1;

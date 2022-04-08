@@ -156,11 +156,11 @@ $block: '.#{$ns}SliderBlock';
                 }
 
                 &_m {
-                    @include text-size(body2);
+                    @include text-size(body-2);
                 }
 
                 &_s {
-                    @include text-size(body);
+                    @include text-size(body-1);
                 }
             }
         }

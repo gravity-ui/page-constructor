@@ -38,7 +38,7 @@ $settingsIndentBetweenTitleAndDescriptionHeight: 2px;
         cursor: pointer;
         display: flex;
         font-weight: 400;
-        @include text-size(body2);
+        @include text-size(body-2);
 
         &_color_cornflower {
             color: var(--yc-color-text-info);

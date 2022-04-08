@@ -1,5 +1,5 @@
 import React, {useState, useCallback, CSSProperties} from 'react';
-import {Icon, Modal} from '@yandex-data-ui/common';
+import {Icon, Modal} from '@yandex-cloud/uikit';
 
 import {block} from '../../utils';
 import Image, {ImageProps} from '../Image/Image';

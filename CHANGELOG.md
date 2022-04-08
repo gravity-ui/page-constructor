@@ -1,5 +1,14 @@
 # Лог изменений
 
+## 0.34.0
+
+### Breaking changes
+
+- Добавлен пакет `@yandex-cloud/uikit`
+- Обновлен пакет `@yandex-data-ui/common`
+- Заменен пакет в peer dependencies `@yandex-data-ui/i18n` -> `@yandex-cloud/i18n`
+- Пакет react-router-dom удален из зависимосте
+
 ## 0.33.0
 
 Удален компонент `HeaderWithImage`
@@ -47,6 +56,7 @@ Fix content-layout text color in dark theme
 
 - Отдельно вынесен `PageConstructorProvider`, для корректной работы `PageConstructor` необходимо обернуть в этот провайдер.
   Подробнее в [readme](https://github.yandex-team.ru/data-ui/page-constructor/blob/master/README.md#начало-работы)
+
 - Удалена `system` theme - вместо нее по дефолту используется `light`.
 
 - В компоненте `ReactPlayer` изменены дефолтные значения параметров `muted` и `autoplay` с `true` на `false`

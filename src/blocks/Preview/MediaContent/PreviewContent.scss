@@ -50,7 +50,7 @@ $block: '.#{$ns}preview-content-block';
     }
 
     &__description {
-        @include text-size(body2);
+        @include text-size(body-2);
         position: relative;
     }
 

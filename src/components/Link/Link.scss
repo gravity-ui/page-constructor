@@ -52,7 +52,7 @@ $block: '.#{$ns}link-block';
 
     &_size {
         &_l {
-            @include text-size(body3);
+            @include text-size(body-3);
         }
 
         &_m {
@@ -60,7 +60,7 @@ $block: '.#{$ns}link-block';
         }
 
         &_s {
-            @include text-size(body);
+            @include text-size(body-1);
         }
     }
 }

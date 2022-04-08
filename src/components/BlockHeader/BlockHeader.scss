@@ -5,7 +5,7 @@ $block: '.#{$ns}BlockHeader';
 
 #{$block} {
     &__description {
-        @include text-size(body2);
+        @include text-size(body-2);
 
         margin-top: $indentXS;
 
@@ -14,7 +14,7 @@ $block: '.#{$ns}BlockHeader';
         }
 
         &_titleSize_l {
-            @include text-size(body3);
+            @include text-size(body-3);
         }
 
         a {

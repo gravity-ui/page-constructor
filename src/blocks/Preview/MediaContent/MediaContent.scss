@@ -13,13 +13,13 @@ $block: '.#{$ns}preview-media-content-block';
     }
 
     &__title {
-        @include text-size(display1);
+        @include text-size(display-1);
         font-weight: 500;
         position: relative;
     }
 
     &__description {
-        @include text-size(body2);
+        @include text-size(body-2);
         margin-top: $indentXXS;
         position: relative;
     }

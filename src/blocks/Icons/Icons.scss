@@ -8,7 +8,7 @@ $block: '.#{$ns}icons-block';
     flex-wrap: wrap;
     justify-content: center;
 
-    @include text-size(body2);
+    @include text-size(body-2);
 
     &_size_s {
         #{$block}__item {

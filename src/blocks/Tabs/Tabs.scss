@@ -29,7 +29,7 @@ $block: '.#{$ns}TabsBlock';
     }
 
     &__caption {
-        @include text-size(body2);
+        @include text-size(body-2);
 
         margin: $indentXXS 0 0;
         color: var(--yc-color-text-secondary);
@@ -58,7 +58,7 @@ $block: '.#{$ns}TabsBlock';
 
     &__tabs,
     &__link {
-        @include text-size(body2);
+        @include text-size(body-2);
     }
 
     @media (max-width: map-get($gridBreakpoints, 'md')) {

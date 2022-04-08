@@ -1,7 +1,7 @@
 import React, {useRef, useState, useCallback, useEffect} from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
-import {Icon} from '@yandex-data-ui/common';
+import {Icon} from '@yandex-cloud/uikit';
 
 import {block, getPageSearchParams} from '../../utils';
 
