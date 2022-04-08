@@ -67,6 +67,7 @@ class Constructor extends React.Component<Props> {
             renderMenu,
             themeValue: theme,
         } = this.props;
+        console.log(theme);
 
         const hasFootnotes = footnotes.length > 0;
         const header = blocks?.find(this.isHeaderBlock);

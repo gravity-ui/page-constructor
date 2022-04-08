@@ -1,5 +1,5 @@
 import React, {Children} from 'react';
-import {Tabs as TabsCommon} from '@yandex-data-ui/common';
+import {Tabs as TabsCommon} from '@yandex-cloud/uikit';
 import {CSSTransition, TransitionGroup} from 'react-transition-group';
 
 import {block} from '../../utils';

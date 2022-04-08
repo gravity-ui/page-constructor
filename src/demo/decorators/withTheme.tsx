@@ -1,6 +1,7 @@
 import React from 'react';
 import {Story as StoryType, StoryContext} from '@storybook/react/types-6-0';
-import {useTheme} from '../../context/theme/useTheme';
+// import {useTheme} from '@yandex-cloud/uikit';
+import {useTheme} from '../../context/theme';
 
 export function withTheme(Story: StoryType, context: StoryContext) {
     const themeValue = context.globals.theme;

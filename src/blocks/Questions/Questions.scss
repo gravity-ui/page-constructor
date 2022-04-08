@@ -35,7 +35,7 @@ $block: '.#{$ns}QuestionsBlock';
     }
 
     &__text {
-        @include text-size(body2);
+        @include text-size(body-2);
 
         margin-top: $indentXXS;
     }
@@ -48,6 +48,6 @@ $block: '.#{$ns}QuestionsBlock';
     }
 
     &__link {
-        @include text-size(body2);
+        @include text-size(body-2);
     }
 }

@@ -1,5 +1,5 @@
 import React, {useCallback, useContext} from 'react';
-import {Icon} from '@yandex-data-ui/common';
+import {Icon} from '@yandex-cloud/uikit';
 import {ClassNameProps} from '@yandex-data-ui/cloud-components';
 
 import {block, getLinkProps, setUrlTld} from '../../utils';

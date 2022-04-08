@@ -1,5 +1,6 @@
 import React, {CSSProperties, ReactNode} from 'react';
-import {ButtonSize, ButtonView, SocialNetwork} from '@yandex-data-ui/common';
+import {ButtonSize, ButtonView} from '@yandex-cloud/uikit';
+import {SocialNetwork} from '@yandex-data-ui/common';
 import {ClassNameProps} from '@yandex-data-ui/cloud-components';
 import {EventPublic, ServicePublic} from '@yandex-data-ui/cloud-schemas/build/models/ui-api';
 

@@ -37,7 +37,7 @@ $block: '.#{$ns}page-constructor';
         margin: 0;
         padding: $indentM 0 $indentM $indentXS;
 
-        @include text-size(body);
+        @include text-size(body-1);
         color: var(--yc-color-text-hint);
 
         &-item + &-item {

@@ -1,4 +1,4 @@
-import {ButtonSize, ButtonView} from '@yandex-data-ui/common';
+import {ButtonSize, ButtonView} from '@yandex-cloud/uikit';
 
 export type OldButtonTheme =
     | 'normal'
@@ -21,7 +21,7 @@ const themeMap: Record<OldButtonTheme, ButtonView> = {
     action: 'action',
     flat: 'flat',
     light: 'flat-secondary',
-    clear: 'clear',
+    clear: 'flat-secondary',
     raised: 'raised',
     pseudo: 'outlined',
     link: 'outlined-info',

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Icon} from '@yandex-data-ui/common';
+import {Icon} from '@yandex-cloud/uikit';
 
 import {block} from '../../utils';
 import {ArrowDirection} from '../../models/components';

@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useCallback} from 'react';
-import {Spin} from '@yandex-data-ui/common';
+import {Spin} from '@yandex-cloud/uikit';
 import blockCn from 'bem-cn-lite';
 
 import {Block, FetchLoadableData, LoadableData} from '../../models';
