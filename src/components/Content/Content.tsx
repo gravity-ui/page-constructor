@@ -60,11 +60,13 @@ const Content: React.FC<ContentBlockProps & ClassNameProps> = (props) => {
             ? ({text: title, textSize: getTextSize(size)} as TitleProps)
             : title;
 
+    const hasTitle = Boolean(title);
+
     return (
         <Col className={b({size, centered, theme}, className)} reset sizes={colSizes}>
             {title && <Title className={b('title')} {...titleProps} resetMargin />}
             {text && (
-                <div className={b('text')}>
+                <div className={b('text', {['without-title']: !hasTitle})}>
                     <YFMWrapper content={text} modifiers={{constructor: true}} />
                 </div>
             )}

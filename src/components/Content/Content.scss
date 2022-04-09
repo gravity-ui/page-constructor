@@ -55,6 +55,12 @@ $lightSecondary: var(--yc-color-text-light-secondary);
                 margin-top: $indentXXXS;
             }
 
+            #{$block}__text {
+                &_without-title {
+                    margin-top: 0;
+                }
+            }
+
             #{$block}__links,
             #{$block}__link,
             #{$block}__buttons,
@@ -67,6 +73,12 @@ $lightSecondary: var(--yc-color-text-light-secondary);
             #{$block}__text,
             #{$block}__notice {
                 margin-top: $indentXXS;
+            }
+
+            #{$block}__text {
+                &_without-title {
+                    margin-top: 0;
+                }
             }
 
             #{$block}__text .yfm,
