@@ -5,7 +5,7 @@ $block: '.#{$ns}table';
 
 #{$block} {
     $root: &;
-    @include text-size(body2);
+    @include text-size(body-2);
 
     margin-top: $indentM;
 

@@ -140,7 +140,7 @@
 }
 
 @mixin label($size: m) {
-    @include text-size(body);
+    @include text-size(body-1);
 
     $label-height: 20px;
 

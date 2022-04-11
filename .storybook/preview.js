@@ -8,9 +8,8 @@ import {MINIMAL_VIEWPORTS} from '@storybook/addon-viewport';
 import {withTheme} from '../src/demo/decorators/withTheme';
 import {withLang} from '../src/demo/decorators/withLang';
 import {DocsWithReadme} from '../src/demo/DocsWithReadme';
-import {ThemeProvider, MobileProvider} from '@yandex-cloud/uikit';
-// import {MobileProvider} from '@yandex-cloud/uikit';
-// import {ThemeProvider} from '../src';
+import {MobileProvider} from '@yandex-cloud/uikit';
+import {ThemeProvider} from '../src';
 
 const withCommonProvider = (Story, context) => {
     const theme = context.globals.theme;

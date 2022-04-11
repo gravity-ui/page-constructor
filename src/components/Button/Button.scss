@@ -2,6 +2,22 @@
 
 $block: '.#{$ns}button-block';
 
+@mixin monochromeButton() {
+    color: var(--yc-color-text-light-primary);
+
+    &::before {
+        background-color: var(--pc-monochrome-button);
+    }
+
+    &:hover {
+        color: var(--yc-color-text-light-primary);
+
+        &::before {
+            background-color: var(--pc-monochrome-button-hover);
+        }
+    }
+}
+
 #{$block} {
     margin-top: $indentS;
 
@@ -22,13 +38,7 @@ $block: '.#{$ns}button-block';
 
     &_theme {
         &_github {
-            color: var(--yc-color-text-light-primary);
-            background-color: var(--yc-color-github);
-
-            &:hover {
-                color: var(--yc-color-text-light-primary);
-                background-color: #000;
-            }
+            @include monochromeButton();
         }
 
         &_scale::before,
@@ -37,13 +47,7 @@ $block: '.#{$ns}button-block';
         }
 
         &_monochrome {
-            color: var(--yc-color-text-light-primary);
-            background-color: var(--yc-color-github);
-
-            &:hover {
-                color: var(--yc-color-text-light-primary);
-                background-color: #000;
-            }
+            @include monochromeButton();
         }
     }
 

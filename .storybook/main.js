@@ -35,7 +35,11 @@ config
     )
     .module.addRule({
         test: /\.svg$/,
-        include: [path.resolve(assetsRoot, 'icons'), path.resolve(uikitRoot, 'assets/icons')],
+        include: [
+            path.resolve(assetsRoot, 'icons'),
+            path.resolve(nodeModulesRoot, '@yandex-data-ui/common/assets/icons'),
+            path.resolve(uikitRoot, 'assets/icons'),
+        ],
         loader: 'svg-sprite-loader',
         options: {
             extract: true,
@@ -79,7 +83,11 @@ module.exports = {
             test: /\.(ico|bmp|gif|jpe?g|png|svg)$/,
             loader: 'url-loader',
             include: [root],
-            exclude: [path.resolve(assetsRoot, 'icons'), path.resolve(uikitRoot, 'assets/icons')],
+            exclude: [
+                path.resolve(assetsRoot, 'icons'),
+                path.resolve(nodeModulesRoot, '@yandex-data-ui/common/assets/icons'),
+                path.resolve(uikitRoot, 'assets/icons'),
+            ],
         });
 
         // без этого fileName в context.parameters в продакшн сборке становится цифрой, а не путём, и ссылку на сорсы не сформировать
