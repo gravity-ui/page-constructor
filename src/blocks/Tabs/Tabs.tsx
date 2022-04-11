@@ -45,6 +45,7 @@ const TabsBlock: React.FunctionComponent<TabsBlockProps> = ({
                 items={tabs}
                 activeTab={activeTab}
                 onSelectTab={setActiveTab}
+                size="l"
             />
             {activeTabData && (
                 <Row>
