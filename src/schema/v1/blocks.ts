@@ -8,7 +8,6 @@ import {
     dividerEnum,
     JustifyProps,
     LinkProps,
-    QuoteItemProps,
     textSize,
     ThemeProps,
     tileSizesObject,
@@ -29,13 +28,6 @@ export const tileItem = {
             type: 'string',
         },
     },
-};
-
-export const quoteItem = {
-    type: 'object',
-    additionalProperties: false,
-    required: ['text', 'image', 'logo'],
-    properties: QuoteItemProps,
 };
 
 export const headerBlock = {
@@ -343,17 +335,6 @@ export const formBlock = {
                     type: 'string',
                 },
             },
-        },
-    },
-};
-
-export const quotesBlock = {
-    quotes: {
-        additionalProperties: false,
-        required: ['items'],
-        properties: {
-            ...BaseProps,
-            items: filteredArray(quoteItem),
         },
     },
 };

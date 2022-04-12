@@ -29,3 +29,4 @@ export * from '../../components/NewsCard/schema';
 export * from '../../components/Partner/schema';
 export * from '../../components/TutorialCard/schema';
 export * from '../../components/CardWithImage/schema';
+export * from '../../components/Quote/schema';

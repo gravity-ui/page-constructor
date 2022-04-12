@@ -52,3 +52,5 @@ export {default as BackgroundCard} from './BackgroundCard/BackgroundCard';
 export {default as Control} from './Control/Control';
 export {default as OverflowScroller} from './OverflowScroller/OverflowScroller';
 export {default as Content} from './Content/Content';
+export {default as Quote} from './Quote/Quote';
+export {default as Author} from './Author/Author';

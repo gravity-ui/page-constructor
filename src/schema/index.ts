@@ -12,7 +12,6 @@ import {
     headerWithImageBlock,
     imageBlock,
     linkBlock,
-    quotesBlock,
     scrollableBlock,
     sectionBlock,
     shareBlock,
@@ -53,6 +52,7 @@ import {
     NewsCard,
     CardWithImage,
     ContentLayoutBlock,
+    Quote,
 } from './v2';
 
 import {AnimatableProps, BackgroundProps, MenuProps, withTheme} from './common';
@@ -103,7 +103,6 @@ export function generateDefaultSchema(config?: SchemaCustomConfig) {
                             'scrollable',
                             'tiles',
                             'form',
-                            'quotes',
                             'card',
                             'quote',
                             'event',
@@ -154,7 +153,6 @@ export function generateDefaultSchema(config?: SchemaCustomConfig) {
                     ...tabsBlock,
                     ...tilesBlock,
                     ...formBlock,
-                    ...quotesBlock,
 
                     // Blocks v2
                     ...TabsBlock,
@@ -197,6 +195,7 @@ export function generateDefaultSchema(config?: SchemaCustomConfig) {
                             'background-card',
                             'news-card',
                             'card-with-image',
+                            'quote',
                             ...Object.keys(cards),
                         ],
                     },
@@ -213,6 +212,7 @@ export function generateDefaultSchema(config?: SchemaCustomConfig) {
                     ...BackgroundCard,
                     ...NewsCard,
                     ...CardWithImage,
+                    ...Quote,
                     ...getBlocksCases(cards),
                 },
             }),

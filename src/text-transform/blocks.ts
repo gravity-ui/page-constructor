@@ -199,11 +199,6 @@ const config: BlocksConfig = {
         fields: ['title', 'subtitle'],
         transformer: typografTransformer,
     },
-    [BlockType.Quotes]: {
-        fields: ['items'],
-        transformer: typografTransformer,
-        parser: parseItems,
-    },
     [BlockType.Tiles]: {
         fields: ['items'],
         transformer: typografTransformer,

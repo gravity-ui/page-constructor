@@ -1,0 +1,131 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+$block: '.#{$ns}quote';
+
+#{$block} {
+    $arrowWidth: 16px;
+    $gap: 5px;
+
+    @include add-theme();
+    @include card();
+    @include slider-shadow-fix(&);
+
+    display: flex;
+    min-height: 400px;
+    height: 100%;
+
+    &__logo {
+        height: $indentL;
+    }
+
+    &__content-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        width: calc(50% + #{$gap} * 2);
+        margin-right: $gap;
+        padding: $indentL $indentM $indentL $indentL;
+    }
+
+    &__image-wrapper {
+        flex: 1;
+        margin-left: $gap;
+        padding: $borderRadiusPadding;
+
+        & picture > * {
+            border-radius: calc(#{$borderRadius - $borderRadiusPadding});
+        }
+    }
+
+    &__content {
+        margin-top: $indentSM;
+        position: relative;
+        @include text-size(body3);
+
+        &::before {
+            position: absolute;
+            top: -1px;
+            left: -10px;
+            content: '«';
+        }
+    }
+
+    &__text {
+        &::after {
+            content: '».';
+        }
+    }
+
+    &__image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    &__author-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        margin-top: $indentS;
+    }
+
+    &__author,
+    & {
+        @include add-theme();
+    }
+
+    &__author {
+        max-width: calc(60% - #{$indentS});
+        margin-right: $indentS;
+    }
+
+    &__link-button {
+        /* stylelint-disable declaration-no-important */
+        &_theme_dark {
+            color: var(--yc-color-base-background) !important;
+
+            &:before {
+                border-color: var(--yc-color-base-background) !important;
+            }
+        }
+        /* stylelint-enable declaration-no-important */
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'lg')) {
+        &__author-wrapper {
+            flex-direction: column;
+        }
+
+        &__author {
+            margin-right: 0;
+            margin-bottom: $indentM;
+            max-width: initial;
+        }
+
+        &__link-button {
+            align-self: flex-start;
+        }
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'md')) {
+        &__content-wrapper {
+            width: calc(75% + #{$gap} * 2);
+        }
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'sm')) {
+        &__image-wrapper {
+            display: none;
+        }
+
+        &__content-wrapper {
+            padding: $indentM;
+        }
+
+        &__content-wrapper {
+            width: 100%;
+        }
+    }
+}

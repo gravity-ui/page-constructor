@@ -26,6 +26,8 @@ import {
     CardWithImage,
     BackgroundCard,
     Content,
+    Quote,
+    Author,
 } from './components';
 
 import {
@@ -79,6 +81,8 @@ const components = {
     [BlockType.CardWithImage]: CardWithImage,
     [BlockType.BackgroundCard]: BackgroundCard,
     [BlockType.Content]: Content,
+    [BlockType.Quote]: Quote,
+    [BlockType.Author]: Author,
 
     // Blocks
     [BlockType.SliderBlock]: SliderBlock,

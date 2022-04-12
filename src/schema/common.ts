@@ -268,7 +268,7 @@ export const FileLinkProps = {
     },
 };
 
-export const author = {
+export const authorItem = {
     type: 'object',
     required: ['firstName', 'secondName'],
     properties: {
@@ -286,26 +286,6 @@ export const author = {
             type: 'string',
         },
     },
-};
-
-export const QuoteItemProps = {
-    text: {
-        type: 'string',
-    },
-    image: ImageProps,
-    logo: {
-        type: 'string',
-        format: 'uri',
-    },
-    color: {
-        type: 'string',
-    },
-    url: {
-        type: 'string',
-        format: 'uri',
-    },
-    theme: ThemeProps,
-    author,
 };
 
 export const ButtonProps = {

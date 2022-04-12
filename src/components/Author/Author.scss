@@ -1,0 +1,65 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+$block: '.#{$ns}author';
+$imageWidth: 64px;
+$imageHeight: 64px;
+
+#{$block} {
+    $root: &;
+    $indent: $indentXXS;
+
+    @include text-size(body2);
+
+    display: flex;
+    flex-direction: column;
+    color: var(--www-text-content-color);
+
+    &__avatar {
+        width: $imageWidth;
+        height: $imageHeight;
+        display: flex;
+        align-items: center;
+        flex: 0 0 auto;
+        border-radius: 50%;
+        overflow: hidden;
+
+        img {
+            width: $imageWidth;
+            height: $imageHeight;
+            object-fit: cover;
+        }
+    }
+
+    &__name {
+        font-weight: 500;
+    }
+
+    &__label:not(:first-child) {
+        font-weight: 400;
+        margin-top: $indent;
+    }
+
+    &_type_column {
+        z-index: 1;
+        position: relative;
+    }
+
+    &_type_line {
+        flex-flow: row nowrap;
+        align-items: center;
+        width: 100%;
+
+        #{$root}__avatar {
+            margin: 0;
+        }
+
+        #{$root}__label {
+            margin-top: 0;
+        }
+
+        #{$root}__label:not(:first-child) {
+            margin-left: $indent;
+        }
+    }
+}

@@ -4,9 +4,8 @@ import {ClassNameProps} from '@yandex-data-ui/cloud-components';
 import {EventPublic, ServicePublic} from '@yandex-data-ui/cloud-schemas/build/models/ui-api';
 
 import {Lang, PixelEventType} from './common';
-import {ThemeSupporting} from '../utils/theme';
+import {ThemeSupporting, isV2BlockType} from '../utils';
 import {GridColumnSize, GridColumnSizesType} from '../grid/types';
-import {isV2BlockType} from '../utils/blocks';
 
 export enum BlockType {
     Header = 'header',
@@ -30,7 +29,6 @@ export enum BlockType {
     Scrollable = 'scrollable',
     Tiles = 'tiles',
     Form = 'form',
-    Quotes = 'quotes',
     Card = 'card',
     Quote = 'quote',
     Event = 'event',
@@ -45,6 +43,7 @@ export enum BlockType {
     CardWithImage = 'card-with-image',
     BackgroundCard = 'background-card',
     Content = 'content',
+    Author = 'author',
 
     PromoFeaturesBlock = 'promo-features-block',
     ExtendedFeaturesBlock = 'extended-features-block',
@@ -185,6 +184,7 @@ export interface MediaVideoProps {
     controls?: MediaVideoControlsType;
     metrika?: MetrikaVideo;
 }
+
 export type ThemedMediaVideoProps = ThemeSupporting<MediaVideoProps>;
 
 export interface MediaComponentVideoProps {
@@ -271,11 +271,11 @@ export interface TileItem {
     url?: string;
 }
 
-export interface Author {
+export interface AuthorItem {
     firstName: string;
     secondName: string;
     description?: string;
-    avatar?: string;
+    avatar?: string | JSX.Element;
 }
 
 export interface QuoteItem extends Themable {
@@ -284,12 +284,19 @@ export interface QuoteItem extends Themable {
     logo: string;
     color?: string;
     url?: string;
-    author?: Author;
+    author?: AuthorItem;
 }
 
-export type QuotesProps = {
-    items: QuoteItem[];
-};
+export enum AuthorType {
+    Column = 'column',
+    Line = 'line',
+}
+
+export interface AuthorProps {
+    author: AuthorItem;
+    className?: string;
+    type?: AuthorType;
+}
 
 export interface CardHeader {
     title?: string;
@@ -316,11 +323,13 @@ export interface CardProps extends CardBaseProps, CardData {}
 
 export interface QuoteProps extends Themable, CardBaseProps {
     text: string;
-    image: ImageProps;
+    image: ThemedImage;
     logo: string;
     color?: string;
     url?: string;
-    author?: Author;
+    author?: AuthorItem;
+    buttonText?: string;
+    theme?: TextTheme;
 }
 
 export interface PartnerProps extends CardBaseProps {
@@ -780,6 +789,7 @@ export interface CardWithImageLinkProps extends Omit<LinkProps, 'text' | 'url'> 
 }
 
 export type ExcludedCardImageProps = 'text' | 'size' | 'links' | 'colSizes' | 'centered';
+
 export interface CardWithImageProps
     extends ClassNameProps,
         Omit<ContentBlockProps, ExcludedCardImageProps> {
@@ -888,6 +898,10 @@ export interface ContentBlockProps {
     theme?: ContentTheme;
 }
 
+export type AuthorModel = {
+    type: BlockType.Author;
+} & AuthorProps;
+
 export type HeaderBlockModel = {
     type: BlockType.HeaderBlock;
 } & HeaderBlockProps;
@@ -955,10 +969,6 @@ export type TilesModel = {
 export type FormModel = {
     type: BlockType.Form;
 } & FormProps;
-
-export type QuotesModel = {
-    type: BlockType.Quotes;
-} & QuotesProps;
 
 export type CardModel = {
     type: BlockType.Card;
@@ -1109,7 +1119,6 @@ export type BlockV1Raw =
     | TableModel
     | TilesModel
     | FormModel
-    | QuotesModel
     | CardModel
     | QuoteModel
     | EventModel
