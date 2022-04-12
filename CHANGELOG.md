@@ -1,5 +1,10 @@
 # Лог изменений
 
+## 0.22.1
+
+В `BlockBase` удален оператор `!important` свойства padding-bottom
+В `Content` при отсутствии `title` у блока `text` свойство `margin-top` равно 0
+
 ## 0.22.0
 
 ### Breaking changes
