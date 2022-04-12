@@ -170,17 +170,6 @@
     &:first-child {
         margin-top: var(--pc-first-block-indent, #{$indentXXL});
     }
-
-    @media only screen and (max-width: map-get($gridBreakpoints, 'sm')) {
-        margin-top: $indentM;
-        // redefine grid column paddings
-        /* stylelint-disable-next-line declaration-no-important */
-        padding-bottom: $indentM !important;
-
-        &:first-child {
-            margin-top: var(--pc-first-block-mobile-indent, #{$indentXL});
-        }
-    }
 }
 
 @mixin add-theme() {
