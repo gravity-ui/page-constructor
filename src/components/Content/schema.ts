@@ -5,7 +5,7 @@ import {
     LinkProps,
     sizeNumber,
 } from '../../schema/common';
-import {filteredArray} from '../../schema';
+import {filteredArray} from '../../schema/utils';
 import {ButtonBlock, TitleProps} from '../../schema/v2/common';
 
 export const ContentBase = {

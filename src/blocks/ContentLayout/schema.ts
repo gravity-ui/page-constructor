@@ -1,5 +1,5 @@
 import {ContentBlock} from '../../components/Content/schema';
-import {filteredArray} from '../../schema';
+import {filteredArray} from '../../schema/utils';
 import {
     contentSizes,
     contentTextWidth,
