@@ -11,3 +11,5 @@ export * from './models';
 export * from './utils';
 export * from './schema';
 export * from './hooks';
+
+export {BREAKPOINTS} from './constants';
