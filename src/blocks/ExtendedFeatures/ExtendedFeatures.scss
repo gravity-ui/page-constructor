@@ -35,6 +35,10 @@ $block: '.#{$ns}ExtendedFeaturesBlock';
             position: relative;
             margin-bottom: $indentXXXS;
             font-weight: 500;
+
+            a {
+                @include link();
+            }
         }
 
         &-label {
@@ -54,6 +58,10 @@ $block: '.#{$ns}ExtendedFeaturesBlock';
         &-text,
         &-link {
             @include text-size(body2);
+
+            a {
+                @include link();
+            }
         }
 
         &-link {

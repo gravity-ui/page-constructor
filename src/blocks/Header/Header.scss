@@ -53,6 +53,10 @@ $block: '.#{$ns}header-block';
 
         position: relative;
         font-weight: 500;
+
+        a {
+            @include link();
+        }
     }
 
     &__description {
@@ -140,6 +144,10 @@ $block: '.#{$ns}header-block';
 
         margin-bottom: $indentXXXS;
         font-weight: 400;
+
+        a {
+            @include link();
+        }
     }
 
     div#{$block}__background-media {

@@ -16,5 +16,9 @@ $block: '.#{$ns}BlockHeader';
         &_titleSize_l {
             @include text-size(body3);
         }
+
+        a {
+            @include link();
+        }
     }
 }

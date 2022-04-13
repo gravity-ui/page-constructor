@@ -21,7 +21,7 @@ export const Default = DefaultTemplate.bind({});
 Default.args = {
     date: '9 октября 2020 г.',
     isoDate: '2020-10-08T21:00:00.000Z',
-    title: 'Новое в <i>документации</i> за <a href="#">сентябрь</a>',
+    title: 'Новое в <i>документации</i> за сентябрь',
     border: 'shadow',
     url: 'https://cloud.yandex.ru',
 };
