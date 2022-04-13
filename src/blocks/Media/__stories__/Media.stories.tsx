@@ -5,7 +5,7 @@ import Media from '../MediaContent';
 import {PageConstructor} from '../../../containers/PageConstructor/PageConstructor';
 
 export default {
-    title: 'Компоненты/Media',
+    title: 'Блоки/Media',
     component: Media,
 } as Meta;
 

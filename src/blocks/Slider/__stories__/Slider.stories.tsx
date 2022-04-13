@@ -5,7 +5,7 @@ import Slider from '../Slider';
 import {PageConstructor} from '../../../containers/PageConstructor/PageConstructor';
 
 export default {
-    title: 'Компоненты/Slider',
+    title: 'Блоки/Slider',
     component: Slider,
 } as Meta;
 

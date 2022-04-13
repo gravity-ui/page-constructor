@@ -5,7 +5,7 @@ import Info from '../Info';
 import {PageConstructor} from '../../../containers/PageConstructor/PageConstructor';
 
 export default {
-    title: 'Компоненты/Info',
+    title: 'Блоки/Info',
     component: Info,
 } as Meta;
 

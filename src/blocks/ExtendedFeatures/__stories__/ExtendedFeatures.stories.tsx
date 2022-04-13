@@ -5,7 +5,7 @@ import ExtendedFeatures from '../ExtendedFeatures';
 import {PageConstructor} from '../../../containers/PageConstructor/PageConstructor';
 
 export default {
-    title: 'Компоненты/ExtendedFeatures',
+    title: 'Блоки/ExtendedFeatures',
     component: ExtendedFeatures,
 } as Meta;
 

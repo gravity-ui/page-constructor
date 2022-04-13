@@ -7,7 +7,7 @@ import './Anchor.scss';
 
 const b = block('Anchor');
 
-interface AnchorProps extends ClassNameProps {
+export interface AnchorProps extends ClassNameProps {
     id: string;
 }
 

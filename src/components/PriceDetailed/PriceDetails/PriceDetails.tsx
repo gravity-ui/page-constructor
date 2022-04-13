@@ -1,5 +1,4 @@
 import React, {Fragment, useCallback, useState} from 'react';
-import {ToggleArrow} from '@doc-tools/components';
 
 import {block} from '../../../utils';
 import Foldable from '../../Foldable/Foldable';
@@ -13,6 +12,7 @@ import {
 } from '../../../models';
 import List from './Details/List';
 import Settings from './Details/Settings';
+import ToggleArrow from '../../ToggleArrow/ToggleArrow';
 
 import './PriceDetails.scss';
 
@@ -76,7 +76,8 @@ const PriceDetails: React.FunctionComponent<PriceDetailsExtendProps> = (props) =
                 onClick={toggleOpen}
             >
                 {foldableTitle}
-                <ToggleArrow size={14} type="vertical" open={isOpened} className={b('arrow')} />
+
+                <ToggleArrow open={isOpened} size={14} type={'vertical'} className={b('arrow')} />
             </div>
         );
     };

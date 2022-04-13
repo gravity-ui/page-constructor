@@ -5,7 +5,7 @@ import Tabs from '../Tabs';
 import {PageConstructor} from '../../../containers/PageConstructor/PageConstructor';
 
 export default {
-    title: 'Компоненты/Tabs',
+    title: 'Блоки/Tabs',
     component: Tabs,
 } as Meta;
 

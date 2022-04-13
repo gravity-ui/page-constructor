@@ -9,7 +9,7 @@ import './BackgroundMedia.scss';
 
 const b = block('BackgroundMedia');
 
-interface FullProps extends MediaProps, Animatable {
+export interface FullProps extends MediaProps, Animatable {
     className?: string;
 }
 

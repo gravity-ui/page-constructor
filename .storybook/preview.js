@@ -55,7 +55,7 @@ export const parameters = {
     },
     options: {
         storySort: {
-            order: ['Общее', 'Цвета', 'New', 'Компоненты'],
+            order: ['Блоки', 'Компоненты'],
             method: 'alphabetical',
         },
     },

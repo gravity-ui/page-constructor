@@ -1036,7 +1036,7 @@ export type ExtendedFeaturesBlockModel = {
 
 export type PromoFeaturesBlockModel = {
     type: BlockType.PromoFeaturesBlock;
-} & ExtendedFeaturesProps;
+} & PromoFeaturesProps;
 
 export type QuestionsBlockModel = {
     type: BlockType.QuestionsBlock;

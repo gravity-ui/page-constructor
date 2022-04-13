@@ -14,7 +14,7 @@ import './Link.scss';
 
 const b = block('link-block');
 
-type LinkFullProps = LinkProps & ClassNameProps;
+export type LinkFullProps = LinkProps & ClassNameProps;
 
 function getArrowSize(size: TextSize) {
     switch (size) {

@@ -5,7 +5,7 @@ import Header from '../Header';
 import {PageConstructor} from '../../../containers/PageConstructor/PageConstructor';
 
 export default {
-    title: 'Компоненты/Header',
+    title: 'Блоки/Header',
     component: Header,
 } as Meta;
 

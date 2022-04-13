@@ -5,7 +5,7 @@ import Banner from '../Banner';
 import {PageConstructor} from '../../../containers/PageConstructor/PageConstructor';
 
 export default {
-    title: 'Компоненты/Banner',
+    title: 'Блоки/Banner',
     component: Banner,
 } as Meta;
 

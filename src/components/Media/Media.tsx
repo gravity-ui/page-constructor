@@ -11,7 +11,7 @@ import './Media.scss';
 
 const b = block('Media');
 
-interface MediaAllProps extends MediaProps, VideoAdditionProps, ImageAdditionProps {
+export interface MediaAllProps extends MediaProps, VideoAdditionProps, ImageAdditionProps {
     className?: string;
     youtubeClassName?: string;
 }

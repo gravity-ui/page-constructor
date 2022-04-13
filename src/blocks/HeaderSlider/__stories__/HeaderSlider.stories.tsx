@@ -5,7 +5,7 @@ import HeaderSlider from '../HeaderSlider';
 import {PageConstructor} from '../../../containers/PageConstructor/PageConstructor';
 
 export default {
-    title: 'Компоненты/HeaderSlider',
+    title: 'Блоки/HeaderSlider',
     component: HeaderSlider,
 } as Meta;
 

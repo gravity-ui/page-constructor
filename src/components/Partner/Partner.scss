@@ -8,5 +8,6 @@ $block: '.#{$ns}partner-block';
         margin-bottom: $indentXXS;
         height: 32px;
         object-fit: contain;
+        display: block;
     }
 }

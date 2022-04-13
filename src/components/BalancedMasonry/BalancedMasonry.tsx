@@ -8,7 +8,7 @@ import './BalancedMasonry.scss';
 
 const b = block('BalancedMasonry');
 
-interface BalancedMasonryProps {
+export interface BalancedMasonryProps {
     className: string;
     columnClassName: string;
     children: ReactNode[];

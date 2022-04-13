@@ -5,7 +5,7 @@ import {BlockType, PreviewBlockModel, PreviewItemType, MediaVideoType} from '../
 import {PageConstructor} from '../../../containers/PageConstructor/PageConstructor';
 
 export default {
-    title: 'Компоненты/Preview',
+    title: 'Блоки/Preview',
     component: Preview,
 } as Meta;
 

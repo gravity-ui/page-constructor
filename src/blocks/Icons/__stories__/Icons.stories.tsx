@@ -5,7 +5,7 @@ import {BlockType, IconsBlockModel} from '../../../models';
 import {PageConstructor} from '../../../containers/PageConstructor/PageConstructor';
 
 export default {
-    title: 'Компоненты/Icons',
+    title: 'Блоки/Icons',
     component: Icons,
 } as Meta;
 

@@ -5,7 +5,7 @@ import {BlockType, QuestionsBlockModel} from '../../../models';
 import {PageConstructor} from '../../../containers/PageConstructor/PageConstructor';
 
 export default {
-    title: 'Компоненты/Questions',
+    title: 'Блоки/Questions',
     component: QuestionsBlock,
 } as Meta;
 

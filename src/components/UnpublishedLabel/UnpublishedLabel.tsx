@@ -5,7 +5,7 @@ import i18n from './i18n';
 
 import './UnpublishedLabel.scss';
 
-const b = block('UnpublishedLabel');
+const b = block('unpublished-label');
 
 export type LabeLType = 'label' | 'line';
 

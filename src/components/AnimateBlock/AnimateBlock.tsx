@@ -6,7 +6,7 @@ import {block} from '../../utils';
 
 const b = block('AnimateBlock');
 
-interface AnimateBlockProps extends AnimateContextProps {
+export interface AnimateBlockProps extends AnimateContextProps {
     animate?: boolean;
     offset?: number;
     className?: string;

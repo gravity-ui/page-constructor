@@ -1,7 +1,9 @@
 @import '../../../styles/variables';
 @import '../../../styles/mixins';
 
-.UnpublishedLabel {
+$block: '.#{$ns}unpublished-label';
+
+#{$block} {
     background-color: var(--yc-color-base-danger-heavy);
 
     &_type_line {
