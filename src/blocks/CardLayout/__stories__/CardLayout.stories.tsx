@@ -284,7 +284,7 @@ BackgroundCards.args = {
                     title: 'Концепция безопасности',
                     text: 'Мы открыты в отношении наших обязательств и нашей ответственности за защиту и управление данными клиента в облаке.',
                     background: {
-                        src: 'https://storage.yandexcloud.net/cloud-www-assets/security-new/background/scrt_0001.png',
+                        src: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/bg_card_0001.png',
                         alt: 'card-background',
                         disableCompress: true,
                     },
@@ -296,7 +296,7 @@ BackgroundCards.args = {
                     title: 'Что мы делаем для безопасности',
                     text: 'Защита конфиденциальности информации, размещенной в облаке, данных и сервисов клиентов — наша важнейшая задача и ключевой приоритет.',
                     background: {
-                        src: 'https://storage.yandexcloud.net/cloud-www-assets/security-new/background/scrt_0002.png',
+                        src: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/bg_card_0002.png',
                         alt: 'card-background',
                         disableCompress: true,
                     },
@@ -308,7 +308,7 @@ BackgroundCards.args = {
                     title: 'Соответствие стандартам',
                     text: 'Мы постоянно совершенствуем процессы информационной безопасности, механизмы создания и эксплуатации наших сервисов, чтобы соответствовать не только федеральным, но и мировым стандартам.',
                     background: {
-                        src: 'https://storage.yandexcloud.net/cloud-www-assets/security-new/background/scrt_0003.png',
+                        src: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/bg_card_0003.png',
                         alt: 'card-background',
                         disableCompress: true,
                     },
@@ -326,7 +326,7 @@ BackgroundCards.args = {
                     title: 'Концепция безопасности',
                     text: 'Мы открыты в отношении наших обязательств и нашей ответственности за защиту и управление данными клиента в облаке.',
                     background: {
-                        src: 'https://storage.yandexcloud.net/cloud-www-assets/security-new/background/scrt_0001.png',
+                        src: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/bg_card_0001.png',
                         alt: 'card-background',
                         disableCompress: true,
                     },
@@ -338,7 +338,7 @@ BackgroundCards.args = {
                     title: 'Что мы делаем для безопасности',
                     text: 'Защита конфиденциальности информации, размещенной в облаке, данных и сервисов клиентов — наша важнейшая задача и ключевой приоритет.',
                     background: {
-                        src: 'https://storage.yandexcloud.net/cloud-www-assets/security-new/background/scrt_0002.png',
+                        src: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/bg_card_0002.png',
                         alt: 'card-background',
                         disableCompress: true,
                     },
@@ -350,7 +350,7 @@ BackgroundCards.args = {
                     title: 'Соответствие стандартам',
                     text: 'Мы постоянно совершенствуем процессы информационной безопасности, механизмы создания и эксплуатации наших сервисов, чтобы соответствовать не только федеральным, но и мировым стандартам.',
                     background: {
-                        src: 'https://storage.yandexcloud.net/cloud-www-assets/security-new/background/scrt_0003.png',
+                        src: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/bg_card_0003.png',
                         alt: 'card-background',
                         disableCompress: true,
                     },
@@ -369,7 +369,7 @@ BackgroundCards.args = {
                     title: 'Концепция безопасности',
                     text: 'Мы открыты в отношении наших обязательств и нашей ответственности за защиту и управление данными клиента в облаке.',
                     background: {
-                        src: 'https://storage.yandexcloud.net/cloud-www-assets/security-new/background/scrt_0001.png',
+                        src: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/bg_card_0001.png',
                         alt: 'card-background',
                         disableCompress: true,
                     },
@@ -381,7 +381,7 @@ BackgroundCards.args = {
                     title: 'Что мы делаем для безопасности',
                     text: 'Защита конфиденциальности информации, размещенной в облаке, данных и сервисов клиентов — наша важнейшая задача и ключевой приоритет.',
                     background: {
-                        src: 'https://storage.yandexcloud.net/cloud-www-assets/security-new/background/scrt_0002.png',
+                        src: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/bg_card_0002.png',
                         alt: 'card-background',
                         disableCompress: true,
                     },
@@ -393,7 +393,7 @@ BackgroundCards.args = {
                     title: 'Соответствие стандартам',
                     text: 'Мы постоянно совершенствуем процессы информационной безопасности, механизмы создания и эксплуатации наших сервисов, чтобы соответствовать не только федеральным, но и мировым стандартам.',
                     background: {
-                        src: 'https://storage.yandexcloud.net/cloud-www-assets/security-new/background/scrt_0003.png',
+                        src: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/bg_card_0003.png',
                         alt: 'card-background',
                         disableCompress: true,
                     },

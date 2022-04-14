@@ -17,23 +17,37 @@ export default {
 } as Meta;
 
 const DefaultTemplate: Story<BackgroundCardProps> = (args) => (
-    <div style={{maxWidth: '1000px'}}>
+    <div style={{maxWidth: '400px'}}>
         <BackgroundCard {...args} />
     </div>
 );
 const PaddingsTemplate: Story<BackgroundCardProps> = (args) => (
     <div style={{display: 'flex'}}>
-        <BackgroundCard {...args} title="paddingBottom = s" paddingBottom="s" />
-        <BackgroundCard {...args} title="paddingBottom = m" paddingBottom="m" />
-        <BackgroundCard {...args} title="paddingBottom = l" paddingBottom="l" />
-        <BackgroundCard {...args} title="paddingBottom = xl" paddingBottom="xl" />
+        <div style={{display: 'inline-table', maxWidth: '400px', padding: '0 8px'}}>
+            <BackgroundCard {...args} title="paddingBottom = s" paddingBottom="s" />
+        </div>
+        <div style={{display: 'inline-table', maxWidth: '400px', padding: '0 8px'}}>
+            <BackgroundCard {...args} title="paddingBottom = m" paddingBottom="m" />
+        </div>
+        <div style={{display: 'inline-table', maxWidth: '400px', padding: '0 8px'}}>
+            <BackgroundCard {...args} title="paddingBottom = l" paddingBottom="l" />
+        </div>
+        <div style={{display: 'inline-table', maxWidth: '400px', padding: '0 8px'}}>
+            <BackgroundCard {...args} title="paddingBottom = xl" paddingBottom="xl" />
+        </div>
     </div>
 );
 const ThemesTemplate: Story<BackgroundCardProps> = (args) => (
     <div style={{display: 'flex'}}>
-        <BackgroundCard {...args} title="Тема по умолчанию = s" theme="default" />
-        <BackgroundCard {...args} title="Темная тема = m" theme="dark" />
-        <BackgroundCard {...args} title="Светлая тема = l" theme="light" />
+        <div style={{maxWidth: '400px', padding: '0 8px'}}>
+            <BackgroundCard {...args} title="Тема по умолчанию = s" theme="default" />
+        </div>
+        <div style={{maxWidth: '400px', padding: '0 8px'}}>
+            <BackgroundCard {...args} title="Темная тема = m" theme="dark" />
+        </div>
+        <div style={{maxWidth: '400px', padding: '0 8px'}}>
+            <BackgroundCard {...args} title="Светлая тема = l" theme="light" />
+        </div>
     </div>
 );
 

@@ -59,6 +59,10 @@
             margin-left: -$indentS;
         }
     }
+
+    a {
+        @include link();
+    }
 }
 
 .yfm_constructor_table {
