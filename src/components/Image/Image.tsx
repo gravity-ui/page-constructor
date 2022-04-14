@@ -1,4 +1,5 @@
-import React, {CSSProperties, MouseEventHandler} from 'react';
+import React, {CSSProperties, MouseEventHandler, useContext} from 'react';
+import {ProjectSettingsContext} from '../../context/projectSettingsContext';
 
 export interface ImageProps {
     src: string;
@@ -10,6 +11,7 @@ export interface ImageProps {
 }
 
 const Image: React.FC<ImageProps> = (props) => {
+    const projectSettings = useContext(ProjectSettingsContext);
     const {src, alt, disableCompress, style, className, onClick} = props;
 
     if (!src) {
@@ -17,7 +19,7 @@ const Image: React.FC<ImageProps> = (props) => {
     }
 
     // TODO: Temporary solution for .svg images
-    const disableWebp = disableCompress || src.endsWith('.svg');
+    const disableWebp = projectSettings.disableCompress || disableCompress || src.endsWith('.svg');
     const webp = src + '.webp';
 
     return (
