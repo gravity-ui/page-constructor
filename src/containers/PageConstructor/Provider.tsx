@@ -1,6 +1,10 @@
 import React, {Fragment} from 'react';
 import {MetrikaContext, MetrikaContextProps} from '../../context/metrikaContext';
 import {MobileContext} from '../../context/mobileContext';
+import {
+    ProjectSettingsContext,
+    ProjectSettingsContextProps,
+} from '../../context/projectSettingsContext';
 import {SSRContext, SSRContextProps} from '../../context/ssrContext';
 import {LocaleContext, LocaleContextProps} from '../../context/localeContext';
 import {LocationContext, LocationContextProps} from '../../context/locationContext';
@@ -14,6 +18,7 @@ export interface PageConstructorProviderProps {
     metrika?: MetrikaContextProps;
     ssrConfig?: SSRContextProps;
     theme?: ConstructorTheme;
+    projectSettings?: ProjectSettingsContextProps;
 }
 
 export const PageConstructorProvider: React.FC<PageConstructorProviderProps> = (props) => {
@@ -23,6 +28,7 @@ export const PageConstructorProvider: React.FC<PageConstructorProviderProps> = (
         location = {},
         metrika = {},
         ssrConfig = {},
+        projectSettings = {},
         theme = DEFAULT_THEME,
         children,
     } = props;
@@ -30,6 +36,7 @@ export const PageConstructorProvider: React.FC<PageConstructorProviderProps> = (
     /* eslint-disable react/jsx-key */
     const context = [
         <ThemeValueContext.Provider value={{themeValue: theme}} />,
+        <ProjectSettingsContext.Provider value={projectSettings} />,
         <LocaleContext.Provider value={locale} />,
         <LocationContext.Provider value={location} />,
         <MobileContext.Provider value={Boolean(isMobile)} />,
