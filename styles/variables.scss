@@ -1,8 +1,8 @@
 //common
 
 $ns: 'pc-';
-$borderRadius: 24px;
-$borderRadiusPadding: 4px;
+$borderRadius: var(--pc-border-radius);
+$borderRadiusPadding: var(--pc-border-radius-padding);
 
 //indents
 $indentXXXS: 8px;

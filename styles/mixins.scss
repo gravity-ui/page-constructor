@@ -232,7 +232,7 @@
     height: 100%;
     overflow-x: hidden;
     border-radius: $borderRadius;
-    background-color: var(--yc-color-base-background);
+    background-color: var(--yc-color-base-float);
 
     transition: box-shadow 0.3s $ease-out-cubic;
 
@@ -247,6 +247,9 @@
     &:not(&_border_none) {
         @if $hover {
             @extend %shadow-hover;
+            &:hover {
+                background-color: var(--pc-color-base-float-hover);
+            }
         }
     }
 }
