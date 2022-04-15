@@ -19,7 +19,7 @@ const DefaultTemplate: Story<PartnerProps> = (args) => (
 export const Default = DefaultTemplate.bind({});
 
 Default.args = {
-    text: 'Геоаналитика для управления территориями в отраслях: <b>здравоохранение</b>, экология, <a href="#">безопасность</a>, градостроительство и др. Геопорталы для умных городов и регионов. ',
+    text: 'Геоаналитика для управления территориями в отраслях: <b>здравоохранение</b>, экология, безопасность, градостроительство и др. Геопорталы для умных городов и регионов. ',
     logo: 'https://storage.yandexcloud.net/mkt-partners/f2epus3a5oc1np9akpln.svg',
     url: '#',
     border: 'shadow',

@@ -21,7 +21,7 @@ export const Default = DefaultTemplate.bind({});
 Default.args = {
     url: '#',
     title: 'Как развернуть 1С с кластером Microsoft SQL Server<sup>™</sup>',
-    text: 'Создайте кластер базы данных <a href="#">MicrosoftSQLServer</a><sup>™</sup> самостоятельно или используйте сервис Managed Service for SQL Server<sup>™</sup>. Эта база данных оптимальна для работы с 1С:Предприятие.',
+    text: 'Создайте кластер базы данных MicrosoftSQLServer<sup>™</sup> самостоятельно или используйте сервис Managed Service for SQL Server<sup>™</sup>. Эта база данных оптимальна для работы с 1С:Предприятие.',
     border: 'shadow',
     icon: {
         src: 'https://storage.yandexcloud.net/cloud-www-assets/constructor/prices/rub.svg',

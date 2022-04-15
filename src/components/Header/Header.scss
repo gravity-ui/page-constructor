@@ -23,6 +23,10 @@ $block: '.#{$ns}header-block';
 
         margin-top: $indentS;
         font-weight: normal;
+
+        a {
+            @include link();
+        }
     }
 
     @media (max-width: map-get($gridBreakpoints, 'sm')) {

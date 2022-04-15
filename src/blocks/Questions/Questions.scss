@@ -28,6 +28,10 @@ $block: '.#{$ns}QuestionsBlock';
         padding-right: 24px;
 
         cursor: pointer;
+
+        a {
+            @include link();
+        }
     }
 
     &__text {

@@ -47,6 +47,10 @@ $block: '.#{$ns}SecurityBlock';
 
         &-text {
             color: var(--yc-color-text-light-primary);
+
+            a {
+                @include link();
+            }
         }
 
         &-text,
