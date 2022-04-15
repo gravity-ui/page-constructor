@@ -255,8 +255,8 @@
 }
 
 @mixin card-image {
-    margin: $borderRadiusPadding;
-    border-radius: calc(#{$borderRadius} - #{$borderRadiusPadding});
+    margin: $imagePadding;
+    border-radius: calc(#{$borderRadius} - #{$imagePadding});
 }
 
 @mixin reset-link-hover {
