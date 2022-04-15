@@ -32,11 +32,8 @@ $block: '.#{$ns}quote';
     &__image-wrapper {
         flex: 1;
         margin-left: $gap;
-        padding: $borderRadiusPadding;
-
-        & picture > * {
-            border-radius: calc(#{$borderRadius - $borderRadiusPadding});
-        }
+        overflow: hidden;
+        @include card-image();
     }
 
     &__content {
