@@ -58,7 +58,9 @@ $block: '.#{$ns}ExtendedFeaturesBlock';
         &-text,
         &-link {
             @include text-size(body2);
+        }
 
+        &-text {
             a {
                 @include link();
             }
