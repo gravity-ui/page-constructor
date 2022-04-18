@@ -9,7 +9,7 @@ $imageHeight: 64px;
     $root: &;
     $indent: $indentXXS;
 
-    @include text-size(body2);
+    @include text-size(body-2);
 
     display: flex;
     flex-direction: column;

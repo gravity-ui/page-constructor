@@ -54,7 +54,6 @@ const ThemesSizesTemplate: Story<ButtonProps> = (args) => (
         <SizesTemplate {...args} theme="flat-info" />
         <SizesTemplate {...args} theme="flat-danger" />
         <SizesTemplate {...args} theme="flat-secondary" />
-        <SizesTemplate {...args} theme="clear" />
         <SizesTemplate {...args} theme="normal-contrast" />
         <Section background={{color: '#3a74ff'}}>
             <SizesTemplate {...args} theme="outlined-contrast" />

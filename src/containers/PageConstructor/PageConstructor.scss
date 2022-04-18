@@ -16,7 +16,9 @@ $block: '.#{$ns}page-constructor';
     }
 
     &__background {
-        top: calc(-1 * var(--header-height));
+        @include add-specificity(&) {
+            top: calc(-1 * var(--header-height));
+        }
     }
 
     &__row {

@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import {Button} from '@yandex-data-ui/common';
+import {Button} from '@yandex-cloud/uikit';
 import {HTML} from '@doc-tools/components';
 
 import {block, getThemedValue} from '../../utils';
