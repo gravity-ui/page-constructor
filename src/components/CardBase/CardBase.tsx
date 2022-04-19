@@ -3,6 +3,7 @@ import React, {Children, ReactElement, Fragment, HTMLAttributeAnchorTarget} from
 import {block} from '../../utils';
 import {CardBaseProps as CardBaseParams, ImageProps} from '../../models';
 import BackgroundImage from '../BackgroundImage/BackgroundImage';
+import RouterLink from '../RouterLink/RouterLink';
 
 import './CardBase.scss';
 
@@ -92,16 +93,18 @@ export const Layout: React.FC<CardBaseProps> & LayoutParts = (props) => {
     const fullClassName = b({border: border}, className);
 
     return url ? (
-        <a
-            href={url}
-            target={target}
-            rel={target === '_blank' ? 'noopener noreferrer' : undefined}
-            className={fullClassName}
-            draggable={false}
-            onDragStart={(e) => e.preventDefault()}
-        >
-            {cardContent}
-        </a>
+        <RouterLink href={url}>
+            <a
+                href={url}
+                target={target}
+                rel={target === '_blank' ? 'noopener noreferrer' : undefined}
+                className={fullClassName}
+                draggable={false}
+                onDragStart={(e) => e.preventDefault()}
+            >
+                {cardContent}
+            </a>
+        </RouterLink>
     ) : (
         <div className={fullClassName} style={{backgroundColor}}>
             {cardContent}
