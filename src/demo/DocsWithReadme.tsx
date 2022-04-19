@@ -13,12 +13,14 @@ import {
 const readmeCache: Record<string, string> = {};
 
 function importAllReadme(ctx: __WebpackModuleApi.RequireContext) {
+    const path = ctx.id.split(' ')[0].replace('./', '') + '/';
     ctx.keys().forEach((key) => {
-        const dirPath = key.replace(/^\.\//, 'src/components/').replace(/\/readme\.md$/i, '');
+        const dirPath = key.replace(/^\.\//, path).replace(/\/readme\.md$/i, '');
         readmeCache[dirPath] = ctx(key);
     });
 }
 
+importAllReadme(require.context('../blocks', true, /readme\.md$/i));
 importAllReadme(require.context('../components', true, /readme\.md$/i));
 
 export const DocsWithReadme = () => {
@@ -26,7 +28,7 @@ export const DocsWithReadme = () => {
     const fileName = context.parameters.fileName;
     const kind = context.kind;
     let isComponent = false;
-    if (kind && kind.includes('Компоненты/')) {
+    if (kind && /Компоненты|Блоки\//.test(kind)) {
         isComponent = true;
     }
 
@@ -40,11 +42,11 @@ export const DocsWithReadme = () => {
     if (dirPath) {
         sourceBadgeContent = (
             <a
-                href={`https://github.yandex-team.ru/data-ui/page-constructor/tree/master/${dirPath}`}
+                href={`https://bb.yandex-team.ru/projects/DATA-UI/repos/page-constructor/browse/${dirPath}`}
                 target="_blank"
                 rel="noopener noreferrer"
             >
-                <img src="https://badger.yandex-team.ru/custom/[Исходники]/[Github][green]/badge.svg" />
+                <img src="https://badger.yandex-team.ru/custom/[Исходники]/[Bitbucket][green]/badge.svg" />
             </a>
         );
     }

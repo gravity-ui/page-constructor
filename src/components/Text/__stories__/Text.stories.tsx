@@ -4,7 +4,7 @@ import React from 'react';
 
 import Text from '../Text';
 import {TextProps} from '../../../models';
-import {COMPONENTS} from '../../../constants';
+import {COMPONENTS} from '../../../demo/constants';
 
 export default {
     component: Text,

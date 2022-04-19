@@ -4,7 +4,7 @@ import yfm from '@doc-tools/transform';
 
 import BackgroundCard from '../BackgroundCard';
 import {BackgroundCardProps} from '../../../models';
-import {CARDS, COMPONENTS} from '../../../constants';
+import {CARDS, COMPONENTS} from '../../../demo/constants';
 
 export default {
     component: BackgroundCard,

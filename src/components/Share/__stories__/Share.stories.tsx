@@ -4,7 +4,7 @@ import {SocialNetwork} from '@yandex-data-ui/common';
 
 import Share from '../Share';
 import {ShareProps} from '../../../models';
-import {COMPONENTS} from '../../../constants';
+import {COMPONENTS} from '../../../demo/constants';
 
 export default {
     component: Share,

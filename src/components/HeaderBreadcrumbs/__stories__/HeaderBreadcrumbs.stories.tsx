@@ -2,7 +2,7 @@ import {Meta, Story} from '@storybook/react/types-6-0';
 import React from 'react';
 
 import HeaderBreadcrumbs, {HeaderBreadCrumbsProps} from '../HeaderBreadcrumbs';
-import {BUTTONS_LINKS, COMPONENTS} from '../../../constants';
+import {BUTTONS_LINKS, COMPONENTS} from '../../../demo/constants';
 
 export default {
     component: HeaderBreadcrumbs,

@@ -4,7 +4,7 @@ import React from 'react';
 
 import Content from '../Content';
 import {ContentBlockProps} from '../../../models';
-import {COMPONENTS} from '../../../constants';
+import {COMPONENTS} from '../../../demo/constants';
 
 export default {
     component: Content,

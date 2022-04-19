@@ -3,7 +3,7 @@ import React from 'react';
 
 import Table from '../Table';
 import {TableProps} from '../../../models';
-import {COMPONENTS} from '../../../constants';
+import {COMPONENTS} from '../../../demo/constants';
 
 export default {
     component: Table,

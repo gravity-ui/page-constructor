@@ -3,7 +3,7 @@ import React from 'react';
 
 import PriceDetailed from '../PriceDetailed';
 import {PriceDetailedProps, PriceDetailsType, PriceLabelColor} from '../../../models';
-import {CARDS, COMPONENTS} from '../../../constants';
+import {CARDS, COMPONENTS} from '../../../demo/constants';
 
 export default {
     component: PriceDetailed,

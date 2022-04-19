@@ -3,7 +3,7 @@ import React from 'react';
 
 import TutorialCard from '../TutorialCard';
 import {TutorialCardProps} from '../../../models';
-import {CARDS, COMPONENTS} from '../../../constants';
+import {CARDS, COMPONENTS} from '../../../demo/constants';
 
 export default {
     component: TutorialCard,

@@ -2,7 +2,7 @@ import {Meta, Story} from '@storybook/react/types-6-0';
 import React, {ReactElement} from 'react';
 
 import CardBase, {CardBaseProps} from '../CardBase';
-import {CARDS, COMPONENTS} from '../../../constants';
+import {CARDS, COMPONENTS} from '../../../demo/constants';
 
 export default {
     component: CardBase,

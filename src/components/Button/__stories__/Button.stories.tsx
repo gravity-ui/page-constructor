@@ -5,7 +5,7 @@ import Button, {ButtonProps} from '../Button';
 import {PixelEventType} from '../../../models';
 import {Col, Row} from '../../../grid';
 import Section from '../../Section/Section';
-import {BUTTONS_LINKS, COMPONENTS} from '../../../constants';
+import {BUTTONS_LINKS, COMPONENTS} from '../../../demo/constants';
 
 export default {
     component: Button,

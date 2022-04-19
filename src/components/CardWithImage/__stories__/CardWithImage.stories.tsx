@@ -4,7 +4,7 @@ import yfm from '@doc-tools/transform';
 
 import CardWithImage from '../CardWithImage';
 import {CardWithImageProps} from '../../../models';
-import {CARDS, COMPONENTS} from '../../../constants';
+import {CARDS, COMPONENTS} from '../../../demo/constants';
 
 export default {
     title: `${COMPONENTS}/${CARDS}/CardWithImage`,

@@ -2,7 +2,7 @@ import {Meta, Story} from '@storybook/react/types-6-0';
 import React from 'react';
 
 import Media, {MediaAllProps} from '../Media';
-import {COMPONENTS, MEDIA} from '../../../constants';
+import {COMPONENTS, MEDIA} from '../../../demo/constants';
 
 export default {
     component: Media,

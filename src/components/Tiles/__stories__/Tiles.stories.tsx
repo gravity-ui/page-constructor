@@ -3,7 +3,7 @@ import React from 'react';
 
 import Tiles from '../Tiles';
 import {TilesProps} from '../../../models';
-import {COMPONENTS} from '../../../constants';
+import {COMPONENTS} from '../../../demo/constants';
 
 export default {
     component: Tiles,

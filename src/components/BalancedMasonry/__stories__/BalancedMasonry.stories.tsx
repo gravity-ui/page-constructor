@@ -2,7 +2,8 @@ import {Meta, Story} from '@storybook/react/types-6-0';
 import React from 'react';
 
 import BalancedMasonry, {BalancedMasonryProps} from '../BalancedMasonry';
-import {BREAKPOINTS, COMPONENTS} from '../../../constants';
+import {COMPONENTS} from '../../../demo/constants';
+import {BREAKPOINTS} from '../../../constants';
 import CardBase from '../../CardBase/CardBase';
 
 import './BalancedMansonry.stories.scss';

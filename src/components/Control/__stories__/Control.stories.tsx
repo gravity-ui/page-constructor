@@ -3,7 +3,7 @@ import React, {Fragment} from 'react';
 
 import Control, {ControlProps} from '../Control';
 import {Col, GridAlignItems, Row} from '../../../grid';
-import {BUTTONS_LINKS, COMPONENTS} from '../../../constants';
+import {BUTTONS_LINKS, COMPONENTS} from '../../../demo/constants';
 
 export default {
     component: Control,

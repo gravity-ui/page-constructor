@@ -2,7 +2,7 @@ import React from 'react';
 import {Meta, Story} from '@storybook/react/types-6-0';
 
 import Container, {ContainerProps} from '../Container';
-import {COMPONENTS} from '../../../constants';
+import {COMPONENTS} from '../../../demo/constants';
 import {GridColumnSize} from '../../../grid';
 import Grid from '../../Grid/Grid';
 

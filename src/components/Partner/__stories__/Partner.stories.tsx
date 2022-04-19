@@ -3,7 +3,7 @@ import React from 'react';
 
 import {PartnerProps} from '../../../models';
 import Partner from '../Partner';
-import {CARDS, COMPONENTS} from '../../../constants';
+import {CARDS, COMPONENTS} from '../../../demo/constants';
 
 export default {
     component: Partner,

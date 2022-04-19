@@ -5,7 +5,7 @@ import React from 'react';
 import BlockBase from '../BlockBase';
 import {BlockBaseProps} from '../../../models';
 import {GridColumnSize} from '../../../grid';
-import {COMPONENTS} from '../../../constants';
+import {COMPONENTS} from '../../../demo/constants';
 
 export default {
     component: BlockBase,
