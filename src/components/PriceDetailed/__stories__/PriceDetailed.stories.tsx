@@ -4,6 +4,7 @@ import React from 'react';
 import PriceDetailed from '../PriceDetailed';
 import {PriceDetailedProps, PriceDetailsType, PriceLabelColor} from '../../../models';
 import {CARDS, COMPONENTS} from '../../../demo/constants';
+import yfm from '@doc-tools/transform';
 
 export default {
     component: PriceDetailed,
@@ -46,7 +47,7 @@ MarkedList.args = {
         {
             title: 'Бесплатно',
             detailedTitle: '',
-            description: 'Для индивидуального пользования и маленьких команд',
+            description: yfm('Для индивидуального пользования и маленьких команд').result.html,
             label: {
                 color: PriceLabelColor.BLUE,
                 text: 'Бесплатно',
@@ -54,14 +55,14 @@ MarkedList.args = {
             },
             items: [
                 {
-                    text: 'до 5 пользователей',
+                    text: yfm('до 5 пользователей').result.html,
                 },
             ],
         },
         {
             title: '258 ₽',
             detailedTitle: '/ месяц*',
-            description: 'Тариф действует на первые 100 пользователей',
+            description: yfm('Тариф действует на первые 100 пользователей').result.html,
             label: {
                 color: PriceLabelColor.GREEN,
                 text: 'Небольшие компании',
@@ -69,21 +70,21 @@ MarkedList.args = {
             },
             items: [
                 {
-                    text: 'до 100 пользователей',
+                    text: yfm('до 100 пользователей').result.html,
                 },
             ],
         },
         {
             title: '258 ₽',
             detailedTitle: '/ месяц*',
-            description: 'Тариф действует на первые 100 пользователей',
+            description: yfm('Тариф действует на первые 100 пользователей').result.html,
             label: {
                 color: PriceLabelColor.GREEN,
                 size: 's',
             },
             items: [
                 {
-                    text: 'до 100 пользователей',
+                    text: yfm('до 100 пользователей').result.html,
                 },
             ],
         },
@@ -112,7 +113,7 @@ Settings.args = {
         {
             title: 'Бесплатно',
             detailedTitle: '',
-            description: 'Для индивидуального пользования и маленьких команд',
+            description: yfm('Для индивидуального пользования и маленьких команд').result.html,
             label: {
                 color: PriceLabelColor.BLUE,
                 text: 'Бесплатно',
@@ -121,14 +122,14 @@ Settings.args = {
             items: [
                 {
                     title: 'до 5 пользователей',
-                    description: 'до 5 пользователей',
+                    description: yfm('до 5 пользователей').result.html,
                 },
             ],
         },
         {
             title: '258 ₽',
             detailedTitle: '/ месяц*',
-            description: 'Тариф действует на первые 100 пользователей',
+            description: yfm('Тариф действует на первые 100 пользователей').result.html,
             label: {
                 color: PriceLabelColor.GREEN,
                 text: 'Небольшие компании',
@@ -137,14 +138,14 @@ Settings.args = {
             items: [
                 {
                     title: 'до 5 пользователей',
-                    description: 'до 5 пользователей',
+                    description: yfm('до 5 пользователей').result.html,
                 },
             ],
         },
         {
             title: '258 ₽',
             detailedTitle: '/ месяц*',
-            description: 'Тариф действует на первые 100 пользователей',
+            description: yfm('Тариф действует на первые 100 пользователей').result.html,
             label: {
                 color: PriceLabelColor.GREEN,
                 size: 's',
@@ -152,7 +153,7 @@ Settings.args = {
             items: [
                 {
                     title: 'до 5 пользователей',
-                    description: 'до 5 пользователей',
+                    description: yfm('до 5 пользователей').result.html,
                 },
             ],
         },

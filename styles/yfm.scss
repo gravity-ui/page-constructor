@@ -6,9 +6,20 @@
     $block: &;
 
     @include add-specificity(&) {
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        span,
         p,
         li {
             color: var(--yc-color-text-primary);
+        }
+
+        p,
+        li {
             margin: 0 0 $indentXXS;
         }
 
@@ -17,8 +28,10 @@
         }
     }
 
-    &_theme_dark p {
-        color: var(--yc-color-text-light-primary);
+    &_theme_dark {
+        p {
+            color: var(--yc-color-text-light-primary);
+        }
     }
 
     &_footnote_text p,

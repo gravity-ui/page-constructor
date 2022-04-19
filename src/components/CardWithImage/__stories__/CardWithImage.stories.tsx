@@ -106,8 +106,9 @@ TitleWithLink.args = {
 FullScreen.args = {
     image: 'https://storage.yandexcloud.net/ydb-www-prod-site-assets/clients/jaeger-new.png',
     title: 'Перераспределение нагрузки',
-    description:
+    description: yfm(
         'Вы сами определяете число ядер процессора и объём памяти и контролируете стоимость виртуальной машины.',
+    ).result.html,
     fullScreen: true,
     border: true,
 };

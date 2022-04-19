@@ -4,6 +4,8 @@
 $block: '.#{$ns}file-link';
 
 #{$block} {
+    --pc-color-label-background: rgba(0, 0, 0, 0.07);
+
     @include add-file-ext-colors();
     $root: &;
 
@@ -83,12 +85,16 @@ $block: '.#{$ns}file-link';
 
         &_light {
             #{$block}__file-label {
-                color: var(--yc-color-text-primary);
-                background-color: var(--yc-color-base-generic-accent-disabled);
+                color: var(--yc-color-text-dark-primary);
+                background-color: var(--pc-color-label-background);
+            }
+
+            #{$block}__link > a {
+                color: var(--yc-color-text-dark-primary);
             }
 
             #{$block}__link > a:hover {
-                color: var(--yc-color-text-secondary);
+                color: var(--yc-color-text-dark-secondary);
             }
         }
     }

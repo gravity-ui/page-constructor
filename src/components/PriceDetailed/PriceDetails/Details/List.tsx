@@ -24,7 +24,7 @@ const List: React.FunctionComponent<ListProps> = (props) => {
                 <div key={id} className={b('list-item')}>
                     <img className={b('img')} src={checkLogoListMark} />
                     <div className={b('text', {size: titleSize})}>
-                        <YFMWrapper content={item.text} />
+                        <YFMWrapper content={item.text} modifiers={{constructor: true}} />
                     </div>
                 </div>
             ))}

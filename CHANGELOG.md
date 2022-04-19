@@ -1,5 +1,9 @@
 # Лог изменений
 
+## 0.30.1
+
+Fix content-layout text color in dark theme
+
 ## 0.30.0
 
 Добавлена обработка yfm в блоке `PreviewBlock`
