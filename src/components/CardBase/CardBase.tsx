@@ -3,6 +3,7 @@ import React, {Children, ReactElement, Fragment, HTMLAttributeAnchorTarget} from
 import {block} from '../../utils';
 import {CardBaseProps as CardBaseParams, ImageProps} from '../../models';
 import BackgroundImage from '../BackgroundImage/BackgroundImage';
+import RouterLink from '../RouterLink/RouterLink';
 
 import './CardBase.scss';
 
@@ -24,72 +25,75 @@ export interface CardFooterBaseProps {
     className?: string;
 }
 
+interface LayoutParts {
+    Header: React.FC<CardHeaderBaseProps>;
+    Content: React.FC;
+    Footer: React.FC<CardFooterBaseProps>;
+}
+
 const b = block('card-base-block');
+
 const Header: React.FC<CardHeaderBaseProps> = () => null;
 const Content: React.FC = () => null;
 const Footer: React.FC<CardFooterBaseProps> = () => null;
 
-export default class Layout extends React.Component<CardBaseProps> {
-    static Header = Header;
-    static Content = Content;
-    static Footer = Footer;
+export const Layout: React.FC<CardBaseProps> & LayoutParts = (props) => {
+    const {
+        className,
+        bodyClassName,
+        contentClassName,
+        children,
+        url,
+        target,
+        border = 'shadow',
+        backgroundColor,
+    } = props;
+    let header, content, footer, image, headerClass, footerClass;
 
-    render() {
-        const {
-            className,
-            bodyClassName,
-            contentClassName,
-            children,
-            url,
-            target,
-            border = 'shadow',
-            backgroundColor,
-        } = this.props;
-        let header, content, footer, image, headerClass, footerClass;
-
-        function handleChild(child: ReactElement) {
-            switch (child.type) {
-                case Header:
-                    header = child.props.children;
-                    image = child.props.image;
-                    headerClass = child.props.className;
-                    break;
-                case Content:
-                    content = child.props.children;
-                    break;
-                case Footer:
-                    footer = child.props.children;
-                    footerClass = child.props.className;
-                    break;
-            }
+    function handleChild(child: ReactElement) {
+        switch (child.type) {
+            case Header:
+                header = child.props.children;
+                image = child.props.image;
+                headerClass = child.props.className;
+                break;
+            case Content:
+                content = child.props.children;
+                break;
+            case Footer:
+                footer = child.props.children;
+                footerClass = child.props.className;
+                break;
         }
+    }
 
-        if (Children.count(children) === 1) {
-            handleChild(children as ReactElement);
-        } else {
-            Children.forEach(children, handleChild);
-        }
+    if (Children.count(children) === 1) {
+        handleChild(children as ReactElement);
+    } else {
+        Children.forEach(children, handleChild);
+    }
 
-        const cardContent = (
-            <Fragment>
-                {(header || image) && (
-                    <BackgroundImage
-                        className={b('header', headerClass)}
-                        {...(typeof image === 'string' ? {src: image} : image)}
-                    >
-                        <div className={b('header-content')}>{header}</div>
-                    </BackgroundImage>
-                )}
-                <div className={b('body', bodyClassName)}>
-                    <div className={b('content', contentClassName)}>{content}</div>
-                    {footer && <div className={b('footer', footerClass)}>{footer}</div>}
-                </div>
-            </Fragment>
-        );
+    const cardContent = (
+        <Fragment>
+            {(header || image) && (
+                <BackgroundImage
+                    className={b('header', headerClass)}
+                    {...(typeof image === 'string' ? {src: image} : image)}
+                >
+                    <div className={b('header-content')}>{header}</div>
+                </BackgroundImage>
+            )}
+            <div className={b('body', bodyClassName)}>
+                <div className={b('content', contentClassName)}>{content}</div>
+                {footer && <div className={b('footer', footerClass)}>{footer}</div>}
+            </div>
+        </Fragment>
+    );
 
-        const fullClassName = b({border: border}, className);
+    const fullClassName = b({border: border}, className);
 
-        return url ? (
+    return url ? (
+        <RouterLink href={url}>
             <a
                 href={url}
                 target={target}
@@ -100,10 +104,16 @@ export default class Layout extends React.Component<CardBaseProps> {
             >
                 {cardContent}
             </a>
-        ) : (
-            <div className={fullClassName} style={{backgroundColor}}>
-                {cardContent}
-            </div>
-        );
-    }
-}
+        </RouterLink>
+    ) : (
+        <div className={fullClassName} style={{backgroundColor}}>
+            {cardContent}
+        </div>
+    );
+};
+
+Layout.Header = Header;
+Layout.Content = Content;
+Layout.Footer = Footer;
+
+export default Layout;

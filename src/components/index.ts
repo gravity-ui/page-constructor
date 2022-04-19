@@ -54,3 +54,6 @@ export {default as OverflowScroller} from './OverflowScroller/OverflowScroller';
 export {default as Content} from './Content/Content';
 export {default as Quote} from './Quote/Quote';
 export {default as Author} from './Author/Author';
+export {default as RouterLink} from './RouterLink/RouterLink';
+
+export type {RouterLinkProps} from './RouterLink/RouterLink';
