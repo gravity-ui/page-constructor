@@ -10,7 +10,7 @@ import {
     HeaderImageSize,
     HeaderWidth,
 } from '../../models';
-import {Button, Media, BackgroundMedia, BackgroundImage} from '../../components';
+import {Button, Media, BackgroundMedia, BackgroundImage, RouterLink} from '../../components';
 import {Grid, Row, Col} from '../../grid';
 
 import YFMWrapper from '../../components/YFMWrapper/YFMWrapper';
@@ -160,12 +160,14 @@ const HeaderBlock: React.FunctionComponent<HeaderBlockFullProps> = (props) => {
                             <div className={b('buttons')} data-qa="header-buttons">
                                 {buttons &&
                                     buttons.map((button, index) => (
-                                        <Button
-                                            key={index}
-                                            className={b('button')}
-                                            size="xl"
-                                            {...button}
-                                        />
+                                        <RouterLink href={button.url} key={index}>
+                                            <Button
+                                                key={index}
+                                                className={b('button')}
+                                                size="xl"
+                                                {...button}
+                                            />
+                                        </RouterLink>
                                     ))}
                             </div>
                         )}
