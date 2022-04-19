@@ -2,7 +2,9 @@ import React from 'react';
 import {RouterLinkProps} from '../../components/RouterLink/RouterLink';
 import {History} from '../mobileAppContext';
 
-export type RouterLink = React.ComponentClass<RouterLinkProps>;
+export type RouterLink =
+    | React.ComponentClass<RouterLinkProps>
+    | React.FunctionComponent<RouterLinkProps>;
 
 export type LocationContextProps = {
     history?: History;
