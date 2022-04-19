@@ -2,7 +2,7 @@ import {Meta, Story} from '@storybook/react/types-6-0';
 import React from 'react';
 
 import FullScreenImage, {FullScreenImageProps} from '../FullscreenImage';
-import {COMPONENTS, MEDIA} from '../../../constants';
+import {COMPONENTS, MEDIA} from '../../../demo/constants';
 
 export default {
     component: FullScreenImage,

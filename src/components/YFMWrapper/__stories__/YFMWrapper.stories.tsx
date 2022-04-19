@@ -4,7 +4,7 @@ import {ClassNameProps} from '@yandex-data-ui/cloud-components';
 import yfm from '@doc-tools/transform';
 
 import YFMWrapper, {YFMWrapperProps} from '../YFMWrapper';
-import {COMPONENTS} from '../../../constants';
+import {COMPONENTS} from '../../../demo/constants';
 
 export default {
     component: YFMWrapper,

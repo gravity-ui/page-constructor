@@ -2,7 +2,7 @@ import {Meta, Story} from '@storybook/react/types-6-0';
 import React from 'react';
 
 import OverflowScroller, {OverflowScrollerProps} from '../OverflowScroller';
-import {COMPONENTS} from '../../../constants';
+import {COMPONENTS} from '../../../demo/constants';
 
 import './OverflowScroller.stories.scss';
 

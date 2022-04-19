@@ -3,7 +3,7 @@ import React from 'react';
 
 import Features from '../Features';
 import {FeaturesProps} from '../../../models';
-import {COMPONENTS} from '../../../constants';
+import {COMPONENTS} from '../../../demo/constants';
 
 export default {
     component: Features,

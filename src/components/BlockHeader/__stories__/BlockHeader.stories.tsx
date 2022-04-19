@@ -3,7 +3,7 @@ import {ClassNameProps} from '@yandex-data-ui/cloud-components';
 import React from 'react';
 
 import BlockHeader, {BlockHeaderProps} from '../BlockHeader';
-import {COMPONENTS, HEADERS} from '../../../constants';
+import {COMPONENTS, HEADERS} from '../../../demo/constants';
 
 export default {
     component: BlockHeader,

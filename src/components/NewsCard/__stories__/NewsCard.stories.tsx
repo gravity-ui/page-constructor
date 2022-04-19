@@ -3,7 +3,7 @@ import React from 'react';
 
 import NewsCard from '../NewsCard';
 import {NewsCardProps} from '../../../models';
-import {CARDS, COMPONENTS} from '../../../constants';
+import {CARDS, COMPONENTS} from '../../../demo/constants';
 
 export default {
     component: NewsCard,

@@ -3,7 +3,7 @@ import React from 'react';
 
 import Divider from '../Divider';
 import {DividerProps} from '../../../models';
-import {COMPONENTS} from '../../../constants';
+import {COMPONENTS} from '../../../demo/constants';
 
 export default {
     component: Divider,

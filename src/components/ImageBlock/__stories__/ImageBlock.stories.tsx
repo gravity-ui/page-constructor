@@ -2,7 +2,7 @@ import {Meta, Story} from '@storybook/react/types-6-0';
 import React from 'react';
 
 import ImageBlock from '../ImageBlock';
-import {COMPONENTS, MEDIA} from '../../../constants';
+import {COMPONENTS, MEDIA} from '../../../demo/constants';
 import {ImageBlockProps} from '../../../models';
 
 export default {

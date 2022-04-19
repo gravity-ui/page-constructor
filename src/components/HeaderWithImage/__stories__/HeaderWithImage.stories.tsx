@@ -2,7 +2,7 @@ import {Meta, Story} from '@storybook/react/types-6-0';
 import React from 'react';
 
 import HeaderWithImage, {HeaderWithImageProps} from '../HeaderWithImage';
-import {COMPONENTS, HEADERS} from '../../../constants';
+import {COMPONENTS, HEADERS} from '../../../demo/constants';
 
 export default {
     component: HeaderWithImage,

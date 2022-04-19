@@ -3,7 +3,7 @@ import React, {Fragment} from 'react';
 
 import Link, {LinkFullProps} from '../Link';
 import {Col, Row} from '../../../grid';
-import {BUTTONS_LINKS, COMPONENTS} from '../../../constants';
+import {BUTTONS_LINKS, COMPONENTS} from '../../../demo/constants';
 import Section from '../../Section/Section';
 
 export default {

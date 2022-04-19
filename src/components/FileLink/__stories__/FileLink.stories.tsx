@@ -4,7 +4,7 @@ import React, {Fragment} from 'react';
 import {FileLink} from '../../index';
 import {FileLinkProps} from '../../../models';
 import {Col, Row} from '../../../grid';
-import {BUTTONS_LINKS, COMPONENTS} from '../../../constants';
+import {BUTTONS_LINKS, COMPONENTS} from '../../../demo/constants';
 import Section from '../../Section/Section';
 
 export default {

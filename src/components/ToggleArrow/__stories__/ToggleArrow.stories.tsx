@@ -2,7 +2,7 @@ import {Meta, Story} from '@storybook/react/types-6-0';
 import React from 'react';
 
 import ToggleArrow, {ToggleArrowProps} from '../ToggleArrow';
-import {COMPONENTS} from '../../../constants';
+import {COMPONENTS} from '../../../demo/constants';
 
 export default {
     component: ToggleArrow,
