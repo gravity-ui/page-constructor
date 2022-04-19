@@ -1,9 +1,6 @@
 import React from 'react';
+import {RouterLinkProps} from '../../components/RouterLink/RouterLink';
 import {History} from '../mobileAppContext';
-
-export interface RouterLinkProps {
-    href: string;
-}
 
 export type RouterLink = React.ComponentClass<RouterLinkProps>;
 
