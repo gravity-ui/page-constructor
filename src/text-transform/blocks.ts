@@ -150,7 +150,7 @@ const parseContentLayout = (transformer: Transformer, content: ContentBlockProps
 };
 
 function parseContentLayoutTitle(transformer: Transformer, content: ContentBlockProps) {
-    if (content) {
+    if (content?.title) {
         const {title} = content;
 
         content.title = title && parseTitle(transformer, title);

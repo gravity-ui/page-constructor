@@ -23,7 +23,7 @@ const Settings: React.FunctionComponent<SettingsComponentProps> = (props) => {
                 <div key={id}>
                     <div className={b('title', {size: titleSize})}>{item.title}</div>
                     <div className={b('description', {size: descriptionSize})}>
-                        <YFMWrapper content={item.description} />
+                        <YFMWrapper content={item.description} modifiers={{constructor: true}} />
                     </div>
                 </div>
             ))}

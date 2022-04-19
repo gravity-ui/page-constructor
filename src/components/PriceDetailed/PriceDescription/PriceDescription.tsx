@@ -99,7 +99,7 @@ const PriceDescription: React.FunctionComponent<PriceDescriptionExtendProps> = (
             {labelElement}
             {titleElement}
             <div className={b('description', {size: descriptionSize})}>
-                <YFMWrapper content={description} />
+                <YFMWrapper content={description} modifiers={{constructor: true}} />
             </div>
         </div>
     );

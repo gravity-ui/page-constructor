@@ -32,28 +32,28 @@ CardsWithImage.args = {
                     type: BlockType.CardWithImage,
                     image: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/card-with-image/bashkeev.png',
                     title: 'Алексей&nbsp;Башкеев',
-                    description: 'CEO, руководитель&nbsp;платформы',
+                    description: yfm('CEO, руководитель&nbsp;платформы').result.html,
                     links: [{link: 'https://yandex.ru', title: 'LinkedIn'}],
                 },
                 {
                     type: BlockType.CardWithImage,
                     image: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/card-with-image/bashkeev.png',
                     title: 'Алексей Башкеев',
-                    description: 'CEO, руководитель платформы',
+                    description: yfm('CEO, руководитель&nbsp;платформы').result.html,
                     links: [{link: 'https://yandex.ru', title: 'LinkedIn'}],
                 },
                 {
                     type: BlockType.CardWithImage,
                     image: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/card-with-image/bashkeev.png',
                     title: 'Алексей Башкеев',
-                    description: 'CEO, руководитель платформы',
+                    description: yfm('CEO, руководитель&nbsp;платформы').result.html,
                     links: [{link: 'https://yandex.ru', title: 'LinkedIn'}],
                 },
                 {
                     type: BlockType.CardWithImage,
                     image: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/card-with-image/bashkeev.png',
                     title: 'Алексей Башкеев',
-                    description: 'CEO, руководитель платформы',
+                    description: yfm('CEO, руководитель&nbsp;платформы').result.html,
                     links: [{link: 'https://yandex.ru', title: 'LinkedIn'}],
                 },
             ],
@@ -79,8 +79,9 @@ CardsWithImage.args = {
                     type: BlockType.CardWithImage,
                     image: 'https://storage.yandexcloud.net/ydb-www-prod-site-assets/clients/jaeger-new.png',
                     title: 'Перераспределение нагрузки',
-                    description:
+                    description: yfm(
                         'Вы сами определяете число ядер процессора и объём памяти и контролируете стоимость виртуальной машины.',
+                    ).result.html,
                     fullScreen: true,
                     border: true,
                 },
@@ -88,8 +89,9 @@ CardsWithImage.args = {
                     type: BlockType.CardWithImage,
                     image: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/ydb-assets/scheme.png',
                     title: 'Автомасштабирование по нагрузке',
-                    description:
-                        'Клиентов довольны нами. Присоединяйтесь и вы, чтобы убедиться в этом лично.',
+                    description: yfm(
+                        'Вы сами определяете число ядер процессора и объём памяти и контролируете стоимость виртуальной машины.',
+                    ).result.html,
                     fullScreen: true,
                     border: true,
                 },
@@ -97,8 +99,9 @@ CardsWithImage.args = {
                     type: BlockType.CardWithImage,
                     image: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/ydb-assets/scheme.png',
                     title: 'Автомасштабирование по размеру',
-                    description:
-                        'Клиентов довольны нами. Присоединяйтесь и вы, чтобы убедиться в этом лично.',
+                    description: yfm(
+                        'Вы сами определяете число ядер процессора и объём памяти и контролируете стоимость виртуальной машины.',
+                    ).result.html,
                     fullScreen: true,
                     border: true,
                 },
@@ -106,8 +109,9 @@ CardsWithImage.args = {
                     type: BlockType.CardWithImage,
                     image: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/ydb-assets/scheme.png',
                     title: 'Автоматическое восстановление',
-                    description:
-                        'Клиентов довольны нами. Присоединяйтесь и вы, чтобы убедиться в этом лично.',
+                    description: yfm(
+                        'Вы сами определяете число ядер процессора и объём памяти и контролируете стоимость виртуальной машины.',
+                    ).result.html,
                     fullScreen: true,
                     border: true,
                 },
@@ -115,8 +119,9 @@ CardsWithImage.args = {
                     type: BlockType.CardWithImage,
                     image: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/ydb-assets/scheme.png',
                     title: 'Репликация данных',
-                    description:
+                    description: yfm(
                         'Вы сами определяете число ядер процессора и объём памяти и контролируете стоимость виртуальной машины.',
+                    ).result.html,
                     fullScreen: true,
                     border: true,
                 },
@@ -124,8 +129,9 @@ CardsWithImage.args = {
                     type: BlockType.CardWithImage,
                     image: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/ydb-assets/scheme.png',
                     title: 'Секционирование',
-                    description:
+                    description: yfm(
                         'Вы сами определяете число ядер процессора и объём памяти и контролируете стоимость виртуальной машины.',
+                    ).result.html,
                     fullScreen: true,
                     border: true,
                 },
@@ -282,7 +288,9 @@ BackgroundCards.args = {
                 {
                     type: BlockType.BackgroundCard,
                     title: 'Концепция безопасности',
-                    text: 'Мы открыты в отношении наших обязательств и нашей ответственности за защиту и управление данными клиента в облаке.',
+                    text: yfm(
+                        'Мы открыты в отношении наших обязательств и нашей ответственности за защиту и управление данными клиента в облаке.',
+                    ).result.html,
                     background: {
                         src: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/bg_card_0001.png',
                         alt: 'card-background',
@@ -294,7 +302,9 @@ BackgroundCards.args = {
                 {
                     type: BlockType.BackgroundCard,
                     title: 'Что мы делаем для безопасности',
-                    text: 'Защита конфиденциальности информации, размещенной в облаке, данных и сервисов клиентов — наша важнейшая задача и ключевой приоритет.',
+                    text: yfm(
+                        'Защита конфиденциальности информации, размещенной в облаке, данных и сервисов клиентов — наша важнейшая задача и ключевой приоритет.',
+                    ).result.html,
                     background: {
                         src: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/bg_card_0002.png',
                         alt: 'card-background',
@@ -306,7 +316,9 @@ BackgroundCards.args = {
                 {
                     type: BlockType.BackgroundCard,
                     title: 'Соответствие стандартам',
-                    text: 'Мы постоянно совершенствуем процессы информационной безопасности, механизмы создания и эксплуатации наших сервисов, чтобы соответствовать не только федеральным, но и мировым стандартам.',
+                    text: yfm(
+                        'Мы постоянно совершенствуем процессы информационной безопасности, механизмы создания и эксплуатации наших сервисов, чтобы соответствовать не только федеральным, но и мировым стандартам.',
+                    ).result.html,
                     background: {
                         src: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/bg_card_0003.png',
                         alt: 'card-background',
@@ -324,7 +336,9 @@ BackgroundCards.args = {
                 {
                     type: BlockType.BackgroundCard,
                     title: 'Концепция безопасности',
-                    text: 'Мы открыты в отношении наших обязательств и нашей ответственности за защиту и управление данными клиента в облаке.',
+                    text: yfm(
+                        'Мы открыты в отношении наших обязательств и нашей ответственности за защиту и управление данными клиента в облаке.',
+                    ).result.html,
                     background: {
                         src: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/bg_card_0001.png',
                         alt: 'card-background',
@@ -336,7 +350,9 @@ BackgroundCards.args = {
                 {
                     type: BlockType.BackgroundCard,
                     title: 'Что мы делаем для безопасности',
-                    text: 'Защита конфиденциальности информации, размещенной в облаке, данных и сервисов клиентов — наша важнейшая задача и ключевой приоритет.',
+                    text: yfm(
+                        'Защита конфиденциальности информации, размещенной в облаке, данных и сервисов клиентов — наша важнейшая задача и ключевой приоритет.',
+                    ).result.html,
                     background: {
                         src: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/bg_card_0002.png',
                         alt: 'card-background',
@@ -348,7 +364,9 @@ BackgroundCards.args = {
                 {
                     type: BlockType.BackgroundCard,
                     title: 'Соответствие стандартам',
-                    text: 'Мы постоянно совершенствуем процессы информационной безопасности, механизмы создания и эксплуатации наших сервисов, чтобы соответствовать не только федеральным, но и мировым стандартам.',
+                    text: yfm(
+                        'Мы постоянно совершенствуем процессы информационной безопасности, механизмы создания и эксплуатации наших сервисов, чтобы соответствовать не только федеральным, но и мировым стандартам.',
+                    ).result.html,
                     background: {
                         src: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/bg_card_0003.png',
                         alt: 'card-background',
@@ -367,7 +385,9 @@ BackgroundCards.args = {
                 {
                     type: BlockType.BackgroundCard,
                     title: 'Концепция безопасности',
-                    text: 'Мы открыты в отношении наших обязательств и нашей ответственности за защиту и управление данными клиента в облаке.',
+                    text: yfm(
+                        'Мы открыты в отношении наших обязательств и нашей ответственности за защиту и управление данными клиента в облаке.',
+                    ).result.html,
                     background: {
                         src: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/bg_card_0001.png',
                         alt: 'card-background',
@@ -379,7 +399,9 @@ BackgroundCards.args = {
                 {
                     type: BlockType.BackgroundCard,
                     title: 'Что мы делаем для безопасности',
-                    text: 'Защита конфиденциальности информации, размещенной в облаке, данных и сервисов клиентов — наша важнейшая задача и ключевой приоритет.',
+                    text: yfm(
+                        'Защита конфиденциальности информации, размещенной в облаке, данных и сервисов клиентов — наша важнейшая задача и ключевой приоритет.',
+                    ).result.html,
                     background: {
                         src: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/bg_card_0002.png',
                         alt: 'card-background',
@@ -391,7 +413,9 @@ BackgroundCards.args = {
                 {
                     type: BlockType.BackgroundCard,
                     title: 'Соответствие стандартам',
-                    text: 'Мы постоянно совершенствуем процессы информационной безопасности, механизмы создания и эксплуатации наших сервисов, чтобы соответствовать не только федеральным, но и мировым стандартам.',
+                    text: yfm(
+                        'Мы постоянно совершенствуем процессы информационной безопасности, механизмы создания и эксплуатации наших сервисов, чтобы соответствовать не только федеральным, но и мировым стандартам.',
+                    ).result.html,
                     background: {
                         src: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/bg_card_0003.png',
                         alt: 'card-background',
@@ -409,7 +433,9 @@ BackgroundCards.args = {
                 {
                     type: BlockType.BackgroundCard,
                     title: 'Концепция безопасности',
-                    text: 'Мы открыты в отношении наших обязательств и нашей ответственности за защиту и управление данными клиента в облаке.',
+                    text: yfm(
+                        'Мы открыты в отношении наших обязательств и нашей ответственности за защиту и управление данными клиента в облаке.',
+                    ).result.html,
                     background: {
                         src: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/bg_card_0001.png',
                         alt: 'card-background',
@@ -421,7 +447,9 @@ BackgroundCards.args = {
                 {
                     type: BlockType.BackgroundCard,
                     title: 'Что мы делаем для безопасности',
-                    text: 'Защита конфиденциальности информации, размещенной в облаке, данных и сервисов клиентов — наша важнейшая задача и ключевой приоритет.',
+                    text: yfm(
+                        'Защита конфиденциальности информации, размещенной в облаке, данных и сервисов клиентов — наша важнейшая задача и ключевой приоритет.',
+                    ).result.html,
                     background: {
                         src: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/bg_card_0002.png',
                         alt: 'card-background',
@@ -433,7 +461,9 @@ BackgroundCards.args = {
                 {
                     type: BlockType.BackgroundCard,
                     title: 'Соответствие стандартам',
-                    text: 'Мы постоянно совершенствуем процессы информационной безопасности, механизмы создания и эксплуатации наших сервисов, чтобы соответствовать не только федеральным, но и мировым стандартам.',
+                    text: yfm(
+                        'Мы постоянно совершенствуем процессы информационной безопасности, механизмы создания и эксплуатации наших сервисов, чтобы соответствовать не только федеральным, но и мировым стандартам.',
+                    ).result.html,
                     background: {
                         src: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/bg_card_0003.png',
                         alt: 'card-background',
@@ -452,7 +482,9 @@ BackgroundCards.args = {
                 {
                     type: BlockType.BackgroundCard,
                     title: 'Концепция безопасности',
-                    text: 'Мы открыты в отношении наших обязательств и нашей ответственности за защиту и управление данными клиента в облаке.',
+                    text: yfm(
+                        'Мы открыты в отношении наших обязательств и нашей ответственности за защиту и управление данными клиента в облаке.',
+                    ).result.html,
                     background: {
                         src: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/bg_card_0001.png',
                         alt: 'card-background',
@@ -466,7 +498,9 @@ BackgroundCards.args = {
                 {
                     type: BlockType.BackgroundCard,
                     title: 'Что мы делаем для безопасности',
-                    text: 'Защита конфиденциальности информации, размещенной в облаке, данных и сервисов клиентов — наша важнейшая задача и ключевой приоритет.',
+                    text: yfm(
+                        'Защита конфиденциальности информации, размещенной в облаке, данных и сервисов клиентов — наша важнейшая задача и ключевой приоритет.',
+                    ).result.html,
                     background: {
                         src: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/bg_card_0002.png',
                         alt: 'card-background',
@@ -480,7 +514,9 @@ BackgroundCards.args = {
                 {
                     type: BlockType.BackgroundCard,
                     title: 'Соответствие стандартам',
-                    text: 'Мы постоянно совершенствуем процессы информационной безопасности, механизмы создания и эксплуатации наших сервисов, чтобы соответствовать не только федеральным, но и мировым стандартам.',
+                    text: yfm(
+                        'Мы постоянно совершенствуем процессы информационной безопасности, механизмы создания и эксплуатации наших сервисов, чтобы соответствовать не только федеральным, но и мировым стандартам.',
+                    ).result.html,
                     background: {
                         src: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/bg_card_0003.png',
                         alt: 'card-background',
