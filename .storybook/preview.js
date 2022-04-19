@@ -7,6 +7,7 @@ import CommonTheme from './commonTheme.js';
 import {MINIMAL_VIEWPORTS} from '@storybook/addon-viewport';
 import {withTheme} from '../src/demo/decorators/withTheme';
 import {withLang} from '../src/demo/decorators/withLang';
+import {withMobile} from '../src/demo/decorators/withMobile';
 import {DocsWithReadme} from '../src/demo/DocsWithReadme';
 import {MobileProvider} from '@yandex-cloud/uikit';
 import {ThemeProvider} from '../src';
@@ -34,7 +35,7 @@ const withCommonProvider = (Story, context) => {
     );
 };
 
-export const decorators = [withTheme, withLang, withCommonProvider];
+export const decorators = [withTheme, withLang, withMobile, withCommonProvider];
 
 export const parameters = {
     docs: {
