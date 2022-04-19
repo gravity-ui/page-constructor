@@ -392,6 +392,12 @@ const config: BlocksConfig = {
             parser: parseTitle,
         },
     ],
+    [BlockType.PreviewBlock]: [
+        {
+            fields: ['description'],
+            transformer: yfmTransformer,
+        },
+    ],
 };
 
 function addRandomOrder(block: ConstructorBlock) {
