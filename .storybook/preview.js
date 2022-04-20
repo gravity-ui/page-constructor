@@ -1,14 +1,16 @@
 import '../styles/storybook/index.scss';
+import '@yandex-cloud/uikit/styles/styles.scss';
 import '../styles/styles.scss';
 
 import React from 'react';
 import CommonTheme from './commonTheme.js';
 import {MINIMAL_VIEWPORTS} from '@storybook/addon-viewport';
-import {CommonProvider, Grid, PageConstructor, Row} from '../src';
 import {withTheme} from '../src/demo/decorators/withTheme';
 import {withLang} from '../src/demo/decorators/withLang';
 import {withMobile} from '../src/demo/decorators/withMobile';
 import {DocsWithReadme} from '../src/demo/DocsWithReadme';
+import {MobileProvider} from '@yandex-cloud/uikit';
+import {ThemeProvider} from '../src';
 
 const withCommonProvider = (Story, context) => {
     const theme = context.globals.theme;
@@ -25,9 +27,11 @@ const withCommonProvider = (Story, context) => {
     // context.parameters.docs.theme = theme === 'light' ? CommonTheme.light : CommonTheme.dark;
 
     return (
-        <CommonProvider>
-            <Story {...context} />
-        </CommonProvider>
+        <MobileProvider mobile={false} platform={'browser'}>
+            <ThemeProvider theme={theme}>
+                <Story {...context} />
+            </ThemeProvider>
+        </MobileProvider>
     );
 };
 

@@ -55,7 +55,7 @@ $block: '.#{$ns}SecurityBlock';
 
         &-text,
         &-link {
-            @include text-size(body2);
+            @include text-size(body-2);
             margin-top: 8px;
         }
     }

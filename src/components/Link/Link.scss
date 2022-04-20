@@ -52,15 +52,15 @@ $block: '.#{$ns}link-block';
 
     &_size {
         &_l {
-            @include text-size(body3);
+            @include text-size(body-3);
         }
 
         &_m {
-            @include text-size(body2);
+            @include text-size(body-2);
         }
 
         &_s {
-            @include text-size(body);
+            @include text-size(body-1);
         }
     }
 }

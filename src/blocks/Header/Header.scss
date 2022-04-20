@@ -66,7 +66,7 @@ $block: '.#{$ns}header-block';
         font-weight: normal;
 
         * {
-            @include text-size(body3);
+            @include text-size(body-3);
         }
     }
 
@@ -140,7 +140,7 @@ $block: '.#{$ns}header-block';
     }
 
     &__overtitle {
-        @include text-size(body3);
+        @include text-size(body-3);
 
         margin-bottom: $indentXXXS;
         font-weight: 400;

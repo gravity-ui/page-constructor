@@ -14,7 +14,7 @@
 
         &_text-contrasts,
         &_font-families {
-            font-size: var(--yc-text-body2-font-size);
+            font-size: var(--yc-text-body-2-font-size);
 
             #{$block}__item + #{$block}__item {
                 margin-top: 12px;
@@ -42,59 +42,59 @@
         // font-sizes
         &_body .demo-typography__value {
             font-size: var(--yc-text-body-font-size);
-            line-height: var(--yc-text-body-line-height);
+            line-height: var(--yc-text-body-1-line-height);
         }
 
-        &_body2 .demo-typography__value {
-            font-size: var(--yc-text-body2-font-size);
-            line-height: var(--yc-text-body2-line-height);
+        &_body-2 .demo-typography__value {
+            font-size: var(--yc-text-body-2-font-size);
+            line-height: var(--yc-text-body-2-line-height);
         }
 
-        &_body3 .demo-typography__value {
-            font-size: var(--yc-text-body3-font-size);
-            line-height: var(--yc-text-body3-line-height);
+        &_body-3 .demo-typography__value {
+            font-size: var(--yc-text-body-3-font-size);
+            line-height: var(--yc-text-body-3-line-height);
         }
 
         &_lead .demo-typography__value {
-            font-size: var(--yc-text-lead-font-size);
-            line-height: var(--yc-text-lead-line-height);
+            font-size: var(--yc-text-subheader-3-font-size);
+            line-height: var(--yc-text-subheader-3-line-height);
         }
 
         &_header .demo-typography__value {
-            font-size: var(--yc-text-header-font-size);
-            line-height: var(--yc-text-header-line-height);
+            font-size: var(--yc-text-header-1-font-size);
+            line-height: var(--yc-text-header-1-line-height);
         }
 
         &_title .demo-typography__value {
-            font-size: var(--yc-text-title-font-size);
-            line-height: var(--yc-text-title-line-height);
+            font-size: var(--yc-text-header-2-font-size);
+            line-height: var(--yc-text-header-2-line-height);
         }
 
         &_display1 .demo-typography__value {
-            font-size: var(--yc-text-display1-font-size);
-            line-height: var(--yc-text-display1-line-height);
+            font-size: var(--yc-text-display-1-font-size);
+            line-height: var(--yc-text-display-1-line-height);
         }
 
         &_display2 .demo-typography__value {
-            font-size: var(--yc-text-display2-font-size);
-            line-height: var(--yc-text-display2-line-height);
+            font-size: var(--yc-text-display-2-font-size);
+            line-height: var(--yc-text-display-2-line-height);
         }
 
         &_display3 .demo-typography__value {
-            font-size: var(--yc-text-display3-font-size);
-            line-height: var(--yc-text-display3-line-height);
+            font-size: var(--yc-text-display-3-font-size);
+            line-height: var(--yc-text-display-3-line-height);
         }
 
         &_code-3 .demo-typography__value {
             font-size: var(--yc-text-code-3-font-size);
             line-height: var(--yc-text-code-3-line-height);
-            font-weight: var(--yc-text-code-font-weight);
+            font-weight: var(--yc-text-code-1-font-size);
             font-family: var(--yc-text-code-font-family);
         }
 
         &_code-3-inline .demo-typography__value {
-            font-size: var(--yc-text-code-3-inline-font-size);
-            line-height: var(--yc-text-code-3-inline-line-height);
+            font-size: var(--yc-text-code-inline-3-font-size);
+            line-height: var(--yc-text-code-inline-3-line-height);
             font-weight: var(--yc-text-code-font-weight);
             font-family: var(--yc-text-code-font-family);
         }
@@ -107,8 +107,8 @@
         }
 
         &_code-2-inline .demo-typography__value {
-            font-size: var(--yc-text-code-2-inline-font-size);
-            line-height: var(--yc-text-code-2-inline-line-height);
+            font-size: var(--yc-text-code-inline-2-font-size);
+            line-height: var(--yc-text-code-inline-2-line-height);
             font-weight: var(--yc-text-code-font-weight);
             font-family: var(--yc-text-code-font-family);
         }
@@ -121,8 +121,8 @@
         }
 
         &_code-1-inline .demo-typography__value {
-            font-size: var(--yc-text-code-1-inline-font-size);
-            line-height: var(--yc-text-code-1-inline-line-height);
+            font-size: var(--yc-text-code-inline-1-font-size);
+            line-height: var(--yc-text-code-inline-1-line-height);
             font-weight: var(--yc-text-code-font-weight);
             font-family: var(--yc-text-code-font-family);
         }

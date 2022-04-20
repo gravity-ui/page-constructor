@@ -49,7 +49,7 @@ $block: '.#{$ns}file-link';
     &_size {
         &_l {
             #{$root}__file-label {
-                @include text-size(body2);
+                @include text-size(body-2);
                 width: 44px;
                 height: 24px;
                 padding: 2px 6px;
@@ -59,7 +59,7 @@ $block: '.#{$ns}file-link';
         &_m,
         &_s {
             #{$root}__file-label {
-                @include text-size(body);
+                @include text-size(body-1);
                 width: 36px;
                 height: 20px;
                 padding: 1px 4px;

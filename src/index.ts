@@ -1,7 +1,5 @@
-//strotybook
+//storybook
 export * from './context/theme';
-export * from './context/mobileAppContext';
-export * from './context/commonContext';
 
 export * from './containers/PageConstructor';
 export * from './grid';

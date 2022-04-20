@@ -152,15 +152,15 @@ $block: '.#{$ns}SliderBlock';
 
             &_size {
                 &_l {
-                    @include text-size(header);
+                    @include text-size(header-1);
                 }
 
                 &_m {
-                    @include text-size(body2);
+                    @include text-size(body-2);
                 }
 
                 &_s {
-                    @include text-size(body);
+                    @include text-size(body-1);
                 }
             }
         }

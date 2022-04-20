@@ -17,7 +17,7 @@ $block: '.#{$ns}content-layout-block';
 
         &_size_s {
             @extend %heading-margin-reset;
-            @include text-size(body2);
+            @include text-size(body-2);
         }
 
         &_size_l {

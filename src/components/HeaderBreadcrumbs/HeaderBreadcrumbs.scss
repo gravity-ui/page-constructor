@@ -11,7 +11,7 @@ $block: '.#{$ns}header-breadcrumbs';
     }
 
     &__text {
-        @include text-size(body2);
+        @include text-size(body-2);
         @include link();
 
         color: var(--yc-color-text-secondary);

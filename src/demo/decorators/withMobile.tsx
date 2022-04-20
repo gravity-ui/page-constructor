@@ -1,7 +1,6 @@
 import React from 'react';
 import {Story as StoryType, StoryContext} from '@storybook/react/types-6-0';
-import {useMobile} from '../../context/mobileAppContext';
-import {BrowserRouter as Router} from 'react-router-dom';
+import {useMobile} from '@yandex-cloud/uikit';
 
 export function withMobile(Story: StoryType, context: StoryContext) {
     const mobileValue = context.globals.platform === 'mobile';
@@ -12,9 +11,5 @@ export function withMobile(Story: StoryType, context: StoryContext) {
         setMobile(mobileValue);
     }
 
-    return (
-        <Router>
-            <Story {...context} />
-        </Router>
-    );
+    return <Story {...context} />;
 }

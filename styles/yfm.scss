@@ -40,18 +40,18 @@
     }
 
     &_footnote_text p {
-        @include text-size(body2);
+        @include text-size(body-2);
     }
 
     &_footnote_page p {
-        @include text-size(body);
+        @include text-size(body-1);
     }
 
     &_header_description {
         @include add-specificity(&) {
             p {
                 //TODO manage with text-size
-                @include text-size(body3);
+                @include text-size(body-3);
                 color: var(--yc-color-text-primary);
                 margin: 0 0 15px;
             }

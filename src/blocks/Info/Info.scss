@@ -33,7 +33,7 @@ $block: '.#{$ns}info-block';
     }
 
     &__links {
-        @include text-size(body2);
+        @include text-size(body-2);
 
         margin-top: $indentS;
     }

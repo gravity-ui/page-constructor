@@ -1,5 +1,5 @@
 import React, {Fragment, useContext, useState} from 'react';
-import {Tabs} from '@yandex-data-ui/common';
+import {Tabs} from '@yandex-cloud/uikit';
 
 import {block, getThemedValue} from '../../utils';
 import {Row, Col, GridColumnOrderClasses} from '../../grid';
@@ -45,6 +45,7 @@ const TabsBlock: React.FunctionComponent<TabsBlockProps> = ({
                 items={tabs}
                 activeTab={activeTab}
                 onSelectTab={setActiveTab}
+                size="l"
             />
             {activeTabData && (
                 <Row>

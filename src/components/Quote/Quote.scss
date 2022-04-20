@@ -39,7 +39,7 @@ $block: '.#{$ns}quote';
     &__content {
         margin-top: $indentSM;
         position: relative;
-        @include text-size(body3);
+        @include text-size(body-3);
 
         &::before {
             position: absolute;

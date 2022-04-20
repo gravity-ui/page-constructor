@@ -1,6 +1,17 @@
 import React from 'react';
 import {RouterLinkProps} from '../../components/RouterLink/RouterLink';
-import {History} from '../mobileAppContext';
+
+export interface History {
+    action: 'PUSH' | 'POP' | 'REPLACE' | '';
+
+    replace(location: Partial<Location>): void;
+
+    push(location: Partial<Location>): void;
+
+    goBack(): void;
+
+    length: number;
+}
 
 export type RouterLink =
     | React.ComponentClass<RouterLinkProps>
