@@ -1,4 +1,4 @@
-import {BaseProps, AnimatableProps} from '../../schema/common';
+import {BaseProps, AnimatableProps, withTheme} from '../../schema/common';
 
 export const CompaniesBlock = {
     'companies-block': {
@@ -10,7 +10,7 @@ export const CompaniesBlock = {
             title: {
                 type: 'string',
             },
-            images: {
+            images: withTheme({
                 type: 'object',
                 required: ['desktop', 'tablet', 'mobile'],
                 properties: {
@@ -27,7 +27,7 @@ export const CompaniesBlock = {
                         type: 'string',
                     },
                 },
-            },
+            }),
         },
     },
 };

@@ -658,12 +658,12 @@ export interface BannerBlockProps extends Animatable {
 
 export interface CompaniesBlockProps extends Animatable {
     title: string;
-    images: {
+    images: ThemeSupporting<{
         desktop: string;
         tablet: string;
         mobile: string;
         alt?: string;
-    };
+    }>;
 }
 
 export interface MediaBlockProps extends Animatable {

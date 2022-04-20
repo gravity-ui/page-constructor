@@ -1,16 +1,19 @@
-import React from 'react';
+import React, {useContext} from 'react';
 
-import {block} from '../../utils';
+import {block, getThemedValue} from '../../utils';
 import {CompaniesBlockProps} from '../../models';
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
 import {BREAKPOINTS} from '../../constants';
+import {ThemeValueContext} from '../../context/theme/ThemeValueContext';
 
 import './Companies.scss';
 
 const b = block('companies-block');
 
-const CompaniesBlock: React.FC<CompaniesBlockProps> = ({title, images = {}, animated}) => {
-    const {desktop, mobile, tablet, alt} = images;
+const CompaniesBlock: React.FC<CompaniesBlockProps> = ({title, images, animated}) => {
+    const {themeValue: theme} = useContext(ThemeValueContext);
+    const themedImages = getThemedValue(images, theme) || {};
+    const {desktop, mobile, tablet, alt} = themedImages;
 
     return (
         <AnimateBlock className={b()} offset={150} animate={animated}>
