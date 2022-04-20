@@ -1,5 +1,13 @@
 # Лог изменений
 
+## 0.33.0
+
+Удален компонент `HeaderWithImage`
+
+## 0.32.0
+
+Добавлена поддержка темной темы в блоке `companies-block`
+
 ## 0.30.1
 
 Fix content-layout text color in dark theme

@@ -10,7 +10,6 @@ import {GridColumnSize, GridColumnSizesType} from '../grid/types';
 export enum BlockType {
     Header = 'header',
     HeaderBreadcrumbs = 'header-breadcrumbs',
-    HeaderWithImage = 'header-with-image',
     Text = 'text',
     Section = 'section',
     Container = 'container',
@@ -549,11 +548,6 @@ export interface HeaderProps extends Themable, Childable {
     width?: HeaderWidth;
     children?: Block[];
 }
-
-export type HeaderWithImageProps = Omit<
-    HeaderProps,
-    keyof Themable | 'background' | 'width' | 'color'
->;
 
 export interface HeaderSliderBlockProps extends Omit<SliderProps, 'title' | 'description'> {
     items: HeaderBlockProps[];
