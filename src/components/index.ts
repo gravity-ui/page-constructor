@@ -20,7 +20,6 @@ export {default as FullWidthBackground} from './FullWidthBackground/FullWidthBac
 export {default as GridBlock} from './Grid/Grid';
 export {default as Header} from './Header/Header';
 export {default as HeaderBreadcrumbs} from './HeaderBreadcrumbs/HeaderBreadcrumbs';
-export {default as HeaderWithImage} from './HeaderWithImage/HeaderWithImage';
 export {default as HeightCalculator} from './HeightCalculator/HeightCalculator';
 export {default as Image} from './Image/Image';
 export {default as ImageBlock} from './ImageBlock/ImageBlock';

@@ -9,7 +9,6 @@ import {
     featuresBlock,
     formBlock,
     headerBlock,
-    headerWithImageBlock,
     imageBlock,
     linkBlock,
     scrollableBlock,
@@ -86,7 +85,6 @@ export function generateDefaultSchema(config?: SchemaCustomConfig) {
                         type: 'string',
                         enum: [
                             'header',
-                            'header-with-image',
                             'text',
                             'section',
                             'container',
@@ -137,7 +135,6 @@ export function generateDefaultSchema(config?: SchemaCustomConfig) {
                 selectCases: {
                     // Blocks v1
                     ...headerBlock,
-                    ...headerWithImageBlock,
                     ...textBlock,
                     ...titleBlock,
                     ...imageBlock,

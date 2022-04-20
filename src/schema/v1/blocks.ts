@@ -59,26 +59,6 @@ export const headerBlock = {
     },
 };
 
-export const headerWithImageBlock = {
-    'header-with-image': {
-        additionalProperties: false,
-        required: ['title'],
-        properties: {
-            ...BaseProps,
-            title: {
-                type: 'string',
-            },
-            image: {
-                type: 'string',
-            },
-            subtitle: {
-                type: 'string',
-            },
-            children: ChildrenProps,
-        },
-    },
-};
-
 export const textBlock = {
     text: {
         additionalProperties: false,
