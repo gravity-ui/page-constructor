@@ -7,7 +7,7 @@ export interface ThemedValue<T> extends Partial<Record<string, T>> {
 export type ThemeSupporting<T> = T | ThemedValue<T>;
 
 export function isThemedValue<T>(value: ThemeSupporting<T>): value is ThemedValue<T> {
-    return typeof value === 'object' && DEFAULT_THEME in value;
+    return typeof value === 'object' && value !== null && DEFAULT_THEME in value;
 }
 
 export function getThemedValue<T>(value: ThemeSupporting<T>, theme = DEFAULT_THEME) {
