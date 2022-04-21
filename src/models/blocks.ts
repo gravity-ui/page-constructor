@@ -316,7 +316,6 @@ export interface CardData {
 
 export interface CardBaseProps {
     border?: CardBorder;
-    backgroundColor?: string;
 }
 
 export interface CardProps extends CardBaseProps, CardData {}
@@ -389,7 +388,7 @@ export interface PriceDetailedProps extends CardBaseProps {
     labelsDefaultText?: Record<PriceLabelColor, string>;
 }
 
-export type CardBorder = 'shadow' | 'line';
+export type CardBorder = 'shadow' | 'line' | 'none';
 
 export type ServiceDemoProps = Animatable;
 
@@ -637,8 +636,9 @@ export interface BackgroundCardProps
     extends CardBaseProps,
         Omit<ContentBlockProps, 'colSizes' | 'centered'> {
     url?: string;
-    background: ImageObjectProps;
+    background?: ImageObjectProps;
     paddingBottom?: 's' | 'm' | 'l' | 'xl';
+    backgroundColor?: string;
 }
 
 export interface BannerBlockProps extends Animatable {

@@ -4,10 +4,7 @@ import {BaseProps, LinkProps} from '../../schema/common';
 export const CardBase = {
     border: {
         type: 'string',
-        enum: ['border', 'shadow'],
-    },
-    backgroundColor: {
-        type: 'string',
+        enum: ['border', 'shadow', 'none'],
     },
 };
 
