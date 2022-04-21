@@ -46,7 +46,6 @@ export const Layout: React.FC<CardBaseProps> & LayoutParts = (props) => {
         url,
         target,
         border = 'shadow',
-        backgroundColor,
     } = props;
     let header, content, footer, image, headerClass, footerClass;
 
@@ -90,7 +89,7 @@ export const Layout: React.FC<CardBaseProps> & LayoutParts = (props) => {
         </Fragment>
     );
 
-    const fullClassName = b({border: border}, className);
+    const fullClassName = b({border}, className);
 
     return url ? (
         <RouterLink href={url}>
@@ -106,9 +105,7 @@ export const Layout: React.FC<CardBaseProps> & LayoutParts = (props) => {
             </a>
         </RouterLink>
     ) : (
-        <div className={fullClassName} style={{backgroundColor}}>
-            {cardContent}
-        </div>
+        <div className={fullClassName}>{cardContent}</div>
     );
 };
 

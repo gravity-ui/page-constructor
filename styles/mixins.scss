@@ -240,11 +240,13 @@
         border: 1px solid var(--yc-color-line-generic);
     }
 
-    &_border_shadow {
-        @extend %shadow;
+    &_border_line,
+    &_border_none {
+        cursor: default;
     }
 
-    &:not(&_border_none) {
+    &_border_shadow {
+        @extend %shadow;
         @if $hover {
             @extend %shadow-hover;
             &:hover {

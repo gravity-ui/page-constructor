@@ -26,18 +26,14 @@ const BackgroundCard: React.FC<BackgroundCardProps> = (props) => {
         buttons,
     } = props;
 
-    const link = backgroundColor || theme !== 'default' ? undefined : url;
-    const isBorderNone = backgroundColor || theme !== 'default';
+    const hasBackgroundColor = backgroundColor || theme !== 'default';
+    const link = hasBackgroundColor || border === 'line' ? undefined : url;
+    const borderType = hasBackgroundColor ? 'none' : border;
 
     return (
-        <CardBase
-            className={b({padding: paddingBottom, theme, border: isBorderNone && 'none'})}
-            url={link}
-            border={border}
-            backgroundColor={backgroundColor}
-        >
+        <CardBase className={b({padding: paddingBottom, theme})} url={link} border={borderType}>
             <CardBase.Content>
-                <BackgroundImage className={b('image')} {...background} />
+                <BackgroundImage className={b('image')} {...background} style={{backgroundColor}} />
                 <Content
                     title={title}
                     text={text}
