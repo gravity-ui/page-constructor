@@ -84,7 +84,7 @@
     "@types/react-transition-group": "^4.4.4",
     "@types/sanitize-html": "^2.6.0",
     "@yandex-cloud/i18n": "^0.4.0",
-    "@yandex-data-ui/cloud-components": "^6.46.0",
+    "@yandex-data-ui/cloud-components": "^9.0.5",
     "@yandex-data-ui/cloud-schemas": "^2.124.0",
     "@yandex-data-ui/common": "^10.0.0",
     "@yandex-data-ui/tsconfig": "^0.4.0",
