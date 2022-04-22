@@ -97,7 +97,7 @@ const MediaContent: React.FC<MediaContentProps> = forwardRef<HTMLDivElement, Med
                         </h2>
                         {description && (
                             <div className={b('description')}>
-                                <YFMWrapper content={description} />
+                                <YFMWrapper content={description} modifiers={{constructor: true}} />
                             </div>
                         )}
                     </div>

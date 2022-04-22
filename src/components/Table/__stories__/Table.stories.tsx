@@ -4,6 +4,7 @@ import React from 'react';
 import Table from '../Table';
 import {TableProps} from '../../../models';
 import {COMPONENTS} from '../../../demo/constants';
+import yfm from '@doc-tools/transform';
 
 export default {
     component: Table,
@@ -23,7 +24,7 @@ Default.args = {
         ['Логи аудита', '0', '1', '1'],
         ['Физическая безопасность и катастрофоустойчивость (DR)', '1', '1', '1'],
     ],
-    legend: ['Клиент', 'Yandex Cloud'],
+    legend: [yfm('Клиент').result.html, yfm('Yandex Cloud').result.html],
     justify: ['start', 'center', 'center', 'center'],
     marker: 'disk',
 };

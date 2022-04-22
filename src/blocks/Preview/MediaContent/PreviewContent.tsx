@@ -27,7 +27,7 @@ const PreviewContent: React.FC<PreviewContentProps> = (props) => {
                 <h2 className={b('title')}>{title}</h2>
                 {description && (
                     <div className={b('description')}>
-                        <YFMWrapper content={description} />
+                        <YFMWrapper content={description} modifiers={{constructor: true}} />
                     </div>
                 )}
             </div>

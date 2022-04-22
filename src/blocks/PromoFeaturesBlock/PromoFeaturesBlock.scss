@@ -85,7 +85,7 @@ $block: '.#{$ns}PromoFeaturesBlock';
             background-color: var(--yc-color-base-special);
 
             #{$block}-title,
-            #{$block}-text > .yfm {
+            #{$block}-text > .yfm * {
                 color: var(--yc-color-text-light-primary);
             }
 

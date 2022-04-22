@@ -13,21 +13,21 @@ export interface FoldableProps {
 }
 
 const Foldable: React.FunctionComponent<FoldableProps> = ({isOpened, children, className}) => {
-    const contenRef = useRef<HTMLDivElement>(null);
+    const contentRef = useRef<HTMLDivElement>(null);
     const [contentHeight, setContentHeight] = useState<number>();
     const onHeightCalculation = useCallback((height: number) => {
         setContentHeight(height);
     }, []);
 
     useEffect(() => {
-        if (contenRef && contenRef.current) {
-            contenRef.current.style.height = isOpened ? `${contentHeight}px` : '0';
+        if (contentRef && contentRef.current) {
+            contentRef.current.style.height = isOpened ? `${contentHeight}px` : '0';
         }
     }, [isOpened, contentHeight]);
 
     return (
         <div className={b(null, className)}>
-            <div ref={contenRef} className={b('content-container', {open: isOpened})}>
+            <div ref={contentRef} className={b('content-container', {open: isOpened})}>
                 {children}
             </div>
             <HeightCalculator onCalculate={onHeightCalculation}>{children}</HeightCalculator>

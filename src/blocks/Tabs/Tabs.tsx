@@ -89,16 +89,12 @@ const TabsBlock: React.FunctionComponent<TabsBlockProps> = ({
                             <h4 className={b('content-title')}>
                                 <YFMWrapper
                                     content={activeTabData.title}
-                                    modifiers={{
-                                        constructor: true,
-                                    }}
+                                    modifiers={{constructor: true}}
                                 />
                             </h4>
                             <YFMWrapper
                                 content={activeTabData.text}
-                                modifiers={{
-                                    constructor: true,
-                                }}
+                                modifiers={{constructor: true}}
                             />
                             <Links
                                 links={[

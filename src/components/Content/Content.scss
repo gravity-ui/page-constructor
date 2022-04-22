@@ -9,7 +9,7 @@ $lightSecondary: var(--yc-color-text-light-secondary);
 $darkPrimary: var(--yc-color-text-dark-primary);
 $darkSecondary: var(--yc-color-text-dark-secondary);
 
-@mixin contentLink($baseColor: $primary, $hoverColor: $secondary) {
+@mixin content-link($baseColor: $primary, $hoverColor: $secondary) {
     color: $baseColor;
     text-decoration: underline;
     &:hover {
@@ -19,13 +19,15 @@ $darkSecondary: var(--yc-color-text-dark-secondary);
 
 #{$block} {
     &__notice {
-        .yfm,
-        .yfm > * {
-            color: $secondary;
-        }
+        @include add-specificity(&) {
+            .yfm,
+            .yfm > * {
+                color: $secondary;
+            }
 
-        .yfm a {
-            @include contentLink($secondary, $primary);
+            .yfm a {
+                @include content-link($secondary, $primary);
+            }
         }
     }
 
@@ -114,13 +116,13 @@ $darkSecondary: var(--yc-color-text-dark-secondary);
                 }
 
                 .yfm a {
-                    @include contentLink($lightSecondary, $lightPrimary);
+                    @include content-link($lightSecondary, $lightPrimary);
                 }
             }
 
             #{$block}__text {
                 .yfm a {
-                    @include contentLink($lightPrimary, $lightSecondary);
+                    @include content-link($lightPrimary, $lightSecondary);
                 }
             }
         }
@@ -140,13 +142,13 @@ $darkSecondary: var(--yc-color-text-dark-secondary);
                 }
 
                 .yfm a {
-                    @include contentLink($darkSecondary, $darkPrimary);
+                    @include content-link($darkSecondary, $darkPrimary);
                 }
             }
 
             #{$block}__text {
                 .yfm a {
-                    @include contentLink($darkPrimary, $darkSecondary);
+                    @include content-link($darkPrimary, $darkSecondary);
                 }
             }
         }

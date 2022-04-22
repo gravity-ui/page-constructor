@@ -58,7 +58,11 @@ export default class Table extends React.Component<TableProps & ClassNameProps> 
                 {legend.map((item, index) => (
                     <div key={item} className={b('legend-item')}>
                         {this.renderMarker(marker, String(index))}
-                        <YFMWrapper className={b('legent-item-text')} content={item} />
+                        <YFMWrapper
+                            className={b('legent-item-text')}
+                            content={item}
+                            modifiers={{constructor: true}}
+                        />
                     </div>
                 ))}
             </div>
