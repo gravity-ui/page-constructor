@@ -48,7 +48,7 @@ export default function PromoFeaturesBlock(props: PromoFeaturesProps) {
                             <div className={b('card-info')}>
                                 <h4 className={b('card-title')}>{cardTitle}</h4>
                                 <div className={b('card-text')}>
-                                    <YFMWrapper content={text} />
+                                    <YFMWrapper content={text} modifiers={{constructor: true}} />
                                 </div>
                             </div>
                             {media && <Media className={b('card-media')} {...media} />}

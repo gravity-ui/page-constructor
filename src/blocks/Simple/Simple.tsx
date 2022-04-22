@@ -20,7 +20,7 @@ const SimpleBlock: React.FC<SimpleBlockProps> = (props) => {
             <div>
                 {blockHeader}
                 <div className={b('description')}>
-                    <YFMWrapper content={description} />
+                    <YFMWrapper content={description} modifiers={{constructor: true}} />
                 </div>
                 <div className={b('animate-block')}>{children}</div>
             </div>

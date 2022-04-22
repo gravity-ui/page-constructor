@@ -22,7 +22,7 @@ const Features: React.FunctionComponent<FeaturesProps> = ({columns = 2, items, b
         {items.map((item) => (
             <Col key={item} sizes={getSizes(columns)}>
                 <div className={b('item', {border})}>
-                    <YFMWrapper content={item} />
+                    <YFMWrapper content={item} modifiers={{constructor: true}} />
                 </div>
             </Col>
         ))}

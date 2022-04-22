@@ -43,10 +43,7 @@ const BannerBlock: React.FC<BannerBlockProps> = (props) => {
                             <YFMWrapper
                                 className={b('subtitle')}
                                 content={subtitle}
-                                modifiers={{
-                                    constructor: true,
-                                    constructorThemeDark: textTheme === 'dark',
-                                }}
+                                modifiers={{constructor: true}}
                             />
                         )}
                     </div>

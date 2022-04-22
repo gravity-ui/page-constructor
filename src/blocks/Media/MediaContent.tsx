@@ -33,12 +33,7 @@ const Description: React.FC<DescriptionProps> = (props) => {
 
     return (
         <div className={b('description')}>
-            <YFMWrapper
-                content={props.description}
-                modifiers={{
-                    constructor: true,
-                }}
-            />
+            <YFMWrapper content={props.description} modifiers={{constructor: true}} />
         </div>
     );
 };

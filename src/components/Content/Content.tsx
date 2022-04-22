@@ -72,7 +72,7 @@ const Content: React.FC<ContentBlockProps & ClassNameProps> = (props) => {
             )}
             {additionalInfo && (
                 <div className={b('notice')}>
-                    <YFMWrapper content={additionalInfo} />
+                    <YFMWrapper content={additionalInfo} modifiers={{constructor: true}} />
                 </div>
             )}
             {links && (

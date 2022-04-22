@@ -4,6 +4,13 @@
 
 .yfm_constructor {
     $block: &;
+    font-family: var(--yc-font-family-sans);
+
+    code,
+    kbd,
+    pre {
+        font-family: var(--yc-font-family-monospace);
+    }
 
     @include add-specificity(&) {
         h1,
@@ -45,17 +52,6 @@
 
     &_footnote_page p {
         @include text-size(body-1);
-    }
-
-    &_header_description {
-        @include add-specificity(&) {
-            p {
-                //TODO manage with text-size
-                @include text-size(body-3);
-                color: var(--yc-color-text-primary);
-                margin: 0 0 15px;
-            }
-        }
     }
 
     &_list_style ul {

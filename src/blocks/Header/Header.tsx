@@ -148,12 +148,7 @@ const HeaderBlock: React.FunctionComponent<HeaderBlockFullProps> = (props) => {
                         </h1>
                         {description && (
                             <h5 className={b('description')}>
-                                <YFMWrapper
-                                    content={description}
-                                    modifiers={{
-                                        constructorHeaderDescription: true,
-                                    }}
-                                />
+                                <YFMWrapper content={description} modifiers={{constructor: true}} />
                             </h5>
                         )}
                         {buttons && (

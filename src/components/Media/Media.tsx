@@ -47,6 +47,7 @@ const Media: React.FC<MediaAllProps> = (props) => {
         if (image) {
             result.push(
                 <Image
+                    key="image"
                     parallax={parallax}
                     image={image}
                     height={height}
@@ -61,6 +62,7 @@ const Media: React.FC<MediaAllProps> = (props) => {
         if (video) {
             result.push(
                 <Video
+                    key="video"
                     video={video}
                     videoClassName={videoClassName}
                     height={height}

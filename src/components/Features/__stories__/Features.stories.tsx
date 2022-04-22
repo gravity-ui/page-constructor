@@ -4,6 +4,7 @@ import React from 'react';
 import Features from '../Features';
 import {FeaturesProps} from '../../../models';
 import {COMPONENTS} from '../../../demo/constants';
+import yfm from '@doc-tools/transform';
 
 export default {
     component: Features,
@@ -15,6 +16,11 @@ const DefaultTemplate: Story<FeaturesProps> = (args) => <Features {...args} />;
 export const Default = DefaultTemplate.bind({});
 
 Default.args = {
-    items: ['Один', 'Два', 'Три', 'Четыре'],
+    items: [
+        yfm('Один').result.html,
+        yfm('Два').result.html,
+        yfm('Три').result.html,
+        yfm('Четыре').result.html,
+    ],
     border: true,
 };

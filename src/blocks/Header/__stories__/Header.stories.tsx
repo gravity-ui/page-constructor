@@ -3,6 +3,7 @@ import {Meta, Story} from '@storybook/react/types-6-0';
 import {BlockType, HeaderBlockModel} from '../../../models';
 import Header from '../Header';
 import {PageConstructor} from '../../../containers/PageConstructor/PageConstructor';
+import yfm from '@doc-tools/transform';
 
 export default {
     title: 'Блоки/Header',
@@ -43,8 +44,9 @@ export const BreadcrumbsDark = BreadcrumbsDarkTemplate.bind({});
 Default.args = {
     type: BlockType.HeaderBlock,
     title: 'Партнёрская программа Yandex Cloud Professionals',
-    description:
+    description: yfm(
         'Продавайте сервисы Yandex.Cloud и ежемесячно получайте партнёрскую премию от 12% до 20% потребления ваших клиентов. Получайте гранты для знакомства с сервисами Yandex.Cloud или для проведения пилотных проектов ваших клиентов.',
+    ).result.html,
     width: 'l',
     verticalOffset: 'm',
     buttons: [
@@ -63,8 +65,9 @@ Default.args = {
 Image.args = {
     type: BlockType.HeaderBlock,
     title: 'Партнёрская программа Yandex Cloud Professionals',
-    description:
+    description: yfm(
         'Продавайте сервисы Yandex.Cloud и ежемесячно получайте партнёрскую премию от 12% до 20% потребления ваших клиентов. Получайте гранты для знакомства с сервисами Yandex.Cloud или для проведения пилотных проектов ваших клиентов.',
+    ).result.html,
     width: 's',
     imageSize: 's',
     verticalOffset: 'm',
@@ -95,8 +98,9 @@ Image.args = {
 Background.args = {
     type: BlockType.HeaderBlock,
     title: 'Партнёрская программа Yandex Cloud Professionals',
-    description:
+    description: yfm(
         'Продавайте сервисы Yandex.Cloud и ежемесячно получайте партнёрскую премию от 12% до 20% потребления ваших клиентов. Получайте гранты для знакомства с сервисами Yandex.Cloud или для проведения пилотных проектов ваших клиентов.',
+    ).result.html,
     width: 's',
     verticalOffset: 'm',
     background: {
@@ -128,8 +132,9 @@ Background.args = {
 Theme.args = {
     type: BlockType.HeaderBlock,
     title: 'Партнёрская программа Yandex Cloud Professionals',
-    description:
+    description: yfm(
         'Продавайте сервисы Yandex.Cloud и ежемесячно получайте партнёрскую премию от 12% до 20% потребления ваших клиентов. Получайте гранты для знакомства с сервисами Yandex.Cloud или для проведения пилотных проектов ваших клиентов.',
+    ).result.html,
     width: 's',
     verticalOffset: 'm',
     theme: 'dark',
@@ -156,14 +161,22 @@ Breadcrumbs.args = {
     type: BlockType.HeaderBlock,
     title: 'Партнёрская программа Yandex Cloud Professionals',
     theme: 'default',
-    description:
+    description: yfm(
         'Продавайте сервисы Yandex.Cloud и ежемесячно получайте партнёрскую премию от 12% до 20% потребления ваших клиентов. Получайте гранты для знакомства с сервисами Yandex.Cloud или для проведения пилотных проектов ваших клиентов.',
+    ).result.html,
     width: 's',
     verticalOffset: 'm',
     background: {
-        url: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/bg-2.png',
-        color: '#E3EBFF',
-        fullWidth: true,
+        light: {
+            url: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/bg-2.png',
+            color: '#E3EBFF',
+            fullWidth: true,
+        },
+        dark: {
+            url: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/bg-2.png',
+            color: '#000',
+            fullWidth: true,
+        },
     },
     buttons: [
         {
@@ -195,8 +208,9 @@ BreadcrumbsDark.args = {
     type: BlockType.HeaderBlock,
     title: 'Партнёрская программа Yandex Cloud Professionals',
     theme: 'dark',
-    description:
+    description: yfm(
         'Продавайте сервисы Yandex.Cloud и ежемесячно получайте партнёрскую премию от 12% до 20% потребления ваших клиентов. Получайте гранты для знакомства с сервисами Yandex.Cloud или для проведения пилотных проектов ваших клиентов.',
+    ).result.html,
     width: 'l',
     verticalOffset: 'm',
     background: {
