@@ -107,8 +107,16 @@ class Constructor extends React.Component<Props> {
         );
     }
 
+    private isExistBlock(block: Block) {
+        return Boolean(this.fullComponentsMap[block.type]);
+    }
+
     private renderBlocks(blocks: Block[]) {
         const renderer = (block: Block, index: number): ReactElement | null => {
+            if (!this.isExistBlock(block)) {
+                return null;
+            }
+
             let children;
             let blockElement;
             const blockKey = getBlockKey(block, index);
