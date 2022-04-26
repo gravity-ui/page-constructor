@@ -2,7 +2,7 @@ import React from 'react';
 import {Meta, Story} from '@storybook/react/types-6-0';
 import {BlockType, BannerBlockModel} from '../../../models';
 import Banner from '../Banner';
-import {PageConstructor} from '../../../containers/PageConstructor/PageConstructor';
+import {PageConstructor} from '../../../containers/PageConstructor';
 import yfm from '@doc-tools/transform';
 
 export default {
@@ -11,19 +11,7 @@ export default {
 } as Meta;
 
 const DefaultTemplate: Story<BannerBlockModel> = (args) => (
-    <PageConstructor
-        content={{
-            blocks: [args],
-            background: {
-                light: {
-                    image: 'https://storage.yandexcloud.net/cloud-www-assets/edu/bnr-education-blue.png',
-                },
-                dark: {
-                    image: 'https://storage.yandexcloud.net/cloud-www-assets/edu/bnr-compscience-new.png',
-                },
-            },
-        }}
-    />
+    <PageConstructor content={{blocks: [args]}} />
 );
 
 const WithThemeTemplate: Story<BannerBlockModel> = (args) => (

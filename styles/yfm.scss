@@ -52,6 +52,7 @@
 
     &_footnote_page p {
         @include text-size(body-1);
+        display: inline;
     }
 
     &_list_style ul {
