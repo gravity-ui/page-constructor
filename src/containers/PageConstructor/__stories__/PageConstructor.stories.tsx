@@ -3,9 +3,10 @@ import {Meta, Story} from '@storybook/react/types-6-0';
 import {BlockType, HeaderBlockModel} from '../../../models';
 import {PageConstructor} from '../PageConstructor';
 import yfm from '@doc-tools/transform';
+import {CONTAINERS} from '../../../demo/constants';
 
 export default {
-    title: 'Контейнеры/PageConstructor',
+    title: `${CONTAINERS}/PageConstructor`,
     component: PageConstructor,
 } as Meta;
 
