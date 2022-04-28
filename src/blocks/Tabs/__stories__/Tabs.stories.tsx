@@ -3,6 +3,7 @@ import {Meta, Story} from '@storybook/react/types-6-0';
 import {BlockType, TabsBlockModel} from '../../../models';
 import Tabs from '../Tabs';
 import {PageConstructor} from '../../../containers/PageConstructor/PageConstructor';
+import yfm from '@doc-tools/transform';
 
 export default {
     title: 'Блоки/Tabs',
@@ -28,8 +29,9 @@ Default.args = {
     items: [
         {
             tabName: 'Розничная торговля',
-            title: 'Розничная торговля',
-            text: ' * Сократите время выхода на рынок\n * Сократите время выхода на рынок',
+            title: yfm('Розничная торговля').result.html,
+            text: yfm(' * Сократите время выхода на рынок\n * Сократите время выхода на рынок')
+                .result.html,
             link: {
                 url: '#contact-form',
                 text: 'Рассчитать стоимость',
@@ -58,7 +60,7 @@ Media.args = {
     items: [
         {
             tabName: 'Розничная торговля',
-            title: 'Розничная торговля',
+            title: yfm('Розничная торговля').result.html,
             image: {
                 light: {
                     src: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/ydb-assets/graph.png',
@@ -69,7 +71,8 @@ Media.args = {
                 },
             },
             caption: 'GitOps Release Strategy',
-            text: ' * Сократите время выхода на рынок\n * Сократите время выхода на рынок',
+            text: yfm('* Сократите время выхода на рынок\n* Сократите время выхода на рынок').result
+                .html,
         },
         {
             tabName: 'Сайт объявлений',
