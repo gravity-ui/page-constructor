@@ -1,4 +1,4 @@
-import React, {useCallback, useContext} from 'react';
+import React, {useContext} from 'react';
 import {Icon} from '@yandex-cloud/uikit';
 import {ClassNameProps} from '@yandex-data-ui/cloud-components';
 
@@ -47,7 +47,7 @@ const LinkBlock: React.FunctionComponent<LinkFullProps> = (props) => {
     const href = setUrlTld(props.url, tld);
     const defaultTextSize = theme === 'back' ? 'l' : 'm';
 
-    const getLinkByType = useCallback(() => {
+    const getLinkByType = () => {
         switch (theme) {
             case 'back':
                 return <BackLink title={children || text} url={href} />;
@@ -84,7 +84,7 @@ const LinkBlock: React.FunctionComponent<LinkFullProps> = (props) => {
             default:
                 return null;
         }
-    }, [arrow, children, colorTheme, href, hostname, text, textSize, theme, url]);
+    };
 
     return (
         <div className={b({size: textSize || defaultTextSize}, className)}>{getLinkByType()}</div>
