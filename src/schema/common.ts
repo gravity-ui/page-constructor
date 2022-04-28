@@ -239,6 +239,10 @@ export const LinkProps = {
             type: 'string',
             enum: textSize,
         },
+        target: {
+            type: 'string',
+            enum: ['_blank', '_parent', '_top', '_self'],
+        },
     },
 };
 

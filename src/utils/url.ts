@@ -2,8 +2,16 @@ import {parse, format} from 'url';
 
 export type Query = Record<string, number | string | null>;
 
-export function getLinkProps(url: string, hostname?: string) {
-    return isLinkExternal(url, hostname) ? {target: '_blank', rel: 'noopener noreferrer'} : {};
+export const EXTERNAL_LINK_PROPS = {target: '_blank', rel: 'noopener noreferrer'};
+
+export function getLinkProps(url: string, hostname?: string, target?: string) {
+    let linkProps = {target};
+
+    if (target === '_blank' || isLinkExternal(url, hostname)) {
+        linkProps = {...linkProps, ...EXTERNAL_LINK_PROPS};
+    }
+
+    return linkProps;
 }
 
 export function isLinkExternal(url: string, routerHostname?: string) {

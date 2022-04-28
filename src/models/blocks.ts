@@ -566,6 +566,7 @@ export interface LinkProps extends Stylable {
     theme?: LinkTheme;
     colorTheme?: TextTheme;
     arrow?: boolean;
+    target?: string;
 }
 
 export interface ShareProps {

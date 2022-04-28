@@ -1,4 +1,4 @@
-import React, {useCallback, useContext} from 'react';
+import React, {useContext} from 'react';
 import {Icon} from '@yandex-cloud/uikit';
 import {ClassNameProps} from '@yandex-data-ui/cloud-components';
 
@@ -38,6 +38,7 @@ const LinkBlock: React.FunctionComponent<LinkFullProps> = (props) => {
         colorTheme = 'light',
         textSize = 'm',
         className,
+        target,
         children,
     } = props;
 
@@ -46,7 +47,7 @@ const LinkBlock: React.FunctionComponent<LinkFullProps> = (props) => {
     const href = setUrlTld(props.url, tld);
     const defaultTextSize = theme === 'back' ? 'l' : 'm';
 
-    const getLinkByType = useCallback(() => {
+    const getLinkByType = () => {
         switch (theme) {
             case 'back':
                 return <BackLink title={children || text} url={href} />;
@@ -60,12 +61,14 @@ const LinkBlock: React.FunctionComponent<LinkFullProps> = (props) => {
                         textSize={textSize}
                     />
                 );
-            case 'normal':
+            case 'normal': {
+                const linkProps = getLinkProps(url, hostname, target);
+
                 return (
                     <a
                         className={b('link', {theme: colorTheme, 'has-arrow': arrow})}
                         href={href}
-                        {...getLinkProps(url, hostname)}
+                        {...linkProps}
                     >
                         {children || text}
                         {arrow && (
@@ -77,10 +80,11 @@ const LinkBlock: React.FunctionComponent<LinkFullProps> = (props) => {
                         )}
                     </a>
                 );
+            }
             default:
                 return null;
         }
-    }, [arrow, children, colorTheme, href, hostname, text, textSize, theme, url]);
+    };
 
     return (
         <div className={b({size: textSize || defaultTextSize}, className)}>{getLinkByType()}</div>
