@@ -38,6 +38,7 @@ const LinkBlock: React.FunctionComponent<LinkFullProps> = (props) => {
         colorTheme = 'light',
         textSize = 'm',
         className,
+        target,
         children,
     } = props;
 
@@ -60,12 +61,14 @@ const LinkBlock: React.FunctionComponent<LinkFullProps> = (props) => {
                         textSize={textSize}
                     />
                 );
-            case 'normal':
+            case 'normal': {
+                const linkProps = getLinkProps(url, hostname, target);
+
                 return (
                     <a
                         className={b('link', {theme: colorTheme, 'has-arrow': arrow})}
                         href={href}
-                        {...getLinkProps(url, hostname)}
+                        {...linkProps}
                     >
                         {children || text}
                         {arrow && (
@@ -77,6 +80,7 @@ const LinkBlock: React.FunctionComponent<LinkFullProps> = (props) => {
                         )}
                     </a>
                 );
+            }
             default:
                 return null;
         }
