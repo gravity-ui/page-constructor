@@ -12,10 +12,9 @@ export default {
 } as Meta;
 
 const DefaultTemplate: Story<TextProps> = (args) => <Text {...args} />;
-const FootnotesTemplate: Story<TextProps> = (args) => <Text {...args} />;
 
 export const Default = DefaultTemplate.bind({});
-export const Footnotes = FootnotesTemplate.bind({});
+export const Footnotes = DefaultTemplate.bind({});
 
 Default.args = {
     text: yfm(
