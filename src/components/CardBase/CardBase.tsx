@@ -1,9 +1,10 @@
 import React, {Children, ReactElement, Fragment, HTMLAttributeAnchorTarget} from 'react';
 
 import {block} from '../../utils';
-import {CardBaseProps as CardBaseParams, ImageProps} from '../../models';
+import {ButtonPixel, CardBaseProps as CardBaseParams, ImageProps, MetrikaGoal} from '../../models';
 import BackgroundImage from '../BackgroundImage/BackgroundImage';
 import RouterLink from '../RouterLink/RouterLink';
+import {useMetrika} from '../../hooks/useMetrika';
 
 import './CardBase.scss';
 
@@ -14,6 +15,8 @@ export interface CardBaseProps extends CardBaseParams {
     children: ReactElement | ReactElement[];
     url?: string;
     target?: HTMLAttributeAnchorTarget;
+    metrikaGoals?: MetrikaGoal;
+    pixelEvents?: ButtonPixel;
 }
 
 export interface CardHeaderBaseProps {
@@ -41,12 +44,15 @@ export const Layout: React.FC<CardBaseProps> & LayoutParts = (props) => {
     const {
         className,
         bodyClassName,
+        metrikaGoals,
+        pixelEvents,
         contentClassName,
         children,
         url,
         target,
         border = 'shadow',
     } = props;
+    const handleMetrika = useMetrika();
     let header, content, footer, image, headerClass, footerClass;
 
     function handleChild(child: ReactElement) {
@@ -91,6 +97,10 @@ export const Layout: React.FC<CardBaseProps> & LayoutParts = (props) => {
 
     const fullClassName = b({border}, className);
 
+    const onClick = () => {
+        handleMetrika({metrikaGoals, pixelEvents});
+    };
+
     return url ? (
         <RouterLink href={url}>
             <a
@@ -100,6 +110,7 @@ export const Layout: React.FC<CardBaseProps> & LayoutParts = (props) => {
                 className={fullClassName}
                 draggable={false}
                 onDragStart={(e) => e.preventDefault()}
+                onClick={onClick}
             >
                 {cardContent}
             </a>

@@ -1,8 +1,9 @@
 import {Meta, Story} from '@storybook/react/types-6-0';
 import React from 'react';
 
-import HeaderBreadcrumbs, {HeaderBreadCrumbsProps} from '../HeaderBreadcrumbs';
+import HeaderBreadcrumbs from '../HeaderBreadcrumbs';
 import {BUTTONS_LINKS, COMPONENTS} from '../../../demo/constants';
+import {HeaderBreadCrumbsProps} from '../../../models';
 
 export default {
     component: HeaderBreadcrumbs,
@@ -14,7 +15,7 @@ const DefaultTemplate: Story<HeaderBreadCrumbsProps> = (args) => <HeaderBreadcru
 export const Default = DefaultTemplate.bind({});
 
 Default.args = {
-    theme: 'default',
+    theme: 'light',
     items: [
         {
             url: '#',

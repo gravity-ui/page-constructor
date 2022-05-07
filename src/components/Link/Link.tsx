@@ -9,6 +9,7 @@ import FileLink from '../FileLink/FileLink';
 import BackLink from '../BackLink/BackLink';
 import {LocaleContext} from '../../context/localeContext/localeContext';
 import {LocationContext} from '../../context/locationContext/locationContext';
+import {useMetrika} from '../../hooks/useMetrika';
 
 import './Link.scss';
 
@@ -34,6 +35,8 @@ const LinkBlock: React.FunctionComponent<LinkFullProps> = (props) => {
         text,
         url,
         arrow,
+        metrikaGoals,
+        pixelEvents,
         theme = 'file-link',
         colorTheme = 'light',
         textSize = 'm',
@@ -42,10 +45,15 @@ const LinkBlock: React.FunctionComponent<LinkFullProps> = (props) => {
         children,
     } = props;
 
+    const handleMetrika = useMetrika();
     const {hostname} = useContext(LocationContext);
     const {tld} = useContext(LocaleContext);
     const href = setUrlTld(props.url, tld);
     const defaultTextSize = theme === 'back' ? 'l' : 'm';
+
+    const onClick = () => {
+        handleMetrika({metrikaGoals, pixelEvents});
+    };
 
     const getLinkByType = () => {
         switch (theme) {
@@ -68,6 +76,7 @@ const LinkBlock: React.FunctionComponent<LinkFullProps> = (props) => {
                     <a
                         className={b('link', {theme: colorTheme, 'has-arrow': arrow})}
                         href={href}
+                        onClick={onClick}
                         {...linkProps}
                     >
                         {children || text}

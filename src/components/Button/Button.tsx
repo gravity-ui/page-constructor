@@ -4,10 +4,10 @@ import {StoreBadge} from '@yandex-data-ui/common';
 import githubIcon from '@yandex-data-ui/common/assets/icons/social/github.svg';
 
 import {block, setUrlTld} from '../../utils';
-import {ButtonProps as ButtonParams, isNewMetrikaFormat} from '../../models';
+import {ButtonProps as ButtonParams} from '../../models';
 import {OldButtonSize, OldButtonTheme, toCommonSize, toCommonView} from './utils';
-import {MetrikaContext} from '../../context/metrikaContext';
 import {LocaleContext} from '../../context/localeContext/localeContext';
+import {useMetrika} from '../../hooks/useMetrika';
 
 import './Button.scss';
 
@@ -20,7 +20,7 @@ export interface ButtonProps extends Omit<ButtonParams, 'url'> {
 const b = block('button-block');
 
 const Button: React.FunctionComponent<ButtonProps> = (props) => {
-    const {metrika, pixel} = useContext(MetrikaContext);
+    const handleMetrika = useMetrika();
     const {lang, tld} = useContext(LocaleContext);
     const {
         className,
@@ -37,24 +37,12 @@ const Button: React.FunctionComponent<ButtonProps> = (props) => {
     const defaultImgPosition = 'left';
 
     const onClick = useCallback(() => {
-        if (metrika && metrikaGoals) {
-            if (isNewMetrikaFormat(metrikaGoals)) {
-                metrikaGoals.forEach(({name, isCrossSite}) =>
-                    metrika.reachGoal(isCrossSite ? 'cross-site' : 'main', name),
-                );
-            } else {
-                metrika.reachGoals(metrikaGoals);
-            }
-        }
-
-        if (pixel && pixelEvents) {
-            pixelEvents.forEach(({name, data}) => pixel.trackStandard(name, data));
-        }
+        handleMetrika({metrikaGoals, pixelEvents});
 
         if (onClickOrigin) {
             onClickOrigin();
         }
-    }, [metrika, pixel, onClickOrigin, metrikaGoals, pixelEvents]);
+    }, [handleMetrika, metrikaGoals, pixelEvents, onClickOrigin]);
 
     const buttonImg =
         img instanceof Object
