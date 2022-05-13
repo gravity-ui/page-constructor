@@ -453,12 +453,12 @@ export interface MetrikaVideo {
     stop?: MetrikaGoal;
 }
 
-export interface PixelEvent {
+export interface ButtonPixelEvent {
     name: PixelEventType;
     data?: Object;
 }
 
-export type ButtonPixel = PixelEvent[];
+export type ButtonPixel = ButtonPixelEvent[];
 
 export interface ButtonProps {
     text: string;
