@@ -872,6 +872,7 @@ export interface FileLinkProps extends ClassNameProps {
     type?: FileLinkType;
     textSize?: TextSize;
     theme?: ContentTheme;
+    onClick?: () => void;
 }
 
 export interface ContentLayoutBlockProps {

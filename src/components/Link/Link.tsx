@@ -58,7 +58,7 @@ const LinkBlock: React.FunctionComponent<LinkFullProps> = (props) => {
     const getLinkByType = () => {
         switch (theme) {
             case 'back':
-                return <BackLink title={children || text} url={href} />;
+                return <BackLink title={children || text} url={href} onClick={onClick} />;
             case 'file-link':
             case 'underline':
                 return (
@@ -67,6 +67,7 @@ const LinkBlock: React.FunctionComponent<LinkFullProps> = (props) => {
                         href={href}
                         type="horizontal"
                         textSize={textSize}
+                        onClick={onClick}
                     />
                 );
             case 'normal': {

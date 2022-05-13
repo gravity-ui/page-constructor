@@ -29,7 +29,15 @@ export function getFileExt(name: string) {
 
 const FileLink: React.FC<FileLinkProps> = (props) => {
     const {hostname} = useContext(LocationContext);
-    const {href, text, type = 'vertical', textSize = 'm', className, theme = 'default'} = props;
+    const {
+        href,
+        text,
+        type = 'vertical',
+        textSize = 'm',
+        className,
+        theme = 'default',
+        onClick,
+    } = props;
     const fileExt = getFileExt(href) as FileExtension;
 
     return (
@@ -38,7 +46,7 @@ const FileLink: React.FC<FileLinkProps> = (props) => {
                 <div className={b('file-label')}>{fileExt}</div>
             )}
             <div className={b('link')}>
-                <a href={href} {...getLinkProps(href, hostname)}>
+                <a href={href} {...getLinkProps(href, hostname)} onClick={onClick}>
                     {text}
                 </a>
             </div>
