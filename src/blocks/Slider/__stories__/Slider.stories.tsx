@@ -151,6 +151,7 @@ CardType.args = {
             type: BlockType.SliderBlock,
             title: {text: 'Карточки QuoteCard', url: '/events'},
             slidesToShow: 1,
+            arrows: true,
             children: [
                 {
                     type: BlockType.Quote,

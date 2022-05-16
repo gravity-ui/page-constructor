@@ -179,7 +179,7 @@ const SliderBlock: FC<SliderProps> = (props) => {
                 handleBeforeChange(current, next);
             }
 
-            setCurrentIndex(next);
+            setCurrentIndex(Math.ceil(next));
         },
         [handleBeforeChange],
     );
@@ -240,7 +240,7 @@ const SliderBlock: FC<SliderProps> = (props) => {
     };
 
     const renderNavigation = () => {
-        if (!showNavigation || !dots) {
+        if (!showNavigation || !dots || childrenCount === 1) {
             return null;
         }
 
