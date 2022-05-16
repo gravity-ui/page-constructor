@@ -420,10 +420,12 @@ unpredictable css rules order in build */
 }
 
 @mixin slider-shadow-fix($class) {
-    @at-root {
-        //fix for hidden slider cards box-shadow overflow
-        .slick-slide:not(.slick-active) #{$class} {
-            box-shadow: none;
+    @media (min-width: map-get($gridBreakpoints, 'sm')) {
+        @at-root {
+            //fix for hidden slider cards box-shadow overflow
+            .slick-slide:not(.slick-active) #{$class} {
+                box-shadow: none;
+            }
         }
     }
 }

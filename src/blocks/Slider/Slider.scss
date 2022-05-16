@@ -287,12 +287,6 @@ $block: '.#{$ns}SliderBlock';
     }
 
     @media (max-width: map-get($gridBreakpoints, 'sm')) {
-        .slick-track {
-            .slick-slide {
-                max-width: calc(100vw - (#{$indentXS} + #{$indentS}));
-            }
-        }
-
         &:not(&_one-slide) {
             margin-left: -$indentXS;
             padding-left: $indentXS;
@@ -306,9 +300,10 @@ $block: '.#{$ns}SliderBlock';
 
             .slick-slide {
                 padding: 0 $slideOffset;
+                max-width: calc(100vw - (#{$indentXS} + #{$indentS}));
 
                 &:last-child {
-                    padding-right: 0;
+                    padding: 0 $indentXS 0 $slideOffset;
                 }
             }
         }
