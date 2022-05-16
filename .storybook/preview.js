@@ -5,6 +5,7 @@ import '../styles/styles.scss';
 import React from 'react';
 import CommonTheme from './commonTheme.js';
 import {MINIMAL_VIEWPORTS} from '@storybook/addon-viewport';
+import {PageConstructorProvider} from '../src/containers/PageConstructor/Provider';
 import {withTheme} from '../src/demo/decorators/withTheme';
 import {withLang} from '../src/demo/decorators/withLang';
 import {withMobile} from '../src/demo/decorators/withMobile';
@@ -35,7 +36,24 @@ const withCommonProvider = (Story, context) => {
     );
 };
 
-export const decorators = [withTheme, withLang, withMobile, withCommonProvider];
+const withPageConstructorProvider = (Story, context) => {
+    return (
+        <PageConstructorProvider
+            isMobile={context.globals.platform === 'mobile'}
+            lang={{lang: context.globals.lang}}
+        >
+            <Story {...context} />
+        </PageConstructorProvider>
+    );
+};
+
+export const decorators = [
+    withTheme,
+    withLang,
+    withMobile,
+    withCommonProvider,
+    withPageConstructorProvider,
+];
 
 export const parameters = {
     docs: {
