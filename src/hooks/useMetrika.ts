@@ -5,7 +5,7 @@ import {ButtonPixel, MetrikaGoal, isNewMetrikaFormat, PixelEventType, PixelEvent
 function isButtonPixel(
     pixelEvents: string | string[] | PixelEvent | PixelEvent[] | ButtonPixel,
 ): pixelEvents is ButtonPixel {
-    if (Array.isArray(pixelEvents) && pixelEvents.length && (pixelEvents as ButtonPixel)[0].name) {
+    if (Array.isArray(pixelEvents) && pixelEvents.length && 'name' in pixelEvents) {
         return true;
     }
 
