@@ -11,6 +11,7 @@ export interface BackLinkProps {
     size?: ButtonSize;
     className?: string;
     shouldHandleBackAction?: boolean;
+    onClick?: () => void;
 }
 
 export default function BackLink(props: BackLinkProps) {
@@ -22,6 +23,7 @@ export default function BackLink(props: BackLinkProps) {
         size = 'l',
         className,
         shouldHandleBackAction = false,
+        onClick,
     } = props;
 
     const backActionHandler = useCallback(async () => {
@@ -29,12 +31,16 @@ export default function BackLink(props: BackLinkProps) {
             return;
         }
 
+        if (onClick) {
+            onClick();
+        }
+
         if (history.length > 1) {
             history.goBack();
         } else {
             history.push({pathname: url});
         }
-    }, [history, url]);
+    }, [history, onClick, url]);
 
     return (
         <Button

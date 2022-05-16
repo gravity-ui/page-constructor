@@ -160,7 +160,7 @@ Theme.args = {
 Breadcrumbs.args = {
     type: BlockType.HeaderBlock,
     title: 'Партнёрская программа Yandex Cloud Professionals',
-    theme: 'default',
+    theme: 'light',
     description: yfm(
         'Продавайте сервисы Yandex.Cloud и ежемесячно получайте партнёрскую премию от 12% до 20% потребления ваших клиентов. Получайте гранты для знакомства с сервисами Yandex.Cloud или для проведения пилотных проектов ваших клиентов.',
     ).result.html,

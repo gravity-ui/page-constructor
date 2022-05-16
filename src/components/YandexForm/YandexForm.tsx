@@ -2,10 +2,10 @@ import React, {useCallback, useContext, useEffect, useRef} from 'react';
 
 import {HEADER_HEIGHT} from '../constants';
 import {LocaleContext} from '../../context/localeContext';
-import {PixelEventType, PixelEvent} from '../../models';
-import {MetrikaContext} from '../../context/metrikaContext';
+import {PixelEvent} from '../../models';
 import {MobileContext} from '../../context/mobileContext';
 import {block} from '../../utils';
+import {useMetrika} from '../../hooks/useMetrika';
 
 export const YA_FORMS_URL = 'https://forms.yandex.ru';
 const CONTAINER_ID = 'pc-yandex-form-container';
@@ -41,7 +41,7 @@ const YandexForm: React.FunctionComponent<YandexFormProps> = (props) => {
     const formContainerRef = useRef<HTMLDivElement>(null);
     const iframeRef = useRef<HTMLIFrameElement>();
 
-    const {metrika, pixel} = useContext(MetrikaContext);
+    const handleMetrika = useMetrika();
     const isMobile = useContext(MobileContext);
     const locale = useContext(LocaleContext);
 
@@ -87,23 +87,12 @@ const YandexForm: React.FunctionComponent<YandexFormProps> = (props) => {
             window.scrollBy(0, top - headerHeight);
         }
 
-        if (metrika && metrikaGoals) {
-            metrika.reachGoals(metrikaGoals);
-            if (!pixelEvents && pixel) {
-                pixel.trackStandard(PixelEventType.SubmitApplication, {
-                    content_category: 'custom',
-                    content_ids: Array.isArray(metrikaGoals) ? metrikaGoals : [metrikaGoals],
-                });
-            }
-        }
-        if (pixel && pixelEvents) {
-            pixel.track(pixelEvents);
-        }
+        handleMetrika({metrikaGoals, pixelEvents});
 
         if (onSubmit) {
             onSubmit();
         }
-    }, [headerHeight, metrika, metrikaGoals, pixel, pixelEvents, onSubmit]);
+    }, [handleMetrika, metrikaGoals, pixelEvents, onSubmit, headerHeight]);
 
     const handleMessage = useCallback(
         ({origin, data}: MessageEvent) => {

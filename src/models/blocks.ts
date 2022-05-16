@@ -567,6 +567,8 @@ export interface LinkProps extends Stylable {
     colorTheme?: TextTheme;
     arrow?: boolean;
     target?: string;
+    metrikaGoals?: MetrikaGoal;
+    pixelEvents?: ButtonPixel;
 }
 
 export interface ShareProps {
@@ -819,6 +821,8 @@ export interface HeaderBreadCrumbsProps extends ClassNameProps {
         text: ReactNode;
     }[];
     theme?: TextTheme;
+    metrikaGoals?: MetrikaGoal;
+    pixelEvents?: ButtonPixel;
 }
 
 export interface BackgroundImageProps extends React.HTMLProps<HTMLDivElement> {
@@ -841,7 +845,7 @@ export interface HeaderBlockProps {
     image?: ThemedImage;
     video?: ThemedMediaVideoProps;
     background?: ThemedHeaderBlockBackground;
-    theme?: 'default' | 'dark';
+    theme?: 'light' | 'dark';
     verticalOffset: 's' | 'm' | 'l' | 'xl';
     breadcrumbs?: HeaderBreadCrumbsProps;
 }
@@ -868,6 +872,7 @@ export interface FileLinkProps extends ClassNameProps {
     type?: FileLinkType;
     textSize?: TextSize;
     theme?: ContentTheme;
+    onClick?: () => void;
 }
 
 export interface ContentLayoutBlockProps {

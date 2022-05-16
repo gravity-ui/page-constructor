@@ -94,7 +94,7 @@ const HeaderBlock: React.FunctionComponent<HeaderBlockFullProps> = (props) => {
         offset = 'default',
         imageSize = 'm',
         background,
-        theme: textTheme = 'default',
+        theme: textTheme = 'light',
         verticalOffset,
         className,
         breadcrumbs,
