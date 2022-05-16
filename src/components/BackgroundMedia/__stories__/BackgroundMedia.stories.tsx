@@ -42,11 +42,12 @@ ImageSlider.args = {
 Video.args = {
     video: {
         src: [
-            'https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-calcx2.mp4',
-            'https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-calcx2.webm',
-            'https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-calcx2.ogv',
-            'https://storage.yandexcloud.net/cloud-www-assets/constructor/main/calc.png',
+            'https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-visual/main_video.mp4',
+            'https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-visual/main_video.ogv',
+            'https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-visual/main_video.webm',
+            'https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-visual/mobile.png',
         ],
         loop: {start: 0},
     },
+    image: 'https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-visual/main.png',
 };
