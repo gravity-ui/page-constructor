@@ -16,7 +16,7 @@ export const Default = DefaultTemplate.bind({});
 
 Default.args = {
     type: BlockType.ExtendedFeaturesBlock,
-    title: {text: 'Развивайте идеи без лишних трат', textSize: 'l'},
+    title: {text: 'Развивайте идеи без лишних трат', textSize: 'm'},
     items: [
         {
             title: 'Грант на знакомство с платформой',

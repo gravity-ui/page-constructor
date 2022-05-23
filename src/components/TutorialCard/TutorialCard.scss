@@ -8,7 +8,6 @@ $block: '.#{$ns}tutorial-card';
         @include heading4();
 
         margin-bottom: $indentXXS;
-        font-weight: 500;
     }
 
     &__icon {

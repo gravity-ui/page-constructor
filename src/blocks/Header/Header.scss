@@ -52,7 +52,6 @@ $block: '.#{$ns}header-block';
         @include heading1();
 
         position: relative;
-        font-weight: 500;
 
         a {
             @include link();

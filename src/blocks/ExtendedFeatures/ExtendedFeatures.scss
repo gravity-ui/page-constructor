@@ -12,7 +12,6 @@ $block: '.#{$ns}ExtendedFeaturesBlock';
             @include heading1();
 
             margin-bottom: 0;
-            font-weight: 500;
         }
     }
 
@@ -34,7 +33,6 @@ $block: '.#{$ns}ExtendedFeaturesBlock';
             display: flex;
             position: relative;
             margin-bottom: $indentXXXS;
-            font-weight: 500;
 
             a {
                 @include link();

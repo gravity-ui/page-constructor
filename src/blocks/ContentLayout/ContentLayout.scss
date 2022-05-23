@@ -21,7 +21,8 @@ $block: '.#{$ns}content-layout-block';
         }
 
         &_size_l {
-            @include heading5();
+            @extend %heading-margin-reset;
+            @include text-size(body3);
         }
 
         &_centered {

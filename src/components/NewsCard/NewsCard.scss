@@ -13,6 +13,5 @@ $block: '.#{$ns}news-card';
 
     &__title {
         @include heading4();
-        font-weight: 500;
     }
 }

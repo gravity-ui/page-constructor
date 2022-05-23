@@ -7,8 +7,6 @@ $block: '.#{$ns}title-block';
     @include justify();
     $root: &;
 
-    font-weight: 500;
-
     &_size_s {
         @include heading4();
 
