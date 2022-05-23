@@ -88,7 +88,8 @@ $darkSecondary: var(--yc-color-text-dark-secondary);
             #{$block}__text .yfm,
             #{$block}__notice .yfm,
             #{$block}__notice .yfm > * {
-                @include heading5();
+                @extend %heading-margin-reset;
+                @include text-size(body3);
             }
 
             #{$block}__links,

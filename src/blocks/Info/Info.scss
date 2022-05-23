@@ -9,7 +9,6 @@ $block: '.#{$ns}info-block';
     &__content-title,
     &__sections-title {
         @include heading2();
-        font-weight: 500;
     }
 
     &__background {

@@ -21,6 +21,8 @@
 
     --yc-text-disclaimer-font-size: 9px;
     --yc-text-disclaimer-line-height: 12px;
+
+    --yc-text-accent-font-weight: 500;
 }
 
 .yc-root {
@@ -34,6 +36,7 @@
     --pc-color-base-float-hover: var(--yc-color-base-float);
     --pc-monochrome-button: #262626;
     --pc-monochrome-button-hover: #393939;
+    --pc-text-header-color: var(--yc-color-text-primary);
 
     &.yc-root_theme_dark {
         --pc-color-sfx-shadow: var(--yc-color-sfx-shadow);

@@ -6,7 +6,6 @@ $block: '.#{$ns}media-content';
 #{$block} {
     &__title {
         @include heading2();
-        font-weight: 500;
 
         a {
             @include link();

@@ -3,24 +3,16 @@
 $block: '.#{$ns}button-block';
 
 @mixin monochromeButton() {
+    --yc-button-background-color: var(--pc-monochrome-button);
+    --yc-button-background-color-hover: var(--pc-monochrome-button-hover);
     color: var(--yc-color-text-light-primary);
-
-    &::before {
-        background-color: var(--pc-monochrome-button);
-    }
 
     &:hover {
         color: var(--yc-color-text-light-primary);
-
-        &::before {
-            background-color: var(--pc-monochrome-button-hover);
-        }
     }
 }
 
 #{$block} {
-    margin-top: $indentS;
-
     &__content {
         display: flex;
         align-items: center;
@@ -38,7 +30,9 @@ $block: '.#{$ns}button-block';
 
     &_theme {
         &_github {
-            @include monochromeButton();
+            &#{&} {
+                @include monochromeButton();
+            }
         }
 
         &_scale::before,

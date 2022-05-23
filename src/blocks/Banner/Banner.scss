@@ -3,6 +3,11 @@
 
 $block: '.#{$ns}banner-block';
 
+@mixin subtitle {
+    @include heading5();
+    font-weight: normal;
+}
+
 #{$block} {
     $class: &;
     $borderRadius: $borderRadius;
@@ -24,7 +29,6 @@ $block: '.#{$ns}banner-block';
 
     &__title {
         @include heading2();
-        font-weight: 500;
 
         a {
             @include link();
@@ -55,11 +59,10 @@ $block: '.#{$ns}banner-block';
     &__subtitle {
         display: inline-block;
         margin-top: 8px;
-
-        @include heading5();
+        @include subtitle();
 
         & p {
-            @include heading5();
+            @include subtitle();
         }
     }
 
