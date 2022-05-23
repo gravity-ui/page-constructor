@@ -10,4 +10,6 @@ export * from './utils';
 export * from './schema';
 export * from './hooks';
 
+export * as validators from './validators';
+
 export {BREAKPOINTS} from './constants';
