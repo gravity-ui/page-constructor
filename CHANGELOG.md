@@ -84,11 +84,11 @@
 - Удален блок TextTable
 ## 0.41.1
 
-- Fix: Экспорт валидаторов
+- Fix: Добавлены валидаторы из `src/schema/common.ts`
 
 ## 0.41.0
 
-- Экспорт валидаторов `import {validators} from '@yandex-data-ui/page-constructor';`
+- Изменился формат объекта с валидаторами: `import {validators} from '@yandex-data-ui/page-constructor';`
 
 ## 0.40.0
 
