@@ -59,7 +59,6 @@ export enum BlockType {
     SecurityBlock = 'security-block',
     TableBlock = 'table-block',
     TabsBlock = 'tabs-block',
-    TextTableBlock = 'text-table-block',
     SimpleBlock = 'simple-block',
     HeaderSliderBlock = 'header-slider-block',
     LinkTableBlock = 'link-table-block',
@@ -769,13 +768,6 @@ export interface TabsBlockProps extends BlockHeaderProps, Animatable {
     items: TabsBlockItem[];
 }
 
-export interface TextTableBlockProps extends Animatable {
-    title?: TitleProps;
-    description?: string;
-    content: string;
-    button: ButtonProps;
-}
-
 export interface LinkTableBlockProps extends BlockHeaderProps {
     items: LinkProps[][];
     linkTheme?: LinkTheme;
@@ -1075,10 +1067,6 @@ export type TabsBlockModel = {
     type: BlockType.TabsBlock;
 } & TabsBlockProps;
 
-export type TextTableBlockModel = {
-    type: BlockType.TextTableBlock;
-} & TextTableBlockProps;
-
 export type SimpleBlockModel = {
     type: BlockType.SimpleBlock;
 } & SimpleBlockProps;
@@ -1146,7 +1134,6 @@ type BlockV2Raw =
     | SecurityBlockModel
     | TableBlockModel
     | TabsBlockModel
-    | TextTableBlockModel
     | SimpleBlockModel
     | LinkTableBlockModel
     | HeaderBlockModel
