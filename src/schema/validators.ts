@@ -33,7 +33,6 @@ export {
     QuestionsBlock,
     SecurityBlock,
     TableBlock,
-    TextTableBlock,
     SimpleBlock,
     LinkTableBlock,
     PromoFeaturesBlock,

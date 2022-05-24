@@ -273,8 +273,6 @@ _Карточки являются компонентами, которые ис
 
 ### [Tabs](?path=/story/блоки-tabs--default&viewMode=docs)
 
-### [YfmTable](?path=/story/блоки-texttable--default&viewMode=docs)
-
 ### [Media](?path=/story/блоки-media--default&viewMode=docs)
 
 ## Свойства страницы

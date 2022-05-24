@@ -324,21 +324,6 @@ const config: BlocksConfig = {
             parser: parseTableBlock,
         },
     ],
-    [BlockType.TextTableBlock]: [
-        {
-            fields: ['title'],
-            transformer: typografTransformer,
-            parser: parseTitle,
-        },
-        {
-            fields: ['description'],
-            transformer: typografTransformer,
-        },
-        {
-            fields: ['content'],
-            transformer: yfmTransformer,
-        },
-    ],
     [BlockType.HeaderSliderBlock]: [
         {
             fields: ['items'],
