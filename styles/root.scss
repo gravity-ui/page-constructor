@@ -1,31 +1,12 @@
 :root {
     --header-height: 64px;
-
-    --yc-text-caption-font-size: 11px;
-    --yc-text-caption-line-height: 16px;
-
-    --yc-text-body-3-font-size: 17px;
-    --yc-text-body-3-line-height: 24px;
-
-    --yc-text-display-1-font-size: 28px;
-    --yc-text-display-1-line-height: 36px;
-
-    --yc-text-display-2-font-size: 32px;
-    --yc-text-display-2-line-height: 40px;
-
-    --yc-text-display-3-font-size: 40px;
-    --yc-text-display-3-line-height: 48px;
-
-    --yc-text-display-4-font-size: 48px;
-    --yc-text-display-4-line-height: 52px;
-
-    --yc-text-disclaimer-font-size: 9px;
-    --yc-text-disclaimer-line-height: 12px;
-
-    --yc-text-accent-font-weight: 500;
 }
 
 .yc-root {
+    --yc-text-caption-1-font-size: 11px;
+    --yc-text-caption-1-line-height: 16px;
+    --yc-text-accent-font-weight: 500;
+
     // cross-browser transparent color
     --pc-transparent: rgba(255, 255, 255, 0);
     --pc-border-radius: 24px;
