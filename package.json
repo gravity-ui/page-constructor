@@ -72,7 +72,7 @@
   "devDependencies": {
     "@babel/core": "^7.15.8",
     "@doc-tools/components": "^2.0.0",
-    "@doc-tools/transform": "^2.5.7",
+    "@doc-tools/transform": "^2.6.1",
     "@storybook/addon-actions": "^6.3.12",
     "@storybook/addon-essentials": "^6.3.12",
     "@storybook/addon-knobs": "^6.3.1",
