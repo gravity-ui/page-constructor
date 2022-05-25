@@ -40,7 +40,7 @@ $block: '.#{$ns}ExtendedFeaturesBlock';
         }
 
         &-label {
-            @include text-size(caption);
+            @include text-size(caption-1);
 
             position: relative;
             top: 5px;
@@ -49,7 +49,7 @@ $block: '.#{$ns}ExtendedFeaturesBlock';
             padding: 0 5px;
 
             color: var(--yc-color-base-background);
-            background-color: var(--yc-color-text-info);
+            background-color: var(--yc-my-color-brand-normal);
             border-radius: 3px;
         }
 
