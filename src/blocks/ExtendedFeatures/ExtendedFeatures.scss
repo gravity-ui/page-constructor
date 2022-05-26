@@ -40,7 +40,7 @@ $block: '.#{$ns}ExtendedFeaturesBlock';
         }
 
         &-label {
-            @include text-size(caption-1);
+            @include text-size(caption-2);
 
             position: relative;
             top: 5px;
