@@ -52,4 +52,4 @@
 
 - `src: строка`
 - `alt?: строка`
-- `disableCompress?: boolean`
+- `disableCompress?: true | false` - true отключает сжатие картинок, false по умолчанию включено сжатие картинок
