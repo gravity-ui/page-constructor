@@ -152,7 +152,7 @@
     line-height: $label-height;
 
     @if $size == s {
-        @include text-size(caption);
+        @include text-size(caption-2);
 
         $label-height: 16px;
 
