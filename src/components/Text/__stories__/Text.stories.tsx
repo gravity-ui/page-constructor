@@ -14,6 +14,7 @@ export default {
 const DefaultTemplate: Story<TextProps> = (args) => <Text {...args} />;
 
 export const Default = DefaultTemplate.bind({});
+export const Footnotes = DefaultTemplate.bind({});
 
 Default.args = {
     text: yfm(
@@ -23,4 +24,11 @@ Default.args = {
         'Яндекс [представил](https://ya.com) Yandex.Cloud в 2018 году. С момента запуска платформа выросла вдвое. Причём не только по суммарному доходу, но и по клиентской базе: ежедневно наши сервисы используют более 10 тысяч компаний.',
     ).result.html,
     justify: 'start',
+};
+
+Footnotes.args = {
+    text: yfm(
+        '1. Включая НДС. Порядок и условия предоставления гранта указаны в [полных условиях программы Cloud Boost Start](https://cloud.yandex.ru/cloud-boost/terms-start).',
+    ).result.html,
+    footnote: true,
 };

@@ -33,5 +33,16 @@ $block: '.#{$ns}text-block';
         & + & p {
             margin-top: $indentXXS;
         }
+
+        p > a {
+            text-decoration: none;
+            border-bottom: 1px solid var(--yc-color-text-secondary);
+            color: var(--yc-color-text-primary);
+
+            &:hover {
+                border-bottom-color: var(--yc-color-text-primary);
+                color: var(--yc-color-text-primary);
+            }
+        }
     }
 }

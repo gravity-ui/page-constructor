@@ -49,8 +49,10 @@ $block: '.#{$ns}TabsBlock';
     &__content-title {
         margin: 0 auto $indentXXS;
 
-        & > * {
-            @include heading4();
+        @include add-specificity(&) {
+            & > * {
+                @include heading4();
+            }
         }
     }
 
