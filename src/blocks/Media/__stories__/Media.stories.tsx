@@ -13,23 +13,12 @@ const DefaultTemplate: Story<MediaBlockModel> = (args) => (
     <PageConstructor content={{blocks: [args]}} />
 );
 
-const ThemeTemplate: Story<MediaBlockModel> = (args) => (
-    <PageConstructor content={{blocks: [args]}} />
-);
-
-const VideoTemplate: Story<MediaBlockModel> = (args) => (
-    <PageConstructor content={{blocks: [args]}} />
-);
-
-const DataLensTemplate: Story<MediaBlockModel> = (args) => (
-    <PageConstructor content={{blocks: [args]}} />
-);
-
 export const Default = DefaultTemplate.bind({});
-export const Theme = ThemeTemplate.bind({});
-export const Video = VideoTemplate.bind({});
-export const DataLens = DataLensTemplate.bind({});
-export const DataLensWithTheme = DataLensTemplate.bind({});
+export const Theme = DefaultTemplate.bind({});
+export const ImageSlider = DefaultTemplate.bind({});
+export const Video = DefaultTemplate.bind({});
+export const DataLens = DefaultTemplate.bind({});
+export const DataLensWithTheme = DefaultTemplate.bind({});
 
 Default.args = {
     type: BlockType.MediaBlock,
@@ -104,6 +93,47 @@ Video.args = {
         previewImg:
             'https://storage.yandexcloud.net/cloud-www-assets/solutions/e-commerce/retail-video.png',
     },
+};
+
+ImageSlider.args = {
+    type: BlockType.MediaBlock,
+    direction: 'media-content',
+    title: 'Вы всегда знаете, <a href="#">сколько потратили</a> и на что',
+    description:
+        'Тарифы <a href="#">Yandex.Cloud</a> подойдут как высоконагруженным сервисам больших компаний, так и небольшим проектам со скромными требованиями.Платите только за используемые ресурсы или зарезервируйте определенный объём на 1 или 3 года и сэкономьте до 49%. Следить за расходами можно прямо в консоли управления.',
+    media: {
+        image: [
+            {
+                src: 'https://storage.yandexcloud.net/cloud-www-assets/constructor/main/calc.png',
+                disableCompress: true,
+            },
+            {
+                src: 'https://storage.yandexcloud.net/cloud-www-assets/constructor/main/support_x2.png',
+            },
+            {
+                src: 'https://storage.yandexcloud.net/cloud-www-assets/constructor/main/calc.png',
+            },
+        ],
+    },
+    button: {
+        text: 'Рассчитать стоимость',
+        theme: 'outlined',
+        url: '/prices#calculator',
+    },
+    links: [
+        {
+            text: 'Перейти',
+            url: '#',
+            arrow: true,
+            theme: 'normal',
+        },
+        {
+            text: 'Подробнее',
+            url: '#',
+            arrow: true,
+            theme: 'normal',
+        },
+    ],
 };
 
 DataLens.args = {
