@@ -89,7 +89,7 @@ $darkSecondary: var(--yc-color-text-dark-secondary);
             #{$block}__notice .yfm,
             #{$block}__notice .yfm > * {
                 @extend %heading-margin-reset;
-                @include text-size(body3);
+                @include text-size(body-3);
             }
 
             #{$block}__links,
@@ -126,6 +126,12 @@ $darkSecondary: var(--yc-color-text-dark-secondary);
                     @include content-link($lightPrimary, $lightSecondary);
                 }
             }
+
+            #{$block}__title {
+                a {
+                    @include content-link($lightPrimary, $lightSecondary);
+                }
+            }
         }
 
         &_light {
@@ -149,6 +155,12 @@ $darkSecondary: var(--yc-color-text-dark-secondary);
 
             #{$block}__text {
                 .yfm a {
+                    @include content-link($darkPrimary, $darkSecondary);
+                }
+            }
+
+            #{$block}__title {
+                a {
                     @include content-link($darkPrimary, $darkSecondary);
                 }
             }

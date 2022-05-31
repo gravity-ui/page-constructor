@@ -15,18 +15,16 @@ const b = block('media-block');
 
 const MediaBlock: React.FC<MediaBlockProps> = (props) => {
     const {
-        title,
-        description,
-        button,
         media,
         largeMedia,
         direction = 'content-media',
         mobileDirection = 'content-media',
         animated,
         mediaOnly,
-        links,
         disableShadow = false,
+        ...mediaContentProps
     } = props;
+    const {title, description} = mediaContentProps;
 
     const [play, setPlay] = useState<boolean>(false);
     const {themeValue: theme} = useContext(ThemeValueContext);
@@ -42,9 +40,7 @@ const MediaBlock: React.FC<MediaBlockProps> = (props) => {
         return {[GridColumnSize.Md]: largeMedia ? 4 : 6, [GridColumnSize.All]: 12};
     }, [largeMedia]);
 
-    const mediaContent = !mediaOnly && (
-        <MediaContent title={title} description={description} button={button} links={links} />
-    );
+    const mediaContent = !mediaOnly && <MediaContent {...mediaContentProps} />;
 
     return (
         <AnimateBlock className={b()} onScroll={() => setPlay(true)} animate={animated}>

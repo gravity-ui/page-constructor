@@ -52,6 +52,9 @@ $block: '.#{$ns}title-block';
 
     &__text {
         white-space: normal;
+        a {
+            @include link();
+        }
     }
 
     &__wrapper {

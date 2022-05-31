@@ -663,16 +663,22 @@ export interface CompaniesBlockProps extends Animatable {
     }>;
 }
 
-export interface MediaBlockProps extends Animatable {
+export interface MediaContentProps {
     title: string;
     description?: string;
+    additionalInfo?: string;
+    button?: ButtonProps;
+    links?: LinkProps[];
+    buttons?: ButtonProps[];
+    size?: ContentSize;
+}
+
+export interface MediaBlockProps extends Animatable, MediaContentProps {
     media: ThemeSupporting<MediaProps>;
-    button: Pick<ButtonProps, 'text' | 'url' | 'theme'>;
     direction?: MediaDirection;
     mobileDirection?: MediaDirection;
     largeMedia?: boolean;
     mediaOnly?: boolean;
-    links?: LinkProps[];
     disableShadow?: boolean;
 }
 

@@ -1,5 +1,5 @@
-import {BlockBaseProps, ButtonBlock, MediaProps} from '../../schema/v2/common';
-import {AnimatableProps, LinkProps, mediaDirection} from '../../schema/common';
+import {BlockBaseProps, ButtonBlock, MediaProps, TitleProps} from '../../schema/v2/common';
+import {AnimatableProps, contentSizes, LinkProps, mediaDirection} from '../../schema/common';
 import {filteredArray} from '../../schema/utils';
 
 export const Media = {
@@ -17,10 +17,17 @@ export const MediaBlock = {
             ...BlockBaseProps,
             ...AnimatableProps,
             title: {
+                oneOf: [{type: 'string'}, TitleProps],
+            },
+            additionalInfo: {
                 type: 'string',
             },
             description: {
                 type: 'string',
+            },
+            size: {
+                type: 'string',
+                enum: contentSizes,
             },
             direction: {
                 type: 'string',
@@ -40,6 +47,7 @@ export const MediaBlock = {
                 type: 'boolean',
             },
             links: filteredArray(LinkProps),
+            buttons: filteredArray(ButtonBlock),
             media: Media,
             button: ButtonBlock,
         },
