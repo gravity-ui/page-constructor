@@ -301,7 +301,7 @@ const config: BlocksConfig = {
             transformer: typografTransformer,
         },
         {
-            fields: ['description'],
+            fields: ['description', 'title', 'additionalInfo'],
             transformer: yfmTransformer,
         },
     ],
