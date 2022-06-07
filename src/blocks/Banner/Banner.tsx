@@ -13,7 +13,7 @@ import './Banner.scss';
 
 const b = block('banner-block');
 
-const BannerBlock: React.FC<BannerBlockProps> = (props) => {
+export const BannerBlock: React.FC<BannerBlockProps> = (props) => {
     const {
         title,
         subtitle,

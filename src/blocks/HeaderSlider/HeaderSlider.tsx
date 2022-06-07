@@ -9,7 +9,10 @@ import './HeaderSlider.scss';
 
 const b = block('HeaderSliderBlock');
 
-const HeaderSliderBlock: React.FunctionComponent<HeaderSliderBlockProps> = ({items, ...props}) => (
+export const HeaderSliderBlock: React.FunctionComponent<HeaderSliderBlockProps> = ({
+    items,
+    ...props
+}) => (
     <div className={b()} data-qa="header-slider">
         <SliderBlock {...props} slidesToShow={1} type={SliderType.HeaderCard} animated={false}>
             {items.map((item, index) => (
