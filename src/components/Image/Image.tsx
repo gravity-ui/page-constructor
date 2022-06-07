@@ -1,4 +1,4 @@
-import React, {CSSProperties, MouseEventHandler, useContext} from 'react';
+import React, {CSSProperties, MouseEventHandler, useContext, useState} from 'react';
 import {ProjectSettingsContext} from '../../context/projectSettingsContext';
 
 export interface ImageProps {
@@ -13,19 +13,31 @@ export interface ImageProps {
 const Image: React.FC<ImageProps> = (props) => {
     const projectSettings = useContext(ProjectSettingsContext);
     const {src, alt, disableCompress, style, className, onClick} = props;
+    const [imgLoadingError, setImgLoadingError] = useState(false);
 
     if (!src) {
         return null;
     }
 
     // TODO: Temporary solution for .svg images
-    const disableWebp = projectSettings.disableCompress || disableCompress || src.endsWith('.svg');
+    const disableWebp =
+        projectSettings.disableCompress ||
+        disableCompress ||
+        src.endsWith('.svg') ||
+        imgLoadingError;
     const webp = src + '.webp';
 
     return (
         <picture>
             {disableWebp ? null : <source srcSet={webp} type="image/webp" />}
-            <img className={className} src={src} alt={alt} style={style} onClick={onClick} />
+            <img
+                className={className}
+                src={src}
+                alt={alt}
+                style={style}
+                onClick={onClick}
+                onError={() => setImgLoadingError(true)}
+            />
         </picture>
     );
 };
