@@ -16,7 +16,7 @@ import './Tabs.scss';
 
 const b = block('TabsBlock');
 
-const TabsBlock: React.FunctionComponent<TabsBlockProps> = ({
+export const TabsBlock: React.FunctionComponent<TabsBlockProps> = ({
     items,
     title,
     description,

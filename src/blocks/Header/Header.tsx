@@ -24,7 +24,7 @@ const b = block('header-block');
 
 type HeaderBlockFullProps = HeaderBlockProps & ClassNameProps;
 
-function titleWithImageSizes(imageSize: HeaderImageSize) {
+export function titleWithImageSizes(imageSize: HeaderImageSize) {
     switch (imageSize) {
         case 's':
             return {

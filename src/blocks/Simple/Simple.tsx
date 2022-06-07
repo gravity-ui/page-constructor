@@ -10,7 +10,7 @@ import './Simple.scss';
 
 const b = block('simple-block');
 
-const SimpleBlock: React.FC<SimpleBlockProps> = (props) => {
+export const SimpleBlock: React.FC<SimpleBlockProps> = (props) => {
     const {title, description, animated = true, children} = props;
 
     const blockHeader = title && <BlockHeader title={title} />;

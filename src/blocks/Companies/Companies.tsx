@@ -10,7 +10,7 @@ import './Companies.scss';
 
 const b = block('companies-block');
 
-const CompaniesBlock: React.FC<CompaniesBlockProps> = ({title, images, animated}) => {
+export const CompaniesBlock: React.FC<CompaniesBlockProps> = ({title, images, animated}) => {
     const {themeValue: theme} = useContext(ThemeValueContext);
     const themedImages = getThemedValue(images, theme) || {};
     const {desktop, mobile, tablet, alt} = themedImages;

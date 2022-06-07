@@ -18,7 +18,7 @@ const DEFAULT_SIZES = {
     md: 4,
 };
 
-const ExtendedFeaturesBlock: React.FunctionComponent<ExtendedFeaturesProps> = ({
+export const ExtendedFeaturesBlock: React.FunctionComponent<ExtendedFeaturesProps> = ({
     title,
     description,
     items,
