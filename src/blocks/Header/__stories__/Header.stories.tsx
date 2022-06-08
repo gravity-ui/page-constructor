@@ -8,6 +8,19 @@ import yfm from '@doc-tools/transform';
 export default {
     title: 'Блоки/Header',
     component: Header,
+    args: {
+        image: undefined,
+        video: undefined,
+        background: undefined,
+        breadcrumbs: undefined,
+        offset: 'default',
+        imageSize: 'm',
+        theme: 'light',
+        verticalOffset: 'm',
+    },
+    argTypes: {
+        overtitle: {control: 'text'},
+    },
 } as Meta;
 
 const DefaultTemplate: Story<HeaderBlockModel> = (args) => (
