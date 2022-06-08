@@ -42,6 +42,7 @@ const YandexForm: React.FunctionComponent<YandexFormProps> = (props) => {
     } = props;
     const formContainerRef = useRef<HTMLDivElement>(null);
     const iframeRef = useRef<HTMLIFrameElement>();
+    const yaFormOrigin = customFormOrigin || YANDEX_FORM_ORIGIN;
 
     const handleMetrika = useMetrika();
     const isMobile = useContext(MobileContext);
@@ -65,8 +66,6 @@ const YandexForm: React.FunctionComponent<YandexFormProps> = (props) => {
                 queryParams.set('media-type', 'mobile');
             }
 
-            const yaFormOrigin = customFormOrigin || YANDEX_FORM_ORIGIN;
-
             const src = `${yaFormOrigin}/surveys/${id}/?${queryParams}`;
 
             if (iframeRef.current) {
@@ -82,7 +81,7 @@ const YandexForm: React.FunctionComponent<YandexFormProps> = (props) => {
                 container.appendChild(iframeRef.current);
             }
         },
-        [locale.lang, theme, isMobile, customFormOrigin, id, containerId],
+        [locale.lang, theme, isMobile, yaFormOrigin, id, containerId],
     );
 
     const handleSubmit = useCallback(() => {
@@ -100,8 +99,6 @@ const YandexForm: React.FunctionComponent<YandexFormProps> = (props) => {
 
     const handleMessage = useCallback(
         ({origin, data}: MessageEvent) => {
-            const yaFormOrigin = customFormOrigin || YANDEX_FORM_ORIGIN;
-
             if (origin !== yaFormOrigin) {
                 return;
             }
@@ -126,7 +123,7 @@ const YandexForm: React.FunctionComponent<YandexFormProps> = (props) => {
                 return;
             }
         },
-        [customFormOrigin, id, onLoad, handleSubmit],
+        [yaFormOrigin, id, onLoad, handleSubmit],
     );
 
     const addIframe = useCallback(() => {
