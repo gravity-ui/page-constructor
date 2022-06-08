@@ -1,5 +1,5 @@
 {
-    "extends": "data-ui/client",
+    "extends": "@yandex-cloud/eslint-config/client",
     "env": {
         "node": true
     }

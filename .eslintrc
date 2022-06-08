@@ -1,4 +1,4 @@
 {
-    "extends": "data-ui/common",
+    "extends": ["@yandex-cloud/eslint-config", "@yandex-cloud/eslint-config/prettier"],
     "root": true
 }
