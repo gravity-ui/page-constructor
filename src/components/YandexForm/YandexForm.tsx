@@ -8,7 +8,6 @@ import {block} from '../../utils';
 import {useMetrika} from '../../hooks/useMetrika';
 
 export const YA_FORMS_URL = 'https://forms.yandex.ru';
-export const YA_FORMS_URL_DEBUG = 'https://forms.test.yandex-team.ru';
 const CONTAINER_ID = 'pc-yandex-form-container';
 
 const b = block('yandex-form');
@@ -19,7 +18,7 @@ export interface YandexFormProps {
     theme?: string;
     className?: string;
     headerHeight?: number;
-    debug?: boolean;
+    customFormUrl?: boolean;
 
     onSubmit?: () => void;
     onLoad?: () => void;
@@ -39,7 +38,7 @@ const YandexForm: React.FunctionComponent<YandexFormProps> = (props) => {
         onSubmit,
         metrikaGoals,
         pixelEvents,
-        debug,
+        customFormUrl,
     } = props;
     const formContainerRef = useRef<HTMLDivElement>(null);
     const iframeRef = useRef<HTMLIFrameElement>();
@@ -66,7 +65,7 @@ const YandexForm: React.FunctionComponent<YandexFormProps> = (props) => {
                 queryParams.set('media-type', 'mobile');
             }
 
-            const yaFormsUrl = debug ? YA_FORMS_URL_DEBUG : YA_FORMS_URL;
+            const yaFormsUrl = customFormUrl ?? YA_FORMS_URL;
 
             const src = `${yaFormsUrl}/surveys/${id}/?${queryParams}`;
 
@@ -83,7 +82,7 @@ const YandexForm: React.FunctionComponent<YandexFormProps> = (props) => {
                 container.appendChild(iframeRef.current);
             }
         },
-        [locale.lang, theme, isMobile, debug, id, containerId],
+        [locale.lang, theme, isMobile, customFormUrl, id, containerId],
     );
 
     const handleSubmit = useCallback(() => {
@@ -101,7 +100,7 @@ const YandexForm: React.FunctionComponent<YandexFormProps> = (props) => {
 
     const handleMessage = useCallback(
         ({origin, data}: MessageEvent) => {
-            const yaFormsUrl = debug ? YA_FORMS_URL_DEBUG : YA_FORMS_URL;
+            const yaFormsUrl = customFormUrl ?? YA_FORMS_URL;
 
             if (origin !== yaFormsUrl) {
                 return;
@@ -127,7 +126,7 @@ const YandexForm: React.FunctionComponent<YandexFormProps> = (props) => {
                 return;
             }
         },
-        [debug, id, onLoad, handleSubmit],
+        [customFormUrl, id, onLoad, handleSubmit],
     );
 
     const addIframe = useCallback(() => {
