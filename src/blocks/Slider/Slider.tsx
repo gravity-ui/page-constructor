@@ -51,7 +51,7 @@ export interface SliderProps
     blockClassName?: string;
 }
 
-const SliderBlock: FC<SliderProps> = (props) => {
+export const SliderBlock: FC<SliderProps> = (props) => {
     const {
         animated,
         title,

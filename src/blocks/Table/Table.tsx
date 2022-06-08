@@ -9,7 +9,7 @@ import './Table.scss';
 
 const b = block('table-block');
 
-const TableBlock: React.FC<TableBlockProps> = (props) => {
+export const TableBlock: React.FC<TableBlockProps> = (props) => {
     const {title, table} = props;
 
     return (

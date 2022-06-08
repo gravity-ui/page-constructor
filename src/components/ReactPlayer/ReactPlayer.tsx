@@ -46,7 +46,7 @@ export interface ReactPlayerBlockProps
 }
 
 // eslint-disable-next-line react/display-name
-const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactPlayerBlockProps>(
+export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactPlayerBlockProps>(
     (props, originRef) => {
         const isMobile = useContext(MobileContext);
         const {metrika} = useContext(MetrikaContext);

@@ -1,7 +1,7 @@
 import React from 'react';
 import {Meta, Story} from '@storybook/react/types-6-0';
 import {BlockType, MediaBlockModel} from '../../../models';
-import Media from '../MediaContent';
+import Media from '../Media';
 import {PageConstructor} from '../../../containers/PageConstructor/PageConstructor';
 import yfm from '@doc-tools/transform';
 

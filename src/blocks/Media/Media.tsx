@@ -13,7 +13,7 @@ import './Media.scss';
 
 const b = block('media-block');
 
-const MediaBlock: React.FC<MediaBlockProps> = (props) => {
+export const MediaBlock: React.FC<MediaBlockProps> = (props) => {
     const {
         media,
         largeMedia,
