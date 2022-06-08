@@ -32,14 +32,12 @@
 
 На данный момент поддерживаются следующие блоки:
 
-- `Card` - карточка по умолчанию
 - `Quote` - цитата
-- `Partner` - карточка партнера
-- `Price Detailed` - тарифы
-- `BackgroundCard` - карточка с бэкграундом
-- `CardWithImage` - карточка с фотографией над заголовком
-- `MediaCard` - карточка с картинкой
-- `NewsCard` - карточка новостей
-- `Post` - карточка новостей, которая используется только на сайте
-- `ServiceCard` - карточка с сервисами, используется только на сайте
-- `TutorialCard` - карточка с иконкой
+- [`Banner` - баннер](?path=/story/блоки-banner--default&viewMode=docs)
+- [`Partner` - карточка партнера](?path=/story/компоненты-карточки-partner--default&viewMode=docs)
+- [`Price Detailed` - тарифы](?path=/story/компоненты-карточки-pricedetailed--marked-list&viewMode=docs)
+- [`BackgroundCard` - карточка с бэкграундом](?path=/story/компоненты-карточки-backgroundcard--default&viewMode=docs)
+- [`CardWithImage` - карточка с фотографией над заголовком](?path=/story/компоненты-карточки-cardwithimage--default&viewMode=docs)
+- [`MediaCard` - карточка с картинкой](?path=/story/блоки-media--default&viewMode=docs)
+- [`NewsCard` - карточка новостей](?path=/story/компоненты-карточки-newscard--default&viewMode=docs)
+- [`TutorialCard` - карточка с иконкой](?path=/story/компоненты-карточки-tutorialcard--default&viewMode=docs)

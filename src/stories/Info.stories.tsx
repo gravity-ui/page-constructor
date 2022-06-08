@@ -6,6 +6,11 @@ import README from '../../README.md';
 
 export default {
     title: 'Общее',
+    parameters: {
+        options: {
+            showPanel: false,
+        },
+    },
 } as Meta;
 
 export const Changelog: Story = () => (
