@@ -9,6 +9,9 @@ import {PageConstructor} from '../../../containers/PageConstructor';
 export default {
     title: 'Блоки/PromoFeaturesBlock',
     component: PromoFeaturesBlock,
+    args: {
+        theme: 'default',
+    },
 } as Meta;
 
 const DefaultTemplate: Story<PromoFeaturesBlockModel> = (args) => (

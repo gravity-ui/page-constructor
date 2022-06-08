@@ -7,6 +7,13 @@ import {PageConstructor} from '../../../containers/PageConstructor/PageConstruct
 export default {
     title: 'Блоки/Preview',
     component: Preview,
+    args: {
+        stopVideo: false,
+    },
+    argTypes: {
+        title: {control: 'text'},
+        description: {control: 'text'},
+    },
 } as Meta;
 
 const DefaultTemplate: Story<PreviewBlockModel> = (args) => {

@@ -7,6 +7,14 @@ import {PageConstructor} from '../../../containers/PageConstructor/PageConstruct
 export default {
     title: 'Блоки/ExtendedFeatures',
     component: ExtendedFeatures,
+    args: {
+        colSizes: {
+            all: 12,
+            sm: 6,
+            md: 4,
+        },
+        description: undefined,
+    },
 } as Meta;
 
 const DefaultTemplate: Story<ExtendedFeaturesBlockModel> = (args) => (

@@ -8,6 +8,9 @@ import yfm from '@doc-tools/transform';
 export default {
     title: 'Блоки/Tabs',
     component: Tabs,
+    argTypes: {
+        description: {control: 'text'},
+    },
 } as Meta;
 
 const DefaultTemplate: Story<TabsBlockModel> = (args) => (

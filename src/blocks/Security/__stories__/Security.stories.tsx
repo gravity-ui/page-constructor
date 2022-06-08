@@ -8,6 +8,9 @@ import {PageConstructor} from '../../../containers/PageConstructor';
 export default {
     title: 'Блоки/Security',
     component: Security,
+    args: {
+        theme: 'dark',
+    },
     argTypes: {
         backgroundColor: {
             control: {type: 'color'},

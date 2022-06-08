@@ -7,6 +7,16 @@ import {PageConstructor} from '../../../containers/PageConstructor/PageConstruct
 export default {
     title: 'Блоки/HeaderSlider',
     component: HeaderSlider,
+    args: {
+        dots: true,
+        arrows: false,
+        disclaimer: undefined,
+        randomOrder: false,
+        adaptive: true,
+    },
+    argTypes: {
+        autoplay: {control: 'number'},
+    },
 } as Meta;
 
 const DefaultTemplate: Story<HeaderSliderBlockModel> = (args) => (

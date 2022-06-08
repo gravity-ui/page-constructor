@@ -8,6 +8,9 @@ import yfm from '@doc-tools/transform';
 export default {
     title: 'Блоки/Banner',
     component: Banner,
+    args: {
+        theme: 'light',
+    },
 } as Meta;
 
 const DefaultTemplate: Story<BannerBlockModel> = (args) => (
