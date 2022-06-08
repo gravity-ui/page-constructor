@@ -1,1 +1,1 @@
-module.exports = require('prettier-config-data-ui');
+module.exports = require('@yandex-cloud/prettier-config');

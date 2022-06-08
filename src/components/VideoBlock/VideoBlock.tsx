@@ -1,9 +1,9 @@
-import React, {useRef, useState, useCallback, useEffect} from 'react';
-import PropTypes from 'prop-types';
+import React, {useRef, useState, useCallback, useEffect, FC} from 'react';
 import _ from 'lodash';
 import {Icon} from '@yandex-cloud/uikit';
 
 import {block, getPageSearchParams} from '../../utils';
+import Image from '../Image/Image';
 
 import playIcon from '../../../assets/icons/play-video.svg';
 
@@ -23,7 +23,7 @@ export const AUTOPLAY_ATTRIBUTES = {
 const b = block('VideoBlock');
 const iframeId = 'video-block';
 
-function getVideoSrc(stream, record) {
+function getVideoSrc(stream?: string, record?: string) {
     if (!stream && !record) {
         return null;
     }
@@ -31,7 +31,7 @@ function getVideoSrc(stream, record) {
     const [videoLink, url, re] = stream
         ? [stream, STREAM_URL, STREAM_RE]
         : [record, RECORD_URL, RECORD_RE];
-    const match = videoLink.match(re);
+    const match = videoLink?.match(re);
     let src;
 
     if (match && match.length) {
@@ -41,18 +41,28 @@ function getVideoSrc(stream, record) {
     return src;
 }
 
-function getHeight(width) {
+function getHeight(width: number): number {
     return (width / 16) * 9;
 }
 
-export default function VideoBlock(props) {
+export interface VideoBlockProps {
+    id?: string;
+    stream?: string;
+    record?: string;
+    attributes?: Record<string, string>;
+    className?: string;
+    previewImg?: string;
+    playButton?: React.ReactNode;
+}
+
+const VideoBlock: FC<VideoBlockProps> = (props) => {
     const {stream, record, attributes, className, id, previewImg, playButton} = props;
     const src = getVideoSrc(stream, record);
-    const ref = useRef();
-    const iframeRef = useRef();
+    const ref = useRef<HTMLDivElement>(null);
+    const iframeRef = useRef<HTMLIFrameElement>();
     const [hidePreview, setHidePreview] = useState(false);
     const norender = (!stream && !record) || !src;
-    const [height, setHeight] = useState(null);
+    const [height, setHeight] = useState<number>();
     const fullId = `${iframeId}-${id || src}`;
     const onPreviewClick = useCallback(() => {
         if (iframeRef.current) {
@@ -67,7 +77,7 @@ export default function VideoBlock(props) {
 
     useEffect(() => {
         const updateSize = _.debounce(() => {
-            setHeight(ref.current && Math.round(getHeight(ref.current.offsetWidth)));
+            setHeight(ref.current ? Math.round(getHeight(ref.current.offsetWidth)) : undefined);
         }, 100);
 
         updateSize();
@@ -82,7 +92,7 @@ export default function VideoBlock(props) {
             return;
         }
 
-        const prevPageVideo = document.getElementById(fullId);
+        const prevPageVideo = document.getElementById(fullId) as HTMLVideoElement;
         const fullSrc = `${src}?${getPageSearchParams(attributes || {})}`;
 
         if (prevPageVideo) {
@@ -113,7 +123,7 @@ export default function VideoBlock(props) {
         <div className={b(null, className)} ref={ref} style={{height}}>
             {previewImg && !hidePreview && (
                 <div className={b('preview')} onClick={onPreviewClick}>
-                    <img className={b('image')} src={previewImg} />
+                    <Image src={previewImg} className={b('image')} />
                     {playButton || (
                         <button className={b('button')}>
                             <Icon className={b('icon')} data={playIcon} size={24} />
@@ -123,14 +133,6 @@ export default function VideoBlock(props) {
             )}
         </div>
     );
-}
-
-VideoBlock.propTypes = {
-    id: PropTypes.string,
-    stream: PropTypes.string,
-    record: PropTypes.string,
-    attributes: PropTypes.object,
-    className: PropTypes.string,
-    previewImg: PropTypes.string,
-    playButton: PropTypes.object,
 };
+
+export default VideoBlock;
