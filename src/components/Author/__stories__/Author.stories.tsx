@@ -22,12 +22,10 @@ const author = {
 };
 
 const DefaultTemplate: Story<AuthorProps> = (args) => <Author {...args} />;
-const TextUnderImageTemplate: Story<AuthorProps> = (args) => <Author {...args} />;
-const NoWebpInAvatarTemplate: Story<AuthorProps> = (args) => <Author {...args} />;
 
 export const Default = DefaultTemplate.bind({});
-export const TextUnderImage = TextUnderImageTemplate.bind({});
-export const NoWebpInAvatar = NoWebpInAvatarTemplate.bind({});
+export const TextUnderImage = DefaultTemplate.bind({});
+export const NoWebpInAvatar = DefaultTemplate.bind({});
 
 Default.args = {
     author,
