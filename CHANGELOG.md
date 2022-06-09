@@ -20,6 +20,10 @@
 
 - Удалены css переменные c --www-...
 
+## 0.49.0
+
+- В компоненте YandexForm добавлен параметр customFormOrigin
+
 ## 0.48.0
 
 - Поправлено отображение controls в storybook
