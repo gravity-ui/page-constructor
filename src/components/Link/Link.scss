@@ -24,7 +24,7 @@ $block: '.#{$ns}link-block';
         &_has-arrow {
             &:hover,
             &:active {
-                --www-text-header-color: inherit;
+                --pc-text-header-color: inherit;
                 color: var(--yc-color-text-link);
             }
         }
