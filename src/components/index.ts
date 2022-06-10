@@ -1,6 +1,5 @@
 export {default as Anchor} from './Anchor/Anchor';
 export {default as AnimateBlock} from './AnimateBlock/AnimateBlock';
-export {default as Arrow} from './Arrow/Arrow';
 export {default as BackgroundImage} from './BackgroundImage/BackgroundImage';
 export {default as BackgroundMedia} from './BackgroundMedia/BackgroundMedia';
 export {default as BackLink} from './BackLink/BackLink';

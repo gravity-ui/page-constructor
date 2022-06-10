@@ -17,7 +17,7 @@
 
     &:hover,
     &:active {
-        --www-text-header-color: var(--yc-color-text-link-hover);
+        --pc-text-header-color: var(--yc-color-text-link-hover);
         color: var(--yc-color-text-link-hover);
     }
 }
@@ -46,7 +46,7 @@
 @mixin add-file-ext-colors() {
     @each $name, $value in $fileExtColors {
         &_ext_#{$name} {
-            --www-file-label-color: #{$value};
+            --pc-file-label-color: #{$value};
         }
     }
 }
@@ -122,11 +122,11 @@
 @mixin header-link() {
     @include link;
 
-    --www-text-header-color: var(--yc-color-text-link);
+    --pc-text-header-color: var(--yc-color-text-link);
 
     &:hover,
     &:active {
-        --www-text-header-color: var(--yc-color-text-link-hover);
+        --pc-text-header-color: var(--yc-color-text-link-hover);
     }
 }
 
@@ -265,7 +265,7 @@
 @mixin reset-link-hover {
     &:hover,
     &:active {
-        --www-text-header-color: inherit;
+        --pc-text-header-color: inherit;
         color: inherit;
     }
 }
