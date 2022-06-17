@@ -1,5 +1,5 @@
 {
-  "extends": "@yandex-data-ui/tsconfig/tsconfig",
+  "extends": "@yandex-cloud/tsconfig/tsconfig.json",
   "compilerOptions": {
     "allowJs": false,
     "declaration": true,
