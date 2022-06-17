@@ -25,7 +25,7 @@ const Image: React.FC<ImageProps> = (props) => {
         disableCompress ||
         src.endsWith('.svg') ||
         imgLoadingError;
-    const webp = src + '.webp';
+    const webp = src.endsWith('.webp') ? src : src + '.webp';
 
     return (
         <picture>

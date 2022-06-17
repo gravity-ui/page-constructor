@@ -27,7 +27,6 @@
 ## 0.43.0
 
 - В MediaBlock вставлен Content кубик
-
 ## 0.42.4
 
 - Поправлены семантические цвета компонентов VideoBlock, ReactPlayer
