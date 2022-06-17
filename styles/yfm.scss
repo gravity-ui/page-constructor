@@ -25,6 +25,13 @@
             color: var(--yc-color-text-primary);
         }
 
+        &_notice {
+            li,
+            p {
+                color: var(--yc-color-text-secondary);
+            }
+        }
+
         p,
         li {
             margin: 0 0 $indentXXS;

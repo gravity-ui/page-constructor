@@ -28,6 +28,10 @@ $darkSecondary: var(--yc-color-text-dark-secondary);
             .yfm a {
                 @include content-link($secondary, $primary);
             }
+
+            ol, ul {
+                padding-left: 25px;
+            }
         }
     }
 
