@@ -29,7 +29,8 @@ $darkSecondary: var(--yc-color-text-dark-secondary);
                 @include content-link($secondary, $primary);
             }
 
-            ol, ul {
+            ol,
+            ul {
                 padding-left: 25px;
             }
         }
