@@ -23,7 +23,7 @@ const Author: React.FC<AuthorProps> = (props) => {
             )}
             <div className={b('label')}>
                 <div className={b('name')}>{name}</div>
-                {description || ''}
+                {description && <div className={b('description')}>{description}</div>}
             </div>
         </div>
     );

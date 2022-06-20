@@ -4,11 +4,12 @@
 $block: '.#{$ns}author';
 $imageWidth: 80px;
 $imageHeight: 80px;
+$authorBorderRadius: $indentXS;
 
 #{$block} {
     $root: &;
 
-    @include text-size(body-2);
+    @include text-size(body-3);
 
     display: flex;
     flex-direction: column;
@@ -20,7 +21,7 @@ $imageHeight: 80px;
         display: flex;
         align-items: center;
         flex: 0 0 auto;
-        border-radius: $borderRadius;
+        border-radius: $authorBorderRadius;
         overflow: hidden;
 
         img {
@@ -34,8 +35,11 @@ $imageHeight: 80px;
     &__name {
         @include text-size(body-3);
 
-        font-weight: 500;
         color: var(--yc-color-text-primary);
+    }
+
+    &__description {
+        padding-top: 4px;
     }
 
     &__label:not(:first-child) {
