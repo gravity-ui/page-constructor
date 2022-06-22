@@ -201,6 +201,7 @@ export const DataLensProps = {
 export const BackgroundProps = {
     additionalProperties: false,
     properties: {
+        ...AnimatableProps,
         image: ImageProps,
         color: {
             type: 'string',
