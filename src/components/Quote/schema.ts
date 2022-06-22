@@ -1,4 +1,11 @@
-import {authorItem, BaseProps, ImageProps, ThemeProps, withTheme} from '../../schema/common';
+import {
+    authorItem,
+    BaseProps,
+    ImageProps,
+    ThemeProps,
+    withTheme,
+    urlPattern,
+} from '../../schema/common';
 
 export const Quote = {
     quote: {
@@ -12,14 +19,14 @@ export const Quote = {
             image: withTheme(ImageProps),
             logo: {
                 type: 'string',
-                format: 'uri',
+                pattern: urlPattern,
             },
             color: {
                 type: 'string',
             },
             url: {
                 type: 'string',
-                format: 'uri',
+                pattern: urlPattern,
             },
             theme: ThemeProps,
             author: authorItem,

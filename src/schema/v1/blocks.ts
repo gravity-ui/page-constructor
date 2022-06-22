@@ -11,6 +11,7 @@ import {
     textSize,
     ThemeProps,
     tileSizesObject,
+    urlPattern,
 } from '../common';
 import {AnchorProps} from '../v2/common';
 
@@ -112,7 +113,7 @@ export const imageBlock = {
             ...BaseProps,
             src: {
                 type: 'string',
-                format: 'uri',
+                pattern: urlPattern,
             },
             alt: {
                 type: 'string',
