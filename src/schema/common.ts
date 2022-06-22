@@ -21,6 +21,9 @@ export const tileSizeNumber = {type: 'number', enum: [1, 2, 3, 4]};
 
 export const contentThemes = ['default', 'dark', 'light'];
 
+export const urlPattern =
+    '^((http[s]?|ftp):\\/)?\\/?([^:\\/\\s]+)((\\/\\w+)*\\/)([\\w\\-\\.]+[^#?\\s]+)(.*)?(#[\\w\\-]+)?$';
+
 export const BaseProps = {
     type: {},
     when: {},
@@ -156,7 +159,7 @@ export const ImageObjectProps = {
     properties: {
         src: {
             type: 'string',
-            format: 'uri',
+            pattern: urlPattern,
         },
         alt: {
             type: 'string',
@@ -171,7 +174,7 @@ export const ImageProps = {
     oneOf: [
         {
             type: 'string',
-            format: 'uri',
+            pattern: urlPattern,
         },
         filteredItem({
             ...ImageObjectProps,
@@ -284,7 +287,7 @@ export const authorItem = {
         },
         avatar: {
             type: 'string',
-            format: 'uri',
+            pattern: urlPattern,
         },
         description: {
             type: 'string',
