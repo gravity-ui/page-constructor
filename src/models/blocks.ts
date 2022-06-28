@@ -4,7 +4,7 @@ import {SocialNetwork} from '@yandex-data-ui/common';
 import {ClassNameProps} from '@yandex-data-ui/cloud-components';
 import {EventPublic, ServicePublic} from '@yandex-data-ui/cloud-schemas/build/models/ui-api';
 
-import {Lang, PixelEventType} from './common';
+import {Lang, PixelEvent, PixelEventType} from './common';
 import {ThemeSupporting, isV2BlockType} from '../utils';
 import {GridColumnSize, GridColumnSizesType} from '../grid/types';
 
@@ -44,6 +44,7 @@ export enum BlockType {
     BackgroundCard = 'background-card',
     Content = 'content',
     Author = 'author',
+    HubspotForm = 'hubspot-form',
 
     PromoFeaturesBlock = 'promo-features-block',
     ExtendedFeaturesBlock = 'extended-features-block',
@@ -897,6 +898,21 @@ export interface ContentBlockProps {
     theme?: ContentTheme;
 }
 
+export interface HubspotFormProps {
+    className?: string;
+    region?: string;
+    portalId: string;
+    formId: string;
+    formInstanceId?: string;
+    formClassName?: string;
+    onBeforeLoad?: () => void;
+    onBeforeSubmit?: () => void;
+    onSubmit?: () => void;
+    onLoad?: () => void;
+    pixelEvents?: string | string[] | PixelEvent | PixelEvent[] | ButtonPixel;
+    hubspotEvents?: string[];
+}
+
 export type AuthorModel = {
     type: BlockType.Author;
 } & AuthorProps;
@@ -1097,6 +1113,10 @@ export type ContentLayoutBlockModel = {
     type: BlockType.ContentLayoutBlock;
 } & ContentLayoutBlockProps;
 
+export type HubspotFormBlockModel = {
+    type: BlockType.HubspotForm;
+} & HubspotFormProps;
+
 export type BlockV1Raw =
     | HeaderModel
     | ButtonModel
@@ -1147,6 +1167,7 @@ type BlockV2Raw =
     | IconsBlockModel
     | HeaderSliderBlockModel
     | CardLayoutBlockModel
+    | HubspotFormBlockModel
     | ContentLayoutBlockModel;
 
 export type BlockV1 = BlockV1Raw;
