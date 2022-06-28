@@ -6,4 +6,5 @@
 # Build
 build/
 server/
+configure/
 storybook-static/
