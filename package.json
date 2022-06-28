@@ -12,7 +12,8 @@
     "build",
     "styles",
     "assets",
-    "server"
+    "server",
+    "configure"
   ],
   "sideEffects": [
     "*.css",
@@ -38,7 +39,8 @@
     "build:clean": "rimraf build && rimraf server",
     "build:compile": "tsc -p tsconfig.publish.json",
     "build:server": "rimraf server && tsc -p tsconfig.server.json && move-file server/server.js server/index.js && move-file server/server.d.ts server/index.d.ts",
-    "build": "npm run build:clean && NODE_OPTIONS=\"--max-old-space-size=4096\" ui-core build && npm run build:server",
+    "build:configure": "rimraf configure && tsc -p tsconfig.configure.json && move-file configure/configure.js configure/index.js && move-file configure/configure.d.ts configure/index.d.ts",
+    "build": "npm run build:clean && NODE_OPTIONS=\"--max-old-space-size=4096\" ui-core build && npm run build:server && npm run build:configure",
     "storybook:start": "start-storybook -p 7009",
     "storybook:build": "build-storybook -c .storybook -o storybook-static .storybook/public",
     "storybook:deploy": "curl -sS https://raw.github.yandex-team.ru/data-ui/storybook-tools/master/scripts/deploy-storybook.sh | bash -s deploy",
@@ -64,7 +66,7 @@
   "peerDependencies": {
     "@yandex-cloud/uikit": "^2.3.0",
     "@yandex-data-ui/common": "^10.0.0",
-    "@yandex-cloud/i18n": "^0.4.0",
+    "@yandex-cloud/i18n": "^0.6.0",
     "@doc-tools/components": "^2.0.0",
     "@doc-tools/transform": "^2.6.1",
     "react": "^16.0.0"
@@ -84,7 +86,7 @@
     "@types/react-transition-group": "^4.4.4",
     "@types/sanitize-html": "^2.6.0",
     "@yandex-cloud/eslint-config": "^1.0.1",
-    "@yandex-cloud/i18n": "^0.4.0",
+    "@yandex-cloud/i18n": "^0.6.0",
     "@yandex-cloud/prettier-config": "^1.0.0",
     "@yandex-cloud/stylelint-config": "^1.1.1",
     "@yandex-cloud/tsconfig": "^1.0.0",
