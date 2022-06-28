@@ -176,6 +176,16 @@ const Page: React.FC<PageProps> = ({children}) => (
 
 3. Добавить поддержку темы в валидатор свойства - в `schema.ts` файле блока обернуть данное свойство в `withTheme`
 
+### i18n
+
+Для того, чтобы используемая в проекте библиотека i18n работала корректно нужно выполнить инициализацию, где в `lang` устанавливается текущее значение локали в проекте, пример:
+
+```typescript
+import {configure, Lang} from '@yandex-data-ui/page-constructor/configure';
+
+configure({lang: Lang.En});
+```
+
 ## Разработка
 
 ```bash
