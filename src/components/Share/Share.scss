@@ -49,6 +49,7 @@ $block: '.#{$ns}share-block';
                 //redefine component style
                 /* stylelint-disable-next-line declaration-no-important */
                 background-color: var(--yc-color-base-generic) !important;
+                border-radius: 100%;
             }
         }
 
