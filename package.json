@@ -51,7 +51,6 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@yandex-cloud/uikit": "^2.3.0",
     "bem-cn-lite": "^4.0.0",
     "lodash": "^4.17.21",
     "react-player": "^2.9.0",
@@ -90,6 +89,7 @@
     "@yandex-cloud/prettier-config": "^1.0.0",
     "@yandex-cloud/stylelint-config": "^1.1.1",
     "@yandex-cloud/tsconfig": "^1.0.0",
+    "@yandex-cloud/uikit": "^2.8.0",
     "@yandex-data-ui/cloud-components": "^9.0.5",
     "@yandex-data-ui/cloud-schemas": "^2.124.0",
     "@yandex-data-ui/common": "^10.0.0",
