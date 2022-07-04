@@ -19,6 +19,7 @@ export interface YandexFormProps {
     className?: string;
     headerHeight?: number;
     customFormOrigin?: string;
+    params?: {[key: string]: string};
 
     onSubmit?: () => void;
     onLoad?: () => void;
@@ -31,6 +32,7 @@ const YandexForm: React.FunctionComponent<YandexFormProps> = (props) => {
     const {
         onLoad,
         id,
+        params,
         className,
         theme,
         containerId = CONTAINER_ID,
@@ -64,6 +66,12 @@ const YandexForm: React.FunctionComponent<YandexFormProps> = (props) => {
 
             if (isMobile) {
                 queryParams.set('media-type', 'mobile');
+            }
+
+            if (params) {
+                Object.keys(params).forEach((param) => {
+                    queryParams.set(param, params[param]);
+                });
             }
 
             const src = `${yaFormOrigin}/surveys/${id}/?${queryParams}`;
