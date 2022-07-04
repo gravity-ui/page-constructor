@@ -89,7 +89,7 @@ const YandexForm: React.FunctionComponent<YandexFormProps> = (props) => {
                 container.appendChild(iframeRef.current);
             }
         },
-        [locale.lang, theme, isMobile, yaFormOrigin, id, containerId],
+        [locale.lang, theme, isMobile, yaFormOrigin, id, containerId, params],
     );
 
     const handleSubmit = useCallback(() => {
