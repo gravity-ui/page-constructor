@@ -165,8 +165,8 @@
 //constructor
 
 @mixin block {
-    margin-top: $indentL;
-    padding: 0 0 $indentL;
+    margin-top: $indentXL;
+    padding: 0 0 $indentXL;
 
     &:first-child {
         margin-top: var(--pc-first-block-indent, #{$indentXXL});
