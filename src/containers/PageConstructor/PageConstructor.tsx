@@ -174,6 +174,7 @@ class Constructor extends React.Component<Props> {
                 anchor={anchor}
                 visible={visible}
                 resetPaddings={block.resetPaddings}
+                zIndex={block.zIndex}
             >
                 {Component}
             </BlockBase>

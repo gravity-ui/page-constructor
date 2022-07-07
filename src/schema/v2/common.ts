@@ -32,6 +32,11 @@ export const BlockBaseProps = {
     resetPaddings: {
         type: 'boolean',
     },
+    zIndex: {
+        type: 'number',
+        min: 0,
+        max: 9,
+    },
 };
 
 export const TitleProps = {
