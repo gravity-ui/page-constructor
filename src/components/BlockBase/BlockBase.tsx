@@ -11,11 +11,11 @@ import './BlockBase.scss';
 const b = block('block-base');
 
 const BlockBase: React.FC<BlockBaseProps & ClassNameProps> = (props) => {
-    const {anchor, visible, children, className, resetPaddings} = props;
+    const {anchor, visible, children, className, resetPaddings, zIndex = 0} = props;
 
     return (
         <Col
-            className={b({['reset-paddings']: resetPaddings}, className)}
+            className={b({['reset-paddings']: resetPaddings, zIndex: `${zIndex}`}, className)}
             visible={visible}
             reset={true}
         >

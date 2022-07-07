@@ -263,6 +263,7 @@ export interface BlockBaseProps {
     anchor?: AnchorProps;
     visible?: GridColumnSize;
     resetPaddings?: boolean;
+    zIndex?: number;
 }
 
 export interface TileItem {
