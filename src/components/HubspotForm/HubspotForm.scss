@@ -132,6 +132,7 @@ $block: '.#{$ns}hubspot-form';
                 height: $checkbox;
                 margin: 0;
                 opacity: 0;
+                flex-shrink: 0;
             }
 
             span {
@@ -322,7 +323,7 @@ $block: '.#{$ns}hubspot-form';
         @include text-body-2;
     }
 
-    @media (max-width: map-get($gridBreakpoints, 'md')) {
+    &_mobile {
         .hs-richtext,
         .hs-form-field,
         .hs_error_rollup {

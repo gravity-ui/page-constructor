@@ -7,6 +7,7 @@ import {EventPublic, ServicePublic} from '@yandex-data-ui/cloud-schemas/build/mo
 import {Lang, PixelEvent, PixelEventType} from './common';
 import {ThemeSupporting, isV2BlockType} from '../utils';
 import {GridColumnSize, GridColumnSizesType} from '../grid/types';
+import {HubspotEventData} from '../utils/hubspot';
 
 export enum BlockType {
     Header = 'header',
@@ -900,15 +901,33 @@ export interface ContentBlockProps {
 
 export interface HubspotFormProps {
     className?: string;
+    theme?: ContentTheme;
+    isMobile?: boolean;
     region?: string;
     portalId: string;
     formId: string;
     formInstanceId?: string;
     formClassName?: string;
-    onBeforeLoad?: () => void;
-    onBeforeSubmit?: () => void;
-    onSubmit?: () => void;
-    onLoad?: () => void;
+
+    /**
+     * Don't use this handler if your component is rendered in iframe
+     */
+    onBeforeLoad?: (arg: HubspotEventData) => void;
+
+    /**
+     * Don't use this handler if your component is rendered in iframe, unless your set up useLoopBackHubspotEvents hook
+     */
+    onBeforeSubmit?: (arg: HubspotEventData) => void;
+
+    /**
+     * Don't use this handler if your component is rendered in iframe, unless your set up useLoopBackHubspotEvents hook
+     */
+    onSubmit?: (arg: HubspotEventData) => void;
+
+    /**
+     * Don't use this handler if your component is rendered in iframe, unless your set up useLoopBackHubspotEvents hook
+     */
+    onLoad?: (arg: HubspotEventData) => void;
     pixelEvents?: string | string[] | PixelEvent | PixelEvent[] | ButtonPixel;
     hubspotEvents?: string[];
 }

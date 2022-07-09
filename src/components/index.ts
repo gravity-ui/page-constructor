@@ -53,6 +53,6 @@ export {default as Content} from './Content/Content';
 export {default as Quote} from './Quote/Quote';
 export {default as Author} from './Author/Author';
 export {default as RouterLink} from './RouterLink/RouterLink';
-export {default as HubspotForm} from './HubspotForm/HubspotForm';
+export {default as HubspotForm} from './HubspotForm';
 
 export type {RouterLinkProps} from './RouterLink/RouterLink';
