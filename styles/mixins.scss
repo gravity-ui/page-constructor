@@ -222,6 +222,13 @@
     }
 }
 
+@mixin card-hover() {
+    transition: transform 0.3s ease-out;
+    &:hover {
+        transform: translateY(-8px);
+    }
+}
+
 @mixin image-shadow() {
     box-shadow: 0 2px 8px var(--pc-color-sfx-shadow), 0 4px 24px var(--pc-color-sfx-shadow);
     overflow-x: hidden;
@@ -249,7 +256,7 @@
     &_border_shadow {
         @extend %shadow;
         @if $hover {
-            @extend %shadow-hover;
+            @include card-hover();
             &:hover {
                 background-color: var(--pc-color-base-float-hover);
             }
