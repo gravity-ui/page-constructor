@@ -1,0 +1,8 @@
+.addon-yaml {
+    padding: 11px;
+}
+
+.addon-yaml pre {
+    margin: 10px 0 0;
+    padding: 0;
+}
