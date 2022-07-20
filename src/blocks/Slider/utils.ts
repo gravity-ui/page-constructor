@@ -5,7 +5,7 @@ export const DEFAULT_SLIDE_BREAKPOINTS = {
     [SliderBreakpointNames.Xl]: 3,
     [SliderBreakpointNames.Lg]: 2,
     [SliderBreakpointNames.Md]: 2,
-    [SliderBreakpointNames.Sm]: 1.08,
+    [SliderBreakpointNames.Sm]: 1.15,
 };
 
 const BREAKPOINT_NAMES_BY_VALUES = Object.entries(BREAKPOINTS).reduce<

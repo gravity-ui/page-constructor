@@ -6,7 +6,7 @@ $block: '.#{$ns}Grid';
     $maxContentWidth: $newContentWidth;
     $gutter: $gridGutter;
     $gutterMobile: $gridGutterMobile;
-    $containerPaddingMobile: $gridGutterMobile;
+    $containerPaddingMobile: $gridContainerMargin;
     $columns: 12;
 
     .container-fluid,

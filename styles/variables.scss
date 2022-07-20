@@ -56,3 +56,5 @@ $gridGutter: 8px;
 $gridContainerPadding: 40px;
 $gridGutterMobile: 8px;
 $contentWidth: calc(#{$newContentWidth} + #{$gridGutter} * 2 + #{$gridContainerPadding} * 2);
+
+$gridContainerMargin: 16px;
