@@ -49,6 +49,9 @@ export const TitleProps = {
         url: {
             type: 'string',
         },
+        resetMargin: {
+            type: 'boolean',
+        },
     },
 };
 

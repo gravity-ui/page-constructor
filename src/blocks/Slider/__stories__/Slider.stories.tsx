@@ -10,7 +10,6 @@ export default {
     component: Slider,
     args: {
         dots: true,
-        arrows: false,
         disclaimer: undefined,
         adaptive: undefined,
         randomOrder: undefined,
@@ -32,6 +31,7 @@ export const NewsCards = DefaultTemplate.bind({});
 export const TutorialCards = DefaultTemplate.bind({});
 export const QuoteCards = DefaultTemplate.bind({});
 export const Banners = DefaultTemplate.bind({});
+export const AutoPlay = DefaultTemplate.bind({});
 
 Default.args = {
     type: BlockType.SliderBlock,
@@ -255,6 +255,70 @@ Banners.args = {
                 text: 'Подробнее',
                 url: 'https://cloud.yandex.ru/datasphere-education-program?utm_source=services&utm_medium=banner&utm_campaign=datasphere-education',
             },
+        },
+    ],
+};
+
+AutoPlay.args = {
+    type: BlockType.SliderBlock,
+    title: {text: 'Карточки TutorialCard', url: '/events'},
+    autoplay: 1000,
+    children: [
+        {
+            type: BlockType.TutorialCard,
+            url: 'string',
+            title: 'Размещение веб-проектов 1',
+            text: 'Если разместить сайт в Yandex.Cloud, то в дальнейшем инфраструктуру будет проще масштабировать под меняющиеся условия. Например, вы сможете быстро перестроить её при увеличении числа пользователей и убедиться, что сайт останется доступен всем желающим. К тому же, мы гарантируем безопасность вашего сайта: в Yandex Compute Cloud есть компонент, защищающий от DDoS-атак.',
+        },
+        {
+            type: BlockType.TutorialCard,
+            url: 'string',
+            title: 'Размещение веб-проектов 2',
+            text: 'Если разместить сайт в Yandex.Cloud, то в дальнейшем инфраструктуру будет проще масштабировать под меняющиеся условия. Например, вы сможете быстро перестроить её при увеличении числа пользователей и убедиться, что сайт останется доступен всем желающим. К тому же, мы гарантируем безопасность вашего сайта: в Yandex Compute Cloud есть компонент, защищающий от DDoS-атак.',
+        },
+        {
+            type: BlockType.TutorialCard,
+            url: 'string',
+            icon: 'https://storage.yandexcloud.net/cloud-www-assets/constructor/prices/rub.svg',
+            title: 'Размещение веб-проектов 3',
+            text: 'Если разместить сайт в Yandex.Cloud, то в дальнейшем инфраструктуру будет проще масштабировать под меняющиеся условия. Например, вы сможете быстро перестроить её при увеличении числа пользователей и убедиться, что сайт останется доступен всем желающим. К тому же, мы гарантируем безопасность вашего сайта: в Yandex Compute Cloud есть компонент, защищающий от DDoS-атак.',
+        },
+        {
+            type: BlockType.TutorialCard,
+            url: 'string',
+            icon: {
+                src: 'https://storage.yandexcloud.net/cloud-www-assets/constructor/prices/rub.svg',
+            },
+            title: 'Размещение веб-проектов 7',
+            text: 'Если разместить сайт в Yandex.Cloud, то в дальнейшем инфраструктуру будет проще масштабировать под меняющиеся условия. Например, вы сможете быстро перестроить её при увеличении числа пользователей и убедиться, что сайт останется доступен всем желающим. К тому же, мы гарантируем безопасность вашего сайта: в Yandex Compute Cloud есть компонент, защищающий от DDoS-атак.',
+        },
+        {
+            type: BlockType.TutorialCard,
+            url: 'string',
+            title: 'Размещение веб-проектов 1',
+            text: 'Если разместить сайт в Yandex.Cloud, то в дальнейшем инфраструктуру будет проще масштабировать под меняющиеся условия. Например, вы сможете быстро перестроить её при увеличении числа пользователей и убедиться, что сайт останется доступен всем желающим. К тому же, мы гарантируем безопасность вашего сайта: в Yandex Compute Cloud есть компонент, защищающий от DDoS-атак.',
+        },
+        {
+            type: BlockType.TutorialCard,
+            url: 'string',
+            title: 'Размещение веб-проектов 2',
+            text: 'Если разместить сайт в Yandex.Cloud, то в дальнейшем инфраструктуру будет проще масштабировать под меняющиеся условия. Например, вы сможете быстро перестроить её при увеличении числа пользователей и убедиться, что сайт останется доступен всем желающим. К тому же, мы гарантируем безопасность вашего сайта: в Yandex Compute Cloud есть компонент, защищающий от DDoS-атак.',
+        },
+        {
+            type: BlockType.TutorialCard,
+            url: 'string',
+            icon: 'https://storage.yandexcloud.net/cloud-www-assets/constructor/prices/rub.svg',
+            title: 'Размещение веб-проектов 3',
+            text: 'Если разместить сайт в Yandex.Cloud, то в дальнейшем инфраструктуру будет проще масштабировать под меняющиеся условия. Например, вы сможете быстро перестроить её при увеличении числа пользователей и убедиться, что сайт останется доступен всем желающим. К тому же, мы гарантируем безопасность вашего сайта: в Yandex Compute Cloud есть компонент, защищающий от DDoS-атак.',
+        },
+        {
+            type: BlockType.TutorialCard,
+            url: 'string',
+            icon: {
+                src: 'https://storage.yandexcloud.net/cloud-www-assets/constructor/prices/rub.svg',
+            },
+            title: 'Размещение веб-проектов 7',
+            text: 'Если разместить сайт в Yandex.Cloud, то в дальнейшем инфраструктуру будет проще масштабировать под меняющиеся условия. Например, вы сможете быстро перестроить её при увеличении числа пользователей и убедиться, что сайт останется доступен всем желающим. К тому же, мы гарантируем безопасность вашего сайта: в Yandex Compute Cloud есть компонент, защищающий от DDoS-атак.',
         },
     ],
 };

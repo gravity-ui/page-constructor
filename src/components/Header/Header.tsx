@@ -10,7 +10,7 @@ import './Header.scss';
 
 export interface HeaderProps extends Omit<HeaderParams, 'children'> {}
 
-const b = block('header-block');
+const b = block('header-component');
 
 function getTitleSizes(width: HeaderWidth) {
     switch (width) {

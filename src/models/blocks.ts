@@ -71,7 +71,11 @@ export enum BlockType {
 }
 
 export const BlockV2Types = Object.values(BlockType).filter((type) => isV2BlockType(type));
-export const HeaderBlockTypes = [BlockType.Header, BlockType.HeaderSliderBlock];
+export const HeaderBlockTypes = [
+    BlockType.Header,
+    BlockType.HeaderSliderBlock,
+    BlockType.HeaderBlock,
+];
 
 export enum PriceDetailsType {
     MARKED_LIST = 'marked-list',
@@ -834,36 +838,44 @@ export interface BackgroundImageProps extends React.HTMLProps<HTMLDivElement> {
     hide?: boolean;
 }
 
+interface HeaderBackgroundProps {
+    color?: string;
+    url?: string;
+    disableCompress?: boolean;
+}
+
+export interface HeaderBlockBackground extends Partial<HeaderBackgroundProps>, Partial<MediaProps> {
+    fullWidth?: boolean;
+}
+
+export type ThemedHeaderBlockBackground = ThemeSupporting<HeaderBlockBackground>;
+
+export function headerHasMediaBackground(
+    background: HeaderBlockBackground,
+): background is MediaProps {
+    return 'image' in background || 'video' in background || 'youtube' in background;
+}
+
 export interface HeaderBlockProps {
     title: string;
     overtitle?: string;
     description?: string;
     buttons?: Pick<ButtonProps, 'url' | 'text' | 'theme' | 'primary' | 'size'>[];
     width?: HeaderWidth;
+    /** @deprecated imageSize now depends on width */
     imageSize?: HeaderImageSize;
+    /**
+     * @deprecated used only on the main page
+     * TODO: delete after the possibility to remove padding-bottom in the block
+     */
     offset?: HeaderOffset;
     image?: ThemedImage;
     video?: ThemedMediaVideoProps;
     background?: ThemedHeaderBlockBackground;
     theme?: 'light' | 'dark';
-    verticalOffset: 's' | 'm' | 'l' | 'xl';
+    verticalOffset?: 's' | 'm' | 'l' | 'xl';
     breadcrumbs?: HeaderBreadCrumbsProps;
-}
-
-interface HeaderBackgroundProps {
-    fullWidth?: boolean;
-    color?: string;
-    url?: string;
-    disableCompress?: boolean;
-}
-
-export type HeaderBlockBackground = HeaderBackgroundProps | MediaProps;
-export type ThemedHeaderBlockBackground = ThemeSupporting<HeaderBackgroundProps | MediaProps>;
-
-export function headerHasMediaBackground(
-    background: HeaderBackgroundProps | MediaProps,
-): background is MediaProps {
-    return 'image' in background || 'video' in background || 'youtube' in background;
+    status?: JSX.Element;
 }
 
 export interface FileLinkProps extends ClassNameProps {

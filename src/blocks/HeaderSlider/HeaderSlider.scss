@@ -3,44 +3,75 @@
 
 $block: '.#{$ns}header-slider-block';
 
-.HeaderSliderBlock {
-    $padding: 112px;
-
-    margin: $indentXS $indentXS 0;
+#{$block} {
+    &__wrapper {
+        margin: $indentXS $indentXS 0;
+    }
 
     &__item {
+        display: block;
         height: 100%;
-        border-radius: $borderRadius;
         overflow: hidden;
         //safari fix
         transform: translateZ(0);
-
-        border: none;
-        outline: none;
     }
 
     &__item-content {
-        margin-top: 0;
+        margin: 0;
         height: inherit;
+        border-radius: $borderRadius;
+        overflow: hidden;
 
-        > div {
+        .#{$ns}header-block__content {
+            padding: 115px 0;
             display: flex;
             align-items: center;
-            padding: $padding 0;
         }
 
-        h1 {
-            @include text-size(display-4);
+        .#{$ns}Grid,
+        .container-fluid,
+        .container-fluid .row {
+            height: inherit;
+        }
+
+        .#{$ns}header-block__media {
+            padding-bottom: $indentL;
         }
     }
 
-    @media (min-width: map-get($gridBreakpoints, 'sm')) and (max-width: $headerSliderLargeBreakpoint) {
-        &__item-content > div {
-            padding: $padding 56px;
+    @media (max-width: $headerSliderLargeBreakpoint) and (min-width: map-get($gridBreakpoints, 'sm')) {
+        &__item-content {
+            .#{$ns}header-block__content {
+                padding-left: 60px;
+                padding-right: 60px;
+            }
+        }
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'md')) {
+        &.#{$ns}SliderBlock {
+            margin-left: -$indentXXXS;
+            padding-left: 0;
+            width: calc(100% + #{$indentXXXS});
         }
     }
 
     @media (max-width: map-get($gridBreakpoints, 'sm')) {
-        margin: $indentXS 8px 0;
+        &__wrapper {
+            margin: $indentXS 8px 0;
+        }
+
+        &__item-content {
+            .#{$ns}header-block__content {
+                padding-left: 0;
+                padding-right: 0;
+            }
+        }
+
+        .slick-track {
+            .slick-slide {
+                max-width: 100%;
+            }
+        }
     }
 }

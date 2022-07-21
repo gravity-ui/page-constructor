@@ -20,7 +20,7 @@ $block: '.#{$ns}title-block';
 
     &_size_l {
         @include heading1();
-        margin-top: $indentXL;
+        margin-top: $indentXXL;
     }
 
     &__arrow {

@@ -1,7 +1,7 @@
 @import '../../../styles/mixins';
 @import '../../../styles/variables';
 
-$block: '.#{$ns}header-block';
+$block: '.#{$ns}header-component';
 
 #{$block} {
     @include add-theme();

@@ -12,6 +12,7 @@ $block: '.#{$ns}info-block';
     }
 
     &__background {
+        width: 100vw;
         background-color: var(--yc-color-base-special);
     }
 

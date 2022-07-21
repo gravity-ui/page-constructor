@@ -32,7 +32,7 @@ const BlockHeader: React.FunctionComponent<BlockHeaderProps & ClassNameProps> = 
         <div className={b(null, className)}>
             {text && (
                 <Col reset sizes={colSizes}>
-                    <Title text={text} {...titleProps} resetMargin />
+                    <Title text={text} {...titleProps} />
                 </Col>
             )}
             {description && (
