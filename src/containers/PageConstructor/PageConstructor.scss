@@ -27,14 +27,6 @@ $block: '.#{$ns}page-constructor';
         }
     }
 
-    &__block {
-        &_type_info-block {
-            // redefine grid column paddings
-            /* stylelint-disable-next-line declaration-no-important */
-            padding-bottom: 0 !important;
-        }
-    }
-
     &__footnotes {
         margin: 0;
         padding: $indentM 0 $indentM $indentXS;
@@ -51,5 +43,13 @@ $block: '.#{$ns}page-constructor';
         color: var(--yc-color-text-primary);
 
         font-weight: 500;
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'sm')) {
+        &__row {
+            &:last-child {
+                margin-bottom: -$contentLiftIndentMobile;
+            }
+        }
     }
 }
