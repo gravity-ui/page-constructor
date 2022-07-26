@@ -2,9 +2,8 @@ import React, {CSSProperties, ReactNode} from 'react';
 import {ButtonSize, ButtonView} from '@yandex-cloud/uikit';
 import {SocialNetwork} from '@yandex-data-ui/common';
 import {ClassNameProps} from '@yandex-data-ui/cloud-components';
-import {EventPublic, ServicePublic} from '@yandex-data-ui/cloud-schemas/build/models/ui-api';
 
-import {Lang, PixelEvent, PixelEventType} from './common';
+import {PixelEvent, PixelEventType} from './common';
 import {ThemeSupporting, isV2BlockType} from '../utils';
 import {GridColumnSize, GridColumnSizesType} from '../grid/types';
 import {HubspotEventData, HubspotEventHandlers} from '../utils/hubspot';
@@ -32,13 +31,10 @@ export enum BlockType {
     Form = 'form',
     Card = 'card',
     Quote = 'quote',
-    Event = 'event',
     BasicCard = 'basic-card',
     NewsCard = 'news-card',
     Partner = 'partner',
     PriceDetailed = 'price-detailed',
-    ServiceCard = 'service-card',
-    ServicePreviewCard = 'service-preview-card',
     MediaCard = 'media-card',
     BannerCard = 'banner-card',
     TutorialCard = 'tutoral-card',
@@ -616,12 +612,6 @@ export interface FormProps {
     border?: boolean;
 }
 
-export interface EventProps extends EventPublic, CardBaseProps {
-    className?: string;
-    fullSize?: boolean;
-    lang?: Lang;
-}
-
 export interface NewsCardData {
     id: number;
     slug: string;
@@ -725,28 +715,6 @@ export interface InfoBlockProps {
     sectionsTitle: string;
     links?: Pick<LinkProps, 'text' | 'url'>[];
 }
-
-export interface ServiceCardItem {
-    name: string;
-    id: string;
-    url: string;
-}
-
-export interface ServiceCardProps extends CardBaseProps {
-    title: string;
-    description: string;
-    services: ServiceCardItem[];
-    link?: {
-        text: string;
-        url: string;
-    };
-}
-
-export type ServicePreviewCardProps = Pick<
-    ServicePublic,
-    'slug' | 'name' | 'description' | 'tag' | 'status' | 'docUrl' | 'pricesUrl'
-> &
-    CardBaseProps;
 
 export interface MediaCardProps extends MediaProps, CardBaseProps {}
 
@@ -1032,10 +1000,6 @@ export type QuoteModel = {
     type: BlockType.Quote;
 } & QuoteProps;
 
-export type EventModel = {
-    type: BlockType.Event;
-} & EventProps;
-
 export type NewsCardModel = {
     type: BlockType.NewsCard;
 } & NewsCardProps;
@@ -1063,14 +1027,6 @@ export type PartnerModel = {
 export type PriceDetailedModel = {
     type: BlockType.PriceDetailed;
 } & PriceDetailedProps;
-
-export type ServiceCardModel = {
-    type: BlockType.ServiceCard;
-} & ServiceCardProps;
-
-export type ServicePreviewCardModel = {
-    type: BlockType.ServicePreviewCard;
-} & ServicePreviewCardProps;
 
 export type MediaCardModel = {
     type: BlockType.MediaCard;
@@ -1179,12 +1135,10 @@ export type BlockV1Raw =
     | FormModel
     | CardModel
     | QuoteModel
-    | EventModel
     | BasicCardModel
     | NewsCardModel
     | PartnerModel
     | PriceDetailedModel
-    | ServiceCardModel
     | MediaCardModel
     | TutorialCardModel
     | CardWithImageModel
