@@ -186,10 +186,6 @@ const config: BlocksConfig = {
         fields: ['text'],
         transformer: typografTransformer,
     },
-    [BlockType.ServiceCard]: {
-        fields: ['title', 'description'],
-        transformer: typografTransformer,
-    },
     [BlockType.Features]: {
         fields: ['items'],
         transformer: yfmTransformer,
