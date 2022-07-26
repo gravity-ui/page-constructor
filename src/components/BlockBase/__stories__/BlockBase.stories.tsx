@@ -1,9 +1,8 @@
 import {Meta, Story} from '@storybook/react/types-6-0';
-import {ClassNameProps} from '@yandex-data-ui/cloud-components';
 import React from 'react';
 
 import BlockBase from '../BlockBase';
-import {BlockBaseProps} from '../../../models';
+import {BlockBaseProps, ClassNameProps} from '../../../models';
 import {GridColumnSize} from '../../../grid';
 import {COMPONENTS} from '../../../demo/constants';
 

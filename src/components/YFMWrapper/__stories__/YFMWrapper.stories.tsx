@@ -1,6 +1,6 @@
 import {Meta, Story} from '@storybook/react/types-6-0';
 import React from 'react';
-import {ClassNameProps} from '@yandex-data-ui/cloud-components';
+import {ClassNameProps} from '../../../models';
 import yfm from '@doc-tools/transform';
 
 import YFMWrapper, {YFMWrapperProps} from '../YFMWrapper';

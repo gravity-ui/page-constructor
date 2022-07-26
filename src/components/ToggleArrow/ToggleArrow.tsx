@@ -1,4 +1,3 @@
-//MOVE to cloud-components
 import React from 'react';
 import {Icon} from '@yandex-cloud/uikit';
 

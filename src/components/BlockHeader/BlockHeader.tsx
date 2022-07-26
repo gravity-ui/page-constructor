@@ -2,9 +2,8 @@ import React from 'react';
 import {HTML} from '@doc-tools/components';
 
 import {block} from '../../utils';
-import {BlockHeaderProps as BlockHeaderParams, TitleProps} from '../../models';
+import {BlockHeaderProps as BlockHeaderParams, TitleProps, ClassNameProps} from '../../models';
 import {Col, GridColumnSizesType} from '../../grid';
-import {ClassNameProps} from '@yandex-data-ui/cloud-components';
 import Title from '../Title/Title';
 
 import './BlockHeader.scss';

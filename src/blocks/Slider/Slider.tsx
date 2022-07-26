@@ -1,10 +1,15 @@
 import React, {FC, useCallback, useContext, useEffect, useRef, useState} from 'react';
 import SlickSlider, {Settings} from 'react-slick';
 import _ from 'lodash';
-import {ClassNameProps, Timeout} from '@yandex-data-ui/cloud-components';
 
 import {block} from '../../utils';
-import {Refable, SliderProps as SliderParams, SliderType} from '../../models';
+import {
+    Refable,
+    SliderProps as SliderParams,
+    SliderType,
+    ClassNameProps,
+    Timeout,
+} from '../../models';
 import Arrow, {ArrowType} from './Arrow/Arrow';
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
 import Anchor from '../../components/Anchor/Anchor';

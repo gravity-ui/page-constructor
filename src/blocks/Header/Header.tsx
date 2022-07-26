@@ -1,11 +1,14 @@
 import React, {useContext} from 'react';
 import {HTML} from '@doc-tools/components';
-import {ClassNameProps} from '@yandex-data-ui/cloud-components';
 
 import {block, getThemedValue} from '../../utils';
-
 import {Button, Media, BackgroundMedia, BackgroundImage, RouterLink} from '../../components';
-import {HeaderBlockBackground, HeaderBlockProps, headerHasMediaBackground} from '../../models';
+import {
+    HeaderBlockBackground,
+    HeaderBlockProps,
+    headerHasMediaBackground,
+    ClassNameProps,
+} from '../../models';
 import {Grid, Row, Col} from '../../grid';
 import {getImageSize, getTitleSizes, titleWithImageSizes} from './utils';
 

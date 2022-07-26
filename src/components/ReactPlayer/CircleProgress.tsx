@@ -1,5 +1,5 @@
 import React, {useMemo} from 'react';
-import {ClassNameProps} from '@yandex-data-ui/cloud-components';
+import {ClassNameProps} from '../../models';
 
 import {block} from '../../utils';
 
