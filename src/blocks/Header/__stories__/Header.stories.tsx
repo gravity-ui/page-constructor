@@ -53,6 +53,7 @@ const VerticalOffsetTemplate: Story<HeaderBlockModel> = (args) => (
 const MediaTemplate: Story<HeaderBlockModel> = (args) => (
     <Fragment>
         <DefaultTemplate {...args} title={'Блок с Картинкой или Видео (Медиа)'} />
+        <DefaultTemplate {...args} title={'Блок с уменшенным отступом внизу'} offset={'large'} />
         <DefaultTemplate
             {...args}
             title={'Блок с Картинкой или Видео (Медиа) с подложкой на всю ширину'}

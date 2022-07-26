@@ -183,6 +183,11 @@ $block: '.#{$ns}header-block';
                 padding: calc(#{$indentXXL} - #{$indentXS}) 0;
             }
         }
+
+        #{$block}__content_offset_large {
+            padding: calc(#{$indentXXL} - #{$indentXS}) 0 $indentXS;
+            margin-bottom: -$indentM;
+        }
     }
 
     @media (min-width: map-get($gridBreakpoints, 'md')) {
