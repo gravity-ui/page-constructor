@@ -90,7 +90,6 @@
     "@yandex-cloud/stylelint-config": "^1.1.1",
     "@yandex-cloud/tsconfig": "^1.0.0",
     "@yandex-cloud/uikit": "^2.8.0",
-    "@yandex-data-ui/cloud-components": "^9.0.5",
     "@yandex-data-ui/common": "^10.0.0",
     "@yandex-data-ui/ui-core": "^1.8.0",
     "@yandex-data-ui/webpack-levels": "^2.1.0",

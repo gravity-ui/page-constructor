@@ -1,7 +1,7 @@
 import React, {CSSProperties, ReactNode} from 'react';
 import {ButtonSize, ButtonView} from '@yandex-cloud/uikit';
 import {SocialNetwork} from '@yandex-data-ui/common';
-import {ClassNameProps} from '@yandex-data-ui/cloud-components';
+import {ClassNameProps} from '../models';
 
 import {PixelEvent, PixelEventType} from './common';
 import {ThemeSupporting, isV2BlockType} from '../utils';

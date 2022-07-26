@@ -1,9 +1,9 @@
 import React, {useContext} from 'react';
 import {HTML} from '@doc-tools/components';
-import {ClassNameProps} from '@yandex-data-ui/cloud-components';
 
 import {block, getThemedValue} from '../../utils';
 import {
+    ClassNameProps,
     HeaderBlockBackground,
     HeaderBlockProps,
     headerHasMediaBackground,

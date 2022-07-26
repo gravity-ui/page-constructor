@@ -1,8 +1,7 @@
 import React from 'react';
 
 import {block} from '../../utils';
-import {ContentBlockProps, ContentSize, TitleProps} from '../../models';
-import {ClassNameProps} from '@yandex-data-ui/cloud-components';
+import {ContentBlockProps, ContentSize, TitleProps, ClassNameProps} from '../../models';
 import {Title, YFMWrapper, Button} from '../index';
 import LinkBlock from '../Link/Link';
 import {Col} from '../../grid';

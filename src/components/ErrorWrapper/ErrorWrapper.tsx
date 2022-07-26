@@ -1,7 +1,7 @@
 import React from 'react';
 import {Button} from '@yandex-cloud/uikit';
-import {ClassNameProps} from '@yandex-data-ui/cloud-components';
 
+import {ClassNameProps} from '../../models';
 import {block} from '../../utils';
 
 import './ErrorWrapper.scss';
