@@ -1,6 +1,6 @@
 import React, {ReactNode, useCallback, useContext} from 'react';
 import {Button, ButtonSize, Icon} from '@yandex-cloud/uikit';
-import arrowIcon from '@yandex-data-ui/common/assets/icons/arrow-sidebar.svg';
+import arrowIcon from '../../../assets/icons/arrow-sidebar.svg';
 import {LocationContext} from '../../context/locationContext';
 export type Theme = 'default' | 'special';
 

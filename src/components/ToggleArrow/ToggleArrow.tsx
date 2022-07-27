@@ -3,7 +3,7 @@ import {Icon} from '@yandex-cloud/uikit';
 
 import {block} from '../../utils';
 
-import chevron from '@yandex-data-ui/common/assets/icons/chevron.svg';
+import chevron from '../../../assets//icons/chevron.svg';
 import navigationChevron from '../../../assets/icons/navigation-chevron.svg';
 
 import './ToggleArrow.scss';
