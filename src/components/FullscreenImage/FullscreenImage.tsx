@@ -4,7 +4,7 @@ import {Icon, Modal} from '@yandex-cloud/uikit';
 import {block} from '../../utils';
 import Image, {ImageProps} from '../Image/Image';
 
-import closeIcon from '@yandex-data-ui/common/assets/icons/preview-close.svg';
+import closeIcon from '../../../assets/icons/preview-close.svg';
 import fullScreenIcon from '../../../assets/icons/full-screen.svg';
 
 import './FullScreenImage.scss';
