@@ -141,18 +141,18 @@ class Constructor extends React.Component<Props> {
     }
 
     private renderItem = (
-        block: ConstructorItem,
-        blockKey: string,
+        item: ConstructorItem,
+        itemKey: string,
         children?: (ReactElement | null)[],
     ) => {
-        const {type, ...rest} = block;
+        const {type, ...rest} = item;
         const components = this.fullComponentsMap;
         const Component = components[type] as React.ComponentType<
             React.ComponentProps<typeof components[typeof type]>
         >;
 
         return (
-            <Component key={blockKey} {...rest}>
+            <Component key={itemKey} {...rest}>
                 {children}
             </Component>
         );

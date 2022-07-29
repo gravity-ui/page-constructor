@@ -3,7 +3,7 @@ import {
     Block,
     BlockType,
     CardProps,
-    ComponentType,
+    BlockChildrenType,
     ContentBlockProps,
     ExtendedFeaturesItem,
     PriceDetailedProps,
@@ -179,42 +179,42 @@ interface BlockConfig {
 type BlocksConfig = Record<string, BlockConfig | BlockConfig[]>;
 
 const config: BlocksConfig = {
-    [ComponentType.Text]: {
+    [BlockChildrenType.Text]: {
         fields: ['text', 'folded'],
         transformer: yfmTransformer,
     },
-    [ComponentType.Title]: {
+    [BlockChildrenType.Title]: {
         fields: ['text'],
         transformer: typografTransformer,
     },
-    [ComponentType.Features]: {
+    [BlockChildrenType.Features]: {
         fields: ['items'],
         transformer: yfmTransformer,
         parser: parseItems,
     },
-    [ComponentType.Header]: {
+    [BlockChildrenType.Header]: {
         fields: ['title', 'subtitle'],
         transformer: typografTransformer,
     },
-    [ComponentType.Tiles]: {
+    [BlockChildrenType.Tiles]: {
         fields: ['items'],
         transformer: typografTransformer,
         parser: parseItems,
     },
-    [ComponentType.Table]: {
+    [BlockChildrenType.Table]: {
         fields: ['content'],
         transformer: typografTransformer,
         parser: parseTable,
     },
-    [ComponentType.Partner]: {
+    [BlockChildrenType.Partner]: {
         fields: ['text'],
         transformer: typografTransformer,
     },
-    [ComponentType.TutorialCard]: {
+    [BlockChildrenType.TutorialCard]: {
         fields: ['text', 'title'],
         transformer: typografTransformer,
     },
-    [ComponentType.BackgroundCard]: [
+    [BlockChildrenType.BackgroundCard]: [
         {
             fields: ['text', 'additionalInfo'],
             transformer: yfmTransformer,
@@ -224,7 +224,7 @@ const config: BlocksConfig = {
             transformer: typografTransformer,
         },
     ],
-    [ComponentType.CardWithImage]: [
+    [BlockChildrenType.CardWithImage]: [
         {
             fields: ['description', 'additionalInfo'],
             transformer: yfmTransformer,
@@ -234,11 +234,11 @@ const config: BlocksConfig = {
             transformer: typografTransformer,
         },
     ],
-    [ComponentType.Quote]: {
+    [BlockChildrenType.Quote]: {
         fields: ['text'],
         transformer: typografTransformer,
     },
-    [ComponentType.Card]: {
+    [BlockChildrenType.Card]: {
         transformer: yfmTransformer,
         parser: parseCard,
     },
@@ -282,7 +282,7 @@ const config: BlocksConfig = {
             transformer: yfmTransformer,
         },
     ],
-    [ComponentType.BannerCard]: [
+    [BlockChildrenType.BannerCard]: [
         {
             fields: ['title'],
             transformer: typografTransformer,
@@ -339,7 +339,7 @@ const config: BlocksConfig = {
             transformer: yfmTransformer,
         },
     ],
-    [ComponentType.PriceDetailed]: [
+    [BlockChildrenType.PriceDetailed]: [
         {
             transformer: yfmTransformer,
             parser: parsePriceDetailedBlock,
@@ -363,7 +363,7 @@ const config: BlocksConfig = {
             parser: parseContentLayoutTitle,
         },
     ],
-    [ComponentType.Content]: [
+    [BlockChildrenType.Content]: [
         {
             fields: ['text', 'additionalInfo'],
             transformer: yfmTransformer,
