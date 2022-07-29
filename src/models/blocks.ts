@@ -4,10 +4,10 @@ import {SocialNetwork} from '@yandex-data-ui/common';
 import {ClassNameProps} from '../models';
 
 import {PixelEvent, PixelEventType} from './common';
-import {ThemeSupporting, isV2BlockType} from '../utils';
+import {ThemeSupporting} from '../utils';
 import {GridColumnSize, GridColumnSizesType} from '../grid/types';
 
-export enum BlockType {
+export enum ComponentType {
     Header = 'header',
     HeaderBreadcrumbs = 'header-breadcrumbs',
     Text = 'text',
@@ -41,7 +41,10 @@ export enum BlockType {
     Content = 'content',
     Author = 'author',
     HubspotForm = 'hubspot-form',
+    Banner = 'Banner',
+}
 
+export enum BlockType {
     PromoFeaturesBlock = 'promo-features-block',
     ExtendedFeaturesBlock = 'extended-features-block',
     SliderBlock = 'slider-block',
@@ -65,8 +68,8 @@ export enum BlockType {
     ContentLayoutBlock = 'content-layout-block',
 }
 
-export const BlockV2Types = Object.values(BlockType).filter((type) => isV2BlockType(type));
-export const HeaderBlockTypes = [BlockType.Header, BlockType.HeaderSliderBlock];
+export const BlockTypes = Object.values(BlockType);
+export const HeaderBlockTypes = [BlockType.HeaderSliderBlock];
 
 export enum PriceDetailsType {
     MARKED_LIST = 'marked-list',
@@ -123,7 +126,7 @@ export interface Stylable {
 }
 
 export interface Childable {
-    children?: Block[];
+    children?: Component[];
 }
 
 export interface Animatable {
@@ -542,7 +545,7 @@ export interface HeaderProps extends Themable, Childable {
     color?: string;
     background?: Background;
     width?: HeaderWidth;
-    children?: Block[];
+    children?: Component[];
 }
 
 export interface HeaderSliderBlockProps extends Omit<SliderProps, 'title' | 'description'> {
@@ -634,7 +637,7 @@ export interface BackgroundCardProps
     backgroundColor?: string;
 }
 
-export interface BannerBlockProps extends Animatable {
+export interface BannerProps {
     title: string;
     subtitle?: string;
     image?: ThemeSupporting<string>;
@@ -643,6 +646,8 @@ export interface BannerBlockProps extends Animatable {
     theme?: TextTheme;
     button: Pick<ButtonProps, 'text' | 'url' | 'target'>;
 }
+
+export interface BannerBlockProps extends BannerProps, Animatable {}
 
 export interface CompaniesBlockProps extends Animatable {
     title: string;
@@ -882,112 +887,121 @@ export interface HubspotFormProps {
 }
 
 export type AuthorModel = {
-    type: BlockType.Author;
+    type: ComponentType.Author;
 } & AuthorProps;
 
-export type HeaderBlockModel = {
-    type: BlockType.HeaderBlock;
-} & HeaderBlockProps;
-
 export type HeaderModel = {
-    type: BlockType.Header;
+    type: ComponentType.Header;
 } & HeaderProps;
 
 export type ButtonModel = {
-    type: BlockType.Button;
+    type: ComponentType.Button;
 } & ButtonProps;
 
 export type ContainerModel = {
-    type: BlockType.Container;
+    type: ComponentType.Container;
 } & ContainerProps;
 
 export type SectionModel = {
-    type: BlockType.Section;
+    type: ComponentType.Section;
 } & SectionProps;
 
 export type TextModel = {
-    type: BlockType.Text;
+    type: ComponentType.Text;
 } & TextProps;
 
 export type TitleModel = {
-    type: BlockType.Title;
+    type: ComponentType.Title;
 } & TitleProps;
 
 export type DividerModel = {
-    type: BlockType.Divider;
+    type: ComponentType.Divider;
 } & DividerProps;
 
 export type FeaturesModel = {
-    type: BlockType.Features;
+    type: ComponentType.Features;
 } & FeaturesProps;
 
 export type ImageModel = {
-    type: BlockType.Image;
+    type: ComponentType.Image;
 } & ImageBlockProps;
 
 export type TabsModel = {
-    type: BlockType.Tabs;
+    type: ComponentType.Tabs;
 } & TabsProps;
 
 export type ShareModel = {
-    type: BlockType.Share;
+    type: ComponentType.Share;
 } & ShareProps;
 
 export type LinkModel = {
-    type: BlockType.Link;
+    type: ComponentType.Link;
 } & LinkProps;
 
 export type TableModel = {
-    type: BlockType.Table;
+    type: ComponentType.Table;
 } & TableProps;
 
 export type ScrollableModel = {
-    type: BlockType.Table;
+    type: ComponentType.Table;
 } & ScrollableProps;
 
 export type TilesModel = {
-    type: BlockType.Tiles;
+    type: ComponentType.Tiles;
 } & TilesProps;
 
 export type FormModel = {
-    type: BlockType.Form;
+    type: ComponentType.Form;
 } & FormProps;
 
 export type CardModel = {
-    type: BlockType.Card;
+    type: ComponentType.Card;
 } & CardProps;
 
 export type QuoteModel = {
-    type: BlockType.Quote;
+    type: ComponentType.Quote;
 } & QuoteProps;
 
 export type NewsCardModel = {
-    type: BlockType.NewsCard;
+    type: ComponentType.NewsCard;
 } & NewsCardProps;
 
 export type CardWithImageModel = {
-    type: BlockType.CardWithImage;
+    type: ComponentType.CardWithImage;
 } & CardWithImageProps;
 
 export type TutorialCardModel = {
-    type: BlockType.TutorialCard;
+    type: ComponentType.TutorialCard;
 } & TutorialCardProps;
 
 export type BackgroundCardModel = {
-    type: BlockType.BackgroundCard;
+    type: ComponentType.BackgroundCard;
 } & BackgroundCardProps;
 
 export type PartnerModel = {
-    type: BlockType.Partner;
+    type: ComponentType.Partner;
 } & PartnerProps;
 
 export type PriceDetailedModel = {
-    type: BlockType.PriceDetailed;
+    type: ComponentType.PriceDetailed;
 } & PriceDetailedProps;
 
 export type MediaCardModel = {
-    type: BlockType.MediaCard;
+    type: ComponentType.MediaCard;
 } & MediaCardProps;
+
+export type HubspotFormBlockModel = {
+    type: ComponentType.HubspotForm;
+} & HubspotFormProps;
+
+export type BannerModel = {
+    type: ComponentType.Banner;
+} & BannerProps;
+
+//blocks
+export type HeaderBlockModel = {
+    type: BlockType.HeaderBlock;
+} & HeaderBlockProps;
 
 export type CalculatorBlockModel = {
     type: BlockType.CalculatorBlock;
@@ -1069,11 +1083,7 @@ export type ContentLayoutBlockModel = {
     type: BlockType.ContentLayoutBlock;
 } & ContentLayoutBlockProps;
 
-export type HubspotFormBlockModel = {
-    type: BlockType.HubspotForm;
-} & HubspotFormProps;
-
-export type BlockV1Raw =
+export type ComponentModels =
     | HeaderModel
     | ButtonModel
     | ContainerModel
@@ -1098,9 +1108,10 @@ export type BlockV1Raw =
     | MediaCardModel
     | TutorialCardModel
     | CardWithImageModel
-    | BackgroundCardModel;
+    | BackgroundCardModel
+    | BannerModel;
 
-type BlockV2Raw =
+type BlockModels =
     | SliderBlockModel
     | ServiceDemoBlockModel
     | ExtendedFeaturesBlockModel
@@ -1124,12 +1135,12 @@ type BlockV2Raw =
     | HubspotFormBlockModel
     | ContentLayoutBlockModel;
 
-export type BlockV1 = BlockV1Raw;
-export type BlockV2 = BlockV2Raw & BlockBaseProps;
-export type Block = BlockV1 | BlockV2;
+export type Block = BlockModels & BlockBaseProps;
+export type Component = ComponentModels;
+export type ConstructorItem = Block | Component;
 
-export function isV2Block(block: Block): block is BlockV2 {
-    return BlockV2Types.includes(block.type);
+export function isBlock(block: ConstructorItem): block is Block {
+    return block.type in BlockTypes;
 }
 
 export function isNewMetrikaFormat(metrika: MetrikaGoal): metrika is NewMetrikaGoal[] {

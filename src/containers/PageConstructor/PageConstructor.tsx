@@ -3,15 +3,14 @@ import _ from 'lodash';
 
 import {
     Block,
-    BlockV2,
     ShouldRenderBlock,
-    BlockV2Types,
     HeaderBlockTypes,
     CustomConfig,
-    BlockType,
     LoadableConfigItem,
     PageContent,
-    CustomBlocks,
+    CustomComponents,
+    BlockTypes,
+    ConstructorItem,
 } from '../../models';
 import componentMap from '../../componentMap';
 import Loadable from '../Loadable/Loadable';
@@ -20,8 +19,8 @@ import BlockBase from '../../components/BlockBase/BlockBase';
 import BackgroundMedia from '../../components/BackgroundMedia/BackgroundMedia';
 import YFMWrapper from '../../components/YFMWrapper/YFMWrapper';
 import {
-    getBlockKey,
-    getCustomBlockV2Types,
+    getItemKey,
+    getCustomBlockTypes,
     getCustomComponents,
     getCustomHeaderTypes,
     block as cnBlock,
@@ -44,7 +43,7 @@ export interface PageConstructorProps {
 
 type Props = PageConstructorProps & WithThemeValueProps;
 
-export type FullComponentsMap = typeof componentMap & CustomBlocks;
+export type FullComponentsMap = typeof componentMap & CustomComponents;
 
 type RenderLoadableParams = {
     block: Block;
@@ -58,7 +57,7 @@ class Constructor extends React.Component<Props> {
         ...componentMap,
         ...getCustomComponents(this.props.custom),
     };
-    fullBlockV2Types = [...BlockV2Types, ...getCustomBlockV2Types(this.props.custom)];
+    fullBlockTypes = [...BlockTypes, ...getCustomBlockTypes(this.props.custom)];
     fullHeaderBlockTypes = [...HeaderBlockTypes, ...getCustomHeaderTypes(this.props.custom)];
 
     render() {
@@ -88,14 +87,7 @@ class Constructor extends React.Component<Props> {
         );
     }
 
-    private renderHeader = (header: Block) =>
-        this.renderBlock(
-            header,
-            header.type,
-            header.type === BlockType.Header && header.children
-                ? this.renderBlocks(header.children)
-                : undefined,
-        );
+    private renderHeader = (header: Block) => this.renderItem(header, header.type);
 
     private renderRow(content: ReactNode) {
         return (
@@ -107,45 +99,52 @@ class Constructor extends React.Component<Props> {
         );
     }
 
-    private isExistBlock(block: Block) {
+    private isExistBlock(block: ConstructorItem) {
         return Boolean(this.fullComponentsMap[block.type]);
     }
 
     private renderBlocks(blocks: Block[]) {
-        const renderer = (block: Block, index: number): ReactElement | null => {
-            if (!this.isExistBlock(block)) {
+        const renderer = (item: ConstructorItem, index: number): ReactElement | null => {
+            if (!this.isExistBlock(item)) {
                 return null;
             }
 
             let children;
-            let blockElement;
-            const blockKey = getBlockKey(block, index);
+            let itemElement;
+            const itemKey = getItemKey(item, index);
 
-            if ('loadable' in block && block.loadable) {
-                const {source, serviceId} = block.loadable;
+            if ('loadable' in item && item.loadable) {
+                const {source, serviceId} = item.loadable;
                 const config: LoadableConfigItem = _.get(this.props, `custom.loadable[${source}]`);
                 if (!config) {
                     return null;
                 }
 
-                blockElement = this.renderLoadable({block, blockKey, config, serviceId});
+                itemElement = this.renderLoadable({
+                    block: item,
+                    blockKey: itemKey,
+                    config,
+                    serviceId,
+                });
             } else {
-                if ('children' in block && block.children) {
-                    children = block.children.map(renderer);
+                if ('children' in item && item.children) {
+                    children = item.children.map(renderer);
                 }
 
-                blockElement = this.renderBlock(block, blockKey, children);
+                itemElement = this.renderItem(item, itemKey, children);
             }
 
-            return this.isV2Block(block)
-                ? this.renderV2Block(block, blockKey, blockElement)
-                : blockElement;
+            return this.isBlock(item) ? this.renderBlock(item, itemKey, itemElement) : itemElement;
         };
 
         return blocks.map(renderer);
     }
 
-    private renderBlock = (block: Block, blockKey: string, children?: (ReactElement | null)[]) => {
+    private renderItem = (
+        block: ConstructorItem,
+        blockKey: string,
+        children?: (ReactElement | null)[],
+    ) => {
         const {type, ...rest} = block;
         const components = this.fullComponentsMap;
         const Component = components[type] as React.ComponentType<
@@ -159,7 +158,7 @@ class Constructor extends React.Component<Props> {
         );
     };
 
-    private renderV2Block(block: BlockV2, blockKey: string, Component: ReactElement) {
+    private renderBlock(block: Block, blockKey: string, Component: ReactElement) {
         const {shouldRenderBlock} = this.props;
         const {anchor, visible} = block;
 
@@ -224,8 +223,8 @@ class Constructor extends React.Component<Props> {
         return this.fullHeaderBlockTypes.includes(block.type);
     };
 
-    private isV2Block(block: Block): block is BlockV2 {
-        return this.fullBlockV2Types.includes(block.type);
+    private isBlock(item: ConstructorItem): item is Block {
+        return this.fullBlockTypes.includes(item.type);
     }
 }
 

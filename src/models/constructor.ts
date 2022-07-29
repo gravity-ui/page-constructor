@@ -1,5 +1,5 @@
 import React from 'react';
-import {Block, Animatable, ThemedMediaProps} from './blocks';
+import {Animatable, ThemedMediaProps, ConstructorItem, Block} from './blocks';
 
 export interface PageData {
     content: PageContent;
@@ -25,7 +25,7 @@ export interface CustomBlock {
     [key: string]: unknown;
 }
 
-export type ConstructorBlock = Block | CustomBlock;
+export type ConstructorBlock = ConstructorItem | CustomBlock;
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type LoadableData = any;
@@ -40,7 +40,7 @@ export type ShouldRenderBlock = (block: ConstructorBlock, blockKey: string) => B
 export type OnInit = (data: InitConstrucorState) => void;
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type CustomComponent = React.ComponentType<React.ComponentProps<React.ComponentClass<any>>>;
-export type CustomBlocks = Record<string, CustomComponent>;
+export type CustomComponents = Record<string, CustomComponent>;
 
 export interface LoadableConfigItem {
     fetch: FetchLoadableData;
@@ -50,7 +50,8 @@ export interface LoadableConfigItem {
 export type LoadableConfig = Record<string, LoadableConfigItem>;
 
 export interface CustomConfig {
-    blocks?: CustomBlocks;
-    headers?: CustomBlocks;
+    blocks?: CustomComponents;
+    components?: CustomComponents;
+    headers?: CustomComponents;
     loadable?: LoadableConfig;
 }

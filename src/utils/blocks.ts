@@ -1,8 +1,6 @@
 import _ from 'lodash';
 
-import {TextSize, CustomConfig, ConstructorBlock} from '../models';
-
-export const isV2BlockType = (type: string) => type.includes('-block');
+import {TextSize, CustomConfig, ConstructorItem} from '../models';
 
 export function getHeaderTag(size: TextSize) {
     switch (size) {
@@ -16,23 +14,20 @@ export function getHeaderTag(size: TextSize) {
     }
 }
 
-export function getBlockKey(block: ConstructorBlock, index: number) {
+export function getItemKey(block: ConstructorItem, index: number) {
     return `${block.type}-${index}`;
 }
 
-export const getCustomBlockV2Types = (customBlocks: CustomConfig = {}) => {
+export const getCustomBlockTypes = (customBlocks: CustomConfig = {}) => {
     const {blocks = {}, headers = {}} = customBlocks;
 
-    return [
-        ...Object.keys(blocks).filter(isV2BlockType),
-        ...Object.keys(headers).filter(isV2BlockType),
-    ];
+    return [...Object.keys(blocks), ...Object.keys(headers)];
 };
 
 export const getCustomComponents = (customBlocks: CustomConfig = {}) => {
-    const {blocks = {}, headers = {}} = customBlocks;
+    const {blocks = {}, headers = {}, components = {}} = customBlocks;
 
-    return {...blocks, ...headers};
+    return {...blocks, ...headers, ...components};
 };
 
 export const getCustomHeaderTypes = (customBlocks: CustomConfig = {}) => {
