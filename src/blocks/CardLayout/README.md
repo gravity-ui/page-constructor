@@ -16,7 +16,7 @@
 
 На данный момент поддерживаются следующие блоки:
 
-- [`Card` - карточка по умолчанию](?path=/story/компоненты-карточки-cardbase--default&viewMode=docs)
+- [`BasicCard` - основная карточка](?path=/story/компоненты-карточки-basiccard--default&viewMode=docs)
 - [`Partner` - карточка партнера](?path=/story/компоненты-карточки-partner--default&viewMode=docs)
 - [`Price Detailed` - тарифы](?path=/story/компоненты-карточки-pricedetailed--marked-list&viewMode=docs)
 - [`BackgroundCard` - карточка с бэкграундом](?path=/story/компоненты-карточки-backgroundcard--default&viewMode=docs)

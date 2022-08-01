@@ -33,6 +33,7 @@ export enum BlockType {
     Card = 'card',
     Quote = 'quote',
     Event = 'event',
+    BasicCard = 'basic-card',
     NewsCard = 'news-card',
     Partner = 'partner',
     PriceDetailed = 'price-detailed',
@@ -649,6 +650,13 @@ export interface BackgroundCardProps
     backgroundColor?: string;
 }
 
+export interface BasicCardProps
+    extends CardBaseProps,
+        Omit<ContentBlockProps, 'colSizes' | 'centered' | 'size' | 'theme'> {
+    url: string;
+    icon?: ImageProps;
+}
+
 export interface BannerBlockProps extends Animatable {
     title: string;
     subtitle?: string;
@@ -1040,6 +1048,10 @@ export type TutorialCardModel = {
     type: BlockType.TutorialCard;
 } & TutorialCardProps;
 
+export type BasicCardModel = {
+    type: BlockType.BasicCard;
+} & BasicCardProps;
+
 export type BackgroundCardModel = {
     type: BlockType.BackgroundCard;
 } & BackgroundCardProps;
@@ -1168,6 +1180,7 @@ export type BlockV1Raw =
     | CardModel
     | QuoteModel
     | EventModel
+    | BasicCardModel
     | NewsCardModel
     | PartnerModel
     | PriceDetailedModel

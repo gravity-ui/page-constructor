@@ -9,3 +9,4 @@ export * from './Partner/schema';
 export * from './PriceDetailed/schema';
 export * from './Quote/schema';
 export * from './TutorialCard/schema';
+export * from './BasicCard/schema';

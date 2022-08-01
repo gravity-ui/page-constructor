@@ -213,6 +213,16 @@ const config: BlocksConfig = {
         fields: ['text'],
         transformer: typografTransformer,
     },
+    [BlockType.BasicCard]: [
+        {
+            fields: ['title'],
+            transformer: typografTransformer,
+        },
+        {
+            fields: ['text', 'additionalInfo'],
+            transformer: yfmTransformer,
+        },
+    ],
     [BlockType.TutorialCard]: {
         fields: ['text', 'title'],
         transformer: typografTransformer,

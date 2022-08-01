@@ -33,6 +33,7 @@
 На данный момент поддерживаются следующие блоки:
 
 - `Quote` - цитата
+- [`BasicCard` - основная карточка](?path=/story/компоненты-карточки-basiccard--default&viewMode=docs)
 - [`Banner` - баннер](?path=/story/блоки-banner--default&viewMode=docs)
 - [`Partner` - карточка партнера](?path=/story/компоненты-карточки-partner--default&viewMode=docs)
 - [`Price Detailed` - тарифы](?path=/story/компоненты-карточки-pricedetailed--marked-list&viewMode=docs)
