@@ -31,7 +31,7 @@ export enum BlockType {
     ContentLayoutBlock = 'content-layout-block',
 }
 
-export enum BlockChildrenType {
+export enum ComponentType {
     Header = 'header',
     HeaderBreadcrumbs = 'header-breadcrumbs',
     Text = 'text',
@@ -69,6 +69,7 @@ export enum BlockChildrenType {
 }
 
 export const BlockTypes = Object.values(BlockType);
+export const ComponentTypes = Object.values(ComponentType);
 export const HeaderBlockTypes = [BlockType.HeaderSliderBlock];
 
 export enum PriceDetailsType {
@@ -887,115 +888,115 @@ export interface HubspotFormProps {
 }
 
 export type AuthorModel = {
-    type: BlockChildrenType.Author;
+    type: ComponentType.Author;
 } & AuthorProps;
 
 export type HeaderModel = {
-    type: BlockChildrenType.Header;
+    type: ComponentType.Header;
 } & HeaderProps;
 
 export type ButtonModel = {
-    type: BlockChildrenType.Button;
+    type: ComponentType.Button;
 } & ButtonProps;
 
 export type ContainerModel = {
-    type: BlockChildrenType.Container;
+    type: ComponentType.Container;
 } & ContainerProps;
 
 export type SectionModel = {
-    type: BlockChildrenType.Section;
+    type: ComponentType.Section;
 } & SectionProps;
 
 export type TextModel = {
-    type: BlockChildrenType.Text;
+    type: ComponentType.Text;
 } & TextProps;
 
 export type TitleModel = {
-    type: BlockChildrenType.Title;
+    type: ComponentType.Title;
 } & TitleProps;
 
 export type DividerModel = {
-    type: BlockChildrenType.Divider;
+    type: ComponentType.Divider;
 } & DividerProps;
 
 export type FeaturesModel = {
-    type: BlockChildrenType.Features;
+    type: ComponentType.Features;
 } & FeaturesProps;
 
 export type ImageModel = {
-    type: BlockChildrenType.Image;
+    type: ComponentType.Image;
 } & ImageBlockProps;
 
 export type TabsModel = {
-    type: BlockChildrenType.Tabs;
+    type: ComponentType.Tabs;
 } & TabsProps;
 
 export type ShareModel = {
-    type: BlockChildrenType.Share;
+    type: ComponentType.Share;
 } & ShareProps;
 
 export type LinkModel = {
-    type: BlockChildrenType.Link;
+    type: ComponentType.Link;
 } & LinkProps;
 
 export type TableModel = {
-    type: BlockChildrenType.Table;
+    type: ComponentType.Table;
 } & TableProps;
 
 export type ScrollableModel = {
-    type: BlockChildrenType.Table;
+    type: ComponentType.Table;
 } & ScrollableProps;
 
 export type TilesModel = {
-    type: BlockChildrenType.Tiles;
+    type: ComponentType.Tiles;
 } & TilesProps;
 
 export type FormModel = {
-    type: BlockChildrenType.Form;
+    type: ComponentType.Form;
 } & FormProps;
 
 export type CardModel = {
-    type: BlockChildrenType.Card;
+    type: ComponentType.Card;
 } & CardProps;
 
 export type QuoteModel = {
-    type: BlockChildrenType.Quote;
+    type: ComponentType.Quote;
 } & QuoteProps;
 
 export type NewsCardModel = {
-    type: BlockChildrenType.NewsCard;
+    type: ComponentType.NewsCard;
 } & NewsCardProps;
 
 export type CardWithImageModel = {
-    type: BlockChildrenType.CardWithImage;
+    type: ComponentType.CardWithImage;
 } & CardWithImageProps;
 
 export type TutorialCardModel = {
-    type: BlockChildrenType.TutorialCard;
+    type: ComponentType.TutorialCard;
 } & TutorialCardProps;
 
 export type BackgroundCardModel = {
-    type: BlockChildrenType.BackgroundCard;
+    type: ComponentType.BackgroundCard;
 } & BackgroundCardProps;
 
 export type PartnerModel = {
-    type: BlockChildrenType.Partner;
+    type: ComponentType.Partner;
 } & PartnerProps;
 
 export type PriceDetailedModel = {
-    type: BlockChildrenType.PriceDetailed;
+    type: ComponentType.PriceDetailed;
 } & PriceDetailedProps;
 
 export type MediaCardModel = {
-    type: BlockChildrenType.MediaCard;
+    type: ComponentType.MediaCard;
 } & MediaCardProps;
 
 export type HubspotFormBlockModel = {
-    type: BlockChildrenType.HubspotForm;
+    type: ComponentType.HubspotForm;
 } & HubspotFormProps;
 
 export type BannerModel = {
-    type: BlockChildrenType.Banner;
+    type: ComponentType.Banner;
 } & BannerProps;
 
 //blocks
@@ -1083,7 +1084,7 @@ export type ContentLayoutBlockModel = {
     type: BlockType.ContentLayoutBlock;
 } & ContentLayoutBlockProps;
 
-export type BlockChildrenModels =
+export type ComponentModels =
     | HeaderModel
     | ButtonModel
     | ContainerModel
@@ -1136,8 +1137,8 @@ type BlockModels =
     | ContentLayoutBlockModel;
 
 export type Block = BlockModels & BlockBaseProps;
-export type BlockChildren = BlockChildrenModels;
-export type ConstructorItem = Block | BlockChildren;
+export type Component = ComponentModels;
+export type ConstructorItem = Block | Component;
 
 export function isBlock(block: ConstructorItem): block is Block {
     return block.type in BlockTypes;

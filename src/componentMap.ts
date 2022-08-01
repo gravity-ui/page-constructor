@@ -51,7 +51,29 @@ import {
     ContentLayoutBlock,
 } from './blocks';
 
-const components = {
+export const blockMap = {
+    [BlockType.SliderBlock]: SliderBlock,
+    [BlockType.SimpleBlock]: SimpleBlock,
+    [BlockType.ExtendedFeaturesBlock]: ExtendedFeaturesBlock,
+    [BlockType.PromoFeaturesBlock]: PromoFeaturesBlock,
+    [BlockType.QuestionsBlock]: QuestionsBlock,
+    [BlockType.BannerBlock]: BannerBlock,
+    [BlockType.CompaniesBlock]: CompaniesBlock,
+    [BlockType.MediaBlock]: MediaBlock,
+    [BlockType.PreviewBlock]: PreviewBlock,
+    [BlockType.InfoBlock]: InfoBlock,
+    [BlockType.SecurityBlock]: SecurityBlock,
+    [BlockType.TableBlock]: TableBlock,
+    [BlockType.TabsBlock]: TabsBlock,
+    [BlockType.LinkTableBlock]: LinkTableBlock,
+    [BlockType.HeaderBlock]: HeaderBlock,
+    [BlockType.IconsBlock]: IconsBlock,
+    [BlockType.HeaderSliderBlock]: HeaderSliderBlock,
+    [BlockType.CardLayoutBlock]: CardLayoutBlock,
+    [BlockType.ContentLayoutBlock]: ContentLayoutBlock,
+};
+
+export const componentMap = {
     [BlockChildrenType.Section]: Section,
     [BlockChildrenType.Text]: Text,
     [BlockChildrenType.Container]: Container,
@@ -80,27 +102,4 @@ const components = {
     [BlockChildrenType.Content]: Content,
     [BlockChildrenType.Quote]: Quote,
     [BlockChildrenType.Author]: Author,
-
-    // Blocks
-    [BlockType.SliderBlock]: SliderBlock,
-    [BlockType.SimpleBlock]: SimpleBlock,
-    [BlockType.ExtendedFeaturesBlock]: ExtendedFeaturesBlock,
-    [BlockType.PromoFeaturesBlock]: PromoFeaturesBlock,
-    [BlockType.QuestionsBlock]: QuestionsBlock,
-    [BlockType.BannerBlock]: BannerBlock,
-    [BlockType.CompaniesBlock]: CompaniesBlock,
-    [BlockType.MediaBlock]: MediaBlock,
-    [BlockType.PreviewBlock]: PreviewBlock,
-    [BlockType.InfoBlock]: InfoBlock,
-    [BlockType.SecurityBlock]: SecurityBlock,
-    [BlockType.TableBlock]: TableBlock,
-    [BlockType.TabsBlock]: TabsBlock,
-    [BlockType.LinkTableBlock]: LinkTableBlock,
-    [BlockType.HeaderBlock]: HeaderBlock,
-    [BlockType.IconsBlock]: IconsBlock,
-    [BlockType.HeaderSliderBlock]: HeaderSliderBlock,
-    [BlockType.CardLayoutBlock]: CardLayoutBlock,
-    [BlockType.ContentLayoutBlock]: ContentLayoutBlock,
 };
-
-export default components;

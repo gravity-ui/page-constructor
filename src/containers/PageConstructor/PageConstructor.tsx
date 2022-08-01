@@ -12,7 +12,7 @@ import {
     BlockTypes,
     ConstructorItem,
 } from '../../models';
-import componentMap from '../../componentMap';
+import {blockMap, componentMap} from '../../componentMap';
 import Loadable from '../Loadable/Loadable';
 import {Col, Grid, Row} from '../../grid';
 import BlockBase from '../../components/BlockBase/BlockBase';
@@ -21,8 +21,8 @@ import YFMWrapper from '../../components/YFMWrapper/YFMWrapper';
 import {
     getItemKey,
     getCustomBlockTypes,
-    getCustomComponents,
     getCustomHeaderTypes,
+    getCustomComponents,
     block as cnBlock,
     getThemedValue,
 } from '../../utils';
@@ -43,7 +43,7 @@ export interface PageConstructorProps {
 
 type Props = PageConstructorProps & WithThemeValueProps;
 
-export type FullComponentsMap = typeof componentMap & CustomComponents;
+export type ItemMap = typeof blockMap & typeof componentMap & CustomComponents;
 
 type RenderLoadableParams = {
     block: Block;
@@ -53,11 +53,12 @@ type RenderLoadableParams = {
 };
 
 class Constructor extends React.Component<Props> {
-    fullComponentsMap: FullComponentsMap = {
+    blockTypes = [...BlockTypes, ...getCustomBlockTypes(this.props.custom)];
+    itemMap: ItemMap = {
+        ...blockMap,
         ...componentMap,
         ...getCustomComponents(this.props.custom),
     };
-    fullBlockTypes = [...BlockTypes, ...getCustomBlockTypes(this.props.custom)];
     fullHeaderBlockTypes = [...HeaderBlockTypes, ...getCustomHeaderTypes(this.props.custom)];
 
     render() {
@@ -99,13 +100,13 @@ class Constructor extends React.Component<Props> {
         );
     }
 
-    private isExistBlock(block: ConstructorItem) {
-        return Boolean(this.fullComponentsMap[block.type]);
+    private isItemExist(item: ConstructorItem) {
+        return Boolean(this.itemMap[item.type]);
     }
 
-    private renderBlocks(blocks: Block[]) {
+    private renderBlocks(blocks: ConstructorItem[]) {
         const renderer = (item: ConstructorItem, index: number): ReactElement | null => {
-            if (!this.isExistBlock(item)) {
+            if (!this.isItemExist(item)) {
                 return null;
             }
 
@@ -146,7 +147,8 @@ class Constructor extends React.Component<Props> {
         children?: (ReactElement | null)[],
     ) => {
         const {type, ...rest} = item;
-        const components = this.fullComponentsMap;
+        const components = this.itemMap;
+
         const Component = components[type] as React.ComponentType<
             React.ComponentProps<typeof components[typeof type]>
         >;
@@ -183,9 +185,9 @@ class Constructor extends React.Component<Props> {
         const {block, blockKey, config, serviceId} = params;
         const {type} = block;
         const {fetch, component: ChildComponent} = config;
-        const components = this.fullComponentsMap;
-        const Component = components[type] as React.ComponentType<
-            React.ComponentProps<typeof components[typeof type]>
+        const blocks = this.itemMap;
+        const Component = blocks[type] as React.ComponentType<
+            React.ComponentProps<typeof blocks[typeof type]>
         >;
 
         return (
@@ -224,7 +226,7 @@ class Constructor extends React.Component<Props> {
     };
 
     private isBlock(item: ConstructorItem): item is Block {
-        return this.fullBlockTypes.includes(item.type);
+        return this.blockTypes.includes(item.type);
     }
 }
 
