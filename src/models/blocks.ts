@@ -643,7 +643,7 @@ export interface TutorialCardProps extends CardBaseProps {
 
 export interface BackgroundCardProps
     extends CardBaseProps,
-        Omit<ContentBlockProps, 'colSizes' | 'centered'> {
+        Omit<ContentBlockProps, 'colSizes' | 'centered' | 'size'> {
     url?: string;
     background?: ImageObjectProps;
     paddingBottom?: 's' | 'm' | 'l' | 'xl';
