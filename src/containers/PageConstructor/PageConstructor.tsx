@@ -12,7 +12,7 @@ import {
     BlockTypes,
     ConstructorItem,
 } from '../../models';
-import {blockMap, componentMap} from '../../componentMap';
+import {blockMap, subBlockMap} from '../../componentMap';
 import Loadable from '../Loadable/Loadable';
 import {Col, Grid, Row} from '../../grid';
 import BlockBase from '../../components/BlockBase/BlockBase';
@@ -43,7 +43,7 @@ export interface PageConstructorProps {
 
 type Props = PageConstructorProps & WithThemeValueProps;
 
-export type ItemMap = typeof blockMap & typeof componentMap & CustomComponents;
+export type ItemMap = typeof blockMap & typeof subBlockMap & CustomComponents;
 
 type RenderLoadableParams = {
     block: Block;
@@ -56,7 +56,7 @@ class Constructor extends React.Component<Props> {
     blockTypes = [...BlockTypes, ...getCustomBlockTypes(this.props.custom)];
     itemMap: ItemMap = {
         ...blockMap,
-        ...componentMap,
+        ...subBlockMap,
         ...getCustomComponents(this.props.custom),
     };
     fullHeaderBlockTypes = [...HeaderBlockTypes, ...getCustomHeaderTypes(this.props.custom)];

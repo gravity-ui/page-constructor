@@ -3,7 +3,7 @@ import {
     Block,
     BlockType,
     CardProps,
-    BlockChildrenType,
+    SubBlockType,
     ContentBlockProps,
     ExtendedFeaturesItem,
     PriceDetailedProps,
@@ -56,10 +56,6 @@ function parseTableBlock(transformer: Transformer, content: TableProps) {
         ...(content || {}),
         legend: legend && legend.map((string) => transformer(string)),
     };
-}
-
-function parseTable(transformer: Transformer, content: string[][]) {
-    return content.map((row) => row.map((cell) => transformer(cell)));
 }
 
 function parseFeatures(transformer: Transformer, items: ExtendedFeaturesItem[]) {
@@ -179,42 +175,15 @@ interface BlockConfig {
 type BlocksConfig = Record<string, BlockConfig | BlockConfig[]>;
 
 const config: BlocksConfig = {
-    [BlockChildrenType.Text]: {
-        fields: ['text', 'folded'],
-        transformer: yfmTransformer,
-    },
-    [BlockChildrenType.Title]: {
+    [SubBlockType.Partner]: {
         fields: ['text'],
         transformer: typografTransformer,
     },
-    [BlockChildrenType.Features]: {
-        fields: ['items'],
-        transformer: yfmTransformer,
-        parser: parseItems,
-    },
-    [BlockChildrenType.Header]: {
-        fields: ['title', 'subtitle'],
-        transformer: typografTransformer,
-    },
-    [BlockChildrenType.Tiles]: {
-        fields: ['items'],
-        transformer: typografTransformer,
-        parser: parseItems,
-    },
-    [BlockChildrenType.Table]: {
-        fields: ['content'],
-        transformer: typografTransformer,
-        parser: parseTable,
-    },
-    [BlockChildrenType.Partner]: {
-        fields: ['text'],
-        transformer: typografTransformer,
-    },
-    [BlockChildrenType.TutorialCard]: {
+    [SubBlockType.TutorialCard]: {
         fields: ['text', 'title'],
         transformer: typografTransformer,
     },
-    [BlockChildrenType.BackgroundCard]: [
+    [SubBlockType.BackgroundCard]: [
         {
             fields: ['text', 'additionalInfo'],
             transformer: yfmTransformer,
@@ -224,7 +193,7 @@ const config: BlocksConfig = {
             transformer: typografTransformer,
         },
     ],
-    [BlockChildrenType.CardWithImage]: [
+    [SubBlockType.CardWithImage]: [
         {
             fields: ['description', 'additionalInfo'],
             transformer: yfmTransformer,
@@ -234,11 +203,11 @@ const config: BlocksConfig = {
             transformer: typografTransformer,
         },
     ],
-    [BlockChildrenType.Quote]: {
+    [SubBlockType.Quote]: {
         fields: ['text'],
         transformer: typografTransformer,
     },
-    [BlockChildrenType.Card]: {
+    [SubBlockType.Card]: {
         transformer: yfmTransformer,
         parser: parseCard,
     },
@@ -282,7 +251,7 @@ const config: BlocksConfig = {
             transformer: yfmTransformer,
         },
     ],
-    [BlockChildrenType.BannerCard]: [
+    [SubBlockType.BannerCard]: [
         {
             fields: ['title'],
             transformer: typografTransformer,
@@ -339,7 +308,7 @@ const config: BlocksConfig = {
             transformer: yfmTransformer,
         },
     ],
-    [BlockChildrenType.PriceDetailed]: [
+    [SubBlockType.PriceDetailed]: [
         {
             transformer: yfmTransformer,
             parser: parsePriceDetailedBlock,
@@ -363,7 +332,7 @@ const config: BlocksConfig = {
             parser: parseContentLayoutTitle,
         },
     ],
-    [BlockChildrenType.Content]: [
+    [SubBlockType.Content]: [
         {
             fields: ['text', 'additionalInfo'],
             transformer: yfmTransformer,

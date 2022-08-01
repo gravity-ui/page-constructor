@@ -3,7 +3,7 @@ import {Meta, Story} from '@storybook/react/types-6-0';
 import yfm from '@doc-tools/transform';
 
 import CardLayout from '../CardLayout';
-import {BlockType, CardLayoutBlockModel, BlockChildrenType} from '../../../models';
+import {BlockType, CardLayoutBlockModel, SubBlockType} from '../../../models';
 import {PageConstructor} from '../../../containers/PageConstructor/PageConstructor';
 
 export default {
@@ -57,28 +57,28 @@ CardsWithImage.args = {
     title: 'Карточки с фото',
     children: [
         {
-            type: BlockChildrenType.CardWithImage,
+            type: SubBlockType.CardWithImage,
             image: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/card-with-image/bashkeev.png',
             title: 'Алексей&nbsp;Башкеев',
             description: yfm('CEO, руководитель&nbsp;платформы').result.html,
             links: [{link: 'https://yandex.ru', title: 'LinkedIn'}],
         },
         {
-            type: BlockChildrenType.CardWithImage,
+            type: SubBlockType.CardWithImage,
             image: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/card-with-image/bashkeev.png',
             title: 'Алексей Башкеев',
             description: yfm('CEO, руководитель&nbsp;платформы').result.html,
             links: [{link: 'https://yandex.ru', title: 'LinkedIn'}],
         },
         {
-            type: BlockChildrenType.CardWithImage,
+            type: SubBlockType.CardWithImage,
             image: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/card-with-image/bashkeev.png',
             title: 'Алексей Башкеев',
             description: yfm('CEO, руководитель&nbsp;платформы').result.html,
             links: [{link: 'https://yandex.ru', title: 'LinkedIn'}],
         },
         {
-            type: BlockChildrenType.CardWithImage,
+            type: SubBlockType.CardWithImage,
             image: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/card-with-image/bashkeev.png',
             title: 'Алексей Башкеев',
             description: yfm('CEO, руководитель&nbsp;платформы').result.html,
@@ -105,7 +105,7 @@ CardsWithImageFullScreen.args = {
     },
     children: [
         {
-            type: BlockChildrenType.CardWithImage,
+            type: SubBlockType.CardWithImage,
             image: 'https://storage.yandexcloud.net/ydb-www-prod-site-assets/clients/jaeger-new.png',
             title: 'Перераспределение нагрузки',
             description: yfm(
@@ -115,7 +115,7 @@ CardsWithImageFullScreen.args = {
             border: true,
         },
         {
-            type: BlockChildrenType.CardWithImage,
+            type: SubBlockType.CardWithImage,
             image: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/ydb-assets/scheme.png',
             title: 'Автомасштабирование по нагрузке',
             description: yfm(
@@ -125,7 +125,7 @@ CardsWithImageFullScreen.args = {
             border: true,
         },
         {
-            type: BlockChildrenType.CardWithImage,
+            type: SubBlockType.CardWithImage,
             image: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/ydb-assets/scheme.png',
             title: 'Автомасштабирование по размеру',
             description: yfm(
@@ -135,7 +135,7 @@ CardsWithImageFullScreen.args = {
             border: true,
         },
         {
-            type: BlockChildrenType.CardWithImage,
+            type: SubBlockType.CardWithImage,
             image: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/ydb-assets/scheme.png',
             title: 'Автоматическое восстановление',
             description: yfm(
@@ -145,7 +145,7 @@ CardsWithImageFullScreen.args = {
             border: true,
         },
         {
-            type: BlockChildrenType.CardWithImage,
+            type: SubBlockType.CardWithImage,
             image: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/ydb-assets/scheme.png',
             title: 'Репликация данных',
             description: yfm(
@@ -155,7 +155,7 @@ CardsWithImageFullScreen.args = {
             border: true,
         },
         {
-            type: BlockChildrenType.CardWithImage,
+            type: SubBlockType.CardWithImage,
             image: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/ydb-assets/scheme.png',
             title: 'Секционирование',
             description: yfm(
@@ -179,7 +179,7 @@ CardsWithImageAllProps.args = {
     },
     children: [
         {
-            type: BlockChildrenType.CardWithImage,
+            type: SubBlockType.CardWithImage,
             image: 'https://storage.yandexcloud.net/ydb-www-prod-site-assets/clients/jaeger-new.png',
             title: {
                 text: 'Программа содействия образованию и науке в области Computer Science',
@@ -222,7 +222,7 @@ CardsWithImageAllProps.args = {
             ).result.html,
         },
         {
-            type: BlockChildrenType.CardWithImage,
+            type: SubBlockType.CardWithImage,
             image: 'https://storage.yandexcloud.net/ydb-www-prod-site-assets/clients/jaeger-new.png',
             title: 'Перераспределение нагрузки',
             fullScreen: true,
@@ -263,7 +263,7 @@ CardsWithImageAllProps.args = {
             ).result.html,
         },
         {
-            type: BlockChildrenType.CardWithImage,
+            type: SubBlockType.CardWithImage,
             image: 'https://storage.yandexcloud.net/ydb-www-prod-site-assets/clients/jaeger-new.png',
             title: 'Перераспределение нагрузки',
             fullScreen: true,
@@ -313,7 +313,7 @@ BackgroundCardsPaddings.args = {
     animated: false,
     children: [
         {
-            type: BlockChildrenType.BackgroundCard,
+            type: SubBlockType.BackgroundCard,
             title: 'Концепция безопасности',
             text: yfm(
                 'Мы открыты в отношении наших обязательств и нашей ответственности за защиту и управление данными клиента в облаке.',
@@ -327,7 +327,7 @@ BackgroundCardsPaddings.args = {
             paddingBottom: 's',
         },
         {
-            type: BlockChildrenType.BackgroundCard,
+            type: SubBlockType.BackgroundCard,
             title: 'Что мы делаем для безопасности',
             text: yfm(
                 'Защита конфиденциальности информации, размещенной в облаке, данных и сервисов клиентов — наша важнейшая задача и ключевой приоритет.',
@@ -341,7 +341,7 @@ BackgroundCardsPaddings.args = {
             paddingBottom: 's',
         },
         {
-            type: BlockChildrenType.BackgroundCard,
+            type: SubBlockType.BackgroundCard,
             title: 'Соответствие стандартам',
             text: yfm(
                 'Мы постоянно совершенствуем процессы информационной безопасности, механизмы создания и эксплуатации наших сервисов, чтобы соответствовать не только федеральным, но и мировым стандартам.',
@@ -362,7 +362,7 @@ BackgroundCardsBackgroundColor.args = {
     animated: false,
     children: [
         {
-            type: BlockChildrenType.BackgroundCard,
+            type: SubBlockType.BackgroundCard,
             title: 'Концепция безопасности',
             text: yfm(
                 'Мы открыты в отношении наших обязательств и нашей ответственности за защиту и управление данными клиента в облаке.',
@@ -377,7 +377,7 @@ BackgroundCardsBackgroundColor.args = {
             theme: 'dark',
         },
         {
-            type: BlockChildrenType.BackgroundCard,
+            type: SubBlockType.BackgroundCard,
             title: 'Что мы делаем для безопасности',
             text: yfm(
                 'Защита конфиденциальности информации, размещенной в облаке, данных и сервисов клиентов — наша важнейшая задача и ключевой приоритет.',
@@ -392,7 +392,7 @@ BackgroundCardsBackgroundColor.args = {
             theme: 'dark',
         },
         {
-            type: BlockChildrenType.BackgroundCard,
+            type: SubBlockType.BackgroundCard,
             title: 'Соответствие стандартам',
             text: yfm(
                 'Мы постоянно совершенствуем процессы информационной безопасности, механизмы создания и эксплуатации наших сервисов, чтобы соответствовать не только федеральным, но и мировым стандартам.',
@@ -413,7 +413,7 @@ BackgroundCardsContentSizes.args = {
     title: 'Карточки с разным размером контента',
     children: [
         {
-            type: BlockChildrenType.BackgroundCard,
+            type: SubBlockType.BackgroundCard,
             title: 'Размер l',
             text: yfm(
                 '**Yandex.Cloud — публичная облачная платформа**, которая [предоставляет](https://ya.com) корпорациям, среднему бизнесу и частным разработчикам масштабируемую инфраструктуру, сервисы хранения данных, инструменты машинного обучения и средства разработки. С этими технологиями, проверенными временем и опытом Яндекса, каждый может создавать и непрерывно совершенствовать собственные ультрасовременные цифровые сервисы и приложения.',
@@ -455,7 +455,7 @@ BackgroundCardsContentSizes.args = {
             size: 'l',
         },
         {
-            type: BlockChildrenType.BackgroundCard,
+            type: SubBlockType.BackgroundCard,
             title: 'Размер s - по умолчанию',
             text: yfm(
                 '**Yandex.Cloud — публичная облачная платформа**, которая [предоставляет](https://ya.com) корпорациям, среднему бизнесу и частным разработчикам масштабируемую инфраструктуру, сервисы хранения данных, инструменты машинного обучения и средства разработки. С этими технологиями, проверенными временем и опытом Яндекса, каждый может создавать и непрерывно совершенствовать собственные ультрасовременные цифровые сервисы и приложения.',
@@ -503,7 +503,7 @@ BackgroundCardsThemes.args = {
     title: 'Темы карточек',
     children: [
         {
-            type: BlockChildrenType.BackgroundCard,
+            type: SubBlockType.BackgroundCard,
             title: 'Theme = dark',
             text: 'Мы открыты в отношении наших обязательств и нашей ответственности за защиту и управление данными клиента в облаке.',
             background: {
@@ -515,7 +515,7 @@ BackgroundCardsThemes.args = {
             theme: 'dark',
         },
         {
-            type: BlockChildrenType.BackgroundCard,
+            type: SubBlockType.BackgroundCard,
             title: 'Theme = light',
             text: 'Защита конфиденциальности информации, размещенной в облаке, данных и сервисов клиентов — наша важнейшая задача и ключевой приоритет.',
             background: {
@@ -527,7 +527,7 @@ BackgroundCardsThemes.args = {
             theme: 'light',
         },
         {
-            type: BlockChildrenType.BackgroundCard,
+            type: SubBlockType.BackgroundCard,
             title: 'Theme = default',
             text: 'Мы постоянно совершенствуем процессы информационной безопасности, механизмы создания и эксплуатации наших сервисов, чтобы соответствовать не только федеральным, но и мировым стандартам.',
             background: {
@@ -539,7 +539,7 @@ BackgroundCardsThemes.args = {
             url: '#',
         },
         {
-            type: BlockChildrenType.BackgroundCard,
+            type: SubBlockType.BackgroundCard,
             title: 'Theme = dark',
             text: yfm(
                 '**Yandex.Cloud — публичная облачная платформа**, которая [предоставляет](https://ya.com) корпорациям, среднему бизнесу и частным разработчикам масштабируемую инфраструктуру, сервисы хранения данных, инструменты машинного обучения и средства разработки. С этими технологиями, проверенными временем и опытом Яндекса, каждый может создавать и непрерывно совершенствовать собственные ультрасовременные цифровые сервисы и приложения.',
@@ -582,7 +582,7 @@ BackgroundCardsThemes.args = {
             theme: 'dark',
         },
         {
-            type: BlockChildrenType.BackgroundCard,
+            type: SubBlockType.BackgroundCard,
             title: 'Theme = light',
             text: yfm(
                 '**Yandex.Cloud — публичная облачная платформа**, которая [предоставляет](https://ya.com) корпорациям, среднему бизнесу и частным разработчикам масштабируемую инфраструктуру, сервисы хранения данных, инструменты машинного обучения и средства разработки. С этими технологиями, проверенными временем и опытом Яндекса, каждый может создавать и непрерывно совершенствовать собственные ультрасовременные цифровые сервисы и приложения.',
@@ -625,7 +625,7 @@ BackgroundCardsThemes.args = {
             theme: 'light',
         },
         {
-            type: BlockChildrenType.BackgroundCard,
+            type: SubBlockType.BackgroundCard,
             title: 'Theme = default',
             text: yfm(
                 '**Yandex.Cloud — публичная облачная платформа**, которая [предоставляет](https://ya.com) корпорациям, среднему бизнесу и частным разработчикам масштабируемую инфраструктуру, сервисы хранения данных, инструменты машинного обучения и средства разработки. С этими технологиями, проверенными временем и опытом Яндекса, каждый может создавать и непрерывно совершенствовать собственные ультрасовременные цифровые сервисы и приложения.',

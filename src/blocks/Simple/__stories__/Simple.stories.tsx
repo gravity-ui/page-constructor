@@ -3,7 +3,7 @@ import React from 'react';
 import yfm from '@doc-tools/transform';
 
 import Simple from '../Simple';
-import {BlockType, BlockChildrenType, SimpleBlockModel} from '../../../models';
+import {BlockType, SubBlockType, SimpleBlockModel} from '../../../models';
 import {PageConstructor} from '../../../containers/PageConstructor/PageConstructor';
 
 export default {
@@ -27,14 +27,14 @@ Default.args = {
     ).result.html,
     children: [
         {
-            type: BlockChildrenType.MediaCard,
+            type: SubBlockType.MediaCard,
             dataLens: 'zqx9je64n9bws',
         },
         {
-            type: BlockChildrenType.Divider,
+            type: SubBlockType.Divider,
         },
         {
-            type: BlockChildrenType.MediaCard,
+            type: SubBlockType.MediaCard,
             youtube:
                 'https://www.youtube.com/watch?v=FHUnirudntU&list=PL1x4ET76A10awoGRia_EmYnEU_RPmRsRz&index=5A',
             previewImg:
