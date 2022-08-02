@@ -5,7 +5,6 @@ import {FileLink} from '../../index';
 import {FileLinkProps} from '../../../models';
 import {Col, Row} from '../../../grid';
 import {BUTTONS_LINKS, COMPONENTS} from '../../../demo/constants';
-import Section from '../../Section/Section';
 
 export default {
     component: FileLink,
@@ -34,9 +33,9 @@ const TypesThemesTemplate: Story<FileLinkProps> = (args) => (
         </Row>
         <TypesTemplate {...args} theme="default" />
         <TypesTemplate {...args} theme="light" />
-        <Section background={{color: '#3a74ff'}}>
+        <section style={{color: '#3a74ff'}}>
             <TypesTemplate {...args} theme="dark" />
-        </Section>
+        </section>
     </Fragment>
 );
 

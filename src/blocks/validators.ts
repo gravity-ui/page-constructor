@@ -16,4 +16,3 @@ export * from './Security/schema';
 export * from './Simple/schema';
 export * from './Slider/schema';
 export * from './Table/schema';
-export * from './Tabs/schema';

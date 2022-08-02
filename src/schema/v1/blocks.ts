@@ -1,5 +1,4 @@
 import {filteredArray} from '../utils';
-import {ContainerProps} from './common';
 import {
     BaseProps,
     BackgroundProps,
@@ -13,7 +12,6 @@ import {
     tileSizesObject,
     urlPattern,
 } from '../common';
-import {AnchorProps} from '../v2/common';
 
 export const tileItem = {
     type: 'object',
@@ -195,29 +193,6 @@ export const tableBlock = {
     },
 };
 
-export const featuresBlock = {
-    features: {
-        additionalProperties: false,
-        required: ['items'],
-        properties: {
-            ...BaseProps,
-            items: {
-                type: 'array',
-                items: {
-                    type: 'string',
-                },
-            },
-            border: {
-                type: 'boolean',
-            },
-            columns: {
-                type: 'number',
-                enum: [2, 3, 4],
-            },
-        },
-    },
-};
-
 export const dividerBlock = {
     divider: {
         additionalProperties: false,
@@ -241,30 +216,6 @@ export const scrollableBlock = {
             itemOffset: {
                 type: 'number',
             },
-        },
-    },
-};
-
-export const containerBlock = {
-    container: {
-        additionalProperties: false,
-        required: ['children'],
-        properties: ContainerProps,
-    },
-};
-
-export const sectionBlock = {
-    section: {
-        additionalProperties: false,
-        required: ['children'],
-        properties: {
-            ...ContainerProps,
-            background: BackgroundProps,
-            anchor: {
-                oneOf: [{type: 'string'}, AnchorProps],
-            },
-            theme: ThemeProps,
-            children: ChildrenProps,
         },
     },
 };

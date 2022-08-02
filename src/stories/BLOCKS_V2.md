@@ -50,6 +50,4 @@ _[Общие типы полей](?id=состав-конструктора--com
 
 ## [TableBlock](?path=/story/блоки-table--default&viewMode=docs)
 
-## [Tabs](?path=/story/блоки-tabs--default&viewMode=docs)
-
 ## [Questions](?path=/story/блоки-questions--default&viewMode=docs)
