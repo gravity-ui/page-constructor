@@ -9,13 +9,10 @@ $block: '.#{$ns}basic-card';
     }
 
     &__icon {
+        max-width: 100%;
         margin-bottom: $indentXXS;
         height: 32px;
         object-fit: contain;
         display: block;
     }
-}
-
-a#{block} {
-    min-height: auto;
 }
