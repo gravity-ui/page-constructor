@@ -3,7 +3,7 @@ import React from 'react';
 
 import ImageBlock from '../ImageBlock';
 import {COMPONENTS, MEDIA} from '../../../demo/constants';
-import {ImageBlockProps} from '../../../models';
+import {ImageBlockProps} from '../../../models/constructor-items/deprecated';
 
 export default {
     component: ImageBlock,

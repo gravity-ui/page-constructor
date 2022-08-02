@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {block} from '../../utils';
-import {ScrollableProps as ScrollableParams} from '../../models';
+import {ScrollableProps as ScrollableParams} from '../../models/constructor-items/deprecated';
 
 import './Scrollable.scss';
 

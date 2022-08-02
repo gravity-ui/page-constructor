@@ -5,14 +5,14 @@ import {
     AuthorItem,
     ButtonPixel,
     ButtonProps,
+    CardBaseProps,
+    CardProps,
+    DividerSize,
     ImageObjectProps,
     ImageProps,
     LinkProps,
     MediaProps,
-    PriceDescriptionColor,
-    PriceDetailsType,
-    PriceLabelColor,
-    TextSize,
+    PriceDetailedProps,
     TextTheme,
     Themable,
     ThemedImage,
@@ -39,31 +39,6 @@ export enum SubBlockType {
 }
 
 export const SubBlockTypes = Object.values(SubBlockType);
-
-export type DividerSize = '0' | 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl' | 'xxxl';
-
-export interface CardHeader {
-    title?: string;
-    image?: ImageProps;
-}
-
-export interface CardData {
-    header?: CardHeader;
-    text?: string;
-    title?: string;
-    link?: LinkProps;
-    footer?: string;
-    url?: string;
-    service?: {slug: string; name: string};
-    links?: LinkProps[];
-}
-
-export interface CardBaseProps {
-    border?: CardBorder;
-}
-
-export interface CardProps extends CardBaseProps, CardData {}
-
 export interface QuoteProps extends Themable, CardBaseProps {
     text: string;
     image: ThemedImage;
@@ -80,59 +55,6 @@ export interface PartnerProps extends CardBaseProps {
     logo: ImageProps;
     url: string;
 }
-
-export interface PriceDetailsSettingsProps {
-    title: string;
-    description: string;
-}
-
-export interface PriceDetailsListProps {
-    text: string;
-}
-
-export interface PriceDescriptionProps {
-    title: string;
-    detailedTitle?: string;
-    description: string;
-    label?: {
-        color: PriceLabelColor;
-        text?: string;
-        size?: TextSize;
-    };
-}
-
-export interface PriceDetailsProps {
-    items?: PriceDetailsSettingsProps[] | PriceDetailsListProps[];
-}
-
-export interface PriceItemProps extends PriceDetailsProps, PriceDescriptionProps {}
-
-export interface PriceFoldableDetailsProps {
-    title: string;
-    size?: TextSize;
-    titleColor?: PriceDescriptionColor;
-}
-
-export interface PriceDetailedProps extends CardBaseProps {
-    items: PriceItemProps[];
-    description?: {
-        titleSize?: TextSize;
-        descriptionSize?: TextSize;
-        titleColor?: PriceDescriptionColor;
-    };
-    details?: {
-        titleSize?: TextSize;
-        descriptionSize?: TextSize;
-    };
-    priceType?: PriceDetailsType;
-    numberGroupItems?: 3 | 4 | 5;
-    isCombined?: boolean;
-    useMixedView?: boolean;
-    foldable?: PriceFoldableDetailsProps;
-    labelsDefaultText?: Record<PriceLabelColor, string>;
-}
-
-export type CardBorder = 'shadow' | 'line' | 'none';
 
 export interface DividerProps {
     size?: DividerSize;

@@ -2,7 +2,8 @@ import React from 'react';
 import {HTML} from '@doc-tools/components';
 
 import {block} from '../../utils';
-import {HeaderProps as HeaderParams, HeaderWidth} from '../../models';
+import {HeaderProps as HeaderParams} from '../../models/constructor-items/deprecated';
+import {HeaderWidth} from '../../models';
 import {Grid, Row, Col} from '../../grid';
 import BackgroundImage from '../BackgroundImage/BackgroundImage';
 

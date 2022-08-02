@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {block} from '../../utils';
-import {ImageBlockProps} from '../../models';
+import {ImageBlockProps} from '../../models/constructor-items/deprecated';
 
 import './ImageBlock.scss';
 

@@ -1,6 +1,5 @@
-import {Block, BlockTypes, HeaderBackgroundProps} from './blocks';
-import {MediaProps, MetrikaGoal, NewMetrikaGoal} from './common';
-import {ConstructorItem} from './index';
+import {Block, BlockTypes, ConstructorItem, HeaderBackgroundProps} from './';
+import {MediaProps, MetrikaGoal, NewMetrikaGoal} from './index';
 
 export function isBlock(block: ConstructorItem): block is Block {
     return block.type in BlockTypes;

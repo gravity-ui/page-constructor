@@ -1,11 +1,6 @@
-import React, {ReactNode} from 'react';
-import {ClassNameProps} from '../index';
-
 import {
     BackgroundImageProps,
-    ButtonPixel,
     ButtonProps,
-    CardBaseProps,
     ContentSize,
     ContentTextSize,
     ContentTheme,
@@ -21,17 +16,20 @@ import {
     MediaProps,
     PreviewItemProps,
     PreviewRatioMediaContent,
-    PriceDescriptionColor,
     TextSize,
     TextTheme,
     ThemedImage,
     ThemedMediaProps,
     ThemedMediaVideoProps,
     TitleProps,
+    LegendTableMarkerType,
+    AnchorProps,
+    TitleBaseProps,
+    Animatable,
 } from './common';
 import {ThemeSupporting} from '../../utils';
 import {GridColumnSize, GridColumnSizesType} from '../../grid/types';
-import {SubBlock} from './sub-blocks';
+import {BannerProps, SubBlock} from './sub-blocks';
 
 export enum BlockType {
     PromoFeaturesBlock = 'promo-features-block',
@@ -59,81 +57,13 @@ export enum BlockType {
 
 export const BlockTypes = Object.values(BlockType);
 export const HeaderBlockTypes = [BlockType.HeaderSliderBlock];
-
-export enum PriceDetailsType {
-    MARKED_LIST = 'marked-list',
-    SETTINGS = 'settings',
-}
-
-export enum PriceLabelColor {
-    BLUE = 'blue',
-    GREEN = 'green',
-    YELLOW = 'yellow',
-    PURPLE = 'purple',
-    RED = 'red',
-}
-
-export enum PreviewItemType {
-    Video = 'video',
-    Image = 'image',
-}
-
-export interface Background {
-    image?: string;
-    color?: string;
-}
-
-export interface Themable {
-    theme?: TextTheme;
-}
-
-export interface Justifyable {
-    justify?: Justify;
-}
-
-export interface Stylable {
-    className?: string;
-}
-
 export interface Childable {
     children?: SubBlock[];
 }
-
-export interface Animatable {
-    animated?: boolean;
-}
-
 export interface BlockHeaderProps {
     title?: TitleProps | string;
     description?: string;
 }
-
-export enum PlayButtonType {
-    Default = 'default',
-    Text = 'text',
-}
-
-export enum PlayButtonThemes {
-    Blue = 'blue',
-    Grey = 'grey',
-}
-
-export interface PlayButtonProps extends ClassNameProps {
-    type?: PlayButtonType;
-    theme?: PlayButtonThemes;
-    text?: string;
-}
-
-export enum MediaVideoType {
-    Default = 'default',
-    Player = 'player',
-}
-
-export enum MediaVideoControlsType {
-    Default = 'default',
-    Custom = 'custom',
-}
-
 export interface LoadableProps {
     source: string;
     serviceId?: number;
@@ -142,84 +72,11 @@ export interface LoadableProps {
 export interface LoadableChildren {
     loadable?: LoadableProps;
 }
-
-export interface TitleBaseProps {
-    text: string;
-    textSize?: TextSize;
-    url?: string;
-    custom?: string | ReactNode;
-    onClick?: () => void;
-}
-
-export interface AnchorProps {
-    text: string;
-    url: string;
-}
-
-export interface ImageObjectProps {
-    src: string;
-    alt?: string;
-    disableCompress?: boolean;
-}
-
 export interface BlockBaseProps {
     anchor?: AnchorProps;
     visible?: GridColumnSize;
     resetPaddings?: boolean;
 }
-
-export interface PriceDetailsSettingsProps {
-    title: string;
-    description: string;
-}
-
-export interface PriceDetailsListProps {
-    text: string;
-}
-
-export interface PriceDescriptionProps {
-    title: string;
-    detailedTitle?: string;
-    description: string;
-    label?: {
-        color: PriceLabelColor;
-        text?: string;
-        size?: TextSize;
-    };
-}
-
-export interface PriceDetailsProps {
-    items?: PriceDetailsSettingsProps[] | PriceDetailsListProps[];
-}
-
-export interface PriceItemProps extends PriceDetailsProps, PriceDescriptionProps {}
-
-export interface PriceFoldableDetailsProps {
-    title: string;
-    size?: TextSize;
-    titleColor?: PriceDescriptionColor;
-}
-
-export interface PriceDetailedProps extends CardBaseProps {
-    items: PriceItemProps[];
-    description?: {
-        titleSize?: TextSize;
-        descriptionSize?: TextSize;
-        titleColor?: PriceDescriptionColor;
-    };
-    details?: {
-        titleSize?: TextSize;
-        descriptionSize?: TextSize;
-    };
-    priceType?: PriceDetailsType;
-    numberGroupItems?: 3 | 4 | 5;
-    isCombined?: boolean;
-    useMixedView?: boolean;
-    foldable?: PriceFoldableDetailsProps;
-    labelsDefaultText?: Record<PriceLabelColor, string>;
-}
-
-export type CardBorder = 'shadow' | 'line' | 'none';
 
 export type ServiceDemoProps = Animatable;
 
@@ -373,6 +230,13 @@ export interface SecurityBlockProps extends Animatable {
     media: MediaProps;
 }
 
+export interface TableProps {
+    content: string[][];
+    legend?: string[];
+    justify?: Justify[];
+    marker?: LegendTableMarkerType;
+}
+
 export interface TableBlockProps {
     title: string;
     table: TableProps;
@@ -463,21 +327,6 @@ export interface ContentBlockProps {
     colSizes?: GridColumnSizesType;
     centered?: boolean;
     theme?: ContentTheme;
-}
-
-export interface HubspotFormProps {
-    className?: string;
-    region?: string;
-    portalId: string;
-    formId: string;
-    formInstanceId?: string;
-    formClassName?: string;
-    onBeforeLoad?: () => void;
-    onBeforeSubmit?: () => void;
-    onSubmit?: () => void;
-    onLoad?: () => void;
-    pixelEvents?: string | string[] | PixelEvent | PixelEvent[] | ButtonPixel;
-    hubspotEvents?: string[];
 }
 
 //blocks

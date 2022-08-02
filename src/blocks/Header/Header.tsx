@@ -6,10 +6,10 @@ import {
     ClassNameProps,
     HeaderBlockBackground,
     HeaderBlockProps,
-    headerHasMediaBackground,
     HeaderImageSize,
     HeaderWidth,
 } from '../../models';
+import {headerHasMediaBackground} from '../../models/guards';
 import {Button, Media, BackgroundMedia, BackgroundImage, RouterLink} from '../../components';
 import {Grid, Row, Col} from '../../grid';
 

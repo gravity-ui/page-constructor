@@ -1,5 +1,5 @@
 import React from 'react';
-import {Animatable, ThemedMediaProps, ConstructorItem, Block} from './blocks';
+import {Animatable, ThemedMediaProps, ConstructorItem, Block} from './';
 
 export interface PageData {
     content: PageContent;

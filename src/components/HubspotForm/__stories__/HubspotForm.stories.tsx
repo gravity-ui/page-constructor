@@ -3,7 +3,7 @@ import React from 'react';
 
 import HubspotForm from '../HubspotForm';
 import {COMPONENTS} from '../../../demo/constants';
-import {HubspotFormProps} from '../../../models/blocks';
+import {HubspotFormProps} from '../../../models/';
 
 export default {
     component: HubspotForm,

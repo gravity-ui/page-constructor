@@ -35,8 +35,6 @@ export {default as Section} from './Section/Section';
 export {default as Share} from './Share/Share';
 export {default as Table} from './Table/Table';
 export {default as Tabs} from './Tabs/Tabs';
-export {default as Text} from './Text/Text';
-export {default as Tiles} from './Tiles/Tiles';
 export {default as Title} from './Title/Title';
 export {default as ToggleArrow} from './ToggleArrow/ToggleArrow';
 export {default as TutorialCard} from './TutorialCard/TutorialCard';
@@ -54,5 +52,6 @@ export {default as Quote} from './Quote/Quote';
 export {default as Author} from './Author/Author';
 export {default as RouterLink} from './RouterLink/RouterLink';
 export {default as HubspotForm} from './HubspotForm/HubspotForm';
+export {default as Banner} from './Banner/Banner';
 
 export type {RouterLinkProps} from './RouterLink/RouterLink';

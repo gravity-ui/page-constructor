@@ -3,7 +3,7 @@ import {Tabs as TabsCommon} from '@yandex-cloud/uikit';
 import {CSSTransition, TransitionGroup} from 'react-transition-group';
 
 import {block} from '../../utils';
-import {TabsProps as TabsParams} from '../../models';
+import {TabsProps as TabsParams} from '../../models/constructor-items/deprecated';
 import HeightCalculator from '../HeightCalculator/HeightCalculator';
 
 import './Tabs.scss';

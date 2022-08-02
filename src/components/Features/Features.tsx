@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {block} from '../../utils';
-import {FeaturesProps} from '../../models';
+import {FeaturesProps} from '../../models/constructor-items/deprecated';
 import {Row, Col} from '../../grid';
 import YFMWrapper from '../YFMWrapper/YFMWrapper';
 

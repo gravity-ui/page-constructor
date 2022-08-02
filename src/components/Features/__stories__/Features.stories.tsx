@@ -2,7 +2,7 @@ import {Meta, Story} from '@storybook/react/types-6-0';
 import React from 'react';
 
 import Features from '../Features';
-import {FeaturesProps} from '../../../models';
+import {FeaturesProps} from '../../../models/constructor-items/deprecated';
 import {COMPONENTS} from '../../../demo/constants';
 import yfm from '@doc-tools/transform';
 

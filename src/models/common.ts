@@ -1,4 +1,4 @@
-import {MetrikaGoal} from './blocks';
+import {MetrikaGoal} from './';
 
 export interface Refable<T> {
     ref?: React.Ref<T>;

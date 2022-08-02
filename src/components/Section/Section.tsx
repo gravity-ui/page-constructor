@@ -2,7 +2,7 @@ import React from 'react';
 
 import {block} from '../../utils';
 import {GridBlock} from '../../components';
-import {SectionProps as SectionParams} from '../../models';
+import {SectionProps as SectionParams} from '../../models/constructor-items/deprecated';
 import Anchor from '../Anchor/Anchor';
 import FullWidthBackground from '../FullWidthBackground/FullWidthBackground';
 import BackgroundImage from '../BackgroundImage/BackgroundImage';

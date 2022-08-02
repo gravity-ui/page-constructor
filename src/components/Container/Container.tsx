@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {block} from '../../utils';
-import {ContainerProps as ContainerParams} from '../../models';
+import {ContainerProps as ContainerParams} from '../../models/constructor-items/deprecated';
 import {GridBlock} from '../../components';
 
 import './Container.scss';

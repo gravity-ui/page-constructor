@@ -12,7 +12,7 @@ import {
     BlockTypes,
     ConstructorItem,
 } from '../../models';
-import {blockMap, subBlockMap} from '../../componentMap';
+import {blockMap, subBlockMap} from '../../constructor-items';
 import Loadable from '../Loadable/Loadable';
 import {Col, Grid, Row} from '../../grid';
 import BlockBase from '../../components/BlockBase/BlockBase';

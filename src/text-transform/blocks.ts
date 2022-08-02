@@ -13,7 +13,7 @@ import {
     SliderProps,
     TableProps,
     TitleProps,
-} from '../models/blocks';
+} from '../models';
 import {Lang} from '../models/common';
 import {ConstructorBlock} from '../models/constructor';
 import {fullTransform, typografToHTML} from './utils';
