@@ -10,7 +10,6 @@ export {
     tableBlock,
     tabsBlock,
     textBlock,
-    tilesBlock,
     titleBlock,
 } from './v1';
 
@@ -78,8 +77,6 @@ export {
     sliderSizesArray,
     sliderSizesObject,
     ThemeProps,
-    tileSizeNumber,
-    tileSizesObject,
     videoControlsTypes,
     VideoProps,
     videoTypes,

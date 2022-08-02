@@ -3,7 +3,6 @@ import {ButtonSize, ButtonView} from '@yandex-cloud/uikit';
 import {SocialNetwork} from '@yandex-data-ui/common';
 
 import {ThemeSupporting} from '../../utils/theme';
-import {GridColumnSize} from '../../grid/types';
 import {ClassNameProps, PixelEventType} from '../common';
 
 export enum PriceDetailsType {
@@ -59,7 +58,6 @@ export type HeaderOffset = 'default' | 'large';
 export type Justify = 'start' | 'center' | 'end';
 export type ColumnsCount = 1 | 2 | 3 | 4;
 export type LegendTableMarkerType = 'disk';
-export type TilesColumns = Partial<Record<GridColumnSize, ColumnsCount>>;
 export type LinkTheme = 'file-link' | 'normal' | 'back' | 'underline';
 export type MediaDirection = 'media-content' | 'content-media';
 export type PriceDescriptionColor = 'cornflower' | 'black';

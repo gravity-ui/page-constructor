@@ -1,4 +1,3 @@
-import {filteredArray} from '../utils';
 import {
     BaseProps,
     BackgroundProps,
@@ -9,25 +8,8 @@ import {
     LinkProps,
     textSize,
     ThemeProps,
-    tileSizesObject,
     urlPattern,
 } from '../common';
-
-export const tileItem = {
-    type: 'object',
-    additionalProperties: false,
-    properties: {
-        text: {
-            type: 'string',
-        },
-        icon: {
-            type: 'string',
-        },
-        url: {
-            type: 'string',
-        },
-    },
-};
 
 export const headerBlock = {
     header: {
@@ -233,18 +215,6 @@ export const tabsBlock = {
                     type: 'string',
                 },
             },
-        },
-    },
-};
-
-export const tilesBlock = {
-    tiles: {
-        additionalProperties: false,
-        required: ['items'],
-        properties: {
-            ...BaseProps,
-            items: filteredArray(tileItem),
-            columns: tileSizesObject,
         },
     },
 };

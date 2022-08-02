@@ -14,7 +14,6 @@ import {
     tableBlock,
     tabsBlock,
     textBlock,
-    tilesBlock,
     titleBlock,
 } from './v1';
 
@@ -95,7 +94,6 @@ export function generateDefaultSchema(config?: SchemaCustomConfig) {
                             'link',
                             'table',
                             'scrollable',
-                            'tiles',
                             'form',
                             'card',
                             'quote',
@@ -140,7 +138,6 @@ export function generateDefaultSchema(config?: SchemaCustomConfig) {
                     ...dividerBlock,
                     ...scrollableBlock,
                     ...tabsBlock,
-                    ...tilesBlock,
                     ...formBlock,
 
                     // Blocks v2

@@ -17,8 +17,6 @@ export const fileLinkTypes = ['vertical', 'horizontal'];
 
 export const dividerEnum = {enum: [0, 'xxs', 'xs', 's', 'm', 'l', 'xl', 'xxl', 'xxxl']};
 export const sizeNumber = {type: 'number', maximum: 12, minimum: 1};
-export const tileSizeNumber = {type: 'number', enum: [1, 2, 3, 4]};
-
 export const contentThemes = ['default', 'dark', 'light'];
 
 export const urlPattern =
@@ -46,12 +44,6 @@ export const sliderSizesObject = {
             type: 'number',
         },
     ],
-};
-
-export const tileSizesObject = {
-    type: 'object',
-    additionalProperties: false,
-    properties: containerSizesArray.reduce((acc, size) => ({...acc, [size]: tileSizeNumber}), {}),
 };
 
 export const AnimatableProps = {
