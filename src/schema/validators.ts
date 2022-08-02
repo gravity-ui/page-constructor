@@ -1,19 +1,4 @@
 export {
-    buttonBlock,
-    dividerBlock,
-    formBlock,
-    headerBlock,
-    imageBlock,
-    linkBlock,
-    scrollableBlock,
-    shareBlock,
-    tableBlock,
-    tabsBlock,
-    textBlock,
-    titleBlock,
-} from './v1';
-
-export {
     CardBlock,
     PartnerBlock,
     MediaCardBlock,

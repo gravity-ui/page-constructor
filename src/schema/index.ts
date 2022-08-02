@@ -1,22 +1,6 @@
 export * from './pixel';
 export * from './utils';
 
-// deprecated
-import {
-    buttonBlock,
-    dividerBlock,
-    formBlock,
-    headerBlock,
-    imageBlock,
-    linkBlock,
-    scrollableBlock,
-    shareBlock,
-    tableBlock,
-    tabsBlock,
-    textBlock,
-    titleBlock,
-} from './v1';
-
 import {
     CardBlock,
     PartnerBlock,
@@ -47,6 +31,7 @@ import {
     CardWithImage,
     ContentLayoutBlock,
     Quote,
+    dividerBlock,
 } from './v2';
 
 import {AnimatableProps, BackgroundProps, MenuProps, withTheme} from './common';
@@ -79,22 +64,7 @@ export function generateDefaultSchema(config?: SchemaCustomConfig) {
                     type: {
                         type: 'string',
                         enum: [
-                            'header',
-                            'text',
-                            'section',
-                            'container',
-                            'button',
-                            'foldable',
-                            'image',
-                            'share',
-                            'title',
                             'divider',
-                            'features',
-                            'tabs',
-                            'link',
-                            'table',
-                            'scrollable',
-                            'form',
                             'card',
                             'quote',
                             'event',
@@ -126,21 +96,6 @@ export function generateDefaultSchema(config?: SchemaCustomConfig) {
                 },
                 select: {$data: '0/type'},
                 selectCases: {
-                    // Blocks v1
-                    ...headerBlock,
-                    ...textBlock,
-                    ...titleBlock,
-                    ...imageBlock,
-                    ...linkBlock,
-                    ...buttonBlock,
-                    ...shareBlock,
-                    ...tableBlock,
-                    ...dividerBlock,
-                    ...scrollableBlock,
-                    ...tabsBlock,
-                    ...formBlock,
-
-                    // Blocks v2
                     ...TabsBlock,
                     ...SliderBlock,
                     ...ExtendedFeaturesBlock,
@@ -160,6 +115,7 @@ export function generateDefaultSchema(config?: SchemaCustomConfig) {
                     ...IconsBlock,
                     ...CardLayoutBlock,
                     ...ContentLayoutBlock,
+                    ...dividerBlock,
                     ...getBlocksCases(blocks),
                 },
             }),

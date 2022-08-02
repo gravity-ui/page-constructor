@@ -25,7 +25,6 @@ export {default as OutsideClick} from './OutsideClick/OutsideClick';
 export {default as Partner} from './Partner/Partner';
 export {default as PriceDetailed} from './PriceDetailed/PriceDetailed';
 export {default as ReactPlayer} from './ReactPlayer/ReactPlayer';
-export {default as Share} from './Share/Share';
 export {default as Table} from './Table/Table';
 export {default as Title} from './Title/Title';
 export {default as ToggleArrow} from './ToggleArrow/ToggleArrow';

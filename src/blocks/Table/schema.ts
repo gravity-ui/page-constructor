@@ -1,4 +1,4 @@
-import {tableBlock} from '../../schema/v1';
+import {BaseProps, JustifyProps} from '../../schema/common';
 import {BlockBaseProps} from '../../schema/v2/common';
 
 export const TableBlock = {
@@ -10,7 +10,36 @@ export const TableBlock = {
             title: {
                 type: 'string',
             },
-            ...tableBlock,
+            table: {
+                additionalProperties: false,
+                required: ['content'],
+                properties: {
+                    ...BaseProps,
+                    content: {
+                        type: 'array',
+                        items: {
+                            type: 'array',
+                            items: {
+                                type: ['string', 'number'],
+                            },
+                        },
+                    },
+                    legend: {
+                        type: 'array',
+                        items: {
+                            type: 'string',
+                        },
+                    },
+                    justify: {
+                        type: 'array',
+                        items: JustifyProps,
+                    },
+                    marker: {
+                        type: 'string',
+                        enum: ['disk'],
+                    },
+                },
+            },
         },
     },
 };
