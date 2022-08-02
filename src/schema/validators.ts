@@ -27,7 +27,7 @@ export {
     CardWithImage,
     ContentLayoutBlock,
     Quote,
-} from './v2';
+} from './blocks';
 
 export {
     AnimatableProps,

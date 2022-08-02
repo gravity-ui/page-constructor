@@ -1,5 +1,5 @@
 import {AnimatableProps, containerSizesObject, LinkProps} from '../../schema/common';
-import {BlockBaseProps, TitleProps} from '../../schema/v2/common';
+import {BlockBaseProps, TitleProps} from '../../schema/blocks/common';
 import {filteredArray} from '../../schema/utils';
 
 export const ExtendedFeaturesItem = {

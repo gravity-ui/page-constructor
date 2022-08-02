@@ -1,6 +1,6 @@
 import {BaseProps, textSize} from '../../schema/common';
 import {filteredArray} from '../../schema/utils';
-import {ButtonBlock, TitleProps} from '../../schema/v2/common';
+import {ButtonBlock, TitleProps} from '../../schema/blocks/common';
 
 const CardWithImageLinks = {
     type: 'object',

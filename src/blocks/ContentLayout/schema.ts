@@ -7,7 +7,7 @@ import {
     FileLinkProps,
     ImageObjectProps,
 } from '../../schema/common';
-import {BlockBaseProps} from '../../schema/v2/common';
+import {BlockBaseProps} from '../../schema/blocks/common';
 
 export const ContentLayoutBlock = {
     'content-layout-block': {

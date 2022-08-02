@@ -1,4 +1,4 @@
-import {BlockBaseProps, TitleProps} from '../../schema/v2/common';
+import {BlockBaseProps, TitleProps} from '../../schema/blocks/common';
 import {AnimatableProps, ChildrenProps} from '../../schema/common';
 
 export const SimpleBlock = {

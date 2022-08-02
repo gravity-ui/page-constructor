@@ -1,4 +1,4 @@
-import {BlockBaseProps, ButtonBlock, MediaProps, TitleProps} from '../../schema/v2/common';
+import {BlockBaseProps, ButtonBlock, MediaProps, TitleProps} from '../../schema/blocks/common';
 import {AnimatableProps, contentSizes, LinkProps, mediaDirection} from '../../schema/common';
 import {filteredArray} from '../../schema/utils';
 

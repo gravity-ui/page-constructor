@@ -1,4 +1,4 @@
-import {MediaProps} from '../../schema/v2/common';
+import {MediaProps} from '../../schema/blocks/common';
 import {BaseProps, AnimatableProps} from '../../schema/common';
 
 export const MediaCardBlock = {

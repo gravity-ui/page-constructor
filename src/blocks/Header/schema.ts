@@ -1,5 +1,5 @@
 import {ImageProps, VideoProps, withTheme} from '../../schema/common';
-import {BlockBaseProps, ButtonBlock} from '../../schema/v2/common';
+import {BlockBaseProps, ButtonBlock} from '../../schema/blocks/common';
 import {filteredArray} from '../../schema/utils';
 import {Media} from '../Media/schema';
 

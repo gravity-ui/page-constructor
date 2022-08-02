@@ -1,5 +1,5 @@
 import {LinkProps} from '../../schema/common';
-import {BlockBaseProps} from '../../schema/v2/common';
+import {BlockBaseProps} from '../../schema/blocks/common';
 import {filteredArray} from '../../schema/utils';
 
 export const QuestionsBlock = {

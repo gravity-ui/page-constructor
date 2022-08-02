@@ -32,7 +32,7 @@ import {
     ContentLayoutBlock,
     Quote,
     dividerBlock,
-} from './v2';
+} from './blocks';
 
 import {AnimatableProps, BackgroundProps, MenuProps, withTheme} from './common';
 import {filteredItem} from './utils';

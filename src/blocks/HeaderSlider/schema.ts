@@ -1,5 +1,5 @@
-import {HeaderProperties, SliderProps} from '../../schema/v2';
-import {BlockBaseProps} from '../../schema/v2/common';
+import {HeaderProperties, SliderProps} from '../../schema/blocks';
+import {BlockBaseProps} from '../../schema/blocks/common';
 
 export const HeaderSliderBlock = {
     'header-slider-block': {

@@ -1,5 +1,5 @@
 import {BaseProps, AnimatableProps, ThemeProps, withTheme} from '../../schema/common';
-import {ButtonBlock} from '../../schema/v2/common';
+import {ButtonBlock} from '../../schema/blocks/common';
 
 export const BannerProps = {
     additionalProperties: false,
