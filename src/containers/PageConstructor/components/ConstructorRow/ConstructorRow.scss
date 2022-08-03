@@ -1,0 +1,9 @@
+@import '../../../../../styles/variables.scss';
+
+$block: '.#{$ns}constructor-row';
+
+#{$block} {
+    &:last-child {
+        margin-bottom: -$contentLiftIndent;
+    }
+}

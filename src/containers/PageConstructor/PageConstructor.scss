@@ -21,32 +21,6 @@ $block: '.#{$ns}page-constructor';
         }
     }
 
-    &__row {
-        &:last-child {
-            margin-bottom: -$contentLiftIndent;
-        }
-    }
-
-    &__block {
-        &_type_info-block {
-            // redefine grid column paddings
-            /* stylelint-disable-next-line declaration-no-important */
-            padding-bottom: 0 !important;
-        }
-    }
-
-    &__footnotes {
-        margin: 0;
-        padding: $indentM 0 $indentM $indentXS;
-
-        @include text-size(body-1);
-        color: var(--yc-color-text-hint);
-
-        &-item + &-item {
-            margin-top: $indentXXS;
-        }
-    }
-
     &__menu-title {
         color: var(--yc-color-text-primary);
 

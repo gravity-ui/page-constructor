@@ -1,0 +1,16 @@
+@import '../../../../../styles/variables.scss';
+@import '../../../../../styles/mixins.scss';
+
+$block: '.#{$ns}constructor-footnotes';
+
+#{$block} {
+    margin: 0;
+    padding: $indentM 0 $indentM $indentXS;
+
+    @include text-size(body-1);
+    color: var(--yc-color-text-hint);
+
+    &__item + &__item {
+        margin-top: $indentXXS;
+    }
+}
