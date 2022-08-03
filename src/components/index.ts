@@ -41,6 +41,7 @@ export {default as Title} from './Title/Title';
 export {default as ToggleArrow} from './ToggleArrow/ToggleArrow';
 export {default as TutorialCard} from './TutorialCard/TutorialCard';
 export {default as UnpublishedLabel} from './UnpublishedLabel/UnpublishedLabel';
+export {default as BasicCard} from './BasicCard/BasicCard';
 export {default as VideoBlock} from './VideoBlock/VideoBlock';
 export {default as YFMWrapper} from './YFMWrapper/YFMWrapper';
 export {default as YandexForm} from './YandexForm/YandexForm';

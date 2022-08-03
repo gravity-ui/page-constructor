@@ -1,6 +1,9 @@
 import {BaseProps, ImageObjectProps} from '../../schema/common';
 import {CardBase} from '../CardBase/schema';
 import {ContentBase} from '../Content/schema';
+import _ from 'lodash';
+
+const BackgroundCardContentProps = _.omit(ContentBase, ['size']);
 
 export const BackgroundCard = {
     'background-card': {
@@ -9,7 +12,7 @@ export const BackgroundCard = {
         properties: {
             ...BaseProps,
             ...CardBase,
-            ...ContentBase,
+            ...BackgroundCardContentProps,
             url: {
                 type: 'string',
             },

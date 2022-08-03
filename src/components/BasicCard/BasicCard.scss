@@ -1,0 +1,18 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
+
+$block: '.#{$ns}basic-card';
+
+#{$block} {
+    @include add-specificity(&) {
+        min-height: auto;
+    }
+
+    &__icon {
+        max-width: 100%;
+        margin-bottom: $indentXXS;
+        height: 32px;
+        object-fit: contain;
+        display: block;
+    }
+}

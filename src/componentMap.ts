@@ -27,6 +27,7 @@ import {
     Content,
     Quote,
     Author,
+    BasicCard,
 } from './components';
 
 import {
@@ -69,6 +70,7 @@ const components = {
     [BlockType.Image]: ImageBlock,
     [BlockType.Scrollable]: Scrollable,
     [BlockType.Tiles]: Tiles,
+    [BlockType.BasicCard]: BasicCard,
     [BlockType.TutorialCard]: TutorialCard,
     [BlockType.Partner]: Partner,
     [BlockType.PriceDetailed]: PriceDetailed,

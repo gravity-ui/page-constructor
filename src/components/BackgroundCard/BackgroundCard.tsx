@@ -20,7 +20,6 @@ const BackgroundCard: React.FC<BackgroundCardProps> = (props) => {
         paddingBottom,
         backgroundColor,
         additionalInfo,
-        size = 's',
         theme = 'default',
         links,
         buttons,
@@ -38,7 +37,7 @@ const BackgroundCard: React.FC<BackgroundCardProps> = (props) => {
                     title={title}
                     text={text}
                     additionalInfo={additionalInfo}
-                    size={size}
+                    size="s"
                     theme={theme}
                     links={links}
                     buttons={buttons}
