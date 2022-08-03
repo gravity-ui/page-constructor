@@ -112,7 +112,7 @@ export const ConstructorBlock: React.FC<ConstructorBlockProps> = ({
 }) => {
     const {anchor, visible} = data;
 
-    if (!shouldRenderBlock?.(data, key)) {
+    if (shouldRenderBlock && !shouldRenderBlock(data, key)) {
         return null;
     }
 
