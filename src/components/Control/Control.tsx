@@ -1,5 +1,6 @@
 import React from 'react';
 import {Icon} from '@yandex-cloud/uikit';
+import {SVGIconData} from '@yandex-cloud/uikit/build/esm/components/Icon/types';
 
 import {block} from '../../utils';
 

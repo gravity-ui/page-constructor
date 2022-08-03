@@ -1,6 +1,5 @@
 import React, {CSSProperties, ReactNode} from 'react';
-import {ButtonSize, ButtonView} from '@yandex-cloud/uikit';
-import {SocialNetwork} from '@yandex-data-ui/common';
+import {ButtonSize, ButtonView, ShareSocialNetwork} from '@yandex-cloud/uikit';
 import {ClassNameProps} from '../models';
 
 import {PixelEvent, PixelEventType} from './common';
@@ -574,7 +573,7 @@ export interface LinkProps extends Stylable {
 }
 
 export interface ShareProps {
-    items: SocialNetwork[];
+    items: ShareSocialNetwork[];
     title?: string;
 }
 

@@ -1,6 +1,6 @@
 import {Meta, Story} from '@storybook/react/types-6-0';
 import React from 'react';
-import {SocialNetwork} from '@yandex-data-ui/common';
+import {ShareSocialNetwork} from '@yandex-cloud/uikit';
 
 import Share from '../Share';
 import {ShareProps} from '../../../models';
@@ -18,19 +18,19 @@ export const CustomTitle = DefaultTemplate.bind({});
 
 Default.args = {
     items: [
-        SocialNetwork.Facebook,
-        SocialNetwork.VK,
-        SocialNetwork.Telegram,
-        SocialNetwork.Twitter,
+        ShareSocialNetwork.Facebook,
+        ShareSocialNetwork.VK,
+        ShareSocialNetwork.Telegram,
+        ShareSocialNetwork.Twitter,
     ],
 };
 
 CustomTitle.args = {
     title: 'Поделиться в социальных сетях',
     items: [
-        SocialNetwork.Facebook,
-        SocialNetwork.VK,
-        SocialNetwork.Telegram,
-        SocialNetwork.Twitter,
+        ShareSocialNetwork.Facebook,
+        ShareSocialNetwork.VK,
+        ShareSocialNetwork.Telegram,
+        ShareSocialNetwork.Twitter,
     ],
 };

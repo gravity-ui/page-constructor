@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import {block, getAbsolutePath} from '../../utils';
-import {SocialShareLink} from '@yandex-data-ui/common';
+import {ShareList} from '@yandex-cloud/uikit';
 
 import {ShareProps} from '../../models';
 import {LocationContext} from '../../context/locationContext';
@@ -18,7 +18,7 @@ const Share: React.FunctionComponent<ShareProps> = ({items, title}) => {
             <h5 className={b('title')}>{title || i18n('constructor-share')}</h5>
             <div className={b('items')}>
                 {items.map((type) => (
-                    <SocialShareLink
+                    <ShareList.Item
                         key={type}
                         url={getAbsolutePath(hostname, pathname)}
                         className={b('item', {type})}
