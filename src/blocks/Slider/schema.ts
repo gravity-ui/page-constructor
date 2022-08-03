@@ -17,7 +17,16 @@ const LoadableProps = {
         minCount: {
             type: 'number', //deprecated
         },
+        // deprecated
         serviceId: {type: 'number'},
+        params: {
+            type: 'object',
+            patternProperties: {
+                '.*': {
+                    type: ['string', 'number', 'boolean'],
+                },
+            },
+        },
     },
 };
 

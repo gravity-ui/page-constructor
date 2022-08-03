@@ -13,7 +13,7 @@ import {
     ConstructorItem,
 } from '../../models';
 import {blockMap, subBlockMap} from '../../constructor-items';
-import Loadable from '../Loadable/Loadable';
+import Loadable, {LoadableComponentsProps} from '../Loadable/Loadable';
 import {Col, Grid, Row} from '../../grid';
 import BlockBase from '../../components/BlockBase/BlockBase';
 import BackgroundMedia from '../../components/BackgroundMedia/BackgroundMedia';
@@ -45,13 +45,10 @@ type Props = PageConstructorProps & WithThemeValueProps;
 
 export type ItemMap = typeof blockMap & typeof subBlockMap & CustomComponents;
 
-type RenderLoadableParams = {
-    block: Block;
-    blockKey: string;
+interface RenderLoadableParams
+    extends Omit<LoadableComponentsProps, 'Component' | 'ChildComponent' | 'fetch'> {
     config: LoadableConfigItem;
-    serviceId?: number;
-};
-
+}
 class Constructor extends React.Component<Props> {
     blockTypes = [...BlockTypes, ...getCustomBlockTypes(this.props.custom)];
     itemMap: ItemMap = {
@@ -115,7 +112,7 @@ class Constructor extends React.Component<Props> {
             const itemKey = getItemKey(item, index);
 
             if ('loadable' in item && item.loadable) {
-                const {source, serviceId} = item.loadable;
+                const {source, serviceId, params} = item.loadable;
                 const config: LoadableConfigItem = _.get(this.props, `custom.loadable[${source}]`);
                 if (!config) {
                     return null;
@@ -126,6 +123,7 @@ class Constructor extends React.Component<Props> {
                     blockKey: itemKey,
                     config,
                     serviceId,
+                    params,
                 });
             } else {
                 if ('children' in item && item.children) {

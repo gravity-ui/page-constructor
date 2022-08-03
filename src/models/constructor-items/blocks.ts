@@ -66,7 +66,11 @@ export interface BlockHeaderProps {
 }
 export interface LoadableProps {
     source: string;
+    /**
+     * @deprecated Will be moved to params
+     */
     serviceId?: number;
+    params?: Record<string, string | number | boolean>;
 }
 
 export interface LoadableChildren {
