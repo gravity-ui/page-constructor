@@ -51,8 +51,9 @@ export interface PageContent extends Animatable {
 }
 
 interface Custom {
-    blocks?: CustomBlock;
-    headers?: CustomBlock;
+    blocks?: CustomItems;
+    subBlocks?:CustomItems;
+    headers?: CustomItems;
     loadable?: LoadableConfig;
 }
 
@@ -141,21 +142,25 @@ const Page: React.FC<PageProps> = ({children}) => (
 
 Более подробно о блоках можно в [документации](https://github.yandex-team.ru/data-ui/cloud-backoffice/wiki/Страницы).
 
+### Саб-блоки
+
+Саб-блоки это компоненты, которые могут использоваться в свойстве `children` блоков. В конфиге указывается список компонентов-детей из саб-блоков, при отрисовке отрендеренные саб-блоки будут переданы в блок как `children`.
+
 ### Как добавить новый блок в `page-constructor`
 
-1. В директории `src/blocks` или `src/components` создаем папку с кодом блока/компонета
+1. В директории `src/blocks` или `src/components` создаем папку с кодом блока/саб-блока
 
-2. Добавляем название блока в enum `BlockType`, описываем его свойства и добавляем блок в тип `BlockV2Raw` в файле `src/models/blocks.ts`
+2. Добавляем название блока или саб-блока в enum `BlockType` или `SubBlockType` и описываем его свойства в файле `src/models/blocks.ts` или `src/models/sub-blocks.ts` по аналогии с уже существующими
 
-3. Добавляем экспорт блока в файле `src/blocks/index.ts` или компонента в файле `src/components/index.ts`
+3. Добавляем экспорт блока в файле `src/blocks/index.ts` или саб-блока в файле `src/components/index.ts`
 
-4. Добавляем новый компонент или блок в мэппинг в `src/componentMap.ts`
+4. Добавляем новый компонент или блок в мэппинг в `src/constructor-items.ts`
 
 5. Добавляем в [`cloud-backoffice`](https://github.yandex-team.ru/data-ui/cloud-backoffice) валидатор для нового блока, для этого нужно:
 
-   - добавляем в папку блока/карточки файл `schema.ts`, где описываем валидатор параметров для данного компонента в формате [`json-schema`](http://json-schema.org/)
-   - экспортируем его в файле `src/schema/v2/index.ts`
-   - добавляем его в `enum` и `selectCases` в файле `src/ui/schema/index.ts`
+   - добавляем в папку блока/саб-блока файл `schema.ts`, где описываем валидатор параметров для данного компонента в формате [`json-schema`](http://json-schema.org/)
+   - экспортируем его в файле `schema/validators/blocks.ts` или `schema/validators/sub-blocks.ts`
+   - добавляем его в `enum` и `selectCases` в файле `schema/index.ts`
    - не забываем проверить в бэкофисе, что валидотор работает
 
 6. Добавляем описание блока на [страницу документации](https://github.yandex-team.ru/data-ui/cloud-backoffice/wiki/Страницы)

@@ -23,14 +23,10 @@ export const getCustomBlockTypes = ({blocks = {}, headers = {}}: CustomConfig = 
     ...Object.keys(headers),
 ];
 
-export const getCustomComponents = ({
-    blocks = {},
-    headers = {},
-    components = {},
-}: CustomConfig = {}) => ({
+export const getCustomItems = ({blocks = {}, headers = {}, subBlocks = {}}: CustomConfig = {}) => ({
     ...blocks,
     ...headers,
-    ...components,
+    ...subBlocks,
 });
 
 export const getCustomHeaderTypes = (customBlocks: CustomConfig = {}) => {

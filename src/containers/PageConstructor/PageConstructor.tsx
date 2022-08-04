@@ -7,7 +7,7 @@ import {
     HeaderBlockTypes,
     CustomConfig,
     PageContent,
-    CustomComponents,
+    CustomItems,
     BlockTypes,
 } from '../../models';
 import {blockMap, subBlockMap} from '../../constructor-items';
@@ -17,8 +17,8 @@ import {
     block as cnBlock,
     getCustomBlockTypes,
     getCustomHeaderTypes,
-    getCustomComponents,
     getThemedValue,
+    getCustomItems,
 } from '../../utils';
 import {withThemeValue, WithThemeValueProps} from '../../context/theme/withThemeValue';
 import {AnimateContext} from '../../context/animateContext';
@@ -33,7 +33,7 @@ import '../../../styles/yfm.scss';
 
 const b = cnBlock('page-constructor');
 
-export type ItemMap = typeof blockMap & typeof subBlockMap & CustomComponents;
+export type ItemMap = typeof blockMap & typeof subBlockMap & CustomItems;
 export interface PageConstructorProps {
     content?: PageContent;
     shouldRenderBlock?: ShouldRenderBlock;
@@ -51,7 +51,7 @@ export const Constructor: React.FC<Props> = (props) => {
             itemMap: {
                 ...blockMap,
                 ...subBlockMap,
-                ...getCustomComponents(props.custom),
+                ...getCustomItems(props.custom),
             },
         }),
         [props.custom],

@@ -39,19 +39,19 @@ export type FetchLoadableData<TData = LoadableData> = (
 export type ShouldRenderBlock = (block: ConstructorBlock, blockKey: string) => Boolean;
 export type OnInit = (data: InitConstrucorState) => void;
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type CustomComponent = React.ComponentType<React.ComponentProps<React.ComponentClass<any>>>;
-export type CustomComponents = Record<string, CustomComponent>;
+export type CustomItem = React.ComponentType<React.ComponentProps<React.ComponentClass<any>>>;
+export type CustomItems = Record<string, CustomItem>;
 
 export interface LoadableConfigItem {
     fetch: FetchLoadableData;
-    component: CustomComponent;
+    component: CustomItem;
 }
 
 export type LoadableConfig = Record<string, LoadableConfigItem>;
 
 export interface CustomConfig {
-    blocks?: CustomComponents;
-    components?: CustomComponents;
-    headers?: CustomComponents;
+    blocks?: CustomItems;
+    subBlocks?: CustomItems;
+    headers?: CustomItems;
     loadable?: LoadableConfig;
 }
