@@ -14,13 +14,13 @@ export * from '../../blocks/Table/schema';
 export * from '../../blocks/LinkTable/schema';
 export * from '../../blocks/Tabs/schema';
 export * from '../../blocks/Preview/schema';
-export * from '../../components/PriceDetailed/schema';
 export * from '../../blocks/HeaderSlider/schema';
 export * from '../../blocks/Icons/schema';
 export * from '../../blocks/CardLayout/schema';
 export * from '../../blocks/ContentLayout/schema';
 
 //sub-blocks
+export * from '../../components/PriceDetailed/schema';
 export * from '../../components/BackgroundCard/schema';
 export * from '../../components/CardBase/schema';
 export * from '../../components/CardWithImage/schema';
@@ -31,3 +31,4 @@ export * from '../../components/TutorialCard/schema';
 export * from '../../components/CardWithImage/schema';
 export * from '../../components/Quote/schema';
 export * from '../../components/Divider/schema';
+export * from '../../components/BasicCard/schema';

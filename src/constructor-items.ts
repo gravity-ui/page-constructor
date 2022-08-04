@@ -12,6 +12,7 @@ import {
     Quote,
     Divider,
     Banner,
+    BasicCard,
 } from './components';
 
 import {
@@ -68,6 +69,7 @@ export const subBlockMap = {
     [SubBlockType.NewsCard]: NewsCard,
     [SubBlockType.CardWithImage]: CardWithImage,
     [SubBlockType.BackgroundCard]: BackgroundCard,
+    [SubBlockType.BasicCard]: BasicCard,
     [SubBlockType.Content]: Content,
     [SubBlockType.Quote]: Quote,
 };

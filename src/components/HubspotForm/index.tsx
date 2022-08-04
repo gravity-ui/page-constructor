@@ -4,7 +4,7 @@ import {block} from '../../utils';
 import {ThemeValueContext} from '../../context/theme/ThemeValueContext';
 import {MobileContext} from '../../context/mobileContext';
 import {useMetrika} from '../../hooks/useMetrika';
-import {HubspotFormProps} from '../../models/blocks';
+import {HubspotFormProps} from '../../models';
 import {useHandleHubspotEvents} from '../../hooks';
 import HubspotFormContainer from './HubspotFormContainer';
 import {HubspotEventHandlers} from '../../utils/hubspot';

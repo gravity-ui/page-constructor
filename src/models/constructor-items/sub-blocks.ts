@@ -1,5 +1,6 @@
 import {ClassNameProps} from '../../models';
 import {ThemeSupporting} from '../../utils';
+import {HubspotEventData, HubspotEventHandlers} from '../../utils/hubspot';
 
 import {
     AuthorItem,
@@ -7,6 +8,7 @@ import {
     ButtonProps,
     CardBaseProps,
     CardProps,
+    ContentTheme,
     DividerSize,
     ImageObjectProps,
     ImageProps,
@@ -33,6 +35,7 @@ export enum SubBlockType {
     TutorialCard = 'tutoral-card',
     CardWithImage = 'card-with-image',
     BackgroundCard = 'background-card',
+    BasicCard = 'basic-card',
     Content = 'content',
     HubspotForm = 'hubspot-form',
     Banner = 'Banner',
@@ -50,17 +53,35 @@ export interface FormProps {
     border?: boolean;
 }
 
-export interface HubspotFormProps {
+export interface HubspotFormProps extends HubspotEventHandlers {
     className?: string;
+    theme?: ContentTheme;
+    isMobile?: boolean;
     region?: string;
     portalId: string;
     formId: string;
     formInstanceId?: string;
     formClassName?: string;
-    onBeforeLoad?: () => void;
-    onBeforeSubmit?: () => void;
-    onSubmit?: () => void;
-    onLoad?: () => void;
+
+    /**
+     * To use this handler for component that is rendered in iframe, set up useLoopBackHubspotEvents hook on top level frame
+     */
+    onBeforeLoad?: (arg: HubspotEventData) => void;
+
+    /**
+     * To use this handler for component that is rendered in iframe, set up useLoopBackHubspotEvents hook on top level frame
+     */
+    onBeforeSubmit?: (arg: HubspotEventData) => void;
+
+    /**
+     * To use this handler for component that is rendered in iframe, set up useLoopBackHubspotEvents hook on top level frame
+     */
+    onSubmit?: (arg: HubspotEventData) => void;
+
+    /**
+     * To use this handler for component that is rendered in iframe, set up useLoopBackHubspotEvents hook on top level frame
+     */
+    onLoad?: (arg: HubspotEventData) => void;
     pixelEvents?: string | string[] | PixelEvent | PixelEvent[] | ButtonPixel;
     hubspotEvents?: string[];
 }
@@ -107,6 +128,13 @@ export interface BackgroundCardProps
     background?: ImageObjectProps;
     paddingBottom?: 's' | 'm' | 'l' | 'xl';
     backgroundColor?: string;
+}
+
+export interface BasicCardProps
+    extends CardBaseProps,
+        Omit<ContentBlockProps, 'colSizes' | 'centered' | 'size' | 'theme'> {
+    url: string;
+    icon?: ImageProps;
 }
 
 export interface BannerProps {

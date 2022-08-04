@@ -1,6 +1,5 @@
 import {CSSProperties, ReactNode} from 'react';
 import {ButtonSize, ButtonView} from '@yandex-cloud/uikit';
-import {SocialNetwork} from '@yandex-data-ui/common';
 
 import {ThemeSupporting} from '../../utils/theme';
 import {ClassNameProps, PixelEventType} from '../common';
@@ -307,11 +306,6 @@ export interface CardProps extends CardBaseProps, CardData {}
 export interface CardHeader {
     title?: string;
     image?: ImageProps;
-}
-
-export interface ShareProps {
-    items: SocialNetwork[];
-    title?: string;
 }
 
 //price

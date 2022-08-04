@@ -4,10 +4,7 @@ import {Block, ShouldRenderBlock} from '../../../../models';
 import BlockBase from '../../../../components/BlockBase/BlockBase';
 import {block} from '../../../../utils';
 
-import './ConstructorBlock.scss';
-
 const b = block('constructor-block');
-
 interface ConstructorBlockProps {
     data: Block;
     key: string;

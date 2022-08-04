@@ -114,29 +114,39 @@ export interface HeaderSliderBlockProps extends Omit<SliderProps, 'title' | 'des
     items: HeaderBlockProps[];
 }
 
+interface HeaderBackgroundProps {
+    color?: string;
+    url?: string;
+    disableCompress?: boolean;
+}
+
+export interface HeaderBlockBackground extends Partial<HeaderBackgroundProps>, Partial<MediaProps> {
+    fullWidth?: boolean;
+}
+
+export type ThemedHeaderBlockBackground = ThemeSupporting<HeaderBlockBackground>;
+
 export interface HeaderBlockProps {
     title: string;
     overtitle?: string;
     description?: string;
     buttons?: Pick<ButtonProps, 'url' | 'text' | 'theme' | 'primary' | 'size'>[];
     width?: HeaderWidth;
+    /** @deprecated imageSize now depends on width */
     imageSize?: HeaderImageSize;
+    /**
+     * @deprecated used only on the main page
+     * TODO: delete after the possibility to remove padding-bottom in the block
+     */
     offset?: HeaderOffset;
     image?: ThemedImage;
     video?: ThemedMediaVideoProps;
     background?: ThemedHeaderBlockBackground;
     theme?: 'light' | 'dark';
-    verticalOffset: 's' | 'm' | 'l' | 'xl';
+    verticalOffset?: 's' | 'm' | 'l' | 'xl';
     breadcrumbs?: HeaderBreadCrumbsProps;
+    status?: JSX.Element;
 }
-export interface HeaderBackgroundProps {
-    fullWidth?: boolean;
-    color?: string;
-    url?: string;
-    disableCompress?: boolean;
-}
-export type HeaderBlockBackground = HeaderBackgroundProps | MediaProps;
-export type ThemedHeaderBlockBackground = ThemeSupporting<HeaderBackgroundProps | MediaProps>;
 
 export type CalculatorProps = Animatable;
 

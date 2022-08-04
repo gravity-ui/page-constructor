@@ -1,4 +1,4 @@
-import {Block, BlockTypes, ConstructorItem, HeaderBackgroundProps} from './';
+import {Block, BlockTypes, ConstructorItem, HeaderBlockBackground} from './';
 import {MediaProps, MetrikaGoal, NewMetrikaGoal} from './index';
 
 export function isBlock(block: ConstructorItem): block is Block {
@@ -10,7 +10,7 @@ export function isNewMetrikaFormat(metrika: MetrikaGoal): metrika is NewMetrikaG
 }
 
 export function headerHasMediaBackground(
-    background: HeaderBackgroundProps | MediaProps,
+    background: HeaderBlockBackground,
 ): background is MediaProps {
     return 'image' in background || 'video' in background || 'youtube' in background;
 }
