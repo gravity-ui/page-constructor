@@ -1,5 +1,5 @@
 import {Meta, Story} from '@storybook/react/types-6-0';
-import {ClassNameProps} from '@yandex-data-ui/cloud-components';
+import {ClassNameProps} from '../../../models';
 import React from 'react';
 
 import BlockHeader, {BlockHeaderProps} from '../BlockHeader';

@@ -1,6 +1,6 @@
 import React, {Component, createRef, CSSProperties} from 'react';
 import _ from 'lodash';
-import {ClassNameProps} from '@yandex-data-ui/cloud-components';
+import {ClassNameProps} from '../../models';
 
 import {block} from '../../utils';
 import {BREAKPOINTS} from '../../constants';

@@ -4,9 +4,8 @@ in your project via global 'yfm' class */
 import block from 'bem-cn-lite';
 import toSnakeCase from 'snakecase-keys';
 import {HTML} from '@doc-tools/components';
-import {ClassNameProps} from '@yandex-data-ui/cloud-components';
 
-import {Modifiers} from '../../models';
+import {Modifiers, ClassNameProps} from '../../models';
 
 const yfm = block('yfm');
 

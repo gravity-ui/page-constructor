@@ -10,10 +10,10 @@ import React, {
     useState,
 } from 'react';
 import {Icon} from '@yandex-cloud/uikit';
-import {ClassNameProps} from '@yandex-data-ui/cloud-components';
 
 import {block} from '../../utils';
 import {
+    ClassNameProps,
     PlayButtonProps,
     PlayButtonThemes,
     PlayButtonType,

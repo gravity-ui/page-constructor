@@ -1,9 +1,8 @@
 import React, {useContext} from 'react';
 import {Icon} from '@yandex-cloud/uikit';
-import {ClassNameProps} from '@yandex-data-ui/cloud-components';
 
 import {block, getLinkProps, setUrlTld} from '../../utils';
-import {LinkProps, TextSize} from '../../models';
+import {LinkProps, TextSize, ClassNameProps} from '../../models';
 import chevron from '../../../assets/icons/navigation-chevron.svg';
 import FileLink from '../FileLink/FileLink';
 import BackLink from '../BackLink/BackLink';

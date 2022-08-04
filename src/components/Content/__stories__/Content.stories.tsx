@@ -1,9 +1,8 @@
 import {Meta, Story} from '@storybook/react/types-6-0';
-import {ClassNameProps} from '@yandex-data-ui/cloud-components';
 import React from 'react';
 
 import Content from '../Content';
-import {ContentBlockProps} from '../../../models';
+import {ContentBlockProps, ClassNameProps} from '../../../models';
 import {COMPONENTS} from '../../../demo/constants';
 
 export default {

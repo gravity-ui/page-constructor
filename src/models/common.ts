@@ -56,3 +56,9 @@ export interface Metrika {
     reachGoal: (counterName: string, ...args: any) => void;
     reachGoals: (goals: MetrikaGoal, counterName?: string) => void;
 }
+
+export interface ClassNameProps {
+    className?: string;
+}
+
+export type Timeout = ReturnType<typeof setTimeout> | undefined;
