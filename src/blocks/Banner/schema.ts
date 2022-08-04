@@ -1,5 +1,10 @@
-import {BaseProps, AnimatableProps, ThemeProps, withTheme} from '../../schema/common';
-import {ButtonBlock} from '../../schema/blocks/common';
+import {
+    BaseProps,
+    AnimatableProps,
+    ThemeProps,
+    withTheme,
+    ButtonBlock,
+} from '../../schema/validators/common';
 
 export const BannerProps = {
     additionalProperties: false,

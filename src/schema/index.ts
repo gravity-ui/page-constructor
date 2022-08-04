@@ -1,10 +1,7 @@
-export * from './pixel';
-export * from './utils';
+export * as validators from './validators';
+export type {ObjectSchema} from './validators';
 
 import {
-    CardBlock,
-    PartnerBlock,
-    MediaCardBlock,
     TabsBlock,
     BannerCard,
     SliderBlock,
@@ -21,21 +18,27 @@ import {
     LinkTableBlock,
     PromoFeaturesBlock,
     PreviewBlock,
-    PriceDetailedBlock,
+    ContentLayoutBlock,
     HeaderSliderBlock,
     IconsBlock,
     CardLayoutBlock,
+} from './validators/blocks';
+
+import {
+    CardBlock,
+    PartnerBlock,
+    MediaCardBlock,
     TutorialCard,
     BackgroundCard,
     NewsCard,
     CardWithImage,
-    ContentLayoutBlock,
+    PriceDetailedBlock,
     Quote,
     dividerBlock,
-} from './blocks';
+} from './validators/sub-blocks';
 
-import {AnimatableProps, BackgroundProps, MenuProps, withTheme} from './common';
-import {filteredItem} from './utils';
+import {AnimatableProps, BackgroundProps, MenuProps, withTheme} from './validators/common';
+import {filteredItem} from './validators/utils';
 
 export type SchemaBlock = object;
 export interface SchemaCustomConfig {

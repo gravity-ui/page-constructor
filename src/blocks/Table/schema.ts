@@ -1,5 +1,4 @@
-import {BaseProps, JustifyProps} from '../../schema/common';
-import {BlockBaseProps} from '../../schema/blocks/common';
+import {BlockBaseProps, BaseProps, JustifyProps} from '../../schema/validators/common';
 
 export const TableBlock = {
     'table-block': {

@@ -1,4 +1,4 @@
-import {BaseProps} from '../../schema/common';
+import {BaseProps} from '../../schema/validators/common';
 
 export const NewsCard = {
     'news-card': {

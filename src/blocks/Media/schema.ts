@@ -1,6 +1,14 @@
-import {BlockBaseProps, ButtonBlock, MediaProps, TitleProps} from '../../schema/blocks/common';
-import {AnimatableProps, contentSizes, LinkProps, mediaDirection} from '../../schema/common';
-import {filteredArray} from '../../schema/utils';
+import {
+    BlockBaseProps,
+    ButtonBlock,
+    MediaProps,
+    TitleProps,
+    AnimatableProps,
+    contentSizes,
+    LinkProps,
+    mediaDirection,
+} from '../../schema/validators/common';
+import {filteredArray} from '../../schema/validators/utils';
 
 export const Media = {
     type: 'object',

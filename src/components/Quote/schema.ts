@@ -5,7 +5,7 @@ import {
     ThemeProps,
     withTheme,
     urlPattern,
-} from '../../schema/common';
+} from '../../schema/validators/common';
 
 export const Quote = {
     quote: {

@@ -1,6 +1,5 @@
-import {LinkProps} from '../../schema/common';
-import {BlockBaseProps} from '../../schema/blocks/common';
-import {filteredArray} from '../../schema/utils';
+import {LinkProps, BlockBaseProps} from '../../schema/validators/common';
+import {filteredArray} from '../../schema/validators/utils';
 
 export const QuestionsBlock = {
     'questions-block': {

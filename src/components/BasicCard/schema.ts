@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-import {BaseProps, ImageProps} from '../../schema/common';
+import {BaseProps, ImageProps} from '../../schema/validators/common';
 import {CardBase} from '../CardBase/schema';
 import {ContentBase} from '../Content/schema';
 

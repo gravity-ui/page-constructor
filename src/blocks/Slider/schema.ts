@@ -1,10 +1,11 @@
-import {BlockBaseProps, TitleProps} from '../../schema/blocks/common';
 import {
+    BlockBaseProps,
+    TitleProps,
     AnimatableProps,
     ChildrenCardsProps,
     sliderSizesObject,
     textSize,
-} from '../../schema/common';
+} from '../../schema/validators/common';
 
 const LoadableProps = {
     additionalProperties: false,

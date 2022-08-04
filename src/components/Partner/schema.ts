@@ -1,4 +1,4 @@
-import {BaseProps, ImageProps} from '../../schema/common';
+import {BaseProps, ImageProps} from '../../schema/validators/common';
 
 export const PartnerBlock = {
     partner: {

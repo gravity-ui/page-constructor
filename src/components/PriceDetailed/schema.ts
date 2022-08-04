@@ -1,5 +1,5 @@
-import {BaseProps, AnimatableProps, textSize} from '../../schema/common';
-import {filteredArray} from '../../schema/utils';
+import {BaseProps, AnimatableProps, textSize} from '../../schema/validators/common';
+import {filteredArray} from '../../schema/validators/utils';
 
 const PriceDetailedDetailsType = ['marked-list', 'settings'];
 const PriceDetailedDescriptionColor = ['cornflower', 'black'];

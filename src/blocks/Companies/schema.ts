@@ -1,4 +1,4 @@
-import {BaseProps, AnimatableProps, withTheme} from '../../schema/common';
+import {BaseProps, AnimatableProps, withTheme} from '../../schema/validators/common';
 
 export const CompaniesBlock = {
     'companies-block': {

@@ -1,6 +1,11 @@
-import {filteredArray} from '../../schema/utils';
-import {BaseProps, LinkProps, ThemeProps, withTheme} from '../../schema/common';
-import {ButtonBlock} from '../../schema/blocks/common';
+import {filteredArray} from '../../schema/validators/utils';
+import {
+    BaseProps,
+    LinkProps,
+    ThemeProps,
+    withTheme,
+    ButtonBlock,
+} from '../../schema/validators/common';
 
 export const InfoBlock = {
     'info-block': {

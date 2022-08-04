@@ -1,4 +1,4 @@
-import {PixelEventType} from '../models';
+import {PixelEventType} from '../../models';
 
 const LeadData = {
     Lead: {

@@ -1,6 +1,5 @@
-import {BaseProps, textSize} from '../../schema/common';
-import {filteredArray} from '../../schema/utils';
-import {ButtonBlock, TitleProps} from '../../schema/blocks/common';
+import {BaseProps, textSize, ButtonBlock, TitleProps} from '../../schema/validators/common';
+import {filteredArray} from '../../schema/validators/utils';
 
 const CardWithImageLinks = {
     type: 'object',

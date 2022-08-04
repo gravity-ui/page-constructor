@@ -4,9 +4,10 @@ import {
     contentThemes,
     LinkProps,
     sizeNumber,
-} from '../../schema/common';
-import {filteredArray} from '../../schema/utils';
-import {ButtonBlock, TitleProps} from '../../schema/blocks/common';
+    ButtonBlock,
+    TitleProps,
+} from '../../schema/validators/common';
+import {filteredArray} from '../../schema/validators/utils';
 
 export const ContentBase = {
     title: {

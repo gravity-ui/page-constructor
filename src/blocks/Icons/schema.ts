@@ -1,5 +1,4 @@
-import {AnimatableProps} from '../../schema/common';
-import {BlockBaseProps} from '../../schema/blocks/common';
+import {AnimatableProps, BlockBaseProps} from '../../schema/validators/common';
 
 export const IconsProps = {
     additionalProperties: false,

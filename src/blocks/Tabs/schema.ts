@@ -1,6 +1,12 @@
-import {filteredArray} from '../../schema/utils';
-import {ImageProps, LinkProps, withTheme} from '../../schema/common';
-import {BlockBaseProps, TitleProps, MediaProps} from '../../schema/blocks/common';
+import {filteredArray} from '../../schema/validators/utils';
+import {
+    ImageProps,
+    LinkProps,
+    withTheme,
+    BlockBaseProps,
+    TitleProps,
+    MediaProps,
+} from '../../schema/validators/common';
 
 export const tabsItem = {
     type: 'object',

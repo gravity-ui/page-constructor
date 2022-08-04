@@ -1,6 +1,5 @@
-import {BlockBaseProps, TitleProps} from '../../schema/blocks/common';
-import {AnimatableProps} from '../../schema/common';
-import {filteredArray} from '../../schema/utils';
+import {AnimatableProps, BlockBaseProps, TitleProps} from '../../schema/validators/common';
+import {filteredArray} from '../../schema/validators/utils';
 import {Media} from '../Media/schema';
 
 export const PromoFeaturesItem = {

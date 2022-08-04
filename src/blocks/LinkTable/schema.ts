@@ -1,6 +1,5 @@
-import {filteredArray} from '../../schema/utils';
-import {LinkProps} from '../../schema/common';
-import {BlockBaseProps, TitleProps} from '../../schema/blocks/common';
+import {filteredArray} from '../../schema/validators/utils';
+import {LinkProps, BlockBaseProps, TitleProps} from '../../schema/validators/common';
 
 export const LinkTableBlock = {
     'link-table-block': {

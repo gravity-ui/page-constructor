@@ -1,4 +1,4 @@
-import {dividerEnum, BaseProps} from '../../schema/common';
+import {dividerEnum, BaseProps} from '../../schema/validators/common';
 
 export const dividerBlock = {
     divider: {

@@ -1,4 +1,3 @@
-//blocks
 export * from '../../blocks/Banner/schema';
 export * from '../../blocks/Companies/schema';
 export * from '../../blocks/ExtendedFeatures/schema';
@@ -18,17 +17,3 @@ export * from '../../blocks/HeaderSlider/schema';
 export * from '../../blocks/Icons/schema';
 export * from '../../blocks/CardLayout/schema';
 export * from '../../blocks/ContentLayout/schema';
-
-//sub-blocks
-export * from '../../components/PriceDetailed/schema';
-export * from '../../components/BackgroundCard/schema';
-export * from '../../components/CardBase/schema';
-export * from '../../components/CardWithImage/schema';
-export * from '../../components/MediaCard/schema';
-export * from '../../components/NewsCard/schema';
-export * from '../../components/Partner/schema';
-export * from '../../components/TutorialCard/schema';
-export * from '../../components/CardWithImage/schema';
-export * from '../../components/Quote/schema';
-export * from '../../components/Divider/schema';
-export * from '../../components/BasicCard/schema';
