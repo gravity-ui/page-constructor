@@ -39,23 +39,6 @@ export enum SubBlockType {
 }
 
 export const SubBlockTypes = Object.values(SubBlockType);
-export interface QuoteProps extends Themable, CardBaseProps {
-    text: string;
-    image: ThemedImage;
-    logo: string;
-    color?: string;
-    url?: string;
-    author?: AuthorItem;
-    buttonText?: string;
-    theme?: TextTheme;
-}
-
-export interface PartnerProps extends CardBaseProps {
-    text: string;
-    logo: ImageProps;
-    url: string;
-}
-
 export interface DividerProps {
     size?: DividerSize;
     border?: boolean;
@@ -67,6 +50,38 @@ export interface FormProps {
     border?: boolean;
 }
 
+export interface HubspotFormProps {
+    className?: string;
+    region?: string;
+    portalId: string;
+    formId: string;
+    formInstanceId?: string;
+    formClassName?: string;
+    onBeforeLoad?: () => void;
+    onBeforeSubmit?: () => void;
+    onSubmit?: () => void;
+    onLoad?: () => void;
+    pixelEvents?: string | string[] | PixelEvent | PixelEvent[] | ButtonPixel;
+    hubspotEvents?: string[];
+}
+
+//cards
+export interface PartnerProps extends CardBaseProps {
+    text: string;
+    logo: ImageProps;
+    url: string;
+}
+export interface QuoteProps extends Themable, CardBaseProps {
+    text: string;
+    image: ThemedImage;
+    logo: string;
+    color?: string;
+    url?: string;
+    author?: AuthorItem;
+    buttonText?: string;
+    theme?: TextTheme;
+}
+
 export interface NewsCardData {
     id: number;
     slug: string;
@@ -75,7 +90,6 @@ export interface NewsCardData {
     url: string;
     isoDate?: string;
 }
-
 export type NewsCardProps = Pick<NewsCardData, 'title' | 'url' | 'date' | 'isoDate'> &
     CardBaseProps;
 
@@ -123,21 +137,7 @@ export interface CardWithImageProps
     links?: CardWithImageLinkProps[];
 }
 
-export interface HubspotFormProps {
-    className?: string;
-    region?: string;
-    portalId: string;
-    formId: string;
-    formInstanceId?: string;
-    formClassName?: string;
-    onBeforeLoad?: () => void;
-    onBeforeSubmit?: () => void;
-    onSubmit?: () => void;
-    onLoad?: () => void;
-    pixelEvents?: string | string[] | PixelEvent | PixelEvent[] | ButtonPixel;
-    hubspotEvents?: string[];
-}
-
+// sub-block models
 export type DividerModel = {
     type: SubBlockType.Divider;
 } & DividerProps;

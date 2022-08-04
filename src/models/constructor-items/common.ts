@@ -5,6 +5,12 @@ import {SocialNetwork} from '@yandex-data-ui/common';
 import {ThemeSupporting} from '../../utils/theme';
 import {ClassNameProps, PixelEventType} from '../common';
 
+// enums
+export enum AuthorType {
+    Column = 'column',
+    Line = 'line',
+}
+
 export enum PriceDetailsType {
     MARKED_LIST = 'marked-list',
     SETTINGS = 'settings',
@@ -43,12 +49,7 @@ export enum MediaVideoControlsType {
     Custom = 'custom',
 }
 
-export interface PlayButtonProps extends ClassNameProps {
-    type?: PlayButtonType;
-    theme?: PlayButtonThemes;
-    text?: string;
-}
-
+// types
 export type TextTheme = 'light' | 'dark';
 export type TextSize = 's' | 'm' | 'l';
 export type DividerSize = '0' | 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl' | 'xxxl';
@@ -67,11 +68,7 @@ export type ContentTextSize = 's' | 'm' | 'l';
 export type ContentTheme = 'default' | 'dark' | 'light';
 export type FileLinkType = 'vertical' | 'horizontal';
 
-export interface Background {
-    image?: string;
-    color?: string;
-}
-
+// modifiers
 export interface Themable {
     theme?: TextTheme;
 }
@@ -88,6 +85,17 @@ export interface Animatable {
     animated?: boolean;
 }
 
+//common props
+export interface Background {
+    image?: string;
+    color?: string;
+}
+
+export interface AnchorProps {
+    text: string;
+    url: string;
+}
+
 /**
  * @deprecated Сomponent VideoBlock will be deleted, which uses this logic
  */
@@ -96,6 +104,24 @@ interface LoopProps {
     end?: number;
 }
 
+// images
+export interface ImageObjectProps {
+    src: string;
+    alt?: string;
+    disableCompress?: boolean;
+}
+export type ImageProps = string | ImageObjectProps;
+export type ThemedImage = ThemeSupporting<ImageProps>;
+export interface BackgroundImageProps extends React.HTMLProps<HTMLDivElement> {
+    src?: string;
+    alt?: string;
+    disableCompress?: boolean;
+    style?: CSSProperties;
+    imageClassName?: string;
+    hide?: boolean;
+}
+
+//components props
 export interface MediaVideoProps {
     src: string[];
     type?: MediaVideoType;
@@ -108,6 +134,7 @@ export interface MediaVideoProps {
     metrika?: MetrikaVideo;
 }
 
+// links
 export interface LinkProps extends Stylable {
     url: string;
     text?: string;
@@ -119,7 +146,6 @@ export interface LinkProps extends Stylable {
     metrikaGoals?: MetrikaGoal;
     pixelEvents?: ButtonPixel;
 }
-
 export interface FileLinkProps extends ClassNameProps {
     href: string;
     text: ReactNode;
@@ -129,6 +155,7 @@ export interface FileLinkProps extends ClassNameProps {
     onClick?: () => void;
 }
 
+// buttons
 export interface ButtonProps {
     text: string;
     url: string;
@@ -147,14 +174,13 @@ export interface ButtonImageProps {
     alt?: string;
 }
 
-/**
- * @deprecated Сomponent VideoBlock will be deleted, which uses this logic
- */
-interface LoopProps {
-    start: number;
-    end?: number;
+export interface PlayButtonProps extends ClassNameProps {
+    type?: PlayButtonType;
+    theme?: PlayButtonThemes;
+    text?: string;
 }
 
+// media
 export interface MediaVideoProps {
     src: string[];
     type?: MediaVideoType;
@@ -166,32 +192,26 @@ export interface MediaVideoProps {
     controls?: MediaVideoControlsType;
     metrika?: MetrikaVideo;
 }
-
 export type ThemedMediaVideoProps = ThemeSupporting<MediaVideoProps>;
-
 export interface MediaComponentVideoProps {
     video: MediaVideoProps;
     height?: number;
     metrika?: MetrikaVideo;
     previewImg?: string;
 }
-
 export interface MediaComponentYoutubeProps {
     youtube: string;
     previewImg?: string;
 }
-
 export interface MediaComponentImageProps {
     image: ImageProps | ImageProps[];
     video?: MediaVideoProps;
     parallax?: boolean;
     height?: number;
 }
-
 export interface MediaComponentDataLensProps {
     dataLens: DataLensProps;
 }
-
 export interface MediaProps
     extends Animatable,
         Partial<MediaComponentDataLensProps>,
@@ -200,75 +220,38 @@ export interface MediaProps
         Partial<MediaComponentVideoProps> {
     color?: string;
 }
-
 export type ThemedMediaProps = ThemeSupporting<MediaProps>;
 
+// metrika
 export interface NewMetrikaGoal {
     name: string;
     isCrossSite?: boolean;
     counterName?: string;
     params?: Record<string, string>;
 }
-
 export type MetrikaGoal = string | string[] | NewMetrikaGoal[];
-
 export interface MetrikaVideo {
     counterName?: string;
     play?: MetrikaGoal;
     stop?: MetrikaGoal;
 }
-
 export interface ButtonPixelEvent {
     name: PixelEventType;
     data?: Object;
 }
-
 export type ButtonPixel = ButtonPixelEvent[];
-
-export interface AnchorProps {
-    text: string;
-    url: string;
-}
-
-export interface ImageObjectProps {
-    src: string;
-    alt?: string;
-    disableCompress?: boolean;
-}
 
 export interface DataLensObjectProps {
     id: string;
     theme: 'dark' | 'light';
 }
-
 export type DataLensProps = string | DataLensObjectProps;
-
-export type ImageProps = string | ImageObjectProps;
-export type ThemedImage = ThemeSupporting<ImageProps>;
 
 export interface AuthorItem {
     firstName: string;
     secondName: string;
     description?: string;
     avatar?: string | JSX.Element;
-}
-
-export interface BackgroundImageProps extends React.HTMLProps<HTMLDivElement> {
-    src?: string;
-    alt?: string;
-    disableCompress?: boolean;
-    style?: CSSProperties;
-    imageClassName?: string;
-    hide?: boolean;
-}
-
-export interface FileLinkProps extends ClassNameProps {
-    href: string;
-    text: ReactNode;
-    type?: FileLinkType;
-    textSize?: TextSize;
-    theme?: ContentTheme;
-    onClick?: () => void;
 }
 
 export interface HeaderBreadCrumbsProps extends ClassNameProps {
@@ -281,11 +264,11 @@ export interface HeaderBreadCrumbsProps extends ClassNameProps {
     pixelEvents?: ButtonPixel;
 }
 
+// preview
 export interface PreviewContentItemProps {
     title: string;
     description?: string;
 }
-
 export interface PreviewItemProps {
     type: PreviewItemType;
     media: ThemedMediaProps;
@@ -305,29 +288,7 @@ export interface TitleBaseProps {
     onClick?: () => void;
 }
 
-export interface ButtonProps {
-    text: string;
-    url: string;
-    primary?: boolean;
-    size?: ButtonSize;
-    theme?: ButtonView | 'github' | 'app-store' | 'google-play' | 'scale' | 'monochrome';
-    img?: ButtonImageProps | string;
-    metrikaGoals?: MetrikaGoal;
-    pixelEvents?: ButtonPixel;
-    target?: string;
-}
-
-export interface ButtonImageProps {
-    url: string;
-    position?: 'left' | 'right';
-    alt?: string;
-}
-
-export interface ButtonPixelEvent {
-    name: PixelEventType;
-    data?: Object;
-}
-
+// card
 export interface CardData {
     header?: CardHeader;
     text?: string;
@@ -338,23 +299,14 @@ export interface CardData {
     service?: {slug: string; name: string};
     links?: LinkProps[];
 }
-
 export type CardBorder = 'shadow' | 'line' | 'none';
-
 export interface CardBaseProps {
     border?: CardBorder;
 }
-
 export interface CardProps extends CardBaseProps, CardData {}
-
 export interface CardHeader {
     title?: string;
     image?: ImageProps;
-}
-
-export interface DataLensObjectProps {
-    id: string;
-    theme: 'dark' | 'light';
 }
 
 export interface ShareProps {
@@ -362,6 +314,7 @@ export interface ShareProps {
     title?: string;
 }
 
+//price
 export interface PriceDescriptionProps {
     title: string;
     detailedTitle?: string;
@@ -372,27 +325,22 @@ export interface PriceDescriptionProps {
         size?: TextSize;
     };
 }
-
 export interface PriceDetailsSettingsProps {
     title: string;
     description: string;
 }
-
 export interface PriceDetailsListProps {
     text: string;
 }
 export interface PriceDetailsProps {
     items?: PriceDetailsSettingsProps[] | PriceDetailsListProps[];
 }
-
 export interface PriceItemProps extends PriceDetailsProps, PriceDescriptionProps {}
-
 export interface PriceFoldableDetailsProps {
     title: string;
     size?: TextSize;
     titleColor?: PriceDescriptionColor;
 }
-
 export interface PriceDetailedProps extends CardBaseProps {
     items: PriceItemProps[];
     description?: {
@@ -428,10 +376,6 @@ export interface PriceDetailedProps extends CardBaseProps {
     useMixedView?: boolean;
     foldable?: PriceFoldableDetailsProps;
     labelsDefaultText?: Record<PriceLabelColor, string>;
-}
-
-export interface Animatable {
-    animated?: boolean;
 }
 
 export interface AuthorProps {
@@ -440,7 +384,7 @@ export interface AuthorProps {
     type?: AuthorType;
 }
 
-export enum AuthorType {
-    Column = 'column',
-    Line = 'line',
+export interface BlockHeaderProps {
+    title?: TitleProps | string;
+    description?: string;
 }

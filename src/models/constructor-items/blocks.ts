@@ -26,6 +26,7 @@ import {
     AnchorProps,
     TitleBaseProps,
     Animatable,
+    BlockHeaderProps,
 } from './common';
 import {ThemeSupporting} from '../../utils';
 import {GridColumnSize, GridColumnSizesType} from '../../grid/types';
@@ -60,9 +61,12 @@ export const HeaderBlockTypes = [BlockType.HeaderSliderBlock];
 export interface Childable {
     children?: SubBlock[];
 }
-export interface BlockHeaderProps {
-    title?: TitleProps | string;
-    description?: string;
+
+//block props
+export interface BlockBaseProps {
+    anchor?: AnchorProps;
+    visible?: GridColumnSize;
+    resetPaddings?: boolean;
 }
 export interface LoadableProps {
     source: string;
@@ -72,14 +76,8 @@ export interface LoadableProps {
     serviceId?: number;
     params?: Record<string, string | number | boolean>;
 }
-
 export interface LoadableChildren {
     loadable?: LoadableProps;
-}
-export interface BlockBaseProps {
-    anchor?: AnchorProps;
-    visible?: GridColumnSize;
-    resetPaddings?: boolean;
 }
 
 export type ServiceDemoProps = Animatable;
@@ -90,15 +88,12 @@ export enum SliderBreakpointNames {
     Lg = 'lg',
     Xl = 'xl',
 }
-
 export enum SliderType {
     MediaCard = 'media-card',
     HeaderCard = 'header-card',
 }
-
 export type SliderBreakpointParams = Record<SliderBreakpointNames, number>;
 export type SlidesToShow = Partial<SliderBreakpointParams> | number;
-
 export interface SliderProps extends Childable, Animatable, LoadableChildren {
     dots?: boolean;
     arrows?: boolean;
@@ -115,6 +110,34 @@ export interface SliderProps extends Childable, Animatable, LoadableChildren {
     adaptive?: boolean;
 }
 
+export interface HeaderSliderBlockProps extends Omit<SliderProps, 'title' | 'description'> {
+    items: HeaderBlockProps[];
+}
+
+export interface HeaderBlockProps {
+    title: string;
+    overtitle?: string;
+    description?: string;
+    buttons?: Pick<ButtonProps, 'url' | 'text' | 'theme' | 'primary' | 'size'>[];
+    width?: HeaderWidth;
+    imageSize?: HeaderImageSize;
+    offset?: HeaderOffset;
+    image?: ThemedImage;
+    video?: ThemedMediaVideoProps;
+    background?: ThemedHeaderBlockBackground;
+    theme?: 'light' | 'dark';
+    verticalOffset: 's' | 'm' | 'l' | 'xl';
+    breadcrumbs?: HeaderBreadCrumbsProps;
+}
+export interface HeaderBackgroundProps {
+    fullWidth?: boolean;
+    color?: string;
+    url?: string;
+    disableCompress?: boolean;
+}
+export type HeaderBlockBackground = HeaderBackgroundProps | MediaProps;
+export type ThemedHeaderBlockBackground = ThemeSupporting<HeaderBackgroundProps | MediaProps>;
+
 export type CalculatorProps = Animatable;
 
 export interface SimpleBlockProps extends Animatable, Childable {
@@ -129,7 +152,6 @@ export interface ExtendedFeaturesItem {
     icon?: string;
     link?: LinkProps;
 }
-
 export interface ExtendedFeaturesProps extends Animatable {
     items: ExtendedFeaturesItem[];
     title?: TitleProps | string;
@@ -143,7 +165,6 @@ export interface PromoFeaturesItem {
     theme?: 'accent' | 'accent-light' | 'primary';
     media?: MediaProps;
 }
-
 export interface PromoFeaturesProps extends Animatable {
     items: PromoFeaturesItem[];
     title?: TitleProps | string;
@@ -157,14 +178,9 @@ export interface QuestionItem {
     listStyle?: 'dash' | 'disk';
     link?: LinkProps;
 }
-
 export interface QuestionsProps {
     title: string;
     items: QuestionItem[];
-}
-
-export interface HeaderSliderBlockProps extends Omit<SliderProps, 'title' | 'description'> {
-    items: HeaderBlockProps[];
 }
 
 export interface BannerBlockProps extends BannerProps, Animatable {}
@@ -188,7 +204,6 @@ export interface MediaContentProps {
     buttons?: ButtonProps[];
     size?: ContentSize;
 }
-
 export interface MediaBlockProps extends Animatable, MediaContentProps {
     media: ThemeSupporting<MediaProps>;
     direction?: MediaDirection;
@@ -225,7 +240,6 @@ export interface SecurityBlockPoint {
         url: string;
     };
 }
-
 export interface SecurityBlockProps extends Animatable {
     theme?: TextTheme;
     backgroundColor?: string;
@@ -240,7 +254,6 @@ export interface TableProps {
     justify?: Justify[];
     marker?: LegendTableMarkerType;
 }
-
 export interface TableBlockProps {
     title: string;
     table: TableProps;
@@ -257,7 +270,6 @@ export interface TabsBlockItem {
     media?: ThemedMediaProps;
     links?: LinkProps[];
 }
-
 export interface TabsBlockProps extends BlockHeaderProps, Animatable {
     items: TabsBlockItem[];
 }
@@ -283,32 +295,6 @@ export interface IconsBlockProps {
     }[];
 }
 
-export interface HeaderBlockProps {
-    title: string;
-    overtitle?: string;
-    description?: string;
-    buttons?: Pick<ButtonProps, 'url' | 'text' | 'theme' | 'primary' | 'size'>[];
-    width?: HeaderWidth;
-    imageSize?: HeaderImageSize;
-    offset?: HeaderOffset;
-    image?: ThemedImage;
-    video?: ThemedMediaVideoProps;
-    background?: ThemedHeaderBlockBackground;
-    theme?: 'light' | 'dark';
-    verticalOffset: 's' | 'm' | 'l' | 'xl';
-    breadcrumbs?: HeaderBreadCrumbsProps;
-}
-
-export interface HeaderBackgroundProps {
-    fullWidth?: boolean;
-    color?: string;
-    url?: string;
-    disableCompress?: boolean;
-}
-
-export type HeaderBlockBackground = HeaderBackgroundProps | MediaProps;
-export type ThemedHeaderBlockBackground = ThemeSupporting<HeaderBackgroundProps | MediaProps>;
-
 export interface ContentLayoutBlockProps {
     properties?: {
         size?: ContentSize;
@@ -333,7 +319,7 @@ export interface ContentBlockProps {
     theme?: ContentTheme;
 }
 
-//blocks
+//block models
 export type HeaderBlockModel = {
     type: BlockType.HeaderBlock;
 } & HeaderBlockProps;
