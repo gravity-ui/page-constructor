@@ -1,7 +1,16 @@
 import {ImageProps, VideoProps, withTheme} from '../../schema/common';
-import {BlockBaseProps, ButtonBlock} from '../../schema/blocks/common';
+import {BlockBaseProps, ButtonBlock, MediaProps} from '../../schema/blocks/common';
 import {filteredArray} from '../../schema/utils';
-import {Media} from '../Media/schema';
+
+const HeaderMedia = {
+    type: 'object',
+    additionalProperties: false,
+    required: [],
+    properties: {
+        ...MediaProps,
+        fullWidth: {type: 'boolean'},
+    },
+};
 
 export const HeaderProperties = {
     title: {
@@ -46,16 +55,15 @@ export const HeaderProperties = {
     },
     background: withTheme({
         oneOf: [
-            Media,
+            HeaderMedia,
             {
                 type: 'object',
                 additionalProperties: false,
-                required: ['fullWidth'],
                 properties: {
-                    fullWidth: {type: 'boolean'},
                     color: {type: 'string'},
                     url: {type: 'string'},
                     disableCompress: {type: 'boolean'},
+                    fullWidth: {type: 'boolean'},
                 },
             },
         ],
@@ -87,6 +95,9 @@ export const HeaderProperties = {
             },
             theme: {type: 'string', enum: ['light', 'dark']},
         },
+    },
+    status: {
+        type: 'string',
     },
 };
 

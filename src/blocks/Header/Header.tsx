@@ -2,19 +2,13 @@ import React, {useContext} from 'react';
 import {HTML} from '@doc-tools/components';
 
 import {block, getThemedValue} from '../../utils';
-import {
-    ClassNameProps,
-    HeaderBlockBackground,
-    HeaderBlockProps,
-    HeaderImageSize,
-    HeaderWidth,
-} from '../../models';
+import {ClassNameProps, HeaderBlockBackground, HeaderBlockProps} from '../../models';
 import {headerHasMediaBackground} from '../../models/guards';
 import {Button, Media, BackgroundMedia, BackgroundImage, RouterLink} from '../../components';
 import {Grid, Row, Col} from '../../grid';
+import {getImageSize, getTitleSizes, titleWithImageSizes} from './utils';
 
 import YFMWrapper from '../../components/YFMWrapper/YFMWrapper';
-import FullWidthBackground from '../../components/FullWidthBackground/FullWidthBackground';
 import HeaderBreadcrumbs from '../../components/HeaderBreadcrumbs/HeaderBreadcrumbs';
 import {ThemeValueContext} from '../../context/theme/ThemeValueContext';
 
@@ -24,61 +18,28 @@ const b = block('header-block');
 
 type HeaderBlockFullProps = HeaderBlockProps & ClassNameProps;
 
-export function titleWithImageSizes(imageSize: HeaderImageSize) {
-    switch (imageSize) {
-        case 's':
-            return {
-                md: 8,
-                all: 12,
-            };
-        case 'm':
-            return {
-                md: 6,
-                all: 12,
-            };
-        default:
-            return {all: 12};
-    }
-}
-
-function getTitleSizes(width: HeaderWidth) {
-    switch (width) {
-        case 's':
-            return {
-                lg: 6,
-                sm: 12,
-                md: 6,
-                all: 12,
-            };
-        case 'm':
-            return {
-                lg: 8,
-                md: 8,
-                sm: 12,
-                all: 12,
-            };
-        default:
-            return {all: 12};
-    }
-}
-
 function renderBackground(background: HeaderBlockBackground) {
+    const {url, color, disableCompress, fullWidth} = background;
+
     return headerHasMediaBackground(background) ? (
-        <BackgroundMedia {...background} className={b('background-media')} />
+        <BackgroundMedia {...background} className={b('background', {media: true})} />
     ) : (
         <BackgroundImage
-            src={background.url}
+            src={url}
             className={b('background')}
             imageClassName={b('background-img')}
-            style={{backgroundColor: background.fullWidth ? '' : background?.color}}
-            disableCompress={background?.disableCompress}
+            style={{backgroundColor: fullWidth ? 'none' : color}}
+            disableCompress={disableCompress}
         />
     );
 }
 
 function renderFullWidthBackground(background: HeaderBlockBackground) {
-    return !headerHasMediaBackground(background) && Boolean(background?.fullWidth) ? (
-        <FullWidthBackground style={{backgroundColor: background?.color}} theme="rounded" />
+    return background?.fullWidth ? (
+        <div
+            className={b('background', {['full-width']: true})}
+            style={{backgroundColor: background?.color}}
+        />
     ) : null;
 }
 
@@ -90,19 +51,21 @@ const HeaderBlock: React.FunctionComponent<HeaderBlockFullProps> = (props) => {
         buttons,
         image,
         video,
-        width = 'l',
+        width = 'm',
+        imageSize,
         offset = 'default',
-        imageSize = 'm',
         background,
         theme: textTheme = 'light',
-        verticalOffset,
+        verticalOffset = 'm',
         className,
         breadcrumbs,
+        status,
         children,
     } = props;
     const {themeValue: theme} = useContext(ThemeValueContext);
     const hasMedia = Boolean(image || video);
-    const titleSizes = hasMedia ? titleWithImageSizes(imageSize) : getTitleSizes(width);
+    const curImageSize = imageSize || getImageSize(width);
+    const titleSizes = hasMedia ? titleWithImageSizes(curImageSize) : getTitleSizes(width);
     let curVerticalOffset = verticalOffset;
 
     if (hasMedia && !verticalOffset) {
@@ -120,64 +83,74 @@ const HeaderBlock: React.FunctionComponent<HeaderBlockFullProps> = (props) => {
                 className,
             )}
         >
-            {breadcrumbs && (
-                <HeaderBreadcrumbs
-                    {...breadcrumbs}
-                    className={b('breadcrumbs')}
-                    theme={textTheme}
-                />
-            )}
             {backgroundThemed && renderFullWidthBackground(backgroundThemed)}
-            <Grid
-                className={b('content', {
-                    offset,
-                    theme: textTheme,
-                    'vertical-offset': curVerticalOffset,
-                })}
-            >
-                {backgroundThemed && renderBackground(backgroundThemed)}
-                <Row className={b('content-outer')}>
-                    <Col sizes={titleSizes} className={b('content-inner')}>
-                        {overtitle && (
-                            <h4 className={b('overtitle')}>
-                                <HTML>{overtitle}</HTML>
-                            </h4>
-                        )}
-                        <h1 className={b('title')}>
-                            <HTML>{title}</HTML>
-                        </h1>
-                        {description && (
-                            <h5 className={b('description')}>
-                                <YFMWrapper content={description} modifiers={{constructor: true}} />
-                            </h5>
-                        )}
-                        {buttons && (
-                            <div className={b('buttons')} data-qa="header-buttons">
-                                {buttons &&
-                                    buttons.map((button, index) => (
-                                        <RouterLink href={button.url} key={index}>
-                                            <Button
-                                                key={index}
-                                                className={b('button')}
-                                                size="xl"
-                                                {...button}
+            <Grid>
+                {breadcrumbs && (
+                    <Row className={b('breadcrumbs')}>
+                        <Col>
+                            <HeaderBreadcrumbs {...breadcrumbs} theme={textTheme} />
+                        </Col>
+                    </Row>
+                )}
+                <Row>
+                    <Col reset className={b('content-wrapper')}>
+                        <Row>
+                            <Col
+                                className={b('content', {
+                                    offset,
+                                    theme: textTheme,
+                                    'vertical-offset': curVerticalOffset,
+                                })}
+                            >
+                                {backgroundThemed && renderBackground(backgroundThemed)}
+                                <Col sizes={titleSizes} className={b('content-inner')}>
+                                    {overtitle && (
+                                        <h4 className={b('overtitle')}>
+                                            <HTML>{overtitle}</HTML>
+                                        </h4>
+                                    )}
+                                    <h1 className={b('title')}>
+                                        {status}
+                                        <HTML>{title}</HTML>
+                                    </h1>
+                                    {description && (
+                                        <h5 className={b('description')}>
+                                            <YFMWrapper
+                                                content={description}
+                                                modifiers={{constructor: true}}
                                             />
-                                        </RouterLink>
-                                    ))}
-                            </div>
+                                        </h5>
+                                    )}
+                                    {buttons && (
+                                        <div className={b('buttons')} data-qa="header-buttons">
+                                            {buttons &&
+                                                buttons.map((button, index) => (
+                                                    <RouterLink href={button.url} key={index}>
+                                                        <Button
+                                                            key={index}
+                                                            className={b('button')}
+                                                            size="xl"
+                                                            {...button}
+                                                        />
+                                                    </RouterLink>
+                                                ))}
+                                        </div>
+                                    )}
+                                    {children}
+                                </Col>
+                            </Col>
+                        </Row>
+                        {hasMedia && (
+                            <Media
+                                className={b('media', {[curImageSize]: true})}
+                                videoClassName={b('video')}
+                                imageClassName={b('image')}
+                                video={videoThemed}
+                                image={imageThemed}
+                            />
                         )}
-                        {children}
                     </Col>
                 </Row>
-                {hasMedia && (
-                    <Media
-                        className={b('media', {[imageSize]: true})}
-                        videoClassName={b('video')}
-                        imageClassName={b('image')}
-                        video={videoThemed}
-                        image={imageThemed}
-                    />
-                )}
             </Grid>
         </header>
     );

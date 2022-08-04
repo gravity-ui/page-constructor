@@ -1,7 +1,7 @@
 @import '../../../styles/mixins';
 @import '../../../styles/variables';
 
-$slideOffset: 10px;
+$slideOffset: 8px;
 
 $block: '.#{$ns}SliderBlock';
 
@@ -288,21 +288,25 @@ $block: '.#{$ns}SliderBlock';
 
     @media (max-width: map-get($gridBreakpoints, 'sm')) {
         &:not(&_one-slide) {
-            margin-left: -$indentXS;
-            padding-left: $indentXS;
-            width: calc(100% + #{$indentXS * 2});
+            margin-left: -($gridContainerMargin + $gridGutterMobile);
+            padding-left: $gridContainerMargin + $gridGutterMobile;
+            width: calc(100% + #{($gridContainerMargin + $gridGutterMobile) * 2});
             overflow-x: auto;
 
             .slick-list {
-                margin-left: -10px;
+                margin-left: -($gridContainerMargin + $gridGutterMobile);
                 margin-right: 0;
+            }
+
+            .slick-track {
+                padding-left: $gridContainerMargin + $gridGutterMobile - $slideOffset;
             }
 
             .slick-slide {
                 padding: 0 $slideOffset;
 
                 &:last-child {
-                    padding: 0 $indentXS 0 $slideOffset;
+                    padding: 0 $gridContainerMargin + $gridGutterMobile 0 $slideOffset;
                 }
             }
         }

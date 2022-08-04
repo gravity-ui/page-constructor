@@ -2,6 +2,10 @@
 
 `className?: строка` - класс для обертки формы
 
+`theme?: строка`
+
+`isMobile?: true | false`
+
 `region?: строка`
 
 `portalId: строка`
@@ -18,10 +22,10 @@
 
 [Глобальные события форм: ](https://legacydocs.hubspot.com/global-form-events)
 
-`onBeforeLoad?` - onBeforeFormInit
+`onBeforeLoadForNonIFrameForm?` - onBeforeFormInit
 
-`onBeforeSubmit?` - onFormSubmit
+`onBeforeSubmitForNonIFrameForm?` - onFormSubmit
 
-`onSubmit?` - onFormSubmitted
+`onSubmitForNonIFrameForm?` - onFormSubmitted
 
-`onLoad?` - onFormReady
+`onLoadForNonIFrameForm?` - onFormReady

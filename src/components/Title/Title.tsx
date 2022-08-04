@@ -45,7 +45,7 @@ const Title: React.FunctionComponent<TitleFullProps> = (props) => {
         custom,
         className,
         dataQa,
-        resetMargin,
+        resetMargin = true,
     } = props;
 
     const {hostname} = useContext(LocationContext);

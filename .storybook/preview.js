@@ -56,6 +56,7 @@ export const decorators = [
 ];
 
 export const parameters = {
+    layout: 'fullscreen',
     docs: {
         theme: CommonTheme,
         page: DocsWithReadme,

@@ -1,4 +1,4 @@
-# Page Constructor &middot; [![build status](<https://teamcity.yandex-team.ru/app/rest/builds/buildType:(DataUI_Instruments_Common_BuildAndDeploy)/statusIcon.svg>)](https://teamcity.yandex-team.ru/viewType.html?buildTypeId=DataUI_Instruments_Common_BuildAndDeploy) [![npm version](https://badger.yandex-team.ru/npm/@yandex-data-ui/page-constructor/version.svg)](https://npm.yandex-team.ru/@yandex-data-ui/page-constructor) [![dependencies health](https://badger.yandex-team.ru/oko/repo/data-ui/page-constructor/health.svg)](https://oko.yandex-team.ru/repo/data-ui/common) [![distribution health](https://badger.yandex-team.ru/oko/pkg/@yandex-data-ui/common/health.svg)](https://oko.yandex-team.ru/pkg/@yandex-data-ui/common) [![maintainer](https://badger.yandex-team.ru/custom/[Maintainer]/[vladvlad][f5a522]/badge.svg)](https://staff.yandex-team.ru/vladvlad)
+# Page Constructor &middot; [![npm version](https://badger.yandex-team.ru/npm/@yandex-data-ui/page-constructor/version.svg)](https://npm.yandex-team.ru/@yandex-data-ui/page-constructor) [![dependencies health](https://badger.yandex-team.ru/oko/repo/data-ui/page-constructor/health.svg)](https://oko.yandex-team.ru/repo/data-ui/common) [![maintainer](https://badger.yandex-team.ru/custom/[Maintainer]/[vladvlad][f5a522]/badge.svg)](https://staff.yandex-team.ru/vladvlad)
 
 [comment]: <> (//TODO: Поменять ссылыку на иконку)
 
@@ -8,7 +8,7 @@
 
 При создании страниц используется компонентный подход: страница составляется из набора готовых блоков, которые могут быть расположены в произвольном порядке. Каждому блоку соответсвует определенный тип и набор параметров во входных данных.
 
-Формат входных данных и список доступных блоков можно посмотреть в [документации](https://github.yandex-team.ru/data-ui/cloud-backoffice/wiki/Страницы).
+Формат входных данных и список доступных блоков можно посмотреть в [документации](http://localhost:7009/?path=/story/информация--containers).
 
 ### Начало работы
 

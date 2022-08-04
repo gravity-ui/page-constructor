@@ -26,3 +26,5 @@ interface Window {
         };
     };
 }
+
+declare module '*.md';

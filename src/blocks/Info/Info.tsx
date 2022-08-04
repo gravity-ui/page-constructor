@@ -2,7 +2,6 @@ import React, {useContext} from 'react';
 
 import {block, getThemedValue} from '../../utils';
 import {InfoBlockProps} from '../../models';
-import FullWidthBackground from '../../components/FullWidthBackground/FullWidthBackground';
 import {Grid, Row, Col} from '../../grid';
 import Button from '../../components/Button/Button';
 import Link from '../../components/Link/Link';
@@ -26,11 +25,10 @@ export const InfoBlock: React.FC<InfoBlockProps> = (props) => {
 
     return (
         <div className={b({theme: textTheme})}>
-            <div className={b('content')}>
-                <FullWidthBackground
-                    className={b('background')}
-                    style={{backgroundColor: getThemedValue(backgroundColor, theme)}}
-                />
+            <div
+                className={b('content')}
+                style={{backgroundColor: getThemedValue(backgroundColor, theme)}}
+            >
                 <Grid>
                     <Row>
                         <Col sizes={{lg: 4, sm: 6, all: 12}}>

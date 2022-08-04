@@ -124,32 +124,35 @@ export const SliderBlock: FC<SliderProps> = (props) => {
         [slider, breakpoint],
     );
 
-    const scrollLastSlide = useCallback(() => {
-        const lastSlide = childrenCount - slidesToShowCount;
+    const scrollLastSlide = useCallback(
+        (current: number) => {
+            const lastSlide = childrenCount - slidesToShowCount;
 
-        if (autoplay && lastSlide === currentIndex) {
-            // Slick doesn't support autoplay with no infinity scroll
-            autoplayTimeId.current = setTimeout(() => {
-                if (slider) {
-                    slider.slickGoTo(0, false);
-                    slider.slickPause();
-                }
-                setTimeout(() => {
+            if (autoplay && lastSlide === current) {
+                // Slick doesn't support autoplay with no infinity scroll
+                autoplayTimeId.current = setTimeout(() => {
                     if (slider) {
-                        slider.slickPlay();
+                        slider.slickGoTo(0, false);
+                        slider.slickPause();
                     }
-                }, 500);
-            }, autoplay);
-        }
-    }, [autoplay, currentIndex, childrenCount, slider, slidesToShowCount]);
+                    setTimeout(() => {
+                        if (slider) {
+                            slider.slickPlay();
+                        }
+                    }, 500);
+                }, autoplay);
+            }
+        },
+        [autoplay, childrenCount, slider, slidesToShowCount],
+    );
 
     useEffect(() => {
         if (hasFocus && autoplayTimeId.current) {
             clearTimeout(autoplayTimeId.current);
         } else {
-            scrollLastSlide();
+            scrollLastSlide(currentIndex);
         }
-    }, [hasFocus, scrollLastSlide]);
+    }, [currentIndex, hasFocus, scrollLastSlide]);
 
     useEffect(() => {
         onResize();
@@ -200,10 +203,10 @@ export const SliderBlock: FC<SliderProps> = (props) => {
             }
 
             if (!hasFocus) {
-                scrollLastSlide();
+                scrollLastSlide(current);
             }
         },
-        [hasFocus, scrollLastSlide, handleAfterChange],
+        [handleAfterChange, hasFocus, scrollLastSlide],
     );
 
     const handleDotClick = useCallback(

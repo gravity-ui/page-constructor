@@ -7,14 +7,6 @@ $block: '.#{$ns}ExtendedFeaturesBlock';
     $class: &;
     $itemMargin: $indentM;
 
-    &__header {
-        h1 {
-            @include heading1();
-
-            margin-bottom: 0;
-        }
-    }
-
     &__items {
         margin-top: -$indentM;
     }

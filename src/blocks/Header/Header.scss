@@ -4,16 +4,22 @@
 $block: '.#{$ns}header-block';
 
 #{$block} {
+    position: relative;
     margin-top: $indentXS;
+
+    &_has-background {
+        margin-left: $indentXS;
+        margin-right: $indentXS;
+    }
+
+    &__content-wrapper {
+        margin: 0 $indentXXXS;
+        height: 100%;
+    }
 
     &__content {
         position: relative;
         height: 100%;
-
-        &_offset_large {
-            padding: calc(#{$indentXXXL} - #{$indentXXL}) 0 $indentXS;
-            margin-bottom: -$indentL;
-        }
 
         &_theme_dark {
             #{$block}__title,
@@ -42,10 +48,18 @@ $block: '.#{$ns}header-block';
                 padding: calc(#{$indent4XL} - #{$indentXS}) 0;
             }
         }
-    }
 
-    &_has-background {
-        height: calc(100% + #{$indentXXL});
+        // deprecated, use only on the main page
+        // TODO: delete after the possibility to remove padding-bottom in the block
+        &_offset_large {
+            padding: calc(#{$indentXXXL} - #{$indentXS}) 0 $indentXS;
+        }
+
+        &-outer,
+        &-inner {
+            position: relative;
+            z-index: 10;
+        }
     }
 
     &__title {
@@ -59,22 +73,22 @@ $block: '.#{$ns}header-block';
     }
 
     &__description {
-        @include heading5();
-
         margin-top: $indentXS;
         font-weight: normal;
 
-        * {
+        .yfm,
+        .yfm * {
             @include text-size(body-3);
+            color: var(--yc-color-text-primary);
         }
     }
 
     &__buttons {
-        margin-top: $indentM;
+        margin-top: $indentXS;
     }
 
     &__button {
-        margin-top: 0;
+        margin-top: $indentXS;
         margin-right: $indentXS;
     }
 
@@ -115,27 +129,25 @@ $block: '.#{$ns}header-block';
     &__breadcrumbs {
         position: absolute;
         top: $indentXS;
-    }
-
-    &__content,
-    &__content-outer {
-        position: relative;
-        z-index: 10;
+        z-index: 11;
     }
 
     &__background,
-    &__background-media {
-        //safari layers rerender fix
-        z-index: 5;
-    }
-
-    &__background {
+    &__background#{$block}__background_media {
         position: absolute;
         top: 0;
-        left: calc(-#{$indentXXL} / 2);
-        width: calc(100% + #{$indentXXL});
+        left: calc(#{$indentXXXS} - #{$indentL});
+        overflow: hidden;
+        z-index: 5;
+        width: calc(100% + ((#{$indentL} - #{$indentXXXS}) * 2));
         height: 100%;
         border-radius: $borderRadius;
+    }
+
+    &__background_full-width {
+        left: 0;
+        width: 100%;
+        background-color: var(--yc-color-base-background);
     }
 
     &__overtitle {
@@ -146,28 +158,6 @@ $block: '.#{$ns}header-block';
 
         a {
             @include link();
-        }
-    }
-
-    div#{$block}__background-media {
-        top: -84px;
-    }
-
-    @media (max-width: map-get($gridBreakpoints, 'xxl')) {
-        &__background {
-            width: calc(100% + (#{$indentXS} * 2));
-            left: -$indentXS;
-        }
-    }
-
-    @media (max-width: map-get($gridBreakpoints, 'sm')) {
-        &__background {
-            left: calc(-#{$indentXXS});
-            width: calc(100% + (#{$indentXXS} * 2));
-        }
-
-        &__button + &__button {
-            margin-top: $indentXS;
         }
     }
 
@@ -182,15 +172,21 @@ $block: '.#{$ns}header-block';
             #{$block}__background-img {
                 display: none;
             }
+        }
 
-            #{$block}__content_vertical-offset {
-                &_s,
-                &_m,
-                &_l,
-                &_xl {
-                    padding: calc(#{$indentXXL} - #{$indentXS}) 0;
-                }
+        //rewrite grid's styles .Grid .col
+        #{$block}__content_vertical-offset {
+            &_s,
+            &_m,
+            &_l,
+            &_xl {
+                padding: calc(#{$indentXXL} - #{$indentXS}) 0;
             }
+        }
+
+        #{$block}__content_offset_large {
+            padding: calc(#{$indentXXL} - #{$indentXS}) 0 $indentXS;
+            margin-bottom: -$indentM;
         }
     }
 
@@ -203,6 +199,23 @@ $block: '.#{$ns}header-block';
             #{$block}__content-inner {
                 padding-right: $indentL;
             }
+        }
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'sm')) {
+        &__background:not(&__background_full-width) {
+            left: -$indentXXXS;
+            width: calc(100% + (#{$indentXXXS} * 2));
+        }
+
+        &__background_full-width {
+            left: $indentXXXS;
+            width: calc(100% - (#{$indentXXXS} * 2));
+        }
+
+        &_has-background {
+            margin-left: 0;
+            margin-right: 0;
         }
     }
 }

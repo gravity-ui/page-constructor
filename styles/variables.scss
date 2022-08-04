@@ -20,10 +20,11 @@ $normalOffset: 20px;
 $contentMargin: $indentM;
 
 $contentLiftIndent: $indentXL;
+$contentLiftIndentMobile: $indentM;
 
 //slider
 $sliderArrowSize: 42px;
-$headerSliderLargeBreakpoint: 1300px;
+$headerSliderLargeBreakpoint: 1410px;
 
 //animation
 $ease-out-quadratic: cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -56,3 +57,5 @@ $gridGutter: 8px;
 $gridContainerPadding: 40px;
 $gridGutterMobile: 8px;
 $contentWidth: calc(#{$newContentWidth} + #{$gridGutter} * 2 + #{$gridContainerPadding} * 2);
+
+$gridContainerMargin: 16px;

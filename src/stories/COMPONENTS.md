@@ -20,6 +20,8 @@
 
 _Карточки являются компонентами, которые используются только совместно со слайдером или лейаутом:_
 
+- ### [Базовая карточка (BasicCard)](?path=/story/компоненты-карточки-basiccard--default&viewMode=docs)
+
 - ### [Карточка туториала (Tutorial)](?path=/story/компоненты-карточки-tutorialcard--default&viewMode=docs)
 
 - ### [Карточка медиа (Media)](?path=/story/блоки-media--default&viewMode=docs)
@@ -31,5 +33,3 @@ _Карточки являются компонентами, которые ис
 - ### [Карточка с картинкой над заголовком (CardWithImage)](?path=/story/компоненты-карточки-cardwithimage--default&viewMode=docs)
 
 - ### [Карточка новости (NewsCard)](?path=/story/компоненты-карточки-newscard--default&viewMode=docs)
-
-- ### [Базовая карточка (CardBase)](?path=/story/компоненты-карточки-cardbase--default&viewMode=docs)

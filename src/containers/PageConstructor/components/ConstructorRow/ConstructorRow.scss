@@ -6,4 +6,10 @@ $block: '.#{$ns}constructor-row';
     &:last-child {
         margin-bottom: -$contentLiftIndent;
     }
+
+    @media (max-width: map-get($gridBreakpoints, 'sm')) {
+        &:last-child {
+            margin-bottom: -$contentLiftIndentMobile;
+        }
+    }
 }

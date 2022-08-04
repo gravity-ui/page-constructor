@@ -1,6 +1,5 @@
 import React, {useCallback, useContext} from 'react';
-import {Platform, Button as CommonButton, Icon} from '@yandex-cloud/uikit';
-import {StoreBadge} from '@yandex-data-ui/common';
+import {Platform, Button as CommonButton, Icon, StoreBadge} from '@yandex-cloud/uikit';
 import githubIcon from '../../../assets/icons/github.svg';
 
 import {block, setUrlTld} from '../../utils';

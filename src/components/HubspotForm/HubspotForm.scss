@@ -12,6 +12,10 @@ $block: '.#{$ns}hubspot-form';
     $selectChevronLight: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMSIgaGVpZ2h0PSI2IiB2aWV3Qm94PSIwIDAgMTEgNiIgZmlsbD0ibm9uZSI+CiAgICA8cGF0aCBkPSJNMTAuMDggMEw1LjUgNC4zNi45MSAwIDAgLjg2bDUuNSA1LjI1TDExIC44NnoiIGZpbGw9ImN1cnJlbnRDb2xvciIvPgo8L3N2Zz4K');
     $selectChevronDark: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMSIgaGVpZ2h0PSI2IiB2aWV3Qm94PSIwIDAgMTEgNiIgZmlsbD0ibm9uZSI+CiAgICA8cGF0aCBkPSJNMTAuMDggMEw1LjUgNC4zNi45MSAwIDAgLjg2bDUuNSA1LjI1TDExIC44NnoiIGZpbGw9IiNmZmZmZmYiLz4KPC9zdmc+Cg==');
 
+    .submitted-message {
+        padding-left: $requiredWidth;
+    }
+
     .hs-form-field {
         margin-bottom: 16px;
         padding-left: $requiredWidth;
@@ -132,6 +136,7 @@ $block: '.#{$ns}hubspot-form';
                 height: $checkbox;
                 margin: 0;
                 opacity: 0;
+                flex-shrink: 0;
             }
 
             span {
@@ -322,11 +327,12 @@ $block: '.#{$ns}hubspot-form';
         @include text-body-2;
     }
 
-    @media (max-width: map-get($gridBreakpoints, 'md')) {
+    &_mobile {
         .hs-richtext,
         .hs-form-field,
-        .hs_error_rollup {
-            padding-left: 0;
+        .hs_error_rollup.actions,
+        .submitted-message {
+            padding: 0 4px;
         }
 
         .hs-form-field {

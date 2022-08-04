@@ -11,12 +11,10 @@ $block: '.#{$ns}info-block';
         @include heading2();
     }
 
-    &__background {
-        background-color: var(--yc-color-base-special);
-    }
-
     &__content {
-        padding: $indentXXL 0 $indentXXXL;
+        background-color: var(--yc-color-base-special);
+        padding: $indentXXL $indentXL $indentXXXL;
+        border-radius: var(--pc-border-radius);
     }
 
     &__buttons {
@@ -47,13 +45,13 @@ $block: '.#{$ns}info-block';
 
     @media (max-width: map-get($gridBreakpoints, 'lg')) {
         &__content {
-            padding: $indentXXL 0;
+            padding: $indentXXL $indentXL;
         }
     }
 
     @media (max-width: map-get($gridBreakpoints, 'sm')) {
         &__content {
-            padding: $indentXL 0;
+            padding: $indentXL $indentM;
         }
 
         &__buttons {
