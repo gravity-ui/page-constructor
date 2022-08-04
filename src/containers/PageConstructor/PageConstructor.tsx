@@ -70,7 +70,7 @@ export const Constructor: React.FC<Props> = (props) => {
     const themedBackground = getThemedValue(background, theme);
 
     return (
-        <InnerContext.Provider value={{itemMap: itemMap, blockTypes: blockTypes}}>
+        <InnerContext.Provider value={{itemMap, blockTypes}}>
             <div className={b({'has-footnotes': hasFootnotes})}>
                 <div className={b('wrapper')}>
                     <BackgroundMedia {...themedBackground} className={b('background')} />
