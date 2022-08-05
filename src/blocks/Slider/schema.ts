@@ -15,10 +15,15 @@ const LoadableProps = {
             type: 'string',
             enum: ['events', 'blog', 'services'],
         },
+        /**
+         * @deprecated
+         */
         minCount: {
-            type: 'number', //deprecated
+            type: 'number',
         },
-        // deprecated
+        /**
+         * @deprecated Will be moved to params
+         */
         serviceId: {type: 'number'},
         params: {
             type: 'object',

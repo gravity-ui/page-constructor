@@ -1,6 +1,6 @@
 import {dividerEnum, BaseProps} from '../../schema/validators/common';
 
-export const dividerBlock = {
+export const Divider = {
     divider: {
         additionalProperties: false,
         properties: {

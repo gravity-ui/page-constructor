@@ -20,10 +20,4 @@ $block: '.#{$ns}page-constructor';
             top: calc(-1 * var(--header-height));
         }
     }
-
-    &__menu-title {
-        color: var(--yc-color-text-primary);
-
-        font-weight: 500;
-    }
 }

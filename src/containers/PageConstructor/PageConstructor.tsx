@@ -71,12 +71,12 @@ export const Constructor: React.FC<Props> = (props) => {
 
     return (
         <InnerContext.Provider value={{itemMap, blockTypes}}>
-            <div className={b({'has-footnotes': hasFootnotes})}>
+            <div className={b()}>
                 <div className={b('wrapper')}>
                     <BackgroundMedia {...themedBackground} className={b('background')} />
                     {renderMenu && renderMenu()}
                     {header && <ConstructorHeader data={header} />}
-                    <Grid className={b('grid')}>
+                    <Grid>
                         {restBlocks && (
                             <ConstructorRow>
                                 <ConstructorBlocks items={restBlocks} />

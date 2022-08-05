@@ -34,7 +34,7 @@ import {
     CardWithImage,
     PriceDetailedBlock,
     Quote,
-    dividerBlock,
+    Divider,
 } from './validators/sub-blocks';
 
 import {AnimatableProps, BackgroundProps, MenuProps, withTheme} from './validators/common';
@@ -118,7 +118,7 @@ export function generateDefaultSchema(config?: SchemaCustomConfig) {
                     ...IconsBlock,
                     ...CardLayoutBlock,
                     ...ContentLayoutBlock,
-                    ...dividerBlock,
+                    ...Divider,
                     ...getBlocksCases(blocks),
                 },
             }),
