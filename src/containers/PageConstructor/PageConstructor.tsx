@@ -44,15 +44,17 @@ export interface PageConstructorProps {
 type Props = PageConstructorProps & WithThemeValueProps;
 
 export const Constructor: React.FC<Props> = (props) => {
-    const {blockTypes, fullHeaderBlockTypes, itemMap} = useMemo(
+    const {context, headerBlockTypes} = useMemo(
         () => ({
-            blockTypes: [...BlockTypes, ...getCustomBlockTypes(props.custom)],
-            fullHeaderBlockTypes: [...HeaderBlockTypes, ...getCustomHeaderTypes(props.custom)],
-            itemMap: {
-                ...blockMap,
-                ...subBlockMap,
-                ...getCustomItems(props.custom),
+            context: {
+                blockTypes: [...BlockTypes, ...getCustomBlockTypes(props.custom)],
+                itemMap: {
+                    ...blockMap,
+                    ...subBlockMap,
+                    ...getCustomItems(props.custom),
+                },
             },
+            headerBlockTypes: [...HeaderBlockTypes, ...getCustomHeaderTypes(props.custom)],
         }),
         [props.custom],
     );
@@ -64,13 +66,13 @@ export const Constructor: React.FC<Props> = (props) => {
     } = props;
 
     const hasFootnotes = footnotes.length > 0;
-    const isHeaderBlock = (block: Block) => fullHeaderBlockTypes.includes(block.type);
+    const isHeaderBlock = (block: Block) => headerBlockTypes.includes(block.type);
     const header = blocks?.find(isHeaderBlock);
     const restBlocks = blocks?.filter((block) => !isHeaderBlock(block));
     const themedBackground = getThemedValue(background, theme);
 
     return (
-        <InnerContext.Provider value={{itemMap, blockTypes}}>
+        <InnerContext.Provider value={context}>
             <div className={b()}>
                 <div className={b('wrapper')}>
                     <BackgroundMedia {...themedBackground} className={b('background')} />
