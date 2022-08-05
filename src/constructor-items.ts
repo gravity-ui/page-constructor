@@ -63,7 +63,13 @@ export const blockMap = {
 
 export const subBlockMap = {
     [SubBlockType.Divider]: Divider,
+    /**
+     * @deprecated Will be removed, use basic card instead
+     */
     [SubBlockType.TutorialCard]: TutorialCard,
+    /**
+     * @deprecated Will be removed, use basic card instead
+     */
     [SubBlockType.Partner]: Partner,
     [SubBlockType.PriceDetailed]: PriceDetailed,
     [SubBlockType.MediaCard]: MediaCard,
@@ -75,7 +81,7 @@ export const subBlockMap = {
     [SubBlockType.Content]: Content,
     [SubBlockType.Quote]: Quote,
     /**
-     * @deprecated Will be removed
+     * @deprecated Will be removed, use basic card instead
      */
     [SubBlockType.Card]: CardBase,
 };

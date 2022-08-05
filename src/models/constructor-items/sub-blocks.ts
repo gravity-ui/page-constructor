@@ -26,10 +26,16 @@ export enum SubBlockType {
     Divider = 'divider',
     Quote = 'quote',
     NewsCard = 'news-card',
+    /**
+     * @deprecated Will be moved to params use BasicCard instead
+     */
     Partner = 'partner',
     PriceDetailed = 'price-detailed',
     MediaCard = 'media-card',
     BannerCard = 'banner-card',
+    /**
+     * @deprecated Will be moved to params use BasicCard instead
+     */
     TutorialCard = 'tutoral-card',
     CardWithImage = 'card-with-image',
     BackgroundCard = 'background-card',
@@ -37,7 +43,7 @@ export enum SubBlockType {
     Content = 'content',
     HubspotForm = 'hubspot-form',
     /**
-     * @deprecated Will be moved to params
+     * @deprecated Will be moved to params use BasicCard instead
      */
     Card = 'card',
 }
