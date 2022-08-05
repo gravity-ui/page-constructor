@@ -1,0 +1,6 @@
+{
+    "extends": "@yandex-cloud/eslint-config/client",
+    "env": {
+        "node": true
+    }
+}

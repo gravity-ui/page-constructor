@@ -1,0 +1,25 @@
+:root {
+    --header-height: 64px;
+}
+
+.yc-root {
+    --yc-text-accent-font-weight: 500;
+
+    // cross-browser transparent color
+    --pc-transparent: rgba(255, 255, 255, 0);
+    --pc-border-radius: 24px;
+    --pc-image-padding: 4px;
+
+    --pc-color-sfx-shadow: var(--yc-color-base-simple-hover);
+    --pc-color-line-generic-active-solid: #b3b3b3;
+    --pc-color-base-float-hover: var(--yc-color-base-float);
+    --pc-monochrome-button: #262626;
+    --pc-monochrome-button-hover: #393939;
+    --pc-text-header-color: var(--yc-color-text-primary);
+
+    &.yc-root_theme_dark {
+        --pc-color-sfx-shadow: var(--yc-color-sfx-shadow);
+        --pc-color-line-generic-active-solid: #6c6c70;
+        --pc-color-base-float-hover: var(--yc-color-base-float-hover);
+    }
+}

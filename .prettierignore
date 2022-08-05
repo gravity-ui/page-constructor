@@ -1,0 +1,13 @@
+# System
+.idea
+.vscode
+.history
+
+# Build
+build/
+server/
+configure/
+storybook-static/
+
+# npm files
+package.json
