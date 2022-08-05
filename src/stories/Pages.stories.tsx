@@ -3,7 +3,7 @@ import React from 'react';
 
 import COMMON_TYPES from './COMMON_TYPES.md';
 import BLOCKS from './BLOCKS.md';
-import COMPONENTS from './COMPONENTS.md';
+import COMPONENTS from './SUB_BLOCKS.md';
 import PAGE_PROPERTIES from './PAGE_PROPERTIES.md';
 
 export default {
@@ -28,7 +28,7 @@ Blocks.storyName = 'Блоки';
 export const Components: Story = () => (
     <div className="yfm" dangerouslySetInnerHTML={{__html: COMPONENTS}} />
 );
-Components.storyName = 'Components';
+Components.storyName = 'Саб-блоки';
 
 export const CommonTypes: Story = () => (
     <div className="yfm" dangerouslySetInnerHTML={{__html: COMMON_TYPES}} />
