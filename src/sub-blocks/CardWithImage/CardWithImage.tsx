@@ -2,9 +2,8 @@ import React from 'react';
 
 import {block} from '../../utils';
 import {CardWithImageProps, LinkTheme} from '../../models';
-import FullScreenImage from '../FullscreenImage/FullscreenImage';
-import {Image} from '../index';
-import Content from '../Content/Content';
+import {Image, FullscreenImage} from '../../components';
+import {Content} from '../';
 
 import './CardWithImage.scss';
 
@@ -33,7 +32,7 @@ const CardWithImage: React.FC<CardWithImageProps> = ({
         <div className={b(null, className)}>
             <div className={b('image', {border})}>
                 {fullScreen ? (
-                    <FullScreenImage
+                    <FullscreenImage
                         src={image}
                         imageClassName={b('image-item')}
                         disableCompress={disableCompress}

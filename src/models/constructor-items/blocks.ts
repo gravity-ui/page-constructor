@@ -30,7 +30,7 @@ import {
 } from './common';
 import {ThemeSupporting} from '../../utils';
 import {GridColumnSize, GridColumnSizesType} from '../../grid/types';
-import {BannerProps, SubBlock} from './sub-blocks';
+import {BannerCardProps, SubBlock} from './sub-blocks';
 
 export enum BlockType {
     PromoFeaturesBlock = 'promo-features-block',
@@ -193,7 +193,7 @@ export interface QuestionsProps {
     items: QuestionItem[];
 }
 
-export interface BannerBlockProps extends BannerProps, Animatable {}
+export interface BannerBlockProps extends BannerCardProps, Animatable {}
 
 export interface CompaniesBlockProps extends Animatable {
     title: string;

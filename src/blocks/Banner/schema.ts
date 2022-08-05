@@ -6,7 +6,7 @@ import {
     ButtonBlock,
 } from '../../schema/validators/common';
 
-export const BannerProps = {
+export const BannerCardProps = {
     additionalProperties: false,
     required: ['title', 'button'],
     properties: {
@@ -37,9 +37,9 @@ export const BannerProps = {
 };
 
 export const BannerBlock = {
-    'banner-block': BannerProps,
+    'banner-block': BannerCardProps,
 };
 
 export const BannerCard = {
-    'banner-card': BannerProps,
+    'banner-card': BannerCardProps,
 };

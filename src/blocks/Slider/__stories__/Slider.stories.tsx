@@ -222,7 +222,7 @@ Banners.args = {
     arrows: true,
     children: [
         {
-            type: SubBlockType.Banner,
+            type: SubBlockType.BannerCard,
             title: 'Программа содействия образованию и науке в области Computer Science',
             subtitle: yfm(
                 'Получите грант на вычислительные ресурсы для учебно-исследовательской работы по машинному обучению, компьютерному зрению и анализу данных.',
@@ -242,7 +242,7 @@ Banners.args = {
             },
         },
         {
-            type: SubBlockType.Banner,
+            type: SubBlockType.BannerCard,
             title: 'Программа содействия образованию и науке в области Computer Science',
             subtitle: yfm(
                 'Получите грант на вычислительные ресурсы для учебно-исследовательской работы по машинному обучению, компьютерному зрению и анализу данных.',

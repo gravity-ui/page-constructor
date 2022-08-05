@@ -148,7 +148,7 @@ const Page: React.FC<PageProps> = ({children}) => (
 
 ### Как добавить новый блок в `page-constructor`
 
-1. В директории `src/blocks` или `src/components` создаем папку с кодом блока/саб-блока
+1. В директории `src/blocks` или `src/sub-blocks` создаем папку с кодом блока/саб-блока
 
 2. Добавляем название блока или саб-блока в enum `BlockType` или `SubBlockType` и описываем его свойства в файле `src/models/blocks.ts` или `src/models/sub-blocks.ts` по аналогии с уже существующими
 

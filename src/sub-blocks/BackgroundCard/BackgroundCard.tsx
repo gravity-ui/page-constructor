@@ -3,8 +3,8 @@ import React from 'react';
 import {block} from '../../utils';
 import CardBase from '../../components/CardBase/CardBase';
 import {BackgroundCardProps} from '../../models';
-import BackgroundImage from '../BackgroundImage/BackgroundImage';
-import Content from '../Content/Content';
+import {BackgroundImage} from '../../components';
+import {Content} from '../';
 
 import './BackgroundCard.scss';
 

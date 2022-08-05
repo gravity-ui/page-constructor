@@ -3,7 +3,7 @@ import React from 'react';
 import {block} from '../../utils';
 import {BannerBlockProps} from '../../models';
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
-import Banner from '../../components/Banner/Banner';
+import {BannerCard} from '../../sub-blocks';
 
 import './Banner.scss';
 
@@ -14,7 +14,7 @@ export const BannerBlock: React.FC<BannerBlockProps> = (props) => {
 
     return (
         <AnimateBlock className={b()} animate={animated}>
-            <Banner {...bannerProps} />
+            <BannerCard {...bannerProps} />
         </AnimateBlock>
     );
 };

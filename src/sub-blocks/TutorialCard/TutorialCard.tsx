@@ -4,16 +4,16 @@ import {HTML} from '@doc-tools/components';
 import {block} from '../../utils';
 import CardBase from '../../components/CardBase/CardBase';
 import {ImageProps, TutorialCardProps} from '../../models';
-import Image from '../../components/Image/Image';
+import {Image} from '../../components/';
 
-import {unifyImageToObject} from '../Media/Image/utils';
+import {getMediaImage} from '../../components/Media/Image/utils';
 
 import './TutorialCard.scss';
 
 const b = block('tutorial-card');
 
 function iconElement(icon: ImageProps, title: string) {
-    const {src, alt = title, disableCompress} = unifyImageToObject(icon ?? {});
+    const {src, alt = title, disableCompress} = getMediaImage(icon ?? {});
 
     return <Image src={src} alt={alt} className={b('icon')} disableCompress={disableCompress} />;
 }

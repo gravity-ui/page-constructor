@@ -1,7 +1,7 @@
 @import '../../../styles/mixins.scss';
 @import '../../../styles/variables.scss';
 
-$block: '.#{$ns}banner';
+$block: '.#{$ns}banner-card';
 
 @mixin subtitle {
     @include heading5();

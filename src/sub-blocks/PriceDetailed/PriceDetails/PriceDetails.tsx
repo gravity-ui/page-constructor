@@ -1,7 +1,7 @@
 import React, {Fragment, useCallback, useState} from 'react';
 
 import {block} from '../../../utils';
-import Foldable from '../../Foldable/Foldable';
+import {Foldable, ToggleArrow} from '../../../components';
 import {
     PriceDetailsSettingsProps,
     PriceDetailsListProps,
@@ -12,7 +12,6 @@ import {
 } from '../../../models';
 import List from './Details/List';
 import Settings from './Details/Settings';
-import ToggleArrow from '../../ToggleArrow/ToggleArrow';
 
 import './PriceDetails.scss';
 

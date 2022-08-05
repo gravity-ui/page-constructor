@@ -1,7 +1,7 @@
 import React, {Fragment} from 'react';
 
 import {block} from '../../../utils';
-import CardBase from '../../CardBase/CardBase';
+import {CardBase} from '../../../components';
 import {
     CardBorder,
     PriceDescriptionProps,

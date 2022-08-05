@@ -1,4 +1,4 @@
-import {ContentBlock} from '../../components/Content/schema';
+import {ContentBlock} from '../../sub-blocks/Content/schema';
 import {filteredArray} from '../../schema/validators/utils';
 import {
     contentSizes,

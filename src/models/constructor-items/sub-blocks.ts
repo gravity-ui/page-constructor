@@ -24,8 +24,6 @@ import {PixelEvent} from '../common';
 
 export enum SubBlockType {
     Divider = 'divider',
-    Form = 'form',
-    Card = 'card',
     Quote = 'quote',
     NewsCard = 'news-card',
     Partner = 'partner',
@@ -38,18 +36,15 @@ export enum SubBlockType {
     BasicCard = 'basic-card',
     Content = 'content',
     HubspotForm = 'hubspot-form',
-    Banner = 'Banner',
+    /**
+     * @deprecated Will be moved to params
+     */
+    Card = 'card',
 }
 
 export const SubBlockTypes = Object.values(SubBlockType);
 export interface DividerProps {
     size?: DividerSize;
-    border?: boolean;
-}
-
-export interface FormProps {
-    id: number | string;
-    metrikaGoals: string[];
     border?: boolean;
 }
 
@@ -137,7 +132,7 @@ export interface BasicCardProps
     icon?: ImageProps;
 }
 
-export interface BannerProps {
+export interface BannerCardProps {
     title: string;
     subtitle?: string;
     image?: ThemeSupporting<string>;
@@ -169,10 +164,6 @@ export interface CardWithImageProps
 export type DividerModel = {
     type: SubBlockType.Divider;
 } & DividerProps;
-
-export type FormModel = {
-    type: SubBlockType.Form;
-} & FormProps;
 
 export type CardModel = {
     type: SubBlockType.Card;
@@ -214,13 +205,12 @@ export type HubspotFormModel = {
     type: SubBlockType.HubspotForm;
 } & HubspotFormProps;
 
-export type BannerModel = {
-    type: SubBlockType.Banner;
-} & BannerProps;
+export type BannerCardModel = {
+    type: SubBlockType.BannerCard;
+} & BannerCardProps;
 
 export type SubBlockModels =
     | DividerModel
-    | FormModel
     | CardModel
     | QuoteModel
     | NewsCardModel
@@ -231,6 +221,6 @@ export type SubBlockModels =
     | CardWithImageModel
     | BackgroundCardModel
     | HubspotFormModel
-    | BannerModel;
+    | BannerCardModel;
 
 export type SubBlock = SubBlockModels;

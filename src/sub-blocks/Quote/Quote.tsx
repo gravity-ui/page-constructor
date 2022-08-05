@@ -5,8 +5,7 @@ import {HTML} from '@doc-tools/components';
 import {block, getThemedValue} from '../../utils';
 import {QuoteProps, AuthorType, ImageObjectProps} from '../../models';
 
-import Author from '../Author/Author';
-import Image from '../Image/Image';
+import {Author, Image} from '../../components';
 import {ThemeValueContext} from '../../context/theme/ThemeValueContext';
 
 import './Quote.scss';

@@ -2,17 +2,15 @@ import React, {useContext} from 'react';
 import {HTML} from '@doc-tools/components';
 
 import {block, getThemedValue} from '../../utils';
-import {BannerProps} from '../../models';
-import Button from '../../components/Button/Button';
-import YFMWrapper from '../../components/YFMWrapper/YFMWrapper';
-import BackgroundImage from '../../components/BackgroundImage/BackgroundImage';
+import {BannerCardProps} from '../../models';
+import {Button, YFMWrapper, BackgroundImage} from '../../components';
 import {ThemeValueContext} from '../../context/theme/ThemeValueContext';
 
-import './Banner.scss';
+import './BannerCard.scss';
 
-const b = block('banner');
+const b = block('banner-card');
 
-export const Banner: React.FC<BannerProps> = (props) => {
+export const BannerCard: React.FC<BannerCardProps> = (props) => {
     const {
         title,
         subtitle,
@@ -64,4 +62,4 @@ export const Banner: React.FC<BannerProps> = (props) => {
     );
 };
 
-export default Banner;
+export default BannerCard;

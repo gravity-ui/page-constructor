@@ -11,9 +11,9 @@ import {
     Content,
     Quote,
     Divider,
-    Banner,
+    BannerCard,
     BasicCard,
-} from './components';
+} from './sub-blocks';
 
 import {
     BannerBlock,
@@ -36,6 +36,8 @@ import {
     CardLayoutBlock,
     ContentLayoutBlock,
 } from './blocks';
+
+import {CardBase} from './components';
 
 export const blockMap = {
     [BlockType.SliderBlock]: SliderBlock,
@@ -65,11 +67,15 @@ export const subBlockMap = {
     [SubBlockType.Partner]: Partner,
     [SubBlockType.PriceDetailed]: PriceDetailed,
     [SubBlockType.MediaCard]: MediaCard,
-    [SubBlockType.BannerCard]: Banner,
+    [SubBlockType.BannerCard]: BannerCard,
     [SubBlockType.NewsCard]: NewsCard,
     [SubBlockType.CardWithImage]: CardWithImage,
     [SubBlockType.BackgroundCard]: BackgroundCard,
     [SubBlockType.BasicCard]: BasicCard,
     [SubBlockType.Content]: Content,
     [SubBlockType.Quote]: Quote,
+    /**
+     * @deprecated Will be removed
+     */
+    [SubBlockType.Card]: CardBase,
 };

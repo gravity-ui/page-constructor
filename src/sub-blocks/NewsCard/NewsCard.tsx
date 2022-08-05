@@ -1,7 +1,7 @@
 import React from 'react';
 import {block} from '../../utils';
 import {HTML} from '@doc-tools/components';
-import {CardBase} from '../index';
+import {CardBase} from '../../components';
 
 import {NewsCardProps} from '../../models';
 
