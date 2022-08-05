@@ -5,29 +5,29 @@ $block: '.#{$ns}divider-block';
 #{$block} {
     &_size {
         &_xxs {
-            margin-top: $indentXXS;
+            padding-top: $indentXXS;
         }
         &_xs {
-            margin-top: $indentXS;
+            padding-top: $indentXS;
         }
         &_s {
-            margin-top: $indentM;
+            padding-top: $indentM;
         }
         &_m {
-            margin-top: $indentM;
+            padding-top: $indentM;
         }
         &_l {
-            margin-top: $indentL;
+            padding-top: $indentL;
         }
         &_xl {
-            margin-top: $indentXL;
+            padding-top: $indentXL;
         }
         &_xxl {
-            margin-top: $indentXXL;
+            padding-top: $indentXXL;
         }
     }
     &_size_xxxl {
-        margin-top: $indentXXXL;
+        padding-top: $indentXXXL;
     }
 
     &_border {
