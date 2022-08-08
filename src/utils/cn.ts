@@ -1,6 +1,6 @@
 import blockOrigin from 'bem-cn-lite';
 
-export const NAMESPACE = 'pc-';
+export const NAMESPACE = 'bc-';
 
 export type CnBlock = ReturnType<typeof blockOrigin>;
 
