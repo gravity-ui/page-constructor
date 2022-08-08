@@ -2,12 +2,13 @@
 @import '../../../styles/variables.scss';
 
 $block: '.#{$ns}header-block';
+$backgroundWidth: 1440px;
 
 #{$block} {
     position: relative;
-    margin-top: $indentXS;
+    margin: $indentXS 0;
 
-    &_has-background {
+    &_has-background#{$block}_full-width {
         margin-left: $indentXS;
         margin-right: $indentXS;
     }
@@ -136,16 +137,20 @@ $block: '.#{$ns}header-block';
     &__background#{$block}__background_media {
         position: absolute;
         top: 0;
-        left: calc(#{$indentXXXS} - #{$indentL});
         overflow: hidden;
         z-index: 5;
-        width: calc(100% + ((#{$indentL} - #{$indentXXXS}) * 2));
+        width: $backgroundWidth;
+        max-width: 100%;
+        left: 50%;
+        transform: translateX(-50%);
         height: 100%;
         border-radius: $borderRadius;
     }
 
     &__background_full-width {
         left: 0;
+        transform: none;
+        max-width: none;
         width: 100%;
         background-color: var(--yc-color-base-background);
     }
@@ -158,6 +163,21 @@ $block: '.#{$ns}header-block';
 
         a {
             @include link();
+        }
+    }
+
+    @media (max-width: $backgroundWidth) {
+        &__background,
+        &__background#{$block}__background_media {
+            left: 0;
+            transform: none;
+        }
+
+        &_full-width {
+            #{$block}__background {
+                max-width: calc(100vw - 2 * #{$indentXXXS});
+                width: 100%;
+            }
         }
     }
 
@@ -203,17 +223,18 @@ $block: '.#{$ns}header-block';
     }
 
     @media (max-width: map-get($gridBreakpoints, 'sm')) {
-        &__background:not(&__background_full-width) {
-            left: -$indentXXXS;
-            width: calc(100% + (#{$indentXXXS} * 2));
+        &_full-width {
+            #{$block}__background {
+                left: $indentXXXS;
+            }
+
+            #{$block}__background_full-width {
+                width: calc(100% - (#{$indentXXXS} * 2));
+            }
         }
 
-        &__background_full-width {
-            left: $indentXXXS;
-            width: calc(100% - (#{$indentXXXS} * 2));
-        }
-
-        &_has-background {
+        &_has-background,
+        &_has-background#{$block}_full-width {
             margin-left: 0;
             margin-right: 0;
         }

@@ -18,7 +18,11 @@ const b = block('header-block');
 
 type HeaderBlockFullProps = HeaderBlockProps & ClassNameProps;
 
-function renderBackground(background: HeaderBlockBackground) {
+interface BackgroundProps {
+    background: HeaderBlockBackground;
+}
+
+const Background: React.FC<BackgroundProps> = ({background}) => {
     const {url, color, disableCompress, fullWidth} = background;
 
     return headerHasMediaBackground(background) ? (
@@ -32,18 +36,20 @@ function renderBackground(background: HeaderBlockBackground) {
             disableCompress={disableCompress}
         />
     );
+};
+
+interface FullWidthBackgroundProps {
+    background: HeaderBlockBackground;
 }
 
-function renderFullWidthBackground(background: HeaderBlockBackground) {
-    return background?.fullWidth ? (
-        <div
-            className={b('background', {['full-width']: true})}
-            style={{backgroundColor: background?.color}}
-        />
-    ) : null;
-}
+const FullWidthBackground: React.FC<FullWidthBackgroundProps> = ({background}) => (
+    <div
+        className={b('background', {['full-width']: true})}
+        style={{backgroundColor: background?.color}}
+    />
+);
 
-const HeaderBlock: React.FunctionComponent<HeaderBlockFullProps> = (props) => {
+export const HeaderBlock: React.FunctionComponent<HeaderBlockFullProps> = (props) => {
     const {
         title,
         overtitle,
@@ -76,15 +82,22 @@ const HeaderBlock: React.FunctionComponent<HeaderBlockFullProps> = (props) => {
     const imageThemed = image && getThemedValue(image, theme);
     const videoThemed = video && getThemedValue(video, theme);
 
+    const fullWidth = Boolean(backgroundThemed?.fullWidth);
+
     return (
         <header
             className={b(
-                {['has-media']: hasMedia, ['has-background']: Boolean(background)},
+                {
+                    ['has-media']: hasMedia,
+                    ['has-background']: Boolean(background),
+                    ['full-width']: fullWidth,
+                },
                 className,
             )}
         >
-            {backgroundThemed && renderFullWidthBackground(backgroundThemed)}
-            <Grid>
+            {backgroundThemed && fullWidth && <FullWidthBackground background={backgroundThemed} />}
+            {backgroundThemed && <Background background={backgroundThemed} />}
+            <Grid containerClass={b('container-fluid')}>
                 {breadcrumbs && (
                     <Row className={b('breadcrumbs')}>
                         <Col>
@@ -102,7 +115,6 @@ const HeaderBlock: React.FunctionComponent<HeaderBlockFullProps> = (props) => {
                                     'vertical-offset': curVerticalOffset,
                                 })}
                             >
-                                {backgroundThemed && renderBackground(backgroundThemed)}
                                 <Col sizes={titleSizes} className={b('content-inner')}>
                                     {overtitle && (
                                         <h4 className={b('overtitle')}>
