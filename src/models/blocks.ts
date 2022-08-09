@@ -1,5 +1,5 @@
 import React, {CSSProperties, ReactNode} from 'react';
-import {ButtonSize, ButtonView, ShareSocialNetwork} from '@yandex-cloud/uikit';
+import {ButtonSize, ButtonView} from '@yandex-cloud/uikit';
 import {ClassNameProps} from '../models';
 
 import {PixelEvent, PixelEventType} from './common';
@@ -89,6 +89,13 @@ export enum PriceLabelColor {
 export enum PreviewItemType {
     Video = 'video',
     Image = 'image',
+}
+
+export enum PCShareSocialNetwork {
+    Vk = 'vk',
+    Telegram = 'telegram',
+    Twitter = 'twitter',
+    Facebook = 'facebook',
 }
 
 export type TextTheme = 'light' | 'dark';
@@ -573,7 +580,7 @@ export interface LinkProps extends Stylable {
 }
 
 export interface ShareProps {
-    items: ShareSocialNetwork[];
+    items: PCShareSocialNetwork[];
     title?: string;
 }
 

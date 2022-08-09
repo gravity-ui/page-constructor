@@ -1,14 +1,23 @@
 import React, {useContext} from 'react';
-import {block, getAbsolutePath} from '../../utils';
-import {ShareList} from '@yandex-cloud/uikit';
 
-import {ShareProps} from '../../models';
+import {ShareList, ShareSocialNetwork} from '@yandex-cloud/uikit';
+
+import {block, getAbsolutePath} from '../../utils';
+import {PCShareSocialNetwork, ShareProps} from '../../models';
 import {LocationContext} from '../../context/locationContext';
 import i18n from './i18n';
 
 import './Share.scss';
 
 const b = block('share-block');
+
+// TODO https://st.yandex-team.ru/CLOUDFRONT-11753
+const pcShareSocialNetwork = {
+    [PCShareSocialNetwork.Vk]: ShareSocialNetwork.VK,
+    [PCShareSocialNetwork.Telegram]: ShareSocialNetwork.Telegram,
+    [PCShareSocialNetwork.Twitter]: ShareSocialNetwork.Twitter,
+    [PCShareSocialNetwork.Facebook]: ShareSocialNetwork.Facebook,
+};
 
 const Share: React.FunctionComponent<ShareProps> = ({items, title}) => {
     const {pathname, hostname} = useContext(LocationContext);
@@ -22,7 +31,7 @@ const Share: React.FunctionComponent<ShareProps> = ({items, title}) => {
                         key={type}
                         url={getAbsolutePath(hostname, pathname)}
                         className={b('item', {type: type.toLowerCase()})}
-                        type={type}
+                        type={pcShareSocialNetwork[type]}
                     />
                 ))}
             </div>
