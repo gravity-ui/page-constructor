@@ -21,7 +21,7 @@ const Share: React.FunctionComponent<ShareProps> = ({items, title}) => {
                     <ShareList.Item
                         key={type}
                         url={getAbsolutePath(hostname, pathname)}
-                        className={b('item', {type})}
+                        className={b('item', {type: type.toLowerCase()})}
                         type={type}
                     />
                 ))}

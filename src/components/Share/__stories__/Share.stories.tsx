@@ -1,6 +1,10 @@
 import {Meta, Story} from '@storybook/react/types-6-0';
 import React from 'react';
-import {ShareSocialNetwork} from '@yandex-cloud/uikit';
+import {
+    ShareSocialNetwork,
+    configure as uikitConfigure,
+    Lang as UIKitLang,
+} from '@yandex-cloud/uikit';
 
 import Share from '../Share';
 import {ShareProps} from '../../../models';
@@ -10,6 +14,8 @@ export default {
     component: Share,
     title: `${COMPONENTS}/Share`,
 } as Meta;
+
+uikitConfigure({lang: UIKitLang.En});
 
 const DefaultTemplate: Story<ShareProps> = (args) => <Share {...args} />;
 
