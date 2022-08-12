@@ -1,0 +1,88 @@
+@import './variables.scss';
+@import '~@yandex-data-ui/page-constructor/styles/mixins.scss';
+
+@mixin blog-paddings() {
+    &_padding-top {
+        &_xs {
+            padding-top: 0px;
+        }
+
+        &_s {
+            padding-top: $indentXS;
+        }
+
+        &_m {
+            padding-top: $indentM;
+        }
+
+        &_l {
+            padding-top: $indentL;
+        }
+
+        &_xl {
+            padding-top: $indentXL;
+        }
+    }
+
+    &_padding-bottom {
+        &_xs {
+            padding-bottom: 0px;
+        }
+
+        &_s {
+            padding-bottom: $indentXS;
+        }
+
+        &_m {
+            padding-bottom: $indentM;
+        }
+
+        &_l {
+            padding-bottom: $indentL;
+        }
+
+        &_xl {
+            padding-bottom: $indentXL;
+        }
+    }
+}
+
+@mixin animate-wrap {
+    @media (min-width: map-get($gridBreakpoints, 'md')) {
+        &.AnimateBlock,
+        .AnimateBlock & {
+            @content;
+        }
+    }
+}
+
+@mixin animate($class: null, $delay: 0s) {
+    @include animate-wrap {
+        & #{$class} {
+            position: relative;
+            top: 100px;
+            opacity: 0;
+        }
+
+        &.animate #{$class} {
+            top: 0;
+            opacity: 1;
+            transition: top $transition, opacity $transition;
+            transition-delay: $delay;
+        }
+    }
+}
+
+@mixin animate-fade($class: null, $delay: 0s) {
+    @include animate-wrap {
+        & #{$class} {
+            opacity: 0;
+        }
+
+        &.animate #{$class} {
+            opacity: 1;
+            transition: opacity $transition;
+            transition-delay: $delay;
+        }
+    }
+}

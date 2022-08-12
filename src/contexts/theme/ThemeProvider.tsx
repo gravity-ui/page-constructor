@@ -1,13 +1,13 @@
 import React from 'react';
 
 import {ThemeContext, ThemeContextProps} from './ThemeContext';
-import {ConstructorTheme, ThemeValueContext} from './ThemeValueContext';
-import {DEFAULT_THEME} from '../../components/constants';
+import {ThemeValueType, ThemeValueContext} from './ThemeValueContext';
+import {DEFAULT_THEME} from 'src/constants';
 
 interface ThemeProviderExternalProps {}
 
 interface ThemeProviderDefaultProps {
-    theme: ConstructorTheme;
+    theme: ThemeValueType;
 }
 
 export interface ThemeProviderProps
@@ -15,7 +15,7 @@ export interface ThemeProviderProps
         Partial<ThemeProviderDefaultProps> {}
 
 interface ThemeProviderState extends ThemeContextProps {
-    themeValue: ConstructorTheme;
+    themeValue: ThemeValueType;
 }
 
 export class ThemeProvider extends React.Component<
@@ -29,7 +29,7 @@ export class ThemeProvider extends React.Component<
     state: ThemeProviderState = {
         theme: this.props.theme,
         themeValue: this.props.theme,
-        setTheme: (theme: ConstructorTheme) => {
+        setTheme: (theme: ThemeValueType) => {
             this.setState({theme});
         },
     };

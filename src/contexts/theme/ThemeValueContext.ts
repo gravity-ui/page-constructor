@@ -1,9 +1,9 @@
 import React from 'react';
 
-export type ConstructorTheme = 'light' | 'dark';
+export type ThemeValueType = 'light' | 'dark';
 
 export interface ThemeValueContextProps {
-    themeValue: ConstructorTheme;
+    themeValue: ThemeValueType;
 }
 
 export const initialValue: ThemeValueContextProps = {

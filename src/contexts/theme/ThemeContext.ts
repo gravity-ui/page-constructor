@@ -1,11 +1,11 @@
 import React from 'react';
 
-import {DEFAULT_THEME} from '../../components/constants';
-import {ConstructorTheme} from './ThemeValueContext';
+import {DEFAULT_THEME} from 'src/constants';
+import {ThemeValueType} from './ThemeValueContext';
 
 export interface ThemeContextProps {
-    theme: ConstructorTheme;
-    setTheme: (newTheme: ConstructorTheme) => void;
+    theme: ThemeValueType;
+    setTheme: (newTheme: ThemeValueType) => void;
 }
 
 export const initialValue: ThemeContextProps = {
