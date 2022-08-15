@@ -1,0 +1,54 @@
+@import 'styles/variables.scss';
+@import 'styles/mixins.scss';
+
+.BlogAuthorBlock {
+    $root: &;
+
+    &__author-layout {
+        display: flex;
+        align-items: flex-start;
+        flex-direction: row;
+        overflow: hidden;
+    }
+
+    &__author-avatar {
+        display: flex;
+        width: 80px;
+        height: 80px;
+        flex-grow: 1;
+        flex-shrink: 0;
+        margin-right: $indentXS;
+        border-radius: $borderRadius;
+        overflow: hidden;
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'lg')) {
+        &__author-layout {
+            width: 50%;
+        }
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'sm')) {
+        &__author-layout {
+            width: 100%;
+        }
+    }
+
+    &__author-name {
+        @include text-size(header-1);
+    }
+
+    &__author-description {
+        padding-top: 4px;
+        color: var(--yc-color-text-primary);
+        @include text-size(body-2);
+    }
+
+    &__content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-content: flex-start;
+        position: relative;
+    }
+}

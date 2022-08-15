@@ -1,5 +1,7 @@
 import {parse} from 'fast-html-parser';
 
+import {format} from './date';
+
 const NodeType = {
     ELEMENT_NODE: 1,
     TEXT_NODE: 3,

@@ -109,6 +109,8 @@ module.exports = {
             constructor: path.resolve(__dirname, '../src/constructor'),
             icons: path.resolve(__dirname, '../assets/icons'),
             images: path.resolve(__dirname, '../assets/images'),
+            '@mocks': path.resolve(__dirname, '../.mocks'),
+            counters: path.resolve(__dirname, '../src/counters'),
         };
 
         // без этого fileName в context.parameters в продакшн сборке становится цифрой, а не путём, и ссылку на сорсы не сформировать

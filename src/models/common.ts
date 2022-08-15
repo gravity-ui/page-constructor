@@ -23,8 +23,8 @@ export interface BasePageData {
     shareTitle?: string;
     shareDescription?: string;
     shareImage?: string;
-    service?: any;
-    solution?: any;
+    service?: unknown;
+    solution?: unknown;
 }
 
 export interface PageData extends BasePageData {

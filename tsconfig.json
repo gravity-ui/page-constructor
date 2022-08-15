@@ -4,6 +4,7 @@
     "allowJs": false,
     "declaration": true,
     "resolveJsonModule": true,
+    "esModuleInterop": true,
     "rootDirs": ["src"],
     "outDir": "build",
     "baseUrl": ".",
@@ -21,7 +22,9 @@
       "utils/*": ["src/utils/*"],
       "constructor/*": ["src/constructor/*"],
       "icons/*": ["assets/icons/*"],
-      "images/*": ["assets/images/*"]
+      "images/*": ["assets/images/*"],
+      "@mocks/*": [".mocks/*"],
+      "counters/*": ["src/counters/*"]
     },
     "module": "esNext",
     "jsx": "react",

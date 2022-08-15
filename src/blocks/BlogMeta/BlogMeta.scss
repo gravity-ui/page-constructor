@@ -1,0 +1,10 @@
+.BlogMetaBlock {
+    $root: &;
+
+    padding: 0;
+    margin: 0;
+
+    &__breadcrumbs {
+        display: inline-block;
+    }
+}
