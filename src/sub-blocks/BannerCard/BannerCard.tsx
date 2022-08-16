@@ -1,9 +1,8 @@
 import React, {useContext} from 'react';
-import {HTML} from '@doc-tools/components';
 
 import {block, getThemedValue} from '../../utils';
 import {BannerCardProps} from '../../models';
-import {Button, YFMWrapper, BackgroundImage} from '../../components';
+import {Button, YFMWrapper, BackgroundImage, HTML} from '../../components';
 import {ThemeValueContext} from '../../context/theme/ThemeValueContext';
 
 import './BannerCard.scss';

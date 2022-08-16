@@ -1,13 +1,10 @@
 import React from 'react';
-import {HTML} from '@doc-tools/components';
 
 import {block} from '../../utils';
 import {QuestionsProps} from '../../models';
 import Link from '../../components/Link/Link';
 
-import Foldable from '../../components/Foldable/Foldable';
-import ToggleArrow from '../../components/ToggleArrow/ToggleArrow';
-import YFMWrapper from '../../components/YFMWrapper/YFMWrapper';
+import {YFMWrapper, ToggleArrow, Foldable, HTML} from '../../components';
 import {Row, Col} from '../../grid';
 
 import './Questions.scss';

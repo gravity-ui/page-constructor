@@ -1,8 +1,7 @@
 import React from 'react';
-import {HTML} from '@doc-tools/components';
 
 import {block} from '../../utils';
-import {CardBase, Image} from '../../components';
+import {CardBase, Image, HTML} from '../../components';
 import {ImageProps, PartnerProps} from '../../models';
 
 import './Partner.scss';

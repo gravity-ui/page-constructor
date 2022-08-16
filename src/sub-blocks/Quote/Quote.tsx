@@ -1,11 +1,10 @@
 import React, {useContext} from 'react';
 import {Button} from '@yandex-cloud/uikit';
-import {HTML} from '@doc-tools/components';
 
 import {block, getThemedValue} from '../../utils';
 import {QuoteProps, AuthorType, ImageObjectProps} from '../../models';
 
-import {Author, Image} from '../../components';
+import {Author, Image, HTML} from '../../components';
 import {ThemeValueContext} from '../../context/theme/ThemeValueContext';
 
 import './Quote.scss';

@@ -1,8 +1,7 @@
 import React from 'react';
 import {block} from '../../utils';
-import {HTML} from '@doc-tools/components';
-import {CardBase} from '../../components';
 
+import {CardBase, HTML} from '../../components';
 import {NewsCardProps} from '../../models';
 
 import './NewsCard.scss';

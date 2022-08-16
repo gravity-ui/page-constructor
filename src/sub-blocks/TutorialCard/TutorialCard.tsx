@@ -1,10 +1,9 @@
 import React from 'react';
-import {HTML} from '@doc-tools/components';
 
 import {block} from '../../utils';
 import CardBase from '../../components/CardBase/CardBase';
 import {ImageProps, TutorialCardProps} from '../../models';
-import {Image} from '../../components/';
+import {Image, HTML} from '../../components/';
 
 import {getMediaImage} from '../../components/Media/Image/utils';
 
