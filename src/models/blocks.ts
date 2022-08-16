@@ -303,6 +303,7 @@ export enum AuthorType {
 export interface AuthorProps {
     author: AuthorItem;
     className?: string;
+    authorContainerClassName?: string;
     type?: AuthorType;
 }
 
