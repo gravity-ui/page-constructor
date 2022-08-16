@@ -39,6 +39,8 @@ $authorBorderRadius: $indentXS;
     }
 
     &__description {
+        @include text-size(body-2);
+
         padding-top: 4px;
     }
 
