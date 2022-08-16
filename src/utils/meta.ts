@@ -1,3 +1,5 @@
+import urlJoin from 'url-join';
+
 import {PriceResponse} from 'models/calculator';
 import {countWords, formatPrice} from './common';
 import {sanitizeHtml} from './sanitize';
@@ -9,6 +11,7 @@ import {BlogPostData} from 'units/blog/models';
 import {LocaleUtils} from '../../common/i18n/locales';
 import {setUrlTld} from 'utils/common';
 import {RegionalConfig} from 'contexts/RegionalConfigContext';
+import {RouterContextProps} from 'contexts/RouterContext';
 
 type BreadcrumbsData = {
     title: string;
@@ -218,4 +221,49 @@ export class SchemaOrgUtils {
             },
         };
     }
+}
+
+export function getSharingImageURL(
+    locale: Locale,
+    router: RouterContextProps,
+    localeUtils: LocaleUtils,
+    withQuery = false,
+    routePrefix?: string,
+): string {
+    const pagePath = urlJoin(
+        '/image-generator',
+        routePrefix ?? '',
+        router.pathname,
+        withQuery
+            ? `?${new URLSearchParams(router.query as Record<string, string>).toString()}`
+            : '',
+    );
+    const url = localeUtils.getAbsoluteLocaleUrl(locale, router.hostname, pagePath);
+    const config = {
+        url: `https://${router.hostname}/api/image-generator/generate`,
+        params: {
+            url,
+            width: 1280,
+            height: 640,
+        },
+    };
+    return axiosWrapper.getUri(config);
+}
+
+export function getCleanTitle(title?: string) {
+    if (!title || !title.includes('|')) {
+        return title;
+    }
+
+    const [cleanTitle] = title.split('|');
+
+    return cleanTitle?.trim();
+}
+
+export function getDefaultTitle(appTitle: string, sectionTitle?: string) {
+    return sectionTitle ? `${appTitle} - ${getCleanTitle(sectionTitle)}` : appTitle;
+}
+
+export function getTitleTemplate(appTitle: string, sectionTitle?: string) {
+    return `%s | ${getDefaultTitle(appTitle, sectionTitle)}`;
 }

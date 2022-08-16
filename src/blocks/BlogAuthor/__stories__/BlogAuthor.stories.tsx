@@ -34,7 +34,7 @@ export const Default = DefaultTemplate.bind({});
 
 Default.args = {
     type: BlockType.BlogAuthorBlock,
-    authorId: 387,
+    authorId: 290,
     paddingBottom: 'l',
     paddingTop: 'l',
     image: 'https://storage.yandexcloud.net/cloud-www-assets/blog-assets/ru/posts/2022/07/cover-digest-june.png',

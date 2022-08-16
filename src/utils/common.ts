@@ -167,3 +167,7 @@ export function getAbsolutePath(router: any, url?: string) {
         pathname: parsed.pathname || router.pathname,
     });
 }
+
+export function isRootPage(pathname: string) {
+    return pathname === '/';
+}

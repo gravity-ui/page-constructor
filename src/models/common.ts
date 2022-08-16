@@ -1,5 +1,4 @@
 import {PageContent} from '@yandex-data-ui/page-constructor';
-import {BlogPostData} from './blog';
 
 export enum Theme {
     Light = 'light',
@@ -29,10 +28,4 @@ export interface BasePageData {
 
 export interface PageData extends BasePageData {
     content: PageContent;
-}
-
-export interface BlogPostPageData {
-    withPage: boolean;
-    post: BlogPostData;
-    page: PageData;
 }

@@ -9,7 +9,7 @@ export interface RegionalConfigProps
     marketplaceExcludeDashboards: string[];
 }
 
-export const RegionalConfigContext = React.createContext<RegionalConfigProps | {}>({
+export const RegionalConfigContext = React.createContext<RegionalConfigProps>({
     appTitle: '',
     hosts: {},
     styles: {layoutInlineStyleSheets: [], layoutLinks: []},

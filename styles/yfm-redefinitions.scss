@@ -1,0 +1,49 @@
+@import './mixins';
+@import './variables';
+
+.yfm_redefinitions {
+    p,
+    li {
+        @include text-size(body-3);
+        color: var(--yc-color-text-primary);
+    }
+
+    a {
+        @include reset-link-style();
+        border-bottom: 1px solid var(--www-link-decoration);
+        color: var(--www-text-content-color);
+
+        &:hover {
+            border-bottom-color: var(--www-text-content-color);
+            color: var(--www-text-content-color);
+        }
+    }
+
+    a.yfm-anchor {
+        display: none;
+    }
+
+    p,
+    ul,
+    ol {
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    h2 {
+        @include heading2();
+    }
+
+    h3 {
+        @include heading3();
+    }
+
+    h4 {
+        @include heading4();
+    }
+
+    h5 {
+        @include heading5();
+    }
+}

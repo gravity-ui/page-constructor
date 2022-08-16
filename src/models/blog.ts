@@ -1,5 +1,6 @@
 import {BlogPostTag, SpeakerPublic} from '@yandex-data-ui/cloud-schemas/build/models/ui-api';
 import {Locale} from 'models/locale';
+import {PageData} from 'models/blog';
 
 export interface BlogPostLikes {
     count: number;
@@ -72,4 +73,10 @@ export enum BlockType {
     BlogAuthorBlock = 'blog-author-block',
     BlogSuggestBlock = 'blog-suggest-block',
     BlogMetaBlock = 'blog-meta-block',
+}
+
+export interface BlogPostPageData {
+    withPage: boolean;
+    post: BlogPostData;
+    page: PageData;
 }
