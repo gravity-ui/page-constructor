@@ -1,12 +1,12 @@
 import React, {useCallback, useContext} from 'react';
 import {Platform, Button as CommonButton, Icon, StoreBadge} from '@yandex-cloud/uikit';
-import githubIcon from '../../../assets/icons/github.svg';
 
 import {block, setUrlTld} from '../../utils';
 import {ButtonProps as ButtonParams} from '../../models';
 import {OldButtonSize, OldButtonTheme, toCommonSize, toCommonView} from './utils';
 import {LocaleContext} from '../../context/localeContext/localeContext';
 import {useMetrika} from '../../hooks/useMetrika';
+import {Github} from '../../icons';
 
 import './Button.scss';
 
@@ -67,7 +67,7 @@ const Button: React.FunctionComponent<ButtonProps> = (props) => {
     let image = img && <img className={b('image')} src={buttonImg.url} alt={buttonImg.alt} />;
 
     if (theme === 'github') {
-        icon = <Icon className={b('icon')} data={githubIcon} size={24} />;
+        icon = <Icon className={b('icon')} data={Github} size={24} />;
         image = undefined;
     }
 
