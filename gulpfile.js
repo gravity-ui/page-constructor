@@ -5,18 +5,11 @@ const rimraf = require('rimraf');
 const ts = require('gulp-typescript');
 const replace = require('gulp-replace');
 const sass = require('gulp-dart-sass');
-const rename = require('gulp-rename');
 
 const BUILD_CLIENT_DIR = path.resolve('build');
-const BUILD_SERVER_DIRS = {
-    server: path.resolve('server'),
-    configure: path.resolve('configure'),
-};
 
 task('clean', (done) => {
     rimraf.sync(BUILD_CLIENT_DIR);
-    rimraf.sync(BUILD_SERVER_DIRS.server);
-    rimraf.sync(BUILD_SERVER_DIRS.configure);
     rimraf.sync('styles/**/*.css');
     done();
 });
@@ -61,36 +54,12 @@ function compileTs(modules = false) {
         .pipe(dest(path.resolve(BUILD_CLIENT_DIR, modules ? 'esm' : 'cjs')));
 }
 
-function compileServerTs(entry) {
-    const tsProject = ts.createProject(`tsconfig.${entry}.json`, {
-        declaration: true,
-        module: 'commonjs',
-    });
-
-    return src([`src/**/${entry}.ts`])
-        .pipe(tsProject())
-        .pipe(
-            rename(function (filePath) {
-                filePath.basename = filePath.basename.replace(entry, 'index');
-            }),
-        )
-        .pipe(dest(path.resolve(BUILD_SERVER_DIRS[entry])));
-}
-
 task('compile-to-esm', () => {
     return compileTs(true);
 });
 
 task('compile-to-cjs', () => {
     return compileTs();
-});
-
-task('compile-server', () => {
-    return compileServerTs('server');
-});
-
-task('compile-configure', () => {
-    return compileServerTs('configure');
 });
 
 task('copy-js-declarations', () => {
@@ -118,7 +87,7 @@ task(
     'build',
     series([
         'clean',
-        parallel(['compile-to-esm', 'compile-to-cjs', 'compile-server', 'compile-configure']),
+        parallel(['compile-to-esm', 'compile-to-cjs']),
         'copy-js-declarations',
         'copy-i18n',
         parallel(['styles-global', ...getStylesTasks()]),
