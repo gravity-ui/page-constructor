@@ -54,6 +54,7 @@ export interface SliderProps
     onBeforeChange?: (current: number, next: number) => void;
     dotsClassName?: string;
     blockClassName?: string;
+    arrowSize?: number;
 }
 
 export const SliderBlock: FC<SliderProps> = (props) => {
@@ -63,7 +64,7 @@ export const SliderBlock: FC<SliderProps> = (props) => {
         description,
         type,
         anchorId,
-        arrows,
+        arrows = true,
         adaptive,
         autoplay = undefined,
         dots = true,
@@ -73,6 +74,7 @@ export const SliderBlock: FC<SliderProps> = (props) => {
         className,
         blockClassName,
         lazyLoad,
+        arrowSize,
         onAfterChange: handleAfterChange,
         onBeforeChange: handleBeforeChange,
     } = props;
@@ -97,7 +99,6 @@ export const SliderBlock: FC<SliderProps> = (props) => {
 
     const slidesToShowCount = getSlidesToShowCount(slidesToShow);
     const slidesCountByBreakpoint = getSlidesCountByBreakpoint(breakpoint, slidesToShow);
-    const showNavigation = arrows === undefined ? childrenCount > slidesCountByBreakpoint : arrows;
 
     const [currentIndex, setCurrentIndex] = useState<number>(0);
     const [childStyles, setChildStyles] = useState<Object>({});
@@ -248,7 +249,7 @@ export const SliderBlock: FC<SliderProps> = (props) => {
     };
 
     const renderNavigation = () => {
-        if (!showNavigation || !dots || childrenCount === 1) {
+        if (childrenCount <= slidesCountByBreakpoint || !dots || childrenCount === 1) {
             return null;
         }
 
@@ -278,7 +279,7 @@ export const SliderBlock: FC<SliderProps> = (props) => {
         const settings = {
             ref: (slickSlider: SlickSliderFull) => setSlider(slickSlider),
             className: slick(null, className),
-            arrows: showNavigation,
+            arrows,
             variableWidth,
             infinite: false,
             speed: 500,
@@ -291,8 +292,8 @@ export const SliderBlock: FC<SliderProps> = (props) => {
             beforeChange: onBeforeChange,
             afterChange: onAfterChange,
             initialSlide: 0,
-            nextArrow: <Arrow type="right" handleClick={handleArrowClick} />,
-            prevArrow: <Arrow type="left" handleClick={handleArrowClick} />,
+            nextArrow: <Arrow type="right" handleClick={handleArrowClick} size={arrowSize} />,
+            prevArrow: <Arrow type="left" handleClick={handleArrowClick} size={arrowSize} />,
             lazyLoad,
         };
 
@@ -314,7 +315,8 @@ export const SliderBlock: FC<SliderProps> = (props) => {
                     {
                         'align-left': childrenCount < slidesCountByBreakpoint,
                         'one-slide': childrenCount === 1,
-                        'only-arrows': !title?.text && !description && showNavigation,
+                        'only-arrows': !title?.text && !description && arrows,
+                        mobile: isMobile,
                         type,
                     },
                     blockClassName,

@@ -829,6 +829,7 @@ interface HeaderBackgroundProps {
 
 export interface HeaderBlockBackground extends Partial<HeaderBackgroundProps>, Partial<MediaProps> {
     fullWidth?: boolean;
+    fullWidthMedia?: boolean;
 }
 
 export type ThemedHeaderBlockBackground = ThemeSupporting<HeaderBlockBackground>;

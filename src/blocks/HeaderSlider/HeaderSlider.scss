@@ -4,10 +4,6 @@
 $block: '.#{$ns}header-slider-block';
 
 #{$block} {
-    &__wrapper {
-        margin: $indentXS;
-    }
-
     &__item {
         display: block;
         height: 100%;
@@ -18,11 +14,10 @@ $block: '.#{$ns}header-slider-block';
 
     &__item-content {
         height: inherit;
-        border-radius: $borderRadius;
         overflow: hidden;
 
         @include add-specificity(&) {
-            margin: 0;
+            margin: 0 0 $indentXS;
         }
 
         .#{$ns}header-block__content {
@@ -39,14 +34,15 @@ $block: '.#{$ns}header-slider-block';
 
         .#{$ns}header-block__media {
             padding-bottom: $indentL;
+            padding-top: $indentXS;
         }
     }
 
     @media (max-width: $headerSliderLargeBreakpoint) and (min-width: map-get($gridBreakpoints, 'sm')) {
         &__item-content {
             .#{$ns}header-block__content {
-                padding-left: 60px;
-                padding-right: 60px;
+                padding-left: $indentM;
+                padding-right: $indentM;
             }
         }
     }
@@ -60,10 +56,6 @@ $block: '.#{$ns}header-slider-block';
     }
 
     @media (max-width: map-get($gridBreakpoints, 'sm')) {
-        &__wrapper {
-            margin: $indentXS 8px $indentXS;
-        }
-
         &__item-content {
             .#{$ns}header-block__content {
                 padding-left: 0;

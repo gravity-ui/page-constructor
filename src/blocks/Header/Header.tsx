@@ -27,14 +27,17 @@ interface BackgroundProps {
 }
 
 const Background: React.FC<BackgroundProps> = ({background}) => {
-    const {url, color, disableCompress, fullWidth} = background;
+    const {url, color, disableCompress, fullWidth, fullWidthMedia} = background;
 
     return headerHasMediaBackground(background) ? (
-        <BackgroundMedia {...background} className={b('background', {media: true})} />
+        <BackgroundMedia
+            {...background}
+            className={b('background', {media: true, 'full-width-media': fullWidthMedia})}
+        />
     ) : (
         <BackgroundImage
             src={url}
-            className={b('background')}
+            className={b('background', {'full-width-media': fullWidthMedia})}
             imageClassName={b('background-img')}
             style={{backgroundColor: fullWidth ? 'none' : color}}
             disableCompress={disableCompress}

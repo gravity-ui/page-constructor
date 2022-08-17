@@ -8,9 +8,9 @@ $backgroundWidth: 1440px;
     position: relative;
     margin: $indentXS 0;
 
-    &_has-background#{$block}_full-width {
-        margin-left: $indentXS;
-        margin-right: $indentXS;
+    &_full-width {
+        padding: $indentXS 0;
+        margin: 0 0 $indentXS;
     }
 
     &__content-wrapper {
@@ -145,9 +145,22 @@ $backgroundWidth: 1440px;
         transform: translateX(-50%);
         height: 100%;
         border-radius: $borderRadius;
+
+        &#{$block}__background_full-width-media {
+            width: 100%;
+
+            & > div {
+                max-width: none;
+            }
+        }
+    }
+
+    &__background_full-width-media {
+        --pc-border-radius: 0;
     }
 
     &__background_full-width {
+        --pc-border-radius: 0;
         left: 0;
         transform: none;
         max-width: none;
@@ -171,13 +184,6 @@ $backgroundWidth: 1440px;
         &__background#{$block}__background_media {
             left: 0;
             transform: none;
-        }
-
-        &_full-width {
-            #{$block}__background {
-                max-width: calc(100vw - 2 * #{$indentXXXS});
-                width: 100%;
-            }
         }
     }
 
@@ -223,20 +229,5 @@ $backgroundWidth: 1440px;
     }
 
     @media (max-width: map-get($gridBreakpoints, 'sm')) {
-        &_full-width {
-            #{$block}__background {
-                left: $indentXXXS;
-            }
-
-            #{$block}__background_full-width {
-                width: calc(100% - (#{$indentXXXS} * 2));
-            }
-        }
-
-        &_has-background,
-        &_has-background#{$block}_full-width {
-            margin-left: 0;
-            margin-right: 0;
-        }
     }
 }
