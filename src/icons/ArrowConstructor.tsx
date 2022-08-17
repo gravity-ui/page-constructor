@@ -9,10 +9,11 @@ export function ArrowConstructor(props: React.SVGProps<SVGSVGElement>) {
             height="42"
             viewBox="0 0 19 42"
             fill="none"
+            stroke="currentColor"
             {...a11yHiddenSvgProps}
             {...props}
         >
-            <path d="M18 41 2 21 18 1" stroke="#333" strokeWidth="2" />
+            <path d="M18 41 2 21 18 1" strokeWidth="2" />
         </svg>
     );
 }
