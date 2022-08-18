@@ -14,7 +14,7 @@ import {BlogMetaProps, BlogPageMeta} from './BlogPageMeta';
 // import {getPageConfig} from 'utils';
 
 import 'styles/yfm.scss';
-import 'styles/yfm-redefinitions.scss';
+
 // to make constructor yfm styles have higher priority than local
 import '@yandex-data-ui/page-constructor/styles/yfm.scss';
 

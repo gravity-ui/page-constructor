@@ -1,9 +1,10 @@
 import React, {useCallback, useContext, useState} from 'react';
 import block from 'bem-cn-lite';
 
+// TODO fixes and refactor in https://st.yandex-team.ru/ORION-1432
+
 import {LayoutDirections} from '@yandex-data-ui/common/build/esm/components/ShareTooltip/constants';
-import {ShareTooltip, SocialNetwork} from '@yandex-data-ui/common';
-import {Icon} from '@yandex-cloud/uikit';
+import {Icon, ShareTooltip, ShareSocialNetwork} from '@yandex-cloud/uikit';
 
 import {TranslationContext} from 'contexts/TranslationContext';
 import {RouterContext} from 'contexts/RouterContext';
@@ -99,7 +100,7 @@ export const BlogMetaSharing: React.FunctionComponent<BlogMetaSharingProps> = ({
                     customIcon={shareIcon}
                     placement="bottom"
                     openByHover={false}
-                    socialNets={[SocialNetwork.Telegram]}
+                    socialNets={[ShareSocialNetwork.Telegram]}
                     handleMetrika={handleMetrika}
                 />
             </span>

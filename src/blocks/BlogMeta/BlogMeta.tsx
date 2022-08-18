@@ -1,12 +1,11 @@
 import React, {useContext} from 'react';
 import block from 'bem-cn-lite';
-import {HeaderBreadcrumbs, TextTheme} from '@yandex-data-ui/page-constructor';
+import {HeaderBreadcrumbs, TextTheme, YFMWrapper} from '@yandex-data-ui/page-constructor';
 
 import {BlogPageContext} from 'contexts/BlogPageContext';
 import {TranslationContext} from 'contexts/TranslationContext';
 
 import {BlogWrapper, PaddingSize} from 'components/BlogWrapper/BlogWrapper';
-import {YFMWrapper} from 'components/YFMWrapper/YFMWrapper';
 import {BlogMetaComponent, BlogMetrikaGoals} from 'components/BlogMeta/BlogMeta';
 import {getBlogBreadcrumbs} from 'utils/blog';
 

@@ -4,6 +4,8 @@ import React, {useContext} from 'react';
 import {SpeakerPublic} from '@yandex-data-ui/cloud-schemas/build/models/ui-api';
 import {PageContent} from '@yandex-data-ui/page-constructor';
 
+// TODO fixes in https://st.yandex-team.ru/ORION-1432
+
 import Meta, {MetaComponentProps} from 'components/Meta/Meta';
 // import {SchemaOrgUtils} from 'utils';
 import {TranslationContext} from 'contexts/TranslationContext';

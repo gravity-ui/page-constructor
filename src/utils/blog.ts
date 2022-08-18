@@ -15,6 +15,7 @@ import {
 } from 'blocks/constants';
 
 import _ from 'lodash';
+// TODO fix https://st.yandex-team.ru/ORION-1442
 // import {CloudListTag} from 'components/tags/CloudTagList/CloudTagList';
 // import {addBlogPostLike, removeBlogPostLike} from './api';
 

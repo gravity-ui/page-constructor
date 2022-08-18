@@ -100,19 +100,10 @@ export const BlogLayout: React.FC<BlogLayoutProps> = ({
     return (
         <BlogWrapper paddingTop={paddingTop} paddingBottom={paddingBottom}>
             <Row className={b('row')} noGutter>
-                <Col
-                    className={b('left-col')}
-                    sizes={layout.leftCol.sizes}
-                    orders={layout.leftCol.orders}
-                >
+                <Col className={b('left-col')} {...layout.leftCol}>
                     {left && renderChildren(left)}
                 </Col>
-                <Col
-                    className={b('right-col')}
-                    sizes={layout.rightCol.sizes}
-                    offsets={layout.rightCol.offsets}
-                    orders={layout.rightCol.orders}
-                >
+                <Col className={b('right-col')} {...layout.rightCol}>
                     {right && renderChildren(right)}
                 </Col>
             </Row>

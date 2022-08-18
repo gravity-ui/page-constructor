@@ -1,8 +1,9 @@
 import urlJoin from 'url-join';
 
+import {sanitizeHtml} from '@yandex-data-ui/page-constructor/server';
+
 import {PriceResponse} from 'models/calculator';
 import {countWords, formatPrice} from './common';
-import {sanitizeHtml} from './sanitize';
 import {Locale} from 'contexts/LocaleContext';
 import {getYear} from '../../common/utils';
 import {Product} from 'units/marketplace/models';

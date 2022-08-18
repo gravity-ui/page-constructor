@@ -4,7 +4,7 @@ import React from 'react';
 import {MetaProps} from '@yandex-data-ui/common';
 
 // import {getSharingImageURL} from 'utils/meta';
-// import {sanitizeHtml} from 'utils/sanitize';
+// import {sanitizeHtml} from '@yandex-data-ui/page-constructor/server';
 import {DocumentMetaProps} from 'components/DocumentMeta/DocumentMeta';
 // import {LocaleContext} from 'contexts/LocaleContext';
 // import {RouterContext} from 'contexts/RouterContext';
@@ -38,10 +38,7 @@ export interface MetaComponentProps extends DocumentMetaProps {
 }
 
 // TODO refactor in https://st.yandex-team.ru/ORION-1432
-export const Meta: React.FC<MetaComponentProps> = (props) => {
-    console.log(' ---------------------------------------');
-    console.log('file: Meta.tsx ~ line 42 ~ props', props);
-    console.log(' ---------------------------------------');
+export const Meta: React.FC<MetaComponentProps> = () => {
     return null;
 
     // const {

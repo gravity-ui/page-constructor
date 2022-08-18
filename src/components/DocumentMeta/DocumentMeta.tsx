@@ -1,12 +1,13 @@
 import React, {useContext} from 'react';
 import {Helmet} from 'react-helmet';
 
+import {sanitizeHtml} from '@yandex-data-ui/page-constructor/server';
+
 import {RouterContext} from 'contexts/RouterContext';
 import {RegionalConfigContext} from 'contexts/RegionalConfigContext';
 
 import {isRootPage} from 'utils/common';
 import {getCleanTitle, getDefaultTitle, getTitleTemplate} from 'utils/meta';
-import {sanitizeHtml} from 'utils/sanitize';
 
 export interface DocumentMetaProps {
     // DO NOT PASS TYPOGRAPHER'S STRING

@@ -44,6 +44,7 @@ export const BlogSuggestBlock: React.FC<SuggestBlockFullProps> = ({
     paddingTop = 'l',
     paddingBottom = 'l',
 }) => {
+    // TODO refactor in https://st.yandex-team.ru/ORION-1443
     // const [loading, setLoading] = useState(false);
     // const [error, setError] = useState(false);
     // const [suggestedPosts, setSuggestedPosts] = useState<BlogPostData[]>([]);
