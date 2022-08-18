@@ -3,36 +3,52 @@ import '@yandex-cloud/uikit/styles/styles.scss';
 import '../styles/styles.scss';
 
 import React from 'react';
-import CommonTheme from './commonTheme.js';
 import {MINIMAL_VIEWPORTS} from '@storybook/addon-viewport';
+import type {DecoratorFn} from '@storybook/react';
+import {CloudTheme} from './theme';
 import {PageConstructorProvider} from '../src/containers/PageConstructor/Provider';
-import {withTheme} from '../src/demo/decorators/withTheme';
-import {withLang} from '../src/demo/decorators/withLang';
-import {withMobile} from '../src/demo/decorators/withMobile';
+import {withTheme} from './decorators/withTheme';
+import {withMobile} from './decorators/withMobile';
+import {withLang} from './decorators/withLang';
 import {DocsWithReadme} from '../src/demo/DocsWithReadme';
 import {MobileProvider} from '@yandex-cloud/uikit';
 import {ThemeProvider} from '../src';
+import {configure, Lang} from '../configure';
 
-const withCommonProvider = (Story, context) => {
-    const theme = context.globals.theme;
+configure({
+    lang: Lang.En,
+});
 
-    // хак для установки темы в доке
-    context.parameters.backgrounds.default = theme;
-    context.globals.backgrounds = {
-        value: theme === 'light' ? 'white' : 'black',
-    };
+// const withCommonProvider = (Story, context) => {
+//     const theme = context.globals.theme;
 
-    context.globals.background = theme;
+//     // хак для установки темы в доке
+//     context.parameters.backgrounds.default = theme;
+//     context.globals.backgrounds = {
+//         value: theme === 'light' ? 'white' : 'black',
+//     };
 
-    // TODO: в будущем возможно появится вариант изменять динамически тему доки, нужно будет перейти на новый способ
-    // context.parameters.docs.theme = theme === 'light' ? CommonTheme.light : CommonTheme.dark;
+//     context.globals.background = theme;
 
+//     // TODO: в будущем возможно появится вариант изменять динамически тему доки, нужно будет перейти на новый способ
+//     // context.parameters.docs.theme = theme === 'light' ? CommonTheme.light : CommonTheme.dark;
+
+//     return (
+//         <MobileProvider mobile={false} platform={'browser'}>
+//             <ThemeProvider theme={theme}>
+//                 <Story {...context} />
+//             </ThemeProvider>
+//         </MobileProvider>
+//     );
+// };
+
+const withContextProvider: DecoratorFn = (Story, context) => {
     return (
-        <MobileProvider mobile={false} platform={'browser'}>
-            <ThemeProvider theme={theme}>
+        <ThemeProvider>
+            <MobileProvider>
                 <Story {...context} />
-            </ThemeProvider>
-        </MobileProvider>
+            </MobileProvider>
+        </ThemeProvider>
     );
 };
 
@@ -51,14 +67,14 @@ export const decorators = [
     withTheme,
     withLang,
     withMobile,
-    withCommonProvider,
+    withContextProvider,
     withPageConstructorProvider,
 ];
 
 export const parameters = {
     layout: 'fullscreen',
     docs: {
-        theme: CommonTheme,
+        theme: CloudTheme,
         page: DocsWithReadme,
     },
     // FIXME: Disabled due to performance reasons. See https://github.com/storybookjs/storybook/issues/5551
