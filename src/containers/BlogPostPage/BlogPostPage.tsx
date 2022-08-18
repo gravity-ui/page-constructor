@@ -22,7 +22,7 @@ export interface BlogPostPageProps {
     data: BlogPostPageData;
 }
 
-export const BlogPostPage: React.FC<BlogPostPageProps> = ({data}) => {
+export const BlogPostPage: React.FC<PageProps> = ({data}) => {
     const [hasUserLike, setHasUserLike] = useState(data?.post?.hasUserLike);
     const [likesCount, setLikesCount] = useState(data?.post?.likes);
 
@@ -63,7 +63,7 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({data}) => {
         };
     }, [data]);
 
-    return data?.withPage ? (
+    return (
         <main>
             <BlogPageContext.Provider
                 value={{
@@ -79,5 +79,5 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({data}) => {
                 <PageConstructor content={data?.page.content} custom={componentMap} />
             </BlogPageContext.Provider>
         </main>
-    ) : null;
+    );
 };

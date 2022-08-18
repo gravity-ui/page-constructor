@@ -3,9 +3,11 @@ import React from 'react';
 import {Meta, Story} from '@storybook/react/types-6-0';
 
 import {CONTAINERS} from 'demo/constants';
+import {createPostData} from 'dataCreators/createPostData';
+import {Lang} from 'models/locale';
 
-import post from '@mocks/post.json';
-import page from '@mocks/page.json';
+import postApi from '@mocks/postApi.json';
+import pageApi from '@mocks/pageApi.json';
 
 import {BlogPostPage, BlogPostPageProps} from '../BlogPostPage';
 
@@ -22,9 +24,10 @@ const DefaultTemplate: Story<BlogPostPageProps> = (args) => <BlogPostPage {...ar
 export const Default = DefaultTemplate.bind({});
 
 Default.args = {
-    data: {
-        withPage: true,
-        post: post as any,
-        page,
-    },
+    data: createPostData({
+        postData: postApi,
+        pageData: pageApi,
+        lang: Lang.Ru,
+        region: Lang.Ru,
+    }),
 };
