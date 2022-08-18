@@ -50,7 +50,22 @@ const ThemesTemplate: Story<ContentLayoutBlockModel> = (args) => (
                             ...args.properties?.background,
                         },
                     },
-                    textContent: {title: 'Кубик с темной монохромной темой', ...args.textContent},
+                    textContent: {
+                        title: 'Кубик с темной монохромной темой',
+                        buttons: [
+                            {
+                                text: 'Подключиться',
+                                theme: 'normal-contrast',
+                                url: 'https://console.cloud.yandex.${tld}/',
+                            },
+                            {
+                                text: 'Связаться с нами',
+                                theme: 'outlined-contrast',
+                                url: '/#contact-form',
+                            },
+                        ],
+                        ...args.textContent,
+                    },
                 },
                 {
                     ...args,
@@ -65,7 +80,22 @@ const ThemesTemplate: Story<ContentLayoutBlockModel> = (args) => (
                             ...args.properties?.background,
                         },
                     },
-                    textContent: {title: 'Кубик со светлой монохромной темой', ...args.textContent},
+                    textContent: {
+                        title: 'Кубик со светлой монохромной темой',
+                        buttons: [
+                            {
+                                text: 'Подключиться',
+                                theme: 'monochrome',
+                                url: 'https://console.cloud.yandex.${tld}/',
+                            },
+                            {
+                                text: 'Связаться с нами',
+                                theme: 'normal',
+                                url: '/#contact-form',
+                            },
+                        ],
+                        ...args.textContent,
+                    },
                 },
             ],
         }}
@@ -522,18 +552,6 @@ Theme.args = {
                 text: 'Подробнее',
                 theme: 'normal',
                 arrow: true,
-            },
-        ],
-        buttons: [
-            {
-                text: 'Подключиться',
-                theme: 'normal-contrast',
-                url: 'https://console.cloud.yandex.${tld}/',
-            },
-            {
-                text: 'Связаться с нами',
-                theme: 'outlined-contrast',
-                url: '/#contact-form',
             },
         ],
     },
