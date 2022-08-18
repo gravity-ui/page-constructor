@@ -282,7 +282,7 @@ export const SliderBlock: FC<SliderProps> = (props) => {
             arrows,
             variableWidth,
             infinite: false,
-            speed: 500,
+            speed: 1000,
             adaptiveHeight: adaptive,
             autoplay: Boolean(autoplay),
             autoplaySpeed: autoplay,
