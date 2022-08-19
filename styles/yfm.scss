@@ -1,0 +1,64 @@
+@import './mixins.scss';
+@import './variables.scss';
+
+.yfm_blog {
+    @include text-size(body-3);
+    color: var(--yc-color-text-primary);
+
+    h1:first-child,
+    h2:first-child,
+    h3:first-child,
+    h4:first-child {
+        padding: 0;
+        margin-top: 0;
+        padding-top: 0;
+    }
+
+    h2 {
+        @include text-size(display-2);
+    }
+
+    h3 {
+        @include text-size(header-2);
+    }
+
+    h4 {
+        @include text-size(header-1);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin-bottom: $indentXS;
+        margin-top: $indentM;
+        padding-top: 0;
+    }
+
+    blockquote,
+    dl,
+    ol,
+    p,
+    pre,
+    table,
+    ul {
+        margin: 0 0 $indentXS;
+    }
+
+    img {
+        margin-bottom: $indentM;
+        margin-top: $indentXS;
+        border-radius: $indentSM;
+    }
+
+    &_media {
+        @include text-size(body-3);
+        color: var(--yc-color-text-secondary);
+    }
+
+    &_breadcrumbs {
+        @include text-size(body-2);
+    }
+}

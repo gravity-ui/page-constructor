@@ -1,7 +1,7 @@
 //storybook
-export * from './context/theme';
+export * from './contexts/theme';
 
-export * from './models';
-export * from './utils';
+// export * from './models';
+// export * from './utils';
 
 export {BREAKPOINTS} from './constants';

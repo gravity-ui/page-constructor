@@ -1,0 +1,144 @@
+@import 'styles/variables';
+@import 'styles/mixins';
+
+.BlogPostPage {
+    &__top {
+        margin: 20px 0 30px;
+    }
+
+    &__bottom-meta {
+        margin-bottom: 30px;
+    }
+
+    &__heading {
+        margin-bottom: 40px;
+    }
+
+    &__main {
+        margin-bottom: 30px;
+
+        .Section__content {
+            position: relative;
+        }
+    }
+
+    &__title {
+        @include heading2();
+    }
+
+    &__back-link {
+        @include back-link();
+    }
+
+    &__aside {
+        position: absolute;
+        top: 0;
+        right: 100%;
+
+        width: 50px;
+        height: 100%;
+        margin-top: 5px;
+        // margin for yfm-anchors
+        margin-right: 24px;
+
+        &-sticky {
+            position: sticky;
+            z-index: 50;
+            @include top-content-offset($offset: 50px);
+        }
+    }
+
+    &__actions {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    &__share-list {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    &__share-link {
+        @include reset-link-style();
+        @include expand-interactive-area(4px);
+
+        display: block;
+        line-height: 0;
+
+        color: var(--yc-color-text-secondary);
+
+        &:hover {
+            color: var(--www-text-content-color);
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &__likes,
+    &__share-link {
+        margin-bottom: 10px;
+    }
+
+    &__likes {
+        padding: 1px;
+    }
+
+    .mobile & {
+        &__top,
+        &__bottom {
+            display: none;
+        }
+
+        &__bottom-meta {
+            margin-bottom: 0;
+        }
+
+        &__heading {
+            padding-top: 40px;
+        }
+
+        &__aside {
+            position: static;
+            margin-top: 30px;
+            margin-right: 0;
+            width: 100%;
+            height: auto;
+
+            &-sticky {
+                position: static;
+            }
+        }
+
+        &__actions {
+            flex-direction: row;
+            align-items: center;
+        }
+
+        &__likes {
+            margin-bottom: 0;
+            margin-right: auto;
+        }
+
+        &__share-list {
+            flex-direction: row;
+            align-items: center;
+        }
+
+        &__share-link {
+            margin-bottom: 0;
+            margin-right: 20px;
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+
+        &__share-icon {
+            display: block;
+        }
+    }
+}

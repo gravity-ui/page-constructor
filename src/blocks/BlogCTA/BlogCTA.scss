@@ -1,0 +1,76 @@
+@import 'styles/variables.scss';
+
+.BlogCTABlock {
+    $borderRadius: $indentSM;
+
+    $root: &;
+
+    &__cta-card {
+        display: flex;
+        background-color: $videoPlayButtonGrey;
+        border-radius: $borderRadius;
+        min-height: 80px;
+        align-content: center;
+        justify-content: center;
+        flex-direction: column;
+        flex-grow: 1;
+        padding: $indentM;
+    }
+
+    &__cta-button {
+        display: flex;
+        padding-bottom: $indentXS;
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    @media (min-width: map-get($gridBreakpoints, 'sm')) {
+        &__content {
+            display: flex;
+            flex-direction: row;
+        }
+
+        &__cta-button {
+            padding-bottom: 0px;
+
+            &_layout {
+                width: 100%;
+                max-width: 100%;
+                margin-right: 0px;
+
+                &_2 {
+                    width: calc((100% / 2) - (#{$indentXS} / 2));
+                    max-width: 50%;
+                    margin-right: $indentXS;
+                }
+
+                &_2:nth-child(2n) {
+                    margin-right: 0px;
+                }
+
+                &_3 {
+                    width: calc((100% / 3) - (#{$indentM} / 3));
+                    $max-width: 50%;
+                    margin-right: $indentXS;
+                }
+
+                &_3:nth-child(3n) {
+                    margin-right: 0px;
+                }
+
+                &_4 {
+                    width: calc((100% / 4) - (#{$indentL} / 4));
+                    max-width: 50%;
+                    margin-right: $indentXS;
+                }
+
+                &_4:nth-child(4n) {
+                    margin-right: 0px;
+                }
+            }
+        }
+    }
+}

@@ -1,4 +1,4 @@
-import {DEFAULT_THEME} from '../components/constants';
+import {DEFAULT_THEME} from 'src/constants';
 
 export interface ThemedValue<T> extends Partial<Record<string, T>> {
     [DEFAULT_THEME]: T;

@@ -1,0 +1,85 @@
+@import 'styles/variables.scss';
+@import 'styles/mixins.scss';
+
+.BlogBannerBlock {
+    $root: &;
+
+    margin-top: $indentXS;
+    padding-bottom: $indentXS;
+
+    &__banner-content {
+        width: 100%;
+        border-radius: $borderRadius;
+        position: relative;
+        display: flex;
+        flex-direction: row;
+    }
+
+    &__content {
+        &_offset_large {
+            padding: calc(#{$indentXXXL} - #{$indentXXL}) 0 $indentXS;
+            margin-bottom: -$indentL;
+        }
+    }
+
+    &__content {
+        width: 100%;
+        border-radius: $borderRadius;
+        display: flex;
+
+        min-height: 220px;
+    }
+
+    &__info,
+    &__image {
+        flex: 1;
+    }
+
+    &__info {
+        padding: $indentM;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        align-items: baseline;
+    }
+
+    &__image {
+        @include card-image();
+        width: calc(100% - #{$indentXXXS});
+        height: calc(100% - #{$indentXXXS});
+
+        object-fit: cover;
+    }
+
+    &__image-container {
+        height: 100%;
+    }
+
+    &__image-container {
+        &_image-size {
+            &_s {
+                width: 25%;
+            }
+
+            &_m {
+                width: 50%;
+            }
+        }
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'sm')) {
+        &__banner-content {
+            flex-direction: column;
+        }
+
+        &__image-container {
+            &_image-size {
+                &_s,
+                &_m {
+                    width: 100%;
+                    height: 236px;
+                }
+            }
+        }
+    }
+}

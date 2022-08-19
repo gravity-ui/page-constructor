@@ -1,0 +1,31 @@
+@import 'styles/mixins';
+@import 'styles/variables';
+
+.BlogLayout {
+    $root: &;
+
+    margin: 0;
+    padding: 0;
+
+    &__left-col {
+        @include add-specificity(&) {
+            padding: 0;
+        }
+    }
+
+    &__right-col {
+        @include add-specificity(&) {
+            padding: 0;
+        }
+    }
+
+    &__row {
+        padding: 0;
+        margin: 0;
+    }
+
+    &__item {
+        margin: 0;
+        padding: 0 $indentXXXS;
+    }
+}

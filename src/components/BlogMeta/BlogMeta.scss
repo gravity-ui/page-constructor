@@ -1,0 +1,104 @@
+@import 'styles/variables.scss';
+@import 'styles/mixins.scss';
+
+.blog-meta {
+    &__meta-item {
+        @include text-size(body-2);
+
+        display: flex;
+        padding-right: $indentSM;
+        padding-top: $indentXXS;
+        flex-wrap: nowrap;
+        align-items: center;
+
+        &_size {
+            &_s {
+                @include text-size(body-2);
+            }
+
+            &_m {
+                @include text-size(body-3);
+            }
+        }
+    }
+
+    &__meta-item:last-child {
+        @include text-size(body-2);
+
+        display: flex;
+        padding-right: 0px;
+        padding-top: $indentXXS;
+        flex-wrap: nowrap;
+        align-items: center;
+    }
+
+    &__switcher {
+        color: var(--yc-color-text-secondary);
+
+        &:hover {
+            color: var(--yc-color-text-primary);
+        }
+
+        &_theme {
+            &_dark {
+                color: var(--yc-color-text-light-secondary);
+            }
+
+            &_dark:hover {
+                color: var(--yc-color-text-light-primary);
+            }
+        }
+    }
+
+    &__meta-container {
+        display: flex;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        padding-top: $indentXXS;
+        color: var(--yc-color-text-secondary);
+
+        &_theme {
+            &_dark {
+                color: var(--yc-color-text-light-secondary);
+            }
+        }
+    }
+
+    &__meta-icon {
+        margin-right: 6px;
+        display: flex;
+        align-items: center;
+    }
+
+    &__meta-title {
+        width: auto;
+        overflow: hidden;
+        cursor: pointer;
+    }
+
+    &__meta-content {
+        display: flex;
+
+        &_cursor {
+            cursor: pointer;
+
+            &:hover {
+                color: var(--yc-color-text-primary);
+            }
+        }
+
+        &_cursor#{&}_theme_dark:hover {
+            color: var(--yc-color-text-light-primary);
+        }
+    }
+
+    &__meta-likes {
+        display: flex;
+    }
+
+    &__meta-suggest-container {
+        display: flex;
+        flex-grow: 1;
+        flex-wrap: wrap;
+    }
+}
