@@ -45,11 +45,16 @@ export const transformPageContent = ({
     region,
     typographyConfig = {},
 }: TransformPageContentPropsType) => {
-    const transformedContent = filterContent(yaml.load(content), {lang, region});
+    try {
+        const transformedContent = filterContent(yaml.load(content), {lang, region});
 
-    if (transformedContent.blocks) {
-        transformBlocks({blocks: transformedContent.blocks, lang, typographyConfig});
+        if (transformedContent.blocks) {
+            transformBlocks({blocks: transformedContent.blocks, lang, typographyConfig});
+        }
+
+        return transformedContent;
+    } catch (err) {
+        console.error('Problem when transforming page content', err);
+        return {};
     }
-
-    return transformedContent;
 };
