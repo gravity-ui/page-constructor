@@ -1,15 +1,15 @@
 import React from 'react';
-import type {DecoratorFn} from '@storybook/react';
-import {useMobile} from '../../src';
+import {Story as StoryType, StoryContext} from '@storybook/react/types-6-0';
+import {useMobile} from '@yandex-cloud/uikit';
 
-export const withMobile: DecoratorFn = (Story, context) => {
+export function withMobile(Story: StoryType, context: StoryContext) {
     const mobileValue = context.globals.platform === 'mobile';
 
-    const [, setMobile] = useMobile(); // eslint-disable-line react-hooks/rules-of-hooks
+    const [mobile, setMobile] = useMobile(); // eslint-disable-line react-hooks/rules-of-hooks
 
-    React.useEffect(() => {
+    if (mobile !== mobileValue) {
         setMobile(mobileValue);
-    }, [mobileValue]);
+    }
 
     return <Story {...context} />;
-};
+}

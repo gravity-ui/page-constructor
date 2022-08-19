@@ -43,9 +43,6 @@
     "build:server": "rimraf server && tsc -p tsconfig.server.json && move-file server/server.js server/index.js && move-file server/server.d.ts server/index.d.ts",
     "build:configure": "rimraf configure && tsc -p tsconfig.configure.json && move-file configure/configure.js configure/index.js && move-file configure/configure.d.ts configure/index.d.ts",
     "build": "run-p build:client build:server build:configure",
-    "storybook:start": "start-storybook -p 7009",
-    "storybook:build": "build-storybook -c .storybook -o storybook-static .storybook/public",
-    "storybook:deploy": "curl -sS https://raw.github.yandex-team.ru/data-ui/storybook-tools/master/scripts/deploy-storybook.sh | bash -s deploy",
     "docker:build": "docker build . -t registry.yandex.net/data-ui/page-constructor:${npm_package_version}",
     "docker:push": "docker push registry.yandex.net/data-ui/page-constructor:${npm_package_version}",
     "docker:release": "ya tool dctl release docker --release-type stable -t ${npm_package_version} data-ui/page-constructor",
@@ -71,14 +68,13 @@
     "react": "^16.0.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.15.8",
     "@doc-tools/transform": "^2.9.0",
     "@storybook/addon-actions": "^6.3.12",
-    "@storybook/addon-essentials": "^6.3.12",
+    "@storybook/addon-essentials": "^6.5.10",
     "@storybook/addon-knobs": "^6.3.1",
     "@storybook/addon-viewport": "^6.3.12",
     "@storybook/preset-scss": "^1.0.3",
-    "@storybook/react": "^6.3.12",
+    "@storybook/react": "^6.5.10",
     "@types/lodash": "^4.14.176",
     "@types/react": "^16.14.20",
     "@types/react-slick": "^0.23.7",
@@ -107,10 +103,13 @@
     "postcss": "^8.4.14",
     "prettier": "2.4.1",
     "rimraf": "^3.0.2",
+    "sass": "^1.54.4",
+    "sass-loader": "^10.3.1",
     "stylelint": "^13.13.1",
     "stylelint-scss": "^3.21.0",
     "svg-sprite-loader": "^6.0.11",
-    "typescript": "4.4.4"
+    "typescript": "4.4.4",
+    "webpack": "^4.46.0"
   },
   "lint-staged": {
     "*.{css,scss}": [
