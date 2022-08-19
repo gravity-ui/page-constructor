@@ -39,7 +39,7 @@
     "build:client": "gulp",
     "build:server": "rimraf server && tsc -p tsconfig.server.json && move-file server/server.js server/index.js && move-file server/server.d.ts server/index.d.ts",
     "build:configure": "rimraf configure && tsc -p tsconfig.configure.json && move-file configure/configure.js configure/index.js && move-file configure/configure.d.ts configure/index.d.ts",
-    "build": "run-s build:client build:server build:configure",
+    "build": "run-p build:client build:server build:configure",
     "storybook:start": "start-storybook -p 7009",
     "storybook:build": "build-storybook -c .storybook -o storybook-static .storybook/public",
     "storybook:deploy": "curl -sS https://raw.github.yandex-team.ru/data-ui/storybook-tools/master/scripts/deploy-storybook.sh | bash -s deploy",
