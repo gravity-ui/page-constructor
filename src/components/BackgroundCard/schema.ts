@@ -1,4 +1,4 @@
-import {BaseProps, ImageObjectProps} from '../../schema/common';
+import {BaseProps, ImageObjectProps, withTheme} from '../../schema/common';
 import {CardBase} from '../CardBase/schema';
 import {ContentBase} from '../Content/schema';
 import _ from 'lodash';
@@ -16,7 +16,7 @@ export const BackgroundCard = {
             url: {
                 type: 'string',
             },
-            background: ImageObjectProps,
+            background: withTheme(ImageObjectProps),
             backgroundColor: {
                 type: 'string',
             },

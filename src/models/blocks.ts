@@ -642,7 +642,7 @@ export interface BackgroundCardProps
     extends CardBaseProps,
         Omit<ContentBlockProps, 'colSizes' | 'centered' | 'size'> {
     url?: string;
-    background?: ImageObjectProps;
+    background?: ThemeSupporting<ImageObjectProps>;
     paddingBottom?: 's' | 'm' | 'l' | 'xl';
     backgroundColor?: string;
 }
