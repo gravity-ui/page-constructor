@@ -1,6 +1,6 @@
 import '../styles/storybook/index.scss';
 import '@yandex-cloud/uikit/styles/styles.scss';
-import '../styles/styles.scss';
+import {MobileProvider, Platform} from '@yandex-cloud/uikit';
 
 import React from 'react';
 import {MINIMAL_VIEWPORTS} from '@storybook/addon-viewport';
@@ -11,41 +11,31 @@ import {withTheme} from './decorators/withTheme';
 import {withMobile} from './decorators/withMobile';
 import {withLang} from './decorators/withLang';
 import {DocsWithReadme} from '../src/demo/DocsWithReadme';
-import {MobileProvider} from '@yandex-cloud/uikit';
+
 import {ThemeProvider} from '../src';
 import {configure, Lang} from '../configure';
 
+import '../styles/styles.scss';
 configure({
     lang: Lang.En,
 });
 
-// const withCommonProvider = (Story, context) => {
-//     const theme = context.globals.theme;
-
-//     // хак для установки темы в доке
-//     context.parameters.backgrounds.default = theme;
-//     context.globals.backgrounds = {
-//         value: theme === 'light' ? 'white' : 'black',
-//     };
-
-//     context.globals.background = theme;
-
-//     // TODO: в будущем возможно появится вариант изменять динамически тему доки, нужно будет перейти на новый способ
-//     // context.parameters.docs.theme = theme === 'light' ? CommonTheme.light : CommonTheme.dark;
-
-//     return (
-//         <MobileProvider mobile={false} platform={'browser'}>
-//             <ThemeProvider theme={theme}>
-//                 <Story {...context} />
-//             </ThemeProvider>
-//         </MobileProvider>
-//     );
-// };
-
 const withContextProvider: DecoratorFn = (Story, context) => {
+    const theme = context.globals.theme;
+
+    // хак для установки темы в доке
+    context.parameters.backgrounds.default = theme;
+    context.globals.backgrounds = {
+        value: theme === 'light' ? 'white' : 'black',
+    };
+    context.globals.background = theme;
+
+    // TODO: в будущем возможно появится вариант изменять динамически тему доки, нужно будет перейти на новый способ
+    // context.parameters.docs.theme = theme === 'light' ? CommonTheme.light : CommonTheme.dark;
+
     return (
-        <ThemeProvider>
-            <MobileProvider>
+        <ThemeProvider theme={theme}>
+            <MobileProvider mobile={false} platform={Platform.BROWSER}>
                 <Story {...context} />
             </MobileProvider>
         </ThemeProvider>
@@ -56,7 +46,7 @@ const withPageConstructorProvider = (Story, context) => {
     return (
         <PageConstructorProvider
             isMobile={context.globals.platform === 'mobile'}
-            lang={{lang: context.globals.lang}}
+            locale={{lang: context.globals.lang}}
         >
             <Story {...context} />
         </PageConstructorProvider>
