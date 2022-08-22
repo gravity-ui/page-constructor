@@ -36,7 +36,6 @@
     "dev": "npm run storybook:start",
     "storybook:start": "TS_NODE_PROJECT=.storybook/tsconfig.json start-storybook -p 7007",
     "storybook:build": "TS_NODE_PROJECT=.storybook/tsconfig.json build-storybook -c .storybook -o storybook-static",
-    "storybook:deploy": "curl -sS https://raw.github.yandex-team.ru/data-ui/storybook-tools/master/scripts/deploy-storybook.sh | bash -s deploy",
     "start": "node dist",
     "clean": "gulp clean",
     "build:client": "gulp",
