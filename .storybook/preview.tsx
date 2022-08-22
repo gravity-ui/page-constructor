@@ -1,19 +1,26 @@
 import '../styles/storybook/index.scss';
 import '@yandex-cloud/uikit/styles/styles.scss';
-import '../styles/styles.scss';
+import {MobileProvider, Platform} from '@yandex-cloud/uikit';
 
 import React from 'react';
-import CommonTheme from './commonTheme.js';
 import {MINIMAL_VIEWPORTS} from '@storybook/addon-viewport';
+import type {DecoratorFn} from '@storybook/react';
+import {CloudTheme} from './theme';
 import {PageConstructorProvider} from '../src/containers/PageConstructor/Provider';
-import {withTheme} from '../src/demo/decorators/withTheme';
-import {withLang} from '../src/demo/decorators/withLang';
-import {withMobile} from '../src/demo/decorators/withMobile';
+import {withTheme} from './decorators/withTheme';
+import {withMobile} from './decorators/withMobile';
+import {withLang} from './decorators/withLang';
 import {DocsWithReadme} from '../src/demo/DocsWithReadme';
-import {MobileProvider} from '@yandex-cloud/uikit';
-import {ThemeProvider} from '../src';
 
-const withCommonProvider = (Story, context) => {
+import {ThemeProvider} from '../src';
+import {configure, Lang} from '../configure';
+
+import '../styles/styles.scss';
+configure({
+    lang: Lang.En,
+});
+
+const withContextProvider: DecoratorFn = (Story, context) => {
     const theme = context.globals.theme;
 
     // хак для установки темы в доке
@@ -21,18 +28,17 @@ const withCommonProvider = (Story, context) => {
     context.globals.backgrounds = {
         value: theme === 'light' ? 'white' : 'black',
     };
-
     context.globals.background = theme;
 
     // TODO: в будущем возможно появится вариант изменять динамически тему доки, нужно будет перейти на новый способ
     // context.parameters.docs.theme = theme === 'light' ? CommonTheme.light : CommonTheme.dark;
 
     return (
-        <MobileProvider mobile={false} platform={'browser'}>
-            <ThemeProvider theme={theme}>
+        <ThemeProvider theme={theme}>
+            <MobileProvider mobile={false} platform={Platform.BROWSER}>
                 <Story {...context} />
-            </ThemeProvider>
-        </MobileProvider>
+            </MobileProvider>
+        </ThemeProvider>
     );
 };
 
@@ -40,7 +46,7 @@ const withPageConstructorProvider = (Story, context) => {
     return (
         <PageConstructorProvider
             isMobile={context.globals.platform === 'mobile'}
-            lang={{lang: context.globals.lang}}
+            locale={{lang: context.globals.lang}}
         >
             <Story {...context} />
         </PageConstructorProvider>
@@ -51,14 +57,14 @@ export const decorators = [
     withTheme,
     withLang,
     withMobile,
-    withCommonProvider,
+    withContextProvider,
     withPageConstructorProvider,
 ];
 
 export const parameters = {
     layout: 'fullscreen',
     docs: {
-        theme: CommonTheme,
+        theme: CloudTheme,
         page: DocsWithReadme,
     },
     // FIXME: Disabled due to performance reasons. See https://github.com/storybookjs/storybook/issues/5551

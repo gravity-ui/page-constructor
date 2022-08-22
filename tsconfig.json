@@ -1,18 +1,13 @@
 {
-  "extends": "@yandex-cloud/tsconfig/tsconfig.json",
+  "extends": "@yandex-cloud/tsconfig/tsconfig",
   "compilerOptions": {
-    "allowJs": false,
-    "declaration": true,
-    "resolveJsonModule": true,
-    "rootDirs": ["src"],
-    "outDir": "build",
-    "baseUrl": ".",
-    "paths": {
-      "*": ["./node_modules/*"]
-    },
-    "module": "esNext",
+    "allowJs": true,
+    "outDir": "build/esm",
+    "module": "esnext",
     "jsx": "react",
-    "isolatedModules": true
+    "baseUrl": ".",
+    "resolveJsonModule": true,
+    "importHelpers": true
   },
-  "include": ["src"]
+  "include": ["src/**/*.ts", "src/**/*.tsx"]
 }

@@ -21,14 +21,15 @@ function importAllReadme(ctx: __WebpackModuleApi.RequireContext) {
 }
 
 importAllReadme(require.context('../blocks', true, /readme\.md$/i));
+importAllReadme(require.context('../sub-blocks', true, /readme\.md$/i));
 importAllReadme(require.context('../components', true, /readme\.md$/i));
 
 export const DocsWithReadme = () => {
     const context = React.useContext(DocsContext);
-    const fileName = context.parameters.fileName;
+    const fileName = context?.parameters?.fileName;
     const kind = context.kind;
     let isComponent = false;
-    if (kind && /Компоненты|Блоки\//.test(kind)) {
+    if (kind && /Компоненты|Блоки|Саб-блоки\//.test(kind)) {
         isComponent = true;
     }
 
@@ -52,6 +53,7 @@ export const DocsWithReadme = () => {
     }
 
     let readmeContent;
+
     if (dirPath && readmeCache[dirPath]) {
         readmeContent = (
             <div

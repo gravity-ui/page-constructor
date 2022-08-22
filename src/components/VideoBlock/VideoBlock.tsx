@@ -4,8 +4,7 @@ import {Icon} from '@yandex-cloud/uikit';
 
 import {block, getPageSearchParams} from '../../utils';
 import Image from '../Image/Image';
-
-import playIcon from '../../../assets/icons/play-video.svg';
+import {PlayVideo} from '../../icons';
 
 import './VideoBlock.scss';
 
@@ -126,7 +125,7 @@ const VideoBlock: FC<VideoBlockProps> = (props) => {
                     <Image src={previewImg} className={b('image')} />
                     {playButton || (
                         <button className={b('button')}>
-                            <Icon className={b('icon')} data={playIcon} size={24} />
+                            <Icon className={b('icon')} data={PlayVideo} size={24} />
                         </button>
                     )}
                 </div>

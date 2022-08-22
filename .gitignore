@@ -11,6 +11,8 @@ node_modules
 /storybook-static
 /server
 /configure
+/styles/**/*.css
+/coverage
 
 *.tgz
 .env

@@ -1,6 +1,6 @@
 import React, {ReactNode, useCallback, useContext} from 'react';
 import {Button, ButtonSize, Icon} from '@yandex-cloud/uikit';
-import arrowIcon from '../../../assets/icons/arrow-sidebar.svg';
+import {ArrowSidebar} from '../../icons';
 import {LocationContext} from '../../context/locationContext';
 export type Theme = 'default' | 'special';
 
@@ -50,7 +50,7 @@ export default function BackLink(props: BackLinkProps) {
             href={shouldHandleBackAction ? undefined : url}
             onClick={shouldHandleBackAction ? backActionHandler : undefined}
         >
-            <Icon data={arrowIcon} size={24} />
+            <Icon data={ArrowSidebar} size={24} />
             <span>{title}</span>
         </Button>
     );
