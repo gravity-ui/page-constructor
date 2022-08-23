@@ -2,7 +2,7 @@ import React from 'react';
 import {Lang, Locale} from 'models/locale';
 
 export type LocaleContextProps = {
-    locale?: Locale;
+    locale: Locale;
 };
 
 export const LocaleContext = React.createContext<LocaleContextProps>({

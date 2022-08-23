@@ -1,32 +1,6 @@
 import {parse} from 'fast-html-parser';
 import {format} from 'url';
 
-const NodeType = {
-    ELEMENT_NODE: 1,
-    TEXT_NODE: 3,
-};
-
-const kBlockElements = {
-    div: true,
-    p: true,
-    // ul: true,
-    // ol: true,
-    li: true,
-    // table: true,
-    // tr: true,
-    td: true,
-    section: true,
-    br: true,
-};
-
-export const getContent = (html: string, selector?: string) => {
-    const parsedHtml = parse(html, {pre: true});
-    const content = selector
-        ? parsedHtml.querySelector(selector) || parsedHtml.querySelector('body')
-        : parsedHtml;
-    return content && getStructuredText(content);
-};
-
 export function setUrlTld(url: string, tld = 'ru', force = false) {
     if (!url || typeof url !== 'string') {
         return url;
@@ -42,62 +16,6 @@ export function setUrlTld(url: string, tld = 'ru', force = false) {
     urlObject.hostname = urlObject.hostname.replace(/\.\w+$/, `.${tld}`);
 
     return urlObject.href;
-}
-
-// modified function from 'fast-html-parser'
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function getStructuredText(node: any) {
-    let currentBlock = [];
-    const blocks = [currentBlock];
-
-    function dfs(node) {
-        if (node.nodeType === NodeType.ELEMENT_NODE) {
-            if (node.attributes['data-no-index']) {
-                return;
-            }
-            if (node.tagName === 'pre') {
-                const text = getContent(node.rawText);
-                currentBlock.push(text);
-            } else if (kBlockElements[node.tagName]) {
-                if (currentBlock.length > 0) {
-                    blocks.push((currentBlock = []));
-                }
-                node.childNodes.forEach(dfs);
-                if (currentBlock.length > 0) {
-                    blocks.push((currentBlock = []));
-                }
-            } else {
-                node.childNodes.forEach(dfs);
-            }
-        } else if (node.nodeType === NodeType.TEXT_NODE) {
-            if (node.isWhitespace) {
-                // Whitespace node, postponed output
-                currentBlock.prependWhitespace = true;
-            } else {
-                let text = node.text;
-                if (currentBlock.prependWhitespace) {
-                    text = ' ' + text;
-                    currentBlock.prependWhitespace = false;
-                }
-                currentBlock.push(text);
-            }
-        }
-    }
-
-    dfs(node);
-
-    return blocks
-        .map((block) => {
-            // Normalize each line's whitespace
-            const line = block
-                .join(' ')
-                .trim()
-                .replace(/\s{2,}/g, ' ')
-                .replace(/\s([.,!?:;])/g, '$1');
-            return !line || /[.,!?:;]$/g.test(line) ? line : `${line}.`;
-        })
-        .join('\n')
-        .trimRight();
 }
 
 export interface QueryParam {

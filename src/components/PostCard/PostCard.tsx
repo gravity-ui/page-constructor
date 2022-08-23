@@ -4,7 +4,7 @@ import block from 'bem-cn-lite';
 import {CardBase, YFMWrapper, MetrikaGoal} from '@yandex-data-ui/page-constructor';
 import {HTML} from '@doc-tools/components';
 
-import {BlogSuggestMetaBlock} from 'src/components/BlogInfo/BlogInfo';
+import {SuggestBlogInfo} from 'src/components/BlogInfo/SuggestBlogInfo';
 import {BlogPostData} from 'models/blog';
 
 import './PostCard.scss';
@@ -55,7 +55,7 @@ export const PostCard: React.FC<PostCardProps> = ({
                 )}
             </CardBase.Content>
             <CardBase.Footer>
-                <BlogSuggestMetaBlock
+                <SuggestBlogInfo
                     post={post}
                     dataQa="blog-suggest-block"
                     size={size}
