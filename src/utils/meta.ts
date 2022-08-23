@@ -1,255 +1,139 @@
-import urlJoin from 'url-join';
-
 import {sanitizeHtml} from '@yandex-data-ui/page-constructor/server';
+import {Locale} from 'models/locale';
+import {BlogMetaProps} from 'containers/BlogPostPage/BlogPageMeta';
 
-import {PriceResponse} from 'models/calculator';
-import {countWords, formatPrice} from './common';
-import {Locale} from 'contexts/LocaleContext';
-import {getYear} from '../../common/utils';
-import {Product} from 'units/marketplace/models';
-import {Currency} from 'models/billing';
-import {BlogPostData} from 'units/blog/models';
-import {LocaleUtils} from '../../common/i18n/locales';
-import {setUrlTld} from 'utils/common';
-import {RegionalConfig} from 'contexts/RegionalConfigContext';
-import {RouterContextProps} from 'contexts/RouterContext';
+import {format} from './date';
 
 type BreadcrumbsData = {
     title: string;
     slug: string;
 };
 
-type GetBlogPostSchemaData = Pick<
-    BlogPostData,
-    'title' | 'url' | 'description' | 'date' | 'author' | 'keywords' | 'image' | 'content'
-> & {breadcrumbs?: BreadcrumbsData[]};
-
-export interface BlogData {
+type GetBlogPostSchemaData = {
+    title: BlogMetaProps['title'];
     url: string;
-    title: string;
-    description: string;
-    blogPostsData?: BlogPostData[];
-}
+    description: BlogMetaProps['description'];
+    date: BlogMetaProps['date'];
+    author: string;
+    keywords: BlogMetaProps['keywords'];
+    image: BlogMetaProps['image'];
+    content: BlogMetaProps['content'];
+    locale: Locale | undefined;
+    organization: BlogMetaProps['organization'];
+} & {breadcrumbs?: BreadcrumbsData[]};
 
-export interface ProductData {
-    url: string;
-    product: Product;
-    minimumPrices: PriceResponse[];
-}
+const countWords = (str: string) => str.split(' ').filter(Boolean).length;
 
-export class SchemaOrgUtils {
-    locale: Locale;
-    regionalConfig: RegionalConfig;
-    isScale: Boolean;
+/* #region schema org */
 
-    constructor(locale: Locale, regionalConfig: RegionalConfig, isScale = false) {
-        this.locale = locale;
-        this.regionalConfig = regionalConfig;
-        this.isScale = isScale;
-    }
+const getLanguageSchema = ({lang, langName}: any) => ({
+    '@type': 'Language',
+    name: langName,
+    alternateName: lang,
+});
 
-    getOrganizationSchema() {
-        const {hosts, appTitle} = this.regionalConfig;
-        const host = hosts[this.isScale ? 'scale' : 'site'];
-        const url = setUrlTld(host, this.locale.tld, true);
-        const iconUrl = url && new URL('/favicon.png', url);
-        const name = this.isScale ? `${appTitle} Scale` : appTitle;
+const getSharedContentSchema = ({url, title, author}: any) => ({
+    '@type': 'WebPage',
+    headline: title,
+    url,
+    author,
+});
 
-        return {
-            '@type': 'Organization',
-            name,
-            url,
-            logo: {
-                '@type': 'ImageObject',
-                url: iconUrl,
-                width: 32,
-                height: 32,
-            },
-        };
-    }
+const getOrganizationSchema = ({appTitle, url}: any) => {
+    const ORGANIZATION_ICON_DIMENSIONS = 32;
 
-    getAuthorSchema(author?: string) {
-        return author
-            ? {
-                  '@type': 'Person',
-                  name: author,
-              }
-            : this.getOrganizationSchema();
-    }
+    const iconUrl = url && new URL('/favicon.png', url);
 
-    getLanguageSchema() {
-        const {lang, langName} = this.locale;
-        return {
-            '@type': 'Language',
-            name: langName,
-            alternateName: lang,
-        };
-    }
-
-    getSharedContentSchema(url: string, title: string, author?: string) {
-        return {
-            '@type': 'WebPage',
-            headline: title,
-            url: sanitizeHtml(url),
-            author: this.getAuthorSchema(author),
-        };
-    }
-
-    getBlogPostSchema(data: GetBlogPostSchemaData) {
-        const {
-            url,
-            title,
-            description,
-            date,
-            author: authorName,
-            keywords,
-            image,
-            content,
-            breadcrumbs,
-        } = data;
-
-        const safeUrl = sanitizeHtml(url);
-        const author = this.getAuthorSchema(authorName);
-        const organization = this.getOrganizationSchema();
-        const language = this.getLanguageSchema();
-        const sharedContent = this.getSharedContentSchema(url, title, authorName);
-
-        const breadcrumbItems =
-            breadcrumbs?.map((breadcrumb, index) => ({
-                '@type': 'ListItem',
-                position: index + 1,
-                item: {
-                    '@id': breadcrumb.slug,
-                    name: breadcrumb.title,
-                },
-            })) || [];
-
-        return {
-            '@context': 'http://schema.org/',
-            '@graph': [
-                {
-                    '@type': 'BreadcrumbList',
-                    itemListElement: breadcrumbItems,
-                },
-                {
-                    '@type': 'BlogPosting',
-                    '@id': safeUrl,
-                    url: safeUrl,
-                    name: title,
-                    headline: title,
-                    abstract: description,
-                    description,
-                    dateCreated: date,
-                    datePublished: date,
-                    dateModified: date,
-                    author,
-                    creator: author,
-                    publisher: organization,
-                    copyrightHolder: organization,
-                    copyrightYear: getYear(date || new Date()),
-                    mainEntityOfPage: true,
-                    inLanguage: language,
-                    keywords,
-                    image,
-                    sharedContent,
-                    wordCount: content && countWords(content),
-                    articleBody: content,
-                },
-            ],
-        };
-    }
-
-    getBlogSchema(data: BlogData) {
-        const {url, title, description, blogPostsData} = data;
-
-        const safeUrl = sanitizeHtml(url);
-        const organization = this.getOrganizationSchema();
-
-        return {
-            '@context': 'http://schema.org/',
-            '@type': 'Blog',
-            '@id': safeUrl,
-            name: title,
-            url: safeUrl,
-            description,
-            publisher: organization,
-            blogPosts: blogPostsData
-                ? blogPostsData.map((postData) => this.getBlogPostSchema(postData))
-                : [],
-        };
-    }
-
-    getProductSchema(data: ProductData, localeUtils: LocaleUtils) {
-        const {
-            url,
-            product: {
-                marketingInfo: {name, shortDescription, logo},
-                publisher: {
-                    marketingInfo: {logo: publisherLogo, name: publisherName},
-                },
-            },
-            minimumPrices,
-        } = data;
-
-        if (!minimumPrices) {
-            return undefined;
-        }
-
-        const safeUrl = sanitizeHtml(url);
-
-        const minimumPrice = minimumPrices.reduce((sum, {cost}) => sum + cost, 0);
-        const price = formatPrice(minimumPrice, this.locale, localeUtils, {
-            isInteger: this.locale.currency !== Currency.USD,
-        });
-
-        return {
-            '@context': 'http://schema.org/',
-            '@type': 'Product',
-            '@id': safeUrl,
-            name,
-            url: safeUrl,
-            description: shortDescription,
-            image: logo,
-            offers: {
-                '@type': 'AggregateOffer',
-                lowPrice: price,
-                priceCurrency: this.locale.currency,
-            },
-            brand: {
-                '@type': 'Organization',
-                name: publisherName,
-                logo: publisherLogo,
-            },
-        };
-    }
-}
-
-export function getSharingImageURL(
-    locale: Locale,
-    router: RouterContextProps,
-    localeUtils: LocaleUtils,
-    withQuery = false,
-    routePrefix?: string,
-): string {
-    const pagePath = urlJoin(
-        '/image-generator',
-        routePrefix ?? '',
-        router.pathname,
-        withQuery
-            ? `?${new URLSearchParams(router.query as Record<string, string>).toString()}`
-            : '',
-    );
-    const url = localeUtils.getAbsoluteLocaleUrl(locale, router.hostname, pagePath);
-    const config = {
-        url: `https://${router.hostname}/api/image-generator/generate`,
-        params: {
-            url,
-            width: 1280,
-            height: 640,
+    return {
+        '@type': 'Organization',
+        name: appTitle,
+        url,
+        logo: {
+            '@type': 'ImageObject',
+            url: iconUrl,
+            width: ORGANIZATION_ICON_DIMENSIONS,
+            height: ORGANIZATION_ICON_DIMENSIONS,
         },
     };
-    return axiosWrapper.getUri(config);
-}
+};
+
+const getAuthorSchema = (author: string | undefined, organization: any) =>
+    author
+        ? {
+              '@type': 'Person',
+              name: author,
+          }
+        : getOrganizationSchema(organization);
+
+export const getBlogPostSchema = ({
+    url,
+    title,
+    description,
+    date,
+    author: authorName,
+    keywords,
+    image,
+    content,
+    breadcrumbs,
+    organization,
+    locale,
+}: GetBlogPostSchemaData) => {
+    const safeUrl = sanitizeHtml(url);
+    const authorSchema = getAuthorSchema(authorName, organization);
+    const organizationSchema = getOrganizationSchema(organization);
+    const languageSchema = getLanguageSchema(locale);
+    const sharedContent = getSharedContentSchema({
+        url: safeUrl,
+        title,
+        author: authorSchema,
+    });
+
+    const breadcrumbItems =
+        breadcrumbs?.map((breadcrumb, index) => ({
+            '@type': 'ListItem',
+            position: index + 1,
+            item: {
+                '@id': breadcrumb.slug,
+                name: breadcrumb.title,
+            },
+        })) || [];
+
+    return {
+        '@context': 'http://schema.org/',
+        '@graph': [
+            {
+                '@type': 'BreadcrumbList',
+                itemListElement: breadcrumbItems,
+            },
+            {
+                '@type': 'BlogPosting',
+                '@id': safeUrl,
+                url: safeUrl,
+                name: title,
+                headline: title,
+                abstract: description,
+                description,
+                dateCreated: date,
+                datePublished: date,
+                dateModified: date,
+                author: authorSchema,
+                creator: authorSchema,
+                publisher: organizationSchema,
+                copyrightHolder: organizationSchema,
+                copyrightYear: format(date || Number(new Date()), 'year'),
+                mainEntityOfPage: true,
+                inLanguage: languageSchema,
+                keywords,
+                image,
+                sharedContent,
+                wordCount: content && countWords(content),
+                articleBody: content,
+            },
+        ],
+    };
+};
+
+/* #endregion schema org */
 
 export function getCleanTitle(title?: string) {
     if (!title || !title.includes('|')) {

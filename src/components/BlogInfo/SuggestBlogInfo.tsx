@@ -1,0 +1,79 @@
+import React, {useCallback, useState} from 'react';
+import block from 'bem-cn-lite';
+
+// TODO fixes and refactor in https://st.yandex-team.ru/ORION-1444
+
+import {BlogPostData} from 'models/blog';
+
+import {BlogDate} from './components/BlogDate';
+import {BlogReadingTime} from './components/BlogReadingTime';
+import {BlogSave} from './components/BlogSave';
+
+import './BlogInfo.scss';
+
+const b = block('blog-info');
+
+export type SuggestBlogInfoProps = {
+    post: BlogPostData;
+    size?: 's' | 'm';
+    dataQa?: string;
+    // delete this prop after Realese of BlogFeed https://st.yandex-team.ru/CLOUDFRONT-11056
+    useModernIcon?: boolean;
+};
+
+/**
+ * Suggest blog card info component
+ *
+ * @param post - post info
+ * @param dataQa - test-attr
+ * @param size - text size
+ * @param useModernIcon - flag what we need render 'bookmark' icon
+ *
+ * @returns jsx
+ */
+export const SuggestBlogInfo: React.FC<SuggestBlogInfoProps> = ({
+    post: {blogPostId, date, readingTime, hasUserLike, likes},
+    dataQa,
+    size = 's',
+    useModernIcon,
+}) => {
+    const [like, setLike] = useState(hasUserLike);
+    const [likesCount, setLikesCount] = useState(likes ?? 0);
+
+    const handleUserLike = useCallback(() => {
+        let likesCountBuffer = likesCount;
+
+        if (like) {
+            likesCountBuffer--;
+        } else {
+            likesCountBuffer++;
+        }
+
+        if (likesCountBuffer < 0) {
+            likesCountBuffer = 0;
+        }
+
+        setLike(!like);
+        setLikesCount(likesCountBuffer);
+    }, [like, likesCount]);
+
+    return (
+        <div className={b('container')}>
+            <div className={b('suggest-container')}>
+                {date && <BlogDate date={date} size={size} />}
+                {readingTime && <BlogReadingTime readingTime={readingTime} size={size} />}
+            </div>
+            {blogPostId && (
+                <BlogSave
+                    postId={blogPostId}
+                    title={likesCount}
+                    hasUserLike={like ?? false}
+                    handleUserLike={handleUserLike.bind(this)}
+                    dataQa={dataQa}
+                    size={size}
+                    useModernIcon={useModernIcon}
+                />
+            )}
+        </div>
+    );
+};

@@ -1,6 +1,5 @@
 import {parse} from 'fast-html-parser';
-
-import {format} from './date';
+import {format} from 'url';
 
 const NodeType = {
     ELEMENT_NODE: 1,
@@ -18,6 +17,14 @@ const kBlockElements = {
     td: true,
     section: true,
     br: true,
+};
+
+export const getContent = (html: string, selector?: string) => {
+    const parsedHtml = parse(html, {pre: true});
+    const content = selector
+        ? parsedHtml.querySelector(selector) || parsedHtml.querySelector('body')
+        : parsedHtml;
+    return content && getStructuredText(content);
 };
 
 export function setUrlTld(url: string, tld = 'ru', force = false) {
@@ -91,14 +98,6 @@ function getStructuredText(node: any) {
         })
         .join('\n')
         .trimRight();
-}
-
-function getContent(html: string, selector?: string) {
-    const parsedHtml = parse(html, {pre: true});
-    const content = selector
-        ? parsedHtml.querySelector(selector) || parsedHtml.querySelector('body')
-        : parsedHtml;
-    return content && getStructuredText(content);
 }
 
 export interface QueryParam {

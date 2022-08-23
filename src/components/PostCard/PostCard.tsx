@@ -4,7 +4,7 @@ import block from 'bem-cn-lite';
 import {CardBase, YFMWrapper, MetrikaGoal} from '@yandex-data-ui/page-constructor';
 import {HTML} from '@doc-tools/components';
 
-import {BlogSuggestMetaBlock} from 'components/BlogMeta/BlogMeta';
+import {BlogSuggestMetaBlock} from 'src/components/BlogInfo/BlogInfo';
 import {BlogPostData} from 'models/blog';
 
 import './PostCard.scss';

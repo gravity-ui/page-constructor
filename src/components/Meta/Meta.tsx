@@ -1,180 +1,120 @@
-import React from 'react';
-// import urlJoin from 'url-join';
+import React, {Fragment, useMemo, useContext} from 'react';
 
-import {MetaProps} from '@yandex-data-ui/common';
+import {MetaProps, SocialSharingMeta} from '@yandex-data-ui/common';
+import {sanitizeHtml} from '@yandex-data-ui/page-constructor/server';
 
-// import {getSharingImageURL} from 'utils/meta';
-// import {sanitizeHtml} from '@yandex-data-ui/page-constructor/server';
-import {DocumentMetaProps} from 'components/DocumentMeta/DocumentMeta';
-// import {LocaleContext} from 'contexts/LocaleContext';
-// import {RouterContext} from 'contexts/RouterContext';
-// import {useAppSettings} from 'hooks/useAppSettings';
-// import FeatureFlagsContext from 'contexts/FeatureFlagsContext';
-// import {RegionalConfigContext} from 'contexts/RegionalConfigContext';
+import {DocumentMetaProps, DocumentMeta} from 'components/DocumentMeta/DocumentMeta';
 
-// import {STATIC_PATHS} from '../../constants';
+import {LocaleContext} from 'contexts/LocaleContext';
+import {RouterContext} from 'contexts/RouterContext';
 
 interface SharingProps {
-    title?: string;
-    description?: string;
+    title: string;
+    description: string;
 }
 
 export interface MetaComponentProps extends DocumentMetaProps {
     type?: string;
     url?: string;
+    appTitle?: string;
     image?: string;
     locale?: string;
-    sharing?: SharingProps;
+    sharing: SharingProps;
     extra?: MetaProps[];
     description?: string | null;
     keywords?: string | string[] | null;
     noIndex?: boolean;
     schemaJsonLd?: unknown;
-    canonical?: string;
+    canonicalUrl: string;
     sharingUrlProps?: {
         withQuery: boolean;
         routePrefix: string;
     };
 }
 
-// TODO refactor in https://st.yandex-team.ru/ORION-1432
-export const Meta: React.FC<MetaComponentProps> = () => {
-    return null;
+export const Meta: React.FC<MetaComponentProps> = ({
+    title,
+    sectionTitle,
+    appTitle,
+    type = 'website',
+    url,
+    canonicalUrl,
+    sharing,
+    image,
+    extra = [],
+    schemaJsonLd,
+    description,
+    keywords,
+    noIndex,
+}) => {
+    const {locale} = useContext(LocaleContext);
+    const router = useContext(RouterContext);
 
-    // const {
-    //     type = 'website',
-    //     url,
-    //     // sharing,
-    //     image,
-    //     extra = [],
-    //     schemaJsonLd,
-    //     description,
-    //     keywords,
-    //     noIndex,
-    //     canonical,
-    //     sharingUrlProps,
-    //     ...documentMetaProps
-    // } = props;
+    const sharingTitle = useMemo(() => sanitizeHtml(sharing?.title), [sharing?.title]);
 
-    // const {imageGenerator} = useContext(FeatureFlagsContext);
+    const sharingDescription = useMemo(
+        () => sanitizeHtml(sharing?.description),
+        [sharing?.description],
+    );
 
-    // const {styles} = useContext(RegionalConfigContext);
-    // const {locale, localeUtils} = useContext(LocaleContext);
-    // const router = useContext(RouterContext);
-    // const {sharing: commonSharing} = useAppSettings();
-    // const defaultShareSrc = styles.assetPath
-    //     ? urlJoin(styles.assetPath, STATIC_PATHS.SHARE)
-    //     : undefined;
+    const metaDescription = useMemo(
+        () => (description ? sanitizeHtml(description) : undefined),
+        [description],
+    );
 
-    // const sharingTitle = useMemo(
-    //     () => sanitizeHtml(sharing?.title) ?? commonSharing?.title,
-    //     [commonSharing?.title, sharing?.title],
-    // );
+    const metaKeywords = useMemo(
+        () => (Array.isArray(keywords) ? keywords.join(',') : keywords),
+        [keywords],
+    );
 
-    // const sharingDescription = useMemo(
-    //     () => sanitizeHtml(sharing?.description) ?? commonSharing?.description,
-    //     [commonSharing?.description, sharing?.description],
-    // );
+    const metaSchemaJsonLd = useMemo(
+        () => (schemaJsonLd ? JSON.stringify(schemaJsonLd) : undefined),
+        [schemaJsonLd],
+    );
 
-    // const metaDescription = useMemo(
-    //     () => (description ? sanitizeHtml(description) : undefined),
-    //     [description],
-    // );
+    const baseUrl = useMemo(
+        () => new URL(router.as, `https://${router.hostname}`).href,
+        [router.as, router.hostname],
+    );
 
-    // const metaKeywords = useMemo(
-    //     () => (Array.isArray(keywords) ? keywords.join(',') : keywords),
-    //     [keywords],
-    // );
+    const extraMeta = useMemo(() => {
+        const extraProperties = Array.from(extra);
 
-    // const metaSchemaJsonLd = useMemo(
-    //     () => (schemaJsonLd ? JSON.stringify(schemaJsonLd) : undefined),
-    //     [schemaJsonLd],
-    // );
+        if (!extraProperties.find((metaTag) => metaTag.property === 'share:title')) {
+            extraProperties.push({property: 'share:title', content: sharingTitle});
+        }
 
-    // const baseUrl = useMemo(
-    //     () => new URL(router.as, `https://${router.hostname}`).href,
-    //     [router.as, router.hostname],
-    // );
+        if (!extraProperties.find((metaTag) => metaTag.property === 'share:sharing_schema')) {
+            extraProperties.push({property: 'share:sharing_schema', content: 'default'});
+        }
+        return extraProperties;
+    }, [extra, sharingTitle]);
 
-    // const metaImage = useMemo(
-    //     () =>
-    //         image ||
-    //         (imageGenerator
-    //             ? getSharingImageURL(
-    //                   locale,
-    //                   router,
-    //                   localeUtils,
-    //                   sharingUrlProps?.withQuery,
-    //                   sharingUrlProps?.routePrefix,
-    //               )
-    //             : defaultShareSrc),
-    //     [
-    //         defaultShareSrc,
-    //         image,
-    //         sharingUrlProps?.routePrefix,
-    //         sharingUrlProps?.withQuery,
-    //         imageGenerator,
-    //         locale,
-    //         localeUtils,
-    //         router,
-    //     ],
-    // );
-
-    // const defaultLangLocale = useMemo(
-    //     () => localeUtils.getLocaleByLang(locale.lang),
-    //     [locale.lang, localeUtils],
-    // );
-
-    // const canonicalUrl = useMemo(
-    //     () =>
-    //         locale.tld === defaultLangLocale.tld
-    //             ? localeUtils.getAbsoluteLocaleUrl(
-    //                   defaultLangLocale,
-    //                   router.hostname,
-    //                   canonical ?? baseUrl,
-    //               )
-    //             : null,
-    //     [baseUrl, canonical, defaultLangLocale, locale.tld, localeUtils, router.hostname],
-    // );
-
-    // const extraMeta = useMemo(() => {
-    //     const extraProperties = Array.from(extra);
-
-    //     if (!extraProperties.find((metaTag) => metaTag.property === 'share:title')) {
-    //         extraProperties.push({property: 'share:title', content: sharingTitle});
-    //     }
-
-    //     if (!extraProperties.find((metaTag) => metaTag.property === 'share:sharing_schema')) {
-    //         extraProperties.push({property: 'share:sharing_schema', content: 'default'});
-    //     }
-    //     return extraProperties;
-    // }, [extra, sharingTitle]);
-
-    // return (
-    //     <React.Fragment>
-    //         <DocumentMeta {...documentMetaProps} />
-    //         <SocialSharingMeta
-    //             type={type}
-    //             url={url || router.pathname}
-    //             locale={locale?.code}
-    //             title={sharingTitle}
-    //             description={sharingDescription}
-    //             image={metaImage}
-    //             extra={extraMeta}
-    //         >
-    //             <base href={baseUrl} />
-    //             {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
-    //             {noIndex && <meta name="robots" content="noindex" />}
-    //             {description && <meta name="description" content={metaDescription} />}
-    //             {metaKeywords && <meta name="keywords" content={metaKeywords} />}
-    //             {metaSchemaJsonLd && (
-    //                 <script id="schema" type="application/ld+json">
-    //                     {metaSchemaJsonLd}
-    //                 </script>
-    //             )}
-    //         </SocialSharingMeta>
-    //     </React.Fragment>
-    // );
+    return (
+        <Fragment>
+            <DocumentMeta title={title} sectionTitle={sectionTitle} appTitle={appTitle} />
+            <SocialSharingMeta
+                type={type}
+                url={url}
+                locale={locale?.code}
+                title={sharingTitle}
+                description={sharingDescription}
+                image={image}
+                extra={extraMeta}
+            >
+                <base href={baseUrl} />
+                {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+                {noIndex && <meta name="robots" content="noindex" />}
+                {description && <meta name="description" content={metaDescription} />}
+                {metaKeywords && <meta name="keywords" content={metaKeywords} />}
+                {metaSchemaJsonLd && (
+                    <script id="schema" type="application/ld+json">
+                        {metaSchemaJsonLd}
+                    </script>
+                )}
+            </SocialSharingMeta>
+        </Fragment>
+    );
 };
 
 export default Meta;

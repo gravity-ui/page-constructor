@@ -6,7 +6,7 @@ import {BlogPageContext} from 'contexts/BlogPageContext';
 import {TranslationContext} from 'contexts/TranslationContext';
 
 import {BlogWrapper, PaddingSize} from 'components/BlogWrapper/BlogWrapper';
-import {BlogMetaComponent, BlogMetrikaGoals} from 'components/BlogMeta/BlogMeta';
+import {BlogInfo, BlogMetrikaGoals} from 'src/components/BlogInfo/BlogInfo';
 import {getBlogBreadcrumbs} from 'utils/blog';
 
 import {BlogMetrikaGoalIds} from '../constants';
@@ -72,13 +72,7 @@ export const MetaBlock: React.FC<MetaBlockFullProps> = (props) => {
                     }}
                 />
             )}
-            {post && (
-                <BlogMetaComponent
-                    post={post}
-                    dataQa="blog-meta-block"
-                    metrikaGoals={metrikaGoals}
-                />
-            )}
+            {post && <BlogInfo post={post} dataQa="blog-meta-block" metrikaGoals={metrikaGoals} />}
         </BlogWrapper>
     );
 };

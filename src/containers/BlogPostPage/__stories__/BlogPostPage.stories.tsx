@@ -6,6 +6,7 @@ import {CONTAINERS} from 'demo/constants';
 
 import post from '@mocks/post.json';
 import page from '@mocks/page.json';
+import metaData from '@mocks/metaData.json';
 
 import {BlogPostPage, BlogPostPageProps} from '../BlogPostPage';
 
@@ -27,4 +28,5 @@ Default.args = {
         post: post as any,
         page,
     },
+    metaData,
 };

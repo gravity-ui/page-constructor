@@ -1,4 +1,4 @@
-import React, {useCallback, useMemo, useState} from 'react';
+import React, {useCallback, useState} from 'react';
 
 import {PageConstructor} from '@yandex-data-ui/page-constructor';
 
@@ -20,9 +20,10 @@ import '@yandex-data-ui/page-constructor/styles/yfm.scss';
 
 export interface BlogPostPageProps {
     data: BlogPostPageData;
+    metaData: BlogMetaProps;
 }
 
-export const BlogPostPage: React.FC<BlogPostPageProps> = ({data}) => {
+export const BlogPostPage: React.FC<BlogPostPageProps> = ({data, metaData}) => {
     const [hasUserLike, setHasUserLike] = useState(data?.post?.hasUserLike);
     const [likesCount, setLikesCount] = useState(data?.post?.likes);
 
@@ -40,28 +41,6 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({data}) => {
         setHasUserLike(!hasUserLike);
         setLikesCount(likes);
     }, [hasUserLike, likesCount]);
-
-    const metaData = useMemo<BlogMetaProps>(() => {
-        const {page, post} = data;
-
-        return {
-            title: page?.title || post?.title,
-            textTitle: post?.title,
-            description: page?.metaDescription || post?.description,
-            date: post?.date,
-            image: post?.image,
-            content: page?.content,
-            shareTitle: page?.shareTitle || post?.title,
-            shareDescription: page?.shareDescription || post?.description,
-            shareImage: page?.shareImage || post?.image,
-            legacySharingImage: post?.legacySharingImage,
-            metaDescription: page?.metaDescription || post?.description,
-            keywords: page?.keywords,
-            noIndex: page?.noIndex || post?.noIndex,
-            authors: post?.authors,
-            tags: post?.tags,
-        };
-    }, [data]);
 
     return data?.withPage ? (
         <main>
