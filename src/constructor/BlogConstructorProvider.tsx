@@ -5,7 +5,6 @@ import {LocaleContext, LocaleContextProps} from 'contexts/LocaleContext';
 import {RouterContext, RouterContextProps} from 'contexts/RouterContext';
 import {UserContext, UserContextProps} from 'contexts/UserContext';
 import {TranslationContext, TranslationContextProps} from 'contexts/TranslationContext';
-import {RegionalConfigContext, RegionalConfigProps} from 'contexts/RegionalConfigContext';
 import {ThemeValueType, ThemeValueContext} from 'contexts/theme/ThemeValueContext';
 
 import {DEFAULT_THEME} from 'src/constants';
@@ -17,7 +16,6 @@ export interface BlogConstructorProviderProps {
     theme?: ThemeValueType;
     user?: UserContextProps;
     translation?: TranslationContextProps;
-    regionalConfig?: RegionalConfigProps;
 }
 
 export const BlogConstructorProvider: React.FC<BlogConstructorProviderProps> = ({
@@ -27,7 +25,6 @@ export const BlogConstructorProvider: React.FC<BlogConstructorProviderProps> = (
     theme = DEFAULT_THEME,
     user = null,
     translation = {},
-    regionalConfig = {},
     children,
 }) => {
     /* eslint-disable react/jsx-key */
@@ -38,7 +35,6 @@ export const BlogConstructorProvider: React.FC<BlogConstructorProviderProps> = (
         <MobileContext.Provider value={Boolean(isMobile)} />,
         <UserContext.Provider value={user} />,
         <TranslationContext.Provider value={translation} />,
-        <RegionalConfigContext.Provider value={regionalConfig} />,
     ].reduceRight((prev, provider) => React.cloneElement(provider, {}, prev), children);
     /* eslint-enable react/jsx-key */
 
