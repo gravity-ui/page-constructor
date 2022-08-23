@@ -31,7 +31,7 @@ const transformBlocks = ({blocks, lang, typographyConfig}: TransformBlocksPropsT
     });
 
 /**
- * Func for transformed blog page content
+ * Func for transform blog page content
  *
  * @param content - content yaml in string
  * @param lang - runtime app lang

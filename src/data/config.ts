@@ -8,7 +8,7 @@ const BLOCKS_FOR_TYPOGRAPHY_TRANSFORM = [
     BlockType.BlogMediaBlock,
 ];
 
-type GetCreateReadableConfigType = () => {
+type CreateReadableConfigType = () => {
     [x in BlockType.BlogYFMBlock | BlockType.BlogColoredTextBlock | BlockType.BlogMediaBlock]: {
         fields: string[];
     };
@@ -41,7 +41,7 @@ export const getExtendTypographyConfig = () =>
     );
 
 /**
- * Func for create config for create readable content func
+ * Func for create readable content func
  *
  * @returns - {
  *      [blockTypes.BlogYfmBlock]: {
@@ -50,7 +50,7 @@ export const getExtendTypographyConfig = () =>
  *      },
  * }
  */
-export const getCreateReadableConfig: GetCreateReadableConfigType = () =>
+export const createReadableConfig: CreateReadableConfigType = () =>
     BLOCKS_FOR_TYPOGRAPHY_TRANSFORM.reduce(
         (result, current) => ({
             [current]: {
@@ -58,5 +58,5 @@ export const getCreateReadableConfig: GetCreateReadableConfigType = () =>
             },
             ...result,
         }),
-        {} as ReturnType<GetCreateReadableConfigType>,
+        {} as ReturnType<CreateReadableConfigType>,
     );

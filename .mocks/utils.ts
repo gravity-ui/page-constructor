@@ -1,6 +1,6 @@
-import {transformPageContent} from 'dataCreators/transformPageContent';
-import {createReadableContent} from 'dataCreators/createReadableContent';
-import {transformPost} from 'dataCreators/transformPost';
+import {transformPageContent} from 'src/data/transformPageContent';
+import {createReadableContent} from 'src/data/createReadableContent';
+import {transformPost} from 'src/data/transformPost';
 
 import {Lang} from 'models/locale';
 
@@ -9,7 +9,7 @@ import pageApi from './pageApi.json';
 
 /**
  * function for generate post page data,
- * example how to use dataCreators
+ * example how to use data utils
  */
 export const generatePostPageData = () => {
     const lang = Lang.Ru;

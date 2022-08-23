@@ -2,15 +2,15 @@ import evalExp from '@doc-tools/transform/lib/liquid/evaluation';
 
 import {Lang} from 'models/locale';
 
-type FilteringOptionsType = {
+type FilteringOptions = {
     lang: Lang;
     region: string;
 };
 
-type FilterItemsPropsType = {
+type FilterItemsProps = {
     items: Record<string, unknown>[] | unknown;
     itemsKey: string;
-    options: FilteringOptionsType;
+    options: FilteringOptions;
 };
 
 /**
@@ -20,7 +20,7 @@ type FilterItemsPropsType = {
  * @param {Object.<string, Lang>} vars
  * @return {Array}
  */
-export const filterItems = ({items, itemsKey, options}: FilterItemsPropsType) => {
+export const filterItems = ({items, itemsKey, options}: FilterItemsProps) => {
     if (!Array.isArray(items)) {
         throw new Error(
             `Error while filtering: items has invalid key '${itemsKey}' equals ${JSON.stringify(
@@ -65,7 +65,7 @@ export const filterItems = ({items, itemsKey, options}: FilterItemsPropsType) =>
  * @param {Object.<string, Lang>} options
  * @return {any}
  */
-export const filterContent = (content: unknown, options: FilteringOptionsType) => {
+export const filterContent = (content: unknown, options: FilteringOptions) => {
     if (Array.isArray(content)) {
         // @ts-ignore
         return filterItems({items: content, itemsKey: null, options}).map((item) =>

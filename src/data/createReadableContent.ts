@@ -1,9 +1,9 @@
-import {getCreateReadableConfig} from './config';
+import {createReadableConfig} from './config';
 import {BlockType} from 'models/blog';
 
 // TODO fix any https://st.yandex-team.ru/ORION-1447
 
-type CreateReadableContentPropsType = {
+type CreateReadableContentProps = {
     blocks: {
         [x: string]: any;
         type: BlockType.BlogYFMBlock | BlockType.BlogColoredTextBlock | BlockType.BlogMediaBlock;
@@ -25,9 +25,9 @@ export const createReadableContent = ({
     content = '',
     blocks,
     authors = [],
-}: CreateReadableContentPropsType) => {
+}: CreateReadableContentProps) => {
     try {
-        const config = getCreateReadableConfig();
+        const config = createReadableConfig();
 
         const readableContent = blocks.reduce((resultContent: string, block) => {
             let innerContent = resultContent;
@@ -58,7 +58,7 @@ export const createReadableContent = ({
 
         return readableContent;
     } catch (err) {
-        console.error('Problem when transforming page content', err);
+        console.error('Page content transformation error', err);
         return '';
     }
 };
