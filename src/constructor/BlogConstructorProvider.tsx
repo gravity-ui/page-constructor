@@ -20,7 +20,7 @@ export interface BlogConstructorProviderProps {
 
 export const BlogConstructorProvider: React.FC<BlogConstructorProviderProps> = ({
     isMobile,
-    locale = {},
+    locale = {} as LocaleContextProps,
     router = {} as RouterContextProps,
     theme = DEFAULT_THEME,
     user = null,
