@@ -1,4 +1,4 @@
-import {createReadableConfig} from './config';
+import {getConfigForCreateReadableContent} from './config';
 import {BlockType} from 'models/blog';
 
 // TODO fix any https://st.yandex-team.ru/ORION-1447
@@ -27,7 +27,7 @@ export const createReadableContent = ({
     authors = [],
 }: CreateReadableContentProps) => {
     try {
-        const config = createReadableConfig();
+        const config = getConfigForCreateReadableContent();
 
         const readableContent = blocks.reduce((resultContent: string, block) => {
             let innerContent = resultContent;

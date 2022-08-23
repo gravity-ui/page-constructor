@@ -1,6 +1,6 @@
-import {transformPageContent} from 'src/data/transformPageContent';
-import {createReadableContent} from 'src/data/createReadableContent';
-import {transformPost} from 'src/data/transformPost';
+import {transformPageContent} from 'data/transformPageContent';
+import {createReadableContent} from 'data/createReadableContent';
+import {transformPost} from 'data/transformPost';
 
 import {Lang} from 'models/locale';
 
