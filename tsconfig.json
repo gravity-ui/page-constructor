@@ -24,7 +24,8 @@
       "icons/*": ["assets/icons/*"],
       "images/*": ["assets/images/*"],
       "@mocks/*": [".mocks/*"],
-      "counters/*": ["src/counters/*"]
+      "counters/*": ["src/counters/*"],
+      "data/*": ["src/data/*"]
     },
     "module": "esNext",
     "jsx": "react",

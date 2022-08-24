@@ -76,7 +76,6 @@ export enum BlockType {
 }
 
 export interface BlogPostPageData {
-    withPage: boolean;
     post: BlogPostData;
     page: PageData;
 }

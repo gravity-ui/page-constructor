@@ -42,7 +42,7 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({data, metaData}) => {
         setLikesCount(likes);
     }, [hasUserLike, likesCount]);
 
-    return data?.withPage ? (
+    return (
         <main>
             <BlogPageContext.Provider
                 value={{
@@ -58,5 +58,5 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({data, metaData}) => {
                 <PageConstructor content={data?.page.content} custom={componentMap} />
             </BlogPageContext.Provider>
         </main>
-    ) : null;
+    );
 };
