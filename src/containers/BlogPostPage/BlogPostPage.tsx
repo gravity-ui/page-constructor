@@ -63,7 +63,7 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({data}) => {
         };
     }, [data]);
 
-    return data?.withPage ? (
+    return (
         <main>
             <BlogPageContext.Provider
                 value={{
@@ -79,5 +79,5 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({data}) => {
                 <PageConstructor content={data?.page.content} custom={componentMap} />
             </BlogPageContext.Provider>
         </main>
-    ) : null;
+    );
 };
