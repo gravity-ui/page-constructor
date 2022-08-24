@@ -32,8 +32,20 @@ export type BlogMetaProps = {
 };
 
 /**
+ * Create meta data for blog page
  *
- * @param props
+ * @param title - post title
+ * @param date - post create date
+ * @param description - post description
+ * @param image - post image
+ * @param keywords - keywords fro meta
+ * @param noIndex - flag that we need to don't indexing the page
+ * @param authors - post authors
+ * @param tags - post tags
+ * @param content - post content like string
+ * @param legacySharingImage - image for legacy sharing
+ * @param organization - info about organization (YCloud, DoubleCloud)
+ * @param canonicalUrl - post canonicalUrl
  * @returns
  */
 export const BlogPageMeta: React.FC<BlogMetaProps> = React.memo(
