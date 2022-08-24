@@ -14,7 +14,11 @@ import './BlogInfo.scss';
 const b = block('blog-info');
 
 export type SuggestBlogInfoProps = {
-    post: BlogPostData;
+    blogPostId: BlogPostData['blogPostId'];
+    date: BlogPostData['date'];
+    readingTime: BlogPostData['readingTime'];
+    hasUserLike: BlogPostData['hasUserLike'];
+    likes: BlogPostData['likes'];
     size?: 's' | 'm';
     dataQa?: string;
     // delete this prop after Realese of BlogFeed https://st.yandex-team.ru/CLOUDFRONT-11056
@@ -24,7 +28,11 @@ export type SuggestBlogInfoProps = {
 /**
  * Suggest blog card info component
  *
- * @param post - post info
+ * @param blogPostId - post id
+ * @param date - post create date
+ * @param readingTime - post reading time
+ * @param hasUserLike - flag that the user liked the post
+ * @param likes - likes count
  * @param dataQa - test-attr
  * @param size - text size
  * @param useModernIcon - flag what we need render 'bookmark' icon
@@ -32,7 +40,11 @@ export type SuggestBlogInfoProps = {
  * @returns jsx
  */
 export const SuggestBlogInfo: React.FC<SuggestBlogInfoProps> = ({
-    post: {blogPostId, date, readingTime, hasUserLike, likes},
+    blogPostId,
+    date,
+    readingTime,
+    hasUserLike,
+    likes,
     dataQa,
     size = 's',
     useModernIcon,

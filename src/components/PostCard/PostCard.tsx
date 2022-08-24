@@ -29,7 +29,18 @@ export const PostCard: React.FC<PostCardProps> = ({
     showTag = false,
     useModernIcon,
 }) => {
-    const title = post?.title || post.htmlTitle || post.textTitle;
+    const {
+        title: postTitle,
+        htmlTitle,
+        textTitle,
+        blogPostId,
+        date,
+        readingTime,
+        hasUserLike,
+        likes,
+    } = post;
+
+    const title = postTitle || htmlTitle || textTitle;
 
     return (
         <CardBase url={post.url} metrikaGoals={metrikaGoals} className={b('card', {fullWidth})}>
@@ -56,7 +67,11 @@ export const PostCard: React.FC<PostCardProps> = ({
             </CardBase.Content>
             <CardBase.Footer>
                 <SuggestBlogInfo
-                    post={post}
+                    blogPostId={blogPostId}
+                    date={date}
+                    readingTime={readingTime}
+                    hasUserLike={hasUserLike}
+                    likes={likes}
                     dataQa="blog-suggest-block"
                     size={size}
                     useModernIcon={useModernIcon}

@@ -42,8 +42,10 @@ export const MetaBlock: React.FC<MetaBlockFullProps> = (props) => {
     const {post} = useContext(BlogPageContext);
     const {i18n} = useContext(TranslationContext);
 
+    const {title, id, date, readingTime, tags} = post;
+
     const breadcrumbs = getBlogBreadcrumbs({
-        tags: post?.tags,
+        tags,
         i18n,
     });
 
@@ -63,16 +65,24 @@ export const MetaBlock: React.FC<MetaBlockFullProps> = (props) => {
                     metrikaGoals={breadcrumbs.metrikaGoals}
                 />
             )}
-            {post?.title && (
+            {title && (
                 <YFMWrapper
-                    content={post.title}
+                    content={title}
                     modifiers={{
                         blogBreadcrumbs: true,
                         resetPaddings: true,
                     }}
                 />
             )}
-            {post && <BlogInfo post={post} dataQa="blog-meta-block" metrikaGoals={metrikaGoals} />}
+            {post && (
+                <BlogInfo
+                    postId={id}
+                    date={date}
+                    readingTime={readingTime}
+                    dataQa="blog-meta-block"
+                    metrikaGoals={metrikaGoals}
+                />
+            )}
         </BlogWrapper>
     );
 };

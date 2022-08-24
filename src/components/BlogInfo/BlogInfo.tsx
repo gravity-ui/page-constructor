@@ -21,7 +21,9 @@ export type BlogMetrikaGoals = {
 };
 
 type BlogInfoProps = {
-    post: BlogPostData;
+    postId: BlogPostData['id'];
+    readingTime: BlogPostData['readingTime'];
+    date: BlogPostData['date'];
     theme?: 'light' | 'dark';
     metrikaGoals?: BlogMetrikaGoals;
     dataQa?: string;
@@ -30,7 +32,9 @@ type BlogInfoProps = {
 /**
  *  Blog post info panel component
  *
- * @param post - post info
+ * @param postId - post id
+ * @param readingTime - post reading time
+ * @param date - post create date
  * @param theme - theme name
  * @param metrikaGoals - metrika goals name
  * @param dataQa - test-attr
@@ -38,23 +42,23 @@ type BlogInfoProps = {
  * @returns jsx
  */
 export const BlogInfo: React.FC<BlogInfoProps> = ({
-    post,
+    date,
+    readingTime,
+    postId,
     theme = 'light',
     metrikaGoals,
     dataQa,
 }) => {
     const {likes} = useContext(BlogPageContext);
 
-    const {date, readingTime} = post;
-
     return (
         <div className={b('container', {theme})}>
             {date && <BlogDate date={date} />}
             {readingTime && <BlogReadingTime readingTime={readingTime} />}
             <BlogSharing metrikaGoal={metrikaGoals?.sharing} theme={theme} />
-            {post.id && likes && (
+            {postId && likes && (
                 <BlogSave
-                    postId={post.id}
+                    postId={postId}
                     title={likes.likesCount}
                     hasUserLike={likes.hasUserLike}
                     handleUserLike={likes.handleUserLike}
