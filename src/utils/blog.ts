@@ -5,7 +5,9 @@ import {
     MetrikaGoal,
     NewMetrikaGoal,
 } from '@yandex-data-ui/page-constructor';
-import {I18nFunction} from 'i18n';
+
+import {i18, BlogKeysetWords} from 'src/i18n';
+
 // import {getTagFilterUrl, getTags} from 'units/blog/utils';
 import {BlogPostTagExtended} from 'models/blog';
 import {
@@ -51,13 +53,12 @@ export const checkContentDefaults = (contentData: ContentBlockProps) => {
 };
 
 type GetBlogBreadcrumbsProps = {
-    i18n: I18nFunction;
     tags?: BlogPostTagExtended[];
 };
 
-export const getBlogBreadcrumbs = ({tags, i18n}: GetBlogBreadcrumbsProps) => {
+export const getBlogBreadcrumbs = ({tags}: GetBlogBreadcrumbsProps) => {
     const breadcrumbs: HeaderBreadCrumbsProps = {
-        items: [{text: i18n('blog', 'title-breadcrumbs-blog'), url: '/blog'}],
+        items: [{text: i18(BlogKeysetWords.titleBreadcrumbsBlog), url: '/blog'}],
         theme: 'light',
     };
 

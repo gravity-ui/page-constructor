@@ -6,7 +6,8 @@ import block from 'bem-cn-lite';
 import {LayoutDirections} from '@yandex-data-ui/common/build/esm/components/ShareTooltip/constants';
 import {Icon, ShareTooltip, ShareSocialNetwork} from '@yandex-cloud/uikit';
 
-import {TranslationContext} from 'contexts/TranslationContext';
+import {i18, BlogKeysetWords} from 'src/i18n';
+
 import {RouterContext} from 'contexts/RouterContext';
 import {MobileContext} from 'contexts/MobileContext';
 // import {LocaleContext} from 'contexts/LocaleContext';
@@ -56,14 +57,13 @@ type BlogMetaReadingTimeProps = {
 
 export const BlogMetaReadingTime: React.FunctionComponent<BlogMetaReadingTimeProps> = (props) => {
     const {readingTime, size = 's'} = props;
-    const {i18n} = useContext(TranslationContext);
 
     return (
         <div className={b('meta-item', {size})}>
             <span className={b('meta-icon')}>
                 <Icon data={timeIcon} size={16} className={b('icon-color')} />
             </span>
-            {i18n('blog', 'context-reading_time', {count: readingTime})}
+            {i18(BlogKeysetWords.contextReadingTime, {count: readingTime})}
         </div>
     );
 };
@@ -77,7 +77,6 @@ export const BlogMetaSharing: React.FunctionComponent<BlogMetaSharingProps> = ({
     theme,
     metrikaGoal,
 }) => {
-    const {i18n} = useContext(TranslationContext);
     const router = useContext(RouterContext);
     const isMobile = useContext(MobileContext);
 
@@ -96,7 +95,7 @@ export const BlogMetaSharing: React.FunctionComponent<BlogMetaSharingProps> = ({
                     tooltipClassName={b('popup')}
                     useWebShareApi={isMobile}
                     direction={LayoutDirections.column}
-                    buttonTitle={i18n('blog', 'action-share')}
+                    buttonTitle={i18(BlogKeysetWords.actionShare)}
                     customIcon={shareIcon}
                     placement="bottom"
                     openByHover={false}

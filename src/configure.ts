@@ -1,9 +1,6 @@
-import {i18n} from './i18n';
+import {Lang} from 'models/locale';
 
-export enum Lang {
-    Ru = 'ru',
-    En = 'en',
-}
+import {i18n} from './i18n';
 
 export interface ProjectConfigParams {
     lang: Lang;

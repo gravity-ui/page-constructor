@@ -1,14 +1,15 @@
 import _ from 'lodash';
-import React, {useContext} from 'react';
+import React from 'react';
 
 import {SpeakerPublic} from '@yandex-data-ui/cloud-schemas/build/models/ui-api';
 import {PageContent} from '@yandex-data-ui/page-constructor';
+
+import {i18, BlogKeysetWords} from 'src/i18n';
 
 // TODO fixes in https://st.yandex-team.ru/ORION-1432
 
 import Meta, {MetaComponentProps} from 'components/Meta/Meta';
 // import {SchemaOrgUtils} from 'utils';
-import {TranslationContext} from 'contexts/TranslationContext';
 // import {getContent} from '../../../../../common/utils';
 // import {LocaleContext} from 'contexts/LocaleContext';
 // import {RouterContext} from 'contexts/RouterContext';
@@ -34,7 +35,6 @@ export type BlogMetaProps = {
 };
 
 export const BlogPageMeta: React.FC<BlogMetaProps> = (props) => {
-    const {i18n, i18nK} = useContext(TranslationContext);
     // const locale = useContext(LocaleContext);
     // const router = useContext(RouterContext);
     // const regionalConfig = useContext(RegionalConfigContext);
@@ -44,7 +44,7 @@ export const BlogPageMeta: React.FC<BlogMetaProps> = (props) => {
     }
 
     const {
-        title = i18nK('constructor_page-default-title'),
+        title = '',
         textTitle,
         metaDescription,
         date,
@@ -64,7 +64,7 @@ export const BlogPageMeta: React.FC<BlogMetaProps> = (props) => {
     const breadcrumbs = [
         {
             slug: '/blog',
-            title: i18n('blog', 'title-blog'),
+            title: i18(BlogKeysetWords.titleBlog),
         },
     ];
 

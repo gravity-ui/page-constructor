@@ -1,14 +1,15 @@
-import React, {useContext} from 'react';
+import React from 'react';
 // TODO import sdk from 'sdk';
 
 // import {Lang} from '@yandex-data-ui/cloud-schemas/build/models/common';
 import {ClassNameProps} from '@yandex-data-ui/cloud-components';
 import {SliderBlock} from '@yandex-data-ui/page-constructor';
 
+import {i18, BlogKeysetWords} from 'src/i18n';
+
 import {BlogWrapper, PaddingSize} from 'components/BlogWrapper/BlogWrapper';
 // import {BlogPageContext} from 'contexts/BlogPageContext';
 // import {UserContext} from 'contexts/UserContext';
-import {TranslationContext} from 'contexts/TranslationContext';
 // import {PostCard} from 'components/PostCard/PostCard';
 // import {BlogPostData} from 'models/blog';
 // import {BlogMetrikaGoalIds} from '../constants';
@@ -49,7 +50,6 @@ export const BlogSuggestBlock: React.FC<SuggestBlockFullProps> = ({
     // const [error, setError] = useState(false);
     // const [suggestedPosts, setSuggestedPosts] = useState<BlogPostData[]>([]);
     // const pageContext = useContext(BlogPageContext);
-    const {i18n} = useContext(TranslationContext);
     // const userContext = useContext(UserContext);
 
     // const blogPostId = pageContext.post?.id;
@@ -86,7 +86,7 @@ export const BlogSuggestBlock: React.FC<SuggestBlockFullProps> = ({
         <BlogWrapper paddingTop={paddingTop} paddingBottom={paddingBottom}>
             <SliderBlock
                 slidesToShow={{xl: 3, lg: 2, sm: 1}}
-                title={{text: i18n('blog', 'title_suggest')}}
+                title={{text: i18(BlogKeysetWords.titleSuggest)}}
             >
                 {['todo', 'continue', 'after', 'create', 'mock'].map((item) => (
                     <div key={item}>{item}</div>
