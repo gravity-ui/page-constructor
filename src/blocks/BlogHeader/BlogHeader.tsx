@@ -4,7 +4,7 @@ import {HeaderBlock, HeaderBlockProps} from '@yandex-data-ui/page-constructor';
 import {BlogPageContext} from 'contexts/BlogPageContext';
 import {TranslationContext} from 'contexts/TranslationContext';
 
-import {BlogMetaComponent, BlogMetrikaGoals} from 'components/BlogMeta/BlogMeta';
+import {BlogInfo, BlogMetrikaGoals} from 'src/components/BlogInfo/BlogInfo';
 import {BlogWrapper, PaddingSize} from 'components/BlogWrapper/BlogWrapper';
 
 import {getBlogBreadcrumbs} from 'utils/blog';
@@ -32,8 +32,10 @@ export const BlogHeader: React.FC<BlogHeaderProps> = (props) => {
     const {post} = useContext(BlogPageContext);
     const {i18n} = useContext(TranslationContext);
 
+    const {description, title, id, date, readingTime, tags} = post;
+
     const breadcrumbs = getBlogBreadcrumbs({
-        tags: post?.tags,
+        tags,
         i18n,
     });
 
@@ -46,24 +48,24 @@ export const BlogHeader: React.FC<BlogHeaderProps> = (props) => {
     const headerProps = useMemo(
         () => ({
             ...props,
-            title: post?.title || '',
-            description: post?.description || '',
+            title: title || '',
+            description: description || '',
             breadcrumbs,
         }),
-        [breadcrumbs, post?.description, post?.title, props],
+        [breadcrumbs, description, title, props],
     );
 
     return (
         <BlogWrapper paddingTop={paddingTop} paddingBottom={paddingBottom}>
             <HeaderBlock {...headerProps}>
-                {post && (
-                    <BlogMetaComponent
-                        post={post}
-                        metrikaGoals={metrikaGoals}
-                        theme={theme}
-                        dataQa="blog-header-meta-container"
-                    />
-                )}
+                <BlogInfo
+                    postId={id}
+                    date={date}
+                    readingTime={readingTime}
+                    metrikaGoals={metrikaGoals}
+                    theme={theme}
+                    dataQa="blog-header-meta-container"
+                />
             </HeaderBlock>
         </BlogWrapper>
     );
