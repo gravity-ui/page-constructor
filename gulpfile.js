@@ -81,6 +81,10 @@ task('styles-global', () => {
         .pipe(dest(path.resolve(BUILD_CLIENT_DIR, 'styles')));
 });
 
+task('copy-global-scss', () => {
+    return src('styles/*').pipe(dest(path.resolve(BUILD_CLIENT_DIR, 'styles')));
+});
+
 task('styles-components', () => {
     return src([`src/**/*.scss`, `!src/**/__stories__/**/*.scss`])
         .pipe(styleAliases(ALIASES_FOR_STYLES))
@@ -96,7 +100,7 @@ task(
         parallel(['compile-to-esm', 'compile-to-cjs']),
         'copy-js-declarations',
         'copy-i18n',
-        parallel(['styles-global', 'styles-components']),
+        parallel(['styles-global', 'styles-components', 'copy-global-scss']),
     ]),
 );
 
