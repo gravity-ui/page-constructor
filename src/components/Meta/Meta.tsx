@@ -1,7 +1,6 @@
 import React, {Fragment, useMemo, useContext} from 'react';
 
 import {MetaProps, SocialSharingMeta} from '@yandex-data-ui/common';
-import {sanitizeHtml} from '@yandex-data-ui/page-constructor/server';
 
 import {DocumentMetaProps, DocumentMeta} from 'components/DocumentMeta/DocumentMeta';
 
@@ -34,7 +33,6 @@ export interface MetaComponentProps extends DocumentMetaProps {
 
 export const Meta: React.FC<MetaComponentProps> = ({
     title,
-    sectionTitle,
     appTitle,
     type = 'website',
     url,
@@ -50,17 +48,11 @@ export const Meta: React.FC<MetaComponentProps> = ({
     const {locale} = useContext(LocaleContext);
     const router = useContext(RouterContext);
 
-    const sharingTitle = useMemo(() => sanitizeHtml(sharing?.title), [sharing?.title]);
+    const sharingTitle = useMemo(() => sharing.title, [sharing?.title]);
 
-    const sharingDescription = useMemo(
-        () => sanitizeHtml(sharing?.description),
-        [sharing?.description],
-    );
+    const sharingDescription = useMemo(() => sharing.description, [sharing?.description]);
 
-    const metaDescription = useMemo(
-        () => (description ? sanitizeHtml(description) : undefined),
-        [description],
-    );
+    const metaDescription = useMemo(() => (description ? description : undefined), [description]);
 
     const metaKeywords = useMemo(
         () => (Array.isArray(keywords) ? keywords.join(',') : keywords),
@@ -92,7 +84,7 @@ export const Meta: React.FC<MetaComponentProps> = ({
 
     return (
         <Fragment>
-            <DocumentMeta title={title} sectionTitle={sectionTitle} appTitle={appTitle} />
+            <DocumentMeta title={title} appTitle={appTitle} />
             <SocialSharingMeta
                 type={type}
                 url={url}

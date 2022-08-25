@@ -14,14 +14,6 @@ type BlogDateProps = {
     size?: 's' | 'm';
 };
 
-/**
- * Component for blog created date UI-element
- *
- * @param data - blog created date
- * @param size - text size
- *
- * @returns jsx
- */
 export const BlogDate: React.FC<BlogDateProps> = ({date, size = 's'}) => {
     const {locale} = useContext(LocaleContext);
 

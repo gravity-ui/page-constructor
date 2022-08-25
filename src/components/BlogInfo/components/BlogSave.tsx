@@ -32,7 +32,7 @@ type BlogSaveProps = {
     dataQa?: string;
     size?: 's' | 'm';
     // delete this prop after Realese of BlogFeed https://st.yandex-team.ru/CLOUDFRONT-11056
-    useModernIcon?: boolean;
+    isModernIcon?: boolean;
 };
 
 /**
@@ -44,7 +44,7 @@ type BlogSaveProps = {
  * @param metrikaGoal - metrika goal name
  * @param dataQa - test-attr
  * @param size - text size
- * @param useModernIcon - flag what we need render 'bookmark' icon
+ * @param isModernIcon - flag what we need render 'bookmark' icon
  *
  * @returns jsx
  */
@@ -57,11 +57,11 @@ export const BlogSave: React.FC<BlogSaveProps> = ({
     dataQa,
     size,
     theme,
-    useModernIcon,
+    isModernIcon,
 }) => {
     // delete this icons selection after Realese of BlogFeed https://st.yandex-team.ru/CLOUDFRONT-11056
-    const icon = useModernIcon ? savedIcon : likeIcon;
-    const filledIcon = useModernIcon ? filledSavedIcon : filledLikeIcon;
+    const icon = isModernIcon ? savedIcon : likeIcon;
+    const filledIcon = isModernIcon ? filledSavedIcon : filledLikeIcon;
 
     return (
         <div

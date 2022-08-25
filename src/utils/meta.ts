@@ -1,6 +1,5 @@
-import {sanitizeHtml} from '@yandex-data-ui/page-constructor/server';
 import {Locale} from 'models/locale';
-import {BlogMetaProps} from 'containers/BlogPostPage/BlogPageMeta';
+import {BlogMetaProps} from 'models/blog';
 
 import {format} from './date';
 
@@ -9,18 +8,16 @@ type BreadcrumbsData = {
     slug: string;
 };
 
-type GetBlogPostSchemaData = {
-    title: BlogMetaProps['title'];
+interface GetBlogPostSchemaData
+    extends Pick<
+        BlogMetaProps,
+        'title' | 'description' | 'date' | 'keywords' | 'image' | 'content' | 'organization'
+    > {
     url: string;
-    description: BlogMetaProps['description'];
-    date: BlogMetaProps['date'];
     author: string;
-    keywords: BlogMetaProps['keywords'];
-    image: BlogMetaProps['image'];
-    content: BlogMetaProps['content'];
     locale: Locale | undefined;
-    organization: BlogMetaProps['organization'];
-} & {breadcrumbs?: BreadcrumbsData[]};
+    breadcrumbs?: BreadcrumbsData[];
+}
 
 const countWords = (str: string) => str.split(' ').filter(Boolean).length;
 
@@ -78,12 +75,11 @@ export const getBlogPostSchema = ({
     organization,
     locale,
 }: GetBlogPostSchemaData) => {
-    const safeUrl = sanitizeHtml(url);
     const authorSchema = getAuthorSchema(authorName, organization);
     const organizationSchema = getOrganizationSchema(organization);
     const languageSchema = getLanguageSchema(locale);
     const sharedContent = getSharedContentSchema({
-        url: safeUrl,
+        url,
         title,
         author: authorSchema,
     });
@@ -107,8 +103,8 @@ export const getBlogPostSchema = ({
             },
             {
                 '@type': 'BlogPosting',
-                '@id': safeUrl,
-                url: safeUrl,
+                '@id': url,
+                url: url,
                 name: title,
                 headline: title,
                 abstract: description,

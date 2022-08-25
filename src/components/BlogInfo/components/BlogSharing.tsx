@@ -14,6 +14,7 @@ import {getAbsolutePath} from 'utils/common';
 
 import {MetrikaCounter} from 'counters/utils';
 
+// TODO fixes and refactor in https://st.yandex-team.ru/ORION-1444
 // @ts-ignore
 import metrika from 'counters/metrika.js';
 
@@ -28,14 +29,6 @@ type BlogSharingProps = {
     metrikaGoal?: string;
 };
 
-/**
- * Component for sharing blog UI-element
- *
- * @param theme - theme name
- * @param metrikaGoal - metrika goal name
- *
- * @returns jsx
- */
 export const BlogSharing: React.FC<BlogSharingProps> = ({theme, metrikaGoal}) => {
     const {i18n} = useContext(TranslationContext);
     const router = useContext(RouterContext);

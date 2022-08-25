@@ -56,7 +56,7 @@ export const BlogInfo: React.FC<BlogInfoProps> = ({
             {date && <BlogDate date={date} />}
             {readingTime && <BlogReadingTime readingTime={readingTime} />}
             <BlogSharing metrikaGoal={metrikaGoals?.sharing} theme={theme} />
-            {postId && likes && (
+            {likes && (
                 <BlogSave
                     postId={postId}
                     title={likes.likesCount}

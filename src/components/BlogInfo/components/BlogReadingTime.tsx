@@ -18,14 +18,6 @@ type BlogReadingTimeProps = {
     size?: 's' | 'm';
 };
 
-/**
- * Component for blog reading time UI-element
- *
- * @param readingTime - blog reading time
- * @param size - text size
- *
- * @returns jsx
- */
 export const BlogReadingTime: React.FC<BlogReadingTimeProps> = ({readingTime, size = 's'}) => {
     // TODO refactor in https://st.yandex-team.ru/ORION-1444
     const {i18n} = useContext(TranslationContext);

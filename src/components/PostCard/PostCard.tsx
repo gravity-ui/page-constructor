@@ -18,7 +18,7 @@ type PostCardProps = {
     size?: 's' | 'm';
     metrikaGoals?: MetrikaGoal;
     // delete this prop after Realese of BlogFeed https://st.yandex-team.ru/CLOUDFRONT-11056
-    useModernIcon?: boolean;
+    isModernIcon?: boolean;
 };
 
 export const PostCard: React.FC<PostCardProps> = ({
@@ -27,38 +27,43 @@ export const PostCard: React.FC<PostCardProps> = ({
     fullWidth = false,
     size = 's',
     showTag = false,
-    useModernIcon,
+    isModernIcon,
 }) => {
     const {
         title: postTitle,
         htmlTitle,
         textTitle,
         blogPostId,
+        id,
         date,
         readingTime,
         hasUserLike,
         likes,
+        image,
+        description,
+        tags,
+        url,
     } = post;
 
     const title = postTitle || htmlTitle || textTitle;
 
     return (
-        <CardBase url={post.url} metrikaGoals={metrikaGoals} className={b('card', {fullWidth})}>
-            <CardBase.Header image={post.image} className={b('header', {fullWidth})}>
+        <CardBase url={url} metrikaGoals={metrikaGoals} className={b('card', {fullWidth})}>
+            <CardBase.Header image={image} className={b('header', {fullWidth})}>
                 <div className={b('image-container')} data-qa="blog-suggest-header" />
             </CardBase.Header>
             <CardBase.Content>
-                {showTag && post?.tags?.[0]?.name && (
-                    <div className={b('tag', {size})}>{post.tags[0].name}</div>
+                {showTag && tags?.[0]?.name && (
+                    <div className={b('tag', {size})}>{tags[0].name}</div>
                 )}
                 {title && (
                     <h4 className={b('title', {size})}>
                         <HTML>{title}</HTML>
                     </h4>
                 )}
-                {post.description && (
+                {description && (
                     <YFMWrapper
-                        content={post.description}
+                        content={description}
                         modifiers={{
                             blog: size === 'm',
                         }}
@@ -67,14 +72,14 @@ export const PostCard: React.FC<PostCardProps> = ({
             </CardBase.Content>
             <CardBase.Footer>
                 <SuggestBlogInfo
-                    blogPostId={blogPostId}
+                    blogPostId={blogPostId || id}
                     date={date}
                     readingTime={readingTime}
                     hasUserLike={hasUserLike}
                     likes={likes}
                     dataQa="blog-suggest-block"
                     size={size}
-                    useModernIcon={useModernIcon}
+                    isModernIcon={isModernIcon}
                 />
             </CardBase.Footer>
         </CardBase>

@@ -1,7 +1,5 @@
 import React, {useContext} from 'react';
 
-import {SpeakerPublic} from '@yandex-data-ui/cloud-schemas/build/models/ui-api';
-
 import Meta, {MetaComponentProps} from 'components/Meta/Meta';
 
 import {RouterContext} from 'contexts/RouterContext';
@@ -9,27 +7,7 @@ import {LocaleContext} from 'contexts/LocaleContext';
 
 import {getBlogPostSchema} from 'utils/meta';
 
-import {BlogPostTagExtended} from 'models/blog';
-
-export type BlogMetaProps = {
-    title: string;
-    date: string;
-    image: string;
-    canonicalUrl: string;
-    content?: string;
-    description?: string;
-    legacySharingImage?: string;
-    keywords?: string[];
-    noIndex?: boolean;
-    authors?: SpeakerPublic[];
-    tags?: BlogPostTagExtended[];
-    organization: {
-        url: string;
-        appTitle: string;
-        legalName: string;
-        supportEmail: string;
-    };
-};
+import {BlogMetaProps} from 'models/blog';
 
 /**
  * Create meta data for blog page

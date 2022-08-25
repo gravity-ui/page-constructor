@@ -13,17 +13,13 @@ import './BlogInfo.scss';
 
 const b = block('blog-info');
 
-export type SuggestBlogInfoProps = {
-    blogPostId: BlogPostData['blogPostId'];
-    date: BlogPostData['date'];
-    readingTime: BlogPostData['readingTime'];
-    hasUserLike: BlogPostData['hasUserLike'];
-    likes: BlogPostData['likes'];
+export interface SuggestBlogInfoProps
+    extends Pick<BlogPostData, 'blogPostId' | 'date' | 'readingTime' | 'hasUserLike' | 'likes'> {
     size?: 's' | 'm';
     dataQa?: string;
     // delete this prop after Realese of BlogFeed https://st.yandex-team.ru/CLOUDFRONT-11056
-    useModernIcon?: boolean;
-};
+    isModernIcon?: boolean;
+}
 
 /**
  * Suggest blog card info component
@@ -35,7 +31,7 @@ export type SuggestBlogInfoProps = {
  * @param likes - likes count
  * @param dataQa - test-attr
  * @param size - text size
- * @param useModernIcon - flag what we need render 'bookmark' icon
+ * @param isModernIcon - flag what we need render 'bookmark' icon
  *
  * @returns jsx
  */
@@ -47,7 +43,7 @@ export const SuggestBlogInfo: React.FC<SuggestBlogInfoProps> = ({
     likes,
     dataQa,
     size = 's',
-    useModernIcon,
+    isModernIcon,
 }) => {
     const [like, setLike] = useState(hasUserLike);
     const [likesCount, setLikesCount] = useState(likes ?? 0);
@@ -80,10 +76,10 @@ export const SuggestBlogInfo: React.FC<SuggestBlogInfoProps> = ({
                     postId={blogPostId}
                     title={likesCount}
                     hasUserLike={like ?? false}
-                    handleUserLike={handleUserLike.bind(this)}
+                    handleUserLike={handleUserLike}
                     dataQa={dataQa}
                     size={size}
-                    useModernIcon={useModernIcon}
+                    isModernIcon={isModernIcon}
                 />
             )}
         </div>
