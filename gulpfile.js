@@ -6,11 +6,18 @@ const ts = require('gulp-typescript');
 const replace = require('gulp-replace');
 const sass = require('gulp-dart-sass');
 const alias = require('gulp-ts-alias');
-const aliases = require('gulp-style-aliases');
+const styleAliases = require('gulp-style-aliases');
 
 const BUILD_CLIENT_DIR = path.resolve('build');
 const ESM_DIR = 'esm';
 const CJS_DIR = 'cjs';
+const ALIASES_FOR_STYLES = {
+    styles: 'styles',
+    '~': 'node_modules',
+};
+const SASS_LOADER_OPTIONS = {
+    includePaths: ['./node_modules'],
+};
 
 task('clean', (done) => {
     rimraf.sync(BUILD_CLIENT_DIR);
@@ -69,25 +76,15 @@ task('copy-i18n', () => {
 
 task('styles-global', () => {
     return src('styles/styles.scss')
-        .pipe(
-            aliases({
-                styles: 'styles',
-                '~': 'node_modules',
-            }),
-        )
-        .pipe(sass({includePaths: ['./node_modules']}).on('error', sass.logError))
-        .pipe(dest('styles'));
+        .pipe(styleAliases(ALIASES_FOR_STYLES))
+        .pipe(sass(SASS_LOADER_OPTIONS).on('error', sass.logError))
+        .pipe(dest(path.resolve(BUILD_CLIENT_DIR, 'styles')));
 });
 
 task('styles-components', () => {
     return src([`src/**/*.scss`, `!src/**/__stories__/**/*.scss`])
-        .pipe(
-            aliases({
-                styles: 'styles',
-                '~': 'node_modules',
-            }),
-        )
-        .pipe(sass({includePaths: ['./node_modules']}).on('error', sass.logError))
+        .pipe(styleAliases(ALIASES_FOR_STYLES))
+        .pipe(sass(SASS_LOADER_OPTIONS).on('error', sass.logError))
         .pipe(dest(path.resolve(BUILD_CLIENT_DIR, ESM_DIR)))
         .pipe(dest(path.resolve(BUILD_CLIENT_DIR, CJS_DIR)));
 });

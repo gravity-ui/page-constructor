@@ -42,7 +42,6 @@ export const BlogAuthorBlock: React.FC<AuthorBlockFullProps> = (props) => {
     }, [author?.avatar, author?.firstName, author?.fullDescription, author?.secondName, image]);
 
     if (!authorItem?.firstName || !authorItem?.secondName) {
-        console.log('work');
         return null;
     }
 

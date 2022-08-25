@@ -21,8 +21,7 @@
       "demo/*": ["src/demo/*"],
       "utils/*": ["src/utils/*"],
       "constructor/*": ["src/constructor/*"],
-      "icons/*": ["assets/icons/*"],
-      "images/*": ["assets/images/*"],
+      "icons/*": ["src/icons/*"],
       "@mocks/*": [".mocks/*"],
       "counters/*": ["src/counters/*"],
       "data/*": ["src/data/*"]

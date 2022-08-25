@@ -4,7 +4,7 @@ import block from 'bem-cn-lite';
 // TODO fixes and refactor in https://st.yandex-team.ru/ORION-1432
 
 import {LayoutDirections} from '@yandex-data-ui/common/build/esm/components/ShareTooltip/constants';
-import {ShareTooltip, ShareSocialNetwork} from '@yandex-cloud/uikit';
+import {Icon, ShareTooltip, ShareSocialNetwork} from '@yandex-cloud/uikit';
 
 import {TranslationContext} from 'contexts/TranslationContext';
 import {RouterContext} from 'contexts/RouterContext';
@@ -23,13 +23,13 @@ import {MetrikaCounter} from 'counters/utils';
 // @ts-ignore
 import metrika from 'counters/metrika.js';
 
-// import shareIcon from 'icons/share-arrow-up.svg';
-// import timeIcon from 'icons/time.svg';
-// import savedIcon from 'icons/save.svg';
-// import filledSavedIcon from 'icons/save-filled.svg';
+import {ShareArrowUp} from 'icons/ShareArrowUp';
+import {Time} from 'icons/Time';
+import {Save} from 'icons/Save';
+import {SaveFilled} from 'icons/SaveFilled';
 // delete theese icons after Realese of BlogFeed https://st.yandex-team.ru/CLOUDFRONT-11056
-// import likeIcon from 'icons/like-outlined.svg';
-// import filledLikeIcon from 'icons/like-filled.svg';
+import {Like} from 'icons/Like';
+import {LikeFilled} from 'icons/LikeFilled';
 
 import './BlogMeta.scss';
 
@@ -61,7 +61,7 @@ export const BlogMetaReadingTime: React.FunctionComponent<BlogMetaReadingTimePro
     return (
         <div className={b('meta-item', {size})}>
             <span className={b('meta-icon')}>
-                {/* <Icon data={timeIcon} size={16} className={b('icon-color')} /> */}
+                <Icon data={Time} size={16} className={b('icon-color')} />
             </span>
             {i18n('blog', 'context-reading_time', {count: readingTime})}
         </div>
@@ -97,7 +97,7 @@ export const BlogMetaSharing: React.FunctionComponent<BlogMetaSharingProps> = ({
                     useWebShareApi={isMobile}
                     direction={LayoutDirections.column}
                     buttonTitle={i18n('blog', 'action-share')}
-                    customIcon={shareIcon}
+                    customIcon={ShareArrowUp}
                     placement="bottom"
                     openByHover={false}
                     socialNets={[ShareSocialNetwork.Telegram]}
@@ -122,11 +122,21 @@ type BlogMetaSaveProps = {
 };
 
 export const BlogMetaSave: React.FunctionComponent<BlogMetaSaveProps> = (props) => {
-    const {title, postId, hasUserLike, handleUserLike, metrikaGoal, dataQa, size, theme} = props;
+    const {
+        title,
+        postId,
+        hasUserLike,
+        handleUserLike,
+        metrikaGoal,
+        dataQa,
+        size,
+        theme,
+        useModernIcon,
+    } = props;
 
     // delete this icons selection after Realese of BlogFeed https://st.yandex-team.ru/CLOUDFRONT-11056
-    // const icon = useModernIcon ? savedIcon : likeIcon;
-    // const filledIcon = useModernIcon ? filledSavedIcon : filledLikeIcon;
+    const icon = useModernIcon ? Save : Like;
+    const filledIcon = useModernIcon ? SaveFilled : LikeFilled;
 
     return (
         <div
@@ -144,11 +154,11 @@ export const BlogMetaSave: React.FunctionComponent<BlogMetaSaveProps> = (props) 
         >
             <div className={b('meta-content', {cursor: true, theme})}>
                 <span className={b('meta-icon')}>
-                    {/* <Icon
+                    <Icon
                         data={hasUserLike ? filledIcon : icon}
                         size={16}
                         className={b({filled: Boolean(hasUserLike)})}
-                    /> */}
+                    />
                 </span>
                 <span className={b('meta-title')}>{title}</span>
             </div>
