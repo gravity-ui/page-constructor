@@ -26,9 +26,9 @@
         @include heading2();
     }
 
-    &__back-link {
-        @include back-link();
-    }
+    // &__back-link {
+    //     @include back-link();
+    // }
 
     &__aside {
         position: absolute;
