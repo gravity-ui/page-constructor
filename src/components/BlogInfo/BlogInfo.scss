@@ -1,8 +1,8 @@
 @import 'styles/variables.scss';
 @import 'styles/mixins.scss';
 
-.blog-meta {
-    &__meta-item {
+.blog-info {
+    &__item {
         @include text-size(body-2);
 
         display: flex;
@@ -22,7 +22,7 @@
         }
     }
 
-    &__meta-item:last-child {
+    &__item:last-child {
         @include text-size(body-2);
 
         display: flex;
@@ -50,7 +50,7 @@
         }
     }
 
-    &__meta-container {
+    &__container {
         display: flex;
         align-items: flex-start;
         flex-wrap: wrap;
@@ -64,19 +64,19 @@
         }
     }
 
-    &__meta-icon {
+    &__icon {
         margin-right: 6px;
         display: flex;
         align-items: center;
     }
 
-    &__meta-title {
+    &__title {
         width: auto;
         overflow: hidden;
         cursor: pointer;
     }
 
-    &__meta-content {
+    &__content {
         display: flex;
 
         &_cursor {
@@ -92,11 +92,11 @@
         }
     }
 
-    &__meta-likes {
+    &__likes {
         display: flex;
     }
 
-    &__meta-suggest-container {
+    &__suggest-container {
         display: flex;
         flex-grow: 1;
         flex-wrap: wrap;

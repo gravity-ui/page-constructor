@@ -21,5 +21,5 @@ const DefaultTemplate: Story<BlogPostPageProps> = (args) => <BlogPostPage {...ar
 export const Default = DefaultTemplate.bind({});
 
 Default.args = {
-    data: generatePostPageData(),
+    ...generatePostPageData(),
 };

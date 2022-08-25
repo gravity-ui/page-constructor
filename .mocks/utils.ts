@@ -1,11 +1,13 @@
 import {transformPageContent} from 'data/transformPageContent';
 import {createReadableContent} from 'data/createReadableContent';
+import {sanitizeMeta} from 'data/sanitizeMeta';
 import {transformPost} from 'data/transformPost';
 
 import {Lang} from 'models/locale';
 
 import postApi from './postApi.json';
 import pageApi from './pageApi.json';
+import metaData from './metaData.json';
 
 /**
  * function for generate post page data,
@@ -32,7 +34,10 @@ export const generatePostPageData = () => {
     };
 
     return {
-        post: postData,
-        page: pageData,
+        metaData: sanitizeMeta(metaData),
+        data: {
+            post: postData,
+            page: pageData,
+        },
     };
 };

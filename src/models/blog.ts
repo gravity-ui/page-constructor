@@ -79,3 +79,23 @@ export interface BlogPostPageData {
     post: BlogPostData;
     page: PageData;
 }
+
+export interface BlogMetaProps {
+    title: string;
+    date: string;
+    image: string;
+    canonicalUrl: string;
+    content?: string;
+    description?: string;
+    legacySharingImage?: string;
+    keywords?: string[];
+    noIndex?: boolean;
+    authors?: SpeakerPublic[];
+    tags?: BlogPostTagExtended[];
+    organization: {
+        url: string;
+        appTitle: string;
+        legalName: string;
+        supportEmail: string;
+    };
+}
