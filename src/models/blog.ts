@@ -1,6 +1,6 @@
 import {BlogPostTag, SpeakerPublic} from '@yandex-data-ui/cloud-schemas/build/models/ui-api';
 import {Locale} from 'models/locale';
-import {PageData} from 'models/blog';
+import {PageData} from 'models/common';
 
 export interface BlogPostLikes {
     count: number;
@@ -76,7 +76,26 @@ export enum BlockType {
 }
 
 export interface BlogPostPageData {
-    withPage: boolean;
     post: BlogPostData;
     page: PageData;
+}
+
+export interface BlogMetaProps {
+    title: string;
+    date: string;
+    image: string;
+    canonicalUrl: string;
+    content?: string;
+    description?: string;
+    legacySharingImage?: string;
+    keywords?: string[];
+    noIndex?: boolean;
+    authors?: SpeakerPublic[];
+    tags?: BlogPostTagExtended[];
+    organization: {
+        url: string;
+        appTitle: string;
+        legalName: string;
+        supportEmail: string;
+    };
 }

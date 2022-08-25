@@ -4,9 +4,7 @@ import {Meta, Story} from '@storybook/react/types-6-0';
 
 import {CONTAINERS} from 'demo/constants';
 
-import post from '@mocks/post.json';
-import page from '@mocks/page.json';
-import suggestedPosts from '@mocks/suggestedPosts.json';
+import {generatePostPageData} from '@mocks/utils';
 
 import {BlogPostPage, BlogPostPageProps} from '../BlogPostPage';
 
@@ -23,10 +21,5 @@ const DefaultTemplate: Story<BlogPostPageProps> = (args) => <BlogPostPage {...ar
 export const Default = DefaultTemplate.bind({});
 
 Default.args = {
-    data: {
-        withPage: true,
-        post: post as any,
-        page,
-    },
-    suggestedPosts: suggestedPosts as any,
+    ...generatePostPageData(),
 };

@@ -2,13 +2,21 @@ import React from 'react';
 import {Lang, Locale} from 'models/locale';
 
 export type LocaleContextProps = {
-    lang?: Lang;
-    tld?: string;
-    locale?: Locale;
+    locale: Locale;
 };
 
 export const LocaleContext = React.createContext<LocaleContextProps>({
-    lang: Lang.Ru,
-    tld: '.ru',
-    // locale: {},
+    locale: {
+        code: 'ru-RU',
+        name: 'Россия (Русский)',
+        lang: Lang.Ru,
+        langName: 'Русский',
+        region: 'ru',
+        regionName: 'Россия',
+        currency: 'RUB',
+        tld: 'ru',
+        order: 1,
+        default: true,
+        local: true,
+    },
 });

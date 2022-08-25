@@ -7,6 +7,7 @@ interface DateTimeFormatter {
     shortDateTime: Intl.DateTimeFormat;
     shortTime: Intl.DateTimeFormat;
     nanoTime: Intl.DateTimeFormat;
+    year: Intl.DateTimeFormat;
 }
 
 const defaultRegion = 'ru-RU';
@@ -54,6 +55,10 @@ function getDateTimeFormatter(localeCode: string): DateTimeFormatter {
             nanoTime: new Intl.DateTimeFormat(localeCode, {
                 minute: 'numeric',
                 second: 'numeric',
+            }),
+            // 2023
+            year: new Intl.DateTimeFormat(localeCode, {
+                year: 'numeric',
             }),
         };
         dateTimeFormatters.set(localeCode, formatters);
