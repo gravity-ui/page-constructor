@@ -5,7 +5,7 @@ import {HeaderBreadcrumbs, TextTheme, YFMWrapper} from '@yandex-data-ui/page-con
 import {BlogPageContext} from 'contexts/BlogPageContext';
 
 import {BlogWrapper, PaddingSize} from 'components/BlogWrapper/BlogWrapper';
-import {BlogMetaComponent, BlogMetrikaGoals} from 'components/BlogMeta/BlogMeta';
+import {BlogInfo, BlogMetrikaGoals} from 'src/components/BlogInfo/BlogInfo';
 import {getBlogBreadcrumbs} from 'utils/blog';
 
 import {BlogMetrikaGoalIds} from '../constants';
@@ -40,9 +40,9 @@ export const MetaBlock: React.FC<MetaBlockFullProps> = (props) => {
     const {paddingTop = 'l', paddingBottom = 'l', theme = 'light'} = props;
     const {post} = useContext(BlogPageContext);
 
-    const breadcrumbs = getBlogBreadcrumbs({
-        tags: post?.tags,
-    });
+    const {title, id, date, readingTime, tags} = post;
+
+    const breadcrumbs = getBlogBreadcrumbs({tags});
 
     breadcrumbs.metrikaGoals = breadcrumbsGoals;
 
@@ -60,9 +60,9 @@ export const MetaBlock: React.FC<MetaBlockFullProps> = (props) => {
                     metrikaGoals={breadcrumbs.metrikaGoals}
                 />
             )}
-            {post?.title && (
+            {title && (
                 <YFMWrapper
-                    content={post.title}
+                    content={title}
                     modifiers={{
                         blogBreadcrumbs: true,
                         resetPaddings: true,
@@ -70,8 +70,10 @@ export const MetaBlock: React.FC<MetaBlockFullProps> = (props) => {
                 />
             )}
             {post && (
-                <BlogMetaComponent
-                    post={post}
+                <BlogInfo
+                    postId={id}
+                    date={date}
+                    readingTime={readingTime}
                     dataQa="blog-meta-block"
                     metrikaGoals={metrikaGoals}
                 />
