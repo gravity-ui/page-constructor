@@ -37,7 +37,6 @@ function compileTs(modules = false) {
         '!src/stories/**/*.{js,jsx,ts,tsx}',
         '!src/**/__stories__/**/*.{js,jsx,ts,tsx}',
         '!src/server.ts',
-        '!src/configure.ts',
     ])
         .pipe(
             replace(/import '.+\.scss';/g, (match) =>
@@ -75,7 +74,7 @@ task('copy-i18n', () => {
 });
 
 task('styles-global', () => {
-    return src('styles/styles.scss')
+    return src('styles/*.scss')
         .pipe(styleAliases(ALIASES_FOR_STYLES))
         .pipe(sass(SASS_LOADER_OPTIONS).on('error', sass.logError))
         .pipe(dest(path.resolve(BUILD_CLIENT_DIR, 'styles')));
