@@ -5,6 +5,8 @@ import Meta, {MetaComponentProps} from 'components/Meta/Meta';
 import {RouterContext} from 'contexts/RouterContext';
 import {LocaleContext} from 'contexts/LocaleContext';
 
+import {i18, BlogKeyset} from 'src/i18n';
+
 import {getBlogPostSchema} from 'utils/meta';
 
 import {BlogMetaProps} from 'models/blog';
@@ -47,7 +49,7 @@ export const BlogPageMeta: React.FC<BlogMetaProps> = React.memo(
         const breadcrumbs = [
             {
                 slug: '/blog',
-                title: 'Blog', // TODO ORION-1450 i18n('blog', 'title-blog'),
+                title: i18(BlogKeyset.TitleBlog),
             },
         ];
 

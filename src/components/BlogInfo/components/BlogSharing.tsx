@@ -6,9 +6,10 @@ import block from 'bem-cn-lite';
 import {LayoutDirections} from '@yandex-data-ui/common/build/esm/components/ShareTooltip/constants';
 import {ShareTooltip, ShareSocialNetwork} from '@yandex-cloud/uikit';
 
-import {TranslationContext} from 'contexts/TranslationContext';
 import {RouterContext} from 'contexts/RouterContext';
 import {MobileContext} from 'contexts/MobileContext';
+
+import {i18, BlogKeyset} from 'src/i18n';
 
 import {getAbsolutePath} from 'utils/common';
 
@@ -30,7 +31,6 @@ type BlogSharingProps = {
 };
 
 export const BlogSharing: React.FC<BlogSharingProps> = ({theme, metrikaGoal}) => {
-    const {i18n} = useContext(TranslationContext);
     const router = useContext(RouterContext);
     const isMobile = useContext(MobileContext);
 
@@ -49,7 +49,7 @@ export const BlogSharing: React.FC<BlogSharingProps> = ({theme, metrikaGoal}) =>
                     tooltipClassName={b('popup')}
                     useWebShareApi={isMobile}
                     direction={LayoutDirections.column as any}
-                    buttonTitle={i18n('blog', 'action-share')}
+                    buttonTitle={i18(BlogKeyset.ActionShare)}
                     customIcon={shareIcon}
                     placement="bottom"
                     openByHover={false}

@@ -3,7 +3,6 @@ import block from 'bem-cn-lite';
 import {HeaderBreadcrumbs, TextTheme, YFMWrapper} from '@yandex-data-ui/page-constructor';
 
 import {BlogPageContext} from 'contexts/BlogPageContext';
-import {TranslationContext} from 'contexts/TranslationContext';
 
 import {BlogWrapper, PaddingSize} from 'components/BlogWrapper/BlogWrapper';
 import {BlogInfo, BlogMetrikaGoals} from 'src/components/BlogInfo/BlogInfo';
@@ -40,14 +39,10 @@ const breadcrumbsGoals = [
 export const MetaBlock: React.FC<MetaBlockFullProps> = (props) => {
     const {paddingTop = 'l', paddingBottom = 'l', theme = 'light'} = props;
     const {post} = useContext(BlogPageContext);
-    const {i18n} = useContext(TranslationContext);
 
     const {title, id, date, readingTime, tags} = post;
 
-    const breadcrumbs = getBlogBreadcrumbs({
-        tags,
-        i18n,
-    });
+    const breadcrumbs = getBlogBreadcrumbs({tags});
 
     breadcrumbs.metrikaGoals = breadcrumbsGoals;
 
