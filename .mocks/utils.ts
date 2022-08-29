@@ -8,6 +8,7 @@ import {Lang} from 'models/locale';
 import postApi from './postApi.json';
 import pageApi from './pageApi.json';
 import metaData from './metaData.json';
+import suggestedPosts from './suggestedPosts.json';
 
 /**
  * function for generate post page data,
@@ -35,6 +36,7 @@ export const generatePostPageData = () => {
 
     return {
         metaData: sanitizeMeta(metaData),
+        suggestedPosts,
         data: {
             post: postData,
             page: pageData,

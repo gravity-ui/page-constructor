@@ -2,7 +2,7 @@ import React, {useCallback, useState} from 'react';
 
 import {PageConstructor} from '@yandex-data-ui/page-constructor';
 
-import {BlogPostPageData, BlogMetaProps} from 'models/blog';
+import {BlogPostPageData, BlogPostData, BlogMetaProps} from 'models/blog';
 
 import componentMap from 'constructor/blocksMap';
 
@@ -20,10 +20,11 @@ import '@yandex-data-ui/page-constructor/styles/yfm.scss';
 
 export interface BlogPostPageProps {
     data: BlogPostPageData;
+    suggestedPosts: BlogPostData[];
     metaData: BlogMetaProps;
 }
 
-export const BlogPostPage: React.FC<BlogPostPageProps> = ({data, metaData}) => {
+export const BlogPostPage: React.FC<BlogPostPageProps> = ({data, metaData, suggestedPosts}) => {
     const [hasUserLike, setHasUserLike] = useState(data?.post?.hasUserLike);
     const [likesCount, setLikesCount] = useState(data?.post?.likes);
 
@@ -47,6 +48,7 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({data, metaData}) => {
             <BlogPageContext.Provider
                 value={{
                     post: data.post,
+                    suggestedPosts,
                     likes: {
                         handleUserLike: handleUserLike,
                         hasUserLike: Boolean(hasUserLike),

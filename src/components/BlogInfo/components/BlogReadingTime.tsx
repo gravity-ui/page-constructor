@@ -1,9 +1,9 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import block from 'bem-cn-lite';
 
 import {Icon} from '@yandex-cloud/uikit';
 
-import {TranslationContext} from 'contexts/TranslationContext';
+import {i18, BlogKeyset} from 'src/i18n';
 
 import {Time} from 'icons/Time';
 
@@ -18,16 +18,11 @@ type BlogReadingTimeProps = {
     size?: 's' | 'm';
 };
 
-export const BlogReadingTime: React.FC<BlogReadingTimeProps> = ({readingTime, size = 's'}) => {
-    // TODO refactor in https://st.yandex-team.ru/ORION-1444
-    const {i18n} = useContext(TranslationContext);
-
-    return (
-        <div className={b('item', {size})}>
-            <span className={b('icon')}>
-                <Icon data={Time} size={ICON_SIZE} className={b('icon-color')} />
-            </span>
-            {i18n('blog', 'context-reading_time', {count: readingTime})}
-        </div>
-    );
-};
+export const BlogReadingTime: React.FC<BlogReadingTimeProps> = ({readingTime, size = 's'}) => (
+    <div className={b('item', {size})}>
+        <span className={b('icon')}>
+            <Icon data={Time} size={ICON_SIZE} className={b('icon-color')} />
+        </span>
+        {i18(BlogKeyset.ContextReadingTime, {count: readingTime})}
+    </div>
+);
