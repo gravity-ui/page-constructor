@@ -31,6 +31,7 @@ export const AutoPlay = AutoPlayTemplate.bind({});
 
 Default.args = {
     type: BlockType.HeaderSliderBlock,
+    arrows: true,
     items: [
         {
             title: 'Партнёрская программа Yandex Cloud Professionals',
@@ -129,6 +130,31 @@ Default.args = {
                     url: '/#contact-form',
                 },
             ],
+        },
+        {
+            title: 'Yandex Scale',
+            overtitle: '23 сентября',
+            description:
+                'Большая конференция Yandex.Cloud, где бизнес и технологии говорят на одном языке',
+            width: 's',
+            background: {
+                image: 'https://storage.cloud-preprod.yandex.net/aeksandla-test/img-scale.png',
+                fullWidthMedia: true,
+                fullWidth: true,
+                disableCompress: true,
+            },
+        },
+        {
+            title: 'Yandex Scale',
+            overtitle: '23 сентября',
+            description:
+                'Большая конференция Yandex.Cloud, где бизнес и технологии говорят на одном языке',
+            width: 's',
+            background: {
+                url: 'https://storage.cloud-preprod.yandex.net/aeksandla-test/img-scale.png',
+                fullWidthMedia: true,
+                fullWidth: true,
+            },
         },
     ],
 };

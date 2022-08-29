@@ -70,6 +70,7 @@ export const HeaderProperties = {
                     url: {type: 'string'},
                     disableCompress: {type: 'boolean'},
                     fullWidth: {type: 'boolean'},
+                    fullWidthMedia: {type: 'boolean'},
                 },
             },
         ],

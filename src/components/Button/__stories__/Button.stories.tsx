@@ -14,7 +14,7 @@ export default {
 const DefaultTemplate: Story<ButtonProps> = (args) => <Button {...args} />;
 const SizesTemplate: Story<ButtonProps> = (args) => (
     <Row>
-        <Col>{args.theme}</Col>
+        <Col style={{margin: '20px 0'}}>{args.theme}</Col>
         <Col>
             <Button {...args} size="s" />
         </Col>

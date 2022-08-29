@@ -223,6 +223,8 @@ $block: '.#{$ns}SliderBlock';
 
     &_type_header-card {
         @include fullscreen-card();
+        $arrowWidth: 68px;
+        $arrowHeight: 68px;
 
         $arrowIndent: 16px;
 
@@ -248,28 +250,62 @@ $block: '.#{$ns}SliderBlock';
             &.slick-prev {
                 left: $arrowIndent;
             }
+
+            button {
+                background-color: transparent;
+                box-shadow: none;
+
+                &:hover {
+                    box-shadow: none;
+                }
+            }
+
+            &:hover {
+                & button {
+                    box-shadow: none;
+                }
+            }
+        }
+
+        .slick-slide {
+            padding: 0;
         }
 
         .slick-list {
             padding: 0;
+            margin: 0;
         }
 
-        @media (min-width: $headerSliderLargeBreakpoint) {
-            .slick-arrow {
-                $indentFromContent: $indentM;
-                $arrowIndent: calc((100% - #{$contentWidth}) / 2 - #{$indentFromContent});
+        .slick-arrow {
+            width: $arrowWidth;
+            height: $arrowHeight;
 
-                right: $arrowIndent;
-
-                &.slick-prev {
-                    left: $arrowIndent;
-                }
+            right: 0;
+            &.slick-prev {
+                left: 0;
             }
         }
 
         @media (max-width: map-get($gridBreakpoints, 'sm')) {
             .slick-arrow {
                 display: none;
+            }
+
+            &#{$root}:not(&_one-slide) {
+                .slick-list {
+                    margin-left: 0;
+                }
+
+                .slick-track {
+                    padding-left: 0;
+                }
+
+                .slick-slide {
+                    padding-right: 0;
+                    &:last-child {
+                        padding-right: 0;
+                    }
+                }
             }
         }
     }

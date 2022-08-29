@@ -9,7 +9,7 @@ import './Author.scss';
 const b = block('author');
 
 const Author: React.FC<AuthorProps> = (props) => {
-    const {author, className, type = AuthorType.Column} = props;
+    const {author, className, authorContainerClassName, type = AuthorType.Column} = props;
     const {firstName, secondName, description, avatar} = author;
 
     const name = secondName ? `${firstName} ${secondName}` : firstName;
@@ -17,7 +17,7 @@ const Author: React.FC<AuthorProps> = (props) => {
     return (
         <div className={b({type}, className)}>
             {avatar && (
-                <div className={b('avatar')}>
+                <div className={b('avatar', authorContainerClassName)}>
                     {typeof avatar === 'string' ? <Image src={avatar} /> : avatar}
                 </div>
             )}
