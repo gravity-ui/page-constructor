@@ -6,7 +6,7 @@ import {
     NewMetrikaGoal,
 } from '@yandex-data-ui/page-constructor';
 
-import {i18, BlogKeysetWords} from 'src/i18n';
+import {i18, BlogKeyset} from 'src/i18n';
 
 // import {getTagFilterUrl, getTags} from 'units/blog/utils';
 import {BlogPostTagExtended} from 'models/blog';
@@ -58,7 +58,7 @@ type GetBlogBreadcrumbsProps = {
 
 export const getBlogBreadcrumbs = ({tags}: GetBlogBreadcrumbsProps) => {
     const breadcrumbs: HeaderBreadCrumbsProps = {
-        items: [{text: i18(BlogKeysetWords.titleBreadcrumbsBlog), url: '/blog'}],
+        items: [{text: i18(BlogKeyset.TitleBreadcrumbsBlog), url: '/blog'}],
         theme: 'light',
     };
 

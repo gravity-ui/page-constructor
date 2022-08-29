@@ -9,7 +9,7 @@ import {ShareTooltip, ShareSocialNetwork} from '@yandex-cloud/uikit';
 import {RouterContext} from 'contexts/RouterContext';
 import {MobileContext} from 'contexts/MobileContext';
 
-import {i18, BlogKeysetWords} from 'src/i18n';
+import {i18, BlogKeyset} from 'src/i18n';
 
 import {getAbsolutePath} from 'utils/common';
 
@@ -49,7 +49,7 @@ export const BlogSharing: React.FC<BlogSharingProps> = ({theme, metrikaGoal}) =>
                     tooltipClassName={b('popup')}
                     useWebShareApi={isMobile}
                     direction={LayoutDirections.column as any}
-                    buttonTitle={i18(BlogKeysetWords.actionShare)}
+                    buttonTitle={i18(BlogKeyset.ActionShare)}
                     customIcon={shareIcon}
                     placement="bottom"
                     openByHover={false}

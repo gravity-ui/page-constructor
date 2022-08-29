@@ -5,7 +5,7 @@ import Meta, {MetaComponentProps} from 'components/Meta/Meta';
 import {RouterContext} from 'contexts/RouterContext';
 import {LocaleContext} from 'contexts/LocaleContext';
 
-import {i18, BlogKeysetWords} from 'src/i18n';
+import {i18, BlogKeyset} from 'src/i18n';
 
 import {getBlogPostSchema} from 'utils/meta';
 
@@ -49,7 +49,7 @@ export const BlogPageMeta: React.FC<BlogMetaProps> = React.memo(
         const breadcrumbs = [
             {
                 slug: '/blog',
-                title: i18(BlogKeysetWords.titleBlog),
+                title: i18(BlogKeyset.TitleBlog),
             },
         ];
 

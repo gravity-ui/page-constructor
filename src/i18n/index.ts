@@ -6,20 +6,20 @@ const KEYSET_NAME = 'blog';
 
 export const i18n = new I18N();
 
-export enum BlogKeysetWords {
-    titleBlog = 'title_blog',
-    titleBreadcrumbsBlog = 'title_breadcrumbs_blog',
-    titleSuggest = 'title_suggest',
-    actionShare = 'action_share',
-    contextReadingTime = 'context_reading_time',
+export enum BlogKeyset {
+    TitleBlog = 'title_blog',
+    TitleBreadcrumbsBlog = 'title_breadcrumbs_blog',
+    TitleSuggest = 'title_suggest',
+    ActionShare = 'action_share',
+    ContextReadingTime = 'context_reading_time',
 }
 
 i18n.registerKeyset(Lang.En, KEYSET_NAME, {
-    [BlogKeysetWords.titleBlog]: 'Blog',
-    [BlogKeysetWords.titleBreadcrumbsBlog]: 'Blog',
-    [BlogKeysetWords.titleSuggest]: 'See also',
-    [BlogKeysetWords.actionShare]: 'Share',
-    [BlogKeysetWords.contextReadingTime]: [
+    [BlogKeyset.TitleBlog]: 'Blog',
+    [BlogKeyset.TitleBreadcrumbsBlog]: 'Blog',
+    [BlogKeyset.TitleSuggest]: 'See also',
+    [BlogKeyset.ActionShare]: 'Share',
+    [BlogKeyset.ContextReadingTime]: [
         '{{count}} min to read',
         '{{count}} mins to read',
         '{{count}} mins to read',
@@ -27,11 +27,11 @@ i18n.registerKeyset(Lang.En, KEYSET_NAME, {
 });
 
 i18n.registerKeyset(Lang.Ru, KEYSET_NAME, {
-    [BlogKeysetWords.titleBlog]: 'Блог',
-    [BlogKeysetWords.titleBreadcrumbsBlog]: 'Блог',
-    [BlogKeysetWords.titleSuggest]: 'Читать также',
-    [BlogKeysetWords.actionShare]: 'Поделиться',
-    [BlogKeysetWords.contextReadingTime]: [
+    [BlogKeyset.TitleBlog]: 'Блог',
+    [BlogKeyset.TitleBreadcrumbsBlog]: 'Блог',
+    [BlogKeyset.TitleSuggest]: 'Читать также',
+    [BlogKeyset.ActionShare]: 'Поделиться',
+    [BlogKeyset.ContextReadingTime]: [
         '{{count}} минута чтения',
         '{{count}} минуты чтения',
         '{{count}} минут чтения',

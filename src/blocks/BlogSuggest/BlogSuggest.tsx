@@ -3,7 +3,7 @@ import React, {useContext} from 'react';
 import {ClassNameProps} from '@yandex-data-ui/cloud-components';
 import {SliderBlock} from '@yandex-data-ui/page-constructor';
 
-import {i18, BlogKeysetWords} from 'src/i18n';
+import {i18, BlogKeyset} from 'src/i18n';
 
 import {BlogWrapper, PaddingSize} from 'components/BlogWrapper/BlogWrapper';
 import {PostCard} from 'components/PostCard/PostCard';
@@ -48,7 +48,7 @@ export const BlogSuggestBlock: React.FC<SuggestBlockFullProps> = ({
         <BlogWrapper paddingTop={paddingTop} paddingBottom={paddingBottom}>
             <SliderBlock
                 slidesToShow={{xl: 3, lg: 2, sm: 1}}
-                title={{text: i18(BlogKeysetWords.titleSuggest)}}
+                title={{text: i18(BlogKeyset.TitleSuggest)}}
             >
                 {suggestedPosts.map((post) => (
                     <PostCard key={post.id} metrikaGoals={metrikaGoals} post={post} />
