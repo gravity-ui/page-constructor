@@ -1,9 +1,8 @@
 import React, {useContext} from 'react';
 
 import {block, getThemedValue} from '../../utils';
-import CardBase from '../../components/CardBase/CardBase';
+import {CardBase, BackgroundImage} from '../../components/';
 import {BackgroundCardProps} from '../../models';
-import BackgroundImage from '../BackgroundImage/BackgroundImage';
 import Content from '../Content/Content';
 import {ThemeValueContext} from '../../context/theme/ThemeValueContext';
 

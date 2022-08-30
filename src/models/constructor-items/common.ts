@@ -375,6 +375,7 @@ export interface PriceDetailedProps extends CardBaseProps {
 export interface AuthorProps {
     author: AuthorItem;
     className?: string;
+    authorContainerClassName?: string;
     type?: AuthorType;
 }
 
