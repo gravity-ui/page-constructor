@@ -29,7 +29,6 @@ import {ConstructorHeader} from './components/ConstructorItem';
 import {ConstructorBlocks} from './components/ConstructorBlocks';
 
 import './PageConstructor.scss';
-import '../../../styles/yfm.scss';
 
 const b = cnBlock('page-constructor');
 

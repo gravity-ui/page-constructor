@@ -1,7 +1,7 @@
 import Typograf from 'typograf';
 import sanitize from 'sanitize-html';
 import transformYFM, {Options, Output} from '@doc-tools/transform';
-import {Lang} from '../models/common';
+import {Lang} from '../utils/configure';
 
 export enum TransformType {
     Text = 'text',

@@ -14,7 +14,7 @@ import {
     TableProps,
     TitleProps,
 } from '../models';
-import {Lang} from '../models/common';
+import {Lang} from '../utils/configure';
 import {ConstructorBlock} from '../models/constructor';
 import {fullTransform, typografToHTML} from './utils';
 

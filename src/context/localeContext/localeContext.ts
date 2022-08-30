@@ -1,9 +1,5 @@
 import React from 'react';
-
-export enum Lang {
-    Ru = 'ru',
-    En = 'en',
-}
+import {Lang} from '../../utils/configure';
 
 export type LocaleContextProps = {
     lang?: Lang;

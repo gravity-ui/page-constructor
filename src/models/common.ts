@@ -4,11 +4,6 @@ export interface Refable<T> {
     ref?: React.Ref<T>;
 }
 
-export enum Lang {
-    Ru = 'ru',
-    En = 'en',
-}
-
 export enum Theme {
     Light = 'light',
     Dark = 'dark',
