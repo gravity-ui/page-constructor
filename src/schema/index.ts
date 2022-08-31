@@ -1,5 +1,5 @@
-export * as validators from './validators';
-export type {ObjectSchema} from './validators';
+export {validators} from './validators';
+export type {ObjectSchema} from './validators/utils';
 
 import {
     TabsBlock,

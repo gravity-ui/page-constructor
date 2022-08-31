@@ -1,5 +1,13 @@
-export * as blocks from './blocks';
-export * as common from './common';
-export * as subBlocks from './sub-blocks';
-export * as pixel from './pixel';
-export * from './utils';
+import * as blocks from './blocks';
+import * as common from './common';
+import * as subBlocks from './sub-blocks';
+import * as pixel from './pixel';
+import * as utils from './utils';
+
+export const validators = {
+    blocks,
+    common,
+    subBlocks,
+    pixel,
+    utils,
+};

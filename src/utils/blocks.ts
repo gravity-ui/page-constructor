@@ -1,6 +1,7 @@
 import _ from 'lodash';
+import {ConstructorBlock} from '../models/constructor';
 
-import {TextSize, CustomConfig, ConstructorItem} from '../models';
+import {TextSize, CustomConfig} from '../models';
 
 export function getHeaderTag(size: TextSize) {
     switch (size) {
@@ -14,7 +15,7 @@ export function getHeaderTag(size: TextSize) {
     }
 }
 
-export function getItemKey(block: ConstructorItem, index: number) {
+export function getBlockKey(block: ConstructorBlock, index: number) {
     return `${block.type}-${index}`;
 }
 

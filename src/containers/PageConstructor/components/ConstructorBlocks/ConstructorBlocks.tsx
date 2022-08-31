@@ -1,5 +1,5 @@
 import React, {Fragment, ReactElement, useContext} from 'react';
-import {getItemKey} from '../../../../utils';
+import {getBlockKey} from '../../../../utils';
 import {InnerContext} from '../../../../context/innerContext';
 
 import {
@@ -26,7 +26,7 @@ export const ConstructorBlocks: React.FC<ConstructorBlocksProps> = ({items}) => 
 
         let children;
         let itemElement;
-        const itemKey = getItemKey(item, index);
+        const itemKey = getBlockKey(item, index);
 
         if ('loadable' in item && item.loadable) {
             const {source, serviceId, params} = item.loadable;
