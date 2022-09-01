@@ -4,43 +4,10 @@
 $block: '.#{$ns}info-block';
 
 #{$block} {
-    @include add-theme();
-
-    &__content-title,
-    &__sections-title {
-        @include heading2();
-    }
-
     &__content {
         background-color: var(--yc-color-base-special);
         padding: $indentXXL $indentXL $indentXXXL;
         border-radius: var(--pc-border-radius);
-    }
-
-    &__buttons {
-        margin-top: $indentM - $indentXS;
-    }
-
-    &__button {
-        margin-top: $indentXS;
-
-        &:not(:last-child) {
-            margin-right: $indentXS;
-        }
-    }
-
-    &__links {
-        @include text-size(body-2);
-
-        margin-top: $indentS;
-    }
-
-    &__link {
-        margin-top: 0;
-    }
-
-    &__link + &__link {
-        margin-top: $indentXXS;
     }
 
     @media (max-width: map-get($gridBreakpoints, 'lg')) {
@@ -52,10 +19,6 @@ $block: '.#{$ns}info-block';
     @media (max-width: map-get($gridBreakpoints, 'sm')) {
         &__content {
             padding: $indentXL $indentM;
-        }
-
-        &__buttons {
-            margin-bottom: $indentXL;
         }
     }
 }

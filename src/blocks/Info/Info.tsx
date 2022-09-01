@@ -3,9 +3,8 @@ import React, {useContext} from 'react';
 import {block, getThemedValue} from '../../utils';
 import {InfoBlockProps} from '../../models';
 import {Grid, Row, Col} from '../../grid';
-import Button from '../../components/Button/Button';
-import Link from '../../components/Link/Link';
 import {ThemeValueContext} from '../../context/theme/ThemeValueContext';
+import Content from '../../components/Content/Content';
 
 import './Info.scss';
 
@@ -14,17 +13,20 @@ const b = block('info-block');
 export const InfoBlock: React.FC<InfoBlockProps> = (props) => {
     const {
         backgroundColor,
-        theme: textTheme = 'dark',
+        theme: blockTheme = 'dark',
         buttons,
         title,
         sectionsTitle,
         links,
+        rightContent = {},
+        leftContent = {},
     } = props;
 
     const {themeValue: theme} = useContext(ThemeValueContext);
+    const contentTheme = blockTheme === 'dark' ? 'dark' : 'default';
 
     return (
-        <div className={b({theme: textTheme})}>
+        <div className={b()}>
             <div
                 className={b('content')}
                 style={{backgroundColor: getThemedValue(backgroundColor, theme)}}
@@ -32,35 +34,32 @@ export const InfoBlock: React.FC<InfoBlockProps> = (props) => {
                 <Grid>
                     <Row>
                         <Col sizes={{lg: 4, sm: 6, all: 12}}>
-                            <h2 className={b('content-title')}>{title}</h2>
-                            {buttons && (
-                                <div className={b('buttons')}>
-                                    {buttons.map((button, index) => (
-                                        <Button
-                                            key={index}
-                                            className={b('button')}
-                                            size="xl"
-                                            {...button}
-                                        />
-                                    ))}
-                                </div>
-                            )}
+                            <Content
+                                title={title || leftContent.title}
+                                text={leftContent.text}
+                                links={leftContent.links}
+                                theme={contentTheme}
+                                buttons={buttons || leftContent.buttons}
+                                additionalInfo={leftContent.additionalInfo}
+                                colSizes={{all: 12, md: 12}}
+                            />
                         </Col>
                         <Col sizes={{lg: 4, sm: 6, all: 12}} offsets={{lg: 2, md: 0}}>
-                            <h2 className={b('sections-title')}>{sectionsTitle}</h2>
-                            <div className={b('links')}>
-                                {links &&
-                                    links.map((link, index) => (
-                                        <Link
-                                            {...link}
-                                            key={index}
-                                            className={b('link')}
-                                            colorTheme={textTheme}
-                                            theme={'normal'}
-                                            arrow={true}
-                                        />
-                                    ))}
-                            </div>
+                            <Content
+                                title={sectionsTitle || rightContent.title}
+                                text={rightContent.text}
+                                links={
+                                    links?.map((link) => ({
+                                        ...link,
+                                        arrow: true,
+                                        theme: 'normal',
+                                    })) || rightContent.links
+                                }
+                                theme={contentTheme}
+                                buttons={rightContent.buttons}
+                                additionalInfo={rightContent.additionalInfo}
+                                colSizes={{all: 12, md: 12}}
+                            />
                         </Col>
                     </Row>
                 </Grid>
