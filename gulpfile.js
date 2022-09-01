@@ -36,7 +36,6 @@ function compileTs(modules = false) {
         '!src/demo/**/*.{js,jsx,ts,tsx}',
         '!src/stories/**/*.{js,jsx,ts,tsx}',
         '!src/**/__stories__/**/*.{js,jsx,ts,tsx}',
-        '!src/server.ts',
     ])
         .pipe(
             replace(/import '.+\.scss';/g, (match) =>
