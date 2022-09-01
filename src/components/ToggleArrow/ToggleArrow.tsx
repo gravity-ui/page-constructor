@@ -2,9 +2,7 @@ import React from 'react';
 import {Icon} from '@yandex-cloud/uikit';
 
 import {block} from '../../utils';
-
-import chevron from '../../../assets//icons/chevron.svg';
-import navigationChevron from '../../../assets/icons/navigation-chevron.svg';
+import {Chevron, NavigationChevron} from '../../icons';
 
 import './ToggleArrow.scss';
 
@@ -31,7 +29,7 @@ const ToggleArrow: React.FC<ToggleArrowProps> = ({
 }) => (
     <Icon
         className={b({type, open, thin, slow}, className)}
-        data={iconType === 'navigation' ? navigationChevron : chevron}
+        data={iconType === 'navigation' ? NavigationChevron : Chevron}
         size={size}
     />
 );

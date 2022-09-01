@@ -2,9 +2,8 @@ import {Meta, Story} from '@storybook/react/types-6-0';
 import React from 'react';
 
 import COMMON_TYPES from './COMMON_TYPES.md';
-import CONTAINERS from './CONTAINERS.md';
-import BLOCKS_V2 from './BLOCKS_V2.md';
-import COMPONENTS from './COMPONENTS.md';
+import BLOCKS from './BLOCKS.md';
+import COMPONENTS from './SUB_BLOCKS.md';
 import PAGE_PROPERTIES from './PAGE_PROPERTIES.md';
 
 export default {
@@ -21,20 +20,15 @@ export default {
     },
 } as Meta;
 
-export const Containers: Story = () => (
-    <div className="yfm" dangerouslySetInnerHTML={{__html: CONTAINERS}} />
+export const Blocks: Story = () => (
+    <div className="yfm" dangerouslySetInnerHTML={{__html: BLOCKS}} />
 );
-Containers.storyName = 'Контейнеры';
-
-export const BlocksV2: Story = () => (
-    <div className="yfm" dangerouslySetInnerHTML={{__html: BLOCKS_V2}} />
-);
-BlocksV2.storyName = 'Блоки версии 2';
+Blocks.storyName = 'Блоки';
 
 export const Components: Story = () => (
     <div className="yfm" dangerouslySetInnerHTML={{__html: COMPONENTS}} />
 );
-Components.storyName = 'Components';
+Components.storyName = 'Саб-блоки';
 
 export const CommonTypes: Story = () => (
     <div className="yfm" dangerouslySetInnerHTML={{__html: COMMON_TYPES}} />

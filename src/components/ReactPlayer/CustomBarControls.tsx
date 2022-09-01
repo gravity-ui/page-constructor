@@ -4,9 +4,6 @@ import {ClassNameProps} from '../../models';
 import {block} from '../../utils';
 import CircleProgress from './CircleProgress';
 
-import muteIcon from '../../../assets/images/mute.svg';
-import unmuteIcon from '../../../assets/images/unmute.svg';
-
 import './CustomBarControls.scss';
 
 const b = block('CustomBarControls');
@@ -30,11 +27,10 @@ const CustomBarControls: React.FC<CustomBarControlsProps> = (props) => {
         }
 
         const {isMuted, changeMute} = muteConfig;
-        const icon = isMuted ? muteIcon : unmuteIcon;
 
         return (
             <div className={b('button')} onClick={changeMute}>
-                <div className={b('mute-button')} style={{backgroundImage: icon}} />
+                <div className={b('mute-button', {muted: isMuted})} />
                 {!isMuted && <CircleProgress elapsedTime={elapsedTime} strokeWidth={5} />}
             </div>
         );

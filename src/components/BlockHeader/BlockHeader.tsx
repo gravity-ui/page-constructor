@@ -1,10 +1,9 @@
 import React from 'react';
-import {HTML} from '@doc-tools/components';
 
 import {block} from '../../utils';
 import {BlockHeaderProps as BlockHeaderParams, TitleProps, ClassNameProps} from '../../models';
 import {Col, GridColumnSizesType} from '../../grid';
-import Title from '../Title/Title';
+import {Title, HTML} from '../';
 
 import './BlockHeader.scss';
 

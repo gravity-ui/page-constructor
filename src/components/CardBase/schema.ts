@@ -1,5 +1,5 @@
-import {filteredArray} from '../../schema/utils';
-import {BaseProps, LinkProps} from '../../schema/common';
+import {filteredArray} from '../../schema/validators/utils';
+import {BaseProps, LinkProps} from '../../schema/validators/common';
 
 export const CardBase = {
     border: {

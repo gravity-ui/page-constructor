@@ -4,7 +4,7 @@ import _ from 'lodash';
 
 import SliderBlock from '../../../blocks/Slider/Slider';
 import {ImageProps, MediaComponentImageProps, SliderType} from '../../../models';
-import {unifyImageToObject} from './utils';
+import {getMediaImage} from './utils';
 import FullScreenImage from '../../FullscreenImage/FullscreenImage';
 import BackgroundImage from '../../BackgroundImage/BackgroundImage';
 import {block} from '../../../utils';
@@ -59,7 +59,7 @@ const Image: React.FC<ImageAllProps> = (props) => {
     const imageSlider = (imageArray: ImageProps[]) => (
         <SliderBlock slidesToShow={1} type={SliderType.MediaCard}>
             {imageArray.map((item) => {
-                const itemData = unifyImageToObject(item);
+                const itemData = getMediaImage(item);
 
                 return (
                     <FullScreenImage
@@ -75,7 +75,7 @@ const Image: React.FC<ImageAllProps> = (props) => {
     );
 
     const imageBackground = (oneImage: ImageProps) => {
-        const imageData = unifyImageToObject(oneImage);
+        const imageData = getMediaImage(oneImage);
         return (
             <animated.div style={{transform: parallaxInterpolate}}>
                 <BackgroundImage
@@ -89,7 +89,7 @@ const Image: React.FC<ImageAllProps> = (props) => {
     };
 
     const imageOnly = (oneImage: ImageProps) => {
-        const imageData = unifyImageToObject(oneImage);
+        const imageData = getMediaImage(oneImage);
         return (
             <ImageView
                 className={imageClass}

@@ -28,7 +28,7 @@ export interface CardFooterBaseProps {
     className?: string;
 }
 
-interface LayoutParts {
+export interface LayoutParts {
     Header: React.FC<CardHeaderBaseProps>;
     Content: React.FC;
     Footer: React.FC<CardFooterBaseProps>;

@@ -1,7 +1,12 @@
-import {BaseProps, AnimatableProps, ThemeProps, withTheme} from '../../schema/common';
-import {ButtonBlock} from '../../schema/v2/common';
+import {
+    BaseProps,
+    AnimatableProps,
+    ThemeProps,
+    withTheme,
+    ButtonBlock,
+} from '../../schema/validators/common';
 
-export const BannerProps = {
+export const BannerCardProps = {
     additionalProperties: false,
     required: ['title', 'button'],
     properties: {
@@ -32,9 +37,9 @@ export const BannerProps = {
 };
 
 export const BannerBlock = {
-    'banner-block': BannerProps,
+    'banner-block': BannerCardProps,
 };
 
 export const BannerCard = {
-    'banner-card': BannerProps,
+    'banner-card': BannerCardProps,
 };

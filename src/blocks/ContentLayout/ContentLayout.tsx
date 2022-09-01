@@ -2,7 +2,7 @@ import React, {useContext, useMemo} from 'react';
 
 import {block} from '../../utils';
 import {ContentLayoutBlockProps, ContentSize, ContentTextSize} from '../../models';
-import Content from '../../components/Content/Content';
+import {Content} from '../../sub-blocks';
 import {BackgroundImage, FileLink} from '../../components';
 import {Col} from '../../grid';
 import {MobileContext} from '../../context/mobileContext';

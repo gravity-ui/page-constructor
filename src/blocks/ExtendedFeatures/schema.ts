@@ -1,6 +1,11 @@
-import {AnimatableProps, containerSizesObject, LinkProps} from '../../schema/common';
-import {BlockBaseProps, TitleProps} from '../../schema/v2/common';
-import {filteredArray} from '../../schema/utils';
+import {
+    AnimatableProps,
+    containerSizesObject,
+    LinkProps,
+    BlockBaseProps,
+    TitleProps,
+} from '../../schema/validators/common';
+import {filteredArray} from '../../schema/validators/utils';
 
 export const ExtendedFeaturesItem = {
     additionalProperties: false,

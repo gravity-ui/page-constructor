@@ -1,13 +1,13 @@
-import {ContentBlock} from '../../components/Content/schema';
-import {filteredArray} from '../../schema/utils';
+import {ContentBlock} from '../../sub-blocks/Content/schema';
+import {filteredArray} from '../../schema/validators/utils';
 import {
     contentSizes,
     contentTextWidth,
     contentThemes,
     FileLinkProps,
     ImageObjectProps,
-} from '../../schema/common';
-import {BlockBaseProps} from '../../schema/v2/common';
+    BlockBaseProps,
+} from '../../schema/validators/common';
 
 export const ContentLayoutBlock = {
     'content-layout-block': {

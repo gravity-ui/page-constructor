@@ -3,7 +3,7 @@ import {ButtonSize} from '@yandex-cloud/uikit';
 
 import {block} from '../../utils';
 import {MediaContentProps} from '../../models';
-import Content from '../../components/Content/Content';
+import {Content} from '../../sub-blocks';
 
 import './MediaContent.scss';
 

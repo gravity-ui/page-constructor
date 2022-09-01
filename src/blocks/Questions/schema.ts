@@ -1,9 +1,9 @@
 import _ from 'lodash';
 
-import {LinkProps} from '../../schema/common';
-import {BlockBaseProps} from '../../schema/v2/common';
-import {filteredArray} from '../../schema/utils';
-import {ContentBase} from '../../components/Content/schema';
+import {LinkProps, BlockBaseProps} from '../../schema/validators/common';
+import {filteredArray} from '../../schema/validators/utils';
+
+import {ContentBase} from '../../sub-blocks/Content/schema';
 
 const QuestionsBlockContentProps = _.omit(ContentBase, ['size', 'theme']);
 

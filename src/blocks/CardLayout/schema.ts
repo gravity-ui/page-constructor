@@ -1,5 +1,10 @@
-import {AnimatableProps, containerSizesObject, ChildrenCardsProps} from '../../schema/common';
-import {BlockBaseProps, TitleProps} from '../../schema/v2/common';
+import {
+    AnimatableProps,
+    containerSizesObject,
+    ChildrenCardsProps,
+    BlockBaseProps,
+    TitleProps,
+} from '../../schema/validators/common';
 
 export const CardLayoutProps = {
     additionalProperties: false,

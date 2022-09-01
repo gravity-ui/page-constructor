@@ -4,7 +4,6 @@ import React, {Fragment} from 'react';
 import BackLink, {BackLinkProps} from '../BackLink';
 import {BUTTONS_LINKS, COMPONENTS} from '../../../demo/constants';
 import {Col, Row} from '../../../grid';
-import Section from '../../Section/Section';
 
 export default {
     component: BackLink,
@@ -39,9 +38,9 @@ const ThemesSizesTemplate: Story<BackLinkProps> = (args) => (
             <Col>xl</Col>
         </Row>
         <SizesTemplate {...args} theme="default" />
-        <Section background={{color: '#3a74ff'}}>
+        <section style={{color: '#3a74ff'}}>
             <SizesTemplate {...args} theme="special" />
-        </Section>
+        </section>
     </Fragment>
 );
 
