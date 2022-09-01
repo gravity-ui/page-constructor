@@ -9,6 +9,20 @@ const config = {
         '@storybook/addon-knobs',
         './addons/addon-yaml/preset',
     ],
+    typescript: {
+        check: true,
+        checkOptions: {},
+        reactDocgen: 'react-docgen-typescript',
+        reactDocgenTypescriptOptions: {
+            setDisplayName: false,
+            shouldExtractLiteralValuesFromEnum: true,
+            compilerOptions: {
+                allowSyntheticDefaultImports: true,
+                esModuleInterop: true,
+            },
+        },
+    },
+
     webpackFinal: (storybookBaseConfig) => {
         storybookBaseConfig.module.rules.push({
             test: /\.md$/,

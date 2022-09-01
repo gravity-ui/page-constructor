@@ -16,7 +16,7 @@ function importAllReadme(ctx: __WebpackModuleApi.RequireContext) {
     const path = ctx.id.split(' ')[0].replace('./', '') + '/';
     ctx.keys().forEach((key) => {
         const dirPath = key.replace(/^\.\//, path).replace(/\/readme\.md$/i, '');
-        readmeCache[dirPath] = ctx(key);
+        readmeCache[dirPath] = ctx(key).default;
     });
 }
 
