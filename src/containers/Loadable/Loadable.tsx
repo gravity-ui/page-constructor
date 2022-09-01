@@ -30,7 +30,7 @@ const initData = {
 };
 
 const Loadable: React.FC<LoadableComponentsProps> = (props) => {
-    const {Component, ChildComponent, fetch, block, blockKey, serviceId, params = {}} = props;
+    const {Component, ChildComponent, fetch, block, blockKey, serviceId, params} = props;
     const [dataState, setDataState] = useState<LoadableState>(initData);
     const [refetchIndex, setRefetchIndex] = useState<number>(0);
     const onTryAgain = useCallback(() => {
@@ -44,7 +44,7 @@ const Loadable: React.FC<LoadableComponentsProps> = (props) => {
             let data, error;
 
             try {
-                data = await fetch({blockKey, serviceId, ...params});
+                data = await fetch({blockKey, serviceId, ...(params ?? {})});
                 error = false;
 
                 setDataState({data, loading: false, error});

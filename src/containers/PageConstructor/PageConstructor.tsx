@@ -52,6 +52,7 @@ export const Constructor: React.FC<Props> = (props) => {
                     ...subBlockMap,
                     ...getCustomItems(props.custom),
                 },
+                customLoadable: props?.custom?.loadable,
             },
             headerBlockTypes: [...HeaderBlockTypes, ...getCustomHeaderTypes(props.custom)],
         }),

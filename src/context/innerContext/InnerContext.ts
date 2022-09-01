@@ -1,11 +1,11 @@
 import React from 'react';
 import {ItemMap} from '../../containers/PageConstructor/PageConstructor';
-import {LoadableConfigItem} from '../../models';
+import {LoadableConfig} from '../../models';
 
 export interface InnerContextType {
     blockTypes: string[];
     itemMap: ItemMap;
-    customLoadable?: Record<'string', LoadableConfigItem>;
+    customLoadable?: LoadableConfig;
 }
 
 export const InnerContext = React.createContext<InnerContextType>({

@@ -2,11 +2,7 @@ import React, {Fragment, ReactElement, useContext} from 'react';
 import {getBlockKey} from '../../../../utils';
 import {InnerContext} from '../../../../context/innerContext';
 
-import {
-    Block,
-    ConstructorItem as ConstructorItemType,
-    LoadableConfigItem,
-} from '../../../../models';
+import {Block, ConstructorItem as ConstructorItemType} from '../../../../models';
 import _ from 'lodash';
 import {ConstructorLoadable} from '../ConstructorLoadable';
 import {ConstructorItem} from '../ConstructorItem';
@@ -30,7 +26,7 @@ export const ConstructorBlocks: React.FC<ConstructorBlocksProps> = ({items}) => 
 
         if ('loadable' in item && item.loadable) {
             const {source, serviceId, params} = item.loadable;
-            const config: LoadableConfigItem = _.get(customLoadable, source);
+            const config = _.get(customLoadable, source);
             if (!config) {
                 return null;
             }
