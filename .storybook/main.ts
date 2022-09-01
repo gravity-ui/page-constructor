@@ -7,6 +7,7 @@ const config = {
         '@storybook/preset-scss',
         {name: '@storybook/addon-essentials', options: {backgrounds: false}},
         '@storybook/addon-knobs',
+        './addons/addon-yaml/preset',
     ],
     webpackFinal: (storybookBaseConfig) => {
         storybookBaseConfig.module.rules.push({
