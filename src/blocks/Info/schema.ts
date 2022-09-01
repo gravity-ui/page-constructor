@@ -5,12 +5,15 @@ import {BaseProps, LinkProps, ThemeProps, withTheme} from '../../schema/common';
 import {ButtonBlock} from '../../schema/v2/common';
 import {ContentBase} from '../../components/Content/schema';
 
-const ContentProps = _.omit(ContentBase, ['size', 'colSizes', 'theme']);
+const ContentProps = {
+    additionalProperties: false,
+
+    properties: _.omit(ContentBase, ['size', 'colSizes', 'theme']),
+};
 
 export const InfoBlock = {
     'info-block': {
         additionalProperties: false,
-        required: ['title', 'sectionsTitle'],
         properties: {
             ...BaseProps,
             title: {

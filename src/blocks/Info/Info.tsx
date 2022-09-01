@@ -35,29 +35,29 @@ export const InfoBlock: React.FC<InfoBlockProps> = (props) => {
                     <Row>
                         <Col sizes={{lg: 4, sm: 6, all: 12}}>
                             <Content
-                                title={title || leftContent.title}
-                                text={leftContent.text}
-                                links={leftContent.links}
+                                title={title || leftContent?.title}
+                                text={leftContent?.text}
+                                links={leftContent?.links}
                                 theme={contentTheme}
-                                buttons={buttons || leftContent.buttons}
-                                additionalInfo={leftContent.additionalInfo}
+                                buttons={buttons || leftContent?.buttons}
+                                additionalInfo={leftContent?.additionalInfo}
                                 colSizes={{all: 12, md: 12}}
                             />
                         </Col>
                         <Col sizes={{lg: 4, sm: 6, all: 12}} offsets={{lg: 2, md: 0}}>
                             <Content
-                                title={sectionsTitle || rightContent.title}
-                                text={rightContent.text}
+                                title={sectionsTitle || rightContent?.title}
+                                text={rightContent?.text}
                                 links={
                                     links?.map((link) => ({
                                         ...link,
                                         arrow: true,
                                         theme: 'normal',
-                                    })) || rightContent.links
+                                    })) || rightContent?.links
                                 }
                                 theme={contentTheme}
-                                buttons={rightContent.buttons}
-                                additionalInfo={rightContent.additionalInfo}
+                                buttons={rightContent?.buttons}
+                                additionalInfo={rightContent?.additionalInfo}
                                 colSizes={{all: 12, md: 12}}
                             />
                         </Col>
