@@ -140,8 +140,6 @@ const Page: React.FC<PageProps> = ({children}) => (
 
 Каждый из блоков представляет собой неделимый верхнеуровневый компонент, они лежат в папке `src/units/constructor/blocks`
 
-Более подробно о блоках можно в [документации](https://github.yandex-team.ru/data-ui/cloud-backoffice/wiki/Страницы).
-
 ### Саб-блоки
 
 Саб-блоки это компоненты, которые могут использоваться в свойстве `children` блоков. В конфиге указывается список компонентов-детей из саб-блоков, при отрисовке отрендеренные саб-блоки будут переданы в блок как `children`.
@@ -156,14 +154,13 @@ const Page: React.FC<PageProps> = ({children}) => (
 
 4. Добавляем новый компонент или блок в мэппинг в `src/constructor-items.ts`
 
-5. Добавляем в [`cloud-backoffice`](https://github.yandex-team.ru/data-ui/cloud-backoffice) валидатор для нового блока, для этого нужно:
+5. Добавляем валидатор для нового блока, для этого нужно:
 
    - добавляем в папку блока/саб-блока файл `schema.ts`, где описываем валидатор параметров для данного компонента в формате [`json-schema`](http://json-schema.org/)
    - экспортируем его в файле `schema/validators/blocks.ts` или `schema/validators/sub-blocks.ts`
    - добавляем его в `enum` и `selectCases` в файле `schema/index.ts`
-   - не забываем проверить в бэкофисе, что валидотор работает
 
-6. Добавляем описание блока на [страницу документации](https://github.yandex-team.ru/data-ui/cloud-backoffice/wiki/Страницы)
+6. В директории блока добавляем файл `README.md` с описанием входных параметров
 
 ### Темы
 
@@ -182,7 +179,7 @@ const Page: React.FC<PageProps> = ({children}) => (
 Для того, чтобы используемая в проекте библиотека i18n работала корректно нужно выполнить инициализацию, где в `lang` устанавливается текущее значение локали в проекте, пример:
 
 ```typescript
-import {configure, Lang} from '@yandex-data-ui/page-constructor/configure';
+import {configure, Lang} from '@yandex-data-ui/page-constructor';
 
 configure({lang: Lang.En});
 ```
