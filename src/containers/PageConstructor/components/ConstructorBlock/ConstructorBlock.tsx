@@ -12,17 +12,8 @@ interface ConstructorBlockProps {
     shouldRenderBlock?: ShouldRenderBlock;
 }
 
-export const ConstructorBlock: React.FC<ConstructorBlockProps> = ({
-    data,
-    key,
-    Component,
-    shouldRenderBlock,
-}) => {
+export const ConstructorBlock: React.FC<ConstructorBlockProps> = ({data, key, Component}) => {
     const {anchor, visible} = data;
-
-    if (shouldRenderBlock && !shouldRenderBlock(data, key)) {
-        return null;
-    }
 
     return (
         <BlockBase

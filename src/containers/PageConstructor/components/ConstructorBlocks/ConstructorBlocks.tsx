@@ -1,18 +1,19 @@
+import _ from 'lodash';
 import React, {Fragment, ReactElement, useContext} from 'react';
+
 import {getBlockKey} from '../../../../utils';
 import {InnerContext} from '../../../../context/innerContext';
-
-import {Block, ConstructorItem as ConstructorItemType} from '../../../../models';
-import _ from 'lodash';
+import {Block, ConstructorItem as ConstructorItemType, ShouldRenderBlock} from '../../../../models';
 import {ConstructorLoadable} from '../ConstructorLoadable';
 import {ConstructorItem} from '../ConstructorItem';
 import {ConstructorBlock} from '../ConstructorBlock/ConstructorBlock';
 
 interface ConstructorBlocksProps {
     items: ConstructorItemType[];
+    shouldRenderBlock?: ShouldRenderBlock;
 }
 
-export const ConstructorBlocks: React.FC<ConstructorBlocksProps> = ({items}) => {
+export const ConstructorBlocks: React.FC<ConstructorBlocksProps> = ({items, shouldRenderBlock}) => {
     const {blockTypes, customLoadable, itemMap} = useContext(InnerContext);
 
     const renderer = (item: ConstructorItemType, index: number): ReactElement | null => {
@@ -23,6 +24,10 @@ export const ConstructorBlocks: React.FC<ConstructorBlocksProps> = ({items}) => 
         let children;
         let itemElement;
         const itemKey = getBlockKey(item, index);
+
+        if (shouldRenderBlock && !shouldRenderBlock(item, itemKey)) {
+            return null;
+        }
 
         if ('loadable' in item && item.loadable) {
             const {source, serviceId, params} = item.loadable;

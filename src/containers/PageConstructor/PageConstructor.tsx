@@ -63,6 +63,7 @@ export const Constructor: React.FC<Props> = (props) => {
         content: {blocks = [], background = {}, footnotes = []} = {},
         renderMenu,
         themeValue: theme,
+        shouldRenderBlock,
     } = props;
 
     const hasFootnotes = footnotes.length > 0;
@@ -81,7 +82,10 @@ export const Constructor: React.FC<Props> = (props) => {
                     <Grid>
                         {restBlocks && (
                             <ConstructorRow>
-                                <ConstructorBlocks items={restBlocks} />
+                                <ConstructorBlocks
+                                    items={restBlocks}
+                                    shouldRenderBlock={shouldRenderBlock}
+                                />
                             </ConstructorRow>
                         )}
                         {hasFootnotes && (
