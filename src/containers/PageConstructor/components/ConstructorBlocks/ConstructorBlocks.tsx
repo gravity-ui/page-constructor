@@ -14,7 +14,7 @@ interface ConstructorBlocksProps {
 }
 
 export const ConstructorBlocks: React.FC<ConstructorBlocksProps> = ({items, shouldRenderBlock}) => {
-    const {blockTypes, customLoadable, itemMap} = useContext(InnerContext);
+    const {blockTypes, loadables, itemMap} = useContext(InnerContext);
 
     const renderer = (item: ConstructorItemType, index: number): ReactElement | null => {
         if (!itemMap[item.type]) {
@@ -31,7 +31,7 @@ export const ConstructorBlocks: React.FC<ConstructorBlocksProps> = ({items, shou
 
         if ('loadable' in item && item.loadable) {
             const {source, serviceId, params} = item.loadable;
-            const config = _.get(customLoadable, source);
+            const config = _.get(loadables, source);
             if (!config) {
                 return null;
             }

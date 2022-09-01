@@ -5,7 +5,7 @@ import {LoadableConfig} from '../../models';
 export interface InnerContextType {
     blockTypes: string[];
     itemMap: ItemMap;
-    customLoadable?: LoadableConfig;
+    loadables?: LoadableConfig;
 }
 
 export const InnerContext = React.createContext<InnerContextType>({

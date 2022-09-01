@@ -57,7 +57,7 @@ export enum BlockType {
 }
 
 export const BlockTypes = Object.values(BlockType);
-export const HeaderBlockTypes = [BlockType.HeaderSliderBlock];
+export const HeaderBlockTypes = [BlockType.HeaderBlock, BlockType.HeaderSliderBlock];
 export interface Childable {
     children?: SubBlock[];
 }
