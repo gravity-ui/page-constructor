@@ -1,5 +1,11 @@
+import _ from 'lodash';
+
 import {LinkProps, BlockBaseProps} from '../../schema/validators/common';
 import {filteredArray} from '../../schema/validators/utils';
+
+import {ContentBase} from '../../sub-blocks/Content/schema';
+
+const QuestionsBlockContentProps = _.omit(ContentBase, ['size', 'theme']);
 
 export const QuestionsBlock = {
     'questions-block': {
@@ -7,9 +13,7 @@ export const QuestionsBlock = {
         required: ['title', 'items'],
         properties: {
             ...BlockBaseProps,
-            title: {
-                type: 'string',
-            },
+            ...QuestionsBlockContentProps,
             items: filteredArray({
                 type: 'object',
                 required: ['title', 'text'],

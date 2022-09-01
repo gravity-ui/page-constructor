@@ -189,8 +189,9 @@ export interface QuestionItem {
     listStyle?: 'dash' | 'disk';
     link?: LinkProps;
 }
-export interface QuestionsProps {
-    title: string;
+
+export interface QuestionsProps
+    extends Omit<ContentBlockProps, 'colSizes' | 'centered' | 'size' | 'theme'> {
     items: QuestionItem[];
 }
 

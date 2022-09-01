@@ -6,6 +6,7 @@ import Link from '../../components/Link/Link';
 
 import {YFMWrapper, ToggleArrow, Foldable, HTML} from '../../components';
 import {Row, Col} from '../../grid';
+import {Content} from '../../sub-blocks';
 
 import './Questions.scss';
 
@@ -21,50 +22,65 @@ export default class QuestionsBlock extends React.Component<QuestionsProps, Ques
     };
 
     render() {
-        const {title, items} = this.props;
+        const {title, text, additionalInfo, links, buttons, items} = this.props;
         const {opened} = this.state;
 
         return (
             <div className={b()}>
                 <Row>
                     <Col sizes={{all: 12, md: 4}}>
-                        <h2 className={b('title')}>{title}</h2>
+                        <div className={b('title')}>
+                            <Content
+                                title={title}
+                                text={text}
+                                additionalInfo={additionalInfo}
+                                links={links}
+                                buttons={buttons}
+                                colSizes={{all: 12, md: 12}}
+                            />
+                        </div>
                     </Col>
                     <Col sizes={{all: 12, md: 8}}>
-                        {items.map(({title: itemTitle, text, link, listStyle = 'dash'}, index) => {
-                            const isOpened = opened.includes(index);
+                        {items.map(
+                            (
+                                {title: itemTitle, text: itemText, link, listStyle = 'dash'},
+                                index,
+                            ) => {
+                                const isOpened = opened.includes(index);
 
-                            return (
-                                <div key={itemTitle} className={b('item')}>
-                                    <h4
-                                        className={b('item-title')}
-                                        onClick={() => this.toggleItem(index)}
-                                    >
-                                        <HTML>{itemTitle}</HTML>
-                                        <ToggleArrow
-                                            open={isOpened}
-                                            size={16}
-                                            type={'vertical'}
-                                            iconType="navigation"
-                                            className={b('arrow')}
-                                        />
-                                    </h4>
-                                    <Foldable isOpened={isOpened}>
-                                        <div className={b('text')}>
-                                            <YFMWrapper
-                                                content={text}
-                                                modifiers={{
-                                                    constructor: true,
-                                                    constructorListStyle: true,
-                                                    constructorListStyleDash: listStyle === 'dash',
-                                                }}
+                                return (
+                                    <div key={itemTitle} className={b('item')}>
+                                        <h4
+                                            className={b('item-title')}
+                                            onClick={() => this.toggleItem(index)}
+                                        >
+                                            <HTML>{itemTitle}</HTML>
+                                            <ToggleArrow
+                                                open={isOpened}
+                                                size={16}
+                                                type={'vertical'}
+                                                iconType="navigation"
+                                                className={b('arrow')}
                                             />
-                                            {link && <Link {...link} className={b('link')} />}
-                                        </div>
-                                    </Foldable>
-                                </div>
-                            );
-                        })}
+                                        </h4>
+                                        <Foldable isOpened={isOpened}>
+                                            <div className={b('text')}>
+                                                <YFMWrapper
+                                                    content={itemText}
+                                                    modifiers={{
+                                                        constructor: true,
+                                                        constructorListStyle: true,
+                                                        constructorListStyleDash:
+                                                            listStyle === 'dash',
+                                                    }}
+                                                />
+                                                {link && <Link {...link} className={b('link')} />}
+                                            </div>
+                                        </Foldable>
+                                    </div>
+                                );
+                            },
+                        )}
                     </Col>
                 </Row>
             </div>

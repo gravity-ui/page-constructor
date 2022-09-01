@@ -5,11 +5,11 @@ $block: '.#{$ns}QuestionsBlock';
 
 #{$block} {
     &__title {
-        @include heading2();
         @include top-content-offset($offset: $indentM);
 
         position: sticky;
         margin-bottom: $indentM;
+        margin-right: $indentXL;
     }
 
     &__item {
@@ -49,5 +49,11 @@ $block: '.#{$ns}QuestionsBlock';
 
     &__link {
         @include text-size(body-2);
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'md')) {
+        &__title {
+            margin-right: 0;
+        }
     }
 }
