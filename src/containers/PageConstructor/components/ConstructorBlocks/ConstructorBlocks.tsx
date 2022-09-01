@@ -23,9 +23,9 @@ export const ConstructorBlocks: React.FC<ConstructorBlocksProps> = ({items, shou
 
         let children;
         let itemElement;
-        const itemKey = getBlockKey(item, index);
+        const key = getBlockKey(item, index);
 
-        if (shouldRenderBlock && !shouldRenderBlock(item, itemKey)) {
+        if (shouldRenderBlock && !shouldRenderBlock(item, key)) {
             return null;
         }
 
@@ -39,7 +39,8 @@ export const ConstructorBlocks: React.FC<ConstructorBlocksProps> = ({items, shou
             itemElement = (
                 <ConstructorLoadable
                     block={item}
-                    blockKey={itemKey}
+                    key={key}
+                    blockKey={key}
                     config={config}
                     serviceId={serviceId}
                     params={params}
@@ -51,14 +52,14 @@ export const ConstructorBlocks: React.FC<ConstructorBlocksProps> = ({items, shou
             }
 
             itemElement = (
-                <ConstructorItem data={item} key={itemKey}>
+                <ConstructorItem data={item} key={key}>
                     {children}
                 </ConstructorItem>
             );
         }
 
         return blockTypes.includes(item.type) ? (
-            <ConstructorBlock data={item as Block} key={itemKey} Component={itemElement} />
+            <ConstructorBlock data={item as Block} key={key} Component={itemElement} />
         ) : (
             itemElement
         );

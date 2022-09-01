@@ -13,7 +13,7 @@ import {withLang} from './decorators/withLang';
 import {DocsWithReadme} from '../src/demo/DocsWithReadme';
 
 import {ThemeProvider} from '../src';
-import {configure, Lang} from '../configure';
+import {configure, Lang} from '../src/utils/configure';
 
 import '../styles/styles.scss';
 configure({
