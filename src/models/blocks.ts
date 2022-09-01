@@ -543,8 +543,8 @@ export interface QuestionItem {
     link?: LinkProps;
 }
 
-export interface QuestionsProps {
-    title: string;
+export interface QuestionsProps
+    extends Omit<ContentBlockProps, 'colSizes' | 'centered' | 'size' | 'theme'> {
     items: QuestionItem[];
 }
 

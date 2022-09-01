@@ -276,11 +276,22 @@ const config: BlocksConfig = {
         transformer: typografTransformer,
         parser: parseSlider,
     },
-    [BlockType.QuestionsBlock]: {
-        fields: ['items'],
-        transformer: yfmTransformer,
-        parser: parseFeatures,
-    },
+    [BlockType.QuestionsBlock]: [
+        {
+            fields: ['title'],
+            transformer: typografTransformer,
+        },
+        {
+            fields: ['text', 'additionalInfo'],
+            transformer: yfmTransformer,
+        },
+        {
+            fields: ['items'],
+            transformer: yfmTransformer,
+            parser: parseFeatures,
+        },
+    ],
+
     [BlockType.BannerBlock]: [
         {
             fields: ['title'],
