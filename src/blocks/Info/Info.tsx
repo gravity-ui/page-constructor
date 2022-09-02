@@ -33,7 +33,7 @@ export const InfoBlock: React.FC<InfoBlockProps> = (props) => {
             >
                 <Grid>
                     <Row>
-                        <Col sizes={{lg: 4, sm: 6, all: 12}}>
+                        <Col sizes={{lg: 4, sm: 6, all: 12}} className={b('left')}>
                             <Content
                                 title={title || leftContent?.title}
                                 text={leftContent?.text}
