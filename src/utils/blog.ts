@@ -65,6 +65,7 @@ export const getBlogBreadcrumbs = ({tags}: GetBlogBreadcrumbsProps) => {
     if (tags?.length) {
         const localizedTags = getTags(tags);
         const tag = localizedTags[0];
+        // @ts-ignore
         breadcrumbs.items.push({text: tag.name, url: getTagFilterUrl(tag.id)});
     }
 

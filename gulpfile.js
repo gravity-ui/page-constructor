@@ -27,6 +27,31 @@ task('clean', (done) => {
 
 function compileTs(modules = false) {
     const tsProject = ts.createProject('tsconfig.json', {
+        incremental: true,
+        isolatedModules: true,
+        module: modules ? 'esnext' : 'commonjs',
+    });
+
+    return src([
+        'src/**/*.{js,jsx,ts,tsx}',
+        '!src/demo/**/*.{js,jsx,ts,tsx}',
+        '!src/stories/**/*.{js,jsx,ts,tsx}',
+        '!src/**/__stories__/**/*.{js,jsx,ts,tsx}',
+    ])
+        .pipe(
+            replace(/import '.+\.scss';/g, (match) =>
+                modules ? match.replace('.scss', '.css') : '',
+            ),
+        )
+        .pipe(tsProject())
+        .pipe(alias('tsconfig.json'))
+        .pipe(dest(path.resolve(BUILD_CLIENT_DIR, modules ? ESM_DIR : CJS_DIR)));
+}
+
+function compileTsDeclaration(modules = false) {
+    const tsProject = ts.createProject('tsconfig.json', {
+        emitDeclarationOnly: true,
+        isolatedModules: false,
         declaration: true,
         module: modules ? 'esnext' : 'commonjs',
     });
@@ -53,6 +78,14 @@ task('compile-to-esm', () => {
 
 task('compile-to-cjs', () => {
     return compileTs();
+});
+
+task('compile-to-esm-declaration', () => {
+    return compileTsDeclaration(true);
+});
+
+task('compile-to-cjs-declaration', () => {
+    return compileTsDeclaration();
 });
 
 task('copy-js-declarations', () => {
@@ -96,6 +129,7 @@ task(
     series([
         'clean',
         parallel(['compile-to-esm', 'compile-to-cjs']),
+        parallel(['compile-to-esm-declaration', 'compile-to-cjs-declaration']),
         'copy-js-declarations',
         'copy-i18n',
         parallel(['styles-global', 'styles-components', 'copy-global-scss']),

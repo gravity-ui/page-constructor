@@ -1,7 +1,7 @@
 {
   "extends": "@yandex-cloud/tsconfig/tsconfig.json",
   "compilerOptions": {
-    "allowJs": false,
+    "allowJs": true,
     "declaration": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,

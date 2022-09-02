@@ -12,4 +12,6 @@ export interface BlogPageContextProps {
     };
 }
 
-export const BlogPageContext = React.createContext<BlogPageContextProps>({});
+export const BlogPageContext = React.createContext<BlogPageContextProps>(
+    {} as BlogPageContextProps,
+);
