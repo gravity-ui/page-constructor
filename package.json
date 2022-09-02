@@ -55,7 +55,7 @@
     "@types/fast-html-parser": "^1.0.2",
     "@types/recompose": "^0.30.10",
     "@yandex-data-ui/cloud-regional-configs": "^1.27.1",
-    "@yandex-data-ui/page-constructor": "^0.59.0",
+    "@yandex-data-ui/page-constructor": "^1.0.0",
     "bem-cn-lite": "^4.0.0",
     "fast-html-parser": "^1.0.1",
     "gulp": "^4.0.2",

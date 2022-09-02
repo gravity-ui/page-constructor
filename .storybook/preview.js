@@ -10,7 +10,7 @@ import {withLang} from '../src/demo/decorators/withLang';
 import {withMobile} from '../src/demo/decorators/withMobile';
 import {DocsWithReadme} from '../src/demo/DocsWithReadme';
 import {MobileProvider} from '@yandex-cloud/uikit';
-import {ThemeProvider} from '../src';
+import {ThemeProvider} from '../src/contexts/theme/ThemeProvider';
 
 const withCommonProvider = (Story, context) => {
     const theme = context.globals.theme;
