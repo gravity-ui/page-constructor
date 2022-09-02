@@ -13,7 +13,6 @@ const ESM_DIR = 'esm';
 const CJS_DIR = 'cjs';
 const ALIASES_FOR_STYLES = {
     styles: 'styles',
-    '~': 'node_modules',
 };
 const SASS_LOADER_OPTIONS = {
     includePaths: ['./node_modules'],
@@ -109,11 +108,7 @@ task('styles-global', () => {
     return src('styles/*.scss')
         .pipe(styleAliases(ALIASES_FOR_STYLES))
         .pipe(sass(SASS_LOADER_OPTIONS).on('error', sass.logError))
-        .pipe(dest(path.resolve(BUILD_CLIENT_DIR, 'styles')));
-});
-
-task('copy-global-scss', () => {
-    return src('styles/*').pipe(dest(path.resolve(BUILD_CLIENT_DIR, 'styles')));
+        .pipe(dest('styles'));
 });
 
 task('styles-components', () => {
@@ -132,7 +127,7 @@ task(
         parallel(['compile-to-esm-declaration', 'compile-to-cjs-declaration']),
         'copy-js-declarations',
         'copy-i18n',
-        parallel(['styles-global', 'styles-components', 'copy-global-scss']),
+        parallel(['styles-global', 'styles-components']),
     ]),
 );
 

@@ -3,7 +3,7 @@ import {YFMWrapper} from '@yandex-data-ui/page-constructor';
 
 import {BlogWrapper, PaddingSize} from 'components/BlogWrapper/BlogWrapper';
 
-import 'styles/yfm.scss';
+import './BlogYFM.scss';
 
 type YFMBlockProps = {
     text: string;

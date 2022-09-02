@@ -8,7 +8,6 @@ import {getBlogElementMetrika, checkContentDefaults} from 'utils/blog';
 
 import {BlogMetrikaGoalIds} from '../constants';
 
-import 'styles/yfm.scss';
 import './BlogBanner.scss';
 
 const b = block('BlogBannerBlock');

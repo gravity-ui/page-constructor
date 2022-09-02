@@ -13,8 +13,6 @@ import {BlogPageContext} from 'contexts/BlogPageContext';
 import {BlogPageMeta} from './BlogPageMeta';
 // import {getPageConfig} from 'utils';
 
-import 'styles/yfm.scss';
-
 // to make constructor yfm styles have higher priority than local
 import '@yandex-data-ui/page-constructor/styles/yfm.scss';
 

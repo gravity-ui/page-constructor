@@ -10,7 +10,6 @@ import {getBlogBreadcrumbs} from 'utils/blog';
 
 import {BlogMetrikaGoalIds} from '../constants';
 
-import 'styles/yfm.scss';
 import './BlogMeta.scss';
 
 const b = block('BlogMetaBlock');
