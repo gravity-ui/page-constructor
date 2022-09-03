@@ -1,5 +1,5 @@
 import React from 'react';
-import {BlogPostData} from 'models/blog';
+import {BlogPostData} from '../models/blog';
 
 export interface BlogPageContextProps {
     // Should we change Blog Context? https://st.yandex-team.ru/CLOUDFRONT-10460

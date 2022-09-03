@@ -1,6 +1,6 @@
 import {I18N} from '@yandex-cloud/i18n';
 
-import {Lang} from 'models/locale';
+import {Lang} from '../models/locale';
 
 const KEYSET_NAME = 'blog';
 

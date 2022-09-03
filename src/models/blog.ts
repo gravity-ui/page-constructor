@@ -1,6 +1,6 @@
 import {BlogPostTag, SpeakerPublic} from '@yandex-data-ui/cloud-schemas/build/models/ui-api';
-import {Locale} from 'models/locale';
-import {PageData} from 'models/common';
+import {Locale} from '../models/locale';
+import {PageData} from '../models/common';
 
 export interface BlogPostLikes {
     count: number;

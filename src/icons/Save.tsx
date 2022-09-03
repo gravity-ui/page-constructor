@@ -1,5 +1,5 @@
 import React from 'react';
-import {a11yHiddenSvgProps} from 'utils/svg';
+import {a11yHiddenSvgProps} from '../utils/svg';
 
 export const Save: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
     <svg

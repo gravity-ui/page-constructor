@@ -8,7 +8,7 @@ import {
     Row,
 } from '@yandex-data-ui/page-constructor';
 
-import {BlogWrapper, PaddingSize} from 'components/BlogWrapper/BlogWrapper';
+import {BlogWrapper, PaddingSize} from '../../components/BlogWrapper/BlogWrapper';
 
 import './BlogLayout.scss';
 

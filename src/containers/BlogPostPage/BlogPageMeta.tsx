@@ -1,15 +1,15 @@
 import React, {useContext} from 'react';
 
-import Meta, {MetaComponentProps} from 'components/Meta/Meta';
+import Meta, {MetaComponentProps} from '../../components/Meta/Meta';
 
-import {RouterContext} from 'contexts/RouterContext';
-import {LocaleContext} from 'contexts/LocaleContext';
+import {RouterContext} from '../../contexts/RouterContext';
+import {LocaleContext} from '../../contexts/LocaleContext';
 
-import {i18, BlogKeyset} from 'src/i18n';
+import {i18, BlogKeyset} from '../../i18n';
 
-import {getBlogPostSchema} from 'utils/meta';
+import {getBlogPostSchema} from '../../utils/meta';
 
-import {BlogMetaProps} from 'models/blog';
+import {BlogMetaProps} from '../../models/blog';
 
 /**
  * Create meta data for blog page

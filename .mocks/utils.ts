@@ -1,9 +1,9 @@
-import {transformPageContent} from 'data/transformPageContent';
-import {createReadableContent} from 'data/createReadableContent';
-import {sanitizeMeta} from 'data/sanitizeMeta';
-import {transformPost} from 'data/transformPost';
+import {transformPageContent} from '../src/data/transformPageContent';
+import {createReadableContent} from '../src/data/createReadableContent';
+import {sanitizeMeta} from '../src/data/sanitizeMeta';
+import {transformPost} from '../src/data/transformPost';
 
-import {Lang} from 'models/locale';
+import {Lang} from '../src/models/locale';
 
 import postApi from './postApi.json';
 import pageApi from './pageApi.json';

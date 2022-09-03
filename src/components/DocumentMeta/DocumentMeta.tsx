@@ -1,10 +1,10 @@
 import React, {useContext} from 'react';
 import {Helmet} from 'react-helmet';
 
-import {RouterContext} from 'contexts/RouterContext';
+import {RouterContext} from '../../contexts/RouterContext';
 
-import {isRootPage} from 'utils/common';
-import {getCleanTitle} from 'utils/meta';
+import {isRootPage} from '../../utils/common';
+import {getCleanTitle} from '../../utils/meta';
 
 export interface DocumentMetaProps {
     // DO NOT PASS TYPOGRAPHER'S STRING

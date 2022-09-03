@@ -2,7 +2,7 @@ import React from 'react';
 
 import {ThemeContext, ThemeContextProps} from './ThemeContext';
 import {ThemeValueType, ThemeValueContext} from './ThemeValueContext';
-import {DEFAULT_THEME} from 'src/constants';
+import {DEFAULT_THEME} from '../../constants';
 
 interface ThemeProviderExternalProps {}
 

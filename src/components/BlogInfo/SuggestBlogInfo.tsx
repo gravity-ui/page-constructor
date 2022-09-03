@@ -3,7 +3,7 @@ import block from 'bem-cn-lite';
 
 // TODO fixes and refactor in https://st.yandex-team.ru/ORION-1444
 
-import {BlogPostData} from 'models/blog';
+import {BlogPostData} from '../../models/blog';
 
 import {BlogDate} from './components/BlogDate';
 import {BlogReadingTime} from './components/BlogReadingTime';

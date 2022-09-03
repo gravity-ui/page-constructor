@@ -2,10 +2,10 @@ import React, {Fragment, useMemo, useContext} from 'react';
 
 import {MetaProps, SocialSharingMeta} from '@yandex-data-ui/common';
 
-import {DocumentMetaProps, DocumentMeta} from 'components/DocumentMeta/DocumentMeta';
+import {DocumentMetaProps, DocumentMeta} from '../../components/DocumentMeta/DocumentMeta';
 
-import {LocaleContext} from 'contexts/LocaleContext';
-import {RouterContext} from 'contexts/RouterContext';
+import {LocaleContext} from '../../contexts/LocaleContext';
+import {RouterContext} from '../../contexts/RouterContext';
 
 interface SharingProps {
     title: string;

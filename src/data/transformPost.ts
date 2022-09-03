@@ -6,8 +6,8 @@ import {
 
 // TODO fix any https://st.yandex-team.ru/ORION-1447
 
-import {Lang} from 'models/locale';
-import {BlogPostData} from 'models/blog';
+import {Lang} from '../models/locale';
+import {BlogPostData} from '../models/blog';
 
 const transformPostTags = (tags: any) =>
     tags.map(({locales, ...rest}: any) => ({

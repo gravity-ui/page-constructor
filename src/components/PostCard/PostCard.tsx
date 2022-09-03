@@ -4,8 +4,8 @@ import block from 'bem-cn-lite';
 import {CardBase, YFMWrapper, MetrikaGoal} from '@yandex-data-ui/page-constructor';
 import {HTML} from '@doc-tools/components';
 
-import {SuggestBlogInfo} from 'src/components/BlogInfo/SuggestBlogInfo';
-import {BlogPostData} from 'models/blog';
+import {SuggestBlogInfo} from '../../components/BlogInfo/SuggestBlogInfo';
+import {BlogPostData} from '../../models/blog';
 
 import './PostCard.scss';
 

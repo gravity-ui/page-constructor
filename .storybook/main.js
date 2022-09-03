@@ -96,21 +96,6 @@ module.exports = {
 
         storybookBaseConfig.resolve.alias = {
             ...storybookBaseConfig.resolve.alias,
-            src: path.resolve(__dirname, '../src'),
-            styles: path.resolve(__dirname, '../styles'),
-            blocks: path.resolve(__dirname, '../src/blocks'),
-            components: path.resolve(__dirname, '../src/components'),
-            containers: path.resolve(__dirname, '../src/containers'),
-            contexts: path.resolve(__dirname, '../src/contexts'),
-            hooks: path.resolve(__dirname, '../src/hooks'),
-            models: path.resolve(__dirname, '../src/models'),
-            demo: path.resolve(__dirname, '../src/demo'),
-            utils: path.resolve(__dirname, '../src/utils'),
-            constructor: path.resolve(__dirname, '../src/constructor'),
-            icons: path.resolve(__dirname, '../src/icons'),
-            '@mocks': path.resolve(__dirname, '../.mocks'),
-            counters: path.resolve(__dirname, '../src/counters'),
-            data: path.resolve(__dirname, '../src/data'),
         };
 
         // без этого fileName в context.parameters в продакшн сборке становится цифрой, а не путём, и ссылку на сорсы не сформировать

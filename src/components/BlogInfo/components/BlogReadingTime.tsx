@@ -3,9 +3,9 @@ import block from 'bem-cn-lite';
 
 import {Icon} from '@yandex-cloud/uikit';
 
-import {i18, BlogKeyset} from 'src/i18n';
+import {i18, BlogKeyset} from '../../../i18n';
 
-import {Time} from 'icons/Time';
+import {Time} from '../../../icons/Time';
 
 import '../BlogInfo.scss';
 

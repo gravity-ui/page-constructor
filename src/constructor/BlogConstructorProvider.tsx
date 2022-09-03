@@ -1,12 +1,12 @@
 import React, {Fragment} from 'react';
 
-import {MobileContext} from 'contexts/MobileContext';
-import {LocaleContext, LocaleContextProps} from 'contexts/LocaleContext';
-import {RouterContext, RouterContextProps} from 'contexts/RouterContext';
-import {UserContext, UserContextProps} from 'contexts/UserContext';
-import {ThemeValueType, ThemeValueContext} from 'contexts/theme/ThemeValueContext';
+import {MobileContext} from '../contexts/MobileContext';
+import {LocaleContext, LocaleContextProps} from '../contexts/LocaleContext';
+import {RouterContext, RouterContextProps} from '../contexts/RouterContext';
+import {UserContext, UserContextProps} from '../contexts/UserContext';
+import {ThemeValueType, ThemeValueContext} from '../contexts/theme/ThemeValueContext';
 
-import {DEFAULT_THEME} from 'src/constants';
+import {DEFAULT_THEME} from '../constants';
 
 export interface BlogConstructorProviderProps {
     isMobile?: boolean;

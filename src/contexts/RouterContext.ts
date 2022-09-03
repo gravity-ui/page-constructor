@@ -1,7 +1,7 @@
 import React from 'react';
-import {Query} from 'models/common';
+import {Query} from '../models/common';
 // @ts-ignore
-import {EventEmitter} from 'utils/eventEmmiter';
+import {EventEmitter} from '../utils/eventEmmiter';
 
 export interface RouterContextProps {
     page: string;

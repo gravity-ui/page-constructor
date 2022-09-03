@@ -2,14 +2,14 @@ import React, {useCallback, useState} from 'react';
 
 import {PageConstructor} from '@yandex-data-ui/page-constructor';
 
-import {BlogPostPageData, BlogPostData, BlogMetaProps} from 'models/blog';
+import {BlogPostPageData, BlogPostData, BlogMetaProps} from '../../models/blog';
 
-import componentMap from 'constructor/blocksMap';
+import componentMap from '../../constructor/blocksMap';
 
-import {BlogPageContext} from 'contexts/BlogPageContext';
+import {BlogPageContext} from '../../contexts/BlogPageContext';
 // import {getBlogPost} from 'units/blog/api';
-// import {LocaleData} from 'contexts/LocaleContext';
-// import {InitialContext, PageConfigProps, PageStaticProps} from 'models/app';
+// import {LocaleData} from '../../contexts/LocaleContext';
+// import {InitialContext, PageConfigProps, PageStaticProps} from '../../models/app';
 import {BlogPageMeta} from './BlogPageMeta';
 // import {getPageConfig} from 'utils';
 

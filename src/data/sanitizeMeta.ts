@@ -1,6 +1,6 @@
 import {sanitizeHtml} from '@yandex-data-ui/page-constructor/server';
 
-import {BlogMetaProps} from 'models/blog';
+import {BlogMetaProps} from '../models/blog';
 
 /**
  * Function for sanitized meta-data fields

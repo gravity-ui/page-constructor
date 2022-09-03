@@ -4,9 +4,9 @@ import block from 'bem-cn-lite';
 import {Author, AuthorType} from '@yandex-data-ui/page-constructor';
 import {ClassNameProps} from '@yandex-data-ui/cloud-components';
 
-import {BlogPageContext} from 'contexts/BlogPageContext';
-import {BlogWrapper, PaddingSize} from 'components/BlogWrapper/BlogWrapper';
-// TODO import ResizedImage from 'components/ResizedImage/ResizedImage';
+import {BlogPageContext} from '../../contexts/BlogPageContext';
+import {BlogWrapper, PaddingSize} from '../../components/BlogWrapper/BlogWrapper';
+// TODO import ResizedImage from '../../components/ResizedImage/ResizedImage';
 
 import './BlogAuthor.scss';
 

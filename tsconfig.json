@@ -9,22 +9,7 @@
     "outDir": "build",
     "baseUrl": ".",
     "paths": {
-      "*": ["./node_modules/*"],
-      "src/*": ["src/*"],
-      "styles/*": ["styles/*"],
-      "blocks/*": ["src/blocks/*"],
-      "components/*": ["src/components/*"],
-      "containers/*": ["src/containers/*"],
-      "contexts/*": ["src/contexts/*"],
-      "hooks/*": ["src/hooks/*"],
-      "models/*": ["src/models/*"],
-      "demo/*": ["src/demo/*"],
-      "utils/*": ["src/utils/*"],
-      "constructor/*": ["src/constructor/*"],
-      "icons/*": ["src/icons/*"],
-      "@mocks/*": [".mocks/*"],
-      "counters/*": ["src/counters/*"],
-      "data/*": ["src/data/*"]
+      "*": ["./node_modules/*"]
     },
     "module": "esNext",
     "jsx": "react",

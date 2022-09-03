@@ -1,5 +1,5 @@
-import {Locale} from 'models/locale';
-import {BlogMetaProps} from 'models/blog';
+import {Locale} from '../models/locale';
+import {BlogMetaProps} from '../models/blog';
 
 import {format} from './date';
 

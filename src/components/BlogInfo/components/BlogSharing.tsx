@@ -6,20 +6,20 @@ import block from 'bem-cn-lite';
 import {LayoutDirections} from '@yandex-data-ui/common/build/esm/components/ShareTooltip/constants';
 import {ShareTooltip, ShareSocialNetwork} from '@yandex-cloud/uikit';
 
-import {RouterContext} from 'contexts/RouterContext';
-import {MobileContext} from 'contexts/MobileContext';
+import {RouterContext} from '../../../contexts/RouterContext';
+import {MobileContext} from '../../../contexts/MobileContext';
 
-import {i18, BlogKeyset} from 'src/i18n';
+import {i18, BlogKeyset} from '../../../i18n';
 
-import {getAbsolutePath} from 'utils/common';
+import {getAbsolutePath} from '../../../utils/common';
 
-import {MetrikaCounter} from 'counters/utils';
+import {MetrikaCounter} from '../../../counters/utils';
 
 // TODO fixes and refactor in https://st.yandex-team.ru/ORION-1444
 // @ts-ignore
-import metrika from 'counters/metrika.js';
+import metrika from '../../../counters/metrika.js';
 
-import {ShareArrowUp} from 'icons/ShareArrowUp';
+import {ShareArrowUp} from '../../../icons/ShareArrowUp';
 
 import '../BlogInfo.scss';
 

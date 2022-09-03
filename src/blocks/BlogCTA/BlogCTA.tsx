@@ -2,8 +2,8 @@ import React from 'react';
 import block from 'bem-cn-lite';
 import {Content, ContentBlockProps, NewMetrikaGoal} from '@yandex-data-ui/page-constructor';
 
-import {BlogWrapper, PaddingSize} from 'components/BlogWrapper/BlogWrapper';
-import {getBlogElementMetrika, checkContentDefaults} from 'utils/blog';
+import {BlogWrapper, PaddingSize} from '../../components/BlogWrapper/BlogWrapper';
+import {getBlogElementMetrika, checkContentDefaults} from '../../utils/blog';
 
 import {BlogMetrikaGoalIds} from '../constants';
 

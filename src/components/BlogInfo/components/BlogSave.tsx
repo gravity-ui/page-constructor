@@ -5,16 +5,16 @@ import block from 'bem-cn-lite';
 
 import {Icon} from '@yandex-cloud/uikit';
 
-import {postLikeStatus} from 'utils/blog';
+import {postLikeStatus} from '../../../utils/blog';
 
-import {MetrikaCounter} from 'counters/utils';
+import {MetrikaCounter} from '../../../counters/utils';
 // @ts-ignore
-import metrika from 'counters/metrika.js';
+import metrika from '../../../counters/metrika.js';
 
-import {Save} from 'icons/Save';
-import {SaveFilled} from 'icons/SaveFilled';
-import {Like} from 'icons/Like';
-import {LikeFilled} from 'icons/LikeFilled';
+import {Save} from '../../../icons/Save';
+import {SaveFilled} from '../../../icons/SaveFilled';
+import {Like} from '../../../icons/Like';
+import {LikeFilled} from '../../../icons/LikeFilled';
 
 import '../BlogInfo.scss';
 
