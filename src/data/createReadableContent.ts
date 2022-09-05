@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import {getConfigForCreateReadableContent} from './config';
 import {BlockType} from '../models/blog';
 

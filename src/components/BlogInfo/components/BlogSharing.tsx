@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, {useContext} from 'react';
 import block from 'bem-cn-lite';
 

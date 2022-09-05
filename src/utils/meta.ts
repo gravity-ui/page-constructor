@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import {Locale} from '../models/locale';
 import {BlogMetaProps} from '../models/blog';
 

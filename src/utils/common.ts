@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import {parse} from 'fast-html-parser';
 import {format} from 'url';
 
