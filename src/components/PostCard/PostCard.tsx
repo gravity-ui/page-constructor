@@ -2,7 +2,6 @@ import React from 'react';
 import block from 'bem-cn-lite';
 
 import {CardBase, YFMWrapper, MetrikaGoal} from '@yandex-data-ui/page-constructor';
-import {HTML} from '@doc-tools/components';
 
 import {SuggestBlogInfo} from '../../components/BlogInfo/SuggestBlogInfo';
 import {BlogPostData} from '../../models/blog';
@@ -58,7 +57,7 @@ export const PostCard: React.FC<PostCardProps> = ({
                 )}
                 {title && (
                     <h4 className={b('title', {size})}>
-                        <HTML>{title}</HTML>
+                        <span>{title}</span>
                     </h4>
                 )}
                 {description && (

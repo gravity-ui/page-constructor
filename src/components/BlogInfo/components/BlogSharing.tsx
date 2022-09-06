@@ -4,7 +4,6 @@ import block from 'bem-cn-lite';
 
 // TODO refactor in https://st.yandex-team.ru/ORION-1444
 
-import {LayoutDirections} from '@yandex-data-ui/common/build/esm/components/ShareTooltip/constants';
 import {ShareTooltip, ShareSocialNetwork} from '@yandex-cloud/uikit';
 
 import {RouterContext} from '../../../contexts/RouterContext';
@@ -49,7 +48,7 @@ export const BlogSharing: React.FC<BlogSharingProps> = ({theme, metrikaGoal}) =>
                     switcherClassName={b('switcher', {theme})}
                     tooltipClassName={b('popup')}
                     useWebShareApi={isMobile}
-                    direction={LayoutDirections.column as any}
+                    direction={'column' as ShareTooltip['props']['direction']}
                     buttonTitle={i18(BlogKeyset.ActionShare)}
                     customIcon={ShareArrowUp}
                     placement="bottom"
