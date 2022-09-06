@@ -2,6 +2,8 @@
 @import '../../../styles/mixins';
 @import '../../../styles/yfm.scss';
 
+@import '@yandex-data-ui/page-constructor/styles/yfm.scss';
+
 .BlogPostPage {
     &__top {
         margin: 20px 0 30px;

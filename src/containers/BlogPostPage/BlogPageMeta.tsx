@@ -93,7 +93,6 @@ export const BlogPageMeta: React.FC<BlogMetaProps> = React.memo(
         const meta: MetaComponentProps = {
             url: pathname,
             title,
-            appTitle: organization.appTitle,
             description,
             keywords,
             noIndex,

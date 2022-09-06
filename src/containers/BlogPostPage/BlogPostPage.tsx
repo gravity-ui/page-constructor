@@ -9,8 +9,6 @@ import componentMap from '../../constructor/blocksMap';
 import {BlogPageContext} from '../../contexts/BlogPageContext';
 import {BlogPageMeta} from './BlogPageMeta';
 
-import '@yandex-data-ui/page-constructor/styles/yfm.scss';
-
 export interface BlogPostPageProps {
     data: BlogPostPageData;
     suggestedPosts: BlogPostData[];
