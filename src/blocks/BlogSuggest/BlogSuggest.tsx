@@ -44,6 +44,10 @@ export const BlogSuggestBlock: React.FC<SuggestBlockFullProps> = ({
 }) => {
     const {suggestedPosts} = useContext(BlogPageContext);
 
+    if (suggestedPosts.length === 0) {
+        return null;
+    }
+
     return (
         <BlogWrapper paddingTop={paddingTop} paddingBottom={paddingBottom}>
             <SliderBlock
