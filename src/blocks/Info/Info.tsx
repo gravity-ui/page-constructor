@@ -24,6 +24,7 @@ export const InfoBlock: React.FC<InfoBlockProps> = (props) => {
 
     const {themeValue: theme} = useContext(ThemeValueContext);
     const contentTheme = blockTheme === 'dark' ? 'dark' : 'default';
+    const sizes = {md: 6, all: 12};
 
     return (
         <div className={b()}>
@@ -33,7 +34,7 @@ export const InfoBlock: React.FC<InfoBlockProps> = (props) => {
             >
                 <Grid>
                     <Row>
-                        <Col sizes={{lg: 4, sm: 6, all: 12}} className={b('left')}>
+                        <Col sizes={sizes} className={b('left')}>
                             <Content
                                 title={title || leftContent?.title}
                                 text={leftContent?.text}
@@ -44,7 +45,7 @@ export const InfoBlock: React.FC<InfoBlockProps> = (props) => {
                                 colSizes={{all: 12, md: 12}}
                             />
                         </Col>
-                        <Col sizes={{lg: 4, sm: 6, all: 12}} offsets={{lg: 2, md: 0}}>
+                        <Col sizes={sizes} className={b('right')}>
                             <Content
                                 title={sectionsTitle || rightContent?.title}
                                 text={rightContent?.text}

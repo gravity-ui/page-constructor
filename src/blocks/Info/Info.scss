@@ -10,19 +10,31 @@ $block: '.#{$ns}info-block';
         border-radius: var(--pc-border-radius);
     }
 
+    &__left,
+    &__right {
+        padding-right: $indentXXL;
+    }
+
     @media (max-width: map-get($gridBreakpoints, 'lg')) {
         &__content {
             padding: $indentXXL $indentXL;
         }
     }
 
+    @media (max-width: map-get($gridBreakpoints, 'md')) {
+        &__left {
+            margin-bottom: $indentL;
+        }
+
+        &__left,
+        &__right {
+            padding-right: 0;
+        }
+    }
+
     @media (max-width: map-get($gridBreakpoints, 'sm')) {
         &__content {
             padding: $indentXL $indentM;
-        }
-
-        &__left {
-            margin-bottom: $indentL;
         }
     }
 }
