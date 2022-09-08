@@ -336,6 +336,7 @@ export const SliderBlock: FC<SliderProps> = (props) => {
     );
 };
 
+// TODO remove this and rework PriceDetailed CLOUDFRONT-12230
 function discloseAllNestedChildren(children: React.ReactElement[]): React.ReactChildren[] {
     if (!children) {
         return [];
@@ -344,10 +345,16 @@ function discloseAllNestedChildren(children: React.ReactElement[]): React.ReactC
     return React.Children.map(children, (child: React.ReactElement) => {
         if (child) {
             // TODO: if child has 'items' then 'items' determinate like nested children for Slider.
-            const nestedChildren = child.props.items;
+            const nestedChildren = child.props.data?.items;
+
             if (nestedChildren) {
                 return nestedChildren.map((nestedChild: React.ReactChildren) =>
-                    React.cloneElement(child, {items: [nestedChild]}),
+                    React.cloneElement(child, {
+                        data: {
+                            ...child.props.data,
+                            items: [nestedChild],
+                        },
+                    }),
                 );
             }
         }
