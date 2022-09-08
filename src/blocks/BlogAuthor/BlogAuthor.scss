@@ -51,4 +51,8 @@
         align-content: flex-start;
         position: relative;
     }
+
+    &__author-container {
+        background-color: var(--yc-color-promo-base-silver);
+    }
 }

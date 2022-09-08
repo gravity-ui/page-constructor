@@ -42,8 +42,8 @@ export const generatePostPageData = () => {
         likes: {
             hasUserLike: postData.hasUserLike,
             likesCount: postData.likes,
-            toggleLike: () => {
-                console.log('toggle like');
+            toggleLike: ({postId}) => {
+                console.log('toggle like on post --->', postId);
             },
         },
     };
