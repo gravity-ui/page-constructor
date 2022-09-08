@@ -53,6 +53,15 @@
         border-radius: $indentSM;
     }
 
+    hr {
+        height: 1px;
+    }
+
+    ol,
+    ul {
+        padding-left: 1.4em;
+    }
+
     &_media {
         @include text-size(body-3);
         color: var(--yc-color-text-secondary);
@@ -60,5 +69,11 @@
 
     &_breadcrumbs {
         @include text-size(body-2);
+    }
+}
+
+.yfm_blog_card {
+    p {
+        color: var(--pc-text-header-color);
     }
 }

@@ -18,8 +18,9 @@
         position: relative;
         height: 100%;
         width: 100%;
-        border-radius: $borderRadius;
+        border-radius: calc(#{$borderRadius} + 1px);
         border: 1px solid var(--yc-color-line-generic);
+        overflow: hidden;
     }
 
     &__media {
