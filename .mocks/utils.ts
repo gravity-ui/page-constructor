@@ -37,9 +37,14 @@ export const generatePostPageData = () => {
     return {
         metaData: sanitizeMeta(metaData),
         suggestedPosts,
-        data: {
-            post: postData,
-            page: pageData,
+        content: pageData.content,
+        post: postData,
+        likes: {
+            hasUserLike: postData.hasUserLike,
+            likesCount: postData.likes,
+            toggleLike: () => {
+                console.log('toggle like');
+            },
         },
     };
 };
