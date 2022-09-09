@@ -1,25 +1,25 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, {useContext} from 'react';
 import block from 'bem-cn-lite';
 
 // TODO refactor in https://st.yandex-team.ru/ORION-1444
 
-import {LayoutDirections} from '@yandex-data-ui/common/build/esm/components/ShareTooltip/constants';
 import {ShareTooltip, ShareSocialNetwork} from '@yandex-cloud/uikit';
 
-import {RouterContext} from 'contexts/RouterContext';
-import {MobileContext} from 'contexts/MobileContext';
+import {RouterContext} from '../../../contexts/RouterContext';
+import {MobileContext} from '../../../contexts/MobileContext';
 
-import {i18, BlogKeyset} from 'src/i18n';
+import {i18, BlogKeyset} from '../../../i18n';
 
-import {getAbsolutePath} from 'utils/common';
+import {getAbsolutePath} from '../../../utils/common';
 
-import {MetrikaCounter} from 'counters/utils';
+import {MetrikaCounter} from '../../../counters/utils';
 
 // TODO fixes and refactor in https://st.yandex-team.ru/ORION-1444
 // @ts-ignore
-import metrika from 'counters/metrika.js';
+import metrika from '../../../counters/metrika.js';
 
-import shareIcon from 'icons/share-arrow-up.svg';
+import {ShareArrowUp} from '../../../icons/ShareArrowUp';
 
 import '../BlogInfo.scss';
 
@@ -38,6 +38,8 @@ export const BlogSharing: React.FC<BlogSharingProps> = ({theme, metrikaGoal}) =>
         metrika.reachGoal(MetrikaCounter.CrossSite, metrikaGoal);
     };
 
+    //TODO return enum for direction after update LayoutDirections import
+
     return (
         <div className={b('item')}>
             <span className={b('icon')}>
@@ -48,9 +50,9 @@ export const BlogSharing: React.FC<BlogSharingProps> = ({theme, metrikaGoal}) =>
                     switcherClassName={b('switcher', {theme})}
                     tooltipClassName={b('popup')}
                     useWebShareApi={isMobile}
-                    direction={LayoutDirections.column as any}
+                    direction={'column' as ShareTooltip['props']['direction']}
                     buttonTitle={i18(BlogKeyset.ActionShare)}
-                    customIcon={shareIcon}
+                    customIcon={ShareArrowUp}
                     placement="bottom"
                     openByHover={false}
                     socialNets={[ShareSocialNetwork.Telegram]}

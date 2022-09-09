@@ -1,5 +1,6 @@
 @import './variables.scss';
-@import '~@yandex-data-ui/page-constructor/styles/mixins.scss';
+@import '@yandex-data-ui/page-constructor/styles/mixins.scss';
+@import '@yandex-cloud/uikit/styles/mixins.scss';
 
 @mixin blog-paddings() {
     &_padding-top {

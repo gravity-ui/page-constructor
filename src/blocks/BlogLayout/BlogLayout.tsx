@@ -8,7 +8,7 @@ import {
     Row,
 } from '@yandex-data-ui/page-constructor';
 
-import {BlogWrapper, PaddingSize} from 'components/BlogWrapper/BlogWrapper';
+import {BlogWrapper, PaddingSize} from '../../components/BlogWrapper/BlogWrapper';
 
 import './BlogLayout.scss';
 
@@ -85,7 +85,7 @@ export const BlogLayout: React.FC<BlogLayoutProps> = ({
         () =>
             children?.reduce(
                 (sortedChildren: SortedLayoutItems, child: ReactElement) => {
-                    if (child?.props?.children.props.column === 'left') {
+                    if (child?.props?.data?.column === 'left') {
                         sortedChildren.left.push(child);
                     } else {
                         sortedChildren.right.push(child);

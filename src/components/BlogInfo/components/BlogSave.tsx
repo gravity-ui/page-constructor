@@ -5,16 +5,16 @@ import block from 'bem-cn-lite';
 
 import {Icon} from '@yandex-cloud/uikit';
 
-import {postLikeStatus} from 'utils/blog';
+import {postLikeStatus} from '../../../utils/blog';
 
-import {MetrikaCounter} from 'counters/utils';
+import {MetrikaCounter} from '../../../counters/utils';
 // @ts-ignore
-import metrika from 'counters/metrika.js';
+import metrika from '../../../counters/metrika.js';
 
-import savedIcon from 'icons/save.svg';
-import filledSavedIcon from 'icons/save-filled.svg';
-import likeIcon from 'icons/like-outlined.svg';
-import filledLikeIcon from 'icons/like-filled.svg';
+import {Save} from '../../../icons/Save';
+import {SaveFilled} from '../../../icons/SaveFilled';
+import {Like} from '../../../icons/Like';
+import {LikeFilled} from '../../../icons/LikeFilled';
 
 import '../BlogInfo.scss';
 
@@ -60,8 +60,8 @@ export const BlogSave: React.FC<BlogSaveProps> = ({
     isModernIcon,
 }) => {
     // delete this icons selection after Realese of BlogFeed https://st.yandex-team.ru/CLOUDFRONT-11056
-    const icon = isModernIcon ? savedIcon : likeIcon;
-    const filledIcon = isModernIcon ? filledSavedIcon : filledLikeIcon;
+    const icon = isModernIcon ? Save : Like;
+    const filledIcon = isModernIcon ? SaveFilled : LikeFilled;
 
     return (
         <div

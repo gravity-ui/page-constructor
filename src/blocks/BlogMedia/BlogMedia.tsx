@@ -3,9 +3,8 @@ import block from 'bem-cn-lite';
 import {ClassNameProps} from '@yandex-data-ui/cloud-components';
 import {Media, MediaProps, YFMWrapper} from '@yandex-data-ui/page-constructor';
 
-import {BlogWrapper, PaddingSize} from 'components/BlogWrapper/BlogWrapper';
+import {BlogWrapper, PaddingSize} from '../../components/BlogWrapper/BlogWrapper';
 
-import 'styles/yfm.scss';
 import './BlogMedia.scss';
 
 const b = block('BlogMediaBlock');

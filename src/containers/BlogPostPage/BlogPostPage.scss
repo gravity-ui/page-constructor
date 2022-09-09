@@ -1,5 +1,8 @@
-@import 'styles/variables';
-@import 'styles/mixins';
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+@import '../../../styles/yfm.scss';
+
+@import '@yandex-data-ui/page-constructor/styles/yfm.scss';
 
 .BlogPostPage {
     &__top {
@@ -24,10 +27,6 @@
 
     &__title {
         @include heading2();
-    }
-
-    &__back-link {
-        @include back-link();
     }
 
     &__aside {

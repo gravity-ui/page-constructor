@@ -1,15 +1,15 @@
 import React, {useContext} from 'react';
 
-import Meta, {MetaComponentProps} from 'components/Meta/Meta';
+import Meta, {MetaComponentProps} from '../../components/Meta/Meta';
 
-import {RouterContext} from 'contexts/RouterContext';
-import {LocaleContext} from 'contexts/LocaleContext';
+import {RouterContext} from '../../contexts/RouterContext';
+import {LocaleContext} from '../../contexts/LocaleContext';
 
-import {i18, BlogKeyset} from 'src/i18n';
+import {i18, BlogKeyset} from '../../i18n';
 
-import {getBlogPostSchema} from 'utils/meta';
+import {getBlogPostSchema} from '../../utils/meta';
 
-import {BlogMetaProps} from 'models/blog';
+import {BlogMetaProps} from '../../models/blog';
 
 /**
  * Create meta data for blog page
@@ -23,7 +23,7 @@ import {BlogMetaProps} from 'models/blog';
  * @param authors - post authors
  * @param tags - post tags
  * @param content - post content like string
- * @param legacySharingImage - image for legacy sharing
+ * @param sharing - sharing data
  * @param organization - info about organization (YCloud, DoubleCloud)
  * @param canonicalUrl - post canonicalUrl
  * @returns
@@ -39,12 +39,14 @@ export const BlogPageMeta: React.FC<BlogMetaProps> = React.memo(
         authors = [],
         tags = [],
         content = '',
-        legacySharingImage = '',
         organization,
         canonicalUrl,
+        sharing,
     }) => {
         const {pathname} = useContext(RouterContext);
         const {locale} = useContext(LocaleContext);
+
+        const {shareTitle, shareDescription, shareImage, shareGenImage, shareGenTitle} = sharing;
 
         const breadcrumbs = [
             {
@@ -80,29 +82,30 @@ export const BlogPageMeta: React.FC<BlogMetaProps> = React.memo(
         });
 
         const {name: shareTag} = tags?.[0] || {};
-        const hasLegacySharing = Boolean(legacySharingImage);
-        const generatedSharingProps = hasLegacySharing
+
+        const hasDesignedSharing = Boolean(shareImage);
+
+        const generatedSharingProps = hasDesignedSharing
             ? []
             : [
-                  {property: 'share:title', content: title},
+                  {property: 'share:title', content: shareGenTitle || shareTitle || title},
                   {property: 'share:tag', content: shareTag},
-                  {property: 'share:content_image', content: image},
+                  {property: 'share:content_image', content: shareGenImage},
                   {property: 'share:sharing_schema', content: 'blog-share'},
               ];
 
         const meta: MetaComponentProps = {
             url: pathname,
             title,
-            appTitle: organization.appTitle,
             description,
             keywords,
             noIndex,
             canonicalUrl,
-            image: hasLegacySharing ? legacySharingImage : undefined,
+            image: shareImage || undefined,
             schemaJsonLd: schemaData,
             sharing: {
                 title,
-                description,
+                description: shareDescription,
             },
             extra: [
                 {property: 'article:published_time', content: date},

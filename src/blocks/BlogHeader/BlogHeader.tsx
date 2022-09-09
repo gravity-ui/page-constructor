@@ -1,12 +1,12 @@
 import React, {useContext, useMemo} from 'react';
 import {HeaderBlock, HeaderBlockProps} from '@yandex-data-ui/page-constructor';
 
-import {BlogPageContext} from 'contexts/BlogPageContext';
+import {BlogPageContext} from '../../contexts/BlogPageContext';
 
-import {BlogInfo, BlogMetrikaGoals} from 'src/components/BlogInfo/BlogInfo';
-import {BlogWrapper, PaddingSize} from 'components/BlogWrapper/BlogWrapper';
+import {BlogInfo, BlogMetrikaGoals} from '../../components/BlogInfo/BlogInfo';
+import {BlogWrapper, PaddingSize} from '../../components/BlogWrapper/BlogWrapper';
 
-import {getBlogBreadcrumbs} from 'utils/blog';
+import {getBlogBreadcrumbs} from '../../utils/blog';
 
 import {BlogMetrikaGoalIds} from '../constants';
 

@@ -1,6 +1,6 @@
 import evalExp from '@doc-tools/transform/lib/liquid/evaluation';
 
-import {Lang} from 'models/locale';
+import {Lang} from '../models/locale';
 
 type FilteringOptions = {
     lang: Lang;

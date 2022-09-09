@@ -1,5 +1,5 @@
-import {Locale} from 'models/locale';
-import {BlogMetaProps} from 'models/blog';
+import {Locale} from '../models/locale';
+import {BlogMetaProps} from '../models/blog';
 
 import {format} from './date';
 
@@ -23,20 +23,28 @@ const countWords = (str: string) => str.split(' ').filter(Boolean).length;
 
 /* #region schema org */
 
-const getLanguageSchema = ({lang, langName}: any) => ({
+const getLanguageSchema = ({lang, langName}: Locale) => ({
     '@type': 'Language',
     name: langName,
     alternateName: lang,
 });
 
-const getSharedContentSchema = ({url, title, author}: any) => ({
+const getSharedContentSchema = ({
+    url,
+    title,
+    author,
+}: {
+    url: string;
+    title: string;
+    author: ReturnType<typeof getAuthorSchema>;
+}) => ({
     '@type': 'WebPage',
     headline: title,
     url,
     author,
 });
 
-const getOrganizationSchema = ({appTitle, url}: any) => {
+const getOrganizationSchema = ({appTitle, url}: {appTitle: string; url: string}) => {
     const ORGANIZATION_ICON_DIMENSIONS = 32;
 
     const iconUrl = url && new URL('/favicon.png', url);
@@ -54,7 +62,7 @@ const getOrganizationSchema = ({appTitle, url}: any) => {
     };
 };
 
-const getAuthorSchema = (author: string | undefined, organization: any) =>
+const getAuthorSchema = (author: string | undefined, organization: BlogMetaProps['organization']) =>
     author
         ? {
               '@type': 'Person',
@@ -77,7 +85,7 @@ export const getBlogPostSchema = ({
 }: GetBlogPostSchemaData) => {
     const authorSchema = getAuthorSchema(authorName, organization);
     const organizationSchema = getOrganizationSchema(organization);
-    const languageSchema = getLanguageSchema(locale);
+    const languageSchema = getLanguageSchema(locale as Locale);
     const sharedContent = getSharedContentSchema({
         url,
         title,

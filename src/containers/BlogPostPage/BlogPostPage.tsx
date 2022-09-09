@@ -1,63 +1,59 @@
-import React, {useCallback, useState} from 'react';
+import React from 'react';
 
-import {PageConstructor} from '@yandex-data-ui/page-constructor';
+import {PageConstructor, PageContent} from '@yandex-data-ui/page-constructor';
 
-import {BlogPostPageData, BlogPostData, BlogMetaProps} from 'models/blog';
+import {BlogPostData, BlogMetaProps, ToggleLikeCallbackType} from '../../models/blog';
 
-import componentMap from 'constructor/blocksMap';
+import componentMap from '../../constructor/blocksMap';
 
-import {BlogPageContext} from 'contexts/BlogPageContext';
-// import {getBlogPost} from 'units/blog/api';
-// import {LocaleData} from 'contexts/LocaleContext';
-// import {InitialContext, PageConfigProps, PageStaticProps} from 'models/app';
+import {BlogPageContext} from '../../contexts/BlogPageContext';
+
+import {useLikes} from '../../hooks/useLikes';
+
 import {BlogPageMeta} from './BlogPageMeta';
-// import {getPageConfig} from 'utils';
-
-import 'styles/yfm.scss';
-
-// to make constructor yfm styles have higher priority than local
-import '@yandex-data-ui/page-constructor/styles/yfm.scss';
 
 export interface BlogPostPageProps {
-    data: BlogPostPageData;
     suggestedPosts: BlogPostData[];
     metaData: BlogMetaProps;
+    likes: {
+        hasUserLike?: boolean;
+        likesCount?: number;
+        toggleLike: ToggleLikeCallbackType;
+    };
+    content: PageContent;
+    post: BlogPostData;
 }
 
-export const BlogPostPage: React.FC<BlogPostPageProps> = ({data, metaData, suggestedPosts}) => {
-    const [hasUserLike, setHasUserLike] = useState(data?.post?.hasUserLike);
-    const [likesCount, setLikesCount] = useState(data?.post?.likes);
-
-    const handleUserLike = useCallback(() => {
-        let likes = likesCount || 0;
-
-        if (hasUserLike && likes > 0) {
-            likes--;
-        }
-
-        if (!hasUserLike) {
-            likes++;
-        }
-
-        setHasUserLike(!hasUserLike);
-        setLikesCount(likes);
-    }, [hasUserLike, likesCount]);
+export const BlogPostPage: React.FC<BlogPostPageProps> = ({
+    metaData,
+    suggestedPosts,
+    likes,
+    content,
+    post,
+}) => {
+    const {hasUserLike, likesCount, handleLike} = useLikes({
+        hasLike: likes?.hasUserLike,
+        count: likes?.likesCount,
+        toggleLikeCallback: likes.toggleLike,
+        postId: post?.blogPostId,
+    });
 
     return (
         <main>
             <BlogPageContext.Provider
                 value={{
-                    post: data.post,
+                    post,
                     suggestedPosts,
                     likes: {
-                        handleUserLike: handleUserLike,
-                        hasUserLike: Boolean(hasUserLike),
-                        likesCount: likesCount ?? 0,
+                        handleUserLike: handleLike,
+                        hasUserLike,
+                        likesCount,
                     },
+                    toggleLike: likes?.toggleLike,
                 }}
             >
                 <BlogPageMeta {...metaData} />
-                <PageConstructor content={data?.page.content} custom={componentMap} />
+                <PageConstructor content={content} custom={componentMap} />
             </BlogPageContext.Provider>
         </main>
     );

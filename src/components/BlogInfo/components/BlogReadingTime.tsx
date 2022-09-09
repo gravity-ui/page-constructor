@@ -3,9 +3,9 @@ import block from 'bem-cn-lite';
 
 import {Icon} from '@yandex-cloud/uikit';
 
-import {i18, BlogKeyset} from 'src/i18n';
+import {i18, BlogKeyset} from '../../../i18n';
 
-import timeIcon from 'icons/time.svg';
+import {Time} from '../../../icons/Time';
 
 import '../BlogInfo.scss';
 
@@ -21,7 +21,7 @@ type BlogReadingTimeProps = {
 export const BlogReadingTime: React.FC<BlogReadingTimeProps> = ({readingTime, size = 's'}) => (
     <div className={b('item', {size})}>
         <span className={b('icon')}>
-            <Icon data={timeIcon} size={ICON_SIZE} className={b('icon-color')} />
+            <Icon data={Time} size={ICON_SIZE} className={b('icon-color')} />
         </span>
         {i18(BlogKeyset.ContextReadingTime, {count: readingTime})}
     </div>

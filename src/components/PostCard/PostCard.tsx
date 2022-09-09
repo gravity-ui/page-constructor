@@ -1,11 +1,12 @@
-import React from 'react';
+import React, {useContext, useMemo} from 'react';
 import block from 'bem-cn-lite';
 
 import {CardBase, YFMWrapper, MetrikaGoal} from '@yandex-data-ui/page-constructor';
-import {HTML} from '@doc-tools/components';
 
-import {SuggestBlogInfo} from 'src/components/BlogInfo/SuggestBlogInfo';
-import {BlogPostData} from 'models/blog';
+import {BlogPageContext} from '../../contexts/BlogPageContext';
+
+import {SuggestBlogInfo} from '../../components/BlogInfo/SuggestBlogInfo';
+import {BlogPostData} from '../../models/blog';
 
 import './PostCard.scss';
 
@@ -47,6 +48,17 @@ export const PostCard: React.FC<PostCardProps> = ({
 
     const title = postTitle || htmlTitle || textTitle;
 
+    const {toggleLike} = useContext(BlogPageContext);
+
+    const likesProps = useMemo(
+        () => ({
+            hasUserLike,
+            likesCount: likes,
+            toggleLike,
+        }),
+        [hasUserLike, likes, toggleLike],
+    );
+
     return (
         <CardBase url={url} metrikaGoals={metrikaGoals} className={b('card', {fullWidth})}>
             <CardBase.Header image={image} className={b('header', {fullWidth})}>
@@ -58,7 +70,7 @@ export const PostCard: React.FC<PostCardProps> = ({
                 )}
                 {title && (
                     <h4 className={b('title', {size})}>
-                        <HTML>{title}</HTML>
+                        <span>{title}</span>
                     </h4>
                 )}
                 {description && (
@@ -76,7 +88,7 @@ export const PostCard: React.FC<PostCardProps> = ({
                     date={date}
                     readingTime={readingTime}
                     hasUserLike={hasUserLike}
-                    likes={likes}
+                    likes={likesProps}
                     dataQa="blog-suggest-block"
                     size={size}
                     isModernIcon={isModernIcon}

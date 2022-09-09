@@ -1,7 +1,7 @@
 {
   "extends": "@yandex-cloud/tsconfig/tsconfig.json",
   "compilerOptions": {
-    "allowJs": false,
+    "allowJs": true,
     "declaration": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
@@ -9,27 +9,12 @@
     "outDir": "build",
     "baseUrl": ".",
     "paths": {
-      "*": ["./node_modules/*"],
-      "src/*": ["src/*"],
-      "styles/*": ["styles/*"],
-      "blocks/*": ["src/blocks/*"],
-      "components/*": ["src/components/*"],
-      "containers/*": ["src/containers/*"],
-      "contexts/*": ["src/contexts/*"],
-      "hooks/*": ["src/hooks/*"],
-      "models/*": ["src/models/*"],
-      "demo/*": ["src/demo/*"],
-      "utils/*": ["src/utils/*"],
-      "constructor/*": ["src/constructor/*"],
-      "icons/*": ["assets/icons/*"],
-      "images/*": ["assets/images/*"],
-      "@mocks/*": [".mocks/*"],
-      "counters/*": ["src/counters/*"],
-      "data/*": ["src/data/*"]
+      "*": ["./node_modules/*"]
     },
     "module": "esNext",
     "jsx": "react",
     "isolatedModules": true
   },
-  "include": ["src", "node_modules/@yandex-data-ui/common/build/esm/typings"]
+  "include": ["src", "node_modules/@yandex-data-ui/common/build/esm/typings"],
+  "exclude": ["**/*.stories.tsx"]
 }

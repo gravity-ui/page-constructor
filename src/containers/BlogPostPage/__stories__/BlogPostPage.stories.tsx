@@ -2,9 +2,9 @@ import React from 'react';
 
 import {Meta, Story} from '@storybook/react/types-6-0';
 
-import {CONTAINERS} from 'demo/constants';
+import {CONTAINERS} from '../../../demo/constants';
 
-import {generatePostPageData} from '@mocks/utils';
+import {generatePostPageData} from '../../../../.mocks/utils';
 
 import {BlogPostPage, BlogPostPageProps} from '../BlogPostPage';
 

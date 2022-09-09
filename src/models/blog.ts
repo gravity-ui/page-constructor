@@ -1,6 +1,5 @@
 import {BlogPostTag, SpeakerPublic} from '@yandex-data-ui/cloud-schemas/build/models/ui-api';
-import {Locale} from 'models/locale';
-import {PageData} from 'models/common';
+import {Locale} from '../models/locale';
 
 export interface BlogPostLikes {
     count: number;
@@ -44,7 +43,7 @@ export interface BlogPostData {
     id: number;
     image: string;
     isPublished?: boolean;
-    legacySharingImage?: string;
+    sharedImage?: string;
     likes: number;
     locale: Locale;
     metaDescription?: string | null;
@@ -75,11 +74,6 @@ export enum BlockType {
     BlogMetaBlock = 'blog-meta-block',
 }
 
-export interface BlogPostPageData {
-    post: BlogPostData;
-    page: PageData;
-}
-
 export interface BlogMetaProps {
     title: string;
     date: string;
@@ -87,7 +81,13 @@ export interface BlogMetaProps {
     canonicalUrl: string;
     content?: string;
     description?: string;
-    legacySharingImage?: string;
+    sharing: {
+        shareTitle: string;
+        shareDescription: string;
+        shareImage: string;
+        shareGenImage: string;
+        shareGenTitle: string;
+    };
     keywords?: string[];
     noIndex?: boolean;
     authors?: SpeakerPublic[];
@@ -99,3 +99,11 @@ export interface BlogMetaProps {
         supportEmail: string;
     };
 }
+
+export type ToggleLikeCallbackType = ({
+    postId,
+    hasLike,
+}: {
+    postId?: number;
+    hasLike?: boolean;
+}) => void;

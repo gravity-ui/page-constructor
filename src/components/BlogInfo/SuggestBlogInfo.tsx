@@ -1,9 +1,11 @@
-import React, {useCallback, useState} from 'react';
+import React from 'react';
 import block from 'bem-cn-lite';
 
 // TODO fixes and refactor in https://st.yandex-team.ru/ORION-1444
 
-import {BlogPostData} from 'models/blog';
+import {BlogPostData, ToggleLikeCallbackType} from '../../models/blog';
+
+import {useLikes} from '../../hooks/useLikes';
 
 import {BlogDate} from './components/BlogDate';
 import {BlogReadingTime} from './components/BlogReadingTime';
@@ -14,11 +16,16 @@ import './BlogInfo.scss';
 const b = block('blog-info');
 
 export interface SuggestBlogInfoProps
-    extends Pick<BlogPostData, 'blogPostId' | 'date' | 'readingTime' | 'hasUserLike' | 'likes'> {
+    extends Pick<BlogPostData, 'blogPostId' | 'date' | 'readingTime' | 'hasUserLike'> {
     size?: 's' | 'm';
     dataQa?: string;
     // delete this prop after Realese of BlogFeed https://st.yandex-team.ru/CLOUDFRONT-11056
     isModernIcon?: boolean;
+    likes: {
+        likesCount: number;
+        hasUserLike: boolean;
+        toggleLike: ToggleLikeCallbackType;
+    };
 }
 
 /**
@@ -39,31 +46,17 @@ export const SuggestBlogInfo: React.FC<SuggestBlogInfoProps> = ({
     blogPostId,
     date,
     readingTime,
-    hasUserLike,
     likes,
     dataQa,
     size = 's',
     isModernIcon,
 }) => {
-    const [like, setLike] = useState(hasUserLike);
-    const [likesCount, setLikesCount] = useState(likes ?? 0);
-
-    const handleUserLike = useCallback(() => {
-        let likesCountBuffer = likesCount;
-
-        if (like) {
-            likesCountBuffer--;
-        } else {
-            likesCountBuffer++;
-        }
-
-        if (likesCountBuffer < 0) {
-            likesCountBuffer = 0;
-        }
-
-        setLike(!like);
-        setLikesCount(likesCountBuffer);
-    }, [like, likesCount]);
+    const {hasUserLike, likesCount, handleLike} = useLikes({
+        hasLike: likes?.hasUserLike,
+        count: likes?.likesCount,
+        toggleLikeCallback: likes.toggleLike,
+        postId: blogPostId,
+    });
 
     return (
         <div className={b('container')}>
@@ -75,8 +68,8 @@ export const SuggestBlogInfo: React.FC<SuggestBlogInfoProps> = ({
                 <BlogSave
                     postId={blogPostId}
                     title={likesCount}
-                    hasUserLike={like ?? false}
-                    handleUserLike={handleUserLike}
+                    hasUserLike={hasUserLike}
+                    handleUserLike={handleLike}
                     dataQa={dataQa}
                     size={size}
                     isModernIcon={isModernIcon}

@@ -1,16 +1,18 @@
 import React, {Fragment} from 'react';
 
-import {MobileContext} from 'contexts/MobileContext';
-import {LocaleContext, LocaleContextProps} from 'contexts/LocaleContext';
-import {RouterContext, RouterContextProps} from 'contexts/RouterContext';
-import {UserContext, UserContextProps} from 'contexts/UserContext';
-import {ThemeValueType, ThemeValueContext} from 'contexts/theme/ThemeValueContext';
+import {MobileContext} from '../contexts/MobileContext';
+import {LocaleContext} from '../contexts/LocaleContext';
+import {RouterContext, RouterContextProps} from '../contexts/RouterContext';
+import {UserContext, UserContextProps} from '../contexts/UserContext';
+import {ThemeValueType, ThemeValueContext} from '../contexts/theme/ThemeValueContext';
 
-import {DEFAULT_THEME} from 'src/constants';
+import {Locale} from '../models/locale';
+
+import {DEFAULT_THEME} from '../constants';
 
 export interface BlogConstructorProviderProps {
     isMobile?: boolean;
-    locale?: LocaleContextProps;
+    locale?: Locale;
     router?: RouterContextProps;
     theme?: ThemeValueType;
     user?: UserContextProps;
@@ -18,21 +20,19 @@ export interface BlogConstructorProviderProps {
 
 export const BlogConstructorProvider: React.FC<BlogConstructorProviderProps> = ({
     isMobile,
-    locale = {} as LocaleContextProps,
+    locale = {} as Locale,
     router = {} as RouterContextProps,
     theme = DEFAULT_THEME,
     user = null,
     children,
 }) => {
-    /* eslint-disable react/jsx-key */
     const context = [
-        <ThemeValueContext.Provider value={{themeValue: theme}} />,
-        <LocaleContext.Provider value={locale} />,
-        <RouterContext.Provider value={router} />,
-        <MobileContext.Provider value={Boolean(isMobile)} />,
-        <UserContext.Provider value={user} />,
+        <ThemeValueContext.Provider value={{themeValue: theme}} key="theme-context" />,
+        <LocaleContext.Provider value={{locale}} key="locale-context" />,
+        <RouterContext.Provider value={router} key="router-context" />,
+        <MobileContext.Provider value={Boolean(isMobile)} key="is-mobile-context" />,
+        <UserContext.Provider value={user} key="user-context" />,
     ].reduceRight((prev, provider) => React.cloneElement(provider, {}, prev), children);
-    /* eslint-enable react/jsx-key */
 
     return <Fragment>{context}</Fragment>;
 };

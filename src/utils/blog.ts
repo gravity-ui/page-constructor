@@ -6,20 +6,16 @@ import {
     NewMetrikaGoal,
 } from '@yandex-data-ui/page-constructor';
 
-import {i18, BlogKeyset} from 'src/i18n';
+import {i18, BlogKeyset} from '../i18n';
 
-// import {getTagFilterUrl, getTags} from 'units/blog/utils';
-import {BlogPostTagExtended} from 'models/blog';
+import {BlogPostTagExtended} from '../models/blog';
 import {
     CONTENT_DEFAULT_COL_SIZES,
     CONTENT_DEFAULT_SIZE,
     CONTENT_DEFAULT_THEME,
-} from 'blocks/constants';
+} from '../blocks/constants';
 
 import _ from 'lodash';
-// TODO fix https://st.yandex-team.ru/ORION-1442
-// import {CloudListTag} from 'components/tags/CloudTagList/CloudTagList';
-// import {addBlogPostLike, removeBlogPostLike} from './api';
 
 type CloudListTagStub = {};
 
@@ -65,6 +61,7 @@ export const getBlogBreadcrumbs = ({tags}: GetBlogBreadcrumbsProps) => {
     if (tags?.length) {
         const localizedTags = getTags(tags);
         const tag = localizedTags[0];
+        // @ts-ignore todo fix https://st.yandex-team.ru/ORION-1447
         breadcrumbs.items.push({text: tag.name, url: getTagFilterUrl(tag.id)});
     }
 

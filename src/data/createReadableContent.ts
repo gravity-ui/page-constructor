@@ -1,5 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import {getConfigForCreateReadableContent} from './config';
-import {BlockType} from 'models/blog';
+import {BlockType} from '../models/blog';
 
 // TODO fix any https://st.yandex-team.ru/ORION-1447
 

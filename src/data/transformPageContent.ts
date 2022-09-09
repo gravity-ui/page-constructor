@@ -2,7 +2,7 @@ import yaml from 'js-yaml';
 import {transformBlocks as transformConstructorBlocks} from '@yandex-data-ui/page-constructor/server';
 import {ConstructorBlock} from '@yandex-data-ui/page-constructor';
 
-import {Lang} from 'models/locale';
+import {Lang} from '../models/locale';
 
 import {getExtendTypographyConfig} from './config';
 import {filterContent} from './contentFilter';

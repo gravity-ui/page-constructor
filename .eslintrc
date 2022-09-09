@@ -1,6 +1,14 @@
 {
   "extends": ["@yandex-cloud/eslint-config", "@yandex-cloud/eslint-config/prettier", "@yandex-cloud/eslint-config/client"],
   "root": true,
+  "overrides": [
+      {
+          "files": ["*.ts", "*.tsx"],
+          "rules": {
+              "valid-jsdoc": "off"
+          }
+      }
+  ],
   "env": {
     "node": true
   }

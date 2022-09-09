@@ -1,18 +1,20 @@
 import React, {Fragment, useMemo, useContext} from 'react';
+import {Helmet} from 'react-helmet';
 
 import {MetaProps, SocialSharingMeta} from '@yandex-data-ui/common';
 
-import {DocumentMetaProps, DocumentMeta} from 'components/DocumentMeta/DocumentMeta';
+import {LocaleContext} from '../../contexts/LocaleContext';
+import {RouterContext} from '../../contexts/RouterContext';
 
-import {LocaleContext} from 'contexts/LocaleContext';
-import {RouterContext} from 'contexts/RouterContext';
+import {getCleanTitle} from '../../utils/meta';
 
 interface SharingProps {
     title: string;
     description: string;
 }
 
-export interface MetaComponentProps extends DocumentMetaProps {
+export interface MetaComponentProps {
+    title?: string;
     type?: string;
     url?: string;
     appTitle?: string;
@@ -33,7 +35,6 @@ export interface MetaComponentProps extends DocumentMetaProps {
 
 export const Meta: React.FC<MetaComponentProps> = ({
     title,
-    appTitle,
     type = 'website',
     url,
     canonicalUrl,
@@ -84,7 +85,7 @@ export const Meta: React.FC<MetaComponentProps> = ({
 
     return (
         <Fragment>
-            <DocumentMeta title={title} appTitle={appTitle} />
+            <Helmet title={getCleanTitle(title)} />
             <SocialSharingMeta
                 type={type}
                 url={url}

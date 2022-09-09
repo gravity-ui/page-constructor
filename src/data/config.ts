@@ -1,6 +1,6 @@
 import {yfmTransformer} from '@yandex-data-ui/page-constructor/server';
 
-import {BlockType} from 'models/blog';
+import {BlockType} from '../models/blog';
 
 const BLOCKS_FOR_TYPOGRAPHY_TRANSFORM = [
     BlockType.BlogYFMBlock,

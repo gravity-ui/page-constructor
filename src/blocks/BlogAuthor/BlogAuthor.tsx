@@ -4,9 +4,9 @@ import block from 'bem-cn-lite';
 import {Author, AuthorType} from '@yandex-data-ui/page-constructor';
 import {ClassNameProps} from '@yandex-data-ui/cloud-components';
 
-import {BlogPageContext} from 'contexts/BlogPageContext';
-import {BlogWrapper, PaddingSize} from 'components/BlogWrapper/BlogWrapper';
-// TODO import ResizedImage from 'components/ResizedImage/ResizedImage';
+import {BlogPageContext} from '../../contexts/BlogPageContext';
+import {BlogWrapper, PaddingSize} from '../../components/BlogWrapper/BlogWrapper';
+// TODO import ResizedImage from '../../components/ResizedImage/ResizedImage';
 
 import './BlogAuthor.scss';
 
@@ -42,14 +42,17 @@ export const BlogAuthorBlock: React.FC<AuthorBlockFullProps> = (props) => {
     }, [author?.avatar, author?.firstName, author?.fullDescription, author?.secondName, image]);
 
     if (!authorItem?.firstName || !authorItem?.secondName) {
-        console.log('work');
         return null;
     }
 
     return (
         <BlogWrapper paddingTop={paddingTop} paddingBottom={paddingBottom} className={b('content')}>
             <div className={b('author-layout')} data-qa="blog-author-layout">
-                <Author type={AuthorType.Column} author={authorItem} />
+                <Author
+                    type={AuthorType.Column}
+                    author={authorItem}
+                    authorContainerClassName={b('author-container')}
+                />
             </div>
         </BlogWrapper>
     );

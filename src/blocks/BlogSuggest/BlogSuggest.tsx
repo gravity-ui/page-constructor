@@ -3,14 +3,14 @@ import React, {useContext} from 'react';
 import {ClassNameProps} from '@yandex-data-ui/cloud-components';
 import {SliderBlock} from '@yandex-data-ui/page-constructor';
 
-import {i18, BlogKeyset} from 'src/i18n';
+import {i18, BlogKeyset} from '../../i18n';
 
-import {BlogWrapper, PaddingSize} from 'components/BlogWrapper/BlogWrapper';
-import {PostCard} from 'components/PostCard/PostCard';
+import {BlogWrapper, PaddingSize} from '../../components/BlogWrapper/BlogWrapper';
+import {PostCard} from '../../components/PostCard/PostCard';
 
-import {BlogPostData} from 'models/blog';
+import {BlogPostData} from '../../models/blog';
 
-import {BlogPageContext} from 'contexts/BlogPageContext';
+import {BlogPageContext} from '../../contexts/BlogPageContext';
 
 import {BlogMetrikaGoalIds} from '../constants';
 
@@ -43,6 +43,10 @@ export const BlogSuggestBlock: React.FC<SuggestBlockFullProps> = ({
     paddingBottom = 'l',
 }) => {
     const {suggestedPosts} = useContext(BlogPageContext);
+
+    if (suggestedPosts.length === 0) {
+        return null;
+    }
 
     return (
         <BlogWrapper paddingTop={paddingTop} paddingBottom={paddingBottom}>

@@ -1,4 +1,4 @@
-@import 'styles/variables.scss';
+@import '../../../styles/variables.scss';
 
 .BlogCTABlock {
     $borderRadius: $indentSM;
@@ -7,7 +7,7 @@
 
     &__cta-card {
         display: flex;
-        background-color: $videoPlayButtonGrey;
+        background-color: var(--yc-color-promo-base-silver);
         border-radius: $borderRadius;
         min-height: 80px;
         align-content: center;

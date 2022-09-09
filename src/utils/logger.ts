@@ -1,4 +1,5 @@
 /* eslint-disable no-console */
+// @ts-ignore
 const showLogs = typeof __ENV__ === 'string' ? __ENV__ === 'testing' : true;
 
 function getMessagePrefix(namespace?: string) {

@@ -1,5 +1,5 @@
-@import 'styles/variables.scss';
-@import 'styles/mixins.scss';
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
 
 .BlogAuthorBlock {
     $root: &;
@@ -50,5 +50,9 @@
         justify-content: flex-start;
         align-content: flex-start;
         position: relative;
+    }
+
+    &__author-container {
+        background-color: var(--yc-color-promo-base-silver);
     }
 }
