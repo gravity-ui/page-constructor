@@ -13,7 +13,7 @@
   "shareTitle": "текст на картинке поста",
   "description": "описание поста 123",
   "author": null,
-  "legacySharingImage": "",
+  "sharedImage": "",
   "content": "123",
   "locale": "ru",
   "isPublished": true,

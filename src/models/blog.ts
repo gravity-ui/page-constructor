@@ -43,7 +43,7 @@ export interface BlogPostData {
     id: number;
     image: string;
     isPublished?: boolean;
-    legacySharingImage?: string;
+    sharedImage?: string;
     likes: number;
     locale: Locale;
     metaDescription?: string | null;
@@ -81,7 +81,13 @@ export interface BlogMetaProps {
     canonicalUrl: string;
     content?: string;
     description?: string;
-    legacySharingImage?: string;
+    sharing: {
+        shareTitle: string;
+        shareDescription: string;
+        shareImage: string;
+        shareGenImage: string;
+        shareGenTitle: string;
+    };
     keywords?: string[];
     noIndex?: boolean;
     authors?: SpeakerPublic[];
