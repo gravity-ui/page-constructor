@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useMemo} from 'react';
 import block from 'bem-cn-lite';
 
 import {CardBase, YFMWrapper, MetrikaGoal} from '@yandex-data-ui/page-constructor';
@@ -50,6 +50,15 @@ export const PostCard: React.FC<PostCardProps> = ({
 
     const {toggleLike} = useContext(BlogPageContext);
 
+    const likesProps = useMemo(
+        () => ({
+            hasUserLike,
+            likesCount: likes,
+            toggleLike,
+        }),
+        [hasUserLike, likes, toggleLike],
+    );
+
     return (
         <CardBase url={url} metrikaGoals={metrikaGoals} className={b('card', {fullWidth})}>
             <CardBase.Header image={image} className={b('header', {fullWidth})}>
@@ -79,11 +88,7 @@ export const PostCard: React.FC<PostCardProps> = ({
                     date={date}
                     readingTime={readingTime}
                     hasUserLike={hasUserLike}
-                    likes={{
-                        hasUserLike,
-                        likesCount: likes,
-                        toggleLike,
-                    }}
+                    likes={likesProps}
                     dataQa="blog-suggest-block"
                     size={size}
                     isModernIcon={isModernIcon}

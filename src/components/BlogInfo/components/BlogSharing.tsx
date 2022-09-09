@@ -38,6 +38,8 @@ export const BlogSharing: React.FC<BlogSharingProps> = ({theme, metrikaGoal}) =>
         metrika.reachGoal(MetrikaCounter.CrossSite, metrikaGoal);
     };
 
+    //TODO return enum for direction after update LayoutDirections import
+
     return (
         <div className={b('item')}>
             <span className={b('icon')}>

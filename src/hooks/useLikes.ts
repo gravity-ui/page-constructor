@@ -9,15 +9,15 @@ type UseLikesProps = {
     toggleLikeCallback: ToggleLikeCallbackType;
 };
 
-type UseLikeReturnType = {
+type UseLikeData = {
     likesCount: number;
     hasUserLike: boolean;
     handleLike: () => void;
 };
 
-type UseLikeType = (props: UseLikesProps) => UseLikeReturnType;
+type UseLikesType = (props: UseLikesProps) => UseLikeData;
 
-export const useLikes: UseLikeType = ({hasLike, count, toggleLikeCallback, postId}) => {
+export const useLikes: UseLikesType = ({hasLike, count, toggleLikeCallback, postId}) => {
     const [hasUserLike, setHasUserLike] = useState(hasLike ?? false);
     const [likesCount, setLikesCount] = useState(count ?? 0);
 
