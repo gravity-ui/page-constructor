@@ -3,7 +3,7 @@
 ## Install
 
 ```shell
-npm install --save-dev @gravity-ui/page-constructor
+npm install @gravity-ui/page-constructor
 ```
 
 ## Конструктор страниц
