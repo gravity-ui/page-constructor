@@ -1,12 +1,11 @@
 {
-  "name": "@yandex-data-ui/page-constructor",
+  "name": "@gravity-ui/page-constructor",
   "version": "1.0.1",
-  "description": "Cloud Page Constructor",
-  "author": "DataUI Team <data-ui@yandex-team.ru>",
-  "license": "UNLICENSED",
+  "description": "Gravity UI Page Constructor",
+  "license": "MIT",
   "repository": {
-    "type": "git",
-    "url": "git@github.yandex-team.ru:data-ui/page-constructor.git"
+      "type": "git",
+      "url": "https://github.com/gravity-ui/page-constructor"
   },
   "files": [
     "build",
@@ -40,9 +39,6 @@
     "build:client": "gulp",
     "build:server": "rimraf server && tsc -p tsconfig.server.json && move-file server/server.js server/index.js && move-file server/server.d.ts server/index.d.ts",
     "build": "run-p build:client build:server",
-    "docker:build": "docker build . -t registry.yandex.net/data-ui/page-constructor:${npm_package_version}",
-    "docker:push": "docker push registry.yandex.net/data-ui/page-constructor:${npm_package_version}",
-    "docker:release": "ya tool dctl release docker --release-type stable -t ${npm_package_version} data-ui/page-constructor",
     "prepublishOnly": "npm run lint && npm run build",
     "prepare": "husky install"
   },
@@ -123,20 +119,6 @@
     "*.{json,yaml,yml,md}": [
       "prettier --write"
     ]
-  },
-  "preview-generator": {
-    "prepare": [
-      "npm i @yandex-data-ui/core@3.83.0",
-      "npm run storybook:build",
-      "npx sb extract",
-      "touch storybook-static/metadata.json",
-      "rm -rf dist/public",
-      "mv storybook-static dist/public",
-      "mkdir -p dist/run"
-    ],
-    "env": {
-      "NODE_ENV": "production"
-    }
   },
   "publishConfig": {
     "tag": "alpha"
