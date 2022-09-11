@@ -1,6 +1,10 @@
-# Page Constructor &middot; [![npm version](https://badger.yandex-team.ru/npm/@yandex-data-ui/page-constructor/version.svg)](https://npm.yandex-team.ru/@yandex-data-ui/page-constructor) [![dependencies health](https://badger.yandex-team.ru/oko/repo/data-ui/page-constructor/health.svg)](https://oko.yandex-team.ru/repo/data-ui/common) [![maintainer](https://badger.yandex-team.ru/custom/[Maintainer]/[vladvlad][f5a522]/badge.svg)](https://staff.yandex-team.ru/vladvlad)
+# Page Constructor
 
-[comment]: <> (//TODO: Поменять ссылыку на иконку)
+## Install
+
+```shell
+npm install --save-dev @gravity-ui/page-constructor
+```
 
 ## Конструктор страниц
 
@@ -15,7 +19,7 @@
 Конструктор страниц импортируется в виде реакт-компонента. Для корректной работы его необходимо обернуть в `PageConstructorProvider`:
 
 ```jsx
-import {PageConstructor, PageConstructorProvider} from '@yandex-data-ui/page-constructor';
+import {PageConstructor, PageConstructorProvider} from '@gravity-ui/page-constructor';
 
 const Page: React.FC<PageProps> = ({content}) => (
   <PageConstructorProvider>
@@ -100,7 +104,7 @@ interface Metrika = {
 Для того, чтобы при создании собственных блоков использовать миксины и стилевые переменные конструктора нужно в своем файле стилей добавить импорт:
 
 ```css
-@import '~@yandex-data-ui/page-constructor/styles/styles.scss';
+@import '~@gravity-ui/page-constructor/styles/styles.scss';
 ```
 
 ### Loadable блоки
@@ -125,7 +129,7 @@ type FetchLoadableData<TData = any> = (blockKey: string) => Promise<TData>;
 Пример использования:
 
 ```jsx
-import {Grid, Row, Col} from '@yandex-data-ui/page-constructor/';
+import {Grid, Row, Col} from '@gravity-ui/page-constructor/';
 
 const Page: React.FC<PageProps> = ({children}) => (
   <Grid>
@@ -179,7 +183,7 @@ const Page: React.FC<PageProps> = ({children}) => (
 Для того, чтобы используемая в проекте библиотека i18n работала корректно нужно выполнить инициализацию, где в `lang` устанавливается текущее значение локали в проекте, пример:
 
 ```typescript
-import {configure, Lang} from '@yandex-data-ui/page-constructor';
+import {configure, Lang} from '@gravity-ui/page-constructor';
 
 configure({lang: Lang.En});
 ```
