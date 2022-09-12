@@ -1,5 +1,5 @@
 import React from 'react';
-import {ButtonSize} from '@yandex-cloud/uikit';
+import {ButtonSize} from '@gravity-ui/uikit';
 
 import {block} from '../../utils';
 import {MediaContentProps} from '../../models';

@@ -1,5 +1,5 @@
 import React, {ReactNode, useCallback, useContext} from 'react';
-import {Button, ButtonSize, Icon} from '@yandex-cloud/uikit';
+import {Button, ButtonSize, Icon} from '@gravity-ui/uikit';
 import {ArrowSidebar} from '../../icons';
 import {LocationContext} from '../../context/locationContext';
 export type Theme = 'default' | 'special';

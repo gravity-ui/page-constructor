@@ -3,7 +3,7 @@ import {addons, types} from '@storybook/addons';
 import {AddonPanel} from '@storybook/components';
 import {useArgs} from '@storybook/api';
 import yaml from 'js-yaml';
-import {ClipboardButton} from '@yandex-cloud/uikit';
+import {ClipboardButton} from '@gravity-ui/uikit';
 
 import './AddonYaml.css';
 

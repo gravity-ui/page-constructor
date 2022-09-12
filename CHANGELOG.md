@@ -157,7 +157,7 @@
 - У компонента Button убран отступ сверху
 - Добавлены миксины для заголовков
 - Добавлена переменная `--pc-text-header-color` со значением `var(--yc-color-text-primary)`
-- Обновлена версия @yandex-cloud/uikit до 2.3.0
+- Обновлена версия @gravity-ui/uikit до 2.3.0
 
 ## 0.39.2
 
@@ -187,9 +187,9 @@
 
 ### Breaking changes
 
-- Добавлен пакет `@yandex-cloud/uikit`
+- Добавлен пакет `@gravity-ui/uikit`
 - Обновлен пакет `@yandex-data-ui/common`
-- Заменен пакет в peer dependencies `@yandex-data-ui/i18n` -> `@yandex-cloud/i18n`
+- Заменен пакет в peer dependencies `@yandex-data-ui/i18n` -> `@gravity-ui/i18n`
 - Пакет react-router-dom удален из зависимостей
 
 ## 0.33.0

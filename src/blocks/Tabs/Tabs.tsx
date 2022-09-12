@@ -1,5 +1,5 @@
 import React, {Fragment, useContext, useState} from 'react';
-import {Tabs} from '@yandex-cloud/uikit';
+import {Tabs} from '@gravity-ui/uikit';
 
 import {block, getThemedValue} from '../../utils';
 import {Row, Col, GridColumnOrderClasses} from '../../grid';

@@ -15,6 +15,7 @@ export const Default = DefaultTemplate.bind({});
 
 Default.args = {
     text: 'Что-то сломалось',
+    // eslint-disable-next-line no-console
     handler: () => console.log('Клик'),
     isError: true,
     buttonText: 'Попробовать еще раз',

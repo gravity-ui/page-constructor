@@ -1,6 +1,6 @@
 import {Meta, Story} from '@storybook/react/types-6-0';
 import React from 'react';
-import {configure as uikitConfigure, Lang as UIKitLang} from '@yandex-cloud/uikit';
+import {configure as uikitConfigure, Lang as UIKitLang} from '@gravity-ui/uikit';
 
 import Share, {ShareProps} from '../Share';
 import {PCShareSocialNetwork} from '../../../models';
