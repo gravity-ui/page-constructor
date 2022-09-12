@@ -16,6 +16,10 @@
 
 - Обновлен сторибук
 
+- Переход на @gravity-ui
+
+- Добавлены LICENSE и CONTRIBUTING.md
+
 ## 0.60.5
 
 - В блок Questions добавлен компонент Content
