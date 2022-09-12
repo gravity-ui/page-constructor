@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import {Button} from '@yandex-cloud/uikit';
+import {Button} from '@gravity-ui/uikit';
 
 import {block, getThemedValue} from '../../utils';
 import {QuoteProps, AuthorType, ImageObjectProps} from '../../models';

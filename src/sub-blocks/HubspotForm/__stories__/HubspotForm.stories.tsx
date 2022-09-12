@@ -23,8 +23,10 @@ Default.args = {
     portalId: '25764979',
     formId: 'a3eb06a6-e8ce-45d4-81bd-7fadb7dab313',
     className: 'example-class-name',
+    /*eslint-disable  no-console */
     onBeforeLoad: () => console.log('onBeforeLoad'),
     onBeforeSubmit: () => console.log('onBeforeSubmit'),
     onLoad: () => console.log('onLoad'),
     onSubmit: () => console.log('onSubmit'),
+    /*eslint-enable */
 };

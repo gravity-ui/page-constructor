@@ -1,6 +1,6 @@
 import React, {useRef, useState, useCallback, useEffect, FC} from 'react';
 import _ from 'lodash';
-import {Icon} from '@yandex-cloud/uikit';
+import {Icon} from '@gravity-ui/uikit';
 
 import {block, getPageSearchParams} from '../../utils';
 import Image from '../Image/Image';

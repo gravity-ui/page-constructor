@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 
-import {ShareList, ShareSocialNetwork} from '@yandex-cloud/uikit';
+import {ShareList, ShareSocialNetwork} from '@gravity-ui/uikit';
 
 import {block, getAbsolutePath} from '../../utils';
 import {PCShareSocialNetwork} from '../../models';

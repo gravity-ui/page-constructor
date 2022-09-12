@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import {Icon} from '@yandex-cloud/uikit';
+import {Icon} from '@gravity-ui/uikit';
 
 import {block, getLinkProps, setUrlTld} from '../../utils';
 import {LinkProps, TextSize, ClassNameProps} from '../../models';

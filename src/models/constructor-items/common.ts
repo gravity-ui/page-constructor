@@ -1,5 +1,5 @@
 import {CSSProperties, ReactNode} from 'react';
-import {ButtonSize, ButtonView} from '@yandex-cloud/uikit';
+import {ButtonSize, ButtonView} from '@gravity-ui/uikit';
 
 import {ThemeSupporting} from '../../utils/theme';
 import {ClassNameProps, PixelEventType} from '../common';

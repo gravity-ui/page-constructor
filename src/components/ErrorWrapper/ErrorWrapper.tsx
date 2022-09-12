@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button} from '@yandex-cloud/uikit';
+import {Button} from '@gravity-ui/uikit';
 
 import {ClassNameProps} from '../../models';
 import {block} from '../../utils';

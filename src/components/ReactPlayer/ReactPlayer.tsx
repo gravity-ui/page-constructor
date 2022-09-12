@@ -9,7 +9,7 @@ import React, {
     useRef,
     useState,
 } from 'react';
-import {Icon} from '@yandex-cloud/uikit';
+import {Icon} from '@gravity-ui/uikit';
 
 import {block} from '../../utils';
 import {
