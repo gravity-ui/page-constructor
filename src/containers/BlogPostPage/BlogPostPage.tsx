@@ -52,7 +52,7 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({
                     toggleLike: likes?.toggleLike,
                 }}
             >
-                <BlogPageMeta {...metaData} />
+                {metaData ? <BlogPageMeta {...metaData} /> : null}
                 <PageConstructor content={content} custom={componentMap} />
             </BlogPageContext.Provider>
         </main>
