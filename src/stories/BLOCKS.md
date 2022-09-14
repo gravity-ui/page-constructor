@@ -12,42 +12,42 @@
 
 `resetPaddings: boolean` - позволяет обнулить стандартные для все блоков отступы сверху и снизу
 
-_[Общие типы полей](?id=состав-конструктора--common-types&viewMode=docs)_
+_[Общие типы полей](?id=constructor-content--common-types&viewMode=docs)_
 
 ## [Banner](?path=/story/блоки-banner--default&viewMode=docs)
 
-## [CardLayout](?path=/story/блоки-cardlayout--cards-with-image&viewMode=docs)
+## [CardLayout](?path=/story/blocks-cardlayout--cards-with-image&viewMode=docs)
 
-## [Companies](?path=/story/блоки-companies--default&viewMode=docs)
+## [Companies](?path=/story/blocks-companies--default&viewMode=docs)
 
-## [ContentLayout](?path=/story/блоки-contentlayout--default&viewMode=docs)
+## [ContentLayout](?path=/story/blocks-contentlayout--default&viewMode=docs)
 
-## [ExtendedFeatures](?path=/story/блоки-extendedfeatures--default&viewMode=docs)
+## [ExtendedFeatures](?path=/story/blocks-extendedfeatures--default&viewMode=docs)
 
-## [HeaderBlock](?path=/story/блоки-header--default&viewMode=docs)
+## [HeaderBlock](?path=/story/blocks-header--default&viewMode=docs)
 
-## [HeaderSlider](?path=/story/блоки-headerslider--default&viewMode=docs)
+## [HeaderSlider](?path=/story/blocks-headerslider--default&viewMode=docs)
 
-## [Icons](?path=/story/блоки-icons--default&viewMode=docs)
+## [Icons](?path=/story/blocks-icons--default&viewMode=docs)
 
-## [InfoBlock](?path=/story/блоки-info--default&viewMode=docs)
+## [InfoBlock](?path=/story/blocks-info--default&viewMode=docs)
 
-## [LinkTable](?path=/story/блоки-linktable--default-links-one-column&viewMode=docs)
+## [LinkTable](?path=/story/blocks-linktable--default-links-one-column&viewMode=docs)
 
-## [Media](?path=/story/блоки-media--default&viewMode=docs)
+## [Media](?path=/story/blocks-media--default&viewMode=docs)
 
-## [Preview](?path=/story/блоки-preview--default&viewMode=docs)
+## [Preview](?path=/story/blocks-preview--default&viewMode=docs)
 
-## [PromoFeaturesBlock](?path=/story/блоки-promofeaturesblock--default-theme&viewMode=docs)
+## [PromoFeaturesBlock](?path=/story/blocks-promofeaturesblock--default-theme&viewMode=docs)
 
-## [Questions](?path=/story/блоки-questions--default&viewMode=docs)
+## [Questions](?path=/story/blocks-questions--default&viewMode=docs)
 
-## [SecurityBlock](?path=/story/блоки-security--dark-theme&viewMode=docs)
+## [SecurityBlock](?path=/story/blocks-security--dark-theme&viewMode=docs)
 
-## [Simple](?path=/story/блоки-simple--default&viewMode=docs)
+## [Simple](?path=/story/blocks-simple--default&viewMode=docs)
 
-## [Slider](?path=/story/блоки-slider--default&viewMode=docs)
+## [Slider](?path=/story/blocks-slider--default&viewMode=docs)
 
-## [TableBlock](?path=/story/блоки-table--default&viewMode=docs)
+## [TableBlock](?path=/story/blocks-table--default&viewMode=docs)
 
-## [Questions](?path=/story/блоки-questions--default&viewMode=docs)
+## [Questions](?path=/story/blocks-questions--default&viewMode=docs)

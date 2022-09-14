@@ -115,8 +115,8 @@ interface Metrika = {
 
 ```typescript
 export interface LoadableConfigItem {
-  fetch: FetchLoadableData; // функция загрузки данных
-  component: React.ComponentType; //блок, в который нужно передать загруженные данные
+  fetch: FetchLoadableData; // data loading method
+  component: React.ComponentType; //blog to pass loaded data
 }
 
 type FetchLoadableData<TData = any> = (blockKey: string) => Promise<TData>;

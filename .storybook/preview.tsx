@@ -23,14 +23,14 @@ configure({
 const withContextProvider: DecoratorFn = (Story, context) => {
     const theme = context.globals.theme;
 
-    // хак для установки темы в доке
+    // to set theme in docs
     context.parameters.backgrounds.default = theme;
     context.globals.backgrounds = {
         value: theme === 'light' ? 'white' : 'black',
     };
     context.globals.background = theme;
 
-    // TODO: в будущем возможно появится вариант изменять динамически тему доки, нужно будет перейти на новый способ
+    // TODO: to switch docs theme dynamically in the future
     // context.parameters.docs.theme = theme === 'light' ? CommonTheme.light : CommonTheme.dark;
 
     return (
@@ -71,7 +71,7 @@ export const parameters = {
     // actions: {
     //     argTypesRegex: '^on.*',
     // },
-    jsx: {showFunctions: true}, // Для того, чтобы функции отображались в сорцах
+    jsx: {showFunctions: true}, // to show function in sources
     viewport: {
         viewports: MINIMAL_VIEWPORTS,
     },
