@@ -96,7 +96,7 @@ export interface AnchorProps {
 }
 
 /**
- * @deprecated Сomponent VideoBlock will be deleted, which uses this logic
+ * @deprecated Component VideoBlock will be deleted, which uses this logic
  */
 interface LoopProps {
     start: number;

@@ -1,25 +1,25 @@
-## Контент-блоки
+## Content blocks
 
-### [Header](?path=/story/компоненты-разновидности-header-ов-header--default&viewMode=docs)
+### [Header](?path=/story/components-headers-header--default&viewMode=docs)
 
-### [Текст](?path=/story/компоненты-text--default&viewMode=docs)
+### [Text](?path=/story/components-text--default&viewMode=docs)
 
-### [Кнопка](?path=/story/компоненты-кнопки-и-ссылки-button--default&viewMode=docs)
+### [Button](?path=/story/components-links-and-buttons-button--default&viewMode=docs)
 
-### [Features](?path=/story/компоненты-features--default&viewMode=docs)
+### [Features](?path=/story/components-features--default&viewMode=docs)
 
-### [Изображение](?path=/story/компоненты-картинки-видео-datalens-imageblock--default&viewMode=docs)
+### [Image](?path=/story/components-pics-videos-datalens-imageblock--default&viewMode=docs)
 
-### [Заголовок](?path=/story/компоненты-title--default&viewMode=docs)
+### [Title](?path=/story/components-title--default&viewMode=docs)
 
-### [Разделитель](?path=/story/компоненты-divider--default&viewMode=docs)
+### [Divider](?path=/story/components-divider--default&viewMode=docs)
 
-### [Ссылка](?path=/story/компоненты-кнопки-и-ссылки-link--default&viewMode=docs)
+### [Link](?path=/story/components-links-and-buttons-link--default&viewMode=docs)
 
-### [Поделиться](?path=/story/компоненты-share--default&viewMode=docs)
+### [Share](?path=/story/components-share--default&viewMode=docs)
 
-### [Таблица](?path=/story/компоненты-table--default&viewMode=docs)
+### [Table](?path=/story/components-table--default&viewMode=docs)
 
-### [Simple](?path=/story/блоки-simple--default&viewMode=docs)
+### [Simple](?path=/story/blocks-simple--default&viewMode=docs)
 
-### [Preview](?path=/story/блоки-preview--default&viewMode=docs)
+### [Preview](?path=/story/blocks-preview--default&viewMode=docs)
