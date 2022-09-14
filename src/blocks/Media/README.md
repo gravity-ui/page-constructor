@@ -6,9 +6,9 @@
 
 `description: строка` - описание;
 
-[`button: Button` - кнопка](?path=/story/информация--common-types&viewMode=docs#button---кнопка)
+[`button: Button` - кнопка](?path=/story/information--common-types&viewMode=docs#button---кнопка)
 
-[`media: Media` - описание медиа](?path=/story/информация--common-types&viewMode=docs#media---изображениевидеоdatalens)
+[`media: Media` - описание медиа](?path=/story/information--common-types&viewMode=docs#media---изображениевидеоdatalens)
 
 `direction: 'media-content' | 'content-media'` - относительное расположение медиа и контента
 
@@ -18,6 +18,6 @@
 
 `additionalInfo?: string` - серый текст (с поддержкой yfm)
 
-[`links?: Link[]` - массив с объектами ссылок](?path=/story/информация--common-types&viewMode=docs#link---ссылка)
+[`links?: Link[]` - массив с объектами ссылок](?path=/story/information--common-types&viewMode=docs#link---ссылка)
 
-[`buttons?: Button[]` - массив с объектами кнопок](?path=/story/информация--common-types&viewMode=docs#button---кнопка)
+[`buttons?: Button[]` - массив с объектами кнопок](?path=/story/information--common-types&viewMode=docs#button---кнопка)

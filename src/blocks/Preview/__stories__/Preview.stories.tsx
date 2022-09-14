@@ -5,7 +5,7 @@ import {BlockType, PreviewBlockModel, PreviewItemType, MediaVideoType} from '../
 import {PageConstructor} from '../../../containers/PageConstructor/PageConstructor';
 
 export default {
-    title: 'Блоки/Preview',
+    title: 'Blocks/Preview',
     component: Preview,
     args: {
         stopVideo: false,

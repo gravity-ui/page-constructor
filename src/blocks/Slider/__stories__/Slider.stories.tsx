@@ -6,7 +6,7 @@ import {PageConstructor} from '../../../containers/PageConstructor/PageConstruct
 import yfm from '@doc-tools/transform';
 
 export default {
-    title: 'Блоки/Slider',
+    title: 'Blocks/Slider',
     component: Slider,
     args: {
         dots: true,

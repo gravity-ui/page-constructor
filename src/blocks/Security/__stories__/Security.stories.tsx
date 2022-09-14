@@ -6,7 +6,7 @@ import {BlockType, SecurityBlockModel} from '../../../models';
 import {PageConstructor} from '../../../containers/PageConstructor';
 
 export default {
-    title: 'Блоки/Security',
+    title: 'Blocks/Security',
     component: Security,
     args: {
         theme: 'dark',

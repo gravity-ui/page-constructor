@@ -6,7 +6,7 @@ import {PageConstructor} from '../../../containers/PageConstructor';
 import yfm from '@doc-tools/transform';
 
 export default {
-    title: 'Блоки/Banner',
+    title: 'Blocks/Banner',
     component: Banner,
     args: {
         theme: 'light',

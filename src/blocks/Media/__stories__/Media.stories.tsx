@@ -6,7 +6,7 @@ import {PageConstructor} from '../../../containers/PageConstructor/PageConstruct
 import yfm from '@doc-tools/transform';
 
 export default {
-    title: 'Блоки/Media',
+    title: 'Blocks/Media',
     component: Media,
     args: {
         largeMedia: false,

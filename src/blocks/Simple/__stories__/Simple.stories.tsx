@@ -8,7 +8,7 @@ import {PageConstructor} from '../../../containers/PageConstructor/PageConstruct
 
 export default {
     component: Simple,
-    title: 'Блоки/Simple',
+    title: 'Blocks/Simple',
 } as Meta;
 
 const DefaultTemplate: Story<SimpleBlockModel> = (args) => (

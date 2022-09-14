@@ -12,9 +12,9 @@
 
 `resetPaddings: boolean` - позволяет обнулить стандартные для все блоков отступы сверху и снизу
 
-_[Общие типы полей](?id=constructor-content--common-types&viewMode=docs)_
+_[Общие типы полей](?id=information--common-types&viewMode=docs)_
 
-## [Banner](?path=/story/блоки-banner--default&viewMode=docs)
+## [Banner](?path=/story/blocks-banner--default&viewMode=docs)
 
 ## [CardLayout](?path=/story/blocks-cardlayout--cards-with-image&viewMode=docs)
 
