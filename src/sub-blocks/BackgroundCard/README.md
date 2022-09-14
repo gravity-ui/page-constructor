@@ -12,6 +12,6 @@
 
 `additionalInfo?: string` - серый текст (с поддержкой yfm)
 
-`links?: Link[]` - массив с объектами ссылок, см. раздел [Контент-блоки](?path=/story/информация--common-types&viewMode=docs)
+`links?: Link[]` - массив с объектами ссылок, см. раздел [Контент-блоки](?path=/story/information--common-types&viewMode=docs)
 
-`buttons?: Button[]` - массив с объектами кнопок, см. раздел [Контент-блоки](?path=/story/информация--common-types&viewMode=docs)
+`buttons?: Button[]` - массив с объектами кнопок, см. раздел [Контент-блоки](?path=/story/information--common-types&viewMode=docs)

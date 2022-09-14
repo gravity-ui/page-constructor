@@ -7,7 +7,7 @@ import {PageConstructor} from '../../../containers/PageConstructor/PageConstruct
 
 export default {
     component: LinkTable,
-    title: 'Блоки/LinkTable',
+    title: 'Blocks/LinkTable',
 } as Meta;
 
 const DefaultTemplate: Story<LinkTableBlockModel> = (args) => (
