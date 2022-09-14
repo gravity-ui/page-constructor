@@ -899,6 +899,7 @@ export interface ContentBlockProps {
     colSizes?: GridColumnSizesType;
     centered?: boolean;
     theme?: ContentTheme;
+    titleClassName?: string;
 }
 
 export interface HubspotFormProps extends HubspotEventHandlers {

@@ -29,7 +29,7 @@ export const InfoBlock: React.FC<InfoBlockProps> = (props) => {
     return (
         <div className={b()}>
             <div
-                className={b('content')}
+                className={b('container')}
                 style={{backgroundColor: getThemedValue(backgroundColor, theme)}}
             >
                 <Grid>
@@ -43,6 +43,8 @@ export const InfoBlock: React.FC<InfoBlockProps> = (props) => {
                                 buttons={buttons || leftContent?.buttons}
                                 additionalInfo={leftContent?.additionalInfo}
                                 colSizes={{all: 12, md: 12}}
+                                className={b('content')}
+                                titleClassName={b('title')}
                             />
                         </Col>
                         <Col sizes={sizes} className={b('right')}>
@@ -60,6 +62,8 @@ export const InfoBlock: React.FC<InfoBlockProps> = (props) => {
                                 buttons={rightContent?.buttons}
                                 additionalInfo={rightContent?.additionalInfo}
                                 colSizes={{all: 12, md: 12}}
+                                className={b('content')}
+                                titleClassName={b('title')}
                             />
                         </Col>
                     </Row>

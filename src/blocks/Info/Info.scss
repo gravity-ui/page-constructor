@@ -4,7 +4,7 @@
 $block: '.#{$ns}info-block';
 
 #{$block} {
-    &__content {
+    &__container {
         background-color: var(--yc-color-base-special);
         padding: $indentXXL $indentXL 112px;
         border-radius: var(--pc-border-radius);
@@ -15,8 +15,12 @@ $block: '.#{$ns}info-block';
         padding-right: $indentXXL;
     }
 
+    &__content &__title a {
+        text-decoration: none;
+    }
+
     @media (max-width: map-get($gridBreakpoints, 'lg')) {
-        &__content {
+        &__container {
             padding: $indentXXL $indentXL;
         }
     }
@@ -33,7 +37,7 @@ $block: '.#{$ns}info-block';
     }
 
     @media (max-width: map-get($gridBreakpoints, 'sm')) {
-        &__content {
+        &__container {
             padding: $indentXL $indentM;
         }
     }

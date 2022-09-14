@@ -52,6 +52,7 @@ const Content: React.FC<ContentBlockProps & ClassNameProps> = (props) => {
         centered,
         theme,
         className,
+        titleClassName,
     } = props;
 
     const {...titleProps} =
@@ -63,7 +64,7 @@ const Content: React.FC<ContentBlockProps & ClassNameProps> = (props) => {
 
     return (
         <Col className={b({size, centered, theme}, className)} reset sizes={colSizes}>
-            {title && <Title className={b('title')} {...titleProps} resetMargin />}
+            {title && <Title className={b('title', titleClassName)} {...titleProps} resetMargin />}
             {text && (
                 <div className={b('text', {['without-title']: !hasTitle})}>
                     <YFMWrapper content={text} modifiers={{constructor: true}} />
