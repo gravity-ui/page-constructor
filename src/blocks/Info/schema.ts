@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import {filteredArray} from '../../schema/validators/utils';
 import {
     BaseProps,
@@ -6,7 +7,7 @@ import {
     withTheme,
     ButtonBlock,
 } from '../../schema/validators/common';
-import {ContentBase} from '../../components/Content/schema';
+import {ContentBase} from '../../sub-blocks/Content/schema';
 
 const ContentProps = {
     additionalProperties: false,

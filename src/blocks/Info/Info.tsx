@@ -4,7 +4,7 @@ import {block, getThemedValue} from '../../utils';
 import {InfoBlockProps} from '../../models';
 import {Grid, Row, Col} from '../../grid';
 import {ThemeValueContext} from '../../context/theme/ThemeValueContext';
-import Content from '../../components/Content/Content';
+import Content from '../../sub-blocks/Content/Content';
 
 import './Info.scss';
 

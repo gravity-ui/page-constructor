@@ -238,10 +238,12 @@ export interface PreviewBlockProps extends Animatable {
 export interface InfoBlockProps {
     theme?: TextTheme;
     backgroundColor?: ThemeSupporting<string>;
-    title: string;
+    title?: string;
     buttons?: Pick<ButtonProps, 'url' | 'text' | 'theme'>[];
-    sectionsTitle: string;
+    sectionsTitle?: string;
     links?: Pick<LinkProps, 'text' | 'url'>[];
+    leftContent?: Omit<ContentBlockProps, 'colSizes' | 'theme' | 'size'>;
+    rightContent?: Omit<ContentBlockProps, 'colSizes' | 'theme' | 'size'>;
 }
 
 export interface SecurityBlockPoint {
@@ -329,6 +331,7 @@ export interface ContentBlockProps {
     colSizes?: GridColumnSizesType;
     centered?: boolean;
     theme?: ContentTheme;
+    titleClassName?: string;
 }
 
 //block models
