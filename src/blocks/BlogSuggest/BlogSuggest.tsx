@@ -12,7 +12,7 @@ import {BlogPostData} from '../../models/blog';
 
 import {BlogPageContext} from '../../contexts/BlogPageContext';
 
-import {BlogMetrikaGoalIds} from '../constants';
+import {BlogMetrikaGoalIds} from '../../constants';
 
 const metrikaGoals = [
     {

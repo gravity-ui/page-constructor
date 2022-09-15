@@ -76,6 +76,7 @@
     "sass-loader": "^13.0.2",
     "snakecase-keys": "^5.1.0",
     "typograf": "^6.14.0",
+    "ua-parser-js": "^0.7.28",
     "url": "^0.11.0",
     "url-join": "^5.0.0",
     "webpack": "^4.46.0"
@@ -104,6 +105,7 @@
     "@types/react-slick": "^0.23.7",
     "@types/react-transition-group": "^4.4.4",
     "@types/sanitize-html": "^2.6.0",
+    "@types/ua-parser-js": "^0.7.36",
     "@yandex-cloud/eslint-config": "^1.0.1",
     "@yandex-cloud/i18n": "^0.6.0",
     "@yandex-cloud/prettier-config": "^1.0.0",

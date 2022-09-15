@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-
 import {parse} from 'fast-html-parser';
 import {format} from 'url';
 
@@ -47,3 +46,29 @@ export function getAbsolutePath(router: any, url?: string) {
 export function isRootPage(pathname: string) {
     return pathname === '/';
 }
+
+export const getPageSearchParams = (query: Query = {}) => {
+    const searchParams = new URLSearchParams();
+
+    Object.entries(query).forEach(([key, value]) => {
+        searchParams.set(key, String(value));
+    });
+
+    return searchParams;
+};
+
+export const scrollToHash = (hash: string, browser?: string) => {
+    if (!hash) {
+        return;
+    }
+
+    const element = document.getElementById(hash);
+    if (!element) {
+        return;
+    }
+
+    setTimeout(
+        () => element.scrollIntoView({behavior: browser === 'Yandex' ? 'auto' : 'smooth'}),
+        0,
+    );
+};

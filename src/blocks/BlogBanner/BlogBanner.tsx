@@ -6,7 +6,7 @@ import {BlogWrapper, PaddingSize} from '../../components/BlogWrapper/BlogWrapper
 
 import {getBlogElementMetrika, checkContentDefaults} from '../../utils/blog';
 
-import {BlogMetrikaGoalIds} from '../constants';
+import {BlogMetrikaGoalIds} from '../../constants';
 
 import './BlogBanner.scss';
 

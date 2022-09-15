@@ -1,4 +1,8 @@
+import {ReactNode} from 'react';
+
 import {BlogPostTag, SpeakerPublic} from '@yandex-data-ui/cloud-schemas/build/models/ui-api';
+import {HeaderBlockProps as PageConstructorHeaderBlockProps} from '@yandex-data-ui/page-constructor';
+
 import {Locale} from '../models/locale';
 
 export interface BlogPostLikes {
@@ -107,3 +111,10 @@ export type ToggleLikeCallbackType = ({
     postId?: number;
     hasLike?: boolean;
 }) => void;
+
+export interface HeaderBlockProps extends PageConstructorHeaderBlockProps {
+    backLink?: {
+        url: string;
+        title: ReactNode;
+    };
+}

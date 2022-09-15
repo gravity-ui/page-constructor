@@ -5,7 +5,7 @@ import {Content, ContentBlockProps, NewMetrikaGoal} from '@yandex-data-ui/page-c
 import {BlogWrapper, PaddingSize} from '../../components/BlogWrapper/BlogWrapper';
 import {getBlogElementMetrika, checkContentDefaults} from '../../utils/blog';
 
-import {BlogMetrikaGoalIds} from '../constants';
+import {BlogMetrikaGoalIds} from '../../constants';
 
 import './BlogCTA.scss';
 

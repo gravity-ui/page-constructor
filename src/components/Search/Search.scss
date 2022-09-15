@@ -1,0 +1,52 @@
+@import '../../../styles/mixins.scss';
+@import '../../../styles/variables.scss';
+
+.Search {
+    $root: &;
+    $searchHeight: 44px;
+    $searchWidth: 376px;
+
+    @include text-size(body-1);
+
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    max-width: $searchWidth;
+    height: $searchHeight;
+
+    transition: width 0.3s;
+
+    &__close-button,
+    &__search-button {
+        position: absolute;
+        z-index: 2;
+
+        right: 10px;
+        color: var(--yc-color-text-hint);
+    }
+
+    &__search-button:hover {
+        color: var(--yc-color-text-secondary);
+    }
+
+    &__search-suggest-container {
+        width: 100%;
+    }
+
+    &__search-suggest {
+        .yc-text-input__control {
+            padding-right: $indentM;
+        }
+    }
+
+    &_size_s {
+        $searchHeight: 36px;
+        $searchWidth: 352px;
+
+        height: $searchHeight;
+        width: $searchWidth;
+        max-width: 100%;
+    }
+}
