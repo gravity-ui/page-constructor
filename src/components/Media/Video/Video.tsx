@@ -1,6 +1,6 @@
 import React, {useEffect, useMemo, useRef} from 'react';
 
-import {MediaComponentVideoProps, MediaVideoType, PlayButtonProps} from '../../../models';
+import {MediaComponentVideoProps, MediaVideoType, PlayButtonProps, ReactFCC} from '../../../models';
 import ReactPlayerBlock from '../../ReactPlayer/ReactPlayer';
 import {getVideoTypesWithPriority} from './utils';
 import {block} from '../../../utils';
@@ -23,7 +23,7 @@ interface InnerVideoProps {
 
 type VideoAllProps = VideoAdditionProps & MediaComponentVideoProps & InnerVideoProps;
 
-const Video: React.FC<VideoAllProps> = (props) => {
+const Video: ReactFCC<VideoAllProps> = (props) => {
     const {
         video,
         height,

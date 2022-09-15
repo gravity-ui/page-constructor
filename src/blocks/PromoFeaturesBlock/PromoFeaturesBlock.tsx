@@ -3,7 +3,7 @@ import React from 'react';
 import {block} from '../../utils';
 import {BREAKPOINTS} from '../../constants';
 import YFMWrapper from '../../components/YFMWrapper/YFMWrapper';
-import {PromoFeaturesProps} from '../../models';
+import {PromoFeaturesProps, ReactFCC} from '../../models';
 import Media from '../../components/Media/Media';
 import BlockHeader from '../../components/BlockHeader/BlockHeader';
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
@@ -20,7 +20,7 @@ const breakpointColumns = {
     [BREAKPOINTS.sm]: 1,
 };
 
-export default function PromoFeaturesBlock(props: PromoFeaturesProps) {
+const PromoFeaturesBlock: ReactFCC<PromoFeaturesProps> = (props) => {
     const {items, title, description, theme, animated = true} = props;
     const backgroundTheme = theme || 'default';
 
@@ -58,4 +58,6 @@ export default function PromoFeaturesBlock(props: PromoFeaturesProps) {
             </BalancedMasonry>
         </AnimateBlock>
     );
-}
+};
+
+export default PromoFeaturesBlock;

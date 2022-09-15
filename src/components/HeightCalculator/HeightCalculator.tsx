@@ -1,15 +1,8 @@
-import React, {
-    Children,
-    useCallback,
-    useEffect,
-    useRef,
-    useState,
-    FunctionComponent,
-    useMemo,
-} from 'react';
+import React, {Children, useCallback, useEffect, useRef, useState, useMemo} from 'react';
 import _ from 'lodash';
 
 import {block} from '../../utils';
+import {ReactFCC} from '../../models';
 
 import './HeightCalculator.scss';
 
@@ -19,7 +12,7 @@ export interface HeightCalculatorProps {
     onCalculate: (height: number) => void;
 }
 
-const HeightCalculator: FunctionComponent<HeightCalculatorProps> = ({onCalculate, children}) => {
+const HeightCalculator: ReactFCC<HeightCalculatorProps> = ({onCalculate, children}) => {
     const [isCalculating, setIsCalculating] = useState(true);
     const container = useRef<HTMLDivElement>(null);
     const itemRefs = useMemo(() => {

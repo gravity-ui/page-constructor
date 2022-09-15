@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {block} from '../../utils';
-import {BlockBaseProps, ClassNameProps} from '../../models';
+import {BlockBaseProps, ClassNameProps, ReactFCC} from '../../models';
 import Anchor from '../Anchor/Anchor';
 import {Col} from '../../grid';
 
@@ -9,7 +9,7 @@ import './BlockBase.scss';
 
 const b = block('block-base');
 
-const BlockBase: React.FC<BlockBaseProps & ClassNameProps> = (props) => {
+const BlockBase: ReactFCC<BlockBaseProps & ClassNameProps> = (props) => {
     const {anchor, visible, children, className, resetPaddings} = props;
 
     return (

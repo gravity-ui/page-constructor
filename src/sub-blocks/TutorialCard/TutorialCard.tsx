@@ -2,7 +2,7 @@ import React from 'react';
 
 import {block} from '../../utils';
 import CardBase from '../../components/CardBase/CardBase';
-import {ImageProps, TutorialCardProps} from '../../models';
+import {ImageProps, TutorialCardProps, ReactFCC} from '../../models';
 import {Image, HTML} from '../../components/';
 
 import {getMediaImage} from '../../components/Media/Image/utils';
@@ -17,7 +17,7 @@ function iconElement(icon: ImageProps, title: string) {
     return <Image src={src} alt={alt} className={b('icon')} disableCompress={disableCompress} />;
 }
 
-const TutorialCard: React.FC<TutorialCardProps> = (props) => {
+const TutorialCard: ReactFCC<TutorialCardProps> = (props) => {
     const {url, title, text, border, icon} = props;
 
     return (

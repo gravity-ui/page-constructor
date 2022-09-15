@@ -1,6 +1,6 @@
 import React, {ReactElement} from 'react';
 
-import {Block, ShouldRenderBlock} from '../../../../models';
+import {Block, ShouldRenderBlock, ReactFCC} from '../../../../models';
 import BlockBase from '../../../../components/BlockBase/BlockBase';
 import {block} from '../../../../utils';
 
@@ -11,7 +11,7 @@ interface ConstructorBlockProps {
     shouldRenderBlock?: ShouldRenderBlock;
 }
 
-export const ConstructorBlock: React.FC<ConstructorBlockProps> = ({data, Component}) => {
+export const ConstructorBlock: ReactFCC<ConstructorBlockProps> = ({data, Component}) => {
     const {anchor, visible} = data;
 
     return (

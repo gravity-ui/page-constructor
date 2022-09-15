@@ -1,7 +1,7 @@
 import React, {ReactElement, useMemo, useState} from 'react';
 
 import {block} from '../../utils';
-import {MediaProps} from '../../models';
+import {MediaProps, ReactFCC} from '../../models';
 import Image, {ImageAdditionProps} from './Image/Image';
 import DataLens from './DataLens/DataLens';
 import Video, {VideoAdditionProps} from './Video/Video';
@@ -16,7 +16,7 @@ export interface MediaAllProps extends MediaProps, VideoAdditionProps, ImageAddi
     youtubeClassName?: string;
 }
 
-export const Media: React.FC<MediaAllProps> = (props) => {
+export const Media: ReactFCC<MediaAllProps> = (props) => {
     const {
         image,
         video,

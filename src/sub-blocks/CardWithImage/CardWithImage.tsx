@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {block} from '../../utils';
-import {CardWithImageProps, LinkTheme} from '../../models';
+import {CardWithImageProps, LinkTheme, ReactFCC} from '../../models';
 import {Image, FullscreenImage} from '../../components';
 import {Content} from '../';
 
@@ -9,7 +9,7 @@ import './CardWithImage.scss';
 
 const b = block('card-with-image');
 
-const CardWithImage: React.FC<CardWithImageProps> = ({
+const CardWithImage: ReactFCC<CardWithImageProps> = ({
     title,
     description,
     image,

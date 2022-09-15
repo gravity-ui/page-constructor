@@ -1,7 +1,7 @@
 import React, {Fragment} from 'react';
 
 import {block} from '../../../../utils';
-import {PriceDetailsListProps, TextSize} from '../../../../models';
+import {PriceDetailsListProps, TextSize, ReactFCC} from '../../../../models';
 import {YFMWrapper} from '../../../../components';
 
 import './List.scss';
@@ -13,7 +13,7 @@ export interface ListProps {
     titleSize?: TextSize;
 }
 
-const List: React.FunctionComponent<ListProps> = (props) => {
+const List: ReactFCC<ListProps> = (props) => {
     const {items = [], titleSize = 's'} = props;
 
     return (

@@ -1,6 +1,7 @@
 import React from 'react';
 
 import {block} from '../../utils';
+import {ReactFCC} from '../../models';
 
 import '../styles/bootstrap.scss';
 import './Grid.scss';
@@ -14,7 +15,7 @@ export interface GridProps {
     style?: React.CSSProperties;
 }
 
-export const Grid: React.FunctionComponent<GridProps> = ({
+export const Grid: ReactFCC<GridProps> = ({
     debug,
     children,
     className,

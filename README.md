@@ -131,7 +131,7 @@ type FetchLoadableData<TData = any> = (blockKey: string) => Promise<TData>;
 ```jsx
 import {Grid, Row, Col} from '@gravity-ui/page-constructor/';
 
-const Page: React.FC<PageProps> = ({children}) => (
+const Page: ReactFCC<PageProps> = ({children}) => (
   <Grid>
     <Row>
       <Col sizes={{lg: 4, sm: 6, all: 12}}>{children}</Col>

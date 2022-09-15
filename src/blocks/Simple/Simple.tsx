@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {block} from '../../utils';
-import {SimpleBlockProps} from '../../models';
+import {SimpleBlockProps, ReactFCC} from '../../models';
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
 import BlockHeader from '../../components/BlockHeader/BlockHeader';
 import YFMWrapper from '../../components/YFMWrapper/YFMWrapper';
@@ -10,7 +10,7 @@ import './Simple.scss';
 
 const b = block('simple-block');
 
-export const SimpleBlock: React.FC<SimpleBlockProps> = (props) => {
+export const SimpleBlock: ReactFCC<SimpleBlockProps> = (props) => {
     const {title, description, animated = true, children} = props;
 
     const blockHeader = title && <BlockHeader title={title} />;

@@ -2,14 +2,14 @@ import React from 'react';
 import {ButtonSize} from '@gravity-ui/uikit';
 
 import {block} from '../../utils';
-import {MediaContentProps} from '../../models';
+import {MediaContentProps, ReactFCC} from '../../models';
 import {Content} from '../../sub-blocks';
 
 import './MediaContent.scss';
 
 const b = block('media-content');
 
-const MediaContent: React.FC<MediaContentProps> = (props) => {
+const MediaContent: ReactFCC<MediaContentProps> = (props) => {
     const {title, description, button, links, buttons = [], additionalInfo, size = 'l'} = props;
     const allButtons = button ? [{...button, size: 'xl' as ButtonSize}, ...buttons] : buttons;
     return (

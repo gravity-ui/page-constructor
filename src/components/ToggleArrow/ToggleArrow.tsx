@@ -3,6 +3,7 @@ import {Icon} from '@gravity-ui/uikit';
 
 import {block} from '../../utils';
 import {Chevron, NavigationChevron} from '../../icons';
+import {ReactFCC} from '../../models';
 
 import './ToggleArrow.scss';
 
@@ -18,7 +19,7 @@ export interface ToggleArrowProps {
     className?: string;
 }
 
-const ToggleArrow: React.FC<ToggleArrowProps> = ({
+const ToggleArrow: ReactFCC<ToggleArrowProps> = ({
     type = 'horizontal',
     iconType = 'default',
     open = false,

@@ -9,6 +9,7 @@ import {
     PriceDetailsListProps,
     PriceDetailsSettingsProps,
     PriceItemProps,
+    ReactFCC,
 } from '../../../models';
 import {Grid, Row, Col, GridColumnSize} from '../../../grid';
 import {BREAKPOINTS} from '../../../constants';
@@ -34,7 +35,7 @@ interface CombinedPriceDetailedProps {
     border?: CardBorder;
 }
 
-const CombinedPriceDetailed: React.FC<CombinedPriceDetailedProps> = (props) => {
+const CombinedPriceDetailed: ReactFCC<CombinedPriceDetailedProps> = (props) => {
     const {
         items,
         numberGroupItems,

@@ -3,6 +3,7 @@ import _ from 'lodash';
 
 import {block} from '../../utils';
 import {SSRContext} from '../../context/ssrContext';
+import {ReactFCC} from '../../models';
 
 import './BalancedMasonry.scss';
 
@@ -17,7 +18,7 @@ export interface BalancedMasonryProps {
     };
 }
 
-const BalancedMasonry: React.FC<BalancedMasonryProps> = (props) => {
+const BalancedMasonry: ReactFCC<BalancedMasonryProps> = (props) => {
     const {className, columnClassName, children = [], breakpointCols} = props;
     const {isServer} = useContext(SSRContext);
     const getCurrentColumnsCount = useCallback(() => {

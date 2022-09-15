@@ -1,14 +1,14 @@
 import React from 'react';
 
 import {Image} from '../index';
-import {AuthorProps, AuthorType} from '../../models';
+import {AuthorProps, AuthorType, ReactFCC} from '../../models';
 import {block} from '../../utils';
 
 import './Author.scss';
 
 const b = block('author');
 
-const Author: React.FC<AuthorProps> = (props) => {
+const Author: ReactFCC<AuthorProps> = (props) => {
     const {author, className, authorContainerClassName, type = AuthorType.Column} = props;
     const {firstName, secondName, description, avatar} = author;
 

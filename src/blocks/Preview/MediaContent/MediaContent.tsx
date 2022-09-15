@@ -2,7 +2,7 @@ import React, {forwardRef, Fragment, useContext, useEffect, useState} from 'reac
 
 import {block, getThemedValue} from '../../../utils';
 import {Col, GridColumnSize} from '../../../grid';
-import {PreviewItemProps, PreviewRatioMediaContent, Refable} from '../../../models';
+import {PreviewItemProps, PreviewRatioMediaContent, Refable, ReactFCC} from '../../../models';
 import {YFMWrapper, HTML} from '../../../components/';
 import PreviewContent from './PreviewContent';
 import PreviewMedia from './PreviewMedia';
@@ -22,7 +22,7 @@ interface MediaContentProps extends Refable<HTMLDivElement> {
     showMediaContent: (id: number) => void;
 }
 
-const MediaContent: React.FC<MediaContentProps> = forwardRef<HTMLDivElement, MediaContentProps>(
+const MediaContent: ReactFCC<MediaContentProps> = forwardRef<HTMLDivElement, MediaContentProps>(
     (props, ref) => {
         const {
             items,

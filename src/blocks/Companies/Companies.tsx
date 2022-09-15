@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 
 import {block, getThemedValue} from '../../utils';
-import {CompaniesBlockProps} from '../../models';
+import {CompaniesBlockProps, ReactFCC} from '../../models';
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
 import {BREAKPOINTS} from '../../constants';
 import {ThemeValueContext} from '../../context/theme/ThemeValueContext';
@@ -10,7 +10,7 @@ import './Companies.scss';
 
 const b = block('companies-block');
 
-export const CompaniesBlock: React.FC<CompaniesBlockProps> = ({title, images, animated}) => {
+export const CompaniesBlock: ReactFCC<CompaniesBlockProps> = ({title, images, animated}) => {
     const {themeValue: theme} = useContext(ThemeValueContext);
     const themedImages = getThemedValue(images, theme) || {};
     const {desktop, mobile, tablet, alt} = themedImages;

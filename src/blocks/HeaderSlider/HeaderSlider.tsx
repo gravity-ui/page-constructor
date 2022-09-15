@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 import {block} from '../../utils';
 
-import {SliderType, HeaderSliderBlockProps} from '../../models';
+import {SliderType, HeaderSliderBlockProps, ReactFCC} from '../../models';
 import {SliderBlock} from '../index';
 import Header from '../Header/Header';
 import {MobileContext} from '../../context/mobileContext';
@@ -10,11 +10,7 @@ import './HeaderSlider.scss';
 
 const b = block('header-slider-block');
 
-export const HeaderSliderBlock: React.FunctionComponent<HeaderSliderBlockProps> = ({
-    items,
-    arrows,
-    ...props
-}) => {
+export const HeaderSliderBlock: ReactFCC<HeaderSliderBlockProps> = ({items, arrows, ...props}) => {
     const isMobile = useContext(MobileContext);
     const showArrows = isMobile ? false : arrows;
 

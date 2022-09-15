@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {block} from '../../utils';
-import {ExtendedFeaturesProps} from '../../models';
+import {ExtendedFeaturesProps, ReactFCC} from '../../models';
 import {Row, Col} from '../../grid';
 import {Link, HTML, AnimateBlock, BlockHeader} from '../../components/';
 
@@ -15,7 +15,7 @@ const DEFAULT_SIZES = {
     md: 4,
 };
 
-export const ExtendedFeaturesBlock: React.FunctionComponent<ExtendedFeaturesProps> = ({
+export const ExtendedFeaturesBlock: ReactFCC<ExtendedFeaturesProps> = ({
     title,
     description,
     items,

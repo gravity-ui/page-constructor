@@ -2,7 +2,7 @@ import React, {useContext, useMemo, useState} from 'react';
 
 import {block, getThemedValue} from '../../utils';
 import {Grid, Row, Col, GridColumnSize} from '../../grid';
-import {MediaBlockProps} from '../../models';
+import {MediaBlockProps, ReactFCC} from '../../models';
 import Media from '../../components/Media/Media';
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
 import BlockHeader from '../../components/BlockHeader/BlockHeader';
@@ -13,7 +13,7 @@ import './Media.scss';
 
 const b = block('media-block');
 
-export const MediaBlock: React.FC<MediaBlockProps> = (props) => {
+export const MediaBlock: ReactFCC<MediaBlockProps> = (props) => {
     const {
         media,
         largeMedia,

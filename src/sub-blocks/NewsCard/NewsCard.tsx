@@ -2,13 +2,13 @@ import React from 'react';
 import {block} from '../../utils';
 
 import {CardBase, HTML} from '../../components';
-import {NewsCardProps} from '../../models';
+import {NewsCardProps, ReactFCC} from '../../models';
 
 import './NewsCard.scss';
 
 const b = block('news-card');
 
-const NewsCard: React.FC<NewsCardProps> = (props) => {
+const NewsCard: ReactFCC<NewsCardProps> = (props) => {
     const {date, isoDate, title, border, url} = props;
 
     return (

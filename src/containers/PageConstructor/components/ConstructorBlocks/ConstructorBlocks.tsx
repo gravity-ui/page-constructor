@@ -3,7 +3,12 @@ import React, {Fragment, ReactElement, useContext} from 'react';
 
 import {getBlockKey} from '../../../../utils';
 import {InnerContext} from '../../../../context/innerContext';
-import {Block, ConstructorItem as ConstructorItemType, ShouldRenderBlock} from '../../../../models';
+import {
+    Block,
+    ConstructorItem as ConstructorItemType,
+    ShouldRenderBlock,
+    ReactFCC,
+} from '../../../../models';
 import {ConstructorLoadable} from '../ConstructorLoadable';
 import {ConstructorItem} from '../ConstructorItem';
 import {ConstructorBlock} from '../ConstructorBlock/ConstructorBlock';
@@ -13,7 +18,7 @@ interface ConstructorBlocksProps {
     shouldRenderBlock?: ShouldRenderBlock;
 }
 
-export const ConstructorBlocks: React.FC<ConstructorBlocksProps> = ({items, shouldRenderBlock}) => {
+export const ConstructorBlocks: ReactFCC<ConstructorBlocksProps> = ({items, shouldRenderBlock}) => {
     const {blockTypes, loadables, itemMap} = useContext(InnerContext);
 
     const renderer = (item: ConstructorItemType, index: number): ReactElement | null => {

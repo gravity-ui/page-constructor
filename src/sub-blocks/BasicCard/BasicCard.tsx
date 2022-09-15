@@ -2,7 +2,7 @@ import React from 'react';
 
 import {block} from '../../utils';
 import CardBase from '../../components/CardBase/CardBase';
-import {BasicCardProps} from '../../models';
+import {BasicCardProps, ReactFCC} from '../../models';
 import Image from '../../components/Image/Image';
 import {Content} from '../';
 import {getMediaImage} from '../../components/Media/Image/utils';
@@ -11,7 +11,7 @@ import './BasicCard.scss';
 
 const b = block('basic-card');
 
-const BasicCard: React.FC<BasicCardProps> = (props) => {
+const BasicCard: ReactFCC<BasicCardProps> = (props) => {
     const {url, title, text, border, icon, additionalInfo, links, buttons} = props;
     const iconProps = icon && getMediaImage(icon);
 

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {block} from '../../utils';
-import {SecurityBlockProps} from '../../models';
+import {SecurityBlockProps, ReactFCC} from '../../models';
 import {FullWidthBackground, HTML, Media, Link, AnimateBlock} from '../../components';
 import {Grid, Row, Col} from '../../grid';
 
@@ -9,7 +9,7 @@ import './Security.scss';
 
 const b = block('SecurityBlock');
 
-export const SecurityBlock: React.FC<SecurityBlockProps> = (props) => {
+export const SecurityBlock: ReactFCC<SecurityBlockProps> = (props) => {
     const {backgroundColor, theme = 'dark', title, points, media, animated} = props;
 
     return (

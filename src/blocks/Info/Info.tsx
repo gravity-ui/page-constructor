@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 
 import {block, getThemedValue} from '../../utils';
-import {InfoBlockProps} from '../../models';
+import {InfoBlockProps, ReactFCC} from '../../models';
 import {Grid, Row, Col} from '../../grid';
 import Button from '../../components/Button/Button';
 import Link from '../../components/Link/Link';
@@ -11,7 +11,7 @@ import './Info.scss';
 
 const b = block('info-block');
 
-export const InfoBlock: React.FC<InfoBlockProps> = (props) => {
+export const InfoBlock: ReactFCC<InfoBlockProps> = (props) => {
     const {
         backgroundColor,
         theme: textTheme = 'dark',

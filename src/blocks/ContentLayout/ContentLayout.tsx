@@ -1,7 +1,7 @@
 import React, {useContext, useMemo} from 'react';
 
 import {block} from '../../utils';
-import {ContentLayoutBlockProps, ContentSize, ContentTextSize} from '../../models';
+import {ContentLayoutBlockProps, ContentSize, ContentTextSize, ReactFCC} from '../../models';
 import {Content} from '../../sub-blocks';
 import {BackgroundImage, FileLink} from '../../components';
 import {Col} from '../../grid';
@@ -33,7 +33,7 @@ function getTextWidth(size: ContentTextSize) {
     }
 }
 
-export const ContentLayoutBlock: React.FC<ContentLayoutBlockProps> = (props) => {
+export const ContentLayoutBlock: ReactFCC<ContentLayoutBlockProps> = (props) => {
     const isMobile = useContext(MobileContext);
     const {textContent, fileContent, properties: cardLayoutProperties = {size: 'l'}} = props;
     const {

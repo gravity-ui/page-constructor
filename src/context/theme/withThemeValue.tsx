@@ -14,6 +14,8 @@ export function withThemeValue<T extends WithThemeValueProps>(
         static displayName = `withThemeValue(${componentName})`;
         static contextType = ThemeValueContext;
 
+        context!: WithThemeValueProps;
+
         render() {
             return <WrappedComponent {...(this.props as T)} themeValue={this.context.themeValue} />;
         }

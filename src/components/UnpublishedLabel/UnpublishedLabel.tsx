@@ -1,6 +1,7 @@
 import React from 'react';
 
 import {block} from '../../utils';
+import {ReactFCC} from '../../models';
 import i18n from './i18n';
 
 import './UnpublishedLabel.scss';
@@ -14,7 +15,7 @@ export interface UnpublishedLabelProps {
     className?: string;
 }
 
-const UnpublishedLabel: React.FC<UnpublishedLabelProps> = ({
+const UnpublishedLabel: ReactFCC<UnpublishedLabelProps> = ({
     className,
     children,
     type = 'line',

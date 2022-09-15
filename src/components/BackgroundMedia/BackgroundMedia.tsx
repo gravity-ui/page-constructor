@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 
 import {block} from '../../utils';
-import {MediaProps, Animatable} from '../../models';
+import {MediaProps, Animatable, ReactFCC} from '../../models';
 import Media from '../Media/Media';
 import AnimateBlock from '../AnimateBlock/AnimateBlock';
 import {MobileContext} from '../../context/mobileContext';
@@ -14,7 +14,7 @@ export interface FullProps extends MediaProps, Animatable {
     className?: string;
 }
 
-const BackgroundMedia: React.FC<FullProps> = ({
+const BackgroundMedia: ReactFCC<FullProps> = ({
     className,
     color,
     animated,

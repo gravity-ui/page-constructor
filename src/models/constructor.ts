@@ -1,5 +1,5 @@
-import React from 'react';
-import {Animatable, ThemedMediaProps, ConstructorItem, Block} from './';
+import React, {PropsWithChildren} from 'react';
+import {Animatable, ThemedMediaProps, ConstructorItem, Block, ReactFCC} from './';
 
 export interface PageData {
     content: PageContent;
@@ -39,7 +39,10 @@ export type FetchLoadableData<TData = LoadableData> = (
 export type ShouldRenderBlock = (block: ConstructorBlock, blockKey: string) => Boolean;
 export type OnInit = (data: InitConstrucorState) => void;
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type CustomItem = React.ComponentType<React.ComponentProps<React.ComponentClass<any>>>;
+type ComponentProps = React.ComponentProps<React.ComponentClass<any>>;
+export type CustomItem =
+    | ReactFCC<ComponentProps>
+    | React.ComponentType<PropsWithChildren<ComponentProps>>;
 export type CustomItems = Record<string, CustomItem>;
 
 export interface LoadableConfigItem {

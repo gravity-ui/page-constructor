@@ -1,5 +1,5 @@
 import React from 'react';
-import {ClassNameProps} from '../../../models';
+import {ClassNameProps, ReactFCC} from '../../../models';
 
 import {block} from '../../../utils';
 import ToggleArrow from '../../../components/ToggleArrow/ToggleArrow';
@@ -16,7 +16,7 @@ export interface ArrowProps {
     size?: number;
 }
 
-const Arrow: React.FunctionComponent<ArrowProps & ClassNameProps> = ({
+const Arrow: ReactFCC<ArrowProps & ClassNameProps> = ({
     type,
     handleClick,
     className,

@@ -2,7 +2,7 @@ import React, {useCallback, useContext} from 'react';
 import {Platform, Button as CommonButton, Icon, StoreBadge} from '@gravity-ui/uikit';
 
 import {block, setUrlTld} from '../../utils';
-import {ButtonProps as ButtonParams} from '../../models';
+import {ButtonProps as ButtonParams, ReactFCC} from '../../models';
 import {OldButtonSize, OldButtonTheme, toCommonSize, toCommonView} from './utils';
 import {LocaleContext} from '../../context/localeContext/localeContext';
 import {useMetrika} from '../../hooks/useMetrika';
@@ -18,7 +18,7 @@ export interface ButtonProps extends Omit<ButtonParams, 'url'> {
 
 const b = block('button-block');
 
-const Button: React.FunctionComponent<ButtonProps> = (props) => {
+const Button: ReactFCC<ButtonProps> = (props) => {
     const handleMetrika = useMetrika();
     const {lang, tld} = useContext(LocaleContext);
     const {

@@ -2,7 +2,7 @@ import React, {useContext} from 'react';
 import {Button} from '@gravity-ui/uikit';
 
 import {block, getThemedValue} from '../../utils';
-import {QuoteProps, AuthorType, ImageObjectProps} from '../../models';
+import {QuoteProps, AuthorType, ImageObjectProps, ReactFCC} from '../../models';
 
 import {Author, Image, HTML} from '../../components';
 import {ThemeValueContext} from '../../context/theme/ThemeValueContext';
@@ -11,7 +11,7 @@ import './Quote.scss';
 
 const b = block('quote');
 
-const Quote: React.FunctionComponent<QuoteProps> = (props) => {
+const Quote: ReactFCC<QuoteProps> = (props) => {
     const {
         theme: textTheme = 'light',
         color,

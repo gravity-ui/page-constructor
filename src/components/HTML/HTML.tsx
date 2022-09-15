@@ -1,12 +1,14 @@
 import React from 'react';
 
+import {ReactFCC} from '../../models';
+
 export interface HTMLProps {
     children?: string;
     block?: boolean;
     className?: string;
 }
 
-const HTML: React.FC<HTMLProps> = ({children, block = false, className}) => {
+const HTML: ReactFCC<HTMLProps> = ({children, block = false, className}) => {
     if (!children) {
         return null;
     }

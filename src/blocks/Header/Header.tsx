@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 
 import {block, getThemedValue} from '../../utils';
-import {ClassNameProps, HeaderBlockBackground, HeaderBlockProps} from '../../models';
+import {ClassNameProps, HeaderBlockBackground, HeaderBlockProps, ReactFCC} from '../../models';
 import {headerHasMediaBackground} from '../../models/guards';
 import {Button, Media, BackgroundMedia, BackgroundImage, RouterLink, HTML} from '../../components';
 import {Grid, Row, Col} from '../../grid';
@@ -21,7 +21,7 @@ interface BackgroundProps {
     background: HeaderBlockBackground;
 }
 
-const Background: React.FC<BackgroundProps> = ({background}) => {
+const Background: ReactFCC<BackgroundProps> = ({background}) => {
     const {url, color, disableCompress, fullWidth, fullWidthMedia} = background;
 
     return headerHasMediaBackground(background) ? (
@@ -44,14 +44,14 @@ interface FullWidthBackgroundProps {
     background: HeaderBlockBackground;
 }
 
-const FullWidthBackground: React.FC<FullWidthBackgroundProps> = ({background}) => (
+const FullWidthBackground: ReactFCC<FullWidthBackgroundProps> = ({background}) => (
     <div
         className={b('background', {['full-width']: true})}
         style={{backgroundColor: background?.color}}
     />
 );
 
-export const HeaderBlock: React.FunctionComponent<HeaderBlockFullProps> = (props) => {
+export const HeaderBlock: ReactFCC<HeaderBlockFullProps> = (props) => {
     const {
         title,
         overtitle,
