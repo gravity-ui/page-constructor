@@ -1,19 +1,22 @@
-import _ from 'lodash';
-
-import {filteredArray} from '../../schema/utils';
-import {BaseProps, LinkProps, ThemeProps, withTheme} from '../../schema/common';
-import {ButtonBlock} from '../../schema/v2/common';
+import {filteredArray} from '../../schema/validators/utils';
+import {
+    BaseProps,
+    LinkProps,
+    ThemeProps,
+    withTheme,
+    ButtonBlock,
+} from '../../schema/validators/common';
 import {ContentBase} from '../../components/Content/schema';
 
 const ContentProps = {
     additionalProperties: false,
-
     properties: _.omit(ContentBase, ['size', 'colSizes', 'theme']),
 };
 
 export const InfoBlock = {
     'info-block': {
         additionalProperties: false,
+        required: ['title', 'sectionsTitle'],
         properties: {
             ...BaseProps,
             title: {

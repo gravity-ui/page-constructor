@@ -3,7 +3,7 @@ import {Icon} from '@yandex-cloud/uikit';
 
 import {block, getLinkProps, setUrlTld} from '../../utils';
 import {LinkProps, TextSize, ClassNameProps} from '../../models';
-import chevron from '../../../assets/icons/navigation-chevron.svg';
+import {Chevron} from '../../icons';
 import FileLink from '../FileLink/FileLink';
 import BackLink from '../BackLink/BackLink';
 import {LocaleContext} from '../../context/localeContext/localeContext';
@@ -83,7 +83,7 @@ const LinkBlock: React.FunctionComponent<LinkFullProps> = (props) => {
                         {arrow && (
                             <Icon
                                 className={b('arrow')}
-                                data={chevron}
+                                data={Chevron}
                                 size={getArrowSize(textSize)}
                             />
                         )}

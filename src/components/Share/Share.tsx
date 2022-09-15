@@ -3,7 +3,7 @@ import React, {useContext} from 'react';
 import {ShareList, ShareSocialNetwork} from '@yandex-cloud/uikit';
 
 import {block, getAbsolutePath} from '../../utils';
-import {PCShareSocialNetwork, ShareProps} from '../../models';
+import {PCShareSocialNetwork} from '../../models';
 import {LocationContext} from '../../context/locationContext';
 import i18n from './i18n';
 
@@ -18,6 +18,11 @@ const pcShareSocialNetwork = {
     [PCShareSocialNetwork.Twitter]: ShareSocialNetwork.Twitter,
     [PCShareSocialNetwork.Facebook]: ShareSocialNetwork.Facebook,
 };
+
+export interface ShareProps {
+    items: PCShareSocialNetwork[];
+    title?: string;
+}
 
 const Share: React.FunctionComponent<ShareProps> = ({items, title}) => {
     const {pathname, hostname} = useContext(LocationContext);

@@ -1,0 +1,19 @@
+@import '../../../../../styles/variables.scss';
+
+$block: '.#{$ns}marked-list';
+
+#{$block} {
+    &__list-item {
+        display: flex;
+    }
+
+    &__text {
+        margin-left: 8px;
+    }
+
+    &__img {
+        margin-top: 5px;
+        height: fit-content;
+        content: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTMiIGhlaWdodD0iOSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxwYXRoIGQ9Ik0xLjUgNCA1IDcuNSAxMS41IDEiIHN0cm9rZT0iIzUyODJGRiIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPC9zdmc+Cg==');
+    }
+}

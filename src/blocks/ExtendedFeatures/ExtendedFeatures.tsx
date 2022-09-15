@@ -1,12 +1,9 @@
 import React from 'react';
-import {HTML} from '@doc-tools/components';
 
 import {block} from '../../utils';
 import {ExtendedFeaturesProps} from '../../models';
 import {Row, Col} from '../../grid';
-import Link from '../../components/Link/Link';
-import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
-import BlockHeader from '../../components/BlockHeader/BlockHeader';
+import {Link, HTML, AnimateBlock, BlockHeader} from '../../components/';
 
 import './ExtendedFeatures.scss';
 

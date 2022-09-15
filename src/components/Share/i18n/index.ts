@@ -1,14 +1,7 @@
-import {i18n} from '../../../i18n';
-import {Lang} from '../../../configure';
+import {registerKeyset} from '../../../utils/registerKeyset';
+import en from './en.json';
+import ru from './ru.json';
 
 const COMPONENT = 'Share';
 
-i18n.registerKeyset(Lang.En, COMPONENT, {
-    'constructor-share': 'Share',
-});
-
-i18n.registerKeyset(Lang.Ru, COMPONENT, {
-    'constructor-share': 'Поделиться',
-});
-
-export default i18n.keyset(COMPONENT);
+export default registerKeyset({en, ru}, COMPONENT);

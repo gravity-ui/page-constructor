@@ -1,0 +1,15 @@
+@import '../../../../../styles/variables.scss';
+
+$block: '.#{$ns}constructor-row';
+
+#{$block} {
+    &:last-child {
+        margin-bottom: -$contentLiftIndent;
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'sm')) {
+        &:last-child {
+            margin-bottom: -$contentLiftIndentMobile;
+        }
+    }
+}

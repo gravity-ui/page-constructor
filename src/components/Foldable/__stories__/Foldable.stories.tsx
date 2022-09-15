@@ -9,7 +9,11 @@ export default {
     title: `${COMPONENTS}/Foldable`,
 } as Meta;
 
-const DefaultTemplate: Story<FoldableProps> = (args) => <Foldable {...args}>Это children</Foldable>;
+const DefaultTemplate: Story<FoldableProps> = (args) => (
+    <Foldable {...args}>
+        <div>Это children</div>
+    </Foldable>
+);
 
 export const Default = DefaultTemplate.bind({});
 

@@ -1,6 +1,7 @@
 @import '../../../styles/variables';
 @import '../../../styles/mixins';
 @import '../../../styles/root';
+@import '../../../styles/yfm.scss';
 
 $block: '.#{$ns}page-constructor';
 
@@ -18,38 +19,6 @@ $block: '.#{$ns}page-constructor';
     &__background {
         @include add-specificity(&) {
             top: calc(-1 * var(--header-height));
-        }
-    }
-
-    &__row {
-        &:last-child {
-            margin-bottom: -$contentLiftIndent;
-        }
-    }
-
-    &__footnotes {
-        margin: 0;
-        padding: $indentM 0 $indentM $indentXS;
-
-        @include text-size(body-1);
-        color: var(--yc-color-text-hint);
-
-        &-item + &-item {
-            margin-top: $indentXXS;
-        }
-    }
-
-    &__menu-title {
-        color: var(--yc-color-text-primary);
-
-        font-weight: 500;
-    }
-
-    @media (max-width: map-get($gridBreakpoints, 'sm')) {
-        &__row {
-            &:last-child {
-                margin-bottom: -$contentLiftIndentMobile;
-            }
         }
     }
 }

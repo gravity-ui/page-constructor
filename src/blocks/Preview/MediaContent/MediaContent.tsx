@@ -1,10 +1,9 @@
 import React, {forwardRef, Fragment, useContext, useEffect, useState} from 'react';
-import {HTML} from '@doc-tools/components';
 
 import {block, getThemedValue} from '../../../utils';
 import {Col, GridColumnSize} from '../../../grid';
 import {PreviewItemProps, PreviewRatioMediaContent, Refable} from '../../../models';
-import YFMWrapper from '../../../components/YFMWrapper/YFMWrapper';
+import {YFMWrapper, HTML} from '../../../components/';
 import PreviewContent from './PreviewContent';
 import PreviewMedia from './PreviewMedia';
 import {ThemeValueContext} from '../../../context/theme/ThemeValueContext';

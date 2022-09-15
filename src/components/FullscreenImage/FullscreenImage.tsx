@@ -3,9 +3,7 @@ import {Icon, Modal} from '@yandex-cloud/uikit';
 
 import {block} from '../../utils';
 import Image, {ImageProps} from '../Image/Image';
-
-import closeIcon from '../../../assets/icons/preview-close.svg';
-import fullScreenIcon from '../../../assets/icons/full-screen.svg';
+import {PreviewClose, FullScreen} from '../../icons';
 
 import './FullScreenImage.scss';
 
@@ -48,7 +46,7 @@ const FullScreenImage: React.FunctionComponent<FullScreenImageProps> = ({
                     disableCompress={disableCompress}
                 />
                 <div className={b('icon-wrapper', {visible: isMouseEnter})} onClick={openModal}>
-                    <Icon data={fullScreenIcon} width={18} height={18} className={b('icon')} />
+                    <Icon data={FullScreen} width={18} height={18} className={b('icon')} />
                 </div>
             </div>
             {isOpened && (
@@ -56,7 +54,7 @@ const FullScreenImage: React.FunctionComponent<FullScreenImageProps> = ({
                     <div className={b('modal-content')}>
                         <div className={b('icon-wrapper', {visible: true})} onClick={closeModal}>
                             <Icon
-                                data={closeIcon}
+                                data={PreviewClose}
                                 width={30}
                                 height={30}
                                 className={b('icon', {hover: true})}

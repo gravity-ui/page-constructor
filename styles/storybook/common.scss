@@ -29,8 +29,7 @@
 }
 
 .pc-page-constructor {
+    --pc-first-block-mobile-indent: 32px;
+    --pc-first-block-indent: 64px;
     margin-bottom: 120px;
-    .pc-block-base:first-child {
-        margin-top: 0;
-    }
 }

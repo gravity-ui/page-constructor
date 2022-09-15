@@ -4,7 +4,6 @@ import React, {Fragment} from 'react';
 import Link, {LinkFullProps} from '../Link';
 import {Col, Row} from '../../../grid';
 import {BUTTONS_LINKS, COMPONENTS} from '../../../demo/constants';
-import Section from '../../Section/Section';
 
 export default {
     component: Link,
@@ -13,9 +12,9 @@ export default {
 
 const DefaultTemplate: Story<LinkFullProps> = (args) => <Link {...args} />;
 const DarkTemplate: Story<LinkFullProps> = (args) => (
-    <Section background={{color: '#3a74ff'}}>
+    <section style={{color: '#3a74ff'}}>
         <Link {...args} />
-    </Section>
+    </section>
 );
 const SizesTemplate: Story<LinkFullProps> = (args) => (
     <Row>

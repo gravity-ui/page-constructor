@@ -1,30 +1,7 @@
-export * from './pixel';
-export * from './utils';
-
-// deprecated
-import {
-    buttonBlock,
-    containerBlock,
-    dividerBlock,
-    featuresBlock,
-    formBlock,
-    headerBlock,
-    imageBlock,
-    linkBlock,
-    scrollableBlock,
-    sectionBlock,
-    shareBlock,
-    tableBlock,
-    tabsBlock,
-    textBlock,
-    tilesBlock,
-    titleBlock,
-} from './v1';
+export {validators} from './validators';
+export type {ObjectSchema} from './validators/utils';
 
 import {
-    CardBlock,
-    PartnerBlock,
-    MediaCardBlock,
     TabsBlock,
     BannerCard,
     SliderBlock,
@@ -41,21 +18,27 @@ import {
     LinkTableBlock,
     PromoFeaturesBlock,
     PreviewBlock,
-    PriceDetailedBlock,
+    ContentLayoutBlock,
     HeaderSliderBlock,
     IconsBlock,
     CardLayoutBlock,
+} from './validators/blocks';
+
+import {
+    CardBlock,
+    PartnerBlock,
+    MediaCardBlock,
     TutorialCard,
-    BasicCard,
     BackgroundCard,
     NewsCard,
     CardWithImage,
-    ContentLayoutBlock,
+    PriceDetailedBlock,
     Quote,
-} from './v2';
+    Divider,
+} from './validators/sub-blocks';
 
-import {AnimatableProps, BackgroundProps, MenuProps, withTheme} from './common';
-import {filteredItem} from './utils';
+import {AnimatableProps, BackgroundProps, MenuProps, withTheme} from './validators/common';
+import {filteredItem} from './validators/utils';
 
 export type SchemaBlock = object;
 export interface SchemaCustomConfig {
@@ -84,23 +67,7 @@ export function generateDefaultSchema(config?: SchemaCustomConfig) {
                     type: {
                         type: 'string',
                         enum: [
-                            'header',
-                            'text',
-                            'section',
-                            'container',
-                            'button',
-                            'foldable',
-                            'image',
-                            'share',
-                            'title',
                             'divider',
-                            'features',
-                            'tabs',
-                            'link',
-                            'table',
-                            'scrollable',
-                            'tiles',
-                            'form',
                             'card',
                             'quote',
                             'event',
@@ -132,25 +99,6 @@ export function generateDefaultSchema(config?: SchemaCustomConfig) {
                 },
                 select: {$data: '0/type'},
                 selectCases: {
-                    // Blocks v1
-                    ...headerBlock,
-                    ...textBlock,
-                    ...titleBlock,
-                    ...imageBlock,
-                    ...linkBlock,
-                    ...buttonBlock,
-                    ...shareBlock,
-                    ...tableBlock,
-                    ...featuresBlock,
-                    ...dividerBlock,
-                    ...scrollableBlock,
-                    ...containerBlock,
-                    ...sectionBlock,
-                    ...tabsBlock,
-                    ...tilesBlock,
-                    ...formBlock,
-
-                    // Blocks v2
                     ...TabsBlock,
                     ...SliderBlock,
                     ...ExtendedFeaturesBlock,
@@ -170,6 +118,7 @@ export function generateDefaultSchema(config?: SchemaCustomConfig) {
                     ...IconsBlock,
                     ...CardLayoutBlock,
                     ...ContentLayoutBlock,
+                    ...Divider,
                     ...getBlocksCases(blocks),
                 },
             }),
@@ -209,7 +158,6 @@ export function generateDefaultSchema(config?: SchemaCustomConfig) {
                     ...NewsCard,
                     ...CardWithImage,
                     ...Quote,
-                    ...BasicCard,
                     ...getBlocksCases(cards),
                 },
             }),

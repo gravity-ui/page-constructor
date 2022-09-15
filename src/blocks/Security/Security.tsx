@@ -1,13 +1,9 @@
 import React from 'react';
-import {HTML} from '@doc-tools/components';
 
 import {block} from '../../utils';
 import {SecurityBlockProps} from '../../models';
-import FullWidthBackground from '../../components/FullWidthBackground/FullWidthBackground';
+import {FullWidthBackground, HTML, Media, Link, AnimateBlock} from '../../components';
 import {Grid, Row, Col} from '../../grid';
-import Link from '../../components/Link/Link';
-import Media from '../../components/Media/Media';
-import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
 
 import './Security.scss';
 

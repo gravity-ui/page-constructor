@@ -1,14 +1,9 @@
 import React, {useContext} from 'react';
-import {HTML} from '@doc-tools/components';
 
 import {block, getThemedValue} from '../../utils';
-import {Button, Media, BackgroundMedia, BackgroundImage, RouterLink} from '../../components';
-import {
-    HeaderBlockBackground,
-    HeaderBlockProps,
-    headerHasMediaBackground,
-    ClassNameProps,
-} from '../../models';
+import {ClassNameProps, HeaderBlockBackground, HeaderBlockProps} from '../../models';
+import {headerHasMediaBackground} from '../../models/guards';
+import {Button, Media, BackgroundMedia, BackgroundImage, RouterLink, HTML} from '../../components';
 import {Grid, Row, Col} from '../../grid';
 import {getImageSize, getTitleSizes, titleWithImageSizes} from './utils';
 

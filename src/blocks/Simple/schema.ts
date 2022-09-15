@@ -1,5 +1,9 @@
-import {BlockBaseProps, TitleProps} from '../../schema/v2/common';
-import {AnimatableProps, ChildrenProps} from '../../schema/common';
+import {
+    BlockBaseProps,
+    TitleProps,
+    AnimatableProps,
+    ChildrenProps,
+} from '../../schema/validators/common';
 
 export const SimpleBlock = {
     'simple-block': {

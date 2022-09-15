@@ -4,7 +4,6 @@ import React, {Fragment} from 'react';
 import Button, {ButtonProps} from '../Button';
 import {PixelEventType} from '../../../models';
 import {Col, Row} from '../../../grid';
-import Section from '../../Section/Section';
 import {BUTTONS_LINKS, COMPONENTS} from '../../../demo/constants';
 
 export default {
@@ -55,10 +54,10 @@ const ThemesSizesTemplate: Story<ButtonProps> = (args) => (
         <SizesTemplate {...args} theme="flat-danger" />
         <SizesTemplate {...args} theme="flat-secondary" />
         <SizesTemplate {...args} theme="normal-contrast" />
-        <Section background={{color: '#3a74ff'}}>
+        <section style={{color: '#3a74ff'}}>
             <SizesTemplate {...args} theme="outlined-contrast" />
             <SizesTemplate {...args} theme="flat-contrast" />
-        </Section>
+        </section>
     </Fragment>
 );
 

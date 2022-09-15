@@ -1,6 +1,7 @@
 import {useContext} from 'react';
 import {MetrikaContext} from '../context/metrikaContext';
-import {ButtonPixel, MetrikaGoal, isNewMetrikaFormat, PixelEventType, PixelEvent} from '../models';
+import {ButtonPixel, MetrikaGoal, PixelEventType, PixelEvent} from '../models';
+import {isNewMetrikaFormat} from '../models/guards';
 
 function isButtonPixel(
     pixelEvents: string | string[] | PixelEvent | PixelEvent[] | ButtonPixel,

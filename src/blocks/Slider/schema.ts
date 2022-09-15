@@ -1,10 +1,11 @@
-import {BlockBaseProps, TitleProps} from '../../schema/v2/common';
 import {
+    BlockBaseProps,
+    TitleProps,
     AnimatableProps,
     ChildrenCardsProps,
     sliderSizesObject,
     textSize,
-} from '../../schema/common';
+} from '../../schema/validators/common';
 
 const LoadableProps = {
     additionalProperties: false,
@@ -14,10 +15,24 @@ const LoadableProps = {
             type: 'string',
             enum: ['events', 'blog', 'services'],
         },
+        /**
+         * @deprecated
+         */
         minCount: {
-            type: 'number', //deprecated
+            type: 'number',
         },
+        /**
+         * @deprecated Will be moved to params
+         */
         serviceId: {type: 'number'},
+        params: {
+            type: 'object',
+            patternProperties: {
+                '.*': {
+                    type: ['string', 'number', 'boolean'],
+                },
+            },
+        },
     },
 };
 

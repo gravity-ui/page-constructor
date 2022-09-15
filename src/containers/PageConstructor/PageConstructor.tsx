@@ -1,40 +1,38 @@
-import React, {ReactElement, ReactNode} from 'react';
+import React, {useMemo} from 'react';
 import _ from 'lodash';
 
 import {
     Block,
-    BlockV2,
     ShouldRenderBlock,
-    BlockV2Types,
     HeaderBlockTypes,
     CustomConfig,
-    BlockType,
-    LoadableConfigItem,
     PageContent,
-    CustomBlocks,
+    CustomItems,
+    BlockTypes,
 } from '../../models';
-import componentMap from '../../componentMap';
-import Loadable from '../Loadable/Loadable';
-import {Col, Grid, Row} from '../../grid';
-import BlockBase from '../../components/BlockBase/BlockBase';
+import {blockMap, subBlockMap} from '../../constructor-items';
+import {Grid} from '../../grid';
 import BackgroundMedia from '../../components/BackgroundMedia/BackgroundMedia';
-import YFMWrapper from '../../components/YFMWrapper/YFMWrapper';
 import {
-    getBlockKey,
-    getCustomBlockV2Types,
-    getCustomComponents,
-    getCustomHeaderTypes,
     block as cnBlock,
+    getCustomBlockTypes,
+    getCustomHeaderTypes,
     getThemedValue,
+    getCustomItems,
 } from '../../utils';
 import {withThemeValue, WithThemeValueProps} from '../../context/theme/withThemeValue';
 import {AnimateContext} from '../../context/animateContext';
+import {InnerContext} from '../../context/innerContext';
+import {ConstructorRow} from './components/ConstructorRow';
+import {ConstructorFootnotes} from './components/ConstructorFootnotes';
+import {ConstructorHeader} from './components/ConstructorItem';
+import {ConstructorBlocks} from './components/ConstructorBlocks';
 
 import './PageConstructor.scss';
-import '../../../styles/yfm.scss';
 
 const b = cnBlock('page-constructor');
 
+export type ItemMap = typeof blockMap & typeof subBlockMap & CustomItems;
 export interface PageConstructorProps {
     content?: PageContent;
     shouldRenderBlock?: ShouldRenderBlock;
@@ -44,190 +42,63 @@ export interface PageConstructorProps {
 
 type Props = PageConstructorProps & WithThemeValueProps;
 
-export type FullComponentsMap = typeof componentMap & CustomBlocks;
+export const Constructor: React.FC<Props> = (props) => {
+    const {context, headerBlockTypes} = useMemo(
+        () => ({
+            context: {
+                blockTypes: [...BlockTypes, ...getCustomBlockTypes(props.custom)],
+                itemMap: {
+                    ...blockMap,
+                    ...subBlockMap,
+                    ...getCustomItems(props.custom),
+                },
+                loadables: props?.custom?.loadable,
+            },
+            headerBlockTypes: [...HeaderBlockTypes, ...getCustomHeaderTypes(props.custom)],
+        }),
+        [props.custom],
+    );
 
-type RenderLoadableParams = {
-    block: Block;
-    blockKey: string;
-    config: LoadableConfigItem;
-    serviceId?: number;
-};
+    const {
+        content: {blocks = [], background = {}, footnotes = []} = {},
+        renderMenu,
+        themeValue: theme,
+        shouldRenderBlock,
+    } = props;
 
-class Constructor extends React.Component<Props> {
-    fullComponentsMap: FullComponentsMap = {
-        ...componentMap,
-        ...getCustomComponents(this.props.custom),
-    };
-    fullBlockV2Types = [...BlockV2Types, ...getCustomBlockV2Types(this.props.custom)];
-    fullHeaderBlockTypes = [...HeaderBlockTypes, ...getCustomHeaderTypes(this.props.custom)];
+    const hasFootnotes = footnotes.length > 0;
+    const isHeaderBlock = (block: Block) => headerBlockTypes.includes(block.type);
+    const header = blocks?.find(isHeaderBlock);
+    const restBlocks = blocks?.filter((block) => !isHeaderBlock(block));
+    const themedBackground = getThemedValue(background, theme);
 
-    render() {
-        const {
-            content: {blocks = [], background = {}, footnotes = []} = {},
-            renderMenu,
-            themeValue: theme,
-        } = this.props;
-
-        const hasFootnotes = footnotes.length > 0;
-        const header = blocks?.find(this.isHeaderBlock);
-        const restBlocks = blocks?.filter((block: Block) => !this.isHeaderBlock(block));
-        const themedBackground = getThemedValue(background, theme);
-
-        return (
-            <div className={b({'has-footnotes': hasFootnotes})}>
+    return (
+        <InnerContext.Provider value={context}>
+            <div className={b()}>
                 <div className={b('wrapper')}>
                     <BackgroundMedia {...themedBackground} className={b('background')} />
                     {renderMenu && renderMenu()}
-                    {header && this.renderHeader(header)}
-                    <Grid className={b('grid')}>
-                        {restBlocks && this.renderRow(this.renderBlocks(restBlocks))}
-                        {hasFootnotes && this.renderRow(this.renderFootnotes(footnotes))}
+                    {header && <ConstructorHeader data={header} />}
+                    <Grid>
+                        {restBlocks && (
+                            <ConstructorRow>
+                                <ConstructorBlocks
+                                    items={restBlocks}
+                                    shouldRenderBlock={shouldRenderBlock}
+                                />
+                            </ConstructorRow>
+                        )}
+                        {hasFootnotes && (
+                            <ConstructorRow>
+                                <ConstructorFootnotes items={footnotes} />
+                            </ConstructorRow>
+                        )}
                     </Grid>
                 </div>
             </div>
-        );
-    }
-
-    private renderHeader = (header: Block) =>
-        this.renderBlock(
-            header,
-            header.type,
-            header.type === BlockType.Header && header.children
-                ? this.renderBlocks(header.children)
-                : undefined,
-        );
-
-    private renderRow(content: ReactNode) {
-        return (
-            content && (
-                <Row className={b('row')}>
-                    <Col className={b('col')}>{content}</Col>
-                </Row>
-            )
-        );
-    }
-
-    private isExistBlock(block: Block) {
-        return Boolean(this.fullComponentsMap[block.type]);
-    }
-
-    private renderBlocks(blocks: Block[]) {
-        const renderer = (block: Block, index: number): ReactElement | null => {
-            if (!this.isExistBlock(block)) {
-                return null;
-            }
-
-            let children;
-            let blockElement;
-            const blockKey = getBlockKey(block, index);
-
-            if ('loadable' in block && block.loadable) {
-                const {source, serviceId} = block.loadable;
-                const config: LoadableConfigItem = _.get(this.props, `custom.loadable[${source}]`);
-                if (!config) {
-                    return null;
-                }
-
-                blockElement = this.renderLoadable({block, blockKey, config, serviceId});
-            } else {
-                if ('children' in block && block.children) {
-                    children = block.children.map(renderer);
-                }
-
-                blockElement = this.renderBlock(block, blockKey, children);
-            }
-
-            return this.isV2Block(block)
-                ? this.renderV2Block(block, blockKey, blockElement)
-                : blockElement;
-        };
-
-        return blocks.map(renderer);
-    }
-
-    private renderBlock = (block: Block, blockKey: string, children?: (ReactElement | null)[]) => {
-        const {type, ...rest} = block;
-        const components = this.fullComponentsMap;
-        const Component = components[type] as React.ComponentType<
-            React.ComponentProps<typeof components[typeof type]>
-        >;
-
-        return (
-            <Component key={blockKey} {...rest}>
-                {children}
-            </Component>
-        );
-    };
-
-    private renderV2Block(block: BlockV2, blockKey: string, Component: ReactElement) {
-        const {shouldRenderBlock} = this.props;
-        const {anchor, visible} = block;
-
-        if (shouldRenderBlock && !shouldRenderBlock(block, blockKey)) {
-            return null;
-        }
-
-        return (
-            <BlockBase
-                className={b('block', {type: block.type})}
-                key={blockKey}
-                anchor={anchor}
-                visible={visible}
-                resetPaddings={block.resetPaddings}
-            >
-                {Component}
-            </BlockBase>
-        );
-    }
-
-    private renderLoadable(params: RenderLoadableParams) {
-        const {block, blockKey, config, serviceId} = params;
-        const {type} = block;
-        const {fetch, component: ChildComponent} = config;
-        const components = this.fullComponentsMap;
-        const Component = components[type] as React.ComponentType<
-            React.ComponentProps<typeof components[typeof type]>
-        >;
-
-        return (
-            <Loadable
-                key={blockKey}
-                block={block}
-                blockKey={blockKey}
-                Component={Component}
-                ChildComponent={ChildComponent}
-                fetch={fetch}
-                serviceId={serviceId}
-            />
-        );
-    }
-
-    private renderFootnotes(footnotes: string[]) {
-        return (
-            <ol className={b('footnotes')}>
-                {footnotes.map((footnote, index) => (
-                    <li className={b('footnotes-item')} key={index}>
-                        <YFMWrapper
-                            content={footnote}
-                            modifiers={{
-                                constructor: true,
-                                constructorFootnotePage: true,
-                            }}
-                        />
-                    </li>
-                ))}
-            </ol>
-        );
-    }
-
-    private isHeaderBlock = (block: Block) => {
-        return this.fullHeaderBlockTypes.includes(block.type);
-    };
-
-    private isV2Block(block: Block): block is BlockV2 {
-        return this.fullBlockV2Types.includes(block.type);
-    }
-}
+        </InnerContext.Provider>
+    );
+};
 
 const ThemedConstructor = withThemeValue(Constructor);
 

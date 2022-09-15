@@ -1,0 +1,33 @@
+import React, {useContext} from 'react';
+
+import Loadable, {LoadableComponentsProps} from '../../../Loadable/Loadable';
+import {LoadableConfigItem} from '../../../../models';
+import {InnerContext} from '../../../../context/innerContext';
+
+interface ConstructorLoadableProps
+    extends Omit<LoadableComponentsProps, 'Component' | 'ChildComponent' | 'fetch'> {
+    config: LoadableConfigItem;
+}
+
+export const ConstructorLoadable: React.FC<ConstructorLoadableProps> = (props) => {
+    const {itemMap} = useContext(InnerContext);
+    const {block, blockKey, config, serviceId, params} = props;
+    const {type} = block;
+    const {fetch, component: ChildComponent} = config;
+    const Component = itemMap[type] as React.ComponentType<
+        React.ComponentProps<typeof itemMap[typeof type]>
+    >;
+
+    return (
+        <Loadable
+            key={blockKey}
+            block={block}
+            blockKey={blockKey}
+            Component={Component}
+            ChildComponent={ChildComponent}
+            fetch={fetch}
+            serviceId={serviceId}
+            params={params}
+        />
+    );
+};

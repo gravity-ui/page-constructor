@@ -1,6 +1,12 @@
-import {ImageProps, VideoProps, withTheme} from '../../schema/common';
-import {BlockBaseProps, ButtonBlock, MediaProps} from '../../schema/v2/common';
-import {filteredArray} from '../../schema/utils';
+import {
+    ImageProps,
+    VideoProps,
+    withTheme,
+    BlockBaseProps,
+    ButtonBlock,
+    MediaProps,
+} from '../../schema/validators/common';
+import {filteredArray} from '../../schema/validators/utils';
 
 const HeaderMedia = {
     type: 'object',

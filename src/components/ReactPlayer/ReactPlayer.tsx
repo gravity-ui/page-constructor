@@ -25,8 +25,7 @@ import CustomBarControls from './CustomBarControls';
 import {VideoContext} from '../../context/videoContext';
 import {MetrikaContext} from '../../context/metrikaContext';
 import {MobileContext} from '../../context/mobileContext';
-
-import playVideoIcon from '../../../assets/icons/play-video.svg';
+import {PlayVideo} from '../../icons';
 
 import './ReactPlayer.scss';
 
@@ -157,9 +156,7 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
                     break;
                 case PlayButtonType.Default:
                 default:
-                    playButtonContent = (
-                        <Icon className={b('icon')} data={playVideoIcon} size={24} />
-                    );
+                    playButtonContent = <Icon className={b('icon')} data={PlayVideo} size={24} />;
                     break;
             }
 

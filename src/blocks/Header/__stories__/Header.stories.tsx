@@ -267,7 +267,7 @@ ThemeDark.args = {
     type: BlockType.HeaderBlock,
     title: 'Партнёрская программа Yandex Cloud Professionals',
     description: yfm(
-        'Продавайте сервисы Yandex.Cloud и ежемесячно получайте партнёрскую премию от 12% до 20% потребления ваших клиентов. Получайте гранты для знакомства с сервисами Yandex.Cloud или для проведения пилотных проектов ваших клиентов.',
+        'Marketplace в консоли управления Managed Service for Kubernetes^®^ теперь доступен всем пользователям платформы.',
     ).result.html,
     width: 's',
     verticalOffset: 'm',

@@ -3,9 +3,9 @@ import React from 'react';
 in your project via global 'yfm' class */
 import block from 'bem-cn-lite';
 import toSnakeCase from 'snakecase-keys';
-import {HTML} from '@doc-tools/components';
 
 import {Modifiers, ClassNameProps} from '../../models';
+import {HTML} from '../../components';
 
 const yfm = block('yfm');
 

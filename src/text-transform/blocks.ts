@@ -3,6 +3,7 @@ import {
     Block,
     BlockType,
     CardProps,
+    SubBlockType,
     ContentBlockProps,
     ExtendedFeaturesItem,
     PriceDetailedProps,
@@ -12,8 +13,8 @@ import {
     SliderProps,
     TableProps,
     TitleProps,
-} from '../models/blocks';
-import {Lang} from '../models/common';
+} from '../models';
+import {Lang} from '../utils/configure';
 import {ConstructorBlock} from '../models/constructor';
 import {fullTransform, typografToHTML} from './utils';
 
@@ -55,10 +56,6 @@ function parseTableBlock(transformer: Transformer, content: TableProps) {
         ...(content || {}),
         legend: legend && legend.map((string) => transformer(string)),
     };
-}
-
-function parseTable(transformer: Transformer, content: string[][]) {
-    return content.map((row) => row.map((cell) => transformer(cell)));
 }
 
 function parseFeatures(transformer: Transformer, items: ExtendedFeaturesItem[]) {
@@ -178,38 +175,11 @@ interface BlockConfig {
 type BlocksConfig = Record<string, BlockConfig | BlockConfig[]>;
 
 const config: BlocksConfig = {
-    [BlockType.Text]: {
-        fields: ['text', 'folded'],
-        transformer: yfmTransformer,
-    },
-    [BlockType.Title]: {
+    [SubBlockType.Partner]: {
         fields: ['text'],
         transformer: typografTransformer,
     },
-    [BlockType.Features]: {
-        fields: ['items'],
-        transformer: yfmTransformer,
-        parser: parseItems,
-    },
-    [BlockType.Header]: {
-        fields: ['title', 'subtitle'],
-        transformer: typografTransformer,
-    },
-    [BlockType.Tiles]: {
-        fields: ['items'],
-        transformer: typografTransformer,
-        parser: parseItems,
-    },
-    [BlockType.Table]: {
-        fields: ['content'],
-        transformer: typografTransformer,
-        parser: parseTable,
-    },
-    [BlockType.Partner]: {
-        fields: ['text'],
-        transformer: typografTransformer,
-    },
-    [BlockType.BasicCard]: [
+    [SubBlockType.BasicCard]: [
         {
             fields: ['title'],
             transformer: typografTransformer,
@@ -219,11 +189,11 @@ const config: BlocksConfig = {
             transformer: yfmTransformer,
         },
     ],
-    [BlockType.TutorialCard]: {
+    [SubBlockType.TutorialCard]: {
         fields: ['text', 'title'],
         transformer: typografTransformer,
     },
-    [BlockType.BackgroundCard]: [
+    [SubBlockType.BackgroundCard]: [
         {
             fields: ['text', 'additionalInfo'],
             transformer: yfmTransformer,
@@ -233,7 +203,7 @@ const config: BlocksConfig = {
             transformer: typografTransformer,
         },
     ],
-    [BlockType.CardWithImage]: [
+    [SubBlockType.CardWithImage]: [
         {
             fields: ['description', 'additionalInfo'],
             transformer: yfmTransformer,
@@ -243,11 +213,11 @@ const config: BlocksConfig = {
             transformer: typografTransformer,
         },
     ],
-    [BlockType.Quote]: {
+    [SubBlockType.Quote]: {
         fields: ['text'],
         transformer: typografTransformer,
     },
-    [BlockType.Card]: {
+    [SubBlockType.Card]: {
         transformer: yfmTransformer,
         parser: parseCard,
     },
@@ -276,11 +246,22 @@ const config: BlocksConfig = {
         transformer: typografTransformer,
         parser: parseSlider,
     },
-    [BlockType.QuestionsBlock]: {
-        fields: ['items'],
-        transformer: yfmTransformer,
-        parser: parseFeatures,
-    },
+    [BlockType.QuestionsBlock]: [
+        {
+            fields: ['title'],
+            transformer: typografTransformer,
+        },
+        {
+            fields: ['text', 'additionalInfo'],
+            transformer: yfmTransformer,
+        },
+        {
+            fields: ['items'],
+            transformer: yfmTransformer,
+            parser: parseFeatures,
+        },
+    ],
+
     [BlockType.BannerBlock]: [
         {
             fields: ['title'],
@@ -291,7 +272,7 @@ const config: BlocksConfig = {
             transformer: yfmTransformer,
         },
     ],
-    [BlockType.BannerCard]: [
+    [SubBlockType.BannerCard]: [
         {
             fields: ['title'],
             transformer: typografTransformer,
@@ -348,7 +329,7 @@ const config: BlocksConfig = {
             transformer: yfmTransformer,
         },
     ],
-    [BlockType.PriceDetailed]: [
+    [SubBlockType.PriceDetailed]: [
         {
             transformer: yfmTransformer,
             parser: parsePriceDetailedBlock,
@@ -372,7 +353,7 @@ const config: BlocksConfig = {
             parser: parseContentLayoutTitle,
         },
     ],
-    [BlockType.Content]: [
+    [SubBlockType.Content]: [
         {
             fields: ['text', 'additionalInfo'],
             transformer: yfmTransformer,

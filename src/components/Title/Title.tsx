@@ -1,10 +1,9 @@
 import React, {Fragment, ReactNode, useContext} from 'react';
 import {block, getHeaderTag, getLinkProps} from '../../utils';
-import {HTML} from '@doc-tools/components';
 
 import {TextSize, TitleProps} from '../../models';
 import Anchor from '../Anchor/Anchor';
-import ToggleArrow from '../ToggleArrow/ToggleArrow';
+import {ToggleArrow, HTML} from '../';
 import {LocationContext} from '../../context/locationContext';
 import {MobileContext} from '../../context/mobileContext';
 

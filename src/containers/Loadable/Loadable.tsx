@@ -2,7 +2,7 @@ import React, {useState, useEffect, useCallback} from 'react';
 import {Spin} from '@yandex-cloud/uikit';
 import blockCn from 'bem-cn-lite';
 
-import {Block, FetchLoadableData, LoadableData} from '../../models';
+import {Block, FetchLoadableData, LoadableData, LoadableProps} from '../../models';
 import ErrorWrapper from '../../components/ErrorWrapper/ErrorWrapper';
 import i18n from './i18n';
 
@@ -16,13 +16,12 @@ export interface LoadableState {
     data?: LoadableData;
 }
 
-interface LoadableComponentsProps {
+export interface LoadableComponentsProps extends Omit<LoadableProps, 'source'> {
     Component: React.ComponentType;
     ChildComponent: React.ComponentType;
     block: Block;
     blockKey: string;
     fetch: FetchLoadableData;
-    serviceId?: number;
 }
 
 const initData = {
@@ -31,7 +30,7 @@ const initData = {
 };
 
 const Loadable: React.FC<LoadableComponentsProps> = (props) => {
-    const {Component, ChildComponent, fetch, block, blockKey, serviceId} = props;
+    const {Component, ChildComponent, fetch, block, blockKey, serviceId, params} = props;
     const [dataState, setDataState] = useState<LoadableState>(initData);
     const [refetchIndex, setRefetchIndex] = useState<number>(0);
     const onTryAgain = useCallback(() => {
@@ -45,7 +44,7 @@ const Loadable: React.FC<LoadableComponentsProps> = (props) => {
             let data, error;
 
             try {
-                data = await fetch({blockKey, serviceId});
+                data = await fetch({blockKey, serviceId, ...(params ?? {})});
                 error = false;
 
                 setDataState({data, loading: false, error});
@@ -56,7 +55,7 @@ const Loadable: React.FC<LoadableComponentsProps> = (props) => {
         }
 
         processData();
-    }, [refetchIndex, fetch, blockKey, serviceId]);
+    }, [refetchIndex, fetch, blockKey, serviceId, params]);
 
     const {error, loading, data} = dataState;
 
