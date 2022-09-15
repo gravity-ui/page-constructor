@@ -33,12 +33,12 @@
 На данный момент поддерживаются следующие блоки:
 
 - `Quote` - цитата
-- [`BasicCard` - основная карточка](?path=/story/компоненты-карточки-basiccard--default&viewMode=docs)
+- [`BasicCard` - основная карточка](?path=/story/components-cards-basiccard--default&viewMode=docs)
 - [`Banner` - баннер](?path=/story/блоки-banner--default&viewMode=docs)
-- [`Partner` - карточка партнера](?path=/story/компоненты-карточки-partner--default&viewMode=docs)
-- [`Price Detailed` - тарифы](?path=/story/компоненты-карточки-pricedetailed--marked-list&viewMode=docs)
-- [`BackgroundCard` - карточка с бэкграундом](?path=/story/компоненты-карточки-backgroundcard--default&viewMode=docs)
-- [`CardWithImage` - карточка с фотографией над заголовком](?path=/story/компоненты-карточки-cardwithimage--default&viewMode=docs)
+- [`Partner` - карточка партнера](?path=/story/components-cards-partner--default&viewMode=docs)
+- [`Price Detailed` - тарифы](?path=/story/components-cards-pricedetailed--marked-list&viewMode=docs)
+- [`BackgroundCard` - карточка с бэкграундом](?path=/story/components-cards-backgroundcard--default&viewMode=docs)
+- [`CardWithImage` - карточка с фотографией над заголовком](?path=/story/components-cards-cardwithimage--default&viewMode=docs)
 - [`MediaCard` - карточка с картинкой](?path=/story/блоки-media--default&viewMode=docs)
-- [`NewsCard` - карточка новостей](?path=/story/компоненты-карточки-newscard--default&viewMode=docs)
-- [`TutorialCard` - карточка с иконкой](?path=/story/компоненты-карточки-tutorialcard--default&viewMode=docs)
+- [`NewsCard` - карточка новостей](?path=/story/components-cards-newscard--default&viewMode=docs)
+- [`TutorialCard` - карточка с иконкой](?path=/story/components-cards-tutorialcard--default&viewMode=docs)
