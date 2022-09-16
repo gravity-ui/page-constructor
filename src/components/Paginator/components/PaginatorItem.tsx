@@ -5,7 +5,7 @@ import {Button} from '@yandex-cloud/uikit';
 
 import {ArrowType, PaginatorItemProps} from '../types';
 
-import './PaginatorBlog.scss';
+import '../Paginator.scss';
 
 const b = block('PaginatorBlog');
 

@@ -11,7 +11,7 @@ import {BlogMetrikaGoalIds} from '../../constants';
 
 import {getFeedQueryParams, scrollBlogOnPageChange} from '../../utils/blog';
 
-import FeedHeader from 'units/blog/components/FeedHeader/FeedHeaderContainer';
+import {FeedHeader} from '../../components/FeedHeader/FeedHeader';
 import {PostsError} from '../../components/PostsError/PostsError';
 import {Posts} from '../../components/Posts/Posts';
 
@@ -28,15 +28,17 @@ type BlogFeedProps = {
 
 const containerId = 'blog-cards';
 
-export const BlogFeedBlock: React.FC<BlogFeedProps> = ({image}) => {
+export const BlogFeed: React.FC<BlogFeedProps> = ({image}) => {
     const {posts, totalCount, tags, services, pinnedPost, setQueryParams, getBlogPosts} =
         useContext(BlogFeedContext);
     const {locale} = useContext(LocaleContext);
     const router = useContext(RouterContext);
-    const pageInQuery = router.query.page ? Number(router.query.page) : DEFAULT_PAGE;
-    const perPageInQuery = router.query.perPage
+
+    const pageInQuery = router?.query?.page ? Number(router.query.page) : DEFAULT_PAGE;
+    const perPageInQuery = router?.query?.perPage
         ? Number(router.query.perPage)
         : DEFAULT_BLOG_ROWS_PER_PAGE;
+
     const [
         {
             errorLoad,

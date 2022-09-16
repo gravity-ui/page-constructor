@@ -76,6 +76,7 @@ export enum BlockType {
     BlogAuthorBlock = 'blog-author-block',
     BlogSuggestBlock = 'blog-suggest-block',
     BlogMetaBlock = 'blog-meta-block',
+    BlogFeedBlock = 'blog-feed-block',
 }
 
 export interface BlogMetaProps {

@@ -50,7 +50,7 @@ export const BlogFeedControls: React.FC<BlogFeedControlsProps> = ({
         search: searchInitial,
         tags: tagInitial,
         services: servicesInitial,
-    } = router.query;
+    } = router?.query || {};
 
     const [savedOnly, setSavedOnly] = useState<boolean>(savedOnlyInitial === 'true');
     const [search, setSearch] = useState<string>(searchInitial as string);
