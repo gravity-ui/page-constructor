@@ -1,10 +1,13 @@
+// script parses story args dump from local storage
+
 const fs = require('fs');
 const { map, result } = require('lodash');
 const path = require('path');
 
+const DUMP_FILE = 'storage-dump';
 const RESULT_DIR = 'stories-content';
 
-const fileContent = fs.readFileSync(path.join(__dirname, 'storage-dump'), 'utf-8');
+const fileContent = fs.readFileSync(path.join(__dirname, DUMP_FILE), 'utf-8');
 const fileJSON = JSON.parse(fileContent);
 const storiesFiles = Object.entries(fileJSON).reduce((result, [key, value]) => {
     const {fileName, ...rest} = JSON.parse(value);
