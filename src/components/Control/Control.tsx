@@ -3,7 +3,6 @@ import {Icon} from '@gravity-ui/uikit';
 import {SVGIconData} from '@gravity-ui/uikit/build/esm/components/Icon/types';
 
 import {block} from '../../utils';
-import {ReactFCC} from '../../models';
 
 import './Control.scss';
 
@@ -19,7 +18,7 @@ export interface ControlProps {
     onClick?: (event: React.MouseEvent) => void;
 }
 
-const Control: ReactFCC<ControlProps> = (props) => {
+const Control = (props: ControlProps) => {
     const {
         icon,
         theme = 'primary',

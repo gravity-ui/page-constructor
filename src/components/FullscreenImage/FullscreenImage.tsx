@@ -2,7 +2,6 @@ import React, {useState, useCallback, CSSProperties} from 'react';
 import {Icon, Modal} from '@gravity-ui/uikit';
 
 import {block} from '../../utils';
-import {ReactFCC} from '../../models';
 import Image, {ImageProps} from '../Image/Image';
 import {PreviewClose, FullScreen} from '../../icons';
 
@@ -16,14 +15,14 @@ export interface FullScreenImageProps extends ImageProps {
 
 const b = block('FullScreenImage');
 
-const FullScreenImage: ReactFCC<FullScreenImageProps> = ({
+const FullScreenImage = ({
     src,
     alt,
     imageClassName,
     disableCompress,
     modalImageClass,
     imageStyle,
-}) => {
+}: FullScreenImageProps) => {
     const [isOpened, setIsOpened] = useState(false);
     const [isMouseEnter, setIsMouseEnter] = useState(false);
     const openModal = useCallback(() => setIsOpened(true), []);

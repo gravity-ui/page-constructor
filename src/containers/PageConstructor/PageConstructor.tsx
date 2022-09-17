@@ -9,7 +9,6 @@ import {
     PageContent,
     CustomItems,
     BlockTypes,
-    ReactFCC,
 } from '../../models';
 import {blockMap, subBlockMap} from '../../constructor-items';
 import {Grid} from '../../grid';
@@ -43,7 +42,7 @@ export interface PageConstructorProps {
 
 type Props = PageConstructorProps & WithThemeValueProps;
 
-export const Constructor: ReactFCC<Props> = (props) => {
+export const Constructor = (props: Props) => {
     const {context, headerBlockTypes} = useMemo(
         () => ({
             context: {
@@ -103,7 +102,7 @@ export const Constructor: ReactFCC<Props> = (props) => {
 
 const ThemedConstructor = withThemeValue(Constructor);
 
-export const PageConstructor: ReactFCC<PageConstructorProps> = (props) => {
+export const PageConstructor = (props: PageConstructorProps) => {
     const {content: {animated = true} = {}, ...rest} = props;
 
     return (

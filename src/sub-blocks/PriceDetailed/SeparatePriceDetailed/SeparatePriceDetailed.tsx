@@ -8,7 +8,6 @@ import {
     PriceDetailsListProps,
     PriceDetailsSettingsProps,
     PriceItemProps,
-    ReactFCC,
 } from '../../../models';
 
 import './SeparatePriceDetailed.scss';
@@ -24,7 +23,7 @@ interface SeparatePriceDetailedProps {
     border?: CardBorder;
 }
 
-const SeparatePriceDetailed: ReactFCC<SeparatePriceDetailedProps> = (props) => {
+const SeparatePriceDetailed = (props: SeparatePriceDetailedProps) => {
     const {items, border, getDescriptionComponent, getDetailsComponent} = props;
 
     return (

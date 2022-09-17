@@ -1,7 +1,7 @@
 import React, {Fragment} from 'react';
 
 import {block} from '../../../../utils';
-import {PriceDetailsSettingsProps, TextSize, ReactFCC} from '../../../../models';
+import {PriceDetailsSettingsProps, TextSize} from '../../../../models';
 import {YFMWrapper} from '../../../../components';
 
 import './Settings.scss';
@@ -14,7 +14,7 @@ export interface SettingsComponentProps {
     descriptionSize?: TextSize;
 }
 
-const Settings: ReactFCC<SettingsComponentProps> = (props) => {
+const Settings = (props: SettingsComponentProps) => {
     const {items = [], titleSize = 's', descriptionSize = 'm'} = props;
 
     return (

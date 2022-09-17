@@ -3,7 +3,7 @@ import {animated, config, Interpolation, useSpring} from 'react-spring';
 import _ from 'lodash';
 
 import SliderBlock from '../../../blocks/Slider/Slider';
-import {ImageProps, MediaComponentImageProps, SliderType, ReactFCC} from '../../../models';
+import {ImageProps, MediaComponentImageProps, SliderType} from '../../../models';
 import {getMediaImage} from './utils';
 import FullScreenImage from '../../FullscreenImage/FullscreenImage';
 import BackgroundImage from '../../BackgroundImage/BackgroundImage';
@@ -25,7 +25,7 @@ interface InnerImageProps {
 
 type ImageAllProps = ImageAdditionProps & MediaComponentImageProps & InnerImageProps;
 
-const Image: ReactFCC<ImageAllProps> = (props) => {
+const Image = (props: ImageAllProps) => {
     const {parallax, image, height, imageClassName, isBackground, hasVideoFallback, video} = props;
 
     const [scrollY, setScrollY] = useState(0);

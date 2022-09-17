@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {block} from '../../utils';
-import {CardLayoutBlockProps as CardLayoutBlockParams, ReactFCC} from '../../models';
+import {CardLayoutBlockProps as CardLayoutBlockParams} from '../../models';
 import {Row, Col} from '../../grid';
 import {BlockHeader, AnimateBlock} from '../../components';
 
@@ -19,13 +19,13 @@ const DEFAULT_SIZES = {
     md: 4,
 };
 
-const CardLayout: ReactFCC<CardLayoutBlockProps> = ({
+const CardLayout = ({
     title,
     description,
     animated,
     colSizes = DEFAULT_SIZES,
     children,
-}) => (
+}: CardLayoutBlockProps) => (
     <AnimateBlock className={b()} animate={animated}>
         <BlockHeader title={title} description={description} />
         <div>

@@ -2,7 +2,7 @@ import React, {Children, useCallback, useEffect, useRef, useState, useMemo} from
 import _ from 'lodash';
 
 import {block} from '../../utils';
-import {ReactFCC} from '../../models';
+import {WithChildren} from '../../models';
 
 import './HeightCalculator.scss';
 
@@ -12,7 +12,7 @@ export interface HeightCalculatorProps {
     onCalculate: (height: number) => void;
 }
 
-const HeightCalculator: ReactFCC<HeightCalculatorProps> = ({onCalculate, children}) => {
+const HeightCalculator = ({onCalculate, children}: WithChildren<HeightCalculatorProps>) => {
     const [isCalculating, setIsCalculating] = useState(true);
     const container = useRef<HTMLDivElement>(null);
     const itemRefs = useMemo(() => {

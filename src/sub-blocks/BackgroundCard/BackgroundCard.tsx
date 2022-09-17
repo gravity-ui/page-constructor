@@ -2,7 +2,7 @@ import React, {useContext} from 'react';
 
 import {block, getThemedValue} from '../../utils';
 import {CardBase, BackgroundImage} from '../../components/';
-import {BackgroundCardProps, ReactFCC} from '../../models';
+import {BackgroundCardProps} from '../../models';
 import Content from '../Content/Content';
 import {ThemeValueContext} from '../../context/theme/ThemeValueContext';
 
@@ -10,7 +10,7 @@ import './BackgroundCard.scss';
 
 const b = block('background-card');
 
-const BackgroundCard: ReactFCC<BackgroundCardProps> = (props) => {
+const BackgroundCard = (props: BackgroundCardProps) => {
     const {
         url,
         title,

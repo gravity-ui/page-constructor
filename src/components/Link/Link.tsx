@@ -2,7 +2,7 @@ import React, {useContext} from 'react';
 import {Icon} from '@gravity-ui/uikit';
 
 import {block, getLinkProps, setUrlTld} from '../../utils';
-import {LinkProps, TextSize, ClassNameProps, ReactFCC} from '../../models';
+import {LinkProps, TextSize, ClassNameProps, WithChildren} from '../../models';
 import {Chevron} from '../../icons';
 import FileLink from '../FileLink/FileLink';
 import BackLink from '../BackLink/BackLink';
@@ -29,7 +29,7 @@ function getArrowSize(size: TextSize) {
     }
 }
 
-const LinkBlock: ReactFCC<LinkFullProps> = (props) => {
+const LinkBlock = (props: WithChildren<LinkFullProps>) => {
     const {
         text,
         url,

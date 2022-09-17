@@ -2,14 +2,7 @@ import React, {useState, useEffect, useCallback, PropsWithChildren} from 'react'
 import {Spin} from '@gravity-ui/uikit';
 import blockCn from 'bem-cn-lite';
 
-import {
-    Block,
-    CustomItem,
-    FetchLoadableData,
-    LoadableData,
-    LoadableProps,
-    ReactFCC,
-} from '../../models';
+import {Block, CustomItem, FetchLoadableData, LoadableData, LoadableProps} from '../../models';
 import ErrorWrapper from '../../components/ErrorWrapper/ErrorWrapper';
 import i18n from './i18n';
 
@@ -36,7 +29,7 @@ const initData = {
     error: false,
 };
 
-const Loadable: ReactFCC<LoadableComponentsProps> = (props) => {
+const Loadable = (props: LoadableComponentsProps) => {
     const {Component, ChildComponent, fetch, block, blockKey, serviceId, params} = props;
     const [dataState, setDataState] = useState<LoadableState>(initData);
     const [refetchIndex, setRefetchIndex] = useState<number>(0);

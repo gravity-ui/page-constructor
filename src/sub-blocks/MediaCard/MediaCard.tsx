@@ -1,14 +1,14 @@
 import React from 'react';
+import {MediaCardProps} from '../../models';
 
 import {block} from '../../utils';
-import {MediaCardProps, ReactFCC} from '../../models';
 import {Media, CardBase} from '../../components';
 
 import './MediaCard.scss';
 
 const b = block('MediaCard');
 
-const MediaCard: ReactFCC<MediaCardProps> = ({border, ...mediaProps}) => {
+const MediaCard = ({border, ...mediaProps}: MediaCardProps) => {
     return (
         <CardBase className={b()} bodyClassName={b('body')} border={border}>
             <CardBase.Content>

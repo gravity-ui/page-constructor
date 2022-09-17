@@ -4,7 +4,7 @@ import {Tabs} from '@gravity-ui/uikit';
 import {block, getThemedValue} from '../../utils';
 import {Row, Col, GridColumnOrderClasses} from '../../grid';
 import YFMWrapper from '../../components/YFMWrapper/YFMWrapper';
-import {ImageObjectProps, TabsBlockProps, ReactFCC} from '../../models';
+import {ImageObjectProps, TabsBlockProps} from '../../models';
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
 import BlockHeader from '../../components/BlockHeader/BlockHeader';
 import FullScreenImage from '../../components/FullscreenImage/FullscreenImage';
@@ -16,7 +16,7 @@ import './Tabs.scss';
 
 const b = block('TabsBlock');
 
-export const TabsBlock: ReactFCC<TabsBlockProps> = ({items, title, description, animated}) => {
+export const TabsBlock = ({items, title, description, animated}: TabsBlockProps) => {
     const [activeTab, setActiveTab] = useState(items[0].tabName);
     const [play, setPlay] = useState<boolean>(false);
     const {themeValue: theme} = useContext(ThemeValueContext);

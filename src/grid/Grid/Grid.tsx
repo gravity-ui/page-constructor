@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {block} from '../../utils';
-import {ReactFCC} from '../../models';
+import {WithChildren} from '../../models';
 
 import '../styles/bootstrap.scss';
 import './Grid.scss';
@@ -15,13 +15,13 @@ export interface GridProps {
     style?: React.CSSProperties;
 }
 
-export const Grid: ReactFCC<GridProps> = ({
+export const Grid = ({
     debug,
     children,
     className,
     style,
     containerClass = '',
-}) => (
+}: WithChildren<GridProps>) => (
     <div style={style} className={b({debug}, className)}>
         <div className={`container-fluid ${containerClass}`}>{children}</div>
     </div>

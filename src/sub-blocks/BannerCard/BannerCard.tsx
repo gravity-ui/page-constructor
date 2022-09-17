@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 
 import {block, getThemedValue} from '../../utils';
-import {BannerCardProps, ReactFCC} from '../../models';
+import {BannerCardProps} from '../../models';
 import {Button, YFMWrapper, BackgroundImage, HTML} from '../../components';
 import {ThemeValueContext} from '../../context/theme/ThemeValueContext';
 
@@ -9,7 +9,7 @@ import './BannerCard.scss';
 
 const b = block('banner-card');
 
-export const BannerCard: ReactFCC<BannerCardProps> = (props) => {
+export const BannerCard = (props: BannerCardProps) => {
     const {
         title,
         subtitle,

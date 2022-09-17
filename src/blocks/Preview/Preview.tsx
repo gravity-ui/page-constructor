@@ -5,7 +5,7 @@ import {BreakpointContext} from '../../context/breakpointContext';
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
 import MediaContent from './MediaContent/MediaContent';
 import {Row} from '../../grid';
-import {PreviewBlockProps, ReactFCC} from '../../models';
+import {PreviewBlockProps} from '../../models';
 import {BREAKPOINTS} from '../../constants';
 import {useIntersection} from '../../hooks/useIntersection';
 
@@ -29,7 +29,7 @@ const CLASSNAME_DESCRIPTION_YFM_BLOCK = 'yfm';
 const CLASSNAME_CONTENT_WRAPPER = 'preview-media-content-block__content-wrapper';
 const INDENT_BETWEEN_TITLE_DESCRIPTION = 16;
 
-export const PreviewBlock: ReactFCC<PreviewBlockProps> = (props) => {
+export const PreviewBlock = (props: PreviewBlockProps) => {
     const {
         direction = 'content-media',
         animated,

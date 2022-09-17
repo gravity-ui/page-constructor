@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {ReactFCC} from '../../models';
+import {WithChildren} from '../../models';
 
 export interface HTMLProps {
     children?: string;
@@ -8,7 +8,7 @@ export interface HTMLProps {
     className?: string;
 }
 
-const HTML: ReactFCC<HTMLProps> = ({children, block = false, className}) => {
+const HTML = ({children, block = false, className}: WithChildren<HTMLProps>) => {
     if (!children) {
         return null;
     }

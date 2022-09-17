@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {block} from '../../utils';
-import {ExtendedFeaturesProps, ReactFCC} from '../../models';
+import {ExtendedFeaturesProps} from '../../models';
 import {Row, Col} from '../../grid';
 import {Link, HTML, AnimateBlock, BlockHeader} from '../../components/';
 
@@ -15,13 +15,13 @@ const DEFAULT_SIZES = {
     md: 4,
 };
 
-export const ExtendedFeaturesBlock: ReactFCC<ExtendedFeaturesProps> = ({
+export const ExtendedFeaturesBlock = ({
     title,
     description,
     items,
     colSizes = DEFAULT_SIZES,
     animated,
-}) => (
+}: ExtendedFeaturesProps) => (
     <AnimateBlock className={b()} animate={animated}>
         <BlockHeader title={title} description={description} className={b('header')} />
         <div className={b('items')}>

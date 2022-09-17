@@ -1,5 +1,5 @@
 import React, {useMemo} from 'react';
-import {ClassNameProps, ReactFCC} from '../../models';
+import {ClassNameProps} from '../../models';
 
 import {block} from '../../utils';
 
@@ -15,7 +15,7 @@ export interface CircleProgressProps extends ClassNameProps {
     radius?: number;
 }
 
-const CircleProgress: ReactFCC<CircleProgressProps> = (props) => {
+const CircleProgress = (props: CircleProgressProps) => {
     const {
         baseColor,
         elapsedTime,

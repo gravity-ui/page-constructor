@@ -1,5 +1,5 @@
 import React from 'react';
-import {ClassNameProps, ReactFCC} from '../../../models';
+import {ClassNameProps} from '../../../models';
 
 import {block} from '../../../utils';
 import ToggleArrow from '../../../components/ToggleArrow/ToggleArrow';
@@ -16,12 +16,7 @@ export interface ArrowProps {
     size?: number;
 }
 
-const Arrow: ReactFCC<ArrowProps & ClassNameProps> = ({
-    type,
-    handleClick,
-    className,
-    size = 16,
-}) => (
+const Arrow = ({type, handleClick, className, size = 16}: ArrowProps & ClassNameProps) => (
     <div className={b({type}, className)} onClick={() => handleClick && handleClick(type)}>
         <button className={b('button')}>
             <div className={b('icon-wrapper')}>

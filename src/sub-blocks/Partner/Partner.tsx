@@ -2,13 +2,13 @@ import React from 'react';
 
 import {block} from '../../utils';
 import {CardBase, Image, HTML} from '../../components';
-import {ImageProps, PartnerProps, ReactFCC} from '../../models';
+import {ImageProps, PartnerProps} from '../../models';
 
 import './Partner.scss';
 
 const b = block('partner-block');
 
-const Partner: ReactFCC<PartnerProps> = ({text, logo, url, border}) => {
+const Partner = ({text, logo, url, border}: PartnerProps) => {
     const logoData: ImageProps = typeof logo === 'string' ? {src: logo} : logo;
 
     return (

@@ -1,14 +1,14 @@
 import React from 'react';
 
 import {block} from '../../utils';
-import {BackgroundImageProps, ReactFCC} from '../../models';
+import {BackgroundImageProps, WithChildren} from '../../models';
 import Image from '../Image/Image';
 
 import './BackgroundImage.scss';
 
 const b = block('storage-background-image');
 
-const BackgroundImage: ReactFCC<BackgroundImageProps> = (props) => {
+const BackgroundImage = (props: WithChildren<BackgroundImageProps>) => {
     const {children, src, alt, disableCompress, className, imageClassName, style, hide} = props;
 
     return (

@@ -3,7 +3,6 @@ import _ from 'lodash';
 import {Icon} from '@gravity-ui/uikit';
 
 import {block, getPageSearchParams} from '../../utils';
-import {ReactFCC} from '../../models';
 import Image from '../Image/Image';
 import {PlayVideo} from '../../icons';
 
@@ -55,7 +54,7 @@ export interface VideoBlockProps {
     playButton?: React.ReactNode;
 }
 
-const VideoBlock: ReactFCC<VideoBlockProps> = (props) => {
+const VideoBlock = (props: VideoBlockProps) => {
     const {stream, record, attributes, className, id, previewImg, playButton} = props;
     const src = getVideoSrc(stream, record);
     const ref = useRef<HTMLDivElement>(null);

@@ -2,7 +2,7 @@ import React, {useCallback, useContext, useEffect, useRef} from 'react';
 
 import {HEADER_HEIGHT} from '../constants';
 import {LocaleContext} from '../../context/localeContext';
-import {PixelEvent, ReactFCC} from '../../models';
+import {PixelEvent} from '../../models';
 import {MobileContext} from '../../context/mobileContext';
 import {block} from '../../utils';
 import {useMetrika} from '../../hooks/useMetrika';
@@ -28,7 +28,7 @@ export interface YandexFormProps {
     pixelEvents?: string | string[] | PixelEvent | PixelEvent[];
 }
 
-const YandexForm: ReactFCC<YandexFormProps> = (props) => {
+const YandexForm = (props: YandexFormProps) => {
     const {
         onLoad,
         id,

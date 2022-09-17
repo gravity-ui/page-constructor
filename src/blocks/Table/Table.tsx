@@ -2,14 +2,14 @@ import React from 'react';
 
 import {block} from '../../utils';
 import {Grid, Row, Col, GridColumnSize} from '../../grid';
-import {TableBlockProps, ReactFCC} from '../../models';
+import {TableBlockProps} from '../../models';
 import {Table} from '../../components';
 
 import './Table.scss';
 
 const b = block('table-block');
 
-export const TableBlock: ReactFCC<TableBlockProps> = (props) => {
+export const TableBlock = (props: TableBlockProps) => {
     const {title, table} = props;
 
     return (

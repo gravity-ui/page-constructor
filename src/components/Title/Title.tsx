@@ -1,7 +1,7 @@
 import React, {Fragment, ReactNode, useContext} from 'react';
 import {block, getHeaderTag, getLinkProps} from '../../utils';
 
-import {TextSize, TitleProps, ReactFCC} from '../../models';
+import {TextSize, TitleProps} from '../../models';
 import Anchor from '../Anchor/Anchor';
 import {ToggleArrow, HTML} from '../';
 import {LocationContext} from '../../context/locationContext';
@@ -31,7 +31,7 @@ export interface TitleFullProps extends TitleProps {
     resetMargin?: boolean;
 }
 
-const Title: ReactFCC<TitleFullProps> = (props) => {
+const Title = (props: TitleFullProps) => {
     const isMobile = useContext(MobileContext);
 
     const {

@@ -2,9 +2,8 @@ import React, {forwardRef, useCallback} from 'react';
 
 import {GridJustifyContent, GridAlignItems} from '../types';
 import {Refable} from '../../models/common';
-import {ReactFCC} from '../../models/react';
 
-export interface IRowProps extends Refable<HTMLDivElement> {
+export interface RowProps extends Refable<HTMLDivElement> {
     className?: string;
     justifyContent?: GridJustifyContent;
     alignItems?: GridAlignItems;
@@ -13,7 +12,7 @@ export interface IRowProps extends Refable<HTMLDivElement> {
     children?: React.ReactNode;
 }
 
-export const Row: ReactFCC<IRowProps> = forwardRef<HTMLDivElement, IRowProps>((props, ref) => {
+export const Row = forwardRef<HTMLDivElement, RowProps>((props, ref) => {
     const {className, justifyContent, alignItems, noGutter, style, children} = props;
 
     const getClassName = useCallback(() => {

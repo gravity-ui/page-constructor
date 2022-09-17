@@ -1,6 +1,5 @@
 import React, {CSSProperties, MouseEventHandler, useContext, useState} from 'react';
 import {ProjectSettingsContext} from '../../context/projectSettingsContext';
-import {ReactFCC} from '../../models';
 
 export interface ImageProps {
     src: string;
@@ -11,7 +10,7 @@ export interface ImageProps {
     onClick?: MouseEventHandler;
 }
 
-const Image: ReactFCC<ImageProps> = (props) => {
+const Image = (props: ImageProps) => {
     const projectSettings = useContext(ProjectSettingsContext);
     const {src, alt, disableCompress, style, className, onClick} = props;
     const [imgLoadingError, setImgLoadingError] = useState(false);

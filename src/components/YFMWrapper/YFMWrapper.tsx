@@ -4,7 +4,7 @@ in your project via global 'yfm' class */
 import block from 'bem-cn-lite';
 import toSnakeCase from 'snakecase-keys';
 
-import {Modifiers, ClassNameProps, ReactFCC} from '../../models';
+import {Modifiers, ClassNameProps} from '../../models';
 import {HTML} from '../../components';
 
 const yfm = block('yfm');
@@ -15,10 +15,8 @@ export interface YFMWrapperProps {
     modifiers?: Modifiers;
 }
 
-const YFMWrapper: ReactFCC<YFMWrapperProps & ClassNameProps> = ({
-    content,
-    modifiers,
-    className,
-}) => <HTML className={yfm(modifiers ? toSnakeCase(modifiers) : {}, className)}>{content}</HTML>;
+const YFMWrapper = ({content, modifiers, className}: YFMWrapperProps & ClassNameProps) => (
+    <HTML className={yfm(modifiers ? toSnakeCase(modifiers) : {}, className)}>{content}</HTML>
+);
 
 export default YFMWrapper;

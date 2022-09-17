@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {block} from '../../utils';
-import {LinkTableBlockProps, ReactFCC} from '../../models';
+import {LinkTableBlockProps} from '../../models';
 import {Row, Col, GridColumnSize} from '../../grid';
 import Link from '../../components/Link/Link';
 import BlockHeader from '../../components/BlockHeader/BlockHeader';
@@ -10,12 +10,7 @@ import './LinkTable.scss';
 
 const b = block('LinkTable');
 
-const LinkTable: ReactFCC<LinkTableBlockProps> = ({
-    items,
-    title,
-    description,
-    linkTheme = 'normal',
-}) => {
+const LinkTable = ({items, title, description, linkTheme = 'normal'}: LinkTableBlockProps) => {
     return (
         <div className={b()}>
             <BlockHeader title={title} description={description} className={b('block-title')} />

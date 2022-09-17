@@ -9,7 +9,6 @@ import {
     TextSize,
     PriceDetailsProps,
     PriceFoldableDetailsProps,
-    ReactFCC,
 } from '../../../models';
 import List from './Details/List';
 import Settings from './Details/Settings';
@@ -27,7 +26,7 @@ interface PriceDetailsExtendProps extends PriceDetailsProps {
     className?: string;
 }
 
-const PriceDetails: ReactFCC<PriceDetailsExtendProps> = (props) => {
+const PriceDetails = (props: PriceDetailsExtendProps) => {
     const [isOpened, setIsOpened] = useState<boolean>(false);
     const toggleOpen = useCallback(() => {
         setIsOpened(!isOpened);

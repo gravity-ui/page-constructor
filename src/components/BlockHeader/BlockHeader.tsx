@@ -1,12 +1,7 @@
 import React from 'react';
 
 import {block} from '../../utils';
-import {
-    BlockHeaderProps as BlockHeaderParams,
-    TitleProps,
-    ClassNameProps,
-    ReactFCC,
-} from '../../models';
+import {BlockHeaderProps as BlockHeaderParams, TitleProps, ClassNameProps} from '../../models';
 import {Col, GridColumnSizesType} from '../../grid';
 import {Title, HTML} from '../';
 
@@ -18,12 +13,12 @@ export interface BlockHeaderProps extends BlockHeaderParams {
     colSizes?: GridColumnSizesType;
 }
 
-const BlockHeader: ReactFCC<BlockHeaderProps & ClassNameProps> = ({
+const BlockHeader = ({
     title,
     description,
     className,
     colSizes = {all: 12, sm: 8},
-}) => {
+}: BlockHeaderProps & ClassNameProps) => {
     if (!title && !description) {
         return null;
     }

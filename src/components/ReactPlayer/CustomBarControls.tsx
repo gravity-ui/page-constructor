@@ -1,5 +1,5 @@
 import React, {useCallback} from 'react';
-import {ClassNameProps, ReactFCC} from '../../models';
+import {ClassNameProps} from '../../models';
 
 import {block} from '../../utils';
 import CircleProgress from './CircleProgress';
@@ -18,7 +18,7 @@ export interface CustomBarControlsProps extends ClassNameProps {
     elapsedTimePercent?: number;
 }
 
-const CustomBarControls: ReactFCC<CustomBarControlsProps> = (props) => {
+const CustomBarControls = (props: CustomBarControlsProps) => {
     const {mute, elapsedTimePercent = 0, className} = props;
 
     const renderMute = useCallback((elapsedTime: number, muteConfig?: MuteConfigProps) => {

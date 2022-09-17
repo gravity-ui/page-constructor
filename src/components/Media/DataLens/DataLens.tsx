@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {MediaComponentDataLensProps, ReactFCC} from '../../../models';
+import {MediaComponentDataLensProps} from '../../../models';
 import {block} from '../../../utils';
 import {unifyDataLensToObject} from './utils';
 
@@ -8,7 +8,7 @@ import './DataLens.scss';
 
 const b = block('media-component-data-lens');
 
-const DataLens: ReactFCC<MediaComponentDataLensProps> = (props) => {
+const DataLens = (props: MediaComponentDataLensProps) => {
     const {dataLens} = props;
     const dataLensData = unifyDataLensToObject(dataLens);
 

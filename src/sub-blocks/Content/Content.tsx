@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {block} from '../../utils';
-import {ContentBlockProps, ContentSize, TitleProps, ClassNameProps, ReactFCC} from '../../models';
+import {ContentBlockProps, ContentSize, TitleProps, ClassNameProps} from '../../models';
 import {Title, YFMWrapper, Button} from '../../components';
 import LinkBlock from '../../components/Link/Link';
 import {Col} from '../../grid';
@@ -40,7 +40,7 @@ function getButtonSize(size: ContentSize) {
     }
 }
 
-const Content: ReactFCC<ContentBlockProps & ClassNameProps> = (props) => {
+const Content = (props: ContentBlockProps & ClassNameProps) => {
     const {
         title,
         text,

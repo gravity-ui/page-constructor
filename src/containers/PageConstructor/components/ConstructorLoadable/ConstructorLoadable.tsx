@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 
 import Loadable, {LoadableComponentsProps} from '../../../Loadable/Loadable';
-import {LoadableConfigItem, ReactFCC} from '../../../../models';
+import {LoadableConfigItem} from '../../../../models';
 import {InnerContext} from '../../../../context/innerContext';
 
 interface ConstructorLoadableProps
@@ -9,12 +9,14 @@ interface ConstructorLoadableProps
     config: LoadableConfigItem;
 }
 
-export const ConstructorLoadable: ReactFCC<ConstructorLoadableProps> = (props) => {
+export const ConstructorLoadable = (props: ConstructorLoadableProps) => {
     const {itemMap} = useContext(InnerContext);
     const {block, blockKey, config, serviceId, params} = props;
     const {type} = block;
     const {fetch, component: ChildComponent} = config;
-    const Component = itemMap[type] as ReactFCC<React.ComponentProps<typeof itemMap[typeof type]>>;
+    const Component = itemMap[type] as React.Component<
+        React.ComponentProps<typeof itemMap[typeof type]>
+    >;
 
     return (
         <Loadable

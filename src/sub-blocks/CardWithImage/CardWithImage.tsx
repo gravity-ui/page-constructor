@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {block} from '../../utils';
-import {CardWithImageProps, LinkTheme, ReactFCC} from '../../models';
+import {CardWithImageProps, LinkTheme} from '../../models';
 import {Image, FullscreenImage} from '../../components';
 import {Content} from '../';
 
@@ -9,7 +9,7 @@ import './CardWithImage.scss';
 
 const b = block('card-with-image');
 
-const CardWithImage: ReactFCC<CardWithImageProps> = ({
+const CardWithImage = ({
     title,
     description,
     image,
@@ -20,7 +20,7 @@ const CardWithImage: ReactFCC<CardWithImageProps> = ({
     className,
     additionalInfo,
     buttons,
-}) => {
+}: CardWithImageProps) => {
     const unifiedLinks = links?.map((link) => ({
         theme: 'normal' as LinkTheme,
         ...link,

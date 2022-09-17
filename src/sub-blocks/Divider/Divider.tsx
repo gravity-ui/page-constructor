@@ -1,14 +1,12 @@
 import React from 'react';
 
 import {block} from '../../utils';
-import {DividerProps, ReactFCC} from '../../models';
+import {DividerProps} from '../../models';
 
 import './Divider.scss';
 
 const b = block('divider-block');
 
-const Divider: ReactFCC<DividerProps> = ({size = 'm', border}) => (
-    <div className={b({size, border})} />
-);
+const Divider = ({size = 'm', border}: DividerProps) => <div className={b({size, border})} />;
 
 export default Divider;

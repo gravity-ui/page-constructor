@@ -2,7 +2,7 @@ import React from 'react';
 
 import {block} from '../../../utils';
 import Media from '../../../components/Media/Media';
-import {MediaProps, Modifiers, ReactFCC} from '../../../models';
+import {MediaProps, Modifiers} from '../../../models';
 
 import './PreviewMedia.scss';
 
@@ -15,7 +15,7 @@ interface PreviewMediaProps {
     mods: Modifiers | null;
 }
 
-const PreviewMedia: ReactFCC<PreviewMediaProps> = (props) => {
+const PreviewMedia = (props: PreviewMediaProps) => {
     const {id, media, play, mods} = props;
 
     return (

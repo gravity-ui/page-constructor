@@ -1,13 +1,13 @@
 import React, {Fragment} from 'react';
 
-import {LinkProps, ClassNameProps, ReactFCC} from '../../models';
+import {LinkProps, ClassNameProps} from '../../models';
 import Link from './Link';
 
 interface LinksProps extends ClassNameProps {
     links?: LinkProps[];
 }
 
-const Links: ReactFCC<LinksProps> = (props) => {
+const Links = (props: LinksProps) => {
     const {links, className} = props;
 
     if (!links) {

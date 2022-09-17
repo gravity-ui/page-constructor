@@ -9,7 +9,7 @@ import {
     SliderType,
     ClassNameProps,
     Timeout,
-    ReactFCC,
+    WithChildren,
 } from '../../models';
 import Arrow, {ArrowType} from './Arrow/Arrow';
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
@@ -58,7 +58,7 @@ export interface SliderProps
     arrowSize?: number;
 }
 
-export const SliderBlock: ReactFCC<SliderProps> = (props) => {
+export const SliderBlock = (props: WithChildren<SliderProps>) => {
     const {
         animated,
         title,

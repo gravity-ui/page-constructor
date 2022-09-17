@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 
 import {block, getLinkProps} from '../../utils';
-import {IconsBlockProps, ReactFCC} from '../../models';
+import {IconsBlockProps} from '../../models';
 import {BlockHeader, Image} from '../../components';
 import {LocationContext} from '../../context/locationContext';
 
@@ -9,7 +9,7 @@ import './Icons.scss';
 
 const b = block('icons-block');
 
-const Icons: ReactFCC<IconsBlockProps> = ({title, size = 's', items}) => {
+const Icons = ({title, size = 's', items}: IconsBlockProps) => {
     const {hostname} = useContext(LocationContext);
 
     return (

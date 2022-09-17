@@ -6,14 +6,13 @@ import {
     PriceDetailsListProps,
     PriceDetailsSettingsProps,
     PriceDetailsType,
-    ReactFCC,
 } from '../../models';
 import PriceDescription from './PriceDescription/PriceDescription';
 import PriceDetails from './PriceDetails/PriceDetails';
 import CombinedPriceDetailed from './CombinedPriceDetailed/CombinedPriceDetailed';
 import SeparatePriceDetailed from './SeparatePriceDetailed/SeparatePriceDetailed';
 
-const PriceDetailed: ReactFCC<PriceDetailedProps> = (props) => {
+const PriceDetailed = (props: PriceDetailedProps) => {
     const {
         priceType = PriceDetailsType.SETTINGS,
         items,

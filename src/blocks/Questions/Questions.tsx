@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 
 import {block} from '../../utils';
-import {QuestionsProps, ReactFCC} from '../../models';
+import {QuestionsProps} from '../../models';
 import Link from '../../components/Link/Link';
 
 import {YFMWrapper, ToggleArrow, Foldable, HTML} from '../../components';
@@ -12,7 +12,7 @@ import './Questions.scss';
 
 const b = block('QuestionsBlock');
 
-const QuestionsBlock: ReactFCC<QuestionsProps> = (props) => {
+const QuestionsBlock = (props: QuestionsProps) => {
     const {title, text, additionalInfo, links, buttons, items} = props;
     const [opened, setOpened] = useState<number[]>([0]);
 

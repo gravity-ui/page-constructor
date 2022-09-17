@@ -2,7 +2,7 @@ import React from 'react';
 
 import {block} from '../../../utils';
 import YFMWrapper from '../../../components/YFMWrapper/YFMWrapper';
-import {Modifiers, ReactFCC} from '../../../models';
+import {Modifiers} from '../../../models';
 
 import './PreviewContent.scss';
 
@@ -17,7 +17,7 @@ interface PreviewContentProps {
     mods: Modifiers | null;
 }
 
-const PreviewContent: ReactFCC<PreviewContentProps> = (props) => {
+const PreviewContent = (props: PreviewContentProps) => {
     const {id, title, description = '', switching, onClick, mods} = props;
 
     return (

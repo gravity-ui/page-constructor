@@ -6,7 +6,6 @@ import {
     PriceDescriptionProps,
     PriceLabelColor,
     TextSize,
-    ReactFCC,
 } from '../../../models';
 import {StylesContext} from '../../../context/stylesContext';
 import {YFMWrapper} from '../../../components';
@@ -23,7 +22,7 @@ interface PriceDescriptionExtendProps extends PriceDescriptionProps {
     className?: string;
 }
 
-const PriceDescription: ReactFCC<PriceDescriptionExtendProps> = (props) => {
+const PriceDescription = (props: PriceDescriptionExtendProps) => {
     const {
         title,
         detailedTitle = '',

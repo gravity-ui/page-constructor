@@ -1,7 +1,7 @@
 import React from 'react';
 
 import loadHubspotScript from './loadHubspotScript';
-import {HubspotFormProps, ReactFCC} from '../../models';
+import {HubspotFormProps} from '../../models';
 import {useMount} from '../../hooks';
 
 type HubspotFormContainerPropsKeys =
@@ -14,7 +14,7 @@ type HubspotFormContainerPropsKeys =
 
 type HubspotFormContainerProps = Pick<HubspotFormProps, HubspotFormContainerPropsKeys>;
 
-const HubspotFormContainer: ReactFCC<HubspotFormContainerProps> = (props) => {
+const HubspotFormContainer = (props: HubspotFormContainerProps) => {
     const {
         className,
 
