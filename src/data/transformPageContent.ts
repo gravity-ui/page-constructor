@@ -14,7 +14,7 @@ type TypographyConfigType = {
 type TransformPageContentPropsType = {
     content: string;
     lang: Lang;
-    region: string;
+    region?: string;
     typographyConfig?: TypographyConfigType;
 };
 

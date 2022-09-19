@@ -42,10 +42,18 @@
         &_theme {
             &_dark {
                 color: var(--yc-color-text-light-secondary);
+
+                &.yc-share-tooltip__container {
+                    color: var(--yc-color-text-light-secondary);
+                }
             }
 
             &_dark:hover {
                 color: var(--yc-color-text-light-primary);
+
+                &.yc-share-tooltip__container {
+                    color: var(--yc-color-text-light-primary);
+                }
             }
         }
     }
