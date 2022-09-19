@@ -1,4 +1,4 @@
-import {useState, useCallback} from 'react';
+import {useState, useCallback, useEffect} from 'react';
 
 import {ToggleLikeCallbackType} from '../models/blog';
 
@@ -40,6 +40,11 @@ export const useLikes: UseLikesType = ({hasLike, count, toggleLikeCallback, post
             hasLike: !hasUserLike,
         });
     }, [hasUserLike, likesCount, postId, toggleLikeCallback]);
+
+    useEffect(() => {
+        setHasUserLike(hasLike ?? false);
+        setLikesCount(count ?? 0);
+    }, [hasLike, count]);
 
     return {
         likesCount,
