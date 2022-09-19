@@ -4,7 +4,7 @@ import {Lang} from '../models/locale';
 
 type FilteringOptions = {
     lang: Lang;
-    region: string;
+    region?: string;
 };
 
 type FilterItemsProps = {
