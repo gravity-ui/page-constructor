@@ -8,7 +8,7 @@ import './NewsCard.scss';
 
 const b = block('news-card');
 
-const NewsCard: React.FC<NewsCardProps> = (props) => {
+const NewsCard = (props: NewsCardProps) => {
     const {date, isoDate, title, border, url} = props;
 
     return (

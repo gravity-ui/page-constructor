@@ -1,7 +1,13 @@
 import React, {Children, ReactElement, Fragment, HTMLAttributeAnchorTarget} from 'react';
 
 import {block} from '../../utils';
-import {ButtonPixel, CardBaseProps as CardBaseParams, ImageProps, MetrikaGoal} from '../../models';
+import {
+    ButtonPixel,
+    CardBaseProps as CardBaseParams,
+    ImageProps,
+    MetrikaGoal,
+    WithChildren,
+} from '../../models';
 import BackgroundImage from '../BackgroundImage/BackgroundImage';
 import RouterLink from '../RouterLink/RouterLink';
 import {useMetrika} from '../../hooks/useMetrika';
@@ -28,19 +34,13 @@ export interface CardFooterBaseProps {
     className?: string;
 }
 
-export interface LayoutParts {
-    Header: React.FC<CardHeaderBaseProps>;
-    Content: React.FC;
-    Footer: React.FC<CardFooterBaseProps>;
-}
-
 const b = block('card-base-block');
 
-const Header: React.FC<CardHeaderBaseProps> = () => null;
-const Content: React.FC = () => null;
-const Footer: React.FC<CardFooterBaseProps> = () => null;
+const Header: React.FC<WithChildren<CardHeaderBaseProps>> = () => null;
+const Content: React.FC<WithChildren<{}>> = () => null;
+const Footer: React.FC<WithChildren<CardFooterBaseProps>> = () => null;
 
-export const Layout: React.FC<CardBaseProps> & LayoutParts = (props) => {
+export const Layout = (props: CardBaseProps) => {
     const {
         className,
         bodyClassName,

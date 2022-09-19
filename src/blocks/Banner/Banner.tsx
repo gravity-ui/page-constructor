@@ -9,7 +9,7 @@ import './Banner.scss';
 
 const b = block('banner-block');
 
-export const BannerBlock: React.FC<BannerBlockProps> = (props) => {
+export const BannerBlock = (props: BannerBlockProps) => {
     const {animated, ...bannerProps} = props;
 
     return (

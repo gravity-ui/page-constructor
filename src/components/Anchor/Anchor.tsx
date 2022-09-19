@@ -11,8 +11,6 @@ export interface AnchorProps extends ClassNameProps {
     id: string;
 }
 
-const Anchor: React.FC<AnchorProps> = ({id, className}) => (
-    <div id={id} className={b(null, className)}></div>
-);
+const Anchor = ({id, className}: AnchorProps) => <div id={id} className={b(null, className)}></div>;
 
 export default Anchor;

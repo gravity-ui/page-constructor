@@ -11,7 +11,7 @@ import './BasicCard.scss';
 
 const b = block('basic-card');
 
-const BasicCard: React.FC<BasicCardProps> = (props) => {
+const BasicCard = (props: BasicCardProps) => {
     const {url, title, text, border, icon, additionalInfo, links, buttons} = props;
     const iconProps = icon && getMediaImage(icon);
 

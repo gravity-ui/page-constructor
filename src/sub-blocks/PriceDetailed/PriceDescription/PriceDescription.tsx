@@ -22,7 +22,7 @@ interface PriceDescriptionExtendProps extends PriceDescriptionProps {
     className?: string;
 }
 
-const PriceDescription: React.FunctionComponent<PriceDescriptionExtendProps> = (props) => {
+const PriceDescription = (props: PriceDescriptionExtendProps) => {
     const {
         title,
         detailedTitle = '',

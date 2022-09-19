@@ -9,7 +9,7 @@ import './Security.scss';
 
 const b = block('SecurityBlock');
 
-export const SecurityBlock: React.FC<SecurityBlockProps> = (props) => {
+export const SecurityBlock = (props: SecurityBlockProps) => {
     const {backgroundColor, theme = 'dark', title, points, media, animated} = props;
 
     return (

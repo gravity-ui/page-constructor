@@ -1,4 +1,4 @@
-import React, {Component, createRef, CSSProperties} from 'react';
+import React, {Component, createRef, CSSProperties, PropsWithChildren} from 'react';
 import _ from 'lodash';
 import {ClassNameProps} from '../../models';
 
@@ -18,7 +18,9 @@ function getPadding(width: number) {
     return width > BREAKPOINTS.sm ? 16 : 8;
 }
 
-export default class FullWidthBackground extends Component<FullWidthBackgroundProps> {
+export default class FullWidthBackground extends Component<
+    PropsWithChildren<FullWidthBackgroundProps>
+> {
     private ref = createRef<HTMLDivElement>();
 
     private setBg = _.debounce(() => {

@@ -10,11 +10,7 @@ import './HeaderSlider.scss';
 
 const b = block('header-slider-block');
 
-export const HeaderSliderBlock: React.FunctionComponent<HeaderSliderBlockProps> = ({
-    items,
-    arrows,
-    ...props
-}) => {
+export const HeaderSliderBlock = ({items, arrows, ...props}: HeaderSliderBlockProps) => {
     const isMobile = useContext(MobileContext);
     const showArrows = isMobile ? false : arrows;
 

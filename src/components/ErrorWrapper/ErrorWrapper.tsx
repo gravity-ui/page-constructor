@@ -1,7 +1,7 @@
 import React from 'react';
 import {Button} from '@gravity-ui/uikit';
 
-import {ClassNameProps} from '../../models';
+import {ClassNameProps, WithChildren} from '../../models';
 import {block} from '../../utils';
 
 import './ErrorWrapper.scss';
@@ -16,14 +16,14 @@ export interface ErrorWrapperProps extends ClassNameProps {
     children: React.ReactNode;
 }
 
-const ErrorWrapper: React.FC<ErrorWrapperProps> = ({
+const ErrorWrapper = ({
     text,
     buttonText,
     className,
     handler,
     isError,
     children,
-}) =>
+}: WithChildren<ErrorWrapperProps>) =>
     isError ? (
         <div className={b(null, className)}>
             <div className={b('text')}>{text}</div>

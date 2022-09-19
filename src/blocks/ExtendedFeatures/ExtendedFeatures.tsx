@@ -15,13 +15,13 @@ const DEFAULT_SIZES = {
     md: 4,
 };
 
-export const ExtendedFeaturesBlock: React.FunctionComponent<ExtendedFeaturesProps> = ({
+export const ExtendedFeaturesBlock = ({
     title,
     description,
     items,
     colSizes = DEFAULT_SIZES,
     animated,
-}) => (
+}: ExtendedFeaturesProps) => (
     <AnimateBlock className={b()} animate={animated}>
         <BlockHeader title={title} description={description} className={b('header')} />
         <div className={b('items')}>

@@ -24,7 +24,7 @@ export interface ShareProps {
     title?: string;
 }
 
-const Share: React.FunctionComponent<ShareProps> = ({items, title}) => {
+const Share = ({items, title}: ShareProps) => {
     const {pathname, hostname} = useContext(LocationContext);
 
     return (

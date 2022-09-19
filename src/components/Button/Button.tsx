@@ -18,7 +18,7 @@ export interface ButtonProps extends Omit<ButtonParams, 'url'> {
 
 const b = block('button-block');
 
-const Button: React.FunctionComponent<ButtonProps> = (props) => {
+const Button = (props: ButtonProps) => {
     const handleMetrika = useMetrika();
     const {lang, tld} = useContext(LocaleContext);
     const {

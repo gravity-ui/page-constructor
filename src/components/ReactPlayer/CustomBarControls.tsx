@@ -18,7 +18,7 @@ export interface CustomBarControlsProps extends ClassNameProps {
     elapsedTimePercent?: number;
 }
 
-const CustomBarControls: React.FC<CustomBarControlsProps> = (props) => {
+const CustomBarControls = (props: CustomBarControlsProps) => {
     const {mute, elapsedTimePercent = 0, className} = props;
 
     const renderMute = useCallback((elapsedTime: number, muteConfig?: MuteConfigProps) => {

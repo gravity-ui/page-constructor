@@ -9,7 +9,7 @@ import './BannerCard.scss';
 
 const b = block('banner-card');
 
-export const BannerCard: React.FC<BannerCardProps> = (props) => {
+export const BannerCard = (props: BannerCardProps) => {
     const {
         title,
         subtitle,

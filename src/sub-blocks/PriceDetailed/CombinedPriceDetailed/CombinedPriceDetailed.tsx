@@ -34,7 +34,7 @@ interface CombinedPriceDetailedProps {
     border?: CardBorder;
 }
 
-const CombinedPriceDetailed: React.FC<CombinedPriceDetailedProps> = (props) => {
+const CombinedPriceDetailed = (props: CombinedPriceDetailedProps) => {
     const {
         items,
         numberGroupItems,

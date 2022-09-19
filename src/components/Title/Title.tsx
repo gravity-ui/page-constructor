@@ -31,7 +31,7 @@ export interface TitleFullProps extends TitleProps {
     resetMargin?: boolean;
 }
 
-const Title: React.FunctionComponent<TitleFullProps> = (props) => {
+const Title = (props: TitleFullProps) => {
     const isMobile = useContext(MobileContext);
 
     const {

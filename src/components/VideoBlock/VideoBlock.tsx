@@ -1,4 +1,4 @@
-import React, {useRef, useState, useCallback, useEffect, FC} from 'react';
+import React, {useRef, useState, useCallback, useEffect} from 'react';
 import _ from 'lodash';
 import {Icon} from '@gravity-ui/uikit';
 
@@ -54,7 +54,7 @@ export interface VideoBlockProps {
     playButton?: React.ReactNode;
 }
 
-const VideoBlock: FC<VideoBlockProps> = (props) => {
+const VideoBlock = (props: VideoBlockProps) => {
     const {stream, record, attributes, className, id, previewImg, playButton} = props;
     const src = getVideoSrc(stream, record);
     const ref = useRef<HTMLDivElement>(null);

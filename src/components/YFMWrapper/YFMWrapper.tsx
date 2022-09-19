@@ -15,10 +15,8 @@ export interface YFMWrapperProps {
     modifiers?: Modifiers;
 }
 
-const YFMWrapper: React.FunctionComponent<YFMWrapperProps & ClassNameProps> = ({
-    content,
-    modifiers,
-    className,
-}) => <HTML className={yfm(modifiers ? toSnakeCase(modifiers) : {}, className)}>{content}</HTML>;
+const YFMWrapper = ({content, modifiers, className}: YFMWrapperProps & ClassNameProps) => (
+    <HTML className={yfm(modifiers ? toSnakeCase(modifiers) : {}, className)}>{content}</HTML>
+);
 
 export default YFMWrapper;

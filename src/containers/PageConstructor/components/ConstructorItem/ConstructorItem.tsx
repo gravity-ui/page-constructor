@@ -1,12 +1,12 @@
 import React, {useContext} from 'react';
-import {ConstructorItem as ConstructorItemType} from '../../../../models';
+import {ConstructorItem as ConstructorItemType, WithChildren} from '../../../../models';
 import {InnerContext} from '../../../../context/innerContext';
 
 export interface ConstructorItemProps {
     data: ConstructorItemType;
 }
 
-export const ConstructorItem: React.FC<ConstructorItemProps> = ({data, children}) => {
+export const ConstructorItem = ({data, children}: WithChildren<ConstructorItemProps>) => {
     const {itemMap} = useContext(InnerContext);
     const {type, ...rest} = data;
 
@@ -17,6 +17,6 @@ export const ConstructorItem: React.FC<ConstructorItemProps> = ({data, children}
     return <Component {...rest}>{children}</Component>;
 };
 
-export const ConstructorHeader: React.FC<Pick<ConstructorItemProps, 'data'>> = ({data}) => (
+export const ConstructorHeader = ({data}: Pick<ConstructorItemProps, 'data'>) => (
     <ConstructorItem data={data} key={data.type} />
 );

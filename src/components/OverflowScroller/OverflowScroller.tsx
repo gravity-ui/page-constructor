@@ -1,4 +1,4 @@
-import React, {createRef} from 'react';
+import React, {createRef, PropsWithChildren} from 'react';
 import _ from 'lodash';
 
 import {block} from '../../utils';
@@ -23,7 +23,7 @@ export interface OverflowScrollerState {
 }
 
 export default class OverflowScroller extends React.Component<
-    OverflowScrollerProps,
+    PropsWithChildren<OverflowScrollerProps>,
     OverflowScrollerState
 > {
     state = {

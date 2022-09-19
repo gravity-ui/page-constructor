@@ -13,7 +13,7 @@ export interface ListProps {
     titleSize?: TextSize;
 }
 
-const List: React.FunctionComponent<ListProps> = (props) => {
+const List = (props: ListProps) => {
     const {items = [], titleSize = 's'} = props;
 
     return (

@@ -15,14 +15,14 @@ export interface FullScreenImageProps extends ImageProps {
 
 const b = block('FullScreenImage');
 
-const FullScreenImage: React.FunctionComponent<FullScreenImageProps> = ({
+const FullScreenImage = ({
     src,
     alt,
     imageClassName,
     disableCompress,
     modalImageClass,
     imageStyle,
-}) => {
+}: FullScreenImageProps) => {
     const [isOpened, setIsOpened] = useState(false);
     const [isMouseEnter, setIsMouseEnter] = useState(false);
     const openModal = useCallback(() => setIsOpened(true), []);

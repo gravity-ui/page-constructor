@@ -11,7 +11,7 @@ import './Info.scss';
 
 const b = block('info-block');
 
-export const InfoBlock: React.FC<InfoBlockProps> = (props) => {
+export const InfoBlock = (props: InfoBlockProps) => {
     const {
         backgroundColor,
         theme: textTheme = 'dark',

@@ -26,7 +26,7 @@ interface PriceDetailsExtendProps extends PriceDetailsProps {
     className?: string;
 }
 
-const PriceDetails: React.FunctionComponent<PriceDetailsExtendProps> = (props) => {
+const PriceDetails = (props: PriceDetailsExtendProps) => {
     const [isOpened, setIsOpened] = useState<boolean>(false);
     const toggleOpen = useCallback(() => {
         setIsOpened(!isOpened);

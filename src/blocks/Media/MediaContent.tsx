@@ -9,7 +9,7 @@ import './MediaContent.scss';
 
 const b = block('media-content');
 
-const MediaContent: React.FC<MediaContentProps> = (props) => {
+const MediaContent = (props: MediaContentProps) => {
     const {title, description, button, links, buttons = [], additionalInfo, size = 'l'} = props;
     const allButtons = button ? [{...button, size: 'xl' as ButtonSize}, ...buttons] : buttons;
     return (

@@ -1,7 +1,7 @@
 import {block, getLinkProps} from '../../utils';
 import React, {useContext} from 'react';
 
-import {FileLinkProps} from '../../models';
+import {FileLinkProps, WithChildren} from '../../models';
 import {LocationContext} from '../../context/locationContext';
 
 import './FileLink.scss';
@@ -27,7 +27,7 @@ export function getFileExt(name: string) {
     return name && name.split('.').pop()!.toLowerCase();
 }
 
-const FileLink: React.FC<FileLinkProps> = (props) => {
+const FileLink = (props: WithChildren<FileLinkProps>) => {
     const {hostname} = useContext(LocationContext);
     const {
         href,

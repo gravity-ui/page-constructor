@@ -2,6 +2,7 @@ import React, {useRef, useState, useCallback, useEffect} from 'react';
 
 import {block} from '../../utils';
 import HeightCalculator from '../../components/HeightCalculator/HeightCalculator';
+import {WithChildren} from '../../models';
 
 import './Foldable.scss';
 
@@ -12,7 +13,7 @@ export interface FoldableProps {
     className?: string;
 }
 
-const Foldable: React.FunctionComponent<FoldableProps> = ({isOpened, children, className}) => {
+const Foldable = ({isOpened, children, className}: WithChildren<FoldableProps>) => {
     const contentRef = useRef<HTMLDivElement>(null);
     const [contentHeight, setContentHeight] = useState<number>();
     const onHeightCalculation = useCallback((height: number) => {

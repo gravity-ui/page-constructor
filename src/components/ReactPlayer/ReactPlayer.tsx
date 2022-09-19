@@ -42,6 +42,11 @@ export interface ReactPlayerBlockProps
     customBarControlsClassName?: string;
     showPreview?: boolean;
     onClickPreview?: () => void;
+    children?: React.ReactNode;
+}
+
+interface PlayerPropgress {
+    played: number;
 }
 
 // eslint-disable-next-line react/display-name
@@ -238,7 +243,7 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
             }
         }, [changeMute, controls, ended, muted, paused]);
 
-        const onProgress = useCallback((progress) => {
+        const onProgress = useCallback((progress: PlayerPropgress) => {
             setPlayedPercent(progress.played);
 
             if (progress.played === 1) {

@@ -23,7 +23,7 @@ interface SeparatePriceDetailedProps {
     border?: CardBorder;
 }
 
-const SeparatePriceDetailed: React.FC<SeparatePriceDetailedProps> = (props) => {
+const SeparatePriceDetailed = (props: SeparatePriceDetailedProps) => {
     const {items, border, getDescriptionComponent, getDetailsComponent} = props;
 
     return (

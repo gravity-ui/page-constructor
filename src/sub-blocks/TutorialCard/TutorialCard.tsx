@@ -17,7 +17,7 @@ function iconElement(icon: ImageProps, title: string) {
     return <Image src={src} alt={alt} className={b('icon')} disableCompress={disableCompress} />;
 }
 
-const TutorialCard: React.FC<TutorialCardProps> = (props) => {
+const TutorialCard = (props: TutorialCardProps) => {
     const {url, title, text, border, icon} = props;
 
     return (

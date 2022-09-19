@@ -16,12 +16,7 @@ import './Tabs.scss';
 
 const b = block('TabsBlock');
 
-export const TabsBlock: React.FunctionComponent<TabsBlockProps> = ({
-    items,
-    title,
-    description,
-    animated,
-}) => {
+export const TabsBlock = ({items, title, description, animated}: TabsBlockProps) => {
     const [activeTab, setActiveTab] = useState(items[0].tabName);
     const [play, setPlay] = useState<boolean>(false);
     const {themeValue: theme} = useContext(ThemeValueContext);

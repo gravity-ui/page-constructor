@@ -1,4 +1,4 @@
-import React, {useMemo} from 'react';
+import React, {useContext, useMemo} from 'react';
 import _ from 'lodash';
 
 import {
@@ -20,9 +20,9 @@ import {
     getThemedValue,
     getCustomItems,
 } from '../../utils';
-import {withThemeValue, WithThemeValueProps} from '../../context/theme/withThemeValue';
 import {AnimateContext} from '../../context/animateContext';
 import {InnerContext} from '../../context/innerContext';
+import {ThemeValueContext} from '../../context/theme/ThemeValueContext';
 import {ConstructorRow} from './components/ConstructorRow';
 import {ConstructorFootnotes} from './components/ConstructorFootnotes';
 import {ConstructorHeader} from './components/ConstructorItem';
@@ -40,9 +40,7 @@ export interface PageConstructorProps {
     renderMenu?: () => React.ReactNode;
 }
 
-type Props = PageConstructorProps & WithThemeValueProps;
-
-export const Constructor: React.FC<Props> = (props) => {
+export const Constructor = (props: PageConstructorProps) => {
     const {context, headerBlockTypes} = useMemo(
         () => ({
             context: {
@@ -59,10 +57,10 @@ export const Constructor: React.FC<Props> = (props) => {
         [props.custom],
     );
 
+    const {themeValue: theme} = useContext(ThemeValueContext);
     const {
         content: {blocks = [], background = {}, footnotes = []} = {},
         renderMenu,
-        themeValue: theme,
         shouldRenderBlock,
     } = props;
 
@@ -100,14 +98,12 @@ export const Constructor: React.FC<Props> = (props) => {
     );
 };
 
-const ThemedConstructor = withThemeValue(Constructor);
-
-export const PageConstructor: React.FC<PageConstructorProps> = (props) => {
+export const PageConstructor = (props: PageConstructorProps) => {
     const {content: {animated = true} = {}, ...rest} = props;
 
     return (
         <AnimateContext.Provider value={{animated}}>
-            <ThemedConstructor content={props.content} {...rest} />
+            <Constructor content={props.content} {...rest} />
         </AnimateContext.Provider>
     );
 };

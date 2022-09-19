@@ -11,7 +11,7 @@ import './Quote.scss';
 
 const b = block('quote');
 
-const Quote: React.FunctionComponent<QuoteProps> = (props) => {
+const Quote = (props: QuoteProps) => {
     const {
         theme: textTheme = 'light',
         color,

@@ -29,7 +29,7 @@ const CLASSNAME_DESCRIPTION_YFM_BLOCK = 'yfm';
 const CLASSNAME_CONTENT_WRAPPER = 'preview-media-content-block__content-wrapper';
 const INDENT_BETWEEN_TITLE_DESCRIPTION = 16;
 
-export const PreviewBlock: React.FC<PreviewBlockProps> = (props) => {
+export const PreviewBlock = (props: PreviewBlockProps) => {
     const {
         direction = 'content-media',
         animated,

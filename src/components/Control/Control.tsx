@@ -18,7 +18,7 @@ export interface ControlProps {
     onClick?: (event: React.MouseEvent) => void;
 }
 
-const Control: React.FC<ControlProps> = (props) => {
+const Control = (props: ControlProps) => {
     const {
         icon,
         theme = 'primary',

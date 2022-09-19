@@ -7,7 +7,7 @@ interface LinksProps extends ClassNameProps {
     links?: LinkProps[];
 }
 
-const Links: React.FunctionComponent<LinksProps> = (props) => {
+const Links = (props: LinksProps) => {
     const {links, className} = props;
 
     if (!links) {

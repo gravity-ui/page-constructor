@@ -14,14 +14,14 @@ export interface FullProps extends MediaProps, Animatable {
     className?: string;
 }
 
-const BackgroundMedia: React.FC<FullProps> = ({
+const BackgroundMedia = ({
     className,
     color,
     animated,
     parallax = true,
     video,
     ...props
-}) => {
+}: FullProps) => {
     const isMobile = useContext(MobileContext);
 
     return (

@@ -1,11 +1,15 @@
 import React from 'react';
 
 import {block} from '../../utils';
-import {CardLayoutBlockProps} from '../../models';
+import {CardLayoutBlockProps as CardLayoutBlockParams} from '../../models';
 import {Row, Col} from '../../grid';
 import {BlockHeader, AnimateBlock} from '../../components';
 
 import './CardLayout.scss';
+
+export interface CardLayoutBlockProps extends Omit<CardLayoutBlockParams, 'children'> {
+    children?: React.ReactNode;
+}
 
 const b = block('card-layout-block');
 
@@ -15,13 +19,13 @@ const DEFAULT_SIZES = {
     md: 4,
 };
 
-const CardLayout: React.FC<CardLayoutBlockProps> = ({
+const CardLayout = ({
     title,
     description,
     animated,
     colSizes = DEFAULT_SIZES,
     children,
-}) => (
+}: CardLayoutBlockProps) => (
     <AnimateBlock className={b()} animate={animated}>
         <BlockHeader title={title} description={description} />
         <div>
