@@ -29,7 +29,7 @@ export const DocsWithReadme = () => {
     const fileName = context?.parameters?.fileName;
     const kind = context.kind;
     let isComponent = false;
-    if (kind && /Компоненты|Блоки|Саб-блоки\//.test(kind)) {
+    if (kind && /Components|Blocks|Sub-blocks\//.test(kind)) {
         isComponent = true;
     }
 
@@ -47,7 +47,7 @@ export const DocsWithReadme = () => {
                 target="_blank"
                 rel="noopener noreferrer"
             >
-                <img src="https://badger.yandex-team.ru/custom/[Исходники]/[Bitbucket][green]/badge.svg" />
+                <img src="https://badger.yandex-team.ru/custom/[Source]/[Bitbucket][green]/badge.svg" />
             </a>
         );
     }

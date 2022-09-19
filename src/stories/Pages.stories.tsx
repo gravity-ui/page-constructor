@@ -7,7 +7,7 @@ import COMPONENTS from './SUB_BLOCKS.md';
 import PAGE_PROPERTIES from './PAGE_PROPERTIES.md';
 
 export default {
-    title: 'Информация',
+    title: 'Information',
     parameters: {
         options: {
             showPanel: false,
@@ -23,19 +23,19 @@ export default {
 export const Blocks: Story = () => (
     <div className="yfm" dangerouslySetInnerHTML={{__html: BLOCKS}} />
 );
-Blocks.storyName = 'Блоки';
+Blocks.storyName = 'Blocks';
 
 export const Components: Story = () => (
     <div className="yfm" dangerouslySetInnerHTML={{__html: COMPONENTS}} />
 );
-Components.storyName = 'Саб-блоки';
+Components.storyName = 'Sub-blocks';
 
 export const CommonTypes: Story = () => (
     <div className="yfm" dangerouslySetInnerHTML={{__html: COMMON_TYPES}} />
 );
-CommonTypes.storyName = 'Общие типы полей';
+CommonTypes.storyName = 'Common types';
 
 export const PageProperties: Story = () => (
     <div className="yfm" dangerouslySetInnerHTML={{__html: PAGE_PROPERTIES}} />
 );
-PageProperties.storyName = 'Свойства страницы';
+PageProperties.storyName = 'Page properties';

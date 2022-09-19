@@ -20,4 +20,4 @@
 - `link: строка`
 - `arrow?: bool` - рисовать стрелку справа
 
-`buttons?: Button[]` - массив с объектами кнопок, см. раздел [Контент-блоки](?path=/story/информация--common-types&viewMode=docs)
+`buttons?: Button[]` - массив с объектами кнопок, см. раздел [Контент-блоки](?path=/story/information--common-types&viewMode=docs)

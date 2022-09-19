@@ -7,7 +7,7 @@ import {BlockType, TableBlockModel} from '../../../models';
 
 export default {
     component: Table,
-    title: 'Блоки/Table',
+    title: 'Blocks/Table',
 } as Meta;
 
 const DefaultTemplate: Story<TableBlockModel> = (args) => (

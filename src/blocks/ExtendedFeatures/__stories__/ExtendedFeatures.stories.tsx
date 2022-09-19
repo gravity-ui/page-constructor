@@ -5,7 +5,7 @@ import ExtendedFeatures from '../ExtendedFeatures';
 import {PageConstructor} from '../../../containers/PageConstructor/PageConstructor';
 
 export default {
-    title: 'Блоки/ExtendedFeatures',
+    title: 'Blocks/ExtendedFeatures',
     component: ExtendedFeatures,
     args: {
         colSizes: {

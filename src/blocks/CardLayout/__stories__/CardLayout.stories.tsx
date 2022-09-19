@@ -7,7 +7,7 @@ import {BlockType, CardLayoutBlockModel, SubBlockType} from '../../../models';
 import {PageConstructor} from '../../../containers/PageConstructor/PageConstructor';
 
 export default {
-    title: 'Блоки/CardLayout',
+    title: 'Blocks/CardLayout',
     component: CardLayout,
 } as Meta;
 

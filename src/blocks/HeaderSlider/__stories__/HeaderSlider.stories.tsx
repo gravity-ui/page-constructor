@@ -5,7 +5,7 @@ import HeaderSlider from '../HeaderSlider';
 import {PageConstructor} from '../../../containers/PageConstructor/PageConstructor';
 
 export default {
-    title: 'Блоки/HeaderSlider',
+    title: 'Blocks/HeaderSlider',
     component: HeaderSlider,
     args: {
         dots: true,

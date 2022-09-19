@@ -12,7 +12,7 @@ npm install @gravity-ui/page-constructor
 
 При создании страниц используется компонентный подход: страница составляется из набора готовых блоков, которые могут быть расположены в произвольном порядке. Каждому блоку соответсвует определенный тип и набор параметров во входных данных.
 
-Формат входных данных и список доступных блоков можно посмотреть в [документации](http://localhost:7009/?path=/story/информация--containers).
+Формат входных данных и список доступных блоков можно посмотреть в [документации](http://localhost:7009/?path=/story/information--containers).
 
 ### Начало работы
 
@@ -115,8 +115,8 @@ interface Metrika = {
 
 ```typescript
 export interface LoadableConfigItem {
-  fetch: FetchLoadableData; // функция загрузки данных
-  component: React.ComponentType; //блок, в который нужно передать загруженные данные
+  fetch: FetchLoadableData; // data loading method
+  component: React.ComponentType; //blog to pass loaded data
 }
 
 type FetchLoadableData<TData = any> = (blockKey: string) => Promise<TData>;

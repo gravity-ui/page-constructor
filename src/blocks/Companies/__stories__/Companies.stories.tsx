@@ -6,7 +6,7 @@ import {BlockType, CompaniesBlockModel} from '../../../models';
 import {PageConstructor} from '../../../containers/PageConstructor/PageConstructor';
 
 export default {
-    title: 'Блоки/Companies',
+    title: 'Blocks/Companies',
     component: Companies,
 } as Meta;
 

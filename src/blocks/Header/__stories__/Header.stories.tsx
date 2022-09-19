@@ -6,7 +6,7 @@ import yfm from '@doc-tools/transform';
 import {PageConstructor} from '../../../containers/PageConstructor';
 
 export default {
-    title: 'Блоки/Header',
+    title: 'Blocks/Header',
     component: Header,
     args: {
         image: undefined,

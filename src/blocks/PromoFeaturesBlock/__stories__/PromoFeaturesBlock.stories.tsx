@@ -7,7 +7,7 @@ import {BlockType, PromoFeaturesBlockModel} from '../../../models';
 import {PageConstructor} from '../../../containers/PageConstructor';
 
 export default {
-    title: 'Блоки/PromoFeaturesBlock',
+    title: 'Blocks/PromoFeaturesBlock',
     component: PromoFeaturesBlock,
     args: {
         theme: 'default',

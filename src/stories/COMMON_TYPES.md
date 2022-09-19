@@ -11,7 +11,7 @@
 - `text: строка` - текст
 - `url?: url` - ссылка
 - `primary?: boolean`
-- [`img?: string | Img` - иконка](#img---иконка)
+- [`img?: string | Img` - иконка](#img---icon)
 - `size?: s | m | l | xl` - размер кнопки
 - `theme?: normal | action | outlined | outlined-info | outlined-danger | raised | flat | flat-info | flat-danger | flat-secondary | clear | normal-contrast | outlined-contrast | flat-contrast | app-store | google-play | scale | github | monochrome` - тема кнопки
 - `metrikaGoals? : строка | строка[] | {name: строка, isCrossSite?: boolean}[]` - кастомные цели метрики
@@ -20,7 +20,7 @@
   - `data?: PixelEventData` - данные для отправки
 - [`target?: Target` - где отображать](#Target)
 
-## `Img` - иконка
+## `Img` - icon
 
 - `data: string`
 - `position?: left | right`
