@@ -28,4 +28,7 @@ Default.args = {
     posts,
     services,
     tags,
+    setQuery: (props) => {
+        console.log('set search', props);
+    },
 };

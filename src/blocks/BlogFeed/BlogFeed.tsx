@@ -29,7 +29,7 @@ type BlogFeedProps = {
 const containerId = 'blog-cards';
 
 export const BlogFeed: React.FC<BlogFeedProps> = ({image}) => {
-    const {posts, totalCount, tags, services, pinnedPost, setQueryParams, getBlogPosts} =
+    const {posts, totalCount, tags, services, pinnedPost, setQueryParams, getBlogPosts, setQuery} =
         useContext(BlogFeedContext);
     const {locale} = useContext(LocaleContext);
     const router = useContext(RouterContext);
@@ -169,6 +169,7 @@ export const BlogFeed: React.FC<BlogFeedProps> = ({image}) => {
                 tags={tagItems}
                 services={serviceItems}
                 setIsFetching={setIsFetching}
+                setQuery={setQuery}
                 background={{
                     fullWidth: true,
                     url: image,

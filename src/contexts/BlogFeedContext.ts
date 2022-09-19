@@ -11,7 +11,7 @@ export interface BlogFeedPageContextProps {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     getBlogPosts?: any;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    setQueryParams?: any;
+    setQuery?: any;
 }
 
 export const BlogFeedContext = React.createContext<BlogFeedPageContextProps>({});

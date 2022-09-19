@@ -8,7 +8,7 @@ import {BackgroundImage, Grid, getThemedValue} from '@yandex-data-ui/page-constr
 import {HeaderBlockProps} from '../../models/blog';
 
 import FullWidthBackground from '../FullWidthBackground/FullWidthBackground';
-import {BlogFeedControls, BlogFeedControlsProps} from './components/Controls/Controls';
+import {Controls, ControlsProps} from './components/Controls/Controls';
 
 import './FeedHeader.scss';
 
@@ -16,7 +16,7 @@ const b = block('FeedHeader');
 
 type HeaderProps = Pick<HeaderBlockProps, 'background' | 'offset' | 'theme' | 'verticalOffset'>;
 
-type FeedHeaderProps = HeaderProps & BlogFeedControlsProps;
+type FeedHeaderProps = HeaderProps & ControlsProps;
 
 // TODO fix any in https://st.yandex-team.ru/ORION-1447
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -31,6 +31,7 @@ export const FeedHeader: React.FC<FeedHeaderContainerProps> = ({
     theme = 'default',
     verticalOffset = 'l',
     className,
+    setQuery,
 }) => {
     const backgroundThemed = background && getThemedValue(background, theme);
 
@@ -52,7 +53,12 @@ export const FeedHeader: React.FC<FeedHeaderContainerProps> = ({
                         disableCompress={background?.disableCompress}
                     />
                 ) : null}
-                <BlogFeedControls tags={tags} services={services} setIsFetching={setIsFetching} />
+                <Controls
+                    tags={tags}
+                    services={services}
+                    setIsFetching={setIsFetching}
+                    setQuery={setQuery}
+                />
             </Grid>
         </header>
     );

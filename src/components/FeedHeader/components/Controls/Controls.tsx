@@ -30,18 +30,20 @@ export type SelectItem = {
     icon?: ReactNode;
 };
 
-export type BlogFeedControlsProps = {
+export type ControlsProps = {
     setIsFetching: (value: boolean) => void;
     tags?: SelectItem[];
     services?: SelectItem[];
+    setQuery?: any;
 };
 
 const ICON_SIZE = 16;
 
-export const BlogFeedControls: React.FC<BlogFeedControlsProps> = ({
+export const Controls: React.FC<ControlsProps> = ({
     setIsFetching,
     tags = [],
     services = [],
+    setQuery,
 }) => {
     const router = useContext(RouterContext);
 
@@ -56,13 +58,13 @@ export const BlogFeedControls: React.FC<BlogFeedControlsProps> = ({
     const [search, setSearch] = useState<string>(searchInitial as string);
 
     const handleSavedOnly = () => {
-        // setBlogQueryParams('savedOnly', savedOnly ? undefined : 'true');
+        setQuery('savedOnly', savedOnly ? undefined : 'true');
         setSavedOnly(!savedOnly);
         setIsFetching(true);
     };
 
     const handleSearch = (searchValue: string) => {
-        // setBlogQueryParams('search', searchValue);
+        setQuery('search', searchValue);
         setSearch(searchValue);
         setIsFetching(true);
     };
@@ -71,10 +73,7 @@ export const BlogFeedControls: React.FC<BlogFeedControlsProps> = ({
         metrika.reachGoal(MetrikaCounter.CrossSite, BlogMetrikaGoalIds.tag, {
             theme: selectedTag,
         });
-        // setBlogQueryParams(
-        //     'tags',
-        //     ['empty', tagInitial].includes(selectedTag) ? undefined : selectedTag,
-        // );
+        setQuery('tags', ['empty', tagInitial].includes(selectedTag) ? undefined : selectedTag);
 
         setIsFetching(true);
     };
@@ -87,8 +86,8 @@ export const BlogFeedControls: React.FC<BlogFeedControlsProps> = ({
         metrika.reachGoal(MetrikaCounter.CrossSite, BlogMetrikaGoalIds.service, {
             service: metrikaAsString,
         });
-        // const servicesAsString = selectedServices.join(',');
-        // setBlogQueryParams('services', servicesAsString);
+        const servicesAsString = selectedServices.join(',');
+        setQuery('services', servicesAsString);
         setIsFetching(true);
     };
 
