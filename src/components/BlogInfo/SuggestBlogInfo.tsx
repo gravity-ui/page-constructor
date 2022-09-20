@@ -21,10 +21,10 @@ export interface SuggestBlogInfoProps
     dataQa?: string;
     // delete this prop after Realese of BlogFeed https://st.yandex-team.ru/CLOUDFRONT-11056
     isModernIcon?: boolean;
-    likes: {
-        likesCount: number;
-        hasUserLike: boolean;
-        toggleLike: ToggleLikeCallbackType;
+    likes?: {
+        likesCount?: number;
+        hasUserLike?: boolean;
+        toggleLike?: ToggleLikeCallbackType;
     };
 }
 
@@ -54,7 +54,7 @@ export const SuggestBlogInfo: React.FC<SuggestBlogInfoProps> = ({
     const {hasUserLike, likesCount, handleLike} = useLikes({
         hasLike: likes?.hasUserLike,
         count: likes?.likesCount,
-        toggleLikeCallback: likes.toggleLike,
+        toggleLikeCallback: likes?.toggleLike,
         postId: blogPostId,
     });
 
@@ -64,7 +64,7 @@ export const SuggestBlogInfo: React.FC<SuggestBlogInfoProps> = ({
                 {date && <BlogDate date={date} size={size} />}
                 {readingTime && <BlogReadingTime readingTime={readingTime} size={size} />}
             </div>
-            {blogPostId && (
+            {likes && blogPostId && (
                 <BlogSave
                     postId={blogPostId}
                     title={likesCount}

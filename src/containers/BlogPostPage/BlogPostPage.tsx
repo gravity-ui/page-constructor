@@ -34,7 +34,7 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({
     const {hasUserLike, likesCount, handleLike} = useLikes({
         hasLike: likes?.hasUserLike,
         count: likes?.likesCount,
-        toggleLikeCallback: likes.toggleLike,
+        toggleLikeCallback: likes?.toggleLike,
         postId: post?.blogPostId,
     });
 
@@ -44,11 +44,13 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({
                 value={{
                     post,
                     suggestedPosts,
-                    likes: {
-                        handleUserLike: handleLike,
-                        hasUserLike,
-                        likesCount,
-                    },
+                    likes: likes
+                        ? {
+                              handleUserLike: handleLike,
+                              hasUserLike,
+                              likesCount,
+                          }
+                        : undefined,
                     toggleLike: likes?.toggleLike,
                 }}
             >

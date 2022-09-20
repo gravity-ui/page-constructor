@@ -25,7 +25,7 @@ const countWords = (str: string) => str.split(' ').filter(Boolean).length;
 
 const getLanguageSchema = ({lang, langName}: Locale) => ({
     '@type': 'Language',
-    name: langName,
+    name: langName || lang,
     alternateName: lang,
 });
 
