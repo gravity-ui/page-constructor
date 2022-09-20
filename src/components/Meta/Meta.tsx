@@ -51,8 +51,6 @@ export const Meta: React.FC<MetaComponentProps> = ({
 
     const sharingTitle = useMemo(() => sharing.title, [sharing?.title]);
 
-    const sharingDescription = useMemo(() => sharing.description, [sharing?.description]);
-
     const metaDescription = useMemo(() => (description ? description : undefined), [description]);
 
     const metaKeywords = useMemo(
@@ -91,7 +89,7 @@ export const Meta: React.FC<MetaComponentProps> = ({
                 url={url}
                 locale={locale?.code}
                 title={sharingTitle}
-                description={sharingDescription}
+                description={metaDescription}
                 image={image}
                 extra={extraMeta}
             >

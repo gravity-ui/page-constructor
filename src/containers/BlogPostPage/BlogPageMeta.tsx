@@ -104,7 +104,7 @@ export const BlogPageMeta: React.FC<BlogMetaProps> = React.memo(
             image: shareImage || undefined,
             schemaJsonLd: schemaData,
             sharing: {
-                title,
+                title: shareTitle,
                 description: shareDescription,
             },
             extra: [
