@@ -29,7 +29,7 @@ type BlogFeedProps = {
 const containerId = 'blog-cards';
 
 export const BlogFeed: React.FC<BlogFeedProps> = ({image}) => {
-    const {posts, totalCount, tags, services, pinnedPost, setQueryParams, getBlogPosts, setQuery} =
+    const {posts, totalCount, tags, services, pinnedPost, getBlogPosts, setQuery} =
         useContext(BlogFeedContext);
     const {locale} = useContext(LocaleContext);
     const router = useContext(RouterContext);
@@ -67,7 +67,7 @@ export const BlogFeed: React.FC<BlogFeedProps> = ({image}) => {
     });
 
     const handlePageChange = async (value: number) => {
-        await setQueryParams({name: 'page', value}, false, {shallow: true});
+        await setQuery({name: 'page', value}, false, {shallow: true});
         dispatch({type: ActionTypes.PageChange, payload: value});
     };
 
@@ -126,7 +126,7 @@ export const BlogFeed: React.FC<BlogFeedProps> = ({image}) => {
                     },
                 });
 
-                await setQueryParams({name: 'page', value: currentPage + 1}, false, {
+                await setQuery({name: 'page', value: currentPage + 1}, false, {
                     shallow: true,
                 });
             }

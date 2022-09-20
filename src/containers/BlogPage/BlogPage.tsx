@@ -8,7 +8,7 @@ import componentMap from '../../constructor/blocksMap';
 
 export type BlogPageProps = any;
 
-export const BlogPage = ({page, posts, tags, services, setQuery}: any) => {
+export const BlogPage = ({page, posts, tags, services, setQuery, getBlogPosts}: any) => {
     return (
         <main>
             <BlogFeedContext.Provider
@@ -19,6 +19,7 @@ export const BlogPage = ({page, posts, tags, services, setQuery}: any) => {
                     tags,
                     services: services ?? [],
                     setQuery,
+                    getBlogPosts,
                 }}
             >
                 <PageConstructor content={page?.content} custom={componentMap} />
