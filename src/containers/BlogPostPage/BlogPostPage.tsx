@@ -52,6 +52,7 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({
                           }
                         : undefined,
                     toggleLike: likes?.toggleLike,
+                    hasLikes: Boolean(likes),
                 }}
             >
                 {metaData ? <BlogPageMeta {...metaData} /> : null}

@@ -11,6 +11,7 @@ export interface BlogPageContextProps {
         likesCount: number;
     };
     toggleLike?: ToggleLikeCallbackType;
+    hasLikes?: boolean;
 }
 
 export const BlogPageContext = React.createContext<BlogPageContextProps>(
