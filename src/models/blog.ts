@@ -79,7 +79,14 @@ export enum BlockType {
     BlogFeedBlock = 'blog-feed-block',
 }
 
-export interface BlogMetaProps {
+export type MetaOrganizationType = {
+    url: string;
+    appTitle: string;
+    legalName: string;
+    supportEmail: string;
+};
+
+export interface BlogPostMetaProps {
     title: string;
     date: string;
     image: string;
@@ -97,12 +104,17 @@ export interface BlogMetaProps {
     noIndex?: boolean;
     authors?: SpeakerPublic[];
     tags?: BlogPostTagExtended[];
-    organization: {
-        url: string;
-        appTitle: string;
-        legalName: string;
-        supportEmail: string;
-    };
+    organization: MetaOrganizationType;
+}
+
+export interface BlogPageMetaProps {
+    title: string;
+    description: string;
+    noIndex: boolean;
+    organization: MetaOrganizationType;
+    sharingTitle: string;
+    blogPostsData: BlogPostData[];
+    canonicalUrl: string;
 }
 
 export type ToggleLikeCallbackType = ({

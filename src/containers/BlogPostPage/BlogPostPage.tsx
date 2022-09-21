@@ -2,7 +2,7 @@ import React from 'react';
 
 import {PageConstructor, PageContent} from '@yandex-data-ui/page-constructor';
 
-import {BlogPostData, BlogMetaProps, ToggleLikeCallbackType} from '../../models/blog';
+import {BlogPostData, BlogPostMetaProps, ToggleLikeCallbackType} from '../../models/blog';
 
 import componentMap from '../../constructor/blocksMap';
 
@@ -14,7 +14,7 @@ import {BlogPageMeta} from './BlogPageMeta';
 
 export interface BlogPostPageProps {
     suggestedPosts: BlogPostData[];
-    metaData: BlogMetaProps;
+    metaData: BlogPostMetaProps;
     likes: {
         hasUserLike?: boolean;
         likesCount?: number;

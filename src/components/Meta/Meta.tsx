@@ -9,8 +9,8 @@ import {RouterContext} from '../../contexts/RouterContext';
 import {getCleanTitle} from '../../utils/meta';
 
 interface SharingProps {
-    title: string;
-    description: string;
+    title?: string;
+    description?: string;
 }
 
 export interface MetaComponentProps {
@@ -20,7 +20,7 @@ export interface MetaComponentProps {
     appTitle?: string;
     image?: string;
     locale?: string;
-    sharing: SharingProps;
+    sharing?: SharingProps;
     extra?: MetaProps[];
     description?: string | null;
     keywords?: string | string[] | null;
@@ -49,9 +49,9 @@ export const Meta: React.FC<MetaComponentProps> = ({
     const {locale} = useContext(LocaleContext);
     const router = useContext(RouterContext);
 
-    const sharingTitle = useMemo(() => sharing.title, [sharing?.title]);
+    const sharingTitle = useMemo(() => sharing?.title, [sharing?.title]);
 
-    const sharingDescription = useMemo(() => sharing.description, [sharing?.description]);
+    const sharingDescription = useMemo(() => sharing?.description, [sharing?.description]);
 
     const metaDescription = useMemo(() => (description ? description : undefined), [description]);
 

@@ -9,7 +9,7 @@ import {i18, BlogKeyset} from '../../i18n';
 
 import {getBlogPostSchema} from '../../utils/meta';
 
-import {BlogMetaProps} from '../../models/blog';
+import {BlogPostMetaProps} from '../../models/blog';
 
 /**
  * Create meta data for blog page
@@ -28,7 +28,7 @@ import {BlogMetaProps} from '../../models/blog';
  * @param canonicalUrl - post canonicalUrl
  * @returns
  */
-export const BlogPageMeta: React.FC<BlogMetaProps> = React.memo(
+export const BlogPageMeta: React.FC<BlogPostMetaProps> = React.memo(
     ({
         title,
         date,

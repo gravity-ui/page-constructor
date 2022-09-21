@@ -1,5 +1,5 @@
 import {Locale} from '../models/locale';
-import {BlogMetaProps} from '../models/blog';
+import {BlogPostMetaProps, BlogPostData, MetaOrganizationType} from '../models/blog';
 
 import {format} from './date';
 
@@ -10,12 +10,12 @@ type BreadcrumbsData = {
 
 interface GetBlogPostSchemaData
     extends Pick<
-        BlogMetaProps,
+        BlogPostMetaProps,
         'title' | 'description' | 'date' | 'keywords' | 'image' | 'content' | 'organization'
     > {
     url: string;
-    author: string;
-    locale: Locale | undefined;
+    author?: string;
+    locale?: Locale;
     breadcrumbs?: BreadcrumbsData[];
 }
 
@@ -62,7 +62,7 @@ const getOrganizationSchema = ({appTitle, url}: {appTitle: string; url: string})
     };
 };
 
-const getAuthorSchema = (author: string | undefined, organization: BlogMetaProps['organization']) =>
+const getAuthorSchema = (author: string | undefined, organization: MetaOrganizationType) =>
     author
         ? {
               '@type': 'Person',
@@ -134,6 +134,59 @@ export const getBlogPostSchema = ({
                 articleBody: content,
             },
         ],
+    };
+};
+
+export const getBlogSchema = ({
+    url,
+    title,
+    description,
+    blogPostsData,
+    organization,
+    locale,
+}: {
+    url: string;
+    title: string;
+    description: string;
+    blogPostsData?: BlogPostData[];
+    organization: BlogPostMetaProps['organization'];
+    locale: Locale | undefined;
+}) => {
+    const organizationSchema = getOrganizationSchema(organization);
+
+    return {
+        '@context': 'http://schema.org/',
+        '@type': 'Blog',
+        '@id': url,
+        name: title,
+        url: url,
+        description,
+        publisher: organizationSchema,
+        blogPosts: blogPostsData
+            ? blogPostsData.map(
+                  ({
+                      slug,
+                      textTitle,
+                      date,
+                      description: postDescription,
+                      author,
+                      image,
+                      tags,
+                      keywords,
+                  }) =>
+                      getBlogPostSchema({
+                          title: textTitle,
+                          date,
+                          description: postDescription,
+                          author,
+                          locale,
+                          url: `/blog/posts/${slug}`,
+                          image,
+                          organization,
+                          keywords: keywords || tags.map((tag) => tag.name),
+                      }),
+              )
+            : [],
     };
 };
 
