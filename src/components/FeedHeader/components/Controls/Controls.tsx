@@ -8,8 +8,6 @@ import {Search} from '../../../Search/Search';
 
 import {CustomSwitcher} from '../CustomSwitcher/CustomSwitcher';
 
-// import {setBlogQueryParams} from 'units/blog/utils'; TODO query
-
 import {RouterContext} from '../../../../contexts/RouterContext';
 
 import {BlogMetrikaGoalIds} from '../../../../constants';
