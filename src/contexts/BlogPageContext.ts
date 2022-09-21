@@ -10,7 +10,7 @@ export interface BlogPageContextProps {
         hasUserLike: boolean;
         likesCount: number;
     };
-    toggleLike: ToggleLikeCallbackType;
+    toggleLike?: ToggleLikeCallbackType;
 }
 
 export const BlogPageContext = React.createContext<BlogPageContextProps>(

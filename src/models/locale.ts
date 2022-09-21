@@ -30,8 +30,6 @@ export interface LocaleData extends Pick<LangData, 'lang'>, Omit<RegionData, 're
 }
 
 export interface Locale
-    extends LocaleData,
-        Pick<LangData, 'langName'>,
-        Pick<RegionData, 'regionName'> {
-    name: string;
-}
+    extends Partial<Pick<LangData, 'langName'>>,
+        Pick<LangData, 'lang'>,
+        Partial<Pick<LocaleData, 'code'>> {}
