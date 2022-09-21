@@ -8,15 +8,7 @@ export type LocaleContextProps = {
 export const LocaleContext = React.createContext<LocaleContextProps>({
     locale: {
         code: 'ru-RU',
-        name: 'Россия (Русский)',
         lang: Lang.Ru,
         langName: 'Русский',
-        region: 'ru',
-        regionName: 'Россия',
-        currency: 'RUB',
-        tld: 'ru',
-        order: 1,
-        default: true,
-        local: true,
     },
 });

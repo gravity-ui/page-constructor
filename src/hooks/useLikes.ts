@@ -6,7 +6,7 @@ type UseLikesProps = {
     hasLike?: boolean;
     count?: number;
     postId?: number;
-    toggleLikeCallback: ToggleLikeCallbackType;
+    toggleLikeCallback?: ToggleLikeCallbackType;
 };
 
 type UseLikeData = {
@@ -35,10 +35,12 @@ export const useLikes: UseLikesType = ({hasLike, count, toggleLikeCallback, post
         setHasUserLike(!hasUserLike);
         setLikesCount(newLikesCount);
 
-        toggleLikeCallback({
-            postId,
-            hasLike: !hasUserLike,
-        });
+        if (toggleLikeCallback) {
+            toggleLikeCallback({
+                postId,
+                hasLike: !hasUserLike,
+            });
+        }
     }, [hasUserLike, likesCount, postId, toggleLikeCallback]);
 
     useEffect(() => {

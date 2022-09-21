@@ -17,5 +17,5 @@ type BlogDateProps = {
 export const BlogDate: React.FC<BlogDateProps> = ({date, size = 's'}) => {
     const {locale} = useContext(LocaleContext);
 
-    return <div className={b('item', {size})}>{format(date, 'longDate', locale.code)}</div>;
+    return <div className={b('item', {size})}>{format(date, 'longDate', locale?.code)}</div>;
 };
