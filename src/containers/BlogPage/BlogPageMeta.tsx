@@ -14,7 +14,7 @@ export const BlogPageMeta: React.FC<BlogPageMetaProps> = ({
     noIndex = false,
     organization,
     canonicalUrl,
-    sharingTitle,
+    sharing,
     blogPostsData,
 }) => {
     const {locale} = useContext(LocaleContext);
@@ -32,9 +32,7 @@ export const BlogPageMeta: React.FC<BlogPageMetaProps> = ({
         description,
         canonicalUrl,
         title,
-        sharing: {
-            title: sharingTitle,
-        },
+        sharing,
         schemaJsonLd: schemaData,
         noIndex,
     };

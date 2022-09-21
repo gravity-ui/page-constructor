@@ -8,6 +8,7 @@ import page from '../../../../.mocks/blogPage.json';
 import services from '../../../../.mocks/services.json';
 import tags from '../../../../.mocks/tags.json';
 import posts from '../../../../.mocks/posts.json';
+import blogPageMeta from '../../../../.mocks/blogPageMetaData.json';
 
 import {BlogPage, BlogPageProps} from '../BlogPage';
 
@@ -23,11 +24,17 @@ const DefaultTemplate: Story<BlogPageProps> = (args) => <BlogPage {...args} />;
 
 export const Default = DefaultTemplate.bind({});
 
+const metaData = {
+    ...blogPageMeta,
+    blogPostsData: posts.posts,
+};
+
 Default.args = {
     page,
     posts,
     services,
     tags,
+    metaData,
     setQuery: (props) => {
         console.log('set search', props);
     },

@@ -7,7 +7,7 @@ import {Lang} from '../src/models/locale';
 
 import postApi from './postApi.json';
 import pageApi from './pageApi.json';
-import metaData from './metaData.json';
+import metaData from './postMetaData.json';
 import suggestedPosts from './suggestedPosts.json';
 
 /**

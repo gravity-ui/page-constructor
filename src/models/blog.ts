@@ -112,7 +112,10 @@ export interface BlogPageMetaProps {
     description: string;
     noIndex: boolean;
     organization: MetaOrganizationType;
-    sharingTitle: string;
+    sharing: {
+        title: string;
+        description: string;
+    };
     blogPostsData: BlogPostData[];
     canonicalUrl: string;
 }
