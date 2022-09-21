@@ -48,18 +48,18 @@ export const PostCard: React.FC<PostCardProps> = ({
 
     const title = postTitle || htmlTitle || textTitle;
 
-    const {toggleLike} = useContext(BlogPageContext);
+    const {toggleLike, hasLikes} = useContext(BlogPageContext);
 
     const likesProps = useMemo(
         () =>
-            likes >= 0
+            hasLikes
                 ? {
                       hasUserLike,
                       likesCount: likes,
                       toggleLike,
                   }
                 : undefined,
-        [hasUserLike, likes, toggleLike],
+        [hasUserLike, likes, toggleLike, hasLikes],
     );
 
     return (
