@@ -15,10 +15,10 @@ import {BlogPageMeta} from './BlogPageMeta';
 export interface BlogPostPageProps {
     suggestedPosts: BlogPostData[];
     metaData: BlogMetaProps;
-    likes: {
+    likes?: {
         hasUserLike?: boolean;
         likesCount?: number;
-        toggleLike: ToggleLikeCallbackType;
+        toggleLike?: ToggleLikeCallbackType;
     };
     content: PageContent;
     post: BlogPostData;
