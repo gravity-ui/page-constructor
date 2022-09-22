@@ -1,5 +1,9 @@
 # Лог изменений
 
+## 0.5.3
+
+- fix yfm styles: add css variables to be able to redefine styles in projects
+
 ## 0.5.2
 
 - условие для лайков на карточках
