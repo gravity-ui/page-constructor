@@ -69,6 +69,15 @@
 
     &_breadcrumbs {
         @include text-size(body-2);
+        color: var(--yc-text-color-base);
+    }
+
+    a {
+        color: var(--yc-color-text-link);
+
+        &:hover {
+            color: var(--yc-color-text-link-hover);
+        }
     }
 }
 
