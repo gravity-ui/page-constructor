@@ -1,5 +1,9 @@
 # Лог изменений
 
+## 0.6.0
+
+- add BlogPage
+
 ## 0.5.3
 
 - fix yfm styles: add css variables to be able to redefine styles in projects
