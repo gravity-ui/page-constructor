@@ -1,5 +1,5 @@
 import React from 'react';
-import {BlogPostData, ToggleLikeCallbackType} from '../models/blog';
+import {BlogPostData} from '../models/blog';
 
 export interface BlogPageContextProps {
     // Should we change Blog Context? https://st.yandex-team.ru/CLOUDFRONT-10460
@@ -10,8 +10,6 @@ export interface BlogPageContextProps {
         hasUserLike: boolean;
         likesCount: number;
     };
-    toggleLike?: ToggleLikeCallbackType;
-    hasLikes?: boolean;
 }
 
 export const BlogPageContext = React.createContext<BlogPageContextProps>(

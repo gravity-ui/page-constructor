@@ -1,18 +1,53 @@
 import React from 'react';
 
-import {PageConstructor} from '@yandex-data-ui/page-constructor';
+import {ServicePublic} from '@yandex-data-ui/cloud-schemas/build/models/ui-api';
+import {PageConstructor, PageContent} from '@yandex-data-ui/page-constructor';
 
 import {BlogFeedContext} from '../../contexts/BlogFeedContext';
+import {LikesContext} from '../../contexts/LikesContext';
 
 import componentMap from '../../constructor/blocksMap';
 
+import {
+    BlogPostTagExtended,
+    BlogPagePostsData,
+    ToggleLikeCallbackType,
+    BlogPageMetaProps,
+} from '../../models/blog';
+
 import {BlogPageMeta} from './BlogPageMeta';
 
-export type BlogPageProps = any;
+export type BlogPageProps = {
+    content: PageContent;
+    posts: BlogPagePostsData;
+    tags: BlogPostTagExtended[];
+    services?: ServicePublic[];
+    // TODO fix any in https://st.yandex-team.ru/ORION-1447
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    setQuery: (props: any) => void;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    getBlogPosts: (props: any) => void;
+    toggleLike: ToggleLikeCallbackType;
+    metaData: BlogPageMetaProps;
+};
 
-export const BlogPage = ({page, posts, tags, services, setQuery, getBlogPosts, metaData}: any) => {
-    return (
-        <main>
+export const BlogPage = ({
+    content,
+    posts,
+    tags,
+    services,
+    setQuery,
+    getBlogPosts,
+    metaData,
+    toggleLike,
+}: BlogPageProps) => (
+    <main>
+        <LikesContext.Provider
+            value={{
+                toggleLike: toggleLike,
+                hasLikes: true,
+            }}
+        >
             <BlogFeedContext.Provider
                 value={{
                     posts: posts.posts,
@@ -25,8 +60,8 @@ export const BlogPage = ({page, posts, tags, services, setQuery, getBlogPosts, m
                 }}
             >
                 {metaData ? <BlogPageMeta {...metaData} /> : null}
-                <PageConstructor content={page?.content} custom={componentMap} />
+                <PageConstructor content={content} custom={componentMap} />
             </BlogFeedContext.Provider>
-        </main>
-    );
-};
+        </LikesContext.Provider>
+    </main>
+);

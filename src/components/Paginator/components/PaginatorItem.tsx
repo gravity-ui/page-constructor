@@ -7,7 +7,7 @@ import {ArrowType, PaginatorItemProps} from '../types';
 
 import '../Paginator.scss';
 
-const b = block('PaginatorBlog');
+const b = block('Paginator');
 
 export const PaginatorItem = ({
     dataKey,

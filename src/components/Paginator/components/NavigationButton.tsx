@@ -7,7 +7,7 @@ import {i18, BlogKeyset} from '../../../i18n';
 
 import '../Paginator.scss';
 
-const b = block('PaginatorBlog');
+const b = block('Paginator');
 
 export type NavigationButtonProps = {
     arrowType: ArrowType;

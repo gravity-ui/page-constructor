@@ -7,6 +7,7 @@ import {BlogPostData, BlogPostMetaProps, ToggleLikeCallbackType} from '../../mod
 import componentMap from '../../constructor/blocksMap';
 
 import {BlogPageContext} from '../../contexts/BlogPageContext';
+import {LikesContext} from '../../contexts/LikesContext';
 
 import {useLikes} from '../../hooks/useLikes';
 
@@ -40,24 +41,29 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({
 
     return (
         <main>
-            <BlogPageContext.Provider
+            <LikesContext.Provider
                 value={{
-                    post,
-                    suggestedPosts,
-                    likes: likes
-                        ? {
-                              handleUserLike: handleLike,
-                              hasUserLike,
-                              likesCount,
-                          }
-                        : undefined,
                     toggleLike: likes?.toggleLike,
                     hasLikes: Boolean(likes),
                 }}
             >
-                {metaData ? <BlogPageMeta {...metaData} /> : null}
-                <PageConstructor content={content} custom={componentMap} />
-            </BlogPageContext.Provider>
+                <BlogPageContext.Provider
+                    value={{
+                        post,
+                        suggestedPosts,
+                        likes: likes
+                            ? {
+                                  handleUserLike: handleLike,
+                                  hasUserLike,
+                                  likesCount,
+                              }
+                            : undefined,
+                    }}
+                >
+                    {metaData ? <BlogPageMeta {...metaData} /> : null}
+                    <PageConstructor content={content} custom={componentMap} />
+                </BlogPageContext.Provider>
+            </LikesContext.Provider>
         </main>
     );
 };

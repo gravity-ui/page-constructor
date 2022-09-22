@@ -30,12 +30,18 @@ const metaData = {
 };
 
 Default.args = {
-    page,
+    content: page.content,
     posts,
     services,
     tags,
     metaData,
     setQuery: (props) => {
         console.log('set search', props);
+    },
+    getBlogPosts: (props) => {
+        console.log('get posts', props);
+    },
+    toggleLike: ({postId}) => {
+        console.log('toggle like on post --->', postId);
     },
 };

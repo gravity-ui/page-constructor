@@ -14,12 +14,14 @@ export interface BlogPagePostsData {
     posts: BlogPostData[];
     count: number;
     totalCount: number;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    pinnedPost?: any;
 }
 
-export interface BlogPageData {
-    posts: BlogPagePostsData;
-    tags: BlogPostTagExtended[];
-}
+// export interface BlogPageData {
+//     posts: BlogPagePostsData;
+//     tags: BlogPostTagExtended[];
+// }
 
 export interface GetBlogPostsRequest {
     perPage: number;

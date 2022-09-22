@@ -32,6 +32,7 @@ export type ControlsProps = {
     setIsFetching: (value: boolean) => void;
     tags?: SelectItem[];
     services?: SelectItem[];
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     setQuery?: any;
 };
 
@@ -127,19 +128,24 @@ export const Controls: React.FC<ControlsProps> = ({
                         renderSwitcher={renderTagsSwitcher}
                     />
                 </div>
-                <div className={b('filter-item')}>
-                    <YCSelect
-                        className={b('select')}
-                        popupClassName={b('popup')}
-                        items={services}
-                        type="multiple"
-                        value={servicesInitial ? [...(servicesInitial as string).split(',')] : []}
-                        size="promo"
-                        renderSwitcher={renderServicesSwitcher}
-                        showSelectAll={true}
-                        onUpdate={handleServicesSelect}
-                    />
-                </div>
+
+                {services.length > 0 ? (
+                    <div className={b('filter-item')}>
+                        <YCSelect
+                            className={b('select')}
+                            popupClassName={b('popup')}
+                            items={services}
+                            type="multiple"
+                            value={
+                                servicesInitial ? [...(servicesInitial as string).split(',')] : []
+                            }
+                            size="promo"
+                            renderSwitcher={renderServicesSwitcher}
+                            showSelectAll={true}
+                            onUpdate={handleServicesSelect}
+                        />
+                    </div>
+                ) : null}
                 <div className={b('filter-item', {'width-auto': true})}>
                     <Button
                         view={'outlined'}
