@@ -2,6 +2,7 @@ import React from 'react';
 import block from 'bem-cn-lite';
 import {Icon} from '@yandex-cloud/uikit';
 import {ClassNameProps} from '@yandex-data-ui/cloud-components';
+import {SVGIconData} from '@yandex-cloud/uikit/build/esm/components/Icon/types';
 
 import './ButtonWithIcon.scss';
 
