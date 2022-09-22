@@ -73,10 +73,14 @@ export const BlogFeed: React.FC<BlogFeedProps> = ({image}) => {
 
     const fetchData = useCallback(
         async (pageNumber?: number) => {
-            const queryParams = getFeedQueryParams(router.query, pageNumber);
-            const data = await getBlogPosts(locale, queryParams);
+            if (router.query) {
+                const queryParams = getFeedQueryParams(router.query, pageNumber);
+                const data = await getBlogPosts(locale, queryParams);
 
-            return data;
+                return data;
+            } else {
+                throw new Error('cant get request');
+            }
         },
         [getBlogPosts, locale, router.query],
     );

@@ -1,6 +1,6 @@
 import {ReactNode} from 'react';
 
-import {BlogPostTag, SpeakerPublic} from '@yandex-data-ui/cloud-schemas/build/models/ui-api';
+import {SpeakerPublic} from '@yandex-data-ui/cloud-schemas/build/models/ui-api';
 import {HeaderBlockProps as PageConstructorHeaderBlockProps} from '@yandex-data-ui/page-constructor';
 
 import {Locale} from '../models/locale';
@@ -31,6 +31,19 @@ export interface GetBlogPostsRequest {
     savedOnly?: boolean;
     search?: string;
 }
+
+type BlogPostTag = {
+    id: number;
+    slug: string;
+    createdAt: string;
+    updatedAt: string;
+    icon: string;
+    isDeleted: boolean;
+    name: string;
+    locale: string;
+    blogTagId: number;
+    count: number;
+};
 
 export type BlogPostTagExtended = BlogPostTag & {
     name: string;

@@ -2,6 +2,8 @@
 import {parse} from 'fast-html-parser';
 import {format} from 'url';
 
+import {Query} from '../models/common';
+
 export function setUrlTld(url: string, tld = 'ru', force = false) {
     if (!url || typeof url !== 'string') {
         return url;

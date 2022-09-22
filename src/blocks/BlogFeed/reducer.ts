@@ -1,3 +1,6 @@
+// @ts-nocheck
+// TODO fix types in https://st.yandex-team.ru/ORION-1447
+
 import {BlogPostData} from '../../models/blog';
 
 export enum ActionTypes {
