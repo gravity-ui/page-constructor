@@ -1,0 +1,11 @@
+{
+  "components-cards-tutorialcard--default": {
+    "url": "#",
+    "title": "How to deploy 1C with a Microsoft SQL Server<sup>™</sup> cluster",
+    "text": "Create a Microsoft SQL Server<sup>™</sup> database cluster on your own or use Managed Service for SQL Server<sup>™</sup>. This database is optimal for working with 1C:Enterprise.",
+    "border": "shadow",
+    "icon": {
+      "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/prices/rub.svg"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "components-title--default": {
+    "text": "Header",
+    "textSize": "m"
+  },
+  "components-title--with-link": {
+    "text": "Header",
+    "textSize": "m",
+    "url": "#"
+  },
+  "components-title--reset-margin": {
+    "text": "Header",
+    "textSize": "m",
+    "resetMargin": true
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "components-links-and-buttons-link--back-with-children": {
+    "url": "#",
+    "theme": "back"
+  },
+  "components-links-and-buttons-link--default": {
+    "text": "Default link",
+    "url": "#"
+  },
+  "components-links-and-buttons-link--underline-with-children": {
+    "url": "#",
+    "theme": "underline"
+  },
+  "components-links-and-buttons-link--normal-with-children": {
+    "url": "#",
+    "theme": "normal"
+  },
+  "components-links-and-buttons-link--normal-arrow": {
+    "text": "Normal link with an arrow",
+    "url": "#",
+    "arrow": true,
+    "theme": "normal"
+  },
+  "components-links-and-buttons-link--normal-for-dark-theme": {
+    "text": "Normal link",
+    "url": "#",
+    "theme": "normal",
+    "colorTheme": "dark"
+  },
+  "components-links-and-buttons-link--themes-sizes": {
+    "text": "Link",
+    "url": "#"
+  }
+}

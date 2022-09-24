@@ -1,0 +1,75 @@
+{
+  "components-cards-cardbase--default": {
+    "url": "#",
+    "content": {
+      "type": "div",
+      "key": null,
+      "ref": null,
+      "props": {
+        "children": "Add content here"
+      },
+      "_owner": null,
+      "_store": {}
+    },
+    "header": {
+      "type": "div",
+      "key": null,
+      "ref": null,
+      "props": {
+        "children": "Add a header here"
+      },
+      "_owner": null,
+      "_store": {}
+    },
+    "footer": {
+      "type": "div",
+      "key": null,
+      "ref": null,
+      "props": {
+        "children": "Add a footer here"
+      },
+      "_owner": null,
+      "_store": {}
+    },
+    "border": "shadow",
+    "className": "",
+    "bodyClassName": "",
+    "contentClassName": ""
+  },
+  "components-cards-cardbase--borders": {
+    "url": "#",
+    "content": {
+      "type": "div",
+      "key": null,
+      "ref": null,
+      "props": {
+        "children": "Add content here"
+      },
+      "_owner": null,
+      "_store": {}
+    },
+    "header": {
+      "type": "div",
+      "key": null,
+      "ref": null,
+      "props": {
+        "children": "Add a header here"
+      },
+      "_owner": null,
+      "_store": {}
+    },
+    "footer": {
+      "type": "div",
+      "key": null,
+      "ref": null,
+      "props": {
+        "children": "Add a footer here"
+      },
+      "_owner": null,
+      "_store": {}
+    },
+    "className": "",
+    "bodyClassName": "",
+    "contentClassName": ""
+  }
+}

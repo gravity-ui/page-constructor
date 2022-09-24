@@ -1,0 +1,57 @@
+{
+  "blocks-preview--default": {
+    "stopVideo": true,
+    "type": "preview-block",
+    "direction": "content-media",
+    "ratioMediaContent": "2-1",
+    "showImmediately": true,
+    "items": [
+      {
+        "type": "video",
+        "media": {
+          "light": {
+            "video": {
+              "type": "player",
+              "src": [
+                "https://youtu.be/2dgZ8c-MGlc"
+              ],
+              "loop": true
+            },
+            "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/solutions/data-warehouse/scale-managed-greenplum.png"
+          },
+          "dark": {
+            "video": {
+              "type": "player",
+              "src": [
+                "https://youtu.be/eR6XrldgrpM"
+              ],
+              "loop": true
+            },
+            "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/solutions/data-warehouse/greenplum-cover.png"
+          }
+        },
+        "content": {
+          "title": "Managed Greenplum: Cloud Data Warehouse",
+          "description": "Learn about how we created a Data Warehouse in Yandex Cloud based on a new Managed Greenplum service."
+        }
+      },
+      {
+        "type": "video",
+        "media": {
+          "video": {
+            "type": "player",
+            "src": [
+              "https://youtu.be/eR6XrldgrpM"
+            ],
+            "loop": true
+          },
+          "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/solutions/data-warehouse/greenplum-cover.png"
+        },
+        "content": {
+          "title": "Greenplum Community Meetup",
+          "description": "How to quickly get started with Greenplum and build a flexible and reliable corporate data warehouse."
+        }
+      }
+    ]
+  }
+}

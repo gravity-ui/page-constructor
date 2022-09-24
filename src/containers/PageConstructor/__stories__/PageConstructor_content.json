@@ -1,0 +1,48 @@
+{
+  "containers-pageconstructor--with-footnotes": {
+    "items": [
+      {
+        "type": "header-block",
+        "title": "Yandex Cloud Professionals partner program",
+        "description": "<p>Sell Yandex Cloud services and get a monthly partner bonus ranging from 12% to 20% of your customers' spending on the services. Get grants to try out Yandex Cloud services or implement your customers' pilot projects.</p> ",
+        "width": "m",
+        "verticalOffset": "m",
+        "buttons": [
+          {
+            "text": "Get started\r",
+            "theme": "action",
+            "url": "https://console.cloud.yandex.${tld}/"
+          },
+          {
+            "text": "Contact us",
+            "theme": "outlined",
+            "url": "/#contact-form"
+          }
+        ]
+      }
+    ]
+  },
+  "containers-pageconstructor--with-theme": {
+    "items": [
+      {
+        "type": "header-block",
+        "title": "Yandex Cloud Professionals partner program",
+        "description": "<p>Sell Yandex Cloud services and get a monthly partner bonus ranging from 12% to 20% of your customers' spending on the services. Get grants to try out Yandex Cloud services or implement your customers' pilot projects.</p> ",
+        "width": "m",
+        "verticalOffset": "m",
+        "buttons": [
+          {
+            "text": "Get started\r",
+            "theme": "action",
+            "url": "https://console.cloud.yandex.${tld}/"
+          },
+          {
+            "text": "Contact us",
+            "theme": "outlined",
+            "url": "/#contact-form"
+          }
+        ]
+      }
+    ]
+  }
+}

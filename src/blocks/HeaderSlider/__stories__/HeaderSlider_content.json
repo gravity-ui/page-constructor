@@ -1,0 +1,232 @@
+{
+  "blocks-headerslider--auto-play": {
+    "dots": true,
+    "randomOrder": false,
+    "adaptive": true,
+    "type": "header-slider-block",
+    "autoplay": 1000,
+    "items": [
+      {
+        "title": "Yandex Cloud Professionals partner program",
+        "description": "Sell Yandex Cloud services and get a monthly partner bonus ranging from 12% to 20% of your customers' spending on the services. Get grants to try out Yandex Cloud services or implement your customers' pilot projects.",
+        "width": "s",
+        "background": {
+          "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-visual/main.png",
+          "video": {
+            "loop": {
+              "start": 0
+            },
+            "src": [
+              "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-visual/main_video.webm",
+              "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-visual/main_video.ogv",
+              "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-visual/main_video.mp4",
+              "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-visual/mobile.png"
+            ]
+          },
+          "color": "lightgreen",
+          "height": 800,
+          "fullWidth": true
+        },
+        "buttons": [
+          {
+            "text": "Get started\r",
+            "theme": "action",
+            "url": "https://console.cloud.yandex.${tld}/"
+          },
+          {
+            "text": "Contact us",
+            "theme": "outlined",
+            "url": "/#contact-form"
+          }
+        ]
+      },
+      {
+        "title": "Yandex Scale",
+        "overtitle": "September 24",
+        "description": "A major Yandex Cloud conference where business and technology speak the same language",
+        "width": "s",
+        "background": {
+          "url": "https://storage.cloud-preprod.yandex.net/berdysheva-test/bg-2.png",
+          "fullWidth": true,
+          "color": "#E3EBFF"
+        },
+        "buttons": [
+          {
+            "text": "Get started\r",
+            "theme": "action",
+            "url": "https://console.cloud.yandex.${tld}/"
+          },
+          {
+            "text": "Contact us",
+            "theme": "outlined",
+            "url": "/#contact-form"
+          }
+        ]
+      },
+      {
+        "title": "Yandex Cloud Professionals partner program",
+        "description": "Sell Yandex Cloud services and get a monthly partner bonus ranging from 12% to 20% of your customers' spending on the services. Get grants to try out Yandex Cloud services or implement your customers' pilot projects.",
+        "width": "l",
+        "buttons": [
+          {
+            "text": "Get started\r",
+            "theme": "action",
+            "url": "https://console.cloud.yandex.${tld}/"
+          },
+          {
+            "text": "Contact us",
+            "theme": "outlined",
+            "url": "/#contact-form"
+          }
+        ]
+      },
+      {
+        "title": "Yandex Cloud Professionals partner program",
+        "description": "Sell Yandex Cloud services and get a monthly partner bonus ranging from 12% to 20% of your customers' spending on the services. Get grants to try out Yandex Cloud services or implement your customers' pilot projects.",
+        "width": "s",
+        "imageSize": "s",
+        "verticalOffset": "m",
+        "image": {
+          "src": "https://storage.cloud-preprod.yandex.net/cloud-www-assets/solutions/e-commerce/ecommerce-big.png"
+        },
+        "buttons": [
+          {
+            "text": "Get started\r",
+            "theme": "action",
+            "url": "https://console.cloud.yandex.${tld}/"
+          },
+          {
+            "text": "Contact us",
+            "theme": "outlined",
+            "url": "/#contact-form"
+          }
+        ]
+      }
+    ]
+  },
+  "blocks-headerslider--default": {
+    "dots": true,
+    "randomOrder": false,
+    "adaptive": true,
+    "type": "header-slider-block",
+    "arrows": true,
+    "items": [
+      {
+        "title": "Yandex Cloud Professionals partner program",
+        "description": "Sell Yandex Cloud services and get a monthly partner bonus ranging from 12% to 20% of your customers' spending on the services. Get grants to try out Yandex Cloud services or implement your customers' pilot projects.",
+        "width": "s",
+        "background": {
+          "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-visual/main.png",
+          "video": {
+            "src": [
+              "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-visual/main_video.webm",
+              "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-visual/main_video.ogv",
+              "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-visual/main_video.mp4",
+              "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-visual/mobile.png"
+            ]
+          },
+          "color": "lightgreen",
+          "height": 800,
+          "fullWidth": true
+        },
+        "buttons": [
+          {
+            "text": "Get started\r",
+            "theme": "action",
+            "url": "https://console.cloud.yandex.${tld}/"
+          },
+          {
+            "text": "Contact us",
+            "theme": "outlined",
+            "url": "/#contact-form"
+          }
+        ]
+      },
+      {
+        "title": "Yandex Scale",
+        "overtitle": "September 24",
+        "description": "A major Yandex Cloud conference where business and technology speak the same language",
+        "width": "s",
+        "background": {
+          "url": "https://storage.cloud-preprod.yandex.net/berdysheva-test/bg-2.png",
+          "fullWidth": true,
+          "color": "#E3EBFF"
+        },
+        "buttons": [
+          {
+            "text": "Get started\r",
+            "theme": "action",
+            "url": "https://console.cloud.yandex.${tld}/"
+          },
+          {
+            "text": "Contact us",
+            "theme": "outlined",
+            "url": "/#contact-form"
+          }
+        ]
+      },
+      {
+        "title": "Yandex Cloud Professionals partner program",
+        "description": "Sell Yandex Cloud services and get a monthly partner bonus ranging from 12% to 20% of your customers' spending on the services. Get grants to try out Yandex Cloud services or implement your customers' pilot projects.",
+        "width": "l",
+        "buttons": [
+          {
+            "text": "Get started\r",
+            "theme": "action",
+            "url": "https://console.cloud.yandex.${tld}/"
+          },
+          {
+            "text": "Contact us",
+            "theme": "outlined",
+            "url": "/#contact-form"
+          }
+        ]
+      },
+      {
+        "title": "Yandex Cloud Professionals partner program",
+        "description": "Sell Yandex Cloud services and get a monthly partner bonus ranging from 12% to 20% of your customers' spending on the services. Get grants to try out Yandex Cloud services or implement your customers' pilot projects.",
+        "width": "s",
+        "imageSize": "s",
+        "verticalOffset": "m",
+        "image": {
+          "src": "https://storage.cloud-preprod.yandex.net/cloud-www-assets/solutions/e-commerce/ecommerce-big.png"
+        },
+        "buttons": [
+          {
+            "text": "Get started\r",
+            "theme": "action",
+            "url": "https://console.cloud.yandex.${tld}/"
+          },
+          {
+            "text": "Contact us",
+            "theme": "outlined",
+            "url": "/#contact-form"
+          }
+        ]
+      },
+      {
+        "title": "Yandex Scale",
+        "overtitle": "September 23",
+        "description": "A major Yandex Cloud conference where business and technology speak the same language",
+        "width": "s",
+        "background": {
+          "image": "https://storage.cloud-preprod.yandex.net/aeksandla-test/img-scale.png",
+          "fullWidthMedia": true,
+          "fullWidth": true,
+          "disableCompress": true
+        }
+      },
+      {
+        "title": "Yandex Scale",
+        "overtitle": "September 23",
+        "description": "A major Yandex Cloud conference where business and technology speak the same language",
+        "width": "s",
+        "background": {
+          "url": "https://storage.cloud-preprod.yandex.net/aeksandla-test/img-scale.png",
+          "fullWidthMedia": true,
+          "fullWidth": true
+        }
+      }
+    ]
+  }
+}
