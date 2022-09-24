@@ -14,22 +14,22 @@
 
 - `type: PreviewItemType` — Media type. 'video' | 'image'
 - `media:` — Image/video.
-   - `video: MediaVideoProps` BE SURE to set `type: player` for video. Structure:
-   ```
-   export interface MediaVideoProps {
-       src: string[];
-       type?: MediaVideoTypes;
-       loop?: boolean;
-       controls?: boolean;
-       muted?: boolean;
-       autoplay?: boolean;
-       elapsedTime?: number; // Time, in seconds, that shows the second to start playing a video from. Default: 0
-       playButton?: PlayButtonProps;
-   }
-   ```
+  - `video: MediaVideoProps` BE SURE to set `type: player` for video. Structure:
+  ```
+  export interface MediaVideoProps {
+      src: string[];
+      type?: MediaVideoTypes;
+      loop?: boolean;
+      controls?: boolean;
+      muted?: boolean;
+      autoplay?: boolean;
+      elapsedTime?: number; // Time, in seconds, that shows the second to start playing a video from. Default: 0
+      playButton?: PlayButtonProps;
+  }
+  ```
 - `content: PreviewContentItemProps` - media description
-   - `title: string` — Media name
-   - `description?: string`— Media description
+  - `title: string` — Media name
+  - `description?: string`— Media description
 
 ### Example:
 

@@ -12,9 +12,7 @@
           "light": {
             "video": {
               "type": "player",
-              "src": [
-                "https://youtu.be/2dgZ8c-MGlc"
-              ],
+              "src": ["https://youtu.be/2dgZ8c-MGlc"],
               "loop": true
             },
             "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/solutions/data-warehouse/scale-managed-greenplum.png"
@@ -22,9 +20,7 @@
           "dark": {
             "video": {
               "type": "player",
-              "src": [
-                "https://youtu.be/eR6XrldgrpM"
-              ],
+              "src": ["https://youtu.be/eR6XrldgrpM"],
               "loop": true
             },
             "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/solutions/data-warehouse/greenplum-cover.png"
@@ -40,9 +36,7 @@
         "media": {
           "video": {
             "type": "player",
-            "src": [
-              "https://youtu.be/eR6XrldgrpM"
-            ],
+            "src": ["https://youtu.be/eR6XrldgrpM"],
             "loop": true
           },
           "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/solutions/data-warehouse/greenplum-cover.png"

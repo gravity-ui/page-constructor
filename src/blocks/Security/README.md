@@ -15,5 +15,5 @@ Block with media and features (for example, a homepage security block)
 - `img: string` — Icon
 - `text: string` — Feature text
 - link: — Link below the text
-   - text: string;
-   - url: string;
+  - text: string;
+  - url: string;

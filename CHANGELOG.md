@@ -242,7 +242,7 @@ In the `Content`, if the `text` block has no `title`, the `margin-top` property 
 ### Breaking changes
 
 - `PageConstructorProvider` is now a separate component. For the `PageConstructor` to run properly, wrap it in this provider.
-   For details, see the [readme](https://github.yandex-team.ru/data-ui/page-constructor/blob/master/README.md#начало-работы) file.
+  For details, see the [readme](https://github.yandex-team.ru/data-ui/page-constructor/blob/master/README.md#начало-работы) file.
 
 - Deleted the `system` theme (the `light` theme is used instead by default).
 
@@ -303,7 +303,7 @@ In the `Content`, if the `text` block has no `title`, the `margin-top` property 
 ## 0.11.1
 
 - Removed the `cards-with-image-block`. Instead, use the
-   `cards-layout-block` that is universal for all cards.
+  `cards-layout-block` that is universal for all cards.
 
 ## 0.11.0
 

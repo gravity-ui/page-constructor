@@ -16,8 +16,8 @@
 - `theme?: normal | action | outlined | outlined-info | outlined-danger | raised | flat | flat-info | flat-danger | flat-secondary | clear | normal-contrast | outlined-contrast | flat-contrast | app-store | google-play | scale | github | monochrome` — Button theme
 - `metrikaGoals? : string | string[] | {name: string, isCrossSite?: boolean}[]` — Yandex Metrica custom goals
 - `pixelEvents?: PixelEvent[]` — Goals for Facebook pixel
-   - `name: Lead | Contact | SubmitApplication` — Goal name
-   - `data?: PixelEventData` — Data to send
+  - `name: Lead | Contact | SubmitApplication` — Goal name
+  - `data?: PixelEventData` — Data to send
 - [`target?: Target` — Where to display](#Target)
 
 ## `Img` - icon

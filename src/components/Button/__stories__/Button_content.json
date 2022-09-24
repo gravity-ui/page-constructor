@@ -9,11 +9,7 @@
         "name": "Contact"
       }
     ],
-    "metrikaGoals": [
-      "one",
-      "two",
-      "three"
-    ],
+    "metrikaGoals": ["one", "two", "three"],
     "img": "https://storage.yandexcloud.net/cloud-www-assets/constructor/prices/rub.svg"
   }
 }

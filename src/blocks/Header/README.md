@@ -20,8 +20,8 @@ A page may only have one Header block.
 
 - `src: string[]`
 - `loop?:`
-   - `start: number`
-   - `end: number`
+  - `start: number`
+  - `end: number`
 
 `backLink?: 'url' | 'title'`
 
