@@ -1,0 +1,19 @@
+{
+  "components-share--default": {
+    "items": [
+      "facebook",
+      "vk",
+      "telegram",
+      "twitter"
+    ]
+  },
+  "components-share--custom-title": {
+    "title": "Share on social networks",
+    "items": [
+      "facebook",
+      "vk",
+      "telegram",
+      "twitter"
+    ]
+  }
+}

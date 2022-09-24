@@ -1,0 +1,99 @@
+{
+  "blocks-extendedfeatures--default": {
+    "colSizes": {
+      "all": 12,
+      "sm": 6,
+      "md": 4
+    },
+    "type": "extended-features-block",
+    "title": {
+      "text": "Develop your ideas without extra costs",
+      "textSize": "m"
+    },
+    "items": [
+      {
+        "title": "Enjoy a grant to try out the platform",
+        "text": "You'll get a <a href=\"/docs/free-trial/\">grant to try out the platform</a> for at least RUB 4000 when creating a billing account. You can spend this amount for Yandex Cloud services within the next two months.",
+        "icon": "https://storage.yandexcloud.net/cloud-www-assets/constructor/prices/rub.svg",
+        "link": {
+          "text": "Go",
+          "url": "#",
+          "arrow": true,
+          "theme": "normal"
+        }
+      },
+      {
+        "title": "Affordable rates and free tier",
+        "text": "You can rent a VM for as low as 116 rubles per month and use a managed database cluster starting at 530 rubles per month. You can host a small website, app, or service for free using the <a href=\"/docs/billing/concepts/serverless-free-tier\">free tier of the serverless computing ecosystem</a>.",
+        "icon": "https://storage.yandexcloud.net/cloud-www-assets/constructor/prices/calc.svg",
+        "link": {
+          "text": "Go",
+          "url": "#",
+          "arrow": true,
+          "theme": "normal"
+        }
+      },
+      {
+        "title": "Transparent pricing and discounts",
+        "text": "In Yandex Cloud, you always know how much you'll spend and how your budget will be used. Commit to a certain volume of resources for 1 or 3 years in advance and save up to 49%. If you know your expected performance needs, <a href=\"#contact-form\">contact the sales department</a>.",
+        "icon": "https://storage.yandexcloud.net/cloud-www-assets/constructor/prices/proc.svg",
+        "link": {
+          "text": "Go",
+          "url": "#",
+          "arrow": true,
+          "theme": "normal"
+        }
+      }
+    ]
+  },
+  "blocks-extendedfeatures--with-label": {
+    "colSizes": {
+      "all": 12,
+      "sm": 6,
+      "md": 4
+    },
+    "type": "extended-features-block",
+    "title": {
+      "text": "Develop your ideas without extra costs",
+      "textSize": "m"
+    },
+    "items": [
+      {
+        "title": "Enjoy a grant to try out the platform",
+        "text": "You'll get a <a href=\"/docs/free-trial/\">grant to try out the platform</a> for at least RUB 4000 when creating a billing account. You can spend this amount for Yandex Cloud services within the next two months.",
+        "icon": "https://storage.yandexcloud.net/cloud-www-assets/constructor/prices/rub.svg",
+        "link": {
+          "text": "Go",
+          "url": "#",
+          "arrow": true,
+          "theme": "normal"
+        },
+        "label": "New"
+      },
+      {
+        "title": "Affordable rates and free tier",
+        "text": "You can rent a VM for as low as 116 rubles per month and use a managed database cluster starting at 530 rubles per month. You can host a small website, app, or service for free using the <a href=\"/docs/billing/concepts/serverless-free-tier\">free tier of the serverless computing ecosystem</a>.",
+        "icon": "https://storage.yandexcloud.net/cloud-www-assets/constructor/prices/calc.svg",
+        "link": {
+          "text": "Go",
+          "url": "#",
+          "arrow": true,
+          "theme": "normal"
+        },
+        "label": "Preview"
+      },
+      {
+        "title": "Transparent pricing and discounts",
+        "text": "In Yandex Cloud, you always know how much you'll spend and how your budget will be used. Commit to a certain volume of resources for 1 or 3 years in advance and save up to 49%. If you know your expected performance needs, <a href=\"#contact-form\">contact the sales department</a>.",
+        "icon": "https://storage.yandexcloud.net/cloud-www-assets/constructor/prices/proc.svg",
+        "link": {
+          "text": "Go",
+          "url": "#",
+          "arrow": true,
+          "theme": "normal"
+        },
+        "label": "New"
+      }
+    ]
+  }
+}

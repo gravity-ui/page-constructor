@@ -1,0 +1,14 @@
+{
+  "components-togglearrow--vertical": {
+    "type": "vertical",
+    "iconType": "default",
+    "size": 30,
+    "className": ""
+  },
+  "components-togglearrow--horizontal": {
+    "type": "horizontal",
+    "iconType": "navigation",
+    "size": 30,
+    "className": ""
+  }
+}

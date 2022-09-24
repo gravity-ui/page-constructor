@@ -1,0 +1,13 @@
+{
+  "components-links-and-buttons-backlink--default": {
+    "url": "#",
+    "title": "ReactNode",
+    "theme": "default",
+    "size": "l",
+    "shouldHandleBackAction": true
+  },
+  "components-links-and-buttons-backlink--themes-sizes": {
+    "url": "#",
+    "shouldHandleBackAction": true
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "components-pics-video-datalens-videoblock--default": {
+    "record": "https://www.youtube.com/watch?v=FHUnirudntU&list=PL1x4ET76A10awoGRia_EmYnEU_RPmRsRz&index=5A",
+    "attributes": {
+      "color": "white",
+      "rel": "0"
+    },
+    "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/solutions/e-commerce/retail-video.png",
+    "playButton": null,
+    "className": "",
+    "stream": "",
+    "id": ""
+  }
+}

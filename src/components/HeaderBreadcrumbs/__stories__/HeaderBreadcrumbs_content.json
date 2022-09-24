@@ -1,0 +1,19 @@
+{
+  "components-links-and-buttons-headerbreadcrumbs--default": {
+    "theme": "light",
+    "items": [
+      {
+        "url": "#",
+        "text": "Step-by-step instructions"
+      },
+      {
+        "url": "#",
+        "text": "Installing applications "
+      },
+      {
+        "url": "#",
+        "text": "Installing Jaeger"
+      }
+    ]
+  }
+}

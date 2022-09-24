@@ -1,0 +1,306 @@
+{
+  "blocks-slider--quote-cards": {
+    "dots": true,
+    "type": "slider-block",
+    "title": {
+      "text": "QuoteCards",
+      "url": "/events"
+    },
+    "slidesToShow": 1,
+    "arrows": true,
+    "children": [
+      {
+        "type": "quote",
+        "text": "We chose Yandex Cloud for its maturity, potential, and opportunities for collaborative growth. The cloud is our chance to get the scalability gene and embed it in the DNA of our business.",
+        "image": {
+          "light": {
+            "src": "https://storage.cloud-preprod.yandex.net/cloud-www-assets/solutions/e-commerce/ecommerce-big.png"
+          },
+          "dark": {
+            "src": "https://storage.cloud-preprod.yandex.net/cloud-www-assets/solutions/e-commerce/retail-banner.png"
+          }
+        },
+        "url": "https://cloud.yandex.ru/cases/leroymerlin",
+        "author": {
+          "firstName": "Dmitry",
+          "secondName": "Shostko",
+          "description": "Chief Data Officer at Leroy Merlin East",
+          "avatar": "https://storage.yandexcloud.net/cloud-www-assets/cases/kazanexpress/kazanexpress-yuri-1.jpg"
+        },
+        "logo": "https://storage.yandexcloud.net/cloud-www-assets/constructor/companies_logo/leroymerlin.svg"
+      },
+      {
+        "type": "quote",
+        "text": "Moderating content for children is a very sensitive and difficult topic. Our solution using Yandex Cloud advanced technologies speeds up content processing and significantly reduces reputational risks.",
+        "logo": "https://storage.yandexcloud.net/cloud-www-assets/solutions/use-cases-logo-eng/X5Group-logo-eng.svg",
+        "image": "https://storage.yandexcloud.net/cloud-www-assets/cases/yode-group/yode-group_screen_2.png",
+        "theme": "dark",
+        "color": "darkgreen",
+        "url": "https://cloud.yandex.ru/cases/leroymerlin",
+        "buttonText": "Other stories",
+        "author": {
+          "firstName": "Mikhail",
+          "secondName": "Yartsev",
+          "avatar": "https://storage.yandexcloud.net/cloud-www-assets/cases/yode-group/yode-group_screen_2.png"
+        }
+      },
+      {
+        "type": "quote",
+        "text": "We have an infrastructure that can be scaled up in just an hour and then scaled down just as quickly. And this doesn't require a huge budget, approval for purchasing hardware, or maintenance costs.",
+        "image": "https://storage.yandexcloud.net/cloud-www-assets/cases/mvideo/mvideo_screen_1.png",
+        "url": "https://cloud.yandex.ru/cases/genotek",
+        "logo": "https://storage.yandexcloud.net/cloud-www-assets/solutions/use-cases-logo-eng/MVideo-logo-eng.svg"
+      },
+      {
+        "type": "quote",
+        "text": "Yandex Cloud helped us make a clear connection between external events and sales dynamics in retail outlets. We correlated online advertising with offline sales, and we even figured out why product quality changed depending on the specific equipment it passed through in the production process.",
+        "logo": "https://storage.yandexcloud.net/cloud-www-assets/cases/okraina/okraina_logo1.svg",
+        "image": "https://storage.yandexcloud.net/cloud-www-assets/cases/okraina/okraina_cover.jpg",
+        "author": {
+          "firstName": "Valery",
+          "secondName": "Ilyinsky",
+          "description": "General Director at Genotek"
+        }
+      }
+    ]
+  },
+  "blocks-slider--tutorial-cards": {
+    "dots": true,
+    "type": "slider-block",
+    "title": {
+      "text": "TutorialCards",
+      "url": "/events"
+    },
+    "children": [
+      {
+        "type": "tutoral-card",
+        "url": "string",
+        "title": "Web project hosting 1",
+        "text": "If you host your website in Yandex Cloud, it's easier to scale your infrastructure to adapt to changing needs. For instance, you can quickly redesign the infrastructure to ensure availability for a growing audience. Moreover, we ensure the security of your website: Yandex Compute Cloud has a component that protects it against DDoS attacks."
+      },
+      {
+        "type": "tutoral-card",
+        "url": "string",
+        "title": "Web project hosting 2",
+        "text": "If you host your website in Yandex Cloud, it's easier to scale your infrastructure to adapt to changing needs. For instance, you can quickly redesign the infrastructure to ensure availability for a growing audience. Moreover, we ensure the security of your website: Yandex Compute Cloud has a component that protects it against DDoS attacks."
+      },
+      {
+        "type": "tutoral-card",
+        "url": "string",
+        "icon": "https://storage.yandexcloud.net/cloud-www-assets/constructor/prices/rub.svg",
+        "title": "Web project hosting 3",
+        "text": "If you host your website in Yandex Cloud, it's easier to scale your infrastructure to adapt to changing needs. For instance, you can quickly redesign the infrastructure to ensure availability for a growing audience. Moreover, we ensure the security of your website: Yandex Compute Cloud has a component that protects it against DDoS attacks."
+      },
+      {
+        "type": "tutoral-card",
+        "url": "string",
+        "icon": {
+          "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/prices/rub.svg"
+        },
+        "title": "Web project hosting 7",
+        "text": "If you host your website in Yandex Cloud, it's easier to scale your infrastructure to adapt to changing needs. For instance, you can quickly redesign the infrastructure to ensure availability for a growing audience. Moreover, we ensure the security of your website: Yandex Compute Cloud has a component that protects it against DDoS attacks."
+      }
+    ]
+  },
+  "blocks-slider--banners": {
+    "dots": true,
+    "type": "slider-block",
+    "title": {
+      "text": "Banners",
+      "url": "/events"
+    },
+    "slidesToShow": 1,
+    "arrows": true,
+    "children": [
+      {
+        "type": "banner-card",
+        "title": "Education and science promotion program in the field of computer science",
+        "subtitle": "<p>Get a grant for computing resources for training and research in MT, computer vision, and data analysis.</p> ",
+        "image": {
+          "light": "https://storage.yandexcloud.net/cloud-www-assets/edu/bnr-compscience-new.png",
+          "dark": "https://storage.yandexcloud.net/cloud-www-assets/edu/bnr-education-blue.png"
+        },
+        "disableCompress": true,
+        "color": {
+          "light": "#EEF3FE",
+          "dark": "#000"
+        },
+        "button": {
+          "text": "Learn more",
+          "url": "https://cloud.yandex.ru/datasphere-education-program?utm_source=services&utm_medium=banner&utm_campaign=datasphere-education"
+        }
+      },
+      {
+        "type": "banner-card",
+        "title": "Education and science promotion program in the field of computer science",
+        "subtitle": "<p>Get a grant for computing resources for training and research in MT, computer vision, and data analysis.</p> ",
+        "image": "https://storage.yandexcloud.net/cloud-www-assets/edu/bnr-education-blue.png",
+        "theme": "dark",
+        "disableCompress": true,
+        "color": "#000",
+        "button": {
+          "text": "Learn more",
+          "url": "https://cloud.yandex.ru/datasphere-education-program?utm_source=services&utm_medium=banner&utm_campaign=datasphere-education"
+        }
+      }
+    ]
+  },
+  "blocks-slider--default": {
+    "dots": true,
+    "type": "slider-block",
+    "title": {
+      "text": "Events and webinars",
+      "url": "/events"
+    },
+    "children": [
+      {
+        "type": "tutoral-card",
+        "url": "string",
+        "title": "Web project hosting",
+        "text": "If you host your website in Yandex Cloud, it's easier to scale your infrastructure to adapt to changing needs. For instance, you can quickly redesign the infrastructure to ensure availability for a growing audience. Moreover, we ensure the security of your website: Yandex Compute Cloud has a component that protects it against DDoS attacks.",
+        "border": "line"
+      },
+      {
+        "type": "tutoral-card",
+        "url": "string",
+        "title": "Web project hosting 2",
+        "text": "If you host your website in Yandex Cloud, it's easier to scale your infrastructure to adapt to changing needs. For instance, you can quickly redesign the infrastructure to ensure availability for a growing audience. Moreover, we ensure the security of your website: Yandex Compute Cloud has a component that protects it against DDoS attacks.",
+        "border": "line"
+      },
+      {
+        "type": "tutoral-card",
+        "url": "string",
+        "title": "Web project hosting 3",
+        "text": "If you host your website in Yandex Cloud, it's easier to scale your infrastructure to adapt to changing needs. For instance, you can quickly redesign the infrastructure to ensure availability for a growing audience. Moreover, we ensure the security of your website: Yandex Compute Cloud has a component that protects it against DDoS attacks.",
+        "border": "line"
+      },
+      {
+        "type": "tutoral-card",
+        "url": "string",
+        "title": "Web project hosting 4",
+        "text": "If you host your website in Yandex Cloud, it's easier to scale your infrastructure to adapt to changing needs. For instance, you can quickly redesign the infrastructure to ensure availability for a growing audience. Moreover, we ensure the security of your website: Yandex Compute Cloud has a component that protects it against DDoS attacks.",
+        "border": "line"
+      },
+      {
+        "type": "tutoral-card",
+        "url": "string",
+        "title": "Web project hosting 5",
+        "text": "If you host your website in Yandex Cloud, it's easier to scale your infrastructure to adapt to changing needs. For instance, you can quickly redesign the infrastructure to ensure availability for a growing audience. Moreover, we ensure the security of your website: Yandex Compute Cloud has a component that protects it against DDoS attacks.",
+        "border": "line"
+      }
+    ]
+  },
+  "blocks-slider--news-cards": {
+    "dots": true,
+    "type": "slider-block",
+    "title": {
+      "text": "NewsCards",
+      "url": "/events"
+    },
+    "children": [
+      {
+        "type": "news-card",
+        "url": "https://yandex.ru",
+        "title": "Web project hosting",
+        "border": "line",
+        "date": "January 1, 2022",
+        "isoDate": "2020-04-06T09:56:21.192Z"
+      },
+      {
+        "type": "news-card",
+        "url": "https://yandex.ru",
+        "title": "Web project hosting",
+        "border": "line",
+        "date": "January 1, 2022"
+      },
+      {
+        "type": "news-card",
+        "url": "https://yandex.ru",
+        "title": "Web project hosting",
+        "border": "line",
+        "date": "January 1, 2022"
+      },
+      {
+        "type": "news-card",
+        "url": "https://yandex.ru",
+        "title": "Web project hosting",
+        "border": "line",
+        "date": "January 1, 2022"
+      },
+      {
+        "type": "news-card",
+        "url": "https://yandex.ru",
+        "title": "Web project hosting",
+        "border": "line",
+        "date": "January 1, 2022"
+      }
+    ]
+  },
+  "blocks-slider--auto-play": {
+    "dots": true,
+    "type": "slider-block",
+    "title": {
+      "text": "TutorialCards",
+      "url": "/events"
+    },
+    "autoplay": 1000,
+    "children": [
+      {
+        "type": "tutoral-card",
+        "url": "string",
+        "title": "Web project hosting 1",
+        "text": "If you host your website in Yandex Cloud, it's easier to scale your infrastructure to adapt to changing needs. For instance, you can quickly redesign the infrastructure to ensure availability for a growing audience. Moreover, we ensure the security of your website: Yandex Compute Cloud has a component that protects it against DDoS attacks."
+      },
+      {
+        "type": "tutoral-card",
+        "url": "string",
+        "title": "Web project hosting 2",
+        "text": "If you host your website in Yandex Cloud, it's easier to scale your infrastructure to adapt to changing needs. For instance, you can quickly redesign the infrastructure to ensure availability for a growing audience. Moreover, we ensure the security of your website: Yandex Compute Cloud has a component that protects it against DDoS attacks."
+      },
+      {
+        "type": "tutoral-card",
+        "url": "string",
+        "icon": "https://storage.yandexcloud.net/cloud-www-assets/constructor/prices/rub.svg",
+        "title": "Web project hosting 3",
+        "text": "If you host your website in Yandex Cloud, it's easier to scale your infrastructure to adapt to changing needs. For instance, you can quickly redesign the infrastructure to ensure availability for a growing audience. Moreover, we ensure the security of your website: Yandex Compute Cloud has a component that protects it against DDoS attacks."
+      },
+      {
+        "type": "tutoral-card",
+        "url": "string",
+        "icon": {
+          "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/prices/rub.svg"
+        },
+        "title": "Web project hosting 7",
+        "text": "If you host your website in Yandex Cloud, it's easier to scale your infrastructure to adapt to changing needs. For instance, you can quickly redesign the infrastructure to ensure availability for a growing audience. Moreover, we ensure the security of your website: Yandex Compute Cloud has a component that protects it against DDoS attacks."
+      },
+      {
+        "type": "tutoral-card",
+        "url": "string",
+        "title": "Web project hosting 1",
+        "text": "If you host your website in Yandex Cloud, it's easier to scale your infrastructure to adapt to changing needs. For instance, you can quickly redesign the infrastructure to ensure availability for a growing audience. Moreover, we ensure the security of your website: Yandex Compute Cloud has a component that protects it against DDoS attacks."
+      },
+      {
+        "type": "tutoral-card",
+        "url": "string",
+        "title": "Web project hosting 2",
+        "text": "If you host your website in Yandex Cloud, it's easier to scale your infrastructure to adapt to changing needs. For instance, you can quickly redesign the infrastructure to ensure availability for a growing audience. Moreover, we ensure the security of your website: Yandex Compute Cloud has a component that protects it against DDoS attacks."
+      },
+      {
+        "type": "tutoral-card",
+        "url": "string",
+        "icon": "https://storage.yandexcloud.net/cloud-www-assets/constructor/prices/rub.svg",
+        "title": "Web project hosting 3",
+        "text": "If you host your website in Yandex Cloud, it's easier to scale your infrastructure to adapt to changing needs. For instance, you can quickly redesign the infrastructure to ensure availability for a growing audience. Moreover, we ensure the security of your website: Yandex Compute Cloud has a component that protects it against DDoS attacks."
+      },
+      {
+        "type": "tutoral-card",
+        "url": "string",
+        "icon": {
+          "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/prices/rub.svg"
+        },
+        "title": "Web project hosting 7",
+        "text": "If you host your website in Yandex Cloud, it's easier to scale your infrastructure to adapt to changing needs. For instance, you can quickly redesign the infrastructure to ensure availability for a growing audience. Moreover, we ensure the security of your website: Yandex Compute Cloud has a component that protects it against DDoS attacks."
+      }
+    ]
+  }
+}

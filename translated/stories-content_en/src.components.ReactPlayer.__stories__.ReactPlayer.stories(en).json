@@ -1,0 +1,9 @@
+{
+  "components-pics-video-datalens-reactplayer--default": {
+    "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-calcx2.mp4",
+    "previewImgUrl": "",
+    "loop": true,
+    "customBarControlsClassName": "",
+    "showPreview": true
+  }
+}

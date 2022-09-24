@@ -1,0 +1,14 @@
+{
+  "components-fullwidthbackground--default": {
+    "style": {
+      "backgroundColor": "#3a74ff"
+    },
+    "theme": "default"
+  },
+  "components-fullwidthbackground--rounded": {
+    "style": {
+      "backgroundColor": "#3a74ff"
+    },
+    "theme": "rounded"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "components-unpublishedlabel--line": {
+    "type": "line",
+    "className": ""
+  },
+  "components-unpublishedlabel--label": {
+    "type": "label",
+    "className": ""
+  }
+}

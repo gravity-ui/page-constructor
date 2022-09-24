@@ -1,0 +1,12 @@
+{
+  "components-pics-video-datalens-fullscreenimage--default": {
+    "src": "https://storage.yandexcloud.net/cloud-www-assets/solutions/test-and-dev/razrabotka-big.png",
+    "alt": "Description",
+    "imageClassName": "",
+    "disableCompress": false,
+    "modalImageClass": "",
+    "imageStyle": {
+      "maxWidth": "500px"
+    }
+  }
+}

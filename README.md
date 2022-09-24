@@ -21,7 +21,7 @@ npm install @gravity-ui/page-constructor
 ```jsx
 import {PageConstructor, PageConstructorProvider} from '@gravity-ui/page-constructor';
 
-const Page: React.FC<PageProps> = ({content}) => (
+const Page: WithChildren<PageProps> = ({content}) => (
   <PageConstructorProvider>
     <PageConstructor content={content} />
   </PageConstructorProvider>
