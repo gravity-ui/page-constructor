@@ -6,17 +6,17 @@
 npm install @gravity-ui/page-constructor
 ```
 
-## Конструктор страниц
+## Page constructor
 
-`page-constructor` это библиотека, которая позволяет отрисовывать веб-страницы или части страниц на основе данных в формате `json` (в дальнейшем будет добавлена поддержка `yaml` формата).
+`Page-constructor` is a library for rendering web pages or their parts based on `JSON` data (support for `YAML` format is to be added later).
 
-При создании страниц используется компонентный подход: страница составляется из набора готовых блоков, которые могут быть расположены в произвольном порядке. Каждому блоку соответсвует определенный тип и набор параметров во входных данных.
+When creating pages, component-based approach is used: a page is built using a set of ready-made blocks that can be placed in any order. Each block has a certain type and set of input data parameters.
 
-Формат входных данных и список доступных блоков можно посмотреть в [документации](http://localhost:7009/?path=/story/information--containers).
+For the format of input data and list of available blocks, see the [documentation](http://localhost:7009/?path=/story/information--containers).
 
-### Начало работы
+### Getting started
 
-Конструктор страниц импортируется в виде реакт-компонента. Для корректной работы его необходимо обернуть в `PageConstructorProvider`:
+The page constructor is imported as a React component. To make sure it runs properly, wrap it in `PageConstructorProvider`:
 
 ```jsx
 import {PageConstructor, PageConstructorProvider} from '@gravity-ui/page-constructor';
@@ -28,23 +28,23 @@ const Page: WithChildren<PageProps> = ({content}) => (
 );
 ```
 
-### Параметры
+### Parameters
 
 ```typescript
 interface PageConstructorProps {
-    content: PageContent; //описание блоков в формате json
-    shouldRenderBlock?: ShouldRenderBlock; // функция которая вызывается при отрисовке каждого блока и позволяет задавать условия его отображения
-    custom?: Custom; //пользовательские блоки (см. раздел `Кастомизация`)
-    renderMenu?: () => React.ReactNode; //функция, которая отрисовывает меню страницы с навигацией (планируется добавить отрисовку варианта меню по умолчанию)
+    content: PageContent; //Block description in JSON format.
+    shouldRenderBlock?: ShouldRenderBlock; // A function that is invoked when rendering each block and that lets you set conditions for its display.
+    custom?: Custom; //Custom blocks (see `Customization`).
+    renderMenu?: () => React.ReactNode; //A function that renders the page menu with navigation (we plan to add rendering for the default menu version).
 }
 
 interface PageConstructorProviderProps {
-    isMobile?: boolean; //признак того, что код выполняется в режиме мобильного устройства
-    locale?: LocaleContextProps; //информация о языке и домене (используется при генерации и оформлении ссылок)
-    location?: Location; //api истории браузера или роутера, информация о url страницы
-    metrika?: Metrika; //функции для отправки данных аналитики
-    ssrConfig?: SSR; //содержит признак того, что код выполняется на стороне сервера
-    theme?: 'light' | 'dark'; //тема, с которой будет отрисована страница
+    isMobile?: boolean; //A flag indicating that the code is executed in mobile mode.
+    locale?: LocaleContextProps; //Info about the language and domain (used when generating and formatting links).
+    location?: Location; //API of the browser or router history, the page URL.
+    metrika?: Metrika; //Functions for sending analytics
+    ssrConfig?: SSR; //A flag indicating that the code is run on the server size.
+    theme?: 'light' | 'dark'; //Theme to render the page with.
 }
 
 export interface PageContent extends Animatable {
@@ -87,31 +87,31 @@ interface Metrika = {
 
 ```
 
-### Пользователькие блоки
+### Custom blocks
 
-Конструктор страниц поддерживает возможность работы с блоками, определенными пользователем в его приложении. Блоки представляют собой обычные реакт-компоненты.
+The page constructor lets you use blocks that are user-defined in their app. Blocks are regular React components.
 
-Для того чтобы передать в конструктор свои блоки нужно:
+To pass custom blocks to the constructor:
 
-1. Создать у себя в приложении блок
+1. Create a block in your app.
 
-2. В коде создать объект, в котором ключом будет тип блока (строка), а значением импротированный компонент блока
+2. In your code, create an object with the block type (string) as a key and an imported block component as a value.
 
-3. Передать созданный объект в параметр `custom.blocks` или `custom.headers` комопнента `PageConstructor` (в `custom.headers` указываются блоки заголовков, которые должны рисоваться отдельно над общим контентом)
+3. Pass the object you created to the `custom.blocks` or `custom.headers` parameter of the `PageConstructor` component (`custom.headers` specifies the block headers to be rendered separately above general content).
 
-4. Теперь во входных данных (параметр `content`) можно использовать созданный блок, указав его тип и данные
+4. Now you can use the created block in input data (the `content` parameter) by specifying its type and data.
 
-Для того, чтобы при создании собственных блоков использовать миксины и стилевые переменные конструктора нужно в своем файле стилей добавить импорт:
+To use mixins and constructor style variables when creating custom blocks, add import in your file:
 
 ```css
 @import '~@gravity-ui/page-constructor/styles/styles.scss';
 ```
 
-### Loadable блоки
+### Loadable blocks
 
-Иногда нужно чтобы блок умел отрисовывать себя на основе данных, которые нужно загрузить, для этого используются loadable блоки.
+It's sometimes necessary that a block renders itself based on data to be loaded. In this case, loadable blocks are used.
 
-Для того чтобы добавить пользовательские `loadable` блоки нужно передать в `PageConstructor` свойство `custom.loadable`, в котором ключами являются названия источников данных(строка) для компонента а значением объект
+To add custom `loadable` blocks, pass to the `PageConstructor` the `custom.loadable` property with data source names (string) for the component as a key and an object as a value.
 
 ```typescript
 export interface LoadableConfigItem {
@@ -122,16 +122,16 @@ export interface LoadableConfigItem {
 type FetchLoadableData<TData = any> = (blockKey: string) => Promise<TData>;
 ```
 
-### Сетка
+### Grid
 
-Конструктор страниц использует сетку `bootstrap` и ее реализацию на основе реакт-компонентов, которую можно использовать в своем проекте (в том числе отдельно от конструтора).
+The page constructor uses the `bootstrap` grid and its implementation based on React components that you can use in your own project (including separately from the constructor).
 
-Пример использования:
+Usage example:
 
 ```jsx
 import {Grid, Row, Col} from '@gravity-ui/page-constructor/';
 
-const Page: WithChildren<PageProps> = ({children}) => (
+const Page: React.FC<PageProps> = ({children}) => (
   <Grid>
     <Row>
       <Col sizes={{lg: 4, sm: 6, all: 12}}>{children}</Col>
@@ -140,47 +140,47 @@ const Page: WithChildren<PageProps> = ({children}) => (
 );
 ```
 
-### Блоки
+### Blocks
 
-Каждый из блоков представляет собой неделимый верхнеуровневый компонент, они лежат в папке `src/units/constructor/blocks`
+Each block is an atomic top-level component. They're stored in the `src/units/constructor/blocks` directory.
 
-### Саб-блоки
+### Sub-blocks
 
-Саб-блоки это компоненты, которые могут использоваться в свойстве `children` блоков. В конфиге указывается список компонентов-детей из саб-блоков, при отрисовке отрендеренные саб-блоки будут переданы в блок как `children`.
+Sub-blocks are components that can be used in the block `children` property. In a config, a list of child components from sub-blocks is specified. Once rendered, these sub-blocks are passed to the block as `children`.
 
-### Как добавить новый блок в `page-constructor`
+### How to add a new block to the `page-constructor`
 
-1. В директории `src/blocks` или `src/sub-blocks` создаем папку с кодом блока/саб-блока
+1. In the `src/blocks` or `src/sub-blocks` directory, create a folder with the block/sub-block code.
 
-2. Добавляем название блока или саб-блока в enum `BlockType` или `SubBlockType` и описываем его свойства в файле `src/models/blocks.ts` или `src/models/sub-blocks.ts` по аналогии с уже существующими
+2. Add the block or sub-block name to enum `BlockType` or`SubBlockType` and describe its properties in the `src/models/blocks.ts` or `src/models/sub-blocks.ts` file in a similar way to the existing ones.
 
-3. Добавляем экспорт блока в файле `src/blocks/index.ts` или саб-блока в файле `src/components/index.ts`
+3. Add export for the block in the `src/blocks/index.ts` file and for the sub-block in the `src/components/index.ts` file.
 
-4. Добавляем новый компонент или блок в мэппинг в `src/constructor-items.ts`
+4. Add a new component or block to mapping in `src/constructor-items.ts`.
 
-5. Добавляем валидатор для нового блока, для этого нужно:
+5. Add a validator for the new block:
 
-   - добавляем в папку блока/саб-блока файл `schema.ts`, где описываем валидатор параметров для данного компонента в формате [`json-schema`](http://json-schema.org/)
-   - экспортируем его в файле `schema/validators/blocks.ts` или `schema/validators/sub-blocks.ts`
-   - добавляем его в `enum` и `selectCases` в файле `schema/index.ts`
+   - Add a `schema.ts` file to the block/sub-block directory. In this file, describe a parameter validator for the component in [`json-schema`](http://json-schema.org/) format.
+   - Export it in the `schema/validators/blocks.ts` or `schema/validators/sub-blocks.ts` file.
+   - Add it to `enum` or `selectCases` in the `schema/index.ts` file.
 
-6. В директории блока добавляем файл `README.md` с описанием входных параметров
+6. In the block directory, add the `README.md` file with a description of input parameters.
 
-### Темы
+### Themes
 
-`PageConstructor` поддерживает использование тем - для отдельных свойств блоков можно задавать разные значения в зависимости от выбранной в приложении темы.
+The `PageConstructor` lets you use themes: you can set different values for individual block properties depending on the theme selected in the app.
 
-Для того чтобы добавить тему к свойству блока нужно сделать следующее:
+To add a theme to a block property:
 
-1. В файле `models/blocks.ts` определить тип нужного свойства блока с помощью дженерика `ThemeSupporting<T>`, где `T` - тип данного свойства
+1. In the `models/blocks.ts` file, define the type of the respective block property using the `ThemeSupporting<T>` generic, where `T` is the type of the property.
 
-2. В файле с `react` компонентом блока нужно получить значение свойства с темой через `getThemedValue` и `ThemeValueContext` (примеры можно посмотреть в блоке `Banner.tsx`)
+2. In the file with the block's `react` component, get the value of the property with the theme via `getThemedValue` and `ThemeValueContext` (see examples in the `Banner.tsx` block).
 
-3. Добавить поддержку темы в валидатор свойства - в `schema.ts` файле блока обернуть данное свойство в `withTheme`
+3. Add theme support to the property validator: in the block's `schema.ts` file, wrap this property in `withTheme`.
 
 ### i18n
 
-Для того, чтобы используемая в проекте библиотека i18n работала корректно нужно выполнить инициализацию, где в `lang` устанавливается текущее значение локали в проекте, пример:
+To make sure the i18n library used in your project runs properly, perform its initialization and set the project's current locale value in `lang`. For example:
 
 ```typescript
 import {configure, Lang} from '@gravity-ui/page-constructor';
@@ -188,7 +188,7 @@ import {configure, Lang} from '@gravity-ui/page-constructor';
 configure({lang: Lang.En});
 ```
 
-## Разработка
+## Development
 
 ```bash
 npm ci
