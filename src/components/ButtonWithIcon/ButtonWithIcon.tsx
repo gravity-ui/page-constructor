@@ -17,7 +17,7 @@ export interface ButtonWithIconProps extends ClassNameProps {
     onClick?: (event: React.MouseEvent) => void;
 }
 
-const ButtonWithIcon: React.FC<ButtonWithIconProps> = (props) => {
+export const ButtonWithIcon: React.FC<ButtonWithIconProps> = (props) => {
     const {
         icon,
         theme = 'primary',
@@ -39,5 +39,3 @@ const ButtonWithIcon: React.FC<ButtonWithIconProps> = (props) => {
         </button>
     );
 };
-
-export default ButtonWithIcon;

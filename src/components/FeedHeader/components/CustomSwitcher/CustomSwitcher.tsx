@@ -27,7 +27,7 @@ type CustomSwitcherProps = {
 
 const ICON_SIZE = 12;
 
-export function CustomSwitcherView({items = []}: CustomSwitcherViewProps) {
+const CustomSwitcherView = ({items = []}: CustomSwitcherViewProps) => {
     const hasCounter = items.length > 1;
 
     return (
@@ -41,7 +41,7 @@ export function CustomSwitcherView({items = []}: CustomSwitcherViewProps) {
             </div>
         </div>
     );
-}
+};
 
 export const CustomSwitcher = ({initial, defaultLabel, list}: CustomSwitcherProps) => {
     if (initial && typeof initial === 'string') {

@@ -18,9 +18,7 @@ import {Posts} from '../../components/Posts/Posts';
 import metrika from '../../counters/metrika.js';
 import {MetrikaCounter} from '../../counters/utils';
 
-import reducer, {ActionTypes} from './reducer';
-
-import './BlogFeed.scss';
+import {ActionTypes, reducer} from './reducer';
 
 type BlogFeedProps = {
     image: string;
@@ -67,7 +65,10 @@ export const BlogFeed: React.FC<BlogFeedProps> = ({image}) => {
     });
 
     const handlePageChange = async (value: number) => {
-        await setQuery({name: 'page', value}, false, {shallow: true});
+        setQuery({
+            params: {name: 'page', value},
+            options: {shallow: true},
+        });
         dispatch({type: ActionTypes.PageChange, payload: value});
     };
 
@@ -130,8 +131,9 @@ export const BlogFeed: React.FC<BlogFeedProps> = ({image}) => {
                     },
                 });
 
-                await setQuery({name: 'page', value: currentPage + 1}, false, {
-                    shallow: true,
+                setQuery({
+                    params: {page: currentPage + 1},
+                    options: {shallow: true},
                 });
             }
         } catch (err) {

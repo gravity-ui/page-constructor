@@ -4,7 +4,7 @@ import _ from 'lodash';
 import {TextInput} from '@yandex-cloud/uikit';
 import {ClassNameProps} from '@yandex-data-ui/cloud-components';
 
-import ButtonWithIcon from '../ButtonWithIcon/ButtonWithIcon';
+import {ButtonWithIcon} from '../ButtonWithIcon/ButtonWithIcon';
 
 import {useIsIPhone} from '../../hooks/useIsIPhone';
 

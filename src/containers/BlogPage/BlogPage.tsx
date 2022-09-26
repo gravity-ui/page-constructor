@@ -13,6 +13,7 @@ import {
     BlogPagePostsData,
     ToggleLikeCallbackType,
     BlogPageMetaProps,
+    SetQueryType,
 } from '../../models/blog';
 
 import {BlogPageMeta} from './BlogPageMeta';
@@ -23,12 +24,11 @@ export type BlogPageProps = {
     tags: BlogPostTagExtended[];
     services?: ServicePublic[];
     // TODO fix any in https://st.yandex-team.ru/ORION-1447
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    setQuery: (props: any) => void;
+    setQuery: SetQueryType;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     getBlogPosts: (props: any) => void;
-    toggleLike: ToggleLikeCallbackType;
-    metaData: BlogPageMetaProps;
+    toggleLike?: ToggleLikeCallbackType;
+    metaData?: BlogPageMetaProps;
 };
 
 export const BlogPage = ({
@@ -45,7 +45,7 @@ export const BlogPage = ({
         <LikesContext.Provider
             value={{
                 toggleLike: toggleLike,
-                hasLikes: true,
+                hasLikes: Boolean(toggleLike),
             }}
         >
             <BlogFeedContext.Provider

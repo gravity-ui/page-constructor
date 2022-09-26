@@ -1,7 +1,7 @@
 import React, {MouseEvent} from 'react';
 import block from 'bem-cn-lite';
 
-import CardLayout from '@yandex-data-ui/page-constructor/build/esm/blocks/CardLayout/CardLayout';
+import {CardLayoutBlock} from '@yandex-data-ui/page-constructor';
 import {Button} from '@yandex-cloud/uikit';
 
 import {BlogPostData} from '../../models/blog';
@@ -55,7 +55,7 @@ export const Posts: React.FC<PostCardProps> = ({
                 </div>
             )}
             {postsOnPage?.length ? (
-                <CardLayout
+                <CardLayoutBlock
                     title={''}
                     colSizes={{
                         all: 12,
@@ -66,7 +66,7 @@ export const Posts: React.FC<PostCardProps> = ({
                     {postsOnPage?.map((post) => (
                         <PostCard key={post.id} post={post} showTag isModernIcon={true} />
                     ))}
-                </CardLayout>
+                </CardLayoutBlock>
             ) : (
                 <PostsEmpty />
             )}

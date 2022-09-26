@@ -18,6 +18,8 @@ import {Save} from '../../../../icons/Save';
 
 import {i18, BlogKeyset} from '../../../../i18n';
 
+import {SetQueryType} from '../../../../models/blog';
+
 import './Controls.scss';
 
 const b = block('blog-feed-controls');
@@ -32,8 +34,7 @@ export type ControlsProps = {
     setIsFetching: (value: boolean) => void;
     tags?: SelectItem[];
     services?: SelectItem[];
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    setQuery?: any;
+    setQuery: SetQueryType;
 };
 
 const ICON_SIZE = 16;
@@ -57,13 +58,13 @@ export const Controls: React.FC<ControlsProps> = ({
     const [search, setSearch] = useState<string>(searchInitial as string);
 
     const handleSavedOnly = () => {
-        setQuery('savedOnly', savedOnly ? undefined : 'true');
+        setQuery({params: {savedOnly: savedOnly ? undefined : 'true'}});
         setSavedOnly(!savedOnly);
         setIsFetching(true);
     };
 
     const handleSearch = (searchValue: string) => {
-        setQuery('search', searchValue);
+        setQuery({params: {search: searchValue}});
         setSearch(searchValue);
         setIsFetching(true);
     };
@@ -72,7 +73,9 @@ export const Controls: React.FC<ControlsProps> = ({
         metrika.reachGoal(MetrikaCounter.CrossSite, BlogMetrikaGoalIds.tag, {
             theme: selectedTag,
         });
-        setQuery('tags', ['empty', tagInitial].includes(selectedTag) ? undefined : selectedTag);
+        setQuery({
+            params: {tags: ['empty', tagInitial].includes(selectedTag) ? undefined : selectedTag},
+        });
 
         setIsFetching(true);
     };
@@ -86,7 +89,7 @@ export const Controls: React.FC<ControlsProps> = ({
             service: metrikaAsString,
         });
         const servicesAsString = selectedServices.join(',');
-        setQuery('services', servicesAsString);
+        setQuery({params: {services: servicesAsString}});
         setIsFetching(true);
     };
 

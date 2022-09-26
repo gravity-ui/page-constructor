@@ -27,7 +27,7 @@ export type State = {
     postsOnPage?: BlogPostData[];
 };
 
-export type Action =
+type Action =
     | {
           type: ActionTypes.PageChange;
           payload: number;
@@ -70,7 +70,7 @@ export type Action =
           payload: boolean;
       };
 
-export default function (state: State, {type, payload}: Action): State {
+export const reducer = (state: State, {type, payload}: Action): State => {
     switch (type) {
         case ActionTypes.SetIsShowMoreVisible:
             return {
@@ -124,4 +124,4 @@ export default function (state: State, {type, payload}: Action): State {
         default:
             return state;
     }
-}
+};

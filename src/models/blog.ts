@@ -18,11 +18,6 @@ export interface BlogPagePostsData {
     pinnedPost?: any;
 }
 
-// export interface BlogPageData {
-//     posts: BlogPagePostsData;
-//     tags: BlogPostTagExtended[];
-// }
-
 export interface GetBlogPostsRequest {
     perPage: number;
     page: number;
@@ -149,3 +144,14 @@ export interface HeaderBlockProps extends PageConstructorHeaderBlockProps {
         title: ReactNode;
     };
 }
+
+type SetQueryProps = {
+    params: {
+        [x: string]: string | number | undefined;
+    };
+    options?: {
+        [y: string]: boolean;
+    };
+};
+
+export type SetQueryType = (params: SetQueryProps) => void;

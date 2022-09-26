@@ -1,6 +1,6 @@
-const MAX_VISIBLE_PAGES = 5;
-
 import {GetPageConfigParams, PaginatorItemProps, PaginatorProps} from './types';
+
+const MAX_VISIBLE_PAGES = 5;
 
 export const getPageConfigs = ({page, pagesCount, handlePageClick}: GetPageConfigParams) => {
     const paginatorItems: Array<PaginatorItemProps> = [];

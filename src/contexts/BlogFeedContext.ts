@@ -1,6 +1,6 @@
 import {ServicePublic} from '@yandex-data-ui/cloud-schemas/build/models/ui-api';
 import React from 'react';
-import {BlogPostData, BlogPostTagExtended} from '../models/blog';
+import {BlogPostData, BlogPostTagExtended, SetQueryType} from '../models/blog';
 
 export interface BlogFeedPageContextProps {
     posts?: BlogPostData[];
@@ -10,8 +10,9 @@ export interface BlogFeedPageContextProps {
     services?: ServicePublic[];
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     getBlogPosts?: any;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    setQuery?: any;
+    setQuery: SetQueryType;
 }
 
-export const BlogFeedContext = React.createContext<BlogFeedPageContextProps>({});
+export const BlogFeedContext = React.createContext<BlogFeedPageContextProps>(
+    {} as BlogFeedPageContextProps,
+);
