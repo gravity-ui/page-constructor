@@ -66,7 +66,7 @@ export const BlogFeed: React.FC<BlogFeedProps> = ({image}) => {
 
     const handlePageChange = async (value: number) => {
         setQuery({
-            params: {name: 'page', value},
+            params: {page: value},
             options: {shallow: true},
         });
         dispatch({type: ActionTypes.PageChange, payload: value});

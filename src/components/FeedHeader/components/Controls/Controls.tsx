@@ -9,6 +9,7 @@ import {Search} from '../../../Search/Search';
 import {CustomSwitcher} from '../CustomSwitcher/CustomSwitcher';
 
 import {RouterContext} from '../../../../contexts/RouterContext';
+import {LikesContext} from '../../../../contexts/LikesContext';
 
 import {BlogMetrikaGoalIds} from '../../../../constants';
 import metrika from '../../../../counters/metrika.js';
@@ -46,6 +47,7 @@ export const Controls: React.FC<ControlsProps> = ({
     setQuery,
 }) => {
     const router = useContext(RouterContext);
+    const {hasLikes} = useContext(LikesContext);
 
     const {
         savedOnly: savedOnlyInitial,
@@ -149,17 +151,19 @@ export const Controls: React.FC<ControlsProps> = ({
                         />
                     </div>
                 ) : null}
-                <div className={b('filter-item', {'width-auto': true})}>
-                    <Button
-                        view={'outlined'}
-                        className={b('saved-only-button', {savedOnly})}
-                        size="xl"
-                        onClick={handleSavedOnly}
-                    >
-                        <Icon data={Save} size={ICON_SIZE} className={b('icon', {savedOnly})} />
-                        {i18(BlogKeyset.ActionSavedOnly)}
-                    </Button>
-                </div>
+                {hasLikes ? (
+                    <div className={b('filter-item', {'width-auto': true})}>
+                        <Button
+                            view={'outlined'}
+                            className={b('saved-only-button', {savedOnly})}
+                            size="xl"
+                            onClick={handleSavedOnly}
+                        >
+                            <Icon data={Save} size={ICON_SIZE} className={b('icon', {savedOnly})} />
+                            {i18(BlogKeyset.ActionSavedOnly)}
+                        </Button>
+                    </div>
+                ) : null}
             </div>
         </div>
     );
