@@ -6,6 +6,8 @@ import {PageConstructor, PageContent} from '@yandex-data-ui/page-constructor';
 import {BlogFeedContext} from '../../contexts/BlogFeedContext';
 import {LikesContext} from '../../contexts/LikesContext';
 
+import {MetaWrapper} from '../../components/MetaWrapper/MetaWrapper';
+
 import componentMap from '../../constructor/blocksMap';
 
 import {
@@ -15,8 +17,6 @@ import {
     BlogPageMetaProps,
     SetQueryType,
 } from '../../models/blog';
-
-import {BlogPageMeta} from './BlogPageMeta';
 
 export type BlogPageProps = {
     content: PageContent;
@@ -59,7 +59,7 @@ export const BlogPage = ({
                     getBlogPosts,
                 }}
             >
-                {metaData ? <BlogPageMeta {...metaData} /> : null}
+                {metaData ? <MetaWrapper {...metaData} /> : null}
                 <PageConstructor content={content} custom={componentMap} />
             </BlogFeedContext.Provider>
         </LikesContext.Provider>

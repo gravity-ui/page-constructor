@@ -117,18 +117,10 @@ export interface BlogPostMetaProps {
     organization: MetaOrganizationType;
 }
 
-export interface BlogPageMetaProps {
-    title: string;
-    description: string;
-    noIndex: boolean;
-    organization: MetaOrganizationType;
-    sharing: {
-        title: string;
-        description: string;
-    };
-    blogPostsData: BlogPostData[];
-    canonicalUrl: string;
-}
+export type BlogPageMetaProps = {
+    metaComponent: JSX.Element;
+    needHelmetWrapper: boolean;
+};
 
 export type ToggleLikeCallbackType = ({
     postId,
