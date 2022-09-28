@@ -12,10 +12,14 @@ import {Lang} from '../models/locale';
 import {BlogPostData} from '../models/blog';
 
 const transformPostTags = (tags: any) =>
-    tags.map(({locales, ...rest}: any) => ({
-        ...rest,
-        ...locales[0],
-    }));
+    tags.map(({name, locales, ...rest}: any) =>
+        name
+            ? {...rest, name}
+            : {
+                  ...rest,
+                  ...locales[0],
+              },
+    );
 
 /**
  * Func for transform post data

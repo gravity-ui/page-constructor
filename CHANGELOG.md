@@ -1,5 +1,9 @@
 # Лог изменений
 
+## 0.5.6
+
+- change transformPostTags() routine
+
 ## 0.5.5
 
 - add page-constructor in peer-dependencies
