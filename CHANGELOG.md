@@ -4,6 +4,14 @@
 
 - add BlogPage
 
+## 0.5.6
+
+- change transformPostTags() routine
+
+## 0.5.5
+
+- add page-constructor in peer-dependencies
+
 ## 0.5.3
 
 - fix yfm styles: add css variables to be able to redefine styles in projects
