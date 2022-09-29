@@ -1,7 +1,7 @@
-import React, {useContext, useMemo} from 'react';
+import React, {useMemo} from 'react';
 import {HeaderBlock, HeaderBlockProps} from '@yandex-data-ui/page-constructor';
 
-import {BlogPageContext} from '../../contexts/BlogPageContext';
+import {useBlogPageContext} from '../../hooks/contexts/useBlogPageContext';
 
 import {BlogInfo, BlogMetrikaGoals} from '../../components/BlogInfo/BlogInfo';
 import {BlogWrapper, PaddingSize} from '../../components/BlogWrapper/BlogWrapper';
@@ -29,7 +29,7 @@ export type BlogHeaderProps = HeaderBlockProps & {
 
 export const BlogHeader: React.FC<BlogHeaderProps> = (props) => {
     const {theme, paddingTop, paddingBottom} = props;
-    const {post} = useContext(BlogPageContext);
+    const {post} = useBlogPageContext();
 
     const {description, title, id, date, readingTime, tags} = post;
 

@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React from 'react';
 
 import {ClassNameProps} from '@yandex-data-ui/cloud-components';
 import {SliderBlock} from '@yandex-data-ui/page-constructor';
@@ -10,7 +10,7 @@ import {PostCard} from '../../components/PostCard/PostCard';
 
 import {BlogPostData} from '../../models/blog';
 
-import {BlogPageContext} from '../../contexts/BlogPageContext';
+import {useBlogPageContext} from '../../hooks/contexts/useBlogPageContext';
 
 import {BlogMetrikaGoalIds} from '../../constants';
 
@@ -42,7 +42,7 @@ export const BlogSuggestBlock: React.FC<SuggestBlockFullProps> = ({
     paddingTop = 'l',
     paddingBottom = 'l',
 }) => {
-    const {suggestedPosts} = useContext(BlogPageContext);
+    const {suggestedPosts} = useBlogPageContext();
 
     if (suggestedPosts.length === 0) {
         return null;

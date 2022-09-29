@@ -1,10 +1,10 @@
-import React, {Fragment, useMemo, useContext} from 'react';
+import React, {Fragment, useMemo} from 'react';
 import {Helmet} from 'react-helmet';
 
 import {MetaProps, SocialSharingMeta} from '@yandex-data-ui/common';
 
-import {LocaleContext} from '../../contexts/LocaleContext';
-import {RouterContext} from '../../contexts/RouterContext';
+import {useLocaleContext} from '../../hooks/contexts/useLocaleContext';
+import {useRouterContext} from '../../hooks/contexts/useRouterContext';
 
 import {getCleanTitle} from '../../utils/meta';
 
@@ -46,8 +46,8 @@ export const Meta: React.FC<MetaComponentProps> = ({
     keywords,
     noIndex,
 }) => {
-    const {locale} = useContext(LocaleContext);
-    const router = useContext(RouterContext);
+    const {locale} = useLocaleContext();
+    const router = useRouterContext();
 
     const sharingTitle = useMemo(() => sharing?.title, [sharing?.title]);
 

@@ -1,10 +1,11 @@
-import React, {useContext, useMemo} from 'react';
+import React, {useMemo} from 'react';
 import block from 'bem-cn-lite';
 
 import {Author, AuthorType} from '@yandex-data-ui/page-constructor';
 import {ClassNameProps} from '@yandex-data-ui/cloud-components';
 
-import {BlogPageContext} from '../../contexts/BlogPageContext';
+import {useBlogPageContext} from '../../hooks/contexts/useBlogPageContext';
+
 import {BlogWrapper, PaddingSize} from '../../components/BlogWrapper/BlogWrapper';
 // TODO import ResizedImage from '../../components/ResizedImage/ResizedImage';
 
@@ -23,8 +24,7 @@ export type AuthorBlockFullProps = ClassNameProps & {
 export const BlogAuthorBlock: React.FC<AuthorBlockFullProps> = (props) => {
     const {image, paddingTop, paddingBottom, authorId} = props;
 
-    const {post} = useContext(BlogPageContext);
-    // TODO mock BlogPageContext
+    const {post} = useBlogPageContext();
 
     const author = post?.authors?.find(({id}: {id: number}) => id === authorId);
 

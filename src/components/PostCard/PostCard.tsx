@@ -1,9 +1,9 @@
-import React, {useContext, useMemo} from 'react';
+import React, {useMemo} from 'react';
 import block from 'bem-cn-lite';
 
 import {CardBase, YFMWrapper, MetrikaGoal} from '@yandex-data-ui/page-constructor';
 
-import {LikesContext} from '../../contexts/LikesContext';
+import {useLikesContext} from '../../hooks/contexts/useLikesContext';
 
 import {SuggestBlogInfo} from '../../components/BlogInfo/SuggestBlogInfo';
 import {BlogPostData} from '../../models/blog';
@@ -48,7 +48,7 @@ export const PostCard: React.FC<PostCardProps> = ({
 
     const title = postTitle || htmlTitle || textTitle;
 
-    const {toggleLike, hasLikes} = useContext(LikesContext);
+    const {toggleLike, hasLikes} = useLikesContext();
 
     const likesProps = useMemo(
         () =>

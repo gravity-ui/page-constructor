@@ -1,9 +1,9 @@
 import {Icon} from '@yandex-cloud/uikit';
-import React, {useContext, useEffect, useCallback, useReducer} from 'react';
+import React, {useEffect, useCallback, useReducer} from 'react';
 
-import {RouterContext} from '../../contexts/RouterContext';
-import {BlogFeedContext} from '../../contexts/BlogFeedContext';
-import {LocaleContext} from '../../contexts/LocaleContext';
+import {useBlogFeedContext} from '../../hooks/contexts/useBlogFeedContext';
+import {useLocaleContext} from '../../hooks/contexts/useLocaleContext';
+import {useRouterContext} from '../../hooks/contexts/useRouterContext';
 
 import {DEFAULT_PAGE, DEFAULT_BLOG_ROWS_PER_PAGE} from '../constants';
 
@@ -28,9 +28,9 @@ const containerId = 'blog-cards';
 
 export const BlogFeed: React.FC<BlogFeedProps> = ({image}) => {
     const {posts, totalCount, tags, services, pinnedPost, getBlogPosts, setQuery} =
-        useContext(BlogFeedContext);
-    const {locale} = useContext(LocaleContext);
-    const router = useContext(RouterContext);
+        useBlogFeedContext();
+    const {locale} = useLocaleContext();
+    const router = useRouterContext();
 
     const pageInQuery = router?.query?.page ? Number(router.query.page) : DEFAULT_PAGE;
     const perPageInQuery = router?.query?.perPage
@@ -64,7 +64,7 @@ export const BlogFeed: React.FC<BlogFeedProps> = ({image}) => {
         currentPage: pageInQuery,
     });
 
-    const handlePageChange = async (value: number) => {
+    const handlePageChange = (value: number) => {
         setQuery({
             params: {page: value},
             options: {shallow: true},

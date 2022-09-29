@@ -1,8 +1,7 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import block from 'bem-cn-lite';
 
-// TODO fixes and refactor in https://st.yandex-team.ru/ORION-1444
-import {BlogPageContext} from '../../contexts/BlogPageContext';
+import {useBlogPageContext} from '../../hooks/contexts/useBlogPageContext';
 
 import {BlogPostData} from '../../models/blog';
 
@@ -49,7 +48,7 @@ export const BlogInfo: React.FC<BlogInfoProps> = ({
     metrikaGoals,
     dataQa,
 }) => {
-    const {likes} = useContext(BlogPageContext);
+    const {likes} = useBlogPageContext();
 
     return (
         <div className={b('container', {theme})}>

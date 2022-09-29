@@ -1,7 +1,7 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import block from 'bem-cn-lite';
 
-import {LocaleContext} from '../../../contexts/LocaleContext';
+import {useLocaleContext} from '../../../hooks/contexts/useLocaleContext';
 
 import {format} from '../../../utils/date';
 
@@ -15,7 +15,7 @@ type BlogDateProps = {
 };
 
 export const BlogDate: React.FC<BlogDateProps> = ({date, size = 's'}) => {
-    const {locale} = useContext(LocaleContext);
+    const {locale} = useLocaleContext();
 
     return <div className={b('item', {size})}>{format(date, 'longDate', locale?.code)}</div>;
 };

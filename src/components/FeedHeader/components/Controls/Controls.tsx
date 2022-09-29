@@ -1,4 +1,4 @@
-import React, {ReactNode, useContext, useState} from 'react';
+import React, {ReactNode, useState} from 'react';
 import block from 'bem-cn-lite';
 
 import {Icon, Button} from '@yandex-cloud/uikit';
@@ -8,8 +8,8 @@ import {Search} from '../../../Search/Search';
 
 import {CustomSwitcher} from '../CustomSwitcher/CustomSwitcher';
 
-import {RouterContext} from '../../../../contexts/RouterContext';
-import {LikesContext} from '../../../../contexts/LikesContext';
+import {useRouterContext} from '../../../../hooks/contexts/useRouterContext';
+import {useLikesContext} from '../../../../hooks/contexts/useLikesContext';
 
 import {BlogMetrikaGoalIds} from '../../../../constants';
 import metrika from '../../../../counters/metrika.js';
@@ -46,8 +46,8 @@ export const Controls: React.FC<ControlsProps> = ({
     services = [],
     setQuery,
 }) => {
-    const router = useContext(RouterContext);
-    const {hasLikes} = useContext(LikesContext);
+    const router = useRouterContext();
+    const {hasLikes} = useLikesContext();
 
     const {
         savedOnly: savedOnlyInitial,
