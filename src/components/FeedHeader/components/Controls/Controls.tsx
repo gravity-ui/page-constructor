@@ -60,7 +60,7 @@ export const Controls: React.FC<ControlsProps> = ({
     const [search, setSearch] = useState<string>(searchInitial as string);
 
     const handleSavedOnly = () => {
-        setQuery({params: {savedOnly: savedOnly ? undefined : 'true'}});
+        setQuery({params: {savedOnly: savedOnly ? null : 'true'}});
         setSavedOnly(!savedOnly);
         setIsFetching(true);
     };
@@ -76,7 +76,7 @@ export const Controls: React.FC<ControlsProps> = ({
             theme: selectedTag,
         });
         setQuery({
-            params: {tags: ['empty', tagInitial].includes(selectedTag) ? undefined : selectedTag},
+            params: {tags: ['empty', tagInitial].includes(selectedTag) ? null : selectedTag},
         });
 
         setIsFetching(true);

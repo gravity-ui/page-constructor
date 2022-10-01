@@ -2,7 +2,6 @@ import {Icon} from '@yandex-cloud/uikit';
 import React, {useEffect, useCallback, useReducer} from 'react';
 
 import {useBlogFeedContext} from '../../hooks/contexts/useBlogFeedContext';
-import {useLocaleContext} from '../../hooks/contexts/useLocaleContext';
 import {useRouterContext} from '../../hooks/contexts/useRouterContext';
 
 import {DEFAULT_PAGE, DEFAULT_BLOG_ROWS_PER_PAGE} from '../constants';
@@ -29,7 +28,6 @@ const containerId = 'blog-cards';
 export const BlogFeed: React.FC<BlogFeedProps> = ({image}) => {
     const {posts, totalCount, tags, services, pinnedPost, getBlogPosts, setQuery} =
         useBlogFeedContext();
-    const {locale} = useLocaleContext();
     const router = useRouterContext();
 
     const pageInQuery = router?.query?.page ? Number(router.query.page) : DEFAULT_PAGE;
@@ -64,8 +62,8 @@ export const BlogFeed: React.FC<BlogFeedProps> = ({image}) => {
         currentPage: pageInQuery,
     });
 
-    const handlePageChange = (value: number) => {
-        setQuery({
+    const handlePageChange = async (value: number) => {
+        await setQuery({
             params: {page: value},
             options: {shallow: true},
         });
@@ -74,16 +72,16 @@ export const BlogFeed: React.FC<BlogFeedProps> = ({image}) => {
 
     const fetchData = useCallback(
         async (pageNumber?: number) => {
-            if (router.query) {
+            if (router.query && getBlogPosts) {
                 const queryParams = getFeedQueryParams(router.query, pageNumber);
-                const data = await getBlogPosts(locale, queryParams);
+                const data = await getBlogPosts(queryParams);
 
                 return data;
             } else {
                 throw new Error('cant get request');
             }
         },
-        [getBlogPosts, locale, router.query],
+        [getBlogPosts, router.query],
     );
 
     const setIsFetching = (value: boolean) => {
@@ -131,7 +129,7 @@ export const BlogFeed: React.FC<BlogFeedProps> = ({image}) => {
                     },
                 });
 
-                setQuery({
+                await setQuery({
                     params: {page: currentPage + 1},
                     options: {shallow: true},
                 });

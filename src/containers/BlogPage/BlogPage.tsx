@@ -16,6 +16,7 @@ import {
     ToggleLikeCallbackType,
     BlogPageMetaProps,
     SetQueryType,
+    GetBlogPostsType,
 } from '../../models/blog';
 
 export type BlogPageProps = {
@@ -23,10 +24,8 @@ export type BlogPageProps = {
     posts: BlogPagePostsData;
     tags: BlogPostTagExtended[];
     services?: ServicePublic[];
-    // TODO fix any in https://st.yandex-team.ru/ORION-1447
     setQuery: SetQueryType;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    getBlogPosts: (props: any) => void;
+    getBlogPosts: GetBlogPostsType;
     toggleLike?: ToggleLikeCallbackType;
     metaData?: BlogPageMetaProps;
 };

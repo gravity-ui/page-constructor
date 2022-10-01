@@ -1,6 +1,7 @@
 import {ServicePublic} from '@yandex-data-ui/cloud-schemas/build/models/ui-api';
 import React from 'react';
-import {BlogPostData, BlogPostTagExtended, SetQueryType} from '../models/blog';
+
+import {BlogPostData, BlogPostTagExtended, SetQueryType, GetBlogPostsType} from '../models/blog';
 
 export interface BlogFeedPageContextProps {
     posts?: BlogPostData[];
@@ -8,8 +9,7 @@ export interface BlogFeedPageContextProps {
     totalCount?: number;
     tags?: BlogPostTagExtended[];
     services?: ServicePublic[];
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    getBlogPosts?: any;
+    getBlogPosts?: GetBlogPostsType;
     setQuery: SetQueryType;
 }
 

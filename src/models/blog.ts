@@ -4,6 +4,7 @@ import {SpeakerPublic} from '@yandex-data-ui/cloud-schemas/build/models/ui-api';
 import {HeaderBlockProps as PageConstructorHeaderBlockProps} from '@yandex-data-ui/page-constructor';
 
 import {Locale} from '../models/locale';
+import {Query} from '../models/common';
 
 export interface BlogPostLikes {
     count: number;
@@ -138,12 +139,21 @@ export interface HeaderBlockProps extends PageConstructorHeaderBlockProps {
 }
 
 type SetQueryProps = {
-    params: {
-        [x: string]: string | number | undefined;
-    };
+    params: Query;
     options?: {
         [y: string]: boolean;
     };
 };
 
-export type SetQueryType = (params: SetQueryProps) => void;
+export type GetBlogPostProps = {
+    tags: string | undefined;
+    page: number;
+    perPage: number;
+    savedOnly: boolean;
+    search: string | undefined;
+    services: string | undefined;
+};
+
+export type SetQueryType = (params: SetQueryProps) => Promise<void> | void;
+
+export type GetBlogPostsType = (query: GetBlogPostProps) => BlogPagePostsData;
