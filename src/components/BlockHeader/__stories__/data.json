@@ -1,0 +1,29 @@
+{
+  "default": {
+    "content": {
+      "title": "Yandex Cloud",
+      "description": "A cloud platform where anyone can develop and enhance their digital services using the infrastructure and unique technology from <a href=\"#\">Yandex</a>."
+    }
+  },
+  "customTitle": {
+    "content": {
+      "title": {
+        "text": "Header",
+        "textSize": "s",
+        "url": "#",
+        "custom": "Some react node"
+      },
+      "description": "A cloud platform where anyone can develop and enhance their digital services using the infrastructure and unique technology from <a href=\"#\">Yandex</a>."
+    }
+  },
+  "titleLink": {
+    "content": {
+      "title": {
+        "text": "Title link",
+        "textSize": "s",
+        "url": "#"
+      },
+      "description": "A cloud platform where anyone can develop and enhance their digital services using the infrastructure and unique technology from <a href=\"#\">Yandex</a>."
+    }
+  }
+}

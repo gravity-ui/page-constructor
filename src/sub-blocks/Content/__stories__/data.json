@@ -1,0 +1,141 @@
+{
+  "centered": {
+    "content": {
+      "title": "Education and science promotion program in the field of computer science",
+      "centered": true,
+      "text": "<p>Yandex Cloud is a <a href=\"#\">public cloud platform</a> that provides corporations, medium businesses, and individual developers with a scalable infrastructure, data storage services, and ML and development tools. Using these technologies proven by time and Yandex's experience, everyone can develop and continuously improve their own cutting-edge digital services and apps.</p>",
+      "additionalInfo": "<p>Yandex Cloud was launched in 2018 and has doubled in size since then. Both in total revenue and in terms of its customer base: more than <a href=\"#\">10 thousand companies</a> now use our services every day.</p>",
+      "links": [
+        {
+          "url": "/security",
+          "text": "Learn more",
+          "theme": "normal",
+          "arrow": true
+        }
+      ],
+      "buttons": [
+        {
+          "text": "Get started\r",
+          "theme": "action",
+          "url": "https://console.cloud.yandex.${tld}/"
+        },
+        {
+          "text": "Contact us",
+          "theme": "outlined",
+          "url": "/#contact-form"
+        }
+      ]
+    }
+  },
+  "default": {
+    "content": {
+      "title": "<p>Education and science promotion program in the field of <a href=\"#\">computer science</a></p>",
+      "text": "<p>Yandex Cloud is a <a href=\"#\">public cloud platform</a> that provides corporations, medium businesses, and individual developers with a scalable infrastructure, data storage services, and ML and development tools. Using these technologies proven by time and Yandex's experience, everyone can develop and continuously improve their own cutting-edge digital services and apps.</p>",
+      "additionalInfo": "<p>Yandex Cloud was launched in 2018 and has doubled in size since then. Both in total revenue and in terms of its customer base: more than <a href=\"#\">10 thousand companies</a> now use our services every day.</p>",
+      "links": [
+        {
+          "url": "/security",
+          "text": "Learn more",
+          "theme": "normal",
+          "arrow": true
+        }
+      ],
+      "buttons": [
+        {
+          "text": "Get started\r",
+          "theme": "action",
+          "url": "https://console.cloud.yandex.${tld}/"
+        },
+        {
+          "text": "Contact us",
+          "theme": "outlined",
+          "url": "/#contact-form"
+        }
+      ]
+    }
+  },
+  "light": {
+    "content": {
+      "title": "Education and science promotion program in the field of computer science",
+      "theme": "light",
+      "text": "<p>Yandex Cloud is a <a href=\"#\">public cloud platform</a> that provides corporations, medium businesses, and individual developers with a scalable infrastructure, data storage services, and ML and development tools. Using these technologies proven by time and Yandex's experience, everyone can develop and continuously improve their own cutting-edge digital services and apps.</p>",
+      "additionalInfo": "<p>Yandex Cloud was launched in 2018 and has doubled in size since then. Both in total revenue and in terms of its customer base: more than <a href=\"#\">10 thousand companies</a> now use our services every day.</p>",
+      "links": [
+        {
+          "url": "/security",
+          "text": "Learn more",
+          "theme": "normal",
+          "arrow": true
+        }
+      ],
+      "buttons": [
+        {
+          "text": "Get started\r",
+          "theme": "action",
+          "url": "https://console.cloud.yandex.${tld}/"
+        },
+        {
+          "text": "Contact us",
+          "theme": "outlined",
+          "url": "/#contact-form"
+        }
+      ]
+    }
+  },
+  "dark": {
+    "content": {
+      "title": "Education and science promotion program in the field of computer science",
+      "theme": "dark",
+      "text": "<p>Yandex Cloud is a <a href=\"#\">public cloud platform</a> that provides corporations, medium businesses, and individual developers with a scalable infrastructure, data storage services, and ML and development tools. Using these technologies proven by time and Yandex's experience, everyone can develop and continuously improve their own cutting-edge digital services and apps.</p>",
+      "additionalInfo": "<p>Yandex Cloud was launched in 2018 and has doubled in size since then. Both in total revenue and in terms of its customer base: more than <a href=\"#\">10 thousand companies</a> now use our services every day.</p>",
+      "links": [
+        {
+          "url": "/security",
+          "text": "Learn more",
+          "theme": "normal",
+          "arrow": true
+        }
+      ],
+      "buttons": [
+        {
+          "text": "Get started\r",
+          "theme": "action",
+          "url": "https://console.cloud.yandex.${tld}/"
+        },
+        {
+          "text": "Contact us",
+          "theme": "outlined",
+          "url": "/#contact-form"
+        }
+      ]
+    }
+  },
+  "sizeS": {
+    "content": {
+      "title": "Education and science promotion program in the field of computer science",
+      "size": "s",
+      "text": "<p>Yandex Cloud is a <a href=\"#\">public cloud platform</a> that provides corporations, medium businesses, and individual developers with a scalable infrastructure, data storage services, and ML and development tools. Using these technologies proven by time and Yandex's experience, everyone can develop and continuously improve their own cutting-edge digital services and apps.</p>",
+      "additionalInfo": "<p>Yandex Cloud was launched in 2018 and has doubled in size since then. Both in total revenue and in terms of its customer base: more than <a href=\"#\">10 thousand companies</a> now use our services every day.</p>",
+      "links": [
+        {
+          "url": "/security",
+          "text": "Learn more",
+          "theme": "normal",
+          "arrow": true
+        }
+      ],
+      "buttons": [
+        {
+          "text": "Get started\r",
+          "theme": "action",
+          "url": "https://console.cloud.yandex.${tld}/"
+        },
+        {
+          "text": "Contact us",
+          "theme": "outlined",
+          "url": "/#contact-form"
+        }
+      ]
+    }
+  }
+}

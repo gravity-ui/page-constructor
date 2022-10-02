@@ -5,6 +5,8 @@ import CardBase, {CardBaseProps} from '../CardBase';
 import {CARDS, COMPONENTS} from '../../../demo/constants';
 import {Col, Row} from '../../../grid';
 
+import data from './data.json';
+
 export default {
     component: CardBase,
     title: `${COMPONENTS}/${CARDS}/CardBase`,
@@ -62,23 +64,7 @@ const BordersTemplate: Story<TemplateProps> = ({content, header, footer, ...args
 export const Default = DefaultTemplate.bind({});
 export const Borders = BordersTemplate.bind({});
 
-Default.args = {
-    url: '#',
-    content: <div>Здесь должен быть content</div>,
-    header: <div>Здесь должен быть header</div>,
-    footer: <div>Здесь должен быть footer</div>,
-    border: 'shadow',
-    className: '',
-    bodyClassName: '',
-    contentClassName: '',
-};
+type CardStoryProps = Omit<CardBaseProps, 'children'>;
 
-Borders.args = {
-    url: '#',
-    content: <div>Здесь должен быть content</div>,
-    header: <div>Здесь должен быть header</div>,
-    footer: <div>Здесь должен быть footer</div>,
-    className: '',
-    bodyClassName: '',
-    contentClassName: '',
-};
+Default.args = data.default.content as CardStoryProps;
+Borders.args = data.borders.content as CardStoryProps;

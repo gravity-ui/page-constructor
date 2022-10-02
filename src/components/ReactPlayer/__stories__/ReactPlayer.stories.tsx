@@ -4,6 +4,8 @@ import React from 'react';
 import ReactPlayer, {ReactPlayerBlockProps} from '../ReactPlayer';
 import {COMPONENTS, MEDIA} from '../../../demo/constants';
 
+import data from './data.json';
+
 export default {
     component: ReactPlayer,
     title: `${COMPONENTS}/${MEDIA}/ReactPlayer`,
@@ -17,11 +19,4 @@ const DefaultTemplate: Story<ReactPlayerBlockProps> = (args) => (
 
 export const Default = DefaultTemplate.bind({});
 
-Default.args = {
-    src: 'https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-calcx2.mp4',
-    previewImgUrl: '',
-    loop: true,
-    customBarControlsClassName: '',
-    showPreview: true,
-    onClickPreview: () => null,
-};
+Default.args = data.default.content;

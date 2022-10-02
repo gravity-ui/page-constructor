@@ -1,0 +1,10 @@
+{
+  "default": {
+    "content": {
+      "text": "Something went wrong",
+      "isError": true,
+      "buttonText": "Try again",
+      "children": "These are children"
+    }
+  }
+}

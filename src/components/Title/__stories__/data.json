@@ -1,0 +1,22 @@
+{
+  "default": {
+    "content": {
+      "text": "Header",
+      "textSize": "m"
+    }
+  },
+  "withLink": {
+    "content": {
+      "text": "Header",
+      "textSize": "m",
+      "url": "#"
+    }
+  },
+  "resetMargin": {
+    "content": {
+      "text": "Header",
+      "textSize": "m",
+      "resetMargin": true
+    }
+  }
+}

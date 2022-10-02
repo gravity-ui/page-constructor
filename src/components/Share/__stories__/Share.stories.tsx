@@ -3,8 +3,9 @@ import React from 'react';
 import {configure as uikitConfigure, Lang as UIKitLang} from '@gravity-ui/uikit';
 
 import Share, {ShareProps} from '../Share';
-import {PCShareSocialNetwork} from '../../../models';
 import {COMPONENTS} from '../../../demo/constants';
+
+import data from './data.json';
 
 export default {
     component: Share,
@@ -18,21 +19,5 @@ const DefaultTemplate: Story<ShareProps> = (args) => <Share {...args} />;
 export const Default = DefaultTemplate.bind({});
 export const CustomTitle = DefaultTemplate.bind({});
 
-Default.args = {
-    items: [
-        PCShareSocialNetwork.Facebook,
-        PCShareSocialNetwork.Vk,
-        PCShareSocialNetwork.Telegram,
-        PCShareSocialNetwork.Twitter,
-    ],
-};
-
-CustomTitle.args = {
-    title: 'Поделиться в социальных сетях',
-    items: [
-        PCShareSocialNetwork.Facebook,
-        PCShareSocialNetwork.Vk,
-        PCShareSocialNetwork.Telegram,
-        PCShareSocialNetwork.Twitter,
-    ],
-};
+Default.args = data.default.content as ShareProps;
+CustomTitle.args = data.customTitle.content as ShareProps;

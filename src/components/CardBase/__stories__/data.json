@@ -1,0 +1,24 @@
+{
+  "default": {
+    "content": {
+      "url": "#",
+      "content": "Add content here",
+      "header": "Add a header here",
+      "footer": "Add a header here",
+      "border": "shadow",
+      "className": "",
+      "bodyClassName": "",
+      "contentClassName": ""
+    }
+  },
+  "borders": {
+    "content": {
+      "content": "Add a header here",
+      "header": "Add a header here",
+      "footer": "Add a header here",
+      "className": "",
+      "bodyClassName": "",
+      "contentClassName": ""
+    }
+  }
+}

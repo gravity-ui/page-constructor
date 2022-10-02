@@ -1,0 +1,52 @@
+{
+  "withBorder": {
+    "title": "Card with border {{border}}",
+    "content": {
+      "url": "#",
+      "title": "How to deploy 1C with a Microsoft SQL Server<sup>™</sup> cluster",
+      "text": "<p>Create a Microsoft SQL Server<sup>™</sup> database cluster on your own or use Managed Service for SQL Server<sup>™</sup>. This database is optimal for working with 1C:Enterprise.</p> "
+    }
+  },
+  "withIcon": {
+    "cardText": "Create MicrosoftSQLServer<sup>tm</sup> cluster by yourself",
+    "content": {
+      "url": "#",
+      "title": "How to deploy 1C with a Microsoft SQL Server<sup>™</sup> cluster",
+      "text": "<p>Create a Microsoft SQL Server<sup>™</sup> database cluster on your own or use Managed Service for SQL Server<sup>™</sup>. This database is optimal for working with 1C:Enterprise.</p> "
+    }
+  },
+  "default": {
+    "content": {
+      "url": "#",
+      "title": "How to deploy 1C with a Microsoft SQL Server<sup>™</sup> cluster",
+      "text": "<p><strong>Yandex Cloud is a public cloud platform</strong> that <a href=\"https://ya.com\">provides</a> corporations, medium businesses, and individual developers with a scalable infrastructure, data storage services, and ML and development tools.</p> ",
+      "additionalInfo": "<p>Yandex Cloud was <a href=\"https://ya.com\">launched</a> in 2018 and has doubled in size since then. Both in total revenue and in terms of its customer base: more than 10 thousand companies now use our services every day.</p> ",
+      "links": [
+        {
+          "url": "/security",
+          "text": "Learn more",
+          "theme": "normal",
+          "arrow": true
+        },
+        {
+          "url": "/security",
+          "text": "Learn more",
+          "theme": "normal",
+          "arrow": true
+        }
+      ],
+      "buttons": [
+        {
+          "text": "Get started\r",
+          "theme": "action",
+          "url": "https://console.cloud.yandex.${tld}/"
+        },
+        {
+          "text": "Contact us",
+          "theme": "outlined",
+          "url": "/#contact-form"
+        }
+      ]
+    }
+  }
+}

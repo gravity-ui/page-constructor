@@ -4,6 +4,8 @@ import React from 'react';
 import UnpublishedLabel, {UnpublishedLabelProps} from '../UnpublishedLabel';
 import {COMPONENTS} from '../../../demo/constants';
 
+import data from './data.json';
+
 export default {
     component: UnpublishedLabel,
     title: `${COMPONENTS}/UnpublishedLabel`,
@@ -14,12 +16,5 @@ const DefaultTemplate: Story<UnpublishedLabelProps> = (args) => <UnpublishedLabe
 export const Label = DefaultTemplate.bind({});
 export const Line = DefaultTemplate.bind({});
 
-Label.args = {
-    type: 'label',
-    className: '',
-};
-
-Line.args = {
-    type: 'line',
-    className: '',
-};
+Label.args = data.label.content as UnpublishedLabelProps;
+Line.args = data.line.content as UnpublishedLabelProps;

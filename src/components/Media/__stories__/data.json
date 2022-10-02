@@ -1,0 +1,54 @@
+{
+  "video": {
+    "content": {
+      "video": {
+        "src": [
+          "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-calcx2.mp4",
+          "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-calcx2.webm",
+          "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-calcx2.ogv",
+          "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/calc.png"
+        ],
+        "loop": {
+          "start": 0
+        }
+      }
+    }
+  },
+  "dataLens": {
+    "content": {
+      "dataLens": "zqx9je64n9bws"
+    }
+  },
+  "youtube": {
+    "content": {
+      "youtube": "https://www.youtube.com/watch?v=FHUnirudntU&list=PL1x4ET76A10awoGRia_EmYnEU_RPmRsRz&index=5A",
+      "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/solutions/e-commerce/retail-video.png"
+    }
+  },
+  "imageSlider": {
+    "content": {
+      "image": [
+        "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/console-main_2x.png",
+        "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/console-datalens-2x.png",
+        "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/console-monitoring-2x.png"
+      ]
+    }
+  },
+  "dataLensDarkTheme": {
+    "content": {
+      "dataLens": {
+        "id": "zqx9je64n9bws",
+        "theme": "dark"
+      }
+    }
+  },
+  "image": {
+    "content": {
+      "image": {
+        "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/calc.png",
+        "alt": "Picture",
+        "disableCompress": true
+      }
+    }
+  }
+}

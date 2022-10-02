@@ -1,0 +1,13 @@
+{
+  "default": {
+    "content": {
+      "items": ["facebook", "vk", "telegram", "twitter"]
+    }
+  },
+  "customTitle": {
+    "content": {
+      "title": "Share on social networks",
+      "items": ["facebook", "vk", "telegram", "twitter"]
+    }
+  }
+}

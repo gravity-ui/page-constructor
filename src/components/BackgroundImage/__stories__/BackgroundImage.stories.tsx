@@ -5,6 +5,8 @@ import BackgroundImage from '../BackgroundImage';
 import {COMPONENTS, MEDIA} from '../../../demo/constants';
 import {BackgroundImageProps} from '../../../models';
 
+import data from './data.json';
+
 export default {
     component: BackgroundImage,
     title: `${COMPONENTS}/${MEDIA}/BackgroundImage`,
@@ -18,13 +20,4 @@ const DefaultTemplate: Story<BackgroundImageProps> = (args) => (
 
 export const Default = DefaultTemplate.bind({});
 
-Default.args = {
-    src: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/bg_card_0001.png',
-    alt: 'string',
-    disableCompress: true,
-    style: {
-        height: '500px',
-    },
-    imageClassName: '',
-    hide: false,
-};
+Default.args = data.default.content as BackgroundImageProps;

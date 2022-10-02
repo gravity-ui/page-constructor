@@ -1,0 +1,213 @@
+{
+  "default": {
+    "content": {
+      "className": "balanced-masonry-stories__class-name",
+      "columnClassName": "balanced-masonry-stories__column-class-name",
+      "children": [
+        {
+          "key": "1",
+          "ref": null,
+          "props": {
+            "className": "balanced-masonry-stories__card-base",
+            "children": {
+              "key": null,
+              "ref": null,
+              "props": {
+                "children": "You can always suggest a new feature or improvement under Ideas."
+              },
+              "_owner": null,
+              "_store": {}
+            }
+          },
+          "_owner": null,
+          "_store": {}
+        },
+        {
+          "key": "2",
+          "ref": null,
+          "props": {
+            "className": "balanced-masonry-stories__card-base",
+            "children": {
+              "key": null,
+              "ref": null,
+              "props": {
+                "children": "Create Managed Services for Kubernetes® clusters, monitor their status, and view logs — all that from your mobile."
+              },
+              "_owner": null,
+              "_store": {}
+            }
+          },
+          "_owner": null,
+          "_store": {}
+        },
+        {
+          "key": "3",
+          "ref": null,
+          "props": {
+            "className": "balanced-masonry-stories__card-base",
+            "children": {
+              "key": null,
+              "ref": null,
+              "props": {
+                "children": "Get answers to your questions about Yandex Cloud services by writing a message and attaching screenshots of the problem right in the app."
+              },
+              "_owner": null,
+              "_store": {}
+            }
+          },
+          "_owner": null,
+          "_store": {}
+        },
+        {
+          "key": "4",
+          "ref": null,
+          "props": {
+            "className": "balanced-masonry-stories__card-base",
+            "children": {
+              "key": null,
+              "ref": null,
+              "props": {
+                "children": "Suggest new features that you'd like to have to fully manage your cloud right in the app and we'll add them in future releases."
+              },
+              "_owner": null,
+              "_store": {}
+            }
+          },
+          "_owner": null,
+          "_store": {}
+        },
+        {
+          "key": "5",
+          "ref": null,
+          "props": {
+            "className": "balanced-masonry-stories__card-base",
+            "children": {
+              "key": null,
+              "ref": null,
+              "props": {
+                "children": "The news feed will help you stay up to date on new service launches and new technology and sign up for upcoming events."
+              },
+              "_owner": null,
+              "_store": {}
+            }
+          },
+          "_owner": null,
+          "_store": {}
+        },
+        {
+          "key": "6",
+          "ref": null,
+          "props": {
+            "className": "balanced-masonry-stories__card-base",
+            "children": {
+              "key": null,
+              "ref": null,
+              "props": {
+                "children": "Use the app to access your data in Object Storage buckets and monitor the service using charts in dashboards. Use the app to access your data in Object Storage buckets and monitor the service using charts in dashboards."
+              },
+              "_owner": null,
+              "_store": {}
+            }
+          },
+          "_owner": null,
+          "_store": {}
+        },
+        {
+          "key": "7",
+          "ref": null,
+          "props": {
+            "className": "balanced-masonry-stories__card-base",
+            "children": {
+              "key": null,
+              "ref": null,
+              "props": {
+                "children": "View extensive information about resources and their operations, charts with workload data from the monitoring system, and information about operations on resource pages."
+              },
+              "_owner": null,
+              "_store": {}
+            }
+          },
+          "_owner": null,
+          "_store": {}
+        },
+        {
+          "key": "8",
+          "ref": null,
+          "props": {
+            "className": "balanced-masonry-stories__card-base",
+            "children": {
+              "key": null,
+              "ref": null,
+              "props": {
+                "children": "The news feed will help you stay up to date on new service launches and new technology and sign up for upcoming events. The news feed will help you stay up to date on new service launches and new technology and sign up for upcoming events.The news feed will help you stay up to date on new service launches and new technology and sign up for upcoming events.The news feed will help you stay up to date on new service launches and new technology and sign up for upcoming events.The news feed will help you stay up to date on new service launches and new technology and sign up for upcoming events.The news feed will help you stay up to date on new service launches and new technology and sign up for upcoming events."
+              },
+              "_owner": null,
+              "_store": {}
+            }
+          },
+          "_owner": null,
+          "_store": {}
+        },
+        {
+          "key": "9",
+          "ref": null,
+          "props": {
+            "className": "balanced-masonry-stories__card-base",
+            "children": {
+              "key": null,
+              "ref": null,
+              "props": {
+                "children": "Use the app to access your data in Object Storage buckets and monitor the service using charts in dashboards."
+              },
+              "_owner": null,
+              "_store": {}
+            }
+          },
+          "_owner": null,
+          "_store": {}
+        },
+        {
+          "key": "10",
+          "ref": null,
+          "props": {
+            "className": "balanced-masonry-stories__card-base",
+            "children": {
+              "key": null,
+              "ref": null,
+              "props": {
+                "children": "Configure authentication in Yandex Cloud via your server with Single Sign-On. Identity federation support enables your users to access the app from a corporate account."
+              },
+              "_owner": null,
+              "_store": {}
+            }
+          },
+          "_owner": null,
+          "_store": {}
+        },
+        {
+          "key": "11",
+          "ref": null,
+          "props": {
+            "className": "balanced-masonry-stories__card-base",
+            "children": {
+              "key": null,
+              "ref": null,
+              "props": {
+                "children": "Use the app to monitor your account balance, add funds, and view a breakdown of your spending."
+              },
+              "_owner": null,
+              "_store": {}
+            }
+          },
+          "_owner": null,
+          "_store": {}
+        }
+      ],
+      "breakpointCols": {
+        "577": 1,
+        "769": 2,
+        "1081": 3
+      }
+    }
+  }
+}
