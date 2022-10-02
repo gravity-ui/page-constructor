@@ -1,0 +1,123 @@
+{
+  "greyTheme": {
+    "content": {
+      "theme": "grey",
+      "type": "promo-features-block",
+      "title": "Education and science promotion program in the field of computer science",
+      "description": "<p><strong>Yandex Cloud is a public cloud platform</strong> that <a href=\"https://ya.com\">provides</a> corporations, medium businesses, and individual developers with a scalable infrastructure, data storage services, and ML and development tools.</p> ",
+      "items": [
+        {
+          "title": "Education and science promotion program in the field of computer science",
+          "text": "<p><strong>Yandex Cloud is a public cloud platform</strong> that <a href=\"https://ya.com\">provides</a> corporations, medium businesses, and individual developers with a scalable infrastructure, data storage services, and ML and development tools.</p> "
+        },
+        {
+          "title": "Education and science promotion program in the field of computer science",
+          "text": "<p><strong>Yandex Cloud is a public cloud platform</strong> that <a href=\"https://ya.com\">provides</a> corporations, medium businesses, and individual developers with a scalable infrastructure, data storage services, and ML and development tools.</p> ",
+          "media": {
+            "image": "https://storage.yandexcloud.net/cloud-www-assets/mobile-app/new/app_resources_ru.png"
+          }
+        },
+        {
+          "title": "Education and science promotion program in the field of computer science",
+          "text": "<p><strong>Yandex Cloud is a public cloud platform</strong> that <a href=\"https://ya.com\">provides</a> corporations, medium businesses, and individual developers with a scalable infrastructure, data storage services, and ML and development tools.</p> ",
+          "media": {
+            "video": {
+              "src": [
+                "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-calcx2.mp4",
+                "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-calcx2.webm",
+                "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-calcx2.ogv",
+                "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/calc.png"
+              ]
+            }
+          }
+        },
+        {
+          "title": "Education and science promotion program in the field of computer science",
+          "text": "<p><strong>Yandex Cloud is a public cloud platform</strong> that <a href=\"https://ya.com\">provides</a> corporations, medium businesses, and individual developers with a scalable infrastructure, data storage services, and ML and development tools.</p> ",
+          "theme": "accent",
+          "media": {
+            "image": "https://storage.yandexcloud.net/cloud-www-assets/mobile-app/new/app_resources_ru.png"
+          }
+        },
+        {
+          "title": "Education and science promotion program in the field of computer science",
+          "text": "<p><strong>Yandex Cloud is a public cloud platform</strong> that <a href=\"https://ya.com\">provides</a> corporations, medium businesses, and individual developers with a scalable infrastructure, data storage services, and ML and development tools.</p> ",
+          "theme": "accent-light",
+          "media": {
+            "image": "https://storage.yandexcloud.net/cloud-www-assets/mobile-app/new/app_resources_ru.png"
+          }
+        },
+        {
+          "title": "Education and science promotion program in the field of computer science",
+          "text": "<p><strong>Yandex Cloud is a public cloud platform</strong> that <a href=\"https://ya.com\">provides</a> corporations, medium businesses, and individual developers with a scalable infrastructure, data storage services, and ML and development tools.</p> ",
+          "theme": "primary",
+          "media": {
+            "image": "https://storage.yandexcloud.net/cloud-www-assets/mobile-app/new/app_resources_ru.png"
+          }
+        }
+      ]
+    }
+  },
+  "defaultTheme": {
+    "content": {
+      "theme": "default",
+      "type": "promo-features-block",
+      "title": {
+        "text": "Education and science promotion program in the field of computer science",
+        "url": "https://yandex.ru"
+      },
+      "description": "<p><strong>Yandex Cloud is a public cloud platform</strong> that <a href=\"https://ya.com\">provides</a> corporations, medium businesses, and individual developers with a scalable infrastructure, data storage services, and ML and development tools.</p> ",
+      "items": [
+        {
+          "title": "Education and science promotion program in the field of computer science",
+          "text": "<p><strong>Yandex Cloud is a public cloud platform</strong> that <a href=\"https://ya.com\">provides</a> corporations, medium businesses, and individual developers with a scalable infrastructure, data storage services, and ML and development tools.</p> "
+        },
+        {
+          "title": "Education and science promotion program in the field of computer science",
+          "text": "<p><strong>Yandex Cloud is a public cloud platform</strong> that <a href=\"https://ya.com\">provides</a> corporations, medium businesses, and individual developers with a scalable infrastructure, data storage services, and ML and development tools.</p> ",
+          "media": {
+            "image": "https://storage.yandexcloud.net/cloud-www-assets/mobile-app/new/app_resources_ru.png"
+          }
+        },
+        {
+          "title": "Education and science promotion program in the field of computer science",
+          "text": "<p><strong>Yandex Cloud is a public cloud platform</strong> that <a href=\"https://ya.com\">provides</a> corporations, medium businesses, and individual developers with a scalable infrastructure, data storage services, and ML and development tools.</p> ",
+          "media": {
+            "video": {
+              "src": [
+                "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-calcx2.mp4",
+                "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-calcx2.webm",
+                "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-calcx2.ogv",
+                "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/calc.png"
+              ]
+            }
+          }
+        },
+        {
+          "title": "Education and science promotion program in the field of computer science",
+          "text": "<p><strong>Yandex Cloud is a public cloud platform</strong> that <a href=\"https://ya.com\">provides</a> corporations, medium businesses, and individual developers with a scalable infrastructure, data storage services, and ML and development tools.</p> ",
+          "theme": "accent",
+          "media": {
+            "image": "https://storage.yandexcloud.net/cloud-www-assets/mobile-app/new/app_resources_ru.png"
+          }
+        },
+        {
+          "title": "Education and science promotion program in the field of computer science",
+          "text": "<p><strong>Yandex Cloud is a public cloud platform</strong> that <a href=\"https://ya.com\">provides</a> corporations, medium businesses, and individual developers with a scalable infrastructure, data storage services, and ML and development tools.</p> ",
+          "theme": "accent-light",
+          "media": {
+            "image": "https://storage.yandexcloud.net/cloud-www-assets/mobile-app/new/app_resources_ru.png"
+          }
+        },
+        {
+          "title": "Education and science promotion program in the field of computer science",
+          "text": "<p><strong>Yandex Cloud is a public cloud platform</strong> that <a href=\"https://ya.com\">provides</a> corporations, medium businesses, and individual developers with a scalable infrastructure, data storage services, and ML and development tools.</p> ",
+          "theme": "primary",
+          "media": {
+            "image": "https://storage.yandexcloud.net/cloud-www-assets/mobile-app/new/app_resources_ru.png"
+          }
+        }
+      ]
+    }
+  }
+}

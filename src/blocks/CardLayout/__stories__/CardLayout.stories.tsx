@@ -2,7 +2,7 @@ import React from 'react';
 import {Meta, Story} from '@storybook/react/types-6-0';
 
 import CardLayout from '../CardLayout';
-import {CardLayoutBlockModel} from '../../../models';
+import {CardLayoutBlockModel, CardLayoutBlockProps} from '../../../models';
 import {PageConstructor} from '../../../containers/PageConstructor/PageConstructor';
 
 import data from './data.json';
@@ -57,22 +57,22 @@ export const BackgroundCardsBackgroundColor = DefaultTemplate.bind([]);
 export const BackgroundCardsContentSizes = DefaultTemplate.bind([]);
 export const BackgroundCardsThemes = DefaultTemplate.bind([]);
 
-CardsWithImage.args = data.cardsWithImage.content;
+CardsWithImage.args = data.cardsWithImage.content as CardLayoutBlockProps;
 CardsWithImage.storyName = data.cardsWithImage.storyName;
 
-CardsWithImageFullScreen.args = data.cardsWithImageFullScreen.content;
+CardsWithImageFullScreen.args = data.cardsWithImageFullScreen.content as CardLayoutBlockProps;
 CardsWithImageFullScreen.storyName = data.cardsWithImageFullScreen.storyName;
 
-CardsWithImageAllProps.args = data.cardsWithImageAllProps.content;
+CardsWithImageAllProps.args = data.cardsWithImageAllProps.content as CardLayoutBlockProps;
 CardsWithImageAllProps.storyName = data.cardsWithImageAllProps.storyName;
 
-BackgroundCardsPaddings.args = data.cardsPaddings.content;
+BackgroundCardsPaddings.args = data.cardsPaddings.content as CardLayoutBlockProps;
 
-BackgroundCardsBackgroundColor.args = data.cardsBackgroundColor.content;
+BackgroundCardsBackgroundColor.args = data.cardsBackgroundColor.content as CardLayoutBlockProps;
 BackgroundCardsBackgroundColor.storyName = data.cardsBackgroundColor.storyName;
 
-BackgroundCardsContentSizes.args = data.cardsContentSizes.content;
+BackgroundCardsContentSizes.args = data.cardsContentSizes.content as CardLayoutBlockProps;
 BackgroundCardsContentSizes.storyName = data.cardsContentSizes.storyName;
 
-BackgroundCardsThemes.args = data.backgroundCardThemes.content;
+BackgroundCardsThemes.args = data.backgroundCardThemes.content as CardLayoutBlockProps;
 BackgroundCardsThemes.storyName = data.backgroundCardThemes.storyName;

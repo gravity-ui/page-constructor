@@ -1,9 +1,19 @@
 import React, {Fragment} from 'react';
 import {Meta, Story} from '@storybook/react/types-6-0';
-import {BlockType, HeaderBlockModel} from '../../../models';
+import {HeaderBlockModel, HeaderBlockProps} from '../../../models';
 import Header from '../Header';
-import yfm from '@doc-tools/transform';
 import {PageConstructor} from '../../../containers/PageConstructor';
+
+import data from './data.json';
+
+type HeaderBlockPropsNoTitle = Omit<HeaderBlockProps, 'title'>;
+
+const getSizeTitle = (size: string) => data.size.title.replace('{{size}}', size);
+const getImageTitle = (text: string, image: string) =>
+    data.image.title.replace('{{text}}', text).replace('{{image}}', image);
+const getVerticalOffsetTitle = (offset: string) =>
+    data.verticalOffset.title.replace('{{offset}}', offset);
+const getBreadcrumbsTitle = (theme: string) => data.breadcrumbs.title.replace('{{theme}}', theme);
 
 export default {
     title: 'Blocks/Header',
@@ -28,35 +38,35 @@ const DefaultTemplate: Story<HeaderBlockModel> = (args) => (
 
 const SizeTemplate: Story<HeaderBlockModel> = (args) => (
     <Fragment>
-        <DefaultTemplate {...args} title={'Заголовок width "S"'} width="s" />
-        <DefaultTemplate {...args} title={'Заголовок width "M"'} width="m" />
-        <DefaultTemplate {...args} title={'Заголовок width "L"'} width="l" />
+        <DefaultTemplate {...args} title={getSizeTitle('"S"')} width="s" />
+        <DefaultTemplate {...args} title={getSizeTitle('"M"')} width="m" />
+        <DefaultTemplate {...args} title={getSizeTitle('"L"')} width="l" />
     </Fragment>
 );
 
 const ImageTemplate: Story<HeaderBlockModel> = (args) => (
     <Fragment>
-        <DefaultTemplate {...args} title={'Текст размер "M" (картинка "S")'} width="m" />
-        <DefaultTemplate {...args} title={'Текст размер "S" (картинка "M")'} width="s" />
+        <DefaultTemplate {...args} title={getImageTitle('"M"', '"S"')} width="m" />
+        <DefaultTemplate {...args} title={getImageTitle('"S"', '"M"')} width="s" />
     </Fragment>
 );
 
 const VerticalOffsetTemplate: Story<HeaderBlockModel> = (args) => (
     <Fragment>
-        <DefaultTemplate {...args} title={'Вертикальные отступы  "S"'} verticalOffset="s" />
-        <DefaultTemplate {...args} title={'Вертикальные отступы "M"'} verticalOffset="m" />
-        <DefaultTemplate {...args} title={'Вертикальные отступы "L"'} verticalOffset="l" />
-        <DefaultTemplate {...args} title={'Вертикальные отступы "XL"'} verticalOffset="l" />
+        <DefaultTemplate {...args} title={getVerticalOffsetTitle('"S"')} verticalOffset="s" />
+        <DefaultTemplate {...args} title={getVerticalOffsetTitle('"M"')} verticalOffset="m" />
+        <DefaultTemplate {...args} title={getVerticalOffsetTitle('"L"')} verticalOffset="l" />
+        <DefaultTemplate {...args} title={getVerticalOffsetTitle('"XL"')} verticalOffset="l" />
     </Fragment>
 );
 
 const MediaTemplate: Story<HeaderBlockModel> = (args) => (
     <Fragment>
-        <DefaultTemplate {...args} title={'Блок с Картинкой или Видео (Медиа)'} />
-        <DefaultTemplate {...args} title={'Блок с уменьшенным отступом внизу'} offset={'large'} />
+        <DefaultTemplate {...args} title={data.media.defaultTitle} />
+        <DefaultTemplate {...args} title={data.media.decreasedIndentTitle} offset={'large'} />
         <DefaultTemplate
             {...args}
-            title={'Блок с Картинкой или Видео (Медиа) с подложкой на всю ширину'}
+            title={data.media.fullWidthTitle}
             background={{...args.background, fullWidth: true}}
         />
     </Fragment>
@@ -64,10 +74,10 @@ const MediaTemplate: Story<HeaderBlockModel> = (args) => (
 
 const BackgroundTemplate: Story<HeaderBlockModel> = (args) => (
     <Fragment>
-        <DefaultTemplate {...args} title={'Бэкграунд картинка (цветная подложка на мобилке)'} />
+        <DefaultTemplate {...args} title={data.background.defaultTitle} />
         <DefaultTemplate
             {...args}
-            title={'Бэкграунд картинка + цветная подложка на всю ширину'}
+            title={data.background.fullWidthTitle}
             background={{
                 ...args.background,
                 light:
@@ -91,10 +101,10 @@ const BackgroundTemplate: Story<HeaderBlockModel> = (args) => (
 
 const BreadCrumbsTemplate: Story<HeaderBlockModel> = (args) => (
     <Fragment>
-        <DefaultTemplate {...args} title={'Хлебные крошки в светлой теме'} />
+        <DefaultTemplate {...args} title={getBreadcrumbsTitle('light')} />
         <DefaultTemplate
             {...args}
-            title={'Хлебные крошки в тёмной теме'}
+            title={getBreadcrumbsTitle('dark')}
             theme="dark"
             background={{...args.background, color: '#262626'}}
         />
@@ -110,216 +120,11 @@ export const Background = BackgroundTemplate.bind({});
 export const ThemeDark = DefaultTemplate.bind({});
 export const Breadcrumbs = BreadCrumbsTemplate.bind({});
 
-Default.args = {
-    type: BlockType.HeaderBlock,
-    title: 'Партнёрская программа Yandex Cloud Professionals',
-    description: yfm(
-        'Продавайте сервисы Yandex.Cloud и ежемесячно получайте партнёрскую премию от 12% до 20% потребления ваших клиентов. Получайте гранты для знакомства с сервисами Yandex.Cloud или для проведения пилотных проектов ваших клиентов.',
-    ).result.html,
-    width: 'l',
-    verticalOffset: 'm',
-    buttons: [
-        {
-            text: 'Подключиться',
-            theme: 'action',
-            url: 'https://console.cloud.yandex.${tld}/',
-        },
-    ],
-};
-
-Size.args = {
-    type: BlockType.HeaderBlock,
-    description: yfm(
-        'Продавайте сервисы Yandex.Cloud и ежемесячно получайте партнёрскую премию от 12% до 20% потребления ваших клиентов. Получайте гранты для знакомства с сервисами Yandex.Cloud или для проведения пилотных проектов ваших клиентов.',
-    ).result.html,
-    verticalOffset: 'm',
-    buttons: [
-        {
-            text: 'Подключиться',
-            theme: 'action',
-            url: 'https://console.cloud.yandex.${tld}/',
-        },
-        {
-            text: 'Связаться с нами',
-            theme: 'outlined',
-            url: '/#contact-form',
-        },
-    ],
-};
-
-Image.args = {
-    type: BlockType.HeaderBlock,
-    description:
-        'Продавайте сервисы Yandex.Cloud и ежемесячно получайте партнёрскую премию от 12% до 20% потребления ваших клиентов. Получайте гранты для знакомства с сервисами Yandex.Cloud или для проведения пилотных проектов ваших клиентов.',
-    verticalOffset: 'm',
-    image: {
-        light: {
-            src: 'https://storage.cloud-preprod.yandex.net/cloud-www-assets/solutions/e-commerce/ecommerce-big.png',
-        },
-        dark: {
-            src: 'https://storage.cloud-preprod.yandex.net/cloud-www-assets/solutions/e-commerce/retail-banner.png',
-        },
-    },
-    buttons: [
-        {
-            text: 'Подключиться',
-            theme: 'action',
-            url: 'https://console.cloud.yandex.${tld}/',
-        },
-        {
-            text: 'Связаться с нами',
-            theme: 'outlined',
-            url: '/#contact-form',
-        },
-    ],
-};
-
-VerticalOffset.args = {
-    type: BlockType.HeaderBlock,
-    description:
-        'Продавайте сервисы Yandex.Cloud и ежемесячно получайте партнёрскую премию от 12% до 20% потребления ваших клиентов. Получайте гранты для знакомства с сервисами Yandex.Cloud или для проведения пилотных проектов ваших клиентов.',
-    verticalOffset: 's',
-    image: {
-        light: {
-            src: 'https://storage.cloud-preprod.yandex.net/cloud-www-assets/solutions/e-commerce/ecommerce-big.png',
-        },
-        dark: {
-            src: 'https://storage.cloud-preprod.yandex.net/cloud-www-assets/solutions/e-commerce/retail-banner.png',
-        },
-    },
-    buttons: [
-        {
-            text: 'Подключиться',
-            theme: 'action',
-            url: 'https://console.cloud.yandex.${tld}/',
-        },
-        {
-            text: 'Связаться с нами',
-            theme: 'outlined',
-            url: '/#contact-form',
-        },
-    ],
-};
-
-Media.args = {
-    type: BlockType.HeaderBlock,
-    description:
-        'Продавайте сервисы Yandex.Cloud и ежемесячно получайте партнёрскую премию от 12% до 20% потребления ваших клиентов. Получайте гранты для знакомства с сервисами Yandex.Cloud или для проведения пилотных проектов ваших клиентов.',
-    verticalOffset: 'xl',
-    background: {
-        image: 'https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-visual/main.png',
-        video: {
-            src: [
-                'https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-visual/main_video.webm',
-                'https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-visual/main_video.ogv',
-                'https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-visual/main_video.mp4',
-                'https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-visual/mobile.png',
-            ],
-        },
-        color: '#f5f5f5',
-    },
-    buttons: [
-        {
-            text: 'Подключиться',
-            theme: 'action',
-            url: 'https://console.cloud.yandex.${tld}/',
-        },
-        {
-            text: 'Связаться с нами',
-            theme: 'outlined',
-            url: '/#contact-form',
-        },
-    ],
-};
-
-Background.args = {
-    type: BlockType.HeaderBlock,
-    description: yfm(
-        'Продавайте сервисы Yandex.Cloud и ежемесячно получайте партнёрскую премию от 12% до 20% потребления ваших клиентов. Получайте гранты для знакомства с сервисами Yandex.Cloud или для проведения пилотных проектов ваших клиентов.',
-    ).result.html,
-    width: 's',
-    verticalOffset: 'm',
-    background: {
-        light: {
-            url: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/bg-2.png',
-            color: '#E3EBFF',
-        },
-        dark: {
-            url: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/bg-1.png',
-            color: '#000',
-        },
-    },
-    buttons: [
-        {
-            text: 'Подключиться',
-            theme: 'action',
-            url: 'https://console.cloud.yandex.${tld}/',
-        },
-        {
-            text: 'Связаться с нами',
-            theme: 'outlined',
-            url: '/#contact-form',
-        },
-    ],
-};
-
-ThemeDark.args = {
-    type: BlockType.HeaderBlock,
-    title: 'Партнёрская программа Yandex Cloud Professionals',
-    description: yfm(
-        'Продавайте сервисы Yandex.Cloud и ежемесячно получайте партнёрскую премию от 12% до 20% потребления ваших клиентов. Получайте гранты для знакомства с сервисами Yandex.Cloud или для проведения пилотных проектов ваших клиентов.',
-    ).result.html,
-    width: 's',
-    verticalOffset: 'm',
-    theme: 'dark',
-    background: {
-        color: '#262626',
-    },
-    buttons: [
-        {
-            text: 'Подключиться',
-            theme: 'normal-contrast',
-            url: 'https://console.cloud.yandex.${tld}/',
-        },
-        {
-            text: 'Связаться с нами',
-            theme: 'outlined-contrast',
-            url: '/#contact-form',
-        },
-    ],
-};
-
-Breadcrumbs.args = {
-    type: BlockType.HeaderBlock,
-    title: 'Партнёрская программа Yandex Cloud Professionals',
-    theme: 'light',
-    description: yfm(
-        'Продавайте сервисы Yandex.Cloud и ежемесячно получайте партнёрскую премию от 12% до 20% потребления ваших клиентов. Получайте гранты для знакомства с сервисами Yandex.Cloud или для проведения пилотных проектов ваших клиентов.',
-    ).result.html,
-    width: 's',
-    verticalOffset: 'm',
-    background: {
-        url: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/bg-2.png',
-        color: '#E3EBFF',
-        fullWidth: false,
-    },
-    buttons: [
-        {
-            text: 'Подключиться',
-            theme: 'action',
-            url: 'https://console.cloud.yandex.${tld}/',
-        },
-    ],
-    breadcrumbs: {
-        items: [
-            {
-                text: 'Blog',
-                url: '#1',
-            },
-            {
-                text: 'Services',
-                url: '#2',
-            },
-        ],
-    },
-};
+Default.args = data.default.content as HeaderBlockProps;
+Size.args = data.size.content as HeaderBlockPropsNoTitle;
+Image.args = data.image.content as HeaderBlockPropsNoTitle;
+VerticalOffset.args = data.verticalOffset.content as HeaderBlockPropsNoTitle;
+Media.args = data.media.content as HeaderBlockPropsNoTitle;
+Background.args = data.background.content as HeaderBlockPropsNoTitle;
+ThemeDark.args = data.themeDark.content as HeaderBlockProps;
+Breadcrumbs.args = data.breadcrumbs.content as HeaderBlockProps;

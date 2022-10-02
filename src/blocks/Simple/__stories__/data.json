@@ -1,0 +1,25 @@
+{
+  "default": {
+    "content": {
+      "type": "simple-block",
+      "title": {
+        "text": "Watch webinar"
+      },
+      "description": "<p>Yandex Cloud was <a href=\"https://ya.com\">launched</a> in 2018 and has doubled in size since then. Both in total revenue and in terms of its customer base: more than 10 thousand companies now use our services every day.</p> ",
+      "children": [
+        {
+          "type": "media-card",
+          "dataLens": "zqx9je64n9bws"
+        },
+        {
+          "type": "divider"
+        },
+        {
+          "type": "media-card",
+          "youtube": "https://www.youtube.com/watch?v=FHUnirudntU&list=PL1x4ET76A10awoGRia_EmYnEU_RPmRsRz&index=5A",
+          "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/solutions/e-commerce/retail-video.png"
+        }
+      ]
+    }
+  }
+}
