@@ -78,6 +78,7 @@ export const PostCard: React.FC<PostCardProps> = ({
                 )}
                 {description && (
                     <YFMWrapper
+                        className={b('description')}
                         content={description}
                         modifiers={{
                             blog: size === 'm',
