@@ -1,0 +1,38 @@
+{
+  "withTheme": {
+    "content": {
+      "theme": "dark",
+      "type": "banner-block",
+      "title": "Education and science promotion program in the field of computer science",
+      "subtitle": "<p>Get a grant for computing resources for training and research in MT, computer vision, and data analysis.</p> ",
+      "image": "https://storage.yandexcloud.net/cloud-www-assets/edu/bnr-education-blue.png",
+      "disableCompress": true,
+      "color": "#000",
+      "button": {
+        "text": "Learn more",
+        "url": "https://cloud.yandex.ru/datasphere-education-program?utm_source=services&utm_medium=banner&utm_campaign=datasphere-education"
+      }
+    }
+  },
+  "default": {
+    "content": {
+      "theme": "light",
+      "type": "banner-block",
+      "title": "Education and science promotion program in the field of computer science",
+      "subtitle": "<p>Get a grant for computing resources for training and research in MT, computer vision, and data analysis.</p> ",
+      "image": {
+        "light": "https://storage.yandexcloud.net/cloud-www-assets/edu/bnr-compscience-new.png",
+        "dark": "https://storage.yandexcloud.net/cloud-www-assets/edu/bnr-education-blue.png"
+      },
+      "disableCompress": true,
+      "color": {
+        "light": "#EEF3FE",
+        "dark": "#000"
+      },
+      "button": {
+        "text": "Learn more",
+        "url": "https://cloud.yandex.ru/datasphere-education-program?utm_source=services&utm_medium=banner&utm_campaign=datasphere-education"
+      }
+    }
+  }
+}
