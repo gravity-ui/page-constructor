@@ -40,7 +40,9 @@
     "build:server": "rimraf server && tsc -p tsconfig.server.json && move-file server/server.js server/index.js && move-file server/server.d.ts server/index.d.ts",
     "build": "run-p build:client build:server",
     "prepublishOnly": "npm run lint && npm run build",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "test": "echo TODO: add tests"
+
   },
   "dependencies": {
     "bem-cn-lite": "^4.0.0",
