@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/gravity-ui/page-constructor/compare/v1.0.0...v1.0.1) (2022-10-03)
+
+
+### Bug Fixes
+
+* add repository links to readme ([a6ed8b9](https://github.com/gravity-ui/page-constructor/commit/a6ed8b9af5f71e8b0eed3bb52f3309a715c5a48b))
+
 ## 1.0.0 (2022-10-03)
 
 
