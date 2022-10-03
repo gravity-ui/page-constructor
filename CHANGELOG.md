@@ -1,5 +1,44 @@
 # Changelog
 
+## 1.0.0 (2022-10-03)
+
+
+### Features
+
+* add blocks translations A-C ([f8d1e76](https://github.com/gravity-ui/page-constructor/commit/f8d1e76cb373b457141a0d4384c2a9a2fb688c30))
+* add commitlint ([dfbbf83](https://github.com/gravity-ui/page-constructor/commit/dfbbf83ea435978a1926c3038e965fd48797919f))
+* add github workflow ([bd204ec](https://github.com/gravity-ui/page-constructor/commit/bd204eca48c204138ef78c202986683d78a84840))
+* add react 18 types supporting ([cd4d1b0](https://github.com/gravity-ui/page-constructor/commit/cd4d1b0f2d075ddcd44adb998bbbeef7fb75117e))
+* add translations for blocks ([64e0999](https://github.com/gravity-ui/page-constructor/commit/64e0999ed166a66294b44a81082a00f366e7d53f))
+* add translations for components and sub blocks stories ([b8d8125](https://github.com/gravity-ui/page-constructor/commit/b8d8125cf9cab76b225e41159a5613fe75b56416))
+* migrate from yandex-cloud to gravity-ui ([3509b63](https://github.com/gravity-ui/page-constructor/commit/3509b63fe1b9507115ff5a3078322dfa39701450))
+* **PageConstructor:** add serviceId loadable [CLOUDFRONT-9364] ([#64](https://github.com/gravity-ui/page-constructor/issues/64)) ([4cc16cd](https://github.com/gravity-ui/page-constructor/commit/4cc16cd1a1dcfc0c17d38b92619456b22f3cf078))
+* prepare to publishing ([a259f69](https://github.com/gravity-ui/page-constructor/commit/a259f693c581bc34519d73063182c880dfcdb78d))
+* translate chapter names ([e922e27](https://github.com/gravity-ui/page-constructor/commit/e922e27657f12aebcd7bb62acb23a783f8a349ba))
+* translate components cards urls ([05382bd](https://github.com/gravity-ui/page-constructor/commit/05382bd3038c6aa0fad98bc2270f6869d2b62ca8))
+* translate englisht pt.1 ([945423a](https://github.com/gravity-ui/page-constructor/commit/945423a73807fdb0d8f29bba9210f94e6d3185dd))
+* translate questions readme ([4da6a8f](https://github.com/gravity-ui/page-constructor/commit/4da6a8fdab85ca68a35a182cd6b841bba6ab3334))
+* update hs form CLOUDFRONT-11339 ([478e762](https://github.com/gravity-ui/page-constructor/commit/478e762457cee318e3a9f1e9b27623def80f0603))
+
+
+### Bug Fixes
+
+* add  postcss-scss ([9d30c31](https://github.com/gravity-ui/page-constructor/commit/9d30c3132dee6809523c2021051328a23ab402be))
+* add card-with image schema ([#85](https://github.com/gravity-ui/page-constructor/issues/85)) ([82af438](https://github.com/gravity-ui/page-constructor/commit/82af4382fd9bb37089f3ffc00b4bc8b3ddb36d7a))
+* add CHANGELOG and CONTRIBUTING to prettier ignore ([d3def9c](https://github.com/gravity-ui/page-constructor/commit/d3def9c6557f51de330dbcaca64dc56dbc84ce04))
+* add dummy test ([9e5e769](https://github.com/gravity-ui/page-constructor/commit/9e5e76901cbd8b3b7b6cac2e757351e58f022bad))
+* add paddings to submited message block NOTICKET ([54665d1](https://github.com/gravity-ui/page-constructor/commit/54665d1818f5c63988ae5e5d485a3b10cf5f88ae))
+* children types ([dee1176](https://github.com/gravity-ui/page-constructor/commit/dee11769e2058f552e77612450a08790e8c28ba5))
+* lint ([3d448fa](https://github.com/gravity-ui/page-constructor/commit/3d448fa879fa20e00e0b9b89ba952ef0b3588184))
+* lint fix comand ([5533ab4](https://github.com/gravity-ui/page-constructor/commit/5533ab433aeb2d209913ddeef9364518f84ef882))
+* lint prettier ([c57092c](https://github.com/gravity-ui/page-constructor/commit/c57092c9e7c63b5d15a1037598253adc0e578129))
+* remove hekpers and sources ([49f9220](https://github.com/gravity-ui/page-constructor/commit/49f9220c094b70e0d86df9552bf6a81e316a3796))
+* remove helper decorator ([c512a17](https://github.com/gravity-ui/page-constructor/commit/c512a17abe63be6802e8d6ba82a153e132f8bec7))
+* remove withThemeValueContext ([339bbb4](https://github.com/gravity-ui/page-constructor/commit/339bbb418bfb60f82c84e9da0bf0eb6981186dae))
+* reword handlers disclamer comments & extend HubspotEventHandlers in HubspotFormProps NOTICKET ([f254205](https://github.com/gravity-ui/page-constructor/commit/f254205a6cf8487a59ed8b3759681e40650760d7))
+* storybook launch ([65254de](https://github.com/gravity-ui/page-constructor/commit/65254ded6c23f5f5951e4e8fa18474c0ec154b18))
+* turn main readme back to english ([e30267c](https://github.com/gravity-ui/page-constructor/commit/e30267ca710898fd5996341e8315f128c95ca609))
+
 ## 1.0.0
 
 - Discontinued support for v1 blocks.
