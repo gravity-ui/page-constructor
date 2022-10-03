@@ -1,0 +1,14 @@
+{
+  "line": {
+    "content": {
+      "type": "line",
+      "className": ""
+    }
+  },
+  "label": {
+    "content": {
+      "type": "label",
+      "className": ""
+    }
+  }
+}

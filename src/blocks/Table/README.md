@@ -1,7 +1,7 @@
-Блок с таблицей
+Table block
 
 `type: 'table-block'`
 
-`title: строка` - заголовок в левой части
+`title: string` — Title on the left
 
-`table: Table` - контент таблицы
+`table: Table` — Table content

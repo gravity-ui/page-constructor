@@ -1,5 +1,5 @@
 type: "share"
 
-items: "telegram" | "facebook" | "twitter" | "vk" - где делиться
+items: "telegram" | "facebook" | "twitter" | "vk" — Shows where to share
 
-title: текст - заголовок блока
+title: text — Block title

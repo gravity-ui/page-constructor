@@ -1,0 +1,14 @@
+{
+  "default": {
+    "content": {
+      "src": "https://storage.cloud-preprod.yandex.net/berdysheva-test/bg_card_0001.png",
+      "alt": "string",
+      "disableCompress": true,
+      "style": {
+        "height": "500px"
+      },
+      "imageClassName": "",
+      "hide": false
+    }
+  }
+}

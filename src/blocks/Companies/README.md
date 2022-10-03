@@ -1,11 +1,11 @@
-Блок Компании
+Companies block
 
 `type: companies-block`
 
-`title: строка` - заголовок;
+`title: string` — Title
 
-`images:` - изображения для разных размеров экрана
+`images:` — Images for different screen sizes
 
-- `desktop: строка` - названия сервиса из url
-- `tablet: строка` - имя сервиса
-- `mobile: строка` - имя сервиса
+- `desktop: string` — Service names from the URL
+- `tablet: string` — Service name
+- `mobile: string` — Service name

@@ -1,5 +1,5 @@
 `type: "divider"`
 
-`size: 0 | 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl' | 'xxxl'` - высота разделителя;
+`size: 0 | 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl' | 'xxxl'` — Divider height.
 
-`border?: bool` - рисовать черту;
+`border?: bool` — Draw a line.

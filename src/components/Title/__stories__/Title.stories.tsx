@@ -3,6 +3,9 @@ import React from 'react';
 
 import Title, {TitleFullProps} from '../Title';
 import {COMPONENTS} from '../../../demo/constants';
+import {TitleProps} from 'src/models';
+
+import data from './data.json';
 
 export default {
     component: Title,
@@ -15,19 +18,6 @@ export const Default = DefaultTemplate.bind({});
 export const WithLink = DefaultTemplate.bind({});
 export const ResetMargin = DefaultTemplate.bind({});
 
-Default.args = {
-    text: 'Заголовок',
-    textSize: 'm',
-};
-
-WithLink.args = {
-    text: 'Заголовок',
-    textSize: 'm',
-    url: '#',
-};
-
-ResetMargin.args = {
-    text: 'Заголовок',
-    textSize: 'm',
-    resetMargin: true,
-};
+Default.args = data.default.content as TitleProps;
+WithLink.args = data.withLink.content as TitleProps;
+ResetMargin.args = data.resetMargin.content as TitleProps;

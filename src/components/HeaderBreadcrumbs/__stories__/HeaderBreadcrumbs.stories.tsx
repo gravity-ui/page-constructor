@@ -5,6 +5,8 @@ import HeaderBreadcrumbs from '../HeaderBreadcrumbs';
 import {BUTTONS_LINKS, COMPONENTS} from '../../../demo/constants';
 import {HeaderBreadCrumbsProps} from '../../../models';
 
+import data from './data.json';
+
 export default {
     component: HeaderBreadcrumbs,
     title: `${COMPONENTS}/${BUTTONS_LINKS}/HeaderBreadcrumbs`,
@@ -14,20 +16,4 @@ const DefaultTemplate: Story<HeaderBreadCrumbsProps> = (args) => <HeaderBreadcru
 
 export const Default = DefaultTemplate.bind({});
 
-Default.args = {
-    theme: 'light',
-    items: [
-        {
-            url: '#',
-            text: 'Пошаговые инструкции',
-        },
-        {
-            url: '#',
-            text: 'Установка приложений',
-        },
-        {
-            url: '#',
-            text: 'Установка Jaeger',
-        },
-    ],
-};
+Default.args = data.default.content as HeaderBreadCrumbsProps;

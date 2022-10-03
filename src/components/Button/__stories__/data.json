@@ -1,0 +1,19 @@
+{
+  "themesSizes": {
+    "content": {
+      "text": "Button"
+    }
+  },
+  "default": {
+    "content": {
+      "text": "Button",
+      "pixelEvents": [
+        {
+          "name": "Contact"
+        }
+      ],
+      "metrikaGoals": ["one", "two", "three"],
+      "img": "https://storage.yandexcloud.net/cloud-www-assets/constructor/prices/rub.svg"
+    }
+  }
+}

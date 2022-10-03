@@ -1,0 +1,17 @@
+{
+  "default": {
+    "content": {
+      "url": "#",
+      "title": "ReactNode",
+      "theme": "default",
+      "size": "l",
+      "shouldHandleBackAction": true
+    }
+  },
+  "themesSizes": {
+    "content": {
+      "url": "#",
+      "shouldHandleBackAction": true
+    }
+  }
+}

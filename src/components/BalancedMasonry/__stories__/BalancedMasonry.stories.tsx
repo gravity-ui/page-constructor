@@ -8,6 +8,8 @@ import CardBase from '../../CardBase/CardBase';
 
 import './BalancedMansonry.stories.scss';
 
+import data from './data.json';
+
 export default {
     component: BalancedMasonry,
     title: `${COMPONENTS}/BalancedMasonry`,
@@ -22,83 +24,40 @@ Default.args = {
     columnClassName: 'balanced-masonry-stories__column-class-name',
     children: [
         <CardBase key="1" className="balanced-masonry-stories__card-base">
-            <CardBase.Content>
-                Вы всегда можете предложить новую возможность или улучшение в разделе Идеи.
-            </CardBase.Content>
+            <CardBase.Content>{data.default.content.children[0]}</CardBase.Content>
         </CardBase>,
         <CardBase key="2" className="balanced-masonry-stories__card-base">
-            <CardBase.Content>
-                Создавайте кластеры Managed Services for Kubernetes®, контролируйте их состояние и
-                смотрите логи — всё в вашем мобильном телефоне.
-            </CardBase.Content>
+            <CardBase.Content>{data.default.content.children[1]}</CardBase.Content>
         </CardBase>,
         <CardBase key="3" className="balanced-masonry-stories__card-base">
-            <CardBase.Content>
-                Прямо из приложения вы можете получить ответ на любой вопрос касательно работы
-                сервисов Yandex Cloud, написав сообщение и приложив скриншоты возникшей проблемы.
-            </CardBase.Content>
+            <CardBase.Content>{data.default.content.children[2]}</CardBase.Content>
         </CardBase>,
         <CardBase key="4" className="balanced-masonry-stories__card-base">
-            <CardBase.Content>
-                Предлагайте возможности, которых вам не хватает для полноценного управления вашим
-                облаком прямо из приложения, и мы добавим их в новых релизах.
-            </CardBase.Content>
+            <CardBase.Content>{data.default.content.children[3]}</CardBase.Content>
         </CardBase>,
         <CardBase key="5" className="balanced-masonry-stories__card-base">
-            <CardBase.Content>
-                Лента новостей платформы позволит вам узнать о запуске новых сервисов и новых
-                технологиях, а также зарегистрироваться на ближайшие мероприятия.
-            </CardBase.Content>
+            <CardBase.Content>{data.default.content.children[4]}</CardBase.Content>
         </CardBase>,
         <CardBase key="6" className="balanced-masonry-stories__card-base">
             <CardBase.Content>
-                В приложении реализован доступ к данным в бакетах объектного хранения Object
-                Storage, а также возможность мониторинга состояния сервиса с помощью графиков на
-                дашбордах. В приложении реализован доступ к данным в бакетах объектного хранения
-                Object Storage, а также возможность мониторинга состояния сервиса с помощью графиков
+                {data.default.content.children[5]}
                 на дашбордах.
             </CardBase.Content>
         </CardBase>,
         <CardBase key="7" className="balanced-masonry-stories__card-base">
-            <CardBase.Content>
-                На страницах ресурсов доступна полная информация о их работе, графики нагрузки из
-                системы мониторинга и сведения о производимых операциях.
-            </CardBase.Content>
+            <CardBase.Content>{data.default.content.children[6]}</CardBase.Content>
         </CardBase>,
         <CardBase key="8" className="balanced-masonry-stories__card-base">
-            <CardBase.Content>
-                Лента новостей платформы позволит вам узнать о запуске новых сервисов и новых
-                технологиях, а также зарегистрироваться на ближайшие мероприятия. Лента новостей
-                платформы позволит вам узнать о запуске новых сервисов и новых технологиях, а также
-                зарегистрироваться на ближайшие мероприятия.Лента новостей платформы позволит вам
-                узнать о запуске новых сервисов и новых технологиях, а также зарегистрироваться на
-                ближайшие мероприятия.Лента новостей платформы позволит вам узнать о запуске новых
-                сервисов и новых технологиях, а также зарегистрироваться на ближайшие
-                мероприятия.Лента новостей платформы позволит вам узнать о запуске новых сервисов и
-                новых технологиях, а также зарегистрироваться на ближайшие мероприятия.Лента
-                новостей платформы позволит вам узнать о запуске новых сервисов и новых технологиях,
-                а также зарегистрироваться на ближайшие мероприятия.
-            </CardBase.Content>
+            <CardBase.Content>{data.default.content.children[7]}</CardBase.Content>
         </CardBase>,
         <CardBase key="9" className="balanced-masonry-stories__card-base">
-            <CardBase.Content>
-                В приложении реализован доступ к данным в бакетах объектного хранения Object
-                Storage, а также возможность мониторинга состояния сервиса с помощью графиков на
-                дашбордах.
-            </CardBase.Content>
+            <CardBase.Content>{data.default.content.children[8]}</CardBase.Content>
         </CardBase>,
         <CardBase key="10" className="balanced-masonry-stories__card-base">
-            <CardBase.Content>
-                Вы можете настроить аутентификацию в Yandex Cloud через свой сервер с Single
-                Sign‑On. Благодаря поддержке идентификации федераций удостоверений, ваши
-                пользователи получат доступ в приложение по корпоративному аккаунту.
-            </CardBase.Content>
+            <CardBase.Content>{data.default.content.children[9]}</CardBase.Content>
         </CardBase>,
         <CardBase key="11" className="balanced-masonry-stories__card-base">
-            <CardBase.Content>
-                С помощью приложения вы можете контролировать остаток на счёте, пополнять баланс и
-                изучать детализацию расходов.
-            </CardBase.Content>
+            <CardBase.Content>{data.default.content.children[10]}</CardBase.Content>
         </CardBase>,
     ],
     breakpointCols: {

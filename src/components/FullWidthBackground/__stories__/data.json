@@ -1,0 +1,18 @@
+{
+  "default": {
+    "content": {
+      "style": {
+        "backgroundColor": "#3a74ff"
+      },
+      "theme": "default"
+    }
+  },
+  "rounded": {
+    "content": {
+      "style": {
+        "backgroundColor": "#3a74ff"
+      },
+      "theme": "rounded"
+    }
+  }
+}

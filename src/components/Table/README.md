@@ -1,16 +1,16 @@
-Если в ячейках таблицы нужно использовать не текст, а маркеры используются поля `legend` и `marker`. В этом
-случае в ячейках (поле `content`) нужно указывать индекс соответствующего элемента из списка легенды.
+If you need to use markers rather than text in table cells, the `legend` and `marker` fields are used. In this
+case, specify the index of the respective item from the legend list in the cells (the `content` field).
 
 `type: "table"`
 
-`content: текст/число [][]` - текст или маркеры в ячейках таблицы;
+`content: text/number [][]` — Text or markers in the table cells
 
-`legend: текст[]` - список элементов легенды
+`legend: text[]` — List of legend items
 
-`marker: disk` - вид маркера легенды
+`marker: disk` — Legend marker type
 
-`justify: 'start' | 'center' | 'end'[]` - выравнивание (задается в виде списка для всех колонок таблицы, по умолчанию равно `center`)
+`justify: 'start' | 'center' | 'end'[]` — Alignment (set as a list for all table columns, `center` by default).
 
-**Отступы:**
+**Margins:**
 
 `top: m`

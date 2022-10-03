@@ -1,7 +1,7 @@
 `type: "partner"`
 
-`logo: строка` - ссылка на логотип компании
+`logo: string` — Company logo link
 
-`url: строка` - ссылка на партнера
+`url: string` — Partner link
 
-`text?: строка` - описание партнера
+`text?: string` — Partner description

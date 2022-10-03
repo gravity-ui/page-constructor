@@ -1,0 +1,13 @@
+{
+  "default": {
+    "content": {
+      "anchor": {
+        "text": "anchor text",
+        "url": "#"
+      },
+      "visible": "sm",
+      "className": "",
+      "resetPaddings": false
+    }
+  }
+}

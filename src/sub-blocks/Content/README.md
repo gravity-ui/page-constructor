@@ -1,9 +1,9 @@
-[`title?: Title | string` - заголовок](?path=/story/information--common-types&viewMode=docs#title---заголовок-блока)
+[`title?: Title | string` - title](?path=/story/information--common-types&viewMode=docs#title---block-title)
 
-`text?: string` - текст (с поддержкой yfm)
+`text?: string` — Text (with YFM support)
 
-`additionalInfo?: string` - серый текст (с поддержкой yfm)
+`additionalInfo?: string` — Gray text (with YFM support)
 
-[`links?: Link[]` - массив с объектами ссылок](?path=/story/information--common-types&viewMode=docs#link---ссылка)
+[`links?: Link[]` — An array with link objects](?path=/story/information--common-types&viewMode=docs#link---link)
 
-[`buttons?: Button[]` - массив с объектами кнопок](?path=/story/information--common-types&viewMode=docs#button---кнопка)
+[`buttons?: Button[]` — An array with button objects](?path=/story/information--common-types&viewMode=docs#button---button)

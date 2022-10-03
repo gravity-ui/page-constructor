@@ -1,0 +1,19 @@
+{
+  "default": {
+    "content": {
+      "href": "qwe.pdf",
+      "text": "Link to file"
+    }
+  },
+  "typesThemes": {
+    "content": {
+      "href": "qwe.pdf",
+      "text": "Link to file"
+    }
+  },
+  "extensions": {
+    "content": {
+      "text": "Link to file"
+    }
+  }
+}

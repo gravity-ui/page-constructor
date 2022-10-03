@@ -4,6 +4,8 @@ import React from 'react';
 import OutsideClick, {OutsideClickProps} from '../OutsideClick';
 import {COMPONENTS} from '../../../demo/constants';
 
+import data from './data.json';
+
 export default {
     component: OutsideClick,
     title: `${COMPONENTS}/OutsideClick`,
@@ -11,8 +13,7 @@ export default {
         docsOnly: true,
         docs: {
             description: {
-                component:
-                    'Обертка для элементов интерфейса. При клике вне элемента вызывается функция `onOutsideClick`. При клике на элемент вызывается функция `onClick`',
+                component: data.default.content.description,
             },
         },
     },

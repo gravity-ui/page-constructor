@@ -1,0 +1,18 @@
+{
+  "vertical": {
+    "content": {
+      "type": "vertical",
+      "iconType": "default",
+      "size": 30,
+      "className": ""
+    }
+  },
+  "horizontal": {
+    "content": {
+      "type": "horizontal",
+      "iconType": "navigation",
+      "size": 30,
+      "className": ""
+    }
+  }
+}

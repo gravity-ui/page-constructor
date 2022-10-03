@@ -1,15 +1,15 @@
-Инфо блок
+Info block
 
 `type: 'info-block'`
 
-`title: строка` - заголовок в правой части
+`title: string` — Title on the right
 
-`sectionsTitle: строка` - заголовок в левой части
+`sectionsTitle: string` — Title on the left
 
-`backgroundColor?: строка` - цвет заливки
+`backgroundColor?: string` — Fill color
 
-`buttons?: Button[]` - кнопки в левой части
+`buttons?: Button[]` — Buttons on the left
 
-`links?: Button[]` - ссылки в правой части
+`links?: Button[]` — Links on the right
 
-`theme?: 'light' | 'dark'` - тема (определяет цвет текста)
+`theme?: 'light' | 'dark'` — Theme (defines the text color)

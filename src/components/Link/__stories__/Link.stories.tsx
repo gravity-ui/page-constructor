@@ -5,6 +5,12 @@ import Link, {LinkFullProps} from '../Link';
 import {Col, Row} from '../../../grid';
 import {BUTTONS_LINKS, COMPONENTS} from '../../../demo/constants';
 
+import {LinkProps} from 'src/models';
+
+import data from './data.json';
+
+const getSizesTitle = (size: string) => data.themesSizes.title.replace('{{size}}', size);
+
 export default {
     component: Link,
     title: `${COMPONENTS}/${BUTTONS_LINKS}/Link`,
@@ -20,13 +26,13 @@ const SizesTemplate: Story<LinkFullProps> = (args) => (
     <Row>
         <Col>{args.theme}</Col>
         <Col>
-            <Link text="Ссылка размера s" {...args} textSize="s" />
+            <Link text={getSizesTitle('s')} {...args} textSize="s" />
         </Col>
         <Col>
-            <Link text="Ссылка размера m" {...args} textSize="m" />
+            <Link text={getSizesTitle('m')} {...args} textSize="m" />
         </Col>
         <Col>
-            <Link text="Ссылка размера l" {...args} textSize="l" />
+            <Link text={getSizesTitle('l')} {...args} textSize="l" />
         </Col>
     </Row>
 );
@@ -61,7 +67,7 @@ const WithChildrenTemplate: Story<LinkFullProps> = (args) => (
                     <path d="M10 0H5v5.38A5.61 5.61 0 0 0 10.62 11H14v1h-2v4h4V6a6 6 0 0 0-6-6zm3 9h-2V7h2z" />
                 </svg>
             </svg>{' '}
-            Ссылка с children-ом
+            {data.normalWithChildren.children}
         </span>
     </Link>
 );
@@ -74,41 +80,10 @@ export const NormalForDarkTheme = DarkTemplate.bind({});
 export const UnderlineWithChildren = WithChildrenTemplate.bind({});
 export const BackWithChildren = WithChildrenTemplate.bind({});
 
-Default.args = {
-    text: 'Ссылка по умолчанию',
-    url: '#',
-};
-
-ThemesSizes.args = {
-    text: 'Ссылка',
-    url: '#',
-};
-
-NormalWithChildren.args = {
-    url: '#',
-    theme: 'normal',
-};
-
-NormalArrow.args = {
-    text: 'Normal ссылка со стрелкой',
-    url: '#',
-    arrow: true,
-    theme: 'normal',
-};
-
-NormalForDarkTheme.args = {
-    text: 'Normal ссылка',
-    url: '#',
-    theme: 'normal',
-    colorTheme: 'dark',
-};
-
-UnderlineWithChildren.args = {
-    url: '#',
-    theme: 'underline',
-};
-
-BackWithChildren.args = {
-    url: '#',
-    theme: 'back',
-};
+Default.args = data.default.content;
+ThemesSizes.args = data.themesSizes.content;
+NormalWithChildren.args = data.normalWithChildren.content as LinkProps;
+NormalArrow.args = data.normalArrow.content as LinkProps;
+NormalForDarkTheme.args = data.normalForDarkTheme.content as LinkProps;
+UnderlineWithChildren.args = data.underlineWithChildren.content as LinkProps;
+BackWithChildren.args = data.backWithChildren.content as LinkProps;

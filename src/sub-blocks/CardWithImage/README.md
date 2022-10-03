@@ -1,23 +1,23 @@
 `type: "card-with-image"`
 
-`image: строка` - ссылка на картинку карточки
+`image: string` — Card image link
 
-`title?: Title | string` - заголовок карточки
+`title?: Title | string` — Card title
 
-`description: string` - описание карточки (с поддержкой yfm)
+`description: string` — Card description (with YFM support)
 
-`additionalInfo?: string` - серый текст (с поддержкой yfm)
+`additionalInfo?: string` — Gray text (with YFM support)
 
-`disableCompress: boolean` - сжатие картинки
+`disableCompress: boolean` — Image compression
 
-`border?: boolean` - рамка для картинки
+`border?: boolean` — Image border
 
-`fullScreen?: boolean` - возможность раскрыть картинку на весь экран
+`fullScreen?: boolean` — Enables/disable fullscreen mode for the image
 
-`links?: []` - массив с объектами ссылок
+`links?: []` — An array with link objects
 
-- `title: строка`
-- `link: строка`
-- `arrow?: bool` - рисовать стрелку справа
+- `title: string`
+- `link: string`
+- `arrow?: bool` — Draw an arrow on the right
 
-`buttons?: Button[]` - массив с объектами кнопок, см. раздел [Контент-блоки](?path=/story/information--common-types&viewMode=docs)
+`buttons?: Button[]` — An array with button objects (see [Content blocks](?path=/story/information--common-types&viewMode=docs))

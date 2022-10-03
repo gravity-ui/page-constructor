@@ -1,18 +1,18 @@
-# Блоки
+# Blocks
 
-Каждый блок имеет общие свойства:
+Each block has the following common properties:
 
-`anchor`: анкор блока - если для блока задается анкор и страница имеет меню, то в меню будет добавлена ссылка на этот блок
+`anchor`: block anchor — If you set a block's anchor and there is a menu on the page, a link to this block is added to the menu.
 
-> `text: текст` - имя в блоке меню страницы
+> `text: text` — Name in the page menu block
 
-> `url: текст` - ссылка на блок после #
+> `url: text` — Link to the block after #
 
-`visible?: 'all' | 'sm' | 'md' | 'lg' | 'xl'` - задает размер экрана, начиная с которого блок будет отображаться
+`visible?: 'all' | 'sm' | 'md' | 'lg' | 'xl'` — Sets the screen size to start block display from
 
-`resetPaddings: boolean` - позволяет обнулить стандартные для все блоков отступы сверху и снизу
+`resetPaddings: boolean` — Allows resetting top and bottom margins standard for all blocks
 
-_[Общие типы полей](?id=information--common-types&viewMode=docs)_
+_[Common field types](?id=information--common-types&viewMode=docs)_
 
 ## [Banner](?path=/story/blocks-banner--default&viewMode=docs)
 

@@ -1,14 +1,14 @@
-`properties:` - свойства кубика с контентом (необязательны)
+`properties:` — Content cube properties (optional)
 
-- `size?: 's' | 'l'` - размер кубика, который определяет размеры шрифта. (по умолчанию l)
-- `background?: BackgroundImage` - специальные свойства бэкграунда, которые описаны в разделе **Контент-блоки**
-- `centered?: false | true` - выравнивание текста по центру (по умолчанию false)
-- `theme?: 'default' | 'dark' | 'light'` - тема кубика, дефолтная, тёмная и светлая монохромная (по умолчанию default)
-- `textWidth?: 's' | 'm' | 'l'` - количество колонок, которое занимает контент внутри кубика, 6, 8 и 10 колонок из 12 соответственно
+- `size?: 's' | 'l'` — Cube size that defines font sizes (defaults to l)
+- `background?: BackgroundImage` — Special background properties described in the **Content blocks** section.
+- `centered?: false | true` — Indicates if text is centered (false by default).
+- `theme?: 'default' | 'dark' | 'light'` — Cube theme: default, dark, or monochrome light ('default' by default).
+- `textWidth?: 's' | 'm' | 'l'` — Number of columns occupied by content within a cube: 6, 8, and 10 out of 12 columns, respectively.
 
-`textContent:` - см. компонент [Content](?path=/story/компоненты-content--default&viewMode=docs)
+`textContent:` — See the [Content](?path=/story/components-content--default&viewMode=docs) component.
 
-`fileContent?: FileLink[]` - массив объектов с описанием ссылок на файлы
+`fileContent?: FileLink[]` — Array of objects that describe file links
 
-- `href: string` - ссылка на скачивание файла
-- `text: string` - описание файла
+- `href: string` — File download link
+- `text: string` — File description

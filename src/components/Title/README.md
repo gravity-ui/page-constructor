@@ -1,12 +1,12 @@
 `type: "title"`
 
-`text: текст` - Текст заголовка;
+`text: text` — Title text
 
-`textSize?: 's' | 'm' | 'l'` - Размер шрифта заголовка;
+`textSize?: 's' | 'm' | 'l'` — Title font size
 
-`url?: string` - урл, по которому можно перейти при клике на заголовок, автоматически в конце добавляется стрелочка
+`url?: string` — URL for a redirect on clicking the title, an arrow is automatically added at the end.
 
-**Отступы:**
+**Margins:**
 
 `textSize s - top: m`
 

@@ -2,13 +2,13 @@
 
 ## <a name="cards">Cards</a>
 
-Карточки для Slider и CardLayout
+Cards for Slider and CardLayout
 
-Общие поля для всех карточек:
+Fields common for all cards:
 
-`border?: 'border' | 'shadow'` - задает как будут выглядеть границы карточки (по умолчанию - `'shadow'`)
+`border?: 'border' | 'shadow'` — Sets the appearance of card borders (defaults to `'shadow'`).
 
-_Карточки являются компонентами, которые используются только совместно со слайдером или лейаутом:_
+_Cards are components that are only used together with the slider or layout:_
 
 - ### [BannerCard](?path=/story/blocks-banner--default&viewMode=docs)
 

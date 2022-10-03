@@ -5,6 +5,8 @@ import NewsCard from '../NewsCard';
 import {NewsCardProps} from '../../../models';
 import {CARDS, COMPONENTS} from '../../../demo/constants';
 
+import data from './data.json';
+
 export default {
     component: NewsCard,
     title: `${COMPONENTS}/${CARDS}/NewsCard`,
@@ -18,10 +20,4 @@ const DefaultTemplate: Story<NewsCardProps> = (args) => (
 
 export const Default = DefaultTemplate.bind({});
 
-Default.args = {
-    date: '9 октября 2020 г.',
-    isoDate: '2020-10-08T21:00:00.000Z',
-    title: 'Новое в <i>документации</i> за сентябрь',
-    border: 'shadow',
-    url: 'https://cloud.yandex.ru',
-};
+Default.args = data.default.content as NewsCardProps;

@@ -47,7 +47,7 @@
 
 `detailedTitle?: string`
 
-`label?: object` - custom label settings for current price
+`label?: object` — Custom label settings for current price
 
 - `color: `[PriceLabelColor](#PriceLabelColor)
 - `text?: string`
@@ -83,24 +83,24 @@ Example, with all fields:
     titleSize: 's'
     descriptionSize: 'm'
   foldable:
-    title: Показать детали
+    title: Show details
     size: 'm'
     titleColor: 'cornflower'
   labelsDefaultText:
-    blue: 'Базовый'
-    green: 'Стандарт'
-    yellow: 'Бизнес'
-    purple: 'Ультима'
+    blue: 'Basic'
+    green: 'Standard'
+    yellow: 'Business'
+    purple: 'Ultima'
   items:
-    - title: 100 ₽
-      detailedTitle: '/ месяц*'
-      description: Небольшие редакторские правки
+    - title: ₽100
+      detailedTitle: '/ month*'
+      description: Small edits
       label:
         color: 'green'
         text: 'New label'
         size: 'm'
       items:
-        - title: Метка на GitHub
+        - title: GitHub label
           description: editorial
 ```
 
@@ -112,53 +112,53 @@ Example, with labels. - https://cloud-preprod.yandex.ru/services/e2e-test?versio
   description:
     titleColor: 'black'
   labelsDefaultText:
-    blue: 'Базовый'
-    green: 'Стандарт'
-    yellow: 'Бизнес'
-    purple: 'Ультима'
+    blue: 'Basic'
+    green: 'Standard'
+    yellow: 'Business'
+    purple: 'Ultima'
   items:
-    - title: '258 ₽'
-      detailedTitle: '/ месяц*'
-      description: В таблице мы привели среднее время от создания пул-реквеста до публикации вашего текста, а также размер гранта для каждого случая.
+    - title: '₽258'
+      detailedTitle: '/ month*'
+      description: The table shows the average period from creating a Pull request to publishing your text and the size of grant for each case.
       label:
         color: 'green'
         text: 'New label'
       items:
-        - text: '0-5 человек'
-        - text: '6-100 человек'
-    - title: '000 ₽'
-      detailedTitle: '/ месяц*'
-      description: 'Для средних компаний!!!'
+        - text: '0-5 people'
+        - text: '6-100 people'
+    - title: '₽000'
+      detailedTitle: '/ month*'
+      description: 'For medium companies!!!'
       label:
         color: 'green'
       items:
-        - text: '0-5 человек'
-        - text: '6-100 человек'
-        - text: '100-200 человек'
-        - text: '200-500 человек'
-    - title: '000 ₽'
-      detailedTitle: '/ месяц*'
-      description: 'Для средних компаний!!!'
+        - text: '0-5 people'
+        - text: '6-100 people'
+        - text: '100-200 people'
+        - text: '200-500 people'
+    - title: '₽000'
+      detailedTitle: '/ month*'
+      description: 'For medium companies!!!'
       label:
         color: 'purple'
       items:
-        - text: '0-5 человек'
-        - text: '6-100 человек'
-        - text: '200-500 человек'
-    - title: '000 ₽'
-      description: 'Для средних компаний!!!'
+        - text: '0-5 people'
+        - text: '6-100 people'
+        - text: '200-500 people'
+    - title: '₽000'
+      description: 'For medium companies!!!'
       label:
         color: 'yellow'
       items:
-        - text: '0-5 человек'
-        - text: '6-100 человек'
-    - title: '000 ₽'
-      description: 'Для средних компаний!!!'
+        - text: '0-5 people'
+        - text: '6-100 people'
+    - title: '₽000'
+      description: 'For medium companies!!!'
       label:
         color: 'blue'
       items:
-        - text: '0-5 человек'
-        - text: '6-100 человек'
+        - text: '0-5 people'
+        - text: '6-100 people'
 ```
 
 ![](https://storage.cloud-preprod.yandex.net/cloud-www-assets/wiki/Price%20Detailed.jpg)
@@ -175,40 +175,40 @@ Example, combined (Grants) - https://cloud-preprod.yandex.ru/services/e2e-test?v
       isCombined: true
       useMixedView: true
       foldable:
-        title: Показать детали
+        title: Show details
       items:
-      - title: 100 ₽
-        description: Небольшие редакторские правки
+      - title: ₽100
+        description: Small edits
         items:
-        - title: Метка на GitHub
+        - title: GitHub label
           description: editorial
-        - title: Рассмотрим
-          description: За 3 рабочих дня
-      - title: 300–1000 ₽
-        description: Смысловые дополнения, исправления, улучшения текстов
+        - title: Review
+          description: Within 3 business days
+      - title: ₽300–1000
+        description: Semantic updates, amendments, and improvement of texts
         items:
-        - title: Метка на GitHub
+        - title: GitHub label
           description: improvement
-      - title: 500–2000 ₽
-        description: Новые примеры использования API, CLI и Terraform; примеры кода
+      - title: ₽500–2000
+        description: New API, CLI, and Terraform use cases, code examples
         items:
-        - title: Баллы
+        - title: Points
           description: 5–20
-      - title: 1000–3000 ₽
-        description: Новые инструкции; существенные обновления опубликованных практических руководств или концепций
+      - title: ₽1000–3000
+        description: New instructions, significant updates to published practical guidelines or concepts
         items:
-        - title: Метка на GitHub
+        - title: GitHub label
           description: major-update
-      - title: 5000–10 000 ₽
-        description: Новое практическое руководство
+      - title: ₽5000–10000
+        description: New practical guidelines
         items:
-        - title: Метка на GitHub
+        - title: GitHub label
           description: new-solution
-        - title: Рассмотрим
-          description: За 20 рабочих дней
-        - title: Опубликуем
-          description: За месяц
-        - title: Баллы
+        - title: Review
+          description: Within 20 business days
+        - title: Publish
+          description: Within a month
+        - title: Points
           description: 50–100
 ```
 

@@ -1,9 +1,9 @@
 `type: "tutoral-card"`;
 
-`title: строка` - заголовок;
+`title: string` — Title.
 
-`text: строка` - текст карточки;
+`text: string` — Card text.
 
-`url: строка` - ссылка на страницу туториала;
+`url: string` — Link to the tutorial page.
 
-`icon: строка | ImageObjectProps` - свойства иконки для карточки;
+`icon: string | ImageObjectProps` — Card icon properties.

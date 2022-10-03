@@ -1,17 +1,17 @@
 `type: "basic-card"`;
 
-`url: строка` - ссылка, на которую попадаешь при клике на карточку
+`url: string` — URL that opens when clicking the card
 
-`icon?: строка | ImageObjectProps` - свойства иконки для карточки;
+`icon?: string | ImageObjectProps` — Card icon properties.
 
-`title?: Title | string` - заголовок карточки
+`title?: Title | string` — Card title
 
-`text?: string` - описание карточки (с поддержкой yfm)
+`text?: string` — Card description (with YFM support)
 
-`additionalInfo?: string` - серый текст (с поддержкой yfm)
+`additionalInfo?: string` — Gray text (with YFM support)
 
-`links?: Link[]` - массив с объектами ссылок, см. раздел [Контент-блоки](?path=/story/information--common-types&viewMode=docs)
+`links?: Link[]` — An array with link objects (see [Content blocks](?path=/story/information--common-types&viewMode=docs))
 
-`buttons?: Button[]` - массив с объектами кнопок, см. раздел [Контент-блоки](?path=/story/information--common-types&viewMode=docs)
+`buttons?: Button[]` — An array with button objects (see [Content blocks](?path=/story/information--common-types&viewMode=docs))
 
-`border: 'shadow' | 'line' | 'none'` - свойства границы карточки (по умолчанию - `'shadow'`);
+`border: 'shadow' | 'line' | 'none'` — Card border properties (defaults to `'shadow'`).

@@ -3,8 +3,9 @@ import React from 'react';
 
 import BlockBase from '../BlockBase';
 import {BlockBaseProps, ClassNameProps} from '../../../models';
-import {GridColumnSize} from '../../../grid';
 import {COMPONENTS} from '../../../demo/constants';
+
+import data from './data.json';
 
 export default {
     component: BlockBase,
@@ -13,18 +14,10 @@ export default {
 
 const DefaultTemplate: Story<BlockBaseProps & ClassNameProps> = (args) => (
     <BlockBase {...args}>
-        <span>Это children</span>
+        <span>Children</span>
     </BlockBase>
 );
 
 export const Default = DefaultTemplate.bind({});
 
-Default.args = {
-    anchor: {
-        text: 'anchor text',
-        url: '#',
-    },
-    visible: GridColumnSize.Sm,
-    className: '',
-    resetPaddings: false,
-};
+Default.args = data.default.content as BlockBaseProps;

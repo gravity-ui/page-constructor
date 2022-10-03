@@ -2,9 +2,10 @@ import {Meta, Story} from '@storybook/react/types-6-0';
 import React, {Fragment} from 'react';
 
 import Button, {ButtonProps} from '../Button';
-import {PixelEventType} from '../../../models';
 import {Col, Row} from '../../../grid';
 import {BUTTONS_LINKS, COMPONENTS} from '../../../demo/constants';
+
+import data from './data.json';
 
 export default {
     component: Button,
@@ -64,13 +65,5 @@ const ThemesSizesTemplate: Story<ButtonProps> = (args) => (
 export const Default = DefaultTemplate.bind({});
 export const ThemesSizes = ThemesSizesTemplate.bind({});
 
-Default.args = {
-    text: 'Кнопка',
-    pixelEvents: [{name: PixelEventType.Contact}],
-    metrikaGoals: ['one', 'two', 'three'],
-    img: 'https://storage.yandexcloud.net/cloud-www-assets/constructor/prices/rub.svg',
-};
-
-ThemesSizes.args = {
-    text: 'Кнопка',
-};
+Default.args = data.default.content as ButtonProps;
+ThemesSizes.args = data.themesSizes.content as ButtonProps;

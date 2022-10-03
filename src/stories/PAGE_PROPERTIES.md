@@ -1,7 +1,7 @@
-# Свойства страницы
+# Page properties
 
-    `animated?: bool` -  вкл/выкл анимации для всей страницы (включена по умолчанию)
-    `menu?: bool` -  признак нужно ли показывать на странице автособираемое меню
-    `form?: 'contact-sales | interconnect | preview'` - задает форму, которая будет показываться в модальном окне при переходе на страницу с хешем #form
-    `background?: Media` - задает фоновое видео или изображение для страницы
-    `footnotes?: string[]` - список сносок внизу страницы
+    `animated?: bool` — Enables/disables animation for the entire page (enabled by default).
+    `menu?: bool` — Indicates whether to show an automatically generated menu.
+    `form?: 'contact-sales | interconnect | preview'` — Sets the form to be displayed in the modal window when switching to the page with #form.
+    `background?: Media` — Sets the page's background video or image
+    `footnotes?: string[]` — A list if footnotes for the page.

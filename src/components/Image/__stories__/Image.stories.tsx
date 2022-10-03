@@ -4,6 +4,8 @@ import React from 'react';
 import {COMPONENTS, MEDIA} from '../../../demo/constants';
 import Image, {ImageProps} from '../Image';
 
+import data from './data.json';
+
 export default {
     component: Image,
     title: `${COMPONENTS}/${MEDIA}/Image`,
@@ -13,11 +15,4 @@ const DefaultTemplate: Story<ImageProps> = (args) => <Image {...args} />;
 
 export const Default = DefaultTemplate.bind({});
 
-Default.args = {
-    src: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/bg_card_0001.png',
-    alt: 'string',
-    disableCompress: true,
-    style: {
-        height: '200px',
-    },
-};
+Default.args = data.default.content;

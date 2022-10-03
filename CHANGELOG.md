@@ -1,208 +1,208 @@
-# Лог изменений
+# Changelog
 
 ## 1.0.0
 
-- Удалена поддержка блоков v1
+- Discontinued support for v1 blocks.
 
-- Удалены зависимости `@yandex-data-ui/common`, `@yandex-data-ui/cloud-schemas`, `@yandex-data-ui/cloud-components`
+- Deleted the `@yandex-data-ui/common`, `@yandex-data-ui/cloud-schemas`, and `@yandex-data-ui/cloud-components` dependencies.
 
-- Все элементы конструктора разделены на блоки и саб-блоки
+- Grouped all the constructor elements into blocks and sub-blocks.
 
-- Рефакторинг компонента PageConstructor
+- Refactored the PageConstructor component.
 
-- Рефакторинг валидаторов
+- Refactored the validators.
 
-- Сборка проекта переведена с `@yandex-data-ui/ui-core` на `gulp`
+- Moved a project build from `@yandex-data-ui/ui-core` to `gulp`.
 
-- Обновлен сторибук
+- Updated the Storybook.
 
-- Переход на @gravity-ui
+- Moved to @gravity-ui.
 
-- Добавлены LICENSE и CONTRIBUTING.md
+- Added LICENSE and CONTRIBUTING.md.
 
 ## 0.60.5
 
-- В блок Questions добавлен компонент Content
+- Added the Content component to the Questions block.
 
 ## 0.60.4
 
-- Поправлен баг с пропавшим за видео текстом в safari в `HeaderSlider`
+- Fixed the bug when text was hidden behind the video in the `HeaderSlider` in Safari.
 
 ## 0.60.3
 
-- Добавлена поддержка смены `background` в тёмной теме у компонента BackgroundCard
+- You can now change the `background` in a dark theme for the BackgroundCard component.
 
 ## 0.60.1
 
-- Уменьшена скорость перелистывания слайдера
+- Slowed down slider scrolling.
 
 ## 0.60.0
 
-- Убран отступ сверху и по бокам у `HeaderBlock` с цветной подложкой во всю ширину.
-- В `HeaderBlock` в проп background добавлен параметр fullWidthMedia
-- Увеличены стрелки слайдера в `HeaderSlider`
+- Removed top and side margins for the `HeaderBlock` with a color background that takes up the entire width.
+- Added the fullWidthMedia parameter to the background prop in the `HeaderBlock`.
+- Increased the slider arrows in the `HeaderSlider`.
 
 ## 0.59.2
 
-- Исправлена ошибка в компоненте `Share`
+- Fixed a bug in the `Share` component.
 
 ## 0.59.0
 
-- Увеличилась ширина цветной подложки в `HeaderBlock`
-- В `HeaderBlock` добавлен отступ снизу
-- Убрана зависимость от common, cloud-components, cloud-schemas
+- Increased the width of a color background in the `HeaderBlock`.
+- Added a bottom margin in the `HeaderBlock`.
+- Removed the common, cloud-components, and cloud-schemas dependencies.
 
 ## 0.58.0
 
-- Добавлен компонент BasicCard
+- Added a component named BasicCard.
 
 ## 0.57.3
 
-- В блоке Header исправлены отступы на мобильном при `offset: large`
+- Fixed the margins in the Header block for a mobile if `offset: large`
 
 ## 0.57.2
 
-- В блоке Slider исправлен баг с автоскроллом на первый слайд
+- Fixed the bug in the Slider block with auto-scroll to the first slide.
 
 ## 0.57.1
 
-- Уменьшена ширина `InfoBlock`. Добавлено закругление углов
+- Reduced the `InfoBlock` width. Added support for rounded corners.
 
 ## 0.57.0
 
-- Рефакторинг блока Header. Добавлено новое свойство status. Кубик вынесен из колонки и имеет ширину на весь экран
-- Рефакторинг блока HeaderSlider
+- Refactored the Header block. Added a new property named Status. Moved a cube outside a column, it now takes up the entire width.
+- Refactored the HeaderSlider block.
 
 ## 0.56.0
 
-- Боковой отступ в мобильной версии увеличен до 24px
+- Increased side margins for the mobile version to 24px.
 
 ## 0.55.0
 
-- В storybook добавлены yaml-сниппеты
+- Added YAML snippets to the storybook.
 
 ## 0.53.1
 
-- Изменен hover эффект в карточках
+- Changed the hover effect in cards.
 
 ## 0.53.2
 
-- В компоненте `Share` исправлено поведение по наведению
-- ui-kit перенесён в dev-dependencies
+- Fixed the hover behavior in the `Share` component.
+- Moved the ui-kit to dev-dependencies.
 
 ## 0.53.1
 
-- В компоненте `Content` добавлена поддержка серого цвета для списков
+- Added support for the gray color in the `Content` component lists.
 
 ## 0.53.1
 
-- Добавлен компонент `HubspotForm`
+- Added a component named `HubspotForm`.
 
 ## 0.52.0
 
-- i18n обновлена до 0.6.0. Теперь перед использованием page-constructor нужно выполнить вызов configure. (подробности в readme)
+- Upgraded i18n to 0.6.0. Now, before using the page-constructor, you need to call 'configure' (for details, see the readme file).
 
 ## 0.51.0
 
-- Добавлена возможность использовать `*.webp` в качестве `src` для `<Image />`
+- You can now use `*.webp` as `src` for `<Image />`.
 
 ## 0.50.0
 
-- Обновлен tsconfig
+- Updated the tsconfig.
 
 ## 0.49.1
 
-- Удалены css переменные c --www-...
+- Removed CSS variables with --www-...
 
 ## 0.49.0
 
-- В компоненте YandexForm добавлен параметр customFormOrigin
+- Added the customFormOrigin parameter to the YandexForm component.
 
 ## 0.48.0
 
-- Поправлено отображение controls в storybook
+- Fixed the controls display in the storybook.
 
 ## 0.46.0
 
-- Обновлены stories
+- Updated the stories.
 
 ## 0.44.0
 
-- Обновлены конфиги eslint, stylelint, prettier
+- Updated the eslint, stylelint, and prettier configs.
 
 ## 0.43.1
 
-- Исправлен баг с лишним смещением слайда в слайдере
+- Fixed the bug with an unnecessary offset of a slide in the slider.
 
 ## 0.43.0
 
-- В MediaBlock вставлен Content кубик
+- Added the Content cube to the MediaBlock.
 
 ## 0.42.4
 
-- Поправлены семантические цвета компонентов VideoBlock, ReactPlayer
-- Поправлен шрифт в миксине label
+- Fixed the VideoBlock and ReactPlayer component semantic colors.
+- Fixed the label mixin font.
 
 ## 0.42.3
 
-- Удалено переопределение шрифта --yc-text-caption-1, он заменён на --yc-text-caption-2
+- Removed --yc-text-caption-1 font overriding and replaced it with --yc-text-caption-2.
 
 ## 0.42.2
 
-- Поправлены семантические цвета компонентов
+- Fixed the component semantic colors.
 
 ## 0.42.0
 
-- Удален блок TextTable
+- Removed the TextTable block.
 
 ## 0.40.0
 
-- Css переменной `--yc-text-accent-font-weight` задано значение 500
-- У компонента Button убран отступ сверху
-- Добавлены миксины для заголовков
-- Добавлена переменная `--pc-text-header-color` со значением `var(--yc-color-text-primary)`
-- Обновлена версия @gravity-ui/uikit до 2.3.0
+- Set the `--yc-text-accent-font-weight` CSS variable to 500.
+- Removed the top margin of the Button component.
+- Added mixins for headers.
+- Added the `--pc-text-header-color` variable set to `var(--yc-color-text-primary)`.
+- Upgraded the @gravity-ui/uikit version to 2.3.0.
 
 ## 0.39.2
 
-- Исправлено отображение видео и изображения на мобильной версии в компоненте BackgroundMedia
+- Fixed the video and image display in the BackgroundMedia component in the mobile version.
 
 ## 0.39.1
 
-- Исправлены некоторые баги в слайдере
+- Fixed some slider bugs.
 
 ## 0.38.0
 
-- Добавлено отправление метрик и pixel из контекста в компоненте YandexForm.
+- You can now send metrics and pixels from the YandexForm component context.
 
 ## 0.36.1
 
-- Поправлены footnotes в Safari
+- Fixed the footnotes in Safari.
 
 ## 0.36.0
 
-- Добавлена обработка отсутствующих блоков
+- Added handling of missing blocks.
 
 ## 0.35.0
 
-- Добавлены yfm-стили для поддержки тёмной темы и font-family через переменную
+- Added YFM styles to support the dark theme and font-family via a variable.
 
 ## 0.34.0
 
 ### Breaking changes
 
-- Добавлен пакет `@gravity-ui/uikit`
-- Обновлен пакет `@yandex-data-ui/common`
-- Заменен пакет в peer dependencies `@yandex-data-ui/i18n` -> `@gravity-ui/i18n`
-- Пакет react-router-dom удален из зависимостей
+- Added the `@gravity-ui/uikit` package.
+- Updated the `@yandex-data-ui/common` package.
+- Replaced the peer dependencies package: `@yandex-data-ui/i18n` -> `@gravity-ui/i18n`.
+- Removed the react-router-dom package from the dependencies.
 
 ## 0.33.0
 
-Удален компонент `HeaderWithImage`
+Removed the `HeaderWithImage` component.
 
 ## 0.32.0
 
-Добавлена поддержка темной темы в блоке `companies-block`
+Added dark theme support in the `companies-block`.
 
 ## 0.30.1
 
@@ -210,193 +210,193 @@ Fix content-layout text color in dark theme
 
 ## 0.30.0
 
-Добавлена обработка yfm в блоке `PreviewBlock`
+Added YFM handling in the `PreviewBlock`.
 
 ## 0.29.0
 
-В сторибук добавлено описание блоков и компонентов, CHANGELOG и описание проекта
+Added descriptions of blocks and components, a CHANGELOG, and a project description to the storybook.
 
 ## 0.28.2
 
-Исправлена ссылка в блоке `ExtendedFeatures`
+Fixed a link in the `ExtendedFeatures` block.
 
 ## 0.28.0
 
-Добавлены стили для ссылок, вставленных через разметку
+Added styles for links inserted using a markup.
 
 ## 0.24.0
 
-В сторибук добавлены все блоки и компоненты
+Added all blocks and components to the storybook.
 
 ## 0.23.0
 
-Добавлен компонент `Quote`
+Added a component named `Quote`.
 
 ## 0.22.1
 
-В `BlockBase` удален оператор `!important` свойства padding-bottom
-В `Content` при отсутствии `title` у блока `text` свойство `margin-top` равно 0
+Removed the `!important` statement in the `BlockBase` for the padding-bottom property
+In the `Content`, if the `text` block has no `title`, the `margin-top` property is 0.
 
 ## 0.22.0
 
 ### Breaking changes
 
-- Отдельно вынесен `PageConstructorProvider`, для корректной работы `PageConstructor` необходимо обернуть в этот провайдер.
-  Подробнее в [readme](https://github.yandex-team.ru/data-ui/page-constructor/blob/master/README.md#начало-работы)
+- `PageConstructorProvider` is now a separate component. For the `PageConstructor` to run properly, wrap it in this provider.
+  For details, see the [readme](https://github.yandex-team.ru/data-ui/page-constructor/blob/master/README.md#начало-работы) file.
 
-- Удалена `system` theme - вместо нее по дефолту используется `light`.
+- Deleted the `system` theme (the `light` theme is used instead by default).
 
-- В компоненте `ReactPlayer` изменены дефолтные значения параметров `muted` и `autoplay` с `true` на `false`
+- Changed the default values of the `muted` and `autoplay` parameters in the `ReactPlayer` component from `true` to `false`.
 
 ## 0.21.0
 
-- В `background-card` добавлен контент кубик, заливка карточки, темы
+- Added a content cube, card fill, and themes to the `background-card`.
 
 ## 0.20.1
 
-- В `content-layout-block` исправлено форматирование yfm-текста
+- Fixed YFM text formatting in the `content-layout-block`.
 
 ## 0.20.0
 
-- В `card-with-image` добавлен контент кубик
+- Added a content cube to the `card-with-image`.
 
 ## 0.19.3
 
-- Добавлен фикс ререндеров в `media-block`
+- Added a rerender fix in the `media-block`.
 
 ## 0.19.1
 
-- Добавлен фикс слайдера в `media-block`
+- Added a slider fix in the `media-block`.
 
 ## 0.19.0
 
-- В `media-block` добавлен iframe с DataLens
+- Added a DataLens iframe to the `media-block`.
 
 ## 0.18.4
 
-- Исправлены марджины в блоке `BlockHeader`
+- Fixed the `BlockHeader` margins.
 
 ## 0.18.3
 
-- Добавлен фикс для сносок `footnotes`
+- Added a fix for `footnotes`.
 
 ## 0.17.4
 
-- Добавлен фикс скругления изображения в компоненте `FullScreenImage`
+- Added a fix for image rounding in the `FullScreenImage` component.
 
 ## 0.17.3
 
-- Добавлен фикс для блока `content-layout-block`, дефолтная ширина `m`
+- Added a fix for the `content-layout-block`, the default width is `m`.
 
 ## 0.17.2
 
-- Исправлен миксин heading1
+- Fixed the heading1 mixin.
 
 ## 0.17.1
 
-- Добавлен yfm фикс для null-значениц
+- Added a YFM fix for null values.
 
 ## 0.17.0
 
-- Добавлен блок `content-layout-block`
+- Added a block named `content-layout-block`.
 
 ## 0.11.1
 
-- Удален блок `cards-with-image-block`, вместо него теперь используем униеверсальный блок для всех карточек
-  `cards-layout-block`
+- Removed the `cards-with-image-block`. Instead, use the
+  `cards-layout-block` that is universal for all cards.
 
 ## 0.11.0
 
-- Добавлена поддержа темной темы в блоках
+- Added dark theme support in blocks.
 
 ## 0.10.1
 
-- Исправлены импорты в компоненте HeaderBreadcrumbs
+- Fixed imports in the HeaderBreadcrumbs component.
 
 ## 0.10.0
 
-- Добавлено свойство breadcrumbs в компонент Header
+- Added the breadcrumbs property to the Header component.
 
 ## 0.9.0
 
-- Добавлен блок CardLayout, компонент BackgroundCard
+- Added the CardLayout block, the BackgroundCard component.
 
 ## 0.7.1
 
-- В компонент NewsCard добавлено свойство isoDate
+- Added the isoDate property to the NewsCard component.
 
 ## 0.7.0
 
-- Добавлен блок HeaderSlider
-- Исправлен баг с caption в блоке Tabs
+- Added the HeaderSlider block.
+- Fixed the caption bug in the Tabs block.
 
 ## 0.6.4
 
-- Исправлены ссылки у блока Icons
+- Fixed the Icons block links.
 
 ## 0.6.3
 
-- Исправлен цвет тени у стрелок Slider и в карточках
+- Fixed the shadow color of Slider arrows and cards.
 
 ## 0.6.0
 
-- Добавлены блоки Icons, Header
-- Добавлен компонент NewsCard
-- Доработан блок CardsWithImage: поддержка фуллскрина
+- Added the Icons and Header blocks.
+- Added the NewsCard component.
+- Updated the CardsWithImage block with fullscreen support added.
 
 ## 0.5.1
 
-- Исправлен шрифты Title size L
-- Удален padding-bottom у контента HeaderBlock на мобильном
+- Fixed Title size L fonts.
+- Removed padding-bottom for the HeaderBlock content in the mobile version.
 
 ## 0.5.0
 
-- Добавлен редизайн стилей
+- Added style redesign.
 
 ## 0.3.5
 
-- Добавлен блок Header
+- Added the Header block.
 
 ## 0.3.3
 
-- Исправлена анимация у компонента Title, добавлен отступ справа для правильного переноса заголовка
+- Fixed the Title component animation, added the right margin to correctly break the title.
 
 ## 0.1.4
 
-- Глобально определенные стили перенесены в компоненты
+- Moved globally defined styles to components.
 
 ## 0.1.1
 
-- Исправлены отступы от картинки в cards-with-image
+- Fixed offsets from an image in the cards-with-image.
 
 ## 0.1.0
 
-- Добавлен блок с фото cards-with-image
+- Added a block with photos: cards-with-image.
 
 ## 0.0.10
 
-- Добавлены фиксы стилей темной темы баннера
+- Added style fixes for the banner dark theme.
 
 ## 0.0.8
 
-- Добавлены фиксы стилей yfm и обновления компонентов из cloud-www
+- Added YFM style fixes and updates for components from cloud-www.
 
 ## 0.0.5
 
-- Добавлен миксин для задания специфичности стилей. Пофикшены ошибки, связанные с порядком подключения стилей
+- Added a mixin for setting style specificity. Fixed errors related to style activation order.
 
 ## 0.0.4
 
-- Поправлены отступы для вложенных сеток
+- Fixed the margins of nested grids.
 
 ## 0.0.3
 
-- Добавлено свойство колонки сетки, которое позволяет сбросить отступы
+- Added a grid column property that allows resetting the margins.
 
 ## 0.0.2
 
-- Добавлены переменные стилей для шрифтов. Поправлен класс компонента `PageConstructor`
+- Added style variables for fonts. Fixed the `PageConstructor` component class.
 
 ## 0.0.1
 
-- Добавлена первая версия конструктора страниц
+- Added page constructor version 1.

@@ -4,6 +4,8 @@ import React from 'react';
 import VideoBlock, {VideoBlockProps} from '../VideoBlock';
 import {COMPONENTS, MEDIA} from '../../../demo/constants';
 
+import data from './data.json';
+
 export default {
     component: VideoBlock,
     title: `${COMPONENTS}/${MEDIA}/VideoBlock`,
@@ -17,13 +19,4 @@ const DefaultTemplate: Story<VideoBlockProps> = (args) => (
 
 export const Default = DefaultTemplate.bind({});
 
-Default.args = {
-    record: 'https://www.youtube.com/watch?v=FHUnirudntU&list=PL1x4ET76A10awoGRia_EmYnEU_RPmRsRz&index=5A',
-    attributes: {color: 'white', rel: '0'},
-    previewImg:
-        'https://storage.yandexcloud.net/cloud-www-assets/solutions/e-commerce/retail-video.png',
-    playButton: null,
-    className: '',
-    stream: '',
-    id: '',
-};
+Default.args = data.default.content;
