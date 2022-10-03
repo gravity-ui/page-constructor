@@ -11,7 +11,7 @@ export default {
 
 const DefaultTemplate: Story<FoldableProps> = (args) => (
     <Foldable {...args}>
-        <div>Это children</div>
+        <div>Children</div>
     </Foldable>
 );
 

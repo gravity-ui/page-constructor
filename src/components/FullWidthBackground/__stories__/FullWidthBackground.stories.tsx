@@ -13,7 +13,7 @@ export default {
 
 const DefaultTemplate: Story<FullWidthBackgroundProps> = (args) => (
     <div style={{height: '100px'}}>
-        <FullWidthBackground {...args}>Это children</FullWidthBackground>
+        <FullWidthBackground {...args}>Children</FullWidthBackground>
     </div>
 );
 

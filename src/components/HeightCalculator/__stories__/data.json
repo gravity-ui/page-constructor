@@ -1,0 +1,7 @@
+{
+  "default": {
+    "content": {
+      "description": "Interface elemetns wrapper. Calls function  `onCalculate` on resize event for window. First argument for `onCalculate` is max offsetHeight of its children"
+    }
+  }
+}

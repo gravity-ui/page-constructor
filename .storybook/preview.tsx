@@ -10,7 +10,6 @@ import {PageConstructorProvider} from '../src/containers/PageConstructor/Provide
 import {withTheme} from './decorators/withTheme';
 import {withMobile} from './decorators/withMobile';
 import {withLang} from './decorators/withLang';
-import {withStoryArgsSave} from './decorators/withStoryArgsSave';
 
 import {DocsWithReadme} from '../src/demo/DocsWithReadme';
 
@@ -61,7 +60,6 @@ export const decorators = [
     withMobile,
     withContextProvider,
     withPageConstructorProvider,
-    withStoryArgsSave,
 ];
 
 export const parameters = {
@@ -107,7 +105,7 @@ export const globalTypes = {
     },
     lang: {
         name: 'Language',
-        defaultValue: 'ru',
+        defaultValue: 'en',
         toolbar: {
             icon: 'globe',
             items: [
