@@ -1,5 +1,9 @@
 # Лог изменений
 
+## 0.5.8
+
+- delete selection of blog structure
+
 ## 0.5.7
 
 - color variables updates

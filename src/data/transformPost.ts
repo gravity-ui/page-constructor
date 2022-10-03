@@ -11,16 +11,6 @@ import {
 import {Lang} from '../models/locale';
 import {BlogPostData} from '../models/blog';
 
-const transformPostTags = (tags: any) =>
-    tags.map(({name, locales, ...rest}: any) =>
-        name
-            ? {...rest, name}
-            : {
-                  ...rest,
-                  ...locales[0],
-              },
-    );
-
 /**
  * Func for transform post data
  *
@@ -41,7 +31,7 @@ export const transformPost = (postData: BlogPostData, lang: Lang) => {
     return {
         ...post,
         title,
-        tags: transformPostTags(tags),
+        tags,
         textTitle: typografToText(title, lang),
         htmlTitle: typografToHTML(title, lang),
         metaTitle: metaTitle || title,
