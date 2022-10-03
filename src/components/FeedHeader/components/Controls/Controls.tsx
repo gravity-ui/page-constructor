@@ -8,7 +8,7 @@ import {Search} from '../../../Search/Search';
 
 import {CustomSwitcher} from '../CustomSwitcher/CustomSwitcher';
 
-import {useRouterContext} from '../../../../hooks/contexts/useRouterContext';
+// import {useRouterContext} from '../../../../hooks/contexts/useRouterContext';
 import {useLikesContext} from '../../../../hooks/contexts/useLikesContext';
 
 import {BlogMetrikaGoalIds} from '../../../../constants';
@@ -19,7 +19,7 @@ import {Save} from '../../../../icons/Save';
 
 import {i18, BlogKeyset} from '../../../../i18n';
 
-import {SetQueryType} from '../../../../models/blog';
+// import {SetQueryType} from '../../../../models/blog';
 
 import './Controls.scss';
 
@@ -35,7 +35,10 @@ export type ControlsProps = {
     setIsFetching: (value: boolean) => void;
     tags?: SelectItem[];
     services?: SelectItem[];
-    setQuery: SetQueryType;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    handleChangeQuery: any;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    queryParams: any;
 };
 
 const ICON_SIZE = 16;
@@ -44,9 +47,10 @@ export const Controls: React.FC<ControlsProps> = ({
     setIsFetching,
     tags = [],
     services = [],
-    setQuery,
+    handleChangeQuery,
+    queryParams,
 }) => {
-    const router = useRouterContext();
+    // const router = useRouterContext();
     const {hasLikes} = useLikesContext();
 
     const {
@@ -54,19 +58,19 @@ export const Controls: React.FC<ControlsProps> = ({
         search: searchInitial,
         tags: tagInitial,
         services: servicesInitial,
-    } = router?.query || {};
+    } = queryParams || {};
 
     const [savedOnly, setSavedOnly] = useState<boolean>(savedOnlyInitial === 'true');
     const [search, setSearch] = useState<string>(searchInitial as string);
 
     const handleSavedOnly = () => {
-        setQuery({params: {savedOnly: savedOnly ? null : 'true'}});
+        handleChangeQuery({savedOnly: savedOnly ? null : 'true'});
         setSavedOnly(!savedOnly);
         setIsFetching(true);
     };
 
     const handleSearch = (searchValue: string) => {
-        setQuery({params: {search: searchValue}});
+        handleChangeQuery({search: searchValue});
         setSearch(searchValue);
         setIsFetching(true);
     };
@@ -75,9 +79,7 @@ export const Controls: React.FC<ControlsProps> = ({
         metrika.reachGoal(MetrikaCounter.CrossSite, BlogMetrikaGoalIds.tag, {
             theme: selectedTag,
         });
-        setQuery({
-            params: {tags: ['empty', tagInitial].includes(selectedTag) ? null : selectedTag},
-        });
+        handleChangeQuery({tags: ['empty', tagInitial].includes(selectedTag) ? null : selectedTag});
 
         setIsFetching(true);
     };
@@ -91,7 +93,7 @@ export const Controls: React.FC<ControlsProps> = ({
             service: metrikaAsString,
         });
         const servicesAsString = selectedServices.join(',');
-        setQuery({params: {services: servicesAsString}});
+        handleChangeQuery({services: servicesAsString});
         setIsFetching(true);
     };
 

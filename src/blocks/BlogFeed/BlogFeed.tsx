@@ -26,14 +26,8 @@ type BlogFeedProps = {
 const containerId = 'blog-cards';
 
 export const BlogFeed: React.FC<BlogFeedProps> = ({image}) => {
-    const {posts, totalCount, tags, services, pinnedPost, getBlogPosts, setQuery} =
-        useBlogFeedContext();
+    const {posts, totalCount, tags, services, pinnedPost, getBlogPosts} = useBlogFeedContext();
     const router = useRouterContext();
-
-    const pageInQuery = router?.query?.page ? Number(router.query.page) : DEFAULT_PAGE;
-    const perPageInQuery = router?.query?.perPage
-        ? Number(router.query.perPage)
-        : DEFAULT_BLOG_ROWS_PER_PAGE;
 
     const [
         {
@@ -47,6 +41,7 @@ export const BlogFeed: React.FC<BlogFeedProps> = ({image}) => {
             postsOnPage,
             pinnedPostOnPage,
             currentPage,
+            queryParams,
         },
         dispatch,
     ] = useReducer(reducer, {
@@ -59,29 +54,36 @@ export const BlogFeed: React.FC<BlogFeedProps> = ({image}) => {
         postCountOnPage: totalCount || 0,
         postsOnPage: posts,
         pinnedPostOnPage: pinnedPost,
-        currentPage: pageInQuery,
+        currentPage: router?.query?.page ? Number(router.query.page) : DEFAULT_PAGE,
+        queryParams: router.query || {},
     });
 
+    const perPageInQuery = queryParams?.perPage
+        ? Number(queryParams.perPage)
+        : DEFAULT_BLOG_ROWS_PER_PAGE;
+
     const handlePageChange = async (value: number) => {
-        await setQuery({
-            params: {page: value},
-            options: {shallow: true},
-        });
+        dispatch({type: ActionTypes.QueryParamsChange, payload: {page: value}});
         dispatch({type: ActionTypes.PageChange, payload: value});
+    };
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const handleChangeQueryParams = (value: any) => {
+        dispatch({type: ActionTypes.QueryParamsChange, payload: value});
     };
 
     const fetchData = useCallback(
         async (pageNumber?: number) => {
-            if (router.query && getBlogPosts) {
-                const queryParams = getFeedQueryParams(router.query, pageNumber);
-                const data = await getBlogPosts(queryParams);
+            if (queryParams && getBlogPosts) {
+                const query = getFeedQueryParams(queryParams, pageNumber);
+                const data = await getBlogPosts(query);
 
                 return data;
             } else {
                 throw new Error('cant get request');
             }
         },
-        [getBlogPosts, router.query],
+        [getBlogPosts, queryParams],
     );
 
     const setIsFetching = (value: boolean) => {
@@ -128,11 +130,6 @@ export const BlogFeed: React.FC<BlogFeedProps> = ({image}) => {
                         lastLoadedCount: fetchedData.posts.length,
                     },
                 });
-
-                await setQuery({
-                    params: {page: currentPage + 1},
-                    options: {shallow: true},
-                });
             }
         } catch (err) {
             dispatch({type: ActionTypes.SetErrorShowMore, payload: true});
@@ -173,7 +170,8 @@ export const BlogFeed: React.FC<BlogFeedProps> = ({image}) => {
                 tags={tagItems}
                 services={serviceItems}
                 setIsFetching={setIsFetching}
-                setQuery={setQuery}
+                handleChangeQuery={handleChangeQueryParams}
+                queryParams={queryParams}
                 background={{
                     fullWidth: true,
                     url: image,

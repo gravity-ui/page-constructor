@@ -12,6 +12,7 @@ export enum ActionTypes {
     SetIsFetching = 'setIsFetching',
     SetIsShowMoreFetching = 'setIsShowMoreFetching',
     PageChange = 'pageChange',
+    QueryParamsChange = 'queryParamsChange',
 }
 
 export type State = {
@@ -25,6 +26,8 @@ export type State = {
     pinnedPostOnPage?: BlogPostData;
     postCountOnPage: number;
     postsOnPage?: BlogPostData[];
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    queryParams: any;
 };
 
 type Action =
@@ -68,6 +71,11 @@ type Action =
     | {
           type: ActionTypes.SetIsShowMoreVisible;
           payload: boolean;
+      }
+    | {
+          type: ActionTypes.QueryParamsChange;
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          payload: any;
       };
 
 export const reducer = (state: State, {type, payload}: Action): State => {
@@ -120,6 +128,15 @@ export const reducer = (state: State, {type, payload}: Action): State => {
             return {
                 ...state,
                 errorShowMore: payload,
+            };
+
+        case ActionTypes.QueryParamsChange:
+            return {
+                ...state,
+                queryParams: {
+                    ...state.queryParams,
+                    ...payload,
+                },
             };
         default:
             return state;

@@ -31,7 +31,8 @@ export const FeedHeader: React.FC<FeedHeaderContainerProps> = ({
     theme = 'default',
     verticalOffset = 'l',
     className,
-    setQuery,
+    handleChangeQuery,
+    queryParams,
 }) => {
     const backgroundThemed = background && getThemedValue(background, theme);
 
@@ -57,7 +58,8 @@ export const FeedHeader: React.FC<FeedHeaderContainerProps> = ({
                     tags={tags}
                     services={services}
                     setIsFetching={setIsFetching}
-                    setQuery={setQuery}
+                    handleChangeQuery={handleChangeQuery}
+                    queryParams={queryParams}
                 />
             </Grid>
         </header>
