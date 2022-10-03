@@ -34,9 +34,6 @@ Default.args = {
         needHelmetWrapper: true,
         metaComponent: mockMetaComponent,
     },
-    setQuery: (props) => {
-        console.log('set search', props);
-    },
     getBlogPosts: (props) => {
         console.log('get posts', props);
     },

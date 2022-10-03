@@ -15,7 +15,6 @@ import {
     BlogPagePostsData,
     ToggleLikeCallbackType,
     BlogPageMetaProps,
-    SetQueryType,
     GetBlogPostsType,
 } from '../../models/blog';
 
@@ -24,7 +23,6 @@ export type BlogPageProps = {
     posts: BlogPagePostsData;
     tags: BlogPostTagExtended[];
     services?: ServicePublic[];
-    setQuery: SetQueryType;
     getBlogPosts: GetBlogPostsType;
     toggleLike?: ToggleLikeCallbackType;
     metaData?: BlogPageMetaProps;
@@ -35,7 +33,6 @@ export const BlogPage = ({
     posts,
     tags,
     services,
-    setQuery,
     getBlogPosts,
     metaData,
     toggleLike,
@@ -54,7 +51,6 @@ export const BlogPage = ({
                     totalCount: posts.count,
                     tags,
                     services: services ?? [],
-                    setQuery,
                     getBlogPosts,
                 }}
             >

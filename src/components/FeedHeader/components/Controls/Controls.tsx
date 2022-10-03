@@ -8,7 +8,6 @@ import {Search} from '../../../Search/Search';
 
 import {CustomSwitcher} from '../CustomSwitcher/CustomSwitcher';
 
-// import {useRouterContext} from '../../../../hooks/contexts/useRouterContext';
 import {useLikesContext} from '../../../../hooks/contexts/useLikesContext';
 
 import {BlogMetrikaGoalIds} from '../../../../constants';
@@ -18,8 +17,6 @@ import {MetrikaCounter} from '../../../../counters/utils';
 import {Save} from '../../../../icons/Save';
 
 import {i18, BlogKeyset} from '../../../../i18n';
-
-// import {SetQueryType} from '../../../../models/blog';
 
 import './Controls.scss';
 
@@ -50,7 +47,6 @@ export const Controls: React.FC<ControlsProps> = ({
     handleChangeQuery,
     queryParams,
 }) => {
-    // const router = useRouterContext();
     const {hasLikes} = useLikesContext();
 
     const {
@@ -64,7 +60,7 @@ export const Controls: React.FC<ControlsProps> = ({
     const [search, setSearch] = useState<string>(searchInitial as string);
 
     const handleSavedOnly = () => {
-        handleChangeQuery({savedOnly: savedOnly ? null : 'true'});
+        handleChangeQuery({savedOnly: savedOnly ? 'false' : 'true'});
         setSavedOnly(!savedOnly);
         setIsFetching(true);
     };
@@ -79,7 +75,9 @@ export const Controls: React.FC<ControlsProps> = ({
         metrika.reachGoal(MetrikaCounter.CrossSite, BlogMetrikaGoalIds.tag, {
             theme: selectedTag,
         });
-        handleChangeQuery({tags: ['empty', tagInitial].includes(selectedTag) ? null : selectedTag});
+        handleChangeQuery({
+            tags: selectedTag === 'empty' ? '' : selectedTag,
+        });
 
         setIsFetching(true);
     };

@@ -120,6 +120,10 @@ export const BlogFeed: React.FC<BlogFeedProps> = ({image}) => {
         try {
             const fetchedData = await fetchData(currentPage + 1);
 
+            handleChangeQueryParams({
+                page: currentPage + 1,
+            });
+
             if (fetchedData) {
                 dispatch({
                     type: ActionTypes.SetShowMore,
