@@ -53,4 +53,8 @@
             padding-bottom: $indentXXXS;
         }
     }
+
+    &__description {
+        color: var(--yc-color-text-primary);
+    }
 }

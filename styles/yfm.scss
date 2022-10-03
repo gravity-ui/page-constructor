@@ -62,6 +62,21 @@
         padding-left: 1.4em;
     }
 
+    pre > code {
+        color: var(--yc-color-text-primary);
+    }
+
+    table {
+        color: var(--yc-color-text-primary);
+        border: 1px solid var(--yc-color-line-generic);
+        background: var(--yc-color-base-background);
+    }
+
+    thead,
+    table tr:nth-child(2n) {
+        background-color: var(--yc-color-base-generic);
+    }
+
     &_media {
         @include text-size(body-3);
         color: var(--yc-color-text-secondary);

@@ -4,6 +4,10 @@
 
 - add BlogPage
 
+## 0.5.7
+
+- color variables updates
+
 ## 0.5.6
 
 - change transformPostTags() routine
