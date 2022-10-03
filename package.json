@@ -42,7 +42,6 @@
     "prepublishOnly": "npm run lint && npm run build",
     "prepare": "husky install",
     "test": "echo TODO: add tests"
-
   },
   "dependencies": {
     "bem-cn-lite": "^4.0.0",
