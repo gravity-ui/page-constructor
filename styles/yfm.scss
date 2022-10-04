@@ -62,6 +62,10 @@
         padding-left: 1.4em;
     }
 
+    code {
+        color: var(--yc-color-text-misc);
+    }
+
     pre > code {
         color: var(--yc-color-text-primary);
     }
@@ -92,6 +96,17 @@
 
         &:hover {
             color: var(--yc-color-text-link-hover);
+        }
+    }
+
+    .yfm-tab {
+        &:hover,
+        &:active {
+            color: var(--yc-color-text-link-hover);
+        }
+
+        &.active {
+            border-bottom-color: var(--yc-color-text-link);
         }
     }
 }
