@@ -1,5 +1,9 @@
 # Лог изменений
 
+## 0.5.10
+
+- fix yfm styles for table
+
 ## 0.5.9
 
 - fix yfm styles
