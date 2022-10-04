@@ -17,6 +17,8 @@ import {Posts} from '../../components/Posts/Posts';
 import metrika from '../../counters/metrika.js';
 import {MetrikaCounter} from '../../counters/utils';
 
+import {HandleChangeQueryParams} from '../../models/blog';
+
 import {ActionTypes, reducer} from './reducer';
 
 type BlogFeedProps = {
@@ -67,8 +69,7 @@ export const BlogFeed: React.FC<BlogFeedProps> = ({image}) => {
         dispatch({type: ActionTypes.PageChange, payload: value});
     };
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const handleChangeQueryParams = (value: any) => {
+    const handleChangeQueryParams: HandleChangeQueryParams = (value) => {
         dispatch({type: ActionTypes.QueryParamsChange, payload: value});
     };
 

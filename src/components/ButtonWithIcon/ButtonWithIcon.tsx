@@ -17,25 +17,21 @@ export interface ButtonWithIconProps extends ClassNameProps {
     onClick?: (event: React.MouseEvent) => void;
 }
 
-export const ButtonWithIcon: React.FC<ButtonWithIconProps> = (props) => {
-    const {
-        icon,
-        theme = 'primary',
-        size = 's',
-        iconSize = 16,
-        disabled = false,
-        onClick,
-        className,
-    } = props;
-
-    return (
-        <button
-            type="button"
-            className={b({size, theme, disabled}, className)}
-            onClick={disabled ? undefined : onClick}
-            disabled={disabled}
-        >
-            <Icon data={icon} size={iconSize} />
-        </button>
-    );
-};
+export const ButtonWithIcon: React.FC<ButtonWithIconProps> = ({
+    icon,
+    theme = 'primary',
+    size = 's',
+    iconSize = 16,
+    disabled = false,
+    onClick,
+    className,
+}) => (
+    <button
+        type="button"
+        className={b({size, theme, disabled}, className)}
+        onClick={disabled ? undefined : onClick}
+        disabled={disabled}
+    >
+        <Icon data={icon} size={iconSize} />
+    </button>
+);

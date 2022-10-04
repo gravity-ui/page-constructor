@@ -18,6 +18,9 @@ import {Save} from '../../../../icons/Save';
 
 import {i18, BlogKeyset} from '../../../../i18n';
 
+import {HandleChangeQueryParams} from '../../../../models/blog';
+import {Query} from '../../../../models/common';
+
 import './Controls.scss';
 
 const b = block('blog-feed-controls');
@@ -32,10 +35,8 @@ export type ControlsProps = {
     setIsFetching: (value: boolean) => void;
     tags?: SelectItem[];
     services?: SelectItem[];
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    handleChangeQuery: any;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    queryParams: any;
+    handleChangeQuery: HandleChangeQueryParams;
+    queryParams: Query;
 };
 
 const ICON_SIZE = 16;

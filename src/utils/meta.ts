@@ -1,5 +1,5 @@
 import {Locale} from '../models/locale';
-import {BlogPostMetaProps, BlogPostData, MetaOrganizationType} from '../models/blog';
+import {BlogPostMetaProps, MetaOrganizationType} from '../models/blog';
 
 import {format} from './date';
 
@@ -134,59 +134,6 @@ export const getBlogPostSchema = ({
                 articleBody: content,
             },
         ],
-    };
-};
-
-export const getBlogSchema = ({
-    url,
-    title,
-    description,
-    blogPostsData,
-    organization,
-    locale,
-}: {
-    url: string;
-    title: string;
-    description: string;
-    blogPostsData?: BlogPostData[];
-    organization: BlogPostMetaProps['organization'];
-    locale: Locale | undefined;
-}) => {
-    const organizationSchema = getOrganizationSchema(organization);
-
-    return {
-        '@context': 'http://schema.org/',
-        '@type': 'Blog',
-        '@id': url,
-        name: title,
-        url: url,
-        description,
-        publisher: organizationSchema,
-        blogPosts: blogPostsData
-            ? blogPostsData.map(
-                  ({
-                      slug,
-                      textTitle,
-                      date,
-                      description: postDescription,
-                      author,
-                      image,
-                      tags,
-                      keywords,
-                  }) =>
-                      getBlogPostSchema({
-                          title: textTitle,
-                          date,
-                          description: postDescription,
-                          author,
-                          locale,
-                          url: `/blog/posts/${slug}`,
-                          image,
-                          organization,
-                          keywords: keywords || tags.map((tag) => tag.name),
-                      }),
-              )
-            : [],
     };
 };
 

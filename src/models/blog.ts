@@ -3,6 +3,7 @@ import {ReactNode} from 'react';
 import {SpeakerPublic} from '@yandex-data-ui/cloud-schemas/build/models/ui-api';
 import {HeaderBlockProps as PageConstructorHeaderBlockProps} from '@yandex-data-ui/page-constructor';
 
+import {Query} from '../models/common';
 import {Locale} from '../models/locale';
 
 export interface BlogPostLikes {
@@ -14,8 +15,7 @@ export interface BlogPagePostsData {
     posts: BlogPostData[];
     count: number;
     totalCount: number;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    pinnedPost?: any;
+    pinnedPost?: BlogPostData;
 }
 
 export interface GetBlogPostsRequest {
@@ -147,3 +147,5 @@ export type GetBlogPostProps = {
 };
 
 export type GetBlogPostsType = (query: GetBlogPostProps) => BlogPagePostsData;
+
+export type HandleChangeQueryParams = (params: Query) => void;

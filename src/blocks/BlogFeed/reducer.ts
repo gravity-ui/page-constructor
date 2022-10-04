@@ -2,6 +2,7 @@
 // TODO fix types in https://st.yandex-team.ru/ORION-1447
 
 import {BlogPostData} from '../../models/blog';
+import {Query} from '../../models/common';
 
 export enum ActionTypes {
     SetErrorLoad = 'setErrorLoad',
@@ -26,8 +27,7 @@ export type State = {
     pinnedPostOnPage?: BlogPostData;
     postCountOnPage: number;
     postsOnPage?: BlogPostData[];
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    queryParams: any;
+    queryParams: Query;
 };
 
 type Action =
@@ -47,7 +47,7 @@ type Action =
           type: ActionTypes.SetPosts;
           payload: {
               posts: BlogPostData[];
-              pinnedPost: BlogPostData;
+              pinnedPost?: BlogPostData;
               count: number;
           };
       }
@@ -74,8 +74,7 @@ type Action =
       }
     | {
           type: ActionTypes.QueryParamsChange;
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          payload: any;
+          payload: Query;
       };
 
 export const reducer = (state: State, {type, payload}: Action): State => {
