@@ -381,5 +381,26 @@
   ],
   "totalCount": 125,
   "count": 125,
-  "pinnedPost": null
+  "pinnedPost": {
+    "id": 8,
+    "slug": "test-5",
+    "date": "2022-10-03T00:00:00Z",
+    "postDate": "2022-10-03T00:00:00Z",
+    "title": "test-5",
+    "blogPostId": 8,
+    "description": "hi test",
+    "image": "https://storage.cloud-preprod.yandex.net/cloud-www-assets/blog-posts-default-covers/cover_blog_022.png",
+    "readingTime": 1,
+    "likes": 0,
+    "hasUserLike": false,
+    "tags": [
+      {
+        "icon": null,
+        "slug": "test",
+        "name": "test"
+      }
+    ],
+    "services": [],
+    "url": "/blog/posts/2022/10/test-5"
+  }
 }
