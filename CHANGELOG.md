@@ -4,6 +4,10 @@
 
 - add BlogPage
 
+## 0.5.9
+
+- fix yfm styles
+
 ## 0.5.8
 
 - delete selection of blog structure
