@@ -12,7 +12,7 @@ npm install @gravity-ui/page-constructor
 
 When creating pages, component-based approach is used: a page is built using a set of ready-made blocks that can be placed in any order. Each block has a certain type and set of input data parameters.
 
-For the format of input data and list of available blocks, see the [documentation](http://localhost:7009/?path=/story/information--containers).
+For the format of input data and list of available blocks, see the [documentation](https://preview.yandexcloud.dev/page-constructor/?path=/story/information--blocks).
 
 ### Getting started
 
@@ -32,8 +32,8 @@ const Page: WithChildren<PageProps> = ({content}) => (
 
 ```typescript
 interface PageConstructorProps {
-    content: PageContent; //Block description in JSON format.
-    shouldRenderBlock?: ShouldRenderBlock; // A function that is invoked when rendering each block and that lets you set conditions for its display.
+    content: PageContent; //Blocks data in JSON format.
+    shouldRenderBlock?: ShouldRenderBlock; // A function that is invoked when rendering each block and  lets you set conditions for its display.
     custom?: Custom; //Custom blocks (see `Customization`).
     renderMenu?: () => React.ReactNode; //A function that renders the page menu with navigation (we plan to add rendering for the default menu version).
 }
@@ -97,7 +97,7 @@ To pass custom blocks to the constructor:
 
 2. In your code, create an object with the block type (string) as a key and an imported block component as a value.
 
-3. Pass the object you created to the `custom.blocks` or `custom.headers` parameter of the `PageConstructor` component (`custom.headers` specifies the block headers to be rendered separately above general content).
+3. Pass the object you created to the `custom.blocks`, `custom.headers` or `custom.subBlocks` parameter of the `PageConstructor` component (`custom.headers` specifies the block headers to be rendered separately above general content).
 
 4. Now you can use the created block in input data (the `content` parameter) by specifying its type and data.
 
@@ -150,21 +150,22 @@ Sub-blocks are components that can be used in the block `children` property. In 
 
 ### How to add a new block to the `page-constructor`
 
-1. In the `src/blocks` or `src/sub-blocks` directory, create a folder with the block/sub-block code.
+1. In the `src/blocks` or `src/sub-blocks` directory, create a folder with the block or sub-block code.
 
 2. Add the block or sub-block name to enum `BlockType` or`SubBlockType` and describe its properties in the `src/models/blocks.ts` or `src/models/sub-blocks.ts` file in a similar way to the existing ones.
 
-3. Add export for the block in the `src/blocks/index.ts` file and for the sub-block in the `src/components/index.ts` file.
+3. Add export for the block in the `src/blocks/index.ts` file and for the sub-block in the `src/sub-blocks/index.ts` file.
 
 4. Add a new component or block to mapping in `src/constructor-items.ts`.
 
 5. Add a validator for the new block:
 
-   - Add a `schema.ts` file to the block/sub-block directory. In this file, describe a parameter validator for the component in [`json-schema`](http://json-schema.org/) format.
+   - Add a `schema.ts` file to the block or sub-block directory. In this file, describe a parameter validator for the component in [`json-schema`](http://json-schema.org/) format.
    - Export it in the `schema/validators/blocks.ts` or `schema/validators/sub-blocks.ts` file.
    - Add it to `enum` or `selectCases` in the `schema/index.ts` file.
 
 6. In the block directory, add the `README.md` file with a description of input parameters.
+7. In the block directory add storybook demo in `__stories__` folder. (All demo content for story should be placed in `data.json` at story dir)
 
 ### Themes
 
