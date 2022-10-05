@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.0.3](https://github.com/gravity-ui/page-constructor/compare/v1.0.2...v1.0.3) (2022-10-05)
+
+
+### Bug Fixes
+
+* add yfm js import ([d9a77df](https://github.com/gravity-ui/page-constructor/commit/d9a77df743d68db9353bf6edbada38fbd81ce59f))
+* content centered styles priority ([3d2bad2](https://github.com/gravity-ui/page-constructor/commit/3d2bad24947d86fbd4cf3735beff49c0dfe74382))
+* content layout centered styles ([d0dcc59](https://github.com/gravity-ui/page-constructor/commit/d0dcc5988d3b08e483fe288295c904f16f903a94))
+* displaying video with fillWidthMedia param in HeaderBlock ([560b867](https://github.com/gravity-ui/page-constructor/commit/560b86776074a6249546d7c51324a201de9c04c4))
+* header block dark theme html ([d0cb1ce](https://github.com/gravity-ui/page-constructor/commit/d0cb1cebecafcd8385be32b33182b30b6bdb198c))
+* semantic colors for yfm ([40cd81f](https://github.com/gravity-ui/page-constructor/commit/40cd81ff9f0bf9407a84e181e10e23702aa67eb2))
+
 ## [1.0.2](https://github.com/gravity-ui/page-constructor/compare/v1.0.1...v1.0.2) (2022-10-04)
 
 
