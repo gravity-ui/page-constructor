@@ -18,7 +18,7 @@ import {Save} from '../../../../icons/Save';
 
 import {i18, BlogKeyset} from '../../../../i18n';
 
-import {HandleChangeQueryParams} from '../../../../models/blog';
+import {HandleChangeQueryParams, SetQueryType} from '../../../../models/blog';
 import {Query} from '../../../../models/common';
 
 import './Controls.scss';
@@ -37,6 +37,7 @@ export type ControlsProps = {
     services?: SelectItem[];
     handleChangeQuery: HandleChangeQueryParams;
     queryParams: Query;
+    setQuery?: SetQueryType;
 };
 
 const ICON_SIZE = 16;
@@ -47,6 +48,7 @@ export const Controls: React.FC<ControlsProps> = ({
     services = [],
     handleChangeQuery,
     queryParams,
+    setQuery: setQueryCallback,
 }) => {
     const {hasLikes} = useLikesContext();
 
@@ -60,14 +62,34 @@ export const Controls: React.FC<ControlsProps> = ({
     const [savedOnly, setSavedOnly] = useState<boolean>(savedOnlyInitial === 'true');
     const [search, setSearch] = useState<string>(searchInitial as string);
 
+    const setQuery = (params: Query) => {
+        if (setQueryCallback) {
+            setQueryCallback(params);
+        }
+    };
+
     const handleSavedOnly = () => {
-        handleChangeQuery({savedOnly: savedOnly ? 'false' : 'true'});
+        handleChangeQuery({savedOnly: savedOnly ? '' : 'true'});
+
+        if (!savedOnly) {
+            setQuery({
+                savedOnly: '',
+            });
+        }
+
         setSavedOnly(!savedOnly);
         setIsFetching(true);
     };
 
     const handleSearch = (searchValue: string) => {
         handleChangeQuery({search: searchValue});
+
+        if (!searchValue) {
+            setQuery({
+                search: '',
+            });
+        }
+
         setSearch(searchValue);
         setIsFetching(true);
     };
@@ -76,9 +98,18 @@ export const Controls: React.FC<ControlsProps> = ({
         metrika.reachGoal(MetrikaCounter.CrossSite, BlogMetrikaGoalIds.tag, {
             theme: selectedTag,
         });
+
+        const isEmptyTags = selectedTag === 'empty';
+
         handleChangeQuery({
-            tags: selectedTag === 'empty' ? '' : selectedTag,
+            tags: isEmptyTags ? '' : selectedTag,
         });
+
+        if (isEmptyTags) {
+            setQuery({
+                tags: '',
+            });
+        }
 
         setIsFetching(true);
     };
@@ -87,12 +118,23 @@ export const Controls: React.FC<ControlsProps> = ({
         const forMetrikaServices = services.filter((service) => {
             return selectedServices.includes(service.value);
         });
+
         const metrikaAsString = forMetrikaServices.map((service) => service.title).join(',');
+
         metrika.reachGoal(MetrikaCounter.CrossSite, BlogMetrikaGoalIds.service, {
             service: metrikaAsString,
         });
+
         const servicesAsString = selectedServices.join(',');
+
         handleChangeQuery({services: servicesAsString});
+
+        if (!servicesAsString) {
+            setQuery({
+                servicesAsString: '',
+            });
+        }
+
         setIsFetching(true);
     };
 

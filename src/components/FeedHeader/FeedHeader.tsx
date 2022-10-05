@@ -33,6 +33,7 @@ export const FeedHeader: React.FC<FeedHeaderContainerProps> = ({
     className,
     handleChangeQuery,
     queryParams,
+    setQuery,
 }) => {
     const backgroundThemed = background && getThemedValue(background, theme);
 
@@ -60,6 +61,7 @@ export const FeedHeader: React.FC<FeedHeaderContainerProps> = ({
                     setIsFetching={setIsFetching}
                     handleChangeQuery={handleChangeQuery}
                     queryParams={queryParams}
+                    setQuery={setQuery}
                 />
             </Grid>
         </header>

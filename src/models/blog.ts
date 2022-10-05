@@ -149,3 +149,10 @@ export type GetBlogPostProps = {
 export type GetBlogPostsType = (query: GetBlogPostProps) => BlogPagePostsData;
 
 export type HandleChangeQueryParams = (params: Query) => void;
+
+export type SetQueryType = (
+    params: Query,
+    options?: {
+        [y: string]: boolean;
+    },
+) => Promise<void> | void;
