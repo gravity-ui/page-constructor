@@ -42,6 +42,24 @@
           ]
         },
         {
+          "title": "Yandex Cloud Professionals Partner Program",
+          "description": "Sell Yandex.Cloud services and receive a monthly partner premium from 12% to 20% of your customers' consumption. Get grants to get acquainted with Yandex.Cloud services or to conduct pilot projects for your clients.",
+          "width": "s",
+          "background": {
+            "fullWidthMedia": true,
+            "fullWidth": true,
+            "disableCompress": true,
+            "height": 800,
+            "color": "lightgreen",
+            "image": "https://storage.cloud-preprod.yandex.net/aeksandla-test/img-scale.png",
+            "video": {
+              "src": [
+                "https://storage.yandexcloud.net/cloud-www-assets/scale/2022/main/scale_header.mp4"
+              ]
+            }
+          }
+        },
+        {
           "title": "Yandex Scale",
           "overtitle": "September 24",
           "description": "A major Yandex Cloud conference where business and technology speak the same language",

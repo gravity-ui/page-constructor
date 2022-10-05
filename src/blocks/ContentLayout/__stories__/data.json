@@ -433,7 +433,7 @@
       ]
     }
   },
-  "withImageSizeLCentered": {
+  "withImageSizeSCentered": {
     "content": {
       "type": "content-layout-block",
       "properties": {
@@ -467,33 +467,7 @@
             "url": "/#contact-form"
           }
         ]
-      },
-      "fileContent": [
-        {
-          "href": "https://yandex.xls",
-          "text": "Certificate of Compliance (600 KB)"
-        },
-        {
-          "href": "https://yandex.fig",
-          "text": "PNG, JPG, and SVG formats in Figma"
-        },
-        {
-          "href": "https://yandex.pdf",
-          "text": "Requirements and Recommendations for the PCI DSS (1.3 MB)"
-        },
-        {
-          "href": "https://yandex.zip",
-          "text": "Archive with other logo and icon formats"
-        },
-        {
-          "href": "https://yandex.doc",
-          "text": "Microsoft Word document"
-        },
-        {
-          "href": "https://yandex.ppt",
-          "text": "PPR"
-        }
-      ]
+      }
     }
   },
   "default": {

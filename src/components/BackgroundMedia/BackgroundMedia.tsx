@@ -12,6 +12,7 @@ const b = block('BackgroundMedia');
 
 export interface FullProps extends MediaProps, Animatable {
     className?: string;
+    mediaClassName?: string;
 }
 
 const BackgroundMedia = ({
@@ -20,6 +21,7 @@ const BackgroundMedia = ({
     animated,
     parallax = true,
     video,
+    mediaClassName,
     ...props
 }: FullProps) => {
     const isMobile = useContext(MobileContext);
@@ -31,7 +33,7 @@ const BackgroundMedia = ({
             animate={animated}
         >
             <Media
-                className={b('media')}
+                className={b('media', mediaClassName)}
                 imageClassName={b('image')}
                 videoClassName={b('video')}
                 isBackground={true}

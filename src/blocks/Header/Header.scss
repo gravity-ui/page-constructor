@@ -25,7 +25,7 @@ $backgroundWidth: 1440px;
         &_theme_dark {
             #{$block}__title,
             #{$block}__description .yfm,
-            #{$block}__description .yfm > * {
+            #{$block}__description .yfm * {
                 color: var(--yc-color-text-light-primary);
             }
         }
@@ -151,6 +151,16 @@ $backgroundWidth: 1440px;
 
             & > div {
                 max-width: none;
+            }
+
+            #{$block}__background-media {
+                height: 100%;
+            }
+
+            video {
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
             }
         }
     }

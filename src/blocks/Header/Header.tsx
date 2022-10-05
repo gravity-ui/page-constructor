@@ -27,6 +27,7 @@ const Background = ({background}: BackgroundProps) => {
     return headerHasMediaBackground(background) ? (
         <BackgroundMedia
             {...background}
+            mediaClassName={b('background-media')}
             className={b('background', {media: true, 'full-width-media': fullWidthMedia})}
         />
     ) : (
