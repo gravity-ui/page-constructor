@@ -28,6 +28,8 @@ import {ConstructorFootnotes} from './components/ConstructorFootnotes';
 import {ConstructorHeader} from './components/ConstructorItem';
 import {ConstructorBlocks} from './components/ConstructorBlocks';
 
+import '@doc-tools/transform/dist/js/yfm';
+
 import './PageConstructor.scss';
 
 const b = cnBlock('page-constructor');
