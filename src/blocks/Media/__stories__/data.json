@@ -10,10 +10,10 @@
       "description": "<p>Yandex Cloud prices are suitable for both major companies with high-load services and small projects with modest requirements. Pay only for the resources you use or commit to a certain volume for 1 or 3 years and save up to 49%. Track your expenses right in the management console.</p>",
       "media": {
         "light": {
-          "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/calc.png"
+          "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/EN/02%20Calculator%20EN.png"
         },
         "dark": {
-          "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/support_x2.png"
+          "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/EN/console-main-en-2x.png"
         }
       },
       "button": {
@@ -35,14 +35,14 @@
       "media": {
         "image": [
           {
-            "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/calc.png",
+            "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/EN/02%20Calculator%20EN.png",
             "disableCompress": true
           },
           {
-            "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/support_x2.png"
+            "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/EN/console-main-en-2x.png"
           },
           {
-            "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/calc.png"
+            "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/EN/02%20Calculator%20EN.png"
           }
         ]
       },
@@ -105,16 +105,16 @@
       "media": {
         "video": {
           "src": [
-            "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-calcx2.mp4",
-            "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-calcx2.webm",
-            "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-calcx2.ogv",
-            "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/calc.png"
+            "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/EN/02%20Calculator%20EN.mp4",
+            "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/EN/02%20Calculator%20EN.webm",
+            "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/EN/02%20Calculator%20EN.ogv",
+            "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/EN/02%20Calculator%20EN.png"
           ],
           "loop": {
             "start": 0
           }
         },
-        "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/calc.png"
+        "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/EN/02%20Calculator%20EN.png"
       }
     }
   },
@@ -128,8 +128,8 @@
       "title": "Watch webinar",
       "description": "<p>Learn how to implement an architecture for processing big data based on Yandex Cloud managed services.</p>",
       "media": {
-        "youtube": "https://www.youtube.com/watch?v=FHUnirudntU&list=PL1x4ET76A10awoGRia_EmYnEU_RPmRsRz&index=5A",
-        "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/solutions/e-commerce/retail-video.png"
+        "youtube": "https://youtu.be/bxZRUtMAlFI",
+        "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/constructor/video-preview.png"
       }
     }
   },

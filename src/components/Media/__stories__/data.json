@@ -3,10 +3,10 @@
     "content": {
       "video": {
         "src": [
-          "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-calcx2.mp4",
-          "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-calcx2.webm",
-          "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-calcx2.ogv",
-          "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/calc.png"
+          "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/EN/02%20Calculator%20EN.mp4",
+          "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/EN/02%20Calculator%20EN.webm",
+          "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/EN/02%20Calculator%20EN.ogv",
+          "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/EN/02%20Calculator%20EN.png"
         ],
         "loop": {
           "start": 0
@@ -21,16 +21,16 @@
   },
   "youtube": {
     "content": {
-      "youtube": "https://www.youtube.com/watch?v=FHUnirudntU&list=PL1x4ET76A10awoGRia_EmYnEU_RPmRsRz&index=5A",
-      "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/solutions/e-commerce/retail-video.png"
+      "youtube": "https://youtu.be/bxZRUtMAlFI",
+      "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/constructor/video-preview.png"
     }
   },
   "imageSlider": {
     "content": {
       "image": [
-        "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/console-main_2x.png",
-        "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/console-datalens-2x.png",
-        "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/console-monitoring-2x.png"
+        "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/EN/02%20Calculator%20EN.png",
+        "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/EN/console-main-en-2x.png",
+        "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/EN/02%20Calculator%20EN.png"
       ]
     }
   },
@@ -45,7 +45,7 @@
   "image": {
     "content": {
       "image": {
-        "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/calc.png",
+        "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/EN/02%20Calculator%20EN.png",
         "alt": "Picture",
         "disableCompress": true
       }
