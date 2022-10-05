@@ -18,6 +18,14 @@ $darkSecondary: var(--yc-color-text-dark-secondary);
 }
 
 #{$block} {
+    &__notice,
+    &__text {
+        .yfm ol,
+        .yfm ul {
+            padding-left: 1.4em;
+        }
+    }
+
     &__notice {
         @include add-specificity(&) {
             .yfm,

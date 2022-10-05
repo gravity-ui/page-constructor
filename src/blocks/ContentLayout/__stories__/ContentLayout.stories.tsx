@@ -158,7 +158,7 @@ export const WithFiles = DefaultTemplate.bind([]);
 export const Size = SizesTemplate.bind([]);
 export const WithBackgroundSizeS = DefaultTemplate.bind([]);
 export const WithImageAndBackgroundSizeL = DefaultTemplate.bind([]);
-export const WithImageSizeLCentered = DefaultTemplate.bind([]);
+export const WithImageSizeSCentered = DefaultTemplate.bind([]);
 export const Theme = ThemesTemplate.bind([]);
 export const TextWidth = TextWidthTemplate.bind([]);
 export const TextWidthWithoutTitle = TextWidthTemplateWithoutTitle.bind([]);
@@ -169,7 +169,7 @@ Size.args = data.size.content as ContentLayoutBlockProps;
 WithBackgroundSizeS.args = data.withBackgroundSizeS.content as ContentLayoutBlockProps;
 WithImageAndBackgroundSizeL.args = data.withImageAndBackgroundSizeL
     .content as ContentLayoutBlockProps;
-WithImageSizeLCentered.args = data.withImageSizeLCentered.content as ContentLayoutBlockProps;
+WithImageSizeSCentered.args = data.withImageSizeSCentered.content as ContentLayoutBlockProps;
 Theme.args = data.theme.content as ContentLayoutBlockProps;
 TextWidth.args = data.textWidth.content as ContentLayoutBlockProps;
 TextWidthWithoutTitle.args = data.textWidthWithoutTitle.content as ContentLayoutBlockProps;
