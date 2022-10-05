@@ -47,8 +47,10 @@ $darkSecondary: var(--yc-color-text-dark-secondary);
     }
 
     &_centered {
-        margin: 0 auto;
-        text-align: center;
+        @include add-specificity(&) {
+            margin: 0 auto;
+            text-align: center;
+        }
 
         #{$block}__link {
             a {
