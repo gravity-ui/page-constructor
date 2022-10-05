@@ -14,18 +14,18 @@
             "light": {
               "video": {
                 "type": "player",
-                "src": ["https://youtu.be/2dgZ8c-MGlc"],
+                "src": ["https://youtu.be/bxZRUtMAlFI"],
                 "loop": true
               },
-              "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/solutions/data-warehouse/scale-managed-greenplum.png"
+              "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/constructor/video-preview.png"
             },
             "dark": {
               "video": {
                 "type": "player",
-                "src": ["https://youtu.be/eR6XrldgrpM"],
+                "src": ["https://youtu.be/bxZRUtMAlFI"],
                 "loop": true
               },
-              "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/solutions/data-warehouse/greenplum-cover.png"
+              "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/constructor/video-preview.png"
             }
           },
           "content": {
