@@ -25,7 +25,7 @@ $backgroundWidth: 1440px;
         &_theme_dark {
             #{$block}__title,
             #{$block}__description .yfm,
-            #{$block}__description .yfm > * {
+            #{$block}__description .yfm * {
                 color: var(--yc-color-text-light-primary);
             }
         }
