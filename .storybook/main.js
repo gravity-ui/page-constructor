@@ -8,7 +8,7 @@ const srcRoot = path.resolve(root, 'src');
 const stylesRoot = path.resolve(root, 'styles');
 const assetsRoot = path.resolve(root, 'assets');
 const nodeModulesRoot = path.resolve(root, 'node_modules');
-const uikitRoot = path.resolve(__dirname, '..', 'node_modules/@yandex-cloud/uikit');
+const uikitRoot = path.resolve(__dirname, '..', 'node_modules/@gravity-ui/uikit');
 
 const storybookRoot = path.resolve(root, '.storybook');
 

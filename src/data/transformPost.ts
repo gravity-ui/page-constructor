@@ -1,10 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import {
-    typografToText,
-    typografToHTML,
-    yfmTransformer,
-} from '@yandex-data-ui/page-constructor/server';
+import {typografToText, typografToHTML, yfmTransformer} from '@gravity-ui/page-constructor/server';
 
 // TODO fix any https://st.yandex-team.ru/ORION-1447
 

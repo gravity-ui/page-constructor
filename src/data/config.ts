@@ -1,4 +1,4 @@
-import {yfmTransformer} from '@yandex-data-ui/page-constructor/server';
+import {yfmTransformer} from '@gravity-ui/page-constructor/server';
 
 import {BlockType} from '../models/blog';
 

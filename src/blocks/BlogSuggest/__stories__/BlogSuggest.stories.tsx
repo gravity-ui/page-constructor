@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {PageConstructor} from '@yandex-data-ui/page-constructor';
+import {PageConstructor} from '@gravity-ui/page-constructor';
 import {Meta, Story} from '@storybook/react/types-6-0';
 
 import {BlockType} from '../../../models/blog';

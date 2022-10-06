@@ -1,7 +1,7 @@
 import React from 'react';
 import block from 'bem-cn-lite';
 
-import {BackgroundImage, Content, ContentBlockProps} from '@yandex-data-ui/page-constructor';
+import {BackgroundImage, Content, ContentBlockProps} from '@gravity-ui/page-constructor';
 
 import {BlogWrapper, PaddingSize} from '../../components/BlogWrapper/BlogWrapper';
 import {checkContentDefaults} from '../../utils/blog';
