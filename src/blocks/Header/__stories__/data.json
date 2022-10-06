@@ -15,7 +15,7 @@
         {
           "text": "Get started\r",
           "theme": "normal-contrast",
-          "url": "https://console.cloud.yandex.${tld}/"
+          "url": "https://example.com"
         },
         {
           "text": "Contact us",
@@ -56,7 +56,7 @@
         {
           "text": "Get started\r",
           "theme": "action",
-          "url": "https://console.cloud.yandex.${tld}/"
+          "url": "https://example.com"
         }
       ]
     }
@@ -81,7 +81,7 @@
         {
           "text": "Get started\r",
           "theme": "action",
-          "url": "https://console.cloud.yandex.${tld}/"
+          "url": "https://example.com"
         },
         {
           "text": "Contact us",
@@ -104,7 +104,7 @@
         {
           "text": "Get started\r",
           "theme": "action",
-          "url": "https://console.cloud.yandex.${tld}/"
+          "url": "https://example.com"
         }
       ]
     }
@@ -135,7 +135,7 @@
         {
           "text": "Get started\r",
           "theme": "action",
-          "url": "https://console.cloud.yandex.${tld}/"
+          "url": "https://example.com"
         },
         {
           "text": "Contact us",
@@ -165,7 +165,7 @@
         {
           "text": "Get started\r",
           "theme": "action",
-          "url": "https://console.cloud.yandex.${tld}/"
+          "url": "https://example.com"
         },
         {
           "text": "Contact us",
@@ -199,7 +199,7 @@
         {
           "text": "Get started\r",
           "theme": "action",
-          "url": "https://console.cloud.yandex.${tld}/"
+          "url": "https://example.com"
         },
         {
           "text": "Contact us",
@@ -221,7 +221,7 @@
         {
           "text": "Get started\r",
           "theme": "action",
-          "url": "https://console.cloud.yandex.${tld}/"
+          "url": "https://example.com"
         },
         {
           "text": "Contact us",

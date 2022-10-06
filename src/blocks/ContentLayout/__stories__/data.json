@@ -4,80 +4,80 @@
       "type": "content-layout-block",
       "textContent": {
         "title": {
-          "text": "Education and science promotion program in the field of computer science",
-          "url": "https://yandex.ru"
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+          "url": "https://example.ru"
         },
-        "text": "<p><strong>Yandex Cloud is a public cloud platform</strong> that <a href=\"https://ya.com\">provides</a> corporations, medium businesses, and individual developers with a scalable infrastructure, data storage services, and ML and development tools. Using these technologies proven by time and Yandex's experience, everyone can develop and continuously improve their own cutting-edge digital services and apps.</p> ",
-        "additionalInfo": "<p>Yandex Cloud was <a href=\"https://ya.com\">launched</a> in 2018 and has doubled in size since then. Both in total revenue and in terms of its customer base: more than 10 thousand companies now use our services every day.</p> ",
+        "text": "<p><strong>Ut enim ad minim veniam</strong> <a href=\"https://example.com\">quis nostrud</a> exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> ",
+        "additionalInfo": "<p> Duis aute irure dolor in <a href=\"https://example.com\">reprehenderit</a>n voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p> ",
         "links": [
           {
-            "url": "/security",
-            "text": "Fill out the form",
+            "url": "https://example.com",
+            "text": "Back",
             "theme": "back",
             "arrow": true
           },
           {
             "url": "#",
-            "text": "Learn more",
+            "text": "Link",
             "theme": "normal",
             "arrow": true
           },
           {
             "url": "#1",
-            "text": "Learn more",
+            "text": "Link",
             "theme": "normal",
             "arrow": true
           },
           {
             "url": "#2",
-            "text": "Learn more",
+            "text": "Link",
             "theme": "normal",
             "arrow": true
           },
           {
             "url": "#3",
-            "text": "Learn more",
+            "text": "Link",
             "theme": "normal",
             "arrow": true
           }
         ],
         "buttons": [
           {
-            "text": "Get started\r",
+            "text": "Button\r",
             "theme": "action",
-            "url": "https://console.cloud.yandex.${tld}/"
+            "url": "https://example.com"
           },
           {
-            "text": "Contact us",
+            "text": "Button",
             "theme": "outlined",
-            "url": "/#contact-form"
+            "url": "https://example.com"
           }
         ]
       },
       "fileContent": [
         {
-          "href": "https://yandex.xls",
-          "text": "Certificate of Compliance (600 KB)"
+          "href": "https://example.xls",
+          "text": "File xls"
         },
         {
-          "href": "https://yandex.fig",
-          "text": "PNG, JPG, and SVG formats in Figma"
+          "href": "https://example.fig",
+          "text": "PNG, JPG, and SVG format"
         },
         {
-          "href": "https://yandex.pdf",
-          "text": "Requirements and Recommendations for the PCI DSS (1.3 MB)"
+          "href": "https://example.pdf",
+          "text": "PDF file"
         },
         {
-          "href": "https://yandex.zip",
-          "text": "Archive with other logo and icon formats"
+          "href": "https://example.zip",
+          "text": "Archive file"
         },
         {
-          "href": "https://yandex.doc",
+          "href": "https://example.doc",
           "text": "Microsoft Word document"
         },
         {
-          "href": "https://yandex.ppt",
-          "text": "PPR"
+          "href": "https://example.ppt",
+          "text": "PPT file"
         }
       ]
     }
@@ -90,77 +90,77 @@
         "size": "s"
       },
       "textContent": {
-        "text": "<p>Yandex Cloud is a public cloud platform that <a href=\"https://ya.com\">provides</a> corporations, medium businesses, and individual developers with a scalable infrastructure, data storage services, and ML and development tools. Using these technologies proven by time and Yandex's experience, everyone can develop and continuously improve their own cutting-edge digital services and apps.</p> ",
-        "additionalInfo": "<ol> <li>Yandex Cloud was <a href=\"https://ya.com\">launched</a> in 2018 and</li> <li>has doubled in size since then.</li> <li>Both in total revenue and in terms of its customer base: more than 10 thousand companies now use our services every day.</li> </ol> ",
+        "text": "<p>Ut enim ad minim veniam <a href=\"https://example.com\">quis nostrud</a> exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> ",
+        "additionalInfo": "<ol> <li> Duis aute irure dolor in <a href=\"https://example.com\">reprehenderit</a> </li> <li> in voluptate velit esse</li> <li>cillum dolore eu fugiat nulla pariatur.</li> </ol> ",
         "links": [
           {
-            "url": "/security",
-            "text": "Fill out the form",
+            "url": "https://example.com",
+            "text": "Back",
             "theme": "normal",
             "arrow": true
           },
           {
             "url": "#",
-            "text": "Learn more",
+            "text": "Link",
             "theme": "normal",
             "arrow": true
           },
           {
             "url": "#1",
-            "text": "Learn more",
+            "text": "Link",
             "theme": "normal",
             "arrow": true
           },
           {
             "url": "#2",
-            "text": "Learn more",
+            "text": "Link",
             "theme": "normal",
             "arrow": true
           },
           {
             "url": "#3",
-            "text": "Learn more",
+            "text": "Link",
             "theme": "normal",
             "arrow": true
           }
         ],
         "buttons": [
           {
-            "text": "Get started\r",
+            "text": "Button\r",
             "theme": "action",
-            "url": "https://console.cloud.yandex.${tld}/"
+            "url": "https://example.com"
           },
           {
-            "text": "Contact us",
+            "text": "Button",
             "theme": "outlined",
-            "url": "/#contact-form"
+            "url": "https://example.com"
           }
         ]
       },
       "fileContent": [
         {
-          "href": "https://yandex.xls",
-          "text": "Certificate of Compliance (600 KB)"
+          "href": "https://example.xls",
+          "text": "File xls"
         },
         {
-          "href": "https://yandex.fig",
-          "text": "PNG, JPG, and SVG formats in Figma"
+          "href": "https://example.fig",
+          "text": "File PNG, JPG, and SVG format"
         },
         {
-          "href": "https://yandex.pdf",
-          "text": "Requirements and Recommendations for the PCI DSS (1.3 MB)"
+          "href": "https://example.pdf",
+          "text": "Pdf file"
         },
         {
-          "href": "https://yandex.zip",
-          "text": "Archive with other logo and icon formats"
+          "href": "https://example.zip",
+          "text": "Archive file"
         },
         {
-          "href": "https://yandex.doc",
+          "href": "https://example.doc",
           "text": "Microsoft Word document"
         },
         {
-          "href": "https://yandex.ppt",
-          "text": "PPR"
+          "href": "https://example.ppt",
+          "text": "PPT file"
         }
       ]
     }
@@ -170,7 +170,7 @@
       "type": "content-layout-block",
       "properties": {
         "background": {
-          "src": "https://storage.yandexcloud.net/cloud-www-assets/edu/edu_sol_mtrl-new.png",
+          "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
           "style": {
             "backgroundColor": "#EFF2F8"
           }
@@ -178,53 +178,53 @@
       },
       "textContent": {
         "title": "A cube of size L with a background and image",
-        "text": "<p>Yandex Cloud is a public cloud platform that <a href=\"https://ya.com\">provides</a> corporations, medium businesses, and individual developers with a scalable infrastructure, data storage services, and ML and development tools. Using these technologies proven by time and Yandex's experience, everyone can develop and continuously improve their own cutting-edge digital services and apps.</p> ",
-        "additionalInfo": "<p>Yandex Cloud was <a href=\"https://ya.com\">launched</a> in 2018 and has doubled in size since then. Both in total revenue and in terms of its customer base: more than 10 thousand companies now use our services every day.</p> ",
+        "text": "<p>Ut enim ad minim veniam <a href=\"https://example.com\">quis nostrud</a> exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> ",
+        "additionalInfo": "<p> Duis aute irure dolor in <a href=\"https://example.com\">reprehenderit</a>n voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p> ",
         "links": [
           {
-            "url": "/security",
-            "text": "Learn more",
+            "url": "https://example.com",
+            "text": "",
             "theme": "normal",
             "arrow": true
           }
         ],
         "buttons": [
           {
-            "text": "Get started\r",
+            "text": "Button\r",
             "theme": "action",
-            "url": "https://console.cloud.yandex.${tld}/"
+            "url": "https://example.com"
           },
           {
-            "text": "Contact us",
+            "text": "Button",
             "theme": "outlined",
-            "url": "/#contact-form"
+            "url": "https://example.com"
           }
         ]
       },
       "fileContent": [
         {
-          "href": "https://yandex.xls",
-          "text": "Certificate of Compliance (600 KB)"
+          "href": "https://example.xls",
+          "text": "File xls"
         },
         {
-          "href": "https://yandex.fig",
-          "text": "PNG, JPG, and SVG formats in Figma"
+          "href": "https://example.fig",
+          "text": "PNG, JPG, and SVG format"
         },
         {
-          "href": "https://yandex.pdf",
-          "text": "Requirements and Recommendations for the PCI DSS (1.3 MB)"
+          "href": "https://example.pdf",
+          "text": "PDF file"
         },
         {
-          "href": "https://yandex.zip",
-          "text": "Archive with other logo and icon formats"
+          "href": "https://example.zip",
+          "text": "Archive file"
         },
         {
-          "href": "https://yandex.doc",
+          "href": "https://example.doc",
           "text": "Microsoft Word document"
         },
         {
-          "href": "https://yandex.ppt",
-          "text": "PPR"
+          "href": "https://example.ppt",
+          "text": "PPT file"
         }
       ]
     }
@@ -238,77 +238,77 @@
       },
       "textContent": {
         "title": "Text width S",
-        "text": "<p>Yandex Cloud is a public cloud platform that <a href=\"https://ya.com\">provides</a> corporations, medium businesses, and individual developers with a scalable infrastructure, data storage services, and ML and development tools. Using these technologies proven by time and Yandex's experience, everyone can develop and continuously improve their own cutting-edge digital services and apps.</p> ",
-        "additionalInfo": "<ul> <li>Yandex Cloud was <a href=\"https://ya.com\">launched</a> in 2018 and has doubled in size since then.</li> <li>Both in total revenue and in terms of its customer base: more than 10 thousand companies now use our services every day.</li> </ul> ",
+        "text": "<p>Ut enim ad minim veniam <a href=\"https://example.com\">quis nostrud</a> exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> ",
+        "additionalInfo": "<ul> <li> Duis aute irure dolor in <a href=\"https://example.com\">reprehenderit</a> in 2018 and  in voluptate velit esse</li> <li>cillum dolore eu fugiat nulla pariatur.</li> </ul> ",
         "links": [
           {
-            "url": "/security",
-            "text": "Fill out the form",
+            "url": "https://example.com",
+            "text": "Back",
             "theme": "normal",
             "arrow": true
           },
           {
             "url": "#",
-            "text": "Learn more",
+            "text": "Link",
             "theme": "normal",
             "arrow": true
           },
           {
             "url": "#1",
-            "text": "Learn more",
+            "text": "Link",
             "theme": "normal",
             "arrow": true
           },
           {
             "url": "#2",
-            "text": "Learn more",
+            "text": "Link",
             "theme": "normal",
             "arrow": true
           },
           {
             "url": "#3",
-            "text": "Learn more",
+            "text": "Link",
             "theme": "normal",
             "arrow": true
           }
         ],
         "buttons": [
           {
-            "text": "Get started\r",
+            "text": "Button\r",
             "theme": "action",
-            "url": "https://console.cloud.yandex.${tld}/"
+            "url": "https://example.com"
           },
           {
-            "text": "Contact us",
+            "text": "Button",
             "theme": "outlined",
-            "url": "/#contact-form"
+            "url": "https://example.com"
           }
         ]
       },
       "fileContent": [
         {
-          "href": "https://yandex.xls",
-          "text": "Certificate of Compliance (600 KB)"
+          "href": "https://example.xls",
+          "text": "File xls"
         },
         {
-          "href": "https://yandex.fig",
-          "text": "PNG, JPG, and SVG formats in Figma"
+          "href": "https://example.fig",
+          "text": "PNG, JPG, and SVG format"
         },
         {
-          "href": "https://yandex.pdf",
-          "text": "Requirements and Recommendations for the PCI DSS (1.3 MB)"
+          "href": "https://example.pdf",
+          "text": "PDF file"
         },
         {
-          "href": "https://yandex.zip",
-          "text": "Archive with other logo and icon formats"
+          "href": "https://example.zip",
+          "text": "Archive file"
         },
         {
-          "href": "https://yandex.doc",
+          "href": "https://example.doc",
           "text": "Microsoft Word document"
         },
         {
-          "href": "https://yandex.ppt",
-          "text": "PPR"
+          "href": "https://example.ppt",
+          "text": "PPT file"
         }
       ]
     }
@@ -318,53 +318,53 @@
     "content": {
       "type": "content-layout-block",
       "textContent": {
-        "text": "<p>Yandex Cloud is a public cloud platform that <a href=\"https://ya.com\">provides</a> corporations, medium businesses, and individual developers with a scalable infrastructure, data storage services, and ML and development tools. Using these technologies proven by time and Yandex's experience, everyone can develop and continuously improve their own cutting-edge digital services and apps.</p> ",
-        "additionalInfo": "<p>Yandex Cloud was <a href=\"https://ya.com\">launched</a> in 2018 and has doubled in size since then. Both in total revenue and in terms of its customer base: more than 10 thousand companies now use our services every day.</p> ",
+        "text": "<p>Ut enim ad minim veniam <a href=\"https://example.com\">quis nostrud</a> exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> ",
+        "additionalInfo": "<p> Duis aute irure dolor in <a href=\"https://example.com\">reprehenderit</a>n voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p> ",
         "links": [
           {
-            "url": "/security",
-            "text": "Learn more",
+            "url": "https://example.com",
+            "text": "",
             "theme": "normal",
             "arrow": true
           }
         ],
         "buttons": [
           {
-            "text": "Get started\r",
+            "text": "Button\r",
             "theme": "action",
-            "url": "https://console.cloud.yandex.${tld}/"
+            "url": "https://example.com"
           },
           {
-            "text": "Contact us",
+            "text": "Button",
             "theme": "outlined",
-            "url": "/#contact-form"
+            "url": "https://example.com"
           }
         ]
       },
       "fileContent": [
         {
-          "href": "https://yandex.xls",
-          "text": "Certificate of Compliance (600 KB)"
+          "href": "https://example.xls",
+          "text": "File xls"
         },
         {
-          "href": "https://yandex.fig",
-          "text": "PNG, JPG, and SVG formats in Figma"
+          "href": "https://example.fig",
+          "text": "PNG, JPG, and SVG format"
         },
         {
-          "href": "https://yandex.pdf",
-          "text": "Requirements and Recommendations for the PCI DSS (1.3 MB)"
+          "href": "https://example.pdf",
+          "text": "PDF file"
         },
         {
-          "href": "https://yandex.zip",
-          "text": "Archive with other logo and icon formats"
+          "href": "https://example.zip",
+          "text": "Archive file"
         },
         {
-          "href": "https://yandex.doc",
+          "href": "https://example.doc",
           "text": "Microsoft Word document"
         },
         {
-          "href": "https://yandex.ppt",
-          "text": "PPR"
+          "href": "https://example.ppt",
+          "text": "PPT file"
         }
       ]
     }
@@ -382,53 +382,53 @@
       },
       "textContent": {
         "title": "A cube of size S with a background",
-        "text": "<p>Yandex Cloud is a public cloud platform that <a href=\"https://ya.com\">provides</a> corporations, medium businesses, and individual developers with a scalable infrastructure, data storage services, and ML and development tools. Using these technologies proven by time and Yandex's experience, everyone can develop and continuously improve their own cutting-edge digital services and apps.</p> ",
-        "additionalInfo": "<p>Yandex Cloud was <a href=\"https://ya.com\">launched</a> in 2018 and has doubled in size since then. Both in total revenue and in terms of its customer base: more than 10 thousand companies now use our services every day.</p> ",
+        "text": "<p>Ut enim ad minim veniam <a href=\"https://example.com\">quis nostrud</a> exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> ",
+        "additionalInfo": "<p> Duis aute irure dolor in <a href=\"https://example.com\">reprehenderit</a>n voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p> ",
         "links": [
           {
-            "url": "/security",
-            "text": "Learn more",
+            "url": "https://example.com",
+            "text": "Link",
             "theme": "normal",
             "arrow": true
           }
         ],
         "buttons": [
           {
-            "text": "Get started\r",
+            "text": "Button\r",
             "theme": "action",
-            "url": "https://console.cloud.yandex.${tld}/"
+            "url": "https://example.com"
           },
           {
-            "text": "Contact us",
+            "text": "Button",
             "theme": "outlined",
-            "url": "/#contact-form"
+            "url": "https://example.com"
           }
         ]
       },
       "fileContent": [
         {
-          "href": "https://yandex.xls",
-          "text": "Certificate of Compliance (600 KB)"
+          "href": "https://example.xls",
+          "text": "File xls"
         },
         {
-          "href": "https://yandex.fig",
-          "text": "PNG, JPG, and SVG formats in Figma"
+          "href": "https://example.fig",
+          "text": "PNG, JPG, and SVG format"
         },
         {
-          "href": "https://yandex.pdf",
-          "text": "Requirements and Recommendations for the PCI DSS (1.3 MB)"
+          "href": "https://example.pdf",
+          "text": "PDF file"
         },
         {
-          "href": "https://yandex.zip",
-          "text": "Archive with other logo and icon formats"
+          "href": "https://example.zip",
+          "text": "Archive file"
         },
         {
-          "href": "https://yandex.doc",
+          "href": "https://example.doc",
           "text": "Microsoft Word document"
         },
         {
-          "href": "https://yandex.ppt",
-          "text": "PPR"
+          "href": "https://example.ppt",
+          "text": "PPT file"
         }
       ]
     }
@@ -439,32 +439,32 @@
       "properties": {
         "size": "s",
         "background": {
-          "src": "https://storage.yandexcloud.net/cloud-www-assets/solutions/solutions_background.svg"
+          "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png"
         },
         "centered": true
       },
       "textContent": {
         "title": "A cube of size S with an image, centered",
-        "text": "<p>Yandex Cloud is a public cloud platform that <a href=\"https://ya.com\">provides</a> corporations, medium businesses, and individual developers with a scalable infrastructure, data storage services, and ML and development tools. Using these technologies proven by time and Yandex's experience, everyone can develop and continuously improve their own cutting-edge digital services and apps.</p> ",
-        "additionalInfo": "<p>Yandex Cloud was <a href=\"https://ya.com\">launched</a> in 2018 and has doubled in size since then. Both in total revenue and in terms of its customer base: more than 10 thousand companies now use our services every day.</p> ",
+        "text": "<p>Ut enim ad minim veniam <a href=\"https://example.com\">quis nostrud</a> exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> ",
+        "additionalInfo": "<p> Duis aute irure dolor in <a href=\"https://example.com\">reprehenderit</a>n voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p> ",
         "links": [
           {
-            "url": "/security",
-            "text": "Learn more",
+            "url": "https://example.com",
+            "text": "",
             "theme": "normal",
             "arrow": true
           }
         ],
         "buttons": [
           {
-            "text": "Get started\r",
+            "text": "Button\r",
             "theme": "action",
-            "url": "https://console.cloud.yandex.${tld}/"
+            "url": "https://example.com"
           },
           {
-            "text": "Contact us",
+            "text": "Button",
             "theme": "outlined",
-            "url": "/#contact-form"
+            "url": "https://example.com"
           }
         ]
       }
@@ -474,27 +474,27 @@
     "content": {
       "type": "content-layout-block",
       "textContent": {
-        "title": "Education and science promotion program in the field of computer science",
-        "text": "<h3 id=\"yandexcloud\"><a href=\"#yandexcloud\" class=\"yfm-anchor\" aria-hidden=\"true\"></a>Yandex Cloud</h3> <h4 id=\"yandexcloud1\"><a href=\"#yandexcloud1\" class=\"yfm-anchor\" aria-hidden=\"true\"></a>Yandex Cloud</h4> <p>is a public cloud platform that <a href=\"https://ya.com\">provides</a> corporations, medium businesses, and individual developers with a scalable infrastructure, data storage services, and ML and development tools. Using these technologies proven by time and Yandex's experience, everyone can develop and continuously improve their own cutting-edge digital services and apps.</p> ",
-        "additionalInfo": "<p>Yandex Cloud was <a href=\"https://ya.com\">launched</a> in 2018 and has doubled in size since then. Both in total revenue and in terms of its customer base: more than 10 thousand companies now use our services every day.</p> ",
+        "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+        "text": "<h3 id=\"loremipsum\"><a href=\"#loremipsum\" class=\"yfm-anchor\" aria-hidden=\"true\"></a>Lorem ipsum</h3> <h4 id=\"loremipsum1\"><a href=\"#loremipsum1\" class=\"yfm-anchor\" aria-hidden=\"true\"></a>dolor sit amet</h4> <p>consectetur adipiscing elit <a href=\"https://example.com\">quis nostrud</a> exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> ",
+        "additionalInfo": "<p> Duis aute irure dolor in <a href=\"https://example.com\">reprehenderit</a>n voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p> ",
         "links": [
           {
-            "url": "/security",
-            "text": "Learn more",
+            "url": "https://example.com",
+            "text": "",
             "theme": "normal",
             "arrow": true
           }
         ],
         "buttons": [
           {
-            "text": "Get started\r",
+            "text": "Button\r",
             "theme": "action",
-            "url": "https://console.cloud.yandex.${tld}/"
+            "url": "https://example.com"
           },
           {
-            "text": "Contact us",
+            "text": "Button",
             "theme": "outlined",
-            "url": "/#contact-form"
+            "url": "https://example.com"
           }
         ]
       }
@@ -510,12 +510,12 @@
         "size": "s"
       },
       "textContent": {
-        "text": "<h3 id=\"yandexcloud\"><a href=\"#yandexcloud\" class=\"yfm-anchor\" aria-hidden=\"true\"></a>Yandex Cloud</h3> <h4 id=\"yandexcloud1\"><a href=\"#yandexcloud1\" class=\"yfm-anchor\" aria-hidden=\"true\"></a>Yandex Cloud</h4> <p>is a public cloud platform that <a href=\"https://ya.com\">provides</a> corporations, medium businesses, and individual developers with a scalable infrastructure, data storage services, and ML and development tools. Using these technologies proven by time and Yandex's experience, everyone can develop and continuously improve their own cutting-edge digital services and apps.</p> ",
-        "additionalInfo": "<p>Yandex Cloud was <a href=\"https://ya.com\">launched</a> in 2018 and has doubled in size since then. Both in total revenue and in terms of its customer base: more than 10 thousand companies now use our services every day.</p> ",
+        "text": "<h3 id=\"loremipsum\"><a href=\"#loremipsum\" class=\"yfm-anchor\" aria-hidden=\"true\"></a>Lorem ipsum</h3> <h4 id=\"loremipsum1\"><a href=\"#loremipsum1\" class=\"yfm-anchor\" aria-hidden=\"true\"></a>dolor sit amet</h4> <p>consectetur adipiscing elit <a href=\"https://example.com\">quis nostrud</a> exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> ",
+        "additionalInfo": "<p> Duis aute irure dolor in <a href=\"https://example.com\">reprehenderit</a>n voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p> ",
         "links": [
           {
-            "url": "/security",
-            "text": "Learn more",
+            "url": "https://example.com",
+            "text": "",
             "theme": "normal",
             "arrow": true
           }
@@ -523,28 +523,28 @@
       },
       "fileContent": [
         {
-          "href": "https://yandex.xls",
-          "text": "Certificate of Compliance (600 KB)"
+          "href": "https://example.xls",
+          "text": "File xls"
         },
         {
-          "href": "https://yandex.fig",
-          "text": "PNG, JPG, and SVG formats in Figma"
+          "href": "https://example.fig",
+          "text": "PNG, JPG, and SVG format"
         },
         {
-          "href": "https://yandex.pdf",
-          "text": "Requirements and Recommendations for the PCI DSS (1.3 MB)"
+          "href": "https://example.pdf",
+          "text": "PDF file"
         },
         {
-          "href": "https://yandex.zip",
-          "text": "Archive with other logo and icon formats"
+          "href": "https://example.zip",
+          "text": "Archive file"
         },
         {
-          "href": "https://yandex.doc",
+          "href": "https://example.doc",
           "text": "Microsoft Word document"
         },
         {
-          "href": "https://yandex.ppt",
-          "text": "PPR"
+          "href": "https://example.ppt",
+          "text": "PPT file"
         }
       ]
     }

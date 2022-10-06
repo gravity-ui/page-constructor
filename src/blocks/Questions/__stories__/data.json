@@ -17,7 +17,7 @@
         {
           "text": "Get started\r",
           "theme": "action",
-          "url": "https://console.cloud.yandex.${tld}/"
+          "url": "https://example.com"
         }
       ],
       "items": [
@@ -122,7 +122,7 @@
         {
           "text": "Get started\r",
           "theme": "action",
-          "url": "https://console.cloud.yandex.${tld}/"
+          "url": "https://example.com"
         }
       ],
       "items": [
@@ -169,7 +169,7 @@
         {
           "text": "Get started\r",
           "theme": "action",
-          "url": "https://console.cloud.yandex.${tld}/"
+          "url": "https://example.com"
         }
       ],
       "items": [

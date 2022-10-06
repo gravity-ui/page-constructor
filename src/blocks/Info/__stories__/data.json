@@ -7,7 +7,7 @@
         {
           "text": "Get started\r",
           "theme": "raised",
-          "url": "https://console.cloud.yandex.${tld}/"
+          "url": "https://example.com"
         },
         {
           "text": "Ask a question",

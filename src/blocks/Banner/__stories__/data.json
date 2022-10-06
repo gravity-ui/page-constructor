@@ -3,14 +3,14 @@
     "content": {
       "theme": "dark",
       "type": "banner-block",
-      "title": "Education and science promotion program in the field of computer science",
-      "subtitle": "<p>Get a grant for computing resources for training and research in MT, computer vision, and data analysis.</p> ",
-      "image": "https://storage.yandexcloud.net/cloud-www-assets/edu/bnr-education-blue.png",
+      "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      "subtitle": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> ",
+      "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-black.png",
       "disableCompress": true,
       "color": "#000",
       "button": {
         "text": "Learn more",
-        "url": "https://cloud.yandex.com/en-ru/datasphere-education-program"
+        "url": "https://example.com"
       }
     }
   },
@@ -18,11 +18,11 @@
     "content": {
       "theme": "light",
       "type": "banner-block",
-      "title": "Education and science promotion program in the field of computer science",
-      "subtitle": "<p>Get a grant for computing resources for training and research in MT, computer vision, and data analysis.</p> ",
+      "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      "subtitle": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> ",
       "image": {
-        "light": "https://storage.yandexcloud.net/cloud-www-assets/edu/bnr-compscience-new.png",
-        "dark": "https://storage.yandexcloud.net/cloud-www-assets/edu/bnr-education-blue.png"
+        "light": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
+        "dark": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-white.png"
       },
       "disableCompress": true,
       "color": {
@@ -31,7 +31,7 @@
       },
       "button": {
         "text": "Learn more",
-        "url": "https://cloud.yandex.com/en-ru/datasphere-education-program"
+        "url": "https://example.com"
       }
     }
   }

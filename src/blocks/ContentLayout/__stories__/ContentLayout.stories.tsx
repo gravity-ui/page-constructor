@@ -62,12 +62,12 @@ const ThemesTemplate: Story<ContentLayoutBlockModel> = (args) => (
                             {
                                 text: data.theme.getStartedButtonTitle,
                                 theme: 'normal-contrast',
-                                url: 'https://console.cloud.yandex.${tld}/',
+                                url: 'https://example.com',
                             },
                             {
                                 text: data.theme.contactButtonTitle,
                                 theme: 'outlined-contrast',
-                                url: '/#contact-form',
+                                url: 'https://example.com',
                             },
                         ],
                         ...args.textContent,
@@ -92,12 +92,12 @@ const ThemesTemplate: Story<ContentLayoutBlockModel> = (args) => (
                             {
                                 text: data.theme.getStartedButtonTitle,
                                 theme: 'monochrome',
-                                url: 'https://console.cloud.yandex.${tld}/',
+                                url: 'https://example.com',
                             },
                             {
                                 text: data.theme.contactButtonTitle,
                                 theme: 'normal',
-                                url: '/#contact-form',
+                                url: 'https://example.com',
                             },
                         ],
                         ...args.textContent,
