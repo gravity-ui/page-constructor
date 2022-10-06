@@ -65,6 +65,7 @@ export const scrollToHash = (hash: string, browser?: string) => {
     }
 
     const element = document.getElementById(hash);
+
     if (!element) {
         return;
     }
