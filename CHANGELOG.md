@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.0.4](https://github.com/gravity-ui/page-constructor/compare/v1.0.3...v1.0.4) (2022-10-07)
+
+
+### Bug Fixes
+
+* repalce block stories content pt.1 ([fc1a3a5](https://github.com/gravity-ui/page-constructor/commit/fc1a3a537b4c962e472aee73663f2950ce7dc346))
+* replace blocks content ([ab63138](https://github.com/gravity-ui/page-constructor/commit/ab63138aaebfb71366062285436edc21f86f5346))
+* replace sub blocks and components story data ([fa7593d](https://github.com/gravity-ui/page-constructor/commit/fa7593d9082761d1726739204f36cf6024725755))
+
 ## [1.0.3](https://github.com/gravity-ui/page-constructor/compare/v1.0.2...v1.0.3) (2022-10-05)
 
 
