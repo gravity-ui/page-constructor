@@ -1,139 +1,139 @@
 {
   "centered": {
     "content": {
-      "title": "Education and science promotion program in the field of computer science",
+      "title": "Lorem ipsumt",
       "centered": true,
-      "text": "<p>Yandex Cloud is a <a href=\"#\">public cloud platform</a> that provides corporations, medium businesses, and individual developers with a scalable infrastructure, data storage services, and ML and development tools. Using these technologies proven by time and Yandex's experience, everyone can develop and continuously improve their own cutting-edge digital services and apps.</p>",
-      "additionalInfo": "<p>Yandex Cloud was launched in 2018 and has doubled in size since then. Both in total revenue and in terms of its customer base: more than <a href=\"#\">10 thousand companies</a> now use our services every day.</p>",
+      "text": "<p><strong>Lorem ipsum dolor sit amet</strong> <a href=\"https://example.com\">consectetur adipiscing elit</a> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> ",
+      "additionalInfo": "<p>Lorem ipsum dolor sit amet <a href=\"https://example.com\">consectetur adipiscing elit</a> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> ",
       "links": [
         {
-          "url": "/security",
-          "text": "Learn more",
+          "url": "#",
+          "text": "Link",
           "theme": "normal",
           "arrow": true
         }
       ],
       "buttons": [
         {
-          "text": "Get started\r",
+          "text": "Button\r",
           "theme": "action",
           "url": "https://example.com"
         },
         {
-          "text": "Contact us",
+          "text": "Button",
           "theme": "outlined",
-          "url": "/#contact-form"
+          "url": "#"
         }
       ]
     }
   },
   "default": {
     "content": {
-      "title": "<p>Education and science promotion program in the field of <a href=\"#\">computer science</a></p>",
-      "text": "<p>Yandex Cloud is a <a href=\"#\">public cloud platform</a> that provides corporations, medium businesses, and individual developers with a scalable infrastructure, data storage services, and ML and development tools. Using these technologies proven by time and Yandex's experience, everyone can develop and continuously improve their own cutting-edge digital services and apps.</p>",
-      "additionalInfo": "<p>Yandex Cloud was launched in 2018 and has doubled in size since then. Both in total revenue and in terms of its customer base: more than <a href=\"#\">10 thousand companies</a> now use our services every day.</p>",
+      "title": "Lorem ipsumt",
+      "text": "<p><strong>Lorem ipsum dolor sit amet</strong> <a href=\"https://example.com\">consectetur adipiscing elit</a> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> ",
+      "additionalInfo": "<p>Lorem ipsum dolor sit amet <a href=\"https://example.com\">consectetur adipiscing elit</a> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> ",
       "links": [
         {
-          "url": "/security",
-          "text": "Learn more",
+          "url": "#",
+          "text": "Link",
           "theme": "normal",
           "arrow": true
         }
       ],
       "buttons": [
         {
-          "text": "Get started\r",
+          "text": "Button\r",
           "theme": "action",
           "url": "https://example.com"
         },
         {
-          "text": "Contact us",
+          "text": "Button",
           "theme": "outlined",
-          "url": "/#contact-form"
+          "url": "#"
         }
       ]
     }
   },
   "light": {
     "content": {
-      "title": "Education and science promotion program in the field of computer science",
+      "title": "Lorem ipsumt",
       "theme": "light",
-      "text": "<p>Yandex Cloud is a <a href=\"#\">public cloud platform</a> that provides corporations, medium businesses, and individual developers with a scalable infrastructure, data storage services, and ML and development tools. Using these technologies proven by time and Yandex's experience, everyone can develop and continuously improve their own cutting-edge digital services and apps.</p>",
-      "additionalInfo": "<p>Yandex Cloud was launched in 2018 and has doubled in size since then. Both in total revenue and in terms of its customer base: more than <a href=\"#\">10 thousand companies</a> now use our services every day.</p>",
+      "text": "<p><strong>Lorem ipsum dolor sit amet</strong> <a href=\"https://example.com\">consectetur adipiscing elit</a> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> ",
+      "additionalInfo": "<p>Lorem ipsum dolor sit amet <a href=\"https://example.com\">consectetur adipiscing elit</a> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> ",
       "links": [
         {
-          "url": "/security",
-          "text": "Learn more",
+          "url": "#",
+          "text": "Link",
           "theme": "normal",
           "arrow": true
         }
       ],
       "buttons": [
         {
-          "text": "Get started\r",
+          "text": "Button\r",
           "theme": "action",
           "url": "https://example.com"
         },
         {
-          "text": "Contact us",
+          "text": "Button",
           "theme": "outlined",
-          "url": "/#contact-form"
+          "url": "#"
         }
       ]
     }
   },
   "dark": {
     "content": {
-      "title": "Education and science promotion program in the field of computer science",
+      "title": "Lorem ipsumt",
       "theme": "dark",
-      "text": "<p>Yandex Cloud is a <a href=\"#\">public cloud platform</a> that provides corporations, medium businesses, and individual developers with a scalable infrastructure, data storage services, and ML and development tools. Using these technologies proven by time and Yandex's experience, everyone can develop and continuously improve their own cutting-edge digital services and apps.</p>",
-      "additionalInfo": "<p>Yandex Cloud was launched in 2018 and has doubled in size since then. Both in total revenue and in terms of its customer base: more than <a href=\"#\">10 thousand companies</a> now use our services every day.</p>",
+      "text": "<p><strong>Lorem ipsum dolor sit amet</strong> <a href=\"https://example.com\">consectetur adipiscing elit</a> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> ",
+      "additionalInfo": "<p>Lorem ipsum dolor sit amet <a href=\"https://example.com\">consectetur adipiscing elit</a> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> ",
       "links": [
         {
-          "url": "/security",
-          "text": "Learn more",
+          "url": "#",
+          "text": "Link",
           "theme": "normal",
           "arrow": true
         }
       ],
       "buttons": [
         {
-          "text": "Get started\r",
+          "text": "Button\r",
           "theme": "action",
           "url": "https://example.com"
         },
         {
-          "text": "Contact us",
+          "text": "Button",
           "theme": "outlined",
-          "url": "/#contact-form"
+          "url": "#"
         }
       ]
     }
   },
   "sizeS": {
     "content": {
-      "title": "Education and science promotion program in the field of computer science",
+      "title": "Lorem ipsumt",
       "size": "s",
-      "text": "<p>Yandex Cloud is a <a href=\"#\">public cloud platform</a> that provides corporations, medium businesses, and individual developers with a scalable infrastructure, data storage services, and ML and development tools. Using these technologies proven by time and Yandex's experience, everyone can develop and continuously improve their own cutting-edge digital services and apps.</p>",
-      "additionalInfo": "<p>Yandex Cloud was launched in 2018 and has doubled in size since then. Both in total revenue and in terms of its customer base: more than <a href=\"#\">10 thousand companies</a> now use our services every day.</p>",
+      "text": "<p><strong>Lorem ipsum dolor sit amet</strong> <a href=\"https://example.com\">consectetur adipiscing elit</a> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> ",
+      "additionalInfo": "<p>Lorem ipsum dolor sit amet <a href=\"https://example.com\">consectetur adipiscing elit</a> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> ",
       "links": [
         {
-          "url": "/security",
-          "text": "Learn more",
+          "url": "#",
+          "text": "Link",
           "theme": "normal",
           "arrow": true
         }
       ],
       "buttons": [
         {
-          "text": "Get started\r",
+          "text": "Button\r",
           "theme": "action",
           "url": "https://example.com"
         },
         {
-          "text": "Contact us",
+          "text": "Button",
           "theme": "outlined",
-          "url": "/#contact-form"
+          "url": "#"
         }
       ]
     }

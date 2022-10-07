@@ -26,19 +26,19 @@ const WithIconTemplate: Story<BasicCardProps> = (args) => (
         <div style={{maxWidth: '400px', padding: '0 8px'}}>
             <BasicCard
                 {...args}
-                icon="https://storage.yandexcloud.net/cloud-www-assets/constructor/prices/rub.svg"
+                icon="https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/icons/icon.svg"
             />
         </div>
         <div style={{maxWidth: '400px', padding: '0 8px'}}>
             <BasicCard
                 {...args}
-                icon="https://storage.yandexcloud.net/mkt-partners/f2epus3a5oc1np9akpln.svg"
+                icon="https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/icons/icon.svg"
             />
         </div>
         <div style={{maxWidth: '400px', padding: '0 8px'}}>
             <BasicCard
                 {...args}
-                icon="https://storage.yandexcloud.net/mkt-partners/f2epus3a5oc1np9akpln.svg"
+                icon="https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/icons/icon.svg"
                 title=""
                 text={data.withIcon.cardText}
             />

@@ -1,8 +1,8 @@
 {
   "default": {
     "content": {
-      "title": "Yandex Cloud",
-      "description": "A cloud platform where anyone can develop and enhance their digital services using the infrastructure and unique technology from <a href=\"#\">Yandex</a>."
+      "title": "Lorem ipsum",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo <a href=\"#\">consequat</a>."
     }
   },
   "customTitle": {
@@ -13,7 +13,7 @@
         "url": "#",
         "custom": "Some react node"
       },
-      "description": "A cloud platform where anyone can develop and enhance their digital services using the infrastructure and unique technology from <a href=\"#\">Yandex</a>."
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo <a href=\"#\">consequat</a>."
     }
   },
   "titleLink": {
@@ -23,7 +23,7 @@
         "textSize": "s",
         "url": "#"
       },
-      "description": "A cloud platform where anyone can develop and enhance their digital services using the infrastructure and unique technology from <a href=\"#\">Yandex</a>."
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo <a href=\"#\">consequat</a>."
     }
   }
 }

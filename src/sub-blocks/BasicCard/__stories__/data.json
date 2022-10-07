@@ -3,48 +3,48 @@
     "title": "Card with border {{border}}",
     "content": {
       "url": "#",
-      "title": "How to deploy 1C with a Microsoft SQL Server<sup>™</sup> cluster",
-      "text": "<p>Create a Microsoft SQL Server<sup>™</sup> database cluster on your own or use Managed Service for SQL Server<sup>™</sup>. This database is optimal for working with 1C:Enterprise.</p> "
+      "title": "Lorem ipsum",
+      "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> "
     }
   },
   "withIcon": {
-    "cardText": "Create MicrosoftSQLServer<sup>tm</sup> cluster by yourself",
+    "cardText": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> ",
     "content": {
       "url": "#",
-      "title": "How to deploy 1C with a Microsoft SQL Server<sup>™</sup> cluster",
-      "text": "<p>Create a Microsoft SQL Server<sup>™</sup> database cluster on your own or use Managed Service for SQL Server<sup>™</sup>. This database is optimal for working with 1C:Enterprise.</p> "
+      "title": "Lorem ipsum",
+      "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> "
     }
   },
   "default": {
     "content": {
       "url": "#",
-      "title": "How to deploy 1C with a Microsoft SQL Server<sup>™</sup> cluster",
-      "text": "<p><strong>Yandex Cloud is a public cloud platform</strong> that <a href=\"https://ya.com\">provides</a> corporations, medium businesses, and individual developers with a scalable infrastructure, data storage services, and ML and development tools.</p> ",
-      "additionalInfo": "<p>Yandex Cloud was <a href=\"https://ya.com\">launched</a> in 2018 and has doubled in size since then. Both in total revenue and in terms of its customer base: more than 10 thousand companies now use our services every day.</p> ",
+      "title": "Lorem ipsum",
+      "text": "<p><strong>Lorem ipsum dolor sit amet</strong> that <a href=\"https://example.com\">consectetur adipiscing elit</a> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> ",
+      "additionalInfo": "<p>Lorem ipsum dolor sit amet <a href=\"https://example.com\">consectetur adipiscing elit</a> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> ",
       "links": [
         {
-          "url": "/security",
-          "text": "Learn more",
+          "url": "#",
+          "text": "Link",
           "theme": "normal",
           "arrow": true
         },
         {
-          "url": "/security",
-          "text": "Learn more",
+          "url": "#",
+          "text": "Link",
           "theme": "normal",
           "arrow": true
         }
       ],
       "buttons": [
         {
-          "text": "Get started\r",
+          "text": "Button\r",
           "theme": "action",
           "url": "https://example.com"
         },
         {
-          "text": "Contact us",
+          "text": "Button",
           "theme": "outlined",
-          "url": "/#contact-form"
+          "url": "#"
         }
       ]
     }
