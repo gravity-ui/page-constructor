@@ -3,27 +3,27 @@
     "content": {
       "type": "tabs-block",
       "title": {
-        "text": "Solutions by industry"
+        "text": "Lorem ipsum"
       },
       "items": [
         {
-          "tabName": "Retail",
-          "title": "<p>Retail</p> ",
-          "text": "<ul> <li>Reduce time to market</li> <li>Reduce time to market</li> </ul> ",
+          "tabName": "Dolor sit amet",
+          "title": "<p>Dolor sit amet</p> ",
+          "text": "<ul> <li>Ut enim ad minim veniam</li> <li>Ut enim ad minim veniam</li> </ul> ",
           "link": {
-            "url": "#contact-form",
-            "text": "Estimate the cost",
+            "url": "https://example.com",
+            "text": "Link",
             "theme": "normal",
             "arrow": true
           }
         },
         {
-          "tabName": "Classifieds website",
-          "title": "Classifieds website",
-          "text": "Configure and deploy your infrastructure in just one click to get the resources necessary for your app's development, testing, and launch in production.",
+          "tabName": "Consectetur adipiscing elit",
+          "title": "Consectetur adipiscing elit",
+          "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
           "link": {
-            "url": "#contact-form",
-            "text": "Estimate the cost",
+            "url": "https://example.com",
+            "text": "Link",
             "theme": "normal"
           }
         }
@@ -34,37 +34,37 @@
     "content": {
       "type": "tabs-block",
       "title": {
-        "text": "Solutions by industry"
+        "text": "Lorem ipsum"
       },
       "items": [
         {
-          "tabName": "Retail",
-          "title": "<p>Retail</p> ",
+          "tabName": "Dolor sit amet",
+          "title": "<p>Dolor sit amet</p> ",
           "image": {
             "light": {
-              "src": "https://storage.cloud-preprod.yandex.net/berdysheva-test/ydb-assets/graph.png",
+              "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
               "disableCompress": true
             },
             "dark": {
-              "src": "https://storage.yandexcloud.net/cloud-www-assets/solutions/schemes/data-platform.png"
+              "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-black.png"
             }
           },
-          "caption": "GitOps Release Strategy",
-          "text": "<ul> <li>Reduce time to market</li> <li>Reduce time to market</li> </ul> "
+          "caption": "Dolor sit amet",
+          "text": "<ul> <li>Ut enim ad minim veniam</li> <li>Ut enim ad minim veniam</li> </ul> "
         },
         {
-          "tabName": "Classifieds website",
-          "title": "Classifieds website",
+          "tabName": "Consectetur adipiscing elit",
+          "title": "Consectetur adipiscing elit",
           "image": {
             "light": {
-              "src": "https://storage.yandexcloud.net/cloud-www-assets/solutions/schemes/data-platform.png"
+              "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-white.png"
             },
             "dark": {
-              "src": "https://storage.cloud-preprod.yandex.net/berdysheva-test/ydb-assets/graph.png"
+              "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-black.png"
             }
           },
-          "caption": "Data platform in Yandex Cloud",
-          "text": "Configure and deploy your infrastructure in just one click to get the resources necessary for your app's development, testing, and launch in production."
+          "caption": "Consectetur adipiscing elit",
+          "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
         }
       ]
     }

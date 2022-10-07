@@ -2,9 +2,9 @@
   "default": {
     "content": {
       "type": "questions-block",
-      "title": "Questions and answers",
-      "text": "<p>Yandex Cloud is a public cloud platform that <a href=\"https://ya.com\">provides</a> corporations, medium businesses, and individual developers with a scalable <strong>infrastructure</strong>.</p> ",
-      "additionalInfo": "<p>Yandex Cloud was <a href=\"https://ya.com\">launched</a> in 2018 and has doubled in size since then.</p> ",
+      "title": "Lorem ipsum",
+      "text": "<p>Dolor sit amet, consectetur adipiscing elit <a href=\"https://example.com\">sed do eiusmod</a> tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> ",
+      "additionalInfo": "<p>Dolor sit amet <a href=\"https://example.com\">consectetur adipiscing</a>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> ",
       "links": [
         {
           "url": "/security",
@@ -15,15 +15,15 @@
       ],
       "buttons": [
         {
-          "text": "Get started\r",
+          "text": "Button\r",
           "theme": "action",
           "url": "https://example.com"
         }
       ],
       "items": [
         {
-          "title": "What data sources does DataLens support? 0",
-          "text": "<p>DataLens is a data visualization tool.</p> ",
+          "title": "Lorem ipsum dolor sit amet 0",
+          "text": "<p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> ",
           "link": {
             "url": "#",
             "text": "Documentation",
@@ -32,8 +32,8 @@
           }
         },
         {
-          "title": "What is data materialization and is it required to use it? 1",
-          "text": "<p>Materialization is exporting data from the source to integrated DataLens storage. Materialization is optional when working with databases. All CSV files are automatically materialized. All CSV files are automatically materialized.</p> ",
+          "title": "Ut enim ad minim veniam, quis nostrud exercitation ullamco? 1",
+          "text": "<p>laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> ",
           "link": {
             "url": "#",
             "text": "Documentation",
@@ -42,8 +42,8 @@
           }
         },
         {
-          "title": "What data sources does DataLens support? 2",
-          "text": "<p>DataLens is a data visualization tool.</p> ",
+          "title": "Lorem ipsum dolor sit amet 2",
+          "text": "<p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> ",
           "link": {
             "url": "#",
             "text": "Documentation",
@@ -52,8 +52,8 @@
           }
         },
         {
-          "title": "What is data materialization and is it required to use it? 3",
-          "text": "<p>Materialization is exporting data from the source to integrated DataLens storage. Materialization is optional when working with databases. All CSV files are automatically materialized. All CSV files are automatically materialized.</p> ",
+          "title": "Ut enim ad minim veniam, quis nostrud exercitation ullamco? 3",
+          "text": "<p>laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> ",
           "link": {
             "url": "#",
             "text": "Documentation",
@@ -62,8 +62,8 @@
           }
         },
         {
-          "title": "What data sources does DataLens support? 4",
-          "text": "<p>DataLens is a data visualization tool.</p> ",
+          "title": "Lorem ipsum dolor sit amet 4",
+          "text": "<p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> ",
           "link": {
             "url": "#",
             "text": "Documentation",
@@ -72,8 +72,8 @@
           }
         },
         {
-          "title": "What is data materialization and is it required to use it? 5",
-          "text": "<p>Materialization is exporting data from the source to integrated DataLens storage. Materialization is optional when working with databases. All CSV files are automatically materialized. All CSV files are automatically materialized.</p> ",
+          "title": "Ut enim ad minim veniam, quis nostrud exercitation ullamco? 5",
+          "text": "<p>laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> ",
           "link": {
             "url": "#",
             "text": "Documentation",
@@ -82,8 +82,8 @@
           }
         },
         {
-          "title": "What data sources does DataLens support? 6",
-          "text": "<p>DataLens is a data visualization tool.</p> ",
+          "title": "Lorem ipsum dolor sit amet 6",
+          "text": "<p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> ",
           "link": {
             "url": "#",
             "text": "Documentation",
@@ -92,8 +92,8 @@
           }
         },
         {
-          "title": "What is data materialization and is it required to use it? 7",
-          "text": "<p>Materialization is exporting data from the source to integrated DataLens storage. Materialization is optional when working with databases. All CSV files are automatically materialized. All CSV files are automatically materialized.</p> ",
+          "title": "Ut enim ad minim veniam, quis nostrud exercitation ullamco? 7",
+          "text": "<p>laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> ",
           "link": {
             "url": "#",
             "text": "Documentation",
@@ -107,9 +107,9 @@
   "textWithListBullet": {
     "content": {
       "type": "questions-block",
-      "title": "Questions and answers",
-      "text": "<p>Yandex Cloud is a public cloud platform that <a href=\"https://ya.com\">provides</a> corporations, medium businesses, and individual developers with a scalable <strong>infrastructure</strong>.</p> ",
-      "additionalInfo": "<p>Yandex Cloud was <a href=\"https://ya.com\">launched</a> in 2018 and has doubled in size since then.</p> ",
+      "title": "Lorem ipsum",
+      "text": "<p>Dolor sit amet, consectetur adipiscing elit <a href=\"https://example.com\">sed do eiusmod</a> corporations, medium businesses, and individual developers with a scalable <strong>infrastructure</strong>.</p> ",
+      "additionalInfo": "<p>Dolor sit amet <a href=\"https://example.com\">consectetur adipiscing</a>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> ",
       "links": [
         {
           "url": "/security",
@@ -120,15 +120,15 @@
       ],
       "buttons": [
         {
-          "text": "Get started\r",
+          "text": "Button\r",
           "theme": "action",
           "url": "https://example.com"
         }
       ],
       "items": [
         {
-          "title": "1. Text contains a list with dots",
-          "text": "<p>DataLens is integrated with multiple resources:</p> <ul> <li> <p>ClickHouse</p> </li> <li> <p>PostgreSQL</p> </li> <li> <p>Greenplum®</p> </li> </ul> ",
+          "title": "1. Lorem ipsum",
+          "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit:</p> <ul> <li> <p>Lorem ipsum</p> </li> <li> <p>Lorem ipsum</p> </li> <li> <p>Lorem ipsum</p> </li> </ul> ",
           "link": {
             "url": "#",
             "text": "Documentation",
@@ -138,8 +138,8 @@
           "listStyle": "disk"
         },
         {
-          "title": "2. Text contains a list with dots",
-          "text": "<p>DataLens is integrated with multiple resources:</p> <ul> <li> <p>ClickHouse</p> </li> <li> <p>PostgreSQL</p> </li> <li> <p>Greenplum®</p> </li> </ul> ",
+          "title": "2. Lorem ipsum",
+          "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit:</p> <ul> <li> <p>Lorem ipsum</p> </li> <li> <p>Lorem ipsum</p> </li> <li> <p>Lorem ipsum</p> </li> </ul> ",
           "link": {
             "url": "#",
             "text": "Documentation",
@@ -154,9 +154,9 @@
   "textWithListDash": {
     "content": {
       "type": "questions-block",
-      "title": "Questions and answers",
-      "text": "<p>Yandex Cloud is a public cloud platform that <a href=\"https://ya.com\">provides</a> corporations, medium businesses, and individual developers with a scalable <strong>infrastructure</strong>.</p> ",
-      "additionalInfo": "<p>Yandex Cloud was <a href=\"https://ya.com\">launched</a> in 2018 and has doubled in size since then.</p> ",
+      "title": "Lorem ipsum",
+      "text": "<p>Dolor sit amet, consectetur adipiscing elit <a href=\"https://example.com\">sed do eiusmod</a> corporations, medium businesses, and individual developers with a scalable <strong>infrastructure</strong>.</p> ",
+      "additionalInfo": "<p>Dolor sit amet <a href=\"https://example.com\">consectetur adipiscing</a>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> ",
       "links": [
         {
           "url": "/security",
@@ -167,15 +167,15 @@
       ],
       "buttons": [
         {
-          "text": "Get started\r",
+          "text": "Button\r",
           "theme": "action",
           "url": "https://example.com"
         }
       ],
       "items": [
         {
-          "title": "1. Text contains a list with dashes",
-          "text": "<p>DataLens is integrated with multiple resources:</p> <ul> <li> <p>ClickHouse</p> </li> <li> <p>PostgreSQL</p> </li> <li> <p>Greenplum®</p> </li> </ul> ",
+          "title": "1. Lorem ipsum",
+          "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit:</p> <ul> <li> <p>Lorem ipsum</p> </li> <li> <p>Lorem ipsum</p> </li> <li> <p>Lorem ipsum</p> </li> </ul> ",
           "link": {
             "url": "#",
             "text": "Documentation",
@@ -184,8 +184,8 @@
           }
         },
         {
-          "title": "1. Text contains a list with dashes",
-          "text": "<p>DataLens is integrated with multiple resources:</p> <ul> <li> <p>ClickHouse</p> </li> <li> <p>PostgreSQL</p> </li> <li> <p>Greenplum®</p> </li> </ul> ",
+          "title": "1. Lorem ipsum",
+          "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit:</p> <ul> <li> <p>Lorem ipsum</p> </li> <li> <p>Lorem ipsum</p> </li> <li> <p>Lorem ipsum</p> </li> </ul> ",
           "link": {
             "url": "#",
             "text": "Documentation",

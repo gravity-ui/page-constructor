@@ -3,14 +3,14 @@
     "content": {
       "theme": "light",
       "type": "security-block",
-      "title": "Secure and reliable data storage",
+      "title": "Lorem ipsum dolor sit amet",
       "media": {
         "youtube": "_BAu4SB5Wi0"
       },
       "points": [
         {
           "img": "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/mailn-availability-zones.svg",
-          "text": "You can deploy your projects in three geographically distributed data centers where <a href=\"yandex.ru\">Yandex</a> runs its own websites and applications.",
+          "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur..",
           "link": {
             "text": "Learn more",
             "url": "#"
@@ -18,7 +18,7 @@
         },
         {
           "img": "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-datacenter.svg",
-          "text": "We design and build server racks for the data centers to make sure they can work under any load.",
+          "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur..",
           "link": {
             "text": "Learn more",
             "url": "#"
@@ -26,7 +26,7 @@
         },
         {
           "img": "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-secure-clouds.svg",
-          "text": "The Yandex Cloud platform meets the requirements of Federal Law No. 152-FZ \"On Personal Data\", PCI DSS, GDPR, and ISO industry standards.",
+          "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur..",
           "link": {
             "text": "Certificates and standards",
             "url": "#"
@@ -39,14 +39,14 @@
     "content": {
       "theme": "dark",
       "type": "security-block",
-      "title": "Secure and reliable data storage",
+      "title": "Lorem ipsum dolor sit amet",
       "media": {
         "youtube": "_BAu4SB5Wi0"
       },
       "points": [
         {
           "img": "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/mailn-availability-zones.svg",
-          "text": "You can deploy your projects in three geographically distributed data centers where <a href=\"yandex.ru\">Yandex</a> runs its own websites and applications.",
+          "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur..",
           "link": {
             "text": "Learn more",
             "url": "#"
@@ -54,7 +54,7 @@
         },
         {
           "img": "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-datacenter.svg",
-          "text": "We design and build server racks for the data centers to make sure they can work under any load.",
+          "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur..",
           "link": {
             "text": "Learn more",
             "url": "#"
@@ -62,7 +62,7 @@
         },
         {
           "img": "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-secure-clouds.svg",
-          "text": "The Yandex Cloud platform meets the requirements of Federal Law No. 152-FZ \"On Personal Data\", PCI DSS, GDPR, and ISO industry standards.",
+          "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur..",
           "link": {
             "text": "Certificates and standards",
             "url": "#"
@@ -75,7 +75,7 @@
     "content": {
       "theme": "dark",
       "type": "security-block",
-      "title": "Secure and reliable data storage",
+      "title": "Lorem ipsum dolor sit amet",
       "backgroundColor": "#7ccea0",
       "media": {
         "youtube": "_BAu4SB5Wi0"
@@ -83,7 +83,7 @@
       "points": [
         {
           "img": "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/mailn-availability-zones.svg",
-          "text": "You can deploy your projects in three geographically distributed data centers where <a href=\"yandex.ru\">Yandex</a> runs its own websites and applications.",
+          "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur..",
           "link": {
             "text": "Learn more",
             "url": "#"
@@ -91,7 +91,7 @@
         },
         {
           "img": "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-datacenter.svg",
-          "text": "We design and build server racks for the data centers to make sure they can work under any load.",
+          "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur..",
           "link": {
             "text": "Learn more",
             "url": "#"
@@ -99,7 +99,7 @@
         },
         {
           "img": "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-secure-clouds.svg",
-          "text": "The Yandex Cloud platform meets the requirements of Federal Law No. 152-FZ \"On Personal Data\", PCI DSS, GDPR, and ISO industry standards.",
+          "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur..",
           "link": {
             "text": "Certificates and standards",
             "url": "#"

@@ -3,56 +3,49 @@
     "content": {
       "theme": "grey",
       "type": "promo-features-block",
-      "title": "Education and science promotion program in the field of computer science",
-      "description": "<p><strong>Yandex Cloud is a public cloud platform</strong> that <a href=\"https://ya.com\">provides</a> corporations, medium businesses, and individual developers with a scalable infrastructure, data storage services, and ML and development tools.</p> ",
+      "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+      "description": "<p><strong>Ut enim ad minim veniam</strong> <a href=\"https://example.com\">quis nostrud</a> exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> ",
       "items": [
         {
-          "title": "Education and science promotion program in the field of computer science",
-          "text": "<p><strong>Yandex Cloud is a public cloud platform</strong> that <a href=\"https://ya.com\">provides</a> corporations, medium businesses, and individual developers with a scalable infrastructure, data storage services, and ML and development tools.</p> "
+          "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+          "text": "<p><strong>Ut enim ad minim veniam</strong> <a href=\"https://example.com\">quis nostrud</a> exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> "
         },
         {
-          "title": "Education and science promotion program in the field of computer science",
-          "text": "<p><strong>Yandex Cloud is a public cloud platform</strong> that <a href=\"https://ya.com\">provides</a> corporations, medium businesses, and individual developers with a scalable infrastructure, data storage services, and ML and development tools.</p> ",
+          "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+          "text": "<p><strong>Ut enim ad minim veniam</strong> <a href=\"https://example.com\">quis nostrud</a> exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> ",
           "media": {
-            "image": "https://storage.yandexcloud.net/cloud-www-assets/mobile-app/new/app_resources_ru.png"
+            "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png"
           }
         },
         {
-          "title": "Education and science promotion program in the field of computer science",
-          "text": "<p><strong>Yandex Cloud is a public cloud platform</strong> that <a href=\"https://ya.com\">provides</a> corporations, medium businesses, and individual developers with a scalable infrastructure, data storage services, and ML and development tools.</p> ",
+          "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+          "text": "<p><strong>Ut enim ad minim veniam</strong> <a href=\"https://example.com\">quis nostrud</a> exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> ",
           "media": {
-            "video": {
-              "src": [
-                "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-calcx2.mp4",
-                "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-calcx2.webm",
-                "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-calcx2.ogv",
-                "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/calc.png"
-              ]
-            }
+            "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-black.png"
           }
         },
         {
-          "title": "Education and science promotion program in the field of computer science",
-          "text": "<p><strong>Yandex Cloud is a public cloud platform</strong> that <a href=\"https://ya.com\">provides</a> corporations, medium businesses, and individual developers with a scalable infrastructure, data storage services, and ML and development tools.</p> ",
+          "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+          "text": "<p><strong>Ut enim ad minim veniam</strong> <a href=\"https://example.com\">quis nostrud</a> exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> ",
           "theme": "accent",
           "media": {
-            "image": "https://storage.yandexcloud.net/cloud-www-assets/mobile-app/new/app_resources_ru.png"
+            "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png"
           }
         },
         {
-          "title": "Education and science promotion program in the field of computer science",
-          "text": "<p><strong>Yandex Cloud is a public cloud platform</strong> that <a href=\"https://ya.com\">provides</a> corporations, medium businesses, and individual developers with a scalable infrastructure, data storage services, and ML and development tools.</p> ",
+          "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+          "text": "<p><strong>Ut enim ad minim veniam</strong> <a href=\"https://example.com\">quis nostrud</a> exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> ",
           "theme": "accent-light",
           "media": {
-            "image": "https://storage.yandexcloud.net/cloud-www-assets/mobile-app/new/app_resources_ru.png"
+            "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-white.png"
           }
         },
         {
-          "title": "Education and science promotion program in the field of computer science",
-          "text": "<p><strong>Yandex Cloud is a public cloud platform</strong> that <a href=\"https://ya.com\">provides</a> corporations, medium businesses, and individual developers with a scalable infrastructure, data storage services, and ML and development tools.</p> ",
+          "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+          "text": "<p><strong>Ut enim ad minim veniam</strong> <a href=\"https://example.com\">quis nostrud</a> exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> ",
           "theme": "primary",
           "media": {
-            "image": "https://storage.yandexcloud.net/cloud-www-assets/mobile-app/new/app_resources_ru.png"
+            "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-black.png"
           }
         }
       ]
@@ -63,58 +56,51 @@
       "theme": "default",
       "type": "promo-features-block",
       "title": {
-        "text": "Education and science promotion program in the field of computer science",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
         "url": "https://yandex.ru"
       },
-      "description": "<p><strong>Yandex Cloud is a public cloud platform</strong> that <a href=\"https://ya.com\">provides</a> corporations, medium businesses, and individual developers with a scalable infrastructure, data storage services, and ML and development tools.</p> ",
+      "description": "<p><strong>Ut enim ad minim veniam</strong> <a href=\"https://example.com\">quis nostrud</a> exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> ",
       "items": [
         {
-          "title": "Education and science promotion program in the field of computer science",
-          "text": "<p><strong>Yandex Cloud is a public cloud platform</strong> that <a href=\"https://ya.com\">provides</a> corporations, medium businesses, and individual developers with a scalable infrastructure, data storage services, and ML and development tools.</p> "
+          "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+          "text": "<p><strong>Ut enim ad minim veniam</strong> <a href=\"https://example.com\">quis nostrud</a> exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> "
         },
         {
-          "title": "Education and science promotion program in the field of computer science",
-          "text": "<p><strong>Yandex Cloud is a public cloud platform</strong> that <a href=\"https://ya.com\">provides</a> corporations, medium businesses, and individual developers with a scalable infrastructure, data storage services, and ML and development tools.</p> ",
+          "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+          "text": "<p><strong>Ut enim ad minim veniam</strong> <a href=\"https://example.com\">quis nostrud</a> exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> ",
           "media": {
-            "image": "https://storage.yandexcloud.net/cloud-www-assets/mobile-app/new/app_resources_ru.png"
+            "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png"
           }
         },
         {
-          "title": "Education and science promotion program in the field of computer science",
-          "text": "<p><strong>Yandex Cloud is a public cloud platform</strong> that <a href=\"https://ya.com\">provides</a> corporations, medium businesses, and individual developers with a scalable infrastructure, data storage services, and ML and development tools.</p> ",
+          "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+          "text": "<p><strong>Ut enim ad minim veniam</strong> <a href=\"https://example.com\">quis nostrud</a> exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> ",
           "media": {
-            "video": {
-              "src": [
-                "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-calcx2.mp4",
-                "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-calcx2.webm",
-                "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-calcx2.ogv",
-                "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/calc.png"
-              ]
-            }
+            "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-black.png"
           }
         },
         {
-          "title": "Education and science promotion program in the field of computer science",
-          "text": "<p><strong>Yandex Cloud is a public cloud platform</strong> that <a href=\"https://ya.com\">provides</a> corporations, medium businesses, and individual developers with a scalable infrastructure, data storage services, and ML and development tools.</p> ",
+          "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+          "text": "<p><strong>Ut enim ad minim veniam</strong> <a href=\"https://example.com\">quis nostrud</a> exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> ",
           "theme": "accent",
           "media": {
-            "image": "https://storage.yandexcloud.net/cloud-www-assets/mobile-app/new/app_resources_ru.png"
+            "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png"
           }
         },
         {
-          "title": "Education and science promotion program in the field of computer science",
-          "text": "<p><strong>Yandex Cloud is a public cloud platform</strong> that <a href=\"https://ya.com\">provides</a> corporations, medium businesses, and individual developers with a scalable infrastructure, data storage services, and ML and development tools.</p> ",
+          "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+          "text": "<p><strong>Ut enim ad minim veniam</strong> <a href=\"https://example.com\">quis nostrud</a> exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> ",
           "theme": "accent-light",
           "media": {
-            "image": "https://storage.yandexcloud.net/cloud-www-assets/mobile-app/new/app_resources_ru.png"
+            "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-white.png"
           }
         },
         {
-          "title": "Education and science promotion program in the field of computer science",
-          "text": "<p><strong>Yandex Cloud is a public cloud platform</strong> that <a href=\"https://ya.com\">provides</a> corporations, medium businesses, and individual developers with a scalable infrastructure, data storage services, and ML and development tools.</p> ",
+          "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+          "text": "<p><strong>Ut enim ad minim veniam</strong> <a href=\"https://example.com\">quis nostrud</a> exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> ",
           "theme": "primary",
           "media": {
-            "image": "https://storage.yandexcloud.net/cloud-www-assets/mobile-app/new/app_resources_ru.png"
+            "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-black.png"
           }
         }
       ]
