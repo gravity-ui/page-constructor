@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.5](https://github.com/gravity-ui/page-constructor/compare/v1.0.4...v1.0.5) (2022-10-07)
+
+
+### Bug Fixes
+
+* remove alpha tag ([5c0f70c](https://github.com/gravity-ui/page-constructor/commit/5c0f70c983583810c08363c63a5a80d84e95c621))
+
 ## [1.0.4](https://github.com/gravity-ui/page-constructor/compare/v1.0.3...v1.0.4) (2022-10-07)
 
 
