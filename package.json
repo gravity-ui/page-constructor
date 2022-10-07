@@ -48,6 +48,7 @@
     "svgo:all": "svgo --config svgo.config.js -r -f assets"
   },
   "dependencies": {
+    "@gravity-ui/i18n": "^1.0.0",
     "@types/fast-html-parser": "^1.0.2",
     "@types/recompose": "^0.30.10",
     "@yandex-data-ui/cloud-regional-configs": "^1.27.1",
@@ -82,7 +83,6 @@
   "peerDependencies": {
     "@doc-tools/components": "^2.0.0",
     "@doc-tools/transform": "^2.6.1",
-    "@yandex-cloud/i18n": "^0.6.0",
     "@gravity-ui/uikit": "^3.1.0",
     "@yandex-data-ui/common": "^10.0.0",
     "@gravity-ui/page-constructor": "^1.0.4",
@@ -107,7 +107,6 @@
     "@types/react-transition-group": "^4.4.4",
     "@types/sanitize-html": "^2.6.0",
     "@yandex-cloud/eslint-config": "^1.0.1",
-    "@yandex-cloud/i18n": "^0.6.0",
     "@yandex-cloud/prettier-config": "^1.0.0",
     "@yandex-cloud/stylelint-config": "^1.1.1",
     "@yandex-cloud/tsconfig": "^1.0.0",
