@@ -1,7 +1,7 @@
 {
   "default": {
     "content": {
-      "src": "https://storage.cloud-preprod.yandex.net/berdysheva-test/bg_card_0001.png",
+      "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
       "alt": "string",
       "disableCompress": true,
       "style": {

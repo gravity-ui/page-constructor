@@ -3,16 +3,16 @@
     "content": {
       "border": "shadow",
       "theme": "dark",
-      "text": "Thanks to a wide range of managed services and their convenient integration with each other, the development team could focus on processes and goals letting Yandex Cloud take care of service maintenance.",
-      "image": "https://storage.yandexcloud.net/cloud-www-assets/cases/kazanexpress/kazanexpress-cover-1.png",
-      "url": "https://cloud.yandex.ru/cases/kazanexpress",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-black.png",
+      "url": "https://example.com",
       "author": {
-        "avatar": "https://storage.yandexcloud.net/cloud-www-assets/cases/kazanexpress/kazanexpress-yuri-1.jpg",
-        "firstName": "Yuriy",
-        "secondName": "Gavrilin",
-        "description": "Head of Data & Analytics at KazanExpress"
+        "avatar": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
+        "firstName": "Oval",
+        "secondName": "Ovalny",
+        "description": "Geometry lead"
       },
-      "logo": "https://storage.yandexcloud.net/cloud-www-assets/cases/kazanexpress/kazanexpress.svg",
+      "logo": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-black.png",
       "color": "#2b3e6a"
     }
   },
@@ -20,32 +20,32 @@
     "content": {
       "border": "line",
       "theme": "light",
-      "text": "Thanks to a wide range of managed services and their convenient integration with each other, the development team could focus on processes and goals letting Yandex Cloud take care of service maintenance.",
-      "image": "https://storage.yandexcloud.net/cloud-www-assets/cases/kazanexpress/kazanexpress-cover-1.png",
-      "url": "https://cloud.yandex.ru/cases/kazanexpress",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-white.png",
+      "url": "https://example.com",
       "author": {
-        "avatar": "https://storage.yandexcloud.net/cloud-www-assets/cases/kazanexpress/kazanexpress-yuri-1.jpg",
-        "firstName": "Yuriy",
-        "secondName": "Gavrilin",
-        "description": "Head of Data & Analytics at KazanExpress"
+        "avatar": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
+        "firstName": "Oval",
+        "secondName": "Ovalny",
+        "description": "Geometry lead"
       },
-      "logo": "https://storage.yandexcloud.net/cloud-www-assets/cases/kazanexpress/kazanexpress.svg"
+      "logo": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-white.png"
     }
   },
   "default": {
     "content": {
       "border": "shadow",
       "theme": "light",
-      "text": "Thanks to a wide range of managed services and their convenient integration with each other, the development team could focus on processes and goals letting Yandex Cloud take care of service maintenance.",
-      "image": "https://storage.yandexcloud.net/cloud-www-assets/cases/kazanexpress/kazanexpress-cover-1.png",
-      "url": "https://cloud.yandex.ru/cases/kazanexpress",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-white.png",
+      "url": "https://example.com",
       "author": {
-        "avatar": "https://storage.yandexcloud.net/cloud-www-assets/cases/kazanexpress/kazanexpress-yuri-1.jpg",
-        "firstName": "Yuriy",
-        "secondName": "Gavrilin",
-        "description": "Head of Data & Analytics at KazanExpress"
+        "avatar": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
+        "firstName": "Oval",
+        "secondName": "Ovalny",
+        "description": "Geometry lead"
       },
-      "logo": "https://storage.yandexcloud.net/cloud-www-assets/cases/kazanexpress/kazanexpress.svg"
+      "logo": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-white.png"
     }
   }
 }

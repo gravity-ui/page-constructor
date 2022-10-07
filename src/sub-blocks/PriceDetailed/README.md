@@ -117,7 +117,7 @@ Example, with labels. - https://cloud-preprod.yandex.ru/services/e2e-test?versio
     yellow: 'Business'
     purple: 'Ultima'
   items:
-    - title: '₽258'
+    - title: '100$'
       detailedTitle: '/ month*'
       description: The table shows the average period from creating a Pull request to publishing your text and the size of grant for each case.
       label:

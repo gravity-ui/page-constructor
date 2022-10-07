@@ -8,8 +8,8 @@
       "autoplay": 1000,
       "items": [
         {
-          "title": "Yandex Cloud Professionals partner program",
-          "description": "Sell Yandex Cloud services and get a monthly partner bonus ranging from 12% to 20% of your customers' spending on the services. Get grants to try out Yandex Cloud services or implement your customers' pilot projects.",
+          "title": "Lorem ipsum dolor sit amet",
+          "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident",
           "width": "s",
           "background": {
             "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-visual/main.png",
@@ -30,19 +30,19 @@
           },
           "buttons": [
             {
-              "text": "Get started\r",
+              "text": "Button\r",
               "theme": "action",
-              "url": "https://console.cloud.yandex.${tld}/"
+              "url": "https://example.com"
             },
             {
-              "text": "Contact us",
+              "text": "Buttom",
               "theme": "outlined",
-              "url": "/#contact-form"
+              "url": "https://example.com"
             }
           ]
         },
         {
-          "title": "Yandex Cloud Professionals Partner Program",
+          "title": "Lorem ipsum dolor sit amet",
           "description": "Sell Yandex.Cloud services and receive a monthly partner premium from 12% to 20% of your customers' consumption. Get grants to get acquainted with Yandex.Cloud services or to conduct pilot projects for your clients.",
           "width": "s",
           "background": {
@@ -51,7 +51,7 @@
             "disableCompress": true,
             "height": 800,
             "color": "lightgreen",
-            "image": "https://storage.cloud-preprod.yandex.net/aeksandla-test/img-scale.png",
+            "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-white.png",
             "video": {
               "src": [
                 "https://storage.yandexcloud.net/cloud-www-assets/scale/2022/main/scale_header.mp4"
@@ -60,64 +60,64 @@
           }
         },
         {
-          "title": "Yandex Scale",
-          "overtitle": "September 24",
-          "description": "A major Yandex Cloud conference where business and technology speak the same language",
+          "title": "Lorem ipsum dolor sit amet",
+          "overtitle": "September 3",
+          "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
           "width": "s",
           "background": {
-            "url": "https://storage.cloud-preprod.yandex.net/berdysheva-test/bg-2.png",
+            "url": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
             "fullWidth": true,
             "color": "#E3EBFF"
           },
           "buttons": [
             {
-              "text": "Get started\r",
+              "text": "Button\r",
               "theme": "action",
-              "url": "https://console.cloud.yandex.${tld}/"
+              "url": "https://example.com"
             },
             {
-              "text": "Contact us",
+              "text": "Buttom",
               "theme": "outlined",
-              "url": "/#contact-form"
+              "url": "https://example.com"
             }
           ]
         },
         {
-          "title": "Yandex Cloud Professionals partner program",
-          "description": "Sell Yandex Cloud services and get a monthly partner bonus ranging from 12% to 20% of your customers' spending on the services. Get grants to try out Yandex Cloud services or implement your customers' pilot projects.",
+          "title": "Lorem ipsum dolor sit amet",
+          "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident",
           "width": "l",
           "buttons": [
             {
-              "text": "Get started\r",
+              "text": "Button\r",
               "theme": "action",
-              "url": "https://console.cloud.yandex.${tld}/"
+              "url": "https://example.com"
             },
             {
-              "text": "Contact us",
+              "text": "Buttom",
               "theme": "outlined",
-              "url": "/#contact-form"
+              "url": "https://example.com"
             }
           ]
         },
         {
-          "title": "Yandex Cloud Professionals partner program",
-          "description": "Sell Yandex Cloud services and get a monthly partner bonus ranging from 12% to 20% of your customers' spending on the services. Get grants to try out Yandex Cloud services or implement your customers' pilot projects.",
+          "title": "Lorem ipsum dolor sit amet",
+          "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident",
           "width": "s",
           "imageSize": "s",
           "verticalOffset": "m",
           "image": {
-            "src": "https://storage.cloud-preprod.yandex.net/cloud-www-assets/solutions/e-commerce/ecommerce-big.png"
+            "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png"
           },
           "buttons": [
             {
-              "text": "Get started\r",
+              "text": "Button\r",
               "theme": "action",
-              "url": "https://console.cloud.yandex.${tld}/"
+              "url": "https://example.com"
             },
             {
-              "text": "Contact us",
+              "text": "Buttom",
               "theme": "outlined",
-              "url": "/#contact-form"
+              "url": "https://example.com"
             }
           ]
         }
@@ -133,8 +133,8 @@
       "arrows": true,
       "items": [
         {
-          "title": "Yandex Cloud Professionals partner program",
-          "description": "Sell Yandex Cloud services and get a monthly partner bonus ranging from 12% to 20% of your customers' spending on the services. Get grants to try out Yandex Cloud services or implement your customers' pilot projects.",
+          "title": "Lorem ipsum dolor sit amet",
+          "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident",
           "width": "s",
           "background": {
             "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-visual/main.png",
@@ -152,98 +152,98 @@
           },
           "buttons": [
             {
-              "text": "Get started\r",
+              "text": "Button\r",
               "theme": "action",
-              "url": "https://console.cloud.yandex.${tld}/"
+              "url": "https://example.com"
             },
             {
-              "text": "Contact us",
+              "text": "Buttom",
               "theme": "outlined",
-              "url": "/#contact-form"
+              "url": "https://example.com"
             }
           ]
         },
         {
-          "title": "Yandex Scale",
-          "overtitle": "September 24",
-          "description": "A major Yandex Cloud conference where business and technology speak the same language",
+          "title": "Lorem ipsum dolor sit amet",
+          "overtitle": "September 3",
+          "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
           "width": "s",
           "background": {
-            "url": "https://storage.cloud-preprod.yandex.net/berdysheva-test/bg-2.png",
+            "url": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
             "fullWidth": true,
             "color": "#E3EBFF"
           },
           "buttons": [
             {
-              "text": "Get started\r",
+              "text": "Button\r",
               "theme": "action",
-              "url": "https://console.cloud.yandex.${tld}/"
+              "url": "https://example.com"
             },
             {
-              "text": "Contact us",
+              "text": "Buttom",
               "theme": "outlined",
-              "url": "/#contact-form"
+              "url": "https://example.com"
             }
           ]
         },
         {
-          "title": "Yandex Cloud Professionals partner program",
-          "description": "Sell Yandex Cloud services and get a monthly partner bonus ranging from 12% to 20% of your customers' spending on the services. Get grants to try out Yandex Cloud services or implement your customers' pilot projects.",
+          "title": "Lorem ipsum dolor sit amet",
+          "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident",
           "width": "l",
           "buttons": [
             {
-              "text": "Get started\r",
+              "text": "Button\r",
               "theme": "action",
-              "url": "https://console.cloud.yandex.${tld}/"
+              "url": "https://example.com"
             },
             {
-              "text": "Contact us",
+              "text": "Buttom",
               "theme": "outlined",
-              "url": "/#contact-form"
+              "url": "https://example.com"
             }
           ]
         },
         {
-          "title": "Yandex Cloud Professionals partner program",
-          "description": "Sell Yandex Cloud services and get a monthly partner bonus ranging from 12% to 20% of your customers' spending on the services. Get grants to try out Yandex Cloud services or implement your customers' pilot projects.",
+          "title": "Lorem ipsum dolor sit amet",
+          "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident",
           "width": "s",
           "imageSize": "s",
           "verticalOffset": "m",
           "image": {
-            "src": "https://storage.cloud-preprod.yandex.net/cloud-www-assets/solutions/e-commerce/ecommerce-big.png"
+            "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png"
           },
           "buttons": [
             {
-              "text": "Get started\r",
+              "text": "Button\r",
               "theme": "action",
-              "url": "https://console.cloud.yandex.${tld}/"
+              "url": "https://example.com"
             },
             {
-              "text": "Contact us",
+              "text": "Buttom",
               "theme": "outlined",
-              "url": "/#contact-form"
+              "url": "https://example.com"
             }
           ]
         },
         {
-          "title": "Yandex Scale",
+          "title": "Lorem ipsum dolor sit amet",
           "overtitle": "September 23",
-          "description": "A major Yandex Cloud conference where business and technology speak the same language",
+          "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
           "width": "s",
           "background": {
-            "image": "https://storage.cloud-preprod.yandex.net/aeksandla-test/img-scale.png",
+            "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-white.png",
             "fullWidthMedia": true,
             "fullWidth": true,
             "disableCompress": true
           }
         },
         {
-          "title": "Yandex Scale",
+          "title": "Lorem ipsum dolor sit amet",
           "overtitle": "September 23",
-          "description": "A major Yandex Cloud conference where business and technology speak the same language",
+          "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
           "width": "s",
           "background": {
-            "url": "https://storage.cloud-preprod.yandex.net/aeksandla-test/img-scale.png",
+            "url": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-white.png",
             "fullWidthMedia": true,
             "fullWidth": true
           }

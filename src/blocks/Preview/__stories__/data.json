@@ -17,7 +17,7 @@
                 "src": ["https://youtu.be/bxZRUtMAlFI"],
                 "loop": true
               },
-              "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/constructor/video-preview.png"
+              "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png"
             },
             "dark": {
               "video": {
@@ -25,12 +25,12 @@
                 "src": ["https://youtu.be/bxZRUtMAlFI"],
                 "loop": true
               },
-              "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/constructor/video-preview.png"
+              "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png"
             }
           },
           "content": {
-            "title": "Managed Greenplum: Cloud Data Warehouse",
-            "description": "Learn about how we created a Data Warehouse in Yandex Cloud based on a new Managed Greenplum service."
+            "title": "Lorem ipsum dolor sit amet",
+            "description": "Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
           }
         },
         {
@@ -41,11 +41,11 @@
               "src": ["https://youtu.be/eR6XrldgrpM"],
               "loop": true
             },
-            "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/solutions/data-warehouse/greenplum-cover.png"
+            "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-white.png"
           },
           "content": {
-            "title": "Greenplum Community Meetup",
-            "description": "How to quickly get started with Greenplum and build a flexible and reliable corporate data warehouse."
+            "title": "Ut enim ad minim veniam",
+            "description": "Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
           }
         }
       ]

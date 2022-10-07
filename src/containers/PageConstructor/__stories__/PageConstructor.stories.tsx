@@ -2,7 +2,6 @@ import React from 'react';
 import {Meta, Story} from '@storybook/react/types-6-0';
 import {HeaderBlockModel} from '../../../models';
 import {PageConstructor} from '../PageConstructor';
-import yfm from '@doc-tools/transform';
 import {CONTAINERS} from '../../../demo/constants';
 
 import data from './data.json';
@@ -20,14 +19,7 @@ const WithBackgroundTemplate: Story<TemplateProps> = (args) => (
     <PageConstructor
         content={{
             blocks: args.items,
-            background: {
-                light: {
-                    image: 'https://storage.yandexcloud.net/cloud-www-assets/edu/bnr-compscience-new.png',
-                },
-                dark: {
-                    image: 'https://storage.yandexcloud.net/cloud-www-assets/edu/bnr-education-blue.png',
-                },
-            },
+            background: data.withTheme.background,
         }}
     />
 );
@@ -36,21 +28,8 @@ const WithFootnotesTemplate: Story<TemplateProps> = (args) => (
     <PageConstructor
         content={{
             blocks: args.items,
-            background: {
-                light: {
-                    image: 'https://storage.yandexcloud.net/cloud-www-assets/edu/bnr-compscience-new.png',
-                },
-                dark: {
-                    image: 'https://storage.yandexcloud.net/cloud-www-assets/edu/bnr-education-blue.png',
-                },
-            },
-            footnotes: [
-                yfm('ClickHouse is a trademark of ClickHouse, Inc. https://clickhouse.com').result
-                    .html,
-                yfm(
-                    'Apache® and Apache Kafka® are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries.',
-                ).result.html,
-            ],
+            background: data.withFootnotes.background,
+            footnotes: data.withFootnotes.footnotes,
         }}
     />
 );

@@ -2,63 +2,58 @@
   "backgroundColor": {
     "content": {
       "url": "#",
-      "title": "Security concept",
-      "text": "<p><strong>Yandex Cloud is a public cloud platform</strong> that <a href=\"https://ya.com\">provides</a> corporations, medium businesses, and individual developers with a scalable infrastructure, data storage services, and ML and development tools.</p> ",
-      "additionalInfo": "<p>Yandex Cloud was <a href=\"https://ya.com\">launched</a> in 2018 and has doubled in size since then. Both in total revenue and in terms of its customer base: more than 10 thousand companies now use our services every day.</p> ",
+      "title": "Lorem ipsumt",
+      "text": "<p><strong>Lorem ipsum dolor sit amet</strong> <a href=\"https://example.com\">consectetur adipiscing elit</a> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> ",
+      "additionalInfo": "<p>Lorem ipsum dolor sit amet <a href=\"https://example.com\">consectetur adipiscing elit</a> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> ",
       "paddingBottom": "s",
       "links": [
         {
-          "url": "/security",
-          "text": "Learn more",
+          "url": "#",
+          "text": "Link",
           "theme": "normal",
           "arrow": true
         }
       ],
       "buttons": [
         {
-          "text": "Get started\r",
+          "text": "Button\r",
           "theme": "action",
-          "url": "https://console.cloud.yandex.${tld}/"
+          "url": "https://example.com"
         },
         {
-          "text": "Contact us",
+          "text": "Button",
           "theme": "outlined",
-          "url": "/#contact-form"
+          "url": "#"
         }
       ],
-      "background": {
-        "src": "https://storage.cloud-preprod.yandex.net/berdysheva-test/bg_card_0001.png",
-        "alt": "Security concept",
-        "disableCompress": true
-      },
       "backgroundColor": "#7ccea0"
     }
   },
   "default": {
     "content": {
       "url": "#",
-      "title": "Security concept",
-      "text": "<p><strong>Yandex Cloud is a public cloud platform</strong> that <a href=\"https://ya.com\">provides</a> corporations, medium businesses, and individual developers with a scalable infrastructure, data storage services, and ML and development tools.</p> ",
-      "additionalInfo": "<p>Yandex Cloud was <a href=\"https://ya.com\">launched</a> in 2018 and has doubled in size since then. Both in total revenue and in terms of its customer base: more than 10 thousand companies now use our services every day.</p> ",
+      "title": "Lorem ipsumt",
+      "text": "<p><strong>Lorem ipsum dolor sit amet</strong> that <a href=\"https://example.com\">consectetur adipiscing elit</a> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> ",
+      "additionalInfo": "<p>Lorem ipsum dolor sit amet <a href=\"https://example.com\">consectetur adipiscing elit</a> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> ",
       "paddingBottom": "s",
       "links": [
         {
-          "url": "/security",
-          "text": "Learn more",
+          "url": "#",
+          "text": "Link",
           "theme": "normal",
           "arrow": true
         }
       ],
       "buttons": [
         {
-          "text": "Get started\r",
+          "text": "Button\r",
           "theme": "action",
-          "url": "https://console.cloud.yandex.${tld}/"
+          "url": "https://example.com"
         },
         {
-          "text": "Contact us",
+          "text": "Button",
           "theme": "outlined",
-          "url": "/#contact-form"
+          "url": "#"
         }
       ]
     }
@@ -66,33 +61,33 @@
   "withBackgroundImage": {
     "content": {
       "url": "#",
-      "title": "Security concept",
-      "text": "<p><strong>Yandex Cloud is a public cloud platform</strong> that <a href=\"https://ya.com\">provides</a> corporations, medium businesses, and individual developers with a scalable infrastructure, data storage services, and ML and development tools.</p> ",
-      "additionalInfo": "<p>Yandex Cloud was <a href=\"https://ya.com\">launched</a> in 2018 and has doubled in size since then. Both in total revenue and in terms of its customer base: more than 10 thousand companies now use our services every day.</p> ",
+      "title": "Lorem ipsumt",
+      "text": "<p><strong>Lorem ipsum dolor sit amet</strong> that <a href=\"https://example.com\">consectetur adipiscing elit</a> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> ",
+      "additionalInfo": "<p>Lorem ipsum dolor sit amet <a href=\"https://example.com\">consectetur adipiscing elit</a> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> ",
       "paddingBottom": "s",
       "links": [
         {
-          "url": "/security",
-          "text": "Learn more",
+          "url": "#",
+          "text": "Link",
           "theme": "normal",
           "arrow": true
         }
       ],
       "buttons": [
         {
-          "text": "Get started\r",
+          "text": "Button\r",
           "theme": "action",
-          "url": "https://console.cloud.yandex.${tld}/"
+          "url": "https://example.com"
         },
         {
-          "text": "Contact us",
+          "text": "Button",
           "theme": "outlined",
-          "url": "/#contact-form"
+          "url": "#"
         }
       ],
       "background": {
-        "src": "https://storage.cloud-preprod.yandex.net/berdysheva-test/bg_card_0001.png",
-        "alt": "Security concept",
+        "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
+        "alt": "Lorem ipsumt",
         "disableCompress": true
       }
     }
@@ -100,33 +95,33 @@
   "cardThemes": {
     "content": {
       "url": "#",
-      "title": "Security concept",
-      "text": "<p><strong>Yandex Cloud is a public cloud platform</strong> that <a href=\"https://ya.com\">provides</a> corporations, medium businesses, and individual developers with a scalable infrastructure, data storage services, and ML and development tools.</p> ",
-      "additionalInfo": "<p>Yandex Cloud was <a href=\"https://ya.com\">launched</a> in 2018 and has doubled in size since then. Both in total revenue and in terms of its customer base: more than 10 thousand companies now use our services every day.</p> ",
+      "title": "Lorem ipsumt",
+      "text": "<p><strong>Lorem ipsum dolor sit amet</strong> that <a href=\"https://example.com\">consectetur adipiscing elit</a> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> ",
+      "additionalInfo": "<p>Lorem ipsum dolor sit amet <a href=\"https://example.com\">consectetur adipiscing elit</a> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> ",
       "paddingBottom": "s",
       "links": [
         {
-          "url": "/security",
-          "text": "Learn more",
+          "url": "#",
+          "text": "Link",
           "theme": "normal",
           "arrow": true
         }
       ],
       "buttons": [
         {
-          "text": "Get started\r",
+          "text": "Button\r",
           "theme": "action",
-          "url": "https://console.cloud.yandex.${tld}/"
+          "url": "https://example.com"
         },
         {
-          "text": "Contact us",
+          "text": "Button",
           "theme": "outlined",
-          "url": "/#contact-form"
+          "url": "#"
         }
       ],
       "background": {
-        "src": "https://storage.cloud-preprod.yandex.net/berdysheva-test/bg_card_0002.png",
-        "alt": "Security concept",
+        "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
+        "alt": "Lorem ipsumt",
         "disableCompress": true
       }
     }
@@ -134,33 +129,33 @@
   "borderLine": {
     "content": {
       "url": "#",
-      "title": "Security concept",
-      "text": "<p><strong>Yandex Cloud is a public cloud platform</strong> that <a href=\"https://ya.com\">provides</a> corporations, medium businesses, and individual developers with a scalable infrastructure, data storage services, and ML and development tools.</p> ",
-      "additionalInfo": "<p>Yandex Cloud was <a href=\"https://ya.com\">launched</a> in 2018 and has doubled in size since then. Both in total revenue and in terms of its customer base: more than 10 thousand companies now use our services every day.</p> ",
+      "title": "Lorem ipsumt",
+      "text": "<p><strong>Lorem ipsum dolor sit amet</strong> that <a href=\"https://example.com\">consectetur adipiscing elit</a> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> ",
+      "additionalInfo": "<p>Lorem ipsum dolor sit amet <a href=\"https://example.com\">consectetur adipiscing elit</a> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> ",
       "paddingBottom": "s",
       "links": [
         {
-          "url": "/security",
-          "text": "Learn more",
+          "url": "#",
+          "text": "Link",
           "theme": "normal",
           "arrow": true
         }
       ],
       "buttons": [
         {
-          "text": "Get started\r",
+          "text": "Button\r",
           "theme": "action",
-          "url": "https://console.cloud.yandex.${tld}/"
+          "url": "https://example.com"
         },
         {
-          "text": "Contact us",
+          "text": "Button",
           "theme": "outlined",
-          "url": "/#contact-form"
+          "url": "#"
         }
       ],
       "background": {
-        "src": "https://storage.cloud-preprod.yandex.net/berdysheva-test/bg_card_0001.png",
-        "alt": "Security concept",
+        "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
+        "alt": "Lorem ipsumt",
         "disableCompress": true
       },
       "border": "line"
@@ -170,39 +165,39 @@
     "content": {
       "type": "background-card",
       "url": "#",
-      "title": "Security concept",
-      "text": "<p><strong>Yandex Cloud is a public cloud platform</strong> that <a href=\"https://ya.com\">provides</a> corporations, medium businesses, and individual developers with a scalable infrastructure, data storage services, and ML and development tools.</p> ",
-      "additionalInfo": "<p>Yandex Cloud was <a href=\"https://ya.com\">launched</a> in 2018 and has doubled in size since then. Both in total revenue and in terms of its customer base: more than 10 thousand companies now use our services every day.</p> ",
+      "title": "Lorem ipsumt",
+      "text": "<p><strong>Lorem ipsum dolor sit amet</strong> that <a href=\"https://example.com\">consectetur adipiscing elit</a> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> ",
+      "additionalInfo": "<p>Lorem ipsum dolor sit amet <a href=\"https://example.com\">consectetur adipiscing elit</a> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> ",
       "paddingBottom": "s",
       "links": [
         {
-          "url": "/security",
-          "text": "Learn more",
+          "url": "#",
+          "text": "Link",
           "theme": "normal",
           "arrow": true
         }
       ],
       "buttons": [
         {
-          "text": "Get started\r",
+          "text": "Button\r",
           "theme": "action",
-          "url": "https://console.cloud.yandex.${tld}/"
+          "url": "https://example.com"
         },
         {
-          "text": "Contact us",
+          "text": "Button",
           "theme": "outlined",
-          "url": "/#contact-form"
+          "url": "#"
         }
       ],
       "background": {
         "light": {
-          "src": "https://storage.cloud-preprod.yandex.net/berdysheva-test/bg_card_0001.png",
-          "alt": "Security concept",
+          "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
+          "alt": "Lorem ipsumt",
           "disableCompress": true
         },
         "dark": {
-          "src": "https://storage.cloud-preprod.yandex.net/berdysheva-test/bg_card_0002.png",
-          "alt": "Security concept",
+          "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-white.png",
+          "alt": "Lorem ipsumt",
           "disableCompress": true
         }
       }
@@ -211,33 +206,33 @@
   "paddings": {
     "content": {
       "url": "#",
-      "title": "Security concept",
-      "text": "<p><strong>Yandex Cloud is a public cloud platform</strong> that <a href=\"https://ya.com\">provides</a> corporations, medium businesses, and individual developers with a scalable infrastructure, data storage services, and ML and development tools.</p> ",
-      "additionalInfo": "<p>Yandex Cloud was <a href=\"https://ya.com\">launched</a> in 2018 and has doubled in size since then. Both in total revenue and in terms of its customer base: more than 10 thousand companies now use our services every day.</p> ",
+      "title": "Lorem ipsumt",
+      "text": "<p><strong>Lorem ipsum dolor sit amet</strong> that <a href=\"https://example.com\">consectetur adipiscing elit</a> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> ",
+      "additionalInfo": "<p>Lorem ipsum dolor sit amet <a href=\"https://example.com\">consectetur adipiscing elit</a> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> ",
       "paddingBottom": "s",
       "links": [
         {
-          "url": "/security",
-          "text": "Learn more",
+          "url": "#",
+          "text": "Link",
           "theme": "normal",
           "arrow": true
         }
       ],
       "buttons": [
         {
-          "text": "Get started\r",
+          "text": "Button\r",
           "theme": "action",
-          "url": "https://console.cloud.yandex.${tld}/"
+          "url": "https://example.com"
         },
         {
-          "text": "Contact us",
+          "text": "Button",
           "theme": "outlined",
-          "url": "/#contact-form"
+          "url": "#"
         }
       ],
       "background": {
-        "src": "https://storage.cloud-preprod.yandex.net/berdysheva-test/bg_card_0001.png",
-        "alt": "Security concept",
+        "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
+        "alt": "Lorem ipsumt",
         "disableCompress": true
       }
     }

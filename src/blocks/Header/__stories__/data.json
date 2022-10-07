@@ -8,19 +8,19 @@
       "theme": "dark",
       "verticalOffset": "m",
       "type": "header-block",
-      "title": "Yandex Cloud Professionals partner program",
-      "description": "<p>Marketplace is awailable now in Managed Service for Kubernetes<sup>®</sup> management console.</p>",
+      "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      "description": "<p> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>",
       "width": "s",
       "buttons": [
         {
-          "text": "Get started\r",
+          "text": "Button\r",
           "theme": "normal-contrast",
-          "url": "https://console.cloud.yandex.${tld}/"
+          "url": "https://example.com"
         },
         {
-          "text": "Contact us",
+          "text": "Button",
           "theme": "outlined-contrast",
-          "url": "/#contact-form"
+          "url": "https://example.com"
         }
       ]
     }
@@ -29,18 +29,18 @@
     "title": "Breadcumbs with {{theme}} theme",
     "content": {
       "background": {
-        "url": "https://storage.cloud-preprod.yandex.net/berdysheva-test/bg-2.png",
+        "url": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
         "color": "#E3EBFF",
         "fullWidth": false
       },
       "breadcrumbs": {
         "items": [
           {
-            "text": "Blog",
+            "text": "Lorem",
             "url": "#1"
           },
           {
-            "text": "Services",
+            "text": "Ipsum",
             "url": "#2"
           }
         ]
@@ -49,14 +49,14 @@
       "theme": "light",
       "verticalOffset": "m",
       "type": "header-block",
-      "title": "Yandex Cloud Professionals partner program",
-      "description": "<p>Sell Yandex Cloud services and get a monthly partner bonus ranging from 12% to 20% of your customers' spending on the services. Get grants to try out Yandex Cloud services or implement your customers' pilot projects.</p> ",
+      "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      "description": "<p> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p> ",
       "width": "s",
       "buttons": [
         {
-          "text": "Get started\r",
+          "text": "Button\r",
           "theme": "action",
-          "url": "https://console.cloud.yandex.${tld}/"
+          "url": "https://example.com"
         }
       ]
     }
@@ -66,27 +66,27 @@
     "content": {
       "image": {
         "light": {
-          "src": "https://storage.cloud-preprod.yandex.net/cloud-www-assets/solutions/e-commerce/ecommerce-big.png"
+          "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png"
         },
         "dark": {
-          "src": "https://storage.cloud-preprod.yandex.net/cloud-www-assets/solutions/e-commerce/retail-banner.png"
+          "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-black.png"
         }
       },
       "offset": "default",
       "theme": "light",
       "verticalOffset": "s",
       "type": "header-block",
-      "description": "Sell Yandex Cloud services and get a monthly partner bonus ranging from 12% to 20% of your customers' spending on the services. Get grants to try out Yandex Cloud services or implement your customers' pilot projects.",
+      "description": " Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
       "buttons": [
         {
-          "text": "Get started\r",
+          "text": "Button\r",
           "theme": "action",
-          "url": "https://console.cloud.yandex.${tld}/"
+          "url": "https://example.com"
         },
         {
-          "text": "Contact us",
+          "text": "Button",
           "theme": "outlined",
-          "url": "/#contact-form"
+          "url": "https://example.com"
         }
       ]
     }
@@ -97,14 +97,14 @@
       "theme": "light",
       "verticalOffset": "m",
       "type": "header-block",
-      "title": "Yandex Cloud Professionals partner program",
-      "description": "<p>Sell Yandex Cloud services and get a monthly partner bonus ranging from 12% to 20% of your customers' spending on the services. Get grants to try out Yandex Cloud services or implement your customers' pilot projects.</p> ",
+      "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      "description": "<p> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p> ",
       "width": "l",
       "buttons": [
         {
-          "text": "Get started\r",
+          "text": "Button\r",
           "theme": "action",
-          "url": "https://console.cloud.yandex.${tld}/"
+          "url": "https://example.com"
         }
       ]
     }
@@ -130,17 +130,17 @@
       "theme": "light",
       "verticalOffset": "xl",
       "type": "header-block",
-      "description": "Sell Yandex Cloud services and get a monthly partner bonus ranging from 12% to 20% of your customers' spending on the services. Get grants to try out Yandex Cloud services or implement your customers' pilot projects.",
+      "description": " Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
       "buttons": [
         {
-          "text": "Get started\r",
+          "text": "Button\r",
           "theme": "action",
-          "url": "https://console.cloud.yandex.${tld}/"
+          "url": "https://example.com"
         },
         {
-          "text": "Contact us",
+          "text": "Button",
           "theme": "outlined",
-          "url": "/#contact-form"
+          "url": "https://example.com"
         }
       ]
     }
@@ -150,27 +150,27 @@
     "content": {
       "image": {
         "light": {
-          "src": "https://storage.cloud-preprod.yandex.net/cloud-www-assets/solutions/e-commerce/ecommerce-big.png"
+          "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png"
         },
         "dark": {
-          "src": "https://storage.cloud-preprod.yandex.net/cloud-www-assets/solutions/e-commerce/retail-banner.png"
+          "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-black.png"
         }
       },
       "offset": "default",
       "theme": "light",
       "verticalOffset": "m",
       "type": "header-block",
-      "description": "Sell Yandex Cloud services and get a monthly partner bonus ranging from 12% to 20% of your customers' spending on the services. Get grants to try out Yandex Cloud services or implement your customers' pilot projects.",
+      "description": " Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
       "buttons": [
         {
-          "text": "Get started\r",
+          "text": "Button\r",
           "theme": "action",
-          "url": "https://console.cloud.yandex.${tld}/"
+          "url": "https://example.com"
         },
         {
-          "text": "Contact us",
+          "text": "Button",
           "theme": "outlined",
-          "url": "/#contact-form"
+          "url": "https://example.com"
         }
       ]
     }
@@ -181,11 +181,11 @@
     "content": {
       "background": {
         "light": {
-          "url": "https://storage.cloud-preprod.yandex.net/berdysheva-test/bg-2.png",
+          "url": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
           "color": "#E3EBFF"
         },
         "dark": {
-          "url": "https://storage.cloud-preprod.yandex.net/berdysheva-test/bg-1.png",
+          "url": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-black.png",
           "color": "#000"
         }
       },
@@ -193,18 +193,18 @@
       "theme": "light",
       "verticalOffset": "m",
       "type": "header-block",
-      "description": "<p>Sell Yandex Cloud services and get a monthly partner bonus ranging from 12% to 20% of your customers' spending on the services. Get grants to try out Yandex Cloud services or implement your customers' pilot projects.</p> ",
+      "description": "<p> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p> ",
       "width": "s",
       "buttons": [
         {
-          "text": "Get started\r",
+          "text": "Button\r",
           "theme": "action",
-          "url": "https://console.cloud.yandex.${tld}/"
+          "url": "https://example.com"
         },
         {
-          "text": "Contact us",
+          "text": "Button",
           "theme": "outlined",
-          "url": "/#contact-form"
+          "url": "https://example.com"
         }
       ]
     }
@@ -216,17 +216,17 @@
       "theme": "light",
       "verticalOffset": "m",
       "type": "header-block",
-      "description": "<p>Sell Yandex Cloud services and get a monthly partner bonus ranging from 12% to 20% of your customers' spending on the services. Get grants to try out Yandex Cloud services or implement your customers' pilot projects.</p> ",
+      "description": "<p> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p> ",
       "buttons": [
         {
-          "text": "Get started\r",
+          "text": "Button\r",
           "theme": "action",
-          "url": "https://console.cloud.yandex.${tld}/"
+          "url": "https://example.com"
         },
         {
-          "text": "Contact us",
+          "text": "Button",
           "theme": "outlined",
-          "url": "/#contact-form"
+          "url": "https://example.com"
         }
       ]
     }

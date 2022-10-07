@@ -16,8 +16,8 @@
   },
   "youtube": {
     "content": {
-      "youtube": "https://www.youtube.com/watch?v=FHUnirudntU&list=PL1x4ET76A10awoGRia_EmYnEU_RPmRsRz&index=5A",
-      "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/solutions/e-commerce/retail-video.png"
+      "youtube": "https://youtu.be/bxZRUtMAlFI",
+      "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/constructor/video-preview.png"
     }
   },
   "dataLens": {
@@ -28,16 +28,16 @@
   "imageSlider": {
     "content": {
       "image": [
-        "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/console-main_2x.png",
-        "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/console-datalens-2x.png",
-        "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/console-monitoring-2x.png"
+        "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
+        "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-white.png",
+        "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-black.png"
       ]
     }
   },
   "image": {
     "content": {
       "image": {
-        "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/calc.png",
+        "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
         "alt": "Picture",
         "disableCompress": true
       }

@@ -17,16 +17,16 @@ const SizesTemplate: Story<BackLinkProps> = (args) => (
     <Row>
         <Col>{args.theme}</Col>
         <Col>
-            <BackLink {...args} size="s" title="Размер s" />
+            <BackLink {...args} size="s" title="Size s" />
         </Col>
         <Col>
-            <BackLink {...args} size="m" title="Размер m" />
+            <BackLink {...args} size="m" title="Size m" />
         </Col>
         <Col>
-            <BackLink {...args} size="l" title="Размер l" />
+            <BackLink {...args} size="l" title="Size l" />
         </Col>
         <Col>
-            <BackLink {...args} size="xl" title="Размер xl" />
+            <BackLink {...args} size="xl" title="Size xl" />
         </Col>
     </Row>
 );

@@ -2,10 +2,10 @@
   "default": {
     "content": {
       "author": {
-        "firstName": "Oleg",
-        "secondName": "Koverznev",
-        "description": "Joined Yandex in July 2017. Leads the team that is responsible for the Yandex Cloud business development strategy and customer and partner relations.",
-        "avatar": "https://storage.cloud-preprod.yandex.net/cloud-www-assets/blog-assets/ru/posts/2022/oleg.png"
+        "firstName": "Oval",
+        "secondName": "Ovalny",
+        "description": "Geometry Lead",
+        "avatar": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png"
       },
       "type": "line"
     }
@@ -13,10 +13,10 @@
   "textUnderImage": {
     "content": {
       "author": {
-        "firstName": "Oleg",
-        "secondName": "Koverznev",
-        "description": "Joined Yandex in July 2017. Leads the team that is responsible for the Yandex Cloud business development strategy and customer and partner relations.",
-        "avatar": "https://storage.cloud-preprod.yandex.net/cloud-www-assets/blog-assets/ru/posts/2022/oleg.png"
+        "firstName": "Oval",
+        "secondName": "Ovalny",
+        "description": "Geometry Lead",
+        "avatar": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png"
       },
       "type": "column"
     }
@@ -24,10 +24,10 @@
   "noWebpInAvatar": {
     "content": {
       "author": {
-        "firstName": "Oleg",
-        "secondName": "Koverznev",
-        "description": "Joined Yandex in July 2017. Leads the team that is responsible for the Yandex Cloud business development strategy and customer and partner relations.",
-        "avatar": "https://storage.cloud-preprod.yandex.net/cloud-www-community-images/oleg.png"
+        "firstName": "Oval",
+        "secondName": "Ovalny",
+        "description": "Geometry Lead",
+        "avatar": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png"
       },
       "type": "line"
     }

@@ -3,9 +3,9 @@
     "content": {
       "type": "simple-block",
       "title": {
-        "text": "Watch webinar"
+        "text": "Lorem ipsum"
       },
-      "description": "<p>Yandex Cloud was <a href=\"https://ya.com\">launched</a> in 2018 and has doubled in size since then. Both in total revenue and in terms of its customer base: more than 10 thousand companies now use our services every day.</p> ",
+      "description": "<p>Lorem ipsum <a href=\"https://example.com\"> dolor sit amet</a> consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> ",
       "children": [
         {
           "type": "media-card",
