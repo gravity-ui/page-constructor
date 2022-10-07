@@ -1,5 +1,10 @@
 # Лог изменений
 
+## 0.6.0
+
+- Change packages @yandex-cloud => @gravity-ui
+- Remove i18n from peer dependencies
+
 ## 0.5.10
 
 - fix yfm styles for table
