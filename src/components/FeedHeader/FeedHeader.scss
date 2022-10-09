@@ -1,7 +1,9 @@
 @import '../../../styles/mixins.scss';
 @import '../../../styles/variables.scss';
 
-.FeedHeader {
+$block: '.#{$ns}feed-header';
+
+#{$block} {
     $root: &;
 
     margin-top: $indentXS;

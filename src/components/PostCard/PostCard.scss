@@ -1,7 +1,9 @@
 @import '../../../styles/mixins';
 @import '../../../styles/variables';
 
-.BlogPostCard {
+$block: '.#{$ns}blog-post-card';
+
+#{$block} {
     $root: &;
 
     $indentXXXXS: 4px;

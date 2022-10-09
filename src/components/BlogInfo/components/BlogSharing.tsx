@@ -1,13 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React from 'react';
+import React, {useContext} from 'react';
 import block from 'bem-cn-lite';
 
 // TODO refactor in https://st.yandex-team.ru/ORION-1444
 
 import {ShareTooltip, ShareSocialNetwork} from '@yandex-cloud/uikit';
 
-import {useRouterContext} from '../../../hooks/contexts/useRouterContext';
-import {useMobileContext} from '../../../hooks/contexts/useMobileContext';
+import {MobileContext} from '../../../contexts/MobileContext';
+import {RouterContext} from '../../../contexts/RouterContext';
 
 import {i18, BlogKeyset} from '../../../i18n';
 
@@ -31,8 +31,8 @@ type BlogSharingProps = {
 };
 
 export const BlogSharing: React.FC<BlogSharingProps> = ({theme, metrikaGoal}) => {
-    const router = useRouterContext();
-    const isMobile = useMobileContext();
+    const router = useContext(RouterContext);
+    const isMobile = useContext(MobileContext);
 
     const handleMetrika = () => {
         metrika.reachGoal(MetrikaCounter.CrossSite, metrikaGoal);

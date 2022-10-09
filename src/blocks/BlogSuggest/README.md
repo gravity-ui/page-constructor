@@ -1,3 +1,3 @@
-Блок "Рекомендованные блоги"
+Block "Suggested posts"
 
 `TODO`

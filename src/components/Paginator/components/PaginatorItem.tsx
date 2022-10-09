@@ -1,13 +1,14 @@
 import React from 'react';
-import block from 'bem-cn-lite';
 
 import {Button} from '@yandex-cloud/uikit';
 
 import {ArrowType, PaginatorItemProps} from '../types';
 
+import {block} from '../../../utils/cn';
+
 import '../Paginator.scss';
 
-const b = block('Paginator');
+const b = block('paginator');
 
 export const PaginatorItem = ({
     dataKey,
@@ -16,14 +17,14 @@ export const PaginatorItem = ({
     onClick,
     loading = false,
 }: PaginatorItemProps) => {
-    const tKey = Number(dataKey) > 0 ? Number(dataKey) : (dataKey as ArrowType);
+    const itemKey = Number(dataKey) > 0 ? Number(dataKey) : (dataKey as ArrowType);
 
     return (
         <Button
             view="flat"
             size="xl"
             className={b('item', mods)}
-            onClick={() => onClick?.(tKey)}
+            onClick={() => onClick?.(itemKey)}
             loading={loading && Boolean(mods.active)}
         >
             {content}

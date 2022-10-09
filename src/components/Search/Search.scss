@@ -1,7 +1,9 @@
 @import '../../../styles/mixins.scss';
 @import '../../../styles/variables.scss';
 
-.Search {
+$block: '.#{$ns}search';
+
+#{$block} {
     $root: &;
     $searchHeight: 44px;
     $searchWidth: 376px;

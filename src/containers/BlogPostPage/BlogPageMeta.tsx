@@ -1,9 +1,9 @@
-import React from 'react';
+import React, {useContext} from 'react';
 
 import Meta, {MetaComponentProps} from '../../components/Meta/Meta';
 
-import {useLocaleContext} from '../../hooks/contexts/useLocaleContext';
-import {useRouterContext} from '../../hooks/contexts/useRouterContext';
+import {LocaleContext} from '../../contexts/LocaleContext';
+import {RouterContext} from '../../contexts/RouterContext';
 
 import {i18, BlogKeyset} from '../../i18n';
 
@@ -43,8 +43,8 @@ export const BlogPageMeta: React.FC<BlogPostMetaProps> = React.memo(
         canonicalUrl,
         sharing,
     }) => {
-        const {pathname} = useRouterContext();
-        const {locale} = useLocaleContext();
+        const {pathname} = useContext(RouterContext);
+        const {locale} = useContext(LocaleContext);
 
         const {shareTitle, shareDescription, shareImage, shareGenImage, shareGenTitle} = sharing;
 

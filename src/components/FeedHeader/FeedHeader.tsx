@@ -1,18 +1,23 @@
 import React from 'react';
-import block from 'bem-cn-lite';
 
 import {ClassNameProps} from '@yandex-data-ui/cloud-components';
 
-import {BackgroundImage, Grid, getThemedValue} from '@yandex-data-ui/page-constructor';
+import {
+    BackgroundImage,
+    Grid,
+    getThemedValue,
+    FullWidthBackground,
+} from '@yandex-data-ui/page-constructor';
 
 import {HeaderBlockProps} from '../../models/blog';
 
-import FullWidthBackground from '../FullWidthBackground/FullWidthBackground';
 import {Controls, ControlsProps} from './components/Controls/Controls';
+
+import {block} from '../../utils/cn';
 
 import './FeedHeader.scss';
 
-const b = block('FeedHeader');
+const b = block('feed-header');
 
 type HeaderProps = Pick<HeaderBlockProps, 'background' | 'offset' | 'theme' | 'verticalOffset'>;
 

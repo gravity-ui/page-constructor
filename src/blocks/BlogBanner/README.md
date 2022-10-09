@@ -1,3 +1,3 @@
-Блок "Баннер"
+Block "Banner"
 
 `TODO`

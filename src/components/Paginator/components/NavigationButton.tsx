@@ -1,13 +1,14 @@
 import React from 'react';
-import block from 'bem-cn-lite';
 
 import {ArrowType} from '../types';
 
 import {i18, BlogKeyset} from '../../../i18n';
 
+import {block} from '../../../utils/cn';
+
 import '../Paginator.scss';
 
-const b = block('Paginator');
+const b = block('paginator');
 
 export type NavigationButtonProps = {
     arrowType: ArrowType;

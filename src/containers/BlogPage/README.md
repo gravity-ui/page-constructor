@@ -1,3 +1,3 @@
-Страница поста блога
+Blog post page
 
 `TODO`

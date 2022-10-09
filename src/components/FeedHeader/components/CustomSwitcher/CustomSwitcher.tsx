@@ -1,9 +1,10 @@
-import React, {ReactNode} from 'react';
-import block from 'bem-cn-lite';
+import React, {ReactNode, useMemo} from 'react';
 
 import {Icon} from '@yandex-cloud/uikit';
 
 import {DropdownArrow} from '../../../../icons/DropdownArrow';
+
+import {block} from '../../../../utils/cn';
 
 import './CustomSwitcher.scss';
 
@@ -44,13 +45,16 @@ const CustomSwitcherView = ({items = []}: CustomSwitcherViewProps) => {
 };
 
 export const CustomSwitcher = ({initial, defaultLabel, list}: CustomSwitcherProps) => {
-    if (initial && typeof initial === 'string') {
-        const itemValues = initial.split(',');
-        const itemNames = list
-            .filter((item) => itemValues.includes(item.value))
-            .map((item) => item.title);
+    const isInitialString = typeof initial === 'string';
 
-        return <CustomSwitcherView items={itemNames} />;
+    const itemsNames = useMemo(() => {
+        const itemValues = isInitialString ? initial?.split(',') : [];
+
+        return list.filter((item) => itemValues.includes(item.value)).map((item) => item.title);
+    }, [initial, isInitialString, list]);
+
+    if (initial && isInitialString) {
+        return <CustomSwitcherView items={itemsNames} />;
     }
 
     return <CustomSwitcherView items={[defaultLabel]} />;

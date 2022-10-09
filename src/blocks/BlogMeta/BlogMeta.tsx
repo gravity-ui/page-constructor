@@ -1,8 +1,8 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import block from 'bem-cn-lite';
 import {HeaderBreadcrumbs, TextTheme, YFMWrapper} from '@yandex-data-ui/page-constructor';
 
-import {useBlogPageContext} from '../../hooks/contexts/useBlogPageContext';
+import {BlogPageContext} from '../../contexts/BlogPageContext';
 
 import {BlogWrapper, PaddingSize} from '../../components/BlogWrapper/BlogWrapper';
 import {BlogInfo, BlogMetrikaGoals} from '../../components/BlogInfo/BlogInfo';
@@ -37,7 +37,7 @@ const breadcrumbsGoals = [
 
 export const MetaBlock: React.FC<MetaBlockFullProps> = (props) => {
     const {paddingTop = 'l', paddingBottom = 'l', theme = 'light'} = props;
-    const {post} = useBlogPageContext();
+    const {post} = useContext(BlogPageContext);
 
     const {title, id, date, readingTime, tags} = post;
 

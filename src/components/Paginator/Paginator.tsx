@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import block from 'bem-cn-lite';
 
 import {BlogMetrikaGoalIds} from '../../constants';
 
@@ -9,12 +8,14 @@ import {MetrikaCounter} from '../../counters/utils';
 import {getPageConfigs, getPagesCount} from './utils';
 import {ArrowType, PaginatorItemProps, PaginatorProps} from './types';
 
+import {block} from '../../utils/cn';
+
 import {NavigationButton} from './components/NavigationButton';
 import {PaginatorItem} from './components/PaginatorItem';
 
 import './Paginator.scss';
 
-const b = block('Paginator');
+const b = block('paginator');
 
 export const Paginator = ({
     itemsPerPage,

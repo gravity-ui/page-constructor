@@ -1,7 +1,9 @@
 @import '../../../styles/mixins.scss';
 @import '../../../styles/variables.scss';
 
-.PostError {
+$block: '.#{$ns}posts-error';
+
+#{$block} {
     $root: &;
 
     &__container {

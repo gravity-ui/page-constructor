@@ -1,5 +1,4 @@
 import React, {MouseEvent} from 'react';
-import block from 'bem-cn-lite';
 
 import {CardLayoutBlock} from '@yandex-data-ui/page-constructor';
 import {Button} from '@yandex-cloud/uikit';
@@ -12,9 +11,11 @@ import {Paginator} from '../Paginator/Paginator';
 import {PostCard} from '../PostCard/PostCard';
 import {PostsEmpty} from '../PostsEmpty/PostsEmpty';
 
+import {block} from '../../utils/cn';
+
 import './Posts.scss';
 
-const b = block('Posts');
+const b = block('posts');
 
 type PostCardProps = {
     containerId: string;

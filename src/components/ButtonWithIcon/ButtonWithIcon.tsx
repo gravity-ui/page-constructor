@@ -1,12 +1,13 @@
 import React from 'react';
-import block from 'bem-cn-lite';
 import {Icon} from '@yandex-cloud/uikit';
 import {ClassNameProps} from '@yandex-data-ui/cloud-components';
 import {SVGIconData} from '@yandex-cloud/uikit/build/esm/components/Icon/types';
 
+import {block} from '../../utils/cn';
+
 import './ButtonWithIcon.scss';
 
-const b = block('ButtonWithIcon');
+const b = block('button-with-icon');
 
 export interface ButtonWithIconProps extends ClassNameProps {
     icon: SVGIconData;

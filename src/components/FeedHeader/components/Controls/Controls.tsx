@@ -1,5 +1,4 @@
-import React, {ReactNode, useState} from 'react';
-import block from 'bem-cn-lite';
+import React, {ReactNode, useState, useContext} from 'react';
 
 import {Icon, Button} from '@yandex-cloud/uikit';
 import {YCSelect} from '@yandex-data-ui/common';
@@ -8,7 +7,7 @@ import {Search} from '../../../Search/Search';
 
 import {CustomSwitcher} from '../CustomSwitcher/CustomSwitcher';
 
-import {useLikesContext} from '../../../../hooks/contexts/useLikesContext';
+import {LikesContext} from '../../../../contexts/LikesContext';
 
 import {BlogMetrikaGoalIds} from '../../../../constants';
 import metrika from '../../../../counters/metrika.js';
@@ -17,6 +16,8 @@ import {MetrikaCounter} from '../../../../counters/utils';
 import {Save} from '../../../../icons/Save';
 
 import {i18, BlogKeyset} from '../../../../i18n';
+
+import {block} from '../../../../utils/cn';
 
 import {HandleChangeQueryParams, SetQueryType} from '../../../../models/blog';
 import {Query} from '../../../../models/common';
@@ -50,7 +51,7 @@ export const Controls: React.FC<ControlsProps> = ({
     queryParams,
     setQuery: setQueryCallback,
 }) => {
-    const {hasLikes} = useLikesContext();
+    const {hasLikes} = useContext(LikesContext);
 
     const {
         savedOnly: savedOnlyInitial,

@@ -1,7 +1,9 @@
 @import '../../../styles/mixins.scss';
 @import '../../../styles/variables.scss';
 
-.Posts {
+$block: '.#{$ns}posts';
+
+#{$block} {
     $root: &;
 
     &__cards-container,

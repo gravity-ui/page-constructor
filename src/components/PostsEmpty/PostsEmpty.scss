@@ -1,7 +1,9 @@
 @import '../../../styles/mixins.scss';
 @import '../../../styles/variables.scss';
 
-.PostsEmpty {
+$block: '.#{$ns}posts-empty';
+
+#{$block} {
     $root: &;
 
     &__container {

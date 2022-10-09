@@ -1,13 +1,14 @@
 import React from 'react';
-import block from 'bem-cn-lite';
 
 import {Button} from '@yandex-cloud/uikit';
 
 import {i18, BlogKeyset} from '../../i18n';
 
+import {block} from '../../utils/cn';
+
 import './PostError.scss';
 
-const b = block('PostError');
+const b = block('posts-error');
 
 type PostsErrorContainerProps = {
     onButtonClick?: () => void;

@@ -1,11 +1,12 @@
 import React from 'react';
-import block from 'bem-cn-lite';
+
+import {block} from '../../utils/cn';
 
 import './PostsEmpty.scss';
 
 import {i18, BlogKeyset} from '../../i18n';
 
-const b = block('PostsEmpty');
+const b = block('posts-empty');
 
 export const PostsEmpty: React.FC = () => (
     <div className={b('container')}>

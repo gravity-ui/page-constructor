@@ -1,3 +1,3 @@
-Блок "Цветной текст"
+Block "Colored text"
 
 `TODO`

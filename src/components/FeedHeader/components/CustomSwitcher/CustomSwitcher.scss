@@ -1,7 +1,9 @@
 @import '../../../../../styles/mixins.scss';
 @import '../../../../../styles/variables.scss';
 
-.blog-feed-custom-switcher {
+$block: '.#{$ns}blog-feed-custom-switcher';
+
+#{$block} {
     $root: &;
 
     $controlsBorderRadius: 10px;

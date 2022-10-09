@@ -1,5 +1,4 @@
 import React, {useRef, useCallback, useEffect, useState} from 'react';
-import block from 'bem-cn-lite';
 import _ from 'lodash';
 import {TextInput} from '@yandex-cloud/uikit';
 import {ClassNameProps} from '@yandex-data-ui/cloud-components';
@@ -13,9 +12,11 @@ import {SearchIcon} from '../../icons/SearchIcon';
 
 import {i18, BlogKeyset} from '../../i18n';
 
+import {block} from '../../utils/cn';
+
 import './Search.scss';
 
-const b = block('Search');
+const b = block('search');
 
 export type SearchSize = 's' | 'm';
 

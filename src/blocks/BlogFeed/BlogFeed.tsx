@@ -1,8 +1,8 @@
+import React, {useEffect, useCallback, useReducer, useMemo, useContext} from 'react';
 import {Icon} from '@yandex-cloud/uikit';
-import React, {useEffect, useCallback, useReducer} from 'react';
 
-import {useBlogFeedContext} from '../../hooks/contexts/useBlogFeedContext';
-import {useRouterContext} from '../../hooks/contexts/useRouterContext';
+import {BlogFeedContext} from '../../contexts/BlogFeedContext';
+import {RouterContext} from '../../contexts/RouterContext';
 
 import {DEFAULT_PAGE, DEFAULT_BLOG_ROWS_PER_PAGE} from '../constants';
 
@@ -29,8 +29,8 @@ const containerId = 'blog-cards';
 
 export const BlogFeed: React.FC<BlogFeedProps> = ({image}) => {
     const {posts, totalCount, tags, services, pinnedPost, getBlogPosts, setQuery} =
-        useBlogFeedContext();
-    const router = useRouterContext();
+        useContext(BlogFeedContext);
+    const router = useContext(RouterContext);
 
     const [
         {
@@ -158,16 +158,24 @@ export const BlogFeed: React.FC<BlogFeedProps> = ({image}) => {
         });
     }, [currentPage, lastLoadedCount, perPageInQuery, postCountOnPage]);
 
-    const serviceItems = services?.map((service) => ({
-        title: service.name,
-        value: `${service.id}`,
-    }));
+    const serviceItems = useMemo(
+        () =>
+            services?.map((service) => ({
+                title: service.name,
+                value: `${service.id}`,
+            })),
+        [services],
+    );
 
-    const tagItems = tags?.map((tag) => ({
-        title: tag.name,
-        value: tag.slug,
-        icon: tag.icon && <Icon data={tag.icon} />,
-    }));
+    const tagItems = useMemo(
+        () =>
+            tags?.map((tag) => ({
+                title: tag.name,
+                value: tag.slug,
+                icon: tag.icon && <Icon data={tag.icon} />,
+            })),
+        [tags],
+    );
 
     return (
         <div>

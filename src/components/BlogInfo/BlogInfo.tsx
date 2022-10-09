@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import block from 'bem-cn-lite';
 
-import {useBlogPageContext} from '../../hooks/contexts/useBlogPageContext';
+import {BlogPageContext} from '../../contexts/BlogPageContext';
 
 import {BlogPostData} from '../../models/blog';
 
@@ -48,7 +48,7 @@ export const BlogInfo: React.FC<BlogInfoProps> = ({
     metrikaGoals,
     dataQa,
 }) => {
-    const {likes} = useBlogPageContext();
+    const {likes} = useContext(BlogPageContext);
 
     return (
         <div className={b('container', {theme})}>

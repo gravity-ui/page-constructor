@@ -1,7 +1,11 @@
 @import '../../../styles/mixins.scss';
 @import '../../../styles/variables.scss';
 
-.Paginator {
+$block: '.#{$ns}paginator';
+
+$itemDimensions: 44px;
+
+#{$block} {
     $block: &;
 
     @include reset-list-style();
@@ -16,8 +20,8 @@
         align-items: center;
         justify-content: center;
 
-        min-width: 44px;
-        min-height: 44px;
+        min-width: $itemDimensions;
+        min-height: $itemDimensions;
         margin-left: 4px;
 
         padding: 12px 0px;
@@ -27,11 +31,12 @@
 
         &_type {
             &_page {
-                width: 44px;
-                height: 44px;
+                --bc-border-radius: 10px;
+                width: $itemDimensions;
+                height: $itemDimensions;
 
                 cursor: pointer;
-                border-radius: 10px;
+                border-radius: $borderRadius;
 
                 &:hover {
                     background: var(--yc-color-base-simple-hover);
