@@ -1,4 +1,4 @@
-import React, {ReactNode, useState, useContext} from 'react';
+import React, {ReactNode, useState, useContext, useMemo} from 'react';
 
 import {Icon, Button} from '@yandex-cloud/uikit';
 import {YCSelect} from '@yandex-data-ui/common';
@@ -151,6 +151,16 @@ export const Controls: React.FC<ControlsProps> = ({
         <CustomSwitcher initial={tagInitial} defaultLabel={i18(BlogKeyset.AllTags)} list={tags} />
     );
 
+    const tagsItems = useMemo(
+        () => [{value: 'empty', title: i18(BlogKeyset.AllTags)}, ...tags],
+        [tags],
+    );
+
+    const servicesItems = useMemo(
+        () => (servicesInitial ? [...(servicesInitial as string).split(',')] : []),
+        [servicesInitial],
+    );
+
     return (
         <div className={b('header')}>
             <h1 className={b('header-item', {title: true})}>{i18(BlogKeyset.TitleBlog)}</h1>
@@ -170,7 +180,7 @@ export const Controls: React.FC<ControlsProps> = ({
                         showSearch={false}
                         showItemIcon={true}
                         placeholder={i18(BlogKeyset.AllTags)}
-                        items={[{value: 'empty', title: i18(BlogKeyset.AllTags)}, ...tags]}
+                        items={tagsItems}
                         size="promo"
                         value={tagInitial as string}
                         onUpdate={handleTagSelect}
@@ -185,9 +195,7 @@ export const Controls: React.FC<ControlsProps> = ({
                             popupClassName={b('popup')}
                             items={services}
                             type="multiple"
-                            value={
-                                servicesInitial ? [...(servicesInitial as string).split(',')] : []
-                            }
+                            value={servicesItems}
                             size="promo"
                             renderSwitcher={renderServicesSwitcher}
                             showSelectAll={true}
