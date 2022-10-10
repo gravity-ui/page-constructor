@@ -1,26 +1,26 @@
 `type: "hubspot-form"`
 
-`className?: строка` - класс для обертки формы
+`className?: string` — Form wrap class
 
-`theme?: строка`
+`theme?: string`
 
 `isMobile?: true | false`
 
-`region?: строка`
+`region?: string`
 
-`portalId: строка`
+`portalId: string`
 
-`formId: строка`
+`formId: string`
 
-`formInstanceId?: строка` - уникальный идентификатор в пределах одной страницы, чтобы одна и та же форма работала на одной странице несколько раз
+`formInstanceId?: string` — Unique ID within a page to make the same form run on the same page multiple times.
 
-`formClassName?: строка` - класс для формы
+`formClassName?: string` — Form class
 
-`pixelEvents: PixelEvent[]` - Цели для facebook pixel
+`pixelEvents: PixelEvent[]` — Goals for Facebook pixel
 
-`hubspotEvents: строка[]` - Массив событий для hubspot метрики
+`hubspotEvents: string[]` — An array of Yandex Metrica hubspot events
 
-[Глобальные события форм: ](https://legacydocs.hubspot.com/global-form-events)
+[Form global events:](https://legacydocs.hubspot.com/global-form-events)
 
 `onBeforeLoadForNonIFrameForm?` - onBeforeFormInit
 

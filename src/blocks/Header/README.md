@@ -1,20 +1,20 @@
-Блок "Заголовок"
+Header block
 
-На странице может быть только один такой блок.
+A page may only have one Header block.
 
 `type: 'header-block'`
 
-`title: текст` - Заголовок;
+`title: text` — Title.
 
-`description?: текст` - Подзаголовок;
+`description?: text` — Subtitle.
 
-`width?: 's' | 'm' | 'l'` - ширина текста заголовка;
+`width?: 's' | 'm' | 'l'` — Title text width.
 
-`buttons?: button[]` - список блоков типа Кнопка;
+`buttons?: button[]` — List of Button blocks.
 
-`offset?: 'default' | 'large'` - отступы сверху и снизу;
+`offset?: 'default' | 'large'` — Top and bottom margins.
 
-`image?: string | {src: string; alt?: string;}` - картинка рядом с текстом
+`image?: string | {src: string; alt?: string;}` — Image next to text.
 
 `video?:`
 
@@ -25,14 +25,14 @@
 
 `backLink?: 'url' | 'title'`
 
-`imageSize?: 's' | 'm'` - размеры картинки
+`imageSize?: 's' | 'm'` — Image size.
 
 `background?:`
 
-- `fullWidth: true | false` - ширина фона на всю ширину экрана или по размеру колонки
-- `color: строка` - цвет фона
-- `url?: строка` - картинка фона
+- `fullWidth: true | false` — Background width: to the entire screen width or as per column size.
+- `color: string` — Background color
+- `url?: string` — Background image
 
-`theme?: default | dark` - определяет цвет текста (чёрный по умолчанию, белый для темного фона)
+`theme?: default | dark` — Sets the text color (black by default, white for the dark background).
 
-`verticalOffset?: 's' | 'm' | 'l' | 'xl'` - отступы сверху и снизу от текста. (Значения: 's' - 48px, 'm' - 80px, 'l' - 112px, 'xl' - 144px.)
+`verticalOffset?: 's' | 'm' | 'l' | 'xl'` — Top and bottom offsets from the text. (Values: 's' - 48px, 'm' - 80px, 'l' - 112px, 'xl' - 144px.)

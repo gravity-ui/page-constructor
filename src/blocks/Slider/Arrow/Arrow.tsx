@@ -16,12 +16,7 @@ export interface ArrowProps {
     size?: number;
 }
 
-const Arrow: React.FunctionComponent<ArrowProps & ClassNameProps> = ({
-    type,
-    handleClick,
-    className,
-    size = 16,
-}) => (
+const Arrow = ({type, handleClick, className, size = 16}: ArrowProps & ClassNameProps) => (
     <div className={b({type}, className)} onClick={() => handleClick && handleClick(type)}>
         <button className={b('button')}>
             <div className={b('icon-wrapper')}>

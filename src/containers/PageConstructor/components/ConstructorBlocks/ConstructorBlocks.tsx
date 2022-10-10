@@ -13,7 +13,7 @@ interface ConstructorBlocksProps {
     shouldRenderBlock?: ShouldRenderBlock;
 }
 
-export const ConstructorBlocks: React.FC<ConstructorBlocksProps> = ({items, shouldRenderBlock}) => {
+export const ConstructorBlocks = ({items, shouldRenderBlock}: ConstructorBlocksProps) => {
     const {blockTypes, loadables, itemMap} = useContext(InnerContext);
 
     const renderer = (item: ConstructorItemType, index: number): ReactElement | null => {

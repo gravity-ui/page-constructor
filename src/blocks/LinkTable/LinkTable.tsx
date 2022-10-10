@@ -10,12 +10,7 @@ import './LinkTable.scss';
 
 const b = block('LinkTable');
 
-const LinkTable: React.FC<LinkTableBlockProps> = ({
-    items,
-    title,
-    description,
-    linkTheme = 'normal',
-}) => {
+const LinkTable = ({items, title, description, linkTheme = 'normal'}: LinkTableBlockProps) => {
     return (
         <div className={b()}>
             <BlockHeader title={title} description={description} className={b('block-title')} />

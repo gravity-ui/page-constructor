@@ -20,7 +20,7 @@ const breakpointColumns = {
     [BREAKPOINTS.sm]: 1,
 };
 
-export default function PromoFeaturesBlock(props: PromoFeaturesProps) {
+const PromoFeaturesBlock = (props: PromoFeaturesProps) => {
     const {items, title, description, theme, animated = true} = props;
     const backgroundTheme = theme || 'default';
 
@@ -58,4 +58,6 @@ export default function PromoFeaturesBlock(props: PromoFeaturesProps) {
             </BalancedMasonry>
         </AnimateBlock>
     );
-}
+};
+
+export default PromoFeaturesBlock;

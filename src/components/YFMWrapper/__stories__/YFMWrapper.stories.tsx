@@ -1,10 +1,11 @@
 import {Meta, Story} from '@storybook/react/types-6-0';
 import React from 'react';
 import {ClassNameProps} from '../../../models';
-import yfm from '@doc-tools/transform';
 
 import YFMWrapper, {YFMWrapperProps} from '../YFMWrapper';
 import {COMPONENTS} from '../../../demo/constants';
+
+import data from './data.json';
 
 export default {
     component: YFMWrapper,
@@ -15,10 +16,4 @@ const DefaultTemplate: Story<YFMWrapperProps & ClassNameProps> = (args) => <YFMW
 
 export const Default = DefaultTemplate.bind({});
 
-Default.args = {
-    className: '',
-    content: yfm(
-        '**Yandex.Cloud — публичная облачная платформа**, которая [предоставляет](https://ya.com) корпорациям, среднему бизнесу и частным разработчикам масштабируемую инфраструктуру, сервисы хранения данных, инструменты машинного обучения и средства разработки. С этими технологиями, проверенными временем и опытом Яндекса, каждый может создавать и непрерывно совершенствовать собственные ультрасовременные цифровые сервисы и приложения.',
-    ).result.html,
-    modifiers: {},
-};
+Default.args = data.default.content;

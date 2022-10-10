@@ -1,19 +1,19 @@
-Блок с медиа и фичами (пример - блок про безопасность с главной страницы)
+Block with media and features (for example, a homepage security block)
 
 `type: security-block`;
 
-`title: строка` - заголовок;
+`title: string` — Title
 
-`media: Media` - медиа под фичами;
+`media: Media` — Media below the features
 
 `theme?: light | dark`;
 
-`backgroundColor?: string` - цвет фона;
+`backgroundColor?: string` — Background color
 
-`points: SecurityBlockPoint[]` - описание фич в верхней части
+`points: SecurityBlockPoint[]` — Feature description at the top
 
-- `img: string` - иконка;
-- `text: string` - текст фичи;
-- link: - сслыка под текстом
+- `img: string` — Icon
+- `text: string` — Feature text
+- link: — Link below the text
   - text: string;
   - url: string;

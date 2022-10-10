@@ -1,0 +1,72 @@
+{
+  "default": {
+    "content": {
+      "type": "tabs-block",
+      "title": {
+        "text": "Lorem ipsum"
+      },
+      "items": [
+        {
+          "tabName": "Dolor sit amet",
+          "title": "<p>Dolor sit amet</p> ",
+          "text": "<ul> <li>Ut enim ad minim veniam</li> <li>Ut enim ad minim veniam</li> </ul> ",
+          "link": {
+            "url": "https://example.com",
+            "text": "Link",
+            "theme": "normal",
+            "arrow": true
+          }
+        },
+        {
+          "tabName": "Consectetur adipiscing elit",
+          "title": "Consectetur adipiscing elit",
+          "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+          "link": {
+            "url": "https://example.com",
+            "text": "Link",
+            "theme": "normal"
+          }
+        }
+      ]
+    }
+  },
+  "media": {
+    "content": {
+      "type": "tabs-block",
+      "title": {
+        "text": "Lorem ipsum"
+      },
+      "items": [
+        {
+          "tabName": "Dolor sit amet",
+          "title": "<p>Dolor sit amet</p> ",
+          "image": {
+            "light": {
+              "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
+              "disableCompress": true
+            },
+            "dark": {
+              "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-black.png"
+            }
+          },
+          "caption": "Dolor sit amet",
+          "text": "<ul> <li>Ut enim ad minim veniam</li> <li>Ut enim ad minim veniam</li> </ul> "
+        },
+        {
+          "tabName": "Consectetur adipiscing elit",
+          "title": "Consectetur adipiscing elit",
+          "image": {
+            "light": {
+              "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-white.png"
+            },
+            "dark": {
+              "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-black.png"
+            }
+          },
+          "caption": "Consectetur adipiscing elit",
+          "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        }
+      ]
+    }
+  }
+}

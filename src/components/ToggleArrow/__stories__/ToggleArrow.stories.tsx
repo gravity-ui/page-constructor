@@ -4,6 +4,8 @@ import React from 'react';
 import ToggleArrow, {ToggleArrowProps} from '../ToggleArrow';
 import {COMPONENTS} from '../../../demo/constants';
 
+import data from './data.json';
+
 export default {
     component: ToggleArrow,
     title: `${COMPONENTS}/ToggleArrow`,
@@ -14,16 +16,5 @@ const DefaultTemplate: Story<ToggleArrowProps> = (args) => <ToggleArrow {...args
 export const Horizontal = DefaultTemplate.bind({});
 export const Vertical = DefaultTemplate.bind({});
 
-Horizontal.args = {
-    type: 'horizontal',
-    iconType: 'navigation',
-    size: 30,
-    className: '',
-};
-
-Vertical.args = {
-    type: 'vertical',
-    iconType: 'default',
-    size: 30,
-    className: '',
-};
+Horizontal.args = data.horizontal.content as ToggleArrowProps;
+Vertical.args = data.vertical.content as ToggleArrowProps;

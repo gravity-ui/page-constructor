@@ -15,7 +15,7 @@ interface PreviewMediaProps {
     mods: Modifiers | null;
 }
 
-const PreviewMedia: React.FC<PreviewMediaProps> = (props) => {
+const PreviewMedia = (props: PreviewMediaProps) => {
     const {id, media, play, mods} = props;
 
     return (

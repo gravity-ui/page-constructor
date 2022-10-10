@@ -1,5 +1,5 @@
 import React from 'react';
-import {Icon} from '@yandex-cloud/uikit';
+import {Icon} from '@gravity-ui/uikit';
 
 import {block} from '../../utils';
 import {Chevron, NavigationChevron} from '../../icons';
@@ -18,7 +18,7 @@ export interface ToggleArrowProps {
     className?: string;
 }
 
-const ToggleArrow: React.FC<ToggleArrowProps> = ({
+const ToggleArrow = ({
     type = 'horizontal',
     iconType = 'default',
     open = false,
@@ -26,7 +26,7 @@ const ToggleArrow: React.FC<ToggleArrowProps> = ({
     thin = false,
     slow = false,
     className,
-}) => (
+}: ToggleArrowProps) => (
     <Icon
         className={b({type, open, thin, slow}, className)}
         data={iconType === 'navigation' ? NavigationChevron : Chevron}

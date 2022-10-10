@@ -1,0 +1,35 @@
+{
+  "video": {
+    "content": {
+      "video": {
+        "src": [
+          "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-visual/main_video.mp4",
+          "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-visual/main_video.ogv",
+          "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-visual/main_video.webm",
+          "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-visual/mobile.png"
+        ],
+        "loop": {
+          "start": 0
+        }
+      },
+      "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-visual/main.png"
+    }
+  },
+  "imageSlider": {
+    "content": {
+      "image": [
+        "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
+        "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-white.png"
+      ]
+    }
+  },
+  "image": {
+    "content": {
+      "image": {
+        "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
+        "alt": "Picture",
+        "disableCompress": true
+      }
+    }
+  }
+}

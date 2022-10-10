@@ -4,6 +4,8 @@ import React from 'react';
 import ErrorWrapper, {ErrorWrapperProps} from '../ErrorWrapper';
 import {COMPONENTS} from '../../../demo/constants';
 
+import data from './data.json';
+
 export default {
     component: ErrorWrapper,
     title: `${COMPONENTS}/ErrorWrapper`,
@@ -13,10 +15,4 @@ const DefaultTemplate: Story<ErrorWrapperProps> = (args) => <ErrorWrapper {...ar
 
 export const Default = DefaultTemplate.bind({});
 
-Default.args = {
-    text: 'Что-то сломалось',
-    handler: () => console.log('Клик'),
-    isError: true,
-    buttonText: 'Попробовать еще раз',
-    children: <div>Это children</div>,
-};
+Default.args = data.default.content;

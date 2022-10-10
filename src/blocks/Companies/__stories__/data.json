@@ -1,0 +1,34 @@
+{
+  "withThemes": {
+    "content": {
+      "type": "companies-block",
+      "title": "Our Clients",
+      "images": {
+        "light": {
+          "desktop": "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/EN/logos-desktop-en-new.svg",
+          "tablet": "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/EN/logos-tablet-en-new.svg",
+          "mobile": "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/EN/logos-mobile-en-new.svg",
+          "alt": "Our Clients"
+        },
+        "dark": {
+          "desktop": "https://storage.cloud-preprod.yandex.net/berdysheva-test/companies-block-desktop-ru.svg",
+          "tablet": "https://storage.cloud-preprod.yandex.net/berdysheva-test/companies-block-desktop-ru.svg",
+          "mobile": "https://storage.cloud-preprod.yandex.net/berdysheva-test/companies-block-mobile-ru.svg",
+          "alt": "Our Clients"
+        }
+      }
+    }
+  },
+  "default": {
+    "content": {
+      "type": "companies-block",
+      "title": "Our Clients",
+      "images": {
+        "desktop": "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/EN/logos-desktop-en-new.svg",
+        "tablet": "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/EN/logos-tablet-en-new.svg",
+        "mobile": "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/EN/logos-mobile-en-new.svg",
+        "alt": "Our Clients"
+      }
+    }
+  }
+}

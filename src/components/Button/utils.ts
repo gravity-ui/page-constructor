@@ -1,4 +1,4 @@
-import {ButtonSize, ButtonView} from '@yandex-cloud/uikit';
+import {ButtonSize, ButtonView} from '@gravity-ui/uikit';
 
 export type OldButtonTheme =
     | 'normal'

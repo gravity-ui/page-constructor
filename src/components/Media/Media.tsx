@@ -16,7 +16,7 @@ export interface MediaAllProps extends MediaProps, VideoAdditionProps, ImageAddi
     youtubeClassName?: string;
 }
 
-export const Media: React.FC<MediaAllProps> = (props) => {
+export const Media = (props: MediaAllProps) => {
     const {
         image,
         video,

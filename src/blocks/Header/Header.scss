@@ -152,6 +152,16 @@ $backgroundWidth: 1440px;
             & > div {
                 max-width: none;
             }
+
+            #{$block}__background-media {
+                height: 100%;
+            }
+
+            video {
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+            }
         }
     }
 

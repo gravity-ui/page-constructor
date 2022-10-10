@@ -5,6 +5,8 @@ import BackLink, {BackLinkProps} from '../BackLink';
 import {BUTTONS_LINKS, COMPONENTS} from '../../../demo/constants';
 import {Col, Row} from '../../../grid';
 
+import data from './data.json';
+
 export default {
     component: BackLink,
     title: `${COMPONENTS}/${BUTTONS_LINKS}/BackLink`,
@@ -15,16 +17,16 @@ const SizesTemplate: Story<BackLinkProps> = (args) => (
     <Row>
         <Col>{args.theme}</Col>
         <Col>
-            <BackLink {...args} size="s" title="Размер s" />
+            <BackLink {...args} size="s" title="Size s" />
         </Col>
         <Col>
-            <BackLink {...args} size="m" title="Размер m" />
+            <BackLink {...args} size="m" title="Size m" />
         </Col>
         <Col>
-            <BackLink {...args} size="l" title="Размер l" />
+            <BackLink {...args} size="l" title="Size l" />
         </Col>
         <Col>
-            <BackLink {...args} size="xl" title="Размер xl" />
+            <BackLink {...args} size="xl" title="Size xl" />
         </Col>
     </Row>
 );
@@ -47,15 +49,5 @@ const ThemesSizesTemplate: Story<BackLinkProps> = (args) => (
 export const Default = DefaultTemplate.bind({});
 export const ThemesSizes = ThemesSizesTemplate.bind({});
 
-Default.args = {
-    url: '#',
-    title: 'ReactNode',
-    theme: 'default',
-    size: 'l',
-    shouldHandleBackAction: true,
-};
-
-ThemesSizes.args = {
-    url: '#',
-    shouldHandleBackAction: true,
-};
+Default.args = data.default.content as BackLinkProps;
+ThemesSizes.args = data.themesSizes.content as BackLinkProps;

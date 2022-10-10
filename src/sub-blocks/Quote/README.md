@@ -1,18 +1,18 @@
 `type: "quote"`
 
-`text: строка` - текст цитаты
+`text: string` — Quote text.
 
-`image: url` - картинка справа
+`image: url` - Image on the right.
 
-`logo: url` - логотип компании
+`logo: url` — Company logo.
 
-`color?: строка` - цвет фона
+`color?: string` — Background color.
 
-`url?: url` - кнопка с ссылкой
+`url?: url` - Button with a link.
 
 `author?:`
 
-- `firstName: строка` - имя
-- `secondName: строка` - фамилия
-- `description?: строка` - описание
-- `avatar?: url` - url автарки
+- `firstName: string` — First name.
+- `secondName: string` — Last name.
+- `description?: string` — Description.
+- `avatar?: url` — Avatar URL.

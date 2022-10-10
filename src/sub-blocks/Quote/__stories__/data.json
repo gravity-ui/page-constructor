@@ -1,0 +1,51 @@
+{
+  "darkTheme": {
+    "content": {
+      "border": "shadow",
+      "theme": "dark",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-black.png",
+      "url": "https://example.com",
+      "author": {
+        "avatar": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
+        "firstName": "Oval",
+        "secondName": "Ovalny",
+        "description": "Geometry lead"
+      },
+      "logo": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-black.png",
+      "color": "#2b3e6a"
+    }
+  },
+  "borderLine": {
+    "content": {
+      "border": "line",
+      "theme": "light",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-white.png",
+      "url": "https://example.com",
+      "author": {
+        "avatar": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
+        "firstName": "Oval",
+        "secondName": "Ovalny",
+        "description": "Geometry lead"
+      },
+      "logo": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-white.png"
+    }
+  },
+  "default": {
+    "content": {
+      "border": "shadow",
+      "theme": "light",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-white.png",
+      "url": "https://example.com",
+      "author": {
+        "avatar": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
+        "firstName": "Oval",
+        "secondName": "Ovalny",
+        "description": "Geometry lead"
+      },
+      "logo": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-white.png"
+    }
+  }
+}

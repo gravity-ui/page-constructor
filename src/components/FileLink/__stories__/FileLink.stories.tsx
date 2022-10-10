@@ -6,6 +6,8 @@ import {FileLinkProps} from '../../../models';
 import {Col, Row} from '../../../grid';
 import {BUTTONS_LINKS, COMPONENTS} from '../../../demo/constants';
 
+import data from './data.json';
+
 export default {
     component: FileLink,
     title: `${COMPONENTS}/${BUTTONS_LINKS}/FileLink`,
@@ -62,16 +64,6 @@ export const Default = DefaultTemplate.bind({});
 export const TypesThemes = TypesThemesTemplate.bind({});
 export const Extensions = ExtTemplate.bind({});
 
-Default.args = {
-    href: 'qwe.pdf',
-    text: 'Ссылка на файл',
-};
-
-TypesThemes.args = {
-    href: 'qwe.pdf',
-    text: 'Ссылка на файл',
-};
-
-Extensions.args = {
-    text: 'Ссылка на файл',
-};
+Default.args = data.default.content;
+TypesThemes.args = data.typesThemes.content;
+Extensions.args = data.extensions.content;

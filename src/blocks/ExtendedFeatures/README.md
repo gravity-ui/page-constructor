@@ -1,4 +1,4 @@
-Блок "Расширенные фичи"
+Extended Features block
 
 `type: "extended-features-block"`
 
@@ -6,19 +6,19 @@
 
 `description?: string`
 
-`animated?: bool` - вкл/выкл анимации для блока (включена по умолчанию)
+`animated?: bool` — Enables/disables animation for the block (enabled by default).
 
-`items: FeatureItem[]` - Описание фичей
+`items: FeatureItem[]` — Feature description
 
-- `title?: строка` - заголовок
-- `text?: строка` - текст
-- `link?: Link` - ссылка под текстом
-- `label?: New | Preview` - лейбл
+- `title?: string` — Title
+- `text?: string` — Text
+- `link?: Link` — Link below the text
+- `label?: New | Preview` — Label
 
-`colSizes?: Object` - размеры одной карточки в колонках на разных размерах экрана, значение от 1 до 12 колонок, где 12 колонок означает, что одна карточка занимает всю ширину экрана
+`colSizes?: Object` — Sizes of a single card in columns for different screen sizes, the value ranges from 1 to 12 columns. If 12 columns, a single card takes up the entire width of the screen.
 
-- `all: число` - на всех экранах
-- `sm: число` - на экранах шире 577px
-- `md: число` - на экранах шире 769px
-- `lg: число` - на экранах шире 1081px
-- `xl: число` - на экранах шире 1185px
+- `all: number` — On all screens.
+- `sm: number` — On a screen wider than 577px.
+- `md: number` — On a screen wider than 769px.
+- `lg: number` — On a screen wider than 1081px.
+- `xl: number` — On a screen wider than 1185px.

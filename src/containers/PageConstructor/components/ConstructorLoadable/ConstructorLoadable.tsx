@@ -9,12 +9,12 @@ interface ConstructorLoadableProps
     config: LoadableConfigItem;
 }
 
-export const ConstructorLoadable: React.FC<ConstructorLoadableProps> = (props) => {
+export const ConstructorLoadable = (props: ConstructorLoadableProps) => {
     const {itemMap} = useContext(InnerContext);
     const {block, blockKey, config, serviceId, params} = props;
     const {type} = block;
     const {fetch, component: ChildComponent} = config;
-    const Component = itemMap[type] as React.ComponentType<
+    const Component = itemMap[type] as React.Component<
         React.ComponentProps<typeof itemMap[typeof type]>
     >;
 

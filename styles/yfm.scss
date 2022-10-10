@@ -5,11 +5,13 @@
 .yfm_constructor {
     $block: &;
     font-family: var(--yc-font-family-sans);
+    color: var(--yc-color-text-primary);
 
     code,
     kbd,
     pre {
         font-family: var(--yc-font-family-monospace);
+        color: var(--yc-color-text-primary);
     }
 
     @include add-specificity(&) {
@@ -79,6 +81,17 @@
 
     a {
         @include link();
+    }
+
+    table {
+        color: var(--yc-color-text-primary);
+        border: 1px solid var(--yc-color-line-generic);
+        background: var(--yc-color-base-background);
+    }
+
+    thead,
+    table tr:nth-child(2n) {
+        background-color: var(--yc-color-base-generic);
     }
 }
 

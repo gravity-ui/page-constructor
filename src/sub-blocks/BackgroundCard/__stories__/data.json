@@ -1,0 +1,240 @@
+{
+  "backgroundColor": {
+    "content": {
+      "url": "#",
+      "title": "Lorem ipsumt",
+      "text": "<p><strong>Lorem ipsum dolor sit amet</strong> <a href=\"https://example.com\">consectetur adipiscing elit</a> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> ",
+      "additionalInfo": "<p>Lorem ipsum dolor sit amet <a href=\"https://example.com\">consectetur adipiscing elit</a> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> ",
+      "paddingBottom": "s",
+      "links": [
+        {
+          "url": "#",
+          "text": "Link",
+          "theme": "normal",
+          "arrow": true
+        }
+      ],
+      "buttons": [
+        {
+          "text": "Button\r",
+          "theme": "action",
+          "url": "https://example.com"
+        },
+        {
+          "text": "Button",
+          "theme": "outlined",
+          "url": "#"
+        }
+      ],
+      "backgroundColor": "#7ccea0"
+    }
+  },
+  "default": {
+    "content": {
+      "url": "#",
+      "title": "Lorem ipsumt",
+      "text": "<p><strong>Lorem ipsum dolor sit amet</strong> that <a href=\"https://example.com\">consectetur adipiscing elit</a> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> ",
+      "additionalInfo": "<p>Lorem ipsum dolor sit amet <a href=\"https://example.com\">consectetur adipiscing elit</a> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> ",
+      "paddingBottom": "s",
+      "links": [
+        {
+          "url": "#",
+          "text": "Link",
+          "theme": "normal",
+          "arrow": true
+        }
+      ],
+      "buttons": [
+        {
+          "text": "Button\r",
+          "theme": "action",
+          "url": "https://example.com"
+        },
+        {
+          "text": "Button",
+          "theme": "outlined",
+          "url": "#"
+        }
+      ]
+    }
+  },
+  "withBackgroundImage": {
+    "content": {
+      "url": "#",
+      "title": "Lorem ipsumt",
+      "text": "<p><strong>Lorem ipsum dolor sit amet</strong> that <a href=\"https://example.com\">consectetur adipiscing elit</a> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> ",
+      "additionalInfo": "<p>Lorem ipsum dolor sit amet <a href=\"https://example.com\">consectetur adipiscing elit</a> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> ",
+      "paddingBottom": "s",
+      "links": [
+        {
+          "url": "#",
+          "text": "Link",
+          "theme": "normal",
+          "arrow": true
+        }
+      ],
+      "buttons": [
+        {
+          "text": "Button\r",
+          "theme": "action",
+          "url": "https://example.com"
+        },
+        {
+          "text": "Button",
+          "theme": "outlined",
+          "url": "#"
+        }
+      ],
+      "background": {
+        "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
+        "alt": "Lorem ipsumt",
+        "disableCompress": true
+      }
+    }
+  },
+  "cardThemes": {
+    "content": {
+      "url": "#",
+      "title": "Lorem ipsumt",
+      "text": "<p><strong>Lorem ipsum dolor sit amet</strong> that <a href=\"https://example.com\">consectetur adipiscing elit</a> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> ",
+      "additionalInfo": "<p>Lorem ipsum dolor sit amet <a href=\"https://example.com\">consectetur adipiscing elit</a> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> ",
+      "paddingBottom": "s",
+      "links": [
+        {
+          "url": "#",
+          "text": "Link",
+          "theme": "normal",
+          "arrow": true
+        }
+      ],
+      "buttons": [
+        {
+          "text": "Button\r",
+          "theme": "action",
+          "url": "https://example.com"
+        },
+        {
+          "text": "Button",
+          "theme": "outlined",
+          "url": "#"
+        }
+      ],
+      "background": {
+        "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
+        "alt": "Lorem ipsumt",
+        "disableCompress": true
+      }
+    }
+  },
+  "borderLine": {
+    "content": {
+      "url": "#",
+      "title": "Lorem ipsumt",
+      "text": "<p><strong>Lorem ipsum dolor sit amet</strong> that <a href=\"https://example.com\">consectetur adipiscing elit</a> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> ",
+      "additionalInfo": "<p>Lorem ipsum dolor sit amet <a href=\"https://example.com\">consectetur adipiscing elit</a> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> ",
+      "paddingBottom": "s",
+      "links": [
+        {
+          "url": "#",
+          "text": "Link",
+          "theme": "normal",
+          "arrow": true
+        }
+      ],
+      "buttons": [
+        {
+          "text": "Button\r",
+          "theme": "action",
+          "url": "https://example.com"
+        },
+        {
+          "text": "Button",
+          "theme": "outlined",
+          "url": "#"
+        }
+      ],
+      "background": {
+        "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
+        "alt": "Lorem ipsumt",
+        "disableCompress": true
+      },
+      "border": "line"
+    }
+  },
+  "withTheme": {
+    "content": {
+      "type": "background-card",
+      "url": "#",
+      "title": "Lorem ipsumt",
+      "text": "<p><strong>Lorem ipsum dolor sit amet</strong> that <a href=\"https://example.com\">consectetur adipiscing elit</a> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> ",
+      "additionalInfo": "<p>Lorem ipsum dolor sit amet <a href=\"https://example.com\">consectetur adipiscing elit</a> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> ",
+      "paddingBottom": "s",
+      "links": [
+        {
+          "url": "#",
+          "text": "Link",
+          "theme": "normal",
+          "arrow": true
+        }
+      ],
+      "buttons": [
+        {
+          "text": "Button\r",
+          "theme": "action",
+          "url": "https://example.com"
+        },
+        {
+          "text": "Button",
+          "theme": "outlined",
+          "url": "#"
+        }
+      ],
+      "background": {
+        "light": {
+          "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
+          "alt": "Lorem ipsumt",
+          "disableCompress": true
+        },
+        "dark": {
+          "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-white.png",
+          "alt": "Lorem ipsumt",
+          "disableCompress": true
+        }
+      }
+    }
+  },
+  "paddings": {
+    "content": {
+      "url": "#",
+      "title": "Lorem ipsumt",
+      "text": "<p><strong>Lorem ipsum dolor sit amet</strong> that <a href=\"https://example.com\">consectetur adipiscing elit</a> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> ",
+      "additionalInfo": "<p>Lorem ipsum dolor sit amet <a href=\"https://example.com\">consectetur adipiscing elit</a> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> ",
+      "paddingBottom": "s",
+      "links": [
+        {
+          "url": "#",
+          "text": "Link",
+          "theme": "normal",
+          "arrow": true
+        }
+      ],
+      "buttons": [
+        {
+          "text": "Button\r",
+          "theme": "action",
+          "url": "https://example.com"
+        },
+        {
+          "text": "Button",
+          "theme": "outlined",
+          "url": "#"
+        }
+      ],
+      "background": {
+        "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
+        "alt": "Lorem ipsumt",
+        "disableCompress": true
+      }
+    }
+  }
+}

@@ -1,44 +1,44 @@
-Слайдер поддерживает 2 типа контента - загружаемый и из конфига. Загружаемый добавляется через свойство `loadable`, а из конфига - через `children`
+The slider supports two types of content: loadable and from a config. Loadable content is loaded via the `loadable` property and content from a config via the `children` property.
 
 `type: "slider-block"`
 
-`animated?: bool` - вкл/выкл анимации для блока (включена по умолчанию)
+`animated?: bool` — Enables/disables animation for the block (enabled by default).
 
-`dots?: bool` - признак нужно ли показывать точки навигации
+`dots?: bool` — A flag that indicates whether to show navigation dots.
 
-`arrows? bool` - признак нужно ли показывать стрелки навигации
+`arrows? bool` — A flag that indicates whether to show navigation arrows.
 
-`title?: Title`: заголовок;
+`title: Title`: Title.
 
-`description?: строка`:описание;
+`description?: string`: Description.
 
-`randomOrder?: bool` - включает рандомный порядок слайдов;
+`randomOrder?: bool`: Enables a random slide order.
 
-`slidesToShow?: Record<'all' | 'sm' | 'md' | 'lg' | 'xl', число> | число` - сколько слайдов показывать на экранах разной ширины. Действует как переопределение значений по умолчанию. Переопределить значение можно для каждой ширины экрана. Также можно задать одно число - тогда количество слайдов будет всегда одинаковое. (кроме мобильных, там всегда 1)
+`slidesToShow?: Record<'all' | 'sm' | 'md' | 'lg' | 'xl', number> | number`: How many slides to show on screens of different width. Overrides the default values. They can be overridden for each screen width. You can also set a single numeric value so that the number of slides is always the same (except for mobiles, where the value is always 1).
 
-Значения по умолчанию:
+Default values:
 
 - `xl`: 3
 - `lg`: 3
 - `md`: 2
 - `sm`: 1
 
-`loadable: Loadable` - загружаемый контент, на данный момент поддерживаются источники данных:
+`loadable: Loadable` — Loadable content, the following data sources are currently supported:
 
-- `events` - мероприятия
-- `blog` - посты блога
+- `events` — Events.
+- `blog` — Blog posts.
 
-`children: Block[]` - в слайдер можно добавить дочерние блоки, которые будут отображаться в виде его карточек. Так же в слайдер можно добавить компонент с вложенными чайлдами. И чтобы каждый nested child отобразить в отдельной карточке, у child должно быть поле items - это и есть nested child.
+`children: Block[]` — You can add child blocks to the slider that will be displayed as its cards. You can also add a component with nested child blocks to the slider. To make each nested child block displayed in a separate card, a child must have the items field which is the nested child.
 
-На данный момент поддерживаются следующие блоки:
+The following blocks are currently supported:
 
-- `Quote` - цитата
-- [`BasicCard` - основная карточка](?path=/story/компоненты-карточки-basiccard--default&viewMode=docs)
-- [`Banner` - баннер](?path=/story/блоки-banner--default&viewMode=docs)
-- [`Partner` - карточка партнера](?path=/story/компоненты-карточки-partner--default&viewMode=docs)
-- [`Price Detailed` - тарифы](?path=/story/компоненты-карточки-pricedetailed--marked-list&viewMode=docs)
-- [`BackgroundCard` - карточка с бэкграундом](?path=/story/компоненты-карточки-backgroundcard--default&viewMode=docs)
-- [`CardWithImage` - карточка с фотографией над заголовком](?path=/story/компоненты-карточки-cardwithimage--default&viewMode=docs)
-- [`MediaCard` - карточка с картинкой](?path=/story/блоки-media--default&viewMode=docs)
-- [`NewsCard` - карточка новостей](?path=/story/компоненты-карточки-newscard--default&viewMode=docs)
-- [`TutorialCard` - карточка с иконкой](?path=/story/компоненты-карточки-tutorialcard--default&viewMode=docs)
+- `Quote` — Quote
+- [`BasicCard` — Basic card](?path=/story/components-cards-basiccard--default&viewMode=docs)
+- [`Banner` — Banner](?path=/story/блоки-banner--default&viewMode=docs)
+- [`Partner` — Partner card](?path=/story/components-cards-partner--default&viewMode=docs)
+- [`Price Detailed` — Pricing](?path=/story/components-cards-pricedetailed--marked-list&viewMode=docs)
+- [`BackgroundCard` — Background card](?path=/story/components-cards-backgroundcard--default&viewMode=docs)
+- [`CardWithImage` — Card with a picture above the title](?path=/story/components-cards-cardwithimage--default&viewMode=docs)
+- [`MediaCard` — Card with an image](?path=/story/блоки-media--default&viewMode=docs)
+- [`NewsCard` — News card](?path=/story/components-cards-newscard--default&viewMode=docs)
+- [`TutorialCard` — Card with an icon](?path=/story/components-cards-tutorialcard--default&viewMode=docs)

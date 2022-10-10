@@ -72,7 +72,6 @@ export function getColClass(params: GridColumnClassParams) {
     } = params;
     return [
         GridColumnClassPrefix.Col,
-        className,
         alignSelf,
         justifyContent && getJustifyClass(justifyContent),
         sizes && getSizeClass(sizes),
@@ -81,6 +80,7 @@ export function getColClass(params: GridColumnClassParams) {
         hidden && getVisibilityClasses(hidden, GridColumnVisibilityClass.None),
         visible && getVisibilityClasses(visible, GridColumnVisibilityClass.Block),
         reset && getResetClass(),
+        className,
     ]
         .filter(Boolean)
         .join(' ');

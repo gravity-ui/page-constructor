@@ -1,6 +1,6 @@
 import '../styles/storybook/index.scss';
-import '@yandex-cloud/uikit/styles/styles.scss';
-import {MobileProvider, Platform} from '@yandex-cloud/uikit';
+import '@gravity-ui/uikit/styles/styles.scss';
+import {MobileProvider, Platform} from '@gravity-ui/uikit';
 
 import React from 'react';
 import {MINIMAL_VIEWPORTS} from '@storybook/addon-viewport';
@@ -10,6 +10,7 @@ import {PageConstructorProvider} from '../src/containers/PageConstructor/Provide
 import {withTheme} from './decorators/withTheme';
 import {withMobile} from './decorators/withMobile';
 import {withLang} from './decorators/withLang';
+
 import {DocsWithReadme} from '../src/demo/DocsWithReadme';
 
 import {ThemeProvider} from '../src';
@@ -23,14 +24,14 @@ configure({
 const withContextProvider: DecoratorFn = (Story, context) => {
     const theme = context.globals.theme;
 
-    // хак для установки темы в доке
+    // to set theme in docs
     context.parameters.backgrounds.default = theme;
     context.globals.backgrounds = {
         value: theme === 'light' ? 'white' : 'black',
     };
     context.globals.background = theme;
 
-    // TODO: в будущем возможно появится вариант изменять динамически тему доки, нужно будет перейти на новый способ
+    // TODO: to switch docs theme dynamically in the future
     // context.parameters.docs.theme = theme === 'light' ? CommonTheme.light : CommonTheme.dark;
 
     return (
@@ -71,7 +72,7 @@ export const parameters = {
     // actions: {
     //     argTypesRegex: '^on.*',
     // },
-    jsx: {showFunctions: true}, // Для того, чтобы функции отображались в сорцах
+    jsx: {showFunctions: true}, // to show function in sources
     viewport: {
         viewports: MINIMAL_VIEWPORTS,
     },
@@ -104,7 +105,7 @@ export const globalTypes = {
     },
     lang: {
         name: 'Language',
-        defaultValue: 'ru',
+        defaultValue: 'en',
         toolbar: {
             icon: 'globe',
             items: [

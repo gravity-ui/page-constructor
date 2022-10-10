@@ -1,6 +1,6 @@
 import React from 'react';
-import {Icon} from '@yandex-cloud/uikit';
-import {SVGIconData} from '@yandex-cloud/uikit/build/esm/components/Icon/types';
+import {Icon} from '@gravity-ui/uikit';
+import {SVGIconData} from '@gravity-ui/uikit/build/esm/components/Icon/types';
 
 import {block} from '../../utils';
 
@@ -18,7 +18,7 @@ export interface ControlProps {
     onClick?: (event: React.MouseEvent) => void;
 }
 
-const Control: React.FC<ControlProps> = (props) => {
+const Control = (props: ControlProps) => {
     const {
         icon,
         theme = 'primary',

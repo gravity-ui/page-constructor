@@ -1,0 +1,52 @@
+{
+  "withBorder": {
+    "title": "Card with border {{border}}",
+    "content": {
+      "url": "#",
+      "title": "Lorem ipsum",
+      "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> "
+    }
+  },
+  "withIcon": {
+    "cardText": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> ",
+    "content": {
+      "url": "#",
+      "title": "Lorem ipsum",
+      "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> "
+    }
+  },
+  "default": {
+    "content": {
+      "url": "#",
+      "title": "Lorem ipsum",
+      "text": "<p><strong>Lorem ipsum dolor sit amet</strong> that <a href=\"https://example.com\">consectetur adipiscing elit</a> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> ",
+      "additionalInfo": "<p>Lorem ipsum dolor sit amet <a href=\"https://example.com\">consectetur adipiscing elit</a> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> ",
+      "links": [
+        {
+          "url": "#",
+          "text": "Link",
+          "theme": "normal",
+          "arrow": true
+        },
+        {
+          "url": "#",
+          "text": "Link",
+          "theme": "normal",
+          "arrow": true
+        }
+      ],
+      "buttons": [
+        {
+          "text": "Button\r",
+          "theme": "action",
+          "url": "https://example.com"
+        },
+        {
+          "text": "Button",
+          "theme": "outlined",
+          "url": "#"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "default": {
+    "content": {
+      "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
+      "alt": "Description",
+      "imageClassName": "",
+      "disableCompress": false,
+      "modalImageClass": "",
+      "imageStyle": {
+        "maxWidth": "500px"
+      }
+    }
+  }
+}

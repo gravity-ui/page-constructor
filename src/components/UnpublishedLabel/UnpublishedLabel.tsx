@@ -1,6 +1,7 @@
 import React from 'react';
 
 import {block} from '../../utils';
+import {WithChildren} from '../../models';
 import i18n from './i18n';
 
 import './UnpublishedLabel.scss';
@@ -14,10 +15,12 @@ export interface UnpublishedLabelProps {
     className?: string;
 }
 
-const UnpublishedLabel: React.FC<UnpublishedLabelProps> = ({
+const UnpublishedLabel = ({
     className,
     children,
     type = 'line',
-}) => <div className={b({type}, className)}>{children || i18n('label_non_published')}</div>;
+}: WithChildren<UnpublishedLabelProps>) => (
+    <div className={b({type}, className)}>{children || i18n('label_non_published')}</div>
+);
 
 export default UnpublishedLabel;

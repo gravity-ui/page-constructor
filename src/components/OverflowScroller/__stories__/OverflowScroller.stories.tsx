@@ -6,6 +6,8 @@ import {COMPONENTS} from '../../../demo/constants';
 
 import './OverflowScroller.stories.scss';
 
+import data from './data.json';
+
 export default {
     component: OverflowScroller,
     title: `${COMPONENTS}/OverflowScroller`,
@@ -30,6 +32,4 @@ const DefaultTemplate: Story<OverflowScrollerProps> = (args) => (
 
 export const Default = DefaultTemplate.bind({});
 
-Default.args = {
-    className: 'overflow-scroller-stories',
-};
+Default.args = data.default.content;

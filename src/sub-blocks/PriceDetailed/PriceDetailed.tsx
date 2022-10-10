@@ -12,7 +12,7 @@ import PriceDetails from './PriceDetails/PriceDetails';
 import CombinedPriceDetailed from './CombinedPriceDetailed/CombinedPriceDetailed';
 import SeparatePriceDetailed from './SeparatePriceDetailed/SeparatePriceDetailed';
 
-const PriceDetailed: React.FC<PriceDetailedProps> = (props) => {
+const PriceDetailed = (props: PriceDetailedProps) => {
     const {
         priceType = PriceDetailsType.SETTINGS,
         items,

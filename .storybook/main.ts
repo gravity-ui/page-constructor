@@ -23,7 +23,7 @@ const config = {
         },
     },
 
-    webpackFinal: (storybookBaseConfig) => {
+    webpackFinal: (storybookBaseConfig: any) => {
         storybookBaseConfig.module.rules.push({
             test: /\.md$/,
             include: [join(__dirname, '..')],

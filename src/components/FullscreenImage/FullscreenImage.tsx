@@ -1,5 +1,5 @@
 import React, {useState, useCallback, CSSProperties} from 'react';
-import {Icon, Modal} from '@yandex-cloud/uikit';
+import {Icon, Modal} from '@gravity-ui/uikit';
 
 import {block} from '../../utils';
 import Image, {ImageProps} from '../Image/Image';
@@ -15,14 +15,14 @@ export interface FullScreenImageProps extends ImageProps {
 
 const b = block('FullScreenImage');
 
-const FullScreenImage: React.FunctionComponent<FullScreenImageProps> = ({
+const FullScreenImage = ({
     src,
     alt,
     imageClassName,
     disableCompress,
     modalImageClass,
     imageStyle,
-}) => {
+}: FullScreenImageProps) => {
     const [isOpened, setIsOpened] = useState(false);
     const [isMouseEnter, setIsMouseEnter] = useState(false);
     const openModal = useCallback(() => setIsOpened(true), []);

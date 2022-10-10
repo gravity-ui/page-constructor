@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import {Button} from '@yandex-cloud/uikit';
+import {Button} from '@gravity-ui/uikit';
 
 import {block, getThemedValue} from '../../utils';
 import {QuoteProps, AuthorType, ImageObjectProps} from '../../models';
@@ -11,7 +11,7 @@ import './Quote.scss';
 
 const b = block('quote');
 
-const Quote: React.FunctionComponent<QuoteProps> = (props) => {
+const Quote = (props: QuoteProps) => {
     const {
         theme: textTheme = 'light',
         color,

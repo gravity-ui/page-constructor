@@ -1,0 +1,11 @@
+{
+  "default": {
+    "content": {
+      "date": "October 9, 2020",
+      "isoDate": "2020-10-08T21:00:00.000Z",
+      "title": "<i>Lorem</i> ipsum",
+      "border": "shadow",
+      "url": "https://example.com"
+    }
+  }
+}

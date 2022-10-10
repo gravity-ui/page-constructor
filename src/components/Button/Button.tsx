@@ -1,5 +1,5 @@
 import React, {useCallback, useContext} from 'react';
-import {Platform, Button as CommonButton, Icon, StoreBadge} from '@yandex-cloud/uikit';
+import {Platform, Button as CommonButton, Icon, StoreBadge} from '@gravity-ui/uikit';
 
 import {block, setUrlTld} from '../../utils';
 import {ButtonProps as ButtonParams} from '../../models';
@@ -18,7 +18,7 @@ export interface ButtonProps extends Omit<ButtonParams, 'url'> {
 
 const b = block('button-block');
 
-const Button: React.FunctionComponent<ButtonProps> = (props) => {
+const Button = (props: ButtonProps) => {
     const handleMetrika = useMetrika();
     const {lang, tld} = useContext(LocaleContext);
     const {

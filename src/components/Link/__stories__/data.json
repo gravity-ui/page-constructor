@@ -1,0 +1,50 @@
+{
+  "backWithChildren": {
+    "content": {
+      "url": "#",
+      "theme": "back"
+    }
+  },
+  "default": {
+    "content": {
+      "text": "Default link",
+      "url": "#"
+    }
+  },
+  "underlineWithChildren": {
+    "content": {
+      "url": "#",
+      "theme": "underline"
+    }
+  },
+  "normalWithChildren": {
+    "children": "Link with child",
+    "content": {
+      "url": "#",
+      "theme": "normal"
+    }
+  },
+  "normalArrow": {
+    "content": {
+      "text": "Normal link with an arrow",
+      "url": "#",
+      "arrow": true,
+      "theme": "normal"
+    }
+  },
+  "normalForDarkTheme": {
+    "content": {
+      "text": "Normal link",
+      "url": "#",
+      "theme": "normal",
+      "colorTheme": "dark"
+    }
+  },
+  "themesSizes": {
+    "title": "Link size {{size}}",
+    "content": {
+      "text": "Link",
+      "url": "#"
+    }
+  }
+}

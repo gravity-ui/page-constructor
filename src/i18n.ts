@@ -1,4 +1,4 @@
-import {I18N} from '@yandex-cloud/i18n';
+import {I18N} from '@gravity-ui/i18n';
 import {getConfig, subscribeConfigure, Lang} from './utils/configure';
 
 export const i18n = new I18N();

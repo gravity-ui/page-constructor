@@ -10,7 +10,7 @@ export interface ImageProps {
     onClick?: MouseEventHandler;
 }
 
-const Image: React.FC<ImageProps> = (props) => {
+const Image = (props: ImageProps) => {
     const projectSettings = useContext(ProjectSettingsContext);
     const {src, alt, disableCompress, style, className, onClick} = props;
     const [imgLoadingError, setImgLoadingError] = useState(false);

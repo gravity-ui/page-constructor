@@ -1,25 +1,25 @@
 `type: "button"`
 
-`text: текст` - Текст
+`text: text` — Text.
 
-`url: url` - ссылка, куда кнопка ведет
+`url: url` — Link that shows where the button will redirect you.
 
-`primary?: bool` - Является ли кнопка главной в списке всех кнопок
+`primary?: bool` — Indicates whether the button is primary in the list of all buttons.
 
-`size: 'xs' | 's' | 'ns' | 'n' | 'm' | 'l' | 'head' | 'promo'` - размер кнопки
+`size: 'xs' | 's' | 'ns' | 'n' | 'm' | 'l' | 'head' | 'promo'` — Button size.
 
-`theme: 'action' | 'clear' | 'link' | 'normal' | 'pseudo' | 'raised' | 'websearch' | 'normal-dark' | 'dark-grey' | 'github' | 'app-store' | 'google-play' | 'scale' | 'monochrome'` - внешний вид кнопки;
+`theme: 'action' | 'clear' | 'link' | 'normal' | 'pseudo' | 'raised' | 'websearch' | 'normal-dark' | 'dark-grey' | 'github' | 'app-store' | 'google-play' | 'scale' | 'monochrome'` — Button's look and feel.
 
-`img?: object | string` - Иконка у кнопки. Если `string`, то указываем ссылку на иконку. Если `object`, указываем параметры ниже.
+`img?: object | string` — Button's icon. If `string`, specify the icon link. If `object`, specify the parameters given below.
 
-- `url: string` - ссылка на изображение
-- `position?: 'left' | 'right'` - Позиция иконки на кнопке относительно текста. По умолчанию `'left'`
-- `alt?: string` - Aльтернативный текст для изображения
+- `url: string` — Image link.
+- `position?: 'left' | 'right'` — Icon position on the button relative to the text. Defaults to `'left'`.
+- `alt?: string` — Alternative text for the image.
 
-`metrikaGoals: строка | строка[]` - свойства целей метрики
+`metrikaGoals: string | string[]` — Yandex Metrica goal properties.
 
-Как выглядят разные кнопки можно посмотреть [тут](https://cloud-guide.yandex-team.ru/?path=/story/lego--button).
+You can see the appearance of different buttons [here](https://cloud-guide.yandex-team.ru/?path=/story/lego--button).
 
-**Отступы:**
+**Margins:**
 
 `top: xs`

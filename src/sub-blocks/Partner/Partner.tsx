@@ -8,7 +8,7 @@ import './Partner.scss';
 
 const b = block('partner-block');
 
-const Partner: React.FC<PartnerProps> = ({text, logo, url, border}) => {
+const Partner = ({text, logo, url, border}: PartnerProps) => {
     const logoData: ImageProps = typeof logo === 'string' ? {src: logo} : logo;
 
     return (

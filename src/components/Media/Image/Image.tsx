@@ -25,7 +25,7 @@ interface InnerImageProps {
 
 type ImageAllProps = ImageAdditionProps & MediaComponentImageProps & InnerImageProps;
 
-const Image: React.FC<ImageAllProps> = (props) => {
+const Image = (props: ImageAllProps) => {
     const {parallax, image, height, imageClassName, isBackground, hasVideoFallback, video} = props;
 
     const [scrollY, setScrollY] = useState(0);

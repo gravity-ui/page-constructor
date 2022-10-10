@@ -1,17 +1,17 @@
-Блок "Табы"
+Tabs block
 
-`type: tabs-block` - заголовок;
+`type: tabs-block` — Title
 
-`title: Title` - заголовок;
+`title: Title` — Subtitle
 
-    `items: TabsBlockItem[]` - описание таба
+    `items: TabsBlockItem[]` — Tab description
 
-      > `tabName: string` - заголовок таба;
+      > `tabName: string` — Tab title.
 
-      > `image: string` - изображение;
+      > `image: string` — Image.
 
-      > `caption?: string`  - подпись по картинкой;
+      > `caption?: string`  — Image caption.
 
-      > `text: string` - текст;
+      > `text: string` —Text.
 
-      > `link?: Link`  - ссылка под текстом;
+      > `link?: Link`  — Link below the text.

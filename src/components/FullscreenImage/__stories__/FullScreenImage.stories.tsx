@@ -4,6 +4,8 @@ import React from 'react';
 import FullScreenImage, {FullScreenImageProps} from '../FullscreenImage';
 import {COMPONENTS, MEDIA} from '../../../demo/constants';
 
+import data from './data.json';
+
 export default {
     component: FullScreenImage,
     title: `${COMPONENTS}/${MEDIA}/FullScreenImage`,
@@ -17,11 +19,4 @@ const DefaultTemplate: Story<FullScreenImageProps> = (args) => (
 
 export const Default = DefaultTemplate.bind({});
 
-Default.args = {
-    src: 'https://storage.yandexcloud.net/cloud-www-assets/solutions/test-and-dev/razrabotka-big.png',
-    alt: 'Description',
-    imageClassName: '',
-    disableCompress: false,
-    modalImageClass: '',
-    imageStyle: {maxWidth: '500px'},
-};
+Default.args = data.default.content as FullScreenImageProps;

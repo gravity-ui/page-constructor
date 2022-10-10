@@ -17,7 +17,7 @@ interface PreviewContentProps {
     mods: Modifiers | null;
 }
 
-const PreviewContent: React.FC<PreviewContentProps> = (props) => {
+const PreviewContent = (props: PreviewContentProps) => {
     const {id, title, description = '', switching, onClick, mods} = props;
 
     return (

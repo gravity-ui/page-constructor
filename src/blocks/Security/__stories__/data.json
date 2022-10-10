@@ -1,0 +1,111 @@
+{
+  "lightTheme": {
+    "content": {
+      "theme": "light",
+      "type": "security-block",
+      "title": "Lorem ipsum dolor sit amet",
+      "media": {
+        "youtube": "_BAu4SB5Wi0"
+      },
+      "points": [
+        {
+          "img": "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/mailn-availability-zones.svg",
+          "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur..",
+          "link": {
+            "text": "Learn more",
+            "url": "#"
+          }
+        },
+        {
+          "img": "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-datacenter.svg",
+          "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur..",
+          "link": {
+            "text": "Learn more",
+            "url": "#"
+          }
+        },
+        {
+          "img": "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-secure-clouds.svg",
+          "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur..",
+          "link": {
+            "text": "Certificates and standards",
+            "url": "#"
+          }
+        }
+      ]
+    }
+  },
+  "darkTheme": {
+    "content": {
+      "theme": "dark",
+      "type": "security-block",
+      "title": "Lorem ipsum dolor sit amet",
+      "media": {
+        "youtube": "_BAu4SB5Wi0"
+      },
+      "points": [
+        {
+          "img": "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/mailn-availability-zones.svg",
+          "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur..",
+          "link": {
+            "text": "Learn more",
+            "url": "#"
+          }
+        },
+        {
+          "img": "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-datacenter.svg",
+          "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur..",
+          "link": {
+            "text": "Learn more",
+            "url": "#"
+          }
+        },
+        {
+          "img": "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-secure-clouds.svg",
+          "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur..",
+          "link": {
+            "text": "Certificates and standards",
+            "url": "#"
+          }
+        }
+      ]
+    }
+  },
+  "customBackground": {
+    "content": {
+      "theme": "dark",
+      "type": "security-block",
+      "title": "Lorem ipsum dolor sit amet",
+      "backgroundColor": "#7ccea0",
+      "media": {
+        "youtube": "_BAu4SB5Wi0"
+      },
+      "points": [
+        {
+          "img": "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/mailn-availability-zones.svg",
+          "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur..",
+          "link": {
+            "text": "Learn more",
+            "url": "#"
+          }
+        },
+        {
+          "img": "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-datacenter.svg",
+          "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur..",
+          "link": {
+            "text": "Learn more",
+            "url": "#"
+          }
+        },
+        {
+          "img": "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-secure-clouds.svg",
+          "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur..",
+          "link": {
+            "text": "Certificates and standards",
+            "url": "#"
+          }
+        }
+      ]
+    }
+  }
+}

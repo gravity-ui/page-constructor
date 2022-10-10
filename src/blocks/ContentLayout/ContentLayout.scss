@@ -28,10 +28,6 @@ $block: '.#{$ns}content-layout-block';
         &_centered {
             margin-left: auto;
             margin-right: auto;
-
-            #{$block}__file {
-                justify-content: center;
-            }
         }
 
         a {

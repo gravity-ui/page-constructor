@@ -8,6 +8,10 @@ build/
 server/
 configure/
 storybook-static/
+styles/styles.css
+CHANGELOG.md
+CONTRIBUTING.md
 
 # npm files
 package.json
+

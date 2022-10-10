@@ -10,7 +10,7 @@ import './BackgroundCard.scss';
 
 const b = block('background-card');
 
-const BackgroundCard: React.FC<BackgroundCardProps> = (props) => {
+const BackgroundCard = (props: BackgroundCardProps) => {
     const {
         url,
         title,

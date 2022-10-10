@@ -1,23 +1,19 @@
-Инфо блок
+Info block
 
-type: 'info-block'
+`type: 'info-block'`
 
-backgroundColor?: строка - цвет заливки
+`title: string` — Title on the right. DEPRECATED
 
-theme?: 'light' | 'dark' - тема (определяет цвет текста)
+`sectionsTitle: string` — Title on the left. DEPRECATED
 
-rightContent?:
+`backgroundColor?: string` — Fill color
 
-- [title?: Title | string - заголовок](?path=/story/информация--common-types&viewMode=docs#title---заголовок-блока)
-- text?: string - текст (с поддержкой yfm)
-- additionalInfo?: string - серый текст (с поддержкой yfm)
-- [links?: Link[] - массив с объектами ссылок](?path=/story/информация--common-types&viewMode=docs#link---ссылка)
-- [buttons?: Button[] - массив с объектами кнопок](?path=/story/информация--common-types&viewMode=docs#button---кнопка)
+`buttons?: Button[]` — Buttons on the left. DEPRECATED
 
-title: строка - заголовок в правой части <span style='color: red'>(DEPRECATED! - не используйте этот параметр в новых блоках)</span>
+`links?: Button[]` — Links on the right. DEPRECATED
 
-sectionsTitle: строка` - заголовок в левой части <span style='color: red'>(DEPRECATED! - не используйте этот параметр в новых блоках)</span>
+`theme?: 'light' | 'dark'` — Theme (defines the text color)
 
-buttons?: Button[] - кнопки в левой части <span style='color: red'>(DEPRECATED! - не используйте этот параметр в новых блоках)</span>
+`rightContent?` - See the [Content](?path=/story/components-content--default&viewMode=docs) component
 
-links?: Button[] - ссылки в правой части <span style='color: red'>(DEPRECATED! - не используйте этот параметр в новых блоках)</span>
+`leftContent?` - See the [Content](?path=/story/components-content--default&viewMode=docs) component

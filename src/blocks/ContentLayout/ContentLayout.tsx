@@ -33,7 +33,7 @@ function getTextWidth(size: ContentTextSize) {
     }
 }
 
-export const ContentLayoutBlock: React.FC<ContentLayoutBlockProps> = (props) => {
+export const ContentLayoutBlock = (props: ContentLayoutBlockProps) => {
     const isMobile = useContext(MobileContext);
     const {textContent, fileContent, properties: cardLayoutProperties = {size: 'l'}} = props;
     const {

@@ -1,23 +1,23 @@
-Блок Медиа
+Media block
 
 `type: media-block`
 
-`title: строка` - заголовок;
+`title: string` — Title.
 
-`description: строка` - описание;
+`description: string` — Description.
 
-[`button: Button` - кнопка](?path=/story/информация--common-types&viewMode=docs#button---кнопка)
+[`button: Button` — Button](?path=/story/information--common-types&viewMode=docs#button---button)
 
-[`media: Media` - описание медиа](?path=/story/информация--common-types&viewMode=docs#media---изображениевидеоdatalens)
+[`media: Media` — Media description](?path=/story/information--common-types&viewMode=docs#media---picvideodatalens)
 
-`direction: 'media-content' | 'content-media'` - относительное расположение медиа и контента
+`direction: 'media-content' | 'content-media'` — Relative position of media and content.
 
-`largeMedia?: boolean` - изображение/видео занимает 8 колонок;
+`largeMedia?: boolean` — An image/video takes 8 columns.
 
-`disableShadow?: boolean` - скрыть тень блока;
+`disableShadow?: boolean` — Disable shadow for the block.
 
-`additionalInfo?: string` - серый текст (с поддержкой yfm)
+`additionalInfo?: string` — Gray text (with YFM support)
 
-[`links?: Link[]` - массив с объектами ссылок](?path=/story/информация--common-types&viewMode=docs#link---ссылка)
+[`links?: Link[]` — An array with link objects](?path=/story/information--common-types&viewMode=docs#link---link)
 
-[`buttons?: Button[]` - массив с объектами кнопок](?path=/story/информация--common-types&viewMode=docs#button---кнопка)
+[`buttons?: Button[]` — An array with button objects](?path=/story/information--common-types&viewMode=docs#button---button)

@@ -1,0 +1,103 @@
+{
+  "default": {
+    "content": {
+      "colSizes": {
+        "all": 12,
+        "sm": 6,
+        "md": 4
+      },
+      "type": "extended-features-block",
+      "title": {
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+        "textSize": "m"
+      },
+      "items": [
+        {
+          "title": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+          "text": "Ut enim ad minim veniam <a href=\"https://example.com\">quis nostrud exercitation</a> ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+          "icon": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/icons/icon.svg",
+          "link": {
+            "text": "Go",
+            "url": "#",
+            "arrow": true,
+            "theme": "normal"
+          }
+        },
+        {
+          "title": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+          "text": "Ut enim ad minim veniam <a href=\"https://example.com\">quis nostrud exercitation</a> ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+          "icon": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/icons/icon.svg",
+          "link": {
+            "text": "Go",
+            "url": "#",
+            "arrow": true,
+            "theme": "normal"
+          }
+        },
+        {
+          "title": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+          "text": "Ut enim ad minim veniam <a href=\"https://example.com\">quis nostrud exercitation</a> ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+          "icon": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/icons/icon.svg",
+          "link": {
+            "text": "Go",
+            "url": "#",
+            "arrow": true,
+            "theme": "normal"
+          }
+        }
+      ]
+    }
+  },
+  "withLabel": {
+    "content": {
+      "colSizes": {
+        "all": 12,
+        "sm": 6,
+        "md": 4
+      },
+      "type": "extended-features-block",
+      "title": {
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+        "textSize": "m"
+      },
+      "items": [
+        {
+          "title": "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+          "text": "Ut enim ad minim veniam <a href=\"https://example.com\">quis nostrud exercitation</a> ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+          "icon": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/icons/icon.svg",
+          "link": {
+            "text": "Go",
+            "url": "#",
+            "arrow": true,
+            "theme": "normal"
+          },
+          "label": "New"
+        },
+        {
+          "title": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+          "text": "Ut enim ad minim veniam <a href=\"https://example.com\">quis nostrud exercitation</a> ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+          "icon": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/icons/icon.svg",
+          "link": {
+            "text": "Go",
+            "url": "#",
+            "arrow": true,
+            "theme": "normal"
+          },
+          "label": "Preview"
+        },
+        {
+          "title": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+          "text": "Ut enim ad minim veniam <a href=\"https://example.com\">quis nostrud exercitation</a> ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+          "icon": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/icons/icon.svg",
+          "link": {
+            "text": "Go",
+            "url": "#",
+            "arrow": true,
+            "theme": "normal"
+          },
+          "label": "New"
+        }
+      ]
+    }
+  }
+}

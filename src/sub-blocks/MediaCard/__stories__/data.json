@@ -1,0 +1,46 @@
+{
+  "video": {
+    "content": {
+      "video": {
+        "src": [
+          "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-calcx2.mp4",
+          "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-calcx2.webm",
+          "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-calcx2.ogv",
+          "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/calc.png"
+        ],
+        "loop": {
+          "start": 0
+        }
+      }
+    }
+  },
+  "youtube": {
+    "content": {
+      "youtube": "https://youtu.be/bxZRUtMAlFI",
+      "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/constructor/video-preview.png"
+    }
+  },
+  "dataLens": {
+    "content": {
+      "dataLens": "zqx9je64n9bws"
+    }
+  },
+  "imageSlider": {
+    "content": {
+      "image": [
+        "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
+        "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-white.png",
+        "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-black.png"
+      ]
+    }
+  },
+  "image": {
+    "content": {
+      "image": {
+        "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
+        "alt": "Picture",
+        "disableCompress": true
+      }
+    }
+  }
+}

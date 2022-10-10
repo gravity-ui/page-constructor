@@ -1,17 +1,17 @@
 `type: "link"`
 
-`text: текст` - текст ссылки;
+`text: text` — Link text
 
-`url?: url` - адрес ссылка;
+`url?: url` — Link URL
 
-`arrow?: bool` - рисовать стрелку справа;
+`arrow?: bool` — Draw an arrow on the right
 
-`textSize?: l | m | s` - размер ссылки
+`textSize?: l | m | s` — Link size
 
 - 'l' - 17px
 - 'm' - 15px
 - 's' - 13px
 
-**Отступы:**
+**Margins:**
 
 `top: xs`

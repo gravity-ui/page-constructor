@@ -7,7 +7,7 @@ import './ConstructorFootnotes.scss';
 
 const b = block('constructor-footnotes');
 
-export const ConstructorFootnotes: React.FC<{items: string[]}> = ({items}) => (
+export const ConstructorFootnotes = ({items}: {items: string[]}) => (
     <ol className={b()}>
         {items.map((footnote, index) => (
             <li className={b('item')} key={index}>

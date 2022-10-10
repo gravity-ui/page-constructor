@@ -1,10 +1,11 @@
 import {Meta, Story} from '@storybook/react/types-6-0';
 import React from 'react';
-import yfm from '@doc-tools/transform';
 
 import BackgroundCard from '../BackgroundCard';
-import {BackgroundCardProps} from '../../../models';
+import {BackgroundCardModel, BackgroundCardProps} from '../../../models';
 import {CARDS, COMPONENTS} from '../../../demo/constants';
+
+import data from './data.json';
 
 export default {
     component: BackgroundCard,
@@ -15,46 +16,6 @@ export default {
         },
     },
 } as Meta;
-
-const DefaultArgs: BackgroundCardProps = {
-    url: '#',
-    title: 'Концепция безопасности',
-    text: yfm(
-        '**Yandex.Cloud — публичная облачная платформа**, которая [предоставляет](https://ya.com) корпорациям, среднему бизнесу и частным разработчикам масштабируемую инфраструктуру, сервисы хранения данных, инструменты машинного обучения и средства разработки.',
-    ).result.html,
-    additionalInfo: yfm(
-        'Яндекс [представил](https://ya.com) Yandex.Cloud в 2018 году. С момента запуска платформа выросла вдвое. Причём не только по суммарному доходу, но и по клиентской базе: ежедневно наши сервисы используют более 10 тысяч компаний.',
-    ).result.html,
-    paddingBottom: 's',
-    links: [
-        {
-            url: '/security',
-            text: 'Подробнее',
-            theme: 'normal',
-            arrow: true,
-        },
-    ],
-    buttons: [
-        {
-            text: 'Подключиться',
-            theme: 'action',
-            url: 'https://console.cloud.yandex.${tld}/',
-        },
-        {
-            text: 'Связаться с нами',
-            theme: 'outlined',
-            url: '/#contact-form',
-        },
-    ],
-};
-
-const BackgroundArgs = {
-    background: {
-        src: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/bg_card_0001.png',
-        alt: 'Концепция безопасности',
-        disableCompress: true,
-    },
-};
 
 const DefaultTemplate: Story<BackgroundCardProps> = (args) => (
     <div style={{maxWidth: '400px'}}>
@@ -101,51 +62,10 @@ export const BorderLine = DefaultTemplate.bind({});
 export const BackgroundColor = DefaultTemplate.bind({});
 export const WithTheme = DefaultTemplate.bind({});
 
-Default.args = DefaultArgs;
-
-WithBackgroundImage.args = {
-    ...DefaultArgs,
-    ...BackgroundArgs,
-};
-
-Paddings.args = {
-    ...DefaultArgs,
-    ...BackgroundArgs,
-};
-
-CardThemes.args = {
-    ...DefaultArgs,
-    background: {
-        src: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/bg_card_0002.png',
-        alt: 'Концепция безопасности',
-        disableCompress: true,
-    },
-};
-
-BorderLine.args = {
-    ...DefaultArgs,
-    ...BackgroundArgs,
-    border: 'line',
-};
-
-BackgroundColor.args = {
-    ...DefaultArgs,
-    ...BackgroundArgs,
-    backgroundColor: '#7ccea0',
-};
-
-WithTheme.args = {
-    ...DefaultArgs,
-    background: {
-        light: {
-            src: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/bg_card_0001.png',
-            alt: 'Концепция безопасности',
-            disableCompress: true,
-        },
-        dark: {
-            src: 'https://storage.cloud-preprod.yandex.net/berdysheva-test/bg_card_0002.png',
-            alt: 'Концепция безопасности',
-            disableCompress: true,
-        },
-    },
-};
+Default.args = data.default.content as BackgroundCardModel;
+WithBackgroundImage.args = data.withBackgroundImage.content as BackgroundCardModel;
+Paddings.args = data.paddings.content as BackgroundCardModel;
+CardThemes.args = data.cardThemes.content as BackgroundCardModel;
+BorderLine.args = data.borderLine.content as BackgroundCardModel;
+BackgroundColor.args = data.backgroundColor.content as BackgroundCardModel;
+WithTheme.args = data.withTheme.content as BackgroundCardModel;

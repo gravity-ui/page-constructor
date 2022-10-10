@@ -13,12 +13,12 @@ export interface BlockHeaderProps extends BlockHeaderParams {
     colSizes?: GridColumnSizesType;
 }
 
-const BlockHeader: React.FunctionComponent<BlockHeaderProps & ClassNameProps> = ({
+const BlockHeader = ({
     title,
     description,
     className,
     colSizes = {all: 12, sm: 8},
-}) => {
+}: BlockHeaderProps & ClassNameProps) => {
     if (!title && !description) {
         return null;
     }

@@ -1,0 +1,38 @@
+{
+  "withTheme": {
+    "content": {
+      "theme": "dark",
+      "type": "banner-block",
+      "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      "subtitle": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> ",
+      "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-black.png",
+      "disableCompress": true,
+      "color": "#000",
+      "button": {
+        "text": "Learn more",
+        "url": "https://example.com"
+      }
+    }
+  },
+  "default": {
+    "content": {
+      "theme": "light",
+      "type": "banner-block",
+      "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      "subtitle": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> ",
+      "image": {
+        "light": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
+        "dark": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-white.png"
+      },
+      "disableCompress": true,
+      "color": {
+        "light": "#EEF3FE",
+        "dark": "#000"
+      },
+      "button": {
+        "text": "Learn more",
+        "url": "https://example.com"
+      }
+    }
+  }
+}

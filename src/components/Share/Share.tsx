@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 
-import {ShareList, ShareSocialNetwork} from '@yandex-cloud/uikit';
+import {ShareList, ShareSocialNetwork} from '@gravity-ui/uikit';
 
 import {block, getAbsolutePath} from '../../utils';
 import {PCShareSocialNetwork} from '../../models';
@@ -24,7 +24,7 @@ export interface ShareProps {
     title?: string;
 }
 
-const Share: React.FunctionComponent<ShareProps> = ({items, title}) => {
+const Share = ({items, title}: ShareProps) => {
     const {pathname, hostname} = useContext(LocationContext);
 
     return (

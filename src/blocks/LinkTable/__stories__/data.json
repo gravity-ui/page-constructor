@@ -1,0 +1,200 @@
+{
+  "threeСolumn": {
+    "content": {
+      "type": "link-table-block",
+      "title": "Lorem ipsum",
+      "description": "Lorem ipsum dolor sit amet, <b>consectetur</b> adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+      "items": [
+        [
+          {
+            "text": "Learn more",
+            "url": "#"
+          },
+          {
+            "text": "Read more",
+            "url": "#",
+            "arrow": true
+          },
+          {
+            "text": "Learn more",
+            "url": "#"
+          },
+          {
+            "text": "Read more",
+            "url": "#"
+          }
+        ],
+        [
+          {
+            "text": "Link",
+            "url": "#",
+            "theme": "underline"
+          }
+        ],
+        [
+          {
+            "text": "Learn more",
+            "url": "#",
+            "theme": "underline"
+          },
+          {
+            "text": "Read more",
+            "url": "#"
+          }
+        ]
+      ]
+    }
+  },
+  "backTheme": {
+    "content": {
+      "type": "link-table-block",
+      "linkTheme": "back",
+      "title": "Lorem ipsum",
+      "description": "Lorem ipsum dolor sit amet, <b>consectetur</b> adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+      "items": [
+        [
+          {
+            "text": "Learn more",
+            "url": "#"
+          },
+          {
+            "text": "Read more",
+            "url": "#"
+          },
+          {
+            "text": "Learn more",
+            "url": "#"
+          },
+          {
+            "text": "Read more",
+            "url": "#"
+          }
+        ],
+        [
+          {
+            "text": "Link",
+            "url": "#"
+          }
+        ],
+        [
+          {
+            "text": "Learn more",
+            "url": "#"
+          },
+          {
+            "text": "Read more",
+            "url": "#"
+          }
+        ]
+      ]
+    }
+  },
+  "underlineTheme": {
+    "content": {
+      "type": "link-table-block",
+      "linkTheme": "underline",
+      "title": "Lorem ipsum",
+      "description": "Lorem ipsum dolor sit amet, <b>consectetur</b> adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+      "items": [
+        [
+          {
+            "text": "Learn more",
+            "url": "#"
+          },
+          {
+            "text": "Read more",
+            "url": "#"
+          },
+          {
+            "text": "Learn more",
+            "url": "#"
+          },
+          {
+            "text": "Read more",
+            "url": "#"
+          }
+        ],
+        [
+          {
+            "text": "Link",
+            "url": "#"
+          }
+        ],
+        [
+          {
+            "text": "Learn more",
+            "url": "#"
+          },
+          {
+            "text": "Read more",
+            "url": "#"
+          }
+        ]
+      ]
+    }
+  },
+  "fileLinksTheme": {
+    "content": {
+      "type": "link-table-block",
+      "linkTheme": "file-link",
+      "title": "Lorem ipsum",
+      "description": "Lorem ipsum dolor sit amet, <b>consectetur</b> adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+      "items": [
+        [
+          {
+            "text": "Learn more",
+            "url": "#"
+          },
+          {
+            "text": "Read more",
+            "url": "#"
+          },
+          {
+            "text": "Learn more",
+            "url": "#"
+          },
+          {
+            "text": "Read more",
+            "url": "#"
+          }
+        ],
+        [
+          {
+            "text": "Link",
+            "url": "#"
+          }
+        ],
+        [
+          {
+            "text": "Learn more",
+            "url": "#"
+          },
+          {
+            "text": "Read more",
+            "url": "#"
+          }
+        ]
+      ]
+    }
+  },
+  "defaultLinksOneColumn": {
+    "content": {
+      "type": "link-table-block",
+      "title": "Lorem ipsum",
+      "description": "Lorem ipsum dolor sit amet, <b>consectetur</b> adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+      "linkTheme": "normal",
+      "items": [
+        [
+          {
+            "text": "Learn more",
+            "url": "#"
+          },
+          {
+            "text": "Read more",
+            "url": "#"
+          }
+        ]
+      ]
+    }
+  }
+}

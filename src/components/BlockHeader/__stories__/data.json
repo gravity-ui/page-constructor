@@ -1,0 +1,29 @@
+{
+  "default": {
+    "content": {
+      "title": "Lorem ipsum",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo <a href=\"#\">consequat</a>."
+    }
+  },
+  "customTitle": {
+    "content": {
+      "title": {
+        "text": "Header",
+        "textSize": "s",
+        "url": "#",
+        "custom": "Some react node"
+      },
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo <a href=\"#\">consequat</a>."
+    }
+  },
+  "titleLink": {
+    "content": {
+      "title": {
+        "text": "Title link",
+        "textSize": "s",
+        "url": "#"
+      },
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo <a href=\"#\">consequat</a>."
+    }
+  }
+}

@@ -1,4 +1,4 @@
-import React, {FC, useCallback, useContext, useEffect, useRef, useState} from 'react';
+import React, {useCallback, useContext, useEffect, useRef, useState} from 'react';
 import SlickSlider, {Settings} from 'react-slick';
 import _ from 'lodash';
 
@@ -9,6 +9,7 @@ import {
     SliderType,
     ClassNameProps,
     Timeout,
+    WithChildren,
 } from '../../models';
 import Arrow, {ArrowType} from './Arrow/Arrow';
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
@@ -57,7 +58,7 @@ export interface SliderProps
     arrowSize?: number;
 }
 
-export const SliderBlock: FC<SliderProps> = (props) => {
+export const SliderBlock = (props: WithChildren<SliderProps>) => {
     const {
         animated,
         title,
@@ -82,7 +83,7 @@ export const SliderBlock: FC<SliderProps> = (props) => {
     const {isServer} = useContext(SSRContext);
     const isMobile = useContext(MobileContext);
     const [breakpoint, setBreakpoint] = useState<number>(BREAKPOINTS.xl);
-    const [disclosedChildren] = useState<React.ReactChildren[]>(() =>
+    const [disclosedChildren] = useState<React.ReactElement[]>(() =>
         discloseAllNestedChildren(children as React.ReactElement[]),
     );
     const childrenCount = disclosedChildren.length;
@@ -337,18 +338,18 @@ export const SliderBlock: FC<SliderProps> = (props) => {
 };
 
 // TODO remove this and rework PriceDetailed CLOUDFRONT-12230
-function discloseAllNestedChildren(children: React.ReactElement[]): React.ReactChildren[] {
+function discloseAllNestedChildren(children: React.ReactElement[]): React.ReactElement[] {
     if (!children) {
         return [];
     }
 
-    return React.Children.map(children, (child: React.ReactElement) => {
+    return React.Children.map(children, (child) => {
         if (child) {
             // TODO: if child has 'items' then 'items' determinate like nested children for Slider.
             const nestedChildren = child.props.data?.items;
 
             if (nestedChildren) {
-                return nestedChildren.map((nestedChild: React.ReactChildren) =>
+                return nestedChildren.map((nestedChild: React.ReactElement) =>
                     React.cloneElement(child, {
                         data: {
                             ...child.props.data,

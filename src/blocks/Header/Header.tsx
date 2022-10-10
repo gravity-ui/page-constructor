@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 
 import {block, getThemedValue} from '../../utils';
-import {ClassNameProps, HeaderBlockBackground, HeaderBlockProps} from '../../models';
+import {ClassNameProps, HeaderBlockBackground, HeaderBlockProps, WithChildren} from '../../models';
 import {headerHasMediaBackground} from '../../models/guards';
 import {Button, Media, BackgroundMedia, BackgroundImage, RouterLink, HTML} from '../../components';
 import {Grid, Row, Col} from '../../grid';
@@ -21,12 +21,13 @@ interface BackgroundProps {
     background: HeaderBlockBackground;
 }
 
-const Background: React.FC<BackgroundProps> = ({background}) => {
+const Background = ({background}: BackgroundProps) => {
     const {url, color, disableCompress, fullWidth, fullWidthMedia} = background;
 
     return headerHasMediaBackground(background) ? (
         <BackgroundMedia
             {...background}
+            mediaClassName={b('background-media')}
             className={b('background', {media: true, 'full-width-media': fullWidthMedia})}
         />
     ) : (
@@ -44,14 +45,14 @@ interface FullWidthBackgroundProps {
     background: HeaderBlockBackground;
 }
 
-const FullWidthBackground: React.FC<FullWidthBackgroundProps> = ({background}) => (
+const FullWidthBackground = ({background}: FullWidthBackgroundProps) => (
     <div
         className={b('background', {['full-width']: true})}
         style={{backgroundColor: background?.color}}
     />
 );
 
-export const HeaderBlock: React.FunctionComponent<HeaderBlockFullProps> = (props) => {
+export const HeaderBlock = (props: WithChildren<HeaderBlockFullProps>) => {
     const {
         title,
         overtitle,

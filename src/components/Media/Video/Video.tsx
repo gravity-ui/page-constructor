@@ -23,7 +23,7 @@ interface InnerVideoProps {
 
 type VideoAllProps = VideoAdditionProps & MediaComponentVideoProps & InnerVideoProps;
 
-const Video: React.FC<VideoAllProps> = (props) => {
+const Video = (props: VideoAllProps) => {
     const {
         video,
         height,

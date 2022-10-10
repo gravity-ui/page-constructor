@@ -1,0 +1,16 @@
+{
+  "default": {
+    "content": {
+      "record": "https://youtu.be/bxZRUtMAlFI",
+      "attributes": {
+        "color": "white",
+        "rel": "0"
+      },
+      "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/constructor/video-preview.png",
+      "playButton": null,
+      "className": "",
+      "stream": "",
+      "id": ""
+    }
+  }
+}

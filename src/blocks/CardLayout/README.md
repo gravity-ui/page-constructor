@@ -1,25 +1,25 @@
 `type: "card-layout-block"`
 
-`title?: Title | string` - заголовок
+`title?: Title | string` — Title.
 
-`description?: string` - текст
+`description?: string` — Text.
 
-`colSizes?: Object` - размеры одной карточки в колонках на разных размерах экрана, значение от 1 до 12 колонок, где 12 колонок означает, что одна карточка занимает всю ширину экрана
+`colSizes?: Object` — Sizes of a single card in columns for different screen sizes, the value ranges from 1 to 12 columns. If 12 columns, a single card takes up the entire width of the screen.
 
-- `all: число` - на всех экранах
-- `sm: число` - на экранах шире 577px
-- `md: число` - на экранах шире 769px
-- `lg: число` - на экранах шире 1081px
-- `xl: число` - на экранах шире 1185px
+- `all: number` — On all screens.
+- `sm: number` — On a screen wider than 577px.
+- `md: number` — On a screen wider than 769px.
+- `lg: number` — On a screen wider than 1081px.
+- `xl: number` — On a screen wider than 1185px.
 
-`children:[]` - сюда можно добавить массив любых карточек, которые у нас есть
+`children:[]` — You can add an array of any available cards here.
 
-На данный момент поддерживаются следующие блоки:
+The following blocks are currently supported:
 
-- [`BasicCard` - основная карточка](?path=/story/компоненты-карточки-basiccard--default&viewMode=docs)
-- [`Partner` - карточка партнера](?path=/story/компоненты-карточки-partner--default&viewMode=docs)
-- [`Price Detailed` - тарифы](?path=/story/компоненты-карточки-pricedetailed--marked-list&viewMode=docs)
-- [`BackgroundCard` - карточка с бэкграундом](?path=/story/компоненты-карточки-backgroundcard--default&viewMode=docs)
-- [`CardWithImage` - карточка с фотографией над заголовком](?path=/story/компоненты-карточки-cardwithimage--default&viewMode=docs)
-- [`NewsCard` - карточка новостей](?path=/story/компоненты-карточки-newscard--default&viewMode=docs)
-- [`TutorialCard` - карточка с иконкой](?path=/story/компоненты-карточки-tutorialcard--default&viewMode=docs)
+- [`BasicCard` — Basic card](?path=/story/components-cards-basiccard--default&viewMode=docs)
+- [`Partner` — Partner card](?path=/story/components-cards-partner--default&viewMode=docs)
+- [`Price Detailed` — Pricing](?path=/story/components-cards-pricedetailed--marked-list&viewMode=docs)
+- [`BackgroundCard` — Background card](?path=/story/components-cards-backgroundcard--default&viewMode=docs)
+- [`CardWithImage` — Card with a picture above the title](?path=/story/components-cards-cardwithimage--default&viewMode=docs)
+- [`NewsCard` — News card](?path=/story/components-cards-newscard--default&viewMode=docs)
+- [`TutorialCard` — Card with an icon](?path=/story/components-cards-tutorialcard--default&viewMode=docs)

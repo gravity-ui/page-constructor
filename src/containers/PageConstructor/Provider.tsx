@@ -10,6 +10,7 @@ import {LocaleContext, LocaleContextProps} from '../../context/localeContext';
 import {LocationContext, LocationContextProps} from '../../context/locationContext';
 import {ConstructorTheme, ThemeValueContext} from '../../context/theme/ThemeValueContext';
 import {DEFAULT_THEME} from '../../components/constants';
+import {WithChildren} from '../../models';
 
 export interface PageConstructorProviderProps {
     isMobile?: boolean;
@@ -21,7 +22,7 @@ export interface PageConstructorProviderProps {
     projectSettings?: ProjectSettingsContextProps;
 }
 
-export const PageConstructorProvider: React.FC<PageConstructorProviderProps> = (props) => {
+export const PageConstructorProvider = (props: WithChildren<PageConstructorProviderProps>) => {
     const {
         isMobile,
         locale = {},

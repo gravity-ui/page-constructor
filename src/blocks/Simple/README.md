@@ -1,6 +1,6 @@
 `type: 'simple-block'`
 
-`title: TitleBaseProps` - заголовок блока
+`title: TitleBaseProps`— Block title
 
 - text: string;
 - textSize?: TextSize;
@@ -8,6 +8,6 @@
 - custom?: string | ReactNode;
 - onClick?: () => void;
 
-`description: string` - описание блока
+`description: string` — Block description
 
 `children?: Block[]`

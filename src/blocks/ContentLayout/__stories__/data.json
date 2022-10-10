@@ -1,0 +1,552 @@
+{
+  "withFiles": {
+    "content": {
+      "type": "content-layout-block",
+      "textContent": {
+        "title": {
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+          "url": "https://example.ru"
+        },
+        "text": "<p><strong>Ut enim ad minim veniam</strong> <a href=\"https://example.com\">quis nostrud</a> exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> ",
+        "additionalInfo": "<p> Duis aute irure dolor in <a href=\"https://example.com\">reprehenderit</a>n voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p> ",
+        "links": [
+          {
+            "url": "https://example.com",
+            "text": "Back",
+            "theme": "back",
+            "arrow": true
+          },
+          {
+            "url": "#",
+            "text": "Link",
+            "theme": "normal",
+            "arrow": true
+          },
+          {
+            "url": "#1",
+            "text": "Link",
+            "theme": "normal",
+            "arrow": true
+          },
+          {
+            "url": "#2",
+            "text": "Link",
+            "theme": "normal",
+            "arrow": true
+          },
+          {
+            "url": "#3",
+            "text": "Link",
+            "theme": "normal",
+            "arrow": true
+          }
+        ],
+        "buttons": [
+          {
+            "text": "Button\r",
+            "theme": "action",
+            "url": "https://example.com"
+          },
+          {
+            "text": "Button",
+            "theme": "outlined",
+            "url": "https://example.com"
+          }
+        ]
+      },
+      "fileContent": [
+        {
+          "href": "https://example.xls",
+          "text": "File xls"
+        },
+        {
+          "href": "https://example.fig",
+          "text": "PNG, JPG, and SVG format"
+        },
+        {
+          "href": "https://example.pdf",
+          "text": "PDF file"
+        },
+        {
+          "href": "https://example.zip",
+          "text": "Archive file"
+        },
+        {
+          "href": "https://example.doc",
+          "text": "Microsoft Word document"
+        },
+        {
+          "href": "https://example.ppt",
+          "text": "PPT file"
+        }
+      ]
+    }
+  },
+  "textWidthWithoutTitle": {
+    "content": {
+      "type": "content-layout-block",
+      "properties": {
+        "textWidth": "s",
+        "size": "s"
+      },
+      "textContent": {
+        "text": "<p>Ut enim ad minim veniam <a href=\"https://example.com\">quis nostrud</a> exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> ",
+        "additionalInfo": "<ol> <li> Duis aute irure dolor in <a href=\"https://example.com\">reprehenderit</a> </li> <li> in voluptate velit esse</li> <li>cillum dolore eu fugiat nulla pariatur.</li> </ol> ",
+        "links": [
+          {
+            "url": "https://example.com",
+            "text": "Back",
+            "theme": "normal",
+            "arrow": true
+          },
+          {
+            "url": "#",
+            "text": "Link",
+            "theme": "normal",
+            "arrow": true
+          },
+          {
+            "url": "#1",
+            "text": "Link",
+            "theme": "normal",
+            "arrow": true
+          },
+          {
+            "url": "#2",
+            "text": "Link",
+            "theme": "normal",
+            "arrow": true
+          },
+          {
+            "url": "#3",
+            "text": "Link",
+            "theme": "normal",
+            "arrow": true
+          }
+        ],
+        "buttons": [
+          {
+            "text": "Button\r",
+            "theme": "action",
+            "url": "https://example.com"
+          },
+          {
+            "text": "Button",
+            "theme": "outlined",
+            "url": "https://example.com"
+          }
+        ]
+      },
+      "fileContent": [
+        {
+          "href": "https://example.xls",
+          "text": "File xls"
+        },
+        {
+          "href": "https://example.fig",
+          "text": "File PNG, JPG, and SVG format"
+        },
+        {
+          "href": "https://example.pdf",
+          "text": "Pdf file"
+        },
+        {
+          "href": "https://example.zip",
+          "text": "Archive file"
+        },
+        {
+          "href": "https://example.doc",
+          "text": "Microsoft Word document"
+        },
+        {
+          "href": "https://example.ppt",
+          "text": "PPT file"
+        }
+      ]
+    }
+  },
+  "withImageAndBackgroundSizeL": {
+    "content": {
+      "type": "content-layout-block",
+      "properties": {
+        "background": {
+          "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
+          "style": {
+            "backgroundColor": "#EFF2F8"
+          }
+        }
+      },
+      "textContent": {
+        "title": "A cube of size L with a background and image",
+        "text": "<p>Ut enim ad minim veniam <a href=\"https://example.com\">quis nostrud</a> exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> ",
+        "additionalInfo": "<p> Duis aute irure dolor in <a href=\"https://example.com\">reprehenderit</a>n voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p> ",
+        "links": [
+          {
+            "url": "https://example.com",
+            "text": "",
+            "theme": "normal",
+            "arrow": true
+          }
+        ],
+        "buttons": [
+          {
+            "text": "Button\r",
+            "theme": "action",
+            "url": "https://example.com"
+          },
+          {
+            "text": "Button",
+            "theme": "outlined",
+            "url": "https://example.com"
+          }
+        ]
+      },
+      "fileContent": [
+        {
+          "href": "https://example.xls",
+          "text": "File xls"
+        },
+        {
+          "href": "https://example.fig",
+          "text": "PNG, JPG, and SVG format"
+        },
+        {
+          "href": "https://example.pdf",
+          "text": "PDF file"
+        },
+        {
+          "href": "https://example.zip",
+          "text": "Archive file"
+        },
+        {
+          "href": "https://example.doc",
+          "text": "Microsoft Word document"
+        },
+        {
+          "href": "https://example.ppt",
+          "text": "PPT file"
+        }
+      ]
+    }
+  },
+  "textWidth": {
+    "title": "Text width {{textWidth}}",
+    "content": {
+      "type": "content-layout-block",
+      "properties": {
+        "size": "s"
+      },
+      "textContent": {
+        "title": "Text width S",
+        "text": "<p>Ut enim ad minim veniam <a href=\"https://example.com\">quis nostrud</a> exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> ",
+        "additionalInfo": "<ul> <li> Duis aute irure dolor in <a href=\"https://example.com\">reprehenderit</a> in 2018 and  in voluptate velit esse</li> <li>cillum dolore eu fugiat nulla pariatur.</li> </ul> ",
+        "links": [
+          {
+            "url": "https://example.com",
+            "text": "Back",
+            "theme": "normal",
+            "arrow": true
+          },
+          {
+            "url": "#",
+            "text": "Link",
+            "theme": "normal",
+            "arrow": true
+          },
+          {
+            "url": "#1",
+            "text": "Link",
+            "theme": "normal",
+            "arrow": true
+          },
+          {
+            "url": "#2",
+            "text": "Link",
+            "theme": "normal",
+            "arrow": true
+          },
+          {
+            "url": "#3",
+            "text": "Link",
+            "theme": "normal",
+            "arrow": true
+          }
+        ],
+        "buttons": [
+          {
+            "text": "Button\r",
+            "theme": "action",
+            "url": "https://example.com"
+          },
+          {
+            "text": "Button",
+            "theme": "outlined",
+            "url": "https://example.com"
+          }
+        ]
+      },
+      "fileContent": [
+        {
+          "href": "https://example.xls",
+          "text": "File xls"
+        },
+        {
+          "href": "https://example.fig",
+          "text": "PNG, JPG, and SVG format"
+        },
+        {
+          "href": "https://example.pdf",
+          "text": "PDF file"
+        },
+        {
+          "href": "https://example.zip",
+          "text": "Archive file"
+        },
+        {
+          "href": "https://example.doc",
+          "text": "Microsoft Word document"
+        },
+        {
+          "href": "https://example.ppt",
+          "text": "PPT file"
+        }
+      ]
+    }
+  },
+  "size": {
+    "title": "Size {{size}} cube",
+    "content": {
+      "type": "content-layout-block",
+      "textContent": {
+        "text": "<p>Ut enim ad minim veniam <a href=\"https://example.com\">quis nostrud</a> exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> ",
+        "additionalInfo": "<p> Duis aute irure dolor in <a href=\"https://example.com\">reprehenderit</a>n voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p> ",
+        "links": [
+          {
+            "url": "https://example.com",
+            "text": "",
+            "theme": "normal",
+            "arrow": true
+          }
+        ],
+        "buttons": [
+          {
+            "text": "Button\r",
+            "theme": "action",
+            "url": "https://example.com"
+          },
+          {
+            "text": "Button",
+            "theme": "outlined",
+            "url": "https://example.com"
+          }
+        ]
+      },
+      "fileContent": [
+        {
+          "href": "https://example.xls",
+          "text": "File xls"
+        },
+        {
+          "href": "https://example.fig",
+          "text": "PNG, JPG, and SVG format"
+        },
+        {
+          "href": "https://example.pdf",
+          "text": "PDF file"
+        },
+        {
+          "href": "https://example.zip",
+          "text": "Archive file"
+        },
+        {
+          "href": "https://example.doc",
+          "text": "Microsoft Word document"
+        },
+        {
+          "href": "https://example.ppt",
+          "text": "PPT file"
+        }
+      ]
+    }
+  },
+  "withBackgroundSizeS": {
+    "content": {
+      "type": "content-layout-block",
+      "properties": {
+        "size": "s",
+        "background": {
+          "style": {
+            "backgroundColor": "#EFF2F8"
+          }
+        }
+      },
+      "textContent": {
+        "title": "A cube of size S with a background",
+        "text": "<p>Ut enim ad minim veniam <a href=\"https://example.com\">quis nostrud</a> exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> ",
+        "additionalInfo": "<p> Duis aute irure dolor in <a href=\"https://example.com\">reprehenderit</a>n voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p> ",
+        "links": [
+          {
+            "url": "https://example.com",
+            "text": "Link",
+            "theme": "normal",
+            "arrow": true
+          }
+        ],
+        "buttons": [
+          {
+            "text": "Button\r",
+            "theme": "action",
+            "url": "https://example.com"
+          },
+          {
+            "text": "Button",
+            "theme": "outlined",
+            "url": "https://example.com"
+          }
+        ]
+      },
+      "fileContent": [
+        {
+          "href": "https://example.xls",
+          "text": "File xls"
+        },
+        {
+          "href": "https://example.fig",
+          "text": "PNG, JPG, and SVG format"
+        },
+        {
+          "href": "https://example.pdf",
+          "text": "PDF file"
+        },
+        {
+          "href": "https://example.zip",
+          "text": "Archive file"
+        },
+        {
+          "href": "https://example.doc",
+          "text": "Microsoft Word document"
+        },
+        {
+          "href": "https://example.ppt",
+          "text": "PPT file"
+        }
+      ]
+    }
+  },
+  "withImageSizeSCentered": {
+    "content": {
+      "type": "content-layout-block",
+      "properties": {
+        "size": "s",
+        "background": {
+          "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png"
+        },
+        "centered": true
+      },
+      "textContent": {
+        "title": "A cube of size S with an image, centered",
+        "text": "<p>Ut enim ad minim veniam <a href=\"https://example.com\">quis nostrud</a> exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> ",
+        "additionalInfo": "<p> Duis aute irure dolor in <a href=\"https://example.com\">reprehenderit</a>n voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p> ",
+        "links": [
+          {
+            "url": "https://example.com",
+            "text": "",
+            "theme": "normal",
+            "arrow": true
+          }
+        ],
+        "buttons": [
+          {
+            "text": "Button\r",
+            "theme": "action",
+            "url": "https://example.com"
+          },
+          {
+            "text": "Button",
+            "theme": "outlined",
+            "url": "https://example.com"
+          }
+        ]
+      }
+    }
+  },
+  "default": {
+    "content": {
+      "type": "content-layout-block",
+      "textContent": {
+        "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+        "text": "<h3 id=\"loremipsum\"><a href=\"#loremipsum\" class=\"yfm-anchor\" aria-hidden=\"true\"></a>Lorem ipsum</h3> <h4 id=\"loremipsum1\"><a href=\"#loremipsum1\" class=\"yfm-anchor\" aria-hidden=\"true\"></a>dolor sit amet</h4> <p>consectetur adipiscing elit <a href=\"https://example.com\">quis nostrud</a> exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> ",
+        "additionalInfo": "<p> Duis aute irure dolor in <a href=\"https://example.com\">reprehenderit</a>n voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p> ",
+        "links": [
+          {
+            "url": "https://example.com",
+            "text": "",
+            "theme": "normal",
+            "arrow": true
+          }
+        ],
+        "buttons": [
+          {
+            "text": "Button\r",
+            "theme": "action",
+            "url": "https://example.com"
+          },
+          {
+            "text": "Button",
+            "theme": "outlined",
+            "url": "https://example.com"
+          }
+        ]
+      }
+    }
+  },
+  "theme": {
+    "title": "A cube with {{theme}} monochrome theme",
+    "contactButtonTitle": "Contact us",
+    "getStartedButtonTitle": "Get Started",
+    "content": {
+      "type": "content-layout-block",
+      "properties": {
+        "size": "s"
+      },
+      "textContent": {
+        "text": "<h3 id=\"loremipsum\"><a href=\"#loremipsum\" class=\"yfm-anchor\" aria-hidden=\"true\"></a>Lorem ipsum</h3> <h4 id=\"loremipsum1\"><a href=\"#loremipsum1\" class=\"yfm-anchor\" aria-hidden=\"true\"></a>dolor sit amet</h4> <p>consectetur adipiscing elit <a href=\"https://example.com\">quis nostrud</a> exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> ",
+        "additionalInfo": "<p> Duis aute irure dolor in <a href=\"https://example.com\">reprehenderit</a>n voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p> ",
+        "links": [
+          {
+            "url": "https://example.com",
+            "text": "",
+            "theme": "normal",
+            "arrow": true
+          }
+        ]
+      },
+      "fileContent": [
+        {
+          "href": "https://example.xls",
+          "text": "File xls"
+        },
+        {
+          "href": "https://example.fig",
+          "text": "PNG, JPG, and SVG format"
+        },
+        {
+          "href": "https://example.pdf",
+          "text": "PDF file"
+        },
+        {
+          "href": "https://example.zip",
+          "text": "Archive file"
+        },
+        {
+          "href": "https://example.doc",
+          "text": "Microsoft Word document"
+        },
+        {
+          "href": "https://example.ppt",
+          "text": "PPT file"
+        }
+      ]
+    }
+  }
+}

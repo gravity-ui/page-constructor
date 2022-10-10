@@ -28,7 +28,7 @@ export interface YandexFormProps {
     pixelEvents?: string | string[] | PixelEvent | PixelEvent[];
 }
 
-const YandexForm: React.FunctionComponent<YandexFormProps> = (props) => {
+const YandexForm = (props: YandexFormProps) => {
     const {
         onLoad,
         id,

@@ -15,7 +15,7 @@ export interface CircleProgressProps extends ClassNameProps {
     radius?: number;
 }
 
-const CircleProgress: React.FC<CircleProgressProps> = (props) => {
+const CircleProgress = (props: CircleProgressProps) => {
     const {
         baseColor,
         elapsedTime,

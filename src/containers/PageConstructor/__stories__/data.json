@@ -1,0 +1,72 @@
+{
+  "withFootnotes": {
+    "footnotes": [
+      "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>",
+      "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>"
+    ],
+    "background": {
+      "light": {
+        "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png"
+      },
+      "dark": {
+        "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-black.png"
+      }
+    },
+    "content": {
+      "items": [
+        {
+          "type": "header-block",
+          "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+          "description": "<p> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p> ",
+          "width": "m",
+          "verticalOffset": "m",
+          "buttons": [
+            {
+              "text": "Button\r",
+              "theme": "action",
+              "url": "https://example.com"
+            },
+            {
+              "text": "Button",
+              "theme": "outlined",
+              "url": "#"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "withTheme": {
+    "background": {
+      "light": {
+        "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png"
+      },
+      "dark": {
+        "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-black.png"
+      }
+    },
+    "content": {
+      "items": [
+        {
+          "type": "header-block",
+          "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+          "description": "<p> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p> ",
+          "width": "m",
+          "verticalOffset": "m",
+          "buttons": [
+            {
+              "text": "Button\r",
+              "theme": "action",
+              "url": "https://example.com"
+            },
+            {
+              "text": "Button",
+              "theme": "outlined",
+              "url": "#"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

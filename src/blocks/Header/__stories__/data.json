@@ -1,0 +1,234 @@
+{
+  "themeDark": {
+    "content": {
+      "background": {
+        "color": "#262626"
+      },
+      "offset": "default",
+      "theme": "dark",
+      "verticalOffset": "m",
+      "type": "header-block",
+      "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      "description": "<p> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>",
+      "width": "s",
+      "buttons": [
+        {
+          "text": "Button\r",
+          "theme": "normal-contrast",
+          "url": "https://example.com"
+        },
+        {
+          "text": "Button",
+          "theme": "outlined-contrast",
+          "url": "https://example.com"
+        }
+      ]
+    }
+  },
+  "breadcrumbs": {
+    "title": "Breadcumbs with {{theme}} theme",
+    "content": {
+      "background": {
+        "url": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
+        "color": "#E3EBFF",
+        "fullWidth": false
+      },
+      "breadcrumbs": {
+        "items": [
+          {
+            "text": "Lorem",
+            "url": "#1"
+          },
+          {
+            "text": "Ipsum",
+            "url": "#2"
+          }
+        ]
+      },
+      "offset": "default",
+      "theme": "light",
+      "verticalOffset": "m",
+      "type": "header-block",
+      "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      "description": "<p> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p> ",
+      "width": "s",
+      "buttons": [
+        {
+          "text": "Button\r",
+          "theme": "action",
+          "url": "https://example.com"
+        }
+      ]
+    }
+  },
+  "verticalOffset": {
+    "title": "Vertical offset {{offset}}",
+    "content": {
+      "image": {
+        "light": {
+          "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png"
+        },
+        "dark": {
+          "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-black.png"
+        }
+      },
+      "offset": "default",
+      "theme": "light",
+      "verticalOffset": "s",
+      "type": "header-block",
+      "description": " Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
+      "buttons": [
+        {
+          "text": "Button\r",
+          "theme": "action",
+          "url": "https://example.com"
+        },
+        {
+          "text": "Button",
+          "theme": "outlined",
+          "url": "https://example.com"
+        }
+      ]
+    }
+  },
+  "default": {
+    "content": {
+      "offset": "default",
+      "theme": "light",
+      "verticalOffset": "m",
+      "type": "header-block",
+      "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      "description": "<p> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p> ",
+      "width": "l",
+      "buttons": [
+        {
+          "text": "Button\r",
+          "theme": "action",
+          "url": "https://example.com"
+        }
+      ]
+    }
+  },
+  "media": {
+    "defaultTitle": "Block with image or video (media)",
+    "decreasedIndentTitle": "Block with decreased bottom margin",
+    "fullWidthTitle": "Block with image or video (media) with full width backogound",
+    "content": {
+      "background": {
+        "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-visual/main.png",
+        "video": {
+          "src": [
+            "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-visual/main_video.webm",
+            "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-visual/main_video.ogv",
+            "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-visual/main_video.mp4",
+            "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-visual/mobile.png"
+          ]
+        },
+        "color": "#f5f5f5"
+      },
+      "offset": "default",
+      "theme": "light",
+      "verticalOffset": "xl",
+      "type": "header-block",
+      "description": " Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
+      "buttons": [
+        {
+          "text": "Button\r",
+          "theme": "action",
+          "url": "https://example.com"
+        },
+        {
+          "text": "Button",
+          "theme": "outlined",
+          "url": "https://example.com"
+        }
+      ]
+    }
+  },
+  "image": {
+    "title": "Text size {{text}} (image size {{image}})",
+    "content": {
+      "image": {
+        "light": {
+          "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png"
+        },
+        "dark": {
+          "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-black.png"
+        }
+      },
+      "offset": "default",
+      "theme": "light",
+      "verticalOffset": "m",
+      "type": "header-block",
+      "description": " Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
+      "buttons": [
+        {
+          "text": "Button\r",
+          "theme": "action",
+          "url": "https://example.com"
+        },
+        {
+          "text": "Button",
+          "theme": "outlined",
+          "url": "https://example.com"
+        }
+      ]
+    }
+  },
+  "background": {
+    "defaultTitle": "Background image (colored background on mobiles)",
+    "fullWidthTitle": "Background image + full width colored background",
+    "content": {
+      "background": {
+        "light": {
+          "url": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
+          "color": "#E3EBFF"
+        },
+        "dark": {
+          "url": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-black.png",
+          "color": "#000"
+        }
+      },
+      "offset": "default",
+      "theme": "light",
+      "verticalOffset": "m",
+      "type": "header-block",
+      "description": "<p> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p> ",
+      "width": "s",
+      "buttons": [
+        {
+          "text": "Button\r",
+          "theme": "action",
+          "url": "https://example.com"
+        },
+        {
+          "text": "Button",
+          "theme": "outlined",
+          "url": "https://example.com"
+        }
+      ]
+    }
+  },
+  "size": {
+    "title": "Header size {{size}}",
+    "content": {
+      "offset": "default",
+      "theme": "light",
+      "verticalOffset": "m",
+      "type": "header-block",
+      "description": "<p> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p> ",
+      "buttons": [
+        {
+          "text": "Button\r",
+          "theme": "action",
+          "url": "https://example.com"
+        },
+        {
+          "text": "Button",
+          "theme": "outlined",
+          "url": "https://example.com"
+        }
+      ]
+    }
+  }
+}

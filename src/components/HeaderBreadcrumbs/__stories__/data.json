@@ -1,0 +1,21 @@
+{
+  "default": {
+    "content": {
+      "theme": "light",
+      "items": [
+        {
+          "url": "#",
+          "text": "Lorem ipsum"
+        },
+        {
+          "url": "#",
+          "text": "Dolor sit amet"
+        },
+        {
+          "url": "#",
+          "text": "Consectetur adipiscing elit"
+        }
+      ]
+    }
+  }
+}

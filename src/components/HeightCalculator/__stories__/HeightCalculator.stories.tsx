@@ -4,6 +4,8 @@ import React from 'react';
 import HeightCalculator, {HeightCalculatorProps} from '../HeightCalculator';
 import {COMPONENTS} from '../../../demo/constants';
 
+import data from './data.json';
+
 export default {
     component: HeightCalculator,
     title: `${COMPONENTS}/HeightCalculator`,
@@ -11,8 +13,7 @@ export default {
         docsOnly: true,
         docs: {
             description: {
-                component:
-                    'Обертка для элементов интерфейса. При событии resize для window, вызывается функция `onCalculate`. Первым аргументом функция `onCalculate` получает высоту children-а с максимальной offsetHeight.',
+                component: data.default.content.description,
             },
         },
     },

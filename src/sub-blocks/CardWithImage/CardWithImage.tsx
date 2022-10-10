@@ -9,7 +9,7 @@ import './CardWithImage.scss';
 
 const b = block('card-with-image');
 
-const CardWithImage: React.FC<CardWithImageProps> = ({
+const CardWithImage = ({
     title,
     description,
     image,
@@ -20,7 +20,7 @@ const CardWithImage: React.FC<CardWithImageProps> = ({
     className,
     additionalInfo,
     buttons,
-}) => {
+}: CardWithImageProps) => {
     const unifiedLinks = links?.map((link) => ({
         theme: 'normal' as LinkTheme,
         ...link,

@@ -14,7 +14,7 @@ export interface SettingsComponentProps {
     descriptionSize?: TextSize;
 }
 
-const Settings: React.FunctionComponent<SettingsComponentProps> = (props) => {
+const Settings = (props: SettingsComponentProps) => {
     const {items = [], titleSize = 's', descriptionSize = 'm'} = props;
 
     return (

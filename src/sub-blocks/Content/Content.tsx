@@ -40,7 +40,7 @@ function getButtonSize(size: ContentSize) {
     }
 }
 
-const Content: React.FC<ContentBlockProps & ClassNameProps> = (props) => {
+const Content = (props: ContentBlockProps & ClassNameProps) => {
     const {
         title,
         text,

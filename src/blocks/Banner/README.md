@@ -1,15 +1,15 @@
-Блок "Баннер"
+Banner block
 
 `type: 'banner-block'`
 
-`animated?: bool` - вкл/выкл анимации для блока (включена по умолчанию)
+`animated?: bool` — Enables/disables animation for the block (enabled by default).
 
-`title: строка` - заголовок
+`title: string` — Title
 
-`subtitle?: строка` - подзаголовок
+`subtitle?: string` — Subtitle
 
-`image?: url` - изображение в правой части
+`image?: url` — Image on the right
 
-`color?: строка` - цвет фона
+`color?: string` — Background color
 
-`button: Button` - кнопка
+`button: Button` — Button
