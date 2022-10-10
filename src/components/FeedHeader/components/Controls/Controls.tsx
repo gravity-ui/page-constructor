@@ -49,7 +49,6 @@ export const Controls: React.FC<ControlsProps> = ({
     services = [],
     handleChangeQuery,
     queryParams,
-    setQuery: setQueryCallback,
 }) => {
     const {hasLikes} = useContext(LikesContext);
 
@@ -63,20 +62,8 @@ export const Controls: React.FC<ControlsProps> = ({
     const [savedOnly, setSavedOnly] = useState<boolean>(savedOnlyInitial === 'true');
     const [search, setSearch] = useState<string>(searchInitial as string);
 
-    const setQuery = (params: Query) => {
-        if (setQueryCallback) {
-            setQueryCallback(params);
-        }
-    };
-
     const handleSavedOnly = () => {
         handleChangeQuery({savedOnly: savedOnly ? '' : 'true'});
-
-        if (!savedOnly) {
-            setQuery({
-                savedOnly: '',
-            });
-        }
 
         setSavedOnly(!savedOnly);
         setIsFetching(true);
@@ -84,12 +71,6 @@ export const Controls: React.FC<ControlsProps> = ({
 
     const handleSearch = (searchValue: string) => {
         handleChangeQuery({search: searchValue});
-
-        if (!searchValue) {
-            setQuery({
-                search: '',
-            });
-        }
 
         setSearch(searchValue);
         setIsFetching(true);
@@ -105,12 +86,6 @@ export const Controls: React.FC<ControlsProps> = ({
         handleChangeQuery({
             tags: isEmptyTags ? '' : selectedTag,
         });
-
-        if (isEmptyTags) {
-            setQuery({
-                tags: '',
-            });
-        }
 
         setIsFetching(true);
     };
@@ -129,12 +104,6 @@ export const Controls: React.FC<ControlsProps> = ({
         const servicesAsString = selectedServices.join(',');
 
         handleChangeQuery({services: servicesAsString});
-
-        if (!servicesAsString) {
-            setQuery({
-                servicesAsString: '',
-            });
-        }
 
         setIsFetching(true);
     };

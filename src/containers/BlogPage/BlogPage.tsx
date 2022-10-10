@@ -38,7 +38,6 @@ export const BlogPage = ({
     getBlogPosts,
     metaData,
     toggleLike,
-    setQuery,
 }: BlogPageProps) => (
     <main>
         <LikesContext.Provider
@@ -55,7 +54,6 @@ export const BlogPage = ({
                     tags,
                     services: services ?? [],
                     getBlogPosts,
-                    setQuery,
                 }}
             >
                 {metaData ? <MetaWrapper {...metaData} /> : null}

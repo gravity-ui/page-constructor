@@ -28,7 +28,7 @@ type BlogFeedProps = {
 const containerId = 'blog-cards';
 
 export const BlogFeed: React.FC<BlogFeedProps> = ({image}) => {
-    const {posts, totalCount, tags, services, pinnedPost, getBlogPosts, setQuery} =
+    const {posts, totalCount, tags, services, pinnedPost, getBlogPosts} =
         useContext(BlogFeedContext);
     const router = useContext(RouterContext);
 
@@ -177,6 +177,22 @@ export const BlogFeed: React.FC<BlogFeedProps> = ({image}) => {
         [tags],
     );
 
+    useEffect(() => {
+        const queryString = Object.keys(queryParams)
+            .reduce((acc: string[], curr) => {
+                if (queryParams[curr]) {
+                    acc.push(`${curr}=${queryParams[curr]}`);
+                }
+
+                return acc;
+            }, [])
+            .join('&');
+
+        const newUrl = `/blog?${queryString}`;
+
+        window.history.replaceState({...window.history.state, as: newUrl, url: newUrl}, '', newUrl);
+    }, [queryParams]);
+
     return (
         <div>
             <FeedHeader
@@ -186,10 +202,10 @@ export const BlogFeed: React.FC<BlogFeedProps> = ({image}) => {
                 setIsFetching={setIsFetching}
                 handleChangeQuery={handleChangeQueryParams}
                 queryParams={queryParams}
-                setQuery={setQuery}
                 background={{
                     fullWidth: true,
                     url: image,
+                    disableCompress: true,
                 }}
             />
             {errorLoad ? (
