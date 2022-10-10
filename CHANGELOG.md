@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/gravity-ui/page-constructor/compare/v1.0.5...v1.1.0) (2022-10-10)
+
+
+### Features
+
+* remove i18n from peers ([87f4c4d](https://github.com/gravity-ui/page-constructor/commit/87f4c4d4bb31179db04267a1ad37ba19bf4c222d))
+
 ## [1.0.5](https://github.com/gravity-ui/page-constructor/compare/v1.0.4...v1.0.5) (2022-10-07)
 
 
