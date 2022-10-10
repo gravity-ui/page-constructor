@@ -1,6 +1,6 @@
 # Лог изменений
 
-## 0.6.0
+## 0.7.0
 
 - Change packages @yandex-cloud => @gravity-ui
 - Remove i18n from peer dependencies
