@@ -42,14 +42,6 @@
 
 * add repository links to readme ([a6ed8b9](https://github.com/gravity-ui/page-constructor/commit/a6ed8b9af5f71e8b0eed3bb52f3309a715c5a48b))
 
-## 1.1.1
-
-- Исправлен баг с неправильным применением темы в блоке Header для html-тегов
-
-## 1.1.0
-
-- Обновлён пакет `@doc-tools/transform`
-
 ## 1.0.0
 
 - V1 blocks support was discontinued.
