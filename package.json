@@ -44,6 +44,7 @@
     "test": "echo TODO: add tests"
   },
   "dependencies": {
+    "@gravity-ui/i18n": "^1.0.0",
     "bem-cn-lite": "^4.0.0",
     "lodash": "^4.17.21",
     "react-player": "^2.9.0",
@@ -58,7 +59,6 @@
   "peerDependencies": {
     "react": "^16.0.0",
     "@gravity-ui/uikit": "^3.0.1",
-    "@gravity-ui/i18n": "^1.0.0",
     "@doc-tools/transform": "^2.6.1"
   },
   "devDependencies": {
@@ -66,7 +66,6 @@
     "@commitlint/config-conventional": "^17.1.0",
     "@doc-tools/transform": "^2.12.0",
     "@gravity-ui/eslint-config": "^1.0.2",
-    "@gravity-ui/i18n": "^1.0.0",
     "@gravity-ui/prettier-config": "^1.0.1",
     "@gravity-ui/stylelint-config": "^1.0.0",
     "@gravity-ui/tsconfig": "^1.0.0",
