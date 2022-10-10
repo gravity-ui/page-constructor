@@ -1,35 +1,153 @@
 {
-  "default": {
+  "light": {
     "content": {
       "type": "info-block",
-      "title": "Ready to get started?",
-      "buttons": [
-        {
-          "text": "Get started\r",
-          "theme": "raised",
-          "url": "https://example.com"
+      "theme": "light",
+      "backgroundColor": "#eef3fe",
+      "rightContent": {
+        "title": {
+          "text": "Lorem ipsum dolor",
+          "url": "https://example.ru"
         },
-        {
-          "text": "Ask a question",
-          "theme": "outlined-contrast",
-          "url": "#contact-form"
-        }
-      ],
-      "sectionsTitle": "Useful links",
-      "links": [
-        {
-          "text": "Find a partner",
-          "url": "/partners/find"
+        "text": "<p><strong>Ut enim ad minim veniam</strong> <a href=\"https://example.com\">quis nostrud</a> exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> ",
+        "additionalInfo": "<p> Duis aute irure dolor in <a href=\"https://example.com\">reprehenderit</a>n voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p> ",
+        "links": [
+          {
+            "url": "#",
+            "text": "Link",
+            "theme": "normal",
+            "arrow": true
+          },
+          {
+            "url": "#",
+            "text": "Link",
+            "theme": "normal"
+          },
+          {
+            "url": "#",
+            "text": "Link",
+            "theme": "normal"
+          }
+        ],
+        "buttons": [
+          {
+            "text": "Button",
+            "theme": "action",
+            "url": "#"
+          }
+        ]
+      },
+      "leftContent": {
+        "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+        "text": "<p><strong>Ut enim ad minim veniam</strong> <a href=\"https://example.com\">quis nostrud</a> exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> ",
+        "additionalInfo": "<p> Duis aute irure dolor in <a href=\"https://example.com\">reprehenderit</a>n voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p> ",
+        "links": [
+          {
+            "url": "#",
+            "text": "Link",
+            "theme": "normal",
+            "arrow": true
+          },
+          {
+            "url": "#",
+            "text": "Link",
+            "theme": "normal",
+            "arrow": true
+          }
+        ],
+        "buttons": [
+          {
+            "text": "Button",
+            "theme": "action",
+            "url": "#"
+          },
+          {
+            "text": "Button",
+            "theme": "action",
+            "url": "#"
+          },
+          {
+            "text": "Button",
+            "theme": "action",
+            "url": "#"
+          }
+        ]
+      }
+    }
+  },
+  "dark": {
+    "content": {
+      "type": "info-block",
+      "theme": "dark",
+      "rightContent": {
+        "title": {
+          "text": "Lorem ipsum dolor",
+          "url": "https://example.ru"
         },
-        {
-          "text": "Billing",
-          "url": "/prices"
-        },
-        {
-          "text": "Community chat",
-          "url": "https://t.me/yandexcloudnews"
-        }
-      ]
+        "text": "<p><strong>Ut enim ad minim veniam</strong> <a href=\"https://example.com\">quis nostrud</a> exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> ",
+        "additionalInfo": "<p> Duis aute irure dolor in <a href=\"https://example.com\">reprehenderit</a>n voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p> ",
+        "links": [
+          {
+            "url": "#",
+            "text": "Link",
+            "theme": "normal",
+            "arrow": true
+          },
+          {
+            "url": "#",
+            "text": "Link",
+            "theme": "normal"
+          },
+          {
+            "url": "#",
+            "text": "Link",
+            "theme": "normal"
+          }
+        ],
+        "buttons": [
+          {
+            "text": "Button",
+            "theme": "outlined-contrast",
+            "url": "#"
+          }
+        ]
+      },
+      "leftContent": {
+        "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+        "text": "<p><strong>Ut enim ad minim veniam</strong> <a href=\"https://example.com\">quis nostrud</a> exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> ",
+        "additionalInfo": "<p> Duis aute irure dolor in <a href=\"https://example.com\">reprehenderit</a>n voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p> ",
+        "links": [
+          {
+            "url": "#",
+            "text": "Link",
+            "theme": "normal",
+            "arrow": true
+          },
+          {
+            "url": "#",
+            "text": "Link",
+            "theme": "normal",
+            "arrow": true
+          }
+        ],
+        "buttons": [
+          {
+            "text": "Button",
+            "theme": "outlined-contrast",
+            "url": "#"
+          },
+          {
+            "text": "Button",
+            "theme": "raised",
+            "url": "#"
+          },
+          {
+            "text": "Button",
+            "theme": "outlined-contrast",
+            "url": "#"
+          }
+        ]
+      }
     }
   }
 }
