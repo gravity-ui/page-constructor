@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 
 import {block, getThemedValue} from '../../utils';
-import {InfoBlockProps, LinkTheme} from '../../models';
+import {ContentTheme, InfoBlockProps, LinkTheme} from '../../models';
 import {Grid, Row, Col} from '../../grid';
 import {ThemeValueContext} from '../../context/theme/ThemeValueContext';
 import Content from '../../sub-blocks/Content/Content';
@@ -10,8 +10,6 @@ import './Info.scss';
 
 const b = block('info-block');
 const sizes = {md: 6, all: 12};
-const colSizes = {all: 12, md: 12};
-const contentClassName = b('content');
 
 export const InfoBlock = (props: InfoBlockProps) => {
     const {
@@ -36,6 +34,11 @@ export const InfoBlock = (props: InfoBlockProps) => {
         })),
     ];
     const leftButtons = [...buttons, ...(leftContent?.buttons || [])];
+    const commonProps = {
+        colSizes: {all: 12, md: 12},
+        className: b('content'),
+        theme: contentTheme as ContentTheme,
+    };
 
     return (
         <div className={b()}>
@@ -50,11 +53,9 @@ export const InfoBlock = (props: InfoBlockProps) => {
                                 title={title || leftContent?.title}
                                 text={leftContent?.text}
                                 links={leftContent?.links}
-                                theme={contentTheme}
                                 buttons={leftButtons}
                                 additionalInfo={leftContent?.additionalInfo}
-                                colSizes={colSizes}
-                                className={contentClassName}
+                                {...commonProps}
                             />
                         </Col>
                         <Col sizes={sizes} className={b('right')}>
@@ -62,11 +63,9 @@ export const InfoBlock = (props: InfoBlockProps) => {
                                 title={sectionsTitle || rightContent?.title}
                                 text={rightContent?.text}
                                 links={rightLinks}
-                                theme={contentTheme}
                                 buttons={rightContent?.buttons}
                                 additionalInfo={rightContent?.additionalInfo}
-                                colSizes={colSizes}
-                                className={contentClassName}
+                                {...commonProps}
                             />
                         </Col>
                     </Row>
