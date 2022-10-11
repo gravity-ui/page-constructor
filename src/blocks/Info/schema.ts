@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import {filteredArray} from '../../schema/validators/utils';
 import {
     BaseProps,
@@ -6,6 +7,12 @@ import {
     withTheme,
     ButtonBlock,
 } from '../../schema/validators/common';
+import {ContentBase} from '../../sub-blocks/Content/schema';
+
+const ContentProps = {
+    additionalProperties: false,
+    properties: _.omit(ContentBase, ['size', 'colSizes', 'theme']),
+};
 
 export const InfoBlock = {
     'info-block': {
@@ -25,6 +32,8 @@ export const InfoBlock = {
             buttons: filteredArray(ButtonBlock),
             theme: ThemeProps,
             links: filteredArray(LinkProps),
+            leftContent: ContentProps,
+            rightContent: ContentProps,
         },
     },
 };

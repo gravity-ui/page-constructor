@@ -1,35 +1,98 @@
 {
-  "default": {
+  "common": {
+    "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "additionalInfo": "Duis aute irure dolor in [reprehenderit](https://example.com) n voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+    "links": [
+      {
+        "url": "#",
+        "text": "Link",
+        "theme": "normal",
+        "arrow": true
+      },
+      {
+        "url": "#",
+        "text": "Link",
+        "theme": "normal"
+      },
+      {
+        "url": "#",
+        "text": "Link",
+        "theme": "normal"
+      }
+    ],
+    "titleWithLink": {
+      "text": "Lorem ipsum dolor",
+      "url": "https://example.ru"
+    },
+    "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+  },
+  "light": {
     "content": {
       "type": "info-block",
-      "title": "Ready to get started?",
-      "buttons": [
-        {
-          "text": "Get started\r",
-          "theme": "raised",
-          "url": "https://example.com"
-        },
-        {
-          "text": "Ask a question",
-          "theme": "outlined-contrast",
-          "url": "#contact-form"
-        }
-      ],
-      "sectionsTitle": "Useful links",
-      "links": [
-        {
-          "text": "Find a partner",
-          "url": "/partners/find"
-        },
-        {
-          "text": "Billing",
-          "url": "/prices"
-        },
-        {
-          "text": "Community chat",
-          "url": "https://t.me/yandexcloudnews"
-        }
-      ]
+      "theme": "light",
+      "backgroundColor": "#eef3fe",
+      "rightContent": {
+        "buttons": [
+          {
+            "text": "Button",
+            "theme": "action",
+            "url": "#"
+          }
+        ]
+      },
+      "leftContent": {
+        "buttons": [
+          {
+            "text": "Button",
+            "theme": "action",
+            "url": "#"
+          },
+          {
+            "text": "Button",
+            "theme": "action",
+            "url": "#"
+          },
+          {
+            "text": "Button",
+            "theme": "action",
+            "url": "#"
+          }
+        ]
+      }
+    }
+  },
+  "dark": {
+    "content": {
+      "type": "info-block",
+      "theme": "dark",
+      "rightContent": {
+        "buttons": [
+          {
+            "text": "Button",
+            "theme": "outlined-contrast",
+            "url": "#"
+          }
+        ]
+      },
+      "leftContent": {
+        "buttons": [
+          {
+            "text": "Button",
+            "theme": "outlined-contrast",
+            "url": "#"
+          },
+          {
+            "text": "Button",
+            "theme": "raised",
+            "url": "#"
+          },
+          {
+            "text": "Button",
+            "theme": "outlined-contrast",
+            "url": "#"
+          }
+        ]
+      }
     }
   }
 }

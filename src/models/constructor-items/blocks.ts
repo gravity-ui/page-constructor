@@ -238,10 +238,16 @@ export interface PreviewBlockProps extends Animatable {
 export interface InfoBlockProps {
     theme?: TextTheme;
     backgroundColor?: ThemeSupporting<string>;
-    title: string;
+    /** @deprecated **/
+    title?: string;
+    /** @deprecated **/
     buttons?: Pick<ButtonProps, 'url' | 'text' | 'theme'>[];
-    sectionsTitle: string;
+    /** @deprecated **/
+    sectionsTitle?: string;
+    /** @deprecated **/
     links?: Pick<LinkProps, 'text' | 'url'>[];
+    leftContent?: Omit<ContentBlockProps, 'colSizes' | 'theme' | 'size'>;
+    rightContent?: Omit<ContentBlockProps, 'colSizes' | 'theme' | 'size'>;
 }
 
 export interface SecurityBlockPoint {

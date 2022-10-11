@@ -370,6 +370,18 @@ const config: BlocksConfig = {
             transformer: yfmTransformer,
         },
     ],
+    [BlockType.InfoBlock]: [
+        {
+            fields: ['rightContent', 'leftContent'],
+            transformer: yfmTransformer,
+            parser: parseContentLayout,
+        },
+        {
+            fields: ['rightContent', 'leftContent'],
+            transformer: typografTransformer,
+            parser: parseContentLayoutTitle,
+        },
+    ],
 };
 
 function addRandomOrder(block: ConstructorBlock) {

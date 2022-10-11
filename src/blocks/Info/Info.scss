@@ -4,58 +4,43 @@
 $block: '.#{$ns}info-block';
 
 #{$block} {
-    @include add-theme();
-
-    &__content-title,
-    &__sections-title {
-        @include heading2();
-    }
-
-    &__content {
+    &__container {
         background-color: var(--yc-color-base-special);
-        padding: $indentXXL $indentXL $indentXXXL;
+        padding: $indentXXL $indentXL;
         border-radius: var(--pc-border-radius);
     }
 
-    &__buttons {
-        margin-top: $indentM - $indentXS;
-    }
-
-    &__button {
-        margin-top: $indentXS;
-
-        &:not(:last-child) {
-            margin-right: $indentXS;
-        }
-    }
-
-    &__links {
-        @include text-size(body-2);
-
-        margin-top: $indentS;
-    }
-
-    &__link {
-        margin-top: 0;
-    }
-
-    &__link + &__link {
-        margin-top: $indentXXS;
+    &__left,
+    &__right {
+        padding-right: $indentXXL;
+        padding-bottom: $indentXS;
     }
 
     @media (max-width: map-get($gridBreakpoints, 'lg')) {
-        &__content {
+        &__left,
+        &__right {
+            padding-bottom: 0;
+        }
+
+        &__container {
             padding: $indentXXL $indentXL;
         }
     }
 
-    @media (max-width: map-get($gridBreakpoints, 'sm')) {
-        &__content {
-            padding: $indentXL $indentM;
+    @media (max-width: map-get($gridBreakpoints, 'md')) {
+        &__left {
+            margin-bottom: $indentL;
         }
 
-        &__buttons {
-            margin-bottom: $indentXL;
+        &__left,
+        &__right {
+            padding-right: 0;
+        }
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'sm')) {
+        &__container {
+            padding: $indentXL $indentM;
         }
     }
 }
