@@ -1,7 +1,7 @@
 {
   "common": {
-    "text": "<p><strong>Ut enim ad minim veniam</strong> <a href=\"https://example.com\">quis nostrud</a> exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> ",
-    "additionalInfo": "<p> Duis aute irure dolor in <a href=\"https://example.com\">reprehenderit</a>n voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p> ",
+    "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "additionalInfo": "Duis aute irure dolor in [reprehenderit](https://example.com) n voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
     "links": [
       {
         "url": "#",
