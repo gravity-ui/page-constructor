@@ -1,6 +1,6 @@
 {
   "name": "@yandex-data-ui/blog-constructor",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "description": "Cloud Blog Constructor",
   "author": "DataUI Team <data-ui@yandex-team.ru>",
   "license": "UNLICENSED",
@@ -155,8 +155,5 @@
     "env": {
       "NODE_ENV": "production"
     }
-  },
-  "publishConfig": {
-    "tag": "alpha"
   }
 }
