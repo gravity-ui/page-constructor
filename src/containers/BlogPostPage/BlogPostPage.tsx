@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {PageConstructor, PageContent} from '@yandex-data-ui/page-constructor';
+import {PageConstructor, PageContent} from '@gravity-ui/page-constructor';
 
 import {BlogPostData, BlogMetaProps, ToggleLikeCallbackType} from '../../models/blog';
 

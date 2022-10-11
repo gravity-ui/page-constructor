@@ -1,7 +1,7 @@
 import React from 'react';
 import block from 'bem-cn-lite';
 
-import {Icon} from '@yandex-cloud/uikit';
+import {Icon} from '@gravity-ui/uikit';
 
 import {i18, BlogKeyset} from '../../../i18n';
 

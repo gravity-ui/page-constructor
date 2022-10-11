@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 
 import {ClassNameProps} from '@yandex-data-ui/cloud-components';
-import {SliderBlock} from '@yandex-data-ui/page-constructor';
+import {SliderBlock} from '@gravity-ui/page-constructor';
 
 import {i18, BlogKeyset} from '../../i18n';
 

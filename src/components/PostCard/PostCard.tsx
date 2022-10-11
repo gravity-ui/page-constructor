@@ -1,7 +1,7 @@
 import React, {useContext, useMemo} from 'react';
 import block from 'bem-cn-lite';
 
-import {CardBase, YFMWrapper, MetrikaGoal} from '@yandex-data-ui/page-constructor';
+import {CardBase, YFMWrapper, MetrikaGoal} from '@gravity-ui/page-constructor';
 
 import {BlogPageContext} from '../../contexts/BlogPageContext';
 

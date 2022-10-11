@@ -1,6 +1,6 @@
 import yaml from 'js-yaml';
-import {transformBlocks as transformConstructorBlocks} from '@yandex-data-ui/page-constructor/server';
-import {ConstructorBlock} from '@yandex-data-ui/page-constructor';
+import {transformBlocks as transformConstructorBlocks} from '@gravity-ui/page-constructor/server';
+import {ConstructorBlock} from '@gravity-ui/page-constructor';
 
 import {Lang} from '../models/locale';
 

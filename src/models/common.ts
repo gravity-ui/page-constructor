@@ -1,4 +1,4 @@
-import {PageContent} from '@yandex-data-ui/page-constructor';
+import {PageContent} from '@gravity-ui/page-constructor';
 
 export enum Theme {
     Light = 'light',
