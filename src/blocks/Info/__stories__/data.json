@@ -1,34 +1,37 @@
 {
+  "common": {
+    "text": "<p><strong>Ut enim ad minim veniam</strong> <a href=\"https://example.com\">quis nostrud</a> exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> ",
+    "additionalInfo": "<p> Duis aute irure dolor in <a href=\"https://example.com\">reprehenderit</a>n voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p> ",
+    "links": [
+      {
+        "url": "#",
+        "text": "Link",
+        "theme": "normal",
+        "arrow": true
+      },
+      {
+        "url": "#",
+        "text": "Link",
+        "theme": "normal"
+      },
+      {
+        "url": "#",
+        "text": "Link",
+        "theme": "normal"
+      }
+    ],
+    "titleWithLink": {
+      "text": "Lorem ipsum dolor",
+      "url": "https://example.ru"
+    },
+    "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+  },
   "light": {
     "content": {
       "type": "info-block",
       "theme": "light",
       "backgroundColor": "#eef3fe",
       "rightContent": {
-        "title": {
-          "text": "Lorem ipsum dolor",
-          "url": "https://example.ru"
-        },
-        "text": "<p><strong>Ut enim ad minim veniam</strong> <a href=\"https://example.com\">quis nostrud</a> exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> ",
-        "additionalInfo": "<p> Duis aute irure dolor in <a href=\"https://example.com\">reprehenderit</a>n voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p> ",
-        "links": [
-          {
-            "url": "#",
-            "text": "Link",
-            "theme": "normal",
-            "arrow": true
-          },
-          {
-            "url": "#",
-            "text": "Link",
-            "theme": "normal"
-          },
-          {
-            "url": "#",
-            "text": "Link",
-            "theme": "normal"
-          }
-        ],
         "buttons": [
           {
             "text": "Button",
@@ -38,23 +41,6 @@
         ]
       },
       "leftContent": {
-        "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-        "text": "<p><strong>Ut enim ad minim veniam</strong> <a href=\"https://example.com\">quis nostrud</a> exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> ",
-        "additionalInfo": "<p> Duis aute irure dolor in <a href=\"https://example.com\">reprehenderit</a>n voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p> ",
-        "links": [
-          {
-            "url": "#",
-            "text": "Link",
-            "theme": "normal",
-            "arrow": true
-          },
-          {
-            "url": "#",
-            "text": "Link",
-            "theme": "normal",
-            "arrow": true
-          }
-        ],
         "buttons": [
           {
             "text": "Button",
@@ -80,30 +66,6 @@
       "type": "info-block",
       "theme": "dark",
       "rightContent": {
-        "title": {
-          "text": "Lorem ipsum dolor",
-          "url": "https://example.ru"
-        },
-        "text": "<p><strong>Ut enim ad minim veniam</strong> <a href=\"https://example.com\">quis nostrud</a> exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> ",
-        "additionalInfo": "<p> Duis aute irure dolor in <a href=\"https://example.com\">reprehenderit</a>n voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p> ",
-        "links": [
-          {
-            "url": "#",
-            "text": "Link",
-            "theme": "normal",
-            "arrow": true
-          },
-          {
-            "url": "#",
-            "text": "Link",
-            "theme": "normal"
-          },
-          {
-            "url": "#",
-            "text": "Link",
-            "theme": "normal"
-          }
-        ],
         "buttons": [
           {
             "text": "Button",
@@ -113,23 +75,6 @@
         ]
       },
       "leftContent": {
-        "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-        "text": "<p><strong>Ut enim ad minim veniam</strong> <a href=\"https://example.com\">quis nostrud</a> exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> ",
-        "additionalInfo": "<p> Duis aute irure dolor in <a href=\"https://example.com\">reprehenderit</a>n voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p> ",
-        "links": [
-          {
-            "url": "#",
-            "text": "Link",
-            "theme": "normal",
-            "arrow": true
-          },
-          {
-            "url": "#",
-            "text": "Link",
-            "theme": "normal",
-            "arrow": true
-          }
-        ],
         "buttons": [
           {
             "text": "Button",

@@ -1,4 +1,5 @@
 import React from 'react';
+import _ from 'lodash';
 import {Meta, Story} from '@storybook/react/types-6-0';
 import {InfoBlockModel, InfoBlockProps} from '../../../models';
 import Info from '../Info';
@@ -18,5 +19,21 @@ const DefaultTemplate: Story<InfoBlockModel> = (args) => (
 export const Light = DefaultTemplate.bind({});
 export const Dark = DefaultTemplate.bind({});
 
-Light.args = data.light.content as InfoBlockProps;
-Dark.args = data.dark.content as InfoBlockProps;
+Light.args = {
+    ...data.light.content,
+    rightContent: {...data.light.content.rightContent, ..._.omit(data.common, 'titleWithLink')},
+    leftContent: {
+        ...data.light.content.leftContent,
+        ..._.omit(data.common, 'titleWithLink'),
+        title: data.common.titleWithLink,
+    },
+} as InfoBlockProps;
+Dark.args = {
+    ...data.dark.content,
+    rightContent: {...data.dark.content.rightContent, ..._.omit(data.common, 'titleWithLink')},
+    leftContent: {
+        ...data.dark.content.leftContent,
+        ..._.omit(data.common, 'titleWithLink'),
+        title: data.common.titleWithLink,
+    },
+} as InfoBlockProps;

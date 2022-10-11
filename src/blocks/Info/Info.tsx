@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 
 import {block, getThemedValue} from '../../utils';
-import {InfoBlockProps} from '../../models';
+import {InfoBlockProps, LinkTheme} from '../../models';
 import {Grid, Row, Col} from '../../grid';
 import {ThemeValueContext} from '../../context/theme/ThemeValueContext';
 import Content from '../../sub-blocks/Content/Content';
@@ -9,6 +9,7 @@ import Content from '../../sub-blocks/Content/Content';
 import './Info.scss';
 
 const b = block('info-block');
+const sizes = {md: 6, all: 12};
 
 export const InfoBlock = (props: InfoBlockProps) => {
     const {
@@ -17,14 +18,21 @@ export const InfoBlock = (props: InfoBlockProps) => {
         buttons,
         title,
         sectionsTitle,
-        links,
+        links = [],
         rightContent = {},
         leftContent = {},
     } = props;
 
     const {themeValue: theme} = useContext(ThemeValueContext);
     const contentTheme = blockTheme === 'dark' ? 'dark' : 'default';
-    const sizes = {md: 6, all: 12};
+    const rightLinks = [
+        ...(rightContent?.links || []),
+        ...links.map((link) => ({
+            ...link,
+            arrow: true,
+            theme: 'normal' as LinkTheme,
+        })),
+    ];
 
     return (
         <div className={b()}>
@@ -44,26 +52,18 @@ export const InfoBlock = (props: InfoBlockProps) => {
                                 additionalInfo={leftContent?.additionalInfo}
                                 colSizes={{all: 12, md: 12}}
                                 className={b('content')}
-                                titleClassName={b('title')}
                             />
                         </Col>
                         <Col sizes={sizes} className={b('right')}>
                             <Content
                                 title={sectionsTitle || rightContent?.title}
                                 text={rightContent?.text}
-                                links={
-                                    links?.map((link) => ({
-                                        ...link,
-                                        arrow: true,
-                                        theme: 'normal',
-                                    })) || rightContent?.links
-                                }
+                                links={rightLinks}
                                 theme={contentTheme}
                                 buttons={rightContent?.buttons}
                                 additionalInfo={rightContent?.additionalInfo}
                                 colSizes={{all: 12, md: 12}}
                                 className={b('content')}
-                                titleClassName={b('title')}
                             />
                         </Col>
                     </Row>

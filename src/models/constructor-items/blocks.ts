@@ -238,9 +238,13 @@ export interface PreviewBlockProps extends Animatable {
 export interface InfoBlockProps {
     theme?: TextTheme;
     backgroundColor?: ThemeSupporting<string>;
+    /** @deprecated **/
     title?: string;
+    /** @deprecated **/
     buttons?: Pick<ButtonProps, 'url' | 'text' | 'theme'>[];
+    /** @deprecated **/
     sectionsTitle?: string;
+    /** @deprecated **/
     links?: Pick<LinkProps, 'text' | 'url'>[];
     leftContent?: Omit<ContentBlockProps, 'colSizes' | 'theme' | 'size'>;
     rightContent?: Omit<ContentBlockProps, 'colSizes' | 'theme' | 'size'>;
@@ -331,7 +335,6 @@ export interface ContentBlockProps {
     colSizes?: GridColumnSizesType;
     centered?: boolean;
     theme?: ContentTheme;
-    titleClassName?: string;
 }
 
 //block models

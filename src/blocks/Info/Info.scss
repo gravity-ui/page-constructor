@@ -6,17 +6,13 @@ $block: '.#{$ns}info-block';
 #{$block} {
     &__container {
         background-color: var(--yc-color-base-special);
-        padding: $indentXXL $indentXL 112px;
+        padding: $indentXXL $indentXL $indentXXXL;
         border-radius: var(--pc-border-radius);
     }
 
     &__left,
     &__right {
         padding-right: $indentXXL;
-    }
-
-    &__content &__title a {
-        text-decoration: none;
     }
 
     @media (max-width: map-get($gridBreakpoints, 'lg')) {
