@@ -5,6 +5,7 @@ import COMMON_TYPES from './COMMON_TYPES.md';
 import BLOCKS from './BLOCKS.md';
 import COMPONENTS from './SUB_BLOCKS.md';
 import PAGE_PROPERTIES from './PAGE_PROPERTIES.md';
+import INDENTS from './INDENTS.md';
 
 export default {
     title: 'Information',
@@ -39,3 +40,7 @@ export const PageProperties: Story = () => (
     <div className="yfm" dangerouslySetInnerHTML={{__html: PAGE_PROPERTIES}} />
 );
 PageProperties.storyName = 'Page properties';
+
+export const Indents: Story = () => (
+    <div className="yfm" dangerouslySetInnerHTML={{__html: INDENTS}} />
+);
