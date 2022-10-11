@@ -10,12 +10,14 @@ import './Info.scss';
 
 const b = block('info-block');
 const sizes = {md: 6, all: 12};
+const colSizes = {all: 12, md: 12};
+const contentClassName = b('content');
 
 export const InfoBlock = (props: InfoBlockProps) => {
     const {
         backgroundColor,
         theme: blockTheme = 'dark',
-        buttons,
+        buttons = [],
         title,
         sectionsTitle,
         links = [],
@@ -33,6 +35,7 @@ export const InfoBlock = (props: InfoBlockProps) => {
             theme: 'normal' as LinkTheme,
         })),
     ];
+    const leftButtons = [...buttons, ...(leftContent?.buttons || [])];
 
     return (
         <div className={b()}>
@@ -48,10 +51,10 @@ export const InfoBlock = (props: InfoBlockProps) => {
                                 text={leftContent?.text}
                                 links={leftContent?.links}
                                 theme={contentTheme}
-                                buttons={buttons || leftContent?.buttons}
+                                buttons={leftButtons}
                                 additionalInfo={leftContent?.additionalInfo}
-                                colSizes={{all: 12, md: 12}}
-                                className={b('content')}
+                                colSizes={colSizes}
+                                className={contentClassName}
                             />
                         </Col>
                         <Col sizes={sizes} className={b('right')}>
@@ -62,8 +65,8 @@ export const InfoBlock = (props: InfoBlockProps) => {
                                 theme={contentTheme}
                                 buttons={rightContent?.buttons}
                                 additionalInfo={rightContent?.additionalInfo}
-                                colSizes={{all: 12, md: 12}}
-                                className={b('content')}
+                                colSizes={colSizes}
+                                className={contentClassName}
                             />
                         </Col>
                     </Row>
