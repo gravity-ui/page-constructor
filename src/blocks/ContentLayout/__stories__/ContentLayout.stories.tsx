@@ -1,4 +1,5 @@
 import React from 'react';
+import yfm from '@doc-tools/transform';
 import {Meta, Story} from '@storybook/react/types-6-0';
 import {ContentLayoutBlockModel, ContentLayoutBlockProps} from '../../../models';
 import Content from '../ContentLayout';
@@ -46,7 +47,7 @@ const ThemesTemplate: Story<ContentLayoutBlockModel> = (args) => (
                 {
                     ...args,
                     properties: {
-                        ...args,
+                        ...args.properties,
                         theme: 'dark',
                         background: {
                             style: {
@@ -76,7 +77,7 @@ const ThemesTemplate: Story<ContentLayoutBlockModel> = (args) => (
                 {
                     ...args,
                     properties: {
-                        ...args,
+                        ...args.properties,
                         theme: 'light',
                         background: {
                             style: {
@@ -114,17 +115,17 @@ const TextWidthTemplate: Story<ContentLayoutBlockModel> = (args) => (
             blocks: [
                 {
                     ...args,
-                    properties: {...args, textWidth: 's'},
+                    properties: {...args.properties, textWidth: 's'},
                     textContent: {title: getTextWidthTitle('S'), ...args.textContent},
                 },
                 {
                     ...args,
-                    properties: {...args, textWidth: 'm'},
+                    properties: {...args.properties, textWidth: 'm'},
                     textContent: {title: getTextWidthTitle('M'), ...args.textContent},
                 },
                 {
                     ...args,
-                    properties: {...args, textWidth: 'l'},
+                    properties: {...args.properties, textWidth: 'l'},
                     textContent: {title: getTextWidthTitle('L'), ...args.textContent},
                 },
             ],
@@ -138,15 +139,15 @@ const TextWidthTemplateWithoutTitle: Story<ContentLayoutBlockModel> = (args) => 
             blocks: [
                 {
                     ...args,
-                    properties: {...args, textWidth: 's'},
+                    properties: {...args.properties, textWidth: 's'},
                 },
                 {
                     ...args,
-                    properties: {...args, textWidth: 'm'},
+                    properties: {...args.properties, textWidth: 'm'},
                 },
                 {
                     ...args,
-                    properties: {...args, textWidth: 'l'},
+                    properties: {...args.properties, textWidth: 'l'},
                 },
             ],
         }}
@@ -163,13 +164,102 @@ export const Theme = ThemesTemplate.bind([]);
 export const TextWidth = TextWidthTemplate.bind([]);
 export const TextWidthWithoutTitle = TextWidthTemplateWithoutTitle.bind([]);
 
-Default.args = data.default.content as ContentLayoutBlockProps;
-WithFiles.args = data.withFiles.content as ContentLayoutBlockProps;
-Size.args = data.size.content as ContentLayoutBlockProps;
-WithBackgroundSizeS.args = data.withBackgroundSizeS.content as ContentLayoutBlockProps;
-WithImageAndBackgroundSizeL.args = data.withImageAndBackgroundSizeL
-    .content as ContentLayoutBlockProps;
-WithImageSizeSCentered.args = data.withImageSizeSCentered.content as ContentLayoutBlockProps;
-Theme.args = data.theme.content as ContentLayoutBlockProps;
-TextWidth.args = data.textWidth.content as ContentLayoutBlockProps;
-TextWidthWithoutTitle.args = data.textWidthWithoutTitle.content as ContentLayoutBlockProps;
+Default.args = {
+    ...data.default.content,
+    textContent: {
+        ...data.default.content.textContent,
+        title: data.common.title,
+        text: yfm(data.common.text).result.html,
+        additionalInfo: yfm(data.common.additionalInfo).result.html,
+        buttons: data.common.buttons,
+    },
+} as ContentLayoutBlockProps;
+
+WithFiles.args = {
+    ...data.withFiles.content,
+    textContent: {
+        ...data.withFiles.content.textContent,
+        text: yfm(data.common.text).result.html,
+        additionalInfo: yfm(data.common.additionalInfo).result.html,
+        links: data.common.links,
+    },
+    fileContent: data.common.fileContent,
+} as ContentLayoutBlockProps;
+
+Size.args = {
+    ...data.size.content,
+    textContent: {
+        text: yfm(data.common.text).result.html,
+        additionalInfo: yfm(data.common.additionalInfo).result.html,
+        buttons: data.common.buttons,
+        links: data.common.links,
+    },
+    fileContent: data.common.fileContent,
+} as ContentLayoutBlockProps;
+
+WithBackgroundSizeS.args = {
+    ...data.withBackgroundSizeS.content,
+    textContent: {
+        ...data.withBackgroundSizeS.content.textContent,
+        text: yfm(data.common.text).result.html,
+        additionalInfo: yfm(data.common.additionalInfo).result.html,
+        buttons: data.common.buttons,
+        links: data.common.links,
+    },
+    fileContent: data.common.fileContent,
+} as ContentLayoutBlockProps;
+
+WithImageAndBackgroundSizeL.args = {
+    ...data.withImageAndBackgroundSizeL.content,
+    textContent: {
+        ...data.withImageAndBackgroundSizeL.content.textContent,
+        text: yfm(data.common.text).result.html,
+        additionalInfo: yfm(data.common.additionalInfo).result.html,
+        buttons: data.common.buttons,
+        links: data.common.links,
+    },
+    fileContent: data.common.fileContent,
+} as ContentLayoutBlockProps;
+
+WithImageSizeSCentered.args = {
+    ...data.withImageSizeSCentered.content,
+    textContent: {
+        ...data.withImageSizeSCentered.content.textContent,
+        text: yfm(data.common.text).result.html,
+        additionalInfo: yfm(data.common.additionalInfo).result.html,
+        buttons: data.common.buttons,
+        links: data.common.links,
+    },
+} as ContentLayoutBlockProps;
+
+Theme.args = {
+    ...data.theme.content,
+    textContent: {
+        text: yfm(data.common.text).result.html,
+        additionalInfo: yfm(data.common.additionalInfo).result.html,
+        links: data.common.links,
+    },
+    fileContent: data.common.fileContent,
+} as ContentLayoutBlockProps;
+
+TextWidth.args = {
+    ...data.textWidth.content,
+    textContent: {
+        text: yfm(data.common.text).result.html,
+        additionalInfo: yfm(data.common.additionalInfo).result.html,
+        buttons: data.common.buttons,
+        links: data.common.links,
+    },
+    fileContent: data.common.fileContent,
+} as ContentLayoutBlockProps;
+
+TextWidthWithoutTitle.args = {
+    ...data.textWidthWithoutTitle.content,
+    textContent: {
+        text: yfm(data.common.text).result.html,
+        additionalInfo: yfm(data.common.additionalInfo).result.html,
+        buttons: data.common.buttons,
+        links: data.common.links,
+    },
+    fileContent: data.common.fileContent,
+} as ContentLayoutBlockProps;

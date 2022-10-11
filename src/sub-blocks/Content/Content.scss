@@ -78,6 +78,10 @@ $darkSecondary: var(--yc-color-text-dark-secondary);
                 &_without-title {
                     margin-top: 0;
                 }
+
+                .yfm_constructor p {
+                    margin-bottom: $indentXXXS;
+                }
             }
 
             #{$block}__links,
