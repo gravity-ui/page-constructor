@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/gravity-ui/page-constructor/compare/v1.1.0...v1.2.0) (2022-10-11)
+
+
+### Features
+
+* add Content to Info block ([0017341](https://github.com/gravity-ui/page-constructor/commit/00173411209bca6a61f1d64d8329ead4328152f5))
+
 ## [1.1.0](https://github.com/gravity-ui/page-constructor/compare/v1.0.5...v1.1.0) (2022-10-10)
 
 
