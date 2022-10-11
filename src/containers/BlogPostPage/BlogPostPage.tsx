@@ -13,6 +13,8 @@ import {useLikes} from '../../hooks/useLikes';
 
 import {BlogPageMeta} from './BlogPageMeta';
 
+import './BlogPostPage.scss';
+
 export interface BlogPostPageProps {
     suggestedPosts: BlogPostData[];
     metaData: BlogPostMetaProps;
