@@ -1,7 +1,12 @@
 import React from 'react';
 
 import {ServicePublic} from '@yandex-data-ui/cloud-schemas/build/models/ui-api';
-import {PageConstructor, PageContent} from '@yandex-data-ui/page-constructor';
+import {
+    PageConstructor,
+    PageContent,
+    PageConstructorProvider,
+    PageConstructorProviderProps,
+} from '@yandex-data-ui/page-constructor';
 
 import {BlogFeedContext} from '../../contexts/BlogFeedContext';
 import {LikesContext} from '../../contexts/LikesContext';
@@ -30,6 +35,7 @@ export type BlogPageProps = {
     toggleLike?: ToggleLikeCallbackType;
     metaData?: BlogPageMetaProps;
     setQuery?: SetQueryType;
+    settings?: PageConstructorProviderProps;
 };
 
 export const BlogPage = ({
@@ -40,6 +46,7 @@ export const BlogPage = ({
     getBlogPosts,
     metaData,
     toggleLike,
+    settings,
 }: BlogPageProps) => (
     <main>
         <LikesContext.Provider
@@ -58,8 +65,10 @@ export const BlogPage = ({
                     getBlogPosts,
                 }}
             >
-                {metaData ? <MetaWrapper {...metaData} /> : null}
-                <PageConstructor content={content} custom={componentMap} />
+                <PageConstructorProvider {...settings}>
+                    {metaData ? <MetaWrapper {...metaData} /> : null}
+                    <PageConstructor content={content} custom={componentMap} />
+                </PageConstructorProvider>
             </BlogFeedContext.Provider>
         </LikesContext.Provider>
     </main>
