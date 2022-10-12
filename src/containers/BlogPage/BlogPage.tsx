@@ -35,7 +35,7 @@ export type BlogPageProps = {
     toggleLike?: ToggleLikeCallbackType;
     metaData?: BlogPageMetaProps;
     setQuery?: SetQueryType;
-    pageConstructorProviderProps?: PageConstructorProviderProps;
+    settings?: PageConstructorProviderProps;
 };
 
 export const BlogPage = ({
@@ -46,7 +46,7 @@ export const BlogPage = ({
     getBlogPosts,
     metaData,
     toggleLike,
-    pageConstructorProviderProps,
+    settings,
 }: BlogPageProps) => (
     <main>
         <LikesContext.Provider
@@ -65,7 +65,7 @@ export const BlogPage = ({
                     getBlogPosts,
                 }}
             >
-                <PageConstructorProvider {...pageConstructorProviderProps}>
+                <PageConstructorProvider {...settings}>
                     {metaData ? <MetaWrapper {...metaData} /> : null}
                     <PageConstructor content={content} custom={componentMap} />
                 </PageConstructorProvider>

@@ -30,7 +30,7 @@ export interface BlogPostPageProps {
     };
     content: PageContent;
     post: BlogPostData;
-    pageConstructorProviderProps?: PageConstructorProviderProps;
+    settings?: PageConstructorProviderProps;
 }
 
 export const BlogPostPage: React.FC<BlogPostPageProps> = ({
@@ -39,7 +39,7 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({
     likes,
     content,
     post,
-    pageConstructorProviderProps,
+    settings,
 }) => {
     const {hasUserLike, likesCount, handleLike} = useLikes({
         hasLike: likes?.hasUserLike,
@@ -69,7 +69,7 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({
                             : undefined,
                     }}
                 >
-                    <PageConstructorProvider {...pageConstructorProviderProps}>
+                    <PageConstructorProvider {...settings}>
                         {metaData ? <BlogPageMeta {...metaData} /> : null}
                         <PageConstructor content={content} custom={componentMap} />
                     </PageConstructorProvider>
