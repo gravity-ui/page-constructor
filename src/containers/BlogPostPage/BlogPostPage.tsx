@@ -1,6 +1,11 @@
 import React from 'react';
 
-import {PageConstructor, PageContent} from '@yandex-data-ui/page-constructor';
+import {
+    PageConstructor,
+    PageContent,
+    PageConstructorProvider,
+    PageConstructorProviderProps,
+} from '@yandex-data-ui/page-constructor';
 
 import {BlogPostData, BlogPostMetaProps, ToggleLikeCallbackType} from '../../models/blog';
 
@@ -17,7 +22,7 @@ import './BlogPostPage.scss';
 
 export interface BlogPostPageProps {
     suggestedPosts: BlogPostData[];
-    metaData: BlogPostMetaProps;
+    metaData?: BlogPostMetaProps;
     likes?: {
         hasUserLike?: boolean;
         likesCount?: number;
@@ -25,6 +30,7 @@ export interface BlogPostPageProps {
     };
     content: PageContent;
     post: BlogPostData;
+    pageConstructorProviderProps?: PageConstructorProviderProps;
 }
 
 export const BlogPostPage: React.FC<BlogPostPageProps> = ({
@@ -33,6 +39,7 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({
     likes,
     content,
     post,
+    pageConstructorProviderProps,
 }) => {
     const {hasUserLike, likesCount, handleLike} = useLikes({
         hasLike: likes?.hasUserLike,
@@ -62,8 +69,10 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({
                             : undefined,
                     }}
                 >
-                    {metaData ? <BlogPageMeta {...metaData} /> : null}
-                    <PageConstructor content={content} custom={componentMap} />
+                    <PageConstructorProvider {...pageConstructorProviderProps}>
+                        {metaData ? <BlogPageMeta {...metaData} /> : null}
+                        <PageConstructor content={content} custom={componentMap} />
+                    </PageConstructorProvider>
                 </BlogPageContext.Provider>
             </LikesContext.Provider>
         </main>
