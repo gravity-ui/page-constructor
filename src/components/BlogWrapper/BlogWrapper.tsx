@@ -18,7 +18,7 @@ type WrapperProps = ClassNameProps & {
 export const BlogWrapper: React.FunctionComponent<WrapperProps> = ({
     children,
     paddingTop = 'xs',
-    paddingBottom = 'm',
+    paddingBottom = 'l',
     className,
     dataQa,
 }) => (
