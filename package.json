@@ -1,6 +1,6 @@
 {
   "name": "@yandex-data-ui/blog-constructor",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "description": "Cloud Blog Constructor",
   "author": "DataUI Team <data-ui@yandex-team.ru>",
   "license": "UNLICENSED",
@@ -36,7 +36,7 @@
     "start": "node dist",
     "clean": "gulp clean",
     "build": "npm run clean && gulp",
-    "storybook:start": "start-storybook -p 7009",
+    "storybook:start": "start-storybook -p 7010",
     "storybook:build": "build-storybook -c .storybook -o storybook-static .storybook/public",
     "storybook:deploy": "curl -sS https://raw.github.yandex-team.ru/data-ui/storybook-tools/master/scripts/deploy-storybook.sh | bash -s deploy",
     "docker:build": "docker build . -t registry.yandex.net/data-ui/blog-constructor:${npm_package_version}",
@@ -155,8 +155,5 @@
     "env": {
       "NODE_ENV": "production"
     }
-  },
-  "publishConfig": {
-    "tag": "alpha"
   }
 }

@@ -1,5 +1,9 @@
 # Лог изменений
 
+## 0.7.1
+
+- Add info about publish in readme
+
 ## 0.7.0
 
 - Change packages @yandex-cloud => @gravity-ui
