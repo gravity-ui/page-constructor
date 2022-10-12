@@ -1,6 +1,7 @@
 import '../styles/storybook/index.scss';
 import '@yandex-cloud/uikit/styles/styles.scss';
 import '../styles/styles.scss';
+import '../styles/root.scss';
 
 import React from 'react';
 import CommonTheme from './commonTheme.js';

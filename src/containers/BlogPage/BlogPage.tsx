@@ -19,6 +19,8 @@ import {
     SetQueryType,
 } from '../../models/blog';
 
+import './BlogPage.scss';
+
 export type BlogPageProps = {
     content: PageContent;
     posts: BlogPagePostsData;

@@ -18,7 +18,7 @@
         flex-grow: 1;
         flex-shrink: 0;
         margin-right: $indentXS;
-        border-radius: $borderRadius;
+        border-radius: var(--bc-border-radius);
         overflow: hidden;
     }
 
