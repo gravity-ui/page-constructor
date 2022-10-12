@@ -36,7 +36,7 @@ $itemDimensions: 44px;
                 height: $itemDimensions;
 
                 cursor: pointer;
-                border-radius: $borderRadius;
+                border-radius: var(--bc-border-radius);
 
                 &:hover {
                     background: var(--yc-color-base-simple-hover);

@@ -16,7 +16,7 @@ $popupMargins: 4px;
         position: relative;
         display: flex;
         flex-direction: column;
-        border-radius: $borderRadius;
+        border-radius: var(--bc-border-radius);
         padding-bottom: $indentS;
         z-index: 10;
     }
