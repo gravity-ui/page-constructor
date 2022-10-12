@@ -33,7 +33,7 @@
     h5,
     h6 {
         margin-bottom: $indentXS;
-        margin-top: $indentM;
+        margin-top: $indentL;
         padding-top: 0;
     }
 
@@ -108,6 +108,10 @@
         &.active {
             border-bottom-color: var(--yc-color-text-link);
         }
+    }
+
+    .yfm-clipboard {
+        margin: $indentM 0;
     }
 }
 
