@@ -7,7 +7,7 @@ import {
     Grid,
     getThemedValue,
     FullWidthBackground,
-} from '@yandex-data-ui/page-constructor';
+} from '@gravity-ui/page-constructor';
 
 import {HeaderBlockProps} from '../../models/blog';
 

@@ -6,7 +6,7 @@ import {
     PageContent,
     PageConstructorProvider,
     PageConstructorProviderProps,
-} from '@yandex-data-ui/page-constructor';
+} from '@gravity-ui/page-constructor';
 
 import {BlogFeedContext} from '../../contexts/BlogFeedContext';
 import {LikesContext} from '../../contexts/LikesContext';

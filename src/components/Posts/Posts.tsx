@@ -1,7 +1,7 @@
 import React, {MouseEvent} from 'react';
 
-import {CardLayoutBlock} from '@yandex-data-ui/page-constructor';
-import {Button} from '@yandex-cloud/uikit';
+import {CardLayoutBlock} from '@gravity-ui/page-constructor';
+import {Button} from '@gravity-ui/uikit';
 
 import {BlogPostData} from '../../models/blog';
 
