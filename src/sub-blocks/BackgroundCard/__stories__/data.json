@@ -1,43 +1,18 @@
 {
   "backgroundColor": {
     "content": {
-      "url": "#",
-      "title": "Lorem ipsumt",
-      "text": "<p><strong>Lorem ipsum dolor sit amet</strong> <a href=\"https://example.com\">consectetur adipiscing elit</a> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> ",
-      "additionalInfo": "<p>Lorem ipsum dolor sit amet <a href=\"https://example.com\">consectetur adipiscing elit</a> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> ",
-      "paddingBottom": "s",
-      "links": [
-        {
-          "url": "#",
-          "text": "Link",
-          "theme": "normal",
-          "arrow": true
-        }
-      ],
-      "buttons": [
-        {
-          "text": "Button\r",
-          "theme": "action",
-          "url": "https://example.com"
-        },
-        {
-          "text": "Button",
-          "theme": "outlined",
-          "url": "#"
-        }
-      ],
       "backgroundColor": "#7ccea0"
     }
   },
   "default": {
     "content": {
-      "url": "#",
+      "url": "https://example.com",
       "title": "Lorem ipsumt",
       "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       "additionalInfo": "Duis aute irure dolor in [reprehenderit](https://example.com) n voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
       "links": [
         {
-          "url": "#",
+          "url": "https://example.com",
           "text": "Link",
           "theme": "normal",
           "arrow": true
@@ -52,7 +27,7 @@
         {
           "text": "Button",
           "theme": "outlined",
-          "url": "#"
+          "url": "https://example.com"
         }
       ]
     }
@@ -70,6 +45,50 @@
     "content": {
       "border": "line"
     }
+  },
+  "paddings": {
+    "title": "Padding Bottom = {{padding}}"
+  },
+  "cardThemes": {
+    "content": [
+      {
+        "title": "Default theme",
+        "theme": "default"
+      },
+      {
+        "title": "Dark Monochrome theme",
+        "theme": "dark",
+        "background": "src: 'https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-black.png'",
+        "buttons": [
+          {
+            "text": "Button",
+            "theme": "normal-contrast",
+            "url": "https://example.com"
+          },
+          {
+            "text": "Button",
+            "theme": "outlined-contrast",
+            "url": "https://example.com"
+          }
+        ]
+      },
+      {
+        "title": "Light Monochrome theme",
+        "theme": "light",
+        "buttons": [
+          {
+            "text": "Button",
+            "theme": "monochrome",
+            "url": "https://example.com"
+          },
+          {
+            "text": "Button",
+            "theme": "normal",
+            "url": "https://example.com"
+          }
+        ]
+      }
+    ]
   },
   "withTheme": {
     "content": {
