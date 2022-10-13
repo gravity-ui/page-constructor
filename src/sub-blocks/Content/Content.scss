@@ -36,11 +36,6 @@ $darkSecondary: var(--yc-color-text-dark-secondary);
             .yfm a {
                 @include content-link($secondary, $primary);
             }
-
-            ol,
-            ul {
-                padding-left: 25px;
-            }
         }
     }
 
@@ -63,6 +58,14 @@ $darkSecondary: var(--yc-color-text-dark-secondary);
         #{$block}__link {
             a {
                 justify-content: center;
+            }
+        }
+
+        #{$block}__notice,
+        #{$block}__text {
+            .yfm ul,
+            .yfm ol {
+                text-align: left;
             }
         }
     }

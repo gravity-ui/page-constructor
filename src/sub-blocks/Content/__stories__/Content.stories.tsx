@@ -1,12 +1,12 @@
 import {Meta, Story} from '@storybook/react/types-6-0';
 import React from 'react';
+import yfm from '@doc-tools/transform';
 
 import Content from '../Content';
 import {ContentBlockProps, ClassNameProps} from '../../../models';
 import {COMPONENTS} from '../../../demo/constants';
 
 import data from './data.json';
-import yfm from '@doc-tools/transform';
 
 export default {
     component: Content,
