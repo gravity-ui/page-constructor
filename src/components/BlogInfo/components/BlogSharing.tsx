@@ -4,7 +4,7 @@ import block from 'bem-cn-lite';
 
 // TODO refactor in https://st.yandex-team.ru/ORION-1444
 
-import {ShareTooltip, ShareSocialNetwork} from '@yandex-cloud/uikit';
+import {ShareTooltip, ShareSocialNetwork} from '@gravity-ui/uikit';
 
 import {MobileContext} from '../../../contexts/MobileContext';
 import {RouterContext} from '../../../contexts/RouterContext';

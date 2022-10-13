@@ -1,5 +1,5 @@
 import React from 'react';
-import {YFMWrapper} from '@yandex-data-ui/page-constructor';
+import {YFMWrapper} from '@gravity-ui/page-constructor';
 
 import {BlogWrapper, PaddingSize} from '../../components/BlogWrapper/BlogWrapper';
 

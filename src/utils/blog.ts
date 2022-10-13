@@ -6,7 +6,7 @@ import {
     isNewMetrikaFormat,
     MetrikaGoal,
     NewMetrikaGoal,
-} from '@yandex-data-ui/page-constructor';
+} from '@gravity-ui/page-constructor';
 
 import {i18, BlogKeyset} from '../i18n';
 
