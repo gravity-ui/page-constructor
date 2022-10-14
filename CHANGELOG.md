@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.3](https://github.com/gravity-ui/page-constructor/compare/v1.2.2...v1.2.3) (2022-10-14)
+
+
+### Bug Fixes
+
+* content links margin ([6977b96](https://github.com/gravity-ui/page-constructor/commit/6977b9601e3936ba5293eadeeaeccd640814125f))
+
 ## [1.2.2](https://github.com/gravity-ui/page-constructor/compare/v1.2.1...v1.2.2) (2022-10-14)
 
 
