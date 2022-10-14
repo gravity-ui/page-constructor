@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.2](https://github.com/gravity-ui/page-constructor/compare/v1.2.1...v1.2.2) (2022-10-14)
+
+
+### Bug Fixes
+
+* change p margin for size s ([#29](https://github.com/gravity-ui/page-constructor/issues/29)) ([dcb1c2a](https://github.com/gravity-ui/page-constructor/commit/dcb1c2acba20659a8f536f4bd7401dc54b4d7b71))
+
 ## [1.2.1](https://github.com/gravity-ui/page-constructor/compare/v1.2.0...v1.2.1) (2022-10-14)
 
 
