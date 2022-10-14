@@ -120,14 +120,14 @@ $darkSecondary: var(--yc-color-text-dark-secondary);
         &_dark {
             #{$block}__title,
             #{$block}__text .yfm,
-            #{$block}__text .yfm > *,
+            #{$block}__text .yfm *,
             #{$block}__link a {
                 color: $lightPrimary;
             }
 
             #{$block}__notice {
                 .yfm,
-                .yfm > * {
+                .yfm * {
                     color: $lightSecondary;
                 }
 
@@ -153,14 +153,14 @@ $darkSecondary: var(--yc-color-text-dark-secondary);
         &_light {
             #{$block}__title,
             #{$block}__text .yfm,
-            #{$block}__text .yfm > *,
+            #{$block}__text .yfm *,
             #{$block}__link a {
                 color: $darkPrimary;
             }
 
             #{$block}__notice {
                 .yfm,
-                .yfm > * {
+                .yfm * {
                     color: $darkSecondary;
                 }
 
