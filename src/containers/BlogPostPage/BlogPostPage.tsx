@@ -1,20 +1,28 @@
 import React from 'react';
 
-import {PageConstructor, PageContent} from '@gravity-ui/page-constructor';
+import {
+    PageConstructor,
+    PageContent,
+    PageConstructorProvider,
+    PageConstructorProviderProps,
+} from '@gravity-ui/page-constructor';
 
-import {BlogPostData, BlogMetaProps, ToggleLikeCallbackType} from '../../models/blog';
+import {BlogPostData, BlogPostMetaProps, ToggleLikeCallbackType} from '../../models/blog';
 
 import componentMap from '../../constructor/blocksMap';
 
 import {BlogPageContext} from '../../contexts/BlogPageContext';
+import {LikesContext} from '../../contexts/LikesContext';
 
 import {useLikes} from '../../hooks/useLikes';
 
 import {BlogPageMeta} from './BlogPageMeta';
 
+import './BlogPostPage.scss';
+
 export interface BlogPostPageProps {
     suggestedPosts: BlogPostData[];
-    metaData: BlogMetaProps;
+    metaData?: BlogPostMetaProps;
     likes?: {
         hasUserLike?: boolean;
         likesCount?: number;
@@ -22,6 +30,7 @@ export interface BlogPostPageProps {
     };
     content: PageContent;
     post: BlogPostData;
+    settings?: PageConstructorProviderProps;
 }
 
 export const BlogPostPage: React.FC<BlogPostPageProps> = ({
@@ -30,6 +39,7 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({
     likes,
     content,
     post,
+    settings,
 }) => {
     const {hasUserLike, likesCount, handleLike} = useLikes({
         hasLike: likes?.hasUserLike,
@@ -40,24 +50,31 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({
 
     return (
         <main>
-            <BlogPageContext.Provider
+            <LikesContext.Provider
                 value={{
-                    post,
-                    suggestedPosts,
-                    likes: likes
-                        ? {
-                              handleUserLike: handleLike,
-                              hasUserLike,
-                              likesCount,
-                          }
-                        : undefined,
                     toggleLike: likes?.toggleLike,
                     hasLikes: Boolean(likes),
                 }}
             >
-                {metaData ? <BlogPageMeta {...metaData} /> : null}
-                <PageConstructor content={content} custom={componentMap} />
-            </BlogPageContext.Provider>
+                <BlogPageContext.Provider
+                    value={{
+                        post,
+                        suggestedPosts,
+                        likes: likes
+                            ? {
+                                  handleUserLike: handleLike,
+                                  hasUserLike,
+                                  likesCount,
+                              }
+                            : undefined,
+                    }}
+                >
+                    <PageConstructorProvider {...settings}>
+                        {metaData ? <BlogPageMeta {...metaData} /> : null}
+                        <PageConstructor content={content} custom={componentMap} />
+                    </PageConstructorProvider>
+                </BlogPageContext.Provider>
+            </LikesContext.Provider>
         </main>
     );
 };

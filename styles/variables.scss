@@ -1,3 +1,7 @@
 @import '@gravity-ui/page-constructor/styles/variables.scss';
 
+$ns: 'bc-';
+
+$borderRadius: var(--bc-border-radius);
+
 $headerSliderLargeBreakpoint: 1300px;

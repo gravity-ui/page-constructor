@@ -1,0 +1,35 @@
+@import '../../../styles/mixins.scss';
+@import '../../../styles/variables.scss';
+
+$block: '.#{$ns}posts-empty';
+
+#{$block} {
+    $root: &;
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__title,
+    &__subtitle {
+        text-align: center;
+        word-wrap: break-word;
+        max-width: 400px;
+        width: 100%;
+    }
+
+    &__title {
+        margin-top: $indentSM;
+        @include text-size(display-2);
+        font-weight: var(--yc-text-accent-font-weight);
+    }
+
+    &__subtitle {
+        margin-top: $indentXS;
+        @include text-size(body-3);
+    }
+}

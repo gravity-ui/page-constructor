@@ -6,8 +6,8 @@ import block from 'bem-cn-lite';
 
 import {ShareTooltip, ShareSocialNetwork} from '@gravity-ui/uikit';
 
-import {RouterContext} from '../../../contexts/RouterContext';
 import {MobileContext} from '../../../contexts/MobileContext';
+import {RouterContext} from '../../../contexts/RouterContext';
 
 import {i18, BlogKeyset} from '../../../i18n';
 

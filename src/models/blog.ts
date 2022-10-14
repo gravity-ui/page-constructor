@@ -1,4 +1,9 @@
-import {BlogPostTag, SpeakerPublic} from '@yandex-data-ui/cloud-schemas/build/models/ui-api';
+import {ReactNode} from 'react';
+
+import {SpeakerPublic} from '@yandex-data-ui/cloud-schemas/build/models/ui-api';
+import {HeaderBlockProps as PageConstructorHeaderBlockProps} from '@gravity-ui/page-constructor';
+
+import {Query} from '../models/common';
 import {Locale} from '../models/locale';
 
 export interface BlogPostLikes {
@@ -10,11 +15,7 @@ export interface BlogPagePostsData {
     posts: BlogPostData[];
     count: number;
     totalCount: number;
-}
-
-export interface BlogPageData {
-    posts: BlogPagePostsData;
-    tags: BlogPostTagExtended[];
+    pinnedPost?: BlogPostData;
 }
 
 export interface GetBlogPostsRequest {
@@ -25,6 +26,19 @@ export interface GetBlogPostsRequest {
     savedOnly?: boolean;
     search?: string;
 }
+
+type BlogPostTag = {
+    id: number;
+    slug: string;
+    createdAt: string;
+    updatedAt: string;
+    icon: string;
+    isDeleted: boolean;
+    name: string;
+    locale: string;
+    blogTagId: number;
+    count: number;
+};
 
 export type BlogPostTagExtended = BlogPostTag & {
     name: string;
@@ -72,9 +86,17 @@ export enum BlockType {
     BlogAuthorBlock = 'blog-author-block',
     BlogSuggestBlock = 'blog-suggest-block',
     BlogMetaBlock = 'blog-meta-block',
+    BlogFeedBlock = 'blog-feed-block',
 }
 
-export interface BlogMetaProps {
+export type MetaOrganizationType = {
+    url: string;
+    appTitle: string;
+    legalName: string;
+    supportEmail: string;
+};
+
+export interface BlogPostMetaProps {
     title: string;
     date: string;
     image: string;
@@ -92,13 +114,13 @@ export interface BlogMetaProps {
     noIndex?: boolean;
     authors?: SpeakerPublic[];
     tags?: BlogPostTagExtended[];
-    organization: {
-        url: string;
-        appTitle: string;
-        legalName: string;
-        supportEmail: string;
-    };
+    organization: MetaOrganizationType;
 }
+
+export type BlogPageMetaProps = {
+    metaComponent: JSX.Element;
+    needHelmetWrapper: boolean;
+};
 
 export type ToggleLikeCallbackType = ({
     postId,
@@ -107,3 +129,30 @@ export type ToggleLikeCallbackType = ({
     postId?: number;
     hasLike?: boolean;
 }) => void;
+
+export interface HeaderBlockProps extends PageConstructorHeaderBlockProps {
+    backLink?: {
+        url: string;
+        title: ReactNode;
+    };
+}
+
+export type GetBlogPostProps = {
+    tags: string | undefined;
+    page: number;
+    perPage: number;
+    savedOnly: boolean;
+    search: string | undefined;
+    services: string | undefined;
+};
+
+export type GetBlogPostsType = (query: GetBlogPostProps) => BlogPagePostsData;
+
+export type HandleChangeQueryParams = (params: Query) => void;
+
+export type SetQueryType = (
+    params: Query,
+    options?: {
+        [y: string]: boolean;
+    },
+) => Promise<void> | void;

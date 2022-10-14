@@ -1,0 +1,92 @@
+[
+  {
+    "id": 2,
+    "name": "Compute Cloud",
+    "slug": "compute"
+  },
+  {
+    "id": 10,
+    "name": "Managed Service for Kubernetes®",
+    "slug": "managed-kubernetes"
+  },
+  {
+    "id": 13,
+    "name": "Managed Service for PostgreSQL",
+    "slug": "managed-postgresql"
+  },
+  {
+    "id": 14,
+    "name": "Managed Service for ClickHouse",
+    "slug": "managed-clickhouse"
+  },
+  {
+    "id": 15,
+    "name": "Managed Service for MongoDB",
+    "slug": "managed-mongodb"
+  },
+  {
+    "id": 16,
+    "name": "Managed Service for MySQL®",
+    "slug": "managed-mysql"
+  },
+  {
+    "id": 17,
+    "name": "Managed Service for Redis™",
+    "slug": "managed-redis"
+  },
+  {
+    "id": 18,
+    "name": "Data Proc",
+    "slug": "data-proc"
+  },
+  {
+    "id": 20,
+    "name": "SpeechKit",
+    "slug": "speechkit"
+  },
+  {
+    "id": 23,
+    "name": "DataLens",
+    "slug": "datalens"
+  },
+  {
+    "id": 27,
+    "name": "Cloud Functions",
+    "slug": "functions"
+  },
+  {
+    "id": 119,
+    "name": "Managed Service for YDB",
+    "slug": "ydb"
+  },
+  {
+    "id": 169,
+    "name": "API Gateway",
+    "slug": "api-gateway"
+  },
+  {
+    "id": 202,
+    "name": "Managed Service for Apache Kafka®",
+    "slug": "managed-kafka"
+  },
+  {
+    "id": 206,
+    "name": "Managed Service for SQL Server™",
+    "slug": "managed-sqlserver"
+  },
+  {
+    "id": 263,
+    "name": "Application Load Balancer",
+    "slug": "application-load-balancer"
+  },
+  {
+    "id": 408,
+    "name": "Managed Service for Greenplum®",
+    "slug": "managed-greenplum"
+  },
+  {
+    "id": 444,
+    "name": "Yandex Forms",
+    "slug": "forms"
+  }
+]

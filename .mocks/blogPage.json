@@ -1,0 +1,49 @@
+{
+  "id": 969,
+  "name": "blog",
+  "createdAt": "2022-08-24T15:40:07.513Z",
+  "updatedAt": "2022-08-24T15:40:07.513Z",
+  "type": "default",
+  "isDeleted": false,
+  "pageId": 969,
+  "locale": "ru",
+  "publishedVersionId": 17498,
+  "lastVersionId": 17498,
+  "content": {
+    "blocks": [
+      {
+        "type": "blog-feed-block",
+        "resetPaddings": true,
+        "image": "https://storage.cloud-preprod.yandex.net/cloud-www-assets/blog-assets/header-cover/cover_blog.png",
+        "title": {
+          "text": "Блог",
+          "textSize": "l"
+        }
+      }
+    ]
+  },
+  "title": "Блог",
+  "noIndex": false,
+  "shareTitle": null,
+  "shareDescription": null,
+  "shareImage": null,
+  "pageLocaleId": 1261,
+  "author": "lunatic174",
+  "metaDescription": null,
+  "keywords": [],
+  "shareGenImage": null,
+  "shareGenTitle": null,
+  "solution": null,
+  "service": null,
+  "regions": [],
+  "locales": [
+    {
+      "locale": "en",
+      "publishedVersionId": null
+    },
+    {
+      "locale": "ru",
+      "publishedVersionId": 17498
+    }
+  ]
+}

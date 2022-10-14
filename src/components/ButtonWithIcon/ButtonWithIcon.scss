@@ -1,0 +1,91 @@
+@import '../../../styles/mixins.scss';
+@import '../../../styles/variables.scss';
+
+$block: '.#{$ns}button-with-icon';
+
+#{$block} {
+    @include reset-button-style();
+    @include islands-focus();
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: color 0.2s;
+
+    &_size {
+        &_xs {
+            height: 24px;
+            width: 24px;
+        }
+
+        &_s {
+            height: 28px;
+            width: 28px;
+        }
+
+        &_m {
+            height: 32px;
+            width: 32px;
+        }
+
+        &_n {
+            height: 36px;
+            width: 36px;
+        }
+    }
+
+    &_theme {
+        &_primary {
+            color: var(--www-text-content-color);
+            transition: color 0.2s;
+
+            &:hover {
+                color: var(--yc-color-text-primary);
+            }
+        }
+
+        &_secondary {
+            color: var(--yc-color-text-secondary);
+            transition: color 0.2s;
+
+            &:hover {
+                color: var(--www-text-content-color);
+            }
+        }
+
+        &_link {
+            color: var(--www-text-content-color);
+            transition: color 0.2s;
+
+            &:hover {
+                color: var(--yc-color-text-link-hover);
+            }
+        }
+
+        &_accent {
+            color: var(--yc-color-text-yandex-red);
+            transition: opacity 0.2s;
+            opacity: 0.7;
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+
+    &_disabled {
+        cursor: default;
+        color: var(--yc-color-text-secondary);
+
+        &:hover {
+            color: var(--yc-color-text-secondary);
+        }
+    }
+
+    .mobile & {
+        &:hover {
+            color: inherit;
+        }
+    }
+}

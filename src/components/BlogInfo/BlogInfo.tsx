@@ -1,7 +1,6 @@
 import React, {useContext} from 'react';
 import block from 'bem-cn-lite';
 
-// TODO fixes and refactor in https://st.yandex-team.ru/ORION-1444
 import {BlogPageContext} from '../../contexts/BlogPageContext';
 
 import {BlogPostData} from '../../models/blog';

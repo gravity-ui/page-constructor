@@ -8,7 +8,7 @@ import {BlogWrapper, PaddingSize} from '../../components/BlogWrapper/BlogWrapper
 import {BlogInfo, BlogMetrikaGoals} from '../../components/BlogInfo/BlogInfo';
 import {getBlogBreadcrumbs} from '../../utils/blog';
 
-import {BlogMetrikaGoalIds} from '../constants';
+import {BlogMetrikaGoalIds} from '../../constants';
 
 import './BlogMeta.scss';
 

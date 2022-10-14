@@ -1,0 +1,64 @@
+@import '../../../../../styles/mixins.scss';
+@import '../../../../../styles/variables.scss';
+
+$block: '.#{$ns}blog-feed-custom-switcher';
+
+#{$block} {
+    $root: &;
+
+    $controlsBorderRadius: 10px;
+
+    &__custom-switcher {
+        @include text-size(body-2);
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        background-color: var(--yc-color-base-background);
+        border: 1px solid var(--yc-color-base-background);
+        border-radius: $controlsBorderRadius;
+        width: 100%;
+        line-height: 42px;
+    }
+
+    &__custom-switcher:hover {
+        border-color: var(--yc-color-base-generic-hover);
+        cursor: pointer;
+    }
+
+    &__custom-switcher-element {
+        &_content {
+            display: inline-block;
+            flex-grow: 1;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            padding: 0 $indentXXS;
+        }
+
+        &_counter {
+            align-items: center;
+            height: $indentS;
+            padding: 0 6px;
+            background-color: var(--yc-color-base-selection);
+            border-radius: 4px;
+
+            transition: backgound-color 0.1s linear;
+
+            @include text-size(body-1);
+        }
+
+        &_arrow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 30px;
+            height: 100%;
+        }
+    }
+
+    &__switcher-arrow {
+        width: $indentXXS;
+        height: $indentXXS;
+    }
+}

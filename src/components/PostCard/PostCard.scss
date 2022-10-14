@@ -1,10 +1,13 @@
 @import '../../../styles/mixins';
 @import '../../../styles/variables';
 
-.BlogPostCard {
+$block: '.#{$ns}blog-post-card';
+
+#{$block} {
     $root: &;
 
     $indentXXXXS: 4px;
+    $linesToShow: 5;
 
     &__card {
         display: flex;
@@ -14,13 +17,23 @@
 
         &_fullWidth {
             flex-direction: row;
+
+            @media (max-width: map-get($gridBreakpoints, 'lg')) {
+                flex-direction: column;
+            }
         }
     }
 
     &__header {
         &_fullWidth {
             width: 66%;
-            height: 480px;
+            min-height: 480px;
+            height: 100%;
+
+            @media (max-width: map-get($gridBreakpoints, 'lg')) {
+                width: 100%;
+                min-height: auto;
+            }
         }
     }
 
@@ -42,6 +55,7 @@
 
     &__tag {
         color: var(--yc-color-text-secondary);
+        font-weight: var(--yc-text-accent-font-weight);
 
         &_size_s {
             @include text-size(body-2);
@@ -55,6 +69,22 @@
     }
 
     &__description {
+        word-wrap: break-word;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-height: $indentXXL;
+        white-space: initial;
         color: var(--yc-color-text-primary);
+
+        @supports (-webkit-line-clamp: $linesToShow) {
+            max-height: auto;
+            -webkit-line-clamp: $linesToShow;
+        }
+
+        &_size {
+            &_m {
+                max-height: $indentXXXL;
+            }
+        }
     }
 }

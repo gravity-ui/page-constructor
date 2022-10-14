@@ -3,11 +3,9 @@
 .BlogColoredTextBlock {
     $root: &;
 
-    $borderRadius: $indentSM;
-
     &__colored-text {
         display: flex;
-        border-radius: $borderRadius;
+        border-radius: var(--bc-border-radius);
         overflow: hidden;
         position: relative;
     }
@@ -17,7 +15,7 @@
         overflow: hidden;
         width: 100%;
         height: 100%;
-        border-radius: $borderRadius;
+        border-radius: var(--bc-border-radius);
         z-index: 1;
         top: 0;
         left: 0;

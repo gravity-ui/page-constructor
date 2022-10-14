@@ -1,5 +1,5 @@
 import {Locale} from '../models/locale';
-import {BlogMetaProps} from '../models/blog';
+import {BlogPostMetaProps, MetaOrganizationType} from '../models/blog';
 
 import {format} from './date';
 
@@ -10,12 +10,12 @@ type BreadcrumbsData = {
 
 interface GetBlogPostSchemaData
     extends Pick<
-        BlogMetaProps,
+        BlogPostMetaProps,
         'title' | 'description' | 'date' | 'keywords' | 'image' | 'content' | 'organization'
     > {
     url: string;
-    author: string;
-    locale: Locale | undefined;
+    author?: string;
+    locale?: Locale;
     breadcrumbs?: BreadcrumbsData[];
 }
 
@@ -62,7 +62,7 @@ const getOrganizationSchema = ({appTitle, url}: {appTitle: string; url: string})
     };
 };
 
-const getAuthorSchema = (author: string | undefined, organization: BlogMetaProps['organization']) =>
+const getAuthorSchema = (author: string | undefined, organization: MetaOrganizationType) =>
     author
         ? {
               '@type': 'Person',

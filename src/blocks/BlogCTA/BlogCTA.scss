@@ -1,14 +1,12 @@
 @import '../../../styles/variables.scss';
 
 .BlogCTABlock {
-    $borderRadius: $indentSM;
-
     $root: &;
 
     &__cta-card {
         display: flex;
         background-color: var(--yc-color-base-float);
-        border-radius: $borderRadius;
+        border-radius: var(--bc-border-radius);
         min-height: 80px;
         align-content: center;
         justify-content: center;

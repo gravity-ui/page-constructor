@@ -1,0 +1,72 @@
+@import '../../../styles/mixins.scss';
+@import '../../../styles/variables.scss';
+
+$block: '.#{$ns}paginator';
+
+$itemDimensions: 44px;
+
+#{$block} {
+    $block: &;
+
+    @include reset-list-style();
+
+    display: flex;
+    align-items: center;
+
+    &__item {
+        $item: &;
+
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        min-width: $itemDimensions;
+        min-height: $itemDimensions;
+        margin-left: 4px;
+
+        padding: 12px 0px;
+
+        color: var(--yc-color-text-primary);
+        @include text-size(body-2);
+
+        &_type {
+            &_page {
+                --bc-border-radius: 10px;
+                width: $itemDimensions;
+                height: $itemDimensions;
+
+                cursor: pointer;
+                border-radius: var(--bc-border-radius);
+
+                &:hover {
+                    background: var(--yc-color-base-simple-hover);
+                }
+
+                &#{$item}_active {
+                    background: var(--yc-color-base-simple-hover);
+                    cursor: default;
+                }
+            }
+        }
+    }
+
+    &__pagination {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+
+        @media (max-width: map-get($gridBreakpoints, 'sm')) {
+            flex-direction: column;
+        }
+    }
+
+    &__pagination-block {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 4px;
+    }
+}

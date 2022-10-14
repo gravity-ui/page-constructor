@@ -1,3 +1,3 @@
-Блок "Автор блога"
+Block "Blog author"
 
 `TODO`

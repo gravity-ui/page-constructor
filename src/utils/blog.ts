@@ -1,3 +1,5 @@
+import _ from 'lodash';
+
 import {
     ContentBlockProps,
     HeaderBreadCrumbsProps,
@@ -8,14 +10,17 @@ import {
 
 import {i18, BlogKeyset} from '../i18n';
 
-import {BlogPostTagExtended} from '../models/blog';
+import {BlogPostTagExtended, GetBlogPostProps} from '../models/blog';
+import {Query} from '../models/common';
 import {
     CONTENT_DEFAULT_COL_SIZES,
     CONTENT_DEFAULT_SIZE,
     CONTENT_DEFAULT_THEME,
+    DEFAULT_BLOG_ROWS_PER_PAGE,
+    DEFAULT_PAGE,
 } from '../blocks/constants';
 
-import _ from 'lodash';
+import {scrollToHash, getPageSearchParams} from './common';
 
 type CloudListTagStub = {};
 
@@ -87,5 +92,26 @@ export const getBlogElementMetrika = (
         return existingGoals;
     } else {
         return [blogCustomGoal];
+    }
+};
+
+export const getFeedQueryParams = (queryString: Query, pageNumber?: number): GetBlogPostProps => {
+    const queryParams = getPageSearchParams(queryString);
+    const tags = queryParams.get('tags') || undefined;
+    const page = pageNumber || Number(queryParams.get('page') || DEFAULT_PAGE);
+    const perPage = Number(queryParams.get('perPage') || DEFAULT_BLOG_ROWS_PER_PAGE);
+    const savedOnly = queryParams.get('savedOnly') === 'true';
+    const search = queryParams.get('search') || undefined;
+    const serviceIds = queryParams.get('services') || undefined;
+
+    return {tags, page, perPage, savedOnly, search, services: serviceIds};
+};
+
+export const scrollBlogOnPageChange = (containerId: string) => {
+    const cardsContainerEl = document.getElementById(containerId);
+    const y = cardsContainerEl?.getBoundingClientRect()?.y || 0;
+
+    if (y < 0) {
+        scrollToHash(containerId);
     }
 };

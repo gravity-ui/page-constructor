@@ -7,9 +7,9 @@
 
     // cross-browser transparent color
     --bc-transparent: rgba(255, 255, 255, 0);
-    --bc-border-radius: 24px;
     --bc-image-padding: 4px;
 
+    --bc-border-radius: var(--pc-border-radius, 24px);
     --bc-color-sfx-shadow: var(--yc-color-base-simple-hover);
     --bc-color-line-generic-active-solid: #b3b3b3;
     --bc-color-base-float-hover: var(--yc-color-base-float);
