@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/gravity-ui/page-constructor/compare/v1.2.0...v1.2.1) (2022-10-14)
+
+
+### Bug Fixes
+
+* **Content:** ul li color in dark theme ([#30](https://github.com/gravity-ui/page-constructor/issues/30)) ([8e94579](https://github.com/gravity-ui/page-constructor/commit/8e945798cd15cbf58e55e8d81f6b516a85d8936c))
+
 ## [1.2.0](https://github.com/gravity-ui/page-constructor/compare/v1.1.0...v1.2.0) (2022-10-11)
 
 
