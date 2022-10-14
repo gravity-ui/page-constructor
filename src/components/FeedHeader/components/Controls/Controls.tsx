@@ -1,6 +1,6 @@
 import React, {ReactNode, useState, useContext, useMemo} from 'react';
 
-import {Icon, Button} from '@yandex-cloud/uikit';
+import {Icon, Button} from '@gravity-ui/uikit';
 import {YCSelect} from '@yandex-data-ui/common';
 
 import {Search} from '../../../Search/Search';

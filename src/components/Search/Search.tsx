@@ -1,6 +1,6 @@
 import React, {useRef, useCallback, useEffect, useState} from 'react';
 import _ from 'lodash';
-import {TextInput} from '@yandex-cloud/uikit';
+import {TextInput} from '@gravity-ui/uikit';
 import {ClassNameProps} from '@yandex-data-ui/cloud-components';
 
 import {ButtonWithIcon} from '../ButtonWithIcon/ButtonWithIcon';

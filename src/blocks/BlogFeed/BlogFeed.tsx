@@ -1,5 +1,5 @@
 import React, {useEffect, useCallback, useReducer, useMemo, useContext} from 'react';
-import {Icon} from '@yandex-cloud/uikit';
+import {Icon} from '@gravity-ui/uikit';
 
 import {BlogFeedContext} from '../../contexts/BlogFeedContext';
 import {RouterContext} from '../../contexts/RouterContext';

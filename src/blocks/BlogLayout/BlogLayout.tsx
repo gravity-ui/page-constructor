@@ -6,7 +6,7 @@ import {
     GridColumnOrderSizesType,
     GridColumnSizesType,
     Row,
-} from '@yandex-data-ui/page-constructor';
+} from '@gravity-ui/page-constructor';
 
 import {BlogWrapper, PaddingSize} from '../../components/BlogWrapper/BlogWrapper';
 

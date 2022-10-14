@@ -1,5 +1,5 @@
 import '../styles/storybook/index.scss';
-import '@yandex-cloud/uikit/styles/styles.scss';
+import '@gravity-ui/uikit/styles/styles.scss';
 import '../styles/styles.scss';
 import '../styles/root.scss';
 
@@ -10,7 +10,7 @@ import {withTheme} from '../src/demo/decorators/withTheme';
 import {withLang} from '../src/demo/decorators/withLang';
 import {withMobile} from '../src/demo/decorators/withMobile';
 import {DocsWithReadme} from '../src/demo/DocsWithReadme';
-import {MobileProvider} from '@yandex-cloud/uikit';
+import {MobileProvider} from '@gravity-ui/uikit';
 import {ThemeProvider} from '../src/contexts/theme/ThemeProvider';
 
 const withCommonProvider = (Story, context) => {

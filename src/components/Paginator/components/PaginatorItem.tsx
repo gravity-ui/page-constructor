@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Button} from '@yandex-cloud/uikit';
+import {Button} from '@gravity-ui/uikit';
 
 import {ArrowType, PaginatorItemProps} from '../types';
 

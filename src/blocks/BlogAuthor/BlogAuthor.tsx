@@ -1,7 +1,7 @@
 import React, {useMemo, useContext} from 'react';
 import block from 'bem-cn-lite';
 
-import {Author, AuthorType} from '@yandex-data-ui/page-constructor';
+import {Author, AuthorType} from '@gravity-ui/page-constructor';
 import {ClassNameProps} from '@yandex-data-ui/cloud-components';
 
 import {BlogPageContext} from '../../contexts/BlogPageContext';

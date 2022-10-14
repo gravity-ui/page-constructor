@@ -1,5 +1,5 @@
-import React, {useMemo, useContext} from 'react';
-import {HeaderBlock, HeaderBlockProps} from '@yandex-data-ui/page-constructor';
+import React, {useContext, useMemo} from 'react';
+import {HeaderBlock, HeaderBlockProps} from '@gravity-ui/page-constructor';
 
 import {BlogPageContext} from '../../contexts/BlogPageContext';
 

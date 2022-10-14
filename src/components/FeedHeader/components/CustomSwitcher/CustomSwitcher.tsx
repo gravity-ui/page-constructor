@@ -1,6 +1,6 @@
 import React, {ReactNode, useMemo} from 'react';
 
-import {Icon} from '@yandex-cloud/uikit';
+import {Icon} from '@gravity-ui/uikit';
 
 import {DropdownArrow} from '../../../../icons/DropdownArrow';
 

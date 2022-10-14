@@ -1,6 +1,6 @@
 import React, {useMemo, useContext} from 'react';
 
-import {CardBase, YFMWrapper, MetrikaGoal} from '@yandex-data-ui/page-constructor';
+import {CardBase, YFMWrapper, MetrikaGoal} from '@gravity-ui/page-constructor';
 
 import {LikesContext} from '../../contexts/LikesContext';
 

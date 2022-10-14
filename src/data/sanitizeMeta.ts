@@ -1,4 +1,4 @@
-import {sanitizeHtml} from '@yandex-data-ui/page-constructor/server';
+import {sanitizeHtml} from '@gravity-ui/page-constructor/server';
 
 import {BlogPostMetaProps} from '../models/blog';
 

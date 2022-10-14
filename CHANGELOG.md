@@ -1,4 +1,17 @@
-# Лог изменений
+# Change log
+
+## 0.8.0
+
+- add BlogPage with gravity-ui requirements
+
+## 0.7.1
+
+- Add info about publish in readme
+
+## 0.7.0
+
+- Change packages @yandex-cloud => @gravity-ui
+- Remove i18n from peer dependencies
 
 ## 0.6.30
 
@@ -34,56 +47,56 @@
 
 ## 0.5.2
 
-- условие для лайков на карточках
+- condition for likes in cards
 
 ## 0.5.1
 
-- рефактор LocaleContext
-- рефактор RouterContext
-- likes теперь не обязательные пропсы
+- refactor LocaleContext
+- refactor RouterContext
+- now likes is not required props
 
 ## 0.4.3
 
-- Откат предыдущего патча
+- Back previously patch
 
 ## 0.4.2
 
-- Фикс метаданных
+- Fix meta
 
 ## 0.4.1
 
-- Фикс стилей кнопки поделиться
-- region теперь необязательный параметр в TransformPageContentPropsType
+- Fix share button
+- now region props is not required in TransformPageContentPropsType
 
 ## 0.4.0
 
-- Добавлены условия обновления стейта лайков
+- Add likes state update conditions
 
 ## 0.3.1
 
-- Добавленно условие рендера метадаты
+- Add metaData render condition
 
 ## 0.3.0
 
-- Обновлен интерфейс пропса metaData
+- Update props metaData
 
 ## 0.2.3
 
-- Обновлены нейминги и типы
+- Update types and namings
 
 ## 0.2.2
 
-- Обновлены стили
+- Update styles
 
 ## 0.2.1
 
-- Добавлен дефолтный цвет (серый) для аватарок авторов
+- Add default color for avatars (grey)
 
 ## 0.2.0
 
-- Сделан хук для реализации логики простановки лайков
+- Custom hook for likes
 
-- Изменение пропсов компонента BlogPostPage
+- Change props for BlogPostPage
   - delete:
     - data
   - add:
@@ -93,20 +106,20 @@
 
 ## 0.1.0
 
-- Исправление логики блока BlogSuggets
+- Refactor business-logic BlogSuggets
 
 ## 0.0.4
 
-- Удалены ненужные зависимости
+- Delete extra requirements
 
 ## 0.0.3
 
-- Рефакторинг BlogContextProvider
+- Refactor BlogContextProvider
 
 ## 0.0.2
 
-- Мелкие исправления для meta
+- Meta fixes
 
 ## 0.0.1
 
-- Добавлена первая версия конструктора блога
+- Create first version including Blog Post Page

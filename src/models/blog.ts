@@ -1,7 +1,7 @@
 import {ReactNode} from 'react';
 
 import {SpeakerPublic} from '@yandex-data-ui/cloud-schemas/build/models/ui-api';
-import {HeaderBlockProps as PageConstructorHeaderBlockProps} from '@yandex-data-ui/page-constructor';
+import {HeaderBlockProps as PageConstructorHeaderBlockProps} from '@gravity-ui/page-constructor';
 
 import {Query} from '../models/common';
 import {Locale} from '../models/locale';

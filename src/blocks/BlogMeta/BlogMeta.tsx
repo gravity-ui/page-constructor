@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import block from 'bem-cn-lite';
-import {HeaderBreadcrumbs, TextTheme, YFMWrapper} from '@yandex-data-ui/page-constructor';
+import {HeaderBreadcrumbs, TextTheme, YFMWrapper} from '@gravity-ui/page-constructor';
 
 import {BlogPageContext} from '../../contexts/BlogPageContext';
 
