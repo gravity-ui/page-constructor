@@ -66,14 +66,21 @@ const Content = (props: ContentBlockProps & ClassNameProps) => {
             {title && <Title className={b('title')} {...titleProps} resetMargin />}
             {text && (
                 <div className={b('text', {['without-title']: !hasTitle})}>
-                    <YFMWrapper content={text} modifiers={{constructor: true}} />
+                    <YFMWrapper
+                        content={text}
+                        modifiers={{constructor: true, [`constructor-size-${size}`]: true}}
+                    />
                 </div>
             )}
             {additionalInfo && (
                 <div className={b('notice')}>
                     <YFMWrapper
                         content={additionalInfo}
-                        modifiers={{constructor: true, 'constructor-notice': true}}
+                        modifiers={{
+                            constructor: true,
+                            'constructor-notice': true,
+                            [`constructor-size-${size}`]: true,
+                        }}
                     />
                 </div>
             )}

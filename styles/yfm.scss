@@ -34,13 +34,24 @@
             }
         }
 
-        p,
-        li {
+        ul,
+        ol,
+        li,
+        p {
             margin: 0 0 $indentXXS;
         }
 
         p strong {
             font-weight: 500;
+        }
+
+        &_size_s {
+            ul,
+            ol,
+            li,
+            p {
+                margin-bottom: $indentXXXS;
+            }
         }
     }
 
@@ -106,7 +117,8 @@
 
     thead,
     tr {
-        background-color: transparent !important; /* stylelint-disable-line declaration-no-important */
+        /* stylelint-disable declaration-no-important */
+        background-color: transparent !important;
     }
 
     tbody tr {
@@ -118,7 +130,7 @@
         min-width: $columnWidth;
         width: $columnWidth;
         box-sizing: content-box;
-        white-space: inherit !important; /* stylelint-disable-line declaration-no-important */
+        white-space: inherit !important;
 
         &:first-child {
             min-width: $firstColumnWidth;
@@ -127,6 +139,7 @@
     }
 
     th {
-        text-align: left !important; /* stylelint-disable-line declaration-no-important */
+        text-align: left !important;
     }
+    /* stylelint-enable declaration-no-important */
 }
