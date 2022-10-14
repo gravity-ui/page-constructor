@@ -44,6 +44,12 @@ $darkSecondary: var(--yc-color-text-dark-secondary);
         margin-right: $indentXXS;
     }
 
+    &__links {
+        display: flex;
+        flex-direction: column;
+        align-items: baseline;
+    }
+
     &__link {
         display: block;
         margin-right: $indentM;
@@ -53,6 +59,10 @@ $darkSecondary: var(--yc-color-text-dark-secondary);
         @include add-specificity(&) {
             margin: 0 auto;
             text-align: center;
+        }
+
+        #{$block}__links {
+            align-items: center;
         }
 
         #{$block}__link {
