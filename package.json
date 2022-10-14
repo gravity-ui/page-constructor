@@ -121,8 +121,5 @@
     "*.{json,yaml,yml,md}": [
       "prettier --write"
     ]
-  },
-  "publishConfig": {
-    "tag": "alpha"
   }
 }
