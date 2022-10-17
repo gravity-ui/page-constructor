@@ -4,10 +4,11 @@ import block from 'bem-cn-lite';
 
 // TODO refactor in https://st.yandex-team.ru/ORION-1444
 
-import {ShareTooltip, ShareSocialNetwork} from '@gravity-ui/uikit';
+import {ShareTooltip} from '@gravity-ui/uikit';
 
 import {MobileContext} from '../../../contexts/MobileContext';
 import {RouterContext} from '../../../contexts/RouterContext';
+import {BlogPageContext} from '../../../contexts/BlogPageContext';
 
 import {i18, BlogKeyset} from '../../../i18n';
 
@@ -33,6 +34,7 @@ type BlogSharingProps = {
 export const BlogSharing: React.FC<BlogSharingProps> = ({theme, metrikaGoal}) => {
     const router = useContext(RouterContext);
     const isMobile = useContext(MobileContext);
+    const {sharingSocialNetworks} = useContext(BlogPageContext);
 
     const handleMetrika = () => {
         metrika.reachGoal(MetrikaCounter.CrossSite, metrikaGoal);
@@ -55,7 +57,7 @@ export const BlogSharing: React.FC<BlogSharingProps> = ({theme, metrikaGoal}) =>
                     customIcon={ShareArrowUp}
                     placement="bottom"
                     openByHover={false}
-                    socialNets={[ShareSocialNetwork.Telegram]}
+                    socialNets={sharingSocialNetworks}
                     handleMetrika={handleMetrika}
                 />
             </span>
