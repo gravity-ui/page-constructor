@@ -6,6 +6,7 @@ import {
     PageConstructorProvider,
     PageConstructorProviderProps,
 } from '@gravity-ui/page-constructor';
+import {ShareSocialNetwork} from '@gravity-ui/uikit';
 
 import {BlogPostData, BlogPostMetaProps, ToggleLikeCallbackType} from '../../models/blog';
 
@@ -31,6 +32,7 @@ export interface BlogPostPageProps {
     content: PageContent;
     post: BlogPostData;
     settings?: PageConstructorProviderProps;
+    sharingSocialNetworks?: ShareSocialNetwork[];
 }
 
 export const BlogPostPage: React.FC<BlogPostPageProps> = ({
@@ -40,6 +42,7 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({
     content,
     post,
     settings,
+    sharingSocialNetworks,
 }) => {
     const {hasUserLike, likesCount, handleLike} = useLikes({
         hasLike: likes?.hasUserLike,
@@ -67,6 +70,7 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({
                                   likesCount,
                               }
                             : undefined,
+                        sharingSocialNetworks,
                     }}
                 >
                     <PageConstructorProvider {...settings}>

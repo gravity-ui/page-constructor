@@ -1,5 +1,9 @@
 # Change log
 
+## 0.9.0
+
+- added customization for sharing options in blog posts
+
 ## 0.8.0
 
 - add BlogPage with gravity-ui requirements
