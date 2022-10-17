@@ -1,6 +1,6 @@
-import {filteredItem} from './utils';
 import {pixelEvents} from './pixel';
 import {Theme} from '../../models';
+import {ImageProps} from '../../components/Image/schema';
 
 export const mediaDirection = ['media-content', 'content-media'];
 export const textSize = ['s', 'm', 'l'];
@@ -142,36 +142,6 @@ export const ThemeProps = {
 export const JustifyProps = {
     type: 'string',
     enum: ['start', 'center', 'end'],
-};
-
-export const ImageObjectProps = {
-    type: 'object',
-    additionalProperties: false,
-    required: ['src'],
-    properties: {
-        src: {
-            type: 'string',
-            pattern: urlPattern,
-        },
-        alt: {
-            type: 'string',
-        },
-        disableCompress: {
-            type: 'boolean',
-        },
-    },
-};
-
-export const ImageProps = {
-    oneOf: [
-        {
-            type: 'string',
-            pattern: urlPattern,
-        },
-        filteredItem({
-            ...ImageObjectProps,
-        }),
-    ],
 };
 
 export const DataLensObjectProps = {

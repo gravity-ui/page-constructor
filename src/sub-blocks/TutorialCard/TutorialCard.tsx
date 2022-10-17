@@ -12,9 +12,9 @@ import './TutorialCard.scss';
 const b = block('tutorial-card');
 
 function iconElement(icon: ImageProps, title: string) {
-    const {src, alt = title, disableCompress} = getMediaImage(icon ?? {});
+    const image = getMediaImage(icon ?? {});
 
-    return <Image src={src} alt={alt} className={b('icon')} disableCompress={disableCompress} />;
+    return <Image {...image} alt={title} className={b('icon')} />;
 }
 
 const TutorialCard = (props: TutorialCardProps) => {

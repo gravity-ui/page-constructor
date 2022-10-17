@@ -230,5 +230,34 @@
         }
       ]
     }
+  },
+  "deviceBackground": {
+    "content": {
+      "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      "background": {
+        "url": {
+          "desktop": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
+          "mobile": "https://storage.yandexcloud.net/cloud-www-assets/scale/2022/main/scale_header_mob.png"
+        }
+      },
+      "offset": "default",
+      "theme": "light",
+      "verticalOffset": "m",
+      "type": "header-block",
+      "description": "<p> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p> ",
+      "width": "s",
+      "buttons": [
+        {
+          "text": "Button\r",
+          "theme": "action",
+          "url": "https://example.com"
+        },
+        {
+          "text": "Button",
+          "theme": "outlined",
+          "url": "https://example.com"
+        }
+      ]
+    }
   }
 }

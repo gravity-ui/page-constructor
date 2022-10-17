@@ -63,9 +63,8 @@ const Image = (props: ImageAllProps) => {
 
                 return (
                     <FullScreenImage
-                        key={itemData.src}
-                        src={itemData.src}
-                        alt={itemData.alt}
+                        key={itemData.alt}
+                        {...itemData}
                         imageClassName={imageClass}
                         imageStyle={{height}}
                     />
@@ -78,27 +77,14 @@ const Image = (props: ImageAllProps) => {
         const imageData = getMediaImage(oneImage);
         return (
             <animated.div style={{transform: parallaxInterpolate}}>
-                <BackgroundImage
-                    className={imageClass}
-                    src={imageData.src}
-                    style={{height}}
-                    disableCompress={imageData.disableCompress}
-                />
+                <BackgroundImage {...imageData} className={imageClass} style={{height}} />
             </animated.div>
         );
     };
 
     const imageOnly = (oneImage: ImageProps) => {
         const imageData = getMediaImage(oneImage);
-        return (
-            <ImageView
-                className={imageClass}
-                src={imageData.src}
-                alt={imageData.alt}
-                style={{height}}
-                disableCompress={imageData.disableCompress}
-            />
-        );
+        return <ImageView {...imageData} className={imageClass} style={{height}} />;
     };
 
     if (Array.isArray(image)) {

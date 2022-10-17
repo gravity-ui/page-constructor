@@ -1,11 +1,11 @@
 import {
     authorItem,
     BaseProps,
-    ImageProps,
     ThemeProps,
     withTheme,
     urlPattern,
 } from '../../schema/validators/common';
+import {ImageProps} from '../../components/Image/schema';
 
 export const Quote = {
     quote: {

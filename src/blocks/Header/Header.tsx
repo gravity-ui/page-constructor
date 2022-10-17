@@ -1,7 +1,13 @@
 import React, {useContext} from 'react';
 
 import {block, getThemedValue} from '../../utils';
-import {ClassNameProps, HeaderBlockBackground, HeaderBlockProps, WithChildren} from '../../models';
+import {
+    ClassNameProps,
+    HeaderBlockBackground,
+    HeaderBlockProps,
+    WithChildren,
+    ImageProps,
+} from '../../models';
 import {headerHasMediaBackground} from '../../models/guards';
 import {Button, Media, BackgroundMedia, BackgroundImage, RouterLink, HTML} from '../../components';
 import {Grid, Row, Col} from '../../grid';
@@ -10,6 +16,7 @@ import {getImageSize, getTitleSizes, titleWithImageSizes} from './utils';
 import YFMWrapper from '../../components/YFMWrapper/YFMWrapper';
 import HeaderBreadcrumbs from '../../components/HeaderBreadcrumbs/HeaderBreadcrumbs';
 import {ThemeValueContext} from '../../context/theme/ThemeValueContext';
+import {getMediaImage} from '../../components/Media/Image/utils';
 
 import './Header.scss';
 
@@ -23,6 +30,11 @@ interface BackgroundProps {
 
 const Background = ({background}: BackgroundProps) => {
     const {url, color, disableCompress, fullWidth, fullWidthMedia} = background;
+    const imageObject = url && getMediaImage(url as ImageProps);
+
+    if (imageObject && disableCompress) {
+        imageObject.disableCompress = disableCompress;
+    }
 
     return headerHasMediaBackground(background) ? (
         <BackgroundMedia
@@ -32,11 +44,10 @@ const Background = ({background}: BackgroundProps) => {
         />
     ) : (
         <BackgroundImage
-            src={url}
+            {...imageObject}
             className={b('background', {'full-width-media': fullWidthMedia})}
             imageClassName={b('background-img')}
             style={{backgroundColor: fullWidth ? 'none' : color}}
-            disableCompress={disableCompress}
         />
     );
 };

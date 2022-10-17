@@ -4,13 +4,14 @@ import {Tabs} from '@gravity-ui/uikit';
 import {block, getThemedValue} from '../../utils';
 import {Row, Col, GridColumnOrderClasses} from '../../grid';
 import YFMWrapper from '../../components/YFMWrapper/YFMWrapper';
-import {ImageObjectProps, TabsBlockProps} from '../../models';
+import {TabsBlockProps} from '../../models';
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
 import BlockHeader from '../../components/BlockHeader/BlockHeader';
 import FullScreenImage from '../../components/FullscreenImage/FullscreenImage';
 import Media from '../../components/Media/Media';
 import Links from '../../components/Link/Links';
 import {ThemeValueContext} from '../../context/theme/ThemeValueContext';
+import {getMediaImage} from '../../components/Media/Image/utils';
 
 import './Tabs.scss';
 
@@ -23,11 +24,11 @@ export const TabsBlock = ({items, title, description, animated}: TabsBlockProps)
     const tabs = items.map(({tabName}) => ({title: tabName, id: tabName}));
     const activeTabData = items.find(({tabName}) => tabName === activeTab);
 
-    let imageProps: ImageObjectProps | undefined;
+    let imageProps;
 
     if (activeTabData) {
         const themedImage = getThemedValue(activeTabData.image, theme);
-        imageProps = typeof themedImage === 'string' ? {src: themedImage} : themedImage;
+        imageProps = themedImage && getMediaImage(themedImage);
     }
 
     const showMedia = Boolean(activeTabData?.media || imageProps);
@@ -62,12 +63,7 @@ export const TabsBlock = ({items, title, description, animated}: TabsBlockProps)
                             )}
                             {imageProps && (
                                 <Fragment>
-                                    <FullScreenImage
-                                        imageClassName={b('image')}
-                                        src={(imageProps && imageProps.src) || 'default_image'}
-                                        alt={imageProps && imageProps.alt}
-                                        disableCompress={imageProps?.disableCompress}
-                                    />
+                                    <FullScreenImage {...imageProps} imageClassName={b('image')} />
                                     {activeTabData && (
                                         <p className={b('caption')}>{activeTabData.caption}</p>
                                     )}

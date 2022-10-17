@@ -1,5 +1,4 @@
 import {
-    ImageProps,
     VideoProps,
     withTheme,
     BlockBaseProps,
@@ -7,6 +6,7 @@ import {
     MediaProps,
 } from '../../schema/validators/common';
 import {filteredArray} from '../../schema/validators/utils';
+import {ImageProps} from '../../components/Image/schema';
 
 const HeaderMedia = {
     type: 'object',

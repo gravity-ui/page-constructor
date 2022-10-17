@@ -206,12 +206,6 @@ $backgroundWidth: 1440px;
             }
         }
 
-        &_has-background {
-            #{$block}__background-img {
-                display: none;
-            }
-        }
-
         //rewrite grid's styles .Grid .col
         #{$block}__content_vertical-offset {
             &_s,

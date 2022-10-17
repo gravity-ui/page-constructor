@@ -1,21 +1,22 @@
 import React, {CSSProperties, MouseEventHandler, useContext, useState} from 'react';
 import {ProjectSettingsContext} from '../../context/projectSettingsContext';
+import {BREAKPOINTS} from '../../constants';
+import {ImageDeviceProps, ImageObjectProps} from '../../models';
 
-export interface ImageProps {
-    src: string;
-    alt?: string;
-    disableCompress?: boolean;
+export interface ImageOwnProps extends Partial<ImageObjectProps>, Partial<ImageDeviceProps> {
     style?: CSSProperties;
     className?: string;
     onClick?: MouseEventHandler;
 }
 
-const Image = (props: ImageProps) => {
+const Image = (props: ImageOwnProps) => {
     const projectSettings = useContext(ProjectSettingsContext);
-    const {src, alt, disableCompress, style, className, onClick} = props;
+    const {src, alt, disableCompress, tablet, desktop, mobile, style, className, onClick} = props;
     const [imgLoadingError, setImgLoadingError] = useState(false);
 
-    if (!src) {
+    const imageSrc = src || desktop;
+
+    if (!imageSrc) {
         return null;
     }
 
@@ -23,16 +24,18 @@ const Image = (props: ImageProps) => {
     const disableWebp =
         projectSettings.disableCompress ||
         disableCompress ||
-        src.endsWith('.svg') ||
+        imageSrc.endsWith('.svg') ||
         imgLoadingError;
-    const webp = src.endsWith('.webp') ? src : src + '.webp';
+    const webp = imageSrc.endsWith('.webp') ? src : src + '.webp';
 
     return (
         <picture>
             {disableWebp ? null : <source srcSet={webp} type="image/webp" />}
+            {mobile && <source srcSet={mobile} media={`(max-width: ${BREAKPOINTS.sm}px)`} />}
+            {tablet && <source srcSet={tablet} media={`(max-width: ${BREAKPOINTS.md}px)`} />}
             <img
                 className={className}
-                src={src}
+                src={imageSrc}
                 alt={alt}
                 style={style}
                 onClick={onClick}

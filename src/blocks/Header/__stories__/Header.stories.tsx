@@ -119,6 +119,7 @@ export const Media = MediaTemplate.bind({});
 export const Background = BackgroundTemplate.bind({});
 export const ThemeDark = DefaultTemplate.bind({});
 export const Breadcrumbs = BreadCrumbsTemplate.bind({});
+export const DevicesBackground = DefaultTemplate.bind({});
 
 Default.args = data.default.content as HeaderBlockProps;
 Size.args = data.size.content as HeaderBlockPropsNoTitle;
@@ -128,3 +129,4 @@ Media.args = data.media.content as HeaderBlockPropsNoTitle;
 Background.args = data.background.content as HeaderBlockPropsNoTitle;
 ThemeDark.args = data.themeDark.content as HeaderBlockProps;
 Breadcrumbs.args = data.breadcrumbs.content as HeaderBlockProps;
+DevicesBackground.args = data.deviceBackground.content as HeaderBlockProps;

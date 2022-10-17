@@ -104,17 +104,29 @@ interface LoopProps {
 }
 
 // images
-export interface ImageObjectProps {
-    src: string;
+
+export interface ImageInfoProps {
     alt?: string;
     disableCompress?: boolean;
 }
-export type ImageProps = string | ImageObjectProps;
+
+export interface ImageObjectProps extends ImageInfoProps {
+    src: string;
+}
+
+export interface ImageDeviceProps extends ImageInfoProps {
+    desktop: string;
+    mobile: string;
+    tablet?: string;
+}
+
+export type ImageProps = string | ImageObjectProps | ImageDeviceProps;
 export type ThemedImage = ThemeSupporting<ImageProps>;
-export interface BackgroundImageProps extends React.HTMLProps<HTMLDivElement> {
-    src?: string;
-    alt?: string;
-    disableCompress?: boolean;
+
+export interface BackgroundImageProps
+    extends React.HTMLProps<HTMLDivElement>,
+        Partial<ImageDeviceProps>,
+        Partial<ImageObjectProps> {
     style?: CSSProperties;
     imageClassName?: string;
     hide?: boolean;
@@ -145,6 +157,7 @@ export interface LinkProps extends Stylable {
     metrikaGoals?: MetrikaGoal;
     pixelEvents?: ButtonPixel;
 }
+
 export interface FileLinkProps extends ClassNameProps {
     href: string;
     text: ReactNode;
@@ -191,26 +204,32 @@ export interface MediaVideoProps {
     controls?: MediaVideoControlsType;
     metrika?: MetrikaVideo;
 }
+
 export type ThemedMediaVideoProps = ThemeSupporting<MediaVideoProps>;
+
 export interface MediaComponentVideoProps {
     video: MediaVideoProps;
     height?: number;
     metrika?: MetrikaVideo;
     previewImg?: string;
 }
+
 export interface MediaComponentYoutubeProps {
     youtube: string;
     previewImg?: string;
 }
+
 export interface MediaComponentImageProps {
     image: ImageProps | ImageProps[];
     video?: MediaVideoProps;
     parallax?: boolean;
     height?: number;
 }
+
 export interface MediaComponentDataLensProps {
     dataLens: DataLensProps;
 }
+
 export interface MediaProps
     extends Animatable,
         Partial<MediaComponentDataLensProps>,
@@ -219,6 +238,7 @@ export interface MediaProps
         Partial<MediaComponentVideoProps> {
     color?: string;
 }
+
 export type ThemedMediaProps = ThemeSupporting<MediaProps>;
 
 // metrika
@@ -228,22 +248,27 @@ export interface NewMetrikaGoal {
     counterName?: string;
     params?: Record<string, string>;
 }
+
 export type MetrikaGoal = string | string[] | NewMetrikaGoal[];
+
 export interface MetrikaVideo {
     counterName?: string;
     play?: MetrikaGoal;
     stop?: MetrikaGoal;
 }
+
 export interface ButtonPixelEvent {
     name: PixelEventType;
     data?: Object;
 }
+
 export type ButtonPixel = ButtonPixelEvent[];
 
 export interface DataLensObjectProps {
     id: string;
     theme: 'dark' | 'light';
 }
+
 export type DataLensProps = string | DataLensObjectProps;
 
 export interface AuthorItem {
@@ -268,6 +293,7 @@ export interface PreviewContentItemProps {
     title: string;
     description?: string;
 }
+
 export interface PreviewItemProps {
     type: PreviewItemType;
     media: ThemedMediaProps;
@@ -298,11 +324,15 @@ export interface CardData {
     service?: {slug: string; name: string};
     links?: LinkProps[];
 }
+
 export type CardBorder = 'shadow' | 'line' | 'none';
+
 export interface CardBaseProps {
     border?: CardBorder;
 }
+
 export interface CardProps extends CardBaseProps, CardData {}
+
 export interface CardHeader {
     title?: string;
     image?: ImageProps;
@@ -319,22 +349,28 @@ export interface PriceDescriptionProps {
         size?: TextSize;
     };
 }
+
 export interface PriceDetailsSettingsProps {
     title: string;
     description: string;
 }
+
 export interface PriceDetailsListProps {
     text: string;
 }
+
 export interface PriceDetailsProps {
     items?: PriceDetailsSettingsProps[] | PriceDetailsListProps[];
 }
+
 export interface PriceItemProps extends PriceDetailsProps, PriceDescriptionProps {}
+
 export interface PriceFoldableDetailsProps {
     title: string;
     size?: TextSize;
     titleColor?: PriceDescriptionColor;
 }
+
 export interface PriceDetailedProps extends CardBaseProps {
     items: PriceItemProps[];
     description?: {
@@ -353,6 +389,7 @@ export interface PriceDetailedProps extends CardBaseProps {
     foldable?: PriceFoldableDetailsProps;
     labelsDefaultText?: Record<PriceLabelColor, string>;
 }
+
 export interface PriceDetailedProps extends CardBaseProps {
     items: PriceItemProps[];
     description?: {

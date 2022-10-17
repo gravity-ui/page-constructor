@@ -2,12 +2,12 @@ import React, {useState, useCallback, CSSProperties} from 'react';
 import {Icon, Modal} from '@gravity-ui/uikit';
 
 import {block} from '../../utils';
-import Image, {ImageProps} from '../Image/Image';
+import Image, {ImageOwnProps} from '../Image/Image';
 import {PreviewClose, FullScreen} from '../../icons';
 
 import './FullScreenImage.scss';
 
-export interface FullScreenImageProps extends ImageProps {
+export interface FullScreenImageProps extends ImageOwnProps {
     imageClassName?: string;
     modalImageClass?: string;
     imageStyle?: CSSProperties;

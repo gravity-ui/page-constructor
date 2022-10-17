@@ -2,10 +2,11 @@ import React, {useContext} from 'react';
 import {Button} from '@gravity-ui/uikit';
 
 import {block, getThemedValue} from '../../utils';
-import {QuoteProps, AuthorType, ImageObjectProps} from '../../models';
+import {QuoteProps, AuthorType} from '../../models';
 
 import {Author, Image, HTML} from '../../components';
 import {ThemeValueContext} from '../../context/theme/ThemeValueContext';
+import {getMediaImage} from '../../components/Media/Image/utils';
 
 import './Quote.scss';
 
@@ -25,8 +26,7 @@ const Quote = (props: QuoteProps) => {
     } = props;
     const {themeValue: theme} = useContext(ThemeValueContext);
     const imageThemed = getThemedValue(image, theme);
-    const imageData: ImageObjectProps =
-        typeof imageThemed === 'string' ? {src: imageThemed} : imageThemed;
+    const imageData = getMediaImage(imageThemed);
 
     const renderFooter = Boolean(author || url) && (
         <div className={b('author-wrapper')}>
@@ -67,7 +67,7 @@ const Quote = (props: QuoteProps) => {
                 {renderFooter}
             </div>
             <div className={b('image-wrapper')}>
-                <Image src={imageData.src} alt={imageData.alt} className={b('image')} />
+                <Image {...imageData} className={b('image')} />
             </div>
         </div>
     );
