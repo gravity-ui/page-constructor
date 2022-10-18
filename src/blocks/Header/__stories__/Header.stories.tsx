@@ -1,6 +1,7 @@
 import React, {Fragment} from 'react';
+import yfm from '@doc-tools/transform';
 import {Meta, Story} from '@storybook/react/types-6-0';
-import {HeaderBlockModel, HeaderBlockProps} from '../../../models';
+import {ButtonProps, HeaderBlockModel, HeaderBlockProps} from '../../../models';
 import Header from '../Header';
 import {PageConstructor} from '../../../containers/PageConstructor';
 
@@ -32,6 +33,11 @@ export default {
     },
 } as Meta;
 
+const DefaultArgs = {
+    ...data.default.content,
+    description: yfm(data.default.content.description).result.html,
+};
+
 const DefaultTemplate: Story<HeaderBlockModel> = (args) => (
     <PageConstructor content={{blocks: [args]}} />
 );
@@ -56,7 +62,7 @@ const VerticalOffsetTemplate: Story<HeaderBlockModel> = (args) => (
         <DefaultTemplate {...args} title={getVerticalOffsetTitle('"S"')} verticalOffset="s" />
         <DefaultTemplate {...args} title={getVerticalOffsetTitle('"M"')} verticalOffset="m" />
         <DefaultTemplate {...args} title={getVerticalOffsetTitle('"L"')} verticalOffset="l" />
-        <DefaultTemplate {...args} title={getVerticalOffsetTitle('"XL"')} verticalOffset="l" />
+        <DefaultTemplate {...args} title={getVerticalOffsetTitle('"XL"')} verticalOffset="xl" />
     </Fragment>
 );
 
@@ -105,8 +111,14 @@ const BreadCrumbsTemplate: Story<HeaderBlockModel> = (args) => (
         <DefaultTemplate
             {...args}
             title={getBreadcrumbsTitle('dark')}
-            theme="dark"
-            background={{...args.background, color: '#262626'}}
+            theme={data.themeDark.content.theme as 'dark'}
+            background={data.themeDark.content.background}
+            buttons={
+                data.themeDark.content.buttons as Pick<
+                    ButtonProps,
+                    'url' | 'text' | 'theme' | 'primary' | 'size'
+                >[]
+            }
         />
     </Fragment>
 );
@@ -121,12 +133,41 @@ export const ThemeDark = DefaultTemplate.bind({});
 export const Breadcrumbs = BreadCrumbsTemplate.bind({});
 export const DevicesBackground = DefaultTemplate.bind({});
 
-Default.args = data.default.content as HeaderBlockProps;
-Size.args = data.size.content as HeaderBlockPropsNoTitle;
-Image.args = data.image.content as HeaderBlockPropsNoTitle;
-VerticalOffset.args = data.verticalOffset.content as HeaderBlockPropsNoTitle;
-Media.args = data.media.content as HeaderBlockPropsNoTitle;
-Background.args = data.background.content as HeaderBlockPropsNoTitle;
-ThemeDark.args = data.themeDark.content as HeaderBlockProps;
-Breadcrumbs.args = data.breadcrumbs.content as HeaderBlockProps;
-DevicesBackground.args = data.deviceBackground.content as HeaderBlockProps;
+Default.args = {...DefaultArgs} as HeaderBlockProps;
+
+Size.args = {...DefaultArgs} as HeaderBlockPropsNoTitle;
+
+Image.args = {
+    ...DefaultArgs,
+    ...data.image.content,
+} as HeaderBlockPropsNoTitle;
+
+VerticalOffset.args = {
+    ...DefaultArgs,
+    ...data.image.content,
+} as HeaderBlockPropsNoTitle;
+
+Media.args = {
+    ...DefaultArgs,
+    ...data.media.content,
+} as HeaderBlockPropsNoTitle;
+
+Background.args = {
+    ...DefaultArgs,
+    ...data.background.content,
+} as HeaderBlockPropsNoTitle;
+
+ThemeDark.args = {
+    ...DefaultArgs,
+    ...data.themeDark.content,
+} as HeaderBlockProps;
+
+Breadcrumbs.args = {
+    ...DefaultArgs,
+    ...data.breadcrumbs.content,
+} as HeaderBlockProps;
+
+DevicesBackground.args = {
+    ...DefaultArgs,
+    ...data.deviceBackground.content,
+} as HeaderBlockProps;
