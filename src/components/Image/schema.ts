@@ -1,17 +1,21 @@
 import {filteredItem} from '../../schema/validators/utils';
-import {urlPattern} from '../../schema/validators/common';
+
+export const urlPattern =
+    '^((http[s]?|ftp):\\/)?\\/?([^:\\/\\s]+)((\\/\\w+)*\\/)([\\w\\-\\.]+[^#?\\s]+)(.*)?(#[\\w\\-]+)?$';
 
 export const ImageDeviceProps = {
     type: 'object',
     additionalProperties: false,
     required: ['desktop', 'mobile'],
     properties: {
-        desktop: {type: 'string'},
+        desktop: {type: 'string', pattern: urlPattern},
         tablet: {
             type: 'string',
+            pattern: urlPattern,
         },
         mobile: {
             type: 'string',
+            pattern: urlPattern,
         },
         alt: {
             type: 'string',
