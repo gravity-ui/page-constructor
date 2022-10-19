@@ -40,8 +40,10 @@ $darkSecondary: var(--yc-color-text-dark-secondary);
     }
 
     &__button {
-        margin-top: 0;
-        margin-right: $indentXXS;
+        @include add-specificity(&) {
+            margin-top: 0;
+            margin-right: $indentXXS;
+        }
     }
 
     &__links {
