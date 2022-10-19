@@ -89,8 +89,10 @@ $backgroundWidth: 1440px;
     }
 
     &__button {
-        margin-top: $indentXS;
-        margin-right: $indentXS;
+        @include add-specificity(&) {
+            margin-top: $indentXS;
+            margin-right: $indentXS;
+        }
     }
 
     &__media {
