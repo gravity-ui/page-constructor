@@ -38,11 +38,11 @@ const BackgroundMedia = ({
                 videoClassName={b('video')}
                 isBackground={true}
                 {...{
+                    ...props,
                     height: 720,
                     color,
                     parallax,
                     video: isMobile ? undefined : video,
-                    ...props,
                 }}
             />
         </AnimateBlock>

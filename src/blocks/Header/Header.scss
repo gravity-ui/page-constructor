@@ -137,6 +137,19 @@ $backgroundWidth: 1440px;
         z-index: 11;
     }
 
+    &__background-media {
+        height: 100%;
+
+        > div {
+            height: 100%;
+            width: 100%;
+        }
+
+        > div:not(#{$block}__video) {
+            position: absolute;
+        }
+    }
+
     &__background,
     &__background#{$block}__background_media {
         position: absolute;
@@ -155,10 +168,6 @@ $backgroundWidth: 1440px;
 
             & > div {
                 max-width: none;
-            }
-
-            #{$block}__background-media {
-                height: 100%;
             }
 
             video {

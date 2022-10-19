@@ -67,26 +67,77 @@
     }
   },
   "media": {
-    "defaultTitle": "Block with image or video (media)",
-    "decreasedIndentTitle": "Block with decreased bottom margin",
-    "fullWidthTitle": "Block with image or video (media) with full width backogound",
     "content": {
-      "background": {
-        "image": {
-          "desktop": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
-          "mobile": "https://storage.yandexcloud.net/cloud-www-assets/scale/2022/main/scale_header_mob.png"
-        },
-        "video": {
-          "src": [
-            "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-visual/main_video.webm",
-            "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-visual/main_video.ogv",
-            "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-visual/main_video.mp4",
-            "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-visual/mobile.png"
-          ]
-        },
-        "color": "#f5f5f5"
+      "image": {
+        "title": "Block with image",
+        "background": {
+          "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png"
+        }
       },
-      "verticalOffset": "s"
+      "video": {
+        "title": "Block with video",
+        "background": {
+          "image": {
+            "desktop": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
+            "mobile": "https://storage.yandexcloud.net/cloud-www-assets/scale/2022/main/scale_header_mob.png"
+          },
+          "video": {
+            "src": [
+              "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-visual/main_video.webm",
+              "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-visual/main_video.ogv",
+              "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-visual/main_video.mp4",
+              "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-visual/mobile.png"
+            ]
+          },
+          "color": "#f5f5f5"
+        }
+      },
+      "fullWidthBackground": {
+        "title": "Block  with full width background",
+        "background": {
+          "image": {
+            "desktop": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
+            "mobile": "https://storage.yandexcloud.net/cloud-www-assets/scale/2022/main/scale_header_mob.png"
+          },
+          "video": {
+            "src": [
+              "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-visual/main_video.webm",
+              "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-visual/main_video.ogv",
+              "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-visual/main_video.mp4",
+              "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-visual/mobile.png"
+            ]
+          },
+          "color": "#f5f5f5",
+          "fullWidth": true
+        }
+      },
+      "fullWidthMedia": {
+        "title": "Block  with full width media",
+        "background": {
+          "image": {
+            "desktop": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
+            "mobile": "https://storage.yandexcloud.net/cloud-www-assets/scale/2022/main/scale_header_mob.png"
+          },
+          "video": {
+            "src": [
+              "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-visual/main_video.webm",
+              "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-visual/main_video.ogv",
+              "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-visual/main_video.mp4",
+              "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-visual/mobile.png"
+            ]
+          },
+          "fullWidthMedia": true
+        }
+      },
+      "deviceSupport": {
+        "title": "Block  with devices support image",
+        "background": {
+          "image": {
+            "desktop": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
+            "mobile": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-black.png"
+          }
+        }
+      }
     }
   },
   "image": {
@@ -102,33 +153,7 @@
       }
     }
   },
-  "background": {
-    "defaultTitle": "Background image (colored background on mobiles)",
-    "fullWidthTitle": "Background image + full width colored background",
-    "content": {
-      "background": {
-        "light": {
-          "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
-          "color": "#E3EBFF"
-        },
-        "dark": {
-          "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-black.png",
-          "color": "#000"
-        }
-      }
-    }
-  },
   "size": {
     "title": "Header size {{size}}"
-  },
-  "deviceBackground": {
-    "content": {
-      "background": {
-        "image": {
-          "desktop": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
-          "mobile": "https://storage.yandexcloud.net/cloud-www-assets/scale/2022/main/scale_header_mob.png"
-        }
-      }
-    }
   }
 }

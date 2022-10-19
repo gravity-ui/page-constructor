@@ -68,39 +68,30 @@ const VerticalOffsetTemplate: Story<HeaderBlockModel> = (args) => (
 
 const MediaTemplate: Story<HeaderBlockModel> = (args) => (
     <Fragment>
-        <DefaultTemplate {...args} title={data.media.defaultTitle} />
-        <DefaultTemplate {...args} title={data.media.decreasedIndentTitle} offset={'large'} />
         <DefaultTemplate
             {...args}
-            title={data.media.fullWidthTitle}
-            background={{...args.background, fullWidth: true}}
+            title={data.media.content.image.title}
+            background={data.media.content.image.background}
         />
-    </Fragment>
-);
-
-const BackgroundTemplate: Story<HeaderBlockModel> = (args) => (
-    <Fragment>
-        <DefaultTemplate {...args} title={data.background.defaultTitle} />
         <DefaultTemplate
             {...args}
-            title={data.background.fullWidthTitle}
-            background={{
-                ...args.background,
-                light:
-                    args.background && 'light' in args.background
-                        ? {
-                              ...args.background?.light,
-                              fullWidth: true,
-                          }
-                        : {},
-                dark:
-                    args.background && 'dark' in args.background
-                        ? {
-                              ...args.background?.dark,
-                              fullWidth: true,
-                          }
-                        : {},
-            }}
+            title={data.media.content.video.title}
+            background={data.media.content.video.background}
+        />
+        <DefaultTemplate
+            {...args}
+            title={data.media.content.fullWidthBackground.title}
+            background={data.media.content.fullWidthBackground.background}
+        />
+        <DefaultTemplate
+            {...args}
+            title={data.media.content.fullWidthMedia.title}
+            background={data.media.content.fullWidthMedia.background}
+        />
+        <DefaultTemplate
+            {...args}
+            title={data.media.content.deviceSupport.title}
+            background={data.media.content.deviceSupport.background}
         />
     </Fragment>
 );
@@ -128,10 +119,8 @@ export const Size = SizeTemplate.bind({});
 export const Image = ImageTemplate.bind({});
 export const VerticalOffset = VerticalOffsetTemplate.bind({});
 export const Media = MediaTemplate.bind({});
-export const Background = BackgroundTemplate.bind({});
 export const ThemeDark = DefaultTemplate.bind({});
 export const Breadcrumbs = BreadCrumbsTemplate.bind({});
-export const DevicesBackground = DefaultTemplate.bind({});
 
 Default.args = {...DefaultArgs} as HeaderBlockProps;
 
@@ -149,12 +138,6 @@ VerticalOffset.args = {
 
 Media.args = {
     ...DefaultArgs,
-    ...data.media.content,
-} as HeaderBlockPropsNoTitle;
-
-Background.args = {
-    ...DefaultArgs,
-    ...data.background.content,
 } as HeaderBlockPropsNoTitle;
 
 ThemeDark.args = {
@@ -165,9 +148,4 @@ ThemeDark.args = {
 Breadcrumbs.args = {
     ...DefaultArgs,
     ...data.breadcrumbs.content,
-} as HeaderBlockProps;
-
-DevicesBackground.args = {
-    ...DefaultArgs,
-    ...data.deviceBackground.content,
 } as HeaderBlockProps;
