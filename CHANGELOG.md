@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.2.4](https://github.com/gravity-ui/page-constructor/compare/v1.2.3...v1.2.4) (2022-10-19)
+
+### Bug Fixes
+
+* buttons specificities fixes ([96a4cf6](https://github.com/gravity-ui/page-constructor/commit/96a4cf6aee58d19b42e9e649ee3969c86d94be2a))
+
 ## [1.2.3](https://github.com/gravity-ui/page-constructor/compare/v1.2.2...v1.2.3) (2022-10-14)
 
 
