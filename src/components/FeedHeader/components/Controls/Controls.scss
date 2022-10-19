@@ -42,7 +42,7 @@ $popupMargins: 4px;
         width: 100%;
         max-width: 100%;
 
-        .yc-text-input__control {
+        .yc-text-input_view_normal .yc-text-input__control {
             border-color: var(--yc-color-base-background);
         }
     }
