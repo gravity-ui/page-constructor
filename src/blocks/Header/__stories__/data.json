@@ -21,16 +21,14 @@
   },
   "breadcrumbs": {
     "title": "Breadcumbs with {{theme}} theme",
-    "darkTheme": {
-      "background": {
-        "color": "#262626"
-      },
-      "theme": "dark"
-    },
     "content": {
       "background": {
-        "url": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
-        "color": "#E3EBFF"
+        "light": {
+          "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png"
+        },
+        "dark": {
+          "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-black.png"
+        }
       },
       "breadcrumbs": {
         "items": [
@@ -74,7 +72,10 @@
     "fullWidthTitle": "Block with image or video (media) with full width backogound",
     "content": {
       "background": {
-        "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-visual/main.png",
+        "image": {
+          "desktop": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
+          "mobile": "https://storage.yandexcloud.net/cloud-www-assets/scale/2022/main/scale_header_mob.png"
+        },
         "video": {
           "src": [
             "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-visual/main_video.webm",
@@ -85,7 +86,7 @@
         },
         "color": "#f5f5f5"
       },
-      "verticalOffset": "xl"
+      "verticalOffset": "s"
     }
   },
   "image": {
@@ -107,11 +108,11 @@
     "content": {
       "background": {
         "light": {
-          "url": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
+          "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
           "color": "#E3EBFF"
         },
         "dark": {
-          "url": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-black.png",
+          "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-black.png",
           "color": "#000"
         }
       }
@@ -123,7 +124,7 @@
   "deviceBackground": {
     "content": {
       "background": {
-        "url": {
+        "image": {
           "desktop": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
           "mobile": "https://storage.yandexcloud.net/cloud-www-assets/scale/2022/main/scale_header_mob.png"
         }

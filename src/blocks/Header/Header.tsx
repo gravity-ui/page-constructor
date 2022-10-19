@@ -8,8 +8,7 @@ import {
     WithChildren,
     ImageProps,
 } from '../../models';
-import {headerHasMediaBackground} from '../../models/guards';
-import {Button, Media, BackgroundMedia, BackgroundImage, RouterLink, HTML} from '../../components';
+import {Button, Media, BackgroundMedia, RouterLink, HTML} from '../../components';
 import {Grid, Row, Col} from '../../grid';
 import {getImageSize, getTitleSizes, titleWithImageSizes} from './utils';
 
@@ -29,25 +28,17 @@ interface BackgroundProps {
 }
 
 const Background = ({background}: BackgroundProps) => {
-    const {url, color, disableCompress, fullWidth, fullWidthMedia} = background;
-    const imageObject = url && getMediaImage(url as ImageProps);
+    const {url, image, fullWidthMedia} = background;
+    const imageObject = url ? (getMediaImage(url) as ImageProps) : image;
 
-    if (imageObject && disableCompress) {
-        imageObject.disableCompress = disableCompress;
-    }
-
-    return headerHasMediaBackground(background) ? (
+    return (
         <BackgroundMedia
             {...background}
+            image={imageObject}
+            animated={false}
+            parallax={false}
             mediaClassName={b('background-media')}
             className={b('background', {media: true, 'full-width-media': fullWidthMedia})}
-        />
-    ) : (
-        <BackgroundImage
-            {...imageObject}
-            className={b('background', {'full-width-media': fullWidthMedia})}
-            imageClassName={b('background-img')}
-            style={{backgroundColor: fullWidth ? 'none' : color}}
         />
     );
 };
@@ -96,19 +87,10 @@ export const HeaderBlock = (props: WithChildren<HeaderBlockFullProps>) => {
     const imageThemed = image && getThemedValue(image, theme);
     const videoThemed = video && getThemedValue(video, theme);
 
-    const fullWidth = Boolean(backgroundThemed?.fullWidth);
+    const fullWidth = backgroundThemed?.fullWidth;
 
     return (
-        <header
-            className={b(
-                {
-                    ['has-media']: hasMedia,
-                    ['has-background']: Boolean(background),
-                    ['full-width']: fullWidth,
-                },
-                className,
-            )}
-        >
+        <header className={b({['has-media']: hasMedia, ['full-width']: fullWidth}, className)}>
             {backgroundThemed && fullWidth && <FullWidthBackground background={backgroundThemed} />}
             {backgroundThemed && <Background background={backgroundThemed} />}
             <Grid containerClass={b('container-fluid')}>

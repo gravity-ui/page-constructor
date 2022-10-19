@@ -8,16 +8,6 @@ import {
 import {filteredArray} from '../../schema/validators/utils';
 import {ImageProps} from '../../components/Image/schema';
 
-const HeaderMedia = {
-    type: 'object',
-    additionalProperties: false,
-    required: [],
-    properties: {
-        ...MediaProps,
-        fullWidth: {type: 'boolean'},
-    },
-};
-
 export const HeaderProperties = {
     title: {
         type: 'string',
@@ -60,20 +50,9 @@ export const HeaderProperties = {
         enum: ['s', 'm', 'l', 'xl'],
     },
     background: withTheme({
-        oneOf: [
-            HeaderMedia,
-            {
-                type: 'object',
-                additionalProperties: false,
-                properties: {
-                    color: {type: 'string'},
-                    url: {type: 'string'},
-                    disableCompress: {type: 'boolean'},
-                    fullWidth: {type: 'boolean'},
-                    fullWidthMedia: {type: 'boolean'},
-                },
-            },
-        ],
+        ...MediaProps,
+        fullWidth: {type: 'boolean'},
+        fullWidthMedia: {type: 'boolean'},
     }),
     theme: {
         type: 'string',

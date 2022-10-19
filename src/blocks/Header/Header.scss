@@ -9,6 +9,8 @@ $backgroundWidth: 1440px;
     margin: $indentXS 0;
 
     &_full-width {
+        --pc-border-radius: 0;
+
         padding: $indentXS 0;
         margin: 0 0 $indentXS;
     }
@@ -50,7 +52,7 @@ $backgroundWidth: 1440px;
             }
         }
 
-        // deprecated, use only on the main page
+        // deprecated
         // TODO: delete after the possibility to remove padding-bottom in the block
         &_offset_large {
             padding: calc(#{$indentXXXL} - #{$indentXS}) 0 $indentXS;
@@ -167,12 +169,7 @@ $backgroundWidth: 1440px;
         }
     }
 
-    &__background_full-width-media {
-        --pc-border-radius: 0;
-    }
-
     &__background_full-width {
-        --pc-border-radius: 0;
         left: 0;
         transform: none;
         max-width: none;
@@ -232,8 +229,5 @@ $backgroundWidth: 1440px;
                 padding-right: $indentL;
             }
         }
-    }
-
-    @media (max-width: map-get($gridBreakpoints, 'sm')) {
     }
 }

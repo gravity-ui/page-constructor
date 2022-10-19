@@ -123,9 +123,9 @@ export interface HeaderSliderBlockProps extends Omit<SliderProps, 'title' | 'des
 }
 
 interface HeaderBackgroundProps {
-    color?: string;
+    /** @deprecated replaced by Media Props image */
     url?: ImageProps;
-    /** @deprecated put it in url props instead */
+    /** @deprecated replaced by Media Props image */
     disableCompress?: boolean;
 }
 
