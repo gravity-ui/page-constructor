@@ -28,7 +28,6 @@ import {
     Animatable,
     BlockHeaderProps,
     ImageDeviceProps,
-    ImageProps,
 } from './common';
 import {ThemeSupporting} from '../../utils';
 import {GridColumnSize, GridColumnSizesType} from '../../grid/types';
@@ -124,7 +123,7 @@ export interface HeaderSliderBlockProps extends Omit<SliderProps, 'title' | 'des
 
 interface HeaderBackgroundProps {
     /** @deprecated replaced by Media Props image */
-    url?: ImageProps;
+    url?: string;
     /** @deprecated replaced by Media Props image */
     disableCompress?: boolean;
 }

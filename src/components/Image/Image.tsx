@@ -26,7 +26,7 @@ const Image = (props: ImageOwnProps) => {
         disableCompress ||
         imageSrc.endsWith('.svg') ||
         imgLoadingError;
-    const webp = imageSrc.endsWith('.webp') ? src : src + '.webp';
+    const webp = imageSrc.endsWith('.webp') ? imageSrc : imageSrc + '.webp';
 
     return (
         <picture>
