@@ -32,6 +32,7 @@ type PostCardProps = {
     handlePageChange: (value: number) => Promise<void> | void;
     postsOnPage?: BlogPostData[];
     pinnedPostOnPage?: BlogPostData;
+    pageCountForShowSupportButtons?: number;
 };
 
 export const Posts: React.FC<PostCardProps> = ({
@@ -47,6 +48,7 @@ export const Posts: React.FC<PostCardProps> = ({
     isShowMoreFetching,
     handleShowMore,
     handlePageChange,
+    pageCountForShowSupportButtons,
 }) => (
     <div className={b()}>
         <div id={containerId} className={b('cards-container')}>
@@ -100,6 +102,7 @@ export const Posts: React.FC<PostCardProps> = ({
                         itemsPerPage={perPageInQuery}
                         loading={isFetching}
                         maxPages={Infinity}
+                        pageCountForShowSupportButtons={pageCountForShowSupportButtons}
                     />
                 </div>
             )}

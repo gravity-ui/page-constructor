@@ -9,6 +9,7 @@ $block: '.#{$ns}posts';
     &__cards-container,
     &__pinned-container {
         padding-top: $indentSM;
+        scroll-margin: $indentL;
     }
 
     &__pagination {

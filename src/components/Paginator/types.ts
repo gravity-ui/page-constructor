@@ -19,6 +19,7 @@ export type PaginatorProps = {
     maxPages: number;
     loading: boolean;
     onPageChange: (page: number) => void;
+    pageCountForShowSupportButtons?: number;
 } & ClassNameProps;
 
 export enum ArrowType {
