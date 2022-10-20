@@ -19,7 +19,7 @@ export type LinkFullProps = LinkProps & ClassNameProps;
 function getArrowSize(size: TextSize) {
     switch (size) {
         case 'l':
-            return 14;
+            return 20;
         case 'm':
             return 12;
         case 's':

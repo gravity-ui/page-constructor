@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.5](https://github.com/gravity-ui/page-constructor/compare/v1.2.4...v1.2.5) (2022-10-19)
+
+### Bug Fixes
+
+* content block link arrow l size changed to 20 ([8b05033](https://github.com/gravity-ui/page-constructor/commit/8b050332273453aedc2937303d9dec76b878482c))
+
+
 ## [1.2.4](https://github.com/gravity-ui/page-constructor/compare/v1.2.3...v1.2.4) (2022-10-19)
 
 ### Bug Fixes
