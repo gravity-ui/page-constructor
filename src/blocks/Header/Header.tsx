@@ -32,20 +32,25 @@ interface BackgroundProps {
 const Background = ({background, isMobile}: BackgroundProps) => {
     const {url, image, fullWidthMedia, video, color} = background;
     const imageObject = url ? (getMediaImage(url) as ImageProps) : image;
+    const renderMedia = !isMobile || (typeof image === 'object' && 'mobile' in image);
 
     return (
-        <div className={b('background', {media: true, 'full-width-media': fullWidthMedia})}>
-            <Media
-                {...background}
-                className={b('background-media')}
-                imageClassName={b('image')}
-                videoClassName={b('video')}
-                isBackground={true}
-                color={color}
-                parallax={false}
-                video={isMobile ? undefined : video}
-                image={imageObject}
-            />
+        <div
+            className={b('background', {media: true, 'full-width-media': fullWidthMedia})}
+            style={{backgroundColor: color}}
+        >
+            {renderMedia && (
+                <Media
+                    {...background}
+                    className={b('background-media')}
+                    imageClassName={b('image')}
+                    videoClassName={b('video')}
+                    isBackground={true}
+                    parallax={false}
+                    video={isMobile ? undefined : video}
+                    image={imageObject}
+                />
+            )}
         </div>
     );
 };
@@ -94,7 +99,7 @@ export const HeaderBlock = (props: WithChildren<HeaderBlockFullProps>) => {
     const backgroundThemed = background && getThemedValue(background, theme);
     const imageThemed = image && getThemedValue(image, theme);
     const videoThemed = video && getThemedValue(video, theme);
-    const fullWidth = backgroundThemed?.fullWidth;
+    const fullWidth = backgroundThemed?.fullWidth || backgroundThemed?.fullWidthMedia;
 
     return (
         <header
