@@ -60,7 +60,7 @@ export const HeaderProperties = {
         type: 'string',
         enum: ['s', 'm', 'l', 'xl'],
     },
-    background: withTheme({HeaderBackgroundProps}),
+    background: withTheme(HeaderBackgroundProps),
     theme: {
         type: 'string',
         enum: ['default', 'dark'],
