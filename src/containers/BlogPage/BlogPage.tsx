@@ -16,7 +16,7 @@ import {MetaWrapper} from '../../components/MetaWrapper/MetaWrapper';
 import componentMap from '../../constructor/blocksMap';
 
 import {
-    BlogPostTagExtended,
+    BlogPostTag,
     BlogPagePostsData,
     ToggleLikeCallbackType,
     BlogPageMetaProps,
@@ -29,7 +29,7 @@ import './BlogPage.scss';
 export type BlogPageProps = {
     content: PageContent;
     posts: BlogPagePostsData;
-    tags: BlogPostTagExtended[];
+    tags: BlogPostTag[];
     services?: ServicePublic[];
     getBlogPosts: GetBlogPostsType;
     toggleLike?: ToggleLikeCallbackType;

@@ -1,5 +1,9 @@
 # Change log
 
+## 0.10.1
+
+- BlogPostTag types became Partial, BlogPostTagExtended is deleted
+
 ## 0.10.0
 
 - add props for show support buttons in paginator
