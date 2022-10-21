@@ -27,22 +27,16 @@ export interface GetBlogPostsRequest {
     search?: string;
 }
 
-type BlogPostTag = {
-    id: number;
+export type BlogPostTag = {
     slug: string;
-    createdAt: string;
-    updatedAt: string;
-    icon: string;
-    isDeleted: boolean;
     name: string;
-    locale: string;
-    blogTagId: number;
-    count: number;
-};
-
-export type BlogPostTagExtended = BlogPostTag & {
-    name: string;
-    slug: string;
+    createdAt?: string;
+    updatedAt?: string;
+    icon?: string;
+    isDeleted?: boolean;
+    locale?: string;
+    blogTagId?: number;
+    count?: number;
 };
 
 export interface BlogPostData {
@@ -68,7 +62,7 @@ export interface BlogPostData {
     shareTitle?: string;
     slug: string;
     keywords?: string[];
-    tags: BlogPostTagExtended[];
+    tags: BlogPostTag[];
     textTitle: string;
     title: string;
     url: string;
@@ -113,7 +107,7 @@ export interface BlogPostMetaProps {
     keywords?: string[];
     noIndex?: boolean;
     authors?: SpeakerPublic[];
-    tags?: BlogPostTagExtended[];
+    tags?: BlogPostTag[];
     organization: MetaOrganizationType;
 }
 

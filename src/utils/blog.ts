@@ -10,7 +10,7 @@ import {
 
 import {i18, BlogKeyset} from '../i18n';
 
-import {BlogPostTagExtended, GetBlogPostProps} from '../models/blog';
+import {BlogPostTag, GetBlogPostProps} from '../models/blog';
 import {Query} from '../models/common';
 import {
     CONTENT_DEFAULT_COL_SIZES,
@@ -24,7 +24,7 @@ import {scrollToHash, getPageSearchParams} from './common';
 
 type CloudListTagStub = {};
 
-export const getTags = _.memoize((tags: BlogPostTagExtended[]) => {
+export const getTags = _.memoize((tags: BlogPostTag[]) => {
     return tags.map(({slug, ...tag}) => {
         const queryParams = new URLSearchParams();
         queryParams.set('tags', slug);
@@ -54,7 +54,7 @@ export const checkContentDefaults = (contentData: ContentBlockProps) => {
 };
 
 type GetBlogBreadcrumbsProps = {
-    tags?: BlogPostTagExtended[];
+    tags?: BlogPostTag[];
 };
 
 export const getBlogBreadcrumbs = ({tags}: GetBlogBreadcrumbsProps) => {
