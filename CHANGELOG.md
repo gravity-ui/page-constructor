@@ -1,5 +1,9 @@
 # Change log
 
+## 0.9.2
+
+- added yfm headers weight style
+
 ## 0.9.1
 
 - added specificity for search input styles
