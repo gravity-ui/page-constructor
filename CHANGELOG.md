@@ -4,6 +4,10 @@
 
 - add props for show support buttons in paginator
 
+## 0.9.2
+
+- added yfm headers weight style
+
 ## 0.9.1
 
 - add specificity for search input styles
