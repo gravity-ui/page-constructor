@@ -36,6 +36,7 @@ export type BlogPageProps = {
     metaData?: BlogPageMetaProps;
     setQuery?: SetQueryType;
     settings?: PageConstructorProviderProps;
+    pageCountForShowSupportButtons?: number;
 };
 
 export const BlogPage = ({
@@ -47,6 +48,7 @@ export const BlogPage = ({
     metaData,
     toggleLike,
     settings,
+    pageCountForShowSupportButtons,
 }: BlogPageProps) => (
     <main>
         <LikesContext.Provider
@@ -63,6 +65,7 @@ export const BlogPage = ({
                     tags,
                     services: services ?? [],
                     getBlogPosts,
+                    pageCountForShowSupportButtons,
                 }}
             >
                 <PageConstructorProvider {...settings}>

@@ -11,6 +11,7 @@ export interface BlogFeedPageContextProps {
     services?: ServicePublic[];
     getBlogPosts?: GetBlogPostsType;
     setQuery?: SetQueryType;
+    pageCountForShowSupportButtons?: number;
 }
 
 export const BlogFeedContext = React.createContext<BlogFeedPageContextProps>(

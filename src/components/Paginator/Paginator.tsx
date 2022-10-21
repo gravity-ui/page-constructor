@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useMemo} from 'react';
 
 import {BlogMetrikaGoalIds} from '../../constants';
 
@@ -17,6 +17,8 @@ import './Paginator.scss';
 
 const b = block('paginator');
 
+const DEFAULT_PAGE_COUNT_FOR_SHOW_SUPPORT_BUTTONS = 6;
+
 export const Paginator = ({
     itemsPerPage,
     totalItems,
@@ -25,6 +27,7 @@ export const Paginator = ({
     className,
     loading,
     onPageChange,
+    pageCountForShowSupportButtons = DEFAULT_PAGE_COUNT_FOR_SHOW_SUPPORT_BUTTONS,
 }: PaginatorProps) => {
     const [pagesCount, setPagesCount] = useState(
         getPagesCount({itemsPerPage, totalItems, maxPages}),
@@ -36,6 +39,11 @@ export const Paginator = ({
     }, [itemsPerPage, totalItems, maxPages]);
 
     const handlePageChange = (pageIndex: number) => onPageChange?.(pageIndex);
+
+    const isShowSupportButtons = useMemo(
+        () => pagesCount > pageCountForShowSupportButtons,
+        [pageCountForShowSupportButtons, pagesCount],
+    );
 
     if (pagesCount <= 1) {
         return null;
@@ -66,7 +74,7 @@ export const Paginator = ({
 
     const paginatorItems = getPageConfigs({page, pagesCount, handlePageClick});
 
-    if (page > 1) {
+    if (page > 1 && isShowSupportButtons) {
         paginatorItems.unshift({
             key: ArrowType.Prev,
             dataKey: ArrowType.Prev,
@@ -76,7 +84,7 @@ export const Paginator = ({
         });
     }
 
-    if (page < pagesCount) {
+    if (page < pagesCount && isShowSupportButtons) {
         paginatorItems.push({
             key: ArrowType.Next,
             dataKey: ArrowType.Next,

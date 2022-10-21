@@ -1,16 +1,20 @@
 # Change log
 
+## 0.10.0
+
+- add props for show support buttons in paginator
+
 ## 0.9.2
 
 - added yfm headers weight style
 
 ## 0.9.1
 
-- added specificity for search input styles
+- add specificity for search input styles
 
 ## 0.9.0
 
-- added customization for sharing options in blog posts
+- add customization for sharing options in blog posts
 
 ## 0.8.0
 
