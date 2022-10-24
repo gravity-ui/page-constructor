@@ -1,4 +1,4 @@
-import React, {CSSProperties, MouseEventHandler, useContext, useState} from 'react';
+import React, {CSSProperties, MouseEventHandler, useContext, useState, Fragment} from 'react';
 import {ProjectSettingsContext} from '../../context/projectSettingsContext';
 import {BREAKPOINTS} from '../../constants';
 import {ImageDeviceProps, ImageObjectProps} from '../../models';
@@ -8,6 +8,10 @@ export interface ImageOwnProps extends Partial<ImageObjectProps>, Partial<ImageD
     className?: string;
     onClick?: MouseEventHandler;
 }
+
+const checkWebP = (src: string) => {
+    return src.endsWith('.webp') ? src : src + '.webp';
+};
 
 const Image = (props: ImageOwnProps) => {
     const projectSettings = useContext(ProjectSettingsContext);
@@ -26,13 +30,34 @@ const Image = (props: ImageOwnProps) => {
         disableCompress ||
         imageSrc.endsWith('.svg') ||
         imgLoadingError;
-    const webp = imageSrc.endsWith('.webp') ? imageSrc : imageSrc + '.webp';
 
     return (
         <picture>
-            {disableWebp ? null : <source srcSet={webp} type="image/webp" />}
-            {mobile && <source srcSet={mobile} media={`(max-width: ${BREAKPOINTS.sm}px)`} />}
-            {tablet && <source srcSet={tablet} media={`(max-width: ${BREAKPOINTS.md}px)`} />}
+            {mobile && (
+                <Fragment>
+                    {!disableWebp && (
+                        <source
+                            srcSet={checkWebP(mobile)}
+                            type="image/webp"
+                            media={`(max-width: ${BREAKPOINTS.sm}px)`}
+                        />
+                    )}
+                    <source srcSet={mobile} media={`(max-width: ${BREAKPOINTS.sm}px)`} />
+                </Fragment>
+            )}
+            {tablet && (
+                <Fragment>
+                    {!disableWebp && (
+                        <source
+                            srcSet={checkWebP(tablet)}
+                            type="image/webp"
+                            media={`(max-width: ${BREAKPOINTS.md}px)`}
+                        />
+                    )}
+                    <source srcSet={tablet} media={`(max-width: ${BREAKPOINTS.md}px)`} />
+                </Fragment>
+            )}
+            {desktop && !disableWebp && <source srcSet={checkWebP(imageSrc)} type="image/webp" />}
             <img
                 className={className}
                 src={imageSrc}
