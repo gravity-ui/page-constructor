@@ -2,7 +2,9 @@
 @import '../../../styles/mixins.scss';
 @import '../../../styles/yfm.scss';
 
-.BlogBannerBlock {
+$block: '.#{$ns}banner-block';
+
+#{$block} {
     $root: &;
 
     margin-top: $indentXS;

@@ -6,7 +6,6 @@ $block: '.#{$ns}blog-post-card';
 #{$block} {
     $root: &;
 
-    $indentXXXXS: 4px;
     $linesToShow: 5;
 
     &__card {

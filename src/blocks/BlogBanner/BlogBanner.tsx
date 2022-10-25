@@ -1,5 +1,4 @@
 import React from 'react';
-import block from 'bem-cn-lite';
 import {Content, ContentBlockProps, Image, NewMetrikaGoal} from '@gravity-ui/page-constructor';
 
 import {BlogWrapper, PaddingSize} from '../../components/BlogWrapper/BlogWrapper';
@@ -8,9 +7,11 @@ import {getBlogElementMetrika, checkContentDefaults} from '../../utils/blog';
 
 import {BlogMetrikaGoalIds} from '../../constants';
 
+import {block} from '../../utils/cn';
+
 import './BlogBanner.scss';
 
-const b = block('BlogBannerBlock');
+const b = block('banner-block');
 
 export type BannerBlockProps = ContentBlockProps & {
     background?: string;

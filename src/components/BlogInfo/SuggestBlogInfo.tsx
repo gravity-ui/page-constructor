@@ -1,5 +1,4 @@
 import React from 'react';
-import block from 'bem-cn-lite';
 
 // TODO fixes and refactor in https://st.yandex-team.ru/ORION-1444
 
@@ -10,6 +9,8 @@ import {useLikes} from '../../hooks/useLikes';
 import {BlogDate} from './components/BlogDate';
 import {BlogReadingTime} from './components/BlogReadingTime';
 import {BlogSave} from './components/BlogSave';
+
+import {block} from '../../utils/cn';
 
 import './BlogInfo.scss';
 

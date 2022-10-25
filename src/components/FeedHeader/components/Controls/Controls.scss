@@ -3,8 +3,6 @@
 
 $block: '.#{$ns}blog-feed-controls';
 
-$popupMargins: 4px;
-
 #{$block} {
     $root: &;
 
@@ -79,15 +77,15 @@ $popupMargins: 4px;
             }
 
             .yc-select-item-wrap {
-                margin: 0 $popupMargins;
+                margin: 0 $indentXXXXS;
             }
 
             .yc-select-item-wrap:first-child {
-                margin-top: $popupMargins;
+                margin-top: $indentXXXXS;
             }
 
             .yc-select-item-wrap:last-child {
-                margin-bottom: $popupMargins;
+                margin-bottom: $indentXXXXS;
             }
 
             .yc-select-item-wrap:hover {

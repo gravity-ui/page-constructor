@@ -1,17 +1,19 @@
 @import '../../../styles/variables.scss';
 @import '../../../styles/mixins.scss';
 
-.BlogAuthorBlock {
+$block: '.#{$ns}author';
+
+#{$block} {
     $root: &;
 
-    &__author-layout {
+    &__layout {
         display: flex;
         align-items: flex-start;
         flex-direction: row;
         overflow: hidden;
     }
 
-    &__author-avatar {
+    &__avatar {
         display: flex;
         width: 80px;
         height: 80px;
@@ -23,23 +25,23 @@
     }
 
     @media (max-width: map-get($gridBreakpoints, 'lg')) {
-        &__author-layout {
+        &__layout {
             width: 50%;
         }
     }
 
     @media (max-width: map-get($gridBreakpoints, 'sm')) {
-        &__author-layout {
+        &__layout {
             width: 100%;
         }
     }
 
-    &__author-name {
+    &__name {
         @include text-size(header-1);
     }
 
-    &__author-description {
-        padding-top: 4px;
+    &__description {
+        padding-top: $indentXXXXS;
         color: var(--yc-color-text-primary);
         @include text-size(body-2);
     }
@@ -52,7 +54,7 @@
         position: relative;
     }
 
-    &__author-container {
+    &__container {
         background-color: var(--yc-color-promo-base-silver);
     }
 }

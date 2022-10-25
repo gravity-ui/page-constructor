@@ -1,9 +1,11 @@
 @import '../../../styles/variables.scss';
 
-.BlogCTABlock {
+$block: '.#{$ns}cta';
+
+#{$block} {
     $root: &;
 
-    &__cta-card {
+    &__card {
         display: flex;
         background-color: var(--yc-color-base-float);
         border-radius: var(--bc-border-radius);
@@ -15,7 +17,7 @@
         padding: $indentM;
     }
 
-    &__cta-button {
+    &__button {
         display: flex;
         padding-bottom: $indentXS;
     }
@@ -31,7 +33,7 @@
             flex-direction: row;
         }
 
-        &__cta-button {
+        &__button {
             padding-bottom: 0px;
 
             &_layout {

@@ -1,5 +1,4 @@
 import React from 'react';
-import block from 'bem-cn-lite';
 
 // TODO fixes and refactor in https://st.yandex-team.ru/ORION-1444
 
@@ -15,6 +14,8 @@ import {Save} from '../../../icons/Save';
 import {SaveFilled} from '../../../icons/SaveFilled';
 import {Like} from '../../../icons/Like';
 import {LikeFilled} from '../../../icons/LikeFilled';
+
+import {block} from '../../../utils/cn';
 
 import '../BlogInfo.scss';
 

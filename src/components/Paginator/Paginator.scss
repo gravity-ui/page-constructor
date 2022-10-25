@@ -22,7 +22,7 @@ $itemDimensions: 44px;
 
         min-width: $itemDimensions;
         min-height: $itemDimensions;
-        margin-left: 4px;
+        margin-left: $indentXXXXS;
 
         padding: 12px 0px;
 
@@ -67,6 +67,6 @@ $itemDimensions: 44px;
         flex-direction: row;
         justify-content: center;
         align-items: center;
-        margin-bottom: 4px;
+        margin-bottom: $indentXXXXS;
     }
 }

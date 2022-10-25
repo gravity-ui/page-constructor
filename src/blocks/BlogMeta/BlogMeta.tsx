@@ -1,5 +1,4 @@
 import React, {useContext} from 'react';
-import block from 'bem-cn-lite';
 import {HeaderBreadcrumbs, TextTheme, YFMWrapper} from '@gravity-ui/page-constructor';
 
 import {BlogPageContext} from '../../contexts/BlogPageContext';
@@ -10,9 +9,11 @@ import {getBlogBreadcrumbs} from '../../utils/blog';
 
 import {BlogMetrikaGoalIds} from '../../constants';
 
+import {block} from '../../utils/cn';
+
 import './BlogMeta.scss';
 
-const b = block('BlogMetaBlock');
+const b = block('blog-meta');
 
 type MetaBlockProps = {
     paddingTop?: PaddingSize;

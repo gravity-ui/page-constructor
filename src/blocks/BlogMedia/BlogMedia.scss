@@ -2,7 +2,9 @@
 @import '../../../styles/variables';
 @import '../../../styles/yfm.scss';
 
-.BlogMediaBlock {
+$block: '.#{$ns}blog-media';
+
+#{$block} {
     $root: &;
 
     &__text-content {
@@ -23,7 +25,7 @@
         overflow: hidden;
     }
 
-    &__media {
+    &__media-content {
         position: relative;
         top: 0;
         right: 0;

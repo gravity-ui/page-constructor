@@ -1,5 +1,4 @@
 import React from 'react';
-import block from 'bem-cn-lite';
 
 import {BackgroundImage, Content, ContentBlockProps} from '@gravity-ui/page-constructor';
 
@@ -8,7 +7,9 @@ import {checkContentDefaults} from '../../utils/blog';
 
 import './BlogColoredText.scss';
 
-const b = block('BlogColoredTextBlock');
+import {block} from '../../utils/cn';
+
+const b = block('colored-text');
 
 type Background = {
     color?: string;
@@ -32,11 +33,7 @@ export const BlogColoredTextBlock: React.FC<ColoredTextBlockProps> = ({
 
     return (
         <BlogWrapper paddingTop={paddingTop} paddingBottom={paddingBottom}>
-            <div
-                className={b('colored-text')}
-                style={{backgroundColor: background?.color || 'none'}}
-                data-qa="blog-colored-text-content"
-            >
+            <div className={b('container')} style={{backgroundColor: background?.color || 'none'}}>
                 <div className={b('picture-container')}>
                     {background?.image && (
                         <BackgroundImage

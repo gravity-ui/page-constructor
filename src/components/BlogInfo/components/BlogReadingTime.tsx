@@ -1,5 +1,4 @@
 import React from 'react';
-import block from 'bem-cn-lite';
 
 import {Icon} from '@gravity-ui/uikit';
 
@@ -8,6 +7,8 @@ import {i18, BlogKeyset} from '../../../i18n';
 import {Time} from '../../../icons/Time';
 
 import '../BlogInfo.scss';
+
+import {block} from '../../../utils/cn';
 
 const b = block('blog-info');
 

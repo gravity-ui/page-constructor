@@ -1,13 +1,14 @@
 import React from 'react';
-import block from 'bem-cn-lite';
 import {ClassNameProps} from '@yandex-data-ui/cloud-components';
 import {Media, MediaProps, YFMWrapper} from '@gravity-ui/page-constructor';
 
 import {BlogWrapper, PaddingSize} from '../../components/BlogWrapper/BlogWrapper';
 
+import {block} from '../../utils/cn';
+
 import './BlogMedia.scss';
 
-const b = block('BlogMediaBlock');
+const b = block('blog-media');
 
 type MediaBlockProps = Partial<
     Pick<MediaProps, 'youtube' | 'previewImg' | 'image' | 'video' | 'dataLens'>
@@ -32,7 +33,7 @@ export const BlogMediaBlock: React.FC<MediaBlockFullProps> = ({
     <BlogWrapper paddingTop={paddingTop} paddingBottom={paddingBottom} className={b('content')}>
         <div className={b('border')} data-qa="blog-media-content">
             <Media
-                className={b('media')}
+                className={b('media-content')}
                 videoClassName={b('video')}
                 imageClassName={b('image')}
                 video={video}

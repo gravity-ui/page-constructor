@@ -1,6 +1,8 @@
 @import '../../../styles/yfm.scss';
 
-.BlogMetaBlock {
+$block: '.#{$ns}blog-meta';
+
+#{$block} {
     $root: &;
 
     padding: 0;

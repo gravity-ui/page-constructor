@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, {useContext} from 'react';
-import block from 'bem-cn-lite';
 
 // TODO refactor in https://st.yandex-team.ru/ORION-1444
 
@@ -21,6 +20,8 @@ import {MetrikaCounter} from '../../../counters/utils';
 import metrika from '../../../counters/metrika.js';
 
 import {ShareArrowUp} from '../../../icons/ShareArrowUp';
+
+import {block} from '../../../utils/cn';
 
 import '../BlogInfo.scss';
 

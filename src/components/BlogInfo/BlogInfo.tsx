@@ -1,5 +1,4 @@
 import React, {useContext} from 'react';
-import block from 'bem-cn-lite';
 
 import {BlogPageContext} from '../../contexts/BlogPageContext';
 
@@ -9,6 +8,8 @@ import {BlogDate} from './components/BlogDate';
 import {BlogReadingTime} from './components/BlogReadingTime';
 import {BlogSharing} from './components/BlogSharing';
 import {BlogSave} from './components/BlogSave';
+
+import {block} from '../../utils/cn';
 
 import './BlogInfo.scss';
 

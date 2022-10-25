@@ -1,5 +1,4 @@
 import React from 'react';
-import block from 'bem-cn-lite';
 import {Content, ContentBlockProps, NewMetrikaGoal} from '@gravity-ui/page-constructor';
 
 import {BlogWrapper, PaddingSize} from '../../components/BlogWrapper/BlogWrapper';
@@ -7,9 +6,11 @@ import {getBlogElementMetrika, checkContentDefaults} from '../../utils/blog';
 
 import {BlogMetrikaGoalIds} from '../../constants';
 
+import {block} from '../../utils/cn';
+
 import './BlogCTA.scss';
 
-const b = block('BlogCTABlock');
+const b = block('cta');
 
 const MAX_COLUMN_COUNT = 4,
     MIN_COLUMN_COUNT = 2,
@@ -53,12 +54,12 @@ export const BlogCTABlock: React.FC<CTABlockProps> = ({items, paddingTop, paddin
                 return (
                     <div
                         key={index}
-                        className={b('cta-button', {
+                        className={b('button', {
                             ['layout']: count,
                         })}
                         data-qa="blog-cta-card"
                     >
-                        <div className={b('cta-card')}>
+                        <div className={b('card')}>
                             <Content {...contentData} />
                         </div>
                     </div>
