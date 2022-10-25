@@ -3,7 +3,7 @@ import {ProjectSettingsContext} from '../../context/projectSettingsContext';
 import {BREAKPOINTS} from '../../constants';
 import {ImageDeviceProps, ImageObjectProps} from '../../models';
 
-export interface ImageOwnProps extends Partial<ImageObjectProps>, Partial<ImageDeviceProps> {
+export interface ImageProps extends Partial<ImageObjectProps>, Partial<ImageDeviceProps> {
     style?: CSSProperties;
     className?: string;
     onClick?: MouseEventHandler;
@@ -13,7 +13,7 @@ const checkWebP = (src: string) => {
     return src.endsWith('.webp') ? src : src + '.webp';
 };
 
-const Image = (props: ImageOwnProps) => {
+const Image = (props: ImageProps) => {
     const projectSettings = useContext(ProjectSettingsContext);
     const {src, alt, disableCompress, tablet, desktop, mobile, style, className, onClick} = props;
     const [imgLoadingError, setImgLoadingError] = useState(false);

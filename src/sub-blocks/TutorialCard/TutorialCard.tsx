@@ -14,7 +14,7 @@ const b = block('tutorial-card');
 function iconElement(icon: ImageProps, title: string) {
     const image = getMediaImage(icon ?? {});
 
-    return <Image {...image} alt={title} className={b('icon')} />;
+    return <Image {...image} alt={image.alt || title} className={b('icon')} />;
 }
 
 const TutorialCard = (props: TutorialCardProps) => {

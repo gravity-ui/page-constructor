@@ -1,13 +1,7 @@
 import React, {useContext} from 'react';
 
 import {block, getThemedValue} from '../../utils';
-import {
-    ClassNameProps,
-    HeaderBlockBackground,
-    HeaderBlockProps,
-    WithChildren,
-    ImageProps,
-} from '../../models';
+import {ClassNameProps, HeaderBlockBackground, HeaderBlockProps, WithChildren} from '../../models';
 import {Button, Media, RouterLink, HTML} from '../../components';
 import {Grid, Row, Col} from '../../grid';
 import {getImageSize, getTitleSizes, titleWithImageSizes} from './utils';
@@ -31,7 +25,7 @@ interface BackgroundProps {
 
 const Background = ({background, isMobile}: BackgroundProps) => {
     const {url, image, fullWidthMedia, video, color} = background;
-    const imageObject = url ? (getMediaImage(url) as ImageProps) : image;
+    const imageObject = url ? getMediaImage(url) : image;
     const renderMedia = !isMobile || (typeof image === 'object' && 'mobile' in image);
 
     return (

@@ -2,7 +2,7 @@ import {Meta, Story} from '@storybook/react/types-6-0';
 import React from 'react';
 
 import {COMPONENTS, MEDIA} from '../../../demo/constants';
-import Image, {ImageOwnProps} from '../Image';
+import Image, {ImageProps} from '../Image';
 
 import data from './data.json';
 
@@ -11,7 +11,7 @@ export default {
     title: `${COMPONENTS}/${MEDIA}/Image`,
 } as Meta;
 
-const DefaultTemplate: Story<ImageOwnProps> = (args) => <Image {...args} />;
+const DefaultTemplate: Story<ImageProps> = (args) => <Image {...args} />;
 
 export const Default = DefaultTemplate.bind({});
 
