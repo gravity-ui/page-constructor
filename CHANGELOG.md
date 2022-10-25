@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/gravity-ui/page-constructor/pull/35) (2022-10-25)
+
+
+### Features
+
+* add devices support to component Image and block Header
+
 ## [1.2.5](https://github.com/gravity-ui/page-constructor/compare/v1.2.4...v1.2.5) (2022-10-19)
 
 ### Bug Fixes
