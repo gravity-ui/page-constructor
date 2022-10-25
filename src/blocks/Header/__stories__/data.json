@@ -85,7 +85,10 @@
         "title": "Block with video",
         "background": {
           "light": {
-            "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-visual/mobile.png",
+            "image": {
+              "desktop": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
+              "mobile": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-black.png"
+            },
             "video": {
               "src": [
                 "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-visual/main_video.webm",
@@ -153,13 +156,17 @@
           "light": {
             "image": {
               "desktop": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
-              "mobile": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-black.png"
+              "mobile": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-black.png",
+              "disableCompress": true,
+              "alt": "Lorem"
             }
           },
           "dark": {
             "image": {
               "desktop": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-black.png",
-              "mobile": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png"
+              "mobile": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
+              "disableCompress": true,
+              "alt": "Lorem"
             }
           }
         }

@@ -19,7 +19,7 @@ export const CompaniesBlock = ({title, images, animated}: CompaniesBlockProps) =
             <div className={b('content')}>
                 <h2 className={b('title')}>{title}</h2>
                 <div className={b('images')}>
-                    <Image {...themedImages} />
+                    <Image {...themedImages} className={b('image')} />
                 </div>
             </div>
         </AnimateBlock>

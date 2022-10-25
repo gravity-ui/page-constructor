@@ -85,6 +85,16 @@
 
 ---
 
+# <a name="ImageDeviceProps">`ImageDeviceProps` — Image property with device support</a>
+
+- `mobile: string`
+- `tablet?: string`
+- `desktop: string`
+- `alt?: string`
+- `disableCompress?: true | false` — If true, image compression is disabled. If false (default), it's enabled.
+
+---
+
 ###### <a name="TextSize">`TextSize = s | m | l` — Text size</a>
 
 ###### <a name="Target">`Target = _blank | _parent | _top | _self` — Where to display</a>
