@@ -41,7 +41,6 @@ export const MediaBlock = (props: MediaBlockProps) => {
     }, [largeMedia]);
 
     const mediaContent = !mediaOnly && <MediaContent {...mediaContentProps} />;
-
     return (
         <AnimateBlock className={b()} onScroll={() => setPlay(true)} animate={animated}>
             {mediaOnly && (

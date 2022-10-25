@@ -27,6 +27,7 @@ import {
     TitleBaseProps,
     Animatable,
     BlockHeaderProps,
+    ImageDeviceProps,
 } from './common';
 import {ThemeSupporting} from '../../utils';
 import {GridColumnSize, GridColumnSizesType} from '../../grid/types';
@@ -58,6 +59,7 @@ export enum BlockType {
 
 export const BlockTypes = Object.values(BlockType);
 export const HeaderBlockTypes = [BlockType.HeaderBlock, BlockType.HeaderSliderBlock];
+
 export interface Childable {
     children?: SubBlock[];
 }
@@ -68,6 +70,7 @@ export interface BlockBaseProps {
     visible?: GridColumnSize;
     resetPaddings?: boolean;
 }
+
 export interface LoadableProps {
     source: string;
     /**
@@ -76,6 +79,7 @@ export interface LoadableProps {
     serviceId?: number;
     params?: Record<string, string | number | boolean>;
 }
+
 export interface LoadableChildren {
     loadable?: LoadableProps;
 }
@@ -88,12 +92,15 @@ export enum SliderBreakpointNames {
     Lg = 'lg',
     Xl = 'xl',
 }
+
 export enum SliderType {
     MediaCard = 'media-card',
     HeaderCard = 'header-card',
 }
+
 export type SliderBreakpointParams = Record<SliderBreakpointNames, number>;
 export type SlidesToShow = Partial<SliderBreakpointParams> | number;
+
 export interface SliderProps extends Childable, Animatable, LoadableChildren {
     dots?: boolean;
     arrows?: boolean;
@@ -115,8 +122,9 @@ export interface HeaderSliderBlockProps extends Omit<SliderProps, 'title' | 'des
 }
 
 interface HeaderBackgroundProps {
-    color?: string;
+    /** @deprecated replaced by Media Props image */
     url?: string;
+    /** @deprecated replaced by Media Props image */
     disableCompress?: boolean;
 }
 
@@ -163,6 +171,7 @@ export interface ExtendedFeaturesItem {
     icon?: string;
     link?: LinkProps;
 }
+
 export interface ExtendedFeaturesProps extends Animatable {
     items: ExtendedFeaturesItem[];
     title?: TitleProps | string;
@@ -176,6 +185,7 @@ export interface PromoFeaturesItem {
     theme?: 'accent' | 'accent-light' | 'primary';
     media?: MediaProps;
 }
+
 export interface PromoFeaturesProps extends Animatable {
     items: PromoFeaturesItem[];
     title?: TitleProps | string;
@@ -199,12 +209,7 @@ export interface BannerBlockProps extends BannerCardProps, Animatable {}
 
 export interface CompaniesBlockProps extends Animatable {
     title: string;
-    images: ThemeSupporting<{
-        desktop: string;
-        tablet: string;
-        mobile: string;
-        alt?: string;
-    }>;
+    images: ThemeSupporting<ImageDeviceProps>;
 }
 
 export interface MediaContentProps {
@@ -216,6 +221,7 @@ export interface MediaContentProps {
     buttons?: ButtonProps[];
     size?: ContentSize;
 }
+
 export interface MediaBlockProps extends Animatable, MediaContentProps {
     media: ThemeSupporting<MediaProps>;
     direction?: MediaDirection;
@@ -258,6 +264,7 @@ export interface SecurityBlockPoint {
         url: string;
     };
 }
+
 export interface SecurityBlockProps extends Animatable {
     theme?: TextTheme;
     backgroundColor?: string;
@@ -272,6 +279,7 @@ export interface TableProps {
     justify?: Justify[];
     marker?: LegendTableMarkerType;
 }
+
 export interface TableBlockProps {
     title: string;
     table: TableProps;
@@ -288,6 +296,7 @@ export interface TabsBlockItem {
     media?: ThemedMediaProps;
     links?: LinkProps[];
 }
+
 export interface TabsBlockProps extends BlockHeaderProps, Animatable {
     items: TabsBlockItem[];
 }

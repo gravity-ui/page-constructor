@@ -5,9 +5,9 @@ import {
     contentTextWidth,
     contentThemes,
     FileLinkProps,
-    ImageObjectProps,
     BlockBaseProps,
 } from '../../schema/validators/common';
+import {ImageObjectProps} from '../../components/Image/schema';
 
 export const ContentLayoutBlock = {
     'content-layout-block': {

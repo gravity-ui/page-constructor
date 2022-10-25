@@ -1,5 +1,4 @@
 import {
-    ImageProps,
     VideoProps,
     withTheme,
     BlockBaseProps,
@@ -7,14 +6,16 @@ import {
     MediaProps,
 } from '../../schema/validators/common';
 import {filteredArray} from '../../schema/validators/utils';
+import {ImageProps} from '../../components/Image/schema';
 
-const HeaderMedia = {
+export const HeaderBackgroundProps = {
     type: 'object',
     additionalProperties: false,
     required: [],
     properties: {
         ...MediaProps,
         fullWidth: {type: 'boolean'},
+        fullWidthMedia: {type: 'boolean'},
     },
 };
 
@@ -59,22 +60,7 @@ export const HeaderProperties = {
         type: 'string',
         enum: ['s', 'm', 'l', 'xl'],
     },
-    background: withTheme({
-        oneOf: [
-            HeaderMedia,
-            {
-                type: 'object',
-                additionalProperties: false,
-                properties: {
-                    color: {type: 'string'},
-                    url: {type: 'string'},
-                    disableCompress: {type: 'boolean'},
-                    fullWidth: {type: 'boolean'},
-                    fullWidthMedia: {type: 'boolean'},
-                },
-            },
-        ],
-    }),
+    background: withTheme(HeaderBackgroundProps),
     theme: {
         type: 'string',
         enum: ['default', 'dark'],

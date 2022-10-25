@@ -1,21 +1,26 @@
-import React, {CSSProperties, MouseEventHandler, useContext, useState} from 'react';
+import React, {CSSProperties, MouseEventHandler, useContext, useState, Fragment} from 'react';
 import {ProjectSettingsContext} from '../../context/projectSettingsContext';
+import {BREAKPOINTS} from '../../constants';
+import {ImageDeviceProps, ImageObjectProps} from '../../models';
 
-export interface ImageProps {
-    src: string;
-    alt?: string;
-    disableCompress?: boolean;
+export interface ImageProps extends Partial<ImageObjectProps>, Partial<ImageDeviceProps> {
     style?: CSSProperties;
     className?: string;
     onClick?: MouseEventHandler;
 }
 
+const checkWebP = (src: string) => {
+    return src.endsWith('.webp') ? src : src + '.webp';
+};
+
 const Image = (props: ImageProps) => {
     const projectSettings = useContext(ProjectSettingsContext);
-    const {src, alt, disableCompress, style, className, onClick} = props;
+    const {src, alt, disableCompress, tablet, desktop, mobile, style, className, onClick} = props;
     const [imgLoadingError, setImgLoadingError] = useState(false);
 
-    if (!src) {
+    const imageSrc = src || desktop;
+
+    if (!imageSrc) {
         return null;
     }
 
@@ -23,16 +28,39 @@ const Image = (props: ImageProps) => {
     const disableWebp =
         projectSettings.disableCompress ||
         disableCompress ||
-        src.endsWith('.svg') ||
+        imageSrc.endsWith('.svg') ||
         imgLoadingError;
-    const webp = src.endsWith('.webp') ? src : src + '.webp';
 
     return (
         <picture>
-            {disableWebp ? null : <source srcSet={webp} type="image/webp" />}
+            {mobile && (
+                <Fragment>
+                    {!disableWebp && (
+                        <source
+                            srcSet={checkWebP(mobile)}
+                            type="image/webp"
+                            media={`(max-width: ${BREAKPOINTS.sm}px)`}
+                        />
+                    )}
+                    <source srcSet={mobile} media={`(max-width: ${BREAKPOINTS.sm}px)`} />
+                </Fragment>
+            )}
+            {tablet && (
+                <Fragment>
+                    {!disableWebp && (
+                        <source
+                            srcSet={checkWebP(tablet)}
+                            type="image/webp"
+                            media={`(max-width: ${BREAKPOINTS.md}px)`}
+                        />
+                    )}
+                    <source srcSet={tablet} media={`(max-width: ${BREAKPOINTS.md}px)`} />
+                </Fragment>
+            )}
+            {desktop && !disableWebp && <source srcSet={checkWebP(imageSrc)} type="image/webp" />}
             <img
                 className={className}
-                src={src}
+                src={imageSrc}
                 alt={alt}
                 style={style}
                 onClick={onClick}

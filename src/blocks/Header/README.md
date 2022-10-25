@@ -14,7 +14,7 @@ A page may only have one Header block.
 
 `offset?: 'default' | 'large'` — Top and bottom margins.
 
-`image?: string | {src: string; alt?: string;}` — Image next to text.
+`image?: string | {src: string; alt?: string;}` — Image to the right of the text.
 
 `video?:`
 
@@ -29,9 +29,11 @@ A page may only have one Header block.
 
 `background?:`
 
-- `fullWidth: true | false` — Background width: to the entire screen width or as per column size.
+- `fullWidth: true | false` — Background width: Color to the entire screen width or as per column size.
+- `fullWidthMedia: true | false` — Media width: Picture or Video to the entire screen width or as per column size.
 - `color: string` — Background color
-- `url?: string` — Background image
+- `image?: string | ImageObjectProps | ImageDeviceProps`
+- `video?: Video`
 
 `theme?: default | dark` — Sets the text color (black by default, white for the dark background).
 

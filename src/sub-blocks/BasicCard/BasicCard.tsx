@@ -18,14 +18,7 @@ const BasicCard = (props: BasicCardProps) => {
     return (
         <CardBase className={b()} url={url} border={border}>
             <CardBase.Content>
-                {iconProps && (
-                    <Image
-                        src={iconProps.src}
-                        alt={iconProps.alt}
-                        className={b('icon')}
-                        disableCompress={iconProps.disableCompress}
-                    />
-                )}
+                {iconProps && <Image {...iconProps} className={b('icon')} />}
                 <Content
                     title={title}
                     text={text}

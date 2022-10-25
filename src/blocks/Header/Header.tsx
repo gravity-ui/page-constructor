@@ -2,14 +2,15 @@ import React, {useContext} from 'react';
 
 import {block, getThemedValue} from '../../utils';
 import {ClassNameProps, HeaderBlockBackground, HeaderBlockProps, WithChildren} from '../../models';
-import {headerHasMediaBackground} from '../../models/guards';
-import {Button, Media, BackgroundMedia, BackgroundImage, RouterLink, HTML} from '../../components';
+import {Button, Media, RouterLink, HTML} from '../../components';
 import {Grid, Row, Col} from '../../grid';
 import {getImageSize, getTitleSizes, titleWithImageSizes} from './utils';
+import {MobileContext} from '../../context/mobileContext';
 
 import YFMWrapper from '../../components/YFMWrapper/YFMWrapper';
 import HeaderBreadcrumbs from '../../components/HeaderBreadcrumbs/HeaderBreadcrumbs';
 import {ThemeValueContext} from '../../context/theme/ThemeValueContext';
+import {getMediaImage} from '../../components/Media/Image/utils';
 
 import './Header.scss';
 
@@ -19,25 +20,32 @@ type HeaderBlockFullProps = HeaderBlockProps & ClassNameProps;
 
 interface BackgroundProps {
     background: HeaderBlockBackground;
+    isMobile: boolean;
 }
 
-const Background = ({background}: BackgroundProps) => {
-    const {url, color, disableCompress, fullWidth, fullWidthMedia} = background;
+const Background = ({background, isMobile}: BackgroundProps) => {
+    const {url, image, fullWidthMedia, video, color} = background;
+    const imageObject = url ? getMediaImage(url) : image;
+    const renderMedia = !isMobile || (typeof image === 'object' && 'mobile' in image);
 
-    return headerHasMediaBackground(background) ? (
-        <BackgroundMedia
-            {...background}
-            mediaClassName={b('background-media')}
+    return (
+        <div
             className={b('background', {media: true, 'full-width-media': fullWidthMedia})}
-        />
-    ) : (
-        <BackgroundImage
-            src={url}
-            className={b('background', {'full-width-media': fullWidthMedia})}
-            imageClassName={b('background-img')}
-            style={{backgroundColor: fullWidth ? 'none' : color}}
-            disableCompress={disableCompress}
-        />
+            style={{backgroundColor: color}}
+        >
+            {renderMedia && (
+                <Media
+                    {...background}
+                    className={b('background-media')}
+                    imageClassName={b('image')}
+                    videoClassName={b('video')}
+                    isBackground={true}
+                    parallax={false}
+                    video={isMobile ? undefined : video}
+                    image={imageObject}
+                />
+            )}
+        </div>
     );
 };
 
@@ -71,35 +79,28 @@ export const HeaderBlock = (props: WithChildren<HeaderBlockFullProps>) => {
         status,
         children,
     } = props;
+    const isMobile = useContext(MobileContext);
     const {themeValue: theme} = useContext(ThemeValueContext);
-    const hasMedia = Boolean(image || video);
+    const hasRightSideImage = Boolean(image || video);
     const curImageSize = imageSize || getImageSize(width);
-    const titleSizes = hasMedia ? titleWithImageSizes(curImageSize) : getTitleSizes(width);
+    const titleSizes = hasRightSideImage ? titleWithImageSizes(curImageSize) : getTitleSizes(width);
     let curVerticalOffset = verticalOffset;
 
-    if (hasMedia && !verticalOffset) {
+    if (hasRightSideImage && !verticalOffset) {
         curVerticalOffset = 'm';
     }
 
     const backgroundThemed = background && getThemedValue(background, theme);
     const imageThemed = image && getThemedValue(image, theme);
     const videoThemed = video && getThemedValue(video, theme);
-
-    const fullWidth = Boolean(backgroundThemed?.fullWidth);
+    const fullWidth = backgroundThemed?.fullWidth || backgroundThemed?.fullWidthMedia;
 
     return (
         <header
-            className={b(
-                {
-                    ['has-media']: hasMedia,
-                    ['has-background']: Boolean(background),
-                    ['full-width']: fullWidth,
-                },
-                className,
-            )}
+            className={b({['has-media']: hasRightSideImage, ['full-width']: fullWidth}, className)}
         >
             {backgroundThemed && fullWidth && <FullWidthBackground background={backgroundThemed} />}
-            {backgroundThemed && <Background background={backgroundThemed} />}
+            {backgroundThemed && <Background background={backgroundThemed} isMobile={isMobile} />}
             <Grid containerClass={b('container-fluid')}>
                 {breadcrumbs && (
                     <Row className={b('breadcrumbs')}>
@@ -155,7 +156,7 @@ export const HeaderBlock = (props: WithChildren<HeaderBlockFullProps>) => {
                                 </Col>
                             </Col>
                         </Row>
-                        {hasMedia && (
+                        {hasRightSideImage && (
                             <Media
                                 className={b('media', {[curImageSize]: true})}
                                 videoClassName={b('video')}

@@ -14,7 +14,7 @@ const Partner = ({text, logo, url, border}: PartnerProps) => {
     return (
         <CardBase url={url} target="_blank" className={b()} border={border}>
             <CardBase.Content>
-                <Image className={b('logo')} src={logoData.src} alt={logoData.alt} />
+                <Image className={b('logo')} {...logoData} />
                 <HTML>{text}</HTML>
             </CardBase.Content>
         </CardBase>

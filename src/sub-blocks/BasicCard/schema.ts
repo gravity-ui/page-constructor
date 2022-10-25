@@ -1,8 +1,9 @@
 import _ from 'lodash';
 
-import {BaseProps, ImageProps} from '../../schema/validators/common';
+import {BaseProps} from '../../schema/validators/common';
 import {CardBase} from '../../components/CardBase/schema';
 import {ContentBase} from '../Content/schema';
+import {ImageProps} from '../../components/Image/schema';
 
 const BasicCardContentProps = _.omit(ContentBase, ['size', 'theme']);
 

@@ -4,13 +4,7 @@
       "background": {
         "color": "#262626"
       },
-      "offset": "default",
       "theme": "dark",
-      "verticalOffset": "m",
-      "type": "header-block",
-      "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-      "description": "<p> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>",
-      "width": "s",
       "buttons": [
         {
           "text": "Button\r",
@@ -29,9 +23,12 @@
     "title": "Breadcumbs with {{theme}} theme",
     "content": {
       "background": {
-        "url": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
-        "color": "#E3EBFF",
-        "fullWidth": false
+        "light": {
+          "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png"
+        },
+        "dark": {
+          "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-black.png"
+        }
       },
       "breadcrumbs": {
         "items": [
@@ -44,39 +41,17 @@
             "url": "#2"
           }
         ]
-      },
-      "offset": "default",
-      "theme": "light",
-      "verticalOffset": "m",
-      "type": "header-block",
-      "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-      "description": "<p> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p> ",
-      "width": "s",
-      "buttons": [
-        {
-          "text": "Button\r",
-          "theme": "action",
-          "url": "https://example.com"
-        }
-      ]
+      }
     }
   },
   "verticalOffset": {
-    "title": "Vertical offset {{offset}}",
+    "title": "Vertical offset {{offset}}"
+  },
+  "default": {
     "content": {
-      "image": {
-        "light": {
-          "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png"
-        },
-        "dark": {
-          "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-black.png"
-        }
-      },
-      "offset": "default",
-      "theme": "light",
-      "verticalOffset": "s",
       "type": "header-block",
-      "description": " Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
+      "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      "description": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
       "buttons": [
         {
           "text": "Button\r",
@@ -86,63 +61,116 @@
         {
           "text": "Button",
           "theme": "outlined",
-          "url": "https://example.com"
-        }
-      ]
-    }
-  },
-  "default": {
-    "content": {
-      "offset": "default",
-      "theme": "light",
-      "verticalOffset": "m",
-      "type": "header-block",
-      "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-      "description": "<p> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p> ",
-      "width": "l",
-      "buttons": [
-        {
-          "text": "Button\r",
-          "theme": "action",
           "url": "https://example.com"
         }
       ]
     }
   },
   "media": {
-    "defaultTitle": "Block with image or video (media)",
-    "decreasedIndentTitle": "Block with decreased bottom margin",
-    "fullWidthTitle": "Block with image or video (media) with full width backogound",
     "content": {
-      "background": {
-        "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-visual/main.png",
-        "video": {
-          "src": [
-            "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-visual/main_video.webm",
-            "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-visual/main_video.ogv",
-            "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-visual/main_video.mp4",
-            "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-visual/mobile.png"
-          ]
-        },
-        "color": "#f5f5f5"
-      },
-      "offset": "default",
-      "theme": "light",
-      "verticalOffset": "xl",
-      "type": "header-block",
-      "description": " Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
-      "buttons": [
-        {
-          "text": "Button\r",
-          "theme": "action",
-          "url": "https://example.com"
-        },
-        {
-          "text": "Button",
-          "theme": "outlined",
-          "url": "https://example.com"
+      "image": {
+        "title": "Block with image",
+        "background": {
+          "light": {
+            "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
+            "color": "#EFF2F8"
+          },
+          "dark": {
+            "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-black.png",
+            "color": "#262626"
+          }
         }
-      ]
+      },
+      "video": {
+        "title": "Block with video",
+        "background": {
+          "light": {
+            "image": {
+              "desktop": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
+              "mobile": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-black.png"
+            },
+            "video": {
+              "src": [
+                "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-visual/main_video.webm",
+                "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-visual/main_video.ogv",
+                "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-visual/main_video.mp4",
+                "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-visual/mobile.png"
+              ]
+            },
+            "color": "#f5f5f5"
+          },
+          "dark": {
+            "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-black.png",
+            "color": "#262626"
+          }
+        }
+      },
+      "fullWidthBackground": {
+        "title": "Block  with full width background",
+        "background": {
+          "light": {
+            "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-visual/mobile.png",
+            "video": {
+              "src": [
+                "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-visual/main_video.webm",
+                "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-visual/main_video.ogv",
+                "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-visual/main_video.mp4",
+                "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-visual/mobile.png"
+              ]
+            },
+            "color": "#cccccc",
+            "fullWidth": true
+          },
+          "dark": {
+            "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-black.png",
+            "color": "#cccccc",
+            "fullWidth": true
+          }
+        }
+      },
+      "fullWidthMedia": {
+        "title": "Block  with full width media",
+        "background": {
+          "light": {
+            "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-visual/mobile.png",
+            "video": {
+              "src": [
+                "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-visual/main_video.webm",
+                "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-visual/main_video.ogv",
+                "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-visual/main_video.mp4",
+                "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-visual/mobile.png"
+              ]
+            },
+            "fullWidthMedia": true,
+            "fullWidth": true
+          },
+          "dark": {
+            "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-black.png",
+            "fullWidthMedia": true
+          }
+        }
+      },
+      "deviceSupport": {
+        "title": "Block  with devices support image",
+        "background": {
+          "light": {
+            "image": {
+              "desktop": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
+              "mobile": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-black.png",
+              "disableCompress": true,
+              "alt": "Lorem"
+            }
+          },
+          "dark": {
+            "image": {
+              "desktop": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-black.png",
+              "mobile": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
+              "disableCompress": true,
+              "alt": "Lorem"
+            }
+          }
+        }
+      }
     }
   },
   "image": {
@@ -155,80 +183,10 @@
         "dark": {
           "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-black.png"
         }
-      },
-      "offset": "default",
-      "theme": "light",
-      "verticalOffset": "m",
-      "type": "header-block",
-      "description": " Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
-      "buttons": [
-        {
-          "text": "Button\r",
-          "theme": "action",
-          "url": "https://example.com"
-        },
-        {
-          "text": "Button",
-          "theme": "outlined",
-          "url": "https://example.com"
-        }
-      ]
-    }
-  },
-  "background": {
-    "defaultTitle": "Background image (colored background on mobiles)",
-    "fullWidthTitle": "Background image + full width colored background",
-    "content": {
-      "background": {
-        "light": {
-          "url": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
-          "color": "#E3EBFF"
-        },
-        "dark": {
-          "url": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-black.png",
-          "color": "#000"
-        }
-      },
-      "offset": "default",
-      "theme": "light",
-      "verticalOffset": "m",
-      "type": "header-block",
-      "description": "<p> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p> ",
-      "width": "s",
-      "buttons": [
-        {
-          "text": "Button\r",
-          "theme": "action",
-          "url": "https://example.com"
-        },
-        {
-          "text": "Button",
-          "theme": "outlined",
-          "url": "https://example.com"
-        }
-      ]
+      }
     }
   },
   "size": {
-    "title": "Header size {{size}}",
-    "content": {
-      "offset": "default",
-      "theme": "light",
-      "verticalOffset": "m",
-      "type": "header-block",
-      "description": "<p> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p> ",
-      "buttons": [
-        {
-          "text": "Button\r",
-          "theme": "action",
-          "url": "https://example.com"
-        },
-        {
-          "text": "Button",
-          "theme": "outlined",
-          "url": "https://example.com"
-        }
-      ]
-    }
+    "title": "Header size {{size}}"
   }
 }

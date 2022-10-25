@@ -9,6 +9,8 @@ $backgroundWidth: 1440px;
     margin: $indentXS 0;
 
     &_full-width {
+        --pc-border-radius: 0;
+
         padding: $indentXS 0;
         margin: 0 0 $indentXS;
     }
@@ -50,7 +52,7 @@ $backgroundWidth: 1440px;
             }
         }
 
-        // deprecated, use only on the main page
+        // deprecated
         // TODO: delete after the possibility to remove padding-bottom in the block
         &_offset_large {
             padding: calc(#{$indentXXXL} - #{$indentXS}) 0 $indentXS;
@@ -135,6 +137,19 @@ $backgroundWidth: 1440px;
         z-index: 11;
     }
 
+    &__background-media {
+        height: 100%;
+
+        > div {
+            height: 100%;
+            width: 100%;
+        }
+
+        > div:not(#{$block}__video) {
+            position: absolute;
+        }
+    }
+
     &__background,
     &__background#{$block}__background_media {
         position: absolute;
@@ -155,10 +170,6 @@ $backgroundWidth: 1440px;
                 max-width: none;
             }
 
-            #{$block}__background-media {
-                height: 100%;
-            }
-
             video {
                 height: 100%;
                 width: 100%;
@@ -167,12 +178,7 @@ $backgroundWidth: 1440px;
         }
     }
 
-    &__background_full-width-media {
-        --pc-border-radius: 0;
-    }
-
     &__background_full-width {
-        --pc-border-radius: 0;
         left: 0;
         transform: none;
         max-width: none;
@@ -206,12 +212,6 @@ $backgroundWidth: 1440px;
             }
         }
 
-        &_has-background {
-            #{$block}__background-img {
-                display: none;
-            }
-        }
-
         //rewrite grid's styles .Grid .col
         #{$block}__content_vertical-offset {
             &_s,
@@ -238,8 +238,5 @@ $backgroundWidth: 1440px;
                 padding-right: $indentL;
             }
         }
-    }
-
-    @media (max-width: map-get($gridBreakpoints, 'sm')) {
     }
 }
