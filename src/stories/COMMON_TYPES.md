@@ -58,7 +58,7 @@
 # `Media`— Image/video/DataLens
 
 - `color?: string` — Background color
-- [`image?: ImageObjectProps | ImageObjectProps[]` —Background image](#ImageObjectProps)
+- [`image?: ImageObjectProps | ImageObjectProps[] | ImageDeviceProps` — Background image](#ImageObjectProps)
 - `parallax?: bool` — Enable/disable the parallax effect
 - [`video?: Video` — Video](#Video)
 - `youtube?: url` — Link to a video on YouTube

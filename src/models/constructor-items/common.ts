@@ -220,7 +220,7 @@ export interface MediaComponentYoutubeProps {
 }
 
 export interface MediaComponentImageProps {
-    image: ImageProps | ImageProps[];
+    image: ImageProps | ImageProps[] | ImageDeviceProps;
     video?: MediaVideoProps;
     parallax?: boolean;
     height?: number;
