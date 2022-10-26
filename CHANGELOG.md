@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.0](https://github.com/gravity-ui/page-constructor/pull/40) (2022-10-26)
+
+
+### Features
+
+* add devices support to component BackgroundMedia
+
 ## [1.3.0](https://github.com/gravity-ui/page-constructor/pull/35) (2022-10-25)
 
 
