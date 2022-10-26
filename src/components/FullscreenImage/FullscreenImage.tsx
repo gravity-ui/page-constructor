@@ -15,14 +15,8 @@ export interface FullScreenImageProps extends ImageProps {
 
 const b = block('FullScreenImage');
 
-const FullScreenImage = ({
-    src,
-    alt,
-    imageClassName,
-    disableCompress,
-    modalImageClass,
-    imageStyle,
-}: FullScreenImageProps) => {
+const FullScreenImage = (props: FullScreenImageProps) => {
+    const {imageClassName, modalImageClass, imageStyle} = props;
     const [isOpened, setIsOpened] = useState(false);
     const [isMouseEnter, setIsMouseEnter] = useState(false);
     const openModal = useCallback(() => setIsOpened(true), []);
@@ -38,12 +32,10 @@ const FullScreenImage = ({
                 onMouseLeave={hideFullScreenIcon}
             >
                 <Image
+                    {...props}
                     className={b('image', imageClassName)}
-                    src={src}
-                    alt={alt}
                     onClick={openModal}
                     style={imageStyle}
-                    disableCompress={disableCompress}
                 />
                 <div className={b('icon-wrapper', {visible: isMouseEnter})} onClick={openModal}>
                     <Icon data={FullScreen} width={18} height={18} className={b('icon')} />
@@ -60,12 +52,7 @@ const FullScreenImage = ({
                                 className={b('icon', {hover: true})}
                             />
                         </div>
-                        <Image
-                            className={b('modal-image', modalImageClass)}
-                            src={src}
-                            alt={alt}
-                            disableCompress={disableCompress}
-                        />
+                        <Image {...props} className={b('modal-image', modalImageClass)} />
                     </div>
                 </Modal>
             )}

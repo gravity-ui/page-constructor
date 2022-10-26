@@ -25,7 +25,9 @@ const DefaultTemplate: Story<FullProps> = (args) => (
 export const Image = DefaultTemplate.bind({});
 export const ImageSlider = DefaultTemplate.bind({});
 export const Video = DefaultTemplate.bind({});
+export const DeviceSupport = DefaultTemplate.bind({});
 
 Image.args = data.image.content;
 ImageSlider.args = data.imageSlider.content;
 Video.args = data.video.content;
+DeviceSupport.args = data.deviceSupport.content;
