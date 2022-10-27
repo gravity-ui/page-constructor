@@ -1,7 +1,7 @@
 @import '../../../styles/mixins.scss';
 @import '../../../styles/variables.scss';
 
-$block: '.#{$ns}button-with-icon';
+$block: '.#{$namespace}button-with-icon';
 
 #{$block} {
     @include reset-button-style();

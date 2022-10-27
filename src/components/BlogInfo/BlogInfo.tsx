@@ -47,7 +47,6 @@ export const BlogInfo: React.FC<BlogInfoProps> = ({
     postId,
     theme = 'light',
     metrikaGoals,
-    dataQa,
 }) => {
     const {likes} = useContext(BlogPageContext);
 
@@ -63,7 +62,6 @@ export const BlogInfo: React.FC<BlogInfoProps> = ({
                     hasUserLike={likes.hasUserLike}
                     handleUserLike={likes.handleUserLike}
                     metrikaGoal={metrikaGoals?.save}
-                    dataQa={dataQa}
                     theme={theme}
                 />
             )}

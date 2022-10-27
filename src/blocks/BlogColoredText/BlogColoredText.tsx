@@ -3,11 +3,11 @@ import React from 'react';
 import {BackgroundImage, Content, ContentBlockProps} from '@gravity-ui/page-constructor';
 
 import {BlogWrapper, PaddingSize} from '../../components/BlogWrapper/BlogWrapper';
+
 import {checkContentDefaults} from '../../utils/blog';
+import {block} from '../../utils/cn';
 
 import './BlogColoredText.scss';
-
-import {block} from '../../utils/cn';
 
 const b = block('colored-text');
 

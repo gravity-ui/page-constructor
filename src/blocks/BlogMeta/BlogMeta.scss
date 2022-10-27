@@ -1,6 +1,6 @@
 @import '../../../styles/yfm.scss';
 
-$block: '.#{$ns}blog-meta';
+$block: '.#{$namespace}meta';
 
 #{$block} {
     $root: &;

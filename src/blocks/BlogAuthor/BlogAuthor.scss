@@ -1,7 +1,7 @@
 @import '../../../styles/variables.scss';
 @import '../../../styles/mixins.scss';
 
-$block: '.#{$ns}author';
+$block: '.#{$namespace}author';
 
 #{$block} {
     $root: &;
@@ -10,17 +10,6 @@ $block: '.#{$ns}author';
         display: flex;
         align-items: flex-start;
         flex-direction: row;
-        overflow: hidden;
-    }
-
-    &__avatar {
-        display: flex;
-        width: 80px;
-        height: 80px;
-        flex-grow: 1;
-        flex-shrink: 0;
-        margin-right: $indentXS;
-        border-radius: var(--bc-border-radius);
         overflow: hidden;
     }
 
@@ -36,14 +25,8 @@ $block: '.#{$ns}author';
         }
     }
 
-    &__name {
-        @include text-size(header-1);
-    }
-
     &__description {
-        padding-top: $indentXXXXS;
         color: var(--yc-color-text-primary);
-        @include text-size(body-2);
     }
 
     &__content {

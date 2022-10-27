@@ -1,7 +1,7 @@
 @import '../../../styles/mixins';
 @import '../../../styles/variables';
 
-$block: '.#{$ns}blog-layout';
+$block: '.#{$namespace}layout';
 
 #{$block} {
     $root: &;

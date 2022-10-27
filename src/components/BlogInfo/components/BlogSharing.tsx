@@ -12,6 +12,7 @@ import {BlogPageContext} from '../../../contexts/BlogPageContext';
 import {i18, BlogKeyset} from '../../../i18n';
 
 import {getAbsolutePath} from '../../../utils/common';
+import {block} from '../../../utils/cn';
 
 import {MetrikaCounter} from '../../../counters/utils';
 
@@ -20,8 +21,6 @@ import {MetrikaCounter} from '../../../counters/utils';
 import metrika from '../../../counters/metrika.js';
 
 import {ShareArrowUp} from '../../../icons/ShareArrowUp';
-
-import {block} from '../../../utils/cn';
 
 import '../BlogInfo.scss';
 

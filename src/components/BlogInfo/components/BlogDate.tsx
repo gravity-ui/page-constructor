@@ -3,10 +3,9 @@ import React, {useContext} from 'react';
 import {LocaleContext} from '../../../contexts/LocaleContext';
 
 import {format} from '../../../utils/date';
+import {block} from '../../../utils/cn';
 
 import '../BlogInfo.scss';
-
-import {block} from '../../../utils/cn';
 
 const b = block('blog-info');
 

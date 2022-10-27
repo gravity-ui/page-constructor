@@ -30,10 +30,10 @@ export const BlogMediaBlock: React.FC<MediaBlockFullProps> = ({
     paddingTop,
     paddingBottom,
 }) => (
-    <BlogWrapper paddingTop={paddingTop} paddingBottom={paddingBottom} className={b('content')}>
-        <div className={b('border')} data-qa="blog-media-content">
+    <BlogWrapper paddingTop={paddingTop} paddingBottom={paddingBottom} className={b('container')}>
+        <div className={b('border')}>
             <Media
-                className={b('media-content')}
+                className={b('content')}
                 videoClassName={b('video')}
                 imageClassName={b('image')}
                 video={video}

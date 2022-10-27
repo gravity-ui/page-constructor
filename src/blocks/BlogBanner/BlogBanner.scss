@@ -2,7 +2,7 @@
 @import '../../../styles/mixins.scss';
 @import '../../../styles/yfm.scss';
 
-$block: '.#{$ns}banner-block';
+$block: '.#{$namespace}banner';
 
 #{$block} {
     $root: &;
@@ -10,7 +10,7 @@ $block: '.#{$ns}banner-block';
     margin-top: $indentXS;
     padding-bottom: $indentXS;
 
-    &__banner-content {
+    &__content {
         width: 100%;
         border-radius: var(--bc-border-radius);
         position: relative;
@@ -18,14 +18,14 @@ $block: '.#{$ns}banner-block';
         flex-direction: row;
     }
 
-    &__content {
+    &__container {
         &_offset_large {
             padding: calc(#{$indentXXXL} - #{$indentXXL}) 0 $indentXS;
             margin-bottom: -$indentL;
         }
     }
 
-    &__content {
+    &__container {
         width: 100%;
         border-radius: var(--bc-border-radius);
         display: flex;
@@ -71,7 +71,7 @@ $block: '.#{$ns}banner-block';
     }
 
     @media (max-width: map-get($gridBreakpoints, 'sm')) {
-        &__banner-content {
+        &__content {
             flex-direction: column;
         }
 

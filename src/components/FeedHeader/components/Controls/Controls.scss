@@ -1,7 +1,7 @@
 @import '../../../../../styles/mixins.scss';
 @import '../../../../../styles/variables.scss';
 
-$block: '.#{$ns}blog-feed-controls';
+$block: '.#{$namespace}blog-feed-controls';
 
 #{$block} {
     $root: &;
@@ -77,15 +77,15 @@ $block: '.#{$ns}blog-feed-controls';
             }
 
             .yc-select-item-wrap {
-                margin: 0 $indentXXXXS;
+                margin: 0 4px;
             }
 
             .yc-select-item-wrap:first-child {
-                margin-top: $indentXXXXS;
+                margin-top: 4px;
             }
 
             .yc-select-item-wrap:last-child {
-                margin-bottom: $indentXXXXS;
+                margin-bottom: 4px;
             }
 
             .yc-select-item-wrap:hover {

@@ -1,6 +1,6 @@
 @import '../../../styles/variables.scss';
 
-$block: '.#{$ns}colored-text';
+$block: '.#{$namespace}colored-text';
 
 #{$block} {
     $root: &;

@@ -60,7 +60,6 @@ export const BlogHeader: React.FC<BlogHeaderProps> = (props) => {
                     readingTime={readingTime}
                     metrikaGoals={metrikaGoals}
                     theme={theme}
-                    dataQa="blog-header-meta-container"
                 />
             </HeaderBlock>
         </BlogWrapper>

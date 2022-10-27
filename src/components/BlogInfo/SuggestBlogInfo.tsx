@@ -48,7 +48,6 @@ export const SuggestBlogInfo: React.FC<SuggestBlogInfoProps> = ({
     date,
     readingTime,
     likes,
-    dataQa,
     size = 's',
     isModernIcon,
 }) => {
@@ -71,7 +70,6 @@ export const SuggestBlogInfo: React.FC<SuggestBlogInfoProps> = ({
                     title={likesCount}
                     hasUserLike={hasUserLike}
                     handleUserLike={handleLike}
-                    dataQa={dataQa}
                     size={size}
                     isModernIcon={isModernIcon}
                 />

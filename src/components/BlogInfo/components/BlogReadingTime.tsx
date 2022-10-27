@@ -6,9 +6,9 @@ import {i18, BlogKeyset} from '../../../i18n';
 
 import {Time} from '../../../icons/Time';
 
-import '../BlogInfo.scss';
-
 import {block} from '../../../utils/cn';
+
+import '../BlogInfo.scss';
 
 const b = block('blog-info');
 

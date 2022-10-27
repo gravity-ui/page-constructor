@@ -48,7 +48,7 @@ export const BlogAuthorBlock: React.FC<AuthorBlockFullProps> = (props) => {
 
     return (
         <BlogWrapper paddingTop={paddingTop} paddingBottom={paddingBottom} className={b('content')}>
-            <div className={b('layout')} data-qa="blog-author-layout">
+            <div className={b('layout')}>
                 <Author
                     type={AuthorType.Column}
                     author={authorItem}

@@ -13,7 +13,7 @@ import {block} from '../../utils/cn';
 
 import './BlogMeta.scss';
 
-const b = block('blog-meta');
+const b = block('meta');
 
 type MetaBlockProps = {
     paddingTop?: PaddingSize;
@@ -47,11 +47,7 @@ export const MetaBlock: React.FC<MetaBlockFullProps> = (props) => {
     breadcrumbs.metrikaGoals = breadcrumbsGoals;
 
     return (
-        <BlogWrapper
-            paddingTop={paddingTop}
-            paddingBottom={paddingBottom}
-            dataQa="blog-meta-content"
-        >
+        <BlogWrapper paddingTop={paddingTop} paddingBottom={paddingBottom}>
             {breadcrumbs && (
                 <HeaderBreadcrumbs
                     items={breadcrumbs.items}
@@ -74,7 +70,6 @@ export const MetaBlock: React.FC<MetaBlockFullProps> = (props) => {
                     postId={id}
                     date={date}
                     readingTime={readingTime}
-                    dataQa="blog-meta-block"
                     metrikaGoals={metrikaGoals}
                 />
             )}

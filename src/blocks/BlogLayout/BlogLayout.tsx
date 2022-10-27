@@ -13,7 +13,7 @@ import {block} from '../../utils/cn';
 
 import './BlogLayout.scss';
 
-const b = block('blog-layout');
+const b = block('layout');
 
 export type BlogLayoutProps = {
     fullWidth?: boolean;

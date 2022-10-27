@@ -2,9 +2,9 @@ import React from 'react';
 
 import {ClassNameProps} from '@yandex-data-ui/cloud-components';
 
-import './BlogWrapper.scss';
-
 import {block} from '../../utils/cn';
+
+import './BlogWrapper.scss';
 
 const b = block('wrapper');
 

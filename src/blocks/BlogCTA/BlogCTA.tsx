@@ -38,12 +38,7 @@ export const BlogCTABlock: React.FC<CTABlockProps> = ({items, paddingTop, paddin
     };
 
     return (
-        <BlogWrapper
-            paddingTop={paddingTop}
-            paddingBottom={paddingBottom}
-            className={b('content')}
-            dataQa="blog-cta-content"
-        >
+        <BlogWrapper paddingTop={paddingTop} paddingBottom={paddingBottom} className={b('content')}>
             {items.slice(0, count).map((contentData: ContentBlockProps, index: number) => {
                 checkContentDefaults(contentData);
 
@@ -57,7 +52,6 @@ export const BlogCTABlock: React.FC<CTABlockProps> = ({items, paddingTop, paddin
                         className={b('button', {
                             ['layout']: count,
                         })}
-                        data-qa="blog-cta-card"
                     >
                         <div className={b('card')}>
                             <Content {...contentData} />

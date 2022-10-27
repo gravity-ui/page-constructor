@@ -5,6 +5,7 @@ import React from 'react';
 import {Icon} from '@gravity-ui/uikit';
 
 import {postLikeStatus} from '../../../utils/blog';
+import {block} from '../../../utils/cn';
 
 import {MetrikaCounter} from '../../../counters/utils';
 // @ts-ignore
@@ -14,8 +15,6 @@ import {Save} from '../../../icons/Save';
 import {SaveFilled} from '../../../icons/SaveFilled';
 import {Like} from '../../../icons/Like';
 import {LikeFilled} from '../../../icons/LikeFilled';
-
-import {block} from '../../../utils/cn';
 
 import '../BlogInfo.scss';
 
@@ -55,7 +54,6 @@ export const BlogSave: React.FC<BlogSaveProps> = ({
     hasUserLike,
     handleUserLike,
     metrikaGoal,
-    dataQa,
     size,
     theme,
     isModernIcon,
@@ -76,7 +74,6 @@ export const BlogSave: React.FC<BlogSaveProps> = ({
                 handleUserLike();
                 metrika.reachGoal(MetrikaCounter.CrossSite, metrikaGoal);
             }}
-            data-qa={`${dataQa ? dataQa + '-' : ''}save`}
         >
             <div className={b('content', {cursor: true, theme})}>
                 <span className={b('icon')}>
