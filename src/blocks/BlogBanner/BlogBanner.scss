@@ -19,18 +19,16 @@ $block: '.#{$namespace}banner';
     }
 
     &__container {
-        &_offset_large {
-            padding: calc(#{$indentXXXL} - #{$indentXXL}) 0 $indentXS;
-            margin-bottom: -$indentL;
-        }
-    }
-
-    &__container {
         width: 100%;
         border-radius: var(--bc-border-radius);
         display: flex;
 
         min-height: 220px;
+
+        &_offset_large {
+            padding: calc(#{$indentXXXL} - #{$indentXXL}) 0 $indentXS;
+            margin-bottom: -$indentL;
+        }
     }
 
     &__info,
