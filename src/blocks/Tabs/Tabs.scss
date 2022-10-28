@@ -11,9 +11,11 @@ $block: '.#{$ns}TabsBlock';
     }
 
     &__tabs {
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        margin-bottom: $indentM;
+        @include add-specificity(&) {
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            margin-bottom: $indentM;
+        }
     }
 
     &__image {
