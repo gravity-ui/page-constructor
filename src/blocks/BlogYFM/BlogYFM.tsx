@@ -3,8 +3,6 @@ import {YFMWrapper} from '@gravity-ui/page-constructor';
 
 import {BlogWrapper, PaddingSize} from '../../components/BlogWrapper/BlogWrapper';
 
-import './BlogYFM.scss';
-
 type YFMBlockProps = {
     text: string;
     paddingTop?: PaddingSize;
