@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.4.1](https://github.com/gravity-ui/page-constructor/pull/42) (2022-10-28)
+
+### Bug Fixes
+
+* add specificity for Tabs item
+
 ## [1.4.0](https://github.com/gravity-ui/page-constructor/pull/40) (2022-10-26)
 
 
