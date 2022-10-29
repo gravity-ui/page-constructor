@@ -1,9 +1,7 @@
 @import '../../../../../styles/mixins.scss';
 @import '../../../../../styles/variables.scss';
 
-$block: '.#{$ns}blog-feed-controls';
-
-$popupMargins: 4px;
+$block: '.#{$namespace}blog-feed-controls';
 
 #{$block} {
     $root: &;
@@ -79,15 +77,15 @@ $popupMargins: 4px;
             }
 
             .yc-select-item-wrap {
-                margin: 0 $popupMargins;
+                margin: 0 4px;
             }
 
             .yc-select-item-wrap:first-child {
-                margin-top: $popupMargins;
+                margin-top: 4px;
             }
 
             .yc-select-item-wrap:last-child {
-                margin-bottom: $popupMargins;
+                margin-bottom: 4px;
             }
 
             .yc-select-item-wrap:hover {

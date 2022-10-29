@@ -1,11 +1,11 @@
 import React from 'react';
-import block from 'bem-cn-lite';
 
 // TODO fixes and refactor in https://st.yandex-team.ru/ORION-1444
 
 import {Icon} from '@gravity-ui/uikit';
 
 import {postLikeStatus} from '../../../utils/blog';
+import {block} from '../../../utils/cn';
 
 import {MetrikaCounter} from '../../../counters/utils';
 // @ts-ignore
@@ -54,7 +54,6 @@ export const BlogSave: React.FC<BlogSaveProps> = ({
     hasUserLike,
     handleUserLike,
     metrikaGoal,
-    dataQa,
     size,
     theme,
     isModernIcon,
@@ -75,7 +74,6 @@ export const BlogSave: React.FC<BlogSaveProps> = ({
                 handleUserLike();
                 metrika.reachGoal(MetrikaCounter.CrossSite, metrikaGoal);
             }}
-            data-qa={`${dataQa ? dataQa + '-' : ''}save`}
         >
             <div className={b('content', {cursor: true, theme})}>
                 <span className={b('icon')}>

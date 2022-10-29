@@ -1,7 +1,7 @@
 @import '../../../styles/mixins.scss';
 @import '../../../styles/variables.scss';
 
-$block: '.#{$ns}search';
+$block: '.#{$namespace}search';
 
 #{$block} {
     $root: &;

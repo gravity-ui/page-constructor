@@ -1,9 +1,9 @@
 import React, {useContext} from 'react';
-import block from 'bem-cn-lite';
 
 import {LocaleContext} from '../../../contexts/LocaleContext';
 
 import {format} from '../../../utils/date';
+import {block} from '../../../utils/cn';
 
 import '../BlogInfo.scss';
 

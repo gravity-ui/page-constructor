@@ -66,7 +66,7 @@ export const PostCard: React.FC<PostCardProps> = ({
     return (
         <CardBase url={url} metrikaGoals={metrikaGoals} className={b('card', {fullWidth})}>
             <CardBase.Header image={image} className={b('header', {fullWidth})}>
-                <div className={b('image-container')} data-qa="blog-suggest-header" />
+                <div className={b('image-container')} />
             </CardBase.Header>
             <CardBase.Content>
                 {showTag && tags?.[0]?.name && (
@@ -94,7 +94,6 @@ export const PostCard: React.FC<PostCardProps> = ({
                     readingTime={readingTime}
                     hasUserLike={hasUserLike}
                     likes={likesProps}
-                    dataQa="blog-suggest-block"
                     size={size}
                     isModernIcon={isModernIcon}
                 />

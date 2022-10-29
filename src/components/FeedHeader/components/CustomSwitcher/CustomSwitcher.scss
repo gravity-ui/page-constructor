@@ -1,7 +1,7 @@
 @import '../../../../../styles/mixins.scss';
 @import '../../../../../styles/variables.scss';
 
-$block: '.#{$ns}blog-feed-custom-switcher';
+$block: '.#{$namespace}blog-feed-custom-switcher';
 
 #{$block} {
     $root: &;

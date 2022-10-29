@@ -1,16 +1,16 @@
 import React from 'react';
-import block from 'bem-cn-lite';
 import {Content, ContentBlockProps, Image, NewMetrikaGoal} from '@gravity-ui/page-constructor';
 
 import {BlogWrapper, PaddingSize} from '../../components/BlogWrapper/BlogWrapper';
 
 import {getBlogElementMetrika, checkContentDefaults} from '../../utils/blog';
+import {block} from '../../utils/cn';
 
 import {BlogMetrikaGoalIds} from '../../constants';
 
 import './BlogBanner.scss';
 
-const b = block('BlogBannerBlock');
+const b = block('banner');
 
 export type BannerBlockProps = ContentBlockProps & {
     background?: string;
@@ -47,8 +47,12 @@ export const BlogBannerBlock: React.FC<BannerBlockProps> = ({
     });
 
     return (
-        <BlogWrapper paddingTop={paddingTop} paddingBottom={paddingBottom} className={b('content')}>
-            <div className={b('banner-content')} style={contentStyle} data-qa="blog-banner-content">
+        <BlogWrapper
+            paddingTop={paddingTop}
+            paddingBottom={paddingBottom}
+            className={b('container')}
+        >
+            <div className={b('content')} style={contentStyle}>
                 <div className={b('info')}>
                     <Content {...contentData} />
                 </div>

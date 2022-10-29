@@ -1,5 +1,4 @@
 import React, {ReactElement, useMemo} from 'react';
-import block from 'bem-cn-lite';
 
 import {
     Col,
@@ -10,9 +9,11 @@ import {
 
 import {BlogWrapper, PaddingSize} from '../../components/BlogWrapper/BlogWrapper';
 
+import {block} from '../../utils/cn';
+
 import './BlogLayout.scss';
 
-const b = block('BlogLayout');
+const b = block('layout');
 
 export type BlogLayoutProps = {
     fullWidth?: boolean;

@@ -1,14 +1,15 @@
 @import '../../../styles/variables.scss';
 @import '../../../styles/mixins.scss';
-@import '../../../styles/yfm.scss';
 
-.BlogBannerBlock {
+$block: '.#{$namespace}banner';
+
+#{$block} {
     $root: &;
 
     margin-top: $indentXS;
     padding-bottom: $indentXS;
 
-    &__banner-content {
+    &__content {
         width: 100%;
         border-radius: var(--bc-border-radius);
         position: relative;
@@ -16,19 +17,17 @@
         flex-direction: row;
     }
 
-    &__content {
-        &_offset_large {
-            padding: calc(#{$indentXXXL} - #{$indentXXL}) 0 $indentXS;
-            margin-bottom: -$indentL;
-        }
-    }
-
-    &__content {
+    &__container {
         width: 100%;
         border-radius: var(--bc-border-radius);
         display: flex;
 
         min-height: 220px;
+
+        &_offset_large {
+            padding: calc(#{$indentXXXL} - #{$indentXXL}) 0 $indentXS;
+            margin-bottom: -$indentL;
+        }
     }
 
     &__info,
@@ -69,7 +68,7 @@
     }
 
     @media (max-width: map-get($gridBreakpoints, 'sm')) {
-        &__banner-content {
+        &__content {
             flex-direction: column;
         }
 

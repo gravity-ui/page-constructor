@@ -1,5 +1,8 @@
 @import '../../../styles/mixins.scss';
+@import '../../../styles/variables.scss';
 
-.BlogWrapper {
+$block: '.#{$namespace}wrapper';
+
+#{$block} {
     @include blog-paddings();
 }

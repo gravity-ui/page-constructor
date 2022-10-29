@@ -65,7 +65,7 @@ export const Search: React.FC<SearchProps> = (props) => {
 
     return (
         <div className={b({size}, className)}>
-            <div className={b('search-suggest-container')} data-qa="search-suggest-container">
+            <div className={b('search-suggest-container')}>
                 <TextInput
                     value={value}
                     onUpdate={(query) => {

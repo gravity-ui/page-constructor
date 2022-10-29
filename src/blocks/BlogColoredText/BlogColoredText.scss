@@ -1,9 +1,11 @@
 @import '../../../styles/variables.scss';
 
-.BlogColoredTextBlock {
+$block: '.#{$namespace}colored-text';
+
+#{$block} {
     $root: &;
 
-    &__colored-text {
+    &__container {
         display: flex;
         border-radius: var(--bc-border-radius);
         overflow: hidden;

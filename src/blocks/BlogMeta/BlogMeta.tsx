@@ -1,5 +1,4 @@
 import React, {useContext} from 'react';
-import block from 'bem-cn-lite';
 import {HeaderBreadcrumbs, TextTheme, YFMWrapper} from '@gravity-ui/page-constructor';
 
 import {BlogPageContext} from '../../contexts/BlogPageContext';
@@ -10,9 +9,11 @@ import {getBlogBreadcrumbs} from '../../utils/blog';
 
 import {BlogMetrikaGoalIds} from '../../constants';
 
+import {block} from '../../utils/cn';
+
 import './BlogMeta.scss';
 
-const b = block('BlogMetaBlock');
+const b = block('meta');
 
 type MetaBlockProps = {
     paddingTop?: PaddingSize;
@@ -46,11 +47,7 @@ export const MetaBlock: React.FC<MetaBlockFullProps> = (props) => {
     breadcrumbs.metrikaGoals = breadcrumbsGoals;
 
     return (
-        <BlogWrapper
-            paddingTop={paddingTop}
-            paddingBottom={paddingBottom}
-            dataQa="blog-meta-content"
-        >
+        <BlogWrapper paddingTop={paddingTop} paddingBottom={paddingBottom}>
             {breadcrumbs && (
                 <HeaderBreadcrumbs
                     items={breadcrumbs.items}
@@ -73,7 +70,6 @@ export const MetaBlock: React.FC<MetaBlockFullProps> = (props) => {
                     postId={id}
                     date={date}
                     readingTime={readingTime}
-                    dataQa="blog-meta-block"
                     metrikaGoals={metrikaGoals}
                 />
             )}

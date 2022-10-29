@@ -1,11 +1,12 @@
 import React from 'react';
-import block from 'bem-cn-lite';
 
 import {Icon} from '@gravity-ui/uikit';
 
 import {i18, BlogKeyset} from '../../../i18n';
 
 import {Time} from '../../../icons/Time';
+
+import {block} from '../../../utils/cn';
 
 import '../BlogInfo.scss';
 

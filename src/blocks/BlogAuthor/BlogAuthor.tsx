@@ -1,5 +1,4 @@
 import React, {useMemo, useContext} from 'react';
-import block from 'bem-cn-lite';
 
 import {Author, AuthorType} from '@gravity-ui/page-constructor';
 import {ClassNameProps} from '@yandex-data-ui/cloud-components';
@@ -9,9 +8,11 @@ import {BlogPageContext} from '../../contexts/BlogPageContext';
 import {BlogWrapper, PaddingSize} from '../../components/BlogWrapper/BlogWrapper';
 // TODO import ResizedImage from '../../components/ResizedImage/ResizedImage';
 
+import {block} from '../../utils/cn';
+
 import './BlogAuthor.scss';
 
-const b = block('BlogAuthorBlock');
+const b = block('author');
 
 export type AuthorBlockFullProps = ClassNameProps & {
     paddingTop: PaddingSize;
@@ -47,11 +48,11 @@ export const BlogAuthorBlock: React.FC<AuthorBlockFullProps> = (props) => {
 
     return (
         <BlogWrapper paddingTop={paddingTop} paddingBottom={paddingBottom} className={b('content')}>
-            <div className={b('author-layout')} data-qa="blog-author-layout">
+            <div className={b('layout')}>
                 <Author
                     type={AuthorType.Column}
                     author={authorItem}
-                    authorContainerClassName={b('author-container')}
+                    authorContainerClassName={b('container')}
                 />
             </div>
         </BlogWrapper>

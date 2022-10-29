@@ -1,11 +1,12 @@
 import React from 'react';
-import block from 'bem-cn-lite';
 
 import {ClassNameProps} from '@yandex-data-ui/cloud-components';
 
+import {block} from '../../utils/cn';
+
 import './BlogWrapper.scss';
 
-const b = block('BlogWrapper');
+const b = block('wrapper');
 
 export type PaddingSize = 'xs' | 's' | 'm' | 'l' | 'xl';
 

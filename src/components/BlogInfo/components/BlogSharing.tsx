@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, {useContext} from 'react';
-import block from 'bem-cn-lite';
 
 // TODO refactor in https://st.yandex-team.ru/ORION-1444
 
@@ -13,6 +12,7 @@ import {BlogPageContext} from '../../../contexts/BlogPageContext';
 import {i18, BlogKeyset} from '../../../i18n';
 
 import {getAbsolutePath} from '../../../utils/common';
+import {block} from '../../../utils/cn';
 
 import {MetrikaCounter} from '../../../counters/utils';
 

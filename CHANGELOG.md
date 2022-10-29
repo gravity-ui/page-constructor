@@ -1,5 +1,13 @@
 # Change log
 
+## 0.11.0
+
+- Refactor styles (kebab, prefix, variables)
+
+## 0.10.2
+
+- Add teamcity publish
+
 ## 0.10.1
 
 - BlogPostTag types became Partial, BlogPostTagExtended is deleted

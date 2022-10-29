@@ -1,12 +1,11 @@
 @import '../../../styles/mixins';
 @import '../../../styles/variables';
 
-$block: '.#{$ns}blog-post-card';
+$block: '.#{$namespace}blog-post-card';
 
 #{$block} {
     $root: &;
 
-    $indentXXXXS: 4px;
     $linesToShow: 5;
 
     &__card {
@@ -59,7 +58,7 @@ $block: '.#{$ns}blog-post-card';
 
         &_size_s {
             @include text-size(body-2);
-            padding-bottom: $indentXXXXS;
+            padding-bottom: 4px;
         }
 
         &_size_m {

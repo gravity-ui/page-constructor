@@ -1,15 +1,16 @@
 @import '../../../styles/mixins';
 @import '../../../styles/variables';
-@import '../../../styles/yfm.scss';
 
-.BlogMediaBlock {
+$block: '.#{$namespace}blog-media';
+
+#{$block} {
     $root: &;
 
     &__text-content {
         padding-top: $indentXS;
     }
 
-    &__content {
+    &__container {
         position: relative;
         height: 100%;
     }
@@ -23,7 +24,7 @@
         overflow: hidden;
     }
 
-    &__media {
+    &__content {
         position: relative;
         top: 0;
         right: 0;

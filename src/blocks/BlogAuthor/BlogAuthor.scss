@@ -1,47 +1,32 @@
 @import '../../../styles/variables.scss';
 @import '../../../styles/mixins.scss';
 
-.BlogAuthorBlock {
+$block: '.#{$namespace}author';
+
+#{$block} {
     $root: &;
 
-    &__author-layout {
+    &__layout {
         display: flex;
         align-items: flex-start;
         flex-direction: row;
         overflow: hidden;
     }
 
-    &__author-avatar {
-        display: flex;
-        width: 80px;
-        height: 80px;
-        flex-grow: 1;
-        flex-shrink: 0;
-        margin-right: $indentXS;
-        border-radius: var(--bc-border-radius);
-        overflow: hidden;
-    }
-
     @media (max-width: map-get($gridBreakpoints, 'lg')) {
-        &__author-layout {
+        &__layout {
             width: 50%;
         }
     }
 
     @media (max-width: map-get($gridBreakpoints, 'sm')) {
-        &__author-layout {
+        &__layout {
             width: 100%;
         }
     }
 
-    &__author-name {
-        @include text-size(header-1);
-    }
-
-    &__author-description {
-        padding-top: 4px;
+    &__description {
         color: var(--yc-color-text-primary);
-        @include text-size(body-2);
     }
 
     &__content {
@@ -52,7 +37,7 @@
         position: relative;
     }
 
-    &__author-container {
+    &__container {
         background-color: var(--yc-color-promo-base-silver);
     }
 }
