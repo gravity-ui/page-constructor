@@ -37,11 +37,13 @@ export type ControlsProps = {
     tags?: SelectItem[];
     services?: SelectItem[];
     handleChangeQuery: HandleChangeQueryParams;
+    pageChange: (value: number) => void;
     queryParams: Query;
     setQuery?: SetQueryType;
 };
 
 const ICON_SIZE = 16;
+const DEFAULT_PAGE = 1;
 
 export const Controls: React.FC<ControlsProps> = ({
     setIsFetching,
@@ -49,6 +51,7 @@ export const Controls: React.FC<ControlsProps> = ({
     services = [],
     handleChangeQuery,
     queryParams,
+    pageChange,
 }) => {
     const {hasLikes} = useContext(LikesContext);
 
@@ -70,7 +73,9 @@ export const Controls: React.FC<ControlsProps> = ({
     };
 
     const handleSearch = (searchValue: string) => {
-        handleChangeQuery({search: searchValue});
+        handleChangeQuery({search: searchValue, page: DEFAULT_PAGE});
+
+        pageChange(DEFAULT_PAGE);
 
         setSearch(searchValue);
         setIsFetching(true);
@@ -85,7 +90,10 @@ export const Controls: React.FC<ControlsProps> = ({
 
         handleChangeQuery({
             tags: isEmptyTags ? '' : selectedTag,
+            page: DEFAULT_PAGE,
         });
+
+        pageChange(DEFAULT_PAGE);
 
         setIsFetching(true);
     };
@@ -103,7 +111,9 @@ export const Controls: React.FC<ControlsProps> = ({
 
         const servicesAsString = selectedServices.join(',');
 
-        handleChangeQuery({services: servicesAsString});
+        handleChangeQuery({services: servicesAsString, page: DEFAULT_PAGE});
+
+        pageChange(DEFAULT_PAGE);
 
         setIsFetching(true);
     };
