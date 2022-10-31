@@ -1,5 +1,9 @@
 # Change log
 
+## 0.11.1
+
+- **BlogYFM**: add `yfm_no-list-reset` class
+
 ## 0.11.0
 
 - Refactor styles (kebab, prefix, variables)

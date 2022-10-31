@@ -22,6 +22,7 @@ export const YFMBlock: React.FC<YFMBlockFullProps> = (props) => {
                     blog: true,
                     resetPaddings: true,
                 }}
+                className="yfm_no-list-reset"
             />
         </BlogWrapper>
     );
