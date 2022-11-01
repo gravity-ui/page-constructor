@@ -163,7 +163,7 @@ export const BlogFeed: React.FC<BlogFeedProps> = ({image}) => {
 
     useEffect(() => {
         if (isFetching) {
-            fetchAndReplaceData(queryParams.page as number);
+            fetchAndReplaceData(Number(queryParams.page));
         }
     }, [fetchAndReplaceData, isFetching, queryParams.page]);
 
