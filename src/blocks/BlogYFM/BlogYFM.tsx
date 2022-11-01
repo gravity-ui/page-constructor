@@ -1,7 +1,10 @@
 import React from 'react';
 import {YFMWrapper} from '@gravity-ui/page-constructor';
+import block from 'bem-cn-lite';
 
 import {BlogWrapper, PaddingSize} from '../../components/BlogWrapper/BlogWrapper';
+
+const b = block('yfm');
 
 type YFMBlockProps = {
     text: string;
@@ -22,7 +25,7 @@ export const YFMBlock: React.FC<YFMBlockFullProps> = (props) => {
                     blog: true,
                     resetPaddings: true,
                 }}
-                className="yfm_no-list-reset"
+                className={b({'no-list-reset': true})}
             />
         </BlogWrapper>
     );
