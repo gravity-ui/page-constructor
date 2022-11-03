@@ -10,8 +10,7 @@ import data from './data.json';
 type HeaderBlockPropsNoTitle = Omit<HeaderBlockProps, 'title'>;
 
 const getSizeTitle = (size: string) => data.size.title.replace('{{size}}', size);
-const getImageTitle = (text: string, image: string) =>
-    data.image.title.replace('{{text}}', text).replace('{{image}}', image);
+const getImageTitle = (text: string) => data.image.title.replace('{{text}}', text);
 const getVerticalOffsetTitle = (offset: string) =>
     data.verticalOffset.title.replace('{{offset}}', offset);
 const getBreadcrumbsTitle = (theme: string) => data.breadcrumbs.title.replace('{{theme}}', theme);
@@ -44,25 +43,25 @@ const DefaultTemplate: Story<HeaderBlockModel> = (args) => (
 
 const SizeTemplate: Story<HeaderBlockModel> = (args) => (
     <Fragment>
-        <DefaultTemplate {...args} title={getSizeTitle('"S"')} width="s" />
-        <DefaultTemplate {...args} title={getSizeTitle('"M"')} width="m" />
         <DefaultTemplate {...args} title={getSizeTitle('"L"')} width="l" />
+        <DefaultTemplate {...args} title={getSizeTitle('"M"')} width="m" />
+        <DefaultTemplate {...args} title={getSizeTitle('"S"')} width="s" />
     </Fragment>
 );
 
 const ImageTemplate: Story<HeaderBlockModel> = (args) => (
     <Fragment>
-        <DefaultTemplate {...args} title={getImageTitle('"M"', '"S"')} width="m" />
-        <DefaultTemplate {...args} title={getImageTitle('"S"', '"M"')} width="s" />
+        <DefaultTemplate {...args} title={getImageTitle('«M»')} width="m" />
+        <DefaultTemplate {...args} title={getImageTitle('«S»')} width="s" />
     </Fragment>
 );
 
 const VerticalOffsetTemplate: Story<HeaderBlockModel> = (args) => (
     <Fragment>
-        <DefaultTemplate {...args} title={getVerticalOffsetTitle('"S"')} verticalOffset="s" />
-        <DefaultTemplate {...args} title={getVerticalOffsetTitle('"M"')} verticalOffset="m" />
-        <DefaultTemplate {...args} title={getVerticalOffsetTitle('"L"')} verticalOffset="l" />
-        <DefaultTemplate {...args} title={getVerticalOffsetTitle('"XL"')} verticalOffset="xl" />
+        <DefaultTemplate {...args} title={getVerticalOffsetTitle('«S»')} verticalOffset="s" />
+        <DefaultTemplate {...args} title={getVerticalOffsetTitle('«M»')} verticalOffset="m" />
+        <DefaultTemplate {...args} title={getVerticalOffsetTitle('«L»')} verticalOffset="l" />
+        <DefaultTemplate {...args} title={getVerticalOffsetTitle('«XL»')} verticalOffset="xl" />
     </Fragment>
 );
 
@@ -119,7 +118,7 @@ export const Size = SizeTemplate.bind({});
 export const Image = ImageTemplate.bind({});
 export const VerticalOffset = VerticalOffsetTemplate.bind({});
 export const Media = MediaTemplate.bind({});
-export const ThemeDark = DefaultTemplate.bind({});
+export const DarkTheme = DefaultTemplate.bind({});
 export const Breadcrumbs = BreadCrumbsTemplate.bind({});
 
 Default.args = {...DefaultArgs} as HeaderBlockProps;
@@ -140,7 +139,7 @@ Media.args = {
     ...DefaultArgs,
 } as HeaderBlockPropsNoTitle;
 
-ThemeDark.args = {
+DarkTheme.args = {
     ...DefaultArgs,
     ...data.themeDark.content,
 } as HeaderBlockProps;

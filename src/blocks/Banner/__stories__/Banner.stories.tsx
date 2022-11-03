@@ -23,7 +23,7 @@ const WithThemeTemplate: Story<BannerBlockModel> = (args) => (
 );
 
 export const Default = DefaultTemplate.bind({});
-export const WithTheme = WithThemeTemplate.bind({});
+export const DarkTheme = WithThemeTemplate.bind({});
 
 Default.args = data.default.content as BannerBlockProps;
-WithTheme.args = data.withTheme.content as BannerBlockProps;
+DarkTheme.args = data.darkTheme.content as BannerBlockProps;

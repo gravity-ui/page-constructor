@@ -1,13 +1,13 @@
 {
-  "withTheme": {
+  "darkTheme": {
     "content": {
       "theme": "dark",
       "type": "banner-block",
       "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
       "subtitle": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> ",
-      "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-black.png",
+      "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_dark.png",
       "disableCompress": true,
-      "color": "#000",
+      "color": "#262626",
       "button": {
         "text": "Learn more",
         "url": "https://example.com"
@@ -21,13 +21,13 @@
       "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
       "subtitle": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> ",
       "image": {
-        "light": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
-        "dark": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-white.png"
+        "light": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_light.png",
+        "dark": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_dark.png"
       },
       "disableCompress": true,
       "color": {
-        "light": "#EEF3FE",
-        "dark": "#000"
+        "light": "#EFF2F8",
+        "dark": "#262626"
       },
       "button": {
         "text": "Learn more",

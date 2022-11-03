@@ -1,6 +1,6 @@
 {
   "common": {
-    "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
+    "title": "Lorem ipsum dolor sit amet",
     "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     "additionalInfo": "Duis aute irure dolor in [reprehenderit](https://example.com) n voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
     "buttons": [
@@ -50,35 +50,16 @@
       }
     ]
   },
-  "withFiles": {
-    "content": {
-      "type": "content-layout-block",
-      "textContent": {
-        "title": {
-          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
-          "url": "https://example.ru"
-        }
-      }
-    }
-  },
-  "textWidthWithoutTitle": {
-    "content": {
-      "type": "content-layout-block"
-    }
-  },
-  "withImageAndBackgroundSizeL": {
+  "withImageAndBackgroundColor": {
     "content": {
       "type": "content-layout-block",
       "properties": {
         "background": {
-          "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
+          "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/content-bg-img_light.png",
           "style": {
             "backgroundColor": "#EFF2F8"
           }
         }
-      },
-      "textContent": {
-        "title": "A cube of size L with a background and image"
       }
     }
   },
@@ -94,80 +75,78 @@
       "type": "content-layout-block"
     }
   },
-  "withBackgroundSizeS": {
+  "withBackgroundColor": {
     "content": {
       "type": "content-layout-block",
       "properties": {
-        "size": "s",
         "background": {
           "style": {
             "backgroundColor": "#EFF2F8"
           }
         }
-      },
-      "textContent": {
-        "title": "A cube of size S with a background"
       }
     }
   },
-  "withImageSizeSCentered": {
+  "textAlignCenter": {
     "content": {
       "type": "content-layout-block",
       "properties": {
-        "size": "s",
-        "background": {
-          "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png"
-        },
         "centered": true
-      },
-      "textContent": {
-        "title": "A cube of size S with an image, centered"
       }
     }
   },
   "default": {
     "content": {
-      "type": "content-layout-block",
-      "textContent": {
-        "links": [
-          {
-            "url": "#",
-            "text": "Link",
-            "theme": "normal",
-            "arrow": true
-          },
-          {
-            "url": "#1",
-            "text": "Link",
-            "theme": "normal",
-            "arrow": true
-          },
-          {
-            "url": "#2",
-            "text": "Link",
-            "theme": "normal",
-            "arrow": true
-          },
-          {
-            "url": "#3",
-            "text": "Link",
-            "theme": "normal",
-            "arrow": true
-          },
-          {
-            "url": "https://example.com",
-            "text": "Back link",
-            "theme": "back",
-            "arrow": true
-          }
-        ]
-      }
+      "type": "content-layout-block"
     }
   },
   "theme": {
     "title": "A cube with {{theme}} monochrome theme",
-    "contactButtonTitle": "Contact us",
     "getStartedButtonTitle": "Get Started",
+    "darkProperties": {
+      "properties": {
+        "theme": "dark",
+        "background": {
+          "style": {
+            "backgroundColor": "#262626"
+          }
+        }
+      },
+      "buttons": [
+        {
+          "text": "Get Started",
+          "theme": "normal-contrast",
+          "url": "https://example.com"
+        },
+        {
+          "text": "Contact us",
+          "theme": "outlined-contrast",
+          "url": "https://example.com"
+        }
+      ]
+    },
+    "lightProperties": {
+      "properties": {
+        "theme": "light",
+        "background": {
+          "style": {
+            "backgroundColor": "#CCF0D2"
+          }
+        }
+      },
+      "buttons": [
+        {
+          "text": "Get Started",
+          "theme": "monochrome",
+          "url": "https://example.com"
+        },
+        {
+          "text": "Contact us",
+          "theme": "outlined",
+          "url": "https://example.com"
+        }
+      ]
+    },
     "content": {
       "type": "content-layout-block"
     }

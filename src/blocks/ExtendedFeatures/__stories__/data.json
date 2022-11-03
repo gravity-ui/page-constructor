@@ -13,9 +13,9 @@
       },
       "items": [
         {
-          "title": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+          "title": "Sed do eiusmod tempor incididunt",
           "text": "Ut enim ad minim veniam <a href=\"https://example.com\">quis nostrud exercitation</a> ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-          "icon": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/icons/icon.svg",
+          "icon": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_1_light.svg",
           "link": {
             "text": "Go",
             "url": "#",
@@ -24,9 +24,9 @@
           }
         },
         {
-          "title": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+          "title": "Sed do eiusmod tempor",
           "text": "Ut enim ad minim veniam <a href=\"https://example.com\">quis nostrud exercitation</a> ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-          "icon": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/icons/icon.svg",
+          "icon": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_2_light.svg",
           "link": {
             "text": "Go",
             "url": "#",
@@ -35,9 +35,9 @@
           }
         },
         {
-          "title": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+          "title": "Sed do eiusmod tempor incididunt",
           "text": "Ut enim ad minim veniam <a href=\"https://example.com\">quis nostrud exercitation</a> ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-          "icon": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/icons/icon.svg",
+          "icon": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_3_light.svg",
           "link": {
             "text": "Go",
             "url": "#",
@@ -62,9 +62,9 @@
       },
       "items": [
         {
-          "title": "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+          "title": "sed do eiusmod tempor incididunt",
           "text": "Ut enim ad minim veniam <a href=\"https://example.com\">quis nostrud exercitation</a> ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-          "icon": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/icons/icon.svg",
+          "icon": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_1_light.svg",
           "link": {
             "text": "Go",
             "url": "#",
@@ -74,9 +74,9 @@
           "label": "New"
         },
         {
-          "title": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+          "title": "Sed do eiusmod tempor",
           "text": "Ut enim ad minim veniam <a href=\"https://example.com\">quis nostrud exercitation</a> ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-          "icon": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/icons/icon.svg",
+          "icon": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_2_light.svg",
           "link": {
             "text": "Go",
             "url": "#",
@@ -86,16 +86,15 @@
           "label": "Preview"
         },
         {
-          "title": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+          "title": "Sed do eiusmod tempor incididunt ",
           "text": "Ut enim ad minim veniam <a href=\"https://example.com\">quis nostrud exercitation</a> ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-          "icon": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/icons/icon.svg",
+          "icon": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_3_light.svg",
           "link": {
             "text": "Go",
             "url": "#",
             "arrow": true,
             "theme": "normal"
-          },
-          "label": "New"
+          }
         }
       ]
     }
