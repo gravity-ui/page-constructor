@@ -65,7 +65,7 @@ const VerticalOffsetTemplate: Story<HeaderBlockModel> = (args) => (
     </Fragment>
 );
 
-const MediaTemplate: Story<HeaderBlockModel> = (args) => (
+const BackgroundTemplate: Story<HeaderBlockModel> = (args) => (
     <Fragment>
         <DefaultTemplate
             {...args}
@@ -77,20 +77,75 @@ const MediaTemplate: Story<HeaderBlockModel> = (args) => (
             title={data.media.content.video.title}
             background={data.media.content.video.background}
         />
+    </Fragment>
+);
+
+const FullWithBackgroundTemplate: Story<HeaderBlockModel> = (args) => (
+    <Fragment>
         <DefaultTemplate
             {...args}
-            title={data.media.content.fullWidthBackground.title}
-            background={data.media.content.fullWidthBackground.background}
+            title={data.media.content.image.title}
+            background={{
+                light: {
+                    ...data.media.content.image.background.light,
+                    fullWidth: true,
+                },
+                dark: {
+                    ...data.media.content.image.background.dark,
+                    fullWidth: true,
+                },
+            }}
         />
         <DefaultTemplate
             {...args}
-            title={data.media.content.fullWidthMedia.title}
-            background={data.media.content.fullWidthMedia.background}
+            title={data.media.content.video.title}
+            background={{
+                light: {
+                    ...data.media.content.video.background.light,
+                    fullWidth: true,
+                },
+                dark: {
+                    ...data.media.content.video.background.dark,
+                    fullWidth: true,
+                },
+            }}
+        />
+    </Fragment>
+);
+
+const FullWidthMediaBackgroundTemplate: Story<HeaderBlockModel> = (args) => (
+    <Fragment>
+        <DefaultTemplate
+            {...args}
+            title={data.media.content.image.title}
+            background={{
+                light: {
+                    ...data.media.content.image.background.light,
+                    fullWidth: true,
+                    fullWidthMedia: true,
+                },
+                dark: {
+                    ...data.media.content.image.background.dark,
+                    fullWidth: true,
+                    fullWidthMedia: true,
+                },
+            }}
         />
         <DefaultTemplate
             {...args}
-            title={data.media.content.deviceSupport.title}
-            background={data.media.content.deviceSupport.background}
+            title={data.media.content.video.title}
+            background={{
+                light: {
+                    ...data.media.content.video.background.light,
+                    fullWidth: true,
+                    fullWidthMedia: true,
+                },
+                dark: {
+                    ...data.media.content.video.background.dark,
+                    fullWidth: true,
+                    fullWidthMedia: true,
+                },
+            }}
         />
     </Fragment>
 );
@@ -117,7 +172,9 @@ export const Default = DefaultTemplate.bind({});
 export const Size = SizeTemplate.bind({});
 export const Image = ImageTemplate.bind({});
 export const VerticalOffset = VerticalOffsetTemplate.bind({});
-export const Media = MediaTemplate.bind({});
+export const Background = BackgroundTemplate.bind({});
+export const FullWithBackground = FullWithBackgroundTemplate.bind({});
+export const FullWidthMediaBackground = FullWidthMediaBackgroundTemplate.bind({});
 export const DarkTheme = DefaultTemplate.bind({});
 export const Breadcrumbs = BreadCrumbsTemplate.bind({});
 
@@ -135,7 +192,15 @@ VerticalOffset.args = {
     ...data.image.content,
 } as HeaderBlockPropsNoTitle;
 
-Media.args = {
+Background.args = {
+    ...DefaultArgs,
+} as HeaderBlockPropsNoTitle;
+
+FullWithBackground.args = {
+    ...DefaultArgs,
+} as HeaderBlockPropsNoTitle;
+
+FullWidthMediaBackground.args = {
     ...DefaultArgs,
 } as HeaderBlockPropsNoTitle;
 
