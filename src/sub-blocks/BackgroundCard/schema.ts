@@ -1,5 +1,4 @@
-import {BaseProps, withTheme} from '../../schema/validators/common';
-import {CardBase} from '../../components/CardBase/schema';
+import {BaseProps, CardBase, withTheme} from '../../schema/validators/common';
 import {ContentBase} from '../Content/schema';
 import {ImageObjectProps} from '../../components/Image/schema';
 import _ from 'lodash';
