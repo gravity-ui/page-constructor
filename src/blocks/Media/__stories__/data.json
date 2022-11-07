@@ -62,14 +62,28 @@
     "staticWithAutoPlay": {
       "title": "Video with auto loop and without controls",
       "media": {
-        "video": {
-          "src": [
-            "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.webm",
-            "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.mp4",
-            "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.png"
-          ],
-          "loop": {
-            "start": 0
+        "light": {
+          "video": {
+            "src": [
+              "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.webm",
+              "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.mp4",
+              "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.png"
+            ],
+            "loop": {
+              "start": 0
+            }
+          }
+        },
+        "dark": {
+          "video": {
+            "src": [
+              "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_dark.webm",
+              "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_dark.mp4",
+              "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_dark.png"
+            ],
+            "loop": {
+              "start": 0
+            }
           }
         }
       }
@@ -87,6 +101,17 @@
             ],
             "autoplay": false
           }
+        },
+        "dark": {
+          "video": {
+            "type": "player",
+            "src": [
+              "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_dark.webm",
+              "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_dark.mp4",
+              "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_dark.png"
+            ],
+            "autoplay": false
+          }
         }
       }
     },
@@ -99,15 +124,29 @@
     "youtubeWithPreview": {
       "title": "Video with preview image and play button",
       "media": {
-        "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.png",
-        "video": {
-          "type": "player",
-          "src": [
-            "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.webm",
-            "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.mp4",
-            "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.png"
-          ],
-          "autoplay": false
+        "light": {
+          "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.png",
+          "video": {
+            "type": "player",
+            "src": [
+              "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.webm",
+              "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.mp4",
+              "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.png"
+            ],
+            "autoplay": false
+          }
+        },
+        "dark": {
+          "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_dark.png",
+          "video": {
+            "type": "player",
+            "src": [
+              "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_dark.webm",
+              "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_dark.mp4",
+              "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_dark.png"
+            ],
+            "autoplay": false
+          }
         }
       }
     }
@@ -116,11 +155,11 @@
     "content": {
       "media": {
         "light": {
-          "dataLens": "zqx9je64n9bws"
+          "dataLens": "m2bzon9y39lck"
         },
         "dark": {
           "dataLens": {
-            "id": "zqx9je64n9bws",
+            "id": "m2bzon9y39lck",
             "theme": "dark"
           }
         }

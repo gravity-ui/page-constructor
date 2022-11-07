@@ -24,10 +24,20 @@ const DefaultTemplate: Story<SecurityBlockModel> = (args) => (
     <PageConstructor content={{blocks: [args]}} />
 );
 
-export const DarkTheme = DefaultTemplate.bind({});
+export const Default = DefaultTemplate.bind({});
 export const LightTheme = DefaultTemplate.bind({});
 export const CustomBackground = DefaultTemplate.bind({});
 
-DarkTheme.args = data.darkTheme.content as SecurityBlockProps;
-LightTheme.args = data.lightTheme.content as SecurityBlockProps;
-CustomBackground.args = data.customBackground.content as SecurityBlockProps;
+Default.args = {
+    ...data.common,
+    ...data.default.content,
+} as SecurityBlockProps;
+LightTheme.args = {
+    ...data.common,
+    ...data.lightTheme.content,
+} as SecurityBlockProps;
+CustomBackground.args = {
+    ...data.common,
+    ...data.customBackground.content,
+    points: data.default.content.points,
+} as SecurityBlockProps;

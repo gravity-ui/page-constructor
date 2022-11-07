@@ -5,7 +5,7 @@
       "type": "slider-block",
       "title": {
         "text": "QuoteCards",
-        "url": "/events"
+        "url": "https://example.com"
       },
       "slidesToShow": 1,
       "arrows": true,
@@ -15,120 +15,40 @@
           "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
           "image": {
             "light": {
-              "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png"
+              "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_6-12_light.png"
             },
             "dark": {
-              "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-black.png"
+              "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_dark.png"
             }
           },
           "url": "https://example.com",
           "author": {
-            "firstName": "Oval",
-            "secondName": "Ovalny",
-            "description": "Geometry lead",
-            "avatar": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png"
+            "firstName": "Lorem",
+            "secondName": "ipsum",
+            "description": "Lorem ipsum",
+            "avatar": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_6-12_light.png"
           },
-          "logo": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-white.png"
+          "logo": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-mini_6-12_light.png"
         },
         {
           "type": "quote",
           "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
           "image": {
             "light": {
-              "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-white.png"
+              "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_6-12_light.png"
             },
             "dark": {
-              "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-black.png"
+              "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_dark.png"
             }
           },
           "url": "https://example.com",
           "author": {
-            "firstName": "Oval",
-            "secondName": "Ovalny",
-            "description": "Geometry lead",
-            "avatar": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png"
+            "firstName": "Lorem",
+            "secondName": "ipsum",
+            "description": "Lorem ipsum",
+            "avatar": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_6-12_light.png"
           },
-          "logo": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-white.png"
-        },
-        {
-          "type": "quote",
-          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-          "image": {
-            "light": {
-              "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png"
-            },
-            "dark": {
-              "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-black.png"
-            }
-          },
-          "url": "https://example.com",
-          "author": {
-            "firstName": "Oval",
-            "secondName": "Ovalny",
-            "description": "Geometry lead",
-            "avatar": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png"
-          },
-          "logo": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-white.png"
-        },
-        {
-          "type": "quote",
-          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-          "image": {
-            "light": {
-              "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-white.png"
-            },
-            "dark": {
-              "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-black.png"
-            }
-          },
-          "url": "https://example.com",
-          "author": {
-            "firstName": "Oval",
-            "secondName": "Ovalny",
-            "description": "Geometry lead",
-            "avatar": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png"
-          },
-          "logo": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-white.png"
-        }
-      ]
-    }
-  },
-  "tutorialCards": {
-    "content": {
-      "dots": true,
-      "type": "slider-block",
-      "title": {
-        "text": "TutorialCards",
-        "url": "/events"
-      },
-      "children": [
-        {
-          "type": "tutoral-card",
-          "url": "string",
-          "title": "Lorem ipsum dolor sit amet 1",
-          "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-        },
-        {
-          "type": "tutoral-card",
-          "url": "string",
-          "title": "Lorem ipsum dolor sit amet 2",
-          "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-        },
-        {
-          "type": "tutoral-card",
-          "url": "string",
-          "icon": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/icons/icon.svg",
-          "title": "Lorem ipsum dolor sit amet 3",
-          "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-        },
-        {
-          "type": "tutoral-card",
-          "url": "string",
-          "icon": {
-            "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/icons/icon.svg"
-          },
-          "title": "Lorem ipsum dolor sit amet 7",
-          "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+          "logo": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-mini_6-12_light.png"
         }
       ]
     }
@@ -139,7 +59,7 @@
       "type": "slider-block",
       "title": {
         "text": "Banners",
-        "url": "/events"
+        "url": "https://example.com"
       },
       "slidesToShow": 1,
       "arrows": true,
@@ -149,13 +69,13 @@
           "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
           "subtitle": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> ",
           "image": {
-            "light": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
-            "dark": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-white.png"
+            "light": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_light.png",
+            "dark": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_dark.png"
           },
           "disableCompress": true,
           "color": {
-            "light": "#EEF3FE",
-            "dark": "#000"
+            "light": "#EFF2F8",
+            "dark": "#262626"
           },
           "button": {
             "text": "Button",
@@ -166,10 +86,15 @@
           "type": "banner-card",
           "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
           "subtitle": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> ",
-          "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-black.png",
-          "theme": "dark",
+          "image": {
+            "light": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_light.png",
+            "dark": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_dark.png"
+          },
           "disableCompress": true,
-          "color": "#000",
+          "color": {
+            "light": "#EFF2F8",
+            "dark": "#262626"
+          },
           "button": {
             "text": "Button",
             "url": "https://cloud.yandex.ru/datasphere-education-program?utm_source=services&utm_medium=banner&utm_campaign=datasphere-education"
@@ -180,166 +105,92 @@
   },
   "default": {
     "content": {
-      "dots": true,
       "type": "slider-block",
       "title": {
-        "text": "Default",
-        "url": "/events"
+        "text": "Slider",
+        "url": "https://example.com"
       },
       "children": [
         {
-          "type": "tutoral-card",
-          "url": "string",
+          "type": "basic-card",
+          "url": "https://example.com",
           "title": "Lorem ipsum dolor sit amet",
           "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-          "border": "line"
+          "icon": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_1_light.svg"
         },
         {
-          "type": "tutoral-card",
-          "url": "string",
-          "title": "Lorem ipsum dolor sit amet 2",
+          "type": "basic-card",
+          "url": "https://example.com",
+          "title": "Lorem ipsum dolor sit amet",
           "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-          "border": "line"
+          "icon": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_2_light.svg"
         },
         {
-          "type": "tutoral-card",
-          "url": "string",
-          "title": "Lorem ipsum dolor sit amet 3",
+          "type": "basic-card",
+          "url": "https://example.com",
+          "title": "Lorem ipsum dolor sit amet",
           "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-          "border": "line"
+          "icon": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_3_light.svg"
         },
         {
-          "type": "tutoral-card",
-          "url": "string",
-          "title": "Lorem ipsum dolor sit amet 4",
+          "type": "basic-card",
+          "url": "https://example.com",
+          "title": "Lorem ipsum dolor sit amet",
           "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-          "border": "line"
+          "icon": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_4_light.svg"
         },
         {
-          "type": "tutoral-card",
-          "url": "string",
-          "title": "Lorem ipsum dolor sit amet 5",
+          "type": "basic-card",
+          "url": "https://example.com",
+          "title": "Lorem ipsum dolor sit amet",
           "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-          "border": "line"
-        }
-      ]
-    }
-  },
-  "newsCards": {
-    "content": {
-      "dots": true,
-      "type": "slider-block",
-      "title": {
-        "text": "NewsCards",
-        "url": "/events"
-      },
-      "children": [
-        {
-          "type": "news-card",
-          "url": "https://yandex.ru",
-          "title": "Lorem ipsum dolor sit amet",
-          "border": "line",
-          "date": "January 1, 2022",
-          "isoDate": "2020-04-06T09:56:21.192Z"
-        },
-        {
-          "type": "news-card",
-          "url": "https://yandex.ru",
-          "title": "Lorem ipsum dolor sit amet",
-          "border": "line",
-          "date": "January 1, 2022"
-        },
-        {
-          "type": "news-card",
-          "url": "https://yandex.ru",
-          "title": "Lorem ipsum dolor sit amet",
-          "border": "line",
-          "date": "January 1, 2022"
-        },
-        {
-          "type": "news-card",
-          "url": "https://yandex.ru",
-          "title": "Lorem ipsum dolor sit amet",
-          "border": "line",
-          "date": "January 1, 2022"
-        },
-        {
-          "type": "news-card",
-          "url": "https://yandex.ru",
-          "title": "Lorem ipsum dolor sit amet",
-          "border": "line",
-          "date": "January 1, 2022"
+          "icon": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_1_light.svg"
         }
       ]
     }
   },
   "autoPlay": {
     "content": {
-      "dots": true,
       "type": "slider-block",
+      "autoplay": 1000
+    }
+  },
+  "withoutArrows": {
+    "content": {
+      "type": "slider-block",
+      "arrows": false
+    }
+  },
+  "withoutDots": {
+    "content": {
+      "type": "slider-block",
+      "dots": false
+    }
+  },
+  "slidesToShow": {
+    "one": {
       "title": {
-        "text": "TutorialCards",
-        "url": "/events"
+        "text": "Slides to show: 1"
       },
-      "autoplay": 1000,
-      "children": [
-        {
-          "type": "tutoral-card",
-          "url": "string",
-          "title": "Lorem ipsum dolor sit amet 1",
-          "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-        },
-        {
-          "type": "tutoral-card",
-          "url": "string",
-          "title": "Lorem ipsum dolor sit amet 2",
-          "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-        },
-        {
-          "type": "tutoral-card",
-          "url": "string",
-          "icon": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/icons/icon.svg",
-          "title": "Lorem ipsum dolor sit amet 3",
-          "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-        },
-        {
-          "type": "tutoral-card",
-          "url": "string",
-          "icon": {
-            "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/icons/icon.svg"
-          },
-          "title": "Lorem ipsum dolor sit amet 7",
-          "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-        },
-        {
-          "type": "tutoral-card",
-          "url": "string",
-          "title": "Lorem ipsum dolor sit amet 1",
-          "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-        },
-        {
-          "type": "tutoral-card",
-          "url": "string",
-          "title": "Lorem ipsum dolor sit amet 2",
-          "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-        },
-        {
-          "type": "tutoral-card",
-          "url": "string",
-          "icon": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/icons/icon.svg",
-          "title": "Lorem ipsum dolor sit amet 3",
-          "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-        },
-        {
-          "type": "tutoral-card",
-          "url": "string",
-          "icon": {
-            "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/icons/icon.svg"
-          },
-          "title": "Lorem ipsum dolor sit amet 7",
-          "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-        }
-      ]
+      "slidesToShow": 1
+    },
+    "two": {
+      "title": {
+        "text": "Slides to show: 2"
+      },
+      "slidesToShow": 2
+    },
+    "three": {
+      "title": {
+        "text": "Slides to show: 3"
+      },
+      "slidesToShow": 3
+    },
+    "four": {
+      "title": {
+        "text": "Slides to show: 4"
+      },
+      "slidesToShow": 4
     }
   }
 }

@@ -1,5 +1,6 @@
 import {Meta, Story} from '@storybook/react/types-6-0';
 import React from 'react';
+import yfm from '@doc-tools/transform';
 
 import Simple from '../Simple';
 import {SimpleBlockModel, SimpleBlockProps} from '../../../models';
@@ -18,4 +19,7 @@ const DefaultTemplate: Story<SimpleBlockModel> = (args) => (
 
 export const Default = DefaultTemplate.bind({});
 
-Default.args = data.default.content as SimpleBlockProps;
+Default.args = {
+    ...data.default.content,
+    description: yfm(data.default.content.description).result.html,
+} as SimpleBlockProps;

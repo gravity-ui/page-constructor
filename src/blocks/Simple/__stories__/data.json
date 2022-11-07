@@ -5,19 +5,19 @@
       "title": {
         "text": "Lorem ipsum"
       },
-      "description": "<p>Lorem ipsum <a href=\"https://example.com\"> dolor sit amet</a> consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> ",
+      "description": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
       "children": [
         {
           "type": "media-card",
-          "dataLens": "zqx9je64n9bws"
+          "dataLens": "m2bzon9y39lck"
         },
         {
           "type": "divider"
         },
         {
           "type": "media-card",
-          "youtube": "https://youtu.be/bxZRUtMAlFI",
-          "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/constructor/video-preview.png"
+          "youtube": "https://youtu.be/0Qd3T6skprA",
+          "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_dark.png"
         }
       ]
     }
