@@ -1,5 +1,6 @@
 import {Meta, Story} from '@storybook/react/types-6-0';
 import React from 'react';
+import yfm from '@doc-tools/transform';
 
 import BasicCard from '../BasicCard';
 import {BasicCardProps} from '../../../models';
@@ -16,7 +17,7 @@ export default {
 } as Meta;
 
 const DefaultTemplate: Story<BasicCardProps> = (args) => (
-    <div style={{maxWidth: '500px'}}>
+    <div style={{maxWidth: '400px'}}>
         <BasicCard {...args} />
     </div>
 );
@@ -24,24 +25,13 @@ const DefaultTemplate: Story<BasicCardProps> = (args) => (
 const WithIconTemplate: Story<BasicCardProps> = (args) => (
     <div style={{display: 'flex'}}>
         <div style={{maxWidth: '400px', padding: '0 8px'}}>
-            <BasicCard
-                {...args}
-                icon="https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/icons/icon.svg"
-            />
+            <BasicCard {...args} icon={data.withIcon.icons[0]} />
         </div>
         <div style={{maxWidth: '400px', padding: '0 8px'}}>
-            <BasicCard
-                {...args}
-                icon="https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/icons/icon.svg"
-            />
+            <BasicCard {...args} icon={data.withIcon.icons[1]} />
         </div>
         <div style={{maxWidth: '400px', padding: '0 8px'}}>
-            <BasicCard
-                {...args}
-                icon="https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/icons/icon.svg"
-                title=""
-                text={data.withIcon.cardText}
-            />
+            <BasicCard {...args} icon={data.withIcon.icons[2]} />
         </div>
     </div>
 );
@@ -64,6 +54,14 @@ export const Default = DefaultTemplate.bind({});
 export const WithIcon = WithIconTemplate.bind({});
 export const WithBorder = WithBorderTemplate.bind({});
 
-Default.args = data.default.content as BasicCardProps;
-WithIcon.args = data.withIcon.content as BasicCardProps;
-WithBorder.args = data.withBorder.content as BasicCardProps;
+const DefaultArgs = {
+    ...data.default.content,
+    text: yfm(data.default.content.text).result.html,
+};
+
+Default.args = {
+    ...data.default.content,
+    ...DefaultArgs,
+} as BasicCardProps;
+WithIcon.args = DefaultArgs as BasicCardProps;
+WithBorder.args = DefaultArgs as BasicCardProps;

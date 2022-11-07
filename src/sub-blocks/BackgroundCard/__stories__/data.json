@@ -1,43 +1,52 @@
 {
+  "common": {
+    "title": "Lorem ipsumt",
+    "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "additionalInfo": "Duis aute irure dolor in [reprehenderit](https://example.com) n voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+    "links": [
+      {
+        "url": "https://example.com",
+        "text": "Link",
+        "theme": "normal",
+        "arrow": true
+      }
+    ],
+    "buttons": [
+      {
+        "text": "Button\r",
+        "theme": "action",
+        "url": "https://example.com"
+      },
+      {
+        "text": "Button",
+        "theme": "outlined",
+        "url": "https://example.com"
+      }
+    ]
+  },
   "backgroundColor": {
     "content": {
-      "backgroundColor": "#7ccea0"
+      "backgroundColor": "#7ccea0",
+      "theme": "dark"
     }
   },
   "default": {
     "content": {
-      "url": "https://example.com",
-      "title": "Lorem ipsumt",
-      "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      "additionalInfo": "Duis aute irure dolor in [reprehenderit](https://example.com) n voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-      "links": [
-        {
-          "url": "https://example.com",
-          "text": "Link",
-          "theme": "normal",
-          "arrow": true
-        }
-      ],
-      "buttons": [
-        {
-          "text": "Button\r",
-          "theme": "action",
-          "url": "https://example.com"
-        },
-        {
-          "text": "Button",
-          "theme": "outlined",
-          "url": "https://example.com"
-        }
-      ]
+      "url": "https://example.com"
     }
   },
   "withBackgroundImage": {
     "content": {
       "background": {
-        "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
-        "alt": "Lorem ipsumt",
-        "disableCompress": true
+        "light": {
+          "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-bg_nopadding_4-12_light.png",
+          "alt": "Lorem ipsumt",
+          "disableCompress": true
+        },
+        "dark": {
+          "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-bg_nopadding_4-12_dark.png",
+          "alt": "Lorem ipsumt"
+        }
       }
     }
   },
@@ -53,7 +62,19 @@
     "content": [
       {
         "title": "Default theme",
-        "theme": "default"
+        "theme": "default",
+        "buttons": [
+          {
+            "text": "Button\r",
+            "theme": "action",
+            "url": "https://example.com"
+          },
+          {
+            "text": "Button",
+            "theme": "outlined",
+            "url": "https://example.com"
+          }
+        ]
       },
       {
         "title": "Dark Monochrome theme",
@@ -89,21 +110,5 @@
         ]
       }
     ]
-  },
-  "withTheme": {
-    "content": {
-      "background": {
-        "light": {
-          "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
-          "alt": "Lorem ipsumt",
-          "disableCompress": true
-        },
-        "dark": {
-          "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-black.png",
-          "alt": "Lorem ipsumt",
-          "disableCompress": true
-        }
-      }
-    }
   }
 }

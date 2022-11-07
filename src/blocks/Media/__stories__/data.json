@@ -118,10 +118,10 @@
     "youtube": {
       "title": "Video from video-hosting",
       "media": {
-        "youtube": "https://youtu.be/bxZRUtMAlFI"
+        "youtube": "https://youtu.be/0Qd3T6skprA"
       }
     },
-    "youtubeWithPreview": {
+    "videoWithPreview": {
       "title": "Video with preview image and play button",
       "media": {
         "light": {

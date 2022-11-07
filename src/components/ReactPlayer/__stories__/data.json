@@ -1,8 +1,7 @@
 {
   "default": {
     "content": {
-      "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/EN/02%20Calculator%20EN.mp4",
-      "previewImgUrl": "",
+      "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.mp4",
       "loop": true,
       "customBarControlsClassName": "",
       "showPreview": true

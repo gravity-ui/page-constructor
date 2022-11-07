@@ -19,9 +19,7 @@ const DefaultTemplate: Story<CardWithImageProps> = (args) => (
 );
 
 export const Default = DefaultTemplate.bind({});
-export const TitleWithLink = DefaultTemplate.bind({});
 export const FullScreen = DefaultTemplate.bind({});
 
 Default.args = data.default.content as CardWithImageProps;
-TitleWithLink.args = data.titleWithLink.content as CardWithImageProps;
 FullScreen.args = data.fullScreen.content as CardWithImageProps;

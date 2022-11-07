@@ -13,8 +13,7 @@
           ["Lorem 5", "1", "1", "1"]
         ],
         "legend": ["ipsum 1", "ipsum 2"],
-        "justify": ["start", "center", "center", "center"],
-        "marker": "disk"
+        "justify": ["start", "center", "center", "center"]
       }
     }
   }

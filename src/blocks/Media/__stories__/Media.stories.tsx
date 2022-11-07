@@ -63,8 +63,8 @@ const VideoTemplate: Story<MediaBlockModel> = (args) => (
                 },
                 {
                     ...args,
-                    title: data.video.youtubeWithPreview.title,
-                    media: data.video.youtubeWithPreview.media as MediaProps,
+                    title: data.video.videoWithPreview.title,
+                    media: data.video.videoWithPreview.media as MediaProps,
                 },
                 {
                     ...args,
