@@ -25,7 +25,9 @@ type BlogFeedProps = {
     image: string;
 };
 
-const containerId = 'blog-cards';
+const CONTAINER_ID = 'blog-cards';
+const PAGE_QUERY = 'page';
+const FIRST_PAGE = 1;
 
 export const BlogFeed: React.FC<BlogFeedProps> = ({image}) => {
     const {
@@ -72,13 +74,17 @@ export const BlogFeed: React.FC<BlogFeedProps> = ({image}) => {
         ? Number(queryParams.perPage)
         : DEFAULT_BLOG_ROWS_PER_PAGE;
 
-    const handlePageChange = async (value: number) => {
-        dispatch({type: ActionTypes.QueryParamsChange, payload: {page: value}});
+    const pageChange = (value: number) => {
         dispatch({type: ActionTypes.PageChange, payload: value});
     };
 
     const handleChangeQueryParams: HandleChangeQueryParams = (value) => {
         dispatch({type: ActionTypes.QueryParamsChange, payload: value});
+    };
+
+    const handlePageChange = async (value: number) => {
+        pageChange(value);
+        handleChangeQueryParams({page: value});
     };
 
     const fetchData = useCallback(
@@ -99,28 +105,32 @@ export const BlogFeed: React.FC<BlogFeedProps> = ({image}) => {
         dispatch({type: ActionTypes.SetIsFetching, payload: value});
     };
 
-    const fetchAndReplaceData = useCallback(async () => {
-        try {
-            dispatch({type: ActionTypes.SetErrorLoad, payload: false});
-            const fetchedData = await fetchData();
+    const fetchAndReplaceData = useCallback(
+        async (pageNumber?: number) => {
+            try {
+                dispatch({type: ActionTypes.SetErrorLoad, payload: false});
+                const fetchedData = await fetchData(pageNumber);
 
-            if (fetchedData) {
-                dispatch({
-                    type: ActionTypes.SetPosts,
-                    payload: {
-                        posts: fetchedData.posts,
-                        pinnedPost: fetchedData.pinnedPost,
-                        count: fetchedData.count,
-                    },
-                });
+                if (fetchedData) {
+                    dispatch({
+                        type: ActionTypes.SetPosts,
+                        payload: {
+                            posts: fetchedData.posts,
+                            pinnedPost: fetchedData.pinnedPost,
+                            count: fetchedData.count,
+                            page: pageNumber,
+                        },
+                    });
+                }
+            } catch (err) {
+                dispatch({type: ActionTypes.SetErrorLoad, payload: true});
             }
-        } catch (err) {
-            dispatch({type: ActionTypes.SetErrorLoad, payload: true});
-        }
 
-        scrollBlogOnPageChange(containerId);
-        setIsFetching(false);
-    }, [fetchData]);
+            scrollBlogOnPageChange(CONTAINER_ID);
+            setIsFetching(false);
+        },
+        [fetchData],
+    );
 
     const handleShowMore = async () => {
         dispatch({type: ActionTypes.SetIsShowMoreFetching, payload: true});
@@ -153,9 +163,9 @@ export const BlogFeed: React.FC<BlogFeedProps> = ({image}) => {
 
     useEffect(() => {
         if (isFetching) {
-            fetchAndReplaceData();
+            fetchAndReplaceData(Number(queryParams.page));
         }
-    }, [fetchAndReplaceData, isFetching]);
+    }, [fetchAndReplaceData, isFetching, queryParams.page]);
 
     useEffect(() => {
         const loadedPostsCount = currentPage * perPageInQuery;
@@ -187,6 +197,10 @@ export const BlogFeed: React.FC<BlogFeedProps> = ({image}) => {
     useEffect(() => {
         const queryString = Object.keys(queryParams)
             .reduce((acc: string[], curr) => {
+                if (curr === PAGE_QUERY && queryParams[curr] === FIRST_PAGE) {
+                    return acc;
+                }
+
                 if (queryParams[curr]) {
                     acc.push(`${curr}=${queryParams[curr]}`);
                 }
@@ -219,7 +233,7 @@ export const BlogFeed: React.FC<BlogFeedProps> = ({image}) => {
                 <PostsError onButtonClick={fetchAndReplaceData} />
             ) : (
                 <Posts
-                    containerId={containerId}
+                    containerId={CONTAINER_ID}
                     currentPage={currentPage}
                     isShowMoreVisible={isShowMoreVisible}
                     errorShowMore={errorShowMore}

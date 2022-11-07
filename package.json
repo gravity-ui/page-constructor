@@ -93,7 +93,7 @@
     "@babel/core": "^7.15.8",
     "@doc-tools/components": "^2.1.0",
     "@doc-tools/transform": "^2.9.0",
-    "@gravity-ui/page-constructor": "^1.2.0",
+    "@gravity-ui/page-constructor": "^1.4.1",
     "@gravity-ui/uikit": "^3.1.0",
     "@storybook/addon-actions": "^6.3.12",
     "@storybook/addon-essentials": "^6.3.12",

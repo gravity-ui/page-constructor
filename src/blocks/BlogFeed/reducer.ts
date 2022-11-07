@@ -91,6 +91,7 @@ export const reducer = (state: State, {type, payload}: Action): State => {
                 postCountOnPage: payload.count,
                 pinnedPostOnPage: payload.pinnedPost,
                 postsOnPage: payload.posts,
+                currentPage: payload.page,
             };
         case ActionTypes.SetShowMore:
             return {

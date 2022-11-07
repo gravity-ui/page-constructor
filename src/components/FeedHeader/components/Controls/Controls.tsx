@@ -42,6 +42,7 @@ export type ControlsProps = {
 };
 
 const ICON_SIZE = 16;
+const DEFAULT_PAGE = 1;
 
 export const Controls: React.FC<ControlsProps> = ({
     setIsFetching,
@@ -70,7 +71,7 @@ export const Controls: React.FC<ControlsProps> = ({
     };
 
     const handleSearch = (searchValue: string) => {
-        handleChangeQuery({search: searchValue});
+        handleChangeQuery({search: searchValue, page: DEFAULT_PAGE});
 
         setSearch(searchValue);
         setIsFetching(true);
@@ -85,6 +86,7 @@ export const Controls: React.FC<ControlsProps> = ({
 
         handleChangeQuery({
             tags: isEmptyTags ? '' : selectedTag,
+            page: DEFAULT_PAGE,
         });
 
         setIsFetching(true);
@@ -103,7 +105,7 @@ export const Controls: React.FC<ControlsProps> = ({
 
         const servicesAsString = selectedServices.join(',');
 
-        handleChangeQuery({services: servicesAsString});
+        handleChangeQuery({services: servicesAsString, page: DEFAULT_PAGE});
 
         setIsFetching(true);
     };

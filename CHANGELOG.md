@@ -1,5 +1,9 @@
 # Change log
 
+## 0.12.0
+
+- Update page change logic when interactions with blog search panel
+
 ## 0.11.1
 
 - **BlogYFM**: add `yfm_no-list-reset` class
