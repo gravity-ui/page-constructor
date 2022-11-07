@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.4.2](https://github.com/gravity-ui/page-constructor/pull/46) (2022-11-07)
+
+### Bug Fixes
+
+* change link text m arrow size
+
 ## [1.4.1](https://github.com/gravity-ui/page-constructor/pull/42) (2022-10-28)
 
 ### Bug Fixes

@@ -21,7 +21,7 @@ function getArrowSize(size: TextSize) {
         case 'l':
             return 20;
         case 'm':
-            return 12;
+            return 18;
         case 's':
             return 12;
         default:
