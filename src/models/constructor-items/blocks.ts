@@ -168,8 +168,10 @@ export interface ExtendedFeaturesItem {
     title?: string;
     text?: string;
     label?: string;
-    icon?: string;
+    icon?: ThemedImage;
+    /** @deprecated **/
     link?: LinkProps;
+    links?: LinkProps[];
 }
 
 export interface ExtendedFeaturesProps extends Animatable {
