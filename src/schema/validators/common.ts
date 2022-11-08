@@ -482,3 +482,10 @@ export const MediaProps = {
     },
     dataLens: DataLensProps,
 };
+
+export const CardBase = {
+    border: {
+        type: 'string',
+        enum: ['border', 'shadow', 'none'],
+    },
+};

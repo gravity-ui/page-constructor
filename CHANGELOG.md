@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.5.0](https://github.com/gravity-ui/page-constructor/issues/44) (2022-11-03)
+
+### Features
+
+* remove card validator and types
+
 ## [1.4.2](https://github.com/gravity-ui/page-constructor/pull/46) (2022-11-07)
 
 ### Bug Fixes

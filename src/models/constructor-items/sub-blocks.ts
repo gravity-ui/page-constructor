@@ -7,7 +7,6 @@ import {
     ButtonPixel,
     ButtonProps,
     CardBaseProps,
-    CardProps,
     ContentTheme,
     DividerSize,
     ImageObjectProps,
@@ -171,10 +170,6 @@ export type DividerModel = {
     type: SubBlockType.Divider;
 } & DividerProps;
 
-export type CardModel = {
-    type: SubBlockType.Card;
-} & CardProps;
-
 export type QuoteModel = {
     type: SubBlockType.Quote;
 } & QuoteProps;
@@ -217,7 +212,6 @@ export type BannerCardModel = {
 
 export type SubBlockModels =
     | DividerModel
-    | CardModel
     | QuoteModel
     | NewsCardModel
     | PartnerModel

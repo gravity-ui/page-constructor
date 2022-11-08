@@ -37,8 +37,6 @@ import {
     ContentLayoutBlock,
 } from './blocks';
 
-import {CardBase} from './components';
-
 export const blockMap = {
     [BlockType.SliderBlock]: SliderBlock,
     [BlockType.SimpleBlock]: SimpleBlock,
@@ -80,8 +78,4 @@ export const subBlockMap = {
     [SubBlockType.BasicCard]: BasicCard,
     [SubBlockType.Content]: Content,
     [SubBlockType.Quote]: Quote,
-    /**
-     * @deprecated Will be removed, use basic card instead
-     */
-    [SubBlockType.Card]: CardBase,
 };
