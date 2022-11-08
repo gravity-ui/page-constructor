@@ -1,6 +1,6 @@
 import {Meta, Story} from '@storybook/react/types-6-0';
 import React from 'react';
-import yfm from '@doc-tools/transform';
+import {yfmTransform} from '../../../../.storybook/utils';
 
 import PromoFeaturesBlock from '../PromoFeaturesBlock';
 import {PromoFeaturesBlockModel, PromoFeaturesProps} from '../../../models';
@@ -25,7 +25,7 @@ export const GreyTheme = DefaultTemplate.bind({});
 
 const DefaultArgs = {
     ...data.common,
-    description: yfm(data.common.description).result.html,
+    description: yfmTransform(data.common.description),
 };
 
 DefaultTheme.args = {
@@ -34,7 +34,7 @@ DefaultTheme.args = {
     items: data.defaultTheme.content.items.map((item) => {
         return {
             ...item,
-            text: yfm(item.text).result.html,
+            text: yfmTransform(item.text),
         };
     }),
 } as PromoFeaturesProps;
@@ -44,7 +44,7 @@ GreyTheme.args = {
     items: data.greyTheme.content.items.map((item) => {
         return {
             ...item,
-            text: yfm(item.text).result.html,
+            text: yfmTransform(item.text),
         };
     }),
 } as PromoFeaturesProps;

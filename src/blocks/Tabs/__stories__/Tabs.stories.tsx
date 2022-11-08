@@ -1,6 +1,6 @@
 import React from 'react';
-import yfm from '@doc-tools/transform';
 import {Meta, Story} from '@storybook/react/types-6-0';
+import {yfmTransform} from '../../../../.storybook/utils';
 import {TabsBlockModel} from '../../../models';
 import Tabs from '../Tabs';
 import {PageConstructor} from '../../../containers/PageConstructor/PageConstructor';
@@ -27,8 +27,8 @@ Default.args = {
     ...data.default.content,
     items: data.default.content.items.map((item) => ({
         ...item,
-        title: yfm(item.title).result.html,
-        text: yfm(item.text).result.html,
+        title: yfmTransform(item.title),
+        text: yfmTransform(item.text),
     })),
 } as TabsBlockModel;
 WithTheme.args = data.theme.content as TabsBlockModel;

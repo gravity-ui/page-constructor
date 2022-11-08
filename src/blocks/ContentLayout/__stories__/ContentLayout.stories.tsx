@@ -1,5 +1,4 @@
 import React from 'react';
-import yfm from '@doc-tools/transform';
 import {Meta, Story} from '@storybook/react/types-6-0';
 import {
     ContentLayoutBlockModel,
@@ -10,6 +9,7 @@ import {
 } from '../../../models';
 import Content from '../ContentLayout';
 import {PageConstructor} from '../../../containers/PageConstructor/PageConstructor';
+import {yfmTransform} from '../../../../.storybook/utils';
 
 import data from './data.json';
 
@@ -31,7 +31,7 @@ const DefaultTemplate: Story<ContentLayoutBlockModel> = (args) => (
                     ...args,
                     textContent: {
                         ...args.textContent,
-                        additionalInfo: yfm(data.common.additionalInfo).result.html,
+                        additionalInfo: yfmTransform(data.common.additionalInfo),
                     },
                 },
                 {
@@ -113,6 +113,7 @@ const ThemesTemplate: Story<ContentLayoutBlockModel> = (args) => (
                     ...args,
                     properties: {
                         ...args.properties,
+                        ...data.theme.lightProperties.properties,
                         theme: data.theme.lightProperties.properties.theme as ContentTheme,
                     },
                     textContent: {
@@ -158,18 +159,21 @@ export const WithBackgroundImageAndColor = BackgroundTemplate.bind({});
 export const TextAlignCenter = BackgroundTemplate.bind({});
 export const Theme = ThemesTemplate.bind([]);
 export const TextWidth = TextWidthTemplate.bind([]);
+
+const transformedText = yfmTransform(data.common.text);
+
 Default.args = {
     ...data.default.content,
     textContent: {
         title: data.common.title,
-        text: yfm(data.common.text).result.html,
+        text: transformedText,
     },
 } as ContentLayoutBlockProps;
 
 WithFiles.args = {
     ...data.default.content,
     textContent: {
-        text: yfm(data.common.text).result.html,
+        text: transformedText,
     },
     fileContent: data.common.fileContent,
 } as ContentLayoutBlockProps;
@@ -177,7 +181,7 @@ WithFiles.args = {
 Size.args = {
     ...data.size.content,
     textContent: {
-        text: yfm(data.common.text).result.html,
+        text: transformedText,
         buttons: data.common.buttons,
     },
 } as ContentLayoutBlockProps;
@@ -186,7 +190,7 @@ WithBackgroundColor.args = {
     ...data.withBackgroundColor.content,
     textContent: {
         title: data.common.title,
-        text: yfm(data.common.text).result.html,
+        text: transformedText,
         buttons: data.common.buttons,
     },
 } as ContentLayoutBlockProps;
@@ -195,7 +199,7 @@ WithBackgroundImageAndColor.args = {
     ...data.withImageAndBackgroundColor.content,
     textContent: {
         title: data.common.title,
-        text: yfm(data.common.text).result.html,
+        text: transformedText,
         buttons: data.common.buttons,
     },
 } as ContentLayoutBlockProps;
@@ -204,7 +208,7 @@ TextAlignCenter.args = {
     ...data.textAlignCenter.content,
     textContent: {
         title: data.common.title,
-        text: yfm(data.common.text).result.html,
+        text: transformedText,
         buttons: data.common.buttons,
     },
 } as ContentLayoutBlockProps;
@@ -212,14 +216,14 @@ TextAlignCenter.args = {
 Theme.args = {
     ...data.theme.content,
     textContent: {
-        text: yfm(data.common.text).result.html,
+        text: transformedText,
     },
 } as ContentLayoutBlockProps;
 
 TextWidth.args = {
     ...data.textWidth.content,
     textContent: {
-        text: yfm(data.common.text).result.html,
+        text: transformedText,
         buttons: data.common.buttons,
     },
 } as ContentLayoutBlockProps;

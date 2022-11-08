@@ -12,14 +12,7 @@ export default {
     component: CardLayout,
 } as Meta;
 
-const createCardArray = (count: number, card: any) => {
-    const cardArray = [];
-    for (let i = 0; i < count; i++) {
-        cardArray.push(card);
-    }
-
-    return cardArray;
-};
+const createCardArray = (count: number, card: any) => new Array(count).fill(card);
 
 const DefaultTemplate: Story<CardLayoutBlockModel> = (args) => (
     <PageConstructor content={{blocks: [args]}} />

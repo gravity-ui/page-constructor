@@ -1,7 +1,7 @@
 import React from 'react';
-import yfm from '@doc-tools/transform';
 import {Meta, Story} from '@storybook/react/types-6-0';
 import {InfoBlockModel, InfoBlockProps} from '../../../models';
+import {yfmTransform} from '../../../../.storybook/utils';
 import Info from '../Info';
 import {PageConstructor} from '../../../containers/PageConstructor/PageConstructor';
 
@@ -19,17 +19,19 @@ const DefaultTemplate: Story<InfoBlockModel> = (args) => (
 export const Default = DefaultTemplate.bind({});
 export const LightTheme = DefaultTemplate.bind({});
 
+const transformedText = yfmTransform(data.common.text);
+
 Default.args = {
     ...data.dark.content,
     leftContent: {
         ...data.dark.content.leftContent,
         title: data.common.title,
-        text: yfm(data.common.text).result.html,
+        text: transformedText,
     },
     rightContent: {
         title: data.common.title,
         links: data.common.links,
-        text: yfm(data.common.text).result.html,
+        text: transformedText,
     },
 } as InfoBlockProps;
 
@@ -38,11 +40,11 @@ LightTheme.args = {
     leftContent: {
         ...data.light.content.leftContent,
         title: data.common.title,
-        text: yfm(data.common.text).result.html,
+        text: transformedText,
     },
     rightContent: {
         title: data.common.title,
         links: data.common.links,
-        text: yfm(data.common.text).result.html,
+        text: transformedText,
     },
 } as InfoBlockProps;

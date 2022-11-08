@@ -1,9 +1,9 @@
 import React, {Fragment} from 'react';
-import yfm from '@doc-tools/transform';
 import {Meta, Story} from '@storybook/react/types-6-0';
 import {ButtonProps, HeaderBlockModel, HeaderBlockProps} from '../../../models';
 import Header from '../Header';
 import {PageConstructor} from '../../../containers/PageConstructor';
+import {yfmTransform} from '../../../../.storybook/utils';
 
 import data from './data.json';
 
@@ -34,7 +34,7 @@ export default {
 
 const DefaultArgs = {
     ...data.default.content,
-    description: yfm(data.default.content.description).result.html,
+    description: yfmTransform(data.default.content.description),
 };
 
 const DefaultTemplate: Story<HeaderBlockModel> = (args) => (

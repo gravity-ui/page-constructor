@@ -1,5 +1,6 @@
 import React from 'react';
 import {Meta, Story} from '@storybook/react/types-6-0';
+import {yfmTransform} from '../../../../.storybook/utils';
 import {
     ButtonProps,
     LinkProps,
@@ -11,7 +12,6 @@ import Media from '../Media';
 import {PageConstructor} from '../../../containers/PageConstructor/PageConstructor';
 
 import data from './data.json';
-import yfm from '@doc-tools/transform';
 
 export default {
     title: 'Blocks/Media',
@@ -29,7 +29,7 @@ const DefaultTemplate: Story<MediaBlockModel> = (args) => (
             blocks: [
                 {
                     ...args,
-                    additionalInfo: yfm(data.common.additionalInfo).result.html,
+                    additionalInfo: yfmTransform(data.common.additionalInfo),
                 },
                 {
                     ...args,
@@ -129,7 +129,7 @@ export const WithoutShadow = ImageSliderTemplate.bind({});
 const DefaultArgs = {
     ...data.default.content,
     title: data.common.title,
-    description: yfm(data.common.description).result.html,
+    description: yfmTransform(data.common.description),
 };
 
 Default.args = DefaultArgs as MediaBlockProps;
