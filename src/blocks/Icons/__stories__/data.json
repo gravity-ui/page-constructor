@@ -2,41 +2,30 @@
   "default": {
     "content": {
       "type": "icons-block",
-      "size": "s",
       "items": [
         {
-          "src": "https://storage.cloud-preprod.yandex.net/berdysheva-test/ydb-assets/twitter.svg",
-          "text": "Twitter",
+          "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icons-link_1_64.svg",
+          "text": "Lorem ipsum dolor sit amet",
           "url": "#"
         },
         {
-          "src": "https://storage.cloud-preprod.yandex.net/berdysheva-test/ydb-assets/twitter.svg",
-          "text": "Twitter",
+          "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icons-link_2_64.svg",
+          "text": "Lorem ipsum dolor sit amet",
           "url": "#"
         },
         {
-          "src": "https://storage.cloud-preprod.yandex.net/berdysheva-test/ydb-assets/twitter.svg",
-          "text": "Twitter",
+          "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icons-link_3_64.svg",
+          "text": "Lorem ipsum dolor sit amet",
           "url": "#"
         },
         {
-          "src": "https://storage.cloud-preprod.yandex.net/berdysheva-test/ydb-assets/twitter.svg",
-          "text": "Twitter",
+          "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icons-link_4_64.svg",
+          "text": "Lorem ipsum dolor sit amet",
           "url": "#"
         },
         {
-          "src": "https://storage.cloud-preprod.yandex.net/berdysheva-test/ydb-assets/twitter.svg",
-          "text": "Twitter",
-          "url": "#"
-        },
-        {
-          "src": "https://storage.cloud-preprod.yandex.net/berdysheva-test/ydb-assets/twitter.svg",
-          "text": "Twitter",
-          "url": "#"
-        },
-        {
-          "src": "https://storage.cloud-preprod.yandex.net/berdysheva-test/ydb-assets/twitter.svg",
-          "text": "Twitter",
+          "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icons-link_5_64.svg",
+          "text": "Lorem ipsum dolor sit amet",
           "url": "#"
         }
       ]
@@ -47,43 +36,28 @@
       "type": "icons-block",
       "items": [
         {
-          "src": "https://storage.cloud-preprod.yandex.net/berdysheva-test/ydb-assets/telegram.svg",
-          "text": "Telegram",
+          "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icons-link_1_64.svg",
+          "text": "Lorem ipsum dolor sit amet",
           "url": "#"
         },
         {
-          "src": "https://storage.cloud-preprod.yandex.net/berdysheva-test/ydb-assets/slack.svg",
-          "text": "Slack",
+          "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icons-link_2_64.svg",
+          "text": "Lorem ipsum dolor sit amet",
           "url": "#"
         },
         {
-          "src": "https://storage.cloud-preprod.yandex.net/berdysheva-test/ydb-assets/git.svg",
-          "text": "GitHub",
+          "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icons-link_3_64.svg",
+          "text": "Lorem ipsum dolor sit amet",
           "url": "#"
         },
         {
-          "src": "https://storage.cloud-preprod.yandex.net/berdysheva-test/ydb-assets/youtube.svg",
-          "text": "YouTube",
+          "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icons-link_4_64.svg",
+          "text": "Lorem ipsum dolor sit amet",
           "url": "#"
         },
         {
-          "src": "https://storage.cloud-preprod.yandex.net/berdysheva-test/ydb-assets/stack.svg",
-          "text": "Stack Overflow",
-          "url": "#"
-        },
-        {
-          "src": "https://storage.cloud-preprod.yandex.net/berdysheva-test/ydb-assets/twitter.svg",
-          "text": "Twitter",
-          "url": "#"
-        },
-        {
-          "src": "https://storage.cloud-preprod.yandex.net/berdysheva-test/ydb-assets/facebook.svg",
-          "text": "Facebook",
-          "url": "#"
-        },
-        {
-          "src": "https://storage.cloud-preprod.yandex.net/berdysheva-test/ydb-assets/rss.svg",
-          "text": "RSS",
+          "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icons-link_5_64.svg",
+          "text": "Lorem ipsum dolor sit amet",
           "url": "#"
         }
       ]

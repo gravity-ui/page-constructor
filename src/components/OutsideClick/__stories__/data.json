@@ -1,7 +1,0 @@
-{
-  "default": {
-    "content": {
-      "description": "Interfacer element wrapper. Calls `onOutsideClick` function when clicking outside of element. Calls `onClick` function when clicking on element"
-    }
-  }
-}

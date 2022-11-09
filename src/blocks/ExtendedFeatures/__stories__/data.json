@@ -13,7 +13,7 @@
       },
       "items": [
         {
-          "title": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+          "title": "Sed do eiusmod tempor incididunt",
           "text": "Ut enim ad minim veniam <a href=\"https://example.com\">quis nostrud exercitation</a> ullamco laboris nisi ut aliquip ex ea commodo consequat.",
           "icon": {
             "light": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_1_light.svg",
@@ -29,7 +29,7 @@
           ]
         },
         {
-          "title": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+          "title": "Sed do eiusmod tempor",
           "text": "Ut enim ad minim veniam <a href=\"https://example.com\">quis nostrud exercitation</a> ullamco laboris nisi ut aliquip ex ea commodo consequat.",
           "icon": {
             "light": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_2_light.svg",
@@ -45,7 +45,7 @@
           ]
         },
         {
-          "title": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+          "title": "Sed do eiusmod tempor incididunt",
           "text": "Ut enim ad minim veniam <a href=\"https://example.com\">quis nostrud exercitation</a> ullamco laboris nisi ut aliquip ex ea commodo consequat.",
           "icon": {
             "light": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_3_light.svg",
@@ -83,6 +83,12 @@
             "light": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_1_light.svg",
             "dark": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_1_dark.svg"
           },
+          "link": {
+            "text": "Go",
+            "url": "#",
+            "arrow": true,
+            "theme": "normal"
+          },
           "links": [
             {
               "text": "Go",
@@ -94,11 +100,17 @@
           "label": "New"
         },
         {
-          "title": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+          "title": "Sed do eiusmod tempor",
           "text": "Ut enim ad minim veniam <a href=\"https://example.com\">quis nostrud exercitation</a> ullamco laboris nisi ut aliquip ex ea commodo consequat.",
           "icon": {
             "light": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_2_light.svg",
             "dark": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_2_dark.svg"
+          },
+          "link": {
+            "text": "Go",
+            "url": "#",
+            "arrow": true,
+            "theme": "normal"
           },
           "links": [
             {
@@ -111,7 +123,7 @@
           "label": "Preview"
         },
         {
-          "title": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+          "title": "Sed do eiusmod tempor incididunt ",
           "text": "Ut enim ad minim veniam <a href=\"https://example.com\">quis nostrud exercitation</a> ullamco laboris nisi ut aliquip ex ea commodo consequat.",
           "icon": {
             "light": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_3_light.svg",
@@ -124,8 +136,7 @@
               "arrow": true,
               "theme": "normal"
             }
-          ],
-          "label": "New"
+          ]
         }
       ]
     }

@@ -3,7 +3,13 @@ import React from 'react';
 import yfm from '@doc-tools/transform';
 
 import Content from '../Content';
-import {ContentBlockProps, ClassNameProps} from '../../../models';
+import {
+    ContentBlockProps,
+    ClassNameProps,
+    LinkProps,
+    ButtonProps,
+    ContentTheme,
+} from '../../../models';
 import {COMPONENTS} from '../../../demo/constants';
 
 import data from './data.json';
@@ -13,29 +19,80 @@ export default {
     title: `${COMPONENTS}/Content`,
 } as Meta;
 
-const DefaultTemplate: Story<ContentBlockProps & ClassNameProps> = (args) => <Content {...args} />;
+const DefaultTemplate: Story<ContentBlockProps & ClassNameProps> = (args) => (
+    <div>
+        <div style={{paddingBottom: '64px'}}>
+            <Content
+                {...args}
+                additionalInfo={yfm(data.default.content.additionalInfo).result.html}
+            />
+        </div>
+        <div style={{paddingBottom: '64px'}}>
+            <Content {...args} links={data.default.content.links as LinkProps[]} />
+        </div>
+        <div style={{paddingBottom: '64px'}}>
+            <Content {...args} buttons={data.default.content.buttons as ButtonProps[]} />
+        </div>
+    </div>
+);
+
+const SizeTemplate: Story<ContentBlockProps & ClassNameProps> = (args) => (
+    <div>
+        <div style={{paddingBottom: '64px'}}>
+            <Content
+                {...args}
+                title={data.size.l.title}
+                buttons={data.default.content.buttons as ButtonProps[]}
+            />
+        </div>
+        <div style={{paddingBottom: '64px'}}>
+            <Content
+                {...args}
+                title={data.size.s.title}
+                buttons={data.default.content.buttons as ButtonProps[]}
+                size="s"
+            />
+        </div>
+    </div>
+);
+
+const ThemeTemplate: Story<ContentBlockProps & ClassNameProps> = (args) => (
+    <div>
+        <div style={{paddingBottom: '64px'}}>
+            <Content
+                {...args}
+                title={data.theme.light.title}
+                theme={data.theme.light.theme as ContentTheme}
+                buttons={data.theme.light.buttons as ButtonProps[]}
+            />
+        </div>
+        <div style={{paddingBottom: '64px'}}>
+            <Content
+                {...args}
+                title={data.theme.dark.title}
+                theme={data.theme.dark.theme as ContentTheme}
+                buttons={data.theme.dark.buttons as ButtonProps[]}
+            />
+        </div>
+    </div>
+);
 
 export const Default = DefaultTemplate.bind({});
-export const SizeS = DefaultTemplate.bind({});
+export const Size = SizeTemplate.bind({});
 export const Centered = DefaultTemplate.bind({});
-export const Light = DefaultTemplate.bind({});
-export const Dark = DefaultTemplate.bind({});
+export const Theme = ThemeTemplate.bind({});
 
 const defaultArgs = {
     title: data.default.content.title,
     text: yfm(data.default.content.text).result.html,
-    additionalInfo: yfm(data.default.content.additionalInfo).result.html,
-    links: data.default.content.links,
-    buttons: data.default.content.buttons,
 };
 
 Default.args = {
     ...defaultArgs,
 } as ContentBlockProps;
 
-SizeS.args = {
+Size.args = {
     ...defaultArgs,
-    ...data.sizeS.content,
 } as ContentBlockProps;
 
 Centered.args = {
@@ -43,12 +100,6 @@ Centered.args = {
     ...data.centered.content,
 } as ContentBlockProps;
 
-Light.args = {
+Theme.args = {
     ...defaultArgs,
-    ...data.light.content,
-} as ContentBlockProps;
-
-Dark.args = {
-    ...defaultArgs,
-    ...data.dark.content,
 } as ContentBlockProps;

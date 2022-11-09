@@ -17,17 +17,13 @@ export default {
 } as Meta;
 
 const DefaultTemplate: Story<FullProps> = (args) => (
-    <div style={{maxWidth: '500px', position: 'relative'}}>
+    <div style={{maxWidth: '1400px', position: 'relative'}}>
         <BackgroundMedia {...args} />
     </div>
 );
 
 export const Image = DefaultTemplate.bind({});
-export const ImageSlider = DefaultTemplate.bind({});
 export const Video = DefaultTemplate.bind({});
-export const DeviceSupport = DefaultTemplate.bind({});
 
 Image.args = data.image.content;
-ImageSlider.args = data.imageSlider.content;
 Video.args = data.video.content;
-DeviceSupport.args = data.deviceSupport.content;

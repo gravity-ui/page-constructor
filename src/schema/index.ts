@@ -25,7 +25,6 @@ import {
 } from './validators/blocks';
 
 import {
-    CardBlock,
     PartnerBlock,
     MediaCardBlock,
     TutorialCard,
@@ -68,7 +67,6 @@ export function generateDefaultSchema(config?: SchemaCustomConfig) {
                         type: 'string',
                         enum: [
                             'divider',
-                            'card',
                             'quote',
                             'event',
                             'post',
@@ -129,7 +127,6 @@ export function generateDefaultSchema(config?: SchemaCustomConfig) {
                     type: {
                         type: 'string',
                         enum: [
-                            'card',
                             'partner',
                             'post',
                             'media-card',
@@ -148,7 +145,6 @@ export function generateDefaultSchema(config?: SchemaCustomConfig) {
                 select: {$data: '0/type'},
                 selectCases: {
                     // Cards
-                    ...CardBlock,
                     ...PartnerBlock,
                     ...MediaCardBlock,
                     ...BannerCard,

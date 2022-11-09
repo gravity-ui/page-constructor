@@ -22,7 +22,7 @@ $block: '.#{$ns}content-layout-block';
 
         &_size_l {
             @extend %heading-margin-reset;
-            @include text-size(body3);
+            @include text-size(body-3);
         }
 
         &_centered {

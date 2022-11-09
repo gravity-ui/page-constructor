@@ -3,10 +3,9 @@
     "content": {
       "video": {
         "src": [
-          "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-calcx2.mp4",
-          "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-calcx2.webm",
-          "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/main-calcx2.ogv",
-          "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/calc.png"
+          "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.webm",
+          "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.mp4",
+          "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.png"
         ],
         "loop": {
           "start": 0
@@ -16,28 +15,28 @@
   },
   "youtube": {
     "content": {
-      "youtube": "https://youtu.be/bxZRUtMAlFI",
-      "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/constructor/video-preview.png"
+      "youtube": "https://youtu.be/0Qd3T6skprA",
+      "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.png"
     }
   },
   "dataLens": {
     "content": {
-      "dataLens": "zqx9je64n9bws"
+      "dataLens": "m2bzon9y39lck"
     }
   },
   "imageSlider": {
     "content": {
       "image": [
-        "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
-        "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-white.png",
-        "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-black.png"
+        "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_6-12_light.png",
+        "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_6-12_light.png",
+        "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_6-12_light.png"
       ]
     }
   },
   "image": {
     "content": {
       "image": {
-        "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
+        "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_6-12_white.png",
         "alt": "Picture",
         "disableCompress": true
       }

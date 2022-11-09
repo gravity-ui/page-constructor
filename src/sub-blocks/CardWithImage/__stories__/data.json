@@ -1,87 +1,19 @@
 {
   "fullScreen": {
     "content": {
-      "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
-      "title": "Lorem ipsum",
-      "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> ",
+      "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-mini_4-12_light.png",
+      "title": "Lorem&nbsp;ipsum",
+      "description": "Dolor sit amet",
       "fullScreen": true,
       "border": true
     }
   },
   "default": {
     "content": {
-      "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
-      "title": "Lorem ipsum",
-      "fullScreen": true,
-      "border": true,
-      "links": [
-        {
-          "link": "#",
-          "title": "Link",
-          "theme": "back",
-          "arrow": true
-        },
-        {
-          "link": "#",
-          "title": "Link",
-          "theme": "normal",
-          "arrow": true
-        }
-      ],
-      "buttons": [
-        {
-          "text": "Button\r",
-          "theme": "action",
-          "url": "https://example.com"
-        },
-        {
-          "text": "Button",
-          "theme": "outlined",
-          "url": "#"
-        }
-      ],
-      "description": "<p><strong>Lorem ipsum dolor sit amet</strong> <a href=\"https://example.com\">consectetur adipiscing elit</a> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> ",
-      "additionalInfo": "<p>Lorem ipsum dolor sit amet <a href=\"https://example.com\">consectetur adipiscing elit</a> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> "
-    }
-  },
-  "titleWithLink": {
-    "content": {
-      "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
-      "title": {
-        "text": "Education and science promotion program in the field of computer science",
-        "url": "https://yandex.ru",
-        "textSize": "s"
-      },
-      "fullScreen": true,
-      "border": true,
-      "links": [
-        {
-          "link": "#",
-          "title": "Fill out the form",
-          "theme": "back",
-          "arrow": true
-        },
-        {
-          "link": "#",
-          "title": "Link",
-          "theme": "normal",
-          "arrow": true
-        }
-      ],
-      "buttons": [
-        {
-          "text": "Button\r",
-          "theme": "action",
-          "url": "https://example.com"
-        },
-        {
-          "text": "Button",
-          "theme": "outlined",
-          "url": "#"
-        }
-      ],
-      "description": "<p><strong>Lorem ipsum dolor sit amet</strong> <a href=\"https://example.com\">consectetur adipiscing elit</a> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> ",
-      "additionalInfo": "<p>Lorem ipsum dolor sit amet <a href=\"https://example.com\">consectetur adipiscing elit</a> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> "
+      "type": "card-with-image",
+      "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-mini_4-12_light.png",
+      "title": "Lorem&nbsp;ipsum",
+      "description": "Dolor sit amet"
     }
   }
 }

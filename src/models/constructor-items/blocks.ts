@@ -316,7 +316,7 @@ export interface CardLayoutBlockProps extends Childable, Animatable, LoadableChi
 
 export interface IconsBlockProps {
     title?: string;
-    size: 's' | 'm' | 'l';
+    size?: 's' | 'm' | 'l';
     items: {
         url: string;
         text: string;

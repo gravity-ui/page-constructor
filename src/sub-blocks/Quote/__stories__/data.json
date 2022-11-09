@@ -4,48 +4,43 @@
       "border": "shadow",
       "theme": "dark",
       "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-black.png",
+      "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_dark.png",
       "url": "https://example.com",
       "author": {
-        "avatar": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
-        "firstName": "Oval",
-        "secondName": "Ovalny",
-        "description": "Geometry lead"
+        "avatar": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_dark.png",
+        "firstName": "Lorem",
+        "secondName": "ipsum",
+        "description": "Lorem ipsum"
       },
-      "logo": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-black.png",
-      "color": "#2b3e6a"
+      "logo": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-mini_6-12_dark.png",
+      "color": "#262626"
     }
   },
   "borderLine": {
     "content": {
-      "border": "line",
-      "theme": "light",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-white.png",
-      "url": "https://example.com",
-      "author": {
-        "avatar": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
-        "firstName": "Oval",
-        "secondName": "Ovalny",
-        "description": "Geometry lead"
-      },
-      "logo": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-white.png"
+      "border": "line"
     }
   },
   "default": {
     "content": {
-      "border": "shadow",
-      "theme": "light",
+      "type": "quote",
       "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-white.png",
+      "image": {
+        "light": {
+          "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_6-12_light.png"
+        },
+        "dark": {
+          "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_dark.png"
+        }
+      },
       "url": "https://example.com",
       "author": {
-        "avatar": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
-        "firstName": "Oval",
-        "secondName": "Ovalny",
-        "description": "Geometry lead"
+        "firstName": "Lorem",
+        "secondName": "ipsum",
+        "description": "Lorem ipsum",
+        "avatar": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_6-12_light.png"
       },
-      "logo": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-white.png"
+      "logo": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-mini_6-12_light.png"
     }
   }
 }

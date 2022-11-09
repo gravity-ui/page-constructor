@@ -32,4 +32,7 @@ export const Default = DefaultTemplate.bind({});
 export const AutoPlay = AutoPlayTemplate.bind({});
 
 Default.args = data.default.content as HeaderSliderBlockProps;
-AutoPlay.args = data.autoPlay.content as HeaderSliderBlockProps;
+AutoPlay.args = {
+    ...data.autoPlay.content,
+    items: data.default.content.items,
+} as HeaderSliderBlockProps;

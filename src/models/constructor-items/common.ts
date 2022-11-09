@@ -331,8 +331,6 @@ export interface CardBaseProps {
     border?: CardBorder;
 }
 
-export interface CardProps extends CardBaseProps, CardData {}
-
 export interface CardHeader {
     title?: string;
     image?: ImageProps;

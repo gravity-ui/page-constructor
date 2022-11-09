@@ -3,7 +3,7 @@ import React from 'react';
 import yfm from '@doc-tools/transform';
 
 import BackgroundCard from '../BackgroundCard';
-import {BackgroundCardProps} from '../../../models';
+import {BackgroundCardProps, ButtonProps, LinkProps} from '../../../models';
 import {CARDS, COMPONENTS} from '../../../demo/constants';
 
 import data from './data.json';
@@ -22,8 +22,19 @@ export default {
 } as Meta;
 
 const DefaultTemplate: Story<BackgroundCardProps> = (args) => (
-    <div style={{maxWidth: '400px'}}>
-        <BackgroundCard {...args} />
+    <div style={{display: 'flex'}}>
+        <div style={{display: 'inline-table', maxWidth: '400px', padding: '0 8px'}}>
+            <BackgroundCard
+                {...args}
+                additionalInfo={yfm(data.common.additionalInfo).result.html}
+            />
+        </div>
+        <div style={{display: 'inline-table', maxWidth: '400px', padding: '0 8px'}}>
+            <BackgroundCard {...args} links={data.common.links as LinkProps[]} />
+        </div>
+        <div style={{display: 'inline-table', maxWidth: '400px', padding: '0 8px'}}>
+            <BackgroundCard {...args} buttons={data.common.buttons as ButtonProps[]} />
+        </div>
     </div>
 );
 
@@ -56,18 +67,36 @@ const CardThemesTemplate: Story<BackgroundCardProps[]> = (args) => {
     );
 };
 
+const BackgroundColorTemplate: Story<BackgroundCardProps> = (args) => (
+    <div style={{display: 'flex'}}>
+        <div style={{display: 'inline-table', maxWidth: '400px', padding: '0 8px'}}>
+            <BackgroundCard
+                {...args}
+                additionalInfo={yfm(data.common.additionalInfo).result.html}
+            />
+        </div>
+        <div style={{display: 'inline-table', maxWidth: '400px', padding: '0 8px'}}>
+            <BackgroundCard {...args} links={data.common.links as LinkProps[]} />
+        </div>
+        <div style={{display: 'inline-table', maxWidth: '400px', padding: '0 8px'}}>
+            <BackgroundCard
+                {...args}
+                buttons={data.cardThemes.content[1].buttons as ButtonProps[]}
+            />
+        </div>
+    </div>
+);
+
 export const Default = DefaultTemplate.bind({});
 export const WithBackgroundImage = DefaultTemplate.bind({});
 export const Paddings = PaddingsTemplate.bind({});
 export const CardThemes = CardThemesTemplate.bind([]);
 export const BorderLine = DefaultTemplate.bind({});
-export const BackgroundColor = DefaultTemplate.bind({});
-export const WithTheme = DefaultTemplate.bind({});
+export const BackgroundColor = BackgroundColorTemplate.bind({});
 
 const DefaultArgs = {
-    ...data.default.content,
-    text: yfm(data.default.content.text).result.html,
-    additionalInfo: yfm(data.default.content.additionalInfo).result.html,
+    title: data.common.title,
+    text: yfm(data.common.text).result.html,
 };
 
 Default.args = {
@@ -98,9 +127,4 @@ BorderLine.args = {
 BackgroundColor.args = {
     ...DefaultArgs,
     ...data.backgroundColor.content,
-} as BackgroundCardProps;
-
-WithTheme.args = {
-    ...DefaultArgs,
-    ...data.withTheme.content,
 } as BackgroundCardProps;

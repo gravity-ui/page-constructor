@@ -45,6 +45,7 @@ $block: '.#{$ns}PromoFeaturesBlock';
         flex-direction: column;
         justify-content: center;
         border-radius: $borderRadius;
+        overflow: hidden;
 
         &-info {
             padding: $indentM $indentM 0 $indentM;

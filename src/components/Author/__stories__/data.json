@@ -2,34 +2,11 @@
   "default": {
     "content": {
       "author": {
-        "firstName": "Oval",
-        "secondName": "Ovalny",
-        "description": "Geometry Lead",
-        "avatar": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png"
-      },
-      "type": "line"
-    }
-  },
-  "textUnderImage": {
-    "content": {
-      "author": {
-        "firstName": "Oval",
-        "secondName": "Ovalny",
-        "description": "Geometry Lead",
-        "avatar": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png"
-      },
-      "type": "column"
-    }
-  },
-  "noWebpInAvatar": {
-    "content": {
-      "author": {
-        "firstName": "Oval",
-        "secondName": "Ovalny",
-        "description": "Geometry Lead",
-        "avatar": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png"
-      },
-      "type": "line"
+        "firstName": "Lorem",
+        "secondName": "Ipsum",
+        "description": "Lorem Ipsum",
+        "avatar": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_6-12_light.png"
+      }
     }
   }
 }

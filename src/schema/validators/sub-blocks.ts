@@ -9,8 +9,3 @@ export * from '../../sub-blocks/CardWithImage/schema';
 export * from '../../sub-blocks/Quote/schema';
 export * from '../../sub-blocks/Divider/schema';
 export * from '../../sub-blocks/BasicCard/schema';
-
-/**
- * @deprecated Will be removed
- */
-export * from '../../components/CardBase/schema';

@@ -1,33 +1,21 @@
 {
-  "withThemes": {
-    "content": {
-      "type": "companies-block",
-      "title": "Our Clients",
-      "images": {
-        "light": {
-          "desktop": "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/EN/logos-desktop-en-new.svg",
-          "tablet": "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/EN/logos-tablet-en-new.svg",
-          "mobile": "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/EN/logos-mobile-en-new.svg",
-          "alt": "Our Clients"
-        },
-        "dark": {
-          "desktop": "https://storage.cloud-preprod.yandex.net/berdysheva-test/companies-block-desktop-ru.svg",
-          "tablet": "https://storage.cloud-preprod.yandex.net/berdysheva-test/companies-block-desktop-ru.svg",
-          "mobile": "https://storage.cloud-preprod.yandex.net/berdysheva-test/companies-block-mobile-ru.svg",
-          "alt": "Our Clients"
-        }
-      }
-    }
-  },
   "default": {
     "content": {
       "type": "companies-block",
       "title": "Our Clients",
       "images": {
-        "desktop": "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/EN/logos-desktop-en-new.svg",
-        "tablet": "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/EN/logos-tablet-en-new.svg",
-        "mobile": "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/EN/logos-mobile-en-new.svg",
-        "alt": "Our Clients"
+        "light": {
+          "desktop": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/logo-svg_12-12_desktop_light.svg",
+          "tablet": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/logo-svg_12-12_tablet_light.svg",
+          "mobile": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/logo-svg_12-12_mobile_light.svg",
+          "alt": "Our Clients"
+        },
+        "dark": {
+          "desktop": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/logo-svg_12-12_desktop_dark.svg",
+          "tablet": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/logo-svg_12-12_tablet_dark.svg",
+          "mobile": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/logo-svg_12-12_mobile_dark.svg",
+          "alt": "Our Clients"
+        }
       }
     }
   }

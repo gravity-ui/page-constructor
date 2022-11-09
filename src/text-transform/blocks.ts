@@ -2,7 +2,6 @@ import _ from 'lodash';
 import {
     Block,
     BlockType,
-    CardProps,
     SubBlockType,
     ContentBlockProps,
     ExtendedFeaturesItem,
@@ -82,16 +81,6 @@ function parseSlider(transformer: Transformer, block: SliderProps) {
 
     if (description) {
         block.description = transformer(description);
-    }
-}
-
-function parseCard(transformer: Transformer, card: CardProps) {
-    const {header, text} = card;
-    card.text = text && transformer(text);
-
-    if (header && header.title) {
-        card.header = card.header || {};
-        card.header.title = transformer(header.title);
     }
 }
 
@@ -216,10 +205,6 @@ const config: BlocksConfig = {
     [SubBlockType.Quote]: {
         fields: ['text'],
         transformer: typografTransformer,
-    },
-    [SubBlockType.Card]: {
-        transformer: yfmTransformer,
-        parser: parseCard,
     },
     [BlockType.ExtendedFeaturesBlock]: [
         {
