@@ -2,7 +2,12 @@ import React, {Fragment} from 'react';
 import {Meta, Story} from '@storybook/react/types-6-0';
 
 import CardLayout from '../CardLayout';
-import {CardLayoutBlockModel, CardLayoutBlockProps, SubBlockModels} from '../../../models';
+import {
+    CardLayoutBlockModel,
+    CardLayoutBlockProps,
+    CardWithImageProps,
+    SubBlockModels,
+} from '../../../models';
 import {PageConstructor} from '../../../containers/PageConstructor';
 
 import data from './data.json';
@@ -12,7 +17,7 @@ export default {
     component: CardLayout,
 } as Meta;
 
-const createCardArray = (count: number, card: any) => new Array(count).fill(card);
+const createCardArray = (count: number, card: CardWithImageProps) => new Array(count).fill(card);
 
 const DefaultTemplate: Story<CardLayoutBlockModel> = (args) => (
     <PageConstructor content={{blocks: [args]}} />

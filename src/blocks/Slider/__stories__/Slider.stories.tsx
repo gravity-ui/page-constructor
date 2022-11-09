@@ -1,8 +1,8 @@
 import React from 'react';
 import {Meta, Story} from '@storybook/react/types-6-0';
-import {SliderBlockModel} from '../../../models';
+import {SliderBlockModel, BannerCardModel, BasicCardModel} from '../../../models';
 import Slider from '../Slider';
-import {PageConstructor} from '../../../containers/PageConstructor/PageConstructor';
+import {PageConstructor} from '../../../containers/PageConstructor';
 
 import data from './data.json';
 
@@ -35,25 +35,25 @@ const SlidesToShowTemplate: Story<SliderBlockModel> = (args) => (
                     ...args,
                     title: data.slidesToShow.one.title,
                     slidesToShow: data.slidesToShow.one.slidesToShow,
-                    children: data.banners.content.children as any,
+                    children: data.banners.content.children as BannerCardModel[],
                 },
                 {
                     ...args,
                     title: data.slidesToShow.two.title,
                     slidesToShow: data.slidesToShow.two.slidesToShow,
-                    children: data.default.content.children as any,
+                    children: data.default.content.children as BasicCardModel[],
                 },
                 {
                     ...args,
                     title: data.slidesToShow.three.title,
                     slidesToShow: data.slidesToShow.three.slidesToShow,
-                    children: data.default.content.children as any,
+                    children: data.default.content.children as BasicCardModel[],
                 },
                 {
                     ...args,
                     title: data.slidesToShow.four.title,
                     slidesToShow: data.slidesToShow.four.slidesToShow,
-                    children: data.default.content.children as any,
+                    children: data.default.content.children as BasicCardModel[],
                 },
             ],
         }}
