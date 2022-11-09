@@ -1,5 +1,9 @@
 # Change log
 
+## 0.12.1
+
+- Render post card title via dangerouslySetInnerHTML
+
 ## 0.12.0
 
 - Update page change logic when interactions with blog search panel
