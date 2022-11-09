@@ -4,12 +4,12 @@ import {block, getThemedValue} from '../../utils';
 import {ExtendedFeaturesProps} from '../../models';
 import {Row, Col} from '../../grid';
 import {AnimateBlock, BlockHeader, HTML} from '../../components/';
-
-import './ExtendedFeatures.scss';
 import {Content} from '../../sub-blocks';
 import Image from '../../components/Image/Image';
 import {ThemeValueContext} from '../../context/theme/ThemeValueContext';
 import {getMediaImage} from '../../components/Media/Image/utils';
+
+import './ExtendedFeatures.scss';
 
 const b = block('ExtendedFeaturesBlock');
 
