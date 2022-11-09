@@ -2,19 +2,18 @@
   "default": {
     "content": {
       "type": "table-block",
-      "title": "A comparsion of Agent 1 and Agent 2",
+      "title": "Lorem ipsum dolor sit amet",
       "table": {
         "content": [
-          ["Comparsion", "Category 1", "Category 2", "Category 3"],
-          ["Param 1", "0", "0", "0"],
-          ["Param 2", "0", "0", "1"],
-          ["Param 3", "0", "0", "1"],
-          ["Param 4", "0", "1", "1"],
-          ["Param 5", "1", "1", "1"]
+          ["Lorem", "ipsum 1", "dolor 2", "sit 3"],
+          ["Lorem 1", "0", "0", "0"],
+          ["Lorem 2", "0", "0", "1"],
+          ["Lorem 3", "0", "0", "1"],
+          ["Lorem 4", "0", "1", "1"],
+          ["Lorem 5", "1", "1", "1"]
         ],
-        "legend": ["Agent 1", "Agent 2"],
-        "justify": ["start", "center", "center", "center"],
-        "marker": "disk"
+        "legend": ["ipsum 1", "ipsum 2"],
+        "justify": ["start", "center", "center", "center"]
       }
     }
   }

@@ -42,11 +42,11 @@
           "title": "Dolor sit amet",
           "image": {
             "light": {
-              "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
+              "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_light.png",
               "disableCompress": true
             },
             "dark": {
-              "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-black.png"
+              "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_dark.png"
             }
           },
           "caption": "Dolor sit amet",
@@ -57,10 +57,10 @@
           "title": "Consectetur adipiscing elit",
           "image": {
             "light": {
-              "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-white.png"
+              "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_light.png"
             },
             "dark": {
-              "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-black.png"
+              "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_dark.png"
             }
           },
           "caption": "Consectetur adipiscing elit",
@@ -80,18 +80,32 @@
           "tabName": "Dolor sit amet",
           "title": "Dolor sit amet",
           "media": {
-            "video": {
-              "src": [
-                "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/EN/02%20Calculator%20EN.mp4",
-                "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/EN/02%20Calculator%20EN.webm",
-                "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/EN/02%20Calculator%20EN.ogv",
-                "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png"
-              ],
-              "loop": {
-                "start": 0
-              }
+            "light": {
+              "video": {
+                "src": [
+                  "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_light.webm",
+                  "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_light.mp4",
+                  "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_light.png"
+                ],
+                "loop": {
+                  "start": 0
+                }
+              },
+              "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_white.png"
             },
-            "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png"
+            "dark": {
+              "video": {
+                "src": [
+                  "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_dark.webm",
+                  "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_dark.mp4",
+                  "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_dark.png"
+                ],
+                "loop": {
+                  "start": 0
+                }
+              },
+              "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_dark.png"
+            }
           },
           "caption": "Dolor sit amet",
           "text": "* Ut enim ad minim veniam\n* Ut enim ad minim veniam"
@@ -101,7 +115,7 @@
           "title": "Consectetur adipiscing elit",
           "media": {
             "youtube": "https://youtu.be/bxZRUtMAlFI",
-            "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/constructor/video-preview.png"
+            "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_dark.png"
           },
           "caption": "Consectetur adipiscing elit",
           "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."

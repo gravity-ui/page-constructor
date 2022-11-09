@@ -1,7 +1,6 @@
 {
   "common": {
     "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    "additionalInfo": "Duis aute irure dolor in [reprehenderit](https://example.com) n voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
     "links": [
       {
         "url": "#",
@@ -12,34 +11,17 @@
       {
         "url": "#",
         "text": "Link",
-        "theme": "normal"
-      },
-      {
-        "url": "#",
-        "text": "Link",
-        "theme": "normal"
+        "theme": "normal",
+        "arrow": true
       }
     ],
-    "titleWithLink": {
-      "text": "Lorem ipsum dolor",
-      "url": "https://example.ru"
-    },
-    "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+    "title": "Lorem ipsum dolor sit amet"
   },
   "light": {
     "content": {
       "type": "info-block",
       "theme": "light",
       "backgroundColor": "#eef3fe",
-      "rightContent": {
-        "buttons": [
-          {
-            "text": "Button",
-            "theme": "action",
-            "url": "#"
-          }
-        ]
-      },
       "leftContent": {
         "buttons": [
           {
@@ -49,12 +31,7 @@
           },
           {
             "text": "Button",
-            "theme": "action",
-            "url": "#"
-          },
-          {
-            "text": "Button",
-            "theme": "action",
+            "theme": "outlined",
             "url": "#"
           }
         ]
@@ -65,22 +42,8 @@
     "content": {
       "type": "info-block",
       "theme": "dark",
-      "rightContent": {
-        "buttons": [
-          {
-            "text": "Button",
-            "theme": "outlined-contrast",
-            "url": "#"
-          }
-        ]
-      },
       "leftContent": {
         "buttons": [
-          {
-            "text": "Button",
-            "theme": "outlined-contrast",
-            "url": "#"
-          },
           {
             "text": "Button",
             "theme": "raised",

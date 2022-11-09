@@ -1,12 +1,12 @@
 {
   "default": {
     "content": {
-      "record": "https://youtu.be/bxZRUtMAlFI",
+      "record": "https://youtu.be/0Qd3T6skprA",
       "attributes": {
         "color": "white",
         "rel": "0"
       },
-      "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/constructor/video-preview.png",
+      "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_dark.png",
       "playButton": null,
       "className": "",
       "stream": "",

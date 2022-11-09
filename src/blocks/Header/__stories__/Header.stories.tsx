@@ -1,17 +1,16 @@
 import React, {Fragment} from 'react';
-import yfm from '@doc-tools/transform';
 import {Meta, Story} from '@storybook/react/types-6-0';
 import {ButtonProps, HeaderBlockModel, HeaderBlockProps} from '../../../models';
 import Header from '../Header';
 import {PageConstructor} from '../../../containers/PageConstructor';
+import {yfmTransform} from '../../../../.storybook/utils';
 
 import data from './data.json';
 
 type HeaderBlockPropsNoTitle = Omit<HeaderBlockProps, 'title'>;
 
 const getSizeTitle = (size: string) => data.size.title.replace('{{size}}', size);
-const getImageTitle = (text: string, image: string) =>
-    data.image.title.replace('{{text}}', text).replace('{{image}}', image);
+const getImageTitle = (text: string) => data.image.title.replace('{{text}}', text);
 const getVerticalOffsetTitle = (offset: string) =>
     data.verticalOffset.title.replace('{{offset}}', offset);
 const getBreadcrumbsTitle = (theme: string) => data.breadcrumbs.title.replace('{{theme}}', theme);
@@ -35,7 +34,7 @@ export default {
 
 const DefaultArgs = {
     ...data.default.content,
-    description: yfm(data.default.content.description).result.html,
+    description: yfmTransform(data.default.content.description),
 };
 
 const DefaultTemplate: Story<HeaderBlockModel> = (args) => (
@@ -44,29 +43,29 @@ const DefaultTemplate: Story<HeaderBlockModel> = (args) => (
 
 const SizeTemplate: Story<HeaderBlockModel> = (args) => (
     <Fragment>
-        <DefaultTemplate {...args} title={getSizeTitle('"S"')} width="s" />
-        <DefaultTemplate {...args} title={getSizeTitle('"M"')} width="m" />
         <DefaultTemplate {...args} title={getSizeTitle('"L"')} width="l" />
+        <DefaultTemplate {...args} title={getSizeTitle('"M"')} width="m" />
+        <DefaultTemplate {...args} title={getSizeTitle('"S"')} width="s" />
     </Fragment>
 );
 
 const ImageTemplate: Story<HeaderBlockModel> = (args) => (
     <Fragment>
-        <DefaultTemplate {...args} title={getImageTitle('"M"', '"S"')} width="m" />
-        <DefaultTemplate {...args} title={getImageTitle('"S"', '"M"')} width="s" />
+        <DefaultTemplate {...args} title={getImageTitle('«M»')} width="m" />
+        <DefaultTemplate {...args} title={getImageTitle('«S»')} width="s" />
     </Fragment>
 );
 
 const VerticalOffsetTemplate: Story<HeaderBlockModel> = (args) => (
     <Fragment>
-        <DefaultTemplate {...args} title={getVerticalOffsetTitle('"S"')} verticalOffset="s" />
-        <DefaultTemplate {...args} title={getVerticalOffsetTitle('"M"')} verticalOffset="m" />
-        <DefaultTemplate {...args} title={getVerticalOffsetTitle('"L"')} verticalOffset="l" />
-        <DefaultTemplate {...args} title={getVerticalOffsetTitle('"XL"')} verticalOffset="xl" />
+        <DefaultTemplate {...args} title={getVerticalOffsetTitle('«S»')} verticalOffset="s" />
+        <DefaultTemplate {...args} title={getVerticalOffsetTitle('«M»')} verticalOffset="m" />
+        <DefaultTemplate {...args} title={getVerticalOffsetTitle('«L»')} verticalOffset="l" />
+        <DefaultTemplate {...args} title={getVerticalOffsetTitle('«XL»')} verticalOffset="xl" />
     </Fragment>
 );
 
-const MediaTemplate: Story<HeaderBlockModel> = (args) => (
+const BackgroundTemplate: Story<HeaderBlockModel> = (args) => (
     <Fragment>
         <DefaultTemplate
             {...args}
@@ -78,20 +77,75 @@ const MediaTemplate: Story<HeaderBlockModel> = (args) => (
             title={data.media.content.video.title}
             background={data.media.content.video.background}
         />
+    </Fragment>
+);
+
+const FullWithBackgroundTemplate: Story<HeaderBlockModel> = (args) => (
+    <Fragment>
         <DefaultTemplate
             {...args}
-            title={data.media.content.fullWidthBackground.title}
-            background={data.media.content.fullWidthBackground.background}
+            title={data.media.content.image.title}
+            background={{
+                light: {
+                    ...data.media.content.image.background.light,
+                    fullWidth: true,
+                },
+                dark: {
+                    ...data.media.content.image.background.dark,
+                    fullWidth: true,
+                },
+            }}
         />
         <DefaultTemplate
             {...args}
-            title={data.media.content.fullWidthMedia.title}
-            background={data.media.content.fullWidthMedia.background}
+            title={data.media.content.video.title}
+            background={{
+                light: {
+                    ...data.media.content.video.background.light,
+                    fullWidth: true,
+                },
+                dark: {
+                    ...data.media.content.video.background.dark,
+                    fullWidth: true,
+                },
+            }}
+        />
+    </Fragment>
+);
+
+const FullWidthMediaBackgroundTemplate: Story<HeaderBlockModel> = (args) => (
+    <Fragment>
+        <DefaultTemplate
+            {...args}
+            title={data.media.content.image.title}
+            background={{
+                light: {
+                    ...data.media.content.image.background.light,
+                    fullWidth: true,
+                    fullWidthMedia: true,
+                },
+                dark: {
+                    ...data.media.content.image.background.dark,
+                    fullWidth: true,
+                    fullWidthMedia: true,
+                },
+            }}
         />
         <DefaultTemplate
             {...args}
-            title={data.media.content.deviceSupport.title}
-            background={data.media.content.deviceSupport.background}
+            title={data.media.content.video.title}
+            background={{
+                light: {
+                    ...data.media.content.video.background.light,
+                    fullWidth: true,
+                    fullWidthMedia: true,
+                },
+                dark: {
+                    ...data.media.content.video.background.dark,
+                    fullWidth: true,
+                    fullWidthMedia: true,
+                },
+            }}
         />
     </Fragment>
 );
@@ -118,8 +172,10 @@ export const Default = DefaultTemplate.bind({});
 export const Size = SizeTemplate.bind({});
 export const Image = ImageTemplate.bind({});
 export const VerticalOffset = VerticalOffsetTemplate.bind({});
-export const Media = MediaTemplate.bind({});
-export const ThemeDark = DefaultTemplate.bind({});
+export const Background = BackgroundTemplate.bind({});
+export const FullWithBackground = FullWithBackgroundTemplate.bind({});
+export const FullWidthMediaBackground = FullWidthMediaBackgroundTemplate.bind({});
+export const DarkTheme = DefaultTemplate.bind({});
 export const Breadcrumbs = BreadCrumbsTemplate.bind({});
 
 Default.args = {...DefaultArgs} as HeaderBlockProps;
@@ -136,11 +192,19 @@ VerticalOffset.args = {
     ...data.image.content,
 } as HeaderBlockPropsNoTitle;
 
-Media.args = {
+Background.args = {
     ...DefaultArgs,
 } as HeaderBlockPropsNoTitle;
 
-ThemeDark.args = {
+FullWithBackground.args = {
+    ...DefaultArgs,
+} as HeaderBlockPropsNoTitle;
+
+FullWidthMediaBackground.args = {
+    ...DefaultArgs,
+} as HeaderBlockPropsNoTitle;
+
+DarkTheme.args = {
     ...DefaultArgs,
     ...data.themeDark.content,
 } as HeaderBlockProps;

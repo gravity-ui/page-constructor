@@ -2,7 +2,7 @@ import {Meta, Story} from '@storybook/react/types-6-0';
 import React from 'react';
 
 import Author from '../Author';
-import {AuthorProps} from '../../../models';
+import {AuthorProps, AuthorType} from '../../../models';
 import {COMPONENTS} from '../../../demo/constants';
 
 import data from './data.json';
@@ -14,10 +14,21 @@ export default {
 
 const DefaultTemplate: Story<AuthorProps> = (args) => <Author {...args} />;
 
+const TypesTemplate: Story<AuthorProps> = (args) => (
+    <div>
+        <div style={{paddingBottom: '32px'}}>
+            <h3>Type Column</h3>
+            <Author {...args} />
+        </div>
+        <div>
+            <h3>Type Line</h3>
+            <Author {...args} type={AuthorType.Line} />
+        </div>
+    </div>
+);
+
 export const Default = DefaultTemplate.bind({});
-export const TextUnderImage = DefaultTemplate.bind({});
-export const NoWebpInAvatar = DefaultTemplate.bind({});
+export const Types = TypesTemplate.bind({});
 
 Default.args = data.default.content as AuthorProps;
-TextUnderImage.args = data.textUnderImage.content as AuthorProps;
-NoWebpInAvatar.args = data.noWebpInAvatar.content as AuthorProps;
+Types.args = data.default.content as AuthorProps;

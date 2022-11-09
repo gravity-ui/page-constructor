@@ -13,7 +13,7 @@ export default {
 } as Meta;
 
 const DefaultTemplate: Story<BackgroundImageProps> = (args) => (
-    <div style={{maxWidth: '500px'}}>
+    <div style={{maxWidth: '1400px'}}>
         <BackgroundImage {...args} />
     </div>
 );

@@ -17,7 +17,5 @@ const DefaultTemplate: Story<CompaniesBlockModel> = (args) => (
 );
 
 export const Default = DefaultTemplate.bind({});
-export const WithThemes = DefaultTemplate.bind({});
 
 Default.args = data.default.content as CompaniesBlockProps;
-WithThemes.args = data.withThemes.content as CompaniesBlockProps;

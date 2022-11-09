@@ -6,10 +6,10 @@
     ],
     "background": {
       "light": {
-        "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png"
+        "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/header-bg-video_light.png"
       },
       "dark": {
-        "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-black.png"
+        "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/header-bg-video_dark.png"
       }
     },
     "content": {
@@ -39,10 +39,10 @@
   "withTheme": {
     "background": {
       "light": {
-        "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png"
+        "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/header-bg-video_light.png"
       },
       "dark": {
-        "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-black.png"
+        "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/header-bg-video_dark.png"
       }
     },
     "content": {
