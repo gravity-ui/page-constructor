@@ -1,6 +1,6 @@
 import React, {useMemo, useContext} from 'react';
 
-import {CardBase, YFMWrapper, MetrikaGoal} from '@gravity-ui/page-constructor';
+import {CardBase, YFMWrapper, MetrikaGoal, HTML} from '@gravity-ui/page-constructor';
 
 import {LikesContext} from '../../contexts/LikesContext';
 
@@ -74,7 +74,9 @@ export const PostCard: React.FC<PostCardProps> = ({
                 )}
                 {title && (
                     <h4 className={b('title', {size})}>
-                        <span dangerouslySetInnerHTML={{__html: title}} />
+                        <span>
+                            <HTML>{title}</HTML>
+                        </span>
                     </h4>
                 )}
                 {description && (
