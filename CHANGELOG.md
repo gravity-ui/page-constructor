@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.6.0](https://github.com/gravity-ui/page-constructor/pulls?q=is%3Apr+is%3Aclosed) (2022-11-09)
+
+### Features
+
+* update storybook
+
 ## [1.5.0](https://github.com/gravity-ui/page-constructor/issues/44) (2022-11-03)
 
 ### Features
