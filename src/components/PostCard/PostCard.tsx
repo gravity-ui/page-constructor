@@ -1,6 +1,6 @@
 import React, {useMemo, useContext} from 'react';
 
-import {CardBase, YFMWrapper, MetrikaGoal} from '@gravity-ui/page-constructor';
+import {CardBase, YFMWrapper, MetrikaGoal, HTML} from '@gravity-ui/page-constructor';
 
 import {LikesContext} from '../../contexts/LikesContext';
 
@@ -47,7 +47,7 @@ export const PostCard: React.FC<PostCardProps> = ({
         url,
     } = post;
 
-    const title = postTitle || htmlTitle || textTitle;
+    const title = postTitle || textTitle || htmlTitle;
 
     const {toggleLike, hasLikes} = useContext(LikesContext);
 
@@ -74,7 +74,9 @@ export const PostCard: React.FC<PostCardProps> = ({
                 )}
                 {title && (
                     <h4 className={b('title', {size})}>
-                        <span>{title}</span>
+                        <span>
+                            <HTML>{title}</HTML>
+                        </span>
                     </h4>
                 )}
                 {description && (
@@ -83,6 +85,7 @@ export const PostCard: React.FC<PostCardProps> = ({
                         content={description}
                         modifiers={{
                             blog: size === 'm',
+                            blogCard: true,
                         }}
                     />
                 )}
