@@ -10,9 +10,11 @@ Extended Features block
 
 `items: FeatureItem[]` — Feature description
 
-- `title?: string` — Title
-- `text?: string` — Text
-- `link?: Link` — Link below the text
+- `title?: string` — Item's title
+- `text?: string` — Item's text (with YFM support)
+- `additionalInfo?: string` — Gray text (with YFM support)
+- `links?: Link[]` — An array with link objects (see [Content blocks](?path=/story/information--common-types&viewMode=docs))
+- `buttons?: Button[]` — An array with button objects (see [Content blocks](?path=/story/information--common-types&viewMode=docs))
 - `label?: New | Preview` — Label
 
 `colSizes?: Object` — Sizes of a single card in columns for different screen sizes, the value ranges from 1 to 12 columns. If 12 columns, a single card takes up the entire width of the screen.

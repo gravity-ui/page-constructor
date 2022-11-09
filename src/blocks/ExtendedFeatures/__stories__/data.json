@@ -1,11 +1,6 @@
 {
   "default": {
     "content": {
-      "colSizes": {
-        "all": 12,
-        "sm": 6,
-        "md": 4
-      },
       "type": "extended-features-block",
       "title": {
         "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
@@ -14,7 +9,7 @@
       "items": [
         {
           "title": "Sed do eiusmod tempor incididunt",
-          "text": "Ut enim ad minim veniam <a href=\"https://example.com\">quis nostrud exercitation</a> ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+          "text": "Ut enim ad minim veniam [quis nostrud](https://example.com) ullamco laboris nisi ut aliquip ex ea commodo consequat.",
           "icon": {
             "light": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_1_light.svg",
             "dark": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_1_dark.svg"
@@ -30,7 +25,7 @@
         },
         {
           "title": "Sed do eiusmod tempor",
-          "text": "Ut enim ad minim veniam <a href=\"https://example.com\">quis nostrud exercitation</a> ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+          "text": "Ut enim ad minim veniam [quis nostrud](https://example.com) ullamco laboris nisi ut aliquip ex ea commodo consequat.",
           "icon": {
             "light": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_2_light.svg",
             "dark": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_2_dark.svg"
@@ -46,7 +41,7 @@
         },
         {
           "title": "Sed do eiusmod tempor incididunt",
-          "text": "Ut enim ad minim veniam <a href=\"https://example.com\">quis nostrud exercitation</a> ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+          "text": "Ut enim ad minim veniam [quis nostrud](https://example.com) ullamco laboris nisi ut aliquip ex ea commodo consequat.",
           "icon": {
             "light": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_3_light.svg",
             "dark": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_3_dark.svg"
@@ -65,11 +60,6 @@
   },
   "withLabel": {
     "content": {
-      "colSizes": {
-        "all": 12,
-        "sm": 6,
-        "md": 4
-      },
       "type": "extended-features-block",
       "title": {
         "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
@@ -78,7 +68,7 @@
       "items": [
         {
           "title": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-          "text": "Ut enim ad minim veniam <a href=\"https://example.com\">quis nostrud exercitation</a> ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+          "text": "Ut enim ad minim veniam [quis nostrud](https://example.com) ullamco laboris nisi ut aliquip ex ea commodo consequat.",
           "icon": {
             "light": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_1_light.svg",
             "dark": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_1_dark.svg"
@@ -101,7 +91,7 @@
         },
         {
           "title": "Sed do eiusmod tempor",
-          "text": "Ut enim ad minim veniam <a href=\"https://example.com\">quis nostrud exercitation</a> ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+          "text": "Ut enim ad minim veniam [quis nostrud](https://example.com) ullamco laboris nisi ut aliquip ex ea commodo consequat.",
           "icon": {
             "light": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_2_light.svg",
             "dark": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_2_dark.svg"
@@ -124,7 +114,129 @@
         },
         {
           "title": "Sed do eiusmod tempor incididunt ",
-          "text": "Ut enim ad minim veniam <a href=\"https://example.com\">quis nostrud exercitation</a> ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+          "text": "Ut enim ad minim veniam [quis nostrud](https://example.com) ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+          "icon": {
+            "light": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_3_light.svg",
+            "dark": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_3_dark.svg"
+          },
+          "links": [
+            {
+              "text": "Go",
+              "url": "#",
+              "arrow": true,
+              "theme": "normal"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "colSizes": {
+    "two": {
+      "title": "Extended Features",
+      "description": "Two features in a row on all devices",
+      "colSizes": {
+        "all": 6
+      },
+      "items": [
+        {
+          "title": "Sed do eiusmod tempor incididunt",
+          "text": "Ut enim ad minim veniam [quis nostrud](https://example.com) ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+          "icon": {
+            "light": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_3_light.svg",
+            "dark": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_3_dark.svg"
+          },
+          "links": [
+            {
+              "text": "Go",
+              "url": "#",
+              "arrow": true,
+              "theme": "normal"
+            }
+          ]
+        },
+        {
+          "title": "Sed do eiusmod tempor incididunt",
+          "text": "Ut enim ad minim veniam [quis nostrud](https://example.com) ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+          "icon": {
+            "light": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_3_light.svg",
+            "dark": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_3_dark.svg"
+          },
+          "links": [
+            {
+              "text": "Go",
+              "url": "#",
+              "arrow": true,
+              "theme": "normal"
+            }
+          ]
+        }
+      ]
+    },
+    "three": {
+      "title": "Extended Features (default)",
+      "description": "Three Features in a row on the desktop, three features in a row on a tablet, two features in a row on a mobile phone."
+    },
+    "four": {
+      "title": "Extended Features",
+      "description": "Four features in a row on the desktop, three features in a row on a tablet, two features in a row on a mobile phone.",
+      "colSizes": {
+        "all": 6,
+        "sm": 4,
+        "md": 3
+      },
+      "items": [
+        {
+          "title": "Sed do eiusmod tempor incididunt",
+          "text": "Ut enim ad minim veniam [quis nostrud](https://example.com) ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+          "icon": {
+            "light": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_1_light.svg",
+            "dark": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_1_dark.svg"
+          },
+          "links": [
+            {
+              "text": "Go",
+              "url": "#",
+              "arrow": true,
+              "theme": "normal"
+            }
+          ]
+        },
+        {
+          "title": "Sed do eiusmod tempor",
+          "text": "Ut enim ad minim veniam [quis nostrud](https://example.com) ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+          "icon": {
+            "light": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_2_light.svg",
+            "dark": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_2_dark.svg"
+          },
+          "links": [
+            {
+              "text": "Go",
+              "url": "#",
+              "arrow": true,
+              "theme": "normal"
+            }
+          ]
+        },
+        {
+          "title": "Sed do eiusmod tempor incididunt",
+          "text": "Ut enim ad minim veniam [quis nostrud](https://example.com) ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+          "icon": {
+            "light": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_3_light.svg",
+            "dark": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_3_dark.svg"
+          },
+          "links": [
+            {
+              "text": "Go",
+              "url": "#",
+              "arrow": true,
+              "theme": "normal"
+            }
+          ]
+        },
+        {
+          "title": "Sed do eiusmod tempor incididunt",
+          "text": "Ut enim ad minim veniam [quis nostrud](https://example.com) ullamco laboris nisi ut aliquip ex ea commodo consequat.",
           "icon": {
             "light": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_3_light.svg",
             "dark": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_3_dark.svg"

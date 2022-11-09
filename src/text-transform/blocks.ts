@@ -216,10 +216,20 @@ const config: BlocksConfig = {
             fields: ['description'],
             transformer: yfmTransformer,
         },
+        // {
+        //     fields: ['items'],
+        //     transformer: typografTransformer,
+        //     parser: parseFeatures,
+        // },
         {
             fields: ['items'],
             transformer: typografTransformer,
-            parser: parseFeatures,
+            parser: createItemsParser(['title']),
+        },
+        {
+            fields: ['items'],
+            transformer: yfmTransformer,
+            parser: createItemsParser(['text', 'additionalInfo']),
         },
     ],
     [BlockType.PromoFeaturesBlock]: {
