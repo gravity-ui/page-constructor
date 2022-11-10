@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.6.1](https://github.com/gravity-ui/page-constructor/compare/v1.4.1...v1.6.1) (2022-11-10)
+
+### Bug Fixes
+
+* fix storybook's content
+
+
 ## [1.6.0](https://github.com/gravity-ui/page-constructor/pulls?q=is%3Apr+is%3Aclosed) (2022-11-09)
 
 ### Features
