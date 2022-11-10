@@ -216,11 +216,6 @@ const config: BlocksConfig = {
             fields: ['description'],
             transformer: yfmTransformer,
         },
-        // {
-        //     fields: ['items'],
-        //     transformer: typografTransformer,
-        //     parser: parseFeatures,
-        // },
         {
             fields: ['items'],
             transformer: typografTransformer,
