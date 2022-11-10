@@ -66,7 +66,7 @@ const ThemeTemplate: Story<ContentBlockProps & ClassNameProps> = (args) => (
                 buttons={data.theme.light.buttons as ButtonProps[]}
             />
         </div>
-        <div style={{paddingBottom: '64px'}}>
+        <div style={{paddingBottom: '64px', backgroundColor: '#7ccea0'}}>
             <Content
                 {...args}
                 title={data.theme.dark.title}

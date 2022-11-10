@@ -2,17 +2,17 @@
   "default": {
     "content": {
       "children": [
-        "You can always suggest a new feature or improvement under Ideas.",
-        "Create Managed Services for Kubernetes® clusters, monitor their status, and view logs — all that from your mobile.",
-        "Get answers to your questions about Yandex Cloud services by writing a message and attaching screenshots of the problem right in the app.",
-        "Suggest new features that you'd like to have to fully manage your cloud right in the app and we'll add them in future releases.",
-        "The news feed will help you stay up to date on new service launches and new technology and sign up for upcoming events.",
-        "Use the app to access your data in Object Storage buckets and monitor the service using charts in dashboards. Use the app to access your data in Object Storage buckets and monitor the service using charts in dashboards.",
-        "View extensive information about resources and their operations, charts with workload data from the monitoring system, and information about operations on resource pages.",
-        "The news feed will help you stay up to date on new service launches and new technology and sign up for upcoming events. The news feed will help you stay up to date on new service launches and new technology and sign up for upcoming events.The news feed will help you stay up to date on new service launches and new technology and sign up for upcoming events.The news feed will help you stay up to date on new service launches and new technology and sign up for upcoming events.The news feed will help you stay up to date on new service launches and new technology and sign up for upcoming events.The news feed will help you stay up to date on new service launches and new technology and sign up for upcoming events.",
-        "Use the app to access your data in Object Storage buckets and monitor the service using charts in dashboards.",
-        "Configure authentication in Yandex Cloud via your server with Single Sign-On. Identity federation support enables your users to access the app from a corporate account.",
-        "Use the app to monitor your account balance, add funds, and view a breakdown of your spending."
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
       ]
     }
   }

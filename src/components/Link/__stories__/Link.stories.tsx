@@ -18,7 +18,7 @@ export default {
 
 const DefaultTemplate: Story<LinkFullProps> = (args) => <Link {...args} />;
 const DarkTemplate: Story<LinkFullProps> = (args) => (
-    <section style={{color: '#3a74ff'}}>
+    <section style={{backgroundColor: '#7ccea0', display: 'inline-block', padding: '0 16px 16px'}}>
         <Link {...args} />
     </section>
 );
