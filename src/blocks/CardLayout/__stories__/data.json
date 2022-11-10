@@ -20,7 +20,7 @@
         "title": "Lorem&nbsp;ipsum",
         "description": "Dolor sit amet"
       },
-      "description": "Four cards in a row on the desktop, three cards in a row on a tablet, two card in a row on a mobile phone.",
+      "description": "Four cards in a row on the desktop, three cards in a row on a tablet, two cards in a row on a mobile phone.",
       "colSizes": {
         "all": 6,
         "sm": 4,

@@ -219,7 +219,12 @@ const config: BlocksConfig = {
         {
             fields: ['items'],
             transformer: typografTransformer,
-            parser: parseFeatures,
+            parser: createItemsParser(['title']),
+        },
+        {
+            fields: ['items'],
+            transformer: yfmTransformer,
+            parser: createItemsParser(['text', 'additionalInfo']),
         },
     ],
     [BlockType.PromoFeaturesBlock]: {

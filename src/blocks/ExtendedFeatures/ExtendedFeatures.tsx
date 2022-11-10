@@ -1,9 +1,13 @@
-import React from 'react';
+import React, {useContext} from 'react';
 
-import {block} from '../../utils';
+import {block, getThemedValue} from '../../utils';
 import {ExtendedFeaturesProps} from '../../models';
 import {Row, Col} from '../../grid';
-import {Link, HTML, AnimateBlock, BlockHeader} from '../../components/';
+import {AnimateBlock, BlockHeader, HTML} from '../../components/';
+import {Content} from '../../sub-blocks';
+import Image from '../../components/Image/Image';
+import {ThemeValueContext} from '../../context/theme/ThemeValueContext';
+import {getMediaImage} from '../../components/Media/Image/utils';
 
 import './ExtendedFeatures.scss';
 
@@ -21,31 +25,50 @@ export const ExtendedFeaturesBlock = ({
     items,
     colSizes = DEFAULT_SIZES,
     animated,
-}: ExtendedFeaturesProps) => (
-    <AnimateBlock className={b()} animate={animated}>
-        <BlockHeader title={title} description={description} className={b('header')} />
-        <div className={b('items')}>
-            <Row>
-                {items.map(({title: itemTitle, text, link, label, icon}) => (
-                    <Col className={b('item')} key={text || itemTitle} sizes={colSizes}>
-                        {icon && <img src={icon} className={b('icon')} />}
-                        {itemTitle && (
-                            <h5 className={b('item-title', {'has-label': Boolean(label)})}>
-                                <HTML>{itemTitle}</HTML>
-                                {label && <div className={b('item-label')}>{label}</div>}
-                            </h5>
-                        )}
-                        {text && (
-                            <div className={b('item-text')}>
-                                <HTML>{text}</HTML>
-                            </div>
-                        )}
-                        {link && <Link className={b('item-link')} {...link} />}
-                    </Col>
-                ))}
-            </Row>
-        </div>
-    </AnimateBlock>
-);
+}: ExtendedFeaturesProps) => {
+    const {themeValue: theme} = useContext(ThemeValueContext);
+
+    return (
+        <AnimateBlock className={b()} animate={animated}>
+            <BlockHeader title={title} description={description} className={b('header')} />
+            <div className={b('items')}>
+                <Row>
+                    {items.map(({title: itemTitle, text, link, links, label, icon}) => {
+                        const itemLinks = links || [];
+
+                        const iconThemed = icon && getThemedValue(icon, theme);
+                        const iconData = iconThemed && getMediaImage(iconThemed);
+
+                        if (link) {
+                            itemLinks.push(link);
+                        }
+
+                        return (
+                            <Col className={b('item')} key={text || itemTitle} sizes={colSizes}>
+                                {iconData && <Image {...iconData} className={b('icon')} />}
+                                <div className={b('container')}>
+                                    {itemTitle && (
+                                        <h5 className={b('item-title')}>
+                                            <HTML>{itemTitle}</HTML>
+                                            {label && (
+                                                <div className={b('item-label')}>{label}</div>
+                                            )}
+                                        </h5>
+                                    )}
+                                    <Content
+                                        text={text}
+                                        links={itemLinks}
+                                        size="s"
+                                        colSizes={{all: 12, md: 12}}
+                                    />
+                                </div>
+                            </Col>
+                        );
+                    })}
+                </Row>
+            </div>
+        </AnimateBlock>
+    );
+};
 
 export default ExtendedFeaturesBlock;

@@ -17,7 +17,10 @@ $block: '.#{$ns}ExtendedFeaturesBlock';
 
     &__item {
         margin-top: $indentM;
-        padding-right: $indentM;
+
+        &.col {
+            padding-right: $indentM;
+        }
 
         &-title {
             @include heading4();
@@ -66,12 +69,18 @@ $block: '.#{$ns}ExtendedFeaturesBlock';
         @include icon();
 
         display: block;
-        margin-bottom: $indentXXXS;
+        margin-bottom: $indentXXS;
     }
 
     @media (max-width: map-get($gridBreakpoints, 'sm')) {
         &__item {
             margin-top: $indentM;
+        }
+
+        &__item {
+            &.col {
+                padding-right: $indentXXXS;
+            }
         }
     }
 
