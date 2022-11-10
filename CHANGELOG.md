@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.7.0](https://github.com/gravity-ui/page-constructor/compare/v1.6.1...v1.7.0) (2022-11-10)
+
+
+### Features
+
+* **ExtendedFeatures:** add content ([#51](https://github.com/gravity-ui/page-constructor/issues/51)) ([0990563](https://github.com/gravity-ui/page-constructor/commit/0990563a62c3f8f4d4cfb206cedb7a1205cb1797))
+
 ## [1.6.1](https://github.com/gravity-ui/page-constructor/compare/v1.4.1...v1.6.1) (2022-11-10)
 
 ### Bug Fixes
