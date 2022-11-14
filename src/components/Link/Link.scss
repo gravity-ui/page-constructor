@@ -31,12 +31,12 @@ $block: '.#{$ns}link-block';
                 color: var(--yc-color-text-link);
             }
 
-            .yc-icon {
-                vertical-align: text-bottom;
-            }
-
             #{$root}__content {
                 white-space: normal;
+            }
+
+            & > * {
+                vertical-align: middle;
             }
         }
 
