@@ -22,10 +22,21 @@ $block: '.#{$ns}link-block';
         }
 
         &_has-arrow {
+            display: inherit;
+            white-space: nowrap;
+
             &:hover,
             &:active {
                 --pc-text-header-color: inherit;
                 color: var(--yc-color-text-link);
+            }
+
+            .yc-icon {
+                vertical-align: text-bottom;
+            }
+
+            #{$root}__content {
+                white-space: normal;
             }
         }
 
