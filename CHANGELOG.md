@@ -1,5 +1,9 @@
 # Change log
 
+## 0.12.2
+
+- Update types for getBlogPosts handler
+
 ## 0.12.1
 
 - Render post card title via dangerouslySetInnerHTML

@@ -10,7 +10,7 @@ import {
 
 import {i18, BlogKeyset} from '../i18n';
 
-import {BlogPostTag, GetBlogPostProps} from '../models/blog';
+import {BlogPostTag, GetBlogPostsRequest} from '../models/blog';
 import {Query} from '../models/common';
 import {
     CONTENT_DEFAULT_COL_SIZES,
@@ -95,7 +95,10 @@ export const getBlogElementMetrika = (
     }
 };
 
-export const getFeedQueryParams = (queryString: Query, pageNumber?: number): GetBlogPostProps => {
+export const getFeedQueryParams = (
+    queryString: Query,
+    pageNumber?: number,
+): GetBlogPostsRequest => {
     const queryParams = getPageSearchParams(queryString);
     const tags = queryParams.get('tags') || undefined;
     const page = pageNumber || Number(queryParams.get('page') || DEFAULT_PAGE);
