@@ -18,15 +18,6 @@ export interface BlogPagePostsData {
     pinnedPost?: BlogPostData;
 }
 
-export interface GetBlogPostsRequest {
-    perPage: number;
-    page: number;
-    tags?: string;
-    sortBy?: string;
-    savedOnly?: boolean;
-    search?: string;
-}
-
 export type BlogPostTag = {
     slug: string;
     name: string;
@@ -131,7 +122,7 @@ export interface HeaderBlockProps extends PageConstructorHeaderBlockProps {
     };
 }
 
-export type GetBlogPostProps = {
+export type GetBlogPostsRequest = {
     tags: string | undefined;
     page: number;
     perPage: number;
@@ -140,7 +131,7 @@ export type GetBlogPostProps = {
     services: string | undefined;
 };
 
-export type GetBlogPostsType = (query: GetBlogPostProps) => BlogPagePostsData;
+export type GetBlogPostsType = (query: GetBlogPostsRequest) => Promise<BlogPagePostsData>;
 
 export type HandleChangeQueryParams = (params: Query) => void;
 
