@@ -1,5 +1,9 @@
 # Change log
 
+## 0.13.0
+
+- Refactor metaProps in BlogPostPage
+
 ## 0.12.2
 
 - Update types for getBlogPosts handler

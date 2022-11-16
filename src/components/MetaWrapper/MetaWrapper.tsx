@@ -1,7 +1,7 @@
 import React from 'react';
 import {Helmet} from 'react-helmet';
 
-import {BlogPageMetaProps} from '../../models/blog';
+import {MetaProps} from '../../models/blog';
 
 /**
  * Wrapper on meta data of page
@@ -11,5 +11,5 @@ import {BlogPageMetaProps} from '../../models/blog';
  *
  * @returns jsx
  */
-export const MetaWrapper = ({needHelmetWrapper = false, metaComponent}: BlogPageMetaProps) =>
+export const MetaWrapper = ({needHelmetWrapper = false, metaComponent}: MetaProps) =>
     needHelmetWrapper ? <Helmet>{metaComponent}</Helmet> : metaComponent;
