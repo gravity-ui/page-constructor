@@ -1,0 +1,22 @@
+@import '../../../../../styles/variables.scss';
+@import '../../../../../styles/mixins.scss';
+
+.logo {
+    display: flex;
+    align-items: center;
+
+    font-weight: 500;
+    @include text-size(header-2);
+
+    &__icon {
+        width: 178px;
+        height: 36px;
+        margin-right: $indentXXXS;
+
+        object-fit: contain;
+    }
+
+    &__text {
+        white-space: nowrap;
+    }
+}

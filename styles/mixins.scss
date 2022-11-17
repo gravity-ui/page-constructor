@@ -442,3 +442,41 @@ unpredictable css rules order in build */
 @mixin font-feature-settings {
     font-feature-settings: 'liga', 'kern', 'pnum' on, 'lnum' on, 'ss03' on;
 }
+
+@mixin navigation-popup {
+    z-index: 101;
+
+    display: flex;
+    flex-direction: column;
+
+    min-width: 220px;
+    padding: $indentXS;
+
+    border: 1px solid var(--yc-color-line-generic);
+    border-top-width: 0;
+    border-radius: calc(#{$borderRadius} / 2);
+    background: var(--yc-color-base-float);
+    box-shadow: 0 3px 10px var(--yc-color-sfx-shadow);
+}
+
+@mixin navigation-item {
+    color: var(--yc-color-text-primary);
+    @include reset-link-style();
+    @include islands-focus();
+
+    &:hover,
+    &_active {
+        color: var(--yc-color-text-link);
+    }
+}
+
+@mixin navigation-link() {
+    cursor: pointer;
+    @include islands-focus();
+    @include reset-link-style();
+
+    &:hover,
+    &:active {
+        color: var(--yc-color-text-link);
+    }
+}

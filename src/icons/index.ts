@@ -6,3 +6,6 @@ export * from './Github';
 export * from './NavigationChevron';
 export * from './PlayVideo';
 export * from './PreviewClose';
+export * from './NavigationClose';
+export * from './NavigationOpen';
+export * from './NavigationArrow';

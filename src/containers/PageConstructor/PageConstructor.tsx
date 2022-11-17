@@ -31,10 +31,12 @@ import {ConstructorBlocks} from './components/ConstructorBlocks';
 import '@doc-tools/transform/dist/js/yfm';
 
 import './PageConstructor.scss';
+import Header from '../../components/navigation/components/Header/Header';
 
 const b = cnBlock('page-constructor');
 
 export type ItemMap = typeof blockMap & typeof subBlockMap & CustomItems;
+
 export interface PageConstructorProps {
     content?: PageContent;
     shouldRenderBlock?: ShouldRenderBlock;
@@ -61,7 +63,7 @@ export const Constructor = (props: PageConstructorProps) => {
 
     const {themeValue: theme} = useContext(ThemeValueContext);
     const {
-        content: {blocks = [], background = {}, footnotes = []} = {},
+        content: {blocks = [], background = {}, footnotes = [], navigationData} = {},
         renderMenu,
         shouldRenderBlock,
     } = props;
@@ -72,11 +74,18 @@ export const Constructor = (props: PageConstructorProps) => {
     const restBlocks = blocks?.filter((block) => !isHeaderBlock(block));
     const themedBackground = getThemedValue(background, theme);
 
+    console.log(navigationData);
+
     return (
         <InnerContext.Provider value={context}>
             <div className={b()}>
                 <div className={b('wrapper')}>
-                    <BackgroundMedia {...themedBackground} className={b('background')} />
+                    {themedBackground && (
+                        <BackgroundMedia {...themedBackground} className={b('background')} />
+                    )}
+                    {navigationData?.header && (
+                        <Header logo={navigationData?.logo} data={navigationData?.header} />
+                    )}
                     {renderMenu && renderMenu()}
                     {header && <ConstructorHeader data={header} />}
                     <Grid>

@@ -4,14 +4,6 @@
       "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>",
       "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>"
     ],
-    "background": {
-      "light": {
-        "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/header-bg-video_light.png"
-      },
-      "dark": {
-        "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/header-bg-video_dark.png"
-      }
-    },
     "content": {
       "items": [
         {
@@ -36,13 +28,15 @@
       ]
     }
   },
-  "withTheme": {
+  "default": {
     "background": {
       "light": {
-        "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/header-bg-video_light.png"
+        "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/header-bg-video_light.png",
+        "color": "#EFF2F8"
       },
       "dark": {
-        "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/header-bg-video_dark.png"
+        "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/header-bg-video_dark.png",
+        "color": "#262626"
       }
     },
     "content": {
@@ -65,6 +59,153 @@
               "url": "#"
             }
           ]
+        },
+        {
+          "type": "slider-block",
+          "title": {
+            "text": "Slider",
+            "url": "https://example.com"
+          },
+          "children": [
+            {
+              "type": "basic-card",
+              "url": "https://example.com",
+              "title": "Lorem ipsum dolor sit amet",
+              "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+              "icon": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_1_light.svg"
+            },
+            {
+              "type": "basic-card",
+              "url": "https://example.com",
+              "title": "Lorem ipsum dolor sit amet",
+              "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+              "icon": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_2_light.svg"
+            },
+            {
+              "type": "basic-card",
+              "url": "https://example.com",
+              "title": "Lorem ipsum dolor sit amet",
+              "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+              "icon": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_3_light.svg"
+            },
+            {
+              "type": "basic-card",
+              "url": "https://example.com",
+              "title": "Lorem ipsum dolor sit amet",
+              "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+              "icon": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_4_light.svg"
+            },
+            {
+              "type": "basic-card",
+              "url": "https://example.com",
+              "title": "Lorem ipsum dolor sit amet",
+              "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+              "icon": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_1_light.svg"
+            }
+          ]
+        },
+        {
+          "type": "banner-block",
+          "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+          "subtitle": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> ",
+          "image": {
+            "light": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_light.png",
+            "dark": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_dark.png"
+          },
+          "disableCompress": true,
+          "color": {
+            "light": "#EFF2F8",
+            "dark": "#262626"
+          },
+          "button": {
+            "text": "Learn more",
+            "url": "https://example.com"
+          }
+        }
+      ]
+    }
+  },
+  "navigation": {
+    "header": {
+      "leftItems": [
+        {
+          "text": "Lorem",
+          "type": "dropdown",
+          "items": [
+            {
+              "text": "Lorem ipsum dolor sit",
+              "url": "https://example.com"
+            },
+            {
+              "text": "Lorem ipsum dolor sit",
+              "url": "https://example.com"
+            },
+            {
+              "text": "Lorem ipsum dolor sit",
+              "url": "https://example.com"
+            },
+            {
+              "text": "Lorem ipsum dolor sit",
+              "url": "https://example.com"
+            }
+          ]
+        },
+        {
+          "text": "Ipsum",
+          "type": "dropdown",
+          "items": [
+            {
+              "text": "Lorem ipsum dolor sit",
+              "url": "https://example.com"
+            },
+            {
+              "text": "Lorem ipsum dolor sit",
+              "url": "https://example.com"
+            },
+            {
+              "text": "Lorem ipsum dolor sit",
+              "url": "https://example.com"
+            },
+            {
+              "text": "Lorem ipsum dolor sit",
+              "url": "https://example.com"
+            }
+          ]
+        },
+        {
+          "text": "Dolor",
+          "type": "dropdown",
+          "items": [
+            {
+              "text": "Lorem ipsum dolor sit",
+              "url": "https://example.com"
+            },
+            {
+              "text": "Lorem ipsum dolor sit",
+              "url": "https://example.com"
+            },
+            {
+              "text": "Lorem ipsum dolor sit",
+              "url": "https://example.com"
+            },
+            {
+              "text": "Lorem ipsum dolor sit",
+              "url": "https://example.com"
+            }
+          ]
+        }
+      ],
+      "rightItems": [
+        {
+          "text": "Lorem",
+          "url": "https://example.com",
+          "icon": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_1_light.svg"
+        },
+        {
+          "type": "button",
+          "text": "Ipsum",
+          "url": "https://example.com",
+          "theme": "pseudo"
         }
       ]
     }

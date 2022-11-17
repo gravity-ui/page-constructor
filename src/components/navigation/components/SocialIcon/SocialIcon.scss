@@ -1,0 +1,25 @@
+@import '../../../../../styles/variables.scss';
+@import '../../../../../styles/mixins.scss';
+
+.social-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 40px;
+    height: 40px;
+    margin-right: $indentXXXS;
+
+    color: var(--yc-color-base-background);
+    border-radius: 50%;
+    background-color: var(--yc-color-base-generic);
+
+    &:hover {
+        background-color: var(--yc-color-base-generic-hover);
+    }
+
+    &__icon {
+        width: 16px;
+        height: 16px;
+    }
+}

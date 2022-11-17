@@ -4,6 +4,7 @@ import {WithChildren} from '../../models';
 
 export interface RouterLinkProps {
     href: string;
+    [key: string]: any;
 }
 
 const RouterLink = ({href, children}: WithChildren<RouterLinkProps>) => {

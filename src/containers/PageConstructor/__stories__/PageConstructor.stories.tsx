@@ -3,6 +3,7 @@ import {Meta, Story} from '@storybook/react/types-6-0';
 import {HeaderBlockModel} from '../../../models';
 import {PageConstructor} from '../PageConstructor';
 import {CONTAINERS} from '../../../demo/constants';
+import {NavigationData} from '../../../models/navigation';
 
 import data from './data.json';
 
@@ -15,11 +16,11 @@ interface TemplateProps {
     items: HeaderBlockModel[];
 }
 
-const WithBackgroundTemplate: Story<TemplateProps> = (args) => (
+const DefaultTemplate: Story<TemplateProps> = (args) => (
     <PageConstructor
         content={{
             blocks: args.items,
-            background: data.withTheme.background,
+            background: data.default.background,
         }}
     />
 );
@@ -28,18 +29,29 @@ const WithFootnotesTemplate: Story<TemplateProps> = (args) => (
     <PageConstructor
         content={{
             blocks: args.items,
-            background: data.withFootnotes.background,
+            background: data.default.background,
             footnotes: data.withFootnotes.footnotes,
         }}
     />
 );
 
-export const WithTheme = WithBackgroundTemplate.bind({});
+const NavigationTemplate: Story<TemplateProps> = (args) => (
+    <PageConstructor
+        content={{
+            blocks: args.items,
+            navigationData: data.navigation as NavigationData,
+        }}
+    />
+);
+
+export const Default = DefaultTemplate.bind({});
 export const WithFootnotes = WithFootnotesTemplate.bind({});
+export const Navigation = NavigationTemplate.bind({});
 
 interface PageConstructorStoryProps {
     items: HeaderBlockModel[];
 }
 
-WithTheme.args = data.withTheme.content as PageConstructorStoryProps;
-WithFootnotes.args = data.withFootnotes.content as PageConstructorStoryProps;
+Default.args = data.default.content as PageConstructorStoryProps;
+WithFootnotes.args = data.default.content as PageConstructorStoryProps;
+Navigation.args = data.default.content as PageConstructorStoryProps;

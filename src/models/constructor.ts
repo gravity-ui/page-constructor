@@ -1,5 +1,6 @@
 import React, {PropsWithChildren} from 'react';
 import {Animatable, ThemedMediaProps, ConstructorItem, Block, WithChildren} from './';
+import {NavigationData} from './navigation';
 
 export interface PageData {
     content: PageContent;
@@ -14,6 +15,7 @@ export interface PageContent extends Animatable {
     menu?: Menu;
     background?: ThemedMediaProps;
     footnotes?: string[];
+    navigationData?: NavigationData;
 }
 
 export interface InitConstrucorState {
@@ -22,6 +24,7 @@ export interface InitConstrucorState {
 
 export interface CustomBlock {
     type: string;
+
     [key: string]: unknown;
 }
 
