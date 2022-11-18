@@ -4,6 +4,7 @@ import {WithChildren} from '../../models';
 
 export interface RouterLinkProps {
     href: string;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     [key: string]: any;
 }
 

@@ -1,9 +1,16 @@
 import _ from 'lodash';
 import block from 'bem-cn-lite';
-import React, {RefObject, createRef, Fragment, MouseEventHandler} from 'react';
-import OverflowScroller from '../../../OverflowScroller/OverflowScroller';
-// import {LocationContext} from '../../context/locationContext';
+import React, {
+    Fragment,
+    MouseEventHandler,
+    useState,
+    useEffect,
+    useCallback,
+    useContext,
+    useRef,
+} from 'react';
 
+import OverflowScroller from '../../../OverflowScroller/OverflowScroller';
 import {
     NavigationDropdownItem,
     NavigationItem as NavigationItemModel,
@@ -11,12 +18,13 @@ import {
 } from '../../../../models/navigation';
 import NavigationPopup from '../NavigationPopup/NavigationPopup';
 import NavigationItem from '../NavigationItem/NavigationItem';
+import {LocationContext} from '../../../../context/locationContext';
 
 import './Navigation.scss';
 
 const b = block('navigation');
 
-export interface NavigationOwnProps {
+export interface NavigationProps {
     links: NavigationItemModel[];
     activeItemIndex: number;
     onActiveItemChange: (index: number) => void;
@@ -24,97 +32,32 @@ export interface NavigationOwnProps {
     highlightActiveItem?: boolean;
 }
 
-// interface WithRouterProps {
-//     router: NextRouter;
-// }
+const Navigation: React.FC<NavigationProps> = ({
+    className,
+    onActiveItemChange,
+    links,
+    activeItemIndex,
+    highlightActiveItem,
+}) => {
+    const {asPath, pathname} = useContext(LocationContext);
+    const itemRefs = useRef<(HTMLLIElement | null)[]>([]);
+    const [itemPositions, setItemPosition] = useState<number[]>([]);
 
-// export type NavigationProps = NavigationOwnProps & WithRouterProps;
-export type NavigationProps = NavigationOwnProps;
+    const [lastLeftScroll, setLastLeftScroll] = useState(0);
 
-interface NavigationState {
-    itemPositions: number[];
-}
+    const hidePopup = useCallback(() => {
+        onActiveItemChange(-1);
+    }, [onActiveItemChange]);
 
-class Navigation extends React.Component<NavigationProps, NavigationState> {
-    itemRefs: RefObject<HTMLLIElement>[] = [];
-    state = {
-        itemPositions: [],
-    };
-    lastLeftScroll = 0;
+    const getItemClickHandler = useCallback<(index: number) => MouseEventHandler>(
+        (index) => (e) => {
+            e.stopPropagation();
+            onActiveItemChange(index === activeItemIndex ? -1 : index);
+        },
+        [activeItemIndex, onActiveItemChange],
+    );
 
-    componentDidMount() {
-        this.calculateItemPositions();
-        this.lastLeftScroll = window.pageXOffset;
-
-        window.addEventListener('resize', this.calculateItemPositions);
-        window.addEventListener('scroll', this.calculateOnScroll);
-    }
-
-    // componentDidUpdate(prevProps: NavigationProps) {
-    //     //use locationContext
-    //     const {router} = this.props;
-    //
-    //     if (router.asPath !== prevProps.router.asPath) {
-    //         this.hidePopup();
-    //     }
-    // }
-
-    componentWillUnmount() {
-        window.removeEventListener('resize', this.calculateItemPositions);
-        window.removeEventListener('scroll', this.calculateOnScroll);
-    }
-
-    render() {
-        const {className} = this.props;
-
-        return (
-            <OverflowScroller
-                className={b(null, className)}
-                onScrollStart={this.hidePopup}
-                onScrollEnd={this.calculateItemPositions}
-            >
-                {this.renderContent()}
-            </OverflowScroller>
-        );
-    }
-
-    renderContent() {
-        const {links, activeItemIndex, highlightActiveItem} = this.props;
-        const {itemPositions} = this.state;
-
-        return (
-            <nav>
-                <ul className={b('links')}>
-                    {links.map((link, index) => {
-                        const isActive = index === activeItemIndex;
-                        const onClick = this.getItemClickHandler(index);
-
-                        if (!this.itemRefs[index]) {
-                            this.itemRefs[index] = createRef();
-                        }
-
-                        return (
-                            <li ref={this.itemRefs[index]} key={index} className={b('links-item')}>
-                                {link.type === NavigationItemType.Dropdown ? (
-                                    this.renderNavDropdown(
-                                        link,
-                                        onClick,
-                                        isActive,
-                                        itemPositions[index],
-                                    )
-                                ) : (
-                                    <NavigationItem data={link} onClick={onClick} />
-                                )}
-                                {highlightActiveItem && isActive && this.renderSlider()}
-                            </li>
-                        );
-                    })}
-                </ul>
-            </nav>
-        );
-    }
-
-    private renderNavDropdown = (
+    const renderNavDropdown = (
         data: NavigationDropdownItem,
         onClick: MouseEventHandler,
         isActive: boolean,
@@ -133,7 +76,7 @@ class Navigation extends React.Component<NavigationProps, NavigationState> {
                 {isActive && (
                     <NavigationPopup
                         left={position}
-                        onClose={this.hidePopup}
+                        onClose={hidePopup}
                         items={items}
                         {...popupProps}
                     />
@@ -142,44 +85,84 @@ class Navigation extends React.Component<NavigationProps, NavigationState> {
         );
     };
 
-    private renderSlider() {
-        return (
-            <div className={b('slider-container')}>
-                <div className={b('slider')} />
-            </div>
-        );
-    }
+    const slider = (
+        <div className={b('slider-container')}>
+            <div className={b('slider')} />
+        </div>
+    );
 
-    private getItemClickHandler: (index: number) => MouseEventHandler = (index) => (e) => {
-        e.stopPropagation();
-        const {activeItemIndex, onActiveItemChange} = this.props;
-        onActiveItemChange(index === activeItemIndex ? -1 : index);
-    };
+    const content = (
+        <nav>
+            <ul className={b('links')}>
+                {links.map((link, index) => {
+                    const isActive = index === activeItemIndex;
+                    const onClick = getItemClickHandler(index);
 
-    private hidePopup = () => {
-        this.props.onActiveItemChange(-1);
-    };
+                    return (
+                        <li
+                            ref={(el) => itemRefs.current.push(el)}
+                            key={index}
+                            className={b('links-item')}
+                        >
+                            {link.type === NavigationItemType.Dropdown ? (
+                                renderNavDropdown(link, onClick, isActive, itemPositions[index])
+                            ) : (
+                                <NavigationItem data={link} onClick={onClick} />
+                            )}
+                            {highlightActiveItem && isActive && slider}
+                        </li>
+                    );
+                })}
+            </ul>
+        </nav>
+    );
 
-    // eslint-disable-next-line @typescript-eslint/member-ordering
-    private calculateItemPositions = _.debounce(() => {
-        if (this.itemRefs.length) {
-            const itemPositions = this.itemRefs.map(
-                (itemRef) => (itemRef.current && itemRef.current.getBoundingClientRect().left) || 0,
+    const calculateItemPositions = useCallback(() => {
+        if (itemRefs.current.length) {
+            const currentItemPositions = itemRefs.current.map(
+                (itemRef) => (itemRef && itemRef.getBoundingClientRect().left) || 0,
             );
-            this.setState({itemPositions});
+
+            setItemPosition(currentItemPositions);
         }
-    }, 100);
+    }, []);
 
-    // eslint-disable-next-line @typescript-eslint/member-ordering
-    private calculateOnScroll = _.debounce(() => {
-        const curLeftScroll = window.pageXOffset;
+    useEffect(() => {
+        const debouncedCalculateItemPositions = _.debounce(calculateItemPositions, 100);
+        const calculateOnScroll = _.debounce(() => {
+            const curLeftScroll = window.pageXOffset;
 
-        if (curLeftScroll !== this.lastLeftScroll) {
-            this.lastLeftScroll = curLeftScroll;
-            this.calculateItemPositions();
-        }
-    }, 100);
-}
+            if (curLeftScroll !== lastLeftScroll) {
+                setLastLeftScroll(window.pageXOffset);
+                calculateItemPositions();
+            }
+        }, 100);
 
-// export default withRouter(Navigation);
+        calculateItemPositions();
+        setLastLeftScroll(window.pageXOffset);
+
+        window.addEventListener('resize', debouncedCalculateItemPositions);
+        window.addEventListener('scroll', calculateOnScroll);
+
+        return () => {
+            window.removeEventListener(`resize`, calculateItemPositions);
+            window.removeEventListener('scroll', calculateOnScroll);
+        };
+    }, [calculateItemPositions, itemRefs, lastLeftScroll]);
+
+    useEffect(() => {
+        hidePopup();
+    }, [hidePopup, asPath, pathname]);
+
+    return (
+        <OverflowScroller
+            className={b(null, className)}
+            onScrollStart={hidePopup}
+            onScrollEnd={calculateItemPositions}
+        >
+            {content}
+        </OverflowScroller>
+    );
+};
+
 export default Navigation;

@@ -133,19 +133,19 @@
           "type": "dropdown",
           "items": [
             {
-              "text": "Lorem ipsum dolor sit",
+              "text": "Lorem ipsum ",
               "url": "https://example.com"
             },
             {
-              "text": "Lorem ipsum dolor sit",
+              "text": "Dolor sit amet",
               "url": "https://example.com"
             },
             {
-              "text": "Lorem ipsum dolor sit",
+              "text": "Consectetur adipiscing",
               "url": "https://example.com"
             },
             {
-              "text": "Lorem ipsum dolor sit",
+              "text": "Ut enim ad minim ",
               "url": "https://example.com"
             }
           ]
@@ -155,19 +155,19 @@
           "type": "dropdown",
           "items": [
             {
-              "text": "Lorem ipsum dolor sit",
+              "text": "Lorem ipsum ",
               "url": "https://example.com"
             },
             {
-              "text": "Lorem ipsum dolor sit",
+              "text": "Dolor sit amet",
               "url": "https://example.com"
             },
             {
-              "text": "Lorem ipsum dolor sit",
+              "text": "Consectetur adipiscing",
               "url": "https://example.com"
             },
             {
-              "text": "Lorem ipsum dolor sit",
+              "text": "Ut enim ad minim ",
               "url": "https://example.com"
             }
           ]
@@ -177,19 +177,19 @@
           "type": "dropdown",
           "items": [
             {
-              "text": "Lorem ipsum dolor sit",
+              "text": "Lorem ipsum ",
               "url": "https://example.com"
             },
             {
-              "text": "Lorem ipsum dolor sit",
+              "text": "Dolor sit amet",
               "url": "https://example.com"
             },
             {
-              "text": "Lorem ipsum dolor sit",
+              "text": "Consectetur adipiscing",
               "url": "https://example.com"
             },
             {
-              "text": "Lorem ipsum dolor sit",
+              "text": "Ut enim ad minim ",
               "url": "https://example.com"
             }
           ]

@@ -31,6 +31,19 @@ export default class NavigationPopup extends React.Component<
         calculatedLeft: this.props.left,
     };
 
+    private calculateLeft = _.debounce(() => {
+        const {left} = this.props;
+
+        if (this.ref && this.ref.current && left) {
+            const right = left + this.ref.current.offsetWidth;
+            const docWidth = document.body.clientWidth;
+            const calculatedLeft = right > docWidth ? left - (right - docWidth) : left;
+            this.setState({calculatedLeft});
+        } else {
+            this.setState({calculatedLeft: left});
+        }
+    }, 100);
+
     componentDidMount() {
         this.calculateLeft();
         window.addEventListener('resize', this.calculateLeft);
@@ -74,18 +87,4 @@ export default class NavigationPopup extends React.Component<
             </Fragment>
         );
     }
-
-    // eslint-disable-next-line @typescript-eslint/member-ordering
-    private calculateLeft = _.debounce(() => {
-        const {left} = this.props;
-
-        if (this.ref && this.ref.current && left) {
-            const right = left + this.ref.current.offsetWidth;
-            const docWidth = document.body.clientWidth;
-            const calculatedLeft = right > docWidth ? left - (right - docWidth) : left;
-            this.setState({calculatedLeft});
-        } else {
-            this.setState({calculatedLeft: left});
-        }
-    }, 100);
 }

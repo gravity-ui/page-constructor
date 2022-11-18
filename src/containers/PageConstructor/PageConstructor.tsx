@@ -27,11 +27,12 @@ import {ConstructorRow} from './components/ConstructorRow';
 import {ConstructorFootnotes} from './components/ConstructorFootnotes';
 import {ConstructorHeader} from './components/ConstructorItem';
 import {ConstructorBlocks} from './components/ConstructorBlocks';
+import Header from '../../components/navigation/components/Header/Header';
+import {NavigationData} from '../../models/navigation';
 
 import '@doc-tools/transform/dist/js/yfm';
 
 import './PageConstructor.scss';
-import Header from '../../components/navigation/components/Header/Header';
 
 const b = cnBlock('page-constructor');
 
@@ -42,6 +43,7 @@ export interface PageConstructorProps {
     shouldRenderBlock?: ShouldRenderBlock;
     custom?: CustomConfig;
     renderMenu?: () => React.ReactNode;
+    navigationData?: NavigationData;
 }
 
 export const Constructor = (props: PageConstructorProps) => {
@@ -63,9 +65,10 @@ export const Constructor = (props: PageConstructorProps) => {
 
     const {themeValue: theme} = useContext(ThemeValueContext);
     const {
-        content: {blocks = [], background = {}, footnotes = [], navigationData} = {},
+        content: {blocks = [], background = {}, footnotes = []} = {},
         renderMenu,
         shouldRenderBlock,
+        navigationData,
     } = props;
 
     const hasFootnotes = footnotes.length > 0;
@@ -73,8 +76,6 @@ export const Constructor = (props: PageConstructorProps) => {
     const header = blocks?.find(isHeaderBlock);
     const restBlocks = blocks?.filter((block) => !isHeaderBlock(block));
     const themedBackground = getThemedValue(background, theme);
-
-    console.log(navigationData);
 
     return (
         <InnerContext.Provider value={context}>

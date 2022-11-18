@@ -25,6 +25,7 @@ export type LocationContextProps = {
     pathname?: string;
     hostname?: string;
     Link?: RouterLink;
+    asPath?: string;
 };
 
 export const LocationContext = React.createContext<LocationContextProps>({});

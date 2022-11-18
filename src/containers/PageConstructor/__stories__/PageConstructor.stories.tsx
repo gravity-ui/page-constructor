@@ -39,8 +39,8 @@ const NavigationTemplate: Story<TemplateProps> = (args) => (
     <PageConstructor
         content={{
             blocks: args.items,
-            navigationData: data.navigation as NavigationData,
         }}
+        navigationData={data.navigation as NavigationData}
     />
 );
 
