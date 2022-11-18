@@ -3,8 +3,8 @@ import React from 'react';
 export interface UserAccount {
     uid: string;
     login: string;
-    displayName?: string;
     avatarId: string;
+    displayName?: string;
     lang?: string;
     hasStaffLogin?: boolean;
 }
