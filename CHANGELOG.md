@@ -1,5 +1,9 @@
 # Change log
 
+## 0.12.4
+
+- Prevent collapse of a custom switcher on a blog feed
+
 ## 0.12.2
 
 - Update types for getBlogPosts handler
