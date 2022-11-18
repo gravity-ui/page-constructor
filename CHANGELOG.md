@@ -1,5 +1,7 @@
 # Change log
 
+## 0.14.0
+
 ## 0.12.4
 
 - Prevent collapse of a custom switcher on a blog feed

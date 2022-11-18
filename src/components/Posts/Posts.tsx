@@ -54,7 +54,7 @@ export const Posts: React.FC<PostCardProps> = ({
         <div id={containerId} className={b('cards-container')}>
             {pinnedPostOnPage && currentPage === 1 && (
                 <div className={b('pinned-container')}>
-                    <PostCard post={pinnedPostOnPage} size="m" fullWidth showTag isModernIcon />
+                    <PostCard post={pinnedPostOnPage} size="m" fullWidth showTag />
                 </div>
             )}
             {postsOnPage?.length ? (
@@ -67,7 +67,7 @@ export const Posts: React.FC<PostCardProps> = ({
                     }}
                 >
                     {postsOnPage?.map((post) => (
-                        <PostCard key={post.id} post={post} showTag isModernIcon={true} />
+                        <PostCard key={post.id} post={post} showTag />
                     ))}
                 </CardLayoutBlock>
             ) : (

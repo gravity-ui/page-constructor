@@ -13,8 +13,6 @@ import metrika from '../../../counters/metrika.js';
 
 import {Save} from '../../../icons/Save';
 import {SaveFilled} from '../../../icons/SaveFilled';
-import {Like} from '../../../icons/Like';
-import {LikeFilled} from '../../../icons/LikeFilled';
 
 import '../BlogInfo.scss';
 
@@ -31,8 +29,6 @@ type BlogSaveProps = {
     metrikaGoal?: string;
     dataQa?: string;
     size?: 's' | 'm';
-    // delete this prop after Realese of BlogFeed https://st.yandex-team.ru/CLOUDFRONT-11056
-    isModernIcon?: boolean;
 };
 
 /**
@@ -44,7 +40,6 @@ type BlogSaveProps = {
  * @param metrikaGoal - metrika goal name
  * @param dataQa - test-attr
  * @param size - text size
- * @param isModernIcon - flag what we need render 'bookmark' icon
  *
  * @returns jsx
  */
@@ -56,12 +51,7 @@ export const BlogSave: React.FC<BlogSaveProps> = ({
     metrikaGoal,
     size,
     theme,
-    isModernIcon,
 }) => {
-    // delete this icons selection after Realese of BlogFeed https://st.yandex-team.ru/CLOUDFRONT-11056
-    const icon = isModernIcon ? Save : Like;
-    const filledIcon = isModernIcon ? SaveFilled : LikeFilled;
-
     return (
         <div
             className={b('item', {size})}
@@ -78,7 +68,7 @@ export const BlogSave: React.FC<BlogSaveProps> = ({
             <div className={b('content', {cursor: true, theme})}>
                 <span className={b('icon')}>
                     <Icon
-                        data={hasUserLike ? filledIcon : icon}
+                        data={hasUserLike ? SaveFilled : Save}
                         size={ICON_SIZE}
                         className={b({filled: Boolean(hasUserLike)})}
                     />
