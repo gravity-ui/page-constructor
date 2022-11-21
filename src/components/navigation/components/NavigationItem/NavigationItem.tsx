@@ -1,7 +1,7 @@
 import React, {Fragment, MouseEventHandler, useContext, useMemo} from 'react';
 import block from 'bem-cn-lite';
 
-import {RouterLink, ToggleArrow} from '../../../index';
+import {RouterLink, ToggleArrow, Button, Image} from '../../../index';
 import {getLinkProps} from '../../../../utils';
 import {LocationContext} from '../../../../context/locationContext';
 import {
@@ -10,13 +10,14 @@ import {
     NavigationItemType,
     NavigationSocialItem,
     NavigationLinkItem,
-} from '../../../../models/navigation';
+    ImageProps,
+    ButtonProps,
+} from '../../../../models';
 import {NavigationArrow} from '../../../../icons';
 import SocialIcon from '../SocialIcon/SocialIcon';
 import {getMediaImage} from '../../../Media/Image/utils';
 
 import './NavigationItem.scss';
-import {ImageProps} from '../../../../models';
 
 const b = block('navigation-item');
 
@@ -37,7 +38,7 @@ export interface NavigationItemProps {
 
 const Content: React.FC<{text: string; icon?: ImageProps}> = ({text, icon}) => (
     <Fragment>
-        {icon && <img className={b('icon')} {...icon} />}
+        {icon && <Image className={b('icon')} {...icon} />}
         <span className={b('text')}>{text}</span>
     </Fragment>
 );
@@ -92,10 +93,21 @@ const NavigationLink: React.FC<NavigationLinkProps> = (props) => {
     );
 };
 
+const NavigationButton: React.FC<ButtonProps> = (props) => {
+    const {url, target} = props;
+    return target ? (
+        <Button {...props} url={url} />
+    ) : (
+        <RouterLink href={url}>
+            <Button {...props} url={url} />
+        </RouterLink>
+    );
+};
+
 //todo: add types support form component in map
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const NavigationItemsMap: Record<NavigationItemType, React.ComponentType<any>> = {
-    [NavigationItemType.Button]: RouterLink,
+    [NavigationItemType.Button]: NavigationButton,
     [NavigationItemType.Social]: SocialIcon,
     [NavigationItemType.Dropdown]: NavigationDropdown,
     [NavigationItemType.Link]: NavigationLink,

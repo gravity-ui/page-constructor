@@ -20,7 +20,7 @@ const Logo: React.FC<LogoProps> = ({icon, text, className}) => {
     return (
         <RouterLink href="/" passHref>
             <div className={b(null, className)}>
-                {imageData && <Image {...imageData} />}
+                {imageData && <Image className={b('icon')} {...imageData} />}
                 <span className={b('text')}>{text}</span>
             </div>
         </RouterLink>
