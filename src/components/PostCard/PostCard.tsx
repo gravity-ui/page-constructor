@@ -19,8 +19,6 @@ type PostCardProps = {
     showTag?: boolean;
     size?: 's' | 'm';
     metrikaGoals?: MetrikaGoal;
-    // delete this prop after Realese of BlogFeed https://st.yandex-team.ru/CLOUDFRONT-11056
-    isModernIcon?: boolean;
 };
 
 export const PostCard: React.FC<PostCardProps> = ({
@@ -29,7 +27,6 @@ export const PostCard: React.FC<PostCardProps> = ({
     fullWidth = false,
     size = 's',
     showTag = false,
-    isModernIcon,
 }) => {
     const {
         title: postTitle,
@@ -98,7 +95,6 @@ export const PostCard: React.FC<PostCardProps> = ({
                     hasUserLike={hasUserLike}
                     likes={likesProps}
                     size={size}
-                    isModernIcon={isModernIcon}
                 />
             </CardBase.Footer>
         </CardBase>

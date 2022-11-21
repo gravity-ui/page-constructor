@@ -20,8 +20,6 @@ export interface SuggestBlogInfoProps
     extends Pick<BlogPostData, 'blogPostId' | 'date' | 'readingTime' | 'hasUserLike'> {
     size?: 's' | 'm';
     dataQa?: string;
-    // delete this prop after Realese of BlogFeed https://st.yandex-team.ru/CLOUDFRONT-11056
-    isModernIcon?: boolean;
     likes?: {
         likesCount?: number;
         hasUserLike?: boolean;
@@ -49,7 +47,6 @@ export const SuggestBlogInfo: React.FC<SuggestBlogInfoProps> = ({
     readingTime,
     likes,
     size = 's',
-    isModernIcon,
 }) => {
     const {hasUserLike, likesCount, handleLike} = useLikes({
         hasLike: likes?.hasUserLike,
@@ -71,7 +68,6 @@ export const SuggestBlogInfo: React.FC<SuggestBlogInfoProps> = ({
                     hasUserLike={hasUserLike}
                     handleUserLike={handleLike}
                     size={size}
-                    isModernIcon={isModernIcon}
                 />
             )}
         </div>
