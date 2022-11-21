@@ -3,6 +3,7 @@ import block from 'bem-cn-lite';
 
 import {NavigationSocialItem} from '../../../../models/navigation';
 import {Image} from '../../../index';
+import {getMediaImage} from '../../../Media/Image/utils';
 
 import './SocialIcon.scss';
 
@@ -12,10 +13,14 @@ export interface NavigationSocialItemProps extends NavigationSocialItem {
     className?: string;
 }
 
-const SocialIcon: React.FC<NavigationSocialItemProps> = ({icon, url, className}) => (
-    <a href={url} target="_blank" rel="noopener noreferrer" className={b(null, className)}>
-        <Image className={b('icon')} src={icon} />
-    </a>
-);
+const SocialIcon: React.FC<NavigationSocialItemProps> = ({icon, url, className}) => {
+    const iconData = getMediaImage(icon);
+
+    return (
+        <a href={url} target="_blank" rel="noopener noreferrer" className={b(null, className)}>
+            <Image className={b('icon')} {...iconData} />
+        </a>
+    );
+};
 
 export default SocialIcon;

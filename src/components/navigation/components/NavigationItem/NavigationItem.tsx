@@ -13,8 +13,10 @@ import {
 } from '../../../../models/navigation';
 import {NavigationArrow} from '../../../../icons';
 import SocialIcon from '../SocialIcon/SocialIcon';
+import {getMediaImage} from '../../../Media/Image/utils';
 
 import './NavigationItem.scss';
+import {ImageProps} from '../../../../models';
 
 const b = block('navigation-item');
 
@@ -33,9 +35,9 @@ export interface NavigationItemProps {
     isOpened?: boolean;
 }
 
-const Content: React.FC<{text: string; icon?: string}> = ({text, icon}) => (
+const Content: React.FC<{text: string; icon?: ImageProps}> = ({text, icon}) => (
     <Fragment>
-        {icon && <img className={b('icon')} src={icon} />}
+        {icon && <img className={b('icon')} {...icon} />}
         <span className={b('text')}>{text}</span>
     </Fragment>
 );
@@ -47,18 +49,22 @@ const NavigationDropdown: React.FC<NavigationDropdownProps> = ({
     icon,
     isOpened,
     ...props
-}) => (
-    <span {...props}>
-        <Content text={text} icon={icon} />
-        <ToggleArrow
-            className={b('dropdown')}
-            size={12}
-            type={'vertical'}
-            iconType="navigation"
-            open={isOpened}
-        />
-    </span>
-);
+}) => {
+    const iconData = icon && getMediaImage(icon);
+
+    return (
+        <span {...props}>
+            <Content text={text} icon={iconData} />
+            <ToggleArrow
+                className={b('dropdown')}
+                size={12}
+                type={'vertical'}
+                iconType="navigation"
+                open={isOpened}
+            />
+        </span>
+    );
+};
 
 type NavigationLinkProps = NavigationItemProps & NavigationLinkItem;
 
@@ -66,10 +72,11 @@ const NavigationLink: React.FC<NavigationLinkProps> = (props) => {
     const {hostname} = useContext(LocationContext);
     const {url, text, icon, arrow, target, ...rest} = props;
     const linkExtraProps = getLinkProps(url, hostname, target);
+    const iconData = icon && getMediaImage(icon);
 
     const content = (
         <Fragment>
-            <Content text={text} icon={icon} />
+            <Content text={text} icon={iconData} />
             {arrow && <NavigationArrow className={b('arrow')} />}
         </Fragment>
     );

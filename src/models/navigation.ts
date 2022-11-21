@@ -1,4 +1,4 @@
-import {ButtonProps} from '../components/Button/Button';
+import {ImageProps, ButtonProps} from './constructor-items';
 
 export enum NavigationItemType {
     Link = 'link',
@@ -9,7 +9,7 @@ export enum NavigationItemType {
 
 export interface NavigationItemBase {
     text: string;
-    icon?: string;
+    icon?: ImageProps;
     url?: string;
 }
 
@@ -33,14 +33,14 @@ export interface NavigationDropdownItem extends NavigationItemBase {
 
 export interface NavigationSocialItem extends Omit<NavigationItemBase, 'text'> {
     type: NavigationItemType.Social;
-    icon: string;
+    icon: ImageProps;
     url: string;
 }
 
 export type NavigationItem = NavigationLinkItem | NavigationButtonItem | NavigationDropdownItem;
 
 export interface NavigationLogo extends Omit<NavigationItemBase, 'text'> {
-    icon: string;
+    icon: ImageProps;
     text?: string;
 }
 

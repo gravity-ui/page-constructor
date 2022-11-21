@@ -5,11 +5,12 @@
     display: flex;
     align-items: center;
 
-    font-weight: 500;
-    @include text-size(header-2);
+    font-weight: var(--yc-text-accent-font-weight);
+
+    @include heading4();
 
     &__icon {
-        width: 178px;
+        display: flex;
         height: 36px;
         margin-right: $indentXXXS;
 
