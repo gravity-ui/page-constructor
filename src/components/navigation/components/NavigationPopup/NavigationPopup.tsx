@@ -1,10 +1,10 @@
 import _ from 'lodash';
 import block from 'bem-cn-lite';
-import React, {Fragment, createRef, RefObject} from 'react';
+import React, {Fragment, useRef, useState, useEffect, useCallback} from 'react';
 import {Portal} from '@gravity-ui/uikit';
 
 import {OutsideClick} from '../../../index';
-import {NavigationLinkItem} from '../../../../models/navigation';
+import {NavigationLinkItem} from '../../../../models';
 import NavigationItem from '../NavigationItem/NavigationItem';
 
 import './NavigationPopup.scss';
@@ -18,73 +18,54 @@ export interface NavigationPopupProps {
     className?: string;
 }
 
-interface NavigationPopupState {
-    calculatedLeft?: number;
-}
+export const NavigationPopup: React.FC<NavigationPopupProps> = ({items, left, onClose}) => {
+    const [calculatedLeft, setCalculatedLeft] = useState(left);
+    const popupRef = useRef<HTMLDivElement>(null);
 
-export default class NavigationPopup extends React.Component<
-    NavigationPopupProps,
-    NavigationPopupState
-> {
-    ref: RefObject<HTMLDivElement> = createRef();
-    state = {
-        calculatedLeft: this.props.left,
-    };
-
-    private calculateLeft = _.debounce(() => {
-        const {left} = this.props;
-
-        if (this.ref && this.ref.current && left) {
-            const right = left + this.ref.current.offsetWidth;
+    const calculateLeft = useCallback(() => {
+        if (popupRef && popupRef.current && left) {
+            const right = left + popupRef.current.offsetWidth;
             const docWidth = document.body.clientWidth;
-            const calculatedLeft = right > docWidth ? left - (right - docWidth) : left;
-            this.setState({calculatedLeft});
+            const currentLeft = right > docWidth ? left - (right - docWidth) : left;
+            setCalculatedLeft(currentLeft);
         } else {
-            this.setState({calculatedLeft: left});
+            setCalculatedLeft(left);
         }
-    }, 100);
+    }, [left]);
 
-    componentDidMount() {
-        this.calculateLeft();
-        window.addEventListener('resize', this.calculateLeft);
+    useEffect(() => {
+        const debounceCalculateLeft = _.debounce(calculateLeft, 100);
+        calculateLeft();
+        window.addEventListener('resize', debounceCalculateLeft);
+
+        return () => {
+            window.removeEventListener('resize', debounceCalculateLeft);
+        };
+    }, [calculateLeft]);
+
+    useEffect(() => {
+        calculateLeft();
+    }, [calculateLeft, left]);
+
+    if (!document || !document.body) {
+        return null;
     }
 
-    componentDidUpdate(prevProps: NavigationPopupProps) {
-        if (prevProps.left !== this.props.left) {
-            this.calculateLeft();
-        }
-    }
+    const renderDefaultPopup = (
+        <Fragment>
+            {items.map((item) => (
+                <NavigationItem key={item.text} className={b('link')} data={item} />
+            ))}
+        </Fragment>
+    );
 
-    componentWillUnmount() {
-        window.removeEventListener('resize', this.calculateLeft);
-    }
+    return (
+        <Portal>
+            <div ref={popupRef} className={b()} style={{left: calculatedLeft}}>
+                <OutsideClick onOutsideClick={onClose}>{renderDefaultPopup}</OutsideClick>
+            </div>
+        </Portal>
+    );
+};
 
-    render() {
-        if (!document || !document.body) {
-            return null;
-        }
-
-        const {onClose} = this.props;
-        const {calculatedLeft} = this.state;
-
-        return (
-            <Portal>
-                <div ref={this.ref} className={b()} style={{left: calculatedLeft}}>
-                    <OutsideClick onOutsideClick={onClose}>
-                        {this.renderDefaultPopup()}
-                    </OutsideClick>
-                </div>
-            </Portal>
-        );
-    }
-
-    private renderDefaultPopup() {
-        return (
-            <Fragment>
-                {this.props.items.map((item) => (
-                    <NavigationItem key={item.text} className={b('link')} data={item} />
-                ))}
-            </Fragment>
-        );
-    }
-}
+export default NavigationPopup;

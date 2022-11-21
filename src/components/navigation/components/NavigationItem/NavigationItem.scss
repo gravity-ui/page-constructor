@@ -25,6 +25,7 @@
     }
 
     &__icon {
+        display: flex;
         width: 20px;
         height: 20px;
         margin-right: $indentXXXS;

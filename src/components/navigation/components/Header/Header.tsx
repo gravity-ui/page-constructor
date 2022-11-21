@@ -6,7 +6,7 @@ import Control from '../../../Control/Control';
 
 import Logo from '../Logo/Logo';
 
-import {HeaderData, NavigationLogo} from '../../../../models/navigation';
+import {HeaderData, NavigationLogo} from '../../../../models';
 import Navigation from '../Navigation/Navigation';
 import MobileNavigation from '../MobileNavigation/MobileNavigation';
 import NavigationItem from '../NavigationItem/NavigationItem';
