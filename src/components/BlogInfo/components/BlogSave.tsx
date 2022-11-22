@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 
 // TODO fixes and refactor in https://st.yandex-team.ru/ORION-1444
 
@@ -13,6 +13,7 @@ import metrika from '../../../counters/metrika.js';
 
 import {Save} from '../../../icons/Save';
 import {SaveFilled} from '../../../icons/SaveFilled';
+import {UserContext} from '../../../contexts/UserContext';
 
 import '../BlogInfo.scss';
 
@@ -52,6 +53,8 @@ export const BlogSave: React.FC<BlogSaveProps> = ({
     size,
     theme,
 }) => {
+    const {uid} = useContext(UserContext);
+
     return (
         <div
             className={b('item', {size})}
@@ -60,12 +63,17 @@ export const BlogSave: React.FC<BlogSaveProps> = ({
                 // https://stackoverflow.com/questions/24415631/reactjs-syntheticevent-stoppropagation-only-works-with-react-events
                 event.preventDefault();
                 event.nativeEvent.stopImmediatePropagation();
+
+                if (!uid) {
+                    return;
+                }
+
                 postLikeStatus(postId, Boolean(hasUserLike));
                 handleUserLike();
                 metrika.reachGoal(MetrikaCounter.CrossSite, metrikaGoal);
             }}
         >
-            <div className={b('content', {cursor: true, theme})}>
+            <div className={b('content', {cursor: Boolean(uid), theme})}>
                 <span className={b('icon')}>
                     <Icon
                         data={hasUserLike ? SaveFilled : Save}

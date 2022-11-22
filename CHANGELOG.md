@@ -1,5 +1,9 @@
 # Change log
 
+## 0.15.0
+
+- Prevent save button to be clickable when user is not logged in
+
 ## 0.14.0
 
 - Refactor metaProps in BlogPostPage
