@@ -57,7 +57,7 @@
     "typograf": "^6.14.0"
   },
   "peerDependencies": {
-    "react": "^16.0.0",
+    "react": "^16.0.0 || ^17.0.0",
     "@gravity-ui/uikit": "^3.0.1",
     "@doc-tools/transform": "^2.6.1"
   },
