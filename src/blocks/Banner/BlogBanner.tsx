@@ -8,11 +8,11 @@ import {block} from '../../utils/cn';
 
 import {BlogMetrikaGoalIds} from '../../constants';
 
-import './BlogBanner.scss';
+import './Banner.scss';
 
 const b = block('banner');
 
-export type BannerBlockProps = ContentBlockProps & {
+export type BannerProps = ContentBlockProps & {
     background?: string;
     color?: string;
     image?: string;
@@ -21,7 +21,7 @@ export type BannerBlockProps = ContentBlockProps & {
     paddingBottom?: PaddingSize;
 };
 
-export const BlogBannerBlock: React.FC<BannerBlockProps> = ({
+export const Banner: React.FC<BannerProps> = ({
     color,
     imageSize = 's',
     image,

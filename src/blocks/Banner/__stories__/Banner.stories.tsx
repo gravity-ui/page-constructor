@@ -10,11 +10,11 @@ import {BLOCKS} from '../../../demo/constants';
 import {BlogPageContext} from '../../../contexts/BlogPageContext';
 import post from '../../../../.mocks/post.json';
 
-import {BlogBannerBlock, BannerBlockProps} from '../BlogBanner';
+import {Banner, BannerProps} from '../BlogBanner';
 
 export default {
-    title: `${BLOCKS}/BlogBannerBlock`,
-    component: BlogBannerBlock,
+    title: `${BLOCKS}/Banner`,
+    component: Banner,
     args: {
         theme: 'light',
     },
@@ -22,7 +22,7 @@ export default {
 
 type BlogBannerBlockProps = {
     type: BlockType.BlogBannerBlock;
-} & BannerBlockProps;
+} & BannerProps;
 
 const DefaultTemplate: Story<BlogBannerBlockProps> = (args) => (
     <BlogPageContext.Provider value={{post: post as BlogPostData}}>
