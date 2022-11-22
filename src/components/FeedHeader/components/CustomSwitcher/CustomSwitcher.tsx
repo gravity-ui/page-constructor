@@ -53,7 +53,7 @@ export const CustomSwitcher = ({initial, defaultLabel, list}: CustomSwitcherProp
         return list.filter((item) => itemValues.includes(item.value)).map((item) => item.title);
     }, [initial, isInitialString, list]);
 
-    if (initial && isInitialString) {
+    if (initial && isInitialString && itemsNames.length) {
         return <CustomSwitcherView items={itemsNames} />;
     }
 
