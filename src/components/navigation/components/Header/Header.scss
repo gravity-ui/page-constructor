@@ -3,10 +3,7 @@
 
 .header {
     $root: &;
-    $searchHeight: 36px;
-    $searchWidth: 122px;
-    $searchButtonWidth: 36px;
-    $searchBreakpoint: 1120px;
+
     position: sticky;
     z-index: 98;
     top: 0;
@@ -46,11 +43,11 @@
 
     &__navigation {
         position: relative;
+        margin-right: $normalOffset;
 
         flex: 1 0 0;
         justify-content: flex-start;
 
-        margin-right: $normalOffset;
         @include desktop-only();
     }
 

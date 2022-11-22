@@ -126,10 +126,14 @@
     }
   },
   "navigation": {
+    "logo": {
+      "icon": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_1_light.svg",
+      "text": "Logo"
+    },
     "header": {
       "leftItems": [
         {
-          "text": "Lorem",
+          "text": "Dropdown 1",
           "type": "dropdown",
           "items": [
             {
@@ -151,7 +155,7 @@
           ]
         },
         {
-          "text": "Ipsum",
+          "text": "Dropdown 2",
           "type": "dropdown",
           "items": [
             {
@@ -173,37 +177,24 @@
           ]
         },
         {
-          "text": "Dolor",
-          "type": "dropdown",
-          "items": [
-            {
-              "text": "Lorem ipsum ",
-              "url": "https://example.com"
-            },
-            {
-              "text": "Dolor sit amet",
-              "url": "https://example.com"
-            },
-            {
-              "text": "Consectetur adipiscing",
-              "url": "https://example.com"
-            },
-            {
-              "text": "Ut enim ad minim ",
-              "url": "https://example.com"
-            }
-          ]
+          "text": "Link 1",
+          "url": "http://localhost:7009/downloads",
+          "icon": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_3_light.svg"
+        },
+        {
+          "text": "Link 2",
+          "url": "/../en/downloads"
         }
       ],
       "rightItems": [
         {
-          "text": "Lorem",
+          "text": "Link",
           "url": "https://example.com",
-          "icon": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_1_light.svg"
+          "icon": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_2_light.svg"
         },
         {
           "type": "button",
-          "text": "Ipsum",
+          "text": "Button",
           "url": "https://example.com",
           "theme": "pseudo"
         }

@@ -70,11 +70,10 @@ const NavigationDropdown: React.FC<NavigationDropdownProps> = ({
 type NavigationLinkProps = NavigationItemProps & NavigationLinkItem;
 
 const NavigationLink: React.FC<NavigationLinkProps> = (props) => {
-    const {hostname} = useContext(LocationContext);
+    const {hostname, Link} = useContext(LocationContext);
     const {url, text, icon, arrow, target, ...rest} = props;
     const linkExtraProps = getLinkProps(url, hostname, target);
     const iconData = icon && getMediaImage(icon);
-
     const content = (
         <Fragment>
             <Content text={text} icon={iconData} />
@@ -82,15 +81,19 @@ const NavigationLink: React.FC<NavigationLinkProps> = (props) => {
         </Fragment>
     );
 
-    return linkExtraProps?.target ? (
-        <a href={url} title={text} {...rest} {...linkExtraProps}>
-            {content}
-        </a>
-    ) : (
-        <RouterLink href={url} passHref>
-            <a {...rest}>{content}</a>
-        </RouterLink>
-    );
+    if (linkExtraProps?.target || !Link) {
+        return (
+            <a href={url} title={text} {...rest} {...linkExtraProps}>
+                {content}
+            </a>
+        );
+    } else {
+        return (
+            <RouterLink href={url} passHref>
+                <a {...rest}>{content}</a>
+            </RouterLink>
+        );
+    }
 };
 
 const NavigationButton: React.FC<ButtonProps> = (props) => {

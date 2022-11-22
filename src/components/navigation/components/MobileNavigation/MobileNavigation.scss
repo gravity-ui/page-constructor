@@ -12,7 +12,8 @@
     border-bottom-right-radius: $borderRadius;
     border-bottom-left-radius: $borderRadius;
     background-color: var(--yc-color-base-background);
-    box-shadow: 0px 3px 10px var(--yc-color-sfx-shadow);
+    box-shadow: 0 3px 10px var(--yc-color-sfx-shadow);
+
     @include text-size(body-2);
     @include mobile-tablet-only();
 
