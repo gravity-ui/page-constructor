@@ -2,6 +2,10 @@
 
 ## 0.14.0
 
+- Refactor metaProps in BlogPostPage
+
+## 0.13.0
+
 - Remove temporal flag of icon selection
 
 ## 0.12.4

@@ -74,6 +74,11 @@ export enum BlockType {
     BlogFeedBlock = 'blog-feed-block',
 }
 
+export type MetaProps = {
+    metaComponent: JSX.Element;
+    needHelmetWrapper: boolean;
+};
+
 export type MetaOrganizationType = {
     url: string;
     appTitle: string;
@@ -101,11 +106,6 @@ export interface BlogPostMetaProps {
     tags?: BlogPostTag[];
     organization: MetaOrganizationType;
 }
-
-export type BlogPageMetaProps = {
-    metaComponent: JSX.Element;
-    needHelmetWrapper: boolean;
-};
 
 export type ToggleLikeCallbackType = ({
     postId,

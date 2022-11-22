@@ -19,7 +19,7 @@ import {
     BlogPostTag,
     BlogPagePostsData,
     ToggleLikeCallbackType,
-    BlogPageMetaProps,
+    MetaProps,
     GetBlogPostsType,
     SetQueryType,
 } from '../../models/blog';
@@ -33,7 +33,7 @@ export type BlogPageProps = {
     services?: ServicePublic[];
     getBlogPosts: GetBlogPostsType;
     toggleLike?: ToggleLikeCallbackType;
-    metaData?: BlogPageMetaProps;
+    metaData?: MetaProps;
     setQuery?: SetQueryType;
     settings?: PageConstructorProviderProps;
     pageCountForShowSupportButtons?: number;
