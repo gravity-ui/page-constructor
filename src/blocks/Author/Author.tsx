@@ -1,6 +1,6 @@
 import React, {useMemo, useContext} from 'react';
 
-import {Author, AuthorType} from '@gravity-ui/page-constructor';
+import {Author as PCAuthor, AuthorType} from '@gravity-ui/page-constructor';
 import {ClassNameProps} from '@yandex-data-ui/cloud-components';
 
 import {BlogPageContext} from '../../contexts/BlogPageContext';
@@ -10,11 +10,11 @@ import {BlogWrapper, PaddingSize} from '../../components/BlogWrapper/BlogWrapper
 
 import {block} from '../../utils/cn';
 
-import './BlogAuthor.scss';
+import './Author.scss';
 
 const b = block('author');
 
-export type AuthorBlockFullProps = ClassNameProps & {
+export type AuthorProps = ClassNameProps & {
     paddingTop: PaddingSize;
     paddingBottom: PaddingSize;
     authorId: number;
@@ -22,7 +22,7 @@ export type AuthorBlockFullProps = ClassNameProps & {
 };
 
 // TODO: should we use an Author component from the page-constructor https://st.yandex-team.ru/CLOUDFRONT-8880#6267038c1864952e2194b016
-export const BlogAuthorBlock: React.FC<AuthorBlockFullProps> = (props) => {
+export const Author: React.FC<AuthorProps> = (props) => {
     const {image, paddingTop, paddingBottom, authorId} = props;
 
     const {post} = useContext(BlogPageContext);
@@ -49,7 +49,7 @@ export const BlogAuthorBlock: React.FC<AuthorBlockFullProps> = (props) => {
     return (
         <BlogWrapper paddingTop={paddingTop} paddingBottom={paddingBottom} className={b('content')}>
             <div className={b('layout')}>
-                <Author
+                <PCAuthor
                     type={AuthorType.Column}
                     author={authorItem}
                     authorContainerClassName={b('container')}

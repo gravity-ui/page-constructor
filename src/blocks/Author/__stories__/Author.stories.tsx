@@ -10,11 +10,11 @@ import {BLOCKS} from '../../../demo/constants';
 import {BlogPageContext} from '../../../contexts/BlogPageContext';
 import post from '../../../../.mocks/post.json';
 
-import {BlogAuthorBlock, AuthorBlockFullProps} from '../BlogAuthor';
+import {Author, AuthorProps} from '../Author';
 
 export default {
-    title: `${BLOCKS}/BlogAuthorBlock`,
-    component: BlogAuthorBlock,
+    title: `${BLOCKS}/Author`,
+    component: Author,
     args: {
         theme: 'light',
     },
@@ -22,7 +22,7 @@ export default {
 
 type AuthorBlockModel = {
     type: BlockType.BlogAuthorBlock;
-} & AuthorBlockFullProps;
+} & AuthorProps;
 
 const DefaultTemplate: Story<AuthorBlockModel> = (args) => (
     <BlogPageContext.Provider value={{post: post as BlogPostData}}>
