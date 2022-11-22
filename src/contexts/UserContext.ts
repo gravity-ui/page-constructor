@@ -17,6 +17,6 @@ export interface User extends UserAccount {
     yandexuid: string;
 }
 
-export type UserContextProps = User | null;
+export type UserContextProps = Partial<User>;
 
-export const UserContext = React.createContext<UserContextProps>(null);
+export const UserContext = React.createContext<UserContextProps>({} as UserContextProps);

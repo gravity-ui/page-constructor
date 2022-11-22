@@ -25,7 +25,7 @@ export const BlogConstructorProvider: React.FC<BlogConstructorProviderProps> = (
     locale = {} as Locale,
     router = {} as RouterContextProps,
     theme = DEFAULT_THEME,
-    user = null,
+    user = {},
     device = {},
     children,
 }) => {
