@@ -26,6 +26,7 @@ const PriceDetailedFoldableDetailsProps = {
     properties: {
         title: {
             type: 'string',
+            contentType: 'text',
         },
         size: {
             type: 'string',
@@ -82,6 +83,7 @@ const PriceDescriptionLabelProps = {
         },
         text: {
             type: 'string',
+            contentType: 'text',
         },
         size: {
             type: 'string',
@@ -93,12 +95,15 @@ const PriceDescriptionLabelProps = {
 const PriceDescriptionProps = {
     title: {
         type: 'string',
+        contentType: 'text',
     },
     description: {
         type: 'string',
+        contentType: 'yfm',
     },
     detailedTitle: {
         type: 'string',
+        contentType: 'text',
     },
     label: PriceDescriptionLabelProps,
 };
@@ -110,9 +115,11 @@ const PriceDetailsSettingsProps = {
     properties: {
         title: {
             type: 'string',
+            contentType: 'text',
         },
         description: {
             type: 'string',
+            contentType: 'yfm',
         },
     },
 };
@@ -124,6 +131,7 @@ const PriceDetailsListProps = {
     properties: {
         text: {
             type: 'string',
+            contentType: 'yfm',
         },
     },
 };

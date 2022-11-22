@@ -9,6 +9,7 @@ export const CompaniesBlock = {
             ...AnimatableProps,
             title: {
                 type: 'string',
+                contentType: 'text',
             },
             images: withTheme({
                 type: 'object',
@@ -25,6 +26,7 @@ export const CompaniesBlock = {
                     },
                     alt: {
                         type: 'string',
+                        contentType: 'text',
                     },
                 },
             }),

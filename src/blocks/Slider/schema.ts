@@ -42,6 +42,7 @@ const DisclaimerProps = {
     properties: {
         text: {
             type: 'string',
+            contentType: 'text',
         },
         size: {
             type: 'string',
@@ -59,6 +60,7 @@ export const SliderProps = {
     },
     description: {
         type: 'string',
+        contentType: 'text',
     },
     title: TitleProps,
     randomOrder: {

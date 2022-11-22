@@ -26,6 +26,7 @@ export const tabsItem = {
         },
         caption: {
             type: 'string',
+            contentType: 'text',
         },
         media: withTheme({
             type: 'object',
@@ -46,6 +47,7 @@ export const TabsBlock = {
             title: TitleProps,
             description: {
                 type: 'string',
+                contentType: 'text',
             },
             tabsColSizes: containerSizesArray.reduce(
                 (acc, size) => ({...acc, [size]: sizeNumber}),

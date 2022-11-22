@@ -17,6 +17,7 @@ export const SecurityBlock = {
             },
             title: {
                 type: 'string',
+                contentType: 'text',
             },
             media: Media,
             points: filteredArray({
@@ -27,6 +28,7 @@ export const SecurityBlock = {
                     },
                     text: {
                         type: 'string',
+                        contentType: 'text',
                     },
                     link: _.pick(LinkProps, ['text', 'url']),
                 },

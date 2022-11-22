@@ -25,13 +25,15 @@ export const MediaBlock = {
             ...BlockBaseProps,
             ...AnimatableProps,
             title: {
-                oneOf: [{type: 'string'}, TitleProps],
+                oneOf: [{type: 'string', contentType: 'text'}, TitleProps],
             },
             additionalInfo: {
                 type: 'string',
+                contentType: 'yfm',
             },
             description: {
                 type: 'string',
+                contentType: 'yfm',
             },
             size: {
                 type: 'string',

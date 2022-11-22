@@ -19,6 +19,7 @@ export const ImageDeviceProps = {
         },
         alt: {
             type: 'string',
+            contentType: 'text',
         },
         disableCompress: {
             type: 'boolean',
@@ -37,6 +38,7 @@ export const ImageObjectProps = {
         },
         alt: {
             type: 'string',
+            contentType: 'text',
         },
         disableCompress: {
             type: 'boolean',

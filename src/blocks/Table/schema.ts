@@ -8,6 +8,7 @@ export const TableBlock = {
             ...BlockBaseProps,
             title: {
                 type: 'string',
+                contentType: 'text',
             },
             table: {
                 additionalProperties: false,
@@ -20,6 +21,7 @@ export const TableBlock = {
                             type: 'array',
                             items: {
                                 type: ['string', 'number'],
+                                contentType: 'text',
                             },
                         },
                     },
@@ -27,6 +29,7 @@ export const TableBlock = {
                         type: 'array',
                         items: {
                             type: 'string',
+                            contentType: 'yfm',
                         },
                     },
                     justify: {

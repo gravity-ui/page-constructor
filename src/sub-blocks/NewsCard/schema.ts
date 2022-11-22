@@ -8,6 +8,7 @@ export const NewsCard = {
             ...BaseProps,
             title: {
                 type: 'string',
+                contentType: 'text',
             },
             url: {
                 type: 'string',

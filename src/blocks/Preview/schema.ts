@@ -15,9 +15,11 @@ const PreviewContentItem = {
     properties: {
         title: {
             type: 'string',
+            contentType: 'text',
         },
         description: {
             type: 'string',
+            contentType: 'yfm',
         },
     },
 };
@@ -45,9 +47,11 @@ export const PreviewBlock = {
             ...AnimatableProps,
             title: {
                 type: 'string',
+                contentType: 'text',
             },
             description: {
                 type: 'string',
+                contentType: 'yfm',
             },
             direction: {
                 type: 'string',

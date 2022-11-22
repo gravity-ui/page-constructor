@@ -8,9 +8,11 @@ export const PromoFeaturesItem = {
     properties: {
         title: {
             type: 'string',
+            contentType: 'text',
         },
         text: {
             type: 'string',
+            contentType: 'yfm',
         },
         theme: {
             enum: ['accent', 'accent-light', 'primary'],
@@ -27,10 +29,11 @@ export const PromoFeaturesBlock = {
             ...BlockBaseProps,
             ...AnimatableProps,
             title: {
-                oneOf: [{type: 'string'}, TitleProps],
+                oneOf: [{type: 'string', contentType: 'text'}, TitleProps],
             },
             description: {
                 type: 'string',
+                contentType: 'text',
             },
             theme: {
                 enum: ['grey', 'default'],

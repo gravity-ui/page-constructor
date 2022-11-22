@@ -20,9 +20,11 @@ export const QuestionsBlock = {
                 properties: {
                     title: {
                         type: 'string',
+                        contentType: 'text',
                     },
                     text: {
                         type: 'string',
+                        contentType: 'yfm',
                     },
                     link: LinkProps,
                     listStyle: {

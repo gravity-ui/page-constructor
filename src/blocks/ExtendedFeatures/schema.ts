@@ -13,9 +13,11 @@ export const ExtendedFeaturesItem = {
     properties: {
         title: {
             type: 'string',
+            contentType: 'text',
         },
         text: {
             type: 'string',
+            contentType: 'yfm',
         },
         label: {
             type: 'string',
@@ -36,10 +38,11 @@ export const ExtendedFeaturesBlock = {
             ...BlockBaseProps,
             ...AnimatableProps,
             title: {
-                oneOf: [{type: 'string'}, TitleProps],
+                oneOf: [{type: 'string', contentType: 'text'}, TitleProps],
             },
             description: {
                 type: 'string',
+                contentType: 'yfm',
             },
             items: filteredArray(ExtendedFeaturesItem),
             colSizes: containerSizesObject,

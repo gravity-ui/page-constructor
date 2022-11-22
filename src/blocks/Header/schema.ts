@@ -22,12 +22,15 @@ export const HeaderBackgroundProps = {
 export const HeaderProperties = {
     title: {
         type: 'string',
+        contentType: 'text',
     },
     overtitle: {
         type: 'string',
+        contentType: 'text',
     },
     description: {
         type: 'string',
+        contentType: 'yfm',
     },
     width: {
         type: 'string',
@@ -49,6 +52,7 @@ export const HeaderProperties = {
             },
             title: {
                 type: 'string',
+                contentType: 'text',
             },
         },
     },
@@ -82,6 +86,7 @@ export const HeaderProperties = {
                         },
                         text: {
                             type: 'string',
+                            contentType: 'text',
                         },
                     },
                 },

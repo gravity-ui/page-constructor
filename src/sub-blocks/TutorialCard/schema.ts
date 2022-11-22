@@ -12,9 +12,11 @@ export const TutorialCard = {
             },
             title: {
                 type: 'string',
+                contentType: 'text',
             },
             text: {
                 type: 'string',
+                contentType: 'text',
             },
             icon: ImageProps,
         },

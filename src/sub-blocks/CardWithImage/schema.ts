@@ -9,6 +9,7 @@ const CardWithImageLinks = {
         ...BaseProps,
         title: {
             type: 'string',
+            contentType: 'text',
         },
         link: {
             type: 'string',
@@ -36,13 +37,15 @@ export const CardWithImageItem = {
             type: 'string',
         },
         title: {
-            oneOf: [{type: 'string'}, TitleProps],
+            oneOf: [{type: 'string', contentType: 'text'}, TitleProps],
         },
         description: {
             type: 'string',
+            contentType: 'yfm',
         },
         additionalInfo: {
             type: 'string',
+            contentType: 'yfm',
         },
         disableCompress: {
             type: 'boolean',

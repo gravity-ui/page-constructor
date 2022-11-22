@@ -9,6 +9,7 @@ export const Quote = {
             ...BaseProps,
             text: {
                 type: 'string',
+                contentType: 'text',
             },
             image: withTheme(ImageProps),
             logo: {

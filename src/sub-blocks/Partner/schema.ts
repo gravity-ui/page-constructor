@@ -9,6 +9,7 @@ export const PartnerBlock = {
             ...BaseProps,
             text: {
                 type: 'string',
+                contentType: 'text',
             },
             logo: ImageProps,
             url: {

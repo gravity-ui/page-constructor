@@ -13,6 +13,7 @@ export const SimpleBlock = {
             title: TitleProps,
             description: {
                 type: 'string',
+                contentType: 'yfm',
             },
             ...BlockBaseProps,
             ...AnimatableProps,
