@@ -7,7 +7,7 @@ import {BlogWrapper, PaddingSize} from '../../components/BlogWrapper/BlogWrapper
 import {checkContentDefaults} from '../../utils/blog';
 import {block} from '../../utils/cn';
 
-import './BlogColoredText.scss';
+import './ColoredText.scss';
 
 const b = block('colored-text');
 
@@ -17,13 +17,13 @@ type Background = {
     altText?: string;
 };
 
-export type ColoredTextBlockProps = ContentBlockProps & {
+export type ColoredTextProps = ContentBlockProps & {
     background?: Background;
     paddingTop?: PaddingSize;
     paddingBottom?: PaddingSize;
 };
 
-export const BlogColoredTextBlock: React.FC<ColoredTextBlockProps> = ({
+export const ColoredText: React.FC<ColoredTextProps> = ({
     background,
     paddingTop,
     paddingBottom,

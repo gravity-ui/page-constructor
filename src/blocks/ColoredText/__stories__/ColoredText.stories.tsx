@@ -10,21 +10,21 @@ import {BLOCKS} from '../../../demo/constants';
 import {BlogPageContext} from '../../../contexts/BlogPageContext';
 import post from '../../../../.mocks/post.json';
 
-import {BlogColoredTextBlock, ColoredTextBlockProps} from '../BlogColoredText';
+import {ColoredText, ColoredTextProps} from '../ColoredText';
 
 export default {
-    title: `${BLOCKS}/BlogColoredTextBlock`,
-    component: BlogColoredTextBlock,
+    title: `${BLOCKS}/ColoredText`,
+    component: ColoredText,
     args: {
         theme: 'light',
     },
 } as Meta;
 
-type ColoredTextProps = {
+type ColoredTextStoryProps = {
     type: BlockType.BlogColoredTextBlock;
-} & ColoredTextBlockProps;
+} & ColoredTextProps;
 
-const DefaultTemplate: Story<ColoredTextProps> = (args) => (
+const DefaultTemplate: Story<ColoredTextStoryProps> = (args) => (
     <BlogPageContext.Provider value={{post: post as BlogPostData}}>
         <PageConstructor content={{blocks: [args]}} custom={customBlocks} />
     </BlogPageContext.Provider>
