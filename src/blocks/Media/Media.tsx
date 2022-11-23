@@ -1,26 +1,30 @@
 import React from 'react';
 import {ClassNameProps} from '@yandex-data-ui/cloud-components';
-import {Media, MediaProps, YFMWrapper} from '@gravity-ui/page-constructor';
+import {
+    Media as PCMedia,
+    MediaProps as PCMediaProps,
+    YFMWrapper,
+} from '@gravity-ui/page-constructor';
 
 import {BlogWrapper, PaddingSize} from '../../components/BlogWrapper/BlogWrapper';
 
 import {block} from '../../utils/cn';
 
-import './BlogMedia.scss';
+import './Media.scss';
 
 const b = block('blog-media');
 
-type MediaBlockProps = Partial<
-    Pick<MediaProps, 'youtube' | 'previewImg' | 'image' | 'video' | 'dataLens'>
+type MediaProps = Partial<
+    Pick<PCMediaProps, 'youtube' | 'previewImg' | 'image' | 'video' | 'dataLens'>
 > & {
     text?: string;
     paddingTop?: PaddingSize;
     paddingBottom?: PaddingSize;
 };
 
-export type MediaBlockFullProps = MediaBlockProps & ClassNameProps;
+export type MediaFullProps = MediaProps & ClassNameProps;
 
-export const BlogMediaBlock: React.FC<MediaBlockFullProps> = ({
+export const Media: React.FC<MediaFullProps> = ({
     youtube,
     image,
     video,
@@ -32,7 +36,7 @@ export const BlogMediaBlock: React.FC<MediaBlockFullProps> = ({
 }) => (
     <BlogWrapper paddingTop={paddingTop} paddingBottom={paddingBottom} className={b('container')}>
         <div className={b('border')}>
-            <Media
+            <PCMedia
                 className={b('content')}
                 videoClassName={b('video')}
                 imageClassName={b('image')}

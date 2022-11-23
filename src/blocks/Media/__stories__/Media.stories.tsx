@@ -10,11 +10,11 @@ import {BLOCKS} from '../../../demo/constants';
 import {BlogPageContext} from '../../../contexts/BlogPageContext';
 import post from '../../../../.mocks/post.json';
 
-import {BlogMediaBlock, MediaBlockFullProps} from '../BlogMedia';
+import {Media, MediaFullProps} from '../Media';
 
 export default {
-    title: `${BLOCKS}/BlogMediaBlock`,
-    component: BlogMediaBlock,
+    title: `${BLOCKS}/Media`,
+    component: Media,
     args: {
         theme: 'light',
     },
@@ -22,7 +22,7 @@ export default {
 
 type MediaBlockProps = {
     type: BlockType.BlogMediaBlock;
-} & MediaBlockFullProps;
+} & MediaFullProps;
 
 const DefaultTemplate: Story<MediaBlockProps> = (args) => (
     <BlogPageContext.Provider value={{post: post as BlogPostData}}>
