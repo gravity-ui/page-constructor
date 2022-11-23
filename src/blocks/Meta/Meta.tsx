@@ -11,18 +11,16 @@ import {BlogMetrikaGoalIds} from '../../constants';
 
 import {block} from '../../utils/cn';
 
-import './BlogMeta.scss';
+import './Meta.scss';
 
 const b = block('meta');
 
-type MetaBlockProps = {
+export type MetaProps = {
     paddingTop?: PaddingSize;
     paddingBottom?: PaddingSize;
     locale: string;
     theme?: TextTheme;
 };
-
-export type MetaBlockFullProps = MetaBlockProps;
 
 const metrikaGoals: BlogMetrikaGoals = {
     sharing: BlogMetrikaGoalIds.shareBottom,
@@ -36,7 +34,7 @@ const breadcrumbsGoals = [
     },
 ];
 
-export const MetaBlock: React.FC<MetaBlockFullProps> = (props) => {
+export const Meta: React.FC<MetaProps> = (props) => {
     const {paddingTop = 'l', paddingBottom = 'l', theme = 'light'} = props;
     const {post} = useContext(BlogPageContext);
 

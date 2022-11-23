@@ -9,7 +9,7 @@ import {ColoredText} from '../blocks/ColoredText/ColoredText';
 import {Author} from '../blocks/Author/Author';
 import {BlogSuggestBlock} from '../blocks/BlogSuggest/BlogSuggest';
 import {Banner} from '../blocks/Banner/BlogBanner';
-import {MetaBlock} from '../blocks/BlogMeta/BlogMeta';
+import {Meta} from '../blocks/Meta/Meta';
 import {Feed} from '../blocks/Feed/Feed';
 
 const blocks = {
@@ -21,7 +21,7 @@ const blocks = {
     [BlockType.BlogColoredTextBlock]: ColoredText,
     [BlockType.BlogAuthorBlock]: Author,
     [BlockType.BlogSuggestBlock]: BlogSuggestBlock,
-    [BlockType.BlogMetaBlock]: MetaBlock,
+    [BlockType.BlogMetaBlock]: Meta,
     [BlockType.BlogFeedBlock]: Feed,
 };
 

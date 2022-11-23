@@ -10,10 +10,10 @@ import {BLOCKS} from '../../../demo/constants';
 import {BlogPageContext} from '../../../contexts/BlogPageContext';
 import post from '../../../../.mocks/post.json';
 
-import {MetaBlock, MetaBlockFullProps} from '../BlogMeta';
+import {Meta as MetaBlock, MetaProps} from '../Meta';
 
 export default {
-    title: `${BLOCKS}/MetaBlock`,
+    title: `${BLOCKS}/Meta`,
     component: MetaBlock,
     args: {
         theme: 'light',
@@ -22,7 +22,7 @@ export default {
 
 type MetaBlockProps = {
     type: BlockType.BlogMetaBlock;
-} & MetaBlockFullProps;
+} & MetaProps;
 
 const DefaultTemplate: Story<MetaBlockProps> = (args) => (
     <BlogPageContext.Provider value={{post: post as BlogPostData}}>
