@@ -3,7 +3,7 @@ import React from 'react';
 
 import {BlogPostData, BlogPostTag, SetQueryType, GetBlogPostsType} from '../models/blog';
 
-export interface BlogFeedPageContextProps {
+export interface FeedContextProps {
     posts?: BlogPostData[];
     pinnedPost?: BlogPostData;
     totalCount?: number;
@@ -14,6 +14,4 @@ export interface BlogFeedPageContextProps {
     pageCountForShowSupportButtons?: number;
 }
 
-export const BlogFeedContext = React.createContext<BlogFeedPageContextProps>(
-    {} as BlogFeedPageContextProps,
-);
+export const FeedContext = React.createContext<FeedContextProps>({} as FeedContextProps);

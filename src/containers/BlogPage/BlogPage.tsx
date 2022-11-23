@@ -8,7 +8,7 @@ import {
     PageConstructorProviderProps,
 } from '@gravity-ui/page-constructor';
 
-import {BlogFeedContext} from '../../contexts/BlogFeedContext';
+import {FeedContext} from '../../contexts/FeedContext';
 import {LikesContext} from '../../contexts/LikesContext';
 
 import {MetaWrapper} from '../../components/MetaWrapper/MetaWrapper';
@@ -57,7 +57,7 @@ export const BlogPage = ({
                 hasLikes: Boolean(toggleLike),
             }}
         >
-            <BlogFeedContext.Provider
+            <FeedContext.Provider
                 value={{
                     posts: posts.posts,
                     pinnedPost: posts.pinnedPost,
@@ -72,7 +72,7 @@ export const BlogPage = ({
                     {metaData ? <MetaWrapper {...metaData} /> : null}
                     <PageConstructor content={content} custom={componentMap} />
                 </PageConstructorProvider>
-            </BlogFeedContext.Provider>
+            </FeedContext.Provider>
         </LikesContext.Provider>
     </main>
 );

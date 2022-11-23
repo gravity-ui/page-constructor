@@ -1,7 +1,7 @@
 import React, {useEffect, useCallback, useReducer, useMemo, useContext} from 'react';
 import {Icon} from '@gravity-ui/uikit';
 
-import {BlogFeedContext} from '../../contexts/BlogFeedContext';
+import {FeedContext} from '../../contexts/FeedContext';
 import {RouterContext} from '../../contexts/RouterContext';
 
 import {DEFAULT_PAGE, DEFAULT_BLOG_ROWS_PER_PAGE} from '../constants';
@@ -38,7 +38,7 @@ export const Feed: React.FC<FeedProps> = ({image}) => {
         pinnedPost,
         getBlogPosts,
         pageCountForShowSupportButtons,
-    } = useContext(BlogFeedContext);
+    } = useContext(FeedContext);
     const router = useContext(RouterContext);
 
     const [
