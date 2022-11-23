@@ -10,11 +10,11 @@ import {BLOCKS} from '../../../demo/constants';
 import {BlogPageContext} from '../../../contexts/BlogPageContext';
 import post from '../../../../.mocks/post.json';
 
-import {YFMBlock, YFMBlockFullProps} from '../BlogYFM';
+import {YFM, YFMProps} from '../YFM';
 
 export default {
-    title: `${BLOCKS}/YFMBlock`,
-    component: YFMBlock,
+    title: `${BLOCKS}/YFM`,
+    component: YFM,
     args: {
         theme: 'light',
     },
@@ -22,7 +22,7 @@ export default {
 
 type YFMBlockProps = {
     type: BlockType.BlogYFMBlock;
-} & YFMBlockFullProps;
+} & YFMProps;
 
 const DefaultTemplate: Story<YFMBlockProps> = (args) => (
     <BlogPageContext.Provider value={{post: post as BlogPostData}}>

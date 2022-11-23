@@ -1,7 +1,7 @@
 import {BlockType} from '../models/blog';
 
 import {Header} from '../blocks/Header/Header';
-import {YFMBlock} from '../blocks/BlogYFM/BlogYFM';
+import {YFM} from '../blocks/YFM/YFM';
 import {Layout} from '../blocks/Layout/Layout';
 import {Media} from '../blocks/Media/Media';
 import {CTA} from '../blocks/CTA/CTA';
@@ -13,7 +13,7 @@ import {Meta} from '../blocks/Meta/Meta';
 import {Feed} from '../blocks/Feed/Feed';
 
 const blocks = {
-    [BlockType.BlogYFMBlock]: YFMBlock,
+    [BlockType.BlogYFMBlock]: YFM,
     [BlockType.BlogLayoutBlock]: Layout,
     [BlockType.BlogMediaBlock]: Media,
     [BlockType.BlogBannerBlock]: Banner,

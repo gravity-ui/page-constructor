@@ -6,15 +6,13 @@ import {BlogWrapper, PaddingSize} from '../../components/BlogWrapper/BlogWrapper
 
 const b = block('yfm');
 
-type YFMBlockProps = {
+export type YFMProps = {
     text: string;
     paddingTop?: PaddingSize;
     paddingBottom?: PaddingSize;
 };
 
-export type YFMBlockFullProps = YFMBlockProps;
-
-export const YFMBlock: React.FC<YFMBlockFullProps> = (props) => {
+export const YFM: React.FC<YFMProps> = (props) => {
     const {text, paddingTop, paddingBottom} = props;
 
     return (
