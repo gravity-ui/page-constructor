@@ -81,7 +81,7 @@ export const Save: React.FC<SaveProps> = ({
                         className={b({filled: Boolean(hasUserLike)})}
                     />
                 </span>
-                <span className={b('title')}>{title}</span>
+                <span className={b('title', {cursor: Boolean(uid)})}>{title}</span>
             </div>
         </div>
     );

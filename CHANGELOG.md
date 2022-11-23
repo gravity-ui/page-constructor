@@ -1,5 +1,9 @@
 # Change log
 
+## 0.15.1
+
+- Do not show pointer cursor on save button title hover when the button is not clicable
+
 ## 0.15.0
 
 - Prevent save button to be clickable when user is not logged in

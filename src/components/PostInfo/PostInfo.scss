@@ -83,7 +83,10 @@ $block: '.#{$namespace}blog-info';
     &__title {
         width: auto;
         overflow: hidden;
-        cursor: pointer;
+
+        &_cursor {
+            cursor: pointer;
+        }
     }
 
     &__content {
