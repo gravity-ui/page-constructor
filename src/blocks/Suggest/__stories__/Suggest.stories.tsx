@@ -11,11 +11,11 @@ import {BlogPageContext} from '../../../contexts/BlogPageContext';
 import post from '../../../../.mocks/post.json';
 import suggestedPosts from '../../../../.mocks/suggestedPosts.json';
 
-import {BlogSuggestBlock, SuggestBlockFullProps} from '../BlogSuggest';
+import {Suggest, SuggestFullProps} from '../Suggest';
 
 export default {
-    title: `${BLOCKS}/BlogSuggestBlock`,
-    component: BlogSuggestBlock,
+    title: `${BLOCKS}/Suggest`,
+    component: Suggest,
     args: {
         theme: 'light',
     },
@@ -23,7 +23,7 @@ export default {
 
 type SuggestBlockProps = {
     type: BlockType.BlogSuggestBlock;
-} & SuggestBlockFullProps;
+} & SuggestFullProps;
 
 const DefaultTemplate: Story<SuggestBlockProps> = (args) => (
     <BlogPageContext.Provider value={{post, suggestedPosts}}>

@@ -21,13 +21,13 @@ const metrikaGoals = [
     },
 ];
 
-type SuggestBlockProps = {
+type SuggestProps = {
     posts: BlogPostData[];
     paddingTop: PaddingSize;
     paddingBottom: PaddingSize;
 };
 
-export type SuggestBlockFullProps = SuggestBlockProps & ClassNameProps;
+export type SuggestFullProps = SuggestProps & ClassNameProps;
 
 /**
  * Suggested posts block
@@ -38,10 +38,7 @@ export type SuggestBlockFullProps = SuggestBlockProps & ClassNameProps;
  *
  * @returns -jsx
  */
-export const BlogSuggestBlock: React.FC<SuggestBlockFullProps> = ({
-    paddingTop = 'l',
-    paddingBottom = 'l',
-}) => {
+export const Suggest: React.FC<SuggestFullProps> = ({paddingTop = 'l', paddingBottom = 'l'}) => {
     const {suggestedPosts} = useContext(BlogPageContext);
 
     if (suggestedPosts.length === 0) {
