@@ -22,16 +22,16 @@ import metrika from '../../../counters/metrika.js';
 
 import {ShareArrowUp} from '../../../icons/ShareArrowUp';
 
-import '../BlogInfo.scss';
+import '../PostInfo.scss';
 
 const b = block('blog-info');
 
-type BlogSharingProps = {
+type SharingProps = {
     theme?: 'light' | 'dark';
     metrikaGoal?: string;
 };
 
-export const BlogSharing: React.FC<BlogSharingProps> = ({theme, metrikaGoal}) => {
+export const Sharing: React.FC<SharingProps> = ({theme, metrikaGoal}) => {
     const router = useContext(RouterContext);
     const isMobile = useContext(MobileContext);
     const {sharingSocialNetworks} = useContext(BlogPageContext);

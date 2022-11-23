@@ -6,17 +6,17 @@ import {BlogPostData, ToggleLikeCallbackType} from '../../models/blog';
 
 import {useLikes} from '../../hooks/useLikes';
 
-import {BlogDate} from './components/BlogDate';
-import {BlogReadingTime} from './components/BlogReadingTime';
-import {BlogSave} from './components/BlogSave';
+import {Date} from './components/Date';
+import {ReadingTime} from './components/ReadingTime';
+import {Save} from './components/Save';
 
 import {block} from '../../utils/cn';
 
-import './BlogInfo.scss';
+import './PostInfo.scss';
 
 const b = block('blog-info');
 
-export interface SuggestBlogInfoProps
+export interface SuggestPostInfoProps
     extends Pick<BlogPostData, 'blogPostId' | 'date' | 'readingTime' | 'hasUserLike'> {
     size?: 's' | 'm';
     dataQa?: string;
@@ -41,7 +41,7 @@ export interface SuggestBlogInfoProps
  *
  * @returns jsx
  */
-export const SuggestBlogInfo: React.FC<SuggestBlogInfoProps> = ({
+export const SuggestPostInfo: React.FC<SuggestPostInfoProps> = ({
     blogPostId,
     date,
     readingTime,
@@ -58,11 +58,11 @@ export const SuggestBlogInfo: React.FC<SuggestBlogInfoProps> = ({
     return (
         <div className={b('container')}>
             <div className={b('suggest-container')}>
-                {date && <BlogDate date={date} size={size} />}
-                {readingTime && <BlogReadingTime readingTime={readingTime} size={size} />}
+                {date && <Date date={date} size={size} />}
+                {readingTime && <ReadingTime readingTime={readingTime} size={size} />}
             </div>
             {likes && blogPostId && (
-                <BlogSave
+                <Save
                     postId={blogPostId}
                     title={likesCount}
                     hasUserLike={hasUserLike}

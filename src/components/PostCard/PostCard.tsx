@@ -4,7 +4,7 @@ import {CardBase, YFMWrapper, MetrikaGoal, HTML} from '@gravity-ui/page-construc
 
 import {LikesContext} from '../../contexts/LikesContext';
 
-import {SuggestBlogInfo} from '../../components/BlogInfo/SuggestBlogInfo';
+import {SuggestPostInfo} from '../PostInfo/SuggestPostInfo';
 import {BlogPostData} from '../../models/blog';
 
 import {block} from '../../utils/cn';
@@ -88,7 +88,7 @@ export const PostCard: React.FC<PostCardProps> = ({
                 )}
             </CardBase.Content>
             <CardBase.Footer>
-                <SuggestBlogInfo
+                <SuggestPostInfo
                     blogPostId={blogPostId || id}
                     date={date}
                     readingTime={readingTime}

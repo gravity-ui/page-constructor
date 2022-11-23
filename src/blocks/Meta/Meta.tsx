@@ -4,7 +4,7 @@ import {HeaderBreadcrumbs, TextTheme, YFMWrapper} from '@gravity-ui/page-constru
 import {BlogPageContext} from '../../contexts/BlogPageContext';
 
 import {BlogWrapper, PaddingSize} from '../../components/BlogWrapper/BlogWrapper';
-import {BlogInfo, BlogMetrikaGoals} from '../../components/BlogInfo/BlogInfo';
+import {PostInfo, BlogMetrikaGoals} from '../../components/PostInfo/PostInfo';
 import {getBlogBreadcrumbs} from '../../utils/blog';
 
 import {BlogMetrikaGoalIds} from '../../constants';
@@ -64,7 +64,7 @@ export const Meta: React.FC<MetaProps> = (props) => {
                 />
             )}
             {post && (
-                <BlogInfo
+                <PostInfo
                     postId={id}
                     date={date}
                     readingTime={readingTime}

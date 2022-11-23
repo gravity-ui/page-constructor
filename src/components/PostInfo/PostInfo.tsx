@@ -4,14 +4,14 @@ import {BlogPageContext} from '../../contexts/BlogPageContext';
 
 import {BlogPostData} from '../../models/blog';
 
-import {BlogDate} from './components/BlogDate';
-import {BlogReadingTime} from './components/BlogReadingTime';
-import {BlogSharing} from './components/BlogSharing';
-import {BlogSave} from './components/BlogSave';
+import {Date} from './components/Date';
+import {ReadingTime} from './components/ReadingTime';
+import {Sharing} from './components/Sharing';
+import {Save} from './components/Save';
 
 import {block} from '../../utils/cn';
 
-import './BlogInfo.scss';
+import './PostInfo.scss';
 
 const b = block('blog-info');
 
@@ -20,7 +20,7 @@ export type BlogMetrikaGoals = {
     save?: string;
 };
 
-type BlogInfoProps = {
+type PostInfoProps = {
     postId: BlogPostData['id'];
     readingTime: BlogPostData['readingTime'];
     date: BlogPostData['date'];
@@ -41,7 +41,7 @@ type BlogInfoProps = {
  *
  * @returns jsx
  */
-export const BlogInfo: React.FC<BlogInfoProps> = ({
+export const PostInfo: React.FC<PostInfoProps> = ({
     date,
     readingTime,
     postId,
@@ -52,11 +52,11 @@ export const BlogInfo: React.FC<BlogInfoProps> = ({
 
     return (
         <div className={b('container', {theme})}>
-            {date && <BlogDate date={date} />}
-            {readingTime && <BlogReadingTime readingTime={readingTime} />}
-            <BlogSharing metrikaGoal={metrikaGoals?.sharing} theme={theme} />
+            {date && <Date date={date} />}
+            {readingTime && <ReadingTime readingTime={readingTime} />}
+            <Sharing metrikaGoal={metrikaGoals?.sharing} theme={theme} />
             {likes && (
-                <BlogSave
+                <Save
                     postId={postId}
                     title={likes.likesCount}
                     hasUserLike={likes.hasUserLike}

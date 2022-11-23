@@ -8,18 +8,18 @@ import {Time} from '../../../icons/Time';
 
 import {block} from '../../../utils/cn';
 
-import '../BlogInfo.scss';
+import '../PostInfo.scss';
 
 const b = block('blog-info');
 
 const ICON_SIZE = 16;
 
-type BlogReadingTimeProps = {
+type ReadingTimeProps = {
     readingTime: number;
     size?: 's' | 'm';
 };
 
-export const BlogReadingTime: React.FC<BlogReadingTimeProps> = ({readingTime, size = 's'}) => (
+export const ReadingTime: React.FC<ReadingTimeProps> = ({readingTime, size = 's'}) => (
     <div className={b('item', {size})}>
         <span className={b('icon')}>
             <Icon data={Time} size={ICON_SIZE} className={b('icon-color')} />

@@ -11,17 +11,17 @@ import {MetrikaCounter} from '../../../counters/utils';
 // @ts-ignore
 import metrika from '../../../counters/metrika.js';
 
-import {Save} from '../../../icons/Save';
+import {Save as SaveIcon} from '../../../icons/Save';
 import {SaveFilled} from '../../../icons/SaveFilled';
 import {UserContext} from '../../../contexts/UserContext';
 
-import '../BlogInfo.scss';
+import '../PostInfo.scss';
 
 const ICON_SIZE = 16;
 
 const b = block('blog-info');
 
-type BlogSaveProps = {
+type SaveProps = {
     title: string | number;
     postId: number;
     hasUserLike: boolean;
@@ -44,7 +44,7 @@ type BlogSaveProps = {
  *
  * @returns jsx
  */
-export const BlogSave: React.FC<BlogSaveProps> = ({
+export const Save: React.FC<SaveProps> = ({
     title,
     postId,
     hasUserLike,
@@ -76,7 +76,7 @@ export const BlogSave: React.FC<BlogSaveProps> = ({
             <div className={b('content', {cursor: Boolean(uid), theme})}>
                 <span className={b('icon')}>
                     <Icon
-                        data={hasUserLike ? SaveFilled : Save}
+                        data={hasUserLike ? SaveFilled : SaveIcon}
                         size={ICON_SIZE}
                         className={b({filled: Boolean(hasUserLike)})}
                     />

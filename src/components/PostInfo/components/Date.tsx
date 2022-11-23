@@ -5,16 +5,16 @@ import {LocaleContext} from '../../../contexts/LocaleContext';
 import {format} from '../../../utils/date';
 import {block} from '../../../utils/cn';
 
-import '../BlogInfo.scss';
+import '../PostInfo.scss';
 
 const b = block('blog-info');
 
-type BlogDateProps = {
+type DateProps = {
     date: string | number;
     size?: 's' | 'm';
 };
 
-export const BlogDate: React.FC<BlogDateProps> = ({date, size = 's'}) => {
+export const Date: React.FC<DateProps> = ({date, size = 's'}) => {
     const {locale} = useContext(LocaleContext);
 
     return <div className={b('item', {size})}>{format(date, 'longDate', locale?.code)}</div>;
