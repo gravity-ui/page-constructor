@@ -10,11 +10,11 @@ import {BLOCKS} from '../../../demo/constants';
 import {BlogPageContext} from '../../../contexts/BlogPageContext';
 import post from '../../../../.mocks/post.json';
 
-import {BlogCTABlock, CTABlockProps} from '../BlogCTA';
+import {CTA, CTAProps} from '../CTA';
 
 export default {
-    title: `${BLOCKS}/BlogCTABlock`,
-    component: BlogCTABlock,
+    title: `${BLOCKS}/CTA`,
+    component: CTA,
     args: {
         theme: 'light',
     },
@@ -22,7 +22,7 @@ export default {
 
 type ColoredTextProps = {
     type: BlockType.BlogCTABlock;
-} & CTABlockProps;
+} & CTAProps;
 
 const DefaultTemplate: Story<ColoredTextProps> = (args) => (
     <BlogPageContext.Provider value={{post: post as BlogPostData}}>

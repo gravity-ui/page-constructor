@@ -8,7 +8,7 @@ import {BlogMetrikaGoalIds} from '../../constants';
 
 import {block} from '../../utils/cn';
 
-import './BlogCTA.scss';
+import './CTA.scss';
 
 const b = block('cta');
 
@@ -16,14 +16,14 @@ const MAX_COLUMN_COUNT = 4,
     MIN_COLUMN_COUNT = 2,
     DEFAULT_COLUMN_COUNT = 3;
 
-export type CTABlockProps = {
+export type CTAProps = {
     items: Array<ContentBlockProps>;
     paddingTop?: PaddingSize;
     paddingBottom?: PaddingSize;
     columnCount?: number;
 };
 
-export const BlogCTABlock: React.FC<CTABlockProps> = ({items, paddingTop, paddingBottom}) => {
+export const CTA: React.FC<CTAProps> = ({items, paddingTop, paddingBottom}) => {
     let count = items ? items.length : DEFAULT_COLUMN_COUNT;
 
     if (count < MIN_COLUMN_COUNT) {

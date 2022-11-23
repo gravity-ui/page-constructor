@@ -4,7 +4,7 @@ import {BlogHeader} from '../blocks/BlogHeader/BlogHeader';
 import {YFMBlock} from '../blocks/BlogYFM/BlogYFM';
 import {BlogLayout} from '../blocks/BlogLayout/BlogLayout';
 import {BlogMediaBlock} from '../blocks/BlogMedia/BlogMedia';
-import {BlogCTABlock} from '../blocks/BlogCTA/BlogCTA';
+import {CTA} from '../blocks/CTA/CTA';
 import {ColoredText} from '../blocks/ColoredText/ColoredText';
 import {Author} from '../blocks/Author/Author';
 import {BlogSuggestBlock} from '../blocks/BlogSuggest/BlogSuggest';
@@ -17,7 +17,7 @@ const blocks = {
     [BlockType.BlogLayoutBlock]: BlogLayout,
     [BlockType.BlogMediaBlock]: BlogMediaBlock,
     [BlockType.BlogBannerBlock]: Banner,
-    [BlockType.BlogCTABlock]: BlogCTABlock,
+    [BlockType.BlogCTABlock]: CTA,
     [BlockType.BlogColoredTextBlock]: ColoredText,
     [BlockType.BlogAuthorBlock]: Author,
     [BlockType.BlogSuggestBlock]: BlogSuggestBlock,
