@@ -4,7 +4,7 @@ import {HeaderBlock, HeaderBlockProps} from '@gravity-ui/page-constructor';
 import {BlogPageContext} from '../../contexts/BlogPageContext';
 
 import {PostInfo, BlogMetrikaGoals} from '../../components/PostInfo/PostInfo';
-import {BlogWrapper, PaddingSize} from '../../components/BlogWrapper/BlogWrapper';
+import {Wrapper, PaddingSize} from '../../components/Wrapper/Wrapper';
 
 import {getBlogBreadcrumbs} from '../../utils/blog';
 
@@ -52,7 +52,7 @@ export const Header: React.FC<HeaderProps> = (props) => {
     );
 
     return (
-        <BlogWrapper paddingTop={paddingTop} paddingBottom={paddingBottom}>
+        <Wrapper paddingTop={paddingTop} paddingBottom={paddingBottom}>
             <HeaderBlock {...headerProps}>
                 <PostInfo
                     postId={id}
@@ -62,6 +62,6 @@ export const Header: React.FC<HeaderProps> = (props) => {
                     theme={theme}
                 />
             </HeaderBlock>
-        </BlogWrapper>
+        </Wrapper>
     );
 };

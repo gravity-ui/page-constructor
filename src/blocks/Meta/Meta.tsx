@@ -3,7 +3,7 @@ import {HeaderBreadcrumbs, TextTheme, YFMWrapper} from '@gravity-ui/page-constru
 
 import {BlogPageContext} from '../../contexts/BlogPageContext';
 
-import {BlogWrapper, PaddingSize} from '../../components/BlogWrapper/BlogWrapper';
+import {Wrapper, PaddingSize} from '../../components/Wrapper/Wrapper';
 import {PostInfo, BlogMetrikaGoals} from '../../components/PostInfo/PostInfo';
 import {getBlogBreadcrumbs} from '../../utils/blog';
 
@@ -45,7 +45,7 @@ export const Meta: React.FC<MetaProps> = (props) => {
     breadcrumbs.metrikaGoals = breadcrumbsGoals;
 
     return (
-        <BlogWrapper paddingTop={paddingTop} paddingBottom={paddingBottom}>
+        <Wrapper paddingTop={paddingTop} paddingBottom={paddingBottom}>
             {breadcrumbs && (
                 <HeaderBreadcrumbs
                     items={breadcrumbs.items}
@@ -71,6 +71,6 @@ export const Meta: React.FC<MetaProps> = (props) => {
                     metrikaGoals={metrikaGoals}
                 />
             )}
-        </BlogWrapper>
+        </Wrapper>
     );
 };

@@ -5,7 +5,7 @@ import {ClassNameProps} from '@yandex-data-ui/cloud-components';
 
 import {BlogPageContext} from '../../contexts/BlogPageContext';
 
-import {BlogWrapper, PaddingSize} from '../../components/BlogWrapper/BlogWrapper';
+import {Wrapper, PaddingSize} from '../../components/Wrapper/Wrapper';
 // TODO import ResizedImage from '../../components/ResizedImage/ResizedImage';
 
 import {block} from '../../utils/cn';
@@ -47,7 +47,7 @@ export const Author: React.FC<AuthorProps> = (props) => {
     }
 
     return (
-        <BlogWrapper paddingTop={paddingTop} paddingBottom={paddingBottom} className={b('content')}>
+        <Wrapper paddingTop={paddingTop} paddingBottom={paddingBottom} className={b('content')}>
             <div className={b('layout')}>
                 <PCAuthor
                     type={AuthorType.Column}
@@ -55,6 +55,6 @@ export const Author: React.FC<AuthorProps> = (props) => {
                     authorContainerClassName={b('container')}
                 />
             </div>
-        </BlogWrapper>
+        </Wrapper>
     );
 };

@@ -1,7 +1,7 @@
 import React from 'react';
 import {Content, ContentBlockProps, NewMetrikaGoal} from '@gravity-ui/page-constructor';
 
-import {BlogWrapper, PaddingSize} from '../../components/BlogWrapper/BlogWrapper';
+import {Wrapper, PaddingSize} from '../../components/Wrapper/Wrapper';
 import {getBlogElementMetrika, checkContentDefaults} from '../../utils/blog';
 
 import {BlogMetrikaGoalIds} from '../../constants';
@@ -38,7 +38,7 @@ export const CTA: React.FC<CTAProps> = ({items, paddingTop, paddingBottom}) => {
     };
 
     return (
-        <BlogWrapper paddingTop={paddingTop} paddingBottom={paddingBottom} className={b('content')}>
+        <Wrapper paddingTop={paddingTop} paddingBottom={paddingBottom} className={b('content')}>
             {items.slice(0, count).map((contentData: ContentBlockProps, index: number) => {
                 checkContentDefaults(contentData);
 
@@ -59,6 +59,6 @@ export const CTA: React.FC<CTAProps> = ({items, paddingTop, paddingBottom}) => {
                     </div>
                 );
             })}
-        </BlogWrapper>
+        </Wrapper>
     );
 };

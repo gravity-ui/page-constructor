@@ -6,7 +6,7 @@ import {
     YFMWrapper,
 } from '@gravity-ui/page-constructor';
 
-import {BlogWrapper, PaddingSize} from '../../components/BlogWrapper/BlogWrapper';
+import {Wrapper, PaddingSize} from '../../components/Wrapper/Wrapper';
 
 import {block} from '../../utils/cn';
 
@@ -34,7 +34,7 @@ export const Media: React.FC<MediaFullProps> = ({
     paddingTop,
     paddingBottom,
 }) => (
-    <BlogWrapper paddingTop={paddingTop} paddingBottom={paddingBottom} className={b('container')}>
+    <Wrapper paddingTop={paddingTop} paddingBottom={paddingBottom} className={b('container')}>
         <div className={b('border')}>
             <PCMedia
                 className={b('content')}
@@ -58,5 +58,5 @@ export const Media: React.FC<MediaFullProps> = ({
                 />
             </div>
         )}
-    </BlogWrapper>
+    </Wrapper>
 );

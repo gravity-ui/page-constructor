@@ -2,7 +2,7 @@ import React from 'react';
 import {YFMWrapper} from '@gravity-ui/page-constructor';
 import block from 'bem-cn-lite';
 
-import {BlogWrapper, PaddingSize} from '../../components/BlogWrapper/BlogWrapper';
+import {Wrapper, PaddingSize} from '../../components/Wrapper/Wrapper';
 
 const b = block('yfm');
 
@@ -16,7 +16,7 @@ export const YFM: React.FC<YFMProps> = (props) => {
     const {text, paddingTop, paddingBottom} = props;
 
     return (
-        <BlogWrapper paddingTop={paddingTop} paddingBottom={paddingBottom}>
+        <Wrapper paddingTop={paddingTop} paddingBottom={paddingBottom}>
             <YFMWrapper
                 content={text}
                 modifiers={{
@@ -25,6 +25,6 @@ export const YFM: React.FC<YFMProps> = (props) => {
                 }}
                 className={b({'no-list-reset': true})}
             />
-        </BlogWrapper>
+        </Wrapper>
     );
 };

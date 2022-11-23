@@ -5,7 +5,7 @@ import {SliderBlock} from '@gravity-ui/page-constructor';
 
 import {i18, BlogKeyset} from '../../i18n';
 
-import {BlogWrapper, PaddingSize} from '../../components/BlogWrapper/BlogWrapper';
+import {Wrapper, PaddingSize} from '../../components/Wrapper/Wrapper';
 import {PostCard} from '../../components/PostCard/PostCard';
 
 import {BlogPostData} from '../../models/blog';
@@ -46,7 +46,7 @@ export const Suggest: React.FC<SuggestFullProps> = ({paddingTop = 'l', paddingBo
     }
 
     return (
-        <BlogWrapper paddingTop={paddingTop} paddingBottom={paddingBottom}>
+        <Wrapper paddingTop={paddingTop} paddingBottom={paddingBottom}>
             <SliderBlock
                 slidesToShow={{xl: 3, lg: 2, sm: 1}}
                 title={{text: i18(BlogKeyset.TitleSuggest)}}
@@ -55,6 +55,6 @@ export const Suggest: React.FC<SuggestFullProps> = ({paddingTop = 'l', paddingBo
                     <PostCard key={post.id} metrikaGoals={metrikaGoals} post={post} />
                 ))}
             </SliderBlock>
-        </BlogWrapper>
+        </Wrapper>
     );
 };

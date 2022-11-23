@@ -7,7 +7,7 @@ import {
     Row,
 } from '@gravity-ui/page-constructor';
 
-import {BlogWrapper, PaddingSize} from '../../components/BlogWrapper/BlogWrapper';
+import {Wrapper, PaddingSize} from '../../components/Wrapper/Wrapper';
 
 import {block} from '../../utils/cn';
 
@@ -99,7 +99,7 @@ export const Layout: React.FC<LayoutProps> = ({
     );
 
     return (
-        <BlogWrapper paddingTop={paddingTop} paddingBottom={paddingBottom}>
+        <Wrapper paddingTop={paddingTop} paddingBottom={paddingBottom}>
             <Row className={b('row')} noGutter>
                 <Col className={b('left-col')} {...layout.leftCol}>
                     {left && renderChildren(left)}
@@ -108,6 +108,6 @@ export const Layout: React.FC<LayoutProps> = ({
                     {right && renderChildren(right)}
                 </Col>
             </Row>
-        </BlogWrapper>
+        </Wrapper>
     );
 };

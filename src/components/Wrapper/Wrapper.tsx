@@ -4,7 +4,7 @@ import {ClassNameProps} from '@yandex-data-ui/cloud-components';
 
 import {block} from '../../utils/cn';
 
-import './BlogWrapper.scss';
+import './Wrapper.scss';
 
 const b = block('wrapper');
 
@@ -16,12 +16,11 @@ type WrapperProps = ClassNameProps & {
     dataQa?: string;
 };
 
-export const BlogWrapper: React.FunctionComponent<WrapperProps> = ({
+export const Wrapper: React.FunctionComponent<WrapperProps> = ({
     children,
     paddingTop = 'xs',
     paddingBottom = 'l',
     className,
-    dataQa,
 }) => (
     <section
         className={b(
@@ -31,7 +30,6 @@ export const BlogWrapper: React.FunctionComponent<WrapperProps> = ({
             },
             className,
         )}
-        data-qa={dataQa}
     >
         {children}
     </section>

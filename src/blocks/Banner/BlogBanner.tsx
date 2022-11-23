@@ -1,7 +1,7 @@
 import React from 'react';
 import {Content, ContentBlockProps, Image, NewMetrikaGoal} from '@gravity-ui/page-constructor';
 
-import {BlogWrapper, PaddingSize} from '../../components/BlogWrapper/BlogWrapper';
+import {Wrapper, PaddingSize} from '../../components/Wrapper/Wrapper';
 
 import {getBlogElementMetrika, checkContentDefaults} from '../../utils/blog';
 import {block} from '../../utils/cn';
@@ -47,11 +47,7 @@ export const Banner: React.FC<BannerProps> = ({
     });
 
     return (
-        <BlogWrapper
-            paddingTop={paddingTop}
-            paddingBottom={paddingBottom}
-            className={b('container')}
-        >
+        <Wrapper paddingTop={paddingTop} paddingBottom={paddingBottom} className={b('container')}>
             <div className={b('content')} style={contentStyle}>
                 <div className={b('info')}>
                     <Content {...contentData} />
@@ -62,6 +58,6 @@ export const Banner: React.FC<BannerProps> = ({
                     </div>
                 )}
             </div>
-        </BlogWrapper>
+        </Wrapper>
     );
 };

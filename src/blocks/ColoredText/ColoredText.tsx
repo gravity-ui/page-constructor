@@ -2,7 +2,7 @@ import React from 'react';
 
 import {BackgroundImage, Content, ContentBlockProps} from '@gravity-ui/page-constructor';
 
-import {BlogWrapper, PaddingSize} from '../../components/BlogWrapper/BlogWrapper';
+import {Wrapper, PaddingSize} from '../../components/Wrapper/Wrapper';
 
 import {checkContentDefaults} from '../../utils/blog';
 import {block} from '../../utils/cn';
@@ -32,7 +32,7 @@ export const ColoredText: React.FC<ColoredTextProps> = ({
     checkContentDefaults(contentData);
 
     return (
-        <BlogWrapper paddingTop={paddingTop} paddingBottom={paddingBottom}>
+        <Wrapper paddingTop={paddingTop} paddingBottom={paddingBottom}>
             <div className={b('container')} style={{backgroundColor: background?.color || 'none'}}>
                 <div className={b('picture-container')}>
                     {background?.image && (
@@ -47,6 +47,6 @@ export const ColoredText: React.FC<ColoredTextProps> = ({
                     <Content {...contentData} />
                 </div>
             </div>
-        </BlogWrapper>
+        </Wrapper>
     );
 };
