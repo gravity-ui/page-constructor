@@ -10,11 +10,11 @@ import {BLOCKS} from '../../../demo/constants';
 import {BlogPageContext} from '../../../contexts/BlogPageContext';
 import post from '../../../../.mocks/post.json';
 
-import {BlogLayout, BlogLayoutProps} from '../BlogLayout';
+import {Layout, LayoutProps} from '../Layout';
 
 export default {
-    title: `${BLOCKS}/BlogLayout`,
-    component: BlogLayout,
+    title: `${BLOCKS}/Layout`,
+    component: Layout,
     args: {
         theme: 'light',
     },
@@ -22,7 +22,7 @@ export default {
 
 type BlogLayoutBlockProps = {
     type: BlockType.BlogLayoutBlock;
-} & BlogLayoutProps;
+} & LayoutProps;
 
 const DefaultTemplate: Story<BlogLayoutBlockProps> = (args) => (
     <BlogPageContext.Provider value={{post: post as BlogPostData}}>

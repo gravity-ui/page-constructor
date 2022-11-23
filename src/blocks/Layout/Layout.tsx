@@ -11,11 +11,11 @@ import {BlogWrapper, PaddingSize} from '../../components/BlogWrapper/BlogWrapper
 
 import {block} from '../../utils/cn';
 
-import './BlogLayout.scss';
+import './Layout.scss';
 
 const b = block('layout');
 
-export type BlogLayoutProps = {
+export type LayoutProps = {
     fullWidth?: boolean;
     mobileOrder?: string;
     children: ReactElement[];
@@ -29,7 +29,7 @@ type ColLayouts = {
     orders?: GridColumnOrderSizesType;
 };
 
-type Layout = {
+type LayoutType = {
     leftCol: ColLayouts;
     rightCol: ColLayouts;
 };
@@ -39,15 +39,15 @@ type SortedLayoutItems = {
     right: ReactElement[];
 };
 
-export const BlogLayout: React.FC<BlogLayoutProps> = ({
+export const Layout: React.FC<LayoutProps> = ({
     fullWidth,
     mobileOrder,
     children,
     paddingTop = 'xs',
     paddingBottom = 'xs',
 }) => {
-    const layout: Layout = useMemo(() => {
-        const layoutConfig: Layout = {
+    const layout: LayoutType = useMemo(() => {
+        const layoutConfig: LayoutType = {
             leftCol: {
                 sizes: {all: 12, lg: 8},
                 orders: {all: 1, lg: 1},
