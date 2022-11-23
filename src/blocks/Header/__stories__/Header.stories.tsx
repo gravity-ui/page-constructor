@@ -10,11 +10,11 @@ import {BLOCKS} from '../../../demo/constants';
 import {BlogPageContext} from '../../../contexts/BlogPageContext';
 import post from '../../../../.mocks/post.json';
 
-import {BlogHeader, BlogHeaderProps} from '../BlogHeader';
+import {Header, HeaderProps} from '../Header';
 
 export default {
-    title: `${BLOCKS}/BlogHeader`,
-    component: BlogHeader,
+    title: `${BLOCKS}/Header`,
+    component: Header,
     args: {
         theme: 'light',
     },
@@ -22,7 +22,7 @@ export default {
 
 type BlogHeaderBlockProps = {
     type: BlockType.BlogHeaderBlock;
-} & BlogHeaderProps;
+} & HeaderProps;
 
 const DefaultTemplate: Story<BlogHeaderBlockProps> = (args) => (
     <BlogPageContext.Provider value={{post: post as BlogPostData}}>

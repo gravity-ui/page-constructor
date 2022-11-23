@@ -1,6 +1,6 @@
 import {BlockType} from '../models/blog';
 
-import {BlogHeader} from '../blocks/BlogHeader/BlogHeader';
+import {Header} from '../blocks/Header/Header';
 import {YFMBlock} from '../blocks/BlogYFM/BlogYFM';
 import {BlogLayout} from '../blocks/BlogLayout/BlogLayout';
 import {BlogMediaBlock} from '../blocks/BlogMedia/BlogMedia';
@@ -10,7 +10,7 @@ import {Author} from '../blocks/Author/Author';
 import {BlogSuggestBlock} from '../blocks/BlogSuggest/BlogSuggest';
 import {Banner} from '../blocks/Banner/BlogBanner';
 import {MetaBlock} from '../blocks/BlogMeta/BlogMeta';
-import {BlogFeed} from '../blocks/BlogFeed/BlogFeed';
+import {Feed} from '../blocks/Feed/Feed';
 
 const blocks = {
     [BlockType.BlogYFMBlock]: YFMBlock,
@@ -22,11 +22,11 @@ const blocks = {
     [BlockType.BlogAuthorBlock]: Author,
     [BlockType.BlogSuggestBlock]: BlogSuggestBlock,
     [BlockType.BlogMetaBlock]: MetaBlock,
-    [BlockType.BlogFeedBlock]: BlogFeed,
+    [BlockType.BlogFeedBlock]: Feed,
 };
 
 const headers = {
-    [BlockType.BlogHeaderBlock]: BlogHeader,
+    [BlockType.BlogHeaderBlock]: Header,
 };
 
 export default {blocks, headers};

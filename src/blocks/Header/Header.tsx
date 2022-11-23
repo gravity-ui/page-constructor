@@ -22,12 +22,12 @@ const breadcrumbsGoals = [
     },
 ];
 
-export type BlogHeaderProps = HeaderBlockProps & {
+export type HeaderProps = HeaderBlockProps & {
     paddingTop?: PaddingSize;
     paddingBottom?: PaddingSize;
 };
 
-export const BlogHeader: React.FC<BlogHeaderProps> = (props) => {
+export const Header: React.FC<HeaderProps> = (props) => {
     const {theme, paddingTop, paddingBottom} = props;
     const {post} = useContext(BlogPageContext);
 

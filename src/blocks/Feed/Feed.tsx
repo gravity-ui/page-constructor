@@ -21,7 +21,7 @@ import {HandleChangeQueryParams} from '../../models/blog';
 
 import {ActionTypes, reducer} from './reducer';
 
-type BlogFeedProps = {
+type FeedProps = {
     image: string;
 };
 
@@ -29,7 +29,7 @@ const CONTAINER_ID = 'blog-cards';
 const PAGE_QUERY = 'page';
 const FIRST_PAGE = 1;
 
-export const BlogFeed: React.FC<BlogFeedProps> = ({image}) => {
+export const Feed: React.FC<FeedProps> = ({image}) => {
     const {
         posts,
         totalCount,
