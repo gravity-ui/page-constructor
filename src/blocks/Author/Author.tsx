@@ -3,7 +3,7 @@ import React, {useMemo, useContext} from 'react';
 import {Author as PCAuthor, AuthorType} from '@gravity-ui/page-constructor';
 import {ClassNameProps} from '@yandex-data-ui/cloud-components';
 
-import {BlogPageContext} from '../../contexts/BlogPageContext';
+import {PostPageContext} from '../../contexts/PostPageContext';
 
 import {Wrapper, PaddingSize} from '../../components/Wrapper/Wrapper';
 // TODO import ResizedImage from '../../components/ResizedImage/ResizedImage';
@@ -25,7 +25,7 @@ export type AuthorProps = ClassNameProps & {
 export const Author: React.FC<AuthorProps> = (props) => {
     const {image, paddingTop, paddingBottom, authorId} = props;
 
-    const {post} = useContext(BlogPageContext);
+    const {post} = useContext(PostPageContext);
 
     const author = post?.authors?.find(({id}: {id: number}) => id === authorId);
 

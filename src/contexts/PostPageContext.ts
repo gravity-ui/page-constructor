@@ -3,7 +3,7 @@ import {ShareSocialNetwork} from '@gravity-ui/uikit';
 
 import {BlogPostData} from '../models/blog';
 
-export interface BlogPageContextProps {
+export interface PostPageContextProps {
     // Should we change Blog Context? https://st.yandex-team.ru/CLOUDFRONT-10460
     post: BlogPostData;
     suggestedPosts: BlogPostData[];
@@ -15,6 +15,6 @@ export interface BlogPageContextProps {
     sharingSocialNetworks?: ShareSocialNetwork[];
 }
 
-export const BlogPageContext = React.createContext<BlogPageContextProps>(
-    {} as BlogPageContextProps,
+export const PostPageContext = React.createContext<PostPageContextProps>(
+    {} as PostPageContextProps,
 );

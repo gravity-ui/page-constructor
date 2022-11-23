@@ -7,7 +7,7 @@ import {BlockType, BlogPostData} from '../../../models/blog';
 
 import customBlocks from '../../../constructor/blocksMap';
 import {BLOCKS} from '../../../demo/constants';
-import {BlogPageContext} from '../../../contexts/BlogPageContext';
+import {PostPageContext} from '../../../contexts/PostPageContext';
 import post from '../../../../.mocks/post.json';
 
 import {Author, AuthorProps} from '../Author';
@@ -25,9 +25,9 @@ type AuthorBlockModel = {
 } & AuthorProps;
 
 const DefaultTemplate: Story<AuthorBlockModel> = (args) => (
-    <BlogPageContext.Provider value={{post: post as BlogPostData}}>
+    <PostPageContext.Provider value={{post: post as BlogPostData}}>
         <PageConstructor content={{blocks: [args]}} custom={customBlocks} />
-    </BlogPageContext.Provider>
+    </PostPageContext.Provider>
 );
 
 export const Default = DefaultTemplate.bind({});

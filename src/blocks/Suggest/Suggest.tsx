@@ -10,7 +10,7 @@ import {PostCard} from '../../components/PostCard/PostCard';
 
 import {BlogPostData} from '../../models/blog';
 
-import {BlogPageContext} from '../../contexts/BlogPageContext';
+import {PostPageContext} from '../../contexts/PostPageContext';
 
 import {BlogMetrikaGoalIds} from '../../constants';
 
@@ -39,7 +39,7 @@ export type SuggestFullProps = SuggestProps & ClassNameProps;
  * @returns -jsx
  */
 export const Suggest: React.FC<SuggestFullProps> = ({paddingTop = 'l', paddingBottom = 'l'}) => {
-    const {suggestedPosts} = useContext(BlogPageContext);
+    const {suggestedPosts} = useContext(PostPageContext);
 
     if (suggestedPosts.length === 0) {
         return null;

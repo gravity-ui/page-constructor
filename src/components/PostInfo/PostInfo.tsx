@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 
-import {BlogPageContext} from '../../contexts/BlogPageContext';
+import {PostPageContext} from '../../contexts/PostPageContext';
 
 import {BlogPostData} from '../../models/blog';
 
@@ -48,7 +48,7 @@ export const PostInfo: React.FC<PostInfoProps> = ({
     theme = 'light',
     metrikaGoals,
 }) => {
-    const {likes} = useContext(BlogPageContext);
+    const {likes} = useContext(PostPageContext);
 
     return (
         <div className={b('container', {theme})}>

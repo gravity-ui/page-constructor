@@ -7,7 +7,7 @@ import {BlockType, BlogPostData} from '../../../models/blog';
 
 import customBlocks from '../../../constructor/blocksMap';
 import {BLOCKS} from '../../../demo/constants';
-import {BlogPageContext} from '../../../contexts/BlogPageContext';
+import {PostPageContext} from '../../../contexts/PostPageContext';
 import post from '../../../../.mocks/post.json';
 
 import {Meta as MetaBlock, MetaProps} from '../Meta';
@@ -25,9 +25,9 @@ type MetaBlockProps = {
 } & MetaProps;
 
 const DefaultTemplate: Story<MetaBlockProps> = (args) => (
-    <BlogPageContext.Provider value={{post: post as BlogPostData}}>
+    <PostPageContext.Provider value={{post: post as BlogPostData}}>
         <PageConstructor content={{blocks: [args]}} custom={customBlocks} />
-    </BlogPageContext.Provider>
+    </PostPageContext.Provider>
 );
 
 export const Default = DefaultTemplate.bind({});

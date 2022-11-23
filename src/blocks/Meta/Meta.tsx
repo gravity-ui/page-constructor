@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 import {HeaderBreadcrumbs, TextTheme, YFMWrapper} from '@gravity-ui/page-constructor';
 
-import {BlogPageContext} from '../../contexts/BlogPageContext';
+import {PostPageContext} from '../../contexts/PostPageContext';
 
 import {Wrapper, PaddingSize} from '../../components/Wrapper/Wrapper';
 import {PostInfo, BlogMetrikaGoals} from '../../components/PostInfo/PostInfo';
@@ -36,7 +36,7 @@ const breadcrumbsGoals = [
 
 export const Meta: React.FC<MetaProps> = (props) => {
     const {paddingTop = 'l', paddingBottom = 'l', theme = 'light'} = props;
-    const {post} = useContext(BlogPageContext);
+    const {post} = useContext(PostPageContext);
 
     const {title, id, date, readingTime, tags} = post;
 

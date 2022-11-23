@@ -7,7 +7,7 @@ import {ShareTooltip} from '@gravity-ui/uikit';
 
 import {MobileContext} from '../../../contexts/MobileContext';
 import {RouterContext} from '../../../contexts/RouterContext';
-import {BlogPageContext} from '../../../contexts/BlogPageContext';
+import {PostPageContext} from '../../../contexts/PostPageContext';
 
 import {i18, BlogKeyset} from '../../../i18n';
 
@@ -34,7 +34,7 @@ type SharingProps = {
 export const Sharing: React.FC<SharingProps> = ({theme, metrikaGoal}) => {
     const router = useContext(RouterContext);
     const isMobile = useContext(MobileContext);
-    const {sharingSocialNetworks} = useContext(BlogPageContext);
+    const {sharingSocialNetworks} = useContext(PostPageContext);
 
     const handleMetrika = () => {
         metrika.reachGoal(MetrikaCounter.CrossSite, metrikaGoal);

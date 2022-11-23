@@ -1,7 +1,7 @@
 import React, {useContext, useMemo} from 'react';
 import {HeaderBlock, HeaderBlockProps} from '@gravity-ui/page-constructor';
 
-import {BlogPageContext} from '../../contexts/BlogPageContext';
+import {PostPageContext} from '../../contexts/PostPageContext';
 
 import {PostInfo, BlogMetrikaGoals} from '../../components/PostInfo/PostInfo';
 import {Wrapper, PaddingSize} from '../../components/Wrapper/Wrapper';
@@ -29,7 +29,7 @@ export type HeaderProps = HeaderBlockProps & {
 
 export const Header: React.FC<HeaderProps> = (props) => {
     const {theme, paddingTop, paddingBottom} = props;
-    const {post} = useContext(BlogPageContext);
+    const {post} = useContext(PostPageContext);
 
     const {description, title, id, date, readingTime, tags} = post;
 
