@@ -286,19 +286,23 @@ export interface TableBlockProps {
     table: TableProps;
 }
 
-export interface TabsBlockItem {
+export interface TabsBlockItem
+    extends Omit<ContentBlockProps, 'size' | 'colSizes' | 'centered' | 'theme'> {
     tabName: string;
-    title: string;
-    text: string;
+    /**
+     * @deprecated Use array links from ContentBlockProps instead
+     */
     link?: LinkProps;
     image?: ThemedImage;
     disableCompress?: boolean;
     caption?: string;
     media?: ThemedMediaProps;
-    links?: LinkProps[];
 }
 
 export interface TabsBlockProps extends BlockHeaderProps, Animatable {
+    tabsColSizes?: GridColumnSizesType;
+    centered?: boolean;
+    direction?: MediaDirection;
     items: TabsBlockItem[];
 }
 

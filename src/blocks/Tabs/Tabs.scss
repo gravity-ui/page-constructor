@@ -1,20 +1,33 @@
 @import '../../../styles/mixins';
 @import '../../../styles/variables';
 
-$block: '.#{$ns}TabsBlock';
+$block: '.#{$ns}tabs-block';
 
 #{$block} {
     $class: &;
 
     &__block-title {
-        margin-bottom: 12px;
+        margin-bottom: $indentXXS;
+
+        &_centered {
+            margin: 0 auto $indentXXS;
+            text-align: center;
+        }
     }
 
     &__tabs {
-        @include add-specificity(&) {
-            flex-wrap: nowrap;
-            overflow-x: auto;
-            margin-bottom: $indentM;
+        &_centered {
+            display: flex;
+            justify-content: center;
+        }
+    }
+
+    &__row_reverse {
+        flex-direction: row-reverse;
+
+        #{$class}__content-wrapper {
+            margin-right: $indentM;
+            margin-left: 0;
         }
     }
 
@@ -40,6 +53,16 @@ $block: '.#{$ns}TabsBlock';
     &__content {
         display: flex;
         flex-direction: column;
+
+        &_centered {
+            margin: 0 auto;
+        }
+    }
+
+    &__col {
+        &_centered {
+            margin: 0 auto;
+        }
     }
 
     &__content-wrapper {
@@ -58,15 +81,28 @@ $block: '.#{$ns}TabsBlock';
         }
     }
 
-    &__tabs,
-    &__link {
-        @include text-size(body-2);
-    }
-
     @media (max-width: map-get($gridBreakpoints, 'md')) {
+        &__tabs {
+            display: flex;
+            overflow: auto;
+            margin-left: -$indentSM;
+            margin-right: -$indentSM;
+            padding-left: $indentSM;
+            padding-right: $indentXS;
+        }
+
         &__content-wrapper {
             &_margin {
                 margin: 0 0 $contentMargin 0;
+            }
+        }
+
+        &__row_reverse {
+            flex-direction: column-reverse;
+
+            #{$class}__content > * {
+                margin-top: $indentM;
+                padding-bottom: 0;
             }
         }
     }

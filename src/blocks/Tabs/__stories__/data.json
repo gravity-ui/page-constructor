@@ -8,77 +8,28 @@
       "items": [
         {
           "tabName": "Dolor sit amet",
-          "title": "Dolor sit amet",
-          "text": "* Ut enim ad minim veniam\n* Ut enim ad minim veniam",
-          "link": {
-            "url": "https://example.com",
-            "text": "Link",
-            "theme": "normal",
-            "arrow": true
+          "title": "Lorem ipsum dolor sit amet",
+          "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+          "buttons": [
+            {
+              "text": "Button\r",
+              "theme": "action",
+              "url": "https://example.com"
+            },
+            {
+              "text": "Button",
+              "theme": "outlined",
+              "url": "https://example.com"
+            }
+          ],
+          "image": {
+            "light": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_white.png",
+            "dark": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_dark.png"
           }
         },
         {
-          "tabName": "Consectetur adipiscing elit",
-          "title": "Consectetur adipiscing elit",
-          "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-          "link": {
-            "url": "https://example.com",
-            "text": "Link",
-            "theme": "normal"
-          }
-        }
-      ]
-    }
-  },
-  "theme": {
-    "content": {
-      "type": "tabs-block",
-      "title": {
-        "text": "Lorem ipsum"
-      },
-      "items": [
-        {
-          "tabName": "Dolor sit amet",
-          "title": "Dolor sit amet",
-          "image": {
-            "light": {
-              "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_light.png",
-              "disableCompress": true
-            },
-            "dark": {
-              "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_dark.png"
-            }
-          },
-          "caption": "Dolor sit amet",
-          "text": "* Ut enim ad minim veniam\n* Ut enim ad minim veniam"
-        },
-        {
-          "tabName": "Consectetur adipiscing elit",
-          "title": "Consectetur adipiscing elit",
-          "image": {
-            "light": {
-              "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_light.png"
-            },
-            "dark": {
-              "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_dark.png"
-            }
-          },
-          "caption": "Consectetur adipiscing elit",
-          "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-        }
-      ]
-    }
-  },
-  "media": {
-    "content": {
-      "type": "tabs-block",
-      "title": {
-        "text": "Lorem ipsum"
-      },
-      "items": [
-        {
-          "tabName": "Dolor sit amet",
-          "title": "Dolor sit amet",
+          "tabName": "Lorem ipsum",
+          "title": "Lorem ipsum",
           "media": {
             "light": {
               "video": {
@@ -108,19 +59,49 @@
             }
           },
           "caption": "Dolor sit amet",
-          "text": "* Ut enim ad minim veniam\n* Ut enim ad minim veniam"
+          "text": "* Ut enim ad minim veniam\n* Ut enim ad minim veniam",
+          "links": [
+            {
+              "url": "https://example.com",
+              "text": "Link",
+              "theme": "normal",
+              "arrow": true
+            }
+          ]
         },
         {
           "tabName": "Consectetur adipiscing elit",
           "title": "Consectetur adipiscing elit",
+          "additionalInfo": "Duis aute irure dolor in [reprehenderit](https://example.com) n voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
           "media": {
-            "youtube": "https://youtu.be/0Qd3T6skprA",
-            "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_dark.png"
+            "light": {
+              "youtube": "https://youtu.be/0Qd3T6skprA",
+              "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_light.png"
+            },
+            "dark": {
+              "youtube": "https://youtu.be/0Qd3T6skprA",
+              "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_dark.png"
+            }
           },
           "caption": "Consectetur adipiscing elit",
           "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
         }
       ]
+    }
+  },
+  "buttonsColSizes": {
+    "wide": {
+      "title": "Tabs buttons with col sizes 12 columns",
+      "colSizes": {
+        "all": 12
+      }
+    },
+    "narrow": {
+      "title": "Tabs buttons with col sizes 8 columns",
+      "colSizes": {
+        "all": 12,
+        "md": 8
+      }
     }
   }
 }

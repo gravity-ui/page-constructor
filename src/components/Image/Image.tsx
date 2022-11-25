@@ -2,6 +2,11 @@ import React, {CSSProperties, MouseEventHandler, useContext, useState, Fragment}
 import {ProjectSettingsContext} from '../../context/projectSettingsContext';
 import {BREAKPOINTS} from '../../constants';
 import {ImageDeviceProps, ImageObjectProps} from '../../models';
+import {block} from '../../utils';
+
+import './Image.scss';
+
+const b = block('Image');
 
 export interface ImageProps extends Partial<ImageObjectProps>, Partial<ImageDeviceProps> {
     style?: CSSProperties;
@@ -32,7 +37,7 @@ const Image = (props: ImageProps) => {
         imgLoadingError;
 
     return (
-        <picture>
+        <picture className={b()}>
             {mobile && (
                 <Fragment>
                     {!disableWebp && (

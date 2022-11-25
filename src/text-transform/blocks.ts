@@ -2,7 +2,6 @@ import _ from 'lodash';
 import {
     Block,
     BlockType,
-    SubBlockType,
     ContentBlockProps,
     ExtendedFeaturesItem,
     PriceDetailedProps,
@@ -10,6 +9,7 @@ import {
     PriceDetailsSettingsProps,
     PromoFeaturesItem,
     SliderProps,
+    SubBlockType,
     TableProps,
     TitleProps,
 } from '../models';
@@ -45,8 +45,6 @@ export const createItemsParser = (fields: string[]) => (transformer: Transformer
             };
         }
     });
-
-const parseItems = createItemsParser(['title', 'text']);
 
 function parseTableBlock(transformer: Transformer, content: TableProps) {
     const legend = content?.legend;
@@ -89,10 +87,16 @@ const parseTitle = (transformer: Transformer, title: TitleProps | string) =>
         ? {...title, text: transformer(title.text)}
         : title && transformer(title);
 
+const parseItemsTitle = (transformer: Transformer, items: ExtendedFeaturesItem[]) =>
+    items.map(({title, ...rest}) => ({
+        title: title && parseTitle(transformer, title),
+        ...rest,
+    }));
+
 function parsePriceDetailedBlock(transformer: Transformer, block: PriceDetailedProps) {
     const {priceType} = block;
 
-    const transformedBlockItems = block.items.map((item) => {
+    block.items = block.items.map((item) => {
         const {description, items: details = []} = item;
 
         if (priceType === 'marked-list') {
@@ -113,8 +117,6 @@ function parsePriceDetailedBlock(transformer: Transformer, block: PriceDetailedP
 
         return item;
     });
-
-    block.items = transformedBlockItems;
 
     return block;
 }
@@ -291,7 +293,12 @@ const config: BlocksConfig = {
         {
             fields: ['items'],
             transformer: yfmTransformer,
-            parser: parseItems,
+            parser: createItemsParser(['text', 'additionalInfo']),
+        },
+        {
+            fields: ['items'],
+            transformer: typografTransformer,
+            parser: parseItemsTitle,
         },
     ],
     [BlockType.TableBlock]: [
