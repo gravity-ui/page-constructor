@@ -25,7 +25,7 @@
           },
           "buttons": [
             {
-              "text": "Button\r",
+              "text": "Button",
               "theme": "action",
               "url": "https://example.com"
             },
@@ -82,7 +82,7 @@
           },
           "buttons": [
             {
-              "text": "Button\r",
+              "text": "Button",
               "theme": "action",
               "url": "https://example.com"
             },
