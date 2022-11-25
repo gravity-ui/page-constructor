@@ -164,14 +164,13 @@ export interface SimpleBlockProps extends Animatable, Childable {
     description: string;
 }
 
-export interface ExtendedFeaturesItem {
-    title?: string;
-    text?: string;
+export interface ExtendedFeaturesItem
+    extends Omit<ContentBlockProps, 'theme' | 'centered' | 'colSizes' | 'size' | 'title'> {
+    title: string;
     label?: string;
     icon?: ThemedImage;
     /** @deprecated **/
     link?: LinkProps;
-    links?: LinkProps[];
 }
 
 export interface ExtendedFeaturesProps extends Animatable {

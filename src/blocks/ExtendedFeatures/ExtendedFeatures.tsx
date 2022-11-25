@@ -33,38 +33,51 @@ export const ExtendedFeaturesBlock = ({
             <BlockHeader title={title} description={description} className={b('header')} />
             <div className={b('items')}>
                 <Row>
-                    {items.map(({title: itemTitle, text, link, links, label, icon}) => {
-                        const itemLinks = links || [];
+                    {items.map(
+                        ({
+                            title: itemTitle,
+                            text,
+                            link,
+                            links,
+                            label,
+                            icon,
+                            buttons,
+                            additionalInfo,
+                        }) => {
+                            const itemLinks = links || [];
 
-                        const iconThemed = icon && getThemedValue(icon, theme);
-                        const iconData = iconThemed && getMediaImage(iconThemed);
+                            const iconThemed = icon && getThemedValue(icon, theme);
+                            const iconData = iconThemed && getMediaImage(iconThemed);
 
-                        if (link) {
-                            itemLinks.push(link);
-                        }
+                            if (link) {
+                                itemLinks.push(link);
+                            }
 
-                        return (
-                            <Col className={b('item')} key={text || itemTitle} sizes={colSizes}>
-                                {iconData && <Image {...iconData} className={b('icon')} />}
-                                <div className={b('container')}>
-                                    {itemTitle && (
-                                        <h5 className={b('item-title')}>
-                                            <HTML>{itemTitle}</HTML>
-                                            {label && (
-                                                <div className={b('item-label')}>{label}</div>
-                                            )}
-                                        </h5>
-                                    )}
-                                    <Content
-                                        text={text}
-                                        links={itemLinks}
-                                        size="s"
-                                        colSizes={{all: 12, md: 12}}
-                                    />
-                                </div>
-                            </Col>
-                        );
-                    })}
+                            return (
+                                <Col className={b('item')} key={text || itemTitle} sizes={colSizes}>
+                                    {iconData && <Image {...iconData} className={b('icon')} />}
+                                    <div className={b('container')}>
+                                        {itemTitle && (
+                                            <h5 className={b('item-title')}>
+                                                <HTML>{itemTitle}</HTML>
+                                                {label && (
+                                                    <div className={b('item-label')}>{label}</div>
+                                                )}
+                                            </h5>
+                                        )}
+                                        <Content
+                                            text={text}
+                                            links={itemLinks}
+                                            size="s"
+                                            colSizes={{all: 12, md: 12}}
+                                            buttons={buttons}
+                                            additionalInfo={additionalInfo}
+                                        />
+                                    </div>
+                                </Col>
+                            );
+                        },
+                    )}
                 </Row>
             </div>
         </AnimateBlock>

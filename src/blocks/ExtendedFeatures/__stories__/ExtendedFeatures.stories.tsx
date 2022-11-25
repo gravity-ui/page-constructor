@@ -32,6 +32,7 @@ const extendedFeaturesItems = (items: ExtendedFeaturesItem[]) => {
     return items.map((item) => ({
         ...item,
         text: item.text && yfmTransform(item.text),
+        additionalInfo: item.additionalInfo && yfmTransform(item.additionalInfo),
     }));
 };
 
