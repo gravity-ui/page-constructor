@@ -4,7 +4,7 @@ import {Icon} from '@gravity-ui/uikit';
 import {FeedContext} from '../../contexts/FeedContext';
 import {RouterContext} from '../../contexts/RouterContext';
 
-import {DEFAULT_PAGE, DEFAULT_BLOG_ROWS_PER_PAGE} from '../constants';
+import {DEFAULT_PAGE, DEFAULT_ROWS_PER_PAGE} from '../constants';
 
 import {BlogMetrikaGoalIds} from '../../constants';
 
@@ -72,7 +72,7 @@ export const Feed: React.FC<FeedProps> = ({image}) => {
 
     const perPageInQuery = queryParams?.perPage
         ? Number(queryParams.perPage)
-        : DEFAULT_BLOG_ROWS_PER_PAGE;
+        : DEFAULT_ROWS_PER_PAGE;
 
     const pageChange = (value: number) => {
         dispatch({type: ActionTypes.PageChange, payload: value});
