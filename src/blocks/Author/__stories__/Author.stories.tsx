@@ -20,11 +20,11 @@ export default {
     },
 } as Meta;
 
-type AuthorBlockModel = {
+type AuthorModel = {
     type: BlockType.Author;
 } & AuthorProps;
 
-const DefaultTemplate: Story<AuthorBlockModel> = (args) => (
+const DefaultTemplate: Story<AuthorModel> = (args) => (
     <PostPageContext.Provider value={{post: post as BlogPostData}}>
         <PageConstructor content={{blocks: [args]}} custom={customBlocks} />
     </PostPageContext.Provider>

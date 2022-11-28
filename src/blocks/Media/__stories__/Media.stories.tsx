@@ -20,11 +20,11 @@ export default {
     },
 } as Meta;
 
-type MediaBlockProps = {
+type MediaModel = {
     type: BlockType.Media;
 } & MediaFullProps;
 
-const DefaultTemplate: Story<MediaBlockProps> = (args) => (
+const DefaultTemplate: Story<MediaModel> = (args) => (
     <PostPageContext.Provider value={{post: post as BlogPostData}}>
         <PageConstructor content={{blocks: [args]}} custom={customBlocks} />
     </PostPageContext.Provider>

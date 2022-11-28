@@ -20,11 +20,11 @@ export default {
     },
 } as Meta;
 
-type BlogLayoutBlockProps = {
+type LayoutModel = {
     type: BlockType.Layout;
 } & LayoutProps;
 
-const DefaultTemplate: Story<BlogLayoutBlockProps> = (args) => (
+const DefaultTemplate: Story<LayoutModel> = (args) => (
     <PostPageContext.Provider value={{post: post as BlogPostData}}>
         <PageConstructor content={{blocks: [args]}} custom={customBlocks} />
     </PostPageContext.Provider>

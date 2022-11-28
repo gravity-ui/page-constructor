@@ -20,11 +20,11 @@ export default {
     },
 } as Meta;
 
-type ColoredTextStoryProps = {
+type ColoredTextModel = {
     type: BlockType.ColoredText;
 } & ColoredTextProps;
 
-const DefaultTemplate: Story<ColoredTextStoryProps> = (args) => (
+const DefaultTemplate: Story<ColoredTextModel> = (args) => (
     <PostPageContext.Provider value={{post: post as BlogPostData}}>
         <PageConstructor content={{blocks: [args]}} custom={customBlocks} />
     </PostPageContext.Provider>

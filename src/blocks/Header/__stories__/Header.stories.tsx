@@ -20,11 +20,11 @@ export default {
     },
 } as Meta;
 
-type BlogHeaderBlockProps = {
+type HeaderModel = {
     type: BlockType.Header;
 } & HeaderProps;
 
-const DefaultTemplate: Story<BlogHeaderBlockProps> = (args) => (
+const DefaultTemplate: Story<HeaderModel> = (args) => (
     <PostPageContext.Provider value={{post: post as BlogPostData}}>
         <PageConstructor content={{blocks: [args]}} custom={customBlocks} />
     </PostPageContext.Provider>

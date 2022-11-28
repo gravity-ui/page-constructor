@@ -21,11 +21,11 @@ export default {
     },
 } as Meta;
 
-type SuggestBlockProps = {
+type SuggestModel = {
     type: BlockType.Suggest;
 } & SuggestFullProps;
 
-const DefaultTemplate: Story<SuggestBlockProps> = (args) => (
+const DefaultTemplate: Story<SuggestModel> = (args) => (
     <PostPageContext.Provider value={{post, suggestedPosts}}>
         <PageConstructor content={{blocks: [args]}} custom={customBlocks} />
     </PostPageContext.Provider>

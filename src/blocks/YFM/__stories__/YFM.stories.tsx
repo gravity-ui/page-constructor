@@ -20,11 +20,11 @@ export default {
     },
 } as Meta;
 
-type YFMBlockProps = {
+type YFMModel = {
     type: BlockType.YFM;
 } & YFMProps;
 
-const DefaultTemplate: Story<YFMBlockProps> = (args) => (
+const DefaultTemplate: Story<YFMModel> = (args) => (
     <PostPageContext.Provider value={{post: post as BlogPostData}}>
         <PageConstructor content={{blocks: [args]}} custom={customBlocks} />
     </PostPageContext.Provider>

@@ -20,11 +20,11 @@ export default {
     },
 } as Meta;
 
-type BlogBannerBlockProps = {
+type BannerModel = {
     type: BlockType.Banner;
 } & BannerProps;
 
-const DefaultTemplate: Story<BlogBannerBlockProps> = (args) => (
+const DefaultTemplate: Story<BannerModel> = (args) => (
     <PostPageContext.Provider value={{post: post as BlogPostData}}>
         <PageConstructor content={{blocks: [args]}} custom={customBlocks} />
     </PostPageContext.Provider>
