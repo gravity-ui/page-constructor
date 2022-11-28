@@ -21,7 +21,7 @@ export default {
 } as Meta;
 
 type ColoredTextStoryProps = {
-    type: BlockType.BlogColoredTextBlock;
+    type: BlockType.ColoredText;
 } & ColoredTextProps;
 
 const DefaultTemplate: Story<ColoredTextStoryProps> = (args) => (
@@ -33,7 +33,7 @@ const DefaultTemplate: Story<ColoredTextStoryProps> = (args) => (
 export const Default = DefaultTemplate.bind({});
 
 Default.args = {
-    type: BlockType.BlogColoredTextBlock,
+    type: BlockType.ColoredText,
     background: {
         color: '#000',
         image: 'https://storage.yandexcloud.net/cloud-www-assets/blog-assets/ru/posts/2022/07/cover-digest-june.png',

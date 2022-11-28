@@ -21,7 +21,7 @@ export default {
 } as Meta;
 
 type AuthorBlockModel = {
-    type: BlockType.BlogAuthorBlock;
+    type: BlockType.Author;
 } & AuthorProps;
 
 const DefaultTemplate: Story<AuthorBlockModel> = (args) => (
@@ -33,7 +33,7 @@ const DefaultTemplate: Story<AuthorBlockModel> = (args) => (
 export const Default = DefaultTemplate.bind({});
 
 Default.args = {
-    type: BlockType.BlogAuthorBlock,
+    type: BlockType.Author,
     authorId: 290,
     paddingBottom: 'l',
     paddingTop: 'l',

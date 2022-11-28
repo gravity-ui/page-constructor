@@ -21,7 +21,7 @@ export default {
 } as Meta;
 
 type BlogBannerBlockProps = {
-    type: BlockType.BlogBannerBlock;
+    type: BlockType.Banner;
 } & BannerProps;
 
 const DefaultTemplate: Story<BlogBannerBlockProps> = (args) => (
@@ -33,7 +33,7 @@ const DefaultTemplate: Story<BlogBannerBlockProps> = (args) => (
 export const Default = DefaultTemplate.bind({});
 
 Default.args = {
-    type: BlockType.BlogBannerBlock,
+    type: BlockType.Banner,
     color: '#000',
     imageSize: 'm',
     paddingBottom: 'l',

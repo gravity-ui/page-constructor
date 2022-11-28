@@ -13,20 +13,20 @@ import {Meta} from '../blocks/Meta/Meta';
 import {Feed} from '../blocks/Feed/Feed';
 
 const blocks = {
-    [BlockType.BlogYFMBlock]: YFM,
-    [BlockType.BlogLayoutBlock]: Layout,
-    [BlockType.BlogMediaBlock]: Media,
-    [BlockType.BlogBannerBlock]: Banner,
-    [BlockType.BlogCTABlock]: CTA,
-    [BlockType.BlogColoredTextBlock]: ColoredText,
-    [BlockType.BlogAuthorBlock]: Author,
-    [BlockType.BlogSuggestBlock]: Suggest,
-    [BlockType.BlogMetaBlock]: Meta,
-    [BlockType.BlogFeedBlock]: Feed,
+    [BlockType.YFM]: YFM,
+    [BlockType.Layout]: Layout,
+    [BlockType.Media]: Media,
+    [BlockType.Banner]: Banner,
+    [BlockType.CTA]: CTA,
+    [BlockType.ColoredText]: ColoredText,
+    [BlockType.Author]: Author,
+    [BlockType.Suggest]: Suggest,
+    [BlockType.Meta]: Meta,
+    [BlockType.Feed]: Feed,
 };
 
 const headers = {
-    [BlockType.BlogHeaderBlock]: Header,
+    [BlockType.Header]: Header,
 };
 
 export default {blocks, headers};

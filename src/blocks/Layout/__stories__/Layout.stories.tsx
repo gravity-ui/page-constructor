@@ -21,7 +21,7 @@ export default {
 } as Meta;
 
 type BlogLayoutBlockProps = {
-    type: BlockType.BlogLayoutBlock;
+    type: BlockType.Layout;
 } & LayoutProps;
 
 const DefaultTemplate: Story<BlogLayoutBlockProps> = (args) => (
@@ -35,7 +35,7 @@ const mockChildren = <div>hi</div>;
 export const Default = DefaultTemplate.bind({});
 
 Default.args = {
-    type: BlockType.BlogLayoutBlock,
+    type: BlockType.Layout,
     paddingBottom: 'l',
     paddingTop: 'l',
     fullWidth: true,

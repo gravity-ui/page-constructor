@@ -21,7 +21,7 @@ export default {
 } as Meta;
 
 type MetaBlockProps = {
-    type: BlockType.BlogMetaBlock;
+    type: BlockType.Meta;
 } & MetaProps;
 
 const DefaultTemplate: Story<MetaBlockProps> = (args) => (
@@ -33,7 +33,7 @@ const DefaultTemplate: Story<MetaBlockProps> = (args) => (
 export const Default = DefaultTemplate.bind({});
 
 Default.args = {
-    type: BlockType.BlogMetaBlock,
+    type: BlockType.Meta,
     paddingBottom: 'l',
     paddingTop: 'l',
 };

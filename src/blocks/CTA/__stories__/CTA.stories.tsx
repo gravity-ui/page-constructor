@@ -21,7 +21,7 @@ export default {
 } as Meta;
 
 type ColoredTextProps = {
-    type: BlockType.BlogCTABlock;
+    type: BlockType.CTA;
 } & CTAProps;
 
 const DefaultTemplate: Story<ColoredTextProps> = (args) => (
@@ -33,7 +33,7 @@ const DefaultTemplate: Story<ColoredTextProps> = (args) => (
 export const Default = DefaultTemplate.bind({});
 
 Default.args = {
-    type: BlockType.BlogCTABlock,
+    type: BlockType.CTA,
     columnCount: 3,
     paddingBottom: 'l',
     paddingTop: 'l',

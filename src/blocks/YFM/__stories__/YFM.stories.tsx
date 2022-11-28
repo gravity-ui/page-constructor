@@ -21,7 +21,7 @@ export default {
 } as Meta;
 
 type YFMBlockProps = {
-    type: BlockType.BlogYFMBlock;
+    type: BlockType.YFM;
 } & YFMProps;
 
 const DefaultTemplate: Story<YFMBlockProps> = (args) => (
@@ -33,7 +33,7 @@ const DefaultTemplate: Story<YFMBlockProps> = (args) => (
 export const Default = DefaultTemplate.bind({});
 
 Default.args = {
-    type: BlockType.BlogYFMBlock,
+    type: BlockType.YFM,
     paddingBottom: 'l',
     paddingTop: 'l',
     text: 'test test test test test test',

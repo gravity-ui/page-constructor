@@ -21,7 +21,7 @@ export default {
 } as Meta;
 
 type BlogHeaderBlockProps = {
-    type: BlockType.BlogHeaderBlock;
+    type: BlockType.Header;
 } & HeaderProps;
 
 const DefaultTemplate: Story<BlogHeaderBlockProps> = (args) => (
@@ -33,7 +33,7 @@ const DefaultTemplate: Story<BlogHeaderBlockProps> = (args) => (
 export const Default = DefaultTemplate.bind({});
 
 Default.args = {
-    type: BlockType.BlogHeaderBlock,
+    type: BlockType.Header,
     paddingBottom: 'l',
     paddingTop: 'l',
     image: 'https://storage.yandexcloud.net/cloud-www-assets/blog-assets/ru/posts/2022/07/cover-digest-june.png',

@@ -21,7 +21,7 @@ export default {
 } as Meta;
 
 type MediaBlockProps = {
-    type: BlockType.BlogMediaBlock;
+    type: BlockType.Media;
 } & MediaFullProps;
 
 const DefaultTemplate: Story<MediaBlockProps> = (args) => (
@@ -33,7 +33,7 @@ const DefaultTemplate: Story<MediaBlockProps> = (args) => (
 export const Default = DefaultTemplate.bind({});
 
 Default.args = {
-    type: BlockType.BlogMediaBlock,
+    type: BlockType.Media,
     paddingBottom: 'l',
     paddingTop: 'l',
     text: 'Test',

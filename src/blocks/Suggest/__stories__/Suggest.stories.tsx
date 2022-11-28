@@ -22,7 +22,7 @@ export default {
 } as Meta;
 
 type SuggestBlockProps = {
-    type: BlockType.BlogSuggestBlock;
+    type: BlockType.Suggest;
 } & SuggestFullProps;
 
 const DefaultTemplate: Story<SuggestBlockProps> = (args) => (
@@ -34,7 +34,7 @@ const DefaultTemplate: Story<SuggestBlockProps> = (args) => (
 export const Default = DefaultTemplate.bind({});
 
 Default.args = {
-    type: BlockType.BlogSuggestBlock,
+    type: BlockType.Suggest,
     paddingBottom: 'l',
     paddingTop: 'l',
 };

@@ -2,14 +2,10 @@ import {yfmTransformer} from '@gravity-ui/page-constructor/server';
 
 import {BlockType} from '../models/blog';
 
-const BLOCKS_FOR_TYPOGRAPHY_TRANSFORM = [
-    BlockType.BlogYFMBlock,
-    BlockType.BlogColoredTextBlock,
-    BlockType.BlogMediaBlock,
-];
+const BLOCKS_FOR_TYPOGRAPHY_TRANSFORM = [BlockType.YFM, BlockType.ColoredText, BlockType.Media];
 
 type GetConfigForCreateReadableContent = () => {
-    [x in BlockType.BlogYFMBlock | BlockType.BlogColoredTextBlock | BlockType.BlogMediaBlock]: {
+    [x in BlockType.YFM | BlockType.ColoredText | BlockType.Media]: {
         fields: string[];
     };
 };
