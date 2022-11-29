@@ -1,6 +1,6 @@
 import React from 'react';
-import block from 'bem-cn-lite';
 
+import {block} from '../../../../utils';
 import {NavigationData} from '../../../../models';
 import Header from '../../components/Header/Header';
 
@@ -10,6 +10,7 @@ const b = block('layout');
 
 export interface LayoutProps {
     navigation?: NavigationData;
+    children?: React.ReactNode;
 }
 
 const Layout: React.FC<LayoutProps> = ({children, navigation}) => (

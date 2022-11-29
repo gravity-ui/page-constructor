@@ -1,8 +1,7 @@
 import React, {Fragment, MouseEventHandler, useContext, useMemo} from 'react';
-import block from 'bem-cn-lite';
 
+import {block, getLinkProps} from '../../../../utils';
 import {RouterLink, ToggleArrow, Button, Image} from '../../../index';
-import {getLinkProps} from '../../../../utils';
 import {LocationContext} from '../../../../context/locationContext';
 import {
     NavigationButtonItem,

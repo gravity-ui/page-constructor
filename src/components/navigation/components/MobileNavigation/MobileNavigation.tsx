@@ -1,7 +1,7 @@
-import block from 'bem-cn-lite';
 import React, {MouseEventHandler, useRef, useCallback} from 'react';
 import {Popup, Portal} from '@gravity-ui/uikit';
 
+import {block} from '../../../../utils';
 import Foldable from '../../../Foldable/Foldable';
 import {
     NavigationItem as NavigationItemModel,

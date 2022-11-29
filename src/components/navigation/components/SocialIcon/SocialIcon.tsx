@@ -1,7 +1,7 @@
 import React from 'react';
-import block from 'bem-cn-lite';
 
-import {NavigationSocialItem} from '../../../../models/navigation';
+import {block} from '../../../../utils';
+import {NavigationSocialItem} from '../../../../models';
 import {Image} from '../../../index';
 import {getMediaImage} from '../../../Media/Image/utils';
 

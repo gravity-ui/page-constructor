@@ -1,5 +1,4 @@
 import _ from 'lodash';
-import block from 'bem-cn-lite';
 import React, {
     Fragment,
     MouseEventHandler,
@@ -10,6 +9,7 @@ import React, {
     useRef,
 } from 'react';
 
+import {block} from '../../../../utils';
 import OverflowScroller from '../../../OverflowScroller/OverflowScroller';
 import {
     NavigationDropdownItem,

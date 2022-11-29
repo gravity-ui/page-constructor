@@ -1,8 +1,8 @@
 import _ from 'lodash';
-import block from 'bem-cn-lite';
 import React, {useRef, useState, useEffect, useCallback} from 'react';
 import {Portal} from '@gravity-ui/uikit';
 
+import {block} from '../../../../utils';
 import {OutsideClick} from '../../../index';
 import {NavigationLinkItem} from '../../../../models';
 import NavigationItem from '../NavigationItem/NavigationItem';

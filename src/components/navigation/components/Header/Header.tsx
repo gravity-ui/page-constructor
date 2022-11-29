@@ -1,6 +1,6 @@
 import React, {MouseEvent, useCallback, useState} from 'react';
-import block from 'bem-cn-lite';
 
+import {block} from '../../../../utils';
 import {HeaderData, NavigationLogo} from '../../../../models';
 import {Col, Grid, Row} from '../../../../grid';
 import OutsideClick from '../../../OutsideClick/OutsideClick';
@@ -50,7 +50,7 @@ export const Header: React.FC<HeaderProps> = ({data, logo}) => {
     const [isSidebarOpened, setIsSidebarOpened] = useState(false);
     const [activeItemIndex, setActiveItemIndex] = useState(-1);
 
-    const onActiveItemChange = useCallback((index) => {
+    const onActiveItemChange = useCallback((index: number) => {
         setActiveItemIndex(index);
     }, []);
 

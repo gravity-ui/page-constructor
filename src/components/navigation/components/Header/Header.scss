@@ -1,7 +1,9 @@
 @import '../../../../../styles/variables.scss';
 @import '../../../../../styles/mixins.scss';
 
-.header {
+$block: '.#{$ns}header';
+
+#{$block} {
     $root: &;
 
     position: sticky;

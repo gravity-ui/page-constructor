@@ -1,7 +1,9 @@
 @import '../../../../../styles/variables.scss';
 @import '../../../../../styles/mixins.scss';
 
-.navigation-popup {
+$block: '.#{$ns}navigation-popup';
+
+#{$block} {
     $offset: calc(#{$gridGutter} * 2);
 
     position: fixed;

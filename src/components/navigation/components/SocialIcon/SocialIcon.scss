@@ -1,7 +1,9 @@
 @import '../../../../../styles/variables.scss';
 @import '../../../../../styles/mixins.scss';
 
-.social-icon {
+$block: '.#{$ns}social-icon';
+
+#{$block} {
     display: flex;
     justify-content: center;
     align-items: center;

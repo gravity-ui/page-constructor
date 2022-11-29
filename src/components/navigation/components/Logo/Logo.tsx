@@ -1,6 +1,6 @@
 import React from 'react';
-import block from 'bem-cn-lite';
 
+import {block} from '../../../../utils';
 import {NavigationLogo} from '../../../../models';
 import RouterLink from '../../../RouterLink/RouterLink';
 import {getMediaImage} from '../../../Media/Image/utils';

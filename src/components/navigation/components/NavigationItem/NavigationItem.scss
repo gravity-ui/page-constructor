@@ -1,7 +1,9 @@
 @import '../../../../../styles/variables.scss';
 @import '../../../../../styles/mixins.scss';
 
-.navigation-item {
+$block: '.#{$ns}navigation-item';
+
+#{$block} {
     position: relative;
 
     display: flex;

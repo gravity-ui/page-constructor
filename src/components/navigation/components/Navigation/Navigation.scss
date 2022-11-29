@@ -1,7 +1,9 @@
 @import '../../../../../styles/variables.scss';
 @import '../../../../../styles/mixins.scss';
 
-.navigation {
+$block: '.#{$ns}navigation';
+
+#{$block} {
     @include text-size(body-2);
 
     &__links {
