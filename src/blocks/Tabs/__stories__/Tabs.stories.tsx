@@ -58,7 +58,10 @@ const DefaultArgs = {
     })),
 };
 
-Default.args = {...DefaultArgs} as TabsBlockProps;
+Default.args = {
+    ...DefaultArgs,
+    description: yfmTransform(data.description),
+} as TabsBlockProps;
 
 OnlyMedia.args = {
     ...DefaultArgs,
@@ -73,6 +76,7 @@ OnlyText.args = {
     items: DefaultArgs.items.map((item) => ({
         ...item,
         media: undefined,
+        image: undefined,
     })),
 } as TabsBlockModel;
 

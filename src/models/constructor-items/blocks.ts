@@ -294,7 +294,6 @@ export interface TabsBlockItem
      */
     link?: LinkProps;
     image?: ThemedImage;
-    disableCompress?: boolean;
     caption?: string;
     media?: ThemedMediaProps;
 }

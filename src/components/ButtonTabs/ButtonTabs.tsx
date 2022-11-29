@@ -24,7 +24,6 @@ export interface ButtonTabsProps {
 
 const ButtonTabs = (props: ButtonTabsProps) => {
     const {className, items, activeTab, onSelectTab} = props;
-    // const isMobile = useContext(MobileContext);
 
     const activeTabId: string = useMemo(() => {
         if (activeTab) {
@@ -35,7 +34,7 @@ const ButtonTabs = (props: ButtonTabsProps) => {
     }, [activeTab, items]);
 
     const handleClick = useCallback(
-        (tabId) => {
+        (tabId: string) => {
             if (onSelectTab) {
                 onSelectTab(tabId);
             }

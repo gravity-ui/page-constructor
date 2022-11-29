@@ -7,7 +7,7 @@ $block: '.#{$ns}tabs-block';
     $class: &;
 
     &__block-title {
-        margin-bottom: $indentXXS;
+        margin-bottom: $indentSM;
 
         &_centered {
             margin: 0 auto $indentXXS;
@@ -26,8 +26,7 @@ $block: '.#{$ns}tabs-block';
         flex-direction: row-reverse;
 
         #{$class}__content-wrapper {
-            margin-right: $indentM;
-            margin-left: 0;
+            margin: $indentSM $indentM 0 0;
         }
     }
 
@@ -85,10 +84,10 @@ $block: '.#{$ns}tabs-block';
         &__tabs {
             display: flex;
             overflow: auto;
-            margin-left: -$indentSM;
-            margin-right: -$indentSM;
-            padding-left: $indentSM;
-            padding-right: $indentXS;
+            margin-left: -$indentL;
+            margin-right: -$indentL;
+            padding-left: $indentL;
+            padding-right: $indentL - $indentXXXS;
         }
 
         &__content-wrapper {
@@ -104,6 +103,15 @@ $block: '.#{$ns}tabs-block';
                 margin-top: $indentM;
                 padding-bottom: 0;
             }
+        }
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'sm')) {
+        &__tabs {
+            margin-left: -$indentSM;
+            margin-right: -$indentSM;
+            padding-left: $indentSM;
+            padding-right: $indentXS;
         }
     }
 

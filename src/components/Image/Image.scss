@@ -1,7 +1,8 @@
 @import '../../../styles/variables.scss';
 
-$block: '.#{$ns}Image';
+$block: '.#{$ns}image';
 
 #{$block} {
     height: 100%;
+    width: 100%;
 }

@@ -6,7 +6,7 @@ import {block} from '../../utils';
 
 import './Image.scss';
 
-const b = block('Image');
+const b = block('image');
 
 export interface ImageProps extends Partial<ImageObjectProps>, Partial<ImageDeviceProps> {
     style?: CSSProperties;

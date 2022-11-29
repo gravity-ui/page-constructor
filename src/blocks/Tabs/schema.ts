@@ -5,21 +5,23 @@ import {
     BlockBaseProps,
     TitleProps,
     MediaProps,
+    containerSizesArray,
+    sizeNumber,
+    mediaDirection,
 } from '../../schema/validators/common';
 import {ImageProps} from '../../components/Image/schema';
+import _ from 'lodash';
+import {ContentBase} from '../../sub-blocks/Content/schema';
+
+const TabsItemContentProps = _.omit(ContentBase, ['size', 'colSizes', 'centered', 'theme']);
 
 export const tabsItem = {
     type: 'object',
     additionalProperties: false,
-    required: ['tabName', 'text'],
+    required: ['tabName'],
     properties: {
+        ...TabsItemContentProps,
         tabName: {
-            type: 'string',
-        },
-        title: {
-            type: 'string',
-        },
-        text: {
             type: 'string',
         },
         caption: {
@@ -31,7 +33,6 @@ export const tabsItem = {
         }),
         //TODO deprecated
         link: LinkProps,
-        links: filteredArray(LinkProps),
         image: withTheme(ImageProps),
     },
 };
@@ -46,6 +47,15 @@ export const TabsBlock = {
             description: {
                 type: 'string',
             },
+            tabsColSizes: containerSizesArray.reduce(
+                (acc, size) => ({...acc, [size]: sizeNumber}),
+                {},
+            ),
+            direction: {
+                type: 'string',
+                enum: mediaDirection,
+            },
+            centered: {type: 'boolean'},
             items: filteredArray(tabsItem),
         },
     },
