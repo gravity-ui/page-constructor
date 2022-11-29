@@ -34,5 +34,6 @@ export {default as Author} from './Author/Author';
 export {default as RouterLink} from './RouterLink/RouterLink';
 export {default as HTML} from './HTML/HTML';
 export {default as Header} from './navigation/components/Header/Header';
+export * as Navigation from './navigation/components/index';
 
 export type {RouterLinkProps} from './RouterLink/RouterLink';

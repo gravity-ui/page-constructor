@@ -32,6 +32,43 @@ export interface NavigationProps {
     highlightActiveItem?: boolean;
 }
 
+export interface NavigationDropdownProps {
+    data: NavigationDropdownItem;
+    onClick: MouseEventHandler;
+    isActive: boolean;
+    position: number;
+    hidePopup: () => void;
+}
+
+const NavigationDropdown: React.FC<NavigationDropdownProps> = ({
+    data,
+    isActive,
+    position,
+    hidePopup,
+    onClick,
+}) => {
+    const {text, items, ...popupProps} = data;
+
+    return (
+        <Fragment>
+            <NavigationItem
+                className={b('link')}
+                onClick={onClick}
+                isOpened={isActive}
+                data={{text, type: NavigationItemType.Dropdown}}
+            />
+            {isActive && (
+                <NavigationPopup
+                    left={position}
+                    onClose={hidePopup}
+                    items={items}
+                    {...popupProps}
+                />
+            )}
+        </Fragment>
+    );
+};
+
 const Navigation: React.FC<NavigationProps> = ({
     className,
     onActiveItemChange,
@@ -55,66 +92,6 @@ const Navigation: React.FC<NavigationProps> = ({
             onActiveItemChange(index === activeItemIndex ? -1 : index);
         },
         [activeItemIndex, onActiveItemChange],
-    );
-
-    const renderNavDropdown = (
-        data: NavigationDropdownItem,
-        onClick: MouseEventHandler,
-        isActive: boolean,
-        position: number,
-    ) => {
-        const {text, items, ...popupProps} = data;
-
-        return (
-            <Fragment>
-                <NavigationItem
-                    className={b('link')}
-                    onClick={onClick}
-                    isOpened={isActive}
-                    data={{text, type: NavigationItemType.Dropdown}}
-                />
-                {isActive && (
-                    <NavigationPopup
-                        left={position}
-                        onClose={hidePopup}
-                        items={items}
-                        {...popupProps}
-                    />
-                )}
-            </Fragment>
-        );
-    };
-
-    const slider = (
-        <div className={b('slider-container')}>
-            <div className={b('slider')} />
-        </div>
-    );
-
-    const content = (
-        <nav>
-            <ul className={b('links')}>
-                {links.map((link, index) => {
-                    const isActive = index === activeItemIndex;
-                    const onClick = getItemClickHandler(index);
-
-                    return (
-                        <li
-                            ref={(el) => itemRefs.current.push(el)}
-                            key={index}
-                            className={b('links-item')}
-                        >
-                            {link.type === NavigationItemType.Dropdown ? (
-                                renderNavDropdown(link, onClick, isActive, itemPositions[index])
-                            ) : (
-                                <NavigationItem data={link} onClick={onClick} />
-                            )}
-                            {highlightActiveItem && isActive && slider}
-                        </li>
-                    );
-                })}
-            </ul>
-        </nav>
     );
 
     const calculateItemPositions = useCallback(() => {
@@ -160,7 +137,39 @@ const Navigation: React.FC<NavigationProps> = ({
             onScrollStart={hidePopup}
             onScrollEnd={calculateItemPositions}
         >
-            {content}
+            <nav>
+                <ul className={b('links')}>
+                    {links.map((link, index) => {
+                        const isActive = index === activeItemIndex;
+                        const onClick = getItemClickHandler(index);
+
+                        return (
+                            <li
+                                ref={(el) => itemRefs.current.push(el)}
+                                key={index}
+                                className={b('links-item')}
+                            >
+                                {link.type === NavigationItemType.Dropdown ? (
+                                    <NavigationDropdown
+                                        data={link}
+                                        onClick={onClick}
+                                        isActive={isActive}
+                                        position={itemPositions[index]}
+                                        hidePopup={hidePopup}
+                                    />
+                                ) : (
+                                    <NavigationItem data={link} onClick={onClick} />
+                                )}
+                                {highlightActiveItem && isActive && (
+                                    <div className={b('slider-container')}>
+                                        <div className={b('slider')} />
+                                    </div>
+                                )}
+                            </li>
+                        );
+                    })}
+                </ul>
+            </nav>
         </OverflowScroller>
     );
 };

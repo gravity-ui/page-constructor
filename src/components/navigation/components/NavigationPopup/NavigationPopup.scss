@@ -5,7 +5,7 @@
     $offset: calc(#{$gridGutter} * 2);
 
     position: fixed;
-    top: calc(var(--header-height) - 16px);
+    top: calc(var(--header-height) - #{$indentXS});
 
     padding-right: 4px;
     padding-left: 4px;
@@ -16,7 +16,7 @@
 
     &__link {
         height: 36px;
-        padding: 8px 12px;
+        padding: $indentXXXS $indentXXS;
 
         border-radius: 8px;
 

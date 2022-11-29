@@ -133,7 +133,7 @@
     "header": {
       "leftItems": [
         {
-          "text": "Dropdown 1",
+          "text": "Dropdown1",
           "type": "dropdown",
           "items": [
             {
@@ -155,7 +155,7 @@
           ]
         },
         {
-          "text": "Dropdown 2",
+          "text": "Dropdown2",
           "type": "dropdown",
           "items": [
             {
@@ -177,13 +177,21 @@
           ]
         },
         {
-          "text": "Link 1",
-          "url": "http://localhost:7009/downloads",
+          "text": "Link1",
+          "url": "https://example.com",
           "icon": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_3_light.svg"
         },
         {
-          "text": "Link 2",
-          "url": "/../en/downloads"
+          "text": "Link2",
+          "url": "https://example.com"
+        },
+        {
+          "text": "Link3",
+          "url": "https://example.com"
+        },
+        {
+          "text": "Link4",
+          "url": "https://example.com"
         }
       ],
       "rightItems": [

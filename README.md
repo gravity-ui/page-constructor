@@ -32,59 +32,81 @@ const Page: WithChildren<PageProps> = ({content}) => (
 
 ```typescript
 interface PageConstructorProps {
-    content: PageContent; //Blocks data in JSON format.
-    shouldRenderBlock?: ShouldRenderBlock; // A function that is invoked when rendering each block and  lets you set conditions for its display.
-    custom?: Custom; //Custom blocks (see `Customization`).
-    renderMenu?: () => React.ReactNode; //A function that renders the page menu with navigation (we plan to add rendering for the default menu version).
+  content: PageContent; //Blocks data in JSON format.
+  shouldRenderBlock?: ShouldRenderBlock; // A function that is invoked when rendering each block and  lets you set conditions for its display.
+  custom?: Custom; //Custom blocks (see `Customization`).
+  renderMenu?: () => React.ReactNode; //A function that renders the page menu with navigation (we plan to add rendering for the default menu version).
+  navigation?: NavigationData; // Navigation data for using navigation component in JSON format
 }
 
 interface PageConstructorProviderProps {
-    isMobile?: boolean; //A flag indicating that the code is executed in mobile mode.
-    locale?: LocaleContextProps; //Info about the language and domain (used when generating and formatting links).
-    location?: Location; //API of the browser or router history, the page URL.
-    metrika?: Metrika; //Functions for sending analytics
-    ssrConfig?: SSR; //A flag indicating that the code is run on the server size.
-    theme?: 'light' | 'dark'; //Theme to render the page with.
+  isMobile?: boolean; //A flag indicating that the code is executed in mobile mode.
+  locale?: LocaleContextProps; //Info about the language and domain (used when generating and formatting links).
+  location?: Location; //API of the browser or router history, the page URL.
+  metrika?: Metrika; //Functions for sending analytics
+  ssrConfig?: SSR; //A flag indicating that the code is run on the server size.
+  theme?: 'light' | 'dark'; //Theme to render the page with.
 }
 
 export interface PageContent extends Animatable {
-    blocks: Block[];
-    menu?: Menu;
-    background?: MediaProps;
-    footnotes?: string[];
+  blocks: Block[];
+  menu?: Menu;
+  background?: MediaProps;
+  footnotes?: string[];
 }
 
 interface Custom {
-    blocks?: CustomItems;
-    subBlocks?:CustomItems;
-    headers?: CustomItems;
-    loadable?: LoadableConfig;
+  blocks?: CustomItems;
+  subBlocks?: CustomItems;
+  headers?: CustomItems;
+  loadable?: LoadableConfig;
 }
 
 type ShouldRenderBlock = (block: Block, blockKey: string) => Boolean;
 
-interface Location = {
-    history?: History;
-    search?: string;
-    hash?: string;
-    pathname?: string;
-    hostname?: string;
-};
-
-interface Locale = {
-    lang?: Lang;
-    tld?: string;
-};
-
-interface SSR = {
-    isServer?: boolean;
+interface Location {
+  history?: History;
+  search?: string;
+  hash?: string;
+  pathname?: string;
+  hostname?: string;
 }
 
-interface Metrika = {
-    metrika?: any;
-    pixel?: any;
+interface Locale {
+  lang?: Lang;
+  tld?: string;
 }
 
+interface SSR {
+  isServer?: boolean;
+}
+
+interface Metrika {
+  metrika?: any;
+  pixel?: any;
+}
+
+interface NavigationData {
+  logo: NavigationLogo;
+  header: HeaderData;
+}
+
+interface NavigationLogo {
+  icon: ImageProps;
+  text?: string;
+  url?: string;
+}
+
+interface HeaderData {
+  leftItems: NavigationItem[];
+  rightItems?: NavigationItem[];
+}
+
+interface NavigationLogo {
+  icon: ImageProps;
+  text?: string;
+  url?: string;
+}
 ```
 
 ### Custom blocks

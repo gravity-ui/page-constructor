@@ -15,7 +15,7 @@
     height: var(--header-height);
 
     background-color: var(--yc-color-base-background);
-    box-shadow: inset 0px -1px 0px var(--yc-color-line-generic);
+    box-shadow: inset 0 -1px 0 var(--yc-color-line-generic);
 
     &__wrapper {
         display: flex;

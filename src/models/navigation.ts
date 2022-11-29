@@ -39,9 +39,10 @@ export interface NavigationSocialItem extends Omit<NavigationItemBase, 'text'> {
 
 export type NavigationItem = NavigationLinkItem | NavigationButtonItem | NavigationDropdownItem;
 
-export interface NavigationLogo extends Omit<NavigationItemBase, 'text'> {
+export interface NavigationLogo {
     icon: ImageProps;
     text?: string;
+    url?: string;
 }
 
 export interface HeaderData {

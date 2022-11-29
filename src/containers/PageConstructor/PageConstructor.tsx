@@ -1,5 +1,5 @@
 import React, {useContext, useMemo} from 'react';
-import _ from 'lodash';
+import '@doc-tools/transform/dist/js/yfm';
 
 import {
     Block,
@@ -9,6 +9,7 @@ import {
     PageContent,
     CustomItems,
     BlockTypes,
+    NavigationData,
 } from '../../models';
 import {blockMap, subBlockMap} from '../../constructor-items';
 import {Grid} from '../../grid';
@@ -27,10 +28,7 @@ import {ConstructorRow} from './components/ConstructorRow';
 import {ConstructorFootnotes} from './components/ConstructorFootnotes';
 import {ConstructorHeader} from './components/ConstructorItem';
 import {ConstructorBlocks} from './components/ConstructorBlocks';
-import Header from '../../components/navigation/components/Header/Header';
-import {NavigationData} from '../../models/navigation';
-
-import '@doc-tools/transform/dist/js/yfm';
+import Layout from '../../components/navigation/containers/Layout/Layout';
 
 import './PageConstructor.scss';
 
@@ -43,7 +41,7 @@ export interface PageConstructorProps {
     shouldRenderBlock?: ShouldRenderBlock;
     custom?: CustomConfig;
     renderMenu?: () => React.ReactNode;
-    navigationData?: NavigationData;
+    navigation?: NavigationData;
 }
 
 export const Constructor = (props: PageConstructorProps) => {
@@ -68,7 +66,7 @@ export const Constructor = (props: PageConstructorProps) => {
         content: {blocks = [], background = {}, footnotes = []} = {},
         renderMenu,
         shouldRenderBlock,
-        navigationData,
+        navigation,
     } = props;
 
     const hasFootnotes = footnotes.length > 0;
@@ -84,26 +82,25 @@ export const Constructor = (props: PageConstructorProps) => {
                     {themedBackground && (
                         <BackgroundMedia {...themedBackground} className={b('background')} />
                     )}
-                    {navigationData?.header && (
-                        <Header logo={navigationData?.logo} data={navigationData?.header} />
-                    )}
-                    {renderMenu && renderMenu()}
-                    {header && <ConstructorHeader data={header} />}
-                    <Grid>
-                        {restBlocks && (
-                            <ConstructorRow>
-                                <ConstructorBlocks
-                                    items={restBlocks}
-                                    shouldRenderBlock={shouldRenderBlock}
-                                />
-                            </ConstructorRow>
-                        )}
-                        {hasFootnotes && (
-                            <ConstructorRow>
-                                <ConstructorFootnotes items={footnotes} />
-                            </ConstructorRow>
-                        )}
-                    </Grid>
+                    <Layout navigation={navigation}>
+                        {renderMenu && renderMenu()}
+                        {header && <ConstructorHeader data={header} />}
+                        <Grid>
+                            {restBlocks && (
+                                <ConstructorRow>
+                                    <ConstructorBlocks
+                                        items={restBlocks}
+                                        shouldRenderBlock={shouldRenderBlock}
+                                    />
+                                </ConstructorRow>
+                            )}
+                            {hasFootnotes && (
+                                <ConstructorRow>
+                                    <ConstructorFootnotes items={footnotes} />
+                                </ConstructorRow>
+                            )}
+                        </Grid>
+                    </Layout>
                 </div>
             </div>
         </InnerContext.Provider>

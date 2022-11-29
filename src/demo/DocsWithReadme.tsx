@@ -43,7 +43,7 @@ export const DocsWithReadme = () => {
     if (dirPath) {
         sourceBadgeContent = (
             <a
-                href={`https://bb.yandex-team.ru/projects/DATA-UI/repos/page-constructor/browse/${dirPath}`}
+                href={`https://github.com/gravity-ui/page-constructor/browse/browse/${dirPath}`}
                 target="_blank"
                 rel="noopener noreferrer"
             >

@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import block from 'bem-cn-lite';
-import React, {Fragment, useRef, useState, useEffect, useCallback} from 'react';
+import React, {useRef, useState, useEffect, useCallback} from 'react';
 import {Portal} from '@gravity-ui/uikit';
 
 import {OutsideClick} from '../../../index';
@@ -51,18 +51,14 @@ export const NavigationPopup: React.FC<NavigationPopupProps> = ({items, left, on
         return null;
     }
 
-    const renderDefaultPopup = (
-        <Fragment>
-            {items.map((item) => (
-                <NavigationItem key={item.text} className={b('link')} data={item} />
-            ))}
-        </Fragment>
-    );
-
     return (
         <Portal>
             <div ref={popupRef} className={b()} style={{left: calculatedLeft}}>
-                <OutsideClick onOutsideClick={onClose}>{renderDefaultPopup}</OutsideClick>
+                <OutsideClick onOutsideClick={onClose}>
+                    {items.map((item) => (
+                        <NavigationItem key={item.text} className={b('link')} data={item} />
+                    ))}
+                </OutsideClick>
             </div>
         </Portal>
     );
