@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.7.1](https://github.com/gravity-ui/page-constructor/compare/v1.7.0...v1.7.1) (2022-11-29)
+
+
+### Bug Fixes
+
+* **ExtendedFeatures:** add props ([6254d62](https://github.com/gravity-ui/page-constructor/commit/6254d62b9ceded154d0fdcded9a554fd33772d13))
+* storybook content ([b98eccc](https://github.com/gravity-ui/page-constructor/commit/b98ecccc96cfba2376552e4c9314a559913455d9))
+
 ## [1.7.0](https://github.com/gravity-ui/page-constructor/compare/v1.6.1...v1.7.0) (2022-11-10)
 
 
