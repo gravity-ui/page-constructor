@@ -4,13 +4,12 @@ import {block, getLinkProps} from '../../../../utils';
 import {RouterLink, ToggleArrow, Button, Image} from '../../../index';
 import {LocationContext} from '../../../../context/locationContext';
 import {
-    NavigationButtonItem,
-    NavigationDropdownItem,
     NavigationItemType,
-    NavigationSocialItem,
     NavigationLinkItem,
     ImageProps,
     ButtonProps,
+    NavigationItemData,
+    DropdownItemData,
 } from '../../../../models';
 import {NavigationArrow} from '../../../../icons';
 import SocialIcon from '../SocialIcon/SocialIcon';
@@ -19,14 +18,6 @@ import {getMediaImage} from '../../../Media/Image/utils';
 import './NavigationItem.scss';
 
 const b = block('navigation-item');
-
-type DropdownItemData = Omit<NavigationDropdownItem, 'items'>;
-
-export type NavigationItemData =
-    | NavigationLinkItem
-    | NavigationButtonItem
-    | NavigationSocialItem
-    | DropdownItemData;
 
 export interface NavigationItemProps {
     data: NavigationItemData;

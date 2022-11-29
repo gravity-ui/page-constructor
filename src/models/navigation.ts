@@ -39,6 +39,14 @@ export interface NavigationSocialItem extends Omit<NavigationItemBase, 'text'> {
 
 export type NavigationItem = NavigationLinkItem | NavigationButtonItem | NavigationDropdownItem;
 
+export type NavigationItemData =
+    | NavigationLinkItem
+    | NavigationButtonItem
+    | NavigationSocialItem
+    | DropdownItemData;
+
+export type DropdownItemData = Omit<NavigationDropdownItem, 'items'>;
+
 export interface NavigationLogo {
     icon: ImageProps;
     text?: string;
