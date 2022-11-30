@@ -9,7 +9,7 @@ import {MobileContext} from '../../../contexts/MobileContext';
 import {RouterContext} from '../../../contexts/RouterContext';
 import {PostPageContext} from '../../../contexts/PostPageContext';
 
-import {i18, BlogKeyset} from '../../../i18n';
+import {i18, Keyset} from '../../../i18n';
 
 import {getAbsolutePath} from '../../../utils/common';
 import {block} from '../../../utils/cn';
@@ -53,7 +53,7 @@ export const Sharing: React.FC<SharingProps> = ({theme, metrikaGoal}) => {
                     tooltipClassName={b('popup')}
                     useWebShareApi={isMobile}
                     direction={'column' as ShareTooltip['props']['direction']}
-                    buttonTitle={i18(BlogKeyset.ActionShare)}
+                    buttonTitle={i18(Keyset.ActionShare)}
                     customIcon={ShareArrowUp}
                     placement="bottom"
                     openByHover={false}

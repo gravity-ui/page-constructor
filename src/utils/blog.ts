@@ -8,7 +8,7 @@ import {
     NewMetrikaGoal,
 } from '@gravity-ui/page-constructor';
 
-import {i18, BlogKeyset} from '../i18n';
+import {i18, Keyset} from '../i18n';
 
 import {BlogPostTag, GetBlogPostsRequest} from '../models/blog';
 import {Query} from '../models/common';
@@ -59,7 +59,7 @@ type GetBlogBreadcrumbsProps = {
 
 export const getBlogBreadcrumbs = ({tags}: GetBlogBreadcrumbsProps) => {
     const breadcrumbs: HeaderBreadCrumbsProps = {
-        items: [{text: i18(BlogKeyset.TitleBreadcrumbsBlog), url: '/blog'}],
+        items: [{text: i18(Keyset.TitleBreadcrumbsBlog), url: '/blog'}],
         theme: 'light',
     };
 

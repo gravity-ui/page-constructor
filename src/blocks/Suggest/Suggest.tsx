@@ -3,7 +3,7 @@ import React, {useContext} from 'react';
 import {ClassNameProps} from '@yandex-data-ui/cloud-components';
 import {SliderBlock} from '@gravity-ui/page-constructor';
 
-import {i18, BlogKeyset} from '../../i18n';
+import {i18, Keyset} from '../../i18n';
 
 import {Wrapper, PaddingSize} from '../../components/Wrapper/Wrapper';
 import {PostCard} from '../../components/PostCard/PostCard';
@@ -49,7 +49,7 @@ export const Suggest: React.FC<SuggestFullProps> = ({paddingTop = 'l', paddingBo
         <Wrapper paddingTop={paddingTop} paddingBottom={paddingBottom}>
             <SliderBlock
                 slidesToShow={{xl: 3, lg: 2, sm: 1}}
-                title={{text: i18(BlogKeyset.TitleSuggest)}}
+                title={{text: i18(Keyset.TitleSuggest)}}
             >
                 {suggestedPosts.map((post) => (
                     <PostCard key={post.id} metrikaGoals={metrikaGoals} post={post} />

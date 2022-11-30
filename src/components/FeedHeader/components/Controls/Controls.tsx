@@ -15,7 +15,7 @@ import {MetrikaCounter} from '../../../../counters/utils';
 
 import {Save} from '../../../../icons/Save';
 
-import {i18, BlogKeyset} from '../../../../i18n';
+import {i18, Keyset} from '../../../../i18n';
 
 import {block} from '../../../../utils/cn';
 
@@ -113,17 +113,17 @@ export const Controls: React.FC<ControlsProps> = ({
     const renderServicesSwitcher = () => (
         <CustomSwitcher
             initial={servicesInitial}
-            defaultLabel={i18(BlogKeyset.AllServices)}
+            defaultLabel={i18(Keyset.AllServices)}
             list={services}
         />
     );
 
     const renderTagsSwitcher = () => (
-        <CustomSwitcher initial={tagInitial} defaultLabel={i18(BlogKeyset.AllTags)} list={tags} />
+        <CustomSwitcher initial={tagInitial} defaultLabel={i18(Keyset.AllTags)} list={tags} />
     );
 
     const tagsItems = useMemo(
-        () => [{value: 'empty', title: i18(BlogKeyset.AllTags)}, ...tags],
+        () => [{value: 'empty', title: i18(Keyset.AllTags)}, ...tags],
         [tags],
     );
 
@@ -134,12 +134,12 @@ export const Controls: React.FC<ControlsProps> = ({
 
     return (
         <div className={b('header')}>
-            <h1 className={b('header-item', {title: true})}>{i18(BlogKeyset.TitleBlog)}</h1>
+            <h1 className={b('header-item', {title: true})}>{i18(Keyset.TitleBlog)}</h1>
             <div className={b('header-item', {filters: true})}>
                 <div className={b('filter-item')}>
                     <Search
                         className={b('search')}
-                        placeholder={i18(BlogKeyset.Search)}
+                        placeholder={i18(Keyset.Search)}
                         initialValue={search && typeof search === 'string' ? search : ''}
                         onSubmit={handleSearch}
                     />
@@ -150,7 +150,7 @@ export const Controls: React.FC<ControlsProps> = ({
                         popupClassName={b('popup')}
                         showSearch={false}
                         showItemIcon={true}
-                        placeholder={i18(BlogKeyset.AllTags)}
+                        placeholder={i18(Keyset.AllTags)}
                         items={tagsItems}
                         size="promo"
                         value={tagInitial as string}
@@ -183,7 +183,7 @@ export const Controls: React.FC<ControlsProps> = ({
                             onClick={handleSavedOnly}
                         >
                             <Icon data={Save} size={ICON_SIZE} className={b('icon', {savedOnly})} />
-                            {i18(BlogKeyset.ActionSavedOnly)}
+                            {i18(Keyset.ActionSavedOnly)}
                         </Button>
                     </div>
                 ) : null}
