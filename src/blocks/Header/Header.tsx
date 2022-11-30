@@ -6,7 +6,7 @@ import {PostPageContext} from '../../contexts/PostPageContext';
 import {PostInfo, BlogMetrikaGoals} from '../../components/PostInfo/PostInfo';
 import {Wrapper, PaddingSize} from '../../components/Wrapper/Wrapper';
 
-import {getBlogBreadcrumbs} from '../../utils/blog';
+import {getBreadcrumbs} from '../../utils/blog';
 
 import {BlogMetrikaGoalIds} from '../../constants';
 
@@ -33,7 +33,7 @@ export const Header: React.FC<HeaderProps> = (props) => {
 
     const {description, title, id, date, readingTime, tags} = post;
 
-    const breadcrumbs = getBlogBreadcrumbs({tags});
+    const breadcrumbs = getBreadcrumbs({tags});
 
     if (theme === 'dark' && breadcrumbs) {
         breadcrumbs.theme = 'dark';

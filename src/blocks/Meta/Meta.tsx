@@ -5,7 +5,7 @@ import {PostPageContext} from '../../contexts/PostPageContext';
 
 import {Wrapper, PaddingSize} from '../../components/Wrapper/Wrapper';
 import {PostInfo, BlogMetrikaGoals} from '../../components/PostInfo/PostInfo';
-import {getBlogBreadcrumbs} from '../../utils/blog';
+import {getBreadcrumbs} from '../../utils/blog';
 
 import {BlogMetrikaGoalIds} from '../../constants';
 
@@ -40,7 +40,7 @@ export const Meta: React.FC<MetaProps> = (props) => {
 
     const {title, id, date, readingTime, tags} = post;
 
-    const breadcrumbs = getBlogBreadcrumbs({tags});
+    const breadcrumbs = getBreadcrumbs({tags});
 
     breadcrumbs.metrikaGoals = breadcrumbsGoals;
 

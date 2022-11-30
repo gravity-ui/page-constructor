@@ -1,7 +1,7 @@
 @import '../../../styles/mixins';
 @import '../../../styles/variables';
 
-$block: '.#{$namespace}blog-media';
+$block: '.#{$namespace}media';
 
 #{$block} {
     $root: &;

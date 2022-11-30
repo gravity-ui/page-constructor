@@ -12,7 +12,7 @@ import {block} from '../../utils/cn';
 
 import './Media.scss';
 
-const b = block('blog-media');
+const b = block('media');
 
 type MediaProps = Partial<
     Pick<PCMediaProps, 'youtube' | 'previewImg' | 'image' | 'video' | 'dataLens'>

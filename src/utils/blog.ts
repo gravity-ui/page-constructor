@@ -53,11 +53,11 @@ export const checkContentDefaults = (contentData: ContentBlockProps) => {
     contentData.theme = contentData.theme || CONTENT_DEFAULT_THEME;
 };
 
-type GetBlogBreadcrumbsProps = {
+type GetBreadcrumbsProps = {
     tags?: BlogPostTag[];
 };
 
-export const getBlogBreadcrumbs = ({tags}: GetBlogBreadcrumbsProps) => {
+export const getBreadcrumbs = ({tags}: GetBreadcrumbsProps) => {
     const breadcrumbs: HeaderBreadCrumbsProps = {
         items: [{text: i18(Keyset.TitleBreadcrumbsBlog), url: '/blog'}],
         theme: 'light',
