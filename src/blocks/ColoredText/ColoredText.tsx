@@ -4,7 +4,7 @@ import {BackgroundImage, Content, ContentBlockProps} from '@gravity-ui/page-cons
 
 import {Wrapper, PaddingSize} from '../../components/Wrapper/Wrapper';
 
-import {checkContentDefaults} from '../../utils/blog';
+import {checkContentDefaults} from '../../utils/common';
 import {block} from '../../utils/cn';
 
 import './ColoredText.scss';

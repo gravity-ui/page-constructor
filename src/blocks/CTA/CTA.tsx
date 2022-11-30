@@ -2,7 +2,7 @@ import React from 'react';
 import {Content, ContentBlockProps, NewMetrikaGoal} from '@gravity-ui/page-constructor';
 
 import {Wrapper, PaddingSize} from '../../components/Wrapper/Wrapper';
-import {getBlogElementMetrika, checkContentDefaults} from '../../utils/blog';
+import {getBlogElementMetrika, checkContentDefaults} from '../../utils/common';
 
 import {BlogMetrikaGoalIds} from '../../constants';
 

@@ -3,7 +3,7 @@ import {Content, ContentBlockProps, Image, NewMetrikaGoal} from '@gravity-ui/pag
 
 import {Wrapper, PaddingSize} from '../../components/Wrapper/Wrapper';
 
-import {getBlogElementMetrika, checkContentDefaults} from '../../utils/blog';
+import {getBlogElementMetrika, checkContentDefaults} from '../../utils/common';
 import {block} from '../../utils/cn';
 
 import {BlogMetrikaGoalIds} from '../../constants';

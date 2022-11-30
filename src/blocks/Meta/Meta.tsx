@@ -5,7 +5,7 @@ import {PostPageContext} from '../../contexts/PostPageContext';
 
 import {Wrapper, PaddingSize} from '../../components/Wrapper/Wrapper';
 import {PostInfo, BlogMetrikaGoals} from '../../components/PostInfo/PostInfo';
-import {getBreadcrumbs} from '../../utils/blog';
+import {getBreadcrumbs} from '../../utils/common';
 
 import {BlogMetrikaGoalIds} from '../../constants';
 

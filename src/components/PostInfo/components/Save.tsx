@@ -4,7 +4,7 @@ import React, {useContext} from 'react';
 
 import {Icon} from '@gravity-ui/uikit';
 
-import {postLikeStatus} from '../../../utils/blog';
+import {postLikeStatus} from '../../../utils/common';
 import {block} from '../../../utils/cn';
 
 import {MetrikaCounter} from '../../../counters/utils';
