@@ -10,7 +10,7 @@ import {block} from '../../../utils/cn';
 
 import '../PostInfo.scss';
 
-const b = block('blog-info');
+const b = block('post-info');
 
 const ICON_SIZE = 16;
 

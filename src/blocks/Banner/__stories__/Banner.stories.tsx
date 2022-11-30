@@ -10,7 +10,7 @@ import {BLOCKS} from '../../../demo/constants';
 import {PostPageContext} from '../../../contexts/PostPageContext';
 import post from '../../../../.mocks/post.json';
 
-import {Banner, BannerProps} from '../BlogBanner';
+import {Banner, BannerProps} from '../Banner';
 
 export default {
     title: `${BLOCKS}/Banner`,

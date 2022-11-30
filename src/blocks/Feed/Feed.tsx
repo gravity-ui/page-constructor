@@ -8,7 +8,7 @@ import {DEFAULT_PAGE, DEFAULT_ROWS_PER_PAGE} from '../constants';
 
 import {BlogMetrikaGoalIds} from '../../constants';
 
-import {getFeedQueryParams, scrollBlogOnPageChange} from '../../utils/blog';
+import {getFeedQueryParams, scrollOnPageChange} from '../../utils/blog';
 
 import {FeedHeader} from '../../components/FeedHeader/FeedHeader';
 import {PostsError} from '../../components/PostsError/PostsError';
@@ -126,7 +126,7 @@ export const Feed: React.FC<FeedProps> = ({image}) => {
                 dispatch({type: ActionTypes.SetErrorLoad, payload: true});
             }
 
-            scrollBlogOnPageChange(CONTAINER_ID);
+            scrollOnPageChange(CONTAINER_ID);
             setIsFetching(false);
         },
         [fetchData],

@@ -24,7 +24,7 @@ import {ShareArrowUp} from '../../../icons/ShareArrowUp';
 
 import '../PostInfo.scss';
 
-const b = block('blog-info');
+const b = block('post-info');
 
 type SharingProps = {
     theme?: 'light' | 'dark';

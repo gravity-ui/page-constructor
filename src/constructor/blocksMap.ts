@@ -8,7 +8,7 @@ import {CTA} from '../blocks/CTA/CTA';
 import {ColoredText} from '../blocks/ColoredText/ColoredText';
 import {Author} from '../blocks/Author/Author';
 import {Suggest} from '../blocks/Suggest/Suggest';
-import {Banner} from '../blocks/Banner/BlogBanner';
+import {Banner} from '../blocks/Banner/Banner';
 import {Meta} from '../blocks/Meta/Meta';
 import {Feed} from '../blocks/Feed/Feed';
 

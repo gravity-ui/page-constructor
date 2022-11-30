@@ -19,7 +19,7 @@ import '../PostInfo.scss';
 
 const ICON_SIZE = 16;
 
-const b = block('blog-info');
+const b = block('post-info');
 
 type SaveProps = {
     title: string | number;

@@ -110,7 +110,7 @@ export const getFeedQueryParams = (
     return {tags, page, perPage, savedOnly, search, services: serviceIds};
 };
 
-export const scrollBlogOnPageChange = (containerId: string) => {
+export const scrollOnPageChange = (containerId: string) => {
     const cardsContainerEl = document.getElementById(containerId);
     const y = cardsContainerEl?.getBoundingClientRect()?.y || 0;
 

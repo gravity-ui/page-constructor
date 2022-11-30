@@ -13,7 +13,7 @@ import {block} from '../../utils/cn';
 
 import './PostInfo.scss';
 
-const b = block('blog-info');
+const b = block('post-info');
 
 export type BlogMetrikaGoals = {
     sharing?: string;

@@ -14,7 +14,7 @@ type GetConfigForCreateReadableContent = () => {
  *  Func for create  extended typography config for page-constructor
  *
  * @returns - {
- *      [blockTypes.BlogYfmBlock]: [
+ *      [blockTypes.YFM]: [
  *           {
  *              fields: ['text'],
  *              transformer: yfmTransformer,
@@ -40,7 +40,7 @@ export const getExtendTypographyConfig = () =>
  * Func for create readable content func
  *
  * @returns - {
- *      [blockTypes.BlogYfmBlock]: {
+ *      [blockTypes.YFM]: {
  *          fields: ['text'],
  *          transformer: yfmTransformer,
  *      },
