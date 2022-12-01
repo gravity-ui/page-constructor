@@ -48,7 +48,7 @@ export const Author: React.FC<AuthorProps> = (props) => {
 
     return (
         <Wrapper paddingTop={paddingTop} paddingBottom={paddingBottom} className={b('content')}>
-            <div className={b('layout')}>
+            <div className={b('layout')} data-qa="blog-author-layout">
                 <PCAuthor
                     type={AuthorType.Column}
                     author={authorItem}

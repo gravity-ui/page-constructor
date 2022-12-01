@@ -33,7 +33,11 @@ export const ColoredText: React.FC<ColoredTextProps> = ({
 
     return (
         <Wrapper paddingTop={paddingTop} paddingBottom={paddingBottom}>
-            <div className={b('container')} style={{backgroundColor: background?.color || 'none'}}>
+            <div
+                className={b('container')}
+                style={{backgroundColor: background?.color || 'none'}}
+                data-qa="blog-colored-text-content"
+            >
                 <div className={b('picture-container')}>
                     {background?.image && (
                         <BackgroundImage

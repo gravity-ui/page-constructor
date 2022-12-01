@@ -52,6 +52,7 @@ export const Save: React.FC<SaveProps> = ({
     metrikaGoal,
     size,
     theme,
+    dataQa,
 }) => {
     const {uid} = useContext(UserContext);
 
@@ -72,6 +73,7 @@ export const Save: React.FC<SaveProps> = ({
                 handleUserLike();
                 metrika.reachGoal(MetrikaCounter.CrossSite, metrikaGoal);
             }}
+            data-qa={`${dataQa ? dataQa + '-' : ''}save`}
         >
             <div className={b('content', {cursor: Boolean(uid), theme})}>
                 <span className={b('icon')}>

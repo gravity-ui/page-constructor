@@ -3,8 +3,6 @@ import {parse} from 'fast-html-parser';
 import {format} from 'url';
 import _ from 'lodash';
 
-import {Query} from '../models/common';
-
 import {
     ContentBlockProps,
     HeaderBreadCrumbsProps,
@@ -15,7 +13,7 @@ import {
 
 import {i18, Keyset} from '../i18n';
 
-import {BlogPostTag, GetBlogPostsRequest} from '../models/blog';
+import {BlogPostTag, GetBlogPostsRequest, Query} from '../models/common';
 
 import {
     CONTENT_DEFAULT_COL_SIZES,

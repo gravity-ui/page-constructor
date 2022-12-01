@@ -3,7 +3,7 @@ import React from 'react';
 import {PageConstructor} from '@gravity-ui/page-constructor';
 import {Meta, Story} from '@storybook/react/types-6-0';
 
-import {BlockType} from '../../../models/blog';
+import {BlockType} from '../../../models/common';
 
 import customBlocks from '../../../constructor/blocksMap';
 import {BLOCKS} from '../../../demo/constants';

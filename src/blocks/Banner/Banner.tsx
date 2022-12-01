@@ -48,7 +48,7 @@ export const Banner: React.FC<BannerProps> = ({
 
     return (
         <Wrapper paddingTop={paddingTop} paddingBottom={paddingBottom} className={b('container')}>
-            <div className={b('content')} style={contentStyle}>
+            <div className={b('content')} style={contentStyle} data-qa="blog-banner-content">
                 <div className={b('info')}>
                     <Content {...contentData} />
                 </div>

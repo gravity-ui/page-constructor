@@ -1,7 +1,7 @@
 import React from 'react';
 import {ShareSocialNetwork} from '@gravity-ui/uikit';
 
-import {BlogPostData} from '../models/blog';
+import {BlogPostData} from '../models/common';
 
 export interface PostPageContextProps {
     // Should we change Blog Context? https://st.yandex-team.ru/CLOUDFRONT-10460

@@ -19,8 +19,7 @@ import {i18, Keyset} from '../../../../i18n';
 
 import {block} from '../../../../utils/cn';
 
-import {HandleChangeQueryParams, SetQueryType} from '../../../../models/blog';
-import {Query} from '../../../../models/common';
+import {HandleChangeQueryParams, SetQueryType, Query} from '../../../../models/common';
 
 import './Controls.scss';
 

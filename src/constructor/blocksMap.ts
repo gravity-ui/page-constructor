@@ -1,4 +1,4 @@
-import {BlockType} from '../models/blog';
+import {BlockType} from '../models/common';
 
 import {Header} from '../blocks/Header/Header';
 import {YFM} from '../blocks/YFM/YFM';

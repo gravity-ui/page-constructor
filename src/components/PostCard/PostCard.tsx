@@ -5,7 +5,7 @@ import {CardBase, YFMWrapper, MetrikaGoal, HTML} from '@gravity-ui/page-construc
 import {LikesContext} from '../../contexts/LikesContext';
 
 import {SuggestPostInfo} from '../PostInfo/SuggestPostInfo';
-import {BlogPostData} from '../../models/blog';
+import {BlogPostData} from '../../models/common';
 
 import {block} from '../../utils/cn';
 
@@ -63,7 +63,7 @@ export const PostCard: React.FC<PostCardProps> = ({
     return (
         <CardBase url={url} metrikaGoals={metrikaGoals} className={b('card', {fullWidth})}>
             <CardBase.Header image={image} className={b('header', {fullWidth})}>
-                <div className={b('image-container')} />
+                <div className={b('image-container')} data-qa="blog-suggest-header" />
             </CardBase.Header>
             <CardBase.Content>
                 {showTag && tags?.[0]?.name && (
@@ -95,6 +95,7 @@ export const PostCard: React.FC<PostCardProps> = ({
                     hasUserLike={hasUserLike}
                     likes={likesProps}
                     size={size}
+                    dataQa="blog-suggest-block"
                 />
             </CardBase.Footer>
         </CardBase>

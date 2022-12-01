@@ -21,6 +21,7 @@ export const Wrapper: React.FunctionComponent<WrapperProps> = ({
     paddingTop = 'xs',
     paddingBottom = 'l',
     className,
+    dataQa,
 }) => (
     <section
         className={b(
@@ -30,6 +31,7 @@ export const Wrapper: React.FunctionComponent<WrapperProps> = ({
             },
             className,
         )}
+        data-qa={dataQa}
     >
         {children}
     </section>

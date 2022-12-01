@@ -35,7 +35,7 @@ export const Media: React.FC<MediaFullProps> = ({
     paddingBottom,
 }) => (
     <Wrapper paddingTop={paddingTop} paddingBottom={paddingBottom} className={b('container')}>
-        <div className={b('border')}>
+        <div className={b('border')} data-qa="blog-media-content">
             <PCMedia
                 className={b('content')}
                 videoClassName={b('video')}

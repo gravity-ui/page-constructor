@@ -2,7 +2,7 @@ import React from 'react';
 
 // TODO fixes and refactor in https://st.yandex-team.ru/ORION-1444
 
-import {BlogPostData, ToggleLikeCallbackType} from '../../models/blog';
+import {BlogPostData, ToggleLikeCallbackType} from '../../models/common';
 
 import {useLikes} from '../../hooks/useLikes';
 
@@ -47,6 +47,7 @@ export const SuggestPostInfo: React.FC<SuggestPostInfoProps> = ({
     readingTime,
     likes,
     size = 's',
+    dataQa,
 }) => {
     const {hasUserLike, likesCount, handleLike} = useLikes({
         hasLike: likes?.hasUserLike,
@@ -68,6 +69,7 @@ export const SuggestPostInfo: React.FC<SuggestPostInfoProps> = ({
                     hasUserLike={hasUserLike}
                     handleUserLike={handleLike}
                     size={size}
+                    dataQa={dataQa}
                 />
             )}
         </div>

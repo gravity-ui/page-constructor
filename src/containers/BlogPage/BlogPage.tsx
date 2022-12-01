@@ -22,7 +22,7 @@ import {
     MetaProps,
     GetBlogPostsType,
     SetQueryType,
-} from '../../models/blog';
+} from '../../models/common';
 
 import './BlogPage.scss';
 

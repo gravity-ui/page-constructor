@@ -1,8 +1,7 @@
 // @ts-nocheck
 // TODO fix types in https://st.yandex-team.ru/ORION-1447
 
-import {BlogPostData} from '../../models/blog';
-import {Query} from '../../models/common';
+import {Query, BlogPostData} from '../../models/common';
 
 export enum ActionTypes {
     SetErrorLoad = 'setErrorLoad',

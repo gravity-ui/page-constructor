@@ -3,7 +3,7 @@ import React, {MouseEvent} from 'react';
 import {CardLayoutBlock} from '@gravity-ui/page-constructor';
 import {Button} from '@gravity-ui/uikit';
 
-import {BlogPostData} from '../../models/blog';
+import {BlogPostData} from '../../models/common';
 
 import {i18, Keyset} from '../../i18n';
 

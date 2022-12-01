@@ -38,7 +38,12 @@ export const CTA: React.FC<CTAProps> = ({items, paddingTop, paddingBottom}) => {
     };
 
     return (
-        <Wrapper paddingTop={paddingTop} paddingBottom={paddingBottom} className={b('content')}>
+        <Wrapper
+            paddingTop={paddingTop}
+            paddingBottom={paddingBottom}
+            className={b('content')}
+            dataQa="blog-cta-content"
+        >
             {items.slice(0, count).map((contentData: ContentBlockProps, index: number) => {
                 checkContentDefaults(contentData);
 
@@ -52,6 +57,7 @@ export const CTA: React.FC<CTAProps> = ({items, paddingTop, paddingBottom}) => {
                         className={b('button', {
                             ['layout']: count,
                         })}
+                        data-qa="blog-cta-card"
                     >
                         <div className={b('card')}>
                             <Content {...contentData} />

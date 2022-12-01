@@ -45,7 +45,7 @@ export const Meta: React.FC<MetaProps> = (props) => {
     breadcrumbs.metrikaGoals = breadcrumbsGoals;
 
     return (
-        <Wrapper paddingTop={paddingTop} paddingBottom={paddingBottom}>
+        <Wrapper paddingTop={paddingTop} paddingBottom={paddingBottom} dataQa="blog-meta-content">
             {breadcrumbs && (
                 <HeaderBreadcrumbs
                     items={breadcrumbs.items}
@@ -69,6 +69,7 @@ export const Meta: React.FC<MetaProps> = (props) => {
                     date={date}
                     readingTime={readingTime}
                     metrikaGoals={metrikaGoals}
+                    dataQa="blog-meta-block"
                 />
             )}
         </Wrapper>

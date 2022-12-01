@@ -8,7 +8,7 @@ import {
 } from '@gravity-ui/page-constructor';
 import {ShareSocialNetwork} from '@gravity-ui/uikit';
 
-import {BlogPostData, ToggleLikeCallbackType, MetaProps} from '../../models/blog';
+import {BlogPostData, ToggleLikeCallbackType, MetaProps} from '../../models/common';
 
 import componentMap from '../../constructor/blocksMap';
 

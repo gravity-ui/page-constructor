@@ -1,6 +1,6 @@
 import {sanitizeHtml} from '@gravity-ui/page-constructor/server';
 
-import {BlogPostMetaProps} from '../models/blog';
+import {BlogPostMetaProps} from '../models/common';
 
 /**
  * Function for sanitized meta-data fields

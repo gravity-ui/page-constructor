@@ -5,7 +5,7 @@ import {typografToText, typografToHTML, yfmTransformer} from '@gravity-ui/page-c
 // TODO fix any https://st.yandex-team.ru/ORION-1447
 
 import {Lang} from '../models/locale';
-import {BlogPostData} from '../models/blog';
+import {BlogPostData} from '../models/common';
 
 /**
  * Func for transform post data

@@ -1,6 +1,6 @@
 import {yfmTransformer} from '@gravity-ui/page-constructor/server';
 
-import {BlockType} from '../models/blog';
+import {BlockType} from '../models/common';
 
 const BLOCKS_FOR_TYPOGRAPHY_TRANSFORM = [BlockType.YFM, BlockType.ColoredText, BlockType.Media];
 

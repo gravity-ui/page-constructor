@@ -17,7 +17,7 @@ import {Posts} from '../../components/Posts/Posts';
 import metrika from '../../counters/metrika.js';
 import {MetrikaCounter} from '../../counters/utils';
 
-import {HandleChangeQueryParams} from '../../models/blog';
+import {HandleChangeQueryParams} from '../../models/common';
 
 import {ActionTypes, reducer} from './reducer';
 

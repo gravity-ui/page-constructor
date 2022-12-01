@@ -2,7 +2,7 @@ import React, {useContext} from 'react';
 
 import {PostPageContext} from '../../contexts/PostPageContext';
 
-import {BlogPostData} from '../../models/blog';
+import {BlogPostData} from '../../models/common';
 
 import {Date} from './components/Date';
 import {ReadingTime} from './components/ReadingTime';
@@ -47,6 +47,7 @@ export const PostInfo: React.FC<PostInfoProps> = ({
     postId,
     theme = 'light',
     metrikaGoals,
+    dataQa,
 }) => {
     const {likes} = useContext(PostPageContext);
 
@@ -63,6 +64,7 @@ export const PostInfo: React.FC<PostInfoProps> = ({
                     handleUserLike={likes.handleUserLike}
                     metrikaGoal={metrikaGoals?.save}
                     theme={theme}
+                    dataQa={dataQa}
                 />
             )}
         </div>
