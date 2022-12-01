@@ -36,7 +36,7 @@ export const Feed: React.FC<FeedProps> = ({image}) => {
         tags,
         services,
         pinnedPost,
-        getBlogPosts,
+        getPosts,
         pageCountForShowSupportButtons,
     } = useContext(FeedContext);
     const router = useContext(RouterContext);
@@ -89,16 +89,16 @@ export const Feed: React.FC<FeedProps> = ({image}) => {
 
     const fetchData = useCallback(
         async (pageNumber?: number) => {
-            if (queryParams && getBlogPosts) {
+            if (queryParams && getPosts) {
                 const query = getFeedQueryParams(queryParams, pageNumber);
-                const data = await getBlogPosts(query);
+                const data = await getPosts(query);
 
                 return data;
             } else {
                 throw new Error('cant get request');
             }
         },
-        [getBlogPosts, queryParams],
+        [getPosts, queryParams],
     );
 
     const setIsFetching = (value: boolean) => {

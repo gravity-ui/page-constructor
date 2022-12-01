@@ -31,7 +31,7 @@ export type BlogPageProps = {
     posts: BlogPagePostsData;
     tags: BlogPostTag[];
     services?: ServicePublic[];
-    getBlogPosts: GetBlogPostsType;
+    getPosts: GetBlogPostsType;
     toggleLike?: ToggleLikeCallbackType;
     metaData?: MetaProps;
     setQuery?: SetQueryType;
@@ -44,7 +44,7 @@ export const BlogPage = ({
     posts,
     tags,
     services,
-    getBlogPosts,
+    getPosts,
     metaData,
     toggleLike,
     settings,
@@ -64,7 +64,7 @@ export const BlogPage = ({
                     totalCount: posts.count,
                     tags,
                     services: services ?? [],
-                    getBlogPosts,
+                    getPosts,
                     pageCountForShowSupportButtons,
                 }}
             >

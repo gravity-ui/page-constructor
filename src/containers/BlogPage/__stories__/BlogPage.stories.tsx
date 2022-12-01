@@ -34,7 +34,7 @@ Default.args = {
         needHelmetWrapper: true,
         metaComponent: mockMetaComponent,
     },
-    getBlogPosts: (props) => {
+    getPosts: (props) => {
         console.log('get posts', props);
     },
     toggleLike: null,

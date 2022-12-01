@@ -9,7 +9,7 @@ export interface FeedContextProps {
     totalCount?: number;
     tags?: BlogPostTag[];
     services?: ServicePublic[];
-    getBlogPosts?: GetBlogPostsType;
+    getPosts?: GetBlogPostsType;
     setQuery?: SetQueryType;
     pageCountForShowSupportButtons?: number;
 }
