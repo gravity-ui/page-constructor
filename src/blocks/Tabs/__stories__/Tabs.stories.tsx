@@ -100,6 +100,7 @@ TabsButtonsColSizes.args = {
 
 Centered.args = {
     ...DefaultArgs,
+    description: yfmTransform(data.description),
     centered: true,
 } as TabsBlockModel;
 

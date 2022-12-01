@@ -103,7 +103,6 @@ export const TabsBlock = ({
                 title={title}
                 description={description}
                 className={b('block-title', {centered: centered})}
-                colSizes={centered ? {all: 12} : {all: 12, sm: 8}}
             />
             <Row>
                 <Col sizes={tabsColSizes}>

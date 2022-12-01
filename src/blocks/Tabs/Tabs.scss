@@ -10,7 +10,11 @@ $block: '.#{$ns}tabs-block';
         margin-bottom: $indentSM;
 
         &_centered {
-            margin: 0 auto $indentXXS;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-left: auto;
+            margin-right: auto;
             text-align: center;
         }
     }
@@ -19,6 +23,7 @@ $block: '.#{$ns}tabs-block';
         &_centered {
             display: flex;
             justify-content: center;
+            flex-wrap: wrap;
         }
     }
 
@@ -83,6 +88,8 @@ $block: '.#{$ns}tabs-block';
     @media (max-width: map-get($gridBreakpoints, 'md')) {
         &__tabs {
             display: flex;
+            flex-wrap: nowrap;
+            justify-content: flex-start;
             overflow: auto;
             margin-left: -$indentL;
             margin-right: -$indentL;
