@@ -89,7 +89,7 @@ export const PostCard: React.FC<PostCardProps> = ({
             </CardBase.Content>
             <CardBase.Footer>
                 <SuggestPostInfo
-                    blogPostId={blogPostId || id}
+                    postId={blogPostId || id}
                     date={date}
                     readingTime={readingTime}
                     hasUserLike={hasUserLike}

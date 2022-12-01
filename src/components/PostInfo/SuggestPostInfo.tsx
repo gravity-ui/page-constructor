@@ -17,7 +17,8 @@ import './PostInfo.scss';
 const b = block('post-info');
 
 export interface SuggestPostInfoProps
-    extends Pick<BlogPostData, 'blogPostId' | 'date' | 'readingTime' | 'hasUserLike'> {
+    extends Pick<BlogPostData, 'date' | 'readingTime' | 'hasUserLike'> {
+    postId: BlogPostData['blogPostId'];
     size?: 's' | 'm';
     dataQa?: string;
     likes?: {
@@ -30,7 +31,7 @@ export interface SuggestPostInfoProps
 /**
  * Suggest blog card info component
  *
- * @param blogPostId - post id
+ * @param postId - post id
  * @param date - post create date
  * @param readingTime - post reading time
  * @param hasUserLike - flag that the user liked the post
@@ -42,7 +43,7 @@ export interface SuggestPostInfoProps
  * @returns jsx
  */
 export const SuggestPostInfo: React.FC<SuggestPostInfoProps> = ({
-    blogPostId,
+    postId,
     date,
     readingTime,
     likes,
@@ -53,7 +54,7 @@ export const SuggestPostInfo: React.FC<SuggestPostInfoProps> = ({
         hasLike: likes?.hasUserLike,
         count: likes?.likesCount,
         toggleLikeCallback: likes?.toggleLike,
-        postId: blogPostId,
+        postId: postId,
     });
 
     return (
@@ -62,9 +63,9 @@ export const SuggestPostInfo: React.FC<SuggestPostInfoProps> = ({
                 {date && <Date date={date} size={size} />}
                 {readingTime && <ReadingTime readingTime={readingTime} size={size} />}
             </div>
-            {likes && blogPostId && (
+            {likes && postId && (
                 <Save
-                    postId={blogPostId}
+                    postId={postId}
                     title={likesCount}
                     hasUserLike={hasUserLike}
                     handleUserLike={handleLike}
