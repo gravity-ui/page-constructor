@@ -20,7 +20,7 @@ $block: '.#{$ns}mobile-navigation';
     @include mobile-tablet-only();
 
     &__wrapper {
-        padding: $indentM $indentS;
+        padding: $indentM $indentL;
     }
 
     &__button {
@@ -52,5 +52,12 @@ $block: '.#{$ns}mobile-navigation';
     &__popup {
         @include mobile-tablet-only();
         @include navigation-popup();
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'sm') - 1) {
+        &__wrapper {
+            padding-left: $indentSM;
+            padding-right: $indentSM;
+        }
     }
 }
