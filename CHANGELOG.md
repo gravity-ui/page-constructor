@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.1](https://github.com/gravity-ui/page-constructor/compare/v1.8.0...v1.8.1) (2022-12-02)
+
+
+### Bug Fixes
+
+* hs form field width limitations ([fe45a77](https://github.com/gravity-ui/page-constructor/commit/fe45a77f0dbeae555110602845307fd9c47f8495))
+
 ## [1.8.0](https://github.com/gravity-ui/page-constructor/compare/v1.7.1...v1.8.0) (2022-12-02)
 
 
