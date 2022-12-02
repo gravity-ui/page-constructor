@@ -1,5 +1,21 @@
 # Changelog
 
+## [1.8.0](https://github.com/gravity-ui/page-constructor/compare/v1.7.1...v1.8.0) (2022-12-02)
+
+
+### Bug Fixes
+
+* add variable icon size ([da0304e](https://github.com/gravity-ui/page-constructor/commit/da0304ed28082b7c951b611d98e4aa24a3b4411a))
+* **MobileNavigation:** paddings ([bc3705d](https://github.com/gravity-ui/page-constructor/commit/bc3705d39cc57266594150ff8a2a04600cb9ab27))
+* **navigation:** refactoring ([99493a4](https://github.com/gravity-ui/page-constructor/commit/99493a4ab17af679bba250b3c7d00b4fe9256baa))
+* **navigation:** type import ([5f142cc](https://github.com/gravity-ui/page-constructor/commit/5f142cc80c43a97ad62f1fd5019cdff710325b84))
+* typings and namespace ([12d6d81](https://github.com/gravity-ui/page-constructor/commit/12d6d81ffd136b89d616ad553f3cee0d840e2cb6))
+
+
+### chore
+
+* bump release ([f57882e](https://github.com/gravity-ui/page-constructor/commit/f57882e6481a3923e73c475b246723545906f588))
+
 ## [1.7.1](https://github.com/gravity-ui/page-constructor/compare/v1.7.0...v1.7.1) (2022-11-29)
 
 
