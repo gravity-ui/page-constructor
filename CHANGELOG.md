@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.8.0](https://github.com/gravity-ui/page-constructor/compare/v1.7.1...v1.8.0) (2022-12-02)
+
+
+### Features
+
+* add **navigation** ([99493a4](https://github.com/gravity-ui/page-constructor/commit/99493a4ab17af679bba250b3c7d00b4fe9256baa))
+
+
 ## [1.7.1](https://github.com/gravity-ui/page-constructor/compare/v1.7.0...v1.7.1) (2022-11-29)
 
 
