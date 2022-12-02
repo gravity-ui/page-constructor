@@ -31,6 +31,10 @@ $block: '.#{$ns}hubspot-form';
             position: relative;
         }
 
+        &:only-child > label {
+            width: 100%;
+        }
+
         .input {
             box-sizing: border-box;
             display: inline-block;
