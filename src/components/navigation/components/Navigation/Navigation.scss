@@ -1,0 +1,43 @@
+@import '../../../../../styles/variables.scss';
+@import '../../../../../styles/mixins.scss';
+
+$block: '.#{$ns}navigation';
+
+#{$block} {
+    @include text-size(body-2);
+
+    &__links {
+        position: relative;
+
+        display: flex;
+        align-items: center;
+        @include reset-list-style();
+    }
+
+    &__links-item {
+        position: relative;
+
+        height: var(--header-height);
+
+        line-height: var(--header-height);
+        @include navigation-link();
+
+        &:not(:last-child) {
+            margin-right: $indentS;
+        }
+    }
+
+    &__slider-container {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+
+    &__slider {
+        width: 100%;
+        height: 2px;
+
+        background-color: var(--yc-color-text-link);
+    }
+}

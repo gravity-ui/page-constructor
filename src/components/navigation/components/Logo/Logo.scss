@@ -1,0 +1,24 @@
+@import '../../../../../styles/variables.scss';
+@import '../../../../../styles/mixins.scss';
+
+$block: '.#{$ns}logo';
+
+#{$block} {
+    display: flex;
+    align-items: center;
+
+    font-weight: var(--yc-text-accent-font-weight);
+
+    @include heading4();
+
+    &__icon {
+        display: flex;
+        margin-right: $indentXXXS;
+
+        object-fit: contain;
+    }
+
+    &__text {
+        white-space: nowrap;
+    }
+}

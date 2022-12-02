@@ -1,0 +1,30 @@
+@import '../../../../../styles/variables.scss';
+@import '../../../../../styles/mixins.scss';
+
+$block: '.#{$ns}navigation-popup';
+
+#{$block} {
+    $offset: calc(#{$gridGutter} * 2);
+
+    position: fixed;
+    top: calc(var(--header-height) - #{$indentXS});
+
+    padding-right: 4px;
+    padding-left: 4px;
+
+    transform: translateX(calc(#{$offset} * -1));
+    @include desktop-only();
+    @include navigation-popup();
+
+    &__link {
+        height: 36px;
+        padding: $indentXXXS $indentXXS;
+
+        border-radius: 8px;
+
+        &:hover {
+            color: var(--yc-color-text-primary);
+            background-color: var(--yc-color-base-simple-hover);
+        }
+    }
+}

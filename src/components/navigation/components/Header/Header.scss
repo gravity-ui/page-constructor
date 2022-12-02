@@ -1,0 +1,111 @@
+@import '../../../../../styles/variables.scss';
+@import '../../../../../styles/mixins.scss';
+
+$block: '.#{$ns}header';
+
+#{$block} {
+    $root: &;
+
+    position: sticky;
+    z-index: 98;
+    top: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: var(--header-height);
+
+    background-color: var(--yc-color-base-background);
+    box-shadow: inset 0 -1px 0 var(--yc-color-line-generic);
+
+    &__wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        height: var(--header-height);
+    }
+
+    %menu-button {
+        position: absolute;
+        z-index: 2;
+    }
+
+    &__mobile-menu-button {
+        @include mobile-tablet-only();
+    }
+
+    &__navigation,
+    &__left,
+    &__right {
+        display: flex;
+        align-items: center;
+    }
+
+    &__navigation {
+        position: relative;
+        margin-right: $normalOffset;
+
+        flex: 1 0 0;
+        justify-content: flex-start;
+
+        @include desktop-only();
+    }
+
+    &__right {
+        flex: 0;
+        justify-content: flex-end;
+    }
+
+    &__navigation-container {
+        display: flex;
+        overflow-x: hidden;
+        flex: 1 0 0;
+        justify-content: space-between;
+        align-items: center;
+
+        margin-right: $indentS;
+    }
+
+    &__buttons {
+        display: flex;
+        @include desktop-only();
+
+        & > * {
+            &:not(:last-child) {
+                margin-right: $indentXS;
+            }
+        }
+    }
+
+    &__button {
+        margin-top: 0;
+    }
+
+    &__logo {
+        margin: 0 $indentM 0 0;
+
+        cursor: pointer;
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'md') - 1) {
+        &__navigation-container {
+            justify-content: flex-end;
+        }
+
+        &__left {
+            flex: 1 0 0;
+        }
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'sm') - 1) {
+        &__navigation-container {
+            margin-right: $indentXXS;
+        }
+
+        &__logo {
+            margin-right: 0;
+        }
+    }
+}

@@ -16,12 +16,14 @@ $block: '.#{$ns}overflow-scroller';
     &__scroller {
         position: absolute;
         z-index: 10;
+        top: 0;
 
         display: flex;
         justify-content: flex-end;
         align-items: center;
 
         width: 32px;
+        height: calc(100% - 1px);
 
         cursor: pointer;
 

@@ -22,6 +22,7 @@ export interface InitConstrucorState {
 
 export interface CustomBlock {
     type: string;
+
     [key: string]: unknown;
 }
 
