@@ -16,6 +16,8 @@ import './Header.scss';
 
 const b = block('header');
 
+const ICON_SIZE = 36;
+
 export interface HeaderProps {
     logo: NavigationLogo;
     data: HeaderData;
@@ -30,7 +32,10 @@ const MobileMenuButton: React.FC<MobileMenuButtonProps> = ({
     isSidebarOpened,
     onSidebarOpenedChange,
 }) => {
-    const iconProps = {icon: isSidebarOpened ? NavigationClose : NavigationOpen, iconSize: 36};
+    const iconProps = {
+        icon: isSidebarOpened ? NavigationClose : NavigationOpen,
+        iconSize: ICON_SIZE,
+    };
 
     return (
         <Control

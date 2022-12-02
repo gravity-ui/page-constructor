@@ -43,11 +43,11 @@ export const DocsWithReadme = () => {
     if (dirPath) {
         sourceBadgeContent = (
             <a
-                href={`https://github.com/gravity-ui/page-constructor/browse/browse/${dirPath}`}
+                href={`https://github.com/gravity-ui/page-constructor/tree/main/${dirPath}`}
                 target="_blank"
                 rel="noopener noreferrer"
             >
-                <img src="https://badger.yandex-team.ru/custom/[Source]/[Bitbucket][green]/badge.svg" />
+                <img src="https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/icons/github-badge.svg" />
             </a>
         );
     }
