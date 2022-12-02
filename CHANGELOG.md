@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.2](https://github.com/gravity-ui/page-constructor/compare/v1.8.1...v1.8.2) (2022-12-02)
+
+
+### Bug Fixes
+
+* remove old deploy files ([faa9998](https://github.com/gravity-ui/page-constructor/commit/faa99980b3797b7efaba46fe38e094bdfad57af4))
+
 ## [1.8.1](https://github.com/gravity-ui/page-constructor/compare/v1.8.0...v1.8.1) (2022-12-02)
 
 
