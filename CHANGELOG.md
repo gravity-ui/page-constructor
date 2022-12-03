@@ -1,5 +1,9 @@
 # Change log
 
+## 0.16.0
+
+- Show "-" in filters selector switchers when only one broken filter provided in a query
+
 ## 0.15.1
 
 - Do not show pointer cursor on save button title hover when the button is not clicable
