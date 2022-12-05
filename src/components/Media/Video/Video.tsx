@@ -79,16 +79,18 @@ const Video = (props: VideoAllProps) => {
                 playButton={playButton || commonPlayButton}
                 customBarControlsClassName={customBarControlsClassName}
                 metrika={metrika}
+                height={height}
             />
         );
     }, [
         video,
-        metrika,
+        height,
+        videoClassName,
         previewImg,
         playVideo,
-        videoClassName,
         commonPlayButton,
         customBarControlsClassName,
+        metrika,
     ]);
 
     const defaultVideoBlock = useMemo(() => {

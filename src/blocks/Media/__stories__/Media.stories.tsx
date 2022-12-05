@@ -9,7 +9,7 @@ import {
     MediaProps,
 } from '../../../models';
 import Media from '../Media';
-import {PageConstructor} from '../../../containers/PageConstructor/PageConstructor';
+import {PageConstructor} from '../../../containers/PageConstructor';
 
 import data from './data.json';
 
@@ -133,7 +133,10 @@ const DefaultArgs = {
 };
 
 Default.args = DefaultArgs as MediaBlockProps;
-ImageSlider.args = DefaultArgs as MediaBlockProps;
+ImageSlider.args = {
+    ...DefaultArgs,
+    ...data.imageSlider.content,
+} as MediaBlockProps;
 Video.args = DefaultArgs as MediaBlockProps;
 DataLens.args = {
     ...DefaultArgs,

@@ -84,6 +84,7 @@ export const Media = (props: MediaAllProps) => {
                     record={youtube}
                     attributes={{color: 'white', rel: '0'}}
                     previewImg={previewImg}
+                    height={height}
                 />
             );
         }
