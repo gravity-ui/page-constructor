@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.9.1](https://github.com/gravity-ui/page-constructor/compare/v1.9.0...v1.9.1) (2022-12-05)
+
+
+### Bug Fixes
+
+* **Tabs:** player video height ([a372ddb](https://github.com/gravity-ui/page-constructor/commit/a372ddbbde003ef82818ba167adbff0e8bf57905))
+
 ## [1.9.0](https://github.com/gravity-ui/page-constructor/compare/v1.8.2...v1.9.0) (2022-12-05)
 
 
