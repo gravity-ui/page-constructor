@@ -76,7 +76,7 @@ const VideoBlock = (props: VideoBlockProps) => {
 
     useEffect(() => {
         const updateSize = _.debounce(() => {
-            setHeight(ref.current ? Math.floor(getHeight(ref.current.offsetWidth)) : undefined);
+            setHeight(ref.current ? Math.round(getHeight(ref.current.offsetWidth)) : undefined);
         }, 100);
 
         updateSize();

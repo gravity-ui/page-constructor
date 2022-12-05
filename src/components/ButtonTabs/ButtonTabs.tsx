@@ -1,7 +1,6 @@
 import React, {useCallback, useMemo} from 'react';
 import {block} from '../../utils';
 
-// import {MobileContext} from '../../context/mobileContext';
 import {ButtonProps} from '../../models';
 import {Button} from '../index';
 
