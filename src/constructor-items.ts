@@ -35,6 +35,7 @@ import {
     HeaderSliderBlock,
     CardLayoutBlock,
     ContentLayoutBlock,
+    ShareBlock,
 } from './blocks';
 
 export const blockMap = {
@@ -57,6 +58,7 @@ export const blockMap = {
     [BlockType.HeaderSliderBlock]: HeaderSliderBlock,
     [BlockType.CardLayoutBlock]: CardLayoutBlock,
     [BlockType.ContentLayoutBlock]: ContentLayoutBlock,
+    [BlockType.ShareBlock]: ShareBlock,
 };
 
 export const subBlockMap = {

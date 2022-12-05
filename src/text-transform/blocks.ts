@@ -379,6 +379,12 @@ const config: BlocksConfig = {
             parser: parseContentLayoutTitle,
         },
     ],
+    [BlockType.ShareBlock]: [
+        {
+            fields: ['title'],
+            transformer: typografTransformer,
+        },
+    ],
 };
 
 function addRandomOrder(block: ConstructorBlock) {
