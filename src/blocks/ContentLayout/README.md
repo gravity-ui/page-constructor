@@ -1,6 +1,6 @@
 `properties:` — Content cube properties (optional)
 
-- `size?: 's' | 'l'` — Cube size that defines font sizes (defaults to l)
+- `size?: 's' | 'l'` — Cube size that defines font sizes ('l' by default)
 - `background?: BackgroundImage` — Special background properties described in the **Content blocks** section.
 - `centered?: false | true` — Indicates if text is centered (false by default).
 - `theme?: 'default' | 'dark' | 'light'` — Cube theme: default, dark, or monochrome light ('default' by default).

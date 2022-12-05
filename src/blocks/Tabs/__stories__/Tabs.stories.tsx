@@ -1,9 +1,9 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import {Meta, Story} from '@storybook/react/types-6-0';
 import {yfmTransform} from '../../../../.storybook/utils';
-import {TabsBlockModel} from '../../../models';
+import {TabsBlockModel, TabsBlockProps} from '../../../models';
 import Tabs from '../Tabs';
-import {PageConstructor} from '../../../containers/PageConstructor/PageConstructor';
+import {PageConstructor} from '../../../containers/PageConstructor';
 
 import data from './data.json';
 
@@ -19,17 +19,97 @@ const DefaultTemplate: Story<TabsBlockModel> = (args) => (
     <PageConstructor content={{blocks: [args]}} />
 );
 
-export const Default = DefaultTemplate.bind({});
-export const WithTheme = DefaultTemplate.bind({});
-export const Media = DefaultTemplate.bind({});
+const ButtonsColSizesTemplate: Story<TabsBlockModel> = (args) => (
+    <Fragment>
+        <DefaultTemplate
+            {...args}
+            tabsColSizes={data.buttonsColSizes.wide.colSizes}
+            title={data.buttonsColSizes.wide.title}
+        />
+        <DefaultTemplate
+            {...args}
+            tabsColSizes={data.buttonsColSizes.narrow.colSizes}
+            title={data.buttonsColSizes.narrow.title}
+        />
+    </Fragment>
+);
 
-Default.args = {
+const DirectionTemplate: Story<TabsBlockModel> = (args) => (
+    <Fragment>
+        <DefaultTemplate {...args} />
+        <DefaultTemplate {...args} direction={'content-media'} />
+    </Fragment>
+);
+
+export const Default = DefaultTemplate.bind({});
+export const OnlyMedia = DefaultTemplate.bind({});
+export const OnlyText = DefaultTemplate.bind({});
+export const TabsButtonsColSizes = ButtonsColSizesTemplate.bind({});
+export const Centered = DefaultTemplate.bind({});
+export const Direction = DirectionTemplate.bind({});
+export const Caption = DefaultTemplate.bind({});
+
+const DefaultArgs = {
     ...data.default.content,
     items: data.default.content.items.map((item) => ({
         ...item,
-        title: yfmTransform(item.title),
         text: yfmTransform(item.text),
+        additionalInfo: item.additionalInfo && yfmTransform(item.additionalInfo),
+    })),
+};
+
+Default.args = {
+    ...DefaultArgs,
+    description: yfmTransform(data.description),
+} as TabsBlockProps;
+
+OnlyMedia.args = {
+    ...DefaultArgs,
+    items: DefaultArgs.items.map((item) => ({
+        ...item,
+        text: undefined,
     })),
 } as TabsBlockModel;
-WithTheme.args = data.theme.content as TabsBlockModel;
-Media.args = data.media.content as TabsBlockModel;
+
+OnlyText.args = {
+    ...DefaultArgs,
+    items: DefaultArgs.items.map((item) => ({
+        ...item,
+        media: undefined,
+        image: undefined,
+    })),
+} as TabsBlockModel;
+
+TabsButtonsColSizes.args = {
+    ...data.default.content,
+    items: DefaultArgs.items.concat(
+        DefaultArgs.items.map((item, index) => {
+            return {
+                ...item,
+                tabName: `${item.tabName} ${index}`,
+            };
+        }),
+        DefaultArgs.items.map((item, index) => {
+            return {
+                ...item,
+                tabName: `${item.tabName} ${index} ${index}`,
+            };
+        }),
+    ),
+} as TabsBlockModel;
+
+Centered.args = {
+    ...DefaultArgs,
+    description: yfmTransform(data.description),
+    centered: true,
+} as TabsBlockModel;
+
+Direction.args = {...DefaultArgs} as TabsBlockModel;
+
+Caption.args = {
+    ...DefaultArgs,
+    items: DefaultArgs.items.map((item) => ({
+        ...item,
+        caption: item.title,
+    })),
+} as TabsBlockModel;

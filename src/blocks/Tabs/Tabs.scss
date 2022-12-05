@@ -1,20 +1,37 @@
 @import '../../../styles/mixins';
 @import '../../../styles/variables';
 
-$block: '.#{$ns}TabsBlock';
+$block: '.#{$ns}tabs-block';
 
 #{$block} {
     $class: &;
 
     &__block-title {
-        margin-bottom: 12px;
+        margin-bottom: $indentSM;
+
+        &_centered {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
     }
 
     &__tabs {
-        @include add-specificity(&) {
-            flex-wrap: nowrap;
-            overflow-x: auto;
-            margin-bottom: $indentM;
+        &_centered {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+    }
+
+    &__row_reverse {
+        flex-direction: row-reverse;
+
+        #{$class}__content-wrapper {
+            margin: $indentSM $indentM 0 0;
         }
     }
 
@@ -40,6 +57,16 @@ $block: '.#{$ns}TabsBlock';
     &__content {
         display: flex;
         flex-direction: column;
+
+        &_centered {
+            margin: 0 auto;
+        }
+    }
+
+    &__col {
+        &_centered {
+            margin: 0 auto;
+        }
     }
 
     &__content-wrapper {
@@ -58,16 +85,40 @@ $block: '.#{$ns}TabsBlock';
         }
     }
 
-    &__tabs,
-    &__link {
-        @include text-size(body-2);
-    }
-
     @media (max-width: map-get($gridBreakpoints, 'md')) {
+        &__tabs {
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: flex-start;
+            overflow: auto;
+            margin-left: -$indentL;
+            margin-right: -$indentL;
+            padding-left: $indentL;
+            padding-right: $indentL - $indentXXXS;
+        }
+
         &__content-wrapper {
             &_margin {
                 margin: 0 0 $contentMargin 0;
             }
+        }
+
+        &__row_reverse {
+            flex-direction: column-reverse;
+
+            #{$class}__content > * {
+                margin-top: $indentM;
+                padding-bottom: 0;
+            }
+        }
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'sm')) {
+        &__tabs {
+            margin-left: -$indentSM;
+            margin-right: -$indentSM;
+            padding-left: $indentSM;
+            padding-right: $indentXS;
         }
     }
 

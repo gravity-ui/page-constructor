@@ -1,0 +1,17 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+$block: '.#{$ns}button-tabs';
+
+#{$block} {
+    margin-bottom: $indentS;
+
+    &__item {
+        margin-right: $indentXXXS;
+        margin-bottom: $indentXXS;
+
+        &_active {
+            pointer-events: none;
+        }
+    }
+}
