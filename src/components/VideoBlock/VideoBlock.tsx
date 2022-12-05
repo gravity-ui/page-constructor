@@ -40,7 +40,7 @@ function getVideoSrc(stream?: string, record?: string) {
     return src;
 }
 
-function getHeight(width: number): number {
+export function getHeight(width: number): number {
     return (width / 16) * 9;
 }
 
@@ -52,16 +52,17 @@ export interface VideoBlockProps {
     className?: string;
     previewImg?: string;
     playButton?: React.ReactNode;
+    height?: number;
 }
 
 const VideoBlock = (props: VideoBlockProps) => {
-    const {stream, record, attributes, className, id, previewImg, playButton} = props;
+    const {stream, record, attributes, className, id, previewImg, playButton, height} = props;
     const src = getVideoSrc(stream, record);
     const ref = useRef<HTMLDivElement>(null);
     const iframeRef = useRef<HTMLIFrameElement>();
     const [hidePreview, setHidePreview] = useState(false);
     const norender = (!stream && !record) || !src;
-    const [height, setHeight] = useState<number>();
+    const [currentHeight, setCurrentHeight] = useState(height || undefined);
     const fullId = `${iframeId}-${id || src}`;
     const onPreviewClick = useCallback(() => {
         if (iframeRef.current) {
@@ -76,7 +77,9 @@ const VideoBlock = (props: VideoBlockProps) => {
 
     useEffect(() => {
         const updateSize = _.debounce(() => {
-            setHeight(ref.current ? Math.round(getHeight(ref.current.offsetWidth)) : undefined);
+            setCurrentHeight(
+                ref.current ? Math.round(getHeight(ref.current.offsetWidth)) : undefined,
+            );
         }, 100);
 
         updateSize();
@@ -84,7 +87,7 @@ const VideoBlock = (props: VideoBlockProps) => {
         return () => {
             window.removeEventListener('resize', updateSize);
         };
-    }, []);
+    }, [height]);
 
     useEffect(() => {
         if (norender) {
@@ -119,7 +122,7 @@ const VideoBlock = (props: VideoBlockProps) => {
     }
 
     return (
-        <div className={b(null, className)} ref={ref} style={{height}}>
+        <div className={b(null, className)} ref={ref} style={{height: currentHeight}}>
             {previewImg && !hidePreview && (
                 <div className={b('preview')} onClick={onPreviewClick}>
                     <Image src={previewImg} className={b('image')} />

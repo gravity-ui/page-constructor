@@ -42,6 +42,7 @@ export interface ReactPlayerBlockProps
     customBarControlsClassName?: string;
     showPreview?: boolean;
     onClickPreview?: () => void;
+    height?: number;
     children?: React.ReactNode;
 }
 
@@ -67,6 +68,7 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
             showPreview,
             onClickPreview,
             metrika: videoMetrika,
+            height,
         } = props;
 
         const {
@@ -86,7 +88,7 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
         const [playerRef, setPlayerRef] = useState<ReactPlayer>();
         const [isPlaying, setIsPlaying] = useState(autoPlay);
         const [playedPercent, setPlayedPercent] = useState<number>(0);
-        const [height, setHeight] = useState<number>(0);
+        const [currentHeight, setCurrentHeight] = useState(height);
         const [width, setWidth] = useState<number>(0);
         const [muted, setMuted] = useState<boolean>(mute);
         const [started, setStarted] = useState(autoPlay);
@@ -141,7 +143,7 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
                         parseFloat(paddingRight);
 
                     setWidth(newWidth);
-                    setHeight(Math.floor(getHeight(newWidth)));
+                    setCurrentHeight(Math.floor(getHeight(newWidth)));
                 }
             }, 200);
 
@@ -292,13 +294,17 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
         );
 
         return (
-            <div className={b({wrapper: !height}, className)} ref={ref} onClick={handleClick}>
+            <div
+                className={b({wrapper: !currentHeight}, className)}
+                ref={ref}
+                onClick={handleClick}
+            >
                 <ReactPlayer
                     className={b('player')}
                     url={src}
                     muted={muted}
                     controls={controls === MediaVideoControlsType.Default}
-                    height={height || '100%'}
+                    height={currentHeight || '100%'}
                     width={width || '100%'}
                     light={previewImgUrl}
                     playing={isPlaying}

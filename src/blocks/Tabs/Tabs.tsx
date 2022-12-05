@@ -1,4 +1,4 @@
-import React, {Fragment, useContext, useState} from 'react';
+import React, {Fragment, useContext, useRef, useState} from 'react';
 
 import {block, getThemedValue} from '../../utils';
 import {Row, Col, GridColumnOrderClasses} from '../../grid';
@@ -11,6 +11,7 @@ import {ThemeValueContext} from '../../context/theme/ThemeValueContext';
 import {getMediaImage} from '../../components/Media/Image/utils';
 import ButtonTabs, {ButtonTabsItemProps} from '../../components/ButtonTabs/ButtonTabs';
 import {Content} from '../../sub-blocks';
+import {getHeight} from '../../components/VideoBlock/VideoBlock';
 
 import './Tabs.scss';
 
@@ -31,6 +32,9 @@ export const TabsBlock = ({
     const tabs: ButtonTabsItemProps[] = items.map(({tabName}) => ({title: tabName, id: tabName}));
     const activeTabData = items.find(({tabName}) => tabName === activeTab);
     const isReverse = direction === 'content-media';
+    const ref = useRef<HTMLDivElement>(null);
+    const mediaWidth = ref?.current?.offsetWidth;
+    const mediaHeight = mediaWidth && getHeight(mediaWidth);
 
     let imageProps;
 
@@ -78,14 +82,17 @@ export const TabsBlock = ({
             }}
             className={b('col', {centered: centered})}
         >
-            {activeTabData?.media && (
-                <Media
-                    {...getThemedValue(activeTabData.media, theme)}
-                    key={activeTab}
-                    className={b('media')}
-                    playVideo={play}
-                />
-            )}
+            <div ref={ref}>
+                {activeTabData?.media && (
+                    <Media
+                        {...getThemedValue(activeTabData.media, theme)}
+                        key={activeTab}
+                        className={b('media')}
+                        playVideo={play}
+                        height={mediaHeight}
+                    />
+                )}
+            </div>
             {imageProps && (
                 <Fragment>
                     <FullScreenImage {...imageProps} imageClassName={b('image')} />
