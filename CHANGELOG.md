@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.9.0](https://github.com/gravity-ui/page-constructor/compare/v1.8.2...v1.9.0) (2022-12-05)
+
+
+### Features
+
+* **Tabs:** change tabs to buttons ([#63](https://github.com/gravity-ui/page-constructor/issues/63)) ([f6195f3](https://github.com/gravity-ui/page-constructor/commit/f6195f3115bb5136c17336edb8a0ff64dcc50de5))
+
 ## [1.8.2](https://github.com/gravity-ui/page-constructor/compare/v1.8.1...v1.8.2) (2022-12-02)
 
 
