@@ -75,7 +75,7 @@ const WithChildrenTemplate: Story<LinkFullProps> = (args) => (
 export const Default = DefaultTemplate.bind({});
 export const ThemesSizes = ThemesSizesTemplate.bind({});
 export const NormalWithChildren = WithChildrenTemplate.bind({});
-export const NormalArrow = DefaultTemplate.bind({});
+export const NormalArrow = SizesTemplate.bind({});
 export const NormalForDarkTheme = DarkTemplate.bind({});
 export const UnderlineWithChildren = WithChildrenTemplate.bind({});
 export const BackWithChildren = WithChildrenTemplate.bind({});
