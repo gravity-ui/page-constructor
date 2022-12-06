@@ -12,8 +12,8 @@ import React, {
 import {block} from '../../../../utils';
 import OverflowScroller from '../../../OverflowScroller/OverflowScroller';
 import {
-    NavigationDropdownItem,
-    NavigationItem as NavigationItemModel,
+    NavigationDropdownItemProps,
+    NavigationItemProps as NavigationItemModel,
     NavigationItemType,
 } from '../../../../models/navigation';
 import NavigationPopup from '../NavigationPopup/NavigationPopup';
@@ -33,7 +33,7 @@ export interface NavigationProps {
 }
 
 export interface NavigationDropdownProps {
-    data: NavigationDropdownItem;
+    data: NavigationDropdownItemProps;
     onClick: MouseEventHandler;
     isActive: boolean;
     position: number;

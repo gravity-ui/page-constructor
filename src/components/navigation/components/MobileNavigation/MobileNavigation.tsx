@@ -4,8 +4,8 @@ import {Popup, Portal} from '@gravity-ui/uikit';
 import {block} from '../../../../utils';
 import Foldable from '../../../Foldable/Foldable';
 import {
-    NavigationItem as NavigationItemModel,
-    NavigationDropdownItem,
+    NavigationItemProps as NavigationItemModel,
+    NavigationDropdownItemProps,
     NavigationItemType,
 } from '../../../../models/navigation';
 import NavigationItem from '../NavigationItem/NavigationItem';
@@ -15,7 +15,7 @@ import './MobileNavigation.scss';
 const b = block('mobile-navigation');
 
 interface MobileNavigationDropdownProps {
-    data: NavigationDropdownItem;
+    data: NavigationDropdownItemProps;
     isOpened?: boolean;
     onItemClick?: MouseEventHandler;
     onToggle?: MouseEventHandler;

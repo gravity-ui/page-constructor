@@ -7,75 +7,78 @@ export enum NavigationItemType {
     Social = 'social',
 }
 
-export interface NavigationItemBase {
+export interface NavigationItemBaseProps {
     text: string;
     icon?: ImageProps;
     url?: string;
 }
 
-export interface NavigationLinkItem extends NavigationItemBase {
+export interface NavigationLinkItemProps extends NavigationItemBaseProps {
     type: NavigationItemType.Link;
     url: string;
     arrow?: boolean;
     target?: string;
 }
 
-export interface NavigationButtonItem extends ButtonProps {
+export interface NavigationButtonItemProps extends ButtonProps {
     type: NavigationItemType.Button;
     url: string;
     target?: string;
 }
 
-export interface NavigationDropdownItem extends NavigationItemBase {
+export interface NavigationDropdownItemProps extends NavigationItemBaseProps {
     type: NavigationItemType.Dropdown;
-    items: NavigationLinkItem[];
+    items: NavigationLinkItemProps[];
 }
 
-export interface NavigationSocialItem extends Omit<NavigationItemBase, 'text'> {
+export interface NavigationSocialItemProps extends Omit<NavigationItemBaseProps, 'text'> {
     type: NavigationItemType.Social;
     icon: ImageProps;
     url: string;
 }
 
-export type NavigationItem = NavigationLinkItem | NavigationButtonItem | NavigationDropdownItem;
+export type NavigationItemProps =
+    | NavigationLinkItemProps
+    | NavigationButtonItemProps
+    | NavigationDropdownItemProps;
 
-export type NavigationItemData =
-    | NavigationLinkItem
-    | NavigationButtonItem
-    | NavigationSocialItem
-    | DropdownItemData;
+export type NavigationItemDataProps =
+    | NavigationLinkItemProps
+    | NavigationButtonItemProps
+    | NavigationSocialItemProps
+    | DropdownItemDataProps;
 
-export type DropdownItemData = Omit<NavigationDropdownItem, 'items'>;
+export type DropdownItemDataProps = Omit<NavigationDropdownItemProps, 'items'>;
 
-export interface NavigationLogo {
+export interface NavigationLogoProps {
     icon: ImageProps;
     text?: string;
     url?: string;
 }
 
-export interface HeaderData {
-    leftItems: NavigationItem[];
-    rightItems?: NavigationItem[];
+export interface HeaderDataProps {
+    leftItems: NavigationItemProps[];
+    rightItems?: NavigationItemProps[];
 }
 
-export interface FooterColumn {
+export interface FooterColumnProps {
     title: string;
-    links: NavigationItem[];
+    links: NavigationItemProps[];
 }
 
-export interface FooterUnderline {
-    links?: NavigationItem[];
+export interface FooterUnderlineProps {
+    links?: NavigationItemProps[];
     copyright?: string;
 }
 
-export interface FooterData {
-    columns: FooterColumn[];
-    social?: NavigationSocialItem[];
-    underline?: FooterUnderline;
+export interface FooterDataProps {
+    columns: FooterColumnProps[];
+    social?: NavigationSocialItemProps[];
+    underline?: FooterUnderlineProps;
 }
 
-export interface NavigationData {
-    logo: NavigationLogo;
-    header: HeaderData;
-    footer?: FooterData;
+export interface NavigationDataProps {
+    logo: NavigationLogoProps;
+    header: HeaderDataProps;
+    footer?: FooterDataProps;
 }

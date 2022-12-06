@@ -4,7 +4,7 @@ import {Portal} from '@gravity-ui/uikit';
 
 import {block} from '../../../../utils';
 import {OutsideClick} from '../../../index';
-import {NavigationLinkItem} from '../../../../models';
+import {NavigationLinkItemProps} from '../../../../models';
 import NavigationItem from '../NavigationItem/NavigationItem';
 
 import './NavigationPopup.scss';
@@ -12,7 +12,7 @@ import './NavigationPopup.scss';
 const b = block('navigation-popup');
 
 export interface NavigationPopupProps {
-    items: NavigationLinkItem[];
+    items: NavigationLinkItemProps[];
     onClose: () => void;
     left?: number;
     className?: string;

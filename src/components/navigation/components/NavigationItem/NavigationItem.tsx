@@ -5,11 +5,11 @@ import {RouterLink, ToggleArrow, Button, Image} from '../../../index';
 import {LocationContext} from '../../../../context/locationContext';
 import {
     NavigationItemType,
-    NavigationLinkItem,
+    NavigationLinkItemProps,
     ImageProps,
     ButtonProps,
-    NavigationItemData,
-    DropdownItemData,
+    NavigationItemDataProps,
+    DropdownItemDataProps,
 } from '../../../../models';
 import {NavigationArrow} from '../../../../icons';
 import SocialIcon from '../SocialIcon/SocialIcon';
@@ -20,7 +20,7 @@ import './NavigationItem.scss';
 const b = block('navigation-item');
 
 export interface NavigationItemProps {
-    data: NavigationItemData;
+    data: NavigationItemDataProps;
     className?: string;
     onClick?: MouseEventHandler;
     isOpened?: boolean;
@@ -33,7 +33,7 @@ const Content: React.FC<{text: string; icon?: ImageProps}> = ({text, icon}) => (
     </Fragment>
 );
 
-type NavigationDropdownProps = NavigationItemProps & DropdownItemData;
+type NavigationDropdownProps = NavigationItemProps & DropdownItemDataProps;
 
 const NavigationDropdown: React.FC<NavigationDropdownProps> = ({
     text,
@@ -57,7 +57,7 @@ const NavigationDropdown: React.FC<NavigationDropdownProps> = ({
     );
 };
 
-type NavigationLinkProps = NavigationItemProps & NavigationLinkItem;
+type NavigationLinkProps = NavigationItemProps & NavigationLinkItemProps;
 
 const NavigationLink: React.FC<NavigationLinkProps> = (props) => {
     const {hostname, Link} = useContext(LocationContext);

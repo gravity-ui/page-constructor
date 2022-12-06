@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {block} from '../../../../utils';
-import {NavigationSocialItem} from '../../../../models';
+import {NavigationSocialItemProps} from '../../../../models';
 import {Image} from '../../../index';
 import {getMediaImage} from '../../../Media/Image/utils';
 
@@ -9,11 +9,11 @@ import './SocialIcon.scss';
 
 const b = block('social-icon');
 
-export interface NavigationSocialItemProps extends NavigationSocialItem {
+export interface NavigationSocialItemOwnProps extends NavigationSocialItemProps {
     className?: string;
 }
 
-const SocialIcon: React.FC<NavigationSocialItemProps> = ({icon, url, className}) => {
+const SocialIcon: React.FC<NavigationSocialItemOwnProps> = ({icon, url, className}) => {
     const iconData = getMediaImage(icon);
 
     return (

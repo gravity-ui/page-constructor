@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {block} from '../../../../utils';
-import {NavigationData} from '../../../../models';
+import {NavigationDataProps} from '../../../../models';
 import Header from '../../components/Header/Header';
 
 import './Layout.scss';
@@ -9,7 +9,7 @@ import './Layout.scss';
 const b = block('layout');
 
 export interface LayoutProps {
-    navigation?: NavigationData;
+    navigation?: NavigationDataProps;
     children?: React.ReactNode;
 }
 

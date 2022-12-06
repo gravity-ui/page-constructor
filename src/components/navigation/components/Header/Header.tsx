@@ -1,7 +1,7 @@
 import React, {MouseEvent, useCallback, useState} from 'react';
 
 import {block} from '../../../../utils';
-import {HeaderData, NavigationLogo} from '../../../../models';
+import {HeaderDataProps, NavigationLogoProps} from '../../../../models';
 import {Col, Grid, Row} from '../../../../grid';
 import OutsideClick from '../../../OutsideClick/OutsideClick';
 import Control from '../../../Control/Control';
@@ -19,8 +19,8 @@ const b = block('header');
 const ICON_SIZE = 36;
 
 export interface HeaderProps {
-    logo: NavigationLogo;
-    data: HeaderData;
+    logo: NavigationLogoProps;
+    data: HeaderDataProps;
 }
 
 interface MobileMenuButtonProps {

@@ -9,7 +9,7 @@ import {
     PageContent,
     CustomItems,
     BlockTypes,
-    NavigationData,
+    NavigationDataProps,
 } from '../../models';
 import {blockMap, subBlockMap} from '../../constructor-items';
 import {Grid} from '../../grid';
@@ -41,7 +41,7 @@ export interface PageConstructorProps {
     shouldRenderBlock?: ShouldRenderBlock;
     custom?: CustomConfig;
     renderMenu?: () => React.ReactNode;
-    navigation?: NavigationData;
+    navigation?: NavigationDataProps;
 }
 
 export const Constructor = (props: PageConstructorProps) => {
