@@ -1,15 +1,15 @@
 import React from 'react';
 
-import {block} from '../../../../utils';
-import {NavigationSocialItemProps} from '../../../../models';
-import {Image} from '../../../index';
-import {getMediaImage} from '../../../Media/Image/utils';
+import {block} from '../../../utils';
+import {NavigationSocialItem} from '../../../models';
+import {Image} from '../../../components';
+import {getMediaImage} from '../../../components/Media/Image/utils';
 
 import './SocialIcon.scss';
 
 const b = block('social-icon');
 
-export interface NavigationSocialItemOwnProps extends NavigationSocialItemProps {
+export interface NavigationSocialItemOwnProps extends NavigationSocialItem {
     className?: string;
 }
 

@@ -1,26 +1,26 @@
 import React, {Fragment, MouseEventHandler, useContext, useMemo} from 'react';
 
-import {block, getLinkProps} from '../../../../utils';
-import {RouterLink, ToggleArrow, Button, Image} from '../../../index';
-import {LocationContext} from '../../../../context/locationContext';
+import {block, getLinkProps} from '../../../utils';
+import {RouterLink, ToggleArrow, Button, Image} from '../../../components';
+import {LocationContext} from '../../../context/locationContext';
 import {
     NavigationItemType,
-    NavigationLinkItemProps,
+    NavigationLinkItem,
     ImageProps,
     ButtonProps,
-    NavigationItemDataProps,
-    DropdownItemDataProps,
-} from '../../../../models';
-import {NavigationArrow} from '../../../../icons';
+    NavigationItemData,
+    DropdownItemData,
+} from '../../../models';
+import {NavigationArrow} from '../../../icons';
 import SocialIcon from '../SocialIcon/SocialIcon';
-import {getMediaImage} from '../../../Media/Image/utils';
+import {getMediaImage} from '../../../components/Media/Image/utils';
 
 import './NavigationItem.scss';
 
 const b = block('navigation-item');
 
 export interface NavigationItemProps {
-    data: NavigationItemDataProps;
+    data: NavigationItemData;
     className?: string;
     onClick?: MouseEventHandler;
     isOpened?: boolean;
@@ -33,7 +33,7 @@ const Content: React.FC<{text: string; icon?: ImageProps}> = ({text, icon}) => (
     </Fragment>
 );
 
-type NavigationDropdownProps = NavigationItemProps & DropdownItemDataProps;
+type NavigationDropdownProps = NavigationItemProps & DropdownItemData;
 
 const NavigationDropdown: React.FC<NavigationDropdownProps> = ({
     text,
@@ -57,7 +57,7 @@ const NavigationDropdown: React.FC<NavigationDropdownProps> = ({
     );
 };
 
-type NavigationLinkProps = NavigationItemProps & NavigationLinkItemProps;
+type NavigationLinkProps = NavigationItemProps & NavigationLinkItem;
 
 const NavigationLink: React.FC<NavigationLinkProps> = (props) => {
     const {hostname, Link} = useContext(LocationContext);

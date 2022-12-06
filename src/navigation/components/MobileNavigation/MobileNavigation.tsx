@@ -1,13 +1,9 @@
 import React, {MouseEventHandler, useRef, useCallback} from 'react';
 import {Popup, Portal} from '@gravity-ui/uikit';
 
-import {block} from '../../../../utils';
-import Foldable from '../../../Foldable/Foldable';
-import {
-    NavigationItemProps as NavigationItemModel,
-    NavigationDropdownItemProps,
-    NavigationItemType,
-} from '../../../../models/navigation';
+import {block} from '../../../utils';
+import Foldable from '../../../components/Foldable/Foldable';
+import {NavigationItemModel, NavigationDropdownItem, NavigationItemType} from '../../../models';
 import NavigationItem from '../NavigationItem/NavigationItem';
 
 import './MobileNavigation.scss';
@@ -15,7 +11,7 @@ import './MobileNavigation.scss';
 const b = block('mobile-navigation');
 
 interface MobileNavigationDropdownProps {
-    data: NavigationDropdownItemProps;
+    data: NavigationDropdownItem;
     isOpened?: boolean;
     onItemClick?: MouseEventHandler;
     onToggle?: MouseEventHandler;

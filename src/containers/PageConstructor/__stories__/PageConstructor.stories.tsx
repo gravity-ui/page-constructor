@@ -1,6 +1,6 @@
 import React from 'react';
 import {Meta, Story} from '@storybook/react/types-6-0';
-import {HeaderBlockModel, NavigationDataProps} from '../../../models';
+import {HeaderBlockModel, NavigationData} from '../../../models';
 import {PageConstructor} from '../PageConstructor';
 import {CONTAINERS} from '../../../demo/constants';
 
@@ -39,7 +39,7 @@ const NavigationTemplate: Story<TemplateProps> = (args) => (
         content={{
             blocks: args.items,
         }}
-        navigation={data.navigation as NavigationDataProps}
+        navigation={data.navigation as NavigationData}
     />
 );
 

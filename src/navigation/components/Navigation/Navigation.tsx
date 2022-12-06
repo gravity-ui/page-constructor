@@ -9,16 +9,16 @@ import React, {
     useRef,
 } from 'react';
 
-import {block} from '../../../../utils';
-import OverflowScroller from '../../../OverflowScroller/OverflowScroller';
+import {block} from '../../../utils';
+import OverflowScroller from '../../../components/OverflowScroller/OverflowScroller';
 import {
-    NavigationDropdownItemProps,
-    NavigationItemProps as NavigationItemModel,
+    NavigationDropdownItem,
+    NavigationItemModel,
     NavigationItemType,
-} from '../../../../models/navigation';
+} from '../../../models/navigation';
 import NavigationPopup from '../NavigationPopup/NavigationPopup';
 import NavigationItem from '../NavigationItem/NavigationItem';
-import {LocationContext} from '../../../../context/locationContext';
+import {LocationContext} from '../../../context/locationContext';
 
 import './Navigation.scss';
 
@@ -33,7 +33,7 @@ export interface NavigationProps {
 }
 
 export interface NavigationDropdownProps {
-    data: NavigationDropdownItemProps;
+    data: NavigationDropdownItem;
     onClick: MouseEventHandler;
     isActive: boolean;
     position: number;

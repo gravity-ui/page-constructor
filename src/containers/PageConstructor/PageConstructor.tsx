@@ -9,7 +9,7 @@ import {
     PageContent,
     CustomItems,
     BlockTypes,
-    NavigationDataProps,
+    NavigationData,
 } from '../../models';
 import {blockMap, subBlockMap} from '../../constructor-items';
 import {Grid} from '../../grid';
@@ -28,7 +28,7 @@ import {ConstructorRow} from './components/ConstructorRow';
 import {ConstructorFootnotes} from './components/ConstructorFootnotes';
 import {ConstructorHeader} from './components/ConstructorItem';
 import {ConstructorBlocks} from './components/ConstructorBlocks';
-import Layout from '../../components/navigation/containers/Layout/Layout';
+import Layout from '../../navigation/containers/Layout/Layout';
 
 import './PageConstructor.scss';
 
@@ -41,7 +41,7 @@ export interface PageConstructorProps {
     shouldRenderBlock?: ShouldRenderBlock;
     custom?: CustomConfig;
     renderMenu?: () => React.ReactNode;
-    navigation?: NavigationDataProps;
+    navigation?: NavigationData;
 }
 
 export const Constructor = (props: PageConstructorProps) => {
