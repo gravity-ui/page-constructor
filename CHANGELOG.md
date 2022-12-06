@@ -1,5 +1,9 @@
 # Change log
 
+## 0.16.1
+
+- Fix for treating page number on fetch
+
 ## 0.16.0
 
 - Show "-" in filters selector switchers when only one broken filter provided in a query
