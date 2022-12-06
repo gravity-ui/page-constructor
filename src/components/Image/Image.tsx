@@ -2,16 +2,12 @@ import React, {CSSProperties, MouseEventHandler, useContext, useState, Fragment}
 import {ProjectSettingsContext} from '../../context/projectSettingsContext';
 import {BREAKPOINTS} from '../../constants';
 import {ImageDeviceProps, ImageObjectProps} from '../../models';
-import {block} from '../../utils';
-
-import './Image.scss';
-
-const b = block('image');
 
 export interface ImageProps extends Partial<ImageObjectProps>, Partial<ImageDeviceProps> {
     style?: CSSProperties;
     className?: string;
     onClick?: MouseEventHandler;
+    containerClassName?: string;
 }
 
 const checkWebP = (src: string) => {
@@ -20,7 +16,18 @@ const checkWebP = (src: string) => {
 
 const Image = (props: ImageProps) => {
     const projectSettings = useContext(ProjectSettingsContext);
-    const {src, alt, disableCompress, tablet, desktop, mobile, style, className, onClick} = props;
+    const {
+        src,
+        alt,
+        disableCompress,
+        tablet,
+        desktop,
+        mobile,
+        style,
+        className,
+        onClick,
+        containerClassName,
+    } = props;
     const [imgLoadingError, setImgLoadingError] = useState(false);
 
     const imageSrc = src || desktop;
@@ -37,7 +44,7 @@ const Image = (props: ImageProps) => {
         imgLoadingError;
 
     return (
-        <picture className={b()}>
+        <picture className={containerClassName}>
             {mobile && (
                 <Fragment>
                     {!disableWebp && (

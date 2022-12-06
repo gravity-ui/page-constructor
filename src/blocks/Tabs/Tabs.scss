@@ -10,12 +10,11 @@ $block: '.#{$ns}tabs-block';
         margin-bottom: $indentSM;
 
         &_centered {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-left: auto;
-            margin-right: auto;
             text-align: center;
+
+            & > * {
+                margin: 0 auto;
+            }
         }
     }
 
