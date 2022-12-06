@@ -12,7 +12,7 @@ export interface BlogPageContextProps {
         hasUserLike: boolean;
         likesCount: number;
     };
-    sharingSocialNetworks?: ShareOptions[];
+    shareOptions?: ShareOptions[];
 }
 
 export const BlogPageContext = React.createContext<BlogPageContextProps>(

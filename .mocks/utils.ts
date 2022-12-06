@@ -41,7 +41,7 @@ export const generatePostPageData = () => {
         suggestedPosts,
         content: pageData.content,
         post: postData,
-        sharingSocialNetworks: [
+        shareOptions: [
             ShareOptions.Twitter,
             ShareOptions.Facebook,
             ShareOptions.Telegram,

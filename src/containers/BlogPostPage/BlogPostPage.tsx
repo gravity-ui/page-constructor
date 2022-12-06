@@ -32,7 +32,7 @@ export interface BlogPostPageProps {
     content: PageContent;
     post: BlogPostData;
     settings?: PageConstructorProviderProps;
-    sharingSocialNetworks?: ShareOptions[];
+    shareOptions?: ShareOptions[];
 }
 
 export const BlogPostPage: React.FC<BlogPostPageProps> = ({
@@ -42,7 +42,7 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({
     content,
     post,
     settings,
-    sharingSocialNetworks,
+    shareOptions,
 }) => {
     const {hasUserLike, likesCount, handleLike} = useLikes({
         hasLike: likes?.hasUserLike,
@@ -70,7 +70,7 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({
                                   likesCount,
                               }
                             : undefined,
-                        sharingSocialNetworks,
+                        shareOptions,
                     }}
                 >
                     <PageConstructorProvider {...settings}>
