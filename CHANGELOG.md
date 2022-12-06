@@ -1,5 +1,9 @@
 # Change log
 
+## 0.17.0
+
+- @gravity-ui/uikit 3.9.0
+
 ## 0.16.1
 
 - Fix for treating page number on fetch
