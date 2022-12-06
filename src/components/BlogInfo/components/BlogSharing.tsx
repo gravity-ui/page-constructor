@@ -34,7 +34,7 @@ type BlogSharingProps = {
 export const BlogSharing: React.FC<BlogSharingProps> = ({theme, metrikaGoal}) => {
     const router = useContext(RouterContext);
     const isMobile = useContext(MobileContext);
-    const {sharingSocialNetworks} = useContext(BlogPageContext);
+    const {shareOptions} = useContext(BlogPageContext);
 
     const handleMetrika = () => {
         metrika.reachGoal(MetrikaCounter.CrossSite, metrikaGoal);
@@ -57,7 +57,7 @@ export const BlogSharing: React.FC<BlogSharingProps> = ({theme, metrikaGoal}) =>
                     customIcon={ShareArrowUp}
                     placement="bottom"
                     openByHover={false}
-                    socialNets={sharingSocialNetworks}
+                    socialNets={shareOptions}
                     handleMetrika={handleMetrika}
                 />
             </span>

@@ -1,4 +1,4 @@
-import {ShareSocialNetwork} from '@gravity-ui/uikit';
+import {ShareOptions} from '@gravity-ui/uikit';
 
 import {transformPageContent} from '../src/data/transformPageContent';
 import {createReadableContent} from '../src/data/createReadableContent';
@@ -41,11 +41,11 @@ export const generatePostPageData = () => {
         suggestedPosts,
         content: pageData.content,
         post: postData,
-        sharingSocialNetworks: [
-            ShareSocialNetwork.Twitter,
-            ShareSocialNetwork.Facebook,
-            ShareSocialNetwork.Telegram,
-            ShareSocialNetwork.VK,
+        shareOptions: [
+            ShareOptions.Twitter,
+            ShareOptions.Facebook,
+            ShareOptions.Telegram,
+            ShareOptions.VK,
         ],
         likes: {
             hasUserLike: postData.hasUserLike,
