@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.9.3](https://github.com/gravity-ui/page-constructor/compare/v1.9.2...v1.9.3) (2022-12-07)
+
+
+### Bug Fixes
+
+* **Tabs:** padding and image props ([#77](https://github.com/gravity-ui/page-constructor/issues/77)) ([5809e6b](https://github.com/gravity-ui/page-constructor/commit/5809e6b6364e0b3d01621d15371ef5d0aaa9518b))
+
 ## [1.9.2](https://github.com/gravity-ui/page-constructor/compare/v1.9.1...v1.9.2) (2022-12-07)
 
 
