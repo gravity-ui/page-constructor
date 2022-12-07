@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.9.2](https://github.com/gravity-ui/page-constructor/compare/v1.9.1...v1.9.2) (2022-12-07)
+
+
+### Bug Fixes
+
+* navigation import and types ([#76](https://github.com/gravity-ui/page-constructor/issues/76)) ([53ea8d4](https://github.com/gravity-ui/page-constructor/commit/53ea8d4bb12290d3cd3f2cef6dca6a48c5c68d68))
+* release ([#74](https://github.com/gravity-ui/page-constructor/issues/74)) ([13193d4](https://github.com/gravity-ui/page-constructor/commit/13193d420ff2486a94638bd8119e28d69aa713d8))
+
 ## [1.9.1](https://github.com/gravity-ui/page-constructor/compare/v1.9.0...v1.9.1) (2022-12-05)
 
 
