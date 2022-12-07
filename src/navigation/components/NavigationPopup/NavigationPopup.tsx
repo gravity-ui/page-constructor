@@ -2,9 +2,9 @@ import _ from 'lodash';
 import React, {useRef, useState, useEffect, useCallback} from 'react';
 import {Portal} from '@gravity-ui/uikit';
 
-import {block} from '../../../../utils';
-import {OutsideClick} from '../../../index';
-import {NavigationLinkItem} from '../../../../models';
+import {block} from '../../../utils';
+import {OutsideClick} from '../../../components';
+import {NavigationLinkItem} from '../../../models';
 import NavigationItem from '../NavigationItem/NavigationItem';
 
 import './NavigationPopup.scss';

@@ -1,16 +1,16 @@
 import React from 'react';
 
-import {block} from '../../../../utils';
-import {NavigationLogo} from '../../../../models';
-import RouterLink from '../../../RouterLink/RouterLink';
-import {getMediaImage} from '../../../Media/Image/utils';
-import {Image} from '../../../index';
+import {block} from '../../../utils';
+import {NavigationLogoData} from '../../../models';
+import RouterLink from '../../../components/RouterLink/RouterLink';
+import {getMediaImage} from '../../../components/Media/Image/utils';
+import {Image} from '../../../components';
 
 import './Logo.scss';
 
 const b = block('logo');
 
-export interface LogoProps extends NavigationLogo {
+export interface LogoProps extends NavigationLogoData {
     className?: string;
 }
 

@@ -28,7 +28,7 @@ import {ConstructorRow} from './components/ConstructorRow';
 import {ConstructorFootnotes} from './components/ConstructorFootnotes';
 import {ConstructorHeader} from './components/ConstructorItem';
 import {ConstructorBlocks} from './components/ConstructorBlocks';
-import Layout from '../../components/navigation/containers/Layout/Layout';
+import Layout from '../../navigation/containers/Layout/Layout';
 
 import './PageConstructor.scss';
 

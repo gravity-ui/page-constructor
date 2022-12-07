@@ -1,8 +1,8 @@
 import React, {Fragment, MouseEventHandler, useContext, useMemo} from 'react';
 
-import {block, getLinkProps} from '../../../../utils';
-import {RouterLink, ToggleArrow, Button, Image} from '../../../index';
-import {LocationContext} from '../../../../context/locationContext';
+import {block, getLinkProps} from '../../../utils';
+import {RouterLink, ToggleArrow, Button, Image} from '../../../components';
+import {LocationContext} from '../../../context/locationContext';
 import {
     NavigationItemType,
     NavigationLinkItem,
@@ -10,10 +10,10 @@ import {
     ButtonProps,
     NavigationItemData,
     DropdownItemData,
-} from '../../../../models';
-import {NavigationArrow} from '../../../../icons';
+} from '../../../models';
+import {NavigationArrow} from '../../../icons';
 import SocialIcon from '../SocialIcon/SocialIcon';
-import {getMediaImage} from '../../../Media/Image/utils';
+import {getMediaImage} from '../../../components/Media/Image/utils';
 
 import './NavigationItem.scss';
 

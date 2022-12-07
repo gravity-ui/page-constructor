@@ -37,7 +37,10 @@ export interface NavigationSocialItem extends Omit<NavigationItemBase, 'text'> {
     url: string;
 }
 
-export type NavigationItem = NavigationLinkItem | NavigationButtonItem | NavigationDropdownItem;
+export type NavigationItemModel =
+    | NavigationLinkItem
+    | NavigationButtonItem
+    | NavigationDropdownItem;
 
 export type NavigationItemData =
     | NavigationLinkItem
@@ -47,24 +50,24 @@ export type NavigationItemData =
 
 export type DropdownItemData = Omit<NavigationDropdownItem, 'items'>;
 
-export interface NavigationLogo {
+export interface NavigationLogoData {
     icon: ImageProps;
     text?: string;
     url?: string;
 }
 
 export interface HeaderData {
-    leftItems: NavigationItem[];
-    rightItems?: NavigationItem[];
+    leftItems: NavigationItemModel[];
+    rightItems?: NavigationItemModel[];
 }
 
 export interface FooterColumn {
     title: string;
-    links: NavigationItem[];
+    links: NavigationItemModel[];
 }
 
 export interface FooterUnderline {
-    links?: NavigationItem[];
+    links?: NavigationItemModel[];
     copyright?: string;
 }
 
@@ -75,7 +78,7 @@ export interface FooterData {
 }
 
 export interface NavigationData {
-    logo: NavigationLogo;
+    logo: NavigationLogoData;
     header: HeaderData;
     footer?: FooterData;
 }

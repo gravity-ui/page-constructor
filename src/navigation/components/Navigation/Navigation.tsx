@@ -9,16 +9,16 @@ import React, {
     useRef,
 } from 'react';
 
-import {block} from '../../../../utils';
-import OverflowScroller from '../../../OverflowScroller/OverflowScroller';
+import {block} from '../../../utils';
+import OverflowScroller from '../../../components/OverflowScroller/OverflowScroller';
 import {
     NavigationDropdownItem,
-    NavigationItem as NavigationItemModel,
+    NavigationItemModel,
     NavigationItemType,
-} from '../../../../models/navigation';
+} from '../../../models/navigation';
 import NavigationPopup from '../NavigationPopup/NavigationPopup';
 import NavigationItem from '../NavigationItem/NavigationItem';
-import {LocationContext} from '../../../../context/locationContext';
+import {LocationContext} from '../../../context/locationContext';
 
 import './Navigation.scss';
 
