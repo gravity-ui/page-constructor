@@ -125,7 +125,11 @@ const VideoBlock = (props: VideoBlockProps) => {
         <div className={b(null, className)} ref={ref} style={{height: currentHeight}}>
             {previewImg && !hidePreview && (
                 <div className={b('preview')} onClick={onPreviewClick}>
-                    <Image src={previewImg} className={b('image')} />
+                    <Image
+                        src={previewImg}
+                        className={b('image')}
+                        containerClassName={b('image-wrapper')}
+                    />
                     {playButton || (
                         <button className={b('button')}>
                             <Icon className={b('icon')} data={PlayVideo} size={24} />
