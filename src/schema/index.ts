@@ -35,12 +35,14 @@ import {
     PriceDetailedBlock,
     Quote,
     Divider,
+    BasicCard,
 } from './validators/sub-blocks';
 
 import {AnimatableProps, BackgroundProps, MenuProps, withTheme} from './validators/common';
 import {filteredItem} from './validators/utils';
 
 export type SchemaBlock = object;
+
 export interface SchemaCustomConfig {
     blocks?: Record<string, SchemaBlock>;
     cards?: Record<string, SchemaBlock>;
@@ -57,6 +59,93 @@ export const getBlocksCases = (blocks: SchemaBlock) => {
 export function generateDefaultSchema(config?: SchemaCustomConfig) {
     const {cards = {}, blocks = {}, extensions = {}} = config ?? {};
 
+    const blocksValidators = {
+        ...Divider,
+        ...ExtendedFeaturesBlock,
+        ...PromoFeaturesBlock,
+        ...SliderBlock,
+        ...QuestionsBlock,
+        ...HeaderBlock,
+        ...BannerBlock,
+        ...CompaniesBlock,
+        ...MediaBlock,
+        ...InfoBlock,
+        ...SecurityBlock,
+        ...TableBlock,
+        ...TabsBlock,
+        ...SimpleBlock,
+        ...LinkTableBlock,
+        ...PreviewBlock,
+        ...HeaderSliderBlock,
+        ...IconsBlock,
+        ...CardLayoutBlock,
+        ...ContentLayoutBlock,
+        ...ShareBlock,
+    };
+
+    const cardsValidators = {
+        ...PartnerBlock,
+        ...MediaCardBlock,
+        ...BannerCard,
+        ...PriceDetailedBlock,
+        ...TutorialCard,
+        ...BackgroundCard,
+        ...NewsCard,
+        ...CardWithImage,
+        ...Quote,
+        ...BasicCard,
+    };
+
+    const constructorBlockSchemaNames = [
+        'divider',
+        'quote',
+        'event',
+        'post',
+        'extended-features-block',
+        'promo-features-block',
+        'slider-block',
+        'questions-block',
+        'header-block',
+        'banner-block',
+        'companies-block',
+        'media-block',
+        'info-block',
+        'security-block',
+        'table-block',
+        'tabs-block',
+        'simple-block',
+        'link-table-block',
+        'preview-block',
+        'price-detailed',
+        'header-slider-block',
+        'cards-with-image-block',
+        'icons-block',
+        'card-layout-block',
+        'content-layout-block',
+        'share-block',
+    ];
+
+    const constructorCardsSchemaNames = [
+        'partner',
+        'media-card',
+        'banner-card',
+        'price-detailed',
+        'tutoral-card',
+        'background-card',
+        'news-card',
+        'card-with-image',
+        'quote',
+        'basic-card',
+    ];
+
+    const configBlockSchemaNames = Object.keys(blocks).filter(
+        (item) => !constructorBlockSchemaNames.includes(item),
+    );
+
+    const configCardSchemaNames = Object.keys(cards).filter(
+        (item) => !constructorCardsSchemaNames.includes(item),
+    );
+
     return {
         $id: 'self',
         definitions: {
@@ -66,59 +155,12 @@ export function generateDefaultSchema(config?: SchemaCustomConfig) {
                 properties: {
                     type: {
                         type: 'string',
-                        enum: [
-                            'divider',
-                            'quote',
-                            'event',
-                            'post',
-                            'extended-features-block',
-                            'promo-features-block',
-                            'slider-block',
-                            'questions-block',
-                            'header-block',
-                            'banner-block',
-                            'companies-block',
-                            'media-block',
-                            'info-block',
-                            'security-block',
-                            'table-block',
-                            'tabs-block',
-                            'simple-block',
-                            'link-table-block',
-                            'preview-block',
-                            'price-detailed',
-                            'header-slider-block',
-                            'cards-with-image-block',
-                            'icons-block',
-                            'card-layout-block',
-                            'content-layout-block',
-                            ...Object.keys(blocks),
-                        ],
+                        enum: [...constructorBlockSchemaNames, ...configBlockSchemaNames],
                     },
                 },
                 select: {$data: '0/type'},
                 selectCases: {
-                    ...TabsBlock,
-                    ...SliderBlock,
-                    ...ExtendedFeaturesBlock,
-                    ...PromoFeaturesBlock,
-                    ...HeaderBlock,
-                    ...BannerBlock,
-                    ...CompaniesBlock,
-                    ...MediaBlock,
-                    ...InfoBlock,
-                    ...QuestionsBlock,
-                    ...SecurityBlock,
-                    ...TableBlock,
-                    ...SimpleBlock,
-                    ...LinkTableBlock,
-                    ...PreviewBlock,
-                    ...HeaderSliderBlock,
-                    ...IconsBlock,
-                    ...CardLayoutBlock,
-                    ...ContentLayoutBlock,
-                    ...Divider,
-                    ...ShareBlock,
+                    ...blocksValidators,
                     ...getBlocksCases(blocks),
                 },
             }),
@@ -128,34 +170,12 @@ export function generateDefaultSchema(config?: SchemaCustomConfig) {
                 properties: {
                     type: {
                         type: 'string',
-                        enum: [
-                            'partner',
-                            'post',
-                            'media-card',
-                            'banner-card',
-                            'price-detailed',
-                            'tutoral-card',
-                            'background-card',
-                            'news-card',
-                            'card-with-image',
-                            'quote',
-                            'basic-card',
-                            ...Object.keys(cards),
-                        ],
+                        enum: [...constructorCardsSchemaNames, ...configCardSchemaNames],
                     },
                 },
                 select: {$data: '0/type'},
                 selectCases: {
-                    // Cards
-                    ...PartnerBlock,
-                    ...MediaCardBlock,
-                    ...BannerCard,
-                    ...PriceDetailedBlock,
-                    ...TutorialCard,
-                    ...BackgroundCard,
-                    ...NewsCard,
-                    ...CardWithImage,
-                    ...Quote,
+                    ...cardsValidators,
                     ...getBlocksCases(cards),
                 },
             }),
