@@ -1,5 +1,9 @@
 # Change log
 
+## 0.17.1
+
+- @gravity-ui/uikit 3.10.1 (fix share tooltip)
+
 ## 0.17.0
 
 - @gravity-ui/uikit 3.9.0
