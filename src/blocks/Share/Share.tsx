@@ -3,7 +3,7 @@ import React, {useContext} from 'react';
 import {ShareList, ShareSocialNetwork} from '@gravity-ui/uikit';
 
 import {block, getAbsolutePath} from '../../utils';
-import {PCShareSocialNetwork} from '../../models';
+import {PCShareSocialNetwork, ShareBlockProps} from '../../models';
 import {LocationContext} from '../../context/locationContext';
 import i18n from './i18n';
 
@@ -19,12 +19,7 @@ const pcShareSocialNetwork = {
     [PCShareSocialNetwork.Facebook]: ShareSocialNetwork.Facebook,
 };
 
-export interface ShareProps {
-    items: PCShareSocialNetwork[];
-    title?: string;
-}
-
-const Share = ({items, title}: ShareProps) => {
+const Share = ({items, title}: ShareBlockProps) => {
     const {pathname, hostname} = useContext(LocationContext);
 
     return (

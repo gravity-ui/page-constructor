@@ -22,6 +22,7 @@ import {
     HeaderSliderBlock,
     IconsBlock,
     CardLayoutBlock,
+    ShareBlock,
 } from './validators/blocks';
 
 import {
@@ -117,6 +118,7 @@ export function generateDefaultSchema(config?: SchemaCustomConfig) {
                     ...CardLayoutBlock,
                     ...ContentLayoutBlock,
                     ...Divider,
+                    ...ShareBlock,
                     ...getBlocksCases(blocks),
                 },
             }),

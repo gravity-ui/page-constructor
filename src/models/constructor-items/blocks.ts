@@ -30,7 +30,7 @@ import {
     ImageDeviceProps,
 } from './common';
 import {ThemeSupporting} from '../../utils';
-import {GridColumnSize, GridColumnSizesType} from '../../grid/types';
+import {GridColumnSize, GridColumnSizesType} from '../../grid';
 import {BannerCardProps, SubBlock} from './sub-blocks';
 
 export enum BlockType {
@@ -55,6 +55,7 @@ export enum BlockType {
     IconsBlock = 'icons-block',
     CardLayoutBlock = 'card-layout-block',
     ContentLayoutBlock = 'content-layout-block',
+    ShareBlock = 'share-block',
 }
 
 export const BlockTypes = Object.values(BlockType);
@@ -350,6 +351,18 @@ export interface ContentBlockProps {
     theme?: ContentTheme;
 }
 
+export enum PCShareSocialNetwork {
+    Vk = 'vk',
+    Telegram = 'telegram',
+    Twitter = 'twitter',
+    Facebook = 'facebook',
+}
+
+export interface ShareBlockProps {
+    items: PCShareSocialNetwork[];
+    title?: string;
+}
+
 //block models
 export type HeaderBlockModel = {
     type: BlockType.HeaderBlock;
@@ -435,6 +448,10 @@ export type ContentLayoutBlockModel = {
     type: BlockType.ContentLayoutBlock;
 } & ContentLayoutBlockProps;
 
+export type ShareBLockModel = {
+    type: BlockType.ShareBlock;
+} & ShareBlockProps;
+
 type BlockModels =
     | SliderBlockModel
     | ServiceDemoBlockModel
@@ -456,6 +473,7 @@ type BlockModels =
     | IconsBlockModel
     | HeaderSliderBlockModel
     | CardLayoutBlockModel
-    | ContentLayoutBlockModel;
+    | ContentLayoutBlockModel
+    | ShareBLockModel;
 
 export type Block = BlockModels & BlockBaseProps;
