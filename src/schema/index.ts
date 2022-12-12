@@ -59,7 +59,7 @@ export const getBlocksCases = (blocks: SchemaBlock) => {
 export function generateDefaultSchema(config?: SchemaCustomConfig) {
     const {cards = {}, blocks = {}, extensions = {}} = config ?? {};
 
-    const blocksValidators = {
+    const blockValidators = {
         ...Divider,
         ...ExtendedFeaturesBlock,
         ...PromoFeaturesBlock,
@@ -83,7 +83,7 @@ export function generateDefaultSchema(config?: SchemaCustomConfig) {
         ...ShareBlock,
     };
 
-    const cardsValidators = {
+    const cardValidators = {
         ...PartnerBlock,
         ...MediaCardBlock,
         ...BannerCard,
@@ -160,7 +160,7 @@ export function generateDefaultSchema(config?: SchemaCustomConfig) {
                 },
                 select: {$data: '0/type'},
                 selectCases: {
-                    ...blocksValidators,
+                    ...blockValidators,
                     ...getBlocksCases(blocks),
                 },
             }),
@@ -175,7 +175,7 @@ export function generateDefaultSchema(config?: SchemaCustomConfig) {
                 },
                 select: {$data: '0/type'},
                 selectCases: {
-                    ...cardsValidators,
+                    ...cardValidators,
                     ...getBlocksCases(cards),
                 },
             }),
