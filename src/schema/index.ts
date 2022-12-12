@@ -125,7 +125,7 @@ export function generateDefaultSchema(config?: SchemaCustomConfig) {
         'share-block',
     ];
 
-    const constructorCardsSchemaNames = [
+    const constructorCardSchemaNames = [
         'partner',
         'media-card',
         'banner-card',
@@ -143,7 +143,7 @@ export function generateDefaultSchema(config?: SchemaCustomConfig) {
     );
 
     const configCardSchemaNames = Object.keys(cards).filter(
-        (item) => !constructorCardsSchemaNames.includes(item),
+        (item) => !constructorCardSchemaNames.includes(item),
     );
 
     return {
@@ -170,7 +170,7 @@ export function generateDefaultSchema(config?: SchemaCustomConfig) {
                 properties: {
                     type: {
                         type: 'string',
-                        enum: [...constructorCardsSchemaNames, ...configCardSchemaNames],
+                        enum: [...constructorCardSchemaNames, ...configCardSchemaNames],
                     },
                 },
                 select: {$data: '0/type'},
