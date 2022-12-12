@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.10.0](https://github.com/gravity-ui/page-constructor/compare/v1.9.3...v1.10.0) (2022-12-12)
+
+
+### Features
+
+* **Share:** create block ([#79](https://github.com/gravity-ui/page-constructor/issues/79)) ([bf950c8](https://github.com/gravity-ui/page-constructor/commit/bf950c88a3a885138a1db3f1214b56011971cd8b))
+
 ## [1.9.3](https://github.com/gravity-ui/page-constructor/compare/v1.9.2...v1.9.3) (2022-12-07)
 
 
