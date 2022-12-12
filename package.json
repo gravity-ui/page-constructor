@@ -84,7 +84,7 @@
   "peerDependencies": {
     "@doc-tools/components": "^2.0.0",
     "@doc-tools/transform": "^2.6.1",
-    "@gravity-ui/uikit": "^3.1.0",
+    "@gravity-ui/uikit": "^3.10.1",
     "@yandex-data-ui/common": "^10.0.0",
     "@gravity-ui/page-constructor": "^1.1.0",
     "react": "^16.0.0"
@@ -94,7 +94,7 @@
     "@doc-tools/components": "^2.1.0",
     "@doc-tools/transform": "^2.9.0",
     "@gravity-ui/page-constructor": "^1.4.1",
-    "@gravity-ui/uikit": "^3.9.0",
+    "@gravity-ui/uikit": "^3.10.1",
     "@storybook/addon-actions": "^6.3.12",
     "@storybook/addon-essentials": "^6.3.12",
     "@storybook/addon-knobs": "^6.3.1",
