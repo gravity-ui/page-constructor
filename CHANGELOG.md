@@ -1,8 +1,24 @@
 # Change log
 
-## 0.16.0
+## 0.18.0
 
 - Refactor naming
+
+## 0.17.1
+
+- @gravity-ui/uikit 3.10.1 (fix share tooltip)
+
+## 0.17.0
+
+- @gravity-ui/uikit 3.9.0
+
+## 0.16.1
+
+- Fix for treating page number on fetch
+
+## 0.16.0
+
+- Show "-" in filters selector switchers when only one broken filter provided in a query
 
 ## 0.15.1
 

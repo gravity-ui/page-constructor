@@ -1,5 +1,5 @@
 import React from 'react';
-import {ShareSocialNetwork} from '@gravity-ui/uikit';
+import {ShareOptions} from '@gravity-ui/uikit';
 
 import {BlogPostData} from '../models/common';
 
@@ -12,7 +12,7 @@ export interface PostPageContextProps {
         hasUserLike: boolean;
         likesCount: number;
     };
-    sharingSocialNetworks?: ShareSocialNetwork[];
+    shareOptions?: ShareOptions[];
 }
 
 export const PostPageContext = React.createContext<PostPageContextProps>(

@@ -27,6 +27,7 @@ type CustomSwitcherProps = {
 };
 
 const ICON_SIZE = 12;
+const ONLY_ONE_INVALID_FILTER_PROVIDED = '-';
 
 const CustomSwitcherView = ({items = []}: CustomSwitcherViewProps) => {
     const hasCounter = items.length > 1;
@@ -53,8 +54,12 @@ export const CustomSwitcher = ({initial, defaultLabel, list}: CustomSwitcherProp
         return list.filter((item) => itemValues.includes(item.value)).map((item) => item.title);
     }, [initial, isInitialString, list]);
 
-    if (initial && isInitialString && itemsNames.length) {
-        return <CustomSwitcherView items={itemsNames} />;
+    if (initial && isInitialString) {
+        if (itemsNames.length) {
+            return <CustomSwitcherView items={itemsNames} />;
+        }
+
+        return <CustomSwitcherView items={[ONLY_ONE_INVALID_FILTER_PROVIDED]} />;
     }
 
     return <CustomSwitcherView items={[defaultLabel]} />;

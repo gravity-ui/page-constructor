@@ -163,7 +163,7 @@ export const Feed: React.FC<FeedProps> = ({image}) => {
 
     useEffect(() => {
         if (isFetching) {
-            fetchAndReplaceData(Number(queryParams.page));
+            fetchAndReplaceData(Number(queryParams.page || DEFAULT_PAGE));
         }
     }, [fetchAndReplaceData, isFetching, queryParams.page]);
 

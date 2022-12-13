@@ -34,7 +34,7 @@ type SharingProps = {
 export const Sharing: React.FC<SharingProps> = ({theme, metrikaGoal}) => {
     const router = useContext(RouterContext);
     const isMobile = useContext(MobileContext);
-    const {sharingSocialNetworks} = useContext(PostPageContext);
+    const {shareOptions} = useContext(PostPageContext);
 
     const handleMetrika = () => {
         metrika.reachGoal(MetrikaCounter.CrossSite, metrikaGoal);
@@ -57,7 +57,7 @@ export const Sharing: React.FC<SharingProps> = ({theme, metrikaGoal}) => {
                     customIcon={ShareArrowUp}
                     placement="bottom"
                     openByHover={false}
-                    socialNets={sharingSocialNetworks}
+                    socialNets={shareOptions}
                     handleMetrika={handleMetrika}
                 />
             </span>
