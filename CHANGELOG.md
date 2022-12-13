@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.10.2](https://github.com/gravity-ui/page-constructor/compare/v1.10.1...v1.10.2) (2022-12-13)
+
+
+### Bug Fixes
+
+* shema validation ([#80](https://github.com/gravity-ui/page-constructor/issues/80)) ([c0d2f92](https://github.com/gravity-ui/page-constructor/commit/c0d2f92c1dabab86f9cb9264714821aa391e4c4c))
+
 ## [1.10.1](https://github.com/gravity-ui/page-constructor/compare/v1.10.0...v1.10.1) (2022-12-13)
 
 
