@@ -30,7 +30,7 @@ import {
     ImageDeviceProps,
 } from './common';
 import {ThemeSupporting} from '../../utils';
-import {GridColumnSize, GridColumnSizesType} from '../../grid';
+import {GridColumnSize, GridColumnSizesType} from '../../grid/types';
 import {BannerCardProps, SubBlock} from './sub-blocks';
 
 export enum BlockType {
