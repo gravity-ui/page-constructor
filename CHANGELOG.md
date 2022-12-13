@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.10.1](https://github.com/gravity-ui/page-constructor/compare/v1.10.0...v1.10.1) (2022-12-13)
+
+
+### Bug Fixes
+
+* **HubspotForm:** change height ([#81](https://github.com/gravity-ui/page-constructor/issues/81)) ([3c596f7](https://github.com/gravity-ui/page-constructor/commit/3c596f786c9e6b6ff4007a10e85c663cb4d6c29c))
+* release 1.10.0 ([#84](https://github.com/gravity-ui/page-constructor/issues/84)) ([159b20a](https://github.com/gravity-ui/page-constructor/commit/159b20ad3ba74a0877bca0178dddc244f8ef37c2))
+
 ## [1.10.0](https://github.com/gravity-ui/page-constructor/compare/v1.9.3...v1.10.0) (2022-12-12)
 
 
