@@ -1,4 +1,3 @@
-import {filteredArray} from '../../schema/validators/utils';
 import {BaseProps} from '../../schema/validators/common';
 
 export const ShareBlock = {
@@ -10,12 +9,13 @@ export const ShareBlock = {
             title: {
                 type: 'string',
             },
-            items: filteredArray({
-                properties: {
+            items: {
+                type: 'array',
+                items: {
                     type: 'string',
                     enum: ['telegram', 'facebook', 'twitter', 'vk'],
                 },
-            }),
+            },
         },
     },
 };

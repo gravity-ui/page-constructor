@@ -1,23 +1,32 @@
-import React, {useContext} from 'react';
+import React, {useContext, FC, SVGProps} from 'react';
+import {Icon, Button} from '@gravity-ui/uikit';
 
-import {ShareList, ShareSocialNetwork} from '@gravity-ui/uikit';
-
-import {block, getAbsolutePath} from '../../utils';
-import {PCShareSocialNetwork, ShareBlockProps} from '../../models';
+import {block, getAbsolutePath, getShareLink} from '../../utils';
+import {ShareBlockProps} from '../../models';
 import {LocationContext} from '../../context/locationContext';
 import i18n from './i18n';
 
+import {Facebook} from '../../icons/Facebook';
+import {Twitter} from '../../icons/Twitter';
+import {Linkedin} from '../../icons/Linkedin';
+import {Vk} from '../../icons/Vk';
+import {Telegram} from '../../icons/Telegram';
+
 import './Share.scss';
 
-const b = block('share-block');
+interface IconsProps {
+    [key: string]: FC<SVGProps<SVGSVGElement>>;
+}
 
-// TODO https://st.yandex-team.ru/CLOUDFRONT-11753
-const pcShareSocialNetwork = {
-    [PCShareSocialNetwork.Vk]: ShareSocialNetwork.VK,
-    [PCShareSocialNetwork.Telegram]: ShareSocialNetwork.Telegram,
-    [PCShareSocialNetwork.Twitter]: ShareSocialNetwork.Twitter,
-    [PCShareSocialNetwork.Facebook]: ShareSocialNetwork.Facebook,
+const icons: IconsProps = {
+    facebook: Facebook,
+    twitter: Twitter,
+    linkedin: Linkedin,
+    vk: Vk,
+    telegram: Telegram,
 };
+
+const b = block('share-block');
 
 const Share = ({items, title}: ShareBlockProps) => {
     const {pathname, hostname} = useContext(LocationContext);
@@ -26,14 +35,24 @@ const Share = ({items, title}: ShareBlockProps) => {
         <div className={b()}>
             <h5 className={b('title')}>{title || i18n('constructor-share')}</h5>
             <div className={b('items')}>
-                {items.map((type) => (
-                    <ShareList.Item
-                        key={type}
-                        url={getAbsolutePath(hostname, pathname)}
-                        className={b('item', {type: type.toLowerCase()})}
-                        type={pcShareSocialNetwork[type]}
-                    />
-                ))}
+                {items.map((type) => {
+                    const url = getAbsolutePath(hostname, pathname);
+                    const socialUrl = getShareLink(url, type);
+                    const icon = icons[type];
+
+                    return (
+                        <Button
+                            key={type}
+                            view="flat"
+                            size="l"
+                            target="_blank"
+                            href={socialUrl}
+                            className={b('item', {type: type.toLowerCase()})}
+                        >
+                            {icon && <Icon data={icon} size={24} className={b('icon', {type})} />}
+                        </Button>
+                    );
+                })}
             </div>
         </div>
     );

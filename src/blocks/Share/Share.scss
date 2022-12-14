@@ -40,8 +40,18 @@ $block: '.#{$ns}share-block';
             background-color: var(--yc-color-telegram);
         }
 
-        &:before {
-            border-radius: 100%;
+        &_type_telegram {
+            background-color: var(--yc-color-telegram);
+        }
+
+        &_type_linkedin {
+            background-color: #0a66c2;
+        }
+
+        @include add-specificity(&) {
+            &:before {
+                border-radius: 100%;
+            }
         }
 
         &:hover {
@@ -54,11 +64,17 @@ $block: '.#{$ns}share-block';
         }
 
         & + & {
-            margin-left: 12px;
+            margin-left: $indentXXS;
         }
 
         svg {
             color: var(--yc-color-base-background);
+        }
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'sm')) {
+        &__items {
+            flex-wrap: wrap;
         }
     }
 }
