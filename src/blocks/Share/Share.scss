@@ -45,7 +45,7 @@ $block: '.#{$ns}share-block';
         }
 
         &_type_linkedin {
-            background-color: #0a66c2;
+            background-color: var(--yc-color-linkedin);
         }
 
         @include add-specificity(&) {
