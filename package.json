@@ -1,6 +1,6 @@
 {
   "name": "@gravity-ui/page-constructor",
-  "version": "1.10.2-alpha.0",
+  "version": "1.10.2",
   "description": "Gravity UI Page Constructor",
   "license": "MIT",
   "repository": {
@@ -121,8 +121,5 @@
     "*.{json,yaml,yml,md}": [
       "prettier --write"
     ]
-  },
-  "publishConfig": {
-    "tag": "alpha"
   }
 }
