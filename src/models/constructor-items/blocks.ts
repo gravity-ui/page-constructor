@@ -356,6 +356,7 @@ export enum PCShareSocialNetwork {
     Telegram = 'telegram',
     Twitter = 'twitter',
     Facebook = 'facebook',
+    LinkedIn = 'linkedin',
 }
 
 export interface ShareBlockProps {

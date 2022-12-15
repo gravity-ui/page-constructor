@@ -58,7 +58,7 @@
   },
   "peerDependencies": {
     "react": "^16.0.0 || ^17.0.0",
-    "@gravity-ui/uikit": "^3.0.1",
+    "@gravity-ui/uikit": "^3.11.0",
     "@doc-tools/transform": "^2.6.1"
   },
   "devDependencies": {
@@ -69,7 +69,7 @@
     "@gravity-ui/prettier-config": "^1.0.1",
     "@gravity-ui/stylelint-config": "^1.0.0",
     "@gravity-ui/tsconfig": "^1.0.0",
-    "@gravity-ui/uikit": "^3.0.1",
+    "@gravity-ui/uikit": "^3.11.0",
     "@storybook/addon-actions": "^6.3.12",
     "@storybook/addon-essentials": "^6.5.10",
     "@storybook/addon-knobs": "^6.3.1",

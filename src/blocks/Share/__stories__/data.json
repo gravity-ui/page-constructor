@@ -2,14 +2,14 @@
   "default": {
     "content": {
       "type": "share-block",
-      "items": ["facebook", "vk", "telegram", "twitter"]
+      "items": ["facebook", "vk", "telegram", "twitter", "linkedin"]
     }
   },
   "customTitle": {
     "content": {
       "type": "share-block",
       "title": "Share on social networks",
-      "items": ["facebook", "vk", "telegram", "twitter"]
+      "items": ["facebook", "vk", "telegram", "twitter", "linkedin"]
     }
   }
 }
