@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.10.3](https://github.com/gravity-ui/page-constructor/compare/v1.10.2...v1.10.3) (2022-12-15)
+
+
+### Bug Fixes
+
+* share icons ([#87](https://github.com/gravity-ui/page-constructor/issues/87)) ([565f125](https://github.com/gravity-ui/page-constructor/commit/565f12538d9b686d654d58bf548b9ec87bc566b7))
+
 ## [1.10.2](https://github.com/gravity-ui/page-constructor/compare/v1.10.1...v1.10.2) (2022-12-13)
 
 
