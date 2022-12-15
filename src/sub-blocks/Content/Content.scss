@@ -18,6 +18,10 @@ $darkSecondary: var(--yc-color-text-dark-secondary);
 }
 
 #{$block} {
+    --pc-monochrome-button-background-color: #262626;
+    --pc-monochrome-button-background-color-hover: #393939;
+    --pc-monochrome-button-color: var(--yc-color-text-light-primary);
+
     &__notice,
     &__text {
         .yfm ol,
