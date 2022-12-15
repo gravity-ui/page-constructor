@@ -13,13 +13,17 @@
     --pc-color-sfx-shadow: var(--yc-color-base-simple-hover);
     --pc-color-line-generic-active-solid: #b3b3b3;
     --pc-color-base-float-hover: var(--yc-color-base-float);
-    --pc-monochrome-button: #262626;
-    --pc-monochrome-button-hover: #393939;
+    --pc-monochrome-button-background-color: #262626;
+    --pc-monochrome-button-background-color-hover: #393939;
+    --pc-monochrome-button-color: var(--yc-color-text-light-primary);
     --pc-text-header-color: var(--yc-color-text-primary);
 
     &.yc-root_theme_dark {
         --pc-color-sfx-shadow: var(--yc-color-sfx-shadow);
         --pc-color-line-generic-active-solid: #6c6c70;
         --pc-color-base-float-hover: var(--yc-color-base-float-hover);
+        --pc-monochrome-button-background-color: #ffffff;
+        --pc-monochrome-button-background-color-hover: #e9e9e9;
+        --pc-monochrome-button-color: var(--yc-color-text-dark-primary);
     }
 }
