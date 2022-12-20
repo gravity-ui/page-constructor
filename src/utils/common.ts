@@ -47,10 +47,6 @@ export function getAbsolutePath(router: any, url?: string) {
     });
 }
 
-export function isRootPage(pathname: string) {
-    return pathname === '/';
-}
-
 export const getPageSearchParams = (query: Query = {}) => {
     const searchParams = new URLSearchParams();
 
