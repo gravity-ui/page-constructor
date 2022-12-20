@@ -23,23 +23,6 @@ import {
     DEFAULT_PAGE,
 } from '../blocks/constants';
 
-export function setUrlTld(url: string, tld = 'ru', force = false) {
-    if (!url || typeof url !== 'string') {
-        return url;
-    }
-
-    const newUrl = url.replace(/\${tld}/g, tld);
-
-    if (!force) {
-        return newUrl;
-    }
-
-    const urlObject = new URL(newUrl);
-    urlObject.hostname = urlObject.hostname.replace(/\.\w+$/, `.${tld}`);
-
-    return urlObject.href;
-}
-
 export interface QueryParam {
     name: string;
     value?: string | number | null;
