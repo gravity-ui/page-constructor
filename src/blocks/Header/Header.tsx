@@ -6,7 +6,7 @@ import {PostPageContext} from '../../contexts/PostPageContext';
 import {PostInfo, BlogMetrikaGoals} from '../../components/PostInfo/PostInfo';
 import {Wrapper} from '../../components/Wrapper/Wrapper';
 
-import {PaddingsDirections, PaddingSize} from '../../models/paddings';
+import {PaddingsDirections, PaddingsYFMProps} from '../../models/paddings';
 
 import {getBreadcrumbs} from '../../utils/common';
 
@@ -24,10 +24,7 @@ const breadcrumbsGoals = [
     },
 ];
 
-export type HeaderProps = HeaderBlockProps & {
-    paddingTop?: PaddingSize;
-    paddingBottom?: PaddingSize;
-};
+export type HeaderProps = HeaderBlockProps & PaddingsYFMProps;
 
 export const Header: React.FC<HeaderProps> = (props) => {
     const {theme, paddingTop, paddingBottom} = props;

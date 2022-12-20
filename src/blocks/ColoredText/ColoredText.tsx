@@ -3,7 +3,7 @@ import React from 'react';
 import {BackgroundImage, Content, ContentBlockProps} from '@gravity-ui/page-constructor';
 
 import {Wrapper} from '../../components/Wrapper/Wrapper';
-import {PaddingsDirections, PaddingSize} from '../../models/paddings';
+import {PaddingsDirections, PaddingsYFMProps} from '../../models/paddings';
 
 import {updateContentSizes} from '../../utils/common';
 import {block} from '../../utils/cn';
@@ -20,9 +20,7 @@ type Background = {
 
 export type ColoredTextProps = ContentBlockProps & {
     background?: Background;
-    paddingTop?: PaddingSize;
-    paddingBottom?: PaddingSize;
-};
+} & PaddingsYFMProps;
 
 export const ColoredText: React.FC<ColoredTextProps> = ({
     background,

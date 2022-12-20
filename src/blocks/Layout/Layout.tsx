@@ -9,7 +9,7 @@ import {
 
 import {Wrapper} from '../../components/Wrapper/Wrapper';
 
-import {PaddingsDirections, PaddingSize} from '../../models/paddings';
+import {PaddingsDirections, PaddingsYFMProps} from '../../models/paddings';
 
 import {block} from '../../utils/cn';
 
@@ -21,9 +21,7 @@ export type LayoutProps = {
     fullWidth?: boolean;
     mobileOrder?: string;
     children: ReactElement[];
-    paddingTop?: PaddingSize;
-    paddingBottom?: PaddingSize;
-};
+} & PaddingsYFMProps;
 
 type ColLayouts = {
     sizes: GridColumnSizesType;

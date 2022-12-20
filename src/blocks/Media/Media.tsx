@@ -8,7 +8,7 @@ import {
 
 import {Wrapper} from '../../components/Wrapper/Wrapper';
 
-import {PaddingsDirections, PaddingSize} from '../../models/paddings';
+import {PaddingsDirections, PaddingsYFMProps} from '../../models/paddings';
 
 import {block} from '../../utils/cn';
 
@@ -20,9 +20,7 @@ type MediaProps = Partial<
     Pick<PCMediaProps, 'youtube' | 'previewImg' | 'image' | 'video' | 'dataLens'>
 > & {
     text?: string;
-    paddingTop?: PaddingSize;
-    paddingBottom?: PaddingSize;
-};
+} & PaddingsYFMProps;
 
 export type MediaFullProps = MediaProps & ClassNameProps;
 

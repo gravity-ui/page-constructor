@@ -6,7 +6,7 @@ import {Wrapper} from '../../components/Wrapper/Wrapper';
 import {getBlogElementMetrika, updateContentSizes} from '../../utils/common';
 import {block} from '../../utils/cn';
 
-import {PaddingsDirections, PaddingSize} from '../../models/paddings';
+import {PaddingsDirections, PaddingsYFMProps} from '../../models/paddings';
 
 import {BlogMetrikaGoalIds} from '../../constants';
 
@@ -19,9 +19,7 @@ export type BannerProps = ContentBlockProps & {
     color?: string;
     image?: string;
     imageSize?: 's' | 'm';
-    paddingTop?: PaddingSize;
-    paddingBottom?: PaddingSize;
-};
+} & PaddingsYFMProps;
 
 export const Banner: React.FC<BannerProps> = ({
     color,

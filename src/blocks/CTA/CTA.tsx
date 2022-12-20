@@ -4,7 +4,7 @@ import {Content, ContentBlockProps, NewMetrikaGoal} from '@gravity-ui/page-const
 import {Wrapper} from '../../components/Wrapper/Wrapper';
 import {getBlogElementMetrika, updateContentSizes} from '../../utils/common';
 
-import {PaddingsDirections, PaddingSize} from '../../models/paddings';
+import {PaddingsDirections, PaddingsYFMProps} from '../../models/paddings';
 
 import {BlogMetrikaGoalIds} from '../../constants';
 
@@ -20,10 +20,8 @@ const MAX_COLUMN_COUNT = 4,
 
 export type CTAProps = {
     items: Array<ContentBlockProps>;
-    paddingTop?: PaddingSize;
-    paddingBottom?: PaddingSize;
     columnCount?: number;
-};
+} & PaddingsYFMProps;
 
 export const CTA: React.FC<CTAProps> = ({items, paddingTop, paddingBottom}) => {
     let count = items ? items.length : DEFAULT_COLUMN_COUNT;

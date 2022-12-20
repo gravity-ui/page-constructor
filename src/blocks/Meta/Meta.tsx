@@ -6,7 +6,7 @@ import {PostPageContext} from '../../contexts/PostPageContext';
 import {Wrapper} from '../../components/Wrapper/Wrapper';
 import {PostInfo, BlogMetrikaGoals} from '../../components/PostInfo/PostInfo';
 
-import {PaddingsDirections, PaddingSize} from '../../models/paddings';
+import {PaddingsDirections, PaddingsYFMProps} from '../../models/paddings';
 
 import {getBreadcrumbs} from '../../utils/common';
 
@@ -19,11 +19,9 @@ import './Meta.scss';
 const b = block('meta');
 
 export type MetaProps = {
-    paddingTop?: PaddingSize;
-    paddingBottom?: PaddingSize;
     locale: string;
     theme?: TextTheme;
-};
+} & PaddingsYFMProps;
 
 const metrikaGoals: BlogMetrikaGoals = {
     sharing: BlogMetrikaGoalIds.shareBottom,

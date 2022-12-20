@@ -8,7 +8,7 @@ import {i18, Keyset} from '../../i18n';
 import {Wrapper} from '../../components/Wrapper/Wrapper';
 import {PostCard} from '../../components/PostCard/PostCard';
 
-import {PaddingsDirections, PaddingSize} from '../../models/paddings';
+import {PaddingsDirections, PaddingsYFMProps} from '../../models/paddings';
 import {BlogPostData} from '../../models/common';
 
 import {PostPageContext} from '../../contexts/PostPageContext';
@@ -24,9 +24,7 @@ const metrikaGoals = [
 
 type SuggestProps = {
     posts: BlogPostData[];
-    paddingTop: PaddingSize;
-    paddingBottom: PaddingSize;
-};
+} & PaddingsYFMProps;
 
 export type SuggestFullProps = SuggestProps & ClassNameProps;
 

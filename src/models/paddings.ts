@@ -10,3 +10,10 @@ export type PaddingSize = 'xs' | 's' | 'm' | 'l' | 'xl';
 export type Paddings = {
     [key in PaddingsDirections]?: PaddingSize;
 };
+
+export type PaddingsYFMProps = {
+    paddingTop?: PaddingSize;
+    paddingBottom?: PaddingSize;
+    paddingRight?: PaddingSize;
+    paddingLeft?: PaddingSize;
+};
