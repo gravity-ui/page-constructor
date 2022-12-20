@@ -1,4 +1,4 @@
-import React, {useContext, useMemo} from 'react';
+import React, {useContext} from 'react';
 import {HeaderBlock, HeaderBlockProps} from '@gravity-ui/page-constructor';
 
 import {PostPageContext} from '../../contexts/PostPageContext';
@@ -40,16 +40,6 @@ export const Header: React.FC<HeaderProps> = (props) => {
 
     breadcrumbs.metrikaGoals = breadcrumbsGoals;
 
-    const headerProps = useMemo(
-        () => ({
-            ...props,
-            title: title || '',
-            description: description || '',
-            breadcrumbs,
-        }),
-        [breadcrumbs, description, title, props],
-    );
-
     return (
         <Wrapper
             paddings={{
@@ -57,7 +47,12 @@ export const Header: React.FC<HeaderProps> = (props) => {
                 [PaddingsDirections.bottom]: paddingBottom,
             }}
         >
-            <HeaderBlock {...headerProps}>
+            <HeaderBlock
+                {...props}
+                title={title || ''}
+                description={description || ''}
+                breadcrumbs={breadcrumbs}
+            >
                 <PostInfo
                     postId={id}
                     date={date}
