@@ -2,7 +2,8 @@ import React from 'react';
 
 import {BackgroundImage, Content, ContentBlockProps} from '@gravity-ui/page-constructor';
 
-import {Wrapper, PaddingSize} from '../../components/Wrapper/Wrapper';
+import {Wrapper} from '../../components/Wrapper/Wrapper';
+import {PaddingsDirections, PaddingSize} from '../../models/paddings';
 
 import {updateContentSizes} from '../../utils/common';
 import {block} from '../../utils/cn';
@@ -32,7 +33,12 @@ export const ColoredText: React.FC<ColoredTextProps> = ({
     const contentData = updateContentSizes(content);
 
     return (
-        <Wrapper paddingTop={paddingTop} paddingBottom={paddingBottom}>
+        <Wrapper
+            paddings={{
+                [PaddingsDirections.top]: paddingTop,
+                [PaddingsDirections.bottom]: paddingBottom,
+            }}
+        >
             <div
                 className={b('container')}
                 style={{backgroundColor: background?.color || 'none'}}

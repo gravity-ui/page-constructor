@@ -1,3 +1,5 @@
+import {PaddingsDirections, Paddings} from './models/paddings';
+
 export const BREAKPOINTS = {
     xs: 0,
     sm: 577,
@@ -40,3 +42,8 @@ export enum BlogMetrikaGoalIds {
     home = 'SITE_BLOG-PAGINATION_HOME_CLCK',
     page = 'SITE_BLOG-PAGINATION_PAGE-NMBR_CLCK',
 }
+
+export const DEFAULT_PADDINGS: Paddings = {
+    [PaddingsDirections.bottom]: 'l',
+    [PaddingsDirections.top]: 'xs',
+};

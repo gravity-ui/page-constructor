@@ -1,8 +1,10 @@
 import React from 'react';
 import {Content, ContentBlockProps, NewMetrikaGoal} from '@gravity-ui/page-constructor';
 
-import {Wrapper, PaddingSize} from '../../components/Wrapper/Wrapper';
+import {Wrapper} from '../../components/Wrapper/Wrapper';
 import {getBlogElementMetrika, updateContentSizes} from '../../utils/common';
+
+import {PaddingsDirections, PaddingSize} from '../../models/paddings';
 
 import {BlogMetrikaGoalIds} from '../../constants';
 
@@ -39,8 +41,10 @@ export const CTA: React.FC<CTAProps> = ({items, paddingTop, paddingBottom}) => {
 
     return (
         <Wrapper
-            paddingTop={paddingTop}
-            paddingBottom={paddingBottom}
+            paddings={{
+                [PaddingsDirections.top]: paddingTop,
+                [PaddingsDirections.bottom]: paddingBottom,
+            }}
             className={b('content')}
             dataQa="blog-cta-content"
         >

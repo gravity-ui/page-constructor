@@ -2,7 +2,9 @@ import React from 'react';
 import {YFMWrapper} from '@gravity-ui/page-constructor';
 import block from 'bem-cn-lite';
 
-import {Wrapper, PaddingSize} from '../../components/Wrapper/Wrapper';
+import {Wrapper} from '../../components/Wrapper/Wrapper';
+
+import {PaddingsDirections, PaddingSize} from '../../models/paddings';
 
 const b = block('yfm');
 
@@ -16,7 +18,12 @@ export const YFM: React.FC<YFMProps> = (props) => {
     const {text, paddingTop, paddingBottom} = props;
 
     return (
-        <Wrapper paddingTop={paddingTop} paddingBottom={paddingBottom}>
+        <Wrapper
+            paddings={{
+                [PaddingsDirections.top]: paddingTop,
+                [PaddingsDirections.bottom]: paddingBottom,
+            }}
+        >
             <YFMWrapper
                 content={text}
                 modifiers={{

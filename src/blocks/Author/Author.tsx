@@ -5,7 +5,8 @@ import {ClassNameProps} from '@yandex-data-ui/cloud-components';
 
 import {PostPageContext} from '../../contexts/PostPageContext';
 
-import {Wrapper, PaddingSize} from '../../components/Wrapper/Wrapper';
+import {Wrapper} from '../../components/Wrapper/Wrapper';
+import {PaddingSize, PaddingsDirections} from '../../models/paddings';
 
 import {block} from '../../utils/cn';
 
@@ -45,7 +46,13 @@ export const Author: React.FC<AuthorProps> = (props) => {
     }
 
     return (
-        <Wrapper paddingTop={paddingTop} paddingBottom={paddingBottom} className={b('content')}>
+        <Wrapper
+            paddings={{
+                [PaddingsDirections.top]: paddingTop,
+                [PaddingsDirections.bottom]: paddingBottom,
+            }}
+            className={b('content')}
+        >
             <div className={b('layout')} data-qa="blog-author-layout">
                 <PCAuthor
                     type={AuthorType.Column}

@@ -7,7 +7,9 @@ import {
     Row,
 } from '@gravity-ui/page-constructor';
 
-import {Wrapper, PaddingSize} from '../../components/Wrapper/Wrapper';
+import {Wrapper} from '../../components/Wrapper/Wrapper';
+
+import {PaddingsDirections, PaddingSize} from '../../models/paddings';
 
 import {block} from '../../utils/cn';
 
@@ -99,7 +101,12 @@ export const Layout: React.FC<LayoutProps> = ({
     );
 
     return (
-        <Wrapper paddingTop={paddingTop} paddingBottom={paddingBottom}>
+        <Wrapper
+            paddings={{
+                [PaddingsDirections.top]: paddingTop,
+                [PaddingsDirections.bottom]: paddingBottom,
+            }}
+        >
             <Row className={b('row')} noGutter>
                 <Col className={b('left-col')} {...layout.leftCol}>
                     {left && renderChildren(left)}
