@@ -1,6 +1,6 @@
 import {useState, useCallback, useEffect} from 'react';
 
-import {ToggleLikeCallbackType} from '../models/blog';
+import {ToggleLikeCallbackType} from '../models/common';
 
 type UseLikesProps = {
     hasLike?: boolean;

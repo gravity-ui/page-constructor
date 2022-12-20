@@ -8,11 +8,11 @@ import {
 } from '@gravity-ui/page-constructor';
 import {ShareOptions} from '@gravity-ui/uikit';
 
-import {BlogPostData, ToggleLikeCallbackType, MetaProps} from '../../models/blog';
+import {BlogPostData, ToggleLikeCallbackType, MetaProps} from '../../models/common';
 
 import componentMap from '../../constructor/blocksMap';
 
-import {BlogPageContext} from '../../contexts/BlogPageContext';
+import {PostPageContext} from '../../contexts/PostPageContext';
 import {LikesContext} from '../../contexts/LikesContext';
 
 import {useLikes} from '../../hooks/useLikes';
@@ -59,7 +59,7 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({
                     hasLikes: Boolean(likes),
                 }}
             >
-                <BlogPageContext.Provider
+                <PostPageContext.Provider
                     value={{
                         post,
                         suggestedPosts,
@@ -77,7 +77,7 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({
                         {metaData ? <MetaWrapper {...metaData} /> : null}
                         <PageConstructor content={content} custom={componentMap} />
                     </PageConstructorProvider>
-                </BlogPageContext.Provider>
+                </PostPageContext.Provider>
             </LikesContext.Provider>
         </main>
     );

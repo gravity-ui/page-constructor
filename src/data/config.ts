@@ -1,15 +1,11 @@
 import {yfmTransformer} from '@gravity-ui/page-constructor/server';
 
-import {BlockType} from '../models/blog';
+import {BlockType} from '../models/common';
 
-const BLOCKS_FOR_TYPOGRAPHY_TRANSFORM = [
-    BlockType.BlogYFMBlock,
-    BlockType.BlogColoredTextBlock,
-    BlockType.BlogMediaBlock,
-];
+const BLOCKS_FOR_TYPOGRAPHY_TRANSFORM = [BlockType.YFM, BlockType.ColoredText, BlockType.Media];
 
 type GetConfigForCreateReadableContent = () => {
-    [x in BlockType.BlogYFMBlock | BlockType.BlogColoredTextBlock | BlockType.BlogMediaBlock]: {
+    [x in BlockType.YFM | BlockType.ColoredText | BlockType.Media]: {
         fields: string[];
     };
 };
@@ -18,7 +14,7 @@ type GetConfigForCreateReadableContent = () => {
  *  Func for create  extended typography config for page-constructor
  *
  * @returns - {
- *      [blockTypes.BlogYfmBlock]: [
+ *      [blockTypes.YFM]: [
  *           {
  *              fields: ['text'],
  *              transformer: yfmTransformer,
@@ -44,7 +40,7 @@ export const getExtendTypographyConfig = () =>
  * Func for create readable content func
  *
  * @returns - {
- *      [blockTypes.BlogYfmBlock]: {
+ *      [blockTypes.YFM]: {
  *          fields: ['text'],
  *          transformer: yfmTransformer,
  *      },

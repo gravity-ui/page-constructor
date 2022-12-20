@@ -8,7 +8,7 @@ import {
     PageConstructorProviderProps,
 } from '@gravity-ui/page-constructor';
 
-import {BlogFeedContext} from '../../contexts/BlogFeedContext';
+import {FeedContext} from '../../contexts/FeedContext';
 import {LikesContext} from '../../contexts/LikesContext';
 
 import {MetaWrapper} from '../../components/MetaWrapper/MetaWrapper';
@@ -22,7 +22,7 @@ import {
     MetaProps,
     GetBlogPostsType,
     SetQueryType,
-} from '../../models/blog';
+} from '../../models/common';
 
 import './BlogPage.scss';
 
@@ -31,7 +31,7 @@ export type BlogPageProps = {
     posts: BlogPagePostsData;
     tags: BlogPostTag[];
     services?: ServicePublic[];
-    getBlogPosts: GetBlogPostsType;
+    getPosts: GetBlogPostsType;
     toggleLike?: ToggleLikeCallbackType;
     metaData?: MetaProps;
     setQuery?: SetQueryType;
@@ -44,7 +44,7 @@ export const BlogPage = ({
     posts,
     tags,
     services,
-    getBlogPosts,
+    getPosts,
     metaData,
     toggleLike,
     settings,
@@ -57,14 +57,14 @@ export const BlogPage = ({
                 hasLikes: Boolean(toggleLike),
             }}
         >
-            <BlogFeedContext.Provider
+            <FeedContext.Provider
                 value={{
                     posts: posts.posts,
                     pinnedPost: posts.pinnedPost,
                     totalCount: posts.count,
                     tags,
                     services: services ?? [],
-                    getBlogPosts,
+                    getPosts,
                     pageCountForShowSupportButtons,
                 }}
             >
@@ -72,7 +72,7 @@ export const BlogPage = ({
                     {metaData ? <MetaWrapper {...metaData} /> : null}
                     <PageConstructor content={content} custom={componentMap} />
                 </PageConstructorProvider>
-            </BlogFeedContext.Provider>
+            </FeedContext.Provider>
         </LikesContext.Provider>
     </main>
 );

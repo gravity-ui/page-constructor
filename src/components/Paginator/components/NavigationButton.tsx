@@ -2,7 +2,7 @@ import React from 'react';
 
 import {ArrowType} from '../types';
 
-import {i18, BlogKeyset} from '../../../i18n';
+import {i18, Keyset} from '../../../i18n';
 
 import {block} from '../../../utils/cn';
 
@@ -18,8 +18,6 @@ export type NavigationButtonProps = {
 export const NavigationButton = ({arrowType, disabled}: NavigationButtonProps) =>
     disabled ? null : (
         <div className={b('icon')}>
-            {arrowType === ArrowType.Prev
-                ? i18(BlogKeyset.ButtonBegin)
-                : i18(BlogKeyset.ButtonFarther)}
+            {arrowType === ArrowType.Prev ? i18(Keyset.ButtonBegin) : i18(Keyset.ButtonFarther)}
         </div>
     );

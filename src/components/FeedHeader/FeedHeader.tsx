@@ -9,7 +9,7 @@ import {
     FullWidthBackground,
 } from '@gravity-ui/page-constructor';
 
-import {HeaderBlockProps} from '../../models/blog';
+import {HeaderBlockProps} from '../../models/common';
 
 import {Controls, ControlsProps} from './components/Controls/Controls';
 

@@ -37,7 +37,6 @@ export const generatePostPageData = () => {
     };
 
     return {
-        metaData: sanitizeMeta(metaData),
         suggestedPosts,
         content: pageData.content,
         post: postData,
