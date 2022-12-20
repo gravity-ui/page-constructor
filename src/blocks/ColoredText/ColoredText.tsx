@@ -4,7 +4,7 @@ import {BackgroundImage, Content, ContentBlockProps} from '@gravity-ui/page-cons
 
 import {Wrapper, PaddingSize} from '../../components/Wrapper/Wrapper';
 
-import {checkContentDefaults} from '../../utils/common';
+import {updateContentSizes} from '../../utils/common';
 import {block} from '../../utils/cn';
 
 import './ColoredText.scss';
@@ -27,9 +27,9 @@ export const ColoredText: React.FC<ColoredTextProps> = ({
     background,
     paddingTop,
     paddingBottom,
-    ...contentData
+    ...content
 }) => {
-    checkContentDefaults(contentData);
+    const contentData = updateContentSizes(content);
 
     return (
         <Wrapper paddingTop={paddingTop} paddingBottom={paddingBottom}>
