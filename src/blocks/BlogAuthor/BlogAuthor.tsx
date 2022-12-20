@@ -6,7 +6,6 @@ import {ClassNameProps} from '@yandex-data-ui/cloud-components';
 import {BlogPageContext} from '../../contexts/BlogPageContext';
 
 import {BlogWrapper, PaddingSize} from '../../components/BlogWrapper/BlogWrapper';
-// TODO import ResizedImage from '../../components/ResizedImage/ResizedImage';
 
 import {block} from '../../utils/cn';
 
@@ -31,7 +30,6 @@ export const BlogAuthorBlock: React.FC<AuthorBlockFullProps> = (props) => {
 
     const authorItem = useMemo(() => {
         const imageUrl = author?.avatar ?? image;
-        // TODO const authorAvatar = imageUrl && <ResizedImage url={imageUrl} />;
         const authorAvatar = <img src={imageUrl} alt="author" />;
 
         return {

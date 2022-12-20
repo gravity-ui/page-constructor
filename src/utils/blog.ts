@@ -53,6 +53,13 @@ export const checkContentDefaults = (contentData: ContentBlockProps) => {
     contentData.theme = contentData.theme || CONTENT_DEFAULT_THEME;
 };
 
+export const setContentSizes = ({size, colSizes, theme, ...contentData}: ContentBlockProps) => ({
+    ...contentData,
+    size: size || CONTENT_DEFAULT_SIZE,
+    colSizes: colSizes || CONTENT_DEFAULT_COL_SIZES,
+    theme: theme || CONTENT_DEFAULT_THEME,
+});
+
 type GetBlogBreadcrumbsProps = {
     tags?: BlogPostTag[];
 };
