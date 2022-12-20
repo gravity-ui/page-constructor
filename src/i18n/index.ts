@@ -6,7 +6,7 @@ const KEYSET_NAME = 'blog';
 
 export const i18n = new I18N();
 
-export enum BlogKeyset {
+export enum Keyset {
     TitleBlog = 'title_blog',
     TitleBreadcrumbsBlog = 'title_breadcrumbs_blog',
     TitleSuggest = 'title_suggest',
@@ -27,23 +27,23 @@ export enum BlogKeyset {
 }
 
 i18n.registerKeyset(Lang.En, KEYSET_NAME, {
-    [BlogKeyset.TitleBlog]: 'Blog',
-    [BlogKeyset.TitleBreadcrumbsBlog]: 'Blog',
-    [BlogKeyset.TitleSuggest]: 'See also',
-    [BlogKeyset.ActionShare]: 'Share',
-    [BlogKeyset.ActionTryAgain]: 'Try again',
-    [BlogKeyset.ActionLoadMore]: 'See more',
-    [BlogKeyset.ErrorTitle]: 'Error',
-    [BlogKeyset.PostLoadError]: "Posts didn't load",
-    [BlogKeyset.TitleEmptyContainer]: "Looks like we haven't written about that yet",
-    [BlogKeyset.ContextEmptyContainer]: 'Try different spellings or other keywords',
-    [BlogKeyset.ButtonBegin]: 'Back to top',
-    [BlogKeyset.ButtonFarther]: 'Load more',
-    [BlogKeyset.Search]: 'Search',
-    [BlogKeyset.AllTags]: 'All topics',
-    [BlogKeyset.ActionSavedOnly]: 'Saved',
-    [BlogKeyset.AllServices]: 'All Services',
-    [BlogKeyset.ContextReadingTime]: [
+    [Keyset.TitleBlog]: 'Blog',
+    [Keyset.TitleBreadcrumbsBlog]: 'Blog',
+    [Keyset.TitleSuggest]: 'See also',
+    [Keyset.ActionShare]: 'Share',
+    [Keyset.ActionTryAgain]: 'Try again',
+    [Keyset.ActionLoadMore]: 'See more',
+    [Keyset.ErrorTitle]: 'Error',
+    [Keyset.PostLoadError]: "Posts didn't load",
+    [Keyset.TitleEmptyContainer]: "Looks like we haven't written about that yet",
+    [Keyset.ContextEmptyContainer]: 'Try different spellings or other keywords',
+    [Keyset.ButtonBegin]: 'Back to top',
+    [Keyset.ButtonFarther]: 'Load more',
+    [Keyset.Search]: 'Search',
+    [Keyset.AllTags]: 'All topics',
+    [Keyset.ActionSavedOnly]: 'Saved',
+    [Keyset.AllServices]: 'All Services',
+    [Keyset.ContextReadingTime]: [
         '{{count}} min to read',
         '{{count}} mins to read',
         '{{count}} mins to read',
@@ -51,24 +51,24 @@ i18n.registerKeyset(Lang.En, KEYSET_NAME, {
 });
 
 i18n.registerKeyset(Lang.Ru, KEYSET_NAME, {
-    [BlogKeyset.TitleBlog]: 'Блог',
-    [BlogKeyset.TitleBreadcrumbsBlog]: 'Блог',
-    [BlogKeyset.TitleSuggest]: 'Читать также',
-    [BlogKeyset.ActionShare]: 'Поделиться',
-    [BlogKeyset.ActionTryAgain]: 'Попробуйте ещё раз',
-    [BlogKeyset.ActionLoadMore]: 'Показать ещё',
-    [BlogKeyset.ErrorTitle]: 'Произошла ошибка',
-    [BlogKeyset.PostLoadError]: 'Посты не загрузились',
-    [BlogKeyset.TitleEmptyContainer]: 'Возможно, мы об этом ещё не написали',
-    [BlogKeyset.ContextEmptyContainer]:
+    [Keyset.TitleBlog]: 'Блог',
+    [Keyset.TitleBreadcrumbsBlog]: 'Блог',
+    [Keyset.TitleSuggest]: 'Читать также',
+    [Keyset.ActionShare]: 'Поделиться',
+    [Keyset.ActionTryAgain]: 'Попробуйте ещё раз',
+    [Keyset.ActionLoadMore]: 'Показать ещё',
+    [Keyset.ErrorTitle]: 'Произошла ошибка',
+    [Keyset.PostLoadError]: 'Посты не загрузились',
+    [Keyset.TitleEmptyContainer]: 'Возможно, мы об этом ещё не написали',
+    [Keyset.ContextEmptyContainer]:
         'Пожалуйста, проверьте правильность написания или попробуйте другие ключевые слова',
-    [BlogKeyset.ButtonBegin]: 'В начало',
-    [BlogKeyset.ButtonFarther]: 'Дальше',
-    [BlogKeyset.Search]: 'Поиск',
-    [BlogKeyset.AllTags]: 'Все темы',
-    [BlogKeyset.ActionSavedOnly]: 'Сохранённые',
-    [BlogKeyset.AllServices]: 'Все сервисы',
-    [BlogKeyset.ContextReadingTime]: [
+    [Keyset.ButtonBegin]: 'В начало',
+    [Keyset.ButtonFarther]: 'Дальше',
+    [Keyset.Search]: 'Поиск',
+    [Keyset.AllTags]: 'Все темы',
+    [Keyset.ActionSavedOnly]: 'Сохранённые',
+    [Keyset.AllServices]: 'Все сервисы',
+    [Keyset.ContextReadingTime]: [
         '{{count}} минута чтения',
         '{{count}} минуты чтения',
         '{{count}} минут чтения',

@@ -1,3 +1,0 @@
-Block "Blog author"
-
-`TODO`

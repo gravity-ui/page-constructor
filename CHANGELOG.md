@@ -1,5 +1,9 @@
 # Change log
 
+## 0.18.0
+
+- Refactor naming
+
 ## 0.17.1
 
 - @gravity-ui/uikit 3.10.1 (fix share tooltip)
@@ -18,7 +22,7 @@
 
 ## 0.15.1
 
-- Do not show pointer cursor on save button title hover when the button is not clicable
+- Do not show pointer cursor on save button title hover when the button is not clickable
 
 ## 0.15.0
 

@@ -10,7 +10,7 @@ import {useIsIPhone} from '../../hooks/useIsIPhone';
 import {Close} from '../../icons/Close';
 import {SearchIcon} from '../../icons/SearchIcon';
 
-import {i18, BlogKeyset} from '../../i18n';
+import {i18, Keyset} from '../../i18n';
 
 import {block} from '../../utils/cn';
 
@@ -40,7 +40,7 @@ export const Search: React.FC<SearchProps> = (props) => {
         initialValue,
         onSubmit,
         debounce = 300,
-        placeholder = i18(BlogKeyset.Search),
+        placeholder = i18(Keyset.Search),
         size = 'm',
         autoFocus = false,
         value: externalValue,

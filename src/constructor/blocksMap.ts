@@ -1,32 +1,32 @@
-import {BlockType} from '../models/blog';
+import {BlockType} from '../models/common';
 
-import {BlogHeader} from '../blocks/BlogHeader/BlogHeader';
-import {YFMBlock} from '../blocks/BlogYFM/BlogYFM';
-import {BlogLayout} from '../blocks/BlogLayout/BlogLayout';
-import {BlogMediaBlock} from '../blocks/BlogMedia/BlogMedia';
-import {BlogCTABlock} from '../blocks/BlogCTA/BlogCTA';
-import {BlogColoredTextBlock} from '../blocks/BlogColoredText/BlogColoredText';
-import {BlogAuthorBlock} from '../blocks/BlogAuthor/BlogAuthor';
-import {BlogSuggestBlock} from '../blocks/BlogSuggest/BlogSuggest';
-import {BlogBannerBlock} from '../blocks/BlogBanner/BlogBanner';
-import {MetaBlock} from '../blocks/BlogMeta/BlogMeta';
-import {BlogFeed} from '../blocks/BlogFeed/BlogFeed';
+import {Header} from '../blocks/Header/Header';
+import {YFM} from '../blocks/YFM/YFM';
+import {Layout} from '../blocks/Layout/Layout';
+import {Media} from '../blocks/Media/Media';
+import {CTA} from '../blocks/CTA/CTA';
+import {ColoredText} from '../blocks/ColoredText/ColoredText';
+import {Author} from '../blocks/Author/Author';
+import {Suggest} from '../blocks/Suggest/Suggest';
+import {Banner} from '../blocks/Banner/Banner';
+import {Meta} from '../blocks/Meta/Meta';
+import {Feed} from '../blocks/Feed/Feed';
 
 const blocks = {
-    [BlockType.BlogYFMBlock]: YFMBlock,
-    [BlockType.BlogLayoutBlock]: BlogLayout,
-    [BlockType.BlogMediaBlock]: BlogMediaBlock,
-    [BlockType.BlogBannerBlock]: BlogBannerBlock,
-    [BlockType.BlogCTABlock]: BlogCTABlock,
-    [BlockType.BlogColoredTextBlock]: BlogColoredTextBlock,
-    [BlockType.BlogAuthorBlock]: BlogAuthorBlock,
-    [BlockType.BlogSuggestBlock]: BlogSuggestBlock,
-    [BlockType.BlogMetaBlock]: MetaBlock,
-    [BlockType.BlogFeedBlock]: BlogFeed,
+    [BlockType.YFM]: YFM,
+    [BlockType.Layout]: Layout,
+    [BlockType.Media]: Media,
+    [BlockType.Banner]: Banner,
+    [BlockType.CTA]: CTA,
+    [BlockType.ColoredText]: ColoredText,
+    [BlockType.Author]: Author,
+    [BlockType.Suggest]: Suggest,
+    [BlockType.Meta]: Meta,
+    [BlockType.Feed]: Feed,
 };
 
 const headers = {
-    [BlockType.BlogHeaderBlock]: BlogHeader,
+    [BlockType.Header]: Header,
 };
 
 export default {blocks, headers};
