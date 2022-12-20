@@ -25,14 +25,10 @@ type MediaProps = Partial<
 export type MediaFullProps = MediaProps & ClassNameProps;
 
 export const Media: React.FC<MediaFullProps> = ({
-    youtube,
-    image,
-    video,
-    dataLens,
     text,
-    previewImg,
     paddingTop,
     paddingBottom,
+    ...mediaProps
 }) => (
     <Wrapper
         paddings={{
@@ -46,11 +42,7 @@ export const Media: React.FC<MediaFullProps> = ({
                 className={b('content')}
                 videoClassName={b('video')}
                 imageClassName={b('image')}
-                video={video}
-                youtube={youtube}
-                image={image}
-                dataLens={dataLens}
-                previewImg={previewImg}
+                {...mediaProps}
             />
         </div>
         {text && (
