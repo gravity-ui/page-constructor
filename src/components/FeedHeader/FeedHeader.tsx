@@ -23,9 +23,7 @@ type HeaderProps = Pick<HeaderBlockProps, 'background' | 'offset' | 'theme' | 'v
 
 type FeedHeaderProps = HeaderProps & ControlsProps;
 
-// TODO fix any in https://st.yandex-team.ru/ORION-1447
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-type FeedHeaderContainerProps = FeedHeaderProps & ClassNameProps & any;
+type FeedHeaderContainerProps = FeedHeaderProps & ClassNameProps;
 
 export const FeedHeader: React.FC<FeedHeaderContainerProps> = ({
     tags,
@@ -52,11 +50,15 @@ export const FeedHeader: React.FC<FeedHeaderContainerProps> = ({
             <Grid className={b('content', {offset, theme, 'vertical-offset': verticalOffset})}>
                 {backgroundThemed ? (
                     <BackgroundImage
-                        src={background.url}
+                        src={backgroundThemed?.url}
                         className={b('background')}
                         imageClassName={b('background-img')}
-                        style={{backgroundColor: background.fullWidth ? '' : background?.color}}
-                        disableCompress={background?.disableCompress}
+                        style={{
+                            backgroundColor: backgroundThemed.fullWidth
+                                ? ''
+                                : backgroundThemed?.color,
+                        }}
+                        disableCompress={backgroundThemed?.disableCompress}
                     />
                 ) : null}
                 <Controls

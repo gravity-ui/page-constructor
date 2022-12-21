@@ -1,5 +1,6 @@
-import React, {useRef, useCallback, useEffect, useState} from 'react';
+import React, {useRef, useEffect, useState} from 'react';
 import _ from 'lodash';
+
 import {TextInput} from '@gravity-ui/uikit';
 import {ClassNameProps} from '@yandex-data-ui/cloud-components';
 
@@ -45,9 +46,9 @@ export const Search: React.FC<SearchProps> = (props) => {
         autoFocus = false,
         value: externalValue,
     } = props;
+    const handleChange = _.debounce(onSubmit, debounce);
+
     const [value, setValue] = useState<string>(initialValue);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    const onChangeDebounce = useCallback(_.debounce(onSubmit, debounce), []);
     const inputRef = useRef<HTMLInputElement>(null);
     const isIPhone = useIsIPhone();
 
@@ -70,7 +71,7 @@ export const Search: React.FC<SearchProps> = (props) => {
                     value={value}
                     onUpdate={(query) => {
                         setValue(query);
-                        onChangeDebounce(query);
+                        handleChange(query);
                     }}
                     placeholder={placeholder}
                     className={b('search-suggest')}
@@ -85,7 +86,7 @@ export const Search: React.FC<SearchProps> = (props) => {
                     iconSize={CLOSE_ICON_SIZE}
                     size="xs"
                     onClick={() => {
-                        onChangeDebounce.cancel();
+                        handleChange.cancel();
                         setValue('');
                         onSubmit('');
                     }}

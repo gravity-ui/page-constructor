@@ -1,6 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import {parse} from 'fast-html-parser';
-import {format} from 'url';
+import {format, parse} from 'url';
 import _ from 'lodash';
 
 import {
@@ -12,6 +10,8 @@ import {
 } from '@gravity-ui/page-constructor';
 
 import {i18, Keyset} from '../i18n';
+
+import {RouterContextProps} from '../contexts/RouterContext';
 
 import {BlogPostTag, GetBlogPostsRequest, Query} from '../models/common';
 
@@ -49,12 +49,12 @@ export interface RouterActionOptions {
     shallow?: boolean;
 }
 
-export function getAbsolutePath(router: any, url?: string) {
+export function getAbsolutePath(router: RouterContextProps, url?: string) {
     if (!router || !router.pathname) {
         return url ?? '';
     }
 
-    const parsed: any = parse(url || router.as || '');
+    const parsed = parse(url || router.as || '');
 
     return format({
         ...parsed,

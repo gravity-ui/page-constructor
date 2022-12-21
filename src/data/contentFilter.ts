@@ -67,8 +67,7 @@ export const filterItems = ({items, itemsKey, options}: FilterItemsProps) => {
  */
 export const filterContent = (content: unknown, options: FilteringOptions) => {
     if (Array.isArray(content)) {
-        // @ts-ignore
-        return filterItems({items: content, itemsKey: null, options}).map((item) =>
+        return filterItems({items: content, itemsKey: '', options}).map((item: unknown) =>
             filterContent(item, options),
         );
     } else if (content && typeof content === 'object') {
