@@ -40,9 +40,9 @@ $block: '.#{$namespace}media';
         height: 100%;
 
         > video {
-            border-radius: var(--bc-border-radius);
             width: 100%;
             height: auto;
+            border-radius: var(--bc-border-radius);
         }
     }
 

@@ -1,10 +1,12 @@
-import React, {useContext, useMemo} from 'react';
+import React, {useContext} from 'react';
 import {HeaderBlock, HeaderBlockProps} from '@gravity-ui/page-constructor';
 
 import {PostPageContext} from '../../contexts/PostPageContext';
 
 import {PostInfo, BlogMetrikaGoals} from '../../components/PostInfo/PostInfo';
-import {Wrapper, PaddingSize} from '../../components/Wrapper/Wrapper';
+import {Wrapper} from '../../components/Wrapper/Wrapper';
+
+import {PaddingsDirections, PaddingsYFMProps} from '../../models/paddings';
 
 import {getBreadcrumbs} from '../../utils/common';
 
@@ -22,10 +24,7 @@ const breadcrumbsGoals = [
     },
 ];
 
-export type HeaderProps = HeaderBlockProps & {
-    paddingTop?: PaddingSize;
-    paddingBottom?: PaddingSize;
-};
+export type HeaderProps = HeaderBlockProps & PaddingsYFMProps;
 
 export const Header: React.FC<HeaderProps> = (props) => {
     const {theme, paddingTop, paddingBottom} = props;
@@ -41,19 +40,19 @@ export const Header: React.FC<HeaderProps> = (props) => {
 
     breadcrumbs.metrikaGoals = breadcrumbsGoals;
 
-    const headerProps = useMemo(
-        () => ({
-            ...props,
-            title: title || '',
-            description: description || '',
-            breadcrumbs,
-        }),
-        [breadcrumbs, description, title, props],
-    );
-
     return (
-        <Wrapper paddingTop={paddingTop} paddingBottom={paddingBottom}>
-            <HeaderBlock {...headerProps}>
+        <Wrapper
+            paddings={{
+                [PaddingsDirections.top]: paddingTop,
+                [PaddingsDirections.bottom]: paddingBottom,
+            }}
+        >
+            <HeaderBlock
+                {...props}
+                title={title}
+                description={description}
+                breadcrumbs={breadcrumbs}
+            >
                 <PostInfo
                     postId={id}
                     date={date}

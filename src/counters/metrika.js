@@ -1,6 +1,3 @@
-import {createLogger} from '../utils/logger';
-import {getWarnOnce} from './utils';
-
 const Goal = {
     SUPPORT_OPEN_FORM: 'SUPPORTOPENFORM',
     SUPPORT_STEP_1_SUBMIT: 'SUPPORTSTEP1SUBMIT',
@@ -39,8 +36,6 @@ const HIT_COUNTERS = ['main', 'cross-site', 'scale'];
 
 const counterIds = {};
 
-const warnOnce = getWarnOnce(createLogger('metrika'));
-
 function getCounter(name) {
     const counterId = counterIds[name];
 
@@ -58,7 +53,6 @@ function hit(...args) {
         const counter = getCounter(counterName);
 
         if (!counter) {
-            warnOnce(counterName);
             return;
         }
 
@@ -70,7 +64,6 @@ function params(...args) {
     const counter = getCounter('main');
 
     if (!counter) {
-        warnOnce('main');
         return;
     }
 
@@ -81,7 +74,6 @@ function reachGoal(counterName, ...args) {
     const counter = getCounter(counterName);
 
     if (!counter) {
-        warnOnce(counterName);
         return;
     }
 

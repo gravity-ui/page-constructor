@@ -6,7 +6,9 @@ import {
     YFMWrapper,
 } from '@gravity-ui/page-constructor';
 
-import {Wrapper, PaddingSize} from '../../components/Wrapper/Wrapper';
+import {Wrapper} from '../../components/Wrapper/Wrapper';
+
+import {PaddingsDirections, PaddingsYFMProps} from '../../models/paddings';
 
 import {block} from '../../utils/cn';
 
@@ -18,33 +20,29 @@ type MediaProps = Partial<
     Pick<PCMediaProps, 'youtube' | 'previewImg' | 'image' | 'video' | 'dataLens'>
 > & {
     text?: string;
-    paddingTop?: PaddingSize;
-    paddingBottom?: PaddingSize;
-};
+} & PaddingsYFMProps;
 
 export type MediaFullProps = MediaProps & ClassNameProps;
 
 export const Media: React.FC<MediaFullProps> = ({
-    youtube,
-    image,
-    video,
-    dataLens,
     text,
-    previewImg,
     paddingTop,
     paddingBottom,
+    ...mediaProps
 }) => (
-    <Wrapper paddingTop={paddingTop} paddingBottom={paddingBottom} className={b('container')}>
+    <Wrapper
+        paddings={{
+            [PaddingsDirections.top]: paddingTop,
+            [PaddingsDirections.bottom]: paddingBottom,
+        }}
+        className={b('container')}
+    >
         <div className={b('border')} data-qa="blog-media-content">
             <PCMedia
                 className={b('content')}
                 videoClassName={b('video')}
                 imageClassName={b('image')}
-                video={video}
-                youtube={youtube}
-                image={image}
-                dataLens={dataLens}
-                previewImg={previewImg}
+                {...mediaProps}
             />
         </div>
         {text && (

@@ -23,23 +23,6 @@ import {
     DEFAULT_PAGE,
 } from '../blocks/constants';
 
-export function setUrlTld(url: string, tld = 'ru', force = false) {
-    if (!url || typeof url !== 'string') {
-        return url;
-    }
-
-    const newUrl = url.replace(/\${tld}/g, tld);
-
-    if (!force) {
-        return newUrl;
-    }
-
-    const urlObject = new URL(newUrl);
-    urlObject.hostname = urlObject.hostname.replace(/\.\w+$/, `.${tld}`);
-
-    return urlObject.href;
-}
-
 export interface QueryParam {
     name: string;
     value?: string | number | null;
@@ -62,10 +45,6 @@ export function getAbsolutePath(router: any, url?: string) {
         hostname: parsed.hostname || router.hostname,
         pathname: parsed.pathname || router.pathname,
     });
-}
-
-export function isRootPage(pathname: string) {
-    return pathname === '/';
 }
 
 export const getPageSearchParams = (query: Query = {}) => {
@@ -120,11 +99,12 @@ export const getTagFilterUrl = (tagId: string | number) => {
     return '/blog?tags=' + tagId;
 };
 
-export const checkContentDefaults = (contentData: ContentBlockProps) => {
-    contentData.size = contentData.size || CONTENT_DEFAULT_SIZE;
-    contentData.colSizes = contentData.colSizes || CONTENT_DEFAULT_COL_SIZES;
-    contentData.theme = contentData.theme || CONTENT_DEFAULT_THEME;
-};
+export const updateContentSizes = ({size, colSizes, theme, ...contentData}: ContentBlockProps) => ({
+    ...contentData,
+    size: size || CONTENT_DEFAULT_SIZE,
+    colSizes: colSizes || CONTENT_DEFAULT_COL_SIZES,
+    theme: theme || CONTENT_DEFAULT_THEME,
+});
 
 type GetBreadcrumbsProps = {
     tags?: BlogPostTag[];

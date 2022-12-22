@@ -73,11 +73,3 @@ export const format = (
     formatCode: keyof DateTimeFormatter,
     localeCode = defaultRegion,
 ) => getDateTimeFormatter(localeCode)[formatCode].format(new Date(date));
-
-export const toTimeZone = (date: number | string | Date, timeZone: string) => {
-    let dateWithTimeZone = date;
-    try {
-        dateWithTimeZone = new Date(date).toLocaleString('en', {timeZone});
-    } catch (ex) {}
-    return new Date(dateWithTimeZone).toString();
-};

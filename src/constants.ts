@@ -1,3 +1,5 @@
+import {PaddingsDirections, Paddings} from './models/paddings';
+
 export const BREAKPOINTS = {
     xs: 0,
     sm: 577,
@@ -9,16 +11,6 @@ export const BREAKPOINTS = {
 export const BlogFilters = {
     Date: 'date',
     Popularity: 'likes',
-};
-
-export const KEY_CODES = {
-    ARROW_LEFT: 37,
-    ARROW_TOP: 38,
-    ARROW_RIGHT: 39,
-    ARROW_BOTTOM: 40,
-    ENTER: 13,
-    SPACE: 32,
-    ESC: 27,
 };
 
 export const DEFAULT_THEME = 'light';
@@ -40,3 +32,8 @@ export enum BlogMetrikaGoalIds {
     home = 'SITE_BLOG-PAGINATION_HOME_CLCK',
     page = 'SITE_BLOG-PAGINATION_PAGE-NMBR_CLCK',
 }
+
+export const DEFAULT_PADDINGS: Paddings = {
+    [PaddingsDirections.bottom]: 'l',
+    [PaddingsDirections.top]: 'xs',
+};

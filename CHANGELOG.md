@@ -1,6 +1,12 @@
 # Change log
 
+## 0.18.1
+
+- Delete useless utils and small refactor
+
 ## 0.18.0
+
+### Breaking changes
 
 - Refactor naming
 
