@@ -1,10 +1,12 @@
 import React from 'react';
 import {Content, ContentBlockProps, Image, NewMetrikaGoal} from '@gravity-ui/page-constructor';
 
-import {Wrapper, PaddingSize} from '../../components/Wrapper/Wrapper';
+import {Wrapper} from '../../components/Wrapper/Wrapper';
 
-import {getBlogElementMetrika, checkContentDefaults} from '../../utils/common';
+import {getBlogElementMetrika, updateContentSizes} from '../../utils/common';
 import {block} from '../../utils/cn';
+
+import {PaddingsDirections, PaddingsYFMProps} from '../../models/paddings';
 
 import {BlogMetrikaGoalIds} from '../../constants';
 
@@ -17,9 +19,7 @@ export type BannerProps = ContentBlockProps & {
     color?: string;
     image?: string;
     imageSize?: 's' | 'm';
-    paddingTop?: PaddingSize;
-    paddingBottom?: PaddingSize;
-};
+} & PaddingsYFMProps;
 
 export const Banner: React.FC<BannerProps> = ({
     color,
@@ -27,7 +27,7 @@ export const Banner: React.FC<BannerProps> = ({
     image,
     paddingTop,
     paddingBottom,
-    ...contentData
+    ...content
 }) => {
     const contentStyle: Record<string, string> = {};
 
@@ -35,7 +35,7 @@ export const Banner: React.FC<BannerProps> = ({
         contentStyle.backgroundColor = color;
     }
 
-    checkContentDefaults(contentData);
+    const contentData = updateContentSizes(content);
 
     const metrikaGoal: NewMetrikaGoal = {
         name: BlogMetrikaGoalIds.bannerCommon,
@@ -47,7 +47,13 @@ export const Banner: React.FC<BannerProps> = ({
     });
 
     return (
-        <Wrapper paddingTop={paddingTop} paddingBottom={paddingBottom} className={b('container')}>
+        <Wrapper
+            paddings={{
+                [PaddingsDirections.top]: paddingTop,
+                [PaddingsDirections.bottom]: paddingBottom,
+            }}
+            className={b('container')}
+        >
             <div className={b('content')} style={contentStyle} data-qa="blog-banner-content">
                 <div className={b('info')}>
                     <Content {...contentData} />

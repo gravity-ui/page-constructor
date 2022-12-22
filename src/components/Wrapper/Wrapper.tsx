@@ -4,30 +4,31 @@ import {ClassNameProps} from '../../models/common';
 
 import {block} from '../../utils/cn';
 
+import {Paddings} from '../../models/paddings';
+import {DEFAULT_PADDINGS} from '../../constants';
+
 import './Wrapper.scss';
 
 const b = block('wrapper');
 
-export type PaddingSize = 'xs' | 's' | 'm' | 'l' | 'xl';
-
 type WrapperProps = ClassNameProps & {
-    paddingTop?: PaddingSize;
-    paddingBottom?: PaddingSize;
+    paddings?: Paddings;
     dataQa?: string;
 };
 
 export const Wrapper: React.FunctionComponent<WrapperProps> = ({
     children,
-    paddingTop = 'xs',
-    paddingBottom = 'l',
+    paddings = DEFAULT_PADDINGS,
     className,
     dataQa,
 }) => (
     <section
         className={b(
             {
-                ['padding-top']: paddingTop,
-                ['padding-bottom']: paddingBottom,
+                ['padding-top']: paddings?.top || 'xs',
+                ['padding-bottom']: paddings?.bottom || 'l',
+                ['padding-left']: paddings?.left || '',
+                ['padding-right']: paddings?.right || '',
             },
             className,
         )}
