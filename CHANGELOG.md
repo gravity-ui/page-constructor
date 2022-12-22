@@ -6,6 +6,8 @@
 
 ## 0.18.0
 
+### Breaking changes
+
 - Refactor naming
 
 ## 0.17.1
