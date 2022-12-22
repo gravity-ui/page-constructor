@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.10.4](https://github.com/gravity-ui/page-constructor/compare/v1.10.3...v1.10.4) (2022-12-22)
+
+
+### Bug Fixes
+
+* **Image:** desktop webp ([#90](https://github.com/gravity-ui/page-constructor/issues/90)) ([2940078](https://github.com/gravity-ui/page-constructor/commit/2940078045246d7cf4af9eb4ad845deb9b3e4576))
+
 ## [1.10.3](https://github.com/gravity-ui/page-constructor/compare/v1.10.2...v1.10.3) (2022-12-15)
 
 
