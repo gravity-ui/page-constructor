@@ -5,16 +5,16 @@ import {CardBase, YFMWrapper, MetrikaGoal, HTML} from '@gravity-ui/page-construc
 import {LikesContext} from '../../contexts/LikesContext';
 
 import {SuggestPostInfo} from '../PostInfo/SuggestPostInfo';
-import {BlogPostData} from '../../models/common';
+import {PostData} from '../../models/common';
 
 import {block} from '../../utils/cn';
 
 import './PostCard.scss';
 
-const b = block('blog-post-card');
+const b = block('post-card');
 
 type PostCardProps = {
-    post: BlogPostData;
+    post: PostData;
     fullWidth?: boolean;
     showTag?: boolean;
     size?: 's' | 'm';

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {ClassNameProps} from '@yandex-data-ui/cloud-components';
+import {ClassNameProps} from '../../models/common';
 
 import {block} from '../../utils/cn';
 

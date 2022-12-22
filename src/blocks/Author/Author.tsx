@@ -1,7 +1,7 @@
 import React, {useMemo, useContext} from 'react';
 
 import {Author as PCAuthor, AuthorType} from '@gravity-ui/page-constructor';
-import {ClassNameProps} from '@yandex-data-ui/cloud-components';
+import {ClassNameProps} from '../../models/common';
 
 import {PostPageContext} from '../../contexts/PostPageContext';
 

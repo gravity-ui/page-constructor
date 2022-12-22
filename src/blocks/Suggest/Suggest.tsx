@@ -1,6 +1,5 @@
 import React, {useContext} from 'react';
 
-import {ClassNameProps} from '@yandex-data-ui/cloud-components';
 import {SliderBlock} from '@gravity-ui/page-constructor';
 
 import {i18, Keyset} from '../../i18n';
@@ -8,7 +7,7 @@ import {i18, Keyset} from '../../i18n';
 import {Wrapper, PaddingSize} from '../../components/Wrapper/Wrapper';
 import {PostCard} from '../../components/PostCard/PostCard';
 
-import {BlogPostData} from '../../models/common';
+import {PostData, ClassNameProps} from '../../models/common';
 
 import {PostPageContext} from '../../contexts/PostPageContext';
 
@@ -22,7 +21,7 @@ const metrikaGoals = [
 ];
 
 type SuggestProps = {
-    posts: BlogPostData[];
+    posts: PostData[];
     paddingTop: PaddingSize;
     paddingBottom: PaddingSize;
 };

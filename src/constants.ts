@@ -6,11 +6,6 @@ export const BREAKPOINTS = {
     xl: 1185,
 };
 
-export const BlogFilters = {
-    Date: 'date',
-    Popularity: 'likes',
-};
-
 export const KEY_CODES = {
     ARROW_LEFT: 37,
     ARROW_TOP: 38,

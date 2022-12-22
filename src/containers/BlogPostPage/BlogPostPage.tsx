@@ -8,7 +8,7 @@ import {
 } from '@gravity-ui/page-constructor';
 import {ShareOptions} from '@gravity-ui/uikit';
 
-import {BlogPostData, ToggleLikeCallbackType, MetaProps} from '../../models/common';
+import {PostData, ToggleLikeCallbackType, MetaProps} from '../../models/common';
 
 import componentMap from '../../constructor/blocksMap';
 
@@ -22,7 +22,7 @@ import {MetaWrapper} from '../../components/MetaWrapper/MetaWrapper';
 import './BlogPostPage.scss';
 
 export interface BlogPostPageProps {
-    suggestedPosts: BlogPostData[];
+    suggestedPosts: PostData[];
     metaData?: MetaProps;
     likes?: {
         hasUserLike?: boolean;
@@ -30,7 +30,7 @@ export interface BlogPostPageProps {
         toggleLike?: ToggleLikeCallbackType;
     };
     content: PageContent;
-    post: BlogPostData;
+    post: PostData;
     settings?: PageConstructorProviderProps;
     shareOptions?: ShareOptions[];
 }

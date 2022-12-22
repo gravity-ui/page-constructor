@@ -3,7 +3,7 @@ import React, {MouseEvent} from 'react';
 import {CardLayoutBlock} from '@gravity-ui/page-constructor';
 import {Button} from '@gravity-ui/uikit';
 
-import {BlogPostData} from '../../models/common';
+import {PostData} from '../../models/common';
 
 import {i18, Keyset} from '../../i18n';
 
@@ -30,8 +30,8 @@ type PostCardProps = {
         value?: MouseEvent<HTMLButtonElement | HTMLAnchorElement>,
     ) => Promise<void> | void;
     handlePageChange: (value: number) => Promise<void> | void;
-    postsOnPage?: BlogPostData[];
-    pinnedPostOnPage?: BlogPostData;
+    postsOnPage?: PostData[];
+    pinnedPostOnPage?: PostData;
     pageCountForShowSupportButtons?: number;
 };
 

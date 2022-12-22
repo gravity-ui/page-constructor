@@ -7,8 +7,8 @@ const KEYSET_NAME = 'blog';
 export const i18n = new I18N();
 
 export enum Keyset {
-    TitleBlog = 'title_blog',
-    TitleBreadcrumbsBlog = 'title_breadcrumbs_blog',
+    Title = 'title',
+    TitleBreadcrumbs = 'title_breadcrumbs',
     TitleSuggest = 'title_suggest',
     ActionShare = 'action_share',
     ContextReadingTime = 'context_reading_time',
@@ -27,8 +27,8 @@ export enum Keyset {
 }
 
 i18n.registerKeyset(Lang.En, KEYSET_NAME, {
-    [Keyset.TitleBlog]: 'Blog',
-    [Keyset.TitleBreadcrumbsBlog]: 'Blog',
+    [Keyset.Title]: 'Blog',
+    [Keyset.TitleBreadcrumbs]: 'Blog',
     [Keyset.TitleSuggest]: 'See also',
     [Keyset.ActionShare]: 'Share',
     [Keyset.ActionTryAgain]: 'Try again',
@@ -51,8 +51,8 @@ i18n.registerKeyset(Lang.En, KEYSET_NAME, {
 });
 
 i18n.registerKeyset(Lang.Ru, KEYSET_NAME, {
-    [Keyset.TitleBlog]: 'Блог',
-    [Keyset.TitleBreadcrumbsBlog]: 'Блог',
+    [Keyset.Title]: 'Блог',
+    [Keyset.TitleBreadcrumbs]: 'Блог',
     [Keyset.TitleSuggest]: 'Читать также',
     [Keyset.ActionShare]: 'Поделиться',
     [Keyset.ActionTryAgain]: 'Попробуйте ещё раз',

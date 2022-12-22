@@ -1,12 +1,11 @@
 import React from 'react';
 import {ShareOptions} from '@gravity-ui/uikit';
 
-import {BlogPostData} from '../models/common';
+import {PostData} from '../models/common';
 
 export interface PostPageContextProps {
-    // Should we change Blog Context? https://st.yandex-team.ru/CLOUDFRONT-10460
-    post: BlogPostData;
-    suggestedPosts: BlogPostData[];
+    post: PostData;
+    suggestedPosts: PostData[];
     likes?: {
         handleUserLike: () => void;
         hasUserLike: boolean;

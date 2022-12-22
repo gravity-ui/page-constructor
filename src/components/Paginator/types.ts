@@ -1,7 +1,7 @@
 import {ReactNode} from 'react';
 import {Modifications} from 'bem-cn-lite';
 
-import {ClassNameProps} from '@yandex-data-ui/cloud-components';
+import {ClassNameProps} from '../../models/common';
 
 export interface PaginatorItemProps {
     key: string | ArrowType;

@@ -1,6 +1,8 @@
 import React from 'react';
 import {Icon} from '@gravity-ui/uikit';
-import {ClassNameProps} from '@yandex-data-ui/cloud-components';
+
+import {ClassNameProps} from '../../models/common';
+
 import {SVGIconData} from '@gravity-ui/uikit/build/esm/components/Icon/types';
 
 import {block} from '../../utils/cn';

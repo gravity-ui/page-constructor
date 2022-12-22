@@ -2,7 +2,7 @@ import React, {useContext} from 'react';
 
 import {PostPageContext} from '../../contexts/PostPageContext';
 
-import {BlogPostData} from '../../models/common';
+import {PostData} from '../../models/common';
 
 import {Date} from './components/Date';
 import {ReadingTime} from './components/ReadingTime';
@@ -21,9 +21,9 @@ export type BlogMetrikaGoals = {
 };
 
 type PostInfoProps = {
-    postId: BlogPostData['id'];
-    readingTime: BlogPostData['readingTime'];
-    date: BlogPostData['date'];
+    postId: PostData['id'];
+    readingTime: PostData['readingTime'];
+    date: PostData['date'];
     theme?: 'light' | 'dark';
     metrikaGoals?: BlogMetrikaGoals;
     dataQa?: string;

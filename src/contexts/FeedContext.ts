@@ -1,15 +1,14 @@
-import {ServicePublic} from '@yandex-data-ui/cloud-schemas/build/models/ui-api';
 import React from 'react';
 
-import {BlogPostData, BlogPostTag, SetQueryType, GetBlogPostsType} from '../models/common';
+import {PostData, PostTag, SetQueryType, GetPostsType, Service} from '../models/common';
 
 export interface FeedContextProps {
-    posts?: BlogPostData[];
-    pinnedPost?: BlogPostData;
+    posts?: PostData[];
+    pinnedPost?: PostData;
     totalCount?: number;
-    tags?: BlogPostTag[];
-    services?: ServicePublic[];
-    getPosts?: GetBlogPostsType;
+    tags?: PostTag[];
+    services?: Service[];
+    getPosts?: GetPostsType;
     setQuery?: SetQueryType;
     pageCountForShowSupportButtons?: number;
 }

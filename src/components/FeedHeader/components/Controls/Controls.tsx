@@ -23,7 +23,7 @@ import {HandleChangeQueryParams, SetQueryType, Query} from '../../../../models/c
 
 import './Controls.scss';
 
-const b = block('blog-feed-controls');
+const b = block('feed-controls');
 
 export type SelectItem = {
     title: string;
@@ -133,7 +133,7 @@ export const Controls: React.FC<ControlsProps> = ({
 
     return (
         <div className={b('header')}>
-            <h1 className={b('header-item', {title: true})}>{i18(Keyset.TitleBlog)}</h1>
+            <h1 className={b('header-item', {title: true})}>{i18(Keyset.Title)}</h1>
             <div className={b('header-item', {filters: true})}>
                 <div className={b('filter-item')}>
                     <Search

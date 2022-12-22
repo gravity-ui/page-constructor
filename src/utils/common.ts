@@ -13,7 +13,7 @@ import {i18, Keyset} from '../i18n';
 
 import {RouterContextProps} from '../contexts/RouterContext';
 
-import {BlogPostTag, GetBlogPostsRequest, Query} from '../models/common';
+import {PostTag, GetPostsRequest, Query} from '../models/common';
 
 import {
     CONTENT_DEFAULT_COL_SIZES,
@@ -97,7 +97,7 @@ export const scrollToHash = (hash: string, browser?: string) => {
 
 type CloudListTagStub = {};
 
-export const getTags = _.memoize((tags: BlogPostTag[]) => {
+export const getTags = _.memoize((tags: PostTag[]) => {
     return tags.map(({slug, ...tag}) => {
         const queryParams = new URLSearchParams();
         queryParams.set('tags', slug);
@@ -127,12 +127,12 @@ export const checkContentDefaults = (contentData: ContentBlockProps) => {
 };
 
 type GetBreadcrumbsProps = {
-    tags?: BlogPostTag[];
+    tags?: PostTag[];
 };
 
 export const getBreadcrumbs = ({tags}: GetBreadcrumbsProps) => {
     const breadcrumbs: HeaderBreadCrumbsProps = {
-        items: [{text: i18(Keyset.TitleBreadcrumbsBlog), url: '/blog'}],
+        items: [{text: i18(Keyset.TitleBreadcrumbs), url: '/blog'}],
         theme: 'light',
     };
 
@@ -168,10 +168,7 @@ export const getBlogElementMetrika = (
     }
 };
 
-export const getFeedQueryParams = (
-    queryString: Query,
-    pageNumber?: number,
-): GetBlogPostsRequest => {
+export const getFeedQueryParams = (queryString: Query, pageNumber?: number): GetPostsRequest => {
     const queryParams = getPageSearchParams(queryString);
     const tags = queryParams.get('tags') || undefined;
     const page = pageNumber || Number(queryParams.get('page') || DEFAULT_PAGE);

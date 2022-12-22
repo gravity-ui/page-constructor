@@ -1,6 +1,5 @@
 import React from 'react';
 
-import {ServicePublic} from '@yandex-data-ui/cloud-schemas/build/models/ui-api';
 import {
     PageConstructor,
     PageContent,
@@ -16,22 +15,23 @@ import {MetaWrapper} from '../../components/MetaWrapper/MetaWrapper';
 import componentMap from '../../constructor/blocksMap';
 
 import {
-    BlogPostTag,
-    BlogPagePostsData,
+    PostTag,
+    PostsPageData,
     ToggleLikeCallbackType,
     MetaProps,
-    GetBlogPostsType,
+    GetPostsType,
     SetQueryType,
+    Service,
 } from '../../models/common';
 
 import './BlogPage.scss';
 
 export type BlogPageProps = {
     content: PageContent;
-    posts: BlogPagePostsData;
-    tags: BlogPostTag[];
-    services?: ServicePublic[];
-    getPosts: GetBlogPostsType;
+    posts: PostsPageData;
+    tags: PostTag[];
+    services?: Service[];
+    getPosts: GetPostsType;
     toggleLike?: ToggleLikeCallbackType;
     metaData?: MetaProps;
     setQuery?: SetQueryType;
