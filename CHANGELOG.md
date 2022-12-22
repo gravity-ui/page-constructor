@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.10.5](https://github.com/gravity-ui/page-constructor/compare/v1.10.4...v1.10.5) (2022-12-22)
+
+
+### Bug Fixes
+
+* monochrome button theme ([#89](https://github.com/gravity-ui/page-constructor/issues/89)) ([e29fe65](https://github.com/gravity-ui/page-constructor/commit/e29fe65788b844cb753d24d00c56ab31b2143333))
+
 ## [1.10.4](https://github.com/gravity-ui/page-constructor/compare/v1.10.3...v1.10.4) (2022-12-22)
 
 
