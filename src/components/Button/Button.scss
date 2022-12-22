@@ -3,12 +3,12 @@
 $block: '.#{$ns}button-block';
 
 @mixin monochromeButton() {
-    --yc-button-background-color: var(--pc-monochrome-button);
-    --yc-button-background-color-hover: var(--pc-monochrome-button-hover);
-    color: var(--yc-color-text-light-primary);
+    --yc-button-background-color: var(--pc-monochrome-button-background-color);
+    --yc-button-background-color-hover: var(--pc-monochrome-button-background-color-hover);
+    color: var(--pc-monochrome-button-color);
 
     &:hover {
-        color: var(--yc-color-text-light-primary);
+        color: var(--pc-monochrome-button-color);
     }
 }
 
