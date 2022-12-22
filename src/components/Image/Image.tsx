@@ -69,7 +69,7 @@ const Image = (props: ImageProps) => {
                     <source srcSet={tablet} media={`(max-width: ${BREAKPOINTS.md}px)`} />
                 </Fragment>
             )}
-            {desktop && !disableWebp && <source srcSet={checkWebP(imageSrc)} type="image/webp" />}
+            {imageSrc && !disableWebp && <source srcSet={checkWebP(imageSrc)} type="image/webp" />}
             <img
                 className={className}
                 src={imageSrc}
