@@ -49,8 +49,8 @@ export const Header: React.FC<HeaderProps> = (props) => {
         >
             <HeaderBlock
                 {...props}
-                title={title || ''}
-                description={description || ''}
+                title={title}
+                description={description}
                 breadcrumbs={breadcrumbs}
             >
                 <PostInfo
