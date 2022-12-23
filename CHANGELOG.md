@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.10.6](https://github.com/gravity-ui/page-constructor/compare/v1.10.5...v1.10.6) (2022-12-23)
+
+
+### Bug Fixes
+
+* **Divider:** size s ([#93](https://github.com/gravity-ui/page-constructor/issues/93)) ([d8aba9a](https://github.com/gravity-ui/page-constructor/commit/d8aba9a9d6ec5b1bec560a4d22b16fc45180c1ed))
+
 ## [1.10.5](https://github.com/gravity-ui/page-constructor/compare/v1.10.4...v1.10.5) (2022-12-22)
 
 
