@@ -106,7 +106,7 @@ export const Feed: React.FC<FeedProps> = ({image}) => {
     };
 
     const fetchAndReplaceData = useCallback(
-        async (pageNumber?: number) => {
+        async (pageNumber: number) => {
             try {
                 dispatch({type: ActionTypes.SetErrorLoad, payload: false});
                 const fetchedData = await fetchData(pageNumber);
@@ -230,7 +230,11 @@ export const Feed: React.FC<FeedProps> = ({image}) => {
                 }}
             />
             {errorLoad ? (
-                <PostsError onButtonClick={fetchAndReplaceData} />
+                <PostsError
+                    onButtonClick={() =>
+                        fetchAndReplaceData(Number(queryParams.page || DEFAULT_PAGE))
+                    }
+                />
             ) : (
                 <Posts
                     containerId={CONTAINER_ID}

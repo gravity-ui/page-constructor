@@ -55,7 +55,7 @@ export interface BasePageData {
     shareTitle?: string;
     shareDescription?: string;
     shareImage?: string;
-    service?: unknown;
+    service?: Service;
     solution?: unknown;
 }
 

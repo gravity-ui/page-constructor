@@ -1,12 +1,9 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-
 import {getConfigForCreateReadableContent} from './config';
 import {BlockType} from '../models/common';
 
-// TODO fix any https://st.yandex-team.ru/ORION-1447
-
 type CreateReadableContentProps = {
     blocks: {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         [x: string]: any;
         type: BlockType.YFM | BlockType.ColoredText | BlockType.Media;
     }[];

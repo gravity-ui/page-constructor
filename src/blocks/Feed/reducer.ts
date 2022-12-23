@@ -1,6 +1,3 @@
-// @ts-nocheck
-// TODO fix types in https://st.yandex-team.ru/ORION-1447
-
 import {Query, PostData} from '../../models/common';
 
 export enum ActionTypes {
@@ -48,6 +45,7 @@ type Action =
               posts: PostData[];
               pinnedPost?: PostData;
               count: number;
+              page: number;
           };
       }
     | {

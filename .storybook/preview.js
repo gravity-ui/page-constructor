@@ -16,7 +16,7 @@ import {ThemeProvider} from '../src/contexts/theme/ThemeProvider';
 const withCommonProvider = (Story, context) => {
     const theme = context.globals.theme;
 
-    // хак для установки темы в доке
+    // to set theme in docs
     context.parameters.backgrounds.default = theme;
     context.globals.backgrounds = {
         value: theme === 'light' ? 'white' : 'black',
@@ -24,7 +24,7 @@ const withCommonProvider = (Story, context) => {
 
     context.globals.background = theme;
 
-    // TODO: в будущем возможно появится вариант изменять динамически тему доки, нужно будет перейти на новый способ
+    // TODO: to switch docs theme dynamically in the future
     // context.parameters.docs.theme = theme === 'light' ? CommonTheme.light : CommonTheme.dark;
 
     return (

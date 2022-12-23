@@ -1,7 +1,5 @@
 import React from 'react';
 
-// TODO fixes and refactor in https://st.yandex-team.ru/ORION-1444
-
 import {PostData, ToggleLikeCallbackType} from '../../models/common';
 
 import {useLikes} from '../../hooks/useLikes';
