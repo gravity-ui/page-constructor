@@ -5,6 +5,8 @@
 ### Breaking changes
 
 - Refactor and rename types
+- Update react to 18.2.0
+- Update TS to 4.9.3
 
 ## 0.18.1
 
