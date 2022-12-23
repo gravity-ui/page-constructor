@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.10.7](https://github.com/gravity-ui/page-constructor/compare/v1.10.6...v1.10.7) (2022-12-23)
+
+
+### Bug Fixes
+
+* **Share:** schema ([#94](https://github.com/gravity-ui/page-constructor/issues/94)) ([465e039](https://github.com/gravity-ui/page-constructor/commit/465e0395413df74af8ac8be83dfe4167ae378835))
+
 ## [1.10.6](https://github.com/gravity-ui/page-constructor/compare/v1.10.5...v1.10.6) (2022-12-23)
 
 
