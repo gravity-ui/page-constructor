@@ -13,7 +13,7 @@ export const ShareBlock = {
                 type: 'array',
                 items: {
                     type: 'string',
-                    enum: ['telegram', 'facebook', 'twitter', 'vk'],
+                    enum: ['telegram', 'facebook', 'twitter', 'vk', 'linkedin'],
                 },
             },
         },
