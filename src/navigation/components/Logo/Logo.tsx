@@ -21,7 +21,7 @@ const Logo: React.FC<LogoProps> = (props) => {
     const imageData = getMediaImage(themedLogoProps.icon);
 
     return (
-        <RouterLink href="/" passHref>
+        <RouterLink href={themedLogoProps.url || '/'} passHref>
             <div className={b(null, props.className)}>
                 {imageData && <Image className={b('icon')} {...imageData} />}
                 <span className={b('text')}>{themedLogoProps.text}</span>
