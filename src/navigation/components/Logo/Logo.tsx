@@ -22,7 +22,7 @@ const Logo: React.FC<LogoProps> = (props) => {
     const textData = themedLogoProps.text || props.text;
 
     return (
-        <RouterLink href={themedLogoProps.url || '/'} passHref>
+        <RouterLink href={themedLogoProps.url || props.url || '/'} passHref>
             <div className={b(null, props.className)}>
                 {imageData && <Image className={b('icon')} {...imageData} />}
                 <span className={b('text')}>{textData}</span>
