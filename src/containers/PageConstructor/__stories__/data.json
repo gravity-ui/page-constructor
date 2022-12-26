@@ -130,7 +130,8 @@
       "icon": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_1_light.svg",
       "text": "Logo",
       "dark": {
-        "text": "Logo Dark"
+        "text": "Logo Dark",
+        "icon": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_1_dark.svg"
       },
       "light": {
         "text": "Logo Light"
