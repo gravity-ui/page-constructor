@@ -1,5 +1,5 @@
 {
-  "extends": "@yandex-data-ui/tsconfig",
+  "extends": "@gravity-ui/tsconfig",
   "compilerOptions": {
     "allowJs": false,
     "declaration": true,

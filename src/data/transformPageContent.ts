@@ -54,6 +54,7 @@ export const transformPageContent = ({
 
         return transformedContent;
     } catch (err) {
+        // eslint-disable-next-line no-console
         console.error('Problem when transforming page content', err);
         return {};
     }
