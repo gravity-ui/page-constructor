@@ -50,10 +50,15 @@ export type NavigationItemData =
 
 export type DropdownItemData = Omit<NavigationDropdownItem, 'items'>;
 
-export interface NavigationLogoData {
+export interface NavigationLogoThemedData {
     icon: ImageProps;
     text?: string;
     url?: string;
+}
+
+export interface NavigationLogoData extends NavigationLogoThemedData {
+    dark?: NavigationLogoThemedData;
+    light?: NavigationLogoThemedData;
 }
 
 export interface HeaderData {

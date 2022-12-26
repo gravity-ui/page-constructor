@@ -13,6 +13,7 @@ export default {
 
 interface TemplateProps {
     items: HeaderBlockModel[];
+    navigation?: NavigationData;
 }
 
 const DefaultTemplate: Story<TemplateProps> = (args) => (
@@ -39,7 +40,7 @@ const NavigationTemplate: Story<TemplateProps> = (args) => (
         content={{
             blocks: args.items,
         }}
-        navigation={data.navigation as NavigationData}
+        navigation={args.navigation}
     />
 );
 
@@ -49,8 +50,12 @@ export const Navigation = NavigationTemplate.bind({});
 
 interface PageConstructorStoryProps {
     items: HeaderBlockModel[];
+    navigation?: NavigationData;
 }
 
 Default.args = data.default.content as PageConstructorStoryProps;
 WithFootnotes.args = data.default.content as PageConstructorStoryProps;
-Navigation.args = data.default.content as PageConstructorStoryProps;
+Navigation.args = {
+    items: data.default.content.items,
+    navigation: data.navigation,
+} as PageConstructorStoryProps;

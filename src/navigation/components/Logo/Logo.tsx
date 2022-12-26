@@ -1,9 +1,10 @@
-import React from 'react';
+import React, {useContext} from 'react';
 
-import {block} from '../../../utils';
+import {block, getThemedValue} from '../../../utils';
 import {NavigationLogoData} from '../../../models';
 import RouterLink from '../../../components/RouterLink/RouterLink';
 import {getMediaImage} from '../../../components/Media/Image/utils';
+import {ThemeValueContext} from '../../../context/theme/ThemeValueContext';
 import {Image} from '../../../components';
 
 import './Logo.scss';
@@ -14,14 +15,16 @@ export interface LogoProps extends NavigationLogoData {
     className?: string;
 }
 
-const Logo: React.FC<LogoProps> = ({icon, text, className}) => {
-    const imageData = getMediaImage(icon);
+const Logo: React.FC<LogoProps> = (props) => {
+    const {themeValue: theme} = useContext(ThemeValueContext);
+    const themedLogoProps = getThemedValue(props, theme) || props;
+    const imageData = getMediaImage(themedLogoProps.icon);
 
     return (
         <RouterLink href="/" passHref>
-            <div className={b(null, className)}>
+            <div className={b(null, props.className)}>
                 {imageData && <Image className={b('icon')} {...imageData} />}
-                <span className={b('text')}>{text}</span>
+                <span className={b('text')}>{themedLogoProps.text}</span>
             </div>
         </RouterLink>
     );

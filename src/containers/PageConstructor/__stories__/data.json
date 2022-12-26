@@ -128,7 +128,13 @@
   "navigation": {
     "logo": {
       "icon": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_1_light.svg",
-      "text": "Logo"
+      "text": "Logo",
+      "dark": {
+        "text": "Logo Dark"
+      },
+      "light": {
+        "text": "Logo Light"
+      }
     },
     "header": {
       "leftItems": [
