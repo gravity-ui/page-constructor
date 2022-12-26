@@ -18,13 +18,14 @@ export interface LogoProps extends NavigationLogoData {
 const Logo: React.FC<LogoProps> = (props) => {
     const {themeValue: theme} = useContext(ThemeValueContext);
     const themedLogoProps = getThemedValue(props, theme) || props;
-    const imageData = getMediaImage(themedLogoProps.icon);
+    const imageData = getMediaImage(themedLogoProps.icon || props.icon);
+    const textData = themedLogoProps.text || props.text;
 
     return (
         <RouterLink href={themedLogoProps.url || '/'} passHref>
             <div className={b(null, props.className)}>
                 {imageData && <Image className={b('icon')} {...imageData} />}
-                <span className={b('text')}>{themedLogoProps.text}</span>
+                <span className={b('text')}>{textData}</span>
             </div>
         </RouterLink>
     );
