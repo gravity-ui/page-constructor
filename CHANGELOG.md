@@ -1,5 +1,13 @@
 # Change log
 
+## 0.20.1
+
+- Rewrite storybook on ts
+
+## 0.20.0
+
+- Install @gravity-ui linters
+
 ## 0.19.0
 
 ### Breaking changes
