@@ -18,7 +18,7 @@
         "verticalOffset": "m",
         "theme": "dark",
         "background": {
-          "url": "https://storage.cloud-preprod.yandex.net/cloud-www-assets/blog-assets/ru/posts/2022/1440w.png",
+          "url": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
           "disableCompress": true,
           "color": "#CCDAFF",
           "fullWidth": false
@@ -78,7 +78,7 @@
             "text": "Вы можете опубликовать его в Cloud Marketplace, заполнив заявку на главной странице.",
             "color": "#5282FF",
             "theme": "dark",
-            "image": "https://storage.yandexcloud.net/cloud-www-assets/solutions/medicine/med-big.png",
+            "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-black.png",
             "buttons": [
               {
                 "text": "Подать заявку",
@@ -122,7 +122,7 @@
             "column": "left",
             "resetPaddings": true,
             "text": "<p>Алексей Башкеев, руководитель Yandex Cloud показывает и&nbsp;рассказывает что такое на&nbsp;самом деле суперкомпьютеры простым языком.</p>",
-            "image": "https://storage.yandexcloud.net/cloud-www-assets/blog-assets/ru/posts/2022/05/recommender-system-004.png",
+            "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-black.png",
             "fullWidth": false
           },
           {
@@ -188,7 +188,7 @@
             "column": "left",
             "resetPaddings": true,
             "background": {
-              "image": "https://storage.yandexcloud.net/cloud-www-assets/edu/edu_sol_mtrl-new.png",
+              "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
               "altText": "alt text from bo"
             },
             "title": "Managed Service for SQL Server",

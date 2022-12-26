@@ -4,13 +4,13 @@ import '../styles/styles.scss';
 import '../styles/root.scss';
 
 import React from 'react';
-import CommonTheme from './commonTheme.js';
+import CommonTheme from './theme';
 import {MINIMAL_VIEWPORTS} from '@storybook/addon-viewport';
-import {withTheme} from '../src/demo/decorators/withTheme';
-import {withLang} from '../src/demo/decorators/withLang';
-import {withMobile} from '../src/demo/decorators/withMobile';
+import {withTheme} from './decorators/withTheme';
+import {withLang} from './decorators/withLang';
+import {withMobile} from './decorators/withMobile';
 import {DocsWithReadme} from '../src/demo/DocsWithReadme';
-import {MobileProvider} from '@gravity-ui/uikit';
+import {MobileProvider, Platform} from '@gravity-ui/uikit';
 import {ThemeProvider} from '../src/contexts/theme/ThemeProvider';
 
 const withCommonProvider = (Story, context) => {
@@ -28,7 +28,7 @@ const withCommonProvider = (Story, context) => {
     // context.parameters.docs.theme = theme === 'light' ? CommonTheme.light : CommonTheme.dark;
 
     return (
-        <MobileProvider mobile={false} platform={'browser'}>
+        <MobileProvider mobile={false} platform={Platform.BROWSER}>
             <ThemeProvider theme={theme}>
                 <Story {...context} />
             </ThemeProvider>

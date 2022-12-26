@@ -37,7 +37,7 @@ addons.register(ADDON_ID, () => {
         type: types.PANEL,
         title: 'YAML',
         render: ({active, key}) => (
-            <AddonPanel active={active} key={key}>
+            <AddonPanel active={Boolean(active)} key={key}>
                 <YamlPanel />
             </AddonPanel>
         ),

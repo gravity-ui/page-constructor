@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {Story as StoryType, StoryContext} from '@storybook/react/types-6-0';
-import {useTheme} from '../../contexts/theme';
+import {useTheme} from '../../src/contexts/theme';
 
 export function withTheme(Story: StoryType, context: StoryContext) {
     const themeValue = context.globals.theme;
