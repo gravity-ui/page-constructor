@@ -1,23 +1,19 @@
 import React, {useMemo, useContext} from 'react';
 
 import {Author as PCAuthor, AuthorType} from '@gravity-ui/page-constructor';
-import {ClassNameProps} from '../../models/common';
 
 import {PostPageContext} from '../../contexts/PostPageContext';
 
 import {Wrapper} from '../../components/Wrapper/Wrapper';
-import {PaddingsDirections, PaddingsYFMProps} from '../../models/paddings';
+
+import {PaddingsDirections} from '../../models/paddings';
+import {AuthorProps} from '../../models/blocks';
 
 import {block} from '../../utils/cn';
 
 import './Author.scss';
 
 const b = block('author');
-
-export type AuthorProps = ClassNameProps & {
-    authorId: number;
-    image: string;
-} & PaddingsYFMProps;
 
 export const Author: React.FC<AuthorProps> = (props) => {
     const {image, paddingTop, paddingBottom, authorId} = props;

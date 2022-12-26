@@ -18,12 +18,9 @@ import metrika from '../../counters/metrika.js';
 import {MetrikaCounter} from '../../counters/utils';
 
 import {HandleChangeQueryParams} from '../../models/common';
+import {FeedProps} from '../../models/blocks';
 
 import {ActionTypes, reducer} from './reducer';
-
-type FeedProps = {
-    image: string;
-};
 
 const CONTAINER_ID = 'blog-cards';
 const PAGE_QUERY = 'page';

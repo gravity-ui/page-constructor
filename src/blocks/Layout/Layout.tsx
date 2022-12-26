@@ -9,19 +9,14 @@ import {
 
 import {Wrapper} from '../../components/Wrapper/Wrapper';
 
-import {PaddingsDirections, PaddingsYFMProps} from '../../models/paddings';
+import {PaddingsDirections} from '../../models/paddings';
+import {LayoutProps} from '../../models/blocks';
 
 import {block} from '../../utils/cn';
 
 import './Layout.scss';
 
 const b = block('layout');
-
-export type LayoutProps = {
-    fullWidth?: boolean;
-    mobileOrder?: string;
-    children: ReactElement[];
-} & PaddingsYFMProps;
 
 type ColLayouts = {
     sizes: GridColumnSizesType;

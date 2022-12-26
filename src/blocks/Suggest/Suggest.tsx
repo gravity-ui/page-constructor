@@ -7,8 +7,8 @@ import {i18, Keyset} from '../../i18n';
 import {Wrapper} from '../../components/Wrapper/Wrapper';
 import {PostCard} from '../../components/PostCard/PostCard';
 
-import {PaddingsDirections, PaddingsYFMProps} from '../../models/paddings';
-import {PostData, ClassNameProps} from '../../models/common';
+import {PaddingsDirections} from '../../models/paddings';
+import {SuggestProps} from '../../models/blocks';
 
 import {PostPageContext} from '../../contexts/PostPageContext';
 
@@ -21,12 +21,6 @@ const metrikaGoals = [
     },
 ];
 
-type SuggestProps = {
-    posts: PostData[];
-} & PaddingsYFMProps;
-
-export type SuggestFullProps = SuggestProps & ClassNameProps;
-
 /**
  * Suggested posts block
  *
@@ -36,7 +30,7 @@ export type SuggestFullProps = SuggestProps & ClassNameProps;
  *
  * @returns -jsx
  */
-export const Suggest: React.FC<SuggestFullProps> = ({paddingTop = 'l', paddingBottom = 'l'}) => {
+export const Suggest: React.FC<SuggestProps> = ({paddingTop = 'l', paddingBottom = 'l'}) => {
     const {suggestedPosts} = useContext(PostPageContext);
 
     if (suggestedPosts.length === 0) {

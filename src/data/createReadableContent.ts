@@ -1,14 +1,9 @@
-import {BlockType as PCBlockType} from '@gravity-ui/page-constructor';
-
 import {getConfigForCreateReadableContent} from './config';
 import {BlockType} from '../models/common';
+import {Block} from '../models/blocks';
 
 type CreateReadableContentProps = {
-    blocks: {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        [x: string]: any;
-        type: PCBlockType | BlockType;
-    }[];
+    blocks: Block[];
     content?: string;
     authors?: unknown[];
 };

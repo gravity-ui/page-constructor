@@ -1,25 +1,19 @@
 import React from 'react';
-import {Content, ContentBlockProps, Image, NewMetrikaGoal} from '@gravity-ui/page-constructor';
+import {Content, Image, NewMetrikaGoal} from '@gravity-ui/page-constructor';
 
 import {Wrapper} from '../../components/Wrapper/Wrapper';
 
 import {getBlogElementMetrika, updateContentSizes} from '../../utils/common';
 import {block} from '../../utils/cn';
 
-import {PaddingsDirections, PaddingsYFMProps} from '../../models/paddings';
+import {PaddingsDirections} from '../../models/paddings';
+import {BannerProps} from '../../models/blocks';
 
 import {BlogMetrikaGoalIds} from '../../constants';
 
 import './Banner.scss';
 
 const b = block('banner');
-
-export type BannerProps = ContentBlockProps & {
-    background?: string;
-    color?: string;
-    image?: string;
-    imageSize?: 's' | 'm';
-} & PaddingsYFMProps;
 
 export const Banner: React.FC<BannerProps> = ({
     color,

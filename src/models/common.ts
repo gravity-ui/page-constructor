@@ -1,10 +1,7 @@
 import {IDevice, IBrowser} from 'ua-parser-js';
 import {ReactNode} from 'react';
 
-import {
-    HeaderBlockProps as PageConstructorHeaderBlockProps,
-    PageContent,
-} from '@gravity-ui/page-constructor';
+import {HeaderBlockProps as PageConstructorHeaderBlockProps} from '@gravity-ui/page-constructor';
 
 import {Locale} from '../models/locale';
 
@@ -46,37 +43,20 @@ export interface Menu {
     title: string;
 }
 
-export interface BasePageData {
-    name: string;
-    title: string;
-    metaDescription: string;
-    keywords: string[];
-    noIndex?: boolean;
-    shareTitle?: string;
-    shareDescription?: string;
-    shareImage?: string;
-    service?: Service;
-    solution?: unknown;
-}
-
-export interface PageData extends BasePageData {
-    content: PageContent;
-}
-
 export interface WithDeviceProps {
     device: IDevice;
     browser: IBrowser;
     isRobot: boolean;
 }
 
-export interface PostsPageData {
+export interface PostsProps {
     posts: PostData[];
     count: number;
     totalCount: number;
     pinnedPost?: PostData;
 }
 
-export type PostTag = {
+export type Tag = {
     slug: string;
     name: string;
     createdAt?: string;
@@ -111,7 +91,7 @@ export interface PostData {
     shareTitle?: string;
     slug: string;
     keywords?: string[];
-    tags: PostTag[];
+    tags: Tag[];
     textTitle: string;
     title: string;
     url: string;
@@ -161,7 +141,7 @@ export interface PostMetaProps {
     keywords?: string[];
     noIndex?: boolean;
     authors?: Author[];
-    tags?: PostTag[];
+    tags?: Tag[];
     organization: MetaOrganizationType;
 }
 
@@ -189,7 +169,7 @@ export type GetPostsRequest = {
     services: string | undefined;
 };
 
-export type GetPostsType = (query: GetPostsRequest) => Promise<PostsPageData>;
+export type GetPostsType = (query: GetPostsRequest) => Promise<PostsProps>;
 
 export type HandleChangeQueryParams = (params: Query) => void;
 

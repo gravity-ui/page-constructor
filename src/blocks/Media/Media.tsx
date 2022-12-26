@@ -1,15 +1,11 @@
 import React from 'react';
 
-import {ClassNameProps} from '../../models/common';
-import {
-    Media as PCMedia,
-    MediaProps as PCMediaProps,
-    YFMWrapper,
-} from '@gravity-ui/page-constructor';
+import {Media as PCMedia, YFMWrapper} from '@gravity-ui/page-constructor';
 
 import {Wrapper} from '../../components/Wrapper/Wrapper';
 
-import {PaddingsDirections, PaddingsYFMProps} from '../../models/paddings';
+import {PaddingsDirections} from '../../models/paddings';
+import {MediaProps} from '../../models/blocks';
 
 import {block} from '../../utils/cn';
 
@@ -17,20 +13,7 @@ import './Media.scss';
 
 const b = block('media');
 
-type MediaProps = Partial<
-    Pick<PCMediaProps, 'youtube' | 'previewImg' | 'image' | 'video' | 'dataLens'>
-> & {
-    text?: string;
-} & PaddingsYFMProps;
-
-export type MediaFullProps = MediaProps & ClassNameProps;
-
-export const Media: React.FC<MediaFullProps> = ({
-    text,
-    paddingTop,
-    paddingBottom,
-    ...mediaProps
-}) => (
+export const Media: React.FC<MediaProps> = ({text, paddingTop, paddingBottom, ...mediaProps}) => (
     <Wrapper
         paddings={{
             [PaddingsDirections.top]: paddingTop,

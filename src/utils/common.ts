@@ -13,7 +13,7 @@ import {i18, Keyset} from '../i18n';
 
 import {RouterContextProps} from '../contexts/RouterContext';
 
-import {PostTag, GetPostsRequest, Query} from '../models/common';
+import {Tag, GetPostsRequest, Query} from '../models/common';
 
 import {
     CONTENT_DEFAULT_COL_SIZES,
@@ -76,7 +76,7 @@ export const scrollToHash = (hash: string, browser?: string) => {
 
 type CloudListTagStub = {};
 
-export const getTags = _.memoize((tags: PostTag[]) => {
+export const getTags = _.memoize((tags: Tag[]) => {
     return tags.map(({slug, ...tag}) => {
         const queryParams = new URLSearchParams();
         queryParams.set('tags', slug);
@@ -107,7 +107,7 @@ export const updateContentSizes = ({size, colSizes, theme, ...contentData}: Cont
 });
 
 type GetBreadcrumbsProps = {
-    tags?: PostTag[];
+    tags?: Tag[];
 };
 
 export const getBreadcrumbs = ({tags}: GetBreadcrumbsProps) => {
