@@ -1,15 +1,9 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-
 import {getConfigForCreateReadableContent} from './config';
 import {BlockType} from '../models/common';
-
-// TODO fix any https://st.yandex-team.ru/ORION-1447
+import {Block} from '../models/blocks';
 
 type CreateReadableContentProps = {
-    blocks: {
-        [x: string]: any;
-        type: BlockType.YFM | BlockType.ColoredText | BlockType.Media;
-    }[];
+    blocks: Block[];
     content?: string;
     authors?: unknown[];
 };
@@ -42,7 +36,6 @@ export const createReadableContent = ({
                 innerContent += '\n';
             }
 
-            // @ts-ignore
             if (block.type === BlockType.Author) {
                 authors.push(block.uid);
             }

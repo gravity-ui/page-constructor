@@ -18,12 +18,9 @@ import metrika from '../../counters/metrika.js';
 import {MetrikaCounter} from '../../counters/utils';
 
 import {HandleChangeQueryParams} from '../../models/common';
+import {FeedProps} from '../../models/blocks';
 
 import {ActionTypes, reducer} from './reducer';
-
-type FeedProps = {
-    image: string;
-};
 
 const CONTAINER_ID = 'blog-cards';
 const PAGE_QUERY = 'page';
@@ -106,7 +103,7 @@ export const Feed: React.FC<FeedProps> = ({image}) => {
     };
 
     const fetchAndReplaceData = useCallback(
-        async (pageNumber?: number) => {
+        async (pageNumber: number) => {
             try {
                 dispatch({type: ActionTypes.SetErrorLoad, payload: false});
                 const fetchedData = await fetchData(pageNumber);
@@ -230,7 +227,11 @@ export const Feed: React.FC<FeedProps> = ({image}) => {
                 }}
             />
             {errorLoad ? (
-                <PostsError onButtonClick={fetchAndReplaceData} />
+                <PostsError
+                    onButtonClick={() =>
+                        fetchAndReplaceData(Number(queryParams.page || DEFAULT_PAGE))
+                    }
+                />
             ) : (
                 <Posts
                     containerId={CONTAINER_ID}

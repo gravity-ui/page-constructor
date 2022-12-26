@@ -1,11 +1,7 @@
 import {IDevice, IBrowser} from 'ua-parser-js';
 import {ReactNode} from 'react';
 
-import {SpeakerPublic} from '@yandex-data-ui/cloud-schemas/build/models/ui-api';
-import {
-    HeaderBlockProps as PageConstructorHeaderBlockProps,
-    PageContent,
-} from '@gravity-ui/page-constructor';
+import {HeaderBlockProps as PageConstructorHeaderBlockProps} from '@gravity-ui/page-constructor';
 
 import {Locale} from '../models/locale';
 
@@ -13,6 +9,31 @@ export enum Theme {
     Light = 'light',
     Dark = 'dark',
 }
+
+export interface ClassNameProps {
+    className?: string;
+}
+
+type Author = {
+    id: number;
+    avatar: string | null;
+    createdAt: string;
+    updatedAt: string;
+    firstName: string | null;
+    secondName: string | null;
+    description: string | null;
+    fullDescription: string | null;
+} & {
+    [x: string]: string | null;
+};
+
+export type Service = {
+    id: number;
+    slug: string;
+    name: string;
+} & {
+    [x: string]: string | null;
+};
 
 export type Query = Record<string, number | string | null>;
 
@@ -22,42 +43,20 @@ export interface Menu {
     title: string;
 }
 
-export interface BasePageData {
-    name: string;
-    title: string;
-    metaDescription: string;
-    keywords: string[];
-    noIndex?: boolean;
-    shareTitle?: string;
-    shareDescription?: string;
-    shareImage?: string;
-    service?: unknown;
-    solution?: unknown;
-}
-
-export interface PageData extends BasePageData {
-    content: PageContent;
-}
-
 export interface WithDeviceProps {
     device: IDevice;
     browser: IBrowser;
     isRobot: boolean;
 }
 
-export interface BlogPostLikes {
-    count: number;
-    hasUserLike: boolean;
-}
-
-export interface BlogPagePostsData {
-    posts: BlogPostData[];
+export interface PostsProps {
+    posts: PostData[];
     count: number;
     totalCount: number;
-    pinnedPost?: BlogPostData;
+    pinnedPost?: PostData;
 }
 
-export type BlogPostTag = {
+export type Tag = {
     slug: string;
     name: string;
     createdAt?: string;
@@ -69,9 +68,9 @@ export type BlogPostTag = {
     count?: number;
 };
 
-export interface BlogPostData {
+export interface PostData {
     author?: string;
-    authors?: SpeakerPublic[];
+    authors?: Author[];
     blogPostId?: number;
     content?: string;
     date: string;
@@ -92,7 +91,7 @@ export interface BlogPostData {
     shareTitle?: string;
     slug: string;
     keywords?: string[];
-    tags: BlogPostTag[];
+    tags: Tag[];
     textTitle: string;
     title: string;
     url: string;
@@ -125,7 +124,7 @@ export type MetaOrganizationType = {
     supportEmail: string;
 };
 
-export interface BlogPostMetaProps {
+export interface PostMetaProps {
     title: string;
     date: string;
     image: string;
@@ -141,8 +140,8 @@ export interface BlogPostMetaProps {
     };
     keywords?: string[];
     noIndex?: boolean;
-    authors?: SpeakerPublic[];
-    tags?: BlogPostTag[];
+    authors?: Author[];
+    tags?: Tag[];
     organization: MetaOrganizationType;
 }
 
@@ -161,7 +160,7 @@ export interface HeaderBlockProps extends PageConstructorHeaderBlockProps {
     };
 }
 
-export type GetBlogPostsRequest = {
+export type GetPostsRequest = {
     tags: string | undefined;
     page: number;
     perPage: number;
@@ -170,7 +169,7 @@ export type GetBlogPostsRequest = {
     services: string | undefined;
 };
 
-export type GetBlogPostsType = (query: GetBlogPostsRequest) => Promise<BlogPagePostsData>;
+export type GetPostsType = (query: GetPostsRequest) => Promise<PostsProps>;
 
 export type HandleChangeQueryParams = (params: Query) => void;
 

@@ -1,7 +1,5 @@
 import React, {useContext} from 'react';
 
-// TODO fixes and refactor in https://st.yandex-team.ru/ORION-1444
-
 import {Icon} from '@gravity-ui/uikit';
 
 import {postLikeStatus} from '../../../utils/common';

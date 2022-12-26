@@ -8,7 +8,7 @@ import {block} from '../../../../utils/cn';
 
 import './CustomSwitcher.scss';
 
-const b = block('blog-feed-custom-switcher');
+const b = block('feed-custom-switcher');
 
 export type SelectItem = {
     title: string;

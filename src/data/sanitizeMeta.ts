@@ -1,11 +1,11 @@
 import {sanitizeHtml} from '@gravity-ui/page-constructor/server';
 
-import {BlogPostMetaProps} from '../models/common';
+import {PostMetaProps} from '../models/common';
 
 /**
  * Function for sanitized meta-data fields
  */
-export const sanitizeMeta = (metaData: BlogPostMetaProps) => {
+export const sanitizeMeta = (metaData: PostMetaProps) => {
     const {title, description, date, image, canonicalUrl, organization} = metaData;
 
     // this func for resolve type conflicts in reduce method
@@ -15,7 +15,7 @@ export const sanitizeMeta = (metaData: BlogPostMetaProps) => {
         acc[current] = sanitizeHtml(organization[current]);
 
         return acc;
-    }, {} as BlogPostMetaProps['organization']);
+    }, {} as PostMetaProps['organization']);
 
     return {
         ...metaData,

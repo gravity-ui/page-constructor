@@ -8,11 +8,6 @@ export const BREAKPOINTS = {
     xl: 1185,
 };
 
-export const BlogFilters = {
-    Date: 'date',
-    Popularity: 'likes',
-};
-
 export const DEFAULT_THEME = 'light';
 
 export enum BlogMetrikaGoalIds {

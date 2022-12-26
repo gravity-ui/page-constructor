@@ -4,5 +4,5 @@
 $block: '.#{$namespace}wrapper';
 
 #{$block} {
-    @include blog-paddings();
+    @include paddings();
 }

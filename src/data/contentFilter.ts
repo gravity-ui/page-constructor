@@ -1,5 +1,5 @@
 import evalExp from '@doc-tools/transform/lib/liquid/evaluation';
-
+import {PageContent} from '@gravity-ui/page-constructor';
 import {Lang} from '../models/locale';
 
 type FilteringOptions = {
@@ -61,18 +61,17 @@ export const filterItems = ({items, itemsKey, options}: FilterItemsProps) => {
 
 /**
  * Filters content.
- * @param {any} content
+ * @param {PageContent} content
  * @param {Object.<string, Lang>} options
- * @return {any}
+ * @return {PageContent}
  */
-export const filterContent = (content: unknown, options: FilteringOptions) => {
+export const filterContent = (content: PageContent, options: FilteringOptions) => {
     if (Array.isArray(content)) {
-        // @ts-ignore
-        return filterItems({items: content, itemsKey: null, options}).map((item) =>
+        return filterItems({items: content, itemsKey: '', options}).map((item: PageContent) =>
             filterContent(item, options),
         );
     } else if (content && typeof content === 'object') {
-        return Object.entries(content).reduce((acc: Record<string, unknown>, [key, value]) => {
+        return Object.entries(content).reduce((acc: Record<string, PageContent>, [key, value]) => {
             acc[key] = filterContent(value, options);
             return acc;
         }, {});

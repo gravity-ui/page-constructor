@@ -3,7 +3,7 @@ import React from 'react';
 import {PageConstructor} from '@gravity-ui/page-constructor';
 import {Meta, Story} from '@storybook/react/types-6-0';
 
-import {BlockType, BlogPostData} from '../../../models/common';
+import {BlockType, PostData} from '../../../models/common';
 
 import customBlocks from '../../../constructor/blocksMap';
 import {BLOCKS} from '../../../demo/constants';
@@ -25,7 +25,7 @@ type ColoredTextModel = {
 } & ColoredTextProps;
 
 const DefaultTemplate: Story<ColoredTextModel> = (args) => (
-    <PostPageContext.Provider value={{post: post as BlogPostData}}>
+    <PostPageContext.Provider value={{post: post as PostData}}>
         <PageConstructor content={{blocks: [args]}} custom={customBlocks} />
     </PostPageContext.Provider>
 );

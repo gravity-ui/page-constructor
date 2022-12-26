@@ -1,7 +1,4 @@
-// @ts-nocheck
-// TODO fix types in https://st.yandex-team.ru/ORION-1447
-
-import {Query, BlogPostData} from '../../models/common';
+import {Query, PostData} from '../../models/common';
 
 export enum ActionTypes {
     SetErrorLoad = 'setErrorLoad',
@@ -23,9 +20,9 @@ export type State = {
     isShowMoreFetching: boolean;
     isShowMoreVisible: boolean;
     lastLoadedCount: number;
-    pinnedPostOnPage?: BlogPostData;
+    pinnedPostOnPage?: PostData;
     postCountOnPage: number;
-    postsOnPage?: BlogPostData[];
+    postsOnPage?: PostData[];
     queryParams: Query;
 };
 
@@ -45,15 +42,16 @@ type Action =
     | {
           type: ActionTypes.SetPosts;
           payload: {
-              posts: BlogPostData[];
-              pinnedPost?: BlogPostData;
+              posts: PostData[];
+              pinnedPost?: PostData;
               count: number;
+              page: number;
           };
       }
     | {
           type: ActionTypes.SetShowMore;
           payload: {
-              posts: BlogPostData[];
+              posts: PostData[];
               count: number;
               currentPage: number;
               lastLoadedCount: number;

@@ -11,7 +11,7 @@ import './PostError.scss';
 const b = block('posts-error');
 
 type PostsErrorContainerProps = {
-    onButtonClick?: () => void;
+    onButtonClick?: () => void | Promise<void>;
 };
 
 export const PostsError: React.FC<PostsErrorContainerProps> = ({onButtonClick}) => {

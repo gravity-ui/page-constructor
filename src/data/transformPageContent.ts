@@ -1,6 +1,6 @@
 import yaml from 'js-yaml';
 import {transformBlocks as transformConstructorBlocks} from '@gravity-ui/page-constructor/server';
-import {ConstructorBlock} from '@gravity-ui/page-constructor';
+import {ConstructorBlock, PageContent} from '@gravity-ui/page-constructor';
 
 import {Lang} from '../models/locale';
 
@@ -46,7 +46,7 @@ export const transformPageContent = ({
     typographyConfig = {},
 }: TransformPageContentPropsType) => {
     try {
-        const transformedContent = filterContent(yaml.load(content), {lang, region});
+        const transformedContent = filterContent(yaml.load(content) as PageContent, {lang, region});
 
         if (transformedContent.blocks) {
             transformBlocks({blocks: transformedContent.blocks, lang, typographyConfig});

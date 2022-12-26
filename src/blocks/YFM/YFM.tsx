@@ -4,13 +4,10 @@ import block from 'bem-cn-lite';
 
 import {Wrapper} from '../../components/Wrapper/Wrapper';
 
-import {PaddingsDirections, PaddingsYFMProps} from '../../models/paddings';
+import {PaddingsDirections} from '../../models/paddings';
+import {YFMProps} from '../../models/blocks';
 
 const b = block('yfm');
-
-export type YFMProps = {
-    text: string;
-} & PaddingsYFMProps;
 
 export const YFM: React.FC<YFMProps> = (props) => {
     const {text, paddingTop, paddingBottom} = props;

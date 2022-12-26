@@ -1,11 +1,7 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-
 import {typografToText, typografToHTML, yfmTransformer} from '@gravity-ui/page-constructor/server';
 
-// TODO fix any https://st.yandex-team.ru/ORION-1447
-
 import {Lang} from '../models/locale';
-import {BlogPostData} from '../models/common';
+import {PostData} from '../models/common';
 
 /**
  * Func for transform post data
@@ -15,11 +11,11 @@ import {BlogPostData} from '../models/common';
  *
  * @returns -prepared post
  */
-export const transformPost = (postData: BlogPostData, lang: Lang) => {
+export const transformPost = (postData: PostData, lang: Lang) => {
     if (!postData) {
         console.error('Post not found');
 
-        return {} as BlogPostData;
+        return {} as PostData;
     }
 
     const {tags, title, metaTitle, description, ...post} = postData;

@@ -1,7 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, {useContext} from 'react';
-
-// TODO refactor in https://st.yandex-team.ru/ORION-1444
 
 import {ShareTooltip} from '@gravity-ui/uikit';
 
@@ -16,7 +13,6 @@ import {block} from '../../../utils/cn';
 
 import {MetrikaCounter} from '../../../counters/utils';
 
-// TODO fixes and refactor in https://st.yandex-team.ru/ORION-1444
 // @ts-ignore
 import metrika from '../../../counters/metrika.js';
 
@@ -39,8 +35,6 @@ export const Sharing: React.FC<SharingProps> = ({theme, metrikaGoal}) => {
     const handleMetrika = () => {
         metrika.reachGoal(MetrikaCounter.CrossSite, metrikaGoal);
     };
-
-    //TODO return enum for direction after update LayoutDirections import
 
     return (
         <div className={b('item')}>

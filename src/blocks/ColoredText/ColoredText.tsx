@@ -1,9 +1,11 @@
 import React from 'react';
 
-import {BackgroundImage, Content, ContentBlockProps} from '@gravity-ui/page-constructor';
+import {BackgroundImage, Content} from '@gravity-ui/page-constructor';
 
 import {Wrapper} from '../../components/Wrapper/Wrapper';
-import {PaddingsDirections, PaddingsYFMProps} from '../../models/paddings';
+
+import {PaddingsDirections} from '../../models/paddings';
+import {ColoredTextProps} from '../../models/blocks';
 
 import {updateContentSizes} from '../../utils/common';
 import {block} from '../../utils/cn';
@@ -11,16 +13,6 @@ import {block} from '../../utils/cn';
 import './ColoredText.scss';
 
 const b = block('colored-text');
-
-type Background = {
-    color?: string;
-    image?: string;
-    altText?: string;
-};
-
-export type ColoredTextProps = ContentBlockProps & {
-    background?: Background;
-} & PaddingsYFMProps;
 
 export const ColoredText: React.FC<ColoredTextProps> = ({
     background,

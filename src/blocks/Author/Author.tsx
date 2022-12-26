@@ -1,12 +1,13 @@
 import React, {useMemo, useContext} from 'react';
 
 import {Author as PCAuthor, AuthorType} from '@gravity-ui/page-constructor';
-import {ClassNameProps} from '@yandex-data-ui/cloud-components';
 
 import {PostPageContext} from '../../contexts/PostPageContext';
 
 import {Wrapper} from '../../components/Wrapper/Wrapper';
-import {PaddingsDirections, PaddingsYFMProps} from '../../models/paddings';
+
+import {PaddingsDirections} from '../../models/paddings';
+import {AuthorProps} from '../../models/blocks';
 
 import {block} from '../../utils/cn';
 
@@ -14,12 +15,6 @@ import './Author.scss';
 
 const b = block('author');
 
-export type AuthorProps = ClassNameProps & {
-    authorId: number;
-    image: string;
-} & PaddingsYFMProps;
-
-// TODO: should we use an Author component from the page-constructor https://st.yandex-team.ru/CLOUDFRONT-8880#6267038c1864952e2194b016
 export const Author: React.FC<AuthorProps> = (props) => {
     const {image, paddingTop, paddingBottom, authorId} = props;
 

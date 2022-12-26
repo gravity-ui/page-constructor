@@ -1,12 +1,13 @@
 import React, {useContext} from 'react';
-import {HeaderBreadcrumbs, TextTheme, YFMWrapper} from '@gravity-ui/page-constructor';
+import {HeaderBreadcrumbs, YFMWrapper} from '@gravity-ui/page-constructor';
 
 import {PostPageContext} from '../../contexts/PostPageContext';
 
 import {Wrapper} from '../../components/Wrapper/Wrapper';
 import {PostInfo, BlogMetrikaGoals} from '../../components/PostInfo/PostInfo';
 
-import {PaddingsDirections, PaddingsYFMProps} from '../../models/paddings';
+import {PaddingsDirections} from '../../models/paddings';
+import {MetaProps} from '../../models/blocks';
 
 import {getBreadcrumbs} from '../../utils/common';
 
@@ -17,11 +18,6 @@ import {block} from '../../utils/cn';
 import './Meta.scss';
 
 const b = block('meta');
-
-export type MetaProps = {
-    locale: string;
-    theme?: TextTheme;
-} & PaddingsYFMProps;
 
 const metrikaGoals: BlogMetrikaGoals = {
     sharing: BlogMetrikaGoalIds.shareBottom,

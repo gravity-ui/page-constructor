@@ -1,12 +1,13 @@
 import React, {useContext} from 'react';
-import {HeaderBlock, HeaderBlockProps} from '@gravity-ui/page-constructor';
+import {HeaderBlock} from '@gravity-ui/page-constructor';
 
 import {PostPageContext} from '../../contexts/PostPageContext';
 
 import {PostInfo, BlogMetrikaGoals} from '../../components/PostInfo/PostInfo';
 import {Wrapper} from '../../components/Wrapper/Wrapper';
 
-import {PaddingsDirections, PaddingsYFMProps} from '../../models/paddings';
+import {PaddingsDirections} from '../../models/paddings';
+import {HeaderProps} from '../../models/blocks';
 
 import {getBreadcrumbs} from '../../utils/common';
 
@@ -23,8 +24,6 @@ const breadcrumbsGoals = [
         isCrossSite: true,
     },
 ];
-
-export type HeaderProps = HeaderBlockProps & PaddingsYFMProps;
 
 export const Header: React.FC<HeaderProps> = (props) => {
     const {theme, paddingTop, paddingBottom} = props;

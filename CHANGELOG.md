@@ -1,5 +1,13 @@
 # Change log
 
+## 0.19.0
+
+### Breaking changes
+
+- Refactor and rename types
+- Update react to 18.2.0
+- Update TS to 4.9.3
+
 ## 0.18.1
 
 - Delete useless utils and small refactor

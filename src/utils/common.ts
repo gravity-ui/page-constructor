@@ -1,6 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import {parse} from 'fast-html-parser';
-import {format} from 'url';
+import {format, parse} from 'url';
 import _ from 'lodash';
 
 import {
@@ -13,7 +11,9 @@ import {
 
 import {i18, Keyset} from '../i18n';
 
-import {BlogPostTag, GetBlogPostsRequest, Query} from '../models/common';
+import {RouterContextProps} from '../contexts/RouterContext';
+
+import {Tag, GetPostsRequest, Query} from '../models/common';
 
 import {
     CONTENT_DEFAULT_COL_SIZES,
@@ -32,12 +32,12 @@ export interface RouterActionOptions {
     shallow?: boolean;
 }
 
-export function getAbsolutePath(router: any, url?: string) {
+export function getAbsolutePath(router: RouterContextProps, url?: string) {
     if (!router || !router.pathname) {
         return url ?? '';
     }
 
-    const parsed: any = parse(url || router.as || '');
+    const parsed = parse(url || router.as || '');
 
     return format({
         ...parsed,
@@ -76,7 +76,7 @@ export const scrollToHash = (hash: string, browser?: string) => {
 
 type CloudListTagStub = {};
 
-export const getTags = _.memoize((tags: BlogPostTag[]) => {
+export const getTags = _.memoize((tags: Tag[]) => {
     return tags.map(({slug, ...tag}) => {
         const queryParams = new URLSearchParams();
         queryParams.set('tags', slug);
@@ -107,12 +107,12 @@ export const updateContentSizes = ({size, colSizes, theme, ...contentData}: Cont
 });
 
 type GetBreadcrumbsProps = {
-    tags?: BlogPostTag[];
+    tags?: Tag[];
 };
 
 export const getBreadcrumbs = ({tags}: GetBreadcrumbsProps) => {
     const breadcrumbs: HeaderBreadCrumbsProps = {
-        items: [{text: i18(Keyset.TitleBreadcrumbsBlog), url: '/blog'}],
+        items: [{text: i18(Keyset.TitleBreadcrumbs), url: '/blog'}],
         theme: 'light',
     };
 
@@ -148,10 +148,7 @@ export const getBlogElementMetrika = (
     }
 };
 
-export const getFeedQueryParams = (
-    queryString: Query,
-    pageNumber?: number,
-): GetBlogPostsRequest => {
+export const getFeedQueryParams = (queryString: Query, pageNumber?: number): GetPostsRequest => {
     const queryParams = getPageSearchParams(queryString);
     const tags = queryParams.get('tags') || undefined;
     const page = pageNumber || Number(queryParams.get('page') || DEFAULT_PAGE);
