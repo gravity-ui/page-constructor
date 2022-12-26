@@ -53,6 +53,7 @@ export const createReadableContent = ({
 
         return readableContent;
     } catch (err) {
+        // eslint-disable-next-line no-console
         console.error('Page content transformation error', err);
         return '';
     }

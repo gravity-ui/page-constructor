@@ -13,6 +13,7 @@ import {PostData} from '../models/common';
  */
 export const transformPost = (postData: PostData, lang: Lang) => {
     if (!postData) {
+        // eslint-disable-next-line no-console
         console.error('Post not found');
 
         return {} as PostData;

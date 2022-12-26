@@ -35,6 +35,7 @@ Default.args = {
         metaComponent: mockMetaComponent,
     },
     getPosts: (props) => {
+        // eslint-disable-next-line no-console
         console.log('get posts', props);
     },
     toggleLike: null,
