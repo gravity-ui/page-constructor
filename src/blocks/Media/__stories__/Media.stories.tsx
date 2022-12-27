@@ -4,13 +4,14 @@ import {PageConstructor} from '@gravity-ui/page-constructor';
 import {Meta, Story} from '@storybook/react/types-6-0';
 
 import {BlockType, PostData} from '../../../models/common';
+import {MediaProps} from '../../../models/blocks';
 
 import customBlocks from '../../../constructor/blocksMap';
 import {BLOCKS} from '../../../demo/constants';
 import {PostPageContext} from '../../../contexts/PostPageContext';
 import post from '../../../../.mocks/post.json';
 
-import {Media, MediaFullProps} from '../Media';
+import {Media} from '../Media';
 
 export default {
     title: `${BLOCKS}/Media`,
@@ -22,7 +23,7 @@ export default {
 
 type MediaModel = {
     type: BlockType.Media;
-} & MediaFullProps;
+} & MediaProps;
 
 const DefaultTemplate: Story<MediaModel> = (args) => (
     <PostPageContext.Provider value={{post: post as PostData}}>

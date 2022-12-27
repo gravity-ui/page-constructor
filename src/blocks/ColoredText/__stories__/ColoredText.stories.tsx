@@ -4,13 +4,14 @@ import {PageConstructor} from '@gravity-ui/page-constructor';
 import {Meta, Story} from '@storybook/react/types-6-0';
 
 import {BlockType, PostData} from '../../../models/common';
+import {ColoredTextProps} from '../../../models/blocks';
 
 import customBlocks from '../../../constructor/blocksMap';
 import {BLOCKS} from '../../../demo/constants';
 import {PostPageContext} from '../../../contexts/PostPageContext';
 import post from '../../../../.mocks/post.json';
 
-import {ColoredText, ColoredTextProps} from '../ColoredText';
+import {ColoredText} from '../ColoredText';
 
 export default {
     title: `${BLOCKS}/ColoredText`,
