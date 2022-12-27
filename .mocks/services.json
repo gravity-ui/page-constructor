@@ -1,92 +1,72 @@
 [
   {
     "id": 2,
-    "name": "Compute Cloud",
-    "slug": "compute"
+    "name": "Lorem",
+    "slug": "lorem"
   },
   {
     "id": 10,
-    "name": "Managed Service for Kubernetes®",
-    "slug": "managed-kubernetes"
+    "name": "ipsum",
+    "slug": "ipsum"
   },
   {
     "id": 13,
-    "name": "Managed Service for PostgreSQL",
-    "slug": "managed-postgresql"
+    "name": "dolor",
+    "slug": "dolor"
   },
   {
     "id": 14,
-    "name": "Managed Service for ClickHouse",
-    "slug": "managed-clickhouse"
+    "name": "sit",
+    "slug": "sit"
   },
   {
     "id": 15,
-    "name": "Managed Service for MongoDB",
-    "slug": "managed-mongodb"
+    "name": "amet",
+    "slug": "amet"
   },
   {
     "id": 16,
-    "name": "Managed Service for MySQL®",
-    "slug": "managed-mysql"
+    "name": "enim",
+    "slug": "enim"
   },
   {
     "id": 17,
-    "name": "Managed Service for Redis™",
-    "slug": "managed-redis"
+    "name": "minim",
+    "slug": "minim"
   },
   {
     "id": 18,
-    "name": "Data Proc",
-    "slug": "data-proc"
+    "name": "veniam",
+    "slug": "veniam"
   },
   {
     "id": 20,
-    "name": "SpeechKit",
-    "slug": "speechkit"
+    "name": "exercitation",
+    "slug": "exercitation"
   },
   {
     "id": 23,
-    "name": "DataLens",
-    "slug": "datalens"
+    "name": "ullamco",
+    "slug": "ullamco"
   },
   {
     "id": 27,
-    "name": "Cloud Functions",
-    "slug": "functions"
+    "name": "laboris",
+    "slug": "laboris"
   },
   {
     "id": 119,
-    "name": "Managed Service for YDB",
-    "slug": "ydb"
+    "name": "nisi",
+    "slug": "nisi"
   },
   {
     "id": 169,
-    "name": "API Gateway",
-    "slug": "api-gateway"
+    "name": "aliquip",
+    "slug": "aliquip"
   },
   {
     "id": 202,
-    "name": "Managed Service for Apache Kafka®",
-    "slug": "managed-kafka"
-  },
-  {
-    "id": 206,
-    "name": "Managed Service for SQL Server™",
-    "slug": "managed-sqlserver"
-  },
-  {
-    "id": 263,
-    "name": "Application Load Balancer",
-    "slug": "application-load-balancer"
-  },
-  {
-    "id": 408,
-    "name": "Managed Service for Greenplum®",
-    "slug": "managed-greenplum"
-  },
-  {
-    "id": 444,
-    "name": "Yandex Forms",
-    "slug": "forms"
+    "name": "commodo",
+    "slug": "commodo"
   }
 ]

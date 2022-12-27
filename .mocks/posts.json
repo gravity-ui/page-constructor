@@ -2,7 +2,7 @@
   "posts": [
     {
       "id": 464,
-      "slug": "os-rating-january-june",
+      "slug": "lorem",
       "date": "2022-09-15T00:00:00Z",
       "postDate": "2022-09-15T00:00:00Z",
       "blogPostId": 464,
@@ -13,369 +13,153 @@
       "likes": 0,
       "hasUserLike": false,
       "services": [],
-      "url": "/blog/posts/2022/09/os-rating-january-june",
+      "url": "/blog/posts/2022/09/lorem",
       "tags": [],
-      "textTitle": "Рейтинг популярности операционных систем (январь‑июнь)",
-      "htmlTitle": "Рейтинг популярности операционных систем (январь‑июнь)",
-      "metaTitle": "Рейтинг популярности операционных систем (январь&#8209;июнь)",
+      "textTitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
+      "htmlTitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
+      "metaTitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
       "description": "",
       "content": ""
     },
     {
       "id": 462,
-      "slug": "datalens-analytics",
+      "slug": "ipsum",
       "date": "2022-09-13T00:00:00Z",
       "postDate": "2022-09-13T00:00:00Z",
       "blogPostId": 462,
       "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
       "readingTime": 20,
       "keywords": [],
-      "shareTitle": "Аналитика в DataLens за пределами CSV: начало работы с PostgreSQL",
+      "shareTitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
       "likes": 1,
       "hasUserLike": false,
       "services": [],
-      "url": "/blog/posts/2022/09/datalens-analytics",
+      "url": "/blog/posts/2022/09/ipsum",
       "tags": [],
-      "textTitle": "Аналитика в DataLens за пределами CSV: начало работы с PostgreSQL",
-      "htmlTitle": "Аналитика в&nbsp;DataLens за&nbsp;пределами CSV: начало работы с&nbsp;PostgreSQL",
-      "metaTitle": "Аналитика в DataLens за пределами CSV: начало работы с PostgreSQL",
-      "description": "<p>Часто новые пользователи приходят в&nbsp;DataLens решить задачу визуализации данных для бизнеса из&nbsp;простых источников в&nbsp;виде таблиц Excel или Google Sheets.</p>",
+      "textTitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
+      "htmlTitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
+      "metaTitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
+      "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p>",
       "content": ""
     },
     {
       "id": 461,
-      "slug": "managed-mongodb-overview",
+      "slug": "dolor",
       "date": "2022-09-12T00:00:00Z",
       "postDate": "2022-09-12T00:00:00Z",
       "blogPostId": 461,
       "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-black.png",
       "readingTime": 10,
-      "keywords": [
-        "mongodb",
-        "mongo",
-        "mongo db",
-        "база данных mongo",
-        "управляемые базы данных mongodb",
-        "nosql"
-      ],
-      "shareTitle": "Обзор MongoDB. Управляемая NoSQL база данных в облаке",
+      "keywords": ["ipsum", "dolor", "consectetur"],
+      "shareTitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
       "likes": 0,
       "hasUserLike": false,
       "services": [
         {
-          "id": 15,
-          "slug": "managed-mongodb",
-          "name": "Managed Service for MongoDB"
+          "id": 119,
+          "name": "nisi",
+          "slug": "nisi"
         }
       ],
-      "url": "/blog/posts/2022/09/managed-mongodb-overview",
+      "url": "/blog/posts/2022/09/dolor",
       "tags": [
         {
-          "icon": "<svg width=\"18\" height=\"18\" viewBox=\"0 0 18 18\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M6.85607 11.9925C6.62237 12.0258 6.38659 11.9473 6.21967 11.7803C6.05274 11.6134 5.97415 11.3776 6.00754 11.1439L6.38254 8.51893C6.40549 8.35829 6.47992 8.20942 6.59467 8.09467L12.9064 1.78295C13.0876 1.60178 13.3333 1.5 13.5895 1.5C15.1969 1.5 16.5 2.80308 16.5 4.41051C16.5 4.66672 16.3982 4.91244 16.217 5.09361L9.90533 11.4053C9.79058 11.5201 9.64171 11.5945 9.48106 11.6175L6.85607 11.9925ZM7.83211 8.97855L7.63388 10.3661L9.02145 10.1679L14.985 4.2043C14.8951 3.59035 14.4096 3.1049 13.7957 3.01497L7.83211 8.97855ZM3.75 5.25C3.75 4.42157 4.42157 3.75 5.25 3.75H8.625C9.03921 3.75 9.375 3.41421 9.375 3C9.375 2.58579 9.03921 2.25 8.625 2.25H5.25C3.59315 2.25 2.25 3.59314 2.25 5.25V12.75C2.25 14.4069 3.59314 15.75 5.25 15.75H12.75C14.4069 15.75 15.75 14.4069 15.75 12.75V9.375C15.75 8.96078 15.4142 8.625 15 8.625C14.5858 8.625 14.25 8.96078 14.25 9.375V12.75C14.25 13.5784 13.5784 14.25 12.75 14.25H5.25C4.42157 14.25 3.75 13.5784 3.75 12.75V5.25Z\" fill=\"black\" fill-opacity=\"0.85\"/>\n</svg>",
-          "slug": "articles",
-          "name": "Статьи",
-          "locales": [
-            {
-              "name": "Статьи"
-            }
-          ]
+          "id": 58,
+          "slug": "slug",
+          "createdAt": "2020-06-26T19:58:58.904Z",
+          "updatedAt": "2020-06-26T19:58:58.904Z",
+          "icon": null,
+          "isDeleted": false,
+          "name": "Slug",
+          "locale": "en",
+          "blogTagId": 46,
+          "count": 1
         }
       ],
-      "textTitle": "Управляемые базы данных NoSQL. MongoDB",
-      "htmlTitle": "Управляемые базы данных NoSQL. MongoDB",
-      "metaTitle": "Управляемые базы данных NoSQL. MongoDB",
-      "description": "<p>MongoDB опередили время. Узнайте, как бизнес использует базы данных NoSQL и&nbsp;в&nbsp;чём они превосходят SQL СУБД. Кто использует MongoDB и&nbsp;какие задачи решают с&nbsp;их&nbsp;помощью.</p>",
+      "textTitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
+      "htmlTitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
+      "metaTitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
+      "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>",
       "content": ""
     },
     {
       "id": 460,
-      "slug": "managed-kafka-overview",
+      "slug": "sit",
       "date": "2022-09-11T00:00:00Z",
       "postDate": "2022-09-11T00:00:00Z",
       "blogPostId": 460,
       "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
       "readingTime": 10,
-      "keywords": ["kafka", "apache kafka"],
-      "shareTitle": "Что такое Apache Kafka? Где применяется",
+      "keywords": ["consectetur", "elit"],
+      "shareTitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
       "likes": 1,
       "hasUserLike": false,
       "services": [
         {
-          "id": 202,
-          "slug": "managed-kafka",
-          "name": "Managed Service for Apache Kafka®"
+          "id": 27,
+          "name": "laboris",
+          "slug": "laboris"
         }
       ],
-      "url": "/blog/posts/2022/09/managed-kafka-overview",
+      "url": "/blog/posts/2022/09/sit",
       "tags": [
         {
-          "icon": "<svg width=\"18\" height=\"18\" viewBox=\"0 0 18 18\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M6.85607 11.9925C6.62237 12.0258 6.38659 11.9473 6.21967 11.7803C6.05274 11.6134 5.97415 11.3776 6.00754 11.1439L6.38254 8.51893C6.40549 8.35829 6.47992 8.20942 6.59467 8.09467L12.9064 1.78295C13.0876 1.60178 13.3333 1.5 13.5895 1.5C15.1969 1.5 16.5 2.80308 16.5 4.41051C16.5 4.66672 16.3982 4.91244 16.217 5.09361L9.90533 11.4053C9.79058 11.5201 9.64171 11.5945 9.48106 11.6175L6.85607 11.9925ZM7.83211 8.97855L7.63388 10.3661L9.02145 10.1679L14.985 4.2043C14.8951 3.59035 14.4096 3.1049 13.7957 3.01497L7.83211 8.97855ZM3.75 5.25C3.75 4.42157 4.42157 3.75 5.25 3.75H8.625C9.03921 3.75 9.375 3.41421 9.375 3C9.375 2.58579 9.03921 2.25 8.625 2.25H5.25C3.59315 2.25 2.25 3.59314 2.25 5.25V12.75C2.25 14.4069 3.59314 15.75 5.25 15.75H12.75C14.4069 15.75 15.75 14.4069 15.75 12.75V9.375C15.75 8.96078 15.4142 8.625 15 8.625C14.5858 8.625 14.25 8.96078 14.25 9.375V12.75C14.25 13.5784 13.5784 14.25 12.75 14.25H5.25C4.42157 14.25 3.75 13.5784 3.75 12.75V5.25Z\" fill=\"black\" fill-opacity=\"0.85\"/>\n</svg>",
-          "slug": "articles",
-          "name": "Статьи",
-          "locales": [
-            {
-              "name": "Статьи"
-            }
-          ]
+          "id": 60,
+          "slug": "enim",
+          "createdAt": "2021-09-22T14:04:51.015Z",
+          "updatedAt": "2021-09-22T14:04:51.015Z",
+          "icon": null,
+          "isDeleted": false,
+          "name": "enim",
+          "locale": "en",
+          "blogTagId": 47,
+          "count": 1
         }
       ],
-      "textTitle": "Что такое Apache Kafka? Управляемые базы данных.",
-      "htmlTitle": "Что такое Apache Kafka? Управляемые базы данных.",
-      "metaTitle": "Что такое Apache Kafka? Управляемые базы данных.",
-      "description": "<p>Рассказываем об&nbsp;Apache Kafka<sup>&reg;</sup>: что такое брокер сообщений, для чего его используют и&nbsp;в&nbsp;чём&nbsp;преимущества управляемого сервиса в&nbsp;облаке.</p>",
+      "textTitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.",
+      "htmlTitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
+      "metaTitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
+      "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>",
       "content": ""
     },
     {
       "id": 459,
-      "slug": "managed-postgresql-overview",
+      "slug": "amet",
       "date": "2022-09-09T00:00:00Z",
       "postDate": "2022-09-09T00:00:00Z",
       "blogPostId": 459,
       "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-black.png",
       "readingTime": 10,
-      "keywords": ["postgresql"],
-      "shareTitle": "Обзор PostgreSQL. В чём преимущества управляемой БД перед локальной",
+      "keywords": ["amet"],
+      "shareTitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
       "likes": 1,
       "hasUserLike": false,
       "services": [
         {
-          "id": 13,
-          "slug": "managed-postgresql",
-          "name": "Managed Service for PostgreSQL"
+          "id": 15,
+          "name": "amet",
+          "slug": "amet"
         }
       ],
-      "url": "/blog/posts/2022/09/managed-postgresql-overview",
+      "url": "/blog/posts/2022/09/amet",
       "tags": [
         {
-          "icon": "<svg width=\"18\" height=\"18\" viewBox=\"0 0 18 18\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M6.85607 11.9925C6.62237 12.0258 6.38659 11.9473 6.21967 11.7803C6.05274 11.6134 5.97415 11.3776 6.00754 11.1439L6.38254 8.51893C6.40549 8.35829 6.47992 8.20942 6.59467 8.09467L12.9064 1.78295C13.0876 1.60178 13.3333 1.5 13.5895 1.5C15.1969 1.5 16.5 2.80308 16.5 4.41051C16.5 4.66672 16.3982 4.91244 16.217 5.09361L9.90533 11.4053C9.79058 11.5201 9.64171 11.5945 9.48106 11.6175L6.85607 11.9925ZM7.83211 8.97855L7.63388 10.3661L9.02145 10.1679L14.985 4.2043C14.8951 3.59035 14.4096 3.1049 13.7957 3.01497L7.83211 8.97855ZM3.75 5.25C3.75 4.42157 4.42157 3.75 5.25 3.75H8.625C9.03921 3.75 9.375 3.41421 9.375 3C9.375 2.58579 9.03921 2.25 8.625 2.25H5.25C3.59315 2.25 2.25 3.59314 2.25 5.25V12.75C2.25 14.4069 3.59314 15.75 5.25 15.75H12.75C14.4069 15.75 15.75 14.4069 15.75 12.75V9.375C15.75 8.96078 15.4142 8.625 15 8.625C14.5858 8.625 14.25 8.96078 14.25 9.375V12.75C14.25 13.5784 13.5784 14.25 12.75 14.25H5.25C4.42157 14.25 3.75 13.5784 3.75 12.75V5.25Z\" fill=\"black\" fill-opacity=\"0.85\"/>\n</svg>",
-          "slug": "articles",
-          "name": "Статьи",
-          "locales": [
-            {
-              "name": "Статьи"
-            }
-          ]
+          "id": 95,
+          "slug": "amet",
+          "createdAt": "2022-04-20T09:36:25.207Z",
+          "updatedAt": "2022-07-22T08:54:16.967Z",
+          "icon": "<svg width=\"18\" height=\"18\" viewBox=\"0 0 18 18\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M4.5 3C2.84315 3 1.5 4.34315 1.5 6V12C1.5 13.6569 2.84315 15 4.5 15H13.5C15.1569 15 16.5 13.6569 16.5 12V6C16.5 4.34315 15.1569 3 13.5 3H4.5ZM4.17843 4.53455C4.28202 4.51192 4.38962 4.5 4.5 4.5H13.5C13.6104 4.5 13.718 4.51192 13.8216 4.53455L9.98776 7.88914C9.42222 8.38398 8.57778 8.38398 8.01224 7.88914L4.17843 4.53455ZM3.06704 5.55523C3.02347 5.69577 3 5.84514 3 6V12C3 12.8284 3.67157 13.5 4.5 13.5H13.5C14.3284 13.5 15 12.8284 15 12V6C15 5.84514 14.9765 5.69577 14.933 5.55523L10.9755 9.018C9.84444 10.0077 8.15556 10.0077 7.02449 9.018L3.06704 5.55523Z\" fill=\"black\" fill-opacity=\"0.85\"/>\n</svg>",
+          "isDeleted": false,
+          "name": "amet",
+          "locale": "en",
+          "blogTagId": 81,
+          "count": 4
         }
       ],
-      "textTitle": "Решайте свои задачи с Managed Service for PostgreSQL",
-      "htmlTitle": "Решайте свои задачи с&nbsp;Managed&nbsp;Service&nbsp;for&nbsp;PostgreSQL",
-      "metaTitle": "Решайте свои задачи с&nbsp;Managed&nbsp;Service&nbsp;for&nbsp;PostgreSQL",
-      "description": "<p>Рассказываем, в&nbsp;чём причина популярности СУБД PostgreSQL, для каких задач она подходит и&nbsp;почему&nbsp;работать с&nbsp;управляемым сервисом проще и&nbsp;удобнее.</p>",
-      "content": ""
-    },
-    {
-      "id": 458,
-      "slug": "managed-clickhouse-overview",
-      "date": "2022-09-08T00:00:00Z",
-      "postDate": "2022-09-08T00:00:00Z",
-      "blogPostId": 458,
-      "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
-      "readingTime": 10,
-      "keywords": ["clickhouse", "субд", "базы данных"],
-      "shareTitle": "ClickHouse – колоночная СУБД. Почему она быстрее традиционных БД?",
-      "likes": 0,
-      "hasUserLike": false,
-      "services": [
-        {
-          "id": 14,
-          "slug": "managed-clickhouse",
-          "name": "Managed Service for ClickHouse"
-        }
-      ],
-      "url": "/blog/posts/2022/09/managed-clickhouse-overview",
-      "tags": [
-        {
-          "icon": "<svg width=\"18\" height=\"18\" viewBox=\"0 0 18 18\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M6.85607 11.9925C6.62237 12.0258 6.38659 11.9473 6.21967 11.7803C6.05274 11.6134 5.97415 11.3776 6.00754 11.1439L6.38254 8.51893C6.40549 8.35829 6.47992 8.20942 6.59467 8.09467L12.9064 1.78295C13.0876 1.60178 13.3333 1.5 13.5895 1.5C15.1969 1.5 16.5 2.80308 16.5 4.41051C16.5 4.66672 16.3982 4.91244 16.217 5.09361L9.90533 11.4053C9.79058 11.5201 9.64171 11.5945 9.48106 11.6175L6.85607 11.9925ZM7.83211 8.97855L7.63388 10.3661L9.02145 10.1679L14.985 4.2043C14.8951 3.59035 14.4096 3.1049 13.7957 3.01497L7.83211 8.97855ZM3.75 5.25C3.75 4.42157 4.42157 3.75 5.25 3.75H8.625C9.03921 3.75 9.375 3.41421 9.375 3C9.375 2.58579 9.03921 2.25 8.625 2.25H5.25C3.59315 2.25 2.25 3.59314 2.25 5.25V12.75C2.25 14.4069 3.59314 15.75 5.25 15.75H12.75C14.4069 15.75 15.75 14.4069 15.75 12.75V9.375C15.75 8.96078 15.4142 8.625 15 8.625C14.5858 8.625 14.25 8.96078 14.25 9.375V12.75C14.25 13.5784 13.5784 14.25 12.75 14.25H5.25C4.42157 14.25 3.75 13.5784 3.75 12.75V5.25Z\" fill=\"black\" fill-opacity=\"0.85\"/>\n</svg>",
-          "slug": "articles",
-          "name": "Статьи",
-          "locales": [
-            {
-              "name": "Статьи"
-            }
-          ]
-        }
-      ],
-      "textTitle": "Управляемые базы данных. СУБД ClickHouse",
-      "htmlTitle": "Управляемые базы данных. СУБД&nbsp;ClickHouse",
-      "metaTitle": "Управляемые базы данных. СУБД&nbsp;ClickHouse",
-      "description": "<p>Зачем бизнесу могут понадобиться колоночные СУБД? Почему они быстрее традиционных систем? Какие задачи можно решать с&nbsp;помощью ClickHouse?</p>",
-      "content": ""
-    },
-    {
-      "id": 457,
-      "slug": "digest-august",
-      "date": "2022-09-07T00:00:00Z",
-      "postDate": "2022-09-07T00:00:00Z",
-      "blogPostId": 457,
-      "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-black.png",
-      "readingTime": 15,
-      "keywords": [],
-      "shareTitle": "Укажите заголовок",
-      "likes": 0,
-      "hasUserLike": false,
-      "services": [],
-      "url": "/blog/posts/2022/09/digest-august",
-      "tags": [],
-      "textTitle": "Дайджест новостей за август",
-      "htmlTitle": "Дайджест новостей за&nbsp;август",
-      "metaTitle": "Дайджест новостей за август",
-      "description": "<p>Дайджест новостей за&nbsp;август</p>",
-      "content": ""
-    },
-    {
-      "id": 451,
-      "slug": "test_dasha2",
-      "date": "2022-09-02T00:00:00Z",
-      "postDate": "2022-09-02T00:00:00Z",
-      "blogPostId": 451,
-      "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
-      "readingTime": 20,
-      "keywords": [],
-      "shareTitle": "Укажите заголовок",
-      "likes": 0,
-      "hasUserLike": false,
-      "services": [],
-      "url": "/blog/posts/2022/09/test_dasha2",
-      "tags": [],
-      "textTitle": "аа",
-      "htmlTitle": "аа",
-      "metaTitle": "аа",
-      "description": "<p>а</p>",
-      "content": ""
-    },
-    {
-      "id": 450,
-      "slug": "temp-33400",
-      "date": "2022-09-02T00:00:00Z",
-      "postDate": "2022-09-02T00:00:00Z",
-      "blogPostId": 450,
-      "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-black.png",
-      "readingTime": 15,
-      "keywords": [],
-      "shareTitle": "Безопасность данных: кто&#160;и&#160;за&#160;что&#160;отвечает в&#160;Yandex&#160;Cloud",
-      "likes": 1,
-      "hasUserLike": false,
-      "services": [
-        {
-          "id": 169,
-          "slug": "api-gateway",
-          "name": "API Gateway"
-        }
-      ],
-      "url": "/blog/posts/2022/09/temp-33400",
-      "tags": [],
-      "textTitle": "Безопасность данных: кто и за что отвечает в Yandex Cloud",
-      "htmlTitle": "Безопасность данных: кто&nbsp;и&nbsp;за&nbsp;что&nbsp;отвечает в&nbsp;Yandex&nbsp;Cloud",
-      "metaTitle": "Безопасность данных: кто&#160;и&#160;за&#160;что&#160;отвечает в&#160;Yandex&#160;Cloud",
-      "description": "<p>Вопрос безопасности данных сейчас стоит очень остро и&nbsp;постоянно обсуждается далеко за&nbsp;пределами IT-комьюнити.</p>",
-      "content": ""
-    },
-    {
-      "id": 445,
-      "slug": "microsoft-suspension-update",
-      "date": "2022-08-31T00:00:00Z",
-      "postDate": "2022-08-31T00:00:00Z",
-      "blogPostId": 445,
-      "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
-      "readingTime": 3,
-      "keywords": [],
-      "shareTitle": "Продление доступности сервисов Microsoft до 30 ноября 2022 года / Availability of Microsoft-based services extended to November 30, 2022",
-      "likes": 2,
-      "hasUserLike": false,
-      "services": [
-        {
-          "id": 10,
-          "slug": "managed-kubernetes",
-          "name": "Managed Service for Kubernetes®"
-        }
-      ],
-      "url": "/blog/posts/2022/08/microsoft-suspension-update",
-      "tags": [
-        {
-          "icon": "<svg width=\"18\" height=\"18\" viewBox=\"0 0 18 18\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M2.25 5.25C2.25 3.59314 3.59315 2.25 5.25 2.25H12.75C14.4069 2.25 15.75 3.59315 15.75 5.25V12.75C15.75 14.4069 14.4069 15.75 12.75 15.75H5.25C3.59314 15.75 2.25 14.4069 2.25 12.75V5.25ZM5.25 3.75C4.42157 3.75 3.75 4.42157 3.75 5.25V12.75C3.75 13.5784 4.42157 14.25 5.25 14.25H12.75C13.5784 14.25 14.25 13.5784 14.25 12.75V5.25C14.25 4.42157 13.5784 3.75 12.75 3.75H5.25ZM5.25 6C5.25 5.58579 5.58579 5.25 6 5.25H10.5C10.9142 5.25 11.25 5.58579 11.25 6C11.25 6.41421 10.9142 6.75 10.5 6.75H6C5.58579 6.75 5.25 6.41421 5.25 6ZM6 8.25C5.58579 8.25 5.25 8.58579 5.25 9V12C5.25 12.4142 5.58579 12.75 6 12.75H12C12.4142 12.75 12.75 12.4142 12.75 12V9C12.75 8.58579 12.4142 8.25 12 8.25H6Z\" fill=\"black\" fill-opacity=\"0.85\"/>\n</svg>",
-          "slug": "news",
-          "name": "Новости",
-          "locales": [
-            {
-              "name": "Новости"
-            }
-          ]
-        }
-      ],
-      "textTitle": "Продление доступности сервисов Microsoft до 30 ноября 2022 года",
-      "htmlTitle": "Продление доступности сервисов Microsoft до&nbsp;30&nbsp;ноября 2022&nbsp;года",
-      "metaTitle": "Продление доступности сервисов Microsoft до 30 ноября 2022 года",
-      "description": "<p>Сервисы на&nbsp;базе продуктов Microsoft будут доступны до&nbsp;30&nbsp;ноября при соблюдении условий вендора.</p>",
-      "content": ""
-    },
-    {
-      "id": 444,
-      "slug": "cybersecurity-competitions",
-      "date": "2022-08-29T00:00:00Z",
-      "postDate": "2022-08-29T00:00:00Z",
-      "blogPostId": 444,
-      "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-black.png",
-      "readingTime": 10,
-      "keywords": [],
-      "shareTitle": "«БСС-Безопасность» и Yandex Cloud помогут повысить уровень защищенности инфраструктуры российских банков",
-      "likes": 2,
-      "hasUserLike": false,
-      "services": [],
-      "url": "/blog/posts/2022/08/cybersecurity-competitions",
-      "tags": [
-        {
-          "icon": "<svg width=\"18\" height=\"18\" viewBox=\"0 0 18 18\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M2.25 5.25C2.25 3.59314 3.59315 2.25 5.25 2.25H12.75C14.4069 2.25 15.75 3.59315 15.75 5.25V12.75C15.75 14.4069 14.4069 15.75 12.75 15.75H5.25C3.59314 15.75 2.25 14.4069 2.25 12.75V5.25ZM5.25 3.75C4.42157 3.75 3.75 4.42157 3.75 5.25V12.75C3.75 13.5784 4.42157 14.25 5.25 14.25H12.75C13.5784 14.25 14.25 13.5784 14.25 12.75V5.25C14.25 4.42157 13.5784 3.75 12.75 3.75H5.25ZM5.25 6C5.25 5.58579 5.58579 5.25 6 5.25H10.5C10.9142 5.25 11.25 5.58579 11.25 6C11.25 6.41421 10.9142 6.75 10.5 6.75H6C5.58579 6.75 5.25 6.41421 5.25 6ZM6 8.25C5.58579 8.25 5.25 8.58579 5.25 9V12C5.25 12.4142 5.58579 12.75 6 12.75H12C12.4142 12.75 12.75 12.4142 12.75 12V9C12.75 8.58579 12.4142 8.25 12 8.25H6Z\" fill=\"black\" fill-opacity=\"0.85\"/>\n</svg>",
-          "slug": "news",
-          "name": "Новости",
-          "locales": [
-            {
-              "name": "Новости"
-            }
-          ]
-        }
-      ],
-      "textTitle": "«БСС-Безопасность» и Yandex Cloud помогут повысить уровень защищенности инфраструктуры российских банков",
-      "htmlTitle": "&laquo;БСС-Безопасность&raquo; и&nbsp;Yandex&nbsp;Cloud помогут повысить уровень защищенности инфраструктуры российских банков",
-      "metaTitle": "«БСС-Безопасность» и Yandex Cloud помогут повысить уровень защищенности инфраструктуры российских банков",
-      "description": "<p>С&nbsp;9&nbsp;по&nbsp;11&nbsp;сентября компании проведут соревнования по&nbsp;кибербезопасности Bank Security Challenge в&nbsp;формате Task-Based CTF (Capture The Flag) и&nbsp;LAB CTF (Penetration Test Laboratory).</p>",
-      "content": ""
-    },
-    {
-      "id": 443,
-      "slug": "unified-agent",
-      "date": "2022-08-22T00:00:00Z",
-      "postDate": "2022-08-22T00:00:00Z",
-      "blogPostId": 443,
-      "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
-      "readingTime": 5,
-      "keywords": [],
-      "shareTitle": "Простая установка агента Yandex Unified Agent",
-      "likes": 1,
-      "hasUserLike": false,
-      "services": [
-        {
-          "id": 10,
-          "slug": "managed-kubernetes",
-          "name": "Managed Service for Kubernetes®"
-        }
-      ],
-      "url": "/blog/posts/2022/08/unified-agent",
-      "tags": [
-        {
-          "icon": "<svg width=\"18\" height=\"18\" viewBox=\"0 0 18 18\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M2.25 5.25C2.25 3.59314 3.59315 2.25 5.25 2.25H12.75C14.4069 2.25 15.75 3.59315 15.75 5.25V12.75C15.75 14.4069 14.4069 15.75 12.75 15.75H5.25C3.59314 15.75 2.25 14.4069 2.25 12.75V5.25ZM5.25 3.75C4.42157 3.75 3.75 4.42157 3.75 5.25V12.75C3.75 13.5784 4.42157 14.25 5.25 14.25H12.75C13.5784 14.25 14.25 13.5784 14.25 12.75V5.25C14.25 4.42157 13.5784 3.75 12.75 3.75H5.25ZM5.25 6C5.25 5.58579 5.58579 5.25 6 5.25H10.5C10.9142 5.25 11.25 5.58579 11.25 6C11.25 6.41421 10.9142 6.75 10.5 6.75H6C5.58579 6.75 5.25 6.41421 5.25 6ZM6 8.25C5.58579 8.25 5.25 8.58579 5.25 9V12C5.25 12.4142 5.58579 12.75 6 12.75H12C12.4142 12.75 12.75 12.4142 12.75 12V9C12.75 8.58579 12.4142 8.25 12 8.25H6Z\" fill=\"black\" fill-opacity=\"0.85\"/>\n</svg>",
-          "slug": "news",
-          "name": "Новости",
-          "locales": [
-            {
-              "name": "Новости"
-            }
-          ]
-        }
-      ],
-      "textTitle": "Простая установка агента Yandex Unified Agent",
-      "htmlTitle": "Простая установка агента Yandex Unified Agent",
-      "metaTitle": "Простая установка агента Yandex Unified Agent",
-      "description": "<p>Мы&nbsp;реализовали простую установку агента Yandex Unified Agent при создании виртуальной машины.</p>",
+      "textTitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
+      "htmlTitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
+      "metaTitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
+      "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>",
       "content": ""
     }
   ],
@@ -383,24 +167,31 @@
   "count": 125,
   "pinnedPost": {
     "id": 8,
-    "slug": "test-5",
+    "slug": "adipiscing",
     "date": "2022-10-03T00:00:00Z",
     "postDate": "2022-10-03T00:00:00Z",
-    "title": "test-5",
+    "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
     "blogPostId": 8,
-    "description": "hi test",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
     "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-black.png",
     "readingTime": 1,
     "likes": 0,
     "hasUserLike": false,
     "tags": [
       {
+        "id": 9,
+        "slug": "sit",
+        "createdAt": "2020-03-13T11:00:57.360Z",
+        "updatedAt": "2020-03-13T11:00:57.360Z",
         "icon": null,
-        "slug": "test",
-        "name": "test"
+        "isDeleted": false,
+        "name": "sit",
+        "locale": "en",
+        "blogTagId": 5,
+        "count": 6
       }
     ],
     "services": [],
-    "url": "/blog/posts/2022/10/test-5"
+    "url": "/blog/posts/2022/10/adipiscing"
   }
 }

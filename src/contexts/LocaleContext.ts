@@ -7,8 +7,8 @@ export type LocaleContextProps = {
 
 export const LocaleContext = React.createContext<LocaleContextProps>({
     locale: {
-        code: 'ru-RU',
-        lang: Lang.Ru,
-        langName: 'Русский',
+        code: 'en-En',
+        lang: Lang.En,
+        langName: 'English',
     },
 });

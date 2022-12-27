@@ -81,7 +81,7 @@ export const globalTypes = {
     },
     lang: {
         name: 'Language',
-        defaultValue: 'ru',
+        defaultValue: 'en',
         toolbar: {
             icon: 'globe',
             items: [
