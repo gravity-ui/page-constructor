@@ -1,3 +1,6 @@
+// for jest test to overcome well known error 'matchMedia not present, legacy browsers require a polyfill'
+// https://github.com/akiran/react-slick/issues/742
+import '../test-utils/global-setup-test';
 //storybook
 export * from './context/theme';
 

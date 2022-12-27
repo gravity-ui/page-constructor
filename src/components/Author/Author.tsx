@@ -9,13 +9,13 @@ import './Author.scss';
 const b = block('author');
 
 const Author = (props: WithChildren<AuthorProps>) => {
-    const {author, className, authorContainerClassName, type = AuthorType.Column} = props;
+    const {author, className, authorContainerClassName, type = AuthorType.Column, dataQa} = props;
     const {firstName, secondName, description, avatar} = author;
 
     const name = secondName ? `${firstName} ${secondName}` : firstName;
 
     return (
-        <div className={b({type}, className)}>
+        <div className={b({type}, className)} data-qa={dataQa}>
             {avatar && (
                 <div className={b('avatar', authorContainerClassName)}>
                     {typeof avatar === 'string' ? <Image src={avatar} /> : avatar}
