@@ -89,6 +89,7 @@
     "@types/sanitize-html": "^2.6.0",
     "eslint": "^7.32.0",
     "eslint-plugin-local": "./eslint-plugin-local",
+    "eslint-plugin-testing-library": "^5.9.1",
     "gulp": "^4.0.2",
     "gulp-dart-sass": "^1.0.2",
     "gulp-replace": "^1.1.3",
