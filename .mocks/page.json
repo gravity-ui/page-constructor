@@ -18,7 +18,7 @@
         "verticalOffset": "m",
         "theme": "dark",
         "background": {
-          "url": "https://storage.cloud-preprod.yandex.net/cloud-www-assets/blog-assets/ru/posts/2022/1440w.png",
+          "url": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-black.png",
           "disableCompress": true,
           "color": "#CCDAFF",
           "fullWidth": false
@@ -26,7 +26,8 @@
         "buttons": [
           {
             "text": "button 1",
-            "url": "http://example.com/"
+            "url": "http://example.com/",
+            "theme": "action"
           }
         ]
       },
@@ -69,19 +70,19 @@
             "type": "blog-yfm-block",
             "column": "left",
             "resetPaddings": true,
-            "text": "<h2 id=\"obychnyj-tekst-dlya-yfm-razmetki\"><a href=\"#obychnyj-tekst-dlya-yfm-razmetki\" class=\"yfm-anchor\" aria-hidden=\"true\"></a>Обычный текст для YFM разметки</h2>\n<p>&lt;img src=&quot;https://storage.yandexcloud.net/cloud-www-assets/blog-assets/ru/posts/2021/03/mdb-advantages-2.4-1.png&quot; width=&quot;800&quot; alt=&quot;Схема с синхронной и асинхронной репликами&quot;/&gt; Сегодня решения на&nbsp;GPU NVIDIA A100 в&nbsp;Yandex.Cloud уже используются такими лидерами рынка как группа &laquo;М.Видео-Эльдорадо&raquo;, компания VizorLabs. Кроме того, A100 доступны для участников программы поддержки цифровизации образовательных учреждений, к&nbsp;которой уже присоединились НИУ ВШЭ, МГТУ им.&nbsp;Н.&nbsp;Э.&nbsp;Баумана и&nbsp;МГУ.<br>\nОбратите внимание: gRPC использует формат Protobuf&nbsp;&mdash; он&nbsp;здорово сжимает данные, поэтому эффективен как транспорт. Чтобы воспользоваться gRPC, нужно создать файлы заголовков и&nbsp;сгенерировать их&nbsp;на&nbsp;вашем языке программирования. Иными словами, хотя gRPC обычно эффективнее, новичку проще начать с&nbsp;REST-вызовов. Вы&nbsp;можете выбрать любой вариант, но&nbsp;помните, что потоковое распознавание пока работает только с&nbsp;gRPC-вызовами. <a href=\"https://yandex.ru\">link</a></p>\n<h3 id=\"tablicy\"><a href=\"#tablicy\" class=\"yfm-anchor\" aria-hidden=\"true\"></a>Таблицы</h3>\n<p>В&nbsp;настоящее время в&nbsp;Yandex.Cloud предлагаются конфигурации с&nbsp;одной и&nbsp;восемью GPU NVIDIA A100 на&nbsp;машину, конфигурации по&nbsp;две и&nbsp;четыре GPU будут доступны уже в&nbsp;ближайшее время. Сегодня решения на&nbsp;GPU NVIDIA A100 в&nbsp;Yandex.Cloud уже используются такими лидерами рынка как группа &laquo;М.Видео-Эльдорадо&raquo;, компания VizorLabs. Кроме того, A100 доступны для участников программы поддержки цифровизации образовательных учреждений, к&nbsp;которой уже присоединились НИУ ВШЭ, МГТУ им.&nbsp;Н.&nbsp;Э.&nbsp;Баумана и&nbsp;МГУ. В&nbsp;настоящее время в&nbsp;Yandex.Cloud предлагаются конфигурации с&nbsp;одной и&nbsp;восемью GPU NVIDIA A100 на&nbsp;машину, конфигурации по&nbsp;две и&nbsp;четыре GPU будут доступны уже в&nbsp;ближайшее время.</p>"
+            "text": "<p><strong>Lorem ipsum dolor sit amet</strong> <a href=\"https://example.com\">consectetur adipiscing elit</a> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>"
           },
           {
             "type": "blog-banner-block",
             "resetPaddings": true,
-            "title": "У вас есть готовое приложение для Kubernetes?",
-            "text": "Вы можете опубликовать его в Cloud Marketplace, заполнив заявку на главной странице.",
+            "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+            "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
             "color": "#5282FF",
             "theme": "dark",
-            "image": "https://storage.yandexcloud.net/cloud-www-assets/solutions/medicine/med-big.png",
+            "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-black.png",
             "buttons": [
               {
-                "text": "Подать заявку",
+                "text": "Get",
                 "url": "http://example.com/",
                 "theme": "normal-contrast",
                 "metrikaGoals": [
@@ -109,64 +110,47 @@
             "type": "blog-yfm-block",
             "column": "right",
             "resetPaddings": true,
-            "text": "<p>Подводим итоги года и&nbsp;рассказываем про самые важные и&nbsp;интересные события в&nbsp;облаке в&nbsp;2021&nbsp;году.</p>\n<ul>\n<li><a href=\"#tablicy\">Чем запомнился год</a></li>\n<li><a href=\"https://yandex.ru\">Общие новости платформы</a></li>\n<li><a href=\"https://yandex.ru\">Инфраструктура</a></li>\n<li><a href=\"https://yandex.ru\">Платформа данных</a></li>\n<li><a href=\"https://yandex.ru\">Бессерверные вычисления</a></li>\n<li><a href=\"https://yandex.ru\">Инструменты для разработки</a></li>\n<li><a href=\"https://yandex.ru\">Искусственный интеллект и&nbsp;машинное обучение</a></li>\n<li><a href=\"https://yandex.ru\">Безопасность</a></li>\n<li><a href=\"https://yandex.ru\">Бизнес-инструменты</a></li>\n<li><a href=\"https://yandex.ru\">Мобильное приложение</a></li>\n<li><a href=\"https://yandex.ru\">Образование</a></li>\n</ul>"
+            "text": "<p><strong>Lorem ipsum dolor sit amet</strong> <a href=\"https://example.com\">consectetur adipiscing elit</a> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>"
           },
           {
             "type": "blog-yfm-block",
             "column": "left",
             "resetPaddings": true,
-            "text": "<h2 id=\"obychnyj-tekst-dlya-yfm-razmetki\"><a href=\"#obychnyj-tekst-dlya-yfm-razmetki\" class=\"yfm-anchor\" aria-hidden=\"true\"></a>Обычный текст для YFM разметки</h2>\n<p>Сегодня решения на&nbsp;GPU NVIDIA A100 в&nbsp;Yandex.Cloud уже используются такими лидерами рынка как группа &laquo;М.Видео-Эльдорадо&raquo;, компания VizorLabs. Кроме того, A100 доступны для участников программы поддержки цифровизации образовательных учреждений, к&nbsp;которой уже присоединились НИУ ВШЭ, МГТУ им.&nbsp;Н.&nbsp;Э.&nbsp;Баумана и&nbsp;МГУ.</p>"
+            "text": "<p><strong>Lorem ipsum dolor sit amet</strong> <a href=\"https://example.com\">consectetur adipiscing elit</a> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>"
           },
           {
             "type": "blog-media-block",
             "column": "left",
             "resetPaddings": true,
-            "text": "<p>Алексей Башкеев, руководитель Yandex Cloud показывает и&nbsp;рассказывает что такое на&nbsp;самом деле суперкомпьютеры простым языком.</p>",
-            "image": "https://storage.yandexcloud.net/cloud-www-assets/blog-assets/ru/posts/2022/05/recommender-system-004.png",
+            "text": "<p><strong>Lorem ipsum dolor sit amet</strong> <a href=\"https://example.com\">consectetur adipiscing elit</a> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>",
+            "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-black.png",
             "fullWidth": false
           },
           {
             "type": "blog-yfm-block",
             "column": "left",
             "resetPaddings": true,
-            "text": "<p>Обратите внимание: gRPC использует формат Protobuf&nbsp;&mdash; он&nbsp;здорово сжимает данные, поэтому эффективен как транспорт. Чтобы воспользоваться gRPC, нужно создать файлы заголовков и&nbsp;сгенерировать их&nbsp;на&nbsp;вашем языке программирования. Иными словами, хотя gRPC обычно эффективнее, новичку проще начать с&nbsp;REST-вызовов. Вы&nbsp;можете выбрать любой вариант, но&nbsp;помните, что потоковое распознавание пока работает только с&nbsp;gRPC-вызовами. <a href=\"#\">link for exmaple </a></p>"
+            "text": "<p><strong>Lorem ipsum dolor sit amet</strong> <a href=\"https://example.com\">consectetur adipiscing elit</a> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>"
           },
           {
             "type": "blog-yfm-block",
             "column": "left",
             "resetPaddings": true,
-            "text": "<h3 id=\"tablicy\"><a href=\"#tablicy\" class=\"yfm-anchor\" aria-hidden=\"true\"></a>Таблицы</h3>\n<p>В&nbsp;настоящее время в&nbsp;Yandex.Cloud предлагаются конфигурации с&nbsp;одной и&nbsp;восемью GPU NVIDIA A100 на&nbsp;машину, конфигурации по&nbsp;две и&nbsp;четыре GPU будут доступны уже в&nbsp;ближайшее время.</p>\n<ul>\n<li>\n<p>Сегодня решения на&nbsp;GPU NVIDIA A100 в&nbsp;Yandex.Cloud уже используются такими лидерами рынка как группа &laquo;М.Видео-Эльдорадо&raquo;, компания VizorLabs.</p>\n</li>\n<li>\n<p>Кроме того, A100 доступны для участников программы поддержки цифровизации образовательных учреждений, к&nbsp;которой уже присоединились НИУ ВШЭ, МГТУ им.&nbsp;Н.&nbsp;Э.&nbsp;Баумана и&nbsp;МГУ.</p>\n</li>\n<li>\n<p>В&nbsp;настоящее время в&nbsp;Yandex.Cloud предлагаются конфигурации с&nbsp;одной и&nbsp;восемью GPU NVIDIA A100 на&nbsp;машину, конфигурации по&nbsp;две и&nbsp;четыре GPU будут доступны уже в&nbsp;ближайшее время.</p>\n</li>\n</ul>"
+            "text": "<p><strong>Lorem ipsum dolor sit amet</strong> <a href=\"https://example.com\">consectetur adipiscing elit</a> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>"
           },
           {
             "type": "blog-media-block",
             "column": "left",
             "resetPaddings": true,
-            "text": "<p>Алексей Башкеев, руководитель Yandex Cloud показывает и&nbsp;рассказывает что такое на&nbsp;самом деле суперкомпьютеры простым языком.</p>",
-            "youtube": "https://www.youtube.com/watch?v=_v4jZTPknI0",
-            "fullWidth": false
-          },
-          {
-            "type": "blog-media-block",
-            "column": "left",
-            "resetPaddings": true,
-            "dataLens": "zqx9je64n9bws",
-            "fullWidth": false
-          },
-          {
-            "type": "blog-media-block",
-            "column": "left",
-            "resetPaddings": true,
-            "dataLens": {
-              "id": "zqx9je64n9bws",
-              "theme": "dark"
-            },
+            "text": "<p><strong>Lorem ipsum dolor sit amet</strong> <a href=\"https://example.com\">consectetur adipiscing elit</a> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>",
+            "youtube": "https://youtu.be/bxZRUtMAlFI",
             "fullWidth": false
           },
           {
             "type": "blog-yfm-block",
             "column": "left",
             "resetPaddings": true,
-            "text": "<h2 id=\"obychnyj-tekst-dlya-yfm-razmetki\"><a href=\"#obychnyj-tekst-dlya-yfm-razmetki\" class=\"yfm-anchor\" aria-hidden=\"true\"></a>Обычный текст для YFM разметки</h2>\n<p>Сегодня решения на&nbsp;GPU NVIDIA A100 в&nbsp;Yandex.Cloud уже используются такими лидерами рынка как группа &laquo;М.Видео-Эльдорадо&raquo;, компания VizorLabs. Кроме того, A100 доступны для участников программы поддержки цифровизации образовательных учреждений, к&nbsp;которой уже присоединились НИУ ВШЭ, МГТУ им.&nbsp;Н.&nbsp;Э.&nbsp;Баумана и&nbsp;МГУ.<br>\nОбратите внимание: gRPC использует формат Protobuf&nbsp;&mdash; он&nbsp;здорово сжимает данные, поэтому эффективен как транспорт. Чтобы воспользоваться gRPC, нужно создать файлы заголовков и&nbsp;сгенерировать их&nbsp;на&nbsp;вашем языке программирования. Иными словами, хотя gRPC обычно эффективнее, новичку проще начать с&nbsp;REST-вызовов. Вы&nbsp;можете выбрать любой вариант, но&nbsp;помните, что потоковое распознавание пока работает только с&nbsp;gRPC-вызовами.</p>\n<h3 id=\"tablicy\"><a href=\"#tablicy\" class=\"yfm-anchor\" aria-hidden=\"true\"></a>Таблицы</h3>\n<p>В&nbsp;настоящее время в&nbsp;Yandex.Cloud предлагаются конфигурации с&nbsp;одной и&nbsp;восемью GPU NVIDIA A100 на&nbsp;машину, конфигурации по&nbsp;две и&nbsp;четыре GPU будут доступны уже в&nbsp;ближайшее время.</p>\n<ul>\n<li>Сегодня решения на&nbsp;GPU NVIDIA A100 в&nbsp;Yandex.Cloud уже используются такими лидерами рынка как группа &laquo;М.Видео-Эльдорадо&raquo;, компания VizorLabs.</li>\n<li>Кроме того, A100 доступны для участников программы поддержки цифровизации образовательных учреждений, к&nbsp;которой уже присоединились НИУ ВШЭ, МГТУ им.&nbsp;Н.&nbsp;Э.&nbsp;Баумана и&nbsp;МГУ.</li>\n<li>В&nbsp;настоящее время в&nbsp;Yandex.Cloud предлагаются конфигурации с&nbsp;одной и&nbsp;восемью GPU NVIDIA A100 на&nbsp;машину, конфигурации по&nbsp;две и&nbsp;четыре GPU будут доступны уже в&nbsp;ближайшее время.</li>\n</ul>"
+            "text": "<p><strong>Lorem ipsum dolor sit amet</strong> <a href=\"https://example.com\">consectetur adipiscing elit</a> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>"
           },
           {
             "type": "blog-colored-text-block",
@@ -175,30 +159,30 @@
             "background": {
               "color": "#EFF2F8"
             },
-            "text": "<p>Сегодня решения на&nbsp;GPU NVIDIA A100 в&nbsp;Yandex.Cloud уже используются такими лидерами рынка как группа &laquo;М.Видео-Эльдорадо&raquo;, компания VizorLabs. Кроме того, A100 доступны для участников программы поддержки цифровизации образовательных учреждений, к&nbsp;которой уже присоединились НИУ ВШЭ, МГТУ им.&nbsp;Н.&nbsp;Э.&nbsp;Баумана и&nbsp;МГУ.</p>"
+            "text": "<p><strong>Lorem ipsum dolor sit amet</strong> <a href=\"https://example.com\">consectetur adipiscing elit</a> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>"
           },
           {
             "type": "blog-yfm-block",
             "column": "left",
             "resetPaddings": true,
-            "text": "<h2 id=\"obychnyj-tekst-dlya-yfm-razmetki\"><a href=\"#obychnyj-tekst-dlya-yfm-razmetki\" class=\"yfm-anchor\" aria-hidden=\"true\"></a>Обычный текст для YFM разметки</h2>\n<p>Сегодня решения на&nbsp;GPU NVIDIA A100 в&nbsp;Yandex.Cloud уже используются такими лидерами рынка как группа &laquo;М.Видео-Эльдорадо&raquo;, компания VizorLabs. Кроме того, A100 доступны для участников программы поддержки цифровизации образовательных учреждений, к&nbsp;которой уже присоединились НИУ ВШЭ, МГТУ им.&nbsp;Н.&nbsp;Э.&nbsp;Баумана и&nbsp;МГУ.<br>\nОбратите внимание: gRPC использует формат Protobuf&nbsp;&mdash; он&nbsp;здорово сжимает данные, поэтому эффективен как транспорт. Чтобы воспользоваться gRPC, нужно создать файлы заголовков и&nbsp;сгенерировать их&nbsp;на&nbsp;вашем языке программирования. Иными словами, хотя gRPC обычно эффективнее, новичку проще начать с&nbsp;REST-вызовов. Вы&nbsp;можете выбрать любой вариант, но&nbsp;помните, что потоковое распознавание пока работает только с&nbsp;gRPC-вызовами.</p>\n<h3 id=\"tablicy\"><a href=\"#tablicy\" class=\"yfm-anchor\" aria-hidden=\"true\"></a>Таблицы</h3>\n<p>В&nbsp;настоящее время в&nbsp;Yandex.Cloud предлагаются конфигурации с&nbsp;одной и&nbsp;восемью GPU NVIDIA A100 на&nbsp;машину, конфигурации по&nbsp;две и&nbsp;четыре GPU будут доступны уже в&nbsp;ближайшее время.</p>\n<ul>\n<li>Сегодня решения на&nbsp;GPU NVIDIA A100 в&nbsp;Yandex.Cloud уже используются такими лидерами рынка как группа &laquo;М.Видео-Эльдорадо&raquo;, компания VizorLabs.</li>\n<li>Кроме того, A100 доступны для участников программы поддержки цифровизации образовательных учреждений, к&nbsp;которой уже присоединились НИУ ВШЭ, МГТУ им.&nbsp;Н.&nbsp;Э.&nbsp;Баумана и&nbsp;МГУ.</li>\n<li>В&nbsp;настоящее время в&nbsp;Yandex.Cloud предлагаются конфигурации с&nbsp;одной и&nbsp;восемью GPU NVIDIA A100 на&nbsp;машину, конфигурации по&nbsp;две и&nbsp;четыре GPU будут доступны уже в&nbsp;ближайшее время.</li>\n</ul>"
+            "text": "<p><strong>Lorem ipsum dolor sit amet</strong> <a href=\"https://example.com\">consectetur adipiscing elit</a> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>"
           },
           {
             "type": "blog-colored-text-block",
             "column": "left",
             "resetPaddings": true,
             "background": {
-              "image": "https://storage.yandexcloud.net/cloud-www-assets/edu/edu_sol_mtrl-new.png",
+              "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
               "altText": "alt text from bo"
             },
-            "title": "Managed Service for SQL Server",
-            "text": "<p>Сервис для управления и&nbsp;поддержки кластеров популярной реляционной СУБД SQL Server в&nbsp;инфраструктуре Yandex.Cloud. Сервис поддерживает SQL Server версий 2016&nbsp;SP2, 2017&nbsp;и&nbsp;2019. Наши пользователи работают с&nbsp;сервисом по&nbsp;управлению SQL Server в&nbsp;бэкенде веб-сервисов и&nbsp;при построении систем финансового учета.</p>"
+            "title": "Lorem ipsum ",
+            "text": "<p><strong>Lorem ipsum dolor sit amet</strong> <a href=\"https://example.com\">consectetur adipiscing elit</a> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>"
           },
           {
             "type": "blog-yfm-block",
             "column": "left",
             "resetPaddings": true,
-            "text": "<p>Сегодня решения на&nbsp;GPU NVIDIA A100 в&nbsp;Yandex.Cloud уже используются такими лидерами рынка как группа &laquo;М.Видео-Эльдорадо&raquo;, компания VizorLabs. Кроме того, A100 доступны для участников программы поддержки цифровизации образовательных учреждений, к&nbsp;которой уже присоединились НИУ ВШЭ, МГТУ им.&nbsp;Н.&nbsp;Э.&nbsp;Баумана и&nbsp;МГУ.<br>\nОбратите внимание: gRPC использует формат Protobuf&nbsp;&mdash; он&nbsp;здорово сжимает данные, поэтому эффективен как транспорт. Чтобы воспользоваться gRPC, нужно создать файлы заголовков и&nbsp;сгенерировать их&nbsp;на&nbsp;вашем языке программирования. Иными словами, хотя gRPC обычно эффективнее, новичку проще начать с&nbsp;REST-вызовов. Вы&nbsp;можете выбрать любой вариант, но&nbsp;помните, что потоковое распознавание пока работает только с&nbsp;gRPC-вызовами.<br>\nВ&nbsp;настоящее время в&nbsp;Yandex.Cloud предлагаются конфигурации с&nbsp;одной и&nbsp;восемью GPU NVIDIA A100 на&nbsp;машину, конфигурации по&nbsp;две и&nbsp;четыре GPU будут доступны уже в&nbsp;ближайшее время.</p>\n<ul>\n<li>Сегодня решения на&nbsp;GPU NVIDIA A100 в&nbsp;Yandex.Cloud уже используются такими лидерами рынка как группа &laquo;М.Видео-Эльдорадо&raquo;, компания VizorLabs.</li>\n<li>Кроме того, A100 доступны для участников программы поддержки цифровизации образовательных учреждений, к&nbsp;которой уже присоединились НИУ ВШЭ, МГТУ им.&nbsp;Н.&nbsp;Э.&nbsp;Баумана и&nbsp;МГУ.</li>\n<li>В&nbsp;настоящее время в&nbsp;Yandex.Cloud предлагаются конфигурации с&nbsp;одной и&nbsp;восемью GPU NVIDIA A100 на&nbsp;машину, конфигурации по&nbsp;две и&nbsp;четыре GPU будут доступны уже в&nbsp;ближайшее время.</li>\n</ul>"
+            "text": "<p><strong>Lorem ipsum dolor sit amet</strong> <a href=\"https://example.com\">consectetur adipiscing elit</a> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>"
           }
         ]
       },
@@ -211,7 +195,7 @@
             "type": "blog-yfm-block",
             "column": "left",
             "resetPaddings": true,
-            "text": "<h2 id=\"specialnye-elementy\"><a href=\"#specialnye-elementy\" class=\"yfm-anchor\" aria-hidden=\"true\"></a>Специальные элементы</h2>\n<h3 id=\"cuts\"><a href=\"#cuts\" class=\"yfm-anchor\" aria-hidden=\"true\"></a>Cuts</h3>\n<div class=\"yfm-cut\"><div class=\"yfm-cut-title\">Cut header</div><div class=\"yfm-cut-content\"><p>Content displayed when clicked.</p>\n</div></div><h3 id=\"table\"><a href=\"#table\" class=\"yfm-anchor\" aria-hidden=\"true\"></a>Table</h3>\n<table>\n<thead>\n<tr>\n<th>Header 1</th>\n<th>Header 2</th>\n<th>Header 3</th>\n<th>Header 4</th>\n<th>Header 5</th>\n<th>Header 6</th>\n<th>Header 7</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Text</td>\n<td>Text</td>\n<td>Text</td>\n<td>Text</td>\n<td>Text</td>\n<td>Text</td>\n<td>Text</td>\n</tr>\n<tr>\n<td>Text</td>\n<td>Text</td>\n<td>Text</td>\n<td>Text</td>\n<td>Text</td>\n<td>Text</td>\n<td>Text</td>\n</tr>\n</tbody>\n</table>\n<h3 id=\"notice\"><a href=\"#notice\" class=\"yfm-anchor\" aria-hidden=\"true\"></a>Notice</h3>\n<div class=\"yfm-note yfm-accent-info\" note-type=\"info\"><p><strong>Примечание</strong></p>\n<p>This is&nbsp;info.</p>\n</div><h3 id=\"tabs\"><a href=\"#tabs\" class=\"yfm-anchor\" aria-hidden=\"true\"></a>Tabs</h3>\n<div class=\"yfm-tabs\">\n<div class=\"yfm-tab-list\" role=\"tablist\">\n<div id=\"y8hz6pmq\" class=\"yfm-tab active\" role=\"tab\" aria-controls=\"oq3qa3u7\" aria-selected=\"true\" tabindex=\"0\">The name of&nbsp;tab1</div>\n<div id=\"0qydo5tl\" class=\"yfm-tab\" role=\"tab\" aria-controls=\"gcywvyur\" aria-selected=\"false\" tabindex=\"-1\">The name of&nbsp;tab2</div>\n</div>\n<div id=\"oq3qa3u7\" class=\"yfm-tab-panel active\" role=\"tabpanel\" aria-labelledby=\"y8hz6pmq\" data-title=\"The name of tab1\">\n<p>The text of&nbsp;tab1.</p>\n<ul>\n<li>You can use lists.</li>\n<li>And <strong>other</strong> markup.</li>\n</ul>\n</div>\n<div id=\"gcywvyur\" class=\"yfm-tab-panel\" role=\"tabpanel\" aria-labelledby=\"0qydo5tl\" data-title=\"The name of tab2\">\n<p>The text of&nbsp;tab2.</p>\n</div>\n</div>\n<h3 id=\"code-snippets\"><a href=\"#code-snippets\" class=\"yfm-anchor\" aria-hidden=\"true\"></a>Code Snippets</h3>\n<p><code>Code snippet</code> in&nbsp;the text.</p>\n\n    <div class=\"yfm-clipboard\">\n    <pre><code class=\"hljs sql\">\n<span class=\"hljs-keyword\">SELECT</span> <span class=\"hljs-operator\">*</span> <span class=\"hljs-keyword\">FROM</span> <span class=\"hljs-keyword\">table</span>\n\n  <span class=\"hljs-keyword\">SELECT</span> <span class=\"hljs-operator\">*</span> <span class=\"hljs-keyword\">FROM</span> <span class=\"hljs-keyword\">table</span>\n\n</code></pre>\n\n    <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" class=\"yfm-clipboard-button\" data-animation=\"146\">\n        <path\n            fill=\"currentColor\"\n            d=\"M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z\"\n        />\n        <path\n            stroke=\"currentColor\"\n            fill=\"transparent\"\n            strokeWidth=\"1.5\"\n            d=\"M9.5 13l3 3l5 -5\"\n            visibility=\"hidden\"\n        >\n            <animate\n                id=\"visibileAnimation-146\"\n                attributeName=\"visibility\"\n                from=\"hidden\"\n                to=\"visible\"\n                dur=\"0.2s\"\n                fill=\"freeze\"\n                begin=\"\"\n            />\n            <animate\n                id=\"hideAnimation-146\"\n                attributeName=\"visibility\"\n                from=\"visible\"\n                to=\"hidden\"\n                dur=\"1s\"\n                begin=\"visibileAnimation-146.end+1\"\n                fill=\"freeze\"\n            />\n        </path>\n    </svg>\n    </div>"
+            "text": "<p><strong>Lorem ipsum dolor sit amet</strong> <a href=\"https://example.com\">consectetur adipiscing elit</a> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>"
           }
         ]
       },
@@ -226,11 +210,11 @@
             "resetPaddings": true,
             "items": [
               {
-                "title": "Напишите нам",
-                "text": "Начать пользоваться Yandex.Cloud",
+                "title": "Lorem ipsum dolor",
+                "text": "sit amet",
                 "links": [
                   {
-                    "text": "Подробнее",
+                    "text": "sed do",
                     "url": "http://example.com/",
                     "arrow": true,
                     "theme": "normal",
@@ -250,11 +234,11 @@
                 "theme": "default"
               },
               {
-                "title": "Тарифы",
-                "text": "Узнать цены и рассчитать стоимость",
+                "title": "Lorem ipsum dolor",
+                "text": "sit amet",
                 "links": [
                   {
-                    "text": "Подробнее",
+                    "text": "sed do",
                     "url": "http://example.com/",
                     "arrow": true,
                     "theme": "normal",
@@ -274,11 +258,11 @@
                 "theme": "default"
               },
               {
-                "title": "Документация",
-                "text": "Подробные руководства",
+                "title": "Lorem ipsum dolor",
+                "text": "sit amet",
                 "links": [
                   {
-                    "text": "Подробнее",
+                    "text": "sed do",
                     "url": "http://example.com/",
                     "arrow": true,
                     "theme": "normal",
@@ -321,17 +305,17 @@
       }
     ]
   },
-  "title": "Мета заголовок поста",
+  "title": "Lorem ipsum dolor sit amet",
   "noIndex": false,
-  "shareTitle": "текст на картинке поста",
-  "shareDescription": "описание поста",
+  "shareTitle": "Lorem ipsum dolor sit amet share title",
+  "shareDescription": "Lorem ipsum dolor sit amet share description",
   "shareImage": "",
   "pageLocaleId": 1141,
-  "author": "niktverd",
-  "metaDescription": "Мета описание поста",
+  "author": "author",
+  "metaDescription": "Lorem ipsum dolor sit amet meta description",
   "keywords": ["keywords"],
   "shareGenImage": null,
-  "tempTitle": "Приложения для Kubernetes® в Yandex Cloud Marketplace&reg;",
+  "tempTitle": "Lorem ipsum dolor sit amet &reg;",
   "tempMetaDescription": null,
   "tempKeywords": "{\"keywords\"}",
   "tempShareGenImage": null,

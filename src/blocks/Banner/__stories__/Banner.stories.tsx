@@ -4,13 +4,14 @@ import {PageConstructor} from '@gravity-ui/page-constructor';
 import {Meta, Story} from '@storybook/react/types-6-0';
 
 import {BlockType, PostData} from '../../../models/common';
+import {BannerProps} from '../../../models/blocks';
 
 import customBlocks from '../../../constructor/blocksMap';
 import {BLOCKS} from '../../../demo/constants';
 import {PostPageContext} from '../../../contexts/PostPageContext';
 import post from '../../../../.mocks/post.json';
 
-import {Banner, BannerProps} from '../Banner';
+import {Banner} from '../Banner';
 
 export default {
     title: `${BLOCKS}/Banner`,

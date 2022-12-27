@@ -1,14 +1,14 @@
 import React from 'react';
 import {Story as StoryType, StoryContext} from '@storybook/react/types-6-0';
 
-import {Lang} from '../../models/locale';
+import {Lang} from '../../src/models/locale';
 
-import {configure} from '../../configure';
+import {configure} from '../../src/configure';
 
-configure({lang: Lang.Ru});
+configure({lang: Lang.En});
 
 export function withLang(Story: StoryType, context: StoryContext) {
-    const lang = context.globals.lang || Lang.Ru;
+    const lang = context.globals.lang || Lang.En;
     configure({lang});
 
     return <Story {...context} />;

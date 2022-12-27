@@ -1,15 +1,9 @@
 import {ShareOptions} from '@gravity-ui/uikit';
 
-import {transformPageContent} from '../src/data/transformPageContent';
-import {createReadableContent} from '../src/data/createReadableContent';
-import {sanitizeMeta} from '../src/data/sanitizeMeta';
-import {transformPost} from '../src/data/transformPost';
-
 import {Lang} from '../src/models/locale';
 
-import postApi from './postApi.json';
-import pageApi from './pageApi.json';
-import metaData from './postMetaData.json';
+import post from './post.json';
+import page from './page.json';
 import suggestedPosts from './suggestedPosts.json';
 
 /**
@@ -17,29 +11,13 @@ import suggestedPosts from './suggestedPosts.json';
  * example how to use data utils
  */
 export const generatePostPageData = () => {
-    const lang = Lang.Ru;
-    const region = Lang.Ru;
-
-    const preparedPostData = transformPost(postApi, lang);
-
-    const transformedPageContent = transformPageContent({content: pageApi.content, lang, region});
-
-    const readableContent = createReadableContent({blocks: transformedPageContent.blocks});
-
-    const pageData = {
-        ...pageApi,
-        content: transformedPageContent,
-    };
-
-    const postData = {
-        ...preparedPostData,
-        content: readableContent,
-    };
+    const lang = Lang.En;
+    const region = Lang.En;
 
     return {
         suggestedPosts,
-        content: pageData.content,
-        post: postData,
+        content: page.content,
+        post,
         shareOptions: [
             ShareOptions.Twitter,
             ShareOptions.Facebook,
@@ -47,8 +25,8 @@ export const generatePostPageData = () => {
             ShareOptions.VK,
         ],
         likes: {
-            hasUserLike: postData.hasUserLike,
-            likesCount: postData.likes,
+            hasUserLike: post.hasUserLike,
+            likesCount: post.likes,
             toggleLike: ({postId}) => {
                 console.log('toggle like on post --->', postId);
             },
