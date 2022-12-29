@@ -14,7 +14,7 @@ export interface ClassNameProps {
     className?: string;
 }
 
-type Author = {
+export type Author = {
     id: number;
     avatar: string | null;
     createdAt: string;
