@@ -34,10 +34,6 @@ $block: '.#{$ns}link-block';
             #{$root}__content {
                 white-space: normal;
             }
-
-            & > * {
-                vertical-align: middle;
-            }
         }
 
         &:hover {
@@ -55,8 +51,7 @@ $block: '.#{$ns}link-block';
 
     &__arrow {
         position: relative;
-        margin-left: 2px;
-
+        top: 2px;
         transition: transform 0.3s $ease-out-cubic;
         transform: rotate(-90deg);
     }
@@ -68,6 +63,10 @@ $block: '.#{$ns}link-block';
 
         &_m {
             @include text-size(body-2);
+
+            #{$root}__arrow {
+                top: 1px;
+            }
         }
 
         &_s {
