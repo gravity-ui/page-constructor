@@ -48,7 +48,7 @@ describe('Author', () => {
     });
 
     test.each(new Array<AuthorType>(AuthorType.Column, AuthorType.Line))(
-        'render with given "%s" type',
+        'Render with given "%s" type',
         (type) => {
             render(<Author author={author} dataQa={testId} type={type} />);
             const object = screen.getByTestId(testId);
