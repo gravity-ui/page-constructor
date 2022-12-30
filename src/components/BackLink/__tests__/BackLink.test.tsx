@@ -16,7 +16,7 @@ const backLinkProps = {
     onClick: () => {},
 };
 
-describe('Button', () => {
+describe('BackLink', () => {
     test('Default render', async () => {
         render(<BackLink {...backLinkProps} />);
         const backLink = screen.getByRole('button');
