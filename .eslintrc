@@ -1,4 +1,20 @@
 {
     "extends": ["@gravity-ui/eslint-config", "@gravity-ui/eslint-config/prettier"],
-    "root": true
+    "root": true,
+    "env": {
+        "node": true,
+        "jest": true
+    },
+    "overrides": [
+        {
+            "files": ["**/__tests__/**/*.[jt]s?(x)", "**/?(*.)+(spec|test).[jt]s?(x)"],
+            "extends": ["plugin:testing-library/react"]
+        },
+        {
+            "files": ["**/__stories__/**/*.[jt]s?(x)"],
+            "rules": {
+                "no-console": "off"
+            }
+        }
+    ]
 }

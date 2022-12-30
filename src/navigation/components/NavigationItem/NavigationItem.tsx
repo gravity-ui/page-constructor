@@ -28,7 +28,7 @@ export interface NavigationItemProps {
 
 const Content: React.FC<{text: string; icon?: ImageProps}> = ({text, icon}) => (
     <Fragment>
-        {icon && <Image className={b('icon')} {...icon} />}
+        {icon && typeof icon !== 'string' && <Image className={b('icon')} {...icon} />}
         <span className={b('text')}>{text}</span>
     </Fragment>
 );

@@ -9,8 +9,11 @@ const b = block('Anchor');
 
 export interface AnchorProps extends ClassNameProps {
     id: string;
+    dataQa?: string;
 }
 
-const Anchor = ({id, className}: AnchorProps) => <div id={id} className={b(null, className)}></div>;
+const Anchor = ({id, className, dataQa}: AnchorProps) => (
+    <div id={id} className={b(null, className)} data-qa={dataQa}></div>
+);
 
 export default Anchor;
