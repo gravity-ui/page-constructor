@@ -3,7 +3,7 @@ import {render, screen} from '@testing-library/react';
 
 import Anchor from '../Anchor';
 
-const testId = 'anc-hor';
+const testId = 'anchor';
 const anchorId = 'anchorId';
 
 describe('Anchor', () => {
