@@ -42,8 +42,6 @@ export default function BackLink(props: BackLinkProps) {
         }
     }, [history, onClick, url]);
 
-    console.log(backActionHandler);
-
     return (
         <Button
             className={className}
