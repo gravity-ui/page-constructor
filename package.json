@@ -1,11 +1,11 @@
 {
   "name": "@yandex-data-ui/blog-constructor",
-  "version": "0.20.2",
+  "version": "1.0.0",
   "description": "Cloud Blog Constructor",
   "license": "UNLICENSED",
   "repository": {
     "type": "git",
-    "url": "git@bb.yandex-team.ru/data-ui/blog-constructor.git"
+    "url": "https://github.com/gravity-ui/blog-constructor"
   },
   "files": [
     "build",
@@ -137,19 +137,5 @@
     "*.{json,yaml,yml,md}": [
       "prettier --write"
     ]
-  },
-  "preview-generator": {
-    "prepare": [
-      "npm i @yandex-data-ui/core@3.83.0",
-      "npm run storybook:build",
-      "npx sb extract",
-      "touch storybook-static/metadata.json",
-      "rm -rf dist/public",
-      "mv storybook-static dist/public",
-      "mkdir -p dist/run"
-    ],
-    "env": {
-      "NODE_ENV": "production"
-    }
   }
 }
