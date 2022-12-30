@@ -4,7 +4,7 @@ import {render, screen} from '@testing-library/react';
 import {AuthorType} from '../../../models';
 import Author from '../Author';
 
-const testId = 'aut-hor';
+const testId = 'author';
 
 const author = {
     firstName: 'John',
