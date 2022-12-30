@@ -15,7 +15,7 @@ module.exports = {
         '!**/__stories__/**/*',
         '!**/*/*.stories.{ts,tsx}',
     ],
-    testEnvironment: 'jsdom',
+    testEnvironment: '<rootDir>/test-utils/custom-environment.ts',
     setupFiles: ['<rootDir>/test-utils/setup-tests.ts'],
     setupFilesAfterEnv: ['<rootDir>/test-utils/setup-tests-after.ts'],
     moduleNameMapper: {
