@@ -4,7 +4,7 @@ import {block, getThemedValue} from '../../utils';
 import {Row, Col, GridColumnOrderClasses} from '../../grid';
 import {TabsBlockProps} from '../../models';
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
-import BlockHeader from '../../components/BlockHeader/BlockHeader';
+import HeaderComponent from '../../components/HeaderComponent/HeaderComponent';
 import FullScreenImage from '../../components/FullscreenImage/FullscreenImage';
 import Media from '../../components/Media/Media';
 import {ThemeValueContext} from '../../context/theme/ThemeValueContext';
@@ -104,7 +104,7 @@ export const TabsBlock = ({
 
     return (
         <AnimateBlock className={b()} onScroll={() => setPlay(true)} animate={animated}>
-            <BlockHeader
+            <HeaderComponent
                 title={title}
                 description={description}
                 className={b('block-title', {centered: centered})}

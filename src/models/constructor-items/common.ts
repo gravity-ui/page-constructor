@@ -414,7 +414,7 @@ export interface AuthorProps {
     type?: AuthorType;
 }
 
-export interface BlockHeaderProps {
+export interface HeaderComponentProps {
     title?: TitleProps | string;
     description?: string;
 }

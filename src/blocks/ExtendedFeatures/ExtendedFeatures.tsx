@@ -3,7 +3,7 @@ import React, {useContext} from 'react';
 import {block, getThemedValue} from '../../utils';
 import {ExtendedFeaturesProps} from '../../models';
 import {Row, Col} from '../../grid';
-import {AnimateBlock, BlockHeader, HTML} from '../../components/';
+import {AnimateBlock, HeaderComponent, HTML} from '../../components/';
 import {Content} from '../../sub-blocks';
 import Image from '../../components/Image/Image';
 import {ThemeValueContext} from '../../context/theme/ThemeValueContext';
@@ -30,7 +30,7 @@ export const ExtendedFeaturesBlock = ({
 
     return (
         <AnimateBlock className={b()} animate={animated}>
-            <BlockHeader title={title} description={description} className={b('header')} />
+            <HeaderComponent title={title} description={description} className={b('header')} />
             <div className={b('items')}>
                 <Row>
                     {items.map(

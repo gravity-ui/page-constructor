@@ -5,7 +5,7 @@ import {Grid, Row, Col, GridColumnSize} from '../../grid';
 import {MediaBlockProps} from '../../models';
 import Media from '../../components/Media/Media';
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
-import BlockHeader from '../../components/BlockHeader/BlockHeader';
+import HeaderComponent from '../../components/HeaderComponent/HeaderComponent';
 import MediaContent from './MediaContent';
 import {ThemeValueContext} from '../../context/theme/ThemeValueContext';
 
@@ -44,7 +44,7 @@ export const MediaBlock = (props: MediaBlockProps) => {
     return (
         <AnimateBlock className={b()} onScroll={() => setPlay(true)} animate={animated}>
             {mediaOnly && (
-                <BlockHeader className={b('header')} title={title} description={description} />
+                <HeaderComponent className={b('header')} title={title} description={description} />
             )}
             <Grid>
                 <Row

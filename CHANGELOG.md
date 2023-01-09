@@ -566,7 +566,7 @@ In the `Content`, if the `text` block has no `title`, the `margin-top` property 
 
 ## 0.18.4
 
-- Fixed the `BlockHeader` margins.
+- Fixed the `HeaderComponent` margins.
 
 ## 0.18.3
 

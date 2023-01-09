@@ -3,7 +3,7 @@ import React from 'react';
 import {block} from '../../utils';
 import {CardLayoutBlockProps as CardLayoutBlockParams} from '../../models';
 import {Row, Col} from '../../grid';
-import {BlockHeader, AnimateBlock} from '../../components';
+import {HeaderComponent, AnimateBlock} from '../../components';
 
 import './CardLayout.scss';
 
@@ -27,7 +27,7 @@ const CardLayout = ({
     children,
 }: CardLayoutBlockProps) => (
     <AnimateBlock className={b()} animate={animated}>
-        <BlockHeader title={title} description={description} />
+        <HeaderComponent title={title} description={description} />
         <div>
             <Row>
                 {children &&

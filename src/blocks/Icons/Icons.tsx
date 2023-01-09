@@ -2,7 +2,7 @@ import React, {useContext} from 'react';
 
 import {block, getLinkProps} from '../../utils';
 import {IconsBlockProps} from '../../models';
-import {BlockHeader, Image} from '../../components';
+import {HeaderComponent, Image} from '../../components';
 import {LocationContext} from '../../context/locationContext';
 
 import './Icons.scss';
@@ -14,7 +14,9 @@ const Icons = ({title, size = 's', items}: IconsBlockProps) => {
 
     return (
         <div className={b({size})}>
-            {title && <BlockHeader className={b('header')} title={title} colSizes={{all: 12}} />}
+            {title && (
+                <HeaderComponent className={b('header')} title={title} colSizes={{all: 12}} />
+            )}
             {items.map((item) => (
                 <a
                     className={b('item')}

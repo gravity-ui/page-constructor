@@ -1,0 +1,22 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
+
+$block: '.#{$ns}header-component';
+
+#{$block} {
+    &__description {
+        .yfm {
+            @include text-size(body-3);
+        }
+
+        margin-top: $indentXXS;
+
+        &_titleSize_s {
+            margin-top: $indentXXXS;
+
+            .yfm {
+                @include text-size(body-2);
+            }
+        }
+    }
+}
