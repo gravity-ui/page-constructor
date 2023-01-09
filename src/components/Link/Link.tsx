@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {Fragment, useContext} from 'react';
 import {Icon} from '@gravity-ui/uikit';
 
 import {block, getLinkProps, setUrlTld} from '../../utils';
@@ -13,6 +13,7 @@ import {useMetrika} from '../../hooks/useMetrika';
 import './Link.scss';
 
 const b = block('link-block');
+const WORD_JOINER_SYM = '\u200b';
 
 export type LinkFullProps = LinkProps & ClassNameProps;
 
@@ -23,9 +24,9 @@ function getArrowSize(size: TextSize) {
         case 'm':
             return 18;
         case 's':
-            return 12;
+            return 14;
         default:
-            return 12;
+            return 14;
     }
 }
 
@@ -79,13 +80,16 @@ const LinkBlock = (props: WithChildren<LinkFullProps>) => {
                         onClick={onClick}
                         {...linkProps}
                     >
-                        {children || text}
+                        <span className={b('content')}>{children || text}</span>
                         {arrow && (
-                            <Icon
-                                className={b('arrow')}
-                                data={Chevron}
-                                size={getArrowSize(textSize)}
-                            />
+                            <Fragment>
+                                {WORD_JOINER_SYM}
+                                <Icon
+                                    className={b('arrow')}
+                                    data={Chevron}
+                                    size={getArrowSize(textSize)}
+                                />
+                            </Fragment>
                         )}
                     </a>
                 );
