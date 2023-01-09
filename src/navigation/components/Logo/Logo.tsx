@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 
 import {block, getThemedValue} from '../../../utils';
-import {NavigationLogoData} from '../../../models';
+import {ThemedNavigationLogoData} from '../../../models';
 import RouterLink from '../../../components/RouterLink/RouterLink';
 import {getMediaImage} from '../../../components/Media/Image/utils';
 import {ThemeValueContext} from '../../../context/theme/ThemeValueContext';
@@ -11,9 +11,9 @@ import './Logo.scss';
 
 const b = block('logo');
 
-export interface LogoProps extends NavigationLogoData {
+export type LogoProps = ThemedNavigationLogoData & {
     className?: string;
-}
+};
 
 const Logo: React.FC<LogoProps> = (props) => {
     const {themeValue: theme} = useContext(ThemeValueContext);

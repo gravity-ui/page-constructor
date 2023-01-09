@@ -145,19 +145,23 @@
           "items": [
             {
               "text": "Lorem ipsum ",
-              "url": "https://example.com"
+              "url": "https://example.com",
+              "type": "link"
             },
             {
               "text": "Dolor sit amet",
-              "url": "https://example.com"
+              "url": "https://example.com",
+              "type": "link"
             },
             {
               "text": "Consectetur adipiscing",
-              "url": "https://example.com"
+              "url": "https://example.com",
+              "type": "link"
             },
             {
               "text": "Ut enim ad minim ",
-              "url": "https://example.com"
+              "url": "https://example.com",
+              "type": "link"
             }
           ]
         },

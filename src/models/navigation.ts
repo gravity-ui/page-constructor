@@ -1,3 +1,4 @@
+import {ThemeSupporting} from '../utils';
 import {ImageProps, ButtonProps} from './constructor-items';
 
 export enum NavigationItemType {
@@ -50,16 +51,13 @@ export type NavigationItemData =
 
 export type DropdownItemData = Omit<NavigationDropdownItem, 'items'>;
 
-export interface NavigationLogoThemedData {
+export interface NavigationLogoData {
     icon: ImageProps;
     text?: string;
     url?: string;
 }
 
-export interface NavigationLogoData extends NavigationLogoThemedData {
-    dark?: NavigationLogoThemedData;
-    light?: NavigationLogoThemedData;
-}
+export type ThemedNavigationLogoData = NavigationLogoData & ThemeSupporting<NavigationLogoData>;
 
 export interface HeaderData {
     leftItems: NavigationItemModel[];
@@ -83,7 +81,7 @@ export interface FooterData {
 }
 
 export interface NavigationData {
-    logo: NavigationLogoData;
+    logo: ThemedNavigationLogoData;
     header: HeaderData;
     footer?: FooterData;
 }
