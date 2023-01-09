@@ -1,7 +1,7 @@
 import React, {MouseEvent, useCallback, useState} from 'react';
 
 import {block} from '../../../utils';
-import {HeaderData, NavigationLogoData} from '../../../models';
+import {HeaderData, ThemedNavigationLogoData} from '../../../models';
 import {Col, Grid, Row} from '../../../grid';
 import OutsideClick from '../../../components/OutsideClick/OutsideClick';
 import Control from '../../../components/Control/Control';
@@ -19,7 +19,7 @@ const b = block('header');
 const ICON_SIZE = 36;
 
 export interface HeaderProps {
-    logo: NavigationLogoData;
+    logo: ThemedNavigationLogoData;
     data: HeaderData;
 }
 

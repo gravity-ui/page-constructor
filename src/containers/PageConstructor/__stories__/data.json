@@ -128,7 +128,14 @@
   "navigation": {
     "logo": {
       "icon": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_1_light.svg",
-      "text": "Logo"
+      "text": "Logo",
+      "dark": {
+        "text": "Logo Dark",
+        "icon": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_1_dark.svg"
+      },
+      "light": {
+        "text": "Logo Light"
+      }
     },
     "header": {
       "leftItems": [
@@ -138,19 +145,23 @@
           "items": [
             {
               "text": "Lorem ipsum ",
-              "url": "https://example.com"
+              "url": "https://example.com",
+              "type": "link"
             },
             {
               "text": "Dolor sit amet",
-              "url": "https://example.com"
+              "url": "https://example.com",
+              "type": "link"
             },
             {
               "text": "Consectetur adipiscing",
-              "url": "https://example.com"
+              "url": "https://example.com",
+              "type": "link"
             },
             {
               "text": "Ut enim ad minim ",
-              "url": "https://example.com"
+              "url": "https://example.com",
+              "type": "link"
             }
           ]
         },
