@@ -72,6 +72,7 @@ const LinkBlock = (props: WithChildren<LinkFullProps>) => {
                 );
             case 'normal': {
                 const linkProps = getLinkProps(url, hostname, target);
+                const content = children || text;
 
                 return (
                     <a
@@ -80,9 +81,9 @@ const LinkBlock = (props: WithChildren<LinkFullProps>) => {
                         onClick={onClick}
                         {...linkProps}
                     >
-                        <span className={b('content')}>{children || text}</span>
-                        {arrow && (
+                        {arrow ? (
                             <Fragment>
+                                <span className={b('content')}>{content}</span>
                                 {WORD_JOINER_SYM}
                                 <Icon
                                     className={b('arrow')}
@@ -90,6 +91,8 @@ const LinkBlock = (props: WithChildren<LinkFullProps>) => {
                                     size={getArrowSize(textSize)}
                                 />
                             </Fragment>
+                        ) : (
+                            content
                         )}
                     </a>
                 );
