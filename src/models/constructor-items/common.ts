@@ -412,6 +412,7 @@ export interface AuthorProps {
     className?: string;
     authorContainerClassName?: string;
     type?: AuthorType;
+    dataQa?: string;
 }
 
 export interface BlockHeaderProps {
