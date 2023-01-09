@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.10.8](https://github.com/gravity-ui/page-constructor/compare/v1.10.7...v1.10.8) (2023-01-09)
+
+
+### Bug Fixes
+
+* add arrow link top for different sizes ([2fe8038](https://github.com/gravity-ui/page-constructor/commit/2fe8038372299e1c1b82ae93402f8c0df3ef7c03))
+
 ## [1.10.7](https://github.com/gravity-ui/page-constructor/compare/v1.10.6...v1.10.7) (2022-12-23)
 
 
