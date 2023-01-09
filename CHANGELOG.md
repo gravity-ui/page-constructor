@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.11.0](https://github.com/gravity-ui/page-constructor/compare/v1.10.8...v1.11.0) (2023-01-09)
+
+### Features
+
+* **Navigation:** add logo dark theme support ([#97](https://github.com/gravity-ui/page-constructor/pull/97)) ([7e4e7bd](https://github.com/gravity-ui/page-constructor/commit/7e4e7bd6fb92fded7a38538f1da0c9f0e14cccb1))
+
+### Bug Fixes
+
+* link children align ([#103](https://github.com/gravity-ui/page-constructor/issues/103)) ([07eee68](https://github.com/gravity-ui/page-constructor/commit/07eee6828de60a66e8ae371030c67adc50c7ff8d))
+
+
 ## [1.10.8](https://github.com/gravity-ui/page-constructor/compare/v1.10.7...v1.10.8) (2023-01-09)
 
 
