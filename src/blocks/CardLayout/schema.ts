@@ -13,10 +13,11 @@ export const CardLayoutProps = {
         ...BlockBaseProps,
         ...AnimatableProps,
         title: {
-            oneOf: [{type: 'string'}, TitleProps],
+            oneOf: [{type: 'string', contentType: 'text'}, TitleProps],
         },
         description: {
             type: 'string',
+            contentType: 'yfm',
         },
         colSizes: containerSizesObject,
         children: ChildrenCardsProps,

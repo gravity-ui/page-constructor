@@ -366,6 +366,33 @@ const config: BlocksConfig = {
             fields: ['description'],
             transformer: yfmTransformer,
         },
+        {
+            fields: ['title'],
+            transformer: typografTransformer,
+            parser: parseTitle,
+        },
+    ],
+    [BlockType.CardLayoutBlock]: [
+        {
+            fields: ['description'],
+            transformer: yfmTransformer,
+        },
+        {
+            fields: ['title'],
+            transformer: typografTransformer,
+            parser: parseTitle,
+        },
+    ],
+    [BlockType.PromoFeaturesBlock]: [
+        {
+            fields: ['description'],
+            transformer: typografTransformer,
+        },
+        {
+            fields: ['title'],
+            transformer: typografTransformer,
+            parser: parseTitle,
+        },
     ],
     [BlockType.InfoBlock]: [
         {

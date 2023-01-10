@@ -1,14 +1,13 @@
+import {omit} from 'lodash';
+
 import {
     BlockBaseProps,
     ButtonBlock,
     MediaProps,
-    TitleProps,
     AnimatableProps,
-    contentSizes,
-    LinkProps,
     mediaDirection,
 } from '../../schema/validators/common';
-import {filteredArray} from '../../schema/validators/utils';
+import {ContentBase} from '../../../src/sub-blocks/Content/schema';
 
 export const Media = {
     type: 'object',
@@ -17,6 +16,8 @@ export const Media = {
     properties: MediaProps,
 };
 
+const MediaBlockContentProps = omit(ContentBase, ['text', 'theme']);
+
 export const MediaBlock = {
     'media-block': {
         additionalProperties: false,
@@ -24,18 +25,10 @@ export const MediaBlock = {
         properties: {
             ...BlockBaseProps,
             ...AnimatableProps,
-            title: {
-                oneOf: [{type: 'string'}, TitleProps],
-            },
-            additionalInfo: {
-                type: 'string',
-            },
+            ...MediaBlockContentProps,
             description: {
                 type: 'string',
-            },
-            size: {
-                type: 'string',
-                enum: contentSizes,
+                contentType: 'yfm',
             },
             direction: {
                 type: 'string',
@@ -54,8 +47,6 @@ export const MediaBlock = {
             disableShadow: {
                 type: 'boolean',
             },
-            links: filteredArray(LinkProps),
-            buttons: filteredArray(ButtonBlock),
             media: Media,
             button: ButtonBlock,
         },

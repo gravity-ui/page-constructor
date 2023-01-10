@@ -14,9 +14,11 @@ export const BannerCardProps = {
         ...AnimatableProps,
         title: {
             type: 'string',
+            contentType: 'text',
         },
         subtitle: {
             type: 'string',
+            contentType: 'yfm',
         },
         image: withTheme({
             type: 'string',

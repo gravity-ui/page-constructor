@@ -22,12 +22,14 @@ export const InfoBlock = {
             ...BaseProps,
             title: {
                 type: 'string',
+                contentType: 'text',
             },
             backgroundColor: withTheme({
                 type: 'string',
             }),
             sectionsTitle: {
                 type: 'string',
+                contentType: 'text',
             },
             buttons: filteredArray(ButtonBlock),
             theme: ThemeProps,

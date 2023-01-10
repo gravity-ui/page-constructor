@@ -8,6 +8,7 @@ export const IconsProps = {
         ...AnimatableProps,
         title: {
             type: 'string',
+            contentType: 'text',
         },
         size: {
             type: 'string',
@@ -25,6 +26,7 @@ export const IconsProps = {
                     },
                     text: {
                         type: 'string',
+                        contentType: 'text',
                     },
                     src: {
                         type: 'string',

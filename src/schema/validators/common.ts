@@ -87,6 +87,7 @@ export const PlayIconProps = {
         },
         text: {
             type: 'string',
+            contentType: 'text',
         },
     },
 };
@@ -187,6 +188,7 @@ export const LinkProps = {
         ...BaseProps,
         text: {
             type: 'string',
+            contentType: 'text',
         },
         url: {
             type: 'string',
@@ -219,6 +221,7 @@ export const FileLinkProps = {
         },
         text: {
             type: 'string',
+            contentType: 'text',
         },
         type: {
             type: 'string',
@@ -241,9 +244,11 @@ export const authorItem = {
     properties: {
         firstName: {
             type: 'string',
+            contentType: 'text',
         },
         secondName: {
             type: 'string',
+            contentType: 'text',
         },
         avatar: {
             type: 'string',
@@ -251,6 +256,7 @@ export const authorItem = {
         },
         description: {
             type: 'string',
+            contentType: 'yfm',
         },
     },
 };
@@ -258,6 +264,7 @@ export const authorItem = {
 export const ButtonProps = {
     text: {
         type: 'string',
+        contentType: 'text',
     },
     url: {
         type: 'string',
@@ -330,6 +337,7 @@ export const ButtonProps = {
                     },
                     alt: {
                         type: 'string',
+                        contentType: 'text',
                     },
                 },
             },
@@ -370,6 +378,7 @@ export const MenuProps = {
     properties: {
         title: {
             type: 'string',
+            contentType: 'text',
         },
     },
 };
@@ -401,6 +410,7 @@ export const AnchorProps = {
     properties: {
         text: {
             type: 'string',
+            contentType: 'text',
         },
         url: {
             type: 'string',
@@ -427,6 +437,7 @@ export const TitleProps = {
     properties: {
         text: {
             type: 'string',
+            contentType: 'text',
         },
         textSize: {
             type: 'string',
