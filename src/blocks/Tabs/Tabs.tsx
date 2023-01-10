@@ -96,11 +96,9 @@ export const TabsBlock = ({
             {imageProps && (
                 <Fragment>
                     <FullScreenImage {...imageProps} imageClassName={b('image')} />
-                    {activeTabData?.caption && (
-                        <p className={b('caption')}>{activeTabData.caption}</p>
-                    )}
                 </Fragment>
             )}
+            {activeTabData?.caption && <p className={b('caption')}>{activeTabData.caption}</p>}
         </Col>
     );
 
