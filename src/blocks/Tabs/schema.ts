@@ -44,7 +44,9 @@ export const TabsBlock = {
         required: ['title', 'items'],
         properties: {
             ...BlockBaseProps,
-            title: TitleProps,
+            title: {
+                oneOf: [{type: 'string'}, TitleProps],
+            },
             description: {
                 type: 'string',
                 contentType: 'text',

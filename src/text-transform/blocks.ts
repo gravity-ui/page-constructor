@@ -443,10 +443,6 @@ const config: BlocksConfig = {
             transformer: typografTransformer,
             parser: parseTitle,
         },
-        {
-            fields: ['description'],
-            transformer: yfmTransformer,
-        },
     ],
     [BlockType.LinkTableBlock]: [
         {
