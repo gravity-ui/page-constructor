@@ -1,5 +1,10 @@
-import {BaseProps, textSize, ButtonBlock, TitleProps} from '../../schema/validators/common';
+import {omit} from 'lodash';
+
+import {BaseProps, textSize} from '../../schema/validators/common';
 import {filteredArray} from '../../schema/validators/utils';
+import {ContentBase} from '../../../src/sub-blocks/Content/schema';
+
+const CardWithImageContentProps = omit(ContentBase, ['links', 'size', 'text', 'theme']);
 
 const CardWithImageLinks = {
     type: 'object',
@@ -33,17 +38,11 @@ export const CardWithImageItem = {
     required: ['image'],
     properties: {
         ...BaseProps,
+        ...CardWithImageContentProps,
         image: {
             type: 'string',
         },
-        title: {
-            oneOf: [{type: 'string', contentType: 'text'}, TitleProps],
-        },
         description: {
-            type: 'string',
-            contentType: 'yfm',
-        },
-        additionalInfo: {
             type: 'string',
             contentType: 'yfm',
         },
@@ -57,7 +56,6 @@ export const CardWithImageItem = {
             type: 'boolean',
         },
         links: filteredArray(CardWithImageLinks),
-        buttons: filteredArray(ButtonBlock),
     },
 };
 
