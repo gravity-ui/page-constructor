@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.11.1](https://github.com/gravity-ui/page-constructor/compare/v1.11.0...v1.11.1) (2023-01-10)
+
+
+### Bug Fixes
+
+* **Tabs:** add caption to media ([#106](https://github.com/gravity-ui/page-constructor/issues/106)) ([e825a4c](https://github.com/gravity-ui/page-constructor/commit/e825a4cff8fe9157f5444b03d32d4aff6e7dfba1))
+
 ## [1.11.0](https://github.com/gravity-ui/page-constructor/compare/v1.10.8...v1.11.0) (2023-01-09)
 
 ### Features
