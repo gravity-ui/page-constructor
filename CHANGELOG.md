@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.12.0](https://github.com/gravity-ui/page-constructor/compare/v1.11.1...v1.12.0) (2023-01-10)
+
+
+### Features
+
+* **schemas:** add content field to blocks' schemas ([#60](https://github.com/gravity-ui/page-constructor/issues/60)) ([f3952b3](https://github.com/gravity-ui/page-constructor/commit/f3952b367b8c5d53b33fb57cf063f713938a077d))
+
 ## [1.11.1](https://github.com/gravity-ui/page-constructor/compare/v1.11.0...v1.11.1) (2023-01-10)
 
 
