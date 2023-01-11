@@ -7,7 +7,7 @@ import {
     AnimatableProps,
     mediaDirection,
 } from '../../schema/validators/common';
-import {ContentBase} from '../../../src/sub-blocks/Content/schema';
+import {ContentBase} from '../../sub-blocks/Content/schema';
 
 export const Media = {
     type: 'object',

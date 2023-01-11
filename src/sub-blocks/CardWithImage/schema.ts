@@ -2,7 +2,7 @@ import {omit} from 'lodash';
 
 import {BaseProps, textSize} from '../../schema/validators/common';
 import {filteredArray} from '../../schema/validators/utils';
-import {ContentBase} from '../../../src/sub-blocks/Content/schema';
+import {ContentBase} from '../../sub-blocks/Content/schema';
 
 const CardWithImageContentProps = omit(ContentBase, ['links', 'size', 'text', 'theme']);
 
