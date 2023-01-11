@@ -26,7 +26,7 @@ import {
     AnchorProps,
     TitleBaseProps,
     Animatable,
-    HeaderComponentProps,
+    BlockHeaderProps,
     ImageDeviceProps,
 } from './common';
 import {ThemeSupporting} from '../../utils';
@@ -299,14 +299,14 @@ export interface TabsBlockItem
     media?: ThemedMediaProps;
 }
 
-export interface TabsBlockProps extends HeaderComponentProps, Animatable {
+export interface TabsBlockProps extends BlockHeaderProps, Animatable {
     tabsColSizes?: GridColumnSizesType;
     centered?: boolean;
     direction?: MediaDirection;
     items: TabsBlockItem[];
 }
 
-export interface LinkTableBlockProps extends HeaderComponentProps {
+export interface LinkTableBlockProps extends BlockHeaderProps {
     items: LinkProps[][];
     linkTheme?: LinkTheme;
 }

@@ -21,7 +21,7 @@ import {
     getSlidesToShowWithDefaults,
 } from './utils';
 import {BREAKPOINTS} from '../../constants';
-import HeaderComponent from '../../components/HeaderComponent/HeaderComponent';
+import BlockHeader from '../../components/BlockHeader/BlockHeader';
 import {StylesContext} from '../../context/stylesContext/StylesContext';
 import {SliderBreakpointParams} from './models';
 import {MobileContext} from '../../context/mobileContext';
@@ -324,7 +324,7 @@ export const SliderBlock = (props: WithChildren<SliderProps>) => {
                 )}
             >
                 {anchorId && <Anchor id={anchorId} />}
-                <HeaderComponent
+                <BlockHeader
                     title={title}
                     description={description}
                     className={b('header', {'no-description': !description})}

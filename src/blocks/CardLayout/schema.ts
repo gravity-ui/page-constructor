@@ -3,7 +3,7 @@ import {
     containerSizesObject,
     ChildrenCardsProps,
     BlockBaseProps,
-    TitleProps,
+    BlockHeaderProps,
 } from '../../schema/validators/common';
 
 export const CardLayoutProps = {
@@ -12,13 +12,7 @@ export const CardLayoutProps = {
     properties: {
         ...BlockBaseProps,
         ...AnimatableProps,
-        title: {
-            oneOf: [{type: 'string', contentType: 'text'}, TitleProps],
-        },
-        description: {
-            type: 'string',
-            contentType: 'yfm',
-        },
+        ...BlockHeaderProps,
         colSizes: containerSizesObject,
         children: ChildrenCardsProps,
     },

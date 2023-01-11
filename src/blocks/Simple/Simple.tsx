@@ -3,7 +3,7 @@ import React from 'react';
 import {block} from '../../utils';
 import {SimpleBlockProps, WithChildren} from '../../models';
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
-import HeaderComponent from '../../components/HeaderComponent/HeaderComponent';
+import BlockHeader from '../../components/BlockHeader/BlockHeader';
 import YFMWrapper from '../../components/YFMWrapper/YFMWrapper';
 
 import './Simple.scss';
@@ -13,7 +13,7 @@ const b = block('simple-block');
 export const SimpleBlock = (props: WithChildren<SimpleBlockProps>) => {
     const {title, description, animated = true, children} = props;
 
-    const blockHeader = title && <HeaderComponent title={title} />;
+    const blockHeader = title && <BlockHeader title={title} />;
 
     return (
         <AnimateBlock className={b()} animate={animated}>

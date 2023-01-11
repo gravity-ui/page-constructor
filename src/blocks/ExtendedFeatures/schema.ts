@@ -3,7 +3,7 @@ import {
     containerSizesObject,
     LinkProps,
     BlockBaseProps,
-    TitleProps,
+    BlockHeaderProps,
 } from '../../schema/validators/common';
 import {filteredArray} from '../../schema/validators/utils';
 
@@ -37,13 +37,7 @@ export const ExtendedFeaturesBlock = {
         properties: {
             ...BlockBaseProps,
             ...AnimatableProps,
-            title: {
-                oneOf: [{type: 'string', contentType: 'text'}, TitleProps],
-            },
-            description: {
-                type: 'string',
-                contentType: 'yfm',
-            },
+            ...BlockHeaderProps,
             items: filteredArray(ExtendedFeaturesItem),
             colSizes: containerSizesObject,
         },

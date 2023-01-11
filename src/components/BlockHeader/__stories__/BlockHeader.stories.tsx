@@ -1,32 +1,32 @@
+import React from 'react';
 import {Meta, Story} from '@storybook/react/types-6-0';
 import {ClassNameProps, TitleProps} from '../../../models';
-import React from 'react';
 
-import HeaderComponent, {HeaderComponentProps} from '../HeaderComponent';
+import BlockHeader, {HeaderComponentProps} from '../BlockHeader';
 import {COMPONENTS} from '../../../demo/constants';
 
 import data from './data.json';
 import {yfmTransform} from '../../../../.storybook/utils';
 
 export default {
-    component: HeaderComponent,
+    component: BlockHeader,
     title: `${COMPONENTS}/HeaderComponent`,
 } as Meta;
 
 const DefaultTemplate: Story<HeaderComponentProps & ClassNameProps> = (args) => (
-    <HeaderComponent {...args} />
+    <BlockHeader {...args} />
 );
 
 const SizesTemplate: Story<HeaderComponentProps & ClassNameProps> = (args) => (
     <div>
         <div style={{paddingBottom: '64px'}}>
-            <HeaderComponent {...args} title={data.sizes.l as TitleProps} />
+            <BlockHeader {...args} title={data.sizes.l as TitleProps} />
         </div>
         <div style={{paddingBottom: '64px'}}>
-            <HeaderComponent {...args} title={data.sizes.m as TitleProps} />
+            <BlockHeader {...args} title={data.sizes.m as TitleProps} />
         </div>
         <div style={{paddingBottom: '64px'}}>
-            <HeaderComponent {...args} title={data.sizes.s as TitleProps} />
+            <BlockHeader {...args} title={data.sizes.s as TitleProps} />
         </div>
     </div>
 );

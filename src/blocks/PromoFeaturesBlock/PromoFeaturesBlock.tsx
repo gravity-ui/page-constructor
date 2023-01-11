@@ -5,7 +5,7 @@ import {BREAKPOINTS} from '../../constants';
 import YFMWrapper from '../../components/YFMWrapper/YFMWrapper';
 import {PromoFeaturesProps} from '../../models';
 import Media from '../../components/Media/Media';
-import HeaderComponent from '../../components/HeaderComponent/HeaderComponent';
+import BlockHeader from '../../components/BlockHeader/BlockHeader';
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
 import FullWidthBackground from '../../components/FullWidthBackground/FullWidthBackground';
 import BalancedMasonry from '../../components/BalancedMasonry/BalancedMasonry';
@@ -27,7 +27,7 @@ const PromoFeaturesBlock = (props: PromoFeaturesProps) => {
     return (
         <AnimateBlock className={b({[backgroundTheme]: true})} animate={animated}>
             <FullWidthBackground className={b('background', {[backgroundTheme]: true})} />
-            <HeaderComponent title={title} description={description} className={b('header')} />
+            <BlockHeader title={title} description={description} className={b('header')} />
             <BalancedMasonry
                 breakpointCols={breakpointColumns}
                 className={b('card-container')}

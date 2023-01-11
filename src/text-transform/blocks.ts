@@ -144,6 +144,18 @@ export function typografTransformer(lang: Lang, content: string) {
     return typografToHTML(content, lang);
 }
 
+const blockHeaderTransfomer = [
+    {
+        fields: ['title'],
+        transformer: typografTransformer,
+        parser: parseTitle,
+    },
+    {
+        fields: ['description'],
+        transformer: yfmTransformer,
+    },
+];
+
 interface BlockConfig {
     transformer: TransformerRaw;
     fields?: string[];
@@ -196,15 +208,7 @@ const config: BlocksConfig = {
         transformer: typografTransformer,
     },
     [BlockType.ExtendedFeaturesBlock]: [
-        {
-            fields: ['title'],
-            transformer: typografTransformer,
-            parser: parseTitle,
-        },
-        {
-            fields: ['description'],
-            transformer: yfmTransformer,
-        },
+        ...blockHeaderTransfomer,
         {
             fields: ['items'],
             transformer: typografTransformer,
@@ -232,17 +236,7 @@ const config: BlocksConfig = {
             parser: parsePromoFeatures,
         },
     ],
-    [BlockType.SliderBlock]: [
-        {
-            fields: ['title'],
-            transformer: typografTransformer,
-            parser: parseTitle,
-        },
-        {
-            fields: ['description'],
-            transformer: yfmTransformer,
-        },
-    ],
+    [BlockType.SliderBlock]: blockHeaderTransfomer,
     [BlockType.QuestionsBlock]: [
         {
             fields: ['title'],
@@ -280,25 +274,14 @@ const config: BlocksConfig = {
         },
     ],
     [BlockType.MediaBlock]: [
+        ...blockHeaderTransfomer,
         {
-            fields: ['title'],
-            transformer: typografTransformer,
-        },
-        {
-            fields: ['description', 'title', 'additionalInfo'],
+            fields: ['title', 'additionalInfo'],
             transformer: yfmTransformer,
         },
     ],
     [BlockType.TabsBlock]: [
-        {
-            fields: ['title'],
-            transformer: typografTransformer,
-            parser: parseTitle,
-        },
-        {
-            fields: ['description'],
-            transformer: yfmTransformer,
-        },
+        ...blockHeaderTransfomer,
         {
             fields: ['items'],
             transformer: yfmTransformer,
@@ -386,28 +369,7 @@ const config: BlocksConfig = {
             parser: parseTitle,
         },
     ],
-    [BlockType.CardLayoutBlock]: [
-        {
-            fields: ['description'],
-            transformer: yfmTransformer,
-        },
-        {
-            fields: ['title'],
-            transformer: typografTransformer,
-            parser: parseTitle,
-        },
-    ],
-    [BlockType.PromoFeaturesBlock]: [
-        {
-            fields: ['description'],
-            transformer: typografTransformer,
-        },
-        {
-            fields: ['title'],
-            transformer: typografTransformer,
-            parser: parseTitle,
-        },
-    ],
+    [BlockType.PromoFeaturesBlock]: blockHeaderTransfomer,
     [BlockType.InfoBlock]: [
         {
             fields: ['rightContent', 'leftContent'],
@@ -426,17 +388,7 @@ const config: BlocksConfig = {
             transformer: typografTransformer,
         },
     ],
-    [BlockType.CardLayoutBlock]: [
-        {
-            fields: ['title'],
-            transformer: typografTransformer,
-            parser: parseTitle,
-        },
-        {
-            fields: ['description'],
-            transformer: yfmTransformer,
-        },
-    ],
+    [BlockType.CardLayoutBlock]: blockHeaderTransfomer,
     [BlockType.IconsBlock]: [
         {
             fields: ['title'],
@@ -444,17 +396,7 @@ const config: BlocksConfig = {
             parser: parseTitle,
         },
     ],
-    [BlockType.LinkTableBlock]: [
-        {
-            fields: ['title'],
-            transformer: typografTransformer,
-            parser: parseTitle,
-        },
-        {
-            fields: ['description'],
-            transformer: yfmTransformer,
-        },
-    ],
+    [BlockType.LinkTableBlock]: blockHeaderTransfomer,
 };
 
 function addRandomOrder(block: ConstructorBlock) {

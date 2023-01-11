@@ -1,10 +1,10 @@
 import {
     BlockBaseProps,
-    TitleProps,
     AnimatableProps,
     ChildrenCardsProps,
     sliderSizesObject,
     textSize,
+    BlockHeaderProps,
 } from '../../schema/validators/common';
 
 const LoadableProps = {
@@ -58,11 +58,6 @@ export const SliderProps = {
     arrows: {
         type: 'boolean',
     },
-    description: {
-        type: 'string',
-        contentType: 'text',
-    },
-    title: TitleProps,
     randomOrder: {
         type: 'boolean',
     },
@@ -84,6 +79,7 @@ export const SliderBlock = {
             ...BlockBaseProps,
             ...AnimatableProps,
             ...SliderProps,
+            ...BlockHeaderProps,
         },
     },
 };

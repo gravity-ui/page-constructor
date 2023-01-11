@@ -4,7 +4,7 @@ import {block} from '../../utils';
 import {LinkTableBlockProps} from '../../models';
 import {Row, Col, GridColumnSize} from '../../grid';
 import Link from '../../components/Link/Link';
-import HeaderComponent from '../../components/HeaderComponent/HeaderComponent';
+import BlockHeader from '../../components/BlockHeader/BlockHeader';
 
 import './LinkTable.scss';
 
@@ -13,7 +13,7 @@ const b = block('LinkTable');
 const LinkTable = ({items, title, description, linkTheme = 'normal'}: LinkTableBlockProps) => {
     return (
         <div className={b()}>
-            <HeaderComponent title={title} description={description} className={b('block-title')} />
+            <BlockHeader title={title} description={description} className={b('block-title')} />
             <Row className={b('links')}>
                 {items.map((column, index) => (
                     <Col
