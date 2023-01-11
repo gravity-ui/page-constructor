@@ -1,24 +1,22 @@
 @import '../../../styles/variables.scss';
 @import '../../../styles/mixins.scss';
 
-$block: '.#{$ns}BlockHeader';
+$block: '.#{$ns}block-header';
 
 #{$block} {
     &__description {
-        @include text-size(body-2);
-
-        margin-top: $indentXS;
-
-        &_titleSize_s {
-            margin-top: 8px;
-        }
-
-        &_titleSize_l {
+        .yfm {
             @include text-size(body-3);
         }
 
-        a {
-            @include link();
+        margin-top: $indentXXS;
+
+        &_titleSize_s {
+            margin-top: $indentXXXS;
+
+            .yfm {
+                @include text-size(body-2);
+            }
         }
     }
 }

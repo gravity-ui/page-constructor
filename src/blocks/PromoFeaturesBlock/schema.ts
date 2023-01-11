@@ -1,4 +1,4 @@
-import {AnimatableProps, BlockBaseProps, TitleProps} from '../../schema/validators/common';
+import {AnimatableProps, BlockBaseProps, BlockHeaderProps} from '../../schema/validators/common';
 import {filteredArray} from '../../schema/validators/utils';
 import {Media} from '../Media/schema';
 
@@ -28,13 +28,7 @@ export const PromoFeaturesBlock = {
         properties: {
             ...BlockBaseProps,
             ...AnimatableProps,
-            title: {
-                oneOf: [{type: 'string', contentType: 'text'}, TitleProps],
-            },
-            description: {
-                type: 'string',
-                contentType: 'text',
-            },
+            ...BlockHeaderProps,
             theme: {
                 enum: ['grey', 'default'],
             },

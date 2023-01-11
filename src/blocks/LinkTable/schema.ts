@@ -1,5 +1,5 @@
 import {filteredArray} from '../../schema/validators/utils';
-import {LinkProps, BlockBaseProps, TitleProps} from '../../schema/validators/common';
+import {LinkProps, BlockBaseProps, BlockHeaderProps} from '../../schema/validators/common';
 
 export const LinkTableBlock = {
     'link-table-block': {
@@ -7,7 +7,7 @@ export const LinkTableBlock = {
         required: ['items'],
         properties: {
             ...BlockBaseProps,
-            title: TitleProps,
+            ...BlockHeaderProps,
             items: {
                 type: 'array',
                 items: filteredArray(LinkProps),

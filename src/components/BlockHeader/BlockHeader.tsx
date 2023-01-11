@@ -3,11 +3,12 @@ import React from 'react';
 import {block} from '../../utils';
 import {BlockHeaderProps as BlockHeaderParams, TitleProps, ClassNameProps} from '../../models';
 import {Col, GridColumnSizesType} from '../../grid';
-import {Title, HTML} from '../';
+import {Title} from '../';
+import YFMWrapper from '../YFMWrapper/YFMWrapper';
 
 import './BlockHeader.scss';
 
-const b = block('BlockHeader');
+const b = block('block-header');
 
 export interface BlockHeaderProps extends BlockHeaderParams {
     colSizes?: GridColumnSizesType;
@@ -34,9 +35,9 @@ const BlockHeader = ({
                 </Col>
             )}
             {description && (
-                <Col reset sizes={{all: 12, sm: 8}}>
+                <Col reset sizes={colSizes}>
                     <div className={b('description', {titleSize: titleProps?.textSize})}>
-                        <HTML>{description}</HTML>
+                        <YFMWrapper content={description} modifiers={{constructor: true}} />
                     </div>
                 </Col>
             )}

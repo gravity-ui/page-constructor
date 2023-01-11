@@ -500,3 +500,13 @@ export const CardBase = {
         enum: ['border', 'shadow', 'none'],
     },
 };
+
+export const BlockHeaderProps = {
+    title: {
+        oneOf: [{type: 'string'}, TitleProps],
+    },
+    description: {
+        type: 'string',
+        contentType: 'yfm',
+    },
+};

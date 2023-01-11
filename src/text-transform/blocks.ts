@@ -8,7 +8,6 @@ import {
     PriceDetailsListProps,
     PriceDetailsSettingsProps,
     PromoFeaturesItem,
-    SliderProps,
     SubBlockType,
     TableProps,
     TitleProps,
@@ -68,18 +67,6 @@ function parsePromoFeatures(transformer: Transformer, items: PromoFeaturesItem[]
         text: transformer(text),
         ...rest,
     }));
-}
-
-function parseSlider(transformer: Transformer, block: SliderProps) {
-    const {title, description} = block;
-    block.title = {
-        ...title,
-        text: transformer(title ? title.text : ''),
-    };
-
-    if (description) {
-        block.description = transformer(description);
-    }
 }
 
 const parseTitle = (transformer: Transformer, title: TitleProps | string) =>
@@ -157,6 +144,18 @@ export function typografTransformer(lang: Lang, content: string) {
     return typografToHTML(content, lang);
 }
 
+const blockHeaderTransfomer = [
+    {
+        fields: ['title'],
+        transformer: typografTransformer,
+        parser: parseTitle,
+    },
+    {
+        fields: ['description'],
+        transformer: yfmTransformer,
+    },
+];
+
 interface BlockConfig {
     transformer: TransformerRaw;
     fields?: string[];
@@ -209,15 +208,7 @@ const config: BlocksConfig = {
         transformer: typografTransformer,
     },
     [BlockType.ExtendedFeaturesBlock]: [
-        {
-            fields: ['title'],
-            transformer: typografTransformer,
-            parser: parseTitle,
-        },
-        {
-            fields: ['description'],
-            transformer: yfmTransformer,
-        },
+        ...blockHeaderTransfomer,
         {
             fields: ['items'],
             transformer: typografTransformer,
@@ -229,15 +220,23 @@ const config: BlocksConfig = {
             parser: createItemsParser(['text', 'additionalInfo']),
         },
     ],
-    [BlockType.PromoFeaturesBlock]: {
-        fields: ['items'],
-        transformer: yfmTransformer,
-        parser: parsePromoFeatures,
-    },
-    [BlockType.SliderBlock]: {
-        transformer: typografTransformer,
-        parser: parseSlider,
-    },
+    [BlockType.PromoFeaturesBlock]: [
+        {
+            fields: ['title'],
+            transformer: typografTransformer,
+            parser: parseTitle,
+        },
+        {
+            fields: ['description'],
+            transformer: yfmTransformer,
+        },
+        {
+            fields: ['items'],
+            transformer: yfmTransformer,
+            parser: parsePromoFeatures,
+        },
+    ],
+    [BlockType.SliderBlock]: blockHeaderTransfomer,
     [BlockType.QuestionsBlock]: [
         {
             fields: ['title'],
@@ -275,21 +274,14 @@ const config: BlocksConfig = {
         },
     ],
     [BlockType.MediaBlock]: [
+        ...blockHeaderTransfomer,
         {
-            fields: ['title'],
-            transformer: typografTransformer,
-        },
-        {
-            fields: ['description', 'title', 'additionalInfo'],
+            fields: ['title', 'additionalInfo'],
             transformer: yfmTransformer,
         },
     ],
     [BlockType.TabsBlock]: [
-        {
-            fields: ['title'],
-            transformer: typografTransformer,
-            parser: parseTitle,
-        },
+        ...blockHeaderTransfomer,
         {
             fields: ['items'],
             transformer: yfmTransformer,
@@ -321,6 +313,11 @@ const config: BlocksConfig = {
         },
     ],
     [BlockType.SimpleBlock]: [
+        {
+            fields: ['title'],
+            transformer: typografTransformer,
+            parser: parseTitle,
+        },
         {
             fields: ['description'],
             transformer: yfmTransformer,
@@ -372,28 +369,7 @@ const config: BlocksConfig = {
             parser: parseTitle,
         },
     ],
-    [BlockType.CardLayoutBlock]: [
-        {
-            fields: ['description'],
-            transformer: yfmTransformer,
-        },
-        {
-            fields: ['title'],
-            transformer: typografTransformer,
-            parser: parseTitle,
-        },
-    ],
-    [BlockType.PromoFeaturesBlock]: [
-        {
-            fields: ['description'],
-            transformer: typografTransformer,
-        },
-        {
-            fields: ['title'],
-            transformer: typografTransformer,
-            parser: parseTitle,
-        },
-    ],
+    [BlockType.PromoFeaturesBlock]: blockHeaderTransfomer,
     [BlockType.InfoBlock]: [
         {
             fields: ['rightContent', 'leftContent'],
@@ -412,6 +388,15 @@ const config: BlocksConfig = {
             transformer: typografTransformer,
         },
     ],
+    [BlockType.CardLayoutBlock]: blockHeaderTransfomer,
+    [BlockType.IconsBlock]: [
+        {
+            fields: ['title'],
+            transformer: typografTransformer,
+            parser: parseTitle,
+        },
+    ],
+    [BlockType.LinkTableBlock]: blockHeaderTransfomer,
 };
 
 function addRandomOrder(block: ConstructorBlock) {

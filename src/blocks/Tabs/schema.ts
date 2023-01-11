@@ -3,7 +3,7 @@ import {
     LinkProps,
     withTheme,
     BlockBaseProps,
-    TitleProps,
+    BlockHeaderProps,
     MediaProps,
     containerSizesArray,
     sizeNumber,
@@ -44,11 +44,7 @@ export const TabsBlock = {
         required: ['title', 'items'],
         properties: {
             ...BlockBaseProps,
-            title: TitleProps,
-            description: {
-                type: 'string',
-                contentType: 'text',
-            },
+            ...BlockHeaderProps,
             tabsColSizes: containerSizesArray.reduce(
                 (acc, size) => ({...acc, [size]: sizeNumber}),
                 {},
