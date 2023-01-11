@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {block} from '../../utils';
-import {BlockHeaderProps as HeaderComponentParams, TitleProps, ClassNameProps} from '../../models';
+import {BlockHeaderProps as BlockHeaderParams, TitleProps, ClassNameProps} from '../../models';
 import {Col, GridColumnSizesType} from '../../grid';
 import {Title} from '../';
 import YFMWrapper from '../YFMWrapper/YFMWrapper';
@@ -10,7 +10,7 @@ import './BlockHeader.scss';
 
 const b = block('header-component');
 
-export interface HeaderComponentProps extends HeaderComponentParams {
+export interface BlockHeaderProps extends BlockHeaderParams {
     colSizes?: GridColumnSizesType;
 }
 
@@ -19,7 +19,7 @@ const BlockHeader = ({
     description,
     className,
     colSizes = {all: 12, sm: 8},
-}: HeaderComponentProps & ClassNameProps) => {
+}: BlockHeaderProps & ClassNameProps) => {
     if (!title && !description) {
         return null;
     }

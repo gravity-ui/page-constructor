@@ -2,7 +2,7 @@ import React from 'react';
 import {Meta, Story} from '@storybook/react/types-6-0';
 import {ClassNameProps, TitleProps} from '../../../models';
 
-import BlockHeader, {HeaderComponentProps} from '../BlockHeader';
+import BlockHeader, {BlockHeaderProps} from '../BlockHeader';
 import {COMPONENTS} from '../../../demo/constants';
 
 import data from './data.json';
@@ -10,14 +10,14 @@ import {yfmTransform} from '../../../../.storybook/utils';
 
 export default {
     component: BlockHeader,
-    title: `${COMPONENTS}/HeaderComponent`,
+    title: `${COMPONENTS}/BlockHeader`,
 } as Meta;
 
-const DefaultTemplate: Story<HeaderComponentProps & ClassNameProps> = (args) => (
+const DefaultTemplate: Story<BlockHeaderProps & ClassNameProps> = (args) => (
     <BlockHeader {...args} />
 );
 
-const SizesTemplate: Story<HeaderComponentProps & ClassNameProps> = (args) => (
+const SizesTemplate: Story<BlockHeaderProps & ClassNameProps> = (args) => (
     <div>
         <div style={{paddingBottom: '64px'}}>
             <BlockHeader {...args} title={data.sizes.l as TitleProps} />
@@ -43,16 +43,16 @@ export const Sizes = SizesTemplate.bind({});
 
 Default.args = {
     ...DefaultArgs,
-} as HeaderComponentProps;
+} as BlockHeaderProps;
 TitleLink.args = {
     ...DefaultArgs,
     title: data.titleLink.content.title,
-} as HeaderComponentProps;
+} as BlockHeaderProps;
 CustomTitle.args = {
     ...DefaultArgs,
     title: data.customTitle.content.title,
-} as HeaderComponentProps;
+} as BlockHeaderProps;
 Sizes.args = {
     ...DefaultArgs,
     title: data.customTitle.content.title,
-} as HeaderComponentProps;
+} as BlockHeaderProps;
