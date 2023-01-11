@@ -37,6 +37,7 @@ const LinkBlock = (props: WithChildren<LinkFullProps>) => {
         arrow,
         metrikaGoals,
         pixelEvents,
+        gaEvents,
         theme = 'file-link',
         colorTheme = 'light',
         textSize = 'm',
@@ -52,7 +53,7 @@ const LinkBlock = (props: WithChildren<LinkFullProps>) => {
     const defaultTextSize = theme === 'back' ? 'l' : 'm';
 
     const onClick = () => {
-        handleMetrika({metrikaGoals, pixelEvents});
+        handleMetrika({metrikaGoals, pixelEvents, gaEvents});
     };
 
     const getLinkByType = () => {

@@ -4,6 +4,7 @@ import {block} from '../../utils';
 import {
     ButtonPixel,
     CardBaseProps as CardBaseParams,
+    GAEvents,
     ImageProps,
     MetrikaGoal,
     WithChildren,
@@ -23,6 +24,7 @@ export interface CardBaseProps extends CardBaseParams {
     target?: HTMLAttributeAnchorTarget;
     metrikaGoals?: MetrikaGoal;
     pixelEvents?: ButtonPixel;
+    gaEvents?: GAEvents;
 }
 
 export interface CardHeaderBaseProps {
@@ -46,6 +48,7 @@ export const Layout = (props: CardBaseProps) => {
         bodyClassName,
         metrikaGoals,
         pixelEvents,
+        gaEvents,
         contentClassName,
         children,
         url,
@@ -98,7 +101,7 @@ export const Layout = (props: CardBaseProps) => {
     const fullClassName = b({border}, className);
 
     const onClick = () => {
-        handleMetrika({metrikaGoals, pixelEvents});
+        handleMetrika({metrikaGoals, pixelEvents, gaEvents});
     };
 
     return url ? (

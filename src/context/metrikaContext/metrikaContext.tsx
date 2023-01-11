@@ -1,9 +1,10 @@
 import React from 'react';
-import {Metrika, Pixel} from '../../models';
+import {GaInline, Metrika, Pixel} from '../../models';
 
 export interface MetrikaContextProps {
     metrika?: Metrika;
     pixel?: Pixel;
+    gaInline?: GaInline;
 }
 
 export const MetrikaContext = React.createContext<MetrikaContextProps>({});

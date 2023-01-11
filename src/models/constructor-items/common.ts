@@ -156,6 +156,7 @@ export interface LinkProps extends Stylable {
     target?: string;
     metrikaGoals?: MetrikaGoal;
     pixelEvents?: ButtonPixel;
+    gaEvents?: GAEvents;
 }
 
 export interface FileLinkProps extends ClassNameProps {
@@ -177,6 +178,7 @@ export interface ButtonProps {
     img?: ButtonImageProps | string;
     metrikaGoals?: MetrikaGoal;
     pixelEvents?: ButtonPixel;
+    gaEvents?: GAEvents;
     target?: string;
 }
 
@@ -286,6 +288,7 @@ export interface HeaderBreadCrumbsProps extends ClassNameProps {
     theme?: TextTheme;
     metrikaGoals?: MetrikaGoal;
     pixelEvents?: ButtonPixel;
+    gaEvents?: GAEvents;
 }
 
 // preview
@@ -418,3 +421,29 @@ export interface BlockHeaderProps {
     title?: TitleProps | string;
     description?: string;
 }
+
+export declare type GaParameterValue = string | number | boolean;
+
+declare type GACommandConfig<T> = T & {
+    [key: string]: GaParameterValue;
+};
+
+declare type GACommonParams = {
+    groups?: string | string[];
+    sendTo?: string | string[];
+    eventTimeout?: number;
+};
+
+export declare type GAEventParams = GACommandConfig<
+    GACommonParams & {
+        eventCategory?: string;
+        eventLabel?: string;
+        value?: number;
+    }
+>;
+
+export type GAEvent = GAEventParams & {
+    eventName: string;
+};
+
+export type GAEvents = GAEvent | GAEvent[];

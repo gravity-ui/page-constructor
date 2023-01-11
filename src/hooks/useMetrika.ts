@@ -1,6 +1,6 @@
 import {useContext} from 'react';
 import {MetrikaContext} from '../context/metrikaContext';
-import {ButtonPixel, MetrikaGoal, PixelEventType, PixelEvent} from '../models';
+import {ButtonPixel, MetrikaGoal, PixelEventType, PixelEvent, GAEvent, GAEvents} from '../models';
 import {isNewMetrikaFormat} from '../models/guards';
 
 function isButtonPixel(
@@ -16,12 +16,13 @@ function isButtonPixel(
 type UseMetrikaProps = {
     metrikaGoals?: MetrikaGoal;
     pixelEvents?: string | string[] | PixelEvent | PixelEvent[] | ButtonPixel;
+    gaEvents?: GAEvents;
 };
 
 export const useMetrika = () => {
-    const {metrika, pixel} = useContext(MetrikaContext);
+    const {metrika, pixel, gaInline} = useContext(MetrikaContext);
 
-    return ({metrikaGoals, pixelEvents}: UseMetrikaProps) => {
+    return ({metrikaGoals, pixelEvents, gaEvents}: UseMetrikaProps) => {
         if (metrika && metrikaGoals) {
             if (isNewMetrikaFormat(metrikaGoals)) {
                 metrikaGoals.forEach(({name, isCrossSite}) =>
@@ -45,6 +46,13 @@ export const useMetrika = () => {
             } else {
                 pixel.track(pixelEvents);
             }
+        }
+
+        if (gaInline && gaEvents) {
+            const gaEventsArray = Array.isArray(gaEvents) ? gaEvents : [gaEvents];
+            gaEventsArray.forEach(({eventName, ...rest}: GAEvent) => {
+                gaInline.event(eventName, rest);
+            });
         }
     };
 };

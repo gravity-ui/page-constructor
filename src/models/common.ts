@@ -1,4 +1,4 @@
-import {MetrikaGoal} from './';
+import {GAEventParams, MetrikaGoal} from './';
 
 export interface Refable<T> {
     ref?: React.Ref<T>;
@@ -50,6 +50,10 @@ export interface Metrika {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     reachGoal: (counterName: string, ...args: any) => void;
     reachGoals: (goals: MetrikaGoal, counterName?: string) => void;
+}
+
+export interface GaInline {
+    event: (eventName: string, params?: GAEventParams) => void;
 }
 
 export interface ClassNameProps {
