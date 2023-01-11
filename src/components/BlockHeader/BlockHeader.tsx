@@ -8,7 +8,7 @@ import YFMWrapper from '../YFMWrapper/YFMWrapper';
 
 import './BlockHeader.scss';
 
-const b = block('header-component');
+const b = block('block-header');
 
 export interface BlockHeaderProps extends BlockHeaderParams {
     colSizes?: GridColumnSizesType;
