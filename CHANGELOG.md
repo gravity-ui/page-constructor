@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.12.1](https://github.com/gravity-ui/page-constructor/compare/v1.12.0...v1.12.1) (2023-01-11)
+
+
+### Bug Fixes
+
+* **BlockHeader:** add yfm to description, change styles ([#105](https://github.com/gravity-ui/page-constructor/issues/105)) ([f77fc5e](https://github.com/gravity-ui/page-constructor/commit/f77fc5e82f7aaf33dda8f56a9f17a87d61cc5cdd))
+* contentBase import ([#109](https://github.com/gravity-ui/page-constructor/issues/109)) ([2136f7b](https://github.com/gravity-ui/page-constructor/commit/2136f7bbe340c6035c655ff5139ae69ee1b50d3e))
+
 ## [1.12.0](https://github.com/gravity-ui/page-constructor/compare/v1.11.1...v1.12.0) (2023-01-10)
 
 
