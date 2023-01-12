@@ -422,19 +422,19 @@ export interface BlockHeaderProps {
     description?: string;
 }
 
-export declare type GaParameterValue = string | number | boolean;
+export type GaParameterValue = string | number | boolean;
 
-declare type GACommandConfig<T> = T & {
+type GACommandConfig<T> = T & {
     [key: string]: GaParameterValue;
 };
 
-declare type GACommonParams = {
+type GACommonParams = {
     groups?: string | string[];
     sendTo?: string | string[];
     eventTimeout?: number;
 };
 
-export declare type GAEventParams = GACommandConfig<
+export type GAEventParams = GACommandConfig<
     GACommonParams & {
         eventCategory?: string;
         eventLabel?: string;
