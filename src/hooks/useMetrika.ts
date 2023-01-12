@@ -20,7 +20,7 @@ type UseMetrikaProps = {
 };
 
 export const useMetrika = () => {
-    const {metrika, pixel, gaInline} = useContext(MetrikaContext);
+    const {metrika, pixel, ga} = useContext(MetrikaContext);
 
     return ({metrikaGoals, pixelEvents, gaEvents}: UseMetrikaProps) => {
         if (metrika && metrikaGoals) {
@@ -48,10 +48,10 @@ export const useMetrika = () => {
             }
         }
 
-        if (gaInline && gaEvents) {
+        if (ga && gaEvents) {
             const gaEventsArray = Array.isArray(gaEvents) ? gaEvents : [gaEvents];
             gaEventsArray.forEach(({eventName, ...rest}: GAEvent) => {
-                gaInline.event(eventName, rest);
+                ga.event(eventName, rest);
             });
         }
     };
