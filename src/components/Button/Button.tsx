@@ -25,6 +25,7 @@ const Button = (props: ButtonProps) => {
         className,
         metrikaGoals,
         pixelEvents,
+        gaEvents,
         size = 'l',
         theme = 'normal',
         url,
@@ -36,12 +37,12 @@ const Button = (props: ButtonProps) => {
     const defaultImgPosition = 'left';
 
     const onClick = useCallback(() => {
-        handleMetrika({metrikaGoals, pixelEvents});
+        handleMetrika({metrikaGoals, pixelEvents, gaEvents});
 
         if (onClickOrigin) {
             onClickOrigin();
         }
-    }, [handleMetrika, metrikaGoals, pixelEvents, onClickOrigin]);
+    }, [handleMetrika, metrikaGoals, pixelEvents, gaEvents, onClickOrigin]);
 
     const buttonImg =
         img instanceof Object

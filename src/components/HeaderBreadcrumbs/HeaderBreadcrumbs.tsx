@@ -8,11 +8,11 @@ import './HeaderBreadcrumbs.scss';
 const b = block('header-breadcrumbs');
 
 export default function HeaderBreadcrumbs(props: HeaderBreadCrumbsProps) {
-    const {items, metrikaGoals, pixelEvents, theme = 'light', className} = props;
+    const {items, metrikaGoals, pixelEvents, gaEvents, theme = 'light', className} = props;
     const handleMetrika = useMetrika();
 
     const onClick = () => {
-        handleMetrika({metrikaGoals, pixelEvents});
+        handleMetrika({metrikaGoals, pixelEvents, gaEvents});
     };
 
     return (

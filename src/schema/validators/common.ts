@@ -1,3 +1,4 @@
+import {gaEvents} from './ga-events';
 import {pixelEvents} from './pixel';
 import {Theme} from '../../models';
 import {ImageProps, urlPattern} from '../../components/Image/schema';
@@ -366,6 +367,7 @@ export const ButtonProps = {
         ],
     },
     pixelEvents,
+    gaEvents,
     target: {
         type: 'string',
         enum: ['_self', '_blank', '_parent', '_top'],

@@ -9,6 +9,7 @@ server/
 configure/
 storybook-static/
 styles/styles.css
+coverage/
 CHANGELOG.md
 CONTRIBUTING.md
 
