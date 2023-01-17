@@ -18,7 +18,7 @@
 
 `metrikaGoals: string | string[]` — Yandex Metrica goal properties.
 
-You can see the appearance of different buttons [here](https://cloud-guide.yandex-team.ru/?path=/story/lego--button).
+You can see the appearance of different buttons [here](https://preview.gravity-ui.com/uikit/?path=/story/components-button--playground).
 
 **Margins:**
 

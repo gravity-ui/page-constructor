@@ -542,7 +542,7 @@ In the `Content`, if the `text` block has no `title`, the `margin-top` property 
 ### Breaking changes
 
 - `PageConstructorProvider` is now a separate component. For the `PageConstructor` to run properly, wrap it in this provider.
-  For details, see the [readme](https://github.yandex-team.ru/data-ui/page-constructor/blob/master/README.md#начало-работы) file.
+  For details, see the [readme](https://github.com/gravity-ui/page-constructor#getting-started) file.
 
 - Deleted the `system` theme (the `light` theme is used instead by default).
 

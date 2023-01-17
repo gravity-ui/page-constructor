@@ -18,7 +18,7 @@
 
 `pixelEvents: PixelEvent[]` — Goals for Facebook pixel
 
-`hubspotEvents: string[]` — An array of Yandex Metrica hubspot events
+`hubspotEvents: string[]` — An array of hubspot events
 
 [Form global events:](https://legacydocs.hubspot.com/global-form-events)
 
