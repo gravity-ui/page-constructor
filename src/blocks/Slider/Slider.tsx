@@ -38,12 +38,6 @@ const slick = block('slick-origin');
 const DOT_WIDTH = 8;
 const DOT_GAP = 16;
 
-export interface SlickSliderFull extends SlickSlider {
-    innerSlider?: {
-        list: HTMLElement;
-    };
-}
-
 export interface SliderProps
     extends Omit<SliderParams, 'children'>,
         Refable<HTMLDivElement>,
@@ -103,7 +97,7 @@ export const SliderBlock = (props: WithChildren<SliderProps>) => {
 
     const [currentIndex, setCurrentIndex] = useState<number>(0);
     const [childStyles, setChildStyles] = useState<Object>({});
-    const [slider, setSlider] = useState<SlickSliderFull>();
+    const [slider, setSlider] = useState<SlickSlider>();
     const autoplayTimeId = useRef<Timeout>();
     const {hasFocus, unsetFocus} = useFocus(slider?.innerSlider?.list);
 
@@ -278,7 +272,7 @@ export const SliderBlock = (props: WithChildren<SliderProps>) => {
         const variableWidth = isServer && isMobile;
 
         const settings = {
-            ref: (slickSlider: SlickSliderFull) => setSlider(slickSlider),
+            ref: (slickSlider: SlickSlider) => setSlider(slickSlider),
             className: slick(null, className),
             arrows,
             variableWidth,
