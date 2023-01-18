@@ -1,4 +1,3 @@
-// import type {StorybookConfig} from '@storybook/core-common';
 const {join} = require('path');
 
 const config = {
@@ -22,7 +21,6 @@ const config = {
             },
         },
     },
-
     webpackFinal: (storybookBaseConfig: any) => {
         storybookBaseConfig.module.rules.push({
             test: /\.md$/,

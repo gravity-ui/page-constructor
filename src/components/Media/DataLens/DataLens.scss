@@ -4,7 +4,7 @@
 $block: '.#{$ns}media-component-data-lens';
 
 #{$block} {
-    // TODO https://st.yandex-team.ru/CLOUDFRONT-9932
+    // TODO: remove temporary wrapper
     &__wrap {
         height: 400px;
         overflow: hidden;
