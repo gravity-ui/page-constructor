@@ -7,10 +7,6 @@ $block: '.#{$ns}logo';
     display: flex;
     align-items: center;
 
-    font-weight: var(--yc-text-accent-font-weight);
-
-    @include heading4();
-
     &__icon {
         display: flex;
         margin-right: $indentXXXS;
@@ -19,6 +15,8 @@ $block: '.#{$ns}logo';
     }
 
     &__text {
+        @include heading4();
+
         white-space: nowrap;
     }
 }

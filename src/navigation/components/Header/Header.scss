@@ -33,7 +33,9 @@ $block: '.#{$ns}header';
     }
 
     &__mobile-menu-button {
-        @include mobile-tablet-only();
+        @include add-specificity(&) {
+            @include mobile-tablet-only();
+        }
     }
 
     &__navigation,
