@@ -8,6 +8,7 @@ $block: '.#{$ns}navigation-item';
 
     display: flex;
     align-items: center;
+    white-space: nowrap;
 
     &_type_link {
         @include navigation-item();
