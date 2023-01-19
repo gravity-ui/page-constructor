@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.13.0](https://github.com/gravity-ui/page-constructor/compare/v1.12.1...v1.13.0) (2023-01-18)
+
+
+### Features
+
+* remove matchMedia artefact ([#114](https://github.com/gravity-ui/page-constructor/issues/114)) ([8ff3117](https://github.com/gravity-ui/page-constructor/commit/8ff3117261f9681f0dbb452c3c722ee80845da80))
+
+
+### Bug Fixes
+
+* delete unused dependency ([#112](https://github.com/gravity-ui/page-constructor/issues/112)) ([300085c](https://github.com/gravity-ui/page-constructor/commit/300085c456877ef617f4225a603fcc3d52393848))
+
 ## [1.12.1](https://github.com/gravity-ui/page-constructor/compare/v1.12.0...v1.12.1) (2023-01-11)
 
 
