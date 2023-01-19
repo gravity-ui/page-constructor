@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.13.1](https://github.com/gravity-ui/page-constructor/compare/v1.13.0...v1.13.1) (2023-01-19)
+
+
+### Bug Fixes
+
+* **Navigation:** logo and button specifity styles ([#116](https://github.com/gravity-ui/page-constructor/issues/116)) ([dbe0c39](https://github.com/gravity-ui/page-constructor/commit/dbe0c39aa88aac8a3e84c079d7de400e9a9b3d2f))
+
 ## [1.13.0](https://github.com/gravity-ui/page-constructor/compare/v1.12.1...v1.13.0) (2023-01-18)
 
 
