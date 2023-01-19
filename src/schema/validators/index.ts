@@ -3,6 +3,7 @@ import * as common from './common';
 import * as subBlocks from './sub-blocks';
 import * as pixel from './pixel';
 import * as utils from './utils';
+import * as navigation from './navigation';
 
 export const validators = {
     blocks,
@@ -10,4 +11,5 @@ export const validators = {
     subBlocks,
     pixel,
     utils,
+    navigation,
 };

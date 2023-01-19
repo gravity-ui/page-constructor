@@ -40,6 +40,7 @@ import {
 
 import {AnimatableProps, BackgroundProps, MenuProps, withTheme} from './validators/common';
 import {filteredItem} from './validators/utils';
+import {LogoProps, NavigationHeaderProps} from './validators/navigation';
 
 export type SchemaBlock = object;
 
@@ -185,6 +186,8 @@ export function generateDefaultSchema(config?: SchemaCustomConfig) {
         required: ['blocks'],
         properties: {
             ...AnimatableProps,
+            logo: withTheme(LogoProps),
+            header: NavigationHeaderProps,
             blocks: {
                 type: 'array',
                 items: {

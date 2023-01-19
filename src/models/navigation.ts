@@ -14,7 +14,7 @@ export interface NavigationItemBase {
     url?: string;
 }
 
-export interface NavigationLinkItem extends NavigationItemBase {
+export interface NavigationLinkItem extends Omit<NavigationItemBase, 'url'> {
     type: NavigationItemType.Link;
     url: string;
     arrow?: boolean;
@@ -23,8 +23,6 @@ export interface NavigationLinkItem extends NavigationItemBase {
 
 export interface NavigationButtonItem extends ButtonProps {
     type: NavigationItemType.Button;
-    url: string;
-    target?: string;
 }
 
 export interface NavigationDropdownItem extends NavigationItemBase {
