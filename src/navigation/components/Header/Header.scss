@@ -33,7 +33,9 @@ $block: '.#{$ns}header';
     }
 
     &__mobile-menu-button {
-        @include mobile-tablet-only();
+        @include add-specificity(&) {
+            @include mobile-tablet-only();
+        }
     }
 
     &__navigation,
@@ -44,13 +46,15 @@ $block: '.#{$ns}header';
     }
 
     &__navigation {
-        position: relative;
-        margin-right: $normalOffset;
+        @include add-specificity(&) {
+            position: relative;
+            margin-right: $normalOffset;
 
-        flex: 1 0 0;
-        justify-content: flex-start;
+            flex: 1 0 0;
+            justify-content: flex-start;
 
-        @include desktop-only();
+            @include desktop-only();
+        }
     }
 
     &__right {

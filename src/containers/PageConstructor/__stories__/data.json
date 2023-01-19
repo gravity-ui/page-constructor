@@ -140,11 +140,11 @@
     "header": {
       "leftItems": [
         {
-          "text": "Dropdown1",
+          "text": "Dropdown 1",
           "type": "dropdown",
           "items": [
             {
-              "text": "Lorem ipsum ",
+              "text": "Lorem ipsum",
               "url": "https://example.com",
               "type": "link"
             },
@@ -188,7 +188,7 @@
           ]
         },
         {
-          "text": "Link1",
+          "text": "Link with spaces",
           "url": "https://example.com",
           "icon": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_3_light.svg"
         },
