@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.13.2](https://github.com/gravity-ui/page-constructor/compare/v1.13.1...v1.13.2) (2023-01-20)
+
+
+### Bug Fixes
+
+* **PromoFeaturesBlock:** transform items ([#118](https://github.com/gravity-ui/page-constructor/issues/118)) ([4c1cc7a](https://github.com/gravity-ui/page-constructor/commit/4c1cc7a38f2d789ce1c723b9695b7c1ed3e3cdf8))
+
 ## [1.13.1](https://github.com/gravity-ui/page-constructor/compare/v1.13.0...v1.13.1) (2023-01-19)
 
 
