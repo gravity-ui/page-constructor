@@ -221,15 +221,7 @@ const config: BlocksConfig = {
         },
     ],
     [BlockType.PromoFeaturesBlock]: [
-        {
-            fields: ['title'],
-            transformer: typografTransformer,
-            parser: parseTitle,
-        },
-        {
-            fields: ['description'],
-            transformer: yfmTransformer,
-        },
+        ...blockHeaderTransfomer,
         {
             fields: ['items'],
             transformer: yfmTransformer,
@@ -369,7 +361,6 @@ const config: BlocksConfig = {
             parser: parseTitle,
         },
     ],
-    [BlockType.PromoFeaturesBlock]: blockHeaderTransfomer,
     [BlockType.InfoBlock]: [
         {
             fields: ['rightContent', 'leftContent'],
