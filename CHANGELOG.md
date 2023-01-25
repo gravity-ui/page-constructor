@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.14.0](https://github.com/gravity-ui/page-constructor/compare/v1.13.2...v1.14.0) (2023-01-25)
+
+
+### Features
+
+* **Navigation:** add schema validation ([#120](https://github.com/gravity-ui/page-constructor/issues/120)) ([a6c8dec](https://github.com/gravity-ui/page-constructor/commit/a6c8decf04f402113a5a31d2635721ffcc1b233c))
+
 ## [1.13.2](https://github.com/gravity-ui/page-constructor/compare/v1.13.1...v1.13.2) (2023-01-20)
 
 
