@@ -188,25 +188,31 @@
           ]
         },
         {
+          "type": "link",
           "text": "Link with spaces",
           "url": "https://example.com",
           "icon": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_3_light.svg"
         },
         {
-          "text": "Link2",
-          "url": "https://example.com"
+          "type": "link",
+          "text": "Link with arrow",
+          "url": "https://example.com",
+          "arrow": true
         },
         {
+          "type": "link",
           "text": "Link3",
           "url": "https://example.com"
         },
         {
+          "type": "link",
           "text": "Link4",
           "url": "https://example.com"
         }
       ],
       "rightItems": [
         {
+          "type": "link",
           "text": "Link",
           "url": "https://example.com",
           "icon": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_2_light.svg"
