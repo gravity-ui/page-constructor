@@ -1,0 +1,14 @@
+{
+  "default": {
+    "title": "Default divider between cards, size M",
+    "content": {
+      "url": "https://example.com",
+      "title": "Lorem ipsum",
+      "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    }
+  },
+  "sizes": {
+    "title": "Divider between cards, size {{size}}",
+    "items": ["0", "xxs", "xs", "s", "m", "l", "xl", "xxl", "xxxl"]
+  }
+}

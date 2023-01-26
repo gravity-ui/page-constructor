@@ -16,7 +16,7 @@ _[Common field types](?id=information--common-types&viewMode=docs)_
 
 ## [Banner](?path=/story/blocks-banner--default&viewMode=docs)
 
-## [CardLayout](?path=/story/blocks-cardlayout--cards-with-image&viewMode=docs)
+## [CardLayout](?path=/story/blocks-cardlayout--default&viewMode=docs)
 
 ## [Companies](?path=/story/blocks-companies--default&viewMode=docs)
 
@@ -24,30 +24,26 @@ _[Common field types](?id=information--common-types&viewMode=docs)_
 
 ## [ExtendedFeatures](?path=/story/blocks-extendedfeatures--default&viewMode=docs)
 
-## [HeaderBlock](?path=/story/blocks-header--default&viewMode=docs)
+## [Header](?path=/story/blocks-header--default&viewMode=docs)
 
 ## [HeaderSlider](?path=/story/blocks-headerslider--default&viewMode=docs)
 
 ## [Icons](?path=/story/blocks-icons--default&viewMode=docs)
 
-## [InfoBlock](?path=/story/blocks-info--default&viewMode=docs)
-
-## [LinkTable](?path=/story/blocks-linktable--default-links-one-column&viewMode=docs)
+## [Info](?path=/story/blocks-info--default&viewMode=docs)
 
 ## [Media](?path=/story/blocks-media--default&viewMode=docs)
 
-## [Preview](?path=/story/blocks-preview--default&viewMode=docs)
-
-## [PromoFeaturesBlock](?path=/story/blocks-promofeaturesblock--default-theme&viewMode=docs)
+## [PromoFeatures](?path=/story/blocks-promofeaturesblock--default-theme&viewMode=docs)
 
 ## [Questions](?path=/story/blocks-questions--default&viewMode=docs)
 
-## [SecurityBlock](?path=/story/blocks-security--dark-theme&viewMode=docs)
+## [Security](?path=/story/blocks-security--default&viewMode=docs)
 
-## [Simple](?path=/story/blocks-simple--default&viewMode=docs)
+## [Share](?path=/story/blocks-share--default&viewMode=docs)
 
 ## [Slider](?path=/story/blocks-slider--default&viewMode=docs)
 
-## [TableBlock](?path=/story/blocks-table--default&viewMode=docs)
+## [Table](?path=/story/blocks-table--default&viewMode=docs)
 
-## [Questions](?path=/story/blocks-questions--default&viewMode=docs)
+## [Tabs](?path=/story/blocks-tabs--default&viewMode=docs)
