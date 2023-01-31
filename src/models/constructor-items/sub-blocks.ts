@@ -147,7 +147,9 @@ export interface BannerCardProps {
     button: Pick<ButtonProps, 'text' | 'url' | 'target'>;
 }
 
-export interface MediaCardProps extends MediaProps, CardBaseProps {}
+export interface MediaCardProps extends MediaProps, CardBaseProps {
+    fullScreen?: boolean;
+}
 
 export interface CardWithImageLinkProps extends Omit<LinkProps, 'text' | 'url'> {
     title: string;
