@@ -10,9 +10,6 @@ import INDENTS from './INDENTS.md';
 export default {
     title: 'Information',
     parameters: {
-        options: {
-            showPanel: false,
-        },
         previewTabs: {
             'storybook/docs/panel': {
                 hidden: true,
