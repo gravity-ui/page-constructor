@@ -21,6 +21,10 @@ export const ContentBase = {
         type: 'string',
         contentType: 'yfm',
     },
+    metaInfo: {
+        type: 'string',
+        contentType: 'yfm',
+    },
     size: {
         type: 'string',
         enum: contentSizes,
