@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.14.1](https://github.com/gravity-ui/page-constructor/compare/v1.14.0...v1.14.1) (2023-02-01)
+
+
+### Bug Fixes
+
+* enable addons menu by default ([7772a55](https://github.com/gravity-ui/page-constructor/commit/7772a554950643d7cdbb86a8dedade6f916ae176))
+* **Storybook:** fix links ([#123](https://github.com/gravity-ui/page-constructor/issues/123)) ([10cfe80](https://github.com/gravity-ui/page-constructor/commit/10cfe8054178bd577014dfff83033ff0c0dd9add))
+
 ## [1.14.0](https://github.com/gravity-ui/page-constructor/compare/v1.13.2...v1.14.0) (2023-01-25)
 
 
