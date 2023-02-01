@@ -3,9 +3,9 @@ import {Icon, Modal} from '@gravity-ui/uikit';
 
 import {block} from '../../utils';
 import {PreviewClose, FullScreen} from '../../icons';
+import {MediaAllProps} from '../Media/Media';
 
 import './FullScreenMedia.scss';
-import {MediaAllProps} from '../Media/Media';
 
 export type ChildMediaRenderProps = Pick<
     MediaAllProps,
