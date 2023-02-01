@@ -39,6 +39,7 @@ export const ImageSlider = DefaultTemplate.bind({});
 export const Video = DefaultTemplate.bind({});
 export const Youtube = DefaultTemplate.bind({});
 export const DataLens = DefaultTemplate.bind({});
+export const WithContent = DefaultTemplate.bind({});
 export const FullScreen = FullScreenTemplate.bind({});
 
 Image.args = data.image.content;
@@ -46,6 +47,7 @@ ImageSlider.args = data.imageSlider.content;
 Video.args = data.video.content;
 Youtube.args = data.youtube.content;
 DataLens.args = data.dataLens.content;
+WithContent.args = data.withContent.content;
 FullScreen.args = {
     image: data.image.content,
     video: data.video.content,
