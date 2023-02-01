@@ -9,7 +9,7 @@ import {MediaAllProps} from '../Media/Media';
 
 export type ChildMediaRenderProps = Pick<
     MediaAllProps,
-    'fullScreenMode' | 'imageClassName' | 'videoClassName' | 'youtubeClassName'
+    'fullScreen' | 'imageClassName' | 'videoClassName' | 'youtubeClassName'
 >;
 
 export interface FullScreenMediaProps {
@@ -63,7 +63,7 @@ const FullScreenMedia = ({children}: FullScreenMediaProps) => {
                             imageClassName: getMediaClass('image'),
                             videoClassName: getMediaClass('video'),
                             youtubeClassName: getMediaClass('youtube'),
-                            fullScreenMode: true,
+                            fullScreen: true,
                         })}
                     </div>
                 </Modal>

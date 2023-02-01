@@ -216,7 +216,7 @@ export interface MediaComponentVideoProps {
 }
 
 export interface MediaComponentYoutubeProps
-    extends Pick<VideoBlockProps, 'previewImg' | 'fullScreenMode'> {
+    extends Pick<VideoBlockProps, 'previewImg' | 'fullScreen'> {
     youtube: string;
     previewImg?: string;
 }

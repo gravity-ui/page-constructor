@@ -27,7 +27,7 @@ export const Media = (props: MediaAllProps) => {
         previewImg,
         parallax = false,
         metrika,
-        fullScreenMode,
+        fullScreen,
     } = props;
     const {
         className,
@@ -86,7 +86,7 @@ export const Media = (props: MediaAllProps) => {
                     attributes={{color: 'white', rel: '0'}}
                     previewImg={previewImg}
                     height={height}
-                    fullScreenMode={fullScreenMode}
+                    fullScreen={fullScreen}
                 />
             );
         }
@@ -113,7 +113,7 @@ export const Media = (props: MediaAllProps) => {
         playButton,
         customBarControlsClassName,
         youtubeClassName,
-        fullScreenMode,
+        fullScreen,
     ]);
 
     return (

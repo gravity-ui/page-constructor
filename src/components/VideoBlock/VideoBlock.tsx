@@ -53,21 +53,12 @@ export interface VideoBlockProps {
     previewImg?: string;
     playButton?: React.ReactNode;
     height?: number;
-    fullScreenMode?: boolean;
+    fullScreen?: boolean;
 }
 
 const VideoBlock = (props: VideoBlockProps) => {
-    const {
-        stream,
-        record,
-        attributes,
-        className,
-        id,
-        previewImg,
-        playButton,
-        height,
-        fullScreenMode,
-    } = props;
+    const {stream, record, attributes, className, id, previewImg, playButton, height, fullScreen} =
+        props;
     const src = getVideoSrc(stream, record);
     const ref = useRef<HTMLDivElement>(null);
     const iframeRef = useRef<HTMLIFrameElement>();
@@ -108,7 +99,7 @@ const VideoBlock = (props: VideoBlockProps) => {
         const prevPageVideo = document.getElementById(fullId) as HTMLVideoElement;
         const fullSrc = `${src}?${getPageSearchParams(attributes || {})}`;
 
-        if (prevPageVideo && !fullScreenMode) {
+        if (prevPageVideo && !fullScreen) {
             prevPageVideo.src = fullSrc;
         } else if (ref.current) {
             const iframe = document.createElement('iframe');
@@ -122,7 +113,7 @@ const VideoBlock = (props: VideoBlockProps) => {
             ref.current.appendChild(iframe);
             iframeRef.current = iframe;
         }
-    }, [stream, record, norender, src, fullId, attributes, iframeRef, fullScreenMode]);
+    }, [stream, record, norender, src, fullId, attributes, iframeRef, fullScreen]);
 
     useEffect(() => {
         setHidePreview(false);
@@ -134,7 +125,7 @@ const VideoBlock = (props: VideoBlockProps) => {
 
     return (
         <div className={b(null, className)} ref={ref} style={{height: currentHeight}}>
-            {previewImg && !hidePreview && !fullScreenMode && (
+            {previewImg && !hidePreview && !fullScreen && (
                 <div className={b('preview')} onClick={onPreviewClick}>
                     <Image
                         src={previewImg}

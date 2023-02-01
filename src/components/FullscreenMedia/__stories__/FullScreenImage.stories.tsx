@@ -2,23 +2,25 @@ import {Meta, Story} from '@storybook/react/types-6-0';
 import React from 'react';
 
 import {COMPONENTS, MEDIA} from '../../../demo/constants';
-import FullScreenImage, {
-    FullScreenImageProps,
-} from '../../../../src/components/FullscreenImage/FullscreenImage';
+import FullScreenMedia from '../FullScreenMedia';
+import Media from '../../../../src/components/Media/Media';
+import {MediaProps} from '../../../../src/models';
 
 import data from './data.json';
 
 export default {
-    component: FullScreenImage,
-    title: `${COMPONENTS}/${MEDIA}/FullScreenImage`,
+    component: FullScreenMedia,
+    title: `${COMPONENTS}/${MEDIA}/FullScreenMedia`,
 } as Meta;
 
-const DefaultTemplate: Story<FullScreenImageProps> = (args) => (
+const DefaultTemplate: Story<MediaProps> = (args) => (
     <div style={{maxWidth: '500px'}}>
-        <FullScreenImage {...args} />
+        <FullScreenMedia>
+            {(fullScreenMediaProps = {}) => <Media {...args} {...fullScreenMediaProps} />}
+        </FullScreenMedia>
     </div>
 );
 
 export const Default = DefaultTemplate.bind({});
 
-Default.args = data.default.content as FullScreenImageProps;
+Default.args = data.default.content as MediaProps;

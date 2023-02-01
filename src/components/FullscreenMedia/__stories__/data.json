@@ -1,14 +1,8 @@
 {
   "default": {
     "content": {
-      "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_6-12_light.png",
-      "alt": "Description",
-      "imageClassName": "",
-      "disableCompress": false,
-      "modalImageClass": "",
-      "imageStyle": {
-        "maxWidth": "500px"
-      }
+      "youtube": "https://youtu.be/0Qd3T6skprA",
+      "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_dark.png"
     }
   }
 }
