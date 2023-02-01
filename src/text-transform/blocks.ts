@@ -341,7 +341,7 @@ const config: BlocksConfig = {
     ],
     [SubBlockType.Content]: [
         {
-            fields: ['text', 'additionalInfo'],
+            fields: ['text', 'additionalInfo', 'metaInfo'],
             transformer: yfmTransformer,
         },
         {

@@ -44,6 +44,7 @@ const Content = (props: ContentBlockProps & ClassNameProps) => {
     const {
         title,
         text,
+        metaInfo,
         additionalInfo,
         size = 'l',
         links,
@@ -63,6 +64,14 @@ const Content = (props: ContentBlockProps & ClassNameProps) => {
 
     return (
         <Col className={b({size, centered, theme}, className)} reset sizes={colSizes}>
+            {metaInfo && (
+                <div className={b('metaInfo')}>
+                    <YFMWrapper
+                        content={metaInfo}
+                        modifiers={{constructor: true, [`constructor-size-${size}`]: true}}
+                    />
+                </div>
+            )}
             {title && <Title className={b('title')} {...titleProps} resetMargin />}
             {text && (
                 <div className={b('text', {['without-title']: !hasTitle})}>

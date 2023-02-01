@@ -1,5 +1,6 @@
 import {Meta, Story} from '@storybook/react/types-6-0';
 import React from 'react';
+import yfm from '@doc-tools/transform';
 
 import MediaCard from '../MediaCard';
 import {MediaCardProps} from '../../../models';
@@ -17,9 +18,17 @@ export default {
     },
 } as Meta;
 
-const DefaultTemplate: Story<MediaCardProps> = (args) => (
+const DefaultTemplate: Story<MediaCardProps> = ({content, ...args}) => (
     <div style={{maxWidth: '500px'}}>
-        <MediaCard {...args} />
+        <MediaCard
+            {...args}
+            content={
+                content && {
+                    ...content,
+                    metaInfo: content.metaInfo && yfm(content.metaInfo).result.html,
+                }
+            }
+        />
     </div>
 );
 

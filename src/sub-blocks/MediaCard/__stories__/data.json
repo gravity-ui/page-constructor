@@ -52,6 +52,7 @@
       "content": {
         "title": "Lorem ipsum",
         "text": "Dolor sit amet",
+        "metaInfo": "anim id **est** quis nostrud",
         "additionalInfo": "Dolor sit amet"
       },
       "fullScreen": true
