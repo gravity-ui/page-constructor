@@ -1,4 +1,4 @@
-import React, {useState, useCallback} from 'react';
+import React, {useState} from 'react';
 import {Icon, Modal} from '@gravity-ui/uikit';
 
 import {block} from '../../utils';
@@ -24,13 +24,13 @@ const FullScreenMedia = ({children}: FullScreenMediaProps) => {
     const [isOpened, setIsOpened] = useState(false);
     const [isMouseEnter, setIsMouseEnter] = useState(false);
 
-    const openModal = useCallback((e: React.MouseEvent) => {
+    const openModal = (e: React.MouseEvent) => {
         e.stopPropagation();
         setIsOpened(true);
-    }, []);
-    const closeModal = useCallback(() => setIsOpened(false), []);
-    const showFullScreenIcon = useCallback(() => setIsMouseEnter(true), []);
-    const hideFullScreenIcon = useCallback(() => setIsMouseEnter(false), []);
+    };
+    const closeModal = () => setIsOpened(false);
+    const showFullScreenIcon = () => setIsMouseEnter(true);
+    const hideFullScreenIcon = () => setIsMouseEnter(false);
 
     return (
         <div className={b()}>
