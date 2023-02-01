@@ -41,5 +41,21 @@
         "disableCompress": true
       }
     }
+  },
+  "withContent": {
+    "content": {
+      "image": {
+        "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_6-12_white.png",
+        "alt": "Picture",
+        "disableCompress": true
+      },
+      "content": {
+        "title": "Lorem ipsum",
+        "text": "Dolor sit amet",
+        "metaInfo": "anim id **est** quis nostrud",
+        "additionalInfo": "Dolor sit amet"
+      },
+      "fullScreen": true
+    }
   }
 }

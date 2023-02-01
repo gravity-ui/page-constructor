@@ -149,6 +149,7 @@ export interface BannerCardProps {
 
 export interface MediaCardProps extends MediaProps, CardBaseProps {
     fullScreen?: boolean;
+    content?: ContentBlockProps;
 }
 
 export interface CardWithImageLinkProps extends Omit<LinkProps, 'text' | 'url'> {

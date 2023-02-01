@@ -33,6 +33,9 @@ const DefaultTemplate: Story<ContentBlockProps & ClassNameProps> = (args) => (
         <div style={{paddingBottom: '64px'}}>
             <Content {...args} buttons={data.default.content.buttons as ButtonProps[]} />
         </div>
+        <div style={{paddingBottom: '64px'}}>
+            <Content {...args} metaInfo={yfm(data.default.content.metaInfo).result.html} />
+        </div>
     </div>
 );
 
