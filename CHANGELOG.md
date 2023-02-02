@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.14.2](https://github.com/gravity-ui/page-constructor/compare/v1.14.1...v1.14.2) (2023-02-02)
+
+
+### Bug Fixes
+
+* **HubspotForm:** border-radius ([#128](https://github.com/gravity-ui/page-constructor/issues/128)) ([437344b](https://github.com/gravity-ui/page-constructor/commit/437344b510cbde11bdf6e3a3ceb914fb0818a016))
+
 ## [1.14.1](https://github.com/gravity-ui/page-constructor/compare/v1.14.0...v1.14.1) (2023-02-01)
 
 
