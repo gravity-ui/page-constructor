@@ -1,9 +1,10 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import {Icon, Modal} from '@gravity-ui/uikit';
 
 import {block} from '../../utils';
 import {PreviewClose, FullScreen} from '../../icons';
 import {MediaAllProps} from '../Media/Media';
+import {MobileContext} from '../../../src/context/mobileContext';
 
 import './FullScreenMedia.scss';
 
@@ -13,7 +14,7 @@ export type ChildMediaRenderProps = Pick<
 >;
 
 export interface FullScreenMediaProps {
-    children: (props?: ChildMediaRenderProps) => React.ReactNode;
+    children: (props?: ChildMediaRenderProps) => JSX.Element;
 }
 
 const b = block('FullScreenMedia');
@@ -24,29 +25,23 @@ const getMediaClass = (type: string) => b('modal-media', {type});
 
 const FullScreenMedia = ({children}: FullScreenMediaProps) => {
     const [isOpened, setIsOpened] = useState(false);
-    const [isMouseEnter, setIsMouseEnter] = useState(false);
+    const isMobile = useContext(MobileContext);
 
     const openModal = (e: React.MouseEvent) => {
         e.stopPropagation();
         setIsOpened(true);
     };
     const closeModal = () => setIsOpened(false);
-    const showFullScreenIcon = () => setIsMouseEnter(true);
-    const hideFullScreenIcon = () => setIsMouseEnter(false);
+
+    if (isMobile) {
+        return children();
+    }
 
     return (
         <div className={b()}>
-            <div
-                className={b('media-wrapper')}
-                onMouseEnter={showFullScreenIcon}
-                onMouseLeave={hideFullScreenIcon}
-                onClickCapture={openModal}
-            >
+            <div className={b('media-wrapper')} onClickCapture={openModal}>
                 {children()}
-                <div
-                    className={b('icon-wrapper', {visible: isMouseEnter})}
-                    onClickCapture={openModal}
-                >
+                <div className={b('icon-wrapper')} onClickCapture={openModal}>
                     <Icon
                         data={FullScreen}
                         width={FULL_SCREEN_ICON_SIZE}

@@ -63,12 +63,22 @@ $modalMediaHeight: 70vh;
         border-radius: 8px;
         background-color: var(--yc-color-base-simple-hover-solid);
         cursor: pointer;
-        opacity: 0;
-        transition: 0.3s;
         z-index: 10;
+    }
 
-        &_visible {
-            opacity: 1;
+    &__modal-content,
+    &__media-wrapper {
+        #{$block}__icon-wrapper {
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+
+        &:hover {
+            #{$block}__icon-wrapper {
+                opacity: 1;
+                pointer-events: inherit;
+            }
         }
     }
 
