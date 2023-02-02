@@ -62,7 +62,7 @@ $block: '.#{$ns}hubspot-form';
                 color: var(--yc-color-text-primary);
                 background-color: transparent;
                 border: 1px solid var(--yc-color-line-generic);
-                border-radius: 6px;
+                border-radius: var(--yc-border-radius-l);
 
                 &:hover {
                     border: 1px solid var(--yc-color-line-generic-hover);
@@ -306,7 +306,7 @@ $block: '.#{$ns}hubspot-form';
         box-sizing: border-box;
         height: 44px;
         padding: 0 20px;
-        border-radius: 8px;
+        border-radius: var(--yc-border-radius-xl);
         background-color: var(--yc-color-base-special);
         color: var(--yc-my-color-brand-text-contrast);
         line-height: 44px;
