@@ -15,32 +15,25 @@ const hasFullScreen = ({dataLens, image}: MediaCardProps) => {
     return !(dataLens || Array.isArray(image));
 };
 
-const MediaCard = ({border, fullScreen, content, ...mediaProps}: MediaCardProps) => {
-    return (
-        <div className={b()}>
-            <CardBase bodyClassName={b('body')} border={border}>
-                <CardBase.Content>
-                    {fullScreen && hasFullScreen(mediaProps) ? (
-                        <FullScreenMedia>
-                            {(fullScreenMediaProps = {}) => (
-                                <Media {...mediaProps} {...fullScreenMediaProps} />
-                            )}
-                        </FullScreenMedia>
-                    ) : (
-                        <Media {...mediaProps} />
-                    )}
-                </CardBase.Content>
-            </CardBase>
-            {content && (
-                <Content
-                    size="s"
-                    className={b('content')}
-                    colSizes={{all: 12, md: 12}}
-                    {...content}
-                />
-            )}
-        </div>
-    );
-};
+const MediaCard = ({border, fullScreen, content, ...mediaProps}: MediaCardProps) => (
+    <div className={b()}>
+        <CardBase bodyClassName={b('body')} border={border}>
+            <CardBase.Content>
+                {fullScreen && hasFullScreen(mediaProps) ? (
+                    <FullScreenMedia>
+                        {(fullScreenMediaProps = {}) => (
+                            <Media {...mediaProps} {...fullScreenMediaProps} />
+                        )}
+                    </FullScreenMedia>
+                ) : (
+                    <Media {...mediaProps} />
+                )}
+            </CardBase.Content>
+        </CardBase>
+        {content && (
+            <Content size="s" className={b('content')} colSizes={{all: 12, md: 12}} {...content} />
+        )}
+    </div>
+);
 
 export default MediaCard;

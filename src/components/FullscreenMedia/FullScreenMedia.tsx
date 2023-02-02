@@ -17,6 +17,8 @@ export interface FullScreenMediaProps {
 }
 
 const b = block('FullScreenMedia');
+const FULL_SCREEN_ICON_SIZE = 18;
+const CLOSE_ICON_SIZE = 30;
 
 const getMediaClass = (type: string) => b('modal-media', {type});
 
@@ -45,7 +47,12 @@ const FullScreenMedia = ({children}: FullScreenMediaProps) => {
                     className={b('icon-wrapper', {visible: isMouseEnter})}
                     onClickCapture={openModal}
                 >
-                    <Icon data={FullScreen} width={18} height={18} className={b('icon')} />
+                    <Icon
+                        data={FullScreen}
+                        width={FULL_SCREEN_ICON_SIZE}
+                        height={FULL_SCREEN_ICON_SIZE}
+                        className={b('icon')}
+                    />
                 </div>
             </div>
             {isOpened && (
@@ -54,8 +61,8 @@ const FullScreenMedia = ({children}: FullScreenMediaProps) => {
                         <div className={b('icon-wrapper', {visible: true})} onClick={closeModal}>
                             <Icon
                                 data={PreviewClose}
-                                width={30}
-                                height={30}
+                                width={CLOSE_ICON_SIZE}
+                                height={CLOSE_ICON_SIZE}
                                 className={b('icon', {hover: true})}
                             />
                         </div>
