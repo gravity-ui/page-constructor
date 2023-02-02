@@ -61,11 +61,6 @@ $darkSecondary: var(--yc-color-text-dark-secondary);
         margin-right: $indentM;
     }
 
-    &__metaInfo {
-        margin-bottom: $indentXXXS;
-        color: var(--pc-content-block-meta-info-color);
-    }
-
     &_centered {
         @include add-specificity(&) {
             margin: 0 auto;

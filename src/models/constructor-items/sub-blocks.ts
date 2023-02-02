@@ -149,6 +149,8 @@ export interface BannerCardProps {
 
 export interface MediaCardProps extends MediaProps, CardBaseProps {
     fullScreen?: boolean;
+    //TODO: remove content and metaInfo with moving fullscreen media stuff to CardWithImage
+    metaInfo?: string[];
     content?: ContentBlockProps;
 }
 

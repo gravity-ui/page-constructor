@@ -342,7 +342,6 @@ export interface ContentLayoutBlockProps {
 export interface ContentBlockProps {
     title?: TitleBaseProps | string;
     text?: string;
-    metaInfo?: string;
     additionalInfo?: string;
     links?: LinkProps[];
     buttons?: ButtonProps[];

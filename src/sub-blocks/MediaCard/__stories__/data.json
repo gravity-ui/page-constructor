@@ -49,6 +49,7 @@
         "alt": "Picture",
         "disableCompress": true
       },
+      "metaInfo": ["anim id est", "quis nostrud"],
       "content": {
         "title": "Lorem ipsum",
         "text": "Dolor sit amet",

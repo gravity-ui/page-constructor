@@ -2,8 +2,6 @@
 
 `text?: string` — Text (with YFM support)
 
-`metaInfo?: string` — Text (with YFM support)
-
 `additionalInfo?: string` — Gray text (with YFM support)
 
 [`links?: Link[]` — An array with link objects](?path=/story/information--common-types&viewMode=docs#link---link)

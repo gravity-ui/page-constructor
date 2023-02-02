@@ -10,6 +10,10 @@ export const MediaCardBlock = {
             ...MediaProps,
             ...AnimatableProps,
             content: ContentBase,
+            metaInfo: {
+                type: 'string',
+                contentType: 'yfm',
+            },
         },
     },
 };

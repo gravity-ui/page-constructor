@@ -14,9 +14,10 @@ const hasFullScreen = ({dataLens, image}: MediaCardProps) => {
     // datalens and slider media card don't support fullscreen
     return !(dataLens || Array.isArray(image));
 };
+const CONTENT_SIZE = 's';
 
-const MediaCard = ({border, fullScreen, content, ...mediaProps}: MediaCardProps) => (
-    <div className={b()}>
+const MediaCard = ({border, fullScreen, metaInfo, content, ...mediaProps}: MediaCardProps) => (
+    <div className={b({hasContent: Boolean(content || metaInfo)})}>
         <CardBase bodyClassName={b('body')} border={border}>
             <CardBase.Content>
                 {fullScreen && hasFullScreen(mediaProps) ? (
@@ -30,8 +31,22 @@ const MediaCard = ({border, fullScreen, content, ...mediaProps}: MediaCardProps)
                 )}
             </CardBase.Content>
         </CardBase>
+        {metaInfo && (
+            <div className={b('meta-info')}>
+                {metaInfo.map((metaInfoItem) => (
+                    <div key={metaInfoItem} className={b('meta-info-item')}>
+                        {metaInfoItem}
+                    </div>
+                ))}
+            </div>
+        )}
         {content && (
-            <Content size="s" className={b('content')} colSizes={{all: 12, md: 12}} {...content} />
+            <Content
+                size={CONTENT_SIZE}
+                className={b('content')}
+                colSizes={{all: 12, md: 12}}
+                {...content}
+            />
         )}
     </div>
 );
