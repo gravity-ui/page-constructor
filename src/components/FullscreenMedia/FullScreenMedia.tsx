@@ -17,7 +17,7 @@ export interface FullScreenMediaProps {
     children: (props?: ChildMediaRenderProps) => JSX.Element;
 }
 
-const b = block('FullScreenMedia');
+const b = block('full-screen-media');
 const FULL_SCREEN_ICON_SIZE = 18;
 const CLOSE_ICON_SIZE = 30;
 
