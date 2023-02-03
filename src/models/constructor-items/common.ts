@@ -314,26 +314,10 @@ export interface TitleBaseProps {
 }
 
 // card
-export interface CardData {
-    header?: CardHeader;
-    text?: string;
-    title?: string;
-    link?: LinkProps;
-    footer?: string;
-    url?: string;
-    service?: {slug: string; name: string};
-    links?: LinkProps[];
-}
-
 export type CardBorder = 'shadow' | 'line' | 'none';
 
 export interface CardBaseProps {
     border?: CardBorder;
-}
-
-export interface CardHeader {
-    title?: string;
-    image?: ImageProps;
 }
 
 //price
