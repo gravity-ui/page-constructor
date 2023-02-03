@@ -3,7 +3,6 @@ import {ButtonSize, ButtonView} from '@gravity-ui/uikit';
 
 import {ThemeSupporting} from '../../utils/theme';
 import {ClassNameProps, PixelEventType} from '../common';
-import {VideoBlockProps} from 'src/components/VideoBlock/VideoBlock';
 
 // enums
 export enum AuthorType {
@@ -215,10 +214,10 @@ export interface MediaComponentVideoProps {
     previewImg?: string;
 }
 
-export interface MediaComponentYoutubeProps
-    extends Pick<VideoBlockProps, 'previewImg' | 'fullScreen'> {
+export interface MediaComponentYoutubeProps {
     youtube: string;
     previewImg?: string;
+    fullScreen?: boolean;
 }
 
 export interface MediaComponentImageProps {

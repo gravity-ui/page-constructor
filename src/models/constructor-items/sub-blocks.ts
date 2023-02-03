@@ -20,7 +20,6 @@ import {
 } from './common';
 import {ContentBlockProps} from './blocks';
 import {PixelEvent} from '../common';
-import {MetaInfpoProps} from 'src/components/MetaInfo/MetaInfo';
 
 export enum SubBlockType {
     Divider = 'divider',
@@ -151,7 +150,7 @@ export interface BannerCardProps {
 export interface MediaCardProps extends MediaProps, CardBaseProps {
     fullScreen?: boolean;
     //TODO: remove content and metaInfo with moving fullscreen media stuff to CardWithImage
-    metaInfo?: MetaInfpoProps['items'];
+    metaInfo?: string[];
     content?: ContentBlockProps;
 }
 
