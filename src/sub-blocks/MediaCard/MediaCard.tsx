@@ -2,11 +2,10 @@ import React from 'react';
 import {MediaCardProps} from '../../models';
 
 import {block} from '../../utils';
-import {Media, CardBase} from '../../components';
-import FullScreenMedia from '../../components/FullscreenMedia/FullScreenMedia';
+import {Media, CardBase, MetaInfo, FullScreenMedia} from '../../components';
+import Content from '../Content/Content';
 
 import './MediaCard.scss';
-import Content from '../Content/Content';
 
 const b = block('MediaCard');
 
@@ -31,15 +30,7 @@ const MediaCard = ({border, fullScreen, metaInfo, content, ...mediaProps}: Media
                 )}
             </CardBase.Content>
         </CardBase>
-        {metaInfo && (
-            <div className={b('meta-info')}>
-                {metaInfo.map((metaInfoItem) => (
-                    <div key={metaInfoItem} className={b('meta-info-item')}>
-                        {metaInfoItem}
-                    </div>
-                ))}
-            </div>
-        )}
+        {metaInfo && <MetaInfo items={metaInfo} />}
         {content && (
             <Content
                 size={CONTENT_SIZE}

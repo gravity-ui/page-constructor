@@ -1,0 +1,7 @@
+{
+  "default": {
+    "content": {
+      "items": ["one", "two", "three"]
+    }
+  }
+}

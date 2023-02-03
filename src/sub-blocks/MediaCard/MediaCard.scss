@@ -11,19 +11,4 @@ $block: '.#{$ns}MediaCard';
     &__content {
         margin: $indentXXXS $indentXS 0 0;
     }
-
-    &__meta-info {
-        @include text-size(body-2);
-
-        display: flex;
-        align-items: center;
-        font-weight: 500;
-
-        margin: $indentXS $indentXS 0 0;
-        color: var(--pc-media-card-meta-info-color);
-
-        &-item:not(:first-child) {
-            margin-left: $indentXS;
-        }
-    }
 }
