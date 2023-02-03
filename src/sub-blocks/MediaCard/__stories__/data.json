@@ -44,11 +44,8 @@
   },
   "withContent": {
     "content": {
-      "image": {
-        "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_6-12_white.png",
-        "alt": "Picture",
-        "disableCompress": true
-      },
+      "youtube": "https://youtu.be/0Qd3T6skprA",
+      "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.png",
       "metaInfo": ["anim id est", "quis nostrud"],
       "content": {
         "title": "Lorem ipsum",
