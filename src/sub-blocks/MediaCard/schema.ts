@@ -1,4 +1,6 @@
+import metaInfo from '../../../src/components/MetaInfo/schema';
 import {MediaProps, BaseProps, AnimatableProps} from '../../schema/validators/common';
+import {ContentBase} from '../Content/schema';
 
 export const MediaCardBlock = {
     'media-card': {
@@ -8,6 +10,8 @@ export const MediaCardBlock = {
             ...BaseProps,
             ...MediaProps,
             ...AnimatableProps,
+            content: ContentBase,
+            metaInfo,
         },
     },
 };

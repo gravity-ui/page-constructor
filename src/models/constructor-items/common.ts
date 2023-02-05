@@ -217,6 +217,7 @@ export interface MediaComponentVideoProps {
 export interface MediaComponentYoutubeProps {
     youtube: string;
     previewImg?: string;
+    fullScreen?: boolean;
 }
 
 export interface MediaComponentImageProps {

@@ -1,0 +1,19 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+$block: '.#{$ns}meta-info';
+
+#{$block} {
+    @include text-size(body-2);
+
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+
+    margin: $indentXS $indentXS 0 0;
+    color: var(--pc-media-card-meta-info-color);
+
+    &__item:not(:first-child) {
+        margin-left: $indentXS;
+    }
+}

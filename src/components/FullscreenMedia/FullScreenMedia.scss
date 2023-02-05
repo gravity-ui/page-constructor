@@ -1,0 +1,106 @@
+@import '../../../styles/mixins';
+@import '../../../styles/variables';
+
+$block: '.#{$ns}full-screen-media';
+$closeButtonSize: 36px;
+$modalMediaHeight: 70vh;
+
+%modal-media {
+    display: block;
+    position: relative;
+    width: 100%;
+    max-width: $newContentWidth;
+    max-height: $modalMediaHeight;
+}
+
+#{$block} {
+    &__media {
+        cursor: pointer;
+
+        &-wrapper {
+            cursor: pointer;
+            position: relative;
+        }
+    }
+
+    &__modal-content {
+        position: relative;
+    }
+
+    &__modal-media {
+        border-radius: $borderRadius;
+
+        &_type_image {
+            @extend %modal-media;
+        }
+
+        &_type_video video {
+            @extend %modal-media;
+        }
+
+        &_type_youtube {
+            @extend %modal-media;
+
+            width: calc(#{$modalMediaHeight} * 16 / 9);
+            height: $modalMediaHeight;
+        }
+    }
+
+    &__modal .yc-modal__content,
+    &__modal-image {
+        border-radius: $borderRadius;
+    }
+
+    &__icon-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        right: $indentXS;
+        top: $indentXS;
+        width: $closeButtonSize;
+        height: $closeButtonSize;
+        border-radius: 8px;
+        background-color: var(--yc-color-base-simple-hover-solid);
+        cursor: pointer;
+        z-index: 10;
+    }
+
+    &__modal-content,
+    &__media-wrapper {
+        #{$block}__icon-wrapper {
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+
+        &:hover {
+            #{$block}__icon-wrapper {
+                opacity: 1;
+                pointer-events: inherit;
+            }
+        }
+    }
+
+    &__icon {
+        color: var(--yc-color-text-hint);
+
+        &_hover:hover {
+            color: var(--yc-color-text-secondary);
+        }
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'lg')) {
+        &__media-wrapper {
+            pointer-events: none;
+        }
+
+        &__icon-wrapper {
+            display: none;
+        }
+
+        &__modal {
+            display: none !important; /* stylelint-disable-line declaration-no-important */
+        }
+    }
+}

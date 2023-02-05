@@ -1,4 +1,4 @@
-import React, {useState, useCallback, CSSProperties} from 'react';
+import React, {useState, CSSProperties} from 'react';
 import {Icon, Modal} from '@gravity-ui/uikit';
 
 import {block} from '../../utils';
@@ -14,15 +14,18 @@ export interface FullScreenImageProps extends ImageProps {
 }
 
 const b = block('FullScreenImage');
+const FULL_SCREEN_ICON_SIZE = 18;
+const CLOSE_ICON_SIZE = 30;
 
 const FullScreenImage = (props: FullScreenImageProps) => {
     const {imageClassName, modalImageClass, imageStyle} = props;
     const [isOpened, setIsOpened] = useState(false);
     const [isMouseEnter, setIsMouseEnter] = useState(false);
-    const openModal = useCallback(() => setIsOpened(true), []);
-    const closeModal = useCallback(() => setIsOpened(false), []);
-    const showFullScreenIcon = useCallback(() => setIsMouseEnter(true), []);
-    const hideFullScreenIcon = useCallback(() => setIsMouseEnter(false), []);
+
+    const openModal = () => setIsOpened(true);
+    const closeModal = () => setIsOpened(false);
+    const showFullScreenIcon = () => setIsMouseEnter(true);
+    const hideFullScreenIcon = () => setIsMouseEnter(false);
 
     return (
         <div className={b()}>
@@ -38,7 +41,12 @@ const FullScreenImage = (props: FullScreenImageProps) => {
                     style={imageStyle}
                 />
                 <div className={b('icon-wrapper', {visible: isMouseEnter})} onClick={openModal}>
-                    <Icon data={FullScreen} width={18} height={18} className={b('icon')} />
+                    <Icon
+                        data={FullScreen}
+                        width={FULL_SCREEN_ICON_SIZE}
+                        height={FULL_SCREEN_ICON_SIZE}
+                        className={b('icon')}
+                    />
                 </div>
             </div>
             {isOpened && (
@@ -47,8 +55,8 @@ const FullScreenImage = (props: FullScreenImageProps) => {
                         <div className={b('icon-wrapper', {visible: true})} onClick={closeModal}>
                             <Icon
                                 data={PreviewClose}
-                                width={30}
-                                height={30}
+                                width={CLOSE_ICON_SIZE}
+                                height={CLOSE_ICON_SIZE}
                                 className={b('icon', {hover: true})}
                             />
                         </div>

@@ -41,5 +41,19 @@
         "disableCompress": true
       }
     }
+  },
+  "withContent": {
+    "content": {
+      "youtube": "https://youtu.be/0Qd3T6skprA",
+      "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.png",
+      "metaInfo": ["anim id est", "quis nostrud"],
+      "content": {
+        "title": "Lorem ipsum",
+        "text": "Dolor sit amet",
+        "metaInfo": "anim id **est** quis nostrud",
+        "additionalInfo": "Dolor sit amet"
+      },
+      "fullScreen": true
+    }
   }
 }

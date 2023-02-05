@@ -183,6 +183,11 @@ const config: BlocksConfig = {
         fields: ['text', 'title'],
         transformer: typografTransformer,
     },
+    [SubBlockType.MediaCard]: {
+        fields: ['metaInfo'],
+        transformer: yfmTransformer,
+        parser: createItemsParser([]),
+    },
     [SubBlockType.BackgroundCard]: [
         {
             fields: ['text', 'additionalInfo'],
