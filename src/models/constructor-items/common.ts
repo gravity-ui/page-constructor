@@ -240,6 +240,37 @@ export interface MediaProps
     color?: string;
 }
 
+export type Coordinate = number[];
+
+export interface MapBaseProps {
+    zoom?: number;
+    center?: Coordinate;
+}
+export interface GMapProps extends MapBaseProps {
+    address: string;
+}
+
+export interface YMapProps extends MapBaseProps {
+    markers: YMapMarker[];
+    id: string;
+    center: Coordinate;
+}
+
+export interface YMapMarker {
+    address?: string;
+    coordinate?: Coordinate;
+    label?: YMapMarkerLabel;
+}
+
+export interface YMapMarkerLabel {
+    iconCaption?: string;
+    iconContent?: string;
+    iconColor?: string;
+    preset?: string;
+}
+
+export type MapProps = GMapProps | YMapProps;
+
 export type ThemedMediaProps = ThemeSupporting<MediaProps>;
 
 // metrika

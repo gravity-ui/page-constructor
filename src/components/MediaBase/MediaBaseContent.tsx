@@ -5,9 +5,9 @@ import {block} from '../../utils';
 import {MediaContentProps} from '../../models';
 import {Content} from '../../sub-blocks';
 
-import './MediaContent.scss';
+import './MediaBaseContent.scss';
 
-const b = block('media-content');
+const b = block('media-base-content');
 
 const MediaContent = (props: MediaContentProps) => {
     const {title, description, button, links, buttons = [], additionalInfo, size = 'l'} = props;

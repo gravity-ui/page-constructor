@@ -14,6 +14,7 @@ import {
     LinkTheme,
     MediaDirection,
     MediaProps,
+    MapProps,
     PreviewItemProps,
     PreviewRatioMediaContent,
     TextSize,
@@ -56,6 +57,7 @@ export enum BlockType {
     CardLayoutBlock = 'card-layout-block',
     ContentLayoutBlock = 'content-layout-block',
     ShareBlock = 'share-block',
+    MapBlock = 'map-block',
 }
 
 export const BlockTypes = Object.values(BlockType);
@@ -214,6 +216,14 @@ export interface CompaniesBlockProps extends Animatable {
     images: ThemeSupporting<ImageDeviceProps>;
 }
 
+export interface MediaBaseBlockProps extends Animatable, MediaContentProps {
+    direction?: MediaDirection;
+    mobileDirection?: MediaDirection;
+    largeMedia?: boolean;
+    mediaOnly?: boolean;
+    disableShadow?: boolean;
+}
+
 export interface MediaContentProps {
     title: string;
     description?: string;
@@ -224,13 +234,12 @@ export interface MediaContentProps {
     size?: ContentSize;
 }
 
-export interface MediaBlockProps extends Animatable, MediaContentProps {
+export interface MediaBlockProps extends MediaBaseBlockProps {
     media: ThemeSupporting<MediaProps>;
-    direction?: MediaDirection;
-    mobileDirection?: MediaDirection;
-    largeMedia?: boolean;
-    mediaOnly?: boolean;
-    disableShadow?: boolean;
+}
+
+export interface MapBlockProps extends MediaBaseBlockProps {
+    map: MapProps;
 }
 
 export interface PreviewBlockProps extends Animatable {
@@ -405,6 +414,10 @@ export type MediaBlockModel = {
     type: BlockType.MediaBlock;
 } & MediaBlockProps;
 
+export type MapBlockModel = {
+    type: BlockType.MapBlock;
+} & MapBlockProps;
+
 export type PreviewBlockModel = {
     type: BlockType.PreviewBlock;
 } & PreviewBlockProps;
@@ -463,6 +476,7 @@ type BlockModels =
     | BannerBlockModel
     | CompaniesBlockModel
     | MediaBlockModel
+    | MapBlockModel
     | InfoBlockModel
     | SecurityBlockModel
     | TableBlockModel

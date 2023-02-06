@@ -494,6 +494,54 @@ export const MediaProps = {
     dataLens: DataLensProps,
 };
 
+export const YMapMarkerLabel = {
+    required: [],
+    iconCaption: {
+        type: 'string',
+    },
+    iconContent: {
+        type: 'string',
+    },
+    iconColor: {
+        type: 'string',
+    },
+    preset: {
+        type: 'string',
+    },
+};
+
+export const YMapMarker = {
+    required: [],
+    coordinate: {
+        type: 'array',
+        items: {type: 'number'},
+    },
+    address: {
+        type: 'string',
+    },
+    label: YMapMarkerLabel,
+};
+
+export const MapProps = {
+    zoom: {
+        type: 'number',
+    },
+    center: {
+        type: 'array',
+        items: {type: 'number'},
+    },
+    address: {
+        type: 'string',
+    },
+    id: {
+        type: 'string',
+    },
+    markers: {
+        type: 'array',
+        items: {type: YMapMarker},
+    },
+};
+
 export const CardBase = {
     border: {
         type: 'string',

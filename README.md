@@ -46,6 +46,7 @@ interface PageConstructorProviderProps {
   metrika?: Metrika; //Functions for sending analytics
   ssrConfig?: SSR; //A flag indicating that the code is run on the server size.
   theme?: 'light' | 'dark'; //Theme to render the page with.
+  mapsContext?: MapsContextType; //Params for map: apikey, type, scriptSrc, nonce
 }
 
 export interface PageContent extends Animatable {
@@ -210,6 +211,13 @@ import {configure, Lang} from '@gravity-ui/page-constructor';
 
 configure({lang: Lang.En});
 ```
+
+### Maps
+
+To use maps, put the map type, scriptSrc and apiKey in field `mapContext` in `PageConstructorProvider`.
+
+You can define environment variables for dev-mode in .env.development file within project root.
+`STORYBOOK_GMAP_API_KEY` - apiKey for google maps
 
 ## Development
 

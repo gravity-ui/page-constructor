@@ -1,7 +1,7 @@
 @import '../../../styles/mixins';
 @import '../../../styles/variables';
 
-$block: '.#{$ns}media-block';
+$block: '.#{$ns}media-base';
 
 #{$block} {
     $class: &;
@@ -13,7 +13,8 @@ $block: '.#{$ns}media-block';
 
         img,
         video,
-        iframe {
+        iframe,
+        .#{$ns}map {
             border-radius: $borderRadius; // special for safari
         }
 
