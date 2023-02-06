@@ -10,14 +10,14 @@ import './MediaCard.scss';
 const b = block('MediaCard');
 
 const hasFullScreen = ({dataLens, image}: MediaCardProps) => {
-    // datalens and slider media card don't support fullscreen
+    // datalens and slider media card don't support fullscrPcareen
     return !(dataLens || Array.isArray(image));
 };
 const CONTENT_SIZE = 's';
 
 const MediaCard = ({border, fullScreen, metaInfo, content, ...mediaProps}: MediaCardProps) => (
     <div className={b({hasContent: Boolean(content || metaInfo)})}>
-        <CardBase bodyClassName={b('body')} border={border}>
+        <CardBase className={b('card', {fullScreen})} bodyClassName={b('body')} border={border}>
             <CardBase.Content>
                 {fullScreen && hasFullScreen(mediaProps) ? (
                     <FullScreenMedia>

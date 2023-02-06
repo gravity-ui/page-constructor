@@ -4,6 +4,12 @@
 $block: '.#{$ns}MediaCard';
 
 #{$block} {
+    &__card {
+        &_fullScreen {
+            min-height: inherit;
+        }
+    }
+
     &__body {
         padding: 0;
     }

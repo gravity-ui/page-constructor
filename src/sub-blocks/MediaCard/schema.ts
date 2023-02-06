@@ -1,4 +1,4 @@
-import metaInfo from '../../../src/components/MetaInfo/schema';
+import metaInfo from '../../components/MetaInfo/schema';
 import {MediaProps, BaseProps, AnimatableProps} from '../../schema/validators/common';
 import {ContentBase} from '../Content/schema';
 

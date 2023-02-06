@@ -96,12 +96,9 @@ const VideoBlock = (props: VideoBlockProps) => {
             return;
         }
 
-        const prevPageVideo = document.getElementById(fullId) as HTMLVideoElement;
         const fullSrc = `${src}?${getPageSearchParams(attributes || {})}`;
 
-        if (prevPageVideo && !fullScreen) {
-            prevPageVideo.src = fullSrc;
-        } else if (ref.current) {
+        if (ref.current && !iframeRef.current) {
             const iframe = document.createElement('iframe');
             iframe.id = fullId;
             iframe.src = fullSrc;

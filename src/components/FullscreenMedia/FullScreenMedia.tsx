@@ -4,7 +4,7 @@ import {Icon, Modal} from '@gravity-ui/uikit';
 import {block} from '../../utils';
 import {PreviewClose, FullScreen} from '../../icons';
 import {MediaAllProps} from '../Media/Media';
-import {MobileContext} from '../../../src/context/mobileContext';
+import {MobileContext} from '../../context/mobileContext';
 
 import './FullScreenMedia.scss';
 
