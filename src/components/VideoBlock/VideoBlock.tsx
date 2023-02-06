@@ -65,7 +65,7 @@ const VideoBlock = (props: VideoBlockProps) => {
     const [hidePreview, setHidePreview] = useState(false);
     const norender = (!stream && !record) || !src;
     const [currentHeight, setCurrentHeight] = useState(height || undefined);
-    const fullId = `${iframeId}-${id || src}`;
+    const fullId = `${iframeId}-${id || src}${fullScreen ? '-fullscreen' : ''}`;
     const onPreviewClick = useCallback(() => {
         if (iframeRef.current) {
             iframeRef.current.src = `${src}?${getPageSearchParams({
