@@ -4,6 +4,7 @@
 $block: '.#{$ns}full-screen-media';
 $closeButtonSize: 36px;
 $modalMediaHeight: 70vh;
+$modalYoutubeWidth: 70vw;
 
 %modal-media {
     display: block;
@@ -41,8 +42,8 @@ $modalMediaHeight: 70vh;
         &_type_youtube {
             @extend %modal-media;
 
-            width: calc(#{$modalMediaHeight} * 16 / 9);
-            height: $modalMediaHeight;
+            width: $modalYoutubeWidth;
+            height: calc(#{$modalYoutubeWidth} * 9 / 16);
         }
     }
 

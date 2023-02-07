@@ -217,7 +217,7 @@ const config: BlocksConfig = {
         {
             fields: ['metaInfo'],
             parser: createItemsParser([]),
-            transformer: yfmTransformer,
+            transformer: typografTransformer,
         },
     ],
     [SubBlockType.Quote]: {
