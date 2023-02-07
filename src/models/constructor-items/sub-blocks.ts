@@ -151,12 +151,7 @@ export interface BannerCardProps {
     button: Pick<ButtonProps, 'text' | 'url' | 'target'>;
 }
 
-export interface MediaCardProps extends MediaProps, CardBaseProps {
-    fullScreen?: boolean;
-    //TODO: remove content and metaInfo with moving fullscreen media stuff to CardWithImage
-    metaInfo?: string[];
-    content?: ContentBlockProps;
-}
+export interface MediaCardProps extends MediaProps, CardBaseProps {}
 
 export interface CardWithImageLinkProps extends Omit<LinkProps, 'text' | 'url'> {
     title: string;
