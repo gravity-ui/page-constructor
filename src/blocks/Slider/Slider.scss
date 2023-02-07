@@ -190,14 +190,9 @@ $block: '.#{$ns}SliderBlock';
 
         .slick-arrow {
             display: none;
-            height: 100%;
             width: 64px;
-            top: 0;
-
-            button {
-                top: 50%;
-                transform: translate(0, -50%);
-            }
+            top: 50%;
+            transform: translate(0, -50%);
         }
 
         .slick-prev {
