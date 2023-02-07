@@ -1,0 +1,24 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
+
+$block: '.#{$ns}layout-item';
+
+#{$block} {
+    &__media {
+        width: 100%;
+        display: block;
+        border-radius: $borderRadius;
+
+        &_border {
+            border: 1px solid var(--yc-color-line-generic);
+        }
+    }
+
+    &__meta-info {
+        margin: $indentXS 0 -#{$indentXXXS} 0;
+    }
+
+    &__content {
+        margin: $indentXS $indentXS 0 0;
+    }
+}

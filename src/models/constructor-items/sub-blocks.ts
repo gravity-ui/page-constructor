@@ -36,7 +36,11 @@ export enum SubBlockType {
      * @deprecated Will be moved to params use BasicCard instead
      */
     TutorialCard = 'tutoral-card',
+    /**
+     * @deprecated Use LayoutItem
+     */
     CardWithImage = 'card-with-image',
+    LayoutItem = 'layout-item',
     BackgroundCard = 'background-card',
     BasicCard = 'basic-card',
     Content = 'content',
@@ -170,6 +174,14 @@ export interface CardWithImageProps
     links?: CardWithImageLinkProps[];
 }
 
+export interface LayoutItemProps extends ClassNameProps {
+    content: Omit<ContentBlockProps, 'colSizes' | 'centered' | 'size'>;
+    media: MediaProps;
+    metaInfo?: string[];
+    border?: boolean;
+    fullScreen?: boolean;
+}
+
 // sub-block models
 export type DividerModel = {
     type: SubBlockType.Divider;
@@ -186,6 +198,10 @@ export type NewsCardModel = {
 export type CardWithImageModel = {
     type: SubBlockType.CardWithImage;
 } & CardWithImageProps;
+
+export type LayoutItemModel = {
+    type: SubBlockType.CardWithImage;
+} & LayoutItemProps;
 
 export type TutorialCardModel = {
     type: SubBlockType.TutorialCard;

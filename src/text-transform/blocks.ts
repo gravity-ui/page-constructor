@@ -208,6 +208,23 @@ const config: BlocksConfig = {
             transformer: typografTransformer,
         },
     ],
+    [SubBlockType.LayoutItem]: [
+        {
+            fields: ['content'],
+            parser: parseContentLayout,
+            transformer: yfmTransformer,
+        },
+        {
+            fields: ['content'],
+            parser: parseContentLayoutTitle,
+            transformer: typografTransformer,
+        },
+        {
+            fields: ['metaInfo'],
+            parser: createItemsParser([]),
+            transformer: yfmTransformer,
+        },
+    ],
     [SubBlockType.Quote]: {
         fields: ['text'],
         transformer: typografTransformer,

@@ -91,10 +91,6 @@ $modalMediaHeight: 70vh;
     }
 
     @media (max-width: map-get($gridBreakpoints, 'sm')) {
-        &__media-wrapper {
-            pointer-events: none;
-        }
-
         &__icon-wrapper {
             display: none;
         }

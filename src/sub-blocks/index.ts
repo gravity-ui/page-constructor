@@ -7,6 +7,7 @@ export {default as MediaCard} from './MediaCard/MediaCard';
 export {default as BannerCard} from './BannerCard/BannerCard';
 export {default as TutorialCard} from './TutorialCard/TutorialCard';
 export {default as CardWithImage} from './CardWithImage/CardWithImage';
+export {default as LayoutItem} from './LayoutItem/LayoutItem';
 export {default as BackgroundCard} from './BackgroundCard/BackgroundCard';
 export {default as BasicCard} from './BasicCard/BasicCard';
 export {default as Content} from './Content/Content';
