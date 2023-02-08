@@ -14,6 +14,7 @@ export type ChildMediaRenderProps = Pick<
 >;
 
 export interface FullScreenMediaProps {
+    showFullScreenIcon?: boolean;
     children: (props?: ChildMediaRenderProps) => JSX.Element;
 }
 
@@ -23,7 +24,7 @@ const CLOSE_ICON_SIZE = 30;
 
 const getMediaClass = (type: string) => b('modal-media', {type});
 
-const FullScreenMedia = ({children}: FullScreenMediaProps) => {
+const FullScreenMedia = ({children, showFullScreenIcon = true}: FullScreenMediaProps) => {
     const [isOpened, setIsOpened] = useState(false);
     const isMobile = useContext(MobileContext);
 
@@ -41,14 +42,16 @@ const FullScreenMedia = ({children}: FullScreenMediaProps) => {
         <div className={b()}>
             <div className={b('media-wrapper')} onClickCapture={openModal}>
                 {children()}
-                <div className={b('icon-wrapper')} onClickCapture={openModal}>
-                    <Icon
-                        data={FullScreen}
-                        width={FULL_SCREEN_ICON_SIZE}
-                        height={FULL_SCREEN_ICON_SIZE}
-                        className={b('icon')}
-                    />
-                </div>
+                {showFullScreenIcon && (
+                    <div className={b('icon-wrapper')} onClickCapture={openModal}>
+                        <Icon
+                            data={FullScreen}
+                            width={FULL_SCREEN_ICON_SIZE}
+                            height={FULL_SCREEN_ICON_SIZE}
+                            className={b('icon')}
+                        />
+                    </div>
+                )}
             </div>
             {isOpened && (
                 <Modal open={isOpened} onClose={closeModal} className={b('modal')}>

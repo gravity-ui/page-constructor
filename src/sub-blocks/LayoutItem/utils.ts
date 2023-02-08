@@ -10,3 +10,5 @@ export const hasFullScreen = ({dataLens, image}: MediaProps) => {
     // datalens and slider media card don't support fullscrPcareen
     return !(dataLens || Array.isArray(image));
 };
+
+export const showFullScreenIcon = ({youtube}: MediaProps) => !youtube;

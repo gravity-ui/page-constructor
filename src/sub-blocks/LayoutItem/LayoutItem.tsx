@@ -3,7 +3,7 @@ import React from 'react';
 import {block} from '../../utils';
 import {LayoutItemProps} from '../../models';
 import {FullScreenMedia, Media, MetaInfo} from '../../components';
-import {getLayoutItemLinks, hasFullScreen} from './utils';
+import {getLayoutItemLinks, hasFullScreen, showFullScreenIcon} from './utils';
 import {Content} from '..';
 
 import './LayoutItem.scss';
@@ -20,7 +20,7 @@ const LayoutItem = ({
 }: LayoutItemProps) => (
     <div className={b(null, className)}>
         {fullScreen && hasFullScreen(media) ? (
-            <FullScreenMedia>
+            <FullScreenMedia showFullScreenIcon={showFullScreenIcon(media)}>
                 {(fullScreenMediaProps = {}) => (
                     <Media {...media} {...fullScreenMediaProps} className={b('media', {border})} />
                 )}
