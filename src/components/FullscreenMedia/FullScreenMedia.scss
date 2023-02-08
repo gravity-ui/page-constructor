@@ -28,6 +28,10 @@ $modalYoutubeWidth: 70vw;
         position: relative;
     }
 
+    &__inline-media {
+        transform: translateZ(0);
+    }
+
     &__modal-media {
         border-radius: $borderRadius;
 

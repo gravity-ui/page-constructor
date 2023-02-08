@@ -10,7 +10,7 @@ import './FullScreenMedia.scss';
 
 export type ChildMediaRenderProps = Pick<
     MediaAllProps,
-    'fullScreen' | 'imageClassName' | 'videoClassName' | 'youtubeClassName'
+    'fullScreen' | 'imageClassName' | 'videoClassName' | 'youtubeClassName' | 'className'
 >;
 
 export interface FullScreenMediaProps {
@@ -41,7 +41,7 @@ const FullScreenMedia = ({children, showFullScreenIcon = true}: FullScreenMediaP
     return (
         <div className={b()}>
             <div className={b('media-wrapper')} onClickCapture={openModal}>
-                {children()}
+                {children({className: b('inline-media')})}
                 {showFullScreenIcon && (
                     <div className={b('icon-wrapper')} onClickCapture={openModal}>
                         <Icon

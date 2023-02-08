@@ -21,8 +21,12 @@ const LayoutItem = ({
     <div className={b(null, className)}>
         {fullScreen && hasFullScreen(media) ? (
             <FullScreenMedia showFullScreenIcon={showFullScreenIcon(media)}>
-                {(fullScreenMediaProps = {}) => (
-                    <Media {...media} {...fullScreenMediaProps} className={b('media', {border})} />
+                {({className: mediaClassName, ...fullScreenMediaProps} = {}) => (
+                    <Media
+                        {...media}
+                        {...fullScreenMediaProps}
+                        className={b('media', {border}, mediaClassName)}
+                    />
                 )}
             </FullScreenMedia>
         ) : (
