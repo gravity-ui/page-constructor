@@ -10,5 +10,6 @@ export const LocaleContext = React.createContext<LocaleContextProps>({
         code: 'en-En',
         lang: Lang.En,
         langName: 'English',
+        pathPrefix: 'en',
     },
 });

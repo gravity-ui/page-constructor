@@ -7,7 +7,7 @@ export default create({
     colorSecondary: 'rgba(2, 123, 243, 0.6)',
 
     // Typography
-    fontBase: '"YS Text", Arial, sans-serif',
+    fontBase: 'Arial, sans-serif',
     fontCode:
         '"SF Mono", "Menlo", "Monaco", "Consolas", "Ubuntu Mono", "Liberation Mono", "DejaVu Sans Mono", "Courier New", "Courier", monospace',
 
@@ -26,7 +26,7 @@ export default create({
     inputTextColor: 'black',
     inputBorderRadius: 4,
 
-    brandUrl: 'https://bb.yandex-team.ru/projects/DATA-UI/repos/blog-constructor/browse',
+    brandUrl: 'https://github.com/gravity-ui/blog-constructor',
     brandTitle: `<div style="font-size: 18px; color: #027bf3; font-weight: 600; margin-top: -6px; margin-bottom: 2px;">Blog Constructor</div>
-                <div style="font-size: 14px;color: #7d7d7d;font-weight: 400;">Data UI Guidelines</div>`,
+                <div style="font-size: 14px;color: #7d7d7d;font-weight: 400;">Gravity UI Guidelines</div>`,
 });

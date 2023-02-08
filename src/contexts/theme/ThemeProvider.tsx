@@ -8,6 +8,7 @@ interface ThemeProviderExternalProps {}
 
 interface ThemeProviderDefaultProps {
     theme: ThemeValueType;
+    children?: React.ReactNode;
 }
 
 export interface ThemeProviderProps

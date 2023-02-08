@@ -2,6 +2,7 @@ import React, {useContext} from 'react';
 import {HeaderBlock} from '@gravity-ui/page-constructor';
 
 import {PostPageContext} from '../../contexts/PostPageContext';
+import {LocaleContext} from '../../contexts/LocaleContext';
 
 import {PostInfo, BlogMetrikaGoals} from '../../components/PostInfo/PostInfo';
 import {Wrapper} from '../../components/Wrapper/Wrapper';
@@ -28,10 +29,11 @@ const breadcrumbsGoals = [
 export const Header: React.FC<HeaderProps> = (props) => {
     const {theme, paddingTop, paddingBottom} = props;
     const {post} = useContext(PostPageContext);
+    const {locale} = useContext(LocaleContext);
 
     const {description, title, id, date, readingTime, tags} = post;
 
-    const breadcrumbs = getBreadcrumbs({tags});
+    const breadcrumbs = getBreadcrumbs({tags, pathPrefix: locale?.pathPrefix || ''});
 
     if (theme === 'dark' && breadcrumbs) {
         breadcrumbs.theme = 'dark';

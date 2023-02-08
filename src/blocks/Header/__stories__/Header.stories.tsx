@@ -37,5 +37,5 @@ Default.args = {
     type: BlockType.Header,
     paddingBottom: 'l',
     paddingTop: 'l',
-    image: 'https://storage.yandexcloud.net/cloud-www-assets/blog-assets/ru/posts/2022/07/cover-digest-june.png',
+    image: 'https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_light.png',
 };

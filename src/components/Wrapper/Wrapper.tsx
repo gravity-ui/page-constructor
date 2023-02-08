@@ -14,6 +14,7 @@ const b = block('wrapper');
 type WrapperProps = ClassNameProps & {
     paddings?: Paddings;
     dataQa?: string;
+    children?: React.ReactNode;
 };
 
 export const Wrapper: React.FunctionComponent<WrapperProps> = ({

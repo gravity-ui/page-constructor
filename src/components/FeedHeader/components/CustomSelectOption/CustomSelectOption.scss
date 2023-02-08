@@ -1,0 +1,21 @@
+@import '../../../../../styles/mixins.scss';
+@import '../../../../../styles/variables.scss';
+
+$block: '.#{$namespace}feed-custom-select-option';
+
+#{$block} {
+    $root: &;
+
+    @include text-size(body-2);
+
+    display: flex;
+
+    &__icon {
+        margin-right: 6px;
+
+        & > svg {
+            width: 20px;
+            height: 20px;
+        }
+    }
+}

@@ -3,6 +3,7 @@ import {Icon} from '@gravity-ui/uikit';
 
 import {FeedContext} from '../../contexts/FeedContext';
 import {RouterContext} from '../../contexts/RouterContext';
+import {LocaleContext} from '../../contexts/LocaleContext';
 
 import {DEFAULT_PAGE, DEFAULT_ROWS_PER_PAGE} from '../constants';
 
@@ -37,6 +38,7 @@ export const Feed: React.FC<FeedProps> = ({image}) => {
         pageCountForShowSupportButtons,
     } = useContext(FeedContext);
     const router = useContext(RouterContext);
+    const {locale} = useContext(LocaleContext);
 
     const [
         {
@@ -175,7 +177,7 @@ export const Feed: React.FC<FeedProps> = ({image}) => {
     const serviceItems = useMemo(
         () =>
             services?.map((service) => ({
-                title: service.name,
+                content: service.name,
                 value: `${service.id}`,
             })),
         [services],
@@ -184,7 +186,7 @@ export const Feed: React.FC<FeedProps> = ({image}) => {
     const tagItems = useMemo(
         () =>
             tags?.map((tag) => ({
-                title: tag.name,
+                content: tag.name,
                 value: tag.slug,
                 icon: tag.icon && <Icon data={tag.icon} />,
             })),
@@ -206,10 +208,12 @@ export const Feed: React.FC<FeedProps> = ({image}) => {
             }, [])
             .join('&');
 
-        const newUrl = `/blog${queryString ? `?${queryString}` : ''}`;
+        const pathPrefix = locale?.pathPrefix ? `/${locale?.pathPrefix}/` : '/';
+
+        const newUrl = `${pathPrefix}blog${queryString ? `?${queryString}` : ''}`;
 
         window.history.replaceState({...window.history.state, as: newUrl, url: newUrl}, '', newUrl);
-    }, [queryParams]);
+    }, [locale?.pathPrefix, queryParams]);
 
     return (
         <div>

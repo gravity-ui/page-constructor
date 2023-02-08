@@ -18,7 +18,7 @@
   "locale": "ru",
   "isPublished": true,
   "blogPostId": 394,
-  "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-black.png",
+  "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_dark.png",
   "metaDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor share title meta description",
   "keywords": null,
   "metaTitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor share title meta title",
@@ -44,7 +44,7 @@
       "firstName": "Lorem",
       "secondName": "Ipsum dolor",
       "description": "Geometry lead",
-      "avatar": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
+      "avatar": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_light.png",
       "id": 290,
       "createdAt": "2021-08-06T13:08:21.144Z",
       "updatedAt": "2022-08-08T08:29:51.307Z"
@@ -53,7 +53,7 @@
       "firstName": "Lorem",
       "secondName": "Ipsum dolor",
       "description": "Geometry lead",
-      "avatar": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
+      "avatar": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_light.png",
       "id": 292,
       "createdAt": "2021-08-06T13:11:17.491Z",
       "updatedAt": "2022-06-08T19:13:39.242Z"
@@ -62,7 +62,7 @@
       "firstName": "Lorem",
       "secondName": "Ipsum dolor",
       "description": "Geometry lead",
-      "avatar": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
+      "avatar": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_light.png",
       "id": 386,
       "createdAt": "2022-04-20T10:19:50.179Z",
       "updatedAt": "2022-08-08T08:38:46.037Z"
@@ -71,7 +71,7 @@
       "firstName": "Lorem",
       "secondName": "Ipsum dolor",
       "description": "Geometry lead",
-      "avatar": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
+      "avatar": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_light.png",
       "id": 392,
       "createdAt": "2022-07-05T07:49:24.229Z",
       "updatedAt": "2022-07-05T07:49:24.229Z"
@@ -80,7 +80,7 @@
       "firstName": "Lorem",
       "secondName": "Ipsum dolor",
       "description": "Geometry lead",
-      "avatar": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
+      "avatar": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_light.png",
       "id": 396,
       "createdAt": "2022-07-29T11:12:19.605Z",
       "updatedAt": "2022-07-29T11:12:19.605Z"

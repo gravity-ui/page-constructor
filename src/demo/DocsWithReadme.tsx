@@ -25,7 +25,7 @@ importAllReadme(require.context('../components', true, /readme\.md$/i));
 
 export const DocsWithReadme = () => {
     const context = React.useContext(DocsContext);
-    const fileName = context.parameters.fileName;
+    const fileName = context?.parameters?.fileName;
     const kind = context.kind;
     let isComponent = false;
     if (kind && /Компоненты|Блоки\//.test(kind)) {
@@ -42,11 +42,11 @@ export const DocsWithReadme = () => {
     if (dirPath) {
         sourceBadgeContent = (
             <a
-                href={`https://bb.yandex-team.ru/projects/DATA-UI/repos/blog-constructor/browse/${dirPath}`}
+                href={`https://github.com/gravity-ui/blog-constructor/tree/main/${dirPath}`}
                 target="_blank"
                 rel="noopener noreferrer"
             >
-                <img src="https://badger.yandex-team.ru/custom/[Исходники]/[Bitbucket][green]/badge.svg" />
+                <img src="https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/icons/github-badge.svg" />
             </a>
         );
     }

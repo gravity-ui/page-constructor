@@ -10,6 +10,7 @@ $block: '.#{$namespace}feed-custom-switcher';
 
     &__custom-switcher {
         @include text-size(body-2);
+        position: relative;
 
         display: flex;
         flex-direction: row;
@@ -19,6 +20,16 @@ $block: '.#{$namespace}feed-custom-switcher';
         border-radius: $controlsBorderRadius;
         width: 100%;
         line-height: 42px;
+
+        // TODO delete this section after Select can customize the popup list
+        & + .yc-popup-wrapper.yc-popup-wrapper_open {
+            //stylelint-disable-next-line declaration-no-important
+            position: absolute !important;
+            //stylelint-disable-next-line declaration-no-important
+            inset: auto !important;
+            //stylelint-disable-next-line declaration-no-important
+            transform: translate3d(0, 4px, 0) !important;
+        }
     }
 
     &__custom-switcher:hover {
@@ -58,7 +69,7 @@ $block: '.#{$namespace}feed-custom-switcher';
     }
 
     &__switcher-arrow {
-        width: $indentXXS;
-        height: $indentXXS;
+        width: $indentXS;
+        height: $indentXS;
     }
 }

@@ -76,7 +76,7 @@ export const scrollToHash = (hash: string, browser?: string) => {
 
 type CloudListTagStub = {};
 
-export const getTags = _.memoize((tags: Tag[]) => {
+export const getTags = _.memoize((tags: Tag[], prefix?: string) => {
     return tags.map(({slug, ...tag}) => {
         const queryParams = new URLSearchParams();
         queryParams.set('tags', slug);
@@ -84,7 +84,7 @@ export const getTags = _.memoize((tags: Tag[]) => {
         return {
             ...tag,
             id: slug,
-            url: `/blog?${queryParams}`,
+            url: `${prefix}blog?${queryParams}`,
         } as CloudListTagStub;
     });
 });
@@ -95,8 +95,8 @@ export const postLikeStatus = _.debounce((postId: number, hasUserLike: boolean) 
     (hasUserLike ? stub : stub)(postId);
 }, 300);
 
-export const getTagFilterUrl = (tagId: string | number) => {
-    return '/blog?tags=' + tagId;
+export const getTagFilterUrl = (tagId: string | number, prefix: string) => {
+    return `${prefix}blog?tags=` + tagId;
 };
 
 export const updateContentSizes = ({size, colSizes, theme, ...contentData}: ContentBlockProps) => ({
@@ -108,19 +108,22 @@ export const updateContentSizes = ({size, colSizes, theme, ...contentData}: Cont
 
 type GetBreadcrumbsProps = {
     tags?: Tag[];
+    pathPrefix?: string;
 };
 
-export const getBreadcrumbs = ({tags}: GetBreadcrumbsProps) => {
+export const getBreadcrumbs = ({tags, pathPrefix}: GetBreadcrumbsProps) => {
+    const prefix = pathPrefix ? `/${pathPrefix}/` : '/';
+
     const breadcrumbs: HeaderBreadCrumbsProps = {
-        items: [{text: i18(Keyset.TitleBreadcrumbs), url: '/blog'}],
+        items: [{text: i18(Keyset.TitleBreadcrumbs), url: `${prefix}blog`}],
         theme: 'light',
     };
 
     if (tags?.length) {
-        const localizedTags = getTags(tags);
+        const localizedTags = getTags(tags, prefix);
         const tag = localizedTags[0];
-        // @ts-ignore todo fix https://st.yandex-team.ru/ORION-1447
-        breadcrumbs.items.push({text: tag.name, url: getTagFilterUrl(tag.id)});
+        // @ts-ignore todo fix
+        breadcrumbs.items.push({text: tag.name, url: getTagFilterUrl(tag.id, prefix)});
     }
 
     return breadcrumbs;

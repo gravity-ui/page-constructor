@@ -14,7 +14,7 @@
       {
         "type": "blog-feed-block",
         "resetPaddings": true,
-        "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
+        "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_light.png",
         "title": {
           "text": "Blog",
           "textSize": "l"

@@ -2,6 +2,7 @@ import React, {useContext} from 'react';
 import {HeaderBreadcrumbs, YFMWrapper} from '@gravity-ui/page-constructor';
 
 import {PostPageContext} from '../../contexts/PostPageContext';
+import {LocaleContext} from '../../contexts/LocaleContext';
 
 import {Wrapper} from '../../components/Wrapper/Wrapper';
 import {PostInfo, BlogMetrikaGoals} from '../../components/PostInfo/PostInfo';
@@ -34,10 +35,11 @@ const breadcrumbsGoals = [
 export const Meta: React.FC<MetaProps> = (props) => {
     const {paddingTop = 'l', paddingBottom = 'l', theme = 'light'} = props;
     const {post} = useContext(PostPageContext);
+    const {locale} = useContext(LocaleContext);
 
     const {title, id, date, readingTime, tags} = post;
 
-    const breadcrumbs = getBreadcrumbs({tags});
+    const breadcrumbs = getBreadcrumbs({tags, pathPrefix: locale?.pathPrefix || ''});
 
     breadcrumbs.metrikaGoals = breadcrumbsGoals;
 

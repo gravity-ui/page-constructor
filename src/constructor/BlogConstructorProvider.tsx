@@ -18,6 +18,7 @@ export interface BlogConstructorProviderProps {
     theme?: ThemeValueType;
     user?: UserContextProps;
     device?: DeviceContextProps;
+    children?: React.ReactNode;
 }
 
 export const BlogConstructorProvider: React.FC<BlogConstructorProviderProps> = ({

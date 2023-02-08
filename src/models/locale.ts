@@ -13,6 +13,7 @@ export interface LangData {
     lang: Lang;
     langName: string;
     regions: Record<string, RegionData>;
+    pathPrefix: string;
 }
 
 export interface RegionData {
@@ -32,4 +33,5 @@ export interface LocaleData extends Pick<LangData, 'lang'>, Omit<RegionData, 're
 export interface Locale
     extends Partial<Pick<LangData, 'langName'>>,
         Pick<LangData, 'lang'>,
+        Partial<Pick<LangData, 'pathPrefix'>>,
         Partial<Pick<LocaleData, 'code'>> {}

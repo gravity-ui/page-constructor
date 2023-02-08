@@ -1,8 +1,8 @@
 {
-  "name": "@yandex-data-ui/blog-constructor",
+  "name": "@gravity-ui/blog-constructor",
   "version": "1.0.0",
-  "description": "Cloud Blog Constructor",
-  "license": "UNLICENSED",
+  "description": "Gravity UI Blog Constructor",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/gravity-ui/blog-constructor"
@@ -37,7 +37,6 @@
     "build": "npm run clean && gulp",
     "storybook:start": "TS_NODE_PROJECT=.storybook/tsconfig.json start-storybook -p 7010",
     "storybook:build": "TS_NODE_PROJECT=.storybook/tsconfig.json build-storybook -c .storybook -o storybook-static .storybook/public",
-    "storybook:deploy": "curl -sS https://raw.github.yandex-team.ru/data-ui/storybook-tools/master/scripts/deploy-storybook.sh | bash -s deploy",
     "prepublishOnly": "npm run lint && npm run build",
     "prepare": "husky install",
     "svgo": "svgo --config svgo.config.js",
@@ -45,6 +44,7 @@
   },
   "dependencies": {
     "@gravity-ui/i18n": "^1.0.0",
+    "@gravity-ui/uikit": "^4.0.4",
     "@types/fast-html-parser": "^1.0.2",
     "@types/recompose": "^0.30.10",
     "bem-cn-lite": "^4.0.0",
@@ -78,10 +78,8 @@
   "peerDependencies": {
     "@doc-tools/components": "^2.0.0",
     "@doc-tools/transform": "^2.6.1",
-    "@gravity-ui/uikit": "^3.10.1",
-    "@yandex-data-ui/common": "^10.0.0",
     "@gravity-ui/page-constructor": "^1.1.0",
-    "react": "^16.0.0"
+    "react": "^16.0.0 || ^17.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.15.8",
@@ -92,7 +90,6 @@
     "@gravity-ui/prettier-config": "^1.0.1",
     "@gravity-ui/stylelint-config": "^1.0.0",
     "@gravity-ui/tsconfig": "^1.0.0",
-    "@gravity-ui/uikit": "^3.10.1",
     "@storybook/addon-actions": "^6.3.12",
     "@storybook/addon-essentials": "^6.5.10",
     "@storybook/addon-knobs": "^6.3.1",
@@ -101,13 +98,12 @@
     "@storybook/react": "^6.5.10",
     "@types/js-yaml": "^4.0.5",
     "@types/lodash": "^4.14.176",
-    "@types/react": "^16.14.20",
+    "@types/react": "^18.0.26",
     "@types/react-helmet": "^6.1.5",
     "@types/react-slick": "^0.23.7",
     "@types/react-transition-group": "^4.4.4",
     "@types/sanitize-html": "^2.6.0",
     "@types/ua-parser-js": "^0.7.36",
-    "@yandex-data-ui/common": "^11.0.0",
     "eslint": "^7.32.0",
     "eslint-plugin-local": "./eslint-plugin-local",
     "husky": "^7.0.4",
