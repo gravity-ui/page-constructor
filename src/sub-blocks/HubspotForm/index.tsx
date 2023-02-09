@@ -29,6 +29,7 @@ const HubspotForm: React.FunctionComponent<HubspotFormProps> = (props) => {
         onSubmit,
         onBeforeLoad,
         onLoad,
+        inVirtualDom = true,
     } = props;
 
     const handleMetrika = useMetrika();
@@ -55,6 +56,7 @@ const HubspotForm: React.FunctionComponent<HubspotFormProps> = (props) => {
 
     return (
         <HubspotFormContainer
+            inVirtualDom={inVirtualDom}
             key={[formClassName, formId, formInstanceId, portalId, region].join()}
             className={b({theme, mobile}, className)}
             formClassName={formClassName}

@@ -28,5 +28,6 @@ Default.args = {
     onBeforeSubmit: () => console.log('onBeforeSubmit'),
     onLoad: () => console.log('onLoad'),
     onSubmit: () => console.log('onSubmit'),
+    inVirtualDom: false,
     /*eslint-enable */
 };
