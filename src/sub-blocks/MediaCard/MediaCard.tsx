@@ -8,14 +8,12 @@ import './MediaCard.scss';
 
 const b = block('MediaCard');
 
-const MediaCard = ({border, ...mediaProps}: MediaCardProps) => {
-    return (
-        <CardBase className={b()} bodyClassName={b('body')} border={border}>
-            <CardBase.Content>
-                <Media {...mediaProps} />
-            </CardBase.Content>
-        </CardBase>
-    );
-};
+const MediaCard = ({border, ...mediaProps}: MediaCardProps) => (
+    <CardBase className={b()} bodyClassName={b('body')} border={border}>
+        <CardBase.Content>
+            <Media {...mediaProps} />
+        </CardBase.Content>
+    </CardBase>
+);
 
 export default MediaCard;

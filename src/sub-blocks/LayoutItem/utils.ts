@@ -7,7 +7,7 @@ export const getLayoutItemLinks = (links: LayoutItemProps['content']['links']) =
     }));
 
 export const hasFullScreen = ({dataLens, image}: MediaProps) => {
-    // datalens and slider media card don't support fullscrPcareen
+    // datalens and slider media card don't support fullScreen mode
     return !(dataLens || Array.isArray(image));
 };
 

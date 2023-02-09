@@ -1,5 +1,6 @@
 import React, {useRef, useState, useCallback, useEffect} from 'react';
 import _ from 'lodash';
+import {v4 as uuidv4} from 'uuid';
 import {Icon} from '@gravity-ui/uikit';
 
 import {block, getPageSearchParams} from '../../utils';
@@ -20,7 +21,6 @@ export const AUTOPLAY_ATTRIBUTES = {
 };
 
 const b = block('VideoBlock');
-const iframeId = 'video-block';
 
 function getVideoSrc(stream?: string, record?: string) {
     if (!stream && !record) {
@@ -65,7 +65,7 @@ const VideoBlock = (props: VideoBlockProps) => {
     const [hidePreview, setHidePreview] = useState(false);
     const norender = (!stream && !record) || !src;
     const [currentHeight, setCurrentHeight] = useState(height || undefined);
-    const fullId = `${iframeId}-${id || src}${fullScreen ? '-fullscreen' : ''}`;
+    const fullId = id || uuidv4();
     const onPreviewClick = useCallback(() => {
         if (iframeRef.current) {
             iframeRef.current.src = `${src}?${getPageSearchParams({
