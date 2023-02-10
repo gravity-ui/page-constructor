@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.15.3](https://github.com/gravity-ui/page-constructor/compare/v1.15.2...v1.15.3) (2023-02-10)
+
+
+### Bug Fixes
+
+* fullscreen icon hide ([#141](https://github.com/gravity-ui/page-constructor/issues/141)) ([dfec755](https://github.com/gravity-ui/page-constructor/commit/dfec75544102299d0f82b72dbb5f334759a63cb0))
+
 ## [1.15.2](https://github.com/gravity-ui/page-constructor/compare/v1.15.1...v1.15.2) (2023-02-10)
 
 
