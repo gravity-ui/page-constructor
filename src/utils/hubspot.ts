@@ -3,6 +3,7 @@ export type HubspotEventName =
     | 'onFormReady'
     | 'onFormSubmit'
     | 'onFormSubmitted'
+    | 'onFormError'
     | `_${string}`;
 
 export interface HubspotEventData {
@@ -26,6 +27,7 @@ export interface HubspotEventHandlers {
     onBeforeSubmit?: (arg: HubspotEventData) => void;
     onSubmit?: (arg: HubspotEventData) => void;
     onLoad?: (arg: HubspotEventData) => void;
+    onSubmitError?: (arg: HubspotEventData) => void;
 }
 
 export function loopBackHabspotEvents(formId: string) {
@@ -71,6 +73,10 @@ export function handleHubspotEvents(handlers: HubspotEventHandlers, formId: stri
             }
             case 'onFormSubmitted': {
                 handlers.onSubmit?.(data);
+                break;
+            }
+            case 'onFormError': {
+                handlers.onSubmitError?.(data);
                 break;
             }
             default:
