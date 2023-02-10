@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.15.0](https://github.com/gravity-ui/page-constructor/compare/v1.14.4...v1.15.0) (2023-02-10)
+
+
+### Features
+
+* add handler for submit error in hubspot forms ([#135](https://github.com/gravity-ui/page-constructor/issues/135)) ([5f9b7a8](https://github.com/gravity-ui/page-constructor/commit/5f9b7a89996b0d2237d62ffccbea6d08f19a8d35))
+
 ## [1.14.4](https://github.com/gravity-ui/page-constructor/compare/v1.14.3...v1.14.4) (2023-02-10)
 
 
