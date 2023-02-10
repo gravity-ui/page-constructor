@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.14.4](https://github.com/gravity-ui/page-constructor/compare/v1.14.3...v1.14.4) (2023-02-10)
+
+
+### Bug Fixes
+
+* changelog ([#136](https://github.com/gravity-ui/page-constructor/issues/136)) ([a07c738](https://github.com/gravity-ui/page-constructor/commit/a07c738e09898a952e63e1f0712cc9a31076cc1c))
+
 ## [1.14.3](https://github.com/gravity-ui/page-constructor/compare/v1.14.2...v1.14.3) (2023-02-10)
 
 ### Features
