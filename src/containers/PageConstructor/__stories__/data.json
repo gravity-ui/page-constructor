@@ -105,6 +105,103 @@
           ]
         },
         {
+          "type": "card-layout-block",
+          "title": "Full screen youtube test",
+          "children": [
+            {
+              "type": "layout-item",
+              "content": {
+                "title": "Lorem ipsum",
+                "text": "Dolor sit amet"
+              },
+              "media": {
+                "youtube": "https://youtu.be/0Qd3T6skprA",
+                "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.png"
+              },
+              "metaInfo": ["one", "two", "three"],
+              "fullScreen": true
+            },
+            {
+              "type": "layout-item",
+              "content": {
+                "title": "Lorem ipsum",
+                "text": "Dolor sit amet"
+              },
+              "media": {
+                "youtube": "https://youtu.be/0Qd3T6skprA",
+                "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.png"
+              },
+              "metaInfo": ["one", "two", "three"],
+              "fullScreen": true
+            },
+            {
+              "type": "layout-item",
+              "content": {
+                "title": "Lorem ipsum",
+                "text": "Dolor sit amet"
+              },
+              "media": {
+                "youtube": "https://youtu.be/0Qd3T6skprA",
+                "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.png"
+              },
+              "metaInfo": ["one", "two", "three"],
+              "fullScreen": true
+            },
+            {
+              "type": "layout-item",
+              "content": {
+                "title": "Lorem ipsum",
+                "text": "Dolor sit amet"
+              },
+              "media": {
+                "youtube": "https://youtu.be/0Qd3T6skprA",
+                "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.png"
+              },
+              "metaInfo": ["one", "two", "three"],
+              "fullScreen": true
+            },
+            {
+              "type": "layout-item",
+              "content": {
+                "title": "Lorem ipsum",
+                "text": "Dolor sit amet"
+              },
+              "media": {
+                "youtube": "https://youtu.be/0Qd3T6skprA",
+                "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.png"
+              },
+              "metaInfo": ["one", "two", "three"],
+              "fullScreen": true
+            },
+            {
+              "type": "layout-item",
+              "content": {
+                "title": "Lorem ipsum",
+                "text": "Dolor sit amet"
+              },
+              "media": {
+                "youtube": "https://youtu.be/0Qd3T6skprA",
+                "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.png"
+              },
+              "metaInfo": ["one", "two", "three"],
+              "fullScreen": true
+            },
+            {
+              "type": "layout-item",
+              "content": {
+                "title": "Lorem ipsum",
+                "text": "Dolor sit amet"
+              },
+              "media": {
+                "youtube": "https://youtu.be/0Qd3T6skprA",
+                "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.png"
+              },
+              "metaInfo": ["one", "two", "three"],
+              "fullScreen": true
+            }
+          ]
+        },
+        {
           "type": "banner-block",
           "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
           "subtitle": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> ",

@@ -1,5 +1,22 @@
 # Changelog
 
+## [1.14.4](https://github.com/gravity-ui/page-constructor/compare/v1.14.3...v1.14.4) (2023-02-10)
+
+
+### Bug Fixes
+
+* changelog ([#136](https://github.com/gravity-ui/page-constructor/issues/136)) ([a07c738](https://github.com/gravity-ui/page-constructor/commit/a07c738e09898a952e63e1f0712cc9a31076cc1c))
+
+## [1.14.3](https://github.com/gravity-ui/page-constructor/compare/v1.14.2...v1.14.3) (2023-02-10)
+
+### Features
+
+* LayoutItem was added and CardWithImage was deprecated ([#132](https://github.com/gravity-ui/page-constructor/issues/132))([4abebb5](https://github.com/gravity-ui/page-constructor/commit/4abebb573e12d0976d61541e2f33c17f3d25453a))
+
+### Bug Fixes
+
+* remove unused card types ([#130](https://github.com/gravity-ui/page-constructor/issues/130)) ([22da2fa](https://github.com/gravity-ui/page-constructor/commit/22da2fadd433e12e84cf8afd238c369cff5f2c24))
+
 ## [1.14.2](https://github.com/gravity-ui/page-constructor/compare/v1.14.1...v1.14.2) (2023-02-02)
 
 

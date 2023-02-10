@@ -36,7 +36,11 @@ export enum SubBlockType {
      * @deprecated Will be moved to params use BasicCard instead
      */
     TutorialCard = 'tutoral-card',
+    /**
+     * @deprecated Use LayoutItem
+     */
     CardWithImage = 'card-with-image',
+    LayoutItem = 'layout-item',
     BackgroundCard = 'background-card',
     BasicCard = 'basic-card',
     Content = 'content',
@@ -148,12 +152,7 @@ export interface BannerCardProps {
     button: Pick<ButtonProps, 'text' | 'url' | 'target'>;
 }
 
-export interface MediaCardProps extends MediaProps, CardBaseProps {
-    fullScreen?: boolean;
-    //TODO: remove content and metaInfo with moving fullscreen media stuff to CardWithImage
-    metaInfo?: string[];
-    content?: ContentBlockProps;
-}
+export interface MediaCardProps extends MediaProps, CardBaseProps {}
 
 export interface CardWithImageLinkProps extends Omit<LinkProps, 'text' | 'url'> {
     title: string;
@@ -169,6 +168,14 @@ export interface CardWithImageProps
     border?: boolean;
     fullScreen?: boolean;
     links?: CardWithImageLinkProps[];
+}
+
+export interface LayoutItemProps extends ClassNameProps {
+    content: Omit<ContentBlockProps, 'colSizes' | 'centered' | 'size'>;
+    media: MediaProps;
+    metaInfo?: string[];
+    border?: boolean;
+    fullScreen?: boolean;
 }
 
 // sub-block models
@@ -187,6 +194,10 @@ export type NewsCardModel = {
 export type CardWithImageModel = {
     type: SubBlockType.CardWithImage;
 } & CardWithImageProps;
+
+export type LayoutItemModel = {
+    type: SubBlockType.CardWithImage;
+} & LayoutItemProps;
 
 export type TutorialCardModel = {
     type: SubBlockType.TutorialCard;

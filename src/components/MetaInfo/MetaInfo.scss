@@ -10,7 +10,6 @@ $block: '.#{$ns}meta-info';
     align-items: center;
     font-weight: 500;
 
-    margin: $indentXS $indentXS 0 0;
     color: var(--pc-media-card-meta-info-color);
 
     &__item:not(:first-child) {
