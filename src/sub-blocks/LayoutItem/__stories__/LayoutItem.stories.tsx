@@ -3,12 +3,12 @@ import React from 'react';
 
 import LayoutItem from '../LayoutItem';
 import {LayoutItemProps} from '../../../models';
-import {COMPONENTS} from '../../../demo/constants';
+import {CARDS, COMPONENTS} from '../../../demo/constants';
 
 import data from './data.json';
 
 export default {
-    title: `${COMPONENTS}/LayoutItem`,
+    title: `${COMPONENTS}/${CARDS}/LayoutItem`,
     component: LayoutItem,
 } as Meta;
 
