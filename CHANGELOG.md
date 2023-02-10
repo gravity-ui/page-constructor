@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.15.1](https://github.com/gravity-ui/page-constructor/compare/v1.15.0...v1.15.1) (2023-02-10)
+
+
+### Bug Fixes
+
+* change meta info tag to h4 ([#140](https://github.com/gravity-ui/page-constructor/issues/140)) ([8cd84bd](https://github.com/gravity-ui/page-constructor/commit/8cd84bd5e313b41caf240b1ff155a9698ec9c17a))
+
 ## [1.15.0](https://github.com/gravity-ui/page-constructor/compare/v1.14.4...v1.15.0) (2023-02-10)
 
 
