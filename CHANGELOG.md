@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.14.3](https://github.com/gravity-ui/page-constructor/compare/v1.14.2...v1.14.3) (2023-02-10)
+
+
+### Bug Fixes
+
+* remove unused card types ([#130](https://github.com/gravity-ui/page-constructor/issues/130)) ([22da2fa](https://github.com/gravity-ui/page-constructor/commit/22da2fadd433e12e84cf8afd238c369cff5f2c24))
+
 ## [1.14.2](https://github.com/gravity-ui/page-constructor/compare/v1.14.1...v1.14.2) (2023-02-02)
 
 
