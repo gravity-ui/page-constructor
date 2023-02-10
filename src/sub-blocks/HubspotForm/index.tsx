@@ -29,6 +29,7 @@ const HubspotForm: React.FunctionComponent<HubspotFormProps> = (props) => {
         onSubmit,
         onBeforeLoad,
         onLoad,
+        onSubmitError,
     } = props;
 
     const handleMetrika = useMetrika();
@@ -43,12 +44,13 @@ const HubspotForm: React.FunctionComponent<HubspotFormProps> = (props) => {
             onBeforeLoad,
             onBeforeSubmit,
             onLoad,
+            onSubmitError,
             onSubmit: (e) => {
                 handleMetrika?.({pixelEvents});
                 onSubmit?.(e);
             },
         }),
-        [onBeforeLoad, onBeforeSubmit, onLoad, handleMetrika, pixelEvents, onSubmit],
+        [onBeforeLoad, onBeforeSubmit, onLoad, handleMetrika, pixelEvents, onSubmit, onSubmitError],
     );
 
     useHandleHubspotEvents(handlers, formId);
