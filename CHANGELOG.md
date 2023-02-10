@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.15.2](https://github.com/gravity-ui/page-constructor/compare/v1.15.1...v1.15.2) (2023-02-10)
+
+
+### Bug Fixes
+
+* add layout item to card stories ([#143](https://github.com/gravity-ui/page-constructor/issues/143)) ([078c7f2](https://github.com/gravity-ui/page-constructor/commit/078c7f24e1e6a620ad57b929f08dd703092463f5))
+
 ## [1.15.1](https://github.com/gravity-ui/page-constructor/compare/v1.15.0...v1.15.1) (2023-02-10)
 
 
