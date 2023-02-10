@@ -1,0 +1,53 @@
+{
+  "fullScreen": {
+    "content": {
+      "content": {
+        "title": "Lorem&nbsp;ipsum",
+        "text": "Dolor sit amet"
+      },
+      "media": {
+        "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-mini_4-12_light.png"
+      },
+      "fullScreen": true,
+      "border": true
+    }
+  },
+  "metaInfo": {
+    "content": {
+      "content": {
+        "title": "Lorem&nbsp;ipsum",
+        "text": "Dolor sit amet"
+      },
+      "metaInfo": ["anim id est", "quis nostrud"],
+      "media": {
+        "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-mini_4-12_light.png"
+      },
+      "fullScreen": true,
+      "border": true
+    }
+  },
+  "youtube": {
+    "content": {
+      "content": {
+        "title": "Lorem ipsum",
+        "text": "Dolor sit amet"
+      },
+      "media": {
+        "youtube": "https://youtu.be/0Qd3T6skprA",
+        "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.png"
+      },
+      "fullScreen": true
+    }
+  },
+  "default": {
+    "content": {
+      "content": {
+        "title": "Lorem&nbsp;ipsum",
+        "text": "Dolor sit amet"
+      },
+      "media": {
+        "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-mini_4-12_light.png"
+      }
+    }
+  }
+}

@@ -7,6 +7,7 @@ import {
     NewsCard,
     TutorialCard,
     CardWithImage,
+    LayoutItem,
     BackgroundCard,
     Content,
     Quote,
@@ -75,6 +76,10 @@ export const subBlockMap = {
     [SubBlockType.MediaCard]: MediaCard,
     [SubBlockType.BannerCard]: BannerCard,
     [SubBlockType.NewsCard]: NewsCard,
+    [SubBlockType.LayoutItem]: LayoutItem,
+    /**
+     * @deprecated Use LayoutItem
+     */
     [SubBlockType.CardWithImage]: CardWithImage,
     [SubBlockType.BackgroundCard]: BackgroundCard,
     [SubBlockType.BasicCard]: BasicCard,

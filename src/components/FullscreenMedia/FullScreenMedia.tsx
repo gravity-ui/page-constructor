@@ -4,16 +4,17 @@ import {Icon, Modal} from '@gravity-ui/uikit';
 import {block} from '../../utils';
 import {PreviewClose, FullScreen} from '../../icons';
 import {MediaAllProps} from '../Media/Media';
-import {MobileContext} from '../../../src/context/mobileContext';
+import {MobileContext} from '../../context/mobileContext';
 
 import './FullScreenMedia.scss';
 
 export type ChildMediaRenderProps = Pick<
     MediaAllProps,
-    'fullScreen' | 'imageClassName' | 'videoClassName' | 'youtubeClassName'
+    'fullScreen' | 'imageClassName' | 'videoClassName' | 'youtubeClassName' | 'className'
 >;
 
 export interface FullScreenMediaProps {
+    showFullScreenIcon?: boolean;
     children: (props?: ChildMediaRenderProps) => JSX.Element;
 }
 
@@ -23,7 +24,7 @@ const CLOSE_ICON_SIZE = 30;
 
 const getMediaClass = (type: string) => b('modal-media', {type});
 
-const FullScreenMedia = ({children}: FullScreenMediaProps) => {
+const FullScreenMedia = ({children, showFullScreenIcon = true}: FullScreenMediaProps) => {
     const [isOpened, setIsOpened] = useState(false);
     const isMobile = useContext(MobileContext);
 
@@ -40,15 +41,17 @@ const FullScreenMedia = ({children}: FullScreenMediaProps) => {
     return (
         <div className={b()}>
             <div className={b('media-wrapper')} onClickCapture={openModal}>
-                {children()}
-                <div className={b('icon-wrapper')} onClickCapture={openModal}>
-                    <Icon
-                        data={FullScreen}
-                        width={FULL_SCREEN_ICON_SIZE}
-                        height={FULL_SCREEN_ICON_SIZE}
-                        className={b('icon')}
-                    />
-                </div>
+                {children({className: b('inline-media')})}
+                {showFullScreenIcon && (
+                    <div className={b('icon-wrapper')} onClickCapture={openModal}>
+                        <Icon
+                            data={FullScreen}
+                            width={FULL_SCREEN_ICON_SIZE}
+                            height={FULL_SCREEN_ICON_SIZE}
+                            className={b('icon')}
+                        />
+                    </div>
+                )}
             </div>
             {isOpened && (
                 <Modal open={isOpened} onClose={closeModal} className={b('modal')}>

@@ -137,6 +137,7 @@ export function generateDefaultSchema(config?: SchemaCustomConfig) {
         'card-with-image',
         'quote',
         'basic-card',
+        'layout-item',
     ];
 
     const configBlockSchemaNames = Object.keys(blocks).filter(
