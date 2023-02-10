@@ -2,6 +2,9 @@
 
 ## [1.14.3](https://github.com/gravity-ui/page-constructor/compare/v1.14.2...v1.14.3) (2023-02-10)
 
+### Features
+
+* LayoutItem was added and CardWithImage was deprecated ([#132](https://github.com/gravity-ui/page-constructor/issues/132))([4abebb5](https://github.com/gravity-ui/page-constructor/commit/4abebb573e12d0976d61541e2f33c17f3d25453a))
 
 ### Bug Fixes
 
