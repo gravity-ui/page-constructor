@@ -12,12 +12,12 @@ export interface MetaInfpoProps extends ClassNameProps {
 }
 
 const MetaInfo = ({items, className}: MetaInfpoProps) => (
-    <div className={b(null, className)}>
+    <h4 className={b(null, className)}>
         {items.map((metaInfoItem) => (
             <div key={metaInfoItem} className={b('item')}>
                 {metaInfoItem}
             </div>
         ))}
-    </div>
+    </h4>
 );
 export default MetaInfo;
