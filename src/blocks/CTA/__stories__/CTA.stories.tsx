@@ -10,6 +10,8 @@ import customBlocks from '../../../constructor/blocksMap';
 import {BLOCKS} from '../../../demo/constants';
 import {PostPageContext} from '../../../contexts/PostPageContext';
 import post from '../../../../.mocks/post.json';
+import contentBlocks from '../../../../.mocks/contentBlocks.json';
+import {getDefaultStoryArgs} from '../../../../.mocks/utils';
 
 import {CTA} from '../CTA';
 
@@ -35,8 +37,6 @@ export const Default = DefaultTemplate.bind({});
 
 Default.args = {
     type: BlockType.CTA,
-    columnCount: 3,
-    paddingBottom: 'l',
-    paddingTop: 'l',
-    items: [],
+    ...getDefaultStoryArgs(),
+    items: contentBlocks,
 };

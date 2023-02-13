@@ -10,6 +10,8 @@ import customBlocks from '../../../constructor/blocksMap';
 import {BLOCKS} from '../../../demo/constants';
 import {PostPageContext} from '../../../contexts/PostPageContext';
 import post from '../../../../.mocks/post.json';
+import layoutBlock from '../../../../.mocks/layoutBlock.json';
+import {getDefaultStoryArgs} from '../../../../.mocks/utils';
 
 import {Layout} from '../Layout';
 
@@ -31,14 +33,10 @@ const DefaultTemplate: Story<LayoutModel> = (args) => (
     </PostPageContext.Provider>
 );
 
-const mockChildren = <div>hi</div>;
-
 export const Default = DefaultTemplate.bind({});
 
 Default.args = {
     type: BlockType.Layout,
-    paddingBottom: 'l',
-    paddingTop: 'l',
-    fullWidth: true,
-    children: [mockChildren],
+    ...getDefaultStoryArgs(),
+    children: layoutBlock.children,
 };

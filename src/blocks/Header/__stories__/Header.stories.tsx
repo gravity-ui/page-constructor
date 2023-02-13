@@ -10,6 +10,7 @@ import customBlocks from '../../../constructor/blocksMap';
 import {BLOCKS} from '../../../demo/constants';
 import {PostPageContext} from '../../../contexts/PostPageContext';
 import post from '../../../../.mocks/post.json';
+import {getDefaultStoryArgs} from '../../../../.mocks/utils';
 
 import {Header} from '../Header';
 
@@ -35,7 +36,5 @@ export const Default = DefaultTemplate.bind({});
 
 Default.args = {
     type: BlockType.Header,
-    paddingBottom: 'l',
-    paddingTop: 'l',
-    image: 'https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_light.png',
+    ...getDefaultStoryArgs(),
 };

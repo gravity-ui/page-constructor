@@ -4,7 +4,7 @@ import React from 'react';
 import PAGE_PROPERTIES from './PAGE_PROPERTIES.md';
 
 export default {
-    title: 'Информация',
+    title: 'Info',
     parameters: {
         options: {
             showPanel: false,
@@ -20,4 +20,4 @@ export default {
 export const PageProperties: Story = () => (
     <div className="yfm" dangerouslySetInnerHTML={{__html: PAGE_PROPERTIES}} />
 );
-PageProperties.storyName = 'Свойства страницы';
+PageProperties.storyName = 'Свойства страницы'; // TODO: What are this page goals?

@@ -1,0 +1,104 @@
+[
+  {
+    "type": "blog-media-block",
+    "column": "left",
+    "resetPaddings": true,
+    "text": "<p><strong>Lorem ipsum dolor sit amet</strong> <a href=\"https://example.com\">consectetur adipiscing elit</a> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>",
+    "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_dark.png",
+    "fullWidth": false
+  },
+  {
+    "type": "blog-yfm-block",
+    "column": "right",
+    "resetPaddings": true,
+    "text": "<p><strong>Lorem ipsum dolor sit amet</strong> <a href=\"https://example.com\">consectetur adipiscing elit</a> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>",
+    "buttons": [
+      {
+        "text": "Get",
+        "url": "http://example.com/",
+        "theme": "action"
+      }
+    ]
+  },
+  {
+    "type": "blog-yfm-block",
+    "column": "left",
+    "resetPaddings": true,
+    "text": "<p><strong>Lorem ipsum dolor sit amet</strong> <a href=\"https://example.com\">consectetur adipiscing elit</a> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>",
+    "buttons": [
+      {
+        "text": "Get",
+        "url": "http://example.com/",
+        "theme": "outlined-info",
+        "size": "xl"
+      }
+    ],
+    "additionalInfo": "Lorem ipsum dolor sit amet. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+  },
+  {
+    "type": "blog-yfm-block",
+    "column": "left",
+    "resetPaddings": true,
+    "text": "<p><strong>Lorem ipsum dolor sit amet</strong> <a href=\"https://example.com\">consectetur adipiscing elit</a> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>",
+    "links": [
+      {
+        "text": "sed do",
+        "url": "http://example.com/",
+        "arrow": true,
+        "theme": "normal"
+      }
+    ]
+  },
+  {
+    "type": "blog-yfm-block",
+    "column": "left",
+    "resetPaddings": true,
+    "text": "<p><strong>Lorem ipsum dolor sit amet</strong> <a href=\"https://example.com\">consectetur adipiscing elit</a> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>"
+  },
+  {
+    "type": "blog-media-block",
+    "column": "left",
+    "resetPaddings": true,
+    "text": "<p><strong>Lorem ipsum dolor sit amet</strong> <a href=\"https://example.com\">consectetur adipiscing elit</a> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>",
+    "youtube": "https://youtu.be/bxZRUtMAlFI",
+    "fullWidth": false
+  },
+  {
+    "type": "blog-yfm-block",
+    "column": "left",
+    "resetPaddings": true,
+    "text": "<p><strong>Lorem ipsum dolor sit amet</strong> <a href=\"https://example.com\">consectetur adipiscing elit</a> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>"
+  },
+  {
+    "type": "blog-colored-text-block",
+    "column": "left",
+    "resetPaddings": true,
+    "background": {
+      "color": "#EFF2F8"
+    },
+    "text": "<p><strong>Lorem ipsum dolor sit amet</strong> <a href=\"https://example.com\">consectetur adipiscing elit</a> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>"
+  },
+  {
+    "type": "blog-yfm-block",
+    "column": "left",
+    "resetPaddings": true,
+    "text": "<p><strong>Lorem ipsum dolor sit amet</strong> <a href=\"https://example.com\">consectetur adipiscing elit</a> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>"
+  },
+  {
+    "type": "blog-colored-text-block",
+    "column": "left",
+    "resetPaddings": true,
+    "background": {
+      "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_light.png",
+      "altText": "alt text from bo"
+    },
+    "title": "Lorem ipsum ",
+    "text": "<p><strong>Lorem ipsum dolor sit amet</strong> <a href=\"https://example.com\">consectetur adipiscing elit</a> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>"
+  },
+  {
+    "type": "blog-yfm-block",
+    "column": "left",
+    "resetPaddings": true,
+    "text": "<p><strong>Lorem ipsum dolor sit amet</strong> <a href=\"https://example.com\">consectetur adipiscing elit</a> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>"
+  }
+]

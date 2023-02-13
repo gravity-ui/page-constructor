@@ -33,3 +33,32 @@ export const generatePostPageData = () => {
         },
     };
 };
+
+export const getDefaultStoryArgs = () => {
+    return {
+        paddingBottom: 'l',
+        paddingTop: 'l',
+        text: 'Lorem ipsum dolor',
+        image: 'https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_light.png',
+    };
+};
+
+export const getVideoStoryArgs = () => {
+    return {
+        video: {
+            src: [
+                'https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.webm',
+                'https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.mp4',
+                'https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.pn',
+            ],
+            loop: {
+                start: 0,
+            },
+        },
+        previewImg:
+            'https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_white.png',
+    };
+};
+
+export const youtubeSrc = 'https://youtu.be/0Qd3T6skprA';
+export const dataLensSrc = 'm2bzon9y39lck';

@@ -5,7 +5,7 @@ import CHANGELOG from '../../CHANGELOG.md';
 import README from '../../README.md';
 
 export default {
-    title: 'Общее',
+    title: 'Common',
     parameters: {
         options: {
             showPanel: false,
@@ -20,4 +20,4 @@ export const Changelog: Story = () => (
 export const Readme: Story = () => (
     <div className="yfm" dangerouslySetInnerHTML={{__html: README}} />
 );
-Readme.storyName = 'О проекте';
+Readme.storyName = 'About the project';

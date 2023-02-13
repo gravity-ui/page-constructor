@@ -1,5 +1,5 @@
 import React, {useRef, useEffect, useState} from 'react';
-import _ from 'lodash';
+import {debounce as lodashDebounce} from 'lodash';
 
 import {TextInput} from '@gravity-ui/uikit';
 
@@ -47,7 +47,7 @@ export const Search: React.FC<SearchProps> = (props) => {
         autoFocus = false,
         value: externalValue,
     } = props;
-    const handleChange = _.debounce(onSubmit, debounce);
+    const handleChange = lodashDebounce(onSubmit, debounce);
 
     const [value, setValue] = useState<string>(initialValue);
     const inputRef = useRef<HTMLInputElement>(null);

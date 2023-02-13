@@ -10,6 +10,7 @@ import customBlocks from '../../../constructor/blocksMap';
 import {BLOCKS} from '../../../demo/constants';
 import {PostPageContext} from '../../../contexts/PostPageContext';
 import post from '../../../../.mocks/post.json';
+import {getDefaultStoryArgs} from '../../../../.mocks/utils';
 
 import {Author} from '../Author';
 
@@ -36,7 +37,5 @@ export const Default = DefaultTemplate.bind({});
 Default.args = {
     type: BlockType.Author,
     authorId: 290,
-    paddingBottom: 'l',
-    paddingTop: 'l',
-    image: 'https://storage.yandexcloud.net/cloud-www-assets/blog-assets/ru/posts/2022/07/cover-digest-june.png',
+    ...getDefaultStoryArgs(),
 };

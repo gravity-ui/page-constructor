@@ -12,12 +12,18 @@ import {PostPageContext} from '../../../contexts/PostPageContext';
 import post from '../../../../.mocks/post.json';
 
 import {Banner} from '../Banner';
+import {getDefaultStoryArgs} from '../../../../.mocks/utils';
 
 export default {
     title: `${BLOCKS}/Banner`,
     component: Banner,
     args: {
         theme: 'light',
+    },
+    argTypes: {
+        color: {
+            control: {type: 'color'},
+        },
     },
 } as Meta;
 
@@ -35,9 +41,9 @@ export const Default = DefaultTemplate.bind({});
 
 Default.args = {
     type: BlockType.Banner,
-    color: '#000',
-    imageSize: 'm',
-    paddingBottom: 'l',
-    paddingTop: 'l',
-    image: 'https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_light.png',
+    color: '#7ccea0',
+    ...getDefaultStoryArgs(),
+    title: 'Lorem',
+    text: 'Lorem ipsum dolor sit amet',
+    additionalInfo: 'consectetur adipiscing elit',
 };

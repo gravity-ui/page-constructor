@@ -10,6 +10,7 @@ import customBlocks from '../../../constructor/blocksMap';
 import {BLOCKS} from '../../../demo/constants';
 import {PostPageContext} from '../../../contexts/PostPageContext';
 import post from '../../../../.mocks/post.json';
+import {getDefaultStoryArgs} from '../../../../.mocks/utils';
 
 import {YFM} from '../YFM';
 
@@ -35,7 +36,6 @@ export const Default = DefaultTemplate.bind({});
 
 Default.args = {
     type: BlockType.YFM,
-    paddingBottom: 'l',
-    paddingTop: 'l',
-    text: 'test test test test test test',
+    ...getDefaultStoryArgs(),
+    text: '<p><strong>Lorem ipsum dolor sit amet</strong> <a href="https://example.com">consectetur adipiscing elit</a> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>',
 };

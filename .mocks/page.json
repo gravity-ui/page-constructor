@@ -66,16 +66,7 @@
               {
                 "text": "Get",
                 "url": "http://example.com/",
-                "theme": "normal-contrast",
-                "metrikaGoals": [
-                  {
-                    "name": "metrikaName"
-                  },
-                  {
-                    "name": "SITE_BLOG_TEXT-BANNER_CLICK",
-                    "isCrossSite": true
-                  }
-                ]
+                "theme": "normal-contrast"
               }
             ],
             "fullWidth": false,
@@ -199,13 +190,7 @@
                     "text": "sed do",
                     "url": "http://example.com/",
                     "arrow": true,
-                    "theme": "normal",
-                    "metrikaGoals": [
-                      {
-                        "name": "SITE_BLOG_CTA_CLICK",
-                        "isCrossSite": true
-                      }
-                    ]
+                    "theme": "normal"
                   }
                 ],
                 "size": "s",
@@ -223,13 +208,7 @@
                     "text": "sed do",
                     "url": "http://example.com/",
                     "arrow": true,
-                    "theme": "normal",
-                    "metrikaGoals": [
-                      {
-                        "name": "SITE_BLOG_CTA_CLICK",
-                        "isCrossSite": true
-                      }
-                    ]
+                    "theme": "normal"
                   }
                 ],
                 "size": "s",
@@ -247,13 +226,7 @@
                     "text": "sed do",
                     "url": "http://example.com/",
                     "arrow": true,
-                    "theme": "normal",
-                    "metrikaGoals": [
-                      {
-                        "name": "SITE_BLOG_CTA_CLICK",
-                        "isCrossSite": true
-                      }
-                    ]
+                    "theme": "normal"
                   }
                 ],
                 "size": "s",

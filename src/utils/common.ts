@@ -1,5 +1,5 @@
 import {format, parse} from 'url';
-import _ from 'lodash';
+import {memoize, debounce} from 'lodash';
 
 import {
     ContentBlockProps,
@@ -76,7 +76,7 @@ export const scrollToHash = (hash: string, browser?: string) => {
 
 type CloudListTagStub = {};
 
-export const getTags = _.memoize((tags: Tag[], prefix?: string) => {
+export const getTags = memoize((tags: Tag[], prefix?: string) => {
     return tags.map(({slug, ...tag}) => {
         const queryParams = new URLSearchParams();
         queryParams.set('tags', slug);
@@ -91,7 +91,7 @@ export const getTags = _.memoize((tags: Tag[], prefix?: string) => {
 
 const stub = (postId: number) => postId;
 
-export const postLikeStatus = _.debounce((postId: number, hasUserLike: boolean) => {
+export const postLikeStatus = debounce((postId: number, hasUserLike: boolean) => {
     (hasUserLike ? stub : stub)(postId);
 }, 300);
 

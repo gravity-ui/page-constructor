@@ -45,7 +45,8 @@ $block: '.#{$namespace}post-info';
             &_dark {
                 color: var(--yc-color-text-light-secondary);
 
-                &.yc-share-tooltip__container {
+                &.yc-share-tooltip__container,
+                &.yc-share-popover__container {
                     color: var(--yc-color-text-light-secondary);
                 }
             }
@@ -53,7 +54,8 @@ $block: '.#{$namespace}post-info';
             &_dark:hover {
                 color: var(--yc-color-text-light-primary);
 
-                &.yc-share-tooltip__container {
+                &.yc-share-tooltip__container,
+                &.yc-share-popover__container {
                     color: var(--yc-color-text-light-primary);
                 }
             }

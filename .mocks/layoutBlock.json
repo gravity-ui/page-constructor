@@ -1,0 +1,68 @@
+{
+  "type": "blog-layout-block",
+  "resetPaddings": true,
+  "mobileOrder": "reverse",
+  "children": [
+    {
+      "type": "blog-author-block",
+      "column": "right",
+      "resetPaddings": true,
+      "authorId": 386
+    },
+    {
+      "type": "blog-author-block",
+      "column": "right",
+      "resetPaddings": true,
+      "authorId": 292
+    },
+    {
+      "type": "blog-author-block",
+      "column": "right",
+      "resetPaddings": true,
+      "authorId": 290
+    },
+    {
+      "type": "blog-author-block",
+      "column": "right",
+      "resetPaddings": true,
+      "authorId": 396
+    },
+    {
+      "type": "blog-author-block",
+      "column": "right",
+      "resetPaddings": true,
+      "authorId": 392
+    },
+    {
+      "type": "blog-yfm-block",
+      "column": "left",
+      "resetPaddings": true,
+      "text": "<p><strong>Lorem ipsum dolor sit amet</strong> <a href=\"https://example.com\">consectetur adipiscing elit</a> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>"
+    },
+    {
+      "type": "blog-banner-block",
+      "resetPaddings": true,
+      "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "color": "#5282FF",
+      "theme": "dark",
+      "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_light.png",
+      "buttons": [
+        {
+          "text": "Get",
+          "url": "http://example.com/",
+          "theme": "normal-contrast"
+        }
+      ],
+      "fullWidth": false,
+      "column": "left"
+    },
+    {
+      "type": "card-with-image",
+      "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_light.png",
+      "title": "Lorem ipsum",
+      "description": "Ut enim ad minim veniam, quis nostrud exercitation",
+      "column": "left"
+    }
+  ]
+}

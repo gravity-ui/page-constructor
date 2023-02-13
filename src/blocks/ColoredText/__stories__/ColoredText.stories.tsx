@@ -40,6 +40,7 @@ Default.args = {
         image: 'https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_light.png',
         altText: 'test',
     },
+    text: 'Lorem ipsum dolor sit amet',
     paddingBottom: 'l',
     paddingTop: 'l',
 };
