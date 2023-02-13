@@ -88,7 +88,7 @@ export interface HubspotFormProps extends HubspotEventHandlers {
     onLoad?: (arg: HubspotEventData) => void;
     pixelEvents?: string | string[] | PixelEvent | PixelEvent[] | ButtonPixel;
     hubspotEvents?: string[];
-    inVirtualDom: boolean;
+    createDOMElement?: boolean;
 }
 
 //cards

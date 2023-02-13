@@ -20,7 +20,7 @@
 
 `hubspotEvents: string[]` — An array of hubspot events
 
-`inVirtualDom?` - If `false`, a container will be created for inserting the form via document.createElement. Default `true`
+`createDOMElement?` - If you put `true`, then a container will be created using `document.createElement` to insert the hubspot form. Default `false`
 
 [Form global events:](https://legacydocs.hubspot.com/global-form-events)
 
