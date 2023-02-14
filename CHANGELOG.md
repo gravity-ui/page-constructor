@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.16.1](https://github.com/gravity-ui/page-constructor/compare/v1.16.0...v1.16.1) (2023-02-14)
+
+
+### Bug Fixes
+
+* youtube dimensions ratio for large screens ([#151](https://github.com/gravity-ui/page-constructor/issues/151)) ([5ee3c9c](https://github.com/gravity-ui/page-constructor/commit/5ee3c9cabe641bd437a02d137528424df7fd2c5a))
+
 ## [1.16.0](https://github.com/gravity-ui/page-constructor/compare/v1.15.4...v1.16.0) (2023-02-14)
 
 
