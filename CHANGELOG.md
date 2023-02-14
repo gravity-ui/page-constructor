@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.15.4](https://github.com/gravity-ui/page-constructor/compare/v1.15.3...v1.15.4) (2023-02-13)
+
+
+### Bug Fixes
+
+* freeze-es-5-ext ([#146](https://github.com/gravity-ui/page-constructor/issues/146)) ([72ca5f9](https://github.com/gravity-ui/page-constructor/commit/72ca5f90dee5b3a45d895695416b3398a46973b4))
+
 ## [1.15.3](https://github.com/gravity-ui/page-constructor/compare/v1.15.2...v1.15.3) (2023-02-10)
 
 
