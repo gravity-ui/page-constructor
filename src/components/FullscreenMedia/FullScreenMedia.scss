@@ -4,7 +4,7 @@
 $block: '.#{$ns}full-screen-media';
 $closeButtonSize: 36px;
 $modalMediaHeight: 70vh;
-$modalYoutubeWidth: min(65vw, 1232px);
+$modalYoutubeWidth: min(65vw, #{$newContentWidth});
 
 %modal-media {
     display: block;
