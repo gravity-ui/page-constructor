@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.16.0](https://github.com/gravity-ui/page-constructor/compare/v1.15.4...v1.16.0) (2023-02-14)
+
+
+### Features
+
+* **HubspotForm:** add render outside virtual dom ([#138](https://github.com/gravity-ui/page-constructor/issues/138)) ([1b8694c](https://github.com/gravity-ui/page-constructor/commit/1b8694c6893df63ffabab84779febad57362804c))
+
 ## [1.15.4](https://github.com/gravity-ui/page-constructor/compare/v1.15.3...v1.15.4) (2023-02-13)
 
 
