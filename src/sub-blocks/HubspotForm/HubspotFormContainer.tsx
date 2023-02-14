@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useRef} from 'react';
 
 import loadHubspotScript from './loadHubspotScript';
 import {HubspotFormProps} from '../../models';
@@ -10,7 +10,8 @@ type HubspotFormContainerPropsKeys =
     | 'formInstanceId'
     | 'portalId'
     | 'region'
-    | 'formClassName';
+    | 'formClassName'
+    | 'createDOMElement';
 
 type HubspotFormContainerProps = Pick<HubspotFormProps, HubspotFormContainerPropsKeys>;
 
@@ -23,18 +24,25 @@ const HubspotFormContainer = (props: HubspotFormContainerProps) => {
         portalId,
         region,
         formClassName,
+        createDOMElement,
     } = props;
+
+    const containerRef = useRef<HTMLDivElement>(null);
+    const hsContainerRef = useRef<HTMLDivElement>();
 
     const containerId = formInstanceId
         ? `hubspot-form-${formId}-${formInstanceId}`
         : `hubspot-form-${formId}`;
 
-    useMount(() => {
-        (async () => {
-            if (!window.hbspt) {
-                await loadHubspotScript();
-            }
+    const createForm = () => {
+        if (containerRef.current && !hsContainerRef.current && createDOMElement) {
+            hsContainerRef.current = document.createElement('div');
+            containerRef.current.id = '';
+            hsContainerRef.current.id = containerId;
+            containerRef.current.appendChild(hsContainerRef.current);
+        }
 
+        if (!createDOMElement || hsContainerRef.current) {
             if (window.hbspt) {
                 window.hbspt.forms.create({
                     region,
@@ -45,10 +53,26 @@ const HubspotFormContainer = (props: HubspotFormContainerProps) => {
                     formInstanceId,
                 });
             }
+        }
+    };
+
+    useMount(() => {
+        (async () => {
+            if (!window.hbspt) {
+                await loadHubspotScript();
+            }
+
+            createForm();
         })();
+
+        return () => {
+            if (createDOMElement && containerRef.current && containerRef.current.lastChild) {
+                containerRef.current.removeChild(containerRef.current.lastChild);
+            }
+        };
     });
 
-    return <div className={className} id={containerId} />;
+    return <div className={className} id={containerId} ref={containerRef} />;
 };
 
 export default HubspotFormContainer;

@@ -29,6 +29,7 @@ const HubspotForm: React.FunctionComponent<HubspotFormProps> = (props) => {
         onSubmit,
         onBeforeLoad,
         onLoad,
+        createDOMElement,
         onSubmitError,
     } = props;
 
@@ -57,6 +58,7 @@ const HubspotForm: React.FunctionComponent<HubspotFormProps> = (props) => {
 
     return (
         <HubspotFormContainer
+            createDOMElement={createDOMElement}
             key={[formClassName, formId, formInstanceId, portalId, region].join()}
             className={b({theme, mobile}, className)}
             formClassName={formClassName}
