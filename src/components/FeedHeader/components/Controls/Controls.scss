@@ -56,10 +56,7 @@ $block: '.#{$namespace}feed-controls';
             border-radius: $selectorContainerBorderRadius;
 
             // TODO delete this section after Select can customize the popup list
-            .g-select-filter + .g-select-list {
-                //stylelint-disable-next-line declaration-no-important
-                max-height: 350px !important;
-
+            .yc-select-filter + .yc-select-list {
                 margin-top: 0;
 
                 &::-webkit-scrollbar {
@@ -72,7 +69,7 @@ $block: '.#{$namespace}feed-controls';
                 border-radius: $selectorItemBorderRadius;
             }
 
-            .g-select-filter {
+            .yc-select-filter {
                 margin-top: 4px;
 
                 padding: 4px;

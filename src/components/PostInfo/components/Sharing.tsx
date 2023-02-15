@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 
-import {SharePopover} from '@gravity-ui/uikit';
+import {ShareTooltip} from '@gravity-ui/uikit';
 
 import {MobileContext} from '../../../contexts/MobileContext';
 import {RouterContext} from '../../../contexts/RouterContext';
@@ -39,19 +39,19 @@ export const Sharing: React.FC<SharingProps> = ({theme, metrikaGoal}) => {
     return (
         <div className={b('item')}>
             <span className={b('icon')}>
-                <SharePopover
+                <ShareTooltip
                     url={getAbsolutePath(router)}
                     className={b('share')}
                     iconClass={b('share-icon')}
                     switcherClassName={b('switcher', {theme})}
                     tooltipClassName={b('popup')}
                     useWebShareApi={isMobile}
-                    direction={'column' as SharePopover['props']['direction']}
+                    direction={'column' as ShareTooltip['props']['direction']}
                     buttonTitle={i18(Keyset.ActionShare)}
                     customIcon={ShareArrowUp}
                     placement="bottom"
                     openByHover={false}
-                    shareOptions={shareOptions}
+                    socialNets={shareOptions}
                     handleMetrika={handleMetrika}
                 />
             </span>

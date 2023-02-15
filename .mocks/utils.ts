@@ -23,6 +23,7 @@ export const generatePostPageData = () => {
             ShareOptions.Facebook,
             ShareOptions.Telegram,
             ShareOptions.VK,
+            ShareOptions.LinkedIn,
         ],
         likes: {
             hasUserLike: post.hasUserLike,

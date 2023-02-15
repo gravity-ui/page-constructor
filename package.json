@@ -44,7 +44,7 @@
   },
   "dependencies": {
     "@gravity-ui/i18n": "^1.0.0",
-    "@gravity-ui/uikit": "^4.0.4",
+    "@gravity-ui/uikit": "^3.20.0",
     "@types/fast-html-parser": "^1.0.2",
     "@types/recompose": "^0.30.10",
     "bem-cn-lite": "^4.0.0",

@@ -165,7 +165,6 @@ export const Controls: React.FC<ControlsProps> = ({
                                 list: services,
                                 defaultLabel: i18(Keyset.AllServices),
                             })}
-                            disablePortal
                             renderOption={renderOption}
                             renderFilter={renderFilter}
                         />
