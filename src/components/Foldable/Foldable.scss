@@ -4,9 +4,11 @@
 $block: '.#{$ns}foldable-block';
 
 #{$block} {
+    height: 0;
+    overflow-y: hidden;
+    transition: height $animationDuration, margin-bottom $animationDuration;
+
     &__content-container {
-        height: 0;
-        overflow-y: hidden;
-        transition: height $animationDuration, margin-bottom $animationDuration;
+        overflow: auto;
     }
 }

@@ -1,8 +1,8 @@
-import React, {useRef, useState, useCallback, useEffect} from 'react';
+import React, {useRef, useEffect} from 'react';
 
 import {block} from '../../utils';
-import HeightCalculator from '../../components/HeightCalculator/HeightCalculator';
 import {WithChildren} from '../../models';
+import useHeightCalculator from '../../hooks/useHeightCalculator';
 
 import './Foldable.scss';
 
@@ -14,24 +14,21 @@ export interface FoldableProps {
 }
 
 const Foldable = ({isOpened, children, className}: WithChildren<FoldableProps>) => {
+    const blockRef = useRef<HTMLDivElement>(null);
     const contentRef = useRef<HTMLDivElement>(null);
-    const [contentHeight, setContentHeight] = useState<number>();
-    const onHeightCalculation = useCallback((height: number) => {
-        setContentHeight(height);
-    }, []);
+    const contentHeight = useHeightCalculator(contentRef);
 
     useEffect(() => {
-        if (contentRef && contentRef.current) {
-            contentRef.current.style.height = isOpened ? `${contentHeight}px` : '0';
+        if (blockRef && blockRef.current) {
+            blockRef.current.style.height = isOpened && contentHeight ? `${contentHeight}px` : '0';
         }
     }, [isOpened, contentHeight]);
 
     return (
-        <div className={b(null, className)}>
-            <div ref={contentRef} className={b('content-container', {open: isOpened})}>
+        <div ref={blockRef} className={b({open: isOpened}, className)}>
+            <div ref={contentRef} className={b('content-container')}>
                 {children}
             </div>
-            <HeightCalculator onCalculate={onHeightCalculation}>{children}</HeightCalculator>
         </div>
     );
 };
