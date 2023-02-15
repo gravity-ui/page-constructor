@@ -48,7 +48,6 @@ $block: '.#{$ns}header';
     &__navigation {
         @include add-specificity(&) {
             position: relative;
-            margin-right: $normalOffset;
 
             flex: 1 0 0;
             justify-content: flex-start;
@@ -69,7 +68,7 @@ $block: '.#{$ns}header';
         justify-content: space-between;
         align-items: center;
 
-        margin-right: $indentS;
+        margin-right: $indentM;
     }
 
     &__buttons {

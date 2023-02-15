@@ -3,17 +3,31 @@
 $block: '.#{$ns}overflow-scroller';
 
 #{$block} {
+    display: flex;
+    align-items: center;
     position: relative;
-
     overflow-x: hidden;
+
+    &__container {
+        width: 100%;
+        position: relative;
+
+        &_padding {
+            &-left {
+                padding-left: $indentSM;
+            }
+            &-right {
+                padding-right: $indentSM;
+            }
+        }
+    }
 
     &__wrapper {
         position: relative;
-
-        transition: left 0.3s;
+        transition: left 0.6s;
     }
 
-    &__scroller {
+    &__arrow {
         position: absolute;
         z-index: 10;
         top: 0;
@@ -28,12 +42,6 @@ $block: '.#{$ns}overflow-scroller';
         cursor: pointer;
 
         color: var(--yc-color-text-secondary);
-        background: linear-gradient(
-                to left,
-                var(--yc-color-base-background) 70%,
-                var(--pc-transparent) 100%
-            )
-            no-repeat;
 
         &_type_left {
             left: 0;
