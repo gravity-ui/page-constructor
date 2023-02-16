@@ -14,6 +14,7 @@ export interface HeightCalculatorProps {
 
 /**
  * @deprecated Will be removed, use the useHeightCalculator hook instead.
+ * @returns The HeightCalculator component.
  */
 const HeightCalculator = ({onCalculate, children}: WithChildren<HeightCalculatorProps>) => {
     const [isCalculating, setIsCalculating] = useState(true);
