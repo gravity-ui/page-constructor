@@ -143,7 +143,7 @@ $block: '.#{$ns}hubspot-form';
                 flex-shrink: 0;
             }
 
-            span {
+            span:not(.hs-form-required) {
                 color: var(--yc-color-text-primary);
                 font-size: var(--yc-text-body-2-font-size);
                 line-height: 16px;
@@ -151,13 +151,17 @@ $block: '.#{$ns}hubspot-form';
                 margin: 0;
                 flex-grow: 1;
             }
+
+            .hs-form-required {
+                top: 0;
+            }
         }
 
         .hs-form-booleancheckbox-display,
         .hs-form-checkbox-display {
             position: relative;
 
-            span {
+            span:not(.hs-form-required) {
                 &:before {
                     content: '';
                     position: absolute;
