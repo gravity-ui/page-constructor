@@ -8,35 +8,37 @@ import page from '../../../../.mocks/blogPage.json';
 import services from '../../../../.mocks/services.json';
 import tags from '../../../../.mocks/tags.json';
 import posts from '../../../../.mocks/posts.json';
+import navigation from '../../../../.mocks/navigation.json';
 
 import {BlogPage, BlogPageProps} from '../BlogPage';
+
+const mockMetaComponent = <title>Blog page</title>;
 
 export default {
     title: `${CONTAINERS}/BlogPage`,
     component: BlogPage,
     args: {
         theme: 'light',
+        content: page.content,
+        posts,
+        services,
+        tags,
+        metaData: {
+            needHelmetWrapper: true,
+            metaComponent: mockMetaComponent,
+        },
+        getPosts: (props) => {
+            // eslint-disable-next-line no-console
+            console.log('get posts', props);
+        },
+        toggleLike: null,
     },
 } as Meta;
 
 const DefaultTemplate: Story<BlogPageProps> = (args) => <BlogPage {...args} />;
-
 export const Default = DefaultTemplate.bind({});
 
-const mockMetaComponent = <title>Blog page</title>;
-
-Default.args = {
-    content: page.content,
-    posts,
-    services,
-    tags,
-    metaData: {
-        needHelmetWrapper: true,
-        metaComponent: mockMetaComponent,
-    },
-    getPosts: (props) => {
-        // eslint-disable-next-line no-console
-        console.log('get posts', props);
-    },
-    toggleLike: null,
+export const WithNavigation = DefaultTemplate.bind({});
+WithNavigation.args = {
+    navigation,
 };

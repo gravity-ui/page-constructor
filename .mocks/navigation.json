@@ -1,0 +1,101 @@
+{
+  "logo": {
+    "icon": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_1_light.svg",
+    "text": "Logo",
+    "dark": {
+      "text": "Logo Dark",
+      "icon": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_1_dark.svg"
+    },
+    "light": {
+      "text": "Logo Light"
+    }
+  },
+  "header": {
+    "leftItems": [
+      {
+        "text": "Dropdown 1",
+        "type": "dropdown",
+        "items": [
+          {
+            "text": "Lorem ipsum",
+            "url": "https://example.com",
+            "type": "link"
+          },
+          {
+            "text": "Dolor sit amet",
+            "url": "https://example.com",
+            "type": "link"
+          },
+          {
+            "text": "Consectetur adipiscing",
+            "url": "https://example.com",
+            "type": "link"
+          },
+          {
+            "text": "Ut enim ad minim ",
+            "url": "https://example.com",
+            "type": "link"
+          }
+        ]
+      },
+      {
+        "text": "Dropdown2",
+        "type": "dropdown",
+        "items": [
+          {
+            "text": "Lorem ipsum ",
+            "url": "https://example.com"
+          },
+          {
+            "text": "Dolor sit amet",
+            "url": "https://example.com"
+          },
+          {
+            "text": "Consectetur adipiscing",
+            "url": "https://example.com"
+          },
+          {
+            "text": "Ut enim ad minim ",
+            "url": "https://example.com"
+          }
+        ]
+      },
+      {
+        "type": "link",
+        "text": "Link with spaces",
+        "url": "https://example.com",
+        "icon": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_3_light.svg"
+      },
+      {
+        "type": "link",
+        "text": "Link with arrow",
+        "url": "https://example.com",
+        "arrow": true
+      },
+      {
+        "type": "link",
+        "text": "Link3",
+        "url": "https://example.com"
+      },
+      {
+        "type": "link",
+        "text": "Link4",
+        "url": "https://example.com"
+      }
+    ],
+    "rightItems": [
+      {
+        "type": "link",
+        "text": "Link",
+        "url": "https://example.com",
+        "icon": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_2_light.svg"
+      },
+      {
+        "type": "button",
+        "text": "Button",
+        "url": "https://example.com",
+        "theme": "pseudo"
+      }
+    ]
+  }
+}

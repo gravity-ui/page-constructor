@@ -5,6 +5,7 @@ import {
     PageContent,
     PageConstructorProvider,
     PageConstructorProviderProps,
+    NavigationData,
 } from '@gravity-ui/page-constructor';
 
 import {FeedContext} from '../../contexts/FeedContext';
@@ -31,6 +32,7 @@ export type BlogPageProps = {
     posts: PostsProps;
     tags: Tag[];
     services?: Service[];
+    navigation?: NavigationData;
     getPosts: GetPostsType;
     toggleLike?: ToggleLikeCallbackType;
     metaData?: MetaProps;
@@ -47,6 +49,7 @@ export const BlogPage = ({
     getPosts,
     metaData,
     toggleLike,
+    navigation,
     settings,
     pageCountForShowSupportButtons,
 }: BlogPageProps) => (
@@ -70,7 +73,11 @@ export const BlogPage = ({
             >
                 <PageConstructorProvider {...settings}>
                     {metaData ? <MetaWrapper {...metaData} /> : null}
-                    <PageConstructor content={content} custom={componentMap} />
+                    <PageConstructor
+                        content={content}
+                        custom={componentMap}
+                        navigation={navigation}
+                    />
                 </PageConstructorProvider>
             </FeedContext.Provider>
         </LikesContext.Provider>
