@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.16.2](https://github.com/gravity-ui/page-constructor/compare/v1.16.1...v1.16.2) (2023-02-16)
+
+
+### Bug Fixes
+
+* **HubspotForm:** required checkbox ([#154](https://github.com/gravity-ui/page-constructor/issues/154)) ([6c948d1](https://github.com/gravity-ui/page-constructor/commit/6c948d1a3511e16902e6808d83ac3f0ac14b6d9c))
+
 ## [1.16.1](https://github.com/gravity-ui/page-constructor/compare/v1.16.0...v1.16.1) (2023-02-14)
 
 
