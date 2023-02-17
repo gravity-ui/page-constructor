@@ -12,6 +12,10 @@ export interface HeightCalculatorProps {
     onCalculate: (height: number) => void;
 }
 
+/**
+ * @deprecated Will be removed, use the useHeightCalculator hook instead.
+ * @returns The HeightCalculator component.
+ */
 const HeightCalculator = ({onCalculate, children}: WithChildren<HeightCalculatorProps>) => {
     const [isCalculating, setIsCalculating] = useState(true);
     const container = useRef<HTMLDivElement>(null);
