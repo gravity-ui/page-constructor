@@ -5,6 +5,7 @@ import {
     PageContent,
     PageConstructorProvider,
     PageConstructorProviderProps,
+    NavigationData,
 } from '@gravity-ui/page-constructor';
 import {ShareOptions} from '@gravity-ui/uikit';
 
@@ -32,6 +33,7 @@ export interface BlogPostPageProps {
     content: PageContent;
     post: PostData;
     settings?: PageConstructorProviderProps;
+    navigation?: NavigationData;
     shareOptions?: ShareOptions[];
 }
 
@@ -42,6 +44,7 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({
     content,
     post,
     settings,
+    navigation,
     shareOptions,
 }) => {
     const {hasUserLike, likesCount, handleLike} = useLikes({
@@ -75,7 +78,11 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({
                 >
                     <PageConstructorProvider {...settings}>
                         {metaData ? <MetaWrapper {...metaData} /> : null}
-                        <PageConstructor content={content} custom={componentMap} />
+                        <PageConstructor
+                            content={content}
+                            custom={componentMap}
+                            navigation={navigation}
+                        />
                     </PageConstructorProvider>
                 </PostPageContext.Provider>
             </LikesContext.Provider>

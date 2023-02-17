@@ -5,6 +5,7 @@ import {Meta, Story} from '@storybook/react/types-6-0';
 import {CONTAINERS} from '../../../demo/constants';
 
 import {generatePostPageData} from '../../../../.mocks/utils';
+import navigation from '../../../../.mocks/navigation.json';
 
 import {BlogPostPage, BlogPostPageProps} from '../BlogPostPage';
 
@@ -13,6 +14,7 @@ export default {
     component: BlogPostPage,
     args: {
         theme: 'light',
+        ...generatePostPageData(),
     },
 } as Meta;
 
@@ -20,6 +22,7 @@ const DefaultTemplate: Story<BlogPostPageProps> = (args) => <BlogPostPage {...ar
 
 export const Default = DefaultTemplate.bind({});
 
-Default.args = {
-    ...generatePostPageData(),
+export const WithNavigation = DefaultTemplate.bind({});
+WithNavigation.args = {
+    navigation,
 };
