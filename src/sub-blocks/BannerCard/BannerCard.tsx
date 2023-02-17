@@ -2,7 +2,7 @@ import React, {useContext} from 'react';
 
 import {block, getThemedValue} from '../../utils';
 import {BannerCardProps} from '../../models';
-import {Button, YFMWrapper, BackgroundImage, HTML} from '../../components';
+import {Button, YFMWrapper, BackgroundImage, HTML, RouterLink} from '../../components';
 import {ThemeValueContext} from '../../context/theme/ThemeValueContext';
 
 import './BannerCard.scss';
@@ -42,14 +42,16 @@ export const BannerCard = (props: BannerCardProps) => {
                             />
                         )}
                     </div>
-                    <Button
-                        className={b('button')}
-                        theme="raised"
-                        size="xl"
-                        text={text}
-                        url={url}
-                        target={target}
-                    />
+                    <RouterLink href={url}>
+                        <Button
+                            className={b('button')}
+                            theme="raised"
+                            size="xl"
+                            text={text}
+                            url={url}
+                            target={target}
+                        />
+                    </RouterLink>
                 </div>
                 <BackgroundImage
                     className={b('image')}
