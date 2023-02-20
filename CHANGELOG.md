@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.16.3](https://github.com/gravity-ui/page-constructor/compare/v1.16.2...v1.16.3) (2023-02-17)
+
+
+### Bug Fixes
+
+* add router link for banner button ([#158](https://github.com/gravity-ui/page-constructor/issues/158)) ([a194a40](https://github.com/gravity-ui/page-constructor/commit/a194a40bae0486277d0a862e3a9b415404d75d0b))
+* **Foldable:** fix issues with content height calculation on resize ([#156](https://github.com/gravity-ui/page-constructor/issues/156)) ([e20709e](https://github.com/gravity-ui/page-constructor/commit/e20709e4eb84e7eb620ff2e42dd3e5010d1066a2))
+
 ## [1.16.2](https://github.com/gravity-ui/page-constructor/compare/v1.16.1...v1.16.2) (2023-02-16)
 
 
