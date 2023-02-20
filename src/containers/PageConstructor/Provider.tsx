@@ -1,5 +1,6 @@
 import React, {Fragment} from 'react';
 import {MetrikaContext, MetrikaContextProps} from '../../context/metrikaContext';
+import {AnalyticsContext, AnalyticsContextProps} from '../../context/analyticsContext';
 import {MobileContext} from '../../context/mobileContext';
 import {MapsContext, MapsContextType, initialMapValue} from '../../context/mapsContext/mapsContext';
 import {
@@ -22,6 +23,7 @@ export interface PageConstructorProviderProps {
     theme?: ConstructorTheme;
     mapsContext?: MapsContextType;
     projectSettings?: ProjectSettingsContextProps;
+    analytics?: AnalyticsContextProps;
 }
 
 export const PageConstructorProvider = (props: WithChildren<PageConstructorProviderProps>) => {
@@ -31,6 +33,7 @@ export const PageConstructorProvider = (props: WithChildren<PageConstructorProvi
         locale = {},
         location = {},
         metrika = {},
+        analytics = {},
         ssrConfig = {},
         projectSettings = {},
         theme = DEFAULT_THEME,
@@ -46,6 +49,7 @@ export const PageConstructorProvider = (props: WithChildren<PageConstructorProvi
         <MobileContext.Provider value={Boolean(isMobile)} />,
         <MapsContext.Provider value={mapsContext} />,
         <MetrikaContext.Provider value={metrika} />,
+        <AnalyticsContext.Provider value={analytics} />,
         <SSRContext.Provider value={{isServer: ssrConfig?.isServer}} />,
     ].reduceRight((prev, provider) => React.cloneElement(provider, {}, prev), children);
     /* eslint-enable react/jsx-key */

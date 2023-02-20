@@ -19,7 +19,7 @@ import {
     ThemedImage,
 } from './common';
 import {ContentBlockProps} from './blocks';
-import {PixelEvent} from '../common';
+import {AnalyticsEventsBase, PixelEvent} from '../common';
 
 export enum SubBlockType {
     Divider = 'divider',
@@ -57,7 +57,7 @@ export interface DividerProps {
     border?: boolean;
 }
 
-export interface HubspotFormProps extends HubspotEventHandlers {
+export interface HubspotFormProps extends HubspotEventHandlers, AnalyticsEventsBase {
     className?: string;
     theme?: ContentTheme;
     isMobile?: boolean;

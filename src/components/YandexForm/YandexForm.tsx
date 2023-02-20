@@ -2,17 +2,19 @@ import React, {useCallback, useContext, useEffect, useRef} from 'react';
 
 import {HEADER_HEIGHT} from '../constants';
 import {LocaleContext} from '../../context/localeContext';
-import {PixelEvent} from '../../models';
 import {MobileContext} from '../../context/mobileContext';
+import {PixelEvent} from '../../models';
 import {block} from '../../utils';
+import {AnalyticsEventsBase, DefaultEventNames} from '../../models/common';
 import {useMetrika} from '../../hooks/useMetrika';
+import {useAnalytics} from '../../hooks';
 
 export const YANDEX_FORM_ORIGIN = 'https://forms.yandex.ru';
 const CONTAINER_ID = 'pc-yandex-form-container';
 
 const b = block('yandex-form');
 
-export interface YandexFormProps {
+export interface YandexFormProps extends AnalyticsEventsBase {
     id: number | string;
     containerId?: string;
     theme?: string;
@@ -40,6 +42,7 @@ const YandexForm = (props: YandexFormProps) => {
         onSubmit,
         metrikaGoals,
         pixelEvents,
+        analyticsEvents,
         customFormOrigin,
     } = props;
     const formContainerRef = useRef<HTMLDivElement>(null);
@@ -47,6 +50,7 @@ const YandexForm = (props: YandexFormProps) => {
     const yaFormOrigin = customFormOrigin || YANDEX_FORM_ORIGIN;
 
     const handleMetrika = useMetrika();
+    const handleAnalytics = useAnalytics(DefaultEventNames.YandexFormSubmit);
     const isMobile = useContext(MobileContext);
     const locale = useContext(LocaleContext);
 
@@ -99,11 +103,20 @@ const YandexForm = (props: YandexFormProps) => {
         }
 
         handleMetrika({metrikaGoals, pixelEvents});
+        handleAnalytics(analyticsEvents);
 
         if (onSubmit) {
             onSubmit();
         }
-    }, [handleMetrika, metrikaGoals, pixelEvents, onSubmit, headerHeight]);
+    }, [
+        handleMetrika,
+        metrikaGoals,
+        pixelEvents,
+        handleAnalytics,
+        analyticsEvents,
+        onSubmit,
+        headerHeight,
+    ]);
 
     const handleMessage = useCallback(
         ({origin, data}: MessageEvent) => {

@@ -1,6 +1,7 @@
 import {pixelEvents} from './pixel';
 import {Theme} from '../../models';
 import {ImageProps, urlPattern} from '../../components/Image/schema';
+import {AnalyticsEventSchema} from './event';
 
 export const mediaDirection = ['media-content', 'content-media'];
 export const textSize = ['s', 'm', 'l'];
@@ -208,6 +209,9 @@ export const LinkProps = {
             type: 'string',
             enum: ['_blank', '_parent', '_top', '_self'],
         },
+        analyticsEvents: {
+            anyOf: [AnalyticsEventSchema, {type: 'array', items: AnalyticsEventSchema}],
+        },
     },
 };
 
@@ -343,6 +347,9 @@ export const ButtonProps = {
             },
         ],
     },
+    /**
+     * @deprecated Metrika will be deleted
+     */
     metrikaGoals: {
         anyOf: [
             {type: 'string'},
@@ -365,7 +372,13 @@ export const ButtonProps = {
             },
         ],
     },
+    /**
+     * @deprecated Pixel will be deleted
+     */
     pixelEvents,
+    analyticsEvents: {
+        anyOf: [AnalyticsEventSchema, {type: 'array', items: AnalyticsEventSchema}],
+    },
     target: {
         type: 'string',
         enum: ['_self', '_blank', '_parent', '_top'],
@@ -427,6 +440,9 @@ export const BlockBaseProps = {
     },
     resetPaddings: {
         type: 'boolean',
+    },
+    context: {
+        type: 'string',
     },
 };
 

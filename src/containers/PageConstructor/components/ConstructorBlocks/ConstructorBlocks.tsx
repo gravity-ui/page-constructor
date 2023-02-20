@@ -3,6 +3,7 @@ import React, {Fragment, ReactElement, useContext} from 'react';
 
 import {getBlockKey} from '../../../../utils';
 import {InnerContext} from '../../../../context/innerContext';
+import {BlockIdContext} from '../../../../context/blockIdContext';
 import {Block, ConstructorItem as ConstructorItemType, ShouldRenderBlock} from '../../../../models';
 import {ConstructorLoadable} from '../ConstructorLoadable';
 import {ConstructorItem} from '../ConstructorItem';
@@ -16,7 +17,11 @@ interface ConstructorBlocksProps {
 export const ConstructorBlocks = ({items, shouldRenderBlock}: ConstructorBlocksProps) => {
     const {blockTypes, loadables, itemMap} = useContext(InnerContext);
 
-    const renderer = (item: ConstructorItemType, index: number): ReactElement | null => {
+    const renderer = (
+        parentId = '',
+        item: ConstructorItemType,
+        index: number,
+    ): ReactElement | null => {
         if (!itemMap[item.type]) {
             return null;
         }
@@ -24,7 +29,7 @@ export const ConstructorBlocks = ({items, shouldRenderBlock}: ConstructorBlocksP
         let children;
         let itemElement;
         const key = getBlockKey(item, index);
-
+        const blockId = parentId ? `${parentId}_${key}` : key;
         if (shouldRenderBlock && !shouldRenderBlock(item, key)) {
             return null;
         }
@@ -48,13 +53,15 @@ export const ConstructorBlocks = ({items, shouldRenderBlock}: ConstructorBlocksP
             );
         } else {
             if ('children' in item && item.children) {
-                children = item.children.map(renderer);
+                children = item.children.map(renderer.bind(null, blockId));
             }
 
             itemElement = (
-                <ConstructorItem data={item} key={key}>
-                    {children}
-                </ConstructorItem>
+                <BlockIdContext.Provider value={blockId}>
+                    <ConstructorItem data={item} key={key}>
+                        {children}
+                    </ConstructorItem>
+                </BlockIdContext.Provider>
             );
         }
 
@@ -65,5 +72,5 @@ export const ConstructorBlocks = ({items, shouldRenderBlock}: ConstructorBlocksP
         );
     };
 
-    return <Fragment>{items.map(renderer)}</Fragment>;
+    return <Fragment>{items.map(renderer.bind(null, ''))}</Fragment>;
 };

@@ -11,6 +11,7 @@ storybook-static/
 styles/styles.css
 CHANGELOG.md
 CONTRIBUTING.md
+/coverage
 
 # npm files
 package.json

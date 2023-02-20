@@ -1,12 +1,13 @@
-import React, {useContext} from 'react';
+import React, {useCallback, useContext} from 'react';
 import {Button} from '@gravity-ui/uikit';
 
 import {block, getThemedValue} from '../../utils';
-import {QuoteProps, AuthorType} from '../../models';
+import {QuoteProps, AuthorType, DefaultEventNames} from '../../models';
 
 import {Author, Image, HTML} from '../../components';
 import {ThemeValueContext} from '../../context/theme/ThemeValueContext';
 import {getMediaImage} from '../../components/Media/Image/utils';
+import {useAnalytics} from '../../hooks';
 
 import './Quote.scss';
 
@@ -27,6 +28,9 @@ const Quote = (props: QuoteProps) => {
     const {themeValue: theme} = useContext(ThemeValueContext);
     const imageThemed = getThemedValue(image, theme);
     const imageData = getMediaImage(imageThemed);
+    const handleAnalytics = useAnalytics(DefaultEventNames.QuoteButton, url);
+
+    const handleButtonClick = useCallback(() => handleAnalytics(), [handleAnalytics]);
 
     const renderFooter = Boolean(author || url) && (
         <div className={b('author-wrapper')}>
@@ -43,6 +47,7 @@ const Quote = (props: QuoteProps) => {
                     size="xl"
                     href={url}
                     className={b('link-button', {theme: textTheme})}
+                    onClick={handleButtonClick}
                 >
                     {buttonText}
                 </Button>

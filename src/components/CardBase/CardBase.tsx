@@ -11,10 +11,12 @@ import {
 import BackgroundImage from '../BackgroundImage/BackgroundImage';
 import RouterLink from '../RouterLink/RouterLink';
 import {useMetrika} from '../../hooks/useMetrika';
+import {AnalyticsEventsBase, DefaultEventNames} from '../../models/common';
+import {useAnalytics} from '../../hooks';
 
 import './CardBase.scss';
 
-export interface CardBaseProps extends CardBaseParams {
+export interface CardBaseProps extends AnalyticsEventsBase, CardBaseParams {
     className?: string;
     bodyClassName?: string;
     contentClassName?: string;
@@ -46,6 +48,7 @@ export const Layout = (props: CardBaseProps) => {
         bodyClassName,
         metrikaGoals,
         pixelEvents,
+        analyticsEvents,
         contentClassName,
         children,
         url,
@@ -53,6 +56,7 @@ export const Layout = (props: CardBaseProps) => {
         border = 'shadow',
     } = props;
     const handleMetrika = useMetrika();
+    const handleAnalytics = useAnalytics(DefaultEventNames.CardBase, url);
     let header, content, footer, image, headerClass, footerClass;
 
     function handleChild(child: ReactElement) {
@@ -99,6 +103,7 @@ export const Layout = (props: CardBaseProps) => {
 
     const onClick = () => {
         handleMetrika({metrikaGoals, pixelEvents});
+        handleAnalytics(analyticsEvents);
     };
 
     return url ? (

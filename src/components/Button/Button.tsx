@@ -2,10 +2,11 @@ import React, {useCallback, useContext} from 'react';
 import {Platform, Button as CommonButton, Icon, StoreBadge} from '@gravity-ui/uikit';
 
 import {block, setUrlTld} from '../../utils';
-import {ButtonProps as ButtonParams} from '../../models';
+import {ButtonProps as ButtonParams, DefaultEventNames} from '../../models';
 import {OldButtonSize, OldButtonTheme, toCommonSize, toCommonView} from './utils';
 import {LocaleContext} from '../../context/localeContext/localeContext';
 import {useMetrika} from '../../hooks/useMetrika';
+import {useAnalytics} from '../../hooks';
 import {Github} from '../../icons';
 
 import './Button.scss';
@@ -25,6 +26,7 @@ const Button = (props: ButtonProps) => {
         className,
         metrikaGoals,
         pixelEvents,
+        analyticsEvents,
         size = 'l',
         theme = 'normal',
         url,
@@ -34,14 +36,15 @@ const Button = (props: ButtonProps) => {
         ...rest
     } = props;
     const defaultImgPosition = 'left';
-
+    const handleAnalytics = useAnalytics(DefaultEventNames.Button, url);
     const onClick = useCallback(() => {
         handleMetrika({metrikaGoals, pixelEvents});
+        handleAnalytics(analyticsEvents);
 
         if (onClickOrigin) {
             onClickOrigin();
         }
-    }, [handleMetrika, metrikaGoals, pixelEvents, onClickOrigin]);
+    }, [handleMetrika, metrikaGoals, pixelEvents, handleAnalytics, analyticsEvents, onClickOrigin]);
 
     const buttonImg =
         img instanceof Object

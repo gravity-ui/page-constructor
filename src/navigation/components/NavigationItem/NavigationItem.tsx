@@ -3,10 +3,15 @@ import React, {MouseEventHandler, useMemo} from 'react';
 import {NavigationItemType, NavigationItemData} from '../../../models';
 import SocialIcon from '../SocialIcon/SocialIcon';
 
+import {BlockIdContext} from '../../../context/blockIdContext';
 import {NavigationButton} from './components/NavigationButton/NavigationButton';
 import {NavigationDropdown} from './components/NavigationDropdown/NavigationDropdown';
 import {NavigationLink} from './components/NavigationLink/NavigationLink';
 import {GithubStars} from './components/GithubStars/GithubStars';
+
+import './NavigationItem.scss';
+
+const ANALYTICS_ID = 'navigation';
 
 export interface NavigationItemProps {
     data: NavigationItemData;
@@ -37,7 +42,11 @@ const NavigationItem: React.FC<NavigationItemProps> = ({data, className, ...prop
         [className, data, props],
     );
 
-    return <Component {...componentProps} />;
+    return (
+        <BlockIdContext.Provider value={ANALYTICS_ID}>
+            <Component {...componentProps} />;
+        </BlockIdContext.Provider>
+    );
 };
 
 export default NavigationItem;

@@ -1,7 +1,11 @@
 import React, {ReactNode, useCallback, useContext} from 'react';
 import {Button, ButtonSize, Icon} from '@gravity-ui/uikit';
+
 import {ArrowSidebar} from '../../icons';
 import {LocationContext} from '../../context/locationContext';
+import {useAnalytics} from '../../hooks';
+import {DefaultEventNames} from '../../models';
+
 export type Theme = 'default' | 'special';
 
 export interface BackLinkProps {
@@ -25,8 +29,11 @@ export default function BackLink(props: BackLinkProps) {
         shouldHandleBackAction = false,
         onClick,
     } = props;
+    const handleAnalytics = useAnalytics(DefaultEventNames.ShareButton, url);
 
     const backActionHandler = useCallback(async () => {
+        handleAnalytics();
+
         if (!history) {
             return;
         }
@@ -40,7 +47,7 @@ export default function BackLink(props: BackLinkProps) {
         } else {
             history.push({pathname: url});
         }
-    }, [history, onClick, url]);
+    }, [handleAnalytics, history, onClick, url]);
 
     return (
         <Button

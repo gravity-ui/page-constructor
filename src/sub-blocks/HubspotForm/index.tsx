@@ -4,8 +4,8 @@ import {block} from '../../utils';
 import {ThemeValueContext} from '../../context/theme/ThemeValueContext';
 import {MobileContext} from '../../context/mobileContext';
 import {useMetrika} from '../../hooks/useMetrika';
-import {HubspotFormProps} from '../../models';
-import {useHandleHubspotEvents} from '../../hooks';
+import {DefaultEventNames, HubspotFormProps} from '../../models';
+import {useHandleHubspotEvents, useAnalytics} from '../../hooks';
 import HubspotFormContainer from './HubspotFormContainer';
 import {HubspotEventHandlers} from '../../utils/hubspot';
 
@@ -25,6 +25,7 @@ const HubspotForm: React.FunctionComponent<HubspotFormProps> = (props) => {
         formClassName,
         pixelEvents,
         // hubspotEvents, // TODO: decide how to handle them
+        analyticsEvents,
         onBeforeSubmit,
         onSubmit,
         onBeforeLoad,
@@ -34,6 +35,7 @@ const HubspotForm: React.FunctionComponent<HubspotFormProps> = (props) => {
     } = props;
 
     const handleMetrika = useMetrika();
+    const handleAnalytics = useAnalytics(DefaultEventNames.HubspotFormSubmit);
     const {themeValue} = useContext(ThemeValueContext);
     const isMobileValue = useContext(MobileContext);
 
@@ -48,10 +50,21 @@ const HubspotForm: React.FunctionComponent<HubspotFormProps> = (props) => {
             onSubmitError,
             onSubmit: (e) => {
                 handleMetrika?.({pixelEvents});
+                handleAnalytics(analyticsEvents);
                 onSubmit?.(e);
             },
         }),
-        [onBeforeLoad, onBeforeSubmit, onLoad, handleMetrika, pixelEvents, onSubmit, onSubmitError],
+        [
+            onBeforeLoad,
+            onBeforeSubmit,
+            onLoad,
+            handleMetrika,
+            pixelEvents,
+            handleAnalytics,
+            analyticsEvents,
+            onSubmit,
+            onSubmitError,
+        ],
     );
 
     useHandleHubspotEvents(handlers, formId);

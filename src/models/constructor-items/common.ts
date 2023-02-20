@@ -2,7 +2,7 @@ import {CSSProperties, ReactNode} from 'react';
 import {ButtonSize, ButtonView} from '@gravity-ui/uikit';
 
 import {ThemeSupporting} from '../../utils/theme';
-import {ClassNameProps, PixelEventType} from '../common';
+import {AnalyticsEventsBase, ClassNameProps, PixelEventType} from '../common';
 
 // enums
 export enum AuthorType {
@@ -133,7 +133,7 @@ export interface BackgroundImageProps
 }
 
 //components props
-export interface MediaVideoProps {
+export interface MediaVideoProps extends AnalyticsEventsBase {
     src: string[];
     type?: MediaVideoType;
     loop?: LoopProps | boolean;
@@ -146,7 +146,7 @@ export interface MediaVideoProps {
 }
 
 // links
-export interface LinkProps extends Stylable {
+export interface LinkProps extends AnalyticsEventsBase, Stylable {
     url: string;
     text?: string;
     textSize?: TextSize;
@@ -168,7 +168,7 @@ export interface FileLinkProps extends ClassNameProps {
 }
 
 // buttons
-export interface ButtonProps {
+export interface ButtonProps extends AnalyticsEventsBase {
     text: string;
     url: string;
     primary?: boolean;
@@ -207,7 +207,7 @@ export interface MediaVideoProps {
 
 export type ThemedMediaVideoProps = ThemeSupporting<MediaVideoProps>;
 
-export interface MediaComponentVideoProps {
+export interface MediaComponentVideoProps extends AnalyticsEventsBase {
     video: MediaVideoProps;
     height?: number;
     metrika?: MetrikaVideo;
