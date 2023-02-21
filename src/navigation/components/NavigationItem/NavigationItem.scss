@@ -41,4 +41,13 @@ $block: '.#{$ns}navigation-item';
 
         color: var(--yc-color-text-secondary);
     }
+
+    &__github {
+        display: flex;
+        align-items: center;
+
+        &.pc-header__button {
+            margin-top: 3px;
+        }
+    }
 }

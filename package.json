@@ -49,6 +49,7 @@
     "@gravity-ui/i18n": "^1.0.0",
     "bem-cn-lite": "^4.0.0",
     "lodash": "^4.17.21",
+    "react-github-btn": "^1.4.0",
     "react-player": "^2.9.0",
     "react-slick": "^0.28.1",
     "react-spring": "^9.3.0",
