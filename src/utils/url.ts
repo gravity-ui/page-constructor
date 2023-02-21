@@ -2,30 +2,34 @@ import {parse, format} from 'url';
 
 export type Query = Record<string, number | string | null>;
 
+const EXAMPLE_URL = 'https://example.org';
 export const EXTERNAL_LINK_PROPS = {target: '_blank', rel: 'noopener noreferrer'};
 
 export function getLinkProps(url: string, hostname?: string, target?: string) {
     let linkProps = {target};
 
-    if (target === '_blank' || isLinkExternal(url, hostname)) {
+    if (isLinkExternal(url, hostname)) {
         linkProps = {...linkProps, ...EXTERNAL_LINK_PROPS};
     }
 
     return linkProps;
 }
 
+export function isAbsoluteUrl(url: string | URL) {
+    // Using example URL as base for relative links
+    const urlObj = new URL(url, EXAMPLE_URL);
+
+    return (
+        // Compare url origin with example and check that original url was not example one
+        urlObj.origin !== EXAMPLE_URL || (typeof url === 'string' && url.startsWith(EXAMPLE_URL))
+    );
+}
+
 export function isLinkExternal(url: string, routerHostname?: string) {
-    if (!routerHostname) {
-        return true;
-    }
-
-    const {hostname} = parse(url);
-
-    if (!hostname) {
-        return false;
-    }
-
-    return getNonLocaleHostName(hostname) !== getNonLocaleHostName(routerHostname);
+    return (
+        isAbsoluteUrl(url) &&
+        getNonLocaleHostName(new URL(url).hostname) !== getNonLocaleHostName(routerHostname ?? '')
+    );
 }
 
 export function getNonLocaleHostName(hostname: string) {
