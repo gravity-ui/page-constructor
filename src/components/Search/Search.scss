@@ -6,7 +6,6 @@ $block: '.#{$namespace}search';
 #{$block} {
     $root: &;
     $searchHeight: 44px;
-    $searchWidth: 376px;
 
     @include text-size(body-1);
 
@@ -15,7 +14,6 @@ $block: '.#{$namespace}search';
     align-items: center;
     justify-content: flex-end;
 
-    max-width: $searchWidth;
     height: $searchHeight;
 
     transition: width 0.3s;
