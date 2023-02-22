@@ -3,7 +3,7 @@ module.exports = {
     moduleFileExtensions: ['js', 'json', 'ts', 'tsx'],
     rootDir: '.',
     transform: {
-        '^.+\\.[jt]sx??$': 'ts-jest',
+        '^.+\\.[jt]sx?$': 'ts-jest',
     },
     transformIgnorePatterns: ['node_modules/(?!(@gravity-ui|react-github-btn)/)'],
     coverageDirectory: './coverage',
