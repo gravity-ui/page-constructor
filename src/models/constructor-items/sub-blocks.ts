@@ -140,6 +140,7 @@ export interface BasicCardProps
         Omit<ContentBlockProps, 'colSizes' | 'centered' | 'size' | 'theme'> {
     url: string;
     icon?: ImageProps;
+    target?: string;
 }
 
 export interface BannerCardProps {

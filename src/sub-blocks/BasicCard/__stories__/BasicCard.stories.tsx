@@ -18,7 +18,7 @@ export default {
 
 const DefaultTemplate: Story<BasicCardProps> = (args) => (
     <div style={{maxWidth: '400px'}}>
-        <BasicCard {...args} />
+        <BasicCard {...args} target="_blank" />
     </div>
 );
 

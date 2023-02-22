@@ -12,11 +12,11 @@ import './BasicCard.scss';
 const b = block('basic-card');
 
 const BasicCard = (props: BasicCardProps) => {
-    const {url, title, text, border, icon, additionalInfo, links, buttons} = props;
+    const {url, title, text, border, icon, additionalInfo, links, buttons, target} = props;
     const iconProps = icon && getMediaImage(icon);
 
     return (
-        <CardBase className={b()} url={url} border={border}>
+        <CardBase className={b()} url={url} border={border} target={target}>
             <CardBase.Content>
                 {iconProps && <Image {...iconProps} className={b('icon')} />}
                 <Content
