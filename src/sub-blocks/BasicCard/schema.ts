@@ -18,6 +18,10 @@ export const BasicCard = {
                 type: 'string',
             },
             icon: ImageProps,
+            target: {
+                type: 'string',
+                enum: ['_blank', '_parent', '_top', '_self'],
+            },
         },
     },
 };
