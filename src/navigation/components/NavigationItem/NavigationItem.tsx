@@ -4,10 +4,10 @@ import {block} from '../../../utils';
 import {NavigationItemType, NavigationItemData} from '../../../models';
 import SocialIcon from '../SocialIcon/SocialIcon';
 
-import {NavigationButton} from './components/NavigationButton';
-import {NavigationDropdown} from './components/NavigationDropdown';
-import {NavigationLink} from './components/NavigationLink';
-import {GithubStars} from './components/GithubStars';
+import {NavigationButton} from './components/NavigationButton/NavigationButton';
+import {NavigationDropdown} from './components/NavigationDropdown/NavigationDropdown';
+import {NavigationLink} from './components/NavigationLink/NavigationLink';
+import {GithubStars} from './components/GithubStars/GithubStars';
 
 import './NavigationItem.scss';
 
@@ -27,7 +27,7 @@ const NavigationItemsMap: Record<NavigationItemType, React.ComponentType<any>> =
     [NavigationItemType.Social]: SocialIcon,
     [NavigationItemType.Dropdown]: NavigationDropdown,
     [NavigationItemType.Link]: NavigationLink,
-    [NavigationItemType.Github]: GithubStars,
+    [NavigationItemType.GithubStars]: GithubStars,
 };
 
 const NavigationItem: React.FC<NavigationItemProps> = ({data, className, ...props}) => {
@@ -35,11 +35,11 @@ const NavigationItem: React.FC<NavigationItemProps> = ({data, className, ...prop
     const Component = NavigationItemsMap[type];
     const componentProps = useMemo(
         () => ({
-            className: b({type}, className),
+            className: b(null, className),
             ...data,
             ...props,
         }),
-        [className, data, props, type],
+        [className, data, props],
     );
 
     return <Component {...componentProps} />;

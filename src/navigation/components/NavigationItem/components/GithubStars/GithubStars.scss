@@ -1,0 +1,12 @@
+@import '../../../../../../styles/variables';
+
+$block: '.#{$ns}github-stars';
+
+#{$block} {
+    display: flex;
+    align-items: center;
+
+    &.pc-header__button {
+        margin-top: 3px;
+    }
+}

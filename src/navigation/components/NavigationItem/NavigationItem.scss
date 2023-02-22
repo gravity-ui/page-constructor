@@ -1,5 +1,4 @@
 @import '../../../../styles/variables';
-@import '../../../../styles/mixins';
 
 $block: '.#{$ns}navigation-item';
 
@@ -9,45 +8,4 @@ $block: '.#{$ns}navigation-item';
     display: flex;
     align-items: center;
     white-space: nowrap;
-
-    &_type_link {
-        @include navigation-item();
-    }
-
-    &_type_button {
-        display: inline-block;
-    }
-
-    &__arrow {
-        position: relative;
-        top: -2px;
-
-        width: 9px;
-        height: 9px;
-        margin-left: 5px;
-    }
-
-    &__icon {
-        display: flex;
-        width: 20px;
-        height: 20px;
-        margin-right: $indentXXXS;
-
-        object-fit: cover;
-    }
-
-    &__dropdown {
-        margin-left: 7px;
-
-        color: var(--yc-color-text-secondary);
-    }
-
-    &__github {
-        display: flex;
-        align-items: center;
-
-        &.pc-header__button {
-            margin-top: 3px;
-        }
-    }
 }

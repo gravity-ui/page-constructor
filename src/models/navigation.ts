@@ -6,7 +6,7 @@ export enum NavigationItemType {
     Dropdown = 'dropdown',
     Button = 'button',
     Social = 'social',
-    Github = 'github',
+    GithubStars = 'github-stars',
 }
 
 export interface NavigationItemBase {
@@ -16,7 +16,7 @@ export interface NavigationItemBase {
 }
 
 export interface NavigationGithubButton extends Omit<NavigationItemBase, 'icon'> {
-    type: NavigationItemType.Github;
+    type: NavigationItemType.GithubStars;
     url: string;
     label?: string;
 }

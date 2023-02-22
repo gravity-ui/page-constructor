@@ -1,17 +1,17 @@
 import React from 'react';
 
-import {NavigationItemProps} from '../NavigationItem';
-import {Content} from './Content';
-import {ToggleArrow} from '../../../../components';
+import {NavigationItemProps} from '../../NavigationItem';
+import {ContentWrapper} from '../ContentWrapper/ContentWrapper';
+import {ToggleArrow} from '../../../../../components';
 
-import {block} from '../../../../utils';
-import {getMediaImage} from '../../../../components/Media/Image/utils';
+import {block} from '../../../../../utils';
+import {getMediaImage} from '../../../../../components/Media/Image/utils';
 
-import {DropdownItemData} from '../../../../models';
+import {DropdownItemData} from '../../../../../models';
 
-import '../NavigationItem.scss';
+import './NavigationDropdown.scss';
 
-const b = block('navigation-item');
+const b = block('navigation-dropdown');
 
 const TOGGLE_ARROW_SIZE = 12;
 
@@ -27,9 +27,9 @@ export const NavigationDropdown: React.FC<NavigationDropdownProps> = ({
 
     return (
         <span {...props}>
-            <Content text={text} icon={iconData} />
+            <ContentWrapper text={text} icon={iconData} />
             <ToggleArrow
-                className={b('dropdown')}
+                className={b()}
                 size={TOGGLE_ARROW_SIZE}
                 type={'vertical'}
                 iconType="navigation"
