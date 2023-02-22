@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.16.4](https://github.com/gravity-ui/page-constructor/compare/v1.16.3...v1.16.4) (2023-02-22)
+
+
+### Bug Fixes
+
+* **BasicCard:** add target ([#162](https://github.com/gravity-ui/page-constructor/issues/162)) ([569038c](https://github.com/gravity-ui/page-constructor/commit/569038c8ef1c43b7c8b9d6462126997155605b4c))
+* do not set "rel: 'noopener noreferrer'" for local links ([#160](https://github.com/gravity-ui/page-constructor/issues/160)) ([81173a7](https://github.com/gravity-ui/page-constructor/commit/81173a7e237104463971a80e386f5bad37caa551))
+
 ## [1.16.3](https://github.com/gravity-ui/page-constructor/compare/v1.16.2...v1.16.3) (2023-02-17)
 
 
