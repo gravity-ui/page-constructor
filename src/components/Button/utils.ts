@@ -1,5 +1,7 @@
 import {ButtonSize, ButtonView} from '@gravity-ui/uikit';
 
+export const ICON_QA = 'button-icon';
+
 export type OldButtonTheme =
     | 'normal'
     | 'action'

@@ -168,21 +168,31 @@ export interface FileLinkProps extends ClassNameProps {
 }
 
 // buttons
-export interface ButtonProps extends AnalyticsEventsBase {
+export type ButtonTheme =
+    | ButtonView
+    | 'github'
+    | 'app-store'
+    | 'google-play'
+    | 'scale'
+    | 'monochrome';
+
+export interface ButtonProps {
     text: string;
     url: string;
     primary?: boolean;
     size?: ButtonSize;
-    theme?: ButtonView | 'github' | 'app-store' | 'google-play' | 'scale' | 'monochrome';
+    theme?: ButtonTheme;
     img?: ButtonImageProps | string;
     metrikaGoals?: MetrikaGoal;
     pixelEvents?: ButtonPixel;
     target?: string;
 }
 
+export type ButtonImagePosition = 'left' | 'right';
+
 export interface ButtonImageProps {
     url: string;
-    position?: 'left' | 'right';
+    position?: ButtonImagePosition;
     alt?: string;
 }
 

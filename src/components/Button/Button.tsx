@@ -3,7 +3,7 @@ import {Platform, Button as CommonButton, Icon, StoreBadge} from '@gravity-ui/ui
 
 import {block, setUrlTld} from '../../utils';
 import {ButtonProps as ButtonParams, DefaultEventNames} from '../../models';
-import {OldButtonSize, OldButtonTheme, toCommonSize, toCommonView} from './utils';
+import {OldButtonSize, OldButtonTheme, toCommonSize, toCommonView, ICON_QA} from './utils';
 import {LocaleContext} from '../../context/localeContext/localeContext';
 import {useMetrika} from '../../hooks/useMetrika';
 import {useAnalytics} from '../../hooks';
@@ -15,6 +15,7 @@ export interface ButtonProps extends Omit<ButtonParams, 'url'> {
     className?: string;
     url?: string;
     onClick?: () => void;
+    qa?: string;
 }
 
 const b = block('button-block');
@@ -70,7 +71,7 @@ const Button = (props: ButtonProps) => {
     let image = img && <img className={b('image')} src={buttonImg.url} alt={buttonImg.alt} />;
 
     if (theme === 'github') {
-        icon = <Icon className={b('icon')} data={Github} size={24} />;
+        icon = <Icon className={b('icon')} data={Github} size={24} qa={ICON_QA} />;
         image = undefined;
     }
 
