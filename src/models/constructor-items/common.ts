@@ -131,6 +131,7 @@ export interface BackgroundImageProps
     style?: CSSProperties;
     imageClassName?: string;
     hide?: boolean;
+    qa?: string;
 }
 
 //components props

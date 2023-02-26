@@ -8,11 +8,14 @@ import ImageBase from '../ImageBase/ImageBase';
 
 import i18n from './i18n';
 
+export const qaIdByDefault = 'anchor-component';
+
 export interface ImageProps extends Partial<ImageObjectProps>, Partial<ImageDeviceProps> {
     style?: CSSProperties;
     className?: string;
     onClick?: MouseEventHandler;
     containerClassName?: string;
+    qa?: string;
 }
 
 const checkWebP = (src: string) => {
@@ -32,6 +35,7 @@ const Image = (props: ImageProps) => {
         className,
         onClick,
         containerClassName,
+        qa = qaIdByDefault,
     } = props;
     const [imgLoadingError, setImgLoadingError] = useState(false);
 
@@ -48,7 +52,7 @@ const Image = (props: ImageProps) => {
         imgLoadingError;
 
     return (
-        <picture className={containerClassName}>
+        <picture className={containerClassName} data-qa={qa}>
             {mobile && (
                 <Fragment>
                     {!disableWebp && (
