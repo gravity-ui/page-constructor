@@ -10,6 +10,8 @@ import './BalancedMasonry.scss';
 
 const b = block('BalancedMasonry');
 
+export const columnQaId = 'column-balanced-mansory-component';
+
 export interface BalancedMasonryProps {
     className: string;
     columnClassName: string;
@@ -17,10 +19,11 @@ export interface BalancedMasonryProps {
     breakpointCols: {
         [key: number]: number;
     };
+    qa?: string;
 }
 
 const BalancedMasonry = (props: WithChildren<BalancedMasonryProps>) => {
-    const {className, columnClassName, children = [], breakpointCols} = props;
+    const {className, columnClassName, children = [], breakpointCols, qa} = props;
     const {isServer} = useContext(SSRContext);
     const getCurrentColumnsCount = useCallback(() => {
         const breakpoints = Object.entries(breakpointCols).sort(
@@ -121,7 +124,7 @@ const BalancedMasonry = (props: WithChildren<BalancedMasonryProps>) => {
     }, [balanceColumns, children]);
 
     return (
-        <div className={b(null, className)}>
+        <div className={b(null, className)} data-qa={qa}>
             <div className={b('hidden-container')} style={{width: `${100 / columnCount}%`}}>
                 <div ref={containerRef} className={b('hidden-list')}>
                     {children}
@@ -133,6 +136,7 @@ const BalancedMasonry = (props: WithChildren<BalancedMasonryProps>) => {
                     key={index}
                     className={columnClassName}
                     style={{width: `${100 / columnCount}%`}}
+                    data-qa={columnQaId}
                 >
                     {columnElements}
                 </div>
