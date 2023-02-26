@@ -1,4 +1,4 @@
-import {camelCase} from 'lodash';
+import {camelCase, flatten} from 'lodash';
 
 import {ConstructorBlock, CustomConfig, PCShareSocialNetwork, TextSize} from '../models';
 
@@ -41,7 +41,7 @@ const BLOCK_ELEMENTS = [
 
 const BLOCK_ELEMENTS_REGEX = `<(${BLOCK_ELEMENTS.join('|')})[^>]*>`;
 
-const QA_ATTRIBUTES_KEYS = ['container', 'content', 'wrapper', 'image', 'button'];
+const QA_ATTRIBUTES_KEYS = ['container', 'content', 'wrapper', 'image', 'button', 'animate'];
 
 export function getHeaderTag(size: TextSize) {
     switch (size) {
@@ -133,15 +133,17 @@ export const getShareLink = (
     }
 };
 
-export const getQaAttrubutes = (qa?: string, customKeys: Array<string> = []) => {
+export const getQaAttrubutes = (qa?: string, ...customKeys: (string | Array<string>)[]) => {
     const attributes: Record<string, string> = {};
 
     if (qa) {
-        const keys = QA_ATTRIBUTES_KEYS.concat(customKeys);
+        const keys = QA_ATTRIBUTES_KEYS.concat(flatten(customKeys));
 
         keys.forEach((key) => {
             attributes[camelCase(key)] = `${qa}-${key}`;
         });
+
+        attributes.default = qa;
     }
 
     return attributes;

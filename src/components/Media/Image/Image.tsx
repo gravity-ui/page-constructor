@@ -4,8 +4,8 @@ import _ from 'lodash';
 import {Interpolation, animated, config, useSpring} from 'react-spring';
 
 import SliderBlock from '../../../blocks/Slider/Slider';
-import {ImageProps, MediaComponentImageProps, SliderType} from '../../../models';
-import {block} from '../../../utils';
+import {ImageProps, MediaComponentImageProps, QAProps, SliderType} from '../../../models';
+import {block, getQaAttrubutes} from '../../../utils';
 import BackgroundImage from '../../BackgroundImage/BackgroundImage';
 import FullscreenImage from '../../FullscreenImage/FullscreenImage';
 import ImageView from '../../Image/Image';
@@ -26,7 +26,9 @@ interface InnerImageProps {
     hasVideoFallback: boolean;
 }
 
-type ImageAllProps = ImageAdditionProps & MediaComponentImageProps & InnerImageProps;
+type ImageAllProps = ImageAdditionProps & MediaComponentImageProps & InnerImageProps & QAProps;
+
+export const defaultAnimatedDivQa = 'animated-div';
 
 const Image = (props: ImageAllProps) => {
     const {
@@ -38,8 +40,17 @@ const Image = (props: ImageAllProps) => {
         hasVideoFallback,
         video,
         fullscreen,
+        qa,
     } = props;
 
+    const qaAttributes = getQaAttrubutes(
+        qa,
+        'fullscreen-image',
+        'animate',
+        'background-image',
+        'image-view',
+        'slider-block',
+    );
     const [scrollY, setScrollY] = useState(0);
     const [{springScrollY}, springSetScrollY] = useSpring(() => ({
         springScrollY: 0,
@@ -79,6 +90,7 @@ const Image = (props: ImageAllProps) => {
                 {...itemData}
                 imageClassName={imageClass}
                 imageStyle={{height}}
+                qa={qaAttributes.fullscreenImage}
             />
         );
     };
@@ -86,15 +98,27 @@ const Image = (props: ImageAllProps) => {
     const imageBackground = (oneImage: ImageProps) => {
         const imageData = getMediaImage(oneImage);
         return (
-            <animated.div style={{transform: parallaxInterpolate || 'none'}}>
-                <BackgroundImage {...imageData} className={imageClass} style={{height}} />
+            <animated.div style={{transform: parallaxInterpolate}} data-qa={qaAttributes.animate}>
+                <BackgroundImage
+                    {...imageData}
+                    className={imageClass}
+                    style={{height}}
+                    qa={qaAttributes.backgroundImage}
+                />
             </animated.div>
         );
     };
 
     const imageOnly = (oneImage: ImageProps) => {
         const imageData = getMediaImage(oneImage);
-        return <ImageView {...imageData} className={imageClass} style={{height}} />;
+        return (
+            <ImageView
+                {...imageData}
+                className={imageClass}
+                style={{height}}
+                qa={qaAttributes.imageView}
+            />
+        );
     };
 
     const imageSlider = (imageArray: ImageProps[]) => {

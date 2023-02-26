@@ -253,7 +253,7 @@ export interface MediaProps
     color?: string;
 }
 
-export interface BackgroundMediaProps extends MediaProps, Animatable {
+export interface BackgroundMediaProps extends MediaProps, Animatable, QAProps {
     fullWidthMedia?: boolean;
     className?: string;
     mediaClassName?: string;

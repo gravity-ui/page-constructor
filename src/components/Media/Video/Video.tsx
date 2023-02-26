@@ -1,7 +1,7 @@
 import React, {useEffect, useMemo, useRef} from 'react';
 
-import {MediaComponentVideoProps, MediaVideoType, PlayButtonProps} from '../../../models';
-import {block} from '../../../utils';
+import {MediaComponentVideoProps, MediaVideoType, PlayButtonProps, QAProps} from '../../../models';
+import {block, getQaAttrubutes} from '../../../utils';
 import ReactPlayerBlock from '../../ReactPlayer/ReactPlayer';
 
 import {getVideoTypesWithPriority} from './utils';
@@ -22,7 +22,10 @@ interface InnerVideoProps {
     hasVideoFallback: boolean;
 }
 
-export type VideoAllProps = VideoAdditionProps & MediaComponentVideoProps & InnerVideoProps;
+export type VideoAllProps = VideoAdditionProps &
+    MediaComponentVideoProps &
+    InnerVideoProps &
+    QAProps;
 
 const Video = (props: VideoAllProps) => {
     const {
@@ -37,7 +40,10 @@ const Video = (props: VideoAllProps) => {
         playVideo,
         setHasVideoFallback,
         hasVideoFallback,
+        qa,
     } = props;
+
+    const qaAttributes = getQaAttrubutes(qa, 'source');
 
     const ref = useRef<HTMLVideoElement>(null);
 
@@ -115,7 +121,11 @@ const Video = (props: VideoAllProps) => {
 
     const defaultVideoBlock = useMemo(() => {
         return video.src.length && !hasVideoFallback ? (
-            <div className={b('wrap', videoClassName)} style={{height}}>
+            <div
+                className={b('wrap', videoClassName)}
+                style={{height}}
+                data-qa={qaAttributes.default}
+            >
                 <video
                     disablePictureInPicture
                     playsInline
@@ -129,12 +139,20 @@ const Video = (props: VideoAllProps) => {
                     aria-label={video.ariaLabel}
                 >
                     {getVideoTypesWithPriority(video.src).map(({src, type}, index) => (
-                        <source key={index} src={src} type={type} />
+                        <source key={index} src={src} type={type} data-qa={qaAttributes.source} />
                     ))}
                 </video>
             </div>
         ) : null;
-    }, [video, videoClassName, hasVideoFallback, height]);
+    }, [
+        video.src,
+        video.ariaLabel,
+        hasVideoFallback,
+        videoClassName,
+        height,
+        qaAttributes.default,
+        qaAttributes.source,
+    ]);
 
     switch (video.type) {
         case MediaVideoType.Player:
