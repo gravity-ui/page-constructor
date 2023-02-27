@@ -15,9 +15,7 @@ type NavigationButtonProps = Pick<NavigationItemProps, 'className'> & ButtonProp
 
 export const NavigationButton: React.FC<NavigationButtonProps> = (props) => {
     const {url, target, className} = props;
-
     const classes = b(null, className);
-
     return target ? (
         <Button className={classes} {...props} url={url} />
     ) : (

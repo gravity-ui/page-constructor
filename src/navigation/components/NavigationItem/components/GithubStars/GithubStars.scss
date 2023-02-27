@@ -5,8 +5,11 @@ $block: '.#{$ns}github-stars';
 #{$block} {
     display: flex;
     align-items: center;
+    height: 100%;
 
-    &.pc-header__button {
-        margin-top: 3px;
+    span {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
 }

@@ -74,6 +74,7 @@ $block: '.#{$ns}header';
 
     &__buttons {
         display: flex;
+        align-items: center;
         @include desktop-only();
 
         & > * {
