@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.18.1](https://github.com/gravity-ui/page-constructor/compare/v1.18.0...v1.18.1) (2023-02-28)
+
+
+### Bug Fixes
+
+* add mixin for navigation item and refactor ([#179](https://github.com/gravity-ui/page-constructor/issues/179)) ([3709fcd](https://github.com/gravity-ui/page-constructor/commit/3709fcdcaa2149ed287fb9ef0250dfca1181c842))
+
 ## [1.18.0](https://github.com/gravity-ui/page-constructor/compare/v1.17.0...v1.18.0) (2023-02-28)
 
 
