@@ -53,14 +53,12 @@ export const Constructor = (props: PageConstructorProps) => {
                 blockTypes: [...BlockTypes, ...getCustomBlockTypes(props.custom)],
                 subBlockTypes: [...SubBlockTypes, ...getCustomSubBlockTypes(props.custom)],
                 headerBlockTypes: [...HeaderBlockTypes, ...getCustomHeaderTypes(props.custom)],
-
                 itemMap: {
                     ...blockMap,
                     ...subBlockMap,
                     ...getCustomItems(props.custom),
                 },
                 loadables: props?.custom?.loadable,
-
                 itemWrappers,
             },
         }),
