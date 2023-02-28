@@ -30,10 +30,10 @@ import {
     BlockHeaderProps,
     ImageDeviceProps,
 } from './common';
-import { ThemeSupporting } from '../../utils';
-import { GridColumnSize, GridColumnSizesType } from '../../grid/types';
-import { BannerCardProps, SubBlock } from './sub-blocks';
-import { ButtonSize } from '@gravity-ui/uikit';
+import {ThemeSupporting} from '../../utils';
+import {GridColumnSize, GridColumnSizesType} from '../../grid/types';
+import {BannerCardProps, SubBlock} from './sub-blocks';
+import {ButtonSize} from '@gravity-ui/uikit';
 
 export enum BlockType {
     PromoFeaturesBlock = 'promo-features-block',
@@ -211,7 +211,7 @@ export interface QuestionsProps
     items: QuestionItem[];
 }
 
-export interface BannerBlockProps extends BannerCardProps, Animatable { }
+export interface BannerBlockProps extends BannerCardProps, Animatable {}
 
 export interface CompaniesBlockProps extends Animatable {
     title: string;

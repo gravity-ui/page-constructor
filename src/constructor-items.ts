@@ -1,4 +1,4 @@
-import { BlockType, SubBlockType } from './models';
+import {BlockType, SubBlockType} from './models';
 
 import {
     Partner,
@@ -43,7 +43,7 @@ import {
 
 import withCardLayoutItem from './blocks/CardLayout/withCardLayoutItem';
 import withFilterableItem from './blocks/FilterBlock/withFilterableItem';
-import { withConstructorBlock } from './containers/PageConstructor/components/ConstructorBlock';
+import {withConstructorBlock} from './containers/PageConstructor/components/ConstructorBlock';
 
 export const blockMap = {
     [BlockType.SliderBlock]: SliderBlock,
