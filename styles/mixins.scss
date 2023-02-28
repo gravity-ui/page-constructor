@@ -480,3 +480,13 @@ unpredictable css rules order in build */
         color: var(--yc-color-text-link);
     }
 }
+
+@mixin monochromeButton() {
+    --yc-button-background-color: var(--pc-monochrome-button-background-color);
+    --yc-button-background-color-hover: var(--pc-monochrome-button-background-color-hover);
+    color: var(--pc-monochrome-button-color);
+
+    &:hover {
+        color: var(--pc-monochrome-button-color);
+    }
+}
