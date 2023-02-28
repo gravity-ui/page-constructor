@@ -1,8 +1,4 @@
-@import '../../../../styles/variables';
-
-$block: '.#{$ns}navigation-item';
-
-#{$block} {
+@mixin navigation-item-display {
     position: relative;
 
     display: flex;

@@ -1,8 +1,11 @@
 @import '../../../../../../styles/variables';
+@import '../../mixins';
 
 $block: '.#{$ns}github-stars';
 
 #{$block} {
+    @include navigation-item-display();
+
     display: flex;
     align-items: center;
     height: 100%;

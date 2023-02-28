@@ -1,10 +1,12 @@
 @import '../../../../../../styles/variables';
 @import '../../../../../../styles/mixins';
+@import '../../mixins';
 
 $block: '.#{$ns}navigation-link';
 
 #{$block} {
     @include navigation-item();
+    @include navigation-item-display();
 
     &__arrow {
         position: relative;

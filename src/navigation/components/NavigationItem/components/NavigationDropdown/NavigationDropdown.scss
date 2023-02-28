@@ -1,9 +1,14 @@
 @import '../../../../../../styles/variables';
+@import '../../mixins';
 
 $block: '.#{$ns}navigation-dropdown';
 
 #{$block} {
-    margin-left: 7px;
+    @include navigation-item-display();
 
-    color: var(--yc-color-text-secondary);
+    &__arrow {
+        margin-left: 7px;
+
+        color: var(--yc-color-text-secondary);
+    }
 }
