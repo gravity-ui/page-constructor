@@ -15,7 +15,6 @@ export interface InnerContextType {
     headerBlockTypes: string[];
     itemMap: ItemMap;
     loadables?: LoadableConfig;
-
     itemWrappers: ItemWrapper[];
 }
 
@@ -25,7 +24,6 @@ export const InnerContext = React.createContext<InnerContextType>({
     blockTypes: [],
     subBlockTypes: [],
     headerBlockTypes: [],
-
     itemMap: {} as ItemMap,
     itemWrappers: [],
 });

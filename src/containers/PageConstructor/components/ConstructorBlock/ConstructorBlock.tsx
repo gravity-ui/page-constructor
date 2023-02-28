@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Block} from '../../../../models';
+import {Block, WithChildren} from '../../../../models';
 import BlockBase from '../../../../components/BlockBase/BlockBase';
 import {block} from '../../../../utils';
 import {ItemWrapper} from '../../../../context/innerContext';
@@ -10,7 +10,7 @@ interface ConstructorBlockProps {
     data: Block;
 }
 
-const ConstructorBlock: React.FC<ConstructorBlockProps> = ({data, children}) => {
+const ConstructorBlock: React.FC<WithChildren<ConstructorBlockProps>> = ({data, children}) => {
     const {anchor, visible, type} = data;
 
     return (

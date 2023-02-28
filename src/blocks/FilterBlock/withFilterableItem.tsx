@@ -1,12 +1,13 @@
 import React, {Fragment} from 'react';
 import {ItemWrapper} from 'src/context/innerContext';
 import {useFilterBlockContext} from './FilterBlockContext';
+import {WithChildren} from '../../models';
 
 type FilterableItemProps = {
     tags: string[];
 };
 
-const FilterableItem: React.FC<FilterableItemProps> = ({tags, children}) => {
+const FilterableItem: React.FC<WithChildren<FilterableItemProps>> = ({tags, children}) => {
     const {selectedTag} = useFilterBlockContext();
 
     return selectedTag && tags && !tags.includes(selectedTag) ? null : (

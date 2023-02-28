@@ -4,9 +4,9 @@ import {block} from '../../utils';
 import {CardLayoutBlockProps as CardLayoutBlockParams} from '../../models';
 import {Row} from '../../grid';
 import {BlockHeader, AnimateBlock} from '../../components';
+import CardLayoutContext, {DEFAULT_SIZES} from './CardLayoutContext';
 
 import './CardLayout.scss';
-import CardLayoutContext, {DEFAULT_SIZES} from './CardLayoutContext';
 
 export interface CardLayoutBlockProps extends Omit<CardLayoutBlockParams, 'children'> {
     children?: React.ReactNode;

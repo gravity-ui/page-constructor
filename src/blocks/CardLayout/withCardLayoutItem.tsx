@@ -3,10 +3,11 @@ import {useCardLayoutContext} from './CardLayoutContext';
 import {block} from '../../utils';
 import {Col} from '../../grid';
 import {ItemWrapper} from '../../context/innerContext';
+import {WithChildren} from '../../models';
 
 const b = block('card-layout-block');
 
-const CardLayoutItem: React.FC = ({children}) => {
+const CardLayoutItem: React.FC<WithChildren> = ({children}) => {
     const context = useCardLayoutContext();
 
     return context ? (
