@@ -23,6 +23,7 @@ import {
     IconsBlock,
     CardLayoutBlock,
     ShareBlock,
+    MapBlock,
 } from './validators/blocks';
 
 import {
@@ -70,6 +71,7 @@ export function generateDefaultSchema(config?: SchemaCustomConfig) {
         ...BannerBlock,
         ...CompaniesBlock,
         ...MediaBlock,
+        ...MapBlock,
         ...InfoBlock,
         ...SecurityBlock,
         ...TableBlock,

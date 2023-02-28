@@ -6,6 +6,7 @@ export * from '../../blocks/Simple/schema';
 export * from '../../blocks/Header/schema';
 export * from '../../blocks/Info/schema';
 export * from '../../blocks/Media/schema';
+export * from '../../blocks/Map/schema';
 export * from '../../blocks/Questions/schema';
 export * from '../../blocks/Security/schema';
 export * from '../../blocks/Slider/schema';

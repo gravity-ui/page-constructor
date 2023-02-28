@@ -21,6 +21,7 @@ import {
     CompaniesBlock,
     SimpleBlock,
     MediaBlock,
+    MapBlock,
     PreviewBlock,
     InfoBlock,
     SecurityBlock,
@@ -60,6 +61,7 @@ export const blockMap = {
     [BlockType.CardLayoutBlock]: CardLayoutBlock,
     [BlockType.ContentLayoutBlock]: ContentLayoutBlock,
     [BlockType.ShareBlock]: ShareBlock,
+    [BlockType.MapBlock]: MapBlock,
 };
 
 export const subBlockMap = {
