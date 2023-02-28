@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.17.0](https://github.com/gravity-ui/page-constructor/compare/v1.16.4...v1.17.0) (2023-02-28)
+
+
+### Features
+
+* **Navigation:** add github star button in navigation ([#159](https://github.com/gravity-ui/page-constructor/issues/159)) ([829d358](https://github.com/gravity-ui/page-constructor/commit/829d3582772378940993c4f676fe08676693266a))
+
+
+### Bug Fixes
+
+* remove background from Overlowscroller ([#153](https://github.com/gravity-ui/page-constructor/issues/153)) ([652adfa](https://github.com/gravity-ui/page-constructor/commit/652adfaf92156e1f96a9292d034c5139aac7894c))
+
 ## [1.16.4](https://github.com/gravity-ui/page-constructor/compare/v1.16.3...v1.16.4) (2023-02-22)
 
 
