@@ -8,6 +8,7 @@ import './OverflowScroller.scss';
 
 const b = block('overflow-scroller');
 const TRANSITION_TIME = 300;
+const PADDING_SIZE = 24;
 
 type Arrow = 'left' | 'right';
 
@@ -27,7 +28,7 @@ export default class OverflowScroller extends React.Component<
     OverflowScrollerState
 > {
     state = {
-        arrows: [],
+        arrows: [] as Arrow[],
         scrollValue: 0,
     };
     containerRef = createRef<HTMLDivElement>();
@@ -57,16 +58,25 @@ export default class OverflowScroller extends React.Component<
         const {className, children} = this.props;
         const {arrows, scrollValue} = this.state;
         const wrapperStyle = arrows.length ? {left: -scrollValue} : {left: 0};
+        const paddingLeft = arrows.includes('left');
+        const paddingRight = arrows.includes('right');
 
         return (
-            <div className={b(null, className)} ref={this.containerRef}>
-                <div className={b('wrapper')} style={wrapperStyle} ref={this.wrapperRef}>
-                    {children}
+            <div
+                className={b('container', {
+                    'padding-left': paddingLeft,
+                    'padding-right': paddingRight,
+                })}
+            >
+                <div className={b(null, className)} ref={this.containerRef}>
+                    <div className={b('wrapper')} style={wrapperStyle} ref={this.wrapperRef}>
+                        {children}
+                    </div>
                 </div>
                 {arrows.map((direction: Arrow) => (
                     <div
                         key={direction}
-                        className={b('scroller', {type: direction})}
+                        className={b('arrow', {type: direction})}
                         onClick={(e: React.MouseEvent) => this.handleScrollClick(e, direction)}
                     >
                         <ToggleArrow size={18} type={'horizontal'} iconType="navigation" />
@@ -94,7 +104,7 @@ export default class OverflowScroller extends React.Component<
     }, 100);
 
     private handleScrollClick = (e: React.MouseEvent, arrow: Arrow) => {
-        const {scrollValue} = this.state;
+        const {scrollValue, arrows} = this.state;
         const {onScrollStart} = this.props;
 
         if (
@@ -107,8 +117,11 @@ export default class OverflowScroller extends React.Component<
             const wrapperWidth = this.wrapperRef.current.offsetWidth;
             const hiddenWidth =
                 arrow === 'right' ? wrapperWidth - (containerWidth + scrollValue) : scrollValue;
+            const padding =
+                arrows.length > 1 && hiddenWidth + PADDING_SIZE > containerWidth ? PADDING_SIZE : 0;
             const delta = containerWidth > hiddenWidth ? hiddenWidth : containerWidth;
-            const newScrollValue = arrow === 'right' ? scrollValue + delta : scrollValue - delta;
+            const newScrollValue =
+                arrow === 'right' ? scrollValue + delta + padding : scrollValue - delta - padding;
             let newArrows: Arrow[] = ['left', 'right'];
 
             if (newScrollValue + containerWidth >= wrapperWidth) {
