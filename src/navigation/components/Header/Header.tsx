@@ -93,11 +93,7 @@ export const Header: React.FC<HeaderProps> = ({data, logo}) => {
                             {rightItems && (
                                 <div className={b('buttons')}>
                                     {rightItems.map((button) => (
-                                        <NavigationItem
-                                            key={button.text}
-                                            data={button}
-                                            className={b('button')}
-                                        />
+                                        <NavigationItem key={button.text} data={button} />
                                     ))}
                                 </div>
                             )}

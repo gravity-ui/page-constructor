@@ -1,0 +1,9 @@
+@import '../../../../../../styles/variables';
+
+$block: '.#{$ns}navigation-dropdown';
+
+#{$block} {
+    margin-left: 7px;
+
+    color: var(--yc-color-text-secondary);
+}

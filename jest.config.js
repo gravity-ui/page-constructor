@@ -5,7 +5,7 @@ module.exports = {
     transform: {
         '^.+\\.[jt]sx?$': 'ts-jest',
     },
-    transformIgnorePatterns: ['node_modules/(?!(@gravity-ui)/)'],
+    transformIgnorePatterns: ['node_modules/(?!(@gravity-ui|react-github-btn)/)'],
     coverageDirectory: './coverage',
     collectCoverageFrom: [
         'src/blocks/**/*.{ts,tsx,js,jsx}',

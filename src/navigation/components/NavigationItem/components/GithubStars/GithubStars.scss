@@ -1,0 +1,15 @@
+@import '../../../../../../styles/variables';
+
+$block: '.#{$ns}github-stars';
+
+#{$block} {
+    display: flex;
+    align-items: center;
+    height: 100%;
+
+    span {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}

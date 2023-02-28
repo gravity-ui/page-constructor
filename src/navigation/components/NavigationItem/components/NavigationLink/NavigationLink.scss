@@ -1,0 +1,17 @@
+@import '../../../../../../styles/variables';
+@import '../../../../../../styles/mixins';
+
+$block: '.#{$ns}navigation-link';
+
+#{$block} {
+    @include navigation-item();
+
+    &__arrow {
+        position: relative;
+        top: -2px;
+
+        width: 9px;
+        height: 9px;
+        margin-left: 5px;
+    }
+}
