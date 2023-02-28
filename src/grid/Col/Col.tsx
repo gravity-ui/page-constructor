@@ -5,6 +5,8 @@ import {WithChildren} from '../../models/react';
 import {GridColumnClassParams} from '../types';
 import {getColClass} from '../utils';
 
+const COLUMN_ROLE = 'pc-column';
+
 export interface GridColumnProps extends GridColumnClassParams, Refable<HTMLDivElement> {
     style?: CSSProperties;
     dataQa?: string;
@@ -15,7 +17,13 @@ export const Col = forwardRef<HTMLDivElement, WithChildren<GridColumnProps>>((pr
     const {children, style, dataQa, ...rest} = props;
 
     return (
-        <div ref={ref} className={getColClass(rest)} style={style} data-qa={dataQa}>
+        <div
+            role={COLUMN_ROLE}
+            ref={ref}
+            className={getColClass(rest)}
+            style={style}
+            data-qa={dataQa}
+        >
             {children}
         </div>
     );

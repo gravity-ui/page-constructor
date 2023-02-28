@@ -12,6 +12,7 @@ const b = block('block-header');
 
 export interface BlockHeaderProps extends BlockHeaderParams {
     colSizes?: GridColumnSizesType;
+    qa?: string;
 }
 
 const BlockHeader = ({
@@ -19,6 +20,7 @@ const BlockHeader = ({
     description,
     className,
     colSizes = {all: 12, sm: 8},
+    qa,
 }: BlockHeaderProps & ClassNameProps) => {
     if (!title && !description) {
         return null;
@@ -28,7 +30,7 @@ const BlockHeader = ({
         !title || typeof title === 'string' ? ({text: title} as TitleProps) : title;
 
     return (
-        <div className={b(null, className)}>
+        <div className={b(null, className)} data-qa={qa}>
             {text && (
                 <Col reset sizes={colSizes}>
                     <Title text={text} {...titleProps} />

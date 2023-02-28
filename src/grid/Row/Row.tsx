@@ -3,6 +3,8 @@ import React, {forwardRef, useCallback} from 'react';
 import {Refable} from '../../models/common';
 import {GridAlignItems, GridJustifyContent} from '../types';
 
+const ROW_ROLE = 'pc-row';
+
 export interface RowProps extends Refable<HTMLDivElement> {
     className?: string;
     justifyContent?: GridJustifyContent;
@@ -22,7 +24,7 @@ export const Row = forwardRef<HTMLDivElement, RowProps>((props, ref) => {
     }, [className, justifyContent, alignItems, noGutter]);
 
     return (
-        <div ref={ref} className={getClassName()} style={style}>
+        <div role={ROW_ROLE} ref={ref} className={getClassName()} style={style}>
             {children}
         </div>
     );
