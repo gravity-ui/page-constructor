@@ -5,6 +5,7 @@ import CardLayout from '../CardLayout';
 import {
     CardLayoutBlockModel,
     CardLayoutBlockProps,
+    CardWithImageModel,
     CardWithImageProps,
     SubBlockModels,
 } from '../../../models';
@@ -17,7 +18,10 @@ export default {
     component: CardLayout,
 } as Meta;
 
-const createCardArray = (count: number, card: CardWithImageProps) => new Array(count).fill(card);
+const createCardArray: (count: number, shared: Partial<CardWithImageProps>) => SubBlockModels[] = (
+    count,
+    shared,
+) => Array.from({length: count}, () => ({...shared} as CardWithImageModel));
 
 const DefaultTemplate: Story<CardLayoutBlockModel> = (args) => (
     <PageConstructor content={{blocks: [args]}} />

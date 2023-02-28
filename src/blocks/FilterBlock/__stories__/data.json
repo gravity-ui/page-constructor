@@ -1,0 +1,29 @@
+{
+  "default": {
+    "card": {
+      "type": "card-with-image",
+      "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-mini_4-12_light.png",
+      "title": "Lorem&nbsp;ipsum",
+      "description": "Dolor sit amet"
+    },
+    "content": {
+      "type": "card-layout-block",
+      "title": "Card Layout",
+      "description": "Three cards in a row on the desktop, two cards in a row on a tablet, one card in a row on a mobile phone."
+    },
+    "filters": [
+      {
+        "id": "one",
+        "label": "First very long label"
+      },
+      {
+        "id": "two",
+        "label": "Second very long label"
+      },
+      {
+        "id": "three",
+        "label": "Third very long label"
+      }
+    ]
+  }
+}

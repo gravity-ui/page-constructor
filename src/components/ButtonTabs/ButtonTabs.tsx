@@ -1,6 +1,7 @@
 import React, {useCallback, useMemo} from 'react';
-import {block} from '../../utils';
+import {ButtonSize} from '@gravity-ui/uikit';
 
+import {block} from '../../utils';
 import {ButtonProps} from '../../models';
 import {Button} from '../index';
 
@@ -19,11 +20,16 @@ export interface ButtonTabsProps {
     items: ButtonTabsItemProps[];
     activeTab?: string;
     onSelectTab?: (tabId: string) => void;
+    tabSize?: ButtonSize;
 }
 
-const ButtonTabs = (props: ButtonTabsProps) => {
-    const {className, items, activeTab, onSelectTab} = props;
-
+const ButtonTabs: React.FC<ButtonTabsProps> = ({
+    className,
+    items,
+    activeTab,
+    onSelectTab,
+    tabSize = 'l',
+}) => {
     const activeTabId: string = useMemo(() => {
         if (activeTab) {
             return activeTab;
@@ -43,20 +49,16 @@ const ButtonTabs = (props: ButtonTabsProps) => {
 
     return (
         <div className={b(null, className)}>
-            {items.map((item) => {
-                const isActive = item.id === activeTabId;
-
-                return (
-                    <Button
-                        text={item.title}
-                        className={b('item', {active: isActive})}
-                        key={item.title}
-                        size={'l'}
-                        onClick={() => handleClick(item.id)}
-                        theme={isActive ? 'monochrome' : 'normal'}
-                    />
-                );
-            })}
+            {items.map(({id, title}) => (
+                <Button
+                    text={title}
+                    className={b('item')}
+                    key={title}
+                    size={tabSize}
+                    onClick={() => handleClick(id)}
+                    selected={id === activeTabId}
+                />
+            ))}
         </div>
     );
 };

@@ -29,6 +29,12 @@ export const getCustomItems = ({blocks = {}, headers = {}, subBlocks = {}}: Cust
     ...subBlocks,
 });
 
+export const getCustomSubBlockTypes = (customBlocks: CustomConfig = {}) => {
+    const {subBlocks = {}} = customBlocks;
+
+    return Object.keys(subBlocks);
+};
+
 export const getCustomHeaderTypes = (customBlocks: CustomConfig = {}) => {
     const {headers = {}} = customBlocks;
 

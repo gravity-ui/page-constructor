@@ -178,6 +178,7 @@ export interface ButtonProps extends AnalyticsEventsBase {
     metrikaGoals?: MetrikaGoal;
     pixelEvents?: ButtonPixel;
     target?: string;
+    selected?: boolean;
 }
 
 export interface ButtonImageProps {
@@ -350,6 +351,7 @@ export type CardBorder = 'shadow' | 'line' | 'none';
 
 export interface CardBaseProps {
     border?: CardBorder;
+    tags?: string[];
 }
 
 //price

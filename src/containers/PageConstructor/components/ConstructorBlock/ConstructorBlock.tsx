@@ -1,27 +1,36 @@
-import React, {ReactElement} from 'react';
+import React from 'react';
 
-import {Block, ShouldRenderBlock} from '../../../../models';
+import {Block} from '../../../../models';
 import BlockBase from '../../../../components/BlockBase/BlockBase';
 import {block} from '../../../../utils';
+import {ItemWrapper} from '../../../../context/innerContext';
 
 const b = block('constructor-block');
 interface ConstructorBlockProps {
     data: Block;
-    Component: ReactElement;
-    shouldRenderBlock?: ShouldRenderBlock;
 }
 
-export const ConstructorBlock = ({data, Component}: ConstructorBlockProps) => {
-    const {anchor, visible} = data;
+const ConstructorBlock: React.FC<ConstructorBlockProps> = ({data, children}) => {
+    const {anchor, visible, type} = data;
 
     return (
         <BlockBase
-            className={b({type: data.type})}
+            className={b({type})}
             anchor={anchor}
             visible={visible}
             resetPaddings={data.resetPaddings}
         >
-            {Component}
+            {children}
         </BlockBase>
+    );
+};
+
+export const withConstructorBlock: ItemWrapper = (item, key, data, {blockTypes}) => {
+    return blockTypes.includes(data.type) ? (
+        <ConstructorBlock data={data as Block} key={key}>
+            {item}
+        </ConstructorBlock>
+    ) : (
+        item
     );
 };

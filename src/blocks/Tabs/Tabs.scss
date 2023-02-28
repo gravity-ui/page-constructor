@@ -19,6 +19,8 @@ $block: '.#{$ns}tabs-block';
     }
 
     &__tabs {
+        margin-bottom: $indentS;
+
         &_centered {
             display: flex;
             justify-content: center;

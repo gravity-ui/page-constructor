@@ -1,4 +1,4 @@
-import {BlockType, SubBlockType} from './models';
+import { BlockType, SubBlockType } from './models';
 
 import {
     Partner,
@@ -38,7 +38,12 @@ import {
     CardLayoutBlock,
     ContentLayoutBlock,
     ShareBlock,
+    FilterBlock,
 } from './blocks';
+
+import withCardLayoutItem from './blocks/CardLayout/withCardLayoutItem';
+import withFilterableItem from './blocks/FilterBlock/withFilterableItem';
+import { withConstructorBlock } from './containers/PageConstructor/components/ConstructorBlock';
 
 export const blockMap = {
     [BlockType.SliderBlock]: SliderBlock,
@@ -62,6 +67,7 @@ export const blockMap = {
     [BlockType.ContentLayoutBlock]: ContentLayoutBlock,
     [BlockType.ShareBlock]: ShareBlock,
     [BlockType.MapBlock]: MapBlock,
+    [BlockType.FilterBlock]: FilterBlock,
 };
 
 export const subBlockMap = {
@@ -88,3 +94,5 @@ export const subBlockMap = {
     [SubBlockType.Content]: Content,
     [SubBlockType.Quote]: Quote,
 };
+
+export const itemWrappers = [withConstructorBlock, withCardLayoutItem, withFilterableItem];

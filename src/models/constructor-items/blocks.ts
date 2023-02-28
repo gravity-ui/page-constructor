@@ -30,9 +30,10 @@ import {
     BlockHeaderProps,
     ImageDeviceProps,
 } from './common';
-import {ThemeSupporting} from '../../utils';
-import {GridColumnSize, GridColumnSizesType} from '../../grid/types';
-import {BannerCardProps, SubBlock} from './sub-blocks';
+import { ThemeSupporting } from '../../utils';
+import { GridColumnSize, GridColumnSizesType } from '../../grid/types';
+import { BannerCardProps, SubBlock } from './sub-blocks';
+import { ButtonSize } from '@gravity-ui/uikit';
 
 export enum BlockType {
     PromoFeaturesBlock = 'promo-features-block',
@@ -58,6 +59,7 @@ export enum BlockType {
     ContentLayoutBlock = 'content-layout-block',
     ShareBlock = 'share-block',
     MapBlock = 'map-block',
+    FilterBlock = 'filter-block',
 }
 
 export const BlockTypes = Object.values(BlockType);
@@ -209,7 +211,7 @@ export interface QuestionsProps
     items: QuestionItem[];
 }
 
-export interface BannerBlockProps extends BannerCardProps, Animatable {}
+export interface BannerBlockProps extends BannerCardProps, Animatable { }
 
 export interface CompaniesBlockProps extends Animatable {
     title: string;
@@ -324,6 +326,19 @@ export interface CardLayoutBlockProps extends Childable, Animatable, LoadableChi
     title: TitleProps | string;
     description?: string;
     colSizes?: GridColumnSizesType;
+}
+
+export type FilterTag = {
+    id: string;
+    label: string;
+};
+export interface FilterBlockProps extends Animatable, LoadableChildren {
+    title?: TitleProps | string;
+    description?: string;
+    filterTags?: FilterTag[];
+    tagSize?: ButtonSize;
+    allTag?: boolean | string;
+    child: EmbedBlock;
 }
 
 export interface IconsBlockProps {
@@ -450,6 +465,10 @@ export type CardLayoutBlockModel = {
     type: BlockType.CardLayoutBlock;
 } & CardLayoutBlockProps;
 
+export type FilterBlockModel = {
+    type: BlockType.FilterBlock;
+} & FilterBlockProps;
+
 export type IconsBlockModel = {
     type: BlockType.IconsBlock;
 } & IconsBlockProps;
@@ -466,7 +485,7 @@ export type ShareBLockModel = {
     type: BlockType.ShareBlock;
 } & ShareBlockProps;
 
-type BlockModels =
+type EmbedBlockModels =
     | SliderBlockModel
     | ServiceDemoBlockModel
     | ExtendedFeaturesBlockModel
@@ -490,5 +509,9 @@ type BlockModels =
     | CardLayoutBlockModel
     | ContentLayoutBlockModel
     | ShareBLockModel;
+
+type BlockModels = EmbedBlockModels | FilterBlockModel;
+
+type EmbedBlock = EmbedBlockModels & BlockBaseProps;
 
 export type Block = BlockModels & BlockBaseProps;

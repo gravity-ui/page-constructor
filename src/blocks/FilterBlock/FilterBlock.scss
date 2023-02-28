@@ -1,0 +1,33 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
+
+$block: '.#{$ns}filter-block';
+$innerBlock: '.#{$ns}block-base';
+
+#{$block} {
+    &__tabs {
+        margin-bottom: 0;
+        margin-top: $indentSM;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        overflow: auto;
+
+        @media (max-width: map-get($gridBreakpoints, 'md')) {
+            margin-left: -$indentL;
+            margin-right: -$indentL;
+            padding-left: $indentL;
+            padding-right: $indentL - $indentXXXS;
+        }
+
+        @media (max-width: map-get($gridBreakpoints, 'sm')) {
+            margin-left: -$indentSM;
+            margin-right: -$indentSM;
+            padding-left: $indentSM;
+            padding-right: $indentXS;
+        }
+    }
+
+    --pc-first-block-indent: 0;
+    --pc-first-block-mobile-indent: 0;
+}

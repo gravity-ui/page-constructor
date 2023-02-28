@@ -10,8 +10,9 @@ import {
     CustomItems,
     BlockTypes,
     NavigationData,
+    SubBlockTypes,
 } from '../../models';
-import {blockMap, subBlockMap} from '../../constructor-items';
+import {blockMap, itemWrappers, subBlockMap} from '../../constructor-items';
 import {Grid} from '../../grid';
 import BackgroundMedia from '../../components/BackgroundMedia/BackgroundMedia';
 import {
@@ -20,6 +21,7 @@ import {
     getCustomHeaderTypes,
     getThemedValue,
     getCustomItems,
+    getCustomSubBlockTypes,
 } from '../../utils';
 import {AnimateContext} from '../../context/animateContext';
 import {InnerContext} from '../../context/innerContext';
@@ -45,18 +47,22 @@ export interface PageConstructorProps {
 }
 
 export const Constructor = (props: PageConstructorProps) => {
-    const {context, headerBlockTypes} = useMemo(
+    const {context} = useMemo(
         () => ({
             context: {
                 blockTypes: [...BlockTypes, ...getCustomBlockTypes(props.custom)],
+                subBlockTypes: [...SubBlockTypes, ...getCustomSubBlockTypes(props.custom)],
+                headerBlockTypes: [...HeaderBlockTypes, ...getCustomHeaderTypes(props.custom)],
+
                 itemMap: {
                     ...blockMap,
                     ...subBlockMap,
                     ...getCustomItems(props.custom),
                 },
                 loadables: props?.custom?.loadable,
+
+                itemWrappers,
             },
-            headerBlockTypes: [...HeaderBlockTypes, ...getCustomHeaderTypes(props.custom)],
         }),
         [props.custom],
     );
@@ -70,7 +76,7 @@ export const Constructor = (props: PageConstructorProps) => {
     } = props;
 
     const hasFootnotes = footnotes.length > 0;
-    const isHeaderBlock = (block: Block) => headerBlockTypes.includes(block.type);
+    const isHeaderBlock = (block: Block) => context.headerBlockTypes.includes(block.type);
     const header = blocks?.find(isHeaderBlock);
     const restBlocks = blocks?.filter((block) => !isHeaderBlock(block));
     const themedBackground = getThemedValue(background, theme);
