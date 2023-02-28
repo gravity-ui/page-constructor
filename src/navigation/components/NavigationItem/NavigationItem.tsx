@@ -1,6 +1,5 @@
 import React, {MouseEventHandler, useMemo} from 'react';
 
-import {block} from '../../../utils';
 import {NavigationItemType, NavigationItemData} from '../../../models';
 import SocialIcon from '../SocialIcon/SocialIcon';
 
@@ -8,10 +7,6 @@ import {NavigationButton} from './components/NavigationButton/NavigationButton';
 import {NavigationDropdown} from './components/NavigationDropdown/NavigationDropdown';
 import {NavigationLink} from './components/NavigationLink/NavigationLink';
 import {GithubStars} from './components/GithubStars/GithubStars';
-
-import './NavigationItem.scss';
-
-const b = block('navigation-item');
 
 export interface NavigationItemProps {
     data: NavigationItemData;
@@ -35,7 +30,7 @@ const NavigationItem: React.FC<NavigationItemProps> = ({data, className, ...prop
     const Component = NavigationItemsMap[type];
     const componentProps = useMemo(
         () => ({
-            className: b(null, className),
+            className,
             ...data,
             ...props,
         }),

@@ -21,15 +21,16 @@ export const NavigationDropdown: React.FC<NavigationDropdownProps> = ({
     text,
     icon,
     isOpened,
+    className,
     ...props
 }) => {
     const iconData = icon && getMediaImage(icon);
 
     return (
-        <span {...props}>
+        <span {...props} className={b(null, className)}>
             <ContentWrapper text={text} icon={iconData} />
             <ToggleArrow
-                className={b()}
+                className={b('arrow')}
                 size={TOGGLE_ARROW_SIZE}
                 type={'vertical'}
                 iconType="navigation"
