@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.18.0](https://github.com/gravity-ui/page-constructor/compare/v1.17.0...v1.18.0) (2023-02-28)
+
+
+### Features
+
+* monochrome mixin moved from 'Button.css' to 'mixins.css' ([#173](https://github.com/gravity-ui/page-constructor/issues/173)) ([6bb35cf](https://github.com/gravity-ui/page-constructor/commit/6bb35cfea50f7c62682404da02f594dd4f90a011))
+
 ## [1.17.0](https://github.com/gravity-ui/page-constructor/compare/v1.16.4...v1.17.0) (2023-02-28)
 
 
