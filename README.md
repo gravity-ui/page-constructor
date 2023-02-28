@@ -225,3 +225,12 @@ You can define environment variables for dev-mode in .env.development file withi
 npm ci
 npm run dev
 ```
+
+## Release flow
+
+When you receive the approval of your pull-request from the code owners and pass all the checks, please do the following:
+
+1. Squash and merge your PR (It is important to release a new version with Github-Actions)
+2. Wait until robot creates a PR with a new version of the package and information about your changes in CHANGELOG.md. You can see the process on [the Actions tab](https://github.com/gravity-ui/page-constructor/actions).
+3. Check your changes in CHANGELOG.md and approve robot's PR.
+4. Squash and merge PR. You can see release process on [the Actions tab](https://github.com/gravity-ui/page-constructor/actions).
