@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.19.0](https://github.com/gravity-ui/page-constructor/compare/v1.18.1...v1.19.0) (2023-02-28)
+
+
+### Features
+
+* add Map-block ([13874f7](https://github.com/gravity-ui/page-constructor/commit/13874f70edddc297c711a6e4eae7753ae04fd746))
+
 ## [1.18.1](https://github.com/gravity-ui/page-constructor/compare/v1.18.0...v1.18.1) (2023-02-28)
 
 
