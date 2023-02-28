@@ -1,21 +1,21 @@
-import React, {useMemo, useState} from 'react';
+import React, {Fragment, useMemo, useState} from 'react';
 
 import {block} from '../../utils';
-import {FilterBlockProps as FilterBlockParams} from '../../models';
+import {FilterBlockProps as FilterBlockParams, WithChildren} from '../../models';
 import {Row, Col} from '../../grid';
 import {BlockHeader, AnimateBlock} from '../../components';
 import ButtonTabs, {ButtonTabsItemProps} from '../../components/ButtonTabs/ButtonTabs';
 
-import FilterBlockContext, {FilterData} from './FilterBlockContext';
+import FilterBlockContext, {FilterData, useFilterBlockContext} from './FilterBlockContext';
 
 import './FilterBlock.scss';
+
+const b = block('filter-block');
+const DEFAULT_ALL_TAG_TITLE = 'All';
 
 export interface FilterableProps extends Omit<FilterBlockParams, 'child'> {
     children?: React.ReactNode;
 }
-
-const b = block('filter-block');
-const DEFAULT_ALL_TAG_TITLE = 'All';
 
 const FilterBlock: React.FC<FilterableProps> = ({
     title,
@@ -35,9 +35,8 @@ const FilterBlock: React.FC<FilterableProps> = ({
         return [...(allButton ? [allButton] : []), ...(otherButtons ? otherButtons : [])];
     }, [allTag, filterTags]);
 
-    const [selectedTag, setSelectedTag] = useState<string>(
-        tabButtons.length ? tabButtons[0].id : '',
-    );
+    const [selectedTag, setSelectedTag] = useState(tabButtons.length ? tabButtons[0].id : null);
+
     const data = useMemo<FilterData>(() => {
         const actualTag =
             tabButtons.length && !tabButtons.find((tab) => tab.id === selectedTag)
@@ -65,10 +64,22 @@ const FilterBlock: React.FC<FilterableProps> = ({
                     </Col>
                 </Row>
             )}
-            <Row>
+            <Row className={b('block-container')}>
                 <FilterBlockContext.Provider value={data}>{children}</FilterBlockContext.Provider>
             </Row>
         </AnimateBlock>
+    );
+};
+
+type FilterableItemProps = {
+    tags: string[];
+};
+
+export const FilterableItem: React.FC<WithChildren<FilterableItemProps>> = ({tags, children}) => {
+    const {selectedTag} = useFilterBlockContext();
+
+    return selectedTag && tags && !tags.includes(selectedTag) ? null : (
+        <Fragment>{children}</Fragment>
     );
 };
 

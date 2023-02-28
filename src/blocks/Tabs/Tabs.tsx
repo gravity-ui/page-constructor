@@ -26,7 +26,7 @@ export const TabsBlock = ({
     centered,
     direction = 'media-content',
 }: TabsBlockProps) => {
-    const [activeTab, setActiveTab] = useState(items[0].tabName);
+    const [activeTab, setActiveTab] = useState<string | null>(items[0].tabName);
     const [play, setPlay] = useState<boolean>(false);
     const {themeValue: theme} = useContext(ThemeValueContext);
     const tabs: ButtonTabsItemProps[] = items.map(({tabName}) => ({title: tabName, id: tabName}));

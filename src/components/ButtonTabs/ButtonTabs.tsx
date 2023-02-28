@@ -11,15 +11,15 @@ const b = block('button-tabs');
 
 export interface ButtonTabsItemProps
     extends Omit<ButtonProps, 'url' | 'primary' | 'target' | 'text'> {
-    id: string;
+    id: string | null;
     title: string;
 }
 
 export interface ButtonTabsProps {
     className?: string;
     items: ButtonTabsItemProps[];
-    activeTab?: string;
-    onSelectTab?: (tabId: string) => void;
+    activeTab?: string | null;
+    onSelectTab?: (tabId: string | null) => void;
     tabSize?: ButtonSize;
 }
 
@@ -30,7 +30,7 @@ const ButtonTabs: React.FC<ButtonTabsProps> = ({
     onSelectTab,
     tabSize = 'l',
 }) => {
-    const activeTabId: string = useMemo(() => {
+    const activeTabId: string | null = useMemo(() => {
         if (activeTab) {
             return activeTab;
         }
@@ -39,7 +39,7 @@ const ButtonTabs: React.FC<ButtonTabsProps> = ({
     }, [activeTab, items]);
 
     const handleClick = useCallback(
-        (tabId: string) => {
+        (tabId: string | null) => {
             if (onSelectTab) {
                 onSelectTab(tabId);
             }
@@ -52,11 +52,10 @@ const ButtonTabs: React.FC<ButtonTabsProps> = ({
             {items.map(({id, title}) => (
                 <Button
                     text={title}
-                    className={b('item')}
+                    className={b('item', {active: id === activeTabId})}
                     key={title}
                     size={tabSize}
                     onClick={() => handleClick(id)}
-                    selected={id === activeTabId}
                 />
             ))}
         </div>

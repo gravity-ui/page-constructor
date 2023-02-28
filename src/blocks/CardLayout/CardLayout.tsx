@@ -1,10 +1,10 @@
-import React, {useMemo} from 'react';
+import React, {Fragment, useMemo} from 'react';
 
 import {block} from '../../utils';
-import {CardLayoutBlockProps as CardLayoutBlockParams} from '../../models';
-import {Row} from '../../grid';
+import {CardLayoutBlockProps as CardLayoutBlockParams, WithChildren} from '../../models';
+import {Col, Row} from '../../grid';
 import {BlockHeader, AnimateBlock} from '../../components';
-import CardLayoutContext, {DEFAULT_SIZES} from './CardLayoutContext';
+import CardLayoutContext, {DEFAULT_SIZES, useCardLayoutContext} from './CardLayoutContext';
 
 import './CardLayout.scss';
 
@@ -30,6 +30,18 @@ const CardLayout = ({
                 <Row>{children}</Row>
             </CardLayoutContext.Provider>
         </AnimateBlock>
+    );
+};
+
+export const CardLayoutItem: React.FC<WithChildren> = ({children}) => {
+    const context = useCardLayoutContext();
+
+    return context ? (
+        <Col sizes={context.colSizes} className={b('item')}>
+            {children}
+        </Col>
+    ) : (
+        <Fragment>{children}</Fragment>
     );
 };
 

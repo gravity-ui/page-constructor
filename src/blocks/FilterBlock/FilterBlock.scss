@@ -28,6 +28,10 @@ $innerBlock: '.#{$ns}block-base';
         }
     }
 
+    .row &__block-container.row {
+        margin: 0px;
+    }
+
     --pc-first-block-indent: 0;
     --pc-first-block-mobile-indent: 0;
 }

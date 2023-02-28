@@ -26,7 +26,7 @@ $block: '.#{$ns}button-tabs';
         --yc-button-background-color-hover: var(--pc-tab-item-background-color-hover);
         @include button-text-color(var(--pc-tab-item-color));
 
-        &.yc-button_selected {
+        &_active {
             pointer-events: none;
 
             --yc-button-background-color: var(--pc-selected-tab-item-background-color);

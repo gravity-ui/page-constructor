@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 
 export type FilterData = {
-    selectedTag: string;
+    selectedTag: string | null;
 };
 
 const FilterBlockContext = React.createContext<FilterData>({selectedTag: ''});
