@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 
 import {block} from '../../utils';
 import {LayoutItemProps} from '../../models';
@@ -20,8 +20,10 @@ const LayoutItem = ({
     className,
     link,
 }: LayoutItemProps) => {
+    const wrapperClassName = b({'has-hover': Boolean(link)}, className);
+
     const itemBody = (
-        <div className={b(null, className)}>
+        <Fragment>
             {fullScreen && hasFullScreen(media) ? (
                 <FullScreenMedia showFullScreenIcon={showFullScreenIcon(media)}>
                     {({className: mediaClassName, ...fullScreenMediaProps} = {}) => (
@@ -44,10 +46,16 @@ const LayoutItem = ({
                     colSizes={{all: 12, md: 12}}
                 />
             </div>
-        </div>
+        </Fragment>
     );
 
-    return link ? <CardLinkWrapper {...link}>{itemBody}</CardLinkWrapper> : itemBody;
+    return link ? (
+        <CardLinkWrapper {...link} className={wrapperClassName}>
+            {itemBody}
+        </CardLinkWrapper>
+    ) : (
+        <div className={wrapperClassName}>{itemBody}</div>
+    );
 };
 
 export default LayoutItem;

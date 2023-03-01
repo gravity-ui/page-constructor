@@ -4,6 +4,10 @@
 $block: '.#{$ns}layout-item';
 
 #{$block} {
+    &_has-hover {
+        @include card-hover();
+    }
+
     &__media {
         width: 100%;
         display: block;
