@@ -2,13 +2,14 @@ import React, {Fragment, useContext} from 'react';
 import {Icon} from '@gravity-ui/uikit';
 
 import {block, getLinkProps, setUrlTld} from '../../utils';
-import {LinkProps, TextSize, ClassNameProps, WithChildren} from '../../models';
+import {LinkProps, TextSize, ClassNameProps, WithChildren, DefaultEventNames} from '../../models';
 import {Chevron} from '../../icons';
 import FileLink from '../FileLink/FileLink';
 import BackLink from '../BackLink/BackLink';
 import {LocaleContext} from '../../context/localeContext/localeContext';
 import {LocationContext} from '../../context/locationContext/locationContext';
 import {useMetrika} from '../../hooks/useMetrika';
+import {useAnalytics} from '../../hooks';
 
 import './Link.scss';
 
@@ -37,6 +38,7 @@ const LinkBlock = (props: WithChildren<LinkFullProps>) => {
         arrow,
         metrikaGoals,
         pixelEvents,
+        analyticsEvents,
         theme = 'file-link',
         colorTheme = 'light',
         textSize = 'm',
@@ -46,6 +48,7 @@ const LinkBlock = (props: WithChildren<LinkFullProps>) => {
     } = props;
 
     const handleMetrika = useMetrika();
+    const handleAnalytics = useAnalytics(DefaultEventNames.Link, url);
     const {hostname} = useContext(LocationContext);
     const {tld} = useContext(LocaleContext);
     const href = setUrlTld(props.url, tld);
@@ -53,6 +56,7 @@ const LinkBlock = (props: WithChildren<LinkFullProps>) => {
 
     const onClick = () => {
         handleMetrika({metrikaGoals, pixelEvents});
+        handleAnalytics(analyticsEvents);
     };
 
     const getLinkByType = () => {

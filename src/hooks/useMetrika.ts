@@ -3,6 +3,10 @@ import {MetrikaContext} from '../context/metrikaContext';
 import {ButtonPixel, MetrikaGoal, PixelEventType, PixelEvent} from '../models';
 import {isNewMetrikaFormat} from '../models/guards';
 
+// eslint-disable-next-line valid-jsdoc
+/**
+ * @deprecated Metrika will be deleted, which uses this logic
+ */
 function isButtonPixel(
     pixelEvents: string | string[] | PixelEvent | PixelEvent[] | ButtonPixel,
 ): pixelEvents is ButtonPixel {
@@ -13,11 +17,18 @@ function isButtonPixel(
     return false;
 }
 
+/**
+ * @deprecated Metrika will be deleted
+ */
 type UseMetrikaProps = {
     metrikaGoals?: MetrikaGoal;
     pixelEvents?: string | string[] | PixelEvent | PixelEvent[] | ButtonPixel;
 };
 
+// eslint-disable-next-line valid-jsdoc
+/**
+ * @deprecated useMetrika will be deleted
+ */
 export const useMetrika = () => {
     const {metrika, pixel} = useContext(MetrikaContext);
 

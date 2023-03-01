@@ -1,10 +1,11 @@
-import React, {useContext, FC, SVGProps} from 'react';
+import React, {useContext, FC, SVGProps, useCallback} from 'react';
 import {Icon, Button} from '@gravity-ui/uikit';
 
 import {block, getAbsolutePath, getShareLink} from '../../utils';
-import {ShareBlockProps} from '../../models';
+import {ShareBlockProps, DefaultEventNames} from '../../models';
 import {LocationContext} from '../../context/locationContext';
 import i18n from './i18n';
+import {useAnalytics} from '../../hooks';
 
 import {Facebook} from '../../icons/Facebook';
 import {Twitter} from '../../icons/Twitter';
@@ -30,6 +31,9 @@ const b = block('share-block');
 
 const Share = ({items, title}: ShareBlockProps) => {
     const {pathname, hostname} = useContext(LocationContext);
+    const handleAnalytics = useAnalytics(DefaultEventNames.ShareButton);
+
+    const handleButtonClick = useCallback(() => handleAnalytics(), [handleAnalytics]);
 
     return (
         <div className={b()}>
@@ -48,6 +52,7 @@ const Share = ({items, title}: ShareBlockProps) => {
                             target="_blank"
                             href={socialUrl}
                             className={b('item', {type: type.toLowerCase()})}
+                            onClick={handleButtonClick}
                         >
                             {icon && <Icon data={icon} size={24} className={b('icon', {type})} />}
                         </Button>

@@ -28,6 +28,7 @@ export const Media = (props: MediaAllProps) => {
         parallax = false,
         metrika,
         fullScreen,
+        analyticsEvents,
     } = props;
     const {
         className,
@@ -68,6 +69,7 @@ export const Media = (props: MediaAllProps) => {
                     videoClassName={videoClassName}
                     height={height}
                     metrika={metrika}
+                    analyticsEvents={analyticsEvents}
                     playVideo={playVideo}
                     previewImg={previewImg}
                     playButton={playButton}
@@ -108,6 +110,7 @@ export const Media = (props: MediaAllProps) => {
         hasVideoFallback,
         videoClassName,
         metrika,
+        analyticsEvents,
         playVideo,
         previewImg,
         playButton,

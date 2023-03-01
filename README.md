@@ -43,7 +43,8 @@ interface PageConstructorProviderProps {
   isMobile?: boolean; //A flag indicating that the code is executed in mobile mode.
   locale?: LocaleContextProps; //Info about the language and domain (used when generating and formatting links).
   location?: Location; //API of the browser or router history, the page URL.
-  metrika?: Metrika; //Functions for sending analytics
+  analytics?: AnalyticsContextProps; // function to handle analytics event
+
   ssrConfig?: SSR; //A flag indicating that the code is run on the server size.
   theme?: 'light' | 'dark'; //Theme to render the page with.
   mapsContext?: MapsContextType; //Params for map: apikey, type, scriptSrc, nonce
@@ -80,11 +81,6 @@ interface Locale {
 
 interface SSR {
   isServer?: boolean;
-}
-
-interface Metrika {
-  metrika?: any;
-  pixel?: any;
 }
 
 interface NavigationData {
@@ -218,6 +214,83 @@ To use maps, put the map type, scriptSrc and apiKey in field `mapContext` in `Pa
 
 You can define environment variables for dev-mode in .env.development file within project root.
 `STORYBOOK_GMAP_API_KEY` - apiKey for google maps
+
+### Analytics
+
+#### Init
+
+To start using any analytics, pass a handler to the constructor. The handler must be created on a project side. The handler will receive the `default` and `custom` event objects. The passed handler will be fired on a button, link, navigation, and control clicks. As one handler is used for all events treatment, pay attention to how to treat different events while creating the handler. There are predefined fields that serve to help you to build complex logic.
+
+Pass `autoEvents: true` to constructor to fire automatically configured events.
+
+```ts
+function sendEvents(events: MyEventType []) {
+  ...
+}
+
+<PageConstructorProvider
+    ...
+
+    analytics={{sendEvents, autoEvents: true}}
+
+    ...
+/>
+```
+
+An event object has only one required field - `name`. It also has predefined fields, which serve to help manage complex logic. For example, `counter.include` can help to send event in a particular counter if several analytics systems are used in a project.
+
+```ts
+type AnalyticsEvent<T = {}> = T & {
+  name: string;
+  type?: string;
+  counters?: AnalyticsCounters;
+  context?: string;
+};
+```
+
+It is possible to configure an event type needed for a project.
+
+```ts
+type MyEventType = AnalyticsEvent<{
+  [key: string]?: string; // only a 'string' type is supported
+}>;
+```
+
+#### Counter selector
+
+It is possible to configure an event to which an analytics system to sent.
+
+```ts
+type AnalyticsCounters = {
+  include?: string[]; // array of analytics counter ids that will be applied
+  exclude?: string[]; // array of analytics counter ids that will not be applied
+};
+```
+
+#### context parameter
+
+Pass `context` value to define place in a project where an event is fired.
+
+Use selector below or create logic that serves project needs.
+
+```ts
+// analyticsHandler.ts
+if (isCounterAllowed(counterName, counters)) {
+  analyticsCounter.reachGoal(counterName, name, parameters);
+}
+```
+
+#### Reserved event types
+
+Several predefined event types are used to mark automatically configured events. Use the types to filter default events, for example.
+
+```ts
+enum PredefinedEventTypes {
+  Default = 'default-event', // default events which fire on every button click
+  Play = 'play', // React player event
+  Stop = 'stop', // React player event
+}
+```
 
 ## Development
 

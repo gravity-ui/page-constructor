@@ -20,11 +20,15 @@ import {
     MediaVideoProps,
     MediaVideoControlsType,
     ReactPlayerBlockHandler,
+    AnalyticsEvent,
+    PredefinedEventTypes,
+    DefaultEventNames,
 } from '../../models';
 import CustomBarControls from './CustomBarControls';
 import {VideoContext} from '../../context/videoContext';
 import {MetrikaContext} from '../../context/metrikaContext';
 import {MobileContext} from '../../context/mobileContext';
+import {useAnalytics} from '../../hooks';
 import {PlayVideo} from '../../icons';
 
 import './ReactPlayer.scss';
@@ -68,6 +72,7 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
             showPreview,
             onClickPreview,
             metrika: videoMetrika,
+            analyticsEvents,
             height,
         } = props;
 
@@ -94,6 +99,15 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
         const [started, setStarted] = useState(autoPlay);
         const [paused, setPaused] = useState<boolean>(false);
         const [ended, setEnded] = useState<boolean>(false);
+
+        const eventsArray = useMemo(() => {
+            if (analyticsEvents) {
+                return Array.isArray(analyticsEvents) ? analyticsEvents : [analyticsEvents];
+            }
+
+            return [];
+        }, [analyticsEvents]);
+        const handleAnalytics = useAnalytics(DefaultEventNames.ReactPlayerControls);
 
         useImperativeHandle(originRef, () => ({
             pause: () => setIsPlaying(false),
@@ -154,6 +168,15 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
             };
         }, []);
 
+        const playEvents = useMemo(
+            () => eventsArray?.filter((e: AnalyticsEvent) => e.type === PredefinedEventTypes.Play),
+            [eventsArray],
+        );
+        const stopEvents = useMemo(
+            () => eventsArray?.filter((e: AnalyticsEvent) => e.type === PredefinedEventTypes.Stop),
+            [eventsArray],
+        );
+
         const playIcon = useMemo(() => {
             let playButtonContent;
 
@@ -190,6 +213,9 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
                     }
                 }
 
+                const events = isMuted ? playEvents : stopEvents;
+                handleAnalytics(events);
+
                 if (isMuted) {
                     setProps({playingVideoRef: ref.current});
                 }
@@ -197,7 +223,7 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
                 // In order to the progress bar to update (equals 0) before displaying
                 setTimeout(() => setMuted(!isMuted), 0);
             },
-            [playerRef, setProps, videoMetrika, metrika],
+            [playerRef, metrika, videoMetrika, handleAnalytics, playEvents, stopEvents, setProps],
         );
 
         const handleClick = useCallback(() => changeMute(muted), [changeMute, muted]);
@@ -213,7 +239,9 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
                     metrika.reachGoals(play, counterName);
                 }
             }
-        }, [onClickPreview, setIsPlaying, videoMetrika, metrika]);
+
+            handleAnalytics(playEvents);
+        }, [onClickPreview, metrika, videoMetrika, handleAnalytics, playEvents]);
 
         const onPause = useCallback(() => {
             // For support correct state for youtube
