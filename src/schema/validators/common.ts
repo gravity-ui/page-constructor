@@ -561,7 +561,7 @@ export const MapProps = {
     },
     markers: {
         type: 'array',
-        items: {type: YMapMarker},
+        items: YMapMarker,
     },
 };
 
