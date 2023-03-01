@@ -9,8 +9,6 @@ import {NavigationDropdown} from './components/NavigationDropdown/NavigationDrop
 import {NavigationLink} from './components/NavigationLink/NavigationLink';
 import {GithubStars} from './components/GithubStars/GithubStars';
 
-import './NavigationItem.scss';
-
 const ANALYTICS_ID = 'navigation';
 
 export interface NavigationItemProps {
