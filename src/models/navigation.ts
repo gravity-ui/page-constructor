@@ -6,19 +6,12 @@ export enum NavigationItemType {
     Dropdown = 'dropdown',
     Button = 'button',
     Social = 'social',
-    GithubStars = 'github-stars',
 }
 
 export interface NavigationItemBase {
     text: string;
     icon?: ImageProps;
     url?: string;
-}
-
-export interface NavigationGithubButton extends Omit<NavigationItemBase, 'icon'> {
-    type: NavigationItemType.GithubStars;
-    url: string;
-    label?: string;
 }
 
 export interface NavigationLinkItem extends Omit<NavigationItemBase, 'url'> {
@@ -46,15 +39,13 @@ export interface NavigationSocialItem extends Omit<NavigationItemBase, 'text'> {
 export type NavigationItemModel =
     | NavigationLinkItem
     | NavigationButtonItem
-    | NavigationDropdownItem
-    | NavigationGithubButton;
+    | NavigationDropdownItem;
 
 export type NavigationItemData =
     | NavigationLinkItem
     | NavigationButtonItem
     | NavigationSocialItem
-    | DropdownItemData
-    | NavigationGithubButton;
+    | DropdownItemData;
 
 export type DropdownItemData = Omit<NavigationDropdownItem, 'items'>;
 
