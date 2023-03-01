@@ -208,14 +208,13 @@ import {configure, Lang} from '@gravity-ui/page-constructor';
 configure({lang: Lang.En});
 ```
 
-<<<<<<< HEAD
 ### Maps
 
 To use maps, put the map type, scriptSrc and apiKey in field `mapContext` in `PageConstructorProvider`.
 
 You can define environment variables for dev-mode in .env.development file within project root.
 `STORYBOOK_GMAP_API_KEY` - apiKey for google maps
-=======
+
 ### Analytics
 
 #### Init
@@ -292,7 +291,6 @@ enum PredefinedEventTypes {
   Stop = 'stop', // React player event
 }
 ```
->>>>>>> e42a1c4... feat: analytics refactoring
 
 ## Development
 
