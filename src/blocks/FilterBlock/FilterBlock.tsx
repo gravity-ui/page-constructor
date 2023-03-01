@@ -28,7 +28,7 @@ const FilterBlock: React.FC<FilterableProps> = ({
 }) => {
     const tabButtons = useMemo(() => {
         const allButton: ButtonTabsItemProps | undefined = allTag
-            ? {id: '', title: typeof allTag === 'boolean' ? DEFAULT_ALL_TAG_TITLE : allTag}
+            ? {id: null, title: typeof allTag === 'boolean' ? DEFAULT_ALL_TAG_TITLE : allTag}
             : undefined;
         const otherButtons: ButtonTabsItemProps[] | undefined =
             filterTags && filterTags.map((tag) => ({id: tag.id, title: tag.label}));
