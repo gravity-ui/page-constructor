@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.19.1](https://github.com/gravity-ui/page-constructor/compare/v1.19.0...v1.19.1) (2023-03-01)
+
+
+### Bug Fixes
+
+* fix map block scheme ([8db1923](https://github.com/gravity-ui/page-constructor/commit/8db1923b315c793d349da868f9299feb983408be))
+
 ## [1.19.0](https://github.com/gravity-ui/page-constructor/compare/v1.18.1...v1.19.0) (2023-02-28)
 
 
