@@ -56,7 +56,5 @@ $block: '.#{$ns}card-base-block';
 }
 
 a#{$block} {
-    @include reset-link-style();
-    @include reset-link-hover();
     @include card($hover: true);
 }

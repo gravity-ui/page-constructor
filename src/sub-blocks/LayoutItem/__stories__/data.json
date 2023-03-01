@@ -49,5 +49,20 @@
         "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-mini_4-12_light.png"
       }
     }
+  },
+  "link": {
+    "content": {
+      "content": {
+        "title": "Lorem&nbsp;ipsum",
+        "text": "Dolor sit amet"
+      },
+      "link": {
+        "url": "https://example.com",
+        "target": "_blank"
+      },
+      "media": {
+        "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-mini_4-12_light.png"
+      }
+    }
   }
 }

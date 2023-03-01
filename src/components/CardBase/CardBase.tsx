@@ -2,29 +2,25 @@ import React, {Children, ReactElement, Fragment, HTMLAttributeAnchorTarget} from
 
 import {block} from '../../utils';
 import {
-    ButtonPixel,
     CardBaseProps as CardBaseParams,
     ImageProps,
-    MetrikaGoal,
     WithChildren,
+    AnalyticsEventsBase,
+    DeprecatedAnalytics,
 } from '../../models';
 import BackgroundImage from '../BackgroundImage/BackgroundImage';
-import RouterLink from '../RouterLink/RouterLink';
-import {useMetrika} from '../../hooks/useMetrika';
-import {AnalyticsEventsBase, DefaultEventNames} from '../../models/common';
-import {useAnalytics} from '../../hooks';
+
+import CardLinkWrapper from '../CardLinkWrapper/CardLinkWrapper';
 
 import './CardBase.scss';
 
-export interface CardBaseProps extends AnalyticsEventsBase, CardBaseParams {
+export interface CardBaseProps extends CardBaseParams, DeprecatedAnalytics, AnalyticsEventsBase {
     className?: string;
     bodyClassName?: string;
     contentClassName?: string;
     children: ReactElement | ReactElement[];
     url?: string;
     target?: HTMLAttributeAnchorTarget;
-    metrikaGoals?: MetrikaGoal;
-    pixelEvents?: ButtonPixel;
 }
 
 export interface CardHeaderBaseProps {
@@ -46,17 +42,14 @@ export const Layout = (props: CardBaseProps) => {
     const {
         className,
         bodyClassName,
-        metrikaGoals,
-        pixelEvents,
-        analyticsEvents,
         contentClassName,
+        metrikaGoals,
         children,
         url,
         target,
         border = 'shadow',
+        ...analytics
     } = props;
-    const handleMetrika = useMetrika();
-    const handleAnalytics = useAnalytics(DefaultEventNames.CardBase, url);
     let header, content, footer, image, headerClass, footerClass;
 
     function handleChild(child: ReactElement) {
@@ -101,25 +94,16 @@ export const Layout = (props: CardBaseProps) => {
 
     const fullClassName = b({border}, className);
 
-    const onClick = () => {
-        handleMetrika({metrikaGoals, pixelEvents});
-        handleAnalytics(analyticsEvents);
-    };
-
     return url ? (
-        <RouterLink href={url}>
-            <a
-                href={url}
-                target={target}
-                rel={target === '_blank' ? 'noopener noreferrer' : undefined}
-                className={fullClassName}
-                draggable={false}
-                onDragStart={(e) => e.preventDefault()}
-                onClick={onClick}
-            >
-                {cardContent}
-            </a>
-        </RouterLink>
+        <CardLinkWrapper
+            url={url}
+            target={target}
+            className={fullClassName}
+            metrikaGoals={metrikaGoals}
+            {...analytics}
+        >
+            {cardContent}
+        </CardLinkWrapper>
     ) : (
         <div className={fullClassName}>{cardContent}</div>
     );

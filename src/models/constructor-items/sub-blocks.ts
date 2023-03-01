@@ -7,6 +7,7 @@ import {
     ButtonPixel,
     ButtonProps,
     CardBaseProps,
+    CardLinkProps,
     ContentTheme,
     DividerSize,
     ImageObjectProps,
@@ -177,6 +178,7 @@ export interface LayoutItemProps extends ClassNameProps {
     metaInfo?: string[];
     border?: boolean;
     fullScreen?: boolean;
+    link?: CardLinkProps;
 }
 
 // sub-block models

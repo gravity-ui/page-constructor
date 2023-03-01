@@ -146,7 +146,16 @@ export interface MediaVideoProps extends AnalyticsEventsBase {
 }
 
 // links
-export interface LinkProps extends AnalyticsEventsBase, Stylable {
+
+/**
+ * @deprecated use AnalyticsEventsBase
+ */
+export interface DeprecatedAnalytics {
+    metrikaGoals?: MetrikaGoal;
+    pixelEvents?: ButtonPixel;
+}
+
+export interface LinkProps extends Stylable, AnalyticsEventsBase, DeprecatedAnalytics {
     url: string;
     text?: string;
     textSize?: TextSize;
@@ -154,8 +163,6 @@ export interface LinkProps extends AnalyticsEventsBase, Stylable {
     colorTheme?: TextTheme;
     arrow?: boolean;
     target?: string;
-    metrikaGoals?: MetrikaGoal;
-    pixelEvents?: ButtonPixel;
 }
 
 export interface FileLinkProps extends ClassNameProps {
@@ -166,6 +173,8 @@ export interface FileLinkProps extends ClassNameProps {
     theme?: ContentTheme;
     onClick?: () => void;
 }
+
+export type CardLinkProps = Pick<LinkProps, 'url' | 'target' | 'metrikaGoals' | 'pixelEvents' |'analyticsEvents'>;
 
 // buttons
 export interface ButtonProps extends AnalyticsEventsBase {
