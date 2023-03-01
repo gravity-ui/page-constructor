@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.20.0](https://github.com/gravity-ui/page-constructor/compare/v1.19.1...v1.20.0) (2023-03-01)
+
+
+### Features
+
+* new analytics ([#121](https://github.com/gravity-ui/page-constructor/issues/121)) ([cc329bc](https://github.com/gravity-ui/page-constructor/commit/cc329bcca9b11cd8a5fb2b4ff30791134ee09535))
+
 ## [1.19.1](https://github.com/gravity-ui/page-constructor/compare/v1.19.0...v1.19.1) (2023-03-01)
 
 
