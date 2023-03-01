@@ -43,7 +43,6 @@ export const Layout = (props: CardBaseProps) => {
         className,
         bodyClassName,
         contentClassName,
-        metrikaGoals,
         children,
         url,
         target,
@@ -95,13 +94,7 @@ export const Layout = (props: CardBaseProps) => {
     const fullClassName = b({border}, className);
 
     return url ? (
-        <CardLinkWrapper
-            url={url}
-            target={target}
-            className={fullClassName}
-            metrikaGoals={metrikaGoals}
-            {...analytics}
-        >
+        <CardLinkWrapper url={url} target={target} className={fullClassName} {...analytics}>
             {cardContent}
         </CardLinkWrapper>
     ) : (
