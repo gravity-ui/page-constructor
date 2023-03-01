@@ -495,31 +495,38 @@ export const MediaProps = {
 };
 
 export const YMapMarkerLabel = {
+    type: 'object',
     required: [],
-    iconCaption: {
-        type: 'string',
-    },
-    iconContent: {
-        type: 'string',
-    },
-    iconColor: {
-        type: 'string',
-    },
-    preset: {
-        type: 'string',
+    properties: {
+        iconCaption: {
+            type: 'string',
+        },
+        iconContent: {
+            type: 'string',
+        },
+        iconColor: {
+            type: 'string',
+        },
+        preset: {
+            type: 'string',
+        },
     },
 };
 
 export const YMapMarker = {
+    type: 'object',
+    additionalProperties: false,
     required: [],
-    coordinate: {
-        type: 'array',
-        items: {type: 'number'},
+    properties: {
+        coordinate: {
+            type: 'array',
+            items: {type: 'number'},
+        },
+        address: {
+            type: 'string',
+        },
+        label: YMapMarkerLabel,
     },
-    address: {
-        type: 'string',
-    },
-    label: YMapMarkerLabel,
 };
 
 export const MapProps = {
