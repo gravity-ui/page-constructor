@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.20.1](https://github.com/gravity-ui/page-constructor/compare/v1.20.0...v1.20.1) (2023-03-01)
+
+
+### Bug Fixes
+
+* uninstall react-github-btn because is hot support cjs ([#188](https://github.com/gravity-ui/page-constructor/issues/188)) ([e32a51a](https://github.com/gravity-ui/page-constructor/commit/e32a51ae17a31dea8037a89a30f4b080e2aacb2e))
+
 ## [1.20.0](https://github.com/gravity-ui/page-constructor/compare/v1.19.1...v1.20.0) (2023-03-01)
 
 
