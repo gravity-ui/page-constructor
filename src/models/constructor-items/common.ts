@@ -174,7 +174,10 @@ export interface FileLinkProps extends ClassNameProps {
     onClick?: () => void;
 }
 
-export type CardLinkProps = Pick<LinkProps, 'url' | 'target' | 'metrikaGoals' | 'pixelEvents' |'analyticsEvents'>;
+export type CardLinkProps = Pick<
+    LinkProps,
+    'url' | 'target' | 'metrikaGoals' | 'pixelEvents' | 'analyticsEvents'
+>;
 
 // buttons
 export interface ButtonProps extends AnalyticsEventsBase {

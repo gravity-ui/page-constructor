@@ -29,7 +29,7 @@ export const CardLinkWrapper = ({
 }: CardLinkWrapperProps) => {
     const handleMetrika = useMetrika();
     const handleAnalytics = useAnalytics(DefaultEventNames.CardBase, url);
-    
+
     const clickHandler = () => {
         handleMetrika({metrikaGoals, pixelEvents});
         handleAnalytics(analyticsEvents);
