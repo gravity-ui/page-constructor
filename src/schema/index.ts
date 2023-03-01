@@ -112,6 +112,7 @@ export function generateDefaultSchema(config?: SchemaCustomConfig) {
         'banner-block',
         'companies-block',
         'media-block',
+        'map-block',
         'info-block',
         'security-block',
         'table-block',
