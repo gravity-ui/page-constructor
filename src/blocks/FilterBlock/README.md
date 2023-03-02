@@ -8,10 +8,10 @@
 
 `tagSize: 's' | 'm' | 'l' | 'xl'` - Size of filter tags.
 
-`allTag: boolean | string` - Specifies whether to show the 'All' tag and what label to use. The 'All' label is used in case of the `true` value.
+`allTag: boolean | string` - Specifies whether to show the 'All' tag. If the value is a non-falsy string, the block uses the value as label for the `All` tag.
 
-`child: Block` — A Block whose children will be filtered.
+`items:` — Items, the block displays.
 
-The following blocks are currently supported:
+- `tags: string[]` - tags assigned to the card.
 
-- [`CardLayout`](?path=/story/blocks-cardlayout--default&viewMode=docs)
+- `card: SubBlock` - card to show.

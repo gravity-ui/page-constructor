@@ -12,7 +12,7 @@ import {
     NavigationData,
     SubBlockTypes,
 } from '../../models';
-import {blockMap, itemWrappers, subBlockMap} from '../../constructor-items';
+import {blockMap, subBlockMap} from '../../constructor-items';
 import {Grid} from '../../grid';
 import BackgroundMedia from '../../components/BackgroundMedia/BackgroundMedia';
 import {
@@ -47,31 +47,33 @@ export interface PageConstructorProps {
 }
 
 export const Constructor = (props: PageConstructorProps) => {
-    const {context} = useMemo(
-        () => ({
-            context: {
-                blockTypes: [...BlockTypes, ...getCustomBlockTypes(props.custom)],
-                subBlockTypes: [...SubBlockTypes, ...getCustomSubBlockTypes(props.custom)],
-                headerBlockTypes: [...HeaderBlockTypes, ...getCustomHeaderTypes(props.custom)],
-                itemMap: {
-                    ...blockMap,
-                    ...subBlockMap,
-                    ...getCustomItems(props.custom),
-                },
-                loadables: props?.custom?.loadable,
-                itemWrappers,
-            },
-        }),
-        [props.custom],
-    );
-
-    const {themeValue: theme} = useContext(ThemeValueContext);
     const {
         content: {blocks = [], background = {}, footnotes = []} = {},
         renderMenu,
         shouldRenderBlock,
         navigation,
+        custom,
     } = props;
+
+    const {context} = useMemo(
+        () => ({
+            context: {
+                blockTypes: [...BlockTypes, ...getCustomBlockTypes(custom)],
+                subBlockTypes: [...SubBlockTypes, ...getCustomSubBlockTypes(custom)],
+                headerBlockTypes: [...HeaderBlockTypes, ...getCustomHeaderTypes(custom)],
+                itemMap: {
+                    ...blockMap,
+                    ...subBlockMap,
+                    ...getCustomItems(custom),
+                },
+                loadables: custom?.loadable,
+                shouldRenderBlock,
+            },
+        }),
+        [custom, shouldRenderBlock],
+    );
+
+    const {themeValue: theme} = useContext(ThemeValueContext);
 
     const hasFootnotes = footnotes.length > 0;
     const isHeaderBlock = (block: Block) => context.headerBlockTypes.includes(block.type);
@@ -92,10 +94,7 @@ export const Constructor = (props: PageConstructorProps) => {
                         <Grid>
                             {restBlocks && (
                                 <ConstructorRow>
-                                    <ConstructorBlocks
-                                        items={restBlocks}
-                                        shouldRenderBlock={shouldRenderBlock}
-                                    />
+                                    <ConstructorBlocks items={restBlocks} />
                                 </ConstructorRow>
                             )}
                             {hasFootnotes && (

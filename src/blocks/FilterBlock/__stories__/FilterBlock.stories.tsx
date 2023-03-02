@@ -1,12 +1,13 @@
 import React from 'react';
 import {Meta, Story} from '@storybook/react/types-6-0';
 
-import Filterable from '../FilterBlock';
+import FilterBlock from '../FilterBlock';
 import {
     FilterBlockModel,
-    SubBlockModels,
     CardWithImageProps,
     FilterBlockProps,
+    FilterItem,
+    FilterTag,
 } from '../../../models';
 import {CardWithImageModel} from '../../../models/constructor-items/sub-blocks';
 import {PageConstructor} from '../../../containers/PageConstructor';
@@ -15,18 +16,21 @@ import data from './data.json';
 
 export default {
     title: 'Blocks/Filter Block',
-    component: Filterable,
+    component: FilterBlock,
 } as Meta;
 
-const createCardArray: (
+const createItemList: (
     count: number,
-    shared: Partial<CardWithImageProps>,
-    individual?: (index: number) => Partial<CardWithImageProps>,
-) => SubBlockModels[] = (count, shared, individual = () => ({})) =>
-    Array.from(
-        {length: count},
-        (_, index) => ({...shared, ...individual(index)} as CardWithImageModel),
-    );
+    shared: CardWithImageProps,
+    tagList: FilterTag[],
+) => FilterItem[] = (count, shared, tagList) =>
+    Array.from({length: count}, (_, index) => ({
+        tags: [tagList[index % tagList.length].id],
+        card: {
+            ...shared,
+            title: shared.title ? `${shared.title}&nbsp;${index + 1}` : `${index + 1}`,
+        } as CardWithImageModel,
+    }));
 
 const createArgs = (overrides: Partial<FilterBlockProps>) =>
     ({
@@ -34,17 +38,7 @@ const createArgs = (overrides: Partial<FilterBlockProps>) =>
         title: data.default.content.title,
         description: data.default.content.description,
         filterTags: data.default.filters,
-        child: {
-            type: data.default.content.type,
-            children: createCardArray(
-                6,
-                data.default.card,
-                (index): Partial<CardWithImageProps> => ({
-                    title: `${data.default.card.title}&nbsp;${index + 1}`,
-                    tags: [data.default.filters[index % data.default.filters.length].id],
-                }),
-            ),
-        },
+        items: createItemList(6, data.default.card, data.default.filters),
         ...overrides,
     } as FilterBlockProps);
 
@@ -53,7 +47,7 @@ const DefaultTemplate: Story<FilterBlockModel> = (args) => (
 );
 
 export const Default = DefaultTemplate.bind({});
-Default.args = createArgs({});
+Default.args = createArgs({allTag: false});
 
 export const WithDefaultAllTag = DefaultTemplate.bind({});
 WithDefaultAllTag.args = createArgs({allTag: true});

@@ -1,4 +1,9 @@
-import {AnimatableProps, BlockBaseProps, BlockHeaderProps} from '../../schema/validators/common';
+import {
+    AnimatableProps,
+    BlockBaseProps,
+    BlockHeaderProps,
+    containerSizesObject,
+} from '../../schema/validators/common';
 import {filteredArray} from '../../schema/validators/utils';
 
 export const FilterTagProps = {
@@ -14,6 +19,20 @@ export const FilterTagProps = {
     },
 };
 
+export const FilterItemProps = {
+    additionalProperties: false,
+    required: ['tags', 'card'],
+    properties: {
+        tags: {
+            type: 'array',
+            items: {
+                type: 'string',
+            },
+        },
+        card: {$ref: 'self#/definitions/card'},
+    },
+};
+
 export const FilterProps = {
     additionalProperties: false,
     required: ['filterTags', 'block'],
@@ -21,13 +40,14 @@ export const FilterProps = {
         ...BlockBaseProps,
         ...AnimatableProps,
         ...BlockHeaderProps,
+        allTag: {oneOf: [{type: 'boolean'}, {type: 'string'}]},
+        colSizes: containerSizesObject,
         filterTags: filteredArray(FilterTagProps),
+        items: filteredArray(FilterItemProps),
         tagSize: {
             type: 'string',
             enum: ['s', 'm', 'l', 'xl'],
         },
-        allTag: {oneOf: [{type: 'boolean'}, {type: 'string'}]},
-        child: {$ref: 'self#/definitions/children'},
     },
 };
 

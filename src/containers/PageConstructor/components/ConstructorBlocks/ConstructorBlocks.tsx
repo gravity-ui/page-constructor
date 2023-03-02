@@ -2,33 +2,18 @@ import _ from 'lodash';
 import React, {Fragment, ReactElement, useContext} from 'react';
 
 import {getBlockKey} from '../../../../utils';
-import {InnerContext, InnerContextType} from '../../../../context/innerContext';
-import {ConstructorItem as ConstructorItemType, ShouldRenderBlock} from '../../../../models';
+import {InnerContext} from '../../../../context/innerContext';
+import {Block, ConstructorItem as ConstructorItemType} from '../../../../models';
 import {ConstructorLoadable} from '../ConstructorLoadable';
 import {ConstructorItem} from '../ConstructorItem';
+import {ConstructorBlock} from '../ConstructorBlock/ConstructorBlock';
 
 interface ConstructorBlocksProps {
     items: ConstructorItemType[];
-    shouldRenderBlock?: ShouldRenderBlock;
 }
 
-const withItemWrappers = (
-    item: React.ReactElement,
-    key: string,
-    data: ConstructorItemType,
-    context: InnerContextType,
-): React.ReactElement => {
-    const {itemWrappers} = context;
-    let wrappedItem = item;
-    itemWrappers.forEach((wrapper) => {
-        wrappedItem = wrapper(wrappedItem, key, data, context);
-    });
-    return wrappedItem;
-};
-
-export const ConstructorBlocks = ({items, shouldRenderBlock}: ConstructorBlocksProps) => {
-    const context = useContext(InnerContext);
-    const {loadables, itemMap} = context;
+export const ConstructorBlocks: React.FC<ConstructorBlocksProps> = ({items}) => {
+    const {blockTypes, loadables, itemMap, shouldRenderBlock} = useContext(InnerContext);
 
     const renderer = (
         parentId = '',
@@ -39,7 +24,6 @@ export const ConstructorBlocks = ({items, shouldRenderBlock}: ConstructorBlocksP
             return null;
         }
 
-        let children;
         let itemElement;
         const key = getBlockKey(item, index);
         const blockId = parentId ? `${parentId}_${key}` : key;
@@ -66,6 +50,7 @@ export const ConstructorBlocks = ({items, shouldRenderBlock}: ConstructorBlocksP
                 />
             );
         } else {
+            let children;
             if ('children' in item && item.children) {
                 children = item.children.map(renderer.bind(null, blockId));
             }

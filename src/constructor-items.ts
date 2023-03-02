@@ -41,10 +41,6 @@ import {
     FilterBlock,
 } from './blocks';
 
-import withCardLayoutItem from './blocks/CardLayout/withCardLayoutItem';
-import withFilterableItem from './blocks/FilterBlock/withFilterableItem';
-import {withConstructorBlock} from './containers/PageConstructor/components/ConstructorBlock';
-
 export const blockMap = {
     [BlockType.SliderBlock]: SliderBlock,
     [BlockType.SimpleBlock]: SimpleBlock,
@@ -94,5 +90,3 @@ export const subBlockMap = {
     [SubBlockType.Content]: Content,
     [SubBlockType.Quote]: Quote,
 };
-
-export const itemWrappers = [withConstructorBlock, withCardLayoutItem, withFilterableItem];

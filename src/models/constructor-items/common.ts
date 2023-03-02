@@ -351,7 +351,6 @@ export type CardBorder = 'shadow' | 'line' | 'none';
 
 export interface CardBaseProps {
     border?: CardBorder;
-    tags?: string[];
 }
 
 //price

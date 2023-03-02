@@ -162,7 +162,6 @@ export interface CardWithImageLinkProps extends Omit<LinkProps, 'text' | 'url'> 
 
 export interface CardWithImageProps
     extends ClassNameProps,
-        Pick<CardBaseProps, 'tags'>,
         Pick<ContentBlockProps, 'title' | 'additionalInfo' | 'buttons' | 'theme'> {
     image: string;
     description?: string;

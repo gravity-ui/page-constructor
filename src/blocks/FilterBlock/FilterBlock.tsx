@@ -1,30 +1,26 @@
-import React, {Fragment, useMemo, useState} from 'react';
+import React, {useMemo, useState} from 'react';
 
 import {block} from '../../utils';
-import {FilterBlockProps as FilterBlockParams, WithChildren} from '../../models';
+import {BlockType, ConstructorItem, FilterBlockProps, FilterItem} from '../../models';
 import {Row, Col} from '../../grid';
 import {BlockHeader, AnimateBlock} from '../../components';
 import ButtonTabs, {ButtonTabsItemProps} from '../../components/ButtonTabs/ButtonTabs';
-
-import FilterBlockContext, {FilterData, useFilterBlockContext} from './FilterBlockContext';
+import {ConstructorBlocks} from '../../containers/PageConstructor/components/ConstructorBlocks';
 
 import './FilterBlock.scss';
 
 const b = block('filter-block');
 const DEFAULT_ALL_TAG_TITLE = 'All';
 
-export interface FilterableProps extends Omit<FilterBlockParams, 'child'> {
-    children?: React.ReactNode;
-}
-
-const FilterBlock: React.FC<FilterableProps> = ({
+const FilterBlock: React.FC<FilterBlockProps> = ({
     title,
     description,
     filterTags,
     tagSize,
     allTag,
+    items,
+    colSizes,
     animated,
-    children,
 }) => {
     const tabButtons = useMemo(() => {
         const allButton: ButtonTabsItemProps | undefined = allTag
@@ -37,16 +33,25 @@ const FilterBlock: React.FC<FilterableProps> = ({
 
     const [selectedTag, setSelectedTag] = useState(tabButtons.length ? tabButtons[0].id : null);
 
-    const data = useMemo<FilterData>(() => {
-        const actualTag =
-            tabButtons.length && !tabButtons.find((tab) => tab.id === selectedTag)
-                ? tabButtons[0].id
-                : selectedTag;
-
-        return {
-            selectedTag: actualTag,
-        };
+    const actualTag: string | null = useMemo(() => {
+        return tabButtons.length && !tabButtons.find((tab) => tab.id === selectedTag)
+            ? tabButtons[0].id
+            : selectedTag;
     }, [tabButtons, selectedTag]);
+
+    const container: ConstructorItem[] = useMemo(() => {
+        const itemsToShow: FilterItem[] = actualTag
+            ? items.filter((item) => item.tags.includes(actualTag))
+            : items;
+        return [
+            {
+                type: BlockType.CardLayoutBlock,
+                title: '',
+                colSizes: colSizes,
+                children: itemsToShow.map((item) => item.card),
+            },
+        ];
+    }, [actualTag, items, colSizes]);
 
     return (
         <AnimateBlock className={b()} animate={animated}>
@@ -57,7 +62,7 @@ const FilterBlock: React.FC<FilterableProps> = ({
                         <ButtonTabs
                             className={b('tabs')}
                             items={tabButtons}
-                            activeTab={data.selectedTag}
+                            activeTab={selectedTag}
                             onSelectTab={setSelectedTag}
                             tabSize={tagSize}
                         />
@@ -65,22 +70,9 @@ const FilterBlock: React.FC<FilterableProps> = ({
                 </Row>
             )}
             <Row className={b('block-container')}>
-                <FilterBlockContext.Provider value={data}>{children}</FilterBlockContext.Provider>
+                <ConstructorBlocks items={container} />
             </Row>
         </AnimateBlock>
     );
 };
-
-type FilterableItemProps = {
-    tags: string[];
-};
-
-export const FilterableItem: React.FC<WithChildren<FilterableItemProps>> = ({tags, children}) => {
-    const {selectedTag} = useFilterBlockContext();
-
-    return selectedTag && tags && !tags.includes(selectedTag) ? null : (
-        <Fragment>{children}</Fragment>
-    );
-};
-
 export default FilterBlock;

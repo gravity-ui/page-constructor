@@ -32,7 +32,7 @@ import {
 } from './common';
 import {ThemeSupporting} from '../../utils';
 import {GridColumnSize, GridColumnSizesType} from '../../grid/types';
-import {BannerCardProps, SubBlock} from './sub-blocks';
+import {BannerCardProps, SubBlock, SubBlockModels} from './sub-blocks';
 import {ButtonSize} from '@gravity-ui/uikit';
 
 export enum BlockType {
@@ -332,13 +332,20 @@ export type FilterTag = {
     id: string;
     label: string;
 };
+
+export type FilterItem = {
+    tags: string[];
+    card: SubBlockModels;
+};
+
 export interface FilterBlockProps extends Animatable, LoadableChildren {
     title?: TitleProps | string;
     description?: string;
-    filterTags?: FilterTag[];
+    filterTags: FilterTag[];
+    items: FilterItem[];
     tagSize?: ButtonSize;
     allTag?: boolean | string;
-    child: EmbedBlock;
+    colSizes?: GridColumnSizesType;
 }
 
 export interface IconsBlockProps {
@@ -485,7 +492,7 @@ export type ShareBLockModel = {
     type: BlockType.ShareBlock;
 } & ShareBlockProps;
 
-type EmbedBlockModels =
+type BlockModels =
     | SliderBlockModel
     | ServiceDemoBlockModel
     | ExtendedFeaturesBlockModel
@@ -508,10 +515,7 @@ type EmbedBlockModels =
     | HeaderSliderBlockModel
     | CardLayoutBlockModel
     | ContentLayoutBlockModel
-    | ShareBLockModel;
-
-type BlockModels = EmbedBlockModels | FilterBlockModel;
-
-type EmbedBlock = EmbedBlockModels & BlockBaseProps;
+    | ShareBLockModel
+    | FilterBlockModel;
 
 export type Block = BlockModels & BlockBaseProps;
