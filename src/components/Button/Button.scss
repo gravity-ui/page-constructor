@@ -22,7 +22,7 @@ $block: '.#{$ns}button-block';
     &_theme {
         &_github {
             &#{&} {
-                @include monochromeButton();
+                @include monochrome-button();
             }
         }
 
@@ -32,7 +32,7 @@ $block: '.#{$ns}button-block';
         }
 
         &_monochrome {
-            @include monochromeButton();
+            @include monochrome-button();
         }
     }
 

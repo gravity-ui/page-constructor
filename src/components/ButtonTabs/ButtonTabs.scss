@@ -3,35 +3,25 @@
 
 $block: '.#{$ns}button-tabs';
 
-@mixin button-text-color($color, $hoverColor: $color) {
-    &,
-    &:link,
-    &:visited,
-    &:active,
-    &:focus {
-        color: $color;
-    }
-
-    &:hover {
-        color: $hoverColor;
-    }
-}
-
 #{$block} {
     &__item {
         margin-right: $indentXXXS;
         margin-bottom: $indentXXS;
 
-        --yc-button-background-color: var(--pc-tab-item-background-color);
-        --yc-button-background-color-hover: var(--pc-tab-item-background-color-hover);
-        @include button-text-color(var(--pc-tab-item-color));
+        @include button(
+            var(--pc-tab-item-color),
+            var(--pc-tab-item-background-color),
+            $hoverBackgroundColor: var(--pc-tab-item-background-color-hover)
+        );
 
         &_active {
             pointer-events: none;
 
-            --yc-button-background-color: var(--pc-selected-tab-item-background-color);
-            --yc-button-background-color-hover: var(--pc-selected-tab-item-background-color-hover);
-            @include button-text-color(var(--pc-selected-tab-item-color));
+            @include button(
+                var(--pc-selected-tab-item-color),
+                var(--pc-selected-tab-item-background-color),
+                $hoverBackgroundColor: var(--pc-selected-tab-item-background-color-hover)
+            );
         }
     }
 }
