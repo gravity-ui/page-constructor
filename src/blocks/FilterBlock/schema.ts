@@ -42,7 +42,7 @@ export const FilterProps = {
         ...BlockHeaderProps,
         allTag: {oneOf: [{type: 'boolean'}, {type: 'string'}]},
         colSizes: containerSizesObject,
-        filterTags: filteredArray(FilterTagProps),
+        tags: filteredArray(FilterTagProps),
         items: filteredArray(FilterItemProps),
         tagSize: {
             type: 'string',

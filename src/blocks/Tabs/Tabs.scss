@@ -9,13 +9,13 @@ $block: '.#{$ns}tabs-block';
     &__block-title {
         margin-bottom: $indentSM;
 
-        @include centerableTitle();
+        @include centerable-title();
     }
 
     &__tabs {
         margin-bottom: $indentS;
 
-        @include tabPanel();
+        @include tab-panel();
     }
 
     &__row_reverse {

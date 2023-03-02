@@ -178,7 +178,6 @@ export interface ButtonProps extends AnalyticsEventsBase {
     metrikaGoals?: MetrikaGoal;
     pixelEvents?: ButtonPixel;
     target?: string;
-    selected?: boolean;
 }
 
 export interface ButtonImageProps {

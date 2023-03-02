@@ -491,7 +491,7 @@ unpredictable css rules order in build */
     }
 }
 
-@mixin centerableTitle() {
+@mixin centerable-title() {
     &_centered {
         text-align: center;
 
@@ -501,7 +501,7 @@ unpredictable css rules order in build */
     }
 }
 
-@mixin tabPanel() {
+@mixin tab-panel() {
     display: flex;
     flex-wrap: nowrap;
     justify-content: flex-start;

@@ -1,3 +1,4 @@
+import {ButtonSize} from '@gravity-ui/uikit';
 import {
     BackgroundImageProps,
     ButtonProps,
@@ -33,7 +34,6 @@ import {
 import {ThemeSupporting} from '../../utils';
 import {GridColumnSize, GridColumnSizesType} from '../../grid/types';
 import {BannerCardProps, SubBlock, SubBlockModels} from './sub-blocks';
-import {ButtonSize} from '@gravity-ui/uikit';
 
 export enum BlockType {
     PromoFeaturesBlock = 'promo-features-block',
@@ -341,7 +341,7 @@ export type FilterItem = {
 export interface FilterBlockProps extends Animatable, LoadableChildren {
     title?: TitleProps | string;
     description?: string;
-    filterTags: FilterTag[];
+    tags: FilterTag[];
     items: FilterItem[];
     tagSize?: ButtonSize;
     allTag?: boolean | string;

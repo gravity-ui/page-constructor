@@ -1,5 +1,6 @@
 import React, {useMemo, useState} from 'react';
 
+import i18n from './i18n';
 import {block} from '../../utils';
 import {BlockType, ConstructorItem, FilterBlockProps, FilterItem} from '../../models';
 import {Row, Col} from '../../grid';
@@ -10,12 +11,11 @@ import {ConstructorBlocks} from '../../containers/PageConstructor/components/Con
 import './FilterBlock.scss';
 
 const b = block('filter-block');
-const DEFAULT_ALL_TAG_TITLE = 'All';
 
 const FilterBlock: React.FC<FilterBlockProps> = ({
     title,
     description,
-    filterTags,
+    tags,
     tagSize,
     allTag,
     items,
@@ -25,12 +25,12 @@ const FilterBlock: React.FC<FilterBlockProps> = ({
 }) => {
     const tabButtons = useMemo(() => {
         const allButton: ButtonTabsItemProps | undefined = allTag
-            ? {id: null, title: typeof allTag === 'boolean' ? DEFAULT_ALL_TAG_TITLE : allTag}
+            ? {id: null, title: typeof allTag === 'boolean' ? i18n('label-all-tag') : allTag}
             : undefined;
         const otherButtons: ButtonTabsItemProps[] | undefined =
-            filterTags && filterTags.map((tag) => ({id: tag.id, title: tag.label}));
+            tags && tags.map((tag) => ({id: tag.id, title: tag.label}));
         return [...(allButton ? [allButton] : []), ...(otherButtons ? otherButtons : [])];
-    }, [allTag, filterTags]);
+    }, [allTag, tags]);
 
     const [selectedTag, setSelectedTag] = useState(tabButtons.length ? tabButtons[0].id : null);
 

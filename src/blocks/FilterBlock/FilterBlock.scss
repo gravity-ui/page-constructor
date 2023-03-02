@@ -8,13 +8,13 @@ $innerBlock: '.#{$ns}block-base';
     &__title {
         margin-bottom: $indentSM;
 
-        @include centerableTitle();
+        @include centerable-title();
     }
 
     &__tabs {
         margin-bottom: 0;
 
-        @include tabPanel();
+        @include tab-panel();
     }
 
     .row &__block-container.row {

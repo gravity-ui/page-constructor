@@ -37,7 +37,7 @@ const createArgs = (overrides: Partial<FilterBlockProps>) =>
         type: 'filter-block',
         title: data.default.content.title,
         description: data.default.content.description,
-        filterTags: data.default.filters,
+        tags: data.default.filters,
         items: createItemList(6, data.default.card, data.default.filters),
         ...overrides,
     } as FilterBlockProps);
