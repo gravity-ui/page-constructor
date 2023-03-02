@@ -20,6 +20,7 @@ const FilterBlock: React.FC<FilterBlockProps> = ({
     allTag,
     items,
     colSizes,
+    centered,
     animated,
 }) => {
     const tabButtons = useMemo(() => {
@@ -55,12 +56,18 @@ const FilterBlock: React.FC<FilterBlockProps> = ({
 
     return (
         <AnimateBlock className={b()} animate={animated}>
-            {title && <BlockHeader title={title} description={description} />}
+            {title && (
+                <BlockHeader
+                    className={b('title', {centered: centered})}
+                    title={title}
+                    description={description}
+                />
+            )}
             {tabButtons.length && (
                 <Row>
                     <Col>
                         <ButtonTabs
-                            className={b('tabs')}
+                            className={b('tabs', {centered: centered})}
                             items={tabButtons}
                             activeTab={selectedTag}
                             onSelectTab={setSelectedTag}

@@ -346,6 +346,7 @@ export interface FilterBlockProps extends Animatable, LoadableChildren {
     tagSize?: ButtonSize;
     allTag?: boolean | string;
     colSizes?: GridColumnSizesType;
+    centered?: boolean;
 }
 
 export interface IconsBlockProps {

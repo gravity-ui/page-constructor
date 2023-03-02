@@ -15,3 +15,5 @@
 - `tags: string[]` - tags assigned to the card.
 
 - `card: SubBlock` - card to show.
+
+`centered?: boolean` - Specifies whether the header and the tab panel are centered.

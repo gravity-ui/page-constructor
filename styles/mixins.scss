@@ -490,3 +490,45 @@ unpredictable css rules order in build */
         color: var(--pc-monochrome-button-color);
     }
 }
+
+@mixin centerableTitle() {
+    &_centered {
+        text-align: center;
+
+        & > * {
+            margin: 0 auto;
+        }
+    }
+}
+
+@mixin tabPanel() {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow: auto;
+
+    &_centered {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'md')) {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        overflow: auto;
+
+        margin-left: -$indentL;
+        margin-right: -$indentL;
+        padding-left: $indentL;
+        padding-right: $indentL - $indentXXXS;
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'sm')) {
+        margin-left: -$indentSM;
+        margin-right: -$indentSM;
+        padding-left: $indentSM;
+        padding-right: $indentXS;
+    }
+}

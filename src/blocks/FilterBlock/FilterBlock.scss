@@ -1,31 +1,20 @@
-@import '../../../styles/variables.scss';
-@import '../../../styles/mixins.scss';
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
 
 $block: '.#{$ns}filter-block';
 $innerBlock: '.#{$ns}block-base';
 
 #{$block} {
+    &__title {
+        margin-bottom: $indentSM;
+
+        @include centerableTitle();
+    }
+
     &__tabs {
         margin-bottom: 0;
-        margin-top: $indentSM;
-        display: flex;
-        flex-wrap: nowrap;
-        justify-content: flex-start;
-        overflow: auto;
 
-        @media (max-width: map-get($gridBreakpoints, 'md')) {
-            margin-left: -$indentL;
-            margin-right: -$indentL;
-            padding-left: $indentL;
-            padding-right: $indentL - $indentXXXS;
-        }
-
-        @media (max-width: map-get($gridBreakpoints, 'sm')) {
-            margin-left: -$indentSM;
-            margin-right: -$indentSM;
-            padding-left: $indentSM;
-            padding-right: $indentXS;
-        }
+        @include tabPanel();
     }
 
     .row &__block-container.row {
