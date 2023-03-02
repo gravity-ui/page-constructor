@@ -192,5 +192,79 @@
       },
       "slidesToShow": 4
     }
+  },
+  "priceDetailed": {
+    "slidesToShow": 4,
+    "children": [
+      {
+        "type": "price-detailed",
+        "priceType": "settings",
+        "description": {
+          "titleSize": "l",
+          "descriptionSize": "m",
+          "titleColor": "cornflower"
+        },
+        "details": {
+          "titleSize": "s",
+          "descriptionSize": "m"
+        },
+        "labelsDefaultText": {
+          "blue": "Default label",
+          "green": "Default label",
+          "yellow": "Default label",
+          "purple": "Default label",
+          "red": "Default label"
+        },
+        "items": [
+          {
+            "title": "Free",
+            "detailedTitle": "",
+            "description": "<p>For use by individuals and small teams</p> ",
+            "label": {
+              "color": "blue",
+              "text": "Free",
+              "size": "s"
+            },
+            "items": [
+              {
+                "title": "up to 5 users",
+                "description": "<p>up to 5 users</p> "
+              }
+            ]
+          },
+          {
+            "title": "100$",
+            "detailedTitle": "/ month*",
+            "description": "<p>The rate applies to the first 100 users.</p> ",
+            "label": {
+              "color": "green",
+              "text": "Small companies",
+              "size": "s"
+            },
+            "items": [
+              {
+                "title": "up to 5 users",
+                "description": "<p>up to 5 users</p> "
+              }
+            ]
+          },
+          {
+            "title": "100$",
+            "detailedTitle": "/ month*",
+            "description": "<p>The rate applies to the first 100 users.</p> ",
+            "label": {
+              "color": "green",
+              "size": "s"
+            },
+            "items": [
+              {
+                "title": "up to 5 users",
+                "description": "<p>up to 5 users</p> "
+              }
+            ]
+          }
+        ]
+      }
+    ]
   }
 }

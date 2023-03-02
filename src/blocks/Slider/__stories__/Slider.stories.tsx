@@ -61,6 +61,7 @@ const SlidesToShowTemplate: Story<SliderBlockModel> = (args) => (
 );
 
 export const Default = DefaultTemplate.bind({});
+export const PriceDetailed = DefaultTemplate.bind({});
 export const QuoteCards = DefaultTemplate.bind({});
 export const Banners = DefaultTemplate.bind({});
 export const AutoPlay = DefaultTemplate.bind({});
@@ -70,6 +71,11 @@ export const SlidesToShow = SlidesToShowTemplate.bind({});
 
 Default.args = data.default.content as SliderBlockModel;
 QuoteCards.args = data.quoteCards.content as SliderBlockModel;
+PriceDetailed.args = {
+    ...data.quoteCards.content,
+    slidesToShow: data.priceDetailed.slidesToShow,
+    children: data.priceDetailed.children,
+} as SliderBlockModel;
 Banners.args = data.banners.content as SliderBlockModel;
 AutoPlay.args = {
     ...data.default.content,
