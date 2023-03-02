@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.20.3](https://github.com/gravity-ui/page-constructor/compare/v1.20.2...v1.20.3) (2023-03-02)
+
+
+### Bug Fixes
+
+* add uniqueness to children key prop ([#192](https://github.com/gravity-ui/page-constructor/issues/192)) ([8cbb720](https://github.com/gravity-ui/page-constructor/commit/8cbb720a4e60ccab8a3440141b3e4f5998c26a9b))
+
 ## [1.20.2](https://github.com/gravity-ui/page-constructor/compare/v1.20.1...v1.20.2) (2023-03-01)
 
 
