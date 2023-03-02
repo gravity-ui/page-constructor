@@ -30,7 +30,7 @@ export const ConstructorBlocks = ({items, shouldRenderBlock}: ConstructorBlocksP
         let itemElement;
         const key = getBlockKey(item, index);
         const blockId = parentId ? `${parentId}_${key}` : key;
-        if (shouldRenderBlock && !shouldRenderBlock(item, key)) {
+        if (shouldRenderBlock && !shouldRenderBlock(item, blockId)) {
             return null;
         }
 
@@ -44,8 +44,8 @@ export const ConstructorBlocks = ({items, shouldRenderBlock}: ConstructorBlocksP
             itemElement = (
                 <ConstructorLoadable
                     block={item}
-                    key={key}
-                    blockKey={key}
+                    key={blockId}
+                    blockKey={blockId}
                     config={config}
                     serviceId={serviceId}
                     params={params}
@@ -58,7 +58,7 @@ export const ConstructorBlocks = ({items, shouldRenderBlock}: ConstructorBlocksP
 
             itemElement = (
                 <BlockIdContext.Provider value={blockId}>
-                    <ConstructorItem data={item} key={key}>
+                    <ConstructorItem data={item} key={blockId}>
                         {children}
                     </ConstructorItem>
                 </BlockIdContext.Provider>
