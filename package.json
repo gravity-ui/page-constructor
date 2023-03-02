@@ -48,6 +48,7 @@
   "dependencies": {
     "@gravity-ui/i18n": "^1.0.0",
     "bem-cn-lite": "^4.0.0",
+    "github-buttons": "2.23.0",
     "lodash": "^4.17.21",
     "react-player": "^2.9.0",
     "react-slick": "^0.28.1",
