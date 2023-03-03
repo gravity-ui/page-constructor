@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.20.4](https://github.com/gravity-ui/page-constructor/compare/v1.20.3...v1.20.4) (2023-03-03)
+
+
+### Bug Fixes
+
+* add unique key to BlockIdContext ([#199](https://github.com/gravity-ui/page-constructor/issues/199)) ([05b0a88](https://github.com/gravity-ui/page-constructor/commit/05b0a88fe9b996d7728afa49ade3a0a5cae85713))
+
 ## [1.20.3](https://github.com/gravity-ui/page-constructor/compare/v1.20.2...v1.20.3) (2023-03-02)
 
 
