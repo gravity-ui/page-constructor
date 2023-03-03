@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.20.5](https://github.com/gravity-ui/page-constructor/compare/v1.20.4...v1.20.5) (2023-03-03)
+
+
+### Bug Fixes
+
+* move BlockIdContext.Provider inside ConstructorItem and ConstructorLoadable ([#201](https://github.com/gravity-ui/page-constructor/issues/201)) ([f2036e3](https://github.com/gravity-ui/page-constructor/commit/f2036e333f10711ca51ad3a62c735ca285904cff))
+
 ## [1.20.4](https://github.com/gravity-ui/page-constructor/compare/v1.20.3...v1.20.4) (2023-03-03)
 
 
