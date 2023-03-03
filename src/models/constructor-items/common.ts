@@ -50,7 +50,7 @@ export enum MediaVideoControlsType {
 
 // types
 export type TextTheme = 'light' | 'dark';
-export type TextSize = 's' | 'm' | 'l';
+export type TextSize = 'xs' | 's' | 'm' | 'l';
 export type DividerSize = '0' | 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl' | 'xxxl';
 export type HeaderWidth = 's' | 'm' | 'l';
 export type HeaderImageSize = 's' | 'm';

@@ -7,9 +7,12 @@ $block: '.#{$ns}title-block';
     @include justify();
     $root: &;
 
+    &_size_xs {
+        @include heading5();
+    }
+
     &_size_s {
         @include heading4();
-
         margin-top: $indentM;
     }
 
@@ -66,7 +69,7 @@ $block: '.#{$ns}title-block';
     }
 
     @media (max-width: map-get($gridBreakpoints, 'sm')) {
-        &_size_l {
+        &_size_l:not(#{$root}_reset-margin) {
             margin-top: $indentL;
         }
     }

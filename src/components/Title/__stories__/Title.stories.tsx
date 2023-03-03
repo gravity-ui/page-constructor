@@ -1,5 +1,5 @@
 import {Meta, Story} from '@storybook/react/types-6-0';
-import React from 'react';
+import React, {Fragment} from 'react';
 
 import Title, {TitleFullProps} from '../Title';
 import {COMPONENTS} from '../../../demo/constants';
@@ -14,10 +14,21 @@ export default {
 
 const DefaultTemplate: Story<TitleFullProps> = (args) => <Title {...args} />;
 
+const SizeTemplate: Story<TitleFullProps> = (args) => (
+    <Fragment>
+        <Title {...args} textSize="xs" />
+        <Title {...args} textSize="s" />
+        <Title {...args} textSize="m" />
+        <Title {...args} textSize="l" resetMargin={true} />
+    </Fragment>
+);
+
 export const Default = DefaultTemplate.bind({});
-export const WithLink = DefaultTemplate.bind({});
+export const WithLink = SizeTemplate.bind({});
 export const ResetMargin = DefaultTemplate.bind({});
+export const Size = SizeTemplate.bind({});
 
 Default.args = data.default.content as TitleProps;
 WithLink.args = data.withLink.content as TitleProps;
 ResetMargin.args = data.resetMargin.content as TitleProps;
+Size.args = data.default.content as TitleProps;
