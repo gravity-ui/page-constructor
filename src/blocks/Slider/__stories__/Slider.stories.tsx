@@ -73,6 +73,7 @@ Default.args = data.default.content as SliderBlockModel;
 QuoteCards.args = data.quoteCards.content as SliderBlockModel;
 PriceDetailed.args = {
     ...data.quoteCards.content,
+    title: data.priceDetailed.title,
     slidesToShow: data.priceDetailed.slidesToShow,
     children: data.priceDetailed.children,
 } as SliderBlockModel;

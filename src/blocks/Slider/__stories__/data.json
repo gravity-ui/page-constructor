@@ -194,6 +194,10 @@
     }
   },
   "priceDetailed": {
+    "title": {
+      "text": "Price Detailed",
+      "url": "https://example.com"
+    },
     "slidesToShow": 4,
     "children": [
       {
