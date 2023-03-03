@@ -3,6 +3,7 @@ import React, {useContext} from 'react';
 import Loadable, {LoadableComponentsProps} from '../../../Loadable/Loadable';
 import {LoadableConfigItem} from '../../../../models';
 import {InnerContext} from '../../../../context/innerContext';
+import {BlockIdContext} from '../../../../context/blockIdContext';
 
 interface ConstructorLoadableProps
     extends Omit<LoadableComponentsProps, 'Component' | 'ChildComponent' | 'fetch'> {
@@ -19,15 +20,17 @@ export const ConstructorLoadable = (props: ConstructorLoadableProps) => {
     >;
 
     return (
-        <Loadable
-            key={blockKey}
-            block={block}
-            blockKey={blockKey}
-            Component={Component}
-            ChildComponent={ChildComponent}
-            fetch={fetch}
-            serviceId={serviceId}
-            params={params}
-        />
+        <BlockIdContext.Provider value={blockKey} key={blockKey}>
+            <Loadable
+                key={blockKey}
+                block={block}
+                blockKey={blockKey}
+                Component={Component}
+                ChildComponent={ChildComponent}
+                fetch={fetch}
+                serviceId={serviceId}
+                params={params}
+            />
+        </BlockIdContext.Provider>
     );
 };
