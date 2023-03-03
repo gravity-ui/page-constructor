@@ -57,16 +57,14 @@ export const ConstructorBlocks = ({items, shouldRenderBlock}: ConstructorBlocksP
             }
 
             itemElement = (
-                <BlockIdContext.Provider value={blockId}>
-                    <ConstructorItem data={item} key={blockId}>
-                        {children}
-                    </ConstructorItem>
+                <BlockIdContext.Provider value={blockId} key={blockId}>
+                    <ConstructorItem data={item}>{children}</ConstructorItem>
                 </BlockIdContext.Provider>
             );
         }
 
         return blockTypes.includes(item.type) ? (
-            <ConstructorBlock data={item as Block} key={key} Component={itemElement} />
+            <ConstructorBlock data={item as Block} key={blockId} Component={itemElement} />
         ) : (
             itemElement
         );
