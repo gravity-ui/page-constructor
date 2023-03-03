@@ -3,7 +3,6 @@ import React, {Fragment, ReactElement, useContext} from 'react';
 
 import {getBlockKey} from '../../../../utils';
 import {InnerContext} from '../../../../context/innerContext';
-import {BlockIdContext} from '../../../../context/blockIdContext';
 import {Block, ConstructorItem as ConstructorItemType, ShouldRenderBlock} from '../../../../models';
 import {ConstructorLoadable} from '../ConstructorLoadable';
 import {ConstructorItem} from '../ConstructorItem';
@@ -37,6 +36,7 @@ export const ConstructorBlocks = ({items, shouldRenderBlock}: ConstructorBlocksP
         if ('loadable' in item && item.loadable) {
             const {source, serviceId, params} = item.loadable;
             const config = _.get(loadables, source);
+
             if (!config) {
                 return null;
             }
@@ -57,9 +57,9 @@ export const ConstructorBlocks = ({items, shouldRenderBlock}: ConstructorBlocksP
             }
 
             itemElement = (
-                <BlockIdContext.Provider value={blockId} key={blockId}>
-                    <ConstructorItem data={item}>{children}</ConstructorItem>
-                </BlockIdContext.Provider>
+                <ConstructorItem data={item} key={blockId} blockKey={blockId}>
+                    {children}
+                </ConstructorItem>
             );
         }
 
