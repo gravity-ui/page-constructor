@@ -44,7 +44,7 @@ export const FilterProps = {
         colSizes: containerSizesObject,
         tags: filteredArray(FilterTagProps),
         items: filteredArray(FilterItemProps),
-        tagSize: {
+        tagButtonSize: {
             type: 'string',
             enum: ['s', 'm', 'l', 'xl'],
         },

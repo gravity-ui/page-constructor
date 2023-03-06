@@ -6,7 +6,7 @@
 
 `filterTags: []` - Tags by which content can be filtered.
 
-`tagSize: 's' | 'm' | 'l' | 'xl'` - Size of filter tags.
+`tagButtonSize: 's' | 'm' | 'l' | 'xl'` - Size of filter tags.
 
 `allTag: boolean | string` - Specifies whether to show the 'All' tag. If the value is a non-falsy string, the block uses the value as label for the `All` tag.
 

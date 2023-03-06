@@ -16,7 +16,7 @@ const FilterBlock: React.FC<FilterBlockProps> = ({
     title,
     description,
     tags,
-    tagSize,
+    tagButtonSize,
     allTag,
     items,
     colSizes,
@@ -71,7 +71,7 @@ const FilterBlock: React.FC<FilterBlockProps> = ({
                             items={tabButtons}
                             activeTab={selectedTag}
                             onSelectTab={setSelectedTag}
-                            tabSize={tagSize}
+                            tabSize={tagButtonSize}
                         />
                     </Col>
                 </Row>

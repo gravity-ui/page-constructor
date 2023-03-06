@@ -343,7 +343,7 @@ export interface FilterBlockProps extends Animatable, LoadableChildren {
     description?: string;
     tags: FilterTag[];
     items: FilterItem[];
-    tagSize?: ButtonSize;
+    tagButtonSize?: ButtonSize;
     allTag?: boolean | string;
     colSizes?: GridColumnSizesType;
     centered?: boolean;
