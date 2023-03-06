@@ -3,18 +3,17 @@ import React, {Fragment, ReactElement, useContext} from 'react';
 
 import {getBlockKey} from '../../../../utils';
 import {InnerContext} from '../../../../context/innerContext';
-import {Block, ConstructorItem as ConstructorItemType, ShouldRenderBlock} from '../../../../models';
+import {Block, ConstructorItem as ConstructorItemType} from '../../../../models';
 import {ConstructorLoadable} from '../ConstructorLoadable';
 import {ConstructorItem} from '../ConstructorItem';
 import {ConstructorBlock} from '../ConstructorBlock/ConstructorBlock';
 
 interface ConstructorBlocksProps {
     items: ConstructorItemType[];
-    shouldRenderBlock?: ShouldRenderBlock;
 }
 
-export const ConstructorBlocks = ({items, shouldRenderBlock}: ConstructorBlocksProps) => {
-    const {blockTypes, loadables, itemMap} = useContext(InnerContext);
+export const ConstructorBlocks: React.FC<ConstructorBlocksProps> = ({items}) => {
+    const {blockTypes, loadables, itemMap, shouldRenderBlock} = useContext(InnerContext);
 
     const renderer = (
         parentId = '',
@@ -25,7 +24,6 @@ export const ConstructorBlocks = ({items, shouldRenderBlock}: ConstructorBlocksP
             return null;
         }
 
-        let children;
         let itemElement;
         const key = getBlockKey(item, index);
         const blockId = parentId ? `${parentId}_${key}` : key;
@@ -52,6 +50,7 @@ export const ConstructorBlocks = ({items, shouldRenderBlock}: ConstructorBlocksP
                 />
             );
         } else {
+            let children;
             if ('children' in item && item.children) {
                 children = item.children.map(renderer.bind(null, blockId));
             }
@@ -64,7 +63,9 @@ export const ConstructorBlocks = ({items, shouldRenderBlock}: ConstructorBlocksP
         }
 
         return blockTypes.includes(item.type) ? (
-            <ConstructorBlock data={item as Block} key={blockId} Component={itemElement} />
+            <ConstructorBlock data={item as Block} key={blockId}>
+                {itemElement}
+            </ConstructorBlock>
         ) : (
             itemElement
         );

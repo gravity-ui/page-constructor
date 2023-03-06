@@ -1,3 +1,4 @@
+import {ButtonSize} from '@gravity-ui/uikit';
 import {
     BackgroundImageProps,
     ButtonProps,
@@ -32,7 +33,7 @@ import {
 } from './common';
 import {ThemeSupporting} from '../../utils';
 import {GridColumnSize, GridColumnSizesType} from '../../grid/types';
-import {BannerCardProps, SubBlock} from './sub-blocks';
+import {BannerCardProps, SubBlock, SubBlockModels} from './sub-blocks';
 
 export enum BlockType {
     PromoFeaturesBlock = 'promo-features-block',
@@ -58,6 +59,7 @@ export enum BlockType {
     ContentLayoutBlock = 'content-layout-block',
     ShareBlock = 'share-block',
     MapBlock = 'map-block',
+    FilterBlock = 'filter-block',
 }
 
 export const BlockTypes = Object.values(BlockType);
@@ -326,6 +328,27 @@ export interface CardLayoutBlockProps extends Childable, Animatable, LoadableChi
     colSizes?: GridColumnSizesType;
 }
 
+export type FilterTag = {
+    id: string;
+    label: string;
+};
+
+export type FilterItem = {
+    tags: string[];
+    card: SubBlockModels;
+};
+
+export interface FilterBlockProps extends Animatable, LoadableChildren {
+    title?: TitleProps | string;
+    description?: string;
+    tags: FilterTag[];
+    items: FilterItem[];
+    tagButtonSize?: ButtonSize;
+    allTag?: boolean | string;
+    colSizes?: GridColumnSizesType;
+    centered?: boolean;
+}
+
 export interface IconsBlockProps {
     title?: string;
     size?: 's' | 'm' | 'l';
@@ -450,6 +473,10 @@ export type CardLayoutBlockModel = {
     type: BlockType.CardLayoutBlock;
 } & CardLayoutBlockProps;
 
+export type FilterBlockModel = {
+    type: BlockType.FilterBlock;
+} & FilterBlockProps;
+
 export type IconsBlockModel = {
     type: BlockType.IconsBlock;
 } & IconsBlockProps;
@@ -489,6 +516,7 @@ type BlockModels =
     | HeaderSliderBlockModel
     | CardLayoutBlockModel
     | ContentLayoutBlockModel
-    | ShareBLockModel;
+    | ShareBLockModel
+    | FilterBlockModel;
 
 export type Block = BlockModels & BlockBaseProps;

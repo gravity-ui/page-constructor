@@ -1,27 +1,28 @@
-import React, {ReactElement} from 'react';
+import React from 'react';
 
-import {Block, ShouldRenderBlock} from '../../../../models';
+import {Block, WithChildren} from '../../../../models';
 import BlockBase from '../../../../components/BlockBase/BlockBase';
 import {block} from '../../../../utils';
 
 const b = block('constructor-block');
 interface ConstructorBlockProps {
     data: Block;
-    Component: ReactElement;
-    shouldRenderBlock?: ShouldRenderBlock;
 }
 
-export const ConstructorBlock = ({data, Component}: ConstructorBlockProps) => {
-    const {anchor, visible} = data;
+export const ConstructorBlock: React.FC<WithChildren<ConstructorBlockProps>> = ({
+    data,
+    children,
+}) => {
+    const {anchor, visible, type} = data;
 
     return (
         <BlockBase
-            className={b({type: data.type})}
+            className={b({type})}
             anchor={anchor}
             visible={visible}
             resetPaddings={data.resetPaddings}
         >
-            {Component}
+            {children}
         </BlockBase>
     );
 };

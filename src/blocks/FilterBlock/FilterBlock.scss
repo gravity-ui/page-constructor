@@ -1,0 +1,26 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+$block: '.#{$ns}filter-block';
+$innerBlock: '.#{$ns}block-base';
+
+#{$block} {
+    &__title {
+        margin-bottom: $indentSM;
+
+        @include centerable-title();
+    }
+
+    &__tabs {
+        margin-bottom: 0;
+
+        @include tab-panel();
+    }
+
+    .row &__block-container.row {
+        margin: 0px;
+    }
+
+    --pc-first-block-indent: 0;
+    --pc-first-block-mobile-indent: 0;
+}

@@ -1,45 +1,37 @@
 import React from 'react';
 
 import {block} from '../../utils';
-import {CardLayoutBlockProps as CardLayoutBlockParams} from '../../models';
-import {Row, Col} from '../../grid';
+import {CardLayoutBlockProps as CardLayoutBlockParams, WithChildren} from '../../models';
+import {Col, GridColumnSizesType, Row} from '../../grid';
 import {BlockHeader, AnimateBlock} from '../../components';
 
 import './CardLayout.scss';
 
-export interface CardLayoutBlockProps extends Omit<CardLayoutBlockParams, 'children'> {
-    children?: React.ReactNode;
-}
-
-const b = block('card-layout-block');
-
-const DEFAULT_SIZES = {
+const DEFAULT_SIZES: GridColumnSizesType = {
     all: 12,
     sm: 6,
     md: 4,
 };
+export type CardLayoutBlockProps = WithChildren<Omit<CardLayoutBlockParams, 'children'>>;
 
-const CardLayout = ({
+const b = block('card-layout-block');
+
+const CardLayout: React.FC<CardLayoutBlockProps> = ({
     title,
     description,
     animated,
     colSizes = DEFAULT_SIZES,
     children,
-}: CardLayoutBlockProps) => (
+}) => (
     <AnimateBlock className={b()} animate={animated}>
         <BlockHeader title={title} description={description} />
-        <div>
-            <Row>
-                {children &&
-                    React.Children.map(children, (child, i) => {
-                        return (
-                            <Col sizes={colSizes} key={i} className={b('item')}>
-                                {child}
-                            </Col>
-                        );
-                    })}
-            </Row>
-        </div>
+        <Row>
+            {React.Children.map(children, (child, index) => (
+                <Col key={index} sizes={colSizes} className={b('item')}>
+                    {child}
+                </Col>
+            ))}
+        </Row>
     </AnimateBlock>
 );
 

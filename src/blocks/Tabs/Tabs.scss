@@ -9,21 +9,13 @@ $block: '.#{$ns}tabs-block';
     &__block-title {
         margin-bottom: $indentSM;
 
-        &_centered {
-            text-align: center;
-
-            & > * {
-                margin: 0 auto;
-            }
-        }
+        @include centerable-title();
     }
 
     &__tabs {
-        &_centered {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
+        margin-bottom: $indentS;
+
+        @include tab-panel();
     }
 
     &__row_reverse {
@@ -85,17 +77,6 @@ $block: '.#{$ns}tabs-block';
     }
 
     @media (max-width: map-get($gridBreakpoints, 'md')) {
-        &__tabs {
-            display: flex;
-            flex-wrap: nowrap;
-            justify-content: flex-start;
-            overflow: auto;
-            margin-left: -$indentL;
-            margin-right: -$indentL;
-            padding-left: $indentL;
-            padding-right: $indentL - $indentXXXS;
-        }
-
         &__content-wrapper {
             &_margin {
                 margin: 0 0 $contentMargin 0;
@@ -109,15 +90,6 @@ $block: '.#{$ns}tabs-block';
                 margin-top: $indentM;
                 padding-bottom: 0;
             }
-        }
-    }
-
-    @media (max-width: map-get($gridBreakpoints, 'sm')) {
-        &__tabs {
-            margin-left: -$indentSM;
-            margin-right: -$indentSM;
-            padding-left: $indentSM;
-            padding-right: $indentXS;
         }
     }
 

@@ -1,6 +1,7 @@
 import React, {useCallback, useMemo} from 'react';
-import {block} from '../../utils';
+import {ButtonSize} from '@gravity-ui/uikit';
 
+import {block} from '../../utils';
 import {ButtonProps} from '../../models';
 import {Button} from '../index';
 
@@ -10,21 +11,26 @@ const b = block('button-tabs');
 
 export interface ButtonTabsItemProps
     extends Omit<ButtonProps, 'url' | 'primary' | 'target' | 'text'> {
-    id: string;
+    id: string | null;
     title: string;
 }
 
 export interface ButtonTabsProps {
     className?: string;
     items: ButtonTabsItemProps[];
-    activeTab?: string;
-    onSelectTab?: (tabId: string) => void;
+    activeTab?: string | null;
+    onSelectTab?: (tabId: string | null) => void;
+    tabSize?: ButtonSize;
 }
 
-const ButtonTabs = (props: ButtonTabsProps) => {
-    const {className, items, activeTab, onSelectTab} = props;
-
-    const activeTabId: string = useMemo(() => {
+const ButtonTabs: React.FC<ButtonTabsProps> = ({
+    className,
+    items,
+    activeTab,
+    onSelectTab,
+    tabSize = 'l',
+}) => {
+    const activeTabId: string | null = useMemo(() => {
         if (activeTab) {
             return activeTab;
         }
@@ -33,7 +39,7 @@ const ButtonTabs = (props: ButtonTabsProps) => {
     }, [activeTab, items]);
 
     const handleClick = useCallback(
-        (tabId: string) => {
+        (tabId: string | null) => {
             if (onSelectTab) {
                 onSelectTab(tabId);
             }
@@ -43,20 +49,15 @@ const ButtonTabs = (props: ButtonTabsProps) => {
 
     return (
         <div className={b(null, className)}>
-            {items.map((item) => {
-                const isActive = item.id === activeTabId;
-
-                return (
-                    <Button
-                        text={item.title}
-                        className={b('item', {active: isActive})}
-                        key={item.title}
-                        size={'l'}
-                        onClick={() => handleClick(item.id)}
-                        theme={isActive ? 'monochrome' : 'normal'}
-                    />
-                );
-            })}
+            {items.map(({id, title}) => (
+                <Button
+                    text={title}
+                    className={b('item', {active: id === activeTabId})}
+                    key={title}
+                    size={tabSize}
+                    onClick={() => handleClick(id)}
+                />
+            ))}
         </div>
     );
 };

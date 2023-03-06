@@ -38,6 +38,7 @@ import {
     CardLayoutBlock,
     ContentLayoutBlock,
     ShareBlock,
+    FilterBlock,
 } from './blocks';
 
 export const blockMap = {
@@ -62,6 +63,7 @@ export const blockMap = {
     [BlockType.ContentLayoutBlock]: ContentLayoutBlock,
     [BlockType.ShareBlock]: ShareBlock,
     [BlockType.MapBlock]: MapBlock,
+    [BlockType.FilterBlock]: FilterBlock,
 };
 
 export const subBlockMap = {

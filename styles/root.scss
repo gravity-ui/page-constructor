@@ -19,6 +19,16 @@
     --pc-text-header-color: var(--yc-color-text-primary);
     --pc-media-card-meta-info-color: var(--yc-color-text-secondary);
 
+    --pc-tab-item-color: var(--yc-color-text-primary);
+    --pc-tab-item-background-color: var(--yc-color-base-generic);
+    --pc-tab-item-background-color-hover: var(--yc-color-base-generic-hover);
+
+    --pc-selected-tab-item-color: var(--pc-monochrome-button-color);
+    --pc-selected-tab-item-background-color: var(--pc-monochrome-button-background-color);
+    --pc-selected-tab-item-background-color-hover: var(
+        --pc-monochrome-button-background-color-hover
+    );
+
     &.yc-root_theme_dark {
         --pc-color-sfx-shadow: var(--yc-color-sfx-shadow);
         --pc-color-line-generic-active-solid: #6c6c70;
