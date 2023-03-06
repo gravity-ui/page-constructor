@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.21.0](https://github.com/gravity-ui/page-constructor/compare/v1.20.5...v1.21.0) (2023-03-06)
+
+
+### Features
+
+* **FilterBlock:** add block that filters its child's subblocks ([#180](https://github.com/gravity-ui/page-constructor/issues/180)) ([4b6852c](https://github.com/gravity-ui/page-constructor/commit/4b6852c5d1c55e4d1e2cc027c4229b9cc7500e8f))
+
 ## [1.20.5](https://github.com/gravity-ui/page-constructor/compare/v1.20.4...v1.20.5) (2023-03-03)
 
 
