@@ -63,7 +63,9 @@ export const ConstructorBlocks: React.FC<ConstructorBlocksProps> = ({items}) => 
         }
 
         return blockTypes.includes(item.type) ? (
-            <ConstructorBlock data={item as Block} key={blockId} Component={itemElement} />
+            <ConstructorBlock data={item as Block} key={blockId}>
+                {itemElement}
+            </ConstructorBlock>
         ) : (
             itemElement
         );
