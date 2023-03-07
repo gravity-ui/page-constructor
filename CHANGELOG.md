@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.22.1](https://github.com/gravity-ui/page-constructor/compare/v1.22.0...v1.22.1) (2023-03-07)
+
+
+### Bug Fixes
+
+* add  map block to text transform blocks [CLOUDFRONT-15094] ([#206](https://github.com/gravity-ui/page-constructor/issues/206)) ([a9323a1](https://github.com/gravity-ui/page-constructor/commit/a9323a1f895258af598106786157164ecde4a7fc))
+
 ## [1.22.0](https://github.com/gravity-ui/page-constructor/compare/v1.21.0...v1.22.0) (2023-03-07)
 
 
