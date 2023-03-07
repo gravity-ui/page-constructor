@@ -1,0 +1,18 @@
+@import '../../../../../../styles/variables';
+@import '../../mixins';
+
+$block: '.#{$ns}github-button';
+
+#{$block} {
+    @include navigation-item-display();
+
+    display: flex;
+    align-items: center;
+    height: 100%;
+
+    span {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}

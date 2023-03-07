@@ -6,12 +6,34 @@ export enum NavigationItemType {
     Dropdown = 'dropdown',
     Button = 'button',
     Social = 'social',
+    GithubButton = 'github-button',
 }
 
 export interface NavigationItemBase {
     text: string;
     icon?: ImageProps;
     url?: string;
+}
+
+export enum NavigationGithubButtonIcon {
+    heart = 'octicon-heart',
+    eye = 'octicon-eye',
+    star = 'octicon-star',
+    fork = 'octicon-repo-forked',
+    issue = 'octicon-issue-opened',
+    comment = 'octicon-comment-discussion',
+    download = 'octicon-download',
+    package = 'octicon-package',
+    template = 'octicon-repo-template',
+    play = 'octicon-play',
+}
+
+export interface NavigationGithubButton extends Omit<NavigationItemBase, 'icon'> {
+    type: NavigationItemType.GithubButton;
+    url: string;
+    label?: string;
+    icon?: keyof typeof NavigationGithubButtonIcon;
+    size?: string;
 }
 
 export interface NavigationLinkItem extends Omit<NavigationItemBase, 'url'> {
