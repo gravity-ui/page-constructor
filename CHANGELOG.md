@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.22.0](https://github.com/gravity-ui/page-constructor/compare/v1.21.0...v1.22.0) (2023-03-07)
+
+
+### Features
+
+* add github button in navigation ([#194](https://github.com/gravity-ui/page-constructor/issues/194)) ([57adcb5](https://github.com/gravity-ui/page-constructor/commit/57adcb5ad838f9a86681602f51717be4768e0605))
+
 ## [1.21.0](https://github.com/gravity-ui/page-constructor/compare/v1.20.5...v1.21.0) (2023-03-06)
 
 
