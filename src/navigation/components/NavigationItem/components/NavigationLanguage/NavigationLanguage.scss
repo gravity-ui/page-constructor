@@ -1,0 +1,14 @@
+@import '../../../../../../styles/variables';
+@import '../../mixins';
+
+$block: '.#{$ns}navigation-language';
+
+#{$block} {
+    @include navigation-item-display();
+
+    &__arrow {
+        margin-left: 7px;
+
+        color: var(--yc-color-text-secondary);
+    }
+}

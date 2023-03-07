@@ -7,6 +7,7 @@ import {BlockIdContext} from '../../../context/blockIdContext';
 import {NavigationButton} from './components/NavigationButton/NavigationButton';
 import {NavigationDropdown} from './components/NavigationDropdown/NavigationDropdown';
 import {NavigationLink} from './components/NavigationLink/NavigationLink';
+import {NavigationLanguage} from './components/NavigationLanguage/NavigationLanguage';
 
 const ANALYTICS_ID = 'navigation';
 
@@ -24,6 +25,7 @@ const NavigationItemsMap: Record<NavigationItemType, React.ComponentType<any>> =
     [NavigationItemType.Social]: SocialIcon,
     [NavigationItemType.Dropdown]: NavigationDropdown,
     [NavigationItemType.Link]: NavigationLink,
+    [NavigationItemType.Language]: NavigationLanguage,
 };
 
 const NavigationItem: React.FC<NavigationItemProps> = ({data, className, ...props}) => {

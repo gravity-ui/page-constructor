@@ -6,6 +6,7 @@ export enum NavigationItemType {
     Dropdown = 'dropdown',
     Button = 'button',
     Social = 'social',
+    Language = 'language',
 }
 
 export interface NavigationItemBase {
@@ -21,12 +22,18 @@ export interface NavigationLinkItem extends Omit<NavigationItemBase, 'url'> {
     target?: string;
 }
 
+export interface NavigationLanguageItem2 extends NavigationItemBase {}
+
 export interface NavigationButtonItem extends ButtonProps {
     type: NavigationItemType.Button;
 }
 
 export interface NavigationDropdownItem extends NavigationItemBase {
     type: NavigationItemType.Dropdown;
+    items: NavigationLinkItem[];
+}
+export interface NavigationLanguageItem extends Partial<NavigationItemBase> {
+    type: NavigationItemType.Language;
     items: NavigationLinkItem[];
 }
 
@@ -39,7 +46,8 @@ export interface NavigationSocialItem extends Omit<NavigationItemBase, 'text'> {
 export type NavigationItemModel =
     | NavigationLinkItem
     | NavigationButtonItem
-    | NavigationDropdownItem;
+    | NavigationDropdownItem
+    | NavigationLanguageItem;
 
 export type NavigationItemData =
     | NavigationLinkItem

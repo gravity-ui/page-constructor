@@ -319,6 +319,18 @@
           "text": "Button",
           "url": "https://example.com",
           "theme": "pseudo"
+        },
+        {
+          "type": "language",
+          "text": "123",
+          "items": [
+            {
+              "text": "Russian"
+            },
+            {
+              "text": "English"
+            }
+          ]
         }
       ]
     }
