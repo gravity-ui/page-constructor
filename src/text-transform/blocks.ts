@@ -289,6 +289,13 @@ const config: BlocksConfig = {
             transformer: yfmTransformer,
         },
     ],
+    [BlockType.MapBlock]: [
+        ...blockHeaderTransfomer,
+        {
+            fields: ['title', 'additionalInfo'],
+            transformer: yfmTransformer,
+        },
+    ],
     [BlockType.TabsBlock]: [
         ...blockHeaderTransfomer,
         {
