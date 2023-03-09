@@ -4,6 +4,7 @@ import {Popup, Portal} from '@gravity-ui/uikit';
 import {block} from '../../../utils';
 import Foldable from '../../../components/Foldable/Foldable';
 import {NavigationItemModel, NavigationDropdownItem, NavigationItemType} from '../../../models';
+import {ItemColumnName} from '../../constants';
 import NavigationItem from '../NavigationItem/NavigationItem';
 
 import './MobileNavigation.scss';
@@ -46,27 +47,33 @@ const MobileNavigationDropdown: React.FC<MobileNavigationDropdownProps> = ({
 
 interface MobileNavigationItemProps
     extends Pick<MobileNavigationProps, 'onActiveItemChange' | 'onClose'> {
-    link: NavigationItemModel;
+    item: NavigationItemModel;
+    column: ItemColumnName;
     index: number;
-    isActive?: boolean;
+    isOpened?: boolean;
+    activeItemId: string;
 }
 
 const MobileNavigationItem = ({
-    link,
+    item,
     index,
-    isActive,
+    isOpened,
+    activeItemId,
     onActiveItemChange,
+    column,
     onClose,
 }: MobileNavigationItemProps) => {
+    const id = `${column}-${index}`;
+    const isActive = id === activeItemId && isOpened;
     const toggleActive: MouseEventHandler = useCallback(
         (e) => {
             e.stopPropagation();
 
             if (onActiveItemChange) {
-                onActiveItemChange(isActive ? -1 : index);
+                onActiveItemChange(isActive ? '' : `${column}-${index}`);
             }
         },
-        [isActive, index, onActiveItemChange],
+        [onActiveItemChange, isActive, column, index],
     );
 
     const onItemClick: MouseEventHandler = useCallback(
@@ -78,16 +85,16 @@ const MobileNavigationItem = ({
     );
 
     return (
-        <li key={index} className={b('links-item')}>
-            {link.type === NavigationItemType.Dropdown ? (
+        <li key={index} className={b('rows-item')}>
+            {item.type === NavigationItemType.Dropdown ? (
                 <MobileNavigationDropdown
-                    data={link}
+                    data={item}
                     onToggle={toggleActive}
                     isOpened={isActive}
                     onItemClick={onItemClick}
                 />
             ) : (
-                <NavigationItem data={link} onClick={onItemClick} />
+                <NavigationItem data={item} onClick={onItemClick} />
             )}
         </li>
     );
@@ -98,9 +105,9 @@ export interface MobileNavigationProps {
     isOpened?: boolean;
     topItems?: NavigationItemModel[];
     bottomItems?: NavigationItemModel[];
-    activeItemIndex: number;
+    activeItemId: string;
     onClose: () => void;
-    onActiveItemChange: (index: number) => void;
+    onActiveItemChange: (index: string) => void;
 }
 
 const MobileNavigation: React.FC<MobileNavigationProps> = (props) => {
@@ -108,33 +115,42 @@ const MobileNavigation: React.FC<MobileNavigationProps> = (props) => {
         return null;
     }
 
-    const {isOpened, topItems, bottomItems, activeItemIndex, onActiveItemChange, onClose} = props;
+    const {isOpened, topItems, bottomItems, activeItemId, onActiveItemChange, onClose} = props;
 
     return (
         <Portal>
             <Foldable key={topItems?.length} className={b()} isOpened={Boolean(isOpened)}>
                 <div className={b('wrapper')}>
-                    <nav>
-                        <ul className={b('links')}>
-                            {topItems?.map((link, index) => {
-                                const isActive = index === activeItemIndex;
-
-                                return (
-                                    <MobileNavigationItem
-                                        key={index}
-                                        link={link}
-                                        index={index}
-                                        isActive={isOpened && isActive}
-                                        onClose={onClose}
-                                        onActiveItemChange={onActiveItemChange}
-                                    />
-                                );
-                            })}
+                    <nav className={b('nav')}>
+                        <ul className={b('rows')}>
+                            {topItems?.map((link, index) => (
+                                <MobileNavigationItem
+                                    key={index}
+                                    item={link}
+                                    column={ItemColumnName.Top}
+                                    index={index}
+                                    isOpened={isOpened}
+                                    activeItemId={activeItemId}
+                                    onClose={onClose}
+                                    onActiveItemChange={onActiveItemChange}
+                                />
+                            ))}
                         </ul>
                     </nav>
-                    {bottomItems?.map((item) => (
-                        <NavigationItem key={item.text} data={item} className={b('button')} />
-                    ))}
+                    <ul className={b('rows')}>
+                        {bottomItems?.map((item, index) => (
+                            <MobileNavigationItem
+                                key={index}
+                                item={item}
+                                column={ItemColumnName.Bottom}
+                                index={index}
+                                isOpened={isOpened}
+                                activeItemId={activeItemId}
+                                onClose={onClose}
+                                onActiveItemChange={onActiveItemChange}
+                            />
+                        ))}
+                    </ul>
                 </div>
             </Foldable>
         </Portal>
