@@ -28,6 +28,9 @@ const SizesTemplate: Story<BlockHeaderProps & ClassNameProps> = (args) => (
         <div style={{paddingBottom: '64px'}}>
             <BlockHeader {...args} title={data.sizes.s as TitleProps} />
         </div>
+        <div style={{paddingBottom: '64px'}}>
+            <BlockHeader {...args} title={data.sizes.xs as TitleProps} />
+        </div>
     </div>
 );
 

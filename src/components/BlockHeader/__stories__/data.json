@@ -23,6 +23,10 @@
     }
   },
   "sizes": {
+    "xs": {
+      "text": "Size XS",
+      "textSize": "xs"
+    },
     "s": {
       "text": "Size S",
       "textSize": "s"
