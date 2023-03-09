@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.23.0](https://github.com/gravity-ui/page-constructor/compare/v1.22.1...v1.23.0) (2023-03-09)
+
+
+### Features
+
+* add release flow to README.md ([#183](https://github.com/gravity-ui/page-constructor/issues/183)) ([c7d7923](https://github.com/gravity-ui/page-constructor/commit/c7d7923c034b88a8e8167023448d8a071926cc26))
+
 ## [1.22.1](https://github.com/gravity-ui/page-constructor/compare/v1.22.0...v1.22.1) (2023-03-07)
 
 
