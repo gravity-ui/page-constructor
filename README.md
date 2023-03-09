@@ -298,3 +298,21 @@ enum PredefinedEventTypes {
 npm ci
 npm run dev
 ```
+
+## Release flow
+
+In usual cases we use two types of commits:
+
+1. fix: a commit of the type fix patches a bug in your codebase (this correlates with PATCH in Semantic Versioning).
+2. feat: a commit of the type feat introduces a new feature to the codebase (this correlates with MINOR in Semantic Versioning).
+3. BREAKING CHANGE: a commit that has a footer BREAKING CHANGE:, or appends a ! after the type/scope, introduces a breaking API change (correlating with MAJOR in Semantic Versioning). A BREAKING CHANGE can be part of commits of any type.
+
+You can see all information [here](https://www.conventionalcommits.org/en/v1.0.0/).
+
+When you receive the approval of your pull-request from the code owners and pass all the checks, please do the following:
+
+1. You should check if there is a release pull-request from robot with changes from another contributor (it looks like `chore(main): release 0.0.0`). If it exists, you should check why it is not merged. If the contributor agrees to release a shared version, follow the next step. If not, ask him to release his version, then follow the next step.
+2. Squash and merge your PR (It is important to release a new version with Github-Actions)
+3. Wait until robot creates a PR with a new version of the package and information about your changes in CHANGELOG.md. You can see the process on [the Actions tab](https://github.com/gravity-ui/page-constructor/actions).
+4. Check your changes in CHANGELOG.md and approve robot's PR.
+5. Squash and merge PR. You can see release process on [the Actions tab](https://github.com/gravity-ui/page-constructor/actions).
