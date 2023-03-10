@@ -47,13 +47,3 @@
         }
     }
 }
-
-@mixin monochromeButton() {
-    --yc-button-background-color: var(--pc-monochrome-button);
-    --yc-button-background-color-hover: var(--pc-monochrome-button-hover);
-    color: var(--yc-color-text-light-primary);
-
-    &:hover {
-        color: var(--yc-color-text-light-primary);
-    }
-}

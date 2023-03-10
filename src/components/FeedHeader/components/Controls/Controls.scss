@@ -105,7 +105,7 @@ $block: '.#{$namespace}feed-controls';
         border-radius: $controlsBorderRadius;
 
         &_savedOnly {
-            @include monochromeButton();
+            @include monochrome-button();
         }
 
         &_savedOnly:focus {
