@@ -4,6 +4,7 @@ import {block, getLinkProps} from '../../utils';
 import {IconsBlockProps} from '../../models';
 import {BlockHeader, Image} from '../../components';
 import {LocationContext} from '../../context/locationContext';
+import {LinkBase} from 'src/components/LinkBase/LinkBase';
 
 import './Icons.scss';
 
@@ -16,7 +17,7 @@ const Icons = ({title, size = 's', items}: IconsBlockProps) => {
         <div className={b({size})}>
             {title && <BlockHeader className={b('header')} title={title} colSizes={{all: 12}} />}
             {items.map((item) => (
-                <a
+                <LinkBase
                     className={b('item')}
                     key={item.url}
                     href={item.url}
@@ -24,7 +25,7 @@ const Icons = ({title, size = 's', items}: IconsBlockProps) => {
                 >
                     <Image className={b('image')} src={item.src} />
                     <p className={b('text')}>{item.text}</p>
-                </a>
+                </LinkBase>
             ))}
         </div>
     );

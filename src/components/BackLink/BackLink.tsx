@@ -5,6 +5,7 @@ import {ArrowSidebar} from '../../icons';
 import {LocationContext} from '../../context/locationContext';
 import {useAnalytics} from '../../hooks';
 import {DefaultEventNames} from '../../models';
+import RouterLink from '../RouterLink/RouterLink';
 
 export type Theme = 'default' | 'special';
 
@@ -51,6 +52,7 @@ export default function BackLink(props: BackLinkProps) {
 
     return (
         <Button
+            component={RouterLink}
             className={className}
             view={theme === 'special' ? 'flat-contrast' : 'flat-secondary'}
             size={size}

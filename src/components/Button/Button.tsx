@@ -8,6 +8,7 @@ import {LocaleContext} from '../../context/localeContext/localeContext';
 import {useMetrika} from '../../hooks/useMetrika';
 import {useAnalytics} from '../../hooks';
 import {Github} from '../../icons';
+import RouterLink from '../RouterLink/RouterLink';
 
 import './Button.scss';
 
@@ -82,6 +83,7 @@ const Button = (props: ButtonProps) => {
             view={toCommonView(buttonTheme as OldButtonTheme)}
             size={toCommonSize(size as OldButtonSize)}
             href={url ? setUrlTld(url, tld) : undefined}
+            component={RouterLink}
             {...buttonProps}
         >
             {icon && buttonImg.position === 'left' ? icon : null}

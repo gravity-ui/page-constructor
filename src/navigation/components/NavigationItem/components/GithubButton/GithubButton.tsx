@@ -4,6 +4,7 @@ import {block} from '../../../../../utils';
 
 import {NavigationItemProps} from '../../NavigationItem';
 import {NavigationGithubButton, NavigationGithubButtonIcon} from '../../../../../models';
+import {LinkBase} from '../../../../../components/LinkBase/LinkBase';
 
 import './GithubButton.scss';
 
@@ -61,7 +62,7 @@ export const GithubButton = ({
     return (
         <div className={b(null, className)}>
             <span ref={containerRef}>
-                <a
+                <LinkBase
                     href={url}
                     ref={linkRef}
                     data-show-count="true"
@@ -70,7 +71,7 @@ export const GithubButton = ({
                     {...(size && {'data-size': size})}
                 >
                     {text}
-                </a>
+                </LinkBase>
             </span>
         </div>
     );

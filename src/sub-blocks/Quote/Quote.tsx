@@ -4,7 +4,7 @@ import {Button} from '@gravity-ui/uikit';
 import {block, getThemedValue} from '../../utils';
 import {QuoteProps, AuthorType, DefaultEventNames} from '../../models';
 
-import {Author, Image, HTML} from '../../components';
+import {Author, Image, HTML, RouterLink} from '../../components';
 import {ThemeValueContext} from '../../context/theme/ThemeValueContext';
 import {getMediaImage} from '../../components/Media/Image/utils';
 import {useAnalytics} from '../../hooks';
@@ -46,6 +46,7 @@ const Quote = (props: QuoteProps) => {
                     view="outlined"
                     size="xl"
                     href={url}
+                    component={RouterLink}
                     className={b('link-button', {theme: textTheme})}
                     onClick={handleButtonClick}
                 >

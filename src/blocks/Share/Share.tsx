@@ -12,6 +12,7 @@ import {Twitter} from '../../icons/Twitter';
 import {Linkedin} from '../../icons/Linkedin';
 import {Vk} from '../../icons/Vk';
 import {Telegram} from '../../icons/Telegram';
+import {RouterLink} from '../../components';
 
 import './Share.scss';
 
@@ -51,6 +52,7 @@ const Share = ({items, title}: ShareBlockProps) => {
                             size="l"
                             target="_blank"
                             href={socialUrl}
+                            component={RouterLink}
                             className={b('item', {type: type.toLowerCase()})}
                             onClick={handleButtonClick}
                         >

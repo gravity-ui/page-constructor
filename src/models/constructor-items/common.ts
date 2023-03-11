@@ -146,6 +146,12 @@ export interface MediaVideoProps extends AnalyticsEventsBase {
 }
 
 // links
+export interface LinkBaseProps
+    extends React.DetailedHTMLProps<
+        React.AnchorHTMLAttributes<HTMLAnchorElement>,
+        HTMLAnchorElement
+    > {}
+
 export interface LinkProps extends AnalyticsEventsBase, Stylable {
     url: string;
     text?: string;

@@ -6,6 +6,7 @@ import Anchor from '../Anchor/Anchor';
 import {ToggleArrow, HTML} from '../';
 import {LocationContext} from '../../context/locationContext';
 import {MobileContext} from '../../context/mobileContext';
+import {LinkBase} from '../LinkBase/LinkBase';
 
 import './Title.scss';
 
@@ -79,9 +80,14 @@ const Title = (props: TitleFullProps) => {
         content = textMarkup;
     } else if (url) {
         content = (
-            <a className={b('link')} href={url} {...getLinkProps(url, hostname)} onClick={onClick}>
+            <LinkBase
+                className={b('link')}
+                href={url}
+                {...getLinkProps(url, hostname)}
+                onClick={onClick}
+            >
                 {insideClickableContent}
-            </a>
+            </LinkBase>
         );
     } else if (onClick) {
         content = (

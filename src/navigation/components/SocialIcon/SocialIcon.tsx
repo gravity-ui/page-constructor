@@ -4,6 +4,7 @@ import {block} from '../../../utils';
 import {NavigationSocialItem} from '../../../models';
 import {Image} from '../../../components';
 import {getMediaImage} from '../../../components/Media/Image/utils';
+import {LinkBase} from '../../../components/LinkBase/LinkBase';
 
 import './SocialIcon.scss';
 
@@ -17,9 +18,14 @@ const SocialIcon: React.FC<NavigationSocialItemOwnProps> = ({icon, url, classNam
     const iconData = getMediaImage(icon);
 
     return (
-        <a href={url} target="_blank" rel="noopener noreferrer" className={b(null, className)}>
+        <LinkBase
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={b(null, className)}
+        >
             <Image className={b('icon')} {...iconData} />
-        </a>
+        </LinkBase>
     );
 };
 

@@ -10,6 +10,7 @@ import {LocaleContext} from '../../context/localeContext/localeContext';
 import {LocationContext} from '../../context/locationContext/locationContext';
 import {useMetrika} from '../../hooks/useMetrika';
 import {useAnalytics} from '../../hooks';
+import {LinkBase} from '../LinkBase/LinkBase';
 
 import './Link.scss';
 
@@ -79,7 +80,7 @@ const LinkBlock = (props: WithChildren<LinkFullProps>) => {
                 const content = children || text;
 
                 return (
-                    <a
+                    <LinkBase
                         className={b('link', {theme: colorTheme, 'has-arrow': arrow})}
                         href={href}
                         onClick={onClick}
@@ -98,7 +99,7 @@ const LinkBlock = (props: WithChildren<LinkFullProps>) => {
                         ) : (
                             content
                         )}
-                    </a>
+                    </LinkBase>
                 );
             }
             default:
