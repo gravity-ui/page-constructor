@@ -51,7 +51,7 @@ interface MobileNavigationItemProps
     column: ItemColumnName;
     index: number;
     isOpened?: boolean;
-    activeItemId: string;
+    activeItemId?: string;
 }
 
 const MobileNavigationItem = ({
@@ -70,7 +70,7 @@ const MobileNavigationItem = ({
             e.stopPropagation();
 
             if (onActiveItemChange) {
-                onActiveItemChange(isActive ? '' : `${column}-${index}`);
+                onActiveItemChange(isActive ? undefined : `${column}-${index}`);
             }
         },
         [onActiveItemChange, isActive, column, index],
@@ -105,9 +105,9 @@ export interface MobileNavigationProps {
     isOpened?: boolean;
     topItems?: NavigationItemModel[];
     bottomItems?: NavigationItemModel[];
-    activeItemId: string;
+    activeItemId?: string;
     onClose: () => void;
-    onActiveItemChange: (index: string) => void;
+    onActiveItemChange: (index?: string) => void;
 }
 
 const MobileNavigation: React.FC<MobileNavigationProps> = (props) => {

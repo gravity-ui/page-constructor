@@ -14,13 +14,13 @@ const b = block('navigation');
 type NavigationListItemProps = {
     item: NavigationItemModel;
     index: number;
-    activeItemId: string;
-    hidePopup: () => void;
     column: ItemColumnName;
-    onActiveItemChange: (index: string) => void;
+    activeItemId?: string;
     itemPositions?: number[];
     itemRefs?: React.MutableRefObject<(HTMLLIElement | null)[]>;
     highlightActiveItem?: boolean;
+    hidePopup: () => void;
+    onActiveItemChange: (index?: string) => void;
 } & ClassNameProps;
 
 export const NavigationListItem = ({

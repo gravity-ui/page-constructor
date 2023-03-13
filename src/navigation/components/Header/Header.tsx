@@ -54,14 +54,14 @@ const MobileMenuButton: React.FC<MobileMenuButtonProps> = ({
 export const Header: React.FC<HeaderProps> = ({data, logo}) => {
     const {leftItems, rightItems} = data;
     const [isSidebarOpened, setIsSidebarOpened] = useState(false);
-    const [activeItemId, setactiveItemId] = useState('');
+    const [activeItemId, setactiveItemId] = useState<string | undefined>(undefined);
 
-    const onActiveItemChange = useCallback((index = '') => {
+    const onActiveItemChange = useCallback((index?: string) => {
         setactiveItemId(index);
     }, []);
 
     const hidePopup = useCallback(() => {
-        onActiveItemChange('');
+        onActiveItemChange();
     }, [onActiveItemChange]);
 
     const onSidebarOpenedChange = useCallback((isOpen: boolean) => {

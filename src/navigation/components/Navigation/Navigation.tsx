@@ -14,10 +14,10 @@ const b = block('navigation');
 
 export interface NavigationProps {
     links: NavigationItemModel[];
-    activeItemId: string;
-    onActiveItemChange: (index: string) => void;
+    activeItemId?: string;
     className?: string;
     highlightActiveItem?: boolean;
+    onActiveItemChange: (index?: string) => void;
 }
 
 const Navigation: React.FC<NavigationProps> = ({
@@ -34,7 +34,7 @@ const Navigation: React.FC<NavigationProps> = ({
     const [lastLeftScroll, setLastLeftScroll] = useState(0);
 
     const hidePopup = useCallback(() => {
-        onActiveItemChange('');
+        onActiveItemChange();
     }, [onActiveItemChange]);
 
     const calculateItemPositions = useCallback(() => {
