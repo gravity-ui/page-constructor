@@ -5,7 +5,7 @@ type GetItemClickHandlerArgs = {
     column: ItemColumnName;
     index: number;
     activeItemId?: string;
-    onActiveItemChange: (index?: string) => void;
+    onActiveItemChange: (id?: string) => void;
 };
 
 export const getItemClickHandler: ({
