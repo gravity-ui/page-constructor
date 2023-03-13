@@ -1,16 +1,17 @@
 import React, {MouseEvent, useCallback, useState} from 'react';
+import _ from 'lodash';
 
 import {block} from '../../../utils';
 import {HeaderData, ThemedNavigationLogoData} from '../../../models';
 import {Col, Grid, Row} from '../../../grid';
 import OutsideClick from '../../../components/OutsideClick/OutsideClick';
 import Control from '../../../components/Control/Control';
+import {NavigationClose, NavigationOpen} from '../../../icons';
+import {ItemColumnName} from '../../constants';
 import Navigation from '../Navigation/Navigation';
 import MobileNavigation from '../MobileNavigation/MobileNavigation';
-import NavigationItem from '../NavigationItem/NavigationItem';
 import Logo from '../Logo/Logo';
-
-import {NavigationClose, NavigationOpen} from '../../../icons';
+import {NavigationListItem} from '../NavigationListItem/NavigationListItem';
 
 import './Header.scss';
 
@@ -53,11 +54,15 @@ const MobileMenuButton: React.FC<MobileMenuButtonProps> = ({
 export const Header: React.FC<HeaderProps> = ({data, logo}) => {
     const {leftItems, rightItems} = data;
     const [isSidebarOpened, setIsSidebarOpened] = useState(false);
-    const [activeItemIndex, setActiveItemIndex] = useState(-1);
+    const [activeItemId, setactiveItemId] = useState<string | undefined>(undefined);
 
-    const onActiveItemChange = useCallback((index: number) => {
-        setActiveItemIndex(index);
+    const onActiveItemChange = useCallback((id?: string) => {
+        setactiveItemId(id);
     }, []);
+
+    const hidePopup = useCallback(() => {
+        onActiveItemChange();
+    }, [onActiveItemChange]);
 
     const onSidebarOpenedChange = useCallback((isOpen: boolean) => {
         setIsSidebarOpened(isOpen);
@@ -81,7 +86,7 @@ export const Header: React.FC<HeaderProps> = ({data, logo}) => {
                             <Navigation
                                 className={b('navigation')}
                                 links={leftItems}
-                                activeItemIndex={activeItemIndex}
+                                activeItemId={activeItemId}
                                 onActiveItemChange={onActiveItemChange}
                             />
                         </div>
@@ -91,11 +96,20 @@ export const Header: React.FC<HeaderProps> = ({data, logo}) => {
                                 onSidebarOpenedChange={onSidebarOpenedChange}
                             />
                             {rightItems && (
-                                <div className={b('buttons')}>
-                                    {rightItems.map((button) => (
-                                        <NavigationItem key={button.text} data={button} />
+                                <ul className={b('buttons')}>
+                                    {rightItems.map((button, index) => (
+                                        <NavigationListItem
+                                            key={index}
+                                            className={b('buttons-item')}
+                                            item={button}
+                                            index={index}
+                                            activeItemId={activeItemId}
+                                            hidePopup={hidePopup}
+                                            column={ItemColumnName.Right}
+                                            onActiveItemChange={onActiveItemChange}
+                                        />
                                     ))}
-                                </div>
+                                </ul>
                             )}
                         </div>
                         <OutsideClick onOutsideClick={() => onSidebarOpenedChange(false)}>
@@ -103,7 +117,7 @@ export const Header: React.FC<HeaderProps> = ({data, logo}) => {
                                 topItems={leftItems}
                                 bottomItems={rightItems}
                                 isOpened={isSidebarOpened}
-                                activeItemIndex={activeItemIndex}
+                                activeItemId={activeItemId}
                                 onActiveItemChange={onActiveItemChange}
                                 onClose={hideSidebar}
                             />

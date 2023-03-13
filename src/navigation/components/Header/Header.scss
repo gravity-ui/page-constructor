@@ -59,6 +59,8 @@ $block: '.#{$ns}header';
     &__right {
         flex: 0;
         justify-content: flex-end;
+
+        @include text-size(body-2);
     }
 
     &__navigation-container {
@@ -75,11 +77,25 @@ $block: '.#{$ns}header';
         display: flex;
         align-items: center;
         @include desktop-only();
+        @include reset-list-style();
 
         & > * {
             &:not(:last-child) {
                 margin-right: $indentXS;
             }
+        }
+    }
+
+    &__buttons-item {
+        position: relative;
+
+        height: var(--header-height);
+
+        line-height: var(--header-height);
+        @include navigation-link();
+
+        &:not(:last-child) {
+            margin-right: $indentS;
         }
     }
 

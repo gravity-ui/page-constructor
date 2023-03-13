@@ -309,6 +309,23 @@
       ],
       "rightItems": [
         {
+          "type": "dropdown",
+          "text": "Language",
+          "icon": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_3_light.svg",
+          "items": [
+            {
+              "text": "Russian",
+              "url": "/ru",
+              "type": "link"
+            },
+            {
+              "text": "English",
+              "url": "/",
+              "type": "link"
+            }
+          ]
+        },
+        {
           "type": "github-button",
           "text": "Star",
           "label": "Star @gravity-ui/page-constructor on GitHub",

@@ -27,7 +27,11 @@ $block: '.#{$ns}mobile-navigation';
         margin-top: $indentSM;
     }
 
-    &__links {
+    &__nav {
+        margin-bottom: $indentSM;
+    }
+
+    &__rows {
         position: relative;
 
         display: flex;
@@ -37,7 +41,7 @@ $block: '.#{$ns}mobile-navigation';
         @include reset-list-style();
     }
 
-    &__links-item {
+    &__rows-item {
         &:not(:last-child) {
             margin-bottom: $indentSM;
         }
