@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.24.0](https://github.com/gravity-ui/page-constructor/compare/v1.23.0...v1.24.0) (2023-03-13)
+
+
+### Features
+
+* add dropdown item in right column of navigation ([#213](https://github.com/gravity-ui/page-constructor/issues/213)) ([71f23a8](https://github.com/gravity-ui/page-constructor/commit/71f23a8ff00948fa62b3bd5b7833b171b59176d6))
+
 ## [1.23.0](https://github.com/gravity-ui/page-constructor/compare/v1.22.1...v1.23.0) (2023-03-09)
 
 
