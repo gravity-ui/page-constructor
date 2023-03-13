@@ -20,7 +20,7 @@ type NavigationListItemProps = {
     itemRefs?: React.MutableRefObject<(HTMLLIElement | null)[]>;
     highlightActiveItem?: boolean;
     hidePopup: () => void;
-    onActiveItemChange: (index?: string) => void;
+    onActiveItemChange: (id?: string) => void;
 } & ClassNameProps;
 
 export const NavigationListItem = ({

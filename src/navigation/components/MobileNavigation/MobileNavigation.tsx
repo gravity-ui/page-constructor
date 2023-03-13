@@ -107,7 +107,7 @@ export interface MobileNavigationProps {
     bottomItems?: NavigationItemModel[];
     activeItemId?: string;
     onClose: () => void;
-    onActiveItemChange: (index?: string) => void;
+    onActiveItemChange: (id?: string) => void;
 }
 
 const MobileNavigation: React.FC<MobileNavigationProps> = (props) => {

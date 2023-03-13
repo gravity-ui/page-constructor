@@ -17,7 +17,7 @@ export interface NavigationProps {
     activeItemId?: string;
     className?: string;
     highlightActiveItem?: boolean;
-    onActiveItemChange: (index?: string) => void;
+    onActiveItemChange: (id?: string) => void;
 }
 
 const Navigation: React.FC<NavigationProps> = ({
