@@ -2,6 +2,7 @@ import React, {CSSProperties, MouseEventHandler, useContext, useState, Fragment}
 import {ProjectSettingsContext} from '../../context/projectSettingsContext';
 import {BREAKPOINTS} from '../../constants';
 import {ImageDeviceProps, ImageObjectProps} from '../../models';
+import {isCompressible} from '../../utils/imageCompress';
 
 export interface ImageProps extends Partial<ImageObjectProps>, Partial<ImageDeviceProps> {
     style?: CSSProperties;
@@ -36,11 +37,10 @@ const Image = (props: ImageProps) => {
         return null;
     }
 
-    // TODO: Temporary solution for .svg images
     const disableWebp =
         projectSettings.disableCompress ||
         disableCompress ||
-        imageSrc.endsWith('.svg') ||
+        !isCompressible(imageSrc) ||
         imgLoadingError;
 
     return (
