@@ -56,8 +56,8 @@ export const Header: React.FC<HeaderProps> = ({data, logo}) => {
     const [isSidebarOpened, setIsSidebarOpened] = useState(false);
     const [activeItemId, setactiveItemId] = useState<string | undefined>(undefined);
 
-    const onActiveItemChange = useCallback((index?: string) => {
-        setactiveItemId(index);
+    const onActiveItemChange = useCallback((id?: string) => {
+        setactiveItemId(id);
     }, []);
 
     const hidePopup = useCallback(() => {
