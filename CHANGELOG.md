@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.25.0](https://github.com/gravity-ui/page-constructor/compare/v1.24.0...v1.25.0) (2023-03-14)
+
+
+### Features
+
+* update react-player version ([#217](https://github.com/gravity-ui/page-constructor/issues/217)) ([806dea6](https://github.com/gravity-ui/page-constructor/commit/806dea69c911c789782b8100a364187675ebf3d3))
+
 ## [1.24.0](https://github.com/gravity-ui/page-constructor/compare/v1.23.0...v1.24.0) (2023-03-13)
 
 
