@@ -80,5 +80,12 @@ $block: '.#{$ns}title-block';
         &_size_l:not(#{$root}_reset-margin) {
             margin-top: $indentL;
         }
+
+        &__arrow {
+            &_size_m,
+            &_size_l {
+                margin-top: 9px;
+            }
+        }
     }
 }
