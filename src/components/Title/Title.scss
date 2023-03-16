@@ -27,10 +27,14 @@ $block: '.#{$ns}title-block';
     }
 
     &__arrow {
-        margin: 8px 0 0 4px;
+        margin-top: 10px;
+
+        &_size_xs {
+            margin-top: 7px;
+        }
 
         &_size_s {
-            margin: 4px 0 0 4px;
+            margin-top: 5px;
         }
     }
 
@@ -44,7 +48,11 @@ $block: '.#{$ns}title-block';
             cursor: pointer;
 
             #{$root}__arrow {
-                margin-left: 12px;
+                margin-left: 10px;
+
+                &_size_xs {
+                    margin-left: 6px;
+                }
 
                 &_size_s {
                     margin-left: 8px;
