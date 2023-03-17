@@ -11,6 +11,7 @@ import {NavigationListItem} from '../NavigationListItem/NavigationListItem';
 import './Navigation.scss';
 
 const b = block('navigation');
+const EVENT_HANDLE_DELAY = 100;
 
 export interface NavigationProps {
     links: NavigationItemModel[];
@@ -48,25 +49,28 @@ const Navigation: React.FC<NavigationProps> = ({
     }, []);
 
     useEffect(() => {
-        const debouncedCalculateItemPositions = _.debounce(calculateItemPositions, 100);
-        const calculateOnScroll = _.debounce(() => {
+        const debouncedCalculateItemPositions = _.debounce(
+            calculateItemPositions,
+            EVENT_HANDLE_DELAY,
+        );
+        const debouncedCalculateOnScroll = _.debounce(() => {
             const curLeftScroll = window.pageXOffset;
 
             if (curLeftScroll !== lastLeftScroll) {
                 setLastLeftScroll(window.pageXOffset);
                 calculateItemPositions();
             }
-        }, 100);
+        }, EVENT_HANDLE_DELAY);
 
         calculateItemPositions();
         setLastLeftScroll(window.pageXOffset);
 
         window.addEventListener('resize', debouncedCalculateItemPositions);
-        window.addEventListener('scroll', calculateOnScroll);
+        window.addEventListener('scroll', debouncedCalculateOnScroll);
 
         return () => {
-            window.removeEventListener(`resize`, calculateItemPositions);
-            window.removeEventListener('scroll', calculateOnScroll);
+            window.removeEventListener(`resize`, debouncedCalculateItemPositions);
+            window.removeEventListener('scroll', debouncedCalculateOnScroll);
         };
     }, [calculateItemPositions, itemRefs, lastLeftScroll]);
 
