@@ -16,6 +16,8 @@ export const getItemClickHandler: ({
     ({column, index, onActiveItemChange, activeItemId}) =>
     (e) => {
         const id = `${column}-${index}`;
-        e.stopPropagation();
+        if (e) {
+            e.stopPropagation();
+        }
         onActiveItemChange(id === activeItemId ? undefined : `${column}-${index}`);
     };
