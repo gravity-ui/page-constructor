@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.25.1](https://github.com/gravity-ui/page-constructor/compare/v1.25.0...v1.25.1) (2023-03-20)
+
+
+### Bug Fixes
+
+* cannot read stopPropagation of undefined in navigation utils ([#221](https://github.com/gravity-ui/page-constructor/issues/221)) ([e20904a](https://github.com/gravity-ui/page-constructor/commit/e20904abfcc14339be777747a4c26187dba8cd58))
+
 ## [1.25.0](https://github.com/gravity-ui/page-constructor/compare/v1.24.0...v1.25.0) (2023-03-14)
 
 
