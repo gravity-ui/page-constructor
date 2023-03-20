@@ -1,0 +1,42 @@
+import {fullTransform, typografToHTML} from './utils';
+
+import {Lang} from '../utils/configure';
+
+export type ComplexItem = {[key: string]: string};
+export type Item = string | null | ComplexItem;
+export type Transformer = (text: string) => string;
+export type TransformerRaw = (lang: Lang, content: string) => string;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type Parser<T = any> = (transformer: Transformer, block: T) => T;
+
+export const createItemsParser = (fields: string[]) => (transformer: Transformer, items: Item[]) =>
+    items.map((item) => {
+        if (!item) {
+            return item;
+        } else if (typeof item === 'string') {
+            return transformer(item);
+        } else {
+            return {
+                ...item,
+                ...fields.reduce<ComplexItem>((acc, fieldName) => {
+                    const result = {...acc};
+
+                    if (item[fieldName]) {
+                        result[fieldName] = transformer(item[fieldName]);
+                    }
+
+                    return result;
+                }, {}),
+            };
+        }
+    });
+
+export function yfmTransformer(lang: Lang, content: string) {
+    const {html} = fullTransform(content, {lang});
+
+    return html;
+}
+
+export function typografTransformer(lang: Lang, content: string) {
+    return typografToHTML(content, lang);
+}

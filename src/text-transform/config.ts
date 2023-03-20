@@ -1,7 +1,9 @@
+<<<<<<< HEAD:src/text-transform/blocks.ts
 import _ from 'lodash';
 
+=======
+>>>>>>> a44ab67 (feat: refactor cloneDeep sd):src/text-transform/config.ts
 import {
-    Block,
     BlockType,
     ContentBlockProps,
     ExtendedFeaturesItem,
@@ -13,38 +15,21 @@ import {
     TableProps,
     TitleProps,
 } from '../models';
+<<<<<<< HEAD:src/text-transform/blocks.ts
 import {ConstructorBlock} from '../models/constructor';
 import {Lang} from '../utils/configure';
 import {fullTransform, typografToHTML} from './utils';
+=======
+>>>>>>> a44ab67 (feat: refactor cloneDeep sd):src/text-transform/config.ts
 
-export type ComplexItem = {[key: string]: string};
-export type Item = string | null | ComplexItem;
-export type TransformerRaw = (lang: Lang, content: string) => string;
-export type Transformer = (text: string) => string;
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type Parser<T = any> = (transformer: Transformer, block: T) => T;
-
-export const createItemsParser = (fields: string[]) => (transformer: Transformer, items: Item[]) =>
-    items.map((item) => {
-        if (!item) {
-            return item;
-        } else if (typeof item === 'string') {
-            return transformer(item);
-        } else {
-            return {
-                ...item,
-                ...fields.reduce<ComplexItem>((acc, fieldName) => {
-                    const result = {...acc};
-
-                    if (item[fieldName]) {
-                        result[fieldName] = transformer(item[fieldName]);
-                    }
-
-                    return result;
-                }, {}),
-            };
-        }
-    });
+import {
+    Transformer,
+    TransformerRaw,
+    Parser,
+    createItemsParser,
+    yfmTransformer,
+    typografTransformer,
+} from './common';
 
 function parseTableBlock(transformer: Transformer, content: TableProps) {
     const legend = content?.legend;
@@ -140,16 +125,6 @@ function parseContentLayoutTitle(transformer: Transformer, content: ContentBlock
     return content;
 }
 
-export function yfmTransformer(lang: Lang, content: string) {
-    const {html} = fullTransform(content, {lang});
-
-    return html;
-}
-
-export function typografTransformer(lang: Lang, content: string) {
-    return typografToHTML(content, lang);
-}
-
 const blockHeaderTransfomer = [
     {
         fields: ['title'],
@@ -168,9 +143,9 @@ interface BlockConfig {
     parser?: Parser;
 }
 
-type BlocksConfig = Record<string, BlockConfig | BlockConfig[]>;
+export type BlocksConfig = Record<string, BlockConfig | BlockConfig[]>;
 
-const config: BlocksConfig = {
+export const config: BlocksConfig = {
     [SubBlockType.Partner]: {
         fields: ['text'],
         transformer: typografTransformer,
@@ -387,6 +362,7 @@ const config: BlocksConfig = {
     ],
     [BlockType.LinkTableBlock]: blockHeaderTransfomer,
 };
+<<<<<<< HEAD:src/text-transform/blocks.ts
 
 function addRandomOrder(block: ConstructorBlock) {
     if (block) {
@@ -443,3 +419,5 @@ export function transformFootnotes(footnotes: string[], lang: Lang) {
         .map((footnote) => fullTransform(footnote, {path: __dirname, lang, allowHTML: true}).html)
         .filter(Boolean);
 }
+=======
+>>>>>>> a44ab67 (feat: refactor cloneDeep sd):src/text-transform/config.ts
