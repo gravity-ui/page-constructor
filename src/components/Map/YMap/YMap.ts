@@ -1,6 +1,6 @@
 import {Coordinate} from '../../../models/constructor-items/common';
 
-import {YMapMarker, YMapMarkerLabel} from '../../../models';
+import {YMapProps, YMapMarker, YMapMarkerLabel} from '../../../models';
 
 enum GeoObjectTypes {
     Properties = 'properties',
@@ -19,6 +19,8 @@ const geoObjectPropsAndOptions = {
     preset: GeoObjectTypes.Options,
 };
 
+type PlacemarksProps = Pick<YMapProps, 'zoom' | 'markers'>;
+
 export class YMap {
     private ymap: Ymaps.Map;
     private mapRef: HTMLDivElement | null;
@@ -29,10 +31,10 @@ export class YMap {
         this.mapRef = mapRef;
     }
 
-    async showPlacemarks(markers: YMapMarker[]) {
+    async showPlacemarks(props: PlacemarksProps) {
         this.clearOldPlacemarks();
 
-        for (const marker of markers) {
+        for (const marker of props.markers) {
             if (marker.address) {
                 await this.findAddress(marker);
             } else if (marker.coordinate) {
@@ -40,7 +42,7 @@ export class YMap {
             }
         }
 
-        this.recalcZoomAndCenter();
+        this.recalcZoomAndCenter(props);
     }
 
     async findAddress(marker: YMapMarker) {
@@ -66,11 +68,7 @@ export class YMap {
     }
 
     private drawPlaceMarkStyle(geoObject: Ymaps.GeoObject, marker: YMapMarker) {
-        if (!marker.label) {
-            return;
-        }
-
-        const {iconColor, preset = DEFAULT_PLACEMARKS_PRESET} = marker.label;
+        const {iconColor, preset = DEFAULT_PLACEMARKS_PRESET} = marker.label || {};
         let localIconColor: string | undefined = iconColor;
 
         // You can set the preset option together with the iconColor option only if it not a 'Stretchy' preset
@@ -90,8 +88,9 @@ export class YMap {
         );
     }
 
-    private recalcZoomAndCenter() {
+    private recalcZoomAndCenter(props: PlacemarksProps) {
         const coordsLength = this.coords.length;
+        const {zoom = 0} = props;
 
         if (!coordsLength) {
             return;
@@ -105,17 +104,27 @@ export class YMap {
             rightTop = [Math.max(rightTop[0], point[0]), Math.max(rightTop[1], point[1])];
         });
 
-        const newMapParams = window.ymaps.util.bounds.getCenterAndZoom(
-            [leftBottom, rightTop],
-            [this.mapRef?.clientWidth, this.mapRef?.clientHeight],
-            undefined,
-            {margin: DEFAULT_MAP_CONTROL_BUTTON_HEIGHT},
-        );
+        let newMapParams = {
+            zoom,
+            center: [],
+        };
+
+        if (zoom) {
+            // compute only the center
+            newMapParams.center = window.ymaps.util.bounds.getCenter([leftBottom, rightTop]);
+        } else {
+            newMapParams = window.ymaps.util.bounds.getCenterAndZoom(
+                [leftBottom, rightTop],
+                [this.mapRef?.clientWidth, this.mapRef?.clientHeight],
+                undefined,
+                {margin: DEFAULT_MAP_CONTROL_BUTTON_HEIGHT},
+            );
+        }
 
         this.ymap.setCenter(newMapParams.center);
 
         // Use default zoom for one placemark
-        if (coordsLength > 1) {
+        if (coordsLength > 1 && !zoom) {
             this.ymap.setZoom(newMapParams.zoom);
         }
     }

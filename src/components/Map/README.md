@@ -2,8 +2,6 @@ Map
 
 `type: "map"`
 
-`center: number[]` - Geo coordinates of the map center, required for `Yandex maps`
-
 `zoom?: number` - Map zoom level. In google maps values ranging from 0 (the whole world) to 21 (individual buildings). In Yandex maps values ranging from 1 (the whole world) to 16 (individual buildings)
 
 `address?: string;` - URL-escaped place name, address. You need to use it for `Google maps`
