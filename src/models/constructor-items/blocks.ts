@@ -16,8 +16,6 @@ import {
     MediaDirection,
     MediaProps,
     MapProps,
-    PreviewItemProps,
-    PreviewRatioMediaContent,
     TextSize,
     TextTheme,
     ThemedImage,
@@ -45,7 +43,6 @@ export enum BlockType {
     BannerBlock = 'banner-block',
     CompaniesBlock = 'companies-block',
     MediaBlock = 'media-block',
-    PreviewBlock = 'preview-block',
     InfoBlock = 'info-block',
     SecurityBlock = 'security-block',
     TableBlock = 'table-block',
@@ -244,16 +241,6 @@ export interface MapBlockProps extends MediaBaseBlockProps {
     map: MapProps;
 }
 
-export interface PreviewBlockProps extends Animatable {
-    title: string;
-    items: PreviewItemProps[];
-    description?: string;
-    direction?: MediaDirection;
-    ratioMediaContent?: PreviewRatioMediaContent;
-    stopVideo?: boolean;
-    showImmediately?: boolean;
-}
-
 export interface InfoBlockProps {
     theme?: TextTheme;
     backgroundColor?: ThemeSupporting<string>;
@@ -441,10 +428,6 @@ export type MapBlockModel = {
     type: BlockType.MapBlock;
 } & MapBlockProps;
 
-export type PreviewBlockModel = {
-    type: BlockType.PreviewBlock;
-} & PreviewBlockProps;
-
 export type InfoBlockModel = {
     type: BlockType.InfoBlock;
 } & InfoBlockProps;
@@ -511,7 +494,6 @@ type BlockModels =
     | SimpleBlockModel
     | LinkTableBlockModel
     | HeaderBlockModel
-    | PreviewBlockModel
     | IconsBlockModel
     | HeaderSliderBlockModel
     | CardLayoutBlockModel
