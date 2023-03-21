@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.25.2](https://github.com/gravity-ui/page-constructor/compare/v1.25.1...v1.25.2) (2023-03-21)
+
+
+### Bug Fixes
+
+* **ExtendedFeatures:** label position fixed ([#175](https://github.com/gravity-ui/page-constructor/issues/175)) ([fb8d206](https://github.com/gravity-ui/page-constructor/commit/fb8d206ad2378564a1dc7a7295f02da13ae66df1))
+
 ## [1.25.1](https://github.com/gravity-ui/page-constructor/compare/v1.25.0...v1.25.1) (2023-03-20)
 
 
