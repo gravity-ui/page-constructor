@@ -61,7 +61,7 @@ export const ExtendedFeaturesBlock = ({
                                             <h5 className={b('item-title')}>
                                                 <HTML>{itemTitle}</HTML>
                                                 {label && (
-                                                    <div className={b('item-label')}>{label}</div>
+                                                    <span className={b('item-label')}>{label}</span>
                                                 )}
                                             </h5>
                                         )}
