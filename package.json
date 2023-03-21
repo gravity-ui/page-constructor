@@ -73,7 +73,6 @@
   "devDependencies": {
     "@babel/core": "^7.15.8",
     "@commitlint/config-conventional": "^17.4.3",
-    "@doc-tools/components": "^2.6.3",
     "@doc-tools/transform": "^2.9.0",
     "@gravity-ui/eslint-config": "^1.0.2",
     "@gravity-ui/page-constructor": "^1.23.0",
