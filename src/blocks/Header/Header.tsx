@@ -2,7 +2,7 @@ import React, {useContext} from 'react';
 
 import {block, getThemedValue} from '../../utils';
 import {ClassNameProps, HeaderBlockBackground, HeaderBlockProps, WithChildren} from '../../models';
-import {Button, Media, RouterLink, HTML} from '../../components';
+import {Button, Media, HTML} from '../../components';
 import {Grid, Row, Col} from '../../grid';
 import {getImageSize, getTitleSizes, titleWithImageSizes} from './utils';
 import {MobileContext} from '../../context/mobileContext';
@@ -141,14 +141,14 @@ export const HeaderBlock = (props: WithChildren<HeaderBlockFullProps>) => {
                                         <div className={b('buttons')} data-qa="header-buttons">
                                             {buttons &&
                                                 buttons.map((button, index) => (
-                                                    <RouterLink href={button.url} key={index}>
-                                                        <Button
-                                                            key={index}
-                                                            className={b('button')}
-                                                            size="xl"
-                                                            {...button}
-                                                        />
-                                                    </RouterLink>
+                                                    // <RouterLink href={button.url} key={index}>
+                                                    <Button
+                                                        key={index}
+                                                        className={b('button')}
+                                                        size="xl"
+                                                        {...button}
+                                                    />
+                                                    // </RouterLink>
                                                 ))}
                                         </div>
                                     )}
