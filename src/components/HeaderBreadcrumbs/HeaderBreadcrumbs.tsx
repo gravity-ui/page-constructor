@@ -2,7 +2,7 @@ import React from 'react';
 import {block} from '../../utils';
 import {HeaderBreadCrumbsProps} from '../../models';
 import {useMetrika} from '../../hooks/useMetrika';
-import {LinkBase} from '../LinkBase/LinkBase';
+import LinkBase from '../LinkBase/LinkBase';
 
 import './HeaderBreadcrumbs.scss';
 

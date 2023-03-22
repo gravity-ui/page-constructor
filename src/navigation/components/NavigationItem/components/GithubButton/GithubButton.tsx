@@ -4,7 +4,7 @@ import {block} from '../../../../../utils';
 
 import {NavigationItemProps} from '../../NavigationItem';
 import {NavigationGithubButton, NavigationGithubButtonIcon} from '../../../../../models';
-import {LinkBase} from '../../../../../components/LinkBase/LinkBase';
+import {LinkBase} from '../../../../../components';
 
 import './GithubButton.scss';
 

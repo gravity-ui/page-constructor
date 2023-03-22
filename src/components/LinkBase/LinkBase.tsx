@@ -5,7 +5,7 @@ import {LinkBaseProps, WithChildren} from '../../models';
 import {LocationContext} from '../../context/locationContext';
 import RouterLink from '../RouterLink/RouterLink';
 
-export const LinkBase = (props: WithChildren<LinkBaseProps>) => {
+const LinkBase = (props: WithChildren<LinkBaseProps>) => {
     const {href, children, ...linkProps} = props;
     const {Link} = useContext(LocationContext);
 
@@ -25,3 +25,5 @@ export const LinkBase = (props: WithChildren<LinkBaseProps>) => {
         </a>
     );
 };
+
+export default LinkBase;

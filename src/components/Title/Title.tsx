@@ -3,10 +3,10 @@ import {block, getHeaderTag, getLinkProps} from '../../utils';
 
 import {TextSize, TitleProps} from '../../models';
 import Anchor from '../Anchor/Anchor';
+import LinkBase from '../LinkBase/LinkBase';
 import {ToggleArrow, HTML} from '../';
 import {LocationContext} from '../../context/locationContext';
 import {MobileContext} from '../../context/mobileContext';
-import {LinkBase} from '../LinkBase/LinkBase';
 
 import './Title.scss';
 

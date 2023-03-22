@@ -17,6 +17,7 @@ export {default as HeaderBreadcrumbs} from './HeaderBreadcrumbs/HeaderBreadcrumb
 export {default as HeightCalculator} from './HeightCalculator/HeightCalculator';
 export {default as Image} from './Image/Image';
 export {default as Link} from './Link/Link';
+export {default as LinkBase} from './LinkBase/LinkBase';
 export {default as Links} from './Link/Links';
 export {default as Media} from './Media/Media';
 export {default as OutsideClick} from './OutsideClick/OutsideClick';

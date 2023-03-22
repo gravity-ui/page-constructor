@@ -4,13 +4,13 @@ import {Icon} from '@gravity-ui/uikit';
 import {block, getLinkProps, setUrlTld} from '../../utils';
 import {LinkProps, TextSize, ClassNameProps, WithChildren, DefaultEventNames} from '../../models';
 import {Chevron} from '../../icons';
+import LinkBase from '../LinkBase/LinkBase';
 import FileLink from '../FileLink/FileLink';
 import BackLink from '../BackLink/BackLink';
 import {LocaleContext} from '../../context/localeContext/localeContext';
 import {LocationContext} from '../../context/locationContext/locationContext';
 import {useMetrika} from '../../hooks/useMetrika';
 import {useAnalytics} from '../../hooks';
-import {LinkBase} from '../LinkBase/LinkBase';
 
 import './Link.scss';
 

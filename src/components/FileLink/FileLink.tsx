@@ -3,7 +3,7 @@ import React, {useContext} from 'react';
 
 import {FileLinkProps, WithChildren} from '../../models';
 import {LocationContext} from '../../context/locationContext';
-import {LinkBase} from '../LinkBase/LinkBase';
+import LinkBase from '../LinkBase/LinkBase';
 
 import './FileLink.scss';
 
