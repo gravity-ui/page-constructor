@@ -7,24 +7,37 @@ import {GMapProps} from '../../models';
 import {LocaleContext} from '../../context/localeContext/localeContext';
 import {MobileContext} from '../../context/mobileContext';
 import {getMapHeight} from './helpers';
+import {Lang} from '../../utils/configure';
 
 const b = block('map');
 
-function getScriptSrc(apiKey: string, scriptSrc: string, address: string, lang: 'ru' | 'en') {
-    return `${scriptSrc}?key=${apiKey}&language=${lang}&q=${encodeURI(address)}`;
+interface GoogleMapLinkParams {
+    apiKey: string;
+    scriptSrc: string;
+    address: string;
+    lang: Lang;
+    zoom?: number;
+}
+
+function getScriptSrc(params: GoogleMapLinkParams) {
+    const {apiKey, scriptSrc, address, lang, zoom} = params;
+
+    return `${scriptSrc}?key=${apiKey}&language=${lang}${zoom ? '&zoom=' + zoom : ''}&q=${encodeURI(
+        address,
+    )}`;
 }
 
 const GoogleMap: React.FC<GMapProps> = (props) => {
-    const {address} = props;
+    const {address, zoom} = props;
     const {apiKey, scriptSrc} = useContext(MapsContext);
-    const {lang = 'ru'} = useContext(LocaleContext);
+    const {lang = Lang.Ru} = useContext(LocaleContext);
     const isMobile = useContext(MobileContext);
 
     const [height, setHeight] = useState<number | undefined>(undefined);
     const ref = useRef<HTMLIFrameElement>(null);
     const src = useMemo(
-        () => getScriptSrc(apiKey, scriptSrc, address, lang),
-        [apiKey, scriptSrc, address, lang],
+        () => getScriptSrc({apiKey, scriptSrc, address, lang, zoom}),
+        [apiKey, scriptSrc, address, lang, zoom],
     );
 
     useEffect(() => {

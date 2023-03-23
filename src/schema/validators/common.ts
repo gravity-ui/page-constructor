@@ -549,10 +549,6 @@ export const MapProps = {
     zoom: {
         type: 'number',
     },
-    center: {
-        type: 'array',
-        items: {type: 'number'},
-    },
     address: {
         type: 'string',
     },
