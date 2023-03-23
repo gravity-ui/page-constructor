@@ -244,7 +244,6 @@ export type Coordinate = number[];
 
 export interface MapBaseProps {
     zoom?: number;
-    center?: Coordinate;
 }
 export interface GMapProps extends MapBaseProps {
     address: string;
@@ -253,7 +252,6 @@ export interface GMapProps extends MapBaseProps {
 export interface YMapProps extends MapBaseProps {
     markers: YMapMarker[];
     id: string;
-    center: Coordinate;
 }
 
 export interface YMapMarker {

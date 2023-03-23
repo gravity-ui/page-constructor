@@ -16,9 +16,13 @@ import {getMapHeight} from '../helpers';
 const b = block('map');
 const DEFAULT_CONTAINER_ID = 'ymap';
 const DEFAULT_ZOOM = 9;
+// Center - is a required parameter for creating a new map
+// We use this init center to create a map
+// The real center of the map will be calculated later, using the coordinates of the markers
+const INITIAL_CENTER = [0, 0];
 
 const YandexMap: React.FC<YMapProps> = (props) => {
-    const {markers, zoom, center, id} = props;
+    const {markers, zoom, id} = props;
     const {apiKey, scriptSrc, nonce} = useContext(MapsContext);
     const isMobile = useContext(MobileContext);
 
@@ -30,6 +34,7 @@ const YandexMap: React.FC<YMapProps> = (props) => {
     const ref = useRef<HTMLDivElement>(null);
 
     const [loading, setLoading] = useState<boolean>(false);
+    const [ready, setReady] = useState<boolean>(false);
     const [attemptsIndex, setAttemptsIndex] = useState<number>(0);
     const onTryAgain = useCallback(() => {
         setAttemptsIndex(attemptsIndex + 1);
@@ -37,10 +42,6 @@ const YandexMap: React.FC<YMapProps> = (props) => {
 
     useEffect(() => {
         (async function () {
-            if (!center) {
-                return;
-            }
-
             setLoading(true);
 
             await YMapsApiLoader.loadApi(apiKey, scriptSrc, lang, nonce);
@@ -51,7 +52,7 @@ const YandexMap: React.FC<YMapProps> = (props) => {
                         new window.ymaps.Map(
                             containerId,
                             {
-                                center,
+                                center: INITIAL_CENTER,
                                 zoom: zoom || DEFAULT_ZOOM,
                             },
                             {autoFitToViewport: 'always'},
@@ -63,7 +64,7 @@ const YandexMap: React.FC<YMapProps> = (props) => {
 
             setLoading(false);
         })();
-    }, [apiKey, lang, scriptSrc, containerId, zoom, center, nonce, attemptsIndex, setLoading]);
+    }, [apiKey, lang, scriptSrc, containerId, zoom, nonce, attemptsIndex, setLoading]);
 
     useEffect(() => {
         const updateSize = _.debounce(() => {
@@ -82,11 +83,18 @@ const YandexMap: React.FC<YMapProps> = (props) => {
 
     useEffect(() => {
         if (ymap) {
-            ymap.showPlacemarks(markers);
+            // show with computed center and placemarks
+            const showPlacemarks = async () => {
+                await ymap.showPlacemarks({markers, zoom});
+
+                setReady(true);
+            };
+
+            showPlacemarks();
         }
     });
 
-    if (!center) return null;
+    if (!markers) return null;
 
     return (
         <ErrorWrapper
@@ -96,7 +104,9 @@ const YandexMap: React.FC<YMapProps> = (props) => {
             handler={onTryAgain}
             className={b('wrapper')}
         >
-            <div id={containerId} className={b()} ref={ref} style={{height}}>
+            <div className={b('wrapper')}>
+                {/* hidden - to show the map after calculating the center */}
+                <div id={containerId} className={b({hidden: !ready})} ref={ref} style={{height}} />
                 {loading ? <Spin size="xl" className={b('spinner')} /> : null}
             </div>
         </ErrorWrapper>
