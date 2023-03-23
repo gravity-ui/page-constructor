@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.0.0](https://github.com/gravity-ui/page-constructor/compare/v1.25.2...v2.0.0) (2023-03-23)
+
+
+### ⚠ BREAKING CHANGES
+
+* update uikit up to 4, update react up to 18([#134](https://github.com/gravity-ui/page-constructor/issues/134)) (#212)
+
+### Features
+
+* map-block changing the logic of zoom and center ([#219](https://github.com/gravity-ui/page-constructor/issues/219)) ([d332844](https://github.com/gravity-ui/page-constructor/commit/d33284425878cdbfacdf7813826d909e9ab696cb))
+* update uikit up to 4, update react up to 18([#134](https://github.com/gravity-ui/page-constructor/issues/134)) ([#212](https://github.com/gravity-ui/page-constructor/issues/212)) ([377b1f5](https://github.com/gravity-ui/page-constructor/commit/377b1f59c25d08458082232075e2e7bcfe84fe5c))
+
 ## [1.25.2](https://github.com/gravity-ui/page-constructor/compare/v1.25.1...v1.25.2) (2023-03-21)
 
 
