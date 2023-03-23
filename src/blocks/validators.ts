@@ -13,7 +13,6 @@ export * from './Preview/schema';
 export * from './PromoFeaturesBlock/schema';
 export * from './Questions/schema';
 export * from './Security/schema';
-export * from './Simple/schema';
 export * from './Slider/schema';
 export * from './Table/schema';
 export * from './Share/schema';

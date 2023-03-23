@@ -50,7 +50,6 @@ export enum BlockType {
     SecurityBlock = 'security-block',
     TableBlock = 'table-block',
     TabsBlock = 'tabs-block',
-    SimpleBlock = 'simple-block',
     HeaderSliderBlock = 'header-slider-block',
     LinkTableBlock = 'link-table-block',
     HeaderBlock = 'header-block',
@@ -163,11 +162,6 @@ export interface HeaderBlockProps {
 }
 
 export type CalculatorProps = Animatable;
-
-export interface SimpleBlockProps extends Animatable, Childable {
-    title: TitleBaseProps;
-    description: string;
-}
 
 export interface ExtendedFeaturesItem
     extends Omit<ContentBlockProps, 'theme' | 'centered' | 'colSizes' | 'size' | 'title'> {
@@ -461,10 +455,6 @@ export type TabsBlockModel = {
     type: BlockType.TabsBlock;
 } & TabsBlockProps;
 
-export type SimpleBlockModel = {
-    type: BlockType.SimpleBlock;
-} & SimpleBlockProps;
-
 export type LinkTableBlockModel = {
     type: BlockType.LinkTableBlock;
 } & LinkTableBlockProps;
@@ -508,7 +498,6 @@ type BlockModels =
     | SecurityBlockModel
     | TableBlockModel
     | TabsBlockModel
-    | SimpleBlockModel
     | LinkTableBlockModel
     | HeaderBlockModel
     | PreviewBlockModel
