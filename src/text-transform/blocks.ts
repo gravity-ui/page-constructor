@@ -367,6 +367,17 @@ const config: BlocksConfig = {
             parser: parseTitle,
         },
     ],
+    [BlockType.PreviewBlock]: [
+        {
+            fields: ['description'],
+            transformer: yfmTransformer,
+        },
+        {
+            fields: ['title'],
+            transformer: typografTransformer,
+            parser: parseTitle,
+        },
+    ],
     [BlockType.InfoBlock]: [
         {
             fields: ['rightContent', 'leftContent'],

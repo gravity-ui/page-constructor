@@ -21,3 +21,5 @@
 ### [Table](?path=/story/components-table--default&viewMode=docs)
 
 ### [Simple](?path=/story/blocks-simple--default&viewMode=docs)
+
+### [Preview](?path=/story/blocks-preview--default&viewMode=docs)
