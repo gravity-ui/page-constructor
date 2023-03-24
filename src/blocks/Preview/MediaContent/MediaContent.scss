@@ -1,0 +1,68 @@
+@import '../../../../styles/mixins';
+@import '../../../../styles/variables';
+
+$block: '.#{$ns}preview-media-content-block';
+
+#{$block} {
+    &__header {
+        margin-bottom: $indentSM;
+    }
+
+    &__menu {
+        padding: 0;
+    }
+
+    &__title {
+        @include text-size(display-1);
+        font-weight: 500;
+        position: relative;
+    }
+
+    &__description {
+        @include text-size(body-2);
+        margin-top: $indentXXS;
+        position: relative;
+    }
+
+    &__content,
+    &__media {
+        padding: 0;
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'md')) {
+        &__menu.col {
+            overflow-y: auto;
+            margin-bottom: $indentXS;
+            padding: 0;
+        }
+
+        &__content-wrapper {
+            width: fit-content;
+            display: flex;
+
+            & div.preview-content-block__content-wrapper {
+                &:first-child div.preview-content-block__content_active {
+                    margin-left: 0;
+                }
+
+                &:last-child div.preview-content-block__content_active {
+                    margin-right: 0;
+                }
+            }
+        }
+    }
+
+    @media (min-width: map-get($gridBreakpoints, 'sm')) and (max-width: map-get($gridBreakpoints, 'md')) {
+        &__header,
+        &__content-wrapper {
+            padding: 0 $indentM;
+        }
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'sm')) {
+        &__header,
+        &__content-wrapper {
+            padding: 0 $indentS;
+        }
+    }
+}
