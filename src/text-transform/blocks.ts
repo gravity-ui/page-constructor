@@ -193,16 +193,6 @@ const config: BlocksConfig = {
             transformer: typografTransformer,
         },
     ],
-    [SubBlockType.CardWithImage]: [
-        {
-            fields: ['description', 'additionalInfo'],
-            transformer: yfmTransformer,
-        },
-        {
-            fields: ['title'],
-            transformer: typografTransformer,
-        },
-    ],
     [SubBlockType.LayoutItem]: [
         {
             fields: ['content'],

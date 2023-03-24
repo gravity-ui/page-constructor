@@ -18,8 +18,6 @@ _Cards are components that are only used together with the slider or layout:_
 
 - ### [BackgroundCard](?path=/story/components-cards-backgroundcard--default&viewMode=docs)
 
-- ### [CardWithImage(deprecated)](?path=/story/components-cards-cardwithimage--default&viewMode=docs)
-
 ## <a name="additionals">Additional sub-blocks</a>
 
 - ### [Content](?path=/story/components-content--default&viewMode=docs)

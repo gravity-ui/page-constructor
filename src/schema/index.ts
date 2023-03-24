@@ -31,7 +31,6 @@ import {
     TutorialCard,
     BackgroundCard,
     NewsCard,
-    CardWithImage,
     PriceDetailedBlock,
     Quote,
     Divider,
@@ -92,7 +91,6 @@ export function generateDefaultSchema(config?: SchemaCustomConfig) {
         ...TutorialCard,
         ...BackgroundCard,
         ...NewsCard,
-        ...CardWithImage,
         ...Quote,
         ...BasicCard,
     };
@@ -134,7 +132,6 @@ export function generateDefaultSchema(config?: SchemaCustomConfig) {
         'tutoral-card',
         'background-card',
         'news-card',
-        'card-with-image',
         'quote',
         'basic-card',
         'layout-item',

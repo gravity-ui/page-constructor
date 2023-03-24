@@ -4,12 +4,12 @@ import {Meta, Story} from '@storybook/react/types-6-0';
 import FilterBlock from '../FilterBlock';
 import {
     FilterBlockModel,
-    CardWithImageProps,
     FilterBlockProps,
     FilterItem,
     FilterTag,
+    LayoutItemModel,
+    LayoutItemProps,
 } from '../../../models';
-import {CardWithImageModel} from '../../../models/constructor-items/sub-blocks';
 import {PageConstructor} from '../../../containers/PageConstructor';
 
 import data from './data.json';
@@ -21,15 +21,19 @@ export default {
 
 const createItemList: (
     count: number,
-    shared: CardWithImageProps,
+    shared: LayoutItemProps,
     tagList: FilterTag[],
 ) => FilterItem[] = (count, shared, tagList) =>
     Array.from({length: count}, (_, index) => ({
         tags: [tagList[index % tagList.length].id],
         card: {
             ...shared,
-            title: shared.title ? `${shared.title}&nbsp;${index + 1}` : `${index + 1}`,
-        } as CardWithImageModel,
+            content: {
+                title: shared.content.title
+                    ? `${shared.content.title}&nbsp;${index + 1}`
+                    : `${index + 1}`,
+            },
+        } as LayoutItemModel,
     }));
 
 const createArgs = (overrides: Partial<FilterBlockProps>) =>
