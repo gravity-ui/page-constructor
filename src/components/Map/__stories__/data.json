@@ -1,8 +1,6 @@
 {
   "ymap": {
-    "zoom": 9,
     "id": "common-places",
-    "center": [55.753994, 37.622093],
     "markers": [
       {
         "address": "Moscow Arbat",
@@ -27,7 +25,6 @@
     ]
   },
   "gmap": {
-    "zoom": 9,
     "address": "Anthony Fokkerweg 1, 1059 CM Amsterdam"
   }
 }

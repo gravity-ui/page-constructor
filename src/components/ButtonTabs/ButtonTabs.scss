@@ -5,23 +5,25 @@ $block: '.#{$ns}button-tabs';
 
 #{$block} {
     &__item {
-        margin-right: $indentXXXS;
-        margin-bottom: $indentXXS;
-
-        @include button(
-            var(--pc-tab-item-color),
-            var(--pc-tab-item-background-color),
-            $hoverBackgroundColor: var(--pc-tab-item-background-color-hover)
-        );
-
-        &_active {
-            pointer-events: none;
+        @include add-specificity(&) {
+            margin-right: $indentXXXS;
+            margin-bottom: $indentXXS;
 
             @include button(
-                var(--pc-selected-tab-item-color),
-                var(--pc-selected-tab-item-background-color),
-                $hoverBackgroundColor: var(--pc-selected-tab-item-background-color-hover)
+                var(--pc-tab-item-color),
+                var(--pc-tab-item-background-color),
+                $hoverBackgroundColor: var(--pc-tab-item-background-color-hover)
             );
+
+            &_active {
+                pointer-events: none;
+
+                @include button(
+                    var(--pc-selected-tab-item-color),
+                    var(--pc-selected-tab-item-background-color),
+                    $hoverBackgroundColor: var(--pc-selected-tab-item-background-color-hover)
+                );
+            }
         }
     }
 }

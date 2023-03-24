@@ -25,7 +25,7 @@ $block: '.#{$ns}ExtendedFeaturesBlock';
         &-title {
             @include heading4();
 
-            display: flex;
+            display: block;
             position: relative;
             margin-bottom: $indentXXXS;
 
@@ -38,14 +38,14 @@ $block: '.#{$ns}ExtendedFeaturesBlock';
             @include text-size(caption-2);
 
             position: relative;
-            top: 5px;
+            top: -3px;
             height: 16px;
             margin-left: 8px;
-            padding: 0 5px;
+            padding: 1.5px 5px 2px;
 
             color: var(--yc-color-base-background);
             background-color: var(--yc-my-color-brand-normal);
-            border-radius: 3px;
+            border-radius: 4px;
         }
 
         &-text,

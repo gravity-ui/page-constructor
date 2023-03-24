@@ -1,5 +1,32 @@
 # Changelog
 
+## [2.0.1](https://github.com/gravity-ui/page-constructor/compare/v2.0.0...v2.0.1) (2023-03-24)
+
+
+### Bug Fixes
+
+* handle margins for centered links and buttons in Content ([#223](https://github.com/gravity-ui/page-constructor/issues/223)) ([50590f2](https://github.com/gravity-ui/page-constructor/commit/50590f288cba7d3dd88e4f91e1642d0a34061fb9))
+* **Navigation:** fix issue with remaining event handler in effect ([#220](https://github.com/gravity-ui/page-constructor/issues/220)) ([d494523](https://github.com/gravity-ui/page-constructor/commit/d4945238ee52f7cca92ea4b092f0701ab4d99693))
+
+## [2.0.0](https://github.com/gravity-ui/page-constructor/compare/v1.25.2...v2.0.0) (2023-03-23)
+
+
+### ⚠ BREAKING CHANGES
+
+* update uikit up to 4, update react up to 18([#134](https://github.com/gravity-ui/page-constructor/issues/134)) (#212)
+
+### Features
+
+* map-block changing the logic of zoom and center ([#219](https://github.com/gravity-ui/page-constructor/issues/219)) ([d332844](https://github.com/gravity-ui/page-constructor/commit/d33284425878cdbfacdf7813826d909e9ab696cb))
+* update uikit up to 4, update react up to 18([#134](https://github.com/gravity-ui/page-constructor/issues/134)) ([#212](https://github.com/gravity-ui/page-constructor/issues/212)) ([377b1f5](https://github.com/gravity-ui/page-constructor/commit/377b1f59c25d08458082232075e2e7bcfe84fe5c))
+
+## [1.25.2](https://github.com/gravity-ui/page-constructor/compare/v1.25.1...v1.25.2) (2023-03-21)
+
+
+### Bug Fixes
+
+* **ExtendedFeatures:** label position fixed ([#175](https://github.com/gravity-ui/page-constructor/issues/175)) ([fb8d206](https://github.com/gravity-ui/page-constructor/commit/fb8d206ad2378564a1dc7a7295f02da13ae66df1))
+
 ## [1.25.1](https://github.com/gravity-ui/page-constructor/compare/v1.25.0...v1.25.1) (2023-03-20)
 
 
