@@ -47,6 +47,10 @@ $darkSecondary: var(--yc-color-text-dark-secondary);
         @include add-specificity(&) {
             margin-top: 0;
             margin-right: $indentXXS;
+
+            &:last-child {
+                margin-right: 0;
+            }
         }
     }
 
@@ -59,6 +63,10 @@ $darkSecondary: var(--yc-color-text-dark-secondary);
     &__link {
         display: block;
         margin-right: $indentM;
+
+        &:last-child {
+            margin-right: 0;
+        }
     }
 
     &_centered {
