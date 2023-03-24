@@ -104,8 +104,6 @@ Example, with all fields:
           description: editorial
 ```
 
-Example, with labels. - https://cloud-preprod.yandex.ru/services/e2e-test?versionId=10114#slider-nested-children:
-
 ```yaml
 - type: price-detailed
   priceType: 'marked-list'
@@ -162,54 +160,3 @@ Example, with labels. - https://cloud-preprod.yandex.ru/services/e2e-test?versio
 ```
 
 ![](https://storage.cloud-preprod.yandex.net/cloud-www-assets/wiki/Price%20Detailed.jpg)
-
-Example, combined (Grants) - https://cloud-preprod.yandex.ru/services/e2e-test?versionId=10114#simple-block-grants-price-detailed-5:
-
-```yaml
-  - type: 'simple-block'
-    ...
-    children:
-    - type: price-detailed
-      priceType: 'settings'
-      numberGroupItems: 5
-      isCombined: true
-      useMixedView: true
-      foldable:
-        title: Show details
-      items:
-      - title: ₽100
-        description: Small edits
-        items:
-        - title: GitHub label
-          description: editorial
-        - title: Review
-          description: Within 3 business days
-      - title: ₽300–1000
-        description: Semantic updates, amendments, and improvement of texts
-        items:
-        - title: GitHub label
-          description: improvement
-      - title: ₽500–2000
-        description: New API, CLI, and Terraform use cases, code examples
-        items:
-        - title: Points
-          description: 5–20
-      - title: ₽1000–3000
-        description: New instructions, significant updates to published practical guidelines or concepts
-        items:
-        - title: GitHub label
-          description: major-update
-      - title: ₽5000–10000
-        description: New practical guidelines
-        items:
-        - title: GitHub label
-          description: new-solution
-        - title: Review
-          description: Within 20 business days
-        - title: Publish
-          description: Within a month
-        - title: Points
-          description: 50–100
-```
-
-![](https://storage.cloud-preprod.yandex.net/cloud-www-assets/wiki/Price%20Detailed%20-%201.jpg)
