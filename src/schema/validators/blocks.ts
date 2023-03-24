@@ -2,7 +2,6 @@ export * from '../../blocks/Banner/schema';
 export * from '../../blocks/Companies/schema';
 export * from '../../blocks/ExtendedFeatures/schema';
 export * from '../../blocks/PromoFeaturesBlock/schema';
-export * from '../../blocks/Simple/schema';
 export * from '../../blocks/Header/schema';
 export * from '../../blocks/Info/schema';
 export * from '../../blocks/Media/schema';
