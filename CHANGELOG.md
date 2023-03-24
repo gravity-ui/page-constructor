@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.2](https://github.com/gravity-ui/page-constructor/compare/v2.0.1...v2.0.2) (2023-03-24)
+
+
+### Bug Fixes
+
+* add specificity for few buttons ([#230](https://github.com/gravity-ui/page-constructor/issues/230)) ([22b0891](https://github.com/gravity-ui/page-constructor/commit/22b089158ed184d03726c5d0e0cff27307f1dec1))
+
 ## [2.0.1](https://github.com/gravity-ui/page-constructor/compare/v2.0.0...v2.0.1) (2023-03-24)
 
 
