@@ -16,7 +16,6 @@ import {
     QuestionsBlock,
     SecurityBlock,
     ShareBlock,
-    SimpleBlock,
     SliderBlock,
     TableBlock,
     TabsBlock,
@@ -40,7 +39,6 @@ import {
 
 export const blockMap = {
     [BlockType.SliderBlock]: SliderBlock,
-    [BlockType.SimpleBlock]: SimpleBlock,
     [BlockType.ExtendedFeaturesBlock]: ExtendedFeaturesBlock,
     [BlockType.PromoFeaturesBlock]: PromoFeaturesBlock,
     [BlockType.QuestionsBlock]: QuestionsBlock,
