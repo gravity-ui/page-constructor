@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.0.1](https://github.com/gravity-ui/page-constructor/compare/v2.0.0...v2.0.1) (2023-03-24)
+
+
+### Bug Fixes
+
+* handle margins for centered links and buttons in Content ([#223](https://github.com/gravity-ui/page-constructor/issues/223)) ([50590f2](https://github.com/gravity-ui/page-constructor/commit/50590f288cba7d3dd88e4f91e1642d0a34061fb9))
+* **Navigation:** fix issue with remaining event handler in effect ([#220](https://github.com/gravity-ui/page-constructor/issues/220)) ([d494523](https://github.com/gravity-ui/page-constructor/commit/d4945238ee52f7cca92ea4b092f0701ab4d99693))
+
 ## [2.0.0](https://github.com/gravity-ui/page-constructor/compare/v1.25.2...v2.0.0) (2023-03-23)
 
 
