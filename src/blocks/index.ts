@@ -1,6 +1,5 @@
 export {default as BannerBlock} from './Banner/Banner';
 export {default as CompaniesBlock} from './Companies/Companies';
-export {default as SimpleBlock} from './Simple/Simple';
 export {default as InfoBlock} from './Info/Info';
 export {default as MediaBlock} from './Media/Media';
 export {default as MapBlock} from './Map/Map';
