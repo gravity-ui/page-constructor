@@ -44,6 +44,7 @@ export const blockMap = {
     [BlockType.BannerBlock]: BannerBlock,
     [BlockType.CompaniesBlock]: CompaniesBlock,
     [BlockType.MediaBlock]: MediaBlock,
+    [BlockType.PreviewBlock]: PreviewBlock,
     [BlockType.InfoBlock]: InfoBlock,
     [BlockType.SecurityBlock]: SecurityBlock,
     [BlockType.TableBlock]: TableBlock,

@@ -1,0 +1,77 @@
+@import '../../../styles/mixins';
+@import '../../../styles/variables';
+
+$block: '.#{$ns}preview-block';
+
+#{$block} {
+    &__row > * {
+        height: fit-content;
+        margin: auto;
+    }
+
+    &__row {
+        &_reverse {
+            flex-direction: row-reverse;
+        }
+
+        & > .col.#{$ns}preview-media-content-block__media {
+            padding: 0 $indentXS;
+        }
+    }
+
+    @media (min-width: map-get($gridBreakpoints, 'md')) {
+        &__row {
+            display: flex;
+
+            & > .col.#{$ns}preview-media-content-block__content {
+                padding: 0 $indentL 0 $indentXS;
+            }
+        }
+
+        &__row_reverse {
+            & > .col.#{$ns}preview-media-content-block__content {
+                padding: 0 $indentXS 0 $indentL;
+            }
+        }
+    }
+
+    @media (min-width: map-get($gridBreakpoints, 'sm')) and (max-width: map-get($gridBreakpoints, 'md')) {
+        &__row_reverse {
+            flex-direction: row;
+        }
+
+        &__row {
+            & > .col.#{$ns}preview-media-content-block__content {
+                padding: 0;
+            }
+
+            & > .col.#{$ns}preview-media-content-block__media {
+                padding: 0 $indentM;
+            }
+        }
+
+        & &__row_reverse.row,
+        & &__row.row {
+            margin-left: -$indentM;
+            margin-right: -$indentM;
+        }
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'sm')) {
+        &__row {
+            & > .col.#{$ns}preview-media-content-block__content {
+                padding: 0;
+            }
+
+            & > .col.#{$ns}preview-media-content-block__media {
+                padding: 0 $indentS;
+            }
+        }
+
+        & &__row_reverse.row,
+        & &__row.row {
+            margin-left: -$indentS;
+            margin-right: -$indentS;
+        }
+    }
+}
