@@ -19,7 +19,6 @@ import {
 import {
     BannerBlock,
     CompaniesBlock,
-    SimpleBlock,
     MediaBlock,
     MapBlock,
     InfoBlock,
@@ -42,7 +41,6 @@ import {
 
 export const blockMap = {
     [BlockType.SliderBlock]: SliderBlock,
-    [BlockType.SimpleBlock]: SimpleBlock,
     [BlockType.ExtendedFeaturesBlock]: ExtendedFeaturesBlock,
     [BlockType.PromoFeaturesBlock]: PromoFeaturesBlock,
     [BlockType.QuestionsBlock]: QuestionsBlock,
