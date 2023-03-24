@@ -18,57 +18,59 @@ $block: '.#{$ns}share-block';
     }
 
     &__item {
-        display: flex;
-        justify-content: center;
-        width: 48px;
-        height: 48px;
-        border-radius: 100%;
-
-        &_type_vk {
-            background-color: var(--yc-color-vk);
-        }
-
-        &_type_facebook {
-            background-color: var(--yc-color-facebook);
-        }
-
-        &_type_twitter {
-            background-color: var(--yc-color-twitter);
-        }
-
-        &_type_telegram {
-            background-color: var(--yc-color-telegram);
-        }
-
-        &_type_telegram {
-            background-color: var(--yc-color-telegram);
-        }
-
-        &_type_linkedin {
-            background-color: var(--yc-color-linkedin);
-        }
-
         @include add-specificity(&) {
-            &:before {
-                border-radius: 100%;
+            display: flex;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            border-radius: 100%;
+
+            &_type_vk {
+                background-color: var(--yc-color-vk);
             }
-        }
 
-        &:hover {
-            &:before {
-                //redefine component style
-                /* stylelint-disable-next-line declaration-no-important */
-                background-color: var(--yc-color-base-generic) !important;
-                border-radius: 100%;
+            &_type_facebook {
+                background-color: var(--yc-color-facebook);
             }
-        }
 
-        & + & {
-            margin-left: $indentXXS;
-        }
+            &_type_twitter {
+                background-color: var(--yc-color-twitter);
+            }
 
-        svg {
-            color: var(--yc-color-base-background);
+            &_type_telegram {
+                background-color: var(--yc-color-telegram);
+            }
+
+            &_type_telegram {
+                background-color: var(--yc-color-telegram);
+            }
+
+            &_type_linkedin {
+                background-color: var(--yc-color-linkedin);
+            }
+
+            @include add-specificity(&) {
+                &:before {
+                    border-radius: 100%;
+                }
+            }
+
+            &:hover {
+                &:before {
+                    //redefine component style
+                    /* stylelint-disable-next-line declaration-no-important */
+                    background-color: var(--yc-color-base-generic) !important;
+                    border-radius: 100%;
+                }
+            }
+
+            & + & {
+                margin-left: $indentXXS;
+            }
+
+            svg {
+                color: var(--yc-color-base-background);
+            }
         }
     }
 
