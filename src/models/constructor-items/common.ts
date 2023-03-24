@@ -176,7 +176,7 @@ export type ButtonTheme =
     | 'scale'
     | 'monochrome';
 
-export interface ButtonProps {
+export interface ButtonProps extends AnalyticsEventsBase {
     text: string;
     url: string;
     primary?: boolean;
