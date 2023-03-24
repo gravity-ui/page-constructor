@@ -24,11 +24,6 @@ export enum PriceLabelColor {
     RED = 'red',
 }
 
-export enum PreviewItemType {
-    Video = 'video',
-    Image = 'image',
-}
-
 export enum PlayButtonType {
     Default = 'default',
     Text = 'text',
@@ -62,7 +57,6 @@ export type LegendTableMarkerType = 'disk';
 export type LinkTheme = 'file-link' | 'normal' | 'back' | 'underline';
 export type MediaDirection = 'media-content' | 'content-media';
 export type PriceDescriptionColor = 'cornflower' | 'black';
-export type PreviewRatioMediaContent = '2-1' | '1-1';
 export type ContentSize = 's' | 'l';
 export type ContentTextSize = 's' | 'm' | 'l';
 export type ContentTheme = 'default' | 'dark' | 'light';
@@ -338,18 +332,6 @@ export interface HeaderBreadCrumbsProps extends ClassNameProps {
     theme?: TextTheme;
     metrikaGoals?: MetrikaGoal;
     pixelEvents?: ButtonPixel;
-}
-
-// preview
-export interface PreviewContentItemProps {
-    title: string;
-    description?: string;
-}
-
-export interface PreviewItemProps {
-    type: PreviewItemType;
-    media: ThemedMediaProps;
-    content: PreviewContentItemProps;
 }
 
 export interface TitleProps extends Justifyable, TitleBaseProps {
