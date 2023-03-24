@@ -334,17 +334,6 @@ const config: BlocksConfig = {
             parser: createItemsParser(['description']),
         },
     ],
-    [BlockType.SimpleBlock]: [
-        {
-            fields: ['title'],
-            transformer: typografTransformer,
-            parser: parseTitle,
-        },
-        {
-            fields: ['description'],
-            transformer: yfmTransformer,
-        },
-    ],
     [SubBlockType.PriceDetailed]: [
         {
             transformer: yfmTransformer,
