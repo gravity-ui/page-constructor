@@ -73,7 +73,6 @@ export function generateDefaultSchema(config?: SchemaCustomConfig) {
         ...TableBlock,
         ...TabsBlock,
         ...LinkTableBlock,
-        ...PreviewBlock,
         ...HeaderSliderBlock,
         ...IconsBlock,
         ...CardLayoutBlock,
