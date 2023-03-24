@@ -65,7 +65,9 @@ $block: '.#{$ns}banner-card';
     }
 
     &__button {
-        margin-top: 28px;
+        @include add-specificity(&) {
+            margin-top: 28px;
+        }
     }
 
     &__image {
