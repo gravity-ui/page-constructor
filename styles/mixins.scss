@@ -518,18 +518,14 @@ unpredictable css rules order in build */
 
 @mixin tab-panel() {
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     justify-content: flex-start;
-    overflow: auto;
 
     &_centered {
-        display: flex;
         justify-content: center;
-        flex-wrap: wrap;
     }
 
     @media (max-width: map-get($gridBreakpoints, 'md')) {
-        display: flex;
         flex-wrap: nowrap;
         justify-content: flex-start;
         overflow: auto;
