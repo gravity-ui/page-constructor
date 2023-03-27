@@ -11,7 +11,8 @@ $block: '.#{$ns}block-header';
 
         margin-top: $indentXXS;
 
-        &_titleSize_s {
+        &_titleSize_s,
+        &_titleSize_xs {
             margin-top: $indentXXXS;
 
             .yfm {

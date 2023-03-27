@@ -13,12 +13,14 @@ const b = block('title-block');
 
 export function getArrowSize(size: TextSize, isMobile: boolean) {
     switch (size) {
+        case 'xs':
+            return 13;
         case 's':
             return 16;
         case 'm':
-            return isMobile ? 20 : 24;
+            return isMobile ? 22 : 24;
         case 'l':
-            return isMobile ? 20 : 24;
+            return isMobile ? 26 : 38;
         default:
             return 20;
     }

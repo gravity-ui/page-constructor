@@ -8,6 +8,8 @@ export function getHeaderTag(size: TextSize) {
             return 'h1';
         case 's':
             return 'h4';
+        case 'xs':
+            return 'h5';
         case 'm':
         default:
             return 'h2';
