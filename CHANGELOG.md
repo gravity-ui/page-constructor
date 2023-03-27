@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.3](https://github.com/gravity-ui/page-constructor/compare/v2.0.2...v2.0.3) (2023-03-27)
+
+
+### Bug Fixes
+
+* **Tabs:** wrap tabs on desktop ([#237](https://github.com/gravity-ui/page-constructor/issues/237)) ([68dd965](https://github.com/gravity-ui/page-constructor/commit/68dd965b8d5ad9439f8c59211232911695c30fd3))
+
 ## [2.0.2](https://github.com/gravity-ui/page-constructor/compare/v2.0.1...v2.0.2) (2023-03-24)
 
 
