@@ -1,13 +1,13 @@
 name: Release version 1.x.x. fix
 
 description: |
-  Organizes CI/CD pipeline for all Gravity UI packages - generate Changelog and bump version automatically,
+  Organizes CI/CD pipeline for branch with fixes for major version 1.x.x (version-1.x.x/fixes) - generate Changelog and bump version automatically,
   create a release PR which once merged results in creating a new GitHub release and publishing a new version of NPM
   package
 
 on:
   push:
-    branches: [version-1.x.x]
+    branches: [version-1.x.x/fixes]
 
 inputs:
   github-token: ${{ secrets.GRAVITY_UI_BOT_GITHUB_TOKEN }}
