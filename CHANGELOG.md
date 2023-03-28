@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.0](https://github.com/gravity-ui/page-constructor/compare/v2.0.3...v2.1.0) (2023-03-27)
+
+
+### Features
+
+* **Title:** add size xs ([#207](https://github.com/gravity-ui/page-constructor/issues/207)) ([1fd8cf7](https://github.com/gravity-ui/page-constructor/commit/1fd8cf7aeaf4a6a993a3ffcce576a41d61c3b66b))
+
 ## [2.0.3](https://github.com/gravity-ui/page-constructor/compare/v2.0.2...v2.0.3) (2023-03-27)
 
 
