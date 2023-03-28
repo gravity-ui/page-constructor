@@ -1,19 +1,8 @@
 name: Release version 1.x.x. fix
 
-description:
-  Organizes CI/CD pipeline for branch with fixes for version 1.x.x (version-1.x.x/fixes) - generate Changelog and bump version automatically,
-  create a release PR which once merged results in creating a new GitHub release and publishing a new version of NPM
-  package
-
 on:
   push:
     branches: [version-1.x.x/fixes]
-
-inputs:
-  node-version: 14
-  github-token: ${{ secrets.GRAVITY_UI_BOT_GITHUB_TOKEN }}
-  npm-token: ${{ secrets.GRAVITY_UI_BOT_NPM_TOKEN }}
-  default-branch: version-1.x.x/fixes
 
 jobs:
   release:
@@ -22,7 +11,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
-          node-version: ${{ inputs.node-version }}
+          node-version: 14
           registry-url: 'https://registry.npmjs.org'
       - run: npm ci
         shell: bash
@@ -33,14 +22,15 @@ jobs:
       - uses: google-github-actions/release-please-action@v3
         id: release
         with:
-          token: ${{ inputs.github-token }}
+          token: ${{ secrets.GRAVITY_UI_BOT_GITHUB_TOKEN }}
           release-type: node
           package-name: ${{ steps.package.outputs.name }}
           changelog-types: '[{"type":"feat","section":"Features","hidden":false},{"type":"fix","section":"Bug Fixes","hidden":false},{"type":"perf","section":"Performance Improvements","hidden":false}]'
           bump-minor-pre-major: true
-          default-branch: ${{ inputs.default-branch }}
+          default-branch: version-1.x.x/fixes
+          skip-github-release: true
       - run: npm publish --tag untagged --access public
         env:
-          NODE_AUTH_TOKEN: ${{ inputs.npm-token }}
+          NODE_AUTH_TOKEN: ${{ secrets.GRAVITY_UI_BOT_NPM_TOKEN }}
         if: ${{ steps.release.outputs.release_created }}
         shell: bash
