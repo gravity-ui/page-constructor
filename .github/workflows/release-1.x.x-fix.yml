@@ -1,7 +1,7 @@
 name: Release version 1.x.x. fix
 
 description:
-  Organizes CI/CD pipeline for branch with fixes for major version 1.x.x (version-1.x.x/fixes) - generate Changelog and bump version automatically,
+  Organizes CI/CD pipeline for branch with fixes for version 1.x.x (version-1.x.x/fixes) - generate Changelog and bump version automatically,
   create a release PR which once merged results in creating a new GitHub release and publishing a new version of NPM
   package
 
