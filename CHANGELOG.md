@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.2](https://github.com/gravity-ui/blog-constructor/compare/v1.1.1...v1.1.2) (2023-03-28)
+
+
+### Bug Fixes
+
+* add info about release ([#19](https://github.com/gravity-ui/blog-constructor/issues/19)) ([8a5824f](https://github.com/gravity-ui/blog-constructor/commit/8a5824f24c4ad85f0f122111f8f5c1e7c36becc5))
+
 ## [1.1.1](https://github.com/gravity-ui/blog-constructor/compare/v1.1.0...v1.1.1) (2023-03-28)
 
 
