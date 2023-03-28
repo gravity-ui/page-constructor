@@ -26,14 +26,17 @@ export enum SubBlockType {
     Quote = 'quote',
     NewsCard = 'news-card',
     /**
-     * @deprecated Will be moved to params use BasicCard instead
+     * @deprecated Will be removed, use BasicCard instead
      */
     Partner = 'partner',
+    /**
+     * @deprecated Will be removed
+     */
     PriceDetailed = 'price-detailed',
     MediaCard = 'media-card',
     BannerCard = 'banner-card',
     /**
-     * @deprecated Will be moved to params use BasicCard instead
+     * @deprecated Will be removed, use BasicCard instead
      */
     TutorialCard = 'tutoral-card',
     /**
@@ -46,12 +49,13 @@ export enum SubBlockType {
     Content = 'content',
     HubspotForm = 'hubspot-form',
     /**
-     * @deprecated Will be moved to params use BasicCard instead
+     * @deprecated Will be removed, use BasicCard instead
      */
     Card = 'card',
 }
 
 export const SubBlockTypes = Object.values(SubBlockType);
+
 export interface DividerProps {
     size?: DividerSize;
     border?: boolean;
@@ -97,6 +101,7 @@ export interface PartnerProps extends CardBaseProps {
     logo: ImageProps;
     url: string;
 }
+
 export interface QuoteProps extends Themable, CardBaseProps {
     text: string;
     image: ThemedImage;
@@ -116,6 +121,7 @@ export interface NewsCardData {
     url: string;
     isoDate?: string;
 }
+
 export type NewsCardProps = Pick<NewsCardData, 'title' | 'url' | 'date' | 'isoDate'> &
     CardBaseProps;
 
