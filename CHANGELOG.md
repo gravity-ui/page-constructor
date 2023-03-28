@@ -5,15 +5,7 @@
 
 ### Bug Fixes
 
-* add tag untagged ([ce9efcf](https://github.com/gravity-ui/page-constructor/commit/ce9efcfc74eaad2cbcf3cf79494f577b0eda09b3))
-* **package:** up version ([#241](https://github.com/gravity-ui/page-constructor/issues/241)) ([9b6d3f2](https://github.com/gravity-ui/page-constructor/commit/9b6d3f2ecace4e1e51c52a4c422aa44850bbefec))
-* remove description and inputs ([000a85e](https://github.com/gravity-ui/page-constructor/commit/000a85ee6d1d9fedb0cef74d990be4065a750efb))
-* try to release version ([6fc35f2](https://github.com/gravity-ui/page-constructor/commit/6fc35f2043097f883b9ad87bb348f73cc138be1e))
-
-
-### chore
-
-* bump release ([5642e58](https://github.com/gravity-ui/page-constructor/commit/5642e58b4dd576e76bbb039b8a82b335aa860dbc))
+* quotes validator schema ([22d2553](https://github.com/gravity-ui/page-constructor/pull/250/commits/22d255372453dcc07e80b574d19985690fd5d471))
 
 ## [1.25.3](https://github.com/gravity-ui/page-constructor/compare/v1.25.2...v1.25.3) (2023-03-27)
 
