@@ -23,6 +23,9 @@ export const Quote = {
                 type: 'string',
                 pattern: urlPattern,
             },
+            buttonText: {
+                type: 'string',
+            },
             theme: ThemeProps,
             author: authorItem,
         },
