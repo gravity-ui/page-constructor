@@ -16,6 +16,6 @@
 }
 
 .docs-story {
-    // без этого в docs пропадают объекты с z-index меньше 0
+    // without this in docs objects with z-index < 0 dissapear
     z-index: 0 !important;
 }

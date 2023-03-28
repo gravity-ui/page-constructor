@@ -48,7 +48,7 @@ export const parameters = {
     // actions: {
     //     argTypesRegex: '^on.*',
     // },
-    jsx: {showFunctions: true}, // Для того, чтобы функции отображались в сорцах
+    jsx: {showFunctions: true}, // because we need to show func in sources
     viewport: {
         viewports: MINIMAL_VIEWPORTS,
     },
@@ -61,7 +61,7 @@ export const parameters = {
     },
     options: {
         storySort: {
-            order: ['Блоки', 'Компоненты'],
+            order: ['Blocks', 'Containers'],
             method: 'alphabetical',
         },
     },

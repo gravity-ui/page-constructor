@@ -1,4 +1,4 @@
-# @gravity-ui/blog-constructor &middot; [![npm package](https://img.shields.io/npm/v/@gravity-ui/blog-constructor)](https://www.npmjs.com/package/@gravity-ui/blog-constructor)
+# @gravity-ui/blog-constructor &middot; [![npm package](https://img.shields.io/npm/v/@gravity-ui/blog-constructor)](https://www.npmjs.com/package/@gravity-ui/blog-constructor) [![storybook](https://img.shields.io/badge/Storybook-deployed-ff4685)](https://preview.yandexcloud.dev/blog-constructor/)
 
 ## Install
 
@@ -10,6 +10,8 @@ npm install @gravity-ui/blog-constructor
 
 `Blog-constructor` is a library based on the [Page-constructor](https://github.com/gravity-ui/page-constructor) library for creating blog format web pages. Blog-constructor uses the [`custom`](https://github.com/gravity-ui/page-constructor#custom-blocks) prop from page-constructor to add the components needed for the blog.
 
+### Documentation - [storybook](https://preview.yandexcloud.dev/blog-constructor/)
+
 ### Getting started
 
 The blog-constructor has both client components and server components for import. The blog pages is imported as a React component. To make sure it runs properly, wrap it in `BlogConstructorProvider`:
@@ -18,7 +20,7 @@ The blog-constructor has both client components and server components for import
 import {BlogPage, BlogConstructorProvider} from '@gravity-ui/blog-constructor';
 
 // Main blog page
-<BlogConstructorProvider>
+<BlogConstructorProvider {...providerProps}>
     <BlogPage
         content={content}
         posts={posts}

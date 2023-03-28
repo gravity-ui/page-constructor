@@ -10,7 +10,7 @@ import {
     PRIMARY_STORY,
 } from '@storybook/addon-docs/';
 
-const readmeCache: Record<string, string> = {};
+const readmeCache: Record<string, {default: string}> = {};
 
 function importAllReadme(ctx: __WebpackModuleApi.RequireContext) {
     const path = ctx.id.split(' ')[0].replace('./', '') + '/';
@@ -21,14 +21,14 @@ function importAllReadme(ctx: __WebpackModuleApi.RequireContext) {
 }
 
 importAllReadme(require.context('../blocks', true, /readme\.md$/i));
-importAllReadme(require.context('../components', true, /readme\.md$/i));
+importAllReadme(require.context('../containers', true, /readme\.md$/i));
 
 export const DocsWithReadme = () => {
     const context = React.useContext(DocsContext);
     const fileName = context?.parameters?.fileName;
     const kind = context.kind;
     let isComponent = false;
-    if (kind && /Компоненты|Блоки\//.test(kind)) {
+    if (kind && /Containers|Blocks\//.test(kind)) {
         isComponent = true;
     }
 
@@ -56,7 +56,7 @@ export const DocsWithReadme = () => {
         readmeContent = (
             <div
                 className="yfm yfm_only-light"
-                dangerouslySetInnerHTML={{__html: readmeCache[dirPath]}}
+                dangerouslySetInnerHTML={{__html: readmeCache[dirPath].default}}
             />
         );
     }
