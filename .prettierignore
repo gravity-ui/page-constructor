@@ -11,3 +11,7 @@ storybook-static/
 
 # npm files
 package.json
+
+# docs
+CHANGELOG.md
+CONTRIBUTING.md
