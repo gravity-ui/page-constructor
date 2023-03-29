@@ -20,7 +20,6 @@ The following blocks are currently supported:
 - [`Partner` — Partner card](?path=/story/components-cards-partner--default&viewMode=docs)
 - [`Price Detailed` — Pricing](?path=/story/components-cards-pricedetailed--marked-list&viewMode=docs)
 - [`BackgroundCard` — Background card](?path=/story/components-cards-backgroundcard--default&viewMode=docs)
-- [`CardWithImage` — Card with a picture above the title (deprecated)](?path=/story/components-cards-cardwithimage--default&viewMode=docs)
-- [`LayoutItem` — Component part of `Layout` component, consists with `Media` and `Content`](?path=/story/components-cards-cardwithimage--default&viewMode=docs)
+- [`LayoutItem` — Component part of `Layout` component, consists with `Media` and `Content`](?path=/story/components-cards-layoutitem--default&viewMode=docs)
 - [`NewsCard` — News card](?path=/story/components-cards-newscard--default&viewMode=docs)
 - [`TutorialCard` — Card with an icon](?path=/story/components-cards-tutorialcard--default&viewMode=docs)
