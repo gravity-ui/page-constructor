@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.2.0](https://github.com/gravity-ui/page-constructor/compare/v2.1.1...v2.2.0) (2023-03-29)
+
+
+### Features
+
+* dropdown a ReactPlayer version ([#254](https://github.com/gravity-ui/page-constructor/issues/254)) ([fec1c3f](https://github.com/gravity-ui/page-constructor/commit/fec1c3fee50dcd86d08c0501f80d7aca0795e026))
+
 ## [2.1.1](https://github.com/gravity-ui/page-constructor/compare/v2.1.0...v2.1.1) (2023-03-28)
 
 
