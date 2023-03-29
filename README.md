@@ -316,3 +316,11 @@ When you receive the approval of your pull-request from the code owners and pass
 3. Wait until robot creates a PR with a new version of the package and information about your changes in CHANGELOG.md. You can see the process on [the Actions tab](https://github.com/gravity-ui/page-constructor/actions).
 4. Check your changes in CHANGELOG.md and approve robot's PR.
 5. Squash and merge PR. You can see release process on [the Actions tab](https://github.com/gravity-ui/page-constructor/actions).
+
+For now, we have two major version of package. If you want to have your changes in major one (1.x.x) for some reasons, e.g. you aren't ready for major 2.x.x. update, please do the following:
+
+1. Create PR wit your changes as you usually do to the branch main.
+2. Release package version in major 2.x.x.
+3. Then you have to fetch a branch `version-1.x.x/fixes` - it is a branch with major 1.x.x and changes which were created after the release version 2.x.x.
+4. Cherry-pick your commit from major 2.x.x to a branch which was released from the branch `version-1.x.x/fixes` and create a PR.
+5. After that you have to follow regular flow above.
