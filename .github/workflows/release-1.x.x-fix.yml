@@ -28,7 +28,7 @@ jobs:
           changelog-types: '[{"type":"feat","section":"Features","hidden":false},{"type":"fix","section":"Bug Fixes","hidden":false},{"type":"perf","section":"Performance Improvements","hidden":false}]'
           bump-minor-pre-major: true
           default-branch: version-1.x.x/fixes
-      - run: npm publish --tag stable --access public
+      - run: npm publish --tag untagged --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GRAVITY_UI_BOT_NPM_TOKEN }}
         if: ${{ steps.release.outputs.release_created }}
