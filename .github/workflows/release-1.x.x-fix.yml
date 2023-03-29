@@ -29,7 +29,7 @@ jobs:
           bump-minor-pre-major: true
           default-branch: version-1.x.x/fixes
           skip-github-release: true
-      - run: npm publish --tag untagged --access public
+      - run: npm publish --tag stable --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GRAVITY_UI_BOT_NPM_TOKEN }}
         if: ${{ steps.release.outputs.release_created }}
