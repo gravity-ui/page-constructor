@@ -25,7 +25,6 @@ import {
     BackgroundCard,
     BannerCard,
     BasicCard,
-    CardWithImage,
     Content,
     Divider,
     LayoutItem,
@@ -75,10 +74,6 @@ export const subBlockMap = {
     [SubBlockType.BannerCard]: BannerCard,
     [SubBlockType.NewsCard]: NewsCard,
     [SubBlockType.LayoutItem]: LayoutItem,
-    /**
-     * @deprecated Use LayoutItem
-     */
-    [SubBlockType.CardWithImage]: CardWithImage,
     [SubBlockType.BackgroundCard]: BackgroundCard,
     [SubBlockType.BasicCard]: BasicCard,
     [SubBlockType.Content]: Content,
