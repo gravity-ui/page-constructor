@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.1](https://github.com/gravity-ui/page-constructor/compare/v2.1.0...v2.1.1) (2023-03-28)
+
+
+### Bug Fixes
+
+* quotes validator schema ([#247](https://github.com/gravity-ui/page-constructor/issues/247)) ([87b8587](https://github.com/gravity-ui/page-constructor/commit/87b8587bcd5fe2bb96b5d70aae9eb6ca9e189f33))
+
 ## [2.1.0](https://github.com/gravity-ui/page-constructor/compare/v2.0.3...v2.1.0) (2023-03-27)
 
 
