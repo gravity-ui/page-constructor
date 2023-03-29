@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.26.0](https://github.com/gravity-ui/page-constructor/compare/v1.25.2...v1.26.0) (2023-03-29)
+
+
+### Features
+
+* dropdown a ReactPlayer version ([#254](https://github.com/gravity-ui/page-constructor/issues/254)) ([#257](https://github.com/gravity-ui/page-constructor/issues/257)) ([4fffe1b](https://github.com/gravity-ui/page-constructor/commit/4fffe1b6c88f8bd3d8583606d4d2edf1ab18eafb))
+
+
+### Bug Fixes
+
+* add tag untagged ([ce9efcf](https://github.com/gravity-ui/page-constructor/commit/ce9efcfc74eaad2cbcf3cf79494f577b0eda09b3))
+* **package:** up version ([#241](https://github.com/gravity-ui/page-constructor/issues/241)) ([9b6d3f2](https://github.com/gravity-ui/page-constructor/commit/9b6d3f2ecace4e1e51c52a4c422aa44850bbefec))
+* remove description and inputs ([000a85e](https://github.com/gravity-ui/page-constructor/commit/000a85ee6d1d9fedb0cef74d990be4065a750efb))
+* try to release version ([6fc35f2](https://github.com/gravity-ui/page-constructor/commit/6fc35f2043097f883b9ad87bb348f73cc138be1e))
+
 ## [1.25.3](https://github.com/gravity-ui/page-constructor/compare/v1.25.2...v1.25.3) (2023-03-27)
 
 
