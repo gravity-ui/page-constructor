@@ -30,6 +30,7 @@ import {MetrikaContext} from '../../context/metrikaContext';
 import {MobileContext} from '../../context/mobileContext';
 import {useAnalytics} from '../../hooks';
 import {PlayVideo} from '../../icons';
+import {checkYoutubeVideos} from './utils';
 
 import './ReactPlayer.scss';
 
@@ -99,6 +100,8 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
         const [started, setStarted] = useState(autoPlay);
         const [paused, setPaused] = useState<boolean>(false);
         const [ended, setEnded] = useState<boolean>(false);
+
+        const videoSrc = useMemo(() => checkYoutubeVideos(src), [src]);
 
         const eventsArray = useMemo(() => {
             if (analyticsEvents) {
@@ -329,7 +332,7 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
             >
                 <ReactPlayer
                     className={b('player')}
-                    url={src}
+                    url={videoSrc}
                     muted={muted}
                     controls={controls === MediaVideoControlsType.Default}
                     height={currentHeight || '100%'}
