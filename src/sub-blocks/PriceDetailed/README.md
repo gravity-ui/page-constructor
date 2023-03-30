@@ -1,3 +1,5 @@
+**Deprecated!** Use [BasicCard](?path=/story/components-cards-basiccard--default) instead.
+
 `type: 'price-detailed'`
 
 `items: `[PriceItemProps](#PriceItemProps)[] - prices

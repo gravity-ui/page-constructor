@@ -24,6 +24,6 @@ _Cards are components that are only used together with the slider or layout:_
 
 - ### [LayoutItem](?path=/story/components-layoutitem--default&viewMode=docs)
 
-- ### [Price Detailed](?path=/story/components-cards-pricedetailed--marked-list&viewMode=docs)
+- ### [Price Detailed(deprecated)](?path=/story/components-cards-pricedetailed--marked-list&viewMode=docs)
 
 - ### [Divider](?path=/story/components-divider--default&viewMode=docs)
