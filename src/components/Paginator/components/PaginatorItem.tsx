@@ -18,16 +18,23 @@ export const PaginatorItem = ({
     loading = false,
 }: PaginatorItemProps) => {
     const itemKey = Number(dataKey) > 0 ? Number(dataKey) : (dataKey as ArrowType);
+    const navigationLink = `?${mods.type || 'page'}=${itemKey}`;
 
     return (
-        <Button
-            view="flat"
-            size="xl"
-            className={b('item', mods)}
-            onClick={() => onClick?.(itemKey)}
-            loading={loading && Boolean(mods.active)}
+        <a
+            href={navigationLink}
+            className={b('link', mods)}
+            onClick={(event) => event.preventDefault()}
         >
-            {content}
-        </Button>
+            <Button
+                view="flat"
+                size="xl"
+                className={b('item', mods)}
+                onClick={() => onClick?.(itemKey)}
+                loading={loading && Boolean(mods.active)}
+            >
+                {content}
+            </Button>
+        </a>
     );
 };
