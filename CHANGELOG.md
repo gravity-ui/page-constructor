@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.2.1](https://github.com/gravity-ui/page-constructor/compare/v2.2.0...v2.2.1) (2023-03-30)
+
+
+### Bug Fixes
+
+* **ReactPlayer:** transform youtube url for single video src ([#262](https://github.com/gravity-ui/page-constructor/issues/262)) ([5bd86fd](https://github.com/gravity-ui/page-constructor/commit/5bd86fd0e5b62e309fcf656f251007cd8e4efd68))
+
 ## [2.2.0](https://github.com/gravity-ui/page-constructor/compare/v2.1.1...v2.2.0) (2023-03-29)
 
 
