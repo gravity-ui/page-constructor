@@ -15,3 +15,4 @@ jobs:
           node-version: 14
           npm-dist-tag: --tag alpha
           prerelease: true
+          default-branch: releases
