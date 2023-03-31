@@ -1,0 +1,17 @@
+name: Release
+
+on:
+  push:
+    branches: [alpha/**]
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: gravity-ui/release-action@1b36bbcb33881f0c9b9fbc6d5afb262a123871f5
+        with:
+          github-token: ${{ secrets.GRAVITY_UI_BOT_GITHUB_TOKEN }}
+          npm-token: ${{ secrets.GRAVITY_UI_BOT_NPM_TOKEN }}
+          node-version: 14
+          npm-dist-tag: --tag alpha
+          prerelease: true
