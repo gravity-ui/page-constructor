@@ -29,6 +29,7 @@ jobs:
           bump-minor-pre-major: true
           prerelease: true
           default-branch: alpha/test
+          skip-github-release: true
       - run: npm publish --tag alpha --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GRAVITY_UI_BOT_NPM_TOKEN }}
