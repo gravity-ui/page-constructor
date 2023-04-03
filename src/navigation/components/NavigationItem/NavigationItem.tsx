@@ -38,7 +38,7 @@ const NavigationItem = React.forwardRef<HTMLElement, NavigationItemProps>(
                 ...props,
                 ref,
             }),
-            [className, data, props],
+            [className, data, props, ref],
         );
 
         return (
