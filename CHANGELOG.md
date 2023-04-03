@@ -1,5 +1,22 @@
 # Changelog
 
+## [2.2.2-alpha.0](https://github.com/gravity-ui/page-constructor/compare/v2.2.1...v2.2.2-alpha.0) (2023-04-03)
+
+
+### Bug Fixes
+
+* add default branch ([d658348](https://github.com/gravity-ui/page-constructor/commit/d65834859ad7c93904145a20fc41b42bec6eaaec))
+* add skip-release ([4691f27](https://github.com/gravity-ui/page-constructor/commit/4691f278b022f9994e70c55a1552b20043fedeaf))
+* add specific default branch ([a10c49c](https://github.com/gravity-ui/page-constructor/commit/a10c49c1b249e19f719e49841a5c6538b3e0d69b))
+* release ([6b60092](https://github.com/gravity-ui/page-constructor/commit/6b600920dd1212dc4dafea5d1a3fccedf2424ce5))
+* remove default branch ([b1e3ce3](https://github.com/gravity-ui/page-constructor/commit/b1e3ce3d23a170d43b9f06147f674fa31cd98616))
+
+
+### chore
+
+* bump release ([32bc403](https://github.com/gravity-ui/page-constructor/commit/32bc40397ac0818c52364d8a6f1e6906eb34845f))
+* bump release ([d9132e6](https://github.com/gravity-ui/page-constructor/commit/d9132e61023c8437c31753c7ee91d80ffee3db3a))
+
 ## [2.2.1](https://github.com/gravity-ui/page-constructor/compare/v2.2.0...v2.2.1) (2023-03-30)
 
 
