@@ -1,10 +1,11 @@
 import React, {useContext, useState} from 'react';
+
 import {Icon, Modal} from '@gravity-ui/uikit';
 
-import {block} from '../../utils';
-import {PreviewClose, FullScreen} from '../../icons';
-import {MediaAllProps} from '../Media/Media';
 import {MobileContext} from '../../context/mobileContext';
+import {FullScreen, PreviewClose} from '../../icons';
+import {block} from '../../utils';
+import {MediaAllProps} from '../Media/Media';
 
 import './FullScreenMedia.scss';
 

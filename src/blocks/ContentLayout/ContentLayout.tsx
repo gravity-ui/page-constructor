@@ -1,11 +1,11 @@
 import React, {useContext, useMemo} from 'react';
 
-import {block} from '../../utils';
+import {BackgroundImage, FileLink} from '../../components';
+import {MobileContext} from '../../context/mobileContext';
+import {Col} from '../../grid';
 import {ContentLayoutBlockProps, ContentSize, ContentTextSize} from '../../models';
 import {Content} from '../../sub-blocks';
-import {BackgroundImage, FileLink} from '../../components';
-import {Col} from '../../grid';
-import {MobileContext} from '../../context/mobileContext';
+import {block} from '../../utils';
 
 import './ContentLayout.scss';
 

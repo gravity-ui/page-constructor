@@ -1,8 +1,10 @@
 import React from 'react';
+
 import {Meta, Story} from '@storybook/react/types-6-0';
+
+import {PageConstructor} from '../../../containers/PageConstructor/PageConstructor';
 import {HeaderSliderBlockModel, HeaderSliderBlockProps} from '../../../models';
 import HeaderSlider from '../HeaderSlider';
-import {PageConstructor} from '../../../containers/PageConstructor/PageConstructor';
 
 import data from './data.json';
 

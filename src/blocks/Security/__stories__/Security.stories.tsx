@@ -1,9 +1,10 @@
-import {Meta, Story} from '@storybook/react/types-6-0';
 import React from 'react';
 
-import Security from '../Security';
-import {SecurityBlockModel, SecurityBlockProps} from '../../../models';
+import {Meta, Story} from '@storybook/react/types-6-0';
+
 import {PageConstructor} from '../../../containers/PageConstructor';
+import {SecurityBlockModel, SecurityBlockProps} from '../../../models';
+import Security from '../Security';
 
 import data from './data.json';
 

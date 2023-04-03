@@ -1,8 +1,9 @@
-import React, {createRef, PropsWithChildren} from 'react';
+import React, {PropsWithChildren, createRef} from 'react';
+
 import _ from 'lodash';
 
-import {block} from '../../utils';
 import {ToggleArrow} from '..';
+import {block} from '../../utils';
 
 import './OverflowScroller.scss';
 

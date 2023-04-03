@@ -1,10 +1,10 @@
 import {omit} from 'lodash';
 
 import {
+    AnimatableProps,
     BlockBaseProps,
     ButtonBlock,
     MediaProps,
-    AnimatableProps,
     mediaDirection,
 } from '../../schema/validators/common';
 import {ContentBase} from '../../sub-blocks/Content/schema';

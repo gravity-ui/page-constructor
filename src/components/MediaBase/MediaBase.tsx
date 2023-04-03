@@ -1,10 +1,10 @@
-import React, {useMemo, ReactElement} from 'react';
+import React, {ReactElement, useMemo} from 'react';
 
-import {block} from '../../utils';
-import {Grid, Row, Col, GridColumnSize} from '../../grid';
-import {MediaBaseBlockProps, WithChildren} from '../../models';
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
 import BlockHeader from '../../components/BlockHeader/BlockHeader';
+import {Col, Grid, GridColumnSize, Row} from '../../grid';
+import {MediaBaseBlockProps, WithChildren} from '../../models';
+import {block} from '../../utils';
 import MediaContent from './MediaBaseContent';
 
 import './MediaBase.scss';

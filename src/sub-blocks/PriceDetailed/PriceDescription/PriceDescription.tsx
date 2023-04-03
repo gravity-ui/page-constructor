@@ -1,14 +1,14 @@
 import React, {useCallback, useContext, useEffect, useMemo} from 'react';
 
-import {block} from '../../../utils';
+import {YFMWrapper} from '../../../components';
+import {StylesContext} from '../../../context/stylesContext';
 import {
     PriceDescriptionColor,
     PriceDescriptionProps,
     PriceLabelColor,
     TextSize,
 } from '../../../models';
-import {StylesContext} from '../../../context/stylesContext';
-import {YFMWrapper} from '../../../components';
+import {block} from '../../../utils';
 
 import './PriceDescription.scss';
 

@@ -1,8 +1,10 @@
 import React from 'react';
+
 import {Meta, Story} from '@storybook/react/types-6-0';
-import QuestionsBlock from '../Questions';
-import {QuestionsBlockModel, QuestionsProps} from '../../../models';
+
 import {PageConstructor} from '../../../containers/PageConstructor/PageConstructor';
+import {QuestionsBlockModel, QuestionsProps} from '../../../models';
+import QuestionsBlock from '../Questions';
 
 import data from './data.json';
 

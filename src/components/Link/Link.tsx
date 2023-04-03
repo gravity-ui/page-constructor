@@ -1,15 +1,16 @@
 import React, {Fragment, useContext} from 'react';
+
 import {Icon} from '@gravity-ui/uikit';
 
-import {block, getLinkProps, setUrlTld} from '../../utils';
-import {LinkProps, TextSize, ClassNameProps, WithChildren, DefaultEventNames} from '../../models';
-import {Chevron} from '../../icons';
-import FileLink from '../FileLink/FileLink';
-import BackLink from '../BackLink/BackLink';
 import {LocaleContext} from '../../context/localeContext/localeContext';
 import {LocationContext} from '../../context/locationContext/locationContext';
-import {useMetrika} from '../../hooks/useMetrika';
 import {useAnalytics} from '../../hooks';
+import {useMetrika} from '../../hooks/useMetrika';
+import {Chevron} from '../../icons';
+import {ClassNameProps, DefaultEventNames, LinkProps, TextSize, WithChildren} from '../../models';
+import {block, getLinkProps, setUrlTld} from '../../utils';
+import BackLink from '../BackLink/BackLink';
+import FileLink from '../FileLink/FileLink';
 
 import './Link.scss';
 

@@ -1,4 +1,5 @@
 import React from 'react';
+
 import {Icon} from '@gravity-ui/uikit';
 import {SVGIconData} from '@gravity-ui/uikit/build/esm/components/Icon/types';
 

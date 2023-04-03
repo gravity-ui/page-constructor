@@ -1,9 +1,9 @@
 import {
-    BaseProps,
     AnimatableProps,
+    BaseProps,
+    ButtonBlock,
     ThemeProps,
     withTheme,
-    ButtonBlock,
 } from '../../schema/validators/common';
 
 export const BannerCardProps = {

@@ -1,6 +1,7 @@
-import React, {CSSProperties, MouseEventHandler, useContext, useState, Fragment} from 'react';
-import {ProjectSettingsContext} from '../../context/projectSettingsContext';
+import React, {CSSProperties, Fragment, MouseEventHandler, useContext, useState} from 'react';
+
 import {BREAKPOINTS} from '../../constants';
+import {ProjectSettingsContext} from '../../context/projectSettingsContext';
 import {ImageDeviceProps, ImageObjectProps} from '../../models';
 import {isCompressible} from '../../utils/imageCompress';
 

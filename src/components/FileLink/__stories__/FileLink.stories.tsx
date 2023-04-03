@@ -1,10 +1,11 @@
-import {Meta, Story} from '@storybook/react/types-6-0';
 import React, {Fragment} from 'react';
 
-import {FileLink} from '../../index';
-import {FileLinkProps} from '../../../models';
-import {Col, Row} from '../../../grid';
+import {Meta, Story} from '@storybook/react/types-6-0';
+
 import {BUTTONS_LINKS, COMPONENTS} from '../../../demo/constants';
+import {Col, Row} from '../../../grid';
+import {FileLinkProps} from '../../../models';
+import {FileLink} from '../../index';
 
 import data from './data.json';
 

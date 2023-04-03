@@ -1,10 +1,10 @@
 import React, {useContext, useState} from 'react';
 
-import {getThemedValue} from '../../utils';
-import {MediaBlockProps} from '../../models';
 import Media from '../../components/Media/Media';
 import MediaBase from '../../components/MediaBase/MediaBase';
 import {ThemeValueContext} from '../../context/theme/ThemeValueContext';
+import {MediaBlockProps} from '../../models';
+import {getThemedValue} from '../../utils';
 
 export const MediaBlock = (props: MediaBlockProps) => {
     const {media} = props;

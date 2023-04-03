@@ -1,8 +1,9 @@
-import {Meta, Story} from '@storybook/react/types-6-0';
 import React from 'react';
 
-import FullScreenImage, {FullScreenImageProps} from '../FullscreenImage';
+import {Meta, Story} from '@storybook/react/types-6-0';
+
 import {COMPONENTS, MEDIA} from '../../../demo/constants';
+import FullScreenImage, {FullScreenImageProps} from '../FullscreenImage';
 
 import data from './data.json';
 

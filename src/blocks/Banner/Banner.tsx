@@ -1,9 +1,9 @@
 import React from 'react';
 
-import {block} from '../../utils';
-import {BannerBlockProps} from '../../models';
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
+import {BannerBlockProps} from '../../models';
 import {BannerCard} from '../../sub-blocks';
+import {block} from '../../utils';
 
 import './Banner.scss';
 

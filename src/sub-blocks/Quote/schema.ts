@@ -1,5 +1,5 @@
-import {authorItem, BaseProps, ThemeProps, withTheme} from '../../schema/validators/common';
 import {ImageProps, urlPattern} from '../../components/Image/schema';
+import {BaseProps, ThemeProps, authorItem, withTheme} from '../../schema/validators/common';
 
 export const Quote = {
     quote: {

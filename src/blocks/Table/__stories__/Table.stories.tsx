@@ -1,9 +1,10 @@
-import {Meta, Story} from '@storybook/react/types-6-0';
 import React from 'react';
 
-import Table from '../Table';
+import {Meta, Story} from '@storybook/react/types-6-0';
+
 import {PageConstructor} from '../../../containers/PageConstructor';
 import {TableBlockModel} from '../../../models';
+import Table from '../Table';
 
 import data from './data.json';
 

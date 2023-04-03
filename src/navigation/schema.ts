@@ -1,6 +1,7 @@
-import {ButtonProps} from '../schema/validators/common';
-import {ImageProps, urlPattern} from '../components/Image/schema';
 import {omit} from 'lodash';
+
+import {ImageProps, urlPattern} from '../components/Image/schema';
+import {ButtonProps} from '../schema/validators/common';
 import {filteredArray} from '../schema/validators/utils';
 
 const NavigationItemType = {

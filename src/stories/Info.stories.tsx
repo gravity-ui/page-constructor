@@ -1,5 +1,6 @@
-import {Meta, Story} from '@storybook/react/types-6-0';
 import React from 'react';
+
+import {Meta, Story} from '@storybook/react/types-6-0';
 
 import CHANGELOG from '../../CHANGELOG.md';
 import README from '../../README.md';

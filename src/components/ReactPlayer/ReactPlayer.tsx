@@ -1,5 +1,3 @@
-import _ from 'lodash';
-import ReactPlayer from 'react-player';
 import React, {
     useCallback,
     useContext,
@@ -9,27 +7,31 @@ import React, {
     useRef,
     useState,
 } from 'react';
+
+import _ from 'lodash';
+import ReactPlayer from 'react-player';
+
 import {Icon} from '@gravity-ui/uikit';
 
-import {block} from '../../utils';
+import {MetrikaContext} from '../../context/metrikaContext';
+import {MobileContext} from '../../context/mobileContext';
+import {VideoContext} from '../../context/videoContext';
+import {useAnalytics} from '../../hooks';
+import {PlayVideo} from '../../icons';
 import {
+    AnalyticsEvent,
     ClassNameProps,
+    DefaultEventNames,
+    MediaVideoControlsType,
+    MediaVideoProps,
     PlayButtonProps,
     PlayButtonThemes,
     PlayButtonType,
-    MediaVideoProps,
-    MediaVideoControlsType,
-    ReactPlayerBlockHandler,
-    AnalyticsEvent,
     PredefinedEventTypes,
-    DefaultEventNames,
+    ReactPlayerBlockHandler,
 } from '../../models';
+import {block} from '../../utils';
 import CustomBarControls from './CustomBarControls';
-import {VideoContext} from '../../context/videoContext';
-import {MetrikaContext} from '../../context/metrikaContext';
-import {MobileContext} from '../../context/mobileContext';
-import {useAnalytics} from '../../hooks';
-import {PlayVideo} from '../../icons';
 import {checkYoutubeVideos} from './utils';
 
 import './ReactPlayer.scss';

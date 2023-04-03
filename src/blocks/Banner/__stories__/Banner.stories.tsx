@@ -1,8 +1,10 @@
 import React from 'react';
+
 import {Meta, Story} from '@storybook/react/types-6-0';
+
+import {PageConstructor} from '../../../containers/PageConstructor';
 import {BannerBlockModel, BannerBlockProps} from '../../../models';
 import Banner from '../Banner';
-import {PageConstructor} from '../../../containers/PageConstructor';
 
 import data from './data.json';
 

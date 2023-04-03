@@ -1,12 +1,14 @@
-import {Meta, Story} from '@storybook/react/types-6-0';
 import React from 'react';
+
+import {Meta, Story} from '@storybook/react/types-6-0';
+
 import yfm from '@doc-tools/transform';
 
+import {BlockHeader} from '../../../components';
+import {COMPONENTS} from '../../../demo/constants';
+import {BasicCardProps, DividerSize} from '../../../models';
 import BasicCard from '../../BasicCard/BasicCard';
 import Divider from '../Divider';
-import {BlockHeader} from '../../../components';
-import {BasicCardProps, DividerSize} from '../../../models';
-import {COMPONENTS} from '../../../demo/constants';
 
 import data from './data.json';
 

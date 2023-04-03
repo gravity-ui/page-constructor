@@ -1,12 +1,10 @@
 import React from 'react';
 
-import {ButtonProps} from '../../../../../models';
-import {NavigationItemProps} from '../../NavigationItem';
-
-import {block} from '../../../../../utils';
-
-import {RouterLink, Button} from '../../../../../components';
+import {Button, RouterLink} from '../../../../../components';
 import {BlockIdContext} from '../../../../../context/blockIdContext';
+import {ButtonProps} from '../../../../../models';
+import {block} from '../../../../../utils';
+import {NavigationItemProps} from '../../NavigationItem';
 
 import './NavigationButton.scss';
 

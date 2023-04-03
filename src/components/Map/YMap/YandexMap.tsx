@@ -1,17 +1,19 @@
-import React, {useContext, useEffect, useRef, useState, useCallback} from 'react';
+import React, {useCallback, useContext, useEffect, useRef, useState} from 'react';
+
 import _ from 'lodash';
+
 import {Spin} from '@gravity-ui/uikit';
 
-import {block} from '../../../utils';
-import {MapsContext} from '../../../context/mapsContext/mapsContext';
 import {LocaleContext} from '../../../context/localeContext/localeContext';
-import ErrorWrapper from '../../ErrorWrapper/ErrorWrapper';
-import {YMapProps} from '../../../models';
-import {YMap} from './YMap';
-import {YMapsApiLoader, MapApiStatus} from './YandexMapApiLoader';
-import i18n from './i18n';
+import {MapsContext} from '../../../context/mapsContext/mapsContext';
 import {MobileContext} from '../../../context/mobileContext';
+import {YMapProps} from '../../../models';
+import {block} from '../../../utils';
+import ErrorWrapper from '../../ErrorWrapper/ErrorWrapper';
 import {getMapHeight} from '../helpers';
+import {YMap} from './YMap';
+import {MapApiStatus, YMapsApiLoader} from './YandexMapApiLoader';
+import i18n from './i18n';
 
 const b = block('map');
 const DEFAULT_CONTAINER_ID = 'ymap';

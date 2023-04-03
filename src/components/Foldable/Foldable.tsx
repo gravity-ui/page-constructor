@@ -1,8 +1,8 @@
-import React, {useRef, useEffect} from 'react';
+import React, {useEffect, useRef} from 'react';
 
-import {block} from '../../utils';
-import {WithChildren} from '../../models';
 import useHeightCalculator from '../../hooks/useHeightCalculator';
+import {WithChildren} from '../../models';
+import {block} from '../../utils';
 
 import './Foldable.scss';
 

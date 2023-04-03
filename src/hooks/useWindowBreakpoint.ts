@@ -1,5 +1,7 @@
-import _ from 'lodash';
 import {useEffect, useState} from 'react';
+
+import _ from 'lodash';
+
 import {BREAKPOINTS} from '../constants';
 
 function calculate(windowWidth: number) {

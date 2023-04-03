@@ -1,6 +1,5 @@
+import {CustomConfig, PCShareSocialNetwork, TextSize} from '../models';
 import {ConstructorBlock} from '../models/constructor';
-
-import {TextSize, CustomConfig, PCShareSocialNetwork} from '../models';
 
 export function getHeaderTag(size: TextSize) {
     switch (size) {

@@ -1,8 +1,10 @@
-import _ from 'lodash';
 import React, {Fragment, useCallback, useEffect, useState} from 'react';
 
-import {block} from '../../../utils';
+import _ from 'lodash';
+
 import {CardBase} from '../../../components';
+import {BREAKPOINTS} from '../../../constants';
+import {Col, Grid, GridColumnSize, Row} from '../../../grid';
 import {
     CardBorder,
     PriceDescriptionProps,
@@ -10,8 +12,7 @@ import {
     PriceDetailsSettingsProps,
     PriceItemProps,
 } from '../../../models';
-import {Grid, Row, Col, GridColumnSize} from '../../../grid';
-import {BREAKPOINTS} from '../../../constants';
+import {block} from '../../../utils';
 
 import './CombinedPriceDetailed.scss';
 

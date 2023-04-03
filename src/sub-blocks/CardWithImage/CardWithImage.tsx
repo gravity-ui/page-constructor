@@ -1,9 +1,9 @@
 import React from 'react';
 
-import {block} from '../../utils';
-import {CardWithImageProps, LinkTheme} from '../../models';
-import {Image, FullscreenImage} from '../../components';
 import {Content} from '../';
+import {FullscreenImage, Image} from '../../components';
+import {CardWithImageProps, LinkTheme} from '../../models';
+import {block} from '../../utils';
 
 import './CardWithImage.scss';
 

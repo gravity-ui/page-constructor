@@ -1,7 +1,7 @@
 import React from 'react';
 
-import {block} from '../../../utils';
 import {NavigationData} from '../../../models';
+import {block} from '../../../utils';
 import Header from '../../components/Header/Header';
 
 import './Layout.scss';

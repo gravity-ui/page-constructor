@@ -1,9 +1,10 @@
-import {Meta, Story} from '@storybook/react/types-6-0';
 import React from 'react';
 
-import CardWithImage from '../CardWithImage';
-import {CardWithImageProps} from '../../../models';
+import {Meta, Story} from '@storybook/react/types-6-0';
+
 import {CARDS, COMPONENTS} from '../../../demo/constants';
+import {CardWithImageProps} from '../../../models';
+import CardWithImage from '../CardWithImage';
 
 import data from './data.json';
 

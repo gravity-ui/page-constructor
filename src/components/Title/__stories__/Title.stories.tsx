@@ -1,9 +1,10 @@
-import {Meta, Story} from '@storybook/react/types-6-0';
 import React, {Fragment} from 'react';
 
-import Title, {TitleFullProps} from '../Title';
-import {COMPONENTS} from '../../../demo/constants';
+import {Meta, Story} from '@storybook/react/types-6-0';
 import {TitleProps} from 'src/models';
+
+import {COMPONENTS} from '../../../demo/constants';
+import Title, {TitleFullProps} from '../Title';
 
 import data from './data.json';
 

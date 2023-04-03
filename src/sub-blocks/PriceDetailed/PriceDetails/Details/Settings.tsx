@@ -1,8 +1,8 @@
 import React, {Fragment} from 'react';
 
-import {block} from '../../../../utils';
-import {PriceDetailsSettingsProps, TextSize} from '../../../../models';
 import {YFMWrapper} from '../../../../components';
+import {PriceDetailsSettingsProps, TextSize} from '../../../../models';
+import {block} from '../../../../utils';
 
 import './Settings.scss';
 

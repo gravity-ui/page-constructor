@@ -1,8 +1,8 @@
 import React from 'react';
 
-import {Image} from '../index';
 import {AuthorProps, AuthorType, WithChildren} from '../../models';
 import {block} from '../../utils';
+import {Image} from '../index';
 
 import './Author.scss';
 

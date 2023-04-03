@@ -1,11 +1,13 @@
-import React, {useRef, useState, useCallback, useEffect} from 'react';
+import React, {useCallback, useEffect, useRef, useState} from 'react';
+
 import _ from 'lodash';
 import {v4 as uuidv4} from 'uuid';
+
 import {Icon} from '@gravity-ui/uikit';
 
+import {PlayVideo} from '../../icons';
 import {block, getPageSearchParams} from '../../utils';
 import Image from '../Image/Image';
-import {PlayVideo} from '../../icons';
 
 import './VideoBlock.scss';
 

@@ -1,8 +1,10 @@
 import React, {Fragment} from 'react';
+
 import {Meta, Story} from '@storybook/react/types-6-0';
-import Icons from '../Icons';
-import {IconsBlockModel, IconsBlockProps} from '../../../models';
+
 import {PageConstructor} from '../../../containers/PageConstructor/PageConstructor';
+import {IconsBlockModel, IconsBlockProps} from '../../../models';
+import Icons from '../Icons';
 
 import data from './data.json';
 

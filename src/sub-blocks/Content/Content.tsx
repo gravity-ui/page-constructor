@@ -1,10 +1,10 @@
 import React from 'react';
 
-import {block} from '../../utils';
-import {ContentBlockProps, ContentSize, TitleProps, ClassNameProps} from '../../models';
-import {Title, YFMWrapper, Button} from '../../components';
+import {Button, Title, YFMWrapper} from '../../components';
 import LinkBlock from '../../components/Link/Link';
 import {Col} from '../../grid';
+import {ClassNameProps, ContentBlockProps, ContentSize, TitleProps} from '../../models';
+import {block} from '../../utils';
 
 import './Content.scss';
 

@@ -1,9 +1,9 @@
 import React, {useContext} from 'react';
 
-import {block, getLinkProps} from '../../utils';
-import {IconsBlockProps} from '../../models';
 import {BlockHeader, Image} from '../../components';
 import {LocationContext} from '../../context/locationContext';
+import {IconsBlockProps} from '../../models';
+import {block, getLinkProps} from '../../utils';
 
 import './Icons.scss';
 

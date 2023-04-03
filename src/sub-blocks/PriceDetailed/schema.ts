@@ -1,4 +1,4 @@
-import {BaseProps, AnimatableProps, textSize} from '../../schema/validators/common';
+import {AnimatableProps, BaseProps, textSize} from '../../schema/validators/common';
 import {filteredArray} from '../../schema/validators/utils';
 
 const PriceDetailedDetailsType = ['marked-list', 'settings'];

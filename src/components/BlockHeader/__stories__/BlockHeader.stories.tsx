@@ -1,12 +1,13 @@
 import React from 'react';
-import {Meta, Story} from '@storybook/react/types-6-0';
-import {ClassNameProps, TitleProps} from '../../../models';
 
-import BlockHeader, {BlockHeaderProps} from '../BlockHeader';
+import {Meta, Story} from '@storybook/react/types-6-0';
+
+import {yfmTransform} from '../../../../.storybook/utils';
 import {COMPONENTS} from '../../../demo/constants';
+import {ClassNameProps, TitleProps} from '../../../models';
+import BlockHeader, {BlockHeaderProps} from '../BlockHeader';
 
 import data from './data.json';
-import {yfmTransform} from '../../../../.storybook/utils';
 
 export default {
     component: BlockHeader,

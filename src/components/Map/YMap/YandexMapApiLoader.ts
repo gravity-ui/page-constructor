@@ -1,5 +1,5 @@
-import {loadScript} from '../../../utils';
 import {Maplangs} from '../../../context/mapsContext/mapsContext';
+import {loadScript} from '../../../utils';
 
 export enum MapApiStatus {
     NotStarted = 'not_started',

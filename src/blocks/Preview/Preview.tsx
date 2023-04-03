@@ -1,13 +1,13 @@
-import {block, doSmoothScroll, ScrollOptions} from '../../utils';
 import React, {useCallback, useContext, useEffect, useState} from 'react';
 
-import {BreakpointContext} from '../../context/breakpointContext';
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
-import MediaContent from './MediaContent/MediaContent';
-import {Row} from '../../grid';
-import {PreviewBlockProps} from '../../models';
 import {BREAKPOINTS} from '../../constants';
+import {BreakpointContext} from '../../context/breakpointContext';
+import {Row} from '../../grid';
 import {useIntersection} from '../../hooks/useIntersection';
+import {PreviewBlockProps} from '../../models';
+import {ScrollOptions, block, doSmoothScroll} from '../../utils';
+import MediaContent from './MediaContent/MediaContent';
 
 import './Preview.scss';
 

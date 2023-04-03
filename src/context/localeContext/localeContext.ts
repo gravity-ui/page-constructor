@@ -1,4 +1,5 @@
 import React from 'react';
+
 import {Lang} from '../../utils/configure';
 
 export type LocaleContextProps = {

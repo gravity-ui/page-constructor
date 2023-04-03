@@ -1,13 +1,15 @@
 import React from 'react';
+
 import {Meta, Story} from '@storybook/react/types-6-0';
+
+import {scriptsSrc, ymapApiKeyForStorybook} from '../../../../.storybook/maps';
 import {yfmTransform} from '../../../../.storybook/utils';
+import {ApiKeyInput} from '../../../components/Map/__stories__/ApiKeyInput';
+import {PageConstructor} from '../../../containers/PageConstructor';
+import {MapType} from '../../../context/mapsContext/mapsContext';
+import {MapProvider, gmapApiKeyIdInLS} from '../../../context/mapsContext/mapsProvider';
 import {ButtonProps, LinkProps, MapBlockModel, MapBlockProps} from '../../../models';
 import MapBlock from '../Map';
-import {PageConstructor} from '../../../containers/PageConstructor';
-import {MapProvider, gmapApiKeyIdInLS} from '../../../context/mapsContext/mapsProvider';
-import {MapType} from '../../../context/mapsContext/mapsContext';
-import {ApiKeyInput} from '../../../components/Map/__stories__/ApiKeyInput';
-import {ymapApiKeyForStorybook, scriptsSrc} from '../../../../.storybook/maps';
 
 import data from './data.json';
 

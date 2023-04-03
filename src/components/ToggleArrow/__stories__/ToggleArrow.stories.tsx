@@ -1,8 +1,9 @@
-import {Meta, Story} from '@storybook/react/types-6-0';
 import React from 'react';
 
-import ToggleArrow, {ToggleArrowProps} from '../ToggleArrow';
+import {Meta, Story} from '@storybook/react/types-6-0';
+
 import {COMPONENTS} from '../../../demo/constants';
+import ToggleArrow, {ToggleArrowProps} from '../ToggleArrow';
 
 import data from './data.json';
 

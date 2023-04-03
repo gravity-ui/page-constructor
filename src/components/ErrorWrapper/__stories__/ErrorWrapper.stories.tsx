@@ -1,8 +1,9 @@
-import {Meta, Story} from '@storybook/react/types-6-0';
 import React from 'react';
 
-import ErrorWrapper, {ErrorWrapperProps} from '../ErrorWrapper';
+import {Meta, Story} from '@storybook/react/types-6-0';
+
 import {COMPONENTS} from '../../../demo/constants';
+import ErrorWrapper, {ErrorWrapperProps} from '../ErrorWrapper';
 
 import data from './data.json';
 

@@ -1,6 +1,6 @@
 import React, {useMemo} from 'react';
-import {ClassNameProps} from '../../models';
 
+import {ClassNameProps} from '../../models';
 import {block} from '../../utils';
 
 import './CircleProgress.scss';

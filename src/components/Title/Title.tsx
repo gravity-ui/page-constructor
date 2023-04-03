@@ -1,11 +1,11 @@
 import React, {Fragment, ReactNode, useContext} from 'react';
-import {block, getHeaderTag, getLinkProps} from '../../utils';
 
-import {TextSize, TitleProps} from '../../models';
-import Anchor from '../Anchor/Anchor';
-import {ToggleArrow, HTML} from '../';
+import {HTML, ToggleArrow} from '../';
 import {LocationContext} from '../../context/locationContext';
 import {MobileContext} from '../../context/mobileContext';
+import {TextSize, TitleProps} from '../../models';
+import {block, getHeaderTag, getLinkProps} from '../../utils';
+import Anchor from '../Anchor/Anchor';
 
 import './Title.scss';
 

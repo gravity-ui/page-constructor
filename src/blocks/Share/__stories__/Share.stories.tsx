@@ -1,11 +1,13 @@
-import {Meta, Story} from '@storybook/react/types-6-0';
 import React from 'react';
-import {configure as uikitConfigure, Lang as UIKitLang} from '@gravity-ui/uikit';
 
-import Share from '../Share';
-import {BLOCKS} from '../../../demo/constants';
+import {Meta, Story} from '@storybook/react/types-6-0';
+
+import {Lang as UIKitLang, configure as uikitConfigure} from '@gravity-ui/uikit';
+
 import {PageConstructor} from '../../../containers/PageConstructor';
+import {BLOCKS} from '../../../demo/constants';
 import {ShareBLockModel, ShareBlockProps} from '../../../models';
+import Share from '../Share';
 
 import data from './data.json';
 

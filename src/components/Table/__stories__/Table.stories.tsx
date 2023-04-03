@@ -1,9 +1,10 @@
-import {Meta, Story} from '@storybook/react/types-6-0';
 import React from 'react';
 
-import Table from '../Table';
-import {TableProps} from '../../../models';
+import {Meta, Story} from '@storybook/react/types-6-0';
+
 import {COMPONENTS} from '../../../demo/constants';
+import {TableProps} from '../../../models';
+import Table from '../Table';
 
 import data from './data.json';
 

@@ -1,8 +1,9 @@
 import React, {useCallback} from 'react';
-import {block} from '../../utils';
-import {DefaultEventNames, HeaderBreadCrumbsProps} from '../../models';
-import {useMetrika} from '../../hooks/useMetrika';
+
 import {useAnalytics} from '../../hooks';
+import {useMetrika} from '../../hooks/useMetrika';
+import {DefaultEventNames, HeaderBreadCrumbsProps} from '../../models';
+import {block} from '../../utils';
 
 import './HeaderBreadcrumbs.scss';
 

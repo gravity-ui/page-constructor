@@ -1,11 +1,11 @@
 import {
+    ButtonBlock,
+    LinkProps,
+    TitleProps,
     containerSizesArray,
     contentSizes,
     contentThemes,
-    LinkProps,
     sizeNumber,
-    ButtonBlock,
-    TitleProps,
 } from '../../schema/validators/common';
 import {filteredArray} from '../../schema/validators/utils';
 

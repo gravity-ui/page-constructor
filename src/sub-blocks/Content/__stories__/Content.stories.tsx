@@ -1,16 +1,18 @@
-import {Meta, Story} from '@storybook/react/types-6-0';
 import React from 'react';
+
+import {Meta, Story} from '@storybook/react/types-6-0';
+
 import yfm from '@doc-tools/transform';
 
-import Content from '../Content';
-import {
-    ContentBlockProps,
-    ClassNameProps,
-    LinkProps,
-    ButtonProps,
-    ContentTheme,
-} from '../../../models';
 import {COMPONENTS} from '../../../demo/constants';
+import {
+    ButtonProps,
+    ClassNameProps,
+    ContentBlockProps,
+    ContentTheme,
+    LinkProps,
+} from '../../../models';
+import Content from '../Content';
 
 import data from './data.json';
 

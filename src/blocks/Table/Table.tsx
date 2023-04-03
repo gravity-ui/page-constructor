@@ -1,9 +1,9 @@
 import React from 'react';
 
-import {block} from '../../utils';
-import {Grid, Row, Col, GridColumnSize} from '../../grid';
-import {TableBlockProps} from '../../models';
 import {Table} from '../../components';
+import {Col, Grid, GridColumnSize, Row} from '../../grid';
+import {TableBlockProps} from '../../models';
+import {block} from '../../utils';
 
 import './Table.scss';
 

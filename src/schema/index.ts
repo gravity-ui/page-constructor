@@ -2,47 +2,45 @@ export {validators} from './validators';
 export type {ObjectSchema} from './validators/utils';
 
 import {
-    TabsBlock,
-    BannerCard,
-    SliderBlock,
-    ExtendedFeaturesBlock,
-    HeaderBlock,
     BannerBlock,
+    BannerCard,
+    CardLayoutBlock,
     CompaniesBlock,
-    MediaBlock,
-    InfoBlock,
-    QuestionsBlock,
-    SecurityBlock,
-    TableBlock,
-    SimpleBlock,
-    LinkTableBlock,
-    PromoFeaturesBlock,
-    PreviewBlock,
     ContentLayoutBlock,
+    ExtendedFeaturesBlock,
+    FilterBlock,
+    HeaderBlock,
     HeaderSliderBlock,
     IconsBlock,
-    CardLayoutBlock,
-    ShareBlock,
+    InfoBlock,
+    LinkTableBlock,
     MapBlock,
-    FilterBlock,
+    MediaBlock,
+    PreviewBlock,
+    PromoFeaturesBlock,
+    QuestionsBlock,
+    SecurityBlock,
+    ShareBlock,
+    SimpleBlock,
+    SliderBlock,
+    TableBlock,
+    TabsBlock,
 } from './validators/blocks';
-
+import {AnimatableProps, BackgroundProps, MenuProps, withTheme} from './validators/common';
+import {LogoProps, NavigationHeaderProps} from './validators/navigation';
 import {
-    PartnerBlock,
-    MediaCardBlock,
-    TutorialCard,
     BackgroundCard,
-    NewsCard,
+    BasicCard,
     CardWithImage,
+    Divider,
+    MediaCardBlock,
+    NewsCard,
+    PartnerBlock,
     PriceDetailedBlock,
     Quote,
-    Divider,
-    BasicCard,
+    TutorialCard,
 } from './validators/sub-blocks';
-
-import {AnimatableProps, BackgroundProps, MenuProps, withTheme} from './validators/common';
 import {filteredItem} from './validators/utils';
-import {LogoProps, NavigationHeaderProps} from './validators/navigation';
 
 export type SchemaBlock = object;
 

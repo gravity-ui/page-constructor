@@ -1,9 +1,11 @@
 import React, {Fragment} from 'react';
+
 import {Meta, Story} from '@storybook/react/types-6-0';
+
 import {yfmTransform} from '../../../../.storybook/utils';
+import {PageConstructor} from '../../../containers/PageConstructor';
 import {TabsBlockModel, TabsBlockProps} from '../../../models';
 import Tabs from '../Tabs';
-import {PageConstructor} from '../../../containers/PageConstructor';
 
 import data from './data.json';
 

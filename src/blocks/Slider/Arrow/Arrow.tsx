@@ -1,8 +1,8 @@
 import React from 'react';
-import {ClassNameProps} from '../../../models';
 
-import {block} from '../../../utils';
 import ToggleArrow from '../../../components/ToggleArrow/ToggleArrow';
+import {ClassNameProps} from '../../../models';
+import {block} from '../../../utils';
 
 import './Arrow.scss';
 

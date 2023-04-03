@@ -1,4 +1,5 @@
 import React from 'react';
+
 import {ItemMap} from '../../containers/PageConstructor/PageConstructor';
 import {LoadableConfig, ShouldRenderBlock} from '../../models';
 

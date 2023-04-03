@@ -1,9 +1,10 @@
-import React, {MouseEventHandler, useRef, useCallback} from 'react';
+import React, {MouseEventHandler, useCallback, useRef} from 'react';
+
 import {Popup, Portal} from '@gravity-ui/uikit';
 
-import {block} from '../../../utils';
 import Foldable from '../../../components/Foldable/Foldable';
-import {NavigationItemModel, NavigationDropdownItem, NavigationItemType} from '../../../models';
+import {NavigationDropdownItem, NavigationItemModel, NavigationItemType} from '../../../models';
+import {block} from '../../../utils';
 import {ItemColumnName} from '../../constants';
 import NavigationItem from '../NavigationItem/NavigationItem';
 

@@ -1,6 +1,8 @@
-import Typograf from 'typograf';
 import sanitize from 'sanitize-html';
+import Typograf from 'typograf';
+
 import transformYFM, {Options, Output} from '@doc-tools/transform';
+
 import {Lang} from '../utils/configure';
 
 export enum TransformType {
@@ -142,6 +144,7 @@ export function typografEntity({
 
     fields.forEach((fieldName: string) => {
         if (entity[fieldName]) {
+            // eslint-disable-next-line no-not-accumulator-reassign/no-not-accumulator-reassign
             entity[fieldName] = transformer(entity[fieldName], lang);
         }
     });

@@ -1,11 +1,12 @@
-import {Meta, Story} from '@storybook/react/types-6-0';
 import React from 'react';
 
-import Media, {MediaAllProps} from '../Media';
+import {Meta, Story} from '@storybook/react/types-6-0';
+import {MediaProps} from 'src/models';
+
 import {COMPONENTS, MEDIA} from '../../../demo/constants';
+import Media, {MediaAllProps} from '../Media';
 
 import data from './data.json';
-import {MediaProps} from 'src/models';
 
 export default {
     component: Media,

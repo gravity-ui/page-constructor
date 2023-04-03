@@ -1,7 +1,7 @@
 import _ from 'lodash';
 
+import {AnimatableProps, BaseProps, LinkProps, ThemeProps} from '../../schema/validators/common';
 import {filteredArray} from '../../schema/validators/utils';
-import {BaseProps, AnimatableProps, LinkProps, ThemeProps} from '../../schema/validators/common';
 import {Media} from '../Media/schema';
 
 export const SecurityBlock = {

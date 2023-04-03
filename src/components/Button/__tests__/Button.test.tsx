@@ -1,12 +1,13 @@
 import React from 'react';
+
 import {render, screen} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+
 import {ButtonSize} from '@gravity-ui/uikit';
 
 import {ButtonImagePosition, ButtonTheme} from '../../../models';
-import {ICON_QA} from '../utils';
-
 import Button from '../Button';
+import {ICON_QA} from '../utils';
 
 const qaId = 'button-component';
 

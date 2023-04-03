@@ -1,36 +1,37 @@
 import React, {useContext, useMemo} from 'react';
+
 import '@doc-tools/transform/dist/js/yfm';
 
+import BackgroundMedia from '../../components/BackgroundMedia/BackgroundMedia';
+import {blockMap, subBlockMap} from '../../constructor-items';
+import {AnimateContext} from '../../context/animateContext';
+import {InnerContext} from '../../context/innerContext';
+import {ThemeValueContext} from '../../context/theme/ThemeValueContext';
+import {Grid} from '../../grid';
 import {
     Block,
-    ShouldRenderBlock,
-    HeaderBlockTypes,
-    CustomConfig,
-    PageContent,
-    CustomItems,
     BlockTypes,
+    CustomConfig,
+    CustomItems,
+    HeaderBlockTypes,
     NavigationData,
+    PageContent,
+    ShouldRenderBlock,
     SubBlockTypes,
 } from '../../models';
-import {blockMap, subBlockMap} from '../../constructor-items';
-import {Grid} from '../../grid';
-import BackgroundMedia from '../../components/BackgroundMedia/BackgroundMedia';
+import Layout from '../../navigation/containers/Layout/Layout';
 import {
     block as cnBlock,
     getCustomBlockTypes,
     getCustomHeaderTypes,
-    getThemedValue,
     getCustomItems,
     getCustomSubBlockTypes,
+    getThemedValue,
 } from '../../utils';
-import {AnimateContext} from '../../context/animateContext';
-import {InnerContext} from '../../context/innerContext';
-import {ThemeValueContext} from '../../context/theme/ThemeValueContext';
-import {ConstructorRow} from './components/ConstructorRow';
+import {ConstructorBlocks} from './components/ConstructorBlocks';
 import {ConstructorFootnotes} from './components/ConstructorFootnotes';
 import {ConstructorHeader} from './components/ConstructorItem';
-import {ConstructorBlocks} from './components/ConstructorBlocks';
-import Layout from '../../navigation/containers/Layout/Layout';
+import {ConstructorRow} from './components/ConstructorRow';
 
 import './PageConstructor.scss';
 

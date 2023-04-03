@@ -1,16 +1,17 @@
 import React, {MouseEvent, useCallback, useState} from 'react';
+
 import _ from 'lodash';
 
-import {block} from '../../../utils';
-import {HeaderData, ThemedNavigationLogoData} from '../../../models';
-import {Col, Grid, Row} from '../../../grid';
-import OutsideClick from '../../../components/OutsideClick/OutsideClick';
 import Control from '../../../components/Control/Control';
+import OutsideClick from '../../../components/OutsideClick/OutsideClick';
+import {Col, Grid, Row} from '../../../grid';
 import {NavigationClose, NavigationOpen} from '../../../icons';
+import {HeaderData, ThemedNavigationLogoData} from '../../../models';
+import {block} from '../../../utils';
 import {ItemColumnName} from '../../constants';
-import Navigation from '../Navigation/Navigation';
-import MobileNavigation from '../MobileNavigation/MobileNavigation';
 import Logo from '../Logo/Logo';
+import MobileNavigation from '../MobileNavigation/MobileNavigation';
+import Navigation from '../Navigation/Navigation';
 import {NavigationListItem} from '../NavigationListItem/NavigationListItem';
 
 import './Header.scss';

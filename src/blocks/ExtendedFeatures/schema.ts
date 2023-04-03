@@ -1,9 +1,9 @@
 import {
     AnimatableProps,
-    containerSizesObject,
-    LinkProps,
     BlockBaseProps,
     BlockHeaderProps,
+    LinkProps,
+    containerSizesObject,
 } from '../../schema/validators/common';
 import {filteredArray} from '../../schema/validators/utils';
 

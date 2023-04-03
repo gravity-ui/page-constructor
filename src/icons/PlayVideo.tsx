@@ -1,4 +1,5 @@
 import React from 'react';
+
 import {a11yHiddenSvgProps} from '../utils/svg';
 
 export const PlayVideo: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (

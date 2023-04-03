@@ -1,9 +1,10 @@
 import React from 'react';
+
 import {Meta, Story} from '@storybook/react/types-6-0';
 
-import Companies from '../Companies';
-import {CompaniesBlockModel, CompaniesBlockProps} from '../../../models';
 import {PageConstructor} from '../../../containers/PageConstructor/PageConstructor';
+import {CompaniesBlockModel, CompaniesBlockProps} from '../../../models';
+import Companies from '../Companies';
 
 import data from './data.json';
 

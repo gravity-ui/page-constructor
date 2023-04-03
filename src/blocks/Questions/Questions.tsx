@@ -1,12 +1,11 @@
 import React, {useState} from 'react';
 
-import {block} from '../../utils';
-import {QuestionsProps} from '../../models';
+import {Foldable, HTML, ToggleArrow, YFMWrapper} from '../../components';
 import Link from '../../components/Link/Link';
-
-import {YFMWrapper, ToggleArrow, Foldable, HTML} from '../../components';
-import {Row, Col} from '../../grid';
+import {Col, Row} from '../../grid';
+import {QuestionsProps} from '../../models';
 import {Content} from '../../sub-blocks';
+import {block} from '../../utils';
 
 import './Questions.scss';
 

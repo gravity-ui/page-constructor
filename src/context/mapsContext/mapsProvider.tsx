@@ -1,6 +1,6 @@
 import React, {PropsWithChildren, useState} from 'react';
 
-import {MapsContext, MapType} from './mapsContext';
+import {MapType, MapsContext} from './mapsContext';
 
 interface MapProviderProps {
     type: MapType;

@@ -1,4 +1,5 @@
 import {useEffect} from 'react';
+
 import {HubspotEventHandlers, handleHubspotEvents, loopBackHabspotEvents} from '../utils/hubspot';
 
 /**

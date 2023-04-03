@@ -1,15 +1,15 @@
 import React, {Fragment, useCallback, useState} from 'react';
 
-import {block} from '../../../utils';
 import {Foldable, ToggleArrow} from '../../../components';
 import {
-    PriceDetailsSettingsProps,
     PriceDetailsListProps,
-    PriceDetailsType,
-    TextSize,
     PriceDetailsProps,
+    PriceDetailsSettingsProps,
+    PriceDetailsType,
     PriceFoldableDetailsProps,
+    TextSize,
 } from '../../../models';
+import {block} from '../../../utils';
 import List from './Details/List';
 import Settings from './Details/Settings';
 

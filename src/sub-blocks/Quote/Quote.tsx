@@ -1,13 +1,13 @@
 import React, {useCallback, useContext} from 'react';
+
 import {Button} from '@gravity-ui/uikit';
 
-import {block, getThemedValue} from '../../utils';
-import {QuoteProps, AuthorType, DefaultEventNames} from '../../models';
-
-import {Author, Image, HTML} from '../../components';
-import {ThemeValueContext} from '../../context/theme/ThemeValueContext';
+import {Author, HTML, Image} from '../../components';
 import {getMediaImage} from '../../components/Media/Image/utils';
+import {ThemeValueContext} from '../../context/theme/ThemeValueContext';
 import {useAnalytics} from '../../hooks';
+import {AuthorType, DefaultEventNames, QuoteProps} from '../../models';
+import {block, getThemedValue} from '../../utils';
 
 import './Quote.scss';
 

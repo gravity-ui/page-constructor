@@ -1,13 +1,13 @@
 import React, {useCallback, useContext, useEffect, useRef} from 'react';
 
-import {HEADER_HEIGHT} from '../constants';
 import {LocaleContext} from '../../context/localeContext';
 import {MobileContext} from '../../context/mobileContext';
-import {PixelEvent} from '../../models';
-import {block} from '../../utils';
-import {AnalyticsEventsBase, DefaultEventNames} from '../../models/common';
-import {useMetrika} from '../../hooks/useMetrika';
 import {useAnalytics} from '../../hooks';
+import {useMetrika} from '../../hooks/useMetrika';
+import {PixelEvent} from '../../models';
+import {AnalyticsEventsBase, DefaultEventNames} from '../../models/common';
+import {block} from '../../utils';
+import {HEADER_HEIGHT} from '../constants';
 
 export const YANDEX_FORM_ORIGIN = 'https://forms.yandex.ru';
 const CONTAINER_ID = 'pc-yandex-form-container';

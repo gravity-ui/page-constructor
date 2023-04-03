@@ -1,5 +1,5 @@
 import {ThemeSupporting} from '../utils';
-import {ImageProps, ButtonProps} from './constructor-items';
+import {ButtonProps, ImageProps} from './constructor-items';
 
 export enum NavigationItemType {
     Link = 'link',

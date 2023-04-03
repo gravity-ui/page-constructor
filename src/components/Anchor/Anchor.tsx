@@ -1,8 +1,9 @@
 //TODO move to cloud components
 import React from 'react';
-import {ClassNameProps} from '../../models';
 
+import {ClassNameProps} from '../../models';
 import {block} from '../../utils';
+
 import './Anchor.scss';
 
 const b = block('Anchor');

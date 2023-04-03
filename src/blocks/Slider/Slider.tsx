@@ -1,36 +1,37 @@
 import React, {useCallback, useContext, useEffect, useRef, useState} from 'react';
-import SlickSlider, {Settings} from 'react-slick';
-import _ from 'lodash';
 
-import {block} from '../../utils';
+import _ from 'lodash';
+import SlickSlider, {Settings} from 'react-slick';
+
+import Anchor from '../../components/Anchor/Anchor';
+import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
+import BlockHeader from '../../components/BlockHeader/BlockHeader';
+import OutsideClick from '../../components/OutsideClick/OutsideClick';
+import {BREAKPOINTS} from '../../constants';
+import {MobileContext} from '../../context/mobileContext';
+import {SSRContext} from '../../context/ssrContext';
+import {StylesContext} from '../../context/stylesContext/StylesContext';
+import useFocus from '../../hooks/useFocus';
 import {
+    ClassNameProps,
     Refable,
     SliderProps as SliderParams,
     SliderType,
-    ClassNameProps,
     Timeout,
     WithChildren,
 } from '../../models';
+import {block} from '../../utils';
 import Arrow, {ArrowType} from './Arrow/Arrow';
-import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
-import Anchor from '../../components/Anchor/Anchor';
+import {SliderBreakpointParams} from './models';
 import {
     getSliderResponsiveParams,
     getSlidesCountByBreakpoint,
     getSlidesToShowCount,
     getSlidesToShowWithDefaults,
 } from './utils';
-import {BREAKPOINTS} from '../../constants';
-import BlockHeader from '../../components/BlockHeader/BlockHeader';
-import {StylesContext} from '../../context/stylesContext/StylesContext';
-import {SliderBreakpointParams} from './models';
-import {MobileContext} from '../../context/mobileContext';
-import OutsideClick from '../../components/OutsideClick/OutsideClick';
-import useFocus from '../../hooks/useFocus';
 
-import './slick.scss';
 import './Slider.scss';
-import {SSRContext} from '../../context/ssrContext';
+import './slick.scss';
 
 const b = block('SliderBlock');
 const slick = block('slick-origin');

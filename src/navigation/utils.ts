@@ -1,4 +1,5 @@
 import {MouseEventHandler} from 'react';
+
 import {ItemColumnName} from './constants';
 
 type GetItemClickHandlerArgs = {

@@ -1,9 +1,9 @@
 import React, {useEffect, useMemo, useRef} from 'react';
 
 import {MediaComponentVideoProps, MediaVideoType, PlayButtonProps} from '../../../models';
+import {block} from '../../../utils';
 import ReactPlayerBlock from '../../ReactPlayer/ReactPlayer';
 import {getVideoTypesWithPriority} from './utils';
-import {block} from '../../../utils';
 
 import './Video.scss';
 

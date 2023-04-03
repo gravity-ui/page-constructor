@@ -1,6 +1,5 @@
 import React, {Fragment} from 'react';
 
-import {block} from '../../../utils';
 import {CardBase} from '../../../components';
 import {
     CardBorder,
@@ -9,6 +8,7 @@ import {
     PriceDetailsSettingsProps,
     PriceItemProps,
 } from '../../../models';
+import {block} from '../../../utils';
 
 import './SeparatePriceDetailed.scss';
 

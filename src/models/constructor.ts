@@ -1,5 +1,6 @@
 import React, {PropsWithChildren} from 'react';
-import {Animatable, ThemedMediaProps, ConstructorItem, Block, WithChildren} from './';
+
+import {Animatable, Block, ConstructorItem, ThemedMediaProps, WithChildren} from './';
 
 export interface PageData {
     content: PageContent;

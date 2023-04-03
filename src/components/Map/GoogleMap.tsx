@@ -1,13 +1,14 @@
-import React, {useContext, useEffect, useRef, useState, useMemo} from 'react';
+import React, {useContext, useEffect, useMemo, useRef, useState} from 'react';
+
 import _ from 'lodash';
 
-import {block} from '../../utils';
-import {MapsContext} from '../../context/mapsContext/mapsContext';
-import {GMapProps} from '../../models';
 import {LocaleContext} from '../../context/localeContext/localeContext';
+import {MapsContext} from '../../context/mapsContext/mapsContext';
 import {MobileContext} from '../../context/mobileContext';
-import {getMapHeight} from './helpers';
+import {GMapProps} from '../../models';
+import {block} from '../../utils';
 import {Lang} from '../../utils/configure';
+import {getMapHeight} from './helpers';
 
 const b = block('map');
 

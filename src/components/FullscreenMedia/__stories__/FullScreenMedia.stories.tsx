@@ -1,10 +1,11 @@
-import {Meta, Story} from '@storybook/react/types-6-0';
 import React from 'react';
 
+import {Meta, Story} from '@storybook/react/types-6-0';
+
 import {COMPONENTS, MEDIA} from '../../../demo/constants';
-import FullScreenMedia from '../FullScreenMedia';
-import Media from '../../Media/Media';
 import {MediaProps} from '../../../models';
+import Media from '../../Media/Media';
+import FullScreenMedia from '../FullScreenMedia';
 
 import data from './data.json';
 

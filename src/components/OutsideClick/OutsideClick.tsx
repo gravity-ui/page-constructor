@@ -1,5 +1,5 @@
 //TODO move into cloud components?
-import React, {createRef, PropsWithChildren} from 'react';
+import React, {PropsWithChildren, createRef} from 'react';
 
 export interface OutsideClickProps {
     onOutsideClick: () => void;

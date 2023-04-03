@@ -1,9 +1,9 @@
 import React, {useRef} from 'react';
 
-import {block} from '../../../utils';
 import {ClassNameProps, NavigationItemModel, NavigationItemType} from '../../../models';
-import {getItemClickHandler} from '../../utils';
+import {block} from '../../../utils';
 import {ItemColumnName} from '../../constants';
+import {getItemClickHandler} from '../../utils';
 import NavigationDropdownItem from '../NavigationDropdownItem/NavigationDropdownItem';
 import NavigationItem from '../NavigationItem/NavigationItem';
 

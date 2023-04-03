@@ -1,9 +1,10 @@
-import {Meta, Story} from '@storybook/react/types-6-0';
 import React from 'react';
 
-import HeaderBreadcrumbs from '../HeaderBreadcrumbs';
+import {Meta, Story} from '@storybook/react/types-6-0';
+
 import {BUTTONS_LINKS, COMPONENTS} from '../../../demo/constants';
 import {HeaderBreadCrumbsProps} from '../../../models';
+import HeaderBreadcrumbs from '../HeaderBreadcrumbs';
 
 import data from './data.json';
 

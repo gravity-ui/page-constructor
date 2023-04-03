@@ -1,8 +1,8 @@
 import React from 'react';
-import {block} from '../../utils';
 
 import {CardBase, HTML} from '../../components';
 import {NewsCardProps} from '../../models';
+import {block} from '../../utils';
 
 import './NewsCard.scss';
 

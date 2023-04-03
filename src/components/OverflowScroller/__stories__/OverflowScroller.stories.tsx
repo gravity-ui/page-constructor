@@ -1,8 +1,9 @@
-import {Meta, Story} from '@storybook/react/types-6-0';
 import React from 'react';
 
-import OverflowScroller, {OverflowScrollerProps} from '../OverflowScroller';
+import {Meta, Story} from '@storybook/react/types-6-0';
+
 import {COMPONENTS} from '../../../demo/constants';
+import OverflowScroller, {OverflowScrollerProps} from '../OverflowScroller';
 
 export default {
     component: OverflowScroller,

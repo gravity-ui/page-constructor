@@ -1,4 +1,5 @@
 import React from 'react';
+
 import {AnalyticsEvent} from '../../models';
 
 export interface AnalyticsContextProps {

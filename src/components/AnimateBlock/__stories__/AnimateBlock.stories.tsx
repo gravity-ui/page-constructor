@@ -1,8 +1,9 @@
-import {Meta, Story} from '@storybook/react/types-6-0';
 import React from 'react';
 
-import AnimateBlock, {AnimateBlockProps} from '../AnimateBlock';
+import {Meta, Story} from '@storybook/react/types-6-0';
+
 import {COMPONENTS} from '../../../demo/constants';
+import AnimateBlock, {AnimateBlockProps} from '../AnimateBlock';
 
 import './AnimateBlock.stories.scss';
 

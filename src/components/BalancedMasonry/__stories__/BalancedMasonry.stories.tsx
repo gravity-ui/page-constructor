@@ -1,14 +1,15 @@
-import {Meta, Story} from '@storybook/react/types-6-0';
 import React from 'react';
 
-import BalancedMasonry, {BalancedMasonryProps} from '../BalancedMasonry';
-import {COMPONENTS} from '../../../demo/constants';
-import {BREAKPOINTS} from '../../../constants';
-import CardBase from '../../CardBase/CardBase';
+import {Meta, Story} from '@storybook/react/types-6-0';
 
-import './BalancedMansonry.stories.scss';
+import {BREAKPOINTS} from '../../../constants';
+import {COMPONENTS} from '../../../demo/constants';
+import CardBase from '../../CardBase/CardBase';
+import BalancedMasonry, {BalancedMasonryProps} from '../BalancedMasonry';
 
 import data from './data.json';
+
+import './BalancedMansonry.stories.scss';
 
 export default {
     component: BalancedMasonry,

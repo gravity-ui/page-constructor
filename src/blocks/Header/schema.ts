@@ -1,12 +1,12 @@
+import {ImageProps} from '../../components/Image/schema';
 import {
-    VideoProps,
-    withTheme,
     BlockBaseProps,
     ButtonBlock,
     MediaProps,
+    VideoProps,
+    withTheme,
 } from '../../schema/validators/common';
 import {filteredArray} from '../../schema/validators/utils';
-import {ImageProps} from '../../components/Image/schema';
 
 export const HeaderBackgroundProps = {
     type: 'object',

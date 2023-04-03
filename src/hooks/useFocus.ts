@@ -1,7 +1,8 @@
+import {useCallback, useContext, useEffect, useState} from 'react';
+
 import _ from 'lodash';
 
 import {MobileContext} from '../context/mobileContext';
-import {useCallback, useContext, useEffect, useState} from 'react';
 
 export default function useFocus(element?: HTMLElement) {
     const isMobile = useContext(MobileContext);

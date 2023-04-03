@@ -1,15 +1,17 @@
 import React from 'react';
+
 import {Meta, Story} from '@storybook/react/types-6-0';
+
+import {yfmTransform} from '../../../../.storybook/utils';
+import {PageConstructor} from '../../../containers/PageConstructor/PageConstructor';
 import {
+    ButtonProps,
     ContentLayoutBlockModel,
     ContentLayoutBlockProps,
-    LinkProps,
-    ButtonProps,
     ContentTheme,
+    LinkProps,
 } from '../../../models';
 import Content from '../ContentLayout';
-import {PageConstructor} from '../../../containers/PageConstructor/PageConstructor';
-import {yfmTransform} from '../../../../.storybook/utils';
 
 import data from './data.json';
 

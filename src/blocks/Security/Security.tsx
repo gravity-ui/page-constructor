@@ -1,9 +1,9 @@
 import React from 'react';
 
-import {block} from '../../utils';
+import {AnimateBlock, FullWidthBackground, HTML, Link, Media} from '../../components';
+import {Col, Grid, Row} from '../../grid';
 import {SecurityBlockProps} from '../../models';
-import {FullWidthBackground, HTML, Media, Link, AnimateBlock} from '../../components';
-import {Grid, Row, Col} from '../../grid';
+import {block} from '../../utils';
 
 import './Security.scss';
 

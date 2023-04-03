@@ -1,13 +1,13 @@
 import React, {useContext, useMemo} from 'react';
 
-import {block} from '../../utils';
-import {ThemeValueContext} from '../../context/theme/ThemeValueContext';
 import {MobileContext} from '../../context/mobileContext';
+import {ThemeValueContext} from '../../context/theme/ThemeValueContext';
+import {useAnalytics, useHandleHubspotEvents} from '../../hooks';
 import {useMetrika} from '../../hooks/useMetrika';
 import {DefaultEventNames, HubspotFormProps} from '../../models';
-import {useHandleHubspotEvents, useAnalytics} from '../../hooks';
-import HubspotFormContainer from './HubspotFormContainer';
+import {block} from '../../utils';
 import {HubspotEventHandlers} from '../../utils/hubspot';
+import HubspotFormContainer from './HubspotFormContainer';
 
 import './HubspotForm.scss';
 

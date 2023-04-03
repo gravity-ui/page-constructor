@@ -1,9 +1,11 @@
 import React from 'react';
+
 import {Meta, Story} from '@storybook/react/types-6-0';
-import {InfoBlockModel, InfoBlockProps} from '../../../models';
+
 import {yfmTransform} from '../../../../.storybook/utils';
-import Info from '../Info';
 import {PageConstructor} from '../../../containers/PageConstructor/PageConstructor';
+import {InfoBlockModel, InfoBlockProps} from '../../../models';
+import Info from '../Info';
 
 import data from './data.json';
 

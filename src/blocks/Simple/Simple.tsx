@@ -1,10 +1,10 @@
 import React from 'react';
 
-import {block} from '../../utils';
-import {SimpleBlockProps, WithChildren} from '../../models';
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
 import BlockHeader from '../../components/BlockHeader/BlockHeader';
 import YFMWrapper from '../../components/YFMWrapper/YFMWrapper';
+import {SimpleBlockProps, WithChildren} from '../../models';
+import {block} from '../../utils';
 
 import './Simple.scss';
 

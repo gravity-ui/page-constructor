@@ -1,8 +1,9 @@
-import {Meta, Story} from '@storybook/react/types-6-0';
 import React from 'react';
 
-import MetaInfo, {MetaInfpoProps} from '../MetaInfo';
+import {Meta, Story} from '@storybook/react/types-6-0';
+
 import {COMPONENTS} from '../../../demo/constants';
+import MetaInfo, {MetaInfpoProps} from '../MetaInfo';
 
 import data from './data.json';
 

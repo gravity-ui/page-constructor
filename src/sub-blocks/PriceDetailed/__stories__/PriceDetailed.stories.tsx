@@ -1,9 +1,10 @@
-import {Meta, Story} from '@storybook/react/types-6-0';
 import React from 'react';
 
-import PriceDetailed from '../PriceDetailed';
-import {PriceDetailedProps} from '../../../models';
+import {Meta, Story} from '@storybook/react/types-6-0';
+
 import {CARDS, COMPONENTS} from '../../../demo/constants';
+import {PriceDetailedProps} from '../../../models';
+import PriceDetailed from '../PriceDetailed';
 
 import data from './data.json';
 

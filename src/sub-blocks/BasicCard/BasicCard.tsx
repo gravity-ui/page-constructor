@@ -1,11 +1,11 @@
 import React from 'react';
 
-import {block} from '../../utils';
-import CardBase from '../../components/CardBase/CardBase';
-import {BasicCardProps} from '../../models';
-import Image from '../../components/Image/Image';
 import {Content} from '../';
+import CardBase from '../../components/CardBase/CardBase';
+import Image from '../../components/Image/Image';
 import {getMediaImage} from '../../components/Media/Image/utils';
+import {BasicCardProps} from '../../models';
+import {block} from '../../utils';
 
 import './BasicCard.scss';
 
