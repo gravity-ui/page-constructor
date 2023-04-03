@@ -1,7 +1,8 @@
-import {pixelEvents} from './pixel';
-import {Theme} from '../../models';
 import {ImageProps, urlPattern} from '../../components/Image/schema';
+import {Theme} from '../../models';
+
 import {AnalyticsEventSchema} from './event';
+import {pixelEvents} from './pixel';
 
 export const mediaDirection = ['media-content', 'content-media'];
 export const textSize = ['s', 'm', 'l'];
@@ -129,6 +130,9 @@ export const VideoProps = {
         controls: {
             type: 'string',
             enum: videoControlsTypes,
+        },
+        analyticsEvents: {
+            anyOf: [AnalyticsEventSchema, {type: 'array', items: AnalyticsEventSchema}],
         },
     },
 };
