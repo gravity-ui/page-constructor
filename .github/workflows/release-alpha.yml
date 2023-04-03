@@ -27,7 +27,6 @@ jobs:
           package-name: ${{ steps.package.outputs.name }}
           changelog-types: '[{"type":"feat","section":"Features","hidden":false},{"type":"fix","section":"Bug Fixes","hidden":false},{"type":"perf","section":"Performance Improvements","hidden":false}]'
           bump-minor-pre-major: true
-          default-branch: releases
           prerelease: true
       - run: npm publish --tag alpha --access public
         env:
