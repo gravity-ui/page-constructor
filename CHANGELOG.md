@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.3.0](https://github.com/gravity-ui/page-constructor/compare/v2.2.1...v2.3.0) (2023-04-03)
+
+
+### Features
+
+* add whitelist of image extenstions which can be compressed ([#215](https://github.com/gravity-ui/page-constructor/issues/215)) ([136034b](https://github.com/gravity-ui/page-constructor/commit/136034b642f7c044c00402cf2e0527ae8a099aeb))
+
 ## [2.2.1](https://github.com/gravity-ui/page-constructor/compare/v2.2.0...v2.2.1) (2023-03-30)
 
 
