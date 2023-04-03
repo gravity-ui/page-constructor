@@ -24,6 +24,7 @@ import {
     CardLayoutBlock,
     ShareBlock,
     MapBlock,
+    FilterBlock,
 } from './validators/blocks';
 
 import {
@@ -84,6 +85,7 @@ export function generateDefaultSchema(config?: SchemaCustomConfig) {
         ...CardLayoutBlock,
         ...ContentLayoutBlock,
         ...ShareBlock,
+        ...FilterBlock,
     };
 
     const cardValidators = {
@@ -127,6 +129,7 @@ export function generateDefaultSchema(config?: SchemaCustomConfig) {
         'card-layout-block',
         'content-layout-block',
         'share-block',
+        'filter-block',
     ];
 
     const constructorCardSchemaNames = [

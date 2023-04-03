@@ -29,7 +29,7 @@ export const FilterItemProps = {
                 type: 'string',
             },
         },
-        card: {$ref: 'self#/definitions/card'},
+        card: {$ref: 'self#/definitions/cards'},
     },
 };
 
