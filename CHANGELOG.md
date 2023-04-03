@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.3.1](https://github.com/gravity-ui/page-constructor/compare/v2.3.0...v2.3.1) (2023-04-03)
+
+
+### Bug Fixes
+
+* **validator:** add FilterBlock to schema validators ([#270](https://github.com/gravity-ui/page-constructor/issues/270)) ([2c344a8](https://github.com/gravity-ui/page-constructor/commit/2c344a853d8d91b897423f8f46c191a5e7bfc8c7))
+
 ## [2.3.0](https://github.com/gravity-ui/page-constructor/compare/v2.2.1...v2.3.0) (2023-04-03)
 
 
