@@ -8,7 +8,7 @@ import './ConstructorFootnotes.scss';
 const b = block('constructor-footnotes');
 
 /**
- * @deprecated because useless
+ * @deprecated use Content block instead
  *
  * @return - JSX
  */
