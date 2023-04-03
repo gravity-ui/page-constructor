@@ -1,8 +1,23 @@
 @import '../../../../styles/variables';
+@import '../../../../styles/mixins';
 
 $block: '.#{$ns}navigation-list-item';
 
 #{$block} {
+    height: var(--header-height);
+    line-height: var(--header-height);
+    cursor: pointer;
+
+    @include islands-focus();
+    @include reset-link-style();
+
+    &__content {
+        &:hover,
+        &:active {
+            color: var(--yc-color-text-link);
+        }
+    }
+
     &__slider-container {
         position: absolute;
         right: 0;

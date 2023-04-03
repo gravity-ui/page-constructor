@@ -27,23 +27,27 @@ const NavigationItemsMap: Record<NavigationItemType, React.ComponentType<any>> =
     [NavigationItemType.GithubButton]: GithubButton,
 };
 
-const NavigationItem: React.FC<NavigationItemProps> = ({data, className, ...props}) => {
-    const {type = NavigationItemType.Link} = data;
-    const Component = NavigationItemsMap[type];
-    const componentProps = useMemo(
-        () => ({
-            className,
-            ...data,
-            ...props,
-        }),
-        [className, data, props],
-    );
+const NavigationItem = React.forwardRef<HTMLElement, NavigationItemProps>(
+    ({data, className, ...props}, ref) => {
+        const {type = NavigationItemType.Link} = data;
+        const Component = NavigationItemsMap[type];
+        const componentProps = useMemo(
+            () => ({
+                className,
+                ...data,
+                ...props,
+                ref,
+            }),
+            [className, data, props],
+        );
 
-    return (
-        <BlockIdContext.Provider value={ANALYTICS_ID}>
-            <Component {...componentProps} />
-        </BlockIdContext.Provider>
-    );
-};
+        return (
+            <BlockIdContext.Provider value={ANALYTICS_ID}>
+                <Component {...componentProps} />
+            </BlockIdContext.Provider>
+        );
+    },
+);
+NavigationItem.displayName = 'NavigationItem';
 
 export default NavigationItem;

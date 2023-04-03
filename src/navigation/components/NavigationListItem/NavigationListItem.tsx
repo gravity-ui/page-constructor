@@ -1,4 +1,4 @@
-import React, {useRef} from 'react';
+import React from 'react';
 
 import {ClassNameProps, NavigationItemModel, NavigationItemType} from '../../../models';
 import {block} from '../../../utils';
@@ -9,15 +9,13 @@ import NavigationItem from '../NavigationItem/NavigationItem';
 
 import './NavigationListItem.scss';
 
-const b = block('navigation');
+const b = block('navigation-list-item');
 
 type NavigationListItemProps = {
     item: NavigationItemModel;
     index: number;
     column: ItemColumnName;
     activeItemId?: string;
-    itemPositions?: number[];
-    itemRefs?: React.MutableRefObject<(HTMLLIElement | null)[]>;
     highlightActiveItem?: boolean;
     hidePopup: () => void;
     onActiveItemChange: (id?: string) => void;
@@ -25,17 +23,14 @@ type NavigationListItemProps = {
 
 export const NavigationListItem = ({
     item,
-    itemRefs,
     className,
     index,
     activeItemId,
     highlightActiveItem,
     hidePopup,
-    itemPositions,
     column,
     onActiveItemChange,
 }: NavigationListItemProps) => {
-    const ref = useRef<HTMLLIElement | null>(null);
     const id = `${column}-${index}`;
     const isActive = id === activeItemId;
     const onClick = getItemClickHandler({
@@ -46,19 +41,17 @@ export const NavigationListItem = ({
     });
 
     return (
-        <li ref={itemRefs ? (el) => itemRefs.current.push(el) : ref} className={className}>
+        <li className={b(null, className)}>
             {item.type === NavigationItemType.Dropdown ? (
                 <NavigationDropdownItem
+                    className={b('content')}
                     data={item}
                     onClick={onClick}
                     isActive={isActive}
-                    position={
-                        itemPositions?.[index] || ref.current?.getBoundingClientRect().left || 0
-                    }
                     hidePopup={hidePopup}
                 />
             ) : (
-                <NavigationItem data={item} onClick={onClick} />
+                <NavigationItem className={b('content')} data={item} onClick={onClick} />
             )}
             {highlightActiveItem && isActive && (
                 <div className={b('slider-container')}>
