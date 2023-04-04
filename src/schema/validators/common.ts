@@ -178,6 +178,9 @@ export const BackgroundProps = {
         parallax: {
             type: 'boolean',
         },
+        fullWidthMedia: {
+            type: 'boolean',
+        },
     },
 };
 
