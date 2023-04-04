@@ -2,8 +2,9 @@ import React from 'react';
 
 import {Meta, Story} from '@storybook/react/types-6-0';
 
+import BackgroundMedia from '../BackgroundMedia';
 import {COMPONENTS, MEDIA} from '../../../demo/constants';
-import BackgroundMedia, {FullProps} from '../BackgroundMedia';
+import {BackgroundMediaProps} from '../../../models';
 
 import data from './data.json';
 
@@ -17,7 +18,7 @@ export default {
     },
 } as Meta;
 
-const DefaultTemplate: Story<FullProps> = (args) => (
+const DefaultTemplate: Story<BackgroundMediaProps> = (args) => (
     <div style={{maxWidth: '1400px', position: 'relative'}}>
         <BackgroundMedia {...args} />
     </div>
