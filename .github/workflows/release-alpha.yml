@@ -1,36 +1,18 @@
-name: Release Alpha-1
+name: Alpha Release
 
 on:
   push:
-    branches: [alpha/test]
+    branches: [alpha]
 
 jobs:
   release:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - uses: gravity-ui/release-action@1b36bbcb33881f0c9b9fbc6d5afb262a123871f5
         with:
+          github-token: ${{ secrets.GRAVITY_UI_BOT_GITHUB_TOKEN }}
+          npm-token: ${{ secrets.GRAVITY_UI_BOT_NPM_TOKEN }}
           node-version: 14
-          registry-url: 'https://registry.npmjs.org'
-      - run: npm ci
-        shell: bash
-      - run: npm test
-        shell: bash
-      - uses: codex-team/action-nodejs-package-info@v1
-        id: package
-      - uses: google-github-actions/release-please-action@v3
-        id: release
-        with:
-          token: ${{ secrets.GRAVITY_UI_BOT_GITHUB_TOKEN }}
-          release-type: node
-          package-name: ${{ steps.package.outputs.name }}
-          changelog-types: '[{"type":"feat","section":"Features","hidden":false},{"type":"fix","section":"Bug Fixes","hidden":false},{"type":"perf","section":"Performance Improvements","hidden":false}]'
-          bump-minor-pre-major: true
+          npm-dist-tag: --tag alpha
           prerelease: true
-          default-branch: alpha/test
-      - run: npm publish --tag alpha --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GRAVITY_UI_BOT_NPM_TOKEN }}
-        if: ${{ steps.release.outputs.release_created }}
-        shell: bash
+          default-branch: alpha
