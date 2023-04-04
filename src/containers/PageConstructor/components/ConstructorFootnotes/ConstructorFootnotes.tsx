@@ -7,6 +7,11 @@ import './ConstructorFootnotes.scss';
 
 const b = block('constructor-footnotes');
 
+/**
+ * @deprecated use Content block instead
+ *
+ * @return - JSX
+ */
 export const ConstructorFootnotes = ({items}: {items: string[]}) => (
     <ol className={b()}>
         {items.map((footnote, index) => (
