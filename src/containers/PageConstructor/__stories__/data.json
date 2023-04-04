@@ -33,8 +33,7 @@
       "background": {
         "light": {
           "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/header-bg-video_light.png",
-          "color": "#EFF2F8",
-          "fullWidthMedia": true
+          "color": "#EFF2F8"
         },
         "dark": {
           "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/header-bg-video_dark.png",
