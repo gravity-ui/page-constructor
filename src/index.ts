@@ -1,5 +1,6 @@
 //storybook
 export * from './context/theme';
+export * from './context/analyticsContext';
 
 export * from './containers/PageConstructor';
 export * from './grid';
