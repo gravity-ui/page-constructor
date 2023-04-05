@@ -28,17 +28,29 @@ export const useAnalytics = (name = '', target?: string) => {
 
     const defaultEvents = defaultEvent && autoEvents ? [defaultEvent] : [];
 
-    return memoize((e?: AnalyticsEvent | AnalyticsEvent[]) => {
-        let events: AnalyticsEvent[] = defaultEvents;
+    return memoize(
+        (
+            e?: AnalyticsEvent | AnalyticsEvent[] | null,
+            additionalContext?: Record<string, string>,
+        ) => {
+            let events: AnalyticsEvent[] = defaultEvents;
 
-        if (e) {
-            events = Array.isArray(e) ? [...events, ...e] : [...events, e];
-        }
+            if (e) {
+                events = Array.isArray(e) ? [...events, ...e] : [...events, e];
+            }
 
-        if (!events) {
-            return;
-        }
+            if (!events) {
+                return;
+            }
 
-        sendEvents(events);
-    });
+            const preparedEvents = additionalContext
+                ? events.map((event) => ({
+                      ...event,
+                      ...additionalContext,
+                  }))
+                : events;
+
+            sendEvents(preparedEvents);
+        },
+    );
 };
