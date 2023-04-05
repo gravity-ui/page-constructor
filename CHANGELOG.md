@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.3.2](https://github.com/gravity-ui/page-constructor/compare/v2.3.1...v2.3.2) (2023-04-05)
+
+
+### Bug Fixes
+
+* export an analytics contexts ([#283](https://github.com/gravity-ui/page-constructor/issues/283)) ([96e4840](https://github.com/gravity-ui/page-constructor/commit/96e48407c89f590c48d88a4b2e3d06acfe9e72bc))
+* set footnotes is deprecated ([#271](https://github.com/gravity-ui/page-constructor/issues/271)) ([7ea88f2](https://github.com/gravity-ui/page-constructor/commit/7ea88f2d9fbd31440857209b46d90735515ce805))
+
 ## [2.3.1](https://github.com/gravity-ui/page-constructor/compare/v2.3.0...v2.3.1) (2023-04-03)
 
 
