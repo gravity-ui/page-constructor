@@ -29,7 +29,10 @@ export const useAnalytics = (name = '', target?: string) => {
     const defaultEvents = defaultEvent && autoEvents ? [defaultEvent] : [];
 
     return memoize(
-        (e?: AnalyticsEvent | AnalyticsEvent[] | null, options?: Record<string, string>) => {
+        (
+            e?: AnalyticsEvent | AnalyticsEvent[] | null,
+            additionalContext?: Record<string, string>,
+        ) => {
             let events: AnalyticsEvent[] = defaultEvents;
 
             if (e) {
@@ -40,10 +43,10 @@ export const useAnalytics = (name = '', target?: string) => {
                 return;
             }
 
-            const preparedEvents = options
+            const preparedEvents = additionalContext
                 ? events.map((event) => ({
                       ...event,
-                      ...options,
+                      ...additionalContext,
                   }))
                 : events;
 
