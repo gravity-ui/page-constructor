@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.6.0](https://github.com/gravity-ui/page-constructor/compare/v2.5.0...v2.6.0) (2023-04-05)
+
+
+### Features
+
+* add options to useAnalytics ([#287](https://github.com/gravity-ui/page-constructor/issues/287)) ([17c2c75](https://github.com/gravity-ui/page-constructor/commit/17c2c750042718ca4f90d23245cf8d2caadde3b2))
+
 ## [2.5.0](https://github.com/gravity-ui/page-constructor/compare/v2.4.0...v2.5.0) (2023-04-05)
 
 
