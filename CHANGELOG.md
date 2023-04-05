@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.5.0](https://github.com/gravity-ui/page-constructor/compare/v2.4.0...v2.5.0) (2023-04-05)
+
+
+### Features
+
+* update linters ([#269](https://github.com/gravity-ui/page-constructor/issues/269)) ([35ba72d](https://github.com/gravity-ui/page-constructor/commit/35ba72d5029397ccedefa75e43f804775b93779d))
+
 ## [2.4.0](https://github.com/gravity-ui/page-constructor/compare/v2.3.2...v2.4.0) (2023-04-05)
 
 
