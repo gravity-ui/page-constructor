@@ -1,9 +1,10 @@
-import React, {useEffect, useState, useCallback, useRef, ReactNode, useContext} from 'react';
+import React, {ReactNode, useCallback, useContext, useEffect, useRef, useState} from 'react';
+
 import _ from 'lodash';
 
-import {block} from '../../utils';
 import {SSRContext} from '../../context/ssrContext';
 import {WithChildren} from '../../models';
+import {block} from '../../utils';
 
 import './BalancedMasonry.scss';
 

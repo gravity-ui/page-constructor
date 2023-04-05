@@ -1,13 +1,14 @@
 import React from 'react';
+
 import {
-    Title,
-    DocsContext,
-    Subtitle,
-    Description,
-    Primary,
     ArgsTable,
-    Stories,
+    Description,
+    DocsContext,
     PRIMARY_STORY,
+    Primary,
+    Stories,
+    Subtitle,
+    Title,
 } from '@storybook/addon-docs/';
 
 const readmeCache: Record<string, string> = {};

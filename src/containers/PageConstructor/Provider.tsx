@@ -1,17 +1,18 @@
 import React, {Fragment} from 'react';
-import {MetrikaContext, MetrikaContextProps} from '../../context/metrikaContext';
+
+import {DEFAULT_THEME} from '../../components/constants';
 import {AnalyticsContext, AnalyticsContextProps} from '../../context/analyticsContext';
-import {MobileContext} from '../../context/mobileContext';
+import {LocaleContext, LocaleContextProps} from '../../context/localeContext';
+import {LocationContext, LocationContextProps} from '../../context/locationContext';
 import {MapsContext, MapsContextType, initialMapValue} from '../../context/mapsContext/mapsContext';
+import {MetrikaContext, MetrikaContextProps} from '../../context/metrikaContext';
+import {MobileContext} from '../../context/mobileContext';
 import {
     ProjectSettingsContext,
     ProjectSettingsContextProps,
 } from '../../context/projectSettingsContext';
 import {SSRContext, SSRContextProps} from '../../context/ssrContext';
-import {LocaleContext, LocaleContextProps} from '../../context/localeContext';
-import {LocationContext, LocationContextProps} from '../../context/locationContext';
 import {ConstructorTheme, ThemeValueContext} from '../../context/theme/ThemeValueContext';
-import {DEFAULT_THEME} from '../../components/constants';
 import {WithChildren} from '../../models';
 
 export interface PageConstructorProviderProps {

@@ -1,8 +1,9 @@
-import {memoize} from 'lodash';
 import {useContext, useMemo} from 'react';
 
-import {BlockIdContext} from '../context/blockIdContext';
+import {memoize} from 'lodash';
+
 import {AnalyticsContext} from '../context/analyticsContext';
+import {BlockIdContext} from '../context/blockIdContext';
 import {AnalyticsEvent, PredefinedEventTypes} from '../models';
 
 export const useAnalytics = (name = '', target?: string) => {

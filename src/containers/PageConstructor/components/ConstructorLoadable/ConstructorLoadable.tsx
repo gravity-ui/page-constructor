@@ -1,9 +1,9 @@
 import React, {useContext} from 'react';
 
-import Loadable, {LoadableComponentsProps} from '../../../Loadable/Loadable';
-import {LoadableConfigItem} from '../../../../models';
-import {InnerContext} from '../../../../context/innerContext';
 import {BlockIdContext} from '../../../../context/blockIdContext';
+import {InnerContext} from '../../../../context/innerContext';
+import {LoadableConfigItem} from '../../../../models';
+import Loadable, {LoadableComponentsProps} from '../../../Loadable/Loadable';
 
 interface ConstructorLoadableProps
     extends Omit<LoadableComponentsProps, 'Component' | 'ChildComponent' | 'fetch'> {

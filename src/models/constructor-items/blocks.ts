@@ -1,6 +1,12 @@
 import {ButtonSize} from '@gravity-ui/uikit';
+
+import {GridColumnSize, GridColumnSizesType} from '../../grid/types';
+import {ThemeSupporting} from '../../utils';
 import {
+    AnchorProps,
+    Animatable,
     BackgroundImageProps,
+    BlockHeaderProps,
     ButtonProps,
     ContentSize,
     ContentTextSize,
@@ -10,12 +16,14 @@ import {
     HeaderImageSize,
     HeaderOffset,
     HeaderWidth,
+    ImageDeviceProps,
     Justify,
+    LegendTableMarkerType,
     LinkProps,
     LinkTheme,
+    MapProps,
     MediaDirection,
     MediaProps,
-    MapProps,
     PreviewItemProps,
     PreviewRatioMediaContent,
     TextSize,
@@ -23,16 +31,9 @@ import {
     ThemedImage,
     ThemedMediaProps,
     ThemedMediaVideoProps,
-    TitleProps,
-    LegendTableMarkerType,
-    AnchorProps,
     TitleBaseProps,
-    Animatable,
-    BlockHeaderProps,
-    ImageDeviceProps,
+    TitleProps,
 } from './common';
-import {ThemeSupporting} from '../../utils';
-import {GridColumnSize, GridColumnSizesType} from '../../grid/types';
 import {BannerCardProps, SubBlock, SubBlockModels} from './sub-blocks';
 
 export enum BlockType {

@@ -1,6 +1,7 @@
-import React, {Children, ReactElement, Fragment, HTMLAttributeAnchorTarget} from 'react';
+import React, {Children, Fragment, HTMLAttributeAnchorTarget, ReactElement} from 'react';
 
-import {block} from '../../utils';
+import {useAnalytics} from '../../hooks';
+import {useMetrika} from '../../hooks/useMetrika';
 import {
     ButtonPixel,
     CardBaseProps as CardBaseParams,
@@ -8,11 +9,10 @@ import {
     MetrikaGoal,
     WithChildren,
 } from '../../models';
+import {AnalyticsEventsBase, DefaultEventNames} from '../../models/common';
+import {block} from '../../utils';
 import BackgroundImage from '../BackgroundImage/BackgroundImage';
 import RouterLink from '../RouterLink/RouterLink';
-import {useMetrika} from '../../hooks/useMetrika';
-import {AnalyticsEventsBase, DefaultEventNames} from '../../models/common';
-import {useAnalytics} from '../../hooks';
 
 import './CardBase.scss';
 

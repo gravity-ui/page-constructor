@@ -1,8 +1,8 @@
 import React, {Fragment} from 'react';
 
-import {block} from '../../../../../utils';
 import {Image} from '../../../../../components';
 import {ImageProps} from '../../../../../models';
+import {block} from '../../../../../utils';
 
 import './ContentWrapper.scss';
 

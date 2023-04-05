@@ -1,10 +1,10 @@
 import React from 'react';
 
-import {block} from '../../utils';
-import {LinkTableBlockProps} from '../../models';
-import {Row, Col, GridColumnSize} from '../../grid';
-import Link from '../../components/Link/Link';
 import BlockHeader from '../../components/BlockHeader/BlockHeader';
+import Link from '../../components/Link/Link';
+import {Col, GridColumnSize, Row} from '../../grid';
+import {LinkTableBlockProps} from '../../models';
+import {block} from '../../utils';
 
 import './LinkTable.scss';
 

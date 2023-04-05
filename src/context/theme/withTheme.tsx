@@ -1,4 +1,5 @@
 import React from 'react';
+
 import {Subtract} from 'utility-types';
 
 import {ThemeContext, ThemeContextProps} from './ThemeContext';

@@ -1,9 +1,10 @@
 import React, {ReactNode, useCallback, useContext} from 'react';
+
 import {Button, ButtonSize, Icon} from '@gravity-ui/uikit';
 
-import {ArrowSidebar} from '../../icons';
 import {LocationContext} from '../../context/locationContext';
 import {useAnalytics} from '../../hooks';
+import {ArrowSidebar} from '../../icons';
 import {DefaultEventNames} from '../../models';
 
 export type Theme = 'default' | 'special';

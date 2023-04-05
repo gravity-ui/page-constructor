@@ -1,11 +1,10 @@
 import React from 'react';
 
-import {block} from '../../utils';
+import {HTML, Image} from '../../components/';
 import CardBase from '../../components/CardBase/CardBase';
-import {ImageProps, TutorialCardProps} from '../../models';
-import {Image, HTML} from '../../components/';
-
 import {getMediaImage} from '../../components/Media/Image/utils';
+import {ImageProps, TutorialCardProps} from '../../models';
+import {block} from '../../utils';
 
 import './TutorialCard.scss';
 

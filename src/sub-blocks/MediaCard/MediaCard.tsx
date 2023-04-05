@@ -1,8 +1,8 @@
 import React from 'react';
-import {MediaCardProps} from '../../models';
 
+import {CardBase, Media} from '../../components';
+import {MediaCardProps} from '../../models';
 import {block} from '../../utils';
-import {Media, CardBase} from '../../components';
 
 import './MediaCard.scss';
 

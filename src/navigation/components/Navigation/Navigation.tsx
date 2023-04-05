@@ -1,10 +1,11 @@
-import _ from 'lodash';
-import React, {useState, useEffect, useCallback, useContext, useRef} from 'react';
+import React, {useCallback, useContext, useEffect, useRef, useState} from 'react';
 
-import {block} from '../../../utils';
+import _ from 'lodash';
+
 import OverflowScroller from '../../../components/OverflowScroller/OverflowScroller';
-import {NavigationItemModel} from '../../../models/navigation';
 import {LocationContext} from '../../../context/locationContext';
+import {NavigationItemModel} from '../../../models/navigation';
+import {block} from '../../../utils';
 import {ItemColumnName} from '../../constants';
 import {NavigationListItem} from '../NavigationListItem/NavigationListItem';
 

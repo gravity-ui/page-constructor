@@ -1,10 +1,10 @@
 import React, {useContext} from 'react';
 
-import {block, getThemedValue} from '../../utils';
-import {ContentTheme, InfoBlockProps, LinkTheme} from '../../models';
-import {Grid, Row, Col} from '../../grid';
 import {ThemeValueContext} from '../../context/theme/ThemeValueContext';
+import {Col, Grid, Row} from '../../grid';
+import {ContentTheme, InfoBlockProps, LinkTheme} from '../../models';
 import Content from '../../sub-blocks/Content/Content';
+import {block, getThemedValue} from '../../utils';
 
 import './Info.scss';
 

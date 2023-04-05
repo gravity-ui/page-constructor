@@ -1,9 +1,9 @@
 import React from 'react';
 
-import {block} from '../../utils';
-import {CardLayoutBlockProps as CardLayoutBlockParams, WithChildren} from '../../models';
+import {AnimateBlock, BlockHeader} from '../../components';
 import {Col, GridColumnSizesType, Row} from '../../grid';
-import {BlockHeader, AnimateBlock} from '../../components';
+import {CardLayoutBlockProps as CardLayoutBlockParams, WithChildren} from '../../models';
+import {block} from '../../utils';
 
 import './CardLayout.scss';
 

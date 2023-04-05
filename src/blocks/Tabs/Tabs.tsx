@@ -1,17 +1,17 @@
 import React, {Fragment, useContext, useRef, useState} from 'react';
 
-import {block, getThemedValue} from '../../utils';
-import {Row, Col, GridColumnOrderClasses} from '../../grid';
-import {TabsBlockProps} from '../../models';
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
 import BlockHeader from '../../components/BlockHeader/BlockHeader';
-import FullScreenImage from '../../components/FullscreenImage/FullscreenImage';
-import Media from '../../components/Media/Media';
-import {ThemeValueContext} from '../../context/theme/ThemeValueContext';
-import {getMediaImage} from '../../components/Media/Image/utils';
 import ButtonTabs, {ButtonTabsItemProps} from '../../components/ButtonTabs/ButtonTabs';
-import {Content} from '../../sub-blocks';
+import FullScreenImage from '../../components/FullscreenImage/FullscreenImage';
+import {getMediaImage} from '../../components/Media/Image/utils';
+import Media from '../../components/Media/Media';
 import {getHeight} from '../../components/VideoBlock/VideoBlock';
+import {ThemeValueContext} from '../../context/theme/ThemeValueContext';
+import {Col, GridColumnOrderClasses, Row} from '../../grid';
+import {TabsBlockProps} from '../../models';
+import {Content} from '../../sub-blocks';
+import {block, getThemedValue} from '../../utils';
 
 import './Tabs.scss';
 

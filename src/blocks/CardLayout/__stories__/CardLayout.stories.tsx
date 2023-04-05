@@ -1,7 +1,8 @@
 import React, {Fragment} from 'react';
+
 import {Meta, Story} from '@storybook/react/types-6-0';
 
-import CardLayout from '../CardLayout';
+import {PageConstructor} from '../../../containers/PageConstructor';
 import {
     CardLayoutBlockModel,
     CardLayoutBlockProps,
@@ -9,7 +10,7 @@ import {
     CardWithImageProps,
     SubBlockModels,
 } from '../../../models';
-import {PageConstructor} from '../../../containers/PageConstructor';
+import CardLayout from '../CardLayout';
 
 import data from './data.json';
 

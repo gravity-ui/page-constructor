@@ -1,9 +1,9 @@
 import React from 'react';
 
-import {block} from '../../utils';
-import {BlockHeaderProps as BlockHeaderParams, TitleProps, ClassNameProps} from '../../models';
-import {Col, GridColumnSizesType} from '../../grid';
 import {Title} from '../';
+import {Col, GridColumnSizesType} from '../../grid';
+import {BlockHeaderProps as BlockHeaderParams, ClassNameProps, TitleProps} from '../../models';
+import {block} from '../../utils';
 import YFMWrapper from '../YFMWrapper/YFMWrapper';
 
 import './BlockHeader.scss';

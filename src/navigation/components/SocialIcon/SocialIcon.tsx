@@ -1,9 +1,9 @@
 import React from 'react';
 
-import {block} from '../../../utils';
-import {NavigationSocialItem} from '../../../models';
 import {Image} from '../../../components';
 import {getMediaImage} from '../../../components/Media/Image/utils';
+import {NavigationSocialItem} from '../../../models';
+import {block} from '../../../utils';
 
 import './SocialIcon.scss';
 

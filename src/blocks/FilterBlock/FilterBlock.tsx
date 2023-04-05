@@ -1,12 +1,12 @@
 import React, {useMemo, useState} from 'react';
 
-import i18n from './i18n';
-import {block} from '../../utils';
-import {BlockType, ConstructorItem, FilterBlockProps, FilterItem} from '../../models';
-import {Row, Col} from '../../grid';
-import {BlockHeader, AnimateBlock} from '../../components';
+import {AnimateBlock, BlockHeader} from '../../components';
 import ButtonTabs, {ButtonTabsItemProps} from '../../components/ButtonTabs/ButtonTabs';
 import {ConstructorBlocks} from '../../containers/PageConstructor/components/ConstructorBlocks';
+import {Col, Row} from '../../grid';
+import {BlockType, ConstructorItem, FilterBlockProps, FilterItem} from '../../models';
+import {block} from '../../utils';
+import i18n from './i18n';
 
 import './FilterBlock.scss';
 

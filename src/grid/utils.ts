@@ -1,10 +1,10 @@
 import {
-    GridColumnSize,
-    GridColumnVisibilityClass,
-    GridColumnSizesType,
-    GridColumnClassPrefix,
     GridColumnClassParams,
+    GridColumnClassPrefix,
     GridColumnOrderSizesType,
+    GridColumnSize,
+    GridColumnSizesType,
+    GridColumnVisibilityClass,
     GridJustifyContent,
 } from './types';
 

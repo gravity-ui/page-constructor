@@ -1,11 +1,11 @@
-import {Meta, Story} from '@storybook/react/types-6-0';
 import React, {Fragment} from 'react';
 
-import Link, {LinkFullProps} from '../Link';
-import {Col, Row} from '../../../grid';
-import {BUTTONS_LINKS, COMPONENTS} from '../../../demo/constants';
-
+import {Meta, Story} from '@storybook/react/types-6-0';
 import {LinkProps} from 'src/models';
+
+import {BUTTONS_LINKS, COMPONENTS} from '../../../demo/constants';
+import {Col, Row} from '../../../grid';
+import Link, {LinkFullProps} from '../Link';
 
 import data from './data.json';
 

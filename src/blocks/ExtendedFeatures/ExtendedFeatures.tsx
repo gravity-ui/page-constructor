@@ -1,13 +1,13 @@
 import React, {useContext} from 'react';
 
-import {block, getThemedValue} from '../../utils';
-import {ExtendedFeaturesProps} from '../../models';
-import {Row, Col} from '../../grid';
 import {AnimateBlock, BlockHeader, HTML} from '../../components/';
-import {Content} from '../../sub-blocks';
 import Image from '../../components/Image/Image';
-import {ThemeValueContext} from '../../context/theme/ThemeValueContext';
 import {getMediaImage} from '../../components/Media/Image/utils';
+import {ThemeValueContext} from '../../context/theme/ThemeValueContext';
+import {Col, Row} from '../../grid';
+import {ExtendedFeaturesProps} from '../../models';
+import {Content} from '../../sub-blocks';
+import {block, getThemedValue} from '../../utils';
 
 import './ExtendedFeatures.scss';
 

@@ -1,8 +1,9 @@
-import {Meta, Story} from '@storybook/react/types-6-0';
 import React from 'react';
 
-import ReactPlayer, {ReactPlayerBlockProps} from '../ReactPlayer';
+import {Meta, Story} from '@storybook/react/types-6-0';
+
 import {COMPONENTS, MEDIA} from '../../../demo/constants';
+import ReactPlayer, {ReactPlayerBlockProps} from '../ReactPlayer';
 
 import data from './data.json';
 

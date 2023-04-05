@@ -1,9 +1,8 @@
-import React, {useRef, useEffect} from 'react';
+import React, {useEffect, useRef} from 'react';
 
-import {block} from '../../../../../utils';
-
-import {NavigationItemProps} from '../../NavigationItem';
 import {NavigationGithubButton, NavigationGithubButtonIcon} from '../../../../../models';
+import {block} from '../../../../../utils';
+import {NavigationItemProps} from '../../NavigationItem';
 
 import './GithubButton.scss';
 

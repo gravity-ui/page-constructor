@@ -1,8 +1,8 @@
 import React from 'react';
 
-import {block} from '../../../utils';
 import Media from '../../../components/Media/Media';
 import {MediaProps, Modifiers} from '../../../models';
+import {block} from '../../../utils';
 
 import './PreviewMedia.scss';
 

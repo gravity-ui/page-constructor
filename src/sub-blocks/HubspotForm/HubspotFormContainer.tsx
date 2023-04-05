@@ -1,8 +1,8 @@
 import React, {useRef} from 'react';
 
-import loadHubspotScript from './loadHubspotScript';
-import {HubspotFormProps} from '../../models';
 import {useMount} from '../../hooks';
+import {HubspotFormProps} from '../../models';
+import loadHubspotScript from './loadHubspotScript';
 
 type HubspotFormContainerPropsKeys =
     | 'className'

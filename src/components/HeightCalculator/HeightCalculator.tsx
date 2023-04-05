@@ -1,8 +1,9 @@
-import React, {Children, useCallback, useEffect, useRef, useState, useMemo} from 'react';
+import React, {Children, useCallback, useEffect, useMemo, useRef, useState} from 'react';
+
 import _ from 'lodash';
 
-import {block} from '../../utils';
 import {WithChildren} from '../../models';
+import {block} from '../../utils';
 
 import './HeightCalculator.scss';
 

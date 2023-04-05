@@ -1,10 +1,11 @@
-import {Meta, Story} from '@storybook/react/types-6-0';
 import React from 'react';
-import {yfmTransform} from '../../../../.storybook/utils';
 
-import PromoFeaturesBlock from '../PromoFeaturesBlock';
-import {PromoFeaturesBlockModel, PromoFeaturesProps} from '../../../models';
+import {Meta, Story} from '@storybook/react/types-6-0';
+
+import {yfmTransform} from '../../../../.storybook/utils';
 import {PageConstructor} from '../../../containers/PageConstructor';
+import {PromoFeaturesBlockModel, PromoFeaturesProps} from '../../../models';
+import PromoFeaturesBlock from '../PromoFeaturesBlock';
 
 import data from './data.json';
 

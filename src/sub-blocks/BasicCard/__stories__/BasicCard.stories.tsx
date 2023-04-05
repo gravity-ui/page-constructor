@@ -1,10 +1,12 @@
-import {Meta, Story} from '@storybook/react/types-6-0';
 import React from 'react';
+
+import {Meta, Story} from '@storybook/react/types-6-0';
+
 import yfm from '@doc-tools/transform';
 
-import BasicCard from '../BasicCard';
-import {BasicCardProps} from '../../../models';
 import {CARDS, COMPONENTS} from '../../../demo/constants';
+import {BasicCardProps} from '../../../models';
+import BasicCard from '../BasicCard';
 
 import data from './data.json';
 

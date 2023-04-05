@@ -1,6 +1,5 @@
+import {YMapMarker, YMapMarkerLabel, YMapProps} from '../../../models';
 import {Coordinate} from '../../../models/constructor-items/common';
-
-import {YMapProps, YMapMarker, YMapMarkerLabel} from '../../../models';
 
 enum GeoObjectTypes {
     Properties = 'properties',

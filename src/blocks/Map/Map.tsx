@@ -1,8 +1,8 @@
 import React from 'react';
 
-import {MapBlockProps} from '../../models';
 import Map from '../../components/Map/Map';
 import MediaBase from '../../components/MediaBase/MediaBase';
+import {MapBlockProps} from '../../models';
 
 export const MapBlock = ({map, ...props}: MapBlockProps) => (
     <MediaBase {...props}>

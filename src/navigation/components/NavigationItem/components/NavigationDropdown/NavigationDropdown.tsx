@@ -1,13 +1,11 @@
 import React from 'react';
 
+import {ToggleArrow} from '../../../../../components';
+import {getMediaImage} from '../../../../../components/Media/Image/utils';
+import {DropdownItemData} from '../../../../../models';
+import {block} from '../../../../../utils';
 import {NavigationItemProps} from '../../NavigationItem';
 import {ContentWrapper} from '../ContentWrapper/ContentWrapper';
-import {ToggleArrow} from '../../../../../components';
-
-import {block} from '../../../../../utils';
-import {getMediaImage} from '../../../../../components/Media/Image/utils';
-
-import {DropdownItemData} from '../../../../../models';
 
 import './NavigationDropdown.scss';
 

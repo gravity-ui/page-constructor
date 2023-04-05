@@ -1,8 +1,9 @@
-import {Meta, Story} from '@storybook/react/types-6-0';
 import React from 'react';
 
-import VideoBlock, {VideoBlockProps} from '../VideoBlock';
+import {Meta, Story} from '@storybook/react/types-6-0';
+
 import {COMPONENTS, MEDIA} from '../../../demo/constants';
+import VideoBlock, {VideoBlockProps} from '../VideoBlock';
 
 import data from './data.json';
 

@@ -1,9 +1,10 @@
-import {Meta, Story} from '@storybook/react/types-6-0';
 import React from 'react';
 
-import Author from '../Author';
-import {AuthorProps, AuthorType} from '../../../models';
+import {Meta, Story} from '@storybook/react/types-6-0';
+
 import {COMPONENTS} from '../../../demo/constants';
+import {AuthorProps, AuthorType} from '../../../models';
+import Author from '../Author';
 
 import data from './data.json';
 

@@ -1,7 +1,7 @@
 import React from 'react';
 
-import {block} from '../../utils';
 import {WithChildren} from '../../models';
+import {block} from '../../utils';
 
 import '../styles/bootstrap.scss';
 import './Grid.scss';

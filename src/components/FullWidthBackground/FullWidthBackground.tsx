@@ -1,9 +1,10 @@
-import React, {Component, createRef, CSSProperties, PropsWithChildren} from 'react';
-import _ from 'lodash';
-import {ClassNameProps} from '../../models';
+import React, {CSSProperties, Component, PropsWithChildren, createRef} from 'react';
 
-import {block} from '../../utils';
+import _ from 'lodash';
+
 import {BREAKPOINTS} from '../../constants';
+import {ClassNameProps} from '../../models';
+import {block} from '../../utils';
 
 import './FullWidthBackground.scss';
 

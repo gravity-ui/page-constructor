@@ -1,11 +1,12 @@
-import {Meta, Story} from '@storybook/react/types-6-0';
 import React from 'react';
 
-import COMMON_TYPES from './COMMON_TYPES.md';
+import {Meta, Story} from '@storybook/react/types-6-0';
+
 import BLOCKS from './BLOCKS.md';
-import COMPONENTS from './SUB_BLOCKS.md';
-import PAGE_PROPERTIES from './PAGE_PROPERTIES.md';
+import COMMON_TYPES from './COMMON_TYPES.md';
 import INDENTS from './INDENTS.md';
+import PAGE_PROPERTIES from './PAGE_PROPERTIES.md';
+import COMPONENTS from './SUB_BLOCKS.md';
 
 export default {
     title: 'Information',

@@ -1,10 +1,10 @@
 import React, {useContext} from 'react';
 
-import {block, getThemedValue} from '../../utils';
-import {CardBase, BackgroundImage} from '../../components/';
-import {BackgroundCardProps} from '../../models';
-import Content from '../Content/Content';
+import {BackgroundImage, CardBase} from '../../components/';
 import {ThemeValueContext} from '../../context/theme/ThemeValueContext';
+import {BackgroundCardProps} from '../../models';
+import {block, getThemedValue} from '../../utils';
+import Content from '../Content/Content';
 
 import './BackgroundCard.scss';
 

@@ -1,4 +1,4 @@
-import {parse, format} from 'url';
+import {format, parse} from 'url';
 
 export type Query = Record<string, number | string | null>;
 

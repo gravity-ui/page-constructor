@@ -1,7 +1,8 @@
 import React from 'react';
+
 import {Col, Row} from '../../../../grid';
-import {block} from '../../../../utils';
 import {WithChildren} from '../../../../models';
+import {block} from '../../../../utils';
 
 import './ConstructorRow.scss';
 

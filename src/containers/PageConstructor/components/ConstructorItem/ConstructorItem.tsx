@@ -1,7 +1,8 @@
 import React, {useContext} from 'react';
-import {ConstructorItem as ConstructorItemType, WithChildren} from '../../../../models';
-import {InnerContext} from '../../../../context/innerContext';
+
 import {BlockIdContext} from '../../../../context/blockIdContext';
+import {InnerContext} from '../../../../context/innerContext';
+import {ConstructorItem as ConstructorItemType, WithChildren} from '../../../../models';
 
 export interface ConstructorItemProps {
     data: ConstructorItemType;

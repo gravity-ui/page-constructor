@@ -1,9 +1,11 @@
 import React, {Fragment} from 'react';
+
 import {Meta, Story} from '@storybook/react/types-6-0';
+
+import {yfmTransform} from '../../../../.storybook/utils';
+import {PageConstructor} from '../../../containers/PageConstructor';
 import {ButtonProps, HeaderBlockModel, HeaderBlockProps} from '../../../models';
 import Header from '../Header';
-import {PageConstructor} from '../../../containers/PageConstructor';
-import {yfmTransform} from '../../../../.storybook/utils';
 
 import data from './data.json';
 

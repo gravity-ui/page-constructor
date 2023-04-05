@@ -1,17 +1,17 @@
-import React, {useContext, FC, SVGProps, useCallback} from 'react';
-import {Icon, Button} from '@gravity-ui/uikit';
+import React, {FC, SVGProps, useCallback, useContext} from 'react';
 
-import {block, getAbsolutePath, getShareLink} from '../../utils';
-import {ShareBlockProps, DefaultEventNames} from '../../models';
+import {Button, Icon} from '@gravity-ui/uikit';
+
 import {LocationContext} from '../../context/locationContext';
-import i18n from './i18n';
 import {useAnalytics} from '../../hooks';
-
 import {Facebook} from '../../icons/Facebook';
-import {Twitter} from '../../icons/Twitter';
 import {Linkedin} from '../../icons/Linkedin';
-import {Vk} from '../../icons/Vk';
 import {Telegram} from '../../icons/Telegram';
+import {Twitter} from '../../icons/Twitter';
+import {Vk} from '../../icons/Vk';
+import {DefaultEventNames, ShareBlockProps} from '../../models';
+import {block, getAbsolutePath, getShareLink} from '../../utils';
+import i18n from './i18n';
 
 import './Share.scss';
 

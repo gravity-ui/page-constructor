@@ -1,4 +1,4 @@
-import React, {useCallback, useState, ChangeEvent} from 'react';
+import React, {ChangeEvent, useCallback, useState} from 'react';
 
 import {TextInput} from '@gravity-ui/uikit';
 

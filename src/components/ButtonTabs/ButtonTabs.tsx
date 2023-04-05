@@ -1,8 +1,9 @@
 import React, {useCallback, useMemo} from 'react';
+
 import {ButtonSize} from '@gravity-ui/uikit';
 
-import {block} from '../../utils';
 import {ButtonProps} from '../../models';
+import {block} from '../../utils';
 import {Button} from '../index';
 
 import './ButtonTabs.scss';

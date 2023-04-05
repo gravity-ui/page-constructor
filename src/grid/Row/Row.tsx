@@ -1,7 +1,7 @@
 import React, {forwardRef, useCallback} from 'react';
 
-import {GridJustifyContent, GridAlignItems} from '../types';
 import {Refable} from '../../models/common';
+import {GridAlignItems, GridJustifyContent} from '../types';
 
 export interface RowProps extends Refable<HTMLDivElement> {
     className?: string;

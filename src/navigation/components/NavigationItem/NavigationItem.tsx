@@ -1,13 +1,12 @@
 import React, {MouseEventHandler, useMemo} from 'react';
 
-import {NavigationItemType, NavigationItemData} from '../../../models';
-import SocialIcon from '../SocialIcon/SocialIcon';
-
 import {BlockIdContext} from '../../../context/blockIdContext';
+import {NavigationItemData, NavigationItemType} from '../../../models';
+import SocialIcon from '../SocialIcon/SocialIcon';
+import {GithubButton} from './components/GithubButton/GithubButton';
 import {NavigationButton} from './components/NavigationButton/NavigationButton';
 import {NavigationDropdown} from './components/NavigationDropdown/NavigationDropdown';
 import {NavigationLink} from './components/NavigationLink/NavigationLink';
-import {GithubButton} from './components/GithubButton/GithubButton';
 
 const ANALYTICS_ID = 'navigation';
 

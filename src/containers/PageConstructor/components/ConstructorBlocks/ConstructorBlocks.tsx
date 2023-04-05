@@ -1,12 +1,13 @@
-import _ from 'lodash';
 import React, {Fragment, ReactElement, useContext} from 'react';
 
-import {getBlockKey} from '../../../../utils';
+import _ from 'lodash';
+
 import {InnerContext} from '../../../../context/innerContext';
 import {Block, ConstructorItem as ConstructorItemType} from '../../../../models';
-import {ConstructorLoadable} from '../ConstructorLoadable';
-import {ConstructorItem} from '../ConstructorItem';
+import {getBlockKey} from '../../../../utils';
 import {ConstructorBlock} from '../ConstructorBlock/ConstructorBlock';
+import {ConstructorItem} from '../ConstructorItem';
+import {ConstructorLoadable} from '../ConstructorLoadable';
 
 interface ConstructorBlocksProps {
     items: ConstructorItemType[];

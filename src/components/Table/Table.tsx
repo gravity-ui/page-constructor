@@ -1,8 +1,8 @@
 import React from 'react';
 
+import {HTML, YFMWrapper} from '../';
+import {ClassNameProps, Justify, LegendTableMarkerType, TableProps} from '../../models';
 import {block} from '../../utils';
-import {TableProps, Justify, LegendTableMarkerType, ClassNameProps} from '../../models';
-import {YFMWrapper, HTML} from '../';
 
 import './Table.scss';
 

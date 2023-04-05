@@ -1,16 +1,17 @@
 import React from 'react';
+
 import {Meta, Story} from '@storybook/react/types-6-0';
 
-import FilterBlock from '../FilterBlock';
+import {PageConstructor} from '../../../containers/PageConstructor';
 import {
-    FilterBlockModel,
     CardWithImageProps,
+    FilterBlockModel,
     FilterBlockProps,
     FilterItem,
     FilterTag,
 } from '../../../models';
 import {CardWithImageModel} from '../../../models/constructor-items/sub-blocks';
-import {PageConstructor} from '../../../containers/PageConstructor';
+import FilterBlock from '../FilterBlock';
 
 import data from './data.json';
 

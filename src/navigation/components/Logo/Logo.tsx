@@ -1,11 +1,11 @@
 import React, {useContext} from 'react';
 
-import {block, getThemedValue} from '../../../utils';
-import {ThemedNavigationLogoData} from '../../../models';
-import RouterLink from '../../../components/RouterLink/RouterLink';
-import {getMediaImage} from '../../../components/Media/Image/utils';
-import {ThemeValueContext} from '../../../context/theme/ThemeValueContext';
 import {Image} from '../../../components';
+import {getMediaImage} from '../../../components/Media/Image/utils';
+import RouterLink from '../../../components/RouterLink/RouterLink';
+import {ThemeValueContext} from '../../../context/theme/ThemeValueContext';
+import {ThemedNavigationLogoData} from '../../../models';
+import {block, getThemedValue} from '../../../utils';
 
 import './Logo.scss';
 

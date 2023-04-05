@@ -1,14 +1,14 @@
 import React from 'react';
 
-import {block} from '../../utils';
-import {BREAKPOINTS} from '../../constants';
-import YFMWrapper from '../../components/YFMWrapper/YFMWrapper';
-import {PromoFeaturesProps} from '../../models';
-import Media from '../../components/Media/Media';
-import BlockHeader from '../../components/BlockHeader/BlockHeader';
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
-import FullWidthBackground from '../../components/FullWidthBackground/FullWidthBackground';
 import BalancedMasonry from '../../components/BalancedMasonry/BalancedMasonry';
+import BlockHeader from '../../components/BlockHeader/BlockHeader';
+import FullWidthBackground from '../../components/FullWidthBackground/FullWidthBackground';
+import Media from '../../components/Media/Media';
+import YFMWrapper from '../../components/YFMWrapper/YFMWrapper';
+import {BREAKPOINTS} from '../../constants';
+import {PromoFeaturesProps} from '../../models';
+import {block} from '../../utils';
 
 import './PromoFeaturesBlock.scss';
 

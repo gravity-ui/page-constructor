@@ -1,9 +1,9 @@
 import {
     AnimatableProps,
-    containerSizesObject,
-    ChildrenCardsProps,
     BlockBaseProps,
     BlockHeaderProps,
+    ChildrenCardsProps,
+    containerSizesObject,
 } from '../../schema/validators/common';
 
 export const CardLayoutProps = {

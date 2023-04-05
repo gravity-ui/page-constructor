@@ -1,10 +1,10 @@
 import {
-    BlockBaseProps,
     AnimatableProps,
+    BlockBaseProps,
+    BlockHeaderProps,
     ChildrenCardsProps,
     sliderSizesObject,
     textSize,
-    BlockHeaderProps,
 } from '../../schema/validators/common';
 
 const LoadableProps = {

@@ -1,7 +1,7 @@
 import React from 'react';
 
-import {Block, WithChildren} from '../../../../models';
 import BlockBase from '../../../../components/BlockBase/BlockBase';
+import {Block, WithChildren} from '../../../../models';
 import {block} from '../../../../utils';
 
 const b = block('constructor-block');

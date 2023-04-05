@@ -1,9 +1,10 @@
-import React, {useState, CSSProperties} from 'react';
+import React, {CSSProperties, useState} from 'react';
+
 import {Icon, Modal} from '@gravity-ui/uikit';
 
+import {FullScreen, PreviewClose} from '../../icons';
 import {block} from '../../utils';
 import Image, {ImageProps} from '../Image/Image';
-import {PreviewClose, FullScreen} from '../../icons';
 
 import './FullScreenImage.scss';
 

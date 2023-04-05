@@ -1,16 +1,13 @@
 import React, {Fragment, useContext} from 'react';
 
+import {RouterLink} from '../../../../../components';
+import {getMediaImage} from '../../../../../components/Media/Image/utils';
+import {LocationContext} from '../../../../../context/locationContext';
+import {NavigationArrow} from '../../../../../icons';
+import {NavigationLinkItem} from '../../../../../models';
+import {block, getLinkProps} from '../../../../../utils';
 import {NavigationItemProps} from '../../NavigationItem';
 import {ContentWrapper} from '../ContentWrapper/ContentWrapper';
-import {NavigationArrow} from '../../../../../icons';
-import {RouterLink} from '../../../../../components';
-
-import {block, getLinkProps} from '../../../../../utils';
-import {getMediaImage} from '../../../../../components/Media/Image/utils';
-
-import {NavigationLinkItem} from '../../../../../models';
-
-import {LocationContext} from '../../../../../context/locationContext';
 
 import './NavigationLink.scss';
 

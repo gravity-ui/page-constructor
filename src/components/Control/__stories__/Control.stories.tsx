@@ -1,9 +1,10 @@
-import {Meta, Story} from '@storybook/react/types-6-0';
 import React, {Fragment} from 'react';
 
-import Control, {ControlProps} from '../Control';
-import {Col, GridAlignItems, Row} from '../../../grid';
+import {Meta, Story} from '@storybook/react/types-6-0';
+
 import {BUTTONS_LINKS, COMPONENTS} from '../../../demo/constants';
+import {Col, GridAlignItems, Row} from '../../../grid';
+import Control, {ControlProps} from '../Control';
 
 import data from './data.json';
 

@@ -1,7 +1,7 @@
 import React from 'react';
 
-import {block} from '../../utils';
 import {BackgroundImageProps, WithChildren} from '../../models';
+import {block} from '../../utils';
 import Image from '../Image/Image';
 
 import './BackgroundImage.scss';

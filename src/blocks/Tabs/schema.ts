@@ -1,16 +1,17 @@
-import {filteredArray} from '../../schema/validators/utils';
+import _ from 'lodash';
+
+import {ImageProps} from '../../components/Image/schema';
 import {
-    LinkProps,
-    withTheme,
     BlockBaseProps,
     BlockHeaderProps,
+    LinkProps,
     MediaProps,
     containerSizesArray,
-    sizeNumber,
     mediaDirection,
+    sizeNumber,
+    withTheme,
 } from '../../schema/validators/common';
-import {ImageProps} from '../../components/Image/schema';
-import _ from 'lodash';
+import {filteredArray} from '../../schema/validators/utils';
 import {ContentBase} from '../../sub-blocks/Content/schema';
 
 const TabsItemContentProps = _.omit(ContentBase, ['size', 'colSizes', 'centered', 'theme']);

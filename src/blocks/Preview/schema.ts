@@ -1,10 +1,10 @@
-import {filteredArray} from '../../schema/validators/utils';
 import {
     AnimatableProps,
     BaseProps,
     mediaDirection,
     withTheme,
 } from '../../schema/validators/common';
+import {filteredArray} from '../../schema/validators/utils';
 import {Media} from '../Media/schema';
 
 const previewRatioMediaContent = ['2-1', '1-1'];

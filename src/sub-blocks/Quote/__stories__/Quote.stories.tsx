@@ -1,9 +1,10 @@
-import {Meta, Story} from '@storybook/react/types-6-0';
 import React from 'react';
 
+import {Meta, Story} from '@storybook/react/types-6-0';
+
 import {CARDS, COMPONENTS} from '../../../demo/constants';
-import Quote from '../Quote';
 import {QuoteProps} from '../../../models';
+import Quote from '../Quote';
 
 import data from './data.json';
 

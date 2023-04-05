@@ -1,10 +1,10 @@
 import React, {useContext} from 'react';
 
-import {block, getThemedValue} from '../../utils';
-import {CompaniesBlockProps} from '../../models';
+import {Image} from '../../components';
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
 import {ThemeValueContext} from '../../context/theme/ThemeValueContext';
-import {Image} from '../../components';
+import {CompaniesBlockProps} from '../../models';
+import {block, getThemedValue} from '../../utils';
 
 import './Companies.scss';
 

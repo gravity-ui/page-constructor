@@ -1,8 +1,8 @@
 import React from 'react';
 
-import {block} from '../../utils';
-import {CardBase, Image, HTML} from '../../components';
+import {CardBase, HTML, Image} from '../../components';
 import {ImageProps, PartnerProps} from '../../models';
+import {block} from '../../utils';
 
 import './Partner.scss';
 

@@ -1,13 +1,14 @@
 import React, {useCallback, useContext} from 'react';
-import {Platform, Button as CommonButton, Icon, StoreBadge} from '@gravity-ui/uikit';
 
-import {block, setUrlTld} from '../../utils';
-import {ButtonProps as ButtonParams, DefaultEventNames} from '../../models';
-import {OldButtonSize, OldButtonTheme, toCommonSize, toCommonView, ICON_QA} from './utils';
+import {Button as CommonButton, Icon, Platform, StoreBadge} from '@gravity-ui/uikit';
+
 import {LocaleContext} from '../../context/localeContext/localeContext';
-import {useMetrika} from '../../hooks/useMetrika';
 import {useAnalytics} from '../../hooks';
+import {useMetrika} from '../../hooks/useMetrika';
 import {Github} from '../../icons';
+import {ButtonProps as ButtonParams, DefaultEventNames} from '../../models';
+import {block, setUrlTld} from '../../utils';
+import {ICON_QA, OldButtonSize, OldButtonTheme, toCommonSize, toCommonView} from './utils';
 
 import './Button.scss';
 

@@ -1,9 +1,9 @@
 import React, {useContext} from 'react';
 
-import {MapProps, YMapProps, GMapProps} from '../../models';
-import {MapsContext, MapType} from '../../context/mapsContext/mapsContext';
-import YandexMap from './YMap/YandexMap';
+import {MapType, MapsContext} from '../../context/mapsContext/mapsContext';
+import {GMapProps, MapProps, YMapProps} from '../../models';
 import GoogleMap from './GoogleMap';
+import YandexMap from './YMap/YandexMap';
 
 import './Map.scss';
 

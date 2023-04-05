@@ -1,6 +1,7 @@
 import {useContext} from 'react';
+
 import {MetrikaContext} from '../context/metrikaContext';
-import {ButtonPixel, MetrikaGoal, PixelEventType, PixelEvent} from '../models';
+import {ButtonPixel, MetrikaGoal, PixelEvent, PixelEventType} from '../models';
 import {isNewMetrikaFormat} from '../models/guards';
 
 // eslint-disable-next-line valid-jsdoc

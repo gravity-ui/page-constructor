@@ -1,8 +1,10 @@
 import React from 'react';
+
 import {Meta, Story} from '@storybook/react/types-6-0';
-import {SliderBlockModel, BannerCardModel, BasicCardModel} from '../../../models';
-import Slider from '../Slider';
+
 import {PageConstructor} from '../../../containers/PageConstructor';
+import {BannerCardModel, BasicCardModel, SliderBlockModel} from '../../../models';
+import Slider from '../Slider';
 
 import data from './data.json';
 

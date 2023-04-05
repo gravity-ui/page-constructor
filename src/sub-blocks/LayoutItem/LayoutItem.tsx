@@ -1,10 +1,10 @@
 import React from 'react';
 
-import {block} from '../../utils';
-import {LayoutItemProps} from '../../models';
-import {FullScreenMedia, Media, MetaInfo} from '../../components';
-import {getLayoutItemLinks, hasFullScreen, showFullScreenIcon} from './utils';
 import {Content} from '..';
+import {FullScreenMedia, Media, MetaInfo} from '../../components';
+import {LayoutItemProps} from '../../models';
+import {block} from '../../utils';
+import {getLayoutItemLinks, hasFullScreen, showFullScreenIcon} from './utils';
 
 import './LayoutItem.scss';
 

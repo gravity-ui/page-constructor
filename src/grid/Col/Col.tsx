@@ -1,9 +1,9 @@
 import React, {CSSProperties, forwardRef} from 'react';
 
-import {getColClass} from '../utils';
-import {GridColumnClassParams} from '../types';
 import {Refable} from '../../models/common';
 import {WithChildren} from '../../models/react';
+import {GridColumnClassParams} from '../types';
+import {getColClass} from '../utils';
 
 export interface GridColumnProps extends GridColumnClassParams, Refable<HTMLDivElement> {
     style?: CSSProperties;

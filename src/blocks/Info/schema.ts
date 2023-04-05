@@ -1,12 +1,13 @@
 import _ from 'lodash';
-import {filteredArray} from '../../schema/validators/utils';
+
 import {
     BaseProps,
+    ButtonBlock,
     LinkProps,
     ThemeProps,
     withTheme,
-    ButtonBlock,
 } from '../../schema/validators/common';
+import {filteredArray} from '../../schema/validators/utils';
 import {ContentBase} from '../../sub-blocks/Content/schema';
 
 const ContentProps = {

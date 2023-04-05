@@ -1,8 +1,8 @@
-import {block, getLinkProps} from '../../utils';
 import React, {useContext} from 'react';
 
-import {FileLinkProps, WithChildren} from '../../models';
 import {LocationContext} from '../../context/locationContext';
+import {FileLinkProps, WithChildren} from '../../models';
+import {block, getLinkProps} from '../../utils';
 
 import './FileLink.scss';
 

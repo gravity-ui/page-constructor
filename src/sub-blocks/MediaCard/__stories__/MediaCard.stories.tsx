@@ -1,9 +1,10 @@
-import {Meta, Story} from '@storybook/react/types-6-0';
 import React from 'react';
 
-import MediaCard from '../MediaCard';
-import {MediaCardProps} from '../../../models';
+import {Meta, Story} from '@storybook/react/types-6-0';
+
 import {CARDS, COMPONENTS} from '../../../demo/constants';
+import {MediaCardProps} from '../../../models';
+import MediaCard from '../MediaCard';
 
 import data from './data.json';
 

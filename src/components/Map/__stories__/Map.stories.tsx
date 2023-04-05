@@ -1,13 +1,13 @@
-import {Meta, Story} from '@storybook/react/types-6-0';
 import React from 'react';
 
-import Map from '../Map';
-import {MapProps} from '../../../models';
-import {COMPONENTS} from '../../../demo/constants';
-import {MapProvider, gmapApiKeyIdInLS} from '../../../context/mapsContext/mapsProvider';
-import {MapType} from '../../../context/mapsContext/mapsContext';
-import {ymapApiKeyForStorybook, scriptsSrc} from '../../../../.storybook/maps';
+import {Meta, Story} from '@storybook/react/types-6-0';
 
+import {scriptsSrc, ymapApiKeyForStorybook} from '../../../../.storybook/maps';
+import {MapType} from '../../../context/mapsContext/mapsContext';
+import {MapProvider, gmapApiKeyIdInLS} from '../../../context/mapsContext/mapsProvider';
+import {COMPONENTS} from '../../../demo/constants';
+import {MapProps} from '../../../models';
+import Map from '../Map';
 import {ApiKeyInput} from './ApiKeyInput';
 
 import data from './data.json';

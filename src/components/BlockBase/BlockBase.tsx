@@ -1,9 +1,9 @@
 import React from 'react';
 
-import {block} from '../../utils';
-import {BlockBaseProps, ClassNameProps, WithChildren} from '../../models';
-import Anchor from '../Anchor/Anchor';
 import {Col} from '../../grid';
+import {BlockBaseProps, ClassNameProps, WithChildren} from '../../models';
+import {block} from '../../utils';
+import Anchor from '../Anchor/Anchor';
 
 import './BlockBase.scss';
 

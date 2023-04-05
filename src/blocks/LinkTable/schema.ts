@@ -1,5 +1,5 @@
+import {BlockBaseProps, BlockHeaderProps, LinkProps} from '../../schema/validators/common';
 import {filteredArray} from '../../schema/validators/utils';
-import {LinkProps, BlockBaseProps, BlockHeaderProps} from '../../schema/validators/common';
 
 export const LinkTableBlock = {
     'link-table-block': {

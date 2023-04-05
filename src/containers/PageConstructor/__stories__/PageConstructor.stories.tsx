@@ -1,8 +1,10 @@
 import React from 'react';
+
 import {Meta, Story} from '@storybook/react/types-6-0';
+
+import {CONTAINERS} from '../../../demo/constants';
 import {HeaderBlockModel, NavigationData} from '../../../models';
 import {PageConstructor} from '../PageConstructor';
-import {CONTAINERS} from '../../../demo/constants';
 
 import data from './data.json';
 

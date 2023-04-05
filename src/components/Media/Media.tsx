@@ -1,11 +1,11 @@
 import React, {ReactElement, useMemo, useState} from 'react';
 
-import {block} from '../../utils';
 import {MediaProps} from '../../models';
-import Image, {ImageAdditionProps} from './Image/Image';
-import DataLens from './DataLens/DataLens';
-import Video, {VideoAdditionProps} from './Video/Video';
+import {block} from '../../utils';
 import YoutubeBlock from '../VideoBlock/VideoBlock';
+import DataLens from './DataLens/DataLens';
+import Image, {ImageAdditionProps} from './Image/Image';
+import Video, {VideoAdditionProps} from './Video/Video';
 
 import './Media.scss';
 

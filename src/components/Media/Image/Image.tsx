@@ -1,14 +1,15 @@
 import React, {useEffect, useState} from 'react';
-import {animated, config, Interpolation, useSpring} from 'react-spring';
+
 import _ from 'lodash';
+import {Interpolation, animated, config, useSpring} from 'react-spring';
 
 import SliderBlock from '../../../blocks/Slider/Slider';
 import {ImageProps, MediaComponentImageProps, SliderType} from '../../../models';
-import {getMediaImage} from './utils';
-import FullScreenImage from '../../FullscreenImage/FullscreenImage';
-import BackgroundImage from '../../BackgroundImage/BackgroundImage';
 import {block} from '../../../utils';
+import BackgroundImage from '../../BackgroundImage/BackgroundImage';
+import FullScreenImage from '../../FullscreenImage/FullscreenImage';
 import ImageView from '../../Image/Image';
+import {getMediaImage} from './utils';
 
 import './Image.scss';
 
