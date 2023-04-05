@@ -89,6 +89,7 @@ export enum DefaultEventNames {
     HubspotFormSubmit = 'hubspot-form-submit',
     QuoteButton = 'quote-button-click',
     BackLink = 'back-link-click',
+    Breadcrumb = 'breadcrumb-click',
 }
 
 export type AnalyticsCounters = {
