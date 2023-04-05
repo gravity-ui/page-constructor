@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.4.0](https://github.com/gravity-ui/page-constructor/compare/v2.3.2...v2.4.0) (2023-04-05)
+
+
+### Features
+
+* analytics in header block breadcrumbs ([#284](https://github.com/gravity-ui/page-constructor/issues/284)) ([a2e6bbf](https://github.com/gravity-ui/page-constructor/commit/a2e6bbf0816a86d23bcca784956f4cace6d21d5a))
+
 ## [2.3.2](https://github.com/gravity-ui/page-constructor/compare/v2.3.1...v2.3.2) (2023-04-05)
 
 
