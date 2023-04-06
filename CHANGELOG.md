@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.7.0](https://github.com/gravity-ui/page-constructor/compare/v2.6.0...v2.7.0) (2023-04-06)
+
+
+### Features
+
+* add default analytics context to header block ([#289](https://github.com/gravity-ui/page-constructor/issues/289)) ([c1b8e45](https://github.com/gravity-ui/page-constructor/commit/c1b8e45423e7d8e2bd7daa108a8b296aebb811ef))
+
 ## [2.6.0](https://github.com/gravity-ui/page-constructor/compare/v2.5.0...v2.6.0) (2023-04-05)
 
 
