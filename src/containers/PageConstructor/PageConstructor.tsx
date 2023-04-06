@@ -10,6 +10,7 @@ import {ThemeValueContext} from '../../context/theme/ThemeValueContext';
 import {Grid} from '../../grid';
 import {
     Block,
+    BlockType,
     BlockTypes,
     CustomConfig,
     CustomItems,
@@ -91,7 +92,9 @@ export const Constructor = (props: PageConstructorProps) => {
                     )}
                     <Layout navigation={navigation}>
                         {renderMenu && renderMenu()}
-                        {header && <ConstructorHeader data={header} />}
+                        {header && (
+                            <ConstructorHeader data={header} blockKey={BlockType.HeaderBlock} />
+                        )}
                         <Grid>
                             {restBlocks && (
                                 <ConstructorRow>

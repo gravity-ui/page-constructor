@@ -6,14 +6,10 @@ import {ConstructorItem as ConstructorItemType, WithChildren} from '../../../../
 
 export interface ConstructorItemProps {
     data: ConstructorItemType;
-    blockKey?: string;
+    blockKey: string;
 }
 
-export const ConstructorItem = ({
-    data,
-    blockKey = '',
-    children,
-}: WithChildren<ConstructorItemProps>) => {
+export const ConstructorItem = ({data, blockKey, children}: WithChildren<ConstructorItemProps>) => {
     const {itemMap} = useContext(InnerContext);
     const {type, ...rest} = data;
 
@@ -30,7 +26,7 @@ export const ConstructorItem = ({
 
 export const ConstructorHeader = ({
     data,
-    blockKey = '',
+    blockKey,
 }: Pick<ConstructorItemProps, 'data' | 'blockKey'>) => (
     <ConstructorItem data={data} key={data.type} blockKey={blockKey} />
 );
