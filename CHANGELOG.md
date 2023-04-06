@@ -1,5 +1,30 @@
 # Changelog
 
+## [2.2.2-alpha.3](https://github.com/gravity-ui/page-constructor/compare/v2.2.1...v2.2.2-alpha.3) (2023-04-06)
+
+
+### Bug Fixes
+
+* add default branch ([d658348](https://github.com/gravity-ui/page-constructor/commit/d65834859ad7c93904145a20fc41b42bec6eaaec))
+* add skip-release ([4691f27](https://github.com/gravity-ui/page-constructor/commit/4691f278b022f9994e70c55a1552b20043fedeaf))
+* add specific default branch ([a10c49c](https://github.com/gravity-ui/page-constructor/commit/a10c49c1b249e19f719e49841a5c6538b3e0d69b))
+* bump release ([9be6b34](https://github.com/gravity-ui/page-constructor/commit/9be6b34c521fe5d0c3f2da72619396caeea21bd2))
+* change branch name ([3c3ce3d](https://github.com/gravity-ui/page-constructor/commit/3c3ce3d9f5d999bd8beb207fad4214179bc3516d))
+* npm dist alpha ([76c3383](https://github.com/gravity-ui/page-constructor/commit/76c33830ca137f753384227dc21092caa842ccad))
+* npm dist alpha ([86ba514](https://github.com/gravity-ui/page-constructor/commit/86ba5144057696180eb01d16818754a171c690ea))
+* npm dist alpha ([822c3ec](https://github.com/gravity-ui/page-constructor/commit/822c3ec803e972c5f26e0a9fd4662612f7398aab))
+* npm dist alpha ([7d19831](https://github.com/gravity-ui/page-constructor/commit/7d198319b0d274681e00eccc50d3e117ade835ac))
+* release ([6b60092](https://github.com/gravity-ui/page-constructor/commit/6b600920dd1212dc4dafea5d1a3fccedf2424ce5))
+* remove default branch ([b1e3ce3](https://github.com/gravity-ui/page-constructor/commit/b1e3ce3d23a170d43b9f06147f674fa31cd98616))
+* remove skip-release ([5852d8e](https://github.com/gravity-ui/page-constructor/commit/5852d8ece6af51ec7bd91fd8585c5a0a3b91358a))
+* use release-action ([1092171](https://github.com/gravity-ui/page-constructor/commit/1092171916ba23cd86475d5db42ac5ea31677aed))
+
+
+### chore
+
+* bump release ([32bc403](https://github.com/gravity-ui/page-constructor/commit/32bc40397ac0818c52364d8a6f1e6906eb34845f))
+* bump release ([d9132e6](https://github.com/gravity-ui/page-constructor/commit/d9132e61023c8437c31753c7ee91d80ffee3db3a))
+
 ## [2.2.1](https://github.com/gravity-ui/page-constructor/compare/v2.2.0...v2.2.1) (2023-03-30)
 
 
