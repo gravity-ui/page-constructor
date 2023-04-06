@@ -2,18 +2,14 @@ import React, {useContext} from 'react';
 
 import {BlockIdContext} from '../../../../context/blockIdContext';
 import {InnerContext} from '../../../../context/innerContext';
-import {BlockType, ConstructorItem as ConstructorItemType, WithChildren} from '../../../../models';
+import {ConstructorItem as ConstructorItemType, WithChildren} from '../../../../models';
 
 export interface ConstructorItemProps {
     data: ConstructorItemType;
-    blockKey?: string;
+    blockKey: string;
 }
 
-export const ConstructorItem = ({
-    data,
-    blockKey = '',
-    children,
-}: WithChildren<ConstructorItemProps>) => {
+export const ConstructorItem = ({data, blockKey, children}: WithChildren<ConstructorItemProps>) => {
     const {itemMap} = useContext(InnerContext);
     const {type, ...rest} = data;
 
@@ -30,7 +26,7 @@ export const ConstructorItem = ({
 
 export const ConstructorHeader = ({
     data,
-    blockKey = BlockType.HeaderBlock,
+    blockKey,
 }: Pick<ConstructorItemProps, 'data' | 'blockKey'>) => (
     <ConstructorItem data={data} key={data.type} blockKey={blockKey} />
 );
