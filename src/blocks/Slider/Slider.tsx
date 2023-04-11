@@ -30,8 +30,8 @@ import {
     getSlidesToShowWithDefaults,
 } from './utils';
 
-import './Slider.scss';
 import './slick.scss';
+import './Slider.scss';
 
 const b = block('SliderBlock');
 const slick = block('slick-origin');
