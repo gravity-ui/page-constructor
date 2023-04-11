@@ -31,6 +31,7 @@ import {
 } from './utils';
 
 import './slick.scss';
+// eslint-disable-next-line import/order
 import './Slider.scss';
 
 const b = block('SliderBlock');
