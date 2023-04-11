@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.8.1](https://github.com/gravity-ui/page-constructor/compare/v2.8.0...v2.8.1) (2023-04-11)
+
+
+### Bug Fixes
+
+* incorrect slider style order ([#297](https://github.com/gravity-ui/page-constructor/issues/297)) ([ba3b36a](https://github.com/gravity-ui/page-constructor/commit/ba3b36af199325cdba22f26c5b34d943456ae3fc))
+
 ## [2.8.0](https://github.com/gravity-ui/page-constructor/compare/v2.7.0...v2.8.0) (2023-04-11)
 
 
