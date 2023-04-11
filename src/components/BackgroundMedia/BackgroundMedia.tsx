@@ -1,10 +1,10 @@
 import React, {useContext} from 'react';
 
 import {MobileContext} from '../../context/mobileContext';
-import {block} from '../../utils';
 import {BackgroundMediaProps} from '../../models';
-import Media from '../Media/Media';
+import {block} from '../../utils';
 import AnimateBlock from '../AnimateBlock/AnimateBlock';
+import Media from '../Media/Media';
 
 import './BackgroundMedia.scss';
 

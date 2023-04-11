@@ -2,9 +2,9 @@ import React from 'react';
 
 import {Meta, Story} from '@storybook/react/types-6-0';
 
-import BackgroundMedia from '../BackgroundMedia';
 import {COMPONENTS, MEDIA} from '../../../demo/constants';
 import {BackgroundMediaProps} from '../../../models';
+import BackgroundMedia from '../BackgroundMedia';
 
 import data from './data.json';
 
