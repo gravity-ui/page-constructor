@@ -472,17 +472,6 @@ unpredictable css rules order in build */
     }
 }
 
-@mixin navigation-link() {
-    cursor: pointer;
-    @include islands-focus();
-    @include reset-link-style();
-
-    &:hover,
-    &:active {
-        color: var(--yc-color-text-link);
-    }
-}
-
 @mixin button($color, $backgroundColor, $hoverColor: $color, $hoverBackgroundColor) {
     --yc-button-background-color: #{$backgroundColor};
     --yc-button-background-color-hover: #{$hoverBackgroundColor};

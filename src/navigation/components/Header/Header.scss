@@ -89,11 +89,6 @@ $block: '.#{$ns}header';
     &__buttons-item {
         position: relative;
 
-        height: var(--header-height);
-
-        line-height: var(--header-height);
-        @include navigation-link();
-
         &:not(:last-child) {
             margin-right: $indentS;
         }

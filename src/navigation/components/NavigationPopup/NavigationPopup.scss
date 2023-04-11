@@ -4,15 +4,11 @@
 $block: '.#{$ns}navigation-popup';
 
 #{$block} {
-    $offset: calc(#{$gridGutter} * 2);
+    $offset: calc($gridGutter * 2 * -1);
 
-    position: fixed;
-    top: calc(var(--header-height) - #{$indentXS});
+    margin-left: $offset;
+    margin-top: -#{$indentXS};
 
-    padding-right: 4px;
-    padding-left: 4px;
-
-    transform: translateX(calc(#{$offset} * -1));
     @include desktop-only();
     @include navigation-popup();
 

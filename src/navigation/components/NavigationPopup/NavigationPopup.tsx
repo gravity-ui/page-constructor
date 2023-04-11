@@ -1,10 +1,7 @@
-import React, {useCallback, useEffect, useRef, useState} from 'react';
+import React from 'react';
 
-import _ from 'lodash';
+import {Popup} from '@gravity-ui/uikit';
 
-import {Portal} from '@gravity-ui/uikit';
-
-import {OutsideClick} from '../../../components';
 import {NavigationLinkItem} from '../../../models';
 import {block} from '../../../utils';
 import NavigationItem from '../NavigationItem/NavigationItem';
@@ -12,57 +9,41 @@ import NavigationItem from '../NavigationItem/NavigationItem';
 import './NavigationPopup.scss';
 
 const b = block('navigation-popup');
+const OFFSET_RESET: [number, number] = [0, 0];
 
 export interface NavigationPopupProps {
+    open: boolean;
     items: NavigationLinkItem[];
     onClose: () => void;
-    left?: number;
     className?: string;
+    anchorRef: React.RefObject<Element>;
 }
 
-export const NavigationPopup: React.FC<NavigationPopupProps> = ({items, left, onClose}) => {
-    const [calculatedLeft, setCalculatedLeft] = useState(left);
-    const popupRef = useRef<HTMLDivElement>(null);
-
-    const calculateLeft = useCallback(() => {
-        if (popupRef && popupRef.current && left) {
-            const right = left + popupRef.current.offsetWidth;
-            const docWidth = document.body.clientWidth;
-            const currentLeft = right > docWidth ? left - (right - docWidth) : left;
-            setCalculatedLeft(currentLeft);
-        } else {
-            setCalculatedLeft(left);
-        }
-    }, [left]);
-
-    useEffect(() => {
-        const debounceCalculateLeft = _.debounce(calculateLeft, 100);
-        calculateLeft();
-        window.addEventListener('resize', debounceCalculateLeft);
-
-        return () => {
-            window.removeEventListener('resize', debounceCalculateLeft);
-        };
-    }, [calculateLeft]);
-
-    useEffect(() => {
-        calculateLeft();
-    }, [calculateLeft, left]);
-
-    if (!document || !document.body) {
-        return null;
-    }
-
+export const NavigationPopup: React.FC<NavigationPopupProps> = ({
+    anchorRef,
+    items,
+    onClose,
+    className,
+    open,
+}) => {
     return (
-        <Portal>
-            <div ref={popupRef} className={b()} style={{left: calculatedLeft}}>
-                <OutsideClick onOutsideClick={onClose}>
-                    {items.map((item) => (
-                        <NavigationItem key={item.text} className={b('link')} data={item} />
-                    ))}
-                </OutsideClick>
-            </div>
-        </Portal>
+        <Popup
+            // Workaround to recalculate position on every opening. Required for valid position calculation for scrolled header links.
+            anchorRef={open ? anchorRef : undefined}
+            className={b(null, className)}
+            open={open}
+            onClose={onClose}
+            onOutsideClick={onClose}
+            keepMounted
+            disablePortal
+            strategy="fixed"
+            placement="bottom-start"
+            offset={OFFSET_RESET}
+        >
+            {items.map((item) => (
+                <NavigationItem key={item.text} className={b('link')} data={item} />
+            ))}
+        </Popup>
     );
 };
 
