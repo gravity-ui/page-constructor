@@ -30,8 +30,10 @@ import {
     getSlidesToShowWithDefaults,
 } from './utils';
 
-import './Slider.scss';
 import './slick.scss';
+// Cause Slider.css should override slick.css
+// eslint-disable-next-line import/order
+import './Slider.scss';
 
 const b = block('SliderBlock');
 const slick = block('slick-origin');
