@@ -31,6 +31,7 @@ import {
 } from './utils';
 
 import './slick.scss';
+// Cause Slider.css should override slick.css
 // eslint-disable-next-line import/order
 import './Slider.scss';
 
