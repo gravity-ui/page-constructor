@@ -54,13 +54,8 @@
                                 "position": "before"
                             },
                             {
-                                "pattern": "{@yandex-**,@gravity-ui,@doc-tools}/**",
+                                "pattern": "{@gravity-ui,@doc-tools}/**",
                                 "group": "external",
-                                "position": "after"
-                            },
-                            {
-                                "pattern": "{analytics,counters,contexts,components,hoc,hooks,utils,store,units,i18n,models,router,services}{,/**}",
-                                "group": "internal",
                                 "position": "after"
                             },
                             {
