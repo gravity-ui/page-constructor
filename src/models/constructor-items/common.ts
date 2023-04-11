@@ -251,6 +251,12 @@ export interface MediaProps
     color?: string;
 }
 
+export interface BackgroundMediaProps extends MediaProps, Animatable {
+    fullWidthMedia?: boolean;
+    className?: string;
+    mediaClassName?: string;
+}
+
 export type Coordinate = number[];
 
 export interface MapBaseProps {

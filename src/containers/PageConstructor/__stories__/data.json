@@ -5,7 +5,7 @@
       "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>"
     ],
     "content": {
-      "items": [
+      "blocks": [
         {
           "type": "header-block",
           "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
@@ -29,18 +29,18 @@
     }
   },
   "default": {
-    "background": {
-      "light": {
-        "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/header-bg-video_light.png",
-        "color": "#EFF2F8"
-      },
-      "dark": {
-        "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/header-bg-video_dark.png",
-        "color": "#262626"
-      }
-    },
     "content": {
-      "items": [
+      "background": {
+        "light": {
+          "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/header-bg-video_light.png",
+          "color": "#EFF2F8"
+        },
+        "dark": {
+          "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/header-bg-video_dark.png",
+          "color": "#262626"
+        }
+      },
+      "blocks": [
         {
           "type": "header-block",
           "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
@@ -344,6 +344,22 @@
           "theme": "pseudo"
         }
       ]
+    }
+  },
+  "withFullWidthBackgroundMedia": {
+    "background": {
+      "light": {
+        "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/header-bg-video_light.png",
+        "color": "#EFF2F8",
+        "fullWidthMedia": true,
+        "parallax": false
+      },
+      "dark": {
+        "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/header-bg-video_dark.png",
+        "color": "#262626",
+        "fullWidthMedia": true,
+        "parallax": false
+      }
     }
   }
 }

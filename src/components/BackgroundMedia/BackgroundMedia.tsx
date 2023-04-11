@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 
 import {MobileContext} from '../../context/mobileContext';
-import {Animatable, MediaProps} from '../../models';
+import {BackgroundMediaProps} from '../../models';
 import {block} from '../../utils';
 import AnimateBlock from '../AnimateBlock/AnimateBlock';
 import Media from '../Media/Media';
@@ -10,11 +10,6 @@ import './BackgroundMedia.scss';
 
 const b = block('BackgroundMedia');
 
-export interface FullProps extends MediaProps, Animatable {
-    className?: string;
-    mediaClassName?: string;
-}
-
 const BackgroundMedia = ({
     className,
     color,
@@ -22,8 +17,9 @@ const BackgroundMedia = ({
     parallax = true,
     video,
     mediaClassName,
+    fullWidthMedia,
     ...props
-}: FullProps) => {
+}: BackgroundMediaProps) => {
     const isMobile = useContext(MobileContext);
 
     return (
@@ -33,7 +29,7 @@ const BackgroundMedia = ({
             animate={animated}
         >
             <Media
-                className={b('media', mediaClassName)}
+                className={b('media', {'full-width-media': fullWidthMedia}, mediaClassName)}
                 imageClassName={b('image')}
                 videoClassName={b('video')}
                 isBackground={true}

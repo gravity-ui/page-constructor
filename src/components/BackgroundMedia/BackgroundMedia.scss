@@ -16,6 +16,16 @@ $block: '.#{$ns}BackgroundMedia';
         max-width: 1440px;
         text-align: center;
         height: 100%;
+
+        &_full-width-media {
+            max-width: none;
+
+            #{$class}__video video {
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+            }
+        }
     }
 
     &__image {
