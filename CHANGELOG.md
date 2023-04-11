@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.8.0](https://github.com/gravity-ui/page-constructor/compare/v2.7.0...v2.8.0) (2023-04-11)
+
+
+### Features
+
+* **BackgroundMedia:** add fullWidthMedia for BackgroundMedia ([#281](https://github.com/gravity-ui/page-constructor/issues/281)) ([5cd19b8](https://github.com/gravity-ui/page-constructor/commit/5cd19b8d4fcbf56b854a49c88b794a056d4e3295))
+
 ## [2.7.0](https://github.com/gravity-ui/page-constructor/compare/v2.6.0...v2.7.0) (2023-04-06)
 
 
