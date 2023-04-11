@@ -345,5 +345,21 @@
         }
       ]
     }
+  },
+  "withFullWidthBackgroundMedia": {
+    "background": {
+      "light": {
+        "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/header-bg-video_light.png",
+        "color": "#EFF2F8",
+        "fullWidthMedia": true,
+        "parallax": false
+      },
+      "dark": {
+        "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/header-bg-video_dark.png",
+        "color": "#262626",
+        "fullWidthMedia": true,
+        "parallax": false
+      }
+    }
   }
 }
