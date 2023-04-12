@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.8.2](https://github.com/gravity-ui/page-constructor/compare/v2.8.1...v2.8.2) (2023-04-12)
+
+
+### Bug Fixes
+
+* allow everyone to publish release and remove execess maintainers ([#301](https://github.com/gravity-ui/page-constructor/issues/301)) ([2bfe490](https://github.com/gravity-ui/page-constructor/commit/2bfe490f643707427383be104ffe699fd6db4e27))
+
 ## [2.8.1](https://github.com/gravity-ui/page-constructor/compare/v2.8.0...v2.8.1) (2023-04-11)
 
 
