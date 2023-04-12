@@ -1,5 +1,6 @@
 * @gorgeousvlad @yuberdysheva
 
-@aapolkovsky
-@aeksandla
-@Lunatic174
+# Allow everyone to publish releases
+/package.json
+/package-lock.json
+/CHANGELOG.md
