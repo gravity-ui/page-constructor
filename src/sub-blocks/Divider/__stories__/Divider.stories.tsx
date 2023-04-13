@@ -1,8 +1,7 @@
 import React from 'react';
 
-import {Meta, Story} from '@storybook/react/types-6-0';
-
 import yfm from '@doc-tools/transform';
+import {Meta, Story} from '@storybook/react/types-6-0';
 
 import {BlockHeader} from '../../../components';
 import {COMPONENTS} from '../../../demo/constants';

@@ -1,5 +1,6 @@
 import {ImageProps, urlPattern} from '../../components/Image/schema';
 import {Theme} from '../../models';
+
 import {AnalyticsEventSchema} from './event';
 import {pixelEvents} from './pixel';
 

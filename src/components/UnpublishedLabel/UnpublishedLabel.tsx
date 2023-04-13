@@ -2,6 +2,7 @@ import React from 'react';
 
 import {WithChildren} from '../../models';
 import {block} from '../../utils';
+
 import i18n from './i18n';
 
 import './UnpublishedLabel.scss';

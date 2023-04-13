@@ -21,6 +21,7 @@ import {
     WithChildren,
 } from '../../models';
 import {block} from '../../utils';
+
 import Arrow, {ArrowType} from './Arrow/Arrow';
 import {SliderBreakpointParams} from './models';
 import {
@@ -30,9 +31,6 @@ import {
     getSlidesToShowWithDefaults,
 } from './utils';
 
-import './slick.scss';
-// Cause Slider.css should override slick.css
-// eslint-disable-next-line import/order
 import './Slider.scss';
 
 const b = block('SliderBlock');

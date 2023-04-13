@@ -9,6 +9,7 @@ import {ThemeValueContext} from '../../context/theme/ThemeValueContext';
 import {Col, Grid, Row} from '../../grid';
 import {ClassNameProps, HeaderBlockBackground, HeaderBlockProps, WithChildren} from '../../models';
 import {block, getThemedValue} from '../../utils';
+
 import {getImageSize, getTitleSizes, titleWithImageSizes} from './utils';
 
 import './Header.scss';

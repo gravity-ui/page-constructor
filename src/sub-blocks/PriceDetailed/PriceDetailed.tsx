@@ -7,6 +7,7 @@ import {
     PriceDetailsSettingsProps,
     PriceDetailsType,
 } from '../../models';
+
 import CombinedPriceDetailed from './CombinedPriceDetailed/CombinedPriceDetailed';
 import PriceDescription from './PriceDescription/PriceDescription';
 import PriceDetails from './PriceDetails/PriceDetails';

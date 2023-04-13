@@ -1,9 +1,8 @@
 import React from 'react';
 
+import {ButtonSize} from '@gravity-ui/uikit';
 import {render, screen} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-
-import {ButtonSize} from '@gravity-ui/uikit';
 
 import {History, LocationContext} from '../../../context/locationContext';
 import BackLink, {Theme} from '../BackLink';

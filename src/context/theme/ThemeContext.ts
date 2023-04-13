@@ -1,6 +1,7 @@
 import React from 'react';
 
 import {DEFAULT_THEME} from '../../components/constants';
+
 import {ConstructorTheme} from './ThemeValueContext';
 
 export interface ThemeContextProps {

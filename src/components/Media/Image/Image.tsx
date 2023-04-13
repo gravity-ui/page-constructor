@@ -9,6 +9,7 @@ import {block} from '../../../utils';
 import BackgroundImage from '../../BackgroundImage/BackgroundImage';
 import FullScreenImage from '../../FullscreenImage/FullscreenImage';
 import ImageView from '../../Image/Image';
+
 import {getMediaImage} from './utils';
 
 import './Image.scss';

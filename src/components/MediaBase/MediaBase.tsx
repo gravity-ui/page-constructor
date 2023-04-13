@@ -5,6 +5,7 @@ import BlockHeader from '../../components/BlockHeader/BlockHeader';
 import {Col, Grid, GridColumnSize, Row} from '../../grid';
 import {MediaBaseBlockProps, WithChildren} from '../../models';
 import {block} from '../../utils';
+
 import MediaContent from './MediaBaseContent';
 
 import './MediaBase.scss';

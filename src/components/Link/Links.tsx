@@ -1,6 +1,7 @@
 import React, {Fragment} from 'react';
 
 import {ClassNameProps, LinkProps} from '../../models';
+
 import Link from './Link';
 
 interface LinksProps extends ClassNameProps {

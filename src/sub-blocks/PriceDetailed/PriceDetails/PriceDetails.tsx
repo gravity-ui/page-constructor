@@ -10,6 +10,7 @@ import {
     TextSize,
 } from '../../../models';
 import {block} from '../../../utils';
+
 import List from './Details/List';
 import Settings from './Details/Settings';
 

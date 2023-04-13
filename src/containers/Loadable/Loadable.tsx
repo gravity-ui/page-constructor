@@ -1,11 +1,11 @@
 import React, {PropsWithChildren, useCallback, useEffect, useState} from 'react';
 
-import blockCn from 'bem-cn-lite';
-
 import {Spin} from '@gravity-ui/uikit';
+import blockCn from 'bem-cn-lite';
 
 import ErrorWrapper from '../../components/ErrorWrapper/ErrorWrapper';
 import {Block, CustomItem, FetchLoadableData, LoadableData, LoadableProps} from '../../models';
+
 import i18n from './i18n';
 
 import './Loadable.scss';

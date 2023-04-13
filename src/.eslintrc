@@ -1,6 +1,3 @@
 {
-    "extends": ["@gravity-ui/eslint-config/client", "../.eslintrc"],
-    "env": {
-        "node": true
-    }
+    "extends": "@gravity-ui/eslint-config/client"
 }

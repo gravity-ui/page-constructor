@@ -2,6 +2,7 @@ import React, {useCallback} from 'react';
 
 import {ClassNameProps} from '../../models';
 import {block} from '../../utils';
+
 import CircleProgress from './CircleProgress';
 
 import './CustomBarControls.scss';

@@ -1,4 +1,5 @@
 import {BREAKPOINTS} from '../../constants';
+
 import {SliderBreakpointNames, SliderBreakpointParams, SlidesToShow} from './models';
 
 export const DEFAULT_SLIDE_BREAKPOINTS = {

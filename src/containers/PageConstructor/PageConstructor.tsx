@@ -29,6 +29,7 @@ import {
     getCustomSubBlockTypes,
     getThemedValue,
 } from '../../utils';
+
 import {ConstructorBlocks} from './components/ConstructorBlocks';
 import {ConstructorFootnotes} from './components/ConstructorFootnotes';
 import {ConstructorHeader} from './components/ConstructorItem';

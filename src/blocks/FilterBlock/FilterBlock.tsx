@@ -6,6 +6,7 @@ import {ConstructorBlocks} from '../../containers/PageConstructor/components/Con
 import {Col, Row} from '../../grid';
 import {BlockType, ConstructorItem, FilterBlockProps, FilterItem} from '../../models';
 import {block} from '../../utils';
+
 import i18n from './i18n';
 
 import './FilterBlock.scss';

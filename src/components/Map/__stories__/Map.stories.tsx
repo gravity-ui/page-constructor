@@ -8,6 +8,7 @@ import {MapProvider, gmapApiKeyIdInLS} from '../../../context/mapsContext/mapsPr
 import {COMPONENTS} from '../../../demo/constants';
 import {MapProps} from '../../../models';
 import Map from '../Map';
+
 import {ApiKeyInput} from './ApiKeyInput';
 
 import data from './data.json';
