@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.8.3](https://github.com/gravity-ui/page-constructor/compare/v2.8.2...v2.8.3) (2023-04-14)
+
+
+### Bug Fixes
+
+* **BasicCard:** schema validation ([#304](https://github.com/gravity-ui/page-constructor/issues/304)) ([a8627ca](https://github.com/gravity-ui/page-constructor/commit/a8627ca131547281674e5f24df85b830875539f7))
+
 ## [2.8.2](https://github.com/gravity-ui/page-constructor/compare/v2.8.1...v2.8.2) (2023-04-12)
 
 
