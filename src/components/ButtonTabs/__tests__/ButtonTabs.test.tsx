@@ -1,4 +1,5 @@
 import React from 'react';
+
 import {render, screen} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
@@ -38,10 +39,10 @@ describe('ButtonTabs', () => {
 
         buttons.forEach((button, index) => {
             if (index === activeTabId) {
-                expect(button).toHaveClass('pc-button-block_theme_monochrome');
-            } else {
-                expect(button).toHaveClass('pc-button-block_theme_normal');
+                expect(button).toHaveClass('pc-button-tabs__item_active');
             }
+
+            expect(button).toHaveClass('pc-button-block_theme_normal');
         });
     });
 
@@ -61,10 +62,9 @@ describe('ButtonTabs', () => {
 
         const buttons = screen.getAllByRole('button');
 
-        for (let i = 0; i < buttons.length; i++) {
-            const button = buttons[i];
+        buttons.forEach(async (button, i) => {
             await user.click(button);
             expect(handleOnClick).toHaveBeenCalledTimes(i + 1);
-        }
+        });
     });
 });
