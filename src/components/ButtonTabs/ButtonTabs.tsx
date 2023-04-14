@@ -22,6 +22,7 @@ export interface ButtonTabsProps {
     activeTab?: string | null;
     onSelectTab?: (tabId: string | null) => void;
     tabSize?: ButtonSize;
+    qa?: string;
 }
 
 const ButtonTabs: React.FC<ButtonTabsProps> = ({
@@ -30,6 +31,7 @@ const ButtonTabs: React.FC<ButtonTabsProps> = ({
     activeTab,
     onSelectTab,
     tabSize = 'l',
+    qa,
 }) => {
     const activeTabId: string | null = useMemo(() => {
         if (activeTab) {
@@ -49,7 +51,7 @@ const ButtonTabs: React.FC<ButtonTabsProps> = ({
     );
 
     return (
-        <div className={b(null, className)}>
+        <div className={b(null, className)} data-qa={qa}>
             {items.map(({id, title}) => (
                 <Button
                     text={title}
