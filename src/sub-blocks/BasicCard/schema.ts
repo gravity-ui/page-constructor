@@ -9,7 +9,7 @@ const BasicCardContentProps = _.omit(ContentBase, ['size', 'theme']);
 export const BasicCard = {
     'basic-card': {
         additionalProperties: false,
-        required: ['url'],
+        required: [],
         properties: {
             ...BaseProps,
             ...CardBase,

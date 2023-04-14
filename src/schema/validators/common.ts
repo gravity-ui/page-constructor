@@ -567,7 +567,7 @@ export const MapProps = {
 export const CardBase = {
     border: {
         type: 'string',
-        enum: ['border', 'shadow', 'none'],
+        enum: ['line', 'shadow', 'none'],
     },
 };
 
