@@ -62,11 +62,6 @@ $darkSecondary: var(--yc-color-text-dark-secondary);
 
     &__link {
         display: block;
-        margin-right: $indentM;
-
-        &:last-child {
-            margin-right: 0;
-        }
     }
 
     &_centered {
