@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.8.4](https://github.com/gravity-ui/page-constructor/compare/v2.8.3...v2.8.4) (2023-04-17)
+
+
+### Bug Fixes
+
+* **Content:** remove links margin ([#306](https://github.com/gravity-ui/page-constructor/issues/306)) ([62972b4](https://github.com/gravity-ui/page-constructor/commit/62972b445e28016fe250c0361c91b84324456fe6))
+
 ## [2.8.3](https://github.com/gravity-ui/page-constructor/compare/v2.8.2...v2.8.3) (2023-04-14)
 
 
