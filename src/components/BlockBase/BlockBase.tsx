@@ -10,13 +10,14 @@ import './BlockBase.scss';
 const b = block('block-base');
 
 const BlockBase = (props: WithChildren<BlockBaseProps & ClassNameProps>) => {
-    const {anchor, visible, children, className, resetPaddings} = props;
+    const {anchor, visible, children, className, resetPaddings, qa} = props;
 
     return (
         <Col
             className={b({['reset-paddings']: resetPaddings}, className)}
             visible={visible}
             reset={true}
+            dataQa={qa}
         >
             {anchor && <Anchor id={anchor.url} className={b('anchor')} />}
             {children}
