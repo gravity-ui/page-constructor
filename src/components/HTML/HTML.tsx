@@ -6,9 +6,10 @@ export interface HTMLProps {
     children?: string;
     block?: boolean;
     className?: string;
+    itemProp?: string;
 }
 
-const HTML = ({children, block = false, className}: WithChildren<HTMLProps>) => {
+const HTML = ({children, block = false, className, itemProp}: WithChildren<HTMLProps>) => {
     if (!children) {
         return null;
     }
@@ -16,6 +17,7 @@ const HTML = ({children, block = false, className}: WithChildren<HTMLProps>) => 
     return React.createElement(block ? 'div' : 'span', {
         dangerouslySetInnerHTML: {__html: children},
         className,
+        itemProp,
     });
 };
 

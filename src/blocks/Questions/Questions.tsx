@@ -11,6 +11,16 @@ import './Questions.scss';
 
 const b = block('QuestionsBlock');
 
+const FaqMicrodataValues = {
+    PageType: 'https://schema.org/FAQPage',
+    QuestionType: 'https://schema.org/Question',
+    QuestionProp: 'mainEntity',
+    QuestionTextProp: 'name',
+    AnswerType: 'https://schema.org/Answer',
+    AnswerProp: 'acceptedAnswer',
+    AnswerTextProp: 'text',
+} as const;
+
 const QuestionsBlock = (props: QuestionsProps) => {
     const {title, text, additionalInfo, links, buttons, items} = props;
     const [opened, setOpened] = useState<number[]>([0]);
@@ -28,7 +38,7 @@ const QuestionsBlock = (props: QuestionsProps) => {
     };
 
     return (
-        <div className={b()}>
+        <div className={b()} itemScope itemType={FaqMicrodataValues.PageType}>
             <Row>
                 <Col sizes={{all: 12, md: 4}}>
                     <div className={b('title')}>
@@ -48,12 +58,20 @@ const QuestionsBlock = (props: QuestionsProps) => {
                             const isOpened = opened.includes(index);
 
                             return (
-                                <div key={itemTitle} className={b('item')}>
+                                <div
+                                    key={itemTitle}
+                                    className={b('item')}
+                                    itemScope
+                                    itemProp={FaqMicrodataValues.QuestionProp}
+                                    itemType={FaqMicrodataValues.QuestionType}
+                                >
                                     <h4
                                         className={b('item-title')}
                                         onClick={() => toggleItem(index)}
                                     >
-                                        <HTML>{itemTitle}</HTML>
+                                        <HTML itemProp={FaqMicrodataValues.QuestionTextProp}>
+                                            {itemTitle}
+                                        </HTML>
                                         <ToggleArrow
                                             open={isOpened}
                                             size={16}
@@ -63,7 +81,12 @@ const QuestionsBlock = (props: QuestionsProps) => {
                                         />
                                     </h4>
                                     <Foldable isOpened={isOpened}>
-                                        <div className={b('text')}>
+                                        <div
+                                            className={b('text')}
+                                            itemScope
+                                            itemProp={FaqMicrodataValues.AnswerProp}
+                                            itemType={FaqMicrodataValues.AnswerType}
+                                        >
                                             <YFMWrapper
                                                 content={itemText}
                                                 modifiers={{
@@ -71,6 +94,7 @@ const QuestionsBlock = (props: QuestionsProps) => {
                                                     constructorListStyle: true,
                                                     constructorListStyleDash: listStyle === 'dash',
                                                 }}
+                                                itemProp={FaqMicrodataValues.QuestionTextProp}
                                             />
                                             {link && <Link {...link} className={b('link')} />}
                                         </div>
