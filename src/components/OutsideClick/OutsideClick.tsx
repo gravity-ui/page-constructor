@@ -11,7 +11,7 @@ export default class OutsideClick extends React.Component<PropsWithChildren<Outs
     ref = createRef<HTMLDivElement>();
 
     componentDidMount() {
-        document.addEventListener('click', this.handleOutsideClick);
+        document.addEventListener('click', this.handleOutsideClick, {passive: true});
     }
 
     componentWillUnmount() {

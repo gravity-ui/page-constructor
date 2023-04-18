@@ -87,7 +87,7 @@ const VideoBlock = (props: VideoBlockProps) => {
         }, 100);
 
         updateSize();
-        window.addEventListener('resize', updateSize);
+        window.addEventListener('resize', updateSize, {passive: true});
         return () => {
             window.removeEventListener('resize', updateSize);
         };
@@ -106,9 +106,11 @@ const VideoBlock = (props: VideoBlockProps) => {
             iframe.src = fullSrc;
             iframe.width = '100%';
             iframe.height = '100%';
+            iframe.title = 'Video frame';
             iframe.frameBorder = '0';
             iframe.setAttribute('allowfullscreen', 'true');
             iframe.setAttribute('allow', 'autoplay');
+            iframe.setAttribute('defer', '');
             ref.current.appendChild(iframe);
             iframeRef.current = iframe;
         }
