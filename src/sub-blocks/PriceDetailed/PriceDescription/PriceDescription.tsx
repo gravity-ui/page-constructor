@@ -67,7 +67,7 @@ const PriceDescription = (props: PriceDescriptionExtendProps) => {
     useEffect(() => {
         setDescriptionHeight();
 
-        window.addEventListener('resize', setDescriptionHeight);
+        window.addEventListener('resize', setDescriptionHeight, {passive: true});
         return () => window.removeEventListener('resize', setDescriptionHeight);
     }, [setDescriptionHeight]);
 

@@ -14,10 +14,10 @@ export default function useFocus(element?: HTMLElement) {
     useEffect(() => {
         if (element) {
             if (isMobile) {
-                element.addEventListener('pointerdown', setFocus);
+                element.addEventListener('pointerdown', setFocus, {passive: true});
             } else {
-                element.addEventListener('mouseenter', setFocus);
-                element.addEventListener('mouseleave', unsetFocus);
+                element.addEventListener('mouseenter', setFocus, {passive: true});
+                element.addEventListener('mouseleave', unsetFocus, {passive: true});
             }
 
             return () => {

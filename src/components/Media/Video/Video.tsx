@@ -47,15 +47,19 @@ const Video = (props: VideoAllProps) => {
             if (loop && typeof loop !== 'boolean') {
                 const {start = 0, end} = loop;
 
-                ref.current.addEventListener('timeupdate', () => {
-                    const videoRef = ref.current;
-                    const endTime = end || (videoRef && videoRef.duration);
+                ref.current.addEventListener(
+                    'timeupdate',
+                    () => {
+                        const videoRef = ref.current;
+                        const endTime = end || (videoRef && videoRef.duration);
 
-                    if (videoRef && videoRef.currentTime === endTime) {
-                        videoRef.currentTime = start;
-                        videoRef.play().catch(() => setHasVideoFallback(true));
-                    }
-                });
+                        if (videoRef && videoRef.currentTime === endTime) {
+                            videoRef.currentTime = start;
+                            videoRef.play().catch(() => setHasVideoFallback(true));
+                        }
+                    },
+                    {passive: true},
+                );
             }
 
             if (playVideo) {
