@@ -26,7 +26,11 @@ export const SecurityBlock = (props: SecurityBlockProps) => {
                         <Row className={b('points')}>
                             {points.map(({text, link, img}, index) => (
                                 <Col key={index} className={b('point')} sizes={{sm: 4, all: 12}}>
-                                    <img className={b('point-icon')} src={img} />
+                                    <img
+                                        className={b('point-icon')}
+                                        src={img}
+                                        alt={text || 'point icon'}
+                                    />
                                     <HTML className={b('point-text')} block={true}>
                                         {text}
                                     </HTML>

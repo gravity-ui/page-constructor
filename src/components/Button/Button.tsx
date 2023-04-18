@@ -69,7 +69,9 @@ const Button = (props: ButtonProps) => {
     }
 
     let icon;
-    let image = img && <img className={b('image')} src={buttonImg.url} alt={buttonImg.alt} />;
+    let image = img && (
+        <img className={b('image')} src={buttonImg.url} alt={buttonImg.alt || 'Button image'} />
+    );
 
     if (theme === 'github') {
         icon = <Icon className={b('icon')} data={Github} size={24} qa={ICON_QA} />;
