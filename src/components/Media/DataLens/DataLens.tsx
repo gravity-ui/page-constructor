@@ -17,6 +17,8 @@ const DataLens = (props: MediaComponentDataLensProps) => {
             <iframe
                 src={`https://datalens.yandex/${dataLensData.id}?_embedded=1&_theme=${dataLensData.theme}`}
                 className={b('iframe')}
+                loading="lazy"
+                title="Datalens frame"
                 frameBorder={0}
             />
         </div>

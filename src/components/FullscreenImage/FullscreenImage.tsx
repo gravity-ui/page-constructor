@@ -19,7 +19,7 @@ const FULL_SCREEN_ICON_SIZE = 18;
 const CLOSE_ICON_SIZE = 30;
 
 const FullScreenImage = (props: FullScreenImageProps) => {
-    const {imageClassName, modalImageClass, imageStyle} = props;
+    const {imageClassName, modalImageClass, imageStyle, alt = 'Full screen image'} = props;
     const [isOpened, setIsOpened] = useState(false);
     const [isMouseEnter, setIsMouseEnter] = useState(false);
 
@@ -37,6 +37,7 @@ const FullScreenImage = (props: FullScreenImageProps) => {
             >
                 <Image
                     {...props}
+                    alt={alt}
                     className={b('image', imageClassName)}
                     onClick={openModal}
                     style={imageStyle}
