@@ -15,7 +15,7 @@ import './Button.scss';
 export interface ButtonProps extends Omit<ButtonParams, 'url'> {
     className?: string;
     url?: string;
-    onClick?: () => void;
+    onClick?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
     qa?: string;
 }
 
@@ -39,14 +39,17 @@ const Button = (props: ButtonProps) => {
     } = props;
     const defaultImgPosition = 'left';
     const handleAnalytics = useAnalytics(DefaultEventNames.Button, url);
-    const onClick = useCallback(() => {
-        handleMetrika({metrikaGoals, pixelEvents});
-        handleAnalytics(analyticsEvents);
+    const onClick = useCallback(
+        (e: Parameters<React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>>[number]) => {
+            handleMetrika({metrikaGoals, pixelEvents});
+            handleAnalytics(analyticsEvents);
 
-        if (onClickOrigin) {
-            onClickOrigin();
-        }
-    }, [handleMetrika, metrikaGoals, pixelEvents, handleAnalytics, analyticsEvents, onClickOrigin]);
+            if (onClickOrigin) {
+                onClickOrigin(e);
+            }
+        },
+        [handleMetrika, metrikaGoals, pixelEvents, handleAnalytics, analyticsEvents, onClickOrigin],
+    );
 
     const buttonImg =
         img instanceof Object
