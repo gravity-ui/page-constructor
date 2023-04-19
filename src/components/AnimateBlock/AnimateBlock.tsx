@@ -14,18 +14,19 @@ export interface AnimateBlockProps extends AnimateContextProps {
     className?: string;
     style?: CSSProperties;
     onScroll?: () => void;
+    qa?: string;
 }
 
 const AnimateBlock = (props: WithChildren<AnimateBlockProps>) => {
     const {animated} = useContext(AnimateContext);
-    const {children, className, offset = 100, onScroll, style, animate = animated} = props;
+    const {children, className, offset = 100, onScroll, style, animate = animated, qa} = props;
     const [playAnimation, setPlayAnimation] = useState<boolean>(false);
 
     const divClassName = animate
         ? b(null, `${playAnimation && 'animate'} ${className}`)
         : className;
     return (
-        <div className={divClassName} style={style}>
+        <div className={divClassName} style={style} data-qa={qa}>
             <Waypoint
                 // trigger animation if element is above screen
                 topOffset={'-100000%'}
