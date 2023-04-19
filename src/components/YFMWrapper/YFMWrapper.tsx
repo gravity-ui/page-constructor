@@ -14,10 +14,18 @@ export interface YFMWrapperProps {
     className?: string;
     content: string;
     modifiers?: Modifiers;
+    itemProp?: string;
 }
 
-const YFMWrapper = ({content, modifiers, className}: YFMWrapperProps & ClassNameProps) => (
-    <HTML className={yfm(modifiers ? toSnakeCase(modifiers) : {}, className)}>{content}</HTML>
+const YFMWrapper = ({
+    content,
+    modifiers,
+    className,
+    itemProp,
+}: YFMWrapperProps & ClassNameProps) => (
+    <HTML className={yfm(modifiers ? toSnakeCase(modifiers) : {}, className)} itemProp={itemProp}>
+        {content}
+    </HTML>
 );
 
 export default YFMWrapper;
