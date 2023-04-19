@@ -24,15 +24,6 @@ describe('AnimateBlock', () => {
         expect(component).toHaveClass(className);
     });
 
-    test('add className', () => {
-        const className = 'my-class';
-
-        render(<AnimateBlock qa={qaId} className={className} />);
-        const component = screen.getByTestId(qaId);
-
-        expect(component).toHaveClass(className);
-    });
-
     test('use passed style', () => {
         const style = {color: 'red'};
 
@@ -42,14 +33,18 @@ describe('AnimateBlock', () => {
         expect(component).toHaveStyle(style);
     });
 
-    test('call onUpdate with checked status', async () => {
+    test('call onScroll', async () => {
         const onScroll = jest.fn();
         const user = userEvent.setup();
 
-        render(<AnimateBlock onScroll={onScroll} qa={qaId} />);
+        render(
+            <div style={{paddingTop: 100000}}>
+                <AnimateBlock onScroll={onScroll} qa={qaId} />
+            </div>,
+        );
         const component = screen.getByTestId(qaId);
 
-        await user.click(component);
+        await user.hover(component);
         expect(onScroll).toHaveBeenCalledTimes(1);
     });
 });
