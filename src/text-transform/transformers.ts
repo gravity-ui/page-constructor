@@ -1,14 +1,11 @@
 import _ from 'lodash';
 
 import {ConstructorBlock} from '../models/constructor';
+
 import {fullTransform} from './utils';
-
-import {Block} from '../models';
-
 import {Lang} from '../utils/configure';
 
 import {Transformer} from './common';
-
 import {config, BlocksConfig} from './config';
 
 export type ContentTransformerProps = {
@@ -22,26 +19,22 @@ export type ContentTransformerProps = {
     };
 };
 
-function addRandomOrder(block: ConstructorBlock) {
-    if (block) {
-        if ('randomOrder' in block && block.randomOrder && 'children' in block && block.children) {
-            block.children = _.shuffle(block.children as ConstructorBlock[]);
-        }
-    }
-}
-
 function transformBlocks(blocks: ConstructorBlock[], lang: Lang, customConfig = {}) {
     const fullConfig = {...config, ...customConfig};
 
-    const transformedBlocks = _.cloneDeep(blocks);
+    const clonedBlocks = _.cloneDeep(blocks);
 
-    return transformedBlocks.map((block) => transformBlock(lang, fullConfig, block));
+    return clonedBlocks.map((block) => transformBlock(lang, fullConfig, block));
 }
 
 function transformBlock(lang: Lang, blocksConfig: BlocksConfig, block: ConstructorBlock) {
     const blockConfig = blocksConfig[block.type];
 
-    addRandomOrder(block as Block);
+    if (block) {
+        if ('randomOrder' in block && block.randomOrder && 'children' in block && block.children) {
+            block.children = _.shuffle(block.children as ConstructorBlock[]);
+        }
+    }
 
     if (blockConfig) {
         const configs = Array.isArray(blockConfig) ? blockConfig : [blockConfig];

@@ -19,13 +19,11 @@ export const createItemsParser = (fields: string[]) => (transformer: Transformer
             return {
                 ...item,
                 ...fields.reduce<ComplexItem>((acc, fieldName) => {
-                    const result = {...acc};
-
                     if (item[fieldName]) {
-                        result[fieldName] = transformer(item[fieldName]);
+                        acc[fieldName] = transformer(item[fieldName]);
                     }
 
-                    return result;
+                    return acc;
                 }, {}),
             };
         }
