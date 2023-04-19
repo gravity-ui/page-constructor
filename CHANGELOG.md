@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.9.0](https://github.com/gravity-ui/page-constructor/compare/v2.8.4...v2.9.0) (2023-04-19)
+
+
+### Features
+
+* **QuestionBlock:** add schema.org FAQ microdata ([#308](https://github.com/gravity-ui/page-constructor/issues/308)) ([cfca14a](https://github.com/gravity-ui/page-constructor/commit/cfca14a76b458bfa21daa452cb46cb966fae9e88))
+
 ## [2.8.4](https://github.com/gravity-ui/page-constructor/compare/v2.8.3...v2.8.4) (2023-04-17)
 
 
