@@ -40,7 +40,7 @@ const Button = (props: ButtonProps) => {
     const defaultImgPosition = 'left';
     const handleAnalytics = useAnalytics(DefaultEventNames.Button, url);
     const onClick = useCallback(
-        (e: Parameters<React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>>[number]) => {
+        (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => {
             handleMetrika({metrikaGoals, pixelEvents});
             handleAnalytics(analyticsEvents);
 

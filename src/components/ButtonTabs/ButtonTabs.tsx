@@ -22,7 +22,7 @@ export interface ButtonTabsProps {
     activeTab?: string | null;
     onSelectTab?: (
         tabId: string | null,
-        e: Parameters<React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>>[number],
+        e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>,
     ) => void;
     tabSize?: ButtonSize;
     qa?: string;
@@ -45,16 +45,11 @@ const ButtonTabs: React.FC<ButtonTabsProps> = ({
     }, [activeTab, items]);
 
     const handleClick = useCallback(
-        (tabId: string | null) =>
-            (
-                e: Parameters<
-                    React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>
-                >[number],
-            ) => {
-                if (onSelectTab) {
-                    onSelectTab(tabId, e);
-                }
-            },
+        (tabId: string | null) => (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => {
+            if (onSelectTab) {
+                onSelectTab(tabId, e);
+            }
+        },
         [onSelectTab],
     );
 

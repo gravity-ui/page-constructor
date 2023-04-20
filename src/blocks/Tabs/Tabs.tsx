@@ -104,7 +104,7 @@ export const TabsBlock = ({
 
     const onSelectTab = (
         id: string | null,
-        e: Parameters<React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>>[number],
+        e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>,
     ) => {
         setActiveTab(id);
         e.currentTarget.scrollIntoView({inline: 'center', behavior: 'smooth', block: 'nearest'});
