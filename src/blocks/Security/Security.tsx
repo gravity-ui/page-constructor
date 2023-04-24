@@ -4,6 +4,7 @@ import {AnimateBlock, FullWidthBackground, HTML, ImageBase, Link, Media} from '.
 import {Col, Grid, Row} from '../../grid';
 import {SecurityBlockProps} from '../../models';
 import {block} from '../../utils';
+import i18n from './i18n';
 
 import './Security.scss';
 
@@ -26,7 +27,11 @@ export const SecurityBlock = (props: SecurityBlockProps) => {
                         <Row className={b('points')}>
                             {points.map(({text, link, img}, index) => (
                                 <Col key={index} className={b('point')} sizes={{sm: 4, all: 12}}>
-                                    <ImageBase className={b('point-icon')} src={img} />
+                                    <ImageBase
+                                        className={b('point-icon')}
+                                        src={img}
+                                        alt={text || i18n('image-alt')}
+                                    />
                                     <HTML className={b('point-text')} block={true}>
                                         {text}
                                     </HTML>
