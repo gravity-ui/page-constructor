@@ -1,6 +1,5 @@
-import {fullTransform, typografToHTML} from './utils';
-
 import {Lang} from '../utils/configure';
+import {fullTransform, typografToHTML} from './utils';
 
 export type ComplexItem = {[key: string]: string};
 export type Item = string | null | ComplexItem;

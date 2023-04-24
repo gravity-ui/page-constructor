@@ -1,8 +1,5 @@
-<<<<<<< HEAD:src/text-transform/blocks.ts
 import _ from 'lodash';
 
-=======
->>>>>>> a44ab67 (feat: refactor cloneDeep sd):src/text-transform/config.ts
 import {
     BlockType,
     ContentBlockProps,
@@ -15,20 +12,13 @@ import {
     TableProps,
     TitleProps,
 } from '../models';
-<<<<<<< HEAD:src/text-transform/blocks.ts
-import {ConstructorBlock} from '../models/constructor';
-import {Lang} from '../utils/configure';
-import {fullTransform, typografToHTML} from './utils';
-=======
->>>>>>> a44ab67 (feat: refactor cloneDeep sd):src/text-transform/config.ts
-
 import {
+    Parser,
     Transformer,
     TransformerRaw,
-    Parser,
     createItemsParser,
-    yfmTransformer,
     typografTransformer,
+    yfmTransformer,
 } from './common';
 
 function parseTableBlock(transformer: Transformer, content: TableProps) {
@@ -362,62 +352,3 @@ export const config: BlocksConfig = {
     ],
     [BlockType.LinkTableBlock]: blockHeaderTransfomer,
 };
-<<<<<<< HEAD:src/text-transform/blocks.ts
-
-function addRandomOrder(block: ConstructorBlock) {
-    if (block) {
-        if ('randomOrder' in block && block.randomOrder && 'children' in block && block.children) {
-            // eslint-disable-next-line no-not-accumulator-reassign/no-not-accumulator-reassign
-            block.children = _.shuffle(block.children as ConstructorBlock[]);
-        }
-    }
-}
-
-function transformBlock(lang: Lang, blocksConfig: BlocksConfig, block: ConstructorBlock) {
-    const blockConfig = blocksConfig[block.type];
-
-    addRandomOrder(block as Block);
-
-    if (blockConfig) {
-        const configs = Array.isArray(blockConfig) ? blockConfig : [blockConfig];
-
-        configs.forEach((transformConfig) => {
-            const {fields, transformer: transformerRaw, parser} = transformConfig;
-            const transformer: Transformer = transformerRaw.bind(null, lang);
-
-            if (fields) {
-                (fields as (keyof typeof block)[]).forEach((field) => {
-                    /* eslint-disable no-not-accumulator-reassign/no-not-accumulator-reassign */
-                    if (block[field]) {
-                        if (parser) {
-                            block[field] = parser(transformer, block[field]);
-                        } else if (typeof block[field] === 'string') {
-                            block[field] = transformer(block[field]);
-                        }
-                    }
-                    /* eslint-enable no-not-accumulator-reassign/no-not-accumulator-reassign */
-                });
-            } else if (parser) {
-                parser(transformer, block);
-            }
-        });
-    }
-
-    if ('children' in block && block.children) {
-        transformBlocks(block.children as ConstructorBlock[], lang, blocksConfig);
-    }
-}
-
-export function transformBlocks(blocks: ConstructorBlock[], lang: Lang, customConfig = {}) {
-    const fullConfig = {...config, ...customConfig};
-
-    blocks.forEach(transformBlock.bind(null, lang, fullConfig));
-}
-
-export function transformFootnotes(footnotes: string[], lang: Lang) {
-    return footnotes
-        .map((footnote) => fullTransform(footnote, {path: __dirname, lang, allowHTML: true}).html)
-        .filter(Boolean);
-}
-=======
->>>>>>> a44ab67 (feat: refactor cloneDeep sd):src/text-transform/config.ts
