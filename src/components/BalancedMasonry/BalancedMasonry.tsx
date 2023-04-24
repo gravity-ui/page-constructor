@@ -93,7 +93,7 @@ const BalancedMasonry = (props: WithChildren<BalancedMasonryProps>) => {
     useEffect(() => {
         const updateColumnCounter = () => setColumnCount(getCurrentColumnsCount());
 
-        window.addEventListener('resize', updateColumnCounter, {passive: true});
+        window.addEventListener('resize', updateColumnCounter);
         return () => window.removeEventListener('resize', updateColumnCounter);
     }, [setColumnCount, columns, getCurrentColumnsCount]);
 

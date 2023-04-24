@@ -12,7 +12,7 @@ export function useLoopBackHubspotEvents(formId: string): void {
     useEffect(() => {
         const topHandler = loopBackHabspotEvents(formId);
 
-        window.addEventListener('message', topHandler, {passive: true});
+        window.addEventListener('message', topHandler);
 
         return () => {
             window.removeEventListener('message', topHandler);
@@ -31,7 +31,7 @@ export function useHandleHubspotEvents(handlers: HubspotEventHandlers, formId: s
     useEffect(() => {
         const topHandler = handleHubspotEvents(handlers, formId);
 
-        window.addEventListener('message', topHandler, {passive: true});
+        window.addEventListener('message', topHandler);
 
         return () => {
             window.removeEventListener('message', topHandler);

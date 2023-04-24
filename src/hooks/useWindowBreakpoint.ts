@@ -32,7 +32,7 @@ export default function useWindowBreakpoint() {
 
         detect();
 
-        window.addEventListener('resize', detect, {passive: true});
+        window.addEventListener('resize', detect);
 
         return () => window.removeEventListener('resize', detect);
     }, []);
