@@ -156,7 +156,7 @@ export const SliderBlock = (props: WithChildren<SliderProps>) => {
     useEffect(() => {
         onResize();
 
-        window.addEventListener('resize', onResize);
+        window.addEventListener('resize', onResize, {passive: true});
 
         return () => window.removeEventListener('resize', onResize);
     }, [onResize]);

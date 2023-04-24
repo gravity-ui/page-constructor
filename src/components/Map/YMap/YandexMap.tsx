@@ -76,7 +76,7 @@ const YandexMap: React.FC<YMapProps> = (props) => {
         }, 100);
 
         updateSize();
-        window.addEventListener('resize', updateSize);
+        window.addEventListener('resize', updateSize, {passive: true});
 
         return () => {
             window.removeEventListener('resize', updateSize);
