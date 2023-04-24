@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.10.0](https://github.com/gravity-ui/page-constructor/compare/v2.9.0...v2.10.0) (2023-04-24)
+
+
+### Features
+
+* add scroll to the active tab ([#311](https://github.com/gravity-ui/page-constructor/issues/311)) ([a5f8576](https://github.com/gravity-ui/page-constructor/commit/a5f857640c9aa5d81859321a933fcef4913b5b76))
+
 ## [2.9.0](https://github.com/gravity-ui/page-constructor/compare/v2.8.4...v2.9.0) (2023-04-19)
 
 
