@@ -102,6 +102,14 @@ export const TabsBlock = ({
         </Col>
     );
 
+    const onSelectTab = (
+        id: string | null,
+        e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>,
+    ) => {
+        setActiveTab(id);
+        e.currentTarget.scrollIntoView({inline: 'center', behavior: 'smooth', block: 'nearest'});
+    };
+
     return (
         <AnimateBlock className={b()} onScroll={() => setPlay(true)} animate={animated}>
             <BlockHeader
@@ -113,7 +121,7 @@ export const TabsBlock = ({
                 <Col sizes={tabsColSizes}>
                     <ButtonTabs
                         items={tabs}
-                        onSelectTab={setActiveTab}
+                        onSelectTab={onSelectTab}
                         activeTab={activeTab}
                         className={b('tabs', {centered: centered})}
                     />

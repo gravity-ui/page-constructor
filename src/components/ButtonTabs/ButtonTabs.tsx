@@ -20,7 +20,10 @@ export interface ButtonTabsProps {
     className?: string;
     items: ButtonTabsItemProps[];
     activeTab?: string | null;
-    onSelectTab?: (tabId: string | null) => void;
+    onSelectTab?: (
+        tabId: string | null,
+        e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>,
+    ) => void;
     tabSize?: ButtonSize;
     qa?: string;
 }
@@ -42,9 +45,9 @@ const ButtonTabs: React.FC<ButtonTabsProps> = ({
     }, [activeTab, items]);
 
     const handleClick = useCallback(
-        (tabId: string | null) => {
+        (tabId: string | null) => (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => {
             if (onSelectTab) {
-                onSelectTab(tabId);
+                onSelectTab(tabId, e);
             }
         },
         [onSelectTab],
@@ -58,7 +61,7 @@ const ButtonTabs: React.FC<ButtonTabsProps> = ({
                     className={b('item', {active: id === activeTabId})}
                     key={title}
                     size={tabSize}
-                    onClick={() => handleClick(id)}
+                    onClick={handleClick(id)}
                 />
             ))}
         </div>
