@@ -49,7 +49,7 @@ const GoogleMap: React.FC<GMapProps> = (props) => {
         }, 100);
 
         updateSize();
-        window.addEventListener('resize', updateSize, {passive: true});
+        window.addEventListener('resize', updateSize);
 
         return () => {
             window.removeEventListener('resize', updateSize);
