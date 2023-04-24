@@ -5,6 +5,7 @@ import {ProjectSettingsContext} from '../../context/projectSettingsContext';
 import {ImageDeviceProps, ImageObjectProps} from '../../models';
 import {isCompressible} from '../../utils/imageCompress';
 import ImageBase from '../ImageBase/ImageBase';
+import i18n from './i18n';
 
 export interface ImageProps extends Partial<ImageObjectProps>, Partial<ImageDeviceProps> {
     style?: CSSProperties;
@@ -21,7 +22,7 @@ const Image = (props: ImageProps) => {
     const projectSettings = useContext(ProjectSettingsContext);
     const {
         src: imageSrc,
-        alt,
+        alt = i18n('img-alt'),
         disableCompress,
         tablet,
         desktop,
