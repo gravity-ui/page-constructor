@@ -21,7 +21,7 @@ const Image = (props: ImageProps) => {
     const projectSettings = useContext(ProjectSettingsContext);
     const {
         src: imageSrc,
-        alt = 'Image alt',
+        alt,
         disableCompress,
         tablet,
         desktop,
