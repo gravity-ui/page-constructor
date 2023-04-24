@@ -47,7 +47,7 @@ const HeightCalculator = ({onCalculate, children}: WithChildren<HeightCalculator
         }, 1000);
 
         calculateContainerHeight();
-        window.addEventListener('resize', handleResize, {passive: true});
+        window.addEventListener('resize', handleResize);
 
         return () => window.removeEventListener('resize', handleResize);
     }, [calculateContainerHeight]);
