@@ -4,6 +4,7 @@ import {AnimateBlock, FullWidthBackground, HTML, Link, Media} from '../../compon
 import {Col, Grid, Row} from '../../grid';
 import {SecurityBlockProps} from '../../models';
 import {block} from '../../utils';
+import i18n from './i18n';
 
 import './Security.scss';
 
@@ -29,7 +30,7 @@ export const SecurityBlock = (props: SecurityBlockProps) => {
                                     <img
                                         className={b('point-icon')}
                                         src={img}
-                                        alt={text || 'point icon'}
+                                        alt={text || i18n('image-alt')}
                                     />
                                     <HTML className={b('point-text')} block={true}>
                                         {text}

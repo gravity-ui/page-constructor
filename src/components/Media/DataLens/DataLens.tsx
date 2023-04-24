@@ -2,6 +2,7 @@ import React from 'react';
 
 import {MediaComponentDataLensProps} from '../../../models';
 import {block} from '../../../utils';
+import i18n from './i18n';
 import {unifyDataLensToObject} from './utils';
 
 import './DataLens.scss';
@@ -18,7 +19,7 @@ const DataLens = (props: MediaComponentDataLensProps) => {
                 src={`https://datalens.yandex/${dataLensData.id}?_embedded=1&_theme=${dataLensData.theme}`}
                 className={b('iframe')}
                 loading="lazy"
-                title="Datalens frame"
+                title={i18n('iframe-title')}
                 frameBorder={0}
             />
         </div>
