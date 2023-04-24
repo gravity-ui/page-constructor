@@ -106,11 +106,9 @@ const VideoBlock = (props: VideoBlockProps) => {
             iframe.src = fullSrc;
             iframe.width = '100%';
             iframe.height = '100%';
-            iframe.title = 'Video frame';
             iframe.frameBorder = '0';
             iframe.setAttribute('allowfullscreen', 'true');
             iframe.setAttribute('allow', 'autoplay');
-            iframe.setAttribute('loading', 'lazy');
             ref.current.appendChild(iframe);
             iframeRef.current = iframe;
         }

@@ -33,7 +33,6 @@ const Control = (props: ControlProps) => {
     return (
         <button
             type="button"
-            aria-label="Icon button"
             className={b({size, theme, disabled}, className)}
             onClick={disabled ? undefined : onClick}
             disabled={disabled}

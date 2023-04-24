@@ -28,7 +28,7 @@ const useHeightCalculator: (
 
         calculateContainerHeight();
 
-        window.addEventListener('resize', handleResize, {passive: true});
+        window.addEventListener('resize', handleResize);
         return () => {
             window.removeEventListener('resize', handleResize);
         };

@@ -87,7 +87,6 @@ const YandexForm = (props: YandexFormProps) => {
                 iframeRef.current.src = src;
                 iframeRef.current.id = containerId;
                 iframeRef.current.name = `form${id}`;
-                iframeRef.current.setAttribute('loading', 'lazy');
                 iframeRef.current.frameBorder = '0';
                 iframeRef.current.scrolling = 'no';
                 iframeRef.current.width = '100%';
