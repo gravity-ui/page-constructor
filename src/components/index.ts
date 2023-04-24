@@ -16,6 +16,7 @@ export {default as FullWidthBackground} from './FullWidthBackground/FullWidthBac
 export {default as HeaderBreadcrumbs} from './HeaderBreadcrumbs/HeaderBreadcrumbs';
 export {default as HeightCalculator} from './HeightCalculator/HeightCalculator';
 export {default as Image} from './Image/Image';
+export {default as ImageBase} from './ImageBase/ImageBase';
 export {default as Link} from './Link/Link';
 export {default as Links} from './Link/Links';
 export {default as Media} from './Media/Media';
@@ -37,3 +38,4 @@ export {default as MetaInfo} from './MetaInfo/MetaInfo';
 export {default as FullScreenMedia} from './FullscreenMedia/FullScreenMedia';
 
 export type {RouterLinkProps} from './RouterLink/RouterLink';
+export type {ImageBaseProps} from './ImageBase/ImageBase';

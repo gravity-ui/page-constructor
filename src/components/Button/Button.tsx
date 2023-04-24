@@ -8,6 +8,7 @@ import {useMetrika} from '../../hooks/useMetrika';
 import {Github} from '../../icons';
 import {ButtonProps as ButtonParams, DefaultEventNames} from '../../models';
 import {block, setUrlTld} from '../../utils';
+import ImageBase from '../ImageBase/ImageBase';
 import {ICON_QA, OldButtonSize, OldButtonTheme, toCommonSize, toCommonView} from './utils';
 
 import './Button.scss';
@@ -70,7 +71,11 @@ const Button = (props: ButtonProps) => {
 
     let icon;
     let image = img && (
-        <img className={b('image')} src={buttonImg.url} alt={buttonImg.alt || 'Button image'} />
+        <ImageBase
+            className={b('image')}
+            src={buttonImg.url}
+            alt={buttonImg.alt || 'Button image'}
+        />
     );
 
     if (theme === 'github') {
