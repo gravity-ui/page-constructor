@@ -40,7 +40,7 @@ export default class FullWidthBackground extends Component<
         if (this?.ref?.current?.parentElement) {
             this.ref.current.parentElement.style.position = 'relative';
             this.setBg();
-            window.addEventListener('resize', this.setBg, {passive: true});
+            window.addEventListener('resize', this.setBg);
         }
     }
 
