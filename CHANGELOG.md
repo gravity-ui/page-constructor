@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.11.0](https://github.com/gravity-ui/page-constructor/compare/v2.10.0...v2.11.0) (2023-04-25)
+
+
+### Features
+
+* add image context to use NextImage instead of normal img tag ([#313](https://github.com/gravity-ui/page-constructor/issues/313)) ([10841dc](https://github.com/gravity-ui/page-constructor/commit/10841dcbcc9bb16255dff57f4d79de94533a06c3))
+
+
+### Bug Fixes
+
+* **QuestionBlock:** fix itemprop parameter value for FaqPage microdata ([#316](https://github.com/gravity-ui/page-constructor/issues/316)) ([4395f8a](https://github.com/gravity-ui/page-constructor/commit/4395f8a78489ee254dfa25051d8f812a7ed0bf4b))
+
 ## [2.10.0](https://github.com/gravity-ui/page-constructor/compare/v2.9.0...v2.10.0) (2023-04-24)
 
 
