@@ -4,7 +4,6 @@ import {BREAKPOINTS} from '../../constants';
 import {ProjectSettingsContext} from '../../context/projectSettingsContext';
 import {ImageDeviceProps, ImageObjectProps} from '../../models';
 import {isCompressible} from '../../utils/imageCompress';
-import ImageBase from '../ImageBase/ImageBase';
 
 export interface ImageProps extends Partial<ImageObjectProps>, Partial<ImageDeviceProps> {
     style?: CSSProperties;
@@ -20,7 +19,7 @@ const checkWebP = (src: string) => {
 const Image = (props: ImageProps) => {
     const projectSettings = useContext(ProjectSettingsContext);
     const {
-        src: imageSrc,
+        src,
         alt,
         disableCompress,
         tablet,
@@ -33,16 +32,16 @@ const Image = (props: ImageProps) => {
     } = props;
     const [imgLoadingError, setImgLoadingError] = useState(false);
 
-    const src = imageSrc || desktop;
+    const imageSrc = src || desktop;
 
-    if (!src) {
+    if (!imageSrc) {
         return null;
     }
 
     const disableWebp =
         projectSettings.disableCompress ||
         disableCompress ||
-        !isCompressible(src) ||
+        !isCompressible(imageSrc) ||
         imgLoadingError;
 
     return (
@@ -71,11 +70,11 @@ const Image = (props: ImageProps) => {
                     <source srcSet={tablet} media={`(max-width: ${BREAKPOINTS.md}px)`} />
                 </Fragment>
             )}
-            {src && !disableWebp && <source srcSet={checkWebP(src)} type="image/webp" />}
-            <ImageBase
+            {imageSrc && !disableWebp && <source srcSet={checkWebP(imageSrc)} type="image/webp" />}
+            <img
                 className={className}
                 alt={alt}
-                src={src}
+                src={imageSrc}
                 style={style}
                 onClick={onClick}
                 onError={() => setImgLoadingError(true)}
