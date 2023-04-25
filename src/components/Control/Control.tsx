@@ -4,6 +4,7 @@ import {Icon} from '@gravity-ui/uikit';
 import {SVGIconData} from '@gravity-ui/uikit/build/esm/components/Icon/types';
 
 import {block} from '../../utils';
+import i18n from './i18n';
 
 import './Control.scss';
 
@@ -33,6 +34,7 @@ const Control = (props: ControlProps) => {
     return (
         <button
             type="button"
+            aria-label={i18n('aria-label')}
             className={b({size, theme, disabled}, className)}
             onClick={disabled ? undefined : onClick}
             disabled={disabled}

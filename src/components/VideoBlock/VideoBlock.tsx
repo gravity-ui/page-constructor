@@ -8,6 +8,7 @@ import {Icon} from '@gravity-ui/uikit';
 import {PlayVideo} from '../../icons';
 import {block, getPageSearchParams} from '../../utils';
 import Image from '../Image/Image';
+import i18n from './i18n';
 
 import './VideoBlock.scss';
 
@@ -106,9 +107,11 @@ const VideoBlock = (props: VideoBlockProps) => {
             iframe.src = fullSrc;
             iframe.width = '100%';
             iframe.height = '100%';
+            iframe.title = i18n('iframe-title');
             iframe.frameBorder = '0';
             iframe.setAttribute('allowfullscreen', 'true');
             iframe.setAttribute('allow', 'autoplay');
+            iframe.setAttribute('loading', 'lazy');
             ref.current.appendChild(iframe);
             iframeRef.current = iframe;
         }
