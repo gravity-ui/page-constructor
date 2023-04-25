@@ -10,6 +10,7 @@ import './OverflowScroller.scss';
 const b = block('overflow-scroller');
 const TRANSITION_TIME = 300;
 const PADDING_SIZE = 24;
+const DEFAULT_ARROW_SIZE = 18;
 
 type Arrow = 'left' | 'right';
 
@@ -17,6 +18,8 @@ export interface OverflowScrollerProps {
     className?: string;
     onScrollStart?: () => void;
     onScrollEnd?: () => void;
+    arrowSize?: number;
+    arrowClassName?: string;
 }
 
 export interface OverflowScrollerState {
@@ -56,7 +59,7 @@ export default class OverflowScroller extends React.Component<
     }
 
     render() {
-        const {className, children} = this.props;
+        const {className, arrowClassName, children, arrowSize = DEFAULT_ARROW_SIZE} = this.props;
         const {arrows, scrollValue} = this.state;
         const wrapperStyle = arrows.length ? {left: -scrollValue} : {left: 0};
         const paddingLeft = arrows.includes('left');
@@ -77,10 +80,10 @@ export default class OverflowScroller extends React.Component<
                 {arrows.map((direction: Arrow) => (
                     <div
                         key={direction}
-                        className={b('arrow', {type: direction})}
+                        className={b('arrow', {type: direction}, arrowClassName)}
                         onClick={(e: React.MouseEvent) => this.handleScrollClick(e, direction)}
                     >
-                        <ToggleArrow size={18} type={'horizontal'} iconType="navigation" />
+                        <ToggleArrow size={arrowSize} type={'horizontal'} iconType="navigation" />
                     </div>
                 ))}
             </div>
