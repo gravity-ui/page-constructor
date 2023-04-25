@@ -4,6 +4,7 @@ import {AnimateBlock, FullWidthBackground, HTML, Link, Media} from '../../compon
 import {Col, Grid, Row} from '../../grid';
 import {SecurityBlockProps} from '../../models';
 import {block} from '../../utils';
+import i18n from './i18n';
 
 import './Security.scss';
 

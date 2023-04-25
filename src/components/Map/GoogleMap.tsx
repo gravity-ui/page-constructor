@@ -67,6 +67,7 @@ const GoogleMap: React.FC<GMapProps> = (props) => {
             style={{
                 height,
             }}
+            title="Google Map"
             loading="lazy"
             allowFullScreen
             referrerPolicy="no-referrer-when-downgrade"

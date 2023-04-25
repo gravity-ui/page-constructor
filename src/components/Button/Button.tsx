@@ -71,7 +71,6 @@ const Button = (props: ButtonProps) => {
         return <StoreBadge className={buttonClass} platform={platform} lang={lang} url={url} />;
     }
 
-    let icon;
     let image = img && <img className={b('image')} src={buttonImg.url} alt={buttonImg.alt} />;
 
     if (theme === 'github') {
