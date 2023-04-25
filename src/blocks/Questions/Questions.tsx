@@ -15,7 +15,7 @@ const FaqMicrodataValues = {
     PageType: 'https://schema.org/FAQPage',
     QuestionType: 'https://schema.org/Question',
     QuestionProp: 'mainEntity',
-    QuestionTextProp: 'name',
+    QuestionTextProp: 'text',
     AnswerType: 'https://schema.org/Answer',
     AnswerProp: 'acceptedAnswer',
     AnswerTextProp: 'text',
