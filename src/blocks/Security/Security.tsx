@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {AnimateBlock, FullWidthBackground, HTML, Link, Media} from '../../components';
+import {AnimateBlock, FullWidthBackground, HTML, ImageBase, Link, Media} from '../../components';
 import {Col, Grid, Row} from '../../grid';
 import {SecurityBlockProps} from '../../models';
 import {block} from '../../utils';
@@ -26,7 +26,7 @@ export const SecurityBlock = (props: SecurityBlockProps) => {
                         <Row className={b('points')}>
                             {points.map(({text, link, img}, index) => (
                                 <Col key={index} className={b('point')} sizes={{sm: 4, all: 12}}>
-                                    <img className={b('point-icon')} src={img} />
+                                    <ImageBase className={b('point-icon')} src={img} />
                                     <HTML className={b('point-text')} block={true}>
                                         {text}
                                     </HTML>

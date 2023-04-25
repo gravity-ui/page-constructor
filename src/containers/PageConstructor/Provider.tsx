@@ -2,6 +2,7 @@ import React, {Fragment} from 'react';
 
 import {DEFAULT_THEME} from '../../components/constants';
 import {AnalyticsContext, AnalyticsContextProps} from '../../context/analyticsContext';
+import {ImageContext, ImageContextProps} from '../../context/imageContext';
 import {LocaleContext, LocaleContextProps} from '../../context/localeContext';
 import {LocationContext, LocationContextProps} from '../../context/locationContext';
 import {MapsContext, MapsContextType, initialMapValue} from '../../context/mapsContext/mapsContext';
@@ -25,6 +26,7 @@ export interface PageConstructorProviderProps {
     mapsContext?: MapsContextType;
     projectSettings?: ProjectSettingsContextProps;
     analytics?: AnalyticsContextProps;
+    image?: ImageContextProps;
 }
 
 export const PageConstructorProvider = (props: WithChildren<PageConstructorProviderProps>) => {
@@ -39,6 +41,7 @@ export const PageConstructorProvider = (props: WithChildren<PageConstructorProvi
         projectSettings = {},
         theme = DEFAULT_THEME,
         children,
+        image = {},
     } = props;
 
     /* eslint-disable react/jsx-key */
@@ -46,6 +49,7 @@ export const PageConstructorProvider = (props: WithChildren<PageConstructorProvi
         <ThemeValueContext.Provider value={{themeValue: theme}} />,
         <ProjectSettingsContext.Provider value={projectSettings} />,
         <LocaleContext.Provider value={locale} />,
+        <ImageContext.Provider value={image} />,
         <LocationContext.Provider value={location} />,
         <MobileContext.Provider value={Boolean(isMobile)} />,
         <MapsContext.Provider value={mapsContext} />,
