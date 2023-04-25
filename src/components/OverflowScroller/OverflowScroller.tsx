@@ -37,7 +37,7 @@ export default class OverflowScroller extends React.Component<
 
     componentDidMount() {
         this.checkOverflow();
-        window.addEventListener('resize', this.checkOverflow);
+        window.addEventListener('resize', this.checkOverflow, {passive: true});
     }
 
     componentDidUpdate(
