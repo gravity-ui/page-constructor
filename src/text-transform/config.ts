@@ -1,7 +1,6 @@
 import _ from 'lodash';
 
 import {
-    Block,
     BlockType,
     ContentBlockProps,
     ExtendedFeaturesItem,
@@ -13,38 +12,14 @@ import {
     TableProps,
     TitleProps,
 } from '../models';
-import {ConstructorBlock} from '../models/constructor';
-import {Lang} from '../utils/configure';
-import {fullTransform, typografToHTML} from './utils';
-
-export type ComplexItem = {[key: string]: string};
-export type Item = string | null | ComplexItem;
-export type TransformerRaw = (lang: Lang, content: string) => string;
-export type Transformer = (text: string) => string;
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type Parser<T = any> = (transformer: Transformer, block: T) => T;
-
-export const createItemsParser = (fields: string[]) => (transformer: Transformer, items: Item[]) =>
-    items.map((item) => {
-        if (!item) {
-            return item;
-        } else if (typeof item === 'string') {
-            return transformer(item);
-        } else {
-            return {
-                ...item,
-                ...fields.reduce<ComplexItem>((acc, fieldName) => {
-                    const result = {...acc};
-
-                    if (item[fieldName]) {
-                        result[fieldName] = transformer(item[fieldName]);
-                    }
-
-                    return result;
-                }, {}),
-            };
-        }
-    });
+import {
+    Parser,
+    Transformer,
+    TransformerRaw,
+    createItemsParser,
+    typografTransformer,
+    yfmTransformer,
+} from './common';
 
 function parseTableBlock(transformer: Transformer, content: TableProps) {
     const legend = content?.legend;
@@ -140,16 +115,6 @@ function parseContentLayoutTitle(transformer: Transformer, content: ContentBlock
     return content;
 }
 
-export function yfmTransformer(lang: Lang, content: string) {
-    const {html} = fullTransform(content, {lang});
-
-    return html;
-}
-
-export function typografTransformer(lang: Lang, content: string) {
-    return typografToHTML(content, lang);
-}
-
 const blockHeaderTransfomer = [
     {
         fields: ['title'],
@@ -168,9 +133,9 @@ interface BlockConfig {
     parser?: Parser;
 }
 
-type BlocksConfig = Record<string, BlockConfig | BlockConfig[]>;
+export type BlocksConfig = Record<string, BlockConfig | BlockConfig[]>;
 
-const config: BlocksConfig = {
+export const config: BlocksConfig = {
     [SubBlockType.Partner]: {
         fields: ['text'],
         transformer: typografTransformer,
@@ -387,59 +352,3 @@ const config: BlocksConfig = {
     ],
     [BlockType.LinkTableBlock]: blockHeaderTransfomer,
 };
-
-function addRandomOrder(block: ConstructorBlock) {
-    if (block) {
-        if ('randomOrder' in block && block.randomOrder && 'children' in block && block.children) {
-            // eslint-disable-next-line no-not-accumulator-reassign/no-not-accumulator-reassign
-            block.children = _.shuffle(block.children as ConstructorBlock[]);
-        }
-    }
-}
-
-function transformBlock(lang: Lang, blocksConfig: BlocksConfig, block: ConstructorBlock) {
-    const blockConfig = blocksConfig[block.type];
-
-    addRandomOrder(block as Block);
-
-    if (blockConfig) {
-        const configs = Array.isArray(blockConfig) ? blockConfig : [blockConfig];
-
-        configs.forEach((transformConfig) => {
-            const {fields, transformer: transformerRaw, parser} = transformConfig;
-            const transformer: Transformer = transformerRaw.bind(null, lang);
-
-            if (fields) {
-                (fields as (keyof typeof block)[]).forEach((field) => {
-                    /* eslint-disable no-not-accumulator-reassign/no-not-accumulator-reassign */
-                    if (block[field]) {
-                        if (parser) {
-                            block[field] = parser(transformer, block[field]);
-                        } else if (typeof block[field] === 'string') {
-                            block[field] = transformer(block[field]);
-                        }
-                    }
-                    /* eslint-enable no-not-accumulator-reassign/no-not-accumulator-reassign */
-                });
-            } else if (parser) {
-                parser(transformer, block);
-            }
-        });
-    }
-
-    if ('children' in block && block.children) {
-        transformBlocks(block.children as ConstructorBlock[], lang, blocksConfig);
-    }
-}
-
-export function transformBlocks(blocks: ConstructorBlock[], lang: Lang, customConfig = {}) {
-    const fullConfig = {...config, ...customConfig};
-
-    blocks.forEach(transformBlock.bind(null, lang, fullConfig));
-}
-
-export function transformFootnotes(footnotes: string[], lang: Lang) {
-    return footnotes
-        .map((footnote) => fullTransform(footnote, {path: __dirname, lang, allowHTML: true}).html)
-        .filter(Boolean);
-}
