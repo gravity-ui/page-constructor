@@ -5,7 +5,7 @@
 
 ### Features
 
-* add passive flag and alt to img ([#309](https://github.com/gravity-ui/page-constructor/issues/309)) ([a1e5587](https://github.com/gravity-ui/page-constructor/commit/a1e5587ada92b53097ac77f16c1cdad7a4899219))
+* add alt to img ([#309](https://github.com/gravity-ui/page-constructor/issues/309)) ([a1e5587](https://github.com/gravity-ui/page-constructor/commit/a1e5587ada92b53097ac77f16c1cdad7a4899219))
 
 ## [2.11.0](https://github.com/gravity-ui/page-constructor/compare/v2.10.0...v2.11.0) (2023-04-25)
 
