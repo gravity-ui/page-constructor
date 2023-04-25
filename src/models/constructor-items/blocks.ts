@@ -75,6 +75,7 @@ export interface BlockBaseProps {
     anchor?: AnchorProps;
     visible?: GridColumnSize;
     resetPaddings?: boolean;
+    qa?: string;
 }
 
 export interface LoadableProps {
