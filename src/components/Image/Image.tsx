@@ -73,8 +73,8 @@ const Image = (props: ImageProps) => {
             {imageSrc && !disableWebp && <source srcSet={checkWebP(imageSrc)} type="image/webp" />}
             <img
                 className={className}
-                alt={alt}
                 src={imageSrc}
+                alt={alt}
                 style={style}
                 onClick={onClick}
                 onError={() => setImgLoadingError(true)}
