@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.13.0](https://github.com/gravity-ui/page-constructor/compare/v2.12.0...v2.13.0) (2023-04-28)
+
+
+### Features
+
+* add components schemas in export ([#319](https://github.com/gravity-ui/page-constructor/issues/319)) ([756c209](https://github.com/gravity-ui/page-constructor/commit/756c20932c8643ffffbbd132a4a3d9e51439fbf7))
+
 ## [2.12.0](https://github.com/gravity-ui/page-constructor/compare/v2.11.0...v2.12.0) (2023-04-25)
 
 
