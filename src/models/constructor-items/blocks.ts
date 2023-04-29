@@ -46,7 +46,6 @@ export enum BlockType {
     CompaniesBlock = 'companies-block',
     MediaBlock = 'media-block',
     InfoBlock = 'info-block',
-    SecurityBlock = 'security-block',
     TableBlock = 'table-block',
     TabsBlock = 'tabs-block',
     HeaderSliderBlock = 'header-slider-block',
@@ -253,23 +252,6 @@ export interface InfoBlockProps {
     rightContent?: Omit<ContentBlockProps, 'colSizes' | 'theme' | 'size'>;
 }
 
-export interface SecurityBlockPoint {
-    img: string;
-    text: string;
-    link: {
-        text: string;
-        url: string;
-    };
-}
-
-export interface SecurityBlockProps extends Animatable {
-    theme?: TextTheme;
-    backgroundColor?: string;
-    title: string;
-    points?: SecurityBlockPoint[];
-    media: MediaProps;
-}
-
 export interface TableProps {
     content: string[][];
     legend?: string[];
@@ -429,10 +411,6 @@ export type InfoBlockModel = {
     type: BlockType.InfoBlock;
 } & InfoBlockProps;
 
-export type SecurityBlockModel = {
-    type: BlockType.SecurityBlock;
-} & SecurityBlockProps;
-
 export type TableBlockModel = {
     type: BlockType.TableBlock;
 } & TableBlockProps;
@@ -481,7 +459,6 @@ type BlockModels =
     | MediaBlockModel
     | MapBlockModel
     | InfoBlockModel
-    | SecurityBlockModel
     | TableBlockModel
     | TabsBlockModel
     | LinkTableBlockModel
