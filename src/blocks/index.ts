@@ -3,7 +3,6 @@ export {default as CompaniesBlock} from './Companies/Companies';
 export {default as InfoBlock} from './Info/Info';
 export {default as MediaBlock} from './Media/Media';
 export {default as MapBlock} from './Map/Map';
-export {default as SecurityBlock} from './Security/Security';
 export {default as SliderBlock} from './Slider/Slider';
 export {default as ExtendedFeaturesBlock} from './ExtendedFeatures/ExtendedFeatures';
 export {default as PromoFeaturesBlock} from './PromoFeaturesBlock/PromoFeaturesBlock';
