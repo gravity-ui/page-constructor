@@ -11,7 +11,6 @@ export * from './LinkTable/schema';
 export * from './Media/schema';
 export * from './PromoFeaturesBlock/schema';
 export * from './Questions/schema';
-export * from './Security/schema';
 export * from './Slider/schema';
 export * from './Table/schema';
 export * from './Share/schema';

@@ -38,8 +38,6 @@ _[Common field types](?id=information--common-types&viewMode=docs)_
 
 ## [Questions](?path=/story/blocks-questions--default&viewMode=docs)
 
-## [Security](?path=/story/blocks-security--default&viewMode=docs)
-
 ## [Share](?path=/story/blocks-share--default&viewMode=docs)
 
 ## [Slider](?path=/story/blocks-slider--default&viewMode=docs)
