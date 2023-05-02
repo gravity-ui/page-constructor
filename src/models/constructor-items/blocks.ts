@@ -20,7 +20,6 @@ import {
     Justify,
     LegendTableMarkerType,
     LinkProps,
-    LinkTheme,
     MapProps,
     MediaDirection,
     MediaProps,
@@ -48,7 +47,6 @@ export enum BlockType {
     TableBlock = 'table-block',
     TabsBlock = 'tabs-block',
     HeaderSliderBlock = 'header-slider-block',
-    LinkTableBlock = 'link-table-block',
     HeaderBlock = 'header-block',
     IconsBlock = 'icons-block',
     CardLayoutBlock = 'card-layout-block',
@@ -282,11 +280,6 @@ export interface TabsBlockProps extends BlockHeaderProps, Animatable {
     items: TabsBlockItem[];
 }
 
-export interface LinkTableBlockProps extends BlockHeaderProps {
-    items: LinkProps[][];
-    linkTheme?: LinkTheme;
-}
-
 export interface CardLayoutBlockProps extends Childable, Animatable, LoadableChildren {
     title: TitleProps | string;
     description?: string;
@@ -418,10 +411,6 @@ export type TabsBlockModel = {
     type: BlockType.TabsBlock;
 } & TabsBlockProps;
 
-export type LinkTableBlockModel = {
-    type: BlockType.LinkTableBlock;
-} & LinkTableBlockProps;
-
 export type CardLayoutBlockModel = {
     type: BlockType.CardLayoutBlock;
 } & CardLayoutBlockProps;
@@ -460,7 +449,6 @@ type BlockModels =
     | InfoBlockModel
     | TableBlockModel
     | TabsBlockModel
-    | LinkTableBlockModel
     | HeaderBlockModel
     | IconsBlockModel
     | HeaderSliderBlockModel

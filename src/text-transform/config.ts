@@ -115,7 +115,7 @@ function parseContentLayoutTitle(transformer: Transformer, content: ContentBlock
     return content;
 }
 
-const blockHeaderTransfomer = [
+export const blockHeaderTransformer = [
     {
         fields: ['title'],
         transformer: typografTransformer,
@@ -186,7 +186,7 @@ export const config: BlocksConfig = {
         transformer: typografTransformer,
     },
     [BlockType.ExtendedFeaturesBlock]: [
-        ...blockHeaderTransfomer,
+        ...blockHeaderTransformer,
         {
             fields: ['items'],
             transformer: typografTransformer,
@@ -199,14 +199,14 @@ export const config: BlocksConfig = {
         },
     ],
     [BlockType.PromoFeaturesBlock]: [
-        ...blockHeaderTransfomer,
+        ...blockHeaderTransformer,
         {
             fields: ['items'],
             transformer: yfmTransformer,
             parser: parsePromoFeatures,
         },
     ],
-    [BlockType.SliderBlock]: blockHeaderTransfomer,
+    [BlockType.SliderBlock]: blockHeaderTransformer,
     [BlockType.QuestionsBlock]: [
         {
             fields: ['title'],
@@ -244,21 +244,21 @@ export const config: BlocksConfig = {
         },
     ],
     [BlockType.MediaBlock]: [
-        ...blockHeaderTransfomer,
+        ...blockHeaderTransformer,
         {
             fields: ['title', 'additionalInfo'],
             transformer: yfmTransformer,
         },
     ],
     [BlockType.MapBlock]: [
-        ...blockHeaderTransfomer,
+        ...blockHeaderTransformer,
         {
             fields: ['title', 'additionalInfo'],
             transformer: yfmTransformer,
         },
     ],
     [BlockType.TabsBlock]: [
-        ...blockHeaderTransfomer,
+        ...blockHeaderTransformer,
         {
             fields: ['items'],
             transformer: yfmTransformer,
@@ -342,7 +342,7 @@ export const config: BlocksConfig = {
             transformer: typografTransformer,
         },
     ],
-    [BlockType.CardLayoutBlock]: blockHeaderTransfomer,
+    [BlockType.CardLayoutBlock]: blockHeaderTransformer,
     [BlockType.IconsBlock]: [
         {
             fields: ['title'],
@@ -350,5 +350,4 @@ export const config: BlocksConfig = {
             parser: parseTitle,
         },
     ],
-    [BlockType.LinkTableBlock]: blockHeaderTransfomer,
 };

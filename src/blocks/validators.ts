@@ -7,7 +7,6 @@ export * from './Header/schema';
 export * from './HeaderSlider/schema';
 export * from './Icons/schema';
 export * from './Info/schema';
-export * from './LinkTable/schema';
 export * from './Media/schema';
 export * from './PromoFeaturesBlock/schema';
 export * from './Questions/schema';
