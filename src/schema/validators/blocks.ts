@@ -9,7 +9,6 @@ export * from '../../blocks/Map/schema';
 export * from '../../blocks/Questions/schema';
 export * from '../../blocks/Slider/schema';
 export * from '../../blocks/Table/schema';
-export * from '../../blocks/LinkTable/schema';
 export * from '../../blocks/Tabs/schema';
 export * from '../../blocks/HeaderSlider/schema';
 export * from '../../blocks/Icons/schema';
