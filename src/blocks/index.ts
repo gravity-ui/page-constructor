@@ -9,7 +9,6 @@ export {default as PromoFeaturesBlock} from './PromoFeaturesBlock/PromoFeaturesB
 export {default as QuestionsBlock} from './Questions/Questions';
 export {default as TableBlock} from './Table/Table';
 export {default as TabsBlock} from './Tabs/Tabs';
-export {default as LinkTableBlock} from './LinkTable/LinkTable';
 export {default as HeaderBlock} from './Header/Header';
 export {default as IconsBlock} from './Icons/Icons';
 export {default as HeaderSliderBlock} from './HeaderSlider/HeaderSlider';
