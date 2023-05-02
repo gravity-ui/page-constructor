@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.13.1](https://github.com/gravity-ui/page-constructor/compare/v2.13.0...v2.13.1) (2023-05-02)
+
+
+### Bug Fixes
+
+* add name property to questions in FAQpage ([#322](https://github.com/gravity-ui/page-constructor/issues/322)) ([e0813b3](https://github.com/gravity-ui/page-constructor/commit/e0813b32f61ae4d2526c461560a78fcfb460c271))
+
 ## [2.13.0](https://github.com/gravity-ui/page-constructor/compare/v2.12.0...v2.13.0) (2023-04-28)
 
 
