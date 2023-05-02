@@ -69,7 +69,7 @@ const CombinedPriceDetailed = (props: CombinedPriceDetailedProps) => {
 
         handleResize();
 
-        window.addEventListener('resize', handleResize);
+        window.addEventListener('resize', handleResize, {passive: true});
         return () => window.removeEventListener('resize', handleResize);
     }, [updateGroupItemsSize]);
 

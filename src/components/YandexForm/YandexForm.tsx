@@ -153,7 +153,7 @@ const YandexForm = (props: YandexFormProps) => {
 
         if (container) {
             updateFormIframe(container);
-            window.addEventListener('message', handleMessage);
+            window.addEventListener('message', handleMessage, {passive: true});
         }
     }, [updateFormIframe, handleMessage]);
 
