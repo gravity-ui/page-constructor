@@ -15,6 +15,7 @@ const FaqMicrodataValues = {
     PageType: 'https://schema.org/FAQPage',
     QuestionType: 'https://schema.org/Question',
     QuestionProp: 'mainEntity',
+    QuestionNameProp: 'name',
     QuestionTextProp: 'text',
     AnswerType: 'https://schema.org/Answer',
     AnswerProp: 'acceptedAnswer',
@@ -69,7 +70,7 @@ const QuestionsBlock = (props: QuestionsProps) => {
                                         className={b('item-title')}
                                         onClick={() => toggleItem(index)}
                                     >
-                                        <HTML itemProp={FaqMicrodataValues.QuestionTextProp}>
+                                        <HTML itemProp={FaqMicrodataValues.QuestionNameProp}>
                                             {itemTitle}
                                         </HTML>
                                         <ToggleArrow
