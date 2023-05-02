@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.14.0](https://github.com/gravity-ui/page-constructor/compare/v2.13.1...v2.14.0) (2023-05-02)
+
+
+### Features
+
+* add passive flage to every addEventListener ([#318](https://github.com/gravity-ui/page-constructor/issues/318)) ([b1b7447](https://github.com/gravity-ui/page-constructor/commit/b1b7447b16b64afaf5ecea1db3ddf7ee9eeec534))
+
 ## [2.13.1](https://github.com/gravity-ui/page-constructor/compare/v2.13.0...v2.13.1) (2023-05-02)
 
 
