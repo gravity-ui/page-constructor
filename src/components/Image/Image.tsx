@@ -8,8 +8,6 @@ import ImageBase from '../ImageBase/ImageBase';
 
 import i18n from './i18n';
 
-export const qaIdByDefault = 'anchor-component';
-
 export interface ImageProps extends Partial<ImageObjectProps>, Partial<ImageDeviceProps> {
     style?: CSSProperties;
     className?: string;
@@ -35,7 +33,7 @@ const Image = (props: ImageProps) => {
         className,
         onClick,
         containerClassName,
-        qa = qaIdByDefault,
+        qa,
     } = props;
     const [imgLoadingError, setImgLoadingError] = useState(false);
 
