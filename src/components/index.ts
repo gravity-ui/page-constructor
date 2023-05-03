@@ -14,7 +14,6 @@ export {default as Foldable} from './Foldable/Foldable';
 export {default as FullscreenImage} from './FullscreenImage/FullscreenImage';
 export {default as FullWidthBackground} from './FullWidthBackground/FullWidthBackground';
 export {default as HeaderBreadcrumbs} from './HeaderBreadcrumbs/HeaderBreadcrumbs';
-export {default as HeightCalculator} from './HeightCalculator/HeightCalculator';
 export {default as Image} from './Image/Image';
 export {default as ImageBase} from './ImageBase/ImageBase';
 export {default as Link} from './Link/Link';
