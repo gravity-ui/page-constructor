@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.15.0](https://github.com/gravity-ui/page-constructor/compare/v2.14.0...v2.15.0) (2023-05-03)
+
+
+### Features
+
+* **OverflowScroller:** customize arrow ([#326](https://github.com/gravity-ui/page-constructor/issues/326)) ([edd3dbe](https://github.com/gravity-ui/page-constructor/commit/edd3dbe2b9dfe93a83b21261f4ab8a836e05359a))
+
 ## [2.14.0](https://github.com/gravity-ui/page-constructor/compare/v2.13.1...v2.14.0) (2023-05-02)
 
 
