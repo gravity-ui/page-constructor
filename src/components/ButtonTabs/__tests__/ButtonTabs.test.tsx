@@ -3,7 +3,8 @@ import React from 'react';
 import {render, screen} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import ButtonTabs, {ButtonTabsItemProps} from '../ButtonTabs';
+import {testCustomClassName} from '../../../../test-utils/shared/common';
+import ButtonTabs, {ButtonTabsItemProps, ButtonTabsProps} from '../ButtonTabs';
 
 const qaId = 'button-tabs-component';
 
@@ -47,12 +48,10 @@ describe('ButtonTabs', () => {
     });
 
     test('add className', () => {
-        const className = 'my-class';
-
-        render(<ButtonTabs items={items} qa={qaId} className={className} />);
-        const buttonTabs = screen.getByTestId(qaId);
-
-        expect(buttonTabs).toHaveClass(className);
+        testCustomClassName<ButtonTabsProps>({
+            component: ButtonTabs,
+            props: {items: items, qa: qaId},
+        });
     });
 
     test('call onSelectTab', async () => {

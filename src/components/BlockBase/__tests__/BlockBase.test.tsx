@@ -2,11 +2,15 @@ import React from 'react';
 
 import {render, screen} from '@testing-library/react';
 
+import {testCustomClassName} from '../../../../test-utils/shared/common';
 import {qaIdByDefault} from '../../../components/Anchor/Anchor';
 import {GridColumnSize} from '../../../grid';
+import {BlockBaseProps, ClassNameProps, WithChildren} from '../../../models';
 import BlockBase from '../BlockBase';
 
 const qaId = 'block-base-component';
+
+type ComponentProps = WithChildren<BlockBaseProps & ClassNameProps>;
 
 describe('BlockBase', () => {
     test('render component by default', async () => {
@@ -19,12 +23,10 @@ describe('BlockBase', () => {
     });
 
     test('add className', () => {
-        const className = 'my-class';
-
-        render(<BlockBase qa={qaId} className={className} />);
-        const component = screen.getByTestId(qaId);
-
-        expect(component).toHaveClass(className);
+        testCustomClassName<ComponentProps>({
+            component: BlockBase,
+            props: {qa: qaId},
+        });
     });
 
     test('should reset paddings', () => {
