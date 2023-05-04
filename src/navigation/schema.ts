@@ -37,6 +37,9 @@ const NavigationItemBaseProps = {
         type: 'string',
         pattern: urlPattern,
     },
+    iconSize: {
+        type: 'number',
+    },
 };
 
 const NavigationItemBaseLinkProps = omit(NavigationItemBaseProps, ['url']);
@@ -96,5 +99,8 @@ export const NavigationHeaderProps = {
     properties: {
         leftItems: NavigationItemProps,
         rightItems: NavigationItemProps,
+        iconSize: {
+            type: 'number',
+        },
     },
 };

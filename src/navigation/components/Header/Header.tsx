@@ -1,4 +1,4 @@
-import React, {MouseEvent, useCallback, useState} from 'react';
+import React, {MouseEvent, useCallback, useMemo, useState} from 'react';
 
 import _ from 'lodash';
 
@@ -6,7 +6,12 @@ import Control from '../../../components/Control/Control';
 import OutsideClick from '../../../components/OutsideClick/OutsideClick';
 import {Col, Grid, Row} from '../../../grid';
 import {NavigationClose, NavigationOpen} from '../../../icons';
-import {HeaderData, ThemedNavigationLogoData} from '../../../models';
+import {
+    HeaderData,
+    NavigationItemBase,
+    NavigationItemModel,
+    ThemedNavigationLogoData,
+} from '../../../models';
 import {block} from '../../../utils';
 import {ItemColumnName} from '../../constants';
 import Logo from '../Logo/Logo';
@@ -52,10 +57,31 @@ const MobileMenuButton: React.FC<MobileMenuButtonProps> = ({
     );
 };
 
+const iconSizeKey: keyof NavigationItemBase = 'iconSize';
+
 export const Header: React.FC<HeaderProps> = ({data, logo}) => {
-    const {leftItems, rightItems} = data;
+    const {leftItems, rightItems, iconSize} = data;
     const [isSidebarOpened, setIsSidebarOpened] = useState(false);
     const [activeItemId, setactiveItemId] = useState<string | undefined>(undefined);
+
+    const getNavigationItemWithIconSize = useCallback(
+        (item: NavigationItemModel) => {
+            if (!(iconSizeKey in item)) {
+                return {...item, iconSize};
+            }
+            return item;
+        },
+        [iconSize],
+    );
+
+    const leftItemsWithIconSize = useMemo(
+        () => leftItems && leftItems.map(getNavigationItemWithIconSize),
+        [getNavigationItemWithIconSize, leftItems],
+    );
+    const rightItemsWithIconSize = useMemo(
+        () => rightItems && rightItems.map(getNavigationItemWithIconSize),
+        [getNavigationItemWithIconSize, rightItems],
+    );
 
     const onActiveItemChange = useCallback((id?: string) => {
         setactiveItemId(id);
@@ -86,7 +112,7 @@ export const Header: React.FC<HeaderProps> = ({data, logo}) => {
                         <div className={b('navigation-container')}>
                             <Navigation
                                 className={b('navigation')}
-                                links={leftItems}
+                                links={leftItemsWithIconSize}
                                 activeItemId={activeItemId}
                                 onActiveItemChange={onActiveItemChange}
                             />
@@ -96,9 +122,9 @@ export const Header: React.FC<HeaderProps> = ({data, logo}) => {
                                 isSidebarOpened={isSidebarOpened}
                                 onSidebarOpenedChange={onSidebarOpenedChange}
                             />
-                            {rightItems && (
+                            {rightItemsWithIconSize && (
                                 <ul className={b('buttons')}>
-                                    {rightItems.map((button, index) => (
+                                    {rightItemsWithIconSize.map((button, index) => (
                                         <NavigationListItem
                                             key={index}
                                             className={b('buttons-item')}

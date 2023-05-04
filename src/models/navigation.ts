@@ -13,6 +13,7 @@ export interface NavigationItemBase {
     text: string;
     icon?: ImageProps;
     url?: string;
+    iconSize?: number;
 }
 
 export enum NavigationGithubButtonIcon {
@@ -82,6 +83,7 @@ export type ThemedNavigationLogoData = NavigationLogoData & ThemeSupporting<Navi
 export interface HeaderData {
     leftItems: NavigationItemModel[];
     rightItems?: NavigationItemModel[];
+    iconSize?: number;
 }
 
 export interface FooterColumn {

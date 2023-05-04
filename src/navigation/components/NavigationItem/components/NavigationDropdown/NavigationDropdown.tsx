@@ -16,12 +16,12 @@ const TOGGLE_ARROW_SIZE = 12;
 type NavigationDropdownProps = NavigationItemProps & DropdownItemData;
 
 export const NavigationDropdown = React.forwardRef<HTMLElement, NavigationDropdownProps>(
-    ({text, icon, isOpened, className, ...props}, ref) => {
+    ({text, icon, isOpened, className, iconSize, ...props}, ref) => {
         const iconData = icon && getMediaImage(icon);
 
         return (
             <span ref={ref} {...props} className={b(null, className)}>
-                <ContentWrapper text={text} icon={iconData} />
+                <ContentWrapper text={text} icon={iconData} iconSize={iconSize} />
                 <ToggleArrow
                     className={b('arrow')}
                     size={TOGGLE_ARROW_SIZE}
