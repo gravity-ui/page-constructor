@@ -5,7 +5,6 @@ export {default as Partner} from './Partner/Partner';
 export {default as PriceDetailed} from './PriceDetailed/PriceDetailed';
 export {default as MediaCard} from './MediaCard/MediaCard';
 export {default as BannerCard} from './BannerCard/BannerCard';
-export {default as TutorialCard} from './TutorialCard/TutorialCard';
 export {default as LayoutItem} from './LayoutItem/LayoutItem';
 export {default as BackgroundCard} from './BackgroundCard/BackgroundCard';
 export {default as BasicCard} from './BasicCard/BasicCard';

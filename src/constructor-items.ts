@@ -31,7 +31,6 @@ import {
     Partner,
     PriceDetailed,
     Quote,
-    TutorialCard,
 } from './sub-blocks';
 
 export const blockMap = {
@@ -57,10 +56,6 @@ export const blockMap = {
 
 export const subBlockMap = {
     [SubBlockType.Divider]: Divider,
-    /**
-     * @deprecated Will be removed, use basic card instead
-     */
-    [SubBlockType.TutorialCard]: TutorialCard,
     /**
      * @deprecated Will be removed, use basic card instead
      */

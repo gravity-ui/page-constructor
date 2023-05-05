@@ -33,10 +33,6 @@ export enum SubBlockType {
     PriceDetailed = 'price-detailed',
     MediaCard = 'media-card',
     BannerCard = 'banner-card',
-    /**
-     * @deprecated Will be removed, use BasicCard instead
-     */
-    TutorialCard = 'tutoral-card',
     LayoutItem = 'layout-item',
     BackgroundCard = 'background-card',
     BasicCard = 'basic-card',
@@ -119,13 +115,6 @@ export interface NewsCardData {
 export type NewsCardProps = Pick<NewsCardData, 'title' | 'url' | 'date' | 'isoDate'> &
     CardBaseProps;
 
-export interface TutorialCardProps extends CardBaseProps {
-    url: string;
-    title: string;
-    text: string;
-    icon?: ImageProps;
-}
-
 export interface BackgroundCardProps
     extends CardBaseProps,
         Omit<ContentBlockProps, 'colSizes' | 'centered'> {
@@ -180,10 +169,6 @@ export type LayoutItemModel = {
     type: SubBlockType.LayoutItem;
 } & LayoutItemProps;
 
-export type TutorialCardModel = {
-    type: SubBlockType.TutorialCard;
-} & TutorialCardProps;
-
 export type BackgroundCardModel = {
     type: SubBlockType.BackgroundCard;
 } & BackgroundCardProps;
@@ -219,7 +204,6 @@ export type SubBlockModels =
     | PartnerModel
     | PriceDetailedModel
     | MediaCardModel
-    | TutorialCardModel
     | BackgroundCardModel
     | HubspotFormModel
     | BannerCardModel

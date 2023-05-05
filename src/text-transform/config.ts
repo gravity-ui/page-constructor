@@ -150,10 +150,6 @@ export const config: BlocksConfig = {
             transformer: yfmTransformer,
         },
     ],
-    [SubBlockType.TutorialCard]: {
-        fields: ['text', 'title'],
-        transformer: typografTransformer,
-    },
     [SubBlockType.BackgroundCard]: [
         {
             fields: ['text', 'additionalInfo'],
