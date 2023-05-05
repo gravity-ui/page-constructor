@@ -5,7 +5,6 @@ $borderRadius: var(--pc-border-radius);
 $imagePadding: var(--pc-image-padding);
 
 //indents
-$indentXXXXS: 6px;
 $indentXXXS: 8px;
 $indentXXS: 12px;
 $indentXS: 16px;
@@ -22,6 +21,8 @@ $contentMargin: $indentM;
 
 $contentLiftIndent: $indentXL;
 $contentLiftIndentMobile: $indentM;
+
+$navigationIconIndent: 6px;
 
 //slider
 $sliderArrowSize: 42px;
