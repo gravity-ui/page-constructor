@@ -79,7 +79,7 @@ export const Header: React.FC<HeaderProps> = ({data, logo}) => {
         [getNavigationItemWithIconSize, leftItems],
     );
     const rightItemsWithIconSize = useMemo(
-        () => rightItems && rightItems.map(getNavigationItemWithIconSize),
+        () => rightItems?.map(getNavigationItemWithIconSize),
         [getNavigationItemWithIconSize, rightItems],
     );
 
