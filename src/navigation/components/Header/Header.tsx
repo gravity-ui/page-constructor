@@ -60,7 +60,7 @@ const MobileMenuButton: React.FC<MobileMenuButtonProps> = ({
 const iconSizeKey: keyof NavigationItemBase = 'iconSize';
 
 export const Header: React.FC<HeaderProps> = ({data, logo}) => {
-    const {leftItems, rightItems, iconSize} = data;
+    const {leftItems, rightItems, iconSize = 20} = data;
     const [isSidebarOpened, setIsSidebarOpened] = useState(false);
     const [activeItemId, setactiveItemId] = useState<string | undefined>(undefined);
 
