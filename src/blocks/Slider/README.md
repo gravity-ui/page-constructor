@@ -41,4 +41,3 @@ The following blocks are currently supported:
 - [`LayoutItem` — `Media` + `Content` components in one card-like view](?path=/story/components-cards-layoutitem--default&viewMode=docs)
 - [`MediaCard` — Card with an image](?path=/story/блоки-media--default&viewMode=docs)
 - [`NewsCard` — News card](?path=/story/components-cards-newscard--default&viewMode=docs)
-- [`TutorialCard` — Card with an icon](?path=/story/components-cards-tutorialcard--default&viewMode=docs)
