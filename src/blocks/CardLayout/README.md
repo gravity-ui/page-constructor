@@ -22,4 +22,3 @@ The following blocks are currently supported:
 - [`BackgroundCard` — Background card](?path=/story/components-cards-backgroundcard--default&viewMode=docs)
 - [`LayoutItem` — Component part of `Layout` component, consists with `Media` and `Content`](?path=/story/components-cards-layoutitem--default&viewMode=docs)
 - [`NewsCard` — News card](?path=/story/components-cards-newscard--default&viewMode=docs)
-- [`TutorialCard` — Card with an icon](?path=/story/components-cards-tutorialcard--default&viewMode=docs)
