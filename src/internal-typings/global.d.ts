@@ -10,22 +10,17 @@ declare module '*.svg' {
     export default path;
 }
 
-interface CreateFormProps {
-    portalId: string;
-    formId: string;
-    region?: string;
-    target?: string;
-    cssClass?: string;
-    formInstanceId?: string;
-}
+declare module '*.md';
 
-interface Window {
-    hbspt?: {
-        forms: {
-            create: (args: CreateFormProps) => unknown;
-        };
-    };
-    ymaps: Ymaps;
+declare namespace Hbspt {
+    interface CreateFormProps {
+        portalId: string;
+        formId: string;
+        region?: string;
+        target?: string;
+        cssClass?: string;
+        formInstanceId?: string;
+    }
 }
 
 declare namespace Ymaps {
@@ -63,4 +58,11 @@ declare namespace Ymaps {
     }
 }
 
-declare module '*.md';
+interface Window {
+    hbspt?: {
+        forms: {
+            create: (args: Hbspt.CreateFormProps) => unknown;
+        };
+    };
+    ymaps: Ymaps;
+}
