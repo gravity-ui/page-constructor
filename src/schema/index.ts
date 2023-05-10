@@ -33,7 +33,6 @@ import {
     PartnerBlock,
     PriceDetailedBlock,
     Quote,
-    TutorialCard,
 } from './validators/sub-blocks';
 import {filteredItem} from './validators/utils';
 
@@ -82,7 +81,6 @@ export function generateDefaultSchema(config?: SchemaCustomConfig) {
         ...MediaCardBlock,
         ...BannerCard,
         ...PriceDetailedBlock,
-        ...TutorialCard,
         ...BackgroundCard,
         ...NewsCard,
         ...Quote,
@@ -122,7 +120,6 @@ export function generateDefaultSchema(config?: SchemaCustomConfig) {
         'media-card',
         'banner-card',
         'price-detailed',
-        'tutoral-card',
         'background-card',
         'news-card',
         'quote',
