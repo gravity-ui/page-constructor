@@ -20,7 +20,7 @@ const NavigationDropdown: React.FC<NavigationDropdownProps> = ({
     onClick,
 }) => {
     const anchorRef = useRef<HTMLElement>(null);
-    const {text, icon, items, ...popupProps} = data;
+    const {text, icon, items, iconSize, ...popupProps} = data;
 
     return (
         <Fragment>
@@ -29,7 +29,7 @@ const NavigationDropdown: React.FC<NavigationDropdownProps> = ({
                 ref={anchorRef}
                 onClick={onClick}
                 isOpened={isActive}
-                data={{text, type: NavigationItemType.Dropdown, icon}}
+                data={{text, type: NavigationItemType.Dropdown, icon, iconSize}}
             />
             <NavigationPopup
                 open={isActive}

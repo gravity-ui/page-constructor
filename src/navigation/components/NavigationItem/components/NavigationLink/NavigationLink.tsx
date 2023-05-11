@@ -17,14 +17,14 @@ type NavigationLinkProps = NavigationItemProps & NavigationLinkItem;
 
 export const NavigationLink: React.FC<NavigationLinkProps> = (props) => {
     const {hostname, Link} = useContext(LocationContext);
-    const {url, text, icon, arrow, target, className, ...rest} = props;
+    const {url, text, icon, arrow, target, className, iconSize, ...rest} = props;
     const linkExtraProps = getLinkProps(url, hostname, target);
     const iconData = icon && getMediaImage(icon);
 
     const classes = b(null, className);
     const content = (
         <Fragment>
-            <ContentWrapper text={text} icon={iconData} />
+            <ContentWrapper text={text} icon={iconData} iconSize={iconSize} />
             {arrow && <NavigationArrow className={b('arrow')} />}
         </Fragment>
     );
