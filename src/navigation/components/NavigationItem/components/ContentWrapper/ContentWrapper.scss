@@ -5,8 +5,6 @@ $block: '.#{$ns}content-wrapper';
 #{$block} {
     &__icon {
         display: flex;
-        width: 20px;
-        height: 20px;
         margin-right: $navigationIconIndent;
 
         object-fit: cover;
