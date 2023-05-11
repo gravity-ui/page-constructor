@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.16.0](https://github.com/gravity-ui/page-constructor/compare/v2.15.0...v2.16.0) (2023-05-11)
+
+
+### Features
+
+* **Navigation:** add iconSize for navigation icons, update margin between icon and text ([#329](https://github.com/gravity-ui/page-constructor/issues/329)) ([1427740](https://github.com/gravity-ui/page-constructor/commit/14277404cfe199847ae0d1834eb433ba1efd919a))
+
 ## [2.15.0](https://github.com/gravity-ui/page-constructor/compare/v2.14.0...v2.15.0) (2023-05-03)
 
 
