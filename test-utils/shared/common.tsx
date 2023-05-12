@@ -1,6 +1,5 @@
-import React, {ElementType} from 'react';
-
 import {render, screen} from '@testing-library/react';
+import React, {ElementType} from 'react';
 
 type QA = {
     qa: string;
