@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.17.0](https://github.com/gravity-ui/page-constructor/compare/v2.16.0...v2.17.0) (2023-05-12)
+
+
+### Features
+
+* drop rules overriding ([#303](https://github.com/gravity-ui/page-constructor/issues/303)) ([0c13398](https://github.com/gravity-ui/page-constructor/commit/0c1339885ce3b930ab9428b585aa6dd020b0d298))
+
 ## [2.16.0](https://github.com/gravity-ui/page-constructor/compare/v2.15.0...v2.16.0) (2023-05-11)
 
 
