@@ -8,6 +8,7 @@ import {MobileContext} from '../../context/mobileContext';
 import {GMapProps} from '../../models';
 import {block} from '../../utils';
 import {Lang} from '../../utils/configure';
+
 import {getMapHeight} from './helpers';
 
 const b = block('map');

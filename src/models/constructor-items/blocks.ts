@@ -2,6 +2,7 @@ import {ButtonSize} from '@gravity-ui/uikit';
 
 import {GridColumnSize, GridColumnSizesType} from '../../grid/types';
 import {ThemeSupporting} from '../../utils';
+
 import {
     AnchorProps,
     Animatable,

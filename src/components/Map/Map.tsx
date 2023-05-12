@@ -2,6 +2,7 @@ import React, {useContext} from 'react';
 
 import {MapType, MapsContext} from '../../context/mapsContext/mapsContext';
 import {GMapProps, MapProps, YMapProps} from '../../models';
+
 import GoogleMap from './GoogleMap';
 import YandexMap from './YMap/YandexMap';
 

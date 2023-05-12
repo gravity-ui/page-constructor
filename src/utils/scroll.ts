@@ -58,7 +58,7 @@ function getChangeScrollFunction(
     isReverse: boolean,
 ): ChangeScrollFunction {
     return (element: HTMLDivElement, scrollPosition: number, startPosition: number) => {
-        // eslint-disable-next-line no-not-accumulator-reassign/no-not-accumulator-reassign
+        // eslint-disable-next-line no-param-reassign, no-not-accumulator-reassign/no-not-accumulator-reassign
         element[direction] = isReverse
             ? startPosition - scrollPosition
             : startPosition + scrollPosition;

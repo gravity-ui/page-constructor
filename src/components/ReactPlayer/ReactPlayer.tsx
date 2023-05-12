@@ -8,10 +8,9 @@ import React, {
     useState,
 } from 'react';
 
+import {Icon} from '@gravity-ui/uikit';
 import _ from 'lodash';
 import ReactPlayer from 'react-player';
-
-import {Icon} from '@gravity-ui/uikit';
 
 import {MetrikaContext} from '../../context/metrikaContext';
 import {MobileContext} from '../../context/mobileContext';
@@ -31,6 +30,7 @@ import {
     ReactPlayerBlockHandler,
 } from '../../models';
 import {block} from '../../utils';
+
 import CustomBarControls from './CustomBarControls';
 import {checkYoutubeVideos} from './utils';
 

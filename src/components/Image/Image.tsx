@@ -5,6 +5,7 @@ import {ProjectSettingsContext} from '../../context/projectSettingsContext';
 import {ImageDeviceProps, ImageObjectProps} from '../../models';
 import {isCompressible} from '../../utils/imageCompress';
 import ImageBase from '../ImageBase/ImageBase';
+
 import i18n from './i18n';
 
 export interface ImageProps extends Partial<ImageObjectProps>, Partial<ImageDeviceProps> {

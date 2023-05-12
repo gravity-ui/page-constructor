@@ -1,8 +1,7 @@
 import React, {useCallback, useContext, useEffect, useRef, useState} from 'react';
 
-import _ from 'lodash';
-
 import {Spin} from '@gravity-ui/uikit';
+import _ from 'lodash';
 
 import {LocaleContext} from '../../../context/localeContext/localeContext';
 import {MapsContext} from '../../../context/mapsContext/mapsContext';
@@ -11,6 +10,7 @@ import {YMapProps} from '../../../models';
 import {block} from '../../../utils';
 import ErrorWrapper from '../../ErrorWrapper/ErrorWrapper';
 import {getMapHeight} from '../helpers';
+
 import {YMap} from './YMap';
 import {MapApiStatus, YMapsApiLoader} from './YandexMapApiLoader';
 import i18n from './i18n';

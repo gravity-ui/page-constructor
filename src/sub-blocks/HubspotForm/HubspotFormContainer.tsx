@@ -2,6 +2,7 @@ import React, {useRef} from 'react';
 
 import {useMount} from '../../hooks';
 import {HubspotFormProps} from '../../models';
+
 import loadHubspotScript from './loadHubspotScript';
 
 type HubspotFormContainerPropsKeys =

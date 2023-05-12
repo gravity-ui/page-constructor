@@ -7,6 +7,7 @@ import {Row} from '../../grid';
 import {useIntersection} from '../../hooks/useIntersection';
 import {PreviewBlockProps} from '../../models';
 import {ScrollOptions, block, doSmoothScroll} from '../../utils';
+
 import MediaContent from './MediaContent/MediaContent';
 
 import './Preview.scss';

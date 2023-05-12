@@ -7,6 +7,7 @@ import {useMetrika} from '../../hooks/useMetrika';
 import {DefaultEventNames, HubspotFormProps} from '../../models';
 import {block} from '../../utils';
 import {HubspotEventHandlers} from '../../utils/hubspot';
+
 import HubspotFormContainer from './HubspotFormContainer';
 
 import './HubspotForm.scss';

@@ -7,9 +7,6 @@
     },
     "plugins": ["no-not-accumulator-reassign"],
     "rules": {
-        "no-confusing-arrow": "off",
-        "no-shadow": "off",
-        "no-param-reassign": ["warn", {"props": false}],
         "no-not-accumulator-reassign/no-not-accumulator-reassign": [
             "warn",
             ["reduce"],
@@ -25,73 +22,6 @@
             "files": ["**/__stories__/**/*.[jt]s?(x)"],
             "rules": {
                 "no-console": "off"
-            }
-        },
-        {
-            "files": ["**/*.{js,ts}", "**/*.{jsx,tsx}"],
-            "rules": {
-                "valid-jsdoc": "off",
-                "import/order": [
-                    "error",
-                    {
-                        "alphabetize": {
-                            "order": "asc"
-                        },
-                        "newlines-between": "always",
-                        "groups": [
-                            "builtin",
-                            "external",
-                            "internal",
-                            ["sibling", "parent"],
-                            "index",
-                            "type",
-                            "unknown"
-                        ],
-                        "pathGroups": [
-                            {
-                                "pattern": "react",
-                                "group": "external",
-                                "position": "before"
-                            },
-                            {
-                                "pattern": "{@yandex-**,@gravity-ui,@doc-tools}/**",
-                                "group": "external",
-                                "position": "after"
-                            },
-                            {
-                                "pattern": "{analytics,counters,contexts,components,hoc,hooks,utils,store,units,i18n,models,router,services}{,/**}",
-                                "group": "internal",
-                                "position": "after"
-                            },
-                            {
-                                "pattern": "*.{svg,png,jpg,jpeg,json}",
-                                "patternOptions": {
-                                    "dot": true,
-                                    "nocomment": true,
-                                    "matchBase": true
-                                },
-                                "group": "type",
-                                "position": "after"
-                            },
-                            {
-                                "pattern": "*.{css,scss}",
-                                "patternOptions": {
-                                    "dot": true,
-                                    "nocomment": true,
-                                    "matchBase": true
-                                },
-                                "group": "type",
-                                "position": "after"
-                            }
-                        ],
-                        "pathGroupsExcludedImportTypes": [
-                            "*.{css,scss}",
-                            "*.{svg,png,jpg,jpeg,json}",
-                            "react"
-                        ],
-                        "warnOnUnassignedImports": true
-                    }
-                ]
             }
         }
     ]

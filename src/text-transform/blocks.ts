@@ -1,3 +1,5 @@
+/* eslint-disable no-param-reassign */
+/* eslint-disable no-not-accumulator-reassign/no-not-accumulator-reassign */
 import _ from 'lodash';
 
 import {
@@ -15,6 +17,7 @@ import {
 } from '../models';
 import {ConstructorBlock} from '../models/constructor';
 import {Lang} from '../utils/configure';
+
 import {fullTransform, typografToHTML} from './utils';
 
 export type ComplexItem = {[key: string]: string};
@@ -84,7 +87,6 @@ const parseItemsTitle = (transformer: Transformer, items: ExtendedFeaturesItem[]
 function parsePriceDetailedBlock(transformer: Transformer, block: PriceDetailedProps) {
     const {priceType} = block;
 
-    /* eslint-disable no-not-accumulator-reassign/no-not-accumulator-reassign */
     block.items = block.items.map((item) => {
         const {description, items: details = []} = item;
 
@@ -106,7 +108,6 @@ function parsePriceDetailedBlock(transformer: Transformer, block: PriceDetailedP
 
         return item;
     });
-    /* eslint-enable no-not-accumulator-reassign/no-not-accumulator-reassign */
 
     return block;
 }
@@ -115,7 +116,6 @@ const parseContentLayout = (transformer: Transformer, content: ContentBlockProps
     if (content) {
         const {text, additionalInfo} = content;
 
-        /* eslint-disable no-not-accumulator-reassign/no-not-accumulator-reassign */
         if (text) {
             content.text = transformer(text);
         }
@@ -123,7 +123,6 @@ const parseContentLayout = (transformer: Transformer, content: ContentBlockProps
         if (additionalInfo) {
             content.additionalInfo = transformer(additionalInfo);
         }
-        /* eslint-enable no-not-accumulator-reassign/no-not-accumulator-reassign */
     }
 
     return content;
@@ -133,7 +132,6 @@ function parseContentLayoutTitle(transformer: Transformer, content: ContentBlock
     if (content?.title) {
         const {title} = content;
 
-        // eslint-disable-next-line no-not-accumulator-reassign/no-not-accumulator-reassign
         content.title = title && parseTitle(transformer, title);
     }
 
@@ -423,7 +421,6 @@ const config: BlocksConfig = {
 function addRandomOrder(block: ConstructorBlock) {
     if (block) {
         if ('randomOrder' in block && block.randomOrder && 'children' in block && block.children) {
-            // eslint-disable-next-line no-not-accumulator-reassign/no-not-accumulator-reassign
             block.children = _.shuffle(block.children as ConstructorBlock[]);
         }
     }
@@ -443,7 +440,6 @@ function transformBlock(lang: Lang, blocksConfig: BlocksConfig, block: Construct
 
             if (fields) {
                 (fields as (keyof typeof block)[]).forEach((field) => {
-                    /* eslint-disable no-not-accumulator-reassign/no-not-accumulator-reassign */
                     if (block[field]) {
                         if (parser) {
                             block[field] = parser(transformer, block[field]);
@@ -451,7 +447,6 @@ function transformBlock(lang: Lang, blocksConfig: BlocksConfig, block: Construct
                             block[field] = transformer(block[field]);
                         }
                     }
-                    /* eslint-enable no-not-accumulator-reassign/no-not-accumulator-reassign */
                 });
             } else if (parser) {
                 parser(transformer, block);

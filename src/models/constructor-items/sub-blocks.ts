@@ -2,6 +2,7 @@ import {ClassNameProps} from '../../models';
 import {ThemeSupporting} from '../../utils';
 import {HubspotEventData, HubspotEventHandlers} from '../../utils/hubspot';
 import {AnalyticsEventsBase, PixelEvent} from '../common';
+
 import {ContentBlockProps} from './blocks';
 import {
     AuthorItem,

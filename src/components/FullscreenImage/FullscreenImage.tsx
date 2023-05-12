@@ -5,6 +5,7 @@ import {Icon, Modal} from '@gravity-ui/uikit';
 import {FullScreen, PreviewClose} from '../../icons';
 import {block} from '../../utils';
 import Image, {ImageProps} from '../Image/Image';
+
 import i18n from './i18n';
 
 import './FullScreenImage.scss';
