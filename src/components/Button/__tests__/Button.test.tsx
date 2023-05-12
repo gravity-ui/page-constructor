@@ -4,8 +4,9 @@ import {ButtonSize} from '@gravity-ui/uikit';
 import {render, screen} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
+import {testCustomClassName} from '../../../../test-utils/shared/common';
 import {ButtonImagePosition, ButtonTheme} from '../../../models';
-import Button from '../Button';
+import Button, {ButtonProps} from '../Button';
 import {ICON_QA} from '../utils';
 
 const qaId = 'button-component';
@@ -87,12 +88,10 @@ describe('Button', () => {
     });
 
     test('add className', () => {
-        const className = 'my-class';
-
-        render(<Button text={buttonProps.text} className={className} qa={qaId} />);
-        const button = screen.getByTestId(qaId);
-
-        expect(button).toHaveClass(className);
+        testCustomClassName<ButtonProps>({
+            component: Button,
+            props: {text: buttonProps.text, qa: qaId},
+        });
     });
 
     test('should render icon', () => {

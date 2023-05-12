@@ -3,9 +3,13 @@ import React from 'react';
 import {render, screen} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import AnimateBlock from '../AnimateBlock';
+import {testCustomClassName, testCustomStyle} from '../../../../test-utils/shared/common';
+import {WithChildren} from '../../../models';
+import AnimateBlock, {AnimateBlockProps} from '../AnimateBlock';
 
 const qaId = 'animate-block';
+
+type ComponentProps = WithChildren<AnimateBlockProps>;
 
 describe('AnimateBlock', () => {
     test('render AnimateBlock by default', async () => {
@@ -16,21 +20,17 @@ describe('AnimateBlock', () => {
     });
 
     test('add className', () => {
-        const className = 'my-class';
-
-        render(<AnimateBlock qa={qaId} className={className} />);
-        const component = screen.getByTestId(qaId);
-
-        expect(component).toHaveClass(className);
+        testCustomClassName<ComponentProps>({
+            component: AnimateBlock,
+            props: {qa: qaId},
+        });
     });
 
     test('use passed style', () => {
-        const style = {color: 'red'};
-
-        render(<AnimateBlock style={style} qa={qaId} />);
-        const component = screen.getByTestId(qaId);
-
-        expect(component).toHaveStyle(style);
+        testCustomStyle<ComponentProps>({
+            component: AnimateBlock,
+            props: {qa: qaId},
+        });
     });
 
     test('call onScroll', async () => {

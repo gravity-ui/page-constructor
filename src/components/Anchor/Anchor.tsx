@@ -12,11 +12,11 @@ export const qaIdByDefault = 'qa-anchor';
 
 export interface AnchorProps extends ClassNameProps {
     id: string;
-    dataQa?: string;
+    qa?: string;
 }
 
-const Anchor = ({id, className, dataQa}: AnchorProps) => (
-    <div id={id} className={b(null, className)} data-qa={dataQa || qaIdByDefault}></div>
+const Anchor = ({id, className, qa}: AnchorProps) => (
+    <div id={id} className={b(null, className)} data-qa={qa || qaIdByDefault}></div>
 );
 
 export default Anchor;
