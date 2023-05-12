@@ -1,4 +1,5 @@
 import {Lang} from '../utils/configure';
+
 import {fullTransform, typografToHTML} from './utils';
 
 export type ComplexItem = {[key: string]: string};
@@ -19,6 +20,7 @@ export const createItemsParser = (fields: string[]) => (transformer: Transformer
                 ...item,
                 ...fields.reduce<ComplexItem>((acc, fieldName) => {
                     if (item[fieldName]) {
+                        // eslint-disable-next-line no-param-reassign
                         acc[fieldName] = transformer(item[fieldName]);
                     }
 
