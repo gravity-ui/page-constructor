@@ -1,11 +1,16 @@
 # Changelog
 
-## [2.18.0](https://github.com/gravity-ui/page-constructor/compare/v2.17.0...v2.18.0) (2023-05-15)
+## [2.18.0](https://github.com/gravity-ui/page-constructor/compare/v2.18.0...v2.18.0) (2023-05-15)
 
 
 ### Features
 
 * **HubspotForm:** add ref forwarding for HS form ([#332](https://github.com/gravity-ui/page-constructor/issues/332)) ([37b75d3](https://github.com/gravity-ui/page-constructor/commit/37b75d31c09e8dc061d718828bcccc72b037e106))
+
+
+### Bug Fixes
+
+* config gulpfile for tests ([a5cb59d](https://github.com/gravity-ui/page-constructor/commit/a5cb59d0bc1e3a8c09babed0c5ace9a2253416c3))
 
 ## [2.17.0](https://github.com/gravity-ui/page-constructor/compare/v2.16.0...v2.17.0) (2023-05-12)
 
