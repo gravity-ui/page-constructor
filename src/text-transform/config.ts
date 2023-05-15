@@ -139,10 +139,6 @@ interface BlockConfig {
 export type BlocksConfig = Record<string, BlockConfig | BlockConfig[]>;
 
 export const config: BlocksConfig = {
-    [SubBlockType.Partner]: {
-        fields: ['text'],
-        transformer: typografTransformer,
-    },
     [SubBlockType.BasicCard]: [
         {
             fields: ['title'],
