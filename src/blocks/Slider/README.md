@@ -35,7 +35,6 @@ The following blocks are currently supported:
 - `Quote` — Quote
 - [`BasicCard` — Basic card](?path=/story/components-cards-basiccard--default&viewMode=docs)
 - [`Banner` — Banner](?path=/story/блоки-banner--default&viewMode=docs)
-- [`Partner` — Partner card](?path=/story/components-cards-partner--default&viewMode=docs)
 - [`Price Detailed` — Pricing](?path=/story/components-cards-pricedetailed--marked-list&viewMode=docs)
 - [`BackgroundCard` — Background card](?path=/story/components-cards-backgroundcard--default&viewMode=docs)
 - [`LayoutItem` — `Media` + `Content` components in one card-like view](?path=/story/components-cards-layoutitem--default&viewMode=docs)

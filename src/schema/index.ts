@@ -30,7 +30,6 @@ import {
     Divider,
     MediaCardBlock,
     NewsCard,
-    PartnerBlock,
     PriceDetailedBlock,
     Quote,
 } from './validators/sub-blocks';
@@ -77,7 +76,6 @@ export function generateDefaultSchema(config?: SchemaCustomConfig) {
     };
 
     const cardValidators = {
-        ...PartnerBlock,
         ...MediaCardBlock,
         ...BannerCard,
         ...PriceDetailedBlock,
@@ -116,7 +114,6 @@ export function generateDefaultSchema(config?: SchemaCustomConfig) {
     ];
 
     const constructorCardSchemaNames = [
-        'partner',
         'media-card',
         'banner-card',
         'price-detailed',
