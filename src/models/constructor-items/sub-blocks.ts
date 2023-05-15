@@ -25,10 +25,6 @@ export enum SubBlockType {
     Quote = 'quote',
     NewsCard = 'news-card',
     /**
-     * @deprecated Will be removed, use BasicCard instead
-     */
-    Partner = 'partner',
-    /**
      * @deprecated Will be removed
      */
     PriceDetailed = 'price-detailed',
@@ -87,12 +83,6 @@ export interface HubspotFormProps extends HubspotEventHandlers, AnalyticsEventsB
 }
 
 //cards
-export interface PartnerProps extends CardBaseProps {
-    text: string;
-    logo: ImageProps;
-    url: string;
-}
-
 export interface QuoteProps extends Themable, CardBaseProps {
     text: string;
     image: ThemedImage;
@@ -174,10 +164,6 @@ export type BackgroundCardModel = {
     type: SubBlockType.BackgroundCard;
 } & BackgroundCardProps;
 
-export type PartnerModel = {
-    type: SubBlockType.Partner;
-} & PartnerProps;
-
 export type PriceDetailedModel = {
     type: SubBlockType.PriceDetailed;
 } & PriceDetailedProps;
@@ -202,7 +188,6 @@ export type SubBlockModels =
     | DividerModel
     | QuoteModel
     | NewsCardModel
-    | PartnerModel
     | PriceDetailedModel
     | MediaCardModel
     | BackgroundCardModel

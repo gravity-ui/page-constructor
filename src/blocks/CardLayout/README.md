@@ -17,7 +17,6 @@
 The following blocks are currently supported:
 
 - [`BasicCard` — Basic card](?path=/story/components-cards-basiccard--default&viewMode=docs)
-- [`Partner` — Partner card](?path=/story/components-cards-partner--default&viewMode=docs)
 - [`Price Detailed` — Pricing](?path=/story/components-cards-pricedetailed--marked-list&viewMode=docs)
 - [`BackgroundCard` — Background card](?path=/story/components-cards-backgroundcard--default&viewMode=docs)
 - [`LayoutItem` — Component part of `Layout` component, consists with `Media` and `Content`](?path=/story/components-cards-layoutitem--default&viewMode=docs)
