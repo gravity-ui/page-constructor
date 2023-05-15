@@ -28,8 +28,10 @@ function compileTs(modules = false) {
         '!src/demo/**/*.{js,jsx,ts,tsx}',
         '!src/stories/**/*.{js,jsx,ts,tsx}',
         '!src/**/__stories__/**/*.{js,jsx,ts,tsx}',
+        '!src/**/__tests__/**/*',
         '!src/server.ts',
         '!src/configure.ts',
+        '!test-utils/**/*',
     ])
         .pipe(
             replace(/import '.+\.scss';/g, (match) =>
@@ -54,6 +56,8 @@ task('copy-js-declarations', () => {
         '!src/demo/**/*.d.ts',
         '!src/stories/**/*.d.ts',
         '!src/**/__stories__/**/*.d.ts',
+        '!src/**/__tests__/**/*.d.ts',
+        '!test-utils/**/*.d.ts',
     ])
         .pipe(dest(path.resolve(BUILD_CLIENT_DIR, ESM_DIR)))
         .pipe(dest(path.resolve(BUILD_CLIENT_DIR, CJS_DIR)));
