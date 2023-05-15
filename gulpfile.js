@@ -24,10 +24,10 @@ function compileTs(modules = false) {
     });
 
     return src([
-        'src/**/*.{js,jsx,ts,tsx}',
-        '!src/demo/**/*.{js,jsx,ts,tsx}',
-        '!src/stories/**/*.{js,jsx,ts,tsx}',
-        '!src/**/__stories__/**/*.{js,jsx,ts,tsx}',
+        'src/**/*.{ts,tsx}',
+        '!src/demo/**/*',
+        '!src/stories/**/*',
+        '!src/**/__stories__/**/*',
         '!src/**/__tests__/**/*',
         '!src/server.ts',
         '!src/configure.ts',
