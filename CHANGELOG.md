@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.18.0](https://github.com/gravity-ui/page-constructor/compare/v2.18.0...v2.18.0) (2023-05-15)
+
+
+### Bug Fixes
+
+* config gulpfile for tests ([a5cb59d](https://github.com/gravity-ui/page-constructor/commit/a5cb59d0bc1e3a8c09babed0c5ace9a2253416c3))
+
 ## [2.18.0](https://github.com/gravity-ui/page-constructor/compare/v2.17.0...v2.18.0) (2023-05-15)
 
 
