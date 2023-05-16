@@ -48,7 +48,14 @@ export const MediaBase = (props: MediaBaseProps) => {
 
     return (
         <AnimateBlock className={b()} onScroll={onScroll} animate={animated}>
-            {mediaOnly && <Title className={b('header')} title={title} description={description} />}
+            {mediaOnly && (
+                <Title
+                    className={b('header')}
+                    title={title}
+                    description={description}
+                    colSizes={{all: 12}}
+                />
+            )}
             <Grid>
                 <Row
                     className={b('row', {
