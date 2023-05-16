@@ -329,12 +329,12 @@ export interface HeaderBreadCrumbsProps extends ClassNameProps {
     pixelEvents?: ButtonPixel;
 }
 
-export interface TitleProps extends Justifyable, TitleBaseProps {
+export interface TitleItemProps extends Justifyable, TitleItemBaseProps {
     navTitle?: string;
     anchor?: string;
 }
 
-export interface TitleBaseProps {
+export interface TitleItemBaseProps {
     text: string;
     textSize?: TextSize;
     url?: string;
@@ -428,7 +428,7 @@ export interface AuthorProps {
     dataQa?: string;
 }
 
-export interface BlockHeaderProps {
-    title?: TitleProps | string;
+export interface TitleProps {
+    title?: TitleItemProps | string;
     description?: string;
 }

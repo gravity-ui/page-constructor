@@ -1,110 +1,48 @@
-import React, {Fragment, ReactNode, useContext} from 'react';
+import React from 'react';
 
-import {HTML, ToggleArrow} from '../';
-import {LocationContext} from '../../context/locationContext';
-import {MobileContext} from '../../context/mobileContext';
-import {TextSize, TitleProps} from '../../models';
-import {block, getHeaderTag, getLinkProps} from '../../utils';
-import Anchor from '../Anchor/Anchor';
+import {Col, GridColumnSizesType} from '../../grid';
+import {ClassNameProps, TitleItemProps, TitleProps as TitleParams} from '../../models';
+import {block} from '../../utils';
+import YFMWrapper from '../YFMWrapper/YFMWrapper';
+
+import TitleItem from './TitleItem';
 
 import './Title.scss';
 
-const b = block('title-block');
+const b = block('title');
 
-export function getArrowSize(size: TextSize, isMobile: boolean) {
-    switch (size) {
-        case 'xs':
-            return 13;
-        case 's':
-            return 16;
-        case 'm':
-            return isMobile ? 22 : 24;
-        case 'l':
-            return isMobile ? 26 : 38;
-        default:
-            return 20;
-    }
+export interface TitleProps extends TitleParams {
+    colSizes?: GridColumnSizesType;
 }
 
-export interface TitleFullProps extends TitleProps {
-    className?: string;
-    onClick?: () => void;
-    dataQa?: string;
-    resetMargin?: boolean;
-}
-
-const Title = (props: TitleFullProps) => {
-    const isMobile = useContext(MobileContext);
-
-    const {
-        textSize = 'm',
-        text,
-        anchor,
-        justify,
-        url,
-        onClick,
-        custom,
-        className,
-        dataQa,
-        resetMargin = true,
-    } = props;
-
-    const {hostname} = useContext(LocationContext);
-    const textMarkup = (
-        <React.Fragment>
-            <HTML className={b('text')}>{text}</HTML>
-            {custom && (
-                <React.Fragment>
-                    &nbsp;
-                    <span className={b('custom')}>{custom}</span>
-                </React.Fragment>
-            )}
-        </React.Fragment>
-    );
-    let content: ReactNode;
-
-    const insideClickableContent = (
-        <span className={b('wrapper')}>
-            {textMarkup}
-            &nbsp;
-            <ToggleArrow
-                className={b('arrow', {size: textSize})}
-                size={getArrowSize(textSize, isMobile)}
-                type={'horizontal'}
-                iconType="navigation"
-                open={false}
-            />
-        </span>
-    );
-
-    if (!url && !onClick) {
-        content = textMarkup;
-    } else if (url) {
-        content = (
-            <a className={b('link')} href={url} {...getLinkProps(url, hostname)} onClick={onClick}>
-                {insideClickableContent}
-            </a>
-        );
-    } else if (onClick) {
-        content = (
-            <span className={b('link')} onClick={onClick}>
-                {insideClickableContent}
-            </span>
-        );
+const Title = ({
+    title,
+    description,
+    className,
+    colSizes = {all: 12, sm: 8},
+}: TitleProps & ClassNameProps) => {
+    if (!title && !description) {
+        return null;
     }
+
+    const {text, ...titleProps} =
+        !title || typeof title === 'string' ? ({text: title} as TitleItemProps) : title;
 
     return (
-        <Fragment>
-            {anchor && <Anchor id={anchor} className={b('anchor')} />}
-            {React.createElement(
-                getHeaderTag(textSize),
-                {
-                    className: b({size: textSize, justify, 'reset-margin': resetMargin}, className),
-                    'data-qa': `${dataQa}-header`,
-                },
-                content,
+        <div className={b(null, className)}>
+            {text && (
+                <Col reset sizes={colSizes}>
+                    <TitleItem text={text} {...titleProps} />
+                </Col>
             )}
-        </Fragment>
+            {description && (
+                <Col reset sizes={colSizes}>
+                    <div className={b('description', {titleSize: titleProps?.textSize})}>
+                        <YFMWrapper content={description} modifiers={{constructor: true}} />
+                    </div>
+                </Col>
+            )}
+        </div>
     );
 };
 

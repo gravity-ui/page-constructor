@@ -5,7 +5,7 @@ export {default as BackgroundMedia} from './BackgroundMedia/BackgroundMedia';
 export {default as BackLink} from './BackLink/BackLink';
 export {default as BalancedMasonry} from './BalancedMasonry/BalancedMasonry';
 export {default as BlockBase} from './BlockBase/BlockBase';
-export {default as BlockHeader} from './BlockHeader/BlockHeader';
+export {default as BlockHeader} from './Title/Title';
 export {default as Button} from './Button/Button';
 export {default as CardBase} from './CardBase/CardBase';
 export {default as ErrorWrapper} from './ErrorWrapper/ErrorWrapper';
