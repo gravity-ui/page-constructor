@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {PageConstructor} from '../../../src/containers/PageConstructor';
-import {useEditor} from '../../../src/hooks/useEditor';
+import {EditorBlockId, useEditor} from '../../../src/hooks/useEditor';
 import {PageData} from '../../../src/models';
 
 export interface EditorProps {
@@ -10,9 +10,9 @@ export interface EditorProps {
 }
 
 export interface ConstructorEditorProps {
-    activeBlockId: number;
-    onSelect: (index: number) => void;
-    onDelete: (index: number) => void;
+    activeBlockId: EditorBlockId;
+    onSelect: (index: EditorBlockId) => void;
+    onDelete: (index: EditorBlockId) => void;
     onOrderChange: (index: number, newIndex: number) => void;
 }
 

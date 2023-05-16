@@ -4,6 +4,7 @@
 $block: '.#{$ns}block-base-edit';
 
 #{$block} {
+    $controlsIndent: $indentXXS;
     $controlColor: var(--yc-color-line-selection-active);
 
     cursor: pointer;
@@ -11,27 +12,26 @@ $block: '.#{$ns}block-base-edit';
 
     &__controls {
         position: absolute;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        // pointer-events: none;
-        display: none;
-        border: 4px solid $controlColor;
+        width: calc(100% + $controlsIndent * 2);
+        height: calc(100% + $controlsIndent * 2);
+        top: -#{$controlsIndent};
+        left: -#{$controlsIndent};
         border-radius: 8px;
         z-index: 100;
 
-        &_visible {
-            display: block;
+        &_active {
+            border: 4px solid $controlColor;
         }
+    }
+
+    &__controls-content {
+        position: relative;
     }
 
     &__delete {
         position: absolute;
-        top: 0;
-        right: 0;
-        width: 24px;
-        height: 24px;
+        top: $controlsIndent;
+        right: $controlsIndent;
         color: $controlColor;
     }
 }
