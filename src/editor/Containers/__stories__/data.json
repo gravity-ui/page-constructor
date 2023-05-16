@@ -1,0 +1,198 @@
+{
+  "default": {
+    "data": {
+      "content": {
+        "background": {
+          "light": {
+            "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/header-bg-video_light.png",
+            "color": "#EFF2F8"
+          },
+          "dark": {
+            "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/header-bg-video_dark.png",
+            "color": "#262626"
+          }
+        },
+        "blocks": [
+          {
+            "type": "header-block",
+            "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+            "description": "<p> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p> ",
+            "width": "m",
+            "verticalOffset": "m",
+            "buttons": [
+              {
+                "text": "Button\r",
+                "theme": "action",
+                "url": "https://example.com"
+              },
+              {
+                "text": "Button",
+                "theme": "outlined",
+                "url": "#"
+              }
+            ]
+          },
+          {
+            "type": "slider-block",
+            "title": {
+              "text": "Slider",
+              "url": "https://example.com"
+            },
+            "children": [
+              {
+                "type": "basic-card",
+                "url": "https://example.com",
+                "title": "Lorem ipsum dolor sit amet",
+                "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                "icon": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_1_light.svg"
+              },
+              {
+                "type": "basic-card",
+                "url": "https://example.com",
+                "title": "Lorem ipsum dolor sit amet",
+                "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                "icon": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_2_light.svg"
+              },
+              {
+                "type": "basic-card",
+                "url": "https://example.com",
+                "title": "Lorem ipsum dolor sit amet",
+                "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                "icon": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_3_light.svg"
+              },
+              {
+                "type": "basic-card",
+                "url": "https://example.com",
+                "title": "Lorem ipsum dolor sit amet",
+                "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                "icon": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_4_light.svg"
+              },
+              {
+                "type": "basic-card",
+                "url": "https://example.com",
+                "title": "Lorem ipsum dolor sit amet",
+                "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                "icon": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_1_light.svg"
+              }
+            ]
+          },
+          {
+            "type": "card-layout-block",
+            "title": "Full screen youtube test",
+            "children": [
+              {
+                "type": "layout-item",
+                "content": {
+                  "title": "Lorem ipsum",
+                  "text": "Dolor sit amet"
+                },
+                "media": {
+                  "youtube": "https://youtu.be/0Qd3T6skprA",
+                  "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.png"
+                },
+                "metaInfo": ["one", "two", "three"],
+                "fullScreen": true
+              },
+              {
+                "type": "layout-item",
+                "content": {
+                  "title": "Lorem ipsum",
+                  "text": "Dolor sit amet"
+                },
+                "media": {
+                  "youtube": "https://youtu.be/0Qd3T6skprA",
+                  "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.png"
+                },
+                "metaInfo": ["one", "two", "three"],
+                "fullScreen": true
+              },
+              {
+                "type": "layout-item",
+                "content": {
+                  "title": "Lorem ipsum",
+                  "text": "Dolor sit amet"
+                },
+                "media": {
+                  "youtube": "https://youtu.be/0Qd3T6skprA",
+                  "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.png"
+                },
+                "metaInfo": ["one", "two", "three"],
+                "fullScreen": true
+              },
+              {
+                "type": "layout-item",
+                "content": {
+                  "title": "Lorem ipsum",
+                  "text": "Dolor sit amet"
+                },
+                "media": {
+                  "youtube": "https://youtu.be/0Qd3T6skprA",
+                  "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.png"
+                },
+                "metaInfo": ["one", "two", "three"],
+                "fullScreen": true
+              },
+              {
+                "type": "layout-item",
+                "content": {
+                  "title": "Lorem ipsum",
+                  "text": "Dolor sit amet"
+                },
+                "media": {
+                  "youtube": "https://youtu.be/0Qd3T6skprA",
+                  "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.png"
+                },
+                "metaInfo": ["one", "two", "three"],
+                "fullScreen": true
+              },
+              {
+                "type": "layout-item",
+                "content": {
+                  "title": "Lorem ipsum",
+                  "text": "Dolor sit amet"
+                },
+                "media": {
+                  "youtube": "https://youtu.be/0Qd3T6skprA",
+                  "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.png"
+                },
+                "metaInfo": ["one", "two", "three"],
+                "fullScreen": true
+              },
+              {
+                "type": "layout-item",
+                "content": {
+                  "title": "Lorem ipsum",
+                  "text": "Dolor sit amet"
+                },
+                "media": {
+                  "youtube": "https://youtu.be/0Qd3T6skprA",
+                  "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.png"
+                },
+                "metaInfo": ["one", "two", "three"],
+                "fullScreen": true
+              }
+            ]
+          },
+          {
+            "type": "banner-block",
+            "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+            "subtitle": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> ",
+            "image": {
+              "light": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_light.png",
+              "dark": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_dark.png"
+            },
+            "disableCompress": true,
+            "color": {
+              "light": "#EFF2F8",
+              "dark": "#262626"
+            },
+            "button": {
+              "text": "Learn more",
+              "url": "https://example.com"
+            }
+          }
+        ]
+      }
+    }
+  }
+}

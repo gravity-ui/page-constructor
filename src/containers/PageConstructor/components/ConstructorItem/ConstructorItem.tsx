@@ -1,6 +1,5 @@
 import React, {useContext} from 'react';
 
-import {BlockIdContext} from '../../../../context/blockIdContext';
 import {InnerContext} from '../../../../context/innerContext';
 import {ConstructorItem as ConstructorItemType, WithChildren} from '../../../../models';
 
@@ -9,7 +8,7 @@ export interface ConstructorItemProps {
     blockKey: string;
 }
 
-export const ConstructorItem = ({data, blockKey, children}: WithChildren<ConstructorItemProps>) => {
+export const ConstructorItem = ({data, children}: WithChildren<ConstructorItemProps>) => {
     const {itemMap} = useContext(InnerContext);
     const {type, ...rest} = data;
 
@@ -17,11 +16,7 @@ export const ConstructorItem = ({data, blockKey, children}: WithChildren<Constru
         React.ComponentProps<typeof itemMap[typeof type]>
     >;
 
-    return (
-        <BlockIdContext.Provider value={blockKey}>
-            <Component {...rest}>{children}</Component>
-        </BlockIdContext.Provider>
-    );
+    return <Component {...rest}>{children}</Component>;
 };
 
 export const ConstructorHeader = ({

@@ -2,6 +2,7 @@ import React, {useContext, useMemo} from 'react';
 
 import '@doc-tools/transform/dist/js/yfm';
 
+import {ConstructorEditorProps} from '../../../src/editor/Containers/Editor';
 import BackgroundMedia from '../../components/BackgroundMedia/BackgroundMedia';
 import {blockMap, subBlockMap} from '../../constructor-items';
 import {AnimateContext} from '../../context/animateContext';
@@ -47,6 +48,7 @@ export interface PageConstructorProps {
     custom?: CustomConfig;
     renderMenu?: () => React.ReactNode;
     navigation?: NavigationData;
+    editor?: ConstructorEditorProps;
 }
 
 export const Constructor = (props: PageConstructorProps) => {
@@ -56,6 +58,7 @@ export const Constructor = (props: PageConstructorProps) => {
         shouldRenderBlock,
         navigation,
         custom,
+        editor,
     } = props;
 
     const {context} = useMemo(
@@ -71,9 +74,10 @@ export const Constructor = (props: PageConstructorProps) => {
                 },
                 loadables: custom?.loadable,
                 shouldRenderBlock,
+                editor,
             },
         }),
-        [custom, shouldRenderBlock],
+        [custom, shouldRenderBlock, editor],
     );
 
     const {themeValue: theme} = useContext(ThemeValueContext);

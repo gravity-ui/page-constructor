@@ -2,6 +2,7 @@ import React, {Fragment, ReactElement, useContext} from 'react';
 
 import _ from 'lodash';
 
+import {BlockIdContext} from '../../../../../src/context/blockIdContext';
 import {InnerContext} from '../../../../context/innerContext';
 import {Block, ConstructorItem as ConstructorItemType} from '../../../../models';
 import {getBlockKey} from '../../../../utils';
@@ -63,12 +64,16 @@ export const ConstructorBlocks: React.FC<ConstructorBlocksProps> = ({items}) => 
             );
         }
 
-        return blockTypes.includes(item.type) ? (
-            <ConstructorBlock data={item as Block} key={blockId}>
-                {itemElement}
-            </ConstructorBlock>
-        ) : (
-            itemElement
+        return (
+            <BlockIdContext.Provider value={blockId}>
+                {blockTypes.includes(item.type) ? (
+                    <ConstructorBlock data={item as Block} key={blockId}>
+                        {itemElement}
+                    </ConstructorBlock>
+                ) : (
+                    itemElement
+                )}
+            </BlockIdContext.Provider>
         );
     };
 

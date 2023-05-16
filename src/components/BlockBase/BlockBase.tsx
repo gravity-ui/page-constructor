@@ -1,15 +1,16 @@
-import React from 'react';
+import React, {PropsWithChildren} from 'react';
 
 import {Col} from '../../grid';
-import {BlockBaseProps, ClassNameProps, WithChildren} from '../../models';
+import {BlockBaseProps, ClassNameProps} from '../../models';
 import {block} from '../../utils';
 import Anchor from '../Anchor/Anchor';
+import BlockBaseEdit from '../BlockBaseEdit/BlockBaseEdit';
 
 import './BlockBase.scss';
 
 const b = block('block-base');
 
-const BlockBase = (props: WithChildren<BlockBaseProps & ClassNameProps>) => {
+const BlockBase = (props: PropsWithChildren<BlockBaseProps & ClassNameProps>) => {
     const {anchor, visible, children, className, resetPaddings, qa} = props;
 
     return (
@@ -19,8 +20,10 @@ const BlockBase = (props: WithChildren<BlockBaseProps & ClassNameProps>) => {
             reset={true}
             dataQa={qa}
         >
-            {anchor && <Anchor id={anchor.url} className={b('anchor')} />}
-            {children}
+            <BlockBaseEdit>
+                {anchor && <Anchor id={anchor.url} className={b('anchor')} />}
+                {children}
+            </BlockBaseEdit>
         </Col>
     );
 };
