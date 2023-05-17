@@ -39,4 +39,3 @@ The following blocks are currently supported:
 - [`BackgroundCard` — Background card](?path=/story/components-cards-backgroundcard--default&viewMode=docs)
 - [`LayoutItem` — `Media` + `Content` components in one card-like view](?path=/story/components-cards-layoutitem--default&viewMode=docs)
 - [`MediaCard` — Card with an image](?path=/story/блоки-media--default&viewMode=docs)
-- [`NewsCard` — News card](?path=/story/components-cards-newscard--default&viewMode=docs)
