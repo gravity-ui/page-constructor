@@ -27,6 +27,7 @@ import {
     Divider,
     LayoutItem,
     MediaCard,
+    NewsCard,
     PriceDetailed,
     Quote,
 } from './sub-blocks';
@@ -57,6 +58,7 @@ export const subBlockMap = {
     [SubBlockType.PriceDetailed]: PriceDetailed,
     [SubBlockType.MediaCard]: MediaCard,
     [SubBlockType.BannerCard]: BannerCard,
+    [SubBlockType.NewsCard]: NewsCard,
     [SubBlockType.LayoutItem]: LayoutItem,
     [SubBlockType.BackgroundCard]: BackgroundCard,
     [SubBlockType.BasicCard]: BasicCard,

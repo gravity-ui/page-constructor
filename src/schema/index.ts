@@ -29,6 +29,7 @@ import {
     BasicCard,
     Divider,
     MediaCardBlock,
+    NewsCard,
     PriceDetailedBlock,
     Quote,
 } from './validators/sub-blocks';
@@ -79,6 +80,7 @@ export function generateDefaultSchema(config?: SchemaCustomConfig) {
         ...BannerCard,
         ...PriceDetailedBlock,
         ...BackgroundCard,
+        ...NewsCard,
         ...Quote,
         ...BasicCard,
     };
@@ -116,6 +118,7 @@ export function generateDefaultSchema(config?: SchemaCustomConfig) {
         'banner-card',
         'price-detailed',
         'background-card',
+        'news-card',
         'quote',
         'basic-card',
         'layout-item',
