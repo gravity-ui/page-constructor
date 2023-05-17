@@ -10,7 +10,6 @@ import {InnerContext} from '../../context/innerContext';
 import {ThemeValueContext} from '../../context/theme/ThemeValueContext';
 import {Grid} from '../../grid';
 import {
-    Block,
     BlockType,
     BlockTypes,
     CustomConfig,
@@ -28,6 +27,8 @@ import {
     getCustomHeaderTypes,
     getCustomItems,
     getCustomSubBlockTypes,
+    getHeaderBlock,
+    getOrderedBlocks,
     getThemedValue,
 } from '../../utils';
 
@@ -83,9 +84,8 @@ export const Constructor = (props: PageConstructorProps) => {
     const {themeValue: theme} = useContext(ThemeValueContext);
 
     const hasFootnotes = footnotes.length > 0;
-    const isHeaderBlock = (block: Block) => context.headerBlockTypes.includes(block.type);
-    const header = blocks?.find(isHeaderBlock);
-    const restBlocks = blocks?.filter((block) => !isHeaderBlock(block));
+    const header = getHeaderBlock(blocks, context.headerBlockTypes);
+    const restBlocks = getOrderedBlocks(blocks, context.headerBlockTypes);
     const themedBackground = getThemedValue(background, theme);
 
     return (

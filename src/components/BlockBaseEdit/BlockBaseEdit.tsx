@@ -1,9 +1,8 @@
 import React, {Fragment, PropsWithChildren, useContext} from 'react';
 
-import {Icon} from '@gravity-ui/uikit';
+import {ChevronDown, ChevronUp, Copy, TrashBin} from '@gravity-ui/icons';
 
 import {BlockIdContext} from '../../../src/context/blockIdContext';
-import {PreviewClose} from '../../../src/icons';
 import {InnerContext} from '../../context/innerContext';
 import {block} from '../../utils';
 
@@ -22,12 +21,11 @@ const BlockBaseEdit = ({children, id}: PropsWithChildren<BlockBaseEditProps>) =>
     const blockContenxtId = getBlockId(useContext(BlockIdContext));
     const blockId = id || blockContenxtId;
 
-    console.log('ID', blockId, useContext(BlockIdContext));
     if (!editor) {
         return <Fragment>{children}</Fragment>;
     }
 
-    const {activeBlockId, onDelete, onSelect} = editor;
+    const {activeBlockId, onDelete, onSelect, onCopy, onOrderChange} = editor;
     const controlsActive = blockId === activeBlockId;
 
     return (
@@ -39,9 +37,32 @@ const BlockBaseEdit = ({children, id}: PropsWithChildren<BlockBaseEditProps>) =>
         >
             <div className={b('controls', {active: controlsActive})}>
                 {controlsActive && (
-                    <div className={b('controlls-content')}>
-                        <div className={b('delete')} onClick={() => onDelete(blockId)}>
-                            <Icon size={32} data={PreviewClose} />
+                    <div className={b('controls-content')}>
+                        {typeof blockId === 'number' && (
+                            <Fragment>
+                                {blockId > 0 && (
+                                    <div
+                                        className={b('control')}
+                                        onClick={() => onOrderChange(blockId, blockId - 1)}
+                                    >
+                                        <ChevronUp />
+                                    </div>
+                                )}
+                                {blockId < editor.blocksCount - 1 && (
+                                    <div
+                                        className={b('control')}
+                                        onClick={() => onOrderChange(blockId, blockId + 1)}
+                                    >
+                                        <ChevronDown />
+                                    </div>
+                                )}
+                                <div className={b('control')} onClick={() => onCopy(blockId)}>
+                                    <Copy />
+                                </div>
+                            </Fragment>
+                        )}
+                        <div className={b('control')} onClick={() => onDelete(blockId)}>
+                            <TrashBin />
                         </div>
                     </div>
                 )}

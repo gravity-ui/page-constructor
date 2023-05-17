@@ -4,8 +4,9 @@
 $block: '.#{$ns}block-base-edit';
 
 #{$block} {
+    $controlIconHeight: 24px;
     $controlsIndent: $indentXXS;
-    $controlColor: var(--yc-color-line-selection-active);
+    $controlColor: var(--yc-color-promo-base-neon);
 
     cursor: pointer;
     position: relative;
@@ -25,13 +26,28 @@ $block: '.#{$ns}block-base-edit';
     }
 
     &__controls-content {
-        position: relative;
+        display: flex;
+        position: absolute;
+        bottom: calc(($controlsIndent + $controlIconHeight) * -1);
+        left: 50%;
+        transform: translateX(-50%);
     }
 
-    &__delete {
-        position: absolute;
-        top: $controlsIndent;
-        right: $controlsIndent;
-        color: $controlColor;
+    &__control {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: $controlIconHeight;
+        height: $controlIconHeight;
+        border-radius: 4px;
+        background-color: var(--yc-color-promo-highlight-neon);
+
+        &:not(:first-child) {
+            margin-left: $indentXXS;
+        }
+
+        &:hover {
+            transform: scale(1.1);
+        }
     }
 }
