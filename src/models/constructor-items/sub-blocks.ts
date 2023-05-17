@@ -23,7 +23,6 @@ import {
 export enum SubBlockType {
     Divider = 'divider',
     Quote = 'quote',
-    NewsCard = 'news-card',
     /**
      * @deprecated Will be removed
      */
@@ -94,18 +93,6 @@ export interface QuoteProps extends Themable, CardBaseProps {
     theme?: TextTheme;
 }
 
-export interface NewsCardData {
-    id: number;
-    slug: string;
-    title: string;
-    date: string;
-    url: string;
-    isoDate?: string;
-}
-
-export type NewsCardProps = Pick<NewsCardData, 'title' | 'url' | 'date' | 'isoDate'> &
-    CardBaseProps;
-
 export interface BackgroundCardProps
     extends CardBaseProps,
         Omit<ContentBlockProps, 'colSizes' | 'centered'> {
@@ -152,10 +139,6 @@ export type QuoteModel = {
     type: SubBlockType.Quote;
 } & QuoteProps;
 
-export type NewsCardModel = {
-    type: SubBlockType.NewsCard;
-} & NewsCardProps;
-
 export type LayoutItemModel = {
     type: SubBlockType.LayoutItem;
 } & LayoutItemProps;
@@ -187,7 +170,6 @@ export type BasicCardModel = {
 export type SubBlockModels =
     | DividerModel
     | QuoteModel
-    | NewsCardModel
     | PriceDetailedModel
     | MediaCardModel
     | BackgroundCardModel
