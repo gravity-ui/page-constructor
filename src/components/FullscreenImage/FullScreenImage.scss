@@ -7,14 +7,6 @@ $closeButtonSize: 36px;
 #{$block} {
     &__image {
         cursor: pointer;
-
-        &-wrapper {
-            position: relative;
-        }
-    }
-
-    &__modal-content {
-        position: relative;
     }
 
     &__modal-image {
@@ -23,39 +15,8 @@ $closeButtonSize: 36px;
         max-height: 70vh;
 
         overflow: hidden;
-    }
 
-    &__modal .yc-modal__content,
-    &__modal-image {
         border-radius: $borderRadius;
-    }
-
-    &__icon-wrapper {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: absolute;
-        right: $indentXS;
-        top: $indentXS;
-        width: $closeButtonSize;
-        height: $closeButtonSize;
-        border-radius: 8px;
-        background-color: var(--yc-color-base-simple-hover-solid);
-        cursor: pointer;
-        opacity: 0;
-        transition: 0.3s;
-
-        &_visible {
-            opacity: 1;
-        }
-    }
-
-    &__icon {
-        color: var(--yc-color-text-hint);
-
-        &_hover:hover {
-            color: var(--yc-color-text-secondary);
-        }
     }
 
     @media (max-width: map-get($gridBreakpoints, 'xl')) {
@@ -67,14 +28,6 @@ $closeButtonSize: 36px;
     @media (max-width: map-get($gridBreakpoints, 'lg')) {
         &__image {
             pointer-events: none;
-        }
-
-        &__icon-wrapper {
-            display: none;
-        }
-
-        &__modal {
-            display: none !important; /* stylelint-disable-line declaration-no-important */
         }
     }
 }
