@@ -1,0 +1,103 @@
+{
+  "type": "questions-block",
+  "title": "Lorem ipsum",
+  "text": "<p>Dolor sit amet, consectetur adipiscing elit <a href=\"https://example.com\">sed do eiusmod</a> tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> ",
+  "additionalInfo": "<p>Dolor sit amet <a href=\"https://example.com\">consectetur adipiscing</a>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> ",
+  "links": [
+    {
+      "url": "/security",
+      "text": "Learn more",
+      "theme": "normal",
+      "arrow": true
+    }
+  ],
+  "buttons": [
+    {
+      "text": "Button\r",
+      "theme": "action",
+      "url": "https://example.com"
+    }
+  ],
+  "items": [
+    {
+      "title": "Lorem ipsum dolor sit amet 0",
+      "text": "<p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> ",
+      "link": {
+        "url": "#",
+        "text": "Documentation",
+        "theme": "normal",
+        "arrow": true
+      }
+    },
+    {
+      "title": "Ut enim ad minim veniam, quis nostrud exercitation ullamco? 1",
+      "text": "<p>laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> ",
+      "link": {
+        "url": "#",
+        "text": "Documentation",
+        "theme": "normal",
+        "arrow": true
+      }
+    },
+    {
+      "title": "Lorem ipsum dolor sit amet 2",
+      "text": "<p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> ",
+      "link": {
+        "url": "#",
+        "text": "Documentation",
+        "theme": "normal",
+        "arrow": true
+      }
+    },
+    {
+      "title": "Ut enim ad minim veniam, quis nostrud exercitation ullamco? 3",
+      "text": "<p>laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> ",
+      "link": {
+        "url": "#",
+        "text": "Documentation",
+        "theme": "normal",
+        "arrow": true
+      }
+    },
+    {
+      "title": "Lorem ipsum dolor sit amet 4",
+      "text": "<p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> ",
+      "link": {
+        "url": "#",
+        "text": "Documentation",
+        "theme": "normal",
+        "arrow": true
+      }
+    },
+    {
+      "title": "Ut enim ad minim veniam, quis nostrud exercitation ullamco? 5",
+      "text": "<p>laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> ",
+      "link": {
+        "url": "#",
+        "text": "Documentation",
+        "theme": "normal",
+        "arrow": true
+      }
+    },
+    {
+      "title": "Lorem ipsum dolor sit amet 6",
+      "text": "<p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> ",
+      "link": {
+        "url": "#",
+        "text": "Documentation",
+        "theme": "normal",
+        "arrow": true
+      }
+    },
+    {
+      "title": "Ut enim ad minim veniam, quis nostrud exercitation ullamco? 7",
+      "text": "<p>laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> ",
+      "link": {
+        "url": "#",
+        "text": "Documentation",
+        "theme": "normal",
+        "arrow": true
+      }
+    }
+  ]
+}

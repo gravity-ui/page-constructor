@@ -1,7 +1,8 @@
 import React from 'react';
 
 import {PageConstructor} from '../../../src/containers/PageConstructor';
-import {CustomConfig, PageData} from '../../../src/models';
+import {Block, CustomConfig, PageData} from '../../../src/models';
+import AddBlockControl from '../Components/AddBlockControl/AddBlockControl';
 import {EditorBlockId, useEditor} from '../hooks/useEditor';
 
 export interface EditorProps {
@@ -18,13 +19,19 @@ export interface ConstructorEditorProps {
     onSelect: (index: EditorBlockId) => void;
     onDelete: (index: EditorBlockId) => void;
     onCopy: (index: number) => void;
+    onAdd: (data: Block) => void;
     onOrderChange: (index: number, newIndex: number) => void;
 }
 
 const Editor = ({data: initialData, custom}: EditorProps) => {
     const {data, editor} = useEditor(initialData, custom);
 
-    return <PageConstructor editor={editor} {...data} />;
+    return (
+        <div>
+            <PageConstructor editor={editor} {...data} />
+            <AddBlockControl onAdd={editor.onAdd} />
+        </div>
+    );
 };
 
 export default Editor;

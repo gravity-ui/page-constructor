@@ -2,7 +2,7 @@ import {useMemo, useState} from 'react';
 
 import {Block, CustomConfig, HeaderBlockTypes, PageData} from '../../models';
 import {getCustomHeaderTypes, getHeaderBlock, getOrderedBlocks} from '../../utils';
-import {addEditorProps, changeBlocksOrder, duplicateBlock} from '../utils';
+import {addBlock, addEditorProps, changeBlocksOrder, duplicateBlock} from '../utils';
 
 export type EditorBlockId = number | string;
 
@@ -52,6 +52,25 @@ export function useEditor(initialData: PageData, custom?: CustomConfig) {
                 },
             });
         };
+        const onAdd = (block: Block) => {
+            let blocks;
+
+            if (headerBlockTypes.includes(block.type)) {
+                blocks = header ? blocks : [block, ...orderedBlocks];
+            } else {
+                blocks = withHeader(addBlock(orderedBlocks, block, activeBlockId));
+            }
+
+            if (blocks) {
+                setData({
+                    ...data,
+                    content: {
+                        ...data.content,
+                        blocks,
+                    },
+                });
+            }
+        };
 
         return {
             data,
@@ -62,6 +81,7 @@ export function useEditor(initialData: PageData, custom?: CustomConfig) {
                 onSelect,
                 onOrderChange,
                 onCopy,
+                onAdd,
             },
         };
     }, [data, activeBlockId]);

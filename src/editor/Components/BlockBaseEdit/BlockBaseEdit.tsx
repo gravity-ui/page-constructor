@@ -2,9 +2,9 @@ import React, {Fragment, PropsWithChildren, useContext} from 'react';
 
 import {ChevronDown, ChevronUp, Copy, TrashBin} from '@gravity-ui/icons';
 
-import {BlockIdContext} from '../../../src/context/blockIdContext';
-import {InnerContext} from '../../context/innerContext';
-import {block} from '../../utils';
+import {BlockIdContext} from '../../../context/blockIdContext';
+import {InnerContext} from '../../../context/innerContext';
+import {block} from '../../../utils';
 
 import './BlockBaseEdit.scss';
 

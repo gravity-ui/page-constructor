@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 
-import BlockBaseEdit from '../../../../../src/components/BlockBaseEdit/BlockBaseEdit';
 import {InnerContext} from '../../../../context/innerContext';
+import BlockBaseEdit from '../../../../editor/Components/BlockBaseEdit/BlockBaseEdit';
 import {BlockType, ConstructorItem as ConstructorItemType, WithChildren} from '../../../../models';
 
 export interface ConstructorItemProps {
