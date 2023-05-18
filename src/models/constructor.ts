@@ -14,7 +14,6 @@ export interface PageContent extends Animatable {
     blocks: Block[];
     menu?: Menu;
     background?: ThemedMediaProps;
-    footnotes?: string[];
 }
 
 export interface InitConstrucorState {
