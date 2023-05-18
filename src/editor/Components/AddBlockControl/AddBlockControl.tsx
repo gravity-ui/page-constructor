@@ -5,7 +5,9 @@ import {Popup} from '@gravity-ui/uikit';
 
 import {blockMap} from '../../../../src/constructor-items';
 import {TemplatesMap} from '../../../../src/editor/templates';
+import {formatBlockName} from '../../../../src/editor/utils';
 import {Block, BlockType} from '../../../../src/models';
+import {Default} from '../../../icons/editor/preview/Default';
 import {block} from '../../../utils';
 
 import './AddBlockControl.scss';
@@ -45,9 +47,11 @@ const AddBlockControl = ({onAdd}: PropsWithChildren<AddBlockControlProps>) => {
                                     setIsOpened(false);
                                 }}
                             >
-                                <div className={b('preview')} />
+                                <div className={b('preview')}>
+                                    <Default />
+                                </div>
                                 <div className={b('info')}>
-                                    <h4 className={b('title')}>{blockName}</h4>
+                                    <h4 className={b('title')}>{formatBlockName(blockName)}</h4>
                                 </div>
                             </div>
                         ))}

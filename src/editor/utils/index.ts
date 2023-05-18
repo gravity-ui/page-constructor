@@ -1,3 +1,5 @@
+import _ from 'lodash';
+
 import {Block, PageData} from '../../../src/models';
 import {EditorBlockId} from '../hooks/useEditor';
 
@@ -32,3 +34,5 @@ export const addBlock = (array: Block[], block: Block, id: EditorBlockId) => {
 export const addEditorProps = (data: PageData) => {
     return {...data, content: {...data.content, animated: false}};
 };
+
+export const formatBlockName = (name: string) => _.capitalize(name).replace(/(block|-)/g, '');
