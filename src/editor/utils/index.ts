@@ -25,8 +25,9 @@ export const addBlock = (array: Block[], block: Block, id: EditorBlockId) => {
         return result.concat(block);
     }
 
-    const index = typeof id === 'string' ? 0 : id;
-    result.splice(index + 1, 0, block);
+    // id === 'string' - header block
+    const index = typeof id === 'string' ? 0 : id + 1;
+    result.splice(index, 0, block);
 
     return result;
 };
