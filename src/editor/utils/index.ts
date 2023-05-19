@@ -36,4 +36,4 @@ export const addEditorProps = (data: PageData) => {
     return {...data, content: {...data.content, animated: false}};
 };
 
-export const formatBlockName = (name: string) => _.capitalize(name).replace(/(block|-)/g, '');
+export const formatBlockName = (name: string) => _.capitalize(name).replace(/(block|-)/g, ' ');

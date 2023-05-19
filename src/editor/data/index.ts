@@ -19,4 +19,4 @@ export const EdiorBlocksData = Object.values(BlockType).reduce((result, blockTyp
     } as EdiorBlockData;
 
     return result;
-}, {} as Partial<Record<BlockType, EdiorBlockData>>);
+}, {} as Record<BlockType, EdiorBlockData>);

@@ -1,0 +1,40 @@
+{
+  "template": {
+    "type": "info-block",
+    "theme": "light",
+    "backgroundColor": "#eef3fe",
+    "leftContent": {
+      "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "buttons": [
+        {
+          "text": "Button",
+          "theme": "action",
+          "url": "#"
+        },
+        {
+          "text": "Button",
+          "theme": "outlined",
+          "url": "#"
+        }
+      ]
+    },
+    "rightContent": {
+      "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "links": [
+        {
+          "url": "#",
+          "text": "Link",
+          "theme": "normal",
+          "arrow": true
+        },
+        {
+          "url": "#",
+          "text": "Link",
+          "theme": "normal",
+          "arrow": true
+        }
+      ],
+      "title": "Lorem ipsum dolor sit amet"
+    }
+  }
+}

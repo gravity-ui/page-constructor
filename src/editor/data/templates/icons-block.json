@@ -1,0 +1,32 @@
+{
+  "template": {
+    "type": "icons-block",
+    "items": [
+      {
+        "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icons-link_1_64.svg",
+        "text": "Lorem ipsum dolor sit amet",
+        "url": "#"
+      },
+      {
+        "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icons-link_2_64.svg",
+        "text": "Lorem ipsum dolor sit amet",
+        "url": "#"
+      },
+      {
+        "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icons-link_3_64.svg",
+        "text": "Lorem ipsum dolor sit amet",
+        "url": "#"
+      },
+      {
+        "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icons-link_4_64.svg",
+        "text": "Lorem ipsum dolor sit amet",
+        "url": "#"
+      },
+      {
+        "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icons-link_5_64.svg",
+        "text": "Lorem ipsum dolor sit amet",
+        "url": "#"
+      }
+    ]
+  }
+}

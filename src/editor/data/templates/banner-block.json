@@ -1,8 +1,4 @@
 {
-  "meta": {
-    "title": "Banner block",
-    "description": "This is a banner block"
-  },
   "template": {
     "theme": "light",
     "type": "banner-block",
@@ -21,5 +17,9 @@
       "text": "Learn more",
       "url": "https://example.com"
     }
+  },
+  "meta": {
+    "title": "Banner",
+    "description": "This is banner block"
   }
 }

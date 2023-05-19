@@ -7,7 +7,7 @@ import {addBlock, addEditorProps, changeBlocksOrder, duplicateBlock} from '../ut
 export type EditorBlockId = number | string;
 
 export function useEditor(initialData: PageData, custom?: CustomConfig) {
-    const [activeBlockId, setActiveBlockId] = useState<EditorBlockId>(-1);
+    const [activeBlockId, setActiveBlockId] = useState<EditorBlockId>(0);
     const [data, setData] = useState(() => addEditorProps(initialData));
 
     return useMemo(() => {
