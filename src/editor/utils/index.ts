@@ -18,15 +18,17 @@ export const duplicateBlock = (array: Block[], index: number) => {
     return result;
 };
 
-export const addBlock = (array: Block[], block: Block, id: EditorBlockId) => {
-    const result = [...array];
-
+export const getNewBlockIndex = (id: EditorBlockId, blocksCount: number) => {
     if (id === -1) {
-        return result.concat(block);
+        return blocksCount;
     }
 
     // id === 'string' - header block
-    const index = typeof id === 'string' ? 0 : id + 1;
+    return typeof id === 'string' ? 0 : id + 1;
+};
+
+export const addBlock = (array: Block[], block: Block, index: number) => {
+    const result = [...array];
     result.splice(index, 0, block);
 
     return result;

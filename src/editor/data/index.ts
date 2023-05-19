@@ -20,6 +20,7 @@ const getBlockPreview = (blockType: BlockType) => {
     try {
         return require(`./previews/${blockType}.tsx`).default as PreviewComponent;
     } catch (err) {
+        /*eslint-disable  no-console */
         console.warn(`Preview image for ${blockType} not found`);
         return DefaultPreview;
     }
@@ -29,6 +30,7 @@ const EdiorBlocksData = Object.values(BlockType).reduce((previewData, blockType)
     const template = getBlockTemplate(blockType);
     const preview = getBlockPreview(blockType);
 
+    /* eslint-disable no-param-reassign */
     previewData[blockType] = {
         ...template,
         preview,

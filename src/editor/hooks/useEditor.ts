@@ -2,7 +2,13 @@ import {useMemo, useState} from 'react';
 
 import {Block, CustomConfig, HeaderBlockTypes, PageData} from '../../models';
 import {getCustomHeaderTypes, getHeaderBlock, getOrderedBlocks} from '../../utils';
-import {addBlock, addEditorProps, changeBlocksOrder, duplicateBlock} from '../utils';
+import {
+    addBlock,
+    addEditorProps,
+    changeBlocksOrder,
+    duplicateBlock,
+    getNewBlockIndex,
+} from '../utils';
 
 export type EditorBlockId = number | string;
 
@@ -42,6 +48,7 @@ export function useEditor(initialData: PageData, custom?: CustomConfig) {
                     blocks: withHeader(changeBlocksOrder(orderedBlocks, oldIndex, newIndex)),
                 },
             });
+            setActiveBlockId(newIndex);
         };
         const onCopy = (index: number) => {
             setData({
@@ -51,14 +58,18 @@ export function useEditor(initialData: PageData, custom?: CustomConfig) {
                     blocks: withHeader(duplicateBlock(orderedBlocks, index)),
                 },
             });
+            setActiveBlockId(index + 1);
         };
         const onAdd = (block: Block) => {
             let blocks;
 
             if (headerBlockTypes.includes(block.type)) {
                 blocks = header ? blocks : [block, ...orderedBlocks];
+                setActiveBlockId(block.type);
             } else {
-                blocks = withHeader(addBlock(orderedBlocks, block, activeBlockId));
+                const newBlockIndex = getNewBlockIndex(activeBlockId, orderedBlocks.length);
+                blocks = withHeader(addBlock(orderedBlocks, block, newBlockIndex));
+                setActiveBlockId(newBlockIndex);
             }
 
             if (blocks) {
@@ -84,5 +95,5 @@ export function useEditor(initialData: PageData, custom?: CustomConfig) {
                 onAdd,
             },
         };
-    }, [data, activeBlockId]);
+    }, [data, activeBlockId, custom]);
 }
