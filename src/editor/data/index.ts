@@ -1,22 +1,40 @@
 import {Block, BlockType} from '../../models';
 
-import previews from './previews';
-import templates from './templates';
+import DefaultPreview from './previews/default-preview';
+
+export type PreviewComponent = React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
 
 export interface EdiorBlockData {
     template: Block;
-    preview: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
+    preview: PreviewComponent;
     meta?: {
         title?: string;
         description?: string;
     };
 }
 
-export const EdiorBlocksData = Object.values(BlockType).reduce((result, blockType) => {
-    result[blockType] = {
-        ...templates[blockType],
-        preview: previews[blockType],
+const getBlockTemplate = (blockType: BlockType) =>
+    require(`./templates/${blockType}.json`) as Omit<EdiorBlockData, 'preview'>;
+
+const getBlockPreview = (blockType: BlockType) => {
+    try {
+        return require(`./previews/${blockType}.tsx`).default as PreviewComponent;
+    } catch (err) {
+        console.warn(`Preview image for ${blockType} not found`);
+        return DefaultPreview;
+    }
+};
+
+const EdiorBlocksData = Object.values(BlockType).reduce((previewData, blockType) => {
+    const template = getBlockTemplate(blockType);
+    const preview = getBlockPreview(blockType);
+
+    previewData[blockType] = {
+        ...template,
+        preview,
     } as EdiorBlockData;
 
-    return result;
+    return previewData;
 }, {} as Record<BlockType, EdiorBlockData>);
+
+export default EdiorBlocksData;

@@ -7,7 +7,7 @@ import {blockMap} from '../../../../src/constructor-items';
 import {formatBlockName} from '../../../../src/editor/utils';
 import {Block, BlockType} from '../../../../src/models';
 import {block} from '../../../utils';
-import {EdiorBlocksData} from '../../data';
+import EdiorBlocksData from '../../data';
 
 import './AddBlockControl.scss';
 
