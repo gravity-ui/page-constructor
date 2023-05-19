@@ -37,7 +37,7 @@ const BlockBaseEdit = ({children, id}: PropsWithChildren<BlockBaseEditProps>) =>
         >
             <div className={b('controls', {active: controlsActive})}>
                 {controlsActive && (
-                    <div className={b('controls-content')}>
+                    <div className={b('controls-content')} onClick={(e) => e.stopPropagation()}>
                         {typeof blockId === 'number' && (
                             <Fragment>
                                 {blockId > 0 && (

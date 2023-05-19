@@ -4,11 +4,10 @@ import {Plus} from '@gravity-ui/icons';
 import {Popup} from '@gravity-ui/uikit';
 
 import {blockMap} from '../../../../src/constructor-items';
-import {TemplatesMap} from '../../../../src/editor/templates';
 import {formatBlockName} from '../../../../src/editor/utils';
 import {Block, BlockType} from '../../../../src/models';
-import {Default} from '../../../icons/editor/preview/Default';
 import {block} from '../../../utils';
+import {EdiorBlocksData} from '../../data';
 
 import './AddBlockControl.scss';
 
@@ -38,23 +37,37 @@ const AddBlockControl = ({onAdd}: PropsWithChildren<AddBlockControlProps>) => {
                     offset={[0, 24]}
                 >
                     <div className={b('blocks')}>
-                        {sortedBlockNames.map((blockName) => (
-                            <div
-                                key={blockName}
-                                className={b('block')}
-                                onClick={() => {
-                                    onAdd(TemplatesMap[blockName as BlockType] as Block);
-                                    setIsOpened(false);
-                                }}
-                            >
-                                <div className={b('preview')}>
-                                    <Default />
+                        {sortedBlockNames.map((blockName) => {
+                            const blockData = EdiorBlocksData[blockName as BlockType];
+                            const Preview = blockData?.preview as React.FC<
+                                React.SVGProps<SVGSVGElement>
+                            >;
+
+                            return (
+                                <div
+                                    key={blockName}
+                                    className={b('block')}
+                                    onClick={() => {
+                                        onAdd(blockData?.template as Block);
+                                        setIsOpened(false);
+                                    }}
+                                >
+                                    <div className={b('preview')}>
+                                        <Preview />
+                                    </div>
+                                    <div className={b('info')}>
+                                        <h4 className={b('title')}>
+                                            {blockData?.meta?.title || formatBlockName(blockName)}
+                                        </h4>
+                                        {blockData?.meta?.description && (
+                                            <p className={b('description')}>
+                                                {blockData.meta.description}
+                                            </p>
+                                        )}
+                                    </div>
                                 </div>
-                                <div className={b('info')}>
-                                    <h4 className={b('title')}>{formatBlockName(blockName)}</h4>
-                                </div>
-                            </div>
-                        ))}
+                            );
+                        })}
                     </div>
                 </Popup>
             )}

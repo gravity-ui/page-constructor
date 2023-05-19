@@ -64,15 +64,18 @@ $block: '.#{$ns}add-block-control';
     }
 
     #{$block}__preview {
-        width: 150px;
-        height: 76px;
-        background-color: var(--yc-color-promo-highlight-neon);
+        width: 148px;
+        height: 74px;
         border-radius: $borderRadius;
         margin-right: $indentXS;
     }
 
     #{$block}__title {
         @include text-size(body-2);
+    }
+
+    #{$block}__title,
+    #{$block}__description {
         margin: 0;
     }
 }

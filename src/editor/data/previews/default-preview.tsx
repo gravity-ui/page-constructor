@@ -2,7 +2,7 @@ import React from 'react';
 
 import {a11yHiddenSvgProps} from '../../../utils/svg';
 
-export const Default: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+const DefaultPreview: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
     <svg
         width="150"
         height="76"
@@ -67,3 +67,5 @@ export const Default: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
         <rect x="0.5" y="0.5" width="149" height="75" rx="8.5" stroke="black" strokeOpacity="0.1" />
     </svg>
 );
+
+export default DefaultPreview;

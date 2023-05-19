@@ -1,1 +1,0 @@
-export {TemplatesMap} from './blocks';
