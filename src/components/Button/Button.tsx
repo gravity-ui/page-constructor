@@ -37,6 +37,7 @@ const Button = (props: ButtonProps) => {
         img,
         onClick: onClickOrigin,
         text,
+        width,
         ...rest
     } = props;
     const defaultImgPosition = 'left';
@@ -59,8 +60,8 @@ const Button = (props: ButtonProps) => {
             : {url: img, position: defaultImgPosition};
 
     const buttonClass = img
-        ? b({position: buttonImg.position, size, theme}, className)
-        : b({size, theme}, className);
+        ? b({position: buttonImg.position, size, theme, width}, className)
+        : b({size, theme, width}, className);
 
     const buttonProps = {
         ...rest,
@@ -91,6 +92,7 @@ const Button = (props: ButtonProps) => {
             view={toCommonView(buttonTheme as OldButtonTheme)}
             size={toCommonSize(size as OldButtonSize)}
             href={url ? setUrlTld(url, tld) : undefined}
+            width={width}
             {...buttonProps}
         >
             {icon && buttonImg.position === 'left' ? icon : null}
