@@ -1,16 +1,16 @@
 @import '../../../styles/mixins';
 @import '../../../styles/variables';
 
-$block: '.#{$ns}fullscreen-wrapper';
+$block: '.#{$ns}FullScreenImage';
 $closeButtonSize: 36px;
 
 #{$block} {
-    //&__image {
-    //    cursor: pointer;
-    //}
+    &__image {
+        cursor: pointer;
 
-    &__media-wrapper {
-        position: relative;
+        &-wrapper {
+            position: relative;
+        }
     }
 
     &__modal-content {
@@ -26,8 +26,7 @@ $closeButtonSize: 36px;
     }
 
     &__modal .yc-modal__content,
-    //&__modal-image
-    {
+    &__modal-image {
         border-radius: $borderRadius;
     }
 

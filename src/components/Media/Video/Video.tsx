@@ -22,7 +22,7 @@ interface InnerVideoProps {
     hasVideoFallback: boolean;
 }
 
-type VideoAllProps = VideoAdditionProps & MediaComponentVideoProps & InnerVideoProps;
+export type VideoAllProps = VideoAdditionProps & MediaComponentVideoProps & InnerVideoProps;
 
 const Video = (props: VideoAllProps) => {
     const {
