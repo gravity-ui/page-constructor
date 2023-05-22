@@ -1,4 +1,5 @@
 import {Block, BlockType} from '../../models';
+import {formatBlockName} from '../utils';
 
 import DefaultPreview from './previews/default-preview';
 
@@ -7,8 +8,8 @@ export type PreviewComponent = React.FunctionComponent<React.SVGProps<SVGSVGElem
 export interface EdiorBlockData {
     template: Block;
     preview: PreviewComponent;
-    meta?: {
-        title?: string;
+    meta: {
+        title: string;
         description?: string;
     };
 }
@@ -29,6 +30,9 @@ const getBlockPreview = (blockType: BlockType) => {
 const EdiorBlocksData = Object.values(BlockType).reduce((previewData, blockType) => {
     const template = getBlockTemplate(blockType);
     const preview = getBlockPreview(blockType);
+
+    template.meta = template.meta || {};
+    template.meta.title = template.meta.title || formatBlockName(blockType);
 
     /* eslint-disable no-param-reassign */
     previewData[blockType] = {

@@ -36,14 +36,20 @@ $block: '.#{$ns}add-block-control';
 }
 
 #{$block}__popup {
+    border-radius: $borderRadius;
+    min-width: 420px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.06), 0px 4px 24px rgba(0, 0, 0, 0.06);
+
+    #{$block}__search {
+        padding: $indentS $indentS 0;
+    }
     #{$block}__blocks {
         display: flex;
         flex-direction: column;
         padding: $indentS;
+        height: 296px;
         max-height: 296px;
 
-        box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.06), 0px 4px 24px rgba(0, 0, 0, 0.06);
-        border-radius: $borderRadius;
         overflow-y: auto;
     }
 
