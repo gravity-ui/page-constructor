@@ -6,17 +6,17 @@ import {BlockIdContext} from '../../../context/blockIdContext';
 import {InnerContext} from '../../../context/innerContext';
 import {block} from '../../../utils';
 
-import './BlockBaseEdit.scss';
+import './EditBlockControl.scss';
 
-const b = block('block-base-edit');
+const b = block('edit-block-control');
 
-export interface BlockBaseEditProps {
+export interface EditBlockControlProps {
     id?: string;
 }
 
 const getBlockId = (blockId?: string) => Number(blockId?.split('-')?.at(-1));
 
-const BlockBaseEdit = ({children, id}: PropsWithChildren<BlockBaseEditProps>) => {
+const EditBlockControl = ({children, id}: PropsWithChildren<EditBlockControlProps>) => {
     const {editor} = useContext(InnerContext);
     const ref = useRef<HTMLDivElement>(null);
     const blockContenxtId = getBlockId(useContext(BlockIdContext));
@@ -56,7 +56,7 @@ const BlockBaseEdit = ({children, id}: PropsWithChildren<BlockBaseEditProps>) =>
                                         <ChevronUp />
                                     </div>
                                 )}
-                                {blockId < editor.blocksCount - 1 && (
+                                {blockId < editor.orderedBlocksCount - 1 && (
                                     <div
                                         className={b('control')}
                                         onClick={() => onOrderChange(blockId, blockId + 1)}
@@ -80,4 +80,4 @@ const BlockBaseEdit = ({children, id}: PropsWithChildren<BlockBaseEditProps>) =>
     );
 };
 
-export default BlockBaseEdit;
+export default EditBlockControl;
