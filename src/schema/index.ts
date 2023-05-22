@@ -178,12 +178,6 @@ export function generateDefaultSchema(config?: SchemaCustomConfig) {
             },
             menu: MenuProps,
             background: withTheme(BackgroundProps),
-            footnotes: {
-                type: 'array',
-                items: {
-                    type: 'string',
-                },
-            },
             ...extensions,
         },
     };
