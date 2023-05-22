@@ -1,7 +1,9 @@
 import React from 'react';
 
 import {render, screen} from '@testing-library/react';
+import {BackgroundImageProps} from 'src/models';
 
+import {testCustomClassName, testCustomStyle} from '../../../../test-utils/shared/common';
 import BackgroundImage from '../BackgroundImage';
 
 const qaId = 'background-image-component';
@@ -56,21 +58,17 @@ describe('BackgroundImage', () => {
     });
 
     test('add className', () => {
-        const className = 'my-class';
-
-        render(<BackgroundImage className={className} qa={qaId} />);
-        const component = screen.getByTestId(qaId);
-
-        expect(component).toHaveClass(className);
+        testCustomClassName<BackgroundImageProps>({
+            component: BackgroundImage,
+            props: {qa: qaId},
+        });
     });
 
     test('add style', () => {
-        const style = {color: 'red'};
-
-        render(<BackgroundImage style={style} qa={qaId} />);
-        const component = screen.getByTestId(qaId);
-
-        expect(component).toHaveStyle(style);
+        testCustomStyle<BackgroundImageProps>({
+            component: BackgroundImage,
+            props: {qa: qaId},
+        });
     });
 
     test('add className to image', () => {
