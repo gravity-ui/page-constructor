@@ -1,44 +1,48 @@
 @import '../../../../styles/variables.scss';
 @import '../../../../styles/mixins.scss';
+@import '../../styles/mixins.scss';
+@import '../../styles/variables.scss';
 
 $block: '.#{$ns}add-block-control';
 
 #{$block} {
+    $buttonIconSize: 16px;
+    $buttonWidth: 76px;
+    $buttonHeight: 40px;
+
     position: fixed;
     bottom: $indentM;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 110;
+    z-index: $editorAddControlZIndex;
 
     &__button {
         @include reset-button-style();
+        @include control();
 
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 75px;
-        height: 38px;
+        width: $buttonWidth;
+        height: $buttonHeight;
 
         color: var(--yc-color-text-inverted-primary);
         background-color: var(--yc-color-promo-base-neon);
-        transition: transform 0.2s ease-in-out;
-        border-radius: 8px;
-
-        &:hover {
-            transform: scale(1.05);
-        }
+        border-radius: $editorControlBorderRadius;
     }
 
     &__icon {
-        width: 16px;
-        height: 16px;
+        width: $buttonIconSize;
+        height: $buttonIconSize;
     }
 }
 
 #{$block}__popup {
+    $controlWidth: 420px;
+    $controlHeight: 296px;
+    $previewWidth: 148px;
+    $previewHeight: 74px;
+
+    min-width: $controlWidth;
     border-radius: $borderRadius;
-    min-width: 420px;
-    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.06), 0px 4px 24px rgba(0, 0, 0, 0.06);
+    box-shadow: $editorShadow;
 
     #{$block}__search {
         padding: $indentS $indentS 0;
@@ -47,22 +51,18 @@ $block: '.#{$ns}add-block-control';
         display: flex;
         flex-direction: column;
         padding: $indentS;
-        height: 296px;
-        max-height: 296px;
+        height: $controlHeight;
+        max-height: $controlHeight;
 
         overflow-y: auto;
     }
 
     #{$block}__block {
-        margin-top: $indentS;
-        display: flex;
-        align-items: center;
-        transition: transform 0.2s ease-in-out;
-        cursor: pointer;
+        @include control();
 
-        &:hover {
-            transform: scale(1.05);
-        }
+        margin-top: $indentS;
+        justify-content: flex-start;
+        cursor: pointer;
 
         &:first-child {
             margin-top: 0;
@@ -70,8 +70,8 @@ $block: '.#{$ns}add-block-control';
     }
 
     #{$block}__preview {
-        width: 148px;
-        height: 74px;
+        width: $previewWidth;
+        height: $previewHeight;
         border-radius: $borderRadius;
         margin-right: $indentXS;
     }

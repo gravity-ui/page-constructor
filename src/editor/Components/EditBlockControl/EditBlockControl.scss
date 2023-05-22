@@ -1,5 +1,7 @@
 @import '../../../../styles/variables.scss';
 @import '../../../../styles/mixins.scss';
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
 
 $block: '.#{$ns}edit-block-control';
 
@@ -17,8 +19,8 @@ $block: '.#{$ns}edit-block-control';
         height: calc(100% + $controlsIndent * 2);
         top: -#{$controlsIndent};
         left: -#{$controlsIndent};
-        border-radius: 8px;
-        z-index: 100;
+        border-radius: $editorControlBorderRadius;
+        z-index: $editorBlockControlZIndex;
 
         &_active {
             border: 4px solid $controlColor;
@@ -34,20 +36,15 @@ $block: '.#{$ns}edit-block-control';
     }
 
     &__control {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        @include control($hoverScale: 1.1);
+
         width: $controlIconHeight;
         height: $controlIconHeight;
-        border-radius: 4px;
+        border-radius: calc(#{$editorControlBorderRadius} / 2);
         background-color: var(--yc-color-promo-highlight-neon);
 
         &:not(:first-child) {
             margin-left: $indentXXS;
-        }
-
-        &:hover {
-            transform: scale(1.1);
         }
     }
 }
