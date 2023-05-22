@@ -512,6 +512,9 @@ export const MediaProps = {
         type: 'string',
     },
     dataLens: DataLensProps,
+    fullScreen: {
+        type: 'boolean',
+    },
 };
 
 export const YMapMarkerLabel = {
