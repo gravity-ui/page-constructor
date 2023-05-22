@@ -1,6 +1,6 @@
 import React, {PropsWithChildren} from 'react';
 
-import EditBlockControl from '../../editor/Components/EditBlockControl/EditBlockControl';
+import {WithEditorBlockControls} from '../../editor/hoc/WithEditorBlockControls';
 import {Col} from '../../grid';
 import {BlockBaseProps, ClassNameProps} from '../../models';
 import {block} from '../../utils';
@@ -20,10 +20,10 @@ const BlockBase = (props: PropsWithChildren<BlockBaseProps & ClassNameProps>) =>
             reset={true}
             dataQa={qa}
         >
-            <EditBlockControl>
+            <WithEditorBlockControls>
                 {anchor && <Anchor id={anchor.url} className={b('anchor')} />}
                 {children}
-            </EditBlockControl>
+            </WithEditorBlockControls>
         </Col>
     );
 };

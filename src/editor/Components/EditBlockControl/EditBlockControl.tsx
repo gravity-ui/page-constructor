@@ -10,13 +10,13 @@ import './EditBlockControl.scss';
 
 const b = block('edit-block-control');
 
-export interface EditBlockControlProps {
+export interface EditBlockControlProps extends PropsWithChildren {
     id?: string;
 }
 
 const getBlockId = (blockId?: string) => Number(blockId?.split('-')?.at(-1));
 
-const EditBlockControl = ({children, id}: PropsWithChildren<EditBlockControlProps>) => {
+const EditBlockControl = ({children, id}: EditBlockControlProps) => {
     const {editor} = useContext(InnerContext);
     const ref = useRef<HTMLDivElement>(null);
     const blockContenxtId = getBlockId(useContext(BlockIdContext));

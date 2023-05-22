@@ -2,7 +2,7 @@ import React, {useContext, useMemo} from 'react';
 
 import '@doc-tools/transform/dist/js/yfm';
 
-import {ConstructorEditorProps} from '../../../src/editor/Containers/Editor';
+import {EditorPassingProps} from '../../../src/editor/types';
 import BackgroundMedia from '../../components/BackgroundMedia/BackgroundMedia';
 import {blockMap, subBlockMap} from '../../constructor-items';
 import {AnimateContext} from '../../context/animateContext';
@@ -49,7 +49,7 @@ export interface PageConstructorProps {
     custom?: CustomConfig;
     renderMenu?: () => React.ReactNode;
     navigation?: NavigationData;
-    editor?: ConstructorEditorProps;
+    editor?: EditorPassingProps;
 }
 
 export const Constructor = (props: PageConstructorProps) => {

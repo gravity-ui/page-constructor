@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {ConstructorEditorProps} from '../../../src/editor/Containers/Editor';
+import {EditorPassingProps} from '../../../src/editor/types';
 import {ItemMap} from '../../containers/PageConstructor/PageConstructor';
 import {LoadableConfig, ShouldRenderBlock} from '../../models';
 
@@ -11,7 +11,7 @@ export interface InnerContextType {
     itemMap: ItemMap;
     loadables?: LoadableConfig;
     shouldRenderBlock?: ShouldRenderBlock;
-    editor?: ConstructorEditorProps;
+    editor?: EditorPassingProps;
 }
 
 export const InnerContext = React.createContext<InnerContextType>({
