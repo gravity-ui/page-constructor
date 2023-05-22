@@ -2,12 +2,12 @@ import React, {useContext, useMemo} from 'react';
 
 import '@doc-tools/transform/dist/js/yfm';
 
-import {EditorPassingProps} from '../../../src/editor/types';
 import BackgroundMedia from '../../components/BackgroundMedia/BackgroundMedia';
 import {blockMap, subBlockMap} from '../../constructor-items';
 import {AnimateContext} from '../../context/animateContext';
 import {InnerContext} from '../../context/innerContext';
 import {ThemeValueContext} from '../../context/theme/ThemeValueContext';
+import {EditorPassingProps} from '../../editor/types';
 import {Grid} from '../../grid';
 import {
     BlockType,

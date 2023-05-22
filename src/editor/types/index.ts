@@ -1,6 +1,6 @@
 import {PropsWithChildren} from 'react';
 
-import {Block, CustomConfig, PageData} from '../../../src/models';
+import {Block, CustomConfig, PageData} from '../../models';
 
 export type EditorBlockId = number | string;
 

@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-import {Block, PageData} from '../../../src/models';
+import {Block, PageData} from '../../models';
 
 import {EditorBlockId} from './reducer';
 

@@ -2,7 +2,7 @@ import React, {Fragment, ReactElement, useContext} from 'react';
 
 import _ from 'lodash';
 
-import {BlockIdContext} from '../../../../../src/context/blockIdContext';
+import {BlockIdContext} from '../../../../context/blockIdContext';
 import {InnerContext} from '../../../../context/innerContext';
 import {Block, ConstructorItem as ConstructorItemType} from '../../../../models';
 import {getBlockKey} from '../../../../utils';

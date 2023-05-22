@@ -1,7 +1,7 @@
 import React from 'react';
 
-import {EditorPassingProps} from '../../../src/editor/types';
 import {ItemMap} from '../../containers/PageConstructor/PageConstructor';
+import {EditorPassingProps} from '../../editor/types';
 import {LoadableConfig, ShouldRenderBlock} from '../../models';
 
 export interface InnerContextType {

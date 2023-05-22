@@ -3,8 +3,8 @@ import React, {PropsWithChildren, useMemo, useRef, useState} from 'react';
 import {Plus} from '@gravity-ui/icons';
 import {Popup, TextInput} from '@gravity-ui/uikit';
 
-import {blockMap} from '../../../../src/constructor-items';
-import {Block, BlockType} from '../../../../src/models';
+import {blockMap} from '../../../constructor-items';
+import {Block, BlockType} from '../../../models';
 import {block} from '../../../utils';
 import EdiorBlocksData from '../../data';
 

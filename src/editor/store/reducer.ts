@@ -1,5 +1,5 @@
-import {Block, CustomConfig, PageData} from '../../../src/models';
-import {getHeaderBlock, getOrderedBlocks} from '../../../src/utils';
+import {Block, CustomConfig, PageData} from '../../models';
+import {getHeaderBlock, getOrderedBlocks} from '../../utils';
 
 import {addBlock, changeBlocksOrder, duplicateBlock, getNewBlockIndex} from './utils';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {PageConstructor} from '../../../src/containers/PageConstructor';
+import {PageConstructor} from '../../containers/PageConstructor';
 import AddBlockControl from '../Components/AddBlockControl/AddBlockControl';
 import {useEditorState} from '../store';
 import {EditorIncomingProps} from '../types';

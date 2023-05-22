@@ -3,10 +3,10 @@ import React from 'react';
 import {Meta, Story} from '@storybook/react/types-6-0';
 
 import {scriptsSrc, ymapApiKeyForStorybook} from '../../../../.storybook/maps';
-import {MapType} from '../../../../src/context/mapsContext/mapsContext';
-import {MapProvider} from '../../../../src/context/mapsContext/mapsProvider';
-import {EditorIncomingProps} from '../../../../src/editor/types';
+import {MapType} from '../../../context/mapsContext/mapsContext';
+import {MapProvider} from '../../../context/mapsContext/mapsProvider';
 import {EDITOR} from '../../../demo/constants';
+import {EditorIncomingProps} from '../../../editor/types';
 import {Editor} from '../Editor';
 
 import data from './data.json';
