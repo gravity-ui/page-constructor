@@ -1,4 +1,4 @@
-import React, {Fragment, PropsWithChildren, useContext} from 'react';
+import React, {Fragment, PropsWithChildren, useContext, useEffect, useRef} from 'react';
 
 import {ChevronDown, ChevronUp, Copy, TrashBin} from '@gravity-ui/icons';
 
@@ -18,15 +18,22 @@ const getBlockId = (blockId?: string) => Number(blockId?.split('-')?.at(-1));
 
 const BlockBaseEdit = ({children, id}: PropsWithChildren<BlockBaseEditProps>) => {
     const {editor} = useContext(InnerContext);
+    const ref = useRef<HTMLDivElement>(null);
     const blockContenxtId = getBlockId(useContext(BlockIdContext));
     const blockId = id || blockContenxtId;
+    const controlsActive = blockId === editor?.activeBlockId;
+
+    useEffect(() => {
+        if (controlsActive && ref.current) {
+            ref.current?.scrollIntoView({behavior: 'smooth'});
+        }
+    }, [controlsActive]);
 
     if (!editor) {
         return <Fragment>{children}</Fragment>;
     }
 
-    const {activeBlockId, onDelete, onSelect, onCopy, onOrderChange} = editor;
-    const controlsActive = blockId === activeBlockId;
+    const {onDelete, onSelect, onCopy, onOrderChange} = editor;
 
     return (
         <div
@@ -34,6 +41,7 @@ const BlockBaseEdit = ({children, id}: PropsWithChildren<BlockBaseEditProps>) =>
             onClick={() => {
                 onSelect(blockId);
             }}
+            ref={ref}
         >
             <div className={b('controls', {active: controlsActive})}>
                 {controlsActive && (

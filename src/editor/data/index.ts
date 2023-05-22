@@ -20,7 +20,7 @@ const getBlockPreview = (blockType: BlockType) => {
     try {
         return require(`./previews/${blockType}.tsx`).default as PreviewComponent;
     } catch (err) {
-        /*eslint-disable  no-console */
+        /*eslint-disable no-console */
         console.warn(`Preview image for ${blockType} not found`);
         return DefaultPreview;
     }
