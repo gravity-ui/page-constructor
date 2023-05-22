@@ -61,20 +61,6 @@
         }
     }
 
-    &_footnote_text p,
-    &_footnote_page p {
-        opacity: 0.5;
-    }
-
-    &_footnote_text p {
-        @include text-size(body-2);
-    }
-
-    &_footnote_page p {
-        @include text-size(body-1);
-        display: inline;
-    }
-
     &_list_style ul {
         padding-left: $indentS;
     }

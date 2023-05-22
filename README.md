@@ -54,7 +54,6 @@ export interface PageContent extends Animatable {
   blocks: Block[];
   menu?: Menu;
   background?: MediaProps;
-  footnotes?: string[];
 }
 
 interface Custom {
