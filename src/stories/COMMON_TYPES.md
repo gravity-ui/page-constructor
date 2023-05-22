@@ -55,16 +55,17 @@
 
 ---
 
-# `Media`— Image/video/DataLens
+# `Media`— Image/video/DataLens/Youtube
 
 - `color?: string` — Background color
-- [`image?: ImageObjectProps | ImageObjectProps[] | ImageDeviceProps` — Background image](#ImageObjectProps)
+- [`image?: ImageObjectProps | ImageObjectProps[] | ImageDeviceProps` — Background image](#ImageObjectProps). If you pass an array, the full-screen mode is automatically turned on.
 - `parallax?: bool` — Enable/disable the parallax effect
 - [`video?: Video` — Video](#Video)
 - `youtube?: url` — Link to a video on YouTube
 - `height?: number` — Block height
 - `previewImg?: string`
 - `dataLens?: string |` [DataLens](#DataLens)
+- `fullScreen?: bool` — Enabling full-screen mode
 
 ---
 

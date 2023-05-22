@@ -8,7 +8,7 @@ Media block
 
 [`button: Button` — Button](?path=/story/information--common-types&viewMode=docs#button---button)
 
-[`media: Media` — Media description](?path=/story/information--common-types&viewMode=docs#media---picvideodatalens)
+[`media: Media` — Media description](?path=/story/information--common-types&viewMode=docs#common-types)
 
 `direction: 'media-content' | 'content-media'` — Relative position of media and content.
 
