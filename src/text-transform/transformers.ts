@@ -5,12 +5,10 @@ import {Lang} from '../utils/configure';
 
 import {Transformer} from './common';
 import {BlocksConfig, config} from './config';
-import {fullTransform} from './utils';
 
 export type ContentTransformerProps = {
     content: {
         blocks?: ConstructorBlock[];
-        footnotes?: string[];
     };
     options: {
         lang: Lang;
@@ -71,20 +69,11 @@ function transformBlock(lang: Lang, blocksConfig: BlocksConfig, block: Construct
 
 export const contentTransformer = ({content, options}: ContentTransformerProps) => {
     const {lang, customConfig = {}} = options;
-    const {blocks = [], footnotes = []} = content;
+    const {blocks = []} = content;
 
     const transformedBlocks = transformBlocks(blocks, lang, customConfig);
 
-    const transformedFootnotes =
-        footnotes
-            ?.map(
-                (footnote) =>
-                    fullTransform(footnote, {path: __dirname, lang, allowHTML: true}).html,
-            )
-            .filter(Boolean) || [];
-
     return {
         blocks: transformedBlocks,
-        footnotes: transformedFootnotes,
     };
 };
