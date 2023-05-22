@@ -6,17 +6,17 @@ import {BlockIdContext} from '../../../context/blockIdContext';
 import {InnerContext} from '../../../context/innerContext';
 import {block} from '../../../utils';
 
-import './EditBlockControl.scss';
+import './EditBlock.scss';
 
-const b = block('edit-block-control');
+const b = block('edit-block');
 
-export interface EditBlockControlProps extends PropsWithChildren {
+export interface EditBlockProps extends PropsWithChildren {
     id?: string;
 }
 
 const getBlockId = (blockId?: string) => Number(blockId?.split('-')?.at(-1));
 
-const EditBlockControl = ({children, id}: EditBlockControlProps) => {
+const EditBlock = ({children, id}: EditBlockProps) => {
     const {editor} = useContext(InnerContext);
     const ref = useRef<HTMLDivElement>(null);
     const blockContenxtId = getBlockId(useContext(BlockIdContext));
@@ -80,4 +80,4 @@ const EditBlockControl = ({children, id}: EditBlockControlProps) => {
     );
 };
 
-export default EditBlockControl;
+export default EditBlock;

@@ -2,7 +2,7 @@ import {useMemo, useReducer} from 'react';
 
 import {Block, CustomConfig, HeaderBlockTypes, PageData} from '../../models';
 import {getCustomHeaderTypes, getOrderedBlocks} from '../../utils';
-import EditBlockControl from '../Components/EditBlockControl/EditBlockControl';
+import EditBlock from '../Components/EditBlock/EditBlock';
 
 import {
     ADD_BLOCK,
@@ -34,7 +34,7 @@ export function useEditorState(initialData: PageData, custom?: CustomConfig) {
             editor: {
                 activeBlockId,
                 orderedBlocksCount,
-                ControlsComponent: EditBlockControl,
+                ControlsComponent: EditBlock,
 
                 onDelete: (id: EditorBlockId) => dispatch({type: DELETE_BLOCK, payload: id}),
                 onSelect: (id: EditorBlockId) => dispatch({type: SELECT_BLOCK, payload: id}),

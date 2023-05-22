@@ -1,12 +1,9 @@
 import React, {Fragment, PropsWithChildren, useContext} from 'react';
 
 import {InnerContext} from '../../context/innerContext';
-import {EditBlockControlProps} from '../types';
+import {EditBlockProps} from '../types';
 
-export const WithEditorBlockControls = ({
-    children,
-    ...props
-}: PropsWithChildren<EditBlockControlProps>) => {
+export const WithEditControls = ({children, ...props}: PropsWithChildren<EditBlockProps>) => {
     const Controls = useContext(InnerContext).editor?.ControlsComponent;
 
     if (!Controls) {

@@ -10,14 +10,14 @@ export interface EditorIncomingProps {
     onChange?: (data: PageData) => void;
 }
 
-export interface EditBlockControlProps extends PropsWithChildren {
+export interface EditBlockProps extends PropsWithChildren {
     id?: string;
 }
 
 export interface EditorPassingProps {
     activeBlockId: EditorBlockId;
     orderedBlocksCount: number;
-    ControlsComponent: React.FunctionComponent<EditBlockControlProps>;
+    ControlsComponent: React.FunctionComponent<EditBlockProps>;
 
     onSelect: (index: EditorBlockId) => void;
     onDelete: (index: EditorBlockId) => void;

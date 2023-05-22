@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 
 import {InnerContext} from '../../../../context/innerContext';
-import {WithEditorBlockControls} from '../../../../editor/hoc/WithEditorBlockControls';
+import {WithEditControls} from '../../../../editor/hoc/WithEditControls';
 import {ConstructorItem as ConstructorItemType, WithChildren} from '../../../../models';
 
 export interface ConstructorItemProps {
@@ -24,7 +24,7 @@ export const ConstructorHeader = ({
     data,
     blockKey,
 }: Pick<ConstructorItemProps, 'data' | 'blockKey'>) => (
-    <WithEditorBlockControls id={data.type}>
+    <WithEditControls id={data.type}>
         <ConstructorItem data={data} key={data.type} blockKey={blockKey} />
-    </WithEditorBlockControls>
+    </WithEditControls>
 );

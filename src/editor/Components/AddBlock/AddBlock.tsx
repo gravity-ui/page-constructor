@@ -8,17 +8,17 @@ import {Block, BlockType} from '../../../models';
 import {block} from '../../../utils';
 import EdiorBlocksData from '../../data';
 
-import './AddBlockControl.scss';
+import './AddBlock.scss';
 
-const b = block('add-block-control');
+const b = block('add-block');
 
-export interface AddBlockControlProps {
+export interface AddBlockProps {
     onAdd: (data: Block) => void;
 }
 
 const sortedBlockNames = Object.keys(blockMap).sort();
 
-const AddBlockControl = ({onAdd}: PropsWithChildren<AddBlockControlProps>) => {
+const AddBlock = ({onAdd}: PropsWithChildren<AddBlockProps>) => {
     const [isOpened, setIsOpened] = useState(false);
     const [search, setSearch] = useState('');
     const ref = useRef(null);
@@ -98,4 +98,4 @@ const AddBlockControl = ({onAdd}: PropsWithChildren<AddBlockControlProps>) => {
     );
 };
 
-export default AddBlockControl;
+export default AddBlock;

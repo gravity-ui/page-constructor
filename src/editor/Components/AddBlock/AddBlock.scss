@@ -3,7 +3,7 @@
 @import '../../styles/mixins.scss';
 @import '../../styles/variables.scss';
 
-$block: '.#{$ns}add-block-control';
+$block: '.#{$ns}add-block';
 
 #{$block} {
     $buttonIconSize: 16px;

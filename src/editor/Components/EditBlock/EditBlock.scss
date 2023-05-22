@@ -3,7 +3,7 @@
 @import '../../styles/variables.scss';
 @import '../../styles/mixins.scss';
 
-$block: '.#{$ns}edit-block-control';
+$block: '.#{$ns}edit-block';
 
 #{$block} {
     $controlIconHeight: 24px;

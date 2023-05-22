@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {PageConstructor} from '../../containers/PageConstructor';
-import AddBlockControl from '../Components/AddBlockControl/AddBlockControl';
+import AddBlock from '../Components/AddBlock/AddBlock';
 import {useEditorState} from '../store';
 import {EditorIncomingProps} from '../types';
 
@@ -11,7 +11,7 @@ export const Editor = ({data: initialData, custom}: EditorIncomingProps) => {
     return (
         <div>
             <PageConstructor editor={editor} {...data} />
-            <AddBlockControl onAdd={editor.onAdd} />
+            <AddBlock onAdd={editor.onAdd} />
         </div>
     );
 };
