@@ -65,7 +65,7 @@
 - `height?: number` — Block height
 - `previewImg?: string`
 - `dataLens?: string |` [DataLens](#DataLens)
-- `fullScreen?: bool` — Enabling full-screen mode
+- `fullScreen?: bool` — Enabling full-screen mode for image or video
 
 ---
 
