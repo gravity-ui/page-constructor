@@ -59,6 +59,7 @@ export const Media = (props: MediaAllProps) => {
                     isBackground={isBackground}
                     video={video}
                     hasVideoFallback={hasVideoFallback}
+                    fullScreen={fullScreen}
                 />,
             );
         }
