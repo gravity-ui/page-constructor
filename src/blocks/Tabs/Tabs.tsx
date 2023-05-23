@@ -114,7 +114,7 @@ export const TabsBlock = ({
         <AnimateBlock className={b()} onScroll={() => setPlay(true)} animate={animated}>
             <Title
                 title={title}
-                description={description}
+                subtitle={description}
                 className={b('block-title', {centered: centered})}
             />
             <Row>

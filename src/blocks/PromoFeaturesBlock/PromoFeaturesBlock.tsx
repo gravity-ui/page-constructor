@@ -27,7 +27,7 @@ const PromoFeaturesBlock = (props: PromoFeaturesProps) => {
     return (
         <AnimateBlock className={b({[backgroundTheme]: true})} animate={animated}>
             <FullWidthBackground className={b('background', {[backgroundTheme]: true})} />
-            <Title title={title} description={description} className={b('header')} />
+            <Title title={title} subtitle={description} className={b('header')} />
             <BalancedMasonry
                 breakpointCols={breakpointColumns}
                 className={b('card-container')}

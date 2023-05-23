@@ -56,14 +56,14 @@ const Content = (props: ContentBlockProps & ClassNameProps) => {
 
     const {...titleProps} =
         !title || typeof title === 'string'
-            ? ({text: title, textSize: getTextSize(size), resetMargin: true} as TitleItemProps)
-            : {...title, resetMargin: true};
+            ? ({text: title, textSize: getTextSize(size)} as TitleItemProps)
+            : {...title};
 
     const hasTitle = Boolean(title);
 
     return (
         <Col className={b({size, centered, theme}, className)} reset sizes={colSizes}>
-            {title && <Title className={b('title')} title={{...titleProps}} colSizes={{all: 12}} />}
+            {title && <Title className={b('title')} title={titleProps} colSizes={{all: 12}} />}
             {text && (
                 <div className={b('text', {['without-title']: !hasTitle})}>
                     <YFMWrapper

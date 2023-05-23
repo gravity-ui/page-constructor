@@ -52,7 +52,7 @@ export const MediaBase = (props: MediaBaseProps) => {
                 <Title
                     className={b('header')}
                     title={title}
-                    description={description}
+                    subtitle={description}
                     colSizes={{all: 12}}
                 />
             )}

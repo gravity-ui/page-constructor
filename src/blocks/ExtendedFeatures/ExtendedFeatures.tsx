@@ -30,7 +30,7 @@ export const ExtendedFeaturesBlock = ({
 
     return (
         <AnimateBlock className={b()} animate={animated}>
-            <Title title={title} description={description} className={b('header')} />
+            <Title title={title} subtitle={description} className={b('header')} />
             <div className={b('items')}>
                 <Row>
                     {items.map(

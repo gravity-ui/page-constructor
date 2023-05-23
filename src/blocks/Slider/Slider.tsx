@@ -321,7 +321,7 @@ export const SliderBlock = (props: WithChildren<SliderProps>) => {
                 {anchorId && <Anchor id={anchorId} />}
                 <Title
                     title={title}
-                    description={description}
+                    subtitle={description}
                     className={b('header', {'no-description': !description})}
                 />
                 <AnimateBlock className={b('animate-slides')} animate={animated}>

@@ -30,7 +30,6 @@ import {
     ThemedMediaVideoProps,
     TitleItemBaseProps,
     TitleItemProps,
-    TitleProps,
 } from './common';
 import {BannerCardProps, SubBlock, SubBlockModels} from './sub-blocks';
 
@@ -274,7 +273,9 @@ export interface TabsBlockItem
     media?: ThemedMediaProps;
 }
 
-export interface TabsBlockProps extends TitleProps, Animatable {
+export interface TabsBlockProps extends Animatable {
+    title?: TitleItemProps | string;
+    description?: string;
     tabsColSizes?: GridColumnSizesType;
     centered?: boolean;
     direction?: MediaDirection;

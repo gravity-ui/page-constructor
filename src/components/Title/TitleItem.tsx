@@ -33,7 +33,7 @@ export interface TitleItemFullProps extends TitleItemProps {
     resetMargin?: boolean;
 }
 
-const Title = (props: TitleItemFullProps) => {
+const TitleItem = (props: TitleItemFullProps) => {
     const isMobile = useContext(MobileContext);
 
     const {
@@ -108,4 +108,4 @@ const Title = (props: TitleItemFullProps) => {
     );
 };
 
-export default Title;
+export default TitleItem;

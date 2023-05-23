@@ -17,11 +17,11 @@ export interface TitleProps extends TitleParams {
 
 const Title = ({
     title,
-    description,
+    subtitle,
     className,
     colSizes = {all: 12, sm: 8},
 }: TitleProps & ClassNameProps) => {
-    if (!title && !description) {
+    if (!title && !subtitle) {
         return null;
     }
 
@@ -35,10 +35,10 @@ const Title = ({
                     <TitleItem text={text} {...titleProps} />
                 </Col>
             )}
-            {description && (
+            {subtitle && (
                 <Col reset sizes={colSizes}>
                     <div className={b('description', {titleSize: titleProps?.textSize})}>
-                        <YFMWrapper content={description} modifiers={{constructor: true}} />
+                        <YFMWrapper content={subtitle} modifiers={{constructor: true}} />
                     </div>
                 </Col>
             )}

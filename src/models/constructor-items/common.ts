@@ -430,5 +430,5 @@ export interface AuthorProps {
 
 export interface TitleProps {
     title?: TitleItemProps | string;
-    description?: string;
+    subtitle?: string;
 }
