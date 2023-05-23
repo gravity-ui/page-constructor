@@ -2,13 +2,21 @@ import React, {useMemo} from 'react';
 
 import {PageConstructor} from '../../containers/PageConstructor';
 import AddBlock from '../Components/AddBlock/AddBlock';
+import EditBlock from '../Components/EditBlock/EditBlock';
 import {EditorContext} from '../context';
 import {useEditorState} from '../store';
-import {EditorProps} from '../types';
+import {EditBlockConstructorProps, EditorProps} from '../types';
 
 export const Editor = ({data: initialData, custom}: EditorProps) => {
-    const {data, onAdd, renderControls} = useEditorState(initialData, custom);
-    const context = useMemo(() => ({renderControls}), [renderControls]);
+    const {data, onAdd, editControlsProps} = useEditorState(initialData, custom);
+    const context = useMemo(
+        () => ({
+            renderEditControls: (props: EditBlockConstructorProps) => (
+                <EditBlock {...props} {...editControlsProps} />
+            ),
+        }),
+        [editControlsProps],
+    );
 
     return (
         <EditorContext.Provider value={context}>

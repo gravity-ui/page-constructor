@@ -1,9 +1,7 @@
-import React, {useMemo, useReducer} from 'react';
+import {useMemo, useReducer} from 'react';
 
 import {Block, CustomConfig, HeaderBlockTypes, PageData} from '../../models';
 import {getCustomHeaderTypes, getOrderedBlocks} from '../../utils';
-import EditBlock from '../Components/EditBlock/EditBlock';
-import {EditBlockConstructorProps} from '../types';
 
 import {
     ADD_BLOCK,
@@ -32,19 +30,15 @@ export function useEditorState(initialData: PageData, custom?: CustomConfig) {
     return useMemo(() => {
         return {
             data,
-            renderControls: (props: EditBlockConstructorProps) => (
-                <EditBlock
-                    {...props}
-                    activeBlockId={activeBlockId}
-                    orderedBlocksCount={orderedBlocksCount}
-                    onDelete={(id: EditorBlockId) => dispatch({type: DELETE_BLOCK, payload: id})}
-                    onSelect={(id: EditorBlockId) => dispatch({type: SELECT_BLOCK, payload: id})}
-                    onCopy={(index: number) => dispatch({type: COPY_BLOCK, payload: index})}
-                    onOrderChange={(oldIndex: number, newIndex: number) =>
-                        dispatch({type: ORDER_BLOCK, payload: {oldIndex, newIndex}})
-                    }
-                />
-            ),
+            editControlsProps: {
+                activeBlockId,
+                orderedBlocksCount,
+                onDelete: (id: EditorBlockId) => dispatch({type: DELETE_BLOCK, payload: id}),
+                onSelect: (id: EditorBlockId) => dispatch({type: SELECT_BLOCK, payload: id}),
+                onCopy: (index: number) => dispatch({type: COPY_BLOCK, payload: index}),
+                onOrderChange: (oldIndex: number, newIndex: number) =>
+                    dispatch({type: ORDER_BLOCK, payload: {oldIndex, newIndex}}),
+            },
             onAdd: (block: Block) => dispatch({type: ADD_BLOCK, payload: block}),
         };
     }, [data, activeBlockId, orderedBlocksCount]);
