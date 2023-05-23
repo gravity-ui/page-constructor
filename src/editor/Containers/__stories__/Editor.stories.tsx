@@ -6,7 +6,7 @@ import {scriptsSrc, ymapApiKeyForStorybook} from '../../../../.storybook/maps';
 import {MapType} from '../../../context/mapsContext/mapsContext';
 import {MapProvider} from '../../../context/mapsContext/mapsProvider';
 import {EDITOR} from '../../../demo/constants';
-import {EditorIncomingProps} from '../../../editor/types';
+import {EditorProps} from '../../../editor/types';
 import {Editor} from '../Editor';
 
 import data from './data.json';
@@ -16,7 +16,7 @@ export default {
     component: Editor,
 } as Meta;
 
-const DefaultTemplate: Story<EditorIncomingProps> = (args) => (
+const DefaultTemplate: Story<EditorProps> = (args) => (
     <MapProvider
         scriptSrc={scriptsSrc[MapType.Yandex]}
         apiKey={ymapApiKeyForStorybook}
@@ -28,4 +28,4 @@ const DefaultTemplate: Story<EditorIncomingProps> = (args) => (
 
 export const Default = DefaultTemplate.bind({});
 
-Default.args = data.default as EditorIncomingProps;
+Default.args = data.default as EditorProps;

@@ -7,7 +7,6 @@ import {blockMap, subBlockMap} from '../../constructor-items';
 import {AnimateContext} from '../../context/animateContext';
 import {InnerContext} from '../../context/innerContext';
 import {ThemeValueContext} from '../../context/theme/ThemeValueContext';
-import {EditorPassingProps} from '../../editor/types';
 import {Grid} from '../../grid';
 import {
     BlockType,
@@ -49,7 +48,6 @@ export interface PageConstructorProps {
     custom?: CustomConfig;
     renderMenu?: () => React.ReactNode;
     navigation?: NavigationData;
-    editor?: EditorPassingProps;
 }
 
 export const Constructor = (props: PageConstructorProps) => {
@@ -59,7 +57,6 @@ export const Constructor = (props: PageConstructorProps) => {
         shouldRenderBlock,
         navigation,
         custom,
-        editor,
     } = props;
 
     const {context} = useMemo(
@@ -75,10 +72,9 @@ export const Constructor = (props: PageConstructorProps) => {
                 },
                 loadables: custom?.loadable,
                 shouldRenderBlock,
-                editor,
             },
         }),
-        [custom, shouldRenderBlock, editor],
+        [custom, shouldRenderBlock],
     );
 
     const {themeValue: theme} = useContext(ThemeValueContext);

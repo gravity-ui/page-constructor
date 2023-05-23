@@ -1,27 +1,27 @@
 import {PropsWithChildren} from 'react';
 
-import {Block, CustomConfig, PageData} from '../../models';
+import {CustomConfig, PageData} from '../../models';
 
 export type EditorBlockId = number | string;
 
-export interface EditorIncomingProps {
+export interface EditorProps {
     data: PageData;
     custom?: CustomConfig;
     onChange?: (data: PageData) => void;
 }
 
-export interface EditBlockProps extends PropsWithChildren {
-    id?: string;
-}
-
-export interface EditorPassingProps {
+export interface EditBlockEditorProps {
     activeBlockId: EditorBlockId;
     orderedBlocksCount: number;
-    ControlsComponent: React.FunctionComponent<EditBlockProps>;
 
     onSelect: (index: EditorBlockId) => void;
     onDelete: (index: EditorBlockId) => void;
     onCopy: (index: number) => void;
-    onAdd: (data: Block) => void;
     onOrderChange: (index: number, newIndex: number) => void;
 }
+
+export interface EditBlockConstructorProps extends PropsWithChildren {
+    id?: string;
+}
+
+export type EditBlockProps = EditBlockEditorProps & EditBlockConstructorProps;

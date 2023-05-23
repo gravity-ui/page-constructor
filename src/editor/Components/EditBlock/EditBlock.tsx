@@ -1,39 +1,38 @@
-import React, {Fragment, PropsWithChildren, useContext, useEffect, useRef} from 'react';
+import React, {Fragment, useContext, useEffect, useRef} from 'react';
 
 import {ChevronDown, ChevronUp, Copy, TrashBin} from '@gravity-ui/icons';
 
 import {BlockIdContext} from '../../../context/blockIdContext';
-import {InnerContext} from '../../../context/innerContext';
+import {EditBlockProps} from '../../../editor/types';
 import {block} from '../../../utils';
 
 import './EditBlock.scss';
 
 const b = block('edit-block');
 
-export interface EditBlockProps extends PropsWithChildren {
-    id?: string;
-}
-
 const getBlockId = (blockId?: string) => Number(blockId?.split('-')?.at(-1));
 
-const EditBlock = ({children, id}: EditBlockProps) => {
-    const {editor} = useContext(InnerContext);
+const EditBlock = (props: EditBlockProps) => {
+    const {
+        id,
+        activeBlockId,
+        onDelete,
+        onSelect,
+        onCopy,
+        onOrderChange,
+        children,
+        orderedBlocksCount,
+    } = props;
     const ref = useRef<HTMLDivElement>(null);
     const blockContenxtId = getBlockId(useContext(BlockIdContext));
     const blockId = id || blockContenxtId;
-    const controlsActive = blockId === editor?.activeBlockId;
+    const controlsActive = activeBlockId === blockId;
 
     useEffect(() => {
         if (controlsActive && ref.current) {
             ref.current?.scrollIntoView({behavior: 'smooth'});
         }
     }, [controlsActive]);
-
-    if (!editor) {
-        return <Fragment>{children}</Fragment>;
-    }
-
-    const {onDelete, onSelect, onCopy, onOrderChange} = editor;
 
     return (
         <div
@@ -56,7 +55,7 @@ const EditBlock = ({children, id}: EditBlockProps) => {
                                         <ChevronUp />
                                     </div>
                                 )}
-                                {blockId < editor.orderedBlocksCount - 1 && (
+                                {blockId < orderedBlocksCount - 1 && (
                                     <div
                                         className={b('control')}
                                         onClick={() => onOrderChange(blockId, blockId + 1)}
