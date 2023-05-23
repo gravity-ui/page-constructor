@@ -1,5 +1,4 @@
-import {PropsWithChildren} from 'react';
-
+import {BlockDecorationProps} from '../../extensions/BlockDecoration';
 import {CustomConfig, PageData} from '../../models';
 
 export type EditorBlockId = number | string;
@@ -20,8 +19,4 @@ export interface EditBlockEditorProps {
     onOrderChange: (index: number, newIndex: number) => void;
 }
 
-export interface EditBlockConstructorProps extends PropsWithChildren {
-    id?: string;
-}
-
-export type EditBlockProps = EditBlockEditorProps & EditBlockConstructorProps;
+export type EditBlockProps = EditBlockEditorProps & BlockDecorationProps;

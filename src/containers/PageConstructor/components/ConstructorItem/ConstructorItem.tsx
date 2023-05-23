@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 
 import {InnerContext} from '../../../../context/innerContext';
-import {EditControlsInjector} from '../../../../editor/Components/EditControlsInjector/EditControlsInjector';
+import {BlockDecoration} from '../../../../extensions/BlockDecoration';
 import {ConstructorItem as ConstructorItemType, WithChildren} from '../../../../models';
 
 export interface ConstructorItemProps {
@@ -24,7 +24,7 @@ export const ConstructorHeader = ({
     data,
     blockKey,
 }: Pick<ConstructorItemProps, 'data' | 'blockKey'>) => (
-    <EditControlsInjector id={data.type}>
+    <BlockDecoration id={data.type}>
         <ConstructorItem data={data} key={data.type} blockKey={blockKey} />
-    </EditControlsInjector>
+    </BlockDecoration>
 );
