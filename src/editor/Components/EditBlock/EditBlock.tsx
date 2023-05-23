@@ -4,13 +4,12 @@ import {ChevronDown, ChevronUp, Copy, TrashBin} from '@gravity-ui/icons';
 
 import {BlockIdContext} from '../../../context/blockIdContext';
 import {EditBlockProps} from '../../../editor/types';
+import {getBlockIndexFromId} from '../../../editor/utils';
 import {block} from '../../../utils';
 
 import './EditBlock.scss';
 
 const b = block('edit-block');
-
-const getBlockId = (blockId?: string) => Number(blockId?.split('-')?.at(-1));
 
 const EditBlock = (props: EditBlockProps) => {
     const {
@@ -24,7 +23,7 @@ const EditBlock = (props: EditBlockProps) => {
         orderedBlocksCount,
     } = props;
     const ref = useRef<HTMLDivElement>(null);
-    const blockContenxtId = getBlockId(useContext(BlockIdContext));
+    const blockContenxtId = getBlockIndexFromId(useContext(BlockIdContext));
     const blockId = id || blockContenxtId;
     const controlsActive = activeBlockId === blockId;
 

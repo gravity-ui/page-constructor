@@ -6,7 +6,7 @@ import {Popup, TextInput} from '@gravity-ui/uikit';
 import {blockMap} from '../../../constructor-items';
 import {Block, BlockType} from '../../../models';
 import {block} from '../../../utils';
-import EdiorBlocksData from '../../data';
+import EditorBlocksData from '../../data';
 
 import './AddBlock.scss';
 
@@ -25,7 +25,7 @@ const AddBlock = ({onAdd}: PropsWithChildren<AddBlockProps>) => {
     const blocks = useMemo(
         () =>
             sortedBlockNames.filter((blockName) =>
-                EdiorBlocksData[blockName as BlockType].meta.title
+                EditorBlocksData[blockName as BlockType].meta.title
                     .toLocaleLowerCase()
                     .startsWith(search.toLocaleLowerCase()),
             ),
@@ -63,7 +63,7 @@ const AddBlock = ({onAdd}: PropsWithChildren<AddBlockProps>) => {
                     </div>
                     <div className={b('blocks')}>
                         {blocks.map((blockName) => {
-                            const blockData = EdiorBlocksData[blockName as BlockType];
+                            const blockData = EditorBlocksData[blockName as BlockType];
                             const Preview = blockData?.preview as React.FC<
                                 React.SVGProps<SVGSVGElement>
                             >;

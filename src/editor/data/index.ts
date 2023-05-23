@@ -27,7 +27,7 @@ const getBlockPreview = (blockType: BlockType) => {
     }
 };
 
-const EdiorBlocksData = Object.values(BlockType).reduce((previewData, blockType) => {
+const EditorBlocksData = Object.values(BlockType).reduce((previewData, blockType) => {
     const template = getBlockTemplate(blockType);
     const preview = getBlockPreview(blockType);
 
@@ -43,4 +43,4 @@ const EdiorBlocksData = Object.values(BlockType).reduce((previewData, blockType)
     return previewData;
 }, {} as Record<BlockType, EdiorBlockData>);
 
-export default EdiorBlocksData;
+export default EditorBlocksData;
