@@ -7,12 +7,6 @@
 
 * **Button:** add prop width ([#346](https://github.com/gravity-ui/page-constructor/issues/346)) ([f4b1ba8](https://github.com/gravity-ui/page-constructor/commit/f4b1ba85f56ef2de435bd91ae1fc35fbea0a177b))
 
-
-### Bug Fixes
-
-* config gulpfile for tests ([a5cb59d](https://github.com/gravity-ui/page-constructor/commit/a5cb59d0bc1e3a8c09babed0c5ace9a2253416c3))
-* config gulpfile for tests ([#338](https://github.com/gravity-ui/page-constructor/issues/338)) ([95c94d1](https://github.com/gravity-ui/page-constructor/commit/95c94d1b42ec63a5fe868ac1572bdd8c805b9081))
-
 ## [2.18.0](https://github.com/gravity-ui/page-constructor/compare/v2.18.0...v2.18.0) (2023-05-15)
 
 
