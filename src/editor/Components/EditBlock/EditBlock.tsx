@@ -30,7 +30,7 @@ const EditBlock = (props: EditBlockProps) => {
 
     useEffect(() => {
         if (controlsActive && ref.current) {
-            ref.current?.scrollIntoView({behavior: 'smooth'});
+            ref.current?.scrollIntoView({behavior: 'smooth', block: 'center', inline: 'nearest'});
         }
     }, [controlsActive]);
 
