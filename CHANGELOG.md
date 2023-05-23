@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.19.0](https://github.com/gravity-ui/page-constructor/compare/v2.18.0...v2.19.0) (2023-05-23)
+
+
+### Features
+
+* **Button:** add prop width ([#346](https://github.com/gravity-ui/page-constructor/issues/346)) ([f4b1ba8](https://github.com/gravity-ui/page-constructor/commit/f4b1ba85f56ef2de435bd91ae1fc35fbea0a177b))
+
 ## [2.18.0](https://github.com/gravity-ui/page-constructor/compare/v2.18.0...v2.18.0) (2023-05-15)
 
 
