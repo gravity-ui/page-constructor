@@ -54,14 +54,16 @@ const Button = (props: ButtonProps) => {
         [handleMetrika, metrikaGoals, pixelEvents, handleAnalytics, analyticsEvents, onClickOrigin],
     );
 
+    const buttonModifiers = {size, theme, width};
+
     const buttonImg =
         img instanceof Object
             ? {url: img.url, position: img.position || defaultImgPosition, alt: img.alt}
             : {url: img, position: defaultImgPosition};
 
     const buttonClass = img
-        ? b({position: buttonImg.position, size, theme, width}, className)
-        : b({size, theme, width}, className);
+        ? b({position: buttonImg.position, ...buttonModifiers}, className)
+        : b({...buttonModifiers}, className);
 
     const buttonProps = {
         ...rest,
