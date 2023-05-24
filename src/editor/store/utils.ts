@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-import {Block, PageData} from '../../models';
+import {Block, PageContent} from '../../models';
 
 import {EditorBlockId} from './reducer';
 
@@ -35,6 +35,6 @@ export const addBlock = (array: Block[], block: Block, index: number) => {
     return result;
 };
 
-export const addEditorProps = (data: PageData) => {
-    return {...data, content: {...data.content, animated: false}};
+export const addEditorProps = (content: PageContent) => {
+    return {...content, animated: false};
 };

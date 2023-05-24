@@ -1,7 +1,8 @@
 import {useMemo, useReducer} from 'react';
 
-import {Block, CustomConfig, HeaderBlockTypes, PageData} from '../../models';
+import {Block, HeaderBlockTypes} from '../../models';
 import {getCustomHeaderTypes, getOrderedBlocks} from '../../utils';
+import {EditorProps} from '../types';
 
 import {
     ADD_BLOCK,
@@ -15,21 +16,21 @@ import {addEditorProps} from './utils';
 
 export type EditorBlockId = number | string;
 
-export function useEditorState(initialData: PageData, custom?: CustomConfig) {
+export function useEditorState({content: intialContent, custom}: Omit<EditorProps, 'children'>) {
     const headerBlockTypes = useMemo(
         () => [...HeaderBlockTypes, ...getCustomHeaderTypes(custom)],
         [custom],
     );
     const reducer = useMemo(() => getReducer(headerBlockTypes), [headerBlockTypes]);
-    const [{activeBlockId, data, orderedBlocksCount}, dispatch] = useReducer(reducer, {
+    const [{activeBlockId, content, orderedBlocksCount}, dispatch] = useReducer(reducer, {
         activeBlockId: 0,
-        orderedBlocksCount: getOrderedBlocks(initialData.content.blocks, headerBlockTypes).length,
-        data: addEditorProps(initialData),
+        orderedBlocksCount: getOrderedBlocks(intialContent.blocks, headerBlockTypes).length,
+        content: addEditorProps(intialContent),
     });
 
     return useMemo(() => {
         return {
-            data,
+            content,
             editControlsProps: {
                 activeBlockId,
                 orderedBlocksCount,
@@ -41,5 +42,5 @@ export function useEditorState(initialData: PageData, custom?: CustomConfig) {
             },
             onAdd: (block: Block) => dispatch({type: ADD_BLOCK, payload: block}),
         };
-    }, [data, activeBlockId, orderedBlocksCount]);
+    }, [content, activeBlockId, orderedBlocksCount]);
 }

@@ -3,6 +3,7 @@ import React from 'react';
 import {Meta, Story} from '@storybook/react/types-6-0';
 
 import {scriptsSrc, ymapApiKeyForStorybook} from '../../../../.storybook/maps';
+import {PageConstructor} from '../../../containers/PageConstructor';
 import {MapType} from '../../../context/mapsContext/mapsContext';
 import {MapProvider} from '../../../context/mapsContext/mapsProvider';
 import {EDITOR} from '../../../demo/constants';
@@ -22,10 +23,10 @@ const DefaultTemplate: Story<EditorProps> = (args) => (
         apiKey={ymapApiKeyForStorybook}
         type={MapType.Yandex}
     >
-        <Editor {...args} />
+        <Editor {...args}>{(props) => <PageConstructor {...props} />}</Editor>
     </MapProvider>
 );
 
 export const Default = DefaultTemplate.bind({});
 
-Default.args = data.default as EditorProps;
+Default.args = data.default as Pick<EditorProps, 'content'>;

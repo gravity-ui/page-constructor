@@ -1,4 +1,4 @@
-import {Block, CustomConfig, PageData} from '../../models';
+import {Block, CustomConfig, PageContent} from '../../models';
 import {getHeaderBlock, getOrderedBlocks} from '../../utils';
 
 import {addBlock, changeBlocksOrder, duplicateBlock, getNewBlockIndex} from './utils';
@@ -6,7 +6,7 @@ import {addBlock, changeBlocksOrder, duplicateBlock, getNewBlockIndex} from './u
 export type EditorBlockId = number | string;
 
 interface EditorState {
-    data: PageData;
+    content: PageContent;
     activeBlockId: EditorBlockId;
     orderedBlocksCount: number;
     custom?: CustomConfig;
@@ -56,18 +56,15 @@ export type EditorAction = SelectBlock | DeleteBlock | CopyBlock | AddBlock | Or
 export const getReducer =
     (headerBlockTypes: string[]) =>
     (state: EditorState, action: EditorAction): EditorState => {
-        const {content} = state.data;
+        const {content} = state;
         const header = getHeaderBlock(content.blocks, headerBlockTypes);
         const orderedBlocks = getOrderedBlocks(content.blocks, headerBlockTypes);
         const withHeader = (blocks: Block[]) => [header, ...blocks].filter(Boolean) as Block[];
         const getNewState = (blocks: Block[], activeBlockId: EditorBlockId) => ({
             ...state,
-            data: {
-                ...state.data,
-                content: {
-                    ...content,
-                    blocks,
-                },
+            content: {
+                ...content,
+                blocks,
             },
             activeBlockId,
             orderedBlocksCount: orderedBlocks.length,

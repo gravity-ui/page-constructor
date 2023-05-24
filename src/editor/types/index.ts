@@ -1,11 +1,13 @@
+import {PageConstructorProps} from '../../containers/PageConstructor';
 import {BlockDecorationProps} from '../../extensions/BlockDecoration';
-import {CustomConfig, PageData} from '../../models';
+import {PageData} from '../../models';
 
 export type EditorBlockId = number | string;
 
-export interface EditorProps {
-    data: PageData;
-    custom?: CustomConfig;
+export interface EditorProps
+    extends Required<Pick<PageConstructorProps, 'content'>>,
+        Partial<Omit<PageConstructorProps, 'content'>> {
+    children: (props: Partial<PageConstructorProps>) => React.ReactNode;
     onChange?: (data: PageData) => void;
 }
 
