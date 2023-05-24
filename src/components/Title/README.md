@@ -1,12 +1,18 @@
 `type: "title"`
 
-`text: text` — Title text
+`title:`
 
-`textSize?: 's' | 'm' | 'l'` — Title font size
+- `text: string` - Title text
 
-`url?: string` — URL for a redirect on clicking the title, an arrow is automatically added at the end.
+- `textSize?: 's' | 'm' | 'l'` — Title font size
 
-**Margins:**
+- `url?: string` — URL for a redirect on clicking the title, an arrow is automatically added at the end.
+
+- `resetMargin?: boolean` - default `true`. Without this property `margin-top` will be proportional to `textSize` (see section _Margins_ below)
+
+`description: string` - text (with YFM support)
+
+**Margins for title without reset:**
 
 `textSize s - top: m`
 

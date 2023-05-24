@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 
-import {AnimateBlock, BlockHeader, HTML} from '../../components/';
+import {AnimateBlock, HTML, Title} from '../../components/';
 import Image from '../../components/Image/Image';
 import {getMediaImage} from '../../components/Media/Image/utils';
 import {ThemeValueContext} from '../../context/theme/ThemeValueContext';
@@ -30,7 +30,7 @@ export const ExtendedFeaturesBlock = ({
 
     return (
         <AnimateBlock className={b()} animate={animated}>
-            <BlockHeader title={title} description={description} className={b('header')} />
+            <Title title={title} subtitle={description} className={b('header')} />
             <div className={b('items')}>
                 <Row>
                     {items.map(

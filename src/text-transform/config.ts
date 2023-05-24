@@ -12,7 +12,7 @@ import {
     PromoFeaturesItem,
     SubBlockType,
     TableProps,
-    TitleProps,
+    TitleItemProps,
 } from '../models';
 
 import {
@@ -48,7 +48,7 @@ function parsePromoFeatures(transformer: Transformer, items: PromoFeaturesItem[]
     }));
 }
 
-const parseTitle = (transformer: Transformer, title: TitleProps | string) =>
+const parseTitle = (transformer: Transformer, title: TitleItemProps | string) =>
     typeof title === 'object' && 'text' in title
         ? {...title, text: transformer(title.text)}
         : title && transformer(title);
