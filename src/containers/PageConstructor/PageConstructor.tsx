@@ -11,7 +11,6 @@ import {Grid} from '../../grid';
 import {
     BlockType,
     BlockTypes,
-    ConstructorExtensions,
     CustomConfig,
     CustomItems,
     HeaderBlockTypes,
@@ -49,7 +48,6 @@ export interface PageConstructorProps {
     custom?: CustomConfig;
     renderMenu?: () => React.ReactNode;
     navigation?: NavigationData;
-    extensions?: ConstructorExtensions;
 }
 
 export const Constructor = (props: PageConstructorProps) => {
@@ -59,7 +57,6 @@ export const Constructor = (props: PageConstructorProps) => {
         shouldRenderBlock,
         navigation,
         custom,
-        extensions,
     } = props;
 
     const {context} = useMemo(
@@ -75,10 +72,12 @@ export const Constructor = (props: PageConstructorProps) => {
                 },
                 loadables: custom?.loadable,
                 shouldRenderBlock,
-                extensions,
+                customization: {
+                    decorators: custom?.decorators,
+                },
             },
         }),
-        [custom, shouldRenderBlock, extensions],
+        [custom, shouldRenderBlock],
     );
 
     const {themeValue: theme} = useContext(ThemeValueContext);

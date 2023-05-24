@@ -1,6 +1,6 @@
 import React, {PropsWithChildren} from 'react';
 
-import {BlockDecoration} from '../../extensions/BlockDecoration';
+import {BlockDecoration} from '../../customization/BlockDecoration';
 import {Col} from '../../grid';
 import {BlockBaseProps, ClassNameProps} from '../../models';
 import {block} from '../../utils';

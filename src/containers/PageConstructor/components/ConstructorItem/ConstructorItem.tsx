@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 
 import {InnerContext} from '../../../../context/innerContext';
-import {BlockDecoration} from '../../../../extensions/BlockDecoration';
+import {BlockDecoration} from '../../../../customization/BlockDecoration';
 import {ConstructorItem as ConstructorItemType, WithChildren} from '../../../../models';
 
 export interface ConstructorItemProps {

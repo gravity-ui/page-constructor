@@ -5,10 +5,11 @@ import {InnerContext} from '../context/innerContext';
 export interface BlockDecorationProps extends PropsWithChildren {
     id?: string;
 }
+export type BlockDecorator = (props: BlockDecorationProps) => React.ReactElement;
 
 export const BlockDecoration = (props: PropsWithChildren<BlockDecorationProps>) => {
     const block = <Fragment>{props.children}</Fragment>;
-    const blockDecorators = useContext(InnerContext).extensions?.blockDecorators;
+    const blockDecorators = useContext(InnerContext).customization?.decorators?.block;
 
     if (!blockDecorators) {
         return block;

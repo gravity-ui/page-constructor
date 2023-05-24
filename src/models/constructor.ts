@@ -1,6 +1,6 @@
 import React, {PropsWithChildren} from 'react';
 
-import {BlockDecorationProps} from '../extensions/BlockDecoration';
+import {BlockDecorationProps} from '../customization/BlockDecoration';
 
 import {Animatable, Block, ConstructorItem, ThemedMediaProps, WithChildren} from './';
 
@@ -61,8 +61,7 @@ export interface CustomConfig {
     subBlocks?: CustomItems;
     headers?: CustomItems;
     loadable?: LoadableConfig;
-}
-
-export interface ConstructorExtensions {
-    blockDecorators?: ((props: BlockDecorationProps) => React.ReactElement)[];
+    decorators?: {
+        block?: ((props: BlockDecorationProps) => React.ReactElement)[];
+    };
 }
