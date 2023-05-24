@@ -11,17 +11,16 @@ import './EditBlock.scss';
 
 const b = block('edit-block');
 
-const EditBlock = (props: EditBlockProps) => {
-    const {
-        id,
-        activeBlockId,
-        onDelete,
-        onSelect,
-        onCopy,
-        onOrderChange,
-        children,
-        orderedBlocksCount,
-    } = props;
+const EditBlock = ({
+    id,
+    activeBlockId,
+    onDelete,
+    onSelect,
+    onCopy,
+    onOrderChange,
+    children,
+    orderedBlocksCount,
+}: EditBlockProps) => {
     const ref = useRef<HTMLDivElement>(null);
     const blockContenxtId = getBlockIndexFromId(useContext(BlockIdContext));
     const blockId = id || blockContenxtId;
@@ -78,4 +77,4 @@ const EditBlock = (props: EditBlockProps) => {
     );
 };
 
-export default EditBlock;
+export default React.memo(EditBlock);
