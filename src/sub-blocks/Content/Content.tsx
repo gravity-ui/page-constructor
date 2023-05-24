@@ -3,7 +3,7 @@ import React from 'react';
 import {Button, Title, YFMWrapper} from '../../components';
 import LinkBlock from '../../components/Link/Link';
 import {Col} from '../../grid';
-import {ClassNameProps, ContentBlockProps, ContentSize, TitleProps} from '../../models';
+import {ClassNameProps, ContentBlockProps, ContentSize, TitleItemProps} from '../../models';
 import {block} from '../../utils';
 
 import './Content.scss';
@@ -56,14 +56,14 @@ const Content = (props: ContentBlockProps & ClassNameProps) => {
 
     const {...titleProps} =
         !title || typeof title === 'string'
-            ? ({text: title, textSize: getTextSize(size)} as TitleProps)
-            : title;
+            ? ({text: title, textSize: getTextSize(size)} as TitleItemProps)
+            : {...title};
 
     const hasTitle = Boolean(title);
 
     return (
         <Col className={b({size, centered, theme}, className)} reset sizes={colSizes}>
-            {title && <Title className={b('title')} {...titleProps} resetMargin />}
+            {title && <Title className={b('title')} title={titleProps} colSizes={{all: 12}} />}
             {text && (
                 <div className={b('text', {['without-title']: !hasTitle})}>
                     <YFMWrapper

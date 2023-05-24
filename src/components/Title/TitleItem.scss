@@ -1,0 +1,91 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+$block: '.#{$ns}title-item';
+
+#{$block} {
+    @include justify();
+    $root: &;
+
+    &_size_xs {
+        @include heading5();
+    }
+
+    &_size_s {
+        @include heading4();
+        margin-top: $indentM;
+    }
+
+    &_size_m {
+        @include heading2();
+        margin-top: $indentL;
+    }
+
+    &_size_l {
+        @include heading1();
+        margin-top: $indentXXL;
+    }
+
+    &__arrow {
+        margin-top: 10px;
+
+        &_size_xs {
+            margin-top: 7px;
+        }
+
+        &_size_s {
+            margin-top: 5px;
+        }
+    }
+
+    &__link {
+        @include reset-link-style();
+        @include reset-link-hover();
+
+        padding-right: 8px;
+
+        &:hover {
+            cursor: pointer;
+
+            #{$root}__arrow {
+                margin-left: 10px;
+
+                &_size_xs {
+                    margin-left: 6px;
+                }
+
+                &_size_s {
+                    margin-left: 8px;
+                }
+            }
+        }
+    }
+
+    &__text {
+        white-space: normal;
+        a {
+            @include link();
+        }
+    }
+
+    &__wrapper {
+        white-space: nowrap;
+    }
+
+    &_reset-margin {
+        margin-top: 0;
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'sm')) {
+        &_size_l:not(#{$root}_reset-margin) {
+            margin-top: $indentL;
+        }
+
+        &__arrow {
+            &_size_m,
+            &_size_l {
+                margin-top: 9px;
+            }
+        }
+    }
+}
