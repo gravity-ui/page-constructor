@@ -5,8 +5,8 @@ import SlickSlider, {Settings} from 'react-slick';
 
 import Anchor from '../../components/Anchor/Anchor';
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
-import BlockHeader from '../../components/BlockHeader/BlockHeader';
 import OutsideClick from '../../components/OutsideClick/OutsideClick';
+import Title from '../../components/Title/Title';
 import {BREAKPOINTS} from '../../constants';
 import {MobileContext} from '../../context/mobileContext';
 import {SSRContext} from '../../context/ssrContext';
@@ -319,9 +319,9 @@ export const SliderBlock = (props: WithChildren<SliderProps>) => {
                 )}
             >
                 {anchorId && <Anchor id={anchorId} />}
-                <BlockHeader
+                <Title
                     title={title}
-                    description={description}
+                    subtitle={description}
                     className={b('header', {'no-description': !description})}
                 />
                 <AnimateBlock className={b('animate-slides')} animate={animated}>

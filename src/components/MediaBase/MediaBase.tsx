@@ -1,10 +1,10 @@
 import React, {ReactElement, useMemo} from 'react';
 
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
-import BlockHeader from '../../components/BlockHeader/BlockHeader';
 import {Col, Grid, GridColumnSize, Row} from '../../grid';
 import {MediaBaseBlockProps, WithChildren} from '../../models';
 import {block} from '../../utils';
+import Title from '../Title/Title';
 
 import MediaContent from './MediaBaseContent';
 
@@ -49,7 +49,12 @@ export const MediaBase = (props: MediaBaseProps) => {
     return (
         <AnimateBlock className={b()} onScroll={onScroll} animate={animated}>
             {mediaOnly && (
-                <BlockHeader className={b('header')} title={title} description={description} />
+                <Title
+                    className={b('header')}
+                    title={title}
+                    subtitle={description}
+                    colSizes={{all: 12}}
+                />
             )}
             <Grid>
                 <Row
