@@ -1,6 +1,6 @@
 import React, {useMemo, useState} from 'react';
 
-import {AnimateBlock, BlockHeader} from '../../components';
+import {AnimateBlock, Title} from '../../components';
 import ButtonTabs, {ButtonTabsItemProps} from '../../components/ButtonTabs/ButtonTabs';
 import {ConstructorBlocks} from '../../containers/PageConstructor/components/ConstructorBlocks';
 import {Col, Row} from '../../grid';
@@ -58,10 +58,10 @@ const FilterBlock: React.FC<FilterBlockProps> = ({
     return (
         <AnimateBlock className={b()} animate={animated}>
             {title && (
-                <BlockHeader
+                <Title
                     className={b('title', {centered: centered})}
                     title={title}
-                    description={description}
+                    subtitle={description}
                 />
             )}
             {tabButtons.length && (

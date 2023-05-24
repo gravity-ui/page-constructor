@@ -7,7 +7,6 @@ import {
     AnchorProps,
     Animatable,
     BackgroundImageProps,
-    BlockHeaderProps,
     ButtonProps,
     ContentSize,
     ContentTextSize,
@@ -29,8 +28,8 @@ import {
     ThemedImage,
     ThemedMediaProps,
     ThemedMediaVideoProps,
-    TitleBaseProps,
-    TitleProps,
+    TitleItemBaseProps,
+    TitleItemProps,
 } from './common';
 import {BannerCardProps, SubBlock, SubBlockModels} from './sub-blocks';
 
@@ -110,7 +109,7 @@ export interface SliderProps extends Childable, Animatable, LoadableChildren {
         text: string;
         size?: TextSize;
     };
-    title?: TitleBaseProps;
+    title?: TitleItemBaseProps;
     description?: string;
     autoplay?: number;
     //for server transforms
@@ -171,7 +170,7 @@ export interface ExtendedFeaturesItem
 
 export interface ExtendedFeaturesProps extends Animatable {
     items: ExtendedFeaturesItem[];
-    title?: TitleProps | string;
+    title?: TitleItemProps | string;
     description?: string;
     colSizes?: GridColumnSizesType;
 }
@@ -185,7 +184,7 @@ export interface PromoFeaturesItem {
 
 export interface PromoFeaturesProps extends Animatable {
     items: PromoFeaturesItem[];
-    title?: TitleProps | string;
+    title?: TitleItemProps | string;
     description?: string;
     theme?: 'grey' | 'default';
 }
@@ -274,7 +273,9 @@ export interface TabsBlockItem
     media?: ThemedMediaProps;
 }
 
-export interface TabsBlockProps extends BlockHeaderProps, Animatable {
+export interface TabsBlockProps extends Animatable {
+    title?: TitleItemProps | string;
+    description?: string;
     tabsColSizes?: GridColumnSizesType;
     centered?: boolean;
     direction?: MediaDirection;
@@ -282,7 +283,7 @@ export interface TabsBlockProps extends BlockHeaderProps, Animatable {
 }
 
 export interface CardLayoutBlockProps extends Childable, Animatable, LoadableChildren {
-    title: TitleProps | string;
+    title: TitleItemProps | string;
     description?: string;
     colSizes?: GridColumnSizesType;
 }
@@ -298,7 +299,7 @@ export type FilterItem = {
 };
 
 export interface FilterBlockProps extends Animatable, LoadableChildren {
-    title?: TitleProps | string;
+    title?: TitleItemProps | string;
     description?: string;
     tags: FilterTag[];
     items: FilterItem[];
@@ -331,7 +332,7 @@ export interface ContentLayoutBlockProps {
 }
 
 export interface ContentBlockProps {
-    title?: TitleBaseProps | string;
+    title?: TitleItemBaseProps | string;
     text?: string;
     additionalInfo?: string;
     links?: LinkProps[];

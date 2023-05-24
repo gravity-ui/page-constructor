@@ -3,7 +3,7 @@ import React from 'react';
 import yfm from '@doc-tools/transform';
 import {Meta, Story} from '@storybook/react/types-6-0';
 
-import {BlockHeader} from '../../../components';
+import {Title} from '../../../components';
 import {COMPONENTS} from '../../../demo/constants';
 import {BasicCardProps, DividerSize} from '../../../models';
 import BasicCard from '../../BasicCard/BasicCard';
@@ -19,7 +19,7 @@ export default {
 const getSizeTitle = (size: string) => data.sizes.title.replace('{{size}}', size);
 const DefaultTemplate: Story<BasicCardProps> = (args) => (
     <div>
-        <BlockHeader title={data.default.title} />
+        <Title title={data.default.title} />
         <div style={{maxWidth: '400px', marginTop: '10px'}}>
             <BasicCard {...args} />
             <Divider />
@@ -32,7 +32,7 @@ const SizesTemplate: Story<BasicCardProps> = (args) => (
     <div>
         {data.sizes.items.map((item) => (
             <div key={item}>
-                <BlockHeader title={getSizeTitle(item.toUpperCase())} />
+                <Title title={getSizeTitle(item.toUpperCase())} />
                 <div style={{maxWidth: '400px', marginTop: '10px', marginBottom: '24px'}}>
                     <BasicCard {...args} />
                     <Divider size={item as DividerSize} />
