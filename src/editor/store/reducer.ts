@@ -24,6 +24,7 @@ export const COPY_BLOCK = 'COPY_BLOCK';
 export const ADD_BLOCK = 'ADD_BLOCK';
 export const SET_REGION = 'SET_REGION';
 export const ORDER_BLOCK = 'ORDER_BLOCK';
+export const UPDATE_CONTENT = 'UPDATE_CONTENT';
 
 interface SelectBlock {
     type: typeof SELECT_BLOCK;
@@ -50,7 +51,18 @@ interface OrderBlock {
     payload: OrderBlockParams;
 }
 
-export type EditorAction = SelectBlock | DeleteBlock | CopyBlock | AddBlock | OrderBlock;
+interface UpdateContent {
+    type: typeof UPDATE_CONTENT;
+    payload: PageContent;
+}
+
+export type EditorAction =
+    | SelectBlock
+    | DeleteBlock
+    | CopyBlock
+    | AddBlock
+    | OrderBlock
+    | UpdateContent;
 
 // reducer
 export const getReducer =
@@ -71,6 +83,11 @@ export const getReducer =
         });
 
         switch (action.type) {
+            case UPDATE_CONTENT:
+                return {
+                    ...state,
+                    content: action.payload,
+                };
             case SELECT_BLOCK:
                 return getNewState(content.blocks, action.payload);
             case DELETE_BLOCK: {

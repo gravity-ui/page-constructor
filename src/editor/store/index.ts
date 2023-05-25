@@ -1,6 +1,6 @@
 import {useMemo, useReducer} from 'react';
 
-import {Block, HeaderBlockTypes} from '../../models';
+import {Block, HeaderBlockTypes, PageContent} from '../../models';
 import {getCustomHeaderTypes, getOrderedBlocks} from '../../utils';
 import {EditorProps} from '../types';
 
@@ -10,6 +10,7 @@ import {
     DELETE_BLOCK,
     ORDER_BLOCK,
     SELECT_BLOCK,
+    UPDATE_CONTENT,
     getReducer,
 } from './reducer';
 import {addEditorProps} from './utils';
@@ -41,6 +42,8 @@ export function useEditorState({content: intialContent, custom}: Omit<EditorProp
                     dispatch({type: ORDER_BLOCK, payload: {oldIndex, newIndex}}),
             },
             onAdd: (block: Block) => dispatch({type: ADD_BLOCK, payload: block}),
+            onContentUpdate: (newContent: PageContent) =>
+                dispatch({type: UPDATE_CONTENT, payload: newContent}),
         };
     }, [content, activeBlockId, orderedBlocksCount]);
 }
