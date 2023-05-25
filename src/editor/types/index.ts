@@ -1,6 +1,5 @@
 import {PageConstructorProps} from '../../containers/PageConstructor';
-import {BlockDecorationProps} from '../../customization/BlockDecoration';
-import {PageData} from '../../models';
+import {BlockDecorationProps, PageData} from '../../models';
 
 export type EditorBlockId = number | string;
 

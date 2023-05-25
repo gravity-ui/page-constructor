@@ -1,7 +1,6 @@
 import _ from 'lodash';
 
-import {BlockDecorator} from '../../customization/BlockDecoration';
-import {CustomConfig} from '../../models';
+import {BlockDecorator, CustomConfig} from '../../models';
 
 export const formatBlockName = (name: string) => _.capitalize(name).replace(/(block|-)/g, ' ');
 
