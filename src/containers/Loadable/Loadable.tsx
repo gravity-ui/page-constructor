@@ -4,7 +4,13 @@ import {Spin} from '@gravity-ui/uikit';
 import blockCn from 'bem-cn-lite';
 
 import ErrorWrapper from '../../components/ErrorWrapper/ErrorWrapper';
-import {Block, CustomItem, FetchLoadableData, LoadableData, LoadableProps} from '../../models';
+import {
+    ConstructorItem,
+    CustomItem,
+    FetchLoadableData,
+    LoadableData,
+    LoadableProps,
+} from '../../models';
 
 import i18n from './i18n';
 
@@ -21,7 +27,7 @@ export interface LoadableState {
 export interface LoadableComponentsProps extends Omit<PropsWithChildren<LoadableProps>, 'source'> {
     Component: CustomItem;
     ChildComponent: CustomItem;
-    block: Block;
+    block: ConstructorItem;
     blockKey: string;
     fetch: FetchLoadableData;
 }

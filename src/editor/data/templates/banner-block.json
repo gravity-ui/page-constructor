@@ -1,0 +1,25 @@
+{
+  "template": {
+    "theme": "light",
+    "type": "banner-block",
+    "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+    "subtitle": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> ",
+    "image": {
+      "light": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_light.png",
+      "dark": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_dark.png"
+    },
+    "disableCompress": true,
+    "color": {
+      "light": "#EFF2F8",
+      "dark": "#262626"
+    },
+    "button": {
+      "text": "Learn more",
+      "url": "https://example.com"
+    }
+  },
+  "meta": {
+    "title": "Banner",
+    "description": "This is banner block"
+  }
+}

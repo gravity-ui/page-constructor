@@ -1,0 +1,6 @@
+{
+  "template": {
+    "type": "share-block",
+    "items": ["facebook", "vk", "telegram", "twitter", "linkedin"]
+  }
+}

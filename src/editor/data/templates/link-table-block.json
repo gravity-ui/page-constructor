@@ -1,0 +1,10 @@
+{
+  "template": {
+    "type": "link-table-block",
+    "items": [
+      [{"text": "test", "url": "https://example.com"}],
+      [{"text": "test", "url": "https://example.com"}],
+      [{"text": "test", "url": "https://example.com"}]
+    ]
+  }
+}

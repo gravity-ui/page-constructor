@@ -1,0 +1,56 @@
+{
+  "template": {
+    "type": "extended-features-block",
+    "title": {
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      "textSize": "m"
+    },
+    "items": [
+      {
+        "title": "Sed do eiusmod tempor incididunt",
+        "text": "Ut enim ad minim veniam [quis nostrud](https://example.com) ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "icon": {
+          "light": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_1_light.svg",
+          "dark": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_1_dark.svg"
+        },
+        "additionalInfo": "Duis aute irure dolor in [reprehenderit](https://example.com) n voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+      },
+      {
+        "title": "Sed do eiusmod tempor",
+        "text": "Ut enim ad minim veniam [quis nostrud](https://example.com) ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "icon": {
+          "light": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_2_light.svg",
+          "dark": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_2_dark.svg"
+        },
+        "buttons": [
+          {
+            "text": "Button",
+            "theme": "action",
+            "url": "https://example.com"
+          },
+          {
+            "text": "Button",
+            "theme": "outlined",
+            "url": "https://example.com"
+          }
+        ]
+      },
+      {
+        "title": "Sed do eiusmod tempor incididunt",
+        "text": "Ut enim ad minim veniam [quis nostrud](https://example.com) ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "icon": {
+          "light": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_3_light.svg",
+          "dark": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_3_dark.svg"
+        },
+        "links": [
+          {
+            "text": "Go",
+            "url": "#",
+            "arrow": true,
+            "theme": "normal"
+          }
+        ]
+      }
+    ]
+  }
+}

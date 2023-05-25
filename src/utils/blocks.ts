@@ -1,4 +1,4 @@
-import {CustomConfig, PCShareSocialNetwork, TextSize} from '../models';
+import {Block, CustomConfig, PCShareSocialNetwork, TextSize} from '../models';
 import {ConstructorBlock} from '../models/constructor';
 
 export function getHeaderTag(size: TextSize) {
@@ -52,6 +52,14 @@ const getShareUrlWithParams = (url: string, params: Record<string, string | unde
     });
 
     return result.toString();
+};
+
+export const getOrderedBlocks = (blocks: Block[], headerBlockTypes: string[] = []) => {
+    return blocks.filter(({type}) => !headerBlockTypes.includes(type));
+};
+
+export const getHeaderBlock = (blocks: Block[], headerBlockTypes: string[] = []) => {
+    return blocks.find(({type}) => headerBlockTypes.includes(type));
 };
 
 export const getShareLink = (

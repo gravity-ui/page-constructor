@@ -1,0 +1,90 @@
+{
+  "template": {
+    "type": "tabs-block",
+    "title": {
+      "text": "Lorem ipsum"
+    },
+    "items": [
+      {
+        "tabName": "Dolor sit amet",
+        "title": "Lorem ipsum dolor sit amet",
+        "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "buttons": [
+          {
+            "text": "Button",
+            "theme": "action",
+            "url": "https://example.com"
+          },
+          {
+            "text": "Button",
+            "theme": "outlined",
+            "url": "https://example.com"
+          }
+        ],
+        "image": {
+          "light": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_white.png",
+          "dark": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_dark.png"
+        }
+      },
+      {
+        "tabName": "Lorem ipsum",
+        "title": "Lorem ipsum",
+        "media": {
+          "light": {
+            "video": {
+              "src": [
+                "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_light.webm",
+                "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_light.mp4",
+                "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_light.png"
+              ],
+              "loop": {
+                "start": 0
+              }
+            },
+            "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_white.png"
+          },
+          "dark": {
+            "video": {
+              "src": [
+                "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_dark.webm",
+                "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_dark.mp4",
+                "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_dark.png"
+              ],
+              "loop": {
+                "start": 0
+              }
+            },
+            "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_dark.png"
+          }
+        },
+        "caption": "Dolor sit amet",
+        "text": "* Ut enim ad minim veniam\n* Ut enim ad minim veniam",
+        "links": [
+          {
+            "url": "https://example.com",
+            "text": "Link",
+            "theme": "normal",
+            "arrow": true
+          }
+        ]
+      },
+      {
+        "tabName": "Consectetur adipiscing elit",
+        "title": "Consectetur adipiscing elit",
+        "additionalInfo": "Duis aute irure dolor in [reprehenderit](https://example.com) n voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+        "media": {
+          "light": {
+            "youtube": "https://youtu.be/0Qd3T6skprA",
+            "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_light.png"
+          },
+          "dark": {
+            "youtube": "https://youtu.be/0Qd3T6skprA",
+            "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_dark.png"
+          }
+        },
+        "caption": "Consectetur adipiscing elit",
+        "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+      }
+    ]
+  }
+}

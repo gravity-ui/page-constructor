@@ -1,0 +1,50 @@
+@import '../../../../styles/variables.scss';
+@import '../../../../styles/mixins.scss';
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+$block: '.#{$ns}edit-block';
+
+#{$block} {
+    $controlIconHeight: 24px;
+    $controlsIndent: $indentXXS;
+    $controlColor: var(--yc-color-promo-base-neon);
+
+    cursor: pointer;
+    position: relative;
+
+    &__controls {
+        position: absolute;
+        width: calc(100% + $controlsIndent * 2);
+        height: calc(100% + $controlsIndent * 2);
+        top: -#{$controlsIndent};
+        left: -#{$controlsIndent};
+        border-radius: $editorControlBorderRadius;
+        z-index: $editorBlockControlZIndex;
+
+        &_active {
+            border: 4px solid $controlColor;
+        }
+    }
+
+    &__controls-content {
+        display: flex;
+        position: absolute;
+        bottom: calc(($controlsIndent + $controlIconHeight) * -1);
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    &__control {
+        @include control($hoverScale: 1.1);
+
+        width: $controlIconHeight;
+        height: $controlIconHeight;
+        border-radius: calc(#{$editorControlBorderRadius} / 2);
+        background-color: var(--yc-color-promo-highlight-neon);
+
+        &:not(:first-child) {
+            margin-left: $indentXXS;
+        }
+    }
+}

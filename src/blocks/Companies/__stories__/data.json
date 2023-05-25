@@ -2,19 +2,19 @@
   "default": {
     "content": {
       "type": "companies-block",
-      "title": "Our Clients",
+      "title": "Page constructor",
       "images": {
         "light": {
           "desktop": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/logo-svg_12-12_desktop_light.svg",
           "tablet": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/logo-svg_12-12_tablet_light.svg",
           "mobile": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/logo-svg_12-12_mobile_light.svg",
-          "alt": "Our Clients"
+          "alt": "Page constructor"
         },
         "dark": {
           "desktop": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/logo-svg_12-12_desktop_dark.svg",
           "tablet": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/logo-svg_12-12_tablet_dark.svg",
           "mobile": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/logo-svg_12-12_mobile_dark.svg",
-          "alt": "Our Clients"
+          "alt": "Page constructor"
         }
       }
     }
