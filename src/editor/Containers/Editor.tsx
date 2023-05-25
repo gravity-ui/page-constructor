@@ -1,6 +1,6 @@
 import React, {useMemo} from 'react';
 
-import {BlockDecorationProps} from '../../customization/BlockDecoration';
+import {BlockDecorationProps} from '../../models';
 import AddBlock from '../Components/AddBlock/AddBlock';
 import EditBlock from '../Components/EditBlock/EditBlock';
 import {useEditorState} from '../store';

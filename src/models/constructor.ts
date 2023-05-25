@@ -1,8 +1,13 @@
 import React, {PropsWithChildren} from 'react';
 
-import {BlockDecorationProps} from '../customization/BlockDecoration';
-
-import {Animatable, Block, ConstructorItem, ThemedMediaProps, WithChildren} from './';
+import {
+    Animatable,
+    Block,
+    BlockDecorationProps,
+    ConstructorItem,
+    ThemedMediaProps,
+    WithChildren,
+} from './';
 
 export interface PageData {
     content: PageContent;

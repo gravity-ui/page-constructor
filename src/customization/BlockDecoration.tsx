@@ -1,11 +1,7 @@
 import React, {Fragment, PropsWithChildren, useContext} from 'react';
 
 import {InnerContext} from '../context/innerContext';
-
-export interface BlockDecorationProps extends PropsWithChildren {
-    id?: string;
-}
-export type BlockDecorator = (props: BlockDecorationProps) => React.ReactElement;
+import {BlockDecorationProps} from '../models';
 
 export const BlockDecoration = (props: PropsWithChildren<BlockDecorationProps>) => {
     const block = <Fragment>{props.children}</Fragment>;
