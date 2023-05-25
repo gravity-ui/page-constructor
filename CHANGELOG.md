@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.20.0](https://github.com/gravity-ui/page-constructor/compare/v2.19.0...v2.20.0) (2023-05-25)
+
+
+### Features
+
+* add page structure editor ([8d1dafe](https://github.com/gravity-ui/page-constructor/commit/8d1dafe964a9af3c7f5ad0e6039cccf2d24da64f))
+* Edit mode ([#347](https://github.com/gravity-ui/page-constructor/issues/347)) ([8d1dafe](https://github.com/gravity-ui/page-constructor/commit/8d1dafe964a9af3c7f5ad0e6039cccf2d24da64f))
+
+
+### Bug Fixes
+
+* customization types import fix ([#350](https://github.com/gravity-ui/page-constructor/issues/350)) ([206306f](https://github.com/gravity-ui/page-constructor/commit/206306f95d87ae428538b27dca08f78cb4de9430))
+
 ## [2.19.0](https://github.com/gravity-ui/page-constructor/compare/v2.18.0...v2.19.0) (2023-05-23)
 
 
