@@ -1,5 +1,5 @@
 {
-  "fullScreen": {
+  "fullscreen": {
     "content": {
       "content": {
         "title": "Lorem&nbsp;ipsum",
@@ -8,7 +8,7 @@
       "media": {
         "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-mini_4-12_light.png"
       },
-      "fullScreen": true,
+      "fullscreen": true,
       "border": true
     }
   },
@@ -22,7 +22,7 @@
       "media": {
         "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-mini_4-12_light.png"
       },
-      "fullScreen": true,
+      "fullscreen": true,
       "border": true
     }
   },
@@ -36,7 +36,7 @@
         "youtube": "https://youtu.be/0Qd3T6skprA",
         "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.png"
       },
-      "fullScreen": true
+      "fullscreen": true
     }
   },
   "default": {

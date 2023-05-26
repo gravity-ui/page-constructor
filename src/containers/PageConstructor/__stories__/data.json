@@ -119,7 +119,7 @@
                 "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.png"
               },
               "metaInfo": ["one", "two", "three"],
-              "fullScreen": true
+              "fullscreen": true
             },
             {
               "type": "layout-item",
@@ -132,7 +132,7 @@
                 "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.png"
               },
               "metaInfo": ["one", "two", "three"],
-              "fullScreen": true
+              "fullscreen": true
             },
             {
               "type": "layout-item",
@@ -145,7 +145,7 @@
                 "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.png"
               },
               "metaInfo": ["one", "two", "three"],
-              "fullScreen": true
+              "fullscreen": true
             },
             {
               "type": "layout-item",
@@ -158,7 +158,7 @@
                 "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.png"
               },
               "metaInfo": ["one", "two", "three"],
-              "fullScreen": true
+              "fullscreen": true
             },
             {
               "type": "layout-item",
@@ -171,7 +171,7 @@
                 "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.png"
               },
               "metaInfo": ["one", "two", "three"],
-              "fullScreen": true
+              "fullscreen": true
             },
             {
               "type": "layout-item",
@@ -184,7 +184,7 @@
                 "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.png"
               },
               "metaInfo": ["one", "two", "three"],
-              "fullScreen": true
+              "fullscreen": true
             },
             {
               "type": "layout-item",
@@ -197,7 +197,7 @@
                 "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.png"
               },
               "metaInfo": ["one", "two", "three"],
-              "fullScreen": true
+              "fullscreen": true
             }
           ]
         },

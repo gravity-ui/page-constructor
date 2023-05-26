@@ -17,10 +17,11 @@ const LayoutItem = ({
     media,
     border,
     fullScreen,
+    fullscreen,
     className,
 }: LayoutItemProps) => (
     <div className={b(null, className)}>
-        {fullScreen && hasFullScreen(media) ? (
+        {(fullScreen || fullscreen) && hasFullScreen(media) ? (
             <FullScreenMedia showFullScreenIcon={showFullScreenIcon(media)}>
                 {({className: mediaClassName, ...fullscreenMediaProps} = {}) => (
                     <Media

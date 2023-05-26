@@ -8,4 +8,4 @@
 
 `border?: boolean` — Image border
 
-`fullScreen?: boolean` — Enables/disable fullscreen mode for media
+`fullscreen?: boolean` — Enables/disable fullscreen mode for media

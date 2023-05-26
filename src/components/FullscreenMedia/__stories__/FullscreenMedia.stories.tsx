@@ -3,9 +3,8 @@ import React from 'react';
 import {Meta, Story} from '@storybook/react/types-6-0';
 
 import {COMPONENTS, MEDIA} from '../../../demo/constants';
-import {MediaProps} from '../../../models';
 import Media from '../../Media/Media';
-import FullscreenMedia from '../FullscreenMedia';
+import FullscreenMedia, {FullScreenMediaProps} from '../FullscreenMedia';
 
 import data from './data.json';
 
@@ -14,14 +13,16 @@ export default {
     title: `${COMPONENTS}/${MEDIA}/FullscreenMedia`,
 } as Meta;
 
-const DefaultTemplate: Story<MediaProps> = (args) => (
+const DefaultTemplate: Story<FullScreenMediaProps> = (args) => (
     <div style={{maxWidth: '500px'}}>
-        <FullscreenMedia>
-            {(fullscreenMediaProps = {}) => <Media {...args} {...fullscreenMediaProps} />}
+        <FullscreenMedia {...args}>
+            {(fullscreenMediaProps = {}) => (
+                <Media {...data.default.content} {...fullscreenMediaProps} />
+            )}
         </FullscreenMedia>
     </div>
 );
 
 export const Default = DefaultTemplate.bind({});
 
-Default.args = data.default.content as MediaProps;
+Default.args = {};

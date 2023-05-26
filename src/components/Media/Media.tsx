@@ -30,6 +30,7 @@ export const Media = (props: MediaAllProps) => {
         parallax = false,
         metrika,
         fullScreen,
+        fullscreen,
         analyticsEvents,
     } = props;
     const {
@@ -59,7 +60,7 @@ export const Media = (props: MediaAllProps) => {
                     isBackground={isBackground}
                     video={video}
                     hasVideoFallback={hasVideoFallback}
-                    fullscreen={fullScreen}
+                    fullscreen={fullScreen || fullscreen}
                 />,
             );
         }
@@ -80,7 +81,7 @@ export const Media = (props: MediaAllProps) => {
                 setHasVideoFallback,
             };
 
-            if (fullScreen) {
+            if (fullScreen || fullscreen) {
                 result.push(<FullscreenVideo {...videoProps} />);
             } else {
                 result.push(<Video {...videoProps} />);
@@ -95,7 +96,7 @@ export const Media = (props: MediaAllProps) => {
                     attributes={{color: 'white', rel: '0'}}
                     previewImg={previewImg}
                     height={height}
-                    fullScreen={fullScreen}
+                    fullscreen={fullScreen || fullscreen}
                 />
             );
         }
@@ -124,6 +125,7 @@ export const Media = (props: MediaAllProps) => {
         customBarControlsClassName,
         youtubeClassName,
         fullScreen,
+        fullscreen,
     ]);
 
     return (

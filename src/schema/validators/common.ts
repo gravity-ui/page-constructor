@@ -515,6 +515,9 @@ export const MediaProps = {
     fullScreen: {
         type: 'boolean',
     },
+    fullscreen: {
+        type: 'boolean',
+    },
 };
 
 export const YMapMarkerLabel = {
