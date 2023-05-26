@@ -1,73 +1,84 @@
-import React, {Fragment, memo, useMemo} from 'react';
+import React, {memo, useMemo} from 'react';
 
 import {DynamicField, dynamicConfig} from '@gravity-ui/dynamic-forms';
 import _ from 'lodash';
 import {Form as FinalForm, FormSpy} from 'react-final-form';
 
 import {Block, PageContent} from '../../models';
-import {EditorBlockId} from '../types';
+import {getBlockKey} from '../../utils';
 import {blockSpecs} from '../utils/form';
 
 export interface FormProps {
     content: PageContent;
+    activeBlockIndex: number;
     onChange: (content: PageContent) => void;
-    acitveBlockId?: EditorBlockId;
+    onSelect: (index: number) => void;
 }
 
 interface BlockFormProps {
     data: Block;
     onChange: (data: Block) => void;
+    onSelect: () => void;
     active?: boolean;
 }
 
-export const BlockForm = memo(({data: {type, ...content}, onChange, active}: BlockFormProps) => {
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    const initialValues = useMemo(() => ({content}), []);
-    const spec = useMemo(
-        () => ({
-            ...blockSpecs[type],
-            viewSpec: {
-                ...blockSpecs[type].viewSpec,
-                layoutOpen: active,
-            },
-        }),
-        [type, active],
-    );
+export const BlockForm = memo(
+    ({data: {type, ...content}, onChange, onSelect, active}: BlockFormProps) => {
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        const initialValues = useMemo(() => ({content}), []);
+        const spec = useMemo(
+            () => ({
+                ...blockSpecs[type],
+                viewSpec: {
+                    ...blockSpecs[type].viewSpec,
+                    layoutOpen: active,
+                },
+            }),
+            [type, active],
+        );
 
-    return (
-        <FinalForm initialValues={initialValues} onSubmit={_.noop}>
-            {() => (
-                <Fragment>
-                    <FormSpy
-                        key={type}
-                        onChange={({values}) => onChange({type, ...values.content})}
-                        subscription={{values: true}}
-                    />
-                    <DynamicField name="content" spec={spec} config={dynamicConfig} />
-                </Fragment>
-            )}
-        </FinalForm>
-    );
-});
+        return (
+            <FinalForm initialValues={initialValues} onSubmit={_.noop}>
+                {() => (
+                    <div
+                        onClick={() => {
+                            if (!active) {
+                                onSelect();
+                            }
+                        }}
+                    >
+                        <FormSpy
+                            key={type}
+                            onChange={({values}) => onChange({type, ...values.content})}
+                            subscription={{values: true}}
+                        />
+                        <DynamicField name="content" spec={spec} config={dynamicConfig} />
+                    </div>
+                )}
+            </FinalForm>
+        );
+    },
+);
 
 BlockForm.displayName = 'BlockForm';
 
-export const Form = memo(({content, onChange, acitveBlockId}: FormProps) => {
+export const Form = memo(({content, onChange, activeBlockIndex, onSelect}: FormProps) => {
     const blocks = content?.blocks || [];
 
     return (
         <div>
             {blocks.map((block, index) => (
                 <BlockForm
-                    key={`${block.type}-${index}`}
+                    key={getBlockKey(block, index)}
                     data={block}
-                    active={acitveBlockId === index + 1}
+                    active={activeBlockIndex === index}
                     onChange={(data: Block) => {
                         onChange({
                             ...content,
                             blocks: [...blocks.slice(0, index), data, ...blocks.slice(index + 1)],
                         });
                     }}
+                    onSelect={() => onSelect(index)}
                 />
             ))}
         </div>

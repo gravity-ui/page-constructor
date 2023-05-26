@@ -48,13 +48,13 @@ export function useEditorState({content: intialContent, custom}: Omit<EditorProp
 
             dispatch({type: ADD_BLOCK, payload: {block, index}});
         };
+        const onSelect = (index: number) => dispatch({type: SELECT_BLOCK, payload: index});
+
         const injectEditBlockProps = (props: BlockDecoratorProps) => {
             const {id, isHeader} = props;
             const orderedBlocksStartIndex = contentHasHeader ? 1 : 0;
             const index = isHeader ? 0 : getBlockIndexFromId(id) + orderedBlocksStartIndex;
             const isActive = activeBlockIndex === index;
-
-            const onSelect = () => dispatch({type: SELECT_BLOCK, payload: index});
             const actions: EditBlockActions = {
                 [EditBlockControls.Delete]: () => dispatch({type: DELETE_BLOCK, payload: index}),
             };
@@ -83,15 +83,17 @@ export function useEditorState({content: intialContent, custom}: Omit<EditorProp
             return {
                 ...props,
                 isActive,
-                onSelect,
+                onSelect: () => onSelect(index),
                 actions,
             } as EditBlockProps;
         };
 
         return {
+            activeBlockIndex,
             content,
             injectEditBlockProps,
             onAdd,
+            onSelect,
             onContentUpdate: (newContent: PageContent) =>
                 dispatch({type: UPDATE_CONTENT, payload: newContent}),
         };
