@@ -1,6 +1,6 @@
-import React, {Fragment, useEffect, useRef} from 'react';
+import React, {useEffect, useRef} from 'react';
 
-import {ChevronDown, ChevronUp, Copy, TrashBin} from '@gravity-ui/icons';
+import {ChevronDown, ChevronUp, Copy as CopyIcon, TrashBin} from '@gravity-ui/icons';
 
 import {EditBlockProps} from '../../../editor/types';
 import {block} from '../../../utils';
@@ -9,63 +9,54 @@ import './EditBlock.scss';
 
 const b = block('edit-block');
 
-const EditBlock = ({
-    id,
-    isHeader,
-    activeBlockId,
-    onDelete,
-    onSelect,
-    onCopy,
-    onOrderChange,
-    children,
-    orderedBlocksCount,
-}: EditBlockProps) => {
+export enum EditBlockControls {
+    Up = 'up',
+    Down = 'down',
+    Copy = 'copy',
+    Delete = 'delete',
+}
+
+const actionsOrder = [
+    EditBlockControls.Up,
+    EditBlockControls.Down,
+    EditBlockControls.Copy,
+    EditBlockControls.Delete,
+];
+
+const editBlockControlsIcons = {
+    [EditBlockControls.Up]: ChevronUp,
+    [EditBlockControls.Down]: ChevronDown,
+    [EditBlockControls.Copy]: CopyIcon,
+    [EditBlockControls.Delete]: TrashBin,
+};
+
+export type EditBlockActions = {
+    [key in EditBlockControls]?: () => void;
+};
+
+const EditBlock = ({actions, isActive, onSelect, isHeader, children}: EditBlockProps) => {
     const ref = useRef<HTMLDivElement>(null);
-    const controlsActive = activeBlockId === id;
 
     useEffect(() => {
-        if (controlsActive && ref.current) {
+        if (isActive && ref.current) {
             ref.current?.scrollIntoView({behavior: 'smooth', block: 'center'});
         }
-    }, [controlsActive]);
+    }, [isActive]);
 
     return (
-        <div
-            className={b()}
-            onClick={() => {
-                onSelect(id);
-            }}
-            ref={ref}
-        >
-            <div className={b('controls', {active: controlsActive, isHeader})}>
-                {controlsActive && (
+        <div className={b()} onClick={onSelect} ref={ref}>
+            <div className={b('controls', {active: isActive, isHeader})}>
+                {isActive && (
                     <div className={b('controls-content')} onClick={(e) => e.stopPropagation()}>
-                        {typeof id === 'number' && (
-                            <Fragment>
-                                {id > 0 && (
-                                    <div
-                                        className={b('control')}
-                                        onClick={() => onOrderChange(id, id - 1)}
-                                    >
-                                        <ChevronUp />
-                                    </div>
-                                )}
-                                {id < orderedBlocksCount - 1 && (
-                                    <div
-                                        className={b('control')}
-                                        onClick={() => onOrderChange(id, id + 1)}
-                                    >
-                                        <ChevronDown />
-                                    </div>
-                                )}
-                                <div className={b('control')} onClick={() => onCopy(id)}>
-                                    <Copy />
+                        {actionsOrder.map((action) => {
+                            const Icon = editBlockControlsIcons[action];
+
+                            return actions[action] ? (
+                                <div className={b('control')} onClick={actions[action]}>
+                                    <Icon />
                                 </div>
-                            </Fragment>
-                        )}
-                        <div className={b('control')} onClick={() => onDelete(id)}>
-                            <TrashBin />
-                        </div>
+                            ) : null;
+                        })}
                     </div>
                 )}
             </div>

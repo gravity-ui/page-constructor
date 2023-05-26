@@ -1,5 +1,6 @@
 import {PageConstructorProps} from '../../containers/PageConstructor';
 import {BlockDecoratorProps, PageData} from '../../models';
+import {EditBlockActions} from '../Components/EditBlock/EditBlock';
 
 export type EditorBlockId = number | string;
 
@@ -11,13 +12,9 @@ export interface EditorProps
 }
 
 export interface EditBlockEditorProps {
-    activeBlockId: EditorBlockId;
-    orderedBlocksCount: number;
-
-    onSelect: (index: EditorBlockId) => void;
-    onDelete: (index: EditorBlockId) => void;
-    onCopy: (index: number) => void;
-    onOrderChange: (index: number, newIndex: number) => void;
+    isActive?: boolean;
+    onSelect: () => void;
+    actions: EditBlockActions;
 }
 
 export type EditBlockProps = EditBlockEditorProps & BlockDecoratorProps;

@@ -1,20 +1,23 @@
 import {Block, CustomConfig, PageContent} from '../../models';
-import {getHeaderBlock, getOrderedBlocks} from '../../utils';
 
-import {addBlock, changeBlocksOrder, duplicateBlock, getNewBlockIndex} from './utils';
+import {addBlock, changeBlocksOrder, duplicateBlock} from './utils';
 
 export type EditorBlockId = number | string;
 
 interface EditorState {
     content: PageContent;
-    activeBlockId: EditorBlockId;
-    orderedBlocksCount: number;
+    activeBlockIndex: number;
     custom?: CustomConfig;
 }
 
 interface OrderBlockParams {
     oldIndex: number;
     newIndex: number;
+}
+
+interface AddBlockParams {
+    block: Block;
+    index: number;
 }
 
 // actions
@@ -28,12 +31,12 @@ export const UPDATE_CONTENT = 'UPDATE_CONTENT';
 
 interface SelectBlock {
     type: typeof SELECT_BLOCK;
-    payload: EditorBlockId;
+    payload: number;
 }
 
 interface DeleteBlock {
     type: typeof DELETE_BLOCK;
-    payload: EditorBlockId;
+    payload: number;
 }
 
 interface CopyBlock {
@@ -43,7 +46,7 @@ interface CopyBlock {
 
 interface AddBlock {
     type: typeof ADD_BLOCK;
-    payload: Block;
+    payload: AddBlockParams;
 }
 
 interface OrderBlock {
@@ -65,82 +68,49 @@ export type EditorAction =
     | UpdateContent;
 
 // reducer
-export const getReducer =
-    (headerBlockTypes: string[]) =>
-    (state: EditorState, action: EditorAction): EditorState => {
-        const {content} = state;
-        const header = getHeaderBlock(content.blocks, headerBlockTypes);
-        const orderedBlocks = getOrderedBlocks(content.blocks, headerBlockTypes);
-        const withHeader = (blocks: Block[]) => [header, ...blocks].filter(Boolean) as Block[];
-        const getNewState = (blocks: Block[], activeBlockId: EditorBlockId) => ({
-            ...state,
-            content: {
-                ...content,
-                blocks,
-            },
-            activeBlockId,
-            orderedBlocksCount: orderedBlocks.length,
-        });
+export const reducer = (state: EditorState, action: EditorAction): EditorState => {
+    const {content} = state;
+    const getNewState = (blocks: Block[], activeBlockIndex: number) => ({
+        ...state,
+        content: {
+            ...content,
+            blocks,
+        },
+        activeBlockIndex,
+    });
 
-        switch (action.type) {
-            case UPDATE_CONTENT:
-                return {
-                    ...state,
-                    content: action.payload,
-                };
-            case SELECT_BLOCK:
-                return getNewState(content.blocks, action.payload);
-            case DELETE_BLOCK: {
-                const blockId = action.payload;
+    switch (action.type) {
+        case UPDATE_CONTENT:
+            return {
+                ...state,
+                content: action.payload,
+            };
+        case SELECT_BLOCK:
+            return getNewState(content.blocks, action.payload);
+        case DELETE_BLOCK: {
+            const blockId = action.payload;
 
-                return getNewState(
-                    typeof blockId === 'string'
-                        ? content.blocks.filter(({type}: Block) => type !== blockId)
-                        : withHeader(
-                              orderedBlocks.filter(
-                                  (_block: Block, index: number) => index !== blockId,
-                              ),
-                          ),
-                    -1,
-                );
-            }
-            case COPY_BLOCK: {
-                const index = action.payload;
-
-                return getNewState(withHeader(duplicateBlock(orderedBlocks, index)), index + 1);
-            }
-            case ADD_BLOCK: {
-                let blocks;
-                let activeBlockId;
-                const block = action.payload;
-
-                if (headerBlockTypes.includes(block.type)) {
-                    blocks = header ? blocks : [block, ...orderedBlocks];
-                    activeBlockId = block.type;
-                } else {
-                    const newBlockIndex = getNewBlockIndex(
-                        state.activeBlockId,
-                        orderedBlocks.length,
-                    );
-                    blocks = withHeader(addBlock(orderedBlocks, block, newBlockIndex));
-                    activeBlockId = newBlockIndex;
-                }
-
-                if (blocks) {
-                    return getNewState(blocks, activeBlockId);
-                }
-
-                return state;
-            }
-            case ORDER_BLOCK: {
-                const {oldIndex, newIndex} = action.payload;
-
-                return getNewState(
-                    withHeader(changeBlocksOrder(orderedBlocks, oldIndex, newIndex)),
-                    newIndex,
-                );
-            }
-            default:
-                return state;
+            return getNewState(
+                content.blocks.filter((_block: Block, index: number) => index !== blockId),
+                -1,
+            );
         }
-    };
+        case COPY_BLOCK: {
+            const index = action.payload;
+
+            return getNewState(duplicateBlock(content.blocks, index), index + 1);
+        }
+        case ADD_BLOCK: {
+            const {block, index} = action.payload;
+
+            return getNewState(addBlock(content.blocks, block, index), index);
+        }
+        case ORDER_BLOCK: {
+            const {oldIndex, newIndex} = action.payload;
+
+            return getNewState(changeBlocksOrder(content.blocks, oldIndex, newIndex), newIndex);
+        }
+        default:
+            return state;
+    }
+};

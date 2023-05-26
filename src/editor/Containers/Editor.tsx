@@ -10,26 +10,24 @@ import {addCustomDecorator} from '../utils';
 import {Form} from './Form';
 
 export const Editor = ({children, ...rest}: EditorProps) => {
-    const {content, onContentUpdate, onAdd, editControlsProps} = useEditorState(rest);
+    const {content, onContentUpdate, onAdd, injectEditBlockProps} = useEditorState(rest);
     const constructorProps = useMemo(() => {
         const editControlsDecorator = (props: BlockDecoratorProps) => (
-            <EditBlock {...props} {...editControlsProps} />
+            <EditBlock {...injectEditBlockProps(props)} />
         );
 
         return {
             content,
             custom: addCustomDecorator(editControlsDecorator, rest.custom),
         };
-    }, [editControlsProps, content, rest.custom]);
+    }, [injectEditBlockProps, content, rest.custom]);
 
     return (
-        <div>
-            <div style={{display: 'flex'}}>
-                <Form content={content} onChange={onContentUpdate} />
-                <div>
-                    {children(constructorProps)}
-                    <AddBlock onAdd={onAdd} />
-                </div>
+        <div style={{display: 'flex'}}>
+            <Form content={content} onChange={onContentUpdate} />
+            <div>
+                {children(constructorProps)}
+                <AddBlock onAdd={onAdd} />
             </div>
         </div>
     );

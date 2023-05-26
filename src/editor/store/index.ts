@@ -1,8 +1,9 @@
 import {useMemo, useReducer} from 'react';
 
-import {Block, HeaderBlockTypes, PageContent} from '../../models';
-import {getCustomHeaderTypes, getOrderedBlocks} from '../../utils';
-import {EditorProps} from '../types';
+import {Block, BlockDecoratorProps, HeaderBlockTypes, PageContent} from '../../models';
+import {getBlockIndexFromId, getCustomHeaderTypes, getHeaderBlock} from '../../utils';
+import {EditBlockActions, EditBlockControls} from '../Components/EditBlock/EditBlock';
+import {EditBlockProps, EditorProps} from '../types';
 
 import {
     ADD_BLOCK,
@@ -11,7 +12,7 @@ import {
     ORDER_BLOCK,
     SELECT_BLOCK,
     UPDATE_CONTENT,
-    getReducer,
+    reducer,
 } from './reducer';
 import {addEditorProps} from './utils';
 
@@ -22,28 +23,77 @@ export function useEditorState({content: intialContent, custom}: Omit<EditorProp
         () => [...HeaderBlockTypes, ...getCustomHeaderTypes(custom)],
         [custom],
     );
-    const reducer = useMemo(() => getReducer(headerBlockTypes), [headerBlockTypes]);
-    const [{activeBlockId, content, orderedBlocksCount}, dispatch] = useReducer(reducer, {
-        activeBlockId: 0,
-        orderedBlocksCount: getOrderedBlocks(intialContent.blocks, headerBlockTypes).length,
+
+    const [{activeBlockIndex, content}, dispatch] = useReducer(reducer, {
+        activeBlockIndex: 0,
         content: addEditorProps(intialContent),
     });
+    const contentHasHeader = Boolean(getHeaderBlock(content.blocks, headerBlockTypes));
 
     return useMemo(() => {
+        const onAdd = (block: Block) => {
+            const isHeader = headerBlockTypes.includes(block.type);
+
+            if (contentHasHeader && isHeader) {
+                //TODO: add warning that it should be only one header block
+                return;
+            }
+
+            // eslint-disable-next-line no-nested-ternary
+            const index = isHeader
+                ? 0
+                : activeBlockIndex === -1
+                ? content.blocks.length
+                : activeBlockIndex + 1;
+
+            dispatch({type: ADD_BLOCK, payload: {block, index}});
+        };
+        const injectEditBlockProps = (props: BlockDecoratorProps) => {
+            const {id, isHeader} = props;
+            const orderedBlocksStartIndex = contentHasHeader ? 1 : 0;
+            const index = isHeader ? 0 : getBlockIndexFromId(id) + orderedBlocksStartIndex;
+            const isActive = activeBlockIndex === index;
+
+            const onSelect = () => dispatch({type: SELECT_BLOCK, payload: index});
+            const actions: EditBlockActions = {
+                [EditBlockControls.Delete]: () => dispatch({type: DELETE_BLOCK, payload: index}),
+            };
+
+            if (!isHeader) {
+                actions[EditBlockControls.Copy] = () =>
+                    dispatch({type: COPY_BLOCK, payload: index});
+
+                if (index > orderedBlocksStartIndex) {
+                    actions[EditBlockControls.Up] = () =>
+                        dispatch({
+                            type: ORDER_BLOCK,
+                            payload: {oldIndex: index, newIndex: index - 1},
+                        });
+                }
+
+                if (index < content.blocks.length - 1) {
+                    actions[EditBlockControls.Down] = () =>
+                        dispatch({
+                            type: ORDER_BLOCK,
+                            payload: {oldIndex: index, newIndex: index + 1},
+                        });
+                }
+            }
+
+            return {
+                ...props,
+                isActive,
+                onSelect,
+                actions,
+            } as EditBlockProps;
+        };
+
         return {
             content,
-            editControlsProps: {
-                activeBlockId,
-                orderedBlocksCount,
-                onDelete: (id: EditorBlockId) => dispatch({type: DELETE_BLOCK, payload: id}),
-                onSelect: (id: EditorBlockId) => dispatch({type: SELECT_BLOCK, payload: id}),
-                onCopy: (index: number) => dispatch({type: COPY_BLOCK, payload: index}),
-                onOrderChange: (oldIndex: number, newIndex: number) =>
-                    dispatch({type: ORDER_BLOCK, payload: {oldIndex, newIndex}}),
-            },
-            onAdd: (block: Block) => dispatch({type: ADD_BLOCK, payload: block}),
+            injectEditBlockProps,
+            onAdd,
             onContentUpdate: (newContent: PageContent) =>
                 dispatch({type: UPDATE_CONTENT, payload: newContent}),
         };
-    }, [content, activeBlockId, orderedBlocksCount]);
+    }, [content, activeBlockIndex, contentHasHeader, headerBlockTypes]);
 }
