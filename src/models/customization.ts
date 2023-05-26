@@ -3,4 +3,10 @@ import {PropsWithChildren} from 'react';
 export interface BlockDecorationProps extends PropsWithChildren {
     id?: string;
 }
-export type BlockDecorator = (props: BlockDecorationProps) => React.ReactElement;
+
+export interface BlockDecoratorProps extends PropsWithChildren {
+    id: string | number;
+    isHeader?: boolean;
+}
+
+export type BlockDecorator = (props: BlockDecoratorProps) => React.ReactElement;

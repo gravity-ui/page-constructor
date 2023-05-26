@@ -96,3 +96,6 @@ export const getShareLink = (
             return undefined;
     }
 };
+
+export const getBlockIndexFromId = (blockId?: string) =>
+    Number(blockId?.split('-')?.slice(-1).pop());
