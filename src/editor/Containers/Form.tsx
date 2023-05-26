@@ -52,7 +52,13 @@ export const BlockForm = memo(
                             onChange={({values}) => onChange({type, ...values.content})}
                             subscription={{values: true}}
                         />
-                        <DynamicField name="content" spec={spec} config={dynamicConfig} />
+                        {/* add key to cause form rerender on active block change*/}
+                        <DynamicField
+                            name="content"
+                            key={String(active)}
+                            spec={spec}
+                            config={dynamicConfig}
+                        />
                     </div>
                 )}
             </FinalForm>
