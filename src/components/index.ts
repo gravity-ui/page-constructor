@@ -35,7 +35,7 @@ export {default as Author} from './Author/Author';
 export {default as RouterLink} from './RouterLink/RouterLink';
 export {default as HTML} from './HTML/HTML';
 export {default as MetaInfo} from './MetaInfo/MetaInfo';
-export {default as FullScreenMedia} from './FullscreenMedia/FullScreenMedia';
+export {default as FullScreenMedia} from './FullscreenMedia/FullscreenMedia';
 
 export type {RouterLinkProps} from './RouterLink/RouterLink';
 export type {ImageBaseProps} from './ImageBase/ImageBase';

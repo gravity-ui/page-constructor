@@ -5,20 +5,20 @@ import {Meta, Story} from '@storybook/react/types-6-0';
 import {COMPONENTS, MEDIA} from '../../../demo/constants';
 import {MediaProps} from '../../../models';
 import Media from '../../Media/Media';
-import FullScreenMedia from '../FullScreenMedia';
+import FullscreenMedia from '../FullscreenMedia';
 
 import data from './data.json';
 
 export default {
-    component: FullScreenMedia,
-    title: `${COMPONENTS}/${MEDIA}/FullScreenMedia`,
+    component: FullscreenMedia,
+    title: `${COMPONENTS}/${MEDIA}/FullscreenMedia`,
 } as Meta;
 
 const DefaultTemplate: Story<MediaProps> = (args) => (
     <div style={{maxWidth: '500px'}}>
-        <FullScreenMedia>
-            {(fullScreenMediaProps = {}) => <Media {...args} {...fullScreenMediaProps} />}
-        </FullScreenMedia>
+        <FullscreenMedia>
+            {(fullscreenMediaProps = {}) => <Media {...args} {...fullscreenMediaProps} />}
+        </FullscreenMedia>
     </div>
 );
 

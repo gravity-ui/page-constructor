@@ -7,7 +7,7 @@ import {FullScreen, PreviewClose} from '../../icons';
 import {block} from '../../utils';
 import {MediaAllProps} from '../Media/Media';
 
-import './FullScreenMedia.scss';
+import './FullscreenMedia.scss';
 
 export type ChildMediaRenderProps = Pick<
     MediaAllProps,
@@ -25,7 +25,7 @@ const CLOSE_ICON_SIZE = 30;
 
 const getMediaClass = (type: string) => b('modal-media', {type});
 
-const FullScreenMedia = ({children, showFullScreenIcon = true}: FullScreenMediaProps) => {
+const FullscreenMedia = ({children, showFullScreenIcon = true}: FullScreenMediaProps) => {
     const [isOpened, setIsOpened] = useState(false);
     const isMobile = useContext(MobileContext);
 
@@ -78,4 +78,4 @@ const FullScreenMedia = ({children, showFullScreenIcon = true}: FullScreenMediaP
     );
 };
 
-export default FullScreenMedia;
+export default FullscreenMedia;

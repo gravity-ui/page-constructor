@@ -19,7 +19,7 @@ const b = block('media-component-image');
 export interface ImageAdditionProps {
     imageClassName?: string;
     isBackground?: boolean;
-    fullScreen?: boolean;
+    fullscreen?: boolean;
 }
 
 interface InnerImageProps {
@@ -37,7 +37,7 @@ const Image = (props: ImageAllProps) => {
         isBackground,
         hasVideoFallback,
         video,
-        fullScreen,
+        fullscreen,
     } = props;
 
     const [scrollY, setScrollY] = useState(0);
@@ -96,7 +96,7 @@ const Image = (props: ImageAllProps) => {
     };
 
     const imageSlider = (imageArray: ImageProps[]) => {
-        const fullscreenItem = fullScreen === undefined || fullScreen;
+        const fullscreenItem = fullscreen === undefined || fullscreen;
 
         return (
             <SliderBlock slidesToShow={1} type={SliderType.MediaCard}>
@@ -111,7 +111,7 @@ const Image = (props: ImageAllProps) => {
         return imageSlider(image);
     }
 
-    if (fullScreen) {
+    if (fullscreen) {
         return fullscreenImage(image);
     }
 
