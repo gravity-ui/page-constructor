@@ -20,22 +20,22 @@ const b = block('FullScreenImage');
 const FULL_SCREEN_ICON_SIZE = 18;
 const CLOSE_ICON_SIZE = 30;
 
-const FullScreenImage = (props: FullScreenImageProps) => {
+const FullscreenImage = (props: FullScreenImageProps) => {
     const {imageClassName, modalImageClass, imageStyle, alt = i18n('img-alt')} = props;
     const [isOpened, setIsOpened] = useState(false);
     const [isMouseEnter, setIsMouseEnter] = useState(false);
 
     const openModal = () => setIsOpened(true);
     const closeModal = () => setIsOpened(false);
-    const showFullScreenIcon = () => setIsMouseEnter(true);
-    const hideFullScreenIcon = () => setIsMouseEnter(false);
+    const showFullscreenIcon = () => setIsMouseEnter(true);
+    const hideFullscreenIcon = () => setIsMouseEnter(false);
 
     return (
         <div className={b()}>
             <div
                 className={b('image-wrapper')}
-                onMouseEnter={showFullScreenIcon}
-                onMouseLeave={hideFullScreenIcon}
+                onMouseEnter={showFullscreenIcon}
+                onMouseLeave={hideFullscreenIcon}
             >
                 <Image
                     {...props}
@@ -72,4 +72,4 @@ const FullScreenImage = (props: FullScreenImageProps) => {
     );
 };
 
-export default FullScreenImage;
+export default FullscreenImage;

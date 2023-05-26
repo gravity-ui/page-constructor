@@ -7,7 +7,7 @@ import SliderBlock from '../../../blocks/Slider/Slider';
 import {ImageProps, MediaComponentImageProps, SliderType} from '../../../models';
 import {block} from '../../../utils';
 import BackgroundImage from '../../BackgroundImage/BackgroundImage';
-import FullScreenImage from '../../FullscreenImage/FullscreenImage';
+import FullscreenImage from '../../FullscreenImage/FullscreenImage';
 import ImageView from '../../Image/Image';
 
 import {getMediaImage} from './utils';
@@ -72,7 +72,7 @@ const Image = (props: ImageAllProps) => {
         const itemData = getMediaImage(item);
 
         return (
-            <FullScreenImage
+            <FullscreenImage
                 key={itemData.alt}
                 {...itemData}
                 imageClassName={imageClass}

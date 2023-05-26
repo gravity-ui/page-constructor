@@ -3,7 +3,7 @@ import React, {Fragment, useContext, useRef, useState} from 'react';
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
 import BlockHeader from '../../components/BlockHeader/BlockHeader';
 import ButtonTabs, {ButtonTabsItemProps} from '../../components/ButtonTabs/ButtonTabs';
-import FullScreenImage from '../../components/FullscreenImage/FullscreenImage';
+import FullscreenImage from '../../components/FullscreenImage/FullscreenImage';
 import {getMediaImage} from '../../components/Media/Image/utils';
 import Media from '../../components/Media/Media';
 import {getHeight} from '../../components/VideoBlock/VideoBlock';
@@ -95,7 +95,7 @@ export const TabsBlock = ({
             </div>
             {imageProps && (
                 <Fragment>
-                    <FullScreenImage {...imageProps} imageClassName={b('image')} />
+                    <FullscreenImage {...imageProps} imageClassName={b('image')} />
                 </Fragment>
             )}
             {activeTabData?.caption && <p className={b('caption')}>{activeTabData.caption}</p>}
