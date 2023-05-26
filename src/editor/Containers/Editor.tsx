@@ -1,6 +1,6 @@
 import React, {useMemo} from 'react';
 
-import {PageContent, BlockDecoratorProps} from '../../models';
+import {BlockDecoratorProps} from '../../models';
 import AddBlock from '../Components/AddBlock/AddBlock';
 import EditBlock from '../Components/EditBlock/EditBlock';
 import {useEditorState} from '../store';
@@ -25,10 +25,7 @@ export const Editor = ({children, ...rest}: EditorProps) => {
     return (
         <div>
             <div style={{display: 'flex'}}>
-                <Form
-                    content={content}
-                    onChange={(formValue: PageContent) => onContentUpdate(formValue)}
-                />
+                <Form content={content} onChange={onContentUpdate} />
                 <div>
                     {children(constructorProps)}
                     <AddBlock onAdd={onAdd} />

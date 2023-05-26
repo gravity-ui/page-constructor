@@ -2,36 +2,13 @@ export {validators} from './validators';
 export type {ObjectSchema} from './validators/utils';
 
 import {
-    BannerBlock,
-    BannerCard,
-    CardLayoutBlock,
-    CompaniesBlock,
-    ContentLayoutBlock,
-    ExtendedFeaturesBlock,
-    FilterBlock,
-    HeaderBlock,
-    HeaderSliderBlock,
-    IconsBlock,
-    InfoBlock,
-    MapBlock,
-    MediaBlock,
-    PromoFeaturesBlock,
-    QuestionsBlock,
-    ShareBlock,
-    SliderBlock,
-    TableBlock,
-    TabsBlock,
-} from './validators/blocks';
+    blockSchemas,
+    cardSchemas,
+    constructorBlockSchemaNames,
+    constructorCardSchemaNames,
+} from './constants';
 import {AnimatableProps, BackgroundProps, MenuProps, withTheme} from './validators/common';
 import {LogoProps, NavigationHeaderProps} from './validators/navigation';
-import {
-    BackgroundCard,
-    BasicCard,
-    Divider,
-    MediaCardBlock,
-    PriceDetailedBlock,
-    Quote,
-} from './validators/sub-blocks';
 import {filteredItem} from './validators/utils';
 
 export type SchemaBlock = object;
@@ -51,74 +28,6 @@ export const getBlocksCases = (blocks: SchemaBlock) => {
 
 export function generateDefaultSchema(config?: SchemaCustomConfig) {
     const {cards = {}, blocks = {}, extensions = {}} = config ?? {};
-
-    const blockValidators = {
-        ...Divider,
-        ...ExtendedFeaturesBlock,
-        ...PromoFeaturesBlock,
-        ...SliderBlock,
-        ...QuestionsBlock,
-        ...HeaderBlock,
-        ...BannerBlock,
-        ...CompaniesBlock,
-        ...MediaBlock,
-        ...MapBlock,
-        ...InfoBlock,
-        ...TableBlock,
-        ...TabsBlock,
-        ...HeaderSliderBlock,
-        ...IconsBlock,
-        ...CardLayoutBlock,
-        ...ContentLayoutBlock,
-        ...ShareBlock,
-        ...FilterBlock,
-    };
-
-    const cardValidators = {
-        ...MediaCardBlock,
-        ...BannerCard,
-        ...PriceDetailedBlock,
-        ...BackgroundCard,
-        ...Quote,
-        ...BasicCard,
-    };
-
-    const constructorBlockSchemaNames = [
-        'divider',
-        'quote',
-        'event',
-        'post',
-        'extended-features-block',
-        'promo-features-block',
-        'slider-block',
-        'questions-block',
-        'header-block',
-        'banner-block',
-        'companies-block',
-        'media-block',
-        'map-block',
-        'info-block',
-        'table-block',
-        'tabs-block',
-        'price-detailed',
-        'header-slider-block',
-        'cards-with-image-block',
-        'icons-block',
-        'card-layout-block',
-        'content-layout-block',
-        'share-block',
-        'filter-block',
-    ];
-
-    const constructorCardSchemaNames = [
-        'media-card',
-        'banner-card',
-        'price-detailed',
-        'background-card',
-        'quote',
-        'basic-card',
-        'layout-item',
-    ];
 
     const configBlockSchemaNames = Object.keys(blocks).filter(
         (item) => !constructorBlockSchemaNames.includes(item),
@@ -142,7 +51,7 @@ export function generateDefaultSchema(config?: SchemaCustomConfig) {
                 },
                 select: {$data: '0/type'},
                 selectCases: {
-                    ...blockValidators,
+                    ...blockSchemas,
                     ...getBlocksCases(blocks),
                 },
             }),
@@ -157,7 +66,7 @@ export function generateDefaultSchema(config?: SchemaCustomConfig) {
                 },
                 select: {$data: '0/type'},
                 selectCases: {
-                    ...cardValidators,
+                    ...cardSchemas,
                     ...getBlocksCases(cards),
                 },
             }),

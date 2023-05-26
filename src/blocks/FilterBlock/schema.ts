@@ -52,5 +52,5 @@ export const FilterProps = {
 };
 
 export const FilterBlock = {
-    'filterable-block': FilterProps,
+    'filter-block': FilterProps,
 };

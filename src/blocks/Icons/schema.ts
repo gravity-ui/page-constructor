@@ -38,5 +38,5 @@ export const IconsProps = {
 };
 
 export const IconsBlock = {
-    'icon-block': IconsProps,
+    'icons-block': IconsProps,
 };
