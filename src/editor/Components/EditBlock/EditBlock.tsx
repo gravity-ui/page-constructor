@@ -1,10 +1,8 @@
-import React, {Fragment, useContext, useEffect, useRef} from 'react';
+import React, {Fragment, useEffect, useRef} from 'react';
 
 import {ChevronDown, ChevronUp, Copy, TrashBin} from '@gravity-ui/icons';
 
-import {BlockIdContext} from '../../../context/blockIdContext';
 import {EditBlockProps} from '../../../editor/types';
-import {getBlockIndexFromId} from '../../../editor/utils';
 import {block} from '../../../utils';
 
 import './EditBlock.scss';
@@ -13,6 +11,7 @@ const b = block('edit-block');
 
 const EditBlock = ({
     id,
+    isHeader,
     activeBlockId,
     onDelete,
     onSelect,
@@ -22,13 +21,11 @@ const EditBlock = ({
     orderedBlocksCount,
 }: EditBlockProps) => {
     const ref = useRef<HTMLDivElement>(null);
-    const blockContenxtId = getBlockIndexFromId(useContext(BlockIdContext));
-    const blockId = id || blockContenxtId;
-    const controlsActive = activeBlockId === blockId;
+    const controlsActive = activeBlockId === id;
 
     useEffect(() => {
         if (controlsActive && ref.current) {
-            ref.current?.scrollIntoView({behavior: 'smooth', block: 'center', inline: 'nearest'});
+            ref.current?.scrollIntoView({behavior: 'smooth', block: 'center'});
         }
     }, [controlsActive]);
 
@@ -36,37 +33,37 @@ const EditBlock = ({
         <div
             className={b()}
             onClick={() => {
-                onSelect(blockId);
+                onSelect(id);
             }}
             ref={ref}
         >
-            <div className={b('controls', {active: controlsActive})}>
+            <div className={b('controls', {active: controlsActive, isHeader})}>
                 {controlsActive && (
                     <div className={b('controls-content')} onClick={(e) => e.stopPropagation()}>
-                        {typeof blockId === 'number' && (
+                        {typeof id === 'number' && (
                             <Fragment>
-                                {blockId > 0 && (
+                                {id > 0 && (
                                     <div
                                         className={b('control')}
-                                        onClick={() => onOrderChange(blockId, blockId - 1)}
+                                        onClick={() => onOrderChange(id, id - 1)}
                                     >
                                         <ChevronUp />
                                     </div>
                                 )}
-                                {blockId < orderedBlocksCount - 1 && (
+                                {id < orderedBlocksCount - 1 && (
                                     <div
                                         className={b('control')}
-                                        onClick={() => onOrderChange(blockId, blockId + 1)}
+                                        onClick={() => onOrderChange(id, id + 1)}
                                     >
                                         <ChevronDown />
                                     </div>
                                 )}
-                                <div className={b('control')} onClick={() => onCopy(blockId)}>
+                                <div className={b('control')} onClick={() => onCopy(id)}>
                                     <Copy />
                                 </div>
                             </Fragment>
                         )}
-                        <div className={b('control')} onClick={() => onDelete(blockId)}>
+                        <div className={b('control')} onClick={() => onDelete(id)}>
                             <TrashBin />
                         </div>
                     </div>

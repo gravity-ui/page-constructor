@@ -1,5 +1,5 @@
 import {PageConstructorProps} from '../../containers/PageConstructor';
-import {BlockDecorationProps, PageData} from '../../models';
+import {BlockDecoratorProps, PageData} from '../../models';
 
 export type EditorBlockId = number | string;
 
@@ -20,4 +20,4 @@ export interface EditBlockEditorProps {
     onOrderChange: (index: number, newIndex: number) => void;
 }
 
-export type EditBlockProps = EditBlockEditorProps & BlockDecorationProps;
+export type EditBlockProps = EditBlockEditorProps & BlockDecoratorProps;

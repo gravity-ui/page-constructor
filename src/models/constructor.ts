@@ -3,7 +3,7 @@ import React, {PropsWithChildren} from 'react';
 import {
     Animatable,
     Block,
-    BlockDecorationProps,
+    BlockDecoratorProps,
     ConstructorItem,
     ThemedMediaProps,
     WithChildren,
@@ -67,6 +67,6 @@ export interface CustomConfig {
     headers?: CustomItems;
     loadable?: LoadableConfig;
     decorators?: {
-        block?: ((props: BlockDecorationProps) => React.ReactElement)[];
+        block?: ((props: BlockDecoratorProps) => React.ReactElement)[];
     };
 }
