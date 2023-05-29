@@ -9,10 +9,10 @@ import './BackgroundImage.scss';
 const b = block('storage-background-image');
 
 const BackgroundImage = (props: WithChildren<BackgroundImageProps>) => {
-    const {children, src, desktop, className, imageClassName, style, hide} = props;
+    const {children, src, desktop, className, imageClassName, style, hide, qa} = props;
 
     return (
-        <div className={b(null, className)} style={style}>
+        <div className={b(null, className)} style={style} data-qa={qa}>
             {(src || desktop) && !hide && <Image {...props} className={b('img', imageClassName)} />}
             {children && <div className={b('container')}>{children}</div>}
         </div>

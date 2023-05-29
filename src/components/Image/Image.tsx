@@ -13,6 +13,7 @@ export interface ImageProps extends Partial<ImageObjectProps>, Partial<ImageDevi
     className?: string;
     onClick?: MouseEventHandler;
     containerClassName?: string;
+    qa?: string;
 }
 
 const checkWebP = (src: string) => {
@@ -32,6 +33,7 @@ const Image = (props: ImageProps) => {
         className,
         onClick,
         containerClassName,
+        qa,
     } = props;
     const [imgLoadingError, setImgLoadingError] = useState(false);
 
@@ -48,7 +50,7 @@ const Image = (props: ImageProps) => {
         imgLoadingError;
 
     return (
-        <picture className={containerClassName}>
+        <picture className={containerClassName} data-qa={qa}>
             {mobile && (
                 <Fragment>
                     {!disableWebp && (
