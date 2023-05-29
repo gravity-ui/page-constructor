@@ -10,12 +10,6 @@ $block: '.#{$ns}add-block';
     $buttonWidth: 76px;
     $buttonHeight: 40px;
 
-    position: fixed;
-    bottom: $indentM;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: $editorAddControlZIndex;
-
     &__button {
         @include reset-button-style();
         @include control();

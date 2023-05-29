@@ -1,0 +1,13 @@
+@import '../../../../styles/variables.scss';
+
+$block: '.#{$ns}editor-form';
+
+#{$block} {
+    .df-row {
+        width: inherit;
+    }
+
+    .df-row__left {
+        width: 120px;
+    }
+}

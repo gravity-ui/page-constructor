@@ -8,7 +8,7 @@ import {MapType} from '../../../context/mapsContext/mapsContext';
 import {MapProvider} from '../../../context/mapsContext/mapsProvider';
 import {EDITOR} from '../../../demo/constants';
 import {EditorProps} from '../../../editor/types';
-import {Editor} from '../Editor';
+import {Editor} from '../Editor/Editor';
 
 import data from './data.json';
 

@@ -4,9 +4,13 @@ import {DynamicField, dynamicConfig} from '@gravity-ui/dynamic-forms';
 import _ from 'lodash';
 import {Form as FinalForm, FormSpy} from 'react-final-form';
 
-import {Block, PageContent} from '../../models';
-import {getBlockKey} from '../../utils';
-import {blockSpecs} from '../utils/form';
+import {Block, PageContent} from '../../../models';
+import {block, getBlockKey} from '../../../utils';
+import {blockSpecs} from '../../utils/form';
+
+import './Form.scss';
+
+const b = block('editor-form');
 
 export interface FormProps {
     content: PageContent;
@@ -38,30 +42,32 @@ export const BlockForm = memo(
         );
 
         return (
-            <FinalForm initialValues={initialValues} onSubmit={_.noop}>
-                {() => (
-                    <div
-                        onClick={() => {
-                            if (!active) {
-                                onSelect();
-                            }
-                        }}
-                    >
-                        <FormSpy
-                            key={type}
-                            onChange={({values}) => onChange({type, ...values.content})}
-                            subscription={{values: true}}
-                        />
-                        {/* add key to cause form rerender on active block change*/}
-                        <DynamicField
-                            name="content"
-                            key={String(active)}
-                            spec={spec}
-                            config={dynamicConfig}
-                        />
-                    </div>
-                )}
-            </FinalForm>
+            <div className={b()}>
+                <FinalForm initialValues={initialValues} onSubmit={_.noop}>
+                    {() => (
+                        <div
+                            onClick={() => {
+                                if (!active) {
+                                    onSelect();
+                                }
+                            }}
+                        >
+                            <FormSpy
+                                key={type}
+                                onChange={({values}) => onChange({type, ...values.content})}
+                                subscription={{values: true}}
+                            />
+                            {/* add key to cause form rerender on active block change*/}
+                            <DynamicField
+                                name="content"
+                                key={String(active)}
+                                spec={spec}
+                                config={dynamicConfig}
+                            />
+                        </div>
+                    )}
+                </FinalForm>
+            </div>
         );
     },
 );
@@ -73,10 +79,10 @@ export const Form = memo(({content, onChange, activeBlockIndex, onSelect}: FormP
 
     return (
         <div>
-            {blocks.map((block, index) => (
+            {blocks.map((blockData, index) => (
                 <BlockForm
-                    key={getBlockKey(block, index)}
-                    data={block}
+                    key={getBlockKey(blockData, index)}
+                    data={blockData}
                     active={activeBlockIndex === index}
                     onChange={(data: Block) => {
                         onChange({

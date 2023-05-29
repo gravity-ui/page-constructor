@@ -1,0 +1,41 @@
+@import '../../../../styles/variables.scss';
+@import '../../../../styles/mixins.scss';
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+$block: '.#{$ns}editor';
+
+%overflow-container {
+    max-height: 100vh;
+    overflow-y: auto;
+}
+
+#{$block} {
+    $dividerWidth: 12px;
+    $formWidth: 400px + $dividerWidth;
+    display: flex;
+
+    &__form,
+    &__preview {
+        @extend %overflow-container;
+    }
+
+    &__form {
+        flex: 0 0 auto;
+        padding: 0 $indentS;
+        width: $formWidth;
+        border-right: $dividerWidth solid var(--yc-color-line-generic);
+    }
+
+    &__preview {
+        overflow-y: auto;
+    }
+
+    &__add-button {
+        position: fixed;
+        bottom: $indentM;
+        left: calc(50% + $formWidth / 2);
+        transform: translateX(-50%);
+        z-index: $editorAddControlZIndex;
+    }
+}
