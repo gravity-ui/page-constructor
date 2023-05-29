@@ -1,18 +1,15 @@
-/* eslint-disable no-param-reassign */
-/* eslint-disable no-not-accumulator-reassign/no-not-accumulator-reassign */
-
 import {ArraySpec, ObjectSpec, Spec, SpecTypes} from '@gravity-ui/dynamic-forms';
 import _ from 'lodash';
 
 import {BlockType} from '../../models';
 import {blockSchemas} from '../../schema/constants';
 
-type BlockSpec = Spec & {
+export type FormSpecs = Record<BlockType, Spec>;
+export type BlockSpec = Spec & {
     inputType?: Spec['viewSpec']['type'];
     required?: string[];
 };
 
-const ARRAY_ITEM_NAME = 'Item';
 const IGNORED_PROPERTIES = ['additionalProperties'];
 
 const getFiedValidator = (type: SpecTypes) => (type === SpecTypes.Number ? 'number' : 'base');
@@ -20,20 +17,19 @@ const isObject = (data: Spec): data is ObjectSpec => 'properties' in data;
 const isArray = (data: Spec): data is ArraySpec => 'type' in data && data.type === SpecTypes.Array;
 const getObjectViewSpec = (data: ObjectSpec, layoutTitle: string) => {
     return {
-        type: 'base',
-        layout: 'section',
-        order: data.properties && Object.keys(data.properties).sort(),
         layoutTitle,
+        type: 'base',
+        layout: 'accordeon',
+        order: data.properties && Object.keys(data.properties).sort(),
     };
 };
-const getArrayViewSpec = (itemLabel: string) => ({
+const getArrayViewSpec = (layoutTitle: string) => ({
+    layoutTitle,
     type: 'base',
     layout: 'accordeon',
-    layoutTitle: itemLabel,
     layoutOpen: true,
-    itemLabel,
+    itemLabel: 'Add Item',
 });
-
 const getFieldViewSpec = (layoutTitle: string, data: BlockSpec) => {
     let type = data.inputType || 'base';
 
@@ -48,49 +44,56 @@ const getFieldViewSpec = (layoutTitle: string, data: BlockSpec) => {
 };
 
 const getBlockSpec = (type: BlockType, schema: BlockSpec) => {
-    const result = _.cloneDeep(schema) as Spec;
-
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const parseSchemaProperty = (data: any, name: string, required?: boolean) => {
+    const parseSchemaProperty = (data: any, name: string, required?: boolean): Spec => {
         const requiredProperties = data.required || [];
 
         if (isObject(data)) {
-            data.type = SpecTypes.Object;
-            data.viewSpec = getObjectViewSpec(data, name);
-
-            if (data.properties) {
-                Object.entries(data.properties).forEach(([propertyName, propertyData]) => {
-                    if (IGNORED_PROPERTIES.includes(name)) {
-                        delete data.properties?.[name];
-                    } else {
-                        parseSchemaProperty(
-                            propertyData as BlockSpec,
+            const properties =
+                data.properties &&
+                Object.entries(data.properties).reduce((result, [propertyName, propertyData]) => {
+                    if (!IGNORED_PROPERTIES.includes(propertyName)) {
+                        // eslint-disable-next-line no-param-reassign, no-not-accumulator-reassign/no-not-accumulator-reassign
+                        result[propertyName] = parseSchemaProperty(
+                            propertyData,
                             propertyName,
                             requiredProperties.includes(propertyName),
                         );
                     }
-                });
-                data.required = required;
-            }
+
+                    return result;
+                }, {} as Record<string, Spec>);
+
+            return {
+                ...data,
+                properties,
+                type: SpecTypes.Object,
+                viewSpec: getObjectViewSpec(data, name),
+                required,
+            };
         } else if (isArray(data)) {
-            data.viewSpec = getArrayViewSpec(name);
-            parseSchemaProperty(data.items as ObjectSpec, ARRAY_ITEM_NAME);
+            const items = parseSchemaProperty(data.items as ObjectSpec, name);
+
+            return {
+                ...data,
+                items,
+                viewSpec: getArrayViewSpec(name),
+            };
         } else {
-            data.required = required;
-            data.viewSpec = getFieldViewSpec(name, data);
-            data.validator = getFiedValidator(data.type);
+            return {
+                ...data,
+                required,
+                viewSpec: getFieldViewSpec(name, data),
+                validator: getFiedValidator(data.type),
+            };
         }
     };
 
-    parseSchemaProperty(result, type, true);
-    result.viewSpec.layout = 'accordeon';
-
-    return result as Spec;
+    return parseSchemaProperty(schema, type, true);
 };
 
-export type FormSpecs = Record<BlockType, Spec>;
-
 export const blockSpecs = Object.values(BlockType).reduce((result, blockName) => {
+    // eslint-disable-next-line no-param-reassign, no-not-accumulator-reassign/no-not-accumulator-reassign
     result[blockName] = getBlockSpec(blockName, blockSchemas[blockName] as BlockSpec);
 
     return result;
