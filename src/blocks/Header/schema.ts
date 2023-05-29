@@ -31,6 +31,7 @@ export const HeaderProperties = {
     description: {
         type: 'string',
         contentType: 'yfm',
+        inputType: 'textarea',
     },
     width: {
         type: 'string',

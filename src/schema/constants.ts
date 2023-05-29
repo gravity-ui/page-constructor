@@ -1,3 +1,5 @@
+import {BlockType} from '../models';
+
 import {
     BannerBlock,
     BannerCard,
@@ -28,7 +30,7 @@ import {
     Quote,
 } from './validators/sub-blocks';
 
-export const blockSchemas = {
+export const blockSchemas: Record<BlockType, object> = {
     ...Divider,
     ...ExtendedFeaturesBlock,
     ...PromoFeaturesBlock,
