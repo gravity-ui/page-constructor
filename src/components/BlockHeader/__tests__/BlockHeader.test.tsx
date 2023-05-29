@@ -1,8 +1,10 @@
 import React from 'react';
+
 import {render, screen, within} from '@testing-library/react';
 
+import {testCustomClassName} from '../../../../test-utils/shared/common';
 import {GridColumnSizesType} from '../../../grid/index';
-import BlockHeader from '../BlockHeader';
+import BlockHeader, {BlockHeaderProps} from '../BlockHeader';
 
 const qaId = 'block-header-component';
 
@@ -29,12 +31,13 @@ describe('BlockHeader', () => {
     });
 
     test('add className', () => {
-        const className = 'my-class';
-
-        render(<BlockHeader {...headerProps} className={className} qa={qaId} />);
-        const component = screen.getByTestId(qaId);
-
-        expect(component).toHaveClass(className);
+        testCustomClassName<BlockHeaderProps>({
+            component: BlockHeader,
+            props: {
+                ...headerProps,
+                qa: qaId,
+            },
+        });
     });
 
     test('has title', () => {
