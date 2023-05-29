@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.21.0](https://github.com/gravity-ui/page-constructor/compare/v2.20.1...v2.21.0) (2023-05-29)
+
+
+### Features
+
+* remove metrika goals from pixel events ([#355](https://github.com/gravity-ui/page-constructor/issues/355)) ([1a0ddae](https://github.com/gravity-ui/page-constructor/commit/1a0ddae92e4862665c64652c0da27cee9085d286))
+
 ## [2.20.1](https://github.com/gravity-ui/page-constructor/compare/v2.20.0...v2.20.1) (2023-05-29)
 
 
