@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.20.1](https://github.com/gravity-ui/page-constructor/compare/v2.20.0...v2.20.1) (2023-05-29)
+
+
+### Bug Fixes
+
+* editor scroll ([#352](https://github.com/gravity-ui/page-constructor/issues/352)) ([9fbbefe](https://github.com/gravity-ui/page-constructor/commit/9fbbefec311a0017eab7533b0b26bbddf97ff453))
+
 ## [2.20.0](https://github.com/gravity-ui/page-constructor/compare/v2.19.0...v2.20.0) (2023-05-25)
 
 
