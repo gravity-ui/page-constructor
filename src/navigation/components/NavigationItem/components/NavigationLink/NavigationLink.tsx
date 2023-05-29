@@ -16,7 +16,7 @@ const b = block('navigation-link');
 type NavigationLinkProps = NavigationItemProps & NavigationLinkItem;
 
 export const NavigationLink: React.FC<NavigationLinkProps> = (props) => {
-    const {hostname, Link} = useContext(LocationContext);
+    const {hostname} = useContext(LocationContext);
     const {url, text, icon, arrow, target, className, iconSize, ...rest} = props;
     const linkExtraProps = getLinkProps(url, hostname, target);
     const iconData = icon && getMediaImage(icon);
@@ -29,19 +29,9 @@ export const NavigationLink: React.FC<NavigationLinkProps> = (props) => {
         </Fragment>
     );
 
-    if (linkExtraProps?.target || !Link) {
-        return (
-            <a href={url} title={text} className={classes} {...rest} {...linkExtraProps}>
-                {content}
-            </a>
-        );
-    } else {
-        return (
-            <RouterLink href={url} passHref>
-                <a {...rest} className={classes}>
-                    {content}
-                </a>
-            </RouterLink>
-        );
-    }
+    return (
+        <RouterLink href={url} title={text} className={classes} {...rest} {...linkExtraProps}>
+            {content}
+        </RouterLink>
+    );
 };

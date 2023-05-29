@@ -11,6 +11,7 @@ import {ClassNameProps, DefaultEventNames, LinkProps, TextSize, WithChildren} fr
 import {block, getLinkProps, setUrlTld} from '../../utils';
 import BackLink from '../BackLink/BackLink';
 import FileLink from '../FileLink/FileLink';
+import RouterLink from '../RouterLink/RouterLink';
 
 import './Link.scss';
 
@@ -80,7 +81,7 @@ const LinkBlock = (props: WithChildren<LinkFullProps>) => {
                 const content = children || text;
 
                 return (
-                    <a
+                    <RouterLink
                         className={b('link', {theme: colorTheme, 'has-arrow': arrow})}
                         href={href}
                         onClick={onClick}
@@ -99,7 +100,7 @@ const LinkBlock = (props: WithChildren<LinkFullProps>) => {
                         ) : (
                             content
                         )}
-                    </a>
+                    </RouterLink>
                 );
             }
             default:

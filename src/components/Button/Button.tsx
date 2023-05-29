@@ -3,6 +3,7 @@ import React, {useCallback, useContext} from 'react';
 import {Button as CommonButton, Icon, Platform, StoreBadge} from '@gravity-ui/uikit';
 
 import {LocaleContext} from '../../context/localeContext/localeContext';
+import {LocationContext} from '../../context/locationContext';
 import {useAnalytics} from '../../hooks';
 import {useMetrika} from '../../hooks/useMetrika';
 import {Github} from '../../icons';
@@ -25,6 +26,7 @@ const b = block('button-block');
 
 const Button = (props: ButtonProps) => {
     const handleMetrika = useMetrika();
+    const {Link} = useContext(LocationContext);
     const {lang, tld} = useContext(LocaleContext);
     const {
         className,
@@ -95,6 +97,7 @@ const Button = (props: ButtonProps) => {
             size={toCommonSize(size as OldButtonSize)}
             href={url ? setUrlTld(url, tld) : undefined}
             width={width}
+            component={Link}
             {...buttonProps}
         >
             {icon && buttonImg.position === 'left' ? icon : null}

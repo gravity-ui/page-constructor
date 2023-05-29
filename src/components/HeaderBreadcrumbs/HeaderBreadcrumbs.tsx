@@ -4,6 +4,7 @@ import {useAnalytics} from '../../hooks';
 import {useMetrika} from '../../hooks/useMetrika';
 import {DefaultEventNames, HeaderBreadCrumbsProps} from '../../models';
 import {block} from '../../utils';
+import RouterLink from '../RouterLink/RouterLink';
 
 import './HeaderBreadcrumbs.scss';
 
@@ -23,9 +24,9 @@ export default function HeaderBreadcrumbs(props: HeaderBreadCrumbsProps) {
         <div className={b({theme}, className)}>
             {items.map((item) => (
                 <div className={b('item')} key={item.url}>
-                    <a href={item.url} className={b('text')} onClick={onClick}>
+                    <RouterLink href={item.url} className={b('text')} onClick={onClick}>
                         {item.text}
-                    </a>
+                    </RouterLink>
                 </div>
             ))}
         </div>

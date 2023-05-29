@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 
-import {BackgroundImage, Button, HTML, RouterLink, YFMWrapper} from '../../components';
+import {BackgroundImage, Button, HTML, YFMWrapper} from '../../components';
 import {ThemeValueContext} from '../../context/theme/ThemeValueContext';
 import {BannerCardProps} from '../../models';
 import {block, getThemedValue} from '../../utils';
@@ -42,16 +42,14 @@ export const BannerCard = (props: BannerCardProps) => {
                             />
                         )}
                     </div>
-                    <RouterLink href={url}>
-                        <Button
-                            className={b('button')}
-                            theme="raised"
-                            size="xl"
-                            text={text}
-                            url={url}
-                            target={target}
-                        />
-                    </RouterLink>
+                    <Button
+                        className={b('button')}
+                        theme="raised"
+                        size="xl"
+                        text={text}
+                        url={url}
+                        target={target}
+                    />
                 </div>
                 <BackgroundImage
                     className={b('image')}
