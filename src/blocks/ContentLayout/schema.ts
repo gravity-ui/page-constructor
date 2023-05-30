@@ -9,31 +9,37 @@ import {
 import {filteredArray} from '../../schema/validators/utils';
 import {ContentBlock} from '../../sub-blocks/Content/schema';
 
+const ContentLayoutBlockProperties = {
+    size: {
+        type: 'string',
+        enum: contentSizes,
+    },
+    background: ImageObjectProps,
+    centered: {
+        type: 'boolean',
+    },
+    theme: {
+        type: 'string',
+        enum: contentThemes,
+    },
+    textWidth: {
+        type: 'string',
+        enum: contentTextWidth,
+    },
+};
+
 export const ContentLayoutBlock = {
     'content-layout-block': {
         additionalProperties: false,
         properties: {
             ...BlockBaseProps,
-            textContent: ContentBlock,
+            textContent: ContentBlock?.content,
             fileContent: filteredArray(FileLinkProps),
-            properties: {
-                size: {
-                    type: 'string',
-                    enum: contentSizes,
-                },
-                background: ImageObjectProps,
-                centered: {
-                    type: 'boolean',
-                },
-                theme: {
-                    type: 'string',
-                    enum: contentThemes,
-                },
-                textWidth: {
-                    type: 'string',
-                    enum: contentTextWidth,
-                },
-            },
+            /**
+             * @deprecated Use params on top level instead
+             */
+            properties: ContentLayoutBlockProperties,
+            ...ContentLayoutBlockProperties,
         },
     },
 };

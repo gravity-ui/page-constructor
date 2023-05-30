@@ -35,14 +35,9 @@ function getTextWidth(size: ContentTextSize) {
 
 export const ContentLayoutBlock = (props: ContentLayoutBlockProps) => {
     const isMobile = useContext(MobileContext);
-    const {textContent, fileContent, properties: cardLayoutProperties = {size: 'l'}} = props;
-    const {
-        size = 'l',
-        background,
-        centered,
-        theme = 'default',
-        textWidth = 'm',
-    } = cardLayoutProperties;
+    const {textContent, fileContent} = props;
+    const propsSource = props.properties || props;
+    const {size = 'l', background, centered, theme = 'default', textWidth = 'm'} = propsSource;
 
     const colSizes = useMemo(() => getTextWidth(textWidth), [textWidth]);
 
