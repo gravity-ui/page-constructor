@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {ItemMap} from '../../containers/PageConstructor/PageConstructor';
-import {LoadableConfig, ShouldRenderBlock} from '../../models';
+import {CustomConfig, LoadableConfig, ShouldRenderBlock} from '../../models';
 
 export interface InnerContextType {
     blockTypes: string[];
@@ -10,6 +10,7 @@ export interface InnerContextType {
     itemMap: ItemMap;
     loadables?: LoadableConfig;
     shouldRenderBlock?: ShouldRenderBlock;
+    customization?: Pick<CustomConfig, 'decorators'>;
 }
 
 export const InnerContext = React.createContext<InnerContextType>({

@@ -1,4 +1,4 @@
-import React, {useContext, useMemo} from 'react';
+import React, {forwardRef, useContext, useMemo} from 'react';
 
 import {MobileContext} from '../../context/mobileContext';
 import {ThemeValueContext} from '../../context/theme/ThemeValueContext';
@@ -14,7 +14,7 @@ import './HubspotForm.scss';
 
 const b = block('hubspot-form');
 
-const HubspotForm: React.FunctionComponent<HubspotFormProps> = (props) => {
+const HubspotForm = forwardRef<HTMLDivElement, HubspotFormProps>((props, ref) => {
     const {
         className,
         theme: themeProp,
@@ -49,10 +49,10 @@ const HubspotForm: React.FunctionComponent<HubspotFormProps> = (props) => {
             onBeforeSubmit,
             onLoad,
             onSubmitError,
-            onSubmit: (e) => {
+            onSubmit: (event) => {
                 handleMetrika?.({pixelEvents});
                 handleAnalytics(analyticsEvents);
-                onSubmit?.(e);
+                onSubmit?.(event);
             },
         }),
         [
@@ -69,7 +69,6 @@ const HubspotForm: React.FunctionComponent<HubspotFormProps> = (props) => {
     );
 
     useHandleHubspotEvents(handlers, formId);
-
     return (
         <HubspotFormContainer
             createDOMElement={createDOMElement}
@@ -80,8 +79,11 @@ const HubspotForm: React.FunctionComponent<HubspotFormProps> = (props) => {
             portalId={portalId}
             formInstanceId={formInstanceId}
             region={region}
+            ref={ref}
         />
     );
-};
+});
+
+HubspotForm.displayName = 'HubspotForm';
 
 export default HubspotForm;

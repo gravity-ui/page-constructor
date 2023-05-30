@@ -1,6 +1,13 @@
 import React, {PropsWithChildren} from 'react';
 
-import {Animatable, Block, ConstructorItem, ThemedMediaProps, WithChildren} from './';
+import {
+    Animatable,
+    Block,
+    BlockDecoratorProps,
+    ConstructorItem,
+    ThemedMediaProps,
+    WithChildren,
+} from './';
 
 export interface PageData {
     content: PageContent;
@@ -59,4 +66,7 @@ export interface CustomConfig {
     subBlocks?: CustomItems;
     headers?: CustomItems;
     loadable?: LoadableConfig;
+    decorators?: {
+        block?: ((props: BlockDecoratorProps) => React.ReactElement)[];
+    };
 }

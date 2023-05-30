@@ -63,8 +63,21 @@ const ThemesSizesTemplate: Story<ButtonProps> = (args) => (
     </Fragment>
 );
 
+const WidthTemplate: Story<ButtonProps> = (args) => (
+    <Row>
+        <Col>
+            <Button {...args} width="auto" />
+        </Col>
+        <Col>
+            <Button {...args} width="max" />
+        </Col>
+    </Row>
+);
+
 export const Default = DefaultTemplate.bind({});
 export const ThemesSizes = ThemesSizesTemplate.bind({});
+export const Width = WidthTemplate.bind({});
 
 Default.args = data.default.content as ButtonProps;
 ThemesSizes.args = data.themesSizes.content as ButtonProps;
+Width.args = data.themesSizes.content as ButtonProps;

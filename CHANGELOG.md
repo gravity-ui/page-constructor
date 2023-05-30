@@ -1,5 +1,58 @@
 # Changelog
 
+## [2.21.0](https://github.com/gravity-ui/page-constructor/compare/v2.20.1...v2.21.0) (2023-05-29)
+
+
+### Features
+
+* remove metrika goals from pixel events ([#355](https://github.com/gravity-ui/page-constructor/issues/355)) ([1a0ddae](https://github.com/gravity-ui/page-constructor/commit/1a0ddae92e4862665c64652c0da27cee9085d286))
+
+## [2.20.1](https://github.com/gravity-ui/page-constructor/compare/v2.20.0...v2.20.1) (2023-05-29)
+
+
+### Bug Fixes
+
+* editor scroll ([#352](https://github.com/gravity-ui/page-constructor/issues/352)) ([9fbbefe](https://github.com/gravity-ui/page-constructor/commit/9fbbefec311a0017eab7533b0b26bbddf97ff453))
+
+## [2.20.0](https://github.com/gravity-ui/page-constructor/compare/v2.19.0...v2.20.0) (2023-05-25)
+
+
+### Features
+
+* add page structure editor ([8d1dafe](https://github.com/gravity-ui/page-constructor/commit/8d1dafe964a9af3c7f5ad0e6039cccf2d24da64f))
+* Edit mode ([#347](https://github.com/gravity-ui/page-constructor/issues/347)) ([8d1dafe](https://github.com/gravity-ui/page-constructor/commit/8d1dafe964a9af3c7f5ad0e6039cccf2d24da64f))
+
+
+### Bug Fixes
+
+* customization types import fix ([#350](https://github.com/gravity-ui/page-constructor/issues/350)) ([206306f](https://github.com/gravity-ui/page-constructor/commit/206306f95d87ae428538b27dca08f78cb4de9430))
+
+## [2.19.0](https://github.com/gravity-ui/page-constructor/compare/v2.18.0...v2.19.0) (2023-05-23)
+
+
+### Features
+
+* **Button:** add prop width ([#346](https://github.com/gravity-ui/page-constructor/issues/346)) ([f4b1ba8](https://github.com/gravity-ui/page-constructor/commit/f4b1ba85f56ef2de435bd91ae1fc35fbea0a177b))
+
+## [2.18.0](https://github.com/gravity-ui/page-constructor/compare/v2.18.0...v2.18.0) (2023-05-15)
+
+
+### Features
+
+* **HubspotForm:** add ref forwarding for HS form ([#332](https://github.com/gravity-ui/page-constructor/issues/332)) ([37b75d3](https://github.com/gravity-ui/page-constructor/commit/37b75d31c09e8dc061d718828bcccc72b037e106))
+
+
+### Bug Fixes
+
+* config gulpfile for tests ([a5cb59d](https://github.com/gravity-ui/page-constructor/commit/a5cb59d0bc1e3a8c09babed0c5ace9a2253416c3))
+
+## [2.17.0](https://github.com/gravity-ui/page-constructor/compare/v2.16.0...v2.17.0) (2023-05-12)
+
+
+### Features
+
+* drop rules overriding ([#303](https://github.com/gravity-ui/page-constructor/issues/303)) ([0c13398](https://github.com/gravity-ui/page-constructor/commit/0c1339885ce3b930ab9428b585aa6dd020b0d298))
+
 ## [2.16.0](https://github.com/gravity-ui/page-constructor/compare/v2.15.0...v2.16.0) (2023-05-11)
 
 

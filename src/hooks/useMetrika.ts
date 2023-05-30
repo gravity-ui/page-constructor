@@ -1,7 +1,7 @@
 import {useContext} from 'react';
 
 import {MetrikaContext} from '../context/metrikaContext';
-import {ButtonPixel, MetrikaGoal, PixelEvent, PixelEventType} from '../models';
+import {ButtonPixel, MetrikaGoal, PixelEvent} from '../models';
 import {isNewMetrikaFormat} from '../models/guards';
 
 // eslint-disable-next-line valid-jsdoc
@@ -41,13 +41,6 @@ export const useMetrika = () => {
                 );
             } else {
                 metrika.reachGoals(metrikaGoals);
-            }
-
-            if (!pixelEvents && pixel) {
-                pixel.trackStandard(PixelEventType.SubmitApplication, {
-                    content_category: 'custom',
-                    content_ids: Array.isArray(metrikaGoals) ? metrikaGoals : [metrikaGoals],
-                });
             }
         }
 

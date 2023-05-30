@@ -53,4 +53,12 @@ $block: '.#{$ns}button-block';
             --btn-image-margin: 25px;
         }
     }
+
+    &_width {
+        &_max {
+            #{$block}__text {
+                width: 100%;
+            }
+        }
+    }
 }

@@ -41,8 +41,6 @@ export enum BlockType {
     PromoFeaturesBlock = 'promo-features-block',
     ExtendedFeaturesBlock = 'extended-features-block',
     SliderBlock = 'slider-block',
-    CalculatorBlock = 'calculator-block',
-    ServiceDemoBlock = 'service-demo-block',
     QuestionsBlock = 'questions-block',
     BannerBlock = 'banner-block',
     CompaniesBlock = 'companies-block',
@@ -91,8 +89,6 @@ export interface LoadableProps {
 export interface LoadableChildren {
     loadable?: LoadableProps;
 }
-
-export type ServiceDemoProps = Animatable;
 
 export enum SliderBreakpointNames {
     Sm = 'sm',
@@ -164,8 +160,6 @@ export interface HeaderBlockProps {
     breadcrumbs?: HeaderBreadCrumbsProps;
     status?: JSX.Element;
 }
-
-export type CalculatorProps = Animatable;
 
 export interface SimpleBlockProps extends Animatable, Childable {
     title: TitleBaseProps;
@@ -404,17 +398,9 @@ export type HeaderBlockModel = {
     type: BlockType.HeaderBlock;
 } & HeaderBlockProps;
 
-export type CalculatorBlockModel = {
-    type: BlockType.CalculatorBlock;
-} & CalculatorProps;
-
 export type SliderBlockModel = {
     type: BlockType.SliderBlock;
 } & SliderProps;
-
-export type ServiceDemoBlockModel = {
-    type: BlockType.ServiceDemoBlock;
-} & ServiceDemoProps;
 
 export type ExtendedFeaturesBlockModel = {
     type: BlockType.ExtendedFeaturesBlock;
@@ -498,11 +484,9 @@ export type ShareBLockModel = {
 
 type BlockModels =
     | SliderBlockModel
-    | ServiceDemoBlockModel
     | ExtendedFeaturesBlockModel
     | PromoFeaturesBlockModel
     | QuestionsBlockModel
-    | CalculatorBlockModel
     | BannerBlockModel
     | CompaniesBlockModel
     | MediaBlockModel

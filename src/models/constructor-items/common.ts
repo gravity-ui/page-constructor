@@ -1,6 +1,6 @@
 import {CSSProperties, ReactNode} from 'react';
 
-import {ButtonSize, ButtonView} from '@gravity-ui/uikit';
+import {ButtonView, ButtonProps as UikitButtonProps} from '@gravity-ui/uikit';
 
 import {ThemeSupporting} from '../../utils/theme';
 import {AnalyticsEventsBase, ClassNameProps, PixelEventType} from '../common';
@@ -131,6 +131,7 @@ export interface BackgroundImageProps
     style?: CSSProperties;
     imageClassName?: string;
     hide?: boolean;
+    qa?: string;
 }
 
 //components props
@@ -177,11 +178,10 @@ export type ButtonTheme =
     | 'scale'
     | 'monochrome';
 
-export interface ButtonProps extends AnalyticsEventsBase {
+export interface ButtonProps extends AnalyticsEventsBase, Pick<UikitButtonProps, 'size' | 'width'> {
     text: string;
     url: string;
     primary?: boolean;
-    size?: ButtonSize;
     theme?: ButtonTheme;
     img?: ButtonImageProps | string;
     metrikaGoals?: MetrikaGoal;
@@ -266,6 +266,7 @@ export type Coordinate = number[];
 export interface MapBaseProps {
     zoom?: number;
 }
+
 export interface GMapProps extends MapBaseProps {
     address: string;
 }

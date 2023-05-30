@@ -1,4 +1,4 @@
-import React, {useRef} from 'react';
+import React, {forwardRef, useImperativeHandle, useRef} from 'react';
 
 import {useMount} from '../../hooks';
 import {HubspotFormProps} from '../../models';
@@ -16,7 +16,7 @@ type HubspotFormContainerPropsKeys =
 
 type HubspotFormContainerProps = Pick<HubspotFormProps, HubspotFormContainerPropsKeys>;
 
-const HubspotFormContainer = (props: HubspotFormContainerProps) => {
+const HubspotFormContainer = forwardRef<HTMLDivElement, HubspotFormContainerProps>((props, ref) => {
     const {
         className,
 
@@ -30,6 +30,9 @@ const HubspotFormContainer = (props: HubspotFormContainerProps) => {
 
     const containerRef = useRef<HTMLDivElement>(null);
     const hsContainerRef = useRef<HTMLDivElement>();
+
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    useImperativeHandle(ref, () => containerRef.current!);
 
     const containerId = formInstanceId
         ? `hubspot-form-${formId}-${formInstanceId}`
@@ -74,6 +77,8 @@ const HubspotFormContainer = (props: HubspotFormContainerProps) => {
     });
 
     return <div className={className} id={containerId} ref={containerRef} />;
-};
+});
+
+HubspotFormContainer.displayName = 'HubspotFormContainer';
 
 export default HubspotFormContainer;
