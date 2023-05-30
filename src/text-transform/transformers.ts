@@ -1,3 +1,5 @@
+/* eslint-disable no-param-reassign */
+/* eslint-disable no-not-accumulator-reassign/no-not-accumulator-reassign */
 import _ from 'lodash';
 
 import {ConstructorBlock} from '../models/constructor';
@@ -19,9 +21,7 @@ export type ContentTransformerProps = {
 function transformBlocks(blocks: ConstructorBlock[], lang: Lang, customConfig = {}) {
     const fullConfig = {...config, ...customConfig};
 
-    const clonedBlocks = _.cloneDeep(blocks);
-
-    return clonedBlocks.map((block) => transformBlock(lang, fullConfig, block));
+    return [...blocks].map((block) => transformBlock(lang, fullConfig, block));
 }
 
 function transformBlock(lang: Lang, blocksConfig: BlocksConfig, block: ConstructorBlock) {
@@ -29,7 +29,6 @@ function transformBlock(lang: Lang, blocksConfig: BlocksConfig, block: Construct
 
     if (block) {
         if ('randomOrder' in block && block.randomOrder && 'children' in block && block.children) {
-            // eslint-disable-next-line no-not-accumulator-reassign/no-not-accumulator-reassign, no-param-reassign
             block.children = _.shuffle(block.children as ConstructorBlock[]);
         }
     }
@@ -45,10 +44,8 @@ function transformBlock(lang: Lang, blocksConfig: BlocksConfig, block: Construct
                 (fields as (keyof typeof block)[]).forEach((field) => {
                     if (block[field]) {
                         if (parser) {
-                            // eslint-disable-next-line no-not-accumulator-reassign/no-not-accumulator-reassign, no-param-reassign
                             block[field] = parser(transformer, block[field]);
                         } else if (typeof block[field] === 'string') {
-                            // eslint-disable-next-line no-not-accumulator-reassign/no-not-accumulator-reassign, no-param-reassign
                             block[field] = transformer(block[field]);
                         }
                     }
@@ -60,7 +57,6 @@ function transformBlock(lang: Lang, blocksConfig: BlocksConfig, block: Construct
     }
 
     if ('children' in block && block.children) {
-        // eslint-disable-next-line no-not-accumulator-reassign/no-not-accumulator-reassign, no-param-reassign
         block.children = transformBlocks(block.children as ConstructorBlock[], lang, blocksConfig);
     }
 
