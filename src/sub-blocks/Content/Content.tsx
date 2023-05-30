@@ -54,10 +54,10 @@ const Content = (props: ContentBlockProps & ClassNameProps) => {
         className,
     } = props;
 
-    const {...titleProps} =
+    const titleProps =
         !title || typeof title === 'string'
             ? ({text: title, textSize: getTextSize(size)} as TitleItemProps)
-            : {...title};
+            : title;
 
     const hasTitle = Boolean(title);
 
