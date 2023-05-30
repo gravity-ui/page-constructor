@@ -24,8 +24,9 @@ export function useEditorState({content: intialContent, custom}: Omit<EditorProp
         [custom],
     );
 
-    const [{activeBlockIndex, content}, dispatch] = useReducer(reducer, {
+    const [{activeBlockIndex, content, errorBoundaryState}, dispatch] = useReducer(reducer, {
         activeBlockIndex: 0,
+        errorBoundaryState: 0,
         content: addEditorProps(intialContent),
     });
     const contentHasHeader = Boolean(getHeaderBlock(content.blocks, headerBlockTypes));
@@ -91,11 +92,12 @@ export function useEditorState({content: intialContent, custom}: Omit<EditorProp
         return {
             activeBlockIndex,
             content,
+            errorBoundaryState,
             injectEditBlockProps,
             onAdd,
             onSelect,
             onContentUpdate: (newContent: PageContent) =>
                 dispatch({type: UPDATE_CONTENT, payload: newContent}),
         };
-    }, [content, activeBlockIndex, contentHasHeader, headerBlockTypes]);
+    }, [content, activeBlockIndex, contentHasHeader, headerBlockTypes, errorBoundaryState]);
 }

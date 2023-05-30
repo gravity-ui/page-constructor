@@ -1,13 +1,13 @@
-import {Block, CustomConfig, PageContent} from '../../models';
+import {Block, PageContent} from '../../models';
 
-import {addBlock, changeBlocksOrder, duplicateBlock} from './utils';
+import {addBlock, changeBlocksOrder, duplicateBlock, getErrorBoundaryState} from './utils';
 
 export type EditorBlockId = number | string;
 
 interface EditorState {
     content: PageContent;
     activeBlockIndex: number;
-    custom?: CustomConfig;
+    errorBoundaryState: number;
 }
 
 interface OrderBlockParams {
@@ -84,6 +84,7 @@ export const reducer = (state: EditorState, action: EditorAction): EditorState =
             return {
                 ...state,
                 content: action.payload,
+                errorBoundaryState: getErrorBoundaryState(state.errorBoundaryState),
             };
         case SELECT_BLOCK:
             return getNewState(content.blocks, action.payload);

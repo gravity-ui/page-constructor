@@ -4,6 +4,7 @@ import {BlockDecoratorProps} from '../../../models';
 import {block} from '../../../utils';
 import AddBlock from '../../Components/AddBlock/AddBlock';
 import EditBlock from '../../Components/EditBlock/EditBlock';
+import {ErrorBoundary} from '../../Components/ErrorBoundary/ErrorBoundary';
 import {useEditorState} from '../../store';
 import {EditorProps} from '../../types';
 import {addCustomDecorator} from '../../utils';
@@ -14,18 +15,30 @@ import './Editor.scss';
 const b = block('editor');
 
 export const Editor = ({children, ...rest}: EditorProps) => {
-    const {content, activeBlockIndex, onContentUpdate, onAdd, onSelect, injectEditBlockProps} =
-        useEditorState(rest);
+    const {
+        content,
+        activeBlockIndex,
+        errorBoundaryState,
+        onContentUpdate,
+        onAdd,
+        onSelect,
+        injectEditBlockProps,
+    } = useEditorState(rest);
     const constructorProps = useMemo(() => {
-        const editControlsDecorator = (props: BlockDecoratorProps) => (
-            <EditBlock {...injectEditBlockProps(props)} />
-        );
-
         return {
             content,
-            custom: addCustomDecorator(editControlsDecorator, rest.custom),
+            custom: addCustomDecorator(
+                [
+                    (props: BlockDecoratorProps) => <EditBlock {...injectEditBlockProps(props)} />,
+                    // need errorBoundaryState flag to reset error on content update
+                    (props: BlockDecoratorProps) => (
+                        <ErrorBoundary {...props} key={`${props.id}-${errorBoundaryState}`} />
+                    ),
+                ],
+                rest.custom,
+            ),
         };
-    }, [injectEditBlockProps, content, rest.custom]);
+    }, [injectEditBlockProps, content, errorBoundaryState, rest.custom]);
 
     return (
         <div className={b()}>
@@ -38,7 +51,7 @@ export const Editor = ({children, ...rest}: EditorProps) => {
                 />
             </div>
             <div className={b('preview')}>
-                {children(constructorProps)}
+                <ErrorBoundary key={errorBoundaryState}>{children(constructorProps)}</ErrorBoundary>
                 <AddBlock onAdd={onAdd} className={b('add-button')} />
             </div>
         </div>
