@@ -100,7 +100,6 @@ export function generateDefaultSchema(config?: SchemaCustomConfig) {
         'info-block',
         'table-block',
         'tabs-block',
-        'preview-block',
         'price-detailed',
         'header-slider-block',
         'cards-with-image-block',
