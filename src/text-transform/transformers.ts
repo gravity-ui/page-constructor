@@ -21,7 +21,9 @@ export type ContentTransformerProps = {
 function transformBlocks(blocks: ConstructorBlock[], lang: Lang, customConfig = {}) {
     const fullConfig = {...config, ...customConfig};
 
-    return [...blocks].map((block) => transformBlock(lang, fullConfig, block));
+    const clonedBlocks = _.cloneDeep(blocks);
+
+    return clonedBlocks.map((block) => transformBlock(lang, fullConfig, block));
 }
 
 function transformBlock(lang: Lang, blocksConfig: BlocksConfig, block: ConstructorBlock) {
