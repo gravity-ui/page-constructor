@@ -19,5 +19,8 @@ export const LayoutItem = {
         fullScreen: {
             type: 'boolean',
         },
+        fullscreen: {
+            type: 'boolean',
+        },
     },
 };

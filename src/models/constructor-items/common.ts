@@ -228,7 +228,11 @@ export interface MediaComponentVideoProps extends AnalyticsEventsBase {
 export interface MediaComponentYoutubeProps {
     youtube: string;
     previewImg?: string;
+    /**
+     * @deprecated use fullscreen
+     */
     fullScreen?: boolean;
+    fullscreen?: boolean;
 }
 
 export interface MediaComponentImageProps {

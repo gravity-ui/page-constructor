@@ -20,11 +20,11 @@ const DefaultTemplate: Story<LayoutItemProps> = (args) => (
 );
 
 export const Default = DefaultTemplate.bind({});
-export const FullScreen = DefaultTemplate.bind({});
+export const Fullscreen = DefaultTemplate.bind({});
 export const MetaInfo = DefaultTemplate.bind({});
 export const Youtube = DefaultTemplate.bind({});
 
 Default.args = data.default.content as LayoutItemProps;
-FullScreen.args = data.fullScreen.content as LayoutItemProps;
+Fullscreen.args = data.fullscreen.content as LayoutItemProps;
 MetaInfo.args = data.metaInfo.content as LayoutItemProps;
 Youtube.args = data.youtube.content as LayoutItemProps;

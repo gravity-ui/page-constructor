@@ -7,7 +7,7 @@ import SliderBlock from '../../../blocks/Slider/Slider';
 import {ImageProps, MediaComponentImageProps, SliderType} from '../../../models';
 import {block} from '../../../utils';
 import BackgroundImage from '../../BackgroundImage/BackgroundImage';
-import FullScreenImage from '../../FullscreenImage/FullscreenImage';
+import FullscreenImage from '../../FullscreenImage/FullscreenImage';
 import ImageView from '../../Image/Image';
 
 import {getMediaImage} from './utils';
@@ -19,6 +19,7 @@ const b = block('media-component-image');
 export interface ImageAdditionProps {
     imageClassName?: string;
     isBackground?: boolean;
+    fullscreen?: boolean;
 }
 
 interface InnerImageProps {
@@ -28,7 +29,16 @@ interface InnerImageProps {
 type ImageAllProps = ImageAdditionProps & MediaComponentImageProps & InnerImageProps;
 
 const Image = (props: ImageAllProps) => {
-    const {parallax, image, height, imageClassName, isBackground, hasVideoFallback, video} = props;
+    const {
+        parallax,
+        image,
+        height,
+        imageClassName,
+        isBackground,
+        hasVideoFallback,
+        video,
+        fullscreen,
+    } = props;
 
     const [scrollY, setScrollY] = useState(0);
     const [{springScrollY}, springSetScrollY] = useSpring(() => ({
@@ -58,22 +68,18 @@ const Image = (props: ImageAllProps) => {
 
     const imageClass = b('item', {withVideo: Boolean(video) && !hasVideoFallback}, imageClassName);
 
-    const imageSlider = (imageArray: ImageProps[]) => (
-        <SliderBlock slidesToShow={1} type={SliderType.MediaCard}>
-            {imageArray.map((item) => {
-                const itemData = getMediaImage(item);
+    const renderFullscreenImage = (item: ImageProps) => {
+        const itemData = getMediaImage(item);
 
-                return (
-                    <FullScreenImage
-                        key={itemData.alt}
-                        {...itemData}
-                        imageClassName={imageClass}
-                        imageStyle={{height}}
-                    />
-                );
-            })}
-        </SliderBlock>
-    );
+        return (
+            <FullscreenImage
+                key={itemData.alt}
+                {...itemData}
+                imageClassName={imageClass}
+                imageStyle={{height}}
+            />
+        );
+    };
 
     const imageBackground = (oneImage: ImageProps) => {
         const imageData = getMediaImage(oneImage);
@@ -89,8 +95,24 @@ const Image = (props: ImageAllProps) => {
         return <ImageView {...imageData} className={imageClass} style={{height}} />;
     };
 
+    const imageSlider = (imageArray: ImageProps[]) => {
+        const fullscreenItem = fullscreen === undefined || fullscreen;
+
+        return (
+            <SliderBlock slidesToShow={1} type={SliderType.MediaCard}>
+                {imageArray.map((item) =>
+                    fullscreenItem ? renderFullscreenImage(item) : imageOnly(item),
+                )}
+            </SliderBlock>
+        );
+    };
+
     if (Array.isArray(image)) {
         return imageSlider(image);
+    }
+
+    if (fullscreen) {
+        return renderFullscreenImage(image);
     }
 
     return isBackground ? imageBackground(image) : imageOnly(image);

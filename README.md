@@ -184,7 +184,7 @@ Sub-blocks are components that can be used in the block `children` property. In 
    - Add it to `enum` or `selectCases` in the `schema/index.ts` file.
 
 6. In the block directory, add the `README.md` file with a description of input parameters.
-7. In the block directory add storybook demo in `__stories__` folder. (All demo content for story should be placed in `data.json` at story dir)
+7. In the block directory add storybook demo in `__stories__` folder. All demo content for story should be placed in `data.json` at story dir. The generic `Story` must accept the type of block props, otherwise incorrect block props will be displayed in Storybook.
 
 ### Themes
 

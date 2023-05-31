@@ -7,15 +7,24 @@ import {FullScreen, PreviewClose} from '../../icons';
 import {block} from '../../utils';
 import {MediaAllProps} from '../Media/Media';
 
-import './FullScreenMedia.scss';
+import './FullscreenMedia.scss';
 
 export type ChildMediaRenderProps = Pick<
     MediaAllProps,
-    'fullScreen' | 'imageClassName' | 'videoClassName' | 'youtubeClassName' | 'className'
+    | 'fullScreen'
+    | 'fullscreen'
+    | 'imageClassName'
+    | 'videoClassName'
+    | 'youtubeClassName'
+    | 'className'
 >;
 
 export interface FullScreenMediaProps {
+    /**
+     * @deprecated use showFullscreenIcon
+     */
     showFullScreenIcon?: boolean;
+    showFullscreenIcon?: boolean;
     children: (props?: ChildMediaRenderProps) => JSX.Element;
 }
 
@@ -25,7 +34,15 @@ const CLOSE_ICON_SIZE = 30;
 
 const getMediaClass = (type: string) => b('modal-media', {type});
 
-const FullScreenMedia = ({children, showFullScreenIcon = true}: FullScreenMediaProps) => {
+// TODO delete along with showFullScreenIcon props
+const getShowFullscreenIcon = ({showFullScreenIcon = true, showFullscreenIcon = true}) =>
+    showFullScreenIcon && showFullscreenIcon;
+
+const FullscreenMedia = ({
+    children,
+    showFullScreenIcon = true,
+    showFullscreenIcon = true,
+}: FullScreenMediaProps) => {
     const [isOpened, setIsOpened] = useState(false);
     const isMobile = useContext(MobileContext);
 
@@ -43,7 +60,7 @@ const FullScreenMedia = ({children, showFullScreenIcon = true}: FullScreenMediaP
         <div className={b()}>
             <div className={b('media-wrapper')} onClickCapture={openModal}>
                 {children({className: b('inline-media')})}
-                {showFullScreenIcon && (
+                {getShowFullscreenIcon({showFullScreenIcon, showFullscreenIcon}) && (
                     <div className={b('icon-wrapper')} onClickCapture={openModal}>
                         <Icon
                             data={FullScreen}
@@ -78,4 +95,4 @@ const FullScreenMedia = ({children, showFullScreenIcon = true}: FullScreenMediaP
     );
 };
 
-export default FullScreenMedia;
+export default FullscreenMedia;

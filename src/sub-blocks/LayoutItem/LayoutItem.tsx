@@ -5,7 +5,7 @@ import {FullScreenMedia, Media, MetaInfo} from '../../components';
 import {LayoutItemProps} from '../../models';
 import {block} from '../../utils';
 
-import {getLayoutItemLinks, hasFullScreen, showFullScreenIcon} from './utils';
+import {getLayoutItemLinks, hasFullscreen, showFullscreenIcon} from './utils';
 
 import './LayoutItem.scss';
 
@@ -17,15 +17,20 @@ const LayoutItem = ({
     media,
     border,
     fullScreen,
+    fullscreen,
     className,
 }: LayoutItemProps) => (
     <div className={b(null, className)}>
-        {fullScreen && hasFullScreen(media) ? (
-            <FullScreenMedia showFullScreenIcon={showFullScreenIcon(media)}>
-                {({className: mediaClassName, ...fullScreenMediaProps} = {}) => (
+        {(fullScreen || fullscreen) && hasFullscreen(media) ? (
+            <FullScreenMedia showFullscreenIcon={showFullscreenIcon(media)}>
+                {({
+                    className: mediaClassName,
+                    fullScreen: _fullScreen,
+                    ...fullscreenMediaProps
+                } = {}) => (
                     <Media
                         {...media}
-                        {...fullScreenMediaProps}
+                        {...fullscreenMediaProps}
                         className={b('media', {border}, mediaClassName)}
                     />
                 )}

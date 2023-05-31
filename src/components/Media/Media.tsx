@@ -5,6 +5,7 @@ import {block} from '../../utils';
 import YoutubeBlock from '../VideoBlock/VideoBlock';
 
 import DataLens from './DataLens/DataLens';
+import FullscreenVideo from './FullscreenVideo/FullscreenVideo';
 import Image, {ImageAdditionProps} from './Image/Image';
 import Video, {VideoAdditionProps} from './Video/Video';
 
@@ -16,6 +17,10 @@ export interface MediaAllProps extends MediaProps, VideoAdditionProps, ImageAddi
     className?: string;
     youtubeClassName?: string;
 }
+
+// TODO delete along with fullScreen props
+const getFullscreen = ({fullScreen, fullscreen}: {fullScreen?: boolean; fullscreen?: boolean}) =>
+    fullScreen || fullscreen;
 
 export const Media = (props: MediaAllProps) => {
     const {
@@ -29,6 +34,7 @@ export const Media = (props: MediaAllProps) => {
         parallax = false,
         metrika,
         fullScreen,
+        fullscreen,
         analyticsEvents,
     } = props;
     const {
@@ -58,27 +64,32 @@ export const Media = (props: MediaAllProps) => {
                     isBackground={isBackground}
                     video={video}
                     hasVideoFallback={hasVideoFallback}
+                    fullscreen={getFullscreen({fullScreen, fullscreen})}
                 />,
             );
         }
 
         if (video) {
-            result.push(
-                <Video
-                    key="video"
-                    video={video}
-                    videoClassName={videoClassName}
-                    height={height}
-                    metrika={metrika}
-                    analyticsEvents={analyticsEvents}
-                    playVideo={playVideo}
-                    previewImg={previewImg}
-                    playButton={playButton}
-                    customBarControlsClassName={customBarControlsClassName}
-                    hasVideoFallback={hasVideoFallback}
-                    setHasVideoFallback={setHasVideoFallback}
-                />,
-            );
+            const videoProps = {
+                key: 'video',
+                video,
+                videoClassName,
+                height,
+                metrika,
+                analyticsEvents,
+                playVideo,
+                previewImg,
+                playButton,
+                customBarControlsClassName,
+                hasVideoFallback,
+                setHasVideoFallback,
+            };
+
+            if (getFullscreen({fullScreen, fullscreen})) {
+                result.push(<FullscreenVideo {...videoProps} />);
+            } else {
+                result.push(<Video {...videoProps} />);
+            }
         }
 
         if (youtube) {
@@ -89,7 +100,7 @@ export const Media = (props: MediaAllProps) => {
                     attributes={{color: 'white', rel: '0'}}
                     previewImg={previewImg}
                     height={height}
-                    fullScreen={fullScreen}
+                    fullscreen={getFullscreen({fullScreen, fullscreen})}
                 />
             );
         }
@@ -118,6 +129,7 @@ export const Media = (props: MediaAllProps) => {
         customBarControlsClassName,
         youtubeClassName,
         fullScreen,
+        fullscreen,
     ]);
 
     return (
