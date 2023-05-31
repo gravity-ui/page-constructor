@@ -1,7 +1,7 @@
 @import '../../../styles/mixins';
 @import '../../../styles/variables';
 
-$block: '.#{$ns}FullScreenImage';
+$block: '.#{$ns}FullscreenImage';
 $closeButtonSize: 36px;
 
 #{$block} {
