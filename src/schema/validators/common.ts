@@ -585,5 +585,6 @@ export const BlockHeaderProps = {
     description: {
         type: 'string',
         contentType: 'yfm',
+        inputType: 'textarea',
     },
 };

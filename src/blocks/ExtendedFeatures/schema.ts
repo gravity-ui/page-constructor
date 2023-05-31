@@ -4,7 +4,9 @@ import {
     BlockHeaderProps,
     LinkProps,
     containerSizesObject,
+    withTheme,
 } from '../../schema/validators/common';
+import {ImageProps} from '../../schema/validators/components';
 import {filteredArray} from '../../schema/validators/utils';
 
 export const ExtendedFeaturesItem = {
@@ -24,9 +26,7 @@ export const ExtendedFeaturesItem = {
             enum: ['New', 'Preview'],
         },
         link: LinkProps,
-        icon: {
-            type: 'string',
-        },
+        icon: withTheme(ImageProps),
     },
 };
 

@@ -10,4 +10,11 @@ $block: '.#{$ns}editor-form';
     .df-row__left {
         width: 120px;
     }
+
+    // fix for dynamic form's accordeon nested textareas
+    .df-simple-vertical-accordeon {
+        textarea {
+            min-height: 142px;
+        }
+    }
 }

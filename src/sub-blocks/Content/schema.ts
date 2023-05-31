@@ -16,6 +16,7 @@ export const ContentBase = {
     text: {
         type: 'string',
         contentType: 'yfm',
+        inputType: 'textarea',
     },
     additionalInfo: {
         type: 'string',
