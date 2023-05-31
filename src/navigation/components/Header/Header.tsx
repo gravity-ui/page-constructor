@@ -1,4 +1,4 @@
-import React, {MouseEvent, useCallback, useMemo, useState} from 'react';
+import React, {MouseEvent, useCallback, useEffect, useMemo, useState} from 'react';
 
 import _ from 'lodash';
 
@@ -60,9 +60,10 @@ const MobileMenuButton: React.FC<MobileMenuButtonProps> = ({
 const iconSizeKey: keyof NavigationItemBase = 'iconSize';
 
 export const Header: React.FC<HeaderProps> = ({data, logo}) => {
-    const {leftItems, rightItems, iconSize = 20} = data;
+    const {leftItems, rightItems, iconSize = 20, withBorder = false} = data;
     const [isSidebarOpened, setIsSidebarOpened] = useState(false);
     const [activeItemId, setactiveItemId] = useState<string | undefined>(undefined);
+    const [withHeaderBorder, setWithHeaderBorder] = useState(withBorder);
 
     const getNavigationItemWithIconSize = useCallback(
         (item: NavigationItemModel) => {
@@ -99,8 +100,21 @@ export const Header: React.FC<HeaderProps> = ({data, logo}) => {
         setIsSidebarOpened(false);
     }, []);
 
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 0 && !withBorder) {
+                setWithHeaderBorder(true);
+            } else if (window.scrollY === 0 && !withBorder) {
+                setWithHeaderBorder(false);
+            }
+        };
+
+        window.addEventListener('scroll', _.debounce(handleScroll, 5), {passive: true});
+        return () => window.removeEventListener('scroll', _.debounce(handleScroll, 5));
+    });
+
     return (
-        <Grid className={b()}>
+        <Grid className={b({'with-border': withHeaderBorder})}>
             <Row>
                 <Col>
                     <header className={b('wrapper')}>

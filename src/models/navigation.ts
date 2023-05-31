@@ -85,6 +85,7 @@ export interface HeaderData {
     leftItems: NavigationItemModel[];
     rightItems?: NavigationItemModel[];
     iconSize?: number;
+    withBorder?: boolean;
 }
 
 export interface FooterColumn {
