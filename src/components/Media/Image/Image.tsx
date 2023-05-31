@@ -68,7 +68,7 @@ const Image = (props: ImageAllProps) => {
 
     const imageClass = b('item', {withVideo: Boolean(video) && !hasVideoFallback}, imageClassName);
 
-    const fullscreenImage = (item: ImageProps) => {
+    const renderFullscreenImage = (item: ImageProps) => {
         const itemData = getMediaImage(item);
 
         return (
@@ -101,7 +101,7 @@ const Image = (props: ImageAllProps) => {
         return (
             <SliderBlock slidesToShow={1} type={SliderType.MediaCard}>
                 {imageArray.map((item) =>
-                    fullscreenItem ? fullscreenImage(item) : imageOnly(item),
+                    fullscreenItem ? renderFullscreenImage(item) : imageOnly(item),
                 )}
             </SliderBlock>
         );
@@ -112,7 +112,7 @@ const Image = (props: ImageAllProps) => {
     }
 
     if (fullscreen) {
-        return fullscreenImage(image);
+        return renderFullscreenImage(image);
     }
 
     return isBackground ? imageBackground(image) : imageOnly(image);

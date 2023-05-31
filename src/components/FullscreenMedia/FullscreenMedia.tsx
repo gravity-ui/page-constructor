@@ -34,6 +34,10 @@ const CLOSE_ICON_SIZE = 30;
 
 const getMediaClass = (type: string) => b('modal-media', {type});
 
+// TODO delete along with showFullScreenIcon props
+const getShowFullscreenIcon = ({showFullScreenIcon = true, showFullscreenIcon = true}) =>
+    showFullScreenIcon && showFullscreenIcon;
+
 const FullscreenMedia = ({
     children,
     showFullScreenIcon = true,
@@ -56,7 +60,7 @@ const FullscreenMedia = ({
         <div className={b()}>
             <div className={b('media-wrapper')} onClickCapture={openModal}>
                 {children({className: b('inline-media')})}
-                {showFullScreenIcon && showFullscreenIcon && (
+                {getShowFullscreenIcon({showFullScreenIcon, showFullscreenIcon}) && (
                     <div className={b('icon-wrapper')} onClickCapture={openModal}>
                         <Icon
                             data={FullScreen}
