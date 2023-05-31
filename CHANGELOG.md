@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.22.0](https://github.com/gravity-ui/page-constructor/compare/v2.21.0...v2.22.0) (2023-05-31)
+
+
+### Features
+
+* **Media:** add fullscreen video ([#345](https://github.com/gravity-ui/page-constructor/issues/345)) ([516a9a8](https://github.com/gravity-ui/page-constructor/commit/516a9a8423d710b6ecad33046121c489fa876e30))
+
 ## [2.21.0](https://github.com/gravity-ui/page-constructor/compare/v2.20.1...v2.21.0) (2023-05-29)
 
 
