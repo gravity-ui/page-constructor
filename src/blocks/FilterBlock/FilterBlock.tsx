@@ -1,11 +1,12 @@
 import React, {useMemo, useState} from 'react';
 
+import {CardLayoutBlock} from '..';
 import {AnimateBlock, BlockHeader} from '../../components';
 import ButtonTabs, {ButtonTabsItemProps} from '../../components/ButtonTabs/ButtonTabs';
-import {ConstructorBlocks} from '../../containers/PageConstructor/components/ConstructorBlocks';
+import {ConstructorItem} from '../../containers/PageConstructor/components/ConstructorItem';
 import {Col, Row} from '../../grid';
-import {BlockType, ConstructorItem, FilterBlockProps, FilterItem} from '../../models';
-import {block} from '../../utils';
+import {FilterBlockProps, FilterItem} from '../../models';
+import {block, getBlockKey} from '../../utils';
 
 import i18n from './i18n';
 
@@ -41,19 +42,13 @@ const FilterBlock: React.FC<FilterBlockProps> = ({
             : selectedTag;
     }, [tabButtons, selectedTag]);
 
-    const container: ConstructorItem[] = useMemo(() => {
+    const cards = useMemo(() => {
         const itemsToShow: FilterItem[] = actualTag
             ? items.filter((item) => item.tags.includes(actualTag))
             : items;
-        return [
-            {
-                type: BlockType.CardLayoutBlock,
-                title: '',
-                colSizes: colSizes,
-                children: itemsToShow.map((item) => item.card),
-            },
-        ];
-    }, [actualTag, items, colSizes]);
+
+        return itemsToShow.map((item) => item.card);
+    }, [actualTag, items]);
 
     return (
         <AnimateBlock className={b()} animate={animated}>
@@ -78,7 +73,13 @@ const FilterBlock: React.FC<FilterBlockProps> = ({
                 </Row>
             )}
             <Row className={b('block-container')}>
-                <ConstructorBlocks items={container} />
+                <CardLayoutBlock title="" colSizes={colSizes}>
+                    {cards.map((card, index) => {
+                        const key = getBlockKey(card, index);
+
+                        return <ConstructorItem data={card} blockKey={key} key={key} />;
+                    })}
+                </CardLayoutBlock>
             </Row>
         </AnimateBlock>
     );
