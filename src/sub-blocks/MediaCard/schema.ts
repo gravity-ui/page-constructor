@@ -1,4 +1,4 @@
-import {AnimatableProps, BaseProps, MediaProps} from '../../schema/validators/common';
+import {AnimatableProps, BaseProps, CardBase, MediaProps} from '../../schema/validators/common';
 
 export const MediaCardBlock = {
     'media-card': {
@@ -6,6 +6,7 @@ export const MediaCardBlock = {
         required: [],
         properties: {
             ...BaseProps,
+            ...CardBase,
             ...MediaProps,
             ...AnimatableProps,
         },
