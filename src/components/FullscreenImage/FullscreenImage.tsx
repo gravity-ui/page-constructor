@@ -16,7 +16,7 @@ export interface FullscreenImageProps extends ImageProps {
     imageStyle?: CSSProperties;
 }
 
-const b = block('FullscreenImage');
+const b = block('fullscreen-image');
 const FULL_SCREEN_ICON_SIZE = 18;
 const CLOSE_ICON_SIZE = 30;
 
