@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.22.1](https://github.com/gravity-ui/page-constructor/compare/v2.22.0...v2.22.1) (2023-06-01)
+
+
+### Bug Fixes
+
+* filter block nesting ([#364](https://github.com/gravity-ui/page-constructor/issues/364)) ([5b62522](https://github.com/gravity-ui/page-constructor/commit/5b62522e5e34eeacbb2fb9ec6de957bba69cd758))
+
 ## [2.22.0](https://github.com/gravity-ui/page-constructor/compare/v2.21.0...v2.22.0) (2023-05-31)
 
 
