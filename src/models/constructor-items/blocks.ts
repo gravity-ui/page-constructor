@@ -320,7 +320,7 @@ export interface LinkTableBlockProps extends BlockHeaderProps {
 }
 
 export interface CardLayoutBlockProps extends Childable, Animatable, LoadableChildren {
-    title: TitleProps | string;
+    title?: TitleProps | string;
     description?: string;
     colSizes?: GridColumnSizesType;
 }
