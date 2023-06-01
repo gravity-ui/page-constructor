@@ -6,7 +6,6 @@ $backgroundWidth: 1440px;
 
 #{$block} {
     position: relative;
-    margin: $indentXS 0;
 
     &_full-width {
         --pc-border-radius: 0;
@@ -36,19 +35,19 @@ $backgroundWidth: 1440px;
             margin: $indentXS 0;
 
             &_s {
-                padding: $indentL 0;
+                padding: $indentXL 0;
             }
 
             &_m {
-                padding: calc(#{$indentXXL} - #{$indentXS}) 0;
+                padding: $indentXXL 0;
             }
 
             &_l {
-                padding: calc(#{$indentXXXL} - #{$indentXS}) 0;
+                padding: $indentXXXL 0;
             }
 
             &_xl {
-                padding: calc(#{$indent4XL} - #{$indentXS}) 0;
+                padding: $indent4XL 0;
             }
         }
 
@@ -100,10 +99,10 @@ $backgroundWidth: 1440px;
     &__media {
         position: absolute;
         display: none;
-        top: 0;
+        top: $indentXS;
         right: 0;
         width: 50%;
-        height: 100%;
+        height: calc(100% - 2 * #{$indentXS});
         overflow: hidden;
         object-fit: cover;
 
