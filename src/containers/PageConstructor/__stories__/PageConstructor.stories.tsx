@@ -21,10 +21,17 @@ const WithFullWidthBackgroundMediaTemplate: Story<PageConstructorProps> = (args)
 );
 
 export const Default = DefaultTemplate.bind({});
+export const Navigation = DefaultTemplate.bind({});
 export const WithFootnotes = WithFootnotesTemplate.bind({});
 export const WithFullWidthBackgroundMedia = WithFullWidthBackgroundMediaTemplate.bind({});
 
 Default.args = data.default as PageConstructorProps;
+Navigation.args = {
+    content: {
+        blocks: data.default.content.blocks,
+    },
+    navigation: data.navigation,
+} as PageConstructorProps;
 WithFootnotes.args = {
     content: {
         ...data.default.content,
