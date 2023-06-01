@@ -16,5 +16,5 @@ Questions block
 
 - `title: string` — Question title (on the right)
 - `text: string` — Question text
-- `link?: Link` — Link below the text (see [Link](http://localhost:7009/?path=/docs/components-links-and-buttons-link--default))
+- `link?: Link` — Link below the text (see [Link](?id=components-links-and-buttons-link--default&viewMode=docs))
 - `listStyle?: 'dash' | 'disk'` — If the text contains a list, it may be either with a dash (dash) or with dots (disk).
