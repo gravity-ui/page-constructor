@@ -8,7 +8,7 @@ import {
 
 export const CardLayoutProps = {
     additionalProperties: false,
-    required: ['title'],
+    required: [],
     properties: {
         ...BlockBaseProps,
         ...AnimatableProps,
