@@ -21,6 +21,7 @@ const WithFullWidthBackgroundMediaTemplate: Story<PageConstructorProps> = (args)
 );
 
 export const Default = DefaultTemplate.bind({});
+
 export const Navigation = NavigationTemplate.bind({});
 export const WithFullWidthBackgroundMedia = WithFullWidthBackgroundMediaTemplate.bind({});
 
