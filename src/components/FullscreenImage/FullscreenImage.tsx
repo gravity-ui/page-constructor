@@ -2,7 +2,7 @@ import React, {CSSProperties, useState} from 'react';
 
 import {Icon, Modal} from '@gravity-ui/uikit';
 
-import {FullScreen, PreviewClose} from '../../icons';
+import {Fullscreen, PreviewClose} from '../../icons';
 import {block} from '../../utils';
 import Image, {ImageProps} from '../Image/Image';
 
@@ -10,17 +10,17 @@ import i18n from './i18n';
 
 import './FullscreenImage.scss';
 
-export interface FullScreenImageProps extends ImageProps {
+export interface FullscreenImageProps extends ImageProps {
     imageClassName?: string;
     modalImageClass?: string;
     imageStyle?: CSSProperties;
 }
 
-const b = block('FullScreenImage');
+const b = block('fullscreen-image');
 const FULL_SCREEN_ICON_SIZE = 18;
 const CLOSE_ICON_SIZE = 30;
 
-const FullscreenImage = (props: FullScreenImageProps) => {
+const FullscreenImage = (props: FullscreenImageProps) => {
     const {imageClassName, modalImageClass, imageStyle, alt = i18n('img-alt')} = props;
     const [isOpened, setIsOpened] = useState(false);
     const [isMouseEnter, setIsMouseEnter] = useState(false);
@@ -46,7 +46,7 @@ const FullscreenImage = (props: FullScreenImageProps) => {
                 />
                 <div className={b('icon-wrapper', {visible: isMouseEnter})} onClick={openModal}>
                     <Icon
-                        data={FullScreen}
+                        data={Fullscreen}
                         width={FULL_SCREEN_ICON_SIZE}
                         height={FULL_SCREEN_ICON_SIZE}
                         className={b('icon')}

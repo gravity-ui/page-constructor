@@ -127,10 +127,6 @@ export interface LayoutItemProps extends ClassNameProps {
     media: MediaProps;
     metaInfo?: string[];
     border?: boolean;
-    /**
-     * @deprecated use fullscreen
-     */
-    fullScreen?: boolean;
     fullscreen?: boolean;
 }
 

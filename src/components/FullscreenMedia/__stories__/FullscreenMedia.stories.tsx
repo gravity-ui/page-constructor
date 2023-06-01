@@ -4,7 +4,7 @@ import {Meta, Story} from '@storybook/react/types-6-0';
 
 import {COMPONENTS, MEDIA} from '../../../demo/constants';
 import Media from '../../Media/Media';
-import FullscreenMedia, {FullScreenMediaProps} from '../FullscreenMedia';
+import FullscreenMedia, {FullscreenMediaProps} from '../FullscreenMedia';
 
 import data from './data.json';
 
@@ -13,7 +13,7 @@ export default {
     title: `${COMPONENTS}/${MEDIA}/FullscreenMedia`,
 } as Meta;
 
-const DefaultTemplate: Story<FullScreenMediaProps> = (args) => (
+const DefaultTemplate: Story<FullscreenMediaProps> = (args) => (
     <div style={{maxWidth: '500px'}}>
         <FullscreenMedia {...args}>
             {(fullscreenMediaProps = {}) => (
