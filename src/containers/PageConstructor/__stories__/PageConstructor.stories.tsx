@@ -14,15 +14,12 @@ export default {
 
 const DefaultTemplate: Story<PageConstructorProps> = (args) => <PageConstructor {...args} />;
 
-const NavigationTemplate: Story<PageConstructorProps> = (args) => <PageConstructor {...args} />;
-
 const WithFullWidthBackgroundMediaTemplate: Story<PageConstructorProps> = (args) => (
     <PageConstructor {...args} />
 );
 
 export const Default = DefaultTemplate.bind({});
-
-export const Navigation = NavigationTemplate.bind({});
+export const Navigation = DefaultTemplate.bind({});
 export const WithFullWidthBackgroundMedia = WithFullWidthBackgroundMediaTemplate.bind({});
 
 Default.args = data.default as PageConstructorProps;
