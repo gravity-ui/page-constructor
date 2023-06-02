@@ -1,6 +1,6 @@
 import React, {Fragment, ReactNode, useContext} from 'react';
 
-import {HTML, ToggleArrow} from '../';
+import {HTML, RouterLink, ToggleArrow} from '../';
 import {LocationContext} from '../../context/locationContext';
 import {MobileContext} from '../../context/mobileContext';
 import {TextSize, TitleProps} from '../../models';
@@ -81,9 +81,14 @@ const Title = (props: TitleFullProps) => {
         content = textMarkup;
     } else if (url) {
         content = (
-            <a className={b('link')} href={url} {...getLinkProps(url, hostname)} onClick={onClick}>
+            <RouterLink
+                className={b('link')}
+                href={url}
+                {...getLinkProps(url, hostname)}
+                onClick={onClick}
+            >
                 {insideClickableContent}
-            </a>
+            </RouterLink>
         );
     } else if (onClick) {
         content = (

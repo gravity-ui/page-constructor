@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Image} from '../../../components';
+import {Image, RouterLink} from '../../../components';
 import {getMediaImage} from '../../../components/Media/Image/utils';
 import {NavigationSocialItem} from '../../../models';
 import {block} from '../../../utils';
@@ -17,9 +17,9 @@ const SocialIcon: React.FC<NavigationSocialItemOwnProps> = ({icon, url, classNam
     const iconData = getMediaImage(icon);
 
     return (
-        <a href={url} target="_blank" rel="noopener noreferrer" className={b(null, className)}>
+        <RouterLink href={url} target="_blank" className={b(null, className)}>
             <Image className={b('icon')} {...iconData} />
-        </a>
+        </RouterLink>
     );
 };
 

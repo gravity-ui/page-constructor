@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 
-import {Button, HTML, Media, RouterLink} from '../../components';
+import {Button, HTML, Media} from '../../components';
 import HeaderBreadcrumbs from '../../components/HeaderBreadcrumbs/HeaderBreadcrumbs';
 import {getMediaImage} from '../../components/Media/Image/utils';
 import YFMWrapper from '../../components/YFMWrapper/YFMWrapper';
@@ -141,14 +141,12 @@ export const HeaderBlock = (props: WithChildren<HeaderBlockFullProps>) => {
                                         <div className={b('buttons')} data-qa="header-buttons">
                                             {buttons &&
                                                 buttons.map((button, index) => (
-                                                    <RouterLink href={button.url} key={index}>
-                                                        <Button
-                                                            key={index}
-                                                            className={b('button')}
-                                                            size="xl"
-                                                            {...button}
-                                                        />
-                                                    </RouterLink>
+                                                    <Button
+                                                        key={index}
+                                                        className={b('button')}
+                                                        size="xl"
+                                                        {...button}
+                                                    />
                                                 ))}
                                         </div>
                                     )}

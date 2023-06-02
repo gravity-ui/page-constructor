@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 
-import {BlockHeader, Image} from '../../components';
+import {BlockHeader, Image, RouterLink} from '../../components';
 import {LocationContext} from '../../context/locationContext';
 import {IconsBlockProps} from '../../models';
 import {block, getLinkProps} from '../../utils';
@@ -16,7 +16,7 @@ const Icons = ({title, size = 's', items}: IconsBlockProps) => {
         <div className={b({size})}>
             {title && <BlockHeader className={b('header')} title={title} colSizes={{all: 12}} />}
             {items.map((item) => (
-                <a
+                <RouterLink
                     className={b('item')}
                     key={item.url}
                     href={item.url}
@@ -24,7 +24,7 @@ const Icons = ({title, size = 's', items}: IconsBlockProps) => {
                 >
                     <Image className={b('image')} src={item.src} />
                     <p className={b('text')}>{item.text}</p>
-                </a>
+                </RouterLink>
             ))}
         </div>
     );

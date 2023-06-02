@@ -107,18 +107,8 @@ export const Layout = (props: CardBaseProps) => {
     };
 
     return url ? (
-        <RouterLink href={url}>
-            <a
-                href={url}
-                target={target}
-                rel={target === '_blank' ? 'noopener noreferrer' : undefined}
-                className={fullClassName}
-                draggable={false}
-                onDragStart={(e) => e.preventDefault()}
-                onClick={onClick}
-            >
-                {cardContent}
-            </a>
+        <RouterLink href={url} target={target} className={fullClassName} onClick={onClick}>
+            {cardContent}
         </RouterLink>
     ) : (
         <div className={fullClassName}>{cardContent}</div>

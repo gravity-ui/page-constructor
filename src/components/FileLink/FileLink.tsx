@@ -3,6 +3,7 @@ import React, {useContext} from 'react';
 import {LocationContext} from '../../context/locationContext';
 import {FileLinkProps, WithChildren} from '../../models';
 import {block, getLinkProps} from '../../utils';
+import RouterLink from '../RouterLink/RouterLink';
 
 import './FileLink.scss';
 
@@ -46,9 +47,14 @@ const FileLink = (props: WithChildren<FileLinkProps>) => {
                 <div className={b('file-label')}>{fileExt}</div>
             )}
             <div className={b('link')}>
-                <a href={href} {...getLinkProps(href, hostname)} onClick={onClick}>
+                <RouterLink
+                    href={href}
+                    {...getLinkProps(href, hostname)}
+                    onClick={onClick}
+                    forceAnchor
+                >
                     {text}
-                </a>
+                </RouterLink>
             </div>
         </div>
     );
