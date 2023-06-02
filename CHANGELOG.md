@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.22.2](https://github.com/gravity-ui/page-constructor/compare/v2.22.1...v2.22.2) (2023-06-01)
+
+
+### Bug Fixes
+
+* **MediaBlock:** add border property into schema ([#371](https://github.com/gravity-ui/page-constructor/issues/371)) ([5365791](https://github.com/gravity-ui/page-constructor/commit/5365791550bdb2ed8258d9582605e620ab0e1b11))
+
 ## [2.22.1](https://github.com/gravity-ui/page-constructor/compare/v2.22.0...v2.22.1) (2023-06-01)
 
 
