@@ -138,7 +138,16 @@ const PriceDetailsListProps = {
 
 const PriceDetailsProps = {
     items: {
-        anyOf: [filteredArray(PriceDetailsListProps), filteredArray(PriceDetailsSettingsProps)],
+        oneOf: [
+            filteredArray({
+                ...PriceDetailsListProps,
+                optionName: 'list',
+            }),
+            filteredArray({
+                ...PriceDetailsSettingsProps,
+                optionName: 'settings',
+            }),
+        ],
     },
 };
 
