@@ -1,6 +1,6 @@
 import {PageConstructorProps} from '../../containers/PageConstructor';
 import {BlockDecoratorProps, PageData} from '../../models';
-import {EditBlockActions} from '../Components/EditBlock/EditBlock';
+import {EditBlockActions} from '../components/EditBlock/EditBlock';
 
 export type EditorBlockId = number | string;
 

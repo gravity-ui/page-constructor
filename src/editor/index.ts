@@ -1,2 +1,2 @@
-export {Editor} from './Containers/Editor/Editor';
+export {Editor} from './containers/Editor/Editor';
 export * from './types';

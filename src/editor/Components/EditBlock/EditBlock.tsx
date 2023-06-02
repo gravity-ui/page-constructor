@@ -2,8 +2,8 @@ import React, {useEffect, useRef} from 'react';
 
 import {ChevronDown, ChevronUp, Copy as CopyIcon, TrashBin} from '@gravity-ui/icons';
 
-import {EditBlockProps} from '../../../editor/types';
 import {block} from '../../../utils';
+import {EditBlockProps} from '../../types';
 
 import './EditBlock.scss';
 

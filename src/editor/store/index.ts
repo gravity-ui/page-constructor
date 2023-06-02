@@ -2,7 +2,7 @@ import {useMemo, useReducer} from 'react';
 
 import {Block, BlockDecoratorProps, HeaderBlockTypes, PageContent} from '../../models';
 import {getBlockIndexFromId, getCustomHeaderTypes, getHeaderBlock} from '../../utils';
-import {EditBlockActions, EditBlockControls} from '../Components/EditBlock/EditBlock';
+import {EditBlockActions, EditBlockControls} from '../components/EditBlock/EditBlock';
 import {EditBlockProps, EditorProps} from '../types';
 
 import {

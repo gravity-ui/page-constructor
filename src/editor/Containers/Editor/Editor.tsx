@@ -2,9 +2,9 @@ import React, {useMemo} from 'react';
 
 import {BlockDecoratorProps} from '../../../models';
 import {block} from '../../../utils';
-import AddBlock from '../../Components/AddBlock/AddBlock';
-import EditBlock from '../../Components/EditBlock/EditBlock';
-import {ErrorBoundary} from '../../Components/ErrorBoundary/ErrorBoundary';
+import AddBlock from '../../components/AddBlock/AddBlock';
+import EditBlock from '../../components/EditBlock/EditBlock';
+import {ErrorBoundary} from '../../components/ErrorBoundary/ErrorBoundary';
 import {useEditorState} from '../../store';
 import {EditorProps} from '../../types';
 import {addCustomDecorator} from '../../utils';

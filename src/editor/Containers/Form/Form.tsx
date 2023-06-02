@@ -1,9 +1,10 @@
 import React, {memo, useMemo} from 'react';
 
-import {DynamicField, dynamicConfig} from '@gravity-ui/dynamic-forms';
+import {DynamicField} from '@gravity-ui/dynamic-forms';
 import _ from 'lodash';
 import {Form as FinalForm, FormSpy} from 'react-final-form';
 
+import {dynamicConfig} from '../../../editor/form/config';
 import {Block, PageContent} from '../../../models';
 import {block, getBlockKey} from '../../../utils';
 import {blockSpecs} from '../../utils/form';
