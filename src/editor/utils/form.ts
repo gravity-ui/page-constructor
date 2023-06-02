@@ -48,7 +48,37 @@ const getBlockSpec = (type: BlockType, schema: BlockSpec) => {
     const parseSchemaProperty = (data: any, name: string, required?: boolean): Spec => {
         const requiredProperties = data.required || [];
 
-        if (isObject(data)) {
+        if ('oneOf' in data) {
+            const properties = data.oneOf.reduce(
+                (result: Record<string, Spec>, propertyData: any, index: number) => {
+                    const propertyName = propertyData?.optionName
+                        ? propertyData?.optionName
+                        : `${name}_${index}`;
+                    // eslint-disable-next-line no-param-reassign, no-not-accumulator-reassign/no-not-accumulator-reassign
+                    result[propertyName] = parseSchemaProperty(
+                        propertyData,
+                        propertyName,
+                        requiredProperties.includes(propertyName),
+                    );
+                    return result;
+                },
+                {} as Record<string, ObjectSpec>,
+            );
+
+            return {
+                type: SpecTypes.Object,
+                properties,
+                viewSpec: {
+                    type: 'oneof_custom',
+                    layout: 'row',
+                    layoutTitle: name,
+                    oneOfParams: {
+                        toggler: 'select',
+                    },
+                },
+                required,
+            };
+        } else if (isObject(data)) {
             const properties =
                 data.properties &&
                 Object.entries(data.properties).reduce((result, [propertyName, propertyData]) => {
@@ -98,3 +128,25 @@ export const blockSpecs = Object.values(BlockType).reduce((result, blockName) =>
 
     return result;
 }, {} as FormSpecs);
+
+export const convertFormSchemaToJson = (schema: any) => {
+    const copy = _.cloneDeep(schema);
+
+    const parseSchema = (inner: any) => {
+        delete inner.required;
+        delete inner.viewSpec;
+
+        if (inner.properties) {
+            Object.entries(inner.properties).forEach(([_key, value]) => {
+                parseSchema(value);
+            });
+        }
+
+        if (inner.items) {
+            parseSchema(inner.items);
+        }
+    };
+    parseSchema(copy);
+
+    return copy;
+};

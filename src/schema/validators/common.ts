@@ -157,7 +157,16 @@ export const DataLensObjectProps = {
 };
 
 export const DataLensProps = {
-    oneOf: [{type: 'string'}, DataLensObjectProps],
+    oneOf: [
+        {
+            type: 'string',
+            optionName: 'id',
+        },
+        {
+            ...DataLensObjectProps,
+            optionName: 'options',
+        },
+    ],
 };
 
 export const BackgroundProps = {
@@ -400,10 +409,13 @@ export const MenuProps = {
     },
 };
 
-export function withTheme<T>(value: T) {
+export function withTheme<T extends object>(value: T) {
     return {
         oneOf: [
-            value,
+            {
+                ...value,
+                optionName: 'no theme',
+            },
             {
                 type: 'object',
                 additionalProperties: false,
@@ -415,6 +427,7 @@ export function withTheme<T>(value: T) {
                     }),
                     {},
                 ),
+                optionName: 'themes',
             },
         ],
     };
@@ -580,7 +593,16 @@ export const CardBase = {
 
 export const BlockHeaderProps = {
     title: {
-        oneOf: [{type: 'string'}, TitleProps],
+        oneOf: [
+            {
+                type: 'string',
+                optionName: 'text',
+            },
+            {
+                ...TitleProps,
+                optionName: 'options',
+            },
+        ],
     },
     description: {
         type: 'string',
