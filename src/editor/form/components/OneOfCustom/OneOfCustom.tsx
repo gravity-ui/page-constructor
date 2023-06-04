@@ -14,13 +14,14 @@ import Ajv from 'ajv';
 import _ from 'lodash';
 
 import {block} from '../../../../utils';
-import {convertFormSchemaToJson} from '../../../utils/form';
 import {useOneOf} from '../../hooks/useOneOf';
 
 import './OneOfCustom.scss';
 
 const b = block('oneof-custom');
+
 const ajv = new Ajv({
+    $data: true,
     strict: false,
     strictSchema: false,
     strictTypes: false,
@@ -31,15 +32,14 @@ const getOneOfCsutomSpecDefaultType = (spec: ObjectSpec) =>
     spec.viewSpec?.order?.[0] || Object.keys(spec.properties || {})[0];
 
 export const OneOfCustom: React.FC<ObjectIndependentInputProps> = (props) => {
-    const validatorSchema = React.useMemo(() => convertFormSchemaToJson(props.spec), [props.spec]);
-
     //getting one of option type from initial value
     const valueType = useMemo(
         () =>
-            Object.keys(validatorSchema?.properties)?.find((key) =>
-                ajv.validate(validatorSchema.properties[key], transformArrOut(props.input.value)),
-            ) || getOneOfCsutomSpecDefaultType(props.spec),
-        // [props.input.value],
+            (props.spec?.properties && Object.keys(props.spec?.properties)?.find((key) => {
+                const fieldSchema = props.spec?.properties?.[key].__jsonSchema;
+
+                return fieldSchema && ajv.validate(fieldSchema, transformArrOut(props.input.value));
+            })) || getOneOfCsutomSpecDefaultType(props.spec),
         [],
     );
 
