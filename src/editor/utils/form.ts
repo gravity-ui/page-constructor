@@ -2,7 +2,8 @@ import {ArraySpec, ObjectSpec, Spec, SpecTypes} from '@gravity-ui/dynamic-forms'
 import _ from 'lodash';
 
 import {BlockType} from '../../models';
-import {blockSchemas} from '../../schema/constants';
+import {generateDefaultSchema} from '../../schema';
+import {blockSchemas, cardSchemas} from '../../schema/constants';
 
 export type FormSpecs = Record<BlockType, Spec>;
 export type BlockSpec = Spec & {
@@ -11,10 +12,25 @@ export type BlockSpec = Spec & {
 };
 
 const IGNORED_PROPERTIES = ['additionalProperties'];
+const childrenDefinitions = Object.entries(generateDefaultSchema().definitions).reduce(
+    (result, [childType, childSpec]) => {
+        //@ts-ignore
+        result[childType] = childSpec?.selectCases;
+
+        return result;
+    },
+    {} as Record<string, ObjectSpec>,
+);
 
 const getFiedValidator = (type: SpecTypes) => (type === SpecTypes.Number ? 'number' : 'base');
 const isObject = (data: Spec): data is ObjectSpec => 'properties' in data;
 const isArray = (data: Spec): data is ArraySpec => 'type' in data && data.type === SpecTypes.Array;
+const isChildren = (data: Spec): data is ArraySpec =>
+    'type' in data &&
+    data.type === SpecTypes.Array &&
+    'items' in data &&
+    typeof data.items !== 'undefined' &&
+    '$ref' in data.items;
 const getObjectViewSpec = (data: ObjectSpec, layoutTitle: string) => {
     return {
         layoutTitle,
@@ -43,6 +59,13 @@ const getFieldViewSpec = (layoutTitle: string, data: BlockSpec) => {
     };
 };
 
+const getChildrenSpec = (data: ArraySpec) => {
+    //@ts-ignore
+    const childrenType = data.items?.$ref?.split('/')?.pop();
+
+    return childrenDefinitions[childrenType as keyof typeof childrenDefinitions];
+};
+
 const getBlockSpec = (type: BlockType, schema: BlockSpec) => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const parseSchemaProperty = (data: any, name: string, required?: boolean): Spec => {
@@ -65,6 +88,69 @@ const getBlockSpec = (type: BlockType, schema: BlockSpec) => {
                 {} as Record<string, ObjectSpec>,
             );
 
+            return {
+                type: SpecTypes.Object,
+                properties,
+                viewSpec: {
+                    type: 'oneof_custom',
+                    layout: 'row',
+                    layoutTitle: name,
+                    oneOfParams: {
+                        toggler: 'select',
+                    },
+                },
+                required,
+            };
+        } else if (isChildren(data)) {
+            const childSpec = _.cloneDeep(getChildrenSpec(data));
+            console.log('childSpec', childSpec);
+            const properties =
+                childSpec &&
+                Object.entries(childSpec).reduce((result, [childName, childSchema]) => {
+                    const childRequiredProperties = childSchema.required || [];
+                    const childProperies =
+                        childSchema.properties &&
+                        Object.entries(childSchema.properties).reduce(
+                            (r, [childPropertyName, childPropertyData]) => {
+                                if (!IGNORED_PROPERTIES.includes(childPropertyName)) {
+                                    // eslint-disable-next-line no-param-reassign, no-not-accumulator-reassign/no-not-accumulator-reassign
+                                    r[childPropertyName] = parseSchemaProperty(
+                                        childPropertyData,
+                                        childPropertyName,
+                                        childRequiredProperties.includes(childPropertyData),
+                                    );
+                                }
+
+                                return r;
+                            },
+                            {} as Record<string, Spec>,
+                        );
+
+                    result[childName] = {
+                        items: {
+                            ...childSchema,
+                            type: SpecTypes.Object,
+                            properties: {
+                                ...childProperies,
+                                type: {
+                                    type: SpecTypes.String,
+                                    defaultValue: childName,
+                                    viewSpec: {
+                                        type: 'hidden',
+                                    },
+                                },
+                            },
+                            viewSpec: getObjectViewSpec(childProperies, childName),
+                        },
+                        type: SpecTypes.Array,
+                        required: false,
+                        viewSpec: getArrayViewSpec(childName),
+                    };
+
+                    return result;
+                }, {} as Record<string, Spec>);
+
+            console.log('properties', properties);
             return {
                 type: SpecTypes.Object,
                 properties,
@@ -119,15 +205,8 @@ const getBlockSpec = (type: BlockType, schema: BlockSpec) => {
         }
     };
 
-    return parseSchemaProperty(schema, type, true);
+    return parseSchemaProperty({...schema}, type, true);
 };
-
-export const blockSpecs = Object.values(BlockType).reduce((result, blockName) => {
-    // eslint-disable-next-line no-param-reassign, no-not-accumulator-reassign/no-not-accumulator-reassign
-    result[blockName] = getBlockSpec(blockName, blockSchemas[blockName] as BlockSpec);
-
-    return result;
-}, {} as FormSpecs);
 
 export const convertFormSchemaToJson = (schema: any) => {
     const copy = _.cloneDeep(schema);
@@ -149,4 +228,18 @@ export const convertFormSchemaToJson = (schema: any) => {
     parseSchema(copy);
 
     return copy;
+};
+
+export const blockSpecs = Object.values(BlockType).reduce((result, blockName) => {
+    // eslint-disable-next-line no-param-reassign, no-not-accumulator-reassign/no-not-accumulator-reassign
+    result[blockName] = getBlockSpec(blockName, blockSchemas[blockName] as BlockSpec);
+
+    return result;
+}, {} as FormSpecs);
+
+export const cardSpecs = {
+    oneOf: Object.entries(cardSchemas).map(([type, schema]) => ({
+        ...schema,
+        optionName: type,
+    })),
 };

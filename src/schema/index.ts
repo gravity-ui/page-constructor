@@ -20,10 +20,13 @@ export interface SchemaCustomConfig {
 }
 
 export const getBlocksCases = (blocks: SchemaBlock) => {
-    return Object.values(blocks).reduce((acc, block) => ({
-        ...acc,
-        ...block,
-    }));
+    return Object.values(blocks).reduce(
+        (acc, block) => ({
+            ...acc,
+            ...block,
+        }),
+        {},
+    );
 };
 
 export function generateDefaultSchema(config?: SchemaCustomConfig) {
@@ -37,6 +40,7 @@ export function generateDefaultSchema(config?: SchemaCustomConfig) {
         (item) => !constructorCardSchemaNames.includes(item),
     );
 
+    console.log('configBlockSchemaNames', blocks);
     return {
         $id: 'self',
         definitions: {
