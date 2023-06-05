@@ -95,7 +95,7 @@ export const Media = (props: MediaAllProps) => {
                     attributes={{color: 'white', rel: '0'}}
                     previewImg={previewImg}
                     height={height}
-                    fullscreen={getFullscreen({fullScreen, fullscreen})}
+                    fullscreen={fullscreen}
                     analyticsEvents={analyticsEvents}
                 />
             );
