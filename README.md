@@ -339,3 +339,18 @@ Release-As: 3.0.0-beta.0' --allow-empty
 
 4. Release please robot will create a new PR to the branch `beta` with updated CHANGELOG.md and bump version of the package
 5. You can repeat it as many as you want. When you ready to release the latest major version without beta tag, you have to create PR from branch `beta` to branch `main`. Notice that it is normal that your package version will be with beta tag. Robot knows that and change it properly. `3.0.0-beta.0` will become `3.0.0`
+
+### Release flow for previous major-versions
+
+If you want to release a new version in previous major after commit it to the main, please do the following:
+
+1. Update necessary branch, the previous major release branch names are:
+   1. `version-1.x.x/fixes` - for major 1.x.x
+   2. `version-2.x.x` - for major 2.x.x
+2. Checkout a new branch from the previous major release branch
+3. Cherry-pick your commit from the branch `main`
+4. Create PR, get an approval and merge into the previous major release branch
+5. Squash and merge your PR (It is important to release a new version with Github-Actions)
+6. Wait until robot creates a PR with a new version of the package and information about your changes in CHANGELOG.md. You can see the process on [the Actions tab](https://github.com/gravity-ui/page-constructor/actions).
+7. Check your changes in CHANGELOG.md and approve robot's PR.
+8. Squash and merge PR. You can see release process on [the Actions tab](https://github.com/gravity-ui/page-constructor/actions).
