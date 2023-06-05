@@ -16,9 +16,6 @@ export const LayoutItem = {
         border: {
             type: 'boolean',
         },
-        fullScreen: {
-            type: 'boolean',
-        },
         fullscreen: {
             type: 'boolean',
         },

@@ -1,7 +1,7 @@
 import React, {useMemo, useState} from 'react';
 
 import {CardLayoutBlock} from '..';
-import {AnimateBlock, BlockHeader} from '../../components';
+import {AnimateBlock, Title} from '../../components';
 import ButtonTabs, {ButtonTabsItemProps} from '../../components/ButtonTabs/ButtonTabs';
 import {ConstructorItem} from '../../containers/PageConstructor/components/ConstructorItem';
 import {Col, Row} from '../../grid';
@@ -53,10 +53,10 @@ const FilterBlock: React.FC<FilterBlockProps> = ({
     return (
         <AnimateBlock className={b()} animate={animated}>
             {title && (
-                <BlockHeader
+                <Title
                     className={b('title', {centered: centered})}
                     title={title}
-                    description={description}
+                    subtitle={description}
                 />
             )}
             {tabButtons.length && (

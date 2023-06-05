@@ -32,7 +32,6 @@ import {
 } from '../../utils';
 
 import {ConstructorBlocks} from './components/ConstructorBlocks';
-import {ConstructorFootnotes} from './components/ConstructorFootnotes';
 import {ConstructorHeader} from './components/ConstructorItem';
 import {ConstructorRow} from './components/ConstructorRow';
 
@@ -52,7 +51,7 @@ export interface PageConstructorProps {
 
 export const Constructor = (props: PageConstructorProps) => {
     const {
-        content: {blocks = [], background = {}, footnotes = []} = {},
+        content: {blocks = [], background = {}} = {},
         renderMenu,
         shouldRenderBlock,
         navigation,
@@ -82,7 +81,6 @@ export const Constructor = (props: PageConstructorProps) => {
 
     const {themeValue: theme} = useContext(ThemeValueContext);
 
-    const hasFootnotes = footnotes.length > 0;
     const header = getHeaderBlock(blocks, context.headerBlockTypes);
     const restBlocks = getOrderedBlocks(blocks, context.headerBlockTypes);
     const themedBackground = getThemedValue(background, theme);
@@ -103,11 +101,6 @@ export const Constructor = (props: PageConstructorProps) => {
                             {restBlocks && (
                                 <ConstructorRow>
                                     <ConstructorBlocks items={restBlocks} />
-                                </ConstructorRow>
-                            )}
-                            {hasFootnotes && (
-                                <ConstructorRow>
-                                    <ConstructorFootnotes items={footnotes} />
                                 </ConstructorRow>
                             )}
                         </Grid>

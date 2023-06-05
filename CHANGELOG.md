@@ -1,5 +1,28 @@
 # Changelog
 
+## [3.0.0](2023-06-05)
+
+
+### ⚠ BREAKING CHANGES
+
+* remove Preview block ([#235](https://github.com/gravity-ui/page-constructor/issues/235)), use Tabs block
+* remove Simple block ([#228](https://github.com/gravity-ui/page-constructor/issues/228)), use ContentLayout block
+* remove CardWithImage sub-block ([#236](https://github.com/gravity-ui/page-constructor/issues/236)), use LayoutItem sub-block
+* remove Security block ([#321](https://github.com/gravity-ui/page-constructor/issues/321)), use ContentLayout block
+* remove LinkTable block ([#325](https://github.com/gravity-ui/page-constructor/issues/325)), use ContentLayout block
+* remove TutorialCard sub-block ([#331](https://github.com/gravity-ui/page-constructor/issues/331)), use BasicCard sub-block
+* remove hook HeightCalculator ([#328](https://github.com/gravity-ui/page-constructor/issues/328))
+* remove Partner sub-block ([#335](https://github.com/gravity-ui/page-constructor/issues/335)), use BasicCard sub-block
+* remove NewsCard sub-block ([#342](https://github.com/gravity-ui/page-constructor/issues/342)), use BasicCard sub-block
+* remove component Footnotes ([#343](https://github.com/gravity-ui/page-constructor/issues/343)), use ContentLayout block
+* remove component BlockHeader ([#341](https://github.com/gravity-ui/page-constructor/issues/341)), use component Title
+* remove property `fullScreen` from components ([#366](https://github.com/gravity-ui/page-constructor/issues/366)), use property `fullscreen`
+
+
+### refactor
+
+* refactor text-transform functions ([#225](https://github.com/gravity-ui/page-constructor/issues/225))
+
 ## [2.22.2](https://github.com/gravity-ui/page-constructor/compare/v2.22.1...v2.22.2) (2023-06-01)
 
 
