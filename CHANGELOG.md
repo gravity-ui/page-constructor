@@ -1,5 +1,17 @@
 # Changelog
 
+## [3.1.0](https://github.com/gravity-ui/page-constructor/compare/v3.0.0...v3.1.0) (2023-06-05)
+
+
+### Features
+
+* add analytics to video block ([#376](https://github.com/gravity-ui/page-constructor/issues/376)) ([85510cc](https://github.com/gravity-ui/page-constructor/commit/85510cc45475c8cf12561eed0e7a5b04fc14af5f))
+
+
+### Bug Fixes
+
+* rerende slider chidldren on their update ([#380](https://github.com/gravity-ui/page-constructor/issues/380)) ([65e3168](https://github.com/gravity-ui/page-constructor/commit/65e31689d1817a34de094bb383b667672878d9ff))
+
 ## [3.0.0](https://github.com/gravity-ui/page-constructor/compare/v2.22.2...v3.0.0) (2023-06-05)
 
 
