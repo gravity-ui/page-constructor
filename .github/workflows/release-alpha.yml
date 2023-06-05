@@ -1,17 +1,13 @@
-name: Release alpha version
+name: Create Alpha Release
 
 on:
-  workflow_dispatch:
+  push:
+    branches: [beta]
 
 jobs:
-  build:
+  release:
     runs-on: ubuntu-latest
     steps:
-      - name: Extract branch name
-        shell: bash
-        run: |
-          echo "branch_name=${GITHUB_REF#refs/heads/}"
-        id: extract_branch
       - uses: gravity-ui/release-action@v1
         with:
           github-token: ${{ secrets.GRAVITY_UI_BOT_GITHUB_TOKEN }}
