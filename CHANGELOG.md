@@ -18,7 +18,7 @@
 * remove component BlockHeader ([#341](https://github.com/gravity-ui/page-constructor/issues/341)), use component Title
 * remove property `fullScreen` from components ([#366](https://github.com/gravity-ui/page-constructor/issues/366)), use property `fullscreen`
 * rename component FullScreenMedia to FullscreenMedia  ([#366](https://github.com/gravity-ui/page-constructor/issues/366))
-* rename icon name FullScreen to  Fullscreen  ([#366](https://github.com/gravity-ui/page-constructor/issues/366))
+* rename icon name FullScreen to Fullscreen ([#366](https://github.com/gravity-ui/page-constructor/issues/366))
 * remove property `showFullScreenIcon` from FullscreenMedia ([#366](https://github.com/gravity-ui/page-constructor/issues/366)), use property `showFullscreenIcon`
 
 
