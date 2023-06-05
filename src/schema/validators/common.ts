@@ -515,6 +515,9 @@ export const MediaProps = {
     fullscreen: {
         type: 'boolean',
     },
+    analyticsEvents: {
+        anyOf: [AnalyticsEventSchema, {type: 'array', items: AnalyticsEventSchema}],
+    },
 };
 
 export const YMapMarkerLabel = {

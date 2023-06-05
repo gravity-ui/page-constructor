@@ -4,7 +4,9 @@ import {Icon} from '@gravity-ui/uikit';
 import _ from 'lodash';
 import {v4 as uuidv4} from 'uuid';
 
+import {useAnalytics} from '../../hooks/useAnalytics';
 import {PlayVideo} from '../../icons';
+import {AnalyticsEventsBase, DefaultEventNames} from '../../models/common';
 import {block, getPageSearchParams} from '../../utils';
 import Image from '../Image/Image';
 
@@ -47,7 +49,7 @@ export function getHeight(width: number): number {
     return (width / 16) * 9;
 }
 
-export interface VideoBlockProps {
+export interface VideoBlockProps extends AnalyticsEventsBase {
     id?: string;
     stream?: string;
     record?: string;
@@ -60,8 +62,20 @@ export interface VideoBlockProps {
 }
 
 const VideoBlock = (props: VideoBlockProps) => {
-    const {stream, record, attributes, className, id, previewImg, playButton, height, fullscreen} =
-        props;
+    const {
+        stream,
+        record,
+        attributes,
+        className,
+        id,
+        previewImg,
+        playButton,
+        height,
+        fullscreen,
+        analyticsEvents,
+    } = props;
+    const handleAnalytics = useAnalytics(DefaultEventNames.VideoPreview);
+
     const src = getVideoSrc(stream, record);
     const ref = useRef<HTMLDivElement>(null);
     const iframeRef = useRef<HTMLIFrameElement>();
@@ -70,6 +84,8 @@ const VideoBlock = (props: VideoBlockProps) => {
     const [currentHeight, setCurrentHeight] = useState(height || undefined);
     const fullId = id || uuidv4();
     const onPreviewClick = useCallback(() => {
+        handleAnalytics(analyticsEvents);
+
         if (iframeRef.current) {
             iframeRef.current.src = `${src}?${getPageSearchParams({
                 ...AUTOPLAY_ATTRIBUTES,
@@ -78,7 +94,7 @@ const VideoBlock = (props: VideoBlockProps) => {
         }
 
         setTimeout(() => setHidePreview(true), AUTOPLAY_DELAY);
-    }, [src, attributes]);
+    }, [handleAnalytics, analyticsEvents, src, attributes]);
 
     useEffect(() => {
         const updateSize = _.debounce(() => {

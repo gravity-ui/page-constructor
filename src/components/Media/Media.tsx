@@ -96,6 +96,7 @@ export const Media = (props: MediaAllProps) => {
                     previewImg={previewImg}
                     height={height}
                     fullscreen={fullscreen}
+                    analyticsEvents={analyticsEvents}
                 />
             );
         }
