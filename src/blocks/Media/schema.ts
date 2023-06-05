@@ -6,6 +6,7 @@ import {
     ButtonBlock,
     MediaProps,
     mediaDirection,
+    withTheme,
 } from '../../schema/validators/common';
 import {ContentBase} from '../../sub-blocks/Content/schema';
 
@@ -52,7 +53,7 @@ export const MediaBlock = {
         required: ['title', 'media'],
         properties: {
             ...MediaBlockBaseProps,
-            media: Media,
+            media: withTheme(Media),
         },
     },
 };
