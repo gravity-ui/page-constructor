@@ -90,6 +90,7 @@ export enum DefaultEventNames {
     QuoteButton = 'quote-button-click',
     BackLink = 'back-link-click',
     Breadcrumb = 'breadcrumb-click',
+    VideoPreview = 'video-preview-click',
 }
 
 export type AnalyticsCounters = {
