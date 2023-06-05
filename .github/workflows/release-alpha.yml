@@ -1,15 +1,22 @@
-name: Create Alpha Release
+name: Release alpha version
 
 on:
   workflow_dispatch:
-    inputs:
-      name:
-        description: 'Who to greet'
-        default: 'World'
 
 jobs:
-  hello:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Hello
-        run: echo "Hello ${{ github.event.inputs.name }}"
+      - name: Extract branch name
+        if: github.event_name != 'pull_request'
+        shell: bash
+        run: |
+          echo "branch_name=${GITHUB_REF#refs/heads/}"
+        id: extract_branch
+      - uses: gravity-ui/release-action@v1
+        with:
+          github-token: ${{ secrets.GRAVITY_UI_BOT_GITHUB_TOKEN }}
+          npm-token: ${{ secrets.GRAVITY_UI_BOT_NPM_TOKEN }}
+          node-version: 14
+          npm-dist-tag: alpha
+          default-branch: ${{ env.branch_name }}
