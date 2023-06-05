@@ -93,6 +93,8 @@ const getObjectViewSpec = (data: ObjectSpec, layoutTitle: string) => {
         type: 'base',
         layout: 'accordeon',
         order: data.properties && Object.keys(data.properties).sort(),
+        //@ts-ignore
+        disabled: data.disabled,
     };
 };
 const getArrayViewSpec = (layoutTitle: string) => ({

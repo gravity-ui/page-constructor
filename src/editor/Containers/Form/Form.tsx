@@ -58,9 +58,9 @@ export const BlockForm = memo(
                                 onChange={({values}) => onChange({type, ...values.content})}
                                 subscription={{values: true}}
                             />
-                            {/* add key to cause form rerender on active block change*/}
                             <DynamicField
                                 name="content"
+                                // there is no way other way to manage with form open/close state now
                                 key={String(active)}
                                 spec={spec as Spec}
                                 config={dynamicConfig}

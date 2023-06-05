@@ -39,7 +39,8 @@ const EditBlock = ({actions, isActive, onSelect, isHeader, children}: EditBlockP
 
     useEffect(() => {
         if (isActive && ref.current) {
-            ref.current?.scrollIntoView({behavior: 'smooth', block: 'center'});
+            //TODO: add behavior 'smooth' after addiiton of dynamic form layout open/close managing support
+            ref.current.scrollIntoView({block: 'center'});
         }
     }, [isActive]);
 

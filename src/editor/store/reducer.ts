@@ -87,7 +87,10 @@ export const reducer = (state: EditorState, action: EditorAction): EditorState =
                 errorBoundaryState: getErrorBoundaryState(state.errorBoundaryState),
             };
         case SELECT_BLOCK:
-            return getNewState(content.blocks, action.payload);
+            return {
+                ...state,
+                activeBlockIndex: action.payload,
+            };
         case DELETE_BLOCK: {
             const blockId = action.payload;
 
