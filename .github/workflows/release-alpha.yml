@@ -1,11 +1,14 @@
 name: Create Alpha Release
 
 on:
-  push:
-    branches: [beta]
+  workflow_dispatch:
+    inputs:
+      name:
+        description: 'Who to greet'
+        default: 'World'
 
 jobs:
-  release:
+  hello:
     runs-on: ubuntu-latest
     steps:
       - uses: gravity-ui/release-action@v1
