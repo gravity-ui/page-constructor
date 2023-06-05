@@ -1,6 +1,6 @@
 # Changelog
 
-## [3.0.0](2023-06-05)
+## [3.0.0](https://github.com/gravity-ui/page-constructor/compare/v2.22.2...v3.0.0) (2023-06-05)
 
 
 ### ⚠ BREAKING CHANGES
