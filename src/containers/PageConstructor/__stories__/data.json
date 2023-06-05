@@ -239,19 +239,23 @@
           "items": [
             {
               "text": "Lorem ipsum ",
-              "url": "https://example.com"
+              "url": "https://example.com",
+              "icon": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_3_light.svg"
             },
             {
               "text": "Dolor sit amet",
-              "url": "https://example.com"
+              "url": "https://example.com",
+              "icon": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_2_light.svg"
             },
             {
               "text": "Consectetur adipiscing",
-              "url": "https://example.com"
+              "url": "https://example.com",
+              "icon": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_1_light.svg"
             },
             {
               "text": "Ut enim ad minim ",
-              "url": "https://example.com"
+              "url": "https://example.com",
+              "icon": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_3_light.svg"
             }
           ]
         },
