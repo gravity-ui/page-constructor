@@ -1,4 +1,4 @@
-import React, {useCallback, useContext, useEffect, useRef, useState} from 'react';
+import React, {useCallback, useContext, useEffect, useMemo, useRef, useState} from 'react';
 
 import _ from 'lodash';
 import SlickSlider, {Settings} from 'react-slick';
@@ -78,8 +78,9 @@ export const SliderBlock = (props: WithChildren<SliderProps>) => {
     const {isServer} = useContext(SSRContext);
     const isMobile = useContext(MobileContext);
     const [breakpoint, setBreakpoint] = useState<number>(BREAKPOINTS.xl);
-    const [disclosedChildren] = useState<React.ReactElement[]>(() =>
-        discloseAllNestedChildren(children as React.ReactElement[]),
+    const disclosedChildren = useMemo<React.ReactElement[]>(
+        () => discloseAllNestedChildren(children as React.ReactElement[]),
+        [children],
     );
     const childrenCount = disclosedChildren.length;
 
