@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.0.0-beta.0](https://github.com/gravity-ui/page-constructor/compare/v2.22.2...v4.0.0-beta.0) (2023-06-05)
+
+
+### Features
+
+* page-constructor 3.0.0 beta ([#234](https://github.com/gravity-ui/page-constructor/issues/234)) ([57f7c26](https://github.com/gravity-ui/page-constructor/commit/57f7c2649917467cd313bd51be16c7976733a1c8))
+
 ## [3.0.0](2023-06-05)
 
 
