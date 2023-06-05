@@ -1,18 +1,15 @@
 name: Create Alpha Release
 
 on:
-  push:
-    branches: [beta]
+  workflow_dispatch:
+    inputs:
+      name:
+        description: 'Who to greet'
+        default: 'World'
 
 jobs:
-  release:
+  hello:
     runs-on: ubuntu-latest
     steps:
-      - uses: gravity-ui/release-action@v1
-        with:
-          github-token: ${{ secrets.GRAVITY_UI_BOT_GITHUB_TOKEN }}
-          npm-token: ${{ secrets.GRAVITY_UI_BOT_NPM_TOKEN }}
-          node-version: 14
-          npm-dist-tag: beta
-          prerelease: true
-          default-branch: beta
+      - name: Hello
+        run: echo "Hello ${{ github.event.inputs.name }}"
