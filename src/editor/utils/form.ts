@@ -1,4 +1,4 @@
-import {ArraySpec, ObjectSpec, Spec as DynamicFormSpec, SpecTypes} from '@gravity-ui/dynamic-forms';
+import {ArraySpec, Spec as DynamicFormSpec, ObjectSpec, SpecTypes} from '@gravity-ui/dynamic-forms';
 import _ from 'lodash';
 
 import {BlockType} from '../../models';
@@ -8,20 +8,20 @@ import {blockSchemas} from '../../schema/constants';
 export type OneOfSpec = {
     oneOf: DynamicFormSpec[];
     viewSpec: ObjectSpec['viewSpec'];
-}
+};
 
 export interface SpecCustomProps {
-    __jsonSchema?: object
+    __schema?: object;
 }
 
 export type Spec = DynamicFormSpec | OneOfSpec;
 export type CustomSpec = Spec & SpecCustomProps;
 export type FormSpecs = Record<BlockType, CustomSpec>;
-export type BlockSpec = Spec & {
+export type BlockSpec = CustomSpec & {
     inputType?: Spec['viewSpec']['type'];
     required?: string[];
 };
-export type SchemaParser<T = any> = (data:T, name: string, required?:boolean) => CustomSpec
+export type SchemaParser<T = any> = (data: T, name: string, required?: boolean) => CustomSpec;
 
 const childrenDefinitions = Object.entries(generateDefaultSchema().definitions).reduce(
     (result, [childType, childSpec]) => {
@@ -43,7 +43,7 @@ const getChildrenSpec = (data: ArraySpec) => {
 const getFiedValidator = (type: SpecTypes) => (type === SpecTypes.Number ? 'number' : 'base');
 
 enum ParserType {
-    Object =  'object',
+    Object = 'object',
     Array = 'array',
     Children = 'children',
     OneOf = 'oneOf',
@@ -65,7 +65,7 @@ const ParserTypeDetectors = [
     {type: ParserType.Children, detector: isChildren},
     {type: ParserType.Object, detector: isObject},
     {type: ParserType.Array, detector: isArray},
-]
+];
 
 const getParserType = (data: Spec): ParserType => {
     for (const {type, detector} of ParserTypeDetectors) {
@@ -74,8 +74,8 @@ const getParserType = (data: Spec): ParserType => {
         }
     }
 
-    return ParserType.Primitive
-}
+    return ParserType.Primitive;
+};
 
 const getOneOfViewSpec = (layoutTitle: string) => {
     return {
@@ -85,7 +85,7 @@ const getOneOfViewSpec = (layoutTitle: string) => {
         oneOfParams: {
             toggler: 'select' as const,
         },
-    }
+    };
 };
 const getObjectViewSpec = (data: ObjectSpec, layoutTitle: string) => {
     return {
@@ -115,7 +115,7 @@ const getPrimitiveViewSpec = (layoutTitle: string, data: BlockSpec) => {
     };
 };
 
-const childrenParser: SchemaParser = (data, name, required): CustomSpec => {
+const childrenParser: SchemaParser = (data, name, required) => {
     const childSpec = _.cloneDeep(getChildrenSpec(data));
     const properties =
         childSpec &&
@@ -143,9 +143,9 @@ const childrenParser: SchemaParser = (data, name, required): CustomSpec => {
                     type: {
                         type: SpecTypes.String,
                         enum: [childName],
-                    }
-                }
-            }
+                    },
+                },
+            };
 
             parsedChildSpecProperties[childName] = {
                 items: {
@@ -162,19 +162,19 @@ const childrenParser: SchemaParser = (data, name, required): CustomSpec => {
                         },
                     },
                     viewSpec: getObjectViewSpec(childProperies, childName),
-                    __jsonSchema: childJsonSchema,
+                    __schema: childJsonSchema,
                 },
                 type: SpecTypes.Array,
                 required: false,
                 viewSpec: getArrayViewSpec(childName),
-                __jsonSchema: {
+                __schema: {
                     type: SpecTypes.Array,
                     items: childJsonSchema,
                 },
             };
 
             return parsedChildSpecProperties;
-        }, {} as Record<string, Spec>);
+        }, {} as Record<string, CustomSpec>);
 
     return {
         type: SpecTypes.Object,
@@ -188,8 +188,8 @@ const childrenParser: SchemaParser = (data, name, required): CustomSpec => {
             },
         },
         required,
-    };
-}
+    } as CustomSpec;
+};
 
 const oneOfParser: SchemaParser = (data, name, required): Spec => {
     const requiredProperties = data.required || [];
@@ -213,9 +213,9 @@ const oneOfParser: SchemaParser = (data, name, required): Spec => {
         type: SpecTypes.Object,
         properties,
         required,
-        viewSpec: getOneOfViewSpec(name),    
+        viewSpec: getOneOfViewSpec(name),
     };
-}
+};
 
 const arrayParser: SchemaParser = (data, name): Spec => {
     const items = parseSchemaProperty(data.items as ObjectSpec, name);
@@ -225,30 +225,30 @@ const arrayParser: SchemaParser = (data, name): Spec => {
         items,
         viewSpec: getArrayViewSpec(name),
     };
-}
+};
 
 const objectParser: SchemaParser = (data, name, required): Spec => {
     const requiredProperties = data.required || [];
     const properties =
-            data.properties &&
-            Object.entries(data.properties).reduce((result, [propertyName, propertyData]) => {
-                result[propertyName] = parseSchemaProperty(
-                    propertyData,
-                    propertyName,
-                    requiredProperties.includes(propertyName),
-                );
+        data.properties &&
+        Object.entries(data.properties).reduce((result, [propertyName, propertyData]) => {
+            result[propertyName] = parseSchemaProperty(
+                propertyData,
+                propertyName,
+                requiredProperties.includes(propertyName),
+            );
 
-                return result;
-            }, {} as Record<string, Spec>);
+            return result;
+        }, {} as Record<string, Spec>);
 
-            return {
-            ...data,
-            properties,
-            type: SpecTypes.Object,
-            viewSpec: getObjectViewSpec(data, name),
-            required,
-        };
-}
+    return {
+        ...data,
+        properties,
+        type: SpecTypes.Object,
+        viewSpec: getObjectViewSpec(data, name),
+        required,
+    };
+};
 
 const primitiveParser: SchemaParser = (data, name, required): Spec => {
     return {
@@ -257,7 +257,7 @@ const primitiveParser: SchemaParser = (data, name, required): Spec => {
         viewSpec: getPrimitiveViewSpec(name, data),
         validator: getFiedValidator(data.type),
     };
-}
+};
 
 const SchemaParserMap = {
     [ParserType.Object]: objectParser,
@@ -268,20 +268,20 @@ const SchemaParserMap = {
 };
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-function parseSchemaProperty (data: any, name:string, required?: boolean): CustomSpec {
+function parseSchemaProperty(data: any, name: string, required?: boolean): CustomSpec {
     const parserType = getParserType(data);
     const parser = SchemaParserMap[parserType];
 
     return {
         ...parser(data, name, required),
-        //save original schema to compare with incoming intiaal data in oneOf fields
-        __jsonSchema: data,
-    }
-};
+        //save json schema from constructor to compare with incoming intial data inside oneOf form fields
+        __schema: data,
+    };
+}
 
-function getBlockSpec (type: BlockType, schema: BlockSpec) {
+function getBlockSpec(type: BlockType, schema: BlockSpec) {
     return parseSchemaProperty({...schema}, type, true);
-};
+}
 
 export const blockSpecs = Object.values(BlockType).reduce((result, blockName) => {
     // eslint-disable-next-line no-param-reassign, no-not-accumulator-reassign/no-not-accumulator-reassign

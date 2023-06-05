@@ -13,6 +13,7 @@ import {
 import Ajv from 'ajv';
 import _ from 'lodash';
 
+import {SpecCustomProps} from '../../../../editor/utils/form';
 import {block} from '../../../../utils';
 import {useOneOf} from '../../hooks/useOneOf';
 
@@ -32,14 +33,18 @@ const getOneOfCsutomSpecDefaultType = (spec: ObjectSpec) =>
     spec.viewSpec?.order?.[0] || Object.keys(spec.properties || {})[0];
 
 export const OneOfCustom: React.FC<ObjectIndependentInputProps> = (props) => {
-    //getting one of option type from initial value
+    //getting oneOf option type from initial value
     const valueType = useMemo(
         () =>
-            (props.spec?.properties && Object.keys(props.spec?.properties)?.find((key) => {
-                const fieldSchema = props.spec?.properties?.[key].__jsonSchema;
+            (props.spec?.properties &&
+                Object.keys(props.spec?.properties)?.find((key) => {
+                    const fieldSchema = (props.spec?.properties?.[key] as SpecCustomProps).__schema;
 
-                return fieldSchema && ajv.validate(fieldSchema, transformArrOut(props.input.value));
-            })) || getOneOfCsutomSpecDefaultType(props.spec),
+                    return (
+                        fieldSchema && ajv.validate(fieldSchema, transformArrOut(props.input.value))
+                    );
+                })) ||
+            getOneOfCsutomSpecDefaultType(props.spec),
         [],
     );
 

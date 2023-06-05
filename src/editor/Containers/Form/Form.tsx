@@ -1,6 +1,6 @@
 import React, {memo, useMemo} from 'react';
 
-import {DynamicField} from '@gravity-ui/dynamic-forms';
+import {DynamicField, Spec} from '@gravity-ui/dynamic-forms';
 import _ from 'lodash';
 import {Form as FinalForm, FormSpy} from 'react-final-form';
 
@@ -62,7 +62,7 @@ export const BlockForm = memo(
                             <DynamicField
                                 name="content"
                                 key={String(active)}
-                                spec={spec}
+                                spec={spec as Spec}
                                 config={dynamicConfig}
                             />
                         </div>
