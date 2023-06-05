@@ -1,12 +1,8 @@
 export {default as Divider} from './Divider/Divider';
 export {default as Quote} from './Quote/Quote';
-export {default as NewsCard} from './NewsCard/NewsCard';
-export {default as Partner} from './Partner/Partner';
 export {default as PriceDetailed} from './PriceDetailed/PriceDetailed';
 export {default as MediaCard} from './MediaCard/MediaCard';
 export {default as BannerCard} from './BannerCard/BannerCard';
-export {default as TutorialCard} from './TutorialCard/TutorialCard';
-export {default as CardWithImage} from './CardWithImage/CardWithImage';
 export {default as LayoutItem} from './LayoutItem/LayoutItem';
 export {default as BackgroundCard} from './BackgroundCard/BackgroundCard';
 export {default as BasicCard} from './BasicCard/BasicCard';

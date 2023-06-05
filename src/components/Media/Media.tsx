@@ -18,10 +18,6 @@ export interface MediaAllProps extends MediaProps, VideoAdditionProps, ImageAddi
     youtubeClassName?: string;
 }
 
-// TODO delete along with fullScreen props
-const getFullscreen = ({fullScreen, fullscreen}: {fullScreen?: boolean; fullscreen?: boolean}) =>
-    fullScreen || fullscreen;
-
 export const Media = (props: MediaAllProps) => {
     const {
         image,
@@ -33,7 +29,6 @@ export const Media = (props: MediaAllProps) => {
         previewImg,
         parallax = false,
         metrika,
-        fullScreen,
         fullscreen,
         analyticsEvents,
     } = props;
@@ -64,7 +59,7 @@ export const Media = (props: MediaAllProps) => {
                     isBackground={isBackground}
                     video={video}
                     hasVideoFallback={hasVideoFallback}
-                    fullscreen={getFullscreen({fullScreen, fullscreen})}
+                    fullscreen={fullscreen}
                 />,
             );
         }
@@ -85,7 +80,7 @@ export const Media = (props: MediaAllProps) => {
                 setHasVideoFallback,
             };
 
-            if (getFullscreen({fullScreen, fullscreen})) {
+            if (fullscreen) {
                 result.push(<FullscreenVideo {...videoProps} />);
             } else {
                 result.push(<Video {...videoProps} />);
@@ -100,7 +95,7 @@ export const Media = (props: MediaAllProps) => {
                     attributes={{color: 'white', rel: '0'}}
                     previewImg={previewImg}
                     height={height}
-                    fullscreen={getFullscreen({fullScreen, fullscreen})}
+                    fullscreen={fullscreen}
                 />
             );
         }
@@ -128,7 +123,6 @@ export const Media = (props: MediaAllProps) => {
         playButton,
         customBarControlsClassName,
         youtubeClassName,
-        fullScreen,
         fullscreen,
     ]);
 

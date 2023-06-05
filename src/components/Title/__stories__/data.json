@@ -1,22 +1,43 @@
 {
   "default": {
     "content": {
-      "text": "Header",
+      "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      "description": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+    }
+  },
+  "customTitle": {
+    "content": {
+      "title": {
+        "text": "Lorem ipsum",
+        "url": "https://example.com",
+        "custom": "Some react node"
+      }
+    }
+  },
+  "titleLink": {
+    "content": {
+      "title": {
+        "text": "Lorem ipsum",
+        "url": "https://example.com"
+      }
+    }
+  },
+  "sizes": {
+    "xs": {
+      "text": "Size XS",
+      "textSize": "xs"
+    },
+    "s": {
+      "text": "Size S",
+      "textSize": "s"
+    },
+    "m": {
+      "text": "Size M",
       "textSize": "m"
-    }
-  },
-  "withLink": {
-    "content": {
-      "text": "Header",
-      "textSize": "m",
-      "url": "#"
-    }
-  },
-  "resetMargin": {
-    "content": {
-      "text": "Header",
-      "textSize": "m",
-      "resetMargin": true
+    },
+    "l": {
+      "text": "Size L",
+      "textSize": "l"
     }
   }
 }

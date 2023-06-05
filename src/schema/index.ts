@@ -13,15 +13,11 @@ import {
     HeaderSliderBlock,
     IconsBlock,
     InfoBlock,
-    LinkTableBlock,
     MapBlock,
     MediaBlock,
-    PreviewBlock,
     PromoFeaturesBlock,
     QuestionsBlock,
-    SecurityBlock,
     ShareBlock,
-    SimpleBlock,
     SliderBlock,
     TableBlock,
     TabsBlock,
@@ -31,14 +27,10 @@ import {LogoProps, NavigationHeaderProps} from './validators/navigation';
 import {
     BackgroundCard,
     BasicCard,
-    CardWithImage,
     Divider,
     MediaCardBlock,
-    NewsCard,
-    PartnerBlock,
     PriceDetailedBlock,
     Quote,
-    TutorialCard,
 } from './validators/sub-blocks';
 import {filteredItem} from './validators/utils';
 
@@ -72,12 +64,8 @@ export function generateDefaultSchema(config?: SchemaCustomConfig) {
         ...MediaBlock,
         ...MapBlock,
         ...InfoBlock,
-        ...SecurityBlock,
         ...TableBlock,
         ...TabsBlock,
-        ...SimpleBlock,
-        ...LinkTableBlock,
-        ...PreviewBlock,
         ...HeaderSliderBlock,
         ...IconsBlock,
         ...CardLayoutBlock,
@@ -87,14 +75,10 @@ export function generateDefaultSchema(config?: SchemaCustomConfig) {
     };
 
     const cardValidators = {
-        ...PartnerBlock,
         ...MediaCardBlock,
         ...BannerCard,
         ...PriceDetailedBlock,
-        ...TutorialCard,
         ...BackgroundCard,
-        ...NewsCard,
-        ...CardWithImage,
         ...Quote,
         ...BasicCard,
     };
@@ -114,12 +98,8 @@ export function generateDefaultSchema(config?: SchemaCustomConfig) {
         'media-block',
         'map-block',
         'info-block',
-        'security-block',
         'table-block',
         'tabs-block',
-        'simple-block',
-        'link-table-block',
-        'preview-block',
         'price-detailed',
         'header-slider-block',
         'cards-with-image-block',
@@ -131,14 +111,10 @@ export function generateDefaultSchema(config?: SchemaCustomConfig) {
     ];
 
     const constructorCardSchemaNames = [
-        'partner',
         'media-card',
         'banner-card',
         'price-detailed',
-        'tutoral-card',
         'background-card',
-        'news-card',
-        'card-with-image',
         'quote',
         'basic-card',
         'layout-item',
@@ -201,12 +177,6 @@ export function generateDefaultSchema(config?: SchemaCustomConfig) {
             },
             menu: MenuProps,
             background: withTheme(BackgroundProps),
-            footnotes: {
-                type: 'array',
-                items: {
-                    type: 'string',
-                },
-            },
             ...extensions,
         },
     };

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {Content} from '..';
-import {FullScreenMedia, Media, MetaInfo} from '../../components';
+import {FullscreenMedia, Media, MetaInfo} from '../../components';
 import {LayoutItemProps} from '../../models';
 import {block} from '../../utils';
 
@@ -16,16 +16,15 @@ const LayoutItem = ({
     metaInfo,
     media,
     border,
-    fullScreen,
     fullscreen,
     className,
 }: LayoutItemProps) => (
     <div className={b(null, className)}>
-        {(fullScreen || fullscreen) && hasFullscreen(media) ? (
-            <FullScreenMedia showFullscreenIcon={showFullscreenIcon(media)}>
+        {fullscreen && hasFullscreen(media) ? (
+            <FullscreenMedia showFullscreenIcon={showFullscreenIcon(media)}>
                 {({
                     className: mediaClassName,
-                    fullScreen: _fullScreen,
+                    fullscreen: _fullscreen,
                     ...fullscreenMediaProps
                 } = {}) => (
                     <Media
@@ -34,7 +33,7 @@ const LayoutItem = ({
                         className={b('media', {border}, mediaClassName)}
                     />
                 )}
-            </FullScreenMedia>
+            </FullscreenMedia>
         ) : (
             <Media {...media} className={b('media', {border})} />
         )}

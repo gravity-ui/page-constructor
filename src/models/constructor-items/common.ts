@@ -24,11 +24,6 @@ export enum PriceLabelColor {
     RED = 'red',
 }
 
-export enum PreviewItemType {
-    Video = 'video',
-    Image = 'image',
-}
-
 export enum PlayButtonType {
     Default = 'default',
     Text = 'text',
@@ -62,7 +57,6 @@ export type LegendTableMarkerType = 'disk';
 export type LinkTheme = 'file-link' | 'normal' | 'back' | 'underline';
 export type MediaDirection = 'media-content' | 'content-media';
 export type PriceDescriptionColor = 'cornflower' | 'black';
-export type PreviewRatioMediaContent = '2-1' | '1-1';
 export type ContentSize = 's' | 'l';
 export type ContentTextSize = 's' | 'm' | 'l';
 export type ContentTheme = 'default' | 'dark' | 'light';
@@ -228,10 +222,6 @@ export interface MediaComponentVideoProps extends AnalyticsEventsBase {
 export interface MediaComponentYoutubeProps {
     youtube: string;
     previewImg?: string;
-    /**
-     * @deprecated use fullscreen
-     */
-    fullScreen?: boolean;
     fullscreen?: boolean;
 }
 
@@ -340,24 +330,12 @@ export interface HeaderBreadCrumbsProps extends ClassNameProps {
     pixelEvents?: ButtonPixel;
 }
 
-// preview
-export interface PreviewContentItemProps {
-    title: string;
-    description?: string;
-}
-
-export interface PreviewItemProps {
-    type: PreviewItemType;
-    media: ThemedMediaProps;
-    content: PreviewContentItemProps;
-}
-
-export interface TitleProps extends Justifyable, TitleBaseProps {
+export interface TitleItemProps extends Justifyable, TitleItemBaseProps {
     navTitle?: string;
     anchor?: string;
 }
 
-export interface TitleBaseProps {
+export interface TitleItemBaseProps {
     text: string;
     textSize?: TextSize;
     url?: string;
@@ -451,7 +429,7 @@ export interface AuthorProps {
     dataQa?: string;
 }
 
-export interface BlockHeaderProps {
-    title?: TitleProps | string;
-    description?: string;
+export interface TitleProps {
+    title?: TitleItemProps | string;
+    subtitle?: string;
 }

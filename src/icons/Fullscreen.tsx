@@ -2,7 +2,7 @@ import React from 'react';
 
 import {a11yHiddenSvgProps} from '../utils/svg';
 
-export const FullScreen: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+export const Fullscreen: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         width="24"

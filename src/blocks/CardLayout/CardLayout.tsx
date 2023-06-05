@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {AnimateBlock, BlockHeader} from '../../components';
+import {AnimateBlock, Title} from '../../components';
 import {Col, GridColumnSizesType, Row} from '../../grid';
 import {CardLayoutBlockProps as CardLayoutBlockParams, WithChildren} from '../../models';
 import {block} from '../../utils';
@@ -24,7 +24,7 @@ const CardLayout: React.FC<CardLayoutBlockProps> = ({
     children,
 }) => (
     <AnimateBlock className={b()} animate={animated}>
-        {(title || description) && <BlockHeader title={title} description={description} />}
+        {(title || description) && <Title title={title} subtitle={description} />}
         <Row>
             {React.Children.map(children, (child, index) => (
                 <Col key={index} sizes={colSizes} className={b('item')}>

@@ -13,7 +13,6 @@ import {
     DividerSize,
     ImageObjectProps,
     ImageProps,
-    LinkProps,
     MediaProps,
     PriceDetailedProps,
     TextTheme,
@@ -24,34 +23,25 @@ import {
 export enum SubBlockType {
     Divider = 'divider',
     Quote = 'quote',
-    NewsCard = 'news-card',
     /**
-     * @deprecated Will be moved to params use BasicCard instead
+     * @deprecated Will be removed
      */
-    Partner = 'partner',
     PriceDetailed = 'price-detailed',
     MediaCard = 'media-card',
     BannerCard = 'banner-card',
-    /**
-     * @deprecated Will be moved to params use BasicCard instead
-     */
-    TutorialCard = 'tutoral-card',
-    /**
-     * @deprecated Use LayoutItem
-     */
-    CardWithImage = 'card-with-image',
     LayoutItem = 'layout-item',
     BackgroundCard = 'background-card',
     BasicCard = 'basic-card',
     Content = 'content',
     HubspotForm = 'hubspot-form',
     /**
-     * @deprecated Will be moved to params use BasicCard instead
+     * @deprecated Will be removed, use BasicCard instead
      */
     Card = 'card',
 }
 
 export const SubBlockTypes = Object.values(SubBlockType);
+
 export interface DividerProps {
     size?: DividerSize;
     border?: boolean;
@@ -92,11 +82,6 @@ export interface HubspotFormProps extends HubspotEventHandlers, AnalyticsEventsB
 }
 
 //cards
-export interface PartnerProps extends CardBaseProps {
-    text: string;
-    logo: ImageProps;
-    url: string;
-}
 export interface QuoteProps extends Themable, CardBaseProps {
     text: string;
     image: ThemedImage;
@@ -106,24 +91,6 @@ export interface QuoteProps extends Themable, CardBaseProps {
     author?: AuthorItem;
     buttonText?: string;
     theme?: TextTheme;
-}
-
-export interface NewsCardData {
-    id: number;
-    slug: string;
-    title: string;
-    date: string;
-    url: string;
-    isoDate?: string;
-}
-export type NewsCardProps = Pick<NewsCardData, 'title' | 'url' | 'date' | 'isoDate'> &
-    CardBaseProps;
-
-export interface TutorialCardProps extends CardBaseProps {
-    url: string;
-    title: string;
-    text: string;
-    icon?: ImageProps;
 }
 
 export interface BackgroundCardProps
@@ -155,31 +122,11 @@ export interface BannerCardProps {
 
 export interface MediaCardProps extends MediaProps, CardBaseProps {}
 
-export interface CardWithImageLinkProps extends Omit<LinkProps, 'text' | 'url'> {
-    title: string;
-    link: string;
-}
-
-export interface CardWithImageProps
-    extends ClassNameProps,
-        Pick<ContentBlockProps, 'title' | 'additionalInfo' | 'buttons' | 'theme'> {
-    image: string;
-    description?: string;
-    disableCompress?: boolean;
-    border?: boolean;
-    fullScreen?: boolean;
-    links?: CardWithImageLinkProps[];
-}
-
 export interface LayoutItemProps extends ClassNameProps {
     content: Omit<ContentBlockProps, 'colSizes' | 'centered' | 'size'>;
     media: MediaProps;
     metaInfo?: string[];
     border?: boolean;
-    /**
-     * @deprecated use fullscreen
-     */
-    fullScreen?: boolean;
     fullscreen?: boolean;
 }
 
@@ -192,29 +139,13 @@ export type QuoteModel = {
     type: SubBlockType.Quote;
 } & QuoteProps;
 
-export type NewsCardModel = {
-    type: SubBlockType.NewsCard;
-} & NewsCardProps;
-
-export type CardWithImageModel = {
-    type: SubBlockType.CardWithImage;
-} & CardWithImageProps;
-
 export type LayoutItemModel = {
-    type: SubBlockType.CardWithImage;
+    type: SubBlockType.LayoutItem;
 } & LayoutItemProps;
-
-export type TutorialCardModel = {
-    type: SubBlockType.TutorialCard;
-} & TutorialCardProps;
 
 export type BackgroundCardModel = {
     type: SubBlockType.BackgroundCard;
 } & BackgroundCardProps;
-
-export type PartnerModel = {
-    type: SubBlockType.Partner;
-} & PartnerProps;
 
 export type PriceDetailedModel = {
     type: SubBlockType.PriceDetailed;
@@ -239,15 +170,12 @@ export type BasicCardModel = {
 export type SubBlockModels =
     | DividerModel
     | QuoteModel
-    | NewsCardModel
-    | PartnerModel
     | PriceDetailedModel
     | MediaCardModel
-    | TutorialCardModel
-    | CardWithImageModel
     | BackgroundCardModel
     | HubspotFormModel
     | BannerCardModel
-    | BasicCardModel;
+    | BasicCardModel
+    | LayoutItemModel;
 
 export type SubBlock = SubBlockModels;
