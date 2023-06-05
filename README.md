@@ -313,7 +313,7 @@ git commit -m 'chore: bump release
 Release-As: 1.2.3'
 ```
 
-You can see all inhttps://github.com/gravity-ui/page-constructor/pull/381formation [here](https://www.conventionalcommits.org/en/v1.0.0/).
+You can see all information [here](https://www.conventionalcommits.org/en/v1.0.0/).
 
 When you receive the approval of your pull-request from the code owners and pass all the checks, please do the following:
 
