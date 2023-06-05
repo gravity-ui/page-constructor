@@ -3,7 +3,7 @@ import React, {useContext, useState} from 'react';
 import {Icon, Modal} from '@gravity-ui/uikit';
 
 import {MobileContext} from '../../context/mobileContext';
-import {FullScreen, PreviewClose} from '../../icons';
+import {Fullscreen, PreviewClose} from '../../icons';
 import {block} from '../../utils';
 import {MediaAllProps} from '../Media/Media';
 
@@ -11,19 +11,10 @@ import './FullscreenMedia.scss';
 
 export type ChildMediaRenderProps = Pick<
     MediaAllProps,
-    | 'fullScreen'
-    | 'fullscreen'
-    | 'imageClassName'
-    | 'videoClassName'
-    | 'youtubeClassName'
-    | 'className'
+    'fullscreen' | 'imageClassName' | 'videoClassName' | 'youtubeClassName' | 'className'
 >;
 
-export interface FullScreenMediaProps {
-    /**
-     * @deprecated use showFullscreenIcon
-     */
-    showFullScreenIcon?: boolean;
+export interface FullscreenMediaProps {
     showFullscreenIcon?: boolean;
     children: (props?: ChildMediaRenderProps) => JSX.Element;
 }
@@ -34,15 +25,7 @@ const CLOSE_ICON_SIZE = 30;
 
 const getMediaClass = (type: string) => b('modal-media', {type});
 
-// TODO delete along with showFullScreenIcon props
-const getShowFullscreenIcon = ({showFullScreenIcon = true, showFullscreenIcon = true}) =>
-    showFullScreenIcon && showFullscreenIcon;
-
-const FullscreenMedia = ({
-    children,
-    showFullScreenIcon = true,
-    showFullscreenIcon = true,
-}: FullScreenMediaProps) => {
+const FullscreenMedia = ({children, showFullscreenIcon = true}: FullscreenMediaProps) => {
     const [isOpened, setIsOpened] = useState(false);
     const isMobile = useContext(MobileContext);
 
@@ -60,10 +43,10 @@ const FullscreenMedia = ({
         <div className={b()}>
             <div className={b('media-wrapper')} onClickCapture={openModal}>
                 {children({className: b('inline-media')})}
-                {getShowFullscreenIcon({showFullScreenIcon, showFullscreenIcon}) && (
+                {showFullscreenIcon && (
                     <div className={b('icon-wrapper')} onClickCapture={openModal}>
                         <Icon
-                            data={FullScreen}
+                            data={Fullscreen}
                             width={FULL_SCREEN_ICON_SIZE}
                             height={FULL_SCREEN_ICON_SIZE}
                             className={b('icon')}
@@ -86,7 +69,7 @@ const FullscreenMedia = ({
                             imageClassName: getMediaClass('image'),
                             videoClassName: getMediaClass('video'),
                             youtubeClassName: getMediaClass('youtube'),
-                            fullScreen: true,
+                            fullscreen: true,
                         })}
                     </div>
                 </Modal>

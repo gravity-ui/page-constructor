@@ -3,7 +3,6 @@
 import _ from 'lodash';
 
 import {
-    Block,
     BlockType,
     ContentBlockProps,
     ExtendedFeaturesItem,
@@ -13,41 +12,17 @@ import {
     PromoFeaturesItem,
     SubBlockType,
     TableProps,
-    TitleProps,
+    TitleItemProps,
 } from '../models';
-import {ConstructorBlock} from '../models/constructor';
-import {Lang} from '../utils/configure';
 
-import {fullTransform, typografToHTML} from './utils';
-
-export type ComplexItem = {[key: string]: string};
-export type Item = string | null | ComplexItem;
-export type TransformerRaw = (lang: Lang, content: string) => string;
-export type Transformer = (text: string) => string;
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type Parser<T = any> = (transformer: Transformer, block: T) => T;
-
-export const createItemsParser = (fields: string[]) => (transformer: Transformer, items: Item[]) =>
-    items.map((item) => {
-        if (!item) {
-            return item;
-        } else if (typeof item === 'string') {
-            return transformer(item);
-        } else {
-            return {
-                ...item,
-                ...fields.reduce<ComplexItem>((acc, fieldName) => {
-                    const result = {...acc};
-
-                    if (item[fieldName]) {
-                        result[fieldName] = transformer(item[fieldName]);
-                    }
-
-                    return result;
-                }, {}),
-            };
-        }
-    });
+import {
+    Parser,
+    Transformer,
+    TransformerRaw,
+    createItemsParser,
+    typografTransformer,
+    yfmTransformer,
+} from './common';
 
 function parseTableBlock(transformer: Transformer, content: TableProps) {
     const legend = content?.legend;
@@ -73,7 +48,7 @@ function parsePromoFeatures(transformer: Transformer, items: PromoFeaturesItem[]
     }));
 }
 
-const parseTitle = (transformer: Transformer, title: TitleProps | string) =>
+const parseTitle = (transformer: Transformer, title: TitleItemProps | string) =>
     typeof title === 'object' && 'text' in title
         ? {...title, text: transformer(title.text)}
         : title && transformer(title);
@@ -87,6 +62,7 @@ const parseItemsTitle = (transformer: Transformer, items: ExtendedFeaturesItem[]
 function parsePriceDetailedBlock(transformer: Transformer, block: PriceDetailedProps) {
     const {priceType} = block;
 
+    /* eslint-disable no-not-accumulator-reassign/no-not-accumulator-reassign */
     block.items = block.items.map((item) => {
         const {description, items: details = []} = item;
 
@@ -108,6 +84,7 @@ function parsePriceDetailedBlock(transformer: Transformer, block: PriceDetailedP
 
         return item;
     });
+    /* eslint-enable no-not-accumulator-reassign/no-not-accumulator-reassign */
 
     return block;
 }
@@ -116,6 +93,7 @@ const parseContentLayout = (transformer: Transformer, content: ContentBlockProps
     if (content) {
         const {text, additionalInfo} = content;
 
+        /* eslint-disable no-not-accumulator-reassign/no-not-accumulator-reassign */
         if (text) {
             content.text = transformer(text);
         }
@@ -123,6 +101,7 @@ const parseContentLayout = (transformer: Transformer, content: ContentBlockProps
         if (additionalInfo) {
             content.additionalInfo = transformer(additionalInfo);
         }
+        /* eslint-enable no-not-accumulator-reassign/no-not-accumulator-reassign */
     }
 
     return content;
@@ -132,23 +111,14 @@ function parseContentLayoutTitle(transformer: Transformer, content: ContentBlock
     if (content?.title) {
         const {title} = content;
 
+        // eslint-disable-next-line no-not-accumulator-reassign/no-not-accumulator-reassign
         content.title = title && parseTitle(transformer, title);
     }
 
     return content;
 }
 
-export function yfmTransformer(lang: Lang, content: string) {
-    const {html} = fullTransform(content, {lang});
-
-    return html;
-}
-
-export function typografTransformer(lang: Lang, content: string) {
-    return typografToHTML(content, lang);
-}
-
-const blockHeaderTransfomer = [
+export const blockHeaderTransformer = [
     {
         fields: ['title'],
         transformer: typografTransformer,
@@ -166,13 +136,9 @@ interface BlockConfig {
     parser?: Parser;
 }
 
-type BlocksConfig = Record<string, BlockConfig | BlockConfig[]>;
+export type BlocksConfig = Record<string, BlockConfig | BlockConfig[]>;
 
-const config: BlocksConfig = {
-    [SubBlockType.Partner]: {
-        fields: ['text'],
-        transformer: typografTransformer,
-    },
+export const config: BlocksConfig = {
     [SubBlockType.BasicCard]: [
         {
             fields: ['title'],
@@ -183,23 +149,9 @@ const config: BlocksConfig = {
             transformer: yfmTransformer,
         },
     ],
-    [SubBlockType.TutorialCard]: {
-        fields: ['text', 'title'],
-        transformer: typografTransformer,
-    },
     [SubBlockType.BackgroundCard]: [
         {
             fields: ['text', 'additionalInfo'],
-            transformer: yfmTransformer,
-        },
-        {
-            fields: ['title'],
-            transformer: typografTransformer,
-        },
-    ],
-    [SubBlockType.CardWithImage]: [
-        {
-            fields: ['description', 'additionalInfo'],
             transformer: yfmTransformer,
         },
         {
@@ -229,7 +181,7 @@ const config: BlocksConfig = {
         transformer: typografTransformer,
     },
     [BlockType.ExtendedFeaturesBlock]: [
-        ...blockHeaderTransfomer,
+        ...blockHeaderTransformer,
         {
             fields: ['items'],
             transformer: typografTransformer,
@@ -242,14 +194,14 @@ const config: BlocksConfig = {
         },
     ],
     [BlockType.PromoFeaturesBlock]: [
-        ...blockHeaderTransfomer,
+        ...blockHeaderTransformer,
         {
             fields: ['items'],
             transformer: yfmTransformer,
             parser: parsePromoFeatures,
         },
     ],
-    [BlockType.SliderBlock]: blockHeaderTransfomer,
+    [BlockType.SliderBlock]: blockHeaderTransformer,
     [BlockType.QuestionsBlock]: [
         {
             fields: ['title'],
@@ -287,21 +239,21 @@ const config: BlocksConfig = {
         },
     ],
     [BlockType.MediaBlock]: [
-        ...blockHeaderTransfomer,
+        ...blockHeaderTransformer,
         {
             fields: ['title', 'additionalInfo'],
             transformer: yfmTransformer,
         },
     ],
     [BlockType.MapBlock]: [
-        ...blockHeaderTransfomer,
+        ...blockHeaderTransformer,
         {
             fields: ['title', 'additionalInfo'],
             transformer: yfmTransformer,
         },
     ],
     [BlockType.TabsBlock]: [
-        ...blockHeaderTransfomer,
+        ...blockHeaderTransformer,
         {
             fields: ['items'],
             transformer: yfmTransformer,
@@ -330,17 +282,6 @@ const config: BlocksConfig = {
             fields: ['items'],
             transformer: yfmTransformer,
             parser: createItemsParser(['description']),
-        },
-    ],
-    [BlockType.SimpleBlock]: [
-        {
-            fields: ['title'],
-            transformer: typografTransformer,
-            parser: parseTitle,
-        },
-        {
-            fields: ['description'],
-            transformer: yfmTransformer,
         },
     ],
     [SubBlockType.PriceDetailed]: [
@@ -378,17 +319,6 @@ const config: BlocksConfig = {
             parser: parseTitle,
         },
     ],
-    [BlockType.PreviewBlock]: [
-        {
-            fields: ['description'],
-            transformer: yfmTransformer,
-        },
-        {
-            fields: ['title'],
-            transformer: typografTransformer,
-            parser: parseTitle,
-        },
-    ],
     [BlockType.InfoBlock]: [
         {
             fields: ['rightContent', 'leftContent'],
@@ -407,7 +337,7 @@ const config: BlocksConfig = {
             transformer: typografTransformer,
         },
     ],
-    [BlockType.CardLayoutBlock]: blockHeaderTransfomer,
+    [BlockType.CardLayoutBlock]: blockHeaderTransformer,
     [BlockType.IconsBlock]: [
         {
             fields: ['title'],
@@ -415,58 +345,4 @@ const config: BlocksConfig = {
             parser: parseTitle,
         },
     ],
-    [BlockType.LinkTableBlock]: blockHeaderTransfomer,
 };
-
-function addRandomOrder(block: ConstructorBlock) {
-    if (block) {
-        if ('randomOrder' in block && block.randomOrder && 'children' in block && block.children) {
-            block.children = _.shuffle(block.children as ConstructorBlock[]);
-        }
-    }
-}
-
-function transformBlock(lang: Lang, blocksConfig: BlocksConfig, block: ConstructorBlock) {
-    const blockConfig = blocksConfig[block.type];
-
-    addRandomOrder(block as Block);
-
-    if (blockConfig) {
-        const configs = Array.isArray(blockConfig) ? blockConfig : [blockConfig];
-
-        configs.forEach((transformConfig) => {
-            const {fields, transformer: transformerRaw, parser} = transformConfig;
-            const transformer: Transformer = transformerRaw.bind(null, lang);
-
-            if (fields) {
-                (fields as (keyof typeof block)[]).forEach((field) => {
-                    if (block[field]) {
-                        if (parser) {
-                            block[field] = parser(transformer, block[field]);
-                        } else if (typeof block[field] === 'string') {
-                            block[field] = transformer(block[field]);
-                        }
-                    }
-                });
-            } else if (parser) {
-                parser(transformer, block);
-            }
-        });
-    }
-
-    if ('children' in block && block.children) {
-        transformBlocks(block.children as ConstructorBlock[], lang, blocksConfig);
-    }
-}
-
-export function transformBlocks(blocks: ConstructorBlock[], lang: Lang, customConfig = {}) {
-    const fullConfig = {...config, ...customConfig};
-
-    blocks.forEach(transformBlock.bind(null, lang, fullConfig));
-}
-
-export function transformFootnotes(footnotes: string[], lang: Lang) {
-    return footnotes
-        .map((footnote) => fullTransform(footnote, {path: __dirname, lang, allowHTML: true}).html)
-        .filter(Boolean);
-}

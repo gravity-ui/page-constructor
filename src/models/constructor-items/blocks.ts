@@ -7,7 +7,6 @@ import {
     AnchorProps,
     Animatable,
     BackgroundImageProps,
-    BlockHeaderProps,
     ButtonProps,
     ContentSize,
     ContentTextSize,
@@ -21,19 +20,16 @@ import {
     Justify,
     LegendTableMarkerType,
     LinkProps,
-    LinkTheme,
     MapProps,
     MediaDirection,
     MediaProps,
-    PreviewItemProps,
-    PreviewRatioMediaContent,
     TextSize,
     TextTheme,
     ThemedImage,
     ThemedMediaProps,
     ThemedMediaVideoProps,
-    TitleBaseProps,
-    TitleProps,
+    TitleItemBaseProps,
+    TitleItemProps,
 } from './common';
 import {BannerCardProps, SubBlock, SubBlockModels} from './sub-blocks';
 
@@ -45,14 +41,10 @@ export enum BlockType {
     BannerBlock = 'banner-block',
     CompaniesBlock = 'companies-block',
     MediaBlock = 'media-block',
-    PreviewBlock = 'preview-block',
     InfoBlock = 'info-block',
-    SecurityBlock = 'security-block',
     TableBlock = 'table-block',
     TabsBlock = 'tabs-block',
-    SimpleBlock = 'simple-block',
     HeaderSliderBlock = 'header-slider-block',
-    LinkTableBlock = 'link-table-block',
     HeaderBlock = 'header-block',
     IconsBlock = 'icons-block',
     CardLayoutBlock = 'card-layout-block',
@@ -113,7 +105,7 @@ export interface SliderProps extends Childable, Animatable, LoadableChildren {
         text: string;
         size?: TextSize;
     };
-    title?: TitleBaseProps;
+    title?: TitleItemBaseProps;
     description?: string;
     autoplay?: number;
     //for server transforms
@@ -161,11 +153,6 @@ export interface HeaderBlockProps {
     status?: JSX.Element;
 }
 
-export interface SimpleBlockProps extends Animatable, Childable {
-    title: TitleBaseProps;
-    description: string;
-}
-
 export interface ExtendedFeaturesItem
     extends Omit<ContentBlockProps, 'theme' | 'centered' | 'colSizes' | 'size' | 'title'> {
     title: string;
@@ -177,7 +164,7 @@ export interface ExtendedFeaturesItem
 
 export interface ExtendedFeaturesProps extends Animatable {
     items: ExtendedFeaturesItem[];
-    title?: TitleProps | string;
+    title?: TitleItemProps | string;
     description?: string;
     colSizes?: GridColumnSizesType;
 }
@@ -191,7 +178,7 @@ export interface PromoFeaturesItem {
 
 export interface PromoFeaturesProps extends Animatable {
     items: PromoFeaturesItem[];
-    title?: TitleProps | string;
+    title?: TitleItemProps | string;
     description?: string;
     theme?: 'grey' | 'default';
 }
@@ -241,16 +228,6 @@ export interface MapBlockProps extends MediaBaseBlockProps {
     map: MapProps;
 }
 
-export interface PreviewBlockProps extends Animatable {
-    title: string;
-    items: PreviewItemProps[];
-    description?: string;
-    direction?: MediaDirection;
-    ratioMediaContent?: PreviewRatioMediaContent;
-    stopVideo?: boolean;
-    showImmediately?: boolean;
-}
-
 export interface InfoBlockProps {
     theme?: TextTheme;
     backgroundColor?: ThemeSupporting<string>;
@@ -264,23 +241,6 @@ export interface InfoBlockProps {
     links?: Pick<LinkProps, 'text' | 'url'>[];
     leftContent?: Omit<ContentBlockProps, 'colSizes' | 'theme' | 'size'>;
     rightContent?: Omit<ContentBlockProps, 'colSizes' | 'theme' | 'size'>;
-}
-
-export interface SecurityBlockPoint {
-    img: string;
-    text: string;
-    link: {
-        text: string;
-        url: string;
-    };
-}
-
-export interface SecurityBlockProps extends Animatable {
-    theme?: TextTheme;
-    backgroundColor?: string;
-    title: string;
-    points?: SecurityBlockPoint[];
-    media: MediaProps;
 }
 
 export interface TableProps {
@@ -307,20 +267,17 @@ export interface TabsBlockItem
     media?: ThemedMediaProps;
 }
 
-export interface TabsBlockProps extends BlockHeaderProps, Animatable {
+export interface TabsBlockProps extends Animatable {
+    title?: TitleItemProps | string;
+    description?: string;
     tabsColSizes?: GridColumnSizesType;
     centered?: boolean;
     direction?: MediaDirection;
     items: TabsBlockItem[];
 }
 
-export interface LinkTableBlockProps extends BlockHeaderProps {
-    items: LinkProps[][];
-    linkTheme?: LinkTheme;
-}
-
 export interface CardLayoutBlockProps extends Childable, Animatable, LoadableChildren {
-    title?: TitleProps | string;
+    title?: TitleItemProps | string;
     description?: string;
     colSizes?: GridColumnSizesType;
 }
@@ -336,7 +293,7 @@ export type FilterItem = {
 };
 
 export interface FilterBlockProps extends Animatable, LoadableChildren {
-    title?: TitleProps | string;
+    title?: TitleItemProps | string;
     description?: string;
     tags: FilterTag[];
     items: FilterItem[];
@@ -369,7 +326,7 @@ export interface ContentLayoutBlockProps {
 }
 
 export interface ContentBlockProps {
-    title?: TitleBaseProps | string;
+    title?: TitleItemBaseProps | string;
     text?: string;
     additionalInfo?: string;
     links?: LinkProps[];
@@ -430,17 +387,9 @@ export type MapBlockModel = {
     type: BlockType.MapBlock;
 } & MapBlockProps;
 
-export type PreviewBlockModel = {
-    type: BlockType.PreviewBlock;
-} & PreviewBlockProps;
-
 export type InfoBlockModel = {
     type: BlockType.InfoBlock;
 } & InfoBlockProps;
-
-export type SecurityBlockModel = {
-    type: BlockType.SecurityBlock;
-} & SecurityBlockProps;
 
 export type TableBlockModel = {
     type: BlockType.TableBlock;
@@ -449,14 +398,6 @@ export type TableBlockModel = {
 export type TabsBlockModel = {
     type: BlockType.TabsBlock;
 } & TabsBlockProps;
-
-export type SimpleBlockModel = {
-    type: BlockType.SimpleBlock;
-} & SimpleBlockProps;
-
-export type LinkTableBlockModel = {
-    type: BlockType.LinkTableBlock;
-} & LinkTableBlockProps;
 
 export type CardLayoutBlockModel = {
     type: BlockType.CardLayoutBlock;
@@ -492,13 +433,9 @@ type BlockModels =
     | MediaBlockModel
     | MapBlockModel
     | InfoBlockModel
-    | SecurityBlockModel
     | TableBlockModel
     | TabsBlockModel
-    | SimpleBlockModel
-    | LinkTableBlockModel
     | HeaderBlockModel
-    | PreviewBlockModel
     | IconsBlockModel
     | HeaderSliderBlockModel
     | CardLayoutBlockModel

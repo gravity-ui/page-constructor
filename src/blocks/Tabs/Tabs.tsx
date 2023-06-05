@@ -1,11 +1,11 @@
 import React, {Fragment, useContext, useRef, useState} from 'react';
 
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
-import BlockHeader from '../../components/BlockHeader/BlockHeader';
 import ButtonTabs, {ButtonTabsItemProps} from '../../components/ButtonTabs/ButtonTabs';
 import FullscreenImage from '../../components/FullscreenImage/FullscreenImage';
 import {getMediaImage} from '../../components/Media/Image/utils';
 import Media from '../../components/Media/Media';
+import Title from '../../components/Title/Title';
 import {getHeight} from '../../components/VideoBlock/VideoBlock';
 import {ThemeValueContext} from '../../context/theme/ThemeValueContext';
 import {Col, GridColumnOrderClasses, Row} from '../../grid';
@@ -112,9 +112,9 @@ export const TabsBlock = ({
 
     return (
         <AnimateBlock className={b()} onScroll={() => setPlay(true)} animate={animated}>
-            <BlockHeader
+            <Title
                 title={title}
-                description={description}
+                subtitle={description}
                 className={b('block-title', {centered: centered})}
             />
             <Row>
