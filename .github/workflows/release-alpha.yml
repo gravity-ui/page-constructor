@@ -10,14 +10,16 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - uses: nelonoel/branch-name@v1
-      # Use branch name for whatever purpose
-      - run: echo ${BRANCH_NAME}
+      - name: Extract branch name
+        if: github.event_name != 'pull_request'
+        shell: bash
+        run: |
+          echo "branch_name=${GITHUB_REF#refs/heads/}"
+        id: extract_branch
       - uses: gravity-ui/release-action@v1
         with:
           github-token: ${{ secrets.GRAVITY_UI_BOT_GITHUB_TOKEN }}
           npm-token: ${{ secrets.GRAVITY_UI_BOT_NPM_TOKEN }}
           node-version: 14
           npm-dist-tag: alpha
-          default-branch: ${BRANCH_NAME}
+          default-branch: ${{ env.branch_name }}

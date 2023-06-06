@@ -1,0 +1,22 @@
+name: Manual trigger
+
+on:
+  workflow_dispatch:
+#    inputs:
+#      releaseVersion:
+#        description: Add a version of release
+#        type: string
+#        required: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Npm version
+        run: npm version -i prerelease --preid=alpha
+        id: extract_branch
+      - name: Npm publish
+        run: npm publish --tag alpha --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GRAVITY_UI_BOT_NPM_TOKEN }}
+        shell: bash
