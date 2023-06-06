@@ -63,6 +63,7 @@ export interface Childable {
 
 //block props
 export interface BlockBaseProps {
+    index?: number;
     anchor?: AnchorProps;
     visible?: GridColumnSize;
     resetPaddings?: boolean;

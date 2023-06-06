@@ -1,15 +1,17 @@
 import React from 'react';
 
 import BlockBase from '../../../../components/BlockBase/BlockBase';
-import {Block, WithChildren} from '../../../../models';
+import {Block, BlockBaseProps, WithChildren} from '../../../../models';
 import {block} from '../../../../utils';
 
-const b = block('constructor-block');
-interface ConstructorBlockProps {
+interface ConstructorBlockProps extends Pick<BlockBaseProps, 'index'> {
     data: Block;
 }
 
+const b = block('constructor-block');
+
 export const ConstructorBlock: React.FC<WithChildren<ConstructorBlockProps>> = ({
+    index = 0,
     data,
     children,
 }) => {
@@ -17,6 +19,7 @@ export const ConstructorBlock: React.FC<WithChildren<ConstructorBlockProps>> = (
 
     return (
         <BlockBase
+            index={index}
             className={b({type})}
             anchor={anchor}
             visible={visible}
