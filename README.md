@@ -386,3 +386,7 @@ export const MyAppEditor = ({initialContent, onChange, transformContent}: MyAppE
   <Editor content={initialContent} onChange={onChange} transformContent={transformContent} />
 );
 ```
+
+## Tests
+
+Comprehensive documentation is available at the provided [link](./test-utils/docs/README.md).
