@@ -40,7 +40,6 @@ export function generateDefaultSchema(config?: SchemaCustomConfig) {
         (item) => !constructorCardSchemaNames.includes(item),
     );
 
-    console.log('configBlockSchemaNames', blocks);
     return {
         $id: 'self',
         definitions: {

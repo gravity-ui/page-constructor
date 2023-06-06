@@ -1,6 +1,12 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React from 'react';
 
-import {FieldObjectValue, ObjectIndependentInputProps, SpecTypes} from '@gravity-ui/dynamic-forms';
+import {
+    FieldObjectValue,
+    ObjectIndependentInputProps,
+    Spec,
+    SpecTypes,
+} from '@gravity-ui/dynamic-forms';
 import {RadioButton, Select} from '@gravity-ui/uikit';
 import _ from 'lodash';
 
@@ -28,7 +34,7 @@ export const useOneOf = ({props, onTogglerChange}: UseOneOfParams) => {
     const {name, input, spec, Layout} = props;
 
     const specProperties = React.useMemo(
-        () => (_.isObjectLike(spec.properties) ? spec.properties! : {}),
+        () => (_.isObjectLike(spec.properties) ? (spec.properties as Record<string, Spec>) : {}),
         [spec.properties],
     );
 

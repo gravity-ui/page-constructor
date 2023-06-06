@@ -7,7 +7,7 @@ import {Form as FinalForm, FormSpy} from 'react-final-form';
 import {dynamicConfig} from '../../../editor/form/config';
 import {Block, PageContent} from '../../../models';
 import {block, getBlockKey} from '../../../utils';
-import {blockSpecs} from '../../utils/form';
+import {CustomSpec, FormSpecs} from '../../form/parser/types';
 
 import './Form.scss';
 
@@ -18,28 +18,30 @@ export interface FormProps {
     activeBlockIndex: number;
     onChange: (content: PageContent) => void;
     onSelect: (index: number) => void;
+    spec: FormSpecs;
 }
 
 interface BlockFormProps {
     data: Block;
+    spec: CustomSpec;
     onChange: (data: Block) => void;
     onSelect: () => void;
     active?: boolean;
 }
 
 export const BlockForm = memo(
-    ({data: {type, ...content}, onChange, onSelect, active}: BlockFormProps) => {
+    ({data: {type, ...content}, onChange, onSelect, active, spec: specRaw}: BlockFormProps) => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
         const initialValues = useMemo(() => ({content}), []);
         const spec = useMemo(
             () => ({
-                ...blockSpecs[type],
+                ...specRaw,
                 viewSpec: {
-                    ...blockSpecs[type].viewSpec,
+                    ...specRaw.viewSpec,
                     layoutOpen: active,
                 },
             }),
-            [type, active],
+            [specRaw, active],
         );
 
         return (
@@ -75,13 +77,14 @@ export const BlockForm = memo(
 
 BlockForm.displayName = 'BlockForm';
 
-export const Form = memo(({content, onChange, activeBlockIndex, onSelect}: FormProps) => {
+export const Form = memo(({content, onChange, activeBlockIndex, onSelect, spec}: FormProps) => {
     const blocks = content?.blocks || [];
 
     return (
         <div>
             {blocks.map((blockData, index) => (
                 <BlockForm
+                    spec={spec[blockData.type]}
                     key={getBlockKey(blockData, index)}
                     data={blockData}
                     active={activeBlockIndex === index}

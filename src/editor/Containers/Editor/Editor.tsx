@@ -5,6 +5,7 @@ import {block} from '../../../utils';
 import AddBlock from '../../components/AddBlock/AddBlock';
 import EditBlock from '../../components/EditBlock/EditBlock';
 import {ErrorBoundary} from '../../components/ErrorBoundary/ErrorBoundary';
+import useFormSpec from '../../hooks/useFormSpec';
 import {useEditorState} from '../../store';
 import {EditorProps} from '../../types';
 import {addCustomDecorator} from '../../utils';
@@ -14,7 +15,7 @@ import './Editor.scss';
 
 const b = block('editor');
 
-export const Editor = ({children, ...rest}: EditorProps) => {
+export const Editor = ({children, customSchema, ...rest}: EditorProps) => {
     const {
         content,
         activeBlockIndex,
@@ -40,6 +41,7 @@ export const Editor = ({children, ...rest}: EditorProps) => {
         };
     }, [injectEditBlockProps, content, errorBoundaryState, rest.custom]);
 
+    const formSpecs = useFormSpec(customSchema);
     return (
         <div className={b()}>
             <div className={b('form')}>
@@ -48,6 +50,7 @@ export const Editor = ({children, ...rest}: EditorProps) => {
                     onChange={onContentUpdate}
                     activeBlockIndex={activeBlockIndex}
                     onSelect={onSelect}
+                    spec={formSpecs}
                 />
             </div>
             <div className={b('preview')}>

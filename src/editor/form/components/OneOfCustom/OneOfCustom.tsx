@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, {useMemo} from 'react';
 
 import {
@@ -13,9 +14,9 @@ import {
 import Ajv from 'ajv';
 import _ from 'lodash';
 
-import {SpecCustomProps} from '../../../../editor/utils/form';
 import {block} from '../../../../utils';
 import {useOneOf} from '../../hooks/useOneOf';
+import {SpecCustomProps} from '../../parser/types';
 
 import './OneOfCustom.scss';
 
@@ -45,6 +46,7 @@ export const OneOfCustom: React.FC<ObjectIndependentInputProps> = (props) => {
                     );
                 })) ||
             getOneOfCsutomSpecDefaultType(props.spec),
+        // eslint-disable-next-line react-hooks/exhaustive-deps
         [],
     );
 
@@ -66,7 +68,7 @@ export const OneOfCustom: React.FC<ObjectIndependentInputProps> = (props) => {
         ) => {
             props.input.onChange(childValue as FieldObjectValue, childErrors);
         },
-        [props.input.onChange, props.input.name],
+        [props.input.onChange],
     );
 
     const parentOnUnmount = React.useCallback(
