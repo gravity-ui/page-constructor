@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.22.3](https://github.com/gravity-ui/page-constructor/compare/v2.22.2...v2.22.3) (2023-06-07)
+
+
+### Bug Fixes
+
+* constructor items inner data structure ([#386](https://github.com/gravity-ui/page-constructor/issues/386)) ([#388](https://github.com/gravity-ui/page-constructor/issues/388)) ([d7f98f5](https://github.com/gravity-ui/page-constructor/commit/d7f98f5f75fdc39060a3df3fa04b7fdc3dbd4f0c))
+
 ## [2.22.2](https://github.com/gravity-ui/page-constructor/compare/v2.22.1...v2.22.2) (2023-06-01)
 
 
