@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.1.2](https://github.com/gravity-ui/page-constructor/compare/v3.1.1...v3.1.2) (2023-06-07)
+
+
+### Bug Fixes
+
+* icon size in navigation popup ([#382](https://github.com/gravity-ui/page-constructor/issues/382)) ([cb7c7b1](https://github.com/gravity-ui/page-constructor/commit/cb7c7b1031777c92f6d303c5a5f2c3de2ad1c2d8))
+
 ## [3.1.1](https://github.com/gravity-ui/page-constructor/compare/v3.1.0...v3.1.1) (2023-06-07)
 
 
