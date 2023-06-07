@@ -1,15 +1,17 @@
 import React, {MouseEvent, useCallback, useMemo, useState} from 'react';
 
-import _ from 'lodash';
-
 import Control from '../../../components/Control/Control';
 import OutsideClick from '../../../components/OutsideClick/OutsideClick';
 import {Col, Grid, Row} from '../../../grid';
 import {NavigationClose, NavigationOpen} from '../../../icons';
 import {
     HeaderData,
+    NavigationButtonItem,
+    NavigationDropdownItem,
     NavigationItemBase,
     NavigationItemModel,
+    NavigationItemType,
+    NavigationLinkItem,
     ThemedNavigationLogoData,
 } from '../../../models';
 import {block} from '../../../utils';
@@ -59,6 +61,12 @@ const MobileMenuButton: React.FC<MobileMenuButtonProps> = ({
 
 const iconSizeKey: keyof NavigationItemBase = 'iconSize';
 
+const isButtonItem = (item: NavigationItemModel): item is NavigationButtonItem =>
+    item.type === NavigationItemType.Button;
+
+const isDropdownItem = (item: NavigationItemModel): item is NavigationDropdownItem =>
+    item.type === NavigationItemType.Dropdown;
+
 export const Header: React.FC<HeaderProps> = ({data, logo}) => {
     const {leftItems, rightItems, iconSize = 20} = data;
     const [isSidebarOpened, setIsSidebarOpened] = useState(false);
@@ -66,10 +74,17 @@ export const Header: React.FC<HeaderProps> = ({data, logo}) => {
 
     const getNavigationItemWithIconSize = useCallback(
         (item: NavigationItemModel) => {
-            if (!(iconSizeKey in item)) {
-                return {...item, iconSize};
+            const newItem = {...item};
+            if ('items' in newItem && isDropdownItem(newItem)) {
+                newItem.items = newItem.items.map(
+                    getNavigationItemWithIconSize,
+                ) as NavigationLinkItem[];
             }
-            return item;
+
+            if (!(iconSizeKey in newItem) && !isButtonItem(newItem)) {
+                newItem.iconSize = iconSize;
+            }
+            return newItem;
         },
         [iconSize],
     );
