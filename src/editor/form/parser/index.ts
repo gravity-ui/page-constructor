@@ -9,7 +9,6 @@ import {BlockType} from '../../../models';
 
 import {ParserType, detectParserType} from './detect';
 import {BlockSpec, CustomSpec, FormSpecs, SchemaParser, SchemaParserParams, Spec} from './types';
-import {getFiedValidator} from './utils';
 import {getArrayViewSpec, getObjectViewSpec, getOneOfViewSpec, getPrimitiveViewSpec} from './views';
 
 class FormSpecParser {
@@ -174,7 +173,7 @@ class FormSpecParser {
             ...data,
             required,
             viewSpec: getPrimitiveViewSpec(name, data),
-            validator: getFiedValidator(data.type),
+            validator: 'base',
         };
     };
 
