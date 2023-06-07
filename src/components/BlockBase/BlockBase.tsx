@@ -11,7 +11,7 @@ import './BlockBase.scss';
 const b = block('block-base');
 
 const BlockBase = (props: PropsWithChildren<BlockBaseProps & ClassNameProps>) => {
-    const {anchor, visible, children, className, resetPaddings, qa} = props;
+    const {anchor, visible, children, className, resetPaddings, qa, index = 0} = props;
 
     return (
         <Col
@@ -20,7 +20,7 @@ const BlockBase = (props: PropsWithChildren<BlockBaseProps & ClassNameProps>) =>
             reset={true}
             dataQa={qa}
         >
-            <BlockDecoration>
+            <BlockDecoration id={index}>
                 {anchor && <Anchor id={anchor.url} className={b('anchor')} />}
                 {children}
             </BlockDecoration>

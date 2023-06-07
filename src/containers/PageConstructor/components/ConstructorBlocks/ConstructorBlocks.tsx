@@ -2,7 +2,6 @@ import React, {Fragment, ReactElement, useContext} from 'react';
 
 import _ from 'lodash';
 
-import {BlockIdContext} from '../../../../context/blockIdContext';
 import {InnerContext} from '../../../../context/innerContext';
 import {Block, ConstructorItem as ConstructorItemType} from '../../../../models';
 import {getBlockKey} from '../../../../utils';
@@ -58,20 +57,20 @@ export const ConstructorBlocks: React.FC<ConstructorBlocksProps> = ({items}) => 
             }
 
             itemElement = (
-                <ConstructorItem data={item} blockKey={blockId}>
+                <ConstructorItem data={item} key={blockId} blockKey={blockId}>
                     {children}
                 </ConstructorItem>
             );
         }
 
-        return (
-            <BlockIdContext.Provider value={blockId} key={blockId}>
-                {blockTypes.includes(item.type) ? (
-                    <ConstructorBlock data={item as Block}>{itemElement}</ConstructorBlock>
-                ) : (
-                    itemElement
-                )}
-            </BlockIdContext.Provider>
+        return blockTypes.includes(item.type) ? (
+            //TODO: replace ConstructorBlock (and delete it) with BlockBase when all
+            // components relying on constructor inner structure like Slider or blog-constructor will be refactored
+            <ConstructorBlock data={item as Block} key={blockId} index={index}>
+                {itemElement}
+            </ConstructorBlock>
+        ) : (
+            itemElement
         );
     };
 

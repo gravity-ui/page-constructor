@@ -1,7 +1,7 @@
 import {PropsWithChildren} from 'react';
 
 export interface BlockDecorationProps extends PropsWithChildren {
-    id?: string;
+    id: string | number;
 }
 
 export interface BlockDecoratorProps extends PropsWithChildren {
