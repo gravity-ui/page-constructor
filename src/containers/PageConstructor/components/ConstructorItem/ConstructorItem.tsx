@@ -1,5 +1,6 @@
 import React, {useContext} from 'react';
 
+import {BlockIdContext} from '../../../../context/blockIdContext';
 import {InnerContext} from '../../../../context/innerContext';
 import {BlockDecoration} from '../../../../customization/BlockDecoration';
 import {ConstructorItem as ConstructorItemType, WithChildren} from '../../../../models';
@@ -9,7 +10,7 @@ export interface ConstructorItemProps {
     blockKey: string;
 }
 
-export const ConstructorItem = ({data, children}: WithChildren<ConstructorItemProps>) => {
+export const ConstructorItem = ({data, blockKey, children}: WithChildren<ConstructorItemProps>) => {
     const {itemMap} = useContext(InnerContext);
     const {type, ...rest} = data;
 
@@ -17,7 +18,11 @@ export const ConstructorItem = ({data, children}: WithChildren<ConstructorItemPr
         React.ComponentProps<typeof itemMap[typeof type]>
     >;
 
-    return <Component {...rest}>{children}</Component>;
+    return (
+        <BlockIdContext.Provider value={blockKey}>
+            <Component {...rest}>{children}</Component>
+        </BlockIdContext.Provider>
+    );
 };
 
 export const ConstructorHeader = ({
