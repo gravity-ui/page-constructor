@@ -23,7 +23,7 @@ $block: '.#{$ns}editor';
 
     &__form {
         flex: 0 0 auto;
-        padding: 0 $indentS;
+        padding: $indentS;
         width: $formWidth;
         border-right: $dividerWidth solid var(--yc-color-line-generic);
     }
