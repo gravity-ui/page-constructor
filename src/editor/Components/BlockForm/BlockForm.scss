@@ -1,7 +1,7 @@
 @import '../../../../styles/variables.scss';
 @import '../../../../styles/mixins.scss';
 
-$block: '.#{$ns}editor-form';
+$block: '.#{$ns}editor-block-form';
 
 #{$block} {
     --top-level-font-size: var(--yc-text-display-2-font-size);
