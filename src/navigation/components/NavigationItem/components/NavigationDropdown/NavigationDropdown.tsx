@@ -1,10 +1,11 @@
-import React from 'react';
+import React, {Fragment, useRef} from 'react';
 
 import {ToggleArrow} from '../../../../../components';
 import {getMediaImage} from '../../../../../components/Media/Image/utils';
-import {DropdownItemData} from '../../../../../models';
+import {NavigationDropdownItem} from '../../../../../models';
 import {block} from '../../../../../utils';
-import {NavigationItemProps} from '../../NavigationItem';
+import {NavigationItemProps} from '../../../../models';
+import NavigationPopup from '../../../NavigationPopup/NavigationPopup';
 import {ContentWrapper} from '../ContentWrapper/ContentWrapper';
 
 import './NavigationDropdown.scss';
@@ -13,24 +14,39 @@ const b = block('navigation-dropdown');
 
 const TOGGLE_ARROW_SIZE = 12;
 
-type NavigationDropdownProps = NavigationItemProps & DropdownItemData;
+type NavigationDropdownProps = NavigationItemProps & NavigationDropdownItem;
 
-export const NavigationDropdown = React.forwardRef<HTMLElement, NavigationDropdownProps>(
-    ({text, icon, isOpened, className, iconSize, onClick}, ref) => {
-        const iconData = icon && getMediaImage(icon);
+export const NavigationDropdown = ({
+    text,
+    icon,
+    className,
+    iconSize,
+    hidePopup,
+    items,
+    isActive,
+    ...props
+}: NavigationDropdownProps) => {
+    const iconData = icon && getMediaImage(icon);
+    const anchorRef = useRef<HTMLElement>(null);
 
-        return (
-            <span ref={ref} onClick={onClick} className={b(null, className)}>
+    return (
+        <Fragment>
+            <span ref={anchorRef} {...props} className={b(null, className)}>
                 <ContentWrapper text={text} icon={iconData} iconSize={iconSize} />
                 <ToggleArrow
                     className={b('arrow')}
                     size={TOGGLE_ARROW_SIZE}
                     type={'vertical'}
                     iconType="navigation"
-                    open={isOpened}
+                    open={isActive}
                 />
             </span>
-        );
-    },
-);
-NavigationDropdown.displayName = 'NavigationDropdown';
+            <NavigationPopup
+                open={isActive}
+                onClose={hidePopup}
+                items={items}
+                anchorRef={anchorRef}
+            />
+        </Fragment>
+    );
+};

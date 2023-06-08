@@ -15,6 +15,15 @@ $block: '.#{$ns}mobile-navigation';
     border-bottom-left-radius: $borderRadius;
     background-color: var(--yc-color-base-background);
     box-shadow: 0 3px 10px var(--yc-color-sfx-shadow);
+    max-height: calc(100vh - 2 * var(--header-height));
+    overflow-y: scroll;
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
 
     @include text-size(body-2);
     @include mobile-tablet-only();
@@ -27,10 +36,6 @@ $block: '.#{$ns}mobile-navigation';
         margin-top: $indentSM;
     }
 
-    &__nav {
-        margin-bottom: $indentSM;
-    }
-
     &__rows {
         position: relative;
 
@@ -39,12 +44,11 @@ $block: '.#{$ns}mobile-navigation';
 
         padding-bottom: $indentSM;
         @include reset-list-style();
+        margin-bottom: $indentSM;
     }
 
-    &__rows-item {
-        &:not(:last-child) {
-            margin-bottom: $indentSM;
-        }
+    &__rows:last-child {
+        margin-bottom: 0;
     }
 
     &__dropdown-item {

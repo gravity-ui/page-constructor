@@ -1,27 +1,9 @@
 @import '../../../../styles/variables';
 @import '../../../../styles/mixins';
 
-$block: '.#{$ns}header';
+$block: '.#{$ns}desktop-navigation';
 
 #{$block} {
-    $root: &;
-
-    position: sticky;
-    z-index: 98;
-    top: 0;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    height: var(--header-height);
-
-    background-color: var(--yc-color-base-background);
-
-    &_with-border {
-        box-shadow: inset 0 -1px 0 var(--yc-color-line-generic);
-    }
-
     &__wrapper {
         display: flex;
         justify-content: space-between;
@@ -76,27 +58,6 @@ $block: '.#{$ns}header';
         margin-right: $indentM;
     }
 
-    &__buttons {
-        display: flex;
-        align-items: center;
-        @include desktop-only();
-        @include reset-list-style();
-
-        & > * {
-            &:not(:last-child) {
-                margin-right: $indentXS;
-            }
-        }
-    }
-
-    &__buttons-item {
-        position: relative;
-
-        &:not(:last-child) {
-            margin-right: $indentS;
-        }
-    }
-
     &__button {
         margin-top: 0;
     }
@@ -105,6 +66,38 @@ $block: '.#{$ns}header';
         margin: 0 $indentM 0 0;
 
         cursor: pointer;
+    }
+
+    &__buttons,
+    &__links {
+        display: flex;
+        align-items: center;
+
+        @include reset-list-style();
+    }
+
+    &__buttons {
+        @include desktop-only();
+
+        & > * {
+            &:not(:last-child) {
+                margin-right: $indentXS;
+            }
+        }
+    }
+
+    &__links {
+        position: relative;
+
+        @include text-size(body-2);
+    }
+
+    &__item {
+        position: relative;
+
+        &:not(:last-child) {
+            margin-right: $indentS;
+        }
     }
 
     @media (max-width: map-get($gridBreakpoints, 'md') - 1) {

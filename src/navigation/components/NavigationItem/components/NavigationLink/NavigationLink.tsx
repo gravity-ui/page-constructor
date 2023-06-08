@@ -6,7 +6,7 @@ import {LocationContext} from '../../../../../context/locationContext';
 import {NavigationArrow} from '../../../../../icons';
 import {NavigationLinkItem} from '../../../../../models';
 import {block, getLinkProps} from '../../../../../utils';
-import {NavigationItemProps} from '../../NavigationItem';
+import {NavigationItemProps} from '../../../../models';
 import {ContentWrapper} from '../ContentWrapper/ContentWrapper';
 
 import './NavigationLink.scss';

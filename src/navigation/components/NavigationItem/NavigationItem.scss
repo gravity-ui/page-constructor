@@ -1,12 +1,14 @@
 @import '../../../../styles/variables';
 @import '../../../../styles/mixins';
 
-$block: '.#{$ns}navigation-list-item';
+$block: '.#{$ns}navigation-item';
 
 #{$block} {
-    height: var(--header-height);
-    line-height: var(--header-height);
     cursor: pointer;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
 
     @include islands-focus();
     @include reset-link-style();
@@ -30,5 +32,21 @@ $block: '.#{$ns}navigation-list-item';
         height: 2px;
 
         background-color: var(--yc-color-text-link);
+    }
+
+    &_menu-layout {
+        &_desktop {
+            height: var(--header-height);
+            line-height: var(--header-height);
+            margin-bottom: 0;
+        }
+
+        &_mobile {
+            margin-bottom: $indentSM;
+        }
+
+        &_dropdown {
+            margin-bottom: 0;
+        }
     }
 }

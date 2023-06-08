@@ -1,157 +1,48 @@
-import React, {MouseEventHandler, useCallback, useRef} from 'react';
+import React from 'react';
 
-import {Popup, Portal} from '@gravity-ui/uikit';
+import {Portal} from '@gravity-ui/uikit';
 
 import Foldable from '../../../components/Foldable/Foldable';
-import {NavigationDropdownItem, NavigationItemModel, NavigationItemType} from '../../../models';
 import {block} from '../../../utils';
-import {ItemColumnName} from '../../constants';
-import NavigationItem from '../NavigationItem/NavigationItem';
+import {ItemColumnName, MobileNavigationProps, NavigationLayout} from '../../models';
+import {NavigationList} from '../NavigationList/NavigationList';
 
 import './MobileNavigation.scss';
 
 const b = block('mobile-navigation');
 
-interface MobileNavigationDropdownProps {
-    data: NavigationDropdownItem;
-    isOpened?: boolean;
-    onItemClick?: MouseEventHandler;
-    onToggle?: MouseEventHandler;
-}
-
-const MobileNavigationDropdown: React.FC<MobileNavigationDropdownProps> = ({
-    data,
-    onItemClick,
-    onToggle,
-    isOpened = false,
-}) => {
-    const ref = useRef(null);
-
-    return (
-        <div ref={ref} className={b('dropdown')}>
-            <NavigationItem data={data} onClick={onToggle} isOpened={isOpened} />
-            {isOpened && (
-                <Popup anchorRef={ref} open={isOpened} className={b('popup')}>
-                    {data.items.map((item) => (
-                        <NavigationItem
-                            key={item.text}
-                            data={item}
-                            className={b('dropdown-item')}
-                            onClick={onItemClick}
-                        />
-                    ))}
-                </Popup>
-            )}
-        </div>
-    );
-};
-
-interface MobileNavigationItemProps
-    extends Pick<MobileNavigationProps, 'onActiveItemChange' | 'onClose'> {
-    item: NavigationItemModel;
-    column: ItemColumnName;
-    index: number;
-    isOpened?: boolean;
-    activeItemId?: string;
-}
-
-const MobileNavigationItem = ({
-    item,
-    index,
+const MobileNavigation: React.FC<MobileNavigationProps> = ({
     isOpened,
-    activeItemId,
-    onActiveItemChange,
-    column,
-    onClose,
-}: MobileNavigationItemProps) => {
-    const id = `${column}-${index}`;
-    const isActive = id === activeItemId && isOpened;
-    const toggleActive: MouseEventHandler = useCallback(
-        (e) => {
-            e.stopPropagation();
-
-            if (onActiveItemChange) {
-                onActiveItemChange(isActive ? undefined : `${column}-${index}`);
-            }
-        },
-        [onActiveItemChange, isActive, column, index],
-    );
-
-    const onItemClick: MouseEventHandler = useCallback(
-        (e) => {
-            toggleActive(e);
-            onClose();
-        },
-        [toggleActive, onClose],
-    );
-
-    return (
-        <li key={index} className={b('rows-item')}>
-            {item.type === NavigationItemType.Dropdown ? (
-                <MobileNavigationDropdown
-                    data={item}
-                    onToggle={toggleActive}
-                    isOpened={isActive}
-                    onItemClick={onItemClick}
-                />
-            ) : (
-                <NavigationItem data={item} onClick={onItemClick} />
-            )}
-        </li>
-    );
-};
-
-export interface MobileNavigationProps {
-    className?: string;
-    isOpened?: boolean;
-    topItems?: NavigationItemModel[];
-    bottomItems?: NavigationItemModel[];
-    activeItemId?: string;
-    onClose: () => void;
-    onActiveItemChange: (id?: string) => void;
-}
-
-const MobileNavigation: React.FC<MobileNavigationProps> = (props) => {
+    topItems,
+    bottomItems,
+    ...props
+}) => {
     if (typeof window === 'undefined') {
         return null;
     }
-
-    const {isOpened, topItems, bottomItems, activeItemId, onActiveItemChange, onClose} = props;
 
     return (
         <Portal>
             <Foldable key={topItems?.length} className={b()} isOpened={Boolean(isOpened)}>
                 <div className={b('wrapper')}>
-                    <nav className={b('nav')}>
-                        <ul className={b('rows')}>
-                            {topItems?.map((link, index) => (
-                                <MobileNavigationItem
-                                    key={index}
-                                    item={link}
-                                    column={ItemColumnName.Top}
-                                    index={index}
-                                    isOpened={isOpened}
-                                    activeItemId={activeItemId}
-                                    onClose={onClose}
-                                    onActiveItemChange={onActiveItemChange}
-                                />
-                            ))}
-                        </ul>
-                    </nav>
-                    <ul className={b('rows')}>
-                        {bottomItems?.map((item, index) => (
-                            <MobileNavigationItem
-                                key={index}
-                                item={item}
-                                column={ItemColumnName.Bottom}
-                                index={index}
-                                isOpened={isOpened}
-                                activeItemId={activeItemId}
-                                onClose={onClose}
-                                onActiveItemChange={onActiveItemChange}
-                            />
-                        ))}
-                    </ul>
+                    {topItems && (
+                        <NavigationList
+                            className={b('rows')}
+                            items={topItems}
+                            column={ItemColumnName.Top}
+                            menuLayout={NavigationLayout.Mobile}
+                            {...props}
+                        />
+                    )}
+                    {bottomItems && (
+                        <NavigationList
+                            className={b('rows')}
+                            items={bottomItems}
+                            column={ItemColumnName.Bottom}
+                            menuLayout={NavigationLayout.Mobile}
+                            {...props}
+                        />
+                    )}
                 </div>
             </Foldable>
         </Portal>

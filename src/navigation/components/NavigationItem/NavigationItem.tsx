@@ -1,7 +1,11 @@
-import React, {MouseEventHandler, useMemo} from 'react';
+import React, {useMemo} from 'react';
+
+import {omit} from 'lodash';
 
 import {BlockIdContext} from '../../../context/blockIdContext';
-import {NavigationItemData, NavigationItemType} from '../../../models';
+import {NavigationItemType} from '../../../models';
+import {block} from '../../../utils';
+import {NavigationItemProps} from '../../models';
 import SocialIcon from '../SocialIcon/SocialIcon';
 
 import {GithubButton} from './components/GithubButton/GithubButton';
@@ -9,14 +13,11 @@ import {NavigationButton} from './components/NavigationButton/NavigationButton';
 import {NavigationDropdown} from './components/NavigationDropdown/NavigationDropdown';
 import {NavigationLink} from './components/NavigationLink/NavigationLink';
 
-const ANALYTICS_ID = 'navigation';
+import './NavigationItem.scss';
 
-export interface NavigationItemProps {
-    data: NavigationItemData;
-    className?: string;
-    onClick?: MouseEventHandler;
-    isOpened?: boolean;
-}
+const b = block('navigation-item');
+
+const ANALYTICS_ID = 'navigation';
 
 //todo: add types support form component in map
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -28,27 +29,42 @@ const NavigationItemsMap: Record<NavigationItemType, React.ComponentType<any>> =
     [NavigationItemType.GithubButton]: GithubButton,
 };
 
-const NavigationItem = React.forwardRef<HTMLElement, NavigationItemProps>(
-    ({data, className, ...props}, ref) => {
-        const {type = NavigationItemType.Link} = data;
-        const Component = NavigationItemsMap[type];
-        const componentProps = useMemo(
-            () => ({
-                className,
-                ...data,
-                ...props,
-                ref,
-            }),
-            [className, data, props, ref],
-        );
+const NavigationItem: React.FC<NavigationItemProps> = ({
+    data,
+    className,
+    isActive,
+    highlightActiveItem,
+    menuLayout,
+    ...props
+}: NavigationItemProps) => {
+    const {type = NavigationItemType.Link} = data;
+    const Component = NavigationItemsMap[type];
+    const componentProps = useMemo(() => {
+        const componentProperties = {
+            ...data,
+            ...props,
+            isActive,
+        };
 
-        return (
-            <BlockIdContext.Provider value={ANALYTICS_ID}>
-                <Component {...componentProps} />
-            </BlockIdContext.Provider>
-        );
-    },
-);
-NavigationItem.displayName = 'NavigationItem';
+        if (type !== NavigationItemType.Dropdown) {
+            return omit(componentProperties, 'hidePopup', 'isActive');
+        }
+
+        return componentProperties;
+    }, [data, isActive, props, type]);
+
+    return (
+        <BlockIdContext.Provider value={ANALYTICS_ID}>
+            <li className={b({'menu-layout': menuLayout}, className)}>
+                <Component {...componentProps} className={b('content')} />
+                {highlightActiveItem && isActive && (
+                    <div className={b('slider-container')}>
+                        <div className={b('slider')} />
+                    </div>
+                )}
+            </li>
+        </BlockIdContext.Provider>
+    );
+};
 
 export default NavigationItem;
