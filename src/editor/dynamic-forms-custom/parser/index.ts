@@ -1,7 +1,6 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-not-accumulator-reassign/no-not-accumulator-reassign */
 import {ArraySpec, ObjectSpec, SpecTypes} from '@gravity-ui/dynamic-forms';
-import _ from 'lodash';
 
 import {BlockType} from '../../../models';
 import {Schema, SchemaDefinitions} from '../../../schema';
@@ -29,7 +28,7 @@ class FormSpecParser {
         Array.isArray(data.required) ? data.required : [];
 
     private childrenParser: SchemaParser = ({data, name, required}) => {
-        const childSpec = _.cloneDeep(this.getChildrenSpec(data));
+        const childSpec = this.getChildrenSpec(data);
 
         const properties =
             childSpec &&
