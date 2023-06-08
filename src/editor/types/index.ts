@@ -1,5 +1,5 @@
 import {PageConstructorProps} from '../../containers/PageConstructor';
-import {BlockDecoratorProps, PageData} from '../../models';
+import {BlockDecorationProps, PageData} from '../../models';
 import {SchemaCustomConfig} from '../../schema';
 import {EditBlockActions} from '../components/EditBlock/EditBlock';
 
@@ -19,4 +19,6 @@ export interface EditBlockEditorProps {
     actions: EditBlockActions;
 }
 
-export type EditBlockProps = EditBlockEditorProps & BlockDecoratorProps;
+export interface EditBlockProps extends EditBlockEditorProps, BlockDecorationProps {
+    isHeader?: boolean;
+}

@@ -2,6 +2,7 @@ import React, {ErrorInfo, PropsWithChildren} from 'react';
 
 import {BlockDecorationProps} from '../../../models';
 import {block} from '../../../utils';
+import {getBlockId} from '../../utils';
 
 import i18n from './i18n';
 
@@ -22,9 +23,11 @@ export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoun
     }
 
     render() {
-        const {id} = this.props;
+        const {type, index} = this.props;
         const {error} = this.state;
-        const header = id ? i18n('error-block-header', {id}) : i18n('error-page-header');
+        const header = type
+            ? i18n('error-block-header', {id: getBlockId({type, index})})
+            : i18n('error-page-header');
 
         if (this.state.error) {
             return (

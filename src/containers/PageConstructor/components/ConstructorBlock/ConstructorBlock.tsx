@@ -19,6 +19,7 @@ export const ConstructorBlock: React.FC<WithChildren<ConstructorBlockProps>> = (
 
     return (
         <BlockBase
+            type={type}
             index={index}
             className={b({type})}
             anchor={anchor}

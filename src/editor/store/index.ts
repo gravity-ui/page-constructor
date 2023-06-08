@@ -1,6 +1,6 @@
 import {useMemo, useReducer} from 'react';
 
-import {Block, BlockDecoratorProps, HeaderBlockTypes, PageContent} from '../../models';
+import {Block, BlockDecorationProps, HeaderBlockTypes, PageContent} from '../../models';
 import {getCustomHeaderTypes, getHeaderBlock} from '../../utils';
 import {EditBlockActions, EditBlockControls} from '../components/EditBlock/EditBlock';
 import {EditBlockProps, EditorProps} from '../types';
@@ -19,20 +19,17 @@ import {addEditorProps} from './utils';
 export type EditorBlockId = number | string;
 
 export function useEditorState({content: intialContent, custom}: Omit<EditorProps, 'children'>) {
-    const headerBlockTypes = useMemo(
-        () => [...HeaderBlockTypes, ...getCustomHeaderTypes(custom)],
-        [custom],
-    );
-
     const [{activeBlockIndex, content, errorBoundaryState}, dispatch] = useReducer(reducer, {
         activeBlockIndex: 0,
         errorBoundaryState: 0,
         content: addEditorProps(intialContent),
     });
-    const contentHasHeader = Boolean(getHeaderBlock(content.blocks, headerBlockTypes));
-    const checkIsHeader = (type: string) => headerBlockTypes.includes(type);
 
     return useMemo(() => {
+        const headerBlockTypes = [...HeaderBlockTypes, ...getCustomHeaderTypes(custom)];
+        const contentHasHeader = Boolean(getHeaderBlock(content.blocks, headerBlockTypes));
+        const checkIsHeader = (type: string) => headerBlockTypes.includes(type);
+
         const onAdd = (block: Block) => {
             const isHeader = checkIsHeader(block.type);
 
@@ -51,12 +48,17 @@ export function useEditorState({content: intialContent, custom}: Omit<EditorProp
             dispatch({type: ADD_BLOCK, payload: {block, index}});
         };
         const onSelect = (index: number) => dispatch({type: SELECT_BLOCK, payload: index});
+        const onContentUpdate = (newContent: PageContent) =>
+            dispatch({type: UPDATE_CONTENT, payload: newContent});
 
-        const injectEditBlockProps = (props: BlockDecoratorProps) => {
-            const {id} = props;
+        const injectEditBlockProps = ({
+            type,
+            index: relativeIndex = 0,
+            children,
+        }: BlockDecorationProps) => {
             const orderedBlocksStartIndex = contentHasHeader ? 1 : 0;
-            const isHeader = checkIsHeader(id as string);
-            const index = isHeader ? 0 : (id as number) + orderedBlocksStartIndex;
+            const isHeader = checkIsHeader(type);
+            const index = isHeader ? 0 : relativeIndex + orderedBlocksStartIndex;
             const isActive = activeBlockIndex === index;
             const actions: EditBlockActions = {
                 [EditBlockControls.Delete]: () => dispatch({type: DELETE_BLOCK, payload: index}),
@@ -84,10 +86,11 @@ export function useEditorState({content: intialContent, custom}: Omit<EditorProp
             }
 
             return {
-                ...props,
+                children,
+                isHeader,
                 isActive,
-                onSelect: () => onSelect(index),
                 actions,
+                onSelect: () => onSelect(index),
             } as EditBlockProps;
         };
 
@@ -98,8 +101,7 @@ export function useEditorState({content: intialContent, custom}: Omit<EditorProp
             injectEditBlockProps,
             onAdd,
             onSelect,
-            onContentUpdate: (newContent: PageContent) =>
-                dispatch({type: UPDATE_CONTENT, payload: newContent}),
+            onContentUpdate,
         };
-    }, [content, activeBlockIndex, contentHasHeader, headerBlockTypes, errorBoundaryState]);
+    }, [content, activeBlockIndex, errorBoundaryState, custom]);
 }

@@ -1,6 +1,6 @@
 import React, {useMemo} from 'react';
 
-import {BlockDecoratorProps} from '../../../models';
+import {BlockDecorationProps} from '../../../models';
 import {block} from '../../../utils';
 import AddBlock from '../../components/AddBlock/AddBlock';
 import EditBlock from '../../components/EditBlock/EditBlock';
@@ -8,7 +8,7 @@ import {ErrorBoundary} from '../../components/ErrorBoundary/ErrorBoundary';
 import useFormSpec from '../../hooks/useFormSpec';
 import {useEditorState} from '../../store';
 import {EditorProps} from '../../types';
-import {addCustomDecorator} from '../../utils';
+import {addCustomDecorator, getBlockId} from '../../utils';
 import {Form} from '../Form/Form';
 
 import './Editor.scss';
@@ -30,10 +30,13 @@ export const Editor = ({children, customSchema, ...rest}: EditorProps) => {
             content,
             custom: addCustomDecorator(
                 [
-                    (props: BlockDecoratorProps) => <EditBlock {...injectEditBlockProps(props)} />,
+                    (props: BlockDecorationProps) => <EditBlock {...injectEditBlockProps(props)} />,
                     // need errorBoundaryState flag to reset error on content update
-                    (props: BlockDecoratorProps) => (
-                        <ErrorBoundary {...props} key={`${props.id}-${errorBoundaryState}`} />
+                    (props: BlockDecorationProps) => (
+                        <ErrorBoundary
+                            {...props}
+                            key={`${getBlockId(props)}-${errorBoundaryState}`}
+                        />
                     ),
                 ],
                 rest.custom,
