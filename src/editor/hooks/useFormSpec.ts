@@ -1,7 +1,7 @@
 import {useMemo} from 'react';
 
 import {SchemaCustomConfig, generateDefaultSchema} from '../../schema';
-import formSpecParser from '../form/parser';
+import formSpecParser from '../dynamic-forms-custom/parser';
 
 export default function useFormSpec(customSchema?: SchemaCustomConfig) {
     return useMemo(() => {

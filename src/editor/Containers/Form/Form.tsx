@@ -4,10 +4,10 @@ import {DynamicField, Spec} from '@gravity-ui/dynamic-forms';
 import _ from 'lodash';
 import {Form as FinalForm, FormSpy} from 'react-final-form';
 
-import {dynamicConfig} from '../../../editor/form/config';
 import {Block, PageContent} from '../../../models';
 import {block, getBlockKey} from '../../../utils';
-import {CustomSpec, FormSpecs} from '../../form/parser/types';
+import {dynamicConfig} from '../../dynamic-forms-custom/config';
+import {CustomSpec, FormSpecs} from '../../dynamic-forms-custom/parser/types';
 
 import './Form.scss';
 
