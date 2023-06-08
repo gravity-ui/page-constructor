@@ -1,7 +1,7 @@
 import {useMemo, useReducer} from 'react';
 
 import {Block, BlockDecoratorProps, HeaderBlockTypes, PageContent} from '../../models';
-import {getBlockIndexFromId, getCustomHeaderTypes, getHeaderBlock} from '../../utils';
+import {getCustomHeaderTypes, getHeaderBlock} from '../../utils';
 import {EditBlockActions, EditBlockControls} from '../components/EditBlock/EditBlock';
 import {EditBlockProps, EditorProps} from '../types';
 
@@ -30,10 +30,11 @@ export function useEditorState({content: intialContent, custom}: Omit<EditorProp
         content: addEditorProps(intialContent),
     });
     const contentHasHeader = Boolean(getHeaderBlock(content.blocks, headerBlockTypes));
+    const checkIsHeader = (type: string) => headerBlockTypes.includes(type);
 
     return useMemo(() => {
         const onAdd = (block: Block) => {
-            const isHeader = headerBlockTypes.includes(block.type);
+            const isHeader = checkIsHeader(block.type);
 
             if (contentHasHeader && isHeader) {
                 //TODO: add warning that it should be only one header block
@@ -52,9 +53,10 @@ export function useEditorState({content: intialContent, custom}: Omit<EditorProp
         const onSelect = (index: number) => dispatch({type: SELECT_BLOCK, payload: index});
 
         const injectEditBlockProps = (props: BlockDecoratorProps) => {
-            const {id, isHeader} = props;
+            const {id} = props;
             const orderedBlocksStartIndex = contentHasHeader ? 1 : 0;
-            const index = isHeader ? 0 : getBlockIndexFromId(id) + orderedBlocksStartIndex;
+            const isHeader = checkIsHeader(id as string);
+            const index = isHeader ? 0 : (id as number) + orderedBlocksStartIndex;
             const isActive = activeBlockIndex === index;
             const actions: EditBlockActions = {
                 [EditBlockControls.Delete]: () => dispatch({type: DELETE_BLOCK, payload: index}),

@@ -7,9 +7,6 @@ export const BlockDecoration = ({
     id,
     children: blockChildren,
 }: PropsWithChildren<BlockDecorationProps>) => {
-    const {headerBlockTypes} = useContext(InnerContext);
-    const isHeader = Boolean(typeof id === 'string' && headerBlockTypes.includes(id));
-
     const block = <Fragment>{blockChildren}</Fragment>;
     const blockDecorators = useContext(InnerContext).customization?.decorators?.block;
 
@@ -18,7 +15,7 @@ export const BlockDecoration = ({
     }
 
     return blockDecorators.reduce(
-        (children, decorator) => <Fragment>{decorator({children, id, isHeader})}</Fragment>,
+        (children, decorator) => <Fragment>{decorator({children, id})}</Fragment>,
         block,
     );
 };

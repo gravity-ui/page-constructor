@@ -5,7 +5,7 @@ export interface BlockDecorationProps extends PropsWithChildren {
 }
 
 export interface BlockDecoratorProps extends PropsWithChildren {
-    id: string;
+    id: string | number;
     isHeader?: boolean;
 }
 
