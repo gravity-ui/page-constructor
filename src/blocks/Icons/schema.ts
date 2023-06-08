@@ -13,6 +13,7 @@ export const IconsProps = {
         size: {
             type: 'string',
             enum: ['s', 'm', 'l'],
+            default: 's',
         },
         items: {
             type: 'array',

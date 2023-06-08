@@ -13,7 +13,8 @@ $block: '.#{$ns}editor-block-form';
     --complex-nested-property-font-size: var(--yc-text-body-2-font-size);
     --complex-nested-property-line-height: var(--yc-text-body-2-line-height);
 
-    --text-area-min-size: 142px;
+    --input-min-width: 150px;
+    --property-title-width: 140px;
 
     // blocks list level definitons
     --button-height: 48px;
@@ -56,7 +57,7 @@ $block: '.#{$ns}editor-block-form';
     }
 
     .df-row__left {
-        width: 120px;
+        width: var(--property-title-width);
     }
 
     .df-row__title {
@@ -69,8 +70,8 @@ $block: '.#{$ns}editor-block-form';
     // fix for dynamic form's accordeon nested textareas
     .df-simple-vertical-accordeon {
         textarea {
-            max-width: var(--text-area-min-size);
-            min-height: var(--text-area-min-size);
+            min-width: var(--input-min-width);
+            min-height: var(--input-min-width);
         }
     }
 
@@ -101,7 +102,7 @@ $block: '.#{$ns}editor-block-form';
 
     .g-select,
     .yc-text-input {
-        min-width: 100px;
+        width: var(--input-min-width);
     }
 
     & + & {

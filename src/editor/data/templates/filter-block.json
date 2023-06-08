@@ -20,28 +20,40 @@
     "items": [
       {
         "card": {
-          "type": "card-with-image",
-          "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-mini_4-12_light.png",
-          "title": "Lorem&nbsp;ipsum",
-          "description": "Dolor sit amet"
+          "type": "layout-item",
+          "media": {
+            "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-mini_4-12_light.png"
+          },
+          "content": {
+            "title": "Lorem&nbsp;ipsum",
+            "text": "Dolor sit amet"
+          }
         },
         "tags": ["one"]
       },
       {
         "card": {
-          "type": "card-with-image",
-          "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-mini_4-12_light.png",
-          "title": "Lorem&nbsp;ipsum",
-          "description": "Dolor sit amet"
+          "type": "layout-item",
+          "media": {
+            "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-mini_4-12_light.png"
+          },
+          "content": {
+            "title": "Lorem&nbsp;ipsum",
+            "text": "Dolor sit amet"
+          }
         },
         "tags": ["two"]
       },
       {
         "card": {
-          "type": "card-with-image",
-          "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-mini_4-12_light.png",
-          "title": "Lorem&nbsp;ipsum",
-          "description": "Dolor sit amet"
+          "type": "layout-item",
+          "media": {
+            "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-mini_4-12_light.png"
+          },
+          "content": {
+            "title": "Lorem&nbsp;ipsum",
+            "text": "Dolor sit amet"
+          }
         },
         "tags": ["three"]
       }
