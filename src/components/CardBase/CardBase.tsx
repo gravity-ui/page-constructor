@@ -25,6 +25,7 @@ export interface CardBaseProps extends AnalyticsEventsBase, CardBaseParams {
     target?: HTMLAttributeAnchorTarget;
     metrikaGoals?: MetrikaGoal;
     pixelEvents?: ButtonPixel;
+    qa?: string;
 }
 
 export interface CardHeaderBaseProps {
@@ -37,6 +38,11 @@ export interface CardFooterBaseProps {
 }
 
 const b = block('card-base-block');
+
+export const defaultHeaderQa = 'card-base-header';
+export const defaultBodyQa = 'card-base-body';
+export const defaultContentQa = 'card-base-content';
+export const defaultFooterQa = 'card-base-footer';
 
 const Header: React.FC<WithChildren<CardHeaderBaseProps>> = () => null;
 const Content: React.FC<WithChildren<{}>> = () => null;
@@ -54,6 +60,7 @@ export const Layout = (props: CardBaseProps) => {
         url,
         target,
         border = 'shadow',
+        qa,
     } = props;
     const handleMetrika = useMetrika();
     const handleAnalytics = useAnalytics(DefaultEventNames.CardBase, url);
@@ -88,13 +95,20 @@ export const Layout = (props: CardBaseProps) => {
                 <BackgroundImage
                     className={b('header', headerClass)}
                     {...(typeof image === 'string' ? {src: image} : image)}
+                    qa={defaultHeaderQa}
                 >
                     <div className={b('header-content')}>{header}</div>
                 </BackgroundImage>
             )}
-            <div className={b('body', bodyClassName)}>
-                <div className={b('content', contentClassName)}>{content}</div>
-                {footer && <div className={b('footer', footerClass)}>{footer}</div>}
+            <div className={b('body', bodyClassName)} data-qa={defaultBodyQa}>
+                <div className={b('content', contentClassName)} data-qa={defaultContentQa}>
+                    {content}
+                </div>
+                {footer && (
+                    <div className={b('footer', footerClass)} data-qa={defaultFooterQa}>
+                        {footer}
+                    </div>
+                )}
             </div>
         </Fragment>
     );
@@ -116,12 +130,15 @@ export const Layout = (props: CardBaseProps) => {
                 draggable={false}
                 onDragStart={(e) => e.preventDefault()}
                 onClick={onClick}
+                data-qa={qa}
             >
                 {cardContent}
             </a>
         </RouterLink>
     ) : (
-        <div className={fullClassName}>{cardContent}</div>
+        <div className={fullClassName} data-qa={qa}>
+            {cardContent}
+        </div>
     );
 };
 
