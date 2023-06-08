@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React, {useMemo} from 'react';
 
 import {
@@ -68,13 +67,13 @@ export const OneOfCustom: React.FC<ObjectIndependentInputProps> = (props) => {
         ) => {
             props.input.onChange(childValue as FieldObjectValue, childErrors);
         },
-        [props.input.onChange],
+        [props.input],
     );
 
     const parentOnUnmount = React.useCallback(
         (childName: string) =>
             props.input.onChange((currentValue) => currentValue, {[childName]: false}),
-        [props.input.onChange],
+        [props.input],
     );
 
     return (

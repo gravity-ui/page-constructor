@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React from 'react';
 
 import {
@@ -32,6 +31,7 @@ const getSpecTypeDefaultValue = (type: SpecTypes) => {
 
 export const useOneOf = ({props, onTogglerChange}: UseOneOfParams) => {
     const {name, input, spec, Layout} = props;
+    const {order, disabled, oneOfParams} = spec.viewSpec;
 
     const specProperties = React.useMemo(
         () => (_.isObjectLike(spec.properties) ? (spec.properties as Record<string, Spec>) : {}),
@@ -49,7 +49,7 @@ export const useOneOf = ({props, onTogglerChange}: UseOneOfParams) => {
             }
         }
 
-        return (valueKeys || spec.viewSpec.order || Object.keys(specProperties))[0];
+        return (valueKeys || order || Object.keys(specProperties))[0];
     });
 
     const onOneOfChange = React.useCallback(
@@ -61,12 +61,12 @@ export const useOneOf = ({props, onTogglerChange}: UseOneOfParams) => {
                 onTogglerChange?.(newValue);
             }
         },
-        [setOneOfValue, input.onChange, oneOfValue],
+        [setOneOfValue, input, oneOfValue, specProperties, onTogglerChange],
     );
 
     const options = React.useMemo(
         () =>
-            (spec.viewSpec.order || Object.keys(specProperties)).map((value) => {
+            (order || Object.keys(specProperties)).map((value) => {
                 const title =
                     spec.description?.[value] ||
                     specProperties[value]?.viewSpec.layoutTitle ||
@@ -79,13 +79,13 @@ export const useOneOf = ({props, onTogglerChange}: UseOneOfParams) => {
                     content: title,
                 };
             }),
-        [spec.description, spec.viewSpec.order, specProperties],
+        [spec.description, order, specProperties],
     );
 
     const togglerInput = React.useMemo(() => {
         if (
-            spec.viewSpec.oneOfParams?.toggler !== 'radio' &&
-            (spec.viewSpec.oneOfParams?.toggler === 'select' ||
+            oneOfParams?.toggler !== 'radio' &&
+            (oneOfParams?.toggler === 'select' ||
                 options.length > 3 ||
                 _.some(options, ({title}) => title.length > MAX_TAB_TITLE_LENGTH))
         ) {
@@ -95,7 +95,7 @@ export const useOneOf = ({props, onTogglerChange}: UseOneOfParams) => {
                     value={[oneOfValue]}
                     onUpdate={onOneOfChange}
                     options={options}
-                    disabled={spec.viewSpec.disabled}
+                    disabled={disabled}
                     filterable={options.length > 7}
                     qa={name}
                 />
@@ -106,7 +106,7 @@ export const useOneOf = ({props, onTogglerChange}: UseOneOfParams) => {
             <RadioButton
                 value={oneOfValue}
                 onChange={(event) => onOneOfChange([event.target.value])}
-                disabled={spec.viewSpec.disabled}
+                disabled={disabled}
                 qa={name}
             >
                 {options.map((option) => (
@@ -116,7 +116,7 @@ export const useOneOf = ({props, onTogglerChange}: UseOneOfParams) => {
                 ))}
             </RadioButton>
         );
-    }, [options, oneOfValue, onOneOfChange, name, spec.viewSpec.oneOfParams?.toggler]);
+    }, [options, oneOfValue, onOneOfChange, name, oneOfParams?.toggler, disabled]);
 
     const toggler = React.useMemo(() => {
         if (Layout) {
