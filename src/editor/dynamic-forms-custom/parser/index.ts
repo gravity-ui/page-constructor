@@ -174,6 +174,7 @@ class FormSpecParser {
             ...data,
             type: data.type as SpecTypes,
             required,
+            defaultValue: data.default,
             viewSpec: getPrimitiveViewSpec(name, data),
             validator: 'base',
         } as Spec;

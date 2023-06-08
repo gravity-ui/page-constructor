@@ -139,14 +139,18 @@ const PriceDetailsListProps = {
 const PriceDetailsProps = {
     items: {
         oneOf: [
-            filteredArray({
-                ...PriceDetailsListProps,
-                optionName: 'list',
-            }),
-            filteredArray({
-                ...PriceDetailsSettingsProps,
+            {
+                ...filteredArray({
+                    ...PriceDetailsListProps,
+                }),
+                optionName: 'marked-list',
+            },
+            {
+                ...filteredArray({
+                    ...PriceDetailsSettingsProps,
+                }),
                 optionName: 'settings',
-            }),
+            },
         ],
     },
 };
@@ -174,6 +178,7 @@ export const PriceDetailedBlock = {
             priceType: {
                 type: 'string',
                 enum: PriceDetailedDetailsType,
+                default: 'settings',
             },
             numberGroupItems: {
                 type: 'number',
