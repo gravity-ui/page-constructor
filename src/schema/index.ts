@@ -1,6 +1,8 @@
 export {validators} from './validators';
 export type {ObjectSchema} from './validators/utils';
 
+import type {JSONSchema4} from 'json-schema';
+
 import {
     blockSchemas,
     cardSchemas,
@@ -11,15 +13,17 @@ import {AnimatableProps, BackgroundProps, MenuProps, withTheme} from './validato
 import {LogoProps, NavigationHeaderProps} from './validators/navigation';
 import {filteredItem} from './validators/utils';
 
-export type SchemaBlock = object;
-
+export type Schema = JSONSchema4;
+export type SchemaDefinitions = {
+    [k: string]: Schema;
+};
 export interface SchemaCustomConfig {
-    blocks?: Record<string, SchemaBlock>;
-    cards?: Record<string, SchemaBlock>;
+    blocks?: Record<string, Schema>;
+    cards?: Record<string, Schema>;
     extensions?: object;
 }
 
-export const getBlocksCases = (blocks: SchemaBlock) => {
+export const getBlocksCases = (blocks: Schema) => {
     return Object.values(blocks).reduce(
         (acc, block) => ({
             ...acc,
@@ -91,5 +95,5 @@ export function generateDefaultSchema(config?: SchemaCustomConfig) {
             background: withTheme(BackgroundProps),
             ...extensions,
         },
-    };
+    } as Schema;
 }

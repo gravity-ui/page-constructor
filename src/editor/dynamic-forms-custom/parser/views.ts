@@ -1,6 +1,4 @@
-import {ObjectSpec} from '@gravity-ui/dynamic-forms';
-
-import {BlockSpec} from './types';
+import {Schema} from '../../../schema';
 
 export const getOneOfViewSpec = (layoutTitle: string) => {
     return {
@@ -13,7 +11,7 @@ export const getOneOfViewSpec = (layoutTitle: string) => {
     };
 };
 
-export const getObjectViewSpec = (data: ObjectSpec, layoutTitle: string) => {
+export const getObjectViewSpec = (data: Schema, layoutTitle: string) => {
     return {
         layoutTitle,
         type: 'base',
@@ -32,7 +30,7 @@ export const getArrayViewSpec = (layoutTitle: string) => ({
     itemLabel: 'Add Item',
 });
 
-export const getPrimitiveViewSpec = (layoutTitle: string, data: BlockSpec) => {
+export const getPrimitiveViewSpec = (layoutTitle: string, data: Schema) => {
     let type = data.inputType || 'base';
 
     if ('enum' in data && data.enum) {

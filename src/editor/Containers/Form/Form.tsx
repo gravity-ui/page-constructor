@@ -10,9 +10,9 @@ import {FormSpecs} from '../../dynamic-forms-custom/parser/types';
 export interface FormProps {
     content: PageContent;
     activeBlockIndex: number;
+    spec: FormSpecs;
     onChange: (content: PageContent) => void;
     onSelect: (index: number) => void;
-    spec: FormSpecs;
 }
 
 export const Form = memo(({content, onChange, activeBlockIndex, onSelect, spec}: FormProps) => {

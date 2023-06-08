@@ -1,6 +1,7 @@
 import {Spec as DynamicFormSpec, ObjectSpec} from '@gravity-ui/dynamic-forms';
 
 import {BlockType} from '../../../models';
+import {Schema} from '../../../schema';
 
 export type OneOfSpec = {
     oneOf: DynamicFormSpec[];
@@ -8,23 +9,17 @@ export type OneOfSpec = {
 };
 
 export interface SpecCustomProps {
-    __schema?: object;
+    __schema?: Schema;
 }
 
 export type Spec = DynamicFormSpec | OneOfSpec;
 export type CustomSpec = Spec & SpecCustomProps;
 export type FormSpecs = Record<BlockType, CustomSpec>;
-export type BlockSpec = CustomSpec & {
-    inputType?: Spec['viewSpec']['type'];
-    required?: string[];
-};
 
-export interface SchemaParserParams<T> {
-    data: T;
+export interface SchemaParserParams {
+    data: Schema;
     name: string;
-    required?: boolean;
-    definitions?: Record<string, ObjectSpec>;
+    required?: Schema['required'];
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type SchemaParser<T = any> = (params: SchemaParserParams<T>) => CustomSpec;
+export type SchemaParser = (params: SchemaParserParams) => CustomSpec;

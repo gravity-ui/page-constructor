@@ -1,7 +1,7 @@
-import {ArraySpec, ObjectSpec, SpecTypes} from '@gravity-ui/dynamic-forms';
+import {SpecTypes} from '@gravity-ui/dynamic-forms';
 import _ from 'lodash';
 
-import {OneOfSpec, Spec} from './types';
+import {Schema} from '../../../schema';
 
 export enum ParserType {
     Object = 'object',
@@ -11,16 +11,17 @@ export enum ParserType {
     Primitive = 'primitive',
 }
 
-const isOneOf = (data: Spec): data is OneOfSpec => 'oneOf' in data;
-const isObject = (data: Spec): data is ObjectSpec => 'properties' in data;
-const isArray = (data: Spec): data is ArraySpec => 'type' in data && data.type === SpecTypes.Array;
-const isChildren = (data: Spec): data is ArraySpec =>
+const isOneOf = (data: Schema) => 'oneOf' in data;
+const isObject = (data: Schema) => 'properties' in data;
+const isArray = (data: Schema) => 'type' in data && data.type === SpecTypes.Array;
+const isChildren = (data: Schema) =>
     'type' in data &&
     data.type === SpecTypes.Array &&
     'items' in data &&
     typeof data.items !== 'undefined' &&
     '$ref' in data.items;
 
+//detector applying order matters!
 const ParserTypeDetectors = [
     {type: ParserType.OneOf, detector: isOneOf},
     {type: ParserType.Children, detector: isChildren},
@@ -28,7 +29,7 @@ const ParserTypeDetectors = [
     {type: ParserType.Array, detector: isArray},
 ];
 
-export const detectParserType = (data: Spec): ParserType => {
+export const detectParserType = (data: Schema): ParserType => {
     for (const {type, detector} of ParserTypeDetectors) {
         if (detector(data)) {
             return type as ParserType;
