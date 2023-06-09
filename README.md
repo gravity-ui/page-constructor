@@ -184,6 +184,8 @@ Sub-blocks are components that can be used in the block `children` property. In 
 
 6. In the block directory, add the `README.md` file with a description of input parameters.
 7. In the block directory add storybook demo in `__stories__` folder. All demo content for story should be placed in `data.json` at story dir. The generic `Story` must accept the type of block props, otherwise incorrect block props will be displayed in Storybook.
+8. Add block data template to `src/editor/data/templates/` folder, file name should match block type
+9. (optional) Add block preview icon to `src/editor/data/previews/` folder, file name should match block type
 
 ### Themes
 

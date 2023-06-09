@@ -12,6 +12,12 @@ import {getArrayViewSpec, getObjectViewSpec, getOneOfViewSpec, getPrimitiveViewS
 class FormSpecParser {
     private definitions: SchemaDefinitions = {};
 
+    /**
+     * Transforms page-constructor json schema into dynamic-forms specs for each block
+     *
+     * @param schema {Schema} - page-constructor json schema
+     * @returns {FormSpecs} - object containig dynamic-forms specs for each constructor block
+     */
     parse(schema: Schema) {
         this.init(schema);
 
