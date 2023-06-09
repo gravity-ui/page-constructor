@@ -7,15 +7,20 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Extract branch name
-        shell: bash
-        run: |
-          echo "branch_name=${GITHUB_REF#refs/heads/}"
-        id: extract_branch
-      - uses: gravity-ui/release-action@v1
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
         with:
-          github-token: ${{ secrets.GRAVITY_UI_BOT_GITHUB_TOKEN }}
-          npm-token: ${{ secrets.GRAVITY_UI_BOT_NPM_TOKEN }}
           node-version: 14
-          npm-dist-tag: alpha
-          default-branch: ${{ env.branch_name }}
+          registry-url: 'https://registry.npmjs.org'
+      - run: npm ci
+        shell: bash
+      - run: npm test
+        shell: bash
+      - name: Npm version
+        run: npm version -i prerelease --preid=alpha
+        shell: bash
+      - name: Npm publish
+        run: npm publish --tag alpha --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GRAVITY_UI_BOT_NPM_TOKEN }}
+        shell: bash
