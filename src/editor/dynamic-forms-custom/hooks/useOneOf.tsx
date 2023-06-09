@@ -16,7 +16,7 @@ export interface UseOneOfParams {
     onTogglerChange?: (value: string) => void;
 }
 
-const getSpecTypeDefaultValue = (type: SpecTypes) => {
+export const getSpecTypeDefaultValue = (type: SpecTypes) => {
     switch (type) {
         case SpecTypes.Array:
             return [];

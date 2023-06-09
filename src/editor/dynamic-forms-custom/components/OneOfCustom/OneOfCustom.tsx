@@ -7,6 +7,7 @@ import {
     GroupIndent,
     ObjectIndependentInputProps,
     ObjectSpec,
+    SpecTypes,
     ValidateError,
     transformArrOut,
 } from '@gravity-ui/dynamic-forms';
@@ -14,7 +15,7 @@ import Ajv from 'ajv';
 import _ from 'lodash';
 
 import {block} from '../../../../utils';
-import {useOneOf} from '../../hooks/useOneOf';
+import {getSpecTypeDefaultValue, useOneOf} from '../../hooks/useOneOf';
 import {SpecCustomProps} from '../../parser/types';
 
 import './OneOfCustom.scss';
@@ -31,6 +32,15 @@ const ajv = new Ajv({
 
 const getOneOfCsutomSpecDefaultType = (spec: ObjectSpec) =>
     spec.viewSpec?.order?.[0] || Object.keys(spec.properties || {})[0];
+
+// dynamic-forms pass {} as default value for required properties of all types
+// this function replaces {} with default value accordingly to selected OneOf option spec type
+const getControllerDefautValue = (value: FieldValue, valueSpecType?: SpecTypes) => {
+    const isDefaultValue = typeof value === 'object' && _.isEmpty(value);
+    const defaultValue = valueSpecType ? getSpecTypeDefaultValue(valueSpecType) : undefined;
+
+    return isDefaultValue ? (defaultValue as FieldValue) : value;
+};
 
 export const OneOfCustom: React.FC<ObjectIndependentInputProps> = (props) => {
     //getting oneOf option type from initial value
@@ -76,13 +86,15 @@ export const OneOfCustom: React.FC<ObjectIndependentInputProps> = (props) => {
         [props.input],
     );
 
+    const valueSpecType = specProperties[oneOfValue]?.type || SpecTypes.Object;
+
     return (
         <div className={b()}>
             <div>{toggler}</div>
             {specProperties[oneOfValue] ? (
                 <GroupIndent>
                     <Controller
-                        value={props.input.value}
+                        value={getControllerDefautValue(props.input.value, valueSpecType)}
                         name={props.name}
                         spec={specProperties[oneOfValue]}
                         parentOnChange={parentOnChange}
