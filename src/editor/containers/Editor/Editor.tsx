@@ -1,4 +1,4 @@
-import React, {useMemo} from 'react';
+import React, {useEffect, useMemo} from 'react';
 
 import {BlockDecorationProps} from '../../../models';
 import {block} from '../../../utils';
@@ -15,7 +15,7 @@ import './Editor.scss';
 
 const b = block('editor');
 
-export const Editor = ({children, customSchema, ...rest}: EditorProps) => {
+export const Editor = ({children, customSchema, onChange, ...rest}: EditorProps) => {
     const {
         content,
         activeBlockIndex,
@@ -44,8 +44,12 @@ export const Editor = ({children, customSchema, ...rest}: EditorProps) => {
         }),
         [injectEditBlockProps, content, errorBoundaryState, rest.custom],
     );
-
     const formSpecs = useFormSpec(customSchema);
+
+    useEffect(() => {
+        onChange?.(content);
+    }, [content, onChange]);
+
     return (
         <div className={b()}>
             <div className={b('form')}>
