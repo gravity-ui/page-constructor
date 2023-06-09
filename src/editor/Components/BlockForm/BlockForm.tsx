@@ -4,22 +4,14 @@ import {DynamicField, Spec} from '@gravity-ui/dynamic-forms';
 import _ from 'lodash';
 import {Form as FinalForm, FormSpy} from 'react-final-form';
 
-import {Block, PageContent} from '../../../models';
+import {Block} from '../../../models';
 import {block} from '../../../utils';
 import {dynamicConfig} from '../../dynamic-forms-custom/config';
-import {CustomSpec, FormSpecs} from '../../dynamic-forms-custom/parser/types';
+import {CustomSpec} from '../../dynamic-forms-custom/parser/types';
 
 import './BlockForm.scss';
 
 const b = block('editor-block-form');
-
-export interface FormProps {
-    content: PageContent;
-    activeBlockIndex: number;
-    onChange: (content: PageContent) => void;
-    onSelect: (index: number) => void;
-    spec: FormSpecs;
-}
 
 interface BlockFormProps {
     data: Block;
