@@ -75,7 +75,7 @@ export const LoopProps = {
     },
 };
 
-export const PlayIconProps = {
+export const PlayButtonProps = {
     type: 'object',
     additionalProperties: false,
     properties: {
@@ -120,13 +120,13 @@ export const VideoProps = {
         muted: {
             type: 'boolean',
         },
-        playing: {
+        autoplay: {
             type: 'boolean',
         },
         elapsedTime: {
             type: 'number',
         },
-        playIcon: PlayIconProps,
+        playButton: PlayButtonProps,
         controls: {
             type: 'string',
             enum: videoControlsTypes,
