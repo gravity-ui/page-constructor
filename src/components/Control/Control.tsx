@@ -11,6 +11,8 @@ import './Control.scss';
 
 const b = block('control');
 
+export const defaultIconId = 'icon-test-id';
+
 export interface ControlProps {
     icon: SVGIconData;
     theme?: 'primary' | 'secondary' | 'link' | 'accent';
@@ -43,7 +45,7 @@ const Control = (props: ControlProps) => {
             disabled={disabled}
             data-qa={qa}
         >
-            <Icon data={icon} size={iconSize} />
+            <Icon data={icon} size={iconSize} qa={defaultIconId} />
         </button>
     );
 };

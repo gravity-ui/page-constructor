@@ -4,7 +4,7 @@ import {render, screen} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import {testCustomClassName} from '../../../../test-utils/shared/common';
-import Control, {ControlProps} from '../Control';
+import Control, {ControlProps, defaultIconId} from '../Control';
 
 const qaId = 'control-component';
 
@@ -21,15 +21,10 @@ describe('Control', () => {
         expect(control).toBeVisible();
         expect(control).not.toBeDisabled();
 
-        /** We are not use direct node access to test nested nodes.
-         * But in this case we need to check svg attributes.
-         * As SvgIcon component is from another package we can't arange it for now.
-         * So we disable eslint rule for this case.
-         */
-        /* eslint-disable testing-library/no-node-access */
-        expect(control.firstChild).toHaveAttribute(`width`, '16');
-        expect(control.firstChild).toHaveAttribute(`height`, '16');
-        /* eslint-enable testing-library/no-node-access */
+        const controlIcon = screen.getByTestId(defaultIconId);
+
+        expect(controlIcon).toHaveAttribute(`width`, '16');
+        expect(controlIcon).toHaveAttribute(`height`, '16');
     });
 
     test('add disabled', async () => {
@@ -68,12 +63,11 @@ describe('Control', () => {
     test('add iconSize', () => {
         const iconSize = 24;
         render(<Control icon={icon} qa={qaId} iconSize={iconSize} />);
-        const control = screen.getByTestId(qaId);
 
-        /* eslint-disable testing-library/no-node-access */
-        expect(control.firstChild).toHaveAttribute(`width`, `${iconSize}`);
-        expect(control.firstChild).toHaveAttribute(`height`, `${iconSize}`);
-        /* eslint-enable testing-library/no-node-access */
+        const controlIcon = screen.getByTestId(defaultIconId);
+
+        expect(controlIcon).toHaveAttribute(`width`, iconSize.toString());
+        expect(controlIcon).toHaveAttribute(`height`, iconSize.toString());
     });
 
     test('add onClick', async () => {
