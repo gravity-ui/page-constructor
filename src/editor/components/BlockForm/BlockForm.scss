@@ -100,6 +100,17 @@ $block: '.#{$ns}editor-block-form';
         }
     }
 
+    .df-simple-vertical-accordeon__body,
+    .df-group-indent > .df-use-search {
+        margin-top: 0;
+        margin-left: 1px;
+
+        padding-top: $indentXXS;
+        padding-left: $indentXS;
+
+        border-left: 1px solid var(--yc-color-line-generic-accent);
+    }
+
     .g-select,
     .yc-text-input {
         width: var(--input-min-width);

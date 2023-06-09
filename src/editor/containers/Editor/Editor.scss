@@ -6,9 +6,10 @@
 $block: '.#{$ns}editor';
 
 %overflow-container {
+    --yc-scrollbar-width: 0;
     height: 100vh;
     max-height: 100vh;
-    overflow-y: auto;
+    overflow: auto;
 }
 
 #{$block} {
