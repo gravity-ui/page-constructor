@@ -72,8 +72,8 @@ const isDropdownItem = (item: NavigationItemModel): item is NavigationDropdownIt
 export const Header: React.FC<HeaderProps> = ({data, logo}) => {
     const {leftItems, rightItems, iconSize = 20, withBorder = false} = data;
     const [isSidebarOpened, setIsSidebarOpened] = useState(false);
-    const [activeItemId, setactiveItemId] = useState<string | undefined>(undefined);
-    const [withHeaderBorder, setWithHeaderBorder] = useState(withBorder);
+    const [activeItemId, setActiveItemId] = useState<string | undefined>(undefined);
+    const [showBorder, setShowBorder] = useState(withBorder);
 
     const getNavigationItemWithIconSize = useCallback(
         (item: NavigationItemModel) => {
@@ -102,7 +102,7 @@ export const Header: React.FC<HeaderProps> = ({data, logo}) => {
     );
 
     const onActiveItemChange = useCallback((id?: string) => {
-        setactiveItemId(id);
+        setActiveItemId(id);
     }, []);
 
     const hidePopup = useCallback(() => {
@@ -118,20 +118,18 @@ export const Header: React.FC<HeaderProps> = ({data, logo}) => {
     }, []);
 
     useEffect(() => {
-        const handleScroll = () => {
-            if (window.scrollY > 0 && !withBorder) {
-                setWithHeaderBorder(true);
-            } else if (window.scrollY === 0 && !withBorder) {
-                setWithHeaderBorder(false);
+        const showBorderOnScroll = () => {
+            if (!withBorder) {
+                setShowBorder(window.scrollY > 0);
             }
         };
 
-        window.addEventListener('scroll', _.debounce(handleScroll, 5), {passive: true});
-        return () => window.removeEventListener('scroll', _.debounce(handleScroll, 5));
+        window.addEventListener('scroll', _.debounce(showBorderOnScroll, 20), {passive: true});
+        return () => window.removeEventListener('scroll', _.debounce(showBorderOnScroll, 20));
     });
 
     return (
-        <Grid className={b({'with-border': withHeaderBorder})}>
+        <Grid className={b({'with-border': showBorder})}>
             <Row>
                 <Col>
                     <header className={b('wrapper')}>
