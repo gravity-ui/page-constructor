@@ -25,8 +25,8 @@ export const Editor = ({children, customSchema, ...rest}: EditorProps) => {
         onSelect,
         injectEditBlockProps,
     } = useEditorState(rest);
-    const constructorProps = useMemo(() => {
-        return {
+    const constructorProps = useMemo(
+        () => ({
             content,
             custom: addCustomDecorator(
                 [
@@ -41,8 +41,9 @@ export const Editor = ({children, customSchema, ...rest}: EditorProps) => {
                 ],
                 rest.custom,
             ),
-        };
-    }, [injectEditBlockProps, content, errorBoundaryState, rest.custom]);
+        }),
+        [injectEditBlockProps, content, errorBoundaryState, rest.custom],
+    );
 
     const formSpecs = useFormSpec(customSchema);
     return (

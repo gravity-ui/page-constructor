@@ -53,7 +53,11 @@ const EditBlock = ({actions, isActive, onSelect, isHeader, children}: EditBlockP
                             const Icon = editBlockControlsIcons[action];
 
                             return actions[action] ? (
-                                <div className={b('control')} onClick={actions[action]}>
+                                <div
+                                    key={action}
+                                    className={b('control')}
+                                    onClick={actions[action]}
+                                >
                                     <Icon />
                                 </div>
                             ) : null;

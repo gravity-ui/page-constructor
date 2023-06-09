@@ -1,4 +1,4 @@
-import React, {memo} from 'react';
+import React, {Fragment, memo} from 'react';
 
 import _ from 'lodash';
 
@@ -19,7 +19,7 @@ export const Form = memo(({content, onChange, activeBlockIndex, onSelect, spec}:
     const blocks = content?.blocks || [];
 
     return (
-        <div>
+        <Fragment>
             {blocks.map((blockData, index) => (
                 <BlockForm
                     spec={spec[blockData.type]}
@@ -35,7 +35,7 @@ export const Form = memo(({content, onChange, activeBlockIndex, onSelect, spec}:
                     onSelect={() => onSelect(index)}
                 />
             ))}
-        </div>
+        </Fragment>
     );
 });
 

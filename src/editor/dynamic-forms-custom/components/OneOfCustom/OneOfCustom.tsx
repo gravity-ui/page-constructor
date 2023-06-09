@@ -30,7 +30,7 @@ const ajv = new Ajv({
     strictRequired: false,
 });
 
-const getOneOfCsutomSpecDefaultType = (spec: ObjectSpec) =>
+const getOneOfCustomSpecDefaultType = (spec: ObjectSpec) =>
     spec.viewSpec?.order?.[0] || Object.keys(spec.properties || {})[0];
 
 // dynamic-forms pass {} as default value for required properties of all types
@@ -42,19 +42,36 @@ const getControllerDefautValue = (value: FieldValue, valueSpecType?: SpecTypes) 
     return isDefaultValue ? (defaultValue as FieldValue) : value;
 };
 
+/**
+ * Customization of @gravity-ui/dynamic-forms OneOf component
+ *
+ * Main differences from original component:
+ *
+ * 1. Custom component can detect initial data type by it's json schema passed it __schema property of spec and
+ * shows according input
+ *
+ * 2. Custom component doesn't create additional nested level of data for each OneOf option and doesn't wraps data value, e.g.
+ *
+ * custom component: {propertyName: propertyValue}
+ * original component: {propertyName: {option1: {value: propertyValue}}}
+ *
+ * @param {ObjectIndependentInputProps} props - props of original OneOf component
+ * @returns {React.FC<ObjectIndependentInputProps>}
+ */
 export const OneOfCustom: React.FC<ObjectIndependentInputProps> = (props) => {
+    const {spec, input, name} = props;
+    const {properties} = spec;
+
     //getting oneOf option type from initial value
     const valueType = useMemo(
         () =>
-            (props.spec?.properties &&
-                Object.keys(props.spec?.properties)?.find((key) => {
-                    const fieldSchema = (props.spec?.properties?.[key] as SpecCustomProps).__schema;
+            (properties &&
+                Object.keys(properties)?.find((key) => {
+                    const fieldSchema = (properties?.[key] as SpecCustomProps).__schema;
 
-                    return (
-                        fieldSchema && ajv.validate(fieldSchema, transformArrOut(props.input.value))
-                    );
+                    return fieldSchema && ajv.validate(fieldSchema, transformArrOut(input.value));
                 })) ||
-            getOneOfCsutomSpecDefaultType(props.spec),
+            getOneOfCustomSpecDefaultType(spec),
         // eslint-disable-next-line react-hooks/exhaustive-deps
         [],
     );
@@ -63,8 +80,8 @@ export const OneOfCustom: React.FC<ObjectIndependentInputProps> = (props) => {
         props: {
             ...props,
             input: {
-                ...props.input,
-                value: valueType ? {[valueType]: props.input.value} : props.input.value,
+                ...input,
+                value: valueType ? {[valueType]: input.value} : input.value,
             },
         },
     });
@@ -75,15 +92,14 @@ export const OneOfCustom: React.FC<ObjectIndependentInputProps> = (props) => {
             childValue: FieldValue,
             childErrors?: Record<string, ValidateError>,
         ) => {
-            props.input.onChange(childValue as FieldObjectValue, childErrors);
+            input.onChange(childValue as FieldObjectValue, childErrors);
         },
-        [props.input],
+        [input],
     );
 
     const parentOnUnmount = React.useCallback(
-        (childName: string) =>
-            props.input.onChange((currentValue) => currentValue, {[childName]: false}),
-        [props.input],
+        (childName: string) => input.onChange((currentValue) => currentValue, {[childName]: false}),
+        [input],
     );
 
     const valueSpecType = specProperties[oneOfValue]?.type || SpecTypes.Object;
@@ -94,12 +110,12 @@ export const OneOfCustom: React.FC<ObjectIndependentInputProps> = (props) => {
             {specProperties[oneOfValue] ? (
                 <GroupIndent>
                     <Controller
-                        value={getControllerDefautValue(props.input.value, valueSpecType)}
-                        name={props.name}
+                        value={getControllerDefautValue(input.value, valueSpecType)}
+                        name={name}
                         spec={specProperties[oneOfValue]}
                         parentOnChange={parentOnChange}
                         parentOnUnmount={parentOnUnmount}
-                        key={`${props.name}.${oneOfValue}`}
+                        key={`${name}.${oneOfValue}`}
                     />
                 </GroupIndent>
             ) : null}

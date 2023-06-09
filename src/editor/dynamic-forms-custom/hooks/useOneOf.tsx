@@ -109,9 +109,9 @@ export const useOneOf = ({props, onTogglerChange}: UseOneOfParams) => {
                 disabled={disabled}
                 qa={name}
             >
-                {options.map((option) => (
-                    <RadioButton.Option key={option.value} value={option.value}>
-                        {option.title}
+                {options.map(({value, title}) => (
+                    <RadioButton.Option key={value} value={value}>
+                        {title}
                     </RadioButton.Option>
                 ))}
             </RadioButton>
