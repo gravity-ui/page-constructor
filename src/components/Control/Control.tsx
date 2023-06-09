@@ -19,6 +19,7 @@ export interface ControlProps {
     disabled?: boolean;
     className?: string;
     onClick?: (event: React.MouseEvent) => void;
+    qa?: string;
 }
 
 const Control = (props: ControlProps) => {
@@ -30,6 +31,7 @@ const Control = (props: ControlProps) => {
         disabled = false,
         onClick,
         className,
+        qa,
     } = props;
 
     return (
@@ -39,6 +41,7 @@ const Control = (props: ControlProps) => {
             className={b({size, theme, disabled}, className)}
             onClick={disabled ? undefined : onClick}
             disabled={disabled}
+            data-qa={qa}
         >
             <Icon data={icon} size={iconSize} />
         </button>
