@@ -1,6 +1,20 @@
 import {Schema} from '../../../schema';
 
-export const getOneOfViewSpec = (layoutTitle: string) => {
+import {CustomObjectSpec, CustomSpec} from './types';
+
+interface BaseParams {
+    layoutTitle?: string;
+}
+
+interface GetObjectViewSpecParams
+    extends BaseParams,
+        Partial<Extract<CustomSpec, CustomObjectSpec>> {
+    layout?: string;
+}
+
+type GetPrimitiveViewSpecParams = BaseParams & Schema;
+
+export const getOneOfViewSpec = ({layoutTitle}: BaseParams) => {
     return {
         type: 'oneof_custom',
         layout: 'row',
@@ -11,18 +25,22 @@ export const getOneOfViewSpec = (layoutTitle: string) => {
     };
 };
 
-export const getObjectViewSpec = (data: Schema, layoutTitle: string) => {
+export const getObjectViewSpec = ({
+    properties,
+    disabled,
+    layoutTitle,
+    layout = 'accordeon',
+}: GetObjectViewSpecParams) => {
     return {
         layoutTitle,
         type: 'base',
-        layout: 'accordeon',
-        order: data.properties && Object.keys(data.properties).sort(),
-        //@ts-ignore
-        disabled: data.disabled,
+        layout,
+        order: properties && Object.keys(properties).sort(),
+        disabled,
     };
 };
 
-export const getArrayViewSpec = (layoutTitle: string) => ({
+export const getArrayViewSpec = ({layoutTitle}: BaseParams) => ({
     layoutTitle,
     type: 'base',
     layout: 'accordeon',
@@ -30,10 +48,10 @@ export const getArrayViewSpec = (layoutTitle: string) => ({
     itemLabel: 'Add Item',
 });
 
-export const getPrimitiveViewSpec = (layoutTitle: string, data: Schema) => {
-    let type = data.inputType || 'base';
+export const getPrimitiveViewSpec = ({layoutTitle, ...data}: GetPrimitiveViewSpecParams) => {
+    let type = data?.inputType || 'base';
 
-    if ('enum' in data && data.enum) {
+    if (data && 'enum' in data && data.enum) {
         type = 'select';
     }
     return {

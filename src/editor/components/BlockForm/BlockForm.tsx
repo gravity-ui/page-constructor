@@ -5,13 +5,8 @@ import _ from 'lodash';
 import {Form as FinalForm, FormSpy} from 'react-final-form';
 
 import {Block} from '../../../models';
-import {block} from '../../../utils';
 import {dynamicConfig} from '../../dynamic-forms-custom/config';
 import {CustomSpec} from '../../dynamic-forms-custom/parser/types';
-
-import './BlockForm.scss';
-
-const b = block('editor-block-form');
 
 interface BlockFormProps {
     data: Block;
@@ -37,32 +32,29 @@ export const BlockForm = memo(
         );
 
         return (
-            <div className={b()}>
-                <FinalForm initialValues={initialValues} onSubmit={_.noop}>
-                    {() => (
-                        <div
-                            onClick={() => {
-                                if (!active) {
-                                    onSelect();
-                                }
-                            }}
-                        >
-                            <FormSpy
-                                key={type}
-                                onChange={({values}) => onChange({type, ...values.content})}
-                                subscription={{values: true}}
-                            />
-                            <DynamicField
-                                name="content"
-                                // there is no way other way to manage with form open/close state now
-                                key={String(active)}
-                                spec={spec as Spec}
-                                config={dynamicConfig}
-                            />
-                        </div>
-                    )}
-                </FinalForm>
-            </div>
+            <FinalForm initialValues={initialValues} onSubmit={_.noop}>
+                {() => (
+                    <div
+                        onClick={() => {
+                            if (!active) {
+                                onSelect();
+                            }
+                        }}
+                    >
+                        <FormSpy
+                            onChange={({values}) => onChange({type, ...values.content})}
+                            subscription={{values: true}}
+                        />
+                        <DynamicField
+                            name="content"
+                            // there is no way other way to manage with form open/close state now
+                            key={String(active)}
+                            spec={spec as Spec}
+                            config={dynamicConfig}
+                        />
+                    </div>
+                )}
+            </FinalForm>
         );
     },
 );

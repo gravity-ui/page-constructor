@@ -1,0 +1,18 @@
+@import '../../../../styles/variables.scss';
+@import '../../../../styles/mixins.scss';
+@import './dynamic-form-custom.scss';
+
+$block: '.#{$ns}editor-form';
+
+#{$block} {
+    @include dynamic-form-custom();
+
+    & + & {
+        margin-top: $indentXXS;
+    }
+
+    &__tabs {
+        --yc-color-base-special: var(--yc-color-promo-base-neon);
+        margin-bottom: $indentS;
+    }
+}

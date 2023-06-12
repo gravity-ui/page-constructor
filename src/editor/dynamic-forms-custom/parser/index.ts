@@ -6,10 +6,19 @@ import {BlockType} from '../../../models';
 import {Schema, SchemaDefinitions} from '../../../schema';
 
 import {ParserType, detectParserType} from './detect';
-import {CustomSpec, FormSpecs, SchemaParser, SchemaParserParams, Spec} from './types';
+import {
+    BlocksSpec,
+    CustomSpec,
+    FormSpecs,
+    PageSpec,
+    SchemaParser,
+    SchemaParserParams,
+    Spec,
+} from './types';
 import {getArrayViewSpec, getObjectViewSpec, getOneOfViewSpec, getPrimitiveViewSpec} from './views';
 
 class FormSpecParser {
+    private schema: Schema = {};
     private definitions: SchemaDefinitions = {};
 
     /**
@@ -56,7 +65,7 @@ class FormSpecParser {
 
                                 return parsedChildProperties;
                             },
-                            {} as Record<string, Spec>,
+                            {} as Record<string, CustomSpec>,
                         );
 
                     const childJsonSchema = {
@@ -86,11 +95,15 @@ class FormSpecParser {
                                 },
                             },
                             viewSpec:
-                                childProperies && getObjectViewSpec(childProperies, childName),
+                                childProperies &&
+                                getObjectViewSpec({
+                                    properties: childProperies,
+                                    layoutTitle: childName,
+                                }),
                             __schema: childJsonSchema,
                         } as ObjectSpec,
                         required: false,
-                        viewSpec: getArrayViewSpec(childName),
+                        viewSpec: getArrayViewSpec({layoutTitle: childName}),
                         __schema: {
                             type: SpecTypes.Array,
                             items: childJsonSchema,
@@ -137,7 +150,7 @@ class FormSpecParser {
             type: SpecTypes.Object,
             properties,
             required,
-            viewSpec: getOneOfViewSpec(name),
+            viewSpec: getOneOfViewSpec({layoutTitle: name}),
         } as ObjectSpec;
     };
 
@@ -148,7 +161,7 @@ class FormSpecParser {
             ...data,
             type: SpecTypes.Array,
             items,
-            viewSpec: getArrayViewSpec(name),
+            viewSpec: getArrayViewSpec({layoutTitle: name}),
         } as ArraySpec;
     };
 
@@ -170,7 +183,7 @@ class FormSpecParser {
             ...data,
             type: SpecTypes.Object,
             properties,
-            viewSpec: getObjectViewSpec(data, name),
+            viewSpec: getObjectViewSpec({properties, layoutTitle: name}),
             required,
         } as ObjectSpec;
     };
@@ -181,7 +194,7 @@ class FormSpecParser {
             type: data.type as SpecTypes,
             required,
             defaultValue: data.default,
-            viewSpec: getPrimitiveViewSpec(name, data),
+            viewSpec: getPrimitiveViewSpec({layoutTitle: name, data}),
             validator: 'base',
         } as Spec;
     };
@@ -206,7 +219,7 @@ class FormSpecParser {
         };
     }
 
-    private getFormSpec() {
+    private getBlocksSpec() {
         const blocks = this.definitions.children;
 
         return Object.values(BlockType).reduce((result, blockName) => {
@@ -217,10 +230,45 @@ class FormSpecParser {
             });
 
             return result;
-        }, {} as FormSpecs);
+        }, {} as BlocksSpec);
+    }
+
+    private getPageSpec() {
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        const {blocks, ...pageSchema} = this.schema?.properties || {};
+        const requiredProperties = this.getRequiredProperties(this.schema);
+
+        const properties = Object.entries(pageSchema).reduce(
+            (result, [propertyName, propertyData]) => {
+                result[propertyName] = this.parseSchemaProperty({
+                    name: propertyName,
+                    data: propertyData,
+                    required: requiredProperties.includes(propertyName),
+                });
+
+                return result;
+            },
+            {} as Record<string, CustomSpec>,
+        );
+
+        return {
+            type: SpecTypes.Object,
+            properties,
+            viewSpec: getObjectViewSpec({properties, layout: 'section'}),
+            required: true,
+        } as PageSpec;
+    }
+
+    private getFormSpec() {
+        return {
+            blocks: this.getBlocksSpec(),
+            page: this.getPageSpec(),
+        } as FormSpecs;
     }
 
     private init(schema: Schema) {
+        this.schema = schema;
+
         if (schema.definitions) {
             this.definitions = Object.entries(schema.definitions).reduce(
                 (result, [childType, childSpec]) => {

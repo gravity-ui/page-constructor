@@ -8,13 +8,24 @@ export type OneOfSpec = {
     viewSpec: ObjectSpec['viewSpec'];
 };
 
+export type CustomObjectSpec = Omit<ObjectSpec, 'properties'> & {
+    properties: Record<string, CustomSpec>;
+};
+
 export interface SpecCustomProps {
+    disabled?: boolean;
+    inputType?: string;
     __schema?: Schema;
 }
 
-export type Spec = DynamicFormSpec | OneOfSpec;
+export type Spec = Exclude<DynamicFormSpec, 'ObjectSpec'> | CustomObjectSpec | OneOfSpec;
 export type CustomSpec = Spec & SpecCustomProps;
-export type FormSpecs = Record<BlockType, CustomSpec>;
+export type BlocksSpec = Record<BlockType, CustomSpec>;
+export type PageSpec = CustomSpec;
+export interface FormSpecs {
+    blocks: BlocksSpec;
+    page: PageSpec;
+}
 
 export interface SchemaParserParams {
     data: Schema;
