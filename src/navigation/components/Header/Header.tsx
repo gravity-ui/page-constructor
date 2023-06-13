@@ -119,7 +119,7 @@ export const Header: React.FC<HeaderProps> = ({data, logo}) => {
 
     useEffect(() => {
         const showBorderOnScroll = () => {
-            if (!withBorder) {
+            if (!showBorder) {
                 setShowBorder(window.scrollY > 0);
             }
         };
