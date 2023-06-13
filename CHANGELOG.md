@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.2.0](https://github.com/gravity-ui/page-constructor/compare/v3.1.2...v3.2.0) (2023-06-13)
+
+
+### Features
+
+* update header and navigation ([#369](https://github.com/gravity-ui/page-constructor/issues/369)) ([7757ec1](https://github.com/gravity-ui/page-constructor/commit/7757ec1b80b20b79c693b28cd3c47a7a44a2987f))
+
 ## [3.1.2](https://github.com/gravity-ui/page-constructor/compare/v3.1.1...v3.1.2) (2023-06-07)
 
 
