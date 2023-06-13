@@ -16,6 +16,8 @@ jobs:
         shell: bash
       - run: npm test
         shell: bash
+      - run: git config user.name gravity-ui-bot
+      - run: git config user.email gravity-ui-bot@github.com
       - name: Npm version
         run: npm version -i prerelease --preid=alpha
         shell: bash
