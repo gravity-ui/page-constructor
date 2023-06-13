@@ -1,8 +1,9 @@
-import React, {useEffect, useMemo} from 'react';
+import React, {Fragment, useEffect, useMemo} from 'react';
 
 import {BlockDecorationProps} from '../../../models';
 import {block} from '../../../utils';
 import AddBlock from '../../components/AddBlock/AddBlock';
+import ControlPanel, {ViewModeItem} from '../../components/ControlPanel/ControlPanel';
 import EditBlock from '../../components/EditBlock/EditBlock';
 import {ErrorBoundary} from '../../components/ErrorBoundary/ErrorBoundary';
 import useFormSpec from '../../hooks/useFormSpec';
@@ -16,6 +17,9 @@ import './Editor.scss';
 const b = block('editor');
 
 export const Editor = ({children, customSchema, onChange, ...rest}: EditorProps) => {
+    const [viewMode, setViewMode] = React.useState(ViewModeItem.Edititng);
+    const isEditingMode = viewMode === ViewModeItem.Edititng;
+
     const {
         content,
         activeBlockIndex,
@@ -25,25 +29,30 @@ export const Editor = ({children, customSchema, onChange, ...rest}: EditorProps)
         onSelect,
         injectEditBlockProps,
     } = useEditorState(rest);
-    const constructorProps = useMemo(
-        () => ({
-            content,
-            custom: addCustomDecorator(
-                [
-                    (props: BlockDecorationProps) => <EditBlock {...injectEditBlockProps(props)} />,
-                    // need errorBoundaryState flag to reset error on content update
-                    (props: BlockDecorationProps) => (
-                        <ErrorBoundary
-                            {...props}
-                            key={`${getBlockId(props)}-${errorBoundaryState}`}
-                        />
-                    ),
-                ],
-                rest.custom,
-            ),
-        }),
-        [injectEditBlockProps, content, errorBoundaryState, rest.custom],
-    );
+    const constructorProps = useMemo(() => {
+        if (isEditingMode) {
+            return {
+                content,
+                custom: addCustomDecorator(
+                    [
+                        (props: BlockDecorationProps) => (
+                            <EditBlock {...injectEditBlockProps(props)} />
+                        ),
+                        // need errorBoundaryState flag to reset error on content update
+                        (props: BlockDecorationProps) => (
+                            <ErrorBoundary
+                                {...props}
+                                key={`${getBlockId(props)}-${errorBoundaryState}`}
+                            />
+                        ),
+                    ],
+                    rest.custom,
+                ),
+            };
+        }
+
+        return {content, custom: rest.custom};
+    }, [injectEditBlockProps, content, errorBoundaryState, rest.custom, isEditingMode]);
     const formSpecs = useFormSpec(customSchema);
 
     useEffect(() => {
@@ -51,19 +60,34 @@ export const Editor = ({children, customSchema, onChange, ...rest}: EditorProps)
     }, [content, onChange]);
 
     return (
-        <div className={b()}>
-            <div className={b('form')}>
-                <Form
-                    content={content}
-                    onChange={onContentUpdate}
-                    activeBlockIndex={activeBlockIndex}
-                    onSelect={onSelect}
-                    spec={formSpecs}
-                />
-            </div>
-            <div className={b('preview')}>
-                <ErrorBoundary key={errorBoundaryState}>{children(constructorProps)}</ErrorBoundary>
-                <AddBlock onAdd={onAdd} className={b('add-button')} />
+        <div className={b({'view-mode': !isEditingMode})}>
+            <ControlPanel
+                viewMode={viewMode}
+                onViewModeChange={setViewMode}
+                className={b('panel')}
+            />
+            <div className={b('container')}>
+                {isEditingMode ? (
+                    <Fragment>
+                        <div className={b('form')}>
+                            <Form
+                                content={content}
+                                onChange={onContentUpdate}
+                                activeBlockIndex={activeBlockIndex}
+                                onSelect={onSelect}
+                                spec={formSpecs}
+                            />
+                        </div>
+                        <div className={b('preview')}>
+                            <ErrorBoundary key={errorBoundaryState}>
+                                {children(constructorProps)}
+                            </ErrorBoundary>
+                            <AddBlock onAdd={onAdd} className={b('add-button')} />
+                        </div>
+                    </Fragment>
+                ) : (
+                    children(constructorProps)
+                )}
             </div>
         </div>
     );
