@@ -13,7 +13,8 @@ const LoadableProps = {
     properties: {
         source: {
             type: 'string',
-            enum: ['events', 'blog', 'services'],
+            // add loadable sources here if you use it in your project
+            // enum: ['my-loadable-source-1', 'my-loadable-source-1'],
         },
         /**
          * @deprecated
@@ -21,10 +22,6 @@ const LoadableProps = {
         minCount: {
             type: 'number',
         },
-        /**
-         * @deprecated Will be moved to params
-         */
-        serviceId: {type: 'number'},
         params: {
             type: 'object',
             patternProperties: {
@@ -34,6 +31,8 @@ const LoadableProps = {
             },
         },
     },
+    // remove it in your custom validator schema if you use loadable
+    disabled: true,
 };
 
 const DisclaimerProps = {

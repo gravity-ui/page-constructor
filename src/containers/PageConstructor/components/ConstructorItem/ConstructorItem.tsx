@@ -3,7 +3,7 @@ import React, {useContext} from 'react';
 import {BlockIdContext} from '../../../../context/blockIdContext';
 import {InnerContext} from '../../../../context/innerContext';
 import {BlockDecoration} from '../../../../customization/BlockDecoration';
-import {ConstructorItem as ConstructorItemType, WithChildren} from '../../../../models';
+import {BlockType, ConstructorItem as ConstructorItemType, WithChildren} from '../../../../models';
 
 export interface ConstructorItemProps {
     data: ConstructorItemType;
@@ -29,7 +29,7 @@ export const ConstructorHeader = ({
     data,
     blockKey,
 }: Pick<ConstructorItemProps, 'data' | 'blockKey'>) => (
-    <BlockDecoration id={data.type}>
+    <BlockDecoration type={data.type as BlockType}>
         <ConstructorItem data={data} key={data.type} blockKey={blockKey} />
     </BlockDecoration>
 );

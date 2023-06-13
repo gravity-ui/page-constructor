@@ -1,0 +1,115 @@
+@import '../../../../styles/variables.scss';
+
+@mixin dynamic-form-custom {
+    --top-level-font-size: var(--yc-text-display-2-font-size);
+    --top-level-line-height: var(--yc-text-display-2-line-height);
+    --block-propery-font-size: var(--yc-text-body-3-font-size);
+    --block-property-line-height: var(--yc-text-body-3-line-height);
+    --nested-property-font-size: var(--yc-text-body-1-font-size);
+    --nested-property-line-height: var(--yc-text-body-1-line-height);
+    --complex-nested-property-font-size: var(--yc-text-body-2-font-size);
+    --complex-nested-property-line-height: var(--yc-text-body-2-line-height);
+
+    --input-min-width: 150px;
+    --property-title-width: 140px;
+
+    // blocks list level definitons
+    --button-height: 48px;
+    --icon-size: 32px;
+    --icon-margin: 42px;
+    --property-font-weight: 500;
+
+    --header-text-size: var(--top-level-font-size);
+    --header-line-height: var(--top-level-line-height);
+    --text-size: var(--top-level-font-size);
+    --line-height: var(--top-level-line-height);
+
+    // block top level properties definitions
+    .df-use-search .df-use-search {
+        --button-height: 32px;
+        --icon-size: 20px;
+        --icon-margin: 30px;
+
+        --header-text-size: var(--block-propery-font-size);
+        --header-line-height: var(--block-property-line-height);
+        --text-size: var(--block-propery-font-size);
+        --line-height: var(--block-property-line-height);
+    }
+
+    // block nested properties level definitons
+    .df-use-search .df-use-search .df-use-search {
+        --button-height: 28px;
+        --icon-size: 16px;
+        --icon-margin: 25px;
+        --property-font-weight: 400;
+
+        --header-text-size: var(--complex-nested-property-font-size);
+        --header-line-height: var(--complex-nested-property-line-height);
+        --text-size: var(--nested-property-font-size);
+        --line-height: var(--nested-property-line-height);
+    }
+
+    .df-row {
+        width: inherit;
+    }
+
+    .df-row__left {
+        width: var(--property-title-width);
+    }
+
+    .df-row__title {
+        font-size: var(--text-size);
+        line-height: var(--line-height);
+        font-weight: var(--property-font-weight);
+        white-space: nowrap;
+    }
+
+    // fix for dynamic form's accordeon nested textareas
+    .df-simple-vertical-accordeon {
+        textarea {
+            min-width: var(--input-min-width);
+            min-height: var(--input-min-width);
+        }
+    }
+
+    .df-simple-vertical-accordeon__header .yc-button {
+        font-size: var(--header-text-size);
+        line-height: var(--header-line-height);
+    }
+
+    .df-simple-vertical-accordeon__header {
+        .yc-button {
+            --yc-button-height: var(--button-height);
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .yc-button__icon-inner > svg {
+                width: var(--icon-size);
+                height: var(--icon-size);
+                color: var(--yc-color-text-hint);
+            }
+
+            .yc-button__icon_side_right ~ .yc-button__text {
+                margin-right: var(--icon-margin);
+            }
+        }
+    }
+
+    .df-simple-vertical-accordeon__body,
+    .df-group-indent > .df-use-search {
+        margin-top: 0;
+        margin-left: 1px;
+
+        padding-top: $indentXXS;
+        padding-left: $indentXS;
+
+        border-left: 1px solid var(--yc-color-line-generic-accent);
+    }
+
+    .g-select,
+    .yc-text-input {
+        width: var(--input-min-width);
+    }
+}

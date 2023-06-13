@@ -40,7 +40,18 @@ export const FilterProps = {
         ...BlockBaseProps,
         ...AnimatableProps,
         ...BlockHeaderProps,
-        allTag: {oneOf: [{type: 'boolean'}, {type: 'string'}]},
+        allTag: {
+            oneOf: [
+                {
+                    type: 'boolean',
+                    optionName: 'auto',
+                },
+                {
+                    type: 'string',
+                    optionName: 'cutom',
+                },
+            ],
+        },
         colSizes: containerSizesObject,
         tags: filteredArray(FilterTagProps),
         items: filteredArray(FilterItemProps),
@@ -52,5 +63,5 @@ export const FilterProps = {
 };
 
 export const FilterBlock = {
-    'filterable-block': FilterProps,
+    'filter-block': FilterProps,
 };

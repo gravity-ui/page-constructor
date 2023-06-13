@@ -4,7 +4,7 @@ import {Plus} from '@gravity-ui/icons';
 import {Popup, TextInput} from '@gravity-ui/uikit';
 
 import {blockMap} from '../../../constructor-items';
-import {Block, BlockType} from '../../../models';
+import {Block, BlockType, ClassNameProps} from '../../../models';
 import {block} from '../../../utils';
 import EditorBlocksData from '../../data';
 
@@ -12,13 +12,13 @@ import './AddBlock.scss';
 
 const b = block('add-block');
 
-export interface AddBlockProps {
+export interface AddBlockProps extends ClassNameProps {
     onAdd: (data: Block) => void;
 }
 
 const sortedBlockNames = Object.keys(blockMap).sort();
 
-const AddBlock = ({onAdd}: PropsWithChildren<AddBlockProps>) => {
+const AddBlock = ({onAdd, className}: PropsWithChildren<AddBlockProps>) => {
     const [isOpened, setIsOpened] = useState(false);
     const [search, setSearch] = useState('');
     const ref = useRef(null);
@@ -33,7 +33,7 @@ const AddBlock = ({onAdd}: PropsWithChildren<AddBlockProps>) => {
     );
 
     return (
-        <div className={b()} ref={ref}>
+        <div className={b(null, className)} ref={ref}>
             <button
                 className={b('button')}
                 onClick={() => {

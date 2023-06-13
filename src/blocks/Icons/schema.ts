@@ -13,6 +13,7 @@ export const IconsProps = {
         size: {
             type: 'string',
             enum: ['s', 'm', 'l'],
+            default: 's',
         },
         items: {
             type: 'array',
@@ -38,5 +39,5 @@ export const IconsProps = {
 };
 
 export const IconsBlock = {
-    'icon-block': IconsProps,
+    'icons-block': IconsProps,
 };

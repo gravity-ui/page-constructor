@@ -33,14 +33,16 @@ export const containerSizesObject = {
 };
 
 export const sliderSizesObject = {
-    anyOf: [
+    oneOf: [
         {
             type: 'object',
             additionalProperties: false,
             properties: sliderSizesArray.reduce((acc, size) => ({...acc, [size]: sizeNumber}), {}),
+            optionName: 'custom',
         },
         {
             type: 'number',
+            optionName: 'constant',
         },
     ],
 };
@@ -106,10 +108,14 @@ export const VideoProps = {
             },
         },
         loop: {
-            anyOf: [
-                LoopProps,
+            oneOf: [
+                {
+                    ...LoopProps,
+                    optionName: 'options',
+                },
                 {
                     type: 'boolean',
+                    optionName: 'enabled',
                 },
             ],
         },
@@ -157,7 +163,16 @@ export const DataLensObjectProps = {
 };
 
 export const DataLensProps = {
-    oneOf: [{type: 'string'}, DataLensObjectProps],
+    oneOf: [
+        {
+            type: 'string',
+            optionName: 'id',
+        },
+        {
+            ...DataLensObjectProps,
+            optionName: 'options',
+        },
+    ],
 };
 
 export const BackgroundProps = {
@@ -214,7 +229,17 @@ export const LinkProps = {
             enum: ['_blank', '_parent', '_top', '_self'],
         },
         analyticsEvents: {
-            anyOf: [AnalyticsEventSchema, {type: 'array', items: AnalyticsEventSchema}],
+            oneOf: [
+                {
+                    ...AnalyticsEventSchema,
+                    optionName: 'single',
+                },
+                {
+                    type: 'array',
+                    items: AnalyticsEventSchema,
+                    optionName: 'list',
+                },
+            ],
         },
     },
 };
@@ -327,9 +352,10 @@ export const ButtonProps = {
         ],
     },
     img: {
-        anyOf: [
+        oneOf: [
             {
                 type: 'string',
+                optionName: 'url',
             },
             {
                 type: 'object',
@@ -348,6 +374,7 @@ export const ButtonProps = {
                         contentType: 'text',
                     },
                 },
+                optionName: 'options',
             },
         ],
     },
@@ -355,9 +382,9 @@ export const ButtonProps = {
      * @deprecated Metrika will be deleted
      */
     metrikaGoals: {
-        anyOf: [
-            {type: 'string'},
-            {type: 'array', items: {type: 'string'}},
+        oneOf: [
+            {type: 'string', optionName: 'single'},
+            {type: 'array', items: {type: 'string'}, optionName: 'list'},
             {
                 type: 'array',
                 items: {
@@ -373,6 +400,7 @@ export const ButtonProps = {
                         },
                     },
                 },
+                optionName: 'list-extended',
             },
         ],
     },
@@ -381,7 +409,10 @@ export const ButtonProps = {
      */
     pixelEvents,
     analyticsEvents: {
-        anyOf: [AnalyticsEventSchema, {type: 'array', items: AnalyticsEventSchema}],
+        oneOf: [
+            {...AnalyticsEventSchema, optionName: 'single'},
+            {type: 'array', items: AnalyticsEventSchema, optionName: 'list'},
+        ],
     },
     target: {
         type: 'string',
@@ -400,10 +431,13 @@ export const MenuProps = {
     },
 };
 
-export function withTheme<T>(value: T) {
+export function withTheme<T extends object>(value: T) {
     return {
         oneOf: [
-            value,
+            {
+                ...value,
+                optionName: 'no theme',
+            },
             {
                 type: 'object',
                 additionalProperties: false,
@@ -415,6 +449,7 @@ export function withTheme<T>(value: T) {
                     }),
                     {},
                 ),
+                optionName: 'themes',
             },
         ],
     };
@@ -496,7 +531,10 @@ export const MediaProps = {
         type: 'string',
     },
     image: {
-        anyOf: [ImageProps, {type: 'array', items: ImageProps}],
+        oneOf: [
+            {...ImageProps, optionName: 'single'},
+            {type: 'array', items: ImageProps, optionName: 'list'},
+        ],
     },
     video: VideoProps,
     youtube: {
@@ -580,10 +618,20 @@ export const CardBase = {
 
 export const BlockHeaderProps = {
     title: {
-        oneOf: [{type: 'string'}, TitleProps],
+        oneOf: [
+            {
+                type: 'string',
+                optionName: 'text',
+            },
+            {
+                ...TitleProps,
+                optionName: 'options',
+            },
+        ],
     },
     description: {
         type: 'string',
         contentType: 'yfm',
+        inputType: 'textarea',
     },
 };

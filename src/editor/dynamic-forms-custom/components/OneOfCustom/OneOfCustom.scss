@@ -1,0 +1,43 @@
+@import '../../../../../styles/variables.scss';
+
+$block: '.#{$ns}one-of-custom';
+
+#{$block} {
+    $df-ns: 'df-';
+    $normalOffset: 20px;
+
+    display: flex;
+    flex-direction: column;
+
+    // redefine dynamic form inner component styles
+    &:last-child {
+        & > .#{$df-ns}group-indent {
+            margin-bottom: 0;
+        }
+    }
+
+    .#{$df-ns}group-indent {
+        all: unset;
+
+        & > .#{$df-ns}use-search {
+            padding-top: 11px;
+            padding-left: $normalOffset;
+            margin-top: 4px;
+            margin-bottom: $normalOffset;
+            margin-left: 5px;
+            border-left: 1px solid var(--yc-color-line-generic-accent);
+
+            &:empty {
+                display: none;
+            }
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+
+            & > .#{$df-ns}simple-vertical-accordeon_view {
+                margin-top: -10px;
+            }
+        }
+    }
+}

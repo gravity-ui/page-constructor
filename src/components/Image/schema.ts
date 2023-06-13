@@ -49,12 +49,15 @@ export const ImageProps = {
         {
             type: 'string',
             pattern: urlPattern,
+            optionName: 'url',
         },
         filteredItem({
             ...ImageObjectProps,
+            optionName: 'options',
         }),
         filteredItem({
             ...ImageDeviceProps,
+            optionName: 'device options',
         }),
     ],
 };

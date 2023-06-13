@@ -38,3 +38,6 @@ export const addBlock = (array: Block[], block: Block, index: number) => {
 export const addEditorProps = (content: PageContent) => {
     return {...content, animated: false};
 };
+
+export const getErrorBoundaryState = (prevState: number) =>
+    prevState === Number.MAX_SAFE_INTEGER ? 0 : prevState + 1;

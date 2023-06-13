@@ -21,7 +21,7 @@ export default function HeaderBreadcrumbs(props: HeaderBreadCrumbsProps) {
 
     return (
         <div className={b({theme}, className)}>
-            {items.map((item) => (
+            {items?.map((item) => (
                 <div className={b('item')} key={item.url}>
                     <a href={item.url} className={b('text')} onClick={onClick}>
                         {item.text}

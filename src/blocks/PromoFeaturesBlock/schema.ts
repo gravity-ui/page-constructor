@@ -13,6 +13,7 @@ export const PromoFeaturesItem = {
         text: {
             type: 'string',
             contentType: 'yfm',
+            inputType: 'textarea',
         },
         theme: {
             enum: ['accent', 'accent-light', 'primary'],

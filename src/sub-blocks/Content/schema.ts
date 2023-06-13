@@ -11,11 +11,22 @@ import {filteredArray} from '../../schema/validators/utils';
 
 export const ContentBase = {
     title: {
-        oneOf: [{type: 'string', contentType: 'text'}, TitleProps],
+        oneOf: [
+            {
+                type: 'string',
+                contentType: 'text',
+                optionName: 'text',
+            },
+            {
+                ...TitleProps,
+                optionName: 'options',
+            },
+        ],
     },
     text: {
         type: 'string',
         contentType: 'yfm',
+        inputType: 'textarea',
     },
     additionalInfo: {
         type: 'string',

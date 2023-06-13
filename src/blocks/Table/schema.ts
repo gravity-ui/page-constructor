@@ -20,8 +20,18 @@ export const TableBlock = {
                         items: {
                             type: 'array',
                             items: {
-                                type: ['string', 'number'],
-                                contentType: 'text',
+                                oneOf: [
+                                    {
+                                        type: 'string',
+                                        contentType: 'text',
+                                        optionName: 'text',
+                                    },
+                                    {
+                                        type: 'number',
+                                        contentType: 'text',
+                                        optionName: 'number',
+                                    },
+                                ],
                             },
                         },
                     },

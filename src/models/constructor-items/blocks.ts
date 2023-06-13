@@ -63,6 +63,7 @@ export interface Childable {
 
 //block props
 export interface BlockBaseProps {
+    type: BlockType;
     index?: number;
     anchor?: AnchorProps;
     visible?: GridColumnSize;
@@ -314,14 +315,19 @@ export interface IconsBlockProps {
     }[];
 }
 
-export interface ContentLayoutBlockProps {
-    properties?: {
-        size?: ContentSize;
-        background?: BackgroundImageProps;
-        centered?: boolean;
-        theme?: ContentTheme;
-        textWidth?: ContentTextSize;
-    };
+interface ContentLayoutBlockParams {
+    size?: ContentSize;
+    background?: BackgroundImageProps;
+    centered?: boolean;
+    theme?: ContentTheme;
+    textWidth?: ContentTextSize;
+}
+
+export interface ContentLayoutBlockProps extends ContentLayoutBlockParams {
+    /**
+     * @deprecated Use params on top level instead
+     */
+    properties?: ContentLayoutBlockParams;
     textContent: ContentBlockProps;
     fileContent?: FileLinkProps[];
 }
