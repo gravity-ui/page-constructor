@@ -1,5 +1,6 @@
 @import '../../../../styles/variables.scss';
 @import '../../../../styles/mixins.scss';
+@import '../../styles/root.scss';
 @import '../../styles/variables.scss';
 @import '../../styles/mixins.scss';
 
@@ -7,8 +8,8 @@ $block: '.#{$ns}editor';
 
 %overflow-container {
     --yc-scrollbar-width: 0;
-    height: 100vh;
-    max-height: 100vh;
+    height: calc(100vh - var(--editor-header-height));
+    max-height: calc(100vh - var(--editor-header-height));
     overflow-y: auto;
 }
 
@@ -44,7 +45,7 @@ $block: '.#{$ns}editor';
 
     &__form {
         flex: 0 0 auto;
-        padding: $indentS;
+        padding: $indentXXXS $indentS $indentS;
         width: $formWidth;
         border-right: $dividerWidth solid var(--yc-color-line-generic);
         overflow-x: auto;
