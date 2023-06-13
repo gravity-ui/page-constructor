@@ -23,10 +23,8 @@ jobs:
         shell: bash
       - run: git config user.name gravity-ui-bot
       - run: git config user.email gravity-ui-bot@github.com
-      - name: Bump version
-        run: npm version ${{ github.event.inputs.packageVersion }} -i prerelease --preid=alpha
-      - name: Commit version
-        run: "git status && git add . && git commit -m 'docs: change package version' && git push "
+      - name: Bump and commit version
+        run: "npm version ${{ github.event.inputs.packageVersion }} -i prerelease --preid=alpha && git status && git add . && git commit -m 'docs: change package version' && git push "
         shell: bash
       - name: Publish version
         run: npm publish --tag alpha --access public
