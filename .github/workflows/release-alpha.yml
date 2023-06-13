@@ -26,9 +26,9 @@ jobs:
       - name: Bump and commit version
         shell: bash
         run: |
-          npm version ${{ github.event.inputs.packageVersion }} -i prerelease --preid=alpha
           git config user.name github-actions
           git config user.email github-actions@github.com
+          npm version ${{ github.event.inputs.packageVersion }} -i prerelease --preid=alpha
           git push
       - name: Publish version
         run: npm publish --tag alpha --access public
