@@ -18,6 +18,7 @@ interface BlockFormProps {
 
 export const BlockForm = memo(
     ({data: {type, ...content}, onChange, onSelect, active, spec: specRaw}: BlockFormProps) => {
+        // get initial values only at first render, then the form manages data
         // eslint-disable-next-line react-hooks/exhaustive-deps
         const initialValues = useMemo(() => ({content}), []);
         const spec = useMemo(

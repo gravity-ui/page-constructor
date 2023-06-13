@@ -20,7 +20,7 @@ import {SpecCustomProps} from '../../parser/types';
 
 import './OneOfCustom.scss';
 
-const b = block('oneof-custom');
+const b = block('one-of-custom');
 
 const ajv = new Ajv({
     $data: true,

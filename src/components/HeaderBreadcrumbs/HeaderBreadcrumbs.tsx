@@ -21,14 +21,13 @@ export default function HeaderBreadcrumbs(props: HeaderBreadCrumbsProps) {
 
     return (
         <div className={b({theme}, className)}>
-            {items &&
-                items.map((item) => (
-                    <div className={b('item')} key={item.url}>
-                        <a href={item.url} className={b('text')} onClick={onClick}>
-                            {item.text}
-                        </a>
-                    </div>
-                ))}
+            {items?.map((item) => (
+                <div className={b('item')} key={item.url}>
+                    <a href={item.url} className={b('text')} onClick={onClick}>
+                        {item.text}
+                    </a>
+                </div>
+            ))}
         </div>
     );
 }
