@@ -25,11 +25,13 @@ jobs:
         shell: bash
       - name: Bump and commit version
         shell: bash
+
         run: |
-          git config user.name github-actions
-          git config user.email github-actions@github.com
+          git remote set-url --push origin https://gravity-ui-bot:$GITHUB_TOKEN@github.com/gravity-ui/page-constructor
           npm version ${{ github.event.inputs.packageVersion }} -i prerelease --preid=alpha
           git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GRAVITY_UI_BOT_GITHUB_TOKEN }}
       - name: Publish version
         run: npm publish --tag alpha --access public
         env:
