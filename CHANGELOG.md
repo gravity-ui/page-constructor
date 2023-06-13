@@ -5,7 +5,8 @@
 
 ### Features
 
-* update header and navigation ([#369](https://github.com/gravity-ui/page-constructor/issues/369)) ([7757ec1](https://github.com/gravity-ui/page-constructor/commit/7757ec1b80b20b79c693b28cd3c47a7a44a2987f))
+* update header offset, remove unnecessary margins ([#369](https://github.com/gravity-ui/page-constructor/issues/369)) ([7757ec1](https://github.com/gravity-ui/page-constructor/commit/7757ec1b80b20b79c693b28cd3c47a7a44a2987f))
+* remove navigation's border by default if scroll top = 0. If you want this border by default, use prop `withBorder: true` im navigation config  
 
 ## [3.1.2](https://github.com/gravity-ui/page-constructor/compare/v3.1.1...v3.1.2) (2023-06-07)
 
