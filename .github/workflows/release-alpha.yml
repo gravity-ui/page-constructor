@@ -13,11 +13,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.GRAVITY_UI_BOT_GITHUB_TOKEN }}
       - uses: actions/setup-node@v1
         with:
           node-version: 14
           registry-url: 'https://registry.npmjs.org'
-          token: ${{ secrets.GRAVITY_UI_BOT_GITHUB_TOKEN }}
       - run: npm ci
         shell: bash
       - run: npm test
