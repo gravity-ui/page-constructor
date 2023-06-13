@@ -27,7 +27,7 @@ jobs:
         shell: bash
         run: |
           git config user.name yuberdysheva
-          git config user.email yuberdisheva@gmail.com
+          git config user.email yuberdysheva@gmail.com
           npm version ${{ github.event.inputs.packageVersion }} -i prerelease --preid=alpha
           git push
         env:
