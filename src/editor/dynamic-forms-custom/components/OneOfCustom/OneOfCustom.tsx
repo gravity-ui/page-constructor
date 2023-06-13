@@ -107,7 +107,7 @@ export const OneOfCustom: React.FC<ObjectIndependentInputProps> = (props) => {
     return (
         <div className={b()}>
             <div>{toggler}</div>
-            {specProperties[oneOfValue] ? (
+            {specProperties[oneOfValue] && (
                 <GroupIndent>
                     <Controller
                         value={getControllerDefautValue(input.value, valueSpecType)}
@@ -118,7 +118,7 @@ export const OneOfCustom: React.FC<ObjectIndependentInputProps> = (props) => {
                         key={`${name}.${oneOfValue}`}
                     />
                 </GroupIndent>
-            ) : null}
+            )}
         </div>
     );
 };
