@@ -2,6 +2,11 @@ name: Release alpha version
 
 on:
   workflow_dispatch:
+    inputs:
+      packageVersion:
+        type: string
+        required: false
+        description: 'Manually version of package, e.g. 3.0.0-alpha.0'
 
 jobs:
   build:
@@ -18,10 +23,12 @@ jobs:
         shell: bash
       - run: git config user.name gravity-ui-bot
       - run: git config user.email gravity-ui-bot@github.com
-      - name: Npm version
-        run: npm version -i prerelease --preid=alpha
+      - name: Bump version
+        run: npm version ${{ github.event.inputs.packageVersion }} -i prerelease --preid=alpha
+      - name: Commit version
+        run: "git add . && git commit -m 'docs: change package version' && git push "
         shell: bash
-      - name: Npm publish
+      - name: Publish version
         run: npm publish --tag alpha --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GRAVITY_UI_BOT_NPM_TOKEN }}
