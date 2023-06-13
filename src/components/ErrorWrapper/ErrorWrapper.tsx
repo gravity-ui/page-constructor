@@ -15,6 +15,7 @@ export interface ErrorWrapperProps extends ClassNameProps {
     isError: boolean;
     buttonText: string;
     children: React.ReactNode;
+    qa?: string;
 }
 
 const ErrorWrapper = ({
@@ -24,12 +25,15 @@ const ErrorWrapper = ({
     handler,
     isError,
     children,
+    qa,
 }: WithChildren<ErrorWrapperProps>) =>
     isError ? (
-        <div className={b(null, className)}>
-            <div className={b('text')}>{text}</div>
+        <div className={b(null, className)} data-qa={qa ? `${qa}-error` : undefined}>
+            <div className={b('text')} data-qa={qa}>
+                {text}
+            </div>
             {handler && (
-                <Button size="s" onClick={handler}>
+                <Button size="s" onClick={handler} qa={qa ? `${qa}-button` : undefined}>
                     {buttonText}
                 </Button>
             )}

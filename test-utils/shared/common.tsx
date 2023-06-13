@@ -8,13 +8,17 @@ type QA = {
 export const testCustomClassName = <T,>({
     component: Component,
     props,
+    options,
 }: {
     component: ElementType;
     props: T & QA;
+    options?: {
+        customQaId?: string;
+    };
 }) => {
     const className = 'custom-class-name';
     render(<Component className={className} {...props} />);
-    const anchor = screen.getByTestId(props.qa);
+    const anchor = screen.getByTestId(options?.customQaId ?? props.qa);
     expect(anchor).toHaveClass(className);
 };
 
