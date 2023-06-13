@@ -17,15 +17,14 @@ jobs:
         with:
           node-version: 14
           registry-url: 'https://registry.npmjs.org'
+          token: ${{ secrets.GRAVITY_UI_BOT_GITHUB_TOKEN }}
       - run: npm ci
         shell: bash
       - run: npm test
         shell: bash
-      - run: git config user.name gravity-ui-bot
-      - run: git config user.email gravity-ui-bot@github.com
       - name: Bump and commit version
-        run: 'npm version ${{ github.event.inputs.packageVersion }} -i prerelease --preid=alpha && git push'
         shell: bash
+        run: 'npm version ${{ github.event.inputs.packageVersion }} -i prerelease --preid=alpha && git push'
       - name: Publish version
         run: npm publish --tag alpha --access public
         env:
