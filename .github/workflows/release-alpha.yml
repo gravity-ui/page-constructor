@@ -25,6 +25,9 @@ jobs:
         shell: bash
       - name: Bump and commit version
         shell: bash
+        uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.GRAVITY_UI_BOT_GITHUB_TOKEN }}
         run: 'npm version ${{ github.event.inputs.packageVersion }} -i prerelease --preid=alpha && git push'
       - name: Publish version
         run: npm publish --tag alpha --access public
