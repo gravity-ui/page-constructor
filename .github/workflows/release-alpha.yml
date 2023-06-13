@@ -26,7 +26,7 @@ jobs:
       - name: Bump version
         run: npm version ${{ github.event.inputs.packageVersion }} -i prerelease --preid=alpha
       - name: Commit version
-        run: "git add . && git commit -m 'docs: change package version' && git push "
+        run: "git status && git add . && git commit -m 'docs: change package version' && git push "
         shell: bash
       - name: Publish version
         run: npm publish --tag alpha --access public
