@@ -28,7 +28,6 @@ jobs:
         run: |
           git config user.name yuberdysheva
           git config user.email yuberdisheva@gmail.com
-          git remote set-url --push origin https://gravity-ui-bot:$GITHUB_TOKEN@github.com/gravity-ui/page-constructor
           npm version ${{ github.event.inputs.packageVersion }} -i prerelease --preid=alpha
           git push
         env:
