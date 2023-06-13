@@ -9,13 +9,33 @@ $block: '.#{$ns}editor';
     --yc-scrollbar-width: 0;
     height: 100vh;
     max-height: 100vh;
-    overflow: auto;
+    overflow-y: auto;
 }
 
 #{$block} {
     $dividerWidth: 12px;
     $formWidth: 400px + $dividerWidth;
-    display: flex;
+
+    position: relative;
+
+    &_view-mode {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__panel {
+        top: 0px;
+        position: sticky;
+        z-index: 2;
+    }
+
+    &__container {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        z-index: 1;
+    }
 
     &__form,
     &__preview {
@@ -27,6 +47,7 @@ $block: '.#{$ns}editor';
         padding: $indentS;
         width: $formWidth;
         border-right: $dividerWidth solid var(--yc-color-line-generic);
+        overflow-x: auto;
     }
 
     &__preview {
