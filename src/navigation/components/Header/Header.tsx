@@ -1,4 +1,6 @@
-import React, {MouseEvent, useCallback, useMemo, useState} from 'react';
+import React, {MouseEvent, useCallback, useEffect, useMemo, useState} from 'react';
+
+import _ from 'lodash';
 
 import Control from '../../../components/Control/Control';
 import OutsideClick from '../../../components/OutsideClick/OutsideClick';
@@ -68,9 +70,10 @@ const isDropdownItem = (item: NavigationItemModel): item is NavigationDropdownIt
     item.type === NavigationItemType.Dropdown;
 
 export const Header: React.FC<HeaderProps> = ({data, logo}) => {
-    const {leftItems, rightItems, iconSize = 20} = data;
+    const {leftItems, rightItems, iconSize = 20, withBorder = false} = data;
     const [isSidebarOpened, setIsSidebarOpened] = useState(false);
-    const [activeItemId, setactiveItemId] = useState<string | undefined>(undefined);
+    const [activeItemId, setActiveItemId] = useState<string | undefined>(undefined);
+    const [showBorder, setShowBorder] = useState(withBorder);
 
     const getNavigationItemWithIconSize = useCallback(
         (item: NavigationItemModel) => {
@@ -99,7 +102,7 @@ export const Header: React.FC<HeaderProps> = ({data, logo}) => {
     );
 
     const onActiveItemChange = useCallback((id?: string) => {
-        setactiveItemId(id);
+        setActiveItemId(id);
     }, []);
 
     const hidePopup = useCallback(() => {
@@ -114,8 +117,19 @@ export const Header: React.FC<HeaderProps> = ({data, logo}) => {
         setIsSidebarOpened(false);
     }, []);
 
+    useEffect(() => {
+        const showBorderOnScroll = () => {
+            if (!showBorder) {
+                setShowBorder(window.scrollY > 0);
+            }
+        };
+
+        window.addEventListener('scroll', _.debounce(showBorderOnScroll, 20), {passive: true});
+        return () => window.removeEventListener('scroll', _.debounce(showBorderOnScroll, 20));
+    });
+
     return (
-        <Grid className={b()}>
+        <Grid className={b({'with-border': showBorder})}>
             <Row>
                 <Col>
                     <header className={b('wrapper')}>
