@@ -1,3 +1,5 @@
 :root {
     --editor-header-height: 48px;
+    --editor-divider-width: 12px;
+    --editor-form-width: calc(400px + var(--editor-divider-width));
 }

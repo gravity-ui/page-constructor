@@ -1,7 +1,6 @@
 import React, {useEffect, useMemo} from 'react';
 
 import {BlockDecorationProps} from '../../../models';
-import {block} from '../../../utils';
 import AddBlock from '../../components/AddBlock/AddBlock';
 import EditBlock from '../../components/EditBlock/EditBlock';
 import {ErrorBoundary} from '../../components/ErrorBoundary/ErrorBoundary';
@@ -11,10 +10,6 @@ import {useEditorState} from '../../store';
 import {EditorProps, ViewModeItem} from '../../types';
 import {addCustomDecorator, getBlockId} from '../../utils';
 import {Form} from '../Form/Form';
-
-import './Editor.scss';
-
-const b = block('editor');
 
 export const Editor = ({children, customSchema, onChange, ...rest}: EditorProps) => {
     const {
@@ -73,7 +68,7 @@ export const Editor = ({children, customSchema, onChange, ...rest}: EditorProps)
             </Layout.Form>
             <Layout.Preview>
                 <ErrorBoundary key={errorBoundaryState}>{children(constructorProps)}</ErrorBoundary>
-                {isEditingMode && <AddBlock onAdd={onAdd} className={b('add-button')} />}
+                {isEditingMode && <AddBlock onAdd={onAdd} />}
             </Layout.Preview>
         </Layout>
     );

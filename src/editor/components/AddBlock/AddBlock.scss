@@ -9,6 +9,13 @@ $block: '.#{$ns}add-block';
     $buttonIconSize: 16px;
     $buttonWidth: 76px;
     $buttonHeight: 40px;
+    $zIndex: 110;
+
+    position: fixed;
+    bottom: $indentM;
+    left: calc(50% + var(--editor-form-width) / 2);
+    transform: translateX(-50%);
+    z-index: $zIndex;
 
     &__button {
         @include reset-button-style();
