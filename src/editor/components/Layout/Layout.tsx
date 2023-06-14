@@ -16,7 +16,7 @@ export interface LayoutProps {
     onModeChange: (mode: ViewModeItem) => void;
 }
 
-export const Layout = ({children, mode, onModeChange}: PropsWithChildren<LayoutProps>) => {
+const Layout = ({children, mode, onModeChange}: PropsWithChildren<LayoutProps>) => {
     const isEditingMode = mode === ViewModeItem.Edititng;
     let form, preview;
 
