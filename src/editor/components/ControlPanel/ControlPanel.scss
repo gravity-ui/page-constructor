@@ -11,6 +11,8 @@ $block: '.#{$ns}control-panel';
     width: 100%;
     height: var(--editor-header-height);
     padding: $indentXXXS $indentS;
+    background-color: var(--yc-color-base-background);
+    border-bottom: 1px solid var(--yc-color-line-generic);
 
     &__icon {
         display: flex;
@@ -30,7 +32,4 @@ $block: '.#{$ns}control-panel';
         display: flex;
         align-items: center;
     }
-
-    color: var(--yc-color-text-inverted-primary);
-    background-color: var(--yc-color-promo-base-asphalt);
 }
