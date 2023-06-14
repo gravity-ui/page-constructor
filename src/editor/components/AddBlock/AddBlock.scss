@@ -13,7 +13,7 @@ $block: '.#{$ns}add-block';
 
     position: fixed;
     bottom: $indentM;
-    left: calc(50% + var(--editor-form-width) / 2);
+    left: calc(50% + var(--editor-left-column-width) / 2);
     transform: translateX(-50%);
     z-index: $zIndex;
 
