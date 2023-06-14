@@ -2,9 +2,8 @@ import React from 'react';
 
 import {ButtonSize} from '@gravity-ui/uikit';
 import {render, screen} from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 
-import {testCustomClassName} from '../../../../test-utils/shared/common';
+import {testCustomClassName, testOnClick} from '../../../../test-utils/shared/common';
 import {ButtonImagePosition, ButtonTheme} from '../../../models';
 import Button, {ButtonProps} from '../Button';
 import {ICON_QA} from '../utils';
@@ -63,14 +62,10 @@ describe('Button', () => {
     });
 
     test('call onClick', async () => {
-        const user = userEvent.setup();
-        const handleOnClick = jest.fn();
-        render(<Button text={buttonProps.text} onClick={handleOnClick} />);
-
-        const button = screen.getByRole('button');
-
-        await user.click(button);
-        expect(handleOnClick).toHaveBeenCalledTimes(1);
+        testOnClick<ButtonProps>({
+            component: Button,
+            props: {text: buttonProps.text, qa},
+        });
     });
 
     test.each(new Array<ButtonSize>('s', 'm', 'l', 'xl'))('render with given "%s" size', (size) => {

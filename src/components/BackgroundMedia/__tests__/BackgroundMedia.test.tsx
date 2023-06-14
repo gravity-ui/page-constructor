@@ -109,10 +109,10 @@ describe('BackgroundMedia', () => {
     test('render image', () => {
         const imageQaAttributes = getQaAttrubutes(
             qaAttributes.mediaImageBackgroundImage,
-            'image-display-source',
+            'image-display-source-compressed',
         );
         render(<BackgroundMedia qa={qaId} image={imageUrl} />);
-        const component = screen.getByTestId(imageQaAttributes.imageDisplaySource);
+        const component = screen.getByTestId(imageQaAttributes.imageDisplaySourceCompressed);
 
         expect(component).toBeInTheDocument();
     });

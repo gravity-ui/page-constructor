@@ -8,7 +8,23 @@ import {ERROR_INPUT_DATA_MESSAGE} from '../constants';
 type CommonTestArgs<T> = {
     component: ElementType;
     props: T & QAProps;
-    options?: {qaId?: string};
+    options?: {qaId?: string; customClassNameProp?: string; role?: string};
+};
+
+const validateInputProps = <T,>(props: CommonTestArgs<T>['props']) => {
+    if (!props.qa) {
+        throw new Error(ERROR_INPUT_DATA_MESSAGE);
+    }
+};
+
+const getComponent = <T,>({props, options}: Omit<CommonTestArgs<T>, 'component'>) => {
+    if (!props.qa) {
+        throw new Error(ERROR_INPUT_DATA_MESSAGE);
+    }
+
+    return options?.role
+        ? screen.getByRole(options.role)
+        : screen.getByTestId(options?.qaId || props.qa);
 };
 
 export const testCustomClassName = <T,>({
@@ -16,25 +32,25 @@ export const testCustomClassName = <T,>({
     props,
     options,
 }: CommonTestArgs<T>) => {
-    if (!props.qa) {
-        throw new Error(ERROR_INPUT_DATA_MESSAGE);
-    }
+    validateInputProps(props);
 
     const className = 'custom-class-name';
-    render(<Component {...props} className={className} />);
-    const anchor = screen.getByTestId(options?.qaId || props.qa);
-    expect(anchor).toHaveClass(className);
+    const classNameProps = {
+        [options?.customClassNameProp || 'className']: className,
+    };
+    render(<Component {...props} {...classNameProps} />);
+    const component = getComponent({props, options});
+
+    expect(component).toHaveClass(className);
 };
 
-export const testCustomStyle = <T,>({component: Component, props}: CommonTestArgs<T>) => {
-    if (!props.qa) {
-        throw new Error(ERROR_INPUT_DATA_MESSAGE);
-    }
+export const testCustomStyle = <T,>({component: Component, props, options}: CommonTestArgs<T>) => {
+    validateInputProps(props);
 
     const style = {color: 'red'};
 
     render(<Component {...props} style={style} />);
-    const component = screen.getByTestId(props.qa);
+    const component = getComponent({props, options});
 
     expect(component).toHaveStyle(style);
 };
@@ -44,14 +60,30 @@ export const testAnimated = async <T,>({
     props,
     options,
 }: CommonTestArgs<T>) => {
-    if (!options?.qaId) {
-        throw new Error(ERROR_INPUT_DATA_MESSAGE);
-    }
+    validateInputProps(props);
 
     const user = userEvent.setup();
     render(<Component animated {...props} />);
-    const component = screen.getByTestId(options?.qaId);
+    const component = getComponent({props, options});
+
     await user.hover(component);
 
     expect(component).toHaveClass('animate');
+};
+
+export const testOnClick = async <T,>({
+    component: Component,
+    props,
+    options,
+}: CommonTestArgs<T>) => {
+    validateInputProps(props);
+
+    const user = userEvent.setup();
+    const handleOnClick = jest.fn();
+    render(<Component {...props} onClick={handleOnClick} />);
+
+    const component = getComponent({props, options});
+
+    await user.click(component);
+    expect(handleOnClick).toHaveBeenCalledTimes(1);
 };

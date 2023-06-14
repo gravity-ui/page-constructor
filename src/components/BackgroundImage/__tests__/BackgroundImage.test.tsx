@@ -3,13 +3,17 @@ import React from 'react';
 import {render, screen} from '@testing-library/react';
 
 import {testCustomClassName, testCustomStyle} from '../../../../test-utils/shared/common';
+import {testSourceProps} from '../../../../test-utils/shared/image';
 import {BackgroundImageProps} from '../../../models';
+import {getQaAttrubutes} from '../../../utils';
 import BackgroundImage from '../BackgroundImage';
 
 const qa = 'background-image-component';
 
 const imageSrc =
     'https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png';
+
+const qaAttributes = getQaAttrubutes(qa, 'image-display-source-compressed');
 
 describe('BackgroundImage', () => {
     test('Render BackgroundImage by default', async () => {
@@ -21,17 +25,19 @@ describe('BackgroundImage', () => {
     });
 
     test('add image as src prop', () => {
-        render(<BackgroundImage src={imageSrc} />);
-        const component = screen.getByRole('img');
-
-        expect(component).toHaveAttribute('src', imageSrc);
+        testSourceProps<BackgroundImageProps>({
+            component: BackgroundImage,
+            props: {src: imageSrc, qa},
+            options: {qaId: qaAttributes.imageDisplaySourceCompressed},
+        });
     });
 
     test('add image as desktop prop', () => {
-        render(<BackgroundImage desktop={imageSrc} />);
-        const component = screen.getByRole('img');
-
-        expect(component).toHaveAttribute('src', imageSrc);
+        testSourceProps<BackgroundImageProps>({
+            component: BackgroundImage,
+            props: {desktop: imageSrc, qa},
+            options: {qaId: qaAttributes.imageDisplaySourceCompressed},
+        });
     });
 
     test('should hide image', () => {

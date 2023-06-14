@@ -16,9 +16,34 @@ export interface ImageProps extends Partial<ImageObjectProps>, Partial<ImageDevi
     containerClassName?: string;
 }
 
+export interface DeviceSpecificFragmentProps extends QAProps {
+    disableWebp: boolean;
+    src: string;
+    breakpoint: 'md' | 'sm';
+}
+
 const checkWebP = (src: string) => {
     return src.endsWith('.webp') ? src : src + '.webp';
 };
+
+const DeviceSpecificFragment = ({
+    disableWebp,
+    src,
+    breakpoint,
+    qa,
+}: DeviceSpecificFragmentProps) => (
+    <Fragment>
+        {!disableWebp && (
+            <source
+                srcSet={checkWebP(src)}
+                type="image/webp"
+                media={`(max-width: ${BREAKPOINTS[breakpoint]}px)`}
+                data-qa={`${qa}-compressed`}
+            />
+        )}
+        <source srcSet={src} media={`(max-width: ${BREAKPOINTS[breakpoint]}px)`} data-qa={qa} />
+    </Fragment>
+);
 
 const Image = (props: ImageProps) => {
     const projectSettings = useContext(ProjectSettingsContext);
@@ -49,7 +74,7 @@ const Image = (props: ImageProps) => {
         'mobile-source',
         'tablet-webp-source',
         'tablet-source',
-        'display-source',
+        'display-source-compressed',
     );
 
     const disableWebp =
@@ -61,44 +86,26 @@ const Image = (props: ImageProps) => {
     return (
         <picture className={containerClassName} data-qa={qa}>
             {mobile && (
-                <Fragment>
-                    {!disableWebp && (
-                        <source
-                            srcSet={checkWebP(mobile)}
-                            type="image/webp"
-                            media={`(max-width: ${BREAKPOINTS.sm}px)`}
-                            data-qa={qaAttributes.mobileWebpSource}
-                        />
-                    )}
-                    <source
-                        srcSet={mobile}
-                        media={`(max-width: ${BREAKPOINTS.sm}px)`}
-                        data-qa={qaAttributes.mobileSource}
-                    />
-                </Fragment>
+                <DeviceSpecificFragment
+                    src={mobile}
+                    disableWebp={disableWebp}
+                    breakpoint="sm"
+                    qa={qaAttributes.mobileSource}
+                />
             )}
             {tablet && (
-                <Fragment>
-                    {!disableWebp && (
-                        <source
-                            srcSet={checkWebP(tablet)}
-                            type="image/webp"
-                            media={`(max-width: ${BREAKPOINTS.md}px)`}
-                            data-qa={qaAttributes.tabletWebpSource}
-                        />
-                    )}
-                    <source
-                        srcSet={tablet}
-                        media={`(max-width: ${BREAKPOINTS.md}px)`}
-                        data-qa={qaAttributes.tabletSource}
-                    />
-                </Fragment>
+                <DeviceSpecificFragment
+                    src={tablet}
+                    disableWebp={disableWebp}
+                    breakpoint="md"
+                    qa={qaAttributes.tabletSource}
+                />
             )}
             {src && !disableWebp && (
                 <source
                     srcSet={checkWebP(src)}
                     type="image/webp"
-                    data-qa={qaAttributes.displaySource}
+                    data-qa={qaAttributes.displaySourceCompressed}
                 />
             )}
             <ImageBase
