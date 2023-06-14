@@ -1,6 +1,6 @@
 import {omit} from 'lodash';
 
-import {ImageProps, urlPattern} from '../components/Image/schema';
+import {ImageProps, imageUrlPattern} from '../components/Image/schema';
 import {ButtonProps} from '../schema/validators/common';
 import {filteredArray} from '../schema/validators/utils';
 
@@ -35,7 +35,7 @@ const NavigationItemBaseProps = {
     },
     icon: {
         type: 'string',
-        pattern: urlPattern,
+        pattern: imageUrlPattern,
     },
     iconSize: {
         type: 'number',
