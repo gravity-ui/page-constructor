@@ -5,6 +5,7 @@ import {RadioButton} from '@gravity-ui/uikit';
 
 import {ClassNameProps} from '../../../models';
 import {block} from '../../../utils';
+import {ViewModeItem} from '../../types';
 
 import i18n from './i18n';
 
@@ -13,11 +14,6 @@ const ICON_SIZE = 14;
 import './ControlPanel.scss';
 
 const b = block('control-panel');
-
-export enum ViewModeItem {
-    Edititng = 'editing',
-    View = 'view',
-}
 
 const ControlPanelViewModeIcons = {
     [ViewModeItem.Edititng]: Pencil,
