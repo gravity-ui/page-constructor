@@ -1,0 +1,56 @@
+@import '../../../../styles/variables.scss';
+@import '../../../../styles/mixins.scss';
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+$block: '.#{$ns}editor-layout';
+
+%overflow-container {
+    --yc-scrollbar-width: 0;
+    height: calc(100vh - var(--editor-header-height));
+    max-height: calc(100vh - var(--editor-header-height));
+    overflow-y: auto;
+}
+
+#{$block} {
+    $dividerWidth: 12px;
+    $formWidth: 400px + $dividerWidth;
+
+    position: relative;
+
+    &_view-mode {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__panel {
+        top: 0;
+        position: sticky;
+        z-index: 2;
+    }
+
+    &__container {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        z-index: 1;
+    }
+
+    &__form,
+    &__preview {
+        @extend %overflow-container;
+    }
+
+    &__form {
+        flex: 0 0 auto;
+        padding: $indentXXXS $indentS $indentS;
+        width: $formWidth;
+        border-right: $dividerWidth solid var(--yc-color-line-generic);
+        overflow-x: auto;
+    }
+
+    &__preview {
+        width: 100%;
+    }
+}

@@ -1,14 +1,14 @@
-import React, {Fragment, useEffect, useMemo} from 'react';
+import React, {useEffect, useMemo} from 'react';
 
 import {BlockDecorationProps} from '../../../models';
 import {block} from '../../../utils';
 import AddBlock from '../../components/AddBlock/AddBlock';
-import ControlPanel, {ViewModeItem} from '../../components/ControlPanel/ControlPanel';
 import EditBlock from '../../components/EditBlock/EditBlock';
 import {ErrorBoundary} from '../../components/ErrorBoundary/ErrorBoundary';
+import Layout from '../../components/Layout/Layout';
 import useFormSpec from '../../hooks/useFormSpec';
 import {useEditorState} from '../../store';
-import {EditorProps} from '../../types';
+import {EditorProps, ViewModeItem} from '../../types';
 import {addCustomDecorator, getBlockId} from '../../utils';
 import {Form} from '../Form/Form';
 
@@ -17,18 +17,18 @@ import './Editor.scss';
 const b = block('editor');
 
 export const Editor = ({children, customSchema, onChange, ...rest}: EditorProps) => {
-    const [viewMode, setViewMode] = React.useState(ViewModeItem.Edititng);
-    const isEditingMode = viewMode === ViewModeItem.Edititng;
-
     const {
         content,
         activeBlockIndex,
         errorBoundaryState,
+        viewMode,
         onContentUpdate,
+        onViewModeUpdate,
         onAdd,
         onSelect,
         injectEditBlockProps,
     } = useEditorState(rest);
+    const isEditingMode = viewMode === ViewModeItem.Edititng;
     const constructorProps = useMemo(() => {
         if (isEditingMode) {
             return {
@@ -52,43 +52,29 @@ export const Editor = ({children, customSchema, onChange, ...rest}: EditorProps)
         }
 
         return {content, custom: rest.custom};
-    }, [injectEditBlockProps, content, errorBoundaryState, rest.custom, isEditingMode]);
-    const formSpecs = useFormSpec(customSchema);
+    }, [injectEditBlockProps, content, errorBoundaryState, isEditingMode, rest.custom]);
 
     useEffect(() => {
         onChange?.(content);
     }, [content, onChange]);
 
+    const formSpecs = useFormSpec(customSchema);
+
     return (
-        <div className={b({'view-mode': !isEditingMode})}>
-            <ControlPanel
-                viewMode={viewMode}
-                onViewModeChange={setViewMode}
-                className={b('panel')}
-            />
-            <div className={b('container')}>
-                {isEditingMode ? (
-                    <Fragment>
-                        <div className={b('form')}>
-                            <Form
-                                content={content}
-                                onChange={onContentUpdate}
-                                activeBlockIndex={activeBlockIndex}
-                                onSelect={onSelect}
-                                spec={formSpecs}
-                            />
-                        </div>
-                        <div className={b('preview')}>
-                            <ErrorBoundary key={errorBoundaryState}>
-                                {children(constructorProps)}
-                            </ErrorBoundary>
-                            <AddBlock onAdd={onAdd} className={b('add-button')} />
-                        </div>
-                    </Fragment>
-                ) : (
-                    children(constructorProps)
-                )}
-            </div>
-        </div>
+        <Layout mode={viewMode} onModeChange={onViewModeUpdate}>
+            <Layout.Form>
+                <Form
+                    content={content}
+                    onChange={onContentUpdate}
+                    activeBlockIndex={activeBlockIndex}
+                    onSelect={onSelect}
+                    spec={formSpecs}
+                />
+            </Layout.Form>
+            <Layout.Preview>
+                <ErrorBoundary key={errorBoundaryState}>{children(constructorProps)}</ErrorBoundary>
+                {isEditingMode && <AddBlock onAdd={onAdd} className={b('add-button')} />}
+            </Layout.Preview>
+        </Layout>
     );
 };

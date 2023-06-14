@@ -22,3 +22,8 @@ export interface EditBlockEditorProps {
 export interface EditBlockProps extends EditBlockEditorProps, BlockDecorationProps {
     isHeader?: boolean;
 }
+
+export enum ViewModeItem {
+    Edititng = 'editing',
+    View = 'view',
+}

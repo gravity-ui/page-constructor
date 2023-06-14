@@ -1,4 +1,5 @@
 import {Block, PageContent} from '../../models';
+import {ViewModeItem} from '../types';
 
 import {addBlock, changeBlocksOrder, duplicateBlock, getErrorBoundaryState} from './utils';
 
@@ -8,6 +9,7 @@ interface EditorState {
     content: PageContent;
     activeBlockIndex: number;
     errorBoundaryState: number;
+    viewMode: ViewModeItem;
 }
 
 interface OrderBlockParams {
@@ -28,6 +30,7 @@ export const ADD_BLOCK = 'ADD_BLOCK';
 export const SET_REGION = 'SET_REGION';
 export const ORDER_BLOCK = 'ORDER_BLOCK';
 export const UPDATE_CONTENT = 'UPDATE_CONTENT';
+export const UPDATE_VIEW_MODE = 'UPDATE_VIEW_MODE';
 
 interface SelectBlock {
     type: typeof SELECT_BLOCK;
@@ -59,13 +62,19 @@ interface UpdateContent {
     payload: PageContent;
 }
 
+interface UpdateViewMode {
+    type: typeof UPDATE_VIEW_MODE;
+    payload: ViewModeItem;
+}
+
 export type EditorAction =
     | SelectBlock
     | DeleteBlock
     | CopyBlock
     | AddBlock
     | OrderBlock
-    | UpdateContent;
+    | UpdateContent
+    | UpdateViewMode;
 
 // reducer
 export const reducer = (state: EditorState, action: EditorAction): EditorState => {
@@ -114,6 +123,11 @@ export const reducer = (state: EditorState, action: EditorAction): EditorState =
 
             return getNewState(changeBlocksOrder(content.blocks, oldIndex, newIndex), newIndex);
         }
+        case UPDATE_VIEW_MODE:
+            return {
+                ...state,
+                viewMode: action.payload,
+            };
         default:
             return state;
     }
