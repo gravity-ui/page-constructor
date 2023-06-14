@@ -8,8 +8,8 @@ import './Layout.scss';
 
 const b = block('editor-layout');
 
-const Form: React.FC<PropsWithChildren> = () => null;
-const Preview: React.FC<PropsWithChildren> = () => null;
+const Left: React.FC<PropsWithChildren> = () => null;
+const Right: React.FC<PropsWithChildren> = () => null;
 
 export interface LayoutProps {
     mode: ViewModeItem;
@@ -17,16 +17,15 @@ export interface LayoutProps {
 }
 
 const Layout = ({children, mode, onModeChange}: PropsWithChildren<LayoutProps>) => {
-    const isEditingMode = mode === ViewModeItem.Edititng;
-    let form, preview;
+    let left, right;
 
     function handleChild(child: ReactElement) {
-        switch (child.type) {
-            case Form:
-                form = child.props.children;
+        switch (child?.type) {
+            case Left:
+                left = child?.props.children;
                 break;
-            case Preview:
-                preview = child.props.children;
+            case Right:
+                right = child?.props.children;
                 break;
         }
     }
@@ -36,23 +35,19 @@ const Layout = ({children, mode, onModeChange}: PropsWithChildren<LayoutProps>) 
     }
 
     return (
-        <div className={b({'view-mode': !isEditingMode})}>
+        <div className={b()}>
             <ControlPanel viewMode={mode} onViewModeChange={onModeChange} className={b('panel')} />
             <div className={b('container')}>
-                {isEditingMode ? (
-                    <Fragment>
-                        <div className={b('form')}>{form}</div>
-                        <div className={b('preview')}>{preview}</div>
-                    </Fragment>
-                ) : (
-                    preview
-                )}
+                <Fragment>
+                    {left && <div className={b('left')}>{left}</div>}
+                    {right && <div className={b('right')}>{right}</div>}
+                </Fragment>
             </div>
         </div>
     );
 };
 
-Layout.Form = Form;
-Layout.Preview = Preview;
+Layout.Left = Left;
+Layout.Right = Right;
 
 export default Layout;

@@ -16,12 +16,6 @@ $block: '.#{$ns}editor-layout';
 #{$block} {
     position: relative;
 
-    &_view-mode {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
     &__panel {
         top: 0;
         position: sticky;
@@ -35,20 +29,16 @@ $block: '.#{$ns}editor-layout';
         z-index: 1;
     }
 
-    &__form,
-    &__preview {
+    &__left,
+    &__right {
         @extend %overflow-container;
     }
 
-    &__form {
+    &__left {
         flex: 0 0 auto;
         padding: $indentXXXS $indentS $indentS;
-        width: var(--editor-form-width);
+        width: var(--editor-left-column-width);
         border-right: var(--editor-divider-width) solid var(--yc-color-line-generic);
         overflow-x: auto;
-    }
-
-    &__preview {
-        width: 100%;
     }
 }

@@ -57,19 +57,21 @@ export const Editor = ({children, customSchema, onChange, ...rest}: EditorProps)
 
     return (
         <Layout mode={viewMode} onModeChange={onViewModeUpdate}>
-            <Layout.Form>
-                <Form
-                    content={content}
-                    onChange={onContentUpdate}
-                    activeBlockIndex={activeBlockIndex}
-                    onSelect={onSelect}
-                    spec={formSpecs}
-                />
-            </Layout.Form>
-            <Layout.Preview>
+            {isEditingMode && (
+                <Layout.Left>
+                    <Form
+                        content={content}
+                        onChange={onContentUpdate}
+                        activeBlockIndex={activeBlockIndex}
+                        onSelect={onSelect}
+                        spec={formSpecs}
+                    />
+                </Layout.Left>
+            )}
+            <Layout.Right>
                 <ErrorBoundary key={errorBoundaryState}>{children(constructorProps)}</ErrorBoundary>
                 {isEditingMode && <AddBlock onAdd={onAdd} />}
-            </Layout.Preview>
+            </Layout.Right>
         </Layout>
     );
 };
