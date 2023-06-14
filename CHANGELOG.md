@@ -1,5 +1,17 @@
 # Changelog
 
+## [3.3.0](https://github.com/gravity-ui/page-constructor/compare/v3.2.0...v3.3.0) (2023-06-14)
+
+
+### Features
+
+* add editor forms ([#393](https://github.com/gravity-ui/page-constructor/issues/393)) ([94fd2b2](https://github.com/gravity-ui/page-constructor/commit/94fd2b2f0f5a93d7e775be5c758a62aeecd56e8e))
+
+
+### Bug Fixes
+
+* **Video:** fix schema validator ([#395](https://github.com/gravity-ui/page-constructor/issues/395)) ([0571d27](https://github.com/gravity-ui/page-constructor/commit/0571d277d902c59e546647d42c0620f8a4feb827))
+
 ## [3.2.0](https://github.com/gravity-ui/page-constructor/compare/v3.1.2...v3.2.0) (2023-06-13)
 
 
