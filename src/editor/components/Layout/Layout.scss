@@ -1,5 +1,6 @@
 @import '../../../../styles/variables.scss';
 @import '../../../../styles/mixins.scss';
+@import '../../styles/root.scss';
 @import '../../styles/variables.scss';
 @import '../../styles/mixins.scss';
 
@@ -13,9 +14,6 @@ $block: '.#{$ns}editor-layout';
 }
 
 #{$block} {
-    $dividerWidth: 12px;
-    $formWidth: 400px + $dividerWidth;
-
     position: relative;
 
     &_view-mode {
@@ -45,8 +43,8 @@ $block: '.#{$ns}editor-layout';
     &__form {
         flex: 0 0 auto;
         padding: $indentXXXS $indentS $indentS;
-        width: $formWidth;
-        border-right: $dividerWidth solid var(--yc-color-line-generic);
+        width: var(--editor-form-width);
+        border-right: var(--editor-divider-width) solid var(--yc-color-line-generic);
         overflow-x: auto;
     }
 
