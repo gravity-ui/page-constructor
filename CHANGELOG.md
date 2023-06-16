@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.4.0](https://github.com/gravity-ui/page-constructor/compare/v3.3.0...v3.4.0) (2023-06-16)
+
+
+### Features
+
+* add editor mode switch  ([#404](https://github.com/gravity-ui/page-constructor/issues/404)) ([118a369](https://github.com/gravity-ui/page-constructor/commit/118a3694459479c240ca9829c6194c1185cad4a4))
+
 ## [3.3.0](https://github.com/gravity-ui/page-constructor/compare/v3.2.0...v3.3.0) (2023-06-14)
 
 
