@@ -63,8 +63,8 @@ task('copy-js-declarations', () => {
         .pipe(dest(path.resolve(BUILD_CLIENT_DIR, CJS_DIR)));
 });
 
-task('copy-i18n', () => {
-    return src(['src/**/i18n/*.json'])
+task('copy-json', () => {
+    return src(['src/**/i18n/*.json', `src/**/templates/*.json`])
         .pipe(dest(path.resolve(BUILD_CLIENT_DIR, ESM_DIR)))
         .pipe(dest(path.resolve(BUILD_CLIENT_DIR, CJS_DIR)));
 });
@@ -86,7 +86,7 @@ task(
         'clean',
         parallel(['compile-to-esm', 'compile-to-cjs']),
         'copy-js-declarations',
-        'copy-i18n',
+        'copy-json',
         parallel(['styles-global', 'styles-components']),
     ]),
 );
