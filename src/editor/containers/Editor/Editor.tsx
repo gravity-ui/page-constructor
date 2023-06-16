@@ -25,28 +25,24 @@ export const Editor = ({children, customSchema, onChange, ...rest}: EditorProps)
     } = useEditorState(rest);
     const isEditingMode = viewMode === ViewModeItem.Edititng;
     const constructorProps = useMemo(() => {
-        if (isEditingMode) {
-            return {
-                content,
-                custom: addCustomDecorator(
-                    [
-                        (props: BlockDecorationProps) => (
-                            <EditBlock {...injectEditBlockProps(props)} />
-                        ),
-                        // need errorBoundaryState flag to reset error on content update
-                        (props: BlockDecorationProps) => (
-                            <ErrorBoundary
-                                {...props}
-                                key={`${getBlockId(props)}-${errorBoundaryState}`}
-                            />
-                        ),
-                    ],
-                    rest.custom,
-                ),
-            };
-        }
-
-        return {content, custom: rest.custom};
+        const custom = isEditingMode
+            ? addCustomDecorator(
+                  [
+                      (props: BlockDecorationProps) => (
+                          <EditBlock {...injectEditBlockProps(props)} />
+                      ),
+                      // need errorBoundaryState flag to reset error on content update
+                      (props: BlockDecorationProps) => (
+                          <ErrorBoundary
+                              {...props}
+                              key={`${getBlockId(props)}-${errorBoundaryState}`}
+                          />
+                      ),
+                  ],
+                  rest.custom,
+              )
+            : rest.custom;
+        return {content, custom};
     }, [injectEditBlockProps, content, errorBoundaryState, isEditingMode, rest.custom]);
 
     useEffect(() => {

@@ -29,29 +29,27 @@ const ControlPanel = ({
     viewMode = ViewModeItem.Edititng,
     onViewModeChange,
     className,
-}: ControlPanelProps) => {
-    return (
-        <div className={b(null, className)}>
-            <div className={b('mode-switch')}>
-                <span>{i18n('mode')}</span>
-                <RadioButton
-                    className={b('radio-button')}
-                    value={viewMode}
-                    onUpdate={(value) => onViewModeChange(value as ViewModeItem)}
-                >
-                    {Object.values(ViewModeItem).map((item) => {
-                        const Icon = ControlPanelViewModeIcons[item];
+}: ControlPanelProps) => (
+    <div className={b(null, className)}>
+        <div className={b('mode-switch')}>
+            <span>{i18n('mode')}</span>
+            <RadioButton
+                className={b('radio-button')}
+                value={viewMode}
+                onUpdate={(value) => onViewModeChange(value as ViewModeItem)}
+            >
+                {Object.values(ViewModeItem).map((item) => {
+                    const Icon = ControlPanelViewModeIcons[item];
 
-                        return (
-                            <RadioButton.Option key={item} value={item}>
-                                <Icon className={b('icon')} width={ICON_SIZE} height={ICON_SIZE} />
-                            </RadioButton.Option>
-                        );
-                    })}
-                </RadioButton>
-            </div>
+                    return (
+                        <RadioButton.Option key={item} value={item}>
+                            <Icon className={b('icon')} width={ICON_SIZE} height={ICON_SIZE} />
+                        </RadioButton.Option>
+                    );
+                })}
+            </RadioButton>
         </div>
-    );
-};
+    </div>
+);
 
 export default ControlPanel;

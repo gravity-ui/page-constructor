@@ -7,7 +7,7 @@ import {Form as FinalForm, FormSpy} from 'react-final-form';
 import {Block} from '../../../models';
 import {dynamicConfig} from '../../dynamic-forms-custom/config';
 import {CustomSpec} from '../../dynamic-forms-custom/parser/types';
-import usePrevious from '../../hooks/usePrevious';
+import usePreviousValue from '../../hooks/usePreviousValue';
 
 interface BlockFormProps {
     data: Block;
@@ -22,7 +22,7 @@ export const BlockForm = memo(
         // get initial values only at first render, then the form manages data
         // eslint-disable-next-line react-hooks/exhaustive-deps
         const initialValues = useMemo(() => ({content}), []);
-        const prevContent = usePrevious(content);
+        const prevContent = usePreviousValue(content);
         const spec = useMemo(
             () => ({
                 ...specRaw,
