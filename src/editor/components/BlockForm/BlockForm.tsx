@@ -7,6 +7,7 @@ import {Form as FinalForm, FormSpy} from 'react-final-form';
 import {Block} from '../../../models';
 import {dynamicConfig} from '../../dynamic-forms-custom/config';
 import {CustomSpec} from '../../dynamic-forms-custom/parser/types';
+import usePreviousValue from '../../hooks/usePreviousValue';
 
 interface BlockFormProps {
     data: Block;
@@ -21,6 +22,7 @@ export const BlockForm = memo(
         // get initial values only at first render, then the form manages data
         // eslint-disable-next-line react-hooks/exhaustive-deps
         const initialValues = useMemo(() => ({content}), []);
+        const prevContent = usePreviousValue(content);
         const spec = useMemo(
             () => ({
                 ...specRaw,
@@ -43,7 +45,12 @@ export const BlockForm = memo(
                         }}
                     >
                         <FormSpy
-                            onChange={({values}) => onChange({type, ...values.content})}
+                            onChange={({values}) => {
+                                // fix for FormSpy onChange called twice without content changes
+                                if (!_.isEqual(values.content, prevContent)) {
+                                    onChange({type, ...values.content});
+                                }
+                            }}
                             subscription={{values: true}}
                         />
                         <DynamicField

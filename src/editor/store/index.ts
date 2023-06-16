@@ -3,7 +3,7 @@ import {useMemo, useReducer} from 'react';
 import {Block, BlockDecorationProps, HeaderBlockTypes, PageContent} from '../../models';
 import {getCustomHeaderTypes, getHeaderBlock} from '../../utils';
 import {EditBlockActions, EditBlockControls} from '../components/EditBlock/EditBlock';
-import {EditBlockProps, EditorProps} from '../types';
+import {EditBlockProps, EditorProps, ViewModeItem} from '../types';
 
 import {
     ADD_BLOCK,
@@ -12,6 +12,7 @@ import {
     ORDER_BLOCK,
     SELECT_BLOCK,
     UPDATE_CONTENT,
+    UPDATE_VIEW_MODE,
     reducer,
 } from './reducer';
 import {addEditorProps} from './utils';
@@ -19,11 +20,15 @@ import {addEditorProps} from './utils';
 export type EditorBlockId = number | string;
 
 export function useEditorState({content: intialContent, custom}: Omit<EditorProps, 'children'>) {
-    const [{activeBlockIndex, content, errorBoundaryState}, dispatch] = useReducer(reducer, {
-        activeBlockIndex: 0,
-        errorBoundaryState: 0,
-        content: addEditorProps(intialContent),
-    });
+    const [{activeBlockIndex, content, errorBoundaryState, viewMode}, dispatch] = useReducer(
+        reducer,
+        {
+            activeBlockIndex: 0,
+            errorBoundaryState: 0,
+            content: addEditorProps(intialContent),
+            viewMode: ViewModeItem.Edititng,
+        },
+    );
 
     return useMemo(() => {
         const headerBlockTypes = [...HeaderBlockTypes, ...getCustomHeaderTypes(custom)];
@@ -50,6 +55,8 @@ export function useEditorState({content: intialContent, custom}: Omit<EditorProp
         const onSelect = (index: number) => dispatch({type: SELECT_BLOCK, payload: index});
         const onContentUpdate = (newContent: PageContent) =>
             dispatch({type: UPDATE_CONTENT, payload: newContent});
+        const onViewModeUpdate = (newViewMode: ViewModeItem) =>
+            dispatch({type: UPDATE_VIEW_MODE, payload: newViewMode});
 
         const injectEditBlockProps = ({
             type,
@@ -98,10 +105,12 @@ export function useEditorState({content: intialContent, custom}: Omit<EditorProp
             activeBlockIndex,
             content,
             errorBoundaryState,
+            viewMode,
             injectEditBlockProps,
             onAdd,
             onSelect,
             onContentUpdate,
+            onViewModeUpdate,
         };
-    }, [content, activeBlockIndex, errorBoundaryState, custom]);
+    }, [content, activeBlockIndex, errorBoundaryState, custom, viewMode]);
 }

@@ -1,0 +1,35 @@
+@import '../../../../styles/variables.scss';
+@import '../../../../styles/mixins.scss';
+@import '../../styles/mixins.scss';
+@import '../../styles/variables.scss';
+
+$block: '.#{$ns}control-panel';
+
+#{$block} {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: var(--editor-header-height);
+    padding: $indentXXXS $indentS;
+    background-color: var(--yc-color-base-background);
+    border-bottom: 1px solid var(--yc-color-line-generic);
+
+    &__icon {
+        display: flex;
+        align-items: center;
+    }
+
+    &__radio-button {
+        margin-left: $indentXXS;
+        //align for icons in radio buttons
+        .yc-radio-button__option {
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    &__mode-switch {
+        display: flex;
+        align-items: center;
+    }
+}
