@@ -43,7 +43,9 @@ const ControlPanel = ({
 
                     return (
                         <RadioButton.Option key={item} value={item}>
-                            <Icon className={b('icon')} width={ICON_SIZE} height={ICON_SIZE} />
+                            <span className={b('icon')}>
+                                <Icon width={ICON_SIZE} height={ICON_SIZE} />
+                            </span>
                         </RadioButton.Option>
                     );
                 })}

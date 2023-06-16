@@ -41,4 +41,8 @@ $block: '.#{$ns}editor-layout';
         border-right: var(--editor-divider-width) solid var(--yc-color-line-generic);
         overflow-x: auto;
     }
+
+    &__right {
+        width: 100%;
+    }
 }
