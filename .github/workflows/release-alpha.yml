@@ -3,10 +3,17 @@ name: Release alpha version
 on:
   workflow_dispatch:
     inputs:
-      packageVersion:
+      manualPackageVersion:
         type: string
         required: false
         description: 'Manually version of package, e.g. 3.0.0-alpha.0'
+      prereleaseType:
+        type: choice
+        description: 'You can chose which one prerelease do you want (prepatch | preminor). Default value is prepatch. You have to set it on time. Do not set up anything here if you want to increase only version after `alpha` '
+        required: false
+        options:
+          - 'prepatch'
+          - 'preminor'
 
 jobs:
   build:
@@ -27,12 +34,16 @@ jobs:
           git config --local user.email "111915794+gravity-ui-bot@users.noreply.github.com"
           git config --local user.name "gravity-ui-bot"
 
-          echo ${{ github.event.inputs.packageVersion }}
+          echo ${{ github.event.inputs.manualPackageVersion }}
+          echo ${{ github.event.inputs.prereleaseType }}
 
-          if [ "${{ github.event.inputs.packageVersion }}" == "" ]; then
-            npm version prerelease --preid=alpha
+          if [ "${{ github.event.inputs.manualPackageVersion }}" == "" ]; then
+            if [ "${{ github.event.inputs.prereleaseType }}" == "" ]; then
+              npm version ${{ github.event.inputs.prereleaseType }} --preid=alpha
+            else
+              npm version 
           else
-            npm version ${{ github.event.inputs.packageVersion }}
+            npm version ${{ github.event.inputs.manualPackageVersion }}
           fi
 
       - name: Extract branch name
