@@ -1,5 +1,17 @@
 # Changelog
 
+## [3.5.0](https://github.com/gravity-ui/page-constructor/compare/v3.4.0...v3.5.0) (2023-06-19)
+
+
+### Features
+
+* add subpath exports and fix editor form deps ([#407](https://github.com/gravity-ui/page-constructor/issues/407)) ([90ed4b5](https://github.com/gravity-ui/page-constructor/commit/90ed4b51fc30f4a2c25d9bb49bb035f9479f6736))
+
+
+### Bug Fixes
+
+* control panel icons and layout ([#406](https://github.com/gravity-ui/page-constructor/issues/406)) ([e1ecadd](https://github.com/gravity-ui/page-constructor/commit/e1ecadd4b9738e19f8eff3bf5e8e51fea4eca658))
+
 ## [3.4.0](https://github.com/gravity-ui/page-constructor/compare/v3.3.0...v3.4.0) (2023-06-16)
 
 
