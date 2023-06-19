@@ -332,10 +332,9 @@ If you want to release alpha version of the package from your branch you can do 
 1. Go to tab Actions
 2. Select workflow "Release alpha version" on the left page's side
 3. You can see on the right side the button "Run workflow". Here you can choose the branch.
-4. Field with manually version. In most cases you don't need this field. Your version will set automatically. This field is needed if you have any trouble with release^ e.g. if someone already released this version and your previous action failed. Here you can also set not only prefix `alpha` but any other prefix if you want.
-5. Field with types of version (prepatch | preminor). Default value is empty. You can use for the first time to update package version properly. Do not set up anything here if you want to increase version only after `alpha`.
-6. Push "Run workflow" and wait until the action will finish. You can release versions as many as you want but do not abuse it and release versions if you really need it. In other cases use [npm pack](https://docs.npmjs.com/cli/v7/commands/npm-pack).
-7. When your version is ready, you have to squash and merge your PR and set the new name of commit as `feat:` or `fix` and robot will create PR with the correct version.
+4. Field with manually version. In most cases you don't need this field. Your version will set automatically. This field is needed if you have any trouble with release^ e.g. if someone already released this version and your previous action failed.
+5. Push "Run workflow" and wait until the action will finish. You can release versions as many as you want but do not abuse it and release versions if you really need it. In other cases use [npm pack](https://docs.npmjs.com/cli/v7/commands/npm-pack).
+6. When your version is ready, you have to squash and merge your PR and set the new name of commit as `feat:` or `fix` and robot will create PR with the correct version.
    1. If you have the version `3.1.1-alpha.5` and set commit as `fix: ...` you will get the version `3.1.1`.
    2. If you have the version `3.2.0-alpha.5` and set commit as `feat: ...` you will get the version `3.2.0`.
    3. If you have the version `3.2.3-alpha.5` and set commit as `feat: ...` you will get the version `3.3.0`.

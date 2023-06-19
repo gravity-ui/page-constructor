@@ -7,15 +7,6 @@ on:
         type: string
         required: false
         description: 'Manually version of package, e.g. 3.0.0-alpha.0'
-      prereleaseType:
-        type: choice
-        description: 'You can chose which one prerelease do you want (prepatch | preminor). Default value is prepatch. You have to set it on time. Do not set up anything here if you want to increase only version after `alpha` '
-        required: false
-        default: ''
-        options:
-          - ''
-          - 'prepatch'
-          - 'preminor'
 
 jobs:
   build:
@@ -40,10 +31,7 @@ jobs:
           echo ${{ github.event.inputs.prereleaseType }}
 
           if [ "${{ github.event.inputs.manualPackageVersion }}" == "" ]; then
-            if [ "${{ github.event.inputs.prereleaseType }}" == "" ]; then
-              npm version ${{ github.event.inputs.prereleaseType }} --preid=alpha
-            else
-              npm version 
+            npm version prerelease --preid=alpha 
           else
             npm version ${{ github.event.inputs.manualPackageVersion }}
           fi
