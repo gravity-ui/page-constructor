@@ -1,6 +1,9 @@
 import {PropsWithChildren} from 'react';
 
-import {BlockBaseProps} from './constructor-items';
+import {BlockType} from './constructor-items';
 
-export type BlockDecorationProps = Pick<BlockBaseProps, 'index' | 'type'> & PropsWithChildren;
+export interface BlockDecorationProps extends PropsWithChildren {
+    type: BlockType;
+    index?: number;
+}
 export type BlockDecorator = (props: BlockDecorationProps) => React.ReactElement;

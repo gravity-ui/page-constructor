@@ -1,10 +1,10 @@
 import React from 'react';
 
-import BlockBase from '../../../../components/BlockBase/BlockBase';
-import {Block, BlockBaseProps, WithChildren} from '../../../../models';
+import BlockBase, {BlockBaseFullProps} from '../../../../components/BlockBase/BlockBase';
+import {Block, WithChildren} from '../../../../models';
 import {block} from '../../../../utils';
 
-interface ConstructorBlockProps extends Pick<BlockBaseProps, 'index'> {
+interface ConstructorBlockProps extends Pick<BlockBaseFullProps, 'index'> {
     data: Block;
 }
 

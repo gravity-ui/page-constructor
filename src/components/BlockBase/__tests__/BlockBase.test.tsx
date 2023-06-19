@@ -5,13 +5,13 @@ import {render, screen} from '@testing-library/react';
 import {testCustomClassName} from '../../../../test-utils/shared/common';
 import {qaIdByDefault} from '../../../components/Anchor/Anchor';
 import {GridColumnSize} from '../../../grid';
-import {BlockBaseProps, BlockTypes, ClassNameProps, WithChildren} from '../../../models';
-import BlockBase from '../BlockBase';
+import {BlockTypes, ClassNameProps, WithChildren} from '../../../models';
+import BlockBase, {BlockBaseFullProps} from '../BlockBase';
 
 const qaId = 'block-base-component';
 const blockType = BlockTypes[0];
 
-type ComponentProps = WithChildren<BlockBaseProps & ClassNameProps>;
+type ComponentProps = WithChildren<BlockBaseFullProps & ClassNameProps>;
 
 describe('BlockBase', () => {
     test('render component by default', async () => {
