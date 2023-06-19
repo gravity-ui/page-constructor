@@ -23,8 +23,6 @@ jobs:
         shell: bash
       - name: Bump and commit version
         run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
           npm version ${{ github.event.inputs.packageVersion }} -i prerelease --preid=alpha
       - name: Extract branch name
         shell: bash
