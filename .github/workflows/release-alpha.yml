@@ -29,7 +29,8 @@ jobs:
       - name: Extract branch name
         shell: bash
         run: |
-          echo "branch_name=${GITHUB_REF#refs/heads/}"
+          branch_name=${GITHUB_REF#refs/heads/}
+          echo "${{ env.branch_name }}"
         id: extract_branch
       - name: Push changes
         uses: ad-m/github-push-action@master
