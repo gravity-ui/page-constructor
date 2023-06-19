@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.6.0](https://github.com/gravity-ui/page-constructor/compare/v3.5.0...v3.6.0) (2023-06-19)
+
+
+### Features
+
+* add exeptions for typograf rules ([#397](https://github.com/gravity-ui/page-constructor/issues/397)) ([16490a1](https://github.com/gravity-ui/page-constructor/commit/16490a1df289baf1d922d4821823638ccd43a0c1))
+
 ## [3.5.0](https://github.com/gravity-ui/page-constructor/compare/v3.4.0...v3.5.0) (2023-06-19)
 
 
