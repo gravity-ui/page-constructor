@@ -2,20 +2,51 @@ name: Release alpha version
 
 on:
   workflow_dispatch:
+    inputs:
+      manualPackageVersion:
+        type: string
+        required: false
+        description: 'If you have any troubles with release you can set version of package manually, e.g. 3.0.0-alpha.0'
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14
+          registry-url: 'https://registry.npmjs.org'
+      - run: npm ci
+        shell: bash
+      - run: npm test
+        shell: bash
+      - name: Bump and commit version
+        if:
+        run: |
+          git config --local user.email "111915794+gravity-ui-bot@users.noreply.github.com"
+          git config --local user.name "gravity-ui-bot"
+
+          echo ${{ github.event.inputs.manualPackageVersion }}
+
+          if [ "${{ github.event.inputs.manualPackageVersion }}" == "" ]; then
+            npm version prerelease --preid=alpha 
+          else
+            npm version ${{ github.event.inputs.manualPackageVersion }}
+          fi
+
       - name: Extract branch name
         shell: bash
         run: |
-          echo "branch_name=${GITHUB_REF#refs/heads/}"
+          echo "branch_name=${GITHUB_REF#refs/heads/}" >> "$GITHUB_ENV"
         id: extract_branch
-      - uses: gravity-ui/release-action@v1
+      - name: Push changes
+        uses: ad-m/github-push-action@master
         with:
-          github-token: ${{ secrets.GRAVITY_UI_BOT_GITHUB_TOKEN }}
-          npm-token: ${{ secrets.GRAVITY_UI_BOT_NPM_TOKEN }}
-          node-version: 14
-          npm-dist-tag: alpha
-          default-branch: ${{ env.branch_name }}
+          github_token: ${{ secrets.GRAVITY_UI_BOT_GITHUB_TOKEN }}
+          branch: ${{ env.branch_name }}
+      - name: Publish version
+        run: npm publish --tag alpha --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GRAVITY_UI_BOT_NPM_TOKEN }}
+        shell: bash
