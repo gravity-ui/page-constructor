@@ -25,6 +25,7 @@ jobs:
         run: |
           git config --local user.email "111915794+gravity-ui-bot@users.noreply.github.com"
           git config --local user.name "gravity-ui-bot"
+          echo ${{ github.event.inputs.packageVersion }}
           npm version ${{ github.event.inputs.packageVersion }} -i prerelease --preid=alpha
       - name: Extract branch name
         shell: bash
