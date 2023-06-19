@@ -6,7 +6,7 @@ on:
       manualPackageVersion:
         type: string
         required: false
-        description: 'Manually version of package, e.g. 3.0.0-alpha.0'
+        description: 'If you have any troubles with release you can set version of package manually, e.g. 3.0.0-alpha.0'
 
 jobs:
   build:
@@ -28,7 +28,6 @@ jobs:
           git config --local user.name "gravity-ui-bot"
 
           echo ${{ github.event.inputs.manualPackageVersion }}
-          echo ${{ github.event.inputs.prereleaseType }}
 
           if [ "${{ github.event.inputs.manualPackageVersion }}" == "" ]; then
             npm version prerelease --preid=alpha 
