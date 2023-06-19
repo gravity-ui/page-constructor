@@ -7,6 +7,40 @@
     "type": "git",
     "url": "https://github.com/gravity-ui/page-constructor"
   },
+  "exports": {
+    ".": {
+      "types": "./build/esm/index.d.ts",
+      "require": "./build/cjs/index.js",
+      "import": "./build/esm/index.js"
+    },
+    "./editor": {
+      "types": "./build/esm/editor/index.d.ts",
+      "require": "./build/cjs/editor/index.js",
+      "import": "./build/esm/editor/index.js"
+    },
+    "./server": {
+      "types": "./server/index.d.ts",
+      "require": "./server/index.js",
+      "import": "./server/index.js"
+    },
+    "./styles/*": "./styles/*"
+  },
+  "main": "./build/cjs/index.js",
+  "module": "./build/esm/index.js",
+  "types": "./build/esm/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "index.d.ts": [
+        "./build/esm/index.d.ts"
+      ],
+      "editor": [
+        "./build/esm/editor/index.d.ts"
+      ],
+      "server": [
+        "./server/index.d.ts"
+      ]
+    }
+  },
   "files": [
     "build",
     "styles",
@@ -16,9 +50,6 @@
     "*.css",
     "*.scss"
   ],
-  "main": "build/cjs/index.js",
-  "module": "build/esm/index.js",
-  "typings": "build/esm/index.d.ts",
   "scripts": {
     "deps:install": "npm ci",
     "deps:truncate": "npm prune --production",
@@ -46,6 +77,7 @@
     "test:watch": "jest --watchAll"
   },
   "dependencies": {
+    "@gravity-ui/dynamic-forms": "^1.9.2",
     "@gravity-ui/i18n": "^1.0.0",
     "bem-cn-lite": "^4.0.0",
     "final-form": "^4.20.9",
@@ -71,7 +103,6 @@
     "@commitlint/cli": "^17.1.2",
     "@commitlint/config-conventional": "^17.1.0",
     "@doc-tools/transform": "2.12.0",
-    "@gravity-ui/dynamic-forms": "^1.7.1",
     "@gravity-ui/eslint-config": "^2.0.0",
     "@gravity-ui/icons": "^2.1.0",
     "@gravity-ui/prettier-config": "^1.0.1",
