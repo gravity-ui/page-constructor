@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.6.2](https://github.com/gravity-ui/page-constructor/compare/v3.6.1...v3.6.2) (2023-06-19)
+
+
+### Bug Fixes
+
+* block base inner types ([#413](https://github.com/gravity-ui/page-constructor/issues/413)) ([616d387](https://github.com/gravity-ui/page-constructor/commit/616d387833330ec7ef4cddc0f2f31d164d4a1477))
+
 ## [3.6.1](https://github.com/gravity-ui/page-constructor/compare/v3.6.0...v3.6.1) (2023-06-19)
 
 
