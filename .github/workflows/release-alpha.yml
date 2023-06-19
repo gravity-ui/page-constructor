@@ -11,7 +11,9 @@ on:
         type: choice
         description: 'You can chose which one prerelease do you want (prepatch | preminor). Default value is prepatch. You have to set it on time. Do not set up anything here if you want to increase only version after `alpha` '
         required: false
+        default: ''
         options:
+          - ''
           - 'prepatch'
           - 'preminor'
 

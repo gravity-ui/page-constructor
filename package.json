@@ -7,6 +7,40 @@
     "type": "git",
     "url": "https://github.com/gravity-ui/page-constructor"
   },
+  "exports": {
+    ".": {
+      "types": "./build/esm/index.d.ts",
+      "require": "./build/cjs/index.js",
+      "import": "./build/esm/index.js"
+    },
+    "./editor": {
+      "types": "./build/esm/editor/index.d.ts",
+      "require": "./build/cjs/editor/index.js",
+      "import": "./build/esm/editor/index.js"
+    },
+    "./server": {
+      "types": "./server/index.d.ts",
+      "require": "./server/index.js",
+      "import": "./server/index.js"
+    },
+    "./styles/*": "./styles/*"
+  },
+  "main": "./build/cjs/index.js",
+  "module": "./build/esm/index.js",
+  "types": "./build/esm/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "index.d.ts": [
+        "./build/esm/index.d.ts"
+      ],
+      "editor": [
+        "./build/esm/editor/index.d.ts"
+      ],
+      "server": [
+        "./server/index.d.ts"
+      ]
+    }
+  },
   "files": [
     "build",
     "styles",
@@ -16,9 +50,6 @@
     "*.css",
     "*.scss"
   ],
-  "main": "build/cjs/index.js",
-  "module": "build/esm/index.js",
-  "typings": "build/esm/index.d.ts",
   "scripts": {
     "deps:install": "npm ci",
     "deps:truncate": "npm prune --production",
@@ -46,10 +77,13 @@
     "test:watch": "jest --watchAll"
   },
   "dependencies": {
+    "@gravity-ui/dynamic-forms": "1.7.1",
     "@gravity-ui/i18n": "^1.0.0",
     "bem-cn-lite": "^4.0.0",
+    "final-form": "^4.20.9",
     "github-buttons": "2.23.0",
     "lodash": "^4.17.21",
+    "react-final-form": "^6.5.9",
     "react-player": "^2.9.0",
     "react-slick": "^0.28.1",
     "react-spring": "^9.3.0",
@@ -85,6 +119,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^14.4.3",
     "@types/jest": "^29.2.4",
+    "@types/json-schema": "^7.0.12",
     "@types/lodash": "^4.14.176",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
