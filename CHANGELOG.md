@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.6.1](https://github.com/gravity-ui/page-constructor/compare/v3.6.0...v3.6.1) (2023-06-19)
+
+
+### Bug Fixes
+
+* downgrade dynamic forms to working ver ([#411](https://github.com/gravity-ui/page-constructor/issues/411)) ([d6634f0](https://github.com/gravity-ui/page-constructor/commit/d6634f0f3d51cdd24eebf408604da7cdc92aa0b3))
+
 ## [3.6.0](https://github.com/gravity-ui/page-constructor/compare/v3.5.0...v3.6.0) (2023-06-19)
 
 
