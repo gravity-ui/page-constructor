@@ -28,7 +28,12 @@ export const DEFAULT_ALLOWED_TAGS = [
 ];
 export const typografConfig = {
     enabled: ['common/nbsp/afterNumber', 'common/nbsp/afterParagraphMark'],
-    disabled: ['common/symbols/cf', 'ru/other/phone-number'],
+    disabled: [
+        'common/symbols/cf',
+        'ru/other/phone-number',
+        'common/space/afterColon',
+        'common/space/afterSemicolon',
+    ],
 };
 export const sanitizeStripOptions: sanitize.IOptions = {
     allowedTags: [],
