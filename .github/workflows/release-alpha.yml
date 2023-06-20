@@ -12,6 +12,15 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - run: |
+          if [ "${{ github.event.inputs.manualPackageVersion }}" != "" ]; then
+            if [[ "${{ github.event.inputs.manualPackageVersion }}" == *"alpha"* ]]; then
+              echo "manualPackageVersion is assigned correctly!"
+            else
+              echo "manualPackageVersion set incorrectly! Check that is contains alpha in it's name"
+              exit 1
+            fi
+          fi
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
@@ -22,7 +31,6 @@ jobs:
       - run: npm test
         shell: bash
       - name: Bump and commit version
-        if:
         run: |
           git config --local user.email "111915794+gravity-ui-bot@users.noreply.github.com"
           git config --local user.name "gravity-ui-bot"
@@ -30,21 +38,10 @@ jobs:
           echo ${{ github.event.inputs.manualPackageVersion }}
 
           if [ "${{ github.event.inputs.manualPackageVersion }}" == "" ]; then
-            npm version prerelease --preid=alpha 
+            npm version prerelease --preid=alpha --git-tag-version=false
           else
-            npm version ${{ github.event.inputs.manualPackageVersion }}
+            npm version ${{ github.event.inputs.manualPackageVersion }} --git-tag-version=false
           fi
-
-      - name: Extract branch name
-        shell: bash
-        run: |
-          echo "branch_name=${GITHUB_REF#refs/heads/}" >> "$GITHUB_ENV"
-        id: extract_branch
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GRAVITY_UI_BOT_GITHUB_TOKEN }}
-          branch: ${{ env.branch_name }}
       - name: Publish version
         run: npm publish --tag alpha --access public
         env:
