@@ -15,9 +15,9 @@ export interface MetaInfpoProps extends ClassNameProps {
 const MetaInfo = ({items, className}: MetaInfpoProps) => (
     <h4 className={b(null, className)}>
         {items.map((metaInfoItem) => (
-            <div key={metaInfoItem} className={b('item')}>
+            <span key={metaInfoItem} className={b('item')}>
                 {metaInfoItem}
-            </div>
+            </span>
         ))}
     </h4>
 );

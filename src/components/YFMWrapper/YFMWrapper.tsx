@@ -7,6 +7,7 @@ import toSnakeCase from 'snakecase-keys';
 
 import {HTML} from '../../components';
 import {ClassNameProps, Modifiers} from '../../models';
+import {hasBlockTag} from '../../utils/blocks';
 
 const yfm = block('yfm');
 
@@ -23,7 +24,11 @@ const YFMWrapper = ({
     className,
     itemProp,
 }: YFMWrapperProps & ClassNameProps) => (
-    <HTML className={yfm(modifiers ? toSnakeCase(modifiers) : {}, className)} itemProp={itemProp}>
+    <HTML
+        className={yfm(modifiers ? toSnakeCase(modifiers) : {}, className)}
+        itemProp={itemProp}
+        block={hasBlockTag(content)}
+    >
         {content}
     </HTML>
 );

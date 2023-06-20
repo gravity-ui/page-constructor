@@ -77,6 +77,8 @@ $backgroundWidth: 1440px;
     &__description {
         margin-top: $indentXS;
         font-weight: normal;
+        font-size: 0.83em;
+        margin-block-end: 1.67em;
 
         .yfm,
         .yfm * {

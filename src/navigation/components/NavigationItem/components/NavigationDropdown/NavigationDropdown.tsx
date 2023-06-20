@@ -16,7 +16,7 @@ const TOGGLE_ARROW_SIZE = 12;
 type NavigationDropdownProps = NavigationItemProps & DropdownItemData;
 
 export const NavigationDropdown = React.forwardRef<HTMLElement, NavigationDropdownProps>(
-    ({text, icon, isOpened, className, iconSize, ...props}, ref) => {
+    ({text, icon, isOpened, className, iconSize, type: _, ...props}, ref) => {
         const iconData = icon && getMediaImage(icon);
 
         return (

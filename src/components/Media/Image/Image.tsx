@@ -84,7 +84,7 @@ const Image = (props: ImageAllProps) => {
     const imageBackground = (oneImage: ImageProps) => {
         const imageData = getMediaImage(oneImage);
         return (
-            <animated.div style={{transform: parallaxInterpolate}}>
+            <animated.div style={{transform: parallaxInterpolate || 'none'}}>
                 <BackgroundImage {...imageData} className={imageClass} style={{height}} />
             </animated.div>
         );

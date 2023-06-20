@@ -17,7 +17,7 @@ export const CompaniesBlock = ({title, images, animated}: CompaniesBlockProps) =
     return (
         <AnimateBlock className={b()} offset={150} animate={animated}>
             <div className={b('content')}>
-                <h2 className={b('title')}>{title}</h2>
+                {title && <h2 className={b('title')}>{title}</h2>}
                 <div className={b('images')}>
                     <Image {...themedImages} className={b('image')} />
                 </div>
