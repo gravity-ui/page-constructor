@@ -20,7 +20,7 @@ export function hasBlockTag(content: string): boolean {
         /<(div|p|h[1-6]|address|article|aside|blockquote|canvas|dd|dl|dt|fieldset|figcaption|footer|header|hr|main|nav|section|video|pre|figure|form|pre|ol|ul|li|table|thead|tbody|tfoot|tr|th|td)\b[^>]*>/gi;
     const blockTags = content.match(blockElementRegex);
 
-    return !!blockTags;
+    return Boolean(blockTags);
 }
 
 export function getBlockKey(block: ConstructorBlock, index: number) {
