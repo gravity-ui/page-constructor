@@ -130,12 +130,12 @@ export const HeaderBlock = (props: WithChildren<HeaderBlockFullProps>) => {
                                         <HTML>{title}</HTML>
                                     </h1>
                                     {description && (
-                                        <div className={b('description')}>
+                                        <p className={b('description')}>
                                             <YFMWrapper
                                                 content={description}
                                                 modifiers={{constructor: true}}
                                             />
-                                        </div>
+                                        </p>
                                     )}
                                     {buttons && (
                                         <div className={b('buttons')} data-qa="header-buttons">

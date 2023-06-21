@@ -1,6 +1,43 @@
 import {Block, CustomConfig, PCShareSocialNetwork, TextSize} from '../models';
 import {ConstructorBlock} from '../models/constructor';
 
+const BLOCK_ELEMENTS = [
+    'div',
+    'p',
+    'h[1-6]',
+    'address',
+    'article',
+    'aside',
+    'blockquote',
+    'canvas',
+    'dd',
+    'dl',
+    'dt',
+    'fieldset',
+    'figcaption',
+    'footer',
+    'header',
+    'hr',
+    'main',
+    'nav',
+    'section',
+    'video',
+    'pre',
+    'figure',
+    'form',
+    'pre',
+    'ol',
+    'ul',
+    'li',
+    'table',
+    'thead',
+    'tbody',
+    'tfoot',
+    'tr',
+    'th',
+    'td',
+];
+
 export function getHeaderTag(size: TextSize) {
     switch (size) {
         case 'l':
@@ -16,8 +53,7 @@ export function getHeaderTag(size: TextSize) {
 }
 
 export function hasBlockTag(content: string): boolean {
-    const blockElementRegex =
-        /<(div|p|h[1-6]|address|article|aside|blockquote|canvas|dd|dl|dt|fieldset|figcaption|footer|header|hr|main|nav|section|video|pre|figure|form|pre|ol|ul|li|table|thead|tbody|tfoot|tr|th|td)\b[^>]*>/gi;
+    const blockElementRegex = `/<(${BLOCK_ELEMENTS.join('|')})\b[^>]*>/gi`;
     const blockTags = content.match(blockElementRegex);
 
     return Boolean(blockTags);
