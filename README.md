@@ -325,6 +325,16 @@ When you receive the approval of your pull-request from the code owners and pass
 4. Check your changes in CHANGELOG.md and approve robot's PR.
 5. Squash and merge PR. You can see release process on [the Actions tab](https://github.com/gravity-ui/page-constructor/actions).
 
+### Alpha versions release
+
+If you want to release alpha version of the package from your branch you can do it manually:
+
+1. Go to tab Actions
+2. Select workflow "Release alpha version" on the left page's side
+3. You can see on the right side the button "Run workflow". Here you can choose the branch.
+4. You can also see field with manually version. If you release alpha in your branch for the first time, do not set anything here. After first release you have to set the new version manually because we don't change package.json in case that the branch can expire very soon. Use the prefix `alpha` in you manual version otherwise you will get error.
+5. Push "Run workflow" and wait until the action will finish. You can release versions as many as you want but do not abuse it and release versions if you really need it. In other cases use [npm pack](https://docs.npmjs.com/cli/v7/commands/npm-pack).
+
 ### Beta-major versions release
 
 If you want to release a new major version, you will probably need for a beta versions before a stable one, please do the following:
