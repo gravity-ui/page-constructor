@@ -6,7 +6,7 @@ on:
       manualPackageVersion:
         type: string
         required: false
-        description: 'If you have any troubles with release you can set version of package manually, e.g. 3.0.0-alpha.0'
+        description: 'If your build failed and the version is already exists you can set version of package manually, e.g. 3.0.0-alpha.0. Use the prefix `alpha` otherwise you will get error.'
 
 jobs:
   build:
