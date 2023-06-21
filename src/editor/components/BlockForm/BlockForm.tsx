@@ -1,6 +1,6 @@
 import React, {memo, useMemo} from 'react';
 
-import {DynamicField, Spec} from '@gravity-ui/dynamic-forms';
+import {DynamicField, SimpleVerticalAccordeon, Spec} from '@gravity-ui/dynamic-forms';
 import _ from 'lodash';
 import {Form as FinalForm, FormSpy} from 'react-final-form';
 
@@ -19,9 +19,7 @@ interface BlockFormProps {
 
 export const BlockForm = memo(
     ({data: {type, ...content}, onChange, onSelect, active, spec: specRaw}: BlockFormProps) => {
-        // get initial values only at first render, then the form manages data
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-        const initialValues = useMemo(() => ({content}), []);
+        const initialValues = useMemo(() => ({content}), [content]);
         const prevContent = usePreviousValue(content);
         const spec = useMemo(
             () => ({
@@ -34,16 +32,24 @@ export const BlockForm = memo(
             [specRaw, active],
         );
 
+        if (!active) {
+            return (
+                <SimpleVerticalAccordeon
+                    open={false}
+                    name={type}
+                    title={spec.viewSpec.layoutTitle || type}
+                    onOpenChange={onSelect}
+                >
+                    {/* SimpleVerticalAccordeon requires children, put dummy value*/}
+                    {1}
+                </SimpleVerticalAccordeon>
+            );
+        }
+
         return (
             <FinalForm initialValues={initialValues} onSubmit={_.noop}>
                 {() => (
-                    <div
-                        onClick={() => {
-                            if (!active) {
-                                onSelect();
-                            }
-                        }}
-                    >
+                    <div>
                         <FormSpy
                             onChange={({values}) => {
                                 // fix for FormSpy onChange called twice without content changes
@@ -53,13 +59,7 @@ export const BlockForm = memo(
                             }}
                             subscription={{values: true}}
                         />
-                        <DynamicField
-                            name="content"
-                            // there is no way other way to manage with form open/close state now
-                            key={String(active)}
-                            spec={spec as Spec}
-                            config={dynamicConfig}
-                        />
+                        <DynamicField name="content" spec={spec as Spec} config={dynamicConfig} />
                     </div>
                 )}
             </FinalForm>
