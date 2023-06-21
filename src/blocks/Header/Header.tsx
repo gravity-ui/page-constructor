@@ -121,9 +121,9 @@ export const HeaderBlock = (props: WithChildren<HeaderBlockFullProps>) => {
                             >
                                 <Col sizes={titleSizes} className={b('content-inner')}>
                                     {overtitle && (
-                                        <h4 className={b('overtitle')}>
+                                        <p className={b('overtitle')}>
                                             <HTML>{overtitle}</HTML>
-                                        </h4>
+                                        </p>
                                     )}
                                     <h1 className={b('title')}>
                                         {status}

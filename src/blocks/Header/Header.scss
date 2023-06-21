@@ -77,7 +77,7 @@ $backgroundWidth: 1440px;
     &__description {
         margin-top: $indentXS;
         font-weight: normal;
-        font-size: var(--yc-text-caption-2-font-size);
+        @include text-size(caption-2);
         margin-block-end: var(--yc-text-body-1-line-height);
 
         .yfm,
@@ -189,6 +189,7 @@ $backgroundWidth: 1440px;
 
     &__overtitle {
         @include text-size(body-3);
+        margin-block-start: var(--yc-text-body-3-line-height);
 
         margin-bottom: $indentXXXS;
         font-weight: 400;
