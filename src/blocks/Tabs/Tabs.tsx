@@ -25,6 +25,7 @@ export const TabsBlock = ({
     tabsColSizes,
     centered,
     direction = 'media-content',
+    contentSize = 's',
 }: TabsBlockProps) => {
     const [activeTab, setActiveTab] = useState<string | null>(items[0].tabName);
     const [play, setPlay] = useState<boolean>(false);
@@ -61,7 +62,7 @@ export const TabsBlock = ({
                     title={activeTabData.title}
                     text={activeTabData.text}
                     additionalInfo={activeTabData.additionalInfo}
-                    size="s"
+                    size={contentSize}
                     links={[
                         ...(activeTabData.link ? [activeTabData.link] : []),
                         ...(activeTabData.links || []),

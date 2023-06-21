@@ -274,6 +274,7 @@ export interface TabsBlockProps extends Animatable {
     centered?: boolean;
     direction?: MediaDirection;
     items: TabsBlockItem[];
+    contentSize?: ContentSize;
 }
 
 export interface CardLayoutBlockProps extends Childable, Animatable, LoadableChildren {
