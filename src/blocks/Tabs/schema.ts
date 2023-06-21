@@ -7,6 +7,7 @@ import {
     LinkProps,
     MediaProps,
     containerSizesArray,
+    contentSizes,
     mediaDirection,
     sizeNumber,
     withTheme,
@@ -56,6 +57,10 @@ export const TabsBlock = {
             },
             centered: {type: 'boolean'},
             items: filteredArray(tabsItem),
+            contentSize: {
+                type: 'string',
+                enum: contentSizes,
+            },
         },
     },
 };

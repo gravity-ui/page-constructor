@@ -18,6 +18,8 @@ Tabs block
 - `lg: number` — On a screen wider than 1081px.
 - `xl: number` — On a screen wider than 1185px.
 
+`tabsColSizes?: 's' | 'l'` — Component's size that defines font sizes (`'s'` by default)
+
 `items: TabsBlockItem[]` — Tab description
 
 - `tabName: string` — Tab title.
