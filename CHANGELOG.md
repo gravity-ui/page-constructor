@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.7.0](https://github.com/gravity-ui/page-constructor/compare/v3.6.2...v3.7.0) (2023-06-21)
+
+
+### Features
+
+* **Tabs:** provide an to change tab text size ([#417](https://github.com/gravity-ui/page-constructor/issues/417)) ([005a686](https://github.com/gravity-ui/page-constructor/commit/005a68662ecc29ee07eff7d958a27842c38206f7))
+
 ## [3.6.2](https://github.com/gravity-ui/page-constructor/compare/v3.6.1...v3.6.2) (2023-06-19)
 
 
