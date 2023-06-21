@@ -14,10 +14,8 @@ jobs:
     steps:
       - run: |
           if [ "${{ github.event.inputs.manualPackageVersion }}" != "" ]; then
-            if [[ "${{ github.event.inputs.manualPackageVersion }}" == *"alpha"* ]]; then
-              echo "manualPackageVersion is assigned correctly!"
-            else
-              echo "manualPackageVersion set incorrectly! Check that is contains alpha in it's name"
+            if [[ "${{ github.event.inputs.manualPackageVersion }}" != *"alpha"* ]]; then
+               echo "manualPackageVersion set incorrectly! Check that is contains alpha in it's name"
               exit 1
             fi
           fi
@@ -32,9 +30,6 @@ jobs:
         shell: bash
       - name: Bump and commit version
         run: |
-          git config --local user.email "111915794+gravity-ui-bot@users.noreply.github.com"
-          git config --local user.name "gravity-ui-bot"
-
           echo ${{ github.event.inputs.manualPackageVersion }}
 
           if [ "${{ github.event.inputs.manualPackageVersion }}" == "" ]; then
