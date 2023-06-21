@@ -59,7 +59,12 @@ export const BlockForm = memo(
                             }}
                             subscription={{values: true}}
                         />
-                        <DynamicField name="content" spec={spec as Spec} config={dynamicConfig} />
+                        <DynamicField
+                            name="content"
+                            spec={spec as Spec}
+                            config={dynamicConfig}
+                            withoutInsertFFDebounce
+                        />
                     </div>
                 )}
             </FinalForm>
