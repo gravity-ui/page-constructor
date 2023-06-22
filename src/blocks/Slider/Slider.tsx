@@ -224,24 +224,24 @@ export const SliderBlock = (props: WithChildren<SliderProps>) => {
 
         return (
             slidesCountByBreakpoint > 1 && (
-                <div
+                <li
                     className={b('bar')}
                     style={{
                         left: barPosition,
                         width: barWidth,
                     }}
-                />
+                ></li>
             )
         );
     };
 
     const renderDot = (index: number) => {
         return (
-            <div
+            <li
                 key={index}
                 className={b('dot', {active: index === currentIndex})}
                 onClick={() => handleDotClick(index)}
-            />
+            ></li>
         );
     };
 

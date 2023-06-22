@@ -19,14 +19,14 @@ export interface ArrowProps {
 const Arrow = ({type, handleClick, className, size = 16}: ArrowProps & ClassNameProps) => (
     <div className={b({type}, className)}>
         <button className={b('button')} onClick={() => handleClick && handleClick(type)}>
-            <div className={b('icon-wrapper')}>
+            <span className={b('icon-wrapper')}>
                 <ToggleArrow
                     size={size}
                     type={'horizontal'}
                     iconType="navigation"
                     className={b('icon')}
                 />
-            </div>
+            </span>
         </button>
     </div>
 );

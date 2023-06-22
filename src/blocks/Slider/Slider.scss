@@ -90,8 +90,8 @@ $block: '.#{$ns}SliderBlock';
         display: inline-flex;
         justify-content: center;
 
-        div#{$root}__bar,
-        div#{$root}__dot {
+        li#{$root}__bar,
+        li#{$root}__dot {
             margin: calc(#{$indentXXS} / 2) $indentXXXS;
             top: 0;
         }
