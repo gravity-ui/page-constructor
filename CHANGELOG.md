@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.8.0](https://github.com/gravity-ui/page-constructor/compare/v3.7.0...v3.8.0) (2023-06-22)
+
+
+### Features
+
+* add yfm transoform for editor demo ([#420](https://github.com/gravity-ui/page-constructor/issues/420)) ([1c1a2aa](https://github.com/gravity-ui/page-constructor/commit/1c1a2aa134a3c4d18e01537c1ca874720f23649d))
+* update dynamic forms and fix form render performance ([#418](https://github.com/gravity-ui/page-constructor/issues/418)) ([eb9437d](https://github.com/gravity-ui/page-constructor/commit/eb9437df0d38a9a3433e85d111c45b3a49dbd9aa))
+
 ## [3.7.0](https://github.com/gravity-ui/page-constructor/compare/v3.6.2...v3.7.0) (2023-06-21)
 
 
