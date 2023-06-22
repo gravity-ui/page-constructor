@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.8.1](https://github.com/gravity-ui/page-constructor/compare/v3.8.0...v3.8.1) (2023-06-22)
+
+
+### Bug Fixes
+
+* semantic markup ([#416](https://github.com/gravity-ui/page-constructor/issues/416)) ([1fd532c](https://github.com/gravity-ui/page-constructor/commit/1fd532ca0bcc2e6cd1f030b17be743c27fb2cf73))
+
 ## [3.8.0](https://github.com/gravity-ui/page-constructor/compare/v3.7.0...v3.8.0) (2023-06-22)
 
 
