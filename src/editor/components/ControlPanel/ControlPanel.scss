@@ -12,7 +12,8 @@ $block: '.#{$ns}control-panel';
     height: var(--editor-header-height);
     padding: $indentXXXS $indentS;
     background-color: var(--yc-color-base-background);
-    border-bottom: 1px solid var(--yc-color-line-generic);
+    border: 1px var(--yc-color-line-generic);
+    border-style: solid none;
 
     &__icon {
         display: flex;
