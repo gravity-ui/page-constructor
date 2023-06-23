@@ -1,6 +1,6 @@
 import {filteredItem} from '../../schema/validators/utils';
 
-export const urlPattern =
+export const imageUrlPattern =
     '^((http[s]?|ftp):\\/)?\\/?([^:\\/\\s]+)((\\/\\w+)*\\/)([\\w\\-\\.]+[^#?\\s]+)(.*)?(#[\\w\\-]+)?$';
 
 const ImageBase = {
@@ -19,14 +19,14 @@ export const ImageDeviceProps = {
     required: ['desktop', 'mobile'],
     properties: {
         ...ImageBase,
-        desktop: {type: 'string', pattern: urlPattern},
+        desktop: {type: 'string', pattern: imageUrlPattern},
         tablet: {
             type: 'string',
-            pattern: urlPattern,
+            pattern: imageUrlPattern,
         },
         mobile: {
             type: 'string',
-            pattern: urlPattern,
+            pattern: imageUrlPattern,
         },
     },
 };
@@ -39,7 +39,7 @@ export const ImageObjectProps = {
         ...ImageBase,
         src: {
             type: 'string',
-            pattern: urlPattern,
+            pattern: imageUrlPattern,
         },
     },
 };
@@ -48,7 +48,7 @@ export const ImageProps = {
     oneOf: [
         {
             type: 'string',
-            pattern: urlPattern,
+            pattern: imageUrlPattern,
             optionName: 'url',
         },
         filteredItem({

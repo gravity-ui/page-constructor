@@ -1,4 +1,4 @@
-import {ImageProps, urlPattern} from '../../components/Image/schema';
+import {ImageProps, imageUrlPattern} from '../../components/Image/schema';
 import {Theme} from '../../models';
 
 import {AnalyticsEventSchema} from './event';
@@ -285,7 +285,7 @@ export const authorItem = {
         },
         avatar: {
             type: 'string',
-            pattern: urlPattern,
+            pattern: imageUrlPattern,
         },
         description: {
             type: 'string',
