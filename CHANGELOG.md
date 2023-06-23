@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.8.2](https://github.com/gravity-ui/page-constructor/compare/v3.8.1...v3.8.2) (2023-06-23)
+
+
+### Bug Fixes
+
+* quote validation ([#402](https://github.com/gravity-ui/page-constructor/issues/402)) ([3920561](https://github.com/gravity-ui/page-constructor/commit/3920561ebe0bac727826caf690d06d74d7affaef))
+
 ## [3.8.1](https://github.com/gravity-ui/page-constructor/compare/v3.8.0...v3.8.1) (2023-06-22)
 
 
