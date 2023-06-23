@@ -18,6 +18,7 @@ export interface LayoutProps {
 
 const Layout = ({children, mode, onModeChange}: PropsWithChildren<LayoutProps>) => {
     let left, right;
+    const isEditingMode = mode === ViewModeItem.Edititng;
 
     function handleChild(child: ReactElement) {
         switch (child?.type) {
@@ -40,7 +41,7 @@ const Layout = ({children, mode, onModeChange}: PropsWithChildren<LayoutProps>) 
             <div className={b('container')}>
                 <Fragment>
                     {left && <div className={b('left')}>{left}</div>}
-                    {right && <div className={b('right')}>{right}</div>}
+                    {right && <div className={b('right', {editing: isEditingMode})}>{right}</div>}
                 </Fragment>
             </div>
         </div>

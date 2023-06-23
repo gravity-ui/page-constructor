@@ -10,7 +10,7 @@ $block: '.#{$ns}add-block';
     $buttonWidth: 76px;
     $buttonHeight: 40px;
 
-    position: fixed;
+    position: absolute;
     bottom: $indentM;
     left: calc(50% + var(--editor-left-column-width) / 2);
     transform: translateX(-50%);

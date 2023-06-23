@@ -36,7 +36,7 @@ $block: '.#{$ns}editor-layout';
 
     &__left {
         flex: 0 0 auto;
-        padding: $indentXXXS $indentS $indentS;
+        padding: $indentSM $indentXS;
         width: var(--editor-left-column-width);
         border-right: var(--editor-divider-width) solid var(--yc-color-line-generic);
         overflow-x: auto;
@@ -44,5 +44,9 @@ $block: '.#{$ns}editor-layout';
 
     &__right {
         width: 100%;
+
+        &_editing {
+            padding-bottom: 200px;
+        }
     }
 }

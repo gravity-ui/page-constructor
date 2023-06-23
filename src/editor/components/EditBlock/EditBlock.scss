@@ -6,7 +6,8 @@
 $block: '.#{$ns}edit-block';
 
 #{$block} {
-    $controlIconHeight: 24px;
+    $controlIconWidth: 48px;
+    $controlIconHeight: 32px;
     $controlsIndent: $indentS;
     $controlColor: var(--yc-color-promo-base-neon);
 
@@ -19,7 +20,7 @@ $block: '.#{$ns}edit-block';
         height: calc(100% + $controlsIndent * 2);
         top: -#{$controlsIndent};
         left: -#{$controlsIndent};
-        border-radius: $editorControlBorderRadius;
+        border-radius: $borderRadius;
         z-index: $editorBlockControlZIndex;
 
         &_isHeader {
@@ -36,7 +37,7 @@ $block: '.#{$ns}edit-block';
     &__controls-content {
         display: flex;
         position: absolute;
-        bottom: calc(($controlsIndent + $controlIconHeight) * -1);
+        bottom: -40px;
         left: 50%;
         transform: translateX(-50%);
     }
@@ -44,13 +45,13 @@ $block: '.#{$ns}edit-block';
     &__control {
         @include control($hoverScale: 1.1);
 
-        width: $controlIconHeight;
+        width: $controlIconWidth;
         height: $controlIconHeight;
-        border-radius: calc(#{$editorControlBorderRadius} / 2);
+        border-radius: $editorControlBorderRadius;
         background-color: var(--yc-color-promo-highlight-neon);
 
         &:not(:first-child) {
-            margin-left: $indentXXS;
+            margin-left: 4px;
         }
     }
 }
