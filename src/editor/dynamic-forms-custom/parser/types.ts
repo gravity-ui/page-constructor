@@ -1,6 +1,5 @@
 import {Spec as DynamicFormSpec, ObjectSpec} from '@gravity-ui/dynamic-forms';
 
-import {BlockType} from '../../../models';
 import {Schema} from '../../../schema';
 
 export type OneOfSpec = {
@@ -20,7 +19,7 @@ export interface SpecCustomProps {
 
 export type Spec = Exclude<DynamicFormSpec, 'ObjectSpec'> | CustomObjectSpec | OneOfSpec;
 export type CustomSpec = Spec & SpecCustomProps;
-export type BlocksSpec = Record<BlockType, CustomSpec>;
+export type BlocksSpec = Record<string, CustomSpec>;
 export type PageSpec = CustomSpec;
 export interface FormSpecs {
     blocks: BlocksSpec;

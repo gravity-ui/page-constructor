@@ -14,7 +14,7 @@ export const changeBlocksOrder = (array: Block[], oldIndex: number, newIndex: nu
 
 export const duplicateBlock = (array: Block[], index: number) => {
     const result = [...array];
-    result.splice(index + 1, 0, result[index]);
+    result.splice(index + 1, 0, _.cloneDeep(result[index]));
 
     return result;
 };

@@ -2,7 +2,6 @@
 /* eslint-disable no-not-accumulator-reassign/no-not-accumulator-reassign */
 import {ArraySpec, ObjectSpec, SpecTypes} from '@gravity-ui/dynamic-forms';
 
-import {BlockType} from '../../../models';
 import {Schema, SchemaDefinitions} from '../../../schema';
 
 import {ParserType, detectParserType} from './detect';
@@ -222,10 +221,10 @@ class FormSpecParser {
     private getBlocksSpec() {
         const blocks = this.definitions.children;
 
-        return Object.values(BlockType).reduce((result, blockName) => {
+        return Object.entries(blocks).reduce((result, [blockName, blockData]) => {
             result[blockName] = this.parseSchemaProperty({
                 name: blockName,
-                data: {...blocks[blockName]},
+                data: {...blockData},
                 required: true,
             });
 
