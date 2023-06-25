@@ -74,7 +74,7 @@ function isItem(
 /**
  * Filters content recoursively by result of it's 'when' property evaluation applied to vars argument.
  * e.g. property {..., when: 'someVar == "someValue"' } will be included in result only if vars.someVar === 'someValue'
- * @param {Content} content
+ * @param {FilterableContent} content
  * @param {ContentVariables} vars
  * @return {FilteredContent}
  */
