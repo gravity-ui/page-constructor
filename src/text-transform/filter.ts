@@ -1,3 +1,6 @@
+/* eslint-disable no-param-reassign */
+/* eslint-disable no-not-accumulator-reassign/no-not-accumulator-reassign */
+
 import evalExp from '@doc-tools/transform/lib/liquid/evaluation';
 
 import {ContentVariables} from './transformers';
