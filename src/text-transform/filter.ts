@@ -26,8 +26,8 @@ function filterItems(
         );
     }
 
-    return items.reduce<FilteredContentItem[]>((result, {when, ...item}) => {
-        const passedFiltration = checkWhenCondition(when, vars);
+    return items.reduce<FilteredContentItem[]>((result, item) => {
+        const passedFiltration = checkWhenCondition(item.when, vars);
 
         if (passedFiltration) {
             const property = propertyName && item[propertyName];
