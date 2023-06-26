@@ -23,8 +23,10 @@ export const Editor = ({children, customSchema, onChange, ...rest}: EditorProps)
         onSelect,
         injectEditBlockProps,
     } = useEditorState(rest);
+    const formSpecs = useFormSpec(customSchema);
+
     const isEditingMode = viewMode === ViewModeItem.Edititng;
-    const constructorProps = useMemo(() => {
+    const outgoingProps = useMemo(() => {
         const custom = isEditingMode
             ? addCustomDecorator(
                   [
@@ -42,14 +44,12 @@ export const Editor = ({children, customSchema, onChange, ...rest}: EditorProps)
                   rest.custom,
               )
             : rest.custom;
-        return {content, custom};
-    }, [injectEditBlockProps, content, errorBoundaryState, isEditingMode, rest.custom]);
+        return {content, custom, viewMode};
+    }, [injectEditBlockProps, content, errorBoundaryState, isEditingMode, viewMode, rest.custom]);
 
     useEffect(() => {
         onChange?.(content);
     }, [content, onChange]);
-
-    const formSpecs = useFormSpec(customSchema);
 
     return (
         <Layout mode={viewMode} onModeChange={onViewModeUpdate}>
@@ -65,7 +65,7 @@ export const Editor = ({children, customSchema, onChange, ...rest}: EditorProps)
                 </Layout.Left>
             )}
             <Layout.Right>
-                <ErrorBoundary key={errorBoundaryState}>{children(constructorProps)}</ErrorBoundary>
+                <ErrorBoundary key={errorBoundaryState}>{children(outgoingProps)}</ErrorBoundary>
                 {isEditingMode && <AddBlock onAdd={onAdd} />}
             </Layout.Right>
         </Layout>
