@@ -366,3 +366,25 @@ If you want to release a new version in previous major after commit it to the ma
 6. Wait until robot creates a PR with a new version of the package and information about your changes in CHANGELOG.md. You can see the process on [the Actions tab](https://github.com/gravity-ui/page-constructor/actions).
 7. Check your changes in CHANGELOG.md and approve robot's PR.
 8. Squash and merge PR. You can see release process on [the Actions tab](https://github.com/gravity-ui/page-constructor/actions).
+
+## Page constructor editor
+
+Editor provides user interface for page content management with realtime preview.
+
+How to use:
+
+```tsx
+import {PageConstructor} from '@gravity-ui/page-constructor';
+import {Editor} from '@gravity-ui/page-constructor/editor';
+
+interface MyAppEditorProps {
+  initialContent: PageContent;
+  onChange: (content: PageContent) => void;
+}
+
+export const MyAppEditor = ({initialContent, onChange}: MyAppEditorProps) => (
+  <Editor onChange={onChange} content={initialContent}>
+    {(props) => <PageConstructor {...props} />}
+  </Editor>
+);
+```
