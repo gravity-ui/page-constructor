@@ -5,12 +5,9 @@ import _ from 'lodash';
 import {Form as FinalForm, FormSpy} from 'react-final-form';
 
 import {Block} from '../../../models';
-import {block} from '../../../utils';
 import {dynamicConfig} from '../../dynamic-forms-custom/config';
 import {CustomSpec} from '../../dynamic-forms-custom/parser/types';
 import usePreviousValue from '../../hooks/usePreviousValue';
-
-import './BlockForm.scss';
 
 interface BlockFormProps {
     data: Block;
@@ -19,8 +16,6 @@ interface BlockFormProps {
     onSelect: () => void;
     active?: boolean;
 }
-
-const b = block('block-form');
 
 export const BlockForm = memo(
     ({data: {type, ...content}, onChange, onSelect, active, spec: specRaw}: BlockFormProps) => {
@@ -44,7 +39,6 @@ export const BlockForm = memo(
                     name={type}
                     title={spec.viewSpec.layoutTitle || type}
                     onOpenChange={onSelect}
-                    className={b('folded')}
                 >
                     {/* SimpleVerticalAccordeon requires children, put dummy value*/}{' '}
                 </SimpleVerticalAccordeon>
