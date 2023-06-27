@@ -59,23 +59,25 @@ export const Form = memo(({content, onChange, activeBlockIndex, onSelect, spec}:
                 <Fragment>
                     {blocks.map((blockData, index) =>
                         blocksSpec[blockData.type] ? (
-                            <BlockForm
-                                spec={blocksSpec[blockData.type]}
-                                key={getBlockKey(blockData, index)}
-                                data={blockData}
-                                active={activeBlockIndex === index}
-                                onChange={(data: Block) => {
-                                    onChange({
-                                        ...content,
-                                        blocks: [
-                                            ...blocks.slice(0, index),
-                                            data,
-                                            ...blocks.slice(index + 1),
-                                        ],
-                                    });
-                                }}
-                                onSelect={() => onSelect(index)}
-                            />
+                            <div className={b('block-form')}>
+                                <BlockForm
+                                    spec={blocksSpec[blockData.type]}
+                                    key={getBlockKey(blockData, index)}
+                                    data={blockData}
+                                    active={activeBlockIndex === index}
+                                    onChange={(data: Block) => {
+                                        onChange({
+                                            ...content,
+                                            blocks: [
+                                                ...blocks.slice(0, index),
+                                                data,
+                                                ...blocks.slice(index + 1),
+                                            ],
+                                        });
+                                    }}
+                                    onSelect={() => onSelect(index)}
+                                />
+                            </div>
                         ) : null,
                     )}
                 </Fragment>

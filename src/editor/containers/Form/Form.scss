@@ -15,4 +15,8 @@ $block: '.#{$ns}editor-form';
         --yc-color-base-special: var(--yc-color-promo-base-neon);
         margin-bottom: $indentS;
     }
+
+    &__block-form {
+        margin-bottom: $indentXS;
+    }
 }
