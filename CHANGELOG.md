@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.8.3](https://github.com/gravity-ui/page-constructor/compare/v3.8.2...v3.8.3) (2023-06-27)
+
+
+### Bug Fixes
+
+* editor form style indent ([#428](https://github.com/gravity-ui/page-constructor/issues/428)) ([3fc6da7](https://github.com/gravity-ui/page-constructor/commit/3fc6da73f7e724aaa4e8f22a45228f1a2cc4dc81))
+
 ## [3.8.2](https://github.com/gravity-ui/page-constructor/compare/v3.8.1...v3.8.2) (2023-06-23)
 
 
