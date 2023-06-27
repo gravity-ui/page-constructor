@@ -5,10 +5,14 @@ import {EditBlockActions} from '../components/EditBlock/EditBlock';
 
 export type EditorBlockId = number | string;
 
+export interface EditorOutgoingProps extends Partial<PageConstructorProps> {
+    viewMode: ViewModeItem;
+}
+
 export interface EditorProps
     extends Required<Pick<PageConstructorProps, 'content'>>,
         Partial<Omit<PageConstructorProps, 'content'>> {
-    children: (props: Partial<PageConstructorProps>) => React.ReactNode;
+    children: (props: EditorOutgoingProps) => React.ReactNode;
     onChange?: (data: PageContent) => void;
     customSchema?: SchemaCustomConfig;
 }

@@ -2,12 +2,14 @@
 /* eslint-disable no-not-accumulator-reassign/no-not-accumulator-reassign */
 import _ from 'lodash';
 
-import {ConstructorBlock} from '../models/constructor';
+import {ConstructorBlock, PageContent} from '../models/constructor';
 import {Lang} from '../utils/configure';
 
 import {Transformer} from './common';
 import {BlocksConfig, config} from './config';
+import {FilterableContent, filterContent} from './filter';
 
+export type ContentVariables = Record<string, string>;
 export type ContentTransformerProps = {
     content: {
         blocks?: ConstructorBlock[];
@@ -15,6 +17,7 @@ export type ContentTransformerProps = {
     options: {
         lang: Lang;
         customConfig?: {};
+        vars?: ContentVariables;
     };
 };
 
@@ -66,8 +69,10 @@ function transformBlock(lang: Lang, blocksConfig: BlocksConfig, block: Construct
 }
 
 export const contentTransformer = ({content, options}: ContentTransformerProps) => {
-    const {lang, customConfig = {}} = options;
-    const {blocks = []} = content;
+    const {lang, customConfig = {}, vars} = options;
+    const {blocks = []} = (
+        vars ? filterContent(content as FilterableContent, vars) : content
+    ) as PageContent;
 
     const transformedBlocks = transformBlocks(blocks, lang, customConfig);
 

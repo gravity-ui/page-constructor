@@ -23,7 +23,9 @@ export const contentThemes = ['default', 'dark', 'light'];
 
 export const BaseProps = {
     type: {},
-    when: {},
+    when: {
+        type: 'string',
+    },
 };
 
 export const containerSizesObject = {
