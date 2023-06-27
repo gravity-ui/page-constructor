@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.9.0](https://github.com/gravity-ui/page-constructor/compare/v3.8.3...v3.9.0) (2023-06-27)
+
+
+### Features
+
+* add content filtration utils ([6cf8038](https://github.com/gravity-ui/page-constructor/commit/6cf803818a222eed964f5e24960ad99a567adc1e))
+* add transform when variables handling ([#427](https://github.com/gravity-ui/page-constructor/issues/427)) ([6cf8038](https://github.com/gravity-ui/page-constructor/commit/6cf803818a222eed964f5e24960ad99a567adc1e))
+
 ## [3.8.3](https://github.com/gravity-ui/page-constructor/compare/v3.8.2...v3.8.3) (2023-06-27)
 
 
