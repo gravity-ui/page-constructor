@@ -56,9 +56,7 @@ export function getHeaderTag(size: TextSize) {
 
 export function hasBlockTag(content: string): boolean {
     const regex = new RegExp(BLOCK_ELEMENTS_REGEX, 'g');
-    const isBlock = regex.test(content);
-
-    return isBlock;
+    return regex.test(content);
 }
 
 export function getBlockKey(block: ConstructorBlock, index: number) {
