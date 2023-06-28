@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.9.1](https://github.com/gravity-ui/page-constructor/compare/v3.9.0...v3.9.1) (2023-06-28)
+
+
+### Bug Fixes
+
+* header description displaying with ssr ([#431](https://github.com/gravity-ui/page-constructor/issues/431)) ([9c094dc](https://github.com/gravity-ui/page-constructor/commit/9c094dc7550d483cedd6b5611e0902b0d7aa27e1))
+
 ## [3.9.0](https://github.com/gravity-ui/page-constructor/compare/v3.8.3...v3.9.0) (2023-06-27)
 
 
