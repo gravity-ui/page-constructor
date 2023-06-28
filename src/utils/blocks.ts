@@ -38,6 +38,8 @@ const BLOCK_ELEMENTS = [
     'td',
 ];
 
+const BLOCK_ELEMENTS_REGEX = `<(${BLOCK_ELEMENTS.join('|')})[^>]*>`;
+
 export function getHeaderTag(size: TextSize) {
     switch (size) {
         case 'l':
@@ -53,10 +55,10 @@ export function getHeaderTag(size: TextSize) {
 }
 
 export function hasBlockTag(content: string): boolean {
-    const blockElementRegex = `/<(${BLOCK_ELEMENTS.join('|')})\b[^>]*>/gi`;
-    const blockTags = content.match(blockElementRegex);
+    const regex = new RegExp(BLOCK_ELEMENTS_REGEX, 'g');
+    const isBlock = regex.test(content);
 
-    return Boolean(blockTags);
+    return isBlock;
 }
 
 export function getBlockKey(block: ConstructorBlock, index: number) {
