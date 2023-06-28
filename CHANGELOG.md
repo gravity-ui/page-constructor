@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.9.2](https://github.com/gravity-ui/page-constructor/compare/v3.9.1...v3.9.2) (2023-06-28)
+
+
+### Bug Fixes
+
+* regex to match child content on block tags ([#433](https://github.com/gravity-ui/page-constructor/issues/433)) ([a4d4129](https://github.com/gravity-ui/page-constructor/commit/a4d4129af7d1b82e149ee6ced215d5733ad1b2f7))
+
 ## [3.9.1](https://github.com/gravity-ui/page-constructor/compare/v3.9.0...v3.9.1) (2023-06-28)
 
 
