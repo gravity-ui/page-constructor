@@ -1,0 +1,18 @@
+@import '../../../../styles/variables.scss';
+@import '../../../../styles/mixins.scss';
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+$block: '.#{$ns}not-found-block';
+
+#{$block} {
+    @include text-size(display-1);
+    @include shadow();
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    background-color: var(--yc-color-promo-highlight-silver);
+    border-radius: $borderRadius;
+}

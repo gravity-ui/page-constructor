@@ -7,15 +7,14 @@ export const BlockDecoration = ({
     children: blockChildren,
     ...rest
 }: PropsWithChildren<BlockDecorationProps>) => {
-    const block = <Fragment>{blockChildren}</Fragment>;
     const blockDecorators = useContext(InnerContext).customization?.decorators?.block;
 
-    if (!blockDecorators) {
-        return block;
-    }
+    const content = blockDecorators
+        ? blockDecorators.reduce(
+              (children, decorator) => decorator({children, ...rest}),
+              blockChildren,
+          )
+        : blockChildren;
 
-    return blockDecorators.reduce(
-        (children, decorator) => <Fragment>{decorator({children, ...rest})}</Fragment>,
-        block,
-    );
+    return <Fragment>{content}</Fragment>;
 };

@@ -13,6 +13,9 @@
       },
       "blocks": [
         {
+          "type": "not-found-block"
+        },
+        {
           "type": "slider-block",
           "title": {
             "text": "Slider",

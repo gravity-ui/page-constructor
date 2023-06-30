@@ -8,20 +8,31 @@ $block: '.#{$ns}edit-block';
 #{$block} {
     $controlIconWidth: 48px;
     $controlIconHeight: 32px;
-    $controlsIndent: $indentS;
+    $blockIndent: $indentL;
     $controlColor: var(--yc-color-promo-base-neon);
+    $zIndex: 10;
 
     cursor: pointer;
     position: relative;
+    z-index: $zIndex;
+
+    &_active {
+        z-index: calc($zIndex + 1);
+
+        #{$block}__controls {
+            border: 4px solid $controlColor;
+        }
+    }
 
     &__controls {
         position: absolute;
-        width: calc(100% + $controlsIndent * 2);
-        height: calc(100% + $controlsIndent * 2);
-        top: -#{$controlsIndent};
-        left: -#{$controlsIndent};
+        width: calc(100% + $blockIndent * 2);
+        height: calc(100% + $blockIndent);
+        top: -#{$blockIndent};
+        left: -#{$blockIndent};
         border-radius: $borderRadius;
-        z-index: $editorBlockControlZIndex;
+        // controls should be above the block to prevent block's interactions on click in edinting mode
+        z-index: $zIndex;
 
         &_isHeader {
             width: 100%;
@@ -29,8 +40,10 @@ $block: '.#{$ns}edit-block';
             top: 0;
             left: 0;
         }
-        &_active {
-            border: 4px solid $controlColor;
+
+        &_reset-paddings {
+            top: 0;
+            height: 100%;
         }
     }
 

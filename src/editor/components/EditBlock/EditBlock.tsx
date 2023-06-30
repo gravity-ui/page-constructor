@@ -34,7 +34,14 @@ export type EditBlockActions = {
     [key in EditBlockControls]?: () => void;
 };
 
-const EditBlock = ({actions, isActive, onSelect, isHeader, children}: EditBlockProps) => {
+const EditBlock = ({
+    actions,
+    isActive,
+    onSelect,
+    isHeader,
+    children,
+    resetPaddings,
+}: EditBlockProps) => {
     const ref = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
@@ -45,8 +52,14 @@ const EditBlock = ({actions, isActive, onSelect, isHeader, children}: EditBlockP
     }, [isActive]);
 
     return (
-        <div className={b()} onClick={onSelect} ref={ref}>
-            <div className={b('controls', {active: isActive, isHeader})}>
+        <div className={b({active: isActive})} onClick={onSelect} ref={ref}>
+            <div
+                className={b('controls', {
+                    active: isActive,
+                    isHeader,
+                    'reset-paddings': resetPaddings,
+                })}
+            >
                 {isActive && (
                     <div className={b('controls-content')} onClick={(e) => e.stopPropagation()}>
                         {actionsOrder.map((action) => {

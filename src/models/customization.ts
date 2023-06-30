@@ -1,8 +1,8 @@
 import {PropsWithChildren} from 'react';
 
-import {BlockType} from './constructor-items';
+import {BlockBaseProps, BlockType} from './constructor-items';
 
-export interface BlockDecorationProps extends PropsWithChildren {
+export interface BlockDecorationProps extends PropsWithChildren, BlockBaseProps {
     type: BlockType;
     index?: number;
 }
