@@ -5,4 +5,6 @@ export enum AvailableForCompressExtension {
 }
 
 export const isCompressible = (fileName: string) =>
-    Object.keys(AvailableForCompressExtension).some((ext) => fileName.endsWith(`.${ext}`));
+    Object.values(AvailableForCompressExtension).some((ext) =>
+        fileName.toLowerCase().endsWith(`.${ext}`),
+    );
