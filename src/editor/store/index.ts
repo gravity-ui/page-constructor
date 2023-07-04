@@ -62,6 +62,7 @@ export function useEditorState({content: intialContent, custom}: Omit<EditorProp
             type,
             index: relativeIndex = 0,
             children,
+            ...rest
         }: BlockDecorationProps) => {
             const orderedBlocksStartIndex = contentHasHeader ? 1 : 0;
             const isHeader = checkIsHeader(type);
@@ -98,6 +99,7 @@ export function useEditorState({content: intialContent, custom}: Omit<EditorProp
                 isActive,
                 actions,
                 onSelect: () => onSelect(index),
+                ...rest,
             } as EditBlockProps;
         };
 

@@ -3,7 +3,8 @@ import React, {Fragment, ReactElement, useContext} from 'react';
 import _ from 'lodash';
 
 import {InnerContext} from '../../../../context/innerContext';
-import {Block, ConstructorItem as ConstructorItemType} from '../../../../models';
+import {BlockDecoration} from '../../../../customization/BlockDecoration';
+import {Block, BlockType, ConstructorItem as ConstructorItemType} from '../../../../models';
 import {getBlockKey} from '../../../../utils';
 import {ConstructorBlock} from '../ConstructorBlock/ConstructorBlock';
 import {ConstructorItem} from '../ConstructorItem';
@@ -22,7 +23,11 @@ export const ConstructorBlocks: React.FC<ConstructorBlocksProps> = ({items}) => 
         index: number,
     ): ReactElement | null => {
         if (!itemMap[item.type]) {
-            return null;
+            return parentId ? null : (
+                <BlockDecoration type={item.type as BlockType} index={index}>
+                    {null}
+                </BlockDecoration>
+            );
         }
 
         let itemElement;

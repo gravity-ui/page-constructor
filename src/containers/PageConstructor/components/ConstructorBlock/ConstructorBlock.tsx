@@ -1,10 +1,13 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 
-import BlockBase, {BlockBaseFullProps} from '../../../../components/BlockBase/BlockBase';
-import {Block, WithChildren} from '../../../../models';
+import _ from 'lodash';
+
+import BlockBase from '../../../../components/BlockBase/BlockBase';
+import {BlockDecoration} from '../../../../customization/BlockDecoration';
+import {Block, BlockDecorationProps, WithChildren} from '../../../../models';
 import {block} from '../../../../utils';
 
-interface ConstructorBlockProps extends Pick<BlockBaseFullProps, 'index'> {
+interface ConstructorBlockProps extends Pick<BlockDecorationProps, 'index'> {
     data: Block;
 }
 
@@ -15,18 +18,17 @@ export const ConstructorBlock: React.FC<WithChildren<ConstructorBlockProps>> = (
     data,
     children,
 }) => {
-    const {anchor, visible, type} = data;
+    const {type} = data;
+    const blockBaseProps = useMemo(
+        () => _.pick(data, ['anchor', 'visible', 'resetPaddings']),
+        [data],
+    );
 
     return (
-        <BlockBase
-            type={type}
-            index={index}
-            className={b({type})}
-            anchor={anchor}
-            visible={visible}
-            resetPaddings={data.resetPaddings}
-        >
-            {children}
-        </BlockBase>
+        <BlockDecoration type={type} index={index} {...blockBaseProps}>
+            <BlockBase className={b({type})} {...blockBaseProps}>
+                {children}
+            </BlockBase>
+        </BlockDecoration>
     );
 };

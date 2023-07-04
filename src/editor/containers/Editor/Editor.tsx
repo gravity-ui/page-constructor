@@ -5,6 +5,7 @@ import AddBlock from '../../components/AddBlock/AddBlock';
 import EditBlock from '../../components/EditBlock/EditBlock';
 import {ErrorBoundary} from '../../components/ErrorBoundary/ErrorBoundary';
 import Layout from '../../components/Layout/Layout';
+import {NotFoundBlock} from '../../components/NotFoundBlock/NotFoundBlock';
 import useFormSpec from '../../hooks/useFormSpec';
 import {useEditorState} from '../../store';
 import {EditorProps, ViewModeItem} from '../../types';
@@ -30,6 +31,7 @@ export const Editor = ({children, customSchema, onChange, ...rest}: EditorProps)
         const custom = isEditingMode
             ? addCustomDecorator(
                   [
+                      (props: BlockDecorationProps) => <NotFoundBlock {...props} />,
                       (props: BlockDecorationProps) => (
                           <EditBlock {...injectEditBlockProps(props)} />
                       ),
