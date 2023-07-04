@@ -1,5 +1,17 @@
 # Changelog
 
+## [3.10.0](https://github.com/gravity-ui/page-constructor/compare/v3.9.2...v3.10.0) (2023-07-04)
+
+
+### Features
+
+* add not found block dummy and refactor ([#435](https://github.com/gravity-ui/page-constructor/issues/435)) ([610df6a](https://github.com/gravity-ui/page-constructor/commit/610df6a65a307d357a3e2f39d401972ed595974a))
+
+
+### Bug Fixes
+
+* fix extention extraction for image isCompressible util ([#401](https://github.com/gravity-ui/page-constructor/issues/401)) ([5eea616](https://github.com/gravity-ui/page-constructor/commit/5eea6162854f507e7402dd943ebb8b111dcac53d))
+
 ## [3.9.2](https://github.com/gravity-ui/page-constructor/compare/v3.9.1...v3.9.2) (2023-06-28)
 
 
