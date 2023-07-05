@@ -29,5 +29,7 @@ export interface EditBlockProps extends EditBlockEditorProps, BlockDecorationPro
 
 export enum ViewModeItem {
     Edititng = 'editing',
-    View = 'view',
+    Desktop = 'desktop',
+    Tablet = 'tablet',
+    Mobile = 'mobile',
 }

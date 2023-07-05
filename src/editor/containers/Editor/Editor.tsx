@@ -1,5 +1,6 @@
 import React, {useEffect, useMemo} from 'react';
 
+import {PageConstructorProvider} from '../../../containers/PageConstructor';
 import {BlockDecorationProps} from '../../../models';
 import AddBlock from '../../components/AddBlock/AddBlock';
 import EditBlock from '../../components/EditBlock/EditBlock';
@@ -9,7 +10,7 @@ import {NotFoundBlock} from '../../components/NotFoundBlock/NotFoundBlock';
 import useFormSpec from '../../hooks/useFormSpec';
 import {useEditorState} from '../../store';
 import {EditorProps, ViewModeItem} from '../../types';
-import {addCustomDecorator, getBlockId} from '../../utils';
+import {addCustomDecorator, checkIsMobile, getBlockId} from '../../utils';
 import {Form} from '../Form/Form';
 
 export const Editor = ({children, customSchema, onChange, ...rest}: EditorProps) => {
@@ -67,7 +68,11 @@ export const Editor = ({children, customSchema, onChange, ...rest}: EditorProps)
                 </Layout.Left>
             )}
             <Layout.Right>
-                <ErrorBoundary key={errorBoundaryState}>{children(outgoingProps)}</ErrorBoundary>
+                <ErrorBoundary key={errorBoundaryState}>
+                    <PageConstructorProvider isMobile={checkIsMobile(viewMode)}>
+                        {children(outgoingProps)}
+                    </PageConstructorProvider>
+                </ErrorBoundary>
                 {isEditingMode && <AddBlock onAdd={onAdd} />}
             </Layout.Right>
         </Layout>

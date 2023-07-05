@@ -1,0 +1,33 @@
+@import '../../../../styles/variables.scss';
+@import '../../../../styles/mixins.scss';
+@import '../../styles/root.scss';
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+$block: '.#{$ns}device-preview';
+
+#{$block} {
+    position: relative;
+    display: flex;
+    justify-content: center;
+
+    &__frame {
+        border: none;
+
+        &_mode_mobile {
+            // iphone 12
+            width: 390px;
+            height: 844px;
+        }
+
+        &_mode_tablet {
+            // ipad air
+            width: 768px;
+            height: 1024px;
+        }
+    }
+}
+
+#{$block}__frame {
+    margin: 0;
+}
