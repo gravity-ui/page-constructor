@@ -41,7 +41,8 @@ const DevicePreviewMobile = ({children, mode}: DevicePreviewMobileProps) => {
     return (
         <div className={b()}>
             <iframe ref={setContentRef} className={b('frame', {mode})}>
-                {mountNode && createPortal(children, mountNode)}
+                {mountNode &&
+                    createPortal(<div className={b('container')}>{children}</div>, mountNode)}
             </iframe>
         </div>
     );

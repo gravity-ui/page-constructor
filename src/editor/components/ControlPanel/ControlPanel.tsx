@@ -9,9 +9,9 @@ import {ViewModeItem} from '../../types';
 
 import i18n from './i18n';
 
-const ICON_SIZE = 14;
-
 import './ControlPanel.scss';
+
+const ICON_SIZE = 14;
 
 const b = block('control-panel');
 

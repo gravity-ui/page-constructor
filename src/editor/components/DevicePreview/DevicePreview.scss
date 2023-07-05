@@ -31,3 +31,7 @@ $block: '.#{$ns}device-preview';
 #{$block}__frame {
     margin: 0;
 }
+
+#{$block}__container {
+    overflow: auto;
+}
