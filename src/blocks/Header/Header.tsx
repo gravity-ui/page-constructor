@@ -139,17 +139,16 @@ export const HeaderBlock = (props: WithChildren<HeaderBlockFullProps>) => {
                                     )}
                                     {buttons && (
                                         <div className={b('buttons')} data-qa="header-buttons">
-                                            {buttons &&
-                                                buttons.map((button, index) => (
-                                                    <RouterLink href={button.url} key={index}>
-                                                        <Button
-                                                            key={index}
-                                                            className={b('button')}
-                                                            size="xl"
-                                                            {...button}
-                                                        />
-                                                    </RouterLink>
-                                                ))}
+                                            {buttons.map((button, index) => (
+                                                <RouterLink href={button.url} key={index}>
+                                                    <Button
+                                                        key={index}
+                                                        className={b('button')}
+                                                        size="xl"
+                                                        {...button}
+                                                    />
+                                                </RouterLink>
+                                            ))}
                                         </div>
                                     )}
                                     {children}
