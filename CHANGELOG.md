@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.10.2](https://github.com/gravity-ui/page-constructor/compare/v3.10.1...v3.10.2) (2023-07-07)
+
+
+### Bug Fixes
+
+* removed check on block tag in YFMWrapper and second check buttons in HeaderBlock ([#440](https://github.com/gravity-ui/page-constructor/issues/440)) ([90452cf](https://github.com/gravity-ui/page-constructor/commit/90452cf2b8d5dda00b2650c28ab7184a87a4023b))
+
 ## [3.10.1](https://github.com/gravity-ui/page-constructor/compare/v3.10.0...v3.10.1) (2023-07-07)
 
 
