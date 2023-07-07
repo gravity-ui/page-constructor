@@ -1,6 +1,4 @@
-import React, {Fragment, PropsWithChildren, useLayoutEffect, useState} from 'react';
-
-import {createPortal} from 'react-dom';
+import React, {Fragment, PropsWithChildren, useLayoutEffect, useRef} from 'react';
 
 import {block} from '../../../utils';
 import {useDocumentCSS} from '../../hooks/useDocumentCSS';
@@ -18,34 +16,54 @@ interface DevicePreviewMobileProps extends PropsWithChildren {
     mode: Extract<ViewModeItem, ViewModeItem.Mobile | ViewModeItem.Tablet>;
 }
 
-const DevicePreviewMobile = ({children, mode}: DevicePreviewMobileProps) => {
-    const [contentRef, setContentRef] = useState<HTMLIFrameElement | null>(null);
-    const mountNode = contentRef?.contentWindow?.document?.body;
+const DevicePreviewMobile = ({mode}: DevicePreviewMobileProps) => {
+    const ref = useRef<HTMLDivElement | null>(null);
+    const iframeRef = useRef<HTMLIFrameElement | null>(null);
     const documentCSS = useDocumentCSS();
 
     useLayoutEffect(() => {
-        if (documentCSS && contentRef?.contentWindow?.document) {
-            const frame = contentRef.contentWindow.document;
-            const head = frame.getElementsByTagName('head')[0];
-            const style = frame.createElement('style');
-            const parentBodyClass = document.body.classList;
-
-            frame.body.classList.add(...parentBodyClass, b('frame'));
-
-            style.setAttribute('type', 'text/css');
-            style.appendChild(document.createTextNode(documentCSS));
-            head.appendChild(style);
+        if(iframeRef?.current) {
+            ref?.current?.removeChild(iframeRef.current);
+            iframeRef.current = null;
         }
-    }, [documentCSS, contentRef]);
+    
+        if (documentCSS && ref?.current) {
+            const iframe = document.createElement('iframe');
+            iframe.className = b('frame', {mode});
+            ref.current?.appendChild(iframe);
+            iframeRef.current = iframe;
+        
+            if(iframe.contentWindow?.document) {
+                const frameDoc = iframe.contentWindow?.document;
+                const head = frameDoc?.getElementsByTagName('head')[0];
+                const style = frameDoc?.createElement('style');
+                const parentBodyClass = document.body.classList;
 
-    return (
-        <div className={b()}>
-            <iframe ref={setContentRef} className={b('frame', {mode})}>
-                {mountNode &&
-                    createPortal(<div className={b('container')}>{children}</div>, mountNode)}
-            </iframe>
-        </div>
-    );
+                iframe.contentWindow.__name = 'test';
+                iframe.contentWindow.__DATA__ = JSON.stringify({test: 'test'})
+
+                const root = frameDoc.createElement('div');
+                root.setAttribute('id', 'page_root');
+                frameDoc.body.appendChild(root);
+        
+                frameDoc.body.classList.add(...parentBodyClass, b('frame'));
+        
+                [...document.scripts].forEach(({src}) => {
+                    if (src) {
+                        const script = frameDoc.createElement('script');
+                        script.src = src;
+                        head.appendChild(script);
+                    }
+                });
+    
+                style.setAttribute('type', 'text/css');
+                style.appendChild(document.createTextNode(documentCSS));
+                head.appendChild(style);
+            }    
+        }
+    }, [documentCSS, ref?.current, mode]);
+
+    return <div className={b()} ref={ref}/>;
 };
 
 const DevicePreview = ({children, mode}: PropsWithChildren<DevicePreviewProps>) => {

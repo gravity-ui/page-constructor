@@ -1,6 +1,7 @@
 import React, {useEffect, useMemo} from 'react';
+import ReactDOM from 'react-dom';
 
-import {PageConstructorProvider} from '../../../containers/PageConstructor';
+import {PageConstructor, PageConstructorProvider} from '../../../containers/PageConstructor';
 import {BlockDecorationProps} from '../../../models';
 import AddBlock from '../../components/AddBlock/AddBlock';
 import EditBlock from '../../components/EditBlock/EditBlock';
@@ -12,6 +13,18 @@ import {useEditorState} from '../../store';
 import {EditorProps, ViewModeItem} from '../../types';
 import {addCustomDecorator, checkIsMobile, getBlockId} from '../../utils';
 import {Form} from '../Form/Form';
+
+import data from '../__stories__/data.json';
+
+console.log('We are on parent window!', window.document.body.offsetWidth);
+
+if(window.self !== window.top && window.__name==='test') {
+    // const data = window.__DATA__ && JSON.parse(window.__DATA__);
+    // console.log('__DATA', data);
+    console.log('We are inside iframe!', window.document.body.offsetWidth);
+    console.log('data', data.default.content)
+    ReactDOM.render(<PageConstructor content={data.default.content}/>, window.document.getElementById('page_root'));
+}
 
 export const Editor = ({children, customSchema, onChange, ...rest}: EditorProps) => {
     const {
