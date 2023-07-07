@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.10.1](https://github.com/gravity-ui/page-constructor/compare/v3.10.0...v3.10.1) (2023-07-07)
+
+
+### Bug Fixes
+
+* block styles specificity ([#438](https://github.com/gravity-ui/page-constructor/issues/438)) ([177996c](https://github.com/gravity-ui/page-constructor/commit/177996c30cd88ee030bc5e2d41ec9555e84d91a4))
+
 ## [3.10.0](https://github.com/gravity-ui/page-constructor/compare/v3.9.2...v3.10.0) (2023-07-04)
 
 
