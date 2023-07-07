@@ -167,11 +167,13 @@
 //constructor
 
 @mixin block {
-    margin-top: $indentL;
-    padding: 0 0 $indentL;
+    @include add-specificity(&) {
+        margin-top: $indentL;
+        padding: 0 0 $indentL;
 
-    &:first-child {
-        margin-top: var(--pc-first-block-indent, #{$indentXXL});
+        &:first-child {
+            margin-top: var(--pc-first-block-indent, #{$indentXXL});
+        }
     }
 }
 
