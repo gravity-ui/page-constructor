@@ -65,4 +65,6 @@ interface Window {
         };
     };
     ymaps: Ymaps;
+
+    __isEditorDeviceFrame?: boolean;
 }

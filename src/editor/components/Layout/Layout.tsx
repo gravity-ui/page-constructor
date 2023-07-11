@@ -42,14 +42,11 @@ const Layout = ({children, mode, onModeChange}: PropsWithChildren<LayoutProps>) 
             <div className={b('container')}>
                 <Fragment>
                     {left && <div className={b('left')}>{left}</div>}
-                    {right &&
-                        (isEditingMode ? (
-                            <div className={b('right', {editing: isEditingMode})}>{right}</div>
-                        ) : (
-                            <div className={b('right')}>
-                                <DevicePreview mode={mode}>{right}</DevicePreview>
-                            </div>
-                        ))}
+                    {right && (
+                        <div className={b('right', {editing: isEditingMode})}>
+                            <DevicePreview mode={mode}>{right}</DevicePreview>
+                        </div>
+                    )}
                 </Fragment>
             </div>
         </div>
