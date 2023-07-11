@@ -9,6 +9,7 @@ export const useDocumentCSS = () => {
                 try {
                     return [...styleSheet.cssRules].map((rule) => rule.cssText).join('');
                 } catch (e) {
+                    /*eslint-disable no-console */
                     console.log(`Access to stylesheet  ${styleSheet.href} is denied. Ignoring...`);
 
                     return '';

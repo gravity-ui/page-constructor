@@ -47,7 +47,9 @@ const DevicePreviewMobile = ({device, active}: DevicePreviewMobileProps) => {
         return () => {
             iframe?.destroy();
         };
-    }, [documentCSS]);
+        // render iframe only once, then update it's data with postMessage
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [documentCSS, device]);
 
     useEffect(() => {
         if (deviceIframeRef.current) {
