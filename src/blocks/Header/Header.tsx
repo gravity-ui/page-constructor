@@ -8,7 +8,7 @@ import {MobileContext} from '../../context/mobileContext';
 import {ThemeValueContext} from '../../context/theme/ThemeValueContext';
 import {Col, Grid, Row} from '../../grid';
 import {ClassNameProps, HeaderBlockBackground, HeaderBlockProps, WithChildren} from '../../models';
-import {block, getThemedValue} from '../../utils';
+import {block, getThemedValue, hasBlockTag} from '../../utils';
 
 import {getImageSize, getTitleSizes, titleWithImageSizes} from './utils';
 
@@ -121,21 +121,21 @@ export const HeaderBlock = (props: WithChildren<HeaderBlockFullProps>) => {
                             >
                                 <Col sizes={titleSizes} className={b('content-inner')}>
                                     {overtitle && (
-                                        <p className={b('overtitle')}>
-                                            <HTML>{overtitle}</HTML>
-                                        </p>
+                                        <div className={b('overtitle')}>
+                                            <HTML block={hasBlockTag(overtitle)}>{overtitle}</HTML>
+                                        </div>
                                     )}
                                     <h1 className={b('title')}>
                                         {status}
-                                        <HTML>{title}</HTML>
+                                        <HTML block={hasBlockTag(title)}>{title}</HTML>
                                     </h1>
                                     {description && (
-                                        <p className={b('description')}>
+                                        <div className={b('description')}>
                                             <YFMWrapper
                                                 content={description}
                                                 modifiers={{constructor: true}}
                                             />
-                                        </p>
+                                        </div>
                                     )}
                                     {buttons && (
                                         <div className={b('buttons')} data-qa="header-buttons">

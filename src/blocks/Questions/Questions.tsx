@@ -5,7 +5,7 @@ import Link from '../../components/Link/Link';
 import {Col, Row} from '../../grid';
 import {QuestionsProps} from '../../models';
 import {Content} from '../../sub-blocks';
-import {block} from '../../utils';
+import {block, hasBlockTag} from '../../utils';
 
 import './Questions.scss';
 
@@ -70,7 +70,10 @@ const QuestionsBlock = (props: QuestionsProps) => {
                                         className={b('item-title')}
                                         onClick={() => toggleItem(index)}
                                     >
-                                        <HTML itemProp={FaqMicrodataValues.QuestionNameProp}>
+                                        <HTML
+                                            block={hasBlockTag(itemTitle)}
+                                            itemProp={FaqMicrodataValues.QuestionNameProp}
+                                        >
                                             {itemTitle}
                                         </HTML>
                                         <ToggleArrow

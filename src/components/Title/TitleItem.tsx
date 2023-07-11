@@ -4,7 +4,7 @@ import {HTML, ToggleArrow} from '../';
 import {LocationContext} from '../../context/locationContext';
 import {MobileContext} from '../../context/mobileContext';
 import {TextSize, TitleItemProps} from '../../models';
-import {block, getHeaderTag, getLinkProps} from '../../utils';
+import {block, getHeaderTag, getLinkProps, hasBlockTag} from '../../utils';
 import Anchor from '../Anchor/Anchor';
 
 import './TitleItem.scss';
@@ -52,7 +52,9 @@ const TitleItem = (props: TitleItemFullProps) => {
     const {hostname} = useContext(LocationContext);
     const textMarkup = (
         <React.Fragment>
-            <HTML className={b('text')}>{text}</HTML>
+            <HTML className={b('text')} block={hasBlockTag(text)}>
+                {text}
+            </HTML>
             {custom && (
                 <React.Fragment>
                     &nbsp;

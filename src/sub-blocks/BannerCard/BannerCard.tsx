@@ -3,7 +3,7 @@ import React, {useContext} from 'react';
 import {BackgroundImage, Button, HTML, RouterLink, YFMWrapper} from '../../components';
 import {ThemeValueContext} from '../../context/theme/ThemeValueContext';
 import {BannerCardProps} from '../../models';
-import {block, getThemedValue} from '../../utils';
+import {block, getThemedValue, hasBlockTag} from '../../utils';
 
 import './BannerCard.scss';
 
@@ -32,7 +32,7 @@ export const BannerCard = (props: BannerCardProps) => {
                 <div className={b('info')}>
                     <div className={b('text')}>
                         <h2 className={b('title')}>
-                            <HTML>{title}</HTML>
+                            <HTML block={hasBlockTag(title)}>{title}</HTML>
                         </h2>
                         {subtitle && (
                             <YFMWrapper
