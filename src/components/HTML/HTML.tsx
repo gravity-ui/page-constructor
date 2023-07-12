@@ -1,6 +1,7 @@
 import React from 'react';
 
 import {WithChildren} from '../../models';
+import {hasBlockTag} from '../../utils';
 
 export interface HTMLProps {
     children?: string;
@@ -14,7 +15,7 @@ const HTML = ({children, block = false, className, itemProp}: WithChildren<HTMLP
         return null;
     }
 
-    return React.createElement(block ? 'div' : 'span', {
+    return React.createElement(block || hasBlockTag(children) ? 'div' : 'span', {
         dangerouslySetInnerHTML: {__html: children},
         className,
         itemProp,
