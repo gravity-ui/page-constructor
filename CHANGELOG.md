@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.10.3](https://github.com/gravity-ui/page-constructor/compare/v3.10.2...v3.10.3) (2023-07-12)
+
+
+### Bug Fixes
+
+* html semantic, block tag should be in block tag ([#442](https://github.com/gravity-ui/page-constructor/issues/442)) ([3b46ff4](https://github.com/gravity-ui/page-constructor/commit/3b46ff436605a81e45ced89323beba14c1e8340d))
+
 ## [3.10.2](https://github.com/gravity-ui/page-constructor/compare/v3.10.1...v3.10.2) (2023-07-07)
 
 
