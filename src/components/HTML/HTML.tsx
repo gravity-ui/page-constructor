@@ -1,8 +1,7 @@
 import React from 'react';
 
-import {hasBlockTag} from 'src/utils';
-
 import {WithChildren} from '../../models';
+import {hasBlockTag} from '../../utils';
 
 export interface HTMLProps {
     children?: string;
