@@ -7,7 +7,7 @@ import {ThemeValueContext} from '../../context/theme/ThemeValueContext';
 import {Col, Row} from '../../grid';
 import {ExtendedFeaturesProps} from '../../models';
 import {Content} from '../../sub-blocks';
-import {block, getThemedValue, hasBlockTag} from '../../utils';
+import {block, getThemedValue} from '../../utils';
 
 import './ExtendedFeatures.scss';
 
@@ -59,9 +59,7 @@ export const ExtendedFeaturesBlock = ({
                                     <div className={b('container')}>
                                         {itemTitle && (
                                             <h5 className={b('item-title')}>
-                                                <HTML block={hasBlockTag(itemTitle)}>
-                                                    {itemTitle}
-                                                </HTML>
+                                                <HTML>{itemTitle}</HTML>
                                                 {label && (
                                                     <span className={b('item-label')}>{label}</span>
                                                 )}

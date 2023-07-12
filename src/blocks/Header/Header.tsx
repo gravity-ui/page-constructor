@@ -8,7 +8,7 @@ import {MobileContext} from '../../context/mobileContext';
 import {ThemeValueContext} from '../../context/theme/ThemeValueContext';
 import {Col, Grid, Row} from '../../grid';
 import {ClassNameProps, HeaderBlockBackground, HeaderBlockProps, WithChildren} from '../../models';
-import {block, getThemedValue, hasBlockTag} from '../../utils';
+import {block, getThemedValue} from '../../utils';
 
 import {getImageSize, getTitleSizes, titleWithImageSizes} from './utils';
 
@@ -122,12 +122,12 @@ export const HeaderBlock = (props: WithChildren<HeaderBlockFullProps>) => {
                                 <Col sizes={titleSizes} className={b('content-inner')}>
                                     {overtitle && (
                                         <div className={b('overtitle')}>
-                                            <HTML block={hasBlockTag(overtitle)}>{overtitle}</HTML>
+                                            <HTML>{overtitle}</HTML>
                                         </div>
                                     )}
                                     <h1 className={b('title')}>
                                         {status}
-                                        <HTML block={hasBlockTag(title)}>{title}</HTML>
+                                        <HTML>{title}</HTML>
                                     </h1>
                                     {description && (
                                         <div className={b('description')}>
