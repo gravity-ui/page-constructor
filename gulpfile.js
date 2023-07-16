@@ -1,16 +1,11 @@
 /* eslint-env node */
 const path = require('path');
 
-const browserify = require('browserify');
 const {task, src, dest, series, parallel} = require('gulp');
 const sass = require('gulp-dart-sass');
 const replace = require('gulp-replace');
-const replaceString = require('gulp-string-replace');
 const ts = require('gulp-typescript');
-const uglify = require('gulp-uglify');
 const rimraf = require('rimraf');
-const buffer = require('vinyl-buffer');
-const source = require('vinyl-source-stream');
 
 const BUILD_CLIENT_DIR = path.resolve('build');
 const ESM_DIR = 'esm';
@@ -96,48 +91,4 @@ task(
     ]),
 );
 
-task('copy-styles', function () {
-    return src(['styles/**/*']).pipe(dest(path.resolve(BUILD_CLIENT_DIR, 'styles')));
-});
-
-task('bundle', function () {
-    const iframePath = `${path.resolve(BUILD_CLIENT_DIR, ESM_DIR)}/editor/iframe/index.js`;
-
-    return browserify({
-        entries: [iframePath],
-        transform: [
-            [
-                'babelify',
-                {
-                    presets: ['@babel/preset-env', '@babel/preset-react'],
-                },
-            ],
-            ['browserify-css'],
-        ],
-    })
-        .bundle()
-        .pipe(source(iframePath))
-        .pipe(buffer())
-        .pipe(uglify())
-        .pipe(dest('.'));
-});
-
-task('inject', () => {
-    const buildPath = `${path.resolve(BUILD_CLIENT_DIR, ESM_DIR)}/editor/iframe`;
-
-    const codePath = `${buildPath}/index.js`;
-    const file = JSON.stringify(require('fs').readFileSync(codePath, 'utf8'));
-
-    return src([`${buildPath}/source.js`])
-        .pipe(replaceString(/"__IFRAME_SOURCE__"/, file))
-        .pipe(dest(buildPath));
-});
-
-task('bundle-cleanup', (done) => {
-    rimraf.sync(path.resolve(BUILD_CLIENT_DIR, 'styles'));
-    rimraf.sync(`${path.resolve(BUILD_CLIENT_DIR, ESM_DIR)}/editor/iframe/index.js`);
-    done();
-});
-
-// task('default', series(['build', 'copy-styles', 'bundle', 'inject', 'bundle-cleanup']));
 task('default', series(['build']));
