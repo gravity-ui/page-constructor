@@ -8,7 +8,6 @@ import {ErrorBoundary} from '../../components/ErrorBoundary/ErrorBoundary';
 import Layout from '../../components/Layout/Layout';
 import {NotFoundBlock} from '../../components/NotFoundBlock/NotFoundBlock';
 import {EditorContext} from '../../context';
-import '../../device-emulation';
 import useFormSpec from '../../hooks/useFormSpec';
 import {useEditorState} from '../../store';
 import {EditorProps, ViewModeItem} from '../../types';

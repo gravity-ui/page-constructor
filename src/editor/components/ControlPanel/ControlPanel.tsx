@@ -5,6 +5,7 @@ import {RadioButton} from '@gravity-ui/uikit';
 
 import {ClassNameProps} from '../../../models';
 import {block} from '../../../utils';
+import {Tablet} from '../../icons/Tablet';
 import {ViewModeItem} from '../../types';
 
 import i18n from './i18n';
@@ -18,7 +19,7 @@ const b = block('control-panel');
 const ControlPanelViewModeIcons = {
     [ViewModeItem.Edititng]: Pencil,
     [ViewModeItem.Desktop]: Display,
-    [ViewModeItem.Tablet]: Smartphone,
+    [ViewModeItem.Tablet]: Tablet,
     [ViewModeItem.Mobile]: Smartphone,
 };
 

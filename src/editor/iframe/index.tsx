@@ -4,13 +4,9 @@ import ReactDOM from 'react-dom';
 
 import {PageConstructor} from '../../containers/PageConstructor';
 
-const prefix = 'PC_EDITOR_DEVICE';
+import {DeviceFrameMessageType, EDITOR_FRAME_ROOT_ID} from './constants';
 
-export const EDITOR_FRAME_ROOT_ID = `${prefix}_FRAME_ROOT`;
-export const DeviceFrameMessageType = {
-    Ready: `${prefix}_MESSAGE_READY`,
-    Update: `${prefix}_MESSAGE_UPDATE`,
-};
+import './styles.scss';
 
 if (window.self !== window.top && window.__isEditorDeviceFrame) {
     const root = window.document.getElementById(EDITOR_FRAME_ROOT_ID);
@@ -25,3 +21,5 @@ if (window.self !== window.top && window.__isEditorDeviceFrame) {
 
     window.parent?.postMessage({type: DeviceFrameMessageType.Ready}, window.parent.origin);
 }
+
+export default {};
