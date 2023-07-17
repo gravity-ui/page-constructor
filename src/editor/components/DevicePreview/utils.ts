@@ -1,9 +1,8 @@
+//this file available in build only
+//@ts-ignore, prettier-ignore
 import iframeBundledScript from '../../../../../iframe';
 import {PageConstructorProps} from '../../../containers/PageConstructor';
 import {DeviceFrameMessageType} from '../../iframe/constants';
-
-//this file available in build only
-//@ts-ignore
 
 interface DeviceIframeParams {
     initialData?: PageConstructorProps;
