@@ -1,6 +1,9 @@
+import iframeBundledScript from '../../../../../iframe';
 import {PageConstructorProps} from '../../../containers/PageConstructor';
-import {DeviceFrameMessageType, EDITOR_FRAME_ROOT_ID} from '../../iframe/constants';
-import {iframeSource} from '../../iframe/source';
+import {DeviceFrameMessageType} from '../../iframe/constants';
+
+//this file available in build only
+//@ts-ignore
 
 interface DeviceIframeParams {
     initialData?: PageConstructorProps;
@@ -28,8 +31,6 @@ export class DeviceIframe {
             this.iframeElement = iframe;
             this.initialData = initialData;
 
-            this.addFrameDocumentRoot();
-
             window.addEventListener('message', this.onInit.bind(this));
             this.copyResouresToChildFrame();
         }
@@ -55,17 +56,6 @@ export class DeviceIframe {
         window.removeEventListener('message', this.onInit.bind(this));
     }
 
-    private addFrameDocumentRoot() {
-        const frameDoc = this.iframeElement?.contentWindow?.document;
-
-        if (frameDoc) {
-            const root = frameDoc.createElement('div');
-
-            root.setAttribute('id', EDITOR_FRAME_ROOT_ID);
-            frameDoc.body.appendChild(root);
-        }
-    }
-
     private copyResouresToChildFrame() {
         const frameDoc = this.iframeElement?.contentWindow?.document;
 
@@ -73,7 +63,7 @@ export class DeviceIframe {
             const head = frameDoc?.getElementsByTagName('head')[0];
             const script = frameDoc.createElement('script');
 
-            script.appendChild(document.createTextNode(iframeSource));
+            script.appendChild(document.createTextNode(iframeBundledScript));
             head.appendChild(script);
         }
     }

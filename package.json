@@ -44,7 +44,8 @@
   "files": [
     "build",
     "styles",
-    "server"
+    "server",
+    "iframe"
   ],
   "sideEffects": [
     "*.css",
@@ -69,7 +70,7 @@
     "clean": "gulp clean",
     "build:client": "gulp",
     "build:server": "rimraf server && tsc -p tsconfig.server.json && move-file server/server.js server/index.js && move-file server/server.d.ts server/index.d.ts",
-    "build:iframe": "webpack --config webpack.js",
+    "build:iframe": "webpack --config iframe.webpack.js",
     "build": "run-p build:client build:server && npm run build:iframe",
     "prepublishOnly": "npm run lint && npm run build",
     "prepare": "husky install",
