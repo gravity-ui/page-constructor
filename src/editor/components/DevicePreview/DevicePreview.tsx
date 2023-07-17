@@ -2,7 +2,6 @@ import React, {Fragment, PropsWithChildren, useContext, useEffect, useRef} from 
 
 import {block} from '../../../utils';
 import {EditorContext} from '../../context';
-import {useDocumentCSS} from '../../hooks/useDocumentCSS';
 import {ViewModeItem} from '../../types';
 
 import {DeviceIframe} from './utils';
@@ -30,16 +29,14 @@ const DevicePreviewMobile = ({device, active}: DevicePreviewMobileProps) => {
     const {data} = useContext(EditorContext);
     const containerRef = useRef<HTMLDivElement | null>(null);
     const deviceIframeRef = useRef<DeviceIframe | null>(null);
-    const documentCSS = useDocumentCSS();
 
     useEffect(() => {
         let iframe: DeviceIframe;
 
-        if (documentCSS && containerRef?.current) {
+        if (containerRef?.current) {
             iframe = new DeviceIframe(containerRef?.current, {
                 initialData: data,
                 className: b('frame', {device}),
-                parentCSS: documentCSS,
             });
             deviceIframeRef.current = iframe;
         }
@@ -49,7 +46,7 @@ const DevicePreviewMobile = ({device, active}: DevicePreviewMobileProps) => {
         };
         // render iframe only once, then update it's data with postMessage
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [documentCSS, device]);
+    }, [device]);
 
     useEffect(() => {
         if (deviceIframeRef.current) {
