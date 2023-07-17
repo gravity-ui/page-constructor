@@ -133,7 +133,6 @@
     "@types/uuid": "^9.0.0",
     "autoprefixer": "^10.4.14",
     "babel-loader": "^8.3.0",
-    "browserify-css": "^0.15.0",
     "css-loader": "^5.2.7",
     "es5-ext": "0.10.53",
     "eslint": "^8.34.0",
