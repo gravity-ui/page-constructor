@@ -1,9 +1,15 @@
-//this file available after build
+//widget bundle available after build only
 //@ts-ignore
-import widgetScript from 'widget';
+import bundle from 'widget';
 
-import {PageConstructorProps} from '../../../containers/PageConstructor';
-import {DeviceFrameMessageType} from '../../iframe/constants';
+import {PageConstructorProps} from '../../containers/PageConstructor';
+
+const prefix = 'PC_EDITOR_DEVICE';
+
+export const DeviceFrameMessageType = {
+    Ready: `${prefix}_MESSAGE_READY`,
+    Update: `${prefix}_MESSAGE_UPDATE`,
+};
 
 interface DeviceIframeParams {
     initialData?: PageConstructorProps;
@@ -63,7 +69,7 @@ export class DeviceIframe {
             const head = frameDoc?.getElementsByTagName('head')[0];
             const script = frameDoc.createElement('script');
 
-            script.appendChild(document.createTextNode(widgetScript));
+            script.appendChild(document.createTextNode(bundle));
             head.appendChild(script);
         }
     }

@@ -3,8 +3,7 @@ import React, {Fragment, PropsWithChildren, useContext, useEffect, useRef} from 
 import {block} from '../../../utils';
 import {EditorContext} from '../../context';
 import {ViewModeItem} from '../../types';
-
-import {DeviceIframe} from './utils';
+import {DeviceIframe} from '../../widget';
 
 import './DevicePreview.scss';
 

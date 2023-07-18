@@ -4,6 +4,7 @@ const path = require('path');
 const {task, src, dest, series, parallel} = require('gulp');
 const sass = require('gulp-dart-sass');
 const replace = require('gulp-replace');
+const alias = require('gulp-ts-alias');
 const ts = require('gulp-typescript');
 const rimraf = require('rimraf');
 
@@ -38,6 +39,7 @@ function compileTs(modules = false) {
                 modules ? match.replace('.scss', '.css') : '',
             ),
         )
+        .pipe(alias(tsProject.config))
         .pipe(tsProject())
         .pipe(dest(path.resolve(BUILD_CLIENT_DIR, modules ? ESM_DIR : CJS_DIR)));
 }
