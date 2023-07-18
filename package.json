@@ -23,7 +23,8 @@
       "require": "./server/index.js",
       "import": "./server/index.js"
     },
-    "./styles/*": "./styles/*"
+    "./styles/*": "./styles/*",
+    "./widget/*": "./widget/*"
   },
   "main": "./build/cjs/index.js",
   "module": "./build/esm/index.js",
