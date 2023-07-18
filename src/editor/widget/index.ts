@@ -4,12 +4,7 @@ import bundle from 'widget';
 
 import {PageConstructorProps} from '../../containers/PageConstructor';
 
-const prefix = 'PC_EDITOR_DEVICE';
-
-export const DeviceFrameMessageType = {
-    Ready: `${prefix}_MESSAGE_READY`,
-    Update: `${prefix}_MESSAGE_UPDATE`,
-};
+import {DeviceFrameMessageType} from './constants';
 
 interface DeviceIframeParams {
     initialData?: PageConstructorProps;

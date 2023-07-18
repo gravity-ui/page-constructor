@@ -45,7 +45,7 @@
     "build",
     "styles",
     "server",
-    "iframe"
+    "widget"
   ],
   "sideEffects": [
     "*.css",
@@ -63,15 +63,15 @@
     "lint:prettier:fix": "prettier --write '**/*.{js,jsx,ts,tsx,css,scss,json,yaml,yml,md}'",
     "lint": "run-p lint:js lint:styles lint:prettier typecheck",
     "typecheck": "tsc --noEmit",
-    "dev": "run-p build:iframe storybook:start",
+    "dev": "run-p build:widget storybook:start",
     "storybook:start": "TS_NODE_PROJECT=.storybook/tsconfig.json start-storybook -p 7009",
     "storybook:build": "TS_NODE_PROJECT=.storybook/tsconfig.json build-storybook -c .storybook -o storybook-static",
     "start": "node dist",
     "clean": "gulp clean",
     "build:client": "gulp",
     "build:server": "rimraf server && tsc -p tsconfig.server.json && move-file server/server.js server/index.js && move-file server/server.d.ts server/index.d.ts",
-    "build:iframe": "webpack --config iframe.webpack.js",
-    "build": "run-p build:client build:server build:iframe",
+    "build:widget": "webpack --config widget.webpack.js",
+    "build": "run-p build:client build:server build:widget",
     "prepublishOnly": "npm run lint && npm run build",
     "prepare": "husky install",
     "test": "jest",

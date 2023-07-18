@@ -1,7 +1,7 @@
 const {join, resolve} = require('path');
 
 const customAlias = {
-    widget: resolve(__dirname, '../iframe'),
+    widget: resolve(__dirname, '../widget'),
 };
 
 const config = {

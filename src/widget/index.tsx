@@ -2,9 +2,8 @@ import React from 'react';
 
 import ReactDOM from 'react-dom';
 
-import {PageConstructor} from '../../containers/PageConstructor';
-
-import {DeviceFrameMessageType} from './constants';
+import {PageConstructor} from '../containers/PageConstructor';
+import {DeviceFrameMessageType} from '../editor/widget/constants';
 
 import './styles.scss';
 
