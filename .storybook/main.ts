@@ -1,4 +1,8 @@
-const {join} = require('path');
+const {join, resolve} = require('path');
+
+const customAlias = {
+    widget: resolve(__dirname, '../iframe'),
+};
 
 const config = {
     stories: ['../src/**/*.stories.@(ts|tsx)'],
@@ -30,6 +34,11 @@ const config = {
 
         // to turn fileName in context.parameters into path form number in production bundle
         storybookBaseConfig.optimization.moduleIds = 'named';
+
+        storybookBaseConfig.resolve.alias = {
+            ...(storybookBaseConfig.resolve?.alias || {}),
+            ...customAlias,
+        };
 
         return storybookBaseConfig;
     },

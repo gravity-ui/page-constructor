@@ -4,25 +4,25 @@ const path = require('path');
 
 const autoprefixer = require('autoprefixer');
 
-const PC_BUILD_PATH = path.resolve('build', 'esm');
-const IFRAME_SRC_PATH = path.resolve(PC_BUILD_PATH, 'editor/iframe');
+const SRC_PATH = path.resolve('src');
+const IFRAME_SRC_PATH = path.resolve(SRC_PATH, 'editor/iframe');
 const IFRAME_RESULT_PATH = path.resolve(__dirname, 'iframe');
 const NODE_MODULES_PATH = path.resolve('node_modules');
-const IFRAME_FILENAME = 'index.js';
+const IFRAME_BUNDLE_FILENAME = 'index.js';
 
 module.exports = {
     entry: {
-        index: path.resolve(IFRAME_SRC_PATH, IFRAME_FILENAME),
+        index: path.resolve(IFRAME_SRC_PATH, 'index.tsx'),
     },
     output: {
         path: IFRAME_RESULT_PATH,
-        filename: IFRAME_FILENAME,
+        filename: IFRAME_BUNDLE_FILENAME,
     },
     module: {
         rules: [
             {
-                test: /\.js$/,
-                exclude: /node_modules/,
+                test: /\.[jt]sx?$/,
+                exclude: [/node_modules/],
                 use: {
                     loader: 'babel-loader',
                     options: {
@@ -32,6 +32,8 @@ module.exports = {
                                 {
                                     env: {modules: false},
                                     runtime: {useESModules: true},
+                                    typescript: true,
+                                    react: {},
                                 },
                             ],
                         ],
@@ -41,7 +43,8 @@ module.exports = {
             {
                 test: /\.(scss|css)$/,
                 include: [
-                    PC_BUILD_PATH,
+                    SRC_PATH,
+                    path.resolve(__dirname, 'styles'),
                     path.resolve(NODE_MODULES_PATH, '@doc-tools/transform'),
                     path.resolve(NODE_MODULES_PATH, '@gravity-ui/uikit'),
                 ],
@@ -60,6 +63,9 @@ module.exports = {
             },
         ],
     },
+    resolve: {
+        extensions: ['.tsx', '.ts', '.js'],
+    },
     plugins: [
         {
             apply: (compiler) => {
@@ -68,7 +74,7 @@ module.exports = {
                     const fileContent = `export default ${script};`;
 
                     fs.writeFileSync(
-                        path.resolve(IFRAME_RESULT_PATH, IFRAME_FILENAME),
+                        path.resolve(IFRAME_RESULT_PATH, IFRAME_BUNDLE_FILENAME),
                         fileContent,
                     );
                 });

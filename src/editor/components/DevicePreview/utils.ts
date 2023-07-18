@@ -1,6 +1,7 @@
-//this file available in build only
-//@ts-ignore, prettier-ignore
-import iframeBundledScript from '../../../../../iframe';
+//this file available after build
+//@ts-ignore
+import widgetScript from 'widget';
+
 import {PageConstructorProps} from '../../../containers/PageConstructor';
 import {DeviceFrameMessageType} from '../../iframe/constants';
 
@@ -62,7 +63,7 @@ export class DeviceIframe {
             const head = frameDoc?.getElementsByTagName('head')[0];
             const script = frameDoc.createElement('script');
 
-            script.appendChild(document.createTextNode(iframeBundledScript));
+            script.appendChild(document.createTextNode(widgetScript));
             head.appendChild(script);
         }
     }
