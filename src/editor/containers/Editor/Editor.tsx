@@ -1,6 +1,6 @@
 import React, {useEffect, useMemo} from 'react';
 
-import {PageConstructorProvider} from '../../../containers/PageConstructor';
+import {PageConstructor, PageConstructorProvider} from '../../../containers/PageConstructor';
 import {BlockDecorationProps} from '../../../models';
 import AddBlock from '../../components/AddBlock/AddBlock';
 import EditBlock from '../../components/EditBlock/EditBlock';
@@ -14,7 +14,13 @@ import {EditorProps, ViewModeItem} from '../../types';
 import {addCustomDecorator, checkIsMobile, getBlockId} from '../../utils';
 import {Form} from '../Form/Form';
 
-export const Editor = ({children, customSchema, onChange, providerProps, ...rest}: EditorProps) => {
+export const Editor = ({
+    customSchema,
+    onChange,
+    providerProps,
+    transformContent,
+    ...rest
+}: EditorProps) => {
     const {
         content,
         activeBlockIndex,
@@ -29,6 +35,12 @@ export const Editor = ({children, customSchema, onChange, providerProps, ...rest
     const formSpecs = useFormSpec(customSchema);
 
     const isEditingMode = viewMode === ViewModeItem.Edititng;
+
+    const transformedContent = useMemo(
+        () => (transformContent ? transformContent(content, {viewMode}) : content),
+        [content, transformContent, viewMode],
+    );
+
     const outgoingProps = useMemo(() => {
         const custom = isEditingMode
             ? addCustomDecorator(
@@ -48,13 +60,25 @@ export const Editor = ({children, customSchema, onChange, providerProps, ...rest
                   rest.custom,
               )
             : rest.custom;
-        return {content, custom, viewMode};
-    }, [injectEditBlockProps, content, errorBoundaryState, isEditingMode, viewMode, rest.custom]);
+
+        return {
+            content: transformedContent,
+            custom,
+            viewMode,
+        };
+    }, [
+        injectEditBlockProps,
+        errorBoundaryState,
+        isEditingMode,
+        viewMode,
+        transformedContent,
+        rest.custom,
+    ]);
 
     const context = useMemo(
         () => ({
             constructorProps: {
-                content,
+                content: transformedContent,
                 custom: rest.custom,
             },
             providerProps: {
@@ -62,7 +86,7 @@ export const Editor = ({children, customSchema, onChange, providerProps, ...rest
                 isMobile: checkIsMobile(viewMode),
             },
         }),
-        [content, providerProps, rest.custom, viewMode],
+        [providerProps, rest.custom, viewMode, transformedContent],
     );
 
     useEffect(() => {
@@ -85,8 +109,8 @@ export const Editor = ({children, customSchema, onChange, providerProps, ...rest
                 )}
                 <Layout.Right>
                     <ErrorBoundary key={errorBoundaryState}>
-                        <PageConstructorProvider isMobile={checkIsMobile(viewMode)}>
-                            {children(outgoingProps)}
+                        <PageConstructorProvider {...providerProps}>
+                            <PageConstructor {...outgoingProps} />
                         </PageConstructorProvider>
                     </ErrorBoundary>
                     {isEditingMode && <AddBlock onAdd={onAdd} />}
