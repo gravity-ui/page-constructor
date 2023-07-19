@@ -23,11 +23,9 @@ export class DeviceIframe {
         parentElement.appendChild(iframe);
 
         if (iframe.contentWindow) {
-            iframe.className = className;
-            iframe.contentWindow.__isEditorDeviceFrame = true;
-
             const frameDoc = iframe.contentWindow.document;
 
+            iframe.className = className;
             frameDoc.body.classList.add(...document.body.classList, ...className.split(' '));
             iframe.style.visibility = 'hidden';
 
