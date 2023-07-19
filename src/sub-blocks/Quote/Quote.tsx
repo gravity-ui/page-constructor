@@ -1,10 +1,10 @@
-import React, {useCallback, useContext} from 'react';
+import React, {useCallback} from 'react';
 
 import {Button} from '@gravity-ui/uikit';
 
 import {Author, HTML, Image} from '../../components';
 import {getMediaImage} from '../../components/Media/Image/utils';
-import {ThemeValueContext} from '../../context/theme/ThemeValueContext';
+import {useTheme} from '../../context/theme';
 import {useAnalytics} from '../../hooks';
 import {AuthorType, DefaultEventNames, QuoteProps} from '../../models';
 import {block, getThemedValue} from '../../utils';
@@ -25,7 +25,7 @@ const Quote = (props: QuoteProps) => {
         url,
         buttonText,
     } = props;
-    const {themeValue: theme} = useContext(ThemeValueContext);
+    const [theme] = useTheme();
     const imageThemed = getThemedValue(image, theme);
     const imageData = getMediaImage(imageThemed);
     const handleAnalytics = useAnalytics(DefaultEventNames.QuoteButton, url);

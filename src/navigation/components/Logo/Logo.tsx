@@ -1,9 +1,9 @@
-import React, {useContext} from 'react';
+import React from 'react';
 
 import {Image} from '../../../components';
 import {getMediaImage} from '../../../components/Media/Image/utils';
 import RouterLink from '../../../components/RouterLink/RouterLink';
-import {ThemeValueContext} from '../../../context/theme/ThemeValueContext';
+import {useTheme} from '../../../context/theme';
 import {ThemedNavigationLogoData} from '../../../models';
 import {block, getThemedValue} from '../../../utils';
 
@@ -16,7 +16,7 @@ export type LogoProps = ThemedNavigationLogoData & {
 };
 
 const Logo: React.FC<LogoProps> = (props) => {
-    const {themeValue: theme} = useContext(ThemeValueContext);
+    const [theme] = useTheme();
     const themedLogoProps = getThemedValue(props, theme) || props;
     const imageData = getMediaImage(themedLogoProps.icon || props.icon);
     const textData = themedLogoProps.text || props.text;

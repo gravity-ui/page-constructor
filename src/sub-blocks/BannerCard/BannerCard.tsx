@@ -1,7 +1,7 @@
-import React, {useContext} from 'react';
+import React from 'react';
 
 import {BackgroundImage, Button, HTML, RouterLink, YFMWrapper} from '../../components';
-import {ThemeValueContext} from '../../context/theme/ThemeValueContext';
+import {useTheme} from '../../context/theme';
 import {BannerCardProps} from '../../models';
 import {block, getThemedValue} from '../../utils';
 
@@ -19,7 +19,7 @@ export const BannerCard = (props: BannerCardProps) => {
         image,
         disableCompress,
     } = props;
-    const {themeValue: theme} = useContext(ThemeValueContext);
+    const [theme] = useTheme();
     const contentStyle: Record<string, string> = {};
 
     if (color) {

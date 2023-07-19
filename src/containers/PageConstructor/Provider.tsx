@@ -1,6 +1,5 @@
 import React, {Fragment} from 'react';
 
-import {DEFAULT_THEME} from '../../components/constants';
 import {AnalyticsContext, AnalyticsContextProps} from '../../context/analyticsContext';
 import {ImageContext, ImageContextProps} from '../../context/imageContext';
 import {LocaleContext, LocaleContextProps} from '../../context/localeContext';
@@ -13,8 +12,7 @@ import {
     ProjectSettingsContextProps,
 } from '../../context/projectSettingsContext';
 import {SSRContext, SSRContextProps} from '../../context/ssrContext';
-import {ConstructorTheme, ThemeValueContext} from '../../context/theme/ThemeValueContext';
-import {WithChildren} from '../../models';
+import {Theme, WithChildren} from '../../models';
 
 export interface PageConstructorProviderProps {
     isMobile?: boolean;
@@ -22,7 +20,7 @@ export interface PageConstructorProviderProps {
     location?: LocationContextProps;
     metrika?: MetrikaContextProps;
     ssrConfig?: SSRContextProps;
-    theme?: ConstructorTheme;
+    theme?: Theme;
     mapsContext?: MapsContextType;
     projectSettings?: ProjectSettingsContextProps;
     analytics?: AnalyticsContextProps;
@@ -39,14 +37,13 @@ export const PageConstructorProvider = (props: WithChildren<PageConstructorProvi
         analytics = {},
         ssrConfig = {},
         projectSettings = {},
-        theme = DEFAULT_THEME,
+        // theme = DEFAULT_THEME,
         children,
         image = {},
     } = props;
 
     /* eslint-disable react/jsx-key */
     const context = [
-        <ThemeValueContext.Provider value={{themeValue: theme}} />,
         <ProjectSettingsContext.Provider value={projectSettings} />,
         <LocaleContext.Provider value={locale} />,
         <ImageContext.Provider value={image} />,

@@ -1,9 +1,9 @@
-import React, {useContext} from 'react';
+import React from 'react';
 
 import {AnimateBlock, HTML, Title} from '../../components/';
 import Image from '../../components/Image/Image';
 import {getMediaImage} from '../../components/Media/Image/utils';
-import {ThemeValueContext} from '../../context/theme/ThemeValueContext';
+import {useTheme} from '../../context/theme';
 import {Col, Row} from '../../grid';
 import {ExtendedFeaturesProps} from '../../models';
 import {Content} from '../../sub-blocks';
@@ -26,7 +26,7 @@ export const ExtendedFeaturesBlock = ({
     colSizes = DEFAULT_SIZES,
     animated,
 }: ExtendedFeaturesProps) => {
-    const {themeValue: theme} = useContext(ThemeValueContext);
+    const [theme] = useTheme();
 
     return (
         <AnimateBlock className={b()} animate={animated}>

@@ -1,4 +1,4 @@
-import React, {useContext, useMemo} from 'react';
+import React, {useMemo} from 'react';
 
 import '@doc-tools/transform/dist/js/yfm';
 
@@ -6,7 +6,7 @@ import BackgroundMedia from '../../components/BackgroundMedia/BackgroundMedia';
 import {blockMap, subBlockMap} from '../../constructor-items';
 import {AnimateContext} from '../../context/animateContext';
 import {InnerContext} from '../../context/innerContext';
-import {ThemeValueContext} from '../../context/theme/ThemeValueContext';
+import {useTheme} from '../../context/theme';
 import {Grid} from '../../grid';
 import {
     BlockType,
@@ -79,7 +79,7 @@ export const Constructor = (props: PageConstructorProps) => {
         [custom, shouldRenderBlock],
     );
 
-    const {themeValue: theme} = useContext(ThemeValueContext);
+    const [theme] = useTheme();
 
     const header = getHeaderBlock(blocks, context.headerBlockTypes);
     const restBlocks = getOrderedBlocks(blocks, context.headerBlockTypes);
