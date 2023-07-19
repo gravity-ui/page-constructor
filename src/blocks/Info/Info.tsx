@@ -1,6 +1,6 @@
-import React, {useContext} from 'react';
+import React from 'react';
 
-import {ThemeValueContext} from '../../context/theme/ThemeValueContext';
+import {useTheme} from '../../context/theme';
 import {Col, Grid, Row} from '../../grid';
 import {ContentTheme, InfoBlockProps, LinkTheme} from '../../models';
 import Content from '../../sub-blocks/Content/Content';
@@ -23,7 +23,7 @@ export const InfoBlock = (props: InfoBlockProps) => {
         leftContent = {},
     } = props;
 
-    const {themeValue: theme} = useContext(ThemeValueContext);
+    const [theme] = useTheme();
     const contentTheme = blockTheme === 'dark' ? 'dark' : 'default';
     const rightLinks = [
         ...(rightContent?.links || []),

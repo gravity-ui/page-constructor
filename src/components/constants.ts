@@ -1,4 +1,6 @@
-export const DEFAULT_THEME = 'light';
+import {Theme} from '../models';
+
+export const DEFAULT_THEME = Theme.Light;
 
 export const KEY = {
     ENTER: 'Enter',

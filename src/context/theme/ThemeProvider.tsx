@@ -1,63 +1,46 @@
 import React, {PropsWithChildren} from 'react';
 
-import {DEFAULT_THEME} from '../../components/constants';
+import {Theme} from '../../models';
 
 import {ThemeContext, ThemeContextProps} from './ThemeContext';
-import {ConstructorTheme, ThemeValueContext} from './ThemeValueContext';
 
 interface ThemeProviderExternalProps {}
 
 interface ThemeProviderDefaultProps {
-    theme: ConstructorTheme;
+    theme: Theme;
 }
 
 export interface ThemeProviderProps
     extends ThemeProviderExternalProps,
         Partial<ThemeProviderDefaultProps> {}
 
-interface ThemeProviderState extends ThemeContextProps {
-    themeValue: ConstructorTheme;
-}
+interface ThemeProviderState extends ThemeContextProps {}
 
 export class ThemeProvider extends React.Component<
     PropsWithChildren<ThemeProviderExternalProps & ThemeProviderDefaultProps>,
     ThemeProviderState
 > {
-    static defaultProps: ThemeProviderDefaultProps = {
-        theme: DEFAULT_THEME,
-    };
-
     state: ThemeProviderState = {
         theme: this.props.theme,
-        themeValue: this.props.theme,
-        setTheme: (theme: ConstructorTheme) => {
+        setTheme: (theme: Theme) => {
             this.setState({theme});
         },
     };
 
     componentDidMount() {
-        this.updateBodyClassName(this.state.themeValue);
+        this.updateBodyClassName(this.state.theme);
     }
 
-    componentDidUpdate(prevProps: ThemeProviderProps, prevState: ThemeProviderState) {
-        if (prevState.theme !== this.state.theme) {
-            this.setState({themeValue: this.state.theme});
-            this.updateBodyClassName(this.state.theme);
-        }
-
+    componentDidUpdate(prevProps: ThemeProviderProps) {
         if (prevProps.theme !== this.props.theme) {
-            this.setState({themeValue: this.state.theme});
-            this.updateBodyClassName(this.state.theme);
+            this.setState({theme: this.props.theme});
+            this.updateBodyClassName(this.props.theme);
         }
     }
 
     render() {
         return (
-            <ThemeContext.Provider value={this.state}>
-                <ThemeValueContext.Provider value={{themeValue: this.state.themeValue}}>
-                    {this.props.children}
-                </ThemeValueContext.Provider>
-            </ThemeContext.Provider>
+            <ThemeContext.Provider value={this.state}>{this.props.children}</ThemeContext.Provider>
         );
     }
 
