@@ -6,8 +6,8 @@
 $block: '.#{$ns}control-panel';
 
 #{$block} {
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     width: 100%;
     height: var(--editor-header-height);
     padding: $indentXXXS $indentS;
@@ -32,5 +32,10 @@ $block: '.#{$ns}control-panel';
     &__mode-switch {
         display: flex;
         align-items: center;
+        place-self: center;
+    }
+
+    &__theme-switch {
+        place-self: center end;
     }
 }

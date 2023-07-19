@@ -3,7 +3,8 @@ import React from 'react';
 import {Display, Pencil, Smartphone} from '@gravity-ui/icons';
 import {RadioButton} from '@gravity-ui/uikit';
 
-import {ClassNameProps} from '../../../models';
+import {useTheme} from '../../../context/theme';
+import {ClassNameProps, Theme} from '../../../models';
 import {block} from '../../../utils';
 import {Tablet} from '../../icons/Tablet';
 import {ViewModeItem} from '../../types';
@@ -32,29 +33,49 @@ const ControlPanel = ({
     viewMode = ViewModeItem.Edititng,
     onViewModeChange,
     className,
-}: ControlPanelProps) => (
-    <div className={b(null, className)}>
-        <div className={b('mode-switch')}>
-            <span>{i18n('mode')}</span>
-            <RadioButton
-                className={b('radio-button')}
-                value={viewMode}
-                onUpdate={(value) => onViewModeChange(value as ViewModeItem)}
-            >
-                {Object.values(ViewModeItem).map((item) => {
-                    const Icon = ControlPanelViewModeIcons[item];
+}: ControlPanelProps) => {
+    const [theme, setTheme] = useTheme();
 
-                    return (
-                        <RadioButton.Option key={item} value={item}>
-                            <span className={b('icon')}>
-                                <Icon width={ICON_SIZE} height={ICON_SIZE} />
-                            </span>
-                        </RadioButton.Option>
-                    );
-                })}
-            </RadioButton>
+    return (
+        <div className={b(null, className)}>
+            <div></div>
+            <div className={b('mode-switch')}>
+                <span>{i18n('mode')}</span>
+                <RadioButton
+                    className={b('radio-button')}
+                    value={viewMode}
+                    onUpdate={(value) => onViewModeChange(value as ViewModeItem)}
+                >
+                    {Object.values(ViewModeItem).map((item) => {
+                        const Icon = ControlPanelViewModeIcons[item];
+
+                        return (
+                            <RadioButton.Option key={item} value={item}>
+                                <span className={b('icon')}>
+                                    <Icon width={ICON_SIZE} height={ICON_SIZE} />
+                                </span>
+                            </RadioButton.Option>
+                        );
+                    })}
+                </RadioButton>
+            </div>
+            <div className={b('theme-switch')}>
+                <RadioButton
+                    className={b('radio-button')}
+                    value={theme}
+                    onUpdate={(value) => setTheme(value as Theme)}
+                >
+                    {Object.values(Theme).map((item) => {
+                        return (
+                            <RadioButton.Option key={item} value={item}>
+                                {item}
+                            </RadioButton.Option>
+                        );
+                    })}
+                </RadioButton>
+            </div>
         </div>
-    </div>
-);
+    );
+};
 
 export default ControlPanel;
