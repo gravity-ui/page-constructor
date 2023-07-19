@@ -64,7 +64,7 @@
     "lint:prettier:fix": "prettier --write '**/*.{js,jsx,ts,tsx,css,scss,json,yaml,yml,md}'",
     "lint": "run-p lint:js lint:styles lint:prettier typecheck",
     "typecheck": "tsc --noEmit",
-    "dev": "run-p build:widget storybook:start",
+    "dev": "npm run storybook:start",
     "storybook:start": "TS_NODE_PROJECT=.storybook/tsconfig.json start-storybook -p 7009",
     "storybook:build": "TS_NODE_PROJECT=.storybook/tsconfig.json build-storybook -c .storybook -o storybook-static",
     "start": "node dist",
@@ -175,7 +175,8 @@
     "tslib": "^2.4.0",
     "typescript": "^4.9.4",
     "webpack": "^4.46.0",
-    "webpack-cli": "^4.10.0"
+    "webpack-cli": "^4.10.0",
+    "webpack-shell-plugin": "^0.4.10"
   },
   "lint-staged": {
     "*.{css,scss}": [
