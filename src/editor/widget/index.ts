@@ -33,7 +33,7 @@ export class DeviceIframe {
             this.initialData = initialData;
 
             window.addEventListener('message', this.onInit.bind(this));
-            this.copyResouresToChildFrame();
+            this.addWidgetScript();
         }
     }
 
@@ -57,7 +57,7 @@ export class DeviceIframe {
         window.removeEventListener('message', this.onInit.bind(this));
     }
 
-    private copyResouresToChildFrame() {
+    private addWidgetScript() {
         const frameDoc = this.iframeElement?.contentWindow?.document;
 
         if (frameDoc) {
