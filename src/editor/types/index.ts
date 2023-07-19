@@ -14,6 +14,11 @@ export type ContentTransformer = (
     options: ContentTransformersOptions,
 ) => PageContent;
 
+export interface DeviceEmulationSettings {
+    customStyles?: string;
+    applyHostStyles?: boolean;
+}
+
 export interface EditorProps
     extends Required<Pick<PageConstructorProps, 'content'>>,
         Partial<Omit<PageConstructorProps, 'content'>> {
@@ -21,6 +26,7 @@ export interface EditorProps
     onChange?: (data: PageContent) => void;
     transformContent?: ContentTransformer;
     customSchema?: SchemaCustomConfig;
+    deviceEmulationSettings?: DeviceEmulationSettings;
 }
 
 export interface EditBlockEditorProps {

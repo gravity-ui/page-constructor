@@ -19,6 +19,7 @@ export const Editor = ({
     onChange,
     providerProps,
     transformContent,
+    deviceEmulationSettings,
     ...rest
 }: EditorProps) => {
     const {
@@ -85,8 +86,9 @@ export const Editor = ({
                 ...providerProps,
                 isMobile: checkIsMobile(viewMode),
             },
+            deviceEmulationSettings,
         }),
-        [providerProps, rest.custom, viewMode, transformedContent],
+        [providerProps, rest.custom, viewMode, transformedContent, deviceEmulationSettings],
     );
 
     useEffect(() => {

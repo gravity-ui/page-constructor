@@ -5,11 +5,11 @@ import {EditorContext} from '../../context';
 import {ViewModeItem} from '../../types';
 import {DeviceIframe} from '../../widget';
 
-import './DevicePreview.scss';
+import './DeviceEmulation.scss';
 
-const b = block('device-preview');
+const b = block('device-emulation');
 
-export interface DevicePreviewProps extends PropsWithChildren {
+export interface DeviceEmulationProps extends PropsWithChildren {
     mode: ViewModeItem;
 }
 
@@ -19,13 +19,13 @@ const mobileDevices = [ViewModeItem.Tablet, ViewModeItem.Mobile] as const;
 const isMobileDevice = (mode: ViewModeItem): mode is MobileDevice =>
     mobileDevices.includes(mode as MobileDevice);
 
-interface DevicePreviewMobileProps extends PropsWithChildren {
+interface DeviceEmulationMobileProps extends PropsWithChildren {
     device: MobileDevice;
     active: boolean;
 }
 
-const DevicePreviewMobile = ({device, active}: DevicePreviewMobileProps) => {
-    const initialData = useContext(EditorContext);
+const DeviceEmulationMobile = ({device, active}: DeviceEmulationMobileProps) => {
+    const {deviceEmulationSettings, ...initialData} = useContext(EditorContext);
     const containerRef = useRef<HTMLDivElement | null>(null);
     const deviceIframeRef = useRef<DeviceIframe | null>(null);
 
@@ -36,6 +36,7 @@ const DevicePreviewMobile = ({device, active}: DevicePreviewMobileProps) => {
             iframe = new DeviceIframe(containerRef?.current, {
                 initialData,
                 className: b('frame', {device}),
+                settings: deviceEmulationSettings,
             });
             deviceIframeRef.current = iframe;
         }
@@ -62,17 +63,17 @@ const DevicePreviewMobile = ({device, active}: DevicePreviewMobileProps) => {
     return <div className={b({active, device})} ref={containerRef} />;
 };
 
-const DevicePreview = ({children, mode}: DevicePreviewProps) => {
+const DeviceEmulation = ({children, mode}: DeviceEmulationProps) => {
     return (
         <Fragment>
             {!isMobileDevice(mode) && children}
             {mobileDevices.map((device) => (
-                <DevicePreviewMobile key={device} device={device} active={mode === device}>
+                <DeviceEmulationMobile key={device} device={device} active={mode === device}>
                     {children}
-                </DevicePreviewMobile>
+                </DeviceEmulationMobile>
             ))}
         </Fragment>
     );
 };
 
-export default DevicePreview;
+export default DeviceEmulation;
