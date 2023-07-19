@@ -2,10 +2,12 @@ import React from 'react';
 
 import ReactDOM from 'react-dom';
 
+// loading uikit styles before page constructor customisations
+// eslint-disable-next-line import/order
+import './styles.scss';
+
 import {PageConstructor, PageConstructorProvider} from '../containers/PageConstructor';
 import {DeviceFrameMessageType} from '../editor/widget/constants';
-
-import './styles.scss';
 
 const root = document.createElement('div');
 document.body.appendChild(root);

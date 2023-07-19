@@ -43,10 +43,10 @@ module.exports = {
             {
                 test: /\.(scss|css)$/,
                 include: [
-                    SRC_PATH,
-                    path.resolve(__dirname, 'styles'),
                     path.resolve(NODE_MODULES_PATH, '@doc-tools/transform'),
                     path.resolve(NODE_MODULES_PATH, '@gravity-ui/uikit'),
+                    path.resolve(__dirname, 'styles'),
+                    SRC_PATH,
                 ],
                 use: [
                     'style-loader',
