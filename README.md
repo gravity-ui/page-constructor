@@ -374,17 +374,15 @@ Editor provides user interface for page content management with realtime preview
 How to use:
 
 ```tsx
-import {PageConstructor} from '@gravity-ui/page-constructor';
 import {Editor} from '@gravity-ui/page-constructor/editor';
 
 interface MyAppEditorProps {
   initialContent: PageContent;
+  transformContent: ContentTransformer;
   onChange: (content: PageContent) => void;
 }
 
-export const MyAppEditor = ({initialContent, onChange}: MyAppEditorProps) => (
-  <Editor onChange={onChange} content={initialContent}>
-    {(props) => <PageConstructor {...props} />}
-  </Editor>
+export const MyAppEditor = ({initialContent, onChange, transformContent}: MyAppEditorProps) => (
+  <Editor content={initialContent} onChange={onChange} transformContent={transformContent} />
 );
 ```

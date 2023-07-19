@@ -34,11 +34,6 @@ const DefaultTemplate: Story<EditorProps> = (args) => {
         [lang],
     );
 
-    // const deviceEmulationSettings = useMemo(()=>({
-    //     applyHostStyles: true,
-    //     // customStyles: 'body {background-color: red !important;}'
-    // }),[]);
-
     return (
         <MapProvider
             scriptSrc={scriptsSrc[MapType.Yandex]}
