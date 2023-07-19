@@ -2,19 +2,21 @@
 //@ts-ignore
 import bundle from 'widget';
 
-import {PageConstructorProps} from '../../containers/PageConstructor';
+import {EditorContextType} from '../context';
 
 import {DeviceFrameMessageType} from './constants';
 
 interface DeviceIframeParams {
-    initialData?: PageConstructorProps;
+    initialData?: EditorContextType;
     className?: string;
     parentCSS?: string;
 }
 
+type InitialData = EditorContextType;
+
 export class DeviceIframe {
     iframeElement?: HTMLIFrameElement;
-    private initialData?: PageConstructorProps;
+    private initialData?: InitialData;
 
     constructor(parentElement: HTMLDivElement, {className = '', initialData}: DeviceIframeParams) {
         const iframe = document.createElement('iframe');
@@ -37,7 +39,7 @@ export class DeviceIframe {
         }
     }
 
-    onDataUpdate(data: PageConstructorProps) {
+    onDataUpdate(data: InitialData) {
         this.iframeElement?.contentWindow?.postMessage(
             {
                 type: DeviceFrameMessageType.Update,

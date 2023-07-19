@@ -14,7 +14,7 @@ import {EditorProps, ViewModeItem} from '../../types';
 import {addCustomDecorator, checkIsMobile, getBlockId} from '../../utils';
 import {Form} from '../Form/Form';
 
-export const Editor = ({children, customSchema, onChange, ...rest}: EditorProps) => {
+export const Editor = ({children, customSchema, onChange, providerProps, ...rest}: EditorProps) => {
     const {
         content,
         activeBlockIndex,
@@ -53,12 +53,16 @@ export const Editor = ({children, customSchema, onChange, ...rest}: EditorProps)
 
     const context = useMemo(
         () => ({
-            data: {
+            constructorProps: {
                 content,
                 custom: rest.custom,
             },
+            providerProps: {
+                ...providerProps,
+                isMobile: checkIsMobile(viewMode),
+            },
         }),
-        [content, rest.custom],
+        [content, providerProps, rest.custom, viewMode],
     );
 
     useEffect(() => {

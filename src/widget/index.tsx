@@ -2,7 +2,7 @@ import React from 'react';
 
 import ReactDOM from 'react-dom';
 
-import {PageConstructor} from '../containers/PageConstructor';
+import {PageConstructor, PageConstructorProvider} from '../containers/PageConstructor';
 import {DeviceFrameMessageType} from '../editor/widget/constants';
 
 import './styles.scss';
@@ -12,10 +12,17 @@ if (window.self !== window.top && window.__isEditorDeviceFrame) {
     document.body.appendChild(root);
 
     window.addEventListener('message', function (event) {
-        const {type, data} = event.data;
+        if (event.data?.type === DeviceFrameMessageType.Update) {
+            const {
+                data: {constructorProps, providerProps},
+            } = event.data;
 
-        if (type === DeviceFrameMessageType.Update) {
-            ReactDOM.render(<PageConstructor {...data} />, root);
+            ReactDOM.render(
+                <PageConstructorProvider {...providerProps}>
+                    <PageConstructor {...constructorProps} />
+                </PageConstructorProvider>,
+                root,
+            );
         }
     });
 

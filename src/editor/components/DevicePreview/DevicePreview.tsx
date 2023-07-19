@@ -25,7 +25,7 @@ interface DevicePreviewMobileProps extends PropsWithChildren {
 }
 
 const DevicePreviewMobile = ({device, active}: DevicePreviewMobileProps) => {
-    const {data} = useContext(EditorContext);
+    const initialData = useContext(EditorContext);
     const containerRef = useRef<HTMLDivElement | null>(null);
     const deviceIframeRef = useRef<DeviceIframe | null>(null);
 
@@ -34,7 +34,7 @@ const DevicePreviewMobile = ({device, active}: DevicePreviewMobileProps) => {
 
         if (containerRef?.current) {
             iframe = new DeviceIframe(containerRef?.current, {
-                initialData: data,
+                initialData,
                 className: b('frame', {device}),
             });
             deviceIframeRef.current = iframe;
@@ -54,10 +54,10 @@ const DevicePreviewMobile = ({device, active}: DevicePreviewMobileProps) => {
     }, [active]);
 
     useEffect(() => {
-        if (deviceIframeRef.current && data) {
-            deviceIframeRef.current.onDataUpdate(data);
+        if (deviceIframeRef.current && initialData) {
+            deviceIframeRef.current.onDataUpdate(initialData);
         }
-    }, [data]);
+    }, [initialData]);
 
     return <div className={b({active, device})} ref={containerRef} />;
 };
