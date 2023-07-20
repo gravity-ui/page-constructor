@@ -1,6 +1,6 @@
-@import '../../../../styles/variables.scss';
+@import '../../../../../styles/variables.scss';
 
-$block: '.#{$ns}device-emulation';
+$block: '.#{$ns}device-emulation-mobile';
 
 #{$block} {
     position: absolute;
