@@ -1,6 +1,6 @@
 import {Theme} from '../models';
 
-export const DEFAULT_THEME = Theme.Dark;
+export const DEFAULT_THEME = Theme.Light;
 
 export const KEY = {
     ENTER: 'Enter',

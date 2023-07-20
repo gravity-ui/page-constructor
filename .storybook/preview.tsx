@@ -27,7 +27,7 @@ const withContextProvider: Decorator = (Story, context) => {
         // to set theme in docs
         context.parameters.backgrounds.default = theme;
         context.globals.backgrounds = {
-            value: theme === 'light' ? 'white' : 'black',
+            value: theme === Theme.Light ? 'white' : 'black',
         };
         context.globals.background = theme;
     };

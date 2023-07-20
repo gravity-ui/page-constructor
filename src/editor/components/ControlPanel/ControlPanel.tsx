@@ -1,10 +1,10 @@
 import React from 'react';
 
 import {Display, Pencil, Smartphone} from '@gravity-ui/icons';
-import {RadioButton} from '@gravity-ui/uikit';
+import {RadioButton, Select} from '@gravity-ui/uikit';
 
 import {useTheme} from '../../../context/theme';
-import {ClassNameProps, Theme} from '../../../models';
+import {ClassNameProps, Theme, themeNames} from '../../../models';
 import {block} from '../../../utils';
 import {Tablet} from '../../icons/Tablet';
 import {ViewModeItem} from '../../types';
@@ -60,19 +60,17 @@ const ControlPanel = ({
                 </RadioButton>
             </div>
             <div className={b('theme-switch')}>
-                <RadioButton
+                <Select
                     className={b('radio-button')}
-                    value={theme}
-                    onUpdate={(value) => setTheme(value as Theme)}
+                    value={[theme]}
+                    onUpdate={(value) => setTheme(value[0] as Theme)}
                 >
-                    {Object.values(Theme).map((item) => {
-                        return (
-                            <RadioButton.Option key={item} value={item}>
-                                {item}
-                            </RadioButton.Option>
-                        );
-                    })}
-                </RadioButton>
+                    {Object.values(Theme).map((theme) => (
+                        <Select.Option key={theme} value={theme}>
+                            {themeNames[theme]}
+                        </Select.Option>
+                    ))}
+                </Select>
             </div>
         </div>
     );
