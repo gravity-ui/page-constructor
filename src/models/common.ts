@@ -9,6 +9,11 @@ export enum Theme {
     Dark = 'dark',
 }
 
+export const themeNames: Record<Theme, string> = {
+    [Theme.Light]: 'Light',
+    [Theme.Dark]: 'Dark',
+};
+
 /**
  * @deprecated Pixel will be deleted
  */
