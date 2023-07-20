@@ -201,7 +201,9 @@
 
 ### refactor
 
-* refactor text-transform functions ([#225](https://github.com/gravity-ui/page-constructor/issues/225))
+* refactor text-transform functions ([#225](https://github.com/gravity-ui/page-constructor/issues/225)):
+  * delete transformFootnotes, because remove component Footnotes ([#343](https://github.com/gravity-ui/page-constructor/issues/343))
+  * now transformBlocks not import, use `contentTransformer`
 
 ## [2.22.2](https://github.com/gravity-ui/page-constructor/compare/v2.22.1...v2.22.2) (2023-06-01)
 
