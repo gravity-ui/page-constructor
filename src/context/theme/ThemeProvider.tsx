@@ -14,7 +14,7 @@ export interface ThemeProviderProps
     extends ThemeProviderExternalProps,
         Partial<ThemeProviderDefaultProps> {}
 
-interface ThemeProviderState extends ThemeContextProps {}
+interface ThemeProviderState extends Pick<ThemeContextProps, 'theme'> {}
 
 export class ThemeProvider extends React.Component<
     PropsWithChildren<ThemeProviderExternalProps & ThemeProviderDefaultProps>,
@@ -22,9 +22,6 @@ export class ThemeProvider extends React.Component<
 > {
     state: ThemeProviderState = {
         theme: this.props.theme,
-        setTheme: (theme: Theme) => {
-            this.setState({theme});
-        },
     };
 
     componentDidMount() {

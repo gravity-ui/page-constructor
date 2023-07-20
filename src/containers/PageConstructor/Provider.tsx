@@ -1,5 +1,6 @@
 import React, {Fragment} from 'react';
 
+import {DEFAULT_THEME} from '../../components/constants';
 import {AnalyticsContext, AnalyticsContextProps} from '../../context/analyticsContext';
 import {ImageContext, ImageContextProps} from '../../context/imageContext';
 import {LocaleContext, LocaleContextProps} from '../../context/localeContext';
@@ -12,6 +13,7 @@ import {
     ProjectSettingsContextProps,
 } from '../../context/projectSettingsContext';
 import {SSRContext, SSRContextProps} from '../../context/ssrContext';
+import {ThemeContext} from '../../context/theme';
 import {Theme, WithChildren} from '../../models';
 
 export interface PageConstructorProviderProps {
@@ -37,13 +39,18 @@ export const PageConstructorProvider = (props: WithChildren<PageConstructorProvi
         analytics = {},
         ssrConfig = {},
         projectSettings = {},
-        // theme = DEFAULT_THEME,
+        theme = DEFAULT_THEME,
         children,
         image = {},
     } = props;
 
     /* eslint-disable react/jsx-key */
     const context = [
+        <ThemeContext.Provider
+            value={{
+                theme,
+            }}
+        />,
         <ProjectSettingsContext.Provider value={projectSettings} />,
         <LocaleContext.Provider value={locale} />,
         <ImageContext.Provider value={image} />,
