@@ -12,11 +12,10 @@ import {withMobile} from './decorators/withMobile';
 import {withLang} from './decorators/withLang';
 import {DocsDecorator} from './decorators/docs';
 
-import {ThemeProvider} from '../src';
+import {Theme, ThemeProvider} from '../src';
 import {configure, Lang} from '../src/utils/configure';
 
 import '../styles/styles.scss';
-
 configure({
     lang: Lang.En,
 });
@@ -24,18 +23,20 @@ configure({
 const withContextProvider: Decorator = (Story, context) => {
     const theme = context.globals.theme;
 
-    // to set theme in docs
-    context.parameters.backgrounds.default = theme;
-    context.globals.backgrounds = {
-        value: theme === 'light' ? 'white' : 'black',
+    const onThemeChange = (theme: Theme) => {
+        // to set theme in docs
+        context.parameters.backgrounds.default = theme;
+        context.globals.backgrounds = {
+            value: theme === 'light' ? 'white' : 'black',
+        };
+        context.globals.background = theme;
     };
-    context.globals.background = theme;
 
     // TODO: to switch docs theme dynamically in the future
     // context.parameters.docs.theme = theme === 'light' ? CommonTheme.light : CommonTheme.dark;
 
     return (
-        <ThemeProvider theme={theme}>
+        <ThemeProvider defaultTheme={theme} onThemeChange={onThemeChange}>
             <MobileProvider mobile={false} platform={Platform.BROWSER}>
                 <Story {...context} />
             </MobileProvider>
