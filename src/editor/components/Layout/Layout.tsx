@@ -3,6 +3,7 @@ import React, {Children, Fragment, PropsWithChildren, ReactElement} from 'react'
 import {block} from '../../../utils';
 import {ViewModeItem} from '../../types';
 import ControlPanel from '../ControlPanel/ControlPanel';
+import DeviceEmulation from '../DeviceEmulation/DeviceEmulation';
 
 import './Layout.scss';
 
@@ -41,7 +42,11 @@ const Layout = ({children, mode, onModeChange}: PropsWithChildren<LayoutProps>) 
             <div className={b('container')}>
                 <Fragment>
                     {left && <div className={b('left')}>{left}</div>}
-                    {right && <div className={b('right', {editing: isEditingMode})}>{right}</div>}
+                    {right && (
+                        <div className={b('right', {editing: isEditingMode})}>
+                            <DeviceEmulation mode={mode}>{right}</DeviceEmulation>
+                        </div>
+                    )}
                 </Fragment>
             </div>
         </div>

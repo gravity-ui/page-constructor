@@ -13,6 +13,7 @@ node_modules
 /configure
 /styles/**/*.css
 /coverage
+/widget
 
 *.tgz
 .env

@@ -7,7 +7,11 @@
     "jsx": "react",
     "baseUrl": ".",
     "resolveJsonModule": true,
-    "importHelpers": true
+    "importHelpers": true,
+    "paths": {
+      "widget": ["../widget"]
+    }
   },
+
   "include": ["src/**/*.ts", "src/**/*.tsx"]
 }

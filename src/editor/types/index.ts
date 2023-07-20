@@ -1,20 +1,32 @@
-import {PageConstructorProps} from '../../containers/PageConstructor';
+import {PageConstructorProps, PageConstructorProviderProps} from '../../containers/PageConstructor';
 import {BlockDecorationProps, PageContent} from '../../models';
 import {SchemaCustomConfig} from '../../schema';
 import {EditBlockActions} from '../components/EditBlock/EditBlock';
 
 export type EditorBlockId = number | string;
 
-export interface EditorOutgoingProps extends Partial<PageConstructorProps> {
+interface ContentTransformersOptions {
     viewMode: ViewModeItem;
+}
+
+export type ContentTransformer = (
+    content: PageContent,
+    options: ContentTransformersOptions,
+) => PageContent;
+
+export interface DeviceEmulationSettings {
+    customStyles?: string;
+    applyHostStyles?: boolean;
 }
 
 export interface EditorProps
     extends Required<Pick<PageConstructorProps, 'content'>>,
         Partial<Omit<PageConstructorProps, 'content'>> {
-    children: (props: EditorOutgoingProps) => React.ReactNode;
+    providerProps?: PageConstructorProviderProps;
     onChange?: (data: PageContent) => void;
+    transformContent?: ContentTransformer;
     customSchema?: SchemaCustomConfig;
+    deviceEmulationSettings?: DeviceEmulationSettings;
 }
 
 export interface EditBlockEditorProps {
@@ -29,5 +41,7 @@ export interface EditBlockProps extends EditBlockEditorProps, BlockDecorationPro
 
 export enum ViewModeItem {
     Edititng = 'editing',
-    View = 'view',
+    Desktop = 'desktop',
+    Tablet = 'tablet',
+    Mobile = 'mobile',
 }

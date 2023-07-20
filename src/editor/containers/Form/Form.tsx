@@ -59,10 +59,9 @@ export const Form = memo(({content, onChange, activeBlockIndex, onSelect, spec}:
                 <Fragment>
                     {blocks.map((blockData, index) =>
                         blocksSpec[blockData.type] ? (
-                            <div className={b('block-form')}>
+                            <div className={b('block-form')} key={getBlockKey(blockData, index)}>
                                 <BlockForm
                                     spec={blocksSpec[blockData.type]}
-                                    key={getBlockKey(blockData, index)}
                                     data={blockData}
                                     active={activeBlockIndex === index}
                                     onChange={(data: Block) => {

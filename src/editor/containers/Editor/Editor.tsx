@@ -1,18 +1,27 @@
 import React, {useEffect, useMemo} from 'react';
 
+import {PageConstructor, PageConstructorProvider} from '../../../containers/PageConstructor';
 import {BlockDecorationProps} from '../../../models';
 import AddBlock from '../../components/AddBlock/AddBlock';
 import EditBlock from '../../components/EditBlock/EditBlock';
 import {ErrorBoundary} from '../../components/ErrorBoundary/ErrorBoundary';
 import Layout from '../../components/Layout/Layout';
 import {NotFoundBlock} from '../../components/NotFoundBlock/NotFoundBlock';
+import {EditorContext} from '../../context';
 import useFormSpec from '../../hooks/useFormSpec';
 import {useEditorState} from '../../store';
 import {EditorProps, ViewModeItem} from '../../types';
-import {addCustomDecorator, getBlockId} from '../../utils';
+import {addCustomDecorator, checkIsMobile, getBlockId} from '../../utils';
 import {Form} from '../Form/Form';
 
-export const Editor = ({children, customSchema, onChange, ...rest}: EditorProps) => {
+export const Editor = ({
+    customSchema,
+    onChange,
+    providerProps,
+    transformContent,
+    deviceEmulationSettings,
+    ...rest
+}: EditorProps) => {
     const {
         content,
         activeBlockIndex,
@@ -27,6 +36,12 @@ export const Editor = ({children, customSchema, onChange, ...rest}: EditorProps)
     const formSpecs = useFormSpec(customSchema);
 
     const isEditingMode = viewMode === ViewModeItem.Edititng;
+
+    const transformedContent = useMemo(
+        () => (transformContent ? transformContent(content, {viewMode}) : content),
+        [content, transformContent, viewMode],
+    );
+
     const outgoingProps = useMemo(() => {
         const custom = isEditingMode
             ? addCustomDecorator(
@@ -46,30 +61,63 @@ export const Editor = ({children, customSchema, onChange, ...rest}: EditorProps)
                   rest.custom,
               )
             : rest.custom;
-        return {content, custom, viewMode};
-    }, [injectEditBlockProps, content, errorBoundaryState, isEditingMode, viewMode, rest.custom]);
+
+        return {
+            content: transformedContent,
+            custom,
+            viewMode,
+        };
+    }, [
+        injectEditBlockProps,
+        errorBoundaryState,
+        isEditingMode,
+        viewMode,
+        transformedContent,
+        rest.custom,
+    ]);
+
+    const context = useMemo(
+        () => ({
+            constructorProps: {
+                content: transformedContent,
+                custom: rest.custom,
+            },
+            providerProps: {
+                ...providerProps,
+                isMobile: checkIsMobile(viewMode),
+            },
+            deviceEmulationSettings,
+        }),
+        [providerProps, rest.custom, viewMode, transformedContent, deviceEmulationSettings],
+    );
 
     useEffect(() => {
         onChange?.(content);
     }, [content, onChange]);
 
     return (
-        <Layout mode={viewMode} onModeChange={onViewModeUpdate}>
-            {isEditingMode && (
-                <Layout.Left>
-                    <Form
-                        content={content}
-                        onChange={onContentUpdate}
-                        activeBlockIndex={activeBlockIndex}
-                        onSelect={onSelect}
-                        spec={formSpecs}
-                    />
-                </Layout.Left>
-            )}
-            <Layout.Right>
-                <ErrorBoundary key={errorBoundaryState}>{children(outgoingProps)}</ErrorBoundary>
-                {isEditingMode && <AddBlock onAdd={onAdd} />}
-            </Layout.Right>
-        </Layout>
+        <EditorContext.Provider value={context}>
+            <Layout mode={viewMode} onModeChange={onViewModeUpdate}>
+                {isEditingMode && (
+                    <Layout.Left>
+                        <Form
+                            content={content}
+                            onChange={onContentUpdate}
+                            activeBlockIndex={activeBlockIndex}
+                            onSelect={onSelect}
+                            spec={formSpecs}
+                        />
+                    </Layout.Left>
+                )}
+                <Layout.Right>
+                    <ErrorBoundary key={errorBoundaryState}>
+                        <PageConstructorProvider {...providerProps}>
+                            <PageConstructor {...outgoingProps} />
+                        </PageConstructorProvider>
+                    </ErrorBoundary>
+                    {isEditingMode && <AddBlock onAdd={onAdd} />}
+                </Layout.Right>
+            </Layout>
+        </EditorContext.Provider>
     );
 };

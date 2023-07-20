@@ -1,0 +1,43 @@
+@import '../../../../../styles/variables.scss';
+
+$block: '.#{$ns}device-emulation-mobile';
+
+#{$block} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+
+    &_active {
+        opacity: 1;
+        pointer-events: all;
+    }
+
+    &__frame {
+        border: none;
+
+        &_device_mobile {
+            // iphone 12
+            width: 390px;
+            height: 844px;
+        }
+
+        &_device_tablet {
+            // ipad air
+            width: 768px;
+            height: 1024px;
+        }
+    }
+}
+
+#{$block}__frame {
+    margin: 0;
+}
+
+#{$block}__container {
+    overflow: auto;
+}

@@ -1,23 +1,26 @@
 import React from 'react';
 
-import {Display, Pencil} from '@gravity-ui/icons';
+import {Display, Pencil, Smartphone} from '@gravity-ui/icons';
 import {RadioButton} from '@gravity-ui/uikit';
 
 import {ClassNameProps} from '../../../models';
 import {block} from '../../../utils';
+import {Tablet} from '../../icons/Tablet';
 import {ViewModeItem} from '../../types';
 
 import i18n from './i18n';
 
-const ICON_SIZE = 14;
-
 import './ControlPanel.scss';
+
+const ICON_SIZE = 14;
 
 const b = block('control-panel');
 
 const ControlPanelViewModeIcons = {
     [ViewModeItem.Edititng]: Pencil,
-    [ViewModeItem.View]: Display,
+    [ViewModeItem.Desktop]: Display,
+    [ViewModeItem.Tablet]: Tablet,
+    [ViewModeItem.Mobile]: Smartphone,
 };
 
 export interface ControlPanelProps extends ClassNameProps {

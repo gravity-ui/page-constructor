@@ -4,6 +4,7 @@ const path = require('path');
 const {task, src, dest, series, parallel} = require('gulp');
 const sass = require('gulp-dart-sass');
 const replace = require('gulp-replace');
+const alias = require('gulp-ts-alias');
 const ts = require('gulp-typescript');
 const rimraf = require('rimraf');
 
@@ -31,6 +32,7 @@ function compileTs(modules = false) {
         '!src/**/__tests__/**/*',
         '!src/server.ts',
         '!src/configure.ts',
+        '!src/widget/**/*',
         '!test-utils/**/*',
     ])
         .pipe(
@@ -38,6 +40,7 @@ function compileTs(modules = false) {
                 modules ? match.replace('.scss', '.css') : '',
             ),
         )
+        .pipe(alias(tsProject.config))
         .pipe(tsProject())
         .pipe(dest(path.resolve(BUILD_CLIENT_DIR, modules ? ESM_DIR : CJS_DIR)));
 }
@@ -58,6 +61,7 @@ task('copy-js-declarations', () => {
         '!src/**/__stories__/**/*.d.ts',
         '!src/**/__tests__/**/*.d.ts',
         '!test-utils/**/*.d.ts',
+        '!src/widget/**/*',
     ])
         .pipe(dest(path.resolve(BUILD_CLIENT_DIR, ESM_DIR)))
         .pipe(dest(path.resolve(BUILD_CLIENT_DIR, CJS_DIR)));
@@ -74,7 +78,7 @@ task('styles-global', () => {
 });
 
 task('styles-components', () => {
-    return src([`src/**/*.scss`, `!src/**/__stories__/**/*.scss`])
+    return src([`src/**/*.scss`, `!src/**/__stories__/**/*.scss`, '!src/widget/**/*.scss'])
         .pipe(sass().on('error', sass.logError))
         .pipe(dest(path.resolve(BUILD_CLIENT_DIR, ESM_DIR)))
         .pipe(dest(path.resolve(BUILD_CLIENT_DIR, CJS_DIR)));
