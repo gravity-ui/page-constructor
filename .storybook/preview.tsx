@@ -13,29 +13,32 @@ import {withLang} from './decorators/withLang';
 
 import {DocsWithReadme} from '../src/demo/DocsWithReadme';
 
-import {ThemeProvider} from '../src';
+import {Theme, ThemeProvider} from '../src';
 import {configure, Lang} from '../src/utils/configure';
 
 import '../styles/styles.scss';
+import {DEFAULT_THEME} from '../src/components/constants';
 configure({
     lang: Lang.En,
 });
 
 const withContextProvider: DecoratorFn = (Story, context) => {
-    const theme = context.globals.theme;
+    const theme = DEFAULT_THEME;
 
-    // to set theme in docs
-    context.parameters.backgrounds.default = theme;
-    context.globals.backgrounds = {
-        value: theme === 'light' ? 'white' : 'black',
+    const onThemeChange = (theme: Theme) => {
+        // to set theme in docs
+        context.parameters.backgrounds.default = theme;
+        context.globals.backgrounds = {
+            value: theme === 'light' ? 'white' : 'black',
+        };
+        context.globals.background = theme;
     };
-    context.globals.background = theme;
 
     // TODO: to switch docs theme dynamically in the future
     // context.parameters.docs.theme = theme === 'light' ? CommonTheme.light : CommonTheme.dark;
 
     return (
-        <ThemeProvider theme={theme}>
+        <ThemeProvider defaultTheme={theme} onThemeChange={onThemeChange}>
             <MobileProvider mobile={false} platform={Platform.BROWSER}>
                 <Story {...context} />
             </MobileProvider>

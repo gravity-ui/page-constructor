@@ -7,31 +7,40 @@ import {ThemeContext, ThemeContextProps} from './ThemeContext';
 interface ThemeProviderExternalProps {}
 
 interface ThemeProviderDefaultProps {
-    theme: Theme;
+    defaultTheme: Theme;
+    onThemeChange?: (theme: Theme) => void;
 }
 
 export interface ThemeProviderProps
     extends ThemeProviderExternalProps,
         Partial<ThemeProviderDefaultProps> {}
 
-interface ThemeProviderState extends Pick<ThemeContextProps, 'theme'> {}
+interface ThemeProviderState extends ThemeContextProps {}
 
 export class ThemeProvider extends React.Component<
     PropsWithChildren<ThemeProviderExternalProps & ThemeProviderDefaultProps>,
     ThemeProviderState
 > {
     state: ThemeProviderState = {
-        theme: this.props.theme,
+        theme: this.props.defaultTheme,
+        setTheme: (theme: Theme) => {
+            console.log(theme);
+            this.setState({
+                theme,
+            });
+            if (this.props.onThemeChange) {
+                this.props.onThemeChange(theme);
+            }
+        },
     };
 
     componentDidMount() {
         this.updateBodyClassName(this.state.theme);
     }
 
-    componentDidUpdate(prevProps: ThemeProviderProps) {
-        if (prevProps.theme !== this.props.theme) {
-            this.setState({theme: this.props.theme});
-            this.updateBodyClassName(this.props.theme);
+    componentDidUpdate(_prevProps: ThemeProviderProps, prevState: ThemeProviderState) {
+        if (prevState.theme !== this.state.theme) {
+            this.updateBodyClassName(this.state.theme);
         }
     }
 
