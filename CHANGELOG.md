@@ -1,5 +1,13 @@
 # Changelog
 
+
+## [3.10.4](https://github.com/gravity-ui/page-constructor/compare/v3.10.3...v3.10.4) (2023-07-20)
+
+
+### Features
+
+* editor mobile devices emulation added ([#437](https://github.com/gravity-ui/page-constructor/commit/4f284ce61c6ae4e3f3ca6cf74bdbf6bb5082750f))
+
 ## [3.10.3](https://github.com/gravity-ui/page-constructor/compare/v3.10.2...v3.10.3) (2023-07-12)
 
 
