@@ -8,7 +8,7 @@ interface ThemeProviderExternalProps {}
 
 interface ThemeProviderDefaultProps {
     defaultTheme: Theme;
-    onThemeChange?: (theme: Theme) => void;
+    onThemeSwitch?: (theme: Theme) => void;
 }
 
 export interface ThemeProviderProps
@@ -23,16 +23,17 @@ export class ThemeProvider extends React.Component<
 > {
     state: ThemeProviderState = {
         theme: this.props.defaultTheme,
-        setTheme: (theme: Theme) => {
-            console.log(theme);
-            this.setState({
-                theme,
-            });
-            if (this.props.onThemeChange) {
-                this.props.onThemeChange(theme);
-            }
-        },
+        onThemeSwitch: this.setTheme.bind(this),
     };
+
+    setTheme(theme: Theme) {
+        this.setState({
+            theme,
+        });
+        if (this.props.onThemeSwitch) {
+            this.props.onThemeSwitch(theme);
+        }
+    }
 
     componentDidMount() {
         this.updateBodyClassName(this.state.theme);

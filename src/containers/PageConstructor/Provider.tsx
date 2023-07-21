@@ -23,6 +23,7 @@ export interface PageConstructorProviderProps {
     metrika?: MetrikaContextProps;
     ssrConfig?: SSRContextProps;
     theme?: Theme;
+    onThemeSwitch?: (theme: Theme) => void;
     mapsContext?: MapsContextType;
     projectSettings?: ProjectSettingsContextProps;
     analytics?: AnalyticsContextProps;
@@ -40,6 +41,7 @@ export const PageConstructorProvider = (props: WithChildren<PageConstructorProvi
         ssrConfig = {},
         projectSettings = {},
         theme = DEFAULT_THEME,
+        onThemeSwitch = () => {},
         children,
         image = {},
     } = props;
@@ -49,6 +51,7 @@ export const PageConstructorProvider = (props: WithChildren<PageConstructorProvi
         <ThemeContext.Provider
             value={{
                 theme,
+                onThemeSwitch,
             }}
         />,
         <ProjectSettingsContext.Provider value={projectSettings} />,
