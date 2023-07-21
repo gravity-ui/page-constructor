@@ -61,11 +61,7 @@ const ControlPanel = ({
                 </RadioButton>
             </div>
             <div className={b('theme-switch')}>
-                <Select
-                    className={b('radio-button')}
-                    value={[theme]}
-                    onUpdate={(value) => onThemeSwitch(value[0] as Theme)}
-                >
+                <Select value={[theme]} onUpdate={(value) => onThemeSwitch(value[0] as Theme)}>
                     {Object.values(Theme).map((theme) => (
                         <Select.Option key={theme} value={theme}>
                             {themeNames[theme]}
