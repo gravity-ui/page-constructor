@@ -13,7 +13,7 @@ import {
     ProjectSettingsContextProps,
 } from '../../context/projectSettingsContext';
 import {SSRContext, SSRContextProps} from '../../context/ssrContext';
-import {ThemeContext} from '../../context/theme';
+import {ThemeProvider} from '../../context/theme';
 import {Theme, WithChildren} from '../../models';
 
 export interface PageConstructorProviderProps {
@@ -23,7 +23,6 @@ export interface PageConstructorProviderProps {
     metrika?: MetrikaContextProps;
     ssrConfig?: SSRContextProps;
     theme?: Theme;
-    onThemeSwitch?: (theme: Theme) => void;
     mapsContext?: MapsContextType;
     projectSettings?: ProjectSettingsContextProps;
     analytics?: AnalyticsContextProps;
@@ -41,19 +40,13 @@ export const PageConstructorProvider = (props: WithChildren<PageConstructorProvi
         ssrConfig = {},
         projectSettings = {},
         theme = DEFAULT_THEME,
-        onThemeSwitch = () => {},
         children,
         image = {},
     } = props;
 
     /* eslint-disable react/jsx-key */
     const context = [
-        <ThemeContext.Provider
-            value={{
-                theme,
-                onThemeSwitch,
-            }}
-        />,
+        <ThemeProvider theme={theme} />,
         <ProjectSettingsContext.Provider value={projectSettings} />,
         <LocaleContext.Provider value={locale} />,
         <ImageContext.Provider value={image} />,

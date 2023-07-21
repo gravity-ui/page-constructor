@@ -7,12 +7,11 @@ import {MINIMAL_VIEWPORTS} from '@storybook/addon-viewport';
 import type {Decorator, Preview} from '@storybook/react';
 import {themeLight} from './theme';
 import {PageConstructorProvider} from '../src/containers/PageConstructor/Provider';
-import {withTheme} from './decorators/withTheme';
 import {withMobile} from './decorators/withMobile';
 import {withLang} from './decorators/withLang';
 import {DocsDecorator} from './decorators/docs';
 
-import {Theme, ThemeProvider} from '../src';
+import {Theme, ThemeProvider, withTheme} from '../src';
 import {configure, Lang} from '../src/utils/configure';
 
 import '../styles/styles.scss';
@@ -23,20 +22,18 @@ configure({
 const withContextProvider: Decorator = (Story, context) => {
     const theme = context.globals.theme;
 
-    const onThemeSwitch = (theme: Theme) => {
-        // to set theme in docs
-        context.parameters.backgrounds.default = theme;
-        context.globals.backgrounds = {
-            value: theme === Theme.Light ? 'white' : 'black',
-        };
-        context.globals.background = theme;
+    // to set theme in docs
+    context.parameters.backgrounds.default = theme;
+    context.globals.backgrounds = {
+        value: theme === Theme.Light ? 'white' : 'black',
     };
+    context.globals.background = theme;
 
     // TODO: to switch docs theme dynamically in the future
     // context.parameters.docs.theme = theme === 'light' ? CommonTheme.light : CommonTheme.dark;
 
     return (
-        <ThemeProvider defaultTheme={theme} onThemeSwitch={onThemeSwitch}>
+        <ThemeProvider theme={theme}>
             <MobileProvider mobile={false} platform={Platform.BROWSER}>
                 <Story {...context} />
             </MobileProvider>
@@ -44,7 +41,7 @@ const withContextProvider: Decorator = (Story, context) => {
     );
 };
 
-const withPageConstructorProvider = (Story, context) => {
+const withPageConstructorProvider: DecoratorFn = (Story, context) => {
     return (
         <PageConstructorProvider
             isMobile={context.globals.platform === 'mobile'}

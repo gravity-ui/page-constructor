@@ -2,8 +2,8 @@ import React from 'react';
 
 import {ThemeContext, ThemeContextProps} from './ThemeContext';
 
-export function useTheme(): [ThemeContextProps['theme'], ThemeContextProps['onThemeSwitch']] {
-    const {theme, onThemeSwitch} = React.useContext(ThemeContext);
+export function useTheme(): [ThemeContextProps['theme']] {
+    const {theme} = React.useContext(ThemeContext);
 
-    return [theme, onThemeSwitch];
+    return [theme];
 }
