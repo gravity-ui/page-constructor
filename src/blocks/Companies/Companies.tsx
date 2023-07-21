@@ -11,7 +11,7 @@ import './Companies.scss';
 const b = block('companies-block');
 
 export const CompaniesBlock = ({title, images, animated}: CompaniesBlockProps) => {
-    const [theme] = useTheme();
+    const theme = useTheme();
     const themedImages = getThemedValue(images, theme) || {};
 
     return (

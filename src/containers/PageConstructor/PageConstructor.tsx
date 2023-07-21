@@ -79,7 +79,7 @@ export const Constructor = (props: PageConstructorProps) => {
         [custom, shouldRenderBlock],
     );
 
-    const [theme] = useTheme();
+    const theme = useTheme();
 
     const header = getHeaderBlock(blocks, context.headerBlockTypes);
     const restBlocks = getOrderedBlocks(blocks, context.headerBlockTypes);

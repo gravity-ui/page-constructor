@@ -80,7 +80,7 @@ export const HeaderBlock = (props: WithChildren<HeaderBlockFullProps>) => {
         children,
     } = props;
     const isMobile = useContext(MobileContext);
-    const [theme] = useTheme();
+    const theme = useTheme();
     const hasRightSideImage = Boolean(image || video);
     const curImageSize = imageSize || getImageSize(width);
     const titleSizes = hasRightSideImage ? titleWithImageSizes(curImageSize) : getTitleSizes(width);

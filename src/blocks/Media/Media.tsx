@@ -10,7 +10,7 @@ export const MediaBlock = (props: MediaBlockProps) => {
     const {media} = props;
 
     const [play, setPlay] = useState<boolean>(false);
-    const [theme] = useTheme();
+    const theme = useTheme();
     const mediaThemed = getThemedValue(media, theme);
 
     return (

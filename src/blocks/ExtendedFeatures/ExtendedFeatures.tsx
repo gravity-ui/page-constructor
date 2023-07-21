@@ -26,7 +26,7 @@ export const ExtendedFeaturesBlock = ({
     colSizes = DEFAULT_SIZES,
     animated,
 }: ExtendedFeaturesProps) => {
-    const [theme] = useTheme();
+    const theme = useTheme();
 
     return (
         <AnimateBlock className={b()} animate={animated}>

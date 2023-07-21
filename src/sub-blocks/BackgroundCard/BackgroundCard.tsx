@@ -25,7 +25,7 @@ const BackgroundCard = (props: BackgroundCardProps) => {
         buttons,
     } = props;
 
-    const [theme] = useTheme();
+    const theme = useTheme();
     const hasBackgroundColor = backgroundColor || cardTheme !== 'default';
     const link = hasBackgroundColor || border === 'line' ? undefined : url;
     const borderType = hasBackgroundColor ? 'none' : border;
