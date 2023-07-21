@@ -1,15 +1,18 @@
 import React from 'react';
 
+import blockOrigin from 'bem-cn-lite';
+
 import {Theme} from '../../models';
 
 import {useTheme} from './useTheme';
 
-export interface ThemeControllerProps {
+const b = blockOrigin('yc-root');
+
+export interface CommonThemeControllerProps {
     children?: React.ReactNode;
-    defaultTheme?: Theme;
 }
 
-export const ThemeController = ({children}: ThemeControllerProps) => {
+export const GlobalThemeController = ({children}: CommonThemeControllerProps) => {
     const theme = useTheme();
     const [prevTheme, setPrevTheme] = React.useState(theme);
 
@@ -41,4 +44,10 @@ export const ThemeController = ({children}: ThemeControllerProps) => {
     }, []);
 
     return <>{children}</>;
+};
+
+export const ThemeController = ({children}) => {
+    const theme = useTheme();
+
+    return <div className={b({theme})}>{children}</div>;
 };
