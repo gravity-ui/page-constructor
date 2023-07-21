@@ -5,6 +5,11 @@ import {Theme} from '../../models';
 
 import {useTheme} from './useTheme';
 
+export interface ThemeControllerProps {
+    children?: React.ReactNode;
+    defaultTheme?: Theme;
+}
+
 export const ThemeController = ({children, defaultTheme = DEFAULT_THEME}) => {
     const theme = useTheme();
     const [prevTheme, setPrevTheme] = React.useState(defaultTheme);
