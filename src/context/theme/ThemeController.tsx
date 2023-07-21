@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {PropsWithChildren} from 'react';
 
 import blockOrigin from 'bem-cn-lite';
 
@@ -46,7 +46,7 @@ export const GlobalThemeController = ({children}: CommonThemeControllerProps) =>
     return <>{children}</>;
 };
 
-export const ThemeController = ({children}) => {
+export const ThemeController = ({children}: PropsWithChildren) => {
     const theme = useTheme();
 
     return <div className={b({theme})}>{children}</div>;
