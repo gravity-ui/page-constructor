@@ -60,7 +60,8 @@ export function useEditorState({content: intialContent, custom}: Omit<EditorProp
             dispatch({type: UPDATE_CONTENT, payload: newContent});
         const onViewModeUpdate = (newViewMode: ViewModeItem) =>
             dispatch({type: UPDATE_VIEW_MODE, payload: newViewMode});
-        const onThemeUpdate = (theme: Theme) => dispatch({type: UPDATE_THEME, payload: theme});
+        const onThemeUpdate = (newTheme: Theme) =>
+            dispatch({type: UPDATE_THEME, payload: newTheme});
 
         const injectEditBlockProps = ({
             type,

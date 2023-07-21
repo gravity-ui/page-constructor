@@ -62,9 +62,9 @@ const ControlPanel = ({
             </div>
             <div className={b('theme-switch')}>
                 <Select value={[theme]} onUpdate={(value) => onThemeSwitch(value[0] as Theme)}>
-                    {Object.values(Theme).map((theme) => (
-                        <Select.Option key={theme} value={theme}>
-                            {themeNames[theme]}
+                    {Object.values(Theme).map((item) => (
+                        <Select.Option key={item} value={item}>
+                            {themeNames[item]}
                         </Select.Option>
                     ))}
                 </Select>
