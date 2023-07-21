@@ -1,7 +1,6 @@
 import React, {useEffect, useMemo} from 'react';
 
 import {PageConstructor, PageConstructorProvider} from '../../../containers/PageConstructor';
-import {ThemeController} from '../../../context/theme';
 import {BlockDecorationProps} from '../../../models';
 import AddBlock from '../../components/AddBlock/AddBlock';
 import EditBlock from '../../components/EditBlock/EditBlock';
@@ -121,9 +120,7 @@ export const Editor = ({
                 <Layout.Right>
                     <ErrorBoundary key={errorBoundaryState}>
                         <PageConstructorProvider {...providerProps} theme={theme}>
-                            <ThemeController>
-                                <PageConstructor {...outgoingProps} />
-                            </ThemeController>
+                            <PageConstructor {...outgoingProps} />
                         </PageConstructorProvider>
                     </ErrorBoundary>
                     {isEditingMode && <AddBlock onAdd={onAdd} />}

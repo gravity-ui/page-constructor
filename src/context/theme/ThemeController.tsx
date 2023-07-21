@@ -1,6 +1,5 @@
 import React from 'react';
 
-import {DEFAULT_THEME} from '../../components/constants';
 import {Theme} from '../../models';
 
 import {useTheme} from './useTheme';
@@ -10,9 +9,9 @@ export interface ThemeControllerProps {
     defaultTheme?: Theme;
 }
 
-export const ThemeController = ({children, defaultTheme = DEFAULT_THEME}: ThemeControllerProps) => {
+export const ThemeController = ({children}: ThemeControllerProps) => {
     const theme = useTheme();
-    const [prevTheme, setPrevTheme] = React.useState(defaultTheme);
+    const [prevTheme, setPrevTheme] = React.useState(theme);
 
     const updateBodyClassName = (theme: Theme) => {
         const bodyEl = document.body;
