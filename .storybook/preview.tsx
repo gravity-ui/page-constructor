@@ -12,7 +12,7 @@ import {withLang} from './decorators/withLang';
 
 import {DocsWithReadme} from '../src/demo/DocsWithReadme';
 
-import {Theme, ThemeProvider} from '../src';
+import {Theme, ThemeController} from '../src';
 import {configure, Lang} from '../src/utils/configure';
 
 import '../styles/styles.scss';
@@ -35,11 +35,11 @@ const withContextProvider: DecoratorFn = (Story, context) => {
     // context.parameters.docs.theme = theme === 'light' ? CommonTheme.light : CommonTheme.dark;
 
     return (
-        <ThemeProvider theme={theme}>
+        <ThemeController defaultTheme={context.globals.theme}>
             <MobileProvider mobile={false} platform={Platform.BROWSER}>
                 <Story {...context} />
             </MobileProvider>
-        </ThemeProvider>
+        </ThemeController>
     );
 };
 
@@ -48,6 +48,7 @@ const withPageConstructorProvider: DecoratorFn = (Story, context) => {
         <PageConstructorProvider
             isMobile={context.globals.platform === 'mobile'}
             locale={{lang: context.globals.lang}}
+            theme={context.globals.theme}
         >
             <Story {...context} />
         </PageConstructorProvider>
