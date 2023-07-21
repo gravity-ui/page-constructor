@@ -35,7 +35,7 @@ const HubspotForm = forwardRef<HTMLDivElement, HubspotFormProps>((props, ref) =>
     } = props;
 
     const handleMetrika = useMetrika();
-    const [themeValue] = useTheme();
+    const themeValue = useTheme();
     const handleAnalytics = useAnalytics(DefaultEventNames.HubspotFormSubmit);
     const isMobileValue = useContext(MobileContext);
 
