@@ -195,7 +195,7 @@ To add a theme to a block property:
 
 1. In the `models/blocks.ts` file, define the type of the respective block property using the `ThemeSupporting<T>` generic, where `T` is the type of the property.
 
-2. In the file with the block's `react` component, get the value of the property with the theme via `getThemedValue` and `ThemeValueContext` (see examples in the `Banner.tsx` block).
+2. In the file with the block's `react` component, get the value of the property with the theme via `getThemedValue` and `useTheme` hook (see examples in the `MediaBlock.tsx` block).
 
 3. Add theme support to the property validator: in the block's `schema.ts` file, wrap this property in `withTheme`.
 
