@@ -34,7 +34,7 @@ const ControlPanel = ({
     onViewModeChange,
     className,
 }: ControlPanelProps) => {
-    const [theme, setTheme] = useTheme();
+    const [theme, onThemeSwitch] = useTheme();
 
     return (
         <div className={b(null, className)}>
@@ -63,7 +63,7 @@ const ControlPanel = ({
                 <Select
                     className={b('radio-button')}
                     value={[theme]}
-                    onUpdate={(value) => setTheme(value[0] as Theme)}
+                    onUpdate={(value) => onThemeSwitch(value[0] as Theme)}
                 >
                     {Object.values(Theme).map((theme) => (
                         <Select.Option key={theme} value={theme}>

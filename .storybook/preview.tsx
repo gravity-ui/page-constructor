@@ -25,7 +25,7 @@ configure({
 const withContextProvider: DecoratorFn = (Story, context) => {
     const theme = DEFAULT_THEME;
 
-    const onThemeChange = (theme: Theme) => {
+    const onThemeSwitch = (theme: Theme) => {
         // to set theme in docs
         context.parameters.backgrounds.default = theme;
         context.globals.backgrounds = {
@@ -38,7 +38,7 @@ const withContextProvider: DecoratorFn = (Story, context) => {
     // context.parameters.docs.theme = theme === 'light' ? CommonTheme.light : CommonTheme.dark;
 
     return (
-        <ThemeProvider defaultTheme={theme} onThemeChange={onThemeChange}>
+        <ThemeProvider defaultTheme={theme} onThemeSwitch={onThemeSwitch}>
             <MobileProvider mobile={false} platform={Platform.BROWSER}>
                 <Story {...context} />
             </MobileProvider>
