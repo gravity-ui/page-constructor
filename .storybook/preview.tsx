@@ -36,11 +36,9 @@ const withContextProvider: Decorator = (Story, context) => {
     // context.parameters.docs.theme = theme === 'light' ? CommonTheme.light : CommonTheme.dark;
 
     return (
-        <ThemeController defaultTheme={context.globals.theme}>
-            <MobileProvider mobile={false} platform={Platform.BROWSER}>
-                <Story {...context} />
-            </MobileProvider>
-        </ThemeController>
+        <MobileProvider mobile={false} platform={Platform.BROWSER}>
+            <Story {...context} />
+        </MobileProvider>
     );
 };
 
