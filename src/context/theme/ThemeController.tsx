@@ -16,15 +16,15 @@ export const GlobalThemeController = ({children}: CommonThemeControllerProps) =>
     const theme = useTheme();
     const [prevTheme, setPrevTheme] = React.useState(theme);
 
-    const updateBodyClassName = (theme: Theme) => {
+    const updateBodyClassName = (newTheme: Theme) => {
         const bodyEl = document.body;
 
         if (!bodyEl.classList.contains('yc-root')) {
             bodyEl.classList.add('yc-root');
         }
 
-        bodyEl.classList.toggle('yc-root_theme_light', theme === Theme.Light);
-        bodyEl.classList.toggle('yc-root_theme_dark', theme === Theme.Dark);
+        bodyEl.classList.toggle('yc-root_theme_light', newTheme === Theme.Light);
+        bodyEl.classList.toggle('yc-root_theme_dark', newTheme === Theme.Dark);
     };
 
     React.useEffect(() => {
@@ -40,7 +40,9 @@ export const GlobalThemeController = ({children}: CommonThemeControllerProps) =>
     }, [theme, prevTheme]);
 
     React.useEffect(() => {
-        updateBodyClassName(prevTheme);
+        updateBodyClassName(theme);
+        // need to render only once
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return <>{children}</>;
