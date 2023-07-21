@@ -16,7 +16,7 @@ export type LogoProps = ThemedNavigationLogoData & {
 };
 
 const Logo: React.FC<LogoProps> = (props) => {
-    const [theme] = useTheme();
+    const theme = useTheme();
     const themedLogoProps = getThemedValue(props, theme) || props;
     const imageData = getMediaImage(themedLogoProps.icon || props.icon);
     const textData = themedLogoProps.text || props.text;

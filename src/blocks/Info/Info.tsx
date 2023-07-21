@@ -23,7 +23,7 @@ export const InfoBlock = (props: InfoBlockProps) => {
         leftContent = {},
     } = props;
 
-    const [theme] = useTheme();
+    const theme = useTheme();
     const contentTheme = blockTheme === 'dark' ? 'dark' : 'default';
     const rightLinks = [
         ...(rightContent?.links || []),

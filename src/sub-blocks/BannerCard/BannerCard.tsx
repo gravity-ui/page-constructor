@@ -19,7 +19,7 @@ export const BannerCard = (props: BannerCardProps) => {
         image,
         disableCompress,
     } = props;
-    const [theme] = useTheme();
+    const theme = useTheme();
     const contentStyle: Record<string, string> = {};
 
     if (color) {

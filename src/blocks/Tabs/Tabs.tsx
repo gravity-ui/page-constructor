@@ -29,7 +29,7 @@ export const TabsBlock = ({
 }: TabsBlockProps) => {
     const [activeTab, setActiveTab] = useState<string | null>(items[0].tabName);
     const [play, setPlay] = useState<boolean>(false);
-    const [theme] = useTheme();
+    const theme = useTheme();
     const tabs: ButtonTabsItemProps[] = items.map(({tabName}) => ({title: tabName, id: tabName}));
     const activeTabData = items.find(({tabName}) => tabName === activeTab);
     const isReverse = direction === 'content-media';

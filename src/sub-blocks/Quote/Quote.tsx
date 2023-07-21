@@ -25,7 +25,7 @@ const Quote = (props: QuoteProps) => {
         url,
         buttonText,
     } = props;
-    const [theme] = useTheme();
+    const theme = useTheme();
     const imageThemed = getThemedValue(image, theme);
     const imageData = getMediaImage(imageThemed);
     const handleAnalytics = useAnalytics(DefaultEventNames.QuoteButton, url);
