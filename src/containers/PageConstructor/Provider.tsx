@@ -13,7 +13,7 @@ import {
     ProjectSettingsContextProps,
 } from '../../context/projectSettingsContext';
 import {SSRContext, SSRContextProps} from '../../context/ssrContext';
-import {ThemeProvider} from '../../context/theme';
+import {ThemeContext} from '../../context/theme';
 import {Theme, WithChildren} from '../../models';
 
 export interface PageConstructorProviderProps {
@@ -46,7 +46,7 @@ export const PageConstructorProvider = (props: WithChildren<PageConstructorProvi
 
     /* eslint-disable react/jsx-key */
     const context = [
-        <ThemeProvider theme={theme} />,
+        <ThemeContext.Provider value={{theme}} />,
         <ProjectSettingsContext.Provider value={projectSettings} />,
         <LocaleContext.Provider value={locale} />,
         <ImageContext.Provider value={image} />,

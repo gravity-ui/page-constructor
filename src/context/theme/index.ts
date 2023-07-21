@@ -1,4 +1,4 @@
 export * from './ThemeContext';
-export * from './ThemeProvider';
+export * from './ThemeController';
 export * from './useTheme';
 export * from './withTheme';
