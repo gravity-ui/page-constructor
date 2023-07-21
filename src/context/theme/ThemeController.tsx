@@ -10,7 +10,7 @@ export interface ThemeControllerProps {
     defaultTheme?: Theme;
 }
 
-export const ThemeController = ({children, defaultTheme = DEFAULT_THEME}) => {
+export const ThemeController = ({children, defaultTheme = DEFAULT_THEME}: ThemeControllerProps) => {
     const theme = useTheme();
     const [prevTheme, setPrevTheme] = React.useState(defaultTheme);
 
