@@ -1,6 +1,7 @@
 import {useMemo, useReducer} from 'react';
 
-import {Block, BlockDecorationProps, HeaderBlockTypes, PageContent} from '../../models';
+import {DEFAULT_THEME} from '../../components/constants';
+import {Block, BlockDecorationProps, HeaderBlockTypes, PageContent, Theme} from '../../models';
 import {getCustomHeaderTypes, getHeaderBlock} from '../../utils';
 import {EditBlockActions, EditBlockControls} from '../components/EditBlock/EditBlock';
 import {EditBlockProps, EditorProps, ViewModeItem} from '../types';
@@ -12,6 +13,7 @@ import {
     ORDER_BLOCK,
     SELECT_BLOCK,
     UPDATE_CONTENT,
+    UPDATE_THEME,
     UPDATE_VIEW_MODE,
     reducer,
 } from './reducer';
@@ -20,13 +22,14 @@ import {addEditorProps} from './utils';
 export type EditorBlockId = number | string;
 
 export function useEditorState({content: intialContent, custom}: Omit<EditorProps, 'children'>) {
-    const [{activeBlockIndex, content, errorBoundaryState, viewMode}, dispatch] = useReducer(
+    const [{activeBlockIndex, content, errorBoundaryState, viewMode, theme}, dispatch] = useReducer(
         reducer,
         {
             activeBlockIndex: 0,
             errorBoundaryState: 0,
             content: addEditorProps(intialContent),
             viewMode: ViewModeItem.Edititng,
+            theme: DEFAULT_THEME,
         },
     );
 
@@ -57,6 +60,7 @@ export function useEditorState({content: intialContent, custom}: Omit<EditorProp
             dispatch({type: UPDATE_CONTENT, payload: newContent});
         const onViewModeUpdate = (newViewMode: ViewModeItem) =>
             dispatch({type: UPDATE_VIEW_MODE, payload: newViewMode});
+        const onThemeUpdate = (theme: Theme) => dispatch({type: UPDATE_THEME, payload: theme});
 
         const injectEditBlockProps = ({
             type,
@@ -108,11 +112,13 @@ export function useEditorState({content: intialContent, custom}: Omit<EditorProp
             content,
             errorBoundaryState,
             viewMode,
+            theme,
             injectEditBlockProps,
             onAdd,
             onSelect,
             onContentUpdate,
             onViewModeUpdate,
+            onThemeUpdate,
         };
-    }, [content, activeBlockIndex, errorBoundaryState, custom, viewMode]);
+    }, [content, activeBlockIndex, errorBoundaryState, custom, viewMode, theme]);
 }

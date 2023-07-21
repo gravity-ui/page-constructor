@@ -7,7 +7,6 @@ import {MINIMAL_VIEWPORTS} from '@storybook/addon-viewport';
 import type {DecoratorFn} from '@storybook/react';
 import {CloudTheme} from './theme';
 import {PageConstructorProvider} from '../src/containers/PageConstructor/Provider';
-import {withTheme} from './decorators/withTheme';
 import {withMobile} from './decorators/withMobile';
 import {withLang} from './decorators/withLang';
 
@@ -23,22 +22,20 @@ configure({
 });
 
 const withContextProvider: DecoratorFn = (Story, context) => {
-    const theme = DEFAULT_THEME;
+    const theme = context.globals.theme;
 
-    const onThemeSwitch = (theme: Theme) => {
-        // to set theme in docs
-        context.parameters.backgrounds.default = theme;
-        context.globals.backgrounds = {
-            value: theme === Theme.Light ? 'white' : 'black',
-        };
-        context.globals.background = theme;
+    // to set theme in docs
+    context.parameters.backgrounds.default = theme;
+    context.globals.backgrounds = {
+        value: theme === Theme.Light ? 'white' : 'black',
     };
+    context.globals.background = theme;
 
     // TODO: to switch docs theme dynamically in the future
     // context.parameters.docs.theme = theme === 'light' ? CommonTheme.light : CommonTheme.dark;
 
     return (
-        <ThemeProvider defaultTheme={theme} onThemeSwitch={onThemeSwitch}>
+        <ThemeProvider theme={theme}>
             <MobileProvider mobile={false} platform={Platform.BROWSER}>
                 <Story {...context} />
             </MobileProvider>
@@ -46,7 +43,7 @@ const withContextProvider: DecoratorFn = (Story, context) => {
     );
 };
 
-const withPageConstructorProvider = (Story, context) => {
+const withPageConstructorProvider: DecoratorFn = (Story, context) => {
     return (
         <PageConstructorProvider
             isMobile={context.globals.platform === 'mobile'}
@@ -57,13 +54,7 @@ const withPageConstructorProvider = (Story, context) => {
     );
 };
 
-export const decorators = [
-    withTheme,
-    withLang,
-    withMobile,
-    withContextProvider,
-    withPageConstructorProvider,
-];
+export const decorators = [withLang, withMobile, withContextProvider, withPageConstructorProvider];
 
 export const parameters = {
     layout: 'fullscreen',

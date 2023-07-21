@@ -1,5 +1,6 @@
 import React, {Children, Fragment, PropsWithChildren, ReactElement} from 'react';
 
+import {Theme} from '../../../models';
 import {block} from '../../../utils';
 import {ViewModeItem} from '../../types';
 import ControlPanel from '../ControlPanel/ControlPanel';
@@ -15,9 +16,17 @@ const Right: React.FC<PropsWithChildren> = () => null;
 export interface LayoutProps {
     mode: ViewModeItem;
     onModeChange: (mode: ViewModeItem) => void;
+    theme: Theme;
+    onThemeSwitch: (theme: Theme) => void;
 }
 
-const Layout = ({children, mode, onModeChange}: PropsWithChildren<LayoutProps>) => {
+const Layout = ({
+    children,
+    mode,
+    onModeChange,
+    theme,
+    onThemeSwitch,
+}: PropsWithChildren<LayoutProps>) => {
     let left, right;
     const isEditingMode = mode === ViewModeItem.Edititng;
 
@@ -38,7 +47,13 @@ const Layout = ({children, mode, onModeChange}: PropsWithChildren<LayoutProps>) 
 
     return (
         <div className={b()}>
-            <ControlPanel viewMode={mode} onViewModeChange={onModeChange} className={b('panel')} />
+            <ControlPanel
+                viewMode={mode}
+                onViewModeChange={onModeChange}
+                className={b('panel')}
+                theme={theme}
+                onThemeSwitch={onThemeSwitch}
+            />
             <div className={b('container')}>
                 <Fragment>
                     {left && <div className={b('left')}>{left}</div>}

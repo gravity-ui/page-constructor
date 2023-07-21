@@ -7,8 +7,7 @@ import {ThemeContext, ThemeContextProps} from './ThemeContext';
 interface ThemeProviderExternalProps {}
 
 interface ThemeProviderDefaultProps {
-    defaultTheme: Theme;
-    onThemeSwitch?: (theme: Theme) => void;
+    theme: Theme;
 }
 
 export interface ThemeProviderProps
@@ -21,33 +20,21 @@ export class ThemeProvider extends React.Component<
     PropsWithChildren<ThemeProviderExternalProps & ThemeProviderDefaultProps>,
     ThemeProviderState
 > {
-    state: ThemeProviderState = {
-        theme: this.props.defaultTheme,
-        onThemeSwitch: this.setTheme.bind(this),
-    };
-
-    setTheme(theme: Theme) {
-        this.setState({
-            theme,
-        });
-        if (this.props.onThemeSwitch) {
-            this.props.onThemeSwitch(theme);
-        }
-    }
-
     componentDidMount() {
-        this.updateBodyClassName(this.state.theme);
+        this.updateBodyClassName(this.props.theme);
     }
 
-    componentDidUpdate(_prevProps: ThemeProviderProps, prevState: ThemeProviderState) {
-        if (prevState.theme !== this.state.theme) {
-            this.updateBodyClassName(this.state.theme);
+    componentDidUpdate(prevProps: ThemeProviderProps) {
+        if (prevProps.theme !== this.props.theme) {
+            this.updateBodyClassName(this.props.theme);
         }
     }
 
     render() {
         return (
-            <ThemeContext.Provider value={this.state}>{this.props.children}</ThemeContext.Provider>
+            <ThemeContext.Provider value={{theme: this.props.theme}}>
+                {this.props.children}
+            </ThemeContext.Provider>
         );
     }
 

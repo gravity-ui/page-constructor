@@ -3,7 +3,6 @@ import React from 'react';
 import {Display, Pencil, Smartphone} from '@gravity-ui/icons';
 import {RadioButton, Select} from '@gravity-ui/uikit';
 
-import {useTheme} from '../../../context/theme';
 import {ClassNameProps, Theme, themeNames} from '../../../models';
 import {block} from '../../../utils';
 import {Tablet} from '../../icons/Tablet';
@@ -27,15 +26,17 @@ const ControlPanelViewModeIcons = {
 export interface ControlPanelProps extends ClassNameProps {
     viewMode?: ViewModeItem;
     onViewModeChange: (viewMode: ViewModeItem) => void;
+    theme: Theme;
+    onThemeSwitch: (theme: Theme) => void;
 }
 
 const ControlPanel = ({
     viewMode = ViewModeItem.Edititng,
     onViewModeChange,
     className,
+    theme,
+    onThemeSwitch,
 }: ControlPanelProps) => {
-    const [theme, onThemeSwitch] = useTheme();
-
     return (
         <div className={b(null, className)}>
             <div></div>

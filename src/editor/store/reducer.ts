@@ -1,4 +1,4 @@
-import {Block, PageContent} from '../../models';
+import {Block, PageContent, Theme} from '../../models';
 import {ViewModeItem} from '../types';
 
 import {addBlock, changeBlocksOrder, duplicateBlock, getErrorBoundaryState} from './utils';
@@ -10,6 +10,7 @@ interface EditorState {
     activeBlockIndex: number;
     errorBoundaryState: number;
     viewMode: ViewModeItem;
+    theme: Theme;
 }
 
 interface OrderBlockParams {
@@ -31,6 +32,7 @@ export const SET_REGION = 'SET_REGION';
 export const ORDER_BLOCK = 'ORDER_BLOCK';
 export const UPDATE_CONTENT = 'UPDATE_CONTENT';
 export const UPDATE_VIEW_MODE = 'UPDATE_VIEW_MODE';
+export const UPDATE_THEME = 'UPDATE_THEME';
 
 interface SelectBlock {
     type: typeof SELECT_BLOCK;
@@ -67,6 +69,11 @@ interface UpdateViewMode {
     payload: ViewModeItem;
 }
 
+interface UpdateTheme {
+    type: typeof UPDATE_THEME;
+    payload: Theme;
+}
+
 export type EditorAction =
     | SelectBlock
     | DeleteBlock
@@ -74,7 +81,8 @@ export type EditorAction =
     | AddBlock
     | OrderBlock
     | UpdateContent
-    | UpdateViewMode;
+    | UpdateViewMode
+    | UpdateTheme;
 
 // reducer
 export const reducer = (state: EditorState, action: EditorAction): EditorState => {
@@ -127,6 +135,11 @@ export const reducer = (state: EditorState, action: EditorAction): EditorState =
             return {
                 ...state,
                 viewMode: action.payload,
+            };
+        case UPDATE_THEME:
+            return {
+                ...state,
+                theme: action.payload,
             };
         default:
             return state;
