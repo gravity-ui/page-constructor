@@ -7,18 +7,18 @@ import {DEFAULT_THEME} from '../../src/components/constants';
 let lastStoryBookThemeValue = DEFAULT_THEME;
 
 export function withTheme(Story: StoryType, context: StoryContext) {
-    const [theme, setTheme] = useTheme(); // eslint-disable-line react-hooks/rules-of-hooks
+    const [theme, onThemeSwitch] = useTheme(); // eslint-disable-line react-hooks/rules-of-hooks
     const storyBookThemeValue = context.globals.theme as Theme;
 
     React.useEffect(() => {
         if (lastStoryBookThemeValue !== storyBookThemeValue) {
-            setTheme(storyBookThemeValue);
+            onThemeSwitch(storyBookThemeValue);
         }
 
         return () => {
             lastStoryBookThemeValue = storyBookThemeValue;
         };
-    }, [theme, storyBookThemeValue, setTheme]);
+    }, [theme, storyBookThemeValue, onThemeSwitch]);
 
     return <Story {...context} />;
 }
