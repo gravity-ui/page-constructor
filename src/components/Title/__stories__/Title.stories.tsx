@@ -34,7 +34,7 @@ const SizesTemplate: StoryFn<TitleProps & ClassNameProps> = (args) => (
 
 const DefaultArgs = {
     ...data.default.content,
-    subtitle: yfmTransform(data.default.content.description),
+    subtitle: yfmTransform(data.default.content.subtitle),
 };
 
 export const Default = DefaultTemplate.bind({});
