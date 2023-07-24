@@ -98,7 +98,7 @@
     "uuid": "^9.0.0"
   },
   "peerDependencies": {
-    "@doc-tools/transform": "^2.6.1",
+    "@doc-tools/transform": "^3.3.2",
     "@gravity-ui/uikit": "^4.1.0",
     "react": "^16.0.0 || ^17.0.0 || ^18.0.0"
   },
@@ -106,7 +106,7 @@
     "@babel/core": "^7.22.8",
     "@commitlint/cli": "^17.1.2",
     "@commitlint/config-conventional": "^17.1.0",
-    "@doc-tools/transform": "2.12.0",
+    "@doc-tools/transform": "^3.3.2",
     "@gravity-ui/babel-preset": "^1.0.1",
     "@gravity-ui/eslint-config": "^2.0.0",
     "@gravity-ui/icons": "^2.1.0",
