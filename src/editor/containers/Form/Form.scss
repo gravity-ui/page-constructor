@@ -19,4 +19,8 @@ $block: '.#{$ns}editor-form';
     &__block-form {
         margin-bottom: $indentXS;
     }
+
+    &_yaml-editor-enabled {
+        height: 100%;
+    }
 }
