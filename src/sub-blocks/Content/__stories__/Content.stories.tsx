@@ -1,9 +1,8 @@
 import React from 'react';
 
 import yfm from '@doc-tools/transform';
-import {Meta, Story} from '@storybook/react/types-6-0';
+import {Meta, StoryFn} from '@storybook/react';
 
-import {COMPONENTS} from '../../../demo/constants';
 import {
     ButtonProps,
     ClassNameProps,
@@ -17,10 +16,10 @@ import data from './data.json';
 
 export default {
     component: Content,
-    title: `${COMPONENTS}/Content`,
+    title: 'Components/Content',
 } as Meta;
 
-const DefaultTemplate: Story<ContentBlockProps & ClassNameProps> = (args) => (
+const DefaultTemplate: StoryFn<ContentBlockProps & ClassNameProps> = (args) => (
     <div>
         <div style={{paddingBottom: '64px'}}>
             <Content
@@ -37,7 +36,7 @@ const DefaultTemplate: Story<ContentBlockProps & ClassNameProps> = (args) => (
     </div>
 );
 
-const SizeTemplate: Story<ContentBlockProps & ClassNameProps> = (args) => (
+const SizeTemplate: StoryFn<ContentBlockProps & ClassNameProps> = (args) => (
     <div>
         <div style={{paddingBottom: '64px'}}>
             <Content
@@ -57,7 +56,7 @@ const SizeTemplate: Story<ContentBlockProps & ClassNameProps> = (args) => (
     </div>
 );
 
-const ThemeTemplate: Story<ContentBlockProps & ClassNameProps> = (args) => (
+const ThemeTemplate: StoryFn<ContentBlockProps & ClassNameProps> = (args) => (
     <div>
         <div style={{paddingBottom: '64px'}}>
             <Content

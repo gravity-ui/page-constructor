@@ -1,17 +1,16 @@
 import React from 'react';
 
-import {Meta, Story} from '@storybook/react/types-6-0';
+import {Meta, StoryFn} from '@storybook/react';
 
 import HubspotForm from '..';
-import {COMPONENTS} from '../../../demo/constants';
 import {HubspotFormProps} from '../../../models/';
 
 export default {
     component: HubspotForm,
-    title: `${COMPONENTS}/HubspotForm`,
+    title: 'Components/HubspotForm',
 } as Meta;
 
-const DefaultTemplate: Story<HubspotFormProps> = (args) => (
+const DefaultTemplate: StoryFn<HubspotFormProps> = (args) => (
     <div style={{maxWidth: '800px'}}>
         <HubspotForm {...args} />
     </div>

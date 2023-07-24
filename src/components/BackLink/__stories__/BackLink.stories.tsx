@@ -1,8 +1,7 @@
 import React, {Fragment} from 'react';
 
-import {Meta, Story} from '@storybook/react/types-6-0';
+import {Meta, StoryFn} from '@storybook/react';
 
-import {BUTTONS_LINKS, COMPONENTS} from '../../../demo/constants';
 import {Col, Row} from '../../../grid';
 import BackLink, {BackLinkProps} from '../BackLink';
 
@@ -10,11 +9,11 @@ import data from './data.json';
 
 export default {
     component: BackLink,
-    title: `${COMPONENTS}/${BUTTONS_LINKS}/BackLink`,
+    title: 'Components/Links and buttons/BackLink',
 } as Meta;
 
-const DefaultTemplate: Story<BackLinkProps> = (args) => <BackLink {...args} />;
-const SizesTemplate: Story<BackLinkProps> = (args) => (
+const DefaultTemplate: StoryFn<BackLinkProps> = (args) => <BackLink {...args} />;
+const SizesTemplate: StoryFn<BackLinkProps> = (args) => (
     <Row>
         <Col>{args.theme}</Col>
         <Col>
@@ -31,7 +30,7 @@ const SizesTemplate: Story<BackLinkProps> = (args) => (
         </Col>
     </Row>
 );
-const ThemesSizesTemplate: Story<BackLinkProps> = (args) => (
+const ThemesSizesTemplate: StoryFn<BackLinkProps> = (args) => (
     <Fragment>
         <Row>
             <Col />

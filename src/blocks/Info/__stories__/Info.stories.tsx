@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Meta, Story} from '@storybook/react/types-6-0';
+import {Meta, StoryFn} from '@storybook/react';
 
 import {yfmTransform} from '../../../../.storybook/utils';
 import {PageConstructor} from '../../../containers/PageConstructor/PageConstructor';
@@ -14,7 +14,7 @@ export default {
     component: Info,
 } as Meta;
 
-const DefaultTemplate: Story<InfoBlockModel> = (args) => (
+const DefaultTemplate: StoryFn<InfoBlockModel> = (args) => (
     <PageConstructor content={{blocks: [args]}} />
 );
 

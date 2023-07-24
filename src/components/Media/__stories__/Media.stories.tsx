@@ -1,19 +1,18 @@
 import React from 'react';
 
-import {Meta, Story} from '@storybook/react/types-6-0';
+import {Meta, StoryFn} from '@storybook/react';
 import {MediaProps} from 'src/models';
 
-import {COMPONENTS, MEDIA} from '../../../demo/constants';
 import Media, {MediaAllProps} from '../Media';
 
 import data from './data.json';
 
 export default {
     component: Media,
-    title: `${COMPONENTS}/${MEDIA}/Media`,
+    title: 'Components/Pics, video, DataLens/Media',
 } as Meta;
 
-const DefaultTemplate: Story<MediaAllProps> = (args) => (
+const DefaultTemplate: StoryFn<MediaAllProps> = (args) => (
     <div style={{maxWidth: '500px'}}>
         <Media {...args} />
     </div>

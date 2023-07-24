@@ -1,18 +1,17 @@
 import React from 'react';
 
-import {Meta, Story} from '@storybook/react/types-6-0';
+import {Meta, StoryFn} from '@storybook/react';
 
-import {COMPONENTS} from '../../../demo/constants';
 import FullWidthBackground, {FullWidthBackgroundProps} from '../FullWidthBackground';
 
 import data from './data.json';
 
 export default {
     component: FullWidthBackground,
-    title: `${COMPONENTS}/FullWidthBackground`,
+    title: 'Components/FullWidthBackground',
 } as Meta;
 
-const DefaultTemplate: Story<FullWidthBackgroundProps> = (args) => (
+const DefaultTemplate: StoryFn<FullWidthBackgroundProps> = (args) => (
     <div style={{height: '100px'}}>
         <FullWidthBackground {...args}>Children</FullWidthBackground>
     </div>

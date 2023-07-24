@@ -1,18 +1,17 @@
 import React from 'react';
 
-import {Meta, Story} from '@storybook/react/types-6-0';
+import {Meta, StoryFn} from '@storybook/react';
 
-import {COMPONENTS} from '../../../demo/constants';
 import ErrorWrapper, {ErrorWrapperProps} from '../ErrorWrapper';
 
 import data from './data.json';
 
 export default {
     component: ErrorWrapper,
-    title: `${COMPONENTS}/ErrorWrapper`,
+    title: 'Components/ErrorWrapper',
 } as Meta;
 
-const DefaultTemplate: Story<ErrorWrapperProps> = (args) => <ErrorWrapper {...args} />;
+const DefaultTemplate: StoryFn<ErrorWrapperProps> = (args) => <ErrorWrapper {...args} />;
 
 export const Default = DefaultTemplate.bind({});
 

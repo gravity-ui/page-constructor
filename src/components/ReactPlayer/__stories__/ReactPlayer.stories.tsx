@@ -1,18 +1,17 @@
 import React from 'react';
 
-import {Meta, Story} from '@storybook/react/types-6-0';
+import {Meta, StoryFn} from '@storybook/react';
 
-import {COMPONENTS, MEDIA} from '../../../demo/constants';
 import ReactPlayer, {ReactPlayerBlockProps} from '../ReactPlayer';
 
 import data from './data.json';
 
 export default {
     component: ReactPlayer,
-    title: `${COMPONENTS}/${MEDIA}/ReactPlayer`,
+    title: 'Components/Pics, video, DataLens/ReactPlayer',
 } as Meta;
 
-const DefaultTemplate: Story<ReactPlayerBlockProps> = (args) => (
+const DefaultTemplate: StoryFn<ReactPlayerBlockProps> = (args) => (
     <div style={{maxWidth: '500px'}}>
         <ReactPlayer {...args} />
     </div>

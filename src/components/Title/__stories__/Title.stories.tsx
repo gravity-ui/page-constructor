@@ -1,9 +1,8 @@
 import React from 'react';
 
-import {Meta, Story} from '@storybook/react/types-6-0';
+import {Meta, StoryFn} from '@storybook/react';
 
 import {yfmTransform} from '../../../../.storybook/utils';
-import {COMPONENTS} from '../../../demo/constants';
 import {ClassNameProps, TitleItemProps} from '../../../models';
 import Title, {TitleProps} from '../Title';
 
@@ -11,12 +10,12 @@ import data from './data.json';
 
 export default {
     component: Title,
-    title: `${COMPONENTS}/Title`,
+    title: 'Components/Title',
 } as Meta;
 
-const DefaultTemplate: Story<TitleProps & ClassNameProps> = (args) => <Title {...args} />;
+const DefaultTemplate: StoryFn<TitleProps & ClassNameProps> = (args) => <Title {...args} />;
 
-const SizesTemplate: Story<TitleProps & ClassNameProps> = (args) => (
+const SizesTemplate: StoryFn<TitleProps & ClassNameProps> = (args) => (
     <div>
         <div style={{paddingBottom: '64px'}}>
             <Title {...args} title={data.sizes.l as TitleItemProps} />

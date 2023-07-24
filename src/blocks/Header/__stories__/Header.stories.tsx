@@ -1,6 +1,6 @@
 import React, {Fragment} from 'react';
 
-import {Meta, Story} from '@storybook/react/types-6-0';
+import {Meta, StoryFn} from '@storybook/react';
 
 import {yfmTransform} from '../../../../.storybook/utils';
 import {PageConstructor} from '../../../containers/PageConstructor';
@@ -39,11 +39,11 @@ const DefaultArgs = {
     description: yfmTransform(data.default.content.description),
 };
 
-const DefaultTemplate: Story<HeaderBlockModel> = (args) => (
+const DefaultTemplate: StoryFn<HeaderBlockModel> = (args) => (
     <PageConstructor content={{blocks: [args]}} />
 );
 
-const SizeTemplate: Story<HeaderBlockModel> = (args) => (
+const SizeTemplate: StoryFn<HeaderBlockModel> = (args) => (
     <Fragment>
         <DefaultTemplate {...args} title={getSizeTitle('"L"')} width="l" />
         <DefaultTemplate {...args} title={getSizeTitle('"M"')} width="m" />
@@ -51,14 +51,14 @@ const SizeTemplate: Story<HeaderBlockModel> = (args) => (
     </Fragment>
 );
 
-const ImageTemplate: Story<HeaderBlockModel> = (args) => (
+const ImageTemplate: StoryFn<HeaderBlockModel> = (args) => (
     <Fragment>
         <DefaultTemplate {...args} title={getImageTitle('«M»')} width="m" />
         <DefaultTemplate {...args} title={getImageTitle('«S»')} width="s" />
     </Fragment>
 );
 
-const VerticalOffsetTemplate: Story<HeaderBlockModel> = (args) => (
+const VerticalOffsetTemplate: StoryFn<HeaderBlockModel> = (args) => (
     <Fragment>
         <DefaultTemplate {...args} title={getVerticalOffsetTitle('«S»')} verticalOffset="s" />
         <DefaultTemplate {...args} title={getVerticalOffsetTitle('«M»')} verticalOffset="m" />
@@ -67,7 +67,7 @@ const VerticalOffsetTemplate: Story<HeaderBlockModel> = (args) => (
     </Fragment>
 );
 
-const BackgroundTemplate: Story<HeaderBlockModel> = (args) => (
+const BackgroundTemplate: StoryFn<HeaderBlockModel> = (args) => (
     <Fragment>
         <DefaultTemplate
             {...args}
@@ -82,7 +82,7 @@ const BackgroundTemplate: Story<HeaderBlockModel> = (args) => (
     </Fragment>
 );
 
-const FullWithBackgroundTemplate: Story<HeaderBlockModel> = (args) => (
+const FullWithBackgroundTemplate: StoryFn<HeaderBlockModel> = (args) => (
     <Fragment>
         <DefaultTemplate
             {...args}
@@ -115,7 +115,7 @@ const FullWithBackgroundTemplate: Story<HeaderBlockModel> = (args) => (
     </Fragment>
 );
 
-const FullWidthMediaBackgroundTemplate: Story<HeaderBlockModel> = (args) => (
+const FullWidthMediaBackgroundTemplate: StoryFn<HeaderBlockModel> = (args) => (
     <Fragment>
         <DefaultTemplate
             {...args}
@@ -152,7 +152,7 @@ const FullWidthMediaBackgroundTemplate: Story<HeaderBlockModel> = (args) => (
     </Fragment>
 );
 
-const BreadCrumbsTemplate: Story<HeaderBlockModel> = (args) => (
+const BreadCrumbsTemplate: StoryFn<HeaderBlockModel> = (args) => (
     <Fragment>
         <DefaultTemplate {...args} title={getBreadcrumbsTitle('light')} />
         <DefaultTemplate

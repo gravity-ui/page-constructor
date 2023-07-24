@@ -1,6 +1,6 @@
 import React, {Fragment} from 'react';
 
-import {Meta, Story} from '@storybook/react/types-6-0';
+import {Meta, StoryFn} from '@storybook/react';
 
 import {PageConstructor} from '../../../containers/PageConstructor';
 import {
@@ -24,11 +24,11 @@ const createCardArray: (count: number, shared: LayoutItemProps) => SubBlockModel
     shared,
 ) => Array.from({length: count}, () => ({...shared} as LayoutItemModel));
 
-const DefaultTemplate: Story<CardLayoutBlockModel> = (args) => (
+const DefaultTemplate: StoryFn<CardLayoutBlockModel> = (args) => (
     <PageConstructor content={{blocks: [args]}} />
 );
 
-const ColSizeTemplate: Story<CardLayoutBlockModel> = (args) => (
+const ColSizeTemplate: StoryFn<CardLayoutBlockModel> = (args) => (
     <Fragment>
         <PageConstructor
             content={{

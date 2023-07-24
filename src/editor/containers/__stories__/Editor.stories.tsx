@@ -1,12 +1,12 @@
 import React, {useCallback, useContext} from 'react';
 
-import {Meta, Story} from '@storybook/react/types-6-0';
+import {Meta, StoryFn} from '@storybook/react';
 
 import {scriptsSrc, ymapApiKeyForStorybook} from '../../../../.storybook/maps';
 import {LocaleContext} from '../../../context/localeContext';
 import {MapType} from '../../../context/mapsContext/mapsContext';
 import {MapProvider} from '../../../context/mapsContext/mapsProvider';
-import {EDITOR} from '../../../demo/constants';
+// import {EDITOR} from '../../../demo/constants';
 import {PageContent} from '../../../models';
 import {contentTransformer} from '../../../text-transform';
 import {EditorProps} from '../../types';
@@ -17,13 +17,13 @@ import {memoizeLast} from './utils';
 import data from './data.json';
 
 export default {
-    title: `${EDITOR}/Main`,
+    title: 'Editor/Main',
     component: Editor,
 } as Meta;
 
 const contentTransformerMemoized = memoizeLast(contentTransformer);
 
-const DefaultTemplate: Story<EditorProps> = (args) => {
+const DefaultTemplate: StoryFn<EditorProps> = (args) => {
     const {lang} = useContext(LocaleContext);
 
     const transformContent = useCallback(

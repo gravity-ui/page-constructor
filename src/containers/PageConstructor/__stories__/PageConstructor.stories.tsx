@@ -1,20 +1,20 @@
 import React from 'react';
 
-import {Meta, Story} from '@storybook/react/types-6-0';
+import {Meta, StoryFn} from '@storybook/react';
 
-import {CONTAINERS} from '../../../demo/constants';
+// import {CONTAINERS} from '../../../demo/constants';
 import {PageConstructor, PageConstructorProps} from '../PageConstructor';
 
 import data from './data.json';
 
 export default {
-    title: `${CONTAINERS}/PageConstructor`,
+    title: 'Containers/PageConstructor',
     component: PageConstructor,
 } as Meta;
 
-const DefaultTemplate: Story<PageConstructorProps> = (args) => <PageConstructor {...args} />;
+const DefaultTemplate: StoryFn<PageConstructorProps> = (args) => <PageConstructor {...args} />;
 
-const WithFullWidthBackgroundMediaTemplate: Story<PageConstructorProps> = (args) => (
+const WithFullWidthBackgroundMediaTemplate: StoryFn<PageConstructorProps> = (args) => (
     <PageConstructor {...args} />
 );
 

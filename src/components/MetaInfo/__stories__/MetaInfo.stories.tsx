@@ -1,18 +1,17 @@
 import React from 'react';
 
-import {Meta, Story} from '@storybook/react/types-6-0';
+import {Meta, StoryFn} from '@storybook/react';
 
-import {COMPONENTS} from '../../../demo/constants';
 import MetaInfo, {MetaInfpoProps} from '../MetaInfo';
 
 import data from './data.json';
 
 export default {
     component: MetaInfo,
-    title: `${COMPONENTS}/MetaInfo`,
+    title: 'Components/MetaInfo',
 } as Meta;
 
-const DefaultTemplate: Story<MetaInfpoProps> = (args) => <MetaInfo {...args} />;
+const DefaultTemplate: StoryFn<MetaInfpoProps> = (args) => <MetaInfo {...args} />;
 
 export const Default = DefaultTemplate.bind({});
 

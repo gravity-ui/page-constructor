@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Meta, Story} from '@storybook/react/types-6-0';
+import {Meta, StoryFn} from '@storybook/react';
 
 import {scriptsSrc, ymapApiKeyForStorybook} from '../../../../.storybook/maps';
 import {yfmTransform} from '../../../../.storybook/utils';
@@ -23,7 +23,7 @@ export default {
     },
 } as Meta;
 
-const DefaultTemplate: Story<MapBlockModel> = (args) => (
+const DefaultTemplate: StoryFn<MapBlockModel> = (args) => (
     <MapProvider
         scriptSrc={scriptsSrc[MapType.Yandex]}
         apiKey={ymapApiKeyForStorybook}
@@ -59,7 +59,7 @@ const DefaultTemplate: Story<MapBlockModel> = (args) => (
     </MapProvider>
 );
 
-const SizeTemplate: Story<MapBlockModel> = (args) => (
+const SizeTemplate: StoryFn<MapBlockModel> = (args) => (
     <MapProvider
         scriptSrc={scriptsSrc[MapType.Yandex]}
         apiKey={ymapApiKeyForStorybook}
@@ -98,7 +98,7 @@ const SizeTemplate: Story<MapBlockModel> = (args) => (
     </MapProvider>
 );
 
-const DirectionTemplate: Story<MapBlockModel> = (args) => (
+const DirectionTemplate: StoryFn<MapBlockModel> = (args) => (
     <MapProvider
         scriptSrc={scriptsSrc[MapType.Yandex]}
         apiKey={ymapApiKeyForStorybook}
@@ -138,7 +138,7 @@ const DirectionTemplate: Story<MapBlockModel> = (args) => (
 
 const GMAP_API_KEY = process.env.STORYBOOK_GMAP_API_KEY;
 
-const MapsTypesTemplate: Story<MapBlockModel> = (args) => (
+const MapsTypesTemplate: StoryFn<MapBlockModel> = (args) => (
     <>
         <MapProvider
             scriptSrc={scriptsSrc[MapType.Yandex]}

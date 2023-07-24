@@ -2,7 +2,7 @@ import React, {ChangeEvent, useCallback, useState} from 'react';
 
 import {TextInput} from '@gravity-ui/uikit';
 
-import {Button} from '../../';
+import {Button} from '../..';
 import {useMapApiKey} from '../../../context/mapsContext/useMap';
 
 import './ApiKeyInput.scss';

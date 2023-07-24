@@ -1,8 +1,8 @@
 import React from 'react';
-import {Story as StoryType, StoryContext} from '@storybook/react/types-6-0';
+import {StoryFn, StoryContext} from '@storybook/react';
 import {useMobile} from '@gravity-ui/uikit';
 
-export function withMobile(Story: StoryType, context: StoryContext) {
+export function withMobile(Story: StoryFn, context: StoryContext) {
     const mobileValue = context.globals.platform === 'mobile';
 
     const [mobile, setMobile] = useMobile(); // eslint-disable-line react-hooks/rules-of-hooks

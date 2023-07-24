@@ -1,8 +1,7 @@
 import React, {Fragment} from 'react';
 
-import {Meta, Story} from '@storybook/react/types-6-0';
+import {Meta, StoryFn} from '@storybook/react';
 
-import {BUTTONS_LINKS, COMPONENTS} from '../../../demo/constants';
 import {Col, Row} from '../../../grid';
 import Button, {ButtonProps} from '../Button';
 
@@ -10,11 +9,11 @@ import data from './data.json';
 
 export default {
     component: Button,
-    title: `${COMPONENTS}/${BUTTONS_LINKS}/Button`,
+    title: 'Components/Links and buttons/Button',
 } as Meta;
 
-const DefaultTemplate: Story<ButtonProps> = (args) => <Button {...args} />;
-const SizesTemplate: Story<ButtonProps> = (args) => (
+const DefaultTemplate: StoryFn<ButtonProps> = (args) => <Button {...args} />;
+const SizesTemplate: StoryFn<ButtonProps> = (args) => (
     <Row>
         <Col style={{margin: '20px 0'}}>{args.theme}</Col>
         <Col>
@@ -31,7 +30,7 @@ const SizesTemplate: Story<ButtonProps> = (args) => (
         </Col>
     </Row>
 );
-const ThemesSizesTemplate: Story<ButtonProps> = (args) => (
+const ThemesSizesTemplate: StoryFn<ButtonProps> = (args) => (
     <Fragment>
         <Row>
             <Col />
@@ -63,7 +62,7 @@ const ThemesSizesTemplate: Story<ButtonProps> = (args) => (
     </Fragment>
 );
 
-const WidthTemplate: Story<ButtonProps> = (args) => (
+const WidthTemplate: StoryFn<ButtonProps> = (args) => (
     <Row>
         <Col>
             <Button {...args} width="auto" />

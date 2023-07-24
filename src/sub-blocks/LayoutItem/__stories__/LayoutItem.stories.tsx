@@ -1,19 +1,18 @@
 import React from 'react';
 
-import {Meta, Story} from '@storybook/react/types-6-0';
+import {Meta, StoryFn} from '@storybook/react';
 
-import {CARDS, COMPONENTS} from '../../../demo/constants';
 import {LayoutItemProps} from '../../../models';
 import LayoutItem from '../LayoutItem';
 
 import data from './data.json';
 
 export default {
-    title: `${COMPONENTS}/${CARDS}/LayoutItem`,
+    title: 'Components/Cards/LayoutItem',
     component: LayoutItem,
 } as Meta;
 
-const DefaultTemplate: Story<LayoutItemProps> = (args) => (
+const DefaultTemplate: StoryFn<LayoutItemProps> = (args) => (
     <div style={{maxWidth: '500px'}}>
         <LayoutItem {...args} />
     </div>

@@ -1,18 +1,17 @@
 import React from 'react';
 
-import {Meta, Story} from '@storybook/react/types-6-0';
+import {Meta, StoryFn} from '@storybook/react';
 
-import {COMPONENTS, MEDIA} from '../../../demo/constants';
 import Image, {ImageProps} from '../Image';
 
 import data from './data.json';
 
 export default {
     component: Image,
-    title: `${COMPONENTS}/${MEDIA}/Image`,
+    title: 'Components/Pics, video, DataLens/Image',
 } as Meta;
 
-const DefaultTemplate: Story<ImageProps> = (args) => <Image {...args} />;
+const DefaultTemplate: StoryFn<ImageProps> = (args) => <Image {...args} />;
 
 export const Default = DefaultTemplate.bind({});
 

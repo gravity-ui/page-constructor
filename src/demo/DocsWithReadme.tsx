@@ -9,11 +9,12 @@ import {
     Stories,
     Subtitle,
     Title,
-} from '@storybook/addon-docs/';
+} from '@storybook/addon-docs';
 
 const readmeCache: Record<string, string> = {};
 
 function importAllReadme(ctx: __WebpackModuleApi.RequireContext) {
+    //@ts-ignore
     const path = ctx.id.split(' ')[0].replace('./', '') + '/';
     ctx.keys().forEach((key) => {
         const dirPath = key.replace(/^\.\//, path).replace(/\/readme\.md$/i, '');
@@ -28,7 +29,9 @@ importAllReadme(require.context('../containers', true, /readme\.md$/i));
 
 export const DocsWithReadme = () => {
     const context = React.useContext(DocsContext);
+    //@ts-ignore
     const fileName = context?.parameters?.fileName;
+    //@ts-ignore
     const kind = context.kind;
     let isComponent = false;
     if (kind && /Components|Blocks|Sub-blocks|Containers\//.test(kind)) {

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Meta, Story} from '@storybook/react/types-6-0';
+import {Meta, StoryFn} from '@storybook/react';
 
 import BLOCKS from './BLOCKS.md';
 import COMMON_TYPES from './COMMON_TYPES.md';
@@ -19,26 +19,26 @@ export default {
     },
 } as Meta;
 
-export const Blocks: Story = () => (
+export const Blocks: StoryFn = () => (
     <div className="yfm" dangerouslySetInnerHTML={{__html: BLOCKS}} />
 );
 Blocks.storyName = 'Blocks';
 
-export const Components: Story = () => (
+export const Components: StoryFn = () => (
     <div className="yfm" dangerouslySetInnerHTML={{__html: COMPONENTS}} />
 );
 Components.storyName = 'Sub-blocks';
 
-export const CommonTypes: Story = () => (
+export const CommonTypes: StoryFn = () => (
     <div className="yfm" dangerouslySetInnerHTML={{__html: COMMON_TYPES}} />
 );
 CommonTypes.storyName = 'Common types';
 
-export const PageProperties: Story = () => (
+export const PageProperties: StoryFn = () => (
     <div className="yfm" dangerouslySetInnerHTML={{__html: PAGE_PROPERTIES}} />
 );
 PageProperties.storyName = 'Page properties';
 
-export const Indents: Story = () => (
+export const Indents: StoryFn = () => (
     <div className="yfm" dangerouslySetInnerHTML={{__html: INDENTS}} />
 );

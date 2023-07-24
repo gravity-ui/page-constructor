@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Meta, Story} from '@storybook/react/types-6-0';
+import {Meta, StoryFn} from '@storybook/react';
 
 import {PageConstructor} from '../../../containers/PageConstructor/PageConstructor';
 import {CompaniesBlockModel, CompaniesBlockProps} from '../../../models';
@@ -13,7 +13,7 @@ export default {
     component: Companies,
 } as Meta;
 
-const DefaultTemplate: Story<CompaniesBlockModel> = (args) => (
+const DefaultTemplate: StoryFn<CompaniesBlockModel> = (args) => (
     <PageConstructor content={{blocks: [args]}} />
 );
 

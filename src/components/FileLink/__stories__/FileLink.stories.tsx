@@ -1,8 +1,7 @@
 import React, {Fragment} from 'react';
 
-import {Meta, Story} from '@storybook/react/types-6-0';
+import {Meta, StoryFn} from '@storybook/react';
 
-import {BUTTONS_LINKS, COMPONENTS} from '../../../demo/constants';
 import {Col, Row} from '../../../grid';
 import {FileLinkProps} from '../../../models';
 import {FileLink} from '../../index';
@@ -11,11 +10,11 @@ import data from './data.json';
 
 export default {
     component: FileLink,
-    title: `${COMPONENTS}/${BUTTONS_LINKS}/FileLink`,
+    title: 'Components/Links and buttons/FileLink',
 } as Meta;
 
-const DefaultTemplate: Story<FileLinkProps> = (args) => <FileLink {...args} />;
-const TypesTemplate: Story<FileLinkProps> = (args) => (
+const DefaultTemplate: StoryFn<FileLinkProps> = (args) => <FileLink {...args} />;
+const TypesTemplate: StoryFn<FileLinkProps> = (args) => (
     <Row style={{padding: '10px'}}>
         <Col>{args.theme}</Col>
         <Col>
@@ -27,7 +26,7 @@ const TypesTemplate: Story<FileLinkProps> = (args) => (
     </Row>
 );
 
-const TypesThemesTemplate: Story<FileLinkProps> = (args) => (
+const TypesThemesTemplate: StoryFn<FileLinkProps> = (args) => (
     <Fragment>
         <Row style={{padding: '10px'}}>
             <Col />
@@ -42,7 +41,7 @@ const TypesThemesTemplate: Story<FileLinkProps> = (args) => (
     </Fragment>
 );
 
-const WithPaddingTemplate: Story<FileLinkProps> = (args) => (
+const WithPaddingTemplate: StoryFn<FileLinkProps> = (args) => (
     <Row style={{padding: '10px'}}>
         <Col>
             <FileLink {...args} />
@@ -50,7 +49,7 @@ const WithPaddingTemplate: Story<FileLinkProps> = (args) => (
     </Row>
 );
 
-const ExtTemplate: Story<FileLinkProps> = (args) => (
+const ExtTemplate: StoryFn<FileLinkProps> = (args) => (
     <Fragment>
         <WithPaddingTemplate {...args} href="example.pdf" />
         <WithPaddingTemplate {...args} href="example.doc" />

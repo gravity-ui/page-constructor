@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Meta, Story} from '@storybook/react/types-6-0';
+import {Meta, StoryFn} from '@storybook/react';
 
 import {PageConstructor} from '../../../containers/PageConstructor';
 import {
@@ -47,7 +47,7 @@ const createArgs = (overrides: Partial<FilterBlockProps>) =>
         ...overrides,
     } as FilterBlockProps);
 
-const DefaultTemplate: Story<FilterBlockModel> = (args) => (
+const DefaultTemplate: StoryFn<FilterBlockModel> = (args) => (
     <PageConstructor content={{blocks: [args]}} />
 );
 
