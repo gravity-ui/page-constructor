@@ -1,4 +1,4 @@
-import React, {PropsWithChildren} from 'react';
+import React, {Fragment, PropsWithChildren} from 'react';
 
 import blockOrigin from 'bem-cn-lite';
 
@@ -45,7 +45,7 @@ export const GlobalThemeController = ({children}: CommonThemeControllerProps) =>
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-    return <>{children}</>;
+    return <Fragment>{children}</Fragment>;
 };
 
 export const ThemeController = ({children}: PropsWithChildren) => {
