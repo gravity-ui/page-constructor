@@ -1,4 +1,4 @@
-import React, {Fragment, PropsWithChildren} from 'react';
+import React, {Fragment, PropsWithChildren, useEffect} from 'react';
 
 import blockOrigin from 'bem-cn-lite';
 
@@ -27,7 +27,7 @@ export const GlobalThemeController = ({children}: CommonThemeControllerProps) =>
         bodyEl.classList.toggle('yc-root_theme_dark', newTheme === Theme.Dark);
     };
 
-    React.useEffect(() => {
+    useEffect(() => {
         if (theme !== prevTheme) {
             updateBodyClassName(theme);
         }
@@ -39,7 +39,7 @@ export const GlobalThemeController = ({children}: CommonThemeControllerProps) =>
         };
     }, [theme, prevTheme]);
 
-    React.useEffect(() => {
+    useEffect(() => {
         updateBodyClassName(theme);
         // need to render only once
         // eslint-disable-next-line react-hooks/exhaustive-deps
