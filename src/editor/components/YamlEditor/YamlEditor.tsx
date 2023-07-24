@@ -26,7 +26,6 @@ export const YamlEditor = ({content}: YamlEditorProps) => {
                 },
                 overviewRulerBorder: false,
                 readOnly: true,
-                language: 'yaml',
             }}
         />
     );
