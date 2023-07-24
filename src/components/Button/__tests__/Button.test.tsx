@@ -9,7 +9,7 @@ import {ButtonImagePosition, ButtonTheme} from '../../../models';
 import Button, {ButtonProps} from '../Button';
 import {ICON_QA} from '../utils';
 
-const qaId = 'button-component';
+const qa = 'button-component';
 
 const buttonProps = {
     text: 'Button Text',
@@ -74,15 +74,15 @@ describe('Button', () => {
     });
 
     test.each(new Array<ButtonSize>('s', 'm', 'l', 'xl'))('render with given "%s" size', (size) => {
-        render(<Button text={buttonProps.text} size={size} qa={qaId} />);
-        const button = screen.getByTestId(qaId);
+        render(<Button text={buttonProps.text} size={size} qa={qa} />);
+        const button = screen.getByTestId(qa);
 
         expect(button).toHaveClass(`pc-button-block_size_${size}`);
     });
 
     test.each(new Array<ButtonTheme>(...buttonViews))('render with given "%s" view', (theme) => {
-        render(<Button text={buttonProps.text} theme={theme} qa={qaId} />);
-        const button = screen.getByTestId(qaId);
+        render(<Button text={buttonProps.text} theme={theme} qa={qa} />);
+        const button = screen.getByTestId(qa);
 
         expect(button).toHaveClass(`pc-button-block_theme_${theme}`);
     });
@@ -90,7 +90,7 @@ describe('Button', () => {
     test('add className', () => {
         testCustomClassName<ButtonProps>({
             component: Button,
-            props: {text: buttonProps.text, qa: qaId},
+            props: {text: buttonProps.text, qa},
         });
     });
 

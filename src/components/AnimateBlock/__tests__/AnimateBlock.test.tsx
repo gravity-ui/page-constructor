@@ -7,29 +7,29 @@ import {testCustomClassName, testCustomStyle} from '../../../../test-utils/share
 import {WithChildren} from '../../../models';
 import AnimateBlock, {AnimateBlockProps} from '../AnimateBlock';
 
-const qaId = 'animate-block';
+const qa = 'animate-block';
 
 type ComponentProps = WithChildren<AnimateBlockProps>;
 
 describe('AnimateBlock', () => {
     test('render AnimateBlock by default', async () => {
-        render(<AnimateBlock qa={qaId} />);
+        render(<AnimateBlock qa={qa} />);
 
-        const component = screen.getByTestId(qaId);
+        const component = screen.getByTestId(qa);
         expect(component).toBeInTheDocument();
     });
 
     test('add className', () => {
         testCustomClassName<ComponentProps>({
             component: AnimateBlock,
-            props: {qa: qaId},
+            props: {qa},
         });
     });
 
     test('use passed style', () => {
         testCustomStyle<ComponentProps>({
             component: AnimateBlock,
-            props: {qa: qaId},
+            props: {qa},
         });
     });
 
@@ -39,10 +39,10 @@ describe('AnimateBlock', () => {
 
         render(
             <div style={{paddingTop: 100000}}>
-                <AnimateBlock onScroll={onScroll} qa={qaId} />
+                <AnimateBlock onScroll={onScroll} qa={qa} />
             </div>,
         );
-        const component = screen.getByTestId(qaId);
+        const component = screen.getByTestId(qa);
 
         await user.hover(component);
         expect(onScroll).toHaveBeenCalledTimes(1);

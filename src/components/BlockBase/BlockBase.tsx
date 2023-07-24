@@ -1,7 +1,7 @@
 import React, {PropsWithChildren} from 'react';
 
 import {Col} from '../../grid';
-import {BlockBaseProps, ClassNameProps} from '../../models';
+import {BlockBaseProps, ClassNameProps, QAProps} from '../../models';
 import {block} from '../../utils';
 import Anchor from '../Anchor/Anchor';
 
@@ -9,7 +9,7 @@ import './BlockBase.scss';
 
 const b = block('block-base');
 
-export type BlockBaseFullProps = BlockBaseProps & ClassNameProps & PropsWithChildren;
+export type BlockBaseFullProps = BlockBaseProps & ClassNameProps & PropsWithChildren & QAProps;
 
 const BlockBase = (props: BlockBaseFullProps) => {
     const {anchor, visible, children, className, resetPaddings, qa} = props;
@@ -19,7 +19,7 @@ const BlockBase = (props: BlockBaseFullProps) => {
             className={b({['reset-paddings']: resetPaddings}, className)}
             visible={visible}
             reset={true}
-            dataQa={qa}
+            qa={qa}
         >
             {anchor && <Anchor id={anchor.url} className={b('anchor')} />}
             {children}

@@ -8,14 +8,14 @@ import {GridColumnSize} from '../../../grid';
 import {ClassNameProps, WithChildren} from '../../../models';
 import BlockBase, {BlockBaseFullProps} from '../BlockBase';
 
-const qaId = 'block-base-component';
+const qa = 'block-base-component';
 
 type ComponentProps = WithChildren<BlockBaseFullProps & ClassNameProps>;
 
 describe('BlockBase', () => {
     test('render component by default', async () => {
-        render(<BlockBase qa={qaId} />);
-        const component = screen.getByTestId(qaId);
+        render(<BlockBase qa={qa} />);
+        const component = screen.getByTestId(qa);
 
         expect(component).toBeInTheDocument();
         expect(component).toBeVisible();
@@ -25,13 +25,13 @@ describe('BlockBase', () => {
     test('add className', () => {
         testCustomClassName<ComponentProps>({
             component: BlockBase,
-            props: {qa: qaId},
+            props: {qa},
         });
     });
 
     test('should reset paddings', () => {
-        render(<BlockBase qa={qaId} resetPaddings={true} />);
-        const component = screen.getByTestId(qaId);
+        render(<BlockBase qa={qa} resetPaddings={true} />);
+        const component = screen.getByTestId(qa);
 
         expect(component).toHaveClass('pc-block-base_reset-paddings');
     });
@@ -39,8 +39,8 @@ describe('BlockBase', () => {
     test.each(new Array<GridColumnSize>(...Object.values(GridColumnSize)))(
         'render with given "%s" size',
         (size) => {
-            render(<BlockBase qa={qaId} visible={size} />);
-            const component = screen.getByTestId(qaId);
+            render(<BlockBase qa={qa} visible={size} />);
+            const component = screen.getByTestId(qa);
 
             expect(component).toHaveClass(`d-${size}-block`);
         },

@@ -3,7 +3,7 @@ import {CSSProperties, ReactNode} from 'react';
 import {ButtonView, ButtonProps as UikitButtonProps} from '@gravity-ui/uikit';
 
 import {ThemeSupporting} from '../../utils/theme';
-import {AnalyticsEventsBase, ClassNameProps, PixelEventType} from '../common';
+import {AnalyticsEventsBase, ClassNameProps, PixelEventType, QAProps} from '../common';
 
 // enums
 export enum AuthorType {
@@ -121,11 +121,11 @@ export type ThemedImage = ThemeSupporting<ImageProps>;
 export interface BackgroundImageProps
     extends React.HTMLProps<HTMLDivElement>,
         Partial<ImageDeviceProps>,
-        Partial<ImageObjectProps> {
+        Partial<ImageObjectProps>,
+        QAProps {
     style?: CSSProperties;
     imageClassName?: string;
     hide?: boolean;
-    qa?: string;
 }
 
 //components props
@@ -421,12 +421,11 @@ export interface PriceDetailedProps extends CardBaseProps {
     labelsDefaultText?: Record<PriceLabelColor, string>;
 }
 
-export interface AuthorProps {
+export interface AuthorProps extends QAProps {
     author: AuthorItem;
     className?: string;
     authorContainerClassName?: string;
     type?: AuthorType;
-    dataQa?: string;
 }
 
 export interface TitleProps {

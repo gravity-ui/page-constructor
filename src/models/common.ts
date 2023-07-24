@@ -71,6 +71,10 @@ export interface ClassNameProps {
     className?: string;
 }
 
+export interface QAProps {
+    qa?: string;
+}
+
 export type Timeout = ReturnType<typeof setTimeout> | undefined;
 
 export enum PredefinedEventTypes {

@@ -6,7 +6,7 @@ import {LocaleContext} from '../../context/localeContext/localeContext';
 import {useAnalytics} from '../../hooks';
 import {useMetrika} from '../../hooks/useMetrika';
 import {Github} from '../../icons';
-import {ButtonProps as ButtonParams, DefaultEventNames} from '../../models';
+import {ButtonProps as ButtonParams, DefaultEventNames, QAProps} from '../../models';
 import {block, setUrlTld} from '../../utils';
 
 import i18n from './i18n';
@@ -14,11 +14,10 @@ import {ICON_QA, OldButtonSize, OldButtonTheme, toCommonSize, toCommonView} from
 
 import './Button.scss';
 
-export interface ButtonProps extends Omit<ButtonParams, 'url'> {
+export interface ButtonProps extends Omit<ButtonParams, 'url'>, QAProps {
     className?: string;
     url?: string;
     onClick?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
-    qa?: string;
 }
 
 const b = block('button-block');
