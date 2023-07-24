@@ -11,6 +11,10 @@
             "warn",
             ["reduce"],
             {"props": true}
+        ],
+        "react/jsx-fragments": [
+            "error",
+            "element"
         ]
     },
     "overrides": [
