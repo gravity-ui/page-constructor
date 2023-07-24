@@ -102,8 +102,8 @@
     "uuid": "^9.0.0"
   },
   "peerDependencies": {
-    "@doc-tools/transform": "^2.6.1",
     "@gravity-ui/uikit": "^5.1.0",
+    "@doc-tools/transform": "^3.3.2",
     "react": "^16.0.0 || ^17.0.0 || ^18.0.0"
   },
   "devDependencies": {
@@ -113,7 +113,8 @@
     "@babel/preset-typescript": "^7.22.5",
     "@commitlint/cli": "^17.1.2",
     "@commitlint/config-conventional": "^17.1.0",
-    "@doc-tools/transform": "2.12.0",
+    "@doc-tools/transform": "^3.3.2",
+    "@gravity-ui/babel-preset": "^1.0.1",
     "@gravity-ui/eslint-config": "^2.0.0",
     "@gravity-ui/icons": "^2.1.0",
     "@gravity-ui/prettier-config": "^1.0.1",
