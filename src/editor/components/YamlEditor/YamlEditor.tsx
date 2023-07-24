@@ -9,24 +9,22 @@ interface YamlEditorProps {
     content: PageContent;
 }
 
-export const YamlEditor = ({content}: YamlEditorProps) => {
-    return (
-        <MonacoEditor
-            value={yaml.dump(content)}
-            language="yaml"
-            options={{
-                minimap: {
-                    enabled: false,
-                },
-                renderWhitespace: 'all',
-                overviewRulerLanes: 0,
-                hideCursorInOverviewRuler: true,
-                scrollbar: {
-                    vertical: 'hidden',
-                },
-                overviewRulerBorder: false,
-                readOnly: true,
-            }}
-        />
-    );
-};
+export const YamlEditor = ({content}: YamlEditorProps) => (
+    <MonacoEditor
+        value={yaml.dump(content)}
+        language="yaml"
+        options={{
+            minimap: {
+                enabled: false,
+            },
+            renderWhitespace: 'all',
+            overviewRulerLanes: 0,
+            hideCursorInOverviewRuler: true,
+            scrollbar: {
+                vertical: 'hidden',
+            },
+            overviewRulerBorder: false,
+            readOnly: true,
+        }}
+    />
+);
