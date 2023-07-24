@@ -1,7 +1,6 @@
 import React from 'react';
 
-import {ClassNameProps} from 'src/models';
-
+import {ClassNameProps} from '../../models';
 import {block} from '../../utils';
 
 import './MetaInfo.scss';
