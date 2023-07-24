@@ -51,8 +51,10 @@ const Image = (props: ImageAllProps) => {
     useEffect(() => {
         if (parallax) {
             const handleScroll = () => setScrollY(window.scrollY);
-            window.addEventListener('scroll', _.debounce(handleScroll, 5), {passive: true});
-            return () => window.removeEventListener('scroll', _.debounce(handleScroll, 5));
+            const debouncedHandler = _.debounce(handleScroll, 5);
+
+            window.addEventListener('scroll', debouncedHandler, {passive: true});
+            return () => window.removeEventListener('scroll', debouncedHandler);
         }
 
         return () => {};
