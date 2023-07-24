@@ -49,8 +49,10 @@ export const Navigation: React.FC<NavigationProps> = ({data, logo}) => {
             }
         };
 
-        window.addEventListener('scroll', _.debounce(showBorderOnScroll, 20), {passive: true});
-        return () => window.removeEventListener('scroll', _.debounce(showBorderOnScroll, 20));
+        const scrollHandler = _.debounce(showBorderOnScroll, 20);
+
+        window.addEventListener('scroll', scrollHandler, {passive: true});
+        return () => window.removeEventListener('scroll', scrollHandler);
     });
 
     return (

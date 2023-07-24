@@ -1,6 +1,7 @@
 import {MouseEventHandler} from 'react';
 
 import {
+    ClassNameProps,
     NavigationItemData,
     NavigationItemModel,
     NavigationLinkItem,
@@ -25,67 +26,63 @@ export enum NavigationLayout {
     Dropdown = 'dropdown',
 }
 
-export interface NavigationItemProps {
-    data: NavigationItemData;
-    className?: string;
-    onClick?: MouseEventHandler;
-    isActive?: boolean;
-    isTopLevel?: boolean;
-    menuLayout?: NavigationLayout;
-    hidePopup?: () => void;
-}
-
-export interface NavigationListItemProps extends Pick<NavigationItemProps, 'menuLayout'> {
-    data: NavigationItemModel;
-    column: ItemColumnName;
-    index: number;
+export interface ActiveItemProps {
     activeItemId?: string;
-    className?: string;
     onActiveItemChange: (id?: string) => void;
 }
 
+export interface MenuLayoutProps {
+    menuLayout?: NavigationLayout;
+}
+export interface NavigationItemProps extends ClassNameProps, MenuLayoutProps {
+    data: NavigationItemData;
+    onClick?: MouseEventHandler;
+    isActive?: boolean;
+    isTopLevel?: boolean;
+    hidePopup?: () => void;
+}
+
+export interface NavigationListItemProps extends MenuLayoutProps, ActiveItemProps, ClassNameProps {
+    data: NavigationItemModel;
+    column: ItemColumnName;
+    index: number;
+}
+
 export interface NavigationListProps
-    extends Pick<
-        NavigationListItemProps,
-        'activeItemId' | 'column' | 'className' | 'onActiveItemChange' | 'menuLayout'
-    > {
+    extends Pick<NavigationListItemProps, 'column'>,
+        MenuLayoutProps,
+        ActiveItemProps,
+        ClassNameProps {
     items: NavigationItemModel[];
     itemClassName?: string;
 }
 
 export interface ItemsWrapperProps
-    extends Pick<
-        NavigationListProps,
-        'items' | 'activeItemId' | 'className' | 'onActiveItemChange'
-    > {}
+    extends Pick<NavigationListProps, 'items'>,
+        ActiveItemProps,
+        ClassNameProps {}
 
-export interface DesktopNavigationProps
-    extends MobileMenuButtonProps,
-        Pick<ItemsWrapperProps, 'activeItemId' | 'onActiveItemChange'> {
+export interface DesktopNavigationProps extends MobileMenuButtonProps, ActiveItemProps {
     logo: ThemedNavigationLogoData;
     leftItemsWithIconSize: NavigationItemModel[];
     rightItemsWithIconSize?: NavigationItemModel[];
 }
 
-export interface MobileNavigationProps
-    extends Pick<ItemsWrapperProps, 'activeItemId' | 'onActiveItemChange' | 'className'> {
+export interface MobileNavigationProps extends ClassNameProps, ActiveItemProps {
     isOpened?: boolean;
     topItems?: NavigationItemModel[];
     bottomItems?: NavigationItemModel[];
 }
 
-export interface NavigationProps
-    extends MobileMenuButtonProps,
-        Pick<ItemsWrapperProps, 'activeItemId' | 'onActiveItemChange'> {
+export interface NavigationProps extends MobileMenuButtonProps, ActiveItemProps {
     logo: ThemedNavigationLogoData;
     leftItemsWithIconSize: NavigationItemModel[];
     rightItemsWithIconSize?: NavigationItemModel[];
 }
 
-export interface NavigationPopupProps {
+export interface NavigationPopupProps extends ClassNameProps {
     open: boolean;
     items: NavigationLinkItem[];
     onClose: () => void;
     anchorRef: React.RefObject<Element>;
-    className?: string;
 }

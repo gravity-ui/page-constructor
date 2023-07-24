@@ -14,21 +14,15 @@ const ICON_SIZE = 36;
 export const MobileMenuButton: React.FC<MobileMenuButtonProps> = ({
     isSidebarOpened,
     onSidebarOpenedChange,
-}) => {
-    const iconProps = {
-        icon: isSidebarOpened ? NavigationClose : NavigationOpen,
-        iconSize: ICON_SIZE,
-    };
-
-    return (
-        <Control
-            className={b()}
-            onClick={(e: MouseEvent) => {
-                e.stopPropagation();
-                onSidebarOpenedChange(!isSidebarOpened);
-            }}
-            size="l"
-            {...iconProps}
-        />
-    );
-};
+}) => (
+    <Control
+        className={b()}
+        onClick={(e: MouseEvent) => {
+            e.stopPropagation();
+            onSidebarOpenedChange(!isSidebarOpened);
+        }}
+        size="l"
+        icon={isSidebarOpened ? NavigationClose : NavigationOpen}
+        iconSize={ICON_SIZE}
+    />
+);
