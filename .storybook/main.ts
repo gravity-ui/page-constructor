@@ -4,7 +4,14 @@ const customAlias = {
     widget: resolve(__dirname, '../widget'),
 };
 const config = {
-    stories: ['../src/**/*.stories.@(ts|tsx)'],
+    framework: {
+        name: '@storybook/react-webpack5',
+        options: {},
+    },
+    docs: {
+        autodocs: true,
+    },
+    stories: ['../src/**/*.mdx', '../src/**/*.stories.@(ts|tsx)'],
     addons: [
         '@storybook/preset-scss',
         {
@@ -16,32 +23,7 @@ const config = {
         '@storybook/addon-knobs',
         './addons/addon-yaml/preset',
     ],
-    typescript: {
-        check: true,
-        checkOptions: {},
-        reactDocgen: 'react-docgen-typescript',
-        reactDocgenTypescriptOptions: {
-            setDisplayName: false,
-            shouldExtractLiteralValuesFromEnum: true,
-            compilerOptions: {
-                allowSyntheticDefaultImports: true,
-                esModuleInterop: true,
-            },
-        },
-    },
     webpackFinal: (storybookBaseConfig: any) => {
-        storybookBaseConfig.module.rules.push({
-            test: /\.md$/,
-            include: [join(__dirname, '..')],
-            use: [
-                {
-                    loader: 'markdown-loader',
-                },
-            ],
-        });
-
-        // to turn fileName in context.parameters into path form number in production bundle
-        storybookBaseConfig.optimization.moduleIds = 'named';
         // storybookBaseConfig.plugins.push(new WebpackShellPlugin({
         //   onBuildStart: ['npm run build:widget']
         // }));
@@ -50,13 +32,6 @@ const config = {
             ...customAlias,
         };
         return storybookBaseConfig;
-    },
-    framework: {
-        name: '@storybook/react-webpack5',
-        options: {},
-    },
-    docs: {
-        autodocs: true,
     },
 };
 module.exports = config;

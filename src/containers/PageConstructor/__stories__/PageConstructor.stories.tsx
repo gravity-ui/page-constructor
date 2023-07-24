@@ -2,7 +2,6 @@ import React from 'react';
 
 import {Meta, StoryFn} from '@storybook/react';
 
-// import {CONTAINERS} from '../../../demo/constants';
 import {PageConstructor, PageConstructorProps} from '../PageConstructor';
 
 import data from './data.json';

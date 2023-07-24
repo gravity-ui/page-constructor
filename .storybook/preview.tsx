@@ -5,18 +5,18 @@ import {MobileProvider, Platform} from '@gravity-ui/uikit';
 import React from 'react';
 import {MINIMAL_VIEWPORTS} from '@storybook/addon-viewport';
 import type {Decorator, Preview} from '@storybook/react';
-import {CloudTheme} from './theme';
+import {ThemeLight} from './theme';
 import {PageConstructorProvider} from '../src/containers/PageConstructor/Provider';
 import {withTheme} from './decorators/withTheme';
 import {withMobile} from './decorators/withMobile';
 import {withLang} from './decorators/withLang';
-
-import {DocsWithReadme} from '../src/demo/DocsWithReadme';
+import {DocsDecorator} from '../demo/DocsDecorator/DocsDecorator';
 
 import {ThemeProvider} from '../src';
 import {configure, Lang} from '../src/utils/configure';
 
 import '../styles/styles.scss';
+
 configure({
     lang: Lang.En,
 });
@@ -59,8 +59,8 @@ const preview: Preview = {
     parameters: {
         layout: 'fullscreen',
         docs: {
-            theme: CloudTheme,
-            page: DocsWithReadme,
+            theme: ThemeLight,
+            container: DocsDecorator,
         },
         // FIXME: Disabled due to performance reasons. See https://github.com/storybookjs/storybook/issues/5551
         // actions: {

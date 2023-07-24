@@ -3,7 +3,6 @@ import React from 'react';
 import {Meta, StoryFn} from '@storybook/react';
 
 import {PageConstructor} from '../../containers/PageConstructor';
-// import {NAVIGATION} from '../../demo/constants';
 import {NavigationData} from '../../models';
 
 import data from './data.json';
