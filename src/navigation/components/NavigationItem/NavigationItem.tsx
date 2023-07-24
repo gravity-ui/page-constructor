@@ -32,8 +32,6 @@ const NavigationItemsMap: Record<NavigationItemType, React.ComponentType<any>> =
 const NavigationItem: React.FC<NavigationItemProps> = ({
     data,
     className,
-    isActive,
-    highlightActiveItem,
     menuLayout,
     ...props
 }: NavigationItemProps) => {
@@ -43,7 +41,6 @@ const NavigationItem: React.FC<NavigationItemProps> = ({
         const componentProperties = {
             ...data,
             ...props,
-            isActive,
         };
 
         if (type !== NavigationItemType.Dropdown) {
@@ -51,17 +48,12 @@ const NavigationItem: React.FC<NavigationItemProps> = ({
         }
 
         return componentProperties;
-    }, [data, isActive, props, type]);
+    }, [data, props, type]);
 
     return (
         <BlockIdContext.Provider value={ANALYTICS_ID}>
             <li className={b({'menu-layout': menuLayout}, className)}>
                 <Component {...componentProps} className={b('content')} />
-                {highlightActiveItem && isActive && (
-                    <div className={b('slider-container')}>
-                        <div className={b('slider')} />
-                    </div>
-                )}
             </li>
         </BlockIdContext.Provider>
     );

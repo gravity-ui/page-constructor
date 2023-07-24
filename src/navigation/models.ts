@@ -31,13 +31,11 @@ export interface NavigationItemProps {
     onClick?: MouseEventHandler;
     isActive?: boolean;
     isTopLevel?: boolean;
-    highlightActiveItem?: boolean;
     menuLayout?: NavigationLayout;
     hidePopup?: () => void;
 }
 
-export interface NavigationListItemProps
-    extends Pick<NavigationItemProps, 'highlightActiveItem' | 'isTopLevel' | 'menuLayout'> {
+export interface NavigationListItemProps extends Pick<NavigationItemProps, 'menuLayout'> {
     data: NavigationItemModel;
     column: ItemColumnName;
     index: number;
@@ -49,27 +47,16 @@ export interface NavigationListItemProps
 export interface NavigationListProps
     extends Pick<
         NavigationListItemProps,
-        | 'activeItemId'
-        | 'column'
-        | 'className'
-        | 'onActiveItemChange'
-        | 'highlightActiveItem'
-        | 'menuLayout'
+        'activeItemId' | 'column' | 'className' | 'onActiveItemChange' | 'menuLayout'
     > {
     items: NavigationItemModel[];
     itemClassName?: string;
-    highlightActiveItem?: boolean;
 }
 
 export interface ItemsWrapperProps
     extends Pick<
         NavigationListProps,
-        | 'items'
-        | 'activeItemId'
-        | 'className'
-        | 'highlightActiveItem'
-        | 'onActiveItemChange'
-        | 'highlightActiveItem'
+        'items' | 'activeItemId' | 'className' | 'onActiveItemChange'
     > {}
 
 export interface DesktopNavigationProps

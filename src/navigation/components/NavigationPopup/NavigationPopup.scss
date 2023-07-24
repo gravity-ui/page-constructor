@@ -7,6 +7,7 @@ $block: '.#{$ns}navigation-popup';
     $offset: calc($gridGutter * 2 * -1);
 
     margin-left: $offset;
+    margin-top: $offset;
 
     @include navigation-popup();
 

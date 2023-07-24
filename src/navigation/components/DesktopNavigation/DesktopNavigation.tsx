@@ -36,7 +36,6 @@ const DesktopNavigation: React.FC<DesktopNavigationProps> = ({
                     className={b('links')}
                     itemClassName={b('item')}
                     column={ItemColumnName.Left}
-                    highlightActiveItem
                     activeItemId={activeItemId}
                     menuLayout={NavigationLayout.Desktop}
                 />
@@ -55,7 +54,6 @@ const DesktopNavigation: React.FC<DesktopNavigationProps> = ({
                     activeItemId={activeItemId}
                     className={b('buttons')}
                     itemClassName={b('item')}
-                    highlightActiveItem
                     menuLayout={NavigationLayout.Desktop}
                 />
             )}
