@@ -1,12 +1,11 @@
 import React, {useMemo} from 'react';
 
-import {Copy} from '@gravity-ui/icons';
-import {Button, Icon, Tooltip} from '@gravity-ui/uikit';
 import yaml from 'js-yaml';
 import MonacoEditor, {monaco} from 'react-monaco-editor';
 
 import {PageContent} from '../../../models';
 import {block} from '../../../utils';
+import {CopyButton} from '../CopyButton/CopyButton';
 
 import './YamlEditor.scss';
 
@@ -37,18 +36,10 @@ export const YamlEditor = ({content}: YamlEditorProps) => {
         };
     }, []);
 
-    const onCopyClick = () => {
-        navigator.clipboard.writeText(value);
-    };
-
     return (
         <div className={b()}>
             <MonacoEditor value={value} language="yaml" options={options} />
-            <Tooltip content={'Copy'}>
-                <Button className={b('copy-button')} size="m" view="raised" onClick={onCopyClick}>
-                    <Icon data={Copy} />
-                </Button>
-            </Tooltip>
+            <CopyButton className={b('copy-button')} value={value} />
         </div>
     );
 };
