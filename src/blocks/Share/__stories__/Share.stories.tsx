@@ -4,7 +4,6 @@ import {Lang as UIKitLang, configure as uikitConfigure} from '@gravity-ui/uikit'
 import {Meta, StoryFn} from '@storybook/react';
 
 import {PageConstructor} from '../../../containers/PageConstructor';
-// import {BLOCKS} from '../../../demo/constants';
 import {ShareBLockModel, ShareBlockProps} from '../../../models';
 import Share from '../Share';
 

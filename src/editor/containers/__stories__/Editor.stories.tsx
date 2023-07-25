@@ -6,7 +6,6 @@ import {scriptsSrc, ymapApiKeyForStorybook} from '../../../../.storybook/maps';
 import {LocaleContext} from '../../../context/localeContext';
 import {MapType} from '../../../context/mapsContext/mapsContext';
 import {MapProvider} from '../../../context/mapsContext/mapsProvider';
-// import {EDITOR} from '../../../demo/constants';
 import {PageContent} from '../../../models';
 import {contentTransformer} from '../../../text-transform';
 import {EditorProps} from '../../types';
