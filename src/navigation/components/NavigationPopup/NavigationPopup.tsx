@@ -21,7 +21,7 @@ export const NavigationPopup: React.FC<NavigationPopupProps> = ({
     <Popup
         // Workaround to recalculate position on every opening. Required for valid position calculation for scrolled header links.
         anchorRef={open ? anchorRef : undefined}
-        className={b(null, className)}
+        contentClassName={b(null, className)}
         open={open}
         onClose={onClose}
         onOutsideClick={onClose}
