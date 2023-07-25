@@ -100,8 +100,8 @@ const ThemesTemplate: Story<ContentLayoutBlockModel> = (args) => (
             blocks: [
                 {
                     ...args,
-                    ...data.theme.darkProperties.properties,
-                    theme: data.theme.darkProperties.properties.theme as ContentTheme,
+                    ...data.theme.darkProperties,
+                    theme: data.theme.darkProperties.theme as ContentTheme,
                     textContent: {
                         ...args.textContent,
                         title: getThemeTitle('dark'),
@@ -110,8 +110,8 @@ const ThemesTemplate: Story<ContentLayoutBlockModel> = (args) => (
                 },
                 {
                     ...args,
-                    ...data.theme.lightProperties.properties,
-                    theme: data.theme.lightProperties.properties.theme as ContentTheme,
+                    ...data.theme.lightProperties,
+                    theme: data.theme.lightProperties.theme as ContentTheme,
                     textContent: {
                         ...args.textContent,
                         title: getThemeTitle('light'),
