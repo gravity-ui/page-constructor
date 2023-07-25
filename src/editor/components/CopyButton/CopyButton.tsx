@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 import {Copy, CopyCheck} from '@gravity-ui/icons';
 import {Button, Icon, Tooltip} from '@gravity-ui/uikit';
 
-let uncheckTimer: NodeJS.Timer;
+let uncheckTimer: NodeJS.Timer | null = null;
 const UNCHECK_TIMEOUT = 2000; // ms
 
 interface CopyButtonProps {
@@ -28,6 +28,7 @@ export const CopyButton = ({value, className}: CopyButtonProps) => {
 
         uncheckTimer = setTimeout(() => {
             setIsChecked(false);
+            uncheckTimer = null;
         }, UNCHECK_TIMEOUT);
     };
 
