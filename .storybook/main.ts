@@ -1,5 +1,5 @@
-const {join, resolve} = require('path');
-const WebpackShellPlugin = require('webpack-shell-plugin');
+import {join, resolve} from 'path';
+import WebpackShellPlugin from 'webpack-shell-plugin';
 const customAlias = {
     widget: resolve(__dirname, '../widget'),
 };
@@ -21,7 +21,8 @@ const config = {
             },
         },
         '@storybook/addon-knobs',
-        './addons/addon-yaml/preset',
+        './addons/yaml-addon/preset',
+        './addons/theme-addon/register.tsx',
     ],
     webpackFinal: (storybookBaseConfig: any) => {
         // storybookBaseConfig.plugins.push(new WebpackShellPlugin({
@@ -34,4 +35,5 @@ const config = {
         return storybookBaseConfig;
     },
 };
-module.exports = config;
+
+export default config;
