@@ -1,5 +1,6 @@
-import {join, resolve} from 'path';
-import WebpackShellPlugin from 'webpack-shell-plugin';
+import {resolve} from 'path';
+import WebpackShellPluginNext from 'webpack-shell-plugin-next';
+
 const customAlias = {
     widget: resolve(__dirname, '../widget'),
 };
@@ -25,9 +26,14 @@ const config = {
         './addons/theme-addon/register.tsx',
     ],
     webpackFinal: (storybookBaseConfig: any) => {
-        // storybookBaseConfig.plugins.push(new WebpackShellPlugin({
-        //   onBuildStart: ['npm run build:widget']
-        // }));
+        storybookBaseConfig.plugins.push(
+            new WebpackShellPluginNext({
+                onBuildStart: {
+                    scripts: ['npm run build:widget'],
+                    blocking: true,
+                },
+            }),
+        );
         storybookBaseConfig.resolve.alias = {
             ...(storybookBaseConfig.resolve?.alias || {}),
             ...customAlias,

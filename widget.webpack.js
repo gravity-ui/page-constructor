@@ -3,6 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 const autoprefixer = require('autoprefixer');
+const TerserPlugin = require('terser-webpack-plugin');
 
 const SRC_PATH = path.resolve('src');
 const NODE_MODULES_PATH = path.resolve('node_modules');
@@ -18,6 +19,7 @@ module.exports = {
         path: WIDGET_RESULT_PATH,
         filename: WIDGET_BUNDLE_FILENAME,
     },
+    mode: 'production',
     module: {
         rules: [
             {
@@ -69,8 +71,8 @@ module.exports = {
     plugins: [
         {
             apply: (compiler) => {
-                compiler.hooks.assetEmitted.tap('InjectWidgetBundlePlugin', (_, contentBuffer) => {
-                    const script = JSON.stringify(contentBuffer.toString());
+                compiler.hooks.assetEmitted.tap('InjectWidgetBundlePlugin', (_, {content}) => {
+                    const script = JSON.stringify(content.toString());
                     const fileContent = `export default ${script};`;
 
                     fs.writeFileSync(
@@ -81,4 +83,17 @@ module.exports = {
             },
         },
     ],
+    optimization: {
+        minimize: true,
+        minimizer: [
+            new TerserPlugin({
+                extractComments: false,
+                terserOptions: {
+                    format: {
+                        comments: false,
+                    },
+                },
+            }),
+        ],
+    },
 };
