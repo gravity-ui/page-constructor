@@ -104,7 +104,7 @@ export const Editor = ({
                 mode={viewMode}
                 onModeChange={onViewModeUpdate}
                 theme={theme}
-                onThemeSwitch={onThemeUpdate}
+                onThemeChange={onThemeUpdate}
             >
                 {isEditingMode && (
                     <Layout.Left>

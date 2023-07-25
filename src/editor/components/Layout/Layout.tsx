@@ -17,7 +17,7 @@ export interface LayoutProps {
     mode: ViewModeItem;
     onModeChange: (mode: ViewModeItem) => void;
     theme: Theme;
-    onThemeSwitch: (theme: Theme) => void;
+    onThemeChange: (theme: Theme) => void;
 }
 
 const Layout = ({
@@ -25,7 +25,7 @@ const Layout = ({
     mode,
     onModeChange,
     theme,
-    onThemeSwitch,
+    onThemeChange,
 }: PropsWithChildren<LayoutProps>) => {
     let left, right;
     const isEditingMode = mode === ViewModeItem.Edititng;
@@ -52,7 +52,7 @@ const Layout = ({
                 onViewModeChange={onModeChange}
                 className={b('panel')}
                 theme={theme}
-                onThemeSwitch={onThemeSwitch}
+                onThemeChange={onThemeChange}
             />
             <div className={b('container')}>
                 <Fragment>

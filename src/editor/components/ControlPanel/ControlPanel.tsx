@@ -27,7 +27,7 @@ export interface ControlPanelProps extends ClassNameProps {
     viewMode?: ViewModeItem;
     onViewModeChange: (viewMode: ViewModeItem) => void;
     theme: Theme;
-    onThemeSwitch: (theme: Theme) => void;
+    onThemeChange: (theme: Theme) => void;
 }
 
 const ControlPanel = ({
@@ -35,7 +35,7 @@ const ControlPanel = ({
     onViewModeChange,
     className,
     theme,
-    onThemeSwitch,
+    onThemeChange,
 }: ControlPanelProps) => {
     return (
         <div className={b(null, className)}>
@@ -62,7 +62,7 @@ const ControlPanel = ({
             </div>
             <div className={b('theme-switch')}>
                 <span>{i18n('Theme')}</span>
-                <Select value={[theme]} onUpdate={(value) => onThemeSwitch(value[0] as Theme)}>
+                <Select value={[theme]} onUpdate={(value) => onThemeChange(value[0] as Theme)}>
                     {Object.values(Theme).map((item) => (
                         <Select.Option key={item} value={item}>
                             {themeNames[item]}
