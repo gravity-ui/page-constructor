@@ -19,6 +19,8 @@ interface ThemeProviderState extends ThemeContextProps {
     themeValue: ConstructorTheme;
 }
 
+const BODY_CLASS_NAME = 'g-root';
+
 export class ThemeProvider extends React.Component<
     PropsWithChildren<ThemeProviderExternalProps & ThemeProviderDefaultProps>,
     ThemeProviderState
@@ -64,11 +66,11 @@ export class ThemeProvider extends React.Component<
     private updateBodyClassName(theme: string) {
         const bodyEl = document.body;
 
-        if (!bodyEl.classList.contains('yc-root')) {
-            bodyEl.classList.add('yc-root');
+        if (!bodyEl.classList.contains(BODY_CLASS_NAME)) {
+            bodyEl.classList.add(BODY_CLASS_NAME);
         }
 
-        bodyEl.classList.toggle('yc-root_theme_light', theme === 'light');
-        bodyEl.classList.toggle('yc-root_theme_dark', theme === 'dark');
+        bodyEl.classList.toggle(`${BODY_CLASS_NAME}_theme_light`, theme === 'light');
+        bodyEl.classList.toggle(`${BODY_CLASS_NAME}_theme_dark`, theme === 'dark');
     }
 }

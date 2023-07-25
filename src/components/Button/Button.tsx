@@ -1,6 +1,7 @@
 import React, {useCallback, useContext} from 'react';
 
-import {Button as CommonButton, Icon, Platform, StoreBadge} from '@gravity-ui/uikit';
+import {StoreBadge} from '@gravity-ui/components';
+import {Button as CommonButton, Icon, Platform} from '@gravity-ui/uikit';
 
 import {LocaleContext} from '../../context/localeContext/localeContext';
 import {useAnalytics} from '../../hooks';

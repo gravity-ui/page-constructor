@@ -2,7 +2,7 @@
     --header-height: 64px;
 }
 
-.yc-root {
+.g-root {
     --yc-text-accent-font-weight: 500;
 
     // cross-browser transparent color
@@ -29,7 +29,7 @@
         --pc-monochrome-button-background-color-hover
     );
 
-    &.yc-root_theme_dark {
+    &.g-root_theme_dark {
         --pc-color-sfx-shadow: var(--yc-color-sfx-shadow);
         --pc-color-line-generic-active-solid: #6c6c70;
         --pc-color-base-float-hover: var(--yc-color-base-float-hover);

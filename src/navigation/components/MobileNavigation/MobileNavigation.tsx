@@ -31,7 +31,7 @@ const MobileNavigationDropdown: React.FC<MobileNavigationDropdownProps> = ({
         <div ref={ref} className={b('dropdown')}>
             <NavigationItem data={data} onClick={onToggle} isOpened={isOpened} />
             {isOpened && (
-                <Popup anchorRef={ref} open={isOpened} className={b('popup')}>
+                <Popup anchorRef={ref} open={isOpened} contentClassName={b('popup')}>
                     {data.items.map((item) => (
                         <NavigationItem
                             key={item.text}
