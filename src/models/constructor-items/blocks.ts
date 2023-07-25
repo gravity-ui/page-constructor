@@ -323,10 +323,6 @@ interface ContentLayoutBlockParams {
 }
 
 export interface ContentLayoutBlockProps extends ContentLayoutBlockParams {
-    /**
-     * @deprecated Use params on top level instead
-     */
-    properties?: ContentLayoutBlockParams;
     textContent: ContentBlockProps;
     fileContent?: FileLinkProps[];
 }

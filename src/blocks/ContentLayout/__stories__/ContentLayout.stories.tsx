@@ -58,12 +58,12 @@ const WithFilesTemplate: Story<ContentLayoutBlockModel> = (args) => (
             blocks: [
                 {
                     ...args,
-                    properties: {...args.properties, size: 'l'},
+                    size: 'l',
                     textContent: {title: getSizeTitle('L'), ...args.textContent},
                 },
                 {
                     ...args,
-                    properties: {...args.properties, size: 's'},
+                    size: 's',
                     textContent: {title: getSizeTitle('S'), ...args.textContent},
                 },
             ],
@@ -77,12 +77,12 @@ const SizesTemplate: Story<ContentLayoutBlockModel> = (args) => (
             blocks: [
                 {
                     ...args,
-                    properties: {...args.properties, size: 'l'},
+                    size: 'l',
                     textContent: {title: getSizeTitle('L'), ...args.textContent},
                 },
                 {
                     ...args,
-                    properties: {...args.properties, size: 's'},
+                    size: 's',
                     textContent: {title: getSizeTitle('S'), ...args.textContent},
                 },
             ],
@@ -100,11 +100,8 @@ const ThemesTemplate: Story<ContentLayoutBlockModel> = (args) => (
             blocks: [
                 {
                     ...args,
-                    properties: {
-                        ...args.properties,
-                        ...data.theme.darkProperties.properties,
-                        theme: data.theme.darkProperties.properties.theme as ContentTheme,
-                    },
+                    ...data.theme.darkProperties.properties,
+                    theme: data.theme.darkProperties.properties.theme as ContentTheme,
                     textContent: {
                         ...args.textContent,
                         title: getThemeTitle('dark'),
@@ -113,11 +110,8 @@ const ThemesTemplate: Story<ContentLayoutBlockModel> = (args) => (
                 },
                 {
                     ...args,
-                    properties: {
-                        ...args.properties,
-                        ...data.theme.lightProperties.properties,
-                        theme: data.theme.lightProperties.properties.theme as ContentTheme,
-                    },
+                    ...data.theme.lightProperties.properties,
+                    theme: data.theme.lightProperties.properties.theme as ContentTheme,
                     textContent: {
                         ...args.textContent,
                         title: getThemeTitle('light'),
@@ -135,17 +129,17 @@ const TextWidthTemplate: Story<ContentLayoutBlockModel> = (args) => (
             blocks: [
                 {
                     ...args,
-                    properties: {...args.properties, textWidth: 'l'},
                     textContent: {title: getTextWidthTitle('L'), ...args.textContent},
+                    textWidth: 'l',
                 },
                 {
                     ...args,
-                    properties: {...args.properties, textWidth: 'm'},
+                    textWidth: 'm',
                     textContent: {title: getTextWidthTitle('M'), ...args.textContent},
                 },
                 {
                     ...args,
-                    properties: {...args.properties, textWidth: 's'},
+                    textWidth: 's',
                     textContent: {title: getTextWidthTitle('S'), ...args.textContent},
                 },
             ],
