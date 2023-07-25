@@ -1,6 +1,15 @@
 import {MouseEventHandler} from 'react';
 
-import {ItemColumnName} from './constants';
+import {
+    NavigationButtonItem,
+    NavigationDropdownItem,
+    NavigationItemBase,
+    NavigationItemModel,
+    NavigationItemType,
+    NavigationLinkItem,
+} from '../models';
+
+import {ItemColumnName} from './models';
 
 type GetItemClickHandlerArgs = {
     column: ItemColumnName;
@@ -22,3 +31,27 @@ export const getItemClickHandler: ({
         }
         onActiveItemChange(id === activeItemId ? undefined : `${column}-${index}`);
     };
+
+const isButtonItem = (item: NavigationItemModel): item is NavigationButtonItem =>
+    item.type === NavigationItemType.Button;
+
+const isDropdownItem = (item: NavigationItemModel): item is NavigationDropdownItem =>
+    item.type === NavigationItemType.Dropdown;
+
+const iconSizeKey: keyof NavigationItemBase = 'iconSize';
+
+export function getNavigationItemWithIconSize(iconSize = 20) {
+    const getItem = (item: NavigationItemModel) => {
+        const newItem = {...item};
+        if ('items' in newItem && isDropdownItem(newItem)) {
+            newItem.items = newItem.items.map(getItem) as NavigationLinkItem[];
+        }
+
+        if (!(iconSizeKey in newItem) && !isButtonItem(newItem)) {
+            newItem.iconSize = iconSize;
+        }
+        return newItem;
+    };
+
+    return getItem;
+}

@@ -7,13 +7,17 @@ $block: '.#{$ns}navigation-popup';
     $offset: calc($gridGutter * 2 * -1);
 
     margin-left: $offset;
-    margin-top: -#{$indentXS};
+    margin-top: $offset;
 
-    @include desktop-only();
     @include navigation-popup();
+
+    &__list {
+        @include reset-list-style();
+    }
 
     &__link {
         height: 36px;
+        line-height: 20px;
         padding: $indentXXXS $indentXXS;
 
         border-radius: 8px;

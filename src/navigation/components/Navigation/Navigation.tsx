@@ -1,61 +1,87 @@
-import React, {useCallback, useContext, useEffect} from 'react';
+import React, {useEffect, useMemo, useState} from 'react';
 
 import _ from 'lodash';
 
-import OverflowScroller from '../../../components/OverflowScroller/OverflowScroller';
-import {LocationContext} from '../../../context/locationContext';
-import {NavigationItemModel} from '../../../models/navigation';
+import OutsideClick from '../../../components/OutsideClick/OutsideClick';
+import {Col, Grid, Row} from '../../../grid';
+import {HeaderData, ThemedNavigationLogoData} from '../../../models';
 import {block} from '../../../utils';
-import {ItemColumnName} from '../../constants';
-import {NavigationListItem} from '../NavigationListItem/NavigationListItem';
+import {getNavigationItemWithIconSize} from '../../utils';
+import DesktopNavigation from '../DesktopNavigation/DesktopNavigation';
+import MobileNavigation from '../MobileNavigation/MobileNavigation';
 
 import './Navigation.scss';
 
 const b = block('navigation');
 
 export interface NavigationProps {
-    links: NavigationItemModel[];
-    activeItemId?: string;
-    className?: string;
-    highlightActiveItem?: boolean;
-    onActiveItemChange: (id?: string) => void;
+    logo: ThemedNavigationLogoData;
+    data: HeaderData;
 }
 
-const Navigation: React.FC<NavigationProps> = ({
-    className,
-    onActiveItemChange,
-    links,
-    activeItemId,
-}) => {
-    const {asPath, pathname} = useContext(LocationContext);
+export const Navigation: React.FC<NavigationProps> = ({data, logo}) => {
+    const {leftItems, rightItems, iconSize = 20, withBorder = false} = data;
+    const [isSidebarOpened, setIsSidebarOpened] = useState(false);
+    const [activeItemId, setActiveItemId] = useState<string | undefined>(undefined);
+    const [showBorder, setShowBorder] = useState(withBorder);
 
-    const hidePopup = useCallback(() => {
-        onActiveItemChange();
-    }, [onActiveItemChange]);
+    const getNavigationItem = getNavigationItemWithIconSize(iconSize);
+
+    const leftItemsWithIconSize = useMemo(
+        () => leftItems.map(getNavigationItem),
+        [getNavigationItem, leftItems],
+    );
+    const rightItemsWithIconSize = useMemo(
+        () => rightItems?.map(getNavigationItem),
+        [getNavigationItem, rightItems],
+    );
+
+    const onActiveItemChange = (id?: string) => {
+        setActiveItemId(id);
+    };
+
+    const onSidebarOpenedChange = (isOpen: boolean) => setIsSidebarOpened(isOpen);
 
     useEffect(() => {
-        hidePopup();
-    }, [hidePopup, asPath, pathname]);
+        const showBorderOnScroll = () => {
+            if (!showBorder) {
+                setShowBorder(window.scrollY > 0);
+            }
+        };
+
+        const scrollHandler = _.debounce(showBorderOnScroll, 20);
+
+        window.addEventListener('scroll', scrollHandler, {passive: true});
+        return () => window.removeEventListener('scroll', scrollHandler);
+    });
 
     return (
-        <OverflowScroller className={b(null, className)} onScrollStart={hidePopup}>
-            <nav>
-                <ul className={b('links')}>
-                    {links.map((link, index) => (
-                        <NavigationListItem
-                            key={index}
-                            className={b('links-item')}
-                            item={link}
-                            index={index}
+        <Grid className={b({'with-border': showBorder})}>
+            <Row>
+                <Col>
+                    <nav>
+                        <DesktopNavigation
+                            logo={logo}
                             activeItemId={activeItemId}
-                            hidePopup={hidePopup}
-                            column={ItemColumnName.Left}
                             onActiveItemChange={onActiveItemChange}
+                            leftItemsWithIconSize={leftItemsWithIconSize}
+                            rightItemsWithIconSize={rightItemsWithIconSize}
+                            isSidebarOpened={isSidebarOpened}
+                            onSidebarOpenedChange={onSidebarOpenedChange}
                         />
-                    ))}
-                </ul>
-            </nav>
-        </OverflowScroller>
+                        <OutsideClick onOutsideClick={() => onSidebarOpenedChange(false)}>
+                            <MobileNavigation
+                                topItems={leftItems}
+                                bottomItems={rightItems}
+                                isOpened={isSidebarOpened}
+                                activeItemId={activeItemId}
+                                onActiveItemChange={onActiveItemChange}
+                            />
+                        </OutsideClick>
+                    </nav>
+                </Col>
+            </Row>
+        </Grid>
     );
 };
 

@@ -1,0 +1,9 @@
+@import '../../../../styles/mixins';
+
+$block: '.#{$ns}mobile-menu-button';
+
+#{$block} {
+    @include add-specificity(&) {
+        @include mobile-tablet-only();
+    }
+}

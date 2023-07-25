@@ -2,7 +2,7 @@ import React from 'react';
 
 import {NavigationData} from '../../../models';
 import {block} from '../../../utils';
-import Header from '../../components/Header/Header';
+import Navigation from '../../components/Navigation/Navigation';
 
 import './Layout.scss';
 
@@ -15,7 +15,7 @@ export interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({children, navigation}) => (
     <div className={b()}>
-        {navigation && <Header data={navigation.header} logo={navigation.logo} />}
+        {navigation && <Navigation data={navigation.header} logo={navigation.logo} />}
         <main className={b('content')}>{children}</main>
     </div>
 );

@@ -52,6 +52,8 @@ export interface NavigationButtonItem extends ButtonProps {
 export interface NavigationDropdownItem extends NavigationItemBase {
     type: NavigationItemType.Dropdown;
     items: NavigationLinkItem[];
+    hidePopup: () => void;
+    isActive: boolean;
 }
 
 export interface NavigationSocialItem extends Omit<NavigationItemBase, 'text'> {
@@ -69,9 +71,7 @@ export type NavigationItemData =
     | NavigationLinkItem
     | NavigationButtonItem
     | NavigationSocialItem
-    | DropdownItemData;
-
-export type DropdownItemData = Omit<NavigationDropdownItem, 'items'>;
+    | NavigationDropdownItem;
 
 export interface NavigationLogoData {
     icon: ImageProps;

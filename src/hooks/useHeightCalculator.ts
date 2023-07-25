@@ -26,7 +26,7 @@ const useHeightCalculator: (
     useEffect(() => {
         const handleResize = _.debounce(calculateContainerHeight, recalculateOnResizeDelay);
 
-        calculateContainerHeight();
+        handleResize();
 
         window.addEventListener('resize', handleResize, {passive: true});
         return () => {
