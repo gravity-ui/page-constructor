@@ -5,14 +5,14 @@ import {MobileProvider, Platform} from '@gravity-ui/uikit';
 import React from 'react';
 import {MINIMAL_VIEWPORTS} from '@storybook/addon-viewport';
 import type {Decorator, Preview} from '@storybook/react';
-import {themeLight} from './theme';
+import {themeLight, GlobalThemeController} from './theme';
 import {PageConstructorProvider} from '../src/containers/PageConstructor/Provider';
 import {withMobile} from './decorators/withMobile';
 import {withLang} from './decorators/withLang';
 import {DocsDecorator} from './decorators/docs';
 
 import {withTheme} from '../src';
-import {GlobalThemeController, Theme, ThemeController} from '../src';
+import {Theme} from '../src';
 
 import {configure, Lang} from '../src/utils/configure';
 

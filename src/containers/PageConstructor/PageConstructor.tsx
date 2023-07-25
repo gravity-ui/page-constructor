@@ -1,12 +1,13 @@
 import React, {useMemo} from 'react';
 
 import '@doc-tools/transform/dist/js/yfm';
+import blockOrigin from 'bem-cn-lite';
 
 import BackgroundMedia from '../../components/BackgroundMedia/BackgroundMedia';
 import {blockMap, subBlockMap} from '../../constructor-items';
 import {AnimateContext} from '../../context/animateContext';
 import {InnerContext} from '../../context/innerContext';
-import {ThemeController, useTheme} from '../../context/theme';
+import {useTheme} from '../../context/theme';
 import {Grid} from '../../grid';
 import {
     BlockType,
@@ -38,6 +39,7 @@ import {ConstructorRow} from './components/ConstructorRow';
 import './PageConstructor.scss';
 
 const b = cnBlock('page-constructor');
+const ycr = blockOrigin('yc-root');
 
 export type ItemMap = typeof blockMap & typeof subBlockMap & CustomItems;
 
@@ -87,28 +89,26 @@ export const Constructor = (props: PageConstructorProps) => {
 
     return (
         <InnerContext.Provider value={context}>
-            <ThemeController>
-                <div className={b()}>
-                    <div className={b('wrapper')}>
-                        {themedBackground && (
-                            <BackgroundMedia {...themedBackground} className={b('background')} />
+            <div className={b(null, ycr({theme}))}>
+                <div className={b('wrapper')}>
+                    {themedBackground && (
+                        <BackgroundMedia {...themedBackground} className={b('background')} />
+                    )}
+                    <Layout navigation={navigation}>
+                        {renderMenu && renderMenu()}
+                        {header && (
+                            <ConstructorHeader data={header} blockKey={BlockType.HeaderBlock} />
                         )}
-                        <Layout navigation={navigation}>
-                            {renderMenu && renderMenu()}
-                            {header && (
-                                <ConstructorHeader data={header} blockKey={BlockType.HeaderBlock} />
+                        <Grid>
+                            {restBlocks && (
+                                <ConstructorRow>
+                                    <ConstructorBlocks items={restBlocks} />
+                                </ConstructorRow>
                             )}
-                            <Grid>
-                                {restBlocks && (
-                                    <ConstructorRow>
-                                        <ConstructorBlocks items={restBlocks} />
-                                    </ConstructorRow>
-                                )}
-                            </Grid>
-                        </Layout>
-                    </div>
+                        </Grid>
+                    </Layout>
                 </div>
-            </ThemeController>
+            </div>
         </InnerContext.Provider>
     );
 };
