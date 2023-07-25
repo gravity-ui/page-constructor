@@ -77,12 +77,10 @@
   "withImageAndBackgroundColor": {
     "content": {
       "type": "content-layout-block",
-      "properties": {
-        "background": {
-          "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/content-bg-img_light.png",
-          "style": {
-            "backgroundColor": "#EFF2F8"
-          }
+      "background": {
+        "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/content-bg-img_light.png",
+        "style": {
+          "backgroundColor": "#EFF2F8"
         }
       }
     }
@@ -102,11 +100,9 @@
   "withBackgroundColor": {
     "content": {
       "type": "content-layout-block",
-      "properties": {
-        "background": {
-          "style": {
-            "backgroundColor": "#EFF2F8"
-          }
+      "background": {
+        "style": {
+          "backgroundColor": "#EFF2F8"
         }
       }
     }
@@ -114,9 +110,7 @@
   "textAlignCenter": {
     "content": {
       "type": "content-layout-block",
-      "properties": {
-        "centered": true
-      }
+      "centered": true
     }
   },
   "default": {
@@ -128,12 +122,10 @@
     "title": "A cube with {{theme}} monochrome theme",
     "getStartedButtonTitle": "Get Started",
     "darkProperties": {
-      "properties": {
-        "theme": "dark",
-        "background": {
-          "style": {
-            "backgroundColor": "#262626"
-          }
+      "theme": "dark",
+      "background": {
+        "style": {
+          "backgroundColor": "#262626"
         }
       },
       "buttons": [
@@ -150,12 +142,10 @@
       ]
     },
     "lightProperties": {
-      "properties": {
-        "theme": "light",
-        "background": {
-          "style": {
-            "backgroundColor": "#ccf0d2"
-          }
+      "theme": "light",
+      "background": {
+        "style": {
+          "backgroundColor": "#ccf0d2"
         }
       },
       "buttons": [
