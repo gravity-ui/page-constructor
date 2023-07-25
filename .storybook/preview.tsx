@@ -10,7 +10,7 @@ import {PageConstructorProvider} from '../src/containers/PageConstructor/Provide
 import {withTheme} from './decorators/withTheme';
 import {withMobile} from './decorators/withMobile';
 import {withLang} from './decorators/withLang';
-import {DocsDecorator} from '../demo/DocsDecorator/DocsDecorator';
+import {DocsDecorator} from './decorators/docs';
 
 import {ThemeProvider} from '../src';
 import {configure, Lang} from '../src/utils/configure';
@@ -76,12 +76,6 @@ const preview: Preview = {
                 {name: 'light', value: 'white'},
                 {name: 'dark', value: 'rgba(45, 44, 51, 1)'},
             ],
-        },
-        options: {
-            storySort: {
-                order: ['Блоки', 'Компоненты'],
-                method: 'alphabetical',
-            },
         },
     },
     globalTypes: {

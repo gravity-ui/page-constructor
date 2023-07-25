@@ -3,9 +3,9 @@ import type {DocsContainerProps} from '@storybook/addon-docs';
 import block from 'bem-cn-lite';
 import React from 'react';
 
-import {themes} from '../../.storybook/theme';
-import {MobileContext} from '../../src/context/mobileContext';
-import {ThemeProvider} from '../../src/context/theme/ThemeProvider';
+import {themes} from '../../theme';
+import {MobileContext} from '../../../src/context/mobileContext';
+import {ThemeProvider} from '../../../src/context/theme/ThemeProvider';
 
 import './DocsDecorator.scss';
 

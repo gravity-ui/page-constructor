@@ -11,7 +11,6 @@ module.exports = {
         'src/blocks/**/*.{ts,tsx,js,jsx}',
         'src/components/**/*.{ts,tsx,js,jsx}',
         'src/containers/**/*.{ts,tsx,js,jsx}',
-        '!src/demo/**/*',
         '!**/__stories__/**/*',
         '!**/*/*.stories.{ts,tsx}',
     ],

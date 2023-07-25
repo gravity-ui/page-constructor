@@ -2,7 +2,11 @@ $root: '.docs-decorator';
 
 #{$root}#{$root}#{$root}#{$root}#{$root} {
     .sbdocs-wrapper {
-        padding: 0 8px;
+        padding: 20px;
+
+        h1 {
+            margin-bottom: 32px;
+        }
     }
 
     .sbdocs-content {
