@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 
 import yaml from 'js-yaml';
 import MonacoEditor from 'react-monaco-editor';
@@ -9,11 +9,13 @@ interface YamlEditorProps {
     content: PageContent;
 }
 
-export const YamlEditor = ({content}: YamlEditorProps) => (
-    <MonacoEditor
-        value={yaml.dump(content)}
-        language="yaml"
-        options={{
+export const YamlEditor = ({content}: YamlEditorProps) => {
+    const value = useMemo(() => {
+        return yaml.dump(content);
+    }, [content]);
+
+    const options = useMemo(() => {
+        return {
             minimap: {
                 enabled: false,
             },
@@ -25,6 +27,8 @@ export const YamlEditor = ({content}: YamlEditorProps) => (
             },
             overviewRulerBorder: false,
             readOnly: true,
-        }}
-    />
-);
+        };
+    }, []);
+
+    return <MonacoEditor value={value} language="yaml" options={options} />;
+};
