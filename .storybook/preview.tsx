@@ -77,6 +77,17 @@ const preview: Preview = {
                 {name: 'dark', value: 'rgba(45, 44, 51, 1)'},
             ],
         },
+        options: {
+            storySort: {
+                order: [
+                    'Documentation',
+                    'Blocks',
+                    'Components',
+                    ['Cards', 'Links and buttons', 'Pics, video, DataLens'],
+                ],
+                method: 'alphabetical',
+            },
+        },
     },
     globalTypes: {
         theme: {
