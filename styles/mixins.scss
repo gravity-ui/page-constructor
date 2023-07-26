@@ -478,6 +478,10 @@ unpredictable css rules order in build */
     --g-button-background-color: #{$backgroundColor};
     --g-button-background-color-hover: #{$hoverBackgroundColor};
 
+    //old named variables still in use in uikit, will be removed in next major ver
+    --yc-button-background-color: #{$backgroundColor};
+    --yc-button-background-color-hover: #{$hoverBackgroundColor};
+
     &,
     &:link,
     &:visited,
