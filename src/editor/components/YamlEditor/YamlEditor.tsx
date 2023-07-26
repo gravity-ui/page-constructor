@@ -1,11 +1,11 @@
 import React, {useMemo} from 'react';
 
+import {ClipboardButton} from '@gravity-ui/uikit';
 import yaml from 'js-yaml';
 import MonacoEditor, {monaco} from 'react-monaco-editor';
 
 import {PageContent} from '../../../models';
 import {block} from '../../../utils';
-import {CopyButton} from '../CopyButton/CopyButton';
 
 import './YamlEditor.scss';
 
@@ -39,7 +39,7 @@ export const YamlEditor = ({content}: YamlEditorProps) => {
     return (
         <div className={b()}>
             <MonacoEditor value={value} language="yaml" options={options} />
-            <CopyButton className={b('copy-button')} value={value} />
+            <ClipboardButton className={b('copy-button')} text={value} />
         </div>
     );
 };
