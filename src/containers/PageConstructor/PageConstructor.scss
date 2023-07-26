@@ -9,7 +9,7 @@ $block: '.#{$ns}page-constructor';
     @include font-feature-settings();
 
     margin-top: 0;
-    background-color: var(--yc-color-base-background);
+    background-color: var(--g-color-base-background);
     z-index: 10;
 
     &__wrapper {

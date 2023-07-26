@@ -23,8 +23,8 @@ $block: '.#{$ns}add-block';
         width: $buttonWidth;
         height: $buttonHeight;
 
-        color: var(--yc-color-text-inverted-primary);
-        background-color: var(--yc-color-promo-base-neon);
+        color: var(--g-color-text-inverted-primary);
+        background-color: var(--pc-color-base-neon);
         border-radius: $editorControlBorderRadius;
     }
 

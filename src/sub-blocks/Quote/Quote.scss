@@ -81,10 +81,10 @@ $block: '.#{$ns}quote';
     &__link-button {
         /* stylelint-disable declaration-no-important */
         &_theme_dark {
-            color: var(--yc-color-base-background) !important;
+            color: var(--g-color-base-background) !important;
 
             &:before {
-                border-color: var(--yc-color-base-background) !important;
+                border-color: var(--g-color-base-background) !important;
             }
         }
         /* stylelint-enable declaration-no-important */

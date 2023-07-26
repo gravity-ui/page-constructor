@@ -9,7 +9,7 @@ $block: '.#{$ns}edit-block';
     $controlIconWidth: 48px;
     $controlIconHeight: 32px;
     $blockIndent: $indentL;
-    $controlColor: var(--yc-color-promo-base-neon);
+    $controlColor: var(--pc-color-base-neon);
     $zIndex: 10;
 
     cursor: pointer;
@@ -61,7 +61,7 @@ $block: '.#{$ns}edit-block';
         width: $controlIconWidth;
         height: $controlIconHeight;
         border-radius: $editorControlBorderRadius;
-        background-color: var(--yc-color-promo-highlight-neon);
+        background-color: var(--pc-color-highlight-neon);
 
         &:not(:first-child) {
             margin-left: 4px;

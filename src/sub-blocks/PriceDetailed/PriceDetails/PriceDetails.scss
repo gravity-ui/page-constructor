@@ -27,7 +27,7 @@ $settingsIndentBetweenTitleAndDescriptionHeight: 2px;
     }
 
     &__delimiter-line {
-        border-top: 1px solid var(--yc-color-line-generic);
+        border-top: 1px solid var(--g-color-line-generic);
     }
 
     &__arrow {
@@ -41,11 +41,11 @@ $settingsIndentBetweenTitleAndDescriptionHeight: 2px;
         @include text-size(body-2);
 
         &_color_cornflower {
-            color: var(--yc-color-text-link);
+            color: var(--g-color-text-link);
         }
 
         &_color_black {
-            color: var(--yc-color-text-primary);
+            color: var(--g-color-text-primary);
         }
     }
 

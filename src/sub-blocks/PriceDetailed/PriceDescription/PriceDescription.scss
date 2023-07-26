@@ -27,11 +27,11 @@ $block: '.#{$ns}price-description';
         font-weight: 500;
 
         &_color_cornflower {
-            color: var(--yc-my-color-brand-normal);
+            color: var(--g-color-base-brand);
         }
 
         &_color_black {
-            color: var(--yc-color-text-primary);
+            color: var(--g-color-text-primary);
         }
     }
 
@@ -55,23 +55,23 @@ $block: '.#{$ns}price-description';
         width: fit-content;
 
         &_color_blue {
-            background: var(--yc-color-promo-highlight-sky);
+            background: var(--pc-color-highlight-sky);
         }
 
         &_color_green {
-            background: var(--yc-color-promo-highlight-mint);
+            background: var(--pc-color-highlight-mint);
         }
 
         &_color_yellow {
-            background: var(--yc-color-promo-highlight-gold);
+            background: var(--pc-color-highlight-gold);
         }
 
         &_color_purple {
-            background: var(--yc-color-promo-highlight-neon);
+            background: var(--pc-color-highlight-neon);
         }
 
         &_color_red {
-            background: var(--yc-color-promo-highlight-tomato);
+            background: var(--pc-color-highlight-tomato);
         }
     }
 

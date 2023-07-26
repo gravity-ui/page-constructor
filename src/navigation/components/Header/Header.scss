@@ -16,10 +16,10 @@ $block: '.#{$ns}header';
 
     height: var(--header-height);
 
-    background-color: var(--yc-color-base-background);
+    background-color: var(--g-color-base-background);
 
     &_with-border {
-        box-shadow: inset 0 -1px 0 var(--yc-color-line-generic);
+        box-shadow: inset 0 -1px 0 var(--g-color-line-generic);
     }
 
     &__wrapper {

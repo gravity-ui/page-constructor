@@ -47,26 +47,26 @@ $block: '.#{$ns}control';
 
     &_theme {
         &_primary {
-            color: var(--yc-color-text-complementary);
+            color: var(--g-color-text-complementary);
 
             &:hover {
-                color: var(--yc-color-text-primary);
+                color: var(--g-color-text-primary);
             }
         }
 
         &_secondary {
-            color: var(--yc-color-text-secondary);
+            color: var(--g-color-text-secondary);
 
             &:hover {
-                color: var(--yc-color-text-complementary);
+                color: var(--g-color-text-complementary);
             }
         }
 
         &_link {
-            color: var(--yc-color-text-complementary);
+            color: var(--g-color-text-complementary);
 
             &:hover {
-                color: var(--yc-color-text-link-hover);
+                color: var(--g-color-text-link-hover);
             }
         }
 
@@ -74,7 +74,7 @@ $block: '.#{$ns}control';
             @extend %transition-opacity;
 
             opacity: 0.7;
-            color: var(--yc-color-text-yandex-red);
+            color: var(--g-color-base-danger-heavy);
 
             &:hover {
                 opacity: 1;
@@ -91,10 +91,10 @@ $block: '.#{$ns}control';
     &_disabled {
         cursor: default;
 
-        color: var(--yc-color-text-secondary);
+        color: var(--g-color-text-secondary);
 
         &:hover {
-            color: var(--yc-color-text-secondary);
+            color: var(--g-color-text-secondary);
         }
     }
 

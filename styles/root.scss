@@ -1,27 +1,33 @@
+@import './colors/light.scss';
+@import './colors/dark.scss';
+@import './colors/social.scss';
+
 :root {
     --header-height: 64px;
 }
 
 .g-root {
-    --yc-text-accent-font-weight: 500;
+    @include pc-colors-social;
+
+    --g-text-accent-font-weight: 500;
 
     // cross-browser transparent color
     --pc-transparent: rgba(255, 255, 255, 0);
     --pc-border-radius: 24px;
     --pc-image-padding: 4px;
 
-    --pc-color-sfx-shadow: var(--yc-color-base-simple-hover);
+    --pc-color-sfx-shadow: var(--g-color-base-simple-hover);
     --pc-color-line-generic-active-solid: #b3b3b3;
-    --pc-color-base-float-hover: var(--yc-color-base-float);
+    --pc-color-base-float-hover: var(--g-color-base-float);
     --pc-monochrome-button-background-color: #262626;
     --pc-monochrome-button-background-color-hover: #393939;
-    --pc-monochrome-button-color: var(--yc-color-text-light-primary);
-    --pc-text-header-color: var(--yc-color-text-primary);
-    --pc-media-card-meta-info-color: var(--yc-color-text-secondary);
+    --pc-monochrome-button-color: var(--g-color-text-light-primary);
+    --pc-text-header-color: var(--g-color-text-primary);
+    --pc-media-card-meta-info-color: var(--g-color-text-secondary);
 
-    --pc-tab-item-color: var(--yc-color-text-primary);
-    --pc-tab-item-background-color: var(--yc-color-base-generic);
-    --pc-tab-item-background-color-hover: var(--yc-color-base-generic-hover);
+    --pc-tab-item-color: var(--g-color-text-primary);
+    --pc-tab-item-background-color: var(--g-color-base-generic);
+    --pc-tab-item-background-color-hover: var(--g-color-base-generic-hover);
 
     --pc-selected-tab-item-color: var(--pc-monochrome-button-color);
     --pc-selected-tab-item-background-color: var(--pc-monochrome-button-background-color);
@@ -29,12 +35,20 @@
         --pc-monochrome-button-background-color-hover
     );
 
+    &_theme_light {
+        @include pc-colors-light;
+    }
+
+    &_theme_dark {
+        @include pc-colors-dark;
+    }
+
     &.g-root_theme_dark {
-        --pc-color-sfx-shadow: var(--yc-color-sfx-shadow);
+        --pc-color-sfx-shadow: var(--g-color-sfx-shadow);
         --pc-color-line-generic-active-solid: #6c6c70;
-        --pc-color-base-float-hover: var(--yc-color-base-float-hover);
+        --pc-color-base-float-hover: var(--g-color-base-float-hover);
         --pc-monochrome-button-background-color: #ffffff;
         --pc-monochrome-button-background-color-hover: #e9e9e9;
-        --pc-monochrome-button-color: var(--yc-color-text-dark-primary);
+        --pc-monochrome-button-color: var(--g-color-text-dark-primary);
     }
 }
