@@ -1,6 +1,6 @@
 import {create} from '@storybook/theming';
 
-export const ThemeLight = create({
+export const themeLight = create({
     base: 'light',
 
     colorPrimary: '#027bf3',
@@ -31,11 +31,11 @@ export const ThemeLight = create({
                 <div style="font-size: 14px;color: #7d7d7d;font-weight: 400;">Website components</div>`,
 });
 
-export const ThemeDark = create({
+export const themeDark = create({
     base: 'dark',
 });
 
 export const themes = {
-    light: ThemeLight,
-    dark: ThemeDark,
+    light: themeLight,
+    dark: themeDark,
 };
