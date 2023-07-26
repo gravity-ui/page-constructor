@@ -28,7 +28,7 @@ $block: '.#{$ns}PromoFeaturesBlock';
         background-color: inherit;
 
         &_grey {
-            background-color: var(--yc-color-base-misc);
+            background-color: var(--g-color-base-misc-light);
         }
     }
 
@@ -74,29 +74,29 @@ $block: '.#{$ns}PromoFeaturesBlock';
         }
 
         &_light {
-            background-color: var(--yc-color-base-background);
+            background-color: var(--g-color-base-background);
         }
 
         &_default {
-            background-color: var(--yc-color-base-misc);
+            background-color: var(--g-color-base-misc-light);
         }
 
         &_accent {
-            color: var(--yc-color-text-light-primary);
-            background-color: var(--yc-color-base-special);
+            color: var(--g-color-text-light-primary);
+            background-color: var(--g-color-base-brand);
 
             #{$block}-title,
             #{$block}-text > .yfm * {
-                color: var(--yc-color-text-light-primary);
+                color: var(--g-color-text-light-primary);
             }
 
             &-light {
-                background-color: var(--yc-color-base-selection);
+                background-color: var(--g-color-base-selection);
             }
         }
 
         &_primary {
-            background-color: var(--yc-color-promo-base-gold);
+            background-color: var(--pc-color-base-gold);
         }
     }
 

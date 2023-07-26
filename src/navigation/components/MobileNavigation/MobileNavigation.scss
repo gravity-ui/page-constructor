@@ -13,8 +13,8 @@ $block: '.#{$ns}mobile-navigation';
 
     border-bottom-right-radius: $borderRadius;
     border-bottom-left-radius: $borderRadius;
-    background-color: var(--yc-color-base-background);
-    box-shadow: 0 3px 10px var(--yc-color-sfx-shadow);
+    background-color: var(--g-color-base-background);
+    box-shadow: 0 3px 10px var(--g-color-sfx-shadow);
     max-height: calc(100vh - 2 * var(--header-height));
     overflow-y: scroll;
 

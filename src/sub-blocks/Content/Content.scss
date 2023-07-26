@@ -2,12 +2,12 @@
 @import '../../../styles/mixins.scss';
 
 $block: '.#{$ns}content';
-$primary: var(--yc-color-text-primary);
-$secondary: var(--yc-color-text-secondary);
-$lightPrimary: var(--yc-color-text-light-primary);
-$lightSecondary: var(--yc-color-text-light-secondary);
-$darkPrimary: var(--yc-color-text-dark-primary);
-$darkSecondary: var(--yc-color-text-dark-secondary);
+$primary: var(--g-color-text-primary);
+$secondary: var(--g-color-text-secondary);
+$lightPrimary: var(--g-color-text-light-primary);
+$lightSecondary: var(--g-color-text-light-secondary);
+$darkPrimary: var(--g-color-text-dark-primary);
+$darkSecondary: var(--g-color-text-dark-secondary);
 
 @mixin content-link($baseColor: $primary, $hoverColor: $secondary) {
     color: $baseColor;
@@ -20,7 +20,7 @@ $darkSecondary: var(--yc-color-text-dark-secondary);
 #{$block} {
     --pc-monochrome-button-background-color: #262626;
     --pc-monochrome-button-background-color-hover: #393939;
-    --pc-monochrome-button-color: var(--yc-color-text-light-primary);
+    --pc-monochrome-button-color: var(--g-color-text-light-primary);
 
     &__notice,
     &__text {

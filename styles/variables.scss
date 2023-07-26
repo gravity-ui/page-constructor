@@ -37,12 +37,12 @@ $animationDuration: 300ms;
 //colors
 $videoPlayButtonGrey: #eff2f8;
 $fileExtColors: (
-    'pdf': var(--yc-color-promo-highlight-tomato),
-    'doc': var(--yc-color-promo-highlight-sky),
-    'xls': var(--yc-color-promo-highlight-mint),
-    'ppt': var(--yc-color-promo-highlight-copper),
-    'fig': var(--yc-color-promo-highlight-neon),
-    'zip': var(--yc-color-promo-highlight-asphalt),
+    'pdf': var(--pc-color-highlight-tomato),
+    'doc': var(--pc-color-highlight-sky),
+    'xls': var(--pc-color-highlight-mint),
+    'ppt': var(--pc-color-highlight-copper),
+    'fig': var(--pc-color-highlight-neon),
+    'zip': var(--pc-color-highlight-asphalt),
 );
 
 //grid

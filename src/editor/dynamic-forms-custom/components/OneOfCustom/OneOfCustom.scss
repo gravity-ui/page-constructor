@@ -25,7 +25,7 @@ $block: '.#{$ns}one-of-custom';
             margin-top: 4px;
             margin-bottom: $normalOffset;
             margin-left: 5px;
-            border-left: 1px solid var(--yc-color-line-generic-accent);
+            border-left: 1px solid var(--g-color-line-generic-accent);
 
             &:empty {
                 display: none;

@@ -4,21 +4,21 @@
 //common
 
 @mixin text-size($name) {
-    font-size: var(--yc-text-#{$name}-font-size);
-    line-height: var(--yc-text-#{$name}-line-height);
+    font-size: var(--g-text-#{$name}-font-size);
+    line-height: var(--g-text-#{$name}-line-height);
 }
 
 @mixin link() {
     @include islands-focus();
 
-    color: var(--yc-color-text-link);
+    color: var(--g-color-text-link);
     text-decoration: none;
     cursor: pointer;
 
     &:hover,
     &:active {
-        --pc-text-header-color: var(--yc-color-text-link-hover);
-        color: var(--yc-color-text-link-hover);
+        --pc-text-header-color: var(--g-color-text-link-hover);
+        color: var(--g-color-text-link-hover);
     }
 }
 
@@ -122,11 +122,11 @@
 @mixin header-link() {
     @include link;
 
-    --pc-text-header-color: var(--yc-color-text-link);
+    --pc-text-header-color: var(--g-color-text-link);
 
     &:hover,
     &:active {
-        --pc-text-header-color: var(--yc-color-text-link-hover);
+        --pc-text-header-color: var(--g-color-text-link-hover);
     }
 }
 
@@ -179,7 +179,7 @@
 
 @mixin add-theme() {
     &_theme_dark {
-        color: var(--yc-color-text-light-primary);
+        color: var(--g-color-text-light-primary);
 
         h1,
         h2,
@@ -188,7 +188,7 @@
         h5,
         h6,
         .yfm {
-            color: var(--yc-color-text-light-primary);
+            color: var(--g-color-text-light-primary);
         }
     }
 }
@@ -221,7 +221,7 @@
     @extend %shadow;
 
     &:hover {
-        box-shadow: 0px 4px 24px var(--yc-color-sfx-shadow), 0px 2px 8px var(--yc-color-sfx-shadow);
+        box-shadow: 0px 4px 24px var(--g-color-sfx-shadow), 0px 2px 8px var(--g-color-sfx-shadow);
         cursor: pointer;
     }
 }
@@ -244,12 +244,12 @@
     height: 100%;
     overflow-x: hidden;
     border-radius: $borderRadius;
-    background-color: var(--yc-color-base-float);
+    background-color: var(--g-color-base-float);
 
     transition: box-shadow 0.3s $ease-out-cubic;
 
     &_border_line {
-        border: 1px solid var(--yc-color-line-generic);
+        border: 1px solid var(--g-color-line-generic);
     }
 
     &_border_line,
@@ -456,27 +456,27 @@ unpredictable css rules order in build */
     min-width: 220px;
     padding: $indentXS;
 
-    border: 1px solid var(--yc-color-line-generic);
+    border: 1px solid var(--g-color-line-generic);
     border-top-width: 0;
     border-radius: calc(#{$borderRadius} / 2);
-    background: var(--yc-color-base-float);
-    box-shadow: 0 3px 10px var(--yc-color-sfx-shadow);
+    background: var(--g-color-base-float);
+    box-shadow: 0 3px 10px var(--g-color-sfx-shadow);
 }
 
 @mixin navigation-item {
-    color: var(--yc-color-text-primary);
+    color: var(--g-color-text-primary);
     @include reset-link-style();
     @include islands-focus();
 
     &:hover,
     &_active {
-        color: var(--yc-color-text-link);
+        color: var(--g-color-text-link);
     }
 }
 
 @mixin button($color, $backgroundColor, $hoverColor: $color, $hoverBackgroundColor) {
-    --yc-button-background-color: #{$backgroundColor};
-    --yc-button-background-color-hover: #{$hoverBackgroundColor};
+    --g-button-background-color: #{$backgroundColor};
+    --g-button-background-color-hover: #{$hoverBackgroundColor};
 
     &,
     &:link,

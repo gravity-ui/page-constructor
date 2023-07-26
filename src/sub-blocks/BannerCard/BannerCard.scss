@@ -16,10 +16,10 @@ $block: '.#{$ns}banner-card';
         @include add-specificity(&) {
             #{$class}__title,
             #{$class}__subtitle {
-                color: var(--yc-color-text-light-primary);
+                color: var(--g-color-text-light-primary);
 
                 p {
-                    color: var(--yc-color-text-light-primary);
+                    color: var(--g-color-text-light-primary);
                 }
             }
         }
