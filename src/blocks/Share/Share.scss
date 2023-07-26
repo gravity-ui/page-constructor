@@ -22,7 +22,9 @@ $block: '.#{$ns}share-block';
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 48px;
+            // redefine highly specific rule for button with icon from uikit
+            /* stylelint-disable-next-line declaration-no-important */
+            width: 48px !important;
             height: 48px;
             border-radius: 100%;
 

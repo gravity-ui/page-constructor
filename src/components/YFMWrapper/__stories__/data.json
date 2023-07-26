@@ -3,7 +3,9 @@
     "content": {
       "className": "",
       "content": "<p><strong>Lorem ipsum dolor sit amet</strong> <a href=\"https://example.com\">consectetur adipiscing elit</a> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> ",
-      "modifiers": {}
+      "modifiers": {
+        "constructor": true
+      }
     }
   }
 }
