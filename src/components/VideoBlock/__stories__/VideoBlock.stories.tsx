@@ -1,18 +1,17 @@
 import React from 'react';
 
-import {Meta, Story} from '@storybook/react/types-6-0';
+import {Meta, StoryFn} from '@storybook/react';
 
-import {COMPONENTS, MEDIA} from '../../../demo/constants';
 import VideoBlock, {VideoBlockProps} from '../VideoBlock';
 
 import data from './data.json';
 
 export default {
     component: VideoBlock,
-    title: `${COMPONENTS}/${MEDIA}/VideoBlock`,
+    title: 'Components/Pics, video, DataLens/VideoBlock',
 } as Meta;
 
-const DefaultTemplate: Story<VideoBlockProps> = (args) => (
+const DefaultTemplate: StoryFn<VideoBlockProps> = (args) => (
     <div style={{maxWidth: '500px'}}>
         <VideoBlock {...args} />
     </div>

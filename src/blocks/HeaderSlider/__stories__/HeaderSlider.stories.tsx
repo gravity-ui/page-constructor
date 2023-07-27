@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Meta, Story} from '@storybook/react/types-6-0';
+import {Meta, StoryFn} from '@storybook/react';
 
 import {PageConstructor} from '../../../containers/PageConstructor/PageConstructor';
 import {HeaderSliderBlockModel, HeaderSliderBlockProps} from '../../../models';
@@ -22,11 +22,11 @@ export default {
     },
 } as Meta;
 
-const DefaultTemplate: Story<HeaderSliderBlockModel> = (args) => (
+const DefaultTemplate: StoryFn<HeaderSliderBlockModel> = (args) => (
     <PageConstructor content={{blocks: [args]}} />
 );
 
-const AutoPlayTemplate: Story<HeaderSliderBlockModel> = (args) => (
+const AutoPlayTemplate: StoryFn<HeaderSliderBlockModel> = (args) => (
     <PageConstructor content={{blocks: [args]}} />
 );
 

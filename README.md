@@ -1,11 +1,5 @@
 # @gravity-ui/page-constructor &middot; [![npm package](https://img.shields.io/npm/v/@gravity-ui/page-constructor)](https://www.npmjs.com/package/@gravity-ui/page-constructor) [![CI](https://img.shields.io/github/actions/workflow/status/gravity-ui/page-constructor/ci.yml?branch=main&label=CI)](https://github.com/gravity-ui/page-constructor/actions/workflows/ci.yml?query=branch:main) [![Release](https://img.shields.io/github/actions/workflow/status/gravity-ui/page-constructor/release.yml?branch=main&label=Release)](https://github.com/gravity-ui/page-constructor/actions/workflows/release.yml?query=branch:main) [![storybook](https://img.shields.io/badge/Storybook-deployed-ff4685)](https://preview.yandexcloud.dev/page-constructor/)
 
-## Install
-
-```shell
-npm install @gravity-ui/page-constructor
-```
-
 ## Page constructor
 
 `Page-constructor` is a library for rendering web pages or their parts based on `JSON` data (support for `YAML` format is to be added later).
@@ -13,6 +7,12 @@ npm install @gravity-ui/page-constructor
 When creating pages, component-based approach is used: a page is built using a set of ready-made blocks that can be placed in any order. Each block has a certain type and set of input data parameters.
 
 For the format of input data and list of available blocks, see the [documentation](https://preview.yandexcloud.dev/page-constructor/?path=/story/information--blocks).
+
+## Install
+
+```shell
+npm install @gravity-ui/page-constructor
+```
 
 ### Getting started
 

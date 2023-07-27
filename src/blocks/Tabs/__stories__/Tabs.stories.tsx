@@ -1,6 +1,6 @@
 import React, {Fragment} from 'react';
 
-import {Meta, Story} from '@storybook/react/types-6-0';
+import {Meta, StoryFn} from '@storybook/react';
 
 import {yfmTransform} from '../../../../.storybook/utils';
 import {PageConstructor} from '../../../containers/PageConstructor';
@@ -17,11 +17,11 @@ export default {
     },
 } as Meta;
 
-const DefaultTemplate: Story<TabsBlockModel> = (args) => (
+const DefaultTemplate: StoryFn<TabsBlockModel> = (args) => (
     <PageConstructor content={{blocks: [args]}} />
 );
 
-const ButtonsColSizesTemplate: Story<TabsBlockModel> = (args) => (
+const ButtonsColSizesTemplate: StoryFn<TabsBlockModel> = (args) => (
     <Fragment>
         <DefaultTemplate
             {...args}
@@ -36,7 +36,7 @@ const ButtonsColSizesTemplate: Story<TabsBlockModel> = (args) => (
     </Fragment>
 );
 
-const DirectionTemplate: Story<TabsBlockModel> = (args) => (
+const DirectionTemplate: StoryFn<TabsBlockModel> = (args) => (
     <Fragment>
         <DefaultTemplate {...args} />
         <DefaultTemplate {...args} direction={'content-media'} />

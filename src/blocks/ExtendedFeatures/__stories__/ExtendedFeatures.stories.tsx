@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Meta, Story} from '@storybook/react/types-6-0';
+import {Meta, StoryFn} from '@storybook/react';
 
 import {yfmTransform} from '../../../../.storybook/utils';
 import {PageConstructor} from '../../../containers/PageConstructor/PageConstructor';
@@ -26,7 +26,7 @@ export default {
     },
 } as Meta;
 
-const DefaultTemplate: Story<ExtendedFeaturesBlockModel> = (args) => (
+const DefaultTemplate: StoryFn<ExtendedFeaturesBlockModel> = (args) => (
     <PageConstructor content={{blocks: [args]}} />
 );
 
@@ -38,7 +38,7 @@ const extendedFeaturesItems = (items: ExtendedFeaturesItem[]) => {
     }));
 };
 
-const ColSizesTemplate: Story<ExtendedFeaturesBlockModel> = (args) => (
+const ColSizesTemplate: StoryFn<ExtendedFeaturesBlockModel> = (args) => (
     <PageConstructor
         content={{
             blocks: [

@@ -1,6 +1,6 @@
 import React, {Fragment} from 'react';
 
-import {Meta, Story} from '@storybook/react/types-6-0';
+import {Meta, StoryFn} from '@storybook/react';
 
 import {PageConstructor} from '../../../containers/PageConstructor/PageConstructor';
 import {IconsBlockModel, IconsBlockProps} from '../../../models';
@@ -13,11 +13,11 @@ export default {
     component: Icons,
 } as Meta;
 
-const DefaultTemplate: Story<IconsBlockModel> = (args) => (
+const DefaultTemplate: StoryFn<IconsBlockModel> = (args) => (
     <PageConstructor content={{blocks: [args]}} />
 );
 
-const SizeTemplate: Story<IconsBlockModel> = (args) => (
+const SizeTemplate: StoryFn<IconsBlockModel> = (args) => (
     <Fragment>
         <DefaultTemplate title="Size S" {...args} size="s" />
         <DefaultTemplate title="Size M" {...args} size="m" />

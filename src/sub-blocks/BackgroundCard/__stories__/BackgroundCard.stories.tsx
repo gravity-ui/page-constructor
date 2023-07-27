@@ -1,9 +1,8 @@
 import React from 'react';
 
 import yfm from '@doc-tools/transform';
-import {Meta, Story} from '@storybook/react/types-6-0';
+import {Meta, StoryFn} from '@storybook/react';
 
-import {CARDS, COMPONENTS} from '../../../demo/constants';
 import {BackgroundCardProps, ButtonProps, LinkProps} from '../../../models';
 import BackgroundCard from '../BackgroundCard';
 
@@ -14,7 +13,7 @@ const getPaddingBottomTitle = (padding: string) =>
 
 export default {
     component: BackgroundCard,
-    title: `${COMPONENTS}/${CARDS}/BackgroundCard`,
+    title: 'Components/Cards/BackgroundCard',
     argTypes: {
         backgroundColor: {
             control: {type: 'color'},
@@ -22,7 +21,7 @@ export default {
     },
 } as Meta;
 
-const DefaultTemplate: Story<BackgroundCardProps> = (args) => (
+const DefaultTemplate: StoryFn<BackgroundCardProps> = (args) => (
     <div style={{display: 'flex'}}>
         <div style={{display: 'inline-table', maxWidth: '400px', padding: '0 8px'}}>
             <BackgroundCard
@@ -39,7 +38,7 @@ const DefaultTemplate: Story<BackgroundCardProps> = (args) => (
     </div>
 );
 
-const PaddingsTemplate: Story<BackgroundCardProps> = (args) => (
+const PaddingsTemplate: StoryFn<BackgroundCardProps> = (args) => (
     <div style={{display: 'flex'}}>
         <div style={{display: 'inline-table', maxWidth: '400px', padding: '0 8px'}}>
             <BackgroundCard {...args} title={getPaddingBottomTitle('S')} paddingBottom="s" />
@@ -56,19 +55,17 @@ const PaddingsTemplate: Story<BackgroundCardProps> = (args) => (
     </div>
 );
 
-const CardThemesTemplate: Story<BackgroundCardProps[]> = (args) => {
-    return (
-        <div style={{display: 'flex'}}>
-            {Object.values(args).map((item, i) => (
-                <div style={{maxWidth: '400px', padding: '0 8px'}} key={i}>
-                    <BackgroundCard {...item} />
-                </div>
-            ))}
-        </div>
-    );
-};
+const CardThemesTemplate: StoryFn<{items: BackgroundCardProps[]}> = (args) => (
+    <div style={{display: 'flex'}}>
+        {args.items.map((item, i) => (
+            <div style={{maxWidth: '400px', padding: '0 8px'}} key={i}>
+                <BackgroundCard {...item} />
+            </div>
+        ))}
+    </div>
+);
 
-const BackgroundColorTemplate: Story<BackgroundCardProps> = (args) => (
+const BackgroundColorTemplate: StoryFn<BackgroundCardProps> = (args) => (
     <div style={{display: 'flex'}}>
         <div style={{display: 'inline-table', maxWidth: '400px', padding: '0 8px'}}>
             <BackgroundCard
@@ -114,10 +111,12 @@ Paddings.args = {
     ...data.withBackgroundImage.content,
 } as BackgroundCardProps;
 
-CardThemes.args = [...data.cardThemes.content].map((item) => ({
-    ...DefaultArgs,
-    ...item,
-})) as BackgroundCardProps[];
+CardThemes.args = {
+    items: [...data.cardThemes.content].map((item) => ({
+        ...DefaultArgs,
+        ...item,
+    })) as BackgroundCardProps[],
+};
 
 BorderLine.args = {
     ...DefaultArgs,

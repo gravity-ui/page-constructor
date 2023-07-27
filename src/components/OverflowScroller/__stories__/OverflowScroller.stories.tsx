@@ -1,16 +1,15 @@
 import React from 'react';
 
-import {Meta, Story} from '@storybook/react/types-6-0';
+import {Meta, StoryFn} from '@storybook/react';
 
-import {COMPONENTS} from '../../../demo/constants';
 import OverflowScroller, {OverflowScrollerProps} from '../OverflowScroller';
 
 export default {
     component: OverflowScroller,
-    title: `${COMPONENTS}/OverflowScroller`,
+    title: 'Components/OverflowScroller',
 } as Meta;
 
-const DefaultTemplate: Story<OverflowScrollerProps> = (args) => (
+const DefaultTemplate: StoryFn<OverflowScrollerProps> = (args) => (
     <div style={{maxWidth: '300px'}}>
         <OverflowScroller {...args}>
             <div style={{display: 'flex'}}>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Meta, Story} from '@storybook/react/types-6-0';
+import {Meta, StoryFn} from '@storybook/react';
 
 import {PageConstructor} from '../../../containers/PageConstructor';
 import {BannerBlockModel, BannerBlockProps} from '../../../models';
@@ -16,11 +16,11 @@ export default {
     },
 } as Meta;
 
-const DefaultTemplate: Story<BannerBlockModel> = (args) => (
+const DefaultTemplate: StoryFn<BannerBlockModel> = (args) => (
     <PageConstructor content={{blocks: [args]}} />
 );
 
-const WithThemeTemplate: Story<BannerBlockModel> = (args) => (
+const WithThemeTemplate: StoryFn<BannerBlockModel> = (args) => (
     <PageConstructor content={{blocks: [args]}} />
 );
 

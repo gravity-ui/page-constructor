@@ -1,8 +1,7 @@
 import React, {Fragment} from 'react';
 
-import {Meta, Story} from '@storybook/react/types-6-0';
+import {Meta, StoryFn} from '@storybook/react';
 
-import {BUTTONS_LINKS, COMPONENTS} from '../../../demo/constants';
 import {Col, GridAlignItems, Row} from '../../../grid';
 import Control, {ControlProps} from '../Control';
 
@@ -10,11 +9,11 @@ import data from './data.json';
 
 export default {
     component: Control,
-    title: `${COMPONENTS}/${BUTTONS_LINKS}/Control`,
+    title: 'Components/Links and buttons/Control',
 } as Meta;
 
-const DefaultTemplate: Story<ControlProps> = (args) => <Control {...args} />;
-const SizesTemplate: Story<ControlProps> = (args) => (
+const DefaultTemplate: StoryFn<ControlProps> = (args) => <Control {...args} />;
+const SizesTemplate: StoryFn<ControlProps> = (args) => (
     <Fragment>
         <Col>
             <Control {...args} size="xs" />
@@ -30,7 +29,7 @@ const SizesTemplate: Story<ControlProps> = (args) => (
         </Col>
     </Fragment>
 );
-const ThemesTemplate: Story<ControlProps> = (args) => (
+const ThemesTemplate: StoryFn<ControlProps> = (args) => (
     <Fragment>
         <Row>
             <Col />

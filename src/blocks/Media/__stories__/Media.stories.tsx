@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Meta, Story} from '@storybook/react/types-6-0';
+import {Meta, StoryFn} from '@storybook/react';
 
 import {yfmTransform} from '../../../../.storybook/utils';
 import {PageConstructor} from '../../../containers/PageConstructor';
@@ -25,7 +25,7 @@ export default {
     },
 } as Meta;
 
-const DefaultTemplate: Story<MediaBlockModel> = (args) => (
+const DefaultTemplate: StoryFn<MediaBlockModel> = (args) => (
     <PageConstructor
         content={{
             blocks: [
@@ -45,11 +45,11 @@ const DefaultTemplate: Story<MediaBlockModel> = (args) => (
         }}
     />
 );
-const ImageSliderTemplate: Story<MediaBlockModel> = (args) => (
+const ImageSliderTemplate: StoryFn<MediaBlockModel> = (args) => (
     <PageConstructor content={{blocks: [args]}} />
 );
 
-const VideoTemplate: Story<MediaBlockModel> = (args) => (
+const VideoTemplate: StoryFn<MediaBlockModel> = (args) => (
     <PageConstructor
         content={{
             blocks: [
@@ -78,7 +78,7 @@ const VideoTemplate: Story<MediaBlockModel> = (args) => (
     />
 );
 
-const SizeTemplate: Story<MediaBlockModel> = (args) => (
+const SizeTemplate: StoryFn<MediaBlockModel> = (args) => (
     <PageConstructor
         content={{
             blocks: [
@@ -102,7 +102,7 @@ const SizeTemplate: Story<MediaBlockModel> = (args) => (
     />
 );
 
-const DirectionTemplate: Story<MediaBlockModel> = (args) => (
+const DirectionTemplate: StoryFn<MediaBlockModel> = (args) => (
     <PageConstructor
         content={{
             blocks: [

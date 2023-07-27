@@ -1,15 +1,14 @@
 import React from 'react';
 
-import {Meta, Story} from '@storybook/react/types-6-0';
+import {Meta, StoryFn} from '@storybook/react';
 
-import {CARDS, COMPONENTS} from '../../../demo/constants';
 import {QuoteProps} from '../../../models';
 import Quote from '../Quote';
 
 import data from './data.json';
 
 export default {
-    title: `${COMPONENTS}/${CARDS}/Quote`,
+    title: 'Components/Cards/Quote',
     component: Quote,
     args: {
         border: 'shadow',
@@ -18,7 +17,7 @@ export default {
     argTypes: {color: {control: 'color'}},
 } as Meta;
 
-const DefaultTemplate: Story<QuoteProps> = (args) => (
+const DefaultTemplate: StoryFn<QuoteProps> = (args) => (
     <div style={{maxWidth: '1248px'}}>
         <Quote {...args} />
     </div>

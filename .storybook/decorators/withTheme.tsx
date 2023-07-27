@@ -1,8 +1,8 @@
 import React from 'react';
-import {Story as StoryType, StoryContext} from '@storybook/react/types-6-0';
+import {StoryFn, StoryContext} from '@storybook/react';
 import {useTheme} from '../../src/context/theme';
 
-export function withTheme(Story: StoryType, context: StoryContext) {
+export function withTheme(Story: StoryFn, context: StoryContext) {
     const themeValue = context.globals.theme;
     const [theme, setTheme] = useTheme(); // eslint-disable-line react-hooks/rules-of-hooks
 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Meta, Story} from '@storybook/react/types-6-0';
+import {Meta, StoryFn} from '@storybook/react';
 
 import {PageConstructor} from '../../../containers/PageConstructor/PageConstructor';
 import {QuestionsBlockModel, QuestionsProps} from '../../../models';
@@ -13,7 +13,7 @@ export default {
     component: QuestionsBlock,
 } as Meta;
 
-const DefaultTemplate: Story<QuestionsBlockModel> = (args) => (
+const DefaultTemplate: StoryFn<QuestionsBlockModel> = (args) => (
     <div style={{padding: '64px 0px'}}>
         <PageConstructor content={{blocks: [args]}} />
     </div>

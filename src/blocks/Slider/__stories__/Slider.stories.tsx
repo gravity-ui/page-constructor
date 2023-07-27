@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Meta, Story} from '@storybook/react/types-6-0';
+import {Meta, StoryFn} from '@storybook/react';
 
 import {PageConstructor} from '../../../containers/PageConstructor';
 import {BannerCardModel, BasicCardModel, SliderBlockModel} from '../../../models';
@@ -25,11 +25,11 @@ export default {
     },
 } as Meta;
 
-const DefaultTemplate: Story<SliderBlockModel> = (args) => (
+const DefaultTemplate: StoryFn<SliderBlockModel> = (args) => (
     <PageConstructor content={{blocks: [args]}} />
 );
 
-const SlidesToShowTemplate: Story<SliderBlockModel> = (args) => (
+const SlidesToShowTemplate: StoryFn<SliderBlockModel> = (args) => (
     <PageConstructor
         content={{
             blocks: [

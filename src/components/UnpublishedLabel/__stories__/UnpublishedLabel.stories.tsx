@@ -1,18 +1,17 @@
 import React from 'react';
 
-import {Meta, Story} from '@storybook/react/types-6-0';
+import {Meta, StoryFn} from '@storybook/react';
 
-import {COMPONENTS} from '../../../demo/constants';
 import UnpublishedLabel, {UnpublishedLabelProps} from '../UnpublishedLabel';
 
 import data from './data.json';
 
 export default {
     component: UnpublishedLabel,
-    title: `${COMPONENTS}/UnpublishedLabel`,
+    title: 'Components/UnpublishedLabel',
 } as Meta;
 
-const DefaultTemplate: Story<UnpublishedLabelProps> = (args) => <UnpublishedLabel {...args} />;
+const DefaultTemplate: StoryFn<UnpublishedLabelProps> = (args) => <UnpublishedLabel {...args} />;
 
 export const Label = DefaultTemplate.bind({});
 export const Line = DefaultTemplate.bind({});

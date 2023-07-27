@@ -1,8 +1,7 @@
 import React from 'react';
 
-import {Meta, Story} from '@storybook/react/types-6-0';
+import {Meta, StoryFn} from '@storybook/react';
 
-import {CARDS, COMPONENTS} from '../../../demo/constants';
 import {PriceDetailedProps} from '../../../models';
 import PriceDetailed from '../PriceDetailed';
 
@@ -10,10 +9,10 @@ import data from './data.json';
 
 export default {
     component: PriceDetailed,
-    title: `${COMPONENTS}/${CARDS}/PriceDetailed`,
+    title: 'Components/Cards/PriceDetailed',
 } as Meta;
 
-const DefaultTemplate: Story<PriceDetailedProps> = (args) => (
+const DefaultTemplate: StoryFn<PriceDetailedProps> = (args) => (
     <div style={{maxWidth: '1000px'}}>
         <PriceDetailed {...args} />
     </div>

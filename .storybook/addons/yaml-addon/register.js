@@ -25,7 +25,7 @@ const YamlPanel = () => {
     );
 
     return (
-        <div className="addon-yaml">
+        <div className="yaml-addon">
             <ClipboardButton text={content} />
             <pre>{content}</pre>
         </div>

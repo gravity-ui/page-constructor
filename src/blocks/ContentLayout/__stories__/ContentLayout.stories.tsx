@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Meta, Story} from '@storybook/react/types-6-0';
+import {Meta, StoryFn} from '@storybook/react';
 
 import {yfmTransform} from '../../../../.storybook/utils';
 import {PageConstructor} from '../../../containers/PageConstructor/PageConstructor';
@@ -25,7 +25,7 @@ const getThemeTitle = (theme: string) => data.theme.title.replace('{{theme}}', t
 const getTextWidthTitle = (textWidth: string) =>
     data.textWidth.title.replace('{{textWidth}}', textWidth);
 
-const DefaultTemplate: Story<ContentLayoutBlockModel> = (args) => (
+const DefaultTemplate: StoryFn<ContentLayoutBlockModel> = (args) => (
     <PageConstructor
         content={{
             blocks: [
@@ -52,7 +52,7 @@ const DefaultTemplate: Story<ContentLayoutBlockModel> = (args) => (
     />
 );
 
-const WithFilesTemplate: Story<ContentLayoutBlockModel> = (args) => (
+const WithFilesTemplate: StoryFn<ContentLayoutBlockModel> = (args) => (
     <PageConstructor
         content={{
             blocks: [
@@ -71,7 +71,7 @@ const WithFilesTemplate: Story<ContentLayoutBlockModel> = (args) => (
     />
 );
 
-const SizesTemplate: Story<ContentLayoutBlockModel> = (args) => (
+const SizesTemplate: StoryFn<ContentLayoutBlockModel> = (args) => (
     <PageConstructor
         content={{
             blocks: [
@@ -90,11 +90,11 @@ const SizesTemplate: Story<ContentLayoutBlockModel> = (args) => (
     />
 );
 
-const BackgroundTemplate: Story<ContentLayoutBlockModel> = (args) => (
+const BackgroundTemplate: StoryFn<ContentLayoutBlockModel> = (args) => (
     <PageConstructor content={{blocks: [args]}} />
 );
 
-const ThemesTemplate: Story<ContentLayoutBlockModel> = (args) => (
+const ThemesTemplate: StoryFn<ContentLayoutBlockModel> = (args) => (
     <PageConstructor
         content={{
             blocks: [
@@ -129,7 +129,7 @@ const ThemesTemplate: Story<ContentLayoutBlockModel> = (args) => (
     />
 );
 
-const TextWidthTemplate: Story<ContentLayoutBlockModel> = (args) => (
+const TextWidthTemplate: StoryFn<ContentLayoutBlockModel> = (args) => (
     <PageConstructor
         content={{
             blocks: [

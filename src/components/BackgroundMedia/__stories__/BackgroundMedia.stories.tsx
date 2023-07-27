@@ -1,8 +1,7 @@
 import React from 'react';
 
-import {Meta, Story} from '@storybook/react/types-6-0';
+import {Meta, StoryFn} from '@storybook/react';
 
-import {COMPONENTS, MEDIA} from '../../../demo/constants';
 import {BackgroundMediaProps} from '../../../models';
 import BackgroundMedia from '../BackgroundMedia';
 
@@ -10,7 +9,7 @@ import data from './data.json';
 
 export default {
     component: BackgroundMedia,
-    title: `${COMPONENTS}/${MEDIA}/BackgroundMedia`,
+    title: 'Components/Pics, video, DataLens/BackgroundMedia',
     argTypes: {
         color: {
             control: {type: 'color'},
@@ -18,7 +17,7 @@ export default {
     },
 } as Meta;
 
-const DefaultTemplate: Story<BackgroundMediaProps> = (args) => (
+const DefaultTemplate: StoryFn<BackgroundMediaProps> = (args) => (
     <div style={{maxWidth: '1400px', position: 'relative'}}>
         <BackgroundMedia {...args} />
     </div>

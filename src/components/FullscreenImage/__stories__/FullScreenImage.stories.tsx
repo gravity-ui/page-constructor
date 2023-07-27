@@ -1,18 +1,17 @@
 import React from 'react';
 
-import {Meta, Story} from '@storybook/react/types-6-0';
+import {Meta, StoryFn} from '@storybook/react';
 
-import {COMPONENTS, MEDIA} from '../../../demo/constants';
 import FullscreenImage, {FullscreenImageProps} from '../FullscreenImage';
 
 import data from './data.json';
 
 export default {
     component: FullscreenImage,
-    title: `${COMPONENTS}/${MEDIA}/FullscreenImage`,
+    title: 'Components/Pics, video, DataLens/FullscreenImage',
 } as Meta;
 
-const DefaultTemplate: Story<FullscreenImageProps> = (args) => (
+const DefaultTemplate: StoryFn<FullscreenImageProps> = (args) => (
     <div style={{maxWidth: '500px'}}>
         <FullscreenImage {...args} />
     </div>

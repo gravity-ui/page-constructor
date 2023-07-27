@@ -1,10 +1,9 @@
 import React from 'react';
 
 import yfm from '@doc-tools/transform';
-import {Meta, Story} from '@storybook/react/types-6-0';
+import {Meta, StoryFn} from '@storybook/react';
 
 import {Title} from '../../../components';
-import {COMPONENTS} from '../../../demo/constants';
 import {BasicCardProps, DividerSize} from '../../../models';
 import BasicCard from '../../BasicCard/BasicCard';
 import Divider from '../Divider';
@@ -13,11 +12,11 @@ import data from './data.json';
 
 export default {
     component: BasicCard,
-    title: `${COMPONENTS}/Divider`,
+    title: 'Components/Divider',
 } as Meta;
 
 const getSizeTitle = (size: string) => data.sizes.title.replace('{{size}}', size);
-const DefaultTemplate: Story<BasicCardProps> = (args) => (
+const DefaultTemplate: StoryFn<BasicCardProps> = (args) => (
     <div>
         <Title title={data.default.title} />
         <div style={{maxWidth: '400px', marginTop: '10px'}}>
@@ -28,7 +27,7 @@ const DefaultTemplate: Story<BasicCardProps> = (args) => (
     </div>
 );
 
-const SizesTemplate: Story<BasicCardProps> = (args) => (
+const SizesTemplate: StoryFn<BasicCardProps> = (args) => (
     <div>
         {data.sizes.items.map((item) => (
             <div key={item}>

@@ -1,8 +1,7 @@
 import React from 'react';
 
-import {Meta, Story} from '@storybook/react/types-6-0';
+import {Meta, StoryFn} from '@storybook/react';
 
-import {COMPONENTS} from '../../../demo/constants';
 import {AuthorProps, AuthorType} from '../../../models';
 import Author from '../Author';
 
@@ -10,12 +9,12 @@ import data from './data.json';
 
 export default {
     component: Author,
-    title: `${COMPONENTS}/Author`,
+    title: 'Components/Author',
 } as Meta;
 
-const DefaultTemplate: Story<AuthorProps> = (args) => <Author {...args} />;
+const DefaultTemplate: StoryFn<AuthorProps> = (args) => <Author {...args} />;
 
-const TypesTemplate: Story<AuthorProps> = (args) => (
+const TypesTemplate: StoryFn<AuthorProps> = (args) => (
     <div>
         <div style={{paddingBottom: '32px'}}>
             <h3>Type Column</h3>

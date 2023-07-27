@@ -1,9 +1,8 @@
 import React, {Fragment} from 'react';
 
-import {Meta, Story} from '@storybook/react/types-6-0';
+import {Meta, StoryFn} from '@storybook/react';
 import {LinkProps} from 'src/models';
 
-import {BUTTONS_LINKS, COMPONENTS} from '../../../demo/constants';
 import {Col, Row} from '../../../grid';
 import Link, {LinkFullProps} from '../Link';
 
@@ -13,16 +12,16 @@ const getSizesTitle = (size: string) => data.themesSizes.title.replace('{{size}}
 
 export default {
     component: Link,
-    title: `${COMPONENTS}/${BUTTONS_LINKS}/Link`,
+    title: 'Components/Links and buttons/Link',
 } as Meta;
 
-const DefaultTemplate: Story<LinkFullProps> = (args) => <Link {...args} />;
-const DarkTemplate: Story<LinkFullProps> = (args) => (
+const DefaultTemplate: StoryFn<LinkFullProps> = (args) => <Link {...args} />;
+const DarkTemplate: StoryFn<LinkFullProps> = (args) => (
     <section style={{backgroundColor: '#7ccea0', display: 'inline-block', padding: '0 16px 16px'}}>
         <Link {...args} />
     </section>
 );
-const SizesTemplate: Story<LinkFullProps> = (args) => (
+const SizesTemplate: StoryFn<LinkFullProps> = (args) => (
     <Row>
         <Col>{args.theme}</Col>
         <Col>
@@ -36,7 +35,7 @@ const SizesTemplate: Story<LinkFullProps> = (args) => (
         </Col>
     </Row>
 );
-const ThemesSizesTemplate: Story<LinkFullProps> = (args) => (
+const ThemesSizesTemplate: StoryFn<LinkFullProps> = (args) => (
     <Fragment>
         <Row>
             <Col />
@@ -51,7 +50,7 @@ const ThemesSizesTemplate: Story<LinkFullProps> = (args) => (
     </Fragment>
 );
 
-const WithChildrenTemplate: Story<LinkFullProps> = (args) => (
+const WithChildrenTemplate: StoryFn<LinkFullProps> = (args) => (
     <Link {...args}>
         <span>
             <svg

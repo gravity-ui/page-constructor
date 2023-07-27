@@ -1,9 +1,8 @@
 import React from 'react';
 
 import yfm from '@doc-tools/transform';
-import {Meta, Story} from '@storybook/react/types-6-0';
+import {Meta, StoryFn} from '@storybook/react';
 
-import {CARDS, COMPONENTS} from '../../../demo/constants';
 import {BasicCardProps} from '../../../models';
 import BasicCard from '../BasicCard';
 
@@ -14,16 +13,16 @@ const getCardWithBorderTitle = (border: string) =>
 
 export default {
     component: BasicCard,
-    title: `${COMPONENTS}/${CARDS}/BasicCard`,
+    title: 'Components/Cards/BasicCard',
 } as Meta;
 
-const DefaultTemplate: Story<BasicCardProps> = (args) => (
+const DefaultTemplate: StoryFn<BasicCardProps> = (args) => (
     <div style={{maxWidth: '400px'}}>
         <BasicCard {...args} target="_blank" />
     </div>
 );
 
-const WithIconTemplate: Story<BasicCardProps> = (args) => (
+const WithIconTemplate: StoryFn<BasicCardProps> = (args) => (
     <div style={{display: 'flex'}}>
         <div style={{maxWidth: '400px', padding: '0 8px'}}>
             <BasicCard {...args} icon={data.withIcon.icons[0]} />
@@ -37,7 +36,7 @@ const WithIconTemplate: Story<BasicCardProps> = (args) => (
     </div>
 );
 
-const WithBorderTemplate: Story<BasicCardProps> = (args) => (
+const WithBorderTemplate: StoryFn<BasicCardProps> = (args) => (
     <div style={{display: 'flex'}}>
         <div style={{maxWidth: '400px', padding: '0 8px'}}>
             <BasicCard {...args} title={getCardWithBorderTitle('shadow')} />

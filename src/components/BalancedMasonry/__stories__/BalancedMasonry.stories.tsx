@@ -1,9 +1,8 @@
 import React from 'react';
 
-import {Meta, Story} from '@storybook/react/types-6-0';
+import {Meta, StoryFn} from '@storybook/react';
 
 import {BREAKPOINTS} from '../../../constants';
-import {COMPONENTS} from '../../../demo/constants';
 import CardBase from '../../CardBase/CardBase';
 import BalancedMasonry, {BalancedMasonryProps} from '../BalancedMasonry';
 
@@ -13,10 +12,10 @@ import './BalancedMansonry.stories.scss';
 
 export default {
     component: BalancedMasonry,
-    title: `${COMPONENTS}/BalancedMasonry`,
+    title: 'Components/BalancedMasonry',
 } as Meta;
 
-const DefaultTemplate: Story<BalancedMasonryProps> = (args) => <BalancedMasonry {...args} />;
+const DefaultTemplate: StoryFn<BalancedMasonryProps> = (args) => <BalancedMasonry {...args} />;
 
 export const Default = DefaultTemplate.bind({});
 

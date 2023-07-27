@@ -1,0 +1,19 @@
+$root: '.docs-decorator';
+
+#{$root}#{$root}#{$root}#{$root}#{$root} {
+    .sbdocs-wrapper {
+        padding: 20px;
+
+        h1 {
+            margin-bottom: 32px;
+        }
+    }
+
+    .sbdocs-content {
+        max-width: 1680px;
+    }
+
+    .innerZoomElementWrapper {
+        overflow: hidden;
+    }
+}

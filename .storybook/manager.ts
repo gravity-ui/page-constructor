@@ -1,6 +1,6 @@
 import {addons} from '@storybook/addons';
-import {CloudTheme} from './theme';
+import {themeLight} from './theme';
 
 addons.setConfig({
-    theme: CloudTheme,
+    theme: themeLight,
 });

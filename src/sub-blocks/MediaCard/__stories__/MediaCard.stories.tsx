@@ -1,8 +1,7 @@
 import React from 'react';
 
-import {Meta, Story} from '@storybook/react/types-6-0';
+import {Meta, StoryFn} from '@storybook/react';
 
-import {CARDS, COMPONENTS} from '../../../demo/constants';
 import {MediaCardProps} from '../../../models';
 import MediaCard from '../MediaCard';
 
@@ -10,7 +9,7 @@ import data from './data.json';
 
 export default {
     component: MediaCard,
-    title: `${COMPONENTS}/${CARDS}/MediaCard`,
+    title: 'Components/Cards/MediaCard',
     argTypes: {
         color: {
             control: {type: 'color'},
@@ -18,7 +17,7 @@ export default {
     },
 } as Meta;
 
-const DefaultTemplate: Story<MediaCardProps> = (args) => (
+const DefaultTemplate: StoryFn<MediaCardProps> = (args) => (
     <div style={{maxWidth: '500px'}}>
         <MediaCard {...args} />
     </div>

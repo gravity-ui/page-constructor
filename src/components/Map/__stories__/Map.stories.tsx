@@ -1,11 +1,10 @@
 import React from 'react';
 
-import {Meta, Story} from '@storybook/react/types-6-0';
+import {Meta, StoryFn} from '@storybook/react';
 
 import {scriptsSrc, ymapApiKeyForStorybook} from '../../../../.storybook/maps';
 import {MapType} from '../../../context/mapsContext/mapsContext';
 import {MapProvider, gmapApiKeyIdInLS} from '../../../context/mapsContext/mapsProvider';
-import {COMPONENTS} from '../../../demo/constants';
 import {MapProps} from '../../../models';
 import Map from '../Map';
 
@@ -17,10 +16,10 @@ const maxMapWidth = '500px';
 
 export default {
     component: Map,
-    title: `${COMPONENTS}/Map`,
+    title: 'Components/Map',
 } as Meta;
 
-const YMapTemplate: Story<MapProps> = (args) => (
+const YMapTemplate: StoryFn<MapProps> = (args: MapProps) => (
     <MapProvider
         scriptSrc={scriptsSrc[MapType.Yandex]}
         apiKey={ymapApiKeyForStorybook}
@@ -34,7 +33,7 @@ const YMapTemplate: Story<MapProps> = (args) => (
 
 const GMAP_API_KEY = process.env.STORYBOOK_GMAP_API_KEY;
 
-const GoogleMapTemplate: Story<MapProps> = (args) => (
+const GoogleMapTemplate: StoryFn<MapProps> = (args: MapProps) => (
     <MapProvider scriptSrc={scriptsSrc[MapType.Google]} type={MapType.Google} apiKey={GMAP_API_KEY}>
         <div style={{maxWidth: maxMapWidth, margin: '10px'}}>
             {!GMAP_API_KEY && <ApiKeyInput id={gmapApiKeyIdInLS} />}

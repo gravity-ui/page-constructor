@@ -1,8 +1,8 @@
 import React from 'react';
-import type {DecoratorFn} from '@storybook/react';
+import type {Decorator} from '@storybook/react';
 import {Lang, configure} from '../../src/utils/configure';
 
-export const withLang: DecoratorFn = (Story, context) => {
+export const withLang: Decorator = (Story, context) => {
     const lang = context.globals.lang;
 
     configure({

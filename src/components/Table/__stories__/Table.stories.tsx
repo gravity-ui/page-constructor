@@ -1,8 +1,7 @@
 import React from 'react';
 
-import {Meta, Story} from '@storybook/react/types-6-0';
+import {Meta, StoryFn} from '@storybook/react';
 
-import {COMPONENTS} from '../../../demo/constants';
 import {TableProps} from '../../../models';
 import Table from '../Table';
 
@@ -10,10 +9,10 @@ import data from './data.json';
 
 export default {
     component: Table,
-    title: `${COMPONENTS}/Table`,
+    title: 'Components/Table',
 } as Meta;
 
-const DefaultTemplate: Story<TableProps> = (args) => <Table {...args} />;
+const DefaultTemplate: StoryFn<TableProps> = (args) => <Table {...args} />;
 
 export const Default = DefaultTemplate.bind({});
 
