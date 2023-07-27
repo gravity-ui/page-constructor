@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [3.12.1](https://github.com/gravity-ui/page-constructor/compare/v3.12.0...v3.12.1) (2023-07-27)
+
+
+### Bug Fixes
+
+* remove @gravity-ui/babel-preset ([#461](https://github.com/gravity-ui/page-constructor/issues/461)) ([3d4895b](https://github.com/gravity-ui/page-constructor/commit/3d4895b904bf3c93ae89eba975fd481f7651ea4d))
+
 ## [3.12.0](https://github.com/gravity-ui/page-constructor/compare/v3.11.0...v3.12.0) (2023-07-27)
 
 
