@@ -1,6 +1,20 @@
 # Changelog
 
 
+## [3.12.0](https://github.com/gravity-ui/page-constructor/compare/v3.11.0...v3.12.0) (2023-07-27)
+
+
+### Features
+
+* navigation dropdown refactoring ([#392](https://github.com/gravity-ui/page-constructor/issues/392)) ([9f47dbe](https://github.com/gravity-ui/page-constructor/commit/9f47dbe3f5ef7f42205c66092ce25879a39d1286))
+* update to storybook 7, webpack 5, node 18 ([#457](https://github.com/gravity-ui/page-constructor/issues/457)) ([95955ab](https://github.com/gravity-ui/page-constructor/commit/95955aba864548902275060d564602dde1f52a0f))
+
+
+### Bug Fixes
+
+* arrage adding and removing listeners for Image ([#453](https://github.com/gravity-ui/page-constructor/issues/453)) ([32a68f2](https://github.com/gravity-ui/page-constructor/commit/32a68f281abf5f23026bf58c30edc7df6ea713da))
+* main preview build action ([#460](https://github.com/gravity-ui/page-constructor/issues/460)) ([f6441f9](https://github.com/gravity-ui/page-constructor/commit/f6441f9eb6d503b176d408fd7a25033b75f251f7))
+
 ## [3.11.0](https://github.com/gravity-ui/page-constructor/compare/v3.10.3...v3.11.0) (2023-07-20)
 
 
