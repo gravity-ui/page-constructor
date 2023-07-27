@@ -1,5 +1,4 @@
-import {Block, CustomConfig, PCShareSocialNetwork, TextSize} from '../models';
-import {ConstructorBlock} from '../models/constructor';
+import {ConstructorBlock, CustomConfig, PCShareSocialNetwork, TextSize} from '../models';
 
 const BLOCK_ELEMENTS = [
     'div',
@@ -98,11 +97,11 @@ const getShareUrlWithParams = (url: string, params: Record<string, string | unde
     return result.toString();
 };
 
-export const getOrderedBlocks = (blocks: Block[], headerBlockTypes: string[] = []) => {
+export const getOrderedBlocks = (blocks: ConstructorBlock[], headerBlockTypes: string[] = []) => {
     return blocks.filter(({type}) => !headerBlockTypes.includes(type));
 };
 
-export const getHeaderBlock = (blocks: Block[], headerBlockTypes: string[] = []) => {
+export const getHeaderBlock = (blocks: ConstructorBlock[], headerBlockTypes: string[] = []) => {
     return blocks.find(({type}) => headerBlockTypes.includes(type));
 };
 

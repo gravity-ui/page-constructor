@@ -3,10 +3,16 @@ import React, {useContext} from 'react';
 import {BlockIdContext} from '../../../../context/blockIdContext';
 import {InnerContext} from '../../../../context/innerContext';
 import {BlockDecoration} from '../../../../customization/BlockDecoration';
-import {BlockType, ConstructorItem as ConstructorItemType, WithChildren} from '../../../../models';
+import {
+    BlockType,
+    // ConstructorItem as ConstructorItemType,
+    WithChildren,
+    // eslint-disable-next-line sort-imports
+    ConstructorBlock,
+} from '../../../../models';
 
 export interface ConstructorItemProps {
-    data: ConstructorItemType;
+    data: ConstructorBlock;
     blockKey: string;
 }
 

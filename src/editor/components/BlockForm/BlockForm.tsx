@@ -4,13 +4,13 @@ import {DynamicField, SimpleVerticalAccordeon, Spec} from '@gravity-ui/dynamic-f
 import _ from 'lodash';
 import {Form as FinalForm, FormSpy} from 'react-final-form';
 
-import {Block} from '../../../models';
+import {Block, ConstructorBlock} from '../../../models';
 import {dynamicConfig} from '../../dynamic-forms-custom/config';
 import {CustomSpec} from '../../dynamic-forms-custom/parser/types';
 import usePreviousValue from '../../hooks/usePreviousValue';
 
 interface BlockFormProps {
-    data: Block;
+    data: ConstructorBlock;
     spec: CustomSpec;
     onChange: (data: Block) => void;
     onSelect: () => void;

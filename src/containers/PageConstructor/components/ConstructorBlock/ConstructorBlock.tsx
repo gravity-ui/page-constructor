@@ -4,11 +4,15 @@ import _ from 'lodash';
 
 import BlockBase from '../../../../components/BlockBase/BlockBase';
 import {BlockDecoration} from '../../../../customization/BlockDecoration';
-import {Block, BlockDecorationProps, WithChildren} from '../../../../models';
+import {
+    BlockDecorationProps,
+    ConstructorBlock as ConstructorBlockType,
+    WithChildren,
+} from '../../../../models';
 import {block} from '../../../../utils';
 
 interface ConstructorBlockProps extends Pick<BlockDecorationProps, 'index'> {
-    data: Block;
+    data: ConstructorBlockType;
 }
 
 const b = block('constructor-block');

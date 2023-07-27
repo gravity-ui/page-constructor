@@ -1,10 +1,14 @@
 import _ from 'lodash';
 
-import {Block, PageContent} from '../../models';
+import {ConstructorBlock, PageContent} from '../../models';
 
 import {EditorBlockId} from './reducer';
 
-export const changeBlocksOrder = (array: Block[], oldIndex: number, newIndex: number) => {
+export const changeBlocksOrder = (
+    array: ConstructorBlock[],
+    oldIndex: number,
+    newIndex: number,
+) => {
     const result = [...array];
     const element = result.splice(oldIndex, 1)[0];
     result.splice(newIndex, 0, element);
@@ -12,7 +16,7 @@ export const changeBlocksOrder = (array: Block[], oldIndex: number, newIndex: nu
     return result;
 };
 
-export const duplicateBlock = (array: Block[], index: number) => {
+export const duplicateBlock = (array: ConstructorBlock[], index: number) => {
     const result = [...array];
     result.splice(index + 1, 0, _.cloneDeep(result[index]));
 
@@ -28,7 +32,7 @@ export const getNewBlockIndex = (id: EditorBlockId, orderedBlocksCount: number) 
     return typeof id === 'string' ? 0 : id + 1;
 };
 
-export const addBlock = (array: Block[], block: Block, index: number) => {
+export const addBlock = (array: ConstructorBlock[], block: ConstructorBlock, index: number) => {
     const result = [...array];
     result.splice(index, 0, block);
 

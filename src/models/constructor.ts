@@ -2,7 +2,6 @@ import React, {PropsWithChildren} from 'react';
 
 import {
     Animatable,
-    Block,
     BlockDecorationProps,
     ConstructorItem,
     ThemedMediaProps,
@@ -17,8 +16,10 @@ export interface Menu {
     title: string;
 }
 
+export type ConstructorBlock = ConstructorItem | CustomBlock;
+
 export interface PageContent extends Animatable {
-    blocks: Block[];
+    blocks: ConstructorBlock[];
     menu?: Menu;
     background?: ThemedMediaProps;
 }
@@ -32,8 +33,6 @@ export interface CustomBlock {
 
     [key: string]: unknown;
 }
-
-export type ConstructorBlock = ConstructorItem | CustomBlock;
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type LoadableData = any;
