@@ -5,25 +5,25 @@
 
 .demo-header {
     margin-bottom: 20px;
-    font-size: var(--yc-text-body-1-font-size);
+    font-size: var(--g-text-body-1-font-size);
     font-weight: bold;
     text-transform: uppercase;
-    color: var(--yc-color-text-primary);
+    color: var(--g-color-text-primary);
 }
 
 .demo-description {
     margin-bottom: 25px;
-    font-size: var(--yc-text-body-2-font-size);
-    line-height: var(--yc-text-body-2-line-height);
+    font-size: var(--g-text-body-2-font-size);
+    line-height: var(--g-text-body-2-line-height);
 }
 
 .demo-markdown {
     .markdown-body {
         padding: 20px;
-        color: var(--yc-color-text-primary);
+        color: var(--g-color-text-primary);
 
         a {
-            color: var(--yc-color-text-link);
+            color: var(--g-color-text-link);
         }
     }
 }
