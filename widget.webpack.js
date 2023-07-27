@@ -27,19 +27,6 @@ module.exports = {
                 exclude: [/node_modules/],
                 use: {
                     loader: 'babel-loader',
-                    options: {
-                        presets: [
-                            [
-                                '@gravity-ui/babel-preset',
-                                {
-                                    env: {modules: false},
-                                    runtime: {useESModules: true},
-                                    typescript: true,
-                                    react: {},
-                                },
-                            ],
-                        ],
-                    },
                 },
             },
             {

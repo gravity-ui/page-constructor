@@ -111,7 +111,6 @@
     "@commitlint/cli": "^17.1.2",
     "@commitlint/config-conventional": "^17.1.0",
     "@doc-tools/transform": "2.12.0",
-    "@gravity-ui/babel-preset": "^1.0.1",
     "@gravity-ui/eslint-config": "^2.0.0",
     "@gravity-ui/icons": "^2.1.0",
     "@gravity-ui/prettier-config": "^1.0.1",
