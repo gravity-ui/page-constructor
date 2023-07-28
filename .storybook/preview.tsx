@@ -16,7 +16,7 @@ import {Theme} from '../src';
 import {configure, Lang} from '../src/utils/configure';
 
 import '../styles/styles.scss';
-import {withTheme} from './decorators/withTheme';
+
 configure({
     lang: Lang.En,
 });
@@ -56,7 +56,7 @@ const withPageConstructorProvider: Decorator = (Story, context) => {
 };
 
 const preview: Preview = {
-    decorators: [withTheme, withLang, withMobile, withContextProvider, withPageConstructorProvider],
+    decorators: [withLang, withMobile, withContextProvider, withPageConstructorProvider],
     parameters: {
         layout: 'fullscreen',
         docs: {
