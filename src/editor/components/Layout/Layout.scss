@@ -8,8 +8,8 @@ $block: '.#{$ns}editor-layout';
 
 %overflow-container {
     --g-scrollbar-width: 0;
-    height: calc(100vh - var(--editor-header-height));
-    max-height: calc(100vh - var(--editor-header-height));
+    height: calc(100vh - var(--pc-editor-header-height));
+    max-height: calc(100vh - var(--pc-editor-header-height));
     overflow-y: auto;
 }
 
@@ -37,8 +37,8 @@ $block: '.#{$ns}editor-layout';
     &__left {
         flex: 0 0 auto;
         padding: $indentSM $indentXS;
-        width: var(--editor-left-column-width);
-        border-right: var(--editor-divider-width) solid var(--g-color-line-generic);
+        width: var(--pc-editor-left-column-width);
+        border-right: var(--pc-editor-divider-width) solid var(--g-color-line-generic);
         overflow-x: auto;
     }
 
