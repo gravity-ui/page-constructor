@@ -43,14 +43,6 @@
     }
 }
 
-@mixin add-file-ext-colors() {
-    @each $name, $value in $fileExtColors {
-        &_ext_#{$name} {
-            --pc-file-label-color: #{$value};
-        }
-    }
-}
-
 @mixin reset-button-style() {
     display: inline-block;
     margin: 0;

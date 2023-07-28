@@ -1,5 +1,7 @@
 import React, {useCallback, useContext, useEffect, useMemo} from 'react';
 
+import {Label, LabelProps} from '@gravity-ui/uikit';
+
 import {YFMWrapper} from '../../../components';
 import {StylesContext} from '../../../context/stylesContext';
 import {
@@ -21,6 +23,21 @@ interface PriceDescriptionExtendProps extends PriceDescriptionProps {
     labelsDefaultText?: Record<PriceLabelColor, string>;
     className?: string;
 }
+
+const LabelColorsMapping = {
+    [PriceLabelColor.BLUE]: 'info',
+    [PriceLabelColor.GREEN]: 'success',
+    [PriceLabelColor.YELLOW]: 'warning',
+    [PriceLabelColor.PURPLE]: 'normal',
+    [PriceLabelColor.RED]: 'dnager',
+};
+
+const LabelSizeMap: Record<TextSize, LabelProps['size']> = {
+    l: 'm',
+    m: 'm',
+    s: 's',
+    xs: 's',
+};
 
 const PriceDescription = (props: PriceDescriptionExtendProps) => {
     const {
@@ -77,11 +94,13 @@ const PriceDescription = (props: PriceDescriptionExtendProps) => {
         }
 
         const labelTitle = label.text || (labelsDefaultText && labelsDefaultText[label.color]);
+        const labelColor = (LabelColorsMapping[label.color] || 'unknown') as LabelProps['theme'];
+        const labelSize = LabelSizeMap[label.size || descriptionSize];
 
         return (
-            <div className={b('label', {color: label.color, size: label.size || descriptionSize})}>
+            <Label className={b('label')} theme={labelColor} size={labelSize}>
                 {labelTitle}
-            </div>
+            </Label>
         );
     }, [descriptionSize, label, labelsDefaultText]);
 

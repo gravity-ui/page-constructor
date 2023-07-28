@@ -8,8 +8,7 @@ $block: '.#{$ns}price-description';
 
     &__title,
     &__description,
-    &__detailed-title,
-    &__label {
+    &__detailed-title {
         &_size_l {
             @include text-size(header-1);
         }
@@ -47,32 +46,6 @@ $block: '.#{$ns}price-description';
 
     &__detailed-title {
         margin-left: 4px;
-    }
-
-    &__label {
-        padding: 4px $indentXXS;
-        border-radius: 4px;
-        width: fit-content;
-
-        &_color_blue {
-            background: var(--pc-color-highlight-sky);
-        }
-
-        &_color_green {
-            background: var(--pc-color-highlight-mint);
-        }
-
-        &_color_yellow {
-            background: var(--pc-color-highlight-gold);
-        }
-
-        &_color_purple {
-            background: var(--pc-color-highlight-neon);
-        }
-
-        &_color_red {
-            background: var(--pc-color-highlight-tomato);
-        }
     }
 
     @media (max-width: map-get($gridBreakpoints, 'sm')) {
