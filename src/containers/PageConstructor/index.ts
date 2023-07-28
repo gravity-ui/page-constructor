@@ -1,3 +1,4 @@
+export * from './components';
 export type {PageConstructorProps} from './PageConstructor';
 export {PageConstructor} from './PageConstructor';
 export type {PageConstructorProviderProps} from './Provider';
