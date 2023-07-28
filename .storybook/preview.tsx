@@ -5,7 +5,7 @@ import {MobileProvider, Platform} from '@gravity-ui/uikit';
 import React from 'react';
 import {MINIMAL_VIEWPORTS} from '@storybook/addon-viewport';
 import type {Decorator, Preview} from '@storybook/react';
-import {themeLight, GlobalThemeController} from './theme';
+import {themeLight} from './theme/light';
 import {PageConstructorProvider} from '../src/containers/PageConstructor/Provider';
 import {withMobile} from './decorators/withMobile';
 import {withLang} from './decorators/withLang';
@@ -16,6 +16,7 @@ import {Theme} from '../src';
 import {configure, Lang} from '../src/utils/configure';
 
 import '../styles/styles.scss';
+import {GlobalThemeController} from './theme/utils/global-theme-controller';
 
 configure({
     lang: Lang.En,
