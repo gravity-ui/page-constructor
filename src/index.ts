@@ -3,6 +3,7 @@ export * from './context/theme';
 export * from './context/analyticsContext';
 
 export * from './containers/PageConstructor';
+export * from './containers/PageConstructor/components/ConstructorBlocks';
 export * from './grid';
 export * from './blocks';
 export * from './sub-blocks';
