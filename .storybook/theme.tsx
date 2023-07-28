@@ -1,4 +1,7 @@
+import React, {Fragment, useEffect} from 'react';
+
 import {create} from '@storybook/theming';
+import {Theme, useTheme} from '../src';
 
 export const themeLight = create({
     base: 'light',
