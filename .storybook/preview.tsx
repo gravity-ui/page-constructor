@@ -11,12 +11,12 @@ import {withMobile} from './decorators/withMobile';
 import {withLang} from './decorators/withLang';
 import {DocsDecorator} from './decorators/docs';
 
-import {withTheme} from '../src';
 import {Theme} from '../src';
 
 import {configure, Lang} from '../src/utils/configure';
 
 import '../styles/styles.scss';
+import {withTheme} from './decorators/withTheme';
 configure({
     lang: Lang.En,
 });
