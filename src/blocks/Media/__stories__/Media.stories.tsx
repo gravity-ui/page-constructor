@@ -41,6 +41,16 @@ const DefaultTemplate: StoryFn<MediaBlockModel> = (args) => (
                     ...args,
                     buttons: data.common.buttons as ButtonProps[],
                 },
+                {
+                    ...args,
+                    contentList: data.common.contentList.map((item) => {
+                        return {
+                            ...item,
+                            text: item?.text && yfmTransform(item.text),
+                        };
+                    }),
+                    links: data.common.links as LinkProps[],
+                },
             ],
         }}
     />

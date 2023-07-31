@@ -257,6 +257,11 @@ export const config: BlocksConfig = {
             fields: ['title', 'additionalInfo'],
             transformer: yfmTransformer,
         },
+        {
+            fields: ['contentList'],
+            transformer: yfmTransformer,
+            parser: createItemsParser(['text']),
+        },
     ],
     [BlockType.MapBlock]: [
         ...blockHeaderTransformer,
