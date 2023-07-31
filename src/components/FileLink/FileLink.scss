@@ -38,14 +38,16 @@ $block: '.#{$ns}file-link';
     &_size {
         &_l {
             #{$root}__file-label {
-                width: 60px;
+                @include text-size(body-2);
+                width: 56px;
             }
         }
 
         &_m,
         &_s {
             #{$root}__file-label {
-                width: 48px;
+                @include text-size(body-1);
+                width: 44px;
             }
         }
     }
