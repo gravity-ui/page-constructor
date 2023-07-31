@@ -7,6 +7,7 @@ import {Block, PageContent} from '../../../models';
 import {block, getBlockKey} from '../../../utils';
 import {BlockForm} from '../../components/BlockForm/BlockForm';
 import {PagePropsForm, PagePropsFormData} from '../../components/PagePropsForm/PagePropsForm';
+import {YamlEditor} from '../../components/YamlEditor/YamlEditor';
 import {FormSpecs} from '../../dynamic-forms-custom/parser/types';
 
 import './Form.scss';
@@ -14,6 +15,7 @@ import './Form.scss';
 enum FormTab {
     Blocks = 'blocks',
     Page = 'page',
+    Yaml = 'yaml',
 }
 
 const b = block('editor-form');
@@ -83,10 +85,14 @@ export const Form = memo(({content, onChange, activeBlockIndex, onSelect, spec}:
             );
             break;
         }
+        case FormTab.Yaml: {
+            form = <YamlEditor content={content} />;
+            break;
+        }
     }
 
     return (
-        <div className={b()}>
+        <div className={b({'yaml-editor-enabled': activeTab === FormTab.Yaml})}>
             <Tabs
                 activeTab={activeTab}
                 className={b('tabs')}
