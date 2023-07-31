@@ -12,7 +12,7 @@ const config = {
     docs: {
         autodocs: true,
     },
-    stories: ['./stories/**/*.mdx', '../src/**/*.stories.@(ts|tsx)'],
+    stories: ['./stories/**/*.mdx', '../src/**/*.mdx', '../src/**/*.stories.@(ts|tsx)'],
     addons: [
         '@storybook/preset-scss',
         {
