@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [3.14.0](https://github.com/gravity-ui/page-constructor/compare/v3.13.0...v3.14.0) (2023-07-31)
+
+
+### Features
+
+* added ConstructorBlocks to module for external using ([#464](https://github.com/gravity-ui/page-constructor/issues/464)) ([511b2ea](https://github.com/gravity-ui/page-constructor/commit/511b2eaf23a1ca4ceed1a840689a61734b5fb36a))
+
 ## [3.13.0](https://github.com/gravity-ui/page-constructor/compare/v3.12.2...v3.13.0) (2023-07-31)
 
 
