@@ -1,10 +1,12 @@
-import { Meta } from '@storybook/blocks';
+import {Meta} from '@storybook/blocks';
 
-<Meta title="Blocks/Questions/Params"/>
+import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
+import * as QuestionsStories from './Questions.stories.tsx';
 
-# Questions
+<Meta of={QuestionsStories} />
+<StoryTemplate/>
 
-## Questions block params
+## Parameters
 
 `type: 'questions-block'`
 
