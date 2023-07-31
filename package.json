@@ -80,7 +80,7 @@
     "test:watch": "jest --watchAll"
   },
   "dependencies": {
-    "@gravity-ui/dynamic-forms": "^1.9.2",
+    "@gravity-ui/dynamic-forms": "1.9.2",
     "@gravity-ui/i18n": "^1.0.0",
     "ajv": "^8.12.0",
     "bem-cn-lite": "^4.0.0",
