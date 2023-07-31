@@ -33,10 +33,10 @@ const LabelColorsMapping = {
 };
 
 const LabelSizeMap: Record<TextSize, LabelProps['size']> = {
-    l: 'm',
-    m: 'm',
-    s: 's',
-    xs: 's',
+    l: 's',
+    m: 's',
+    s: 'xs',
+    xs: 'xs',
 };
 
 const PriceDescription = (props: PriceDescriptionExtendProps) => {
@@ -98,7 +98,7 @@ const PriceDescription = (props: PriceDescriptionExtendProps) => {
         const labelSize = LabelSizeMap[label.size || descriptionSize];
 
         return (
-            <Label className={b('label')} theme={labelColor} size={labelSize}>
+            <Label className={b('label', {size: labelSize})} theme={labelColor} size={labelSize}>
                 {labelTitle}
             </Label>
         );

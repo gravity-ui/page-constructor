@@ -48,6 +48,16 @@ $block: '.#{$ns}price-description';
         margin-left: 4px;
     }
 
+    &__label {
+        &_size_s {
+            @include text-size(body-2);
+        }
+
+        &_size_xs {
+            @include text-size(body-1);
+        }
+    }
+
     @media (max-width: map-get($gridBreakpoints, 'sm')) {
         min-width: 160px;
     }
