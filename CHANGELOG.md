@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [3.12.2](https://github.com/gravity-ui/page-constructor/compare/v3.12.1...v3.12.2) (2023-07-31)
+
+
+### Bug Fixes
+
+* **Navigation:** navigation mobile icons ([#465](https://github.com/gravity-ui/page-constructor/issues/465)) ([a40e6f5](https://github.com/gravity-ui/page-constructor/commit/a40e6f5d4de495b722de22629f029e79d51cec25))
+
 ## [3.12.1](https://github.com/gravity-ui/page-constructor/compare/v3.12.0...v3.12.1) (2023-07-27)
 
 
