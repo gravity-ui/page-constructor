@@ -7,6 +7,7 @@ import {
     ButtonProps,
     ClassNameProps,
     ContentBlockProps,
+    ContentItemProps,
     ContentTheme,
     LinkProps,
 } from '../../../models';
@@ -18,6 +19,13 @@ export default {
     component: Content,
     title: 'Components/Content',
 } as Meta;
+
+const transformedContentList = data.default.content.contentList.map((item) => {
+    return {
+        ...item,
+        text: item?.text && yfm(item.text).result.html,
+    };
+}) as ContentItemProps[];
 
 const DefaultTemplate: StoryFn<ContentBlockProps & ClassNameProps> = (args) => (
     <div>
@@ -33,6 +41,13 @@ const DefaultTemplate: StoryFn<ContentBlockProps & ClassNameProps> = (args) => (
         <div style={{paddingBottom: '64px'}}>
             <Content {...args} buttons={data.default.content.buttons as ButtonProps[]} />
         </div>
+        <div style={{paddingBottom: '64px'}}>
+            <Content
+                {...args}
+                contentList={transformedContentList}
+                links={data.default.content.links as LinkProps[]}
+            />
+        </div>
     </div>
 );
 
@@ -42,6 +57,7 @@ const SizeTemplate: StoryFn<ContentBlockProps & ClassNameProps> = (args) => (
             <Content
                 {...args}
                 title={data.size.l.title}
+                contentList={transformedContentList}
                 buttons={data.default.content.buttons as ButtonProps[]}
             />
         </div>
@@ -49,6 +65,7 @@ const SizeTemplate: StoryFn<ContentBlockProps & ClassNameProps> = (args) => (
             <Content
                 {...args}
                 title={data.size.s.title}
+                contentList={transformedContentList}
                 buttons={data.default.content.buttons as ButtonProps[]}
                 size="s"
             />

@@ -6,7 +6,7 @@
   },
   "default": {
     "content": {
-      "title": "Lorem ipsumt",
+      "title": "Lorem ipsum",
       "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
       "additionalInfo": "Duis aute irure dolor in [reprehenderit](https://example.com) n voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
       "links": [
@@ -27,6 +27,30 @@
           "text": "Button",
           "theme": "outlined",
           "url": "#"
+        }
+      ],
+      "contentList": [
+        {
+          "icon": {
+            "light": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_1_light.svg",
+            "dark": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_1_dark.svg"
+          },
+          "title": "Lorem ipsum",
+          "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        },
+        {
+          "icon": {
+            "light": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_2_light.svg",
+            "dark": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_2_dark.svg"
+          },
+          "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        },
+        {
+          "icon": {
+            "light": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_3_light.svg",
+            "dark": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_3_dark.svg"
+          },
+          "title": "Lorem ipsum ipsum"
         }
       ]
     }

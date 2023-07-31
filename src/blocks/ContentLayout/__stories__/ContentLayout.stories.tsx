@@ -1,5 +1,6 @@
 import React from 'react';
 
+import yfm from '@doc-tools/transform';
 import {Meta, StoryFn} from '@storybook/react';
 
 import {yfmTransform} from '../../../../.storybook/utils';
@@ -45,6 +46,19 @@ const DefaultTemplate: StoryFn<ContentLayoutBlockModel> = (args) => (
                     textContent: {
                         ...args.textContent,
                         buttons: data.common.buttons as ButtonProps[],
+                    },
+                },
+                {
+                    ...args,
+                    textContent: {
+                        ...args.textContent,
+                        contentList: data.common.contentList.map((item) => {
+                            return {
+                                ...item,
+                                text: item?.text && yfm(item.text).result.html,
+                            };
+                        }),
+                        links: data.common.links as LinkProps[],
                     },
                 },
             ],

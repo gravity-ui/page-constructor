@@ -1,0 +1,42 @@
+@import '../../../../styles/variables.scss';
+@import '../../../../styles/mixins.scss';
+
+$block: '.#{$ns}content-list';
+$iconSize: 22px;
+
+#{$block} {
+    &_size_l {
+        margin-top: $indentSM;
+
+        #{$block}__title {
+            @include text-size(header-1);
+
+            margin: 0 0 $indentXXXS;
+        }
+    }
+
+    &_size_s {
+        margin-top: $indentXS;
+
+        #{$block}__title {
+            @include text-size(subheader-3);
+
+            margin: 0 0 calc(#{$indentXXXS} / 2);
+        }
+    }
+
+    &__icon {
+        display: block;
+        margin-right: $indentXXS;
+        width: $iconSize;
+        height: $iconSize;
+    }
+
+    &__item {
+        display: flex;
+
+        &:not(:last-child) {
+            margin-bottom: $indentXS;
+        }
+    }
+}

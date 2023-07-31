@@ -331,6 +331,12 @@ export interface ContentLayoutBlockProps extends ContentLayoutBlockParams {
     fileContent?: FileLinkProps[];
 }
 
+export interface ContentItemProps {
+    title?: string;
+    text?: string;
+    icon: ThemedImage;
+}
+
 export interface ContentBlockProps {
     title?: TitleItemBaseProps | string;
     text?: string;
@@ -341,6 +347,7 @@ export interface ContentBlockProps {
     colSizes?: GridColumnSizesType;
     centered?: boolean;
     theme?: ContentTheme;
+    contentList?: ContentItemProps[];
 }
 
 export enum PCShareSocialNetwork {
