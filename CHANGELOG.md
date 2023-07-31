@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [3.13.0](https://github.com/gravity-ui/page-constructor/compare/v3.12.2...v3.13.0) (2023-07-31)
+
+
+### Features
+
+* yaml tab in editor (read-only) ([#449](https://github.com/gravity-ui/page-constructor/issues/449)) ([7a8e187](https://github.com/gravity-ui/page-constructor/commit/7a8e187e0771469b98c9322cf19f723bada6fad5))
+
 ## [3.12.2](https://github.com/gravity-ui/page-constructor/compare/v3.12.1...v3.12.2) (2023-07-31)
 
 
