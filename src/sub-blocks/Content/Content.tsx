@@ -75,7 +75,7 @@ const Content = (props: ContentBlockProps & ClassNameProps) => {
                     />
                 </div>
             )}
-            {list?.length && Boolean(list.length) && <ContentList list={list} size={size} />}
+            {list?.length ? <ContentList list={list} size={size} /> : null}
             {additionalInfo && (
                 <div className={b('notice')}>
                     <YFMWrapper
