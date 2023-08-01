@@ -21,13 +21,13 @@ const ContentList = ({contentList, size}: ContentListProps) => {
 
     return (
         <div className={b({size})}>
-            {contentList?.map((item) => {
+            {contentList?.map((item, index) => {
                 const {icon, title, text} = item;
                 const iconThemed = getThemedValue(icon, theme);
                 const iconData = getMediaImage(iconThemed);
 
                 return (
-                    <div className={b('item')} key={title || text}>
+                    <div className={b('item')} key={index}>
                         <Image {...iconData} className={b('icon')} />
                         <div>
                             {title && <h4 className={b('title')}>{title}</h4>}

@@ -75,7 +75,7 @@ const Content = (props: ContentBlockProps & ClassNameProps) => {
                     />
                 </div>
             )}
-            {contentList && <ContentList contentList={contentList} size={size} />}
+            {contentList?.length && <ContentList contentList={contentList} size={size} />}
             {additionalInfo && (
                 <div className={b('notice')}>
                     <YFMWrapper
