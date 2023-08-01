@@ -60,7 +60,7 @@ export const ContentBase = {
         type: 'string',
         enum: contentThemes,
     },
-    contentList: filteredArray(ContentItem),
+    list: filteredArray(ContentItem),
 };
 
 export const ContentBlock = {

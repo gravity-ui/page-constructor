@@ -54,7 +54,7 @@ const Content = (props: ContentBlockProps & ClassNameProps) => {
         centered,
         theme,
         className,
-        contentList,
+        list,
     } = props;
 
     const titleProps =
@@ -75,7 +75,7 @@ const Content = (props: ContentBlockProps & ClassNameProps) => {
                     />
                 </div>
             )}
-            {contentList?.length && <ContentList contentList={contentList} size={size} />}
+            {list?.length && <ContentList list={list} size={size} />}
             {additionalInfo && (
                 <div className={b('notice')}>
                     <YFMWrapper

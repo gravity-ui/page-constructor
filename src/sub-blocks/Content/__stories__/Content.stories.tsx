@@ -20,7 +20,7 @@ export default {
     title: 'Components/Content',
 } as Meta;
 
-const transformedContentList = data.default.content.contentList.map((item) => {
+const transformedContentList = data.default.content.list.map((item) => {
     return {
         ...item,
         text: item?.text && yfmTransform(item.text),
@@ -41,7 +41,7 @@ const DefaultTemplate: StoryFn<ContentBlockProps & ClassNameProps> = (args) => (
         <div style={{paddingBottom: '64px'}}>
             <Content
                 {...args}
-                contentList={transformedContentList}
+                list={transformedContentList}
                 links={data.default.content.links as LinkProps[]}
             />
         </div>
@@ -54,7 +54,7 @@ const SizeTemplate: StoryFn<ContentBlockProps & ClassNameProps> = (args) => (
             <Content
                 {...args}
                 title={data.size.l.title}
-                contentList={transformedContentList}
+                list={transformedContentList}
                 buttons={data.default.content.buttons as ButtonProps[]}
             />
         </div>
@@ -62,7 +62,7 @@ const SizeTemplate: StoryFn<ContentBlockProps & ClassNameProps> = (args) => (
             <Content
                 {...args}
                 title={data.size.s.title}
-                contentList={transformedContentList}
+                list={transformedContentList}
                 buttons={data.default.content.buttons as ButtonProps[]}
                 size="s"
             />

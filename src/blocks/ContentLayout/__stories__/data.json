@@ -49,7 +49,7 @@
         "text": "PPT file"
       }
     ],
-    "contentList": [
+    "list": [
       {
         "icon": {
           "light": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_1_light.svg",

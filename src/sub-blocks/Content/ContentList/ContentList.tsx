@@ -12,16 +12,16 @@ import './ContentList.scss';
 const b = block('content-list');
 
 interface ContentListProps {
-    contentList: ContentItemProps[];
+    list: ContentItemProps[];
     size: ContentSize;
 }
 
-const ContentList = ({contentList, size}: ContentListProps) => {
+const ContentList = ({list, size}: ContentListProps) => {
     const {themeValue: theme} = useContext(ThemeValueContext);
 
     return (
         <div className={b({size})}>
-            {contentList?.map((item, index) => {
+            {list?.map((item, index) => {
                 const {icon, title, text} = item;
                 const iconThemed = getThemedValue(icon, theme);
                 const iconData = getMediaImage(iconThemed);

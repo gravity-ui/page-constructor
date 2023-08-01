@@ -51,7 +51,7 @@ const DefaultTemplate: StoryFn<ContentLayoutBlockModel> = (args) => (
                     ...args,
                     textContent: {
                         ...args.textContent,
-                        contentList: data.common.contentList.map((item) => {
+                        list: data.common.list.map((item) => {
                             return {
                                 ...item,
                                 text: item?.text && yfmTransform(item.text),

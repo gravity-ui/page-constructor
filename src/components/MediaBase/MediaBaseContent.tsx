@@ -19,7 +19,7 @@ const MediaContent = (props: MediaContentProps) => {
         buttons = [],
         additionalInfo,
         size = 'l',
-        contentList,
+        list,
     } = props;
     const allButtons = button ? [{...button, size: 'xl' as ButtonSize}, ...buttons] : buttons;
     return (
@@ -30,7 +30,7 @@ const MediaContent = (props: MediaContentProps) => {
                 links={links}
                 theme="default"
                 buttons={allButtons}
-                contentList={contentList}
+                list={list}
                 additionalInfo={additionalInfo}
                 size={size}
                 colSizes={{all: 12, md: 12}}

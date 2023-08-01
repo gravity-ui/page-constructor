@@ -91,7 +91,7 @@ function parsePriceDetailedBlock(transformer: Transformer, block: PriceDetailedP
 
 const parseContentLayout = (transformer: Transformer, content: ContentBlockProps) => {
     if (content) {
-        const {text, additionalInfo, contentList} = content;
+        const {text, additionalInfo, list} = content;
 
         /* eslint-disable no-not-accumulator-reassign/no-not-accumulator-reassign */
         if (text) {
@@ -102,8 +102,8 @@ const parseContentLayout = (transformer: Transformer, content: ContentBlockProps
             content.additionalInfo = transformer(additionalInfo);
         }
 
-        if (contentList) {
-            content.contentList = contentList.map((item) => {
+        if (list) {
+            content.list = list.map((item) => {
                 if (item?.text) {
                     return {
                         ...item,
@@ -258,7 +258,7 @@ export const config: BlocksConfig = {
             transformer: yfmTransformer,
         },
         {
-            fields: ['contentList'],
+            fields: ['list'],
             transformer: yfmTransformer,
             parser: createItemsParser(['text']),
         },
@@ -337,7 +337,7 @@ export const config: BlocksConfig = {
             parser: parseTitle,
         },
         {
-            fields: ['contentList'],
+            fields: ['list'],
             transformer: yfmTransformer,
             parser: createItemsParser(['text']),
         },

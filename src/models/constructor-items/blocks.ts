@@ -345,7 +345,7 @@ export interface ContentBlockProps {
     colSizes?: GridColumnSizesType;
     centered?: boolean;
     theme?: ContentTheme;
-    contentList?: ContentItemProps[];
+    list?: ContentItemProps[];
 }
 
 export enum PCShareSocialNetwork {
