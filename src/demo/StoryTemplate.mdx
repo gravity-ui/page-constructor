@@ -1,10 +1,10 @@
 import {Title, Subtitle, Description, Primary, Controls, Stories, Meta, Markdown } from '@storybook/blocks';
 
-{/* you could pass template params if needed like <StoryTemplate foo="bar"/>*/}
-export const StoryTemplate = () => (
+export const StoryTemplate = ({children}) => (
     <>
         <Title />
         <Subtitle />
+        {children}
         <Primary />
         <Controls />
         <Stories />
