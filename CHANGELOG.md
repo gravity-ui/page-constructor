@@ -1,6 +1,39 @@
 # Changelog
 
 
+## [3.15.0](https://github.com/gravity-ui/page-constructor/compare/v3.14.0...v3.15.0) (2023-08-01)
+
+
+### Features
+
+* add blocks readme to mdx ([#467](https://github.com/gravity-ui/page-constructor/issues/467)) ([a706cf5](https://github.com/gravity-ui/page-constructor/commit/a706cf5e8c87e2ec99d3971048c30a55d20d852d))
+
+
+### Bug Fixes
+
+* mobile navigation ssr problem ([#473](https://github.com/gravity-ui/page-constructor/issues/473)) ([fda45a4](https://github.com/gravity-ui/page-constructor/commit/fda45a42e708bfbef58f426b98e3a1ed62e687ca))
+
+## [3.14.0](https://github.com/gravity-ui/page-constructor/compare/v3.13.0...v3.14.0) (2023-07-31)
+
+
+### Features
+
+* added ConstructorBlocks to module for external using ([#464](https://github.com/gravity-ui/page-constructor/issues/464)) ([511b2ea](https://github.com/gravity-ui/page-constructor/commit/511b2eaf23a1ca4ceed1a840689a61734b5fb36a))
+
+## [3.13.0](https://github.com/gravity-ui/page-constructor/compare/v3.12.2...v3.13.0) (2023-07-31)
+
+
+### Features
+
+* yaml tab in editor (read-only) ([#449](https://github.com/gravity-ui/page-constructor/issues/449)) ([7a8e187](https://github.com/gravity-ui/page-constructor/commit/7a8e187e0771469b98c9322cf19f723bada6fad5))
+
+## [3.12.2](https://github.com/gravity-ui/page-constructor/compare/v3.12.1...v3.12.2) (2023-07-31)
+
+
+### Bug Fixes
+
+* **Navigation:** navigation mobile icons ([#465](https://github.com/gravity-ui/page-constructor/issues/465)) ([a40e6f5](https://github.com/gravity-ui/page-constructor/commit/a40e6f5d4de495b722de22629f029e79d51cec25))
+
 ## [3.12.1](https://github.com/gravity-ui/page-constructor/compare/v3.12.0...v3.12.1) (2023-07-27)
 
 

@@ -1,4 +1,11 @@
-Questions block
+import {Meta} from '@storybook/blocks';
+
+import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
+import * as QuestionsStories from './Questions.stories.tsx';
+
+<Meta of={QuestionsStories} />
+<StoryTemplate>
+## Parameters
 
 `type: 'questions-block'`
 
@@ -18,3 +25,5 @@ Questions block
 - `text: string` — Question text
 - `link?: Link` — Link below the text (see [Link](?id=components-links-and-buttons-link--default&viewMode=docs))
 - `listStyle?: 'dash' | 'disk'` — If the text contains a list, it may be either with a dash (dash) or with dots (disk).
+</StoryTemplate>
+

@@ -1,3 +1,12 @@
+import {Meta} from '@storybook/blocks';
+
+import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
+import * as ContentLayoutStories from './ContentLayout.stories.tsx';
+
+<Meta of={ContentLayoutStories} />
+<StoryTemplate>
+## Parameters
+
 `properties:` — Content cube properties (optional)
 
 - `size?: 's' | 'l'` — Cube size that defines font sizes ('l' by default)
@@ -12,3 +21,4 @@
 
 - `href: string` — File download link
 - `text: string` — File description
+</StoryTemplate>

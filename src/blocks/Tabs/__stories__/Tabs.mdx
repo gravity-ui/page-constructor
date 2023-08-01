@@ -1,4 +1,11 @@
-Tabs block
+import {Meta} from '@storybook/blocks';
+
+import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
+import * as TabsStories from './Tabs.stories.tsx';
+
+<Meta of={TabsStories} />
+<StoryTemplate>
+## Parameters
 
 `type: tabs-block`
 
@@ -31,3 +38,5 @@ Tabs block
 - `image?: string | ImageObjectProps` — Image.
 - [`media: Media` — Media description](?path=/story/information--common-types&viewMode=docs#media---picvideodatalens)
 - `caption?: string` — Image caption.
+
+</StoryTemplate>

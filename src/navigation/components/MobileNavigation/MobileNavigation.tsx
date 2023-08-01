@@ -3,6 +3,7 @@ import React from 'react';
 import {Portal} from '@gravity-ui/uikit';
 
 import Foldable from '../../../components/Foldable/Foldable';
+import {useMount} from '../../../hooks';
 import {block} from '../../../utils';
 import {ItemColumnName, MobileNavigationProps, NavigationLayout} from '../../models';
 import {NavigationList} from '../NavigationList/NavigationList';
@@ -17,7 +18,11 @@ const MobileNavigation: React.FC<MobileNavigationProps> = ({
     bottomItems,
     ...props
 }) => {
-    if (typeof window === 'undefined') {
+    const [isMounted, setIsMounted] = React.useState(false);
+
+    useMount(() => setIsMounted(true));
+
+    if (!isMounted) {
         return null;
     }
 
