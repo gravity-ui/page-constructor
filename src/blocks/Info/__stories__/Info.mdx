@@ -1,4 +1,11 @@
-Info block
+import {Meta} from '@storybook/blocks';
+
+import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
+import * as InfoStories from './Info.stories.tsx';
+
+<Meta of={InfoStories} />
+<StoryTemplate>
+## Parameters
 
 `type: 'info-block'`
 
@@ -9,3 +16,5 @@ Info block
 `rightContent?` - See the [Content](?path=/story/components-content--default&viewMode=docs) component
 
 `leftContent?` - See the [Content](?path=/story/components-content--default&viewMode=docs) component
+</StoryTemplate>
+

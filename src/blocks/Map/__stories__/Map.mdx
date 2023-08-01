@@ -1,6 +1,14 @@
-Media block
+import {Meta} from '@storybook/blocks';
 
-`type: media-block`
+import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
+import * as MapStories from './Map.stories.tsx';
+
+<Meta of={MapStories} />
+<StoryTemplate>
+
+## Parameters
+
+`type: map-block`
 
 `title: string` — Title.
 
@@ -8,9 +16,11 @@ Media block
 
 [`button: Button` — Button](?path=/story/information--common-types&viewMode=docs#button---button)
 
-[`media: Media` — Media description](?path=/story/information--common-types&viewMode=docs#common-types)
+[`map: Map` — Map description](?path=/story/components-map--y-map&viewMode=docs)
 
-`direction: 'media-content' | 'content-media'` — Relative position of media and content.
+`direction: 'media-content' | 'content-media'` — Relative position of map and content.
+
+`mobileDirection: 'media-content' | 'content-media'` - Relative position of map and content for touch
 
 `largeMedia?: boolean` — An image/video takes 8 columns.
 
@@ -21,3 +31,4 @@ Media block
 [`links?: Link[]` — An array with link objects](?path=/story/information--common-types&viewMode=docs#link---link)
 
 [`buttons?: Button[]` — An array with button objects](?path=/story/information--common-types&viewMode=docs#button---button)
+</StoryTemplate>
