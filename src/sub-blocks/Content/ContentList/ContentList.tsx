@@ -28,7 +28,7 @@ const ContentList = ({contentList, size}: ContentListProps) => {
 
                 return (
                     <div className={b('item')} key={title || text}>
-                        {icon && <Image {...iconData} className={b('icon')} />}
+                        <Image {...iconData} className={b('icon')} />
                         <div>
                             {title && <h4 className={b('title')}>{title}</h4>}
                             {text && (

@@ -1,8 +1,8 @@
 import React from 'react';
 
-import yfm from '@doc-tools/transform';
 import {Meta, StoryFn} from '@storybook/react';
 
+import {yfmTransform} from '../../../../.storybook/utils';
 import {
     ButtonProps,
     ClassNameProps,
@@ -23,17 +23,14 @@ export default {
 const transformedContentList = data.default.content.contentList.map((item) => {
     return {
         ...item,
-        text: item?.text && yfm(item.text).result.html,
+        text: item?.text && yfmTransform(item.text),
     };
 }) as ContentItemProps[];
 
 const DefaultTemplate: StoryFn<ContentBlockProps & ClassNameProps> = (args) => (
     <div>
         <div style={{paddingBottom: '64px'}}>
-            <Content
-                {...args}
-                additionalInfo={yfm(data.default.content.additionalInfo).result.html}
-            />
+            <Content {...args} additionalInfo={yfmTransform(data.default.content.additionalInfo)} />
         </div>
         <div style={{paddingBottom: '64px'}}>
             <Content {...args} links={data.default.content.links as LinkProps[]} />
@@ -101,7 +98,7 @@ export const Theme = ThemeTemplate.bind({});
 
 const defaultArgs = {
     title: data.default.content.title,
-    text: yfm(data.default.content.text).result.html,
+    text: yfmTransform(data.default.content.text),
 };
 
 Default.args = {
