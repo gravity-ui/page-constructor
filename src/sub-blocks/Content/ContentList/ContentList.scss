@@ -2,7 +2,10 @@
 @import '../../../../styles/mixins.scss';
 
 $block: '.#{$ns}content-list';
-$iconSize: 22px;
+$iconSizeL: 22px;
+$iconSizeS: 20px;
+$marginIconSizeS: 2px;
+$marginIconSizeL: 1px;
 
 #{$block} {
     &_size_l {
@@ -12,6 +15,20 @@ $iconSize: 22px;
             @include text-size(header-1);
 
             margin: 0 0 $indentXXXS;
+        }
+
+        #{$block}__icon {
+            width: $iconSizeL;
+            height: $iconSizeL;
+            margin-top: $marginIconSizeL;
+            margin-bottom: $marginIconSizeL;
+            margin-right: $indentXXS;
+        }
+
+        #{$block}__item {
+            &:not(:last-child) {
+                margin-bottom: $indentXS;
+            }
         }
     }
 
@@ -23,20 +40,31 @@ $iconSize: 22px;
 
             margin: 0 0 calc(#{$indentXXXS} / 2);
         }
+
+        #{$block}__icon {
+            width: $iconSizeS;
+            height: $iconSizeS;
+            margin-top: $marginIconSizeS;
+            margin-bottom: $marginIconSizeS;
+            margin-right: $indentXXXS;
+        }
+
+        #{$block}__text {
+            @include text-size(body-1);
+        }
+
+        #{$block}__item {
+            &:not(:last-child) {
+                margin-bottom: $indentXXS;
+            }
+        }
     }
 
     &__icon {
         display: block;
-        margin-right: $indentXXS;
-        width: $iconSize;
-        height: $iconSize;
     }
 
     &__item {
         display: flex;
-
-        &:not(:last-child) {
-            margin-bottom: $indentXS;
-        }
     }
 }
