@@ -1,5 +1,7 @@
 import React, {useContext} from 'react';
 
+import {v4 as uuidv4} from 'uuid';
+
 import {YFMWrapper} from '../../../components';
 import Image from '../../../components/Image/Image';
 import {getMediaImage} from '../../../components/Media/Image/utils';
@@ -21,13 +23,13 @@ const ContentList = ({list, size}: ContentListProps) => {
 
     return (
         <div className={b({size})}>
-            {list?.map((item, index) => {
+            {list?.map((item) => {
                 const {icon, title, text} = item;
                 const iconThemed = getThemedValue(icon, theme);
                 const iconData = getMediaImage(iconThemed);
 
                 return (
-                    <div className={b('item')} key={index}>
+                    <div className={b('item')} key={uuidv4()}>
                         <Image {...iconData} className={b('icon')} />
                         <div>
                             {title && <h4 className={b('title')}>{title}</h4>}
