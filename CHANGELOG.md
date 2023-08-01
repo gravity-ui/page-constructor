@@ -1,6 +1,18 @@
 # Changelog
 
 
+## [3.15.0](https://github.com/gravity-ui/page-constructor/compare/v3.14.0...v3.15.0) (2023-08-01)
+
+
+### Features
+
+* add blocks readme to mdx ([#467](https://github.com/gravity-ui/page-constructor/issues/467)) ([a706cf5](https://github.com/gravity-ui/page-constructor/commit/a706cf5e8c87e2ec99d3971048c30a55d20d852d))
+
+
+### Bug Fixes
+
+* mobile navigation ssr problem ([#473](https://github.com/gravity-ui/page-constructor/issues/473)) ([fda45a4](https://github.com/gravity-ui/page-constructor/commit/fda45a42e708bfbef58f426b98e3a1ed62e687ca))
+
 ## [3.14.0](https://github.com/gravity-ui/page-constructor/compare/v3.13.0...v3.14.0) (2023-07-31)
 
 
