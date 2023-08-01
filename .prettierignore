@@ -12,6 +12,7 @@ styles/styles.css
 CHANGELOG.md
 CONTRIBUTING.md
 /coverage
+/widget
 
 # npm files
 package.json
