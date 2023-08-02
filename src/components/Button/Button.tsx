@@ -26,7 +26,7 @@ const b = block('button-block');
 
 const Button = (props: ButtonProps) => {
     const handleMetrika = useMetrika();
-    const {lang, tld} = useContext(LocaleContext);
+    const {tld} = useContext(LocaleContext);
     const {
         className,
         metrikaGoals,
@@ -74,7 +74,7 @@ const Button = (props: ButtonProps) => {
     if (theme === 'app-store' || theme === 'google-play') {
         const platform = theme === 'app-store' ? Platform.IOS : Platform.ANDROID;
 
-        return <StoreBadge className={buttonClass} platform={platform} lang={lang} url={url} />;
+        return <StoreBadge className={buttonClass} platform={platform} href={url} />;
     }
 
     let icon;
