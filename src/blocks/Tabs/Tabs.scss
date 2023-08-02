@@ -42,7 +42,7 @@ $block: '.#{$ns}tabs-block';
         @include text-size(body-2);
 
         margin: $indentXXS 0 0;
-        color: var(--yc-color-text-secondary);
+        color: var(--g-color-text-secondary);
     }
 
     &__content {

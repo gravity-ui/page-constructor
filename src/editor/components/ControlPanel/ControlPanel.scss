@@ -9,10 +9,10 @@ $block: '.#{$ns}control-panel';
     display: flex;
     justify-content: center;
     width: 100%;
-    height: var(--editor-header-height);
+    height: var(--pc-editor-header-height);
     padding: $indentXXXS $indentS;
-    background-color: var(--yc-color-base-background);
-    border: 1px var(--yc-color-line-generic);
+    background-color: var(--g-color-base-background);
+    border: 1px var(--g-color-line-generic);
     border-style: solid none;
 
     &__icon {

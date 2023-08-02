@@ -8,8 +8,7 @@ $block: '.#{$ns}price-description';
 
     &__title,
     &__description,
-    &__detailed-title,
-    &__label {
+    &__detailed-title {
         &_size_l {
             @include text-size(header-1);
         }
@@ -27,11 +26,11 @@ $block: '.#{$ns}price-description';
         font-weight: 500;
 
         &_color_cornflower {
-            color: var(--yc-my-color-brand-normal);
+            color: var(--g-color-base-brand);
         }
 
         &_color_black {
-            color: var(--yc-color-text-primary);
+            color: var(--g-color-text-primary);
         }
     }
 
@@ -50,28 +49,12 @@ $block: '.#{$ns}price-description';
     }
 
     &__label {
-        padding: 4px $indentXXS;
-        border-radius: 4px;
-        width: fit-content;
-
-        &_color_blue {
-            background: var(--yc-color-promo-highlight-sky);
+        &_size_s {
+            @include text-size(body-2);
         }
 
-        &_color_green {
-            background: var(--yc-color-promo-highlight-mint);
-        }
-
-        &_color_yellow {
-            background: var(--yc-color-promo-highlight-gold);
-        }
-
-        &_color_purple {
-            background: var(--yc-color-promo-highlight-neon);
-        }
-
-        &_color_red {
-            background: var(--yc-color-promo-highlight-tomato);
+        &_size_xs {
+            @include text-size(body-1);
         }
     }
 

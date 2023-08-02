@@ -1,14 +1,14 @@
 @import '../../../../styles/variables.scss';
 
 @mixin dynamic-form-custom {
-    --top-level-font-size: var(--yc-text-display-2-font-size);
-    --top-level-line-height: var(--yc-text-display-2-line-height);
-    --block-level-complex-propery-font-size: var(--yc-text-body-3-font-size);
-    --block-level-complex-property-line-height: var(--yc-text-body-3-line-height);
-    --complex-property-font-size: var(--yc-text-body-2-font-size);
-    --complex-property-line-height: var(--yc-text-body-2-line-height);
-    --property-font-size: var(--yc-text-body-1-font-size);
-    --property-line-height: var(--yc-text-body-1-line-height);
+    --top-level-font-size: var(--g-text-display-2-font-size);
+    --top-level-line-height: var(--g-text-display-2-line-height);
+    --block-level-complex-propery-font-size: var(--g-text-body-3-font-size);
+    --block-level-complex-property-line-height: var(--g-text-body-3-line-height);
+    --complex-property-font-size: var(--g-text-body-2-font-size);
+    --complex-property-line-height: var(--g-text-body-2-line-height);
+    --property-font-size: var(--g-text-body-1-font-size);
+    --property-line-height: var(--g-text-body-1-line-height);
 
     --input-min-width: 150px;
     --property-title-width: 96px;
@@ -83,7 +83,7 @@
 
     .df-simple-vertical-accordeon__header {
         .yc-button {
-            --yc-button-height: var(--button-height);
+            --g-button-height: var(--button-height);
 
             display: flex;
             justify-content: center;
@@ -92,7 +92,7 @@
             .yc-button__icon-inner > svg {
                 width: var(--icon-size);
                 height: var(--icon-size);
-                color: var(--yc-color-text-hint);
+                color: var(--g-color-text-hint);
             }
 
             .yc-button__icon_side_right ~ .yc-button__text {
@@ -117,7 +117,7 @@
         padding-top: 4px;
         padding-bottom: 4px;
         padding-left: $indentXXS;
-        border-left: 1px solid var(--yc-color-line-generic-accent);
+        border-left: 1px solid var(--g-color-line-generic-accent);
     }
 
     .df-simple-vertical-accordeon_branch .df-simple-vertical-accordeon__body {

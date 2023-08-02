@@ -13,7 +13,7 @@ $authorBorderRadius: $indentXS;
 
     display: flex;
     flex-direction: column;
-    color: var(--yc-color-text-secondary);
+    color: var(--g-color-text-secondary);
 
     &__avatar {
         width: $imageWidth;
@@ -35,7 +35,7 @@ $authorBorderRadius: $indentXS;
     &__name {
         @include text-size(body-3);
 
-        color: var(--yc-color-text-primary);
+        color: var(--g-color-text-primary);
     }
 
     &__description {

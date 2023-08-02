@@ -62,7 +62,7 @@ const DefaultPreview: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
             width="56.7907"
             height="56.7907"
             rx="5.16279"
-            fill="#A967FF"
+            fill="currentColor"
         />
         <rect x="0.5" y="0.5" width="149" height="75" rx="8.5" stroke="black" strokeOpacity="0.1" />
     </svg>

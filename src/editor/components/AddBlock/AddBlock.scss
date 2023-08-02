@@ -12,7 +12,7 @@ $block: '.#{$ns}add-block';
 
     position: absolute;
     bottom: $indentM;
-    left: calc(50% + var(--editor-left-column-width) / 2);
+    left: calc(50% + var(--pc-editor-left-column-width) / 2);
     transform: translateX(-50%);
     z-index: 110;
 
@@ -23,8 +23,8 @@ $block: '.#{$ns}add-block';
         width: $buttonWidth;
         height: $buttonHeight;
 
-        color: var(--yc-color-text-inverted-primary);
-        background-color: var(--yc-color-promo-base-neon);
+        color: var(--g-color-text-primary);
+        background-color: var(--pc-editor-base-color);
         border-radius: $editorControlBorderRadius;
     }
 
@@ -74,6 +74,7 @@ $block: '.#{$ns}add-block';
         height: $previewHeight;
         border-radius: $borderRadius;
         margin-right: $indentXS;
+        color: var(--pc-editor-base-color);
     }
 
     #{$block}__title {

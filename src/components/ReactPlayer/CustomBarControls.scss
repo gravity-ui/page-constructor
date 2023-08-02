@@ -19,7 +19,7 @@ $controlSize: 64px;
         width: $controlSize;
         height: $controlSize;
 
-        background: var(--yc-color-base-background);
+        background: var(--g-color-base-background);
         transition: background-color $animationDuration;
 
         &:hover {
