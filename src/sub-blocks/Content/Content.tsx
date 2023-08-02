@@ -6,6 +6,8 @@ import {Col} from '../../grid';
 import {ClassNameProps, ContentBlockProps, ContentSize, TitleItemProps} from '../../models';
 import {block} from '../../utils';
 
+import ContentList from './ContentList/ContentList';
+
 import './Content.scss';
 
 const b = block('content');
@@ -52,6 +54,7 @@ const Content = (props: ContentBlockProps & ClassNameProps) => {
         centered,
         theme,
         className,
+        list,
     } = props;
 
     const titleProps =
@@ -72,6 +75,7 @@ const Content = (props: ContentBlockProps & ClassNameProps) => {
                     />
                 </div>
             )}
+            {list?.length ? <ContentList list={list} size={size} /> : null}
             {additionalInfo && (
                 <div className={b('notice')}>
                     <YFMWrapper

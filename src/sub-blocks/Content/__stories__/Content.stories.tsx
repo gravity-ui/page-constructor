@@ -1,12 +1,13 @@
 import React from 'react';
 
-import yfm from '@doc-tools/transform';
 import {Meta, StoryFn} from '@storybook/react';
 
+import {yfmTransform} from '../../../../.storybook/utils';
 import {
     ButtonProps,
     ClassNameProps,
     ContentBlockProps,
+    ContentItemProps,
     ContentTheme,
     LinkProps,
 } from '../../../models';
@@ -19,19 +20,30 @@ export default {
     title: 'Components/Content',
 } as Meta;
 
+const transformedContentList = data.default.content.list.map((item) => {
+    return {
+        ...item,
+        text: item?.text && yfmTransform(item.text),
+    };
+}) as ContentItemProps[];
+
 const DefaultTemplate: StoryFn<ContentBlockProps & ClassNameProps> = (args) => (
     <div>
         <div style={{paddingBottom: '64px'}}>
-            <Content
-                {...args}
-                additionalInfo={yfm(data.default.content.additionalInfo).result.html}
-            />
+            <Content {...args} additionalInfo={yfmTransform(data.default.content.additionalInfo)} />
         </div>
         <div style={{paddingBottom: '64px'}}>
             <Content {...args} links={data.default.content.links as LinkProps[]} />
         </div>
         <div style={{paddingBottom: '64px'}}>
             <Content {...args} buttons={data.default.content.buttons as ButtonProps[]} />
+        </div>
+        <div style={{paddingBottom: '64px'}}>
+            <Content
+                {...args}
+                list={transformedContentList}
+                links={data.default.content.links as LinkProps[]}
+            />
         </div>
     </div>
 );
@@ -42,6 +54,7 @@ const SizeTemplate: StoryFn<ContentBlockProps & ClassNameProps> = (args) => (
             <Content
                 {...args}
                 title={data.size.l.title}
+                list={transformedContentList}
                 buttons={data.default.content.buttons as ButtonProps[]}
             />
         </div>
@@ -49,6 +62,7 @@ const SizeTemplate: StoryFn<ContentBlockProps & ClassNameProps> = (args) => (
             <Content
                 {...args}
                 title={data.size.s.title}
+                list={transformedContentList}
                 buttons={data.default.content.buttons as ButtonProps[]}
                 size="s"
             />
@@ -84,7 +98,7 @@ export const Theme = ThemeTemplate.bind({});
 
 const defaultArgs = {
     title: data.default.content.title,
-    text: yfm(data.default.content.text).result.html,
+    text: yfmTransform(data.default.content.text),
 };
 
 Default.args = {

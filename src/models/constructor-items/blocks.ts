@@ -210,14 +210,12 @@ export interface MediaBaseBlockProps extends Animatable, MediaContentProps {
     disableShadow?: boolean;
 }
 
-export interface MediaContentProps {
+export interface MediaContentProps
+    extends Omit<ContentBlockProps, 'colSizes' | 'text' | 'title' | 'theme' | 'centered'> {
     title: string;
     description?: string;
-    additionalInfo?: string;
+    /** @deprecated  Use array of buttons from ContentBlockProps instead**/
     button?: ButtonProps;
-    links?: LinkProps[];
-    buttons?: ButtonProps[];
-    size?: ContentSize;
 }
 
 export interface MediaBlockProps extends MediaBaseBlockProps {
@@ -331,6 +329,12 @@ export interface ContentLayoutBlockProps extends ContentLayoutBlockParams {
     fileContent?: FileLinkProps[];
 }
 
+export interface ContentItemProps {
+    title?: string;
+    text?: string;
+    icon: ThemedImage;
+}
+
 export interface ContentBlockProps {
     title?: TitleItemBaseProps | string;
     text?: string;
@@ -341,6 +345,7 @@ export interface ContentBlockProps {
     colSizes?: GridColumnSizesType;
     centered?: boolean;
     theme?: ContentTheme;
+    list?: ContentItemProps[];
 }
 
 export enum PCShareSocialNetwork {

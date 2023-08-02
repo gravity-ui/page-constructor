@@ -47,6 +47,19 @@ const DefaultTemplate: StoryFn<ContentLayoutBlockModel> = (args) => (
                         buttons: data.common.buttons as ButtonProps[],
                     },
                 },
+                {
+                    ...args,
+                    textContent: {
+                        ...args.textContent,
+                        list: data.common.list.map((item) => {
+                            return {
+                                ...item,
+                                text: item?.text && yfmTransform(item.text),
+                            };
+                        }),
+                        links: data.common.links as LinkProps[],
+                    },
+                },
             ],
         }}
     />

@@ -11,7 +11,16 @@ import './MediaBaseContent.scss';
 const b = block('media-base-content');
 
 const MediaContent = (props: MediaContentProps) => {
-    const {title, description, button, links, buttons = [], additionalInfo, size = 'l'} = props;
+    const {
+        title,
+        description,
+        button,
+        links,
+        buttons = [],
+        additionalInfo,
+        size = 'l',
+        list,
+    } = props;
     const allButtons = button ? [{...button, size: 'xl' as ButtonSize}, ...buttons] : buttons;
     return (
         <div className={b()}>
@@ -21,6 +30,7 @@ const MediaContent = (props: MediaContentProps) => {
                 links={links}
                 theme="default"
                 buttons={allButtons}
+                list={list}
                 additionalInfo={additionalInfo}
                 size={size}
                 colSizes={{all: 12, md: 12}}

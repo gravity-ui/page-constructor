@@ -1,3 +1,4 @@
+import {ImageProps} from '../../components/Image/schema';
 import {
     ButtonBlock,
     LinkProps,
@@ -6,8 +7,25 @@ import {
     contentSizes,
     contentThemes,
     sizeNumber,
+    withTheme,
 } from '../../schema/validators/common';
 import {filteredArray} from '../../schema/validators/utils';
+
+export const ContentItem = {
+    additionalProperties: false,
+    required: ['icon'],
+    properties: {
+        title: {
+            type: 'string',
+            contentType: 'text',
+        },
+        text: {
+            type: 'string',
+            contentType: 'yfm',
+        },
+        icon: withTheme(ImageProps),
+    },
+};
 
 export const ContentBase = {
     title: {
@@ -42,6 +60,7 @@ export const ContentBase = {
         type: 'string',
         enum: contentThemes,
     },
+    list: filteredArray(ContentItem),
 };
 
 export const ContentBlock = {
