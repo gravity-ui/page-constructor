@@ -3,7 +3,7 @@ import React, {Fragment, ReactNode, useContext} from 'react';
 import {HTML, ToggleArrow} from '../';
 import {LocationContext} from '../../context/locationContext';
 import {MobileContext} from '../../context/mobileContext';
-import {TextSize, TitleItemProps} from '../../models';
+import {QAProps, TextSize, TitleItemProps} from '../../models';
 import {block, getHeaderTag, getLinkProps} from '../../utils';
 import Anchor from '../Anchor/Anchor';
 
@@ -26,10 +26,9 @@ export function getArrowSize(size: TextSize, isMobile: boolean) {
     }
 }
 
-export interface TitleItemFullProps extends TitleItemProps {
+export interface TitleItemFullProps extends TitleItemProps, QAProps {
     className?: string;
     onClick?: () => void;
-    dataQa?: string;
     resetMargin?: boolean;
 }
 
@@ -45,7 +44,7 @@ const TitleItem = (props: TitleItemFullProps) => {
         onClick,
         custom,
         className,
-        dataQa,
+        qa,
         resetMargin = true,
     } = props;
 
@@ -100,7 +99,7 @@ const TitleItem = (props: TitleItemFullProps) => {
                 getHeaderTag(textSize),
                 {
                     className: b({size: textSize, justify, 'reset-margin': resetMargin}, className),
-                    'data-qa': `${dataQa}-header`,
+                    'data-qa': `${qa}-header`,
                 },
                 content,
             )}

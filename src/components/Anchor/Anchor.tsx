@@ -1,7 +1,7 @@
 //TODO move to cloud components
 import React from 'react';
 
-import {ClassNameProps} from '../../models';
+import {ClassNameProps, QAProps} from '../../models';
 import {block} from '../../utils';
 
 import './Anchor.scss';
@@ -10,9 +10,8 @@ const b = block('Anchor');
 
 export const qaIdByDefault = 'qa-anchor';
 
-export interface AnchorProps extends ClassNameProps {
+export interface AnchorProps extends ClassNameProps, QAProps {
     id: string;
-    qa?: string;
 }
 
 const Anchor = ({id, className, qa}: AnchorProps) => (

@@ -6,7 +6,7 @@ import userEvent from '@testing-library/user-event';
 import {testCustomClassName} from '../../../../test-utils/shared/common';
 import ButtonTabs, {ButtonTabsItemProps, ButtonTabsProps} from '../ButtonTabs';
 
-const qaId = 'button-tabs-component';
+const qa = 'button-tabs-component';
 
 const items: ButtonTabsItemProps[] = [
     {
@@ -25,8 +25,8 @@ const items: ButtonTabsItemProps[] = [
 
 describe('ButtonTabs', () => {
     test('render ButtonTabs by default', async () => {
-        render(<ButtonTabs items={items} qa={qaId} />);
-        const buttonTabs = screen.getByTestId(qaId);
+        render(<ButtonTabs items={items} qa={qa} />);
+        const buttonTabs = screen.getByTestId(qa);
 
         expect(buttonTabs).toBeInTheDocument();
         expect(buttonTabs).toBeVisible();
@@ -35,7 +35,7 @@ describe('ButtonTabs', () => {
 
     test('has active tab', async () => {
         const activeTabId = 1;
-        render(<ButtonTabs items={items} qa={qaId} activeTab={String(activeTabId)} />);
+        render(<ButtonTabs items={items} qa={qa} activeTab={String(activeTabId)} />);
         const buttons = screen.getAllByRole('button');
 
         buttons.forEach((button, index) => {
@@ -50,14 +50,14 @@ describe('ButtonTabs', () => {
     test('add className', () => {
         testCustomClassName<ButtonTabsProps>({
             component: ButtonTabs,
-            props: {items: items, qa: qaId},
+            props: {items: items, qa},
         });
     });
 
     test('call onSelectTab', async () => {
         const user = userEvent.setup();
         const handleOnClick = jest.fn();
-        render(<ButtonTabs items={items} qa={qaId} onSelectTab={handleOnClick} />);
+        render(<ButtonTabs items={items} qa={qa} onSelectTab={handleOnClick} />);
 
         const buttons = screen.getAllByRole('button');
 

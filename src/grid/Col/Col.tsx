@@ -1,21 +1,20 @@
 import React, {CSSProperties, forwardRef} from 'react';
 
-import {Refable} from '../../models/common';
+import {QAProps, Refable} from '../../models/common';
 import {WithChildren} from '../../models/react';
 import {GridColumnClassParams} from '../types';
 import {getColClass} from '../utils';
 
-export interface GridColumnProps extends GridColumnClassParams, Refable<HTMLDivElement> {
+export interface GridColumnProps extends GridColumnClassParams, Refable<HTMLDivElement>, QAProps {
     style?: CSSProperties;
-    dataQa?: string;
     children?: React.ReactNode;
 }
 
 export const Col = forwardRef<HTMLDivElement, WithChildren<GridColumnProps>>((props, ref) => {
-    const {children, style, dataQa, ...rest} = props;
+    const {children, style, qa, ...rest} = props;
 
     return (
-        <div ref={ref} className={getColClass(rest)} style={style} data-qa={dataQa}>
+        <div ref={ref} className={getColClass(rest)} style={style} data-qa={qa}>
             {children}
         </div>
     );
