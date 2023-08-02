@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [3.16.0](https://github.com/gravity-ui/page-constructor/compare/v3.15.0...v3.16.0) (2023-08-02)
+
+
+### Features
+
+* add content-list ([#468](https://github.com/gravity-ui/page-constructor/issues/468)) ([07e2a96](https://github.com/gravity-ui/page-constructor/commit/07e2a96328459914d5651c157abdf5d55442881a))
+
 ## [3.15.0](https://github.com/gravity-ui/page-constructor/compare/v3.14.0...v3.15.0) (2023-08-01)
 
 
