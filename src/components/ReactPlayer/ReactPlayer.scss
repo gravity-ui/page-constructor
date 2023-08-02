@@ -29,8 +29,8 @@ $block: '.#{$ns}ReactPlayer';
         border-radius: 166px;
 
         &_theme_blue {
-            color: var(--yc-color-base-background);
-            background-color: var(--yc-color-base-special);
+            color: var(--g-color-base-background);
+            background-color: var(--g-color-base-brand);
         }
 
         &_theme_grey {

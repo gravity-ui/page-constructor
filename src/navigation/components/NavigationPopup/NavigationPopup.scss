@@ -23,8 +23,8 @@ $block: '.#{$ns}navigation-popup';
         border-radius: 8px;
 
         &:hover {
-            color: var(--yc-color-text-primary);
-            background-color: var(--yc-color-base-simple-hover);
+            color: var(--g-color-text-primary);
+            background-color: var(--g-color-base-simple-hover);
         }
     }
 }

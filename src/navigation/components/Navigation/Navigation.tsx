@@ -71,8 +71,8 @@ export const Navigation: React.FC<NavigationProps> = ({data, logo}) => {
                         />
                         <OutsideClick onOutsideClick={() => onSidebarOpenedChange(false)}>
                             <MobileNavigation
-                                topItems={leftItems}
-                                bottomItems={rightItems}
+                                topItems={leftItemsWithIconSize}
+                                bottomItems={rightItemsWithIconSize}
                                 isOpened={isSidebarOpened}
                                 activeItemId={activeItemId}
                                 onActiveItemChange={onActiveItemChange}

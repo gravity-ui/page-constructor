@@ -1,6 +1,6 @@
 {
   "name": "@gravity-ui/page-constructor",
-  "version": "3.11.0",
+  "version": "3.15.0",
   "description": "Gravity UI Page Constructor",
   "license": "MIT",
   "repository": {
@@ -80,14 +80,17 @@
     "test:watch": "jest --watchAll"
   },
   "dependencies": {
-    "@gravity-ui/dynamic-forms": "^1.9.2",
+    "@gravity-ui/components": "^2.0.0",
+    "@gravity-ui/dynamic-forms": "^1.11.0",
     "@gravity-ui/i18n": "^1.0.0",
     "ajv": "^8.12.0",
     "bem-cn-lite": "^4.0.0",
     "final-form": "^4.20.9",
     "github-buttons": "2.23.0",
     "lodash": "^4.17.21",
+    "monaco-editor": "^0.38.0",
     "react-final-form": "^6.5.9",
+    "react-monaco-editor": "^0.53.0",
     "react-player": "^2.9.0",
     "react-slick": "^0.29.0",
     "react-spring": "^9.3.0",
@@ -100,7 +103,7 @@
   },
   "peerDependencies": {
     "@doc-tools/transform": "^2.6.1",
-    "@gravity-ui/uikit": "^4.1.0",
+    "@gravity-ui/uikit": "^5.1.0",
     "react": "^16.0.0 || ^17.0.0 || ^18.0.0"
   },
   "devDependencies": {
@@ -111,13 +114,12 @@
     "@commitlint/cli": "^17.1.2",
     "@commitlint/config-conventional": "^17.1.0",
     "@doc-tools/transform": "2.12.0",
-    "@gravity-ui/babel-preset": "^1.0.1",
     "@gravity-ui/eslint-config": "^2.0.0",
     "@gravity-ui/icons": "^2.1.0",
     "@gravity-ui/prettier-config": "^1.0.1",
     "@gravity-ui/stylelint-config": "^1.0.0",
     "@gravity-ui/tsconfig": "^1.0.0",
-    "@gravity-ui/uikit": "^4.1.0",
+    "@gravity-ui/uikit": "^5.1.0",
     "@storybook/addon-actions": "^7.1.0",
     "@storybook/addon-essentials": "^7.1.0",
     "@storybook/addon-knobs": "^7.0.2",
@@ -129,6 +131,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^14.4.3",
     "@types/jest": "^29.2.4",
+    "@types/js-yaml": "^4.0.5",
     "@types/json-schema": "^7.0.12",
     "@types/lodash": "^4.14.176",
     "@types/react": "^18.0.27",

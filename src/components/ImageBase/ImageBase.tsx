@@ -12,6 +12,7 @@ export interface ImageBaseProps extends Partial<ImageObjectProps> {
 
 export const ImageBase = (props: ImageBaseProps) => {
     const {Image} = React.useContext(ImageContext);
+
     return Image ? <Image {...props} /> : <img {...props} />;
 };
 

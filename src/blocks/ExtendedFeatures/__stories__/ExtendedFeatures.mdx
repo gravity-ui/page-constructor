@@ -1,4 +1,12 @@
-Extended Features block
+import {Meta} from '@storybook/blocks';
+
+import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
+import * as ExtendedFeaturesStories from './ExtendedFeatures.stories.tsx';
+
+<Meta of={ExtendedFeaturesStories} />
+
+<StoryTemplate>
+## Parameters
 
 `type: "extended-features-block"`
 
@@ -24,3 +32,5 @@ Extended Features block
 - `md: number` — On a screen wider than 769px.
 - `lg: number` — On a screen wider than 1081px.
 - `xl: number` — On a screen wider than 1185px.
+</StoryTemplate>
+

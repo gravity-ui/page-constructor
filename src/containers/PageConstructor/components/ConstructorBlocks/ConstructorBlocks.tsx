@@ -10,7 +10,7 @@ import {ConstructorBlock} from '../ConstructorBlock/ConstructorBlock';
 import {ConstructorItem} from '../ConstructorItem';
 import {ConstructorLoadable} from '../ConstructorLoadable';
 
-interface ConstructorBlocksProps {
+export interface ConstructorBlocksProps {
     items: ConstructorItemType[];
 }
 

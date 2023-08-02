@@ -2,7 +2,7 @@
   "default": {
     "content": {
       "style": {
-        "backgroundColor": "#3a74ff"
+        "backgroundColor": "#ffbe5c"
       },
       "theme": "default"
     }
@@ -10,7 +10,7 @@
   "rounded": {
     "content": {
       "style": {
-        "backgroundColor": "#3a74ff"
+        "backgroundColor": "#ffbe5c"
       },
       "theme": "rounded"
     }

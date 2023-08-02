@@ -1,0 +1,12 @@
+import {Title, Subtitle, Description, Primary, Controls, Stories, Meta, Markdown } from '@storybook/blocks';
+
+export const StoryTemplate = ({children}) => (
+    <>
+        <Title />
+        <Subtitle />
+        {children}
+        <Primary />
+        <Controls />
+        <Stories />
+    </>
+);

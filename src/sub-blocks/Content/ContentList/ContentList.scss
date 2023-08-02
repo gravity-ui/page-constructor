@@ -1,0 +1,70 @@
+@import '../../../../styles/variables.scss';
+@import '../../../../styles/mixins.scss';
+
+$block: '.#{$ns}content-list';
+$iconSizeL: 22px;
+$iconSizeS: 20px;
+$marginIconSizeS: 2px;
+$marginIconSizeL: 1px;
+
+#{$block} {
+    &_size_l {
+        margin-top: $indentSM;
+
+        #{$block}__title {
+            @include text-size(header-1);
+
+            margin: 0 0 $indentXXXS;
+        }
+
+        #{$block}__icon {
+            width: $iconSizeL;
+            height: $iconSizeL;
+            margin-top: $marginIconSizeL;
+            margin-bottom: $marginIconSizeL;
+            margin-right: $indentXXS;
+        }
+
+        #{$block}__item {
+            &:not(:last-child) {
+                margin-bottom: $indentXS;
+            }
+        }
+    }
+
+    &_size_s {
+        margin-top: $indentXS;
+
+        #{$block}__title {
+            @include text-size(subheader-3);
+
+            margin: 0 0 calc(#{$indentXXXS} / 2);
+        }
+
+        #{$block}__icon {
+            width: $iconSizeS;
+            height: $iconSizeS;
+            margin-top: $marginIconSizeS;
+            margin-bottom: $marginIconSizeS;
+            margin-right: $indentXXXS;
+        }
+
+        #{$block}__text {
+            @include text-size(body-1);
+        }
+
+        #{$block}__item {
+            &:not(:last-child) {
+                margin-bottom: $indentXXS;
+            }
+        }
+    }
+
+    &__icon {
+        display: block;
+    }
+
+    &__item {
+        display: flex;
+    }
+}

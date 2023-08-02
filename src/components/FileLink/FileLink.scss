@@ -4,9 +4,6 @@
 $block: '.#{$ns}file-link';
 
 #{$block} {
-    --pc-color-label-background: rgba(0, 0, 0, 0.07);
-
-    @include add-file-ext-colors();
     $root: &;
 
     align-items: baseline;
@@ -20,39 +17,29 @@ $block: '.#{$ns}file-link';
     }
 
     &__file-label {
-        flex: 0 0 auto;
-        width: 44px;
-        height: 24px;
-        line-height: 24px;
-        background-color: var(--pc-file-label-color);
-        color: var(--yc-color-text-light-primary);
-        border-radius: 4px;
-        text-transform: uppercase;
-        text-align: center;
-    }
-
-    &__file-label {
-        color: var(--yc-color-text-primary);
         display: flex;
         justify-content: center;
-        flex-direction: column;
+        text-transform: uppercase;
+
+        //for text centering inside label
+        .yc-label__text {
+            width: initial;
+        }
     }
 
     &__link > a {
-        color: var(--yc-color-text-primary);
+        color: var(--g-color-text-primary);
     }
 
     &__link > a:hover {
-        color: var(--yc-color-text-secondary);
+        color: var(--g-color-text-secondary);
     }
 
     &_size {
         &_l {
             #{$root}__file-label {
                 @include text-size(body-2);
-                width: 44px;
-                height: 24px;
-                padding: 2px 6px;
+                width: 52px;
             }
         }
 
@@ -60,41 +47,29 @@ $block: '.#{$ns}file-link';
         &_s {
             #{$root}__file-label {
                 @include text-size(body-1);
-                width: 36px;
-                height: 20px;
-                padding: 1px 4px;
+                width: 44px;
             }
         }
     }
 
     &_theme {
         &_dark {
-            #{$block}__file-label {
-                color: var(--yc-color-text-light-primary);
-                background-color: var(--yc-color-base-light-simple-hover);
-            }
-
             #{$block}__link > a {
-                color: var(--yc-color-text-light-primary);
+                color: var(--g-color-text-light-primary);
             }
 
             #{$block}__link > a:hover {
-                color: var(--yc-color-text-light-secondary);
+                color: var(--g-color-text-light-secondary);
             }
         }
 
         &_light {
-            #{$block}__file-label {
-                color: var(--yc-color-text-dark-primary);
-                background-color: var(--pc-color-label-background);
-            }
-
             #{$block}__link > a {
-                color: var(--yc-color-text-dark-primary);
+                color: var(--g-color-text-dark-primary);
             }
 
             #{$block}__link > a:hover {
-                color: var(--yc-color-text-dark-secondary);
+                color: var(--g-color-text-dark-secondary);
             }
         }
     }

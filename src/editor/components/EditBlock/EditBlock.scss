@@ -9,7 +9,6 @@ $block: '.#{$ns}edit-block';
     $controlIconWidth: 48px;
     $controlIconHeight: 32px;
     $blockIndent: $indentL;
-    $controlColor: var(--yc-color-promo-base-neon);
     $zIndex: 10;
 
     cursor: pointer;
@@ -20,7 +19,7 @@ $block: '.#{$ns}edit-block';
         z-index: calc($zIndex + 1);
 
         #{$block}__controls {
-            border: 4px solid $controlColor;
+            border: 4px solid var(--pc-editor-base-color);
         }
     }
 
@@ -61,7 +60,7 @@ $block: '.#{$ns}edit-block';
         width: $controlIconWidth;
         height: $controlIconHeight;
         border-radius: $editorControlBorderRadius;
-        background-color: var(--yc-color-promo-highlight-neon);
+        background-color: var(--pc-editor-control-color);
 
         &:not(:first-child) {
             margin-left: 4px;

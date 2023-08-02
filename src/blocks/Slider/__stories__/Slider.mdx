@@ -1,3 +1,12 @@
+import {Meta} from '@storybook/blocks';
+
+import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
+import * as SliderStories from './Slider.stories.tsx';
+
+<Meta of={SliderStories} />
+<StoryTemplate>
+## Parameters
+
 The slider supports two types of content: loadable and from a config. Loadable content is loaded via the `loadable` property and content from a config via the `children` property.
 
 `type: "slider-block"`
@@ -39,3 +48,5 @@ The following blocks are currently supported:
 - [`BackgroundCard` — Background card](?path=/story/components-cards-backgroundcard--default&viewMode=docs)
 - [`LayoutItem` — `Media` + `Content` components in one card-like view](?path=/story/components-cards-layoutitem--default&viewMode=docs)
 - [`MediaCard` — Card with an image](?path=/story/блоки-media--default&viewMode=docs)
+
+</StoryTemplate>

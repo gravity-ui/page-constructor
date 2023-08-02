@@ -43,8 +43,8 @@ $block: '.#{$ns}ExtendedFeaturesBlock';
             margin-left: 8px;
             padding: 1.5px 5px 2px;
 
-            color: var(--yc-color-base-background);
-            background-color: var(--yc-my-color-brand-normal);
+            color: var(--g-color-base-background);
+            background-color: var(--g-color-base-brand);
             border-radius: 4px;
         }
 
@@ -61,7 +61,7 @@ $block: '.#{$ns}ExtendedFeaturesBlock';
 
         &-link {
             margin-top: $indentXXXS;
-            color: var(--yc-color-text-link);
+            color: var(--g-color-text-link);
         }
     }
 
