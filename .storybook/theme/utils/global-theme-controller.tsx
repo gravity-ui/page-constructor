@@ -1,5 +1,6 @@
 import React, {Fragment, useEffect} from 'react';
 import {Theme, useTheme} from '../../../src';
+import {UIKIT_ROOT_CLASS} from '../../../src/components/constants';
 
 export interface GlobalThemeControllerProps {
     children?: React.ReactNode;
@@ -12,12 +13,12 @@ export const GlobalThemeController = ({children}: GlobalThemeControllerProps) =>
     const updateBodyClassName = (newTheme: Theme) => {
         const bodyEl = document.body;
 
-        if (!bodyEl.classList.contains('yc-root')) {
-            bodyEl.classList.add('yc-root');
+        if (!bodyEl.classList.contains(UIKIT_ROOT_CLASS)) {
+            bodyEl.classList.add(UIKIT_ROOT_CLASS);
         }
 
-        bodyEl.classList.toggle('yc-root_theme_light', newTheme === Theme.Light);
-        bodyEl.classList.toggle('yc-root_theme_dark', newTheme === Theme.Dark);
+        bodyEl.classList.toggle(`${UIKIT_ROOT_CLASS}_theme_light`, newTheme === Theme.Light);
+        bodyEl.classList.toggle(`${UIKIT_ROOT_CLASS}_theme_dark`, newTheme === Theme.Dark);
     };
 
     useEffect(() => {

@@ -4,6 +4,7 @@ import '@doc-tools/transform/dist/js/yfm';
 import blockOrigin from 'bem-cn-lite';
 
 import BackgroundMedia from '../../components/BackgroundMedia/BackgroundMedia';
+import {UIKIT_ROOT_CLASS} from '../../components/constants';
 import {blockMap, subBlockMap} from '../../constructor-items';
 import {AnimateContext} from '../../context/animateContext';
 import {InnerContext} from '../../context/innerContext';
@@ -39,7 +40,7 @@ import {ConstructorRow} from './components/ConstructorRow';
 import './PageConstructor.scss';
 
 const b = cnBlock('page-constructor');
-const ycr = blockOrigin('yc-root');
+const ycr = blockOrigin(UIKIT_ROOT_CLASS);
 
 export type ItemMap = typeof blockMap & typeof subBlockMap & CustomItems;
 

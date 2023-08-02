@@ -12,11 +12,10 @@ import {withLang} from './decorators/withLang';
 import {DocsDecorator} from './decorators/docs';
 
 import {Theme} from '../src';
-
 import {configure, Lang} from '../src/utils/configure';
+import {GlobalThemeController} from './theme/utils/global-theme-controller';
 
 import '../styles/styles.scss';
-import {GlobalThemeController} from './theme/utils/global-theme-controller';
 
 configure({
     lang: Lang.En,
