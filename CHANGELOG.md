@@ -3,14 +3,16 @@
 
 ## [4.0.0](https://github.com/gravity-ui/page-constructor/compare/v3.16.0...v4.0.0) (2023-08-03)
 
-
 ### ⚠ BREAKING CHANGES
 
-* page-constructor 4.0.0 stable ([#478](https://github.com/gravity-ui/page-constructor/issues/478))
+* update to @gravity-ui/uikit version 5 [changes](https://github.com/gravity-ui/uikit/compare/v4.24.0...v5.0.0) [#459](https://github.com/gravity-ui/page-constructor/pull/459)
+* update to @doc-tools/transform version 3 [changes](https://github.com/yandex-cloud/yfm-transform/compare/v2.18.3...v3.0.0) [#454](https://github.com/gravity-ui/page-constructor/pull/454)
+* `dataQa` testing props were renamed to `qa` [#451](https://github.com/gravity-ui/page-constructor/pull/451)
+* `properties` field was removed from `ContentLayout` block, use top level fields instead [#456](https://github.com/gravity-ui/page-constructor/pull/456)
+* `theme` field type from `ConstructorProvider` was changed to `Theme` [#451](https://github.com/gravity-ui/page-constructor/pull/450)
 
-### chore
-
-* page-constructor 4.0.0 stable ([#478](https://github.com/gravity-ui/page-constructor/issues/478)) ([7be8ce6](https://github.com/gravity-ui/page-constructor/commit/7be8ce6905735dc17829b87877be387af6bfc247))
+### Features
+* Theme switch was added to Editor control panel, themes in project were refactored [#451](https://github.com/gravity-ui/page-constructor/pull/450)
 
 ## [3.16.0](https://github.com/gravity-ui/page-constructor/compare/v3.15.0...v3.16.0) (2023-08-02)
 
