@@ -14,29 +14,29 @@ $block: '.#{$ns}header-breadcrumbs';
         @include text-size(body-2);
         @include link();
 
-        color: var(--yc-color-text-secondary);
+        color: var(--g-color-text-secondary);
 
         &:after {
             content: '\a0/ ';
             margin: 0 8px 0 6px;
-            color: var(--yc-color-text-secondary);
+            color: var(--g-color-text-secondary);
         }
 
         &:hover {
-            color: var(--yc-color-text-primary);
+            color: var(--g-color-text-primary);
         }
     }
 
     &_theme_dark {
         #{$block}__text {
-            color: var(--yc-color-text-light-secondary);
+            color: var(--g-color-text-light-secondary);
 
             &:after {
-                color: var(--yc-color-text-light-secondary);
+                color: var(--g-color-text-light-secondary);
             }
 
             &:hover {
-                color: var(--yc-color-text-light-primary);
+                color: var(--g-color-text-light-primary);
             }
         }
     }

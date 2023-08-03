@@ -17,13 +17,7 @@ export function withTheme<T extends WithThemeProps>(
         context!: ThemeContextProps;
 
         render() {
-            return (
-                <WrappedComponent
-                    {...(this.props as T)}
-                    theme={this.context.theme}
-                    setTheme={this.context.setTheme}
-                />
-            );
+            return <WrappedComponent {...(this.props as T)} theme={this.context.theme} />;
         }
     };
 }

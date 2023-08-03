@@ -13,7 +13,7 @@ $block: '.#{$ns}error-boundary';
         width: 100%;
         padding: $indentM;
 
-        background-color: var(--yc-color-base-background);
+        background-color: var(--g-color-base-background);
         border-radius: $borderRadius;
         box-shadow: $editorShadow;
     }
@@ -24,7 +24,7 @@ $block: '.#{$ns}error-boundary';
 
     &__error {
         display: block;
-        color: var(--yc-color-text-danger);
+        color: var(--g-color-text-danger);
         max-height: 160px;
         overflow: auto;
     }

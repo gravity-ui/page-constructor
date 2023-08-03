@@ -35,9 +35,15 @@ function getTextWidth(size: ContentTextSize) {
 
 export const ContentLayoutBlock = (props: ContentLayoutBlockProps) => {
     const isMobile = useContext(MobileContext);
-    const {textContent, fileContent} = props;
-    const propsSource = props.properties || props;
-    const {size = 'l', background, centered, theme = 'default', textWidth = 'm'} = propsSource;
+    const {
+        textContent,
+        fileContent,
+        size = 'l',
+        background,
+        centered,
+        theme = 'default',
+        textWidth = 'm',
+    } = props;
 
     const colSizes = useMemo(() => getTextWidth(textWidth), [textWidth]);
 

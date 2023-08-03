@@ -6,13 +6,13 @@
 $block: '.#{$ns}control-panel';
 
 #{$block} {
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     width: 100%;
-    height: var(--editor-header-height);
+    height: var(--pc-editor-header-height);
     padding: $indentXXXS $indentS;
-    background-color: var(--yc-color-base-background);
-    border: 1px var(--yc-color-line-generic);
+    background-color: var(--g-color-base-background);
+    border: 1px var(--g-color-line-generic);
     border-style: solid none;
 
     &__icon {
@@ -31,6 +31,14 @@ $block: '.#{$ns}control-panel';
 
     &__mode-switch {
         display: flex;
+        align-items: center;
+        place-self: center;
+    }
+
+    &__theme-switch {
+        place-self: center end;
+        display: flex;
+        gap: 12px;
         align-items: center;
     }
 }

@@ -20,7 +20,7 @@ $block: '.#{$ns}combined-price-detailed-block';
     }
 
     &__row:not(:last-child) {
-        border-bottom: 1px solid var(--yc-color-line-generic);
+        border-bottom: 1px solid var(--g-color-line-generic);
         margin-bottom: $indentXXS !important;
         padding-bottom: $indentXXS;
     }
@@ -31,7 +31,7 @@ $block: '.#{$ns}combined-price-detailed-block';
         }
 
         &__description_delimiter > * {
-            border-top: 1px solid var(--yc-color-line-generic);
+            border-top: 1px solid var(--g-color-line-generic);
         }
 
         &__empty-column {

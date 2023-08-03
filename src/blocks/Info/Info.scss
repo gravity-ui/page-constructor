@@ -5,7 +5,7 @@ $block: '.#{$ns}info-block';
 
 #{$block} {
     &__container {
-        background-color: var(--yc-color-base-special);
+        background-color: var(--g-color-base-brand);
         padding: $indentXXL $indentXL;
         border-radius: var(--pc-border-radius);
     }

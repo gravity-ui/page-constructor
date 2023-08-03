@@ -12,7 +12,7 @@ $block: '.#{$ns}editor-form';
     }
 
     &__tabs {
-        --yc-color-base-special: var(--yc-color-promo-base-neon);
+        --g-color-base-brand: var(--pc-color-base-neon);
         margin-bottom: $indentS;
     }
 

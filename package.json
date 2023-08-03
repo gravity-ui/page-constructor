@@ -80,6 +80,7 @@
     "test:watch": "jest --watchAll"
   },
   "dependencies": {
+    "@gravity-ui/components": "^2.0.0",
     "@gravity-ui/dynamic-forms": "^1.11.0",
     "@gravity-ui/i18n": "^1.0.0",
     "ajv": "^8.12.0",
@@ -101,8 +102,8 @@
     "uuid": "^9.0.0"
   },
   "peerDependencies": {
-    "@doc-tools/transform": "^2.6.1",
-    "@gravity-ui/uikit": "^4.1.0",
+    "@doc-tools/transform": "^3.3.2",
+    "@gravity-ui/uikit": "^5.1.0",
     "react": "^16.0.0 || ^17.0.0 || ^18.0.0"
   },
   "devDependencies": {
@@ -112,13 +113,13 @@
     "@babel/preset-typescript": "^7.22.5",
     "@commitlint/cli": "^17.1.2",
     "@commitlint/config-conventional": "^17.1.0",
-    "@doc-tools/transform": "2.12.0",
+    "@doc-tools/transform": "^3.3.2",
     "@gravity-ui/eslint-config": "^2.0.0",
     "@gravity-ui/icons": "^2.1.0",
     "@gravity-ui/prettier-config": "^1.0.1",
     "@gravity-ui/stylelint-config": "^1.0.0",
     "@gravity-ui/tsconfig": "^1.0.0",
-    "@gravity-ui/uikit": "^4.1.0",
+    "@gravity-ui/uikit": "^5.1.0",
     "@storybook/addon-actions": "^7.1.0",
     "@storybook/addon-essentials": "^7.1.0",
     "@storybook/addon-knobs": "^7.0.2",
@@ -147,6 +148,7 @@
     "eslint": "^8.34.0",
     "eslint-plugin-local": "./eslint-plugin-local",
     "eslint-plugin-no-not-accumulator-reassign": "^0.1.0",
+    "eslint-plugin-react": "^7.33.0",
     "eslint-plugin-testing-library": "^5.9.1",
     "gulp": "^4.0.2",
     "gulp-dart-sass": "^1.0.2",

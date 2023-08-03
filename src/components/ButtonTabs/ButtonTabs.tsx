@@ -2,7 +2,7 @@ import React, {useCallback, useMemo} from 'react';
 
 import {ButtonSize} from '@gravity-ui/uikit';
 
-import {ButtonProps} from '../../models';
+import {ButtonProps, QAProps} from '../../models';
 import {block} from '../../utils';
 import {Button} from '../index';
 
@@ -16,7 +16,7 @@ export interface ButtonTabsItemProps
     title: string;
 }
 
-export interface ButtonTabsProps {
+export interface ButtonTabsProps extends QAProps {
     className?: string;
     items: ButtonTabsItemProps[];
     activeTab?: string | null;
@@ -25,7 +25,6 @@ export interface ButtonTabsProps {
         e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>,
     ) => void;
     tabSize?: ButtonSize;
-    qa?: string;
 }
 
 const ButtonTabs: React.FC<ButtonTabsProps> = ({

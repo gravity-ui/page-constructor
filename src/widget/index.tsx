@@ -18,6 +18,7 @@ window.addEventListener('message', function (event) {
             data: {constructorProps, providerProps},
         } = event.data;
 
+        // eslint-disable-next-line react/no-deprecated
         ReactDOM.render(
             <PageConstructorProvider {...providerProps}>
                 <PageConstructor {...constructorProps} />

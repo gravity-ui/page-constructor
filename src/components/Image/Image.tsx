@@ -2,18 +2,17 @@ import React, {CSSProperties, Fragment, MouseEventHandler, useContext, useState}
 
 import {BREAKPOINTS} from '../../constants';
 import {ProjectSettingsContext} from '../../context/projectSettingsContext';
-import {ImageDeviceProps, ImageObjectProps} from '../../models';
+import {ImageDeviceProps, ImageObjectProps, QAProps} from '../../models';
 import {isCompressible} from '../../utils/imageCompress';
 import ImageBase from '../ImageBase/ImageBase';
 
 import i18n from './i18n';
 
-export interface ImageProps extends Partial<ImageObjectProps>, Partial<ImageDeviceProps> {
+export interface ImageProps extends Partial<ImageObjectProps>, Partial<ImageDeviceProps>, QAProps {
     style?: CSSProperties;
     className?: string;
     onClick?: MouseEventHandler;
     containerClassName?: string;
-    qa?: string;
 }
 
 const checkWebP = (src: string) => {

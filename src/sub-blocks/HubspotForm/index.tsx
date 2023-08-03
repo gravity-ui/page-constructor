@@ -1,12 +1,11 @@
 import React, {forwardRef, useContext, useMemo} from 'react';
 
 import {MobileContext} from '../../context/mobileContext';
-import {ThemeValueContext} from '../../context/theme/ThemeValueContext';
+import {useTheme} from '../../context/theme';
 import {useAnalytics, useHandleHubspotEvents} from '../../hooks';
 import {useMetrika} from '../../hooks/useMetrika';
 import {DefaultEventNames, HubspotFormProps} from '../../models';
-import {block} from '../../utils';
-import {HubspotEventHandlers} from '../../utils/hubspot';
+import {HubspotEventHandlers, block} from '../../utils';
 
 import HubspotFormContainer from './HubspotFormContainer';
 
@@ -36,8 +35,8 @@ const HubspotForm = forwardRef<HTMLDivElement, HubspotFormProps>((props, ref) =>
     } = props;
 
     const handleMetrika = useMetrika();
+    const themeValue = useTheme();
     const handleAnalytics = useAnalytics(DefaultEventNames.HubspotFormSubmit);
-    const {themeValue} = useContext(ThemeValueContext);
     const isMobileValue = useContext(MobileContext);
 
     const theme = themeProp ?? themeValue;

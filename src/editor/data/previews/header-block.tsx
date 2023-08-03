@@ -19,7 +19,7 @@ const Header: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
             width="141.116"
             height="56.7907"
             rx="5.16279"
-            fill="#A967FF"
+            fill="currentColor"
         />
         <rect x="14.7674" y="21.6512" width="28.3953" height="6.88372" rx="0.860465" fill="white" />
         <rect
@@ -28,7 +28,7 @@ const Header: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
             width="28.3953"
             height="6.88372"
             rx="0.860465"
-            fill="#A967FF"
+            fill="currentColor"
         />
         <rect x="14.7674" y="31.9767" width="56.7907" height="3.44186" rx="0.860465" fill="white" />
         <rect x="14.7674" y="37.1395" width="56.7907" height="3.44186" rx="0.860465" fill="white" />
@@ -40,7 +40,7 @@ const Header: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
             width="18.9302"
             height="5.16279"
             rx="0.860465"
-            fill="#A967FF"
+            fill="currentColor"
         />
         <rect
             x="52.6279"
@@ -48,7 +48,7 @@ const Header: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
             width="18.9302"
             height="5.16279"
             rx="0.860465"
-            fill="#A967FF"
+            fill="currentColor"
         />
         <rect
             x="78.4418"
@@ -56,7 +56,7 @@ const Header: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
             width="56.7907"
             height="56.7907"
             rx="5.16279"
-            fill="#A967FF"
+            fill="currentColor"
         />
         <rect x="0.5" y="0.5" width="149" height="75" rx="8.5" stroke="black" strokeOpacity="0.1" />
     </svg>

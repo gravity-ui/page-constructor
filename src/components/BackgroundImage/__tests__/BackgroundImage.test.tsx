@@ -6,16 +6,16 @@ import {BackgroundImageProps} from 'src/models';
 import {testCustomClassName, testCustomStyle} from '../../../../test-utils/shared/common';
 import BackgroundImage from '../BackgroundImage';
 
-const qaId = 'background-image-component';
+const qa = 'background-image-component';
 
 const imageSrc =
     'https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png';
 
 describe('BackgroundImage', () => {
     test('Render BackgroundImage by default', async () => {
-        render(<BackgroundImage qa={qaId} />);
+        render(<BackgroundImage qa={qa} />);
 
-        const component = screen.getByTestId(qaId);
+        const component = screen.getByTestId(qa);
         expect(component).toBeInTheDocument();
         expect(component).toBeVisible();
     });
@@ -35,8 +35,8 @@ describe('BackgroundImage', () => {
     });
 
     test('should hide image', () => {
-        render(<BackgroundImage src={imageSrc} hide qa={qaId} />);
-        const component = screen.getByTestId(qaId);
+        render(<BackgroundImage src={imageSrc} hide qa={qa} />);
+        const component = screen.getByTestId(qa);
         const imageComponent = screen.queryByRole('img');
 
         expect(component).toBeInTheDocument();
@@ -47,7 +47,7 @@ describe('BackgroundImage', () => {
     test('should render children', () => {
         const childText = 'child-component';
         render(
-            <BackgroundImage src={imageSrc} hide qa={qaId}>
+            <BackgroundImage src={imageSrc} hide qa={qa}>
                 <p>{childText}</p>
             </BackgroundImage>,
         );
@@ -60,14 +60,14 @@ describe('BackgroundImage', () => {
     test('add className', () => {
         testCustomClassName<BackgroundImageProps>({
             component: BackgroundImage,
-            props: {qa: qaId},
+            props: {qa},
         });
     });
 
     test('add style', () => {
         testCustomStyle<BackgroundImageProps>({
             component: BackgroundImage,
-            props: {qa: qaId},
+            props: {qa},
         });
     });
 

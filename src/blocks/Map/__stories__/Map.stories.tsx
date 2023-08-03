@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 
 import {Meta, StoryFn} from '@storybook/react';
 
@@ -139,7 +139,7 @@ const DirectionTemplate: StoryFn<MapBlockModel> = (args) => (
 const GMAP_API_KEY = process.env.STORYBOOK_GMAP_API_KEY;
 
 const MapsTypesTemplate: StoryFn<MapBlockModel> = (args) => (
-    <>
+    <Fragment>
         <MapProvider
             scriptSrc={scriptsSrc[MapType.Yandex]}
             apiKey={ymapApiKeyForStorybook}
@@ -180,7 +180,7 @@ const MapsTypesTemplate: StoryFn<MapBlockModel> = (args) => (
                 }}
             />
         </MapProvider>
-    </>
+    </Fragment>
 );
 
 export const Default = DefaultTemplate.bind({});

@@ -27,11 +27,13 @@ export const Editor = ({
         activeBlockIndex,
         errorBoundaryState,
         viewMode,
+        theme,
         onContentUpdate,
         onViewModeUpdate,
         onAdd,
         onSelect,
         injectEditBlockProps,
+        onThemeUpdate,
     } = useEditorState(rest);
     const formSpecs = useFormSpec(customSchema);
 
@@ -85,10 +87,11 @@ export const Editor = ({
             providerProps: {
                 ...providerProps,
                 isMobile: checkIsMobile(viewMode),
+                theme,
             },
             deviceEmulationSettings,
         }),
-        [providerProps, rest.custom, viewMode, transformedContent, deviceEmulationSettings],
+        [providerProps, rest.custom, viewMode, transformedContent, deviceEmulationSettings, theme],
     );
 
     useEffect(() => {
@@ -97,7 +100,12 @@ export const Editor = ({
 
     return (
         <EditorContext.Provider value={context}>
-            <Layout mode={viewMode} onModeChange={onViewModeUpdate}>
+            <Layout
+                mode={viewMode}
+                onModeChange={onViewModeUpdate}
+                theme={theme}
+                onThemeChange={onThemeUpdate}
+            >
                 {isEditingMode && (
                     <Layout.Left>
                         <Form
@@ -111,7 +119,7 @@ export const Editor = ({
                 )}
                 <Layout.Right>
                     <ErrorBoundary key={errorBoundaryState}>
-                        <PageConstructorProvider {...providerProps}>
+                        <PageConstructorProvider {...providerProps} theme={theme}>
                             <PageConstructor {...outgoingProps} />
                         </PageConstructorProvider>
                     </ErrorBoundary>

@@ -1,7 +1,7 @@
-import React, {useContext} from 'react';
+import React from 'react';
 
 import {BackgroundImage, CardBase} from '../../components/';
-import {ThemeValueContext} from '../../context/theme/ThemeValueContext';
+import {useTheme} from '../../context/theme';
 import {BackgroundCardProps} from '../../models';
 import {block, getThemedValue} from '../../utils';
 import Content from '../Content/Content';
@@ -25,7 +25,7 @@ const BackgroundCard = (props: BackgroundCardProps) => {
         buttons,
     } = props;
 
-    const {themeValue: theme} = useContext(ThemeValueContext);
+    const theme = useTheme();
     const hasBackgroundColor = backgroundColor || cardTheme !== 'default';
     const link = hasBackgroundColor || border === 'line' ? undefined : url;
     const borderType = hasBackgroundColor ? 'none' : border;

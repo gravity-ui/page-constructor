@@ -21,32 +21,35 @@ $block: '.#{$ns}share-block';
         @include add-specificity(&) {
             display: flex;
             justify-content: center;
-            width: 48px;
+            align-items: center;
+            // redefine highly specific rule for button with icon from uikit
+            /* stylelint-disable-next-line declaration-no-important */
+            width: 48px !important;
             height: 48px;
             border-radius: 100%;
 
             &_type_vk {
-                background-color: var(--yc-color-vk);
+                background-color: var(--pc-color-vk);
             }
 
             &_type_facebook {
-                background-color: var(--yc-color-facebook);
+                background-color: var(--pc-color-facebook);
             }
 
             &_type_twitter {
-                background-color: var(--yc-color-twitter);
+                background-color: var(--pc-color-twitter);
             }
 
             &_type_telegram {
-                background-color: var(--yc-color-telegram);
+                background-color: var(--pc-color-telegram);
             }
 
             &_type_telegram {
-                background-color: var(--yc-color-telegram);
+                background-color: var(--pc-color-telegram);
             }
 
             &_type_linkedin {
-                background-color: var(--yc-color-linkedin);
+                background-color: var(--pc-color-linkedin);
             }
 
             @include add-specificity(&) {
@@ -59,7 +62,7 @@ $block: '.#{$ns}share-block';
                 &:before {
                     //redefine component style
                     /* stylelint-disable-next-line declaration-no-important */
-                    background-color: var(--yc-color-base-generic) !important;
+                    background-color: var(--g-color-base-generic) !important;
                     border-radius: 100%;
                 }
             }
@@ -69,7 +72,7 @@ $block: '.#{$ns}share-block';
             }
 
             svg {
-                color: var(--yc-color-base-background);
+                color: var(--g-color-base-background);
             }
         }
     }

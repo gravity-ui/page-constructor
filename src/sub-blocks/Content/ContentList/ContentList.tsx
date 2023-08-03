@@ -1,11 +1,11 @@
-import React, {useContext} from 'react';
+import React from 'react';
 
 import {v4 as uuidv4} from 'uuid';
 
 import {YFMWrapper} from '../../../components';
 import Image from '../../../components/Image/Image';
 import {getMediaImage} from '../../../components/Media/Image/utils';
-import {ThemeValueContext} from '../../../context/theme/ThemeValueContext';
+import {useTheme} from '../../../context/theme';
 import {ContentItemProps, ContentSize} from '../../../models';
 import {block, getThemedValue} from '../../../utils';
 
@@ -19,7 +19,7 @@ interface ContentListProps {
 }
 
 const ContentList = ({list, size}: ContentListProps) => {
-    const {themeValue: theme} = useContext(ThemeValueContext);
+    const theme = useTheme();
 
     return (
         <div className={b({size})}>

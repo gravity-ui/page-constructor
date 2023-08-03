@@ -22,8 +22,8 @@ $block: '.#{$ns}hubspot-form';
 
         // field name
         & > label {
-            color: var(--yc-color-text-primary);
-            font-size: var(--yc-text-body-2-font-size);
+            color: var(--g-color-text-primary);
+            font-size: var(--g-text-body-2-font-size);
             display: flex;
             width: $fieldLabelWidth;
             max-width: 100%;
@@ -58,18 +58,18 @@ $block: '.#{$ns}hubspot-form';
                 font-size: 15px;
                 line-height: 16px;
                 font-weight: normal;
-                font-family: var(--yc-text-body-font-family);
-                color: var(--yc-color-text-primary);
+                font-family: var(--g-text-body-font-family);
+                color: var(--g-color-text-primary);
                 background-color: transparent;
-                border: 1px solid var(--yc-color-line-generic);
-                border-radius: var(--yc-border-radius-l);
+                border: 1px solid var(--g-color-line-generic);
+                border-radius: var(--g-border-radius-l);
 
                 &:hover {
-                    border: 1px solid var(--yc-color-line-generic-hover);
+                    border: 1px solid var(--g-color-line-generic-hover);
                 }
 
                 &::placeholder {
-                    color: var(--yc-color-text-hint);
+                    color: var(--g-color-text-hint);
                 }
 
                 &:focus {
@@ -83,7 +83,7 @@ $block: '.#{$ns}hubspot-form';
             input[type='email'],
             textarea {
                 &:focus {
-                    border: 2px solid var(--yc-color-base-special);
+                    border: 2px solid var(--g-color-base-brand);
                     outline: none;
                 }
             }
@@ -107,7 +107,7 @@ $block: '.#{$ns}hubspot-form';
                 padding-right: 30px;
 
                 &:focus {
-                    border: 1px solid var(--yc-color-line-generic-active);
+                    border: 1px solid var(--g-color-line-generic-active);
                 }
             }
         }
@@ -144,8 +144,8 @@ $block: '.#{$ns}hubspot-form';
             }
 
             span:not(.hs-form-required) {
-                color: var(--yc-color-text-primary);
-                font-size: var(--yc-text-body-2-font-size);
+                color: var(--g-color-text-primary);
+                font-size: var(--g-text-body-2-font-size);
                 line-height: 16px;
                 padding-left: 7px;
                 margin: 0;
@@ -171,7 +171,7 @@ $block: '.#{$ns}hubspot-form';
                     width: $checkbox;
                     background-color: transparent;
                     border-radius: 4px;
-                    border: 1px solid var(--yc-color-line-generic-accent);
+                    border: 1px solid var(--g-color-line-generic-accent);
                     transition: background-color 0.1s linear;
                 }
                 &:after {
@@ -209,7 +209,7 @@ $block: '.#{$ns}hubspot-form';
                     width: $checkbox;
                     background-color: transparent;
                     border-radius: 50%;
-                    border: 1px solid var(--yc-color-line-generic-accent);
+                    border: 1px solid var(--g-color-line-generic-accent);
                     transition: background-color 0.1s linear;
                 }
                 &:after {
@@ -246,7 +246,7 @@ $block: '.#{$ns}hubspot-form';
         padding-left: $requiredWidth;
 
         p {
-            color: var(--yc-color-text-primary);
+            color: var(--g-color-text-primary);
             @include text-body-2();
             margin: 0 0 20px;
         }
@@ -255,7 +255,7 @@ $block: '.#{$ns}hubspot-form';
     .hs_error_rollup {
         padding-left: $requiredWidth;
         @include text-body-1();
-        color: var(--yc-color-text-danger);
+        color: var(--g-color-text-danger);
     }
 
     // wrapper for errors, checkbox list, radio list
@@ -267,7 +267,7 @@ $block: '.#{$ns}hubspot-form';
 
     // required star
     .hs-form-required {
-        color: var(--yc-color-text-hint);
+        color: var(--g-color-text-hint);
         width: $requiredWidth;
         order: 1;
         position: absolute;
@@ -279,8 +279,8 @@ $block: '.#{$ns}hubspot-form';
         order: 3;
         padding: 0;
         margin: 3px 0 0;
-        font-size: var(--yc-text-body-1-font-size);
-        color: var(--yc-color-text-complementary);
+        font-size: var(--g-text-body-1-font-size);
+        color: var(--g-color-text-complementary);
     }
 
     // errors
@@ -292,7 +292,7 @@ $block: '.#{$ns}hubspot-form';
 
     .hs-error-msg {
         @include text-body-1();
-        color: var(--yc-color-text-danger);
+        color: var(--g-color-text-danger);
         display: block;
     }
 
@@ -310,11 +310,11 @@ $block: '.#{$ns}hubspot-form';
         box-sizing: border-box;
         height: 44px;
         padding: 0 20px;
-        border-radius: var(--yc-border-radius-xl);
-        background-color: var(--yc-color-base-special);
-        color: var(--yc-my-color-brand-text-contrast);
+        border-radius: var(--g-border-radius-xl);
+        background-color: var(--g-color-base-brand);
+        color: var(--g-color-text-brand-contrast);
         line-height: 44px;
-        font-size: var(--yc-text-body-2-font-size);
+        font-size: var(--g-text-body-2-font-size);
         font-weight: normal;
         user-select: none;
         text-align: center;
@@ -322,13 +322,13 @@ $block: '.#{$ns}hubspot-form';
         appearance: none;
 
         &:hover {
-            background-color: var(--yc-color-base-special-hover);
+            background-color: var(--g-color-base-brand-hover);
         }
     }
 
     .grecaptcha-badge {
         box-shadow: none !important; // stylelint-disable-line declaration-no-important
-        border: 1px solid var(--yc-color-line-generic);
+        border: 1px solid var(--g-color-line-generic);
     }
 
     .hs_recaptcha div {

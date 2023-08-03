@@ -5,15 +5,15 @@ import {MobileProvider, Platform} from '@gravity-ui/uikit';
 import React from 'react';
 import {MINIMAL_VIEWPORTS} from '@storybook/addon-viewport';
 import type {Decorator, Preview} from '@storybook/react';
-import {themeLight} from './theme';
+import {themeLight} from './theme/light';
 import {PageConstructorProvider} from '../src/containers/PageConstructor/Provider';
-import {withTheme} from './decorators/withTheme';
 import {withMobile} from './decorators/withMobile';
 import {withLang} from './decorators/withLang';
 import {DocsDecorator} from './decorators/docs';
 
-import {ThemeProvider} from '../src';
+import {Theme} from '../src';
 import {configure, Lang} from '../src/utils/configure';
+import {GlobalThemeController} from './theme/utils/global-theme-controller';
 
 import '../styles/styles.scss';
 
@@ -27,7 +27,7 @@ const withContextProvider: Decorator = (Story, context) => {
     // to set theme in docs
     context.parameters.backgrounds.default = theme;
     context.globals.backgrounds = {
-        value: theme === 'light' ? 'white' : 'black',
+        value: theme === Theme.Light ? 'white' : 'black',
     };
     context.globals.background = theme;
 
@@ -35,19 +35,20 @@ const withContextProvider: Decorator = (Story, context) => {
     // context.parameters.docs.theme = theme === 'light' ? CommonTheme.light : CommonTheme.dark;
 
     return (
-        <ThemeProvider theme={theme}>
+        <GlobalThemeController>
             <MobileProvider mobile={false} platform={Platform.BROWSER}>
                 <Story {...context} />
             </MobileProvider>
-        </ThemeProvider>
+        </GlobalThemeController>
     );
 };
 
-const withPageConstructorProvider = (Story, context) => {
+const withPageConstructorProvider: Decorator = (Story, context) => {
     return (
         <PageConstructorProvider
             isMobile={context.globals.platform === 'mobile'}
             locale={{lang: context.globals.lang}}
+            theme={context.globals.theme}
         >
             <Story {...context} />
         </PageConstructorProvider>
@@ -55,7 +56,7 @@ const withPageConstructorProvider = (Story, context) => {
 };
 
 const preview: Preview = {
-    decorators: [withTheme, withLang, withMobile, withContextProvider, withPageConstructorProvider],
+    decorators: [withLang, withMobile, withContextProvider, withPageConstructorProvider],
     parameters: {
         layout: 'fullscreen',
         docs: {

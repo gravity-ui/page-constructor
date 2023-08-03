@@ -1,8 +1,8 @@
-import React, {useContext} from 'react';
+import React from 'react';
 
 import {Image} from '../../components';
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
-import {ThemeValueContext} from '../../context/theme/ThemeValueContext';
+import {useTheme} from '../../context/theme';
 import {CompaniesBlockProps} from '../../models';
 import {block, getThemedValue} from '../../utils';
 
@@ -11,7 +11,7 @@ import './Companies.scss';
 const b = block('companies-block');
 
 export const CompaniesBlock = ({title, images, animated}: CompaniesBlockProps) => {
-    const {themeValue: theme} = useContext(ThemeValueContext);
+    const theme = useTheme();
     const themedImages = getThemedValue(images, theme) || {};
 
     return (

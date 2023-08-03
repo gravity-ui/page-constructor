@@ -1,4 +1,4 @@
-import React, {Fragment, useContext, useRef, useState} from 'react';
+import React, {Fragment, useRef, useState} from 'react';
 
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
 import ButtonTabs, {ButtonTabsItemProps} from '../../components/ButtonTabs/ButtonTabs';
@@ -7,7 +7,7 @@ import {getMediaImage} from '../../components/Media/Image/utils';
 import Media from '../../components/Media/Media';
 import Title from '../../components/Title/Title';
 import {getHeight} from '../../components/VideoBlock/VideoBlock';
-import {ThemeValueContext} from '../../context/theme/ThemeValueContext';
+import {useTheme} from '../../context/theme';
 import {Col, GridColumnOrderClasses, Row} from '../../grid';
 import {TabsBlockProps} from '../../models';
 import {Content} from '../../sub-blocks';
@@ -29,7 +29,7 @@ export const TabsBlock = ({
 }: TabsBlockProps) => {
     const [activeTab, setActiveTab] = useState<string | null>(items[0].tabName);
     const [play, setPlay] = useState<boolean>(false);
-    const {themeValue: theme} = useContext(ThemeValueContext);
+    const theme = useTheme();
     const tabs: ButtonTabsItemProps[] = items.map(({tabName}) => ({title: tabName, id: tabName}));
     const activeTabData = items.find(({tabName}) => tabName === activeTab);
     const isReverse = direction === 'content-media';

@@ -40,7 +40,7 @@ $closeButtonSize: 36px;
         width: $closeButtonSize;
         height: $closeButtonSize;
         border-radius: 8px;
-        background-color: var(--yc-color-base-simple-hover-solid);
+        background-color: var(--g-color-base-simple-hover-solid);
         cursor: pointer;
         opacity: 0;
         transition: 0.3s;
@@ -51,10 +51,10 @@ $closeButtonSize: 36px;
     }
 
     &__icon {
-        color: var(--yc-color-text-hint);
+        color: var(--g-color-text-hint);
 
         &_hover:hover {
-            color: var(--yc-color-text-secondary);
+            color: var(--g-color-text-secondary);
         }
     }
 

@@ -5,7 +5,6 @@ import React from 'react';
 
 import {themes} from '../../theme';
 import {MobileContext} from '../../../src/context/mobileContext';
-import {ThemeProvider} from '../../../src/context/theme/ThemeProvider';
 
 import './DocsDecorator.scss';
 
@@ -20,9 +19,7 @@ export function DocsDecorator({children, context}: DocsDecoratorProps) {
     return (
         <div className={b()}>
             <DocsContainer context={context} theme={themes[theme as 'dark' | 'light']}>
-                <ThemeProvider theme={theme}>
-                    <MobileContext.Provider value={false}>{children}</MobileContext.Provider>
-                </ThemeProvider>
+                <MobileContext.Provider value={false}>{children}</MobileContext.Provider>
             </DocsContainer>
         </div>
     );

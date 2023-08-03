@@ -5,7 +5,7 @@ import HeaderBreadcrumbs from '../../components/HeaderBreadcrumbs/HeaderBreadcru
 import {getMediaImage} from '../../components/Media/Image/utils';
 import YFMWrapper from '../../components/YFMWrapper/YFMWrapper';
 import {MobileContext} from '../../context/mobileContext';
-import {ThemeValueContext} from '../../context/theme/ThemeValueContext';
+import {useTheme} from '../../context/theme';
 import {Col, Grid, Row} from '../../grid';
 import {ClassNameProps, HeaderBlockBackground, HeaderBlockProps, WithChildren} from '../../models';
 import {block, getThemedValue} from '../../utils';
@@ -80,7 +80,7 @@ export const HeaderBlock = (props: WithChildren<HeaderBlockFullProps>) => {
         children,
     } = props;
     const isMobile = useContext(MobileContext);
-    const {themeValue: theme} = useContext(ThemeValueContext);
+    const theme = useTheme();
     const hasRightSideImage = Boolean(image || video);
     const curImageSize = imageSize || getImageSize(width);
     const titleSizes = hasRightSideImage ? titleWithImageSizes(curImageSize) : getTitleSizes(width);

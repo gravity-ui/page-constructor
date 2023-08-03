@@ -14,10 +14,10 @@ $block: '.#{$ns}link-block';
         align-items: center;
 
         &_theme_dark {
-            color: var(--yc-color-text-light-primary);
+            color: var(--g-color-text-light-primary);
 
             &:hover {
-                color: var(--yc-color-text-light-secondary);
+                color: var(--g-color-text-light-secondary);
             }
         }
 
@@ -28,7 +28,7 @@ $block: '.#{$ns}link-block';
             &:hover,
             &:active {
                 --pc-text-header-color: inherit;
-                color: var(--yc-color-text-link);
+                color: var(--g-color-text-link);
             }
 
             #{$root}__content {
@@ -44,7 +44,7 @@ $block: '.#{$ns}link-block';
 
         &#{&}_has-arrow#{&}_theme_dark {
             &:hover {
-                color: var(--yc-color-text-light-primary);
+                color: var(--g-color-text-light-primary);
             }
         }
     }

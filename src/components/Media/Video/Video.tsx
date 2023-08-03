@@ -108,6 +108,7 @@ const Video = (props: VideoAllProps) => {
                     disablePictureInPicture={true}
                     playsInline={true}
                     // @ts-ignore
+                    // eslint-disable-next-line react/no-unknown-property
                     pip="false"
                     className={b('item')}
                     ref={ref}

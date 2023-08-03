@@ -103,11 +103,11 @@ $block: '.#{$ns}SliderBlock';
         height: 8px;
 
         border-radius: 100%;
-        background-color: var(--yc-color-line-generic-accent);
+        background-color: var(--g-color-line-generic-accent);
         cursor: pointer;
 
         &:hover {
-            background-color: var(--yc-color-line-generic-accent-hover);
+            background-color: var(--g-color-line-generic-accent-hover);
         }
 
         & + & {
@@ -115,7 +115,7 @@ $block: '.#{$ns}SliderBlock';
         }
 
         &_active {
-            background-color: var(--yc-color-line-generic-active);
+            background-color: var(--g-color-line-generic-active);
         }
     }
 
@@ -149,7 +149,7 @@ $block: '.#{$ns}SliderBlock';
             position: absolute;
             top: 0;
             left: 0;
-            color: var(--yc-color-text-secondary);
+            color: var(--g-color-text-secondary);
 
             &_size {
                 &_l {

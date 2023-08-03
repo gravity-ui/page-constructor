@@ -30,12 +30,3 @@ export const themeLight = create({
     brandTitle: `<div style="font-size: 18px; color: #027bf3; font-weight: 600; margin-top: -6px; margin-bottom: 2px;">Page Constructor</div>
                 <div style="font-size: 14px;color: #7d7d7d;font-weight: 400;">Website components</div>`,
 });
-
-export const themeDark = create({
-    base: 'dark',
-});
-
-export const themes = {
-    light: themeLight,
-    dark: themeDark,
-};
