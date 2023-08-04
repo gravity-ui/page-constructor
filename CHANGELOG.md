@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [4.0.1](https://github.com/gravity-ui/page-constructor/compare/v4.0.0...v4.0.1) (2023-08-04)
+
+
+### Bug Fixes
+
+* fix types conflict between content_transformer and page_content ([#463](https://github.com/gravity-ui/page-constructor/issues/463)) ([0424475](https://github.com/gravity-ui/page-constructor/commit/0424475c423e4dd5b30c9c6c23fb4bdd7fee8008))
+
 ## [4.0.0](https://github.com/gravity-ui/page-constructor/compare/v3.16.0...v4.0.0) (2023-08-03)
 
 ### ⚠ BREAKING CHANGES
