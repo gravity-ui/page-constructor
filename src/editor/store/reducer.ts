@@ -1,4 +1,4 @@
-import {Block, PageContent, Theme} from '../../models';
+import {ConstructorBlock, PageContent, Theme} from '../../models';
 import {ViewModeItem} from '../types';
 
 import {addBlock, changeBlocksOrder, duplicateBlock, getErrorBoundaryState} from './utils';
@@ -19,7 +19,7 @@ interface OrderBlockParams {
 }
 
 interface AddBlockParams {
-    block: Block;
+    block: ConstructorBlock;
     index: number;
 }
 
@@ -87,7 +87,7 @@ export type EditorAction =
 // reducer
 export const reducer = (state: EditorState, action: EditorAction): EditorState => {
     const {content} = state;
-    const getNewState = (blocks: Block[], activeBlockIndex: number) => ({
+    const getNewState = (blocks: ConstructorBlock[], activeBlockIndex: number) => ({
         ...state,
         content: {
             ...content,
@@ -112,7 +112,9 @@ export const reducer = (state: EditorState, action: EditorAction): EditorState =
             const blockId = action.payload;
 
             return getNewState(
-                content.blocks.filter((_block: Block, index: number) => index !== blockId),
+                content.blocks.filter(
+                    (_block: ConstructorBlock, index: number) => index !== blockId,
+                ),
                 -1,
             );
         }

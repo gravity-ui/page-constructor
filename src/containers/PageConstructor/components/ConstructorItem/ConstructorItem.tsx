@@ -3,10 +3,10 @@ import React, {useContext} from 'react';
 import {BlockIdContext} from '../../../../context/blockIdContext';
 import {InnerContext} from '../../../../context/innerContext';
 import {BlockDecoration} from '../../../../customization/BlockDecoration';
-import {BlockType, ConstructorItem as ConstructorItemType, WithChildren} from '../../../../models';
+import {BlockType, ConstructorBlock, WithChildren} from '../../../../models';
 
 export interface ConstructorItemProps {
-    data: ConstructorItemType;
+    data: ConstructorBlock;
     blockKey: string;
 }
 

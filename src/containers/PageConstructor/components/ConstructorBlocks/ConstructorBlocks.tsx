@@ -4,14 +4,19 @@ import _ from 'lodash';
 
 import {InnerContext} from '../../../../context/innerContext';
 import {BlockDecoration} from '../../../../customization/BlockDecoration';
-import {Block, BlockType, ConstructorItem as ConstructorItemType} from '../../../../models';
+import {
+    BlockType,
+    ConstructorBlock as ConstructorBlockType,
+    LoadableProps,
+    SubBlock,
+} from '../../../../models';
 import {getBlockKey} from '../../../../utils';
 import {ConstructorBlock} from '../ConstructorBlock/ConstructorBlock';
 import {ConstructorItem} from '../ConstructorItem';
 import {ConstructorLoadable} from '../ConstructorLoadable';
 
 export interface ConstructorBlocksProps {
-    items: ConstructorItemType[];
+    items: ConstructorBlockType[];
 }
 
 export const ConstructorBlocks: React.FC<ConstructorBlocksProps> = ({items}) => {
@@ -19,7 +24,7 @@ export const ConstructorBlocks: React.FC<ConstructorBlocksProps> = ({items}) => 
 
     const renderer = (
         parentId = '',
-        item: ConstructorItemType,
+        item: ConstructorBlockType,
         index: number,
     ): ReactElement | null => {
         if (!itemMap[item.type]) {
@@ -38,7 +43,7 @@ export const ConstructorBlocks: React.FC<ConstructorBlocksProps> = ({items}) => 
         }
 
         if ('loadable' in item && item.loadable) {
-            const {source, serviceId, params} = item.loadable;
+            const {source, serviceId, params} = item.loadable as LoadableProps;
             const config = _.get(loadables, source);
 
             if (!config) {
@@ -58,7 +63,7 @@ export const ConstructorBlocks: React.FC<ConstructorBlocksProps> = ({items}) => 
         } else {
             let children;
             if ('children' in item && item.children) {
-                children = item.children.map(renderer.bind(null, blockId));
+                children = (item.children as SubBlock[]).map(renderer.bind(null, blockId));
             }
 
             itemElement = (
@@ -71,7 +76,7 @@ export const ConstructorBlocks: React.FC<ConstructorBlocksProps> = ({items}) => 
         return blockTypes.includes(item.type) ? (
             //TODO: replace ConstructorBlock (and delete it) with BlockBase when all
             // components relying on constructor inner structure like Slider or blog-constructor will be refactored
-            <ConstructorBlock data={item as Block} key={blockId} index={index}>
+            <ConstructorBlock data={item} key={blockId} index={index}>
                 {itemElement}
             </ConstructorBlock>
         ) : (

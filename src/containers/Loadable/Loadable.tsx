@@ -5,7 +5,7 @@ import blockCn from 'bem-cn-lite';
 
 import ErrorWrapper from '../../components/ErrorWrapper/ErrorWrapper';
 import {
-    ConstructorItem,
+    ConstructorBlock,
     CustomItem,
     FetchLoadableData,
     LoadableData,
@@ -27,7 +27,7 @@ export interface LoadableState {
 export interface LoadableComponentsProps extends Omit<PropsWithChildren<LoadableProps>, 'source'> {
     Component: CustomItem;
     ChildComponent: CustomItem;
-    block: ConstructorItem;
+    block: ConstructorBlock;
     blockKey: string;
     fetch: FetchLoadableData;
 }
