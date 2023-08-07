@@ -20,7 +20,7 @@ const BasicCard = (props: BasicCardProps) => {
         additionalInfo,
         links,
         buttons,
-        iconPosition = IconPosition,
+        iconPosition = IconPosition.Top,
         ...cardParams
     } = props;
     const iconProps = icon && getMediaImage(icon);
@@ -28,11 +28,11 @@ const BasicCard = (props: BasicCardProps) => {
     return (
         <CardBase className={b()} {...cardParams}>
             <CardBase.Content>
-                <div className={b('content', {'icon-position': iconPosition})}>
+                <div className={b('content', {['icon-position']: iconPosition})}>
                     {iconProps && (
                         <Image
                             {...iconProps}
-                            className={b('icon', {'icon-position': iconPosition})}
+                            className={b('icon', {['icon-position']: iconPosition})}
                         />
                     )}
                     <Content
@@ -43,7 +43,7 @@ const BasicCard = (props: BasicCardProps) => {
                         buttons={buttons}
                         colSizes={{all: 12, md: 12}}
                         size="s"
-                        className={b('text-content')}
+                        className={b({['content-layout']: iconPosition})}
                     />
                 </div>
             </CardBase.Content>

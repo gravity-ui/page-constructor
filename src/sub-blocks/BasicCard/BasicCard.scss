@@ -4,8 +4,8 @@
 $block: '.#{$ns}basic-card';
 
 #{$block} {
-    $iconSizeL: 32px;
-    $iconSizeS: 22px;
+    $iconSizePositionTop: 32px;
+    $iconSizePositionLeft: 22px;
 
     @include add-specificity(&) {
         min-height: auto;
@@ -14,18 +14,19 @@ $block: '.#{$ns}basic-card';
     &__icon {
         max-width: 100%;
         margin-bottom: $indentXXS;
-        height: $iconSizeL;
+        height: $iconSizePositionTop;
         object-fit: contain;
         display: block;
 
         &_icon-position {
             &_left {
-                height: $iconSizeS;
-                width: $iconSizeS;
+                height: $iconSizePositionLeft;
+                width: $iconSizePositionLeft;
                 margin: 1px $indentXXS 1px 0px;
             }
         }
     }
+
     &__content {
         display: flex;
         flex-direction: column;
@@ -37,9 +38,11 @@ $block: '.#{$ns}basic-card';
         }
     }
 
-    &__text-content {
-        @include add-specificity(&) {
-            flex: 1 0 0;
+    &_content-layout {
+        &_left {
+            @include add-specificity(&) {
+                flex: 1 0 0;
+            }
         }
     }
 }
