@@ -29,10 +29,7 @@ const WithIconTemplate: StoryFn<BasicCardProps> = (args) => (
             <BasicCard {...args} icon={data.withIcon.icons[0]} />
         </div>
         <div style={{maxWidth: '400px', padding: '0 8px'}}>
-            <BasicCard {...args} icon={data.withIcon.icons[1]} />
-        </div>
-        <div style={{maxWidth: '400px', padding: '0 8px'}}>
-            <BasicCard {...args} icon={data.withIcon.icons[2]} iconPosition={IconPosition.Left} />
+            <BasicCard {...args} icon={data.withIcon.icons[1]} iconPosition={IconPosition.Left} />
         </div>
     </div>
 );
