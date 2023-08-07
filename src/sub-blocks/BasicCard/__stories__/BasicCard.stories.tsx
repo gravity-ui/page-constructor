@@ -4,6 +4,7 @@ import yfm from '@doc-tools/transform';
 import {Meta, StoryFn} from '@storybook/react';
 
 import {BasicCardProps} from '../../../models';
+import {IconPosition} from '../../../models/constructor-items/sub-blocks';
 import BasicCard from '../BasicCard';
 
 import data from './data.json';
@@ -22,7 +23,7 @@ const DefaultTemplate: StoryFn<BasicCardProps> = (args) => (
     </div>
 );
 
-const WithIconTemplate: StoryFn<BasicCardProps> = (args) => (
+const WithIconTopTemplate: StoryFn<BasicCardProps> = (args) => (
     <div style={{display: 'flex'}}>
         <div style={{maxWidth: '400px', padding: '0 8px'}}>
             <BasicCard {...args} icon={data.withIcon.icons[0]} />
@@ -32,6 +33,20 @@ const WithIconTemplate: StoryFn<BasicCardProps> = (args) => (
         </div>
         <div style={{maxWidth: '400px', padding: '0 8px'}}>
             <BasicCard {...args} icon={data.withIcon.icons[2]} />
+        </div>
+    </div>
+);
+
+const WithIconLeftTemplate: StoryFn<BasicCardProps> = (args) => (
+    <div style={{display: 'flex'}}>
+        <div style={{maxWidth: '400px', padding: '0 8px'}}>
+            <BasicCard {...args} icon={data.withIcon.icons[0]} iconPosition={IconPosition.Left} />
+        </div>
+        <div style={{maxWidth: '400px', padding: '0 8px'}}>
+            <BasicCard {...args} icon={data.withIcon.icons[1]} iconPosition={IconPosition.Left} />
+        </div>
+        <div style={{maxWidth: '400px', padding: '0 8px'}}>
+            <BasicCard {...args} icon={data.withIcon.icons[2]} iconPosition={IconPosition.Left} />
         </div>
     </div>
 );
@@ -51,7 +66,8 @@ const WithBorderTemplate: StoryFn<BasicCardProps> = (args) => (
 );
 
 export const Default = DefaultTemplate.bind({});
-export const WithIcon = WithIconTemplate.bind({});
+export const WithIconTop = WithIconTopTemplate.bind({});
+export const WithIconLeft = WithIconLeftTemplate.bind({});
 export const WithBorder = WithBorderTemplate.bind({});
 
 const DefaultArgs = {
@@ -63,5 +79,6 @@ Default.args = {
     ...data.default.content,
     ...DefaultArgs,
 } as BasicCardProps;
-WithIcon.args = DefaultArgs as BasicCardProps;
+WithIconTop.args = DefaultArgs as BasicCardProps;
+WithIconLeft.args = DefaultArgs as BasicCardProps;
 WithBorder.args = DefaultArgs as BasicCardProps;
