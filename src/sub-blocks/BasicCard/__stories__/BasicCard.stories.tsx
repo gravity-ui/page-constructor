@@ -12,6 +12,9 @@ import data from './data.json';
 const getCardWithBorderTitle = (border: string) =>
     data.withBorder.title.replace('{{border}}', border);
 
+const getCardWithIconTitle = (border: string) =>
+    data.withIcon.title.replace('{{position}}', border);
+
 export default {
     component: BasicCard,
     title: 'Components/Cards/BasicCard',
@@ -26,10 +29,19 @@ const DefaultTemplate: StoryFn<BasicCardProps> = (args) => (
 const WithIconTemplate: StoryFn<BasicCardProps> = (args) => (
     <div style={{display: 'flex'}}>
         <div style={{maxWidth: '400px', padding: '0 8px'}}>
-            <BasicCard {...args} icon={data.withIcon.icons[0]} />
+            <BasicCard
+                {...args}
+                icon={data.withIcon.icons[0]}
+                title={getCardWithIconTitle('top')}
+            />
         </div>
         <div style={{maxWidth: '400px', padding: '0 8px'}}>
-            <BasicCard {...args} icon={data.withIcon.icons[1]} iconPosition={IconPosition.Left} />
+            <BasicCard
+                {...args}
+                icon={data.withIcon.icons[1]}
+                iconPosition={IconPosition.Left}
+                title={getCardWithIconTitle('left')}
+            />
         </div>
     </div>
 );
