@@ -40,6 +40,11 @@ export enum SubBlockType {
     Card = 'card',
 }
 
+export enum IconPosition {
+    Top = 'top',
+    Left = 'left',
+}
+
 export const SubBlockTypes = Object.values(SubBlockType);
 
 export interface DividerProps {
@@ -108,6 +113,7 @@ export interface BasicCardProps
     url: string;
     icon?: ImageProps;
     target?: string;
+    iconPosition?: IconPosition;
 }
 
 export interface BannerCardProps {

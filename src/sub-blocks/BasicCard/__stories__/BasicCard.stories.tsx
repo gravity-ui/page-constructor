@@ -4,12 +4,16 @@ import yfm from '@doc-tools/transform';
 import {Meta, StoryFn} from '@storybook/react';
 
 import {BasicCardProps} from '../../../models';
+import {IconPosition} from '../../../models/constructor-items/sub-blocks';
 import BasicCard from '../BasicCard';
 
 import data from './data.json';
 
 const getCardWithBorderTitle = (border: string) =>
     data.withBorder.title.replace('{{border}}', border);
+
+const getCardWithIconTitle = (border: string) =>
+    data.withIcon.title.replace('{{position}}', border);
 
 export default {
     component: BasicCard,
@@ -25,13 +29,19 @@ const DefaultTemplate: StoryFn<BasicCardProps> = (args) => (
 const WithIconTemplate: StoryFn<BasicCardProps> = (args) => (
     <div style={{display: 'flex'}}>
         <div style={{maxWidth: '400px', padding: '0 8px'}}>
-            <BasicCard {...args} icon={data.withIcon.icons[0]} />
+            <BasicCard
+                {...args}
+                icon={data.withIcon.icons[0]}
+                title={getCardWithIconTitle('top')}
+            />
         </div>
         <div style={{maxWidth: '400px', padding: '0 8px'}}>
-            <BasicCard {...args} icon={data.withIcon.icons[1]} />
-        </div>
-        <div style={{maxWidth: '400px', padding: '0 8px'}}>
-            <BasicCard {...args} icon={data.withIcon.icons[2]} />
+            <BasicCard
+                {...args}
+                icon={data.withIcon.icons[1]}
+                iconPosition={IconPosition.Left}
+                title={getCardWithIconTitle('left')}
+            />
         </div>
     </div>
 );

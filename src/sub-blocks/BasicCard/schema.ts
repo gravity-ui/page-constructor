@@ -22,6 +22,10 @@ export const BasicCard = {
                 type: 'string',
                 enum: ['_blank', '_parent', '_top', '_self'],
             },
+            iconPosition: {
+                type: 'string',
+                enum: ['top', 'left'],
+            },
         },
     },
 };
