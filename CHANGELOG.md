@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [4.1.0](https://github.com/gravity-ui/page-constructor/compare/v4.0.1...v4.1.0) (2023-08-08)
+
+
+### Features
+
+* add an icon position on the left side of a basic-card ([#481](https://github.com/gravity-ui/page-constructor/issues/481)) ([83617c9](https://github.com/gravity-ui/page-constructor/commit/83617c9a5b9f75cbaad9235bb34de50833dba92a))
+* update @gravity-ui/dynamic-forms to v2 ([#491](https://github.com/gravity-ui/page-constructor/issues/491)) ([19f5400](https://github.com/gravity-ui/page-constructor/commit/19f5400ec3e78f205fcebd2f7c1447c8c945784a))
+
 ## [4.0.1](https://github.com/gravity-ui/page-constructor/compare/v4.0.0...v4.0.1) (2023-08-04)
 
 
