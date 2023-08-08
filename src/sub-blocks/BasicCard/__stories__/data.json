@@ -1,5 +1,6 @@
 {
   "withIcon": {
+    "title": "Card with icon on {{position}}",
     "icons": [
       "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_1_light.svg",
       "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_2_light.svg",
