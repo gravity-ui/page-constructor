@@ -51,7 +51,7 @@ function transformBlock(lang: Lang, blocksConfig: BlocksConfig, block: Construct
                         if (parser) {
                             block[field] = parser(transformer, block[field]);
                         } else if (typeof block[field] === 'string') {
-                            block[field] = transformer(block[field]);
+                            block[field] = transformer(block[field] as string);
                         }
                     }
                 });

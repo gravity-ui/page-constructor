@@ -16,7 +16,7 @@ export interface Menu {
     title: string;
 }
 
-export type ConstructorBlock = ConstructorItem | CustomBlock;
+export type ConstructorBlock = (ConstructorItem | CustomBlock) & {indent?: string};
 
 export interface PageContent extends Animatable {
     blocks: ConstructorBlock[];

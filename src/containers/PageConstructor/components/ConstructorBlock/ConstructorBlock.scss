@@ -1,0 +1,109 @@
+@import '../../../../../styles/variables';
+@import '../../../../../styles/mixins';
+
+$block: '.#{$ns}constructor-block';
+
+#{$block} {
+    @include add-specificity(&) {
+        &_indent {
+            &_xxxs {
+                margin-top: $indentXXXS;
+                padding-bottom: $indentXXXS;
+
+                &:first-child {
+                    margin-top: $indentXXXS;
+                }
+            }
+
+            &_xxs {
+                margin-top: $indentXXS;
+                padding-bottom: $indentXXS;
+
+                &:first-child {
+                    margin-top: $indentXXS;
+                }
+            }
+
+            &_xs {
+                margin-top: $indentXS;
+                padding-bottom: $indentXS;
+
+                &:first-child {
+                    margin-top: $indentXS;
+                }
+            }
+
+            &_s {
+                margin-top: $indentS;
+                padding-bottom: $indentS;
+
+                &:first-child {
+                    margin-top: $indentS;
+                }
+            }
+
+            &_sm {
+                margin-top: $indentSM;
+                padding-bottom: $indentSM;
+
+                &:first-child {
+                    margin-top: $indentSM;
+                }
+            }
+
+            &_m {
+                margin-top: $indentM;
+                padding-bottom: $indentM;
+
+                &:first-child {
+                    margin-top: $indentM;
+                }
+            }
+
+            &_l {
+                margin-top: $indentL;
+                padding-bottom: $indentL;
+
+                &:first-child {
+                    margin-top: $indentL;
+                }
+            }
+
+            &_xl {
+                margin-top: $indentXL;
+                padding-bottom: $indentXL;
+
+                &:first-child {
+                    margin-top: $indentXL;
+                }
+            }
+
+            &_xxl {
+                margin-top: $indentXXL;
+                padding-bottom: $indentXXL;
+
+                &:first-child {
+                    margin-top: $indentXXL;
+                }
+            }
+
+            &_xxxl {
+                margin-top: $indentXXXL;
+                padding-bottom: $indentXXXL;
+
+                &:first-child {
+                    margin-top: $indentXXXL;
+                }
+            }
+
+            &_4xl {
+                margin-top: $indent4XL;
+                padding-bottom: $indent4XL;
+
+                &:first-child {
+                    margin-top: $indent4XL;
+                }
+            }
+        }
+    }
+}

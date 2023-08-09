@@ -52,6 +52,7 @@ const ColSizeTemplate: StoryFn<CardLayoutBlockModel> = (args) => (
 
 export const Default = DefaultTemplate.bind({});
 export const ColSize = ColSizeTemplate.bind({});
+export const WithCustomIndent = DefaultTemplate.bind({});
 
 Default.args = {
     ...data.default.content,
@@ -61,4 +62,10 @@ Default.args = {
 ColSize.args = {
     ...data.default.content,
     children: createCardArray(8, data.colSizes.four.card),
+} as CardLayoutBlockProps;
+
+WithCustomIndent.args = {
+    ...data.default.content,
+    children: createCardArray(6, data.default.card),
+    indent: data.default.content.indent,
 } as CardLayoutBlockProps;

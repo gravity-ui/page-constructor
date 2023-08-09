@@ -2,7 +2,11 @@ import React from 'react';
 
 import {AnimateBlock, Title} from '../../components';
 import {Col, GridColumnSizesType, Row} from '../../grid';
-import {CardLayoutBlockProps as CardLayoutBlockParams, WithChildren} from '../../models';
+import {
+    CardLayoutBlockProps as CardLayoutBlockParams,
+    ClassNameProps,
+    WithChildren,
+} from '../../models';
 import {block} from '../../utils';
 
 import './CardLayout.scss';
@@ -12,7 +16,8 @@ const DEFAULT_SIZES: GridColumnSizesType = {
     sm: 6,
     md: 4,
 };
-export type CardLayoutBlockProps = WithChildren<Omit<CardLayoutBlockParams, 'children'>>;
+export type CardLayoutBlockProps = WithChildren<Omit<CardLayoutBlockParams, 'children'>> &
+    ClassNameProps;
 
 const b = block('card-layout-block');
 
@@ -22,8 +27,9 @@ const CardLayout: React.FC<CardLayoutBlockProps> = ({
     animated,
     colSizes = DEFAULT_SIZES,
     children,
+    className,
 }) => (
-    <AnimateBlock className={b()} animate={animated}>
+    <AnimateBlock className={b(null, className)} animate={animated}>
         {(title || description) && <Title title={title} subtitle={description} />}
         <Row>
             {React.Children.map(children, (child, index) => (

@@ -13,7 +13,8 @@
     "content": {
       "type": "card-layout-block",
       "title": "Card Layout",
-      "description": "Three cards in a row on the desktop, two cards in a row on a tablet, one card in a row on a mobile phone."
+      "description": "Three cards in a row on the desktop, two cards in a row on a tablet, one card in a row on a mobile phone.",
+      "indent": "4xl"
     }
   },
   "colSizes": {
