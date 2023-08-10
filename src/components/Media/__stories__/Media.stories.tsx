@@ -1,8 +1,8 @@
 import React from 'react';
 
 import {Meta, StoryFn} from '@storybook/react';
-import {MediaProps} from 'src/models';
 
+import {MediaProps} from '../../../models';
 import Media, {MediaAllProps} from '../Media';
 
 import data from './data.json';

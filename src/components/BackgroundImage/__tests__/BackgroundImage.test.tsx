@@ -1,9 +1,9 @@
 import React from 'react';
 
 import {render, screen} from '@testing-library/react';
-import {BackgroundImageProps} from 'src/models';
 
 import {testCustomClassName, testCustomStyle} from '../../../../test-utils/shared/common';
+import {BackgroundImageProps} from '../../../models';
 import BackgroundImage from '../BackgroundImage';
 
 const qa = 'background-image-component';
