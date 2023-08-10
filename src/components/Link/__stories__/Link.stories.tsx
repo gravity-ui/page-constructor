@@ -1,7 +1,6 @@
 import React, {Fragment} from 'react';
 
 import {Meta, StoryFn} from '@storybook/react';
-import {LinkProps} from 'src/models';
 
 import {Col, Row} from '../../../grid';
 import {LinkProps} from '../../../models';
