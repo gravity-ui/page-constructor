@@ -77,6 +77,7 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
             metrika: videoMetrika,
             analyticsEvents,
             height,
+            ariaLabel,
         } = props;
 
         const {
@@ -350,6 +351,7 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
                     onPause={onPause}
                     onProgress={onProgress}
                     onEnded={onEnded}
+                    aria-label={ariaLabel}
                 />
                 {renderCustomBarControls(muted, playedPercent)}
             </div>

@@ -208,6 +208,7 @@ export interface MediaVideoProps {
     playButton?: PlayButtonProps;
     controls?: MediaVideoControlsType;
     metrika?: MetrikaVideo;
+    ariaLabel?: string;
 }
 
 export type ThemedMediaVideoProps = ThemeSupporting<MediaVideoProps>;
