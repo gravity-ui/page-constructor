@@ -31,8 +31,6 @@ export const Media = (props: MediaAllProps) => {
         metrika,
         fullscreen,
         analyticsEvents,
-    } = props;
-    const {
         className,
         imageClassName,
         videoClassName,
