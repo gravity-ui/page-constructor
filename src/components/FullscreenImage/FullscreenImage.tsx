@@ -56,7 +56,11 @@ const FullscreenImage = (props: FullscreenImageProps) => {
             {isOpened && (
                 <Modal open={isOpened} onClose={closeModal} className={b('modal')}>
                     <div className={b('modal-content')}>
-                        <div className={b('icon-wrapper', {visible: true})} onClick={closeModal}>
+                        <div
+                            className={b('icon-wrapper', {visible: true})}
+                            onClick={closeModal}
+                            aria-label={i18n('close')}
+                        >
                             <Icon
                                 data={PreviewClose}
                                 width={CLOSE_ICON_SIZE}
