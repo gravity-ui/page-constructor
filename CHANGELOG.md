@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [3.17.0](https://github.com/gravity-ui/page-constructor/compare/v3.16.0...v3.17.0) (2023-08-11)
+
+
+### Features
+
+* add an icon position on the left side of a basic-card ([#481](https://github.com/gravity-ui/page-constructor/issues/481)) ([#494](https://github.com/gravity-ui/page-constructor/issues/494)) ([a6e2c73](https://github.com/gravity-ui/page-constructor/commit/a6e2c73bcc14e9e32fc04104800c68e7c6b6eeec))
+
 ## [3.16.0](https://github.com/gravity-ui/page-constructor/compare/v3.15.0...v3.16.0) (2023-08-02)
 
 
