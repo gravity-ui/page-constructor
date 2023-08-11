@@ -7,8 +7,6 @@
 ### Features
 
 * add an icon position on the left side of a basic-card ([#481](https://github.com/gravity-ui/page-constructor/issues/481)) ([#494](https://github.com/gravity-ui/page-constructor/issues/494)) ([a6e2c73](https://github.com/gravity-ui/page-constructor/commit/a6e2c73bcc14e9e32fc04104800c68e7c6b6eeec))
-* release as 3 ([d4bfc92](https://github.com/gravity-ui/page-constructor/commit/d4bfc92f81dbfd38b09adc9bc9f9284cc295f0b7))
-* release as 3 ([#499](https://github.com/gravity-ui/page-constructor/issues/499)) ([0c0fab1](https://github.com/gravity-ui/page-constructor/commit/0c0fab166fbb1481939c764416bc27569d06ba3e))
 
 ## [3.16.0](https://github.com/gravity-ui/page-constructor/compare/v3.15.0...v3.16.0) (2023-08-02)
 
