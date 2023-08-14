@@ -42,6 +42,10 @@ $block: '.#{$ns}icons-block';
     &__item {
         @include reset-link-style();
         margin: 0 $indentXXXS $indentSM;
+
+        &:not([href]) {
+            pointer-events: none;
+        }
     }
 
     &__image {
