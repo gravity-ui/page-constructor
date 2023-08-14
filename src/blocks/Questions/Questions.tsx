@@ -1,12 +1,13 @@
 import React, {useState} from 'react';
 
+import {useActionHandlers} from '@gravity-ui/uikit';
+
 import {Foldable, HTML, ToggleArrow, YFMWrapper} from '../../components';
 import Link from '../../components/Link/Link';
 import {Col, Row} from '../../grid';
-import {QuestionsProps} from '../../models';
+import {QuestionBlockItemProps, QuestionsProps} from '../../models';
 import {Content} from '../../sub-blocks';
 import {block} from '../../utils';
-import {clickOnEnter} from '../../utils/keyboard';
 
 import './Questions.scss';
 
@@ -22,6 +23,65 @@ const FaqMicrodataValues = {
     AnswerProp: 'acceptedAnswer',
     AnswerTextProp: 'text',
 } as const;
+
+const QuestionBlockItem = ({
+    title: itemTitle,
+    text: itemText,
+    link,
+    listStyle = 'dash',
+    isOpened,
+    onClick,
+}: QuestionBlockItemProps) => {
+    const {onKeyDown} = useActionHandlers(onClick);
+
+    return (
+        <div
+            className={b('item')}
+            itemScope
+            itemProp={FaqMicrodataValues.QuestionProp}
+            itemType={FaqMicrodataValues.QuestionType}
+            role={'listitem'}
+        >
+            <h3
+                className={b('item-title')}
+                onClick={onClick}
+                aria-expanded={isOpened}
+                role={'button'}
+                tabIndex={0}
+                onKeyDown={onKeyDown}
+            >
+                <HTML itemProp={FaqMicrodataValues.QuestionNameProp}>{itemTitle}</HTML>
+                <ToggleArrow
+                    open={isOpened}
+                    size={16}
+                    type={'vertical'}
+                    iconType="navigation"
+                    className={b('arrow')}
+                />
+            </h3>
+            <Foldable isOpened={isOpened}>
+                <div
+                    className={b('text')}
+                    itemScope
+                    itemProp={FaqMicrodataValues.AnswerProp}
+                    itemType={FaqMicrodataValues.AnswerType}
+                    aria-hidden={!isOpened}
+                >
+                    <YFMWrapper
+                        content={itemText}
+                        modifiers={{
+                            constructor: true,
+                            constructorListStyle: true,
+                            constructorListStyleDash: listStyle === 'dash',
+                        }}
+                        itemProp={FaqMicrodataValues.QuestionTextProp}
+                    />
+                    {link && <Link {...link} tabIndex={isOpened ? 0 : -1} className={b('link')} />}
+                </div>
+            </Foldable>
+        </div>
+    );
+};
 
 const QuestionsBlock = (props: QuestionsProps) => {
     const {title, text, additionalInfo, links, buttons, items} = props;
@@ -58,62 +118,18 @@ const QuestionsBlock = (props: QuestionsProps) => {
                     {items.map(
                         ({title: itemTitle, text: itemText, link, listStyle = 'dash'}, index) => {
                             const isOpened = opened.includes(index);
+                            const onClick = () => toggleItem(index);
 
                             return (
-                                <div
+                                <QuestionBlockItem
                                     key={itemTitle}
-                                    className={b('item')}
-                                    itemScope
-                                    itemProp={FaqMicrodataValues.QuestionProp}
-                                    itemType={FaqMicrodataValues.QuestionType}
-                                    role={'listitem'}
-                                >
-                                    <h3
-                                        className={b('item-title')}
-                                        onClick={() => toggleItem(index)}
-                                        aria-expanded={isOpened}
-                                        role={'button'}
-                                        tabIndex={0}
-                                        onKeyDown={clickOnEnter}
-                                    >
-                                        <HTML itemProp={FaqMicrodataValues.QuestionNameProp}>
-                                            {itemTitle}
-                                        </HTML>
-                                        <ToggleArrow
-                                            open={isOpened}
-                                            size={16}
-                                            type={'vertical'}
-                                            iconType="navigation"
-                                            className={b('arrow')}
-                                        />
-                                    </h3>
-                                    <Foldable isOpened={isOpened}>
-                                        <div
-                                            className={b('text')}
-                                            itemScope
-                                            itemProp={FaqMicrodataValues.AnswerProp}
-                                            itemType={FaqMicrodataValues.AnswerType}
-                                            aria-hidden={!isOpened}
-                                        >
-                                            <YFMWrapper
-                                                content={itemText}
-                                                modifiers={{
-                                                    constructor: true,
-                                                    constructorListStyle: true,
-                                                    constructorListStyleDash: listStyle === 'dash',
-                                                }}
-                                                itemProp={FaqMicrodataValues.QuestionTextProp}
-                                            />
-                                            {link && (
-                                                <Link
-                                                    {...link}
-                                                    tabIndex={isOpened ? 0 : -1}
-                                                    className={b('link')}
-                                                />
-                                            )}
-                                        </div>
-                                    </Foldable>
-                                </div>
+                                    title={itemTitle}
+                                    text={itemText}
+                                    link={link}
+                                    listStyle={listStyle}
+                                    isOpened={isOpened}
+                                    onClick={onClick}
+                                />
                             );
                         },
                     )}

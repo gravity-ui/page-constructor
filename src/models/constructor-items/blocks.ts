@@ -195,6 +195,11 @@ export interface QuestionsProps
     items: QuestionItem[];
 }
 
+export interface QuestionBlockItemProps extends QuestionItem {
+    isOpened: boolean;
+    onClick: () => void;
+}
+
 export interface BannerBlockProps extends BannerCardProps, Animatable {}
 
 export interface CompaniesBlockProps extends Animatable {
