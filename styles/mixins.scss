@@ -20,6 +20,10 @@
         --pc-text-header-color: var(--g-color-text-link-hover);
         color: var(--g-color-text-link-hover);
     }
+
+    &:focus {
+        outline: 2px solid var(--g-color-line-misc);
+    }
 }
 
 @mixin anchor($offset: 0px) {
