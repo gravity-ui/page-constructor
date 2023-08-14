@@ -79,6 +79,10 @@ export interface Animatable {
     animated?: boolean;
 }
 
+export interface Tabbable {
+    tabIndex?: number;
+}
+
 //common props
 export interface Background {
     image?: string;
@@ -142,7 +146,7 @@ export interface MediaVideoProps extends AnalyticsEventsBase {
 }
 
 // links
-export interface LinkProps extends AnalyticsEventsBase, Stylable {
+export interface LinkProps extends AnalyticsEventsBase, Stylable, Tabbable {
     url: string;
     text?: string;
     textSize?: TextSize;

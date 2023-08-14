@@ -46,6 +46,7 @@ const LinkBlock = (props: WithChildren<LinkFullProps>) => {
         className,
         target,
         children,
+        ...rest
     } = props;
 
     const handleMetrika = useMetrika();
@@ -85,6 +86,7 @@ const LinkBlock = (props: WithChildren<LinkFullProps>) => {
                         href={href}
                         onClick={onClick}
                         {...linkProps}
+                        {...rest}
                     >
                         {arrow ? (
                             <Fragment>

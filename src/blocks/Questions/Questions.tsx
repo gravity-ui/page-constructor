@@ -6,6 +6,7 @@ import {Col, Row} from '../../grid';
 import {QuestionsProps} from '../../models';
 import {Content} from '../../sub-blocks';
 import {block} from '../../utils';
+import {clickOnEnter} from '../../utils/keyboard';
 
 import './Questions.scss';
 
@@ -53,7 +54,7 @@ const QuestionsBlock = (props: QuestionsProps) => {
                         />
                     </div>
                 </Col>
-                <Col sizes={{all: 12, md: 8}}>
+                <Col sizes={{all: 12, md: 8}} role={'list'}>
                     {items.map(
                         ({title: itemTitle, text: itemText, link, listStyle = 'dash'}, index) => {
                             const isOpened = opened.includes(index);
@@ -65,10 +66,15 @@ const QuestionsBlock = (props: QuestionsProps) => {
                                     itemScope
                                     itemProp={FaqMicrodataValues.QuestionProp}
                                     itemType={FaqMicrodataValues.QuestionType}
+                                    role={'listitem'}
                                 >
                                     <h3
                                         className={b('item-title')}
                                         onClick={() => toggleItem(index)}
+                                        aria-expanded={isOpened}
+                                        role={'button'}
+                                        tabIndex={0}
+                                        onKeyDown={clickOnEnter}
                                     >
                                         <HTML itemProp={FaqMicrodataValues.QuestionNameProp}>
                                             {itemTitle}
@@ -87,6 +93,7 @@ const QuestionsBlock = (props: QuestionsProps) => {
                                             itemScope
                                             itemProp={FaqMicrodataValues.AnswerProp}
                                             itemType={FaqMicrodataValues.AnswerType}
+                                            aria-hidden={!isOpened}
                                         >
                                             <YFMWrapper
                                                 content={itemText}
@@ -97,7 +104,13 @@ const QuestionsBlock = (props: QuestionsProps) => {
                                                 }}
                                                 itemProp={FaqMicrodataValues.QuestionTextProp}
                                             />
-                                            {link && <Link {...link} className={b('link')} />}
+                                            {link && (
+                                                <Link
+                                                    {...link}
+                                                    tabIndex={isOpened ? 0 : -1}
+                                                    className={b('link')}
+                                                />
+                                            )}
                                         </div>
                                     </Foldable>
                                 </div>
