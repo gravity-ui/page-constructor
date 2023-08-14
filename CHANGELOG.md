@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [4.1.1](https://github.com/gravity-ui/page-constructor/compare/v4.1.0...v4.1.1) (2023-08-14)
+
+
+### Bug Fixes
+
+* **Icons:** make icon without href no clickable ([#500](https://github.com/gravity-ui/page-constructor/issues/500)) ([d37b5a3](https://github.com/gravity-ui/page-constructor/commit/d37b5a39cae95f8f0c3cb6a10f0d57b770845455))
+
 ## [4.1.0](https://github.com/gravity-ui/page-constructor/compare/v4.0.1...v4.1.0) (2023-08-08)
 
 
