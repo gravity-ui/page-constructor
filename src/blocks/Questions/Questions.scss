@@ -28,10 +28,6 @@ $block: '.#{$ns}QuestionsBlock';
         padding-right: 24px;
         cursor: pointer;
 
-        &:focus {
-            outline: 2px solid var(--g-color-line-misc);
-        }
-
         a {
             @include link();
         }
@@ -52,7 +48,6 @@ $block: '.#{$ns}QuestionsBlock';
 
     &__link {
         @include text-size(body-2);
-        display: inline-flex;
     }
 
     @media (max-width: map-get($gridBreakpoints, 'md')) {
