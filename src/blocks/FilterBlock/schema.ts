@@ -35,7 +35,7 @@ export const FilterItemProps = {
 
 export const FilterProps = {
     additionalProperties: false,
-    required: ['filterTags', 'block'],
+    required: ['tags', 'items'],
     properties: {
         ...BlockBaseProps,
         ...AnimatableProps,
@@ -59,6 +59,7 @@ export const FilterProps = {
             type: 'string',
             enum: ['s', 'm', 'l', 'xl'],
         },
+        centered: {type: 'boolean'},
     },
 };
 
