@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [4.1.2](https://github.com/gravity-ui/page-constructor/compare/v4.1.1...v4.1.2) (2023-08-17)
+
+
+### Bug Fixes
+
+* **FilterBlock:** schema validation ([#507](https://github.com/gravity-ui/page-constructor/issues/507)) ([231f640](https://github.com/gravity-ui/page-constructor/commit/231f6401eed868ff877f4dd2854b9a3b68a95003))
+
 ## [4.1.1](https://github.com/gravity-ui/page-constructor/compare/v4.1.0...v4.1.1) (2023-08-14)
 
 
