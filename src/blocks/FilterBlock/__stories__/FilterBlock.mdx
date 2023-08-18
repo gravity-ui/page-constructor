@@ -13,7 +13,7 @@ import * as FilterBlockStories from './FilterBlock.stories.tsx';
 
 `description?: string` — Text.
 
-`filterTags: []` - Tags by which content can be filtered.
+`tags: []` - Tags by which content can be filtered.
 
 `tagButtonSize: 's' | 'm' | 'l' | 'xl'` - Size of filter tags.
 
@@ -23,7 +23,11 @@ import * as FilterBlockStories from './FilterBlock.stories.tsx';
 
 - `tags: string[]` - tags assigned to the card.
 
-- `card: SubBlock` - card to show.
+- `card: [SubBlock]` - card to show. More about SubBlocks [here](?path=/docs/documentation-sub-blocks--docs)
 
 `centered?: boolean` - Specifies whether the header and the tab panel are centered.
+
+`animated?: boolean` — Enables/disables animation for the block (enabled by default).
+
+`colSizes?: Object` — more info [here](?path=/docs/documentation-types--docs#colsizes).
 </StoryTemplate>
