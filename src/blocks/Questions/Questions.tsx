@@ -66,7 +66,7 @@ const QuestionsBlock = (props: QuestionsProps) => {
                                     itemProp={FaqMicrodataValues.QuestionProp}
                                     itemType={FaqMicrodataValues.QuestionType}
                                 >
-                                    <h4
+                                    <h3
                                         className={b('item-title')}
                                         onClick={() => toggleItem(index)}
                                     >
@@ -80,7 +80,7 @@ const QuestionsBlock = (props: QuestionsProps) => {
                                             iconType="navigation"
                                             className={b('arrow')}
                                         />
-                                    </h4>
+                                    </h3>
                                     <Foldable isOpened={isOpened}>
                                         <div
                                             className={b('text')}

@@ -46,7 +46,7 @@ const PromoFeaturesBlock = (props: PromoFeaturesProps) => {
                             })}
                         >
                             <div className={b('card-info')}>
-                                <h4 className={b('card-title')}>{cardTitle}</h4>
+                                <h3 className={b('card-title')}>{cardTitle}</h3>
                                 <div className={b('card-text')}>
                                     <YFMWrapper content={text} modifiers={{constructor: true}} />
                                 </div>
