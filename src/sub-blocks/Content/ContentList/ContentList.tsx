@@ -13,6 +13,16 @@ import './ContentList.scss';
 
 const b = block('content-list');
 
+function getHeadingLevel(size: ContentSize) {
+    switch (size) {
+        case 's':
+            return 'h4';
+        case 'l':
+        default:
+            return 'h3';
+    }
+}
+
 interface ContentListProps {
     list: ContentItemProps[];
     size: ContentSize;
@@ -32,7 +42,12 @@ const ContentList = ({list, size}: ContentListProps) => {
                     <div className={b('item')} key={uuidv4()}>
                         <Image {...iconData} className={b('icon')} />
                         <div>
-                            {title && <h4 className={b('title')}>{title}</h4>}
+                            {title &&
+                                React.createElement(
+                                    getHeadingLevel(size),
+                                    {className: b('title')},
+                                    title,
+                                )}
                             {text && (
                                 <YFMWrapper
                                     className={b('text')}
