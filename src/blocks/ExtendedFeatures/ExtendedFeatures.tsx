@@ -58,12 +58,12 @@ export const ExtendedFeaturesBlock = ({
                                     {iconData && <Image {...iconData} className={b('icon')} />}
                                     <div className={b('container')}>
                                         {itemTitle && (
-                                            <h5 className={b('item-title')}>
+                                            <h3 className={b('item-title')}>
                                                 <HTML>{itemTitle}</HTML>
                                                 {label && (
                                                     <span className={b('item-label')}>{label}</span>
                                                 )}
-                                            </h5>
+                                            </h3>
                                         )}
                                         <Content
                                             text={text}
