@@ -10,7 +10,7 @@ import { Meta } from '@storybook/blocks';
 
 ---
 
-# `Button` — Button
+# <a name="Link">`Button`</a>
 
 - `text: string` — Text
 - `url?: url` — Link
@@ -34,7 +34,7 @@ import { Meta } from '@storybook/blocks';
 
 ---
 
-# `Link` — Link
+# <a name="Link">`Link`</a>
 
 - `text: text` — Link text
 - `url?: url` — Link URL
@@ -45,21 +45,21 @@ import { Meta } from '@storybook/blocks';
 
 ---
 
-# <a name="Video">`Video` — Video</a>
+# <a name="Video">`Video`</a>
 
 - `src: url[]` — Links to video files in different formats
 - `loop?:` `start: number` — Video loop start. `end?: number` — Video loop end.
 
 ---
 
-# <a name="DataLens">`DataLens` — DataLens chart</a>
+# <a name="DataLens">`DataLens`</a>  — DataLens chart
 
 - `id: string` — Chart ID
 - `theme: dark | light` — Chart theme
 
 ---
 
-# `Media`— Image/video/DataLens/Youtube
+# <a name="Media">`Media`</a> — Image/video/DataLens/Youtube
 
 - `color?: string` — Background color
 - [`image?: ImageObjectProps | ImageObjectProps[] | ImageDeviceProps` — Background image](#ImageObjectProps). If you pass an array, the full-screen mode is automatically turned on.
@@ -82,7 +82,7 @@ import { Meta } from '@storybook/blocks';
 
 ---
 
-# <a name="ImageObjectProps">`ImageObjectProps` — Image property</a>
+# <a name="ImageObjectProps">`ImageObjectProps`</a>  — Image property
 
 - `src: string`
 - `alt?: string`
@@ -90,7 +90,8 @@ import { Meta } from '@storybook/blocks';
 
 ---
 
-# <a name="ImageDeviceProps">`ImageDeviceProps` — Image property with device support</a>
+# <a name="ImageDeviceProps">`ImageDeviceProps`</a>
+Image property with device support
 
 - `mobile: string`
 - `tablet?: string`
@@ -100,6 +101,20 @@ import { Meta } from '@storybook/blocks';
 
 ---
 
+---
+
+# <a name="colSizes">`ColSizes`</a>
+grid width, the value ranges from 1 to 12 columns. If 12 columns, block takes up the entire width of the row
+
+- `all: number` — On all screens.
+- `sm: number` — On a screen wider than 577px.
+- `md: number` — On a screen wider than 769px.
+- `lg: number` — On a screen wider than 1081px.
+- `xl: number` — On a screen wider than 1185px.
+
+---
+
 ###### <a name="TextSize">`TextSize = s | m | l` — Text size</a>
 
 ###### <a name="Target">`Target = _blank | _parent | _top | _self` — Where to display</a>
+
