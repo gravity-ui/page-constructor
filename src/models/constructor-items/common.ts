@@ -2,7 +2,7 @@ import {CSSProperties, ReactNode} from 'react';
 
 import {ButtonView, ButtonProps as UikitButtonProps} from '@gravity-ui/uikit';
 
-import {ThemeSupporting} from '../../utils/theme';
+import {ThemeSupporting} from '../../utils';
 import {AnalyticsEventsBase, ClassNameProps, PixelEventType, QAProps} from '../common';
 
 // enums

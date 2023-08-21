@@ -2,8 +2,8 @@ import React, {Fragment, useContext} from 'react';
 
 import {Icon} from '@gravity-ui/uikit';
 
-import {LocaleContext} from '../../context/localeContext/localeContext';
-import {LocationContext} from '../../context/locationContext/locationContext';
+import {LocaleContext} from '../../context/localeContext';
+import {LocationContext} from '../../context/locationContext';
 import {useAnalytics} from '../../hooks';
 import {useMetrika} from '../../hooks/useMetrika';
 import {Chevron} from '../../icons';
