@@ -27,6 +27,7 @@ export const ExtendedFeaturesBlock = ({
     animated,
 }: ExtendedFeaturesProps) => {
     const theme = useTheme();
+    const itemTitleHeadingTag = title ? 'h3' : 'h2';
 
     return (
         <AnimateBlock className={b()} animate={animated}>
@@ -57,14 +58,21 @@ export const ExtendedFeaturesBlock = ({
                                 <Col className={b('item')} key={text || itemTitle} sizes={colSizes}>
                                     {iconData && <Image {...iconData} className={b('icon')} />}
                                     <div className={b('container')}>
-                                        {itemTitle && (
-                                            <h5 className={b('item-title')}>
-                                                <HTML>{itemTitle}</HTML>
-                                                {label && (
-                                                    <span className={b('item-label')}>{label}</span>
-                                                )}
-                                            </h5>
-                                        )}
+                                        {itemTitle &&
+                                            React.createElement(
+                                                itemTitleHeadingTag,
+                                                {
+                                                    className: b('item-title'),
+                                                },
+                                                <React.Fragment>
+                                                    <HTML>{itemTitle}</HTML>
+                                                    {label && (
+                                                        <span className={b('item-label')}>
+                                                            {label}
+                                                        </span>
+                                                    )}
+                                                </React.Fragment>,
+                                            )}
                                         <Content
                                             text={text}
                                             links={itemLinks}
