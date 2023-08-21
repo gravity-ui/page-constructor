@@ -1,6 +1,18 @@
 # Changelog
 
 
+## [4.2.0](https://github.com/gravity-ui/page-constructor/compare/v4.1.2...v4.2.0) (2023-08-21)
+
+
+### Features
+
+* add ariaLabel prop for Media component, mark interactive elements on it ([#504](https://github.com/gravity-ui/page-constructor/issues/504)) ([fdb185f](https://github.com/gravity-ui/page-constructor/commit/fdb185fd8fdd779b431fc40658fe514dbf21ff5e))
+
+
+### Bug Fixes
+
+* correct usage of heading levels ([42448fa](https://github.com/gravity-ui/page-constructor/commit/42448fab99f7163002ed7f897b5792145b259b78))
+
 ## [4.1.2](https://github.com/gravity-ui/page-constructor/compare/v4.1.1...v4.1.2) (2023-08-17)
 
 
@@ -267,7 +279,7 @@
 ### Features
 
 * update header offset, remove unnecessary margins ([#369](https://github.com/gravity-ui/page-constructor/issues/369)) ([7757ec1](https://github.com/gravity-ui/page-constructor/commit/7757ec1b80b20b79c693b28cd3c47a7a44a2987f))
-* remove navigation's border by default if scroll top = 0. If you want this border by default, use prop `withBorder: true` im navigation config  
+* remove navigation's border by default if scroll top = 0. If you want this border by default, use prop `withBorder: true` im navigation config
 
 ## [3.1.2](https://github.com/gravity-ui/page-constructor/compare/v3.1.1...v3.1.2) (2023-06-07)
 
