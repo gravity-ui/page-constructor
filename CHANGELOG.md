@@ -322,6 +322,7 @@
 * refactor text-transform functions ([#225](https://github.com/gravity-ui/page-constructor/issues/225)):
   * delete `transformFootnotes`, because remove component Footnotes ([#343](https://github.com/gravity-ui/page-constructor/issues/343))
   * removed function `transformBlocks`, use `contentTransformer` instead
+  * now `contentTransformer` returns new object, instead of mutating the incoming one, as it did `transformBlocks`
 
 ## [2.22.2](https://github.com/gravity-ui/page-constructor/compare/v2.22.1...v2.22.2) (2023-06-01)
 
