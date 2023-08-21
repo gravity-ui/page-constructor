@@ -32,6 +32,7 @@ import {
 import {block} from '../../utils';
 
 import CustomBarControls from './CustomBarControls';
+import i18n from './i18n';
 import {checkYoutubeVideos} from './utils';
 
 import './ReactPlayer.scss';
@@ -77,6 +78,7 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
             metrika: videoMetrika,
             analyticsEvents,
             height,
+            ariaLabel,
         } = props;
 
         const {
@@ -196,7 +198,10 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
             }
 
             return (
-                <button className={b('button', {theme, text: Boolean(text)}, buttonClassName)}>
+                <button
+                    className={b('button', {theme, text: Boolean(text)}, buttonClassName)}
+                    aria-label={i18n('play')}
+                >
                     {playButtonContent}
                 </button>
             );
@@ -350,6 +355,7 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
                     onPause={onPause}
                     onProgress={onProgress}
                     onEnded={onEnded}
+                    aria-label={ariaLabel}
                 />
                 {renderCustomBarControls(muted, playedPercent)}
             </div>

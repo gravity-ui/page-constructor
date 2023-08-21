@@ -95,7 +95,8 @@
             ],
             "loop": {
               "start": 0
-            }
+            },
+            "ariaLabel": "Video accessible name example"
           }
         },
         "dark": {
@@ -107,7 +108,8 @@
             ],
             "loop": {
               "start": 0
-            }
+            },
+            "ariaLabel": "Video accessible name example"
           }
         }
       }
@@ -123,7 +125,8 @@
               "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.mp4",
               "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.png"
             ],
-            "autoplay": false
+            "autoplay": false,
+            "ariaLabel": "Video accessible name example"
           }
         },
         "dark": {
@@ -134,7 +137,8 @@
               "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_dark.mp4",
               "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_dark.png"
             ],
-            "autoplay": false
+            "autoplay": false,
+            "ariaLabel": "Video accessible name example"
           }
         }
       }
@@ -157,7 +161,8 @@
               "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.mp4",
               "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.png"
             ],
-            "autoplay": false
+            "autoplay": false,
+            "ariaLabel": "Video accessible name example"
           }
         },
         "dark": {
@@ -169,7 +174,8 @@
               "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_dark.mp4",
               "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_dark.png"
             ],
-            "autoplay": false
+            "autoplay": false,
+            "ariaLabel": "Video accessible name example"
           }
         }
       }

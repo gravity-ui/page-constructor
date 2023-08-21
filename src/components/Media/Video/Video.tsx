@@ -70,7 +70,16 @@ const Video = (props: VideoAllProps) => {
     }, [playVideo, video, setHasVideoFallback]);
 
     const reactPlayerBlock = useMemo(() => {
-        const {src, loop, controls, muted, autoplay = true, elapsedTime, playButton} = video;
+        const {
+            src,
+            loop,
+            controls,
+            muted,
+            autoplay = true,
+            elapsedTime,
+            playButton,
+            ariaLabel,
+        } = video;
 
         return (
             <ReactPlayerBlock
@@ -87,6 +96,7 @@ const Video = (props: VideoAllProps) => {
                 metrika={metrika}
                 analyticsEvents={analyticsEvents}
                 height={height}
+                ariaLabel={ariaLabel}
             />
         );
     }, [
@@ -113,7 +123,8 @@ const Video = (props: VideoAllProps) => {
                     className={b('item')}
                     ref={ref}
                     preload="metadata"
-                    muted={true}
+                    muted
+                    aria-label={video.ariaLabel}
                 >
                     {getVideoTypesWithPriority(video.src).map(({src, type}, index) => (
                         <source key={index} src={src} type={type} />
