@@ -1,6 +1,19 @@
 # Changelog
 
 
+## [4.2.0](https://github.com/gravity-ui/page-constructor/compare/v4.1.2...v4.2.0) (2023-08-21)
+
+
+### Features
+
+* add ariaLabel prop for Media component, mark interactive elements on it ([#504](https://github.com/gravity-ui/page-constructor/issues/504)) ([fdb185f](https://github.com/gravity-ui/page-constructor/commit/fdb185fd8fdd779b431fc40658fe514dbf21ff5e))
+
+
+### Bug Fixes
+
+* correct usage of heading levels ([42448fa](https://github.com/gravity-ui/page-constructor/commit/42448fab99f7163002ed7f897b5792145b259b78))
+* correct usage of heading levels ([42448fa](https://github.com/gravity-ui/page-constructor/commit/42448fab99f7163002ed7f897b5792145b259b78))
+
 ## [4.1.2](https://github.com/gravity-ui/page-constructor/compare/v4.1.1...v4.1.2) (2023-08-17)
 
 
