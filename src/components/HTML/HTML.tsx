@@ -8,9 +8,10 @@ export interface HTMLProps {
     block?: boolean;
     className?: string;
     itemProp?: string;
+    id?: string;
 }
 
-const HTML = ({children, block = false, className, itemProp}: WithChildren<HTMLProps>) => {
+const HTML = ({children, block = false, className, itemProp, id}: WithChildren<HTMLProps>) => {
     if (!children) {
         return null;
     }
@@ -19,6 +20,7 @@ const HTML = ({children, block = false, className, itemProp}: WithChildren<HTMLP
         dangerouslySetInnerHTML: {__html: children},
         className,
         itemProp,
+        id,
     });
 };
 

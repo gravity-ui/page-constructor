@@ -10,20 +10,19 @@ import {ClassNameProps, Modifiers} from '../../models';
 
 const yfm = block('yfm');
 
-export interface YFMWrapperProps {
-    className?: string;
+export interface YFMWrapperProps extends ClassNameProps {
     content: string;
     modifiers?: Modifiers;
     itemProp?: string;
+    id?: string;
 }
 
-const YFMWrapper = ({
-    content,
-    modifiers,
-    className,
-    itemProp,
-}: YFMWrapperProps & ClassNameProps) => (
-    <HTML className={yfm(modifiers ? toSnakeCase(modifiers) : {}, className)} itemProp={itemProp}>
+const YFMWrapper = ({content, modifiers, className, itemProp, id}: YFMWrapperProps) => (
+    <HTML
+        className={yfm(modifiers ? toSnakeCase(modifiers) : {}, className)}
+        itemProp={itemProp}
+        id={id}
+    >
         {content}
     </HTML>
 );

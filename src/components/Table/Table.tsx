@@ -40,12 +40,7 @@ export default class Table extends React.Component<TableProps & ClassNameProps> 
                 {content.map((row, i) => (
                     <div key={i} className={b('row')} role={'row'}>
                         {row.map((cell, j) => (
-                            <div
-                                key={j}
-                                className={b('cell', {justify: justify[j]})}
-                                role={i === 0 ? 'columnheader' : 'cell'}
-                                aria-labelledby={getMarkerId(Number(cell))}
-                            >
+                            <div key={j} className={b('cell', {justify: justify[j]})} role={'cell'}>
                                 {legend && i && j ? (
                                     this.renderMarker(marker, cell)
                                 ) : (
@@ -60,19 +55,25 @@ export default class Table extends React.Component<TableProps & ClassNameProps> 
     }
 
     private renderMarker(type: LegendTableMarkerType, cell: string) {
-        return <div className={b('marker', {type, index: String(cell)})} />;
+        return (
+            <div
+                aria-labelledby={getMarkerId(Number(cell))}
+                className={b('marker', {type, index: String(cell)})}
+            />
+        );
     }
 
     private renderLegend(legend: string[], marker: LegendTableMarkerType) {
         return (
             <div className={b('legend')}>
                 {legend.map((item, index) => (
-                    <div key={item} className={b('legend-item')} id={getMarkerId(index)}>
+                    <div key={item} className={b('legend-item')}>
                         {this.renderMarker(marker, String(index))}
                         <YFMWrapper
                             className={b('legent-item-text')}
                             content={item}
                             modifiers={{constructor: true}}
+                            id={getMarkerId(index)}
                         />
                     </div>
                 ))}
