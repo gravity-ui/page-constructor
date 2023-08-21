@@ -17,7 +17,7 @@ export default class Table extends React.Component<TableProps & ClassNameProps> 
         }
 
         return (
-            <div className={b(null, className)}>
+            <div className={b(null, className)} role={'table'}>
                 {this.renderTable(content, marker, legend)}
                 {legend && this.renderLegend(legend, marker)}
             </div>
@@ -28,11 +28,15 @@ export default class Table extends React.Component<TableProps & ClassNameProps> 
         const justify = this.getDefaultJustify(content, this.props.justify);
 
         return (
-            <div className={b('table')}>
+            <div className={b('table')} role={'rowgroup'}>
                 {content.map((row, i) => (
-                    <div key={i} className={b('row')}>
+                    <div key={i} className={b('row')} role={'row'}>
                         {row.map((cell, j) => (
-                            <div key={j} className={b('cell', {justify: justify[j]})}>
+                            <div
+                                key={j}
+                                className={b('cell', {justify: justify[j]})}
+                                role={i > 0 ? 'cell' : 'columnheader'}
+                            >
                                 {legend && i && j ? (
                                     this.renderMarker(marker, cell)
                                 ) : (
