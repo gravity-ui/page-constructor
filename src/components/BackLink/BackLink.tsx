@@ -5,11 +5,11 @@ import {Button, ButtonSize, Icon} from '@gravity-ui/uikit';
 import {LocationContext} from '../../context/locationContext';
 import {useAnalytics} from '../../hooks';
 import {ArrowSidebar} from '../../icons';
-import {DefaultEventNames} from '../../models';
+import {DefaultEventNames, Tabbable} from '../../models';
 
 export type Theme = 'default' | 'special';
 
-export interface BackLinkProps {
+export interface BackLinkProps extends Tabbable {
     url: string;
     title: ReactNode;
     theme?: Theme;
@@ -29,6 +29,7 @@ export default function BackLink(props: BackLinkProps) {
         className,
         shouldHandleBackAction = false,
         onClick,
+        tabIndex,
     } = props;
     const handleAnalytics = useAnalytics(DefaultEventNames.ShareButton, url);
 
@@ -57,6 +58,7 @@ export default function BackLink(props: BackLinkProps) {
             size={size}
             href={shouldHandleBackAction ? undefined : url}
             onClick={shouldHandleBackAction ? backActionHandler : undefined}
+            tabIndex={tabIndex}
         >
             <Icon data={ArrowSidebar} size={24} />
             <span>{title}</span>

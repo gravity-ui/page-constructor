@@ -53,6 +53,7 @@ const LinkBlock = (props: WithChildren<LinkFullProps>) => {
         className,
         target,
         children,
+        tabIndex,
     } = props;
 
     const handleMetrika = useMetrika();
@@ -70,7 +71,14 @@ const LinkBlock = (props: WithChildren<LinkFullProps>) => {
     const getLinkByType = () => {
         switch (theme) {
             case 'back':
-                return <BackLink title={children || text} url={href} onClick={onClick} />;
+                return (
+                    <BackLink
+                        title={children || text}
+                        url={href}
+                        onClick={onClick}
+                        tabIndex={tabIndex}
+                    />
+                );
             case 'file-link':
             case 'underline':
                 return (
@@ -80,6 +88,7 @@ const LinkBlock = (props: WithChildren<LinkFullProps>) => {
                         type="horizontal"
                         textSize={textSize}
                         onClick={onClick}
+                        tabIndex={tabIndex}
                     />
                 );
             case 'normal': {
@@ -91,6 +100,7 @@ const LinkBlock = (props: WithChildren<LinkFullProps>) => {
                         className={b('link', {theme: colorTheme, 'has-arrow': arrow})}
                         href={href}
                         onClick={onClick}
+                        tabIndex={tabIndex}
                         {...linkProps}
                     >
                         {arrow ? (

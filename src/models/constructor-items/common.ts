@@ -158,7 +158,7 @@ export interface LinkProps extends AnalyticsEventsBase, Stylable, Tabbable {
     pixelEvents?: ButtonPixel;
 }
 
-export interface FileLinkProps extends ClassNameProps {
+export interface FileLinkProps extends ClassNameProps, Tabbable {
     href: string;
     text: ReactNode;
     type?: FileLinkType;
