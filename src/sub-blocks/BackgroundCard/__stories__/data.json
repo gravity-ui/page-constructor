@@ -55,6 +55,12 @@
       "border": "line"
     }
   },
+  "borderNone": {
+    "content": {
+      "border": "none"
+    }
+  },
+  "url": "https://example.com",
   "paddings": {
     "title": "Padding Bottom = {{padding}}"
   },
