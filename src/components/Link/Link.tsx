@@ -7,7 +7,14 @@ import {LocationContext} from '../../context/locationContext/locationContext';
 import {useAnalytics} from '../../hooks';
 import {useMetrika} from '../../hooks/useMetrika';
 import {Chevron} from '../../icons';
-import {ClassNameProps, DefaultEventNames, LinkProps, TextSize, WithChildren} from '../../models';
+import {
+    ClassNameProps,
+    DefaultEventNames,
+    LinkProps,
+    Tabbable,
+    TextSize,
+    WithChildren,
+} from '../../models';
 import {block, getLinkProps, setUrlTld} from '../../utils';
 import BackLink from '../BackLink/BackLink';
 import FileLink from '../FileLink/FileLink';
@@ -17,7 +24,7 @@ import './Link.scss';
 const b = block('link-block');
 const WORD_JOINER_SYM = '\u200b';
 
-export type LinkFullProps = LinkProps & ClassNameProps;
+export type LinkFullProps = LinkProps & ClassNameProps & Tabbable;
 
 function getArrowSize(size: TextSize) {
     switch (size) {
@@ -46,7 +53,6 @@ const LinkBlock = (props: WithChildren<LinkFullProps>) => {
         className,
         target,
         children,
-        ...rest
     } = props;
 
     const handleMetrika = useMetrika();
@@ -86,7 +92,6 @@ const LinkBlock = (props: WithChildren<LinkFullProps>) => {
                         href={href}
                         onClick={onClick}
                         {...linkProps}
-                        {...rest}
                     >
                         {arrow ? (
                             <Fragment>
