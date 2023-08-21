@@ -6,9 +6,9 @@ import {block} from '../../utils';
 
 import './Table.scss';
 
-function getMarkerId(index: number) {
+function getMarkerId(index: number): string | undefined {
     if (isNaN(index)) {
-        return;
+        return undefined;
     }
 
     return `marker-${index}`;
