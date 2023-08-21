@@ -6,6 +6,14 @@ import {block} from '../../utils';
 
 import './Table.scss';
 
+function getMarkerId(index: number) {
+    if (isNaN(index)) {
+        return;
+    }
+
+    return `marker-${index}`;
+}
+
 const b = block('table');
 
 export default class Table extends React.Component<TableProps & ClassNameProps> {
@@ -35,7 +43,8 @@ export default class Table extends React.Component<TableProps & ClassNameProps> 
                             <div
                                 key={j}
                                 className={b('cell', {justify: justify[j]})}
-                                role={i > 0 ? 'cell' : 'columnheader'}
+                                role={i === 0 ? 'columnheader' : 'cell'}
+                                aria-labelledby={getMarkerId(Number(cell))}
                             >
                                 {legend && i && j ? (
                                     this.renderMarker(marker, cell)
@@ -58,7 +67,7 @@ export default class Table extends React.Component<TableProps & ClassNameProps> 
         return (
             <div className={b('legend')}>
                 {legend.map((item, index) => (
-                    <div key={item} className={b('legend-item')}>
+                    <div key={item} className={b('legend-item')} id={getMarkerId(index)}>
                         {this.renderMarker(marker, String(index))}
                         <YFMWrapper
                             className={b('legent-item-text')}

@@ -9,7 +9,7 @@
         ["Ut enim ad minim veniam", "0", "1", "1"],
         ["Ut enim ad minim veniam", "1", "1", "1"]
       ],
-      "legend": ["Lorem ", "ipsum"],
+      "legend": ["Lorem", "ipsum"],
       "justify": ["start", "center", "center", "center"]
     }
   }
