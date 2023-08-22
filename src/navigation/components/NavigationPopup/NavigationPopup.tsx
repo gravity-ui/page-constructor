@@ -4,7 +4,7 @@ import {Popup} from '@gravity-ui/uikit';
 
 import {block} from '../../../utils';
 import {NavigationLayout, NavigationPopupProps} from '../../models';
-import NavigationItem from '../NavigationItem/NavigationItem';
+import NavigationItem from '../NavigationItem';
 
 import './NavigationPopup.scss';
 

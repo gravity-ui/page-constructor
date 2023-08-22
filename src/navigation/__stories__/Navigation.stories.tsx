@@ -3,7 +3,7 @@ import React from 'react';
 import {Meta, StoryFn} from '@storybook/react';
 
 import {PageConstructor} from '../../containers/PageConstructor';
-import {NavigationData} from '../../models';
+import {CustomConfig, NavigationData} from '../../models';
 
 import data from './data.json';
 
@@ -12,16 +12,39 @@ export default {
     component: PageConstructor,
 } as Meta;
 
-const DefaultTemplate: StoryFn<NavigationData> = (args) => <PageConstructor navigation={args} />;
+const DefaultTemplate: StoryFn<{
+    navigation: NavigationData;
+    custom?: CustomConfig;
+}> = ({navigation, custom = {}}) => <PageConstructor navigation={navigation} custom={custom} />;
 export const DefaultNavigation = DefaultTemplate.bind({});
 export const NavigationWithBorder = DefaultTemplate.bind({});
+export const NavigationWithCustomItems = DefaultTemplate.bind({});
 
-DefaultNavigation.args = data.navigation as NavigationData;
+DefaultNavigation.args = {
+    navigation: data.navigation as NavigationData,
+};
 
 NavigationWithBorder.args = {
-    ...data.navigation,
-    header: {
-        ...data.navigation.header,
-        withBorder: true,
+    navigation: {
+        ...data.navigation,
+        header: {
+            ...data.navigation.header,
+            withBorder: true,
+        },
+    } as NavigationData,
+};
+
+NavigationWithCustomItems.args = {
+    custom: {
+        navigation: {
+            search: () => <div>Search</div>,
+        },
     },
-} as NavigationData;
+    navigation: {
+        ...data.navigation,
+        header: {
+            ...data.navigation.header,
+            rightItems: [...data.navigation.header.rightItems, {type: 'search'}],
+        },
+    } as NavigationData,
+};

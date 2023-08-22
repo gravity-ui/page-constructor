@@ -18,7 +18,14 @@ import {
     TableBlock,
     TabsBlock,
 } from './blocks';
-import {BlockType, SubBlockType} from './models';
+import {BlockType, NavigationItemType, SubBlockType} from './models';
+import {
+    GithubButton,
+    NavigationButton,
+    NavigationDropdown,
+    NavigationLink,
+} from './navigation/components/NavigationItem';
+import SocialIcon from './navigation/components/SocialIcon/SocialIcon';
 import {
     BackgroundCard,
     BannerCard,
@@ -62,4 +69,12 @@ export const subBlockMap = {
     [SubBlockType.BasicCard]: BasicCard,
     [SubBlockType.Content]: Content,
     [SubBlockType.Quote]: Quote,
+};
+
+export const navItemMap = {
+    [NavigationItemType.Button]: NavigationButton,
+    [NavigationItemType.Social]: SocialIcon,
+    [NavigationItemType.Dropdown]: NavigationDropdown,
+    [NavigationItemType.Link]: NavigationLink,
+    [NavigationItemType.GithubButton]: GithubButton,
 };

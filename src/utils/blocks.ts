@@ -62,27 +62,16 @@ export function getBlockKey(block: ConstructorBlock, index: number) {
     return `${block.type}-${index}`;
 }
 
-export const getCustomBlockTypes = ({blocks = {}, headers = {}}: CustomConfig = {}) => [
-    ...Object.keys(blocks),
-    ...Object.keys(headers),
-];
-
-export const getCustomItems = ({blocks = {}, headers = {}, subBlocks = {}}: CustomConfig = {}) => ({
-    ...blocks,
-    ...headers,
-    ...subBlocks,
-});
-
-export const getCustomSubBlockTypes = (customBlocks: CustomConfig = {}) => {
-    const {subBlocks = {}} = customBlocks;
-
-    return Object.keys(subBlocks);
+export const getCustomItems = (types: (keyof CustomConfig)[], customBlocks: CustomConfig = {}) => {
+    return types.reduce((result, type: keyof CustomConfig) => {
+        return Object.assign(result, customBlocks[type] || {});
+    }, {});
 };
 
-export const getCustomHeaderTypes = (customBlocks: CustomConfig = {}) => {
-    const {headers = {}} = customBlocks;
-
-    return Object.keys(headers);
+export const getCustomTypes = (types: (keyof CustomConfig)[], customBlocks: CustomConfig = {}) => {
+    return types.reduce((result, type: keyof CustomConfig) => {
+        return result.concat(Object.keys(customBlocks[type] || {}));
+    }, [] as string[]);
 };
 
 const getShareUrlWithParams = (url: string, params: Record<string, string | undefined> = {}) => {
