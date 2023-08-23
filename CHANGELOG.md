@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [4.4.0](https://github.com/gravity-ui/page-constructor/compare/v4.3.0...v4.4.0) (2023-08-23)
+
+
+### Features
+
+* Table component roles and labels ([#516](https://github.com/gravity-ui/page-constructor/issues/516)) ([d9faf89](https://github.com/gravity-ui/page-constructor/commit/d9faf89fbd9a2401ee1b46b6d718586fedd8eadf))
+
 ## [4.3.0](https://github.com/gravity-ui/page-constructor/compare/v4.2.0...v4.3.0) (2023-08-23)
 
 
