@@ -50,9 +50,56 @@ const ColSizeTemplate: StoryFn<CardLayoutBlockModel> = (args) => (
     </Fragment>
 );
 
+const WithCustomIndentsTemplate: StoryFn<CardLayoutBlockModel> = ({title, ...restArgs}) => (
+    <Fragment>
+        <PageConstructor
+            content={{
+                blocks: [
+                    {
+                        ...restArgs,
+                        title: `${title} with zero indents at the top and bottom`,
+                        indentTop: '0',
+                        indentBottom: '0',
+                    },
+                    {
+                        ...restArgs,
+                        title: `${title} with XS indents at the top and bottom`,
+                        indentTop: 'xs',
+                        indentBottom: 'xs',
+                    },
+                    {
+                        ...restArgs,
+                        title: `${title} with S indents at the top and bottom`,
+                        indentTop: 's',
+                        indentBottom: 's',
+                    },
+                    {
+                        ...restArgs,
+                        title: `${title} with M indents at the top and bottom`,
+                        indentTop: 'm',
+                        indentBottom: 'm',
+                    },
+                    {
+                        ...restArgs,
+                        title: `${title} with L (default) indents at the top and bottom`,
+                        indentTop: 'l',
+                        indentBottom: 'l',
+                    },
+                    {
+                        ...restArgs,
+                        title: `${title} with XL indents at the top and bottom`,
+                        indentTop: 'xl',
+                        indentBottom: 'xl',
+                    },
+                ],
+            }}
+        />
+    </Fragment>
+);
+
 export const Default = DefaultTemplate.bind({});
 export const ColSize = ColSizeTemplate.bind({});
-export const WithCustomIndent = DefaultTemplate.bind({});
+export const WithCustomIndents = WithCustomIndentsTemplate.bind({});
 
 Default.args = {
     ...data.default.content,
@@ -64,8 +111,7 @@ ColSize.args = {
     children: createCardArray(8, data.colSizes.four.card),
 } as CardLayoutBlockProps;
 
-WithCustomIndent.args = {
+WithCustomIndents.args = {
     ...data.default.content,
-    children: createCardArray(6, data.default.card),
-    indent: data.default.content.indent,
+    children: createCardArray(3, data.default.card),
 } as CardLayoutBlockProps;

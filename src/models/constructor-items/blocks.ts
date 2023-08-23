@@ -65,6 +65,7 @@ export interface Childable {
 export interface BlockBaseProps {
     anchor?: AnchorProps;
     visible?: GridColumnSize;
+    /** @deprecated */
     resetPaddings?: boolean;
     qa?: string;
 }
