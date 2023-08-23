@@ -1,26 +1,16 @@
 import React, {useState} from 'react';
 
-import {Foldable, HTML, ToggleArrow, YFMWrapper} from '../../components';
-import Link from '../../components/Link/Link';
 import {Col, Row} from '../../grid';
 import {QuestionsProps} from '../../models';
 import {Content} from '../../sub-blocks';
 import {block} from '../../utils';
 
+import {QuestionBlockItem} from './QuestionBlockItem/QuestionBlockItem';
+import {FaqMicrodataValues} from './models';
+
 import './Questions.scss';
 
 const b = block('QuestionsBlock');
-
-const FaqMicrodataValues = {
-    PageType: 'https://schema.org/FAQPage',
-    QuestionType: 'https://schema.org/Question',
-    QuestionProp: 'mainEntity',
-    QuestionNameProp: 'name',
-    QuestionTextProp: 'text',
-    AnswerType: 'https://schema.org/Answer',
-    AnswerProp: 'acceptedAnswer',
-    AnswerTextProp: 'text',
-} as const;
 
 const QuestionsBlock = (props: QuestionsProps) => {
     const {title, text, additionalInfo, links, buttons, items} = props;
@@ -30,7 +20,7 @@ const QuestionsBlock = (props: QuestionsProps) => {
         let newState;
 
         if (opened.includes(index)) {
-            newState = opened.filter((intemIndex: number) => intemIndex !== index);
+            newState = opened.filter((itemIndex: number) => itemIndex !== index);
         } else {
             newState = [...opened, index];
         }
@@ -53,54 +43,22 @@ const QuestionsBlock = (props: QuestionsProps) => {
                         />
                     </div>
                 </Col>
-                <Col sizes={{all: 12, md: 8}}>
+                <Col sizes={{all: 12, md: 8}} role={'list'}>
                     {items.map(
                         ({title: itemTitle, text: itemText, link, listStyle = 'dash'}, index) => {
                             const isOpened = opened.includes(index);
+                            const onClick = () => toggleItem(index);
 
                             return (
-                                <div
+                                <QuestionBlockItem
                                     key={itemTitle}
-                                    className={b('item')}
-                                    itemScope
-                                    itemProp={FaqMicrodataValues.QuestionProp}
-                                    itemType={FaqMicrodataValues.QuestionType}
-                                >
-                                    <h3
-                                        className={b('item-title')}
-                                        onClick={() => toggleItem(index)}
-                                    >
-                                        <HTML itemProp={FaqMicrodataValues.QuestionNameProp}>
-                                            {itemTitle}
-                                        </HTML>
-                                        <ToggleArrow
-                                            open={isOpened}
-                                            size={16}
-                                            type={'vertical'}
-                                            iconType="navigation"
-                                            className={b('arrow')}
-                                        />
-                                    </h3>
-                                    <Foldable isOpened={isOpened}>
-                                        <div
-                                            className={b('text')}
-                                            itemScope
-                                            itemProp={FaqMicrodataValues.AnswerProp}
-                                            itemType={FaqMicrodataValues.AnswerType}
-                                        >
-                                            <YFMWrapper
-                                                content={itemText}
-                                                modifiers={{
-                                                    constructor: true,
-                                                    constructorListStyle: true,
-                                                    constructorListStyleDash: listStyle === 'dash',
-                                                }}
-                                                itemProp={FaqMicrodataValues.QuestionTextProp}
-                                            />
-                                            {link && <Link {...link} className={b('link')} />}
-                                        </div>
-                                    </Foldable>
-                                </div>
+                                    title={itemTitle}
+                                    text={itemText}
+                                    link={link}
+                                    listStyle={listStyle}
+                                    isOpened={isOpened}
+                                    onClick={onClick}
+                                />
                             );
                         },
                     )}

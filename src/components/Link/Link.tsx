@@ -2,12 +2,19 @@ import React, {Fragment, useContext} from 'react';
 
 import {Icon} from '@gravity-ui/uikit';
 
-import {LocaleContext} from '../../context/localeContext/localeContext';
-import {LocationContext} from '../../context/locationContext/locationContext';
+import {LocaleContext} from '../../context/localeContext';
+import {LocationContext} from '../../context/locationContext';
 import {useAnalytics} from '../../hooks';
 import {useMetrika} from '../../hooks/useMetrika';
 import {Chevron} from '../../icons';
-import {ClassNameProps, DefaultEventNames, LinkProps, TextSize, WithChildren} from '../../models';
+import {
+    ClassNameProps,
+    DefaultEventNames,
+    LinkProps,
+    Tabbable,
+    TextSize,
+    WithChildren,
+} from '../../models';
 import {block, getLinkProps, setUrlTld} from '../../utils';
 import BackLink from '../BackLink/BackLink';
 import FileLink from '../FileLink/FileLink';
@@ -17,7 +24,7 @@ import './Link.scss';
 const b = block('link-block');
 const WORD_JOINER_SYM = '\u200b';
 
-export type LinkFullProps = LinkProps & ClassNameProps;
+export type LinkFullProps = LinkProps & ClassNameProps & Tabbable;
 
 function getArrowSize(size: TextSize) {
     switch (size) {
@@ -46,6 +53,7 @@ const LinkBlock = (props: WithChildren<LinkFullProps>) => {
         className,
         target,
         children,
+        tabIndex,
     } = props;
 
     const handleMetrika = useMetrika();
@@ -63,7 +71,14 @@ const LinkBlock = (props: WithChildren<LinkFullProps>) => {
     const getLinkByType = () => {
         switch (theme) {
             case 'back':
-                return <BackLink title={children || text} url={href} onClick={onClick} />;
+                return (
+                    <BackLink
+                        title={children || text}
+                        url={href}
+                        onClick={onClick}
+                        tabIndex={tabIndex}
+                    />
+                );
             case 'file-link':
             case 'underline':
                 return (
@@ -73,6 +88,7 @@ const LinkBlock = (props: WithChildren<LinkFullProps>) => {
                         type="horizontal"
                         textSize={textSize}
                         onClick={onClick}
+                        tabIndex={tabIndex}
                     />
                 );
             case 'normal': {
@@ -84,6 +100,7 @@ const LinkBlock = (props: WithChildren<LinkFullProps>) => {
                         className={b('link', {theme: colorTheme, 'has-arrow': arrow})}
                         href={href}
                         onClick={onClick}
+                        tabIndex={tabIndex}
                         {...linkProps}
                     >
                         {arrow ? (

@@ -8,13 +8,14 @@ import {getColClass} from '../utils';
 export interface GridColumnProps extends GridColumnClassParams, Refable<HTMLDivElement>, QAProps {
     style?: CSSProperties;
     children?: React.ReactNode;
+    role?: React.AriaRole;
 }
 
 export const Col = forwardRef<HTMLDivElement, WithChildren<GridColumnProps>>((props, ref) => {
-    const {children, style, qa, ...rest} = props;
+    const {children, style, qa, role, ...rest} = props;
 
     return (
-        <div ref={ref} className={getColClass(rest)} style={style} data-qa={qa}>
+        <div ref={ref} className={getColClass(rest)} style={style} data-qa={qa} role={role}>
             {children}
         </div>
     );

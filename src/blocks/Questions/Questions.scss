@@ -12,45 +12,6 @@ $block: '.#{$ns}QuestionsBlock';
         margin-right: $indentXL;
     }
 
-    &__item {
-        padding-bottom: $indentM;
-        border-bottom: 1px solid var(--g-color-line-generic);
-
-        & + & {
-            padding-top: $indentM;
-        }
-    }
-
-    &__item-title {
-        @include heading4();
-
-        position: relative;
-        padding-right: 24px;
-
-        cursor: pointer;
-
-        a {
-            @include link();
-        }
-    }
-
-    &__text {
-        @include text-size(body-2);
-
-        margin-top: $indentXXS;
-    }
-
-    &__arrow {
-        position: absolute;
-        right: 0;
-        top: 0;
-        color: var(--g-color-text-primary);
-    }
-
-    &__link {
-        @include text-size(body-2);
-    }
-
     @media (max-width: map-get($gridBreakpoints, 'md')) {
         &__title {
             margin-right: 0;

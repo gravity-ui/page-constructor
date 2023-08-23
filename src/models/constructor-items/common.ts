@@ -2,7 +2,7 @@ import {CSSProperties, ReactNode} from 'react';
 
 import {ButtonView, ButtonProps as UikitButtonProps} from '@gravity-ui/uikit';
 
-import {ThemeSupporting} from '../../utils/theme';
+import {ThemeSupporting} from '../../utils';
 import {AnalyticsEventsBase, ClassNameProps, PixelEventType, QAProps} from '../common';
 
 // enums
@@ -79,6 +79,10 @@ export interface Animatable {
     animated?: boolean;
 }
 
+export interface Tabbable {
+    tabIndex?: number;
+}
+
 //common props
 export interface Background {
     image?: string;
@@ -142,7 +146,7 @@ export interface MediaVideoProps extends AnalyticsEventsBase {
 }
 
 // links
-export interface LinkProps extends AnalyticsEventsBase, Stylable {
+export interface LinkProps extends AnalyticsEventsBase, Stylable, Tabbable {
     url: string;
     text?: string;
     textSize?: TextSize;
@@ -154,7 +158,7 @@ export interface LinkProps extends AnalyticsEventsBase, Stylable {
     pixelEvents?: ButtonPixel;
 }
 
-export interface FileLinkProps extends ClassNameProps {
+export interface FileLinkProps extends ClassNameProps, Tabbable {
     href: string;
     text: ReactNode;
     type?: FileLinkType;
