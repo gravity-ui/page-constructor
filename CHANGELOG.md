@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [4.3.0](https://github.com/gravity-ui/page-constructor/compare/v4.2.0...v4.3.0) (2023-08-23)
+
+
+### Features
+
+* Questions block keyboard access improved ([#505](https://github.com/gravity-ui/page-constructor/issues/505)) ([3a7c146](https://github.com/gravity-ui/page-constructor/commit/3a7c14690b59638705b2edd85eecafd7f043007c))
+
 ## [4.2.0](https://github.com/gravity-ui/page-constructor/compare/v4.1.2...v4.2.0) (2023-08-21)
 
 
