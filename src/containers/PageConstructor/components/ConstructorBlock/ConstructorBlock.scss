@@ -8,50 +8,26 @@ $block: '.#{$ns}constructor-block';
         &_indentTop {
             &_0 {
                 margin-top: 0;
-
-                &:first-child {
-                    margin-top: 0;
-                }
             }
 
             &_xs {
                 margin-top: $indentXS;
-
-                &:first-child {
-                    margin-top: $indentXS;
-                }
             }
 
             &_s {
                 margin-top: $indentSM;
-
-                &:first-child {
-                    margin-top: $indentSM;
-                }
             }
 
             &_m {
                 margin-top: $indentM;
-
-                &:first-child {
-                    margin-top: $indentM;
-                }
             }
 
             &_l {
                 margin-top: $indentL;
-
-                &:first-child {
-                    margin-top: $indentL;
-                }
             }
 
             &_xl {
                 margin-top: $indentXL;
-
-                &:first-child {
-                    margin-top: $indentXL;
-                }
             }
         }
 

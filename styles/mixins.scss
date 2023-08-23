@@ -164,6 +164,7 @@
         padding: 0 0 $indentL;
 
         &:first-child {
+            // @deprecated
             margin-top: var(--pc-first-block-indent, #{$indentXXL});
         }
     }

@@ -24,7 +24,7 @@ export const ConstructorBlock: React.FC<WithChildren<ConstructorBlockProps>> = (
     data,
     children,
 }) => {
-    const {type, indentTop, indentBottom} = data;
+    const {type, indentTop = 'l', indentBottom = 'l'} = data;
     const blockBaseProps = useMemo(
         () => _.pick(data, ['anchor', 'visible', 'resetPaddings']),
         [data],
