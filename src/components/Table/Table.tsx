@@ -18,14 +18,14 @@ const b = block('table');
 
 export default class Table extends React.Component<TableProps & ClassNameProps> {
     render() {
-        const {content, legend, marker = 'disk', className} = this.props;
+        const {content, legend, marker = 'disk', className, caption} = this.props;
 
         if (!content || !content.length || !content[0].length) {
             return null;
         }
 
         return (
-            <div className={b(null, className)} role={'table'}>
+            <div className={b(null, className)} role={'table'} aria-label={caption}>
                 {this.renderTable(content, marker, legend)}
                 {legend && this.renderLegend(legend, marker)}
             </div>

@@ -251,6 +251,10 @@ export interface TableProps {
     legend?: string[];
     justify?: Justify[];
     marker?: LegendTableMarkerType;
+    /**
+     * Only as accessible name, not displayed explicitly
+     */
+    caption?: string;
 }
 
 export interface TableBlockProps {
