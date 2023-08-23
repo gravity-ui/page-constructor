@@ -1,6 +1,6 @@
 import {ButtonSize} from '@gravity-ui/uikit';
 
-import {GridColumnSize, GridColumnSizesType} from '../../grid/types';
+import {GridColumnSize, GridColumnSizesType} from '../../grid';
 import {ThemeSupporting} from '../../utils';
 
 import {
@@ -251,6 +251,10 @@ export interface TableProps {
     legend?: string[];
     justify?: Justify[];
     marker?: LegendTableMarkerType;
+    /**
+     * Only as accessible name, not displayed explicitly
+     */
+    caption?: string;
 }
 
 export interface TableBlockProps {

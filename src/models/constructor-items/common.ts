@@ -1,4 +1,4 @@
-import {CSSProperties, ReactNode} from 'react';
+import React, {CSSProperties, ReactNode} from 'react';
 
 import {ButtonView, ButtonProps as UikitButtonProps} from '@gravity-ui/uikit';
 
@@ -81,6 +81,10 @@ export interface Animatable {
 
 export interface Tabbable {
     tabIndex?: number;
+}
+
+export interface Roleable {
+    role?: React.AriaRole;
 }
 
 //common props
