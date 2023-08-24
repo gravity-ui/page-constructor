@@ -60,9 +60,24 @@ const WithBorderTemplate: StoryFn<BasicCardProps> = (args) => (
     </div>
 );
 
+const WithUrlTemplate: StoryFn<BasicCardProps> = (args) => (
+    <div style={{display: 'flex', padding: '40px 0'}}>
+        <div style={{maxWidth: '400px', padding: '0 8px'}}>
+            <BasicCard {...args} title={getCardWithBorderTitle('shadow')} />
+        </div>
+        <div style={{maxWidth: '400px', padding: '0 8px'}}>
+            <BasicCard {...args} border="line" title={getCardWithBorderTitle('line')} />
+        </div>
+        <div style={{maxWidth: '400px', padding: '0 8px'}}>
+            <BasicCard {...args} border="none" title={getCardWithBorderTitle('none')} />
+        </div>
+    </div>
+);
+
 export const Default = DefaultTemplate.bind({});
 export const WithIcon = WithIconTemplate.bind({});
 export const WithBorder = WithBorderTemplate.bind({});
+export const WithUrl = WithUrlTemplate.bind({});
 
 const DefaultArgs = {
     ...data.default.content,
@@ -75,3 +90,7 @@ Default.args = {
 } as BasicCardProps;
 WithIcon.args = DefaultArgs as BasicCardProps;
 WithBorder.args = DefaultArgs as BasicCardProps;
+WithUrl.args = {
+    url: data.url,
+    ...DefaultArgs,
+} as BasicCardProps;
