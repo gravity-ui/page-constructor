@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [4.4.1](https://github.com/gravity-ui/page-constructor/compare/v4.4.0...v4.4.1) (2023-08-24)
+
+
+### Bug Fixes
+
+* return import path ([#521](https://github.com/gravity-ui/page-constructor/issues/521)) ([65c2aeb](https://github.com/gravity-ui/page-constructor/commit/65c2aeb7a33c2002278df8bcb8766e22beaf3887))
+
 ## [4.4.0](https://github.com/gravity-ui/page-constructor/compare/v4.3.0...v4.4.0) (2023-08-23)
 
 
