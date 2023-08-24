@@ -246,7 +246,9 @@
 
     &_border_line,
     &_border_none {
-        cursor: default;
+        @if $hover {
+            @include card-hover();
+        }
     }
 
     &_border_shadow {
