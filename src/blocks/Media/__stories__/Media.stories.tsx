@@ -80,6 +80,16 @@ const VideoTemplate: StoryFn<MediaBlockModel> = (args) => (
                 },
                 {
                     ...args,
+                    title: data.video.videoWithPreviewAndCustomControlsVariant1.title,
+                    media: data.video.videoWithPreviewAndCustomControlsVariant1.media as MediaProps,
+                },
+                {
+                    ...args,
+                    title: data.video.videoWithPreviewAndCustomControlsVariant2.title,
+                    media: data.video.videoWithPreviewAndCustomControlsVariant2.media as MediaProps,
+                },
+                {
+                    ...args,
                     title: data.video.youtube.title,
                     media: data.video.youtube.media,
                 },

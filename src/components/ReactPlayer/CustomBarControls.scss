@@ -8,6 +8,13 @@ $controlSize: 64px;
     &__wrapper {
         position: absolute;
         bottom: 0;
+
+        &_type {
+            &_variant-2 {
+                width: 100%;
+                padding: 20px;
+            }
+        }
     }
 
     &__button {
@@ -24,6 +31,26 @@ $controlSize: 64px;
 
         &:hover {
             background: $videoPlayButtonGrey;
+        }
+    }
+
+    &__play-button {
+        opacity: 0.9;
+        background-color: transparent;
+        border: 0;
+        cursor: pointer;
+        transition: opacity $animationDuration ease 3s;
+
+        &:hover,
+        &:focus {
+            opacity: 1;
+        }
+        &:focus {
+            outline: 1px solid var(--g-color-line-light);
+            border-radius: 4px;
+        }
+        &:focus:not(:focus-visible) {
+            outline: none;
         }
     }
 
