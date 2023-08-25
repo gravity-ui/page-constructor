@@ -54,15 +54,22 @@ const ButtonTabs: React.FC<ButtonTabsProps> = ({
 
     return (
         <div className={b(null, className)} data-qa={qa}>
-            {items.map(({id, title}) => (
-                <Button
-                    text={title}
-                    className={b('item', {active: id === activeTabId})}
-                    key={title}
-                    size={tabSize}
-                    onClick={handleClick(id)}
-                />
-            ))}
+            {items.map(({id, title}) => {
+                const isActive = id === activeTabId;
+
+                return (
+                    <Button
+                        text={title}
+                        className={b('item', {active: isActive})}
+                        key={title}
+                        size={tabSize}
+                        onClick={handleClick(id)}
+                        extraProps={{
+                            'aria-current': isActive,
+                        }}
+                    />
+                );
+            })}
         </div>
     );
 };

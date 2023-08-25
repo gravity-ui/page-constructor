@@ -180,7 +180,9 @@ export type ButtonTheme =
     | 'scale'
     | 'monochrome';
 
-export interface ButtonProps extends AnalyticsEventsBase, Pick<UikitButtonProps, 'size' | 'width'> {
+export interface ButtonProps
+    extends AnalyticsEventsBase,
+        Pick<UikitButtonProps, 'size' | 'width' | 'extraProps'> {
     text: string;
     url: string;
     primary?: boolean;
