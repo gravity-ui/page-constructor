@@ -1,33 +1,18 @@
-import React, {useMemo} from 'react';
+import React, {useContext, useMemo} from 'react';
 
 import {omit} from 'lodash';
 
 import {BlockIdContext} from '../../../context/blockIdContext';
-import {NavigationItemType} from '../../../models';
+import {InnerContext} from '../../../context/innerContext';
+import {CustomItem, NavigationItemType} from '../../../models';
 import {block} from '../../../utils';
 import {NavigationItemProps} from '../../models';
-import SocialIcon from '../SocialIcon/SocialIcon';
-
-import {GithubButton} from './components/GithubButton/GithubButton';
-import {NavigationButton} from './components/NavigationButton/NavigationButton';
-import {NavigationDropdown} from './components/NavigationDropdown/NavigationDropdown';
-import {NavigationLink} from './components/NavigationLink/NavigationLink';
 
 import './NavigationItem.scss';
 
 const b = block('navigation-item');
 
 const ANALYTICS_ID = 'navigation';
-
-//todo: add types support form component in map
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const NavigationItemsMap: Record<NavigationItemType, React.ComponentType<any>> = {
-    [NavigationItemType.Button]: NavigationButton,
-    [NavigationItemType.Social]: SocialIcon,
-    [NavigationItemType.Dropdown]: NavigationDropdown,
-    [NavigationItemType.Link]: NavigationLink,
-    [NavigationItemType.GithubButton]: GithubButton,
-};
 
 const NavigationItem: React.FC<NavigationItemProps> = ({
     data,
@@ -36,7 +21,8 @@ const NavigationItem: React.FC<NavigationItemProps> = ({
     ...props
 }: NavigationItemProps) => {
     const {type = NavigationItemType.Link} = data;
-    const Component = NavigationItemsMap[type];
+    const {navItemMap} = useContext(InnerContext);
+    const Component = navItemMap[type] as CustomItem;
     const componentProps = useMemo(() => {
         const componentProperties = {
             ...data,

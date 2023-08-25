@@ -10,6 +10,8 @@ export enum NavigationItemType {
     GithubButton = 'github-button',
 }
 
+export const NavigationItemTypes = Object.values(NavigationItemType);
+
 export interface NavigationItemBase {
     text: string;
     icon?: ImageProps;

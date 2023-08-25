@@ -2,7 +2,7 @@ import React from 'react';
 
 import {NavigationListItemProps} from '../../models';
 import {getItemClickHandler} from '../../utils';
-import NavigationItem from '../NavigationItem/NavigationItem';
+import NavigationItem from '../NavigationItem';
 
 const NavigationListItem: React.FC<NavigationListItemProps> = ({
     column,

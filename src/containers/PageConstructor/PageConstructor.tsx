@@ -5,7 +5,7 @@ import blockOrigin from 'bem-cn-lite';
 
 import BackgroundMedia from '../../components/BackgroundMedia/BackgroundMedia';
 import {UIKIT_ROOT_CLASS} from '../../components/constants';
-import {blockMap, subBlockMap} from '../../constructor-items';
+import {blockMap, navItemMap, subBlockMap} from '../../constructor-items';
 import {AnimateContext} from '../../context/animateContext';
 import {InnerContext} from '../../context/innerContext';
 import {useTheme} from '../../context/theme';
@@ -17,6 +17,7 @@ import {
     CustomItems,
     HeaderBlockTypes,
     NavigationData,
+    NavigationItemTypes,
     PageContent,
     ShouldRenderBlock,
     SubBlockTypes,
@@ -24,10 +25,8 @@ import {
 import Layout from '../../navigation/containers/Layout/Layout';
 import {
     block as cnBlock,
-    getCustomBlockTypes,
-    getCustomHeaderTypes,
     getCustomItems,
-    getCustomSubBlockTypes,
+    getCustomTypes,
     getHeaderBlock,
     getOrderedBlocks,
     getThemedValue,
@@ -43,6 +42,8 @@ const b = cnBlock('page-constructor');
 const ycr = blockOrigin(UIKIT_ROOT_CLASS);
 
 export type ItemMap = typeof blockMap & typeof subBlockMap & CustomItems;
+
+export type NavItemMap = typeof navItemMap & CustomItems;
 
 export interface PageConstructorProps {
     content?: PageContent;
@@ -64,13 +65,21 @@ export const Constructor = (props: PageConstructorProps) => {
     const {context} = useMemo(
         () => ({
             context: {
-                blockTypes: [...BlockTypes, ...getCustomBlockTypes(custom)],
-                subBlockTypes: [...SubBlockTypes, ...getCustomSubBlockTypes(custom)],
-                headerBlockTypes: [...HeaderBlockTypes, ...getCustomHeaderTypes(custom)],
+                blockTypes: [...BlockTypes, ...getCustomTypes(['blocks', 'headers'], custom)],
+                subBlockTypes: [...SubBlockTypes, ...getCustomTypes(['subBlocks'], custom)],
+                headerBlockTypes: [...HeaderBlockTypes, ...getCustomTypes(['headers'], custom)],
+                navigationBlockTypes: [
+                    ...NavigationItemTypes,
+                    ...getCustomTypes(['navigation'], custom),
+                ],
                 itemMap: {
                     ...blockMap,
                     ...subBlockMap,
-                    ...getCustomItems(custom),
+                    ...getCustomItems(['blocks', 'headers', 'subBlocks'], custom),
+                },
+                navItemMap: {
+                    ...navItemMap,
+                    ...getCustomItems(['navigation'], custom),
                 },
                 loadables: custom?.loadable,
                 shouldRenderBlock,

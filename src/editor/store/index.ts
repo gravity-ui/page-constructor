@@ -2,7 +2,7 @@ import {useMemo, useReducer} from 'react';
 
 import {DEFAULT_THEME} from '../../components/constants';
 import {Block, BlockDecorationProps, HeaderBlockTypes, PageContent, Theme} from '../../models';
-import {getCustomHeaderTypes, getHeaderBlock} from '../../utils';
+import {getCustomTypes, getHeaderBlock} from '../../utils';
 import {EditBlockActions, EditBlockControls} from '../components/EditBlock/EditBlock';
 import {EditBlockProps, EditorProps, ViewModeItem} from '../types';
 
@@ -34,7 +34,7 @@ export function useEditorState({content: intialContent, custom}: Omit<EditorProp
     );
 
     return useMemo(() => {
-        const headerBlockTypes = [...HeaderBlockTypes, ...getCustomHeaderTypes(custom)];
+        const headerBlockTypes = [...HeaderBlockTypes, ...getCustomTypes(['headers'], custom)];
         const contentHasHeader = Boolean(getHeaderBlock(content.blocks, headerBlockTypes));
         const checkIsHeader = (type: string) => headerBlockTypes.includes(type);
 

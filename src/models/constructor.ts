@@ -63,6 +63,7 @@ export interface CustomConfig {
     blocks?: CustomItems;
     subBlocks?: CustomItems;
     headers?: CustomItems;
+    navigation?: CustomItems;
     loadable?: LoadableConfig;
     decorators?: {
         block?: ((props: BlockDecorationProps) => React.ReactElement)[];
