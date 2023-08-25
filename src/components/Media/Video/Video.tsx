@@ -1,9 +1,10 @@
 import React, {useEffect, useMemo, useRef} from 'react';
 
 import {MediaComponentVideoProps, MediaVideoType, PlayButtonProps} from '../../../models';
-import ReactPlayerBlock from '../../ReactPlayer/ReactPlayer';
-import {getVideoTypesWithPriority} from './utils';
 import {block} from '../../../utils';
+import ReactPlayerBlock from '../../ReactPlayer/ReactPlayer';
+
+import {getVideoTypesWithPriority} from './utils';
 
 import './Video.scss';
 
@@ -21,7 +22,7 @@ interface InnerVideoProps {
     hasVideoFallback: boolean;
 }
 
-type VideoAllProps = VideoAdditionProps & MediaComponentVideoProps & InnerVideoProps;
+export type VideoAllProps = VideoAdditionProps & MediaComponentVideoProps & InnerVideoProps;
 
 const Video = (props: VideoAllProps) => {
     const {
@@ -47,15 +48,19 @@ const Video = (props: VideoAllProps) => {
             if (loop && typeof loop !== 'boolean') {
                 const {start = 0, end} = loop;
 
-                ref.current.addEventListener('timeupdate', () => {
-                    const videoRef = ref.current;
-                    const endTime = end || (videoRef && videoRef.duration);
+                ref.current.addEventListener(
+                    'timeupdate',
+                    () => {
+                        const videoRef = ref.current;
+                        const endTime = end || (videoRef && videoRef.duration);
 
-                    if (videoRef && videoRef.currentTime === endTime) {
-                        videoRef.currentTime = start;
-                        videoRef.play().catch(() => setHasVideoFallback(true));
-                    }
-                });
+                        if (videoRef && videoRef.currentTime === endTime) {
+                            videoRef.currentTime = start;
+                            videoRef.play().catch(() => setHasVideoFallback(true));
+                        }
+                    },
+                    {passive: true},
+                );
             }
 
             if (playVideo) {
@@ -65,7 +70,17 @@ const Video = (props: VideoAllProps) => {
     }, [playVideo, video, setHasVideoFallback]);
 
     const reactPlayerBlock = useMemo(() => {
-        const {src, loop, controls, muted, autoplay = true, elapsedTime, playButton} = video;
+        const {
+            src,
+            loop,
+            controls,
+            muted,
+            autoplay = true,
+            elapsedTime,
+            playButton,
+            ariaLabel,
+            customControlsOptions,
+        } = video;
 
         return (
             <ReactPlayerBlock
@@ -82,6 +97,8 @@ const Video = (props: VideoAllProps) => {
                 metrika={metrika}
                 analyticsEvents={analyticsEvents}
                 height={height}
+                ariaLabel={ariaLabel}
+                customControlsOptions={customControlsOptions}
             />
         );
     }, [
@@ -100,14 +117,16 @@ const Video = (props: VideoAllProps) => {
         return video.src.length && !hasVideoFallback ? (
             <div className={b('wrap', videoClassName)} style={{height}}>
                 <video
-                    disablePictureInPicture={true}
-                    playsInline={true}
+                    disablePictureInPicture
+                    playsInline
                     // @ts-ignore
+                    // eslint-disable-next-line react/no-unknown-property
                     pip="false"
                     className={b('item')}
                     ref={ref}
                     preload="metadata"
-                    muted={true}
+                    muted
+                    aria-label={video.ariaLabel}
                 >
                     {getVideoTypesWithPriority(video.src).map(({src, type}, index) => (
                         <source key={index} src={src} type={type} />

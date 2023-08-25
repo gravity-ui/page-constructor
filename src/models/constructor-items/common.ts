@@ -38,6 +38,11 @@ export enum PlayButtonThemes {
     Grey = 'grey',
 }
 
+export enum CustomControlsType {
+    WithMuteButton = 'with-mute-button',
+    WithPlayPauseButton = 'with-play-pause-button',
+}
+
 export enum MediaVideoType {
     Default = 'default',
     Player = 'player',
@@ -142,7 +147,9 @@ export interface MediaVideoProps extends AnalyticsEventsBase {
     elapsedTime?: number;
     playButton?: PlayButtonProps;
     controls?: MediaVideoControlsType;
+    customControlsOptions?: CustomControlsOptions;
     metrika?: MetrikaVideo;
+    ariaLabel?: string;
 }
 
 // links
@@ -186,23 +193,14 @@ export interface ButtonImageProps {
     alt?: string;
 }
 
+export interface CustomControlsOptions {
+    type?: CustomControlsType;
+}
+
 export interface PlayButtonProps extends ClassNameProps {
     type?: PlayButtonType;
     theme?: PlayButtonThemes;
     text?: string;
-}
-
-// media
-export interface MediaVideoProps {
-    src: string[];
-    type?: MediaVideoType;
-    loop?: LoopProps | boolean;
-    muted?: boolean;
-    autoplay?: boolean;
-    elapsedTime?: number;
-    playButton?: PlayButtonProps;
-    controls?: MediaVideoControlsType;
-    metrika?: MetrikaVideo;
 }
 
 export type ThemedMediaVideoProps = ThemeSupporting<MediaVideoProps>;
@@ -383,25 +381,6 @@ export interface PriceFoldableDetailsProps {
     title: string;
     size?: TextSize;
     titleColor?: PriceDescriptionColor;
-}
-
-export interface PriceDetailedProps extends CardBaseProps {
-    items: PriceItemProps[];
-    description?: {
-        titleSize?: TextSize;
-        descriptionSize?: TextSize;
-        titleColor?: PriceDescriptionColor;
-    };
-    details?: {
-        titleSize?: TextSize;
-        descriptionSize?: TextSize;
-    };
-    priceType?: PriceDetailsType;
-    numberGroupItems?: 3 | 4 | 5;
-    isCombined?: boolean;
-    useMixedView?: boolean;
-    foldable?: PriceFoldableDetailsProps;
-    labelsDefaultText?: Record<PriceLabelColor, string>;
 }
 
 export interface PriceDetailedProps extends CardBaseProps {
