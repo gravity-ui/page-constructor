@@ -1,6 +1,15 @@
 # Changelog
 
 
+## [4.5.0](https://github.com/gravity-ui/page-constructor/compare/v4.4.1...v4.5.0) (2023-08-25)
+
+
+### Features
+
+* add aria-current for Tabs component ([#520](https://github.com/gravity-ui/page-constructor/issues/520)) ([debf477](https://github.com/gravity-ui/page-constructor/commit/debf4770bcac29539be62dfa28b21e16d71265d6))
+* add link animation for cards without shadow ([#513](https://github.com/gravity-ui/page-constructor/issues/513)) ([fb0fb2d](https://github.com/gravity-ui/page-constructor/commit/fb0fb2dbe5e137789a05e97f110d2ca24f6afa32))
+* **Navigation:** add custom elements support ([#517](https://github.com/gravity-ui/page-constructor/issues/517)) ([7d7001b](https://github.com/gravity-ui/page-constructor/commit/7d7001ba6c3e3436f0f0d6831ebe7e13ff1d518a))
+
 ## [4.4.1](https://github.com/gravity-ui/page-constructor/compare/v4.4.0...v4.4.1) (2023-08-24)
 
 
