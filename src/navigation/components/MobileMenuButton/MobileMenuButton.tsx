@@ -19,6 +19,8 @@ export const MobileMenuButton: React.FC<MobileMenuButtonProps> = ({
         className={b()}
         onClick={(e: MouseEvent) => {
             e.stopPropagation();
+            e.nativeEvent.stopImmediatePropagation();
+
             onSidebarOpenedChange(!isSidebarOpened);
         }}
         size="l"
