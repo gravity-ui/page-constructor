@@ -1,4 +1,5 @@
 import React, {
+    Fragment,
     useCallback,
     useContext,
     useEffect,
@@ -15,7 +16,7 @@ import ReactPlayer from 'react-player';
 import {MetrikaContext} from '../../context/metrikaContext';
 import {MobileContext} from '../../context/mobileContext';
 import {VideoContext} from '../../context/videoContext';
-import {useAnalytics} from '../../hooks';
+import {useAnalytics, useMount} from '../../hooks';
 import {PlayVideo} from '../../icons';
 import {
     AnalyticsEvent,
@@ -104,6 +105,9 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
         const [started, setStarted] = useState(autoPlay);
         const [paused, setPaused] = useState<boolean>(false);
         const [ended, setEnded] = useState<boolean>(false);
+        const [isMounted, setIsMounted] = React.useState(false);
+
+        useMount(() => setIsMounted(true));
 
         const videoSrc = useMemo(() => checkYoutubeVideos(src), [src]);
 
@@ -337,27 +341,31 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
                 ref={ref}
                 onClick={handleClick}
             >
-                <ReactPlayer
-                    className={b('player')}
-                    url={videoSrc}
-                    muted={muted}
-                    controls={controls === MediaVideoControlsType.Default}
-                    height={currentHeight || '100%'}
-                    width={width || '100%'}
-                    light={previewImgUrl}
-                    playing={isPlaying}
-                    playIcon={playIcon}
-                    progressInterval={FPS}
-                    onClickPreview={handleClickPreview}
-                    onStart={onStart}
-                    onReady={setPlayerRef}
-                    onPlay={onPlay}
-                    onPause={onPause}
-                    onProgress={onProgress}
-                    onEnded={onEnded}
-                    aria-label={ariaLabel}
-                />
-                {renderCustomBarControls(muted, playedPercent)}
+                {isMounted ? (
+                    <Fragment>
+                        <ReactPlayer
+                            className={b('player')}
+                            url={videoSrc}
+                            muted={muted}
+                            controls={controls === MediaVideoControlsType.Default}
+                            height={currentHeight || '100%'}
+                            width={width || '100%'}
+                            light={previewImgUrl}
+                            playing={isPlaying}
+                            playIcon={playIcon}
+                            progressInterval={FPS}
+                            onClickPreview={handleClickPreview}
+                            onStart={onStart}
+                            onReady={setPlayerRef}
+                            onPlay={onPlay}
+                            onPause={onPause}
+                            onProgress={onProgress}
+                            onEnded={onEnded}
+                            aria-label={ariaLabel}
+                        />
+                        {renderCustomBarControls(muted, playedPercent)}
+                    </Fragment>
+                ) : null}
             </div>
         );
     },
