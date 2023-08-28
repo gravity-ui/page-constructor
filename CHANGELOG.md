@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [4.5.1](https://github.com/gravity-ui/page-constructor/compare/v4.5.0...v4.5.1) (2023-08-28)
+
+
+### Bug Fixes
+
+* nextjs hydration error from react-player ([#526](https://github.com/gravity-ui/page-constructor/issues/526)) ([a648846](https://github.com/gravity-ui/page-constructor/commit/a648846263616e5e2be1f66549c26de4be6dccb3))
+
 ## [4.5.0](https://github.com/gravity-ui/page-constructor/compare/v4.4.1...v4.5.0) (2023-08-25)
 
 
