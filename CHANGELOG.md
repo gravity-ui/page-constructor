@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [3.17.3](https://github.com/gravity-ui/page-constructor/compare/v3.17.2...v3.17.3) (2023-08-29)
+
+
+### Bug Fixes
+
+* nextjs hydration error from react-player ([#528](https://github.com/gravity-ui/page-constructor/issues/528)) ([db490c5](https://github.com/gravity-ui/page-constructor/commit/db490c5363c6d1ca2fd40c66280cf4a97f24852f))
+
 ## [3.17.2](https://github.com/gravity-ui/page-constructor/compare/v3.17.1...v3.17.2) (2023-08-17)
 
 
