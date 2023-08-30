@@ -1,56 +1,32 @@
 @import '../../../../styles/variables.scss';
 
 @mixin dynamic-form-custom {
-    --top-level-font-size: var(--g-text-display-2-font-size);
-    --top-level-line-height: var(--g-text-display-2-line-height);
-    --block-level-complex-propery-font-size: var(--g-text-body-3-font-size);
-    --block-level-complex-property-line-height: var(--g-text-body-3-line-height);
-    --complex-property-font-size: var(--g-text-body-2-font-size);
-    --complex-property-line-height: var(--g-text-body-2-line-height);
-    --property-font-size: var(--g-text-body-1-font-size);
-    --property-line-height: var(--g-text-body-1-line-height);
+    --block-name-font-size: var(--g-text-display-1-font-size);
+    --block-name-line-height: var(--g-text-display-1-line-height);
+    --property-name-font-size: var(--g-text-body-1-font-size);
+    --property-name-line-height: var(--g-text-body-1-line-height);
 
     --input-min-width: 150px;
     --property-title-width: 96px;
 
     // blocks list level definitons
     --button-height: 48px;
-    --icon-size: 32px;
-    --icon-margin: 42px;
+    --icon-size: 28px;
+    --icon-margin: 8px;
     --property-font-weight: 500;
 
-    --header-text-size: var(--top-level-font-size);
-    --header-line-height: var(--top-level-line-height);
-    --text-size: var(--top-level-font-size);
-    --line-height: var(--top-level-line-height);
+    --header-text-size: var(--block-name-font-size);
+    --header-line-height: var(--block-name-line-height);
 
     // block top level properties definitions
     .df-use-search .df-use-search {
-        --button-height: 32px;
-        --icon-size: 20px;
-        --icon-margin: 30px;
-
-        --header-text-size: var(--block-level-complex-propery-font-size);
-        --header-line-height: var(--block-level-complex-property-line-height);
-        --text-size: var(--property-font-size);
-        --line-height: var(--property-line-height);
-        --property-font-weight: 400;
-    }
-
-    // block nested properties level definitons
-    .df-use-search .df-use-search .df-use-search {
         --button-height: 28px;
         --icon-size: 16px;
-        --icon-margin: 25px;
+        --icon-margin: 0px;
+
+        --header-text-size: var(--property-name-font-size);
+        --header-line-height: var(--property-name-line-height);
         --property-font-weight: 400;
-
-        --header-text-size: var(--complex-property-font-size);
-        --header-line-height: var(--complex-property-line-height);
-        --text-size: var(--property-font-size);
-        --line-height: var(--property-line-height);
-
-        --oneof-text-size: var(--complex-propery-font-size);
-        --oneof-line-height: var(--complex-property-line-height);
     }
 
     .df-row {
@@ -62,8 +38,6 @@
     }
 
     .df-row__title {
-        font-size: var(--text-size);
-        line-height: var(--line-height);
         font-weight: var(--property-font-weight);
         white-space: nowrap;
     }
@@ -76,14 +50,15 @@
         }
     }
 
-    .df-simple-vertical-accordeon__header .yc-button {
+    .df-simple-vertical-accordeon__header .yc-button,
+    .df-simple-vertical-accordeon__title {
         font-size: var(--header-text-size);
         line-height: var(--header-line-height);
     }
 
     .df-simple-vertical-accordeon__header {
         .yc-button {
-            --g-button-height: var(--button-height);
+            --yc-button-height: var(--button-height);
 
             display: flex;
             justify-content: center;
