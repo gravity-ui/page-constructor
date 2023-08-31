@@ -32,7 +32,7 @@ const Icons = ({title, size = 's', items}: IconsBlockProps) => {
                         href={url}
                         aria-label={text}
                         title={text}
-                        {...getLinkProps(item.url, hostname)}
+                        {...getLinkProps(url, hostname)}
                     >
                         {itemContent}
                     </a>
