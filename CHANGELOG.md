@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.27.0](https://github.com/gravity-ui/page-constructor/compare/v1.26.3...v1.27.0) (2023-08-31)
+
+
+### Features
+
+* adding new media component custom controls type ([#532](https://github.com/gravity-ui/page-constructor/issues/532)) ([6ccb56e](https://github.com/gravity-ui/page-constructor/commit/6ccb56ea052da2b94894e68ad3f17acac3f27cdf))
+
 ## [1.26.3](https://github.com/gravity-ui/page-constructor/compare/v1.26.2...v1.26.3) (2023-04-03)
 
 
