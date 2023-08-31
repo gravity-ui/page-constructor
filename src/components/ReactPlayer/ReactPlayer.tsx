@@ -14,23 +14,19 @@ import {Icon} from '@gravity-ui/uikit';
 import {block} from '../../utils';
 import {
     ClassNameProps,
+    CustomControlsType,
     PlayButtonProps,
     PlayButtonThemes,
     PlayButtonType,
     MediaVideoProps,
     MediaVideoControlsType,
     ReactPlayerBlockHandler,
-    AnalyticsEvent,
-    PredefinedEventTypes,
-    DefaultEventNames,
 } from '../../models';
 import CustomBarControls from './CustomBarControls';
 import {VideoContext} from '../../context/videoContext';
 import {MetrikaContext} from '../../context/metrikaContext';
 import {MobileContext} from '../../context/mobileContext';
-import {useAnalytics} from '../../hooks';
 import {PlayVideo} from '../../icons';
-import {checkYoutubeVideos} from './utils';
 
 import './ReactPlayer.scss';
 
@@ -65,6 +61,7 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
             previewImgUrl,
             loop = false,
             controls = MediaVideoControlsType.Default,
+            customControlsOptions = {},
             muted: initiallyMuted = false,
             elapsedTime,
             playButton,
@@ -73,7 +70,6 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
             showPreview,
             onClickPreview,
             metrika: videoMetrika,
-            analyticsEvents,
             height,
         } = props;
 
@@ -83,6 +79,8 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
             text,
             className: buttonClassName,
         } = playButton || ({} as PlayButtonProps);
+        const {type: customControlsType = CustomControlsType.WithMuteButton} =
+            customControlsOptions;
 
         const autoPlay = Boolean(!isMobile && !previewImgUrl && props.autoplay);
         const mute = initiallyMuted || autoPlay;
@@ -98,19 +96,8 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
         const [width, setWidth] = useState<number>(0);
         const [muted, setMuted] = useState<boolean>(mute);
         const [started, setStarted] = useState(autoPlay);
-        const [paused, setPaused] = useState<boolean>(false);
-        const [ended, setEnded] = useState<boolean>(false);
-
-        const videoSrc = useMemo(() => checkYoutubeVideos(src), [src]);
-
-        const eventsArray = useMemo(() => {
-            if (analyticsEvents) {
-                return Array.isArray(analyticsEvents) ? analyticsEvents : [analyticsEvents];
-            }
-
-            return [];
-        }, [analyticsEvents]);
-        const handleAnalytics = useAnalytics(DefaultEventNames.ReactPlayerControls);
+        const [ended, setEnded] = useState(false);
+        const [hovered, setHovered] = useState(false);
 
         useImperativeHandle(originRef, () => ({
             pause: () => setIsPlaying(false),
@@ -120,7 +107,7 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
             if (ref.current && !playingVideoRef?.contains(ref.current)) {
                 setMuted(true);
             }
-        }, [playingVideoRef]);
+        }, [playingVideoRef, ref]);
 
         useEffect(() => {
             if (showPreview) {
@@ -129,7 +116,7 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
         }, [showPreview, playerRef]);
 
         useEffect(() => {
-            if (playerRef) {
+            if (playerRef && autoPlay) {
                 setIsPlaying(autoPlay);
             }
         }, [autoPlay, playerRef]);
@@ -171,15 +158,6 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
             };
         }, []);
 
-        const playEvents = useMemo(
-            () => eventsArray?.filter((e: AnalyticsEvent) => e.type === PredefinedEventTypes.Play),
-            [eventsArray],
-        );
-        const stopEvents = useMemo(
-            () => eventsArray?.filter((e: AnalyticsEvent) => e.type === PredefinedEventTypes.Stop),
-            [eventsArray],
-        );
-
         const playIcon = useMemo(() => {
             let playButtonContent;
 
@@ -202,11 +180,6 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
 
         const changeMute = useCallback(
             (isMuted: boolean) => {
-                if (isMuted && playerRef) {
-                    playerRef.seekTo(0);
-                    setPlayedPercent(0);
-                }
-
                 if (metrika && videoMetrika) {
                     const {play, stop, counterName} = videoMetrika;
                     const goal = isMuted ? play : stop;
@@ -216,9 +189,6 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
                     }
                 }
 
-                const events = isMuted ? playEvents : stopEvents;
-                handleAnalytics(events);
-
                 if (isMuted) {
                     setProps({playingVideoRef: ref.current});
                 }
@@ -226,10 +196,8 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
                 // In order to the progress bar to update (equals 0) before displaying
                 setTimeout(() => setMuted(!isMuted), 0);
             },
-            [playerRef, metrika, videoMetrika, handleAnalytics, playEvents, stopEvents, setProps],
+            [metrika, videoMetrika, setProps],
         );
-
-        const handleClick = useCallback(() => changeMute(muted), [changeMute, muted]);
 
         const handleClickPreview = useCallback(() => {
             setIsPlaying(true);
@@ -242,19 +210,11 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
                     metrika.reachGoals(play, counterName);
                 }
             }
-
-            handleAnalytics(playEvents);
-        }, [onClickPreview, metrika, videoMetrika, handleAnalytics, playEvents]);
+        }, [onClickPreview, setIsPlaying, videoMetrika, metrika]);
 
         const onPause = useCallback(() => {
-            // For support correct state for youtube
             setIsPlaying(false);
-
-            if (controls === MediaVideoControlsType.Custom) {
-                setPaused(true);
-                setIsPlaying(true);
-            }
-        }, [controls, setIsPlaying, setPaused]);
+        }, []);
 
         const onStart = useCallback(() => {
             if (!autoPlay && !initiallyMuted) {
@@ -266,21 +226,17 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
             setIsPlaying(true);
 
             if (controls === MediaVideoControlsType.Custom) {
-                if (ended) {
-                    changeMute(false);
-                } else if (paused) {
-                    changeMute(muted);
-                }
-                setEnded(false);
-                setPaused(false);
+                changeMute(true);
             }
-        }, [changeMute, controls, ended, muted, paused]);
+        }, [changeMute, controls]);
 
         const onProgress = useCallback((progress: PlayerPropgress) => {
             setPlayedPercent(progress.played);
 
             if (progress.played === 1) {
                 setMuted(true);
+            } else {
+                setEnded(false);
             }
         }, []);
 
@@ -297,42 +253,42 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
             setEnded(true);
         }, [loop, playerRef]);
 
-        const renderCustomBarControls = useCallback(
-            (isMuted: boolean, elapsedTimePercent: number) => {
-                if (controls !== MediaVideoControlsType.Custom || !isPlaying) {
-                    return null;
-                }
+        const onPlayClick = useCallback(() => {
+            if (isPlaying) {
+                onPause();
+            } else {
+                onPlay();
+            }
+        }, [isPlaying, onPause, onPlay]);
 
-                return (
-                    <CustomBarControls
-                        className={b(
-                            'custom-bar-controls',
-                            {muted: isMuted},
-                            customBarControlsClassName,
-                        )}
-                        mute={{
-                            isMuted,
-                            changeMute: (event: React.MouseEvent) => {
-                                event.stopPropagation();
-                                changeMute(isMuted);
-                            },
-                        }}
-                        elapsedTimePercent={elapsedTimePercent}
-                    />
-                );
-            },
-            [controls, isPlaying, customBarControlsClassName, changeMute],
-        );
+        const handleClick = useCallback(() => {
+            if (customControlsType === CustomControlsType.WithMuteButton) {
+                changeMute(muted);
+            } else {
+                onPlayClick();
+            }
+            if (ended) {
+                playerRef?.seekTo(0);
+                onPlay();
+            }
+        }, [changeMute, customControlsType, ended, muted, onPlay, onPlayClick, playerRef]);
+
+        const onFocusIn = useCallback(() => setHovered(true), []);
+        const onFocusOut = useCallback(() => setHovered(false), []);
 
         return (
             <div
-                className={b({wrapper: !currentHeight}, className)}
+                className={b({wrapper: !currentHeight, controls, started, hovered}, className)}
                 ref={ref}
                 onClick={handleClick}
+                onMouseEnter={onFocusIn}
+                onMouseLeave={onFocusOut}
+                onFocus={onFocusIn}
+                onBlur={onFocusOut}
             >
                 <ReactPlayer
                     className={b('player')}
-                    url={videoSrc}
+                    url={src}
                     muted={muted}
                     controls={controls === MediaVideoControlsType.Default}
                     height={currentHeight || '100%'}
@@ -349,7 +305,23 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
                     onProgress={onProgress}
                     onEnded={onEnded}
                 />
-                {renderCustomBarControls(muted, playedPercent)}
+                {controls === MediaVideoControlsType.Custom && (
+                    <CustomBarControls
+                        className={b('custom-bar-controls', {muted}, customBarControlsClassName)}
+                        mute={{
+                            isMuted: muted,
+                            changeMute: (event: React.MouseEvent) => {
+                                event.stopPropagation();
+                                changeMute(muted);
+                            },
+                        }}
+                        elapsedTimePercent={playedPercent}
+                        type={customControlsType}
+                        isPaused={!isPlaying}
+                        onPlayClick={onPlayClick}
+                        isStarted={started}
+                    />
+                )}
             </div>
         );
     },
