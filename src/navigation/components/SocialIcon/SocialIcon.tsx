@@ -15,12 +15,13 @@ export interface NavigationSocialItemOwnProps extends NavigationSocialItem {
 
 const SocialIcon: React.FC<NavigationSocialItemOwnProps> = ({icon, url, className}) => {
     const iconData = getMediaImage(icon);
+    const {alt} = iconData;
 
     return (
         <a
             href={url}
-            aria-label={iconData.alt}
-            title={iconData.alt}
+            aria-label={alt}
+            title={alt}
             target="_blank"
             rel="noopener noreferrer"
             className={b(null, className)}

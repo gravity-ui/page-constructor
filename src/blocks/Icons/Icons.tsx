@@ -24,19 +24,20 @@ const Icons = ({title, size = 's', items}: IconsBlockProps) => {
             {title && <Title className={b('header')} title={title} colSizes={{all: 12}} />}
             {items.map((item) => {
                 const itemContent = getItemContent(item);
-                return item.url ? (
+                const {url, text} = item;
+                return url ? (
                     <a
                         className={b('item')}
-                        key={item.url}
-                        href={item.url}
-                        aria-label={item.text}
-                        title={item.text}
+                        key={url}
+                        href={url}
+                        aria-label={text}
+                        title={text}
                         {...getLinkProps(item.url, hostname)}
                     >
                         {itemContent}
                     </a>
                 ) : (
-                    <div className={b('item')} key={item.url}>
+                    <div className={b('item')} key={url}>
                         {itemContent}
                     </div>
                 );
