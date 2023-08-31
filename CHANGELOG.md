@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [4.5.2](https://github.com/gravity-ui/page-constructor/compare/v4.5.1...v4.5.2) (2023-08-31)
+
+
+### Bug Fixes
+
+* added title and aria-label to 'a' tag and button ([#531](https://github.com/gravity-ui/page-constructor/issues/531)) ([9869d8c](https://github.com/gravity-ui/page-constructor/commit/9869d8cc3c1cec686309902674d9ff86e3047bda))
+
 ## [4.5.1](https://github.com/gravity-ui/page-constructor/compare/v4.5.0...v4.5.1) (2023-08-28)
 
 
