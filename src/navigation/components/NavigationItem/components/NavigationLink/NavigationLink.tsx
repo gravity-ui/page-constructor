@@ -38,7 +38,7 @@ export const NavigationLink: React.FC<NavigationLinkProps> = (props) => {
     } else {
         return (
             <RouterLink href={url} passHref>
-                <a {...rest} className={classes}>
+                <a title={text} {...rest} className={classes}>
                     {content}
                 </a>
             </RouterLink>

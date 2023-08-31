@@ -151,7 +151,7 @@ const VideoBlock = (props: VideoBlockProps) => {
                         containerClassName={b('image-wrapper')}
                     />
                     {playButton || (
-                        <button className={b('button')}>
+                        <button title="Play" className={b('button')}>
                             <Icon className={b('icon')} data={PlayVideo} size={24} />
                         </button>
                     )}

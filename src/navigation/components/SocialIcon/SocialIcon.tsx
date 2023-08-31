@@ -17,7 +17,14 @@ const SocialIcon: React.FC<NavigationSocialItemOwnProps> = ({icon, url, classNam
     const iconData = getMediaImage(icon);
 
     return (
-        <a href={url} target="_blank" rel="noopener noreferrer" className={b(null, className)}>
+        <a
+            href={url}
+            aria-label={iconData.alt}
+            title={iconData.alt}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={b(null, className)}
+        >
             <Image className={b('icon')} {...iconData} />
         </a>
     );

@@ -29,6 +29,8 @@ const Icons = ({title, size = 's', items}: IconsBlockProps) => {
                         className={b('item')}
                         key={item.url}
                         href={item.url}
+                        aria-label={item.text}
+                        title={item.text}
                         {...getLinkProps(item.url, hostname)}
                     >
                         {itemContent}
