@@ -23,7 +23,7 @@ $block: '.#{$ns}add-block';
         width: $buttonWidth;
         height: $buttonHeight;
 
-        color: var(--g-color-text-primary);
+        color: var(--pc-editor-control-icon-color);
         background-color: var(--pc-editor-base-color);
         border-radius: $editorControlBorderRadius;
     }

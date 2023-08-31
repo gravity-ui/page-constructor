@@ -60,6 +60,7 @@ $block: '.#{$ns}edit-block';
         width: $controlIconWidth;
         height: $controlIconHeight;
         border-radius: $editorControlBorderRadius;
+        color: var(--pc-editor-control-icon-color);
         background-color: var(--pc-editor-control-color);
 
         &:not(:first-child) {
