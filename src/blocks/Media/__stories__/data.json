@@ -180,8 +180,8 @@
         }
       }
     },
-    "videoWithPreviewAndCustomControlsVariant1": {
-      "title": "Video with preview image, play button and custom controls (Variant 1)",
+    "videoWithPreviewAndCustomControlsWithMuteButton": {
+      "title": "Video with preview image, play button and custom controls with mute button",
       "media": {
         "light": {
           "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.png",
@@ -196,7 +196,7 @@
             "ariaLabel": "Video accessible name example",
             "controls": "custom",
             "customControlsOptions": {
-              "type": "variant-1"
+              "type": "with-mute-button"
             }
           }
         },
@@ -215,8 +215,8 @@
         }
       }
     },
-    "videoWithPreviewAndCustomControlsVariant2": {
-      "title": "Video with preview image, play button and custom controls (Variant 2)",
+    "videoWithPreviewAndCustomControlsWithPlayPauseButton": {
+      "title": "Video with preview image, play button and custom controls with play/pause button",
       "media": {
         "light": {
           "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.png",
@@ -231,7 +231,7 @@
             "ariaLabel": "Video accessible name example",
             "controls": "custom",
             "customControlsOptions": {
-              "type": "variant-2"
+              "type": "with-play-pause-button"
             }
           }
         },

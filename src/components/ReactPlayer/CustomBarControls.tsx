@@ -42,7 +42,7 @@ const CustomBarControls = (props: CustomBarControlsProps) => {
 
     const muteButton = useMemo(() => {
         if (!mute || type === CustomControlsType.WithPlayPauseButton) {
-            // mute button is not provided for variant-2
+            // mute button is not provided for `with-play-pause-button`
             return null;
         }
 
