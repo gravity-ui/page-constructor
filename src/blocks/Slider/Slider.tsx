@@ -1,4 +1,12 @@
-import React, {useCallback, useContext, useEffect, useMemo, useRef, useState} from 'react';
+import React, {
+    Fragment,
+    useCallback,
+    useContext,
+    useEffect,
+    useMemo,
+    useRef,
+    useState,
+} from 'react';
 
 import _ from 'lodash';
 import SlickSlider, {Settings} from 'react-slick';
@@ -218,10 +226,11 @@ export const SliderBlock = (props: WithChildren<SliderProps>) => {
         [slider, currentIndex, slidesCountByBreakpoint],
     );
 
-    const renderBar = () => {
-        const barPosition = (DOT_GAP + DOT_WIDTH) * currentIndex;
-        const barWidth = DOT_WIDTH + (DOT_GAP + DOT_WIDTH) * (slidesCountByBreakpoint - 1);
+    const barSlidesCount = childrenCount - slidesToShowCount + 1;
+    const barPosition = (DOT_GAP + DOT_WIDTH) * currentIndex;
+    const barWidth = DOT_WIDTH + (DOT_GAP + DOT_WIDTH) * (slidesCountByBreakpoint - 1);
 
+    const renderBar = () => {
         return (
             slidesCountByBreakpoint > 1 && (
                 <li
@@ -235,12 +244,49 @@ export const SliderBlock = (props: WithChildren<SliderProps>) => {
         );
     };
 
+    // renders additional bar, not visible in the layout but visible for screenreaders
+    const renderAccessibleBar = (index: number) => {
+        return (
+            // To have this key differ from keys used in renderDot function, added `-accessible-bar` part
+            <Fragment key={`${index}-accessible-bar`}>
+                {slidesCountByBreakpoint > 1 && (
+                    <li
+                        className={b('accessible-bar')}
+                        aria-current
+                        aria-label={`Slide ${currentIndex + 1} of ${barSlidesCount}`}
+                        style={{
+                            left: barPosition,
+                            width: barWidth,
+                        }}
+                    ></li>
+                )}
+            </Fragment>
+        );
+    };
+
     const renderDot = (index: number) => {
+        const currentIndexDiff = index - currentIndex;
+        let currentSlideNumber;
+        if (0 <= currentIndexDiff && currentIndexDiff < slidesToShowCount) {
+            currentSlideNumber = currentIndex + 1;
+        } else if (currentIndexDiff >= slidesToShowCount) {
+            currentSlideNumber = index - slidesToShowCount + 2;
+        } else {
+            currentSlideNumber = index + 1;
+        }
+
         return (
             <li
                 key={index}
                 className={b('dot', {active: index === currentIndex})}
                 onClick={() => handleDotClick(index)}
+                aria-hidden={
+                    (slidesCountByBreakpoint > 1 &&
+                        0 <= currentIndexDiff &&
+                        currentIndexDiff < slidesToShowCount) ||
+                    undefined
+                }
+                aria-label={`Slide ${currentSlideNumber} of ${barSlidesCount}`}
             ></li>
         );
     };
@@ -249,14 +295,16 @@ export const SliderBlock = (props: WithChildren<SliderProps>) => {
         if (childrenCount <= slidesCountByBreakpoint || !dots || childrenCount === 1) {
             return null;
         }
+        const dotsList = Array(childrenCount)
+            .fill(null)
+            .map((_item, index) => renderDot(index));
+        dotsList.splice(currentIndex, 0, renderAccessibleBar(currentIndex));
 
         return (
             <div className={b('dots', dotsClassName)}>
                 <ul className={b('dots-list')}>
                     {renderBar()}
-                    {Array(childrenCount)
-                        .fill(null)
-                        .map((_item, index) => renderDot(index))}
+                    {dotsList}
                 </ul>
             </div>
         );

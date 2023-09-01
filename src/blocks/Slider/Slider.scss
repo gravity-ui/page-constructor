@@ -91,6 +91,7 @@ $block: '.#{$ns}SliderBlock';
         justify-content: center;
 
         li#{$root}__bar,
+        li#{$root}__accessible-bar,
         li#{$root}__dot {
             margin: calc(#{$indentXXS} / 2) $indentXXXS;
             top: 0;
@@ -119,13 +120,17 @@ $block: '.#{$ns}SliderBlock';
         }
     }
 
-    &__bar {
+    &__bar,
+    &__accessible-bar {
         position: absolute;
         top: $indentXXS;
         left: 0;
         width: 24px;
         height: 8px;
         border-radius: $borderRadius;
+    }
+
+    &__bar {
         transition: left 0.3s;
         background-color: var(--pc-color-line-generic-active-solid);
     }
