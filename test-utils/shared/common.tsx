@@ -1,20 +1,24 @@
 import {render, screen} from '@testing-library/react';
 import React, {ElementType} from 'react';
 
-type QA = {
-    qa: string;
-};
+import {QAProps} from '../../src/models/common';
 
 export const testCustomClassName = <T,>({
     component: Component,
     props,
+    options,
 }: {
     component: ElementType;
-    props: T & QA;
+    props: T & QAProps;
+    options?: {qaId?: string};
 }) => {
+    if (!props.qa) {
+        throw new Error('123');
+    }
+
     const className = 'custom-class-name';
     render(<Component className={className} {...props} />);
-    const anchor = screen.getByTestId(props.qa);
+    const anchor = screen.getByTestId(options?.qaId || props.qa);
     expect(anchor).toHaveClass(className);
 };
 
@@ -23,8 +27,12 @@ export const testCustomStyle = <T,>({
     props,
 }: {
     component: ElementType;
-    props: T & QA;
+    props: T & QAProps;
 }) => {
+    if (!props.qa) {
+        throw new Error('123');
+    }
+
     const style = {color: 'red'};
 
     render(<Component {...props} style={style} />);

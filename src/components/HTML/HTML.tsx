@@ -1,6 +1,7 @@
 import React from 'react';
 
 import {WithChildren} from '../../models';
+import {QAProps} from '../../models/common';
 import {hasBlockTag} from '../../utils';
 
 export interface HTMLProps {
@@ -11,7 +12,14 @@ export interface HTMLProps {
     id?: string;
 }
 
-const HTML = ({children, block = false, className, itemProp, id}: WithChildren<HTMLProps>) => {
+const HTML = ({
+    children,
+    block = false,
+    className,
+    itemProp,
+    id,
+    qa,
+}: WithChildren<HTMLProps & QAProps>) => {
     if (!children) {
         return null;
     }
@@ -21,6 +29,7 @@ const HTML = ({children, block = false, className, itemProp, id}: WithChildren<H
         className,
         itemProp,
         id,
+        'data-qa': qa,
     });
 };
 

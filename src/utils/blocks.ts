@@ -1,3 +1,5 @@
+import {camelCase} from 'lodash';
+
 import {ConstructorBlock, CustomConfig, PCShareSocialNetwork, TextSize} from '../models';
 
 const BLOCK_ELEMENTS = [
@@ -127,4 +129,19 @@ export const getShareLink = (
 
             return undefined;
     }
+};
+
+export const getCommonQa = (qa?: string, customKeys: Array<string> = []) => {
+    const qaObject: Record<string, string> = {};
+
+    if (qa) {
+        const commonKeys = ['container', 'content', 'wrapper', 'image', 'button'];
+        const keys = commonKeys.concat(customKeys);
+
+        keys.forEach((key) => {
+            qaObject[camelCase(key)] = `${qa}-${key}`;
+        });
+    }
+
+    return qaObject;
 };
