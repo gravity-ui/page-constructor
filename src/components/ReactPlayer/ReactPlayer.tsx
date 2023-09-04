@@ -364,7 +364,7 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
                             onEnded={onEnded}
                             aria-label={ariaLabel}
                         />
-                        {controls === MediaVideoControlsType.Default && (
+                        {controls === MediaVideoControlsType.Custom && started && (
                             <CustomBarControls
                                 className={b(
                                     'custom-bar-controls',
