@@ -65,11 +65,10 @@ const CustomBarControls = (props: CustomBarControlsProps) => {
                 className={b('play-button')}
                 aria-label={i18n(isPaused ? 'play' : 'pause')}
             >
-                {isPaused ? (
-                    <Icon data={VideoControlPlay} size={PLAY_PAUSE_ICON_SIZE} />
-                ) : (
-                    <Icon data={VideoControlPause} size={PLAY_PAUSE_ICON_SIZE} />
-                )}
+                <Icon
+                    data={isPaused ? VideoControlPlay : VideoControlPause}
+                    size={PLAY_PAUSE_ICON_SIZE}
+                />
             </button>
         );
     }, [isPaused, onPlayClick, type]);
