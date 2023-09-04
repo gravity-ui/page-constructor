@@ -1,14 +1,12 @@
-/* we won't use 'pc' class prefix here to let you opportunity to define yfm styles
-in your project via global 'yfm' class */
 import React from 'react';
 
-import block from 'bem-cn-lite';
 import toSnakeCase from 'snakecase-keys';
 
 import {HTML} from '../../components';
 import {ClassNameProps, Modifiers} from '../../models';
+import {cn} from '../../utils';
 
-const yfm = block('yfm');
+const yfm = cn('yfm');
 
 export interface YFMWrapperProps extends ClassNameProps {
     content: string;

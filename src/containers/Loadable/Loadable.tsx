@@ -1,7 +1,6 @@
 import React, {PropsWithChildren, useCallback, useEffect, useState} from 'react';
 
 import {Spin} from '@gravity-ui/uikit';
-import blockCn from 'bem-cn-lite';
 
 import ErrorWrapper from '../../components/ErrorWrapper/ErrorWrapper';
 import {
@@ -11,6 +10,7 @@ import {
     LoadableData,
     LoadableProps,
 } from '../../models';
+import {block as blockCn} from '../../utils/cn';
 
 import i18n from './i18n';
 
