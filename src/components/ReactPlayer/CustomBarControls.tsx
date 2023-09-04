@@ -2,6 +2,10 @@ import React, {useMemo} from 'react';
 
 import {Icon} from '@gravity-ui/uikit';
 
+import {Mute} from '../../icons/Mute';
+import {MuteSmall} from '../../icons/MuteSmall';
+import {Unmute} from '../../icons/Unmute';
+import {UnmuteSmall} from '../../icons/UnmuteSmall';
 import {VideoControlPause} from '../../icons/VideoControlPause';
 import {VideoControlPlay} from '../../icons/VideoControlPlay';
 import {ClassNameProps, CustomControlsType} from '../../models';
@@ -13,7 +17,6 @@ import i18n from './i18n';
 import './CustomBarControls.scss';
 
 const b = block('CustomBarControls');
-const PLAY_PAUSE_ICON_SIZE = 24;
 
 interface MuteConfigProps {
     isMuted: boolean;
@@ -38,21 +41,33 @@ const CustomBarControls = (props: CustomBarControlsProps) => {
         onPlayClick,
     } = props;
 
+    const muteIcon = useMemo(() => {
+        return type === CustomControlsType.WithMuteButton ? Mute : MuteSmall;
+    }, [type]);
+    const unmuteIcon = useMemo(() => {
+        return type === CustomControlsType.WithMuteButton ? Unmute : UnmuteSmall;
+    }, [type]);
+
     const muteButton = useMemo(() => {
-        if (!mute || type === CustomControlsType.WithPlayPauseButton) {
-            // mute button is not provided for `with-play-pause-button`
+        if (!mute) {
             return null;
         }
 
         const {isMuted, changeMute} = mute;
 
         return (
-            <div className={b('button')} onClick={changeMute}>
-                <div className={b('mute-button', {muted: isMuted})} />
-                {!isMuted && <CircleProgress elapsedTime={elapsedTimePercent} strokeWidth={5} />}
-            </div>
+            <button
+                className={b('button', {type})}
+                onClick={changeMute}
+                aria-label={i18n(isMuted ? 'unmute' : 'mute')}
+            >
+                <Icon data={isMuted ? unmuteIcon : muteIcon} className={b('mute-icon', {type})} />
+                {type === CustomControlsType.WithMuteButton && !isMuted && (
+                    <CircleProgress elapsedTime={elapsedTimePercent} strokeWidth={5} />
+                )}
+            </button>
         );
-    }, [elapsedTimePercent, mute, type]);
+    }, [elapsedTimePercent, mute, muteIcon, type, unmuteIcon]);
 
     const playPauseButton = useMemo(() => {
         if (type !== CustomControlsType.WithPlayPauseButton) {
@@ -62,12 +77,12 @@ const CustomBarControls = (props: CustomBarControlsProps) => {
         return (
             <button
                 onClick={onPlayClick}
-                className={b('play-button')}
+                className={b('button', {type})}
                 aria-label={i18n(isPaused ? 'play' : 'pause')}
             >
                 <Icon
                     data={isPaused ? VideoControlPlay : VideoControlPause}
-                    size={PLAY_PAUSE_ICON_SIZE}
+                    className={b('play-icon')}
                 />
             </button>
         );
@@ -75,8 +90,8 @@ const CustomBarControls = (props: CustomBarControlsProps) => {
 
     return (
         <div className={b('wrapper', {type}, className)}>
-            {muteButton}
             {playPauseButton}
+            {muteButton}
         </div>
     );
 };

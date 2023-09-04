@@ -1,4 +1,6 @@
 {
   "play": "Play",
-  "pause": "Pause"
+  "pause": "Pause",
+  "mute": "Mute",
+  "unmute": "Unmute"
 }

@@ -291,7 +291,10 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
         const onPlay = useCallback(() => {
             setIsPlaying(true);
 
-            if (controls === MediaVideoControlsType.Custom) {
+            if (
+                controls === MediaVideoControlsType.Custom &&
+                customControlsType === CustomControlsType.WithMuteButton
+            ) {
                 if (ended) {
                     changeMute(false);
                 } else if (!isPlaying) {
