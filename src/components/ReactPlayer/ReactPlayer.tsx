@@ -302,7 +302,7 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
                 }
                 setEnded(false);
             }
-        }, [changeMute, controls, ended, isPlaying, muted]);
+        }, [changeMute, controls, customControlsType, ended, isPlaying, muted]);
 
         const onProgress = useCallback((progress: PlayerPropgress) => {
             setPlayedPercent(progress.played);
