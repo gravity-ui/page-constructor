@@ -329,45 +329,6 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
             }
         }, [changeMute, customControlsType, muted, onPlayClick]);
 
-        const renderCustomBarControls = useCallback(
-            (isMuted: boolean, elapsedTimePercent: number) => {
-                if (controls !== MediaVideoControlsType.Custom) {
-                    return null;
-                }
-
-                return (
-                    <CustomBarControls
-                        className={b(
-                            'custom-bar-controls',
-                            {muted: isMuted},
-                            customBarControlsClassName,
-                        )}
-                        mute={{
-                            isMuted,
-                            changeMute: (event: React.MouseEvent) => {
-                                event.stopPropagation();
-                                changeMute(isMuted);
-                            },
-                        }}
-                        elapsedTimePercent={elapsedTimePercent}
-                        type={customControlsType}
-                        isPaused={!isPlaying}
-                        isStarted={started}
-                        onPlayClick={onPlayClick}
-                    />
-                );
-            },
-            [
-                controls,
-                isPlaying,
-                customBarControlsClassName,
-                customControlsType,
-                started,
-                onPlayClick,
-                changeMute,
-            ],
-        );
-
         const onFocusIn = useCallback(() => setHovered(true), []);
         const onFocusOut = useCallback(() => setHovered(false), []);
 
@@ -403,7 +364,27 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
                             onEnded={onEnded}
                             aria-label={ariaLabel}
                         />
-                        {renderCustomBarControls(muted, playedPercent)}
+                        {controls === MediaVideoControlsType.Default && (
+                            <CustomBarControls
+                                className={b(
+                                    'custom-bar-controls',
+                                    {muted},
+                                    customBarControlsClassName,
+                                )}
+                                mute={{
+                                    isMuted: muted,
+                                    changeMute: (event: React.MouseEvent) => {
+                                        event.stopPropagation();
+                                        changeMute(muted);
+                                    },
+                                }}
+                                elapsedTimePercent={playedPercent}
+                                type={customControlsType}
+                                isPaused={!isPlaying}
+                                isStarted={started}
+                                onPlayClick={onPlayClick}
+                            />
+                        )}
                     </Fragment>
                 ) : null}
             </div>
