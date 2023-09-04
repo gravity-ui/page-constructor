@@ -216,7 +216,7 @@
       }
     },
     "videoWithPreviewAndCustomControlsWithPlayPauseButton": {
-      "title": "Video with preview image, play button and custom controls with play/pause button",
+      "title": "Video with preview image, play button and custom controls with play/pause and mute button",
       "media": {
         "light": {
           "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.png",
