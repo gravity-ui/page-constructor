@@ -245,7 +245,16 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
                 // In order to the progress bar to update (equals 0) before displaying
                 setTimeout(() => setMuted(!isMuted), 0);
             },
-            [playerRef, metrika, videoMetrika, handleAnalytics, playEvents, stopEvents, setProps],
+            [
+                playerRef,
+                customControlsType,
+                metrika,
+                videoMetrika,
+                playEvents,
+                stopEvents,
+                handleAnalytics,
+                setProps,
+            ],
         );
 
         const handleClickPreview = useCallback(() => {
