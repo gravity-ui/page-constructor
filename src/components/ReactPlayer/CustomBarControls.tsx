@@ -26,7 +26,6 @@ export interface CustomBarControlsProps extends ClassNameProps {
     type?: CustomControlsType;
     isPaused?: boolean;
     onPlayClick?: () => void;
-    isStarted?: boolean;
 }
 
 const CustomBarControls = (props: CustomBarControlsProps) => {
@@ -37,7 +36,6 @@ const CustomBarControls = (props: CustomBarControlsProps) => {
         type = CustomControlsType.WithMuteButton,
         isPaused,
         onPlayClick,
-        isStarted = false,
     } = props;
 
     const muteButton = useMemo(() => {
@@ -57,7 +55,7 @@ const CustomBarControls = (props: CustomBarControlsProps) => {
     }, [elapsedTimePercent, mute, type]);
 
     const playPauseButton = useMemo(() => {
-        if (type !== CustomControlsType.WithPlayPauseButton || !isStarted) {
+        if (type !== CustomControlsType.WithPlayPauseButton) {
             return null;
         }
 
@@ -74,7 +72,7 @@ const CustomBarControls = (props: CustomBarControlsProps) => {
                 )}
             </button>
         );
-    }, [isPaused, isStarted, onPlayClick, type]);
+    }, [isPaused, onPlayClick, type]);
 
     return (
         <div className={b('wrapper', {type}, className)}>

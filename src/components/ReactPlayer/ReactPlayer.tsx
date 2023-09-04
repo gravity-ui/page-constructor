@@ -381,7 +381,6 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
                                 elapsedTimePercent={playedPercent}
                                 type={customControlsType}
                                 isPaused={!isPlaying}
-                                isStarted={started}
                                 onPlayClick={onPlayClick}
                             />
                         )}
