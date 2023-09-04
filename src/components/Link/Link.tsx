@@ -17,7 +17,7 @@ import {
 } from '../../models';
 import {QAProps} from '../../models/common';
 import {block, getLinkProps, setUrlTld} from '../../utils';
-import {getCommonQa} from '../../utils/index';
+import {getQaAttrubutes} from '../../utils/index';
 import BackLink from '../BackLink/BackLink';
 import FileLink from '../FileLink/FileLink';
 
@@ -58,7 +58,7 @@ const LinkBlock = (props: WithChildren<LinkFullProps>) => {
         tabIndex,
         qa,
     } = props;
-    const qas = getCommonQa(qa, ['normal']);
+    const qaAttributes = getQaAttrubutes(qa, ['normal']);
 
     const handleMetrika = useMetrika();
     const handleAnalytics = useAnalytics(DefaultEventNames.Link, url);
@@ -106,7 +106,7 @@ const LinkBlock = (props: WithChildren<LinkFullProps>) => {
                         onClick={onClick}
                         tabIndex={tabIndex}
                         {...linkProps}
-                        data-qa={qas.normal}
+                        data-qa={qaAttributes.normal}
                     >
                         {arrow ? (
                             <Fragment>

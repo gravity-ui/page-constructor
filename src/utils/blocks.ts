@@ -41,6 +41,8 @@ const BLOCK_ELEMENTS = [
 
 const BLOCK_ELEMENTS_REGEX = `<(${BLOCK_ELEMENTS.join('|')})[^>]*>`;
 
+const QA_ATTRIBUTES_KEYS = ['container', 'content', 'wrapper', 'image', 'button'];
+
 export function getHeaderTag(size: TextSize) {
     switch (size) {
         case 'l':
@@ -131,17 +133,16 @@ export const getShareLink = (
     }
 };
 
-export const getCommonQa = (qa?: string, customKeys: Array<string> = []) => {
-    const qaObject: Record<string, string> = {};
+export const getQaAttrubutes = (qa?: string, customKeys: Array<string> = []) => {
+    const attributes: Record<string, string> = {};
 
     if (qa) {
-        const commonKeys = ['container', 'content', 'wrapper', 'image', 'button'];
-        const keys = commonKeys.concat(customKeys);
+        const keys = QA_ATTRIBUTES_KEYS.concat(customKeys);
 
         keys.forEach((key) => {
-            qaObject[camelCase(key)] = `${qa}-${key}`;
+            attributes[camelCase(key)] = `${qa}-${key}`;
         });
     }
 
-    return qaObject;
+    return attributes;
 };

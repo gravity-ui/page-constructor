@@ -6,7 +6,7 @@ import {Col} from '../../grid';
 import {ClassNameProps, ContentBlockProps, ContentSize, TitleItemProps} from '../../models';
 import {QAProps} from '../../models/common';
 import {block} from '../../utils';
-import {getCommonQa} from '../../utils/blocks';
+import {getQaAttrubutes} from '../../utils/blocks';
 
 import ContentList from './ContentList/ContentList';
 
@@ -61,7 +61,7 @@ const Content = (props: ContentProps) => {
         list,
         qa,
     } = props;
-    const qas = getCommonQa(qa, ['links', 'link', 'buttons', 'button', 'list']);
+    const qaAttributes = getQaAttrubutes(qa, ['links', 'link', 'buttons', 'button', 'list']);
 
     const titleProps =
         !title || typeof title === 'string'
@@ -75,7 +75,7 @@ const Content = (props: ContentProps) => {
             className={b({size, centered, theme}, className)}
             reset
             sizes={colSizes}
-            qa={qas.container}
+            qa={qaAttributes.container}
         >
             {title && <Title className={b('title')} title={titleProps} colSizes={{all: 12}} />}
             {text && (
@@ -86,7 +86,7 @@ const Content = (props: ContentProps) => {
                     />
                 </div>
             )}
-            {list?.length ? <ContentList list={list} size={size} qa={qas.list} /> : null}
+            {list?.length ? <ContentList list={list} size={size} qa={qaAttributes.list} /> : null}
             {additionalInfo && (
                 <div className={b('notice')}>
                     <YFMWrapper
@@ -100,27 +100,27 @@ const Content = (props: ContentProps) => {
                 </div>
             )}
             {links && (
-                <div className={b('links')} data-qa={qas.links}>
+                <div className={b('links')} data-qa={qaAttributes.links}>
                     {links.map((link) => (
                         <LinkBlock
                             className={b('link')}
                             {...link}
                             textSize={getLinkSize(size)}
                             key={link.url}
-                            qa={qas.link}
+                            qa={qaAttributes.link}
                         />
                     ))}
                 </div>
             )}
             {buttons && (
-                <div className={b('buttons')} data-qa={qas.buttons}>
+                <div className={b('buttons')} data-qa={qaAttributes.buttons}>
                     {buttons.map((item) => (
                         <Button
                             className={b('button')}
                             {...item}
                             key={item.url}
                             size={getButtonSize(size)}
-                            qa={qas.button}
+                            qa={qaAttributes.button}
                         />
                     ))}
                 </div>

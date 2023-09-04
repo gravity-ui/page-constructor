@@ -9,7 +9,7 @@ import {useTheme} from '../../../context/theme';
 import {ContentItemProps, ContentSize} from '../../../models';
 import {QAProps} from '../../../models/common';
 import {block, getThemedValue} from '../../../utils';
-import {getCommonQa} from '../../../utils/blocks';
+import {getQaAttrubutes} from '../../../utils/blocks';
 
 import './ContentList.scss';
 
@@ -32,7 +32,7 @@ interface ContentListProps {
 
 const ContentList = ({list, size, qa}: ContentListProps & QAProps) => {
     const theme = useTheme();
-    const qas = getCommonQa(qa, ['image', 'title', 'text']);
+    const qaAttributes = getQaAttrubutes(qa, ['image', 'title', 'text']);
 
     return (
         <div className={b({size})} data-qa={qa}>
@@ -43,12 +43,12 @@ const ContentList = ({list, size, qa}: ContentListProps & QAProps) => {
 
                 return (
                     <div className={b('item')} key={uuidv4()}>
-                        <Image {...iconData} className={b('icon')} qa={qas.image} />
+                        <Image {...iconData} className={b('icon')} qa={qaAttributes.image} />
                         <div>
                             {title &&
                                 React.createElement(
                                     getHeadingLevel(size),
-                                    {className: b('title'), 'data-qa': qas.title},
+                                    {className: b('title'), 'data-qa': qaAttributes.title},
                                     title,
                                 )}
                             {text && (
@@ -56,7 +56,7 @@ const ContentList = ({list, size, qa}: ContentListProps & QAProps) => {
                                     className={b('text')}
                                     content={text}
                                     modifiers={{constructor: true}}
-                                    qa={qas.text}
+                                    qa={qaAttributes.text}
                                 />
                             )}
                         </div>

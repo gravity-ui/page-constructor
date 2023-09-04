@@ -2,6 +2,7 @@ import {render, screen} from '@testing-library/react';
 import React, {ElementType} from 'react';
 
 import {QAProps} from '../../src/models/common';
+import {ERROR_INPUT_DATA_MESSAGE} from '../constants';
 
 export const testCustomClassName = <T,>({
     component: Component,
@@ -13,7 +14,7 @@ export const testCustomClassName = <T,>({
     options?: {qaId?: string};
 }) => {
     if (!props.qa) {
-        throw new Error('123');
+        throw new Error(ERROR_INPUT_DATA_MESSAGE);
     }
 
     const className = 'custom-class-name';
@@ -30,7 +31,7 @@ export const testCustomStyle = <T,>({
     props: T & QAProps;
 }) => {
     if (!props.qa) {
-        throw new Error('123');
+        throw new Error(ERROR_INPUT_DATA_MESSAGE);
     }
 
     const style = {color: 'red'};

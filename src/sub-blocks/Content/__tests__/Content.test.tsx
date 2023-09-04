@@ -14,7 +14,7 @@ import {
 } from '../../../../test-utils/shared/content';
 import {GridColumnSizesType} from '../../../grid/types';
 import {ContentSize, ContentTheme} from '../../../models/constructor-items/common';
-import {getCommonQa} from '../../../utils/blocks';
+import {getQaAttrubutes} from '../../../utils/blocks';
 import Content, {ContentProps} from '../Content';
 
 const contentData: ContentProps = {
@@ -39,20 +39,18 @@ const colSizesArray: GridColumnSizesType[] = [
     {all: 5, lg: 4, md: 3, sm: 2},
 ];
 
-const qas = getCommonQa(contentData.qa, ['link', 'list']);
+const qaAttributes = getQaAttrubutes(contentData.qa, ['link', 'list']);
 
 describe('Content', () => {
     test('Render by default', async () => {
         testContentByDefault({
-            component: Content,
             props: contentData,
-            options: {qaId: qas.container},
+            options: {qaId: qaAttributes.container},
         });
     });
 
     test('Render with title', async () => {
         testContentWithTitle({
-            component: Content,
             props: contentData,
             options: {},
         });
@@ -60,7 +58,6 @@ describe('Content', () => {
 
     test('Render with text', async () => {
         testContentWithText({
-            component: Content,
             props: contentData,
             options: {},
         });
@@ -68,7 +65,6 @@ describe('Content', () => {
 
     test('Render with additionalInfo', async () => {
         testContentWithAdditionalInfo({
-            component: Content,
             props: contentData,
             options: {},
         });
@@ -76,16 +72,14 @@ describe('Content', () => {
 
     test.each(new Array<ContentSize>('s', 'l'))('Render with given "%s" size', (size) => {
         testContentWithSize({
-            component: Content,
             props: {...contentData, size},
-            options: {qaId: qas.container},
+            options: {qaId: qaAttributes.container},
         });
     });
 
     test('Render with links', async () => {
-        const linkQa = getCommonQa(qas.link, ['normal']);
+        const linkQa = getQaAttrubutes(qaAttributes.link, ['normal']);
         testContentWithLinks({
-            component: Content,
             props: contentData,
             options: {qaId: linkQa.normal},
         });
@@ -93,9 +87,8 @@ describe('Content', () => {
 
     test('Render with buttons', async () => {
         testContentWithButtons({
-            component: Content,
             props: contentData,
-            options: {qaId: qas.button},
+            options: {qaId: qaAttributes.button},
         });
     });
 
@@ -103,18 +96,16 @@ describe('Content', () => {
         'Render with given "%s" colSizes',
         (colSizes) => {
             testContentWithColSize({
-                component: Content,
                 props: {...contentData, colSizes},
-                options: {qaId: qas.container},
+                options: {qaId: qaAttributes.container},
             });
         },
     );
 
     test('Render with centered', async () => {
         testContentWithCentered({
-            component: Content,
             props: contentData,
-            options: {qaId: qas.container},
+            options: {qaId: qaAttributes.container},
         });
     });
 
@@ -122,9 +113,8 @@ describe('Content', () => {
         'Render with given "%s" theme',
         (theme) => {
             testContentWithTheme({
-                component: Content,
                 props: {...contentData, theme},
-                options: {qaId: qas.container},
+                options: {qaId: qaAttributes.container},
             });
         },
     );
@@ -133,15 +123,14 @@ describe('Content', () => {
         testCustomClassName<ContentProps>({
             component: Content,
             props: contentData,
-            options: {qaId: qas.container},
+            options: {qaId: qaAttributes.container},
         });
     });
 
     test('Render with list', async () => {
         testContentWithList({
-            component: Content,
             props: contentData,
-            options: {qaId: qas.list},
+            options: {qaId: qaAttributes.list},
         });
     });
 });
