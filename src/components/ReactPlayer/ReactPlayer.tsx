@@ -108,7 +108,8 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
         const [muted, setMuted] = useState<boolean>(mute);
         const [started, setStarted] = useState(autoPlay);
         const [ended, setEnded] = useState<boolean>(false);
-        const [isMounted, setIsMounted] = React.useState(false);
+        const [isMounted, setIsMounted] = useState(false);
+        const [hovered, setHovered] = useState(false);
 
         useMount(() => setIsMounted(true));
 
@@ -367,11 +368,18 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
             ],
         );
 
+        const onFocusIn = useCallback(() => setHovered(true), []);
+        const onFocusOut = useCallback(() => setHovered(false), []);
+
         return (
             <div
-                className={b({wrapper: !currentHeight}, className)}
+                className={b({wrapper: !currentHeight, controls, started, hovered}, className)}
                 ref={ref}
                 onClick={handleClick}
+                onMouseEnter={onFocusIn}
+                onMouseLeave={onFocusOut}
+                onFocus={onFocusIn}
+                onBlur={onFocusOut}
             >
                 {isMounted ? (
                     <Fragment>
