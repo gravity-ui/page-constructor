@@ -119,7 +119,7 @@ const VideoBlock = (props: VideoBlockProps) => {
             const iframe = document.createElement('iframe');
             iframe.id = fullId;
 
-            if (fullscreen && !previewImg) {
+            if (!previewImg) {
                 iframe.src = `${src}?${getPageSearchParams(attributes || {})}`;
             }
 
@@ -133,7 +133,7 @@ const VideoBlock = (props: VideoBlockProps) => {
             ref.current.appendChild(iframe);
             iframeRef.current = iframe;
         }
-    }, [stream, record, norender, src, fullId, attributes, iframeRef, fullscreen, previewImg]);
+    }, [stream, record, norender, src, fullId, attributes, iframeRef, previewImg]);
 
     useEffect(() => {
         setHidePreview(false);
