@@ -58,38 +58,50 @@ const WithCustomIndentsTemplate: StoryFn<CardLayoutBlockModel> = ({title, ...res
                     {
                         ...restArgs,
                         title: `${title} with zero indents at the top and bottom`,
-                        indentTop: '0',
-                        indentBottom: '0',
+                        indent: {
+                            top: '0',
+                            bottom: '0',
+                        },
                     },
                     {
                         ...restArgs,
                         title: `${title} with XS indents at the top and bottom`,
-                        indentTop: 'xs',
-                        indentBottom: 'xs',
+                        indent: {
+                            top: 'xs',
+                            bottom: 'xs',
+                        },
                     },
                     {
                         ...restArgs,
                         title: `${title} with S indents at the top and bottom`,
-                        indentTop: 's',
-                        indentBottom: 's',
+                        indent: {
+                            top: 's',
+                            bottom: 's',
+                        },
                     },
                     {
                         ...restArgs,
                         title: `${title} with M indents at the top and bottom`,
-                        indentTop: 'm',
-                        indentBottom: 'm',
+                        indent: {
+                            top: 'm',
+                            bottom: 'm',
+                        },
                     },
                     {
                         ...restArgs,
                         title: `${title} with L (default) indents at the top and bottom`,
-                        indentTop: 'l',
-                        indentBottom: 'l',
+                        indent: {
+                            top: 'l',
+                            bottom: 'l',
+                        },
                     },
                     {
                         ...restArgs,
                         title: `${title} with XL indents at the top and bottom`,
-                        indentTop: 'xl',
-                        indentBottom: 'xl',
+                        indent: {
+                            top: 'xl',
+                            bottom: 'xl',
+                        },
                     },
                 ],
             }}

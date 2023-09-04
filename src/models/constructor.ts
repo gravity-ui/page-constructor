@@ -17,8 +17,10 @@ export interface Menu {
 }
 
 export type ConstructorBlock = (ConstructorItem | CustomBlock) & {
-    indentTop?: string;
-    indentBottom?: string;
+    indent?: {
+        top?: string;
+        bottom?: string;
+    };
 };
 
 export interface PageContent extends Animatable {
