@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [4.5.3](https://github.com/gravity-ui/page-constructor/compare/v4.5.2...v4.5.3) (2023-09-04)
+
+
+### Bug Fixes
+
+* editor control colors ([#535](https://github.com/gravity-ui/page-constructor/issues/535)) ([b92afb2](https://github.com/gravity-ui/page-constructor/commit/b92afb20006a2af65571866601566370c544479c))
+* editor dynamic form style issues ([#530](https://github.com/gravity-ui/page-constructor/issues/530)) ([7796388](https://github.com/gravity-ui/page-constructor/commit/77963883fd06af039a0bf84d1f477df930176540))
+
 ## [4.5.2](https://github.com/gravity-ui/page-constructor/compare/v4.5.1...v4.5.2) (2023-08-31)
 
 
