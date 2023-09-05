@@ -1,7 +1,7 @@
 import React, {useCallback, useEffect, useRef, useState} from 'react';
 
 import {Icon} from '@gravity-ui/uikit';
-import _ from 'lodash';
+import debounce from 'lodash/debounce';
 import {v4 as uuidv4} from 'uuid';
 
 import {useAnalytics} from '../../hooks/useAnalytics';
@@ -97,7 +97,7 @@ const VideoBlock = (props: VideoBlockProps) => {
     }, [handleAnalytics, analyticsEvents, src, attributes]);
 
     useEffect(() => {
-        const updateSize = _.debounce(() => {
+        const updateSize = debounce(() => {
             setCurrentHeight(
                 ref.current ? Math.round(getHeight(ref.current.offsetWidth)) : undefined,
             );
@@ -115,12 +115,14 @@ const VideoBlock = (props: VideoBlockProps) => {
             return;
         }
 
-        const fullSrc = `${src}?${getPageSearchParams(attributes || {})}`;
-
         if (ref.current && !iframeRef.current) {
             const iframe = document.createElement('iframe');
             iframe.id = fullId;
-            iframe.src = fullSrc;
+
+            if (!previewImg) {
+                iframe.src = `${src}?${getPageSearchParams(attributes || {})}`;
+            }
+
             iframe.width = '100%';
             iframe.height = '100%';
             iframe.title = i18n('iframe-title');
@@ -131,7 +133,7 @@ const VideoBlock = (props: VideoBlockProps) => {
             ref.current.appendChild(iframe);
             iframeRef.current = iframe;
         }
-    }, [stream, record, norender, src, fullId, attributes, iframeRef, fullscreen]);
+    }, [stream, record, norender, src, fullId, attributes, iframeRef, previewImg]);
 
     useEffect(() => {
         setHidePreview(false);
