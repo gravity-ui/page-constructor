@@ -3,6 +3,7 @@ import React from 'react';
 import ToggleArrow from '../../../components/ToggleArrow/ToggleArrow';
 import {ClassNameProps} from '../../../models';
 import {block} from '../../../utils';
+import i18n from '../i18n';
 
 import './Arrow.scss';
 
@@ -18,7 +19,11 @@ export interface ArrowProps {
 
 const Arrow = ({type, handleClick, className, size = 16}: ArrowProps & ClassNameProps) => (
     <div className={b({type}, className)}>
-        <button className={b('button')} onClick={() => handleClick && handleClick(type)}>
+        <button
+            className={b('button')}
+            onClick={() => handleClick && handleClick(type)}
+            aria-label={i18n(`arrow-${type}`)}
+        >
             <span className={b('icon-wrapper')}>
                 <ToggleArrow
                     size={size}
