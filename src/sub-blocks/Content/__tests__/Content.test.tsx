@@ -52,21 +52,18 @@ describe('Content', () => {
     test('Render with title', async () => {
         testContentWithTitle({
             props: contentData,
-            options: {},
         });
     });
 
     test('Render with text', async () => {
         testContentWithText({
             props: contentData,
-            options: {},
         });
     });
 
     test('Render with additionalInfo', async () => {
         testContentWithAdditionalInfo({
             props: contentData,
-            options: {},
         });
     });
 
