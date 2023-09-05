@@ -15,7 +15,9 @@ import {
     TextSize,
     WithChildren,
 } from '../../models';
+import {QAProps} from '../../models/common';
 import {block, getLinkProps, setUrlTld} from '../../utils';
+import {getQaAttrubutes} from '../../utils/index';
 import BackLink from '../BackLink/BackLink';
 import FileLink from '../FileLink/FileLink';
 
@@ -24,7 +26,7 @@ import './Link.scss';
 const b = block('link-block');
 const WORD_JOINER_SYM = '\u200b';
 
-export type LinkFullProps = LinkProps & ClassNameProps & Tabbable;
+export type LinkFullProps = LinkProps & ClassNameProps & Tabbable & QAProps;
 
 function getArrowSize(size: TextSize) {
     switch (size) {
@@ -54,7 +56,9 @@ const LinkBlock = (props: WithChildren<LinkFullProps>) => {
         target,
         children,
         tabIndex,
+        qa,
     } = props;
+    const qaAttributes = getQaAttrubutes(qa, ['normal']);
 
     const handleMetrika = useMetrika();
     const handleAnalytics = useAnalytics(DefaultEventNames.Link, url);
@@ -102,6 +106,7 @@ const LinkBlock = (props: WithChildren<LinkFullProps>) => {
                         onClick={onClick}
                         tabIndex={tabIndex}
                         {...linkProps}
+                        data-qa={qaAttributes.normal}
                     >
                         {arrow ? (
                             <Fragment>
