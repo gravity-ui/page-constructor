@@ -4,8 +4,8 @@ import toSnakeCase from 'snakecase-keys';
 
 import {HTML} from '../../components';
 import {ClassNameProps, Modifiers} from '../../models';
-import {cn} from '../../utils';
 import {QAProps} from '../../models/common';
+import {cn} from '../../utils';
 
 const yfm = cn('yfm');
 
