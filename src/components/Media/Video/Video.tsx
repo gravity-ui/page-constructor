@@ -79,6 +79,7 @@ const Video = (props: VideoAllProps) => {
             elapsedTime,
             playButton,
             ariaLabel,
+            customControlsOptions,
         } = video;
 
         return (
@@ -97,6 +98,7 @@ const Video = (props: VideoAllProps) => {
                 analyticsEvents={analyticsEvents}
                 height={height}
                 ariaLabel={ariaLabel}
+                customControlsOptions={customControlsOptions}
             />
         );
     }, [
@@ -115,8 +117,8 @@ const Video = (props: VideoAllProps) => {
         return video.src.length && !hasVideoFallback ? (
             <div className={b('wrap', videoClassName)} style={{height}}>
                 <video
-                    disablePictureInPicture={true}
-                    playsInline={true}
+                    disablePictureInPicture
+                    playsInline
                     // @ts-ignore
                     // eslint-disable-next-line react/no-unknown-property
                     pip="false"
