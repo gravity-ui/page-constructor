@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [4.6.1](https://github.com/gravity-ui/page-constructor/compare/v4.6.0...v4.6.1) (2023-09-05)
+
+
+### Bug Fixes
+
+* remove unused youtube js on the first loading ([#538](https://github.com/gravity-ui/page-constructor/issues/538)) ([6167625](https://github.com/gravity-ui/page-constructor/commit/6167625fad07d7eb00f8b7d36dbbcd09beb51e41))
+
 ## [4.6.0](https://github.com/gravity-ui/page-constructor/compare/v4.5.3...v4.6.0) (2023-09-05)
 
 
