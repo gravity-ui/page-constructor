@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [4.7.0](https://github.com/gravity-ui/page-constructor/compare/v4.6.1...v4.7.0) (2023-09-05)
+
+
+### Features
+
+* Media component new custom controls, refactoring ([#525](https://github.com/gravity-ui/page-constructor/issues/525)) ([f802c35](https://github.com/gravity-ui/page-constructor/commit/f802c352124b3a4387da3adfba2758d0445cdba4))
+
 ## [4.6.1](https://github.com/gravity-ui/page-constructor/compare/v4.6.0...v4.6.1) (2023-09-05)
 
 
