@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [4.6.0](https://github.com/gravity-ui/page-constructor/compare/v4.5.3...v4.6.0) (2023-09-05)
+
+
+### Features
+
+* added labels for the Slider component ([#536](https://github.com/gravity-ui/page-constructor/issues/536)) ([0822e98](https://github.com/gravity-ui/page-constructor/commit/0822e98642d2f7a579d2d8764dedfcf07fc5dfcd))
+
 ## [4.5.3](https://github.com/gravity-ui/page-constructor/compare/v4.5.2...v4.5.3) (2023-09-04)
 
 
