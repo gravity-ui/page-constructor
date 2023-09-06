@@ -77,7 +77,8 @@
     "prepare": "husky install",
     "test": "jest",
     "test:coverage": "jest --coverage",
-    "test:watch": "jest --watchAll"
+    "test:watch": "jest --watchAll",
+    "maintainers-control": "maintainers-control check CODEOWNERS"
   },
   "dependencies": {
     "@gravity-ui/components": "^2.0.0",
@@ -88,6 +89,7 @@
     "final-form": "^4.20.9",
     "github-buttons": "2.23.0",
     "lodash": "^4.17.21",
+    "maintainers-control": "^0.0.2",
     "monaco-editor": "^0.38.0",
     "react-final-form": "^6.5.9",
     "react-monaco-editor": "^0.53.0",
