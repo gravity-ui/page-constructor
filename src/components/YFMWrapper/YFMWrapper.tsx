@@ -1,3 +1,5 @@
+/* we won't use 'pc' class prefix here to let you opportunity to define yfm styles
+in your project via global 'yfm' class */
 import React from 'react';
 
 import toSnakeCase from 'snakecase-keys';
