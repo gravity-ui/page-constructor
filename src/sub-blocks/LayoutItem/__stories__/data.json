@@ -7,7 +7,7 @@
   },
   "metaInfo": {
     "content": {
-      "metaInfo": ["anim id est", "*quis nostrud*"],
+      "metaInfo": ["anim id&nbsp;est", "*quis nostrud*"],
       "fullscreen": true,
       "border": true
     }
