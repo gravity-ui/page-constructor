@@ -70,19 +70,6 @@ describe('BackgroundImage', () => {
 
 ### Rules
 
-#### Avoid Direct Node Access
-
-It is important to avoid direct Node access when writing tests. This means refraining from using methods like `querySelector` or `querySelectorAll`. Instead, we should rely on testing library methods such as `getByRole`, `getByText`, or `getByTestId` to access components.
-
-In some cases, the prop being tested may have an impact on a deeply nested container within the component. It can be tempting to access this container using `querySelector` or similar methods. However, it is advised to resist this temptation and continue utilizing the recommended testing library methods for accessing and interacting with components.
-
-```ts
-// ⚠️ DO NOT USE
-screen.getByTestId(id).querySelector('p');
-```
-
-⚠️ Engaging in such practices is strictly discouraged, and there are compelling reasons for doing so. You can find detailed explanations regarding the importance of avoiding direct node access and the associated reasons by referring to the documentation available at [avoid-direct-node-access.md](./avoid-direct-node-access.md).
-
 #### Roles
 
 There are [list of default roles](./default-roles.md).
@@ -135,6 +122,19 @@ const BackgroundImage = (props: WithChildren<BackgroundImageProps>) => {
   return <div data-qa={qa}>{/* Other components */}</div>;
 };
 ```
+
+#### Avoid Direct Node Access
+
+It is important to avoid direct Node access when writing tests[tests](./avoid-direct-node-access.md). This means refraining from using methods like `querySelector` or `querySelectorAll`. Instead, we should rely on testing library methods such as `getByRole`, `getByText`, or `getByTestId` to access components.
+
+In some cases, the prop being tested may have an impact on a deeply nested container within the component. It can be tempting to access this container using `querySelector` or similar methods. However, it is advised to resist this temptation and continue utilizing the recommended testing library methods for accessing and interacting with components.
+
+```ts
+// ⚠️ DO NOT USE
+screen.getByTestId(id).querySelector('p');
+```
+
+⚠️ Engaging in such practices is strictly discouraged, and there are compelling reasons for doing so. You can find detailed explanations regarding the importance of avoiding direct node access and the associated reasons by referring to the documentation available at [avoid-direct-node-access.md](./avoid-direct-node-access.md).
 
 #### Shared Test
 
