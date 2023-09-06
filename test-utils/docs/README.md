@@ -88,6 +88,7 @@ screen.getByTestId(id).querySelector('p');
 There are [list of default roles](./default-roles.md).
 
 ```ts
+// ✅ usage
 const image = getByRole('img');
 ```
 
