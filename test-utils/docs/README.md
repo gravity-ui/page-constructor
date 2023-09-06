@@ -87,11 +87,20 @@ screen.getByTestId(id).querySelector('p');
 
 There are [list of default roles](./default-roles.md).
 
+```ts
+const image = getByRole('img');
+```
+
 🚫 Although it is possible to extend the list of roles with custom ones, it is strongly discouraged due to the creation of invalid HTML code.
 
 ```ts
 // ⚠️ DO NOT USE
+
+// Component.tsx
 <div role="custom-role">
+
+// Test.ts
+const component = getByRole("custom-role");
 ```
 
 #### Testing ID
