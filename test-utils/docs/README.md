@@ -72,7 +72,7 @@ describe('BackgroundImage', () => {
 
 #### Roles
 
-There are [list of default roles](./default-roles.md).
+There are [list of default roles](https://www.w3.org/TR/html-aria/#docconformance).
 
 ```ts
 // ✅ usage
