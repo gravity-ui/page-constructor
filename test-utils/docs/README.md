@@ -125,7 +125,9 @@ const BackgroundImage = (props: WithChildren<BackgroundImageProps>) => {
 
 #### Avoid Direct Node Access
 
-It is important to avoid direct Node access when writing [tests](./avoid-direct-node-access.md). This means refraining from using methods like `querySelector` or `querySelectorAll`. Instead, we should rely on testing library methods such as `getByRole`, `getByText`, or `getByTestId` to access components.
+Avoiding direct Node access in testing is essential for several reasons. Testing Library methods emulate user behavior, ensuring that tests focus on the actual user experience. They encourage best practices by prioritizing output over implementation details, resulting in more resilient tests. Additionally, using Testing Library methods improves test maintainability by shielding tests from structural changes in components, enhances test readability, and makes tests more portable and reusable. Overall, this approach promotes testing best practices, improves maintainability, and ensures effective tests as your codebase evolves.
+
+It is important to avoid direct Node access when writing tests. This means refraining from using methods like `querySelector` or `querySelectorAll`. Instead, we should rely on testing library methods such as `getByRole`, `getByText`, or `getByTestId` to access components.
 
 In some cases, the prop being tested may have an impact on a deeply nested container within the component. It can be tempting to access this container using `querySelector` or similar methods. However, it is advised to resist this temptation and continue utilizing the recommended testing library methods for accessing and interacting with components.
 
