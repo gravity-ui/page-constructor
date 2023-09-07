@@ -1,7 +1,6 @@
 import React, {useMemo} from 'react';
 
 import '@doc-tools/transform/dist/js/yfm';
-import blockOrigin from 'bem-cn-lite';
 
 import BackgroundMedia from '../../components/BackgroundMedia/BackgroundMedia';
 import {UIKIT_ROOT_CLASS} from '../../components/constants';
@@ -24,6 +23,7 @@ import {
 } from '../../models';
 import Layout from '../../navigation/containers/Layout/Layout';
 import {
+    cn as blockOrigin,
     block as cnBlock,
     getCustomItems,
     getCustomTypes,

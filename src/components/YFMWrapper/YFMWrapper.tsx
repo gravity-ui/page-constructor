@@ -2,14 +2,14 @@
 in your project via global 'yfm' class */
 import React from 'react';
 
-import block from 'bem-cn-lite';
 import toSnakeCase from 'snakecase-keys';
 
 import {HTML} from '../../components';
 import {ClassNameProps, Modifiers} from '../../models';
 import {QAProps} from '../../models/common';
+import {cn} from '../../utils';
 
-const yfm = block('yfm');
+const yfm = cn('yfm');
 
 export interface YFMWrapperProps extends ClassNameProps, QAProps {
     content: string;
