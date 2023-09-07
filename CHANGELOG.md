@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [4.8.0](https://github.com/gravity-ui/page-constructor/compare/v4.7.0...v4.8.0) (2023-09-07)
+
+
+### Features
+
+* migrate to `@bem-react/classname` ([#540](https://github.com/gravity-ui/page-constructor/issues/540)) ([347f7bd](https://github.com/gravity-ui/page-constructor/commit/347f7bdfb7444a6a1e15ff219eaea19bbf5b6eb2))
+
 ## [4.7.0](https://github.com/gravity-ui/page-constructor/compare/v4.6.1...v4.7.0) (2023-09-05)
 
 
