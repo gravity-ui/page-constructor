@@ -22,6 +22,7 @@ export interface CardBaseProps extends AnalyticsEventsBase, CardBaseParams {
     contentClassName?: string;
     children: ReactElement | ReactElement[];
     url?: string;
+    urlTitle?: string;
     target?: HTMLAttributeAnchorTarget;
     metrikaGoals?: MetrikaGoal;
     pixelEvents?: ButtonPixel;
@@ -55,6 +56,7 @@ export const Layout = (props: CardBaseProps) => {
         url,
         target,
         border = 'shadow',
+        urlTitle,
         qa,
     } = props;
     const handleMetrika = useMetrika();
@@ -126,6 +128,7 @@ export const Layout = (props: CardBaseProps) => {
                 draggable={false}
                 onDragStart={(e) => e.preventDefault()}
                 onClick={onClick}
+                title={urlTitle}
                 data-qa={qa}
             >
                 {cardContent}

@@ -159,6 +159,7 @@ export interface MediaVideoProps extends AnalyticsEventsBase {
 // links
 export interface LinkProps extends AnalyticsEventsBase, Stylable, Tabbable {
     url: string;
+    urlTitle?: string;
     text?: string;
     textSize?: TextSize;
     theme?: LinkTheme;
@@ -175,6 +176,7 @@ export interface FileLinkProps extends ClassNameProps, Tabbable {
     type?: FileLinkType;
     textSize?: TextSize;
     theme?: ContentTheme;
+    urlTitle?: string;
     onClick?: () => void;
 }
 
@@ -347,6 +349,7 @@ export interface TitleItemBaseProps {
     text: string;
     textSize?: TextSize;
     url?: string;
+    urlTitle?: string;
     custom?: string | ReactNode;
     onClick?: () => void;
 }

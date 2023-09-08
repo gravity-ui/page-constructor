@@ -20,6 +20,7 @@ export const GithubButton = ({
     label,
     size,
     icon,
+    urlTitle,
 }: NavigationGithubButtonProps) => {
     const containerRef = useRef<HTMLSpanElement>(null);
     const linkRef = useRef<HTMLAnchorElement>(null);
@@ -63,6 +64,7 @@ export const GithubButton = ({
                 <a
                     href={url}
                     ref={linkRef}
+                    title={urlTitle}
                     data-show-count="true"
                     aria-label={label || DEFAULT_LABEL}
                     {...(icon && {'data-icon': NavigationGithubButtonIcon[icon]})}

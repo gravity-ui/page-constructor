@@ -24,6 +24,7 @@ const BackgroundCard = (props: BackgroundCardProps) => {
         links,
         buttons,
         analyticsEvents,
+        urlTitle,
     } = props;
 
     const theme = useTheme();
@@ -36,6 +37,7 @@ const BackgroundCard = (props: BackgroundCardProps) => {
             url={url}
             border={borderType}
             analyticsEvents={analyticsEvents}
+            urlTitle={urlTitle}
         >
             <CardBase.Content>
                 <BackgroundImage

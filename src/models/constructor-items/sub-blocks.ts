@@ -103,6 +103,7 @@ export interface BackgroundCardProps
         AnalyticsEventsBase,
         Omit<ContentBlockProps, 'colSizes' | 'centered'> {
     url?: string;
+    urlTitle?: string;
     background?: ThemeSupporting<ImageObjectProps>;
     paddingBottom?: 's' | 'm' | 'l' | 'xl';
     backgroundColor?: string;
