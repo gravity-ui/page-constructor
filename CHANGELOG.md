@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [4.9.0](https://github.com/gravity-ui/page-constructor/compare/v4.8.0...v4.9.0) (2023-09-08)
+
+
+### Features
+
+* add yfm to layout item ([#545](https://github.com/gravity-ui/page-constructor/issues/545)) ([0e20800](https://github.com/gravity-ui/page-constructor/commit/0e208008eb8599d717b234374797ecef61e03e93))
+
 ## [4.8.0](https://github.com/gravity-ui/page-constructor/compare/v4.7.0...v4.8.0) (2023-09-07)
 
 
