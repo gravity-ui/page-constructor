@@ -4,7 +4,7 @@
 
 `content: Partial<Content>` - `Content` props (size and justify props like `colSizes`, `centered`, `size` are omitted) (see [Content](?path=/story/components-content--default))
 
-`metaInfo?: string[]` - segmented info string above the content
+`metaInfo?: string[]` - segmented info string above the content (with YFM support)
 
 `border?: boolean` — Image border
 
