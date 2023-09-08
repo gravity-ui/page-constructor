@@ -8,11 +8,10 @@ $block: '.#{$ns}meta-info';
 
     display: flex;
     align-items: center;
-    font-weight: 500;
 
-    color: var(--pc-media-card-meta-info-color);
-
-    &__item:not(:first-child) {
-        margin-left: $indentXS;
+    &__item {
+        &:not(:first-child) {
+            margin-left: $indentXS;
+        }
     }
 }
