@@ -56,7 +56,8 @@ function transformBlock(
         configs.forEach((transformConfig) => {
             const {fields, transformer: transformerRaw, parser} = transformConfig;
             const transformer: Transformer = (content) =>
-                transformerRaw(lang, content, additionalPlugins);
+                // eslint-disable-next-line no-useless-call
+                transformerRaw.call(null, lang, content, additionalPlugins);
 
             if (fields) {
                 (fields as (keyof typeof block)[]).forEach((field) => {
