@@ -5,6 +5,7 @@ import {MobileProvider, Platform} from '@gravity-ui/uikit';
 import React from 'react';
 import {MINIMAL_VIEWPORTS} from '@storybook/addon-viewport';
 import type {Decorator, Preview} from '@storybook/react';
+import {withScreenshot} from 'storycap';
 import {themeLight} from './theme/light';
 import {PageConstructorProvider} from '../src/containers/PageConstructor/Provider';
 import {withMobile} from './decorators/withMobile';
@@ -56,7 +57,13 @@ const withPageConstructorProvider: Decorator = (Story, context) => {
 };
 
 const preview: Preview = {
-    decorators: [withLang, withMobile, withContextProvider, withPageConstructorProvider],
+    decorators: [
+        withLang,
+        withMobile,
+        withContextProvider,
+        withPageConstructorProvider,
+        withScreenshot,
+    ],
     parameters: {
         layout: 'fullscreen',
         docs: {
@@ -88,6 +95,10 @@ const preview: Preview = {
                 ],
                 method: 'alphabetical',
             },
+        },
+        screenshot: {
+            fullPage: false,
+            delay: 2000,
         },
     },
     globalTypes: {

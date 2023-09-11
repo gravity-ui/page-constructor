@@ -24,6 +24,7 @@ const config = {
         '@storybook/addon-knobs',
         './addons/yaml-addon/preset',
         './addons/theme-addon/register.tsx',
+        'storycap',
     ],
     webpackFinal: (storybookBaseConfig: any) => {
         storybookBaseConfig.plugins.push(

@@ -197,14 +197,29 @@ VerticalOffset.args = {
 Background.args = {
     ...DefaultArgs,
 } as HeaderBlockPropsNoTitle;
+Background.parameters = {
+    screenshot: {
+        delay: 13500,
+    },
+};
 
 FullWithBackground.args = {
     ...DefaultArgs,
 } as HeaderBlockPropsNoTitle;
+FullWithBackground.parameters = {
+    screenshot: {
+        delay: 13500,
+    },
+};
 
 FullWidthMediaBackground.args = {
     ...DefaultArgs,
 } as HeaderBlockPropsNoTitle;
+FullWidthMediaBackground.parameters = {
+    screenshot: {
+        delay: 13500,
+    },
+};
 
 DarkTheme.args = {
     ...DefaultArgs,
