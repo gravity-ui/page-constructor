@@ -11,7 +11,7 @@ export type Transformer = (text: string) => string;
 export type TransformerRaw = (
     lang: Lang,
     content: string,
-    additionalPlugins: MarkdownItPluginCb[],
+    options: {plugins: MarkdownItPluginCb[]},
 ) => string;
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type Parser<T = any> = (transformer: Transformer, block: T) => T;
@@ -40,11 +40,12 @@ export const createItemsParser = (fields: string[]) => (transformer: Transformer
 export function yfmTransformer(
     lang: Lang,
     content: string,
-    additionalPlugins: MarkdownItPluginCb[] = [],
+    options: {plugins?: MarkdownItPluginCb[]} = {},
 ) {
+    const {plugins = []} = options;
     const {html} = fullTransform(content, {
         lang,
-        plugins: [...defaultPlugins, ...additionalPlugins],
+        plugins: [...defaultPlugins, ...plugins],
     });
 
     return html;

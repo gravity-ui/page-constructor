@@ -19,7 +19,7 @@ export type ContentTransformerProps = {
         lang: Lang;
         customConfig?: {};
         vars?: ContentVariables;
-        additionalPlugins?: MarkdownItPluginCb[];
+        plugins?: MarkdownItPluginCb[];
     };
 };
 
@@ -27,20 +27,21 @@ function transformBlocks(
     blocks: ConstructorBlock[],
     lang: Lang,
     customConfig = {},
-    additionalPlugins: MarkdownItPluginCb[] = [],
+    options: {plugins?: MarkdownItPluginCb[]} = {},
 ) {
     const fullConfig = {...config, ...customConfig};
+    const {plugins = []} = options;
 
     const clonedBlocks = _.cloneDeep(blocks);
 
-    return clonedBlocks.map((block) => transformBlock(lang, fullConfig, block, additionalPlugins));
+    return clonedBlocks.map((block) => transformBlock(lang, fullConfig, block, plugins));
 }
 
 function transformBlock(
     lang: Lang,
     blocksConfig: BlocksConfig,
     block: ConstructorBlock,
-    additionalPlugins: MarkdownItPluginCb[],
+    plugins: MarkdownItPluginCb[],
 ) {
     const blockConfig = blocksConfig[block.type];
 
@@ -57,7 +58,7 @@ function transformBlock(
             const {fields, transformer: transformerRaw, parser} = transformConfig;
             const transformer: Transformer = (content) =>
                 // eslint-disable-next-line no-useless-call
-                transformerRaw.call(null, lang, content, additionalPlugins);
+                transformerRaw.call(null, lang, content, {plugins});
 
             if (fields) {
                 (fields as (keyof typeof block)[]).forEach((field) => {
@@ -83,12 +84,14 @@ function transformBlock(
 }
 
 export const contentTransformer = ({content, options}: ContentTransformerProps) => {
-    const {lang, customConfig = {}, vars, additionalPlugins = []} = options;
+    const {lang, customConfig = {}, vars, plugins = []} = options;
     const {blocks = []} = (
         vars ? filterContent(content as FilterableContent, vars) : content
     ) as PageContent;
 
-    const transformedBlocks = transformBlocks(blocks, lang, customConfig, additionalPlugins);
+    const transformedBlocks = transformBlocks(blocks, lang, customConfig, {
+        plugins,
+    });
 
     return {
         blocks: transformedBlocks,
