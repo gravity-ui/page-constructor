@@ -50,8 +50,68 @@ const ColSizeTemplate: StoryFn<CardLayoutBlockModel> = (args) => (
     </Fragment>
 );
 
+const WithCustomIndentsTemplate: StoryFn<CardLayoutBlockModel> = ({title, ...restArgs}) => (
+    <Fragment>
+        <PageConstructor
+            content={{
+                blocks: [
+                    {
+                        ...restArgs,
+                        title: `${title} with zero indents at the top and bottom`,
+                        indent: {
+                            top: '0',
+                            bottom: '0',
+                        },
+                    },
+                    {
+                        ...restArgs,
+                        title: `${title} with XS indents at the top and bottom`,
+                        indent: {
+                            top: 'xs',
+                            bottom: 'xs',
+                        },
+                    },
+                    {
+                        ...restArgs,
+                        title: `${title} with S indents at the top and bottom`,
+                        indent: {
+                            top: 's',
+                            bottom: 's',
+                        },
+                    },
+                    {
+                        ...restArgs,
+                        title: `${title} with M indents at the top and bottom`,
+                        indent: {
+                            top: 'm',
+                            bottom: 'm',
+                        },
+                    },
+                    {
+                        ...restArgs,
+                        title: `${title} with L (default) indents at the top and bottom`,
+                        indent: {
+                            top: 'l',
+                            bottom: 'l',
+                        },
+                    },
+                    {
+                        ...restArgs,
+                        title: `${title} with XL indents at the top and bottom`,
+                        indent: {
+                            top: 'xl',
+                            bottom: 'xl',
+                        },
+                    },
+                ],
+            }}
+        />
+    </Fragment>
+);
+
 export const Default = DefaultTemplate.bind({});
 export const ColSize = ColSizeTemplate.bind({});
+export const WithCustomIndents = WithCustomIndentsTemplate.bind({});
 
 Default.args = {
     ...data.default.content,
@@ -61,4 +121,9 @@ Default.args = {
 ColSize.args = {
     ...data.default.content,
     children: createCardArray(8, data.colSizes.four.card),
+} as CardLayoutBlockProps;
+
+WithCustomIndents.args = {
+    ...data.default.content,
+    children: createCardArray(3, data.default.card),
 } as CardLayoutBlockProps;

@@ -11,6 +11,8 @@ import {
 } from '../../../../models';
 import {block} from '../../../../utils';
 
+import './ConstructorBlock.scss';
+
 interface ConstructorBlockProps extends Pick<BlockDecorationProps, 'index'> {
     data: ConstructorBlockType;
 }
@@ -22,15 +24,20 @@ export const ConstructorBlock: React.FC<WithChildren<ConstructorBlockProps>> = (
     data,
     children,
 }) => {
-    const {type} = data;
+    const {type, indent} = data;
     const blockBaseProps = useMemo(
         () => _.pick(data, ['anchor', 'visible', 'resetPaddings']),
         [data],
     );
 
+    const {top, bottom} = indent || {top: 'l', bottom: 'l'};
+
     return (
         <BlockDecoration type={type} index={index} {...blockBaseProps}>
-            <BlockBase className={b({type})} {...blockBaseProps}>
+            <BlockBase
+                className={b({type, indentTop: top, indentBottom: bottom})}
+                {...blockBaseProps}
+            >
                 {children}
             </BlockBase>
         </BlockDecoration>

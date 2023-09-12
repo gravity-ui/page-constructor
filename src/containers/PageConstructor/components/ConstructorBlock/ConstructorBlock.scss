@@ -1,0 +1,60 @@
+@import '../../../../../styles/variables';
+@import '../../../../../styles/mixins';
+
+$block: '.#{$ns}constructor-block';
+
+#{$block} {
+    @include add-specificity(&) {
+        &_indentTop {
+            &_0 {
+                margin-top: 0;
+            }
+
+            &_xs {
+                margin-top: $indentXS;
+            }
+
+            &_s {
+                margin-top: $indentSM;
+            }
+
+            &_m {
+                margin-top: $indentM;
+            }
+
+            &_l {
+                margin-top: $indentL;
+            }
+
+            &_xl {
+                margin-top: $indentXL;
+            }
+        }
+
+        &_indentBottom {
+            &_0 {
+                padding-bottom: 0;
+            }
+
+            &_xs {
+                padding-bottom: $indentXS;
+            }
+
+            &_s {
+                padding-bottom: $indentSM;
+            }
+
+            &_m {
+                padding-bottom: $indentM;
+            }
+
+            &_l {
+                padding-bottom: $indentL;
+            }
+
+            &_xl {
+                padding-bottom: $indentXL;
+            }
+        }
+    }
+}
