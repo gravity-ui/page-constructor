@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [4.10.0](https://github.com/gravity-ui/page-constructor/compare/v4.9.0...v4.10.0) (2023-09-12)
+
+
+### Features
+
+* add custom indent for all blocks, and add className prop for CardLayoutBlock ([#492](https://github.com/gravity-ui/page-constructor/issues/492)) ([75a791a](https://github.com/gravity-ui/page-constructor/commit/75a791a4b9d770692abaa8e19b9fb3d02d2fe194))
+
 ## [4.9.0](https://github.com/gravity-ui/page-constructor/compare/v4.8.0...v4.9.0) (2023-09-08)
 
 
