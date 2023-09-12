@@ -13,6 +13,15 @@ const ImageBase = {
     },
 };
 
+const StyleBase = {
+    type: 'object',
+    additionalProperties: false,
+    required: [],
+    properties: {
+        backgroundColor: {type: 'string'},
+    },
+};
+
 export const ImageDeviceProps = {
     type: 'object',
     additionalProperties: false,
@@ -41,6 +50,7 @@ export const ImageObjectProps = {
             type: 'string',
             pattern: imageUrlPattern,
         },
+        style: StyleBase,
     },
 };
 
