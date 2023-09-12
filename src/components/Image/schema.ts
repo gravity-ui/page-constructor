@@ -19,6 +19,9 @@ const StyleBase = {
     required: [],
     properties: {
         backgroundColor: {type: 'string'},
+        height: {type: ['string', 'number']},
+        width: {type: ['string', 'number']},
+        color: {type: 'string'},
     },
 };
 
