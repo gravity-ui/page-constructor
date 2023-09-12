@@ -316,7 +316,10 @@ $block: '.#{$ns}SliderBlock';
                 }
 
                 .slick-slide {
-                    padding-right: 0;
+                    /* stylelint-disable declaration-no-important */
+                    padding-right: 0 !important;
+                    padding-left: 0 !important;
+
                     &:last-child {
                         padding-right: 0;
                     }
