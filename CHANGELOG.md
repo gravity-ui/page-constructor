@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [3.19.0](https://github.com/gravity-ui/page-constructor/compare/v3.18.0...v3.19.0) (2023-09-13)
+
+
+### Features
+
+* add analyticsEvents to BackgroundCard & add link animation for cards without shadow ([#559](https://github.com/gravity-ui/page-constructor/issues/559)) ([ecf0fca](https://github.com/gravity-ui/page-constructor/commit/ecf0fca9a4c8516eab70995ff7a77a68c6641175))
+
 ## [3.18.0](https://github.com/gravity-ui/page-constructor/compare/v3.17.3...v3.18.0) (2023-09-08)
 
 
