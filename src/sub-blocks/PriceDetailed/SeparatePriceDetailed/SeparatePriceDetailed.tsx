@@ -28,8 +28,13 @@ const SeparatePriceDetailed = (props: SeparatePriceDetailedProps) => {
 
     return (
         <Fragment>
-            {items.map((item: PriceItemProps, id: number) => (
-                <CardBase key={id} className={b()} border={border}>
+            {items.map(({analyticsEvents, ...item}: PriceItemProps, id: number) => (
+                <CardBase
+                    key={id}
+                    className={b()}
+                    border={border}
+                    analyticsEvents={analyticsEvents}
+                >
                     <CardBase.Content>
                         {getDescriptionComponent(item)}
                         {getDetailsComponent(item.items)}

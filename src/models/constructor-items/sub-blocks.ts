@@ -100,6 +100,7 @@ export interface QuoteProps extends Themable, CardBaseProps {
 
 export interface BackgroundCardProps
     extends CardBaseProps,
+        AnalyticsEventsBase,
         Omit<ContentBlockProps, 'colSizes' | 'centered'> {
     url?: string;
     background?: ThemeSupporting<ImageObjectProps>;
@@ -109,6 +110,7 @@ export interface BackgroundCardProps
 
 export interface BasicCardProps
     extends CardBaseProps,
+        AnalyticsEventsBase,
         Omit<ContentBlockProps, 'colSizes' | 'centered' | 'size' | 'theme'> {
     url: string;
     icon?: ImageProps;
@@ -126,9 +128,9 @@ export interface BannerCardProps {
     button: Pick<ButtonProps, 'text' | 'url' | 'target'>;
 }
 
-export interface MediaCardProps extends MediaProps, CardBaseProps {}
+export interface MediaCardProps extends MediaProps, AnalyticsEventsBase, CardBaseProps {}
 
-export interface LayoutItemProps extends ClassNameProps {
+export interface LayoutItemProps extends ClassNameProps, AnalyticsEventsBase {
     content: Omit<ContentBlockProps, 'colSizes' | 'centered' | 'size'>;
     media: MediaProps;
     metaInfo?: string[];
