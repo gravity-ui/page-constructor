@@ -2,6 +2,7 @@ import {omit} from 'lodash';
 
 import metaInfo from '../../components/MetaInfo/schema';
 import {BaseProps, MediaProps} from '../../schema/validators/common';
+import {AnalyticsEventSchema} from '../../schema/validators/event';
 import {ContentBase} from '../../sub-blocks/Content/schema';
 
 export const LayoutItem = {
@@ -18,6 +19,19 @@ export const LayoutItem = {
         },
         fullscreen: {
             type: 'boolean',
+        },
+        analyticsEvents: {
+            oneOf: [
+                {
+                    ...AnalyticsEventSchema,
+                    optionName: 'single',
+                },
+                {
+                    type: 'array',
+                    items: AnalyticsEventSchema,
+                    optionName: 'list',
+                },
+            ],
         },
     },
 };
