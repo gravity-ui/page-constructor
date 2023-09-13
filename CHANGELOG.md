@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [4.11.0](https://github.com/gravity-ui/page-constructor/compare/v4.10.0...v4.11.0) (2023-09-13)
+
+
+### Features
+
+* add analyticsEvents to BackgroundCard ([#556](https://github.com/gravity-ui/page-constructor/issues/556)) ([c05d248](https://github.com/gravity-ui/page-constructor/commit/c05d248a3e118cbf4bd8bf0ceb30049db3d144e7))
+* add style schema to ImageObjectProps ([#554](https://github.com/gravity-ui/page-constructor/issues/554)) ([5369b42](https://github.com/gravity-ui/page-constructor/commit/5369b42dad22c287b05c741f634145b0633430f9))
+
 ## [4.10.0](https://github.com/gravity-ui/page-constructor/compare/v4.9.0...v4.10.0) (2023-09-12)
 
 
