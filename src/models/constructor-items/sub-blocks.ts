@@ -110,6 +110,7 @@ export interface BackgroundCardProps
 
 export interface BasicCardProps
     extends CardBaseProps,
+        AnalyticsEventsBase,
         Omit<ContentBlockProps, 'colSizes' | 'centered' | 'size' | 'theme'> {
     url: string;
     icon?: ImageProps;
@@ -127,7 +128,7 @@ export interface BannerCardProps {
     button: Pick<ButtonProps, 'text' | 'url' | 'target'>;
 }
 
-export interface MediaCardProps extends MediaProps, CardBaseProps {}
+export interface MediaCardProps extends MediaProps, AnalyticsEventsBase, CardBaseProps {}
 
 export interface LayoutItemProps extends ClassNameProps {
     content: Omit<ContentBlockProps, 'colSizes' | 'centered' | 'size'>;

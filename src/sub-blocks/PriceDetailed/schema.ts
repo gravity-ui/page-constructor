@@ -1,4 +1,5 @@
 import {AnimatableProps, BaseProps, textSize} from '../../schema/validators/common';
+import {AnalyticsEventSchema} from '../../schema/validators/event';
 import {filteredArray} from '../../schema/validators/utils';
 
 const PriceDetailedDetailsType = ['marked-list', 'settings'];
@@ -162,6 +163,19 @@ const PriceItem = {
     properties: {
         ...PriceDetailsProps,
         ...PriceDescriptionProps,
+        analyticsEvents: {
+            oneOf: [
+                {
+                    ...AnalyticsEventSchema,
+                    optionName: 'single',
+                },
+                {
+                    type: 'array',
+                    items: AnalyticsEventSchema,
+                    optionName: 'list',
+                },
+            ],
+        },
     },
 };
 

@@ -6,6 +6,7 @@ import {CardBase} from '../../../components';
 import {BREAKPOINTS} from '../../../constants';
 import {Col, Grid, GridColumnSize, Row} from '../../../grid';
 import {
+    AnalyticsEventsBase,
     CardBorder,
     PriceDescriptionProps,
     PriceDetailsListProps,
@@ -24,7 +25,7 @@ const CombinedPricesGroupSize = {
     [GridColumnSize.Lg]: 3,
 };
 
-interface CombinedPriceDetailedProps {
+interface CombinedPriceDetailedProps extends AnalyticsEventsBase {
     items: PriceItemProps[];
     numberGroupItems: number;
     useMixedView?: boolean;
@@ -43,6 +44,7 @@ const CombinedPriceDetailed = (props: CombinedPriceDetailedProps) => {
         useMixedView,
         getDescriptionComponent,
         getDetailsComponent,
+        analyticsEvents,
     } = props;
 
     const [groupItemsSize, setGroupItemsSize] = useState<number>(numberGroupItems);
@@ -103,7 +105,7 @@ const CombinedPriceDetailed = (props: CombinedPriceDetailedProps) => {
     const chunkedItems = _.chunk(items, groupItemsSize);
 
     return (
-        <CardBase className={b()} border={border}>
+        <CardBase className={b()} border={border} analyticsEvents={analyticsEvents}>
             <CardBase.Content>
                 <Grid>
                     {chunkedItems.map((chunk: PriceItemProps[], id) => {

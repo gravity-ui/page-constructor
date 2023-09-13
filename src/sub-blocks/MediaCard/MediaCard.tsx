@@ -8,8 +8,13 @@ import './MediaCard.scss';
 
 const b = block('MediaCard');
 
-const MediaCard = ({border, ...mediaProps}: MediaCardProps) => (
-    <CardBase className={b()} bodyClassName={b('body')} border={border}>
+const MediaCard = ({border, analyticsEvents, ...mediaProps}: MediaCardProps) => (
+    <CardBase
+        className={b()}
+        bodyClassName={b('body')}
+        border={border}
+        analyticsEvents={analyticsEvents}
+    >
         <CardBase.Content>
             <Media {...mediaProps} />
         </CardBase.Content>
