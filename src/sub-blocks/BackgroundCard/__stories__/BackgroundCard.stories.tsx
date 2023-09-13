@@ -85,12 +85,23 @@ const BackgroundColorTemplate: StoryFn<BackgroundCardProps> = (args) => (
     </div>
 );
 
+const WithUrlTemplate: StoryFn<{items: BackgroundCardProps[]}> = (args) => (
+    <div style={{display: 'flex'}}>
+        {args.items.map((item, i) => (
+            <div style={{maxWidth: '400px', padding: '0 8px'}} key={i}>
+                <BackgroundCard {...item} />
+            </div>
+        ))}
+    </div>
+);
+
 export const Default = DefaultTemplate.bind({});
 export const WithBackgroundImage = DefaultTemplate.bind({});
 export const Paddings = PaddingsTemplate.bind({});
 export const CardThemes = CardThemesTemplate.bind([]);
 export const BorderLine = DefaultTemplate.bind({});
 export const BackgroundColor = BackgroundColorTemplate.bind({});
+export const WithUrl = WithUrlTemplate.bind({});
 
 const DefaultArgs = {
     title: data.common.title,
@@ -128,3 +139,17 @@ BackgroundColor.args = {
     ...DefaultArgs,
     ...data.backgroundColor.content,
 } as BackgroundCardProps;
+
+WithUrl.args = {
+    items: [
+        data.cardThemes.content[1],
+        data.withBackgroundImage.content,
+        data.borderLine.content,
+        data.backgroundColor.content,
+        data.borderNone.content,
+    ].map((item) => ({
+        ...DefaultArgs,
+        ...item,
+        url: data.url,
+    })) as BackgroundCardProps[],
+};

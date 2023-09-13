@@ -375,7 +375,10 @@ export interface PriceDetailsProps {
     items?: PriceDetailsSettingsProps[] | PriceDetailsListProps[];
 }
 
-export interface PriceItemProps extends PriceDetailsProps, PriceDescriptionProps {}
+export interface PriceItemProps
+    extends PriceDetailsProps,
+        PriceDescriptionProps,
+        AnalyticsEventsBase {}
 
 export interface PriceFoldableDetailsProps {
     title: string;

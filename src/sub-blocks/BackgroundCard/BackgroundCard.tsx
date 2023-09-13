@@ -23,18 +23,19 @@ const BackgroundCard = (props: BackgroundCardProps) => {
         theme: cardTheme = 'default',
         links,
         buttons,
+        analyticsEvents,
     } = props;
 
     const {themeValue: theme} = useContext(ThemeValueContext);
     const hasBackgroundColor = backgroundColor || cardTheme !== 'default';
-    const link = hasBackgroundColor || border === 'line' ? undefined : url;
     const borderType = hasBackgroundColor ? 'none' : border;
 
     return (
         <CardBase
             className={b({padding: paddingBottom, theme: cardTheme})}
-            url={link}
+            url={url}
             border={borderType}
+            analyticsEvents={analyticsEvents}
         >
             <CardBase.Content>
                 <BackgroundImage
