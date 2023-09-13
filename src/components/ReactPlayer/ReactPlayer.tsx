@@ -220,7 +220,7 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
                 if (
                     isMuted &&
                     playerRef &&
-                    customControlsType !== CustomControlsType.WithPlayPauseButton
+                    customControlsType === CustomControlsType.WithMuteButton
                 ) {
                     playerRef.seekTo(0);
                     setPlayedPercent(0);
@@ -276,7 +276,7 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
             // For support correct state for youtube
             if (
                 controls !== MediaVideoControlsType.Custom ||
-                customControlsType === CustomControlsType.WithPlayPauseButton
+                customControlsType !== CustomControlsType.WithMuteButton
             ) {
                 setIsPlaying(false);
             }

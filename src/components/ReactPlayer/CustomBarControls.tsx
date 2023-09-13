@@ -1,5 +1,6 @@
 import React, {useMemo} from 'react';
 
+import {Pause, Play, VolumeLow, VolumeXmark} from '@gravity-ui/icons';
 import {Icon} from '@gravity-ui/uikit';
 
 import {Mute} from '../../icons/Mute';
@@ -17,6 +18,27 @@ import i18n from './i18n';
 import './CustomBarControls.scss';
 
 const b = block('CustomBarControls');
+
+const playIconsMap = {
+    [CustomControlsType.WithMuteButton]: null,
+    [CustomControlsType.WithPlayPauseButton]: VideoControlPlay,
+    [CustomControlsType.WithUiKitPlayPauseButton]: Play,
+};
+const pauseIconsMap = {
+    [CustomControlsType.WithMuteButton]: null,
+    [CustomControlsType.WithPlayPauseButton]: VideoControlPause,
+    [CustomControlsType.WithUiKitPlayPauseButton]: Pause,
+};
+const muteIconsMap = {
+    [CustomControlsType.WithMuteButton]: Mute,
+    [CustomControlsType.WithPlayPauseButton]: MuteSmall,
+    [CustomControlsType.WithUiKitPlayPauseButton]: VolumeLow,
+};
+const unmuteIconsMap = {
+    [CustomControlsType.WithMuteButton]: Unmute,
+    [CustomControlsType.WithPlayPauseButton]: UnmuteSmall,
+    [CustomControlsType.WithUiKitPlayPauseButton]: VolumeXmark,
+};
 
 interface MuteConfigProps {
     isMuted: boolean;
@@ -42,10 +64,16 @@ const CustomBarControls = (props: CustomBarControlsProps) => {
     } = props;
 
     const muteIcon = useMemo(() => {
-        return type === CustomControlsType.WithMuteButton ? Mute : MuteSmall;
+        return muteIconsMap[type];
     }, [type]);
     const unmuteIcon = useMemo(() => {
-        return type === CustomControlsType.WithMuteButton ? Unmute : UnmuteSmall;
+        return unmuteIconsMap[type];
+    }, [type]);
+    const playIcon = useMemo(() => {
+        return playIconsMap[type];
+    }, [type]);
+    const pauseIcon = useMemo(() => {
+        return pauseIconsMap[type];
     }, [type]);
 
     const muteButton = useMemo(() => {
@@ -70,7 +98,9 @@ const CustomBarControls = (props: CustomBarControlsProps) => {
     }, [elapsedTimePercent, mute, muteIcon, type, unmuteIcon]);
 
     const playPauseButton = useMemo(() => {
-        if (type !== CustomControlsType.WithPlayPauseButton) {
+        const icon = isPaused ? playIcon : pauseIcon;
+
+        if (type === CustomControlsType.WithMuteButton || !icon) {
             return null;
         }
 
@@ -80,13 +110,10 @@ const CustomBarControls = (props: CustomBarControlsProps) => {
                 className={b('button', {type})}
                 aria-label={i18n(isPaused ? 'play' : 'pause')}
             >
-                <Icon
-                    data={isPaused ? VideoControlPlay : VideoControlPause}
-                    className={b('play-icon')}
-                />
+                <Icon data={icon} className={b('play-icon', {type})} />
             </button>
         );
-    }, [isPaused, onPlayClick, type]);
+    }, [isPaused, onPlayClick, type, playIcon, pauseIcon]);
 
     return (
         <div className={b('wrapper', {type}, className)}>
