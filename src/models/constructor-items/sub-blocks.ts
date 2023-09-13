@@ -100,6 +100,7 @@ export interface QuoteProps extends Themable, CardBaseProps {
 
 export interface BackgroundCardProps
     extends CardBaseProps,
+        AnalyticsEventsBase,
         Omit<ContentBlockProps, 'colSizes' | 'centered'> {
     url?: string;
     background?: ThemeSupporting<ImageObjectProps>;
