@@ -18,6 +18,7 @@ const LayoutItem = ({
     border,
     fullscreen,
     className,
+    analyticsEvents,
 }: LayoutItemProps) => (
     <div className={b(null, className)}>
         {fullscreen && hasFullscreen(media) ? (
@@ -31,11 +32,12 @@ const LayoutItem = ({
                         {...media}
                         {...fullscreenMediaProps}
                         className={b('media', {border}, mediaClassName)}
+                        analyticsEvents={analyticsEvents}
                     />
                 )}
             </FullscreenMedia>
         ) : (
-            <Media {...media} className={b('media', {border})} />
+            <Media {...media} className={b('media', {border})} analyticsEvents={analyticsEvents} />
         )}
         {metaInfo && <MetaInfo items={metaInfo} className={b('meta-info')} />}
         <div className={b('content')}>

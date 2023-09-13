@@ -130,7 +130,7 @@ export interface BannerCardProps {
 
 export interface MediaCardProps extends MediaProps, AnalyticsEventsBase, CardBaseProps {}
 
-export interface LayoutItemProps extends ClassNameProps {
+export interface LayoutItemProps extends ClassNameProps, AnalyticsEventsBase {
     content: Omit<ContentBlockProps, 'colSizes' | 'centered' | 'size'>;
     media: MediaProps;
     metaInfo?: string[];
