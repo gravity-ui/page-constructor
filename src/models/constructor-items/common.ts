@@ -213,6 +213,7 @@ export interface ButtonImageProps {
 
 export interface CustomControlsOptions {
     type?: CustomControlsType;
+    muteButtonHidden?: boolean;
 }
 
 export interface PlayButtonProps extends ClassNameProps {

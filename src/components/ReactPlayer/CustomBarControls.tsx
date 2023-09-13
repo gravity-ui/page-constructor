@@ -49,6 +49,7 @@ export interface CustomBarControlsProps extends ClassNameProps {
     mute?: MuteConfigProps;
     elapsedTimePercent?: number;
     type?: CustomControlsType;
+    isMuteButtonHidden?: boolean;
     isPaused?: boolean;
     onPlayClick?: () => void;
 }
@@ -61,6 +62,7 @@ const CustomBarControls = (props: CustomBarControlsProps) => {
         type = CustomControlsType.WithMuteButton,
         isPaused,
         onPlayClick,
+        isMuteButtonHidden,
     } = props;
 
     const muteIcon = useMemo(() => {
@@ -77,7 +79,7 @@ const CustomBarControls = (props: CustomBarControlsProps) => {
     }, [type]);
 
     const muteButton = useMemo(() => {
-        if (!mute) {
+        if (!mute || isMuteButtonHidden) {
             return null;
         }
 

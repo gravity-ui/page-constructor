@@ -266,7 +266,8 @@
             "ariaLabel": "Video accessible name example",
             "controls": "custom",
             "customControlsOptions": {
-              "type": "with-uikit-play-pause-button"
+              "type": "with-uikit-play-pause-button",
+              "muteButtonHidden": true
             }
           }
         },

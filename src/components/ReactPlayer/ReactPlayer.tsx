@@ -90,7 +90,7 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
             text,
             className: buttonClassName,
         } = playButton || ({} as PlayButtonProps);
-        const {type: customControlsType = CustomControlsType.WithMuteButton} =
+        const {type: customControlsType = CustomControlsType.WithMuteButton, muteButtonHidden} =
             customControlsOptions;
 
         const autoPlay = Boolean(!isMobile && !previewImgUrl && props.autoplay);
@@ -394,6 +394,7 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
                                 type={customControlsType}
                                 isPaused={!isPlaying}
                                 onPlayClick={onPlayClick}
+                                isMuteButtonHidden={muteButtonHidden}
                             />
                         )}
                     </Fragment>
