@@ -144,10 +144,10 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
         }, [showPreview, playerRef]);
 
         useEffect(() => {
-            if (playerRef) {
+            if (playerRef && !started) {
                 setIsPlaying(autoPlay);
             }
-        }, [autoPlay, playerRef]);
+        }, [autoPlay, playerRef, started]);
 
         useEffect(() => setMuted(mute), [mute]);
 
@@ -353,9 +353,11 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
                     {
                         wrapper: !currentHeight,
                         controls,
-                        started,
-                        hovered,
-                        'background-shadow-hidden': backgroundShadowHidden,
+                        'background-shadow-rendered':
+                            !backgroundShadowHidden &&
+                            started &&
+                            controls === MediaVideoControlsType.Custom,
+                        'background-shadow-shown': hovered,
                     },
                     className,
                 )}
@@ -388,11 +390,13 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
                             onEnded={onEnded}
                             aria-label={ariaLabel}
                         />
-                        {controls === MediaVideoControlsType.Custom && started && (
+                        {controls === MediaVideoControlsType.Custom && (
                             <CustomBarControls
                                 className={b(
                                     'custom-bar-controls',
-                                    {muted},
+                                    {
+                                        shown: hovered && ((!started && !previewImgUrl) || started),
+                                    },
                                     customBarControlsClassName,
                                 )}
                                 mute={{
