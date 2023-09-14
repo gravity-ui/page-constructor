@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [4.11.1](https://github.com/gravity-ui/page-constructor/compare/v4.11.0...v4.11.1) (2023-09-14)
+
+
+### Bug Fixes
+
+* remove unnecessary indents ([#555](https://github.com/gravity-ui/page-constructor/issues/555)) ([dac4e09](https://github.com/gravity-ui/page-constructor/commit/dac4e09573edba46611834b23fb2a8926f2c99e4))
+
 ## [4.11.0](https://github.com/gravity-ui/page-constructor/compare/v4.10.0...v4.11.0) (2023-09-13)
 
 
