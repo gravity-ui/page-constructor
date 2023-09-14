@@ -2,6 +2,7 @@ import {ButtonSize} from '@gravity-ui/uikit';
 
 import {GridColumnSize, GridColumnSizesType} from '../../grid/types';
 import {ThemeSupporting} from '../../utils';
+import {AnalyticsEventsBase} from '../common';
 
 import {
     AnchorProps,
@@ -312,7 +313,7 @@ export interface FilterBlockProps extends Animatable, LoadableChildren {
     centered?: boolean;
 }
 
-export interface IconsBlockProps {
+export interface IconsBlockProps extends AnalyticsEventsBase {
     title?: string;
     size?: 's' | 'm' | 'l';
     items: {
@@ -320,6 +321,7 @@ export interface IconsBlockProps {
         text: string;
         src: string;
     }[];
+    url?: string;
 }
 
 interface ContentLayoutBlockParams {

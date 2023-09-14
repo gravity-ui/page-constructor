@@ -1,8 +1,9 @@
-import React, {Fragment, useContext} from 'react';
+import React, {Fragment, useCallback, useContext} from 'react';
 
 import {Image, Title} from '../../components';
 import {LocationContext} from '../../context/locationContext';
-import {IconsBlockProps} from '../../models';
+import {useAnalytics} from '../../hooks';
+import {DefaultEventNames, IconsBlockProps} from '../../models';
 import {block, getLinkProps} from '../../utils';
 
 import './Icons.scss';
@@ -16,8 +17,12 @@ const getItemContent = (item: IconsBlockProps['items'][number]) => (
     </Fragment>
 );
 
-const Icons = ({title, size = 's', items}: IconsBlockProps) => {
+const Icons = ({title, size = 's', items, analyticsEvents, url: analyticsUrl}: IconsBlockProps) => {
     const {hostname} = useContext(LocationContext);
+    const handleAnalytics = useAnalytics(DefaultEventNames.Link, analyticsUrl);
+    const onClick = useCallback(() => {
+        handleAnalytics(analyticsEvents);
+    }, [handleAnalytics, analyticsEvents]);
 
     return (
         <div className={b({size})}>
@@ -33,6 +38,7 @@ const Icons = ({title, size = 's', items}: IconsBlockProps) => {
                         aria-label={text}
                         title={text}
                         {...getLinkProps(url, hostname)}
+                        onClick={onClick}
                     >
                         {itemContent}
                     </a>
