@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [4.12.0](https://github.com/gravity-ui/page-constructor/compare/v4.11.1...v4.12.0) (2023-09-14)
+
+
+### Features
+
+* add analytics to icons-block ([#561](https://github.com/gravity-ui/page-constructor/issues/561)) ([75bafc4](https://github.com/gravity-ui/page-constructor/commit/75bafc49403a6686636f92a5bd674046973ddf73))
+
 ## [4.11.1](https://github.com/gravity-ui/page-constructor/compare/v4.11.0...v4.11.1) (2023-09-14)
 
 
