@@ -313,14 +313,16 @@ export interface FilterBlockProps extends Animatable, LoadableChildren {
     centered?: boolean;
 }
 
+export interface IconsBlockItemProps extends AnalyticsEventsBase {
+    url: string;
+    text: string;
+    src: string;
+}
+
 export interface IconsBlockProps {
     title?: string;
     size?: 's' | 'm' | 'l';
-    items: (AnalyticsEventsBase & {
-        url: string;
-        text: string;
-        src: string;
-    })[];
+    items: IconsBlockItemProps[];
 }
 
 interface ContentLayoutBlockParams {

@@ -3,7 +3,7 @@ import React, {Fragment, useCallback, useContext} from 'react';
 import {Image, Title} from '../../components';
 import {LocationContext} from '../../context/locationContext';
 import {useAnalytics} from '../../hooks';
-import {AnalyticsEventsBase, IconsBlockProps} from '../../models';
+import {IconsBlockItemProps, IconsBlockProps} from '../../models';
 import {block, getLinkProps} from '../../utils';
 
 import './Icons.scss';
@@ -22,8 +22,8 @@ const Icons = ({title, size = 's', items}: IconsBlockProps) => {
     const handleAnalytics = useAnalytics();
 
     const onClick = useCallback(
-        (analyticsEvents?: AnalyticsEventsBase['analyticsEvents']) => {
-            handleAnalytics(analyticsEvents);
+        ({analyticsEvents, url}: IconsBlockItemProps) => {
+            handleAnalytics(analyticsEvents, {url});
         },
         [handleAnalytics],
     );
@@ -42,7 +42,7 @@ const Icons = ({title, size = 's', items}: IconsBlockProps) => {
                         aria-label={text}
                         title={text}
                         {...getLinkProps(url, hostname)}
-                        onClick={() => onClick(item.analyticsEvents)}
+                        onClick={() => onClick(item)}
                     >
                         {itemContent}
                     </a>
