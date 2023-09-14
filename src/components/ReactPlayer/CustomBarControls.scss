@@ -8,19 +8,37 @@ $controlSize: 64px;
     &__wrapper {
         position: absolute;
         bottom: 0;
+        opacity: 0;
+        transition: opacity $animationDuration ease 3s;
+
+        &_shown {
+            opacity: 1;
+            transition: opacity 0s ease 0s;
+        }
 
         &_type {
             &_with-play-pause-button {
-                width: 100%;
                 padding: $indentS;
-                display: flex;
                 gap: $indentS;
             }
             &_with-uikit-play-pause-button {
-                width: 100%;
-                display: flex;
                 gap: $indentXXXS;
                 padding: $indentXXXS;
+            }
+        }
+
+        &_positioning {
+            &_left,
+            &_right,
+            &_center {
+                display: flex;
+                width: 100%;
+            }
+            &_right {
+                flex-direction: row-reverse;
+            }
+            &_center {
+                justify-content: center;
             }
         }
     }

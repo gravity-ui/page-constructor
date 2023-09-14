@@ -21,6 +21,7 @@ import {PlayVideo} from '../../icons';
 import {
     AnalyticsEvent,
     ClassNameProps,
+    CustomControlsButtonPositioning,
     CustomControlsType,
     DefaultEventNames,
     MediaVideoControlsType,
@@ -94,6 +95,7 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
             type: customControlsType = CustomControlsType.WithMuteButton,
             muteButtonHidden,
             backgroundShadowHidden,
+            positioning = CustomControlsButtonPositioning.Center,
         } = customControlsOptions;
 
         const autoPlay = Boolean(!isMobile && !previewImgUrl && props.autoplay);
@@ -392,13 +394,7 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
                         />
                         {controls === MediaVideoControlsType.Custom && (
                             <CustomBarControls
-                                className={b(
-                                    'custom-bar-controls',
-                                    {
-                                        shown: hovered && ((!started && !previewImgUrl) || started),
-                                    },
-                                    customBarControlsClassName,
-                                )}
+                                className={customBarControlsClassName}
                                 mute={{
                                     isMuted: muted,
                                     changeMute: (event: React.MouseEvent) => {
@@ -410,7 +406,9 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
                                 type={customControlsType}
                                 isPaused={!isPlaying}
                                 onPlayClick={onPlayClick}
-                                isMuteButtonHidden={muteButtonHidden}
+                                muteButtonHidden={muteButtonHidden}
+                                shown={hovered && ((!started && !previewImgUrl) || started)}
+                                positioning={positioning}
                             />
                         )}
                     </Fragment>

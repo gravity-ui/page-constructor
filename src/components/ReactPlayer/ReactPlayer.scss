@@ -78,16 +78,6 @@ $block: '.#{$ns}ReactPlayer';
         }
     }
 
-    &__custom-bar-controls {
-        opacity: 0;
-        transition: opacity $animationDuration ease 3s;
-    }
-
-    &__custom-bar-controls_shown {
-        opacity: 1;
-        transition: opacity 0s ease 0s;
-    }
-
     @media only screen and (max-width: map-get($gridBreakpoints, 'sm')) {
         &__button_text {
             font-size: 20px;

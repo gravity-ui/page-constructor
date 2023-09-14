@@ -231,7 +231,8 @@
             "ariaLabel": "Video accessible name example",
             "controls": "custom",
             "customControlsOptions": {
-              "type": "with-play-pause-button"
+              "type": "with-play-pause-button",
+              "positioning": "left"
             }
           }
         },
@@ -251,10 +252,9 @@
       }
     },
     "videoWithPreviewAndCustomControlsWithUiKitPlayPauseButton": {
-      "title": "Video with preview image, play button and custom controls with UIKit play/pause and mute button",
+      "title": "Video without preview image, with custom controls with UIKit play/pause button",
       "media": {
         "light": {
-          "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.png",
           "video": {
             "type": "player",
             "src": [
@@ -268,8 +268,10 @@
             "customControlsOptions": {
               "type": "with-uikit-play-pause-button",
               "muteButtonHidden": true,
-              "backgroundShadowHidden": true
-            }
+              "backgroundShadowHidden": true,
+              "positioning": "left"
+            },
+            "muted": true
           }
         },
         "dark": {

@@ -40,6 +40,12 @@ export enum CustomControlsType {
     WithUiKitPlayPauseButton = 'with-uikit-play-pause-button',
 }
 
+export enum CustomControlsButtonPositioning {
+    Left = 'left',
+    Right = 'right',
+    Center = 'center',
+}
+
 export enum MediaVideoType {
     Default = 'default',
     Player = 'player',
@@ -215,6 +221,7 @@ export interface CustomControlsOptions {
     type?: CustomControlsType;
     muteButtonHidden?: boolean;
     backgroundShadowHidden?: boolean;
+    positioning?: CustomControlsButtonPositioning;
 }
 
 export interface PlayButtonProps extends ClassNameProps {

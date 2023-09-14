@@ -9,7 +9,7 @@ import {Unmute} from '../../icons/Unmute';
 import {UnmuteSmall} from '../../icons/UnmuteSmall';
 import {VideoControlPause} from '../../icons/VideoControlPause';
 import {VideoControlPlay} from '../../icons/VideoControlPlay';
-import {ClassNameProps, CustomControlsType} from '../../models';
+import {ClassNameProps, CustomControlsOptions, CustomControlsType} from '../../models';
 import {block} from '../../utils';
 
 import CircleProgress from './CircleProgress';
@@ -45,13 +45,15 @@ interface MuteConfigProps {
     changeMute: (event: React.MouseEvent) => void;
 }
 
-export interface CustomBarControlsProps extends ClassNameProps {
+export interface CustomBarControlsProps
+    extends ClassNameProps,
+        Omit<CustomControlsOptions, 'backgroundShadowHidden'> {
     mute?: MuteConfigProps;
     elapsedTimePercent?: number;
     type?: CustomControlsType;
-    isMuteButtonHidden?: boolean;
     isPaused?: boolean;
     onPlayClick?: () => void;
+    shown: boolean;
 }
 
 const CustomBarControls = (props: CustomBarControlsProps) => {
@@ -62,7 +64,9 @@ const CustomBarControls = (props: CustomBarControlsProps) => {
         type = CustomControlsType.WithMuteButton,
         isPaused,
         onPlayClick,
-        isMuteButtonHidden,
+        muteButtonHidden: isMuteButtonHidden,
+        shown,
+        positioning,
     } = props;
 
     const muteIcon = useMemo(() => {
@@ -118,7 +122,7 @@ const CustomBarControls = (props: CustomBarControlsProps) => {
     }, [isPaused, onPlayClick, type, playIcon, pauseIcon]);
 
     return (
-        <div className={b('wrapper', {type}, className)}>
+        <div className={b('wrapper', {type, shown, positioning}, className)}>
             {playPauseButton}
             {muteButton}
         </div>
