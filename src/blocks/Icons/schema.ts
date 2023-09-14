@@ -1,4 +1,5 @@
 import {AnimatableProps, BlockBaseProps} from '../../schema/validators/common';
+import {AnalyticsEventSchema} from '../../schema/validators/event';
 
 export const IconsProps = {
     additionalProperties: false,
@@ -32,6 +33,19 @@ export const IconsProps = {
                     src: {
                         type: 'string',
                     },
+                },
+                analyticsEvents: {
+                    oneOf: [
+                        {
+                            ...AnalyticsEventSchema,
+                            optionName: 'single',
+                        },
+                        {
+                            type: 'array',
+                            items: AnalyticsEventSchema,
+                            optionName: 'list',
+                        },
+                    ],
                 },
             },
         },
