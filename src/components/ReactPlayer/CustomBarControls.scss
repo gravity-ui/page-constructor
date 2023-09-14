@@ -81,8 +81,8 @@ $controlSize: 64px;
                 height: 42px;
                 border-radius: 50%;
                 background: var(--g-color-base-background);
-                box-shadow: 0px 4px 24px 0px var(--g-color-sfx-shadow-light),
-                    0px 2px 8px 0px var(--g-color-sfx-shadow-light);
+                box-shadow: 0 4px 24px 0 var(--g-color-sfx-shadow-light),
+                    0 2px 8px 0 var(--g-color-sfx-shadow-light);
 
                 &:focus {
                     outline: 2px solid var(--g-color-line-misc);
