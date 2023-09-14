@@ -90,8 +90,11 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
             text,
             className: buttonClassName,
         } = playButton || ({} as PlayButtonProps);
-        const {type: customControlsType = CustomControlsType.WithMuteButton, muteButtonHidden} =
-            customControlsOptions;
+        const {
+            type: customControlsType = CustomControlsType.WithMuteButton,
+            muteButtonHidden,
+            backgroundShadowHidden,
+        } = customControlsOptions;
 
         const autoPlay = Boolean(!isMobile && !previewImgUrl && props.autoplay);
         const mute = initiallyMuted || autoPlay;
@@ -346,7 +349,16 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
 
         return (
             <div
-                className={b({wrapper: !currentHeight, controls, started, hovered}, className)}
+                className={b(
+                    {
+                        wrapper: !currentHeight,
+                        controls,
+                        started,
+                        hovered,
+                        'background-shadow-hidden': backgroundShadowHidden,
+                    },
+                    className,
+                )}
                 ref={ref}
                 onClick={handleClick}
                 onMouseEnter={onFocusIn}

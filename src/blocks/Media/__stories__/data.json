@@ -267,7 +267,8 @@
             "controls": "custom",
             "customControlsOptions": {
               "type": "with-uikit-play-pause-button",
-              "muteButtonHidden": true
+              "muteButtonHidden": true,
+              "backgroundShadowHidden": true
             }
           }
         },
