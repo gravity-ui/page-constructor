@@ -1,19 +1,21 @@
 import React from 'react';
-import {render, screen} from '@testing-library/react';
 
-import BalancedMasonry from '../BalancedMasonry';
-// import BalancedMasonry, {columnQaId} from '../BalancedMasonry';
+import {render, screen, waitFor} from '@testing-library/react';
+import {omit} from 'lodash';
+
+import {testCustomClassName} from '../../../../test-utils/shared/common';
 import {CardBase} from '../../../components';
-
-const qaId = 'balanced-mansory-component';
+import {getQaAttrubutes} from '../../../utils';
+import BalancedMasonry, {BalancedMasonryProps} from '../BalancedMasonry';
 
 const balancedMasonry = {
     className: 'my-class',
     columnClassName: 'my-column-class',
     breakpointCols: {
-        sm: 3,
-        lg: 2,
+        1440: 3,
+        1441: 2,
     },
+    qa: 'balanced-mansory-component',
     children: [
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
@@ -29,26 +31,88 @@ const balancedMasonry = {
     ],
 };
 
+const {children: childrenToRender} = balancedMasonry;
+const balancedMasonryChildren = childrenToRender.map((child, index) => (
+    <CardBase key={index} className="balanced-masonry-stories__card-base">
+        <CardBase.Content>{child}</CardBase.Content>
+    </CardBase>
+));
+
+const qaAttributes = getQaAttrubutes(balancedMasonry.qa, 'column');
+
 describe('BalancedMasonry', () => {
     test('render BalancedMasonry by default', async () => {
-        const {children, ...rest} = balancedMasonry;
         render(
-            <BalancedMasonry {...rest} qa={qaId}>
-                {children.map((child, index) => (
-                    <CardBase key={index} className="balanced-masonry-stories__card-base">
-                        <CardBase.Content>{child}</CardBase.Content>
-                    </CardBase>
-                ))}
+            <BalancedMasonry {...omit(balancedMasonry, 'children')}>
+                {balancedMasonryChildren}
             </BalancedMasonry>,
         );
-        const component = screen.getByTestId(qaId);
-        // const columns = screen.getAllByTestId(columnQaId);
+        const component = screen.getByTestId(balancedMasonry.qa);
 
         expect(component).toBeInTheDocument();
-        expect(component).toHaveClass(balancedMasonry.className);
-        // discover this place: looks like debounce does not work in test environment
-        // columns.forEach((column) => {
-        //     expect(column).toHaveClass(balancedMasonry.columnClassName);
-        // });
+        expect(component).toBeVisible();
+    });
+
+    test('add className to container', () => {
+        testCustomClassName<BalancedMasonryProps>({
+            component: BalancedMasonry,
+            props: {...omit(balancedMasonry, 'children'), children: balancedMasonryChildren},
+        });
+    });
+
+    test('add className to column', async () => {
+        render(
+            <BalancedMasonry {...omit(balancedMasonry, 'children')}>
+                {balancedMasonryChildren}
+            </BalancedMasonry>,
+        );
+        await waitFor(() => {
+            expect(screen.getAllByTestId(qaAttributes.column)[0]).toBeInTheDocument();
+        });
+
+        const components = screen.queryAllByTestId(qaAttributes.column);
+        expect(components[0]).toHaveClass(balancedMasonry.columnClassName);
+    });
+
+    test('render width 1440px', async () => {
+        const width = 1440;
+        Object.defineProperty(document.body, 'clientWidth', {
+            writable: true,
+            configurable: true,
+            value: width,
+        });
+
+        render(
+            <BalancedMasonry {...omit(balancedMasonry, 'children')}>
+                {balancedMasonryChildren}
+            </BalancedMasonry>,
+        );
+        await waitFor(() => {
+            expect(screen.getAllByTestId(qaAttributes.column)[0]).toBeInTheDocument();
+        });
+
+        const components = screen.queryAllByTestId(qaAttributes.column);
+        expect(components.length).toEqual(balancedMasonry.breakpointCols[width]);
+    });
+
+    test('render width 1441px', async () => {
+        const width = 1441;
+        Object.defineProperty(document.body, 'clientWidth', {
+            writable: true,
+            configurable: true,
+            value: width,
+        });
+
+        render(
+            <BalancedMasonry {...omit(balancedMasonry, 'children')}>
+                {balancedMasonryChildren}
+            </BalancedMasonry>,
+        );
+        await waitFor(() => {
+            expect(screen.getAllByTestId(qaAttributes.column)[0]).toBeInTheDocument();
+        });
+
+        const components = screen.queryAllByTestId(qaAttributes.column);
+        expect(components.length).toEqual(balancedMasonry.breakpointCols[width]);
     });
 });
