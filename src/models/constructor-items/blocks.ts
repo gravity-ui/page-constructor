@@ -288,6 +288,7 @@ export interface TabsBlockProps extends Animatable {
 
 export interface CardLayoutBlockProps extends Childable, Animatable, LoadableChildren {
     title?: TitleItemProps | string;
+    titleClassName?: string;
     description?: string;
     colSizes?: GridColumnSizesType;
 }

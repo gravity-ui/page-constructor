@@ -28,9 +28,12 @@ const CardLayout: React.FC<CardLayoutBlockProps> = ({
     colSizes = DEFAULT_SIZES,
     children,
     className,
+    titleClassName,
 }) => (
     <AnimateBlock className={b(null, className)} animate={animated}>
-        {(title || description) && <Title title={title} subtitle={description} />}
+        {(title || description) && (
+            <Title title={title} subtitle={description} className={titleClassName} />
+        )}
         <Row>
             {React.Children.map(children, (child, index) => (
                 <Col key={index} sizes={colSizes} className={b('item')}>
