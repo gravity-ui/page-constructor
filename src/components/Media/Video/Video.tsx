@@ -41,6 +41,7 @@ const Video = (props: VideoAllProps) => {
         setHasVideoFallback,
         hasVideoFallback,
         qa,
+        ratio,
     } = props;
 
     const qaAttributes = getQaAttrubutes(qa, 'source');
@@ -105,6 +106,7 @@ const Video = (props: VideoAllProps) => {
                 height={height}
                 ariaLabel={ariaLabel}
                 customControlsOptions={customControlsOptions}
+                ratio={ratio}
             />
         );
     }, [
@@ -117,6 +119,7 @@ const Video = (props: VideoAllProps) => {
         customBarControlsClassName,
         metrika,
         analyticsEvents,
+        ratio,
     ]);
 
     const defaultVideoBlock = useMemo(() => {

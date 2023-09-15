@@ -101,7 +101,7 @@ const CustomBarControls = (props: CustomBarControlsProps) => {
                 )}
             </button>
         );
-    }, [elapsedTimePercent, mute, muteIcon, type, unmuteIcon]);
+    }, [elapsedTimePercent, isMuteButtonHidden, mute, muteIcon, type, unmuteIcon]);
 
     const playPauseButton = useMemo(() => {
         const icon = isPaused ? playIcon : pauseIcon;

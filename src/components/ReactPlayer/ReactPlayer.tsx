@@ -54,6 +54,7 @@ export interface ReactPlayerBlockProps
     showPreview?: boolean;
     onClickPreview?: () => void;
     height?: number;
+    ratio?: number;
     children?: React.ReactNode;
 }
 
@@ -83,6 +84,7 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
             analyticsEvents,
             height,
             ariaLabel,
+            ratio,
         } = props;
 
         const {
@@ -177,7 +179,7 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
                         parseFloat(paddingRight);
 
                     setWidth(newWidth);
-                    setCurrentHeight(Math.floor(getHeight(newWidth)));
+                    setCurrentHeight(Math.floor(getHeight(newWidth, ratio)));
                 }
             }, 200);
 
@@ -418,8 +420,8 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
     },
 );
 
-function getHeight(width: number): number {
-    return (width / 16) * 9;
+function getHeight(width: number, ratio: number = 9 / 16): number {
+    return width * ratio;
 }
 
 function getParentElement(element: HTMLElement): HTMLElement {

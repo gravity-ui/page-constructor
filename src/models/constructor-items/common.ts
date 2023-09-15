@@ -235,6 +235,7 @@ export type ThemedMediaVideoProps = ThemeSupporting<MediaVideoProps>;
 export interface MediaComponentVideoProps extends AnalyticsEventsBase {
     video: MediaVideoProps;
     height?: number;
+    ratio?: number;
     metrika?: MetrikaVideo;
     previewImg?: string;
 }
