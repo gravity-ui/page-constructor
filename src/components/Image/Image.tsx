@@ -3,6 +3,7 @@ import React, {CSSProperties, Fragment, MouseEventHandler, useContext, useState}
 import {BREAKPOINTS} from '../../constants';
 import {ProjectSettingsContext} from '../../context/projectSettingsContext';
 import {ImageDeviceProps, ImageObjectProps, QAProps} from '../../models';
+import {getQaAttrubutes} from '../../utils';
 import {isCompressible} from '../../utils/imageCompress';
 import ImageBase from '../ImageBase/ImageBase';
 
@@ -42,6 +43,15 @@ const Image = (props: ImageProps) => {
         return null;
     }
 
+    const qaAttributes = getQaAttrubutes(
+        qa,
+        'mobile-webp-source',
+        'mobile-source',
+        'tablet-webp-source',
+        'tablet-source',
+        'display-source',
+    );
+
     const disableWebp =
         projectSettings.disableCompress ||
         disableCompress ||
@@ -57,9 +67,14 @@ const Image = (props: ImageProps) => {
                             srcSet={checkWebP(mobile)}
                             type="image/webp"
                             media={`(max-width: ${BREAKPOINTS.sm}px)`}
+                            data-qa={qaAttributes.mobileWebpSource}
                         />
                     )}
-                    <source srcSet={mobile} media={`(max-width: ${BREAKPOINTS.sm}px)`} />
+                    <source
+                        srcSet={mobile}
+                        media={`(max-width: ${BREAKPOINTS.sm}px)`}
+                        data-qa={qaAttributes.mobileSource}
+                    />
                 </Fragment>
             )}
             {tablet && (
@@ -69,12 +84,23 @@ const Image = (props: ImageProps) => {
                             srcSet={checkWebP(tablet)}
                             type="image/webp"
                             media={`(max-width: ${BREAKPOINTS.md}px)`}
+                            data-qa={qaAttributes.tabletWebpSource}
                         />
                     )}
-                    <source srcSet={tablet} media={`(max-width: ${BREAKPOINTS.md}px)`} />
+                    <source
+                        srcSet={tablet}
+                        media={`(max-width: ${BREAKPOINTS.md}px)`}
+                        data-qa={qaAttributes.tabletSource}
+                    />
                 </Fragment>
             )}
-            {src && !disableWebp && <source srcSet={checkWebP(src)} type="image/webp" />}
+            {src && !disableWebp && (
+                <source
+                    srcSet={checkWebP(src)}
+                    type="image/webp"
+                    data-qa={qaAttributes.displaySource}
+                />
+            )}
             <ImageBase
                 className={className}
                 alt={alt}

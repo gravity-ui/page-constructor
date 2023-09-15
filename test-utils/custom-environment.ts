@@ -13,6 +13,8 @@ class CustomEnvironment extends JsDomEnvironmetn {
     constructor(config: JestEnvironmentConfig, context: EnvironmentContext) {
         super(config, context);
         this.global.matchMedia = matchMedia;
+        this.global.HTMLMediaElement.prototype.pause = () => {};
+        this.global.HTMLMediaElement.prototype.play = () => Promise.resolve();
     }
 }
 

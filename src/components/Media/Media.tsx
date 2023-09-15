@@ -1,7 +1,7 @@
 import React, {ReactElement, useMemo, useState} from 'react';
 
-import {MediaProps} from '../../models';
-import {block} from '../../utils';
+import {MediaProps, QAProps} from '../../models';
+import {block, getQaAttrubutes} from '../../utils';
 import YoutubeBlock from '../VideoBlock/VideoBlock';
 
 import DataLens from './DataLens/DataLens';
@@ -13,7 +13,7 @@ import './Media.scss';
 
 const b = block('Media');
 
-export interface MediaAllProps extends MediaProps, VideoAdditionProps, ImageAdditionProps {
+export interface MediaAllProps extends MediaProps, VideoAdditionProps, ImageAdditionProps, QAProps {
     className?: string;
     youtubeClassName?: string;
 }
@@ -39,9 +39,12 @@ export const Media = (props: MediaAllProps) => {
         isBackground,
         playButton,
         customBarControlsClassName,
+        qa,
     } = props;
 
     const [hasVideoFallback, setHasVideoFallback] = useState(false);
+
+    const qaAttributes = getQaAttrubutes(qa, 'video');
 
     const content = useMemo(() => {
         let result: ReactElement | ReactElement[] = [];
@@ -58,6 +61,7 @@ export const Media = (props: MediaAllProps) => {
                     video={video}
                     hasVideoFallback={hasVideoFallback}
                     fullscreen={fullscreen}
+                    qa={qaAttributes.image}
                 />,
             );
         }
@@ -79,9 +83,9 @@ export const Media = (props: MediaAllProps) => {
             };
 
             if (fullscreen) {
-                result.push(<FullscreenVideo {...videoProps} />);
+                result.push(<FullscreenVideo {...videoProps} qa={qaAttributes.video} />);
             } else {
-                result.push(<Video {...videoProps} />);
+                result.push(<Video {...videoProps} qa={qaAttributes.video} />);
             }
         }
 
@@ -114,6 +118,9 @@ export const Media = (props: MediaAllProps) => {
         imageClassName,
         isBackground,
         hasVideoFallback,
+        fullscreen,
+        qaAttributes.image,
+        qaAttributes.video,
         videoClassName,
         metrika,
         analyticsEvents,
@@ -122,11 +129,10 @@ export const Media = (props: MediaAllProps) => {
         playButton,
         customBarControlsClassName,
         youtubeClassName,
-        fullscreen,
     ]);
 
     return (
-        <div className={b(null, className)} style={{backgroundColor: color}}>
+        <div className={b(null, className)} style={{backgroundColor: color}} data-qa={qa}>
             {content}
         </div>
     );
