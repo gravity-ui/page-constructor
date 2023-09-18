@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [4.13.0](https://github.com/gravity-ui/page-constructor/compare/v4.12.0...v4.13.0) (2023-09-18)
+
+
+### Features
+
+* additional yfm plugins in contentTransformer ([#551](https://github.com/gravity-ui/page-constructor/issues/551)) ([7799a59](https://github.com/gravity-ui/page-constructor/commit/7799a59fb27f2a215eb552224ab2c95202f8a24f))
+
 ## [4.12.0](https://github.com/gravity-ui/page-constructor/compare/v4.11.1...v4.12.0) (2023-09-14)
 
 
