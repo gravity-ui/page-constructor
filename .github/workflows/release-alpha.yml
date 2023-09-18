@@ -9,36 +9,17 @@ on:
         description: 'If your build failed and the version is already exists you can set version of package manually, e.g. 3.0.0-alpha.0. Use the prefix `alpha` otherwise you will get error.'
 
 jobs:
-  build:
+  release:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          if [ "${{ github.event.inputs.manualPackageVersion }}" != "" ]; then
-            if [[ "${{ github.event.inputs.manualPackageVersion }}" != *"alpha"* ]]; then
-               echo "manualPackageVersion set incorrectly! Check that is contains alpha in it's name"
-              exit 1
-            fi
-          fi
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 18
-          registry-url: 'https://registry.npmjs.org'
-      - run: npm ci
-        shell: bash
-      - run: npm test
-        shell: bash
-      - name: Bump and commit version
-        run: |
           echo ${{ github.event.inputs.manualPackageVersion }}
-
-          if [ "${{ github.event.inputs.manualPackageVersion }}" == "" ]; then
-            npm version prerelease --preid=alpha --git-tag-version=false
-          else
-            npm version ${{ github.event.inputs.manualPackageVersion }} --git-tag-version=false
-          fi
-      - name: Publish version
-        run: npm publish --tag alpha --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GRAVITY_UI_BOT_NPM_TOKEN }}
-        shell: bash
+      - uses: gravity-ui/release-action@yuberdysheva/alpha-release
+        with:
+          github-token: ${{ secrets.GRAVITY_UI_BOT_GITHUB_TOKEN }}
+          npm-token: ${{ secrets.GRAVITY_UI_BOT_NPM_TOKEN }}
+          node-version: 18
+          npm-dist-tag: alpha
+          default-branch: alpha
+          manual-version: ${{ github.event.inputs.manualPackageVersion }}
+          prerelease: true
