@@ -14,9 +14,11 @@ $block: '.#{$ns}navigation-item';
     @include reset-link-style();
 
     &__content {
-        &:hover,
-        &:active {
-            color: var(--g-color-text-link);
+        &:not(#{&}_type_button) {
+            &:hover,
+            &:active {
+                color: var(--g-color-text-link);
+            }
         }
     }
 
