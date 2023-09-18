@@ -1,3 +1,6 @@
+import defaultPlugins from '@doc-tools/transform/lib/plugins';
+import {MarkdownItPluginCb} from '@doc-tools/transform/lib/plugins/typings';
+
 import {Lang} from '../utils/configure';
 
 import {fullTransform, typografToHTML} from './utils';
@@ -5,7 +8,11 @@ import {fullTransform, typografToHTML} from './utils';
 export type ComplexItem = {[key: string]: string};
 export type Item = string | null | ComplexItem;
 export type Transformer = (text: string) => string;
-export type TransformerRaw = (lang: Lang, content: string) => string;
+export type TransformerRaw = (
+    lang: Lang,
+    content: string,
+    options: {plugins: MarkdownItPluginCb[]},
+) => string;
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type Parser<T = any> = (transformer: Transformer, block: T) => T;
 
@@ -30,8 +37,16 @@ export const createItemsParser = (fields: string[]) => (transformer: Transformer
         }
     });
 
-export function yfmTransformer(lang: Lang, content: string) {
-    const {html} = fullTransform(content, {lang});
+export function yfmTransformer(
+    lang: Lang,
+    content: string,
+    options: {plugins?: MarkdownItPluginCb[]} = {},
+) {
+    const {plugins = []} = options;
+    const {html} = fullTransform(content, {
+        lang,
+        plugins: [...defaultPlugins, ...plugins],
+    });
 
     return html;
 }

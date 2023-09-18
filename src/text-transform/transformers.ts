@@ -1,5 +1,6 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-not-accumulator-reassign/no-not-accumulator-reassign */
+import {MarkdownItPluginCb} from '@doc-tools/transform/lib/plugins/typings';
 import _ from 'lodash';
 
 import {ConstructorBlock, PageContent} from '../models/constructor';
@@ -18,18 +19,30 @@ export type ContentTransformerProps = {
         lang: Lang;
         customConfig?: {};
         vars?: ContentVariables;
+        plugins?: MarkdownItPluginCb[];
     };
 };
 
-function transformBlocks(blocks: ConstructorBlock[], lang: Lang, customConfig = {}) {
+function transformBlocks(
+    blocks: ConstructorBlock[],
+    lang: Lang,
+    customConfig = {},
+    options: {plugins?: MarkdownItPluginCb[]} = {},
+) {
     const fullConfig = {...config, ...customConfig};
+    const {plugins = []} = options;
 
     const clonedBlocks = _.cloneDeep(blocks);
 
-    return clonedBlocks.map((block) => transformBlock(lang, fullConfig, block));
+    return clonedBlocks.map((block) => transformBlock(lang, fullConfig, block, plugins));
 }
 
-function transformBlock(lang: Lang, blocksConfig: BlocksConfig, block: ConstructorBlock) {
+function transformBlock(
+    lang: Lang,
+    blocksConfig: BlocksConfig,
+    block: ConstructorBlock,
+    plugins: MarkdownItPluginCb[],
+) {
     const blockConfig = blocksConfig[block.type];
 
     if (block) {
@@ -43,7 +56,9 @@ function transformBlock(lang: Lang, blocksConfig: BlocksConfig, block: Construct
 
         configs.forEach((transformConfig) => {
             const {fields, transformer: transformerRaw, parser} = transformConfig;
-            const transformer: Transformer = transformerRaw.bind(null, lang);
+            const transformer: Transformer = (content) =>
+                // eslint-disable-next-line no-useless-call
+                transformerRaw.call(null, lang, content, {plugins});
 
             if (fields) {
                 (fields as (keyof typeof block)[]).forEach((field) => {
@@ -69,12 +84,14 @@ function transformBlock(lang: Lang, blocksConfig: BlocksConfig, block: Construct
 }
 
 export const contentTransformer = ({content, options}: ContentTransformerProps) => {
-    const {lang, customConfig = {}, vars} = options;
+    const {lang, customConfig = {}, vars, plugins = []} = options;
     const {blocks = []} = (
         vars ? filterContent(content as FilterableContent, vars) : content
     ) as PageContent;
 
-    const transformedBlocks = transformBlocks(blocks, lang, customConfig);
+    const transformedBlocks = transformBlocks(blocks, lang, customConfig, {
+        plugins,
+    });
 
     return {
         blocks: transformedBlocks,
