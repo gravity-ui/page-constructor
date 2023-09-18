@@ -39,7 +39,7 @@ const NavigationItem: React.FC<NavigationItemProps> = ({
     return (
         <BlockIdContext.Provider value={ANALYTICS_ID}>
             <li className={b({'menu-layout': menuLayout}, className)}>
-                <Component {...componentProps} className={b('content')} />
+                <Component {...componentProps} className={b('content', {type})} />
             </li>
         </BlockIdContext.Provider>
     );
