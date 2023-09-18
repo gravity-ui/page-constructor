@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [4.13.1](https://github.com/gravity-ui/page-constructor/compare/v4.13.0...v4.13.1) (2023-09-18)
+
+
+### Bug Fixes
+
+* nav button hover ([#568](https://github.com/gravity-ui/page-constructor/issues/568)) ([e90fed5](https://github.com/gravity-ui/page-constructor/commit/e90fed55f4a14970f87489df36adaf97e01f7d57))
+
 ## [4.13.0](https://github.com/gravity-ui/page-constructor/compare/v4.12.0...v4.13.0) (2023-09-18)
 
 
