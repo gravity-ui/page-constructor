@@ -2,11 +2,11 @@ import React from 'react';
 
 import {render, screen} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import {AnalyticsContextProps} from 'src/context/analyticsContext';
-import {MetrikaContextProps} from 'src/context/metrikaContext';
 
 import {testCustomClassName} from '../../../../test-utils/shared/common';
 import {PageConstructorProvider} from '../../../containers/PageConstructor';
+import {AnalyticsContextProps} from '../../../context/analyticsContext';
+import {MetrikaContextProps} from '../../../context/metrikaContext';
 import {CardBorder, PixelEventType} from '../../../models';
 import CardBase, {
     CardBaseProps,
