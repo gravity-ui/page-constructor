@@ -20,6 +20,5 @@ jobs:
           npm-token: ${{ secrets.GRAVITY_UI_BOT_NPM_TOKEN }}
           node-version: 18
           npm-dist-tag: alpha
-          default-branch: alpha
           manual-version: ${{ github.event.inputs.manualPackageVersion }}
           prerelease: true
