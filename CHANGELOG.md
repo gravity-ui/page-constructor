@@ -1,5 +1,22 @@
 # Changelog
 
+## [1.27.1](https://github.com/gravity-ui/page-constructor/compare/v1.27.0...v1.27.1) (2023-09-19)
+
+
+### Bug Fixes
+
+* test release ([381492a](https://github.com/gravity-ui/page-constructor/commit/381492a8aea81768d5538ee2623947958602cf33))
+* test release ([34cd178](https://github.com/gravity-ui/page-constructor/commit/34cd178db1380dea8db5fcd9877c5d11319f5d93))
+* test release ([a13a304](https://github.com/gravity-ui/page-constructor/commit/a13a304aba56685b87ee9764707460b818f1718b))
+* test release ([e3be758](https://github.com/gravity-ui/page-constructor/commit/e3be758aa77a39e21cdf7f90082cab0a32b60de2))
+* test release ([f475b08](https://github.com/gravity-ui/page-constructor/commit/f475b08bc5f3a1119b84dc6b313b0caec23f4f48))
+* test release 1 ([c12f048](https://github.com/gravity-ui/page-constructor/commit/c12f04804a494143fa05f28ce794a9dea79e5b37))
+* test release 2 ([0668173](https://github.com/gravity-ui/page-constructor/commit/0668173d553e92a2c21e4a2946e2cc60e223fdf3))
+* test release 3 ([35f8a7e](https://github.com/gravity-ui/page-constructor/commit/35f8a7e0c54cb1e3267b0a09471daed81a82bb71))
+* test release 4 ([7d4314d](https://github.com/gravity-ui/page-constructor/commit/7d4314dc558b074d19e915e013161714503e9caa))
+* test release 5 ([f253e79](https://github.com/gravity-ui/page-constructor/commit/f253e796645232ebd0edacdc70c10d4262bdf319))
+* test release 5 ([aa01488](https://github.com/gravity-ui/page-constructor/commit/aa01488232562eef5560134a8b6b07a43380eb41))
+
 ## [1.27.0](https://github.com/gravity-ui/page-constructor/compare/v1.26.3...v1.27.0) (2023-08-31)
 
 
