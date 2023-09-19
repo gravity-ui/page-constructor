@@ -31,6 +31,9 @@ $closeButtonSize: 36px;
     }
 
     &__icon-wrapper {
+        @include reset-button-style();
+        @include focusable();
+
         display: flex;
         align-items: center;
         justify-content: center;

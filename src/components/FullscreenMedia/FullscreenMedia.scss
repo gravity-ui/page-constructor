@@ -77,10 +77,8 @@ $modalYoutubeWidth: min(65vw, #{$newContentWidth});
             opacity: 0;
             transition: opacity 0.3s;
             pointer-events: none;
-        }
 
-        &:hover {
-            #{$block}__icon-wrapper {
+            &_visible {
                 opacity: 1;
                 pointer-events: inherit;
             }

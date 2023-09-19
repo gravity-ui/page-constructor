@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {Fragment, useEffect, useState} from 'react';
 
 import debounce from 'lodash/debounce';
 import {Interpolation, animated, config, useSpring} from 'react-spring';
@@ -126,9 +126,11 @@ const Image = (props: ImageAllProps) => {
 
         return (
             <SliderBlock slidesToShow={1} type={SliderType.MediaCard}>
-                {imageArray.map((item) =>
-                    fullscreenItem ? renderFullscreenImage(item) : imageOnly(item),
-                )}
+                {imageArray.map((item, index) => (
+                    <Fragment key={index}>
+                        {fullscreenItem ? renderFullscreenImage(item) : imageOnly(item)}
+                    </Fragment>
+                ))}
             </SliderBlock>
         );
     };

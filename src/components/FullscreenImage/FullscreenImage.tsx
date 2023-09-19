@@ -44,19 +44,24 @@ const FullscreenImage = (props: FullscreenImageProps) => {
                     onClick={openModal}
                     style={imageStyle}
                 />
-                <div className={b('icon-wrapper', {visible: isMouseEnter})} onClick={openModal}>
+                <button
+                    className={b('icon-wrapper', {visible: isMouseEnter})}
+                    onClick={openModal}
+                    onFocus={showFullscreenIcon}
+                    onBlur={hideFullscreenIcon}
+                >
                     <Icon
                         data={Fullscreen}
                         width={FULL_SCREEN_ICON_SIZE}
                         height={FULL_SCREEN_ICON_SIZE}
                         className={b('icon')}
                     />
-                </div>
+                </button>
             </div>
             {isOpened && (
                 <Modal open={isOpened} onClose={closeModal} className={b('modal')}>
                     <div className={b('modal-content')}>
-                        <div
+                        <button
                             className={b('icon-wrapper', {visible: true})}
                             onClick={closeModal}
                             aria-label={i18n('close')}
@@ -67,7 +72,7 @@ const FullscreenImage = (props: FullscreenImageProps) => {
                                 height={CLOSE_ICON_SIZE}
                                 className={b('icon', {hover: true})}
                             />
-                        </div>
+                        </button>
                         <Image {...props} className={b('modal-image', modalImageClass)} />
                     </div>
                 </Modal>

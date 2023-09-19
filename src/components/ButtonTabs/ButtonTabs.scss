@@ -23,6 +23,9 @@ $block: '.#{$ns}button-tabs';
                     var(--pc-selected-tab-item-background-color),
                     $hoverBackgroundColor: var(--pc-selected-tab-item-background-color-hover)
                 );
+                &:focus::before {
+                    outline-offset: 1px;
+                }
             }
         }
     }

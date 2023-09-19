@@ -251,7 +251,7 @@ export const SliderBlock = (props: WithChildren<SliderProps>) => {
         return (
             // To have this key differ from keys used in renderDot function, added `-accessible-bar` part
             <Fragment key={`${index}-accessible-bar`}>
-                {slidesCountByBreakpoint > 1 && (
+                {slidesCountByBreakpoint > 0 && (
                     <li
                         className={b('accessible-bar')}
                         aria-current
@@ -266,8 +266,9 @@ export const SliderBlock = (props: WithChildren<SliderProps>) => {
         );
     };
 
-    const renderDot = (index: number) => {
+    const getCurrentSlideNumber = (index: number) => {
         const currentIndexDiff = index - currentIndex;
+
         let currentSlideNumber;
         if (0 <= currentIndexDiff && currentIndexDiff < slidesToShowCount) {
             currentSlideNumber = currentIndex + 1;
@@ -276,19 +277,26 @@ export const SliderBlock = (props: WithChildren<SliderProps>) => {
         } else {
             currentSlideNumber = index + 1;
         }
+        return currentSlideNumber;
+    };
+    const isVisibleSlide = (index: number) => {
+        const currentIndexDiff = index - currentIndex;
 
+        return (
+            slidesCountByBreakpoint > 0 &&
+            0 <= currentIndexDiff &&
+            currentIndexDiff < slidesToShowCount
+        );
+    };
+
+    const renderDot = (index: number) => {
         return (
             <li
                 key={index}
                 className={b('dot', {active: index === currentIndex})}
                 onClick={() => handleDotClick(index)}
-                aria-hidden={
-                    (slidesCountByBreakpoint > 1 &&
-                        0 <= currentIndexDiff &&
-                        currentIndexDiff < slidesToShowCount) ||
-                    undefined
-                }
-                aria-label={`Slide ${currentSlideNumber} of ${barSlidesCount}`}
+                aria-hidden={isVisibleSlide(index) ? true : undefined}
+                aria-label={`Slide ${getCurrentSlideNumber(index)} of ${barSlidesCount}`}
             ></li>
         );
     };

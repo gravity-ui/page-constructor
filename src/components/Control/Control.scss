@@ -17,11 +17,12 @@ $block: '.#{$ns}control';
     display: flex;
     justify-content: center;
     align-items: center;
-
+    border-radius: var(--g-focus-border-radius);
     transition: color $transitionTime;
 
     @include reset-button-style();
     @include islands-focus();
+    @include focusable();
 
     &_size {
         &_xs {

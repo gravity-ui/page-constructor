@@ -315,6 +315,7 @@ $block: '.#{$ns}hubspot-form';
 
     .hs-button.primary {
         @include button-reset();
+        @include focusable(1px);
         display: inline-block;
         position: relative;
         overflow: visible;
