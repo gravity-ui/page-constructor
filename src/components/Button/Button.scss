@@ -4,6 +4,8 @@
 $block: '.#{$ns}button-block';
 
 #{$block} {
+    --yc-button-outline-color: var(--g-color-line-focus);
+
     &__content {
         display: flex;
         align-items: center;
@@ -33,6 +35,13 @@ $block: '.#{$ns}button-block';
 
         &_monochrome {
             @include monochrome-button();
+        }
+
+        &_normal-contrast,
+        &_raised {
+            &:focus::before {
+                outline-offset: 1px;
+            }
         }
     }
 

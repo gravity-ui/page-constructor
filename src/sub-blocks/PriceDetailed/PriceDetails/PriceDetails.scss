@@ -35,10 +35,15 @@ $settingsIndentBetweenTitleAndDescriptionHeight: 2px;
     }
 
     &__foldable_title {
+        @include text-size(body-2);
+        @include reset-button-style();
+        @include focusable();
+
         cursor: pointer;
         display: flex;
+        align-items: center;
         font-weight: 400;
-        @include text-size(body-2);
+        border-radius: var(--g-focus-border-radius);
 
         &_color_cornflower {
             color: var(--g-color-text-link);

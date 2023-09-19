@@ -391,6 +391,7 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
                             onProgress={onProgress}
                             onEnded={onEnded}
                             aria-label={ariaLabel}
+                            previewTabIndex={-1}
                         />
                         {controls === MediaVideoControlsType.Custom && (
                             <CustomBarControls

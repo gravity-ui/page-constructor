@@ -8,6 +8,26 @@
     line-height: var(--g-text-#{$name}-line-height);
 }
 
+@mixin focusable($offset: 0, $mode: 'outline') {
+    @if $mode == 'outline' {
+        &:focus {
+            outline: 2px solid var(--g-color-line-focus);
+            outline-offset: $offset;
+        }
+        &:focus:not(:focus-visible) {
+            outline: 0;
+        }
+    }
+    @if $mode == 'box-shadow' {
+        &:focus {
+            box-shadow: 0 0 0 2px var(--g-color-line-focus);
+        }
+        &:focus:not(:focus-visible) {
+            box-shadow: none;
+        }
+    }
+}
+
 @mixin link() {
     @include islands-focus();
 

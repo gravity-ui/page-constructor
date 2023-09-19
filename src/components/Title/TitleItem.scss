@@ -41,8 +41,10 @@ $block: '.#{$ns}title-item';
     &__link {
         @include reset-link-style();
         @include reset-link-hover();
+        @include focusable();
 
         padding-right: 8px;
+        border-radius: var(--g-focus-border-radius);
 
         &:hover {
             cursor: pointer;

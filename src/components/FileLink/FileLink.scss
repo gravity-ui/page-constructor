@@ -29,6 +29,8 @@ $block: '.#{$ns}file-link';
 
     &__link > a {
         color: var(--g-color-text-primary);
+        border-radius: var(--g-focus-border-radius);
+        @include focusable();
     }
 
     &__link > a:hover {

@@ -48,7 +48,7 @@ export const ContentLayoutBlock = (props: ContentLayoutBlockProps) => {
     const colSizes = useMemo(() => getTextWidth(textWidth), [textWidth]);
 
     return (
-        <div className={b({size, background: Boolean(background)})}>
+        <div className={b({size, theme, background: Boolean(background)})}>
             <Content
                 className={b('content')}
                 {...textContent}

@@ -346,7 +346,11 @@ export const SliderBlock = (props: WithChildren<SliderProps>) => {
 
         return (
             <OutsideClick onOutsideClick={isMobile ? unsetFocus : noop}>
-                <SlickSlider {...settings}>{disclosedChildren}</SlickSlider>
+                <SlickSlider {...settings}>
+                    {React.Children.map(disclosedChildren, (child, i) => {
+                        return <div inert={currentIndex !== i ? '' : undefined}>{child}</div>;
+                    })}
+                </SlickSlider>
                 <div className={b('footer')}>
                     {renderDisclaimer()}
                     {renderNavigation()}

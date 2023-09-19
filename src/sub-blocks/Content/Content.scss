@@ -139,6 +139,8 @@ $darkSecondary: var(--g-color-text-dark-secondary);
 
     &_theme {
         &_dark {
+            --g-color-line-focus: var(--g-color-text-light-primary);
+
             #{$block}__title *,
             #{$block}__text .yfm,
             #{$block}__text .yfm *,

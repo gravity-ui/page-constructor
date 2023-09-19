@@ -9,9 +9,11 @@ $block: '.#{$ns}link-block';
 
     &__link {
         @include link();
+        @include focusable();
 
         display: flex;
         align-items: center;
+        border-radius: var(--g-focus-border-radius);
 
         &_theme_dark {
             color: var(--g-color-text-light-primary);
