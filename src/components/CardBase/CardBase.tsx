@@ -10,7 +10,7 @@ import {
     WithChildren,
 } from '../../models';
 import {AnalyticsEventsBase, DefaultEventNames} from '../../models/common';
-import {block} from '../../utils';
+import {block, getQaAttrubutes} from '../../utils';
 import BackgroundImage from '../BackgroundImage/BackgroundImage';
 import RouterLink from '../RouterLink/RouterLink';
 
@@ -39,11 +39,6 @@ export interface CardFooterBaseProps {
 
 const b = block('card-base-block');
 
-export const defaultHeaderQa = 'card-base-header';
-export const defaultBodyQa = 'card-base-body';
-export const defaultContentQa = 'card-base-content';
-export const defaultFooterQa = 'card-base-footer';
-
 const Header: React.FC<WithChildren<CardHeaderBaseProps>> = () => null;
 const Content: React.FC<WithChildren<{}>> = () => null;
 const Footer: React.FC<WithChildren<CardFooterBaseProps>> = () => null;
@@ -65,6 +60,7 @@ export const Layout = (props: CardBaseProps) => {
     const handleMetrika = useMetrika();
     const handleAnalytics = useAnalytics(DefaultEventNames.CardBase, url);
     let header, content, footer, image, headerClass, footerClass;
+    const qaAttributes = getQaAttrubutes(qa, 'header', 'footer', 'body', 'content');
 
     function handleChild(child: ReactElement) {
         switch (child.type) {
@@ -95,17 +91,17 @@ export const Layout = (props: CardBaseProps) => {
                 <BackgroundImage
                     className={b('header', headerClass)}
                     {...(typeof image === 'string' ? {src: image} : image)}
-                    qa={defaultHeaderQa}
+                    qa={qaAttributes.header}
                 >
                     <div className={b('header-content')}>{header}</div>
                 </BackgroundImage>
             )}
-            <div className={b('body', bodyClassName)} data-qa={defaultBodyQa}>
-                <div className={b('content', contentClassName)} data-qa={defaultContentQa}>
+            <div className={b('body', bodyClassName)} data-qa={qaAttributes.body}>
+                <div className={b('content', contentClassName)} data-qa={qaAttributes.content}>
                     {content}
                 </div>
                 {footer && (
-                    <div className={b('footer', footerClass)} data-qa={defaultFooterQa}>
+                    <div className={b('footer', footerClass)} data-qa={qaAttributes.footer}>
                         {footer}
                     </div>
                 )}

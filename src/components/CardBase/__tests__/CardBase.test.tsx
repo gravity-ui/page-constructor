@@ -8,15 +8,11 @@ import {PageConstructorProvider} from '../../../containers/PageConstructor';
 import {AnalyticsContextProps} from '../../../context/analyticsContext';
 import {MetrikaContextProps} from '../../../context/metrikaContext';
 import {CardBorder, PixelEventType} from '../../../models';
-import CardBase, {
-    CardBaseProps,
-    defaultBodyQa,
-    defaultContentQa,
-    defaultFooterQa,
-    defaultHeaderQa,
-} from '../CardBase';
+import {getQaAttrubutes} from '../../../utils';
+import CardBase, {CardBaseProps} from '../CardBase';
 
 const qaId = 'card-base-component';
+const qaAttributes = getQaAttrubutes(qaId, 'header', 'footer', 'body', 'content');
 
 const url = '#';
 
@@ -77,11 +73,11 @@ describe('CardBase', () => {
 
     test('render CardBase with header', async () => {
         render(
-            <CardBase>
+            <CardBase qa={qaId}>
                 <CardBase.Header>Header</CardBase.Header>
             </CardBase>,
         );
-        const cardBaseHeader = screen.queryByTestId(defaultHeaderQa);
+        const cardBaseHeader = screen.queryByTestId(qaAttributes.header);
 
         expect(cardBaseHeader).toBeInTheDocument();
         expect(cardBaseHeader).toBeVisible();
@@ -90,11 +86,11 @@ describe('CardBase', () => {
 
     test('render CardBase with content', async () => {
         render(
-            <CardBase>
+            <CardBase qa={qaId}>
                 <CardBase.Content>Content</CardBase.Content>
             </CardBase>,
         );
-        const cardBaseContent = screen.queryByTestId(defaultContentQa);
+        const cardBaseContent = screen.queryByTestId(qaAttributes.content);
 
         expect(cardBaseContent).toBeInTheDocument();
         expect(cardBaseContent).toBeVisible();
@@ -103,11 +99,11 @@ describe('CardBase', () => {
 
     test('render CardBase with footer', async () => {
         render(
-            <CardBase>
+            <CardBase qa={qaId}>
                 <CardBase.Footer>Footer</CardBase.Footer>
             </CardBase>,
         );
-        const cardBaseFooter = screen.queryByTestId(defaultFooterQa);
+        const cardBaseFooter = screen.queryByTestId(qaAttributes.footer);
 
         expect(cardBaseFooter).toBeInTheDocument();
         expect(cardBaseFooter).toBeVisible();
@@ -118,11 +114,11 @@ describe('CardBase', () => {
         const bodyClassName = 'body-class-name';
 
         render(
-            <CardBase bodyClassName={bodyClassName}>
+            <CardBase bodyClassName={bodyClassName} qa={qaId}>
                 <CardBase.Content>Content</CardBase.Content>
             </CardBase>,
         );
-        const cardBaseBody = screen.queryByTestId(defaultBodyQa);
+        const cardBaseBody = screen.queryByTestId(qaAttributes.body);
 
         expect(cardBaseBody).toHaveClass(bodyClassName);
     });
@@ -131,11 +127,11 @@ describe('CardBase', () => {
         const contentClassName = 'content-class-name';
 
         render(
-            <CardBase contentClassName={contentClassName}>
+            <CardBase contentClassName={contentClassName} qa={qaId}>
                 <CardBase.Content>Content</CardBase.Content>
             </CardBase>,
         );
-        const cardBaseContent = screen.queryByTestId(defaultContentQa);
+        const cardBaseContent = screen.queryByTestId(qaAttributes.content);
 
         expect(cardBaseContent).toHaveClass(contentClassName);
     });
@@ -144,25 +140,25 @@ describe('CardBase', () => {
         const className = 'body-class-name';
 
         render(
-            <CardBase>
+            <CardBase qa={qaId}>
                 <CardBase.Header className={className}>Header</CardBase.Header>
             </CardBase>,
         );
 
-        const cardBaseHeader = screen.queryByTestId(defaultHeaderQa);
+        const cardBaseHeader = screen.queryByTestId(qaAttributes.header);
 
         expect(cardBaseHeader).toHaveClass(className);
     });
 
     test('add className to Footer', async () => {
-        const className = 'body-class-name';
+        const className = 'footer-class-name';
 
         render(
-            <CardBase>
+            <CardBase qa={qaId}>
                 <CardBase.Footer className={className}>Footer</CardBase.Footer>
             </CardBase>,
         );
-        const cardBaseFooter = screen.queryByTestId(defaultFooterQa);
+        const cardBaseFooter = screen.getByTestId(qaAttributes.footer);
 
         expect(cardBaseFooter).toHaveClass(className);
     });
