@@ -3,14 +3,14 @@ import React, {ReactNode, useCallback, useContext, useEffect, useRef, useState} 
 import _ from 'lodash';
 
 import {SSRContext} from '../../context/ssrContext';
-import {WithChildren} from '../../models';
-import {block} from '../../utils';
+import {QAProps, WithChildren} from '../../models';
+import {block, getQaAttrubutes} from '../../utils';
 
 import './BalancedMasonry.scss';
 
 const b = block('BalancedMasonry');
 
-export interface BalancedMasonryProps {
+export interface BalancedMasonryProps extends QAProps {
     className: string;
     columnClassName: string;
     children: ReactNode[];
@@ -20,7 +20,8 @@ export interface BalancedMasonryProps {
 }
 
 const BalancedMasonry = (props: WithChildren<BalancedMasonryProps>) => {
-    const {className, columnClassName, children = [], breakpointCols} = props;
+    const {className, columnClassName, children = [], breakpointCols, qa} = props;
+    const qaAttributes = getQaAttrubutes(qa, 'column');
     const {isServer} = useContext(SSRContext);
     const getCurrentColumnsCount = useCallback(() => {
         const breakpoints = Object.entries(breakpointCols).sort(
@@ -121,7 +122,7 @@ const BalancedMasonry = (props: WithChildren<BalancedMasonryProps>) => {
     }, [balanceColumns, children]);
 
     return (
-        <div className={b(null, className)}>
+        <div className={b(null, className)} data-qa={qa}>
             <div className={b('hidden-container')} style={{width: `${100 / columnCount}%`}}>
                 <div ref={containerRef} className={b('hidden-list')}>
                     {children}
@@ -133,6 +134,7 @@ const BalancedMasonry = (props: WithChildren<BalancedMasonryProps>) => {
                     key={index}
                     className={columnClassName}
                     style={{width: `${100 / columnCount}%`}}
+                    data-qa={qaAttributes.column}
                 >
                     {columnElements}
                 </div>

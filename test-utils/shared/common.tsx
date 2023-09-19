@@ -21,7 +21,7 @@ export const testCustomClassName = <T,>({
     }
 
     const className = 'custom-class-name';
-    render(<Component className={className} {...props} />);
+    render(<Component {...props} className={className} />);
     const anchor = screen.getByTestId(options?.qaId || props.qa);
     expect(anchor).toHaveClass(className);
 };
