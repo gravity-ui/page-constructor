@@ -188,7 +188,7 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
             return () => {
                 window.removeEventListener('resize', updateSize);
             };
-        }, []);
+        }, [ratio]);
 
         const playEvents = useMemo(
             () => eventsArray?.filter((e: AnalyticsEvent) => e.type === PredefinedEventTypes.Play),

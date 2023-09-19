@@ -130,6 +130,7 @@ export const Media = (props: MediaAllProps) => {
         previewImg,
         playButton,
         customBarControlsClassName,
+        ratio,
         youtubeClassName,
     ]);
 
