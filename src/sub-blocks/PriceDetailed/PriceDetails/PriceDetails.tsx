@@ -71,14 +71,14 @@ const PriceDetails = (props: PriceDetailsExtendProps) => {
 
     const getFoldableTitle = () => {
         return (
-            <div
+            <button
                 className={b('foldable_title', {color: foldableColor, size: foldableSize})}
                 onClick={toggleOpen}
+                aria-expanded={isOpened}
             >
                 {foldableTitle}
-
                 <ToggleArrow open={isOpened} size={14} type={'vertical'} className={b('arrow')} />
-            </div>
+            </button>
         );
     };
 

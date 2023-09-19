@@ -1,6 +1,6 @@
-import React, {useContext, useState} from 'react';
+import React, {useCallback, useContext, useState} from 'react';
 
-import {Icon, Modal} from '@gravity-ui/uikit';
+import {Button, Icon, Modal} from '@gravity-ui/uikit';
 
 import {MobileContext} from '../../context/mobileContext';
 import {Fullscreen, PreviewClose} from '../../icons';
@@ -28,6 +28,7 @@ const getMediaClass = (type: string) => b('modal-media', {type});
 const FullscreenMedia = ({children, showFullscreenIcon = true}: FullscreenMediaProps) => {
     const [isOpened, setIsOpened] = useState(false);
     const isMobile = useContext(MobileContext);
+    const [isFullscreenButtonFocused, setIsFullscreenButtonFocused] = useState(false);
 
     const openModal = (e: React.MouseEvent) => {
         e.stopPropagation();
@@ -35,36 +36,58 @@ const FullscreenMedia = ({children, showFullscreenIcon = true}: FullscreenMediaP
     };
     const closeModal = () => setIsOpened(false);
 
+    const onShowFullScreenButton = useCallback(() => {
+        setIsFullscreenButtonFocused(true);
+    }, []);
+    const onHideFullScreenButton = useCallback(() => {
+        setIsFullscreenButtonFocused(false);
+    }, []);
+
     if (isMobile) {
         return children();
     }
 
     return (
         <div className={b()}>
-            <div className={b('media-wrapper')} onClickCapture={openModal}>
+            <div
+                className={b('media-wrapper')}
+                onClickCapture={openModal}
+                onMouseOver={onShowFullScreenButton}
+                onMouseOut={onHideFullScreenButton}
+            >
                 {children({className: b('inline-media')})}
                 {showFullscreenIcon && (
-                    <div className={b('icon-wrapper')} onClickCapture={openModal}>
+                    <Button
+                        className={b('icon-wrapper', {visible: isFullscreenButtonFocused})}
+                        extraProps={{onClickCapture: openModal}}
+                        size={'l'}
+                        onFocus={onShowFullScreenButton}
+                        onBlur={onHideFullScreenButton}
+                    >
                         <Icon
                             data={Fullscreen}
                             width={FULL_SCREEN_ICON_SIZE}
                             height={FULL_SCREEN_ICON_SIZE}
                             className={b('icon')}
                         />
-                    </div>
+                    </Button>
                 )}
             </div>
             {isOpened && (
                 <Modal open={isOpened} onClose={closeModal} className={b('modal')}>
                     <div className={b('modal-content')}>
-                        <div className={b('icon-wrapper', {visible: true})} onClick={closeModal}>
+                        <Button
+                            className={b('icon-wrapper', {visible: true})}
+                            onClick={closeModal}
+                            size={'l'}
+                        >
                             <Icon
                                 data={PreviewClose}
                                 width={CLOSE_ICON_SIZE}
                                 height={CLOSE_ICON_SIZE}
                                 className={b('icon', {hover: true})}
                             />
-                        </div>
+                        </Button>
                         {children({
                             imageClassName: getMediaClass('image'),
                             videoClassName: getMediaClass('video'),

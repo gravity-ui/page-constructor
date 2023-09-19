@@ -13,10 +13,12 @@ $block: '.#{$ns}QuestionsBlockItem';
 
     &__title {
         @include heading4();
+        @include focusable();
 
         position: relative;
         padding-right: 24px;
         cursor: pointer;
+        border-radius: var(--g-focus-border-radius);
 
         a {
             @include link();
@@ -27,11 +29,22 @@ $block: '.#{$ns}QuestionsBlockItem';
         position: absolute;
         right: 0;
         top: 0;
+        bottom: 0;
+        margin: auto;
         color: var(--g-color-text-primary);
     }
 
     &__link {
         @include text-size(body-2);
+
+        @include add-specificity(&) {
+            a {
+                outline-offset: -2px; // as part of outline is hidden due to overflow: hidden from parent
+                border-radius: calc(
+                    var(--g-focus-border-radius) + 2px
+                ); // as outline-offset is -2px
+            }
+        }
     }
 
     &__text {

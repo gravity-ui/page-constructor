@@ -85,6 +85,8 @@
 
     a {
         @include link();
+        @include focusable(0, 'box-shadow');
+        border-radius: var(--g-focus-border-radius);
     }
 
     table {

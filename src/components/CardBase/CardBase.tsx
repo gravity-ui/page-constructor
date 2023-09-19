@@ -1,15 +1,18 @@
 import React, {Children, Fragment, HTMLAttributeAnchorTarget, ReactElement} from 'react';
 
+import {Link} from '@gravity-ui/uikit';
+
 import {useAnalytics} from '../../hooks';
 import {useMetrika} from '../../hooks/useMetrika';
 import {
+    AnalyticsEventsBase,
     ButtonPixel,
     CardBaseProps as CardBaseParams,
+    DefaultEventNames,
     ImageProps,
     MetrikaGoal,
     WithChildren,
 } from '../../models';
-import {AnalyticsEventsBase, DefaultEventNames} from '../../models/common';
 import {block, getQaAttrubutes} from '../../utils';
 import BackgroundImage from '../BackgroundImage/BackgroundImage';
 import RouterLink from '../RouterLink/RouterLink';
@@ -120,19 +123,21 @@ export const Layout = (props: CardBaseProps) => {
 
     return url ? (
         <RouterLink href={url}>
-            <a
+            <Link
                 href={url}
                 target={target}
                 rel={target === '_blank' ? 'noopener noreferrer' : undefined}
                 className={fullClassName}
-                draggable={false}
-                onDragStart={(e) => e.preventDefault()}
                 onClick={onClick}
                 title={urlTitle}
-                data-qa={qa}
+                extraProps={{
+                    draggable: false,
+                    onDragStart: (e: React.DragEvent<HTMLAnchorElement>) => e.preventDefault(),
+                }}
+                qa={qa}
             >
                 {cardContent}
-            </a>
+            </Link>
         </RouterLink>
     ) : (
         <div className={fullClassName} data-qa={qa}>
