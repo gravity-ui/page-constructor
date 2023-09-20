@@ -3,6 +3,7 @@ import React from 'react';
 import {render, screen} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
+import {TARGETS} from '../../../../test-utils/constants';
 import {testCustomClassName} from '../../../../test-utils/shared/common';
 import {PageConstructorProvider} from '../../../containers/PageConstructor';
 import {AnalyticsContextProps} from '../../../context/analyticsContext';
@@ -17,7 +18,6 @@ const qaAttributes = getQaAttrubutes(qaId, 'header', 'footer', 'body', 'content'
 const url = '#';
 
 const borders: CardBorder[] = ['shadow', 'line', 'none'];
-const targets: React.HTMLAttributeAnchorTarget[] = ['_blank', '_self', '_parent', '_top'];
 
 describe('CardBase', () => {
     test('render CardBase by default', async () => {
@@ -36,7 +36,7 @@ describe('CardBase', () => {
         expect(aTag).not.toBeInTheDocument();
     });
 
-    test('render CardBase by default as a-tag', async () => {
+    test('render CardBase by default as a link', async () => {
         render(
             <CardBase qa={qaId} url={url}>
                 <CardBase.Content>Content</CardBase.Content>
@@ -49,7 +49,7 @@ describe('CardBase', () => {
         expect(cardBase).not.toBeDisabled();
     });
 
-    test.each(new Array<React.HTMLAttributeAnchorTarget>(...targets))(
+    test.each(new Array<React.HTMLAttributeAnchorTarget>(...TARGETS))(
         'render with given "%s" target',
         (target) => {
             render(
