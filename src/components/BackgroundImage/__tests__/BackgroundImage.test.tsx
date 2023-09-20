@@ -13,7 +13,7 @@ const qa = 'background-image-component';
 const imageSrc =
     'https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png';
 
-const qaAttributes = getQaAttrubutes(qa, 'image-display-source-compressed');
+const qaAttributes = getQaAttrubutes(qa, 'image-desktop-source-compressed');
 
 describe('BackgroundImage', () => {
     test('Render BackgroundImage by default', async () => {
@@ -28,7 +28,7 @@ describe('BackgroundImage', () => {
         testSourceProps<BackgroundImageProps>({
             component: BackgroundImage,
             props: {src: imageSrc, qa},
-            options: {qaId: qaAttributes.imageDisplaySourceCompressed},
+            options: {qaId: qaAttributes.imageDesktopSourceCompressed},
         });
     });
 
@@ -36,7 +36,7 @@ describe('BackgroundImage', () => {
         testSourceProps<BackgroundImageProps>({
             component: BackgroundImage,
             props: {desktop: imageSrc, qa},
-            options: {qaId: qaAttributes.imageDisplaySourceCompressed},
+            options: {qaId: qaAttributes.imageDesktopSourceCompressed},
         });
     });
 

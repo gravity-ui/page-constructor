@@ -36,7 +36,7 @@ export const testSourceProps = <T,>({
         'mobile-source',
         'tablet-source-compressed',
         'tablet-source',
-        'display-source-compressed',
+        'desktop-source-compressed',
     );
 
     const disableWebp = src && (props.disableCompress || !isCompressible(src));
@@ -47,10 +47,10 @@ export const testSourceProps = <T,>({
     expect(component).toHaveAttribute('src', src);
 
     if (disableWebp) {
-        const sourceWebP = screen.queryByTestId(qaId || qaAttributes.displaySourceCompressed);
+        const sourceWebP = screen.queryByTestId(qaId || qaAttributes.desktopSourceCompressed);
         expect(sourceWebP).not.toBeInTheDocument();
     } else {
-        const sourceWebP = screen.getByTestId(qaId || qaAttributes.displaySourceCompressed);
+        const sourceWebP = screen.getByTestId(qaId || qaAttributes.desktopSourceCompressed);
         expect(sourceWebP).toHaveAttribute('srcset', src + '.webp');
     }
 

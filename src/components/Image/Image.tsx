@@ -74,7 +74,7 @@ const Image = (props: ImageProps) => {
         'mobile-source',
         'tablet-webp-source',
         'tablet-source',
-        'display-source-compressed',
+        'desktop-source-compressed',
     );
 
     const disableWebp =
@@ -105,7 +105,7 @@ const Image = (props: ImageProps) => {
                 <source
                     srcSet={checkWebP(src)}
                     type="image/webp"
-                    data-qa={qaAttributes.displaySourceCompressed}
+                    data-qa={qaAttributes.desktopSourceCompressed}
                 />
             )}
             <ImageBase
