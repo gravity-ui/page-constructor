@@ -491,11 +491,13 @@ unpredictable css rules order in build */
 }
 
 @mixin monochrome-button() {
-    @include button(
-        var(--pc-monochrome-button-color),
-        var(--pc-monochrome-button-background-color),
-        $hoverBackgroundColor: var(--pc-monochrome-button-background-color-hover)
-    );
+    @include add-specificity(&) {
+        @include button(
+            var(--pc-monochrome-button-color),
+            var(--pc-monochrome-button-background-color),
+            $hoverBackgroundColor: var(--pc-monochrome-button-background-color-hover)
+        );
+    }
 }
 
 @mixin centerable-title() {
