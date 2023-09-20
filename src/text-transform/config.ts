@@ -1,6 +1,5 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-not-accumulator-reassign/no-not-accumulator-reassign */
-import _ from 'lodash';
 
 import {
     BlockType,

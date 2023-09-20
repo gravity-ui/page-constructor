@@ -1,6 +1,6 @@
 import React, {useEffect, useMemo, useState} from 'react';
 
-import _ from 'lodash';
+import debounce from 'lodash/debounce';
 
 import OutsideClick from '../../../components/OutsideClick/OutsideClick';
 import {Col, Grid, Row} from '../../../grid';
@@ -49,7 +49,7 @@ export const Navigation: React.FC<NavigationProps> = ({data, logo}) => {
             }
         };
 
-        const scrollHandler = _.debounce(showBorderOnScroll, 20);
+        const scrollHandler = debounce(showBorderOnScroll, 20);
 
         window.addEventListener('scroll', scrollHandler, {passive: true});
         return () => window.removeEventListener('scroll', scrollHandler);

@@ -1,6 +1,6 @@
 import React, {Fragment, useCallback, useEffect, useState} from 'react';
 
-import _ from 'lodash';
+import chunk from 'lodash/chunk';
 
 import {CardBase} from '../../../components';
 import {BREAKPOINTS} from '../../../constants';
@@ -102,16 +102,16 @@ const CombinedPriceDetailed = (props: CombinedPriceDetailedProps) => {
         );
     };
 
-    const chunkedItems = _.chunk(items, groupItemsSize);
+    const chunkedItems = chunk(items, groupItemsSize);
 
     return (
         <CardBase className={b()} border={border} analyticsEvents={analyticsEvents}>
             <CardBase.Content>
                 <Grid>
-                    {chunkedItems.map((chunk: PriceItemProps[], id) => {
+                    {chunkedItems.map((item: PriceItemProps[], id) => {
                         return (
                             <Row key={id} className={b('row')}>
-                                {getPrice(chunk)}
+                                {getPrice(item)}
                             </Row>
                         );
                     })}

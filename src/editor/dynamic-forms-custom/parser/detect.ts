@@ -1,5 +1,4 @@
 import {SpecTypes} from '@gravity-ui/dynamic-forms';
-import _ from 'lodash';
 
 import {Schema} from '../../../schema';
 

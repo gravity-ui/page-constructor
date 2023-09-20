@@ -1,6 +1,6 @@
 import React, {useMemo} from 'react';
 
-import _ from 'lodash';
+import pick from 'lodash/pick';
 
 import BlockBase from '../../../../components/BlockBase/BlockBase';
 import {BlockDecoration} from '../../../../customization/BlockDecoration';
@@ -26,7 +26,7 @@ export const ConstructorBlock: React.FC<WithChildren<ConstructorBlockProps>> = (
 }) => {
     const {type, indent} = data;
     const blockBaseProps = useMemo(
-        () => _.pick(data, ['anchor', 'visible', 'resetPaddings']),
+        () => pick(data, ['anchor', 'visible', 'resetPaddings']),
         [data],
     );
 

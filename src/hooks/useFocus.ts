@@ -1,6 +1,6 @@
 import {useCallback, useContext, useEffect, useState} from 'react';
 
-import _ from 'lodash';
+import noop from 'lodash/noop';
 
 import {MobileContext} from '../context/mobileContext';
 
@@ -30,7 +30,7 @@ export default function useFocus(element?: HTMLElement) {
             };
         }
 
-        return _.noop;
+        return noop;
     }, [element, isMobile, setFocus, unsetFocus]);
 
     return {

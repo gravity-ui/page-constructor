@@ -1,5 +1,5 @@
 import {render, screen} from '@testing-library/react';
-import {pick} from 'lodash';
+import pick from 'lodash/pick';
 import React from 'react';
 
 import {getColClass} from '../../src';

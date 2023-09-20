@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 
-import _ from 'lodash';
+import debounce from 'lodash/debounce';
 import {Interpolation, animated, config, useSpring} from 'react-spring';
 
 import SliderBlock from '../../../blocks/Slider/Slider';
@@ -62,7 +62,7 @@ const Image = (props: ImageAllProps) => {
     useEffect(() => {
         if (parallax) {
             const handleScroll = () => setScrollY(window.scrollY);
-            const debouncedHandler = _.debounce(handleScroll, 5);
+            const debouncedHandler = debounce(handleScroll, 5);
 
             window.addEventListener('scroll', debouncedHandler, {passive: true});
             return () => window.removeEventListener('scroll', debouncedHandler);

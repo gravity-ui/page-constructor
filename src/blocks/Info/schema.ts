@@ -1,4 +1,4 @@
-import _ from 'lodash';
+import omit from 'lodash/omit';
 
 import {
     BaseProps,
@@ -12,7 +12,7 @@ import {ContentBase} from '../../sub-blocks/Content/schema';
 
 const ContentProps = {
     additionalProperties: false,
-    properties: _.omit(ContentBase, ['size', 'colSizes', 'theme']),
+    properties: omit(ContentBase, ['size', 'colSizes', 'theme']),
 };
 
 export const InfoBlock = {

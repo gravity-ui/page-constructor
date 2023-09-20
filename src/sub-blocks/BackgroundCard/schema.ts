@@ -1,11 +1,11 @@
-import _ from 'lodash';
+import omit from 'lodash/omit';
 
 import {ImageObjectProps} from '../../components/Image/schema';
 import {BaseProps, CardBase, withTheme} from '../../schema/validators/common';
 import {AnalyticsEventSchema} from '../../schema/validators/event';
 import {ContentBase} from '../Content/schema';
 
-const BackgroundCardContentProps = _.omit(ContentBase, ['size']);
+const BackgroundCardContentProps = omit(ContentBase, ['size']);
 
 export const BackgroundCard = {
     'background-card': {

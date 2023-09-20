@@ -1,4 +1,4 @@
-import {omit} from 'lodash';
+import omit from 'lodash/omit';
 
 import {ImageProps, imageUrlPattern} from '../components/Image/schema';
 import {ButtonProps} from '../schema/validators/common';

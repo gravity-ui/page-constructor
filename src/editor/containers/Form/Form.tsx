@@ -1,7 +1,6 @@
 import React, {Fragment, memo} from 'react';
 
 import {Tabs, TabsProps} from '@gravity-ui/uikit';
-import _ from 'lodash';
 
 import {Block, PageContent} from '../../../models';
 import {block, getBlockKey} from '../../../utils';

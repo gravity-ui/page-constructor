@@ -1,4 +1,4 @@
-import _ from 'lodash';
+import pickBy from 'lodash/pickBy';
 
 import {BREAKPOINTS} from '../../constants';
 
@@ -38,7 +38,7 @@ export function getSlidesToShowWithDefaults({
 
     return {
         ...DEFAULT_SLIDE_BREAKPOINTS,
-        ..._.pickBy(result, (value) => !isNaN(value)),
+        ...pickBy(result, (value) => !isNaN(value)),
         sm: !mobileFullscreen && contentLength > 1 ? DEFAULT_SLIDE_BREAKPOINTS.sm : 1,
     };
 }

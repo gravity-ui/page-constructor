@@ -1,7 +1,8 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-not-accumulator-reassign/no-not-accumulator-reassign */
 import {MarkdownItPluginCb} from '@doc-tools/transform/lib/plugins/typings';
-import _ from 'lodash';
+import cloneDeep from 'lodash/cloneDeep';
+import shuffle from 'lodash/shuffle';
 
 import {ConstructorBlock, PageContent} from '../models/constructor';
 import {Lang} from '../utils/configure';
@@ -32,7 +33,7 @@ function transformBlocks(
     const fullConfig = {...config, ...customConfig};
     const {plugins = []} = options;
 
-    const clonedBlocks = _.cloneDeep(blocks);
+    const clonedBlocks = cloneDeep(blocks);
 
     return clonedBlocks.map((block) => transformBlock(lang, fullConfig, block, plugins));
 }
@@ -47,7 +48,7 @@ function transformBlock(
 
     if (block) {
         if ('randomOrder' in block && block.randomOrder && 'children' in block && block.children) {
-            block.children = _.shuffle(block.children as ConstructorBlock[]);
+            block.children = shuffle(block.children as ConstructorBlock[]);
         }
     }
 

@@ -1,4 +1,4 @@
-import _ from 'lodash';
+import omit from 'lodash/omit';
 
 import {ImageProps} from '../../components/Image/schema';
 import {
@@ -15,7 +15,7 @@ import {
 import {filteredArray} from '../../schema/validators/utils';
 import {ContentBase} from '../../sub-blocks/Content/schema';
 
-const TabsItemContentProps = _.omit(ContentBase, ['size', 'colSizes', 'centered', 'theme']);
+const TabsItemContentProps = omit(ContentBase, ['size', 'colSizes', 'centered', 'theme']);
 
 export const tabsItem = {
     type: 'object',

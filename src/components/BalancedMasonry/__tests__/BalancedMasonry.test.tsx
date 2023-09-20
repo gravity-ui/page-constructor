@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {render, screen, waitFor} from '@testing-library/react';
-import {omit} from 'lodash';
+import omit from 'lodash/omit';
 
 import {testCustomClassName} from '../../../../test-utils/shared/common';
 import {CardBase} from '../../../components';

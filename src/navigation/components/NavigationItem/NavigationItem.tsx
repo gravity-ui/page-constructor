@@ -1,6 +1,6 @@
 import React, {useContext, useMemo} from 'react';
 
-import {omit} from 'lodash';
+import omit from 'lodash/omit';
 
 import {BlockIdContext} from '../../../context/blockIdContext';
 import {InnerContext} from '../../../context/innerContext';

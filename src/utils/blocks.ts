@@ -1,4 +1,5 @@
-import {camelCase, flatten} from 'lodash';
+import camelCase from 'lodash/camelCase';
+import flatten from 'lodash/flatten';
 
 import {ConstructorBlock, CustomConfig, PCShareSocialNetwork, TextSize} from '../models';
 

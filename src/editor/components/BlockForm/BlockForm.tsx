@@ -1,7 +1,8 @@
 import React, {Fragment, memo, useMemo} from 'react';
 
 import {DynamicField, SimpleVerticalAccordeon, Spec} from '@gravity-ui/dynamic-forms';
-import _ from 'lodash';
+import isEqual from 'lodash/isEqual';
+import noop from 'lodash/noop';
 import {Form as FinalForm, FormSpy} from 'react-final-form';
 
 import {Block, ConstructorBlock} from '../../../models';
@@ -46,13 +47,13 @@ export const BlockForm = memo(
         }
 
         return (
-            <FinalForm initialValues={initialValues} onSubmit={_.noop}>
+            <FinalForm initialValues={initialValues} onSubmit={noop}>
                 {() => (
                     <Fragment>
                         <FormSpy
                             onChange={({values}) => {
                                 // fix for FormSpy onChange called twice without content changes
-                                if (!_.isEqual(values.content, prevContent)) {
+                                if (!isEqual(values.content, prevContent)) {
                                     onChange({type, ...values.content});
                                 }
                             }}
