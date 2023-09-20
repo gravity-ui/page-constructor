@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [4.15.0](https://github.com/gravity-ui/page-constructor/compare/v4.14.0...v4.15.0) (2023-09-20)
+
+
+### Features
+
+* fix an useAnalytics hook ([#580](https://github.com/gravity-ui/page-constructor/issues/580)) ([31d68be](https://github.com/gravity-ui/page-constructor/commit/31d68bebf3e2755460b799ce9540f295bab9ec60))
+
 ## [4.14.0](https://github.com/gravity-ui/page-constructor/compare/v4.13.1...v4.14.0) (2023-09-20)
 
 
