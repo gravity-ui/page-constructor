@@ -7,7 +7,7 @@ import {BlockIdContext} from '../context/blockIdContext';
 import {AnalyticsEvent, PredefinedEventTypes} from '../models';
 
 export const useAnalytics = (name = '', target?: string) => {
-    const {sendEvents, autoEvents} = useContext(AnalyticsContext);
+    const {sendEvents, autoEvents, multipleEvents} = useContext(AnalyticsContext);
     const context = useContext(BlockIdContext);
     const defaultEvent = useMemo(
         () =>
@@ -28,29 +28,29 @@ export const useAnalytics = (name = '', target?: string) => {
 
     const defaultEvents = defaultEvent && autoEvents ? [defaultEvent] : [];
 
-    return memoize(
-        (
-            e?: AnalyticsEvent | AnalyticsEvent[] | null,
-            additionalContext?: Record<string, string>,
-        ) => {
-            let events: AnalyticsEvent[] = defaultEvents;
+    const handler = (
+        e?: AnalyticsEvent | AnalyticsEvent[] | null,
+        additionalContext?: Record<string, string>,
+    ) => {
+        let events: AnalyticsEvent[] = defaultEvents;
 
-            if (e) {
-                events = Array.isArray(e) ? [...events, ...e] : [...events, e];
-            }
+        if (e) {
+            events = Array.isArray(e) ? [...events, ...e] : [...events, e];
+        }
 
-            if (!events) {
-                return;
-            }
+        if (!events) {
+            return;
+        }
 
-            const preparedEvents = additionalContext
-                ? events.map((event) => ({
-                      ...event,
-                      ...additionalContext,
-                  }))
-                : events;
+        const preparedEvents = additionalContext
+            ? events.map((event) => ({
+                  ...event,
+                  ...additionalContext,
+              }))
+            : events;
 
-            sendEvents(preparedEvents);
-        },
-    );
+        sendEvents(preparedEvents);
+    };
+
+    return multipleEvents ? handler : memoize(handler);
 };
