@@ -1,13 +1,11 @@
 import {useContext, useMemo} from 'react';
 
-import {memoize} from 'lodash';
-
 import {AnalyticsContext} from '../context/analyticsContext';
 import {BlockIdContext} from '../context/blockIdContext';
 import {AnalyticsEvent, PredefinedEventTypes} from '../models';
 
 export const useAnalytics = (name = '', target?: string) => {
-    const {sendEvents, autoEvents, multipleEvents} = useContext(AnalyticsContext);
+    const {sendEvents, autoEvents} = useContext(AnalyticsContext);
     const context = useContext(BlockIdContext);
     const defaultEvent = useMemo(
         () =>
@@ -23,12 +21,12 @@ export const useAnalytics = (name = '', target?: string) => {
     );
 
     if (!sendEvents) {
-        return memoize(() => {});
+        return () => {};
     }
 
     const defaultEvents = defaultEvent && autoEvents ? [defaultEvent] : [];
 
-    const handler = (
+    return (
         e?: AnalyticsEvent | AnalyticsEvent[] | null,
         additionalContext?: Record<string, string>,
     ) => {
@@ -51,6 +49,4 @@ export const useAnalytics = (name = '', target?: string) => {
 
         sendEvents(preparedEvents);
     };
-
-    return multipleEvents ? handler : memoize(handler);
 };

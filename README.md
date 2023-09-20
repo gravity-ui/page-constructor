@@ -222,7 +222,7 @@ You can define environment variables for dev-mode in .env.development file withi
 
 To start using any analytics, pass a handler to the constructor. The handler must be created on a project side. The handler will receive the `default` and `custom` event objects. The passed handler will be fired on a button, link, navigation, and control clicks. As one handler is used for all events treatment, pay attention to how to treat different events while creating the handler. There are predefined fields that serve to help you to build complex logic.
 
-Pass `autoEvents: true` to constructor to fire automatically configured events. Pass `multipleEvents: true` to constructor to fire events multiple times.
+Pass `autoEvents: true` to constructor to fire automatically configured events.
 
 ```ts
 function sendEvents(events: MyEventType []) {
@@ -232,7 +232,7 @@ function sendEvents(events: MyEventType []) {
 <PageConstructorProvider
     ...
 
-    analytics={{sendEvents, autoEvents: true, multipleEvents: true}}
+    analytics={{sendEvents, autoEvents: true}}
 
     ...
 />
