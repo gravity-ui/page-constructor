@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [4.14.0](https://github.com/gravity-ui/page-constructor/compare/v4.13.1...v4.14.0) (2023-09-20)
+
+
+### Features
+
+* add specificy for monohrome ([#577](https://github.com/gravity-ui/page-constructor/issues/577)) ([798e098](https://github.com/gravity-ui/page-constructor/commit/798e0985e4ef6162c8748c806f62afe1b9d17e5b))
+
 ## [4.13.1](https://github.com/gravity-ui/page-constructor/compare/v4.13.0...v4.13.1) (2023-09-18)
 
 
