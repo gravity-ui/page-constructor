@@ -19,7 +19,7 @@ export interface ImageProps extends Partial<ImageObjectProps>, Partial<ImageDevi
 export interface DeviceSpecificFragmentProps extends QAProps {
     disableWebp: boolean;
     src: string;
-    breakpoint: 'md' | 'sm';
+    breakpoint: string;
 }
 
 const checkWebP = (src: string) => {
@@ -37,11 +37,11 @@ const DeviceSpecificFragment = ({
             <source
                 srcSet={checkWebP(src)}
                 type="image/webp"
-                media={`(max-width: ${BREAKPOINTS[breakpoint]}px)`}
+                media={`(max-width: ${breakpoint})`}
                 data-qa={`${qa}-compressed`}
             />
         )}
-        <source srcSet={src} media={`(max-width: ${BREAKPOINTS[breakpoint]}px)`} data-qa={qa} />
+        <source srcSet={src} media={`(max-width: ${breakpoint})`} data-qa={qa} />
     </Fragment>
 );
 
@@ -89,7 +89,7 @@ const Image = (props: ImageProps) => {
                 <DeviceSpecificFragment
                     src={mobile}
                     disableWebp={disableWebp}
-                    breakpoint="sm"
+                    breakpoint={`${BREAKPOINTS.sm} px)`}
                     qa={qaAttributes.mobileSource}
                 />
             )}
@@ -97,7 +97,7 @@ const Image = (props: ImageProps) => {
                 <DeviceSpecificFragment
                     src={tablet}
                     disableWebp={disableWebp}
-                    breakpoint="md"
+                    breakpoint={`${BREAKPOINTS.md} px)`}
                     qa={qaAttributes.tabletSource}
                 />
             )}
