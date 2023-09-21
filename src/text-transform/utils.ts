@@ -4,6 +4,8 @@ import Typograf from 'typograf';
 
 import {Lang} from '../utils/configure';
 
+import AddRuleOptions = typograf.AddRuleOptions;
+
 export enum TransformType {
     Text = 'text',
     Html = 'html',
@@ -40,37 +42,11 @@ export const sanitizeStripOptions: sanitize.IOptions = {
     allowedAttributes: {},
 };
 
-Typograf.addRule({
-    name: 'common/html/sup',
-    queue: 'end',
-    /* TODO mange with it: in typograf types AddRuleOptions.handler takes only one param: text.
-    But in cloud-www was used this notation with 3 params */
-    //@ts-ignore
-    handler: function (text, settings, context) {
-        const {prefs: {htmlEntity: {type = ''} = {}} = {}} = context;
-
-        let symbols;
-        switch (type) {
-            case 'digit':
-                symbols = '&#174;|&#169;|&#8482;';
-                break;
-            case 'name':
-                symbols = '&reg;|&copy;|&trade;';
-                break;
-            default:
-                symbols = '®|©|™';
-                break;
-        }
-
-        const symbolsRegex = new RegExp(
-            `(?<!<sup>\\s*)(${symbols})|(${symbols})(?!\\s*<\\/sup>)`,
-            'gi',
-        );
-
-        return text.replace(symbolsRegex, '<sup>$1</sup>');
-    },
-    htmlAttrs: false,
-});
+export function addTypografRules(options: AddRuleOptions[]) {
+    options.forEach((option) => {
+        Typograf.addRule(option);
+    });
+}
 
 function enableRules(tp: typograf.Typograf) {
     const {disabled, enabled} = typografConfig;
