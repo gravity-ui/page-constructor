@@ -19,7 +19,7 @@ export interface ImageProps extends Partial<ImageObjectProps>, Partial<ImageDevi
 export interface DeviceSpecificFragmentProps extends QAProps {
     disableWebp: boolean;
     src: string;
-    breakpoint: string;
+    breakpoint: number;
 }
 
 const checkWebP = (src: string) => {
