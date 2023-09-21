@@ -37,11 +37,11 @@ const DeviceSpecificFragment = ({
             <source
                 srcSet={checkWebP(src)}
                 type="image/webp"
-                media={`(max-width: ${breakpoint})`}
+                media={`(max-width: ${breakpoint}px)`}
                 data-qa={`${qa}-compressed`}
             />
         )}
-        <source srcSet={src} media={`(max-width: ${breakpoint})`} data-qa={qa} />
+        <source srcSet={src} media={`(max-width: ${breakpoint}px)`} data-qa={qa} />
     </Fragment>
 );
 
@@ -89,7 +89,7 @@ const Image = (props: ImageProps) => {
                 <DeviceSpecificFragment
                     src={mobile}
                     disableWebp={disableWebp}
-                    breakpoint={`${BREAKPOINTS.sm} px)`}
+                    breakpoint={BREAKPOINTS.sm}
                     qa={qaAttributes.mobileSource}
                 />
             )}
@@ -97,7 +97,7 @@ const Image = (props: ImageProps) => {
                 <DeviceSpecificFragment
                     src={tablet}
                     disableWebp={disableWebp}
-                    breakpoint={`${BREAKPOINTS.md} px)`}
+                    breakpoint={BREAKPOINTS.md}
                     qa={qaAttributes.tabletSource}
                 />
             )}
