@@ -35,6 +35,10 @@ $block: '.#{$ns}navigation-item';
 
         &_dropdown {
             margin-bottom: 0;
+
+            #{$block}__content_type_link {
+                padding: $indentXXXS $indentXXS;
+            }
         }
     }
 }
