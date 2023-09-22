@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [4.15.3](https://github.com/gravity-ui/page-constructor/compare/v4.15.2...v4.15.3) (2023-09-22)
+
+
+### Bug Fixes
+
+* remove unnecessary styles ([#584](https://github.com/gravity-ui/page-constructor/issues/584)) ([47ccf13](https://github.com/gravity-ui/page-constructor/commit/47ccf1378f9acdca36cf528195213ab35b3e3a08))
+
 ## [4.15.2](https://github.com/gravity-ui/page-constructor/compare/v4.15.1...v4.15.2) (2023-09-22)
 
 
