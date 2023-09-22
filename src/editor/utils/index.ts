@@ -1,9 +1,9 @@
-import _ from 'lodash';
+import capitalize from 'lodash/capitalize';
 
 import {BlockDecorationProps, BlockDecorator, CustomConfig} from '../../models';
 import {ViewModeItem} from '../types';
 
-export const formatBlockName = (name: string) => _.capitalize(name).replace(/(block|-)/g, ' ');
+export const formatBlockName = (name: string) => capitalize(name).replace(/(block|-)/g, ' ');
 
 export const addCustomDecorator = (decorators: BlockDecorator[], custom = {} as CustomConfig) => {
     const customDecorators = custom.decorators || {};

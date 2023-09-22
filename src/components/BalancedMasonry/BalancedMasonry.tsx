@@ -1,6 +1,8 @@
 import React, {ReactNode, useCallback, useContext, useEffect, useRef, useState} from 'react';
 
-import _ from 'lodash';
+import debounce from 'lodash/debounce';
+import first from 'lodash/first';
+import minBy from 'lodash/minBy';
 
 import {SSRContext} from '../../context/ssrContext';
 import {QAProps, WithChildren} from '../../models';
@@ -31,7 +33,7 @@ const BalancedMasonry = (props: WithChildren<BalancedMasonryProps>) => {
         );
 
         // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-        let [, result] = _.first(breakpoints)!;
+        let [, result] = first(breakpoints)!;
 
         if (isServer) {
             return result;
@@ -54,7 +56,7 @@ const BalancedMasonry = (props: WithChildren<BalancedMasonryProps>) => {
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
     const balanceColumns = useCallback(
-        _.debounce(() => {
+        debounce(() => {
             if (!containerRef.current) {
                 return;
             }
@@ -74,7 +76,7 @@ const BalancedMasonry = (props: WithChildren<BalancedMasonryProps>) => {
                     continue;
                 }
 
-                const minColumn = _.minBy(columnsMeta, 'height') || {id: 0, height: 0};
+                const minColumn = minBy(columnsMeta, 'height') || {id: 0, height: 0};
                 const {id: columnId} = minColumn;
 
                 localColumns[columnId].push(children[i]);

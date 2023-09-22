@@ -1,6 +1,6 @@
 import React, {CSSProperties, Component, PropsWithChildren, createRef} from 'react';
 
-import _ from 'lodash';
+import debounce from 'lodash/debounce';
 
 import {BREAKPOINTS} from '../../constants';
 import {ClassNameProps} from '../../models';
@@ -24,7 +24,7 @@ export default class FullWidthBackground extends Component<
 > {
     private ref = createRef<HTMLDivElement>();
 
-    private setBg = _.debounce(() => {
+    private setBg = debounce(() => {
         if (this.ref && this.ref.current) {
             const bg = this.ref.current;
             const width = document.documentElement.clientWidth || document.body.clientWidth;

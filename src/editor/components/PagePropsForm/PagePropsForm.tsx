@@ -1,7 +1,7 @@
 import React, {memo, useMemo} from 'react';
 
 import {DynamicField, Spec} from '@gravity-ui/dynamic-forms';
-import _ from 'lodash';
+import noop from 'lodash/noop';
 import {Form as FinalForm, FormSpy} from 'react-final-form';
 
 import {PageContent} from '../../../models';
@@ -21,7 +21,7 @@ export const PagePropsForm = memo(({data: content, spec, onChange}: PagePropsFor
     const initialValues = useMemo(() => ({content}), []);
 
     return (
-        <FinalForm initialValues={initialValues} onSubmit={_.noop}>
+        <FinalForm initialValues={initialValues} onSubmit={noop}>
             {() => (
                 <div>
                     <FormSpy

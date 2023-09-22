@@ -8,7 +8,9 @@ import React, {
     useState,
 } from 'react';
 
-import _ from 'lodash';
+import debounce from 'lodash/debounce';
+import get from 'lodash/get';
+import noop from 'lodash/noop';
 import SlickSlider, {Settings} from 'react-slick';
 
 import Anchor from '../../components/Anchor/Anchor';
@@ -113,12 +115,12 @@ export const SliderBlock = (props: WithChildren<SliderProps>) => {
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
     const onResize = useCallback(
-        _.debounce(() => {
+        debounce(() => {
             if (!slider) {
                 return;
             }
 
-            const newBreakpoint = _.get(slider, 'state.breakpoint') || BREAKPOINTS.xl;
+            const newBreakpoint = get(slider, 'state.breakpoint') || BREAKPOINTS.xl;
 
             if (newBreakpoint !== breakpoint) {
                 setBreakpoint(newBreakpoint);
@@ -343,7 +345,7 @@ export const SliderBlock = (props: WithChildren<SliderProps>) => {
         };
 
         return (
-            <OutsideClick onOutsideClick={isMobile ? unsetFocus : _.noop}>
+            <OutsideClick onOutsideClick={isMobile ? unsetFocus : noop}>
                 <SlickSlider {...settings}>{disclosedChildren}</SlickSlider>
                 <div className={b('footer')}>
                     {renderDisclaimer()}

@@ -1,7 +1,7 @@
 import React, {useCallback, useContext, useEffect, useRef, useState} from 'react';
 
 import {Spin} from '@gravity-ui/uikit';
-import _ from 'lodash';
+import debounce from 'lodash/debounce';
 
 import {LocaleContext} from '../../../context/localeContext/localeContext';
 import {MapsContext} from '../../../context/mapsContext/mapsContext';
@@ -69,7 +69,7 @@ const YandexMap: React.FC<YMapProps> = (props) => {
     }, [apiKey, lang, scriptSrc, containerId, zoom, nonce, attemptsIndex, setLoading]);
 
     useEffect(() => {
-        const updateSize = _.debounce(() => {
+        const updateSize = debounce(() => {
             if (ref.current) {
                 setHeight(Math.round(getMapHeight(ref.current.offsetWidth, isMobile)));
             }

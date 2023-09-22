@@ -1,4 +1,4 @@
-import _ from 'lodash';
+import isEqual from 'lodash/isEqual';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const memoizeLast = (fn: (...args: any[]) => any) => {
@@ -6,7 +6,7 @@ export const memoizeLast = (fn: (...args: any[]) => any) => {
     let cacheResult: ReturnType<typeof fn>;
 
     return (...params: Parameters<typeof fn>) => {
-        if (!_.isEqual(params, cacheKey)) {
+        if (!isEqual(params, cacheKey)) {
             try {
                 const result = fn(...params);
 

@@ -12,7 +12,7 @@ import {
     transformArrOut,
 } from '@gravity-ui/dynamic-forms';
 import Ajv from 'ajv';
-import _ from 'lodash';
+import isEmpty from 'lodash/isEmpty';
 
 import {block} from '../../../../utils';
 import {getSpecTypeDefaultValue, useOneOf} from '../../hooks/useOneOf';
@@ -36,7 +36,7 @@ const getOneOfCustomSpecDefaultType = (spec: ObjectSpec) =>
 // dynamic-forms pass {} as default value for required properties of all types
 // this function replaces {} with default value accordingly to selected OneOf option spec type
 const getControllerDefautValue = (value: FieldValue, valueSpecType?: SpecTypes) => {
-    const isDefaultValue = typeof value === 'object' && _.isEmpty(value);
+    const isDefaultValue = typeof value === 'object' && isEmpty(value);
     const defaultValue = valueSpecType ? getSpecTypeDefaultValue(valueSpecType) : undefined;
 
     return isDefaultValue ? (defaultValue as FieldValue) : value;

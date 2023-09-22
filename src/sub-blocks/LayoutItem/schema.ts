@@ -1,4 +1,4 @@
-import {omit} from 'lodash';
+import omit from 'lodash/omit';
 
 import metaInfo from '../../components/MetaInfo/schema';
 import {BaseProps, MediaProps} from '../../schema/validators/common';

@@ -1,6 +1,6 @@
 import React, {Fragment, ReactElement, useContext} from 'react';
 
-import _ from 'lodash';
+import get from 'lodash/get';
 
 import {InnerContext} from '../../../../context/innerContext';
 import {BlockDecoration} from '../../../../customization/BlockDecoration';
@@ -44,7 +44,7 @@ export const ConstructorBlocks: React.FC<ConstructorBlocksProps> = ({items}) => 
 
         if ('loadable' in item && item.loadable) {
             const {source, serviceId, params} = item.loadable as LoadableProps;
-            const config = _.get(loadables, source);
+            const config = get(loadables, source);
 
             if (!config) {
                 return null;

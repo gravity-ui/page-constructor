@@ -1,4 +1,4 @@
-import _ from 'lodash';
+import cloneDeep from 'lodash/cloneDeep';
 
 import {ConstructorBlock, PageContent} from '../../models';
 
@@ -18,7 +18,7 @@ export const changeBlocksOrder = (
 
 export const duplicateBlock = (array: ConstructorBlock[], index: number) => {
     const result = [...array];
-    result.splice(index + 1, 0, _.cloneDeep(result[index]));
+    result.splice(index + 1, 0, cloneDeep(result[index]));
 
     return result;
 };

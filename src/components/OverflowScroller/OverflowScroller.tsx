@@ -1,6 +1,6 @@
 import React, {PropsWithChildren, createRef} from 'react';
 
-import _ from 'lodash';
+import debounce from 'lodash/debounce';
 
 import {ToggleArrow} from '..';
 import {block} from '../../utils';
@@ -91,7 +91,7 @@ export default class OverflowScroller extends React.Component<
     }
 
     // eslint-disable-next-line @typescript-eslint/member-ordering, react/sort-comp
-    private checkOverflow = _.debounce(() => {
+    private checkOverflow = debounce(() => {
         if (
             this.containerRef &&
             this.containerRef.current &&

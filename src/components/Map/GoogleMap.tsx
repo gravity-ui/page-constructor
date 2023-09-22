@@ -1,6 +1,6 @@
 import React, {useContext, useEffect, useMemo, useRef, useState} from 'react';
 
-import _ from 'lodash';
+import debounce from 'lodash/debounce';
 
 import {LocaleContext} from '../../context/localeContext/localeContext';
 import {MapsContext} from '../../context/mapsContext/mapsContext';
@@ -43,7 +43,7 @@ const GoogleMap: React.FC<GMapProps> = (props) => {
     );
 
     useEffect(() => {
-        const updateSize = _.debounce(() => {
+        const updateSize = debounce(() => {
             if (ref.current) {
                 setHeight(Math.round(getMapHeight(ref.current.offsetWidth, isMobile)));
             }

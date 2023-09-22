@@ -1,6 +1,6 @@
 import React, {useCallback, useEffect, useState} from 'react';
 
-import _ from 'lodash';
+import debounce from 'lodash/debounce';
 
 type HeightCalculatorOptions = {
     recalculateOnResizeDelay: number;
@@ -24,7 +24,7 @@ const useHeightCalculator: (
     }, [containerRef, containerHeight, setContainerHeight]);
 
     useEffect(() => {
-        const handleResize = _.debounce(calculateContainerHeight, recalculateOnResizeDelay);
+        const handleResize = debounce(calculateContainerHeight, recalculateOnResizeDelay);
 
         handleResize();
 

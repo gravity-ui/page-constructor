@@ -1,10 +1,10 @@
-import _ from 'lodash';
+import omit from 'lodash/omit';
 
 import {BlockBaseProps, LinkProps} from '../../schema/validators/common';
 import {filteredArray} from '../../schema/validators/utils';
 import {ContentBase} from '../../sub-blocks/Content/schema';
 
-const QuestionsBlockContentProps = _.omit(ContentBase, ['size', 'theme']);
+const QuestionsBlockContentProps = omit(ContentBase, ['size', 'theme']);
 
 export const QuestionsBlock = {
     'questions-block': {

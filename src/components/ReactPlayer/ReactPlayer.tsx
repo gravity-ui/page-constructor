@@ -10,7 +10,7 @@ import React, {
 } from 'react';
 
 import {Icon} from '@gravity-ui/uikit';
-import _ from 'lodash';
+import debounce from 'lodash/debounce';
 import ReactPlayer from 'react-player';
 
 import {MetrikaContext} from '../../context/metrikaContext';
@@ -161,7 +161,7 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
         }, [elapsedTime, playerRef, started]);
 
         useEffect(() => {
-            const updateSize = _.debounce(() => {
+            const updateSize = debounce(() => {
                 if (ref.current) {
                     // We need to get parent's width does not equal 0
                     const parentElement = getParentElement(ref.current);

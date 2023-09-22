@@ -1,7 +1,5 @@
 import React from 'react';
 
-import _ from 'lodash';
-
 import {NavigationListProps} from '../../models';
 import NavigationListItem from '../NavigationListItem/NavigationListItem';
 

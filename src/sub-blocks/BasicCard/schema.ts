@@ -1,10 +1,10 @@
-import _ from 'lodash';
+import omit from 'lodash/omit';
 
 import {ImageProps} from '../../components/Image/schema';
 import {BaseProps, CardBase} from '../../schema/validators/common';
 import {ContentBase} from '../Content/schema';
 
-const BasicCardContentProps = _.omit(ContentBase, ['size', 'theme']);
+const BasicCardContentProps = omit(ContentBase, ['size', 'theme']);
 
 export const BasicCard = {
     'basic-card': {
