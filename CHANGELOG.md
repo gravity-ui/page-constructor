@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [4.15.1](https://github.com/gravity-ui/page-constructor/compare/v4.15.0...v4.15.1) (2023-09-22)
+
+
+### Bug Fixes
+
+* import lodash methods directly ([#581](https://github.com/gravity-ui/page-constructor/issues/581)) ([36456c0](https://github.com/gravity-ui/page-constructor/commit/36456c0f29b787a2d8bcfc740da1123926b0a6a4))
+
 ## [4.15.0](https://github.com/gravity-ui/page-constructor/compare/v4.14.0...v4.15.0) (2023-09-20)
 
 
