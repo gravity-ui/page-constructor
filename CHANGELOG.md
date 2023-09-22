@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [4.15.2](https://github.com/gravity-ui/page-constructor/compare/v4.15.1...v4.15.2) (2023-09-22)
+
+
+### Bug Fixes
+
+* refactor indents for navigation popup ([#585](https://github.com/gravity-ui/page-constructor/issues/585)) ([95c3b0b](https://github.com/gravity-ui/page-constructor/commit/95c3b0bb1e48dd2341799506db33bbed62ce38f4))
+
 ## [4.15.1](https://github.com/gravity-ui/page-constructor/compare/v4.15.0...v4.15.1) (2023-09-22)
 
 
