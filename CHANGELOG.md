@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [4.16.0](https://github.com/gravity-ui/page-constructor/compare/v4.15.3...v4.16.0) (2023-09-25)
+
+
+### Features
+
+* add title className for CardsLayout ([#565](https://github.com/gravity-ui/page-constructor/issues/565)) ([454f41e](https://github.com/gravity-ui/page-constructor/commit/454f41e585ec98ba8530fc5cc3a95b5a157acf06))
+
 ## [4.15.3](https://github.com/gravity-ui/page-constructor/compare/v4.15.2...v4.15.3) (2023-09-22)
 
 
