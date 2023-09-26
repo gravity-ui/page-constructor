@@ -1,0 +1,22 @@
+name: Release alpha version
+
+on:
+  workflow_dispatch:
+    inputs:
+      manualPackageVersion:
+        type: string
+        required: false
+        description: 'If your build failed and the version is already exists you can set version of package manually, e.g. 3.0.0-alpha.0. Use the prefix `alpha` otherwise you will get error.'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: gravity-ui/release-action@yuberdysheva/alpha-release
+        with:
+          github-token: ${{ secrets.GRAVITY_UI_BOT_GITHUB_TOKEN }}
+          npm-token: ${{ secrets.GRAVITY_UI_BOT_NPM_TOKEN }}
+          node-version: 14
+          npm-dist-tag: alpha
+          manual-version: ${{ github.event.inputs.manualPackageVersion }}
+          prerelease: true
