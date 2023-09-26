@@ -2,7 +2,7 @@ name: Release version 1.x.x.
 
 on:
   push:
-    branches: [yuberdysheva/alpha-released]
+    branches: [version-1.x.x/fixes]
 
 jobs:
   release:
@@ -14,4 +14,4 @@ jobs:
           npm-token: ${{ secrets.GRAVITY_UI_BOT_NPM_TOKEN }}
           node-version: 18
           npm-dist-tag: untagged
-          default-branch: yuberdysheva/alpha-released
+          default-branch: version-1.x.x/fixes
