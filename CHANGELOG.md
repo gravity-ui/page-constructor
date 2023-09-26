@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [4.18.0](https://github.com/gravity-ui/page-constructor/compare/v4.17.0...v4.18.0) (2023-09-26)
+
+
+### Features
+
+* remove strict typograph rules ([#583](https://github.com/gravity-ui/page-constructor/issues/583)) ([7a8804a](https://github.com/gravity-ui/page-constructor/commit/7a8804a2f093c9d01e36cb34730d986a1cd648ef))
+
 ## [4.17.0](https://github.com/gravity-ui/page-constructor/compare/v4.16.0...v4.17.0) (2023-09-26)
 
 
