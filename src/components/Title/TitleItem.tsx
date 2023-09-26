@@ -46,6 +46,7 @@ const TitleItem = (props: TitleItemFullProps) => {
         className,
         qa,
         resetMargin = true,
+        urlTitle,
     } = props;
 
     const {hostname} = useContext(LocationContext);
@@ -80,13 +81,19 @@ const TitleItem = (props: TitleItemFullProps) => {
         content = textMarkup;
     } else if (url) {
         content = (
-            <a className={b('link')} href={url} {...getLinkProps(url, hostname)} onClick={onClick}>
+            <a
+                className={b('link')}
+                href={url}
+                {...getLinkProps(url, hostname)}
+                onClick={onClick}
+                title={urlTitle}
+            >
                 {insideClickableContent}
             </a>
         );
     } else if (onClick) {
         content = (
-            <span className={b('link')} onClick={onClick}>
+            <span className={b('link')} onClick={onClick} title={urlTitle}>
                 {insideClickableContent}
             </span>
         );

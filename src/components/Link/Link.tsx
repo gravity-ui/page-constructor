@@ -57,6 +57,7 @@ const LinkBlock = (props: WithChildren<LinkFullProps>) => {
         children,
         tabIndex,
         qa,
+        urlTitle,
     } = props;
     const qaAttributes = getQaAttrubutes(qa, ['normal']);
 
@@ -105,6 +106,7 @@ const LinkBlock = (props: WithChildren<LinkFullProps>) => {
                         href={href}
                         onClick={onClick}
                         tabIndex={tabIndex}
+                        title={urlTitle}
                         {...linkProps}
                         data-qa={qaAttributes.normal}
                     >

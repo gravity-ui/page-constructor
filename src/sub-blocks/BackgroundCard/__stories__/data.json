@@ -61,6 +61,7 @@
     }
   },
   "url": "https://example.com",
+  "urlTitle": "Example website. Opens in a new window",
   "paddings": {
     "title": "Padding Bottom = {{padding}}"
   },

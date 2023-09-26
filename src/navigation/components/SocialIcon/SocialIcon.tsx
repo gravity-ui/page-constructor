@@ -13,7 +13,7 @@ export interface NavigationSocialItemOwnProps extends NavigationSocialItem {
     className?: string;
 }
 
-const SocialIcon: React.FC<NavigationSocialItemOwnProps> = ({icon, url, className}) => {
+const SocialIcon: React.FC<NavigationSocialItemOwnProps> = ({icon, url, className, urlTitle}) => {
     const iconData = getMediaImage(icon);
     const {alt} = iconData;
 
@@ -21,7 +21,7 @@ const SocialIcon: React.FC<NavigationSocialItemOwnProps> = ({icon, url, classNam
         <a
             href={url}
             aria-label={alt}
-            title={alt}
+            title={urlTitle || alt}
             target="_blank"
             rel="noopener noreferrer"
             className={b(null, className)}

@@ -10,7 +10,8 @@
       "title": {
         "text": "Lorem ipsum",
         "url": "https://example.com",
-        "custom": "Some react node"
+        "custom": "Some react node",
+        "urlTitle": "Example website. Opens in a new window"
       }
     }
   },
@@ -18,7 +19,8 @@
     "content": {
       "title": {
         "text": "Lorem ipsum",
-        "url": "https://example.com"
+        "url": "https://example.com",
+        "urlTitle": "Example website. Opens in a new window"
       }
     }
   },

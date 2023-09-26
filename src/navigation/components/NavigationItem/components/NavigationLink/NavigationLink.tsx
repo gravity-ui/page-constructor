@@ -17,7 +17,7 @@ type NavigationLinkProps = NavigationItemProps & NavigationLinkItem;
 
 export const NavigationLink: React.FC<NavigationLinkProps> = (props) => {
     const {hostname, Link} = useContext(LocationContext);
-    const {url, text, icon, arrow, target, className, iconSize, ...rest} = props;
+    const {url, text, icon, arrow, target, className, iconSize, urlTitle, ...rest} = props;
     const linkExtraProps = getLinkProps(url, hostname, target);
     const iconData = icon && getMediaImage(icon);
 
@@ -31,14 +31,20 @@ export const NavigationLink: React.FC<NavigationLinkProps> = (props) => {
 
     if (linkExtraProps?.target || !Link) {
         return (
-            <a href={url} title={text} className={classes} {...rest} {...linkExtraProps}>
+            <a
+                href={url}
+                title={urlTitle || text}
+                className={classes}
+                {...rest}
+                {...linkExtraProps}
+            >
                 {content}
             </a>
         );
     } else {
         return (
             <RouterLink href={url} passHref>
-                <a title={text} {...rest} className={classes}>
+                <a title={urlTitle || text} {...rest} className={classes}>
                     {content}
                 </a>
             </RouterLink>

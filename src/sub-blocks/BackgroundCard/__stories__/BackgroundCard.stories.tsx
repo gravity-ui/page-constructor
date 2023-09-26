@@ -151,5 +151,6 @@ WithUrl.args = {
         ...DefaultArgs,
         ...item,
         url: data.url,
+        urlTitle: data.urlTitle,
     })) as BackgroundCardProps[],
 };

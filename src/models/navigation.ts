@@ -35,6 +35,7 @@ export enum NavigationGithubButtonIcon {
 export interface NavigationGithubButton extends Omit<NavigationItemBase, 'icon'> {
     type: NavigationItemType.GithubButton;
     url: string;
+    urlTitle?: string;
     label?: string;
     icon?: keyof typeof NavigationGithubButtonIcon;
     size?: string;
@@ -43,6 +44,7 @@ export interface NavigationGithubButton extends Omit<NavigationItemBase, 'icon'>
 export interface NavigationLinkItem extends Omit<NavigationItemBase, 'url'> {
     type: NavigationItemType.Link;
     url: string;
+    urlTitle?: string;
     arrow?: boolean;
     target?: string;
 }
@@ -62,6 +64,7 @@ export interface NavigationSocialItem extends Omit<NavigationItemBase, 'text'> {
     type: NavigationItemType.Social;
     icon: ImageProps;
     url: string;
+    urlTitle?: string;
 }
 
 export type NavigationItemModel =
