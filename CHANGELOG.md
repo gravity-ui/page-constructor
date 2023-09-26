@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [4.18.0](https://github.com/gravity-ui/page-constructor/compare/v4.18.0...v4.18.0) (2023-09-26)
+
+
+### Features
+
+* release as 4.18.0 ([#594](https://github.com/gravity-ui/page-constructor/issues/594)) ([5857f0d](https://github.com/gravity-ui/page-constructor/commit/5857f0d555f222acac409db15d4dbdff15bf594f))
+
 ## [4.18.0](https://github.com/gravity-ui/page-constructor/compare/v4.17.0...v4.18.0) (2023-09-26)
 
 
