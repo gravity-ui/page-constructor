@@ -12,8 +12,6 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
-      - run: |
-          echo ${{ github.event.inputs.manualPackageVersion }}
       - uses: gravity-ui/release-action@yuberdysheva/alpha-release
         with:
           github-token: ${{ secrets.GRAVITY_UI_BOT_GITHUB_TOKEN }}
