@@ -36,6 +36,7 @@ const AddBlock = ({onAdd, className}: PropsWithChildren<AddBlockProps>) => {
         <div className={b(null, className)} ref={ref}>
             <button
                 className={b('button')}
+                type="button"
                 onClick={() => {
                     setIsOpened(!isOpened);
                     setSearch('');
