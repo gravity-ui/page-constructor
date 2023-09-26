@@ -389,7 +389,11 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
                             onStart={onStart}
                             onReady={setPlayerRef}
                             onPlay={onPlay}
-                            onPause={onPause}
+                            onPause={
+                                autoPlay && customControlsType !== CustomControlsType.WithMuteButton
+                                    ? undefined
+                                    : onPause
+                            } // to prevent pause icon flickering when autoplayed video ends
                             onProgress={onProgress}
                             onEnded={onEnded}
                             aria-label={ariaLabel}
