@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [4.17.0](https://github.com/gravity-ui/page-constructor/compare/v4.16.0...v4.17.0) (2023-09-26)
+
+
+### Features
+
+* ability to add titles for the links ([#549](https://github.com/gravity-ui/page-constructor/issues/549)) ([514c988](https://github.com/gravity-ui/page-constructor/commit/514c988f3d348ecc67ebbc74ebf3c33572d18184))
+
 ## [4.16.0](https://github.com/gravity-ui/page-constructor/compare/v4.15.3...v4.16.0) (2023-09-25)
 
 
