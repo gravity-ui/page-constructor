@@ -1,6 +1,12 @@
 # Changelog
 
 
+## [4.18.1](https://github.com/gravity-ui/page-constructor/compare/v4.18.0...v4.18.1) (2023-09-27)
+
+
+### Bug Fixes
+* remove mobile padding in header slider ([#588](https://github.com/gravity-ui/page-constructor/issues/588)) ([7f8c469](https://github.com/gravity-ui/page-constructor/commit/7f8c4698bf929a2c6e8e8342b447fcf01715d000))
+
 ## [4.18.0](https://github.com/gravity-ui/page-constructor/compare/v4.17.0...v4.18.0) (2023-09-26)
 
 
