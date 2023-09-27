@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.28.1](https://github.com/gravity-ui/page-constructor/compare/v1.28.0...v1.28.1) (2023-09-27)
+
+
+### Bug Fixes
+
+* version-1.x.x: fix release ([#601](https://github.com/gravity-ui/page-constructor/issues/601)) ([960bd29](https://github.com/gravity-ui/page-constructor/commit/960bd2914441baadd3b5e0aa21831585e024d5cd))
+
 ## [1.28.0](https://github.com/gravity-ui/page-constructor/compare/v1.27.3...v1.28.0) (2023-09-26)
 
 
