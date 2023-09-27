@@ -14,4 +14,4 @@ jobs:
           npm-token: ${{ secrets.GRAVITY_UI_BOT_NPM_TOKEN }}
           node-version: 14
           default-branch: version-1.x.x/fixes
-          tag: untagged
+          npm-dist-tag: untagged
