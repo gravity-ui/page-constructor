@@ -61,6 +61,10 @@ $block: '.#{$ns}header-slider-block';
                 padding-left: 0;
                 padding-right: 0;
             }
+
+            .#{$ns}header-block__container-fluid {
+                padding-left: $indentXS + $indentXXXS;
+            }
         }
 
         .slick-track {

@@ -316,7 +316,12 @@ $block: '.#{$ns}SliderBlock';
                 }
 
                 .slick-slide {
-                    padding-right: 0;
+                    // to remove the indentation between slides
+                    /* stylelint-disable declaration-no-important */
+                    padding-right: 0 !important;
+                    padding-left: 0 !important;
+                    /* stylelint-enable declaration-no-important */
+
                     &:last-child {
                         padding-right: 0;
                     }
