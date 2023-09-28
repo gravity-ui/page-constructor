@@ -7,6 +7,14 @@ on:
         type: string
         required: false
         description: 'If your build failed and the version is already exists you can set version of package manually, e.g. 3.0.0-alpha.0. Use the prefix `alpha` otherwise you will get error.'
+      prerelease:
+        type: choice
+        description: Release type, patch is used by default
+        default: 'prepatch'
+        options:
+          - prepatch
+          - preminor
+          - premajor
 
 jobs:
   release:
@@ -19,4 +27,4 @@ jobs:
           node-version: 18
           npm-dist-tag: alpha
           manual-version: ${{ github.event.inputs.manualPackageVersion }}
-          prerelease: true
+          prerelease: ${{ github.event.inputs.prerelease }}
