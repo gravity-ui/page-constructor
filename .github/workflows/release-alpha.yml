@@ -3,15 +3,16 @@ name: Release alpha version
 on:
   workflow_dispatch:
     inputs:
-      manualPackageVersion:
+      manualVersion:
         type: string
         required: false
         description: 'If your build failed and the version is already exists you can set version of package manually, e.g. 3.0.0-alpha.0. Use the prefix `alpha` otherwise you will get error.'
       prerelease:
         type: choice
         description: Release type, patch is used by default
-        default: 'prepatch'
+        default: 'prerelease'
         options:
+          - prerelease
           - prepatch
           - preminor
           - premajor
@@ -26,5 +27,5 @@ jobs:
           npm-token: ${{ secrets.GRAVITY_UI_BOT_NPM_TOKEN }}
           node-version: 18
           npm-dist-tag: alpha
-          manual-version: ${{ github.event.inputs.manualPackageVersion }}
-          prerelease: ${{ github.event.inputs.prerelease }}
+          npm-preid: alpha
+          npm-version: ${{ github.event.inputs.manualVersion || github.event.inputs.prerelease }}
