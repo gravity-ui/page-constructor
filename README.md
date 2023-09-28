@@ -6,13 +6,17 @@
 
 When creating pages, component-based approach is used: a page is built using a set of ready-made blocks that can be placed in any order. Each block has a certain type and set of input data parameters.
 
-For the format of input data and list of available blocks, see the [documentation](https://preview.yandexcloud.dev/page-constructor/?path=/story/information--blocks).
+For the format of input data and list of available blocks, see the [documentation](https://preview.yandexcloud.dev/page-constructor/?path=/docs/documentation-blocks--docs).
 
 ## Install
 
 ```shell
 npm install @gravity-ui/page-constructor
 ```
+
+## Required dependencies
+
+Please note that to start using the package, your project must also have the following installed: `@doc-tools/transform`, `@gravity-ui/uikit`, `react`. Check out the `peerDependencies` section of `package.json` for accurate information.
 
 ### Getting started
 
