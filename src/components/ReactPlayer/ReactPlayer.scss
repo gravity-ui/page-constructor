@@ -66,18 +66,6 @@ $block: '.#{$ns}ReactPlayer';
         }
     }
 
-    &_background-shadow-rendered {
-        &::before {
-            display: block;
-        }
-    }
-
-    &_background-shadow-shown {
-        &::before {
-            opacity: 1;
-        }
-    }
-
     @media only screen and (max-width: map-get($gridBreakpoints, 'sm')) {
         &__button_text {
             font-size: 20px;

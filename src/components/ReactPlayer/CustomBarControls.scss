@@ -17,10 +17,6 @@ $controlSize: 64px;
         }
 
         &_type {
-            &_with-play-pause-button {
-                padding: $indentS;
-                gap: $indentS;
-            }
             &_with-uikit-play-pause-button {
                 gap: $indentXXXS;
                 padding: $indentXXXS;
@@ -49,25 +45,6 @@ $controlSize: 64px;
         cursor: pointer;
 
         &_type {
-            &_with-play-pause-button {
-                opacity: 0.9;
-                background-color: transparent;
-                transition: opacity $animationDuration ease 3s;
-
-                &:hover,
-                &:focus {
-                    opacity: 1;
-                }
-                &:focus {
-                    outline: 1px solid var(--g-color-line-light);
-                    outline-offset: 2px;
-                    border-radius: 4px;
-                }
-                &:focus:not(:focus-visible) {
-                    outline: none;
-                }
-            }
-
             &_with-mute-button {
                 border-radius: 50%;
                 display: flex;
@@ -114,10 +91,6 @@ $controlSize: 64px;
 
     &__play-icon {
         &_type {
-            &_with-play-pause-button {
-                height: 24px;
-                width: 24px;
-            }
             &_with-uikit-play-pause-button {
                 height: 16px;
                 width: 16px;
@@ -131,10 +104,6 @@ $controlSize: 64px;
             &_with-mute-button {
                 height: 22px;
                 width: 32px;
-            }
-            &_with-play-pause-button {
-                height: 24px;
-                width: 24px;
             }
             &_with-uikit-play-pause-button {
                 height: 16px;

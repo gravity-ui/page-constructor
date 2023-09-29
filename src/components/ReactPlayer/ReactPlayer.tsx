@@ -96,7 +96,6 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
         const {
             type: customControlsType = CustomControlsType.WithMuteButton,
             muteButtonHidden,
-            backgroundShadowHidden,
             positioning = CustomControlsButtonPositioning.Center,
         } = customControlsOptions;
 
@@ -357,11 +356,6 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
                     {
                         wrapper: !currentHeight,
                         controls,
-                        'background-shadow-rendered':
-                            !backgroundShadowHidden &&
-                            started &&
-                            controls === MediaVideoControlsType.Custom,
-                        'background-shadow-shown': hovered,
                     },
                     className,
                 )}

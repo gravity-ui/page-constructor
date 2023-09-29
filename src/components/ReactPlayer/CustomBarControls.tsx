@@ -4,11 +4,7 @@ import {Pause, Play, VolumeLow, VolumeXmark} from '@gravity-ui/icons';
 import {Icon} from '@gravity-ui/uikit';
 
 import {Mute} from '../../icons/Mute';
-import {MuteSmall} from '../../icons/MuteSmall';
 import {Unmute} from '../../icons/Unmute';
-import {UnmuteSmall} from '../../icons/UnmuteSmall';
-import {VideoControlPause} from '../../icons/VideoControlPause';
-import {VideoControlPlay} from '../../icons/VideoControlPlay';
 import {ClassNameProps, CustomControlsOptions, CustomControlsType} from '../../models';
 import {block} from '../../utils';
 
@@ -21,22 +17,18 @@ const b = block('CustomBarControls');
 
 const playIconsMap = {
     [CustomControlsType.WithMuteButton]: null,
-    [CustomControlsType.WithPlayPauseButton]: VideoControlPlay,
     [CustomControlsType.WithUiKitPlayPauseButton]: Play,
 };
 const pauseIconsMap = {
     [CustomControlsType.WithMuteButton]: null,
-    [CustomControlsType.WithPlayPauseButton]: VideoControlPause,
     [CustomControlsType.WithUiKitPlayPauseButton]: Pause,
 };
 const muteIconsMap = {
     [CustomControlsType.WithMuteButton]: Mute,
-    [CustomControlsType.WithPlayPauseButton]: MuteSmall,
     [CustomControlsType.WithUiKitPlayPauseButton]: VolumeLow,
 };
 const unmuteIconsMap = {
     [CustomControlsType.WithMuteButton]: Unmute,
-    [CustomControlsType.WithPlayPauseButton]: UnmuteSmall,
     [CustomControlsType.WithUiKitPlayPauseButton]: VolumeXmark,
 };
 
@@ -45,9 +37,7 @@ interface MuteConfigProps {
     changeMute: (event: React.MouseEvent) => void;
 }
 
-export interface CustomBarControlsProps
-    extends ClassNameProps,
-        Omit<CustomControlsOptions, 'backgroundShadowHidden'> {
+export interface CustomBarControlsProps extends ClassNameProps, CustomControlsOptions {
     mute?: MuteConfigProps;
     elapsedTimePercent?: number;
     type?: CustomControlsType;
@@ -69,18 +59,10 @@ const CustomBarControls = (props: CustomBarControlsProps) => {
         positioning,
     } = props;
 
-    const muteIcon = useMemo(() => {
-        return muteIconsMap[type];
-    }, [type]);
-    const unmuteIcon = useMemo(() => {
-        return unmuteIconsMap[type];
-    }, [type]);
-    const playIcon = useMemo(() => {
-        return playIconsMap[type];
-    }, [type]);
-    const pauseIcon = useMemo(() => {
-        return pauseIconsMap[type];
-    }, [type]);
+    const muteIcon = muteIconsMap[type];
+    const unmuteIcon = unmuteIconsMap[type];
+    const playIcon = playIconsMap[type];
+    const pauseIcon = pauseIconsMap[type];
 
     const muteButton = useMemo(() => {
         if (!mute || isMuteButtonHidden) {
