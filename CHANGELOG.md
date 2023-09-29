@@ -6,7 +6,7 @@
 
 ### Features
 
-* media custom consol with play/pause button changed ([#566](https://github.com/gravity-ui/page-constructor/issues/566)) ([8b7ca7d](https://github.com/gravity-ui/page-constructor/commit/8b7ca7dd7ab4f9f8d0f8fe86dd3a8302d282bff4))
+* media custom controls with play/pause button changed ([#566](https://github.com/gravity-ui/page-constructor/issues/566)) ([8b7ca7d](https://github.com/gravity-ui/page-constructor/commit/8b7ca7dd7ab4f9f8d0f8fe86dd3a8302d282bff4))
 
 ## [4.18.1](https://github.com/gravity-ui/page-constructor/compare/v4.18.0...v4.18.1) (2023-09-27)
 
