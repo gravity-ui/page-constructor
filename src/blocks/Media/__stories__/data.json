@@ -114,8 +114,8 @@
         }
       }
     },
-    "videoWithAutoPlayCustomControlsWithUiKitPlayPauseButton": {
-      "title": "Video with autoplay and custom controls with UIKit icon controls",
+    "videoWithAutoPlayCustomControlsWithPlayPauseButton": {
+      "title": "Video with autoplay and custom controls with play/pause button",
       "media": {
         "light": {
           "video": {

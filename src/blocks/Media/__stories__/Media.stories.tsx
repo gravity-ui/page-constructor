@@ -70,8 +70,8 @@ const VideoTemplate: StoryFn<MediaBlockModel> = (args) => (
                 },
                 {
                     ...args,
-                    title: data.video.videoWithAutoPlayCustomControlsWithUiKitPlayPauseButton.title,
-                    media: data.video.videoWithAutoPlayCustomControlsWithUiKitPlayPauseButton
+                    title: data.video.videoWithAutoPlayCustomControlsWithPlayPauseButton.title,
+                    media: data.video.videoWithAutoPlayCustomControlsWithPlayPauseButton
                         .media as MediaProps,
                 },
                 {

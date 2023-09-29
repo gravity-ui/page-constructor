@@ -4,8 +4,8 @@
 $block: '.#{$ns}CustomBarControls';
 $controlSize: 64px;
 // custom controls sizes
-$withUikitPlayPauseControlSize: 42px;
-$withUikitPlayPauseControlIconSize: 16px;
+$withPlayPauseControlSize: 42px;
+$withPlayPauseControlIconSize: 16px;
 $withMuteControlHeight: 22px;
 $withMuteControlWidth: 32px;
 // ---
@@ -78,8 +78,8 @@ $withMuteControlWidth: 32px;
             }
 
             &_with-play-pause-button {
-                width: $withUikitPlayPauseControlSize;
-                height: $withUikitPlayPauseControlSize;
+                width: $withPlayPauseControlSize;
+                height: $withPlayPauseControlSize;
                 border-radius: 50%;
                 background: var(--g-color-base-background);
                 @include shadow();
@@ -97,8 +97,8 @@ $withMuteControlWidth: 32px;
     &__play-icon {
         &_type {
             &_with-play-pause-button {
-                height: $withUikitPlayPauseControlIconSize;
-                width: $withUikitPlayPauseControlIconSize;
+                height: $withPlayPauseControlIconSize;
+                width: $withPlayPauseControlIconSize;
                 color: var(--g-color-base-neutral-heavy);
             }
         }
@@ -111,8 +111,8 @@ $withMuteControlWidth: 32px;
                 width: $withMuteControlWidth;
             }
             &_with-play-pause-button {
-                height: $withUikitPlayPauseControlIconSize;
-                width: $withUikitPlayPauseControlIconSize;
+                height: $withPlayPauseControlIconSize;
+                width: $withPlayPauseControlIconSize;
                 color: var(--g-color-base-neutral-heavy);
             }
         }
