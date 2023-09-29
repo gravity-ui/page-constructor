@@ -95,7 +95,7 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
         } = playButton || ({} as PlayButtonProps);
         const {
             type: customControlsType = CustomControlsType.WithMuteButton,
-            muteButtonHidden,
+            muteButtonShown,
             positioning = CustomControlsButtonPositioning.Center,
         } = customControlsOptions;
 
@@ -406,7 +406,7 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
                                 type={customControlsType}
                                 isPaused={!isPlaying}
                                 onPlayClick={onPlayClick}
-                                muteButtonHidden={muteButtonHidden}
+                                muteButtonShown={muteButtonShown}
                                 shown={hovered && ((!started && !previewImgUrl) || started)}
                                 positioning={positioning}
                             />

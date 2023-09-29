@@ -218,7 +218,7 @@ export interface ButtonImageProps {
 
 export interface CustomControlsOptions {
     type?: CustomControlsType;
-    muteButtonHidden?: boolean;
+    muteButtonShown?: boolean;
     positioning?: CustomControlsButtonPositioning;
 }
 

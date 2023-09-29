@@ -115,7 +115,7 @@
       }
     },
     "videoWithAutoPlayCustomControlsWithUiKitPlayPauseButton": {
-      "title": "Video with autoplay and custom controls with UIKit play/pause button",
+      "title": "Video with autoplay and custom controls with UIKit icon controls",
       "media": {
         "light": {
           "video": {
@@ -130,7 +130,7 @@
             "controls": "custom",
             "customControlsOptions": {
               "type": "with-uikit-play-pause-button",
-              "muteButtonHidden": true,
+              "muteButtonShown": false,
               "backgroundShadowHidden": true,
               "positioning": "left"
             },
@@ -153,7 +153,7 @@
             "controls": "custom",
             "customControlsOptions": {
               "type": "with-uikit-play-pause-button",
-              "muteButtonHidden": true,
+              "muteButtonShown": false,
               "backgroundShadowHidden": true,
               "positioning": "left"
             },
