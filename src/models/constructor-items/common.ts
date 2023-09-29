@@ -36,7 +36,7 @@ export enum PlayButtonThemes {
 
 export enum CustomControlsType {
     WithMuteButton = 'with-mute-button',
-    WithUiKitPlayPauseButton = 'with-uikit-play-pause-button',
+    WithPlayPauseButton = 'with-play-pause-button',
 }
 
 export enum CustomControlsButtonPositioning {

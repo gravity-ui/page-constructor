@@ -129,7 +129,7 @@
             "ariaLabel": "Video accessible name example",
             "controls": "custom",
             "customControlsOptions": {
-              "type": "with-uikit-play-pause-button",
+              "type": "with-play-pause-button",
               "muteButtonShown": false,
               "backgroundShadowHidden": true,
               "positioning": "left"
@@ -152,7 +152,7 @@
             "ariaLabel": "Video accessible name example",
             "controls": "custom",
             "customControlsOptions": {
-              "type": "with-uikit-play-pause-button",
+              "type": "with-play-pause-button",
               "muteButtonShown": false,
               "backgroundShadowHidden": true,
               "positioning": "left"

@@ -23,7 +23,7 @@ $withMuteControlWidth: 32px;
         }
 
         &_type {
-            &_with-uikit-play-pause-button {
+            &_with-play-pause-button {
                 gap: $indentXXXS;
                 padding: $indentXXXS;
             }
@@ -77,7 +77,7 @@ $withMuteControlWidth: 32px;
                 }
             }
 
-            &_with-uikit-play-pause-button {
+            &_with-play-pause-button {
                 width: $withUikitPlayPauseControlSize;
                 height: $withUikitPlayPauseControlSize;
                 border-radius: 50%;
@@ -96,7 +96,7 @@ $withMuteControlWidth: 32px;
 
     &__play-icon {
         &_type {
-            &_with-uikit-play-pause-button {
+            &_with-play-pause-button {
                 height: $withUikitPlayPauseControlIconSize;
                 width: $withUikitPlayPauseControlIconSize;
                 color: var(--g-color-base-neutral-heavy);
@@ -110,7 +110,7 @@ $withMuteControlWidth: 32px;
                 height: $withMuteControlHeight;
                 width: $withMuteControlWidth;
             }
-            &_with-uikit-play-pause-button {
+            &_with-play-pause-button {
                 height: $withUikitPlayPauseControlIconSize;
                 width: $withUikitPlayPauseControlIconSize;
                 color: var(--g-color-base-neutral-heavy);

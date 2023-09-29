@@ -17,19 +17,19 @@ const b = block('CustomBarControls');
 
 const playIconsMap = {
     [CustomControlsType.WithMuteButton]: null,
-    [CustomControlsType.WithUiKitPlayPauseButton]: Play,
+    [CustomControlsType.WithPlayPauseButton]: Play,
 };
 const pauseIconsMap = {
     [CustomControlsType.WithMuteButton]: null,
-    [CustomControlsType.WithUiKitPlayPauseButton]: Pause,
+    [CustomControlsType.WithPlayPauseButton]: Pause,
 };
 const muteIconsMap = {
     [CustomControlsType.WithMuteButton]: Mute,
-    [CustomControlsType.WithUiKitPlayPauseButton]: VolumeLow,
+    [CustomControlsType.WithPlayPauseButton]: VolumeLow,
 };
 const unmuteIconsMap = {
     [CustomControlsType.WithMuteButton]: Unmute,
-    [CustomControlsType.WithUiKitPlayPauseButton]: VolumeXmark,
+    [CustomControlsType.WithPlayPauseButton]: VolumeXmark,
 };
 
 interface MuteConfigProps {
