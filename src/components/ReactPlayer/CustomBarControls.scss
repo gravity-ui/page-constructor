@@ -4,10 +4,10 @@
 $block: '.#{$ns}CustomBarControls';
 $controlSize: 64px;
 // custom controls sizes
-$with-uikit-play-pause-control-size: 42px;
-$with-uikit-play-pause-control-icon-size: 16px;
-$with-mute-control-height: 22px;
-$with-mute-control-width: 32px;
+$withUikitPlayPauseControlSize: 42px;
+$withUikitPlayPauseControlIconSize: 16px;
+$withMuteControlHeight: 22px;
+$withMuteControlWidth: 32px;
 // ---
 
 #{$block} {
@@ -78,8 +78,8 @@ $with-mute-control-width: 32px;
             }
 
             &_with-uikit-play-pause-button {
-                width: $with-uikit-play-pause-control-size;
-                height: $with-uikit-play-pause-control-size;
+                width: $withUikitPlayPauseControlSize;
+                height: $withUikitPlayPauseControlSize;
                 border-radius: 50%;
                 background: var(--g-color-base-background);
                 @include shadow();
@@ -97,8 +97,8 @@ $with-mute-control-width: 32px;
     &__play-icon {
         &_type {
             &_with-uikit-play-pause-button {
-                height: $with-uikit-play-pause-control-icon-size;
-                width: $with-uikit-play-pause-control-icon-size;
+                height: $withUikitPlayPauseControlIconSize;
+                width: $withUikitPlayPauseControlIconSize;
                 color: var(--g-color-base-neutral-heavy);
             }
         }
@@ -107,12 +107,12 @@ $with-mute-control-width: 32px;
     &__mute-icon {
         &_type {
             &_with-mute-button {
-                height: $with-mute-control-height;
-                width: $with-mute-control-width;
+                height: $withMuteControlHeight;
+                width: $withMuteControlWidth;
             }
             &_with-uikit-play-pause-button {
-                height: $with-uikit-play-pause-control-icon-size;
-                width: $with-uikit-play-pause-control-icon-size;
+                height: $withUikitPlayPauseControlIconSize;
+                width: $withUikitPlayPauseControlIconSize;
                 color: var(--g-color-base-neutral-heavy);
             }
         }
