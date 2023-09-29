@@ -40,6 +40,7 @@ export const Media = (props: MediaAllProps) => {
         playButton,
         customBarControlsClassName,
         qa,
+        ratio,
     } = props;
 
     const [hasVideoFallback, setHasVideoFallback] = useState(false);
@@ -80,6 +81,7 @@ export const Media = (props: MediaAllProps) => {
                 customBarControlsClassName,
                 hasVideoFallback,
                 setHasVideoFallback,
+                ratio,
             };
 
             if (fullscreen) {
@@ -128,6 +130,7 @@ export const Media = (props: MediaAllProps) => {
         previewImg,
         playButton,
         customBarControlsClassName,
+        ratio,
         youtubeClassName,
     ]);
 

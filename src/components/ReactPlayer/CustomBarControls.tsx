@@ -1,14 +1,11 @@
 import React, {useMemo} from 'react';
 
+import {Pause, Play, VolumeLow, VolumeXmark} from '@gravity-ui/icons';
 import {Icon} from '@gravity-ui/uikit';
 
 import {Mute} from '../../icons/Mute';
-import {MuteSmall} from '../../icons/MuteSmall';
 import {Unmute} from '../../icons/Unmute';
-import {UnmuteSmall} from '../../icons/UnmuteSmall';
-import {VideoControlPause} from '../../icons/VideoControlPause';
-import {VideoControlPlay} from '../../icons/VideoControlPlay';
-import {ClassNameProps, CustomControlsType} from '../../models';
+import {ClassNameProps, CustomControlsOptions, CustomControlsType} from '../../models';
 import {block} from '../../utils';
 
 import CircleProgress from './CircleProgress';
@@ -18,17 +15,35 @@ import './CustomBarControls.scss';
 
 const b = block('CustomBarControls');
 
+const playIconsMap = {
+    [CustomControlsType.WithMuteButton]: null,
+    [CustomControlsType.WithPlayPauseButton]: Play,
+};
+const pauseIconsMap = {
+    [CustomControlsType.WithMuteButton]: null,
+    [CustomControlsType.WithPlayPauseButton]: Pause,
+};
+const muteIconsMap = {
+    [CustomControlsType.WithMuteButton]: Mute,
+    [CustomControlsType.WithPlayPauseButton]: VolumeLow,
+};
+const unmuteIconsMap = {
+    [CustomControlsType.WithMuteButton]: Unmute,
+    [CustomControlsType.WithPlayPauseButton]: VolumeXmark,
+};
+
 interface MuteConfigProps {
     isMuted: boolean;
     changeMute: (event: React.MouseEvent) => void;
 }
 
-export interface CustomBarControlsProps extends ClassNameProps {
+export interface CustomBarControlsProps extends ClassNameProps, CustomControlsOptions {
     mute?: MuteConfigProps;
     elapsedTimePercent?: number;
     type?: CustomControlsType;
     isPaused?: boolean;
     onPlayClick?: () => void;
+    shown?: boolean;
 }
 
 const CustomBarControls = (props: CustomBarControlsProps) => {
@@ -39,17 +54,18 @@ const CustomBarControls = (props: CustomBarControlsProps) => {
         type = CustomControlsType.WithMuteButton,
         isPaused,
         onPlayClick,
+        muteButtonShown: isMuteButtonShown = true,
+        shown,
+        positioning,
     } = props;
 
-    const muteIcon = useMemo(() => {
-        return type === CustomControlsType.WithMuteButton ? Mute : MuteSmall;
-    }, [type]);
-    const unmuteIcon = useMemo(() => {
-        return type === CustomControlsType.WithMuteButton ? Unmute : UnmuteSmall;
-    }, [type]);
+    const muteIcon = muteIconsMap[type];
+    const unmuteIcon = unmuteIconsMap[type];
+    const playIcon = playIconsMap[type];
+    const pauseIcon = pauseIconsMap[type];
 
     const muteButton = useMemo(() => {
-        if (!mute) {
+        if (!mute || !isMuteButtonShown) {
             return null;
         }
 
@@ -67,10 +83,12 @@ const CustomBarControls = (props: CustomBarControlsProps) => {
                 )}
             </button>
         );
-    }, [elapsedTimePercent, mute, muteIcon, type, unmuteIcon]);
+    }, [elapsedTimePercent, isMuteButtonShown, mute, muteIcon, type, unmuteIcon]);
 
     const playPauseButton = useMemo(() => {
-        if (type !== CustomControlsType.WithPlayPauseButton) {
+        const icon = isPaused ? playIcon : pauseIcon;
+
+        if (type === CustomControlsType.WithMuteButton || !icon) {
             return null;
         }
 
@@ -80,16 +98,13 @@ const CustomBarControls = (props: CustomBarControlsProps) => {
                 className={b('button', {type})}
                 aria-label={i18n(isPaused ? 'play' : 'pause')}
             >
-                <Icon
-                    data={isPaused ? VideoControlPlay : VideoControlPause}
-                    className={b('play-icon')}
-                />
+                <Icon data={icon} className={b('play-icon', {type})} />
             </button>
         );
-    }, [isPaused, onPlayClick, type]);
+    }, [isPaused, onPlayClick, type, playIcon, pauseIcon]);
 
     return (
-        <div className={b('wrapper', {type}, className)}>
+        <div className={b('wrapper', {type, shown, positioning}, className)}>
             {playPauseButton}
             {muteButton}
         </div>

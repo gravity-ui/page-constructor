@@ -39,6 +39,12 @@ export enum CustomControlsType {
     WithPlayPauseButton = 'with-play-pause-button',
 }
 
+export enum CustomControlsButtonPositioning {
+    Left = 'left',
+    Right = 'right',
+    Center = 'center',
+}
+
 export enum MediaVideoType {
     Default = 'default',
     Player = 'player',
@@ -212,6 +218,8 @@ export interface ButtonImageProps {
 
 export interface CustomControlsOptions {
     type?: CustomControlsType;
+    muteButtonShown?: boolean;
+    positioning?: CustomControlsButtonPositioning;
 }
 
 export interface PlayButtonProps extends ClassNameProps {
@@ -225,6 +233,7 @@ export type ThemedMediaVideoProps = ThemeSupporting<MediaVideoProps>;
 export interface MediaComponentVideoProps extends AnalyticsEventsBase {
     video: MediaVideoProps;
     height?: number;
+    ratio?: number;
     metrika?: MetrikaVideo;
     previewImg?: string;
 }

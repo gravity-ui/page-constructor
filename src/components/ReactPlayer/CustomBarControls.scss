@@ -3,18 +3,44 @@
 
 $block: '.#{$ns}CustomBarControls';
 $controlSize: 64px;
+// custom controls sizes
+$withPlayPauseControlSize: 42px;
+$withPlayPauseControlIconSize: 16px;
+$withMuteControlHeight: 22px;
+$withMuteControlWidth: 32px;
+// ---
 
 #{$block} {
     &__wrapper {
         position: absolute;
         bottom: 0;
+        opacity: 0;
+        transition: opacity $animationDuration ease 3s;
+
+        &_shown {
+            opacity: 1;
+            transition: opacity 0s ease 0s;
+        }
 
         &_type {
             &_with-play-pause-button {
-                width: 100%;
-                padding: $indentS;
+                gap: $indentXXXS;
+                padding: $indentXXXS;
+            }
+        }
+
+        &_positioning {
+            &_left,
+            &_right,
+            &_center {
                 display: flex;
-                gap: $indentS;
+                width: 100%;
+            }
+            &_right {
+                flex-direction: row-reverse;
+            }
+            &_center {
+                justify-content: center;
             }
         }
     }
@@ -25,25 +51,6 @@ $controlSize: 64px;
         cursor: pointer;
 
         &_type {
-            &_with-play-pause-button {
-                opacity: 0.9;
-                background-color: transparent;
-                transition: opacity $animationDuration ease 3s;
-
-                &:hover,
-                &:focus {
-                    opacity: 1;
-                }
-                &:focus {
-                    outline: 1px solid var(--g-color-line-light);
-                    outline-offset: 2px;
-                    border-radius: 4px;
-                }
-                &:focus:not(:focus-visible) {
-                    outline: none;
-                }
-            }
-
             &_with-mute-button {
                 border-radius: 50%;
                 display: flex;
@@ -55,7 +62,7 @@ $controlSize: 64px;
                 height: $controlSize;
                 background: var(--g-color-base-background);
                 transition: background-color $animationDuration;
-                margin: 12px;
+                margin: $indentXXS;
 
                 &:hover,
                 &:focus {
@@ -69,23 +76,44 @@ $controlSize: 64px;
                     outline: none;
                 }
             }
+
+            &_with-play-pause-button {
+                width: $withPlayPauseControlSize;
+                height: $withPlayPauseControlSize;
+                border-radius: 50%;
+                background: var(--g-color-base-background);
+                @include shadow();
+
+                &:focus {
+                    outline: 2px solid var(--g-color-line-misc);
+                }
+                &:focus:not(:focus-visible) {
+                    outline: none;
+                }
+            }
         }
     }
 
     &__play-icon {
-        height: 24px;
-        width: 24px;
+        &_type {
+            &_with-play-pause-button {
+                height: $withPlayPauseControlIconSize;
+                width: $withPlayPauseControlIconSize;
+                color: var(--g-color-base-neutral-heavy);
+            }
+        }
     }
 
     &__mute-icon {
         &_type {
             &_with-mute-button {
-                height: 22px;
-                width: 32px;
+                height: $withMuteControlHeight;
+                width: $withMuteControlWidth;
             }
             &_with-play-pause-button {
-                height: 24px;
-                width: 24px;
+                height: $withPlayPauseControlIconSize;
+                width: $withPlayPauseControlIconSize;
+                color: var(--g-color-base-neutral-heavy);
             }
         }
     }

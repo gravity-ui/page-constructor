@@ -114,6 +114,57 @@
         }
       }
     },
+    "videoWithAutoPlayCustomControlsWithPlayPauseButton": {
+      "title": "Video with autoplay and custom controls with play/pause button",
+      "media": {
+        "light": {
+          "video": {
+            "type": "player",
+            "src": [
+              "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.webm",
+              "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.mp4",
+              "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.png"
+            ],
+            "autoplay": true,
+            "ariaLabel": "Video accessible name example",
+            "controls": "custom",
+            "customControlsOptions": {
+              "type": "with-play-pause-button",
+              "muteButtonShown": false,
+              "backgroundShadowHidden": true,
+              "positioning": "left"
+            },
+            "muted": true,
+            "loop": {
+              "start": 0
+            }
+          }
+        },
+        "dark": {
+          "video": {
+            "type": "player",
+            "src": [
+              "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_dark.webm",
+              "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_dark.mp4",
+              "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_dark.png"
+            ],
+            "autoplay": true,
+            "ariaLabel": "Video accessible name example",
+            "controls": "custom",
+            "customControlsOptions": {
+              "type": "with-play-pause-button",
+              "muteButtonShown": false,
+              "backgroundShadowHidden": true,
+              "positioning": "left"
+            },
+            "muted": true,
+            "loop": {
+              "start": 0
+            }
+          }
+        }
+      }
+    },
     "staticWithControls": {
       "title": "Video with controls and without autoplay",
       "media": {
@@ -197,41 +248,6 @@
             "controls": "custom",
             "customControlsOptions": {
               "type": "with-mute-button"
-            }
-          }
-        },
-        "dark": {
-          "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_dark.png",
-          "video": {
-            "type": "player",
-            "src": [
-              "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_dark.webm",
-              "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_dark.mp4",
-              "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_dark.png"
-            ],
-            "autoplay": false,
-            "ariaLabel": "Video accessible name example"
-          }
-        }
-      }
-    },
-    "videoWithPreviewAndCustomControlsWithPlayPauseButton": {
-      "title": "Video with preview image, play button and custom controls with play/pause and mute button",
-      "media": {
-        "light": {
-          "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.png",
-          "video": {
-            "type": "player",
-            "src": [
-              "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.webm",
-              "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.mp4",
-              "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.png"
-            ],
-            "autoplay": false,
-            "ariaLabel": "Video accessible name example",
-            "controls": "custom",
-            "customControlsOptions": {
-              "type": "with-play-pause-button"
             }
           }
         },

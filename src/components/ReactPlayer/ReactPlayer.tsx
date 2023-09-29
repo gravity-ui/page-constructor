@@ -21,6 +21,7 @@ import {PlayVideo} from '../../icons';
 import {
     AnalyticsEvent,
     ClassNameProps,
+    CustomControlsButtonPositioning,
     CustomControlsType,
     DefaultEventNames,
     MediaVideoControlsType,
@@ -53,6 +54,7 @@ export interface ReactPlayerBlockProps
     showPreview?: boolean;
     onClickPreview?: () => void;
     height?: number;
+    ratio?: number;
     children?: React.ReactNode;
 }
 
@@ -82,6 +84,7 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
             analyticsEvents,
             height,
             ariaLabel,
+            ratio,
         } = props;
 
         const {
@@ -90,8 +93,11 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
             text,
             className: buttonClassName,
         } = playButton || ({} as PlayButtonProps);
-        const {type: customControlsType = CustomControlsType.WithMuteButton} =
-            customControlsOptions;
+        const {
+            type: customControlsType = CustomControlsType.WithMuteButton,
+            muteButtonShown,
+            positioning = CustomControlsButtonPositioning.Center,
+        } = customControlsOptions;
 
         const autoPlay = Boolean(!isMobile && !previewImgUrl && props.autoplay);
         const mute = initiallyMuted || autoPlay;
@@ -141,10 +147,10 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
         }, [showPreview, playerRef]);
 
         useEffect(() => {
-            if (playerRef) {
+            if (playerRef && !started) {
                 setIsPlaying(autoPlay);
             }
-        }, [autoPlay, playerRef]);
+        }, [autoPlay, playerRef, started]);
 
         useEffect(() => setMuted(mute), [mute]);
 
@@ -172,7 +178,7 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
                         parseFloat(paddingRight);
 
                     setWidth(newWidth);
-                    setCurrentHeight(Math.floor(getHeight(newWidth)));
+                    setCurrentHeight(Math.floor(getHeight(newWidth, ratio)));
                 }
             }, 200);
 
@@ -181,7 +187,7 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
             return () => {
                 window.removeEventListener('resize', updateSize);
             };
-        }, []);
+        }, [ratio]);
 
         const playEvents = useMemo(
             () => eventsArray?.filter((e: AnalyticsEvent) => e.type === PredefinedEventTypes.Play),
@@ -220,7 +226,7 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
                 if (
                     isMuted &&
                     playerRef &&
-                    customControlsType !== CustomControlsType.WithPlayPauseButton
+                    customControlsType === CustomControlsType.WithMuteButton
                 ) {
                     playerRef.seekTo(0);
                     setPlayedPercent(0);
@@ -276,7 +282,7 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
             // For support correct state for youtube
             if (
                 controls !== MediaVideoControlsType.Custom ||
-                customControlsType === CustomControlsType.WithPlayPauseButton
+                customControlsType !== CustomControlsType.WithMuteButton
             ) {
                 setIsPlaying(false);
             }
@@ -346,7 +352,13 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
 
         return (
             <div
-                className={b({wrapper: !currentHeight, controls, started, hovered}, className)}
+                className={b(
+                    {
+                        wrapper: !currentHeight,
+                        controls,
+                    },
+                    className,
+                )}
                 ref={ref}
                 onClick={handleClick}
                 onMouseEnter={onFocusIn}
@@ -371,18 +383,18 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
                             onStart={onStart}
                             onReady={setPlayerRef}
                             onPlay={onPlay}
-                            onPause={onPause}
+                            onPause={
+                                autoPlay && customControlsType !== CustomControlsType.WithMuteButton
+                                    ? undefined
+                                    : onPause
+                            } // to prevent pause icon flickering when autoplayed video ends
                             onProgress={onProgress}
                             onEnded={onEnded}
                             aria-label={ariaLabel}
                         />
-                        {controls === MediaVideoControlsType.Custom && started && (
+                        {controls === MediaVideoControlsType.Custom && (
                             <CustomBarControls
-                                className={b(
-                                    'custom-bar-controls',
-                                    {muted},
-                                    customBarControlsClassName,
-                                )}
+                                className={customBarControlsClassName}
                                 mute={{
                                     isMuted: muted,
                                     changeMute: (event: React.MouseEvent) => {
@@ -394,6 +406,9 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
                                 type={customControlsType}
                                 isPaused={!isPlaying}
                                 onPlayClick={onPlayClick}
+                                muteButtonShown={muteButtonShown}
+                                shown={hovered && ((!started && !previewImgUrl) || started)}
+                                positioning={positioning}
                             />
                         )}
                     </Fragment>
@@ -403,8 +418,8 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
     },
 );
 
-function getHeight(width: number): number {
-    return (width / 16) * 9;
+function getHeight(width: number, ratio: number = 9 / 16): number {
+    return width * ratio;
 }
 
 function getParentElement(element: HTMLElement): HTMLElement {
