@@ -60,11 +60,11 @@
                 margin-bottom: $indentXXXS;
             }
         }
-    }
 
-    &_theme_dark {
-        p {
-            color: var(--g-color-text-light-primary);
+        &_theme_dark {
+            p {
+                color: var(--g-color-text-light-primary);
+            }
         }
     }
 

@@ -133,7 +133,10 @@ export const HeaderBlock = (props: WithChildren<HeaderBlockFullProps>) => {
                                         <div className={b('description')}>
                                             <YFMWrapper
                                                 content={description}
-                                                modifiers={{constructor: true}}
+                                                modifiers={{
+                                                    constructor: true,
+                                                    constructorTheme: textTheme,
+                                                }}
                                             />
                                         </div>
                                     )}
