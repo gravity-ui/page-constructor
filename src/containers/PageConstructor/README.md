@@ -11,7 +11,7 @@ PageConstructor container
 - `color: string` - background color
 - `animated: true | false` - background animation on load and on scroll
 - `parallax?: true | false` — enable/disable the parallax effect
-- `video?: Video` - [Video](?path=/story/documentation-types#Video)
-- `image?: Image` - [ImageObjectProps](?path=/story/documentation-types#ImageObjectProps)
+- `video?: Video` - [Video](?path=/docs/documentation-types#Video)
+- `image?: Image` - [ImageObjectProps](?path=/docs/documentation-types#ImageObjectProps)
 - `fullWidthMedia?: true | false` - Media width: Picture or Video to the entire screen width or as per column size.
 - `height?: number` - height of media

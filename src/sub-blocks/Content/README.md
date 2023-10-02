@@ -1,12 +1,12 @@
-[`title?: Title | string` - title](?path=/story/documentation-types&viewMode=docs#title---block-title)
+[`title?: Title | string` - title](?path=/docs/documentation-types#title-block-title)
 
 `text?: string` — Text (with YFM support)
 
 `additionalInfo?: string` — Gray text (with YFM support)
 
-[`links?: Link[]` — An array with link objects](?path=/story/documentation-types&viewMode=docs#link---link)
+[`links?: Link[]` — An array with link objects](?path=/docs/documentation-types#link)
 
-[`buttons?: Button[]` — An array with button objects](?path=/story/documentation-types&viewMode=docs#button---button)
+[`buttons?: Button[]` — An array with button objects](?path=/docs/documentation-types#button)
 
 `centered?: false | true` - Aligns all content to the center ('false' by default)
 
