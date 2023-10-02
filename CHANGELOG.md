@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [4.19.1](https://github.com/gravity-ui/page-constructor/compare/v4.19.0...v4.19.1) (2023-10-02)
+
+
+### Bug Fixes
+
+* **HeaderBlock:** theme dark ([#609](https://github.com/gravity-ui/page-constructor/issues/609)) ([e59a33f](https://github.com/gravity-ui/page-constructor/commit/e59a33f1e4b3d0803ab7bef2fce7ee6bc57f6eff))
+
 ## [4.19.0](https://github.com/gravity-ui/page-constructor/compare/v4.18.1...v4.19.0) (2023-09-29)
 
 
