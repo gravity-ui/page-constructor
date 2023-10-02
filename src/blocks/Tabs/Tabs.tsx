@@ -90,7 +90,8 @@ export const TabsBlock = ({
                         key={activeTab}
                         className={b('media')}
                         playVideo={play}
-                        height={mediaHeight}
+                        height={activeTabData.media?.video && mediaHeight}
+                        imageClassName={b('image')}
                     />
                 )}
             </div>

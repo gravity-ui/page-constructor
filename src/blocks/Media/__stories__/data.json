@@ -87,11 +87,10 @@
       "title": "Video with auto loop and without controls",
       "media": {
         "light": {
+          "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.png",
           "video": {
             "src": [
-              "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.webm",
-              "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.mp4",
-              "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.png"
+              "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/new/podd-00-13-01.mp4"
             ],
             "loop": {
               "start": 0
@@ -208,9 +207,7 @@
           "video": {
             "type": "player",
             "src": [
-              "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.webm",
-              "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.mp4",
-              "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.png"
+              "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/new/podd-00-13-01.mp4"
             ],
             "autoplay": false,
             "ariaLabel": "Video accessible name example"
