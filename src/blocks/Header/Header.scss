@@ -25,7 +25,7 @@ $backgroundWidth: 1440px;
 
         &_theme_dark {
             #{$block}__title,
-            #{$block}__description .yfm {
+            #{$block}__overtitle {
                 color: var(--g-color-text-light-primary);
             }
         }
