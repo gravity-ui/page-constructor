@@ -47,8 +47,6 @@ export const Media = (props: MediaAllProps) => {
 
     const qaAttributes = getQaAttrubutes(qa, 'video');
 
-    console.log(height);
-
     const content = useMemo(() => {
         let result: ReactElement | ReactElement[] = [];
 

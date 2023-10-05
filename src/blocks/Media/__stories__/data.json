@@ -90,7 +90,9 @@
           "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.png",
           "video": {
             "src": [
-              "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/new/podd-00-13-01.mp4"
+              "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.webm",
+              "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.mp4",
+              "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.png"
             ],
             "loop": {
               "start": 0
@@ -207,7 +209,9 @@
           "video": {
             "type": "player",
             "src": [
-              "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/new/podd-00-13-01.mp4"
+              "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.webm",
+              "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.mp4",
+              "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.png"
             ],
             "autoplay": false,
             "ariaLabel": "Video accessible name example"
