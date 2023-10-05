@@ -1,6 +1,18 @@
 # Changelog
 
 
+## [4.20.0](https://github.com/gravity-ui/page-constructor/compare/v4.19.1...v4.20.0) (2023-10-05)
+
+
+### Features
+
+* react-spring version upgrade ([#615](https://github.com/gravity-ui/page-constructor/issues/615)) ([cc05ae0](https://github.com/gravity-ui/page-constructor/commit/cc05ae0369df91cae0f29d4662e368fc8f8d59bf))
+
+
+### Bug Fixes
+
+* update documentation ([#611](https://github.com/gravity-ui/page-constructor/issues/611)) ([14ee88e](https://github.com/gravity-ui/page-constructor/commit/14ee88e0f9615a46f70333f14f68d0d3294160df))
+
 ## [4.19.1](https://github.com/gravity-ui/page-constructor/compare/v4.19.0...v4.19.1) (2023-10-02)
 
 
