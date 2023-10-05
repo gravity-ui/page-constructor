@@ -63,13 +63,13 @@ import { Meta } from '@storybook/blocks';
 
 - `color?: string` — Background color
 - [`image?: ImageObjectProps | ImageObjectProps[] | ImageDeviceProps` — Background image](#ImageObjectProps). If you pass an array, the full-screen mode is automatically turned on.
-- `parallax?: bool` — Enable/disable the parallax effect
+- `parallax?: boolean` — Enable/disable the parallax effect
 - [`video?: Video` — Video](#Video)
 - `youtube?: url` — Link to a video on YouTube
 - `height?: number` — Block height
 - `previewImg?: string`
 - `dataLens?: string |` [DataLens](#DataLens)
-- `fullscreen?: bool` — Enabling full-screen mode for image or video
+- `fullscreen?: boolean` — Enabling full-screen mode for image or video. Default true - for multiple images, false - for single image, video. It doesn't work with dataLens and youtube
 
 ---
 
