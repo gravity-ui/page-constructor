@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [4.20.2](https://github.com/gravity-ui/page-constructor/compare/v4.20.1...v4.20.2) (2023-10-05)
+
+
+### Bug Fixes
+
+* install-react-spring-out-from-quarantine ([#620](https://github.com/gravity-ui/page-constructor/issues/620)) ([5157d78](https://github.com/gravity-ui/page-constructor/commit/5157d783459ac894b9a8db3d0ab42f9e62d09e9e))
+
 ## [4.20.1](https://github.com/gravity-ui/page-constructor/compare/v4.20.0...v4.20.1) (2023-10-05)
 
 
