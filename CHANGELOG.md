@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [4.20.1](https://github.com/gravity-ui/page-constructor/compare/v4.20.0...v4.20.1) (2023-10-05)
+
+
+### Bug Fixes
+
+* normalize last slider item height ([#618](https://github.com/gravity-ui/page-constructor/issues/618)) ([0aca726](https://github.com/gravity-ui/page-constructor/commit/0aca7264dcbb534442b98a03967cbb4538c8dea6))
+
 ## [4.20.0](https://github.com/gravity-ui/page-constructor/compare/v4.19.1...v4.20.0) (2023-10-05)
 
 
