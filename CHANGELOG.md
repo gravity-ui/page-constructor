@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [4.21.0](https://github.com/gravity-ui/page-constructor/compare/v4.20.2...v4.21.0) (2023-10-06)
+
+
+### Features
+
+* **Table, HS, BackgroundImage:** add new view for Table and fix design bugs ([#622](https://github.com/gravity-ui/page-constructor/issues/622)) ([b2fe177](https://github.com/gravity-ui/page-constructor/commit/b2fe177423497221c466c057dab3442cd286dc55))
+* **Tabs:** add image variative height for media ([#612](https://github.com/gravity-ui/page-constructor/issues/612)) ([adf214d](https://github.com/gravity-ui/page-constructor/commit/adf214d3a672e3cfcf6b5ba0df05549f5ca73dd1))
+
 ## [4.20.2](https://github.com/gravity-ui/page-constructor/compare/v4.20.1...v4.20.2) (2023-10-05)
 
 
