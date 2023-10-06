@@ -17,3 +17,7 @@ const DefaultTemplate: StoryFn<TableProps> = (args) => <Table {...args} />;
 export const Default = DefaultTemplate.bind({});
 
 Default.args = data.default.content as TableProps;
+
+export const Tick = DefaultTemplate.bind({});
+
+Tick.args = data.tick.content as TableProps;

@@ -5,10 +5,26 @@
         ["Lorem", "ipsum dolor sit", "amet", "minim"],
         ["Ut enim ad minim veniam", "0", "0", "0"],
         ["Ut enim ad minim veniam", "0", "0", "1"],
-        ["Ut enim ad minim veniam", "0", "0", "1"],
+        ["Ut enim ad minim veniam", "0", "2", "1"],
         ["Ut enim ad minim veniam", "0", "1", "1"],
         ["Ut enim ad minim veniam", "1", "1", "1"]
       ],
+      "legend": ["Lorem", "ipsum"],
+      "justify": ["start", "center", "center", "center"]
+    }
+  },
+  "tick": {
+    "content": {
+      "content": [
+        ["Lorem", "ipsum dolor sit", "amet", "minim"],
+        ["Ut enim ad minim veniam", "0", "0", "0"],
+        ["Ut enim ad minim veniam", "0", "0", "1"],
+        ["Ut enim ad minim veniam", "1", "0", "0"],
+        ["Ut enim ad minim veniam", "0", "1", "1"],
+        ["Ut enim ad minim veniam", "1", "1", "1"]
+      ],
+      "marker": "tick",
+      "hideLegend": true,
       "legend": ["Lorem", "ipsum"],
       "justify": ["start", "center", "center", "center"]
     }

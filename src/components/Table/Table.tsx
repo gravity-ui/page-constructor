@@ -1,6 +1,9 @@
 import React from 'react';
 
+import {Icon} from '@gravity-ui/uikit';
+
 import {HTML, YFMWrapper} from '../';
+import {Minus, Tick} from '../../icons';
 import {ClassNameProps, Justify, LegendTableMarkerType, TableProps} from '../../models';
 import {block} from '../../utils';
 
@@ -18,7 +21,7 @@ const b = block('table');
 
 export default class Table extends React.Component<TableProps & ClassNameProps> {
     render() {
-        const {content, legend, marker = 'disk', className, caption} = this.props;
+        const {content, legend, hideLegend, marker = 'disk', className, caption} = this.props;
 
         if (!content || !content.length || !content[0].length) {
             return null;
@@ -27,7 +30,7 @@ export default class Table extends React.Component<TableProps & ClassNameProps> 
         return (
             <div className={b(null, className)} role={'table'} aria-label={caption}>
                 {this.renderTable(content, marker, legend)}
-                {legend && this.renderLegend(legend, marker)}
+                {legend && !hideLegend && this.renderLegend(legend, marker)}
             </div>
         );
     }
@@ -59,7 +62,9 @@ export default class Table extends React.Component<TableProps & ClassNameProps> 
             <div
                 aria-labelledby={getMarkerId(Number(cell))}
                 className={b('marker', {type, index: String(cell)})}
-            />
+            >
+                {type === 'tick' ? <Icon data={Number(cell) === 1 ? Tick : Minus} /> : null}
+            </div>
         );
     }
 

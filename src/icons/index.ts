@@ -9,3 +9,5 @@ export * from './PreviewClose';
 export * from './NavigationClose';
 export * from './NavigationOpen';
 export * from './NavigationArrow';
+export * from './Tick';
+export * from './Minus';

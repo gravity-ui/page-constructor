@@ -20,3 +20,7 @@ const DefaultTemplate: StoryFn<TableBlockModel> = (args) => (
 export const Default = DefaultTemplate.bind({});
 
 Default.args = data.default.content as TableBlockModel;
+
+export const Tick = DefaultTemplate.bind({});
+
+Tick.args = data.tick.content as TableBlockModel;
