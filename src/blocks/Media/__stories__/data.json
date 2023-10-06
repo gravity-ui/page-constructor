@@ -87,7 +87,6 @@
       "title": "Video with auto loop and without controls",
       "media": {
         "light": {
-          "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.png",
           "video": {
             "src": [
               "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.webm",
