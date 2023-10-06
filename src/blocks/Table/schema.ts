@@ -42,13 +42,16 @@ export const TableBlock = {
                             contentType: 'yfm',
                         },
                     },
+                    hideLegend: {
+                        type: 'boolean',
+                    },
                     justify: {
                         type: 'array',
                         items: JustifyProps,
                     },
                     marker: {
                         type: 'string',
-                        enum: ['disk'],
+                        enum: ['disk', 'tick'],
                     },
                 },
             },

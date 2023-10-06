@@ -251,6 +251,7 @@ export interface InfoBlockProps {
 export interface TableProps {
     content: string[][];
     legend?: string[];
+    hideLegend?: boolean;
     justify?: Justify[];
     marker?: LegendTableMarkerType;
     /**

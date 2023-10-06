@@ -110,6 +110,17 @@ $block: '.#{$ns}hubspot-form';
                     border: 1px solid var(--g-color-line-generic-active);
                 }
             }
+
+            .hs-fieldtype-intl-phone.hs-input .hs-input {
+                float: none;
+                // Hubspot script set important for these elements, so we also need to use important
+                /* stylelint-disable-next-line declaration-no-important */
+                width: 100% !important;
+
+                & + .hs-input {
+                    margin-top: 10px;
+                }
+            }
         }
 
         // fields with horizontal orientation
