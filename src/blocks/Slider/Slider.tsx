@@ -348,6 +348,7 @@ export const SliderBlock = (props: WithChildren<SliderProps>) => {
             <OutsideClick onOutsideClick={isMobile ? unsetFocus : noop}>
                 <SlickSlider {...settings}>
                     {React.Children.map(disclosedChildren, (child, i) => {
+                        //@ts-ignore to prevent focusable elements from other slides being focused
                         return <div inert={currentIndex !== i ? '' : undefined}>{child}</div>;
                     })}
                 </SlickSlider>
