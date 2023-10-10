@@ -53,7 +53,7 @@ $block: '.#{$ns}SliderBlock';
             height: auto;
         }
 
-        .slick-slide > div {
+        .slick-slide > div, .slick-slide > div > div {
             height: 100%;
         }
     }
