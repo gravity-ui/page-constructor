@@ -354,18 +354,7 @@ export const SliderBlock = (props: WithChildren<SliderProps>) => {
 
         return (
             <OutsideClick onOutsideClick={isMobile ? unsetFocus : noop}>
-                <SlickSlider {...settings}>
-                    {React.Children.map(disclosedChildren, (child, i) => {
-                        return (
-                            <div
-                                //@ts-ignore to prevent focusable elements from other slides being focused
-                                inert={isVisibleSlide(i) ? undefined : ''}
-                            >
-                                {child}
-                            </div>
-                        );
-                    })}
-                </SlickSlider>
+                <SlickSlider {...settings}>{disclosedChildren}</SlickSlider>
                 <div className={b('footer')}>
                     {renderDisclaimer()}
                     {renderNavigation()}
