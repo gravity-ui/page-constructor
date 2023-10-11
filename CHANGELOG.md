@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [4.22.0](https://github.com/gravity-ui/page-constructor/compare/v4.21.0...v4.22.0) (2023-10-11)
+
+
+### Features
+
+* **Header:** fix video size ([#625](https://github.com/gravity-ui/page-constructor/issues/625)) ([44cf17e](https://github.com/gravity-ui/page-constructor/commit/44cf17ebeb6baee16108d6a914cd8089463ec76a))
+
 ## [4.21.0](https://github.com/gravity-ui/page-constructor/compare/v4.20.2...v4.21.0) (2023-10-06)
 
 
