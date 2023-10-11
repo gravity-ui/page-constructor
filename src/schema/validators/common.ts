@@ -1,5 +1,10 @@
 import {ImageProps, imageUrlPattern} from '../../components/Image/schema';
-import {Theme} from '../../models';
+import {
+    CustomControlsButtonPositioning,
+    CustomControlsType,
+    MediaVideoControlsType,
+    Theme,
+} from '../../models';
 
 import {AnalyticsEventSchema} from './event';
 import {pixelEvents} from './pixel';
@@ -14,12 +19,21 @@ export const contentTextWidth = ['s', 'm', 'l'];
 export const videoTypes = ['default', 'player'];
 export const playIconTypes = ['default', 'text'];
 export const playIconThemes = ['blue', 'grey'];
-export const videoControlsTypes = ['default', 'custom'];
+export const videoControlsTypes = [MediaVideoControlsType.Default, MediaVideoControlsType.Custom];
 export const fileLinkTypes = ['vertical', 'horizontal'];
 
 export const dividerEnum = {enum: [0, 'xxs', 'xs', 's', 'm', 'l', 'xl', 'xxl', 'xxxl']};
 export const sizeNumber = {type: 'number', maximum: 12, minimum: 1};
 export const contentThemes = ['default', 'dark', 'light'];
+export const customControlsType = [
+    CustomControlsType.WithMuteButton,
+    CustomControlsType.WithPlayPauseButton,
+];
+export const customControlsButtonPositioning = [
+    CustomControlsButtonPositioning.Center,
+    CustomControlsButtonPositioning.Left,
+    CustomControlsButtonPositioning.Right,
+];
 
 export const BaseProps = {
     type: {},
@@ -98,6 +112,24 @@ export const PlayButtonProps = {
     },
 };
 
+export const CustomControlsOptionsProps = {
+    type: 'object',
+    additionalProperties: false,
+    properties: {
+        type: {
+            type: 'string',
+            enum: customControlsType,
+        },
+        muteButtonShown: {
+            type: 'boolean',
+        },
+        positioning: {
+            type: 'string',
+            enum: customControlsButtonPositioning,
+        },
+    },
+};
+
 export const VideoProps = {
     type: 'object',
     additionalProperties: false,
@@ -138,6 +170,10 @@ export const VideoProps = {
         controls: {
             type: 'string',
             enum: videoControlsTypes,
+        },
+        customControlsOptions: CustomControlsOptionsProps,
+        ariaLabel: {
+            type: 'string',
         },
     },
 };
