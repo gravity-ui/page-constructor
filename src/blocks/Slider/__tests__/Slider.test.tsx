@@ -41,30 +41,13 @@ describe('Slider', () => {
         const barDotsCount = CARDS_COUNT - slidesToShow + 1;
 
         // Checking labels for the first slide
-        if (slidesToShow > 1) {
-            // There we have a bar covering `slidesToShow` dots
-            // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
-            const accessibleBarElement = container.querySelector('.pc-SliderBlock__accessible-bar');
-            expect(accessibleBarElement?.getAttribute('aria-label')).toBe(
-                `Slide 1 of ${barDotsCount}`,
-            );
-            expect(
-                queryHelpers.queryAllByAttribute(
-                    'aria-label',
-                    container,
-                    `Slide 1 of ${barDotsCount}`,
-                ),
-            ).toHaveLength(slidesToShow + 1);
-        } else {
-            // There is no bar covering dots
-            expect(
-                queryHelpers.queryAllByAttribute(
-                    'aria-label',
-                    container,
-                    `Slide 1 of ${barDotsCount}`,
-                ),
-            ).toHaveLength(1);
-        }
+        // There we have a bar covering `slidesToShow` dots
+        // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
+        const accessibleBarElement = container.querySelector('.pc-SliderBlock__accessible-bar');
+        expect(accessibleBarElement?.getAttribute('aria-label')).toBe(`Slide 1 of ${barDotsCount}`);
+        expect(
+            queryHelpers.queryAllByAttribute('aria-label', container, `Slide 1 of ${barDotsCount}`),
+        ).toHaveLength(slidesToShow + 1);
 
         // Checking labels for the slides starting from 2
         Array(barDotsCount - 1)
