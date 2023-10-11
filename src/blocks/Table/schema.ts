@@ -53,6 +53,9 @@ export const TableBlock = {
                         type: 'string',
                         enum: ['disk', 'tick'],
                     },
+                    caption: {
+                        type: 'string',
+                    },
                 },
             },
         },
