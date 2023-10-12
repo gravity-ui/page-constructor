@@ -1,6 +1,20 @@
 # Changelog
 
 
+## [4.24.0](https://github.com/gravity-ui/page-constructor/compare/v4.23.0...v4.24.0) (2023-10-12)
+
+
+### chore
+
+* bump release ([#630](https://github.com/gravity-ui/page-constructor/issues/630)) ([c39a19b](https://github.com/gravity-ui/page-constructor/commit/c39a19bebaea4658c0ed4112d778eea712da0ca0))
+* bump release ([#632](https://github.com/gravity-ui/page-constructor/issues/632)) ([ed50167](https://github.com/gravity-ui/page-constructor/commit/ed501677eada498ab9a9adefe9753c12be90193e))
+* version bump ([#638](https://github.com/gravity-ui/page-constructor/issues/638)) ([c9eee95](https://github.com/gravity-ui/page-constructor/commit/c9eee95103b27166d87f68d39b73fe90504be60f))
+
+
+### Features
+
+* added ratio property in Media schema ([#635](https://github.com/gravity-ui/page-constructor/issues/635)) ([cfb4056](https://github.com/gravity-ui/page-constructor/commit/cfb40565a39fc15b9702d2af1960107fe468e6a0))
+
 ## [4.23.0](https://github.com/gravity-ui/page-constructor/compare/v4.22.0...v4.23.0) (2023-10-12)
 
 
