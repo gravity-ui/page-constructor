@@ -594,6 +594,9 @@ export const MediaProps = {
     analyticsEvents: {
         anyOf: [AnalyticsEventSchema, {type: 'array', items: AnalyticsEventSchema}],
     },
+    ratio: {
+        type: 'number',
+    },
 };
 
 export const YMapMarkerLabel = {
