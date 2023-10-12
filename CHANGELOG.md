@@ -1,19 +1,13 @@
 # Changelog
 
 
-## [4.23.0](https://github.com/gravity-ui/page-constructor/compare/v4.23.0...v4.23.0) (2023-10-12)
-
-
-### chore
-
-* bump release ([#630](https://github.com/gravity-ui/page-constructor/issues/630)) ([c39a19b](https://github.com/gravity-ui/page-constructor/commit/c39a19bebaea4658c0ed4112d778eea712da0ca0))
-
 ## [4.23.0](https://github.com/gravity-ui/page-constructor/compare/v4.22.0...v4.23.0) (2023-10-12)
 
 
 ### Features
 
 * export indents mixin ([#626](https://github.com/gravity-ui/page-constructor/issues/626)) ([2609ca9](https://github.com/gravity-ui/page-constructor/commit/2609ca9cf761e085c4418c42f27fd6c474b26eb2))
+* update schemas for Table and Media blocks ([#628](https://github.com/gravity-ui/page-constructor/issues/628)) ([b9b5fff](https://github.com/gravity-ui/page-constructor/commit/b9b5fff21feebd1c7e30244ab9c93f8da765bdf0))
 
 ## [4.22.0](https://github.com/gravity-ui/page-constructor/compare/v4.21.0...v4.22.0) (2023-10-11)
 
