@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [4.23.0](https://github.com/gravity-ui/page-constructor/compare/v4.22.0...v4.23.0) (2023-10-12)
+
+
+### Features
+
+* export indents mixin ([#626](https://github.com/gravity-ui/page-constructor/issues/626)) ([2609ca9](https://github.com/gravity-ui/page-constructor/commit/2609ca9cf761e085c4418c42f27fd6c474b26eb2))
+
 ## [4.22.0](https://github.com/gravity-ui/page-constructor/compare/v4.21.0...v4.22.0) (2023-10-11)
 
 
