@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [4.23.0](https://github.com/gravity-ui/page-constructor/compare/v4.23.0...v4.23.0) (2023-10-12)
+
+
+### chore
+
+* bump release ([#630](https://github.com/gravity-ui/page-constructor/issues/630)) ([c39a19b](https://github.com/gravity-ui/page-constructor/commit/c39a19bebaea4658c0ed4112d778eea712da0ca0))
+
 ## [4.23.0](https://github.com/gravity-ui/page-constructor/compare/v4.22.0...v4.23.0) (2023-10-12)
 
 
