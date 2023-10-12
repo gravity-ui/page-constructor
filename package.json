@@ -93,7 +93,7 @@
     "react-monaco-editor": "^0.53.0",
     "react-player": "^2.9.0",
     "react-slick": "^0.29.0",
-    "react-spring": "^9.7.2",
+    "react-spring": "9.7.2",
     "react-transition-group": "^4.4.2",
     "react-waypoint": "^10.1.0",
     "sanitize-html": "2.6.1",
