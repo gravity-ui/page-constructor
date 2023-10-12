@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [4.24.0](https://github.com/gravity-ui/page-constructor/compare/v4.23.0...v4.24.0) (2023-10-12)
+
+
+### Features
+
+* added ratio property in Media schema ([#635](https://github.com/gravity-ui/page-constructor/issues/635)) ([cfb4056](https://github.com/gravity-ui/page-constructor/commit/cfb40565a39fc15b9702d2af1960107fe468e6a0))
+
 ## [4.23.0](https://github.com/gravity-ui/page-constructor/compare/v4.22.0...v4.23.0) (2023-10-12)
 
 
