@@ -49,7 +49,7 @@
         }
 
         p strong {
-            font-weight: 500;
+            font-weight: var(--g-text-accent-font-weight);
         }
 
         &_size_s {
