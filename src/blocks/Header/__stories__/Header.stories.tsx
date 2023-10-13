@@ -58,6 +58,26 @@ const ImageTemplate: StoryFn<HeaderBlockModel> = (args) => (
     </Fragment>
 );
 
+const FitTemplate: StoryFn<HeaderBlockModel> = (args) => (
+    <Fragment>
+        <DefaultTemplate {...args} title={getImageTitle('«M»')} width="m" />
+        <DefaultTemplate
+            {...args}
+            {...data.imageFit.content}
+            title={getImageTitle('«S»')}
+            width="s"
+        />
+        <DefaultTemplate {...args} {...data.video.content} title={getImageTitle('«S»')} width="s" />
+        <DefaultTemplate
+            {...args}
+            {...data.videoFit.content}
+            title={getImageTitle('«S»')}
+            width="s"
+            description={yfmTransform(data.videoFit.description)}
+        />
+    </Fragment>
+);
+
 const VerticalOffsetTemplate: StoryFn<HeaderBlockModel> = (args) => (
     <Fragment>
         <DefaultTemplate {...args} title={getVerticalOffsetTitle('«S»')} verticalOffset="s" />
@@ -179,6 +199,7 @@ export const FullWithBackground = FullWithBackgroundTemplate.bind({});
 export const FullWidthMediaBackground = FullWidthMediaBackgroundTemplate.bind({});
 export const DarkTheme = DefaultTemplate.bind({});
 export const Breadcrumbs = BreadCrumbsTemplate.bind({});
+export const MediaViewFit = FitTemplate.bind({});
 
 Default.args = {...DefaultArgs} as HeaderBlockProps;
 
@@ -214,4 +235,10 @@ DarkTheme.args = {
 Breadcrumbs.args = {
     ...DefaultArgs,
     ...data.breadcrumbs.content,
+} as HeaderBlockProps;
+
+MediaViewFit.args = {
+    ...DefaultArgs,
+    ...data.image.content,
+    mediaView: 'fit',
 } as HeaderBlockProps;
