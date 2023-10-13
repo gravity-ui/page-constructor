@@ -349,6 +349,7 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
 
         const onFocusIn = useCallback(() => setHovered(true), []);
         const onFocusOut = useCallback(() => setHovered(false), []);
+        const pictureInPictureEnabled = !isMobile || !autoPlay;
 
         return (
             <div
@@ -391,6 +392,8 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
                             onProgress={onProgress}
                             onEnded={onEnded}
                             aria-label={ariaLabel}
+                            pip={pictureInPictureEnabled}
+                            playsinline={autoPlay}
                         />
                         {controls === MediaVideoControlsType.Custom && (
                             <CustomBarControls
