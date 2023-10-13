@@ -16,6 +16,7 @@ $withMuteControlWidth: 32px;
         bottom: 0;
         opacity: 0;
         transition: opacity $animationDuration ease 3s;
+        z-index: 1;
 
         &_shown {
             opacity: 1;
