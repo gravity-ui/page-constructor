@@ -115,7 +115,7 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
         const [started, setStarted] = useState(autoPlay);
         const [ended, setEnded] = useState<boolean>(false);
         const [isMounted, setIsMounted] = useState(false);
-        const [hovered, setHovered] = useState(false);
+        const [hovered, setHovered] = useState(isMobile);
 
         useMount(() => setIsMounted(true));
 
