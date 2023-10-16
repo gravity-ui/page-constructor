@@ -37,12 +37,10 @@
 
     &_theme_light {
         @include pc-colors-light;
-        --g-color-line-focus: var(--g-color-text-brand);
     }
 
     &_theme_dark {
         @include pc-colors-dark;
-        --g-color-line-focus: var(--g-color-text-light-primary);
     }
 
     &.g-root_theme_dark {

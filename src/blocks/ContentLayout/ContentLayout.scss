@@ -60,12 +60,6 @@ $block: '.#{$ns}content-layout-block';
         padding: $indentXL;
     }
 
-    &_theme {
-        &_dark {
-            --g-color-line-focus: var(--g-color-text-light-primary);
-        }
-    }
-
     @media (max-width: map-get($gridBreakpoints, 'sm')) {
         &_background {
             padding: $indentM;
