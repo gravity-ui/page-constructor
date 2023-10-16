@@ -42,7 +42,7 @@
                   "start": 0
                 }
               },
-              "previewImage": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_white.png"
+              "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_white.png"
             },
             "dark": {
               "video": {
@@ -55,7 +55,7 @@
                   "start": 0
                 }
               },
-              "previewImage": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_dark.png"
+              "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_dark.png"
             }
           },
           "caption": "Dolor sit amet",
