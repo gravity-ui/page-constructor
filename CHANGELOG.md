@@ -6,7 +6,7 @@
 
 ### chore
 
-* bump release ([#644](https://github.com/gravity-ui/page-constructor/issues/644)) ([912dc63](https://github.com/gravity-ui/page-constructor/commit/912dc63d39368a103ff05fe2b2941e9905922a3f))
+* **Revert:** **Tabs:** add image variative height for media ([#644](https://github.com/gravity-ui/page-constructor/issues/644)) ([912dc63](https://github.com/gravity-ui/page-constructor/commit/912dc63d39368a103ff05fe2b2941e9905922a3f))
 
 ## [4.24.0](https://github.com/gravity-ui/page-constructor/compare/v4.23.0...v4.24.0) (2023-10-12)
 
