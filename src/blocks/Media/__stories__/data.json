@@ -131,7 +131,6 @@
             "customControlsOptions": {
               "type": "with-play-pause-button",
               "muteButtonShown": false,
-              "backgroundShadowHidden": true,
               "positioning": "left"
             },
             "muted": true,
@@ -154,7 +153,6 @@
             "customControlsOptions": {
               "type": "with-play-pause-button",
               "muteButtonShown": false,
-              "backgroundShadowHidden": true,
               "positioning": "left"
             },
             "muted": true,
