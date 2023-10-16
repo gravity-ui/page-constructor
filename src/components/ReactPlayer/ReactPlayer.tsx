@@ -394,6 +394,17 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
                             aria-label={ariaLabel}
                             pip={pictureInPictureEnabled}
                             playsinline={autoPlay}
+                            config={{
+                                file: {
+                                    attributes: {
+                                        pip: pictureInPictureEnabled ? undefined : 'false',
+                                        playsinline: autoPlay ? '' : undefined,
+                                        disablepictureinpicture: pictureInPictureEnabled
+                                            ? undefined
+                                            : '',
+                                    },
+                                },
+                            }}
                         />
                         {controls === MediaVideoControlsType.Custom && (
                             <CustomBarControls
