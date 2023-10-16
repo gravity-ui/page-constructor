@@ -391,6 +391,8 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
                             onProgress={onProgress}
                             onEnded={onEnded}
                             aria-label={ariaLabel}
+                            pip={!props.autoplay}
+                            playsinline={props.autoplay}
                             config={{
                                 file: {
                                     attributes: {
