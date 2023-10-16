@@ -349,7 +349,7 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
 
         const onFocusIn = useCallback(() => setHovered(true), []);
         const onFocusOut = useCallback(() => setHovered(false), []);
-        const pictureInPictureEnabled = !isMobile || !autoPlay;
+        const isPipEnabled = !isMobile || !props.autoplay;
 
         return (
             <div
@@ -392,16 +392,12 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
                             onProgress={onProgress}
                             onEnded={onEnded}
                             aria-label={ariaLabel}
-                            pip={pictureInPictureEnabled}
-                            playsinline={autoPlay}
                             config={{
                                 file: {
                                     attributes: {
-                                        pip: pictureInPictureEnabled ? undefined : 'false',
-                                        playsinline: autoPlay ? '' : undefined,
-                                        disablepictureinpicture: pictureInPictureEnabled
-                                            ? undefined
-                                            : '',
+                                        pip: isPipEnabled ? undefined : 'false',
+                                        playsinline: isPipEnabled ? undefined : '',
+                                        disablepictureinpicture: isPipEnabled ? undefined : '',
                                     },
                                 },
                             }}
