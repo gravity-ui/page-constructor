@@ -391,14 +391,12 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
                             onProgress={onProgress}
                             onEnded={onEnded}
                             aria-label={ariaLabel}
-                            pip={!props.autoplay}
-                            playsinline={props.autoplay}
                             config={{
                                 file: {
                                     attributes: {
-                                        pip: props.autoplay ? 'false' : undefined,
-                                        playsinline: props.autoplay ? '' : undefined,
-                                        disablepictureinpicture: props.autoplay ? '' : undefined,
+                                        pip: 'false',
+                                        playsinline: '',
+                                        disablepictureinpicture: '',
                                     },
                                 },
                             }}
