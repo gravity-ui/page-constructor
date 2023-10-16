@@ -4,6 +4,8 @@
 $block: '.#{$ns}hubspot-form';
 
 #{$block} {
+    --g-color-line-focus: var(--pc-color-line-focus-light);
+
     $requiredWidth: 10px;
     $checkbox: 17px;
     $checkboxIcon: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOCIgaGVpZ2h0PSIxOCIgZmlsbD0ibm9uZSIgdmlld0JveD0iMCAwIDE4IDE4Ij4KICAgIDxwYXRoIGQ9Ik0xNS42MjMgMWwtOS4xNSAxMy4xNzQtNC4yODctNC42TDEgMTEuMDMgNi42MiAxNyAxNyAyLjI3IDE1LjYyMyAxeiIgZmlsbD0iIzAwMDAwMCIvPgo8L3N2Zz4K');
@@ -423,6 +425,8 @@ $block: '.#{$ns}hubspot-form';
 
     &_theme {
         &_dark {
+            --g-color-line-focus: var(--pc-color-line-focus-dark);
+
             .hs-form-field .input select {
                 background-image: $selectChevronDark;
             }
