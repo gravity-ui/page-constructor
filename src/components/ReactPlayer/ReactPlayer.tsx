@@ -394,9 +394,9 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
                             config={{
                                 file: {
                                     attributes: {
-                                        pip: 'false',
-                                        playsinline: '',
-                                        disablepictureinpicture: '',
+                                        pip: isMobile ? 'false' : undefined,
+                                        playsinline: isMobile ? '' : undefined,
+                                        disablepictureinpicture: isMobile ? '' : undefined,
                                     },
                                 },
                             }}
