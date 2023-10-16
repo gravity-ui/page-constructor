@@ -263,7 +263,7 @@ $block: '.#{$ns}hubspot-form';
         p {
             color: var(--g-color-text-primary);
             @include text-body-2();
-            margin: 20px 0;
+            margin: $indentS 0;
         }
 
         a {
@@ -337,7 +337,7 @@ $block: '.#{$ns}hubspot-form';
         overflow: visible;
         box-sizing: border-box;
         height: 44px;
-        padding: 0 20px;
+        padding: 0 $indentS;
         border-radius: var(--g-border-radius-xl);
         background-color: var(--g-color-base-brand);
         color: var(--g-color-text-brand-contrast);
