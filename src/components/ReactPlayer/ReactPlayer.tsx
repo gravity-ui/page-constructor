@@ -115,7 +115,7 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
         const [started, setStarted] = useState(autoPlay);
         const [ended, setEnded] = useState<boolean>(false);
         const [isMounted, setIsMounted] = useState(false);
-        const [hovered, setHovered] = useState(false);
+        const [hovered, setHovered] = useState(isMobile);
 
         useMount(() => setIsMounted(true));
 
@@ -391,6 +391,15 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
                             onProgress={onProgress}
                             onEnded={onEnded}
                             aria-label={ariaLabel}
+                            config={{
+                                file: {
+                                    attributes: {
+                                        pip: isMobile ? 'false' : undefined,
+                                        playsinline: isMobile ? '' : undefined,
+                                        disablepictureinpicture: isMobile ? '' : undefined,
+                                    },
+                                },
+                            }}
                         />
                         {controls === MediaVideoControlsType.Custom && (
                             <CustomBarControls
