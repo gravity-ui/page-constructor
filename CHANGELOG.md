@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [4.25.1](https://github.com/gravity-ui/page-constructor/compare/v4.25.0...v4.25.1) (2023-10-17)
+
+
+### Bug Fixes
+
+* fixing pip and fullscreen video in player for mobile devices ([#641](https://github.com/gravity-ui/page-constructor/issues/641)) ([5f8c517](https://github.com/gravity-ui/page-constructor/commit/5f8c517f544672956cea158e363dc599ffa1478c))
+
 ## [4.25.0](https://github.com/gravity-ui/page-constructor/compare/v4.24.0...v4.25.0) (2023-10-16)
 
 
