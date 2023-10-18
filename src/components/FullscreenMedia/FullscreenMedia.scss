@@ -78,7 +78,8 @@ $modalYoutubeWidth: min(65vw, #{$newContentWidth});
             transition: opacity 0.3s;
             pointer-events: none;
 
-            &_visible, &:focus {
+            &_visible,
+            &:focus {
                 opacity: 1;
                 pointer-events: inherit;
             }
