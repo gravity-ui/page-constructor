@@ -41,8 +41,7 @@
                 "loop": {
                   "start": 0
                 }
-              },
-              "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_white.png"
+              }
             },
             "dark": {
               "video": {
@@ -54,8 +53,49 @@
                 "loop": {
                   "start": 0
                 }
-              },
-              "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_dark.png"
+              }
+            }
+          },
+          "caption": "Dolor sit amet",
+          "text": "* Ut enim ad minim veniam\n* Ut enim ad minim veniam",
+          "links": [
+            {
+              "url": "https://example.com",
+              "text": "Link",
+              "theme": "normal",
+              "arrow": true
+            }
+          ]
+        },
+        {
+          "tabName": "Ut enim",
+          "title": "Ut enim",
+          "media": {
+            "light": {
+              "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.png",
+              "video": {
+                "type": "player",
+                "src": [
+                  "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.webm",
+                  "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.mp4",
+                  "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.png"
+                ],
+                "autoplay": false,
+                "ariaLabel": "Video accessible name example"
+              }
+            },
+            "dark": {
+              "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_dark.png",
+              "video": {
+                "type": "player",
+                "src": [
+                  "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_dark.webm",
+                  "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_dark.mp4",
+                  "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_dark.png"
+                ],
+                "autoplay": false,
+                "ariaLabel": "Video accessible name example"
+              }
             }
           },
           "caption": "Dolor sit amet",
@@ -85,6 +125,28 @@
           },
           "caption": "Consectetur adipiscing elit",
           "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        },
+        {
+          "tabName": "minim veniam",
+          "title": "minim veniam",
+          "media": {
+            "light": {
+              "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_6-12_white.png"
+            },
+            "dark": {
+              "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_6-12_dark.png"
+            }
+          },
+          "caption": "Dolor sit amet",
+          "text": "* Ut enim ad minim veniam\n* Ut enim ad minim veniam",
+          "links": [
+            {
+              "url": "https://example.com",
+              "text": "Link",
+              "theme": "normal",
+              "arrow": true
+            }
+          ]
         }
       ]
     }
