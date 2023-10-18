@@ -39,12 +39,13 @@ export const TabsBlock = ({
     const mediaWidth = ref?.current?.offsetWidth;
     const mediaHeight = mediaWidth && getHeight(mediaWidth);
     const captionId = useUniqId();
+    const themedMedia = getThemedValue(activeTabData?.media, theme);
+    const setHeightForVideo = Boolean(!themedMedia?.image) || undefined;
 
+    // TODO remove property support activeTabData?.image. Use only activeTabData?.media?.image
     let imageProps;
-
     if (activeTabData) {
-        const themedImage = getThemedValue(activeTabData.image, theme);
-
+        const themedImage = getThemedValue(activeTabData?.image, theme);
         imageProps = themedImage && getMediaImage(themedImage);
         if (activeTabData.caption && imageProps) {
             Object.assign(imageProps, {
@@ -98,7 +99,7 @@ export const TabsBlock = ({
                         key={activeTab}
                         className={b('media')}
                         playVideo={play}
-                        height={mediaHeight}
+                        height={setHeightForVideo && mediaHeight}
                     />
                 )}
             </div>
@@ -141,7 +142,7 @@ export const TabsBlock = ({
                 </Col>
             </Row>
             {activeTabData && (
-                <Row className={b('row', {reverse: isReverse})}>
+                <Row className={b('row', {reverse: isReverse})} style={{minHeight: mediaHeight}}>
                     {mediaContent}
                     {textContent}
                 </Row>
