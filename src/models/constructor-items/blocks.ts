@@ -148,6 +148,7 @@ export interface HeaderBlockProps {
     offset?: HeaderOffset;
     image?: ThemedImage;
     video?: ThemedMediaVideoProps;
+    mediaView?: 'fit' | 'full';
     background?: ThemedHeaderBlockBackground;
     theme?: 'light' | 'dark';
     verticalOffset?: 's' | 'm' | 'l' | 'xl';

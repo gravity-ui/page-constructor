@@ -44,6 +44,10 @@ export const HeaderProperties = {
     },
     image: withTheme(ImageProps),
     video: withTheme(VideoProps),
+    mediaView: {
+        type: 'string',
+        enum: ['fit', 'full'],
+    },
     backLink: {
         type: 'object',
         required: ['url', 'title'],

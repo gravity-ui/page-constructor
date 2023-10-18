@@ -78,6 +78,7 @@ export const HeaderBlock = (props: WithChildren<HeaderBlockFullProps>) => {
         breadcrumbs,
         status,
         children,
+        mediaView = 'full',
     } = props;
     const isMobile = useContext(MobileContext);
     const theme = useTheme();
@@ -97,7 +98,14 @@ export const HeaderBlock = (props: WithChildren<HeaderBlockFullProps>) => {
 
     return (
         <header
-            className={b({['has-media']: hasRightSideImage, ['full-width']: fullWidth}, className)}
+            className={b(
+                {
+                    ['has-media']: hasRightSideImage,
+                    ['full-width']: fullWidth,
+                    ['media-view']: mediaView,
+                },
+                className,
+            )}
         >
             {backgroundThemed && fullWidth && <FullWidthBackground background={backgroundThemed} />}
             {backgroundThemed && <Background background={backgroundThemed} isMobile={isMobile} />}

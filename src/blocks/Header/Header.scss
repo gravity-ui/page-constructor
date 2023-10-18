@@ -193,6 +193,21 @@ $backgroundWidth: 1440px;
         }
     }
 
+    &_media-view_fit {
+        #{$block}__video > video,
+        #{$block}__image {
+            object-fit: contain;
+            height: auto;
+            width: auto;
+            max-height: 100%;
+            max-width: 100%;
+            position: relative;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+
     @media (max-width: $backgroundWidth) {
         &__background,
         &__background#{$block}__background_media {

@@ -17,7 +17,7 @@ $block: '.#{$ns}table';
     &__row {
         display: flex;
         &:first-child {
-            font-weight: 500;
+            font-weight: var(--g-text-accent-font-weight);
 
             #{$root}__cell {
                 border-bottom-color: var(--g-color-line-generic-active);
