@@ -13,6 +13,8 @@ $block: '.#{$ns}banner-card';
     $borderRadius: $borderRadius;
 
     &_theme_dark {
+        --g-color-line-focus: var(--pc-color-line-focus-dark);
+
         @include add-specificity(&) {
             #{$class}__title,
             #{$class}__subtitle {

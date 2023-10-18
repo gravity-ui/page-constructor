@@ -70,12 +70,7 @@ $withMuteControlWidth: 32px;
                     background: $videoPlayButtonGrey;
                 }
 
-                &:focus {
-                    outline: 2px solid var(--g-color-line-misc);
-                }
-                &:focus:not(:focus-visible) {
-                    outline: none;
-                }
+                @include focusable();
             }
 
             &_with-play-pause-button {
@@ -84,13 +79,7 @@ $withMuteControlWidth: 32px;
                 border-radius: 50%;
                 background: var(--g-color-base-background);
                 @include shadow();
-
-                &:focus {
-                    outline: 2px solid var(--g-color-line-misc);
-                }
-                &:focus:not(:focus-visible) {
-                    outline: none;
-                }
+                @include focusable();
             }
         }
     }

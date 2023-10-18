@@ -10,6 +10,12 @@ $closeButtonSize: 36px;
 
         &-wrapper {
             position: relative;
+
+            &:hover {
+                #{$block}__icon-wrapper {
+                    opacity: 1;
+                }
+            }
         }
     }
 
@@ -31,6 +37,9 @@ $closeButtonSize: 36px;
     }
 
     &__icon-wrapper {
+        @include reset-button-style();
+        @include focusable();
+
         display: flex;
         align-items: center;
         justify-content: center;
@@ -45,7 +54,7 @@ $closeButtonSize: 36px;
         opacity: 0;
         transition: 0.3s;
 
-        &_visible {
+        &:focus {
             opacity: 1;
         }
     }

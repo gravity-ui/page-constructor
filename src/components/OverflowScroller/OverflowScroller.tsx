@@ -5,6 +5,8 @@ import debounce from 'lodash/debounce';
 import {ToggleArrow} from '..';
 import {block} from '../../utils';
 
+import i18n from './i18n';
+
 import './OverflowScroller.scss';
 
 const b = block('overflow-scroller');
@@ -78,13 +80,14 @@ export default class OverflowScroller extends React.Component<
                     </div>
                 </div>
                 {arrows.map((direction: Arrow) => (
-                    <div
+                    <button
                         key={direction}
                         className={b('arrow', {type: direction}, arrowClassName)}
                         onClick={(e: React.MouseEvent) => this.handleScrollClick(e, direction)}
+                        aria-label={i18n(direction)}
                     >
                         <ToggleArrow size={arrowSize} type={'horizontal'} iconType="navigation" />
-                    </div>
+                    </button>
                 ))}
             </div>
         );

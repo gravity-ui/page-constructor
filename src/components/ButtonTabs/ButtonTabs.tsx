@@ -65,7 +65,7 @@ const ButtonTabs: React.FC<ButtonTabsProps> = ({
                         size={tabSize}
                         onClick={handleClick(id)}
                         extraProps={{
-                            'aria-current': isActive,
+                            'aria-current': isActive || undefined,
                         }}
                     />
                 );

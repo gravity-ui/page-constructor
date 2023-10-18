@@ -1,6 +1,6 @@
 import React, {useContext, useState} from 'react';
 
-import {Icon, Modal} from '@gravity-ui/uikit';
+import {Button, Icon, Modal} from '@gravity-ui/uikit';
 
 import {MobileContext} from '../../context/mobileContext';
 import {Fullscreen, PreviewClose} from '../../icons';
@@ -44,27 +44,35 @@ const FullscreenMedia = ({children, showFullscreenIcon = true}: FullscreenMediaP
             <div className={b('media-wrapper')} onClickCapture={openModal}>
                 {children({className: b('inline-media')})}
                 {showFullscreenIcon && (
-                    <div className={b('icon-wrapper')} onClickCapture={openModal}>
+                    <Button
+                        className={b('icon-wrapper')}
+                        extraProps={{onClickCapture: openModal}}
+                        size={'l'}
+                    >
                         <Icon
                             data={Fullscreen}
                             width={FULL_SCREEN_ICON_SIZE}
                             height={FULL_SCREEN_ICON_SIZE}
                             className={b('icon')}
                         />
-                    </div>
+                    </Button>
                 )}
             </div>
             {isOpened && (
                 <Modal open={isOpened} onClose={closeModal} className={b('modal')}>
                     <div className={b('modal-content')}>
-                        <div className={b('icon-wrapper', {visible: true})} onClick={closeModal}>
+                        <Button
+                            className={b('icon-wrapper', {visible: true})}
+                            onClick={closeModal}
+                            size={'l'}
+                        >
                             <Icon
                                 data={PreviewClose}
                                 width={CLOSE_ICON_SIZE}
                                 height={CLOSE_ICON_SIZE}
                                 className={b('icon', {hover: true})}
                             />
-                        </div>
+                        </Button>
                         {children({
                             imageClassName: getMediaClass('image'),
                             videoClassName: getMediaClass('video'),
