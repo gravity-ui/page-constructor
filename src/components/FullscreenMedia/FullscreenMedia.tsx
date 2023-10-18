@@ -1,4 +1,4 @@
-import React, {useCallback, useContext, useState} from 'react';
+import React, {useContext, useState} from 'react';
 
 import {Button, Icon, Modal} from '@gravity-ui/uikit';
 
@@ -28,7 +28,6 @@ const getMediaClass = (type: string) => b('modal-media', {type});
 const FullscreenMedia = ({children, showFullscreenIcon = true}: FullscreenMediaProps) => {
     const [isOpened, setIsOpened] = useState(false);
     const isMobile = useContext(MobileContext);
-    const [isFullscreenButtonFocused, setIsFullscreenButtonFocused] = useState(false);
 
     const openModal = (e: React.MouseEvent) => {
         e.stopPropagation();
@@ -36,33 +35,19 @@ const FullscreenMedia = ({children, showFullscreenIcon = true}: FullscreenMediaP
     };
     const closeModal = () => setIsOpened(false);
 
-    const onShowFullScreenButton = useCallback(() => {
-        setIsFullscreenButtonFocused(true);
-    }, []);
-    const onHideFullScreenButton = useCallback(() => {
-        setIsFullscreenButtonFocused(false);
-    }, []);
-
     if (isMobile) {
         return children();
     }
 
     return (
         <div className={b()}>
-            <div
-                className={b('media-wrapper')}
-                onClickCapture={openModal}
-                onMouseOver={onShowFullScreenButton}
-                onMouseOut={onHideFullScreenButton}
-            >
+            <div className={b('media-wrapper')} onClickCapture={openModal}>
                 {children({className: b('inline-media')})}
                 {showFullscreenIcon && (
                     <Button
-                        className={b('icon-wrapper', {visible: isFullscreenButtonFocused})}
+                        className={b('icon-wrapper')}
                         extraProps={{onClickCapture: openModal}}
                         size={'l'}
-                        onFocus={onShowFullScreenButton}
-                        onBlur={onHideFullScreenButton}
                     >
                         <Icon
                             data={Fullscreen}
