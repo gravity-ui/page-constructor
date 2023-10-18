@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [4.26.0](https://github.com/gravity-ui/page-constructor/compare/v4.25.1...v4.26.0) (2023-10-18)
+
+
+### Features
+
+* added focus styles for interactive elements ([#576](https://github.com/gravity-ui/page-constructor/issues/576)) ([4c6dd96](https://github.com/gravity-ui/page-constructor/commit/4c6dd9658803f6bd7a897d95bd2ffdc6101c6d21))
+
 ## [4.25.1](https://github.com/gravity-ui/page-constructor/compare/v4.25.0...v4.25.1) (2023-10-17)
 
 
