@@ -6,7 +6,8 @@
 
 ### chore
 
-* bump release ([#648](https://github.com/gravity-ui/page-constructor/issues/648)) ([d173cc7](https://github.com/gravity-ui/page-constructor/commit/d173cc7a875e24086eb51c7fcf30dec66565d0ff))
+* add var font-weight ([#642](https://github.com/gravity-ui/page-constructor/issues/642)) ([d06b155](https://github.com/gravity-ui/page-constructor/commit/d06b15547b27f62e636b0fd7fa3ce3b76663eb00))
+* **Header:** add fit view for media ([#642](https://github.com/gravity-ui/page-constructor/issues/642)) ([3127676](https://github.com/gravity-ui/page-constructor/commit/312767662d7323d642841d4bab071be8dfd013a2))
 
 ## [4.26.0](https://github.com/gravity-ui/page-constructor/compare/v4.25.1...v4.26.0) (2023-10-18)
 
