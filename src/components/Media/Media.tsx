@@ -135,6 +135,7 @@ export const Media = (props: MediaAllProps) => {
         customBarControlsClassName,
         ratio,
         youtubeClassName,
+        autoplay,
     ]);
 
     return (

@@ -138,7 +138,7 @@ const VideoBlock = (props: VideoBlockProps) => {
             ref.current.appendChild(iframe);
             iframeRef.current = iframe;
         }
-    }, [stream, record, norender, src, fullId, attributes, iframeRef, previewImg]);
+    }, [stream, record, norender, src, fullId, attributes, iframeRef, previewImg, autoplay]);
 
     useEffect(() => {
         setHidePreview(false);
