@@ -138,14 +138,14 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockRefType, ReactP
                     return;
                 }
 
-                const {play, pause, addEventListener} =
-                    playerRef.getInternalPlayer() as HTMLVideoElement;
+                const videoInstance = playerRef.getInternalPlayer() as HTMLVideoElement;
+                const {play, pause, addEventListener} = videoInstance;
 
                 // eslint-disable-next-line consistent-return
                 return {
-                    play,
-                    pause,
-                    addEventListener,
+                    play: play.bind(videoInstance),
+                    pause: pause.bind(videoInstance),
+                    addEventListener: addEventListener.bind(videoInstance),
                 };
             },
             [playerRef],
