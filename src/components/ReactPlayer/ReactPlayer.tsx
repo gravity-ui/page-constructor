@@ -141,6 +141,7 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockRefType, ReactP
                 const {play, pause, addEventListener} =
                     playerRef.getInternalPlayer() as HTMLVideoElement;
 
+                // eslint-disable-next-line consistent-return
                 return {
                     play,
                     pause,
