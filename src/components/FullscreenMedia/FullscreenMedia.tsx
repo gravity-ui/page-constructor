@@ -11,7 +11,13 @@ import './FullscreenMedia.scss';
 
 export type ChildMediaRenderProps = Pick<
     MediaAllProps,
-    'fullscreen' | 'imageClassName' | 'videoClassName' | 'youtubeClassName' | 'className'
+    | 'fullscreen'
+    | 'imageClassName'
+    | 'videoClassName'
+    | 'youtubeClassName'
+    | 'className'
+    | 'previewImg'
+    | 'autoplay'
 >;
 
 export interface FullscreenMediaProps {
@@ -78,6 +84,8 @@ const FullscreenMedia = ({children, showFullscreenIcon = true}: FullscreenMediaP
                             videoClassName: getMediaClass('video'),
                             youtubeClassName: getMediaClass('youtube'),
                             fullscreen: true,
+                            previewImg: undefined,
+                            autoplay: true,
                         })}
                     </div>
                 </Modal>
