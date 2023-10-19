@@ -24,6 +24,8 @@ $backgroundWidth: 1440px;
         height: 100%;
 
         &_theme_dark {
+            --g-color-line-focus: var(--pc-color-line-focus-dark);
+
             #{$block}__title,
             #{$block}__overtitle {
                 color: var(--g-color-text-light-primary);

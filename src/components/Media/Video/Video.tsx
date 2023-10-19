@@ -91,6 +91,7 @@ const Video = (props: VideoAllProps) => {
 
         return (
             <ReactPlayerBlock
+                ref={ref}
                 className={b('react-player', videoClassName)}
                 src={src}
                 previewImgUrl={previewImg}
