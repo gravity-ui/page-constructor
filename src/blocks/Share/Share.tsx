@@ -44,6 +44,8 @@ const Share = ({items, title}: ShareBlockProps) => {
                     const url = getAbsolutePath(hostname, pathname);
                     const socialUrl = getShareLink(url, type);
                     const icon = icons[type];
+                    const urlTitle = i18n(`${type}-title`);
+                    const buttonLabel = i18n(`${type}-label`);
 
                     return (
                         <Button
@@ -54,6 +56,10 @@ const Share = ({items, title}: ShareBlockProps) => {
                             href={socialUrl}
                             className={b('item', {type: type.toLowerCase()})}
                             onClick={handleButtonClick}
+                            title={urlTitle}
+                            extraProps={{
+                                'aria-label': buttonLabel,
+                            }}
                         >
                             {icon && <Icon data={icon} size={24} className={b('icon', {type})} />}
                         </Button>

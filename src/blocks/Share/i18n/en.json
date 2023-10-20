@@ -1,3 +1,13 @@
 {
-  "constructor-share": "Share"
+  "constructor-share": "Share",
+  "facebook-title": "Opens in a new tab",
+  "twitter-title": "Opens in a new tab",
+  "linkedin-title": "Opens in a new tab",
+  "vk-title": "Opens in a new tab",
+  "telegram-title": "Opens in a new tab",
+  "facebook-label": "Facebook logo",
+  "twitter-label": "Twitter logo",
+  "linkedin-label": "LinkedIn logo",
+  "vk-label": "VK logo",
+  "telegram-label": "Telegram logo"
 }
