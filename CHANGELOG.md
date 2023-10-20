@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [4.28.1](https://github.com/gravity-ui/page-constructor/compare/v4.28.0...v4.28.1) (2023-10-20)
+
+
+### Bug Fixes
+
+* working autoplay in mobile ([#652](https://github.com/gravity-ui/page-constructor/issues/652)) ([61c9ade](https://github.com/gravity-ui/page-constructor/commit/61c9ade6c79f4a702f16ee61184a65dd4308c55a))
+
 ## [4.28.0](https://github.com/gravity-ui/page-constructor/compare/v4.27.0...v4.28.0) (2023-10-20)
 
 
