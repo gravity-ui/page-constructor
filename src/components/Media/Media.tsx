@@ -16,6 +16,7 @@ const b = block('Media');
 export interface MediaAllProps extends MediaProps, VideoAdditionProps, ImageAdditionProps, QAProps {
     className?: string;
     youtubeClassName?: string;
+    autoplay?: boolean;
 }
 
 export const Media = (props: MediaAllProps) => {
@@ -41,6 +42,7 @@ export const Media = (props: MediaAllProps) => {
         customBarControlsClassName,
         qa,
         ratio,
+        autoplay,
     } = props;
 
     const [hasVideoFallback, setHasVideoFallback] = useState(false);
@@ -101,6 +103,7 @@ export const Media = (props: MediaAllProps) => {
                     height={height}
                     fullscreen={fullscreen}
                     analyticsEvents={analyticsEvents}
+                    autoplay={autoplay}
                 />
             );
         }
@@ -132,6 +135,7 @@ export const Media = (props: MediaAllProps) => {
         customBarControlsClassName,
         ratio,
         youtubeClassName,
+        autoplay,
     ]);
 
     return (

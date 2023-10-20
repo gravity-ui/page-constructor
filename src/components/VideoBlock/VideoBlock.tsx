@@ -59,6 +59,7 @@ export interface VideoBlockProps extends AnalyticsEventsBase {
     playButton?: React.ReactNode;
     height?: number;
     fullscreen?: boolean;
+    autoplay?: boolean;
 }
 
 const VideoBlock = (props: VideoBlockProps) => {
@@ -73,6 +74,7 @@ const VideoBlock = (props: VideoBlockProps) => {
         height,
         fullscreen,
         analyticsEvents,
+        autoplay,
     } = props;
     const handleAnalytics = useAnalytics(DefaultEventNames.VideoPreview);
 
@@ -120,7 +122,10 @@ const VideoBlock = (props: VideoBlockProps) => {
             iframe.id = fullId;
 
             if (!previewImg) {
-                iframe.src = `${src}?${getPageSearchParams(attributes || {})}`;
+                iframe.src = `${src}?${getPageSearchParams({
+                    ...(attributes || {}),
+                    ...(autoplay ? AUTOPLAY_ATTRIBUTES : {}),
+                })}`;
             }
 
             iframe.width = '100%';
@@ -133,7 +138,7 @@ const VideoBlock = (props: VideoBlockProps) => {
             ref.current.appendChild(iframe);
             iframeRef.current = iframe;
         }
-    }, [stream, record, norender, src, fullId, attributes, iframeRef, previewImg]);
+    }, [stream, record, norender, src, fullId, attributes, iframeRef, previewImg, autoplay]);
 
     useEffect(() => {
         setHidePreview(false);
