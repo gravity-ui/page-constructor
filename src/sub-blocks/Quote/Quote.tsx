@@ -55,8 +55,7 @@ const Quote = (props: QuoteProps) => {
         </div>
     );
 
-    const logoSrc = typeof logo === 'string' ? logo : logo.src;
-    const logoAlt = typeof logo === 'object' ? logo.alt : undefined;
+    const logoProps = getMediaImage(logo);
 
     return (
         <div
@@ -65,7 +64,7 @@ const Quote = (props: QuoteProps) => {
         >
             <div key={text} className={b('content-wrapper')}>
                 <div>
-                    <Image className={b('logo')} src={logoSrc} alt={logoAlt} />
+                    <Image className={b('logo')} {...logoProps} />
                     <div className={b('content')}>
                         <span className={b('text')}>
                             <HTML>{text}</HTML>
