@@ -105,7 +105,7 @@ describe('Image', () => {
         });
     });
 
-    test('render default "alt"', () => {
+    test('render without attribute "alt" if not provided', () => {
         render(<Image src={imageSrc} qa={qaId} />);
 
         const component = screen.getByRole('img');
