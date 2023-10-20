@@ -1,7 +1,8 @@
 import React from 'react';
 
-import {AuthorProps, AuthorType, WithChildren} from '../../models';
+import {AuthorProps, AuthorType, ImageProps, WithChildren} from '../../models';
 import {block} from '../../utils';
+import {getMediaImage} from '../Media/Image/utils';
 import {Image} from '../index';
 
 import './Author.scss';
@@ -13,12 +14,17 @@ const Author = (props: WithChildren<AuthorProps>) => {
     const {firstName, secondName, description, avatar} = author;
 
     const name = secondName ? `${firstName} ${secondName}` : firstName;
+    const isAvatarJSX = React.isValidElement(avatar);
+    let avatarProps = {};
+    if (!isAvatarJSX && avatar) {
+        avatarProps = getMediaImage(avatar as ImageProps);
+    }
 
     return (
         <div className={b({type}, className)} data-qa={qa}>
             {avatar && (
                 <div className={b('avatar', authorContainerClassName)}>
-                    {typeof avatar === 'string' ? <Image src={avatar} /> : avatar}
+                    {isAvatarJSX ? avatar : <Image {...avatarProps} />}
                 </div>
             )}
             <div className={b('label')}>
