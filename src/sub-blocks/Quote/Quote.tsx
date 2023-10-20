@@ -55,6 +55,9 @@ const Quote = (props: QuoteProps) => {
         </div>
     );
 
+    const logoSrc = typeof logo === 'string' ? logo : logo.src;
+    const logoAlt = typeof logo === 'object' ? logo.alt : undefined;
+
     return (
         <div
             className={b({theme: textTheme, border})}
@@ -62,7 +65,7 @@ const Quote = (props: QuoteProps) => {
         >
             <div key={text} className={b('content-wrapper')}>
                 <div>
-                    <Image className={b('logo')} src={logo} />
+                    <Image className={b('logo')} src={logoSrc} alt={logoAlt} />
                     <div className={b('content')}>
                         <span className={b('text')}>
                             <HTML>{text}</HTML>
