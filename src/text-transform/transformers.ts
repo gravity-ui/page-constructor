@@ -78,7 +78,9 @@ function transformBlock(
     }
 
     if ('children' in block && block.children) {
-        block.children = transformBlocks(block.children as ConstructorBlock[], lang, blocksConfig);
+        block.children = transformBlocks(block.children as ConstructorBlock[], lang, blocksConfig, {
+            plugins,
+        });
     }
 
     return block;
