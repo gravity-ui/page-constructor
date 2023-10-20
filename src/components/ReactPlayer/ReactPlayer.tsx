@@ -62,8 +62,9 @@ interface PlayerPropgress {
     played: number;
 }
 
+type ReactPlayerBlockRefType = ReactPlayerBlockHandler | undefined;
 // eslint-disable-next-line react/display-name
-export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactPlayerBlockProps>(
+export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockRefType, ReactPlayerBlockProps>(
     (props, originRef) => {
         const isMobile = useContext(MobileContext);
         const {metrika} = useContext(MetrikaContext);
@@ -130,9 +131,25 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
         }, [analyticsEvents]);
         const handleAnalytics = useAnalytics(DefaultEventNames.ReactPlayerControls);
 
-        useImperativeHandle(originRef, () => ({
-            pause: () => setIsPlaying(false),
-        }));
+        useImperativeHandle(
+            originRef,
+            () => {
+                if (!playerRef) {
+                    return;
+                }
+
+                const videoInstance = playerRef.getInternalPlayer() as HTMLVideoElement;
+                const {play, pause, addEventListener} = videoInstance;
+
+                // eslint-disable-next-line consistent-return
+                return {
+                    play: play.bind(videoInstance),
+                    pause: pause.bind(videoInstance),
+                    addEventListener: addEventListener.bind(videoInstance),
+                };
+            },
+            [playerRef],
+        );
 
         useEffect(() => {
             if (ref.current && !playingVideoRef?.contains(ref.current)) {
