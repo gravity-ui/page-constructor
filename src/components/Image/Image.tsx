@@ -7,8 +7,6 @@ import {getQaAttrubutes} from '../../utils';
 import {isCompressible} from '../../utils/imageCompress';
 import ImageBase from '../ImageBase/ImageBase';
 
-import i18n from './i18n';
-
 export interface ImageProps extends Partial<ImageObjectProps>, Partial<ImageDeviceProps>, QAProps {
     style?: CSSProperties;
     className?: string;
@@ -49,7 +47,7 @@ const Image = (props: ImageProps) => {
     const projectSettings = useContext(ProjectSettingsContext);
     const {
         src: imageSrc,
-        alt = i18n('img-alt'),
+        alt,
         disableCompress,
         tablet,
         desktop,
