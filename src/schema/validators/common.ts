@@ -1,4 +1,4 @@
-import {ImageProps, imageUrlPattern} from '../../components/Image/schema';
+import {ImageProps} from '../../components/Image/schema';
 import {
     CustomControlsButtonPositioning,
     CustomControlsType,
@@ -321,10 +321,7 @@ export const authorItem = {
             type: 'string',
             contentType: 'text',
         },
-        avatar: {
-            type: 'string',
-            pattern: imageUrlPattern,
-        },
+        avatar: ImageProps,
         description: {
             type: 'string',
             contentType: 'yfm',
