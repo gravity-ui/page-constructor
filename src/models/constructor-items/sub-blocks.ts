@@ -90,7 +90,7 @@ export interface HubspotFormProps extends HubspotEventHandlers, AnalyticsEventsB
 export interface QuoteProps extends Themable, CardBaseProps {
     text: string;
     image: ThemedImage;
-    logo: string;
+    logo: string | ImageObjectProps;
     color?: string;
     url?: string;
     author?: AuthorItem;
