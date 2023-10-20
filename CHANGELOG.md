@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [4.28.0](https://github.com/gravity-ui/page-constructor/compare/v4.27.0...v4.28.0) (2023-10-20)
+
+
+### Features
+
+* add autoplay for youtube when fullscreen modals is open ([#651](https://github.com/gravity-ui/page-constructor/issues/651)) ([c8874ff](https://github.com/gravity-ui/page-constructor/commit/c8874ff293bf88eafb5d7552e4d6a3a703eeab51))
+
 ## [4.27.0](https://github.com/gravity-ui/page-constructor/compare/v4.26.0...v4.27.0) (2023-10-18)
 
 
