@@ -1,0 +1,44 @@
+{
+  "default": {
+    "type": "form-block",
+    "formData": {
+      "yandex": {
+        "id": "10034371.a94dac9d3bd19f65c9616db0297348ad8d063db0",
+        "metrikaGoals": ["events_form_submit"]
+      }
+    },
+    "textContent": {
+      "title": "Tell a story and build a narrative",
+      "text": "We are all storytellers. Stories are a powerful way to communicate ideas and share information"
+    }
+  },
+  "contentForm": {
+    "content": {
+      "direction": "content-form"
+    }
+  },
+  "background": {
+    "content": {
+      "backgroundColor": "#EFF2F8"
+    }
+  },
+  "image": {
+    "content": {
+      "image": {
+        "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-mini_4-12_light.png",
+        "disableCompress": true
+      }
+    }
+  },
+  "black": {
+    "content": {
+      "textContent": {
+        "theme": "dark",
+        "title": "Black form background color",
+        "text": "<p>We&nbsp;are all storytellers. Stories are a&nbsp;powerful way to&nbsp;communicate ideas and share information. The right story can lead to&nbsp;a&nbsp;better understanding of&nbsp;a&nbsp;situation, make us&nbsp;laugh, or&nbsp;even inspire us&nbsp;to&nbsp;do&nbsp;something in&nbsp;the future.</p>"
+      },
+      "direction": "form-content",
+      "backgroundColor": "#262626"
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "template": {
+    "type": "form-block",
+    "formData": {
+      "yandex": {
+        "hash": "hashString",
+        "title": ""
+      }
+    },
+    "direction": "center",
+    "textContent": {
+      "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    },
+    "image": {
+      "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-mini_4-12_light.png"
+    },
+    "backgroundColor": "#262626"
+  }
+}

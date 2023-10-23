@@ -4,8 +4,8 @@ import {LocaleContext} from '../../context/localeContext';
 import {MobileContext} from '../../context/mobileContext';
 import {useAnalytics} from '../../hooks';
 import {useMetrika} from '../../hooks/useMetrika';
-import {PixelEvent} from '../../models';
-import {AnalyticsEventsBase, DefaultEventNames} from '../../models/common';
+import {YandexFormProps} from '../../models';
+import {DefaultEventNames} from '../../models/common';
 import {block} from '../../utils';
 import {HEADER_HEIGHT} from '../constants';
 
@@ -13,22 +13,6 @@ export const YANDEX_FORM_ORIGIN = 'https://forms.yandex.ru';
 const CONTAINER_ID = 'pc-yandex-form-container';
 
 const b = block('yandex-form');
-
-export interface YandexFormProps extends AnalyticsEventsBase {
-    id: number | string;
-    containerId?: string;
-    theme?: string;
-    className?: string;
-    headerHeight?: number;
-    customFormOrigin?: string;
-    params?: {[key: string]: string};
-
-    onSubmit?: () => void;
-    onLoad?: () => void;
-
-    metrikaGoals?: string | string[];
-    pixelEvents?: string | string[] | PixelEvent | PixelEvent[];
-}
 
 const YandexForm = (props: YandexFormProps) => {
     const {

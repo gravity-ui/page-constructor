@@ -1,0 +1,24 @@
+import {Meta} from '@storybook/blocks';
+
+import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
+import * as FormBlockStories from './Form.stories.tsx';
+
+<Meta of={FormBlockStories} />
+<StoryTemplate>
+## Parameters
+
+`type: "form-block"`
+
+`title?: string` - Title.
+
+`textContent?` - See the [Content](?path=/story/components-content--default&viewMode=docs) component.
+
+`formData: {yandex?: Object, hubspot?: Object}` - See [Yandex](?path=/story/components-yandexform--docs&viewMode=docs) / [Hubspot](?path=/story/components-hubspotform--docs&viewMode=docs) form data.
+
+`direction?: 'form-content' | 'content-form' | 'center'` - Direction.
+
+`image?: string | {src: string; alt?: string;}` — Image.
+
+`backgroundColor?: string` — Bg color.
+
+</StoryTemplate>
