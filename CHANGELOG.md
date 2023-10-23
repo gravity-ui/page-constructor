@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [4.29.0](https://github.com/gravity-ui/page-constructor/compare/v4.28.1...v4.29.0) (2023-10-23)
+
+
+### Features
+
+* alt attributes and titles, fix yfm plugins bug ([#655](https://github.com/gravity-ui/page-constructor/issues/655)) ([2786c81](https://github.com/gravity-ui/page-constructor/commit/2786c8153691c8384e18d714fe04b2f59aedd78f))
+
 ## [4.28.1](https://github.com/gravity-ui/page-constructor/compare/v4.28.0...v4.28.1) (2023-10-20)
 
 
