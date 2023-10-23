@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [4.29.1](https://github.com/gravity-ui/page-constructor/compare/v4.29.0...v4.29.1) (2023-10-23)
+
+
+### Bug Fixes
+
+* backward compatibility in 4.28.1 ([#657](https://github.com/gravity-ui/page-constructor/issues/657)) ([51e8ceb](https://github.com/gravity-ui/page-constructor/commit/51e8cebe4bcb4c31a978cd121bcd4f097ebae916))
+
 ## [4.29.0](https://github.com/gravity-ui/page-constructor/compare/v4.28.1...v4.29.0) (2023-10-23)
 
 
