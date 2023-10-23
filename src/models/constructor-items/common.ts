@@ -336,7 +336,7 @@ export interface AuthorItem {
     firstName: string;
     secondName: string;
     description?: string;
-    avatar?: string | JSX.Element;
+    avatar?: ImageProps | JSX.Element;
 }
 
 export interface HeaderBreadCrumbsProps extends ClassNameProps {

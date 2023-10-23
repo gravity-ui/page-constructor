@@ -9,7 +9,6 @@ import {
 } from '../../../../test-utils/shared/common';
 import {testSourceProps} from '../../../../test-utils/shared/image';
 import Image, {ImageProps} from '../Image';
-import i18n from '../i18n';
 
 const qaId = 'image-component';
 
@@ -106,11 +105,11 @@ describe('Image', () => {
         });
     });
 
-    test('render default "alt"', () => {
+    test('render without attribute "alt" if not provided', () => {
         render(<Image src={imageSrc} qa={qaId} />);
 
         const component = screen.getByRole('img');
-        expect(component).toHaveAttribute('alt', i18n('img-alt'));
+        expect(component).not.toHaveAttribute('alt');
     });
 
     test('render custom "alt"', () => {

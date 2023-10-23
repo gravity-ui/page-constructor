@@ -55,6 +55,8 @@ const Quote = (props: QuoteProps) => {
         </div>
     );
 
+    const logoProps = getMediaImage(logo);
+
     return (
         <div
             className={b({theme: textTheme, border})}
@@ -62,7 +64,7 @@ const Quote = (props: QuoteProps) => {
         >
             <div key={text} className={b('content-wrapper')}>
                 <div>
-                    <Image className={b('logo')} src={logo} />
+                    <Image className={b('logo')} {...logoProps} />
                     <div className={b('content')}>
                         <span className={b('text')}>
                             <HTML>{text}</HTML>

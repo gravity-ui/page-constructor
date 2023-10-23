@@ -1,4 +1,4 @@
-import {ImageProps, imageUrlPattern} from '../../components/Image/schema';
+import {ImageProps} from '../../components/Image/schema';
 import {BaseProps, ThemeProps, authorItem, withTheme} from '../../schema/validators/common';
 
 export const Quote = {
@@ -12,10 +12,7 @@ export const Quote = {
                 contentType: 'text',
             },
             image: withTheme(ImageProps),
-            logo: {
-                type: 'string',
-                pattern: imageUrlPattern,
-            },
+            logo: ImageProps,
             color: {
                 type: 'string',
             },

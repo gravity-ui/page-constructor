@@ -38,9 +38,15 @@
         "firstName": "Lorem",
         "secondName": "ipsum",
         "description": "Lorem ipsum",
-        "avatar": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_6-12_light.png"
+        "avatar": {
+          "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_6-12_light.png",
+          "alt": "Avatar alt"
+        }
       },
-      "logo": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-mini_6-12_light.png"
+      "logo": {
+        "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-mini_6-12_light.png",
+        "alt": "Logo alt"
+      }
     }
   }
 }
