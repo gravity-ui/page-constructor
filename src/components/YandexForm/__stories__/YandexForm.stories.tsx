@@ -2,7 +2,8 @@ import React from 'react';
 
 import {Meta, StoryFn} from '@storybook/react';
 
-import YandexForm, {YandexFormProps} from '../YandexForm';
+import {YandexFormProps} from '../../../models';
+import YandexForm from '../YandexForm';
 
 import data from './data.json';
 
