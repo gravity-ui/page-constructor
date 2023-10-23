@@ -62,9 +62,8 @@ interface PlayerPropgress {
     played: number;
 }
 
-type ReactPlayerBlockRefType = ReactPlayerBlockHandler | undefined;
 // eslint-disable-next-line react/display-name
-export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockRefType, ReactPlayerBlockProps>(
+export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactPlayerBlockProps>(
     (props, originRef) => {
         const isMobile = useContext(MobileContext);
         const {metrika} = useContext(MetrikaContext);
