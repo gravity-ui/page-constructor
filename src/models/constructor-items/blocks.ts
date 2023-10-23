@@ -20,6 +20,7 @@ import {
     HeaderOffset,
     HeaderWidth,
     ImageDeviceProps,
+    ImageProps,
     Justify,
     LegendTableMarkerType,
     LinkProps,
@@ -33,8 +34,9 @@ import {
     ThemedMediaVideoProps,
     TitleItemBaseProps,
     TitleItemProps,
+    YandexFormProps,
 } from './common';
-import {BannerCardProps, SubBlock, SubBlockModels} from './sub-blocks';
+import {BannerCardProps, HubspotFormProps, SubBlock, SubBlockModels} from './sub-blocks';
 
 export enum BlockType {
     PromoFeaturesBlock = 'promo-features-block',
@@ -55,6 +57,7 @@ export enum BlockType {
     ShareBlock = 'share-block',
     MapBlock = 'map-block',
     FilterBlock = 'filter-block',
+    FormBlock = 'form-block',
 }
 
 export const BlockTypes = Object.values(BlockType);
@@ -376,6 +379,36 @@ export interface ShareBlockProps {
     title?: string;
 }
 
+export enum FormBlockDataTypes {
+    YANDEX = 'yandex',
+    HUBSPOT_INLINE = 'hubspot-inline',
+}
+
+export enum FormBlockDirection {
+    FormContent = 'form-content',
+    ContentForm = 'content-form',
+    Center = 'center',
+}
+
+export interface FormBlockYandexData {
+    yandex: YandexFormProps;
+}
+
+export interface FormBlockHubspotData {
+    hubspot: HubspotFormProps;
+}
+
+export type FormBlockData = FormBlockYandexData | FormBlockHubspotData;
+
+export interface FormBlockProps {
+    formData: FormBlockData;
+    title?: string;
+    textContent?: Omit<ContentBlockProps, 'centered' | 'colSizes' | 'size'>;
+    direction?: FormBlockDirection;
+    image?: ImageProps;
+    backgroundColor?: string;
+}
+
 //block models
 export type HeaderBlockModel = {
     type: BlockType.HeaderBlock;
@@ -449,6 +482,10 @@ export type ShareBLockModel = {
     type: BlockType.ShareBlock;
 } & ShareBlockProps;
 
+export type FormBlockModel = {
+    type: BlockType.FormBlock;
+} & FormBlockProps;
+
 type BlockModels =
     | SliderBlockModel
     | ExtendedFeaturesBlockModel
@@ -467,6 +504,7 @@ type BlockModels =
     | CardLayoutBlockModel
     | ContentLayoutBlockModel
     | ShareBLockModel
-    | FilterBlockModel;
+    | FilterBlockModel
+    | FormBlockModel;
 
 export type Block = BlockModels & BlockBaseProps;

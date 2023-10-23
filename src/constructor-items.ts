@@ -5,6 +5,7 @@ import {
     ContentLayoutBlock,
     ExtendedFeaturesBlock,
     FilterBlock,
+    FormBlock,
     HeaderBlock,
     HeaderSliderBlock,
     IconsBlock,
@@ -57,6 +58,7 @@ export const blockMap = {
     [BlockType.ShareBlock]: ShareBlock,
     [BlockType.MapBlock]: MapBlock,
     [BlockType.FilterBlock]: FilterBlock,
+    [BlockType.FormBlock]: FormBlock,
 };
 
 export const subBlockMap = {
