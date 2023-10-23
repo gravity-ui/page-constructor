@@ -8,6 +8,7 @@ import {
     ContentLayoutBlock,
     ExtendedFeaturesBlock,
     FilterBlock,
+    FormBlock,
     HeaderBlock,
     HeaderSliderBlock,
     IconsBlock,
@@ -50,6 +51,7 @@ export const blockSchemas: Record<BlockType, object> = {
     ...ContentLayoutBlock,
     ...ShareBlock,
     ...FilterBlock,
+    ...FormBlock,
 };
 
 export const cardSchemas = {
@@ -86,6 +88,7 @@ export const constructorBlockSchemaNames = [
     'content-layout-block',
     'share-block',
     'filter-block',
+    'form-block',
 ];
 
 export const constructorCardSchemaNames = [

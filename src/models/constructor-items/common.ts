@@ -3,7 +3,7 @@ import React, {CSSProperties, ReactNode} from 'react';
 import {ButtonView, ButtonProps as UikitButtonProps} from '@gravity-ui/uikit';
 
 import {ThemeSupporting} from '../../utils';
-import {AnalyticsEventsBase, ClassNameProps, PixelEventType, QAProps} from '../common';
+import {AnalyticsEventsBase, ClassNameProps, PixelEvent, PixelEventType, QAProps} from '../common';
 
 // enums
 export enum AuthorType {
@@ -435,4 +435,20 @@ export interface AuthorProps extends QAProps {
 export interface TitleProps {
     title?: TitleItemProps | string;
     subtitle?: string;
+}
+
+export interface YandexFormProps extends AnalyticsEventsBase {
+    id: number | string;
+    containerId?: string;
+    theme?: string;
+    className?: string;
+    headerHeight?: number;
+    customFormOrigin?: string;
+    params?: {[key: string]: string};
+
+    onSubmit?: () => void;
+    onLoad?: () => void;
+
+    metrikaGoals?: string | string[];
+    pixelEvents?: string | string[] | PixelEvent | PixelEvent[];
 }
