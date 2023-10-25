@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [4.29.2](https://github.com/gravity-ui/page-constructor/compare/v4.29.1...v4.29.2) (2023-10-25)
+
+
+### Bug Fixes
+
+* remove react native from dependencies ([#660](https://github.com/gravity-ui/page-constructor/issues/660)) ([9818edf](https://github.com/gravity-ui/page-constructor/commit/9818edf0416c72eaa1dc83e0a5da8b8a8e2c3a84))
+
 ## [4.29.1](https://github.com/gravity-ui/page-constructor/compare/v4.29.0...v4.29.1) (2023-10-23)
 
 
