@@ -4,8 +4,9 @@
 $block: '.#{$ns}form-block';
 
 $textPadding: 10px;
-$maxLgWidth: 609px;
+$maxLargeWidth: 609px;
 $yandexFormDesktopMinWidth: 475px;
+$largeBorderRadius: 32px;
 
 #{$block} {
     $root: &;
@@ -140,7 +141,7 @@ $yandexFormDesktopMinWidth: 475px;
             #{$root}__row {
                 #{$root}__form-wrapper,
                 #{$root}__content-wrapper {
-                    max-width: $maxLgWidth;
+                    max-width: $maxLargeWidth;
                 }
 
                 #{$root}__center,
@@ -160,9 +161,6 @@ $yandexFormDesktopMinWidth: 475px;
                     padding-bottom: $indentM;
                 }
             }
-        }
-
-        &_with-background &__row {
         }
 
         &:not(#{$root}_with-background) &__row {

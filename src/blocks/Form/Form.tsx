@@ -1,6 +1,6 @@
-import React, {useCallback, useContext, useEffect, useMemo, useState} from 'react';
+import React, {useCallback, useContext, useMemo, useState} from 'react';
 
-import {Media, Title, YandexForm} from '../../components';
+import {Media, Title} from '../../components';
 import {MobileContext} from '../../context/mobileContext';
 import {Col, Grid, GridAlignItems, GridColumnSize, Row} from '../../grid';
 import type {FormBlockProps} from '../../models';
@@ -10,12 +10,16 @@ import {
     isHubspotDataForm,
     isYandexDataForm,
 } from '../../models';
-import {Content, HubspotForm} from '../../sub-blocks';
+import {Content} from '../../sub-blocks';
 import {block} from '../../utils';
+
+import InnerForm from './InnerForm/InnerForm';
 
 import './Form.scss';
 
 const b = block('form-block');
+
+const colSizes = {[GridColumnSize.Lg]: 6, [GridColumnSize.All]: 12};
 
 const FormBlock: React.FC<FormBlockProps> = (props) => {
     const {
@@ -30,8 +34,7 @@ const FormBlock: React.FC<FormBlockProps> = (props) => {
     const isMobile = useContext(MobileContext);
 
     const withBackground = Boolean(backgroundColor) || Boolean(image);
-    const colSizes = {[GridColumnSize.Lg]: 6, [GridColumnSize.All]: 12};
-    const paddingBottom = Boolean(backgroundColor) && !image ? 'l' : 'm';
+    const paddingBottom = Boolean(backgroundColor) && !image ? 'l' : 'm'; // bigger padding for case with background and no image
     const onContentLoad = useCallback(() => {
         setContentLoaded(true);
     }, []);
@@ -41,34 +44,6 @@ const FormBlock: React.FC<FormBlockProps> = (props) => {
         if (isHubspotDataForm(formData)) return FormBlockDataTypes.HUBSPOT_INLINE;
         return undefined;
     }, [formData]);
-
-    useEffect(() => {
-        if (formType === FormBlockDataTypes.HUBSPOT_INLINE) {
-            onContentLoad();
-        }
-    }, [formType, onContentLoad]);
-
-    const renderForm = useCallback(() => {
-        if (isYandexDataForm(formData)) {
-            const {onLoad, className, ...rest} = formData.yandex;
-            return (
-                <YandexForm
-                    {...rest}
-                    onLoad={() => {
-                        onContentLoad();
-                        onLoad?.();
-                    }}
-                    className={b('form', className)}
-                />
-            );
-        }
-
-        if (isHubspotDataForm(formData)) {
-            return <HubspotForm {...formData.hubspot} />;
-        }
-
-        return null;
-    }, [formData, onContentLoad]);
 
     if (!formData) {
         return null;
@@ -114,13 +89,11 @@ const FormBlock: React.FC<FormBlockProps> = (props) => {
                             </div>
                         )}
                     </Col>
-
                     <Col sizes={colSizes} className={b('form-col')}>
                         <div className={b('form-wrapper')}>
                             <div
                                 className={b('full-form', {
                                     hidden: !contentLoaded,
-                                    'without-title': !textContent,
                                 })}
                             >
                                 {title && (
@@ -133,7 +106,11 @@ const FormBlock: React.FC<FormBlockProps> = (props) => {
                                         colSizes={{all: 12}}
                                     />
                                 )}
-                                {renderForm()}
+                                <InnerForm
+                                    className={b('form')}
+                                    formData={formData}
+                                    onContentLoad={onContentLoad}
+                                />
                             </div>
                         </div>
                     </Col>
