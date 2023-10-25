@@ -119,14 +119,13 @@
       "media": {
         "light": {
           "video": {
-            "type": "player",
             "src": [
               "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.webm",
               "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.mp4",
               "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.png"
             ],
             "autoplay": true,
-            "ariaLabel": "Video accessible name example",
+            "ariaLabel": "Video with autoplay and play/pause button",
             "controls": "custom",
             "customControlsOptions": {
               "type": "with-play-pause-button",

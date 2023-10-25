@@ -2,9 +2,8 @@ import React, {useEffect, useMemo, useRef} from 'react';
 
 import {MediaComponentVideoProps, MediaVideoType, PlayButtonProps, QAProps} from '../../../models';
 import {block, getQaAttrubutes} from '../../../utils';
+import {DefaultVideo} from '../../DefaultVideo/DefaultVideo';
 import ReactPlayerBlock from '../../ReactPlayer/ReactPlayer';
-
-import {getVideoTypesWithPriority} from './utils';
 
 import './Video.scss';
 
@@ -130,27 +129,11 @@ const Video = (props: VideoAllProps) => {
                 style={{height}}
                 data-qa={qaAttributes.default}
             >
-                <video
-                    disablePictureInPicture
-                    playsInline
-                    // @ts-ignore
-                    // eslint-disable-next-line react/no-unknown-property
-                    pip="false"
-                    className={b('item')}
-                    ref={ref}
-                    preload="metadata"
-                    muted
-                    aria-label={video.ariaLabel}
-                >
-                    {getVideoTypesWithPriority(video.src).map(({src, type}, index) => (
-                        <source key={index} src={src} type={type} data-qa={qaAttributes.source} />
-                    ))}
-                </video>
+                <DefaultVideo ref={ref} video={video} qa={qaAttributes.source} />
             </div>
         ) : null;
     }, [
-        video.src,
-        video.ariaLabel,
+        video,
         hasVideoFallback,
         videoClassName,
         height,
