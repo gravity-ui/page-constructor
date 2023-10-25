@@ -1,0 +1,9 @@
+@import '../../../styles/variables.scss';
+
+$block: '.#{$ns}default-video';
+
+#{$block} {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
