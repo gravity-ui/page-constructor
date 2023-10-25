@@ -7,6 +7,7 @@ export interface ImageBaseProps extends Partial<ImageObjectProps> {
     style?: CSSProperties;
     className?: string;
     onClick?: MouseEventHandler;
+    onLoad?: () => void;
     onError?: () => void;
 }
 
