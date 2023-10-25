@@ -1,7 +1,7 @@
 import React, {Fragment, useEffect, useState} from 'react';
 
+import {Interpolation, animated, config, useSpring} from '@react-spring/web';
 import debounce from 'lodash/debounce';
-import {Interpolation, animated, config, useSpring} from 'react-spring';
 
 import SliderBlock from '../../../blocks/Slider/Slider';
 import {ImageProps, MediaComponentImageProps, QAProps, SliderType} from '../../../models';
