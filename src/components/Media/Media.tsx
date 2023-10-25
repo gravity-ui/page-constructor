@@ -43,6 +43,7 @@ export const Media = (props: MediaAllProps) => {
         qa,
         ratio,
         autoplay,
+        handleImageLoad,
     } = props;
 
     const [hasVideoFallback, setHasVideoFallback] = useState(false);
@@ -65,6 +66,7 @@ export const Media = (props: MediaAllProps) => {
                     hasVideoFallback={hasVideoFallback}
                     fullscreen={fullscreen}
                     qa={qaAttributes.image}
+                    handleImageLoad={handleImageLoad}
                 />,
             );
         }
@@ -104,6 +106,7 @@ export const Media = (props: MediaAllProps) => {
                     fullscreen={fullscreen}
                     analyticsEvents={analyticsEvents}
                     autoplay={autoplay}
+                    handleImageLoad={handleImageLoad}
                 />
             );
         }
