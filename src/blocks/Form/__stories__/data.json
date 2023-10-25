@@ -8,8 +8,8 @@
       }
     },
     "textContent": {
-      "title": "Tell a story and build a narrative",
-      "text": "We are all storytellers. Stories are a powerful way to communicate ideas and share information"
+      "title": "Lorem ipsum dolor sit amet",
+      "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
     }
   },
   "contentForm": {
@@ -35,7 +35,7 @@
       "textContent": {
         "theme": "dark",
         "title": "Black form background color",
-        "text": "<p>We&nbsp;are all storytellers. Stories are a&nbsp;powerful way to&nbsp;communicate ideas and share information. The right story can lead to&nbsp;a&nbsp;better understanding of&nbsp;a&nbsp;situation, make us&nbsp;laugh, or&nbsp;even inspire us&nbsp;to&nbsp;do&nbsp;something in&nbsp;the future.</p>"
+        "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit:</p> <ul> <li> <p>Lorem ipsum</p> </li> <li> <p>Lorem ipsum</p> </li> <li> <p>Lorem ipsum</p> </li> </ul>"
       },
       "direction": "form-content",
       "backgroundColor": "#262626"
