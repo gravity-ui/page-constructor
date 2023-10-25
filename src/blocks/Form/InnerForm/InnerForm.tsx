@@ -17,7 +17,7 @@ const InnerForm: React.FC<InnerFormProps> = (props) => {
         if (isHubspotDataForm(formData)) {
             onContentLoad();
         }
-    }, [onContentLoad]);
+    }, [onContentLoad, formData]);
 
     if (isYandexDataForm(formData)) {
         const {onLoad, ...rest} = formData.yandex;
