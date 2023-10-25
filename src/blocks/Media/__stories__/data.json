@@ -129,7 +129,7 @@
             "controls": "custom",
             "customControlsOptions": {
               "type": "with-play-pause-button",
-              "muteButtonShown": false,
+              "muteButtonShown": true,
               "positioning": "left"
             },
             "muted": true,

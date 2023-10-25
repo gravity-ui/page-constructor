@@ -19,11 +19,12 @@ interface DefaultVideoProps {
 // eslint-disable-next-line react/display-name
 export const DefaultVideo = React.forwardRef<HTMLVideoElement, DefaultVideoProps>((props, ref) => {
     const {video, qa, customBarControlsClassName} = props;
-    const {controls, customControlsOptions} = video;
+    const {controls, customControlsOptions, muted: initiallyMuted} = video;
     const {muteButtonShown, positioning, type} = customControlsOptions || {};
     const [isPaused, setIsPaused] = useState(false);
+    const [isMuted, setIsMuted] = useState(initiallyMuted);
 
-    const onToggle = useCallback(() => {
+    const onPlayToggle = useCallback(() => {
         setIsPaused((value) => {
             if (typeof ref !== 'function') {
                 if (value) {
@@ -36,12 +37,15 @@ export const DefaultVideo = React.forwardRef<HTMLVideoElement, DefaultVideoProps
             return !value;
         });
     }, [ref]);
+    const onMuteToggle = useCallback(() => {
+        setIsMuted((value) => !value);
+    }, []);
 
     const onClick = useCallback(() => {
         if (type === CustomControlsType.WithPlayPauseButton) {
-            onToggle();
+            onPlayToggle();
         }
-    }, [onToggle, type]);
+    }, [onPlayToggle, type]);
 
     return (
         <Fragment>
@@ -54,7 +58,8 @@ export const DefaultVideo = React.forwardRef<HTMLVideoElement, DefaultVideoProps
                 className={b()}
                 ref={ref}
                 preload="metadata"
-                muted
+                // @ts-ignore
+                muted={isMuted ? '' : undefined}
                 aria-label={video.ariaLabel}
                 onClick={onClick}
             >
@@ -68,10 +73,14 @@ export const DefaultVideo = React.forwardRef<HTMLVideoElement, DefaultVideoProps
                     className={customBarControlsClassName}
                     type={type}
                     isPaused={isPaused}
-                    onPlayClick={onToggle}
+                    onPlayClick={onPlayToggle}
                     muteButtonShown={muteButtonShown}
                     shown
                     positioning={positioning}
+                    mute={{
+                        isMuted: Boolean(isMuted),
+                        changeMute: onMuteToggle,
+                    }}
                 />
             )}
         </Fragment>
