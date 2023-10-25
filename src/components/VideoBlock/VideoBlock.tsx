@@ -60,6 +60,7 @@ export interface VideoBlockProps extends AnalyticsEventsBase {
     height?: number;
     fullscreen?: boolean;
     autoplay?: boolean;
+    handleImageLoad?: () => void;
 }
 
 const VideoBlock = (props: VideoBlockProps) => {
@@ -75,6 +76,7 @@ const VideoBlock = (props: VideoBlockProps) => {
         fullscreen,
         analyticsEvents,
         autoplay,
+        handleImageLoad,
     } = props;
     const handleAnalytics = useAnalytics(DefaultEventNames.VideoPreview);
 
@@ -156,6 +158,7 @@ const VideoBlock = (props: VideoBlockProps) => {
                         src={previewImg}
                         className={b('image')}
                         containerClassName={b('image-wrapper')}
+                        onLoad={handleImageLoad}
                     />
                     {playButton || (
                         <button title="Play" className={b('button')}>

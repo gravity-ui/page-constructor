@@ -11,6 +11,7 @@ export interface ImageProps extends Partial<ImageObjectProps>, Partial<ImageDevi
     style?: CSSProperties;
     className?: string;
     onClick?: MouseEventHandler;
+    onLoad?: () => void;
     containerClassName?: string;
 }
 
@@ -55,6 +56,7 @@ const Image = (props: ImageProps) => {
         style,
         className,
         onClick,
+        onLoad,
         containerClassName,
         qa,
     } = props;
@@ -113,6 +115,7 @@ const Image = (props: ImageProps) => {
                 style={style}
                 onClick={onClick}
                 onError={() => setImgLoadingError(true)}
+                onLoad={onLoad}
             />
         </picture>
     );

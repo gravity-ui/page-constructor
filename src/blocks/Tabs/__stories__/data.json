@@ -8,23 +8,27 @@
       "items": [
         {
           "tabName": "Dolor sit amet",
-          "title": "Lorem ipsum dolor sit amet",
+          "title": "Dolor sit amet",
           "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
           "buttons": [
             {
-              "text": "Button",
+              "text": "Button 1",
               "theme": "action",
               "url": "https://example.com"
             },
             {
-              "text": "Button",
+              "text": "Button 2",
               "theme": "outlined",
-              "url": "https://example.com"
+              "url": "#"
             }
           ],
-          "image": {
-            "light": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_white.png",
-            "dark": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_dark.png"
+          "media": {
+            "light": {
+              "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_white.png"
+            },
+            "dark": {
+              "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_dark.png"
+            }
           }
         },
         {
