@@ -45,13 +45,30 @@ $block: '.#{$ns}quote';
             position: absolute;
             top: -1px;
             left: -10px;
-            content: '«';
         }
-    }
 
-    &__text {
-        &::after {
-            content: '».';
+        &_quote-type {
+            &_two-arrow {
+                &::before {
+                    content: '«';
+                }
+                #{$block}__text {
+                    &::after {
+                        content: '».';
+                    }
+                }
+            }
+            &_two-comma {
+                &::before {
+                    content: '"';
+                }
+
+                #{$block}__text {
+                    &::after {
+                        content: '".';
+                    }
+                }
+            }
         }
     }
 

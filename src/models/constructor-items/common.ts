@@ -55,6 +55,11 @@ export enum MediaVideoControlsType {
     Custom = 'custom',
 }
 
+export enum QuoteType {
+    TwoComma = 'two-comma',
+    TwoArrow = 'two-arrow',
+}
+
 // types
 export type TextTheme = 'light' | 'dark';
 export type TextSize = 'xs' | 's' | 'm' | 'l';
