@@ -3,9 +3,12 @@
 
 $block: '.#{$ns}quote';
 
-@mixin comma-type($name, $opening, $closing) {
+@mixin comma-type($name, $opening, $closing, $left-offset) {
     &_#{$name} {
         &::before {
+            position: absolute;
+            top: -1px;
+            left: $left-offset;
             content: $opening;
         }
 
@@ -55,15 +58,9 @@ $block: '.#{$ns}quote';
         position: relative;
         @include text-size(body-3);
 
-        &::before {
-            position: absolute;
-            top: -1px;
-            left: -10px;
-        }
-
         &_quote-type {
-            @include comma-type('chevron', '«', '».');
-            @include comma-type('english-double', '“', '”.');
+            @include comma-type('chevron', '«', '»', -10px);
+            @include comma-type('english-double', '“', '”', -8px);
         }
     }
 
