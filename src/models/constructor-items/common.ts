@@ -449,6 +449,7 @@ export interface YandexFormProps extends AnalyticsEventsBase {
     className?: string;
     headerHeight?: number;
     customFormOrigin?: string;
+    customFormSection?: string;
     params?: {[key: string]: string};
 
     onSubmit?: () => void;

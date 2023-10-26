@@ -10,6 +10,7 @@ import {block} from '../../utils';
 import {HEADER_HEIGHT} from '../constants';
 
 export const YANDEX_FORM_ORIGIN = 'https://forms.yandex.ru';
+export const YANDEX_FORM_SECTION = 'cloud';
 const CONTAINER_ID = 'pc-yandex-form-container';
 
 const b = block('yandex-form');
@@ -28,10 +29,12 @@ const YandexForm = (props: YandexFormProps) => {
         pixelEvents,
         analyticsEvents,
         customFormOrigin,
+        customFormSection,
     } = props;
     const formContainerRef = useRef<HTMLDivElement>(null);
     const iframeRef = useRef<HTMLIFrameElement>();
     const yaFormOrigin = customFormOrigin || YANDEX_FORM_ORIGIN;
+    const yaFormSection = customFormSection || YANDEX_FORM_SECTION;
 
     const handleMetrika = useMetrika();
     const handleAnalytics = useAnalytics(DefaultEventNames.YandexFormSubmit);
@@ -62,7 +65,7 @@ const YandexForm = (props: YandexFormProps) => {
                 });
             }
 
-            const src = `${yaFormOrigin}/surveys/${id}/?${queryParams}`;
+            const src = `${yaFormOrigin}/${yaFormSection}/${id}/?${queryParams}`;
 
             if (iframeRef.current) {
                 iframeRef.current.src = src;
