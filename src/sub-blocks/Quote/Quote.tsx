@@ -24,7 +24,7 @@ const Quote = (props: QuoteProps) => {
         author,
         url,
         buttonText,
-        quoteType = QuoteType.TwoArrow,
+        quoteType = QuoteType.Chevron,
     } = props;
     const theme = useTheme();
     const imageThemed = getThemedValue(image, theme);

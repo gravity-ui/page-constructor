@@ -3,6 +3,20 @@
 
 $block: '.#{$ns}quote';
 
+@mixin comma-type($name, $opening, $closing) {
+    &_#{$name} {
+        &::before {
+            content: $opening;
+        }
+
+        #{$block}__text {
+            &::after {
+                content: $closing;
+            }
+        }
+    }
+}
+
 #{$block} {
     $arrowWidth: 16px;
     $gap: 5px;
@@ -48,27 +62,8 @@ $block: '.#{$ns}quote';
         }
 
         &_quote-type {
-            &_two-arrow {
-                &::before {
-                    content: '«';
-                }
-                #{$block}__text {
-                    &::after {
-                        content: '».';
-                    }
-                }
-            }
-            &_two-comma {
-                &::before {
-                    content: '"';
-                }
-
-                #{$block}__text {
-                    &::after {
-                        content: '".';
-                    }
-                }
-            }
+            @include comma-type('chevron', '«', '».');
+            @include comma-type('english-double', '“', '”.');
         }
     }
 
