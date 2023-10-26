@@ -56,8 +56,8 @@ export enum MediaVideoControlsType {
 }
 
 export enum QuoteType {
-    TwoComma = 'two-comma',
-    TwoArrow = 'two-arrow',
+    TwoComma = 'two-comma', // " "
+    TwoArrow = 'two-arrow', // « »
 }
 
 // types
