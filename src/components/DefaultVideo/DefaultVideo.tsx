@@ -20,7 +20,7 @@ interface DefaultVideoProps {
 export const DefaultVideo = React.forwardRef<HTMLVideoElement, DefaultVideoProps>((props, ref) => {
     const {video, qa, customBarControlsClassName} = props;
     const {controls, customControlsOptions, muted: initiallyMuted} = video;
-    const {muteButtonShown, positioning, type} = customControlsOptions || {};
+    const {muteButtonShown, positioning, type: customControlsType} = customControlsOptions || {};
     const [isPaused, setIsPaused] = useState(false);
     const [isMuted, setIsMuted] = useState(initiallyMuted);
 
@@ -42,10 +42,10 @@ export const DefaultVideo = React.forwardRef<HTMLVideoElement, DefaultVideoProps
     }, []);
 
     const onClick = useCallback(() => {
-        if (type === CustomControlsType.WithPlayPauseButton) {
+        if (customControlsType === CustomControlsType.WithPlayPauseButton) {
             onPlayToggle();
         }
-    }, [onPlayToggle, type]);
+    }, [onPlayToggle, customControlsType]);
 
     return (
         <Fragment>
@@ -71,7 +71,7 @@ export const DefaultVideo = React.forwardRef<HTMLVideoElement, DefaultVideoProps
             {controls === MediaVideoControlsType.Custom && (
                 <CustomBarControls
                     className={customBarControlsClassName}
-                    type={type}
+                    type={customControlsType}
                     isPaused={isPaused}
                     onPlayClick={onPlayToggle}
                     muteButtonShown={muteButtonShown}
