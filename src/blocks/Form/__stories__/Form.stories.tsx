@@ -19,19 +19,32 @@ export default {
 } as Meta;
 
 const DefaultTemplate: StoryFn<FormBlockModel> = (args) => (
-    <PageConstructor content={{blocks: [args]}} />
+    <PageConstructor
+        content={{
+            blocks: [
+                {
+                    ...args,
+                    formData: {yandex: data.formData.yandex}, //yandex form
+                },
+                {
+                    ...args,
+                    formData: {hubspot: data.formData.hubspot}, //hubspot form
+                },
+            ],
+        }}
+    />
 );
 
 export const Default = DefaultTemplate.bind({});
 export const ContentForm = DefaultTemplate.bind({});
-export const Background = DefaultTemplate.bind({});
-export const Image = DefaultTemplate.bind({});
-export const Black = DefaultTemplate.bind({});
+export const WithBackgroundColor = DefaultTemplate.bind({});
+export const WithBackgroundImage = DefaultTemplate.bind({});
+export const DarkTheme = DefaultTemplate.bind({});
 
 ContentForm.args = {...data.contentForm.content} as FormBlockModel;
 
-Background.args = {...data.background.content} as FormBlockModel;
+WithBackgroundColor.args = {...data.withBackground.content} as FormBlockModel;
 
-Image.args = {...data.image.content} as FormBlockModel;
+WithBackgroundImage.args = {...data.withBackgroundImage.content} as FormBlockModel;
 
-Black.args = {...data.black.content} as FormBlockModel;
+DarkTheme.args = {...data.darkTheme.content} as FormBlockModel;

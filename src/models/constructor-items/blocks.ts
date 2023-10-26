@@ -18,7 +18,6 @@ import {
     HeaderOffset,
     HeaderWidth,
     ImageDeviceProps,
-    ImageProps,
     Justify,
     LegendTableMarkerType,
     LinkProps,
@@ -402,8 +401,7 @@ export interface FormBlockProps {
     title?: string;
     textContent?: Omit<ContentBlockProps, 'centered' | 'colSizes' | 'size'>;
     direction?: FormBlockDirection;
-    image?: ImageProps;
-    backgroundColor?: string;
+    background?: BackgroundImageProps;
 }
 
 //block models
