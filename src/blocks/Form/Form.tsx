@@ -1,6 +1,6 @@
 import React, {useCallback, useContext, useMemo, useState} from 'react';
 
-import {Media, Title} from '../../components';
+import {BackgroundImage, Title} from '../../components';
 import {MobileContext} from '../../context/mobileContext';
 import {Col, Grid, GridAlignItems, GridColumnSize, Row} from '../../grid';
 import type {FormBlockProps} from '../../models';
@@ -22,19 +22,12 @@ const b = block('form-block');
 const colSizes = {[GridColumnSize.Lg]: 6, [GridColumnSize.All]: 12};
 
 const FormBlock: React.FC<FormBlockProps> = (props) => {
-    const {
-        formData,
-        title,
-        textContent,
-        image,
-        direction = FormBlockDirection.Center,
-        backgroundColor,
-    } = props;
+    const {formData, title, textContent, direction = FormBlockDirection.Center, background} = props;
     const [contentLoaded, setContentLoaded] = useState(false);
     const isMobile = useContext(MobileContext);
 
-    const withBackground = Boolean(backgroundColor) || Boolean(image);
-    const paddingBottom = Boolean(backgroundColor) && !image ? 'l' : 'm'; // bigger padding for case with background and no image
+    const hasImage = background && (background.src || background.desktop);
+    const paddingBottom = background && background.style?.backgroundColor && !hasImage ? 'l' : 'm'; // bigger padding for case with background color and no image
     const onContentLoad = useCallback(() => {
         setContentLoaded(true);
     }, []);
@@ -52,14 +45,13 @@ const FormBlock: React.FC<FormBlockProps> = (props) => {
     return (
         <div
             className={b({
-                'with-background': withBackground,
+                'with-background': Boolean(background),
                 'form-type': formType,
             })}
         >
-            {withBackground && (
-                <Media
-                    image={image}
-                    color={backgroundColor}
+            {background && (
+                <BackgroundImage
+                    {...background}
                     className={b('media')}
                     imageClassName={b('image')}
                 />
