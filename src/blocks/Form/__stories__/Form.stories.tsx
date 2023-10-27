@@ -36,12 +36,12 @@ const DefaultTemplate: StoryFn<FormBlockModel> = (args) => (
 );
 
 export const Default = DefaultTemplate.bind({});
-export const ContentForm = DefaultTemplate.bind({});
+export const ContentDirection = DefaultTemplate.bind({});
 export const WithBackgroundColor = DefaultTemplate.bind({});
 export const WithBackgroundImage = DefaultTemplate.bind({});
 export const DarkTheme = DefaultTemplate.bind({});
 
-ContentForm.args = {...data.contentForm.content} as FormBlockModel;
+ContentDirection.args = {...data.сontentDirection.content} as FormBlockModel;
 
 WithBackgroundColor.args = {...data.withBackground.content} as FormBlockModel;
 
