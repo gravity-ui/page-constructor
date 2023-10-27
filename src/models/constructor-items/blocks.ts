@@ -1,3 +1,5 @@
+import React from 'react';
+
 import {ButtonSize} from '@gravity-ui/uikit';
 
 import {GridColumnSize, GridColumnSizesType} from '../../grid/types';
@@ -154,6 +156,7 @@ export interface HeaderBlockProps {
     verticalOffset?: 's' | 'm' | 'l' | 'xl';
     breadcrumbs?: HeaderBreadCrumbsProps;
     status?: JSX.Element;
+    renderTitle?: (title: string) => React.ReactNode;
 }
 
 export interface ExtendedFeaturesItem
