@@ -1,7 +1,8 @@
 {
   "default": {
     "content": {
-      "id": "61a4e639d4d24e0dbba36f5c"
+      "id": "61a4e639d4d24e0dbba36f5c",
+      "customFormSection": "cloud"
     }
   }
 }
