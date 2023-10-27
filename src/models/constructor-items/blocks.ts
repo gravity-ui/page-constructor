@@ -156,7 +156,7 @@ export interface HeaderBlockProps {
     verticalOffset?: 's' | 'm' | 'l' | 'xl';
     breadcrumbs?: HeaderBreadCrumbsProps;
     status?: JSX.Element;
-    renderTitle?: () => React.ReactNode;
+    renderTitle?: (title: string) => React.ReactNode;
 }
 
 export interface ExtendedFeaturesItem

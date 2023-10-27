@@ -136,7 +136,7 @@ export const HeaderBlock = (props: WithChildren<HeaderBlockFullProps>) => {
                                     )}
                                     <h1 className={b('title')}>
                                         {status}
-                                        {renderTitle ? renderTitle() : <HTML>{title}</HTML>}
+                                        {renderTitle ? renderTitle(title) : <HTML>{title}</HTML>}
                                     </h1>
                                     {description && (
                                         <div className={b('description')}>
