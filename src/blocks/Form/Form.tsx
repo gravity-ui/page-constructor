@@ -33,8 +33,12 @@ const FormBlock: React.FC<FormBlockProps> = (props) => {
     }, []);
 
     const formType = useMemo(() => {
-        if (isYandexDataForm(formData)) return FormBlockDataTypes.YANDEX;
-        if (isHubspotDataForm(formData)) return FormBlockDataTypes.HUBSPOT_INLINE;
+        if (isYandexDataForm(formData)) {
+            return FormBlockDataTypes.YANDEX;
+        }
+        if (isHubspotDataForm(formData)) {
+            return FormBlockDataTypes.HUBSPOT_INLINE;
+        }
         return undefined;
     }, [formData]);
 
