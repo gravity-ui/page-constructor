@@ -17,6 +17,9 @@ export const BasicCard = {
             url: {
                 type: 'string',
             },
+            urlTitle: {
+                type: 'string',
+            },
             icon: ImageProps,
             target: {
                 type: 'string',
