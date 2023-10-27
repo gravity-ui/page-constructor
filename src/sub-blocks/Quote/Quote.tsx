@@ -23,6 +23,7 @@ const Quote = (props: QuoteProps) => {
         logo,
         author,
         url,
+        urlTitle,
         buttonText,
         quoteType = QuoteType.Chevron,
     } = props;
@@ -49,6 +50,7 @@ const Quote = (props: QuoteProps) => {
                     href={url}
                     className={b('link-button', {theme: textTheme})}
                     onClick={handleButtonClick}
+                    title={urlTitle}
                 >
                     {buttonText}
                 </Button>

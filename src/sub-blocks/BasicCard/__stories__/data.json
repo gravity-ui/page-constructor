@@ -14,7 +14,8 @@
   "default": {
     "content": {
       "title": "Lorem ipsum",
-      "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+      "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "urlTitle": "Opens in a new tab"
     }
   }
 }
