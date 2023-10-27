@@ -18,6 +18,7 @@ import './Button.scss';
 export interface ButtonProps extends Omit<ButtonParams, 'url'>, QAProps {
     className?: string;
     url?: string;
+    urlTitle?: string;
     onClick?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
 }
 
@@ -34,6 +35,7 @@ const Button = (props: ButtonProps) => {
         size = 'l',
         theme = 'normal',
         url,
+        urlTitle,
         img,
         onClick: onClickOrigin,
         text,
@@ -94,6 +96,7 @@ const Button = (props: ButtonProps) => {
             view={toCommonView(buttonTheme as OldButtonTheme)}
             size={toCommonSize(size as OldButtonSize)}
             href={url ? setUrlTld(url, tld) : undefined}
+            title={urlTitle}
             width={width}
             {...buttonProps}
         >

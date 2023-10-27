@@ -19,6 +19,9 @@ export const Quote = {
             url: {
                 type: 'string',
             },
+            urlTitle: {
+                type: 'string',
+            },
             buttonText: {
                 type: 'string',
             },

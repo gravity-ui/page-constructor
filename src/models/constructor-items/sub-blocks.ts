@@ -93,6 +93,7 @@ export interface QuoteProps extends Themable, CardBaseProps {
     logo: ImageProps;
     color?: string;
     url?: string;
+    urlTitle?: string;
     author?: AuthorItem;
     buttonText?: string;
     theme?: TextTheme;
@@ -114,6 +115,7 @@ export interface BasicCardProps
         AnalyticsEventsBase,
         Omit<ContentBlockProps, 'colSizes' | 'centered' | 'size' | 'theme'> {
     url: string;
+    urlTitle?: string;
     icon?: ImageProps;
     target?: string;
     iconPosition?: IconPosition;

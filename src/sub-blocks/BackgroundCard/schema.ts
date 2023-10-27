@@ -18,6 +18,9 @@ export const BackgroundCard = {
             url: {
                 type: 'string',
             },
+            urlTitle: {
+                type: 'string',
+            },
             background: withTheme(ImageObjectProps),
             backgroundColor: {
                 type: 'string',

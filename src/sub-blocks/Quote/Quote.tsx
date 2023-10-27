@@ -23,6 +23,7 @@ const Quote = (props: QuoteProps) => {
         logo,
         author,
         url,
+        urlTitle,
         buttonText,
     } = props;
     const theme = useTheme();
@@ -48,6 +49,7 @@ const Quote = (props: QuoteProps) => {
                     href={url}
                     className={b('link-button', {theme: textTheme})}
                     onClick={handleButtonClick}
+                    title={urlTitle}
                 >
                     {buttonText}
                 </Button>

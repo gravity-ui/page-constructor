@@ -251,6 +251,9 @@ export const LinkProps = {
         url: {
             type: 'string',
         },
+        urlTitle: {
+            type: 'string',
+        },
         arrow: {
             type: 'boolean',
         },
@@ -335,6 +338,9 @@ export const ButtonProps = {
         contentType: 'text',
     },
     url: {
+        type: 'string',
+    },
+    urlTitle: {
         type: 'string',
     },
     primary: {
@@ -502,6 +508,9 @@ export const AnchorProps = {
         url: {
             type: 'string',
         },
+        urlTitle: {
+            type: 'string',
+        },
     },
 };
 
@@ -534,6 +543,9 @@ export const TitleProps = {
             enum: textSize,
         },
         url: {
+            type: 'string',
+        },
+        urlTitle: {
             type: 'string',
         },
         resetMargin: {
