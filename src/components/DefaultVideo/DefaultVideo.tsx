@@ -59,7 +59,7 @@ export const DefaultVideo = React.forwardRef<HTMLVideoElement, DefaultVideoProps
                 ref={ref}
                 preload="metadata"
                 // @ts-ignore
-                muted={isMuted ? '' : undefined}
+                muted={isMuted}
                 aria-label={video.ariaLabel}
                 onClick={onClick}
             >
