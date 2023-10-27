@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [4.31.0](https://github.com/gravity-ui/page-constructor/compare/v4.30.0...v4.31.0) (2023-10-27)
+
+
+### Features
+
+* added urlTitle attributes to the schemas ([#665](https://github.com/gravity-ui/page-constructor/issues/665)) ([ab70085](https://github.com/gravity-ui/page-constructor/commit/ab70085deb4366f3a3c9b36a74e14f1185ceecd1))
+
 ## [4.30.0](https://github.com/gravity-ui/page-constructor/compare/v4.29.2...v4.30.0) (2023-10-27)
 
 
