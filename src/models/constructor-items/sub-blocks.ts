@@ -1,4 +1,4 @@
-import {ClassNameProps} from '../../models';
+import {ClassNameProps, QuoteType} from '../../models';
 import {ThemeSupporting} from '../../utils';
 import {HubspotEventData, HubspotEventHandlers} from '../../utils/hubspot';
 import {AnalyticsEventsBase, PixelEvent} from '../common';
@@ -96,6 +96,7 @@ export interface QuoteProps extends Themable, CardBaseProps {
     author?: AuthorItem;
     buttonText?: string;
     theme?: TextTheme;
+    quoteType?: QuoteType;
 }
 
 export interface BackgroundCardProps
