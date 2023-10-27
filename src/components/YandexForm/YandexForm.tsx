@@ -81,7 +81,7 @@ const YandexForm = (props: YandexFormProps) => {
                 container.appendChild(iframeRef.current);
             }
         },
-        [locale.lang, theme, isMobile, yaFormOrigin, id, containerId, params],
+        [locale.lang, theme, isMobile, yaFormOrigin, yaFormSection, id, containerId, params],
     );
 
     const handleSubmit = useCallback(() => {
