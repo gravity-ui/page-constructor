@@ -10,7 +10,7 @@ import {block} from '../../utils';
 import {HEADER_HEIGHT} from '../constants';
 
 export const YANDEX_FORM_ORIGIN = 'https://forms.yandex.ru';
-export const YANDEX_FORM_SECTION = 'cloud';
+export const YANDEX_FORM_SECTION = 'surveys';
 const CONTAINER_ID = 'pc-yandex-form-container';
 
 const b = block('yandex-form');
