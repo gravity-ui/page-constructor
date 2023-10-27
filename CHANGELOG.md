@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [4.30.0](https://github.com/gravity-ui/page-constructor/compare/v4.29.2...v4.30.0) (2023-10-27)
+
+
+### Features
+
+* added custom title render into header block ([#664](https://github.com/gravity-ui/page-constructor/issues/664)) ([7d57714](https://github.com/gravity-ui/page-constructor/commit/7d577149cb06ea9c34c1484c768518eee14cfef3))
+* quote types for Quote block ([#663](https://github.com/gravity-ui/page-constructor/issues/663)) ([bc6245c](https://github.com/gravity-ui/page-constructor/commit/bc6245c240f209f527a0bac78542544a1c4a19f6))
+
 ## [4.29.2](https://github.com/gravity-ui/page-constructor/compare/v4.29.1...v4.29.2) (2023-10-25)
 
 
