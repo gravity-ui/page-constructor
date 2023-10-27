@@ -1,5 +1,11 @@
 import {ImageProps} from '../../components/Image/schema';
-import {BaseProps, ThemeProps, authorItem, withTheme} from '../../schema/validators/common';
+import {
+    BaseProps,
+    ThemeProps,
+    authorItem,
+    quoteTypes,
+    withTheme,
+} from '../../schema/validators/common';
 
 export const Quote = {
     quote: {
@@ -24,6 +30,10 @@ export const Quote = {
             },
             theme: ThemeProps,
             author: authorItem,
+            quoteType: {
+                type: 'string',
+                enum: quoteTypes,
+            },
         },
     },
 };

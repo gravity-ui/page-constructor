@@ -6,7 +6,7 @@ import {Author, HTML, Image} from '../../components';
 import {getMediaImage} from '../../components/Media/Image/utils';
 import {useTheme} from '../../context/theme';
 import {useAnalytics} from '../../hooks';
-import {AuthorType, DefaultEventNames, QuoteProps} from '../../models';
+import {AuthorType, DefaultEventNames, QuoteProps, QuoteType} from '../../models';
 import {block, getThemedValue} from '../../utils';
 
 import './Quote.scss';
@@ -24,6 +24,7 @@ const Quote = (props: QuoteProps) => {
         author,
         url,
         buttonText,
+        quoteType = QuoteType.Chevron,
     } = props;
     const theme = useTheme();
     const imageThemed = getThemedValue(image, theme);
@@ -65,7 +66,7 @@ const Quote = (props: QuoteProps) => {
             <div key={text} className={b('content-wrapper')}>
                 <div>
                     <Image className={b('logo')} {...logoProps} />
-                    <div className={b('content')}>
+                    <div className={b('content', {'quote-type': quoteType})}>
                         <span className={b('text')}>
                             <HTML>{text}</HTML>
                         </span>
