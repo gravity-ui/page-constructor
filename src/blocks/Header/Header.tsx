@@ -77,6 +77,7 @@ export const HeaderBlock = (props: WithChildren<HeaderBlockFullProps>) => {
         className,
         breadcrumbs,
         status,
+        renderTitle,
         children,
         mediaView = 'full',
     } = props;
@@ -135,7 +136,7 @@ export const HeaderBlock = (props: WithChildren<HeaderBlockFullProps>) => {
                                     )}
                                     <h1 className={b('title')}>
                                         {status}
-                                        <HTML>{title}</HTML>
+                                        {renderTitle ? renderTitle(title) : <HTML>{title}</HTML>}
                                     </h1>
                                     {description && (
                                         <div className={b('description')}>
