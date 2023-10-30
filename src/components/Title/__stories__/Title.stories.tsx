@@ -15,22 +15,58 @@ export default {
 
 const DefaultTemplate: StoryFn<TitleProps & ClassNameProps> = (args) => <Title {...args} />;
 
-const SizesTemplate: StoryFn<TitleProps & ClassNameProps> = (args) => (
-    <div>
-        <div style={{paddingBottom: '64px'}}>
-            <Title {...args} title={data.sizes.l as TitleItemProps} />
+const SizesTemplate: StoryFn<TitleProps & ClassNameProps> = (args) => {
+    const titleItemObjectProps = typeof args.title === 'object' ? args.title : {};
+
+    return (
+        <div>
+            <div style={{paddingBottom: '64px'}}>
+                <Title
+                    {...args}
+                    title={
+                        {
+                            ...data.sizes.l,
+                            ...titleItemObjectProps,
+                        } as TitleItemProps
+                    }
+                />
+            </div>
+            <div style={{paddingBottom: '64px'}}>
+                <Title
+                    {...args}
+                    title={
+                        {
+                            ...data.sizes.m,
+                            ...titleItemObjectProps,
+                        } as TitleItemProps
+                    }
+                />
+            </div>
+            <div style={{paddingBottom: '64px'}}>
+                <Title
+                    {...args}
+                    title={
+                        {
+                            ...data.sizes.s,
+                            ...titleItemObjectProps,
+                        } as TitleItemProps
+                    }
+                />
+            </div>
+            <div style={{paddingBottom: '64px'}}>
+                <Title
+                    {...args}
+                    title={
+                        {
+                            ...data.sizes.xs,
+                            ...titleItemObjectProps,
+                        } as TitleItemProps
+                    }
+                />
+            </div>
         </div>
-        <div style={{paddingBottom: '64px'}}>
-            <Title {...args} title={data.sizes.m as TitleItemProps} />
-        </div>
-        <div style={{paddingBottom: '64px'}}>
-            <Title {...args} title={data.sizes.s as TitleItemProps} />
-        </div>
-        <div style={{paddingBottom: '64px'}}>
-            <Title {...args} title={data.sizes.xs as TitleItemProps} />
-        </div>
-    </div>
-);
+    );
+};
 
 const DefaultArgs = {
     ...data.default.content,
@@ -41,6 +77,7 @@ export const Default = DefaultTemplate.bind({});
 export const TitleLink = DefaultTemplate.bind({});
 export const CustomTitle = DefaultTemplate.bind({});
 export const Sizes = SizesTemplate.bind({});
+export const SizesWithLinks = SizesTemplate.bind({});
 export const TitleWithoutDescription = SizesTemplate.bind({});
 
 Default.args = {
@@ -56,6 +93,10 @@ CustomTitle.args = {
 } as TitleProps;
 Sizes.args = {
     ...DefaultArgs,
+} as TitleProps;
+SizesWithLinks.args = {
+    ...DefaultArgs,
+    title: data.titleLink.content.title,
 } as TitleProps;
 TitleWithoutDescription.args = {
     title: data.default.content.title,
