@@ -1,4 +1,4 @@
-import React, {Fragment, useCallback, useState} from 'react';
+import React, {Fragment, useCallback, useImperativeHandle, useRef, useState} from 'react';
 
 import {CustomControlsType, MediaVideoControlsType, MediaVideoProps} from '../../models';
 import {block} from '../../utils';
@@ -9,6 +9,8 @@ import './DefaultVideo.scss';
 
 const b = block('default-video');
 
+type DefaultVideoRefType = Pick<HTMLVideoElement, 'play' | 'pause'>;
+
 interface DefaultVideoProps {
     video: MediaVideoProps;
     qa?: string;
@@ -16,73 +18,92 @@ interface DefaultVideoProps {
     className?: string;
 }
 
-// eslint-disable-next-line react/display-name
-export const DefaultVideo = React.forwardRef<HTMLVideoElement, DefaultVideoProps>((props, ref) => {
-    const {video, qa, customBarControlsClassName} = props;
-    const {controls, customControlsOptions, muted: initiallyMuted} = video;
-    const {muteButtonShown, positioning, type: customControlsType} = customControlsOptions || {};
-    const [isPaused, setIsPaused] = useState(false);
-    const [isMuted, setIsMuted] = useState(initiallyMuted);
+export const DefaultVideo = React.forwardRef<DefaultVideoRefType, DefaultVideoProps>(
+    (props, ref) => {
+        const {video, qa, customBarControlsClassName} = props;
+        const {controls, customControlsOptions, muted: initiallyMuted} = video;
+        const {
+            muteButtonShown,
+            positioning,
+            type: customControlsType,
+        } = customControlsOptions || {};
+        const [isPaused, setIsPaused] = useState(false);
+        const [isMuted, setIsMuted] = useState(initiallyMuted);
+        const videoRef = useRef<HTMLVideoElement>(null);
 
-    const onPlayToggle = useCallback(() => {
-        setIsPaused((value) => {
-            if (typeof ref !== 'function') {
+        useImperativeHandle(
+            ref,
+            () => {
+                return {
+                    play: async () => {
+                        videoRef?.current?.play();
+                    },
+                    pause: () => {
+                        videoRef?.current?.pause();
+                    },
+                };
+            },
+            [videoRef],
+        );
+        const onPlayToggle = useCallback(() => {
+            setIsPaused((value) => {
                 if (value) {
-                    ref?.current?.play();
+                    videoRef?.current?.play();
                 } else {
-                    ref?.current?.pause();
+                    videoRef?.current?.pause();
                 }
+
+                return !value;
+            });
+        }, [videoRef]);
+        const onMuteToggle = useCallback(() => {
+            setIsMuted((value) => !value);
+        }, []);
+
+        const onClick = useCallback(() => {
+            if (customControlsType === CustomControlsType.WithPlayPauseButton) {
+                onPlayToggle();
             }
+        }, [onPlayToggle, customControlsType]);
 
-            return !value;
-        });
-    }, [ref]);
-    const onMuteToggle = useCallback(() => {
-        setIsMuted((value) => !value);
-    }, []);
+        return (
+            <Fragment>
+                <video
+                    disablePictureInPicture
+                    playsInline
+                    // @ts-ignore
+                    // eslint-disable-next-line react/no-unknown-property
+                    pip="false"
+                    className={b()}
+                    ref={videoRef}
+                    preload="metadata"
+                    muted={isMuted}
+                    aria-label={video.ariaLabel}
+                    onClick={onClick}
+                >
+                    {getVideoTypesWithPriority(video.src).map(({src, type}, index) => (
+                        <source key={index} src={src} type={type} data-qa={qa} />
+                    ))}
+                </video>
 
-    const onClick = useCallback(() => {
-        if (customControlsType === CustomControlsType.WithPlayPauseButton) {
-            onPlayToggle();
-        }
-    }, [onPlayToggle, customControlsType]);
+                {controls === MediaVideoControlsType.Custom && (
+                    <CustomBarControls
+                        className={customBarControlsClassName}
+                        type={customControlsType}
+                        isPaused={isPaused}
+                        onPlayClick={onPlayToggle}
+                        muteButtonShown={muteButtonShown}
+                        shown
+                        positioning={positioning}
+                        mute={{
+                            isMuted: Boolean(isMuted),
+                            changeMute: onMuteToggle,
+                        }}
+                    />
+                )}
+            </Fragment>
+        );
+    },
+);
 
-    return (
-        <Fragment>
-            <video
-                disablePictureInPicture
-                playsInline
-                // @ts-ignore
-                // eslint-disable-next-line react/no-unknown-property
-                pip="false"
-                className={b()}
-                ref={ref}
-                preload="metadata"
-                // @ts-ignore
-                muted={isMuted}
-                aria-label={video.ariaLabel}
-                onClick={onClick}
-            >
-                {getVideoTypesWithPriority(video.src).map(({src, type}, index) => (
-                    <source key={index} src={src} type={type} data-qa={qa} />
-                ))}
-            </video>
-
-            {controls === MediaVideoControlsType.Custom && (
-                <CustomBarControls
-                    className={customBarControlsClassName}
-                    type={customControlsType}
-                    isPaused={isPaused}
-                    onPlayClick={onPlayToggle}
-                    muteButtonShown={muteButtonShown}
-                    shown
-                    positioning={positioning}
-                    mute={{
-                        isMuted: Boolean(isMuted),
-                        changeMute: onMuteToggle,
-                    }}
-                />
-            )}
-        </Fragment>
-    );
-});
+DefaultVideo.displayName = 'DefaultVideo';
