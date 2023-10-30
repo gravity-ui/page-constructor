@@ -82,6 +82,7 @@ export interface NavigationLogoData {
     icon: ImageProps;
     text?: string;
     url?: string;
+    urlTitle?: string;
 }
 
 export type ThemedNavigationLogoData = NavigationLogoData & ThemeSupporting<NavigationLogoData>;

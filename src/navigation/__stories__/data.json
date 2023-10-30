@@ -3,6 +3,7 @@
     "logo": {
       "icon": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_1_light.svg",
       "text": "Logo",
+      "urlTitle": "Title",
       "dark": {
         "text": "Logo Dark",
         "icon": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_1_dark.svg"

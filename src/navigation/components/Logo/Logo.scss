@@ -6,6 +6,7 @@ $block: '.#{$ns}logo';
 #{$block} {
     display: flex;
     align-items: center;
+    text-decoration: none;
 
     &__icon {
         display: flex;
