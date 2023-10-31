@@ -267,14 +267,6 @@ $block: '.#{$ns}hubspot-form';
             @include text-body-2();
             margin: $indentS 0;
         }
-
-        a {
-            @include focusable(0, 'box-shadow');
-            &:focus {
-                outline: 0;
-                border-radius: var(--g-focus-border-radius);
-            }
-        }
     }
 
     .hs_error_rollup {
@@ -420,6 +412,14 @@ $block: '.#{$ns}hubspot-form';
 
         .hs-button.primary {
             width: 80%;
+        }
+    }
+
+    a {
+        @include focusable(0, 'box-shadow');
+        &:focus {
+            outline: 0;
+            border-radius: var(--g-focus-border-radius);
         }
     }
 
