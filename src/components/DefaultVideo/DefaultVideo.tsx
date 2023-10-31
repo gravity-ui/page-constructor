@@ -31,6 +31,11 @@ export const DefaultVideo = React.forwardRef<DefaultVideoRefType, DefaultVideoPr
         const [isMuted, setIsMuted] = useState(initiallyMuted);
         const videoRef = useRef<HTMLVideoElement>(null);
 
+        // one may not use this hook and work with `ref` variable only, but
+        // in this case one should support both function type and object type,
+        // according to ForwardedRef type.
+        // The way with extra ref and useImperativeHandle is more convenient
+        // and allows us to work with object typed ref only
         useImperativeHandle(
             ref,
             () => {
