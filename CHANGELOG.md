@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [4.31.1](https://github.com/gravity-ui/page-constructor/compare/v4.31.0...v4.31.1) (2023-10-30)
+
+
+### Bug Fixes
+
+* fix logo router link rendering ([#669](https://github.com/gravity-ui/page-constructor/issues/669)) ([f59ae1a](https://github.com/gravity-ui/page-constructor/commit/f59ae1a63d0bd79d171e4a736593fcd54a31de96))
+
 ## [4.31.0](https://github.com/gravity-ui/page-constructor/compare/v4.30.0...v4.31.0) (2023-10-27)
 
 
