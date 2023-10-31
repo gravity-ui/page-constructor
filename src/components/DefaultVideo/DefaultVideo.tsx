@@ -9,7 +9,7 @@ import './DefaultVideo.scss';
 
 const b = block('default-video');
 
-type DefaultVideoRefType = Pick<HTMLVideoElement, 'play' | 'pause'>;
+type DefaultVideoRefType = HTMLVideoElement | undefined;
 
 interface DefaultVideoProps {
     video: MediaVideoProps;
@@ -34,14 +34,11 @@ export const DefaultVideo = React.forwardRef<DefaultVideoRefType, DefaultVideoPr
         useImperativeHandle(
             ref,
             () => {
-                return {
-                    play: async () => {
-                        videoRef?.current?.play();
-                    },
-                    pause: () => {
-                        videoRef?.current?.pause();
-                    },
-                };
+                if (!videoRef?.current) {
+                    return undefined;
+                }
+
+                return videoRef.current;
             },
             [videoRef],
         );
