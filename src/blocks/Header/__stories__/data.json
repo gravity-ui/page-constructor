@@ -176,12 +176,12 @@
       "video": {
         "light": {
           "src": [
-            "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/new/podd-00-13-01.mp4"
+            "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_light.mp4"
           ]
         },
         "dark": {
           "src": [
-            "https://storage.yandexcloud.net/cloud-www-assets/constructor/main/new/podd-00-13-01.mp4"
+            "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_dark.mp4"
           ]
         }
       }
