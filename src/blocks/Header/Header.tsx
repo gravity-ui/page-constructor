@@ -1,5 +1,7 @@
 import React, {useContext} from 'react';
 
+import {useUniqId} from '@gravity-ui/uikit';
+
 import {Button, HTML, Media, RouterLink} from '../../components';
 import HeaderBreadcrumbs from '../../components/HeaderBreadcrumbs/HeaderBreadcrumbs';
 import {getMediaImage} from '../../components/Media/Image/utils';
@@ -96,6 +98,7 @@ export const HeaderBlock = (props: WithChildren<HeaderBlockFullProps>) => {
     const imageThemed = image && getThemedValue(image, theme);
     const videoThemed = video && getThemedValue(video, theme);
     const fullWidth = backgroundThemed?.fullWidth || backgroundThemed?.fullWidthMedia;
+    const titleId = useUniqId();
 
     return (
         <header
@@ -134,7 +137,7 @@ export const HeaderBlock = (props: WithChildren<HeaderBlockFullProps>) => {
                                             <HTML>{overtitle}</HTML>
                                         </div>
                                     )}
-                                    <h1 className={b('title')}>
+                                    <h1 className={b('title')} id={titleId}>
                                         {status}
                                         {renderTitle ? renderTitle(title) : <HTML>{title}</HTML>}
                                     </h1>
@@ -157,6 +160,9 @@ export const HeaderBlock = (props: WithChildren<HeaderBlockFullProps>) => {
                                                         key={index}
                                                         className={b('button')}
                                                         size="xl"
+                                                        extraProps={{
+                                                            'aria-describedby': titleId,
+                                                        }}
                                                         {...button}
                                                     />
                                                 </RouterLink>

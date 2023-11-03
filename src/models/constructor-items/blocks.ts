@@ -352,7 +352,9 @@ export interface ContentItemProps {
 
 export interface ContentBlockProps {
     title?: TitleItemBaseProps | string;
+    titleId?: string;
     text?: string;
+    textId?: string;
     additionalInfo?: string;
     links?: LinkProps[];
     buttons?: ButtonProps[];

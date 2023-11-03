@@ -51,7 +51,9 @@ export type ContentProps = ContentBlockProps & ClassNameProps & QAProps;
 const Content = (props: ContentProps) => {
     const {
         title,
+        titleId: titleIdFromProps,
         text,
+        textId,
         additionalInfo,
         size = 'l',
         links,
@@ -71,7 +73,8 @@ const Content = (props: ContentProps) => {
             : title;
 
     const hasTitle = Boolean(title);
-    const titleId = useUniqId();
+    const defaultTitleId = useUniqId();
+    const titleId = titleIdFromProps || defaultTitleId;
 
     return (
         <Col
@@ -93,6 +96,7 @@ const Content = (props: ContentProps) => {
                     <YFMWrapper
                         content={text}
                         modifiers={{constructor: true, [`constructor-size-${size}`]: true}}
+                        id={textId}
                     />
                 </div>
             )}
