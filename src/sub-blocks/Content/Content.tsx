@@ -123,7 +123,7 @@ const Content = (props: ContentProps) => {
                             key={link.url}
                             qa={qaAttributes.link}
                             extraProps={{
-                                'aria-describedby': titleId,
+                                'aria-describedby': link.urlTitle ? undefined : titleId,
                             }}
                         />
                     ))}
@@ -139,7 +139,7 @@ const Content = (props: ContentProps) => {
                             size={getButtonSize(size)}
                             qa={qaAttributes.button}
                             extraProps={{
-                                'aria-describedby': titleId,
+                                'aria-describedby': item.urlTitle ? undefined : titleId,
                             }}
                         />
                     ))}

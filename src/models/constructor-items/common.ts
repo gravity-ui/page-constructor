@@ -207,6 +207,7 @@ export interface ButtonProps
         Pick<UikitButtonProps, 'size' | 'width' | 'extraProps'> {
     text: string;
     url: string;
+    urlTitle?: string;
     primary?: boolean;
     theme?: ButtonTheme;
     img?: ButtonImageProps | string;
