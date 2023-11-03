@@ -1,4 +1,4 @@
-import React, {useCallback, useContext, useMemo, useState} from 'react';
+import React, {useCallback, useContext, useState} from 'react';
 
 import {BackgroundImage, Title} from '../../components';
 import {MobileContext} from '../../context/mobileContext';
@@ -32,18 +32,16 @@ const FormBlock: React.FC<FormBlockProps> = (props) => {
         setContentLoaded(true);
     }, []);
 
-    const formType = useMemo(() => {
-        if (isYandexDataForm(formData)) {
-            return FormBlockDataTypes.YANDEX;
-        }
-        if (isHubspotDataForm(formData)) {
-            return FormBlockDataTypes.HUBSPOT_INLINE;
-        }
-        return undefined;
-    }, [formData]);
-
     if (!formData) {
         return null;
+    }
+
+    let formType;
+
+    if (isYandexDataForm(formData)) {
+        formType = FormBlockDataTypes.YANDEX;
+    } else if (isHubspotDataForm(formData)) {
+        formType = FormBlockDataTypes.HUBSPOT_INLINE;
     }
 
     return (
