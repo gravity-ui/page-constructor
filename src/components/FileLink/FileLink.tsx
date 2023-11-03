@@ -57,6 +57,7 @@ const FileLink = (props: WithChildren<FileLinkProps>) => {
         onClick,
         tabIndex,
         urlTitle,
+        extraProps,
     } = props;
     const fileExt = getFileExt(href) as FileExtension;
     const labelTheme = (FileExtensionThemes[fileExt] || 'unknown') as LabelProps['theme'];
@@ -74,6 +75,7 @@ const FileLink = (props: WithChildren<FileLinkProps>) => {
                     tabIndex={tabIndex}
                     title={urlTitle}
                     {...getLinkProps(href, hostname)}
+                    {...extraProps}
                 >
                     {text}
                 </a>

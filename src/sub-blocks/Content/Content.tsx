@@ -1,5 +1,7 @@
 import React from 'react';
 
+import {useUniqId} from '@gravity-ui/uikit';
+
 import {Button, Title, YFMWrapper} from '../../components';
 import LinkBlock from '../../components/Link/Link';
 import {Col} from '../../grid';
@@ -69,6 +71,7 @@ const Content = (props: ContentProps) => {
             : title;
 
     const hasTitle = Boolean(title);
+    const titleId = useUniqId();
 
     return (
         <Col
@@ -77,7 +80,14 @@ const Content = (props: ContentProps) => {
             sizes={colSizes}
             qa={qaAttributes.container}
         >
-            {title && <Title className={b('title')} title={titleProps} colSizes={{all: 12}} />}
+            {title && (
+                <Title
+                    className={b('title')}
+                    title={titleProps}
+                    colSizes={{all: 12}}
+                    id={titleId}
+                />
+            )}
             {text && (
                 <div className={b('text', {['without-title']: !hasTitle})}>
                     <YFMWrapper
@@ -108,6 +118,9 @@ const Content = (props: ContentProps) => {
                             textSize={getLinkSize(size)}
                             key={link.url}
                             qa={qaAttributes.link}
+                            extraProps={{
+                                'aria-describedby': titleId,
+                            }}
                         />
                     ))}
                 </div>
@@ -121,6 +134,9 @@ const Content = (props: ContentProps) => {
                             key={item.url}
                             size={getButtonSize(size)}
                             qa={qaAttributes.button}
+                            extraProps={{
+                                'aria-describedby': titleId,
+                            }}
                         />
                     ))}
                 </div>
