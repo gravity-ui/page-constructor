@@ -8,7 +8,12 @@ import {ERROR_INPUT_DATA_MESSAGE} from '../constants';
 type CommonTestArgs<T> = {
     component: ElementType;
     props: T & QAProps;
-    options?: {qaId?: string; customClassNameProp?: string; role?: string};
+    options?: {
+        qaId?: string;
+        customClassNameProp?: string;
+        role?: string;
+        handlerName?: string;
+    };
 };
 
 const validateInputProps = <T,>(props: CommonTestArgs<T>['props']) => {
@@ -80,7 +85,10 @@ export const testOnClick = async <T,>({
 
     const user = userEvent.setup();
     const handleOnClick = jest.fn();
-    render(<Component {...props} onClick={handleOnClick} />);
+    const handlerObject = {
+        [options?.handlerName || 'onClick']: handleOnClick,
+    };
+    render(<Component {...props} {...handlerObject} />);
 
     const component = getComponent({props, options});
 

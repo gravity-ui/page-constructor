@@ -2,34 +2,37 @@ import React from 'react';
 
 import {Button} from '@gravity-ui/uikit';
 
-import {ClassNameProps, WithChildren} from '../../models';
-import {block} from '../../utils';
+import {ClassNameProps, QAProps, WithChildren} from '../../models';
+import {block, getQaAttrubutes} from '../../utils';
 
 import './ErrorWrapper.scss';
 
 const b = block('ErrorWrapper');
 
-export interface ErrorWrapperProps extends ClassNameProps {
+export interface ErrorWrapperProps extends ClassNameProps, QAProps {
     text: string;
-    handler: () => void;
     isError: boolean;
     buttonText: string;
     children: React.ReactNode;
+    handler?: () => void;
 }
 
 const ErrorWrapper = ({
     text,
     buttonText,
     className,
-    handler,
     isError,
     children,
-}: WithChildren<ErrorWrapperProps>) =>
-    isError ? (
-        <div className={b(null, className)}>
+    qa,
+    handler,
+}: WithChildren<ErrorWrapperProps>) => {
+    const qaAttributes = getQaAttrubutes(qa);
+
+    return isError ? (
+        <div className={b(null, className)} data-qa={qaAttributes.default}>
             <div className={b('text')}>{text}</div>
             {handler && (
-                <Button size="s" onClick={handler}>
+                <Button size="s" onClick={handler} qa={qaAttributes.button}>
                     {buttonText}
                 </Button>
             )}
@@ -37,5 +40,6 @@ const ErrorWrapper = ({
     ) : (
         <React.Fragment>{children}</React.Fragment>
     );
+};
 
 export default ErrorWrapper;
