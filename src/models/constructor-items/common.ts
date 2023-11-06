@@ -182,7 +182,7 @@ export interface LinkProps extends AnalyticsEventsBase, Stylable, Tabbable {
     extraProps?: HTMLProps<HTMLAnchorElement>;
 }
 
-export interface FileLinkProps extends ClassNameProps, Tabbable {
+export interface FileLinkProps extends ClassNameProps, Tabbable, QAProps {
     href: string;
     text: ReactNode;
     type?: FileLinkType;
