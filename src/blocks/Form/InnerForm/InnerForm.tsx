@@ -35,7 +35,7 @@ const InnerForm: React.FC<InnerFormProps> = (props) => {
     }
 
     if (isHubspotDataForm(formData)) {
-        return <HubspotForm {...formData.hubspot} />;
+        return <HubspotForm createDOMElement={true} {...formData.hubspot} />;
     }
 
     return null;
