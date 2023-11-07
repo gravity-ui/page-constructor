@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [4.33.0](https://github.com/gravity-ui/page-constructor/compare/v4.32.0...v4.33.0) (2023-11-07)
+
+
+### Features
+
+* accessible descriptions and labels for various components ([#674](https://github.com/gravity-ui/page-constructor/issues/674)) ([44ef8fa](https://github.com/gravity-ui/page-constructor/commit/44ef8fa6308d2ed43ed190b371d8ab313f7cea75))
+
 ## [4.32.0](https://github.com/gravity-ui/page-constructor/compare/v4.31.1...v4.32.0) (2023-11-07)
 
 
