@@ -28,7 +28,7 @@ export const FormBlock = {
                     },
                     {
                         type: 'object',
-                        optionName: 'hubspot-inline',
+                        optionName: 'hubspot',
                         properties: {
                             hubspot: HubspotFormProps,
                         },
