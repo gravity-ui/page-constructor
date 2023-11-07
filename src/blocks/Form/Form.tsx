@@ -41,7 +41,7 @@ const FormBlock: React.FC<FormBlockProps> = (props) => {
     if (isYandexDataForm(formData)) {
         formType = FormBlockDataTypes.YANDEX;
     } else if (isHubspotDataForm(formData)) {
-        formType = FormBlockDataTypes.HUBSPOT_INLINE;
+        formType = FormBlockDataTypes.HUBSPOT;
     }
 
     return (

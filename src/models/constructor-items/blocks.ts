@@ -380,7 +380,7 @@ export interface ShareBlockProps {
 
 export enum FormBlockDataTypes {
     YANDEX = 'yandex',
-    HUBSPOT_INLINE = 'hubspot',
+    HUBSPOT = 'hubspot',
 }
 
 export enum FormBlockDirection {
