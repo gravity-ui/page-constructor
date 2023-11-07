@@ -1,6 +1,22 @@
 # Changelog
 
 
+## [4.32.0](https://github.com/gravity-ui/page-constructor/compare/v4.31.1...v4.32.0) (2023-11-07)
+
+
+### Features
+
+* add default video component, add custom controls ([#662](https://github.com/gravity-ui/page-constructor/issues/662)) ([ad0d3b4](https://github.com/gravity-ui/page-constructor/commit/ad0d3b4fd3c9aedcb9ee46bf76805444edf3a4bc))
+
+
+### Bug Fixes
+
+* added focus for hubspot form links ([dd7249e](https://github.com/gravity-ui/page-constructor/commit/dd7249e8efba87ae7710cc98136af48658855a89))
+* added focus for hubspot form links ([#671](https://github.com/gravity-ui/page-constructor/issues/671)) ([dd7249e](https://github.com/gravity-ui/page-constructor/commit/dd7249e8efba87ae7710cc98136af48658855a89))
+* aligning left quote in Quote component ([3316d80](https://github.com/gravity-ui/page-constructor/commit/3316d808b15f84fbd93b09c8c3a5c1840bb9d988))
+* aligning left quote in Quote component ([#672](https://github.com/gravity-ui/page-constructor/issues/672)) ([3316d80](https://github.com/gravity-ui/page-constructor/commit/3316d808b15f84fbd93b09c8c3a5c1840bb9d988))
+* raise up title item arrow to 1 px ([#668](https://github.com/gravity-ui/page-constructor/issues/668)) ([51f6215](https://github.com/gravity-ui/page-constructor/commit/51f6215379d34814d656201f4687c9e6b3243dc4))
+
 ## [4.31.1](https://github.com/gravity-ui/page-constructor/compare/v4.31.0...v4.31.1) (2023-10-30)
 
 
