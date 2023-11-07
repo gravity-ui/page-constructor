@@ -1,5 +1,7 @@
 import React from 'react';
 
+import {useUniqId} from '@gravity-ui/uikit';
+
 import {Content} from '../';
 import CardBase from '../../components/CardBase/CardBase';
 import Image from '../../components/Image/Image';
@@ -24,9 +26,15 @@ const BasicCard = (props: BasicCardProps) => {
         ...cardParams
     } = props;
     const iconProps = icon && getMediaImage(icon);
+    const titleId = useUniqId();
+    const descriptionId = useUniqId();
 
     return (
-        <CardBase className={b()} {...cardParams}>
+        <CardBase
+            className={b()}
+            {...cardParams}
+            extraProps={{'aria-describedby': descriptionId, 'aria-labelledby': titleId}}
+        >
             <CardBase.Content>
                 <div className={b('content', {['icon-position']: iconPosition})}>
                     {iconProps && (
@@ -37,7 +45,9 @@ const BasicCard = (props: BasicCardProps) => {
                     )}
                     <Content
                         title={title}
+                        titleId={titleId}
                         text={text}
+                        textId={descriptionId}
                         additionalInfo={additionalInfo}
                         links={links}
                         buttons={buttons}

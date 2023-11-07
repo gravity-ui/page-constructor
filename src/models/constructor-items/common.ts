@@ -1,4 +1,4 @@
-import React, {CSSProperties, ReactNode} from 'react';
+import React, {CSSProperties, HTMLProps, ReactNode} from 'react';
 
 import {ButtonView, ButtonProps as UikitButtonProps} from '@gravity-ui/uikit';
 
@@ -124,7 +124,7 @@ interface LoopProps {
 
 // images
 
-export interface ImageInfoProps {
+export interface ImageInfoProps extends Pick<HTMLProps<HTMLImageElement>, 'aria-describedby'> {
     alt?: string;
     disableCompress?: boolean;
 }
@@ -179,6 +179,7 @@ export interface LinkProps extends AnalyticsEventsBase, Stylable, Tabbable {
     target?: string;
     metrikaGoals?: MetrikaGoal;
     pixelEvents?: ButtonPixel;
+    extraProps?: HTMLProps<HTMLAnchorElement>;
 }
 
 export interface FileLinkProps extends ClassNameProps, Tabbable {
@@ -189,6 +190,7 @@ export interface FileLinkProps extends ClassNameProps, Tabbable {
     theme?: ContentTheme;
     urlTitle?: string;
     onClick?: () => void;
+    extraProps?: HTMLProps<HTMLAnchorElement>;
 }
 
 // buttons
@@ -205,6 +207,7 @@ export interface ButtonProps
         Pick<UikitButtonProps, 'size' | 'width' | 'extraProps'> {
     text: string;
     url: string;
+    urlTitle?: string;
     primary?: boolean;
     theme?: ButtonTheme;
     img?: ButtonImageProps | string;

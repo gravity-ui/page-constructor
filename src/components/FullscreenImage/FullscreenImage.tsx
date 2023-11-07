@@ -1,4 +1,4 @@
-import React, {CSSProperties, useState} from 'react';
+import React, {CSSProperties, HTMLProps, useState} from 'react';
 
 import {Icon, Modal} from '@gravity-ui/uikit';
 
@@ -14,6 +14,7 @@ export interface FullscreenImageProps extends ImageProps {
     imageClassName?: string;
     modalImageClass?: string;
     imageStyle?: CSSProperties;
+    extraProps?: HTMLProps<HTMLDivElement>;
 }
 
 const b = block('fullscreen-image');
@@ -21,14 +22,14 @@ const FULL_SCREEN_ICON_SIZE = 18;
 const CLOSE_ICON_SIZE = 30;
 
 const FullscreenImage = (props: FullscreenImageProps) => {
-    const {imageClassName, modalImageClass, imageStyle, alt = i18n('img-alt')} = props;
+    const {imageClassName, modalImageClass, imageStyle, alt = i18n('img-alt'), extraProps} = props;
     const [isOpened, setIsOpened] = useState(false);
 
     const openModal = () => setIsOpened(true);
     const closeModal = () => setIsOpened(false);
 
     return (
-        <div className={b()}>
+        <div className={b()} {...extraProps}>
             <div className={b('image-wrapper')}>
                 <Image
                     {...props}

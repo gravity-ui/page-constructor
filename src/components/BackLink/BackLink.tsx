@@ -1,4 +1,4 @@
-import React, {ReactNode, useCallback, useContext} from 'react';
+import React, {HTMLProps, ReactNode, useCallback, useContext} from 'react';
 
 import {Button, ButtonSize, Icon} from '@gravity-ui/uikit';
 
@@ -9,7 +9,7 @@ import {DefaultEventNames, Tabbable} from '../../models';
 
 export type Theme = 'default' | 'special';
 
-export interface BackLinkProps extends Tabbable {
+export interface BackLinkProps<T = HTMLElement> extends Tabbable {
     url: string;
     title: ReactNode;
     theme?: Theme;
@@ -17,6 +17,7 @@ export interface BackLinkProps extends Tabbable {
     className?: string;
     shouldHandleBackAction?: boolean;
     onClick?: () => void;
+    extraProps?: HTMLProps<T>;
 }
 
 export default function BackLink(props: BackLinkProps) {
@@ -30,6 +31,7 @@ export default function BackLink(props: BackLinkProps) {
         shouldHandleBackAction = false,
         onClick,
         tabIndex,
+        extraProps,
     } = props;
     const handleAnalytics = useAnalytics(DefaultEventNames.ShareButton, url);
 
@@ -59,6 +61,7 @@ export default function BackLink(props: BackLinkProps) {
             href={shouldHandleBackAction ? undefined : url}
             onClick={shouldHandleBackAction ? backActionHandler : undefined}
             tabIndex={tabIndex}
+            extraProps={extraProps}
         >
             <Icon data={ArrowSidebar} size={24} />
             <span>{title}</span>

@@ -13,6 +13,7 @@ const b = block('title');
 
 export interface TitleProps extends TitleParams {
     colSizes?: GridColumnSizesType;
+    id?: string;
 }
 
 const Title = ({
@@ -20,6 +21,7 @@ const Title = ({
     subtitle,
     className,
     colSizes = {all: 12, sm: 8},
+    id,
 }: TitleProps & ClassNameProps) => {
     if (!title && !subtitle) {
         return null;
@@ -29,7 +31,7 @@ const Title = ({
         !title || typeof title === 'string' ? ({text: title} as TitleItemProps) : title;
 
     return (
-        <div className={b(null, className)}>
+        <div className={b(null, className)} id={id}>
             {text && (
                 <Col reset sizes={colSizes}>
                     <TitleItem text={text} {...titleProps} />

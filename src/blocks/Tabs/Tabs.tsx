@@ -1,5 +1,7 @@
 import React, {Fragment, useRef, useState} from 'react';
 
+import {useUniqId} from '@gravity-ui/uikit';
+
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
 import ButtonTabs, {ButtonTabsItemProps} from '../../components/ButtonTabs/ButtonTabs';
 import FullscreenImage from '../../components/FullscreenImage/FullscreenImage';
@@ -36,6 +38,7 @@ export const TabsBlock = ({
     const ref = useRef<HTMLDivElement>(null);
     const mediaWidth = ref?.current?.offsetWidth;
     const mediaHeight = mediaWidth && getHeight(mediaWidth);
+    const captionId = useUniqId();
 
     let imageProps;
 
@@ -43,6 +46,11 @@ export const TabsBlock = ({
         const themedImage = getThemedValue(activeTabData.image, theme);
 
         imageProps = themedImage && getMediaImage(themedImage);
+        if (activeTabData.caption && imageProps) {
+            Object.assign(imageProps, {
+                'aria-describedby': captionId,
+            });
+        }
     }
 
     const showMedia = Boolean(activeTabData?.media || imageProps);
@@ -99,7 +107,11 @@ export const TabsBlock = ({
                     <FullscreenImage {...imageProps} imageClassName={b('image')} />
                 </Fragment>
             )}
-            {activeTabData?.caption && <p className={b('caption')}>{activeTabData.caption}</p>}
+            {activeTabData?.caption && (
+                <p className={b('caption')} id={captionId}>
+                    {activeTabData.caption}
+                </p>
+            )}
         </Col>
     );
 

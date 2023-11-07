@@ -58,6 +58,7 @@ const LinkBlock = (props: WithChildren<LinkFullProps>) => {
         tabIndex,
         qa,
         urlTitle,
+        extraProps,
     } = props;
     const qaAttributes = getQaAttrubutes(qa, ['normal']);
 
@@ -82,6 +83,7 @@ const LinkBlock = (props: WithChildren<LinkFullProps>) => {
                         url={href}
                         onClick={onClick}
                         tabIndex={tabIndex}
+                        extraProps={extraProps}
                     />
                 );
             case 'file-link':
@@ -94,6 +96,7 @@ const LinkBlock = (props: WithChildren<LinkFullProps>) => {
                         textSize={textSize}
                         onClick={onClick}
                         tabIndex={tabIndex}
+                        extraProps={extraProps}
                     />
                 );
             case 'normal': {
@@ -109,6 +112,7 @@ const LinkBlock = (props: WithChildren<LinkFullProps>) => {
                         title={urlTitle}
                         {...linkProps}
                         data-qa={qaAttributes.normal}
+                        {...extraProps}
                     >
                         {arrow ? (
                             <Fragment>
