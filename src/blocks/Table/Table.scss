@@ -8,7 +8,7 @@ $block: '.#{$ns}table-block';
 
     &__title {
         @include heading2();
-        @include top-content-offset($offset: $indentM);
+        @include top-content-offset($offset: 0px);
 
         position: sticky;
         margin-right: $indentM;

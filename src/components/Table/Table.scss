@@ -7,8 +7,6 @@ $block: '.#{$ns}table';
     $root: &;
     @include text-size(body-2);
 
-    margin-top: $indentM;
-
     &__table {
         width: 100%;
         overflow-x: auto;
