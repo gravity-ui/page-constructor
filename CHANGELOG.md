@@ -11,9 +11,7 @@
 
 ### Bug Fixes
 
-* added focus for hubspot form links ([dd7249e](https://github.com/gravity-ui/page-constructor/commit/dd7249e8efba87ae7710cc98136af48658855a89))
 * added focus for hubspot form links ([#671](https://github.com/gravity-ui/page-constructor/issues/671)) ([dd7249e](https://github.com/gravity-ui/page-constructor/commit/dd7249e8efba87ae7710cc98136af48658855a89))
-* aligning left quote in Quote component ([3316d80](https://github.com/gravity-ui/page-constructor/commit/3316d808b15f84fbd93b09c8c3a5c1840bb9d988))
 * aligning left quote in Quote component ([#672](https://github.com/gravity-ui/page-constructor/issues/672)) ([3316d80](https://github.com/gravity-ui/page-constructor/commit/3316d808b15f84fbd93b09c8c3a5c1840bb9d988))
 * raise up title item arrow to 1 px ([#668](https://github.com/gravity-ui/page-constructor/issues/668)) ([51f6215](https://github.com/gravity-ui/page-constructor/commit/51f6215379d34814d656201f4687c9e6b3243dc4))
 
