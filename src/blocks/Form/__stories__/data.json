@@ -45,6 +45,7 @@
   },
   "formData": {
     "yandex": {
+      "theme": "default",
       "id": "61a4e639d4d24e0dbba36f5c",
       "metrikaGoals": ["events_form_submit"],
       "customFormSection": "cloud"
