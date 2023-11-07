@@ -24,10 +24,12 @@ const DefaultTemplate: StoryFn<FormBlockModel> = (args) => (
             blocks: [
                 {
                     ...args,
+                    title: 'Yandex form',
                     formData: {yandex: data.formData.yandex}, //yandex form
                 },
                 {
                     ...args,
+                    title: 'Hubspot form',
                     formData: {hubspot: data.formData.hubspot}, //hubspot form
                 },
             ],
