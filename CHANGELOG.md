@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [4.34.0](https://github.com/gravity-ui/page-constructor/compare/v4.33.0...v4.34.0) (2023-11-08)
+
+
+### Features
+
+* add blocks/Form ([#659](https://github.com/gravity-ui/page-constructor/issues/659)) ([783afae](https://github.com/gravity-ui/page-constructor/commit/783afae6ed379d0596138a40c0f6b7e94660f61e))
+
 ## [4.33.0](https://github.com/gravity-ui/page-constructor/compare/v4.32.0...v4.33.0) (2023-11-07)
 
 
