@@ -4,7 +4,7 @@ import {ButtonSize} from '@gravity-ui/uikit';
 
 import {GridColumnSize, GridColumnSizesType} from '../../grid/types';
 import {ThemeSupporting} from '../../utils';
-import {AnalyticsEventsBase} from '../common';
+import {AnalyticsEventsBase, QAProps} from '../common';
 
 import {
     AnchorProps,
@@ -210,7 +210,7 @@ export interface QuestionBlockItemProps extends QuestionItem {
 
 export interface BannerBlockProps extends BannerCardProps, Animatable {}
 
-export interface CompaniesBlockProps extends Animatable {
+export interface CompaniesBlockProps extends Animatable, QAProps {
     title: string;
     images: ThemeSupporting<ImageDeviceProps>;
 }
