@@ -1,0 +1,31 @@
+@import '../../../../styles/mixins';
+@import '../../../../styles/variables';
+
+$block: '.#{$ns}tabs-block-text-content';
+
+#{$block} {
+    display: flex;
+    flex-direction: column;
+
+    &_centered {
+        margin: 0 auto;
+    }
+
+    &__wrapper {
+        &_regular {
+            margin: $indentSM 0 0 $contentMargin;
+        }
+
+        &_reverse {
+            margin: $indentSM $indentM 0 0;
+        }
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'md')) {
+        &__wrapper {
+            &_margin {
+                margin: 0 0 $contentMargin 0;
+            }
+        }
+    }
+}

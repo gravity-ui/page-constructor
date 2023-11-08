@@ -12,8 +12,9 @@ import {getHeight} from '../../components/VideoBlock/VideoBlock';
 import {useTheme} from '../../context/theme';
 import {Col, GridColumnOrderClasses, Row} from '../../grid';
 import {TabsBlockProps} from '../../models';
-import {Content} from '../../sub-blocks';
 import {block, getThemedValue} from '../../utils';
+
+import TabsTextContent from './TabsTextContent/TabsTextContent';
 
 import './Tabs.scss';
 
@@ -74,29 +75,14 @@ export const TabsBlock = ({
     const showText = Boolean(activeTabData?.text);
 
     const textContent = activeTabData && showText && (
-        <Col
-            sizes={{all: 12, md: showMedia ? 4 : 8}}
-            className={b('content', {centered: centered})}
-        >
-            <div
-                className={b('content-wrapper', {
-                    margin: Boolean((activeTabData?.media || imageProps) && !isReverse),
-                })}
-            >
-                <Content
-                    title={activeTabData.title}
-                    text={activeTabData.text}
-                    additionalInfo={activeTabData.additionalInfo}
-                    size={contentSize}
-                    links={[
-                        ...(activeTabData.link ? [activeTabData.link] : []),
-                        ...(activeTabData.links || []),
-                    ]}
-                    buttons={activeTabData.buttons}
-                    colSizes={{all: 12}}
-                />
-            </div>
-        </Col>
+        <TabsTextContent
+            showMedia={showMedia}
+            data={activeTabData}
+            imageProps={imageProps ? imageProps : undefined}
+            isReverse={isReverse}
+            contentSize={contentSize}
+            centered={centered}
+        />
     );
 
     const mediaContent = showMedia && (
@@ -140,7 +126,7 @@ export const TabsBlock = ({
             <Title
                 title={title}
                 subtitle={description}
-                className={b('block-title', {centered: centered})}
+                className={b('title', {centered: centered})}
             />
             <Row>
                 <Col sizes={tabsColSizes}>

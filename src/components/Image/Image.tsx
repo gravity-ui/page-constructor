@@ -1,4 +1,11 @@
-import React, {CSSProperties, Fragment, MouseEventHandler, useContext, useState} from 'react';
+import React, {
+    CSSProperties,
+    Fragment,
+    MouseEventHandler,
+    ReactEventHandler,
+    useContext,
+    useState,
+} from 'react';
 
 import {BREAKPOINTS} from '../../constants';
 import {ProjectSettingsContext} from '../../context/projectSettingsContext';
@@ -11,7 +18,7 @@ export interface ImageProps extends Partial<ImageObjectProps>, Partial<ImageDevi
     style?: CSSProperties;
     className?: string;
     onClick?: MouseEventHandler;
-    onLoad?: () => void;
+    onLoad?: ReactEventHandler<HTMLDivElement>;
     containerClassName?: string;
 }
 
