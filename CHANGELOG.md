@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [4.35.0](https://github.com/gravity-ui/page-constructor/compare/v4.34.1...v4.35.0) (2023-11-08)
+
+
+### Features
+
+* fix margin top in Table block and component ([#676](https://github.com/gravity-ui/page-constructor/issues/676)) ([22c00b5](https://github.com/gravity-ui/page-constructor/commit/22c00b58aec40f9af9da981bab06c28fa56be077))
+
 ## [4.34.1](https://github.com/gravity-ui/page-constructor/compare/v4.34.0...v4.34.1) (2023-11-08)
 
 
