@@ -124,7 +124,7 @@ interface LoopProps {
 
 // images
 
-export interface ImageInfoProps extends Pick<HTMLProps<HTMLImageElement>, 'aria-describedby'> {
+export interface ImageInfoProps {
     alt?: string;
     disableCompress?: boolean;
 }
