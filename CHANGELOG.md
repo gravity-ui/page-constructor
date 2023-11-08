@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [4.34.1](https://github.com/gravity-ui/page-constructor/compare/v4.34.0...v4.34.1) (2023-11-08)
+
+
+### Bug Fixes
+
+* remove rest operator ([#680](https://github.com/gravity-ui/page-constructor/issues/680)) ([36d3e59](https://github.com/gravity-ui/page-constructor/commit/36d3e59cd86451c79933071eddee3ee17317704d))
+
 ## [4.34.0](https://github.com/gravity-ui/page-constructor/compare/v4.33.0...v4.34.0) (2023-11-08)
 
 
