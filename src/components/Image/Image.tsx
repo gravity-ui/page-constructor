@@ -57,7 +57,6 @@ const Image = (props: ImageProps) => {
         onClick,
         containerClassName,
         qa,
-        ...rest
     } = props;
     const [imgLoadingError, setImgLoadingError] = useState(false);
 
@@ -114,7 +113,6 @@ const Image = (props: ImageProps) => {
                 style={style}
                 onClick={onClick}
                 onError={() => setImgLoadingError(true)}
-                {...rest}
             />
         </picture>
     );
