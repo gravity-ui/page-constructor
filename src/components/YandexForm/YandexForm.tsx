@@ -4,31 +4,16 @@ import {LocaleContext} from '../../context/localeContext';
 import {MobileContext} from '../../context/mobileContext';
 import {useAnalytics} from '../../hooks';
 import {useMetrika} from '../../hooks/useMetrika';
-import {PixelEvent} from '../../models';
-import {AnalyticsEventsBase, DefaultEventNames} from '../../models/common';
+import {YandexFormProps} from '../../models';
+import {DefaultEventNames} from '../../models/common';
 import {block} from '../../utils';
 import {HEADER_HEIGHT} from '../constants';
 
 export const YANDEX_FORM_ORIGIN = 'https://forms.yandex.ru';
+export const YANDEX_FORM_SECTION = 'surveys';
 const CONTAINER_ID = 'pc-yandex-form-container';
 
 const b = block('yandex-form');
-
-export interface YandexFormProps extends AnalyticsEventsBase {
-    id: number | string;
-    containerId?: string;
-    theme?: string;
-    className?: string;
-    headerHeight?: number;
-    customFormOrigin?: string;
-    params?: {[key: string]: string};
-
-    onSubmit?: () => void;
-    onLoad?: () => void;
-
-    metrikaGoals?: string | string[];
-    pixelEvents?: string | string[] | PixelEvent | PixelEvent[];
-}
 
 const YandexForm = (props: YandexFormProps) => {
     const {
@@ -44,10 +29,12 @@ const YandexForm = (props: YandexFormProps) => {
         pixelEvents,
         analyticsEvents,
         customFormOrigin,
+        customFormSection,
     } = props;
     const formContainerRef = useRef<HTMLDivElement>(null);
     const iframeRef = useRef<HTMLIFrameElement>();
     const yaFormOrigin = customFormOrigin || YANDEX_FORM_ORIGIN;
+    const yaFormSection = customFormSection || YANDEX_FORM_SECTION;
 
     const handleMetrika = useMetrika();
     const handleAnalytics = useAnalytics(DefaultEventNames.YandexFormSubmit);
@@ -78,7 +65,7 @@ const YandexForm = (props: YandexFormProps) => {
                 });
             }
 
-            const src = `${yaFormOrigin}/surveys/${id}/?${queryParams}`;
+            const src = `${yaFormOrigin}/${yaFormSection}/${id}/?${queryParams}`;
 
             if (iframeRef.current) {
                 iframeRef.current.src = src;
@@ -94,7 +81,7 @@ const YandexForm = (props: YandexFormProps) => {
                 container.appendChild(iframeRef.current);
             }
         },
-        [locale.lang, theme, isMobile, yaFormOrigin, id, containerId, params],
+        [locale.lang, theme, isMobile, yaFormOrigin, yaFormSection, id, containerId, params],
     );
 
     const handleSubmit = useCallback(() => {

@@ -1,0 +1,228 @@
+@import '../../../styles/mixins.scss';
+@import '../../../styles/variables.scss';
+
+$block: '.#{$ns}form-block';
+
+$textPadding: 10px;
+$maxLargeWidth: 609px;
+$yandexFormDesktopMinWidth: 475px;
+$largeBorderRadius: 32px;
+
+#{$block} {
+    $root: &;
+
+    border-radius: $largeBorderRadius;
+    position: relative;
+
+    &__title {
+        margin: 0 0 $indentSM $textPadding;
+
+        &_mobile {
+            margin-left: 4px;
+        }
+    }
+
+    &__full-form {
+        background-color: var(--g-color-base-background);
+        padding: $indentL $indentXL $indentL calc(#{$indentXL} - #{$textPadding});
+        border-radius: $borderRadius;
+    }
+
+    &__media {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        border-radius: $largeBorderRadius;
+    }
+
+    &__image {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    &__row {
+        &_direction {
+            &_form-content {
+                flex-direction: row-reverse;
+            }
+
+            &_center {
+                padding-top: $indentXL;
+                padding-bottom: $indentL;
+                flex-direction: column;
+
+                #{$root}__content-wrapper {
+                    margin-bottom: $indentM;
+                }
+            }
+        }
+    }
+
+    &:not(#{$root}_with-background) {
+        #{$root}__full-form {
+            box-shadow: 0 4px 24px var(--pc-color-sfx-shadow), 0 2px 8px var(--pc-color-sfx-shadow);
+        }
+        #{$root}__row {
+            &_direction {
+                &_form-content {
+                    #{$root}__content-wrapper {
+                        padding: $indentL 0 $indentXL $indentXL;
+                    }
+                }
+                &_content-form {
+                    #{$root}__content-wrapper {
+                        padding: $indentL $indentXL $indentXL 0;
+                    }
+                }
+            }
+        }
+    }
+
+    &_with-background {
+        #{$root}__row {
+            &_direction {
+                &_form-content {
+                    #{$root}__form-wrapper {
+                        padding: $indentXS 0 $indentSM $indentXS;
+                    }
+                }
+                &_content-form {
+                    #{$root}__form-wrapper {
+                        padding: $indentXS $indentXS $indentSM 0;
+                    }
+                }
+                &_form-content,
+                &_content-form {
+                    #{$root}__content-wrapper {
+                        padding: $indentXL;
+                    }
+                }
+            }
+        }
+    }
+
+    @media (min-width: map-get($gridBreakpoints, 'lg')) {
+        &_form-type_yandex {
+            #{$root}__row {
+                &_direction {
+                    &_form-content,
+                    &_content-form {
+                        #{$root}__content-col {
+                            flex: 1 0 0;
+                        }
+                    }
+
+                    &_form-content,
+                    &_content-form,
+                    &_center {
+                        #{$root}__form {
+                            min-width: $yandexFormDesktopMinWidth;
+                        }
+                        #{$root}__form-col {
+                            max-width: initial;
+                            width: fit-content;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'lg')) and (min-width: map-get($gridBreakpoints, 'md')) {
+        &__row {
+            flex-direction: column;
+        }
+
+        &_with-background,
+        &:not(#{$root}_with-background) {
+            #{$root}__row {
+                #{$root}__form-wrapper,
+                #{$root}__content-wrapper {
+                    max-width: $maxLargeWidth;
+                }
+
+                #{$root}__center,
+                #{$root}__form-wrapper,
+                #{$root}__content-wrapper {
+                    margin: 0 auto;
+                    padding-right: 0;
+                    padding-left: 0;
+                }
+
+                #{$root}__form-wrapper {
+                    padding-top: 0;
+                }
+
+                #{$root}__content-wrapper {
+                    text-align: center;
+                    padding-bottom: $indentM;
+                }
+            }
+        }
+
+        &:not(#{$root}_with-background) &__row {
+            #{$root}__content-wrapper {
+                padding: 0 0 $indentM 0;
+            }
+        }
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'md')) {
+        &__full-form {
+            padding: $indentM;
+        }
+
+        &_with-background,
+        &:not(#{$root}_with-background) {
+            #{$root}__row {
+                padding: 0;
+
+                #{$root}__form-wrapper,
+                #{$root}__content-wrapper {
+                    padding: 0;
+                }
+
+                #{$root}__content-wrapper {
+                    padding-bottom: $indentM;
+                    margin-bottom: 0;
+                }
+            }
+        }
+
+        &_with-background {
+            padding: 0 $indentXXXS;
+
+            #{$root}__row {
+                padding-top: $indentL;
+
+                &_padding-bottom {
+                    &_m {
+                        padding-bottom: $indentM;
+                    }
+                    &_l {
+                        padding-bottom: $indentL;
+                    }
+                }
+
+                &_direction {
+                    &_form-content,
+                    &_content-form,
+                    &_center {
+                        #{$root}__content-wrapper {
+                            padding-right: $indentXS;
+                            padding-left: $indentXS;
+                        }
+                    }
+
+                    &_form-content,
+                    &_content-form {
+                        padding-top: $indentM;
+                    }
+                }
+            }
+        }
+    }
+}

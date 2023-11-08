@@ -1,0 +1,59 @@
+{
+  "default": {
+    "type": "form-block",
+    "textContent": {
+      "title": "Lorem ipsum dolor sit amet",
+      "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    }
+  },
+  "сontentDirection": {
+    "content": {
+      "direction": "content-form"
+    }
+  },
+  "withBackground": {
+    "content": {
+      "background": {
+        "style": {
+          "backgroundColor": "#EFF2F8"
+        }
+      }
+    }
+  },
+  "withBackgroundImage": {
+    "content": {
+      "background": {
+        "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/content-bg-img_light.png",
+        "disableCompress": true
+      }
+    }
+  },
+  "darkTheme": {
+    "content": {
+      "textContent": {
+        "theme": "dark",
+        "title": "Black form background color",
+        "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit:</p> <ul> <li> <p>Lorem ipsum</p> </li> <li> <p>Lorem ipsum</p> </li> <li> <p>Lorem ipsum</p> </li> </ul>"
+      },
+      "direction": "form-content",
+      "background": {
+        "style": {
+          "backgroundColor": "#262626"
+        }
+      }
+    }
+  },
+  "formData": {
+    "yandex": {
+      "theme": "default",
+      "id": "61a4e639d4d24e0dbba36f5c",
+      "metrikaGoals": ["events_form_submit"],
+      "customFormSection": "cloud"
+    },
+    "hubspot": {
+      "region": "eu1",
+      "portalId": "25764979",
+      "formId": "a3eb06a6-e8ce-45d4-81bd-7fadb7dab313"
+    }
+  }
+}
