@@ -26,8 +26,9 @@ const FormBlock: React.FC<FormBlockProps> = (props) => {
     const [contentLoaded, setContentLoaded] = useState(false);
     const isMobile = useContext(MobileContext);
 
-    const hasImage = background && (background.src || background.desktop);
-    const paddingBottom = background && background.style?.backgroundColor && !hasImage ? 'l' : 'm'; // bigger padding for case with background color and no image
+    const withBackground = Boolean(
+        background && (background.src || background.desktop || background.style?.backgroundColor),
+    );
     const onContentLoad = useCallback(() => {
         setContentLoaded(true);
     }, []);
@@ -47,7 +48,7 @@ const FormBlock: React.FC<FormBlockProps> = (props) => {
     return (
         <div
             className={b({
-                'with-background': Boolean(background),
+                'with-background': withBackground,
                 'form-type': formType,
             })}
         >
@@ -67,7 +68,6 @@ const FormBlock: React.FC<FormBlockProps> = (props) => {
                     }
                     className={b('row', {
                         direction,
-                        'padding-bottom': paddingBottom,
                     })}
                 >
                     <Col sizes={colSizes} className={b('content-col')}>

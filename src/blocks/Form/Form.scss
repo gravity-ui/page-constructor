@@ -196,16 +196,8 @@ $largeBorderRadius: 32px;
             padding: 0 $indentXXXS;
 
             #{$root}__row {
-                padding-top: $indentL;
-
-                &_padding-bottom {
-                    &_m {
-                        padding-bottom: $indentM;
-                    }
-                    &_l {
-                        padding-bottom: $indentL;
-                    }
-                }
+                padding-top: $indentM;
+                padding-bottom: $indentM;
 
                 &_direction {
                     &_form-content,
