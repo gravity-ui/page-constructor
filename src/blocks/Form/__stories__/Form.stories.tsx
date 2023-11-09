@@ -1,6 +1,7 @@
 import React from 'react';
 
 import {Meta, StoryFn} from '@storybook/react';
+import {v4 as uuidv4} from 'uuid';
 
 import {PageConstructor} from '../../../containers/PageConstructor';
 import {FormBlockDirection, FormBlockModel, isHubspotDataForm} from '../../../models';
@@ -18,10 +19,17 @@ export default {
     },
 } as Meta;
 
+const __getFormData = (formData: FormBlockModel['formData']) => {
+    const id = uuidv4();
+    return isHubspotDataForm(formData)
+        ? {hubspot: {...formData.hubspot, formInstanceId: id}}
+        : {yandex: formData.yandex};
+};
+
 const DefaultTemplate: StoryFn<FormBlockModel> = (args) => (
     <PageConstructor
         content={{
-            blocks: [args],
+            blocks: [{...args, formData: __getFormData(args.formData)}],
         }}
     />
 );
@@ -34,37 +42,19 @@ const ContentDirectionTemplate: StoryFn<FormBlockModel> = (args) => (
                     ...args,
                     direction: FormBlockDirection.FormContent,
                     textContent: {...args.textContent, title: 'FormContent'},
-                    formData: isHubspotDataForm(args.formData)
-                        ? {
-                              hubspot: {...args.formData.hubspot, formInstanceId: '1'},
-                          }
-                        : {
-                              yandex: args.formData.yandex,
-                          },
+                    formData: __getFormData(args.formData),
                 },
                 {
                     ...args,
                     direction: FormBlockDirection.ContentForm,
                     textContent: {...args.textContent, title: 'ContentForm'},
-                    formData: isHubspotDataForm(args.formData)
-                        ? {
-                              hubspot: {...args.formData.hubspot, formInstanceId: '2'},
-                          }
-                        : {
-                              yandex: args.formData.yandex,
-                          },
+                    formData: __getFormData(args.formData),
                 },
                 {
                     ...args,
                     direction: FormBlockDirection.Center,
                     textContent: {...args.textContent, title: 'Center'},
-                    formData: isHubspotDataForm(args.formData)
-                        ? {
-                              hubspot: {...args.formData.hubspot, formInstanceId: '3'},
-                          }
-                        : {
-                              yandex: args.formData.yandex,
-                          },
+                    formData: __getFormData(args.formData),
                 },
             ],
         }}
