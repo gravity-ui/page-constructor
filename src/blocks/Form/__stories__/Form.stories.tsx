@@ -1,9 +1,10 @@
 import React from 'react';
 
 import {Meta, StoryFn} from '@storybook/react';
+import {v4 as uuidv4} from 'uuid';
 
 import {PageConstructor} from '../../../containers/PageConstructor';
-import {FormBlockDirection, FormBlockModel} from '../../../models';
+import {FormBlockDirection, FormBlockModel, isHubspotDataForm} from '../../../models';
 import FormBlock from '../Form';
 
 import data from './data.json';
@@ -18,35 +19,70 @@ export default {
     },
 } as Meta;
 
+const __getFormData = (formData: FormBlockModel['formData']) => {
+    const id = uuidv4();
+    return isHubspotDataForm(formData)
+        ? {hubspot: {...formData.hubspot, formInstanceId: id}}
+        : {yandex: formData.yandex};
+};
+
 const DefaultTemplate: StoryFn<FormBlockModel> = (args) => (
+    <PageConstructor
+        content={{
+            blocks: [{...args, formData: __getFormData(args.formData)}],
+        }}
+    />
+);
+
+const ContentDirectionTemplate: StoryFn<FormBlockModel> = (args) => (
     <PageConstructor
         content={{
             blocks: [
                 {
                     ...args,
-                    title: 'Yandex form',
-                    formData: {yandex: data.formData.yandex}, //yandex form
+                    direction: FormBlockDirection.FormContent,
+                    textContent: {...args.textContent, title: 'FormContent'},
+                    formData: __getFormData(args.formData),
                 },
                 {
                     ...args,
-                    title: 'Hubspot form',
-                    formData: {hubspot: data.formData.hubspot}, //hubspot form
+                    direction: FormBlockDirection.ContentForm,
+                    textContent: {...args.textContent, title: 'ContentForm'},
+                    formData: __getFormData(args.formData),
+                },
+                {
+                    ...args,
+                    direction: FormBlockDirection.Center,
+                    textContent: {...args.textContent, title: 'Center'},
+                    formData: __getFormData(args.formData),
                 },
             ],
         }}
     />
 );
 
+const FormDataTemplate: StoryFn<FormBlockModel> = (args) => (
+    <React.Fragment>
+        <ContentDirectionTemplate {...args} />
+        <ContentDirectionTemplate
+            {...args}
+            {...(data.default as FormBlockModel)}
+            {...data.withBackground}
+        />
+    </React.Fragment>
+);
+
 export const Default = DefaultTemplate.bind({});
-export const ContentDirection = DefaultTemplate.bind({});
-export const WithBackgroundColor = DefaultTemplate.bind({});
-export const WithBackgroundImage = DefaultTemplate.bind({});
-export const DarkTheme = DefaultTemplate.bind({});
+export const ContentDirection = ContentDirectionTemplate.bind({});
+export const WithBackgroundColor = ContentDirectionTemplate.bind({});
+export const WithBackgroundImage = ContentDirectionTemplate.bind({});
+export const DarkTheme = ContentDirectionTemplate.bind({});
+export const FormData = FormDataTemplate.bind({});
 
-ContentDirection.args = {...data.сontentDirection.content} as FormBlockModel;
+WithBackgroundColor.args = data.withBackground;
 
-WithBackgroundColor.args = {...data.withBackground.content} as FormBlockModel;
+WithBackgroundImage.args = data.withBackgroundImage;
 
-WithBackgroundImage.args = {...data.withBackgroundImage.content} as FormBlockModel;
+DarkTheme.args = data.darkTheme as FormBlockModel;
 
-DarkTheme.args = {...data.darkTheme.content} as FormBlockModel;
+FormData.args = {...data.yandexForm, ...data.withBackgroundImage};
