@@ -4,9 +4,9 @@
 ## [4.35.1](https://github.com/gravity-ui/page-constructor/compare/v4.35.0...v4.35.1) (2023-11-10)
 
 
-### chore
+### Bug Fixes
 
-* bump release ([41f1377](https://github.com/gravity-ui/page-constructor/commit/41f137737ec3126a70f155793ac073d86faf4520))
+* update form-block ([#687](https://github.com/gravity-ui/page-constructor/issues/687)) ([e3b5f79](https://github.com/gravity-ui/page-constructor/commit/e3b5f795ab095b696c973072d7039bd36e8a6023))
 
 ## [4.35.0](https://github.com/gravity-ui/page-constructor/compare/v4.34.1...v4.35.0) (2023-11-08)
 
