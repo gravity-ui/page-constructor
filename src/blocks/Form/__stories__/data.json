@@ -49,6 +49,13 @@
         "metrikaGoals": ["events_form_submit"],
         "customFormSection": "cloud"
       }
+    },
+    "background": {
+      "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/content-bg-img_light.png",
+      "disableCompress": true,
+      "style": {
+        "backgroundColor": "#EFF2F8"
+      }
     }
   }
 }
