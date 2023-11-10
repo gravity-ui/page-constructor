@@ -61,12 +61,23 @@ const ContentDirectionTemplate: StoryFn<FormBlockModel> = (args) => (
     />
 );
 
+const FormDataTemplate: StoryFn<FormBlockModel> = (args) => (
+    <React.Fragment>
+        <ContentDirectionTemplate {...args} />
+        <ContentDirectionTemplate
+            {...args}
+            {...(data.default as FormBlockModel)}
+            {...data.withBackground}
+        />
+    </React.Fragment>
+);
+
 export const Default = DefaultTemplate.bind({});
 export const ContentDirection = ContentDirectionTemplate.bind({});
 export const WithBackgroundColor = ContentDirectionTemplate.bind({});
 export const WithBackgroundImage = ContentDirectionTemplate.bind({});
 export const DarkTheme = ContentDirectionTemplate.bind({});
-export const YandexForm = ContentDirectionTemplate.bind({});
+export const FormData = FormDataTemplate.bind({});
 
 WithBackgroundColor.args = data.withBackground;
 
@@ -74,4 +85,4 @@ WithBackgroundImage.args = data.withBackgroundImage;
 
 DarkTheme.args = data.darkTheme as FormBlockModel;
 
-YandexForm.args = data.yandexForm;
+FormData.args = {...data.yandexForm, ...data.withBackgroundImage};
