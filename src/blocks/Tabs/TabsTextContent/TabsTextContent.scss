@@ -23,8 +23,13 @@ $block: '.#{$ns}tabs-block-text-content';
 
     @media (max-width: map-get($gridBreakpoints, 'md')) {
         &__wrapper {
-            &_margin {
+            &_regular {
                 margin: 0 0 $contentMargin 0;
+            }
+
+            &_reverse {
+                margin-top: $indentM;
+                padding-bottom: 0;
             }
         }
     }

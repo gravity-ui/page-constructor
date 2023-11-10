@@ -50,11 +50,6 @@ $block: '.#{$ns}tabs-block';
     @media (max-width: map-get($gridBreakpoints, 'md')) {
         &__row_reverse {
             flex-direction: column-reverse;
-
-            #{$class}__content > * {
-                margin-top: $indentM;
-                padding-bottom: 0;
-            }
         }
     }
 
