@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Image, YFMWrapper} from '../../components';
+import {Image, Title} from '../../components';
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
 import {useTheme} from '../../context/theme';
 import {CompaniesBlockProps} from '../../models';
@@ -17,12 +17,7 @@ export const CompaniesBlock = ({title, description, images, animated}: Companies
     return (
         <AnimateBlock className={b()} offset={150} animate={animated}>
             <div className={b('content')}>
-                <h2 className={b('title')}>{title}</h2>
-                {description && (
-                    <div className={b('description')}>
-                        <YFMWrapper content={description} modifiers={{constructor: true}} />
-                    </div>
-                )}
+                <Title title={title} subtitle={description} colSizes={{all: 12, sm: 12}}></Title>
                 <div className={b('images')}>
                     <Image {...themedImages} className={b('image')} />
                 </div>
