@@ -4,13 +4,6 @@
 $block: '.#{$ns}navigation';
 
 #{$block} {
-    $root: &;
-    $navigationZIndex: 98;
-
-    position: sticky;
-    z-index: $navigationZIndex;
-    top: 0;
-
     display: flex;
     justify-content: center;
     align-items: center;
