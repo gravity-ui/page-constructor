@@ -1,12 +1,13 @@
-import React, {useContext, useMemo} from 'react';
+import React, {useMemo} from 'react';
 
 import omit from 'lodash/omit';
 
 import {BlockIdContext} from '../../../context/blockIdContext';
-import {InnerContext} from '../../../context/innerContext';
 import {CustomItem, NavigationItemType} from '../../../models';
 import {block} from '../../../utils';
 import {NavigationItemProps} from '../../models';
+
+import {useNavItemMap} from './hooks/useNavItemMap';
 
 import './NavigationItem.scss';
 
@@ -21,7 +22,7 @@ const NavigationItem: React.FC<NavigationItemProps> = ({
     ...props
 }: NavigationItemProps) => {
     const {type = NavigationItemType.Link} = data;
-    const {navItemMap} = useContext(InnerContext);
+    const navItemMap = useNavItemMap();
     const Component = navItemMap[type] as CustomItem;
     const componentProps = useMemo(() => {
         const componentProperties = {

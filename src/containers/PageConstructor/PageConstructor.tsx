@@ -3,7 +3,7 @@ import React, {useMemo} from 'react';
 import '@doc-tools/transform/dist/js/yfm';
 
 import BackgroundMedia from '../../components/BackgroundMedia/BackgroundMedia';
-import {UIKIT_ROOT_CLASS} from '../../components/constants';
+import RootCn from '../../components/RootCn';
 import {blockMap, navItemMap, subBlockMap} from '../../constructor-items';
 import {AnimateContext} from '../../context/animateContext';
 import {InnerContext} from '../../context/innerContext';
@@ -23,7 +23,6 @@ import {
 } from '../../models';
 import Layout from '../../navigation/containers/Layout/Layout';
 import {
-    cn as blockOrigin,
     block as cnBlock,
     getCustomItems,
     getCustomTypes,
@@ -39,7 +38,6 @@ import {ConstructorRow} from './components/ConstructorRow';
 import './PageConstructor.scss';
 
 const b = cnBlock('page-constructor');
-const ycr = blockOrigin(UIKIT_ROOT_CLASS);
 
 export type ItemMap = typeof blockMap & typeof subBlockMap & CustomItems;
 
@@ -99,7 +97,7 @@ export const Constructor = (props: PageConstructorProps) => {
 
     return (
         <InnerContext.Provider value={context}>
-            <div className={b(null, ycr({theme}))}>
+            <RootCn>
                 <div className={b('wrapper')}>
                     {themedBackground && (
                         <BackgroundMedia {...themedBackground} className={b('background')} />
@@ -118,7 +116,7 @@ export const Constructor = (props: PageConstructorProps) => {
                         </Grid>
                     </Layout>
                 </div>
-            </div>
+            </RootCn>
         </InnerContext.Provider>
     );
 };
