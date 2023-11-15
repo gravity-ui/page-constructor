@@ -162,6 +162,16 @@ const Page: React.FC<PageProps> = ({children}) => (
 );
 ```
 
+### Navigation
+
+Page navigation can also be used separately from the constructor:
+
+```jsx
+import {Navigation} from '@gravity-ui/page-constructor';
+
+const Page: React.FC<PageProps> = ({data, logo}) => <Navigation data={data} logo={logo} />;
+```
+
 ### Blocks
 
 Each block is an atomic top-level component. They're stored in the `src/units/constructor/blocks` directory.
