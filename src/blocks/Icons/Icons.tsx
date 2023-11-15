@@ -17,7 +17,7 @@ const getItemContent = (item: IconsBlockProps['items'][number]) => (
     </Fragment>
 );
 
-const Icons = ({title, size = 's', items}: IconsBlockProps) => {
+const Icons = ({title, description, size = 's', items}: IconsBlockProps) => {
     const {hostname} = useContext(LocationContext);
     const handleAnalytics = useAnalytics();
 
@@ -30,7 +30,14 @@ const Icons = ({title, size = 's', items}: IconsBlockProps) => {
 
     return (
         <div className={b({size})}>
-            {title && <Title className={b('header')} title={title} colSizes={{all: 12}} />}
+            {(title || description) && (
+                <Title
+                    className={b('header')}
+                    title={title}
+                    subtitle={description}
+                    colSizes={{all: 12}}
+                />
+            )}
             {items.map((item) => {
                 const itemContent = getItemContent(item);
                 const {url, text} = item;

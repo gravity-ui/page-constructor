@@ -330,6 +330,7 @@ export interface IconsBlockItemProps extends AnalyticsEventsBase {
 
 export interface IconsBlockProps {
     title?: string;
+    description?: string;
     size?: 's' | 'm' | 'l';
     items: IconsBlockItemProps[];
 }

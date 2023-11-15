@@ -361,11 +361,5 @@ export const config: BlocksConfig = {
         },
     ],
     [BlockType.CardLayoutBlock]: blockHeaderTransformer,
-    [BlockType.IconsBlock]: [
-        {
-            fields: ['title'],
-            transformer: typografTransformer,
-            parser: parseTitle,
-        },
-    ],
+    [BlockType.IconsBlock]: blockHeaderTransformer,
 };
