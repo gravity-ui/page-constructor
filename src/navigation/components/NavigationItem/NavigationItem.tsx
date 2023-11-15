@@ -7,7 +7,7 @@ import {CustomItem, NavigationItemType} from '../../../models';
 import {block} from '../../../utils';
 import {NavigationItemProps} from '../../models';
 
-import {useNavItemMap} from './hooks/useNavItemMap';
+import {useNavigationItemMap} from './hooks/useNavigationItemMap';
 
 import './NavigationItem.scss';
 
@@ -22,7 +22,7 @@ const NavigationItem: React.FC<NavigationItemProps> = ({
     ...props
 }: NavigationItemProps) => {
     const {type = NavigationItemType.Link} = data;
-    const navItemMap = useNavItemMap();
+    const navItemMap = useNavigationItemMap();
     const Component = navItemMap[type] as CustomItem;
     const componentProps = useMemo(() => {
         const componentProperties = {
