@@ -1,9 +1,9 @@
-@import '../../../../styles/variables.scss';
-@import '../../../../styles/mixins.scss';
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
 
 $block: '.#{$ns}content-list';
-$iconSizeL: 22px;
-$iconSizeS: 20px;
+$iconSizeL: 20px;
+$iconSizeS: 18px;
 $marginIconSizeS: 2px;
 $marginIconSizeL: 1px;
 
@@ -66,5 +66,13 @@ $marginIconSizeL: 1px;
 
     &__item {
         display: flex;
+
+        &_withoutTitle {
+            #{$block}__icon {
+                margin-top: 0;
+                margin-bottom: 0;
+                margin-right: $indentXXXS;
+            }
+        }
     }
 }

@@ -34,6 +34,7 @@ export {default as RouterLink} from './RouterLink/RouterLink';
 export {default as HTML} from './HTML/HTML';
 export {default as MetaInfo} from './MetaInfo/MetaInfo';
 export {default as FullscreenMedia} from './FullscreenMedia/FullscreenMedia';
+export {default as ContentList} from './ContentList/ContentList';
 
 export type {RouterLinkProps} from './RouterLink/RouterLink';
 export type {ImageBaseProps} from './ImageBase/ImageBase';

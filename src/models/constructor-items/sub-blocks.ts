@@ -13,6 +13,7 @@ import {
     DividerSize,
     ImageObjectProps,
     ImageProps,
+    LinkProps,
     MediaProps,
     PriceDetailedProps,
     TextTheme,
@@ -133,6 +134,18 @@ export interface BannerCardProps {
 }
 
 export interface MediaCardProps extends MediaProps, AnalyticsEventsBase, CardBaseProps {}
+
+export interface PriceCardProps extends CardBaseProps, Pick<ContentBlockProps, 'theme'> {
+    title: string;
+    price: string;
+    pricePeriod?: string;
+    priceDetails?: string;
+    description?: string;
+    button?: ButtonProps;
+    link?: LinkProps;
+    backgroundColor?: string;
+    list?: string[];
+}
 
 export interface LayoutItemProps extends ClassNameProps, AnalyticsEventsBase {
     content: Omit<ContentBlockProps, 'colSizes' | 'centered' | 'size'>;

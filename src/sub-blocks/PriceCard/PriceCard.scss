@@ -1,0 +1,121 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins';
+
+$block: '.#{$ns}price-card';
+
+#{$block} {
+    position: relative;
+
+    &__bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+
+    &__content {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+
+        &_theme {
+            &_dark {
+                color: var(--g-color-text-light-primary);
+
+                #{$block}__info .yfm,
+                #{$block}__info .yfm * {
+                    color: var(--g-color-text-light-primary);
+                }
+
+                #{$block}__info a {
+                    text-decoration: underline;
+
+                    &:hover {
+                        color: var(--g-color-text-light-secondary);
+                    }
+                }
+
+                #{$block}__button {
+                    text-decoration: none;
+                }
+            }
+
+            &_light {
+                color: var(--g-color-text-dark-primary);
+
+                #{$block}__info .yfm,
+                #{$block}__info .yfm * {
+                    color: var(--g-color-text-dark-primary);
+                }
+
+                #{$block}__info a {
+                    text-decoration: underline;
+
+                    &:hover {
+                        color: var(--g-color-text-dark-secondary);
+                    }
+                }
+
+                #{$block}__button {
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+
+    &__title {
+        font-size: var(--g-text-subheader-3-font-size);
+        line-height: var(--g-text-subheader-3-line-height);
+        margin-bottom: $indentSM;
+    }
+
+    &__price {
+        margin-bottom: $indentSM;
+
+        &-value {
+            font-size: var(--g-text-display-1-font-size);
+            line-height: var(--g-text-display-1-line-height);
+        }
+
+        &-period {
+            margin-left: 4px;
+        }
+
+        &-details {
+            margin-bottom: $indentXXS;
+        }
+    }
+
+    &__main {
+        flex: 1;
+        min-height: 0;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+    }
+
+    &__media {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        border-radius: $borderRadius;
+    }
+
+    &__image {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    &__info {
+        margin-bottom: $indentSM;
+        flex: 1;
+        min-height: 0;
+        display: flex;
+        flex-direction: column;
+    }
+}
