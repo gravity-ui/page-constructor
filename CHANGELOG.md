@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [4.37.0](https://github.com/gravity-ui/page-constructor/compare/v4.36.0...v4.37.0) (2023-11-15)
+
+
+### Features
+
+* add description field to icons block ([#696](https://github.com/gravity-ui/page-constructor/issues/696)) ([e5f1a7d](https://github.com/gravity-ui/page-constructor/commit/e5f1a7dc9d00b57e4a67395aec9221f9fd636d65))
+* add standalone navigation ([#693](https://github.com/gravity-ui/page-constructor/issues/693)) ([38d5b88](https://github.com/gravity-ui/page-constructor/commit/38d5b884cd222d42e6f512e38f913fc8602a7ab1))
+
 ## [4.36.0](https://github.com/gravity-ui/page-constructor/compare/v4.35.1...v4.36.0) (2023-11-15)
 
 
