@@ -4,7 +4,7 @@ import debounce from 'lodash/debounce';
 
 import OutsideClick from '../../../components/OutsideClick/OutsideClick';
 import {Col, Grid, Row} from '../../../grid';
-import {HeaderData, ThemedNavigationLogoData} from '../../../models';
+import {ClassNameProps, HeaderData, ThemedNavigationLogoData} from '../../../models';
 import {block} from '../../../utils';
 import {getNavigationItemWithIconSize} from '../../utils';
 import DesktopNavigation from '../DesktopNavigation/DesktopNavigation';
@@ -14,12 +14,12 @@ import './Navigation.scss';
 
 const b = block('navigation');
 
-export interface NavigationProps {
+export interface NavigationProps extends ClassNameProps {
     logo: ThemedNavigationLogoData;
     data: HeaderData;
 }
 
-export const Navigation: React.FC<NavigationProps> = ({data, logo}) => {
+export const Navigation: React.FC<NavigationProps> = ({data, logo, className}) => {
     const {leftItems, rightItems, iconSize = 20, withBorder = false} = data;
     const [isSidebarOpened, setIsSidebarOpened] = useState(false);
     const [activeItemId, setActiveItemId] = useState<string | undefined>(undefined);
@@ -56,7 +56,7 @@ export const Navigation: React.FC<NavigationProps> = ({data, logo}) => {
     });
 
     return (
-        <Grid className={b({'with-border': showBorder})}>
+        <Grid className={b({'with-border': showBorder}, className)}>
             <Row>
                 <Col>
                     <nav>
