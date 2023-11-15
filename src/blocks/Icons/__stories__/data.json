@@ -61,5 +61,37 @@
         }
       ]
     }
+  },
+  "withDescription": {
+    "content": {
+      "type": "icons-block",
+      "description": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "items": [
+        {
+          "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icons-link_1_64.svg",
+          "text": "Lorem ipsum dolor sit amet"
+        },
+        {
+          "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icons-link_2_64.svg",
+          "text": "Lorem ipsum dolor sit amet",
+          "url": "#"
+        },
+        {
+          "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icons-link_3_64.svg",
+          "text": "Lorem ipsum dolor sit amet",
+          "url": "#"
+        },
+        {
+          "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icons-link_4_64.svg",
+          "text": "Lorem ipsum dolor sit amet",
+          "url": "#"
+        },
+        {
+          "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icons-link_5_64.svg",
+          "text": "Lorem ipsum dolor sit amet",
+          "url": "#"
+        }
+      ]
+    }
   }
 }
