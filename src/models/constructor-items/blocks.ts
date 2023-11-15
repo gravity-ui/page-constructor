@@ -212,6 +212,7 @@ export interface BannerBlockProps extends BannerCardProps, Animatable {}
 
 export interface CompaniesBlockProps extends Animatable {
     title: string;
+    description?: string;
     images: ThemeSupporting<ImageDeviceProps>;
 }
 

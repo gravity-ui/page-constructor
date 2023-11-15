@@ -214,6 +214,7 @@ export const config: BlocksConfig = {
         },
     ],
     [BlockType.SliderBlock]: blockHeaderTransformer,
+    [BlockType.CompaniesBlock]: blockHeaderTransformer,
     [BlockType.QuestionsBlock]: [
         {
             fields: ['title'],
