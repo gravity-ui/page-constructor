@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [4.36.0](https://github.com/gravity-ui/page-constructor/compare/v4.35.1...v4.36.0) (2023-11-15)
+
+
+### Features
+
+* added description field to companies block ([#692](https://github.com/gravity-ui/page-constructor/issues/692)) ([f305732](https://github.com/gravity-ui/page-constructor/commit/f305732321983c1ec93ff9e4fac5b56de7f39685))
+
 ## [4.35.1](https://github.com/gravity-ui/page-constructor/compare/v4.35.0...v4.35.1) (2023-11-10)
 
 
