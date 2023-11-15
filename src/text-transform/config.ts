@@ -363,7 +363,7 @@ export const config: BlocksConfig = {
     [BlockType.CardLayoutBlock]: blockHeaderTransformer,
     [BlockType.IconsBlock]: [
         {
-            fields: ['title'],
+            fields: ['title', 'description'],
             transformer: typografTransformer,
             parser: parseTitle,
         },
