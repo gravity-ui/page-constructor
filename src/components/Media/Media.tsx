@@ -6,6 +6,7 @@ import YoutubeBlock from '../VideoBlock/VideoBlock';
 
 import DataLens from './DataLens/DataLens';
 import FullscreenVideo from './FullscreenVideo/FullscreenVideo';
+import Iframe from './Iframe/Iframe';
 import Image, {ImageAdditionProps} from './Image/Image';
 import Video, {VideoAdditionProps} from './Video/Video';
 
@@ -45,6 +46,7 @@ export const Media = (props: MediaAllProps) => {
         ratio,
         autoplay,
         onImageLoad,
+        iframe,
     } = props;
 
     const [hasVideoFallback, setHasVideoFallback] = useState(false);
@@ -116,12 +118,17 @@ export const Media = (props: MediaAllProps) => {
             result = <DataLens dataLens={dataLens} />;
         }
 
+        if (iframe) {
+            result = <Iframe iframe={iframe} />;
+        }
+
         return result;
     }, [
         image,
         video,
         youtube,
         dataLens,
+        iframe,
         parallax,
         height,
         imageClassName,

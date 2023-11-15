@@ -279,6 +279,24 @@
       }
     }
   },
+  "iframe": {
+    "content": {
+      "media": {
+        "light": {
+          "iframe": {
+            "src": "https://volcano.geointellect.com/",
+            "name": "iframe"
+          }
+        },
+        "dark": {
+          "dataLens": {
+            "id": "m2bzon9y39lck",
+            "theme": "dark"
+          }
+        }
+      }
+    }
+  },
   "size": {
     "defaultMediaTitle": "Default Media",
     "largeMediaTitle": "Large Media",

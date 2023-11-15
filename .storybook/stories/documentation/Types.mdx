@@ -52,13 +52,6 @@ import { Meta } from '@storybook/blocks';
 
 ---
 
-# <a name="DataLens">`DataLens`</a>  — DataLens chart
-
-- `id: string` — Chart ID
-- `theme: dark | light` — Chart theme
-
----
-
 # <a name="Media">`Media`</a> — Image/video/DataLens/Youtube
 
 - `color?: string` — Background color
@@ -70,6 +63,24 @@ import { Meta } from '@storybook/blocks';
 - `previewImg?: string`
 - `dataLens?: string |` [DataLens](#DataLens)
 - `fullscreen?: boolean` — Enabling full-screen mode for image or video. Default true - for multiple images, false - for single image, video. It doesn't work with dataLens and youtube
+- `iframe?: [Iframe](#Iframe)`
+
+
+---
+
+# <a name="DataLens">`DataLens`</a>  — DataLens chart
+
+- `id: string` — Chart ID
+- `theme: dark | light` — Chart theme
+
+---
+
+# <a name="Iframe">`Iframe`</a>
+
+- `src: string` — Iframe link
+- `name?: string` — Iframe name
+
+You can add all attributes which `<iframe>` can take. See more info [here](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe)
 
 ---
 

@@ -1,0 +1,23 @@
+@import '../../../../styles/variables.scss';
+@import '../../../../styles/mixins';
+
+$block: '.#{$ns}media-component-iframe';
+
+#{$block} {
+    overflow: hidden;
+    margin: $indentSM;
+
+    #{$block}__iframe {
+        border-radius: 0;
+    }
+
+    &__item {
+        width: calc(100% + 4px);
+        height: calc(100% + 4px);
+        margin: -1px -2px 0;
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'sm')) {
+        margin: $indentSM 0;
+    }
+}

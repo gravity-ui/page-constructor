@@ -184,7 +184,7 @@ Sub-blocks are components that can be used in the block `children` property. In 
 
 1. In the `src/blocks` or `src/sub-blocks` directory, create a folder with the block or sub-block code.
 
-2. Add the block or sub-block name to enum `BlockType` or`SubBlockType` and describe its properties in the `src/models/blocks.ts` or `src/models/sub-blocks.ts` file in a similar way to the existing ones.
+2. Add the block or sub-block name to enum `BlockType` or`SubBlockType` and describe its properties in the `src/models/constructor-items/blocks.ts` or `src/models/constructor-items/sub-blocks.ts` file in a similar way to the existing ones.
 
 3. Add export for the block in the `src/blocks/index.ts` file and for the sub-block in the `src/sub-blocks/index.ts` file.
 

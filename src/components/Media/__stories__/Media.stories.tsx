@@ -24,6 +24,7 @@ export const Video = DefaultTemplate.bind({});
 export const Youtube = DefaultTemplate.bind({});
 export const DataLens = DefaultTemplate.bind({});
 export const DataLensDarkTheme = DefaultTemplate.bind({});
+export const Iframe = DefaultTemplate.bind({});
 
 Image.args = data.image.content;
 ImageSlider.args = data.imageSlider.content;
@@ -31,3 +32,4 @@ Video.args = data.video.content;
 Youtube.args = data.youtube.content;
 DataLens.args = data.dataLens.content;
 DataLensDarkTheme.args = data.dataLensDarkTheme.content as MediaProps;
+Iframe.args = data.iframe.content as MediaProps;

@@ -149,6 +149,7 @@ export const DataLens = ImageSliderTemplate.bind({});
 export const Size = SizeTemplate.bind({});
 export const Direction = DirectionTemplate.bind({});
 export const WithoutShadow = ImageSliderTemplate.bind({});
+export const Iframe = SizeTemplate.bind({});
 
 const DefaultArgs = {
     ...data.default.content,
@@ -166,11 +167,14 @@ DataLens.args = {
     ...DefaultArgs,
     ...data.dataLens.content,
 } as MediaBlockProps;
-
 Size.args = DefaultArgs as MediaBlockProps;
 Direction.args = DefaultArgs as MediaBlockProps;
 WithoutShadow.args = {
     ...DefaultArgs,
     ...data.withoutShadow.content,
     disableShadow: true,
+} as MediaBlockProps;
+Iframe.args = {
+    ...DefaultArgs,
+    ...data.iframe.content,
 } as MediaBlockProps;

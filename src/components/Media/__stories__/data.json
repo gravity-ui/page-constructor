@@ -18,6 +18,14 @@
       "dataLens": "m2bzon9y39lck"
     }
   },
+  "iframe": {
+    "content": {
+      "iframe": {
+        "src": "https://volcano.geointellect.com/",
+        "name": "iframe"
+      }
+    }
+  },
   "youtube": {
     "content": {
       "youtube": "https://youtu.be/0Qd3T6skprA",
