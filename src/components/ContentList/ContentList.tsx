@@ -36,14 +36,15 @@ const ContentList = ({list, size = 'l', qa}: ContentListProps & QAProps) => {
     const theme = useTheme();
     const qaAttributes = getQaAttrubutes(qa, ['image', 'title', 'text']);
 
-    const renderIcon = (icon: ContentItemProps['icon']): JSX.Element => {
+    const renderIcon = (icon: ContentItemProps['icon'], withoutTitle?: boolean): JSX.Element => {
         const iconThemed = getThemedValue(icon, theme);
+        const className = b('icon', {withoutTitle});
         if (isIconSvg(iconThemed)) {
             const Icon = iconThemed;
-            return <div>{<Icon className={b('icon')} />}</div>;
+            return <div>{<Icon className={className} />}</div>;
         }
         const iconData = getMediaImage(iconThemed);
-        return <Image {...iconData} className={b('icon')} qa={qaAttributes.image} />;
+        return <Image {...iconData} className={className} qa={qaAttributes.image} />;
     };
 
     return (
@@ -51,8 +52,8 @@ const ContentList = ({list, size = 'l', qa}: ContentListProps & QAProps) => {
             {list?.map((item) => {
                 const {icon, title, text} = item;
                 return (
-                    <div className={b('item', {withoutTitle: !title})} key={uuidv4()}>
-                        {renderIcon(icon)}
+                    <div className={b('item')} key={uuidv4()}>
+                        {renderIcon(icon, !title)}
                         <div>
                             {title &&
                                 React.createElement(
