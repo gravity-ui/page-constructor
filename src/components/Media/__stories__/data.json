@@ -21,7 +21,7 @@
   "iframe": {
     "content": {
       "iframe": {
-        "src": "https://volcano.geointellect.com/",
+        "src": "https://www.google.com/maps/embed/",
         "name": "iframe"
       }
     }
