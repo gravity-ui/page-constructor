@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [4.37.1](https://github.com/gravity-ui/page-constructor/compare/v4.37.0...v4.37.1) (2023-11-16)
+
+
+### Bug Fixes
+
+* extraProps handling correctly ([#699](https://github.com/gravity-ui/page-constructor/issues/699)) ([349623c](https://github.com/gravity-ui/page-constructor/commit/349623c3532bb781a25e797543cd4cd818cda307))
+
 ## [4.37.0](https://github.com/gravity-ui/page-constructor/compare/v4.36.0...v4.37.0) (2023-11-15)
 
 
