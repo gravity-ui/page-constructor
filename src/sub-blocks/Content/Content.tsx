@@ -124,6 +124,7 @@ const Content = (props: ContentProps) => {
                             qa={qaAttributes.link}
                             extraProps={{
                                 'aria-describedby': link.urlTitle ? undefined : titleId,
+                                ...link.extraProps,
                             }}
                         />
                     ))}
@@ -140,6 +141,7 @@ const Content = (props: ContentProps) => {
                             qa={qaAttributes.button}
                             extraProps={{
                                 'aria-describedby': item.urlTitle ? undefined : titleId,
+                                ...item.extraProps,
                             }}
                         />
                     ))}
