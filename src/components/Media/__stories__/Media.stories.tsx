@@ -18,13 +18,22 @@ const DefaultTemplate: StoryFn<MediaAllProps> = (args) => (
     </div>
 );
 
+const IframeTemplate: StoryFn<MediaAllProps> = (args) => (
+    <div style={{maxWidth: '500px'}}>
+        <h1>Iframe with margins (default)</h1>
+        <Media {...args} />
+        <h1>Iframe without margins</h1>
+        <Media {...args} margins={false} />
+    </div>
+);
+
 export const Image = DefaultTemplate.bind({});
 export const ImageSlider = DefaultTemplate.bind({});
 export const Video = DefaultTemplate.bind({});
 export const Youtube = DefaultTemplate.bind({});
 export const DataLens = DefaultTemplate.bind({});
 export const DataLensDarkTheme = DefaultTemplate.bind({});
-export const Iframe = DefaultTemplate.bind({});
+export const Iframe = IframeTemplate.bind({});
 
 Image.args = data.image.content;
 ImageSlider.args = data.imageSlider.content;

@@ -265,6 +265,7 @@ export interface MediaComponentDataLensProps {
 
 export interface MediaComponentIframeProps {
     iframe: IframeProps;
+    margins?: boolean;
 }
 
 export interface MediaProps

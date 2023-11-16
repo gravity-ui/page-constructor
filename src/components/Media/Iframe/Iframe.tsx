@@ -10,11 +10,11 @@ import './Iframe.scss';
 const b = block('media-component-iframe');
 
 const Iframe = (props: MediaComponentIframeProps) => {
-    const {iframe} = props;
+    const {iframe, margins = true} = props;
     const {height = 400} = iframe;
 
     return iframe ? (
-        <div className={b()} style={{height}}>
+        <div className={b({margins})} style={{height}}>
             <iframe
                 className={b('item')}
                 loading="lazy"

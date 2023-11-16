@@ -47,6 +47,7 @@ export const Media = (props: MediaAllProps) => {
         autoplay,
         onImageLoad,
         iframe,
+        margins,
     } = props;
 
     const [hasVideoFallback, setHasVideoFallback] = useState(false);
@@ -119,7 +120,7 @@ export const Media = (props: MediaAllProps) => {
         }
 
         if (iframe) {
-            result = <Iframe iframe={iframe} />;
+            result = <Iframe iframe={iframe} margins={margins} />;
         }
 
         return result;
