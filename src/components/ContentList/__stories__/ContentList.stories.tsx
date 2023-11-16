@@ -8,12 +8,10 @@ import ContentList from '../ContentList';
 
 import data from './data.json';
 
-const transformList = (item: ContentItemProps) => {
-    return {
-        ...item,
-        text: item?.text && yfmTransform(item.text),
-    };
-};
+const transformList = (item: ContentItemProps) => ({
+    ...item,
+    text: item?.text && yfmTransform(item.text),
+});
 
 export default {
     args: {list: data.default.content.map(transformList), size: 'l'},

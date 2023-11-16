@@ -39,6 +39,7 @@ export enum SubBlockType {
      * @deprecated Will be removed, use BasicCard instead
      */
     Card = 'card',
+    PriceCard = 'price-card',
 }
 
 export enum IconPosition {

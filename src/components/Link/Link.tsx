@@ -134,7 +134,6 @@ const LinkBlock = (props: WithChildren<LinkFullProps>) => {
                 return null;
         }
     };
-
     return (
         <div className={b({size: textSize || defaultTextSize}, className)}>{getLinkByType()}</div>
     );

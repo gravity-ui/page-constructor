@@ -2,14 +2,13 @@ import React from 'react';
 
 import {v4 as uuidv4} from 'uuid';
 
-import {useTheme} from '../../context/theme';
-import {ContentItemProps, ContentListProps, ContentSize, SVGIcon} from '../../models';
+import {ContentListProps, ContentSize} from '../../models';
 import {QAProps} from '../../models/common';
-import {block, getThemedValue} from '../../utils';
+import {block} from '../../utils';
 import {getQaAttrubutes} from '../../utils/blocks';
-import Image from '../Image/Image';
-import {getMediaImage} from '../Media/Image/utils';
 import YFMWrapper from '../YFMWrapper/YFMWrapper';
+
+import ItemIcon from './ContentListItemIcon';
 
 import './ContentList.scss';
 
@@ -25,27 +24,8 @@ function getHeadingLevel(size: ContentSize) {
     }
 }
 
-function isIconSvg(icon: ContentItemProps['icon']): icon is SVGIcon {
-    if (typeof icon === 'function') {
-        return true;
-    }
-    return false;
-}
-
 const ContentList = ({list, size = 'l', qa}: ContentListProps & QAProps) => {
-    const theme = useTheme();
     const qaAttributes = getQaAttrubutes(qa, ['image', 'title', 'text']);
-
-    const renderIcon = (icon: ContentItemProps['icon'], withoutTitle?: boolean): JSX.Element => {
-        const iconThemed = getThemedValue(icon, theme);
-        const className = b('icon', {withoutTitle});
-        if (isIconSvg(iconThemed)) {
-            const Icon = iconThemed;
-            return <div>{<Icon className={className} />}</div>;
-        }
-        const iconData = getMediaImage(iconThemed);
-        return <Image {...iconData} className={className} qa={qaAttributes.image} />;
-    };
 
     return (
         <div className={b({size})} data-qa={qa}>
@@ -53,7 +33,11 @@ const ContentList = ({list, size = 'l', qa}: ContentListProps & QAProps) => {
                 const {icon, title, text} = item;
                 return (
                     <div className={b('item')} key={uuidv4()}>
-                        {renderIcon(icon, !title)}
+                        <ItemIcon
+                            icon={icon}
+                            className={b('icon', {without_title: !title})}
+                            qa={qaAttributes.image}
+                        />
                         <div>
                             {title &&
                                 React.createElement(

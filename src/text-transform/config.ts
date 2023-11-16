@@ -362,4 +362,15 @@ export const config: BlocksConfig = {
     ],
     [BlockType.CardLayoutBlock]: blockHeaderTransformer,
     [BlockType.IconsBlock]: blockHeaderTransformer,
+    [SubBlockType.PriceCard]: [
+        {
+            fields: ['title'],
+            transformer: typografTransformer,
+        },
+        {
+            fields: ['list'],
+            transformer: yfmTransformer,
+            parser: createItemsParser(['text']),
+        },
+    ],
 };

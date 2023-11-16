@@ -6,3 +6,4 @@ export * from '../../sub-blocks/LayoutItem/schema';
 export * from '../../sub-blocks/Quote/schema';
 export * from '../../sub-blocks/Divider/schema';
 export * from '../../sub-blocks/BasicCard/schema';
+export * from '../../sub-blocks/PriceCard/schema';
