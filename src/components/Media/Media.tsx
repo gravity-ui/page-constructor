@@ -149,6 +149,7 @@ export const Media = (props: MediaAllProps) => {
         ratio,
         youtubeClassName,
         autoplay,
+        margins,
     ]);
 
     return (
