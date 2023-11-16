@@ -162,6 +162,7 @@ export const HeaderBlock = (props: WithChildren<HeaderBlockFullProps>) => {
                                                         size="xl"
                                                         extraProps={{
                                                             'aria-describedby': titleId,
+                                                            ...button.extraProps,
                                                         }}
                                                         {...button}
                                                     />
