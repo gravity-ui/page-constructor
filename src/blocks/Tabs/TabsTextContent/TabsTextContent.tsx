@@ -29,7 +29,7 @@ export const TabsTextContent = ({
         <div
             className={b('wrapper', {
                 'content-reverse': isReverse,
-                'content-regular': Boolean((data?.media || imageProps) && !isReverse),
+                'content-default': Boolean((data?.media || imageProps) && !isReverse),
             })}
         >
             <Content

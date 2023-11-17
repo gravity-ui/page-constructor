@@ -12,7 +12,7 @@ $block: '.#{$ns}tabs-block-text-content';
     }
 
     &__wrapper {
-        &_content-regular {
+        &_content-default {
             margin: $indentSM 0 0 $contentMargin;
         }
 
@@ -23,7 +23,7 @@ $block: '.#{$ns}tabs-block-text-content';
 
     @media (max-width: map-get($gridBreakpoints, 'md')) {
         &__wrapper {
-            &_content-regular {
+            &_content-default {
                 margin: 0 0 $contentMargin 0;
             }
 
