@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [4.37.2](https://github.com/gravity-ui/page-constructor/compare/v4.37.1...v4.37.2) (2023-11-17)
+
+
+### Bug Fixes
+
+* use flex column-gap instead of margins in buttons element ([#701](https://github.com/gravity-ui/page-constructor/issues/701)) ([c9fa48a](https://github.com/gravity-ui/page-constructor/commit/c9fa48aafe7568cf0f5c3322bfd111b3bc624594))
+
 ## [4.37.1](https://github.com/gravity-ui/page-constructor/compare/v4.37.0...v4.37.1) (2023-11-16)
 
 
