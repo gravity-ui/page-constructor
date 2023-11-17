@@ -48,7 +48,7 @@ export const TabsBlock = ({
 
     const handleImageHeight = useCallback(() => {
         setMinImageHeight(ref?.current?.offsetHeight);
-    }, [ref?.current?.offsetHeight]);
+    }, []);
 
     const onSelectTab = (
         id: string | null,
