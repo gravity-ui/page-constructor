@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [4.37.3](https://github.com/gravity-ui/page-constructor/compare/v4.37.2...v4.37.3) (2023-11-17)
+
+
+### Bug Fixes
+
+* add custom height to images in Tabs ([#650](https://github.com/gravity-ui/page-constructor/issues/650)) ([6ab3d04](https://github.com/gravity-ui/page-constructor/commit/6ab3d04bb5e8c53d182affc8fd19fb8349234f71))
+
 ## [4.37.2](https://github.com/gravity-ui/page-constructor/compare/v4.37.1...v4.37.2) (2023-11-17)
 
 
