@@ -43,15 +43,10 @@ $darkSecondary: var(--g-color-text-dark-secondary);
         }
     }
 
-    &__button {
-        @include add-specificity(&) {
-            margin-top: 0;
-            margin-right: $indentXXS;
-
-            &:last-child {
-                margin-right: 0;
-            }
-        }
+    &__buttons {
+        display: flex;
+        flex-wrap: wrap;
+        column-gap: $indentXXS;
     }
 
     &__links {
@@ -68,6 +63,10 @@ $darkSecondary: var(--g-color-text-dark-secondary);
         @include add-specificity(&) {
             margin: 0 auto;
             text-align: center;
+        }
+
+        #{$block}__buttons {
+            justify-content: center;
         }
 
         #{$block}__links {
