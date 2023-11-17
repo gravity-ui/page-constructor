@@ -12,22 +12,22 @@ $block: '.#{$ns}tabs-block-text-content';
     }
 
     &__wrapper {
-        &_content-default {
-            margin: $indentSM 0 0 $contentMargin;
+        margin: $indentSM 0 0 $contentMargin;
+
+        &_reverse {
+            margin: $indentSM $indentM 0 0;
         }
 
-        &_content-reverse {
-            margin: $indentSM $indentM 0 0;
+        &_no-image {
+            margin: 0;
         }
     }
 
     @media (max-width: map-get($gridBreakpoints, 'md')) {
         &__wrapper {
-            &_content-default {
-                margin: 0 0 $contentMargin 0;
-            }
+            margin: 0 0 $contentMargin 0;
 
-            &_content-reverse {
+            &_reverse {
                 margin-top: $indentM;
                 padding-bottom: 0;
             }

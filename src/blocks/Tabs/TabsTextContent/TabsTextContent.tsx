@@ -24,25 +24,28 @@ export const TabsTextContent = ({
     data,
     imageProps,
     isReverse,
-}: TextContentProps) => (
-    <Col sizes={{all: 12, md: showMedia ? 4 : 8}} className={b({centered: centered})}>
-        <div
-            className={b('wrapper', {
-                'content-reverse': isReverse,
-                'content-default': Boolean((data?.media || imageProps) && !isReverse),
-            })}
-        >
-            <Content
-                title={data.title}
-                text={data.text}
-                additionalInfo={data.additionalInfo}
-                size={contentSize}
-                links={[...(data.link ? [data.link] : []), ...(data.links || [])]}
-                buttons={data.buttons}
-                colSizes={{all: 12}}
-            />
-        </div>
-    </Col>
-);
+}: TextContentProps) => {
+    const isImage = data?.media || imageProps;
+    return (
+        <Col sizes={{all: 12, md: showMedia ? 4 : 8}} className={b({centered: centered})}>
+            <div
+                className={b('wrapper', {
+                    reverse: isReverse,
+                    'no-image': !isImage,
+                })}
+            >
+                <Content
+                    title={data.title}
+                    text={data.text}
+                    additionalInfo={data.additionalInfo}
+                    size={contentSize}
+                    links={[...(data.link ? [data.link] : []), ...(data.links || [])]}
+                    buttons={data.buttons}
+                    colSizes={{all: 12}}
+                />
+            </div>
+        </Col>
+    );
+};
 
 export default TabsTextContent;
