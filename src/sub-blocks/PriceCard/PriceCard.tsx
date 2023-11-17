@@ -20,8 +20,8 @@ const PriceCard = (props: PriceCardProps) => {
         theme,
         description,
         list,
-        button,
-        link,
+        buttons,
+        links,
         backgroundColor,
     } = props;
     return (
@@ -55,8 +55,20 @@ const PriceCard = (props: PriceCardProps) => {
                             </div>
                         ) : null}
                     </div>
-                    {button && <Button {...button} />}
-                    {link && <LinkBlock textSize="m" {...link} />}
+                    {buttons && (
+                        <div className={b('buttons')}>
+                            {buttons.map((button) => (
+                                <Button key={button.url} {...button} />
+                            ))}
+                        </div>
+                    )}
+                    {links && (
+                        <div className={b('links')}>
+                            {links.map((link) => (
+                                <LinkBlock key={link.url} textSize="m" {...link} />
+                            ))}
+                        </div>
+                    )}
                 </div>
             </CardBase.Content>
         </CardBase>

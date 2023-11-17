@@ -142,8 +142,8 @@ export interface PriceCardProps extends CardBaseProps, Pick<ContentBlockProps, '
     pricePeriod?: string;
     priceDetails?: string;
     description?: string;
-    button?: ButtonProps;
-    link?: LinkProps;
+    buttons?: ButtonProps[];
+    links?: LinkProps[];
     backgroundColor?: string;
     list?: string[];
 }

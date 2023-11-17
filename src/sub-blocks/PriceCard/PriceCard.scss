@@ -96,4 +96,13 @@ $block: '.#{$ns}price-card';
         display: flex;
         flex-direction: column;
     }
+
+    &__links,
+    &__buttons {
+        & > * {
+            &:not(:last-child) {
+                margin-right: $indentXS;
+            }
+        }
+    }
 }
