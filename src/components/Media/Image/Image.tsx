@@ -20,7 +20,7 @@ export interface ImageAdditionProps {
     imageClassName?: string;
     isBackground?: boolean;
     fullscreen?: boolean;
-    handleImageLoad?: () => void;
+    onLoad?: () => void;
 }
 
 interface InnerImageProps {
@@ -42,7 +42,7 @@ const Image = (props: ImageAllProps) => {
         video,
         fullscreen,
         qa,
-        handleImageLoad,
+        onLoad,
     } = props;
 
     const qaAttributes = getQaAttrubutes(
@@ -119,7 +119,7 @@ const Image = (props: ImageAllProps) => {
                 className={imageClass}
                 style={{height}}
                 qa={qaAttributes.imageView}
-                onLoad={handleImageLoad}
+                onLoad={onLoad}
             />
         );
     };

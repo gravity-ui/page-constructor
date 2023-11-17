@@ -40,15 +40,15 @@ export const TabsBlock = ({
     const mediaWidth = ref?.current?.offsetWidth;
     const captionId = useUniqId();
     const themedMedia = getThemedValue(activeTabData?.media, theme);
-    const mediaVideoHeight = mediaWidth && getHeight(mediaWidth);
-    const setVideoHeight = !themedMedia?.image && !activeTabData?.image;
+    const hasNoImage = !themedMedia?.image || !activeTabData?.image;
+    const mediaVideoHeight = hasNoImage && mediaWidth && getHeight(mediaWidth);
     const [minImageHeight, setMinImageHeight] = useState(ref?.current?.offsetHeight);
     // TODO remove property support activeTabData?.image. Use only activeTabData?.media?.image
     let imageProps;
 
     const handleImageHeight = useCallback(() => {
         setMinImageHeight(ref?.current?.offsetHeight);
-    }, []);
+    }, [ref?.current?.offsetHeight]);
 
     const onSelectTab = (
         id: string | null,
@@ -94,7 +94,7 @@ export const TabsBlock = ({
             }}
             className={b('col', {centered: centered})}
         >
-            <div style={{minHeight: setVideoHeight ? mediaVideoHeight : minImageHeight}}>
+            <div style={{minHeight: mediaVideoHeight || minImageHeight}}>
                 {activeTabData?.media && (
                     <div ref={ref}>
                         <Media
@@ -102,8 +102,8 @@ export const TabsBlock = ({
                             key={activeTab}
                             className={b('media')}
                             playVideo={play}
-                            height={setVideoHeight ? mediaVideoHeight : undefined}
-                            handleImageLoad={handleImageHeight}
+                            height={mediaVideoHeight || undefined}
+                            onImageLoad={handleImageHeight}
                         />
                     </div>
                 )}

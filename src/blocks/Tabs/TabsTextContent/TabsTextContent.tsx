@@ -28,8 +28,8 @@ export const TabsTextContent = ({
     <Col sizes={{all: 12, md: showMedia ? 4 : 8}} className={b({centered: centered})}>
         <div
             className={b('wrapper', {
-                reverse: isReverse,
-                regular: Boolean((data?.media || imageProps) && !isReverse),
+                'content-reverse': isReverse,
+                'content-regular': Boolean((data?.media || imageProps) && !isReverse),
             })}
         >
             <Content

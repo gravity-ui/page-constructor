@@ -17,6 +17,7 @@ export interface MediaAllProps extends MediaProps, VideoAdditionProps, ImageAddi
     className?: string;
     youtubeClassName?: string;
     autoplay?: boolean;
+    onImageLoad?: () => void;
 }
 
 export const Media = (props: MediaAllProps) => {
@@ -43,7 +44,7 @@ export const Media = (props: MediaAllProps) => {
         qa,
         ratio,
         autoplay,
-        handleImageLoad,
+        onImageLoad,
     } = props;
 
     const [hasVideoFallback, setHasVideoFallback] = useState(false);
@@ -66,7 +67,7 @@ export const Media = (props: MediaAllProps) => {
                     hasVideoFallback={hasVideoFallback}
                     fullscreen={fullscreen}
                     qa={qaAttributes.image}
-                    handleImageLoad={handleImageLoad}
+                    onLoad={onImageLoad}
                 />,
             );
         }
@@ -106,7 +107,7 @@ export const Media = (props: MediaAllProps) => {
                     fullscreen={fullscreen}
                     analyticsEvents={analyticsEvents}
                     autoplay={autoplay}
-                    handleImageLoad={handleImageLoad}
+                    onImageLoad={onImageLoad}
                 />
             );
         }
@@ -129,6 +130,7 @@ export const Media = (props: MediaAllProps) => {
         fullscreen,
         qaAttributes.image,
         qaAttributes.video,
+        onImageLoad,
         videoClassName,
         metrika,
         analyticsEvents,
@@ -139,7 +141,6 @@ export const Media = (props: MediaAllProps) => {
         ratio,
         youtubeClassName,
         autoplay,
-        handleImageLoad,
     ]);
 
     return (
