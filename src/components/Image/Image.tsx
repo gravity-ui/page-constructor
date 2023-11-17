@@ -1,4 +1,11 @@
-import React, {CSSProperties, Fragment, MouseEventHandler, useContext, useState} from 'react';
+import React, {
+    CSSProperties,
+    Fragment,
+    MouseEventHandler,
+    ReactEventHandler,
+    useContext,
+    useState,
+} from 'react';
 
 import {BREAKPOINTS} from '../../constants';
 import {ProjectSettingsContext} from '../../context/projectSettingsContext';
@@ -11,6 +18,7 @@ export interface ImageProps extends Partial<ImageObjectProps>, Partial<ImageDevi
     style?: CSSProperties;
     className?: string;
     onClick?: MouseEventHandler;
+    onLoad?: ReactEventHandler<HTMLDivElement>;
     containerClassName?: string;
 }
 
@@ -55,6 +63,7 @@ const Image = (props: ImageProps) => {
         style,
         className,
         onClick,
+        onLoad,
         containerClassName,
         qa,
     } = props;
@@ -113,6 +122,7 @@ const Image = (props: ImageProps) => {
                 style={style}
                 onClick={onClick}
                 onError={() => setImgLoadingError(true)}
+                onLoad={onLoad}
             />
         </picture>
     );

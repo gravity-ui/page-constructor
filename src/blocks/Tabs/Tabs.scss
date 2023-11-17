@@ -6,7 +6,7 @@ $block: '.#{$ns}tabs-block';
 #{$block} {
     $class: &;
 
-    &__block-title {
+    &__title {
         margin-bottom: $indentSM;
 
         @include centerable-title();
@@ -20,10 +20,6 @@ $block: '.#{$ns}tabs-block';
 
     &__row_reverse {
         flex-direction: row-reverse;
-
-        #{$class}__content-wrapper {
-            margin: $indentSM $indentM 0 0;
-        }
     }
 
     &__image {
@@ -45,51 +41,15 @@ $block: '.#{$ns}tabs-block';
         color: var(--g-color-text-secondary);
     }
 
-    &__content {
-        display: flex;
-        flex-direction: column;
-
-        &_centered {
-            margin: 0 auto;
-        }
-    }
-
     &__col {
         &_centered {
             margin: 0 auto;
         }
     }
 
-    &__content-wrapper {
-        &_margin {
-            margin: $indentSM 0 0 $contentMargin;
-        }
-    }
-
-    &__content-title {
-        margin: 0 auto $indentXXS;
-
-        @include add-specificity(&) {
-            & > * {
-                @include heading4();
-            }
-        }
-    }
-
     @media (max-width: map-get($gridBreakpoints, 'md')) {
-        &__content-wrapper {
-            &_margin {
-                margin: 0 0 $contentMargin 0;
-            }
-        }
-
         &__row_reverse {
             flex-direction: column-reverse;
-
-            #{$class}__content > * {
-                margin-top: $indentM;
-                padding-bottom: 0;
-            }
         }
     }
 

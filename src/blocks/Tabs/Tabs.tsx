@@ -1,4 +1,4 @@
-import React, {Fragment, useRef, useState} from 'react';
+import React, {Fragment, useCallback, useRef, useState} from 'react';
 
 import {useUniqId} from '@gravity-ui/uikit';
 
@@ -12,8 +12,9 @@ import {getHeight} from '../../components/VideoBlock/VideoBlock';
 import {useTheme} from '../../context/theme';
 import {Col, GridColumnOrderClasses, Row} from '../../grid';
 import {TabsBlockProps} from '../../models';
-import {Content} from '../../sub-blocks';
 import {block, getThemedValue} from '../../utils';
+
+import TabsTextContent from './TabsTextContent/TabsTextContent';
 
 import './Tabs.scss';
 
@@ -37,15 +38,32 @@ export const TabsBlock = ({
     const isReverse = direction === 'content-media';
     const ref = useRef<HTMLDivElement>(null);
     const mediaWidth = ref?.current?.offsetWidth;
-    const mediaHeight = mediaWidth && getHeight(mediaWidth);
     const captionId = useUniqId();
-
+    const themedMedia = getThemedValue(activeTabData?.media, theme);
+    const hasNoImage = !themedMedia?.image || !activeTabData?.image;
+    const mediaVideoHeight = hasNoImage && mediaWidth && getHeight(mediaWidth);
+    const [minImageHeight, setMinImageHeight] = useState(ref?.current?.offsetHeight);
+    // TODO remove property support activeTabData?.image. Use only activeTabData?.media?.image
     let imageProps;
 
+    const handleImageHeight = useCallback(() => {
+        setMinImageHeight(ref?.current?.offsetHeight);
+    }, []);
+
+    const onSelectTab = (
+        id: string | null,
+        e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>,
+    ) => {
+        setActiveTab(id);
+        handleImageHeight();
+        e.currentTarget.scrollIntoView({inline: 'center', behavior: 'smooth', block: 'nearest'});
+    };
+
     if (activeTabData) {
-        const themedImage = getThemedValue(activeTabData.image, theme);
+        const themedImage = getThemedValue(activeTabData?.image, theme);
 
         imageProps = themedImage && getMediaImage(themedImage);
+
         if (activeTabData.caption && imageProps) {
             Object.assign(imageProps, {
                 'aria-describedby': captionId,
@@ -57,29 +75,14 @@ export const TabsBlock = ({
     const showText = Boolean(activeTabData?.text);
 
     const textContent = activeTabData && showText && (
-        <Col
-            sizes={{all: 12, md: showMedia ? 4 : 8}}
-            className={b('content', {centered: centered})}
-        >
-            <div
-                className={b('content-wrapper', {
-                    margin: Boolean((activeTabData?.media || imageProps) && !isReverse),
-                })}
-            >
-                <Content
-                    title={activeTabData.title}
-                    text={activeTabData.text}
-                    additionalInfo={activeTabData.additionalInfo}
-                    size={contentSize}
-                    links={[
-                        ...(activeTabData.link ? [activeTabData.link] : []),
-                        ...(activeTabData.links || []),
-                    ]}
-                    buttons={activeTabData.buttons}
-                    colSizes={{all: 12}}
-                />
-            </div>
-        </Col>
+        <TabsTextContent
+            showMedia={showMedia}
+            data={activeTabData}
+            imageProps={imageProps ? imageProps : undefined}
+            isReverse={isReverse}
+            contentSize={contentSize}
+            centered={centered}
+        />
     );
 
     const mediaContent = showMedia && (
@@ -91,15 +94,18 @@ export const TabsBlock = ({
             }}
             className={b('col', {centered: centered})}
         >
-            <div ref={ref}>
+            <div style={{minHeight: mediaVideoHeight || minImageHeight}}>
                 {activeTabData?.media && (
-                    <Media
-                        {...getThemedValue(activeTabData.media, theme)}
-                        key={activeTab}
-                        className={b('media')}
-                        playVideo={play}
-                        height={mediaHeight}
-                    />
+                    <div ref={ref}>
+                        <Media
+                            {...getThemedValue(activeTabData.media, theme)}
+                            key={activeTab}
+                            className={b('media')}
+                            playVideo={play}
+                            height={mediaVideoHeight || undefined}
+                            onImageLoad={handleImageHeight}
+                        />
+                    </div>
                 )}
             </div>
             {imageProps && (
@@ -115,20 +121,12 @@ export const TabsBlock = ({
         </Col>
     );
 
-    const onSelectTab = (
-        id: string | null,
-        e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>,
-    ) => {
-        setActiveTab(id);
-        e.currentTarget.scrollIntoView({inline: 'center', behavior: 'smooth', block: 'nearest'});
-    };
-
     return (
         <AnimateBlock className={b()} onScroll={() => setPlay(true)} animate={animated}>
             <Title
                 title={title}
                 subtitle={description}
-                className={b('block-title', {centered: centered})}
+                className={b('title', {centered: centered})}
             />
             <Row>
                 <Col sizes={tabsColSizes}>
