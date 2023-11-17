@@ -3,6 +3,7 @@ import React from 'react';
 import {Meta, StoryFn} from '@storybook/react';
 import {v4 as uuidv4} from 'uuid';
 
+import {yfmTransform} from '../../../../.storybook/utils';
 import {PageConstructor} from '../../../containers/PageConstructor';
 import {FormBlockDirection, FormBlockModel, isHubspotDataForm} from '../../../models';
 import FormBlock from '../Form';
@@ -12,7 +13,13 @@ import data from './data.json';
 export default {
     title: 'Blocks/Form',
     component: FormBlock,
-    args: data.default,
+    args: {
+        ...data.default,
+        textContent: {
+            ...data.default.textContent,
+            text: yfmTransform(data.default.textContent.text),
+        },
+    },
     argTypes: {
         type: {control: false},
         direction: {options: FormBlockDirection, control: {type: 'select'}},

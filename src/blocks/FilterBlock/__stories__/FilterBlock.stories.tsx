@@ -2,6 +2,7 @@ import React from 'react';
 
 import {Meta, StoryFn} from '@storybook/react';
 
+import {yfmTransform} from '../../../../.storybook/utils';
 import {PageConstructor} from '../../../containers/PageConstructor';
 import {
     FilterBlockModel,
@@ -41,7 +42,7 @@ const createArgs = (overrides: Partial<FilterBlockProps>) =>
     ({
         type: 'filter-block',
         title: data.default.content.title,
-        description: data.default.content.description,
+        description: yfmTransform(data.default.content.description),
         tags: data.default.filters,
         items: createItemList(6, data.default.card, data.default.filters),
         ...overrides,

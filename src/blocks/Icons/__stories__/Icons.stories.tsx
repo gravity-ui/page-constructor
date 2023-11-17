@@ -32,13 +32,13 @@ const SizeTemplate: StoryFn<IconsBlockModel> = (args) => (
 
 export const Default = DefaultTemplate.bind([]);
 export const Size = SizeTemplate.bind([]);
-export const WithDescription = WithDescriptionTemplate.bind({});
+export const WithText = WithDescriptionTemplate.bind({});
 
 const transformedText = yfmTransform(data.withDescription.content.description);
 
 Default.args = data.default.content as IconsBlockProps;
 Size.args = data.size.content as Omit<IconsBlockProps, 'size'>;
-WithDescription.args = {
+WithText.args = {
     ...data.withDescription.content,
     description: transformedText,
 } as IconsBlockProps;

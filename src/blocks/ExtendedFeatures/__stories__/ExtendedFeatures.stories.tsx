@@ -22,7 +22,6 @@ export default {
             sm: 6,
             md: 4,
         },
-        description: undefined,
     },
 } as Meta;
 
@@ -45,6 +44,7 @@ const ColSizesTemplate: StoryFn<ExtendedFeaturesBlockModel> = (args) => (
                 {
                     ...args,
                     ...data.colSizes.four,
+                    description: yfmTransform(data.colSizes.four.description),
                     items: extendedFeaturesItems(
                         data.colSizes.four.items as ExtendedFeaturesItem[],
                     ),
@@ -52,10 +52,12 @@ const ColSizesTemplate: StoryFn<ExtendedFeaturesBlockModel> = (args) => (
                 {
                     ...args,
                     ...data.colSizes.three,
+                    description: yfmTransform(data.colSizes.three.description),
                 },
                 {
                     ...args,
                     ...data.colSizes.two,
+                    description: yfmTransform(data.colSizes.two.description),
                     items: extendedFeaturesItems(data.colSizes.two.items as ExtendedFeaturesItem[]),
                 },
             ],
@@ -67,12 +69,15 @@ export const Default = DefaultTemplate.bind({});
 export const WithLabel = DefaultTemplate.bind({});
 export const ColSizes = ColSizesTemplate.bind({});
 
-Default.args = {
+const DefaultArgs = {
     ...data.default.content,
+    description: yfmTransform(data.default.content.description),
     items: extendedFeaturesItems(data.default.content.items as ExtendedFeaturesItem[]),
-} as ExtendedFeaturesProps;
+};
+
+Default.args = {...DefaultArgs} as ExtendedFeaturesProps;
 WithLabel.args = {
-    ...data.withLabel.content,
+    ...DefaultArgs,
     items: extendedFeaturesItems(data.withLabel.content.items as ExtendedFeaturesItem[]),
 } as ExtendedFeaturesProps;
 ColSizes.args = {
