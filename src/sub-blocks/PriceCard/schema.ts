@@ -31,8 +31,14 @@ export const PriceCardBlock = {
             description: {
                 type: 'string',
             },
-            button: ButtonBlock,
-            link: LinkProps,
+            buttons: {
+                type: 'array',
+                items: ButtonBlock,
+            },
+            links: {
+                type: 'array',
+                items: LinkProps,
+            },
             backgroundColor: {
                 type: 'string',
             },
