@@ -22,7 +22,7 @@ $block: '.#{$ns}media-component-iframe';
 
     @media (max-width: map-get($gridBreakpoints, 'sm')) {
         &_margins {
-            margin: $indentSM 0;
+            margin: $indentXXS;
         }
     }
 }
