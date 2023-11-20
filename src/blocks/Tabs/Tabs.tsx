@@ -40,24 +40,30 @@ export const TabsBlock = ({
     const mediaWidth = ref?.current?.offsetWidth;
     const captionId = useUniqId();
     const themedMedia = getThemedValue(activeTabData?.media, theme);
-    const hasNoImage = !themedMedia?.image || !activeTabData?.image;
+    const hasNoImage = !themedMedia?.image && !activeTabData?.image;
     const mediaVideoHeight = hasNoImage && mediaWidth && getHeight(mediaWidth);
     const [minImageHeight, setMinImageHeight] = useState(ref?.current?.offsetHeight);
     // TODO remove property support activeTabData?.image. Use only activeTabData?.media?.image
     let imageProps;
 
     const handleImageHeight = useCallback(() => {
-        setMinImageHeight(ref?.current?.offsetHeight);
-    }, []);
+        if (minImageHeight !== ref?.current?.offsetHeight) {
+            setMinImageHeight(ref?.current?.offsetHeight);
+        }
+    }, [minImageHeight]);
 
-    const onSelectTab = (
-        id: string | null,
-        e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>,
-    ) => {
-        setActiveTab(id);
-        handleImageHeight();
-        e.currentTarget.scrollIntoView({inline: 'center', behavior: 'smooth', block: 'nearest'});
-    };
+    const onSelectTab = useCallback(
+        (id: string | null, e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => {
+            setActiveTab(id);
+            handleImageHeight();
+            e.currentTarget.scrollIntoView({
+                inline: 'center',
+                behavior: 'smooth',
+                block: 'nearest',
+            });
+        },
+        [handleImageHeight],
+    );
 
     if (activeTabData) {
         const themedImage = getThemedValue(activeTabData?.image, theme);
