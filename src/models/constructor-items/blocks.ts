@@ -20,6 +20,7 @@ import {
     HeaderOffset,
     HeaderWidth,
     ImageDeviceProps,
+    ImageProps,
     Justify,
     LegendTableMarkerType,
     LinkProps,
@@ -348,10 +349,17 @@ export interface ContentLayoutBlockProps extends ContentLayoutBlockParams {
     fileContent?: FileLinkProps[];
 }
 
+export type SVGIcon = React.FC<React.SVGProps<SVGSVGElement>>;
+
 export interface ContentItemProps {
     title?: string;
     text?: string;
-    icon: ThemedImage;
+    icon: ThemeSupporting<ImageProps | SVGIcon>;
+}
+
+export interface ContentListProps {
+    list: ContentItemProps[];
+    size: ContentSize;
 }
 
 export interface ContentBlockProps {

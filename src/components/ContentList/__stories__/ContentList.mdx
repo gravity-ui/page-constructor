@@ -1,0 +1,16 @@
+import {Meta} from '@storybook/blocks';
+
+import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
+import * as ContentListStories from './ContentList.stories.tsx';
+
+<Meta of={ContentListStories} />
+<StoryTemplate>
+## Parameters
+
+- `size?: 's' | 'l'` — Component's size that defines font sizes ('l' by default)
+
+`list: Array` - An Array of items with icon
+- [`icon: string | ImageObjectProps | ReactNode` — Icon](?path=/docs/documentation-types--docs#imageobjectprops---image-property).
+- `title?: string` — Title.
+- `text?: string` — Text (with YFM support)
+</StoryTemplate>

@@ -2,14 +2,13 @@ import React from 'react';
 
 import {v4 as uuidv4} from 'uuid';
 
-import {YFMWrapper} from '../../../components';
-import Image from '../../../components/Image/Image';
-import {getMediaImage} from '../../../components/Media/Image/utils';
-import {useTheme} from '../../../context/theme';
-import {ContentItemProps, ContentSize} from '../../../models';
-import {QAProps} from '../../../models/common';
-import {block, getThemedValue} from '../../../utils';
-import {getQaAttrubutes} from '../../../utils/blocks';
+import {ContentListProps, ContentSize} from '../../models';
+import {QAProps} from '../../models/common';
+import {block} from '../../utils';
+import {getQaAttrubutes} from '../../utils/blocks';
+import YFMWrapper from '../YFMWrapper/YFMWrapper';
+
+import ItemIcon from './ContentListItemIcon';
 
 import './ContentList.scss';
 
@@ -25,25 +24,20 @@ function getHeadingLevel(size: ContentSize) {
     }
 }
 
-interface ContentListProps {
-    list: ContentItemProps[];
-    size: ContentSize;
-}
-
-const ContentList = ({list, size, qa}: ContentListProps & QAProps) => {
-    const theme = useTheme();
+const ContentList = ({list, size = 'l', qa}: ContentListProps & QAProps) => {
     const qaAttributes = getQaAttrubutes(qa, ['image', 'title', 'text']);
 
     return (
         <div className={b({size})} data-qa={qa}>
             {list?.map((item) => {
                 const {icon, title, text} = item;
-                const iconThemed = getThemedValue(icon, theme);
-                const iconData = getMediaImage(iconThemed);
-
                 return (
                     <div className={b('item')} key={uuidv4()}>
-                        <Image {...iconData} className={b('icon')} qa={qaAttributes.image} />
+                        <ItemIcon
+                            icon={icon}
+                            className={b('icon', {without_title: !title})}
+                            qa={qaAttributes.image}
+                        />
                         <div>
                             {title &&
                                 React.createElement(

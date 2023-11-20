@@ -1,0 +1,154 @@
+{
+  "default": {
+    "content": {
+      "title": "Lorem ipsum",
+      "price": "299.99 $",
+      "pricePeriod": "month",
+      "priceDetails": "plan details",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "list": [
+        "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+      ],
+      "buttons": [
+        {
+          "text": "Button",
+          "url": "https://example.com",
+          "width": "max",
+          "theme": "action"
+        }
+      ]
+    }
+  },
+  "link": {
+    "content": {
+      "title": "Lorem ipsum",
+      "price": "299.99 $",
+      "pricePeriod": "month",
+      "priceDetails": "plan details",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "list": [
+        "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+      ],
+      "links": [
+        {
+          "url": "#",
+          "text": "Link",
+          "theme": "normal",
+          "arrow": true
+        }
+      ]
+    }
+  },
+  "differentContent": {
+    "content": [
+      {
+        "title": "Lorem ipsum",
+        "price": "299.99 $",
+        "pricePeriod": "month",
+        "priceDetails": "plan details",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "list": [
+          "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+          "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        ],
+        "buttons": [
+          {
+            "text": "Button",
+            "url": "https://example.com",
+            "width": "max",
+            "theme": "action"
+          }
+        ]
+      },
+      {
+        "title": "Lorem ipsum",
+        "price": "299.99 $",
+        "pricePeriod": "month",
+        "priceDetails": "plan details",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "buttons": [
+          {
+            "text": "Button",
+            "url": "https://example.com",
+            "width": "max",
+            "theme": "outlined"
+          }
+        ]
+      },
+      {
+        "title": "Lorem ipsum",
+        "price": "299.99 $",
+        "pricePeriod": "month",
+        "priceDetails": "plan details",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      }
+    ]
+  },
+  "themed": {
+    "content": [
+      {
+        "title": "Default theme",
+        "price": "299.99 $",
+        "pricePeriod": "month",
+        "priceDetails": "plan details",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "list": [
+          "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+          "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        ],
+        "buttons": [
+          {
+            "text": "Button",
+            "url": "https://example.com",
+            "width": "max",
+            "theme": "action"
+          }
+        ]
+      },
+      {
+        "title": "Light theme",
+        "price": "299.99 $",
+        "pricePeriod": "month",
+        "priceDetails": "plan details",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "list": [
+          "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+          "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        ],
+        "theme": "light",
+        "buttons": [
+          {
+            "text": "Button",
+            "url": "https://example.com",
+            "width": "max",
+            "theme": "monochrome"
+          }
+        ],
+        "backgroundColor": "#CCDAFF"
+      },
+      {
+        "title": "Dark theme",
+        "price": "299.99 $",
+        "pricePeriod": "month",
+        "priceDetails": "plan details",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "list": [
+          "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+          "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        ],
+        "theme": "dark",
+        "buttons": [
+          {
+            "text": "Button",
+            "url": "https://example.com",
+            "width": "max",
+            "theme": "normal-contrast"
+          }
+        ],
+        "backgroundColor": "#262626"
+      }
+    ]
+  }
+}

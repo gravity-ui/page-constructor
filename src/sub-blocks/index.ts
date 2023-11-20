@@ -8,3 +8,4 @@ export {default as BackgroundCard} from './BackgroundCard/BackgroundCard';
 export {default as BasicCard} from './BasicCard/BasicCard';
 export {default as Content} from './Content/Content';
 export {default as HubspotForm} from './HubspotForm';
+export {default as PriceCard} from './PriceCard/PriceCard';

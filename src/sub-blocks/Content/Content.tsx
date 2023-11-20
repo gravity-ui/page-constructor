@@ -2,15 +2,12 @@ import React from 'react';
 
 import {useUniqId} from '@gravity-ui/uikit';
 
-import {Button, Title, YFMWrapper} from '../../components';
-import LinkBlock from '../../components/Link/Link';
+import {Button, ContentList, Link as LinkBlock, Title, YFMWrapper} from '../../components';
 import {Col} from '../../grid';
 import {ClassNameProps, ContentBlockProps, ContentSize, TitleItemProps} from '../../models';
 import {QAProps} from '../../models/common';
 import {block} from '../../utils';
 import {getQaAttrubutes} from '../../utils/blocks';
-
-import ContentList from './ContentList/ContentList';
 
 import './Content.scss';
 

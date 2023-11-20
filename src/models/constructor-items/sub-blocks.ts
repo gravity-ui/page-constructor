@@ -13,6 +13,7 @@ import {
     DividerSize,
     ImageObjectProps,
     ImageProps,
+    LinkProps,
     MediaProps,
     PriceDetailedProps,
     TextTheme,
@@ -38,6 +39,7 @@ export enum SubBlockType {
      * @deprecated Will be removed, use BasicCard instead
      */
     Card = 'card',
+    PriceCard = 'price-card',
 }
 
 export enum IconPosition {
@@ -133,6 +135,18 @@ export interface BannerCardProps {
 }
 
 export interface MediaCardProps extends MediaProps, AnalyticsEventsBase, CardBaseProps {}
+
+export interface PriceCardProps extends CardBaseProps, Pick<ContentBlockProps, 'theme'> {
+    title: string;
+    price: string;
+    pricePeriod?: string;
+    priceDetails?: string;
+    description?: string;
+    buttons?: ButtonProps[];
+    links?: LinkProps[];
+    backgroundColor?: string;
+    list?: string[];
+}
 
 export interface LayoutItemProps extends ClassNameProps, AnalyticsEventsBase {
     content: Omit<ContentBlockProps, 'colSizes' | 'centered' | 'size'>;

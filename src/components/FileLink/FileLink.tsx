@@ -22,7 +22,7 @@ export enum FileExtension {
 }
 
 export function getFileExt(name: string) {
-    if (name.includes(FIGMA_URL)) {
+    if (name?.includes(FIGMA_URL)) {
         return FileExtension.FIG;
     }
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
