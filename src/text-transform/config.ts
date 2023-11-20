@@ -361,5 +361,6 @@ export const config: BlocksConfig = {
         },
     ],
     [BlockType.CardLayoutBlock]: blockHeaderTransformer,
+    [BlockType.FilterBlock]: blockHeaderTransformer,
     [BlockType.IconsBlock]: blockHeaderTransformer,
 };

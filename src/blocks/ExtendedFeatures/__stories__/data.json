@@ -3,9 +3,10 @@
     "content": {
       "type": "extended-features-block",
       "title": {
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+        "text": "Lorem ipsum dolor sit amet",
         "textSize": "m"
       },
+      "description": "Three **cards in a row on the desktop**, two cards in a row on a tablet, one card in a row on a mobile phone.",
       "items": [
         {
           "title": "Sed do eiusmod tempor incididunt",
@@ -57,11 +58,6 @@
   },
   "withLabel": {
     "content": {
-      "type": "extended-features-block",
-      "title": {
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-        "textSize": "m"
-      },
       "items": [
         {
           "title": "Sed do eiusmod tempor",
@@ -116,7 +112,7 @@
   "colSizes": {
     "two": {
       "title": "Extended Features",
-      "description": "Two features in a row on all devices",
+      "description": "Two features **in a row** on all devices",
       "colSizes": {
         "all": 6
       },
@@ -157,11 +153,11 @@
     },
     "three": {
       "title": "Extended Features (default)",
-      "description": "Three Features in a row on the desktop, three features in a row on a tablet, two features in a row on a mobile phone."
+      "description": "Three Features **in a row** on the desktop, three features in a row on a tablet, two features in a row on a mobile phone."
     },
     "four": {
       "title": "Extended Features",
-      "description": "Four features in a row on the desktop, three features in a row on a tablet, two features in a row on a mobile phone.",
+      "description": "Four features **in a row** on the desktop, three features in a row on a tablet, two features in a row on a mobile phone.",
       "colSizes": {
         "all": 6,
         "sm": 4,
