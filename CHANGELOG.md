@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [4.37.4](https://github.com/gravity-ui/page-constructor/compare/v4.37.3...v4.37.4) (2023-11-20)
+
+
+### Bug Fixes
+
+* filter-block transform ([#702](https://github.com/gravity-ui/page-constructor/issues/702)) ([48741d7](https://github.com/gravity-ui/page-constructor/commit/48741d79b3c0e6f26c4b3dcb8f333ae0c9a981fb))
+
 ## [4.37.3](https://github.com/gravity-ui/page-constructor/compare/v4.37.2...v4.37.3) (2023-11-17)
 
 
