@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [4.38.0](https://github.com/gravity-ui/page-constructor/compare/v4.37.4...v4.38.0) (2023-11-20)
+
+
+### Features
+
+* add PriceCard ([#697](https://github.com/gravity-ui/page-constructor/issues/697)) ([527a335](https://github.com/gravity-ui/page-constructor/commit/527a3356e9988e3689ddc982e3ef049ff238c08e))
+
 ## [4.37.4](https://github.com/gravity-ui/page-constructor/compare/v4.37.3...v4.37.4) (2023-11-20)
 
 
