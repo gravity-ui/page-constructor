@@ -5,9 +5,14 @@ $block: '.#{$ns}media-component-iframe';
 
 #{$block} {
     overflow: hidden;
+    border-radius: 16px;
 
     &_margins {
         margin: $indentSM;
+
+        #{$block}__item {
+            border-radius: 0;
+        }
     }
 
     #{$block}__iframe {
