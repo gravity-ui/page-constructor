@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [4.38.1](https://github.com/gravity-ui/page-constructor/compare/v4.38.0...v4.38.1) (2023-11-21)
+
+
+### Bug Fixes
+
+* tabs condition ([#707](https://github.com/gravity-ui/page-constructor/issues/707)) ([71b27ee](https://github.com/gravity-ui/page-constructor/commit/71b27ee051027b895974c9bf92362c3908dbea29))
+
 ## [4.38.0](https://github.com/gravity-ui/page-constructor/compare/v4.37.4...v4.38.0) (2023-11-20)
 
 
