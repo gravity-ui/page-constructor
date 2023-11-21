@@ -25,9 +25,9 @@ const DefaultTemplate: StoryFn<PriceCardProps> = (args) => (
 );
 
 const MultipleItemsTemplate: StoryFn<{items: PriceCardProps[]}> = ({items}) => (
-    <div style={{display: 'flex', flexDirection: 'row'}}>
+    <div style={{display: 'flex', flexWrap: 'wrap', flexDirection: 'row'}}>
         {items.map((args, index) => (
-            <div key={index} style={{width: 400, margin: '0 20px'}}>
+            <div key={index} style={{width: 400, margin: '20px'}}>
                 <PriceCard
                     {...args}
                     list={args.list?.map((text) => yfmTransform(text)) || undefined}
@@ -38,9 +38,9 @@ const MultipleItemsTemplate: StoryFn<{items: PriceCardProps[]}> = ({items}) => (
 );
 
 const DifferentContentTemplate: StoryFn<{items: PriceCardProps[]}> = ({items}) => (
-    <div style={{display: 'flex', flexDirection: 'row'}}>
+    <div style={{display: 'flex', flexWrap: 'wrap', flexDirection: 'row'}}>
         {items.map((args, index) => (
-            <div key={index} style={{width: 400, margin: '0 20px'}}>
+            <div key={index} style={{width: 400, margin: '20px'}}>
                 <div>
                     <PriceCard
                         {...args}

@@ -35,6 +35,7 @@ $block: '.#{$ns}QuestionsBlockItem';
     }
 
     &__link {
+        margin-top: $indentXS;
         @include text-size(body-2);
 
         @include add-specificity(&) {

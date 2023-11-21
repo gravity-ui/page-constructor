@@ -42,7 +42,7 @@ const PriceCard = (props: PriceCardProps) => {
                                 <div className={b('price-details')}>{priceDetails}</div>
                             )}
                         </div>
-                        <div>{description}</div>
+                        {description && <div className={b('description')}>{description}</div>}
                         {list?.length ? (
                             <div className={b('list')}>
                                 <ContentList

@@ -59,8 +59,7 @@ $block: '.#{$ns}price-card';
     }
 
     &__title {
-        font-size: var(--g-text-subheader-3-font-size);
-        line-height: var(--g-text-subheader-3-line-height);
+        @include text-size(subheader-3);
         margin-bottom: $indentSM;
     }
 
@@ -68,8 +67,7 @@ $block: '.#{$ns}price-card';
         margin-bottom: $indentSM;
 
         &-value {
-            font-size: var(--g-text-display-1-font-size);
-            line-height: var(--g-text-display-1-line-height);
+            @include text-size(display-1);
         }
 
         &-period {
@@ -77,7 +75,7 @@ $block: '.#{$ns}price-card';
         }
 
         &-details {
-            margin-bottom: $indentXXS;
+            @include text-size(body-2);
         }
     }
 
@@ -97,13 +95,8 @@ $block: '.#{$ns}price-card';
         flex-direction: column;
     }
 
-    &__links,
-    &__buttons {
-        & > * {
-            &:not(:last-child) {
-                margin-right: $indentXS;
-            }
-        }
+    &__description {
+        margin-bottom: $indentXXS;
     }
 
     &__list {
@@ -113,6 +106,23 @@ $block: '.#{$ns}price-card';
                     margin-bottom: $indentXXS;
                 }
             }
+        }
+    }
+
+    &__links,
+    &__buttons {
+        & > * {
+            &:not(:last-child) {
+                margin-right: $indentXS;
+            }
+        }
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'md')) {
+        &__title,
+        &__price,
+        &__info {
+            margin-bottom: $indentXS;
         }
     }
 }

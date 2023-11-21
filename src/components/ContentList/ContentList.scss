@@ -10,8 +10,6 @@ $marginIconSizeL: 1px;
 
 #{$block} {
     &_size_l {
-        margin-top: $indentSM;
-
         #{$block}__title {
             @include text-size(header-1);
 
@@ -42,8 +40,6 @@ $marginIconSizeL: 1px;
     }
 
     &_size_s {
-        margin-top: $indentXS;
-
         #{$block}__title {
             @include text-size(subheader-3);
 

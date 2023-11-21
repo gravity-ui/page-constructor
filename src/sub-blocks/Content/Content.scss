@@ -107,6 +107,10 @@ $darkSecondary: var(--g-color-text-dark-secondary);
             #{$block}__button {
                 margin-top: $indentXXXS;
             }
+
+            #{$block}__list {
+                margin-top: $indentXS;
+            }
         }
 
         &_l {
@@ -132,6 +136,10 @@ $darkSecondary: var(--g-color-text-dark-secondary);
             #{$block}__buttons,
             #{$block}__button {
                 margin-top: $indentXXS;
+            }
+
+            #{$block}__list {
+                margin-top: $indentSM;
             }
         }
     }
