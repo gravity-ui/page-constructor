@@ -50,7 +50,8 @@ const PriceCard = (props: PriceCardProps) => {
                                         icon: Check,
                                         text: item,
                                     }))}
-                                    size="s"
+                                    size="l"
+                                    itemClassName={b('list-item')}
                                 />
                             </div>
                         ) : null}

@@ -11,6 +11,11 @@ import data from './data.json';
 export default {
     component: PriceCard,
     title: 'Components/Cards/PriceCard',
+    argTypes: {
+        backgroundColor: {
+            control: {type: 'color'},
+        },
+    },
 } as Meta;
 
 const DefaultTemplate: StoryFn<PriceCardProps> = (args) => (
@@ -32,9 +37,24 @@ const MultipleItemsTemplate: StoryFn<{items: PriceCardProps[]}> = ({items}) => (
     </div>
 );
 
+const DifferentContentTemplate: StoryFn<{items: PriceCardProps[]}> = ({items}) => (
+    <div style={{display: 'flex', flexDirection: 'row'}}>
+        {items.map((args, index) => (
+            <div key={index} style={{width: 400, margin: '0 20px'}}>
+                <div>
+                    <PriceCard
+                        {...args}
+                        list={args.list?.map((text) => yfmTransform(text)) || undefined}
+                    />
+                </div>
+            </div>
+        ))}
+    </div>
+);
+
 export const Default = DefaultTemplate.bind({});
 export const Link = DefaultTemplate.bind({});
-export const DifferentContent = MultipleItemsTemplate.bind({});
+export const DifferentContent = DifferentContentTemplate.bind({});
 export const Themed = MultipleItemsTemplate.bind({});
 
 Default.args = data.default.content as PriceCardProps;

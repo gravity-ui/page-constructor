@@ -105,4 +105,14 @@ $block: '.#{$ns}price-card';
             }
         }
     }
+
+    &__list {
+        &-item {
+            &:not(:last-child) {
+                @include add-specificity(&) {
+                    margin-bottom: $indentXXS;
+                }
+            }
+        }
+    }
 }
