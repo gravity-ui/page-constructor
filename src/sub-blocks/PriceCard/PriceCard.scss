@@ -88,7 +88,6 @@ $block: '.#{$ns}price-card';
     }
 
     &__info {
-        margin-bottom: $indentSM;
         flex: 1;
         min-height: 0;
         display: flex;
@@ -96,11 +95,14 @@ $block: '.#{$ns}price-card';
     }
 
     &__description {
-        margin-bottom: $indentXXS;
+        &:not(:last-child) {
+            margin-bottom: $indentXXS;
+        }
     }
 
     &__links,
     &__buttons {
+        margin-top: $indentSM;
         & > * {
             &:not(:last-child) {
                 margin-right: $indentXS;
@@ -110,9 +112,13 @@ $block: '.#{$ns}price-card';
 
     @media (max-width: map-get($gridBreakpoints, 'md')) {
         &__title,
-        &__price,
-        &__info {
+        &__price {
             margin-bottom: $indentXS;
+        }
+
+        &__links,
+        &__buttons {
+            margin-top: $indentXS;
         }
     }
 }

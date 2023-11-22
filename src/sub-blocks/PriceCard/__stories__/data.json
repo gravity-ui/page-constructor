@@ -7,8 +7,8 @@
       "priceDetails": "plan details",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       "list": [
-        "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-        "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        "Ut enim ad minim veniam [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "Ut enim ad minim veniam [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
       ],
       "buttons": [
         {
@@ -28,8 +28,8 @@
       "priceDetails": "plan details",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       "list": [
-        "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-        "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        "Ut enim ad minim veniam [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "Ut enim ad minim veniam [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
       ],
       "links": [
         {
@@ -50,8 +50,8 @@
         "priceDetails": "plan details",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
         "list": [
-          "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-          "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+          "Ut enim ad minim veniam [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+          "Ut enim ad minim veniam [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
         ],
         "buttons": [
           {
@@ -67,8 +67,8 @@
         "price": "299.99 $",
         "pricePeriod": "month",
         "list": [
-          "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-          "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+          "Ut enim ad minim veniam [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+          "Ut enim ad minim veniam [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
         ],
         "links": [
           {
@@ -96,8 +96,8 @@
         "priceDetails": "plan details",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
         "list": [
-          "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-          "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+          "Ut enim ad minim veniam [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+          "Ut enim ad minim veniam [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
         ],
         "buttons": [
           {
@@ -115,8 +115,8 @@
         "priceDetails": "plan details",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
         "list": [
-          "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-          "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+          "Ut enim ad minim veniam [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+          "Ut enim ad minim veniam [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
         ],
         "theme": "light",
         "buttons": [
@@ -136,8 +136,7 @@
         "priceDetails": "plan details",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
         "list": [
-          "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-          "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+          "Ut enim ad minim veniam [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
         ],
         "theme": "dark",
         "buttons": [

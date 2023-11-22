@@ -24,33 +24,41 @@ const DefaultTemplate: StoryFn<PriceCardProps> = (args) => (
     </div>
 );
 
-const MultipleItemsTemplate: StoryFn<{items: PriceCardProps[]}> = ({items}) => (
-    <div style={{display: 'flex', flexWrap: 'wrap', flexDirection: 'row'}}>
-        {items.map((args, index) => (
-            <div key={index} style={{width: 400, margin: '20px'}}>
-                <PriceCard
-                    {...args}
-                    list={args.list?.map((text) => yfmTransform(text)) || undefined}
-                />
-            </div>
-        ))}
-    </div>
-);
+const DifferentContentTemplate: StoryFn<PriceCardProps> = (args) => {
+    const items = data.differentContent.content as PriceCardProps[];
+    return (
+        <div style={{display: 'flex', flexWrap: 'wrap', flexDirection: 'row'}}>
+            {items.map((itemArgs, index) => (
+                <div key={index} style={{width: 400, margin: '20px'}}>
+                    <div>
+                        <PriceCard
+                            {...args}
+                            {...itemArgs}
+                            list={itemArgs.list?.map((text) => yfmTransform(text)) || undefined}
+                        />
+                    </div>
+                </div>
+            ))}
+        </div>
+    );
+};
 
-const DifferentContentTemplate: StoryFn<{items: PriceCardProps[]}> = ({items}) => (
-    <div style={{display: 'flex', flexWrap: 'wrap', flexDirection: 'row'}}>
-        {items.map((args, index) => (
-            <div key={index} style={{width: 400, margin: '20px'}}>
-                <div>
+const MultipleItemsTemplate: StoryFn<PriceCardProps> = (args) => {
+    const items = data.themed.content as PriceCardProps[];
+    return (
+        <div style={{display: 'flex', flexWrap: 'wrap', flexDirection: 'row'}}>
+            {items.map((itemArgs, index) => (
+                <div key={index} style={{width: 400, margin: '20px'}}>
                     <PriceCard
                         {...args}
-                        list={args.list?.map((text) => yfmTransform(text)) || undefined}
+                        {...itemArgs}
+                        list={itemArgs.list?.map((text) => yfmTransform(text)) || undefined}
                     />
                 </div>
-            </div>
-        ))}
-    </div>
-);
+            ))}
+        </div>
+    );
+};
 
 export const Default = DefaultTemplate.bind({});
 export const Link = DefaultTemplate.bind({});
@@ -59,5 +67,3 @@ export const Themed = MultipleItemsTemplate.bind({});
 
 Default.args = data.default.content as PriceCardProps;
 Link.args = data.link.content as PriceCardProps;
-DifferentContent.args = {items: data.differentContent.content as PriceCardProps[]};
-Themed.args = {items: data.themed.content as PriceCardProps[]};
