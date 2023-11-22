@@ -1,4 +1,26 @@
 {
+  "common": {
+    "title": "Lorem ipsum",
+    "price": "299.99 $",
+    "pricePeriod": "month",
+    "priceDetails": "plan details"
+  },
+  "links": [
+    {
+      "url": "#",
+      "text": "Link",
+      "theme": "normal",
+      "arrow": true
+    }
+  ],
+  "buttons": [
+    {
+      "text": "Button",
+      "url": "https://example.com",
+      "width": "max",
+      "theme": "action"
+    }
+  ],
   "default": {
     "content": {
       "title": "Lorem ipsum",
@@ -9,35 +31,6 @@
       "list": [
         "Ut enim ad minim veniam [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
         "Ut enim ad minim veniam [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-      ],
-      "buttons": [
-        {
-          "text": "Button",
-          "url": "https://example.com",
-          "width": "max",
-          "theme": "action"
-        }
-      ]
-    }
-  },
-  "link": {
-    "content": {
-      "title": "Lorem ipsum",
-      "price": "299.99 $",
-      "pricePeriod": "month",
-      "priceDetails": "plan details",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "list": [
-        "Ut enim ad minim veniam [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-        "Ut enim ad minim veniam [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-      ],
-      "links": [
-        {
-          "url": "#",
-          "text": "Link",
-          "theme": "normal",
-          "arrow": true
-        }
       ]
     }
   },
