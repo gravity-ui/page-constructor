@@ -99,16 +99,6 @@ $block: '.#{$ns}price-card';
         margin-bottom: $indentXXS;
     }
 
-    &__list {
-        &-item {
-            &:not(:last-child) {
-                @include add-specificity(&) {
-                    margin-bottom: $indentXXS;
-                }
-            }
-        }
-    }
-
     &__links,
     &__buttons {
         & > * {

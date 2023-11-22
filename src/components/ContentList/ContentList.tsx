@@ -24,7 +24,7 @@ function getHeadingLevel(size: ContentSize) {
     }
 }
 
-const ContentList = ({list, size = 'l', qa, itemClassName}: ContentListProps & QAProps) => {
+const ContentList = ({list, size = 'l', qa}: ContentListProps & QAProps) => {
     const qaAttributes = getQaAttrubutes(qa, ['image', 'title', 'text']);
 
     return (
@@ -32,12 +32,8 @@ const ContentList = ({list, size = 'l', qa, itemClassName}: ContentListProps & Q
             {list?.map((item) => {
                 const {icon, title, text} = item;
                 return (
-                    <div className={b('item', itemClassName)} key={uuidv4()}>
-                        <ItemIcon
-                            icon={icon}
-                            className={b('icon', {without_title: !title})}
-                            qa={qaAttributes.image}
-                        />
+                    <div className={b('item', {'without-title': !title})} key={uuidv4()}>
+                        <ItemIcon icon={icon} className={b('icon')} qa={qaAttributes.image} />
                         <div>
                             {title &&
                                 React.createElement(

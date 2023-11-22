@@ -22,19 +22,25 @@ $marginIconSizeL: 1px;
             margin-top: $marginIconSizeL;
             margin-bottom: $marginIconSizeL;
             margin-right: $indentXXS;
-
-            &_without_title {
-                width: $iconSizeS;
-                height: $iconSizeS;
-                margin-top: 0;
-                margin-bottom: 0;
-                margin-right: $indentXXXS;
-            }
         }
 
         #{$block}__item {
             &:not(:last-child) {
                 margin-bottom: $indentXS;
+            }
+
+            &_without-title {
+                &:not(:last-child) {
+                    margin-bottom: $indentXXS;
+                }
+
+                #{$block}__icon {
+                    width: $iconSizeS;
+                    height: $iconSizeS;
+                    margin-top: 0;
+                    margin-bottom: 0;
+                    margin-right: $indentXXXS;
+                }
             }
         }
     }
@@ -52,13 +58,6 @@ $marginIconSizeL: 1px;
             margin-top: $marginIconSizeS;
             margin-bottom: $marginIconSizeS;
             margin-right: $indentXXXS;
-
-            &_without_title {
-                width: $iconSizeXS;
-                height: $iconSizeXS;
-                margin-top: 0;
-                margin-bottom: 0;
-            }
         }
 
         #{$block}__text {
@@ -68,6 +67,19 @@ $marginIconSizeL: 1px;
         #{$block}__item {
             &:not(:last-child) {
                 margin-bottom: $indentXXS;
+            }
+
+            &_without-title {
+                &:not(:last-child) {
+                    margin-bottom: $indentXXXS;
+                }
+
+                #{$block}__icon {
+                    width: $iconSizeXS;
+                    height: $iconSizeXS;
+                    margin-top: 0;
+                    margin-bottom: 0;
+                }
             }
         }
     }

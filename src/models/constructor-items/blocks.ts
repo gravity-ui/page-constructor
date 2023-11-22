@@ -361,7 +361,6 @@ export interface ContentItemProps {
 export interface ContentListProps {
     list: ContentItemProps[];
     size: ContentSize;
-    itemClassName?: string;
 }
 
 export interface ContentBlockProps {

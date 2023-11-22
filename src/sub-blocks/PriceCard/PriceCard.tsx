@@ -51,7 +51,6 @@ const PriceCard = (props: PriceCardProps) => {
                                         text: item,
                                     }))}
                                     size="l"
-                                    itemClassName={b('list-item')}
                                 />
                             </div>
                         ) : null}
