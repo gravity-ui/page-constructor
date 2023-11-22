@@ -5,7 +5,6 @@ $block: '.#{$ns}media-component-iframe';
 
 #{$block} {
     overflow: hidden;
-    border-radius: 16px;
 
     &_margins {
         margin: $indentSM;
@@ -23,11 +22,5 @@ $block: '.#{$ns}media-component-iframe';
         width: calc(100% + 4px);
         height: calc(100% + 4px);
         margin: -1px -2px 0;
-    }
-
-    @media (max-width: map-get($gridBreakpoints, 'sm')) {
-        &_margins {
-            margin: $indentXXS;
-        }
     }
 }
