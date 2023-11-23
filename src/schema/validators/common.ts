@@ -591,24 +591,6 @@ const IframeProps = {
     width: {
         type: 'number',
     },
-    allow: {
-        type: 'number',
-    },
-    credentialless: {
-        type: 'boolean',
-    },
-    csp: {
-        type: 'string',
-    },
-    loading: {
-        enum: ['lazy', 'eager'],
-    },
-    referrerpolicy: {
-        type: 'string',
-    },
-    sandbox: {
-        type: 'string',
-    },
 };
 
 export const MediaProps = {

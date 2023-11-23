@@ -346,16 +346,10 @@ export interface DataLensObjectProps {
 
 export interface IframeProps {
     src: string;
-    allow?: string;
     width?: number;
     height?: number;
     title?: string;
-    credentialless?: boolean;
-    csp?: string;
-    loading?: 'lazy' | 'eager';
     name?: string;
-    referrerpolicy?: string;
-    sandbox?: string;
 }
 
 export type DataLensProps = string | DataLensObjectProps;

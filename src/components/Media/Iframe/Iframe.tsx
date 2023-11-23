@@ -11,8 +11,7 @@ const b = block('media-component-iframe');
 
 const Iframe = (props: MediaComponentIframeProps) => {
     const {iframe, margins = true} = props;
-    const {height = 400} = iframe;
-    console.log(height);
+    const {height = 400, src, width, name} = iframe;
 
     return iframe ? (
         <div className={b({margins})} style={{height}}>
@@ -21,7 +20,10 @@ const Iframe = (props: MediaComponentIframeProps) => {
                 loading="lazy"
                 title={i18n('iframe-title')}
                 frameBorder={0}
-                {...iframe}
+                src={src}
+                width={width}
+                height={height}
+                name={name}
             />
         </div>
     ) : null;
