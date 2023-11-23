@@ -11,14 +11,14 @@ const b = block('media-component-iframe');
 
 const Iframe = (props: MediaComponentIframeProps) => {
     const {iframe, margins = true} = props;
-    const {height = 400, src, width, name} = iframe;
+    const {height = 400, src, width, name, title} = iframe;
 
     return iframe ? (
         <div className={b({margins})} style={{height}}>
             <iframe
                 className={b('item')}
                 loading="lazy"
-                title={i18n('iframe-title')}
+                title={title || i18n('iframe-title')}
                 frameBorder={0}
                 src={src}
                 width={width}
