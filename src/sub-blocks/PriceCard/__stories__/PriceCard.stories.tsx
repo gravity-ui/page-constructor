@@ -11,7 +11,6 @@ import data from './data.json';
 export default {
     component: PriceCard,
     title: 'Components/Cards/PriceCard',
-    args: data.common,
     argTypes: {
         backgroundColor: {
             control: {type: 'color'},

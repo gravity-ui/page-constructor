@@ -97,7 +97,11 @@ const Content = (props: ContentProps) => {
                     />
                 </div>
             )}
-            {list?.length ? <ContentList list={list} size={size} qa={qaAttributes.list} /> : null}
+            {list?.length ? (
+                <div className={b('list')}>
+                    <ContentList list={list} size={size} qa={qaAttributes.list} />
+                </div>
+            ) : null}
             {additionalInfo && (
                 <div className={b('notice')}>
                     <YFMWrapper

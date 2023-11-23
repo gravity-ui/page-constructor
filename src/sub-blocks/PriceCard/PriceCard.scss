@@ -6,6 +6,10 @@ $block: '.#{$ns}price-card';
 #{$block} {
     position: relative;
 
+    @include add-specificity(&) {
+        min-height: auto;
+    }
+
     &__background {
         position: absolute;
         top: 0;
@@ -103,6 +107,7 @@ $block: '.#{$ns}price-card';
     &__links,
     &__buttons {
         margin-top: $indentSM;
+
         & > * {
             &:not(:last-child) {
                 margin-right: $indentXS;
