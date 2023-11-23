@@ -575,6 +575,24 @@ export const ButtonBlock = {
     },
 };
 
+const IframeProps = {
+    src: {
+        type: 'string',
+    },
+    name: {
+        type: 'string',
+    },
+    title: {
+        type: 'string',
+    },
+    height: {
+        type: 'number',
+    },
+    width: {
+        type: 'number',
+    },
+};
+
 export const MediaProps = {
     color: {
         type: 'string',
@@ -606,6 +624,12 @@ export const MediaProps = {
         anyOf: [AnalyticsEventSchema, {type: 'array', items: AnalyticsEventSchema}],
     },
     ratio: {
+        type: 'number',
+    },
+    iframe: {
+        ...IframeProps,
+    },
+    margins: {
         type: 'number',
     },
 };

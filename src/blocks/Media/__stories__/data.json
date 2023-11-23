@@ -279,6 +279,48 @@
       }
     }
   },
+  "iframe": {
+    "default": {
+      "content": {
+        "media": {
+          "light": {
+            "iframe": {
+              "src": "https://www.google.com/maps/embed/",
+              "name": "iframe"
+            }
+          },
+          "dark": {
+            "dataLens": {
+              "id": "m2bzon9y39lck",
+              "theme": "dark"
+            }
+          }
+        }
+      }
+    },
+    "withoutMargins": {
+      "defaultMediaTitle": "Media Iframe without margins",
+      "largeMediaTitle": "Large Media Iframe without margins",
+      "mediaOnlyTitle": "Media Iframe Only  without margins",
+      "content": {
+        "media": {
+          "light": {
+            "iframe": {
+              "src": "https://www.google.com/maps/embed/",
+              "name": "iframe"
+            },
+            "margins": false
+          },
+          "dark": {
+            "dataLens": {
+              "id": "m2bzon9y39lck",
+              "theme": "dark"
+            }
+          }
+        }
+      }
+    }
+  },
   "size": {
     "defaultMediaTitle": "Default Media",
     "largeMediaTitle": "Large Media",

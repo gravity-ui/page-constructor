@@ -263,11 +263,17 @@ export interface MediaComponentDataLensProps {
     dataLens: DataLensProps;
 }
 
+export interface MediaComponentIframeProps {
+    iframe: IframeProps;
+    margins?: boolean;
+}
+
 export interface MediaProps
     extends Animatable,
         Partial<MediaComponentDataLensProps>,
         Partial<MediaComponentYoutubeProps>,
         Partial<MediaComponentImageProps>,
+        Partial<MediaComponentIframeProps>,
         Partial<MediaComponentVideoProps> {
     color?: string;
 }
@@ -336,6 +342,14 @@ export type ButtonPixel = ButtonPixelEvent[];
 export interface DataLensObjectProps {
     id: string;
     theme: 'dark' | 'light';
+}
+
+export interface IframeProps {
+    src: string;
+    width?: number;
+    height?: number;
+    title?: string;
+    name?: string;
 }
 
 export type DataLensProps = string | DataLensObjectProps;

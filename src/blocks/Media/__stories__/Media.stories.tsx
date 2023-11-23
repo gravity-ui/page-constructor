@@ -142,6 +142,51 @@ const DirectionTemplate: StoryFn<MediaBlockModel> = (args) => (
     />
 );
 
+const IframeTemplate: StoryFn<MediaBlockModel> = (args) => (
+    <PageConstructor
+        content={{
+            blocks: [
+                {
+                    ...args,
+                    ...data.iframe.default.content,
+                    title: data.size.defaultMediaTitle,
+                },
+                {
+                    ...args,
+                    ...data.iframe.default.content,
+                    largeMedia: true,
+                    title: data.size.largeMediaTitle,
+                },
+                {
+                    ...args,
+                    ...data.iframe.default.content,
+                    mediaOnly: true,
+                    description: undefined,
+                    title: data.size.mediaOnlyTitle,
+                },
+                {
+                    ...args,
+                    ...data.iframe.withoutMargins.content,
+                    title: data.iframe.withoutMargins.defaultMediaTitle,
+                },
+                {
+                    ...args,
+                    ...data.iframe.withoutMargins.content,
+                    largeMedia: true,
+                    title: data.iframe.withoutMargins.largeMediaTitle,
+                },
+                {
+                    ...args,
+                    ...data.iframe.withoutMargins.content,
+                    mediaOnly: true,
+                    description: undefined,
+                    title: data.iframe.withoutMargins.mediaOnlyTitle,
+                },
+            ],
+        }}
+    />
+);
+
 export const Default = DefaultTemplate.bind({});
 export const ImageSlider = ImageSliderTemplate.bind({});
 export const Video = VideoTemplate.bind({});
@@ -149,6 +194,7 @@ export const DataLens = ImageSliderTemplate.bind({});
 export const Size = SizeTemplate.bind({});
 export const Direction = DirectionTemplate.bind({});
 export const WithoutShadow = ImageSliderTemplate.bind({});
+export const Iframe = IframeTemplate.bind({});
 
 const DefaultArgs = {
     ...data.default.content,
@@ -166,11 +212,13 @@ DataLens.args = {
     ...DefaultArgs,
     ...data.dataLens.content,
 } as MediaBlockProps;
-
 Size.args = DefaultArgs as MediaBlockProps;
 Direction.args = DefaultArgs as MediaBlockProps;
 WithoutShadow.args = {
     ...DefaultArgs,
     ...data.withoutShadow.content,
     disableShadow: true,
+} as MediaBlockProps;
+Iframe.args = {
+    ...DefaultArgs,
 } as MediaBlockProps;
