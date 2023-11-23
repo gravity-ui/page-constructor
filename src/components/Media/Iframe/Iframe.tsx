@@ -12,6 +12,7 @@ const b = block('media-component-iframe');
 const Iframe = (props: MediaComponentIframeProps) => {
     const {iframe, margins = true} = props;
     const {height = 400} = iframe;
+    console.log(height);
 
     return iframe ? (
         <div className={b({margins})} style={{height}}>

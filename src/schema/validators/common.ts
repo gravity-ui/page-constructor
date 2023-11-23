@@ -575,6 +575,42 @@ export const ButtonBlock = {
     },
 };
 
+const IframeProps = {
+    src: {
+        type: 'string',
+    },
+    name: {
+        type: 'string',
+    },
+    title: {
+        type: 'string',
+    },
+    height: {
+        type: 'number',
+    },
+    width: {
+        type: 'number',
+    },
+    allow: {
+        type: 'number',
+    },
+    credentialless: {
+        type: 'boolean',
+    },
+    csp: {
+        type: 'string',
+    },
+    loading: {
+        enum: ['lazy', 'eager'],
+    },
+    referrerpolicy: {
+        type: 'string',
+    },
+    sandbox: {
+        type: 'string',
+    },
+};
+
 export const MediaProps = {
     color: {
         type: 'string',
@@ -606,6 +642,12 @@ export const MediaProps = {
         anyOf: [AnalyticsEventSchema, {type: 'array', items: AnalyticsEventSchema}],
     },
     ratio: {
+        type: 'number',
+    },
+    iframe: {
+        ...IframeProps,
+    },
+    margins: {
         type: 'number',
     },
 };
