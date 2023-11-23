@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [4.39.0](https://github.com/gravity-ui/page-constructor/compare/v4.38.1...v4.39.0) (2023-11-23)
+
+
+### Features
+
+* add iframe to media ([#698](https://github.com/gravity-ui/page-constructor/issues/698)) ([5b0c26d](https://github.com/gravity-ui/page-constructor/commit/5b0c26d47e321f519f74952c0eed58d5a963a4e8))
+
 ## [4.38.1](https://github.com/gravity-ui/page-constructor/compare/v4.38.0...v4.38.1) (2023-11-21)
 
 
