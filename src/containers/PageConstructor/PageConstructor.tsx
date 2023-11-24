@@ -99,7 +99,7 @@ export const Constructor = (props: PageConstructorProps) => {
         <InnerContext.Provider value={context}>
             <RootCn>
                 <div className={b('wrapper')}>
-                    {themedBackground && (
+                    {Object.keys(themedBackground).length && (
                         <BackgroundMedia {...themedBackground} className={b('background')} />
                     )}
                     <Layout navigation={navigation}>
