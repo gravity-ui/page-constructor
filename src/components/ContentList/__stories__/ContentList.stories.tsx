@@ -33,7 +33,7 @@ const DifferentContentTempalte: StoryFn<ContentListProps> = (args) => (
         <h3>Without text</h3>
         <DefaultTemplate {...args} list={data.withoutText.content.map(transformListItem)} />
         <h3>Without title</h3>
-        <DefaultTemplate {...args} list={data.widthoutTitle.content.map(transformListItem)} />
+        <DefaultTemplate {...args} list={data.withoutTitle.content.map(transformListItem)} />
     </div>
 );
 
