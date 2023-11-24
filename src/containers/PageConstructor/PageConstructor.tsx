@@ -99,9 +99,9 @@ export const Constructor = (props: PageConstructorProps) => {
         <InnerContext.Provider value={context}>
             <RootCn>
                 <div className={b('wrapper')}>
-                    {Object.keys(themedBackground).length && (
+                    {Object.keys(themedBackground).length ? (
                         <BackgroundMedia {...themedBackground} className={b('background')} />
-                    )}
+                    ) : null}
                     <Layout navigation={navigation}>
                         {renderMenu && renderMenu()}
                         {header && (
