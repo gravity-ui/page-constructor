@@ -43,11 +43,7 @@ const ContentList = ({list, size = 'l', qa}: ContentListProps & QAProps) => {
                                 React.createElement(
                                     getHeadingLevel(size),
                                     {className: b('title'), 'data-qa': qaAttributes.title},
-                                    <YFMWrapper
-                                        content={title}
-                                        modifiers={{constructor: true}}
-                                        qa={qaAttributes.title}
-                                    />,
+                                    <YFMWrapper content={title} modifiers={{constructor: true}} />,
                                 )}
                             {text && (
                                 <YFMWrapper
