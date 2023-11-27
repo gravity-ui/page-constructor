@@ -53,7 +53,7 @@ export interface PageConstructorProps {
 
 export const Constructor = (props: PageConstructorProps) => {
     const {
-        content: {blocks = [], background = {}} = {},
+        content: {blocks = [], background} = {},
         renderMenu,
         shouldRenderBlock,
         navigation,
@@ -97,7 +97,7 @@ export const Constructor = (props: PageConstructorProps) => {
 
     return (
         <InnerContext.Provider value={context}>
-            <RootCn>
+            <RootCn className={b()}>
                 <div className={b('wrapper')}>
                     {themedBackground && (
                         <BackgroundMedia {...themedBackground} className={b('background')} />
