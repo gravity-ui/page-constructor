@@ -576,20 +576,25 @@ export const ButtonBlock = {
 };
 
 const IframeProps = {
-    src: {
-        type: 'string',
-    },
-    name: {
-        type: 'string',
-    },
-    title: {
-        type: 'string',
-    },
-    height: {
-        type: 'number',
-    },
-    width: {
-        type: 'number',
+    type: 'object',
+    additionalProperties: false,
+    required: ['src'],
+    properties: {
+        src: {
+            type: 'string',
+        },
+        name: {
+            type: 'string',
+        },
+        title: {
+            type: 'string',
+        },
+        height: {
+            type: 'number',
+        },
+        width: {
+            type: 'number',
+        },
     },
 };
 
@@ -630,7 +635,7 @@ export const MediaProps = {
         ...IframeProps,
     },
     margins: {
-        type: 'number',
+        type: 'boolean',
     },
 };
 
