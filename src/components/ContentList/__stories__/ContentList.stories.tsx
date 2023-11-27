@@ -11,6 +11,7 @@ import data from './data.json';
 const transformList = (item: ContentItemProps) => ({
     ...item,
     text: item?.text && yfmTransform(item.text),
+    title: item?.title && yfmTransform(item.title),
 });
 
 export default {
