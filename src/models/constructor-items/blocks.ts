@@ -334,6 +334,7 @@ export interface IconsBlockProps {
     description?: string;
     size?: 's' | 'm' | 'l';
     items: IconsBlockItemProps[];
+    colSizes?: GridColumnSizesType;
 }
 
 interface ContentLayoutBlockParams {
