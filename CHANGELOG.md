@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [4.40.1](https://github.com/gravity-ui/page-constructor/compare/v4.40.0...v4.40.1) (2023-11-27)
+
+
+### Bug Fixes
+
+* media iframe fix ([#717](https://github.com/gravity-ui/page-constructor/issues/717)) ([be6c819](https://github.com/gravity-ui/page-constructor/commit/be6c819afee25f730148734b35ce21e8eb68874b))
+
 ## [4.40.0](https://github.com/gravity-ui/page-constructor/compare/v4.39.1...v4.40.0) (2023-11-27)
 
 
