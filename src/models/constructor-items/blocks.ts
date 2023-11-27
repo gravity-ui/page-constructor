@@ -20,6 +20,7 @@ import {
     HeaderOffset,
     HeaderWidth,
     ImageDeviceProps,
+    ImageProps,
     Justify,
     LegendTableMarkerType,
     LinkProps,
@@ -141,7 +142,7 @@ export interface HeaderBlockProps {
     title: string;
     overtitle?: string;
     description?: string;
-    buttons?: Pick<ButtonProps, 'url' | 'text' | 'theme' | 'primary' | 'size'>[];
+    buttons?: Pick<ButtonProps, 'url' | 'text' | 'theme' | 'primary' | 'size' | 'extraProps'>[];
     width?: HeaderWidth;
     /** @deprecated imageSize now depends on width */
     imageSize?: HeaderImageSize;
@@ -349,10 +350,17 @@ export interface ContentLayoutBlockProps extends ContentLayoutBlockParams {
     fileContent?: FileLinkProps[];
 }
 
+export type SVGIcon = React.FC<React.SVGProps<SVGSVGElement>>;
+
 export interface ContentItemProps {
     title?: string;
     text?: string;
-    icon: ThemedImage;
+    icon: ThemeSupporting<ImageProps | SVGIcon>;
+}
+
+export interface ContentListProps {
+    list: ContentItemProps[];
+    size: ContentSize;
 }
 
 export interface ContentBlockProps {
