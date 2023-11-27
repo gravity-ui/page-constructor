@@ -16,10 +16,6 @@ $marginIconSizeL: 1px;
             @include text-size(header-1);
 
             margin: 0 0 $indentXXXS;
-
-            .yfm {
-                @include text-size(header-1);
-            }
         }
 
         #{$block}__icon {
@@ -52,10 +48,6 @@ $marginIconSizeL: 1px;
             @include text-size(subheader-3);
 
             margin: 0 0 calc(#{$indentXXXS} / 2);
-
-            .yfm {
-                @include text-size(subheader-3);
-            }
         }
 
         #{$block}__icon {
@@ -90,5 +82,12 @@ $marginIconSizeL: 1px;
 
     &__item {
         display: flex;
+    }
+
+    #{$block}__title {
+        .yfm {
+            font-size: inherit;
+            line-height: inherit;
+        }
     }
 }
