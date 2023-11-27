@@ -30,18 +30,35 @@ const SizeTemplate: StoryFn<IconsBlockModel> = (args) => (
     </Fragment>
 );
 
-const HeaderColSizeTemplate: StoryFn<IconsBlockModel> = (args) => (
+const ColSizeTemplate: StoryFn<IconsBlockModel> = (args) => (
     <Fragment>
-        <DefaultTemplate {...args} title="ColSize 12" />
-        <DefaultTemplate {...args} title="ColSize 8" colSizes={{all: 8}} />
-        <DefaultTemplate {...args} title="ColSize 4" colSizes={{all: 4}} />
+        <PageConstructor
+            content={{
+                blocks: [
+                    {
+                        ...args,
+                        title: 'ColSize 12',
+                    },
+                    {
+                        ...args,
+                        title: 'ColSize 8',
+                        colSizes: {all: 8},
+                    },
+                    {
+                        ...args,
+                        title: 'ColSize 4',
+                        colSizes: {all: 4},
+                    },
+                ],
+            }}
+        />
     </Fragment>
 );
 
 export const Default = DefaultTemplate.bind([]);
 export const Size = SizeTemplate.bind([]);
 export const WithText = WithDescriptionTemplate.bind({});
-export const HeaderColSize = HeaderColSizeTemplate.bind({});
+export const HeaderColSize = ColSizeTemplate.bind({});
 
 const transformedText = yfmTransform(data.withDescription.content.description);
 
