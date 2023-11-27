@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [4.39.1](https://github.com/gravity-ui/page-constructor/compare/v4.39.0...v4.39.1) (2023-11-27)
+
+
+### Bug Fixes
+
+* image slider and background ([#711](https://github.com/gravity-ui/page-constructor/issues/711)) ([6cd5980](https://github.com/gravity-ui/page-constructor/commit/6cd5980c7de5cf0b810e0988eb9968ff2e9c0578))
+* pc container class name ([#712](https://github.com/gravity-ui/page-constructor/issues/712)) ([917aac2](https://github.com/gravity-ui/page-constructor/commit/917aac2b62c03429583a2f87123903073249809a))
+
 ## [4.39.0](https://github.com/gravity-ui/page-constructor/compare/v4.38.1...v4.39.0) (2023-11-23)
 
 
