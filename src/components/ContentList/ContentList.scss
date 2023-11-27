@@ -53,6 +53,11 @@ $marginIconSizeL: 1px;
             @include text-size(subheader-3);
 
             margin: 0 0 calc(#{$indentXXXS} / 2);
+
+            .yfm {
+                font-size: inherit;
+                line-height: inherit;
+            }
         }
 
         #{$block}__icon {
