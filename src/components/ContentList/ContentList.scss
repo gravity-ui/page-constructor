@@ -18,8 +18,7 @@ $marginIconSizeL: 1px;
             margin: 0 0 $indentXXXS;
 
             .yfm {
-                font-size: inherit;
-                line-height: inherit;
+                @include text-size(header-1);
             }
         }
 
@@ -55,8 +54,7 @@ $marginIconSizeL: 1px;
             margin: 0 0 calc(#{$indentXXXS} / 2);
 
             .yfm {
-                font-size: inherit;
-                line-height: inherit;
+                @include text-size(subheader-3);
             }
         }
 
