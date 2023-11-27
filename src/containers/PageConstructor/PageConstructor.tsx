@@ -53,7 +53,7 @@ export interface PageConstructorProps {
 
 export const Constructor = (props: PageConstructorProps) => {
     const {
-        content: {blocks = [], background = {}} = {},
+        content: {blocks = [], background} = {},
         renderMenu,
         shouldRenderBlock,
         navigation,
