@@ -1,6 +1,18 @@
 # Changelog
 
 
+## [4.40.0](https://github.com/gravity-ui/page-constructor/compare/v4.39.1...v4.40.0) (2023-11-27)
+
+
+### Features
+
+* added col size for header in icons block ([#715](https://github.com/gravity-ui/page-constructor/issues/715)) ([5c08f12](https://github.com/gravity-ui/page-constructor/commit/5c08f12525ee518a8bd4f7b15d75e225a967938e))
+
+
+### Bug Fixes
+
+* add transfrom title in html for content item ([#713](https://github.com/gravity-ui/page-constructor/issues/713)) ([ff02ea5](https://github.com/gravity-ui/page-constructor/commit/ff02ea53e61880e08a46cfc17eec37371291c9c5))
+
 ## [4.39.1](https://github.com/gravity-ui/page-constructor/compare/v4.39.0...v4.39.1) (2023-11-27)
 
 
