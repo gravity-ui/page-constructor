@@ -83,4 +83,11 @@ $marginIconSizeL: 1px;
     &__item {
         display: flex;
     }
+
+    #{$block}__title {
+        .yfm {
+            font-size: inherit;
+            line-height: inherit;
+        }
+    }
 }
