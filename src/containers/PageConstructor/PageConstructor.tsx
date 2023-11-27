@@ -97,7 +97,7 @@ export const Constructor = (props: PageConstructorProps) => {
 
     return (
         <InnerContext.Provider value={context}>
-            <RootCn>
+            <RootCn className={b()}>
                 <div className={b('wrapper')}>
                     {themedBackground && (
                         <BackgroundMedia {...themedBackground} className={b('background')} />
