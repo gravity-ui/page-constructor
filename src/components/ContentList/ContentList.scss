@@ -16,6 +16,10 @@ $marginIconSizeL: 1px;
             @include text-size(header-1);
 
             margin: 0 0 $indentXXXS;
+
+            .yfm {
+                font-size: inherit;
+            }
         }
 
         #{$block}__icon {

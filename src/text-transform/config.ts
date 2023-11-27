@@ -339,7 +339,7 @@ export const config: BlocksConfig = {
         {
             fields: ['list'],
             transformer: yfmTransformer,
-            parser: createItemsParser(['text']),
+            parser: createItemsParser(['title', 'text']),
         },
     ],
     [BlockType.InfoBlock]: [
