@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [4.40.2](https://github.com/gravity-ui/page-constructor/compare/v4.40.1...v4.40.2) (2023-11-28)
+
+
+### Bug Fixes
+
+* added specificity to indents, because in build indents have less weight ([#719](https://github.com/gravity-ui/page-constructor/issues/719)) ([44dbd46](https://github.com/gravity-ui/page-constructor/commit/44dbd466b46432a4afccad157e55e447d329279c))
+
 ## [4.40.1](https://github.com/gravity-ui/page-constructor/compare/v4.40.0...v4.40.1) (2023-11-27)
 
 
