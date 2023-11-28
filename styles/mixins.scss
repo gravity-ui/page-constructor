@@ -561,55 +561,57 @@ unpredictable css rules order in build */
 // indent system for blocks
 @mixin indents($class) {
     @include add-specificity($class) {
-        &_indentTop {
-            &_0 {
-                margin-top: 0;
+        @include add-specificity(&) {
+            &_indentTop {
+                &_0 {
+                    margin-top: 0;
+                }
+
+                &_xs {
+                    margin-top: $indentXS;
+                }
+
+                &_s {
+                    margin-top: $indentSM;
+                }
+
+                &_m {
+                    margin-top: $indentM;
+                }
+
+                &_l {
+                    margin-top: $indentL;
+                }
+
+                &_xl {
+                    margin-top: $indentXL;
+                }
             }
 
-            &_xs {
-                margin-top: $indentXS;
-            }
+            &_indentBottom {
+                &_0 {
+                    padding-bottom: 0;
+                }
 
-            &_s {
-                margin-top: $indentSM;
-            }
+                &_xs {
+                    padding-bottom: $indentXS;
+                }
 
-            &_m {
-                margin-top: $indentM;
-            }
+                &_s {
+                    padding-bottom: $indentSM;
+                }
 
-            &_l {
-                margin-top: $indentL;
-            }
+                &_m {
+                    padding-bottom: $indentM;
+                }
 
-            &_xl {
-                margin-top: $indentXL;
-            }
-        }
+                &_l {
+                    padding-bottom: $indentL;
+                }
 
-        &_indentBottom {
-            &_0 {
-                padding-bottom: 0;
-            }
-
-            &_xs {
-                padding-bottom: $indentXS;
-            }
-
-            &_s {
-                padding-bottom: $indentSM;
-            }
-
-            &_m {
-                padding-bottom: $indentM;
-            }
-
-            &_l {
-                padding-bottom: $indentL;
-            }
-
-            &_xl {
-                padding-bottom: $indentXL;
+                &_xl {
+                    padding-bottom: $indentXL;
+                }
             }
         }
     }
