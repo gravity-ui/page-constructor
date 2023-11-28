@@ -85,7 +85,7 @@ export const Form = memo(({content, onChange, activeBlockIndex, onSelect, spec}:
             break;
         }
         case FormTab.Yaml: {
-            form = <YamlEditor content={content} />;
+            form = <YamlEditor content={content} onChange={onChange} />;
             break;
         }
     }
