@@ -15,6 +15,13 @@ const b = block('navigation-item');
 
 const ANALYTICS_ID = 'navigation';
 
+const navigationItemTypeValues = Object.values(NavigationItemType);
+const directNavigationItemTypeValues = navigationItemTypeValues;
+directNavigationItemTypeValues.splice(
+    directNavigationItemTypeValues.indexOf(NavigationItemType.Dropdown),
+    1,
+);
+
 const NavigationItem: React.FC<NavigationItemProps> = ({
     data,
     className,
@@ -30,7 +37,7 @@ const NavigationItem: React.FC<NavigationItemProps> = ({
             ...props,
         };
 
-        if (type !== NavigationItemType.Dropdown) {
+        if (directNavigationItemTypeValues.includes(type)) {
             return omit(componentProperties, 'hidePopup', 'isActive');
         }
 
