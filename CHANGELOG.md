@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [4.40.3](https://github.com/gravity-ui/page-constructor/compare/v4.40.2...v4.40.3) (2023-11-29)
+
+
+### Bug Fixes
+
+* setting initiallyMuted to true for default video ([#723](https://github.com/gravity-ui/page-constructor/issues/723)) ([76128c7](https://github.com/gravity-ui/page-constructor/commit/76128c7eed9fd720382013a61cd7f772bf9ac82c))
+
 ## [4.40.2](https://github.com/gravity-ui/page-constructor/compare/v4.40.1...v4.40.2) (2023-11-28)
 
 
