@@ -8,8 +8,8 @@ import {block, getBlockKey} from '../../../utils';
 import {BlockForm} from '../../components/BlockForm/BlockForm';
 import {CodeEditor} from '../../components/CodeEditor/CodeEditor';
 import {PagePropsForm, PagePropsFormData} from '../../components/PagePropsForm/PagePropsForm';
+import {useCodeValidator} from '../../hooks/useCodeValidator';
 import useFormSpec from '../../hooks/useFormSpec';
-import {useCodeValidator} from '../../hooks/useYamlValidator';
 
 import './Form.scss';
 

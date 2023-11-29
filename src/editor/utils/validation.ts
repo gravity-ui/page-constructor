@@ -24,7 +24,7 @@ export function initAjv(schemas: JSONSchema4[]) {
     return ajv;
 }
 
-export function validateYAML(content: string, ajv: Ajv, schema: JSONSchema4) {
+export function validate(content: string, ajv: Ajv, schema: JSONSchema4) {
     let result: CodeEditorMessageProps;
 
     if (!content) {
