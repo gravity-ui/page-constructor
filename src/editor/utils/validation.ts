@@ -1,4 +1,4 @@
-import Ajv, {ErrorObject} from 'ajv';
+import Ajv, {ErrorObject, ValidateFunction} from 'ajv';
 import ajvKeywords from 'ajv-keywords';
 import yaml from 'js-yaml';
 import SourceMap from 'js-yaml-source-map';
@@ -16,15 +16,16 @@ export enum CodeEditorMessageStatus {
     ERROR = 'error',
 }
 
-export function initAjv(schemas: JSONSchema4[]) {
-    const ajv = new Ajv({$data: true, allErrors: true, schemas, strict: false});
-
+export function createValidator(schema: JSONSchema4) {
+    const ajv = new Ajv({$data: true, allErrors: true, schemas: [schema], strict: false});
+    // TODO: select is deprecated, replace with discriminator:
+    // https://github.com/ajv-validator/ajv-keywords#selectselectcasesselectdefault
     ajvKeywords(ajv, 'select');
 
-    return ajv;
+    return ajv.compile(schema);
 }
 
-export function validate(content: string, ajv: Ajv, schema: JSONSchema4) {
+export function validate(content: string, validator: ValidateFunction) {
     let result: CodeEditorMessageProps;
 
     if (!content) {
@@ -35,9 +36,10 @@ export function validate(content: string, ajv: Ajv, schema: JSONSchema4) {
         const jsYamlMap = new SourceMap();
         const data = yaml.load(content, {listener: jsYamlMap.listen()});
 
-        ajv.validate(schema, data);
-        if (ajv.errors) {
-            const messages = ajv.errors.map(
+        validator(data);
+
+        if (validator.errors) {
+            const messages = validator.errors.map(
                 ({instancePath, schemaPath, message, params}: ErrorObject) => {
                     const pointer = jsYamlMap.lookup(instancePath.split('/').filter(Boolean));
                     const stringParams = Object.entries(params).map(([key, value]) => {

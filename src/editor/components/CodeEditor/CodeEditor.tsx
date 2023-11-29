@@ -34,7 +34,7 @@ export const CodeEditor = ({content, onChange, validator}: CodeEditorProps) => {
             setMessage(validationResult);
             onChange(yaml.load(code) as PageContent);
         },
-        [onChange],
+        [onChange, validator],
     );
 
     return (

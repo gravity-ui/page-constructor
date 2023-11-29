@@ -8,8 +8,8 @@ import {block, getBlockKey} from '../../../utils';
 import {BlockForm} from '../../components/BlockForm/BlockForm';
 import {CodeEditor} from '../../components/CodeEditor/CodeEditor';
 import {PagePropsForm, PagePropsFormData} from '../../components/PagePropsForm/PagePropsForm';
-import {useCodeValidator} from '../../hooks/useCodeValidator';
 import useFormSpec from '../../hooks/useFormSpec';
+import {CodeEditorMessageProps} from '../../utils/validation';
 
 import './Form.scss';
 
@@ -31,82 +31,88 @@ export interface FormProps {
     activeBlockIndex: number;
     // spec: FormSpecs;
     schema: JSONSchema4;
+    codeValidator: (code: string) => CodeEditorMessageProps;
     onChange: (content: PageContent) => void;
     onSelect: (index: number) => void;
 }
 
-export const Form = memo(({content, onChange, activeBlockIndex, onSelect, schema}: FormProps) => {
-    const [activeTab, setActiveTab] = React.useState(FormTab.Blocks);
-    const {blocks, ...page} = content || {};
+export const Form = memo(
+    ({content, onChange, activeBlockIndex, onSelect, schema, codeValidator}: FormProps) => {
+        const [activeTab, setActiveTab] = React.useState(FormTab.Blocks);
+        const {blocks, ...page} = content || {};
+        const spec = useFormSpec(schema);
+        const {blocks: blocksSpec, page: pageSpec} = spec || {};
 
-    const spec = useFormSpec(schema);
-    const codeValidator = useCodeValidator(schema);
-    const {blocks: blocksSpec, page: pageSpec} = spec || {};
+        let form;
 
-    let form;
+        switch (activeTab) {
+            case FormTab.Page: {
+                form = (
+                    <PagePropsForm
+                        spec={pageSpec}
+                        data={page}
+                        onChange={(data: PagePropsFormData) => {
+                            return onChange({
+                                ...content,
+                                ...data,
+                            });
+                        }}
+                    />
+                );
+                break;
+            }
+            case FormTab.Blocks: {
+                form = (
+                    <Fragment>
+                        {blocks.map((blockData, index) =>
+                            blocksSpec[blockData.type] ? (
+                                <div
+                                    className={b('block-form')}
+                                    key={getBlockKey(blockData, index)}
+                                >
+                                    <BlockForm
+                                        spec={blocksSpec[blockData.type]}
+                                        data={blockData}
+                                        active={activeBlockIndex === index}
+                                        onChange={(data: Block) => {
+                                            onChange({
+                                                ...content,
+                                                blocks: [
+                                                    ...blocks.slice(0, index),
+                                                    data,
+                                                    ...blocks.slice(index + 1),
+                                                ],
+                                            });
+                                        }}
+                                        onSelect={() => onSelect(index)}
+                                    />
+                                </div>
+                            ) : null,
+                        )}
+                    </Fragment>
+                );
+                break;
+            }
+            case FormTab.Yaml: {
+                form = (
+                    <CodeEditor content={content} onChange={onChange} validator={codeValidator} />
+                );
+                break;
+            }
+        }
 
-    switch (activeTab) {
-        case FormTab.Page: {
-            form = (
-                <PagePropsForm
-                    spec={pageSpec}
-                    data={page}
-                    onChange={(data: PagePropsFormData) => {
-                        return onChange({
-                            ...content,
-                            ...data,
-                        });
-                    }}
+        return (
+            <div className={b({'yaml-editor-enabled': activeTab === FormTab.Yaml})}>
+                <Tabs
+                    activeTab={activeTab}
+                    className={b('tabs')}
+                    items={tabsItems}
+                    onSelectTab={setActiveTab as TabsProps['onSelectTab']}
                 />
-            );
-            break;
-        }
-        case FormTab.Blocks: {
-            form = (
-                <Fragment>
-                    {blocks.map((blockData, index) =>
-                        blocksSpec[blockData.type] ? (
-                            <div className={b('block-form')} key={getBlockKey(blockData, index)}>
-                                <BlockForm
-                                    spec={blocksSpec[blockData.type]}
-                                    data={blockData}
-                                    active={activeBlockIndex === index}
-                                    onChange={(data: Block) => {
-                                        onChange({
-                                            ...content,
-                                            blocks: [
-                                                ...blocks.slice(0, index),
-                                                data,
-                                                ...blocks.slice(index + 1),
-                                            ],
-                                        });
-                                    }}
-                                    onSelect={() => onSelect(index)}
-                                />
-                            </div>
-                        ) : null,
-                    )}
-                </Fragment>
-            );
-            break;
-        }
-        case FormTab.Yaml: {
-            form = <CodeEditor content={content} onChange={onChange} validator={codeValidator} />;
-            break;
-        }
-    }
-
-    return (
-        <div className={b({'yaml-editor-enabled': activeTab === FormTab.Yaml})}>
-            <Tabs
-                activeTab={activeTab}
-                className={b('tabs')}
-                items={tabsItems}
-                onSelectTab={setActiveTab as TabsProps['onSelectTab']}
-            />
-            {form}
-        </div>
-    );
-});
+                {form}
+            </div>
+        );
+    },
+);
 
 Form.displayName = 'Form';

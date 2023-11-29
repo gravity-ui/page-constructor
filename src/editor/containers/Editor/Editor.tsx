@@ -9,6 +9,7 @@ import {ErrorBoundary} from '../../components/ErrorBoundary/ErrorBoundary';
 import Layout from '../../components/Layout/Layout';
 import {NotFoundBlock} from '../../components/NotFoundBlock/NotFoundBlock';
 import {EditorContext} from '../../context';
+import {useCodeValidator} from '../../hooks/useCodeValidator';
 import {useEditorState} from '../../store';
 import {EditorProps, ViewModeItem} from '../../types';
 import {addCustomDecorator, checkIsMobile, getBlockId} from '../../utils';
@@ -78,6 +79,7 @@ export const Editor = ({
         rest.custom,
     ]);
 
+    const codeValidator = useCodeValidator(schema);
     const context = useMemo(
         () => ({
             constructorProps: {
@@ -114,6 +116,7 @@ export const Editor = ({
                             activeBlockIndex={activeBlockIndex}
                             onSelect={onSelect}
                             schema={schema}
+                            codeValidator={codeValidator}
                         />
                     </Layout.Left>
                 )}

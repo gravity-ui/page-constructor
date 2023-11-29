@@ -2,10 +2,12 @@ import {useCallback, useMemo} from 'react';
 
 import {JSONSchema4} from 'json-schema';
 
-import {initAjv, validate} from '../utils/validation';
+import {CodeEditorMessageProps, createValidator, validate} from '../utils/validation';
 
-export function useCodeValidator(schema: JSONSchema4) {
-    const ajv = useMemo(() => initAjv([schema]), [schema]);
+export type CodeValidator = (code: string) => CodeEditorMessageProps;
 
-    return useCallback((code: string) => validate(code, ajv, schema), [ajv, schema]);
+export function useCodeValidator(schema: JSONSchema4): CodeValidator {
+    const validator = useMemo(() => createValidator(schema), [schema]);
+
+    return useCallback((code: string) => validate(code, validator), [validator]);
 }
