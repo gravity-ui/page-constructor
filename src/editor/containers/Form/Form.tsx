@@ -16,7 +16,7 @@ import './Form.scss';
 enum FormTab {
     Blocks = 'blocks',
     Page = 'page',
-    Yaml = 'yaml',
+    Code = 'code',
 }
 
 const b = block('editor-form');
@@ -93,7 +93,7 @@ export const Form = memo(
                 );
                 break;
             }
-            case FormTab.Yaml: {
+            case FormTab.Code: {
                 form = (
                     <CodeEditor content={content} onChange={onChange} validator={codeValidator} />
                 );
@@ -102,7 +102,7 @@ export const Form = memo(
         }
 
         return (
-            <div className={b({'yaml-editor-enabled': activeTab === FormTab.Yaml})}>
+            <div className={b({'code-editor-enabled': activeTab === FormTab.Code})}>
                 <Tabs
                     activeTab={activeTab}
                     className={b('tabs')}

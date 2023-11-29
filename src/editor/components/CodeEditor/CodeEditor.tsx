@@ -40,7 +40,6 @@ export const CodeEditor = ({content, onChange, validator}: CodeEditorProps) => {
     return (
         <div className={b({fullscreen})}>
             <div className={b('head')}>
-                {/* <ClipboardButton className={b('copy-button')} text={value} size={16} /> */}
                 <Button
                     view="flat-secondary"
                     className={b('button')}
@@ -54,6 +53,7 @@ export const CodeEditor = ({content, onChange, validator}: CodeEditorProps) => {
             </div>
             <div className={b('editor')}>
                 <MonacoEditor
+                    key={String(fullscreen)}
                     value={value}
                     language="yaml"
                     options={options}

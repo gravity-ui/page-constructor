@@ -2,21 +2,10 @@
 
 $block: '.#{$ns}code-editor';
 
-$controlBarHeight: 36px;
-
 #{$block} {
     height: 100%;
     position: relative;
-
-    // &__copy-button {
-    //     position: absolute;
-    //     top: 12px;
-    //     right: 12px;
-
-    //     &_hidden {
-    //         visibility: hidden;
-    //     }
-    // }
+    overflow: hidden;
 
     &_fullscreen {
         position: fixed;
@@ -39,7 +28,7 @@ $controlBarHeight: 36px;
 
     &__head {
         border-bottom: 1px solid var(--g-color-line-generic);
-        height: $controlBarHeight;
+        height: var(--pc-editor-code-header-height);
         display: flex;
         align-items: center;
         justify-content: flex-end;
@@ -70,7 +59,7 @@ $controlBarHeight: 36px;
     &__bottom {
         border-top: 1px solid var(--g-color-line-generic);
         position: absolute;
-        min-height: $controlBarHeight;
+        min-height: var(--pc-editor-code-header-height);
         left: 0;
         bottom: 0;
         width: 100%;
