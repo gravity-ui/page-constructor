@@ -128,7 +128,7 @@ const Image = (props: ImageAllProps) => {
         const fullscreenItem = fullscreen === undefined || fullscreen;
 
         return (
-            <SliderBlock slidesToShow={1} type={SliderType.MediaCard} animated={parallax}>
+            <SliderBlock slidesToShow={1} type={SliderType.MediaCard}>
                 {imageArray.map((item, index) => (
                     <Fragment key={index}>
                         {fullscreenItem ? renderFullscreenImage(item) : imageOnly(item)}
