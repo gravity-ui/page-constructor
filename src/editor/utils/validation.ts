@@ -5,6 +5,7 @@ import SourceMap from 'js-yaml-source-map';
 import {JSONSchema4} from 'json-schema';
 import isArray from 'lodash/isArray';
 
+const SUCCESS_MESSAGE = 'Valid';
 export interface CodeEditorMessageProps {
     text: string;
     status: CodeEditorMessageStatus;
@@ -29,7 +30,7 @@ export function validate(content: string, validator: ValidateFunction) {
     let result: CodeEditorMessageProps;
 
     if (!content) {
-        return {status: CodeEditorMessageStatus.SUCCESS, text: 'Okay!'};
+        return {status: CodeEditorMessageStatus.SUCCESS, text: SUCCESS_MESSAGE};
     }
 
     try {
@@ -56,7 +57,7 @@ export function validate(content: string, validator: ValidateFunction) {
             );
             result = {status: CodeEditorMessageStatus.WARNING, text: messages.join('\n\n')};
         } else {
-            result = {status: CodeEditorMessageStatus.SUCCESS, text: 'Okay!'};
+            result = {status: CodeEditorMessageStatus.SUCCESS, text: SUCCESS_MESSAGE};
         }
     } catch ({message}) {
         result = {status: CodeEditorMessageStatus.ERROR, text: message as string};
