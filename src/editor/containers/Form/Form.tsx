@@ -6,8 +6,8 @@ import {JSONSchema4} from 'json-schema';
 import {Block, PageContent} from '../../../models';
 import {block, getBlockKey} from '../../../utils';
 import {BlockForm} from '../../components/BlockForm/BlockForm';
+import {CodeEditor} from '../../components/CodeEditor/CodeEditor';
 import {PagePropsForm, PagePropsFormData} from '../../components/PagePropsForm/PagePropsForm';
-import {YamlEditor} from '../../components/YamlEditor/YamlEditor';
 import useFormSpec from '../../hooks/useFormSpec';
 import {useCodeValidator} from '../../hooks/useYamlValidator';
 
@@ -91,7 +91,7 @@ export const Form = memo(({content, onChange, activeBlockIndex, onSelect, schema
             break;
         }
         case FormTab.Yaml: {
-            form = <YamlEditor content={content} onChange={onChange} validator={codeValidator} />;
+            form = <CodeEditor content={content} onChange={onChange} validator={codeValidator} />;
             break;
         }
     }
