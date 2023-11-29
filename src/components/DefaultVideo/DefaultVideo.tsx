@@ -21,7 +21,7 @@ interface DefaultVideoProps {
 export const DefaultVideo = React.forwardRef<DefaultVideoRefType, DefaultVideoProps>(
     (props, ref) => {
         const {video, qa, customBarControlsClassName} = props;
-        const {controls, customControlsOptions, muted: initiallyMuted} = video;
+        const {controls, customControlsOptions, muted: initiallyMuted = true} = video;
         const {
             muteButtonShown,
             positioning,
