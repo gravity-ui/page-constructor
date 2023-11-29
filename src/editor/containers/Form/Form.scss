@@ -13,14 +13,18 @@ $block: '.#{$ns}editor-form';
 
     &__tabs {
         --g-color-base-brand: var(--pc-color-base-neon);
-        // margin-bottom: $indentS;
+        margin-bottom: $indentS;
     }
 
     &__block-form {
         margin-bottom: $indentXS;
     }
 
-    &_code-editor-enabled {
+    &_code-editor-active {
         height: calc(100% - var(--pc-editor-code-header-height));
+
+        #{$block}__tabs {
+            margin-bottom: 0;
+        }
     }
 }

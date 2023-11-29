@@ -7,6 +7,7 @@ $block: '.#{$ns}device-emulation-mobile';
     top: 0;
     left: 0;
     width: 100%;
+    display: flex;
     justify-content: center;
     opacity: 0;
     pointer-events: none;

@@ -29,7 +29,6 @@ const tabsItems = Object.values(FormTab).map((tab) => ({
 export interface FormProps {
     content: PageContent;
     activeBlockIndex: number;
-    // spec: FormSpecs;
     schema: JSONSchema4;
     codeValidator: (code: string) => CodeEditorMessageProps;
     onChange: (content: PageContent) => void;
@@ -102,7 +101,7 @@ export const Form = memo(
         }
 
         return (
-            <div className={b({'code-editor-enabled': activeTab === FormTab.Code})}>
+            <div className={b({'code-editor-active': activeTab === FormTab.Code})}>
                 <Tabs
                     activeTab={activeTab}
                     className={b('tabs')}
