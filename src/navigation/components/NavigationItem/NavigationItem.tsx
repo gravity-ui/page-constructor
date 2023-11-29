@@ -35,6 +35,7 @@ const NavigationItem: React.FC<NavigationItemProps> = ({
         const componentProperties = {
             ...data,
             ...props,
+            menuLayout,
         };
 
         if (directNavigationItemTypeValues.includes(type)) {
@@ -42,7 +43,7 @@ const NavigationItem: React.FC<NavigationItemProps> = ({
         }
 
         return componentProperties;
-    }, [data, props, type]);
+    }, [data, props, type, menuLayout]);
 
     return (
         <BlockIdContext.Provider value={ANALYTICS_ID}>
