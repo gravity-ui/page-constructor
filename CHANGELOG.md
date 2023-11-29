@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [4.40.4](https://github.com/gravity-ui/page-constructor/compare/v4.40.3...v4.40.4) (2023-11-29)
+
+
+### Bug Fixes
+
+* slider images animate ([#724](https://github.com/gravity-ui/page-constructor/issues/724)) ([fad0352](https://github.com/gravity-ui/page-constructor/commit/fad035212b9acb5384b5d3d6e9358db4df034ef3))
+
 ## [4.40.3](https://github.com/gravity-ui/page-constructor/compare/v4.40.2...v4.40.3) (2023-11-29)
 
 
