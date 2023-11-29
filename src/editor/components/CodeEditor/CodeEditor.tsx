@@ -23,9 +23,9 @@ interface CodeEditorProps {
 }
 
 export const CodeEditor = ({content, onChange, validator}: CodeEditorProps) => {
-    const [fullscreen, setFullscreen] = useState(false);
     const value = useMemo(() => yaml.dump(content), [content]);
     const [message, setMessage] = useState(() => validator(value));
+    const [fullscreen, setFullscreen] = useState(false);
 
     const onChangeWithValidation = useCallback(
         (code: string) => {
@@ -39,19 +39,15 @@ export const CodeEditor = ({content, onChange, validator}: CodeEditorProps) => {
 
     return (
         <div className={b({fullscreen})}>
-            <div className={b('head')}>
-                <Button
-                    view="flat-secondary"
-                    className={b('button')}
-                    onClick={() => setFullscreen(!fullscreen)}
-                >
+            <div className={b('header')}>
+                <Button view="flat-secondary" onClick={() => setFullscreen(!fullscreen)}>
                     <Icon
                         data={fullscreen ? ChevronsCollapseUpRight : ChevronsExpandUpRight}
                         size={16}
                     />
                 </Button>
             </div>
-            <div className={b('editor')}>
+            <div className={b('code')}>
                 <MonacoEditor
                     key={String(fullscreen)}
                     value={value}
@@ -61,9 +57,9 @@ export const CodeEditor = ({content, onChange, validator}: CodeEditorProps) => {
                     theme="vs"
                 />
             </div>
-            <div className={b('bottom')}>
+            <div className={b('footer')}>
                 {message && (
-                    <div className={b('bottom-info')}>
+                    <div className={b('message-container')}>
                         <div className={b('message', {status: message.status})}>{message.text}</div>
                     </div>
                 )}
