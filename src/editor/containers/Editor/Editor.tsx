@@ -2,13 +2,13 @@ import React, {useEffect, useMemo} from 'react';
 
 import {PageConstructor, PageConstructorProvider} from '../../../containers/PageConstructor';
 import {BlockDecorationProps} from '../../../models';
+import {generateDefaultSchema} from '../../../schema';
 import AddBlock from '../../components/AddBlock/AddBlock';
 import EditBlock from '../../components/EditBlock/EditBlock';
 import {ErrorBoundary} from '../../components/ErrorBoundary/ErrorBoundary';
 import Layout from '../../components/Layout/Layout';
 import {NotFoundBlock} from '../../components/NotFoundBlock/NotFoundBlock';
 import {EditorContext} from '../../context';
-import useFormSpec from '../../hooks/useFormSpec';
 import {useEditorState} from '../../store';
 import {EditorProps, ViewModeItem} from '../../types';
 import {addCustomDecorator, checkIsMobile, getBlockId} from '../../utils';
@@ -35,7 +35,7 @@ export const Editor = ({
         injectEditBlockProps,
         onThemeUpdate,
     } = useEditorState(rest);
-    const formSpecs = useFormSpec(customSchema);
+    const schema = useMemo(() => generateDefaultSchema(customSchema), [customSchema]);
 
     const isEditingMode = viewMode === ViewModeItem.Edititng;
 
@@ -113,7 +113,7 @@ export const Editor = ({
                             onChange={onContentUpdate}
                             activeBlockIndex={activeBlockIndex}
                             onSelect={onSelect}
-                            spec={formSpecs}
+                            schema={schema}
                         />
                     </Layout.Left>
                 )}

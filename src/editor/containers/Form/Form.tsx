@@ -1,13 +1,15 @@
 import React, {Fragment, memo} from 'react';
 
 import {Tabs, TabsProps} from '@gravity-ui/uikit';
+import {JSONSchema4} from 'json-schema';
 
 import {Block, PageContent} from '../../../models';
 import {block, getBlockKey} from '../../../utils';
 import {BlockForm} from '../../components/BlockForm/BlockForm';
 import {PagePropsForm, PagePropsFormData} from '../../components/PagePropsForm/PagePropsForm';
 import {YamlEditor} from '../../components/YamlEditor/YamlEditor';
-import {FormSpecs} from '../../dynamic-forms-custom/parser/types';
+import useFormSpec from '../../hooks/useFormSpec';
+import {useCodeValidator} from '../../hooks/useYamlValidator';
 
 import './Form.scss';
 
@@ -27,14 +29,18 @@ const tabsItems = Object.values(FormTab).map((tab) => ({
 export interface FormProps {
     content: PageContent;
     activeBlockIndex: number;
-    spec: FormSpecs;
+    // spec: FormSpecs;
+    schema: JSONSchema4;
     onChange: (content: PageContent) => void;
     onSelect: (index: number) => void;
 }
 
-export const Form = memo(({content, onChange, activeBlockIndex, onSelect, spec}: FormProps) => {
+export const Form = memo(({content, onChange, activeBlockIndex, onSelect, schema}: FormProps) => {
     const [activeTab, setActiveTab] = React.useState(FormTab.Blocks);
     const {blocks, ...page} = content || {};
+
+    const spec = useFormSpec(schema);
+    const codeValidator = useCodeValidator(schema);
     const {blocks: blocksSpec, page: pageSpec} = spec || {};
 
     let form;
@@ -85,7 +91,7 @@ export const Form = memo(({content, onChange, activeBlockIndex, onSelect, spec}:
             break;
         }
         case FormTab.Yaml: {
-            form = <YamlEditor content={content} onChange={onChange} />;
+            form = <YamlEditor content={content} onChange={onChange} validator={codeValidator} />;
             break;
         }
     }

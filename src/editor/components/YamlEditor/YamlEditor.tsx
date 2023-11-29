@@ -8,6 +8,7 @@ import MonacoEditor, {monaco} from 'react-monaco-editor';
 
 import {PageContent} from '../../../models';
 import {block} from '../../../utils';
+import {CodeEditorMessageProps} from '../../utils/validation';
 
 import './YamlEditor.scss';
 
@@ -15,7 +16,9 @@ const b = block('yaml-editor');
 
 interface YamlEditorProps {
     content: PageContent;
+    validator: (code: string) => CodeEditorMessageProps;
     onChange: (content: PageContent) => void;
+    message?: CodeEditorMessageProps;
 }
 
 const options: monaco.editor.IStandaloneEditorConstructionOptions = {
@@ -36,15 +39,15 @@ const options: monaco.editor.IStandaloneEditorConstructionOptions = {
     readOnly: false,
 };
 
-export const YamlEditor = ({content, onChange}: YamlEditorProps) => {
+export const YamlEditor = ({content, onChange, validator}: YamlEditorProps) => {
     const [fullscreen, setFullscreen] = useState(false);
-
-    const value = useMemo(() => {
-        return yaml.dump(content);
-    }, [content]);
+    const value = useMemo(() => yaml.dump(content), [content]);
+    const [message, setMessage] = useState(() => validator(value));
 
     const onChangeParsed = useCallback(
         (code: string) => {
+            const validationResult = validator(code);
+            setMessage(validationResult);
             onChange(yaml.load(code) as PageContent);
         },
         [onChange],
@@ -53,6 +56,7 @@ export const YamlEditor = ({content, onChange}: YamlEditorProps) => {
     return (
         <div className={b({fullscreen})}>
             <div className={b('head')}>
+                {/* <ClipboardButton className={b('copy-button')} text={value} size={16} /> */}
                 <Button
                     view="flat-secondary"
                     className={b('button')}
@@ -73,7 +77,13 @@ export const YamlEditor = ({content, onChange}: YamlEditorProps) => {
                     theme="vs"
                 />
             </div>
-            {/* <ClipboardButton className={b('copy-button')} text={value} /> */}
+            <div className={b('bottom')}>
+                {message && (
+                    <div className={b('bottom-info')}>
+                        <div className={b('message', {status: message.status})}>{message.text}</div>
+                    </div>
+                )}
+            </div>
         </div>
     );
 };
