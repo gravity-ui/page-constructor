@@ -11,6 +11,7 @@ import {NotFoundBlock} from '../../components/NotFoundBlock/NotFoundBlock';
 import {EditorContext} from '../../context';
 import {useCodeValidator} from '../../hooks/useCodeValidator';
 import {useEditorState} from '../../store';
+import {useSettingsState} from '../../store/settings';
 import {EditorProps, ViewModeItem} from '../../types';
 import {addCustomDecorator, checkIsMobile, getBlockId} from '../../utils';
 import {Form} from '../Form/Form';
@@ -27,16 +28,21 @@ export const Editor = ({
         content,
         activeBlockIndex,
         errorBoundaryState,
-        viewMode,
-        theme,
         onContentUpdate,
-        onViewModeUpdate,
         onAdd,
         onSelect,
         injectEditBlockProps,
-        onThemeUpdate,
     } = useEditorState(rest);
-    const schema = useMemo(() => generateDefaultSchema(customSchema), [customSchema]);
+    const {
+        viewMode,
+        theme,
+        onViewModeUpdate,
+        onThemeUpdate,
+        formTab,
+        onFormTabUpdate,
+        codeFullscreeModeOn,
+        onCodeFullscreeModeOnUpdate,
+    } = useSettingsState();
 
     const isEditingMode = viewMode === ViewModeItem.Edititng;
 
@@ -44,6 +50,9 @@ export const Editor = ({
         () => (transformContent ? transformContent(content, {viewMode}) : content),
         [content, transformContent, viewMode],
     );
+
+    const schema = useMemo(() => generateDefaultSchema(customSchema), [customSchema]);
+    const codeValidator = useCodeValidator(schema);
 
     const outgoingProps = useMemo(() => {
         const custom = isEditingMode
@@ -79,7 +88,6 @@ export const Editor = ({
         rest.custom,
     ]);
 
-    const codeValidator = useCodeValidator(schema);
     const context = useMemo(
         () => ({
             constructorProps: {
@@ -114,9 +122,13 @@ export const Editor = ({
                             content={content}
                             onChange={onContentUpdate}
                             activeBlockIndex={activeBlockIndex}
-                            onSelect={onSelect}
+                            activeTab={formTab}
+                            codeFullscreeModeOn={codeFullscreeModeOn}
                             schema={schema}
                             codeValidator={codeValidator}
+                            onActiveTabUpdate={onFormTabUpdate}
+                            onCodeFullscreeModeOnUpdate={onCodeFullscreeModeOnUpdate}
+                            onSelect={onSelect}
                         />
                     </Layout.Left>
                 )}

@@ -9,15 +9,10 @@ import {BlockForm} from '../../components/BlockForm/BlockForm';
 import {CodeEditor} from '../../components/CodeEditor/CodeEditor';
 import {PagePropsForm, PagePropsFormData} from '../../components/PagePropsForm/PagePropsForm';
 import useFormSpec from '../../hooks/useFormSpec';
+import {FormTab} from '../../types';
 import {CodeEditorMessageProps} from '../../utils/validation';
 
 import './Form.scss';
-
-enum FormTab {
-    Blocks = 'blocks',
-    Page = 'page',
-    Code = 'code',
-}
 
 const b = block('editor-form');
 
@@ -28,16 +23,30 @@ const tabsItems = Object.values(FormTab).map((tab) => ({
 
 export interface FormProps {
     content: PageContent;
-    activeBlockIndex: number;
     schema: JSONSchema4;
+    activeBlockIndex: number;
+    activeTab: FormTab;
+    codeFullscreeModeOn: boolean;
+    onActiveTabUpdate: (tab: FormTab) => void;
+    onCodeFullscreeModeOnUpdate: (codeFullscreeModeOn: boolean) => void;
     codeValidator: (code: string) => CodeEditorMessageProps;
     onChange: (content: PageContent) => void;
     onSelect: (index: number) => void;
 }
 
 export const Form = memo(
-    ({content, onChange, activeBlockIndex, onSelect, schema, codeValidator}: FormProps) => {
-        const [activeTab, setActiveTab] = React.useState(FormTab.Blocks);
+    ({
+        content,
+        onChange,
+        activeBlockIndex,
+        onSelect,
+        schema,
+        codeValidator,
+        activeTab,
+        onActiveTabUpdate,
+        codeFullscreeModeOn,
+        onCodeFullscreeModeOnUpdate,
+    }: FormProps) => {
         const {blocks, ...page} = content || {};
         const spec = useFormSpec(schema);
         const {blocks: blocksSpec, page: pageSpec} = spec || {};
@@ -94,7 +103,13 @@ export const Form = memo(
             }
             case FormTab.Code: {
                 form = (
-                    <CodeEditor content={content} onChange={onChange} validator={codeValidator} />
+                    <CodeEditor
+                        content={content}
+                        onChange={onChange}
+                        validator={codeValidator}
+                        fullscreenModeOn={codeFullscreeModeOn}
+                        onFullscreenModeOnUpdate={onCodeFullscreeModeOnUpdate}
+                    />
                 );
                 break;
             }
@@ -106,7 +121,7 @@ export const Form = memo(
                     activeTab={activeTab}
                     className={b('tabs')}
                     items={tabsItems}
-                    onSelectTab={setActiveTab as TabsProps['onSelectTab']}
+                    onSelectTab={onActiveTabUpdate as TabsProps['onSelectTab']}
                 />
                 {form}
             </div>

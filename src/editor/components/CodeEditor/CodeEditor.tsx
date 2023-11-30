@@ -17,15 +17,22 @@ const b = block('code-editor');
 
 interface CodeEditorProps {
     content: PageContent;
+    fullscreenModeOn: boolean;
     validator: (code: string) => CodeEditorMessageProps;
+    onFullscreenModeOnUpdate: (fullscreenModeOn: boolean) => void;
     onChange: (content: PageContent) => void;
     message?: CodeEditorMessageProps;
 }
 
-export const CodeEditor = ({content, onChange, validator}: CodeEditorProps) => {
+export const CodeEditor = ({
+    content,
+    onChange,
+    validator,
+    fullscreenModeOn,
+    onFullscreenModeOnUpdate,
+}: CodeEditorProps) => {
     const value = useMemo(() => yaml.dump(content), [content]);
     const [message, setMessage] = useState(() => validator(value));
-    const [fullscreen, setFullscreen] = useState(false);
 
     const onChangeWithValidation = useCallback(
         (code: string) => {
@@ -38,18 +45,21 @@ export const CodeEditor = ({content, onChange, validator}: CodeEditorProps) => {
     );
 
     return (
-        <div className={b({fullscreen})}>
+        <div className={b({fullscreen: fullscreenModeOn})}>
             <div className={b('header')}>
-                <Button view="flat-secondary" onClick={() => setFullscreen(!fullscreen)}>
+                <Button
+                    view="flat-secondary"
+                    onClick={() => onFullscreenModeOnUpdate(!fullscreenModeOn)}
+                >
                     <Icon
-                        data={fullscreen ? ChevronsCollapseUpRight : ChevronsExpandUpRight}
+                        data={fullscreenModeOn ? ChevronsCollapseUpRight : ChevronsExpandUpRight}
                         size={16}
                     />
                 </Button>
             </div>
             <div className={b('code')}>
                 <MonacoEditor
-                    key={String(fullscreen)}
+                    key={String(fullscreenModeOn)}
                     value={value}
                     language="yaml"
                     options={options}

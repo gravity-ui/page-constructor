@@ -45,3 +45,9 @@ export enum ViewModeItem {
     Tablet = 'tablet',
     Mobile = 'mobile',
 }
+
+export enum FormTab {
+    Blocks = 'blocks',
+    Page = 'page',
+    Code = 'code',
+}

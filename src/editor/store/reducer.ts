@@ -31,8 +31,6 @@ export const ADD_BLOCK = 'ADD_BLOCK';
 export const SET_REGION = 'SET_REGION';
 export const ORDER_BLOCK = 'ORDER_BLOCK';
 export const UPDATE_CONTENT = 'UPDATE_CONTENT';
-export const UPDATE_VIEW_MODE = 'UPDATE_VIEW_MODE';
-export const UPDATE_THEME = 'UPDATE_THEME';
 
 interface SelectBlock {
     type: typeof SELECT_BLOCK;
@@ -64,25 +62,13 @@ interface UpdateContent {
     payload: PageContent;
 }
 
-interface UpdateViewMode {
-    type: typeof UPDATE_VIEW_MODE;
-    payload: ViewModeItem;
-}
-
-interface UpdateTheme {
-    type: typeof UPDATE_THEME;
-    payload: Theme;
-}
-
 export type EditorAction =
     | SelectBlock
     | DeleteBlock
     | CopyBlock
     | AddBlock
     | OrderBlock
-    | UpdateContent
-    | UpdateViewMode
-    | UpdateTheme;
+    | UpdateContent;
 
 // reducer
 export const reducer = (state: EditorState, action: EditorAction): EditorState => {
@@ -133,16 +119,6 @@ export const reducer = (state: EditorState, action: EditorAction): EditorState =
 
             return getNewState(changeBlocksOrder(content.blocks, oldIndex, newIndex), newIndex);
         }
-        case UPDATE_VIEW_MODE:
-            return {
-                ...state,
-                viewMode: action.payload,
-            };
-        case UPDATE_THEME:
-            return {
-                ...state,
-                theme: action.payload,
-            };
         default:
             return state;
     }
