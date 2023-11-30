@@ -1,5 +1,6 @@
 import {resolve} from 'path';
 import WebpackShellPluginNext from 'webpack-shell-plugin-next';
+import MonacoWebpackPlugin from 'monaco-editor-webpack-plugin';
 
 const customAlias = {
     widget: resolve(__dirname, '../widget'),
@@ -27,6 +28,7 @@ const config = {
     ],
     webpackFinal: (storybookBaseConfig: any) => {
         storybookBaseConfig.plugins.push(
+            new MonacoWebpackPlugin(),
             new WebpackShellPluginNext({
                 onBuildStart: {
                     scripts: ['npm run build:widget'],

@@ -1,10 +1,10 @@
 import {useMemo, useReducer} from 'react';
 
-import {DEFAULT_THEME} from '../../components/constants';
-import {Block, BlockDecorationProps, HeaderBlockTypes, PageContent, Theme} from '../../models';
-import {getCustomTypes, getHeaderBlock} from '../../utils';
-import {EditBlockActions, EditBlockControls} from '../components/EditBlock/EditBlock';
-import {EditBlockProps, EditorProps, ViewModeItem} from '../types';
+import {DEFAULT_THEME} from '../../../components/constants';
+import {Block, BlockDecorationProps, HeaderBlockTypes, PageContent} from '../../../models';
+import {getCustomTypes, getHeaderBlock} from '../../../utils';
+import {EditBlockActions, EditBlockControls} from '../../components/EditBlock/EditBlock';
+import {EditBlockProps, EditorProps, ViewModeItem} from '../../types';
 
 import {
     ADD_BLOCK,
@@ -13,25 +13,20 @@ import {
     ORDER_BLOCK,
     SELECT_BLOCK,
     UPDATE_CONTENT,
-    UPDATE_THEME,
-    UPDATE_VIEW_MODE,
     reducer,
 } from './reducer';
 import {addEditorProps} from './utils';
 
 export type EditorBlockId = number | string;
 
-export function useEditorState({content: intialContent, custom}: Omit<EditorProps, 'children'>) {
-    const [{activeBlockIndex, content, errorBoundaryState, viewMode, theme}, dispatch] = useReducer(
-        reducer,
-        {
-            activeBlockIndex: 0,
-            errorBoundaryState: 0,
-            content: addEditorProps(intialContent),
-            viewMode: ViewModeItem.Edititng,
-            theme: DEFAULT_THEME,
-        },
-    );
+export function useMainState({content: intialContent, custom}: Omit<EditorProps, 'children'>) {
+    const [{activeBlockIndex, content, errorBoundaryState}, dispatch] = useReducer(reducer, {
+        activeBlockIndex: 0,
+        errorBoundaryState: 0,
+        content: addEditorProps(intialContent),
+        viewMode: ViewModeItem.Edititng,
+        theme: DEFAULT_THEME,
+    });
 
     return useMemo(() => {
         const headerBlockTypes = [...HeaderBlockTypes, ...getCustomTypes(['headers'], custom)];
@@ -58,11 +53,6 @@ export function useEditorState({content: intialContent, custom}: Omit<EditorProp
         const onSelect = (index: number) => dispatch({type: SELECT_BLOCK, payload: index});
         const onContentUpdate = (newContent: PageContent) =>
             dispatch({type: UPDATE_CONTENT, payload: newContent});
-        const onViewModeUpdate = (newViewMode: ViewModeItem) =>
-            dispatch({type: UPDATE_VIEW_MODE, payload: newViewMode});
-        const onThemeUpdate = (newTheme: Theme) =>
-            dispatch({type: UPDATE_THEME, payload: newTheme});
-
         const injectEditBlockProps = ({
             type,
             index: relativeIndex = 0,
@@ -112,14 +102,10 @@ export function useEditorState({content: intialContent, custom}: Omit<EditorProp
             activeBlockIndex,
             content,
             errorBoundaryState,
-            viewMode,
-            theme,
             injectEditBlockProps,
             onAdd,
             onSelect,
             onContentUpdate,
-            onViewModeUpdate,
-            onThemeUpdate,
         };
-    }, [content, activeBlockIndex, errorBoundaryState, custom, viewMode, theme]);
+    }, [content, activeBlockIndex, errorBoundaryState, custom]);
 }

@@ -20,7 +20,11 @@ $block: '.#{$ns}editor-form';
         margin-bottom: $indentXS;
     }
 
-    &_yaml-editor-enabled {
-        height: 100%;
+    &_code-editor-active {
+        height: calc(100% - var(--pc-editor-code-header-height));
+
+        #{$block}__tabs {
+            margin-bottom: 0;
+        }
     }
 }

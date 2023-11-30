@@ -2,14 +2,16 @@ import React, {useEffect, useMemo} from 'react';
 
 import {PageConstructor, PageConstructorProvider} from '../../../containers/PageConstructor';
 import {BlockDecorationProps} from '../../../models';
+import {generateDefaultSchema} from '../../../schema';
 import AddBlock from '../../components/AddBlock/AddBlock';
 import EditBlock from '../../components/EditBlock/EditBlock';
 import {ErrorBoundary} from '../../components/ErrorBoundary/ErrorBoundary';
 import Layout from '../../components/Layout/Layout';
 import {NotFoundBlock} from '../../components/NotFoundBlock/NotFoundBlock';
 import {EditorContext} from '../../context';
-import useFormSpec from '../../hooks/useFormSpec';
-import {useEditorState} from '../../store';
+import {useCodeValidator} from '../../hooks/useCodeValidator';
+import {useMainState} from '../../store/main';
+import {useSettingsState} from '../../store/settings';
 import {EditorProps, ViewModeItem} from '../../types';
 import {addCustomDecorator, checkIsMobile, getBlockId} from '../../utils';
 import {Form} from '../Form/Form';
@@ -26,23 +28,29 @@ export const Editor = ({
         content,
         activeBlockIndex,
         errorBoundaryState,
-        viewMode,
-        theme,
         onContentUpdate,
-        onViewModeUpdate,
         onAdd,
         onSelect,
         injectEditBlockProps,
+    } = useMainState(rest);
+    const {
+        viewMode,
+        theme,
+        onViewModeUpdate,
         onThemeUpdate,
-    } = useEditorState(rest);
-    const formSpecs = useFormSpec(customSchema);
+        formTab,
+        onFormTabUpdate,
+        codeFullscreeModeOn,
+        onCodeFullscreeModeOnUpdate,
+    } = useSettingsState();
 
     const isEditingMode = viewMode === ViewModeItem.Edititng;
-
     const transformedContent = useMemo(
         () => (transformContent ? transformContent(content, {viewMode}) : content),
         [content, transformContent, viewMode],
     );
+    const schema = useMemo(() => generateDefaultSchema(customSchema), [customSchema]);
+    const codeValidator = useCodeValidator(schema);
 
     const outgoingProps = useMemo(() => {
         const custom = isEditingMode
@@ -112,8 +120,13 @@ export const Editor = ({
                             content={content}
                             onChange={onContentUpdate}
                             activeBlockIndex={activeBlockIndex}
+                            activeTab={formTab}
+                            codeFullscreeModeOn={codeFullscreeModeOn}
+                            schema={schema}
+                            codeValidator={codeValidator}
+                            onActiveTabUpdate={onFormTabUpdate}
+                            onCodeFullscreeModeOnUpdate={onCodeFullscreeModeOnUpdate}
                             onSelect={onSelect}
-                            spec={formSpecs}
                         />
                     </Layout.Left>
                 )}
