@@ -7,6 +7,7 @@ import MonacoEditor from 'react-monaco-editor';
 
 import {PageContent} from '../../../models';
 import {block} from '../../../utils';
+import {parseCode} from '../../utils/code';
 import {CodeEditorMessageProps} from '../../utils/validation';
 
 import {options} from './constants';
@@ -39,7 +40,7 @@ export const CodeEditor = ({
             const validationResult = validator(code);
 
             setMessage(validationResult);
-            onChange(yaml.load(code) as PageContent);
+            onChange(parseCode(code));
         },
         [onChange, validator],
     );
