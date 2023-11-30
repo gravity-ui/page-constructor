@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [4.41.0](https://github.com/gravity-ui/page-constructor/compare/v4.40.6...v4.41.0) (2023-11-30)
+
+
+### Features
+
+* add code editing ([#730](https://github.com/gravity-ui/page-constructor/issues/730)) ([6e9ed9d](https://github.com/gravity-ui/page-constructor/commit/6e9ed9d9999288b1ae5891462e429ad663376318))
+* add fonts from uikit ([#727](https://github.com/gravity-ui/page-constructor/issues/727)) ([e3351a7](https://github.com/gravity-ui/page-constructor/commit/e3351a722da6f07e9e8d91bf071b0751ed02dbf2))
+
 ## [4.40.6](https://github.com/gravity-ui/page-constructor/compare/v4.40.5...v4.40.6) (2023-11-30)
 
 
