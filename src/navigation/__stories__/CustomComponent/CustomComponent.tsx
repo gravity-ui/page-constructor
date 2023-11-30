@@ -12,7 +12,7 @@ import {ItemListContent} from './components/ItemListContent/ItemListContent';
 
 import './CustomComponent.scss';
 
-const b = cn('dc-dropdown-navigation-item');
+const b = cn('dropdown-navigation-item');
 
 type DCDropdownNavigationItemProps = Pick<
     NavigationItemProps,
