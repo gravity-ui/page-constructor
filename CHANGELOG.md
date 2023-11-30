@@ -6,7 +6,6 @@
 
 ### Features
 
-* add code editing ([6e9ed9d](https://github.com/gravity-ui/page-constructor/commit/6e9ed9d9999288b1ae5891462e429ad663376318))
 * add code editing ([#730](https://github.com/gravity-ui/page-constructor/issues/730)) ([6e9ed9d](https://github.com/gravity-ui/page-constructor/commit/6e9ed9d9999288b1ae5891462e429ad663376318))
 * add fonts from uikit ([#727](https://github.com/gravity-ui/page-constructor/issues/727)) ([e3351a7](https://github.com/gravity-ui/page-constructor/commit/e3351a722da6f07e9e8d91bf071b0751ed02dbf2))
 
