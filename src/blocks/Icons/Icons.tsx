@@ -44,7 +44,7 @@ const Icons = ({title, description, size = 's', colSizes = {all: 12}, items}: Ic
                 return url ? (
                     <a
                         className={b('item')}
-                        key={url}
+                        key={url || text}
                         href={url}
                         aria-label={text}
                         title={text}
@@ -54,7 +54,7 @@ const Icons = ({title, description, size = 's', colSizes = {all: 12}, items}: Ic
                         {itemContent}
                     </a>
                 ) : (
-                    <div className={b('item')} key={url}>
+                    <div className={b('item')} key={url || text}>
                         {itemContent}
                     </div>
                 );
