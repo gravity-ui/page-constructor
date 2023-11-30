@@ -452,6 +452,7 @@ export interface AuthorProps extends QAProps {
     className?: string;
     authorContainerClassName?: string;
     type?: AuthorType;
+    theme?: ContentTheme;
 }
 
 export interface TitleProps {

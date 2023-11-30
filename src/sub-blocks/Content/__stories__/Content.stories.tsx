@@ -72,20 +72,29 @@ const SizeTemplate: StoryFn<ContentBlockProps & ClassNameProps> = (args) => (
 
 const ThemeTemplate: StoryFn<ContentBlockProps & ClassNameProps> = (args) => (
     <div>
-        <div style={{paddingBottom: '64px'}}>
+        <div
+            style={{
+                paddingBottom: '64px',
+                paddingTop: '64px',
+                backgroundColor: '#ccf0d2',
+                marginBottom: '64px',
+            }}
+        >
             <Content
                 {...args}
                 title={data.theme.light.title}
                 theme={data.theme.light.theme as ContentTheme}
                 buttons={data.theme.light.buttons as ButtonProps[]}
+                additionalInfo={data.default.content.additionalInfo}
             />
         </div>
-        <div style={{paddingBottom: '64px', backgroundColor: '#7ccea0'}}>
+        <div style={{paddingBottom: '64px', paddingTop: '64px', backgroundColor: '#262626'}}>
             <Content
                 {...args}
                 title={data.theme.dark.title}
                 theme={data.theme.dark.theme as ContentTheme}
                 buttons={data.theme.dark.buttons as ButtonProps[]}
+                additionalInfo={data.default.content.additionalInfo}
             />
         </div>
     </div>

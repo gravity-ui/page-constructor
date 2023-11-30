@@ -90,16 +90,28 @@ export interface HubspotFormProps extends HubspotEventHandlers, AnalyticsEventsB
 
 //cards
 export interface QuoteProps extends Themable, CardBaseProps {
-    text: string;
+    text?: string;
+    // for backward compatibility, yfmText will become property 'text' in major
+    yfmText?: string;
     image: ThemedImage;
     logo: ImageProps;
     color?: string;
+    /**
+     * @deprecated use property button instead
+     */
     url?: string;
+    /**
+     * @deprecated use property button instead
+     */
     urlTitle?: string;
     author?: AuthorItem;
+    /**
+     * @deprecated use property button instead
+     */
     buttonText?: string;
     theme?: TextTheme;
     quoteType?: QuoteType;
+    button?: ButtonProps;
 }
 
 export interface BackgroundCardProps

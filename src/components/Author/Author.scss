@@ -13,7 +13,6 @@ $authorBorderRadius: $indentXS;
 
     display: flex;
     flex-direction: column;
-    color: var(--g-color-text-secondary);
 
     &__avatar {
         width: $imageWidth;
@@ -34,13 +33,12 @@ $authorBorderRadius: $indentXS;
 
     &__name {
         @include text-size(body-3);
-
-        color: var(--g-color-text-primary);
     }
 
     &__description {
         @include text-size(body-2);
 
+        color: $secondary;
         padding-top: 4px;
     }
 
@@ -69,6 +67,14 @@ $authorBorderRadius: $indentXS;
 
         #{$root}__label:not(:first-child) {
             margin-left: $indentXS;
+        }
+    }
+
+    &_theme {
+        &_dark {
+            #{$root}__description {
+                color: $lightSecondary;
+            }
         }
     }
 }
