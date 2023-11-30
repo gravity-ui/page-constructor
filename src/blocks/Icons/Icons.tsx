@@ -54,7 +54,7 @@ const Icons = ({title, description, size = 's', colSizes = {all: 12}, items}: Ic
                         {itemContent}
                     </a>
                 ) : (
-                    <div className={b('item')} key={url || text}>
+                    <div className={b('item')} key={text}>
                         {itemContent}
                     </div>
                 );
