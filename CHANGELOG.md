@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [4.40.6](https://github.com/gravity-ui/page-constructor/compare/v4.40.5...v4.40.6) (2023-11-30)
+
+
+### Bug Fixes
+
+* change position for media fit to absolute. There is a bug in safari ([#731](https://github.com/gravity-ui/page-constructor/issues/731)) ([8c17b93](https://github.com/gravity-ui/page-constructor/commit/8c17b93d49ba73e46c7898dd143a3f46b6e93c4a))
+
 ## [4.40.5](https://github.com/gravity-ui/page-constructor/compare/v4.40.4...v4.40.5) (2023-11-30)
 
 
