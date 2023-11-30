@@ -1,10 +1,10 @@
 import {useMemo, useReducer} from 'react';
 
-import {DEFAULT_THEME} from '../../components/constants';
-import {Block, BlockDecorationProps, HeaderBlockTypes, PageContent} from '../../models';
-import {getCustomTypes, getHeaderBlock} from '../../utils';
-import {EditBlockActions, EditBlockControls} from '../components/EditBlock/EditBlock';
-import {EditBlockProps, EditorProps, ViewModeItem} from '../types';
+import {DEFAULT_THEME} from '../../../components/constants';
+import {Block, BlockDecorationProps, HeaderBlockTypes, PageContent} from '../../../models';
+import {getCustomTypes, getHeaderBlock} from '../../../utils';
+import {EditBlockActions, EditBlockControls} from '../../components/EditBlock/EditBlock';
+import {EditBlockProps, EditorProps, ViewModeItem} from '../../types';
 
 import {
     ADD_BLOCK,
@@ -19,7 +19,7 @@ import {addEditorProps} from './utils';
 
 export type EditorBlockId = number | string;
 
-export function useEditorState({content: intialContent, custom}: Omit<EditorProps, 'children'>) {
+export function useMainState({content: intialContent, custom}: Omit<EditorProps, 'children'>) {
     const [{activeBlockIndex, content, errorBoundaryState}, dispatch] = useReducer(reducer, {
         activeBlockIndex: 0,
         errorBoundaryState: 0,

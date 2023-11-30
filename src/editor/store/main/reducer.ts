@@ -1,11 +1,11 @@
-import {ConstructorBlock, PageContent, Theme} from '../../models';
-import {ViewModeItem} from '../types';
+import {ConstructorBlock, PageContent, Theme} from '../../../models';
+import {ViewModeItem} from '../../types';
 
 import {addBlock, changeBlocksOrder, duplicateBlock, getErrorBoundaryState} from './utils';
 
 export type EditorBlockId = number | string;
 
-interface EditorState {
+interface MainState {
     content: PageContent;
     activeBlockIndex: number;
     errorBoundaryState: number;
@@ -71,7 +71,7 @@ export type EditorAction =
     | UpdateContent;
 
 // reducer
-export const reducer = (state: EditorState, action: EditorAction): EditorState => {
+export const reducer = (state: MainState, action: EditorAction): MainState => {
     const {content} = state;
     const getNewState = (blocks: ConstructorBlock[], activeBlockIndex: number) => ({
         ...state,

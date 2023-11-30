@@ -10,7 +10,7 @@ import Layout from '../../components/Layout/Layout';
 import {NotFoundBlock} from '../../components/NotFoundBlock/NotFoundBlock';
 import {EditorContext} from '../../context';
 import {useCodeValidator} from '../../hooks/useCodeValidator';
-import {useEditorState} from '../../store';
+import {useMainState} from '../../store/main';
 import {useSettingsState} from '../../store/settings';
 import {EditorProps, ViewModeItem} from '../../types';
 import {addCustomDecorator, checkIsMobile, getBlockId} from '../../utils';
@@ -32,7 +32,7 @@ export const Editor = ({
         onAdd,
         onSelect,
         injectEditBlockProps,
-    } = useEditorState(rest);
+    } = useMainState(rest);
     const {
         viewMode,
         theme,
@@ -45,12 +45,10 @@ export const Editor = ({
     } = useSettingsState();
 
     const isEditingMode = viewMode === ViewModeItem.Edititng;
-
     const transformedContent = useMemo(
         () => (transformContent ? transformContent(content, {viewMode}) : content),
         [content, transformContent, viewMode],
     );
-
     const schema = useMemo(() => generateDefaultSchema(customSchema), [customSchema]);
     const codeValidator = useCodeValidator(schema);
 

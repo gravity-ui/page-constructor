@@ -1,6 +1,6 @@
 import cloneDeep from 'lodash/cloneDeep';
 
-import {ConstructorBlock, PageContent} from '../../models';
+import {ConstructorBlock, PageContent} from '../../../models';
 
 import {EditorBlockId} from './reducer';
 
