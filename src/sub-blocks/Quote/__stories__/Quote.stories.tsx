@@ -2,6 +2,7 @@ import React from 'react';
 
 import {Meta, StoryFn} from '@storybook/react';
 
+import {yfmTransform} from '../../../../.storybook/utils';
 import {QuoteProps, QuoteType} from '../../../models';
 import Quote from '../Quote';
 
@@ -33,10 +34,15 @@ export const QuoteTypes = QuoteTypesTemplate.bind({});
 export const BorderLine = DefaultTemplate.bind({});
 export const DarkTheme = DefaultTemplate.bind({});
 
-Default.args = data.default.content as QuoteProps;
-QuoteTypes.args = data.default.content as QuoteProps;
-BorderLine.args = {
+const DefaultArgs = {
     ...data.default.content,
+    yfmText: yfmTransform(data.default.content.yfmText),
+} as QuoteProps;
+
+Default.args = DefaultArgs;
+QuoteTypes.args = DefaultArgs;
+BorderLine.args = {
+    ...DefaultArgs,
     ...data.borderLine.content,
 } as QuoteProps;
 DarkTheme.args = data.darkTheme.content as QuoteProps;

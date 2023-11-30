@@ -10,10 +10,14 @@ import {
 export const Quote = {
     quote: {
         additionalProperties: false,
-        required: ['text', 'image', 'logo'],
+        required: ['image', 'logo'],
         properties: {
             ...BaseProps,
             text: {
+                type: 'string',
+                contentType: 'text',
+            },
+            yfmText: {
                 type: 'string',
                 contentType: 'text',
             },

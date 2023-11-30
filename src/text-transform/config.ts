@@ -188,10 +188,16 @@ export const config: BlocksConfig = {
             transformer: yfmTransformer,
         },
     ],
-    [SubBlockType.Quote]: {
-        fields: ['text'],
-        transformer: typografTransformer,
-    },
+    [SubBlockType.Quote]: [
+        {
+            fields: ['text'],
+            transformer: typografTransformer,
+        },
+        {
+            fields: ['yfmText'],
+            transformer: yfmTransformer,
+        },
+    ],
     [BlockType.ExtendedFeaturesBlock]: [
         ...blockHeaderTransformer,
         {
