@@ -3,7 +3,7 @@ import React, {useMemo} from 'react';
 import omit from 'lodash/omit';
 
 import {BlockIdContext} from '../../../context/blockIdContext';
-import {CustomItem, NavigationItemType} from '../../../models';
+import {CustomItem, NavigationItemType, NavigationItemTypes} from '../../../models';
 import {block} from '../../../utils';
 import {NavigationItemProps} from '../../models';
 
@@ -15,11 +15,8 @@ const b = block('navigation-item');
 
 const ANALYTICS_ID = 'navigation';
 
-const navigationItemTypeValues = Object.values(NavigationItemType);
-const directNavigationItemTypeValues = navigationItemTypeValues;
-directNavigationItemTypeValues.splice(
-    directNavigationItemTypeValues.indexOf(NavigationItemType.Dropdown),
-    1,
+const nonComplexNavigationItemTypes = NavigationItemTypes.filter(
+    (type) => type !== NavigationItemType.Dropdown,
 );
 
 const NavigationItem: React.FC<NavigationItemProps> = ({
@@ -35,14 +32,15 @@ const NavigationItem: React.FC<NavigationItemProps> = ({
         const componentProperties = {
             ...data,
             ...props,
-            menuLayout,
         };
 
-        if (directNavigationItemTypeValues.includes(type)) {
+        if (nonComplexNavigationItemTypes.includes(type)) {
             return omit(componentProperties, 'hidePopup', 'isActive');
         }
 
-        return componentProperties;
+        return NavigationItemTypes.includes(type)
+            ? componentProperties
+            : {...componentProperties, menuLayout};
     }, [data, props, type, menuLayout]);
 
     return (
