@@ -48,7 +48,11 @@ NavigationWithCustomItems.args = {
             ...data.navigation.header,
             leftItems: [
                 ...data.navigation.header.leftItems,
-                {...data.navigation.header.leftItems[0], type: 'custom-dropdown'},
+                {
+                    ...data.navigation.header.leftItems[0],
+                    type: 'custom-dropdown',
+                    text: `${data.navigation.header.leftItems[0].text} (Custom)`,
+                },
             ],
         },
     } as NavigationData,
