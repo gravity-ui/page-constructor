@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [4.40.5](https://github.com/gravity-ui/page-constructor/compare/v4.40.4...v4.40.5) (2023-11-30)
+
+
+### Bug Fixes
+
+* add text as key if url is empty in icons ([#728](https://github.com/gravity-ui/page-constructor/issues/728)) ([03f3660](https://github.com/gravity-ui/page-constructor/commit/03f366083388ab9aa61e61163701ff97496896d2))
+
 ## [4.40.4](https://github.com/gravity-ui/page-constructor/compare/v4.40.3...v4.40.4) (2023-11-29)
 
 
