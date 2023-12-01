@@ -1,8 +1,6 @@
 import React, {useCallback} from 'react';
 
-import {Button} from '@gravity-ui/uikit';
-
-import {Author, HTML, Image} from '../../components';
+import {Author, Button, HTML, Image, YFMWrapper} from '../../components';
 import {getMediaImage} from '../../components/Media/Image/utils';
 import {useTheme} from '../../context/theme';
 import {useAnalytics} from '../../hooks';
@@ -20,12 +18,14 @@ const Quote = (props: QuoteProps) => {
         image,
         border = 'shadow',
         text,
+        yfmText,
         logo,
         author,
         url,
         urlTitle,
         buttonText,
         quoteType = QuoteType.Chevron,
+        button,
     } = props;
     const theme = useTheme();
     const imageThemed = getThemedValue(image, theme);
@@ -41,20 +41,21 @@ const Quote = (props: QuoteProps) => {
                     className={b('author', {theme: textTheme})}
                     author={author}
                     type={AuthorType.Line}
+                    theme={textTheme}
                 />
             )}
-            {url && buttonText && (
+            {url && buttonText && !button && (
                 <Button
-                    view="outlined"
+                    theme="outlined"
                     size="xl"
-                    href={url}
+                    url={url}
                     className={b('link-button', {theme: textTheme})}
                     onClick={handleButtonClick}
-                    title={urlTitle}
-                >
-                    {buttonText}
-                </Button>
+                    urlTitle={urlTitle}
+                    text={buttonText}
+                />
             )}
+            {button && <Button size="xl" {...button} />}
         </div>
     );
 
@@ -69,9 +70,18 @@ const Quote = (props: QuoteProps) => {
                 <div>
                     <Image className={b('logo')} {...logoProps} />
                     <div className={b('content', {'quote-type': quoteType})}>
-                        <span className={b('text')}>
-                            <HTML>{text}</HTML>
-                        </span>
+                        {text && (
+                            <span className={b('text')}>
+                                <HTML>{text}</HTML>
+                            </span>
+                        )}
+                        {yfmText && (
+                            <YFMWrapper
+                                className={b('text')}
+                                content={yfmText}
+                                modifiers={{constructor: true}}
+                            />
+                        )}
                     </div>
                 </div>
                 {renderFooter}

@@ -10,7 +10,14 @@ import './Author.scss';
 const b = block('author');
 
 const Author = (props: WithChildren<AuthorProps>) => {
-    const {author, className, authorContainerClassName, type = AuthorType.Column, qa} = props;
+    const {
+        author,
+        className,
+        authorContainerClassName,
+        type = AuthorType.Column,
+        qa,
+        theme,
+    } = props;
     const {firstName, secondName, description, avatar} = author;
 
     const name = secondName ? `${firstName} ${secondName}` : firstName;
@@ -21,7 +28,7 @@ const Author = (props: WithChildren<AuthorProps>) => {
     }
 
     return (
-        <div className={b({type}, className)} data-qa={qa}>
+        <div className={b({type, theme}, className)} data-qa={qa}>
             {avatar && (
                 <div className={b('avatar', authorContainerClassName)}>
                     {isAvatarJSX ? avatar : <Image {...avatarProps} />}

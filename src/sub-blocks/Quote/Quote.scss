@@ -61,6 +61,18 @@ $block: '.#{$ns}quote';
             @include comma-type('chevron', '«', '»', -10px);
             @include comma-type('english-double', '“', '”', -8px);
         }
+
+        .yfm {
+            @include text-size(body-3);
+            > * {
+                display: inline;
+            }
+
+            &:after {
+                position: relative;
+                left: -5px;
+            }
+        }
     }
 
     &__image {
@@ -74,11 +86,6 @@ $block: '.#{$ns}quote';
         justify-content: space-between;
         align-items: flex-end;
         margin-top: $indentS;
-    }
-
-    &__author,
-    & {
-        @include add-theme();
     }
 
     &__author {
