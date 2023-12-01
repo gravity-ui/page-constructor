@@ -5,7 +5,7 @@ import {NavigationItemProps} from '../../models';
 
 import './CustomComponent.scss';
 
-const b = cn('dropdown-navigation-item');
+const b = cn('custom-nav-item');
 
 type DCDropdownNavigationItemProps = Pick<
     NavigationItemProps,
@@ -16,11 +16,7 @@ export const CustomComponent: React.FC<DCDropdownNavigationItemProps> = (props) 
     const {onClick, isActive, menuLayout} = props;
     return (
         <div className={b({active: isActive})} onClick={onClick}>
-            <span className={b('text')}>Custom Item</span>
-            {' ('}
-            {`${menuLayout}`}
-            {isActive && ' - active'}
-            {')'}
+            {`Custom Item (${menuLayout}${isActive ? ' - active' : ''})`}
         </div>
     );
 };

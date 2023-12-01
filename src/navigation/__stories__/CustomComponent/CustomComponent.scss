@@ -1,9 +1,5 @@
-@import '../../../../styles/variables';
-
-.dropdown-navigation-item {
-    text-wrap: nowrap;
-    display: flex;
-    align-items: center;
+.custom-nav-item {
+    white-space: nowrap;
 
     &:hover {
         color: var(--g-color-text-brand);
