@@ -5,6 +5,7 @@ import {
     BlockBaseProps,
     ButtonBlock,
     MediaProps,
+    containerSizesObject,
     mediaDirection,
     withTheme,
 } from '../../schema/validators/common';
@@ -45,6 +46,7 @@ export const MediaBlockBaseProps = {
         type: 'boolean',
     },
     button: ButtonBlock,
+    mediaOnlyColSizes: containerSizesObject,
 };
 
 export const MediaBlock = {
