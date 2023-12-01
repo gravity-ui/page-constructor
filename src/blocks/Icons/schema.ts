@@ -15,6 +15,10 @@ export const IconsProps = {
             type: 'string',
             contentType: 'text',
         },
+        description: {
+            type: 'string',
+            contentType: 'text',
+        },
         size: {
             type: 'string',
             enum: ['s', 'm', 'l'],
