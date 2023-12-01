@@ -8,17 +8,13 @@ $block: '.#{$ns}code-editor';
     overflow: hidden;
 
     &_fullscreen {
-        position: fixed;
+        position: absolute;
         top: 0;
         left: 0;
         width: 100%;
-        height: 100vh;
+        height: 100%;
         z-index: 1000;
         background: var(--g-color-base-background);
-
-        #{$block}__header {
-            margin-top: var(--pc-editor-header-height);
-        }
     }
 
     &__code {

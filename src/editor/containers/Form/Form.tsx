@@ -53,15 +53,24 @@ export const Form = memo(
 
         const prevTab = usePreviousValue(activeTab);
         const prevContentLength = usePreviousValue(content.blocks?.length);
+        const prevCodeFullscreeModeOn = usePreviousValue(codeFullscreeModeOn);
 
         useEffect(() => {
             const switchedToCodeEditing = activeTab !== prevTab && activeTab === FormTab.Code;
             const blocksCountChanged = prevContentLength !== content.blocks?.length;
+            const codeModeSwitched = codeFullscreeModeOn !== prevCodeFullscreeModeOn;
 
-            if (blocksCountChanged || switchedToCodeEditing) {
+            if (blocksCountChanged || switchedToCodeEditing || codeModeSwitched) {
                 setCode(yaml.dump(content, {lineWidth: -1}));
             }
-        }, [activeTab, prevTab, content, prevContentLength]);
+        }, [
+            activeTab,
+            prevTab,
+            content,
+            prevContentLength,
+            codeFullscreeModeOn,
+            prevCodeFullscreeModeOn,
+        ]);
 
         const {blocks, ...page} = content || {};
         const spec = useFormSpec(schema);
@@ -120,7 +129,6 @@ export const Form = memo(
             case FormTab.Code: {
                 form = (
                     <CodeEditor
-                        content={content}
                         code={code}
                         onChange={onChange}
                         validator={codeValidator}

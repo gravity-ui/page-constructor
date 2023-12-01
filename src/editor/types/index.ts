@@ -1,5 +1,6 @@
 import {PageConstructorProps, PageConstructorProviderProps} from '../../containers/PageConstructor';
 import {BlockDecorationProps, PageContent} from '../../models';
+import {Theme} from '../../models/common';
 import {SchemaCustomConfig} from '../../schema';
 import {EditBlockActions} from '../components/EditBlock/EditBlock';
 
@@ -27,6 +28,7 @@ export interface EditorProps
     transformContent?: ContentTransformer;
     customSchema?: SchemaCustomConfig;
     deviceEmulationSettings?: DeviceEmulationSettings;
+    theme?: Theme;
 }
 
 export interface EditBlockEditorProps {

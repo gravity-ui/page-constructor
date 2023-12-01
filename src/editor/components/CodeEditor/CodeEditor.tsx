@@ -1,12 +1,13 @@
-import React, {useCallback, useState} from 'react';
+import React, {useCallback, useContext, useState} from 'react';
 
 import {ChevronsCollapseUpRight, ChevronsExpandUpRight} from '@gravity-ui/icons';
 import {Button, Icon} from '@gravity-ui/uikit';
 import debounce from 'lodash/debounce';
 import MonacoEditor from 'react-monaco-editor';
 
-import {PageContent} from '../../../models';
+import {PageContent, Theme} from '../../../models';
 import {block} from '../../../utils';
+import {EditorContext} from '../../context';
 import {parseCode} from '../../utils/code';
 import {CodeEditorMessageProps} from '../../utils/validation';
 
@@ -33,6 +34,7 @@ export const CodeEditor = ({
     code,
 }: CodeEditorProps) => {
     const [message, setMessage] = useState(() => validator(code));
+    const {theme = Theme.Light} = useContext(EditorContext);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
     const onChangeWithValidation = useCallback(
@@ -65,7 +67,7 @@ export const CodeEditor = ({
                     language="yaml"
                     options={options}
                     onChange={onChangeWithValidation}
-                    theme="vs"
+                    theme={theme === Theme.Light ? 'vs' : 'vs-dark'}
                 />
             </div>
             <div className={b('footer')}>

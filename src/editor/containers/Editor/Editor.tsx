@@ -13,6 +13,7 @@ import {useCodeValidator} from '../../hooks/useCodeValidator';
 import {useMainState} from '../../store/main';
 import {useSettingsState} from '../../store/settings';
 import {EditorProps, ViewModeItem} from '../../types';
+import {FormTab} from '../../types/index';
 import {addCustomDecorator, checkIsMobile, getBlockId} from '../../utils';
 import {Form} from '../Form/Form';
 
@@ -22,6 +23,7 @@ export const Editor = ({
     providerProps,
     transformContent,
     deviceEmulationSettings,
+    theme: editorTheme,
     ...rest
 }: EditorProps) => {
     const {
@@ -35,7 +37,7 @@ export const Editor = ({
     } = useMainState(rest);
     const {
         viewMode,
-        theme,
+        theme: constructorTheme,
         onViewModeUpdate,
         onThemeUpdate,
         formTab,
@@ -45,6 +47,9 @@ export const Editor = ({
     } = useSettingsState();
 
     const isEditingMode = viewMode === ViewModeItem.Edititng;
+    const isCodeOnlyMode =
+        codeFullscreeModeOn && formTab === FormTab.Code && viewMode === ViewModeItem.Edititng;
+
     const transformedContent = useMemo(
         () => (transformContent ? transformContent(content, {viewMode}) : content),
         [content, transformContent, viewMode],
@@ -95,11 +100,20 @@ export const Editor = ({
             providerProps: {
                 ...providerProps,
                 isMobile: checkIsMobile(viewMode),
-                theme,
+                theme: constructorTheme,
             },
             deviceEmulationSettings,
+            theme: editorTheme,
         }),
-        [providerProps, rest.custom, viewMode, transformedContent, deviceEmulationSettings, theme],
+        [
+            providerProps,
+            rest.custom,
+            viewMode,
+            transformedContent,
+            deviceEmulationSettings,
+            constructorTheme,
+            editorTheme,
+        ],
     );
 
     useEffect(() => {
@@ -111,7 +125,7 @@ export const Editor = ({
             <Layout
                 mode={viewMode}
                 onModeChange={onViewModeUpdate}
-                theme={theme}
+                theme={constructorTheme}
                 onThemeChange={onThemeUpdate}
             >
                 {isEditingMode && (
@@ -130,14 +144,16 @@ export const Editor = ({
                         />
                     </Layout.Left>
                 )}
-                <Layout.Right>
-                    <ErrorBoundary key={errorBoundaryState}>
-                        <PageConstructorProvider {...providerProps} theme={theme}>
-                            <PageConstructor {...outgoingProps} />
-                        </PageConstructorProvider>
-                    </ErrorBoundary>
-                    {isEditingMode && <AddBlock onAdd={onAdd} />}
-                </Layout.Right>
+                {!isCodeOnlyMode && (
+                    <Layout.Right>
+                        <ErrorBoundary key={errorBoundaryState}>
+                            <PageConstructorProvider {...providerProps} theme={constructorTheme}>
+                                <PageConstructor {...outgoingProps} />
+                            </PageConstructorProvider>
+                        </ErrorBoundary>
+                        {isEditingMode && <AddBlock onAdd={onAdd} />}
+                    </Layout.Right>
+                )}
             </Layout>
         </EditorContext.Provider>
     );
