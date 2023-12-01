@@ -1,6 +1,7 @@
-import React, {Fragment, memo} from 'react';
+import React, {Fragment, memo, useEffect, useState} from 'react';
 
 import {Tabs, TabsProps} from '@gravity-ui/uikit';
+import yaml from 'js-yaml';
 import {JSONSchema4} from 'json-schema';
 
 import {Block, PageContent} from '../../../models';
@@ -9,6 +10,7 @@ import {BlockForm} from '../../components/BlockForm/BlockForm';
 import {CodeEditor} from '../../components/CodeEditor/CodeEditor';
 import {PagePropsForm, PagePropsFormData} from '../../components/PagePropsForm/PagePropsForm';
 import useFormSpec from '../../hooks/useFormSpec';
+import usePreviousValue from '../../hooks/usePreviousValue';
 import {FormTab} from '../../types';
 import {CodeEditorMessageProps} from '../../utils/validation';
 
@@ -47,6 +49,20 @@ export const Form = memo(
         codeFullscreeModeOn,
         onCodeFullscreeModeOnUpdate,
     }: FormProps) => {
+        const [code, setCode] = useState('');
+
+        const prevTab = usePreviousValue(activeTab);
+        const prevContentLength = usePreviousValue(content.blocks?.length);
+
+        useEffect(() => {
+            const switchedToCodeEditing = activeTab !== prevTab && activeTab === FormTab.Code;
+            const blocksCountChanged = prevContentLength !== content.blocks?.length;
+
+            if (blocksCountChanged || switchedToCodeEditing) {
+                setCode(yaml.dump(content, {lineWidth: -1}));
+            }
+        }, [activeTab, prevTab, content, prevContentLength]);
+
         const {blocks, ...page} = content || {};
         const spec = useFormSpec(schema);
         const {blocks: blocksSpec, page: pageSpec} = spec || {};
@@ -105,6 +121,7 @@ export const Form = memo(
                 form = (
                     <CodeEditor
                         content={content}
+                        code={code}
                         onChange={onChange}
                         validator={codeValidator}
                         fullscreenModeOn={codeFullscreeModeOn}
