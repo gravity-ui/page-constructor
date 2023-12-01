@@ -3,7 +3,7 @@ import React, {useMemo} from 'react';
 import omit from 'lodash/omit';
 
 import {BlockIdContext} from '../../../context/blockIdContext';
-import {CustomItem, NavigationItemType} from '../../../models';
+import {CustomItem, NavigationItemType, NavigationItemTypes} from '../../../models';
 import {block} from '../../../utils';
 import {NavigationItemProps} from '../../models';
 
@@ -14,6 +14,10 @@ import './NavigationItem.scss';
 const b = block('navigation-item');
 
 const ANALYTICS_ID = 'navigation';
+
+const nonComplexNavigationItemTypes = NavigationItemTypes.filter(
+    (type) => type !== NavigationItemType.Dropdown,
+);
 
 const NavigationItem: React.FC<NavigationItemProps> = ({
     data,
@@ -30,12 +34,14 @@ const NavigationItem: React.FC<NavigationItemProps> = ({
             ...props,
         };
 
-        if (type !== NavigationItemType.Dropdown) {
+        if (nonComplexNavigationItemTypes.includes(type)) {
             return omit(componentProperties, 'hidePopup', 'isActive');
         }
 
-        return componentProperties;
-    }, [data, props, type]);
+        return NavigationItemTypes.includes(type)
+            ? componentProperties
+            : {...componentProperties, menuLayout};
+    }, [data, props, type, menuLayout]);
 
     return (
         <BlockIdContext.Provider value={ANALYTICS_ID}>

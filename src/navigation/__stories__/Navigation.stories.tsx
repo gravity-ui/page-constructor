@@ -5,6 +5,8 @@ import {Meta, StoryFn} from '@storybook/react';
 import {PageConstructor} from '../../containers/PageConstructor';
 import {CustomConfig, NavigationData} from '../../models';
 
+import {CustomComponent} from './CustomComponent/CustomComponent';
+
 import data from './data.json';
 
 export default {
@@ -37,14 +39,19 @@ NavigationWithBorder.args = {
 NavigationWithCustomItems.args = {
     custom: {
         navigation: {
-            search: () => <div>Search</div>,
+            'custom-item': CustomComponent,
         },
     },
     navigation: {
         ...data.navigation,
         header: {
             ...data.navigation.header,
-            rightItems: [...data.navigation.header.rightItems, {type: 'search'}],
+            rightItems: [
+                ...data.navigation.header.rightItems,
+                {
+                    type: 'custom-item',
+                },
+            ],
         },
     } as NavigationData,
 };
