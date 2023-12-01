@@ -1,6 +1,18 @@
 # Changelog
 
 
+## [4.42.0](https://github.com/gravity-ui/page-constructor/compare/v4.41.0...v4.42.0) (2023-12-01)
+
+
+### Features
+
+* **Navigation:** provide dropdown props to custom components ([#721](https://github.com/gravity-ui/page-constructor/issues/721)) ([3738410](https://github.com/gravity-ui/page-constructor/commit/37384103cca447e3a7f86666c582e1ee091647c0))
+
+
+### Bug Fixes
+
+* update price-card component ([#708](https://github.com/gravity-ui/page-constructor/issues/708)) ([4487d50](https://github.com/gravity-ui/page-constructor/commit/4487d50c2d71ca1f536d3de5b82d423a378fe55c))
+
 ## [4.41.0](https://github.com/gravity-ui/page-constructor/compare/v4.40.6...v4.41.0) (2023-11-30)
 
 
