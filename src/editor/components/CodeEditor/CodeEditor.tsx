@@ -67,7 +67,7 @@ export const CodeEditor = ({
                     language="yaml"
                     options={options}
                     onChange={onChangeWithValidation}
-                    theme={theme === Theme.Light ? 'vs' : 'vs-dark'}
+                    theme={theme === Theme.Dark ? 'vs-dark' : 'vs'}
                 />
             </div>
             <div className={b('footer')}>
