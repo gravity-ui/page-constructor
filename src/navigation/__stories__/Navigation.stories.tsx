@@ -39,19 +39,17 @@ NavigationWithBorder.args = {
 NavigationWithCustomItems.args = {
     custom: {
         navigation: {
-            'custom-dropdown': CustomComponent,
+            'custom-item': CustomComponent,
         },
     },
     navigation: {
         ...data.navigation,
         header: {
             ...data.navigation.header,
-            leftItems: [
-                ...data.navigation.header.leftItems,
+            rightItems: [
+                ...data.navigation.header.rightItems,
                 {
-                    ...data.navigation.header.leftItems[0],
-                    type: 'custom-dropdown',
-                    text: `${data.navigation.header.leftItems[0].text} (Custom)`,
+                    type: 'custom-item',
                 },
             ],
         },
