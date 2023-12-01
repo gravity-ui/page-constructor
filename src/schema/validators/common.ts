@@ -529,6 +529,14 @@ export const BlockBaseProps = {
     context: {
         type: 'string',
     },
+    indent: {
+        type: 'object',
+        additionalProperties: false,
+        properties: {
+            top: dividerEnum,
+            bottom: dividerEnum,
+        },
+    },
 };
 
 export const TitleProps = {
