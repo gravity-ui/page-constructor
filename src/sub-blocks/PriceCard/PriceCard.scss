@@ -6,6 +6,10 @@ $block: '.#{$ns}price-card';
 #{$block} {
     position: relative;
 
+    @include add-specificity(&) {
+        min-height: auto;
+    }
+
     &__background {
         position: absolute;
         top: 0;
@@ -59,8 +63,7 @@ $block: '.#{$ns}price-card';
     }
 
     &__title {
-        font-size: var(--g-text-subheader-3-font-size);
-        line-height: var(--g-text-subheader-3-line-height);
+        @include text-size(subheader-3);
         margin-bottom: $indentSM;
     }
 
@@ -68,8 +71,7 @@ $block: '.#{$ns}price-card';
         margin-bottom: $indentSM;
 
         &-value {
-            font-size: var(--g-text-display-1-font-size);
-            line-height: var(--g-text-display-1-line-height);
+            @include text-size(display-1);
         }
 
         &-period {
@@ -77,7 +79,7 @@ $block: '.#{$ns}price-card';
         }
 
         &-details {
-            margin-bottom: $indentXXS;
+            @include text-size(body-2);
         }
     }
 
@@ -90,19 +92,42 @@ $block: '.#{$ns}price-card';
     }
 
     &__info {
-        margin-bottom: $indentSM;
         flex: 1;
         min-height: 0;
         display: flex;
         flex-direction: column;
     }
 
+    &__description {
+        &:not(:last-child) {
+            margin-bottom: $indentXXS;
+        }
+    }
+
     &__links,
     &__buttons {
+        margin-top: $indentSM;
+
         & > * {
             &:not(:last-child) {
                 margin-right: $indentXS;
             }
+        }
+    }
+
+    &__link {
+        margin-top: 0;
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'md')) {
+        &__title,
+        &__price {
+            margin-bottom: $indentXS;
+        }
+
+        &__links,
+        &__buttons {
+            margin-top: $indentXS;
         }
     }
 }

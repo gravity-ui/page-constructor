@@ -32,12 +32,8 @@ const ContentList = ({list, size = 'l', qa}: ContentListProps & QAProps) => {
             {list?.map((item) => {
                 const {icon, title, text} = item;
                 return (
-                    <div className={b('item')} key={uuidv4()}>
-                        <ItemIcon
-                            icon={icon}
-                            className={b('icon', {without_title: !title})}
-                            qa={qaAttributes.image}
-                        />
+                    <div className={b('item', {'without-title': !title})} key={uuidv4()}>
+                        <ItemIcon icon={icon} className={b('icon')} qa={qaAttributes.image} />
                         <div>
                             {title &&
                                 React.createElement(

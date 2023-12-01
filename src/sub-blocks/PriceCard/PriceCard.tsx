@@ -42,7 +42,7 @@ const PriceCard = (props: PriceCardProps) => {
                                 <div className={b('price-details')}>{priceDetails}</div>
                             )}
                         </div>
-                        <div>{description}</div>
+                        {description && <div className={b('description')}>{description}</div>}
                         {list?.length ? (
                             <div className={b('list')}>
                                 <ContentList
@@ -50,7 +50,7 @@ const PriceCard = (props: PriceCardProps) => {
                                         icon: Check,
                                         text: item,
                                     }))}
-                                    size="s"
+                                    size="l"
                                 />
                             </div>
                         ) : null}
@@ -65,7 +65,12 @@ const PriceCard = (props: PriceCardProps) => {
                     {links && (
                         <div className={b('links')}>
                             {links.map((link) => (
-                                <LinkBlock key={link.url} textSize="m" {...link} />
+                                <LinkBlock
+                                    className={b('link')}
+                                    key={link.url}
+                                    textSize="m"
+                                    {...link}
+                                />
                             ))}
                         </div>
                     )}
