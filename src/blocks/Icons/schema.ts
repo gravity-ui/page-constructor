@@ -1,4 +1,8 @@
-import {AnimatableProps, BlockBaseProps} from '../../schema/validators/common';
+import {
+    AnimatableProps,
+    BlockBaseProps,
+    containerSizesObject,
+} from '../../schema/validators/common';
 import {AnalyticsEventSchema} from '../../schema/validators/event';
 
 export const IconsProps = {
@@ -16,6 +20,7 @@ export const IconsProps = {
             enum: ['s', 'm', 'l'],
             default: 's',
         },
+        colSizes: containerSizesObject,
         items: {
             type: 'array',
             items: {
