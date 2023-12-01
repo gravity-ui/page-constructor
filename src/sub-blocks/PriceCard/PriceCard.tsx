@@ -65,7 +65,12 @@ const PriceCard = (props: PriceCardProps) => {
                     {links && (
                         <div className={b('links')}>
                             {links.map((link) => (
-                                <LinkBlock key={link.url} textSize="m" {...link} />
+                                <LinkBlock
+                                    className={b('link')}
+                                    key={link.url}
+                                    textSize="m"
+                                    {...link}
+                                />
                             ))}
                         </div>
                     )}

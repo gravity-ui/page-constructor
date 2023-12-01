@@ -5,6 +5,7 @@ $block: '.#{$ns}link-block';
 
 #{$block} {
     $root: &;
+    margin-top: $indentXS;
 
     &__link {
         @include link();

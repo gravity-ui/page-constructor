@@ -115,6 +115,10 @@ $block: '.#{$ns}price-card';
         }
     }
 
+    &__link {
+        margin-top: 0;
+    }
+
     @media (max-width: map-get($gridBreakpoints, 'md')) {
         &__title,
         &__price {
