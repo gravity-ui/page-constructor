@@ -1,7 +1,6 @@
-import React, {Fragment, memo, useEffect, useState} from 'react';
+import React, {Fragment, memo} from 'react';
 
 import {Tabs, TabsProps} from '@gravity-ui/uikit';
-import yaml from 'js-yaml';
 import {JSONSchema4} from 'json-schema';
 
 import {Block, PageContent} from '../../../models';
@@ -10,9 +9,10 @@ import {BlockForm} from '../../components/BlockForm/BlockForm';
 import {CodeEditor} from '../../components/CodeEditor/CodeEditor';
 import {PagePropsForm, PagePropsFormData} from '../../components/PagePropsForm/PagePropsForm';
 import useFormSpec from '../../hooks/useFormSpec';
-import usePreviousValue from '../../hooks/usePreviousValue';
 import {FormTab} from '../../types';
 import {CodeEditorMessageProps} from '../../utils/validation';
+
+import {useCode} from './hooks';
 
 import './Form.scss';
 
@@ -49,30 +49,8 @@ export const Form = memo(
         codeFullscreeModeOn,
         onCodeFullscreeModeOnUpdate,
     }: FormProps) => {
-        const [code, setCode] = useState('');
-
-        const prevTab = usePreviousValue(activeTab);
-        const prevContentLength = usePreviousValue(content.blocks?.length);
-        const prevCodeFullscreeModeOn = usePreviousValue(codeFullscreeModeOn);
-
-        useEffect(() => {
-            const switchedToCodeEditing = activeTab !== prevTab && activeTab === FormTab.Code;
-            const blocksCountChanged = prevContentLength !== content.blocks?.length;
-            const codeModeSwitched = codeFullscreeModeOn !== prevCodeFullscreeModeOn;
-
-            if (blocksCountChanged || switchedToCodeEditing || codeModeSwitched) {
-                setCode(yaml.dump(content, {lineWidth: -1}));
-            }
-        }, [
-            activeTab,
-            prevTab,
-            content,
-            prevContentLength,
-            codeFullscreeModeOn,
-            prevCodeFullscreeModeOn,
-        ]);
-
         const {blocks, ...page} = content || {};
+        const code = useCode({activeTab, content, codeFullscreeModeOn});
         const spec = useFormSpec(schema);
         const {blocks: blocksSpec, page: pageSpec} = spec || {};
 
