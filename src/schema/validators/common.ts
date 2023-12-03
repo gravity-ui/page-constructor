@@ -23,7 +23,7 @@ export const playIconThemes = ['blue', 'grey'];
 export const videoControlsTypes = [MediaVideoControlsType.Default, MediaVideoControlsType.Custom];
 export const fileLinkTypes = ['vertical', 'horizontal'];
 
-export const dividerEnum = {enum: [0, 'xxs', 'xs', 's', 'm', 'l', 'xl', 'xxl', 'xxxl']};
+export const dividerEnum = {enum: ['0', 'xxs', 'xs', 's', 'm', 'l', 'xl', 'xxl', 'xxxl']};
 export const sizeNumber = {type: 'number', maximum: 12, minimum: 1};
 export const contentThemes = ['default', 'dark', 'light'];
 export const quoteTypes = Object.values(QuoteType);
