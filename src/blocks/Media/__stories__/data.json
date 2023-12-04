@@ -300,6 +300,7 @@
     },
     "withoutMargins": {
       "defaultMediaTitle": "Media Iframe without margins",
+      "smallMediaTitle": "Small Media Iframe without margins",
       "largeMediaTitle": "Large Media Iframe without margins",
       "mediaOnlyTitle": "Media Iframe Only  without margins",
       "content": {
@@ -323,6 +324,7 @@
   },
   "size": {
     "defaultMediaTitle": "Default Media",
+    "smallMediaTitle": "Small Media",
     "largeMediaTitle": "Large Media",
     "mediaOnlyTitle": "Media Only"
   },

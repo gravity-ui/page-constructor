@@ -76,7 +76,7 @@ const SizeTemplate: StoryFn<MapBlockModel> = (args) => (
                     {
                         ...args,
                         mediaSize: 'small',
-                        title: data.size.largeMediaTitle,
+                        title: data.size.smallMediaTitle,
                         map: {
                             ...data.ymap,
                             id: 'common-places-2',
@@ -88,7 +88,7 @@ const SizeTemplate: StoryFn<MapBlockModel> = (args) => (
                         title: data.size.largeMediaTitle,
                         map: {
                             ...data.ymap,
-                            id: 'common-places-2',
+                            id: 'common-places-3',
                         },
                     },
                     {
@@ -98,7 +98,7 @@ const SizeTemplate: StoryFn<MapBlockModel> = (args) => (
                         title: data.size.mediaOnlyTitle,
                         map: {
                             ...data.ymap,
-                            id: 'common-places-3',
+                            id: 'common-places-4',
                         },
                     },
                 ],

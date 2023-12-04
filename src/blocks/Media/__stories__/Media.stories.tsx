@@ -111,7 +111,7 @@ const SizeTemplate: StoryFn<MediaBlockModel> = (args) => (
                 {
                     ...args,
                     mediaSize: 'small',
-                    title: data.size.largeMediaTitle,
+                    title: data.size.smallMediaTitle,
                 },
                 {
                     ...args,
@@ -160,7 +160,7 @@ const IframeTemplate: StoryFn<MediaBlockModel> = (args) => (
                     ...args,
                     ...data.iframe.default.content,
                     mediaSize: 'small',
-                    title: data.size.largeMediaTitle,
+                    title: data.size.smallMediaTitle,
                 },
                 {
                     ...args,
@@ -184,7 +184,7 @@ const IframeTemplate: StoryFn<MediaBlockModel> = (args) => (
                     ...args,
                     ...data.iframe.withoutMargins.content,
                     mediaSize: 'small',
-                    title: data.iframe.withoutMargins.largeMediaTitle,
+                    title: data.iframe.withoutMargins.smallMediaTitle,
                 },
                 {
                     ...args,
