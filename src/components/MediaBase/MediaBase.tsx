@@ -29,6 +29,7 @@ export const MediaBase = (props: MediaBaseProps) => {
         mediaOnly,
         disableShadow = false,
         onScroll,
+        mediaOnlyColSizes = {all: 12, md: 8},
         ...mediaContentProps
     } = props;
     const {title, description} = mediaContentProps;
@@ -53,7 +54,7 @@ export const MediaBase = (props: MediaBaseProps) => {
                     className={b('header')}
                     title={title}
                     subtitle={description}
-                    colSizes={{all: 12}}
+                    colSizes={mediaOnlyColSizes}
                 />
             )}
             <Grid>
