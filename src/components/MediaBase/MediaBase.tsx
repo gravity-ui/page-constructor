@@ -22,7 +22,7 @@ interface MediaBaseProps extends MediaBaseBlockProps {
 export const MediaBase = (props: MediaBaseProps) => {
     const {
         children,
-        largeMedia,
+        mediaSize,
         direction = 'content-media',
         mobileDirection = 'content-media',
         animated,
@@ -36,12 +36,18 @@ export const MediaBase = (props: MediaBaseProps) => {
     const mediaSizes = useMemo(() => {
         return mediaOnly
             ? {[GridColumnSize.All]: 12}
-            : {[GridColumnSize.Md]: largeMedia ? 8 : 6, [GridColumnSize.All]: 12};
-    }, [mediaOnly, largeMedia]);
+            : {
+                  [GridColumnSize.Md]: mediaSize === 'large' ? 8 : mediaSize === 'small' ? 4 : 6,
+                  [GridColumnSize.All]: 12,
+              };
+    }, [mediaOnly, mediaSize]);
 
     const contentSizes = useMemo(() => {
-        return {[GridColumnSize.Md]: largeMedia ? 4 : 6, [GridColumnSize.All]: 12};
-    }, [largeMedia]);
+        return {
+            [GridColumnSize.Md]: mediaSize == 'large' ? 4 : mediaSize == 'small' ? 8 : 6,
+            [GridColumnSize.All]: 12,
+        };
+    }, [mediaSize]);
 
     const mediaContent = !mediaOnly && <MediaContent {...mediaContentProps} />;
     const card = children.type === Card ? children?.props.children : null;
