@@ -19,7 +19,7 @@ export default {
     title: 'Blocks/Media',
     component: Media,
     args: {
-        largeMedia: false,
+        mediaSize: 'default',
         mediaOnly: false,
         size: 'l',
     },
@@ -110,7 +110,12 @@ const SizeTemplate: StoryFn<MediaBlockModel> = (args) => (
                 },
                 {
                     ...args,
-                    largeMedia: true,
+                    mediaSize: 'small',
+                    title: data.size.largeMediaTitle,
+                },
+                {
+                    ...args,
+                    mediaSize: 'large',
                     title: data.size.largeMediaTitle,
                 },
                 {
@@ -154,7 +159,13 @@ const IframeTemplate: StoryFn<MediaBlockModel> = (args) => (
                 {
                     ...args,
                     ...data.iframe.default.content,
-                    largeMedia: true,
+                    mediaSize: 'small',
+                    title: data.size.largeMediaTitle,
+                },
+                {
+                    ...args,
+                    ...data.iframe.default.content,
+                    mediaSize: 'large',
                     title: data.size.largeMediaTitle,
                 },
                 {
@@ -172,7 +183,13 @@ const IframeTemplate: StoryFn<MediaBlockModel> = (args) => (
                 {
                     ...args,
                     ...data.iframe.withoutMargins.content,
-                    largeMedia: true,
+                    mediaSize: 'small',
+                    title: data.iframe.withoutMargins.largeMediaTitle,
+                },
+                {
+                    ...args,
+                    ...data.iframe.withoutMargins.content,
+                    mediaSize: 'large',
                     title: data.iframe.withoutMargins.largeMediaTitle,
                 },
                 {
