@@ -10,7 +10,7 @@ import {FormProps} from './Form';
 /**
  * Transorms PageConstructor content in JSON to YAML on code editor mode switching
  *
- * @param {Object} props - props parent form form
+ * @param {Object} props - props parent from form
  * @returns {string} - updated code
  */
 export function useCode({
