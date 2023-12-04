@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [4.42.2](https://github.com/gravity-ui/page-constructor/compare/v4.42.1...v4.42.2) (2023-12-04)
+
+
+### Bug Fixes
+
+* added missed colSizes. description to Icons and Companies blocks schema ([#737](https://github.com/gravity-ui/page-constructor/issues/737)) ([9c8467e](https://github.com/gravity-ui/page-constructor/commit/9c8467e6132533b903e1c6c0669122276973df36))
+
 ## [4.42.1](https://github.com/gravity-ui/page-constructor/compare/v4.42.0...v4.42.1) (2023-12-04)
 
 
