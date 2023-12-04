@@ -11,6 +11,7 @@ import {AnalyticsEventSchema} from './event';
 import {pixelEvents} from './pixel';
 
 export const mediaDirection = ['media-content', 'content-media'];
+export const mediaSize = ['default', 'small', 'large'];
 export const textSize = ['s', 'm', 'l'];
 export const containerSizesArray = ['sm', 'md', 'lg', 'xl', 'all'];
 export const sliderSizesArray = ['sm', 'md', 'lg', 'xl'];

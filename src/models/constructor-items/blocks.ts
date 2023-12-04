@@ -27,6 +27,7 @@ import {
     MapProps,
     MediaDirection,
     MediaProps,
+    MediaSize,
     TextSize,
     TextTheme,
     ThemedImage,
@@ -220,7 +221,7 @@ export interface CompaniesBlockProps extends Animatable {
 export interface MediaBaseBlockProps extends Animatable, MediaContentProps {
     direction?: MediaDirection;
     mobileDirection?: MediaDirection;
-    largeMedia?: boolean;
+    mediaSize?: MediaSize;
     mediaOnly?: boolean;
     disableShadow?: boolean;
 }

@@ -72,6 +72,7 @@ export type ColumnsCount = 1 | 2 | 3 | 4;
 export type LegendTableMarkerType = 'disk' | 'tick';
 export type LinkTheme = 'file-link' | 'normal' | 'back' | 'underline';
 export type MediaDirection = 'media-content' | 'content-media';
+export type MediaSize = 'default' | 'small' | 'large';
 export type PriceDescriptionColor = 'cornflower' | 'black';
 export type ContentSize = 's' | 'l';
 export type ContentTextSize = 's' | 'm' | 'l';
