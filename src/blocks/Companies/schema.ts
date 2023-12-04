@@ -11,6 +11,10 @@ export const CompaniesBlock = {
                 type: 'string',
                 contentType: 'text',
             },
+            description: {
+                type: 'string',
+                contentType: 'text',
+            },
             images: withTheme({
                 type: 'object',
                 required: ['desktop', 'tablet', 'mobile'],
