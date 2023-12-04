@@ -44,7 +44,7 @@ export const MediaBase = (props: MediaBaseProps) => {
 
     const contentSizes = useMemo(() => {
         return {
-            [GridColumnSize.Md]: mediaSize == 'large' ? 4 : mediaSize == 'small' ? 8 : 6,
+            [GridColumnSize.Md]: mediaSize === 'large' ? 4 : mediaSize === 'small' ? 8 : 6,
             [GridColumnSize.All]: 12,
         };
     }, [mediaSize]);
