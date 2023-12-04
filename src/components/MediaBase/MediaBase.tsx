@@ -1,4 +1,4 @@
-import React, {ReactElement, useMemo} from 'react';
+import React, {ReactElement, useCallback, useMemo} from 'react';
 
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
 import {Col, Grid, GridColumnSize, Row} from '../../grid';
@@ -33,21 +33,42 @@ export const MediaBase = (props: MediaBaseProps) => {
     } = props;
     const {title, description} = mediaContentProps;
 
+    const getSize = useCallback(
+        (isMedia: boolean) => {
+            if (isMedia) {
+                if (mediaSize === 'large') {
+                    return 8;
+                } else if (mediaSize === 'small') {
+                    return 4;
+                }
+                return 6;
+            } else {
+                if (mediaSize === 'large') {
+                    return 4;
+                } else if (mediaSize === 'small') {
+                    return 8;
+                }
+                return 6;
+            }
+        },
+        [mediaSize],
+    );
+
     const mediaSizes = useMemo(() => {
         return mediaOnly
             ? {[GridColumnSize.All]: 12}
             : {
-                  [GridColumnSize.Md]: mediaSize === 'large' ? 8 : mediaSize === 'small' ? 4 : 6,
+                  [GridColumnSize.Md]: getSize(true),
                   [GridColumnSize.All]: 12,
               };
-    }, [mediaOnly, mediaSize]);
+    }, [mediaOnly, getSize]);
 
     const contentSizes = useMemo(() => {
         return {
-            [GridColumnSize.Md]: mediaSize === 'large' ? 4 : mediaSize === 'small' ? 8 : 6,
+            [GridColumnSize.Md]: getSize(false),
             [GridColumnSize.All]: 12,
         };
-    }, [mediaSize]);
+    }, [getSize]);
 
     const mediaContent = !mediaOnly && <MediaContent {...mediaContentProps} />;
     const card = children.type === Card ? children?.props.children : null;
