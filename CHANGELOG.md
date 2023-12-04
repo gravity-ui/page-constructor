@@ -1,6 +1,15 @@
 # Changelog
 
 
+## [4.42.1](https://github.com/gravity-ui/page-constructor/compare/v4.42.0...v4.42.1) (2023-12-04)
+
+
+### Bug Fixes
+
+* added indent field to block base schema ([#738](https://github.com/gravity-ui/page-constructor/issues/738)) ([7171df4](https://github.com/gravity-ui/page-constructor/commit/7171df4b329449525edda206eab15c75139d7aec))
+* code editor ([#740](https://github.com/gravity-ui/page-constructor/issues/740)) ([087430f](https://github.com/gravity-ui/page-constructor/commit/087430f08e895615df16d341870de55d39a0de59))
+* **Qoute:** refacttoring ([#734](https://github.com/gravity-ui/page-constructor/issues/734)) ([2b05933](https://github.com/gravity-ui/page-constructor/commit/2b059330338937a14e0e888dd8b1343bdadfa32a))
+
 ## [4.42.0](https://github.com/gravity-ui/page-constructor/compare/v4.41.0...v4.42.0) (2023-12-01)
 
 
