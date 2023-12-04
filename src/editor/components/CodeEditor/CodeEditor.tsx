@@ -1,12 +1,13 @@
-import React, {useCallback, useMemo, useState} from 'react';
+import React, {useCallback, useContext, useState} from 'react';
 
 import {ChevronsCollapseUpRight, ChevronsExpandUpRight} from '@gravity-ui/icons';
 import {Button, Icon} from '@gravity-ui/uikit';
-import yaml from 'js-yaml';
+import debounce from 'lodash/debounce';
 import MonacoEditor from 'react-monaco-editor';
 
-import {PageContent} from '../../../models';
+import {PageContent, Theme} from '../../../models';
 import {block} from '../../../utils';
+import {EditorContext} from '../../context';
 import {parseCode} from '../../utils/code';
 import {CodeEditorMessageProps} from '../../utils/validation';
 
@@ -17,7 +18,7 @@ import './CodeEditor.scss';
 const b = block('code-editor');
 
 interface CodeEditorProps {
-    content: PageContent;
+    code: string;
     fullscreenModeOn: boolean;
     validator: (code: string) => CodeEditorMessageProps;
     onFullscreenModeOnUpdate: (fullscreenModeOn: boolean) => void;
@@ -26,22 +27,23 @@ interface CodeEditorProps {
 }
 
 export const CodeEditor = ({
-    content,
     onChange,
     validator,
     fullscreenModeOn,
     onFullscreenModeOnUpdate,
+    code,
 }: CodeEditorProps) => {
-    const value = useMemo(() => yaml.dump(content), [content]);
-    const [message, setMessage] = useState(() => validator(value));
+    const [message, setMessage] = useState(() => validator(code));
+    const {theme = Theme.Light} = useContext(EditorContext);
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     const onChangeWithValidation = useCallback(
-        (code: string) => {
-            const validationResult = validator(code);
+        debounce((newCode: string) => {
+            const validationResult = validator(newCode);
 
             setMessage(validationResult);
-            onChange(parseCode(code));
-        },
+            onChange(parseCode(newCode));
+        }, 200),
         [onChange, validator],
     );
 
@@ -61,11 +63,11 @@ export const CodeEditor = ({
             <div className={b('code')}>
                 <MonacoEditor
                     key={String(fullscreenModeOn)}
-                    value={value}
+                    value={code}
                     language="yaml"
                     options={options}
                     onChange={onChangeWithValidation}
-                    theme="vs"
+                    theme={theme === Theme.Dark ? 'vs-dark' : 'vs'}
                 />
             </div>
             <div className={b('footer')}>

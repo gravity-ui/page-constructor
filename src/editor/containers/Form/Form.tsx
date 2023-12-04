@@ -12,6 +12,8 @@ import useFormSpec from '../../hooks/useFormSpec';
 import {FormTab} from '../../types';
 import {CodeEditorMessageProps} from '../../utils/validation';
 
+import {useCode} from './hooks';
+
 import './Form.scss';
 
 const b = block('editor-form');
@@ -48,6 +50,7 @@ export const Form = memo(
         onCodeFullscreeModeOnUpdate,
     }: FormProps) => {
         const {blocks, ...page} = content || {};
+        const code = useCode({activeTab, content, codeFullscreeModeOn});
         const spec = useFormSpec(schema);
         const {blocks: blocksSpec, page: pageSpec} = spec || {};
 
@@ -104,7 +107,7 @@ export const Form = memo(
             case FormTab.Code: {
                 form = (
                     <CodeEditor
-                        content={content}
+                        code={code}
                         onChange={onChange}
                         validator={codeValidator}
                         fullscreenModeOn={codeFullscreeModeOn}
