@@ -27,6 +27,7 @@ import {
     BasicCard,
     Divider,
     MediaCardBlock,
+    PriceCardBlock,
     PriceDetailedBlock,
     Quote,
 } from './validators/sub-blocks';
@@ -61,6 +62,7 @@ export const cardSchemas = {
     ...BackgroundCard,
     ...Quote,
     ...BasicCard,
+    ...PriceCardBlock,
 };
 
 export const constructorBlockSchemaNames = [
@@ -99,4 +101,5 @@ export const constructorCardSchemaNames = [
     'quote',
     'basic-card',
     'layout-item',
+    'price-card',
 ];

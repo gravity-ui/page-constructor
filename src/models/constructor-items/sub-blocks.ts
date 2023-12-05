@@ -205,6 +205,10 @@ export type BasicCardModel = {
     type: SubBlockType.BasicCard;
 } & BasicCardProps;
 
+export type PriceCardModel = {
+    type: SubBlockType.PriceCard;
+} & PriceCardProps;
+
 export type SubBlockModels =
     | DividerModel
     | QuoteModel
@@ -214,6 +218,7 @@ export type SubBlockModels =
     | HubspotFormModel
     | BannerCardModel
     | BasicCardModel
+    | PriceCardModel
     | LayoutItemModel;
 
 export type SubBlock = SubBlockModels;
