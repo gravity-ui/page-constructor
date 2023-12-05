@@ -1,11 +1,9 @@
-import {
-    AnimatableProps,
-    BaseProps,
-    ButtonBlock,
-    CardBase,
-    LinkProps,
-    MediaProps,
-} from '../../schema/validators/common';
+import pick from 'lodash/pick';
+
+import {BaseProps, ButtonBlock, CardBase, LinkProps} from '../../schema/validators/common';
+import {ContentBase} from '../Content/schema';
+
+const PriceCardContentProps = pick(ContentBase, ['theme']);
 
 export const PriceCardBlock = {
     'price-card': {
@@ -14,8 +12,7 @@ export const PriceCardBlock = {
         properties: {
             ...BaseProps,
             ...CardBase,
-            ...MediaProps,
-            ...AnimatableProps,
+            ...PriceCardContentProps,
             title: {
                 type: 'string',
             },
