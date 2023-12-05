@@ -42,11 +42,18 @@ export const MediaBlockBaseProps = {
     mediaOnly: {
         type: 'boolean',
     },
+    /**
+     * @deprecated use border='none' or border='line' instead
+     */
     disableShadow: {
         type: 'boolean',
     },
     button: ButtonBlock,
     mediaOnlyColSizes: containerSizesObject,
+    border: {
+        type: 'string',
+        enum: ['shadow', 'line', 'none'],
+    },
 };
 
 export const MediaBlock = {

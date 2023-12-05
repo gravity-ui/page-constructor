@@ -386,7 +386,8 @@ export interface TitleItemBaseProps {
 }
 
 // card
-export type CardBorder = 'shadow' | 'line' | 'none';
+export type MediaBorder = 'shadow' | 'line' | 'none';
+export type CardBorder = MediaBorder;
 
 export interface CardBaseProps {
     border?: CardBorder;
@@ -475,4 +476,8 @@ export interface YandexFormProps extends AnalyticsEventsBase {
 
     metrikaGoals?: string | string[];
     pixelEvents?: string | string[] | PixelEvent | PixelEvent[];
+}
+
+export interface WithBorder {
+    border?: MediaBorder;
 }

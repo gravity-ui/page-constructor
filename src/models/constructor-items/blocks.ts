@@ -34,6 +34,7 @@ import {
     ThemedMediaVideoProps,
     TitleItemBaseProps,
     TitleItemProps,
+    WithBorder,
     YandexFormProps,
 } from './common';
 import {BannerCardProps, HubspotFormProps, SubBlock, SubBlockModels} from './sub-blocks';
@@ -234,7 +235,7 @@ export interface MediaContentProps
     button?: ButtonProps;
 }
 
-export interface MediaBlockProps extends MediaBaseBlockProps {
+export interface MediaBlockProps extends MediaBaseBlockProps, WithBorder {
     media: ThemeSupporting<MediaProps>;
 }
 

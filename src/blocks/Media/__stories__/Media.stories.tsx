@@ -193,7 +193,9 @@ export const Video = VideoTemplate.bind({});
 export const DataLens = ImageSliderTemplate.bind({});
 export const Size = SizeTemplate.bind({});
 export const Direction = DirectionTemplate.bind({});
+export const WithoutShadowDeprecated = ImageSliderTemplate.bind({});
 export const WithoutShadow = ImageSliderTemplate.bind({});
+export const WithBorder = ImageSliderTemplate.bind({});
 export const Iframe = IframeTemplate.bind({});
 
 const DefaultArgs = {
@@ -214,10 +216,20 @@ DataLens.args = {
 } as MediaBlockProps;
 Size.args = DefaultArgs as MediaBlockProps;
 Direction.args = DefaultArgs as MediaBlockProps;
-WithoutShadow.args = {
+WithoutShadowDeprecated.args = {
     ...DefaultArgs,
     ...data.withoutShadow.content,
     disableShadow: true,
+} as MediaBlockProps;
+WithoutShadow.args = {
+    ...DefaultArgs,
+    ...data.withoutShadow.content,
+    border: 'none',
+} as MediaBlockProps;
+WithBorder.args = {
+    ...DefaultArgs,
+    ...data.withoutShadow.content,
+    border: 'line',
 } as MediaBlockProps;
 Iframe.args = {
     ...DefaultArgs,

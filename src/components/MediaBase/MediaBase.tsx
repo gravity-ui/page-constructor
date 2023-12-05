@@ -27,6 +27,9 @@ export const MediaBase = (props: MediaBaseProps) => {
         mobileDirection = 'content-media',
         animated,
         mediaOnly,
+        /**
+         * @deprecated use custom class for media-component
+         */
         disableShadow = false,
         onScroll,
         mediaOnlyColSizes = {all: 12, md: 8},
