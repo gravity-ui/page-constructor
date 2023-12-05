@@ -461,6 +461,10 @@ export const ButtonProps = {
         type: 'string',
         enum: ['_self', '_blank', '_parent', '_top'],
     },
+    width: {
+        type: 'string',
+        enum: ['auto', 'max'],
+    },
 };
 
 export const MenuProps = {
