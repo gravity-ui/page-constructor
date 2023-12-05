@@ -1,6 +1,15 @@
 # Changelog
 
 
+## [4.42.3](https://github.com/gravity-ui/page-constructor/compare/v4.42.2...v4.42.3) (2023-12-05)
+
+
+### Bug Fixes
+
+* add button width to validator schema ([#745](https://github.com/gravity-ui/page-constructor/issues/745)) ([2bc3896](https://github.com/gravity-ui/page-constructor/commit/2bc3896164cabe267a0290a7c91192dbb7d43abe))
+* add price card to sub blocks ([#744](https://github.com/gravity-ui/page-constructor/issues/744)) ([dcffe83](https://github.com/gravity-ui/page-constructor/commit/dcffe83bb8fa2422e6847dfde2f90f75b8196420))
+* media only title ([#736](https://github.com/gravity-ui/page-constructor/issues/736)) ([a15d5ae](https://github.com/gravity-ui/page-constructor/commit/a15d5ae1b586869b1516498745f1402ea53c3ae0))
+
 ## [4.42.2](https://github.com/gravity-ui/page-constructor/compare/v4.42.1...v4.42.2) (2023-12-04)
 
 
