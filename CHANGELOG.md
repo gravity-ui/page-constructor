@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [4.42.4](https://github.com/gravity-ui/page-constructor/compare/v4.42.3...v4.42.4) (2023-12-06)
+
+
+### Bug Fixes
+
+* add theme to price card validator schema ([#746](https://github.com/gravity-ui/page-constructor/issues/746)) ([aa1c6b4](https://github.com/gravity-ui/page-constructor/commit/aa1c6b47d9381198f5bf066e389fc80a3541393e))
+* background position for short form ([#747](https://github.com/gravity-ui/page-constructor/issues/747)) ([1ddb3e9](https://github.com/gravity-ui/page-constructor/commit/1ddb3e91ed54888d0d3b13d9b609903b550b8717))
+
 ## [4.42.3](https://github.com/gravity-ui/page-constructor/compare/v4.42.2...v4.42.3) (2023-12-05)
 
 
