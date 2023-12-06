@@ -1,11 +1,5 @@
-import {
-    AnimatableProps,
-    BaseProps,
-    ButtonBlock,
-    CardBase,
-    LinkProps,
-    MediaProps,
-} from '../../schema/validators/common';
+import {BaseProps, ButtonBlock, CardBase, LinkProps} from '../../schema/validators/common';
+import {ContentBase} from '../Content/schema';
 
 export const PriceCardBlock = {
     'price-card': {
@@ -14,8 +8,7 @@ export const PriceCardBlock = {
         properties: {
             ...BaseProps,
             ...CardBase,
-            ...MediaProps,
-            ...AnimatableProps,
+            theme: ContentBase.theme,
             title: {
                 type: 'string',
             },
