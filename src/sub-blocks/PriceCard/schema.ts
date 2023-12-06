@@ -1,9 +1,5 @@
-import pick from 'lodash/pick';
-
 import {BaseProps, ButtonBlock, CardBase, LinkProps} from '../../schema/validators/common';
 import {ContentBase} from '../Content/schema';
-
-const PriceCardContentProps = pick(ContentBase, ['theme']);
 
 export const PriceCardBlock = {
     'price-card': {
@@ -12,7 +8,7 @@ export const PriceCardBlock = {
         properties: {
             ...BaseProps,
             ...CardBase,
-            ...PriceCardContentProps,
+            theme: ContentBase.theme,
             title: {
                 type: 'string',
             },
