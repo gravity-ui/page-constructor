@@ -80,6 +80,7 @@ const FitTemplate: StoryFn<HeaderBlockModel> = (args) => (
 
 const VerticalOffsetTemplate: StoryFn<HeaderBlockModel> = (args) => (
     <Fragment>
+        <DefaultTemplate {...args} title={getVerticalOffsetTitle('«0»')} verticalOffset="0" />
         <DefaultTemplate {...args} title={getVerticalOffsetTitle('«S»')} verticalOffset="s" />
         <DefaultTemplate {...args} title={getVerticalOffsetTitle('«M»')} verticalOffset="m" />
         <DefaultTemplate {...args} title={getVerticalOffsetTitle('«L»')} verticalOffset="l" />
