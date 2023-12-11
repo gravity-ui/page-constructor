@@ -80,6 +80,7 @@ $block: '.#{$ns}price-card';
 
         &-details {
             @include text-size(body-2);
+            white-space: pre-wrap;
         }
     }
 
