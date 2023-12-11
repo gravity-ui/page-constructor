@@ -156,7 +156,7 @@ export interface HeaderBlockProps {
     mediaView?: 'fit' | 'full';
     background?: ThemedHeaderBlockBackground;
     theme?: 'light' | 'dark';
-    verticalOffset?: 's' | 'm' | 'l' | 'xl';
+    verticalOffset?: '0' | 's' | 'm' | 'l' | 'xl';
     breadcrumbs?: HeaderBreadCrumbsProps;
     status?: JSX.Element;
     renderTitle?: (title: string) => React.ReactNode;
