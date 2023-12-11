@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [4.42.5](https://github.com/gravity-ui/page-constructor/compare/v4.42.4...v4.42.5) (2023-12-11)
+
+
+### Bug Fixes
+
+* add pre-wrap for price card details ([#749](https://github.com/gravity-ui/page-constructor/issues/749)) ([f6c77bd](https://github.com/gravity-ui/page-constructor/commit/f6c77bdee1079fe4414860ab78abe11cd6622c75))
+
 ## [4.42.4](https://github.com/gravity-ui/page-constructor/compare/v4.42.3...v4.42.4) (2023-12-06)
 
 
