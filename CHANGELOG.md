@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [4.43.0](https://github.com/gravity-ui/page-constructor/compare/v4.42.5...v4.43.0) (2023-12-11)
+
+
+### Features
+
+* added '0' vertical offset for header block ([#751](https://github.com/gravity-ui/page-constructor/issues/751)) ([3601e7f](https://github.com/gravity-ui/page-constructor/commit/3601e7fdf107d2e400cbd9f46edeae4cd1bf1c6c))
+
 ## [4.42.5](https://github.com/gravity-ui/page-constructor/compare/v4.42.4...v4.42.5) (2023-12-11)
 
 
