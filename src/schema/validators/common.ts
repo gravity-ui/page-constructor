@@ -602,10 +602,14 @@ const IframeProps = {
             type: 'string',
         },
         height: {
-            type: 'number',
+            oneOf: [{type: 'number'}, {type: 'string', enum: ['auto']}],
         },
         width: {
             type: 'number',
+        },
+        justifyContent: {
+            type: 'string',
+            enum: ['left', 'right', 'center'],
         },
     },
 };

@@ -14,12 +14,28 @@ $block: '.#{$ns}media-component-iframe';
         }
     }
 
+    &_justify-content {
+        &_left {
+            text-align: left;
+        }
+
+        &_center {
+            text-align: center;
+        }
+
+        &_right {
+            text-align: right;
+        }
+    }
+
     #{$block}__iframe {
         border-radius: 0;
     }
 
     &__item {
-        width: 100%;
+        &_fixed-width {
+            width: 100%;
+        }
 
         &_fixed-height {
             height: 100%;

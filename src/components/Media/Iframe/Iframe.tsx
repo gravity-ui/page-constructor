@@ -13,12 +13,13 @@ const b = block('media-component-iframe');
 
 const Iframe = (props: MediaComponentIframeProps) => {
     const {iframe, margins = true} = props;
-    const {height = 400, src, width, name, title} = iframe;
+    const {height = 400, src, width, name, title, justifyContent = 'center'} = iframe;
 
     const formContainerRef = useRef<HTMLDivElement>(null);
     const iframeRef = useRef<HTMLIFrameElement>();
     const [iframeId] = useState(uuidv4());
-    const [fixedHeight] = useState(typeof height === 'number');
+    const [fullHeight] = useState(typeof height === 'number');
+    const [fullWidth] = useState(typeof width === 'number');
 
     const updateFormIframe = useCallback(
         (container: HTMLDivElement) => {
@@ -35,11 +36,14 @@ const Iframe = (props: MediaComponentIframeProps) => {
                 iframeRef.current.frameBorder = '0';
                 iframeRef.current.scrolling = 'no';
                 iframeRef.current.width = iframeWidth;
-                iframeRef.current.className = b('item', {'fixed-height': fixedHeight});
+                iframeRef.current.className = b('item', {
+                    'fixed-height': fullHeight,
+                    'fixed-width': !fullWidth,
+                });
                 container.appendChild(iframeRef.current);
             }
         },
-        [src, width, iframeId, name, title, fixedHeight],
+        [src, width, iframeId, name, title, fullHeight, fullWidth],
     );
 
     const handleMessage = useCallback(
@@ -79,7 +83,13 @@ const Iframe = (props: MediaComponentIframeProps) => {
         return () => window.removeEventListener('message', handleMessage);
     }, [addIframe, handleMessage]);
 
-    return iframe ? <div className={b({margins})} ref={formContainerRef} style={{height}} /> : null;
+    return iframe ? (
+        <div
+            className={b({margins, 'justify-content': justifyContent})}
+            ref={formContainerRef}
+            style={{height}}
+        />
+    ) : null;
 };
 
 export default Iframe;

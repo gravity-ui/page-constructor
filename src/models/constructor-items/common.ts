@@ -344,12 +344,15 @@ export interface DataLensObjectProps {
     theme: 'dark' | 'light';
 }
 
+export type JustifyValues = 'left' | 'right' | 'center';
+
 export interface IframeProps {
     src: string;
     width?: number;
     height?: number | string;
     title?: string;
     name?: string;
+    justifyContent?: JustifyValues;
 }
 
 export type DataLensProps = string | DataLensObjectProps;
