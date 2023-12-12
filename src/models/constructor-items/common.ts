@@ -347,7 +347,7 @@ export interface DataLensObjectProps {
 export interface IframeProps {
     src: string;
     width?: number;
-    height?: number;
+    height?: number | string;
     title?: string;
     name?: string;
 }
