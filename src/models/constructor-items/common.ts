@@ -348,7 +348,7 @@ export type JustifyValues = 'left' | 'right' | 'center';
 
 export interface IframeProps {
     src: string;
-    width?: number;
+    width?: number | string;
     height?: number | string;
     title?: string;
     name?: string;
