@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useRef, useState} from 'react';
+import React, {useCallback, useEffect, useRef} from 'react';
 
 import {v4 as uuidv4} from 'uuid';
 
@@ -13,20 +13,25 @@ const b = block('media-component-iframe');
 
 const Iframe = (props: MediaComponentIframeProps) => {
     const {iframe, margins = true} = props;
-    const {height = 400, src, width, name, title, justifyContent = 'center'} = iframe;
+    const {height = 400, src, width = '100%', name, title, justifyContent = 'center'} = iframe;
 
     const formContainerRef = useRef<HTMLDivElement>(null);
     const iframeRef = useRef<HTMLIFrameElement>();
-    const [iframeId] = useState(uuidv4());
-    const [fullHeight] = useState(typeof height === 'number');
-    const [fullWidth] = useState(typeof width === 'number');
+    const {current: iframeId} = useRef(uuidv4());
 
-    const updateFormIframe = useCallback(
+    const updateIframe = useCallback(
         (container: HTMLDivElement) => {
             if (iframeRef.current) {
                 iframeRef.current.src = src;
             } else {
-                const iframeWidth = typeof width === 'number' ? `${width}px` : '100%';
+                const iframeWidth = typeof width === 'number' ? `${width}px` : width;
+                let iframeHeight: string | number | undefined =
+                    typeof height === 'number' ? `${height}px` : height;
+
+                if (height === 'auto') {
+                    iframeHeight = undefined;
+                }
+
                 iframeRef.current = document.createElement('iframe');
                 iframeRef.current.src = src;
                 iframeRef.current.id = iframeId;
@@ -36,14 +41,15 @@ const Iframe = (props: MediaComponentIframeProps) => {
                 iframeRef.current.frameBorder = '0';
                 iframeRef.current.scrolling = 'no';
                 iframeRef.current.width = iframeWidth;
-                iframeRef.current.className = b('item', {
-                    'fixed-height': fullHeight,
-                    'fixed-width': !fullWidth,
-                });
+                iframeRef.current.style.width = iframeWidth;
+                if (iframeHeight) {
+                    iframeRef.current.style.height = iframeHeight;
+                }
+
                 container.appendChild(iframeRef.current);
             }
         },
-        [src, width, iframeId, name, title, fullHeight, fullWidth],
+        [src, width, iframeId, name, title, height],
     );
 
     const handleMessage = useCallback(
@@ -55,27 +61,30 @@ const Iframe = (props: MediaComponentIframeProps) => {
 
             try {
                 const parsed = JSON.parse(data);
-                const frameHeight = parsed['iframe-height'];
-                const {message} = parsed;
+                const iframeHeight = parsed['iframe-height'];
+                const {message, name: iframeName} = parsed;
+                if (iframeName !== name && iframeName !== iframeId) {
+                    return;
+                }
 
-                if (iframeRef.current && frameHeight && !message) {
-                    iframeRef.current.height = `${frameHeight}px`;
+                if (iframeRef.current && iframeHeight && !message) {
+                    iframeRef.current.height = `${iframeHeight}px`;
                 }
             } catch (error) {
                 return;
             }
         },
-        [height],
+        [height, iframeId, name],
     );
 
     const addIframe = useCallback(() => {
         const container = formContainerRef.current;
 
         if (container) {
-            updateFormIframe(container);
+            updateIframe(container);
             window.addEventListener('message', handleMessage, {passive: true});
         }
-    }, [updateFormIframe, handleMessage]);
+    }, [updateIframe, handleMessage]);
 
     useEffect(() => {
         addIframe();
@@ -85,9 +94,9 @@ const Iframe = (props: MediaComponentIframeProps) => {
 
     return iframe ? (
         <div
-            className={b({margins, 'justify-content': justifyContent})}
+            className={b({margins})}
             ref={formContainerRef}
-            style={{height}}
+            style={{height, textAlign: justifyContent}}
         />
     ) : null;
 };

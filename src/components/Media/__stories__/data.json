@@ -26,6 +26,16 @@
       }
     }
   },
+  "iframeForm": {
+    "content": {
+      "iframe": {
+        "src": "https://forms.yandex.ru/cloud/61a4e639d4d24e0dbba36f5c/?viewMode=docs&id=components-yandexform--docs&args=&url=http%3A%2F%2Flocalhost%3A7009%2Fiframe.html&iframe=1&lang=en&theme=cloud-www",
+        "name": "iframe-form-1",
+        "height": "auto",
+        "justifyContent": "center"
+      }
+    }
+  },
   "youtube": {
     "content": {
       "youtube": "https://youtu.be/0Qd3T6skprA",
