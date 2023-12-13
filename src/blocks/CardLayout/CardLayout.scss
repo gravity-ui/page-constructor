@@ -8,5 +8,28 @@ $block: '.#{$ns}card-layout-block';
         margin-top: $indentSM;
     }
 
+    &__content {
+        position: relative;
+
+        &_with-background {
+            padding: 8px 32px 48px;
+            margin-top: 24px;
+        }
+    }
+
+    &__image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 40px;
+
+        img {
+            object-fit: cover;
+            object-position: left;
+        }
+    }
+
     @include animate-slides(#{$block}__item);
 }

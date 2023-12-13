@@ -1,3 +1,4 @@
+import {ImageObjectProps} from '../../components/Image/schema';
 import {
     AnimatableProps,
     BlockBaseProps,
@@ -14,6 +15,7 @@ export const CardLayoutProps = {
         ...AnimatableProps,
         ...BlockHeaderProps,
         colSizes: containerSizesObject,
+        background: ImageObjectProps,
         children: ChildrenCardsProps,
     },
 };
