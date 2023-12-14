@@ -30,7 +30,8 @@ export const ConstructorBlock: React.FC<WithChildren<ConstructorBlockProps>> = (
         [data],
     );
 
-    const {top, bottom} = indent || {top: 'l', bottom: 'l'};
+    const {top, bottom} =
+        indent || data.resetPaddings ? {top: '0', bottom: '0'} : {top: 'l', bottom: 'l'};
 
     return (
         <BlockDecoration type={type} index={index} {...blockBaseProps}>
