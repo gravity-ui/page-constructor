@@ -21,7 +21,6 @@ export type ConstructorBlock = (ConstructorItem | CustomBlock) & {
         top?: string;
         bottom?: string;
     };
-    resetPaddings?: boolean;
 };
 
 export interface PageContent extends Animatable {
