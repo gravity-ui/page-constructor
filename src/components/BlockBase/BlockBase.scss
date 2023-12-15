@@ -10,6 +10,8 @@ $block: '.#{$ns}block-base';
 
     @include block();
 
+    @include indents(&);
+
     @include add-specificity(&) {
         @media only screen and (max-width: map-get($gridBreakpoints, 'sm')) {
             margin-top: $indentM;

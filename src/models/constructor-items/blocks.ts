@@ -2,7 +2,7 @@ import React from 'react';
 
 import {ButtonSize} from '@gravity-ui/uikit';
 
-import {GridColumnSize, GridColumnSizesType} from '../../grid/types';
+import {GridColumnSize, GridColumnSizesType, IndentValue} from '../../grid/types';
 import {ThemeSupporting} from '../../utils';
 import {AnalyticsEventsBase} from '../common';
 
@@ -73,6 +73,10 @@ export interface BlockBaseProps {
     visible?: GridColumnSize;
     /** @deprecated */
     resetPaddings?: boolean;
+    indent?: {
+        top?: IndentValue;
+        bottom?: IndentValue;
+    };
     qa?: string;
 }
 

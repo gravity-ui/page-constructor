@@ -16,14 +16,7 @@ export interface Menu {
     title: string;
 }
 
-export type ConstructorBlock = (ConstructorItem | CustomBlock) & {
-    indent?: {
-        top?: string;
-        bottom?: string;
-    };
-};
-
-export type WithResetPaddings<T> = T & {resetPaddings?: boolean};
+export type ConstructorBlock = ConstructorItem | CustomBlock;
 
 export interface PageContent extends Animatable {
     blocks: ConstructorBlock[];

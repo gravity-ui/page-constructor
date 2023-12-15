@@ -58,3 +58,5 @@ export interface GridColumnClassParams {
     justifyContent?: GridJustifyContent;
     reset?: boolean;
 }
+
+export type IndentValue = '0' | 'xs' | 's' | 'm' | 'l' | 'xl';
