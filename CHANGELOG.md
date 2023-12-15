@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [4.43.1](https://github.com/gravity-ui/page-constructor/compare/v4.43.0...v4.43.1) (2023-12-15)
+
+
+### Bug Fixes
+
+* resetPaddings for base-block ([#756](https://github.com/gravity-ui/page-constructor/issues/756)) ([03ab2ee](https://github.com/gravity-ui/page-constructor/commit/03ab2eef46ebea2dbc0a277dce379362e91e80a1))
+
 ## [4.43.0](https://github.com/gravity-ui/page-constructor/compare/v4.42.5...v4.43.0) (2023-12-11)
 
 
