@@ -23,6 +23,8 @@ export type ConstructorBlock = (ConstructorItem | CustomBlock) & {
     };
 };
 
+export type WithResetPaddings<T> = T & {resetPaddings?: boolean};
+
 export interface PageContent extends Animatable {
     blocks: ConstructorBlock[];
     menu?: Menu;

@@ -8,13 +8,14 @@ import {
     BlockDecorationProps,
     ConstructorBlock as ConstructorBlockType,
     WithChildren,
+    WithResetPaddings,
 } from '../../../../models';
 import {block} from '../../../../utils';
 
 import './ConstructorBlock.scss';
 
 interface ConstructorBlockProps extends Pick<BlockDecorationProps, 'index'> {
-    data: ConstructorBlockType & {resetPaddings?: boolean};
+    data: WithResetPaddings<ConstructorBlockType>;
 }
 
 const b = block('constructor-block');
