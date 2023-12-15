@@ -24,20 +24,15 @@ export const ConstructorBlock: React.FC<WithChildren<ConstructorBlockProps>> = (
     data,
     children,
 }) => {
-    const {type, indent} = data;
+    const {type} = data;
     const blockBaseProps = useMemo(
-        () => pick(data, ['anchor', 'visible', 'resetPaddings']),
+        () => pick(data, ['anchor', 'visible', 'resetPaddings', 'indent']),
         [data],
     );
 
-    const {top, bottom} = indent || {top: 'l', bottom: 'l'};
-
     return (
         <BlockDecoration type={type} index={index} {...blockBaseProps}>
-            <BlockBase
-                className={b({type, indentTop: top, indentBottom: bottom})}
-                {...blockBaseProps}
-            >
+            <BlockBase className={b({type})} {...blockBaseProps}>
                 {children}
             </BlockBase>
         </BlockDecoration>
