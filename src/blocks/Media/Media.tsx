@@ -13,14 +13,19 @@ const b = block('media-block');
 export const MediaBlock = (props: MediaBlockProps) => {
     const {media, border = 'shadow', disableShadow} = props;
 
-    const disableMediaBaseShadow = disableShadow || border !== 'shadow';
+    const mediaBorder = disableShadow && border === 'shadow' ? 'none' : border;
 
     const [play, setPlay] = useState<boolean>(false);
     const theme = useTheme();
     const mediaThemed = getThemedValue(media, theme);
 
     return (
-        <MediaBase {...props} onScroll={() => setPlay(true)} disableShadow={disableMediaBaseShadow}>
+        <MediaBase
+            {...props}
+            onScroll={() => setPlay(true)}
+            border={mediaBorder}
+            disableShadow={disableShadow}
+        >
             <MediaBase.Card>
                 <Media
                     {...mediaThemed}

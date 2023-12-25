@@ -218,7 +218,7 @@ export interface CompaniesBlockProps extends Animatable {
     images: ThemeSupporting<ImageDeviceProps>;
 }
 
-export interface MediaBaseBlockProps extends Animatable, MediaContentProps {
+export interface MediaBaseBlockProps extends Animatable, MediaContentProps, WithBorder {
     direction?: MediaDirection;
     mobileDirection?: MediaDirection;
     largeMedia?: boolean;
