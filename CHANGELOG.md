@@ -1,6 +1,18 @@
 # Changelog
 
 
+## [4.44.0](https://github.com/gravity-ui/page-constructor/compare/v4.43.1...v4.44.0) (2024-01-09)
+
+
+### Features
+
+* add background for card-layout-block ([#754](https://github.com/gravity-ui/page-constructor/issues/754)) ([86b5523](https://github.com/gravity-ui/page-constructor/commit/86b552349217a01b74ff784213b54a4550dcb0b2))
+
+
+### Bug Fixes
+
+* update Media block storybook docs ([#760](https://github.com/gravity-ui/page-constructor/issues/760)) ([e4519c2](https://github.com/gravity-ui/page-constructor/commit/e4519c219e3c837ba319ed1dcbc9f072111e8bdc))
+
 ## [4.43.1](https://github.com/gravity-ui/page-constructor/compare/v4.43.0...v4.43.1) (2023-12-15)
 
 
