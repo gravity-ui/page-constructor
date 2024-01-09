@@ -12,8 +12,8 @@ $block: '.#{$ns}card-layout-block';
         position: relative;
 
         &_with-background {
-            padding: 8px 32px 48px;
-            margin-top: 24px;
+            padding: $indentXXXS $indentM $indentL;
+            margin-top: $indentSM;
         }
     }
 
