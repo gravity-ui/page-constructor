@@ -1,6 +1,8 @@
 import React from 'react';
 
-import {AnimateBlock, Title} from '../../components';
+import isEmpty from 'lodash/isEmpty';
+
+import {AnimateBlock, BackgroundImage, Title} from '../../components';
 import {Col, GridColumnSizesType, Row} from '../../grid';
 import {
     CardLayoutBlockProps as CardLayoutBlockParams,
@@ -29,19 +31,29 @@ const CardLayout: React.FC<CardLayoutBlockProps> = ({
     children,
     className,
     titleClassName,
-}) => (
-    <AnimateBlock className={b(null, className)} animate={animated}>
-        {(title || description) && (
-            <Title title={title} subtitle={description} className={titleClassName} />
-        )}
-        <Row>
-            {React.Children.map(children, (child, index) => (
-                <Col key={index} sizes={colSizes} className={b('item')}>
-                    {child}
-                </Col>
-            ))}
-        </Row>
-    </AnimateBlock>
-);
+    background,
+}) => {
+    return (
+        <AnimateBlock className={b(null, className)} animate={animated}>
+            {(title || description) && (
+                <Title title={title} subtitle={description} className={titleClassName} />
+            )}
+            <div
+                className={b('content', {
+                    'with-background': !isEmpty(background),
+                })}
+            >
+                <BackgroundImage className={b('image')} {...background} />
+                <Row>
+                    {React.Children.map(children, (child, index) => (
+                        <Col key={index} sizes={colSizes} className={b('item')}>
+                            {child}
+                        </Col>
+                    ))}
+                </Row>
+            </div>
+        </AnimateBlock>
+    );
+};
 
 export default CardLayout;

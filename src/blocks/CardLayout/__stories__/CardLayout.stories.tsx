@@ -3,13 +3,7 @@ import React, {Fragment} from 'react';
 import {Meta, StoryFn} from '@storybook/react';
 
 import {PageConstructor} from '../../../containers/PageConstructor';
-import {
-    CardLayoutBlockModel,
-    CardLayoutBlockProps,
-    LayoutItemModel,
-    LayoutItemProps,
-    SubBlockModels,
-} from '../../../models';
+import {CardLayoutBlockModel, CardLayoutBlockProps, SubBlockModels} from '../../../models';
 import CardLayout from '../CardLayout';
 
 import data from './data.json';
@@ -19,13 +13,72 @@ export default {
     component: CardLayout,
 } as Meta;
 
-const createCardArray: (count: number, shared: LayoutItemProps) => SubBlockModels[] = (
-    count,
-    shared,
-) => Array.from({length: count}, () => ({...shared} as LayoutItemModel));
+const createCardArray: (
+    count: number,
+    shared: Omit<SubBlockModels, 'type'> & {type: string},
+) => SubBlockModels[] = (count, shared) =>
+    Array.from({length: count}, () => ({...shared} as SubBlockModels));
 
 const DefaultTemplate: StoryFn<CardLayoutBlockModel> = (args) => (
-    <PageConstructor content={{blocks: [args]}} />
+    <PageConstructor
+        content={{
+            blocks: [
+                {
+                    ...args,
+                    children: createCardArray(6, data.cards.basicCard),
+                },
+                {
+                    ...args,
+                    title: 'Card layout with layout items',
+                    children: createCardArray(3, data.cards.layoutItem),
+                },
+                {
+                    ...args,
+                    title: 'Card layout with background cards',
+                    children: createCardArray(3, data.cards.backgroundCard),
+                },
+                {
+                    ...args,
+                    title: 'Card layout with price cards',
+                    children: [
+                        {
+                            ...data.cards.priceCard,
+                            buttons: [
+                                {
+                                    text: 'Button',
+                                    url: 'https://example.com',
+                                    width: 'max',
+                                    theme: 'outlined',
+                                },
+                            ],
+                        },
+                        {
+                            ...data.cards.priceCard,
+                            buttons: [
+                                {
+                                    text: 'Button',
+                                    url: 'https://example.com',
+                                    width: 'max',
+                                    theme: 'action',
+                                },
+                            ],
+                        },
+                        {
+                            ...data.cards.priceCard,
+                            buttons: [
+                                {
+                                    text: 'Button',
+                                    url: 'https://example.com',
+                                    width: 'max',
+                                    theme: 'monochrome',
+                                },
+                            ],
+                        },
+                    ],
+                },
+            ],
+        }}
+    />
 );
 
 const ColSizeTemplate: StoryFn<CardLayoutBlockModel> = (args) => (
@@ -109,13 +162,66 @@ const WithCustomIndentsTemplate: StoryFn<CardLayoutBlockModel> = ({title, ...res
     </Fragment>
 );
 
+const WithBackgroundTemplate: StoryFn<CardLayoutBlockModel> = (args) => (
+    <PageConstructor
+        content={{
+            blocks: [
+                {
+                    ...args,
+                    background: {
+                        src: 'https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/content-bg-img_light.png',
+                        disableCompress: true,
+                    },
+                    children: createCardArray(8, data.cards.basicCard),
+                },
+                {
+                    ...args,
+                    title: 'Card layout with background color (basic cards)',
+                    background: {
+                        style: {
+                            backgroundColor: '#EEF2F8',
+                        },
+                    },
+                    children: createCardArray(4, data.cards.basicCard),
+                },
+                {
+                    ...args,
+                    background: {
+                        style: {
+                            backgroundColor: '#7CCEA0',
+                        },
+                    },
+                    title: 'Card layout with background color and shadow (layout items)',
+                    description:
+                        'Three cards in a row on the desktop, three cards in a row on a tablet, one card in a row on a mobile phone.',
+                    colSizes: {
+                        all: 12,
+                        sm: 4,
+                        md: 4,
+                    },
+                    children: createCardArray(3, data.cards.layoutItem),
+                },
+                {
+                    ...args,
+                    title: 'Card layout with background image (price cards)',
+                    background: {
+                        src: 'https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/content-bg-img_light.png',
+                        disableCompress: true,
+                    },
+                    children: createCardArray(4, data.cards.priceCard),
+                },
+            ],
+        }}
+    />
+);
+
 export const Default = DefaultTemplate.bind({});
 export const ColSize = ColSizeTemplate.bind({});
 export const WithCustomIndents = WithCustomIndentsTemplate.bind({});
+export const WithBackground = WithBackgroundTemplate.bind({});
 
 Default.args = {
     ...data.default.content,
-    children: createCardArray(6, data.default.card),
 } as CardLayoutBlockProps;
 
 ColSize.args = {
@@ -125,5 +231,9 @@ ColSize.args = {
 
 WithCustomIndents.args = {
     ...data.default.content,
-    children: createCardArray(3, data.default.card),
+    children: createCardArray(3, data.cards.layoutItem),
+} as CardLayoutBlockProps;
+
+WithBackground.args = {
+    ...data.withBackground.content,
 } as CardLayoutBlockProps;
