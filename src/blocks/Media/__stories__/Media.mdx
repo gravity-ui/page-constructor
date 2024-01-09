@@ -15,7 +15,7 @@ import * as MediaStories from './Media.stories.tsx';
 
 [`button: Button` — Button](?path=/docs/documentation-types--docs#button)
 
-[`media: Media` — Media description](?path=/docs/documentation-types--docs)
+[`media: Media` — Media description](?path=/docs/documentation-types--docs#media--imagevideodatalensyoutube)
 
 `direction: 'media-content' | 'content-media'` — Relative position of media and content.
 
@@ -24,6 +24,10 @@ import * as MediaStories from './Media.stories.tsx';
 `disableShadow?: boolean` — Disable shadow for the block.
 
 `additionalInfo?: string` — Gray text (with YFM support)
+
+`mediaOnly?: boolean`
+
+`mediaOnlyColSizes?: GridColumnSizesType` - [Title colSizes settings](?path=/docs/documentation-types--docs#colsizes) when `mediaOnly` enabled. Default `{all: 12, md: 8}`
 
 [`links?: Link[]` — An array with link objects](?path=/docs/documentation-types--docs#link)
 
