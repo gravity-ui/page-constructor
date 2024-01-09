@@ -31,9 +31,6 @@ const CardLayout: React.FC<CardLayoutBlockProps> = ({
     titleClassName,
     background,
 }) => {
-    const withBackground = Boolean(
-        background && (background.src || background.desktop || background.style?.backgroundColor),
-    );
     return (
         <AnimateBlock className={b(null, className)} animate={animated}>
             {(title || description) && (
@@ -41,7 +38,7 @@ const CardLayout: React.FC<CardLayoutBlockProps> = ({
             )}
             <div
                 className={b('content', {
-                    'with-background': withBackground,
+                    'with-background': Boolean(background),
                 })}
             >
                 <BackgroundImage className={b('image')} {...background} />
