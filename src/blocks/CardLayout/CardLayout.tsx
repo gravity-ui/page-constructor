@@ -1,5 +1,7 @@
 import React from 'react';
 
+import isEmpty from 'lodash/isEmpty';
+
 import {AnimateBlock, BackgroundImage, Title} from '../../components';
 import {Col, GridColumnSizesType, Row} from '../../grid';
 import {
@@ -38,7 +40,7 @@ const CardLayout: React.FC<CardLayoutBlockProps> = ({
             )}
             <div
                 className={b('content', {
-                    'with-background': Boolean(background),
+                    'with-background': !isEmpty(background),
                 })}
             >
                 <BackgroundImage className={b('image')} {...background} />
