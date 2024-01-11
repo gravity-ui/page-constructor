@@ -35,6 +35,7 @@ export {default as HTML} from './HTML/HTML';
 export {default as MetaInfo} from './MetaInfo/MetaInfo';
 export {default as FullscreenMedia} from './FullscreenMedia/FullscreenMedia';
 export {default as ContentList} from './ContentList/ContentList';
+export {default as InnerForm} from './InnerForm/InnerForm';
 
 export type {RouterLinkProps} from './RouterLink/RouterLink';
 export type {ImageBaseProps} from './ImageBase/ImageBase';

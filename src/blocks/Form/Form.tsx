@@ -1,6 +1,7 @@
 import React, {useCallback, useContext, useState} from 'react';
 
 import {BackgroundImage, Title} from '../../components';
+import InnerForm from '../../components/InnerForm/InnerForm';
 import {MobileContext} from '../../context/mobileContext';
 import {Col, Grid, GridAlignItems, GridColumnSize, Row} from '../../grid';
 import type {FormBlockProps} from '../../models';
@@ -12,8 +13,6 @@ import {
 } from '../../models';
 import {Content} from '../../sub-blocks';
 import {block} from '../../utils';
-
-import InnerForm from './InnerForm/InnerForm';
 
 import './Form.scss';
 
