@@ -7,12 +7,8 @@ import Media, {MediaAllProps} from '../Media';
 
 const videoTestingLabel = 'Example of video description';
 const imageTestingLabel = 'Example of image description';
-const videoSrc = [
-    '/images/video_8-12_white.webm',
-    '/images/video_8-12_white.mp4',
-    '/images/video_8-12_white.png',
-];
-const imageSrc = '/images/img_6-12_light.png';
+const videoSrc = ['/mock.webm', '/mock.mp4', '/mock.png'];
+const imageSrc = '/mock.png';
 
 describe('Media', () => {
     test.each<MediaAllProps>([

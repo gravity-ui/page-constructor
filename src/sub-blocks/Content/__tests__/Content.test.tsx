@@ -26,7 +26,7 @@ const contentData: ContentProps = {
     centered: true,
     list: [
         {
-            icon: '/images/img-gray.png',
+            icon: '/mock.png',
             title: 'list title',
             text: 'list text',
         },

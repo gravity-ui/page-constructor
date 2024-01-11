@@ -12,7 +12,7 @@ import Image, {ImageProps} from '../Image';
 
 const qaId = 'image-component';
 
-const imageSrc = '/images/img-gray.png';
+const imageSrc = '/mock.png';
 
 describe('Image', () => {
     test('Render Image by default', async () => {

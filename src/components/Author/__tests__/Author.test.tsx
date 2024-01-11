@@ -11,7 +11,7 @@ const author = {
     firstName: 'John',
     secondName: 'Doe',
     description: 'Web designer',
-    avatar: '/images/img-gray.png',
+    avatar: '/mock.png',
 };
 
 describe('Author', () => {
