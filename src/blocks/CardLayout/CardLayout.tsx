@@ -32,6 +32,7 @@ const CardLayout: React.FC<CardLayoutBlockProps> = ({
     className,
     titleClassName,
     background,
+    backgroundBorder = 'none',
 }) => {
     return (
         <AnimateBlock className={b(null, className)} animate={animated}>
@@ -43,7 +44,10 @@ const CardLayout: React.FC<CardLayoutBlockProps> = ({
                     'with-background': !isEmpty(background),
                 })}
             >
-                <BackgroundImage className={b('image')} {...background} />
+                <BackgroundImage
+                    className={b('image', {border: backgroundBorder})}
+                    {...background}
+                />
                 <Row>
                     {React.Children.map(children, (child, index) => (
                         <Col key={index} sizes={colSizes} className={b('item')}>

@@ -16,6 +16,10 @@ export const CardLayoutProps = {
         ...BlockHeaderProps,
         colSizes: containerSizesObject,
         background: BackgroundImageProps,
+        backgroundBorder: {
+            type: 'string',
+            enum: ['line', 'shadow', 'none'],
+        },
         children: ChildrenCardsProps,
     },
 };

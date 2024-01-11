@@ -252,15 +252,7 @@
     border-radius: $borderRadius;
 }
 
-@mixin card($hover: false) {
-    min-height: 248px;
-    height: 100%;
-    overflow-x: hidden;
-    border-radius: $borderRadius;
-    background-color: var(--g-color-base-float);
-
-    transition: box-shadow 0.3s $ease-out-cubic;
-
+@mixin card-border($hover: false) {
     &_border_line {
         border: 1px solid var(--g-color-line-generic);
     }
@@ -281,6 +273,17 @@
             }
         }
     }
+}
+
+@mixin card($hover: false) {
+    min-height: 248px;
+    height: 100%;
+    overflow-x: hidden;
+    border-radius: $borderRadius;
+    background-color: var(--g-color-base-float);
+
+    transition: box-shadow 0.3s $ease-out-cubic;
+    @include card-border($hover);
 }
 
 @mixin card-image {

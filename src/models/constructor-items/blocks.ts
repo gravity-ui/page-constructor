@@ -11,6 +11,7 @@ import {
     Animatable,
     BackgroundImageProps,
     ButtonProps,
+    CardBorder,
     ContentSize,
     ContentTextSize,
     ContentTheme,
@@ -306,6 +307,7 @@ export interface CardLayoutBlockProps extends Childable, Animatable, LoadableChi
     description?: string;
     colSizes?: GridColumnSizesType;
     background?: BackgroundImageProps;
+    backgroundBorder?: CardBorder;
 }
 
 export type FilterTag = {
