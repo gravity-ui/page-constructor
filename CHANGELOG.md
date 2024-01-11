@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [4.45.0](https://github.com/gravity-ui/page-constructor/compare/v4.44.0...v4.45.0) (2024-01-11)
+
+
+### Features
+
+* export InnerForm ([#764](https://github.com/gravity-ui/page-constructor/issues/764)) ([ceadafc](https://github.com/gravity-ui/page-constructor/commit/ceadafcc9e36bf80b35ea949d8de9b92a2d0581c))
+
 ## [4.44.0](https://github.com/gravity-ui/page-constructor/compare/v4.43.1...v4.44.0) (2024-01-09)
 
 
