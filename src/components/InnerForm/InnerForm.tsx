@@ -1,8 +1,8 @@
 import React, {useEffect} from 'react';
 
-import {YandexForm} from '../../../components';
-import {FormBlockData, isHubspotDataForm, isYandexDataForm} from '../../../models';
-import {HubspotForm} from '../../../sub-blocks';
+import {YandexForm} from '..';
+import {FormBlockData, isHubspotDataForm, isYandexDataForm} from '../../models';
+import {HubspotForm} from '../../sub-blocks';
 
 interface InnerFormProps {
     formData: FormBlockData;

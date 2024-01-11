@@ -17,4 +17,3 @@ export {default as ContentLayoutBlock} from './ContentLayout/ContentLayout';
 export {default as ShareBlock} from './Share/Share';
 export {default as FilterBlock} from './FilterBlock/FilterBlock';
 export {default as FormBlock} from './Form/Form';
-export {default as InnerForm} from './Form/InnerForm/InnerForm';
