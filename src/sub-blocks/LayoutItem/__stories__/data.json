@@ -16,7 +16,7 @@
     "content": {
       "media": {
         "youtube": "https://youtu.be/0Qd3T6skprA",
-        "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.png"
+        "previewImg": "/images/video_8-12_white.png"
       },
       "fullscreen": true
     }
@@ -28,7 +28,7 @@
         "text": "Dolor sit *amet*"
       },
       "media": {
-        "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-mini_4-12_light.png"
+        "image": "/images/img-mini_4-12_light.png"
       }
     }
   }

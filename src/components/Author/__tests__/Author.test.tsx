@@ -11,7 +11,7 @@ const author = {
     firstName: 'John',
     secondName: 'Doe',
     description: 'Web designer',
-    avatar: 'https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png',
+    avatar: '/images/img-gray.png',
 };
 
 describe('Author', () => {

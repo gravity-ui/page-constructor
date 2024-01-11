@@ -23,7 +23,7 @@
   },
   "withBackgroundImage": {
     "background": {
-      "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/content-bg-img_light.png",
+      "src": "/images/content-bg-img_light.png",
       "disableCompress": true
     }
   },

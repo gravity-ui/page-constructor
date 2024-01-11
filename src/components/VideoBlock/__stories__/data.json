@@ -6,7 +6,7 @@
         "color": "white",
         "rel": "0"
       },
-      "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_dark.png",
+      "previewImg": "/images/video_8-12_dark.png",
       "playButton": null,
       "className": "",
       "stream": "",

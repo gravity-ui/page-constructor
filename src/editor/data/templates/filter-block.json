@@ -22,7 +22,7 @@
         "card": {
           "type": "layout-item",
           "media": {
-            "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-mini_4-12_light.png"
+            "image": "/images/img-mini_4-12_light.png"
           },
           "content": {
             "title": "Lorem&nbsp;ipsum",
@@ -35,7 +35,7 @@
         "card": {
           "type": "layout-item",
           "media": {
-            "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-mini_4-12_light.png"
+            "image": "/images/img-mini_4-12_light.png"
           },
           "content": {
             "title": "Lorem&nbsp;ipsum",
@@ -48,7 +48,7 @@
         "card": {
           "type": "layout-item",
           "media": {
-            "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-mini_4-12_light.png"
+            "image": "/images/img-mini_4-12_light.png"
           },
           "content": {
             "title": "Lorem&nbsp;ipsum",

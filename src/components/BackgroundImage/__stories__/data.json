@@ -1,7 +1,7 @@
 {
   "default": {
     "content": {
-      "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/header-bg-img_light.png",
+      "src": "/images/header-bg-img_light.png",
       "alt": "string",
       "disableCompress": true,
       "style": {

@@ -3,9 +3,9 @@
     "content": {
       "video": {
         "src": [
-          "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.webm",
-          "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.mp4",
-          "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.png"
+          "/images/video_8-12_white.webm",
+          "/images/video_8-12_white.mp4",
+          "/images/video_8-12_white.png"
         ],
         "loop": {
           "start": 0
@@ -29,15 +29,15 @@
   "youtube": {
     "content": {
       "youtube": "https://youtu.be/0Qd3T6skprA",
-      "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_dark.png"
+      "previewImg": "/images/video_8-12_dark.png"
     }
   },
   "imageSlider": {
     "content": {
       "image": [
-        "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_6-12_light.png",
-        "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_6-12_light.png",
-        "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_6-12_light.png"
+        "/images/img_6-12_light.png",
+        "/images/img_6-12_light.png",
+        "/images/img_6-12_light.png"
       ]
     }
   },
@@ -52,7 +52,7 @@
   "image": {
     "content": {
       "image": {
-        "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_6-12_light.png",
+        "src": "/images/img_6-12_light.png",
         "alt": "Picture",
         "disableCompress": true
       }

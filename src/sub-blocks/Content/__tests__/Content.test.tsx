@@ -26,7 +26,7 @@ const contentData: ContentProps = {
     centered: true,
     list: [
         {
-            icon: 'https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png',
+            icon: '/images/img-gray.png',
             title: 'list title',
             text: 'list text',
         },

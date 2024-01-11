@@ -24,10 +24,10 @@
           ],
           "media": {
             "light": {
-              "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_white.png"
+              "image": "/images/img_8-12_white.png"
             },
             "dark": {
-              "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_dark.png"
+              "image": "/images/img_8-12_dark.png"
             }
           }
         },
@@ -38,9 +38,9 @@
             "light": {
               "video": {
                 "src": [
-                  "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_light.webm",
-                  "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_light.mp4",
-                  "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_light.png"
+                  "/images/video_8-12_light.webm",
+                  "/images/video_8-12_light.mp4",
+                  "/images/video_8-12_light.png"
                 ],
                 "loop": {
                   "start": 0
@@ -50,9 +50,9 @@
             "dark": {
               "video": {
                 "src": [
-                  "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_dark.webm",
-                  "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_dark.mp4",
-                  "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_dark.png"
+                  "/images/video_8-12_dark.webm",
+                  "/images/video_8-12_dark.mp4",
+                  "/images/video_8-12_dark.png"
                 ],
                 "loop": {
                   "start": 0
@@ -76,26 +76,26 @@
           "title": "Ut enim",
           "media": {
             "light": {
-              "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.png",
+              "previewImg": "/images/video_8-12_white.png",
               "video": {
                 "type": "player",
                 "src": [
-                  "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.webm",
-                  "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.mp4",
-                  "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.png"
+                  "/images/video_8-12_white.webm",
+                  "/images/video_8-12_white.mp4",
+                  "/images/video_8-12_white.png"
                 ],
                 "autoplay": false,
                 "ariaLabel": "Video accessible name example"
               }
             },
             "dark": {
-              "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_dark.png",
+              "previewImg": "/images/video_8-12_dark.png",
               "video": {
                 "type": "player",
                 "src": [
-                  "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_dark.webm",
-                  "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_dark.mp4",
-                  "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_dark.png"
+                  "/images/video_8-12_dark.webm",
+                  "/images/video_8-12_dark.mp4",
+                  "/images/video_8-12_dark.png"
                 ],
                 "autoplay": false,
                 "ariaLabel": "Video accessible name example"
@@ -120,11 +120,11 @@
           "media": {
             "light": {
               "youtube": "https://youtu.be/0Qd3T6skprA",
-              "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_light.png"
+              "previewImg": "/images/video_8-12_light.png"
             },
             "dark": {
               "youtube": "https://youtu.be/0Qd3T6skprA",
-              "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_dark.png"
+              "previewImg": "/images/video_8-12_dark.png"
             }
           },
           "caption": "Consectetur adipiscing elit",
@@ -135,10 +135,10 @@
           "title": "minim veniam",
           "media": {
             "light": {
-              "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_6-12_white.png"
+              "image": "/images/img_6-12_white.png"
             },
             "dark": {
-              "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_6-12_dark.png"
+              "image": "/images/img_6-12_dark.png"
             }
           },
           "caption": "Dolor sit amet",

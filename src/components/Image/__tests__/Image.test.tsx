@@ -12,8 +12,7 @@ import Image, {ImageProps} from '../Image';
 
 const qaId = 'image-component';
 
-const imageSrc =
-    'https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png';
+const imageSrc = '/images/img-gray.png';
 
 describe('Image', () => {
     test('Render Image by default', async () => {

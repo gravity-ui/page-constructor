@@ -5,8 +5,8 @@
     "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
     "subtitle": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     "image": {
-      "light": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_light.png",
-      "dark": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_dark.png"
+      "light": "/images/img_8-12_light.png",
+      "dark": "/images/img_8-12_dark.png"
     },
     "disableCompress": true,
     "color": {

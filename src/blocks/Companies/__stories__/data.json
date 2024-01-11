@@ -5,15 +5,15 @@
       "title": "Page constructor",
       "images": {
         "light": {
-          "desktop": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/logo-svg_12-12_desktop_light.svg",
-          "tablet": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/logo-svg_12-12_tablet_light.svg",
-          "mobile": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/logo-svg_12-12_mobile_light.svg",
+          "desktop": "/images/logo-svg_12-12_desktop_light.svg",
+          "tablet": "/images/logo-svg_12-12_tablet_light.svg",
+          "mobile": "/images/logo-svg_12-12_mobile_light.svg",
           "alt": "Page constructor"
         },
         "dark": {
-          "desktop": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/logo-svg_12-12_desktop_dark.svg",
-          "tablet": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/logo-svg_12-12_tablet_dark.svg",
-          "mobile": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/logo-svg_12-12_mobile_dark.svg",
+          "desktop": "/images/logo-svg_12-12_desktop_dark.svg",
+          "tablet": "/images/logo-svg_12-12_tablet_dark.svg",
+          "mobile": "/images/logo-svg_12-12_mobile_dark.svg",
           "alt": "Page constructor"
         }
       }
@@ -26,15 +26,15 @@
       "description": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
       "images": {
         "light": {
-          "desktop": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/logo-svg_12-12_desktop_light.svg",
-          "tablet": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/logo-svg_12-12_tablet_light.svg",
-          "mobile": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/logo-svg_12-12_mobile_light.svg",
+          "desktop": "/images/logo-svg_12-12_desktop_light.svg",
+          "tablet": "/images/logo-svg_12-12_tablet_light.svg",
+          "mobile": "/images/logo-svg_12-12_mobile_light.svg",
           "alt": "Page constructor"
         },
         "dark": {
-          "desktop": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/logo-svg_12-12_desktop_dark.svg",
-          "tablet": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/logo-svg_12-12_tablet_dark.svg",
-          "mobile": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/logo-svg_12-12_mobile_dark.svg",
+          "desktop": "/images/logo-svg_12-12_desktop_dark.svg",
+          "tablet": "/images/logo-svg_12-12_tablet_dark.svg",
+          "mobile": "/images/logo-svg_12-12_mobile_dark.svg",
           "alt": "Page constructor"
         }
       }
