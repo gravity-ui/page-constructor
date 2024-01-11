@@ -33,7 +33,7 @@ const config = {
             new WebpackShellPluginNext({
                 onBuildStart: {
                     scripts: ['npm run build:widget'],
-                    blocking: true,
+                    blocking: false,
                 },
             }),
         );
