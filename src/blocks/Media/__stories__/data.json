@@ -26,23 +26,23 @@
     "list": [
       {
         "icon": {
-          "light": "/images/icon_1_light.svg",
-          "dark": "/images/icon_1_dark.svg"
+          "light": "/story-assets/images/icon_1_light.svg",
+          "dark": "/story-assets/images/icon_1_dark.svg"
         },
         "title": "Lorem ipsum",
         "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
       },
       {
         "icon": {
-          "light": "/images/icon_2_light.svg",
-          "dark": "/images/icon_2_dark.svg"
+          "light": "/story-assets/images/icon_2_light.svg",
+          "dark": "/story-assets/images/icon_2_dark.svg"
         },
         "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
       },
       {
         "icon": {
-          "light": "/images/icon_3_light.svg",
-          "dark": "/images/icon_3_dark.svg"
+          "light": "/story-assets/images/icon_3_light.svg",
+          "dark": "/story-assets/images/icon_3_dark.svg"
         },
         "title": "Lorem ipsum ipsum"
       }
@@ -54,16 +54,16 @@
       "media": {
         "light": {
           "image": [
-            "/images/img_8-12_white.png",
-            "/images/img_8-12_white.png",
-            "/images/img_8-12_white.png"
+            "/story-assets/images/img_8-12_white.png",
+            "/story-assets/images/img_8-12_white.png",
+            "/story-assets/images/img_8-12_white.png"
           ]
         },
         "dark": {
           "image": [
-            "/images/img_8-12_dark.png",
-            "/images/img_8-12_dark.png",
-            "/images/img_8-12_dark.png"
+            "/story-assets/images/img_8-12_dark.png",
+            "/story-assets/images/img_8-12_dark.png",
+            "/story-assets/images/img_8-12_dark.png"
           ]
         }
       }
@@ -74,10 +74,10 @@
       "type": "media-block",
       "media": {
         "light": {
-          "image": "/images/img_8-12_white.png"
+          "image": "/story-assets/images/img_8-12_white.png"
         },
         "dark": {
-          "image": "/images/img_8-12_dark.png"
+          "image": "/story-assets/images/img_8-12_dark.png"
         }
       }
     }
@@ -89,9 +89,9 @@
         "light": {
           "video": {
             "src": [
-              "/images/video_8-12_white.webm",
-              "/images/video_8-12_white.mp4",
-              "/images/video_8-12_white.png"
+              "/story-assets/images/video_8-12_white.webm",
+              "/story-assets/images/video_8-12_white.mp4",
+              "/story-assets/images/video_8-12_white.png"
             ],
             "loop": {
               "start": 0
@@ -102,9 +102,9 @@
         "dark": {
           "video": {
             "src": [
-              "/images/video_8-12_dark.webm",
-              "/images/video_8-12_dark.mp4",
-              "/images/video_8-12_dark.png"
+              "/story-assets/images/video_8-12_dark.webm",
+              "/story-assets/images/video_8-12_dark.mp4",
+              "/story-assets/images/video_8-12_dark.png"
             ],
             "loop": {
               "start": 0
@@ -120,9 +120,9 @@
         "light": {
           "video": {
             "src": [
-              "/images/video_8-12_white.webm",
-              "/images/video_8-12_white.mp4",
-              "/images/video_8-12_white.png"
+              "/story-assets/images/video_8-12_white.webm",
+              "/story-assets/images/video_8-12_white.mp4",
+              "/story-assets/images/video_8-12_white.png"
             ],
             "autoplay": true,
             "ariaLabel": "Video with autoplay and play/pause button",
@@ -142,9 +142,9 @@
           "video": {
             "type": "player",
             "src": [
-              "/images/video_8-12_dark.webm",
-              "/images/video_8-12_dark.mp4",
-              "/images/video_8-12_dark.png"
+              "/story-assets/images/video_8-12_dark.webm",
+              "/story-assets/images/video_8-12_dark.mp4",
+              "/story-assets/images/video_8-12_dark.png"
             ],
             "autoplay": true,
             "ariaLabel": "Video accessible name example",
@@ -169,9 +169,9 @@
           "video": {
             "type": "player",
             "src": [
-              "/images/video_8-12_white.webm",
-              "/images/video_8-12_white.mp4",
-              "/images/video_8-12_white.png"
+              "/story-assets/images/video_8-12_white.webm",
+              "/story-assets/images/video_8-12_white.mp4",
+              "/story-assets/images/video_8-12_white.png"
             ],
             "autoplay": false,
             "ariaLabel": "Video accessible name example"
@@ -181,9 +181,9 @@
           "video": {
             "type": "player",
             "src": [
-              "/images/video_8-12_dark.webm",
-              "/images/video_8-12_dark.mp4",
-              "/images/video_8-12_dark.png"
+              "/story-assets/images/video_8-12_dark.webm",
+              "/story-assets/images/video_8-12_dark.mp4",
+              "/story-assets/images/video_8-12_dark.png"
             ],
             "autoplay": false,
             "ariaLabel": "Video accessible name example"
@@ -201,26 +201,26 @@
       "title": "Video with preview image and play button",
       "media": {
         "light": {
-          "previewImg": "/images/video_8-12_white.png",
+          "previewImg": "/story-assets/images/video_8-12_white.png",
           "video": {
             "type": "player",
             "src": [
-              "/images/video_8-12_white.webm",
-              "/images/video_8-12_white.mp4",
-              "/images/video_8-12_white.png"
+              "/story-assets/images/video_8-12_white.webm",
+              "/story-assets/images/video_8-12_white.mp4",
+              "/story-assets/images/video_8-12_white.png"
             ],
             "autoplay": false,
             "ariaLabel": "Video accessible name example"
           }
         },
         "dark": {
-          "previewImg": "/images/video_8-12_dark.png",
+          "previewImg": "/story-assets/images/video_8-12_dark.png",
           "video": {
             "type": "player",
             "src": [
-              "/images/video_8-12_dark.webm",
-              "/images/video_8-12_dark.mp4",
-              "/images/video_8-12_dark.png"
+              "/story-assets/images/video_8-12_dark.webm",
+              "/story-assets/images/video_8-12_dark.mp4",
+              "/story-assets/images/video_8-12_dark.png"
             ],
             "autoplay": false,
             "ariaLabel": "Video accessible name example"
@@ -232,13 +232,13 @@
       "title": "Video with preview image, play button and custom controls with mute button",
       "media": {
         "light": {
-          "previewImg": "/images/video_8-12_white.png",
+          "previewImg": "/story-assets/images/video_8-12_white.png",
           "video": {
             "type": "player",
             "src": [
-              "/images/video_8-12_white.webm",
-              "/images/video_8-12_white.mp4",
-              "/images/video_8-12_white.png"
+              "/story-assets/images/video_8-12_white.webm",
+              "/story-assets/images/video_8-12_white.mp4",
+              "/story-assets/images/video_8-12_white.png"
             ],
             "autoplay": false,
             "ariaLabel": "Video accessible name example",
@@ -249,13 +249,13 @@
           }
         },
         "dark": {
-          "previewImg": "/images/video_8-12_dark.png",
+          "previewImg": "/story-assets/images/video_8-12_dark.png",
           "video": {
             "type": "player",
             "src": [
-              "/images/video_8-12_dark.webm",
-              "/images/video_8-12_dark.mp4",
-              "/images/video_8-12_dark.png"
+              "/story-assets/images/video_8-12_dark.webm",
+              "/story-assets/images/video_8-12_dark.mp4",
+              "/story-assets/images/video_8-12_dark.png"
             ],
             "autoplay": false,
             "ariaLabel": "Video accessible name example"
@@ -335,10 +335,10 @@
       "type": "media-block",
       "media": {
         "light": {
-          "image": "/images/img_8-12_light.png"
+          "image": "/story-assets/images/img_8-12_light.png"
         },
         "dark": {
-          "image": "/images/img_8-12_dark.png"
+          "image": "/story-assets/images/img_8-12_dark.png"
         }
       }
     }

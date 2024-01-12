@@ -3,9 +3,9 @@
     "content": {
       "video": {
         "src": [
-          "/images/video_8-12_white.webm",
-          "/images/video_8-12_white.mp4",
-          "/images/video_8-12_white.png"
+          "/story-assets/images/video_8-12_white.webm",
+          "/story-assets/images/video_8-12_white.mp4",
+          "/story-assets/images/video_8-12_white.png"
         ],
         "loop": {
           "start": 0
@@ -29,15 +29,15 @@
   "youtube": {
     "content": {
       "youtube": "https://youtu.be/0Qd3T6skprA",
-      "previewImg": "/images/video_8-12_dark.png"
+      "previewImg": "/story-assets/images/video_8-12_dark.png"
     }
   },
   "imageSlider": {
     "content": {
       "image": [
-        "/images/img_6-12_light.png",
-        "/images/img_6-12_light.png",
-        "/images/img_6-12_light.png"
+        "/story-assets/images/img_6-12_light.png",
+        "/story-assets/images/img_6-12_light.png",
+        "/story-assets/images/img_6-12_light.png"
       ]
     }
   },
@@ -52,7 +52,7 @@
   "image": {
     "content": {
       "image": {
-        "src": "/images/img_6-12_light.png",
+        "src": "/story-assets/images/img_6-12_light.png",
         "alt": "Picture",
         "disableCompress": true
       }

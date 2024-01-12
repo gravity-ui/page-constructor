@@ -1,7 +1,11 @@
 {
   "withIcon": {
     "title": "Card with icon on {{position}}",
-    "icons": ["/images/icon_1_light.svg", "/images/icon_2_light.svg", "/images/icon_3_light.svg"]
+    "icons": [
+      "/story-assets/images/icon_1_light.svg",
+      "/story-assets/images/icon_2_light.svg",
+      "/story-assets/images/icon_3_light.svg"
+    ]
   },
   "withBorder": {
     "title": "Card with border {{border}}"

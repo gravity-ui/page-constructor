@@ -4,26 +4,26 @@
       "type": "icons-block",
       "items": [
         {
-          "src": "/images/icons-link_1_64.svg",
+          "src": "/story-assets/images/icons-link_1_64.svg",
           "text": "Lorem ipsum dolor sit amet"
         },
         {
-          "src": "/images/icons-link_2_64.svg",
+          "src": "/story-assets/images/icons-link_2_64.svg",
           "text": "Lorem ipsum dolor sit amet",
           "url": "#"
         },
         {
-          "src": "/images/icons-link_3_64.svg",
+          "src": "/story-assets/images/icons-link_3_64.svg",
           "text": "Lorem ipsum dolor sit amet",
           "url": "#"
         },
         {
-          "src": "/images/icons-link_4_64.svg",
+          "src": "/story-assets/images/icons-link_4_64.svg",
           "text": "Lorem ipsum dolor sit amet",
           "url": "#"
         },
         {
-          "src": "/images/icons-link_5_64.svg",
+          "src": "/story-assets/images/icons-link_5_64.svg",
           "text": "Lorem ipsum dolor sit amet",
           "url": "#"
         }
@@ -35,27 +35,27 @@
       "type": "icons-block",
       "items": [
         {
-          "src": "/images/icons-link_1_64.svg",
+          "src": "/story-assets/images/icons-link_1_64.svg",
           "text": "Lorem ipsum dolor sit amet",
           "url": "#"
         },
         {
-          "src": "/images/icons-link_2_64.svg",
+          "src": "/story-assets/images/icons-link_2_64.svg",
           "text": "Lorem ipsum dolor sit amet",
           "url": "#"
         },
         {
-          "src": "/images/icons-link_3_64.svg",
+          "src": "/story-assets/images/icons-link_3_64.svg",
           "text": "Lorem ipsum dolor sit amet",
           "url": "#"
         },
         {
-          "src": "/images/icons-link_4_64.svg",
+          "src": "/story-assets/images/icons-link_4_64.svg",
           "text": "Lorem ipsum dolor sit amet",
           "url": "#"
         },
         {
-          "src": "/images/icons-link_5_64.svg",
+          "src": "/story-assets/images/icons-link_5_64.svg",
           "text": "Lorem ipsum dolor sit amet",
           "url": "#"
         }
@@ -69,26 +69,26 @@
       "description": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       "items": [
         {
-          "src": "/images/icons-link_1_64.svg",
+          "src": "/story-assets/images/icons-link_1_64.svg",
           "text": "Lorem ipsum dolor sit amet"
         },
         {
-          "src": "/images/icons-link_2_64.svg",
+          "src": "/story-assets/images/icons-link_2_64.svg",
           "text": "Lorem ipsum dolor sit amet",
           "url": "#"
         },
         {
-          "src": "/images/icons-link_3_64.svg",
+          "src": "/story-assets/images/icons-link_3_64.svg",
           "text": "Lorem ipsum dolor sit amet",
           "url": "#"
         },
         {
-          "src": "/images/icons-link_4_64.svg",
+          "src": "/story-assets/images/icons-link_4_64.svg",
           "text": "Lorem ipsum dolor sit amet",
           "url": "#"
         },
         {
-          "src": "/images/icons-link_5_64.svg",
+          "src": "/story-assets/images/icons-link_5_64.svg",
           "text": "Lorem ipsum dolor sit amet",
           "url": "#"
         }

@@ -3,11 +3,11 @@
     "content": {
       "background": {
         "light": {
-          "image": "/images/header-bg-video_light.png",
+          "image": "/story-assets/images/header-bg-video_light.png",
           "color": "#EFF2F8"
         },
         "dark": {
-          "image": "/images/header-bg-video_dark.png",
+          "image": "/story-assets/images/header-bg-video_dark.png",
           "color": "#262626"
         }
       },
@@ -43,35 +43,35 @@
               "url": "https://example.com",
               "title": "Lorem ipsum dolor sit amet",
               "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-              "icon": "/images/icon_1_light.svg"
+              "icon": "/story-assets/images/icon_1_light.svg"
             },
             {
               "type": "basic-card",
               "url": "https://example.com",
               "title": "Lorem ipsum dolor sit amet",
               "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-              "icon": "/images/icon_2_light.svg"
+              "icon": "/story-assets/images/icon_2_light.svg"
             },
             {
               "type": "basic-card",
               "url": "https://example.com",
               "title": "Lorem ipsum dolor sit amet",
               "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-              "icon": "/images/icon_3_light.svg"
+              "icon": "/story-assets/images/icon_3_light.svg"
             },
             {
               "type": "basic-card",
               "url": "https://example.com",
               "title": "Lorem ipsum dolor sit amet",
               "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-              "icon": "/images/icon_4_light.svg"
+              "icon": "/story-assets/images/icon_4_light.svg"
             },
             {
               "type": "basic-card",
               "url": "https://example.com",
               "title": "Lorem ipsum dolor sit amet",
               "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-              "icon": "/images/icon_1_light.svg"
+              "icon": "/story-assets/images/icon_1_light.svg"
             }
           ]
         },
@@ -87,7 +87,7 @@
               },
               "media": {
                 "youtube": "https://youtu.be/0Qd3T6skprA",
-                "previewImg": "/images/video_8-12_white.png"
+                "previewImg": "/story-assets/images/video_8-12_white.png"
               },
               "metaInfo": ["one", "two", "three"],
               "fullscreen": true
@@ -100,7 +100,7 @@
               },
               "media": {
                 "youtube": "https://youtu.be/0Qd3T6skprA",
-                "previewImg": "/images/video_8-12_white.png"
+                "previewImg": "/story-assets/images/video_8-12_white.png"
               },
               "metaInfo": ["one", "two", "three"],
               "fullscreen": true
@@ -113,7 +113,7 @@
               },
               "media": {
                 "youtube": "https://youtu.be/0Qd3T6skprA",
-                "previewImg": "/images/video_8-12_white.png"
+                "previewImg": "/story-assets/images/video_8-12_white.png"
               },
               "metaInfo": ["one", "two", "three"],
               "fullscreen": true
@@ -126,7 +126,7 @@
               },
               "media": {
                 "youtube": "https://youtu.be/0Qd3T6skprA",
-                "previewImg": "/images/video_8-12_white.png"
+                "previewImg": "/story-assets/images/video_8-12_white.png"
               },
               "metaInfo": ["one", "two", "three"],
               "fullscreen": true
@@ -139,7 +139,7 @@
               },
               "media": {
                 "youtube": "https://youtu.be/0Qd3T6skprA",
-                "previewImg": "/images/video_8-12_white.png"
+                "previewImg": "/story-assets/images/video_8-12_white.png"
               },
               "metaInfo": ["one", "two", "three"],
               "fullscreen": true
@@ -152,7 +152,7 @@
               },
               "media": {
                 "youtube": "https://youtu.be/0Qd3T6skprA",
-                "previewImg": "/images/video_8-12_white.png"
+                "previewImg": "/story-assets/images/video_8-12_white.png"
               },
               "metaInfo": ["one", "two", "three"],
               "fullscreen": true
@@ -165,7 +165,7 @@
               },
               "media": {
                 "youtube": "https://youtu.be/0Qd3T6skprA",
-                "previewImg": "/images/video_8-12_white.png"
+                "previewImg": "/story-assets/images/video_8-12_white.png"
               },
               "metaInfo": ["one", "two", "three"],
               "fullscreen": true
@@ -177,8 +177,8 @@
           "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
           "subtitle": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> ",
           "image": {
-            "light": "/images/img_8-12_light.png",
-            "dark": "/images/img_8-12_dark.png"
+            "light": "/story-assets/images/img_8-12_light.png",
+            "dark": "/story-assets/images/img_8-12_dark.png"
           },
           "disableCompress": true,
           "color": {
@@ -195,11 +195,11 @@
   },
   "navigation": {
     "logo": {
-      "icon": "/images/icon_1_light.svg",
+      "icon": "/story-assets/images/icon_1_light.svg",
       "text": "Logo",
       "dark": {
         "text": "Logo Dark",
-        "icon": "/images/icon_1_dark.svg"
+        "icon": "/story-assets/images/icon_1_dark.svg"
       },
       "light": {
         "text": "Logo Light"
@@ -240,22 +240,22 @@
             {
               "text": "Lorem ipsum ",
               "url": "https://example.com",
-              "icon": "/images/icon_3_light.svg"
+              "icon": "/story-assets/images/icon_3_light.svg"
             },
             {
               "text": "Dolor sit amet",
               "url": "https://example.com",
-              "icon": "/images/icon_2_light.svg"
+              "icon": "/story-assets/images/icon_2_light.svg"
             },
             {
               "text": "Consectetur adipiscing",
               "url": "https://example.com",
-              "icon": "/images/icon_1_light.svg"
+              "icon": "/story-assets/images/icon_1_light.svg"
             },
             {
               "text": "Ut enim ad minim ",
               "url": "https://example.com",
-              "icon": "/images/icon_3_light.svg"
+              "icon": "/story-assets/images/icon_3_light.svg"
             }
           ]
         },
@@ -263,7 +263,7 @@
           "type": "link",
           "text": "Link with spaces",
           "url": "https://example.com",
-          "icon": "/images/icon_3_light.svg"
+          "icon": "/story-assets/images/icon_3_light.svg"
         },
         {
           "type": "link",
@@ -286,7 +286,7 @@
         {
           "type": "dropdown",
           "text": "Language",
-          "icon": "/images/icon_3_light.svg",
+          "icon": "/story-assets/images/icon_3_light.svg",
           "items": [
             {
               "text": "Russian",
@@ -310,7 +310,7 @@
           "type": "link",
           "text": "Link",
           "url": "https://example.com",
-          "icon": "/images/icon_2_light.svg"
+          "icon": "/story-assets/images/icon_2_light.svg"
         },
         {
           "type": "button",
@@ -324,13 +324,13 @@
   "withFullWidthBackgroundMedia": {
     "background": {
       "light": {
-        "image": "/images/header-bg-video_light.png",
+        "image": "/story-assets/images/header-bg-video_light.png",
         "color": "#EFF2F8",
         "fullWidthMedia": true,
         "parallax": false
       },
       "dark": {
-        "image": "/images/header-bg-video_dark.png",
+        "image": "/story-assets/images/header-bg-video_dark.png",
         "color": "#262626",
         "fullWidthMedia": true,
         "parallax": false

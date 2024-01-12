@@ -3,7 +3,8 @@ import WebpackShellPluginNext from 'webpack-shell-plugin-next';
 import MonacoWebpackPlugin from 'monaco-editor-webpack-plugin';
 
 //test
-const previewPublicPath = 'https://preview.gravity-ui.com/page-constructor/766'; //process.env.PREVIEW_PUBLIC_PATH;
+const ASSET_PATH = 'story-assets';
+const PREVIEW_PATH = process.env.PREVIEW_PATH || '/page-constructor/766';
 
 const customAlias = {
     widget: resolve(__dirname, '../widget'),
@@ -45,8 +46,15 @@ const config = {
             ...customAlias,
         };
 
-        if (previewPublicPath) {
-            storybookBaseConfig.output.publicPath = previewPublicPath;
+        if (PREVIEW_PATH) {
+            storybookBaseConfig.module.rules.push({
+                test: /data\.json$/,
+                loader: 'string-replace-loader',
+                options: {
+                    search: `/${ASSET_PATH}/`,
+                    replace: `${PREVIEW_PATH}/${ASSET_PATH}/`,
+                },
+            });
         }
 
         return storybookBaseConfig;

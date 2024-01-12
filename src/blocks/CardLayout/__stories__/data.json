@@ -3,7 +3,7 @@
     "card": {
       "type": "layout-item",
       "media": {
-        "image": "/images/img-mini_4-12_light.png"
+        "image": "/story-assets/images/img-mini_4-12_light.png"
       },
       "content": {
         "title": "Lorem&nbsp;ipsum",
@@ -21,7 +21,7 @@
       "card": {
         "type": "layout-item",
         "media": {
-          "image": "/images/img-mini_3-12_light.png"
+          "image": "/story-assets/images/img-mini_3-12_light.png"
         },
         "content": {
           "title": "Lorem&nbsp;ipsum",
@@ -39,7 +39,7 @@
       "card": {
         "type": "layout-item",
         "media": {
-          "image": "/images/img-mini_6-12_light.png"
+          "image": "/story-assets/images/img-mini_6-12_light.png"
         },
         "content": {
           "title": "Lorem&nbsp;ipsum",

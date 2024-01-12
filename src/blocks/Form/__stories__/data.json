@@ -23,7 +23,7 @@
   },
   "withBackgroundImage": {
     "background": {
-      "src": "/images/content-bg-img_light.png",
+      "src": "/story-assets/images/content-bg-img_light.png",
       "disableCompress": true
     }
   },

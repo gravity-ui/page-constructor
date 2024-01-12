@@ -5,10 +5,10 @@
     "description": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
     "media": {
       "light": {
-        "image": "/images/img_8-12_white.png"
+        "image": "/story-assets/images/img_8-12_white.png"
       },
       "dark": {
-        "image": "/images/img_8-12_dark.png"
+        "image": "/story-assets/images/img_8-12_dark.png"
       }
     }
   }
