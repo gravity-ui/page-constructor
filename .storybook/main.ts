@@ -2,9 +2,8 @@ import {resolve} from 'path';
 import WebpackShellPluginNext from 'webpack-shell-plugin-next';
 import MonacoWebpackPlugin from 'monaco-editor-webpack-plugin';
 
-//test
 const ASSET_PATH = 'story-assets';
-const PREVIEW_PATH = process.env.PREVIEW_PATH || '/page-constructor/766';
+const PREVIEW_DEST_PATH = process.env.PREVIEW_DEST_PATH;
 
 const customAlias = {
     widget: resolve(__dirname, '../widget'),
@@ -46,13 +45,13 @@ const config = {
             ...customAlias,
         };
 
-        if (PREVIEW_PATH) {
+        if (PREVIEW_DEST_PATH) {
             storybookBaseConfig.module.rules.push({
                 test: /data\.json$/,
                 loader: 'string-replace-loader',
                 options: {
                     search: `/${ASSET_PATH}/`,
-                    replace: `${PREVIEW_PATH}/${ASSET_PATH}/`,
+                    replace: `${PREVIEW_DEST_PATH}/${ASSET_PATH}/`,
                 },
             });
         }
