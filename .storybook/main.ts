@@ -2,6 +2,9 @@ import {resolve} from 'path';
 import WebpackShellPluginNext from 'webpack-shell-plugin-next';
 import MonacoWebpackPlugin from 'monaco-editor-webpack-plugin';
 
+//test
+const previewPublicPath = 'https://preview.gravity-ui.com/page-constructor/766'; //process.env.PREVIEW_PUBLIC_PATH;
+
 const customAlias = {
     widget: resolve(__dirname, '../widget'),
 };
@@ -41,6 +44,11 @@ const config = {
             ...(storybookBaseConfig.resolve?.alias || {}),
             ...customAlias,
         };
+
+        if (previewPublicPath) {
+            storybookBaseConfig.output.publicPath = previewPublicPath;
+        }
+
         return storybookBaseConfig;
     },
 };
