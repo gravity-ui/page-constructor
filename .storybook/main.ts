@@ -52,6 +52,7 @@ const config = {
                 options: {
                     search: `/${ASSET_PATH}/`,
                     replace: `${PREVIEW_DEST_PATH}/${ASSET_PATH}/`,
+                    flags: 'g',
                 },
             });
         }
