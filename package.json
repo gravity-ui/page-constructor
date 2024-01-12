@@ -66,7 +66,7 @@
     "typecheck": "tsc --noEmit",
     "dev": "npm run storybook:start",
     "storybook:start": "sb dev -p 7009",
-    "storybook:build": "sb build",
+    "storybook:build": "sb build -c .storybook -o storybook-static",
     "start": "node dist",
     "clean": "gulp clean",
     "build:client": "gulp",
