@@ -306,8 +306,9 @@ export interface CardLayoutBlockProps extends Childable, Animatable, LoadableChi
     titleClassName?: string;
     description?: string;
     colSizes?: GridColumnSizesType;
-    background?: BackgroundImageProps;
-    backgroundBorder?: CardBorder;
+    background?: BackgroundImageProps & {
+        border?: CardBorder;
+    };
 }
 
 export type FilterTag = {
