@@ -51,8 +51,6 @@ $largeBorderRadius: 32px;
             }
 
             &_center {
-                padding-top: $indentXL;
-                padding-bottom: $indentL;
                 flex-direction: column;
 
                 #{$root}__content-wrapper {
