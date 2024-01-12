@@ -1,6 +1,18 @@
 # Changelog
 
 
+## [4.46.0](https://github.com/gravity-ui/page-constructor/compare/v4.45.0...v4.46.0) (2024-01-12)
+
+
+### Features
+
+* export schemas of forms ([#769](https://github.com/gravity-ui/page-constructor/issues/769)) ([eca7a95](https://github.com/gravity-ui/page-constructor/commit/eca7a95c71678722a85227879375abc65eb17a56))
+
+
+### Bug Fixes
+
+* readme import ([#762](https://github.com/gravity-ui/page-constructor/issues/762)) ([7a21926](https://github.com/gravity-ui/page-constructor/commit/7a219269a046dc2f8cc71f0c9ec22a1003015b51))
+
 ## [4.45.0](https://github.com/gravity-ui/page-constructor/compare/v4.44.0...v4.45.0) (2024-01-11)
 
 
