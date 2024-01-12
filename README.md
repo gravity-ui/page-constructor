@@ -151,7 +151,7 @@ The page constructor uses the `bootstrap` grid and its implementation based on R
 Usage example:
 
 ```jsx
-import {Grid, Row, Col} from '@gravity-ui/page-constructor/';
+import {Grid, Row, Col} from '@gravity-ui/page-constructor';
 
 const Page: React.FC<PageProps> = ({children}) => (
   <Grid>
