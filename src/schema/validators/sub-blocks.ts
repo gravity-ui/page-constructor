@@ -7,3 +7,4 @@ export * from '../../sub-blocks/Quote/schema';
 export * from '../../sub-blocks/Divider/schema';
 export * from '../../sub-blocks/BasicCard/schema';
 export * from '../../sub-blocks/PriceCard/schema';
+export * from '../../sub-blocks/HubspotForm/schema';
