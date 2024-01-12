@@ -4,15 +4,15 @@
     "title": "Page constructor",
     "images": {
       "light": {
-        "desktop": "/story-assets/images/logo-svg_12-12_desktop_light.svg",
-        "tablet": "/story-assets/images/logo-svg_12-12_tablet_light.svg",
-        "mobile": "/story-assets/images/logo-svg_12-12_mobile_light.svg",
+        "desktop": "/story-assets/logo-svg_12-12_desktop_light.svg",
+        "tablet": "/story-assets/logo-svg_12-12_tablet_light.svg",
+        "mobile": "/story-assets/logo-svg_12-12_mobile_light.svg",
         "alt": "Page constructor"
       },
       "dark": {
-        "desktop": "/story-assets/images/logo-svg_12-12_desktop_dark.svg",
-        "tablet": "/story-assets/images/logo-svg_12-12_tablet_dark.svg",
-        "mobile": "/story-assets/images/logo-svg_12-12_mobile_dark.svg",
+        "desktop": "/story-assets/logo-svg_12-12_desktop_dark.svg",
+        "tablet": "/story-assets/logo-svg_12-12_tablet_dark.svg",
+        "mobile": "/story-assets/logo-svg_12-12_mobile_dark.svg",
         "alt": "Page constructor"
       }
     }

@@ -8,7 +8,7 @@
         "type": "image",
         "media": {
           "image": {
-            "src": "/story-assets/images/img-mini_4-12_light.png"
+            "src": "/story-assets/img-mini_4-12_light.png"
           }
         },
         "content": {
@@ -18,7 +18,7 @@
       {
         "type": "image",
         "media": {
-          "image": "/story-assets/images/img-mini_4-12_light.png"
+          "image": "/story-assets/img-mini_4-12_light.png"
         },
         "content": {
           "title": "Preview item content"
@@ -27,7 +27,7 @@
       {
         "type": "image",
         "media": {
-          "image": "/story-assets/images/img-mini_4-12_light.png"
+          "image": "/story-assets/img-mini_4-12_light.png"
         },
         "content": {
           "title": "Preview item content"

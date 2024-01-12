@@ -1,7 +1,7 @@
 {
   "default": {
     "content": {
-      "src": "/story-assets/images/header-bg-img_light.png",
+      "src": "/story-assets/header-bg-img_light.png",
       "alt": "string",
       "disableCompress": true,
       "style": {

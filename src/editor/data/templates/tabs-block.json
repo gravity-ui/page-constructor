@@ -22,8 +22,8 @@
           }
         ],
         "image": {
-          "light": "/story-assets/images/img_8-12_white.png",
-          "dark": "/story-assets/images/img_8-12_dark.png"
+          "light": "/story-assets/img_8-12_white.png",
+          "dark": "/story-assets/img_8-12_dark.png"
         }
       },
       {
@@ -33,28 +33,28 @@
           "light": {
             "video": {
               "src": [
-                "/story-assets/images/video_8-12_light.webm",
-                "/story-assets/images/video_8-12_light.mp4",
-                "/story-assets/images/video_8-12_light.png"
+                "/story-assets/video_8-12_light.webm",
+                "/story-assets/video_8-12_light.mp4",
+                "/story-assets/video_8-12_light.png"
               ],
               "loop": {
                 "start": 0
               }
             },
-            "image": "/story-assets/images/img_8-12_white.png"
+            "image": "/story-assets/img_8-12_white.png"
           },
           "dark": {
             "video": {
               "src": [
-                "/story-assets/images/video_8-12_dark.webm",
-                "/story-assets/images/video_8-12_dark.mp4",
-                "/story-assets/images/video_8-12_dark.png"
+                "/story-assets/video_8-12_dark.webm",
+                "/story-assets/video_8-12_dark.mp4",
+                "/story-assets/video_8-12_dark.png"
               ],
               "loop": {
                 "start": 0
               }
             },
-            "image": "/story-assets/images/img_8-12_dark.png"
+            "image": "/story-assets/img_8-12_dark.png"
           }
         },
         "caption": "Dolor sit amet",
@@ -75,11 +75,11 @@
         "media": {
           "light": {
             "youtube": "https://youtu.be/0Qd3T6skprA",
-            "previewImg": "/story-assets/images/video_8-12_light.png"
+            "previewImg": "/story-assets/video_8-12_light.png"
           },
           "dark": {
             "youtube": "https://youtu.be/0Qd3T6skprA",
-            "previewImg": "/story-assets/images/video_8-12_dark.png"
+            "previewImg": "/story-assets/video_8-12_dark.png"
           }
         },
         "caption": "Consectetur adipiscing elit",

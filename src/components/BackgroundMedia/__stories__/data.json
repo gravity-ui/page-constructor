@@ -3,22 +3,22 @@
     "content": {
       "video": {
         "src": [
-          "/story-assets/images/header-bg-video_light.mp4",
-          "/story-assets/images/header-bg-video_light.webm",
-          "/story-assets/images/header-bg-video_light.png"
+          "/story-assets/header-bg-video_light.mp4",
+          "/story-assets/header-bg-video_light.webm",
+          "/story-assets/header-bg-video_light.png"
         ],
         "loop": {
           "start": 0
         }
       },
-      "image": "/story-assets/images/header-bg-video_light.png"
+      "image": "/story-assets/header-bg-video_light.png"
     }
   },
   "image": {
     "content": {
       "image": {
-        "desktop": "/story-assets/images/header-bg-img_light.png",
-        "mobile": "/story-assets/images/img-bg_padding_4-12_light.png",
+        "desktop": "/story-assets/header-bg-img_light.png",
+        "mobile": "/story-assets/img-bg_padding_4-12_light.png",
         "alt": "Picture",
         "disableCompress": true
       }

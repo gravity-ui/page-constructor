@@ -40,11 +40,14 @@ const config = {
                 },
             }),
         );
+
         storybookBaseConfig.resolve.alias = {
             ...(storybookBaseConfig.resolve?.alias || {}),
             ...customAlias,
         };
 
+        // main and branch storybook previews are deployed in subfolders
+        // so we need to add subfolder prefix to stories asset static path:
         if (PREVIEW_DEST_PATH) {
             storybookBaseConfig.module.rules.push({
                 test: /data\.json$/,

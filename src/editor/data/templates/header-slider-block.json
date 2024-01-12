@@ -12,12 +12,12 @@
         "width": "s",
         "background": {
           "light": {
-            "image": "/story-assets/images/header-bg-img_light.png",
+            "image": "/story-assets/header-bg-img_light.png",
             "color": "#EFF2F8",
             "fullWidth": true
           },
           "dark": {
-            "image": "/story-assets/images/header-bg-img_dark.png",
+            "image": "/story-assets/header-bg-img_dark.png",
             "color": "#262626",
             "fullWidth": true
           }
@@ -41,12 +41,12 @@
         "width": "s",
         "background": {
           "light": {
-            "image": "/story-assets/images/header-bg-img_light.png",
+            "image": "/story-assets/header-bg-img_light.png",
             "color": "#EFF2F8",
             "fullWidth": true
           },
           "dark": {
-            "image": "/story-assets/images/header-bg-img_dark.png",
+            "image": "/story-assets/header-bg-img_dark.png",
             "color": "#262626",
             "fullWidth": true
           }

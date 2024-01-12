@@ -1,7 +1,7 @@
 {
   "default": {
     "content": {
-      "src": "/story-assets/images/img_6-12_light.png",
+      "src": "/story-assets/img_6-12_light.png",
       "alt": "Description",
       "imageClassName": "",
       "disableCompress": false,

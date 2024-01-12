@@ -16,7 +16,7 @@
     "content": {
       "media": {
         "youtube": "https://youtu.be/0Qd3T6skprA",
-        "previewImg": "/story-assets/images/video_8-12_white.png"
+        "previewImg": "/story-assets/video_8-12_white.png"
       },
       "fullscreen": true
     }
@@ -28,7 +28,7 @@
         "text": "Dolor sit *amet*"
       },
       "media": {
-        "image": "/story-assets/images/img-mini_4-12_light.png"
+        "image": "/story-assets/img-mini_4-12_light.png"
       }
     }
   }

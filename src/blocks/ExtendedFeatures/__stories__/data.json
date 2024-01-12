@@ -12,8 +12,8 @@
           "title": "Sed do eiusmod tempor incididunt",
           "text": "Ut enim ad minim veniam [quis nostrud](https://example.com) ullamco laboris nisi ut aliquip ex ea commodo consequat.",
           "icon": {
-            "light": "/story-assets/images/icon_1_light.svg",
-            "dark": "/story-assets/images/icon_1_dark.svg"
+            "light": "/story-assets/icon_1_light.svg",
+            "dark": "/story-assets/icon_1_dark.svg"
           },
           "additionalInfo": "Duis aute irure dolor in [reprehenderit](https://example.com) n voluptate velit esse cillum dolore eu fugiat nulla pariatur."
         },
@@ -21,8 +21,8 @@
           "title": "Sed do eiusmod tempor",
           "text": "Ut enim ad minim veniam [quis nostrud](https://example.com) ullamco laboris nisi ut aliquip ex ea commodo consequat.",
           "icon": {
-            "light": "/story-assets/images/icon_2_light.svg",
-            "dark": "/story-assets/images/icon_2_dark.svg"
+            "light": "/story-assets/icon_2_light.svg",
+            "dark": "/story-assets/icon_2_dark.svg"
           },
           "buttons": [
             {
@@ -41,8 +41,8 @@
           "title": "Sed do eiusmod tempor incididunt",
           "text": "Ut enim ad minim veniam [quis nostrud](https://example.com) ullamco laboris nisi ut aliquip ex ea commodo consequat.",
           "icon": {
-            "light": "/story-assets/images/icon_3_light.svg",
-            "dark": "/story-assets/images/icon_3_dark.svg"
+            "light": "/story-assets/icon_3_light.svg",
+            "dark": "/story-assets/icon_3_dark.svg"
           },
           "links": [
             {
@@ -63,8 +63,8 @@
           "title": "Sed do eiusmod tempor",
           "text": "Ut enim ad minim veniam [quis nostrud](https://example.com) ullamco laboris nisi ut aliquip ex ea commodo consequat.",
           "icon": {
-            "light": "/story-assets/images/icon_1_light.svg",
-            "dark": "/story-assets/images/icon_1_dark.svg"
+            "light": "/story-assets/icon_1_light.svg",
+            "dark": "/story-assets/icon_1_dark.svg"
           },
           "additionalInfo": "Duis aute irure dolor in [reprehenderit](https://example.com) n voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
           "label": "New"
@@ -73,8 +73,8 @@
           "title": "Sed do eiusmod tempor",
           "text": "Ut enim ad minim veniam [quis nostrud](https://example.com) ullamco laboris nisi ut aliquip ex ea commodo consequat.",
           "icon": {
-            "light": "/story-assets/images/icon_2_light.svg",
-            "dark": "/story-assets/images/icon_2_dark.svg"
+            "light": "/story-assets/icon_2_light.svg",
+            "dark": "/story-assets/icon_2_dark.svg"
           },
           "buttons": [
             {
@@ -94,8 +94,8 @@
           "title": "Sed do eiusmod tempor incididunt ",
           "text": "Ut enim ad minim veniam [quis nostrud](https://example.com) ullamco laboris nisi ut aliquip ex ea commodo consequat.",
           "icon": {
-            "light": "/story-assets/images/icon_3_light.svg",
-            "dark": "/story-assets/images/icon_3_dark.svg"
+            "light": "/story-assets/icon_3_light.svg",
+            "dark": "/story-assets/icon_3_dark.svg"
           },
           "links": [
             {
@@ -121,8 +121,8 @@
           "title": "Sed do eiusmod tempor incididunt",
           "text": "Ut enim ad minim veniam [quis nostrud](https://example.com) ullamco laboris nisi ut aliquip ex ea commodo consequat.",
           "icon": {
-            "light": "/story-assets/images/icon_3_light.svg",
-            "dark": "/story-assets/images/icon_3_dark.svg"
+            "light": "/story-assets/icon_3_light.svg",
+            "dark": "/story-assets/icon_3_dark.svg"
           },
           "links": [
             {
@@ -137,8 +137,8 @@
           "title": "Sed do eiusmod tempor incididunt",
           "text": "Ut enim ad minim veniam [quis nostrud](https://example.com) ullamco laboris nisi ut aliquip ex ea commodo consequat.",
           "icon": {
-            "light": "/story-assets/images/icon_3_light.svg",
-            "dark": "/story-assets/images/icon_3_dark.svg"
+            "light": "/story-assets/icon_3_light.svg",
+            "dark": "/story-assets/icon_3_dark.svg"
           },
           "links": [
             {
@@ -168,8 +168,8 @@
           "title": "Sed do eiusmod tempor incididunt",
           "text": "Ut enim ad minim veniam [quis nostrud](https://example.com) ullamco laboris nisi ut aliquip ex ea commodo consequat.",
           "icon": {
-            "light": "/story-assets/images/icon_1_light.svg",
-            "dark": "/story-assets/images/icon_1_dark.svg"
+            "light": "/story-assets/icon_1_light.svg",
+            "dark": "/story-assets/icon_1_dark.svg"
           },
           "links": [
             {
@@ -184,8 +184,8 @@
           "title": "Sed do eiusmod tempor",
           "text": "Ut enim ad minim veniam [quis nostrud](https://example.com) ullamco laboris nisi ut aliquip ex ea commodo consequat.",
           "icon": {
-            "light": "/story-assets/images/icon_2_light.svg",
-            "dark": "/story-assets/images/icon_2_dark.svg"
+            "light": "/story-assets/icon_2_light.svg",
+            "dark": "/story-assets/icon_2_dark.svg"
           },
           "links": [
             {
@@ -200,8 +200,8 @@
           "title": "Sed do eiusmod tempor incididunt",
           "text": "Ut enim ad minim veniam [quis nostrud](https://example.com) ullamco laboris nisi ut aliquip ex ea commodo consequat.",
           "icon": {
-            "light": "/story-assets/images/icon_3_light.svg",
-            "dark": "/story-assets/images/icon_3_dark.svg"
+            "light": "/story-assets/icon_3_light.svg",
+            "dark": "/story-assets/icon_3_dark.svg"
           },
           "links": [
             {
@@ -216,8 +216,8 @@
           "title": "Sed do eiusmod tempor incididunt",
           "text": "Ut enim ad minim veniam [quis nostrud](https://example.com) ullamco laboris nisi ut aliquip ex ea commodo consequat.",
           "icon": {
-            "light": "/story-assets/images/icon_3_light.svg",
-            "dark": "/story-assets/images/icon_3_dark.svg"
+            "light": "/story-assets/icon_3_light.svg",
+            "dark": "/story-assets/icon_3_dark.svg"
           },
           "links": [
             {
