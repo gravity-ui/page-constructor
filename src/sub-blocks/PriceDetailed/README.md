@@ -160,5 +160,3 @@ Example, with all fields:
         - text: '0-5 people'
         - text: '6-100 people'
 ```
-
-![](https://storage.cloud-preprod.yandex.net/cloud-www-assets/wiki/Price%20Detailed.jpg)
