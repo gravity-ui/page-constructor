@@ -42,7 +42,7 @@ const BalancedMasonry = (props: WithChildren<BalancedMasonryProps>) => {
         for (const [rawWidth, columnCount] of breakpoints) {
             const width = Number(rawWidth);
 
-            if (document.body.clientWidth <= width) {
+            if (document?.body.clientWidth <= width) {
                 result = columnCount;
             }
         }
