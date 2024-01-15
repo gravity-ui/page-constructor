@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [4.46.1](https://github.com/gravity-ui/page-constructor/compare/v4.46.0...v4.46.1) (2024-01-15)
+
+
+### Bug Fixes
+
+* document is optional for SSR ([#772](https://github.com/gravity-ui/page-constructor/issues/772)) ([ad83fac](https://github.com/gravity-ui/page-constructor/commit/ad83fac66d60d06bc5b37c9b9a763e22f9a7600d))
+
 ## [4.46.0](https://github.com/gravity-ui/page-constructor/compare/v4.45.0...v4.46.0) (2024-01-12)
 
 
