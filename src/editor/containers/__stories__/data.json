@@ -1,16 +1,6 @@
 {
   "default": {
     "content": {
-      "background": {
-        "light": {
-          "image": "/story-assets/header-bg-video_light.png",
-          "color": "#EFF2F8"
-        },
-        "dark": {
-          "image": "/story-assets/header-bg-video_dark.png",
-          "color": "#262626"
-        }
-      },
       "blocks": [
         {
           "type": "slider-block",
