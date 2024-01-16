@@ -99,6 +99,10 @@ $largeBorderRadius: 32px;
                         padding: $indentXL;
                     }
                 }
+                &_center {
+                    padding-top: $indentXL;
+                    padding-bottom: $indentL;
+                }
             }
         }
     }
