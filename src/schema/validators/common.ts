@@ -702,11 +702,13 @@ export const MapProps = {
     },
 };
 
+export const BorderProps = {
+    type: 'string',
+    enum: ['line', 'shadow', 'none'],
+};
+
 export const CardBase = {
-    border: {
-        type: 'string',
-        enum: ['line', 'shadow', 'none'],
-    },
+    border: BorderProps,
 };
 
 export const BlockHeaderProps = {

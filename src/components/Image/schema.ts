@@ -43,10 +43,9 @@ export const ImageDeviceProps = {
     },
 };
 
-export const ImageObjectProps = {
+export const ImageBaseObjectProps = {
     type: 'object',
     additionalProperties: false,
-    required: ['src'],
     properties: {
         ...ImageBase,
         src: {
@@ -55,6 +54,11 @@ export const ImageObjectProps = {
         },
         style: StyleBase,
     },
+};
+
+export const ImageObjectProps = {
+    ...ImageBaseObjectProps,
+    required: ['src'],
 };
 
 export const ImageProps = {
@@ -72,5 +76,18 @@ export const ImageProps = {
             ...ImageDeviceProps,
             optionName: 'device options',
         }),
+    ],
+};
+
+export const BackgroundImageProps = {
+    anyOf: [
+        {
+            ...ImageBaseObjectProps,
+            optionName: 'options',
+        },
+        {
+            ...ImageDeviceProps,
+            optionName: 'device options',
+        },
     ],
 };

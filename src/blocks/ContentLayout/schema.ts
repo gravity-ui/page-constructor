@@ -1,4 +1,4 @@
-import {ImageObjectProps} from '../../components/Image/schema';
+import {BackgroundImageProps} from '../../components/Image/schema';
 import {
     BlockBaseProps,
     FileLinkProps,
@@ -14,7 +14,7 @@ const ContentLayoutBlockProperties = {
         type: 'string',
         enum: contentSizes,
     },
-    background: ImageObjectProps,
+    background: BackgroundImageProps,
     centered: {
         type: 'boolean',
     },

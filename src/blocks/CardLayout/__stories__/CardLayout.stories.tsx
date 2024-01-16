@@ -187,6 +187,7 @@ const WithBackgroundTemplate: StoryFn<CardLayoutBlockModel> = (args) => (
                 {
                     ...args,
                     background: {
+                        border: 'shadow',
                         style: {
                             backgroundColor: '#7CCEA0',
                         },

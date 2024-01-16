@@ -29,6 +29,8 @@ $block: '.#{$ns}card-layout-block';
             object-fit: cover;
             object-position: left;
         }
+
+        @include card-border();
     }
 
     @include animate-slides(#{$block}__item);
