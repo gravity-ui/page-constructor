@@ -3,9 +3,9 @@
     "content": {
       "video": {
         "src": [
-          "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.webm",
-          "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.mp4",
-          "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.png"
+          "/story-assets/video_8-12_white.webm",
+          "/story-assets/video_8-12_white.mp4",
+          "/story-assets/video_8-12_white.png"
         ],
         "loop": {
           "start": 0
@@ -16,7 +16,7 @@
   "youtube": {
     "content": {
       "youtube": "https://youtu.be/0Qd3T6skprA",
-      "previewImg": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.png"
+      "previewImg": "/story-assets/video_8-12_white.png"
     }
   },
   "dataLens": {
@@ -27,16 +27,16 @@
   "imageSlider": {
     "content": {
       "image": [
-        "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_6-12_light.png",
-        "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_6-12_light.png",
-        "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_6-12_light.png"
+        "/story-assets/img_6-12_light.png",
+        "/story-assets/img_6-12_light.png",
+        "/story-assets/img_6-12_light.png"
       ]
     }
   },
   "image": {
     "content": {
       "image": {
-        "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_6-12_white.png",
+        "src": "/story-assets/img_6-12_white.png",
         "alt": "Picture",
         "disableCompress": true
       }

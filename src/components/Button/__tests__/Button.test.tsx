@@ -15,7 +15,7 @@ const buttonProps = {
     url: 'https://github.com/gravity-ui/',
     target: '_blank',
     img: {
-        url: 'https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_1_light.svg',
+        url: '/mock.svg',
         position: 'left' as ButtonImagePosition,
         alt: 'alt-text',
     },

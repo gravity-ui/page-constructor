@@ -39,12 +39,12 @@
     "content": {
       "background": {
         "light": {
-          "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-bg_nopadding_4-12_light.png",
+          "src": "/story-assets/img-bg_nopadding_4-12_light.png",
           "alt": "Lorem ipsumt",
           "disableCompress": true
         },
         "dark": {
-          "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-bg_nopadding_4-12_dark.png",
+          "src": "/story-assets/img-bg_nopadding_4-12_dark.png",
           "alt": "Lorem ipsumt"
         }
       }
@@ -86,7 +86,7 @@
       {
         "title": "Dark Monochrome theme",
         "theme": "dark",
-        "background": "src: 'https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-black.png'",
+        "background": "src: '/story-assets/img-black.png'",
         "buttons": [
           {
             "text": "Button",

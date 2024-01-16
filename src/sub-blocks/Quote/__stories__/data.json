@@ -4,14 +4,14 @@
       "border": "shadow",
       "theme": "dark",
       "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_dark.png",
+      "image": "/story-assets/img_8-12_dark.png",
       "author": {
-        "avatar": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_dark.png",
+        "avatar": "/story-assets/img_8-12_dark.png",
         "firstName": "Lorem",
         "secondName": "ipsum",
         "description": "Lorem ipsum"
       },
-      "logo": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-mini_6-12_dark.png",
+      "logo": "/story-assets/img-mini_6-12_dark.png",
       "color": "#262626",
       "button": {
         "text": "Button text",
@@ -33,10 +33,10 @@
       "yfmText": "Lorem ipsum **dolor sit amet**, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       "image": {
         "light": {
-          "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_6-12_light.png"
+          "src": "/story-assets/img_6-12_light.png"
         },
         "dark": {
-          "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_dark.png"
+          "src": "/story-assets/img_8-12_dark.png"
         }
       },
       "author": {
@@ -44,12 +44,12 @@
         "secondName": "ipsum",
         "description": "Lorem ipsum",
         "avatar": {
-          "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_6-12_light.png",
+          "src": "/story-assets/img_6-12_light.png",
           "alt": "Avatar alt"
         }
       },
       "logo": {
-        "src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-mini_6-12_light.png",
+        "src": "/story-assets/img-mini_6-12_light.png",
         "alt": "Logo alt"
       },
       "button": {

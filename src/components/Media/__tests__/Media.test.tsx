@@ -7,13 +7,8 @@ import Media, {MediaAllProps} from '../Media';
 
 const videoTestingLabel = 'Example of video description';
 const imageTestingLabel = 'Example of image description';
-const videoSrc = [
-    'https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.webm',
-    'https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.mp4',
-    'https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/video_8-12_white.png',
-];
-const imageSrc =
-    'https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_6-12_light.png';
+const videoSrc = ['/mock.webm', '/mock.mp4', '/mock.png'];
+const imageSrc = '/mock.png';
 
 describe('Media', () => {
     test.each<MediaAllProps>([

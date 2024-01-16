@@ -10,8 +10,7 @@ import BackgroundImage from '../BackgroundImage';
 
 const qa = 'background-image-component';
 
-const imageSrc =
-    'https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png';
+const imageSrc = '/mock.png';
 
 const qaAttributes = getQaAttrubutes(qa, 'image-desktop-source-compressed');
 

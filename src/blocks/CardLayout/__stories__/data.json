@@ -9,7 +9,7 @@
     "layoutItem": {
       "type": "layout-item",
       "media": {
-        "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-mini_4-12_light.png"
+        "image": "/story-assets/img-mini_4-12_light.png"
       },
       "content": {
         "title": "Tell a story and build a narrative",
@@ -57,7 +57,7 @@
       "card": {
         "type": "layout-item",
         "media": {
-          "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-mini_3-12_light.png"
+          "image": "/story-assets/img-mini_3-12_light.png"
         },
         "content": {
           "title": "Lorem&nbsp;ipsum",
@@ -75,7 +75,7 @@
       "card": {
         "type": "layout-item",
         "media": {
-          "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-mini_6-12_light.png"
+          "image": "/story-assets/img-mini_6-12_light.png"
         },
         "content": {
           "title": "Lorem&nbsp;ipsum",

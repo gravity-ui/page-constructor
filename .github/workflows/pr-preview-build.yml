@@ -3,6 +3,9 @@ name: PR Preview Build
 on:
   pull_request:
 
+env:
+  PREVIEW_DEST_PATH: /page-constructor/${{ github.event.pull_request.number }}
+
 jobs:
   build:
     name: Build

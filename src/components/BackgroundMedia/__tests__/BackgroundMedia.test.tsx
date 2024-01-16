@@ -9,12 +9,9 @@ import BackgroundMedia from '../BackgroundMedia';
 
 const qaId = 'background-media-component';
 
-const imageUrl =
-    'https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png';
+const imageUrl = '/mock.png';
 const videoProps = {
-    src: [
-        'https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/header-bg-video_light.mp4',
-    ],
+    src: ['/mock.mp4'],
 };
 
 const qaAttributes = getQaAttrubutes(

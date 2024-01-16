@@ -2,9 +2,9 @@
   "withIcon": {
     "title": "Card with icon on {{position}}",
     "icons": [
-      "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_1_light.svg",
-      "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_2_light.svg",
-      "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_3_light.svg"
+      "/story-assets/icon_1_light.svg",
+      "/story-assets/icon_2_light.svg",
+      "/story-assets/icon_3_light.svg"
     ]
   },
   "withBorder": {
