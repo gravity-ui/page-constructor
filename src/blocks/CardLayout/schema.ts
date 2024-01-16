@@ -1,8 +1,9 @@
-import {BackgroundImageProps} from '../../components/Image/schema';
+import {ImageBaseObjectProps, ImageDeviceProps} from '../../components/Image/schema';
 import {
     AnimatableProps,
     BlockBaseProps,
     BlockHeaderProps,
+    BorderProps,
     ChildrenCardsProps,
     containerSizesObject,
 } from '../../schema/validators/common';
@@ -15,10 +16,19 @@ export const CardLayoutProps = {
         ...AnimatableProps,
         ...BlockHeaderProps,
         colSizes: containerSizesObject,
-        background: BackgroundImageProps,
-        backgroundBorder: {
-            type: 'string',
-            enum: ['line', 'shadow', 'none'],
+        background: {
+            anyOf: [
+                {
+                    ...ImageBaseObjectProps,
+                    properties: {...ImageBaseObjectProps.properties, border: BorderProps},
+                    optionName: 'options',
+                },
+                {
+                    ...ImageDeviceProps,
+                    properties: {...ImageDeviceProps.properties, border: BorderProps},
+                    optionName: 'device options',
+                },
+            ],
         },
         children: ChildrenCardsProps,
     },
