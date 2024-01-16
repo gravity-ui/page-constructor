@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [4.46.2](https://github.com/gravity-ui/page-constructor/compare/v4.46.1...v4.46.2) (2024-01-16)
+
+
+### Bug Fixes
+
+* card layout block background ([#767](https://github.com/gravity-ui/page-constructor/issues/767)) ([8ea3fd4](https://github.com/gravity-ui/page-constructor/commit/8ea3fd4fdecc231d02095862bd70ac14725dd154))
+* change css mixin animate-slides children length from 9 to 99 ([#771](https://github.com/gravity-ui/page-constructor/issues/771)) ([1678b88](https://github.com/gravity-ui/page-constructor/commit/1678b88f55230038ecc5802f74659c83adf589ba))
+
 ## [4.46.1](https://github.com/gravity-ui/page-constructor/compare/v4.46.0...v4.46.1) (2024-01-15)
 
 
