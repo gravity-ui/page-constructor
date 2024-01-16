@@ -43,36 +43,15 @@ const DefaultTemplate: StoryFn<CardLayoutBlockModel> = (args) => (
                     children: [
                         {
                             ...data.cards.priceCard,
-                            buttons: [
-                                {
-                                    text: 'Button',
-                                    url: 'https://example.com',
-                                    width: 'max',
-                                    theme: 'outlined',
-                                },
-                            ],
+                            buttons: [data.buttons.outlined],
                         },
                         {
                             ...data.cards.priceCard,
-                            buttons: [
-                                {
-                                    text: 'Button',
-                                    url: 'https://example.com',
-                                    width: 'max',
-                                    theme: 'action',
-                                },
-                            ],
+                            buttons: [data.buttons.action],
                         },
                         {
                             ...data.cards.priceCard,
-                            buttons: [
-                                {
-                                    text: 'Button',
-                                    url: 'https://example.com',
-                                    width: 'max',
-                                    theme: 'monochrome',
-                                },
-                            ],
+                            buttons: [data.buttons.monochrome],
                         },
                     ],
                 },
@@ -168,47 +147,26 @@ const WithBackgroundTemplate: StoryFn<CardLayoutBlockModel> = (args) => (
             blocks: [
                 {
                     ...args,
-                    background: {
-                        src: '/story-assets/content-bg-img_light.png',
-                        disableCompress: true,
-                    },
+                    background: data.backgrounds.image,
                     children: createCardArray(8, data.cards.basicCard),
                 },
                 {
                     ...args,
                     title: 'Card layout with background color (basic cards)',
-                    background: {
-                        style: {
-                            backgroundColor: '#EEF2F8',
-                        },
-                    },
+                    background: data.backgrounds.backgroundColor,
                     children: createCardArray(4, data.cards.basicCard),
                 },
                 {
                     ...args,
-                    background: {
-                        border: 'shadow',
-                        style: {
-                            backgroundColor: '#7CCEA0',
-                        },
-                    },
+                    background: data.backgrounds.backgroundColorAndShadow,
                     title: 'Card layout with background color and shadow (layout items)',
-                    description:
-                        'Three cards in a row on the desktop, three cards in a row on a tablet, one card in a row on a mobile phone.',
-                    colSizes: {
-                        all: 12,
-                        sm: 4,
-                        md: 4,
-                    },
+                    ...data.colSizes.threeOne,
                     children: createCardArray(3, data.cards.layoutItem),
                 },
                 {
                     ...args,
                     title: 'Card layout with background image (price cards)',
-                    background: {
-                        src: '/story-assets/content-bg-img_light.png',
-                        disableCompress: true,
-                    },
+                    background: data.backgrounds.image,
                     children: createCardArray(4, data.cards.priceCard),
                 },
             ],

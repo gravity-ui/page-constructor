@@ -45,6 +45,43 @@
       ]
     }
   },
+  "buttons": {
+    "outlined": {
+      "text": "Button",
+      "url": "https://example.com",
+      "width": "max",
+      "theme": "outlined"
+    },
+    "action": {
+      "text": "Button",
+      "url": "https://example.com",
+      "width": "max",
+      "theme": "action"
+    },
+    "monochrome": {
+      "text": "Button",
+      "url": "https://example.com",
+      "width": "max",
+      "theme": "monochrome"
+    }
+  },
+  "backgrounds": {
+    "image": {
+      "src": "/story-assets/content-bg-img_light.png",
+      "disableCompress": true
+    },
+    "backgroundColor": {
+      "style": {
+        "backgroundColor": "#EEF2F8"
+      }
+    },
+    "backgroundColorAndShadow": {
+      "border": "shadow",
+      "style": {
+        "backgroundColor": "#7CCEA0"
+      }
+    }
+  },
   "default": {
     "content": {
       "type": "card-layout-block",
@@ -85,6 +122,14 @@
       "description": "Two cards in a row on all devices",
       "colSizes": {
         "all": 6
+      }
+    },
+    "threeOne": {
+      "description": "Three cards in a row on the desktop, three cards in a row on a tablet, one card in a row on a mobile phone.",
+      "colSizes": {
+        "all": 12,
+        "sm": 4,
+        "md": 4
       }
     }
   },
