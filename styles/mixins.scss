@@ -630,5 +630,9 @@ unpredictable css rules order in build */
             border-radius: $borderRadius;
             border: 1px solid var(--g-color-line-generic);
         }
+
+        &_none {
+            border-radius: $borderRadius;
+        }
     }
 }
