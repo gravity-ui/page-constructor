@@ -351,7 +351,7 @@
                 transition: top $transition, opacity $transition;
             }
 
-            @for $i from 0 through 9 {
+            @for $i from 0 through 99 {
                 #{$item-class}:nth-child(#{$i}) {
                     transition-delay: $i * 0.1s + $delay;
                 }
