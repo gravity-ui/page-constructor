@@ -169,7 +169,7 @@ const WithBackgroundTemplate: StoryFn<CardLayoutBlockModel> = (args) => (
                 {
                     ...args,
                     background: {
-                        src: 'https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/content-bg-img_light.png',
+                        src: '/story-assets/content-bg-img_light.png',
                         disableCompress: true,
                     },
                     children: createCardArray(8, data.cards.basicCard),
@@ -206,7 +206,7 @@ const WithBackgroundTemplate: StoryFn<CardLayoutBlockModel> = (args) => (
                     ...args,
                     title: 'Card layout with background image (price cards)',
                     background: {
-                        src: 'https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/content-bg-img_light.png',
+                        src: '/story-assets/content-bg-img_light.png',
                         disableCompress: true,
                     },
                     children: createCardArray(4, data.cards.priceCard),

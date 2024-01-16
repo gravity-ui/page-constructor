@@ -50,7 +50,7 @@ const config = {
         // so we need to add subfolder prefix to stories asset static path:
         if (PREVIEW_DEST_PATH) {
             storybookBaseConfig.module.rules.push({
-                test: /data\.json$/,
+                test: /(data\.json)|(stories\.tsx)$/,
                 loader: 'string-replace-loader',
                 options: {
                     search: `/${ASSET_PATH}/`,
