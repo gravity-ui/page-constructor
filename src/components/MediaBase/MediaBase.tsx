@@ -27,11 +27,6 @@ export const MediaBase = (props: MediaBaseProps) => {
         mobileDirection = 'content-media',
         animated,
         mediaOnly,
-        /**
-         * @deprecated use custom class for media-component
-         */
-        disableShadow = false,
-        border = 'shadow',
         onScroll,
         mediaOnlyColSizes = {all: 12, md: 8},
         ...mediaContentProps
@@ -50,8 +45,6 @@ export const MediaBase = (props: MediaBaseProps) => {
 
     const mediaContent = !mediaOnly && <MediaContent {...mediaContentProps} />;
     const card = children.type === Card ? children?.props.children : null;
-    const isShadowDisabled = disableShadow || border !== 'shadow';
-    const specialBorderRadius = border === 'line';
 
     return (
         <AnimateBlock className={b()} onScroll={onScroll} animate={animated}>
@@ -75,14 +68,7 @@ export const MediaBase = (props: MediaBaseProps) => {
                     </Col>
                     {card ? (
                         <Col sizes={mediaSizes}>
-                            <div
-                                className={b('card', {
-                                    shadow: !isShadowDisabled,
-                                    specialBorderRadius: specialBorderRadius,
-                                })}
-                            >
-                                {card}
-                            </div>
+                            <div>{card}</div>
                         </Col>
                     ) : null}
                 </Row>

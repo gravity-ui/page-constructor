@@ -218,12 +218,11 @@ export interface CompaniesBlockProps extends Animatable {
     images: ThemeSupporting<ImageDeviceProps>;
 }
 
-export interface MediaBaseBlockProps extends Animatable, MediaContentProps, WithBorder {
+export interface MediaBaseBlockProps extends Animatable, MediaContentProps {
     direction?: MediaDirection;
     mobileDirection?: MediaDirection;
     largeMedia?: boolean;
     mediaOnly?: boolean;
-    disableShadow?: boolean;
     mediaOnlyColSizes?: GridColumnSizesType;
 }
 
@@ -239,7 +238,7 @@ export interface MediaBlockProps extends MediaBaseBlockProps, WithBorder {
     media: ThemeSupporting<MediaProps>;
 }
 
-export interface MapBlockProps extends MediaBaseBlockProps {
+export interface MapBlockProps extends MediaBaseBlockProps, WithBorder {
     map: MapProps;
 }
 

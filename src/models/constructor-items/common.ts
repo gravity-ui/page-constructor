@@ -288,6 +288,7 @@ export type Coordinate = number[];
 
 export interface MapBaseProps {
     zoom?: number;
+    className?: string;
 }
 
 export interface GMapProps extends MapBaseProps {
@@ -480,4 +481,8 @@ export interface YandexFormProps extends AnalyticsEventsBase {
 
 export interface WithBorder {
     border?: MediaBorder;
+    /**
+     * @deprecated use custom class for media-component
+     */
+    disableShadow?: boolean;
 }
