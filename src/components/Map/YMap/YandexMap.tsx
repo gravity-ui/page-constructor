@@ -24,7 +24,7 @@ const DEFAULT_ZOOM = 9;
 const INITIAL_CENTER = [0, 0];
 
 const YandexMap: React.FC<YMapProps> = (props) => {
-    const {markers, zoom, id} = props;
+    const {markers, zoom, id, className} = props;
     const {apiKey, scriptSrc, nonce} = useContext(MapsContext);
     const isMobile = useContext(MobileContext);
 
@@ -108,7 +108,12 @@ const YandexMap: React.FC<YMapProps> = (props) => {
         >
             <div className={b('wrapper')}>
                 {/* hidden - to show the map after calculating the center */}
-                <div id={containerId} className={b({hidden: !ready})} ref={ref} style={{height}} />
+                <div
+                    id={containerId}
+                    className={b({hidden: !ready}, className)}
+                    ref={ref}
+                    style={{height}}
+                />
                 {loading ? <Spin size="xl" className={b('spinner')} /> : null}
             </div>
         </ErrorWrapper>

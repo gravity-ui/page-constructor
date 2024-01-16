@@ -27,7 +27,6 @@ export const MediaBase = (props: MediaBaseProps) => {
         mobileDirection = 'content-media',
         animated,
         mediaOnly,
-        disableShadow = false,
         onScroll,
         mediaOnlyColSizes = {all: 12, md: 8},
         ...mediaContentProps
@@ -69,7 +68,7 @@ export const MediaBase = (props: MediaBaseProps) => {
                     </Col>
                     {card ? (
                         <Col sizes={mediaSizes}>
-                            <div className={b('card', {shadow: !disableShadow})}>{card}</div>
+                            <div>{card}</div>
                         </Col>
                     ) : null}
                 </Row>

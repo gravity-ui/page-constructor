@@ -35,6 +35,7 @@ import {
     ThemedMediaVideoProps,
     TitleItemBaseProps,
     TitleItemProps,
+    WithBorder,
     YandexFormProps,
 } from './common';
 import {BannerCardProps, HubspotFormProps, SubBlock, SubBlockModels} from './sub-blocks';
@@ -227,7 +228,6 @@ export interface MediaBaseBlockProps extends Animatable, MediaContentProps {
     mobileDirection?: MediaDirection;
     largeMedia?: boolean;
     mediaOnly?: boolean;
-    disableShadow?: boolean;
     mediaOnlyColSizes?: GridColumnSizesType;
 }
 
@@ -239,11 +239,11 @@ export interface MediaContentProps
     button?: ButtonProps;
 }
 
-export interface MediaBlockProps extends MediaBaseBlockProps {
+export interface MediaBlockProps extends MediaBaseBlockProps, WithBorder {
     media: ThemeSupporting<MediaProps>;
 }
 
-export interface MapBlockProps extends MediaBaseBlockProps {
+export interface MapBlockProps extends MediaBaseBlockProps, WithBorder {
     map: MapProps;
 }
 

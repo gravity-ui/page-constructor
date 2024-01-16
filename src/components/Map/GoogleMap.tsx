@@ -30,7 +30,7 @@ function getScriptSrc(params: GoogleMapLinkParams) {
 }
 
 const GoogleMap: React.FC<GMapProps> = (props) => {
-    const {address, zoom} = props;
+    const {address, zoom, className} = props;
     const {apiKey, scriptSrc} = useContext(MapsContext);
     const {lang = Lang.Ru} = useContext(LocaleContext);
     const isMobile = useContext(MobileContext);
@@ -63,7 +63,7 @@ const GoogleMap: React.FC<GMapProps> = (props) => {
 
     return (
         <iframe
-            className={b()}
+            className={b(null, className)}
             ref={ref}
             style={{
                 height,

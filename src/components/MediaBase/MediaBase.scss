@@ -21,6 +21,15 @@ $block: '.#{$ns}media-base';
         &_shadow {
             @include image-shadow();
         }
+
+        &_specialBorderRadius {
+            img,
+            video,
+            iframe,
+            .#{$ns}map {
+                border-radius: calc(#{$borderRadius} - 1px); // special for safari
+            }
+        }
     }
 
     &__row_reverse {

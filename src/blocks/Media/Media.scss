@@ -1,0 +1,7 @@
+@import '../../../styles/mixins';
+
+$block: '.#{$ns}media-block';
+
+#{$block} {
+    @include media-border();
+}

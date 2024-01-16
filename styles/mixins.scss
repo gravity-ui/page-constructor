@@ -619,3 +619,16 @@ unpredictable css rules order in build */
         }
     }
 }
+
+@mixin media-border() {
+    &_border {
+        &_shadow {
+            @include image-shadow();
+        }
+
+        &_line {
+            border-radius: $borderRadius;
+            border: 1px solid var(--g-color-line-generic);
+        }
+    }
+}

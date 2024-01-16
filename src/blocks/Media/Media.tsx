@@ -4,10 +4,19 @@ import Media from '../../components/Media/Media';
 import MediaBase from '../../components/MediaBase/MediaBase';
 import {useTheme} from '../../context/theme';
 import {MediaBlockProps} from '../../models';
-import {getThemedValue} from '../../utils';
+import {block, getThemedValue} from '../../utils';
+import {getMediaBorder} from '../../utils/borderSelector';
+
+import './Media.scss';
+
+const b = block('media-block');
 
 export const MediaBlock = (props: MediaBlockProps) => {
-    const {media} = props;
+    const {media, border, disableShadow} = props;
+    const borderSelected = getMediaBorder({
+        border,
+        disableShadow,
+    });
 
     const [play, setPlay] = useState<boolean>(false);
     const theme = useTheme();
@@ -16,7 +25,7 @@ export const MediaBlock = (props: MediaBlockProps) => {
     return (
         <MediaBase {...props} onScroll={() => setPlay(true)}>
             <MediaBase.Card>
-                <Media {...mediaThemed} playVideo={play} />
+                <Media {...mediaThemed} playVideo={play} className={b({border: borderSelected})} />
             </MediaBase.Card>
         </MediaBase>
     );
