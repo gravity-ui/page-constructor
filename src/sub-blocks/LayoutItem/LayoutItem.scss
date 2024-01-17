@@ -20,5 +20,9 @@ $block: '.#{$ns}layout-item';
 
     &__content {
         margin: $indentXS $indentXS 0 0;
+
+        &_no-media {
+            margin: 0;
+        }
     }
 }

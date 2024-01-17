@@ -2,10 +2,8 @@ import React from 'react';
 
 import {useUniqId} from '@gravity-ui/uikit';
 
-import {Content} from '../';
 import CardBase from '../../components/CardBase/CardBase';
-import Image from '../../components/Image/Image';
-import {getMediaImage} from '../../components/Media/Image/utils';
+import IconContent from '../../components/IconContent/IconContent';
 import {BasicCardProps} from '../../models';
 import {IconPosition} from '../../models/constructor-items/sub-blocks';
 import {block} from '../../utils';
@@ -25,7 +23,6 @@ const BasicCard = (props: BasicCardProps) => {
         iconPosition = IconPosition.Top,
         ...cardParams
     } = props;
-    const iconProps = icon && getMediaImage(icon);
     const titleId = useUniqId();
     const descriptionId = useUniqId();
 
@@ -36,26 +33,20 @@ const BasicCard = (props: BasicCardProps) => {
             extraProps={{'aria-describedby': descriptionId, 'aria-labelledby': titleId}}
         >
             <CardBase.Content>
-                <div className={b('content', {['icon-position']: iconPosition})}>
-                    {iconProps && (
-                        <Image
-                            {...iconProps}
-                            className={b('icon', {['icon-position']: iconPosition})}
-                        />
-                    )}
-                    <Content
-                        title={title}
-                        titleId={titleId}
-                        text={text}
-                        textId={descriptionId}
-                        additionalInfo={additionalInfo}
-                        links={links}
-                        buttons={buttons}
-                        colSizes={{all: 12, md: 12}}
-                        size="s"
-                        className={b({['content-layout']: iconPosition})}
-                    />
-                </div>
+                <IconContent
+                    icon={icon ? {value: icon, position: iconPosition} : undefined}
+                    content={{
+                        title,
+                        titleId,
+                        text,
+                        textId: descriptionId,
+                        additionalInfo,
+                        links,
+                        buttons,
+                        size: 's',
+                        colSizes: {all: 12, md: 12},
+                    }}
+                />
             </CardBase.Content>
         </CardBase>
     );

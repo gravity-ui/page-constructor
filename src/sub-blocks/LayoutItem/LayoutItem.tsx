@@ -1,8 +1,7 @@
 import React from 'react';
 
-import {Content} from '..';
-import {FullscreenMedia, Media, MetaInfo} from '../../components';
-import {LayoutItemProps} from '../../models';
+import {FullscreenMedia, IconContent, Media, MetaInfo} from '../../components';
+import {ContentBlockProps, LayoutItemProps} from '../../models';
 import {block} from '../../utils';
 
 import {getLayoutItemLinks, hasFullscreen, showFullscreenIcon} from './utils';
@@ -17,38 +16,48 @@ const LayoutItem = ({
     media,
     border,
     fullscreen,
+    icon,
     className,
     analyticsEvents,
-}: LayoutItemProps) => (
-    <div className={b(null, className)}>
-        {fullscreen && hasFullscreen(media) ? (
-            <FullscreenMedia showFullscreenIcon={showFullscreenIcon(media)}>
-                {({
-                    className: mediaClassName,
-                    fullscreen: _fullscreen,
-                    ...fullscreenMediaProps
-                } = {}) => (
+}: LayoutItemProps) => {
+    const contentProps: ContentBlockProps = {
+        ...content,
+        links: getLayoutItemLinks(links),
+        size: 's',
+        colSizes: {all: 12, md: 12},
+    };
+    return (
+        <div className={b(null, className)}>
+            {media ? (
+                fullscreen && hasFullscreen(media) ? (
+                    <FullscreenMedia showFullscreenIcon={showFullscreenIcon(media)}>
+                        {({
+                            className: mediaClassName,
+                            fullscreen: _fullscreen,
+                            ...fullscreenMediaProps
+                        } = {}) => (
+                            <Media
+                                {...media}
+                                {...fullscreenMediaProps}
+                                className={b('media', {border}, mediaClassName)}
+                                analyticsEvents={analyticsEvents}
+                            />
+                        )}
+                    </FullscreenMedia>
+                ) : (
                     <Media
                         {...media}
-                        {...fullscreenMediaProps}
-                        className={b('media', {border}, mediaClassName)}
+                        className={b('media', {border})}
                         analyticsEvents={analyticsEvents}
                     />
-                )}
-            </FullscreenMedia>
-        ) : (
-            <Media {...media} className={b('media', {border})} analyticsEvents={analyticsEvents} />
-        )}
-        {metaInfo && <MetaInfo items={metaInfo} className={b('meta-info')} />}
-        <div className={b('content')}>
-            <Content
-                {...content}
-                links={getLayoutItemLinks(links)}
-                size="s"
-                colSizes={{all: 12, md: 12}}
-            />
+                )
+            ) : null}
+            {metaInfo && <MetaInfo items={metaInfo} className={b('meta-info')} />}
+            <div className={b('content', {'no-media': !media})}>
+                <IconContent icon={icon} content={contentProps} />
+            </div>
         </div>
-    </div>
-);
+    );
+};
 
 export default LayoutItem;

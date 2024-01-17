@@ -47,6 +47,16 @@ export enum IconPosition {
     Left = 'left',
 }
 
+export interface PositionedIcon {
+    value: ImageProps;
+    position?: IconPosition;
+}
+
+export interface IconContentProps {
+    content: ContentBlockProps;
+    icon?: PositionedIcon;
+}
+
 export const SubBlockTypes = Object.values(SubBlockType);
 
 export interface DividerProps {
@@ -162,10 +172,11 @@ export interface PriceCardProps extends CardBaseProps, Pick<ContentBlockProps, '
 
 export interface LayoutItemProps extends ClassNameProps, AnalyticsEventsBase {
     content: Omit<ContentBlockProps, 'colSizes' | 'centered' | 'size'>;
-    media: MediaProps;
+    media?: MediaProps;
     metaInfo?: string[];
     border?: boolean;
     fullscreen?: boolean;
+    icon?: PositionedIcon;
 }
 
 // sub-block models
