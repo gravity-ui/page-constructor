@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [4.47.1](https://github.com/gravity-ui/page-constructor/compare/v4.47.0...v4.47.1) (2024-01-17)
+
+
+### Bug Fixes
+
+* asset path in new stories ([#777](https://github.com/gravity-ui/page-constructor/issues/777)) ([0f1eb62](https://github.com/gravity-ui/page-constructor/commit/0f1eb62a2cd068fa82b53d4f1f21c10f32a72592))
+
 ## [4.47.0](https://github.com/gravity-ui/page-constructor/compare/v4.46.2...v4.47.0) (2024-01-17)
 
 
