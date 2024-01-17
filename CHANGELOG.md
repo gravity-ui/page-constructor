@@ -1,6 +1,19 @@
 # Changelog
 
 
+## [4.47.0](https://github.com/gravity-ui/page-constructor/compare/v4.46.2...v4.47.0) (2024-01-17)
+
+
+### Features
+
+* add border to media in media-block ([#722](https://github.com/gravity-ui/page-constructor/issues/722)) ([d960ea0](https://github.com/gravity-ui/page-constructor/commit/d960ea0c6166fe8f84245aa06a4d75909a7b4013))
+* add border-radius to border:'none' ([#778](https://github.com/gravity-ui/page-constructor/issues/778)) ([692c389](https://github.com/gravity-ui/page-constructor/commit/692c389b2fed1dc13de69edd29137abde1a45e9f))
+
+
+### Bug Fixes
+
+* main preview assets static path ([#776](https://github.com/gravity-ui/page-constructor/issues/776)) ([28024da](https://github.com/gravity-ui/page-constructor/commit/28024da6f9aee577c99f606eb52b322b2cb5c81f))
+
 ## [4.46.2](https://github.com/gravity-ui/page-constructor/compare/v4.46.1...v4.46.2) (2024-01-16)
 
 
