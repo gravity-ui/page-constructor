@@ -26,32 +26,32 @@ const LayoutItem = ({
         size: 's',
         colSizes: {all: 12, md: 12},
     };
-    return (
-        <div className={b(null, className)}>
-            {media ? (
-                fullscreen && hasFullscreen(media) ? (
-                    <FullscreenMedia showFullscreenIcon={showFullscreenIcon(media)}>
-                        {({
-                            className: mediaClassName,
-                            fullscreen: _fullscreen,
-                            ...fullscreenMediaProps
-                        } = {}) => (
-                            <Media
-                                {...media}
-                                {...fullscreenMediaProps}
-                                className={b('media', {border}, mediaClassName)}
-                                analyticsEvents={analyticsEvents}
-                            />
-                        )}
-                    </FullscreenMedia>
-                ) : (
+    const renderMedia = () => {
+        if (!media) {
+            return null;
+        }
+        return fullscreen && hasFullscreen(media) ? (
+            <FullscreenMedia showFullscreenIcon={showFullscreenIcon(media)}>
+                {({
+                    className: mediaClassName,
+                    fullscreen: _fullscreen,
+                    ...fullscreenMediaProps
+                } = {}) => (
                     <Media
                         {...media}
-                        className={b('media', {border})}
+                        {...fullscreenMediaProps}
+                        className={b('media', {border}, mediaClassName)}
                         analyticsEvents={analyticsEvents}
                     />
-                )
-            ) : null}
+                )}
+            </FullscreenMedia>
+        ) : (
+            <Media {...media} className={b('media', {border})} analyticsEvents={analyticsEvents} />
+        );
+    };
+    return (
+        <div className={b(null, className)}>
+            {renderMedia()}
             {metaInfo && <MetaInfo items={metaInfo} className={b('meta-info')} />}
             <div className={b('content', {'no-media': !media})}>
                 <IconContent icon={icon} content={contentProps} />
