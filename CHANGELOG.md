@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [4.47.2](https://github.com/gravity-ui/page-constructor/compare/v4.47.1...v4.47.2) (2024-01-18)
+
+
+### Bug Fixes
+
+* cut form-block vertical paddings for direction center ([#770](https://github.com/gravity-ui/page-constructor/issues/770)) ([610b9e1](https://github.com/gravity-ui/page-constructor/commit/610b9e13812570fa72d09d6683c874ece1a5d8e9))
+
 ## [4.47.1](https://github.com/gravity-ui/page-constructor/compare/v4.47.0...v4.47.1) (2024-01-17)
 
 
