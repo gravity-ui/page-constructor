@@ -51,8 +51,6 @@ $largeBorderRadius: 32px;
             }
 
             &_center {
-                padding-top: $indentXL;
-                padding-bottom: $indentL;
                 flex-direction: column;
 
                 #{$root}__content-wrapper {
@@ -100,6 +98,10 @@ $largeBorderRadius: 32px;
                     #{$root}__content-wrapper {
                         padding: $indentXL;
                     }
+                }
+                &_center {
+                    padding-top: $indentXL;
+                    padding-bottom: $indentL;
                 }
             }
         }
