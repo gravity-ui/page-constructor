@@ -1,5 +1,5 @@
 import {PageConstructorProps, PageConstructorProviderProps} from '../../containers/PageConstructor';
-import {BlockDecorationProps, PageContent} from '../../models';
+import {BlockDecorationProps, FinalizeContent, PageContent} from '../../models';
 import {Theme} from '../../models/common';
 import {SchemaCustomConfig} from '../../schema';
 import {EditBlockActions} from '../components/EditBlock/EditBlock';
@@ -26,6 +26,7 @@ export interface EditorProps
     providerProps?: PageConstructorProviderProps;
     onChange?: (data: PageContent) => void;
     transformContent?: ContentTransformer;
+    finalizeContent?: FinalizeContent;
     customSchema?: SchemaCustomConfig;
     deviceEmulationSettings?: DeviceEmulationSettings;
     theme?: Theme;

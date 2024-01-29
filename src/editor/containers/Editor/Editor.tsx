@@ -22,6 +22,7 @@ export const Editor = ({
     onChange,
     providerProps,
     transformContent,
+    finalizeContent,
     deviceEmulationSettings,
     theme: editorTheme,
     ...rest
@@ -81,6 +82,7 @@ export const Editor = ({
             content: transformedContent,
             custom,
             viewMode,
+            finalizeContent,
         };
     }, [
         injectEditBlockProps,
