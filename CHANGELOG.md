@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [4.49.0](https://github.com/gravity-ui/page-constructor/compare/v4.48.0...v4.49.0) (2024-01-30)
+
+
+### Features
+
+* add yfm support for tabs block item caption ([#785](https://github.com/gravity-ui/page-constructor/issues/785)) ([ff35d41](https://github.com/gravity-ui/page-constructor/commit/ff35d412e1daf9692e7da3aeb5d25ec71f0336aa))
+
 ## [4.48.0](https://github.com/gravity-ui/page-constructor/compare/v4.47.2...v4.48.0) (2024-01-29)
 
 
