@@ -1,6 +1,18 @@
 # Changelog
 
 
+## [4.48.0](https://github.com/gravity-ui/page-constructor/compare/v4.47.2...v4.48.0) (2024-01-29)
+
+
+### Features
+
+* update codeowners ([#783](https://github.com/gravity-ui/page-constructor/issues/783)) ([56187ad](https://github.com/gravity-ui/page-constructor/commit/56187ad40e6b5ca90bf02044664d7643d8a012c3))
+
+
+### Bug Fixes
+
+* add yfm transform for content storybook theme case ([#786](https://github.com/gravity-ui/page-constructor/issues/786)) ([e901844](https://github.com/gravity-ui/page-constructor/commit/e901844c5259ebc823504f796ac8c7dec755917c))
+
 ## [4.47.2](https://github.com/gravity-ui/page-constructor/compare/v4.47.1...v4.47.2) (2024-01-18)
 
 
