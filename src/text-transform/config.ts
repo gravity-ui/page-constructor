@@ -281,7 +281,7 @@ export const config: BlocksConfig = {
         {
             fields: ['items'],
             transformer: yfmTransformer,
-            parser: createItemsParser(['text', 'additionalInfo']),
+            parser: createItemsParser(['text', 'additionalInfo', 'caption']),
         },
         {
             fields: ['items'],
