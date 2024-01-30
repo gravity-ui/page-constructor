@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [4.49.1](https://github.com/gravity-ui/page-constructor/compare/v4.49.0...v4.49.1) (2024-01-30)
+
+
+### Bug Fixes
+
+* add tabs caption to transform config ([#790](https://github.com/gravity-ui/page-constructor/issues/790)) ([2740c1b](https://github.com/gravity-ui/page-constructor/commit/2740c1b678657d9732db3d1d9daf41449d69d87b))
+
 ## [4.49.0](https://github.com/gravity-ui/page-constructor/compare/v4.48.0...v4.49.0) (2024-01-30)
 
 
