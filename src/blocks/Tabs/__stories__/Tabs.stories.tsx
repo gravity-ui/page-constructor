@@ -57,6 +57,7 @@ const DefaultArgs = {
         ...item,
         text: yfmTransform(item.text),
         additionalInfo: item.additionalInfo && yfmTransform(item.additionalInfo),
+        caption: item.caption && yfmTransform(item.caption),
     })),
 };
 
@@ -112,6 +113,5 @@ Caption.args = {
     ...DefaultArgs,
     items: DefaultArgs.items.map((item) => ({
         ...item,
-        caption: item.title,
     })),
 } as TabsBlockModel;

@@ -9,6 +9,7 @@ import {getMediaImage} from '../../components/Media/Image/utils';
 import Media from '../../components/Media/Media';
 import Title from '../../components/Title/Title';
 import {getHeight} from '../../components/VideoBlock/VideoBlock';
+import YFMWrapper from '../../components/YFMWrapper/YFMWrapper';
 import {useTheme} from '../../context/theme';
 import {Col, GridColumnOrderClasses, Row} from '../../grid';
 import {TabsBlockProps} from '../../models';
@@ -121,7 +122,11 @@ export const TabsBlock = ({
             )}
             {activeTabData?.caption && (
                 <p className={b('caption')} id={captionId}>
-                    {activeTabData.caption}
+                    <YFMWrapper
+                        content={activeTabData.caption}
+                        modifiers={{constructor: true}}
+                        id={captionId}
+                    />
                 </p>
             )}
         </Col>

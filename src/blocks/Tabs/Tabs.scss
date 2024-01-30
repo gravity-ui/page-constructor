@@ -38,7 +38,22 @@ $block: '.#{$ns}tabs-block';
         @include text-size(body-2);
 
         margin: $indentXXS 0 0;
-        color: var(--g-color-text-secondary);
+
+        @include add-specificity(&) {
+            .yfm,
+            .yfm > * {
+                color: var(--g-color-text-secondary);
+            }
+
+            .yfm a {
+                color: var(--g-color-text-secondary);
+                text-decoration: underline;
+
+                &:hover {
+                    color: var(--g-color-text-primary);
+                }
+            }
+        }
     }
 
     &__col {
