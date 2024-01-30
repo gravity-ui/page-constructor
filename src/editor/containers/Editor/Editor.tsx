@@ -91,6 +91,7 @@ export const Editor = ({
         viewMode,
         transformedContent,
         rest.custom,
+        finalizeContent,
     ]);
 
     const context = useMemo(
