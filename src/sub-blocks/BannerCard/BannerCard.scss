@@ -84,6 +84,14 @@ $block: '.#{$ns}banner-card';
         }
     }
 
+    &_media-view_fit {
+        #{$block}__image {
+            img {
+                object-fit: contain;
+            }
+        }
+    }
+
     @media (max-width: map-get($gridBreakpoints, 'sm') - 1) {
         &__image {
             display: none;

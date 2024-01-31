@@ -143,7 +143,8 @@ export interface BannerCardProps {
     disableCompress?: boolean;
     color?: ThemeSupporting<string>;
     theme?: TextTheme;
-    button: Pick<ButtonProps, 'text' | 'url' | 'target'>;
+    button: Pick<ButtonProps, 'text' | 'url' | 'target' | 'theme'>;
+    mediaView?: 'fit' | 'full';
 }
 
 export interface MediaCardProps extends MediaProps, AnalyticsEventsBase, CardBaseProps {}
