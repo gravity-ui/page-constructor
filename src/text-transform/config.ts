@@ -380,4 +380,16 @@ export const config: BlocksConfig = {
             parser: createItemsParser(['text']),
         },
     ],
+    [BlockType.FormBlock]: [
+        {
+            fields: ['textContent'],
+            transformer: yfmTransformer,
+            parser: parseContentLayout,
+        },
+        {
+            fields: ['textContent'],
+            transformer: typografTransformer,
+            parser: parseContentLayoutTitle,
+        },
+    ],
 };
