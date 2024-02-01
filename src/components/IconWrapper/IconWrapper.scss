@@ -1,7 +1,7 @@
 @import '../../../styles/variables.scss';
 @import '../../../styles/mixins.scss';
 
-$block: '.#{$ns}icon-content';
+$block: '.#{$ns}icon-wrapper';
 
 #{$block} {
     $iconSizePositionTop: 32px;

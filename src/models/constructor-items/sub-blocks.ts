@@ -52,8 +52,7 @@ export interface PositionedIcon {
     position?: IconPosition;
 }
 
-export interface IconContentProps {
-    content: ContentBlockProps;
+export interface IconWrapperProps {
     icon?: PositionedIcon;
 }
 

@@ -1,19 +1,18 @@
-import React from 'react';
+import React, {Fragment, PropsWithChildren} from 'react';
 
-import {IconContentProps} from '../../models';
-import {Content} from '../../sub-blocks';
+import {IconWrapperProps} from '../../models';
 import {block} from '../../utils';
 import Image from '../Image/Image';
 import {getMediaImage} from '../Media/Image/utils';
 
-import './IconContent.scss';
+import './IconWrapper.scss';
 
-const b = block('icon-content');
+const b = block('icon-wrapper');
 
-const IconContent = (props: IconContentProps) => {
-    const {icon, content} = props;
+const IconWrapper = (props: PropsWithChildren<IconWrapperProps>) => {
+    const {icon, children} = props;
     if (!icon) {
-        return <Content {...content} />;
+        return <Fragment>{children}</Fragment>;
     }
 
     const iconProps = getMediaImage(icon.value);
@@ -24,9 +23,9 @@ const IconContent = (props: IconContentProps) => {
             {iconProps && (
                 <Image {...iconProps} className={b('icon', {['icon-position']: iconPosition})} />
             )}
-            <Content {...content} className={b({['content']: iconPosition})} />
+            <div className={b({['content']: iconPosition})}>{children}</div>
         </div>
     );
 };
 
-export default IconContent;
+export default IconWrapper;

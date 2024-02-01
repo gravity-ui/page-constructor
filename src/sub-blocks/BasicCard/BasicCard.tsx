@@ -3,10 +3,11 @@ import React from 'react';
 import {useUniqId} from '@gravity-ui/uikit';
 
 import CardBase from '../../components/CardBase/CardBase';
-import IconContent from '../../components/IconContent/IconContent';
+import IconWrapper from '../../components/IconWrapper/IconWrapper';
 import {BasicCardProps} from '../../models';
 import {IconPosition} from '../../models/constructor-items/sub-blocks';
 import {block} from '../../utils';
+import Content from '../Content/Content';
 
 import './BasicCard.scss';
 
@@ -33,20 +34,19 @@ const BasicCard = (props: BasicCardProps) => {
             extraProps={{'aria-describedby': descriptionId, 'aria-labelledby': titleId}}
         >
             <CardBase.Content>
-                <IconContent
-                    icon={icon ? {value: icon, position: iconPosition} : undefined}
-                    content={{
-                        title,
-                        titleId,
-                        text,
-                        textId: descriptionId,
-                        additionalInfo,
-                        links,
-                        buttons,
-                        size: 's',
-                        colSizes: {all: 12, md: 12},
-                    }}
-                />
+                <IconWrapper icon={icon ? {value: icon, position: iconPosition} : undefined}>
+                    <Content
+                        title={title}
+                        titleId={titleId}
+                        text={text}
+                        textId={descriptionId}
+                        additionalInfo={additionalInfo}
+                        links={links}
+                        buttons={buttons}
+                        size="s"
+                        colSizes={{all: 12, md: 12}}
+                    />
+                </IconWrapper>
             </CardBase.Content>
         </CardBase>
     );

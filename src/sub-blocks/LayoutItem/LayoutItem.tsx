@@ -1,8 +1,9 @@
 import React from 'react';
 
-import {FullscreenMedia, IconContent, Media, MetaInfo} from '../../components';
+import {FullscreenMedia, IconWrapper, Media, MetaInfo} from '../../components';
 import {ContentBlockProps, LayoutItemProps} from '../../models';
 import {block} from '../../utils';
+import Content from '../Content/Content';
 
 import {getLayoutItemLinks, hasFullscreen, showFullscreenIcon} from './utils';
 
@@ -54,7 +55,9 @@ const LayoutItem = ({
             {renderMedia()}
             {metaInfo && <MetaInfo items={metaInfo} className={b('meta-info')} />}
             <div className={b('content', {'no-media': !media})}>
-                <IconContent icon={icon} content={contentProps} />
+                <IconWrapper icon={icon}>
+                    <Content {...contentProps} />
+                </IconWrapper>
             </div>
         </div>
     );
