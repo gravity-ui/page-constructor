@@ -73,7 +73,7 @@ const FilterBlock: React.FC<FilterBlockProps> = ({
                 </Row>
             )}
             <Row className={b('block-container')}>
-                <CardLayoutBlock title="" colSizes={colSizes}>
+                <CardLayoutBlock title="" colSizes={colSizes} className={b('cards-container')}>
                     {cards.map((card, index) => {
                         const key = getBlockKey(card, index);
 

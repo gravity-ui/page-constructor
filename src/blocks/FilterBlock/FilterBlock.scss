@@ -21,6 +21,10 @@ $innerBlock: '.#{$ns}block-base';
         margin: 0px;
     }
 
+    &__cards-container {
+        width: 100%;
+    }
+
     // @deprecated
     --pc-first-block-indent: 0;
     --pc-first-block-mobile-indent: 0;
