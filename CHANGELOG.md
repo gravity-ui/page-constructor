@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [4.50.0](https://github.com/gravity-ui/page-constructor/compare/v4.49.2...v4.50.0) (2024-02-01)
+
+
+### Features
+
+* add icon prop to LayoutItem ([#781](https://github.com/gravity-ui/page-constructor/issues/781)) ([32bf165](https://github.com/gravity-ui/page-constructor/commit/32bf165e783d7e51a20286802d813a681b0a252b))
+
 ## [4.49.2](https://github.com/gravity-ui/page-constructor/compare/v4.49.1...v4.49.2) (2024-02-01)
 
 
