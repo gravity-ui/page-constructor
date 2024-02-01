@@ -2,13 +2,12 @@ import React from 'react';
 
 import {useUniqId} from '@gravity-ui/uikit';
 
-import {Content} from '../';
 import CardBase from '../../components/CardBase/CardBase';
-import Image from '../../components/Image/Image';
-import {getMediaImage} from '../../components/Media/Image/utils';
+import IconWrapper from '../../components/IconWrapper/IconWrapper';
 import {BasicCardProps} from '../../models';
 import {IconPosition} from '../../models/constructor-items/sub-blocks';
 import {block} from '../../utils';
+import Content from '../Content/Content';
 
 import './BasicCard.scss';
 
@@ -25,7 +24,6 @@ const BasicCard = (props: BasicCardProps) => {
         iconPosition = IconPosition.Top,
         ...cardParams
     } = props;
-    const iconProps = icon && getMediaImage(icon);
     const titleId = useUniqId();
     const descriptionId = useUniqId();
 
@@ -36,13 +34,7 @@ const BasicCard = (props: BasicCardProps) => {
             extraProps={{'aria-describedby': descriptionId, 'aria-labelledby': titleId}}
         >
             <CardBase.Content>
-                <div className={b('content', {['icon-position']: iconPosition})}>
-                    {iconProps && (
-                        <Image
-                            {...iconProps}
-                            className={b('icon', {['icon-position']: iconPosition})}
-                        />
-                    )}
+                <IconWrapper icon={icon ? {value: icon, position: iconPosition} : undefined}>
                     <Content
                         title={title}
                         titleId={titleId}
@@ -51,11 +43,10 @@ const BasicCard = (props: BasicCardProps) => {
                         additionalInfo={additionalInfo}
                         links={links}
                         buttons={buttons}
-                        colSizes={{all: 12, md: 12}}
                         size="s"
-                        className={b({['content-layout']: iconPosition})}
+                        colSizes={{all: 12, md: 12}}
                     />
-                </div>
+                </IconWrapper>
             </CardBase.Content>
         </CardBase>
     );

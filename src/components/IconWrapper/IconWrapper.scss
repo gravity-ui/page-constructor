@@ -1,0 +1,42 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
+
+$block: '.#{$ns}icon-wrapper';
+
+#{$block} {
+    $iconSizePositionTop: 32px;
+    $iconSizePositionLeft: 22px;
+
+    display: flex;
+    flex-direction: column;
+
+    &_icon-position {
+        &_left {
+            flex-direction: row;
+        }
+    }
+
+    &__icon {
+        max-width: 100%;
+        margin-bottom: $indentXXS;
+        height: $iconSizePositionTop;
+        object-fit: contain;
+        display: block;
+
+        &_icon-position {
+            &_left {
+                height: $iconSizePositionLeft;
+                width: $iconSizePositionLeft;
+                margin: 1px $indentXXS 1px 0px;
+            }
+        }
+    }
+
+    &_content {
+        &_left {
+            @include add-specificity(&) {
+                flex: 1 0 0;
+            }
+        }
+    }
+}

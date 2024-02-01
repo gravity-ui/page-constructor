@@ -19,10 +19,24 @@ const DefaultTemplate: StoryFn<LayoutItemProps> = (args) => (
     </div>
 );
 
+const WithIconTemplate: StoryFn<LayoutItemProps> = (args) => (
+    <div>
+        <div style={{marginBottom: '100px'}}>
+            <h1>Icon: Top</h1>
+            <DefaultTemplate {...args} />
+        </div>
+        <div>
+            <h1>Icon: Left</h1>
+            <DefaultTemplate {...args} icon={data.withIcon.iconLeft as LayoutItemProps['icon']} />
+        </div>
+    </div>
+);
+
 export const Default = DefaultTemplate.bind({});
 export const Fullscreen = DefaultTemplate.bind({});
 export const MetaInfo = DefaultTemplate.bind({});
 export const Youtube = DefaultTemplate.bind({});
+export const WithIcon = WithIconTemplate.bind({});
 
 const DefaultArgs = {
     ...data.default.content,
@@ -40,3 +54,8 @@ MetaInfo.args = {
     metaInfo: data.metaInfo.content.metaInfo.map((item) => yfmTransform(item)),
 } as LayoutItemProps;
 Youtube.args = {...DefaultArgs, ...data.youtube.content} as LayoutItemProps;
+WithIcon.args = {
+    ...DefaultArgs,
+    media: undefined,
+    icon: data.withIcon.iconTop as LayoutItemProps['icon'],
+};

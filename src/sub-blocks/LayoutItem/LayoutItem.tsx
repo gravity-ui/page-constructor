@@ -1,9 +1,9 @@
 import React from 'react';
 
-import {Content} from '..';
-import {FullscreenMedia, Media, MetaInfo} from '../../components';
-import {LayoutItemProps} from '../../models';
+import {FullscreenMedia, IconWrapper, Media, MetaInfo} from '../../components';
+import {ContentBlockProps, LayoutItemProps} from '../../models';
 import {block} from '../../utils';
+import Content from '../Content/Content';
 
 import {getLayoutItemLinks, hasFullscreen, showFullscreenIcon} from './utils';
 
@@ -17,11 +17,21 @@ const LayoutItem = ({
     media,
     border,
     fullscreen,
+    icon,
     className,
     analyticsEvents,
-}: LayoutItemProps) => (
-    <div className={b(null, className)}>
-        {fullscreen && hasFullscreen(media) ? (
+}: LayoutItemProps) => {
+    const contentProps: ContentBlockProps = {
+        ...content,
+        links: getLayoutItemLinks(links),
+        size: 's',
+        colSizes: {all: 12, md: 12},
+    };
+    const renderMedia = () => {
+        if (!media) {
+            return null;
+        }
+        return fullscreen && hasFullscreen(media) ? (
             <FullscreenMedia showFullscreenIcon={showFullscreenIcon(media)}>
                 {({
                     className: mediaClassName,
@@ -38,17 +48,19 @@ const LayoutItem = ({
             </FullscreenMedia>
         ) : (
             <Media {...media} className={b('media', {border})} analyticsEvents={analyticsEvents} />
-        )}
-        {metaInfo && <MetaInfo items={metaInfo} className={b('meta-info')} />}
-        <div className={b('content')}>
-            <Content
-                {...content}
-                links={getLayoutItemLinks(links)}
-                size="s"
-                colSizes={{all: 12, md: 12}}
-            />
+        );
+    };
+    return (
+        <div className={b(null, className)}>
+            {renderMedia()}
+            {metaInfo && <MetaInfo items={metaInfo} className={b('meta-info')} />}
+            <div className={b('content', {'no-media': !media})}>
+                <IconWrapper icon={icon}>
+                    <Content {...contentProps} />
+                </IconWrapper>
+            </div>
         </div>
-    </div>
-);
+    );
+};
 
 export default LayoutItem;
