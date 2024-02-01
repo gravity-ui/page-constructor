@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [4.49.2](https://github.com/gravity-ui/page-constructor/compare/v4.49.1...v4.49.2) (2024-02-01)
+
+
+### Bug Fixes
+
+* add form block textContent into transofmers config ([#793](https://github.com/gravity-ui/page-constructor/issues/793)) ([3e5ae8e](https://github.com/gravity-ui/page-constructor/commit/3e5ae8eac4dbd19341091aeb89607f2b2093f8f9))
+* cardLayout width in Filter block ([#797](https://github.com/gravity-ui/page-constructor/issues/797)) ([46894f6](https://github.com/gravity-ui/page-constructor/commit/46894f63331e47d59f3067456f6568bda2bfe8ec))
+
 ## [4.49.1](https://github.com/gravity-ui/page-constructor/compare/v4.49.0...v4.49.1) (2024-01-30)
 
 
