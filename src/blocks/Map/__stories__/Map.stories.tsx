@@ -17,7 +17,7 @@ export default {
     title: 'Blocks/Map',
     component: MapBlock,
     args: {
-        largeMedia: false,
+        mediaSize: 'default',
         mediaOnly: false,
         size: 'l',
     },
@@ -75,11 +75,20 @@ const SizeTemplate: StoryFn<MapBlockModel> = (args) => (
                     },
                     {
                         ...args,
-                        largeMedia: true,
-                        title: data.size.largeMediaTitle,
+                        mediaSize: 'small',
+                        title: data.size.smallMediaTitle,
                         map: {
                             ...data.ymap,
                             id: 'common-places-2',
+                        },
+                    },
+                    {
+                        ...args,
+                        mediaSize: 'large',
+                        title: data.size.largeMediaTitle,
+                        map: {
+                            ...data.ymap,
+                            id: 'common-places-3',
                         },
                     },
                     {
@@ -89,7 +98,7 @@ const SizeTemplate: StoryFn<MapBlockModel> = (args) => (
                         title: data.size.mediaOnlyTitle,
                         map: {
                             ...data.ymap,
-                            id: 'common-places-3',
+                            id: 'common-places-4',
                         },
                     },
                 ],

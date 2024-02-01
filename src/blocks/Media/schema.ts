@@ -7,6 +7,7 @@ import {
     MediaProps,
     containerSizesObject,
     mediaDirection,
+    mediaSize,
     withTheme,
 } from '../../schema/validators/common';
 import {ContentBase} from '../../sub-blocks/Content/schema';
@@ -36,8 +37,9 @@ export const MediaBlockBaseProps = {
         type: 'string',
         enum: mediaDirection,
     },
-    largeMedia: {
-        type: 'boolean',
+    mediaSize: {
+        type: 'string',
+        enum: mediaSize,
     },
     mediaOnly: {
         type: 'boolean',

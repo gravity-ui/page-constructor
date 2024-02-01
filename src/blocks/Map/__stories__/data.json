@@ -55,6 +55,7 @@
   },
   "size": {
     "defaultMediaTitle": "Default map",
+    "smallMediaTitle": "Small map",
     "largeMediaTitle": "Large map",
     "mediaOnlyTitle": "map Only"
   },
