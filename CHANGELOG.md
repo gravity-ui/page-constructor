@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [4.51.0](https://github.com/gravity-ui/page-constructor/compare/v4.50.0...v4.51.0) (2024-02-02)
+
+
+### Features
+
+* added mediaView for image and theme for button in banner block ([#794](https://github.com/gravity-ui/page-constructor/issues/794)) ([4be4bc9](https://github.com/gravity-ui/page-constructor/commit/4be4bc966e194b11d61caf1f6dfdf35568f13bad))
+
 ## [4.50.0](https://github.com/gravity-ui/page-constructor/compare/v4.49.2...v4.50.0) (2024-02-01)
 
 
