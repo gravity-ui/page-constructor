@@ -28,6 +28,7 @@ import {
     MapProps,
     MediaDirection,
     MediaProps,
+    MediaView,
     TextSize,
     TextTheme,
     ThemedImage,
@@ -159,7 +160,7 @@ export interface HeaderBlockProps {
     offset?: HeaderOffset;
     image?: ThemedImage;
     video?: ThemedMediaVideoProps;
-    mediaView?: 'fit' | 'full';
+    mediaView?: MediaView;
     background?: ThemedHeaderBlockBackground;
     theme?: 'light' | 'dark';
     verticalOffset?: '0' | 's' | 'm' | 'l' | 'xl';

@@ -386,6 +386,8 @@ export interface TitleItemBaseProps {
     onClick?: () => void;
 }
 
+export type MediaView = 'fit' | 'full';
+
 // card
 export type MediaBorder = 'shadow' | 'line' | 'none';
 export type CardBorder = MediaBorder;

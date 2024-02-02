@@ -13,11 +13,12 @@ export const BannerCard = (props: BannerCardProps) => {
     const {
         title,
         subtitle,
-        button: {url, text, target},
+        button: {url, text, target, theme: buttonTheme = 'raised'},
         color,
         theme: textTheme = 'light',
         image,
         disableCompress,
+        mediaView = 'full',
     } = props;
     const theme = useTheme();
     const contentStyle: Record<string, string> = {};
@@ -27,7 +28,7 @@ export const BannerCard = (props: BannerCardProps) => {
     }
 
     return (
-        <div className={b({theme: textTheme})}>
+        <div className={b({theme: textTheme, ['media-view']: mediaView})}>
             <div className={b('content')} style={contentStyle}>
                 <div className={b('info')}>
                     <div className={b('text')}>
@@ -45,7 +46,7 @@ export const BannerCard = (props: BannerCardProps) => {
                     <RouterLink href={url}>
                         <Button
                             className={b('button')}
-                            theme="raised"
+                            theme={buttonTheme}
                             size="xl"
                             text={text}
                             url={url}
