@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [4.51.1](https://github.com/gravity-ui/page-constructor/compare/v4.51.0...v4.51.1) (2024-02-02)
+
+
+### Bug Fixes
+
+* added mediaView to Banner-block schema ([#801](https://github.com/gravity-ui/page-constructor/issues/801)) ([de78586](https://github.com/gravity-ui/page-constructor/commit/de785861fe5510d5ad5957adcf4888560e17c745))
+
 ## [4.51.0](https://github.com/gravity-ui/page-constructor/compare/v4.50.0...v4.51.0) (2024-02-02)
 
 
