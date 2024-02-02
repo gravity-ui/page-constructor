@@ -15,6 +15,7 @@ import {
     ImageProps,
     LinkProps,
     MediaProps,
+    MediaView,
     PriceDetailedProps,
     TextTheme,
     Themable,
@@ -144,7 +145,7 @@ export interface BannerCardProps {
     color?: ThemeSupporting<string>;
     theme?: TextTheme;
     button: Pick<ButtonProps, 'text' | 'url' | 'target' | 'theme'>;
-    mediaView?: 'fit' | 'full';
+    mediaView?: MediaView;
 }
 
 export interface MediaCardProps extends MediaProps, AnalyticsEventsBase, CardBaseProps {}
