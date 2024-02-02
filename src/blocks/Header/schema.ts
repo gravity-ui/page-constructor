@@ -4,6 +4,7 @@ import {
     ButtonBlock,
     MediaProps,
     VideoProps,
+    mediaView,
     withTheme,
 } from '../../schema/validators/common';
 import {filteredArray} from '../../schema/validators/utils';
@@ -46,7 +47,7 @@ export const HeaderProperties = {
     video: withTheme(VideoProps),
     mediaView: {
         type: 'string',
-        enum: ['fit', 'full'],
+        enum: mediaView,
     },
     backLink: {
         type: 'object',

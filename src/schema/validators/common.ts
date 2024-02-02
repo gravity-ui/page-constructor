@@ -27,6 +27,7 @@ export const dividerEnum = {enum: ['0', 'xxs', 'xs', 's', 'm', 'l', 'xl', 'xxl',
 export const sizeNumber = {type: 'number', maximum: 12, minimum: 1};
 export const contentThemes = ['default', 'dark', 'light'];
 export const quoteTypes = Object.values(QuoteType);
+export const mediaView = ['fit', 'full'];
 export const customControlsType = [
     CustomControlsType.WithMuteButton,
     CustomControlsType.WithPlayPauseButton,

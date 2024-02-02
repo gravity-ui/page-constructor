@@ -3,6 +3,7 @@ import {
     BaseProps,
     ButtonBlock,
     ThemeProps,
+    mediaView,
     withTheme,
 } from '../../schema/validators/common';
 
@@ -23,6 +24,10 @@ export const BannerCardProps = {
         image: withTheme({
             type: 'string',
         }),
+        mediaView: {
+            type: 'string',
+            enum: mediaView,
+        },
         disableCompress: {
             type: 'boolean',
         },
