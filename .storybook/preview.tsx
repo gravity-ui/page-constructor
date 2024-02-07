@@ -1,6 +1,6 @@
 import '../styles/storybook/index.scss';
 import '@gravity-ui/uikit/styles/styles.scss';
-import {MobileProvider, Platform, configure, Lang} from '@gravity-ui/uikit';
+import {MobileProvider, Platform} from '@gravity-ui/uikit';
 
 import React from 'react';
 import {MINIMAL_VIEWPORTS} from '@storybook/addon-viewport';
@@ -15,10 +15,6 @@ import {Theme} from '../src';
 import {GlobalThemeController} from './theme/utils/global-theme-controller';
 
 import '../styles/styles.scss';
-
-configure({
-    lang: Lang.En,
-});
 
 const withContextProvider: Decorator = (Story, context) => {
     const theme = context.globals.theme;

@@ -17,7 +17,7 @@ interface GoogleMapLinkParams {
     apiKey: string;
     scriptSrc: string;
     address: string;
-    lang: Lang;
+    lang: `${Lang}`;
     zoom?: number;
 }
 

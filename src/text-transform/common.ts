@@ -8,7 +8,7 @@ export type ComplexItem = {[key: string]: string};
 export type Item = string | null | ComplexItem;
 export type Transformer = (text: string) => string;
 export type TransformerRaw = (
-    lang: Lang,
+    lang: `${Lang}`,
     content: string,
     options: {plugins: MarkdownItPluginCb[]},
 ) => string;
@@ -37,7 +37,7 @@ export const createItemsParser = (fields: string[]) => (transformer: Transformer
     });
 
 export function yfmTransformer(
-    lang: Lang,
+    lang: `${Lang}`,
     content: string,
     options: {plugins?: MarkdownItPluginCb[]} = {},
 ) {
@@ -50,6 +50,6 @@ export function yfmTransformer(
     return html;
 }
 
-export function typografTransformer(lang: Lang, content: string) {
+export function typografTransformer(lang: `${Lang}`, content: string) {
     return typografToHTML(content, lang);
 }

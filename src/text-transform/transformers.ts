@@ -17,7 +17,7 @@ export type ContentTransformerProps = {
         blocks?: ConstructorBlock[];
     };
     options: {
-        lang: Lang;
+        lang: `${Lang}`;
         customConfig?: {};
         vars?: ContentVariables;
         plugins?: MarkdownItPluginCb[];
@@ -26,7 +26,7 @@ export type ContentTransformerProps = {
 
 function transformBlocks(
     blocks: ConstructorBlock[],
-    lang: Lang,
+    lang: `${Lang}`,
     customConfig = {},
     options: {plugins?: MarkdownItPluginCb[]} = {},
 ) {
@@ -39,7 +39,7 @@ function transformBlocks(
 }
 
 function transformBlock(
-    lang: Lang,
+    lang: `${Lang}`,
     blocksConfig: BlocksConfig,
     block: ConstructorBlock,
     plugins: MarkdownItPluginCb[],
