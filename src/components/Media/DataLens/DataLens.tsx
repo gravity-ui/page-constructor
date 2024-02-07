@@ -3,7 +3,7 @@ import React from 'react';
 import {MediaComponentDataLensProps} from '../../../models';
 import {block} from '../../../utils';
 
-import i18n from './i18n';
+import {i18n} from './i18n';
 import {unifyDataLensToObject} from './utils';
 
 import './DataLens.scss';

@@ -1,5 +1,6 @@
 import React, {useContext, useEffect, useMemo, useRef, useState} from 'react';
 
+import {Lang} from '@gravity-ui/uikit';
 import debounce from 'lodash/debounce';
 
 import {LocaleContext} from '../../context/localeContext/localeContext';
@@ -7,7 +8,6 @@ import {MapsContext} from '../../context/mapsContext/mapsContext';
 import {MobileContext} from '../../context/mobileContext';
 import {GMapProps} from '../../models';
 import {block} from '../../utils';
-import {Lang} from '../../utils/configure';
 
 import {getMapHeight} from './helpers';
 

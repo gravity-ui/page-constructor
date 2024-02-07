@@ -1,7 +1,6 @@
 import defaultPlugins from '@doc-tools/transform/lib/plugins';
 import {MarkdownItPluginCb} from '@doc-tools/transform/lib/plugins/typings';
-
-import {Lang} from '../utils/configure';
+import {Lang} from '@gravity-ui/uikit';
 
 import {fullTransform, typografToHTML} from './utils';
 

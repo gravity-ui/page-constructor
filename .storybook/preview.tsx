@@ -1,6 +1,6 @@
 import '../styles/storybook/index.scss';
 import '@gravity-ui/uikit/styles/styles.scss';
-import {MobileProvider, Platform} from '@gravity-ui/uikit';
+import {MobileProvider, Platform, configure, Lang} from '@gravity-ui/uikit';
 
 import React from 'react';
 import {MINIMAL_VIEWPORTS} from '@storybook/addon-viewport';
@@ -12,7 +12,6 @@ import {withLang} from './decorators/withLang';
 import {DocsDecorator} from './decorators/docs';
 
 import {Theme} from '../src';
-import {configure, Lang} from '../src/utils/configure';
 import {GlobalThemeController} from './theme/utils/global-theme-controller';
 
 import '../styles/styles.scss';

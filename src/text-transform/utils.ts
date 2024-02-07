@@ -1,8 +1,7 @@
 import transformYFM, {Options, Output} from '@doc-tools/transform';
+import {Lang} from '@gravity-ui/uikit';
 import sanitize from 'sanitize-html';
 import Typograf from 'typograf';
-
-import {Lang} from '../utils/configure';
 
 import AddRuleOptions = typograf.AddRuleOptions;
 
