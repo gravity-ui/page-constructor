@@ -1,0 +1,48 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins';
+
+$block: '.#{$ns}image-card';
+
+$paddingS: 4px;
+
+#{$block} {
+    @include card();
+    border-radius: $indentSM;
+
+    &__content {
+        padding: $indentSM $indentM $indentM $indentM;
+    }
+
+    $image: #{&}__image;
+
+    #{$image} {
+        &_inner {
+            width: 100%;
+            display: block;
+        }
+
+        &_margins {
+            &_s {
+                padding: $paddingS;
+
+                #{$image}_inner {
+                    border-radius: $indentS;
+                }
+            }
+
+            &_m {
+                padding: $indentM;
+            }
+        }
+    }
+
+    &_with-content {
+        #{$image}_direction_direct {
+            padding-bottom: 0;
+        }
+
+        #{$image}_direction_reverse {
+            padding-top: 0;
+        }
+    }
+}

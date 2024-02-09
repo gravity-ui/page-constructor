@@ -55,6 +55,11 @@ const DefaultTemplate: StoryFn<CardLayoutBlockModel> = (args) => (
                         },
                     ],
                 },
+                {
+                    ...args,
+                    title: 'Card layout with image cards',
+                    children: createCardArray(3, data.cards.imageCard),
+                },
             ],
         }}
     />

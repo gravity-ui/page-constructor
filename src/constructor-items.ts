@@ -33,6 +33,7 @@ import {
     BasicCard,
     Content,
     Divider,
+    ImageCard,
     LayoutItem,
     MediaCard,
     PriceCard,
@@ -73,6 +74,7 @@ export const subBlockMap = {
     [SubBlockType.Content]: Content,
     [SubBlockType.Quote]: Quote,
     [SubBlockType.PriceCard]: PriceCard,
+    [SubBlockType.ImageCard]: ImageCard,
 };
 
 export const navItemMap = {

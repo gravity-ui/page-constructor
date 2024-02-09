@@ -43,6 +43,12 @@
         "Ut enim ad minim veniam exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
         "Ut enim ad minim veniam exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
       ]
+    },
+    "imageCard": {
+      "type": "image-card",
+      "title": "Tell a story and build a narrative",
+      "text": "We are all storytellers. Stories are a powerful way to communicate ideas and share information. The right story can lead to a better understanding of a situation, make us laugh, or even inspire us to do something in the future.",
+      "image": "/story-assets/img_8-12_light.png"
     }
   },
   "buttons": {
