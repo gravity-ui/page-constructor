@@ -38,9 +38,26 @@ const MultipleTemplate: StoryFn<ImageCardProps> = (args) => (
     </div>
 );
 
+const ContentTemplate: StoryFn<ImageCardProps> = (args) => (
+    <div
+        style={{display: 'flex', flexWrap: 'wrap', flexDirection: 'row', alignItems: 'flex-start'}}
+    >
+        <div style={{width: 400, margin: 20}}>
+            <ImageCard {...args} />
+        </div>
+        <div style={{width: 400, margin: 20}}>
+            <ImageCard {...args} text="" />
+        </div>
+        <div style={{width: 400, margin: 20}}>
+            <ImageCard {...args} text="" title="" />
+        </div>
+    </div>
+);
+
 export const Default = DefaultTemplate.bind({});
 export const Margins = MultipleTemplate.bind({});
 export const DirectionReverse = MultipleTemplate.bind({});
+export const Content = ContentTemplate.bind({});
 export const BackgroundColor = MultipleTemplate.bind({});
 
 DirectionReverse.args = {direction: 'reverse'} as Partial<ImageCardProps>;
