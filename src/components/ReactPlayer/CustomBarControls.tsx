@@ -9,7 +9,7 @@ import {ClassNameProps, CustomControlsOptions, CustomControlsType} from '../../m
 import {block} from '../../utils';
 
 import CircleProgress from './CircleProgress';
-import i18n from './i18n';
+import {i18n} from './i18n';
 
 import './CustomBarControls.scss';
 

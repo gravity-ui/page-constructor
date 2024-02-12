@@ -5,7 +5,7 @@ import debounce from 'lodash/debounce';
 import {ToggleArrow} from '..';
 import {block} from '../../utils';
 
-import i18n from './i18n';
+import {i18n} from './i18n';
 
 import './OverflowScroller.scss';
 
