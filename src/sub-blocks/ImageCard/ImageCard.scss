@@ -8,7 +8,6 @@ $paddingS: 4px;
 #{$block} {
     @include card();
     min-height: 1px;
-    border-radius: $indentSM;
     $image: #{&}__image;
     $content: #{&}__content;
 
@@ -23,11 +22,16 @@ $paddingS: 4px;
         }
 
         &_margins {
+            &_none {
+                #{$image}_inner#{$image}_inner_radius {
+                    border-radius: $borderRadius;
+                }
+            }
             &_s {
                 padding: $paddingS;
 
                 #{$image}_inner {
-                    border-radius: $indentS;
+                    border-radius: calc(#{$borderRadius} - #{$imagePadding});
                 }
             }
 

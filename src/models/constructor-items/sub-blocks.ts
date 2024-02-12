@@ -194,6 +194,7 @@ export interface LayoutItemProps extends ClassNameProps, AnalyticsEventsBase {
 
 export interface ImageCardProps extends CardBaseProps, Pick<ContentBlockProps, 'title' | 'text'> {
     image: ImageProps;
+    enableImageBorderRadius?: boolean;
     margins?: ImageCardMargins;
     direction?: ImageCardDirection;
     backgroundColor?: string;

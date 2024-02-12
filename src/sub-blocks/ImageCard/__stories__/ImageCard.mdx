@@ -1,0 +1,28 @@
+import {Meta} from '@storybook/blocks';
+
+import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
+import * as ImageCardStories from './ImageCard.stories.tsx';
+
+<Meta of={ImageCardStories} />
+<StoryTemplate>
+## Parameters
+
+`type: "image-card"`
+
+[`image: string | ImageObjectProps | ReactNode` — ImageProps](?path=/docs/documentation-types--docs#imageobjectprops---image-property).
+
+`title?: Title | string` — Card title.
+
+`text?: string` — Card description (with YFM support).
+
+`border: 'shadow' | 'line' | 'none'` — Select border of the card.
+
+`backgroundColor?: string` — Card background color.
+
+`margins?: 'none' | 's' | 'm'` — Space between the image and the card borders.
+
+`direction?: 'direct' | 'reverse'` — Image and Content direction.
+
+`enableImageBorderRadius?: boolean` — Set border-radius for the image. Affects only when `margins='none'`.
+
+</StoryTemplate>

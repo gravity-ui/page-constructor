@@ -76,12 +76,22 @@ const BorderTemplate: StoryFn<ImageCardProps> = (args) => (
     </div>
 );
 
+const BorderRadiusTemplate: StoryFn<ImageCardProps> = (args) => (
+    <div style={{margin: 20}}>
+        <h2>Default</h2>
+        <MultipleTemplate {...args} />
+        <h2>enableImageBorderRadius: true</h2>
+        <MultipleTemplate {...args} enableImageBorderRadius />
+    </div>
+);
+
 export const Default = DefaultTemplate.bind({});
 export const Margins = MultipleTemplate.bind({});
 export const DirectionReverse = MultipleTemplate.bind({});
 export const Content = MultipleContentTemplate.bind({});
 export const BackgroundColor = MultipleTemplate.bind({});
 export const Border = BorderTemplate.bind({});
+export const BorderRadius = BorderRadiusTemplate.bind({});
 
 DirectionReverse.args = {direction: 'reverse'} as Partial<ImageCardProps>;
 BackgroundColor.args = {...data.backgroundColor.content};

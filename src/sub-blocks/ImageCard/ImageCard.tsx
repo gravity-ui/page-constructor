@@ -16,6 +16,7 @@ const ImageCard = (props: ImageCardProps) => {
         title,
         text,
         image,
+        enableImageBorderRadius = false,
         direction = ImageCardDirection.Direct,
         margins = ImageCardMargins.None,
         backgroundColor,
@@ -37,7 +38,10 @@ const ImageCard = (props: ImageCardProps) => {
         const imageProps = getMediaImage(image);
         return (
             <div className={b('image', {margins})}>
-                <Image className={b('image_inner')} {...imageProps} />
+                <Image
+                    className={b('image_inner', {radius: enableImageBorderRadius})}
+                    {...imageProps}
+                />
             </div>
         );
     };
