@@ -36,14 +36,17 @@ const ImageCard = (props: ImageCardProps) => {
     const renderImage = () => {
         const imageProps = getMediaImage(image);
         return (
-            <div className={b('image', {margins, direction})}>
+            <div className={b('image', {margins})}>
                 <Image className={b('image_inner')} {...imageProps} />
             </div>
         );
     };
 
     return (
-        <div className={b({border, 'with-content': hasContent})} style={{backgroundColor}}>
+        <div
+            className={b({border, 'with-content': hasContent, direction})}
+            style={{backgroundColor}}
+        >
             {direction === ImageCardDirection.Direct && (
                 <React.Fragment>
                     {renderImage()}

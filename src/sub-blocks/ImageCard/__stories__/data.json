@@ -28,6 +28,20 @@
       "direction": "reverse"
     }
   },
+  "border": {
+    "shadow": {
+      "border": "shadow (default)",
+      "title": "border: 'shadow'"
+    },
+    "line": {
+      "border": "line",
+      "title": "border: 'line'"
+    },
+    "none": {
+      "border": "none",
+      "title": "border: 'none'"
+    }
+  },
   "backgroundColor": {
     "content": {
       "backgroundColor": "#ccf0d2"

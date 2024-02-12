@@ -9,12 +9,12 @@ $paddingS: 4px;
     @include card();
     min-height: 1px;
     border-radius: $indentSM;
-
-    &__content {
-        padding: $indentSM $indentM $indentM $indentM;
-    }
-
     $image: #{&}__image;
+    $content: #{&}__content;
+
+    #{$content} {
+        padding: $indentM;
+    }
 
     #{$image} {
         &_inner {
@@ -38,12 +38,24 @@ $paddingS: 4px;
     }
 
     &_with-content {
-        #{$image}_direction_direct {
-            padding-bottom: 0;
+        &#{$block}_direction_direct {
+            #{$image} {
+                padding-bottom: 0;
+            }
+
+            #{$content} {
+                padding-top: $indentSM;
+            }
         }
 
-        #{$image}_direction_reverse {
-            padding-top: 0;
+        &#{$block}_direction_reverse {
+            #{$image} {
+                padding-top: 0;
+            }
+
+            #{$content} {
+                padding-bottom: $indentSM;
+            }
         }
     }
 }
