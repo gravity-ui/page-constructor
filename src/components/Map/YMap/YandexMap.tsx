@@ -13,7 +13,7 @@ import {getMapHeight} from '../helpers';
 
 import {YMap} from './YMap';
 import {MapApiStatus, YMapsApiLoader} from './YandexMapApiLoader';
-import i18n from './i18n';
+import {i18n} from './i18n';
 
 const b = block('map');
 const DEFAULT_CONTAINER_ID = 'ymap';

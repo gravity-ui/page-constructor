@@ -215,12 +215,14 @@ To add a theme to a block property:
 
 ### i18n
 
-To make sure the i18n library used in your project runs properly, perform its initialization and set the project's current locale value in `lang`. For example:
+The `page-constructor` is a `uikit-based` library, and we use an instance of `i18n` from uikit. To set up internationalization, you just need to use the `configure` from uikit:
 
 ```typescript
-import {configure, Lang} from '@gravity-ui/page-constructor';
+import {configure} from '@gravity-ui/uikit';
 
-configure({lang: Lang.En});
+configure({
+  lang: 'ru',
+});
 ```
 
 ### Maps

@@ -10,7 +10,7 @@ import {AnalyticsEventsBase, DefaultEventNames} from '../../models/common';
 import {block, getPageSearchParams} from '../../utils';
 import Image from '../Image/Image';
 
-import i18n from './i18n';
+import {i18n} from './i18n';
 
 import './VideoBlock.scss';
 

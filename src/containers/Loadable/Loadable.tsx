@@ -12,7 +12,7 @@ import {
 } from '../../models';
 import {block as blockCn} from '../../utils/cn';
 
-import i18n from './i18n';
+import {i18n} from './i18n';
 
 import './Loadable.scss';
 
