@@ -3,7 +3,7 @@ import React from 'react';
 import ToggleArrow from '../../../components/ToggleArrow/ToggleArrow';
 import {ClassNameProps} from '../../../models';
 import {block} from '../../../utils';
-import i18n from '../i18n';
+import {i18n} from '../i18n';
 
 import './Arrow.scss';
 

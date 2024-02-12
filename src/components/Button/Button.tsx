@@ -10,7 +10,7 @@ import {Github} from '../../icons';
 import {ButtonProps as ButtonParams, DefaultEventNames, QAProps} from '../../models';
 import {block, setUrlTld} from '../../utils';
 
-import i18n from './i18n';
+import {i18n} from './i18n';
 import {ICON_QA, OldButtonSize, OldButtonTheme, toCommonSize, toCommonView} from './utils';
 
 import './Button.scss';

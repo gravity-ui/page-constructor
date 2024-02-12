@@ -6,7 +6,7 @@ import {Fullscreen, PreviewClose} from '../../icons';
 import {block} from '../../utils';
 import Image, {ImageProps} from '../Image/Image';
 
-import i18n from './i18n';
+import {i18n} from './i18n';
 
 import './FullscreenImage.scss';
 

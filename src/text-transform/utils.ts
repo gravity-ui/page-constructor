@@ -1,8 +1,7 @@
 import transformYFM, {Options, Output} from '@doc-tools/transform';
+import {Lang} from '@gravity-ui/uikit';
 import sanitize from 'sanitize-html';
 import Typograf from 'typograf';
-
-import {Lang} from '../utils/configure';
 
 import AddRuleOptions = typograf.AddRuleOptions;
 
@@ -12,7 +11,7 @@ export enum TransformType {
 }
 
 interface TransformOptions extends Options {
-    lang: Lang;
+    lang: `${Lang}`;
 }
 
 export const DEFAULT_ALLOWED_TAGS = [
@@ -55,7 +54,7 @@ function enableRules(tp: typograf.Typograf) {
     disabled.forEach((rule) => tp.disableRule(rule));
 }
 
-export function typograf(text: string, lang = Lang.Ru) {
+export function typograf(text: string, lang: `${Lang}` = Lang.Ru) {
     const localeByLang = {
         [Lang.Ru]: ['ru', 'en-US'],
         [Lang.En]: ['en-US', 'ru'],
@@ -75,11 +74,11 @@ export function sanitizeHtml(html: string, options = sanitizeStripOptions) {
     return html && sanitize(html, options || sanitizeStripOptions);
 }
 
-export function typografToHTML(text: string, lang: Lang, allowedTags = DEFAULT_ALLOWED_TAGS) {
+export function typografToHTML(text: string, lang: `${Lang}`, allowedTags = DEFAULT_ALLOWED_TAGS) {
     return text && typograf(sanitizeHtml(text, {allowedTags}), lang);
 }
 
-export function typografToText(text: string, lang: Lang) {
+export function typografToText(text: string, lang: `${Lang}`) {
     return text && sanitizeHtml(typograf(text, lang));
 }
 
@@ -105,7 +104,7 @@ export function fullTransform(
 export interface TypografEntityParams {
     entity: Record<string, string>;
     fields: string[];
-    lang: Lang;
+    lang: `${Lang}`;
     transformType: TransformType;
 }
 

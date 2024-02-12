@@ -8,7 +8,7 @@ import {block} from '../../../utils';
 import {Tablet} from '../../icons/Tablet';
 import {ViewModeItem} from '../../types';
 
-import i18n from './i18n';
+import {i18n} from './i18n';
 
 import './ControlPanel.scss';
 
@@ -61,7 +61,7 @@ const ControlPanel = ({
                 </RadioButton>
             </div>
             <div className={b('theme-switch')}>
-                <span>{i18n('Theme')}</span>
+                <span>{i18n('theme')}</span>
                 <Select value={[theme]} onUpdate={(value) => onThemeChange(value[0] as Theme)}>
                     {Object.values(Theme).map((item) => (
                         <Select.Option key={item} value={item}>

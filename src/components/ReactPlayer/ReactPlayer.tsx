@@ -35,7 +35,7 @@ import {
 import {block} from '../../utils';
 
 import CustomBarControls from './CustomBarControls';
-import i18n from './i18n';
+import {i18n} from './i18n';
 import {checkYoutubeVideos} from './utils';
 import {isYoutubePlayerInstance} from './utils/youtube';
 
