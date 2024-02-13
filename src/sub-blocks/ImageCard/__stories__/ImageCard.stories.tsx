@@ -12,6 +12,10 @@ export default {
     title: 'Components/Cards/ImageCard',
     args: data.default.content,
     argTypes: {
+        margins: {
+            control: {type: 'radio'},
+            options: [undefined, 's', 'm'],
+        },
         backgroundColor: {
             control: {type: 'color'},
         },

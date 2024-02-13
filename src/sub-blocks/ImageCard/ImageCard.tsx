@@ -2,7 +2,7 @@ import React from 'react';
 
 import {Image} from '../../components';
 import {getMediaImage} from '../../components/Media/Image/utils';
-import {ImageCardDirection, ImageCardMargins, ImageCardProps} from '../../models';
+import {ImageCardDirection, ImageCardProps} from '../../models';
 import {block} from '../../utils';
 import Content from '../Content/Content';
 
@@ -18,50 +18,28 @@ const ImageCard = (props: ImageCardProps) => {
         image,
         enableImageBorderRadius = false,
         direction = ImageCardDirection.Direct,
-        margins = ImageCardMargins.None,
+        margins,
         backgroundColor,
     } = props;
 
     const hasContent = Boolean(text || title);
-
-    const renderContent = () => {
-        if (!hasContent) {
-            return null;
-        }
-        return (
-            <div className={b('content')}>
-                <Content title={title} text={text} colSizes={{all: 12, md: 12}} size="s" />
-            </div>
-        );
-    };
-    const renderImage = () => {
-        const imageProps = getMediaImage(image);
-        return (
-            <div className={b('image', {margins})}>
-                <Image
-                    className={b('image_inner', {radius: enableImageBorderRadius})}
-                    {...imageProps}
-                />
-            </div>
-        );
-    };
+    const imageProps = getMediaImage(image);
 
     return (
         <div
             className={b({border, 'with-content': hasContent, direction})}
             style={{backgroundColor}}
         >
-            {direction === ImageCardDirection.Direct && (
-                <React.Fragment>
-                    {renderImage()}
-                    {renderContent()}
-                </React.Fragment>
-            )}
-            {direction === ImageCardDirection.Reverse && (
-                <React.Fragment>
-                    {renderContent()}
-                    {renderImage()}
-                </React.Fragment>
+            <div className={b('image', {margins})}>
+                <Image
+                    className={b('image_inner', {radius: enableImageBorderRadius})}
+                    {...imageProps}
+                />
+            </div>
+            {hasContent && (
+                <div className={b('content')}>
+                    <Content title={title} text={text} colSizes={{all: 12, md: 12}} size="s" />
+                </div>
             )}
         </div>
     );

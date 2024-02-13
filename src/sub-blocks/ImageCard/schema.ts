@@ -21,7 +21,7 @@ export const ImageCard = {
             },
             margins: {
                 type: 'string',
-                enum: ['none', 's', 'm'],
+                enum: ['s', 'm'],
             },
             backgroundColor: {
                 type: 'string',

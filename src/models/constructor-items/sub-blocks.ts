@@ -11,6 +11,7 @@ import {
     CardBaseProps,
     ContentTheme,
     DividerSize,
+    ImageCardMargins,
     ImageObjectProps,
     ImageProps,
     LinkProps,
@@ -56,12 +57,6 @@ export interface PositionedIcon {
 
 export interface IconWrapperProps {
     icon?: PositionedIcon;
-}
-
-export enum ImageCardMargins {
-    None = 'none',
-    Small = 's',
-    Medium = 'm',
 }
 
 export enum ImageCardDirection {
