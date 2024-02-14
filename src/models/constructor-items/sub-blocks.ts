@@ -197,6 +197,7 @@ export type BackgroundCardModel = {
     type: SubBlockType.BackgroundCard;
 } & BackgroundCardProps;
 
+/** @deprecated */
 export type PriceDetailedModel = {
     type: SubBlockType.PriceDetailed;
 } & PriceDetailedProps;

@@ -9,7 +9,7 @@ import data from './data.json';
 
 export default {
     component: PriceDetailed,
-    title: 'Components/Cards/PriceDetailed',
+    title: 'Components/Cards/PriceDetailed (deprecated)',
 } as Meta;
 
 const DefaultTemplate: StoryFn<PriceDetailedProps> = (args) => (
