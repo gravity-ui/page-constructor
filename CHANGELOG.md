@@ -1,6 +1,18 @@
 # Changelog
 
 
+## [4.52.0](https://github.com/gravity-ui/page-constructor/compare/v4.51.1...v4.52.0) (2024-02-14)
+
+
+### Features
+
+* add image card sub-block ([#807](https://github.com/gravity-ui/page-constructor/issues/807)) ([52890dd](https://github.com/gravity-ui/page-constructor/commit/52890dd24732a2b02d2b67df1def71eef141a47e))
+
+
+### Bug Fixes
+
+* working with youtube player api ([#815](https://github.com/gravity-ui/page-constructor/issues/815)) ([a5267eb](https://github.com/gravity-ui/page-constructor/commit/a5267ebf19afa574d7e50195eddc1e07b0795fdb))
+
 ## [4.51.1](https://github.com/gravity-ui/page-constructor/compare/v4.51.0...v4.51.1) (2024-02-02)
 
 
