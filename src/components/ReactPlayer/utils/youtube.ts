@@ -1,4 +1,4 @@
-import {YouTubePlayer} from 'youtube-player/dist/types';
+import type {YouTubePlayer} from 'youtube-player/dist/types';
 
 export const isYoutubePlayerInstance = (
     playerInstance: Record<string, unknown> | YouTubePlayer,
