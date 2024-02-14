@@ -7,8 +7,7 @@ import {TARGETS} from '../../../../test-utils/constants';
 import {testCustomClassName} from '../../../../test-utils/shared/common';
 import {PageConstructorProvider} from '../../../containers/PageConstructor';
 import {AnalyticsContextProps} from '../../../context/analyticsContext';
-import {MetrikaContextProps} from '../../../context/metrikaContext';
-import {CardBorder, PixelEventType} from '../../../models';
+import {CardBorder} from '../../../models';
 import {getQaAttrubutes} from '../../../utils';
 import CardBase, {CardBaseProps} from '../CardBase';
 
@@ -172,56 +171,6 @@ describe('CardBase', () => {
         const button = screen.getByTestId(qaId);
 
         expect(button).toHaveClass(`pc-card-base-block_border_${border}`);
-    });
-
-    test('add metrikaEvent', async () => {
-        const metrikaContext: MetrikaContextProps = {
-            metrika: {
-                reachGoal: jest.fn(),
-                reachGoals: jest.fn(),
-            },
-        };
-        const user = userEvent.setup();
-
-        render(
-            <PageConstructorProvider metrika={metrikaContext}>
-                <CardBase url={url} target={'_blank'} qa={qaId} metrikaGoals={'metrika-goal'}>
-                    <CardBase.Content>Content</CardBase.Content>
-                </CardBase>
-            </PageConstructorProvider>,
-        );
-        const cardBase = screen.getByTestId(qaId);
-
-        await user.click(cardBase);
-        expect(metrikaContext.metrika?.reachGoals).toHaveBeenCalledTimes(1);
-    });
-
-    test('add pixelEvent', async () => {
-        const metrikaContext: MetrikaContextProps = {
-            pixel: {
-                trackStandard: jest.fn(),
-                trackCustom: jest.fn(),
-                track: jest.fn(),
-            },
-        };
-        const user = userEvent.setup();
-
-        render(
-            <PageConstructorProvider metrika={metrikaContext}>
-                <CardBase
-                    url={url}
-                    target={'_blank'}
-                    qa={qaId}
-                    pixelEvents={[{name: PixelEventType.AddToCart}]}
-                >
-                    <CardBase.Content>Content</CardBase.Content>
-                </CardBase>
-            </PageConstructorProvider>,
-        );
-        const cardBase = screen.getByTestId(qaId);
-
-        await user.click(cardBase);
-        expect(metrikaContext.pixel?.track).toHaveBeenCalledTimes(1);
     });
 
     test('add analyticsEvent', async () => {

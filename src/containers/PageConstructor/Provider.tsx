@@ -6,7 +6,6 @@ import {ImageContext, ImageContextProps} from '../../context/imageContext';
 import {LocaleContext, LocaleContextProps} from '../../context/localeContext';
 import {LocationContext, LocationContextProps} from '../../context/locationContext';
 import {MapsContext, MapsContextType, initialMapValue} from '../../context/mapsContext/mapsContext';
-import {MetrikaContext, MetrikaContextProps} from '../../context/metrikaContext';
 import {MobileContext} from '../../context/mobileContext';
 import {
     ProjectSettingsContext,
@@ -20,7 +19,6 @@ export interface PageConstructorProviderProps {
     isMobile?: boolean;
     locale?: LocaleContextProps;
     location?: LocationContextProps;
-    metrika?: MetrikaContextProps;
     ssrConfig?: SSRContextProps;
     theme?: Theme;
     mapsContext?: MapsContextType;
@@ -35,7 +33,6 @@ export const PageConstructorProvider = (props: WithChildren<PageConstructorProvi
         mapsContext = initialMapValue,
         locale = {},
         location = {},
-        metrika = {},
         analytics = {},
         ssrConfig = {},
         projectSettings = {},
@@ -53,7 +50,6 @@ export const PageConstructorProvider = (props: WithChildren<PageConstructorProvi
         <LocationContext.Provider value={location} />,
         <MobileContext.Provider value={Boolean(isMobile)} />,
         <MapsContext.Provider value={mapsContext} />,
-        <MetrikaContext.Provider value={metrika} />,
         <AnalyticsContext.Provider value={analytics} />,
         <SSRContext.Provider value={{isServer: ssrConfig?.isServer}} />,
     ].reduceRight((prev, provider) => React.cloneElement(provider, {}, prev), children);

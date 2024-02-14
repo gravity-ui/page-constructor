@@ -3,7 +3,7 @@ import React, {CSSProperties, HTMLProps, ReactNode} from 'react';
 import {ButtonView, ButtonProps as UikitButtonProps} from '@gravity-ui/uikit';
 
 import {ThemeSupporting} from '../../utils';
-import {AnalyticsEventsBase, ClassNameProps, PixelEvent, PixelEventType, QAProps} from '../common';
+import {AnalyticsEventsBase, ClassNameProps, QAProps} from '../common';
 
 // enums
 export enum AuthorType {
@@ -163,7 +163,6 @@ export interface MediaVideoProps extends AnalyticsEventsBase {
     playButton?: PlayButtonProps;
     controls?: MediaVideoControlsType;
     customControlsOptions?: CustomControlsOptions;
-    metrika?: MetrikaVideo;
     ariaLabel?: string;
 }
 
@@ -177,8 +176,6 @@ export interface LinkProps extends AnalyticsEventsBase, Stylable, Tabbable {
     colorTheme?: TextTheme;
     arrow?: boolean;
     target?: string;
-    metrikaGoals?: MetrikaGoal;
-    pixelEvents?: ButtonPixel;
     extraProps?: HTMLProps<HTMLAnchorElement>;
 }
 
@@ -211,8 +208,6 @@ export interface ButtonProps
     primary?: boolean;
     theme?: ButtonTheme;
     img?: ButtonImageProps | string;
-    metrikaGoals?: MetrikaGoal;
-    pixelEvents?: ButtonPixel;
     target?: string;
 }
 
@@ -242,7 +237,6 @@ export interface MediaComponentVideoProps extends AnalyticsEventsBase {
     video: MediaVideoProps;
     height?: number;
     ratio?: number;
-    metrika?: MetrikaVideo;
     previewImg?: string;
 }
 
@@ -317,29 +311,6 @@ export type MapProps = GMapProps | YMapProps;
 
 export type ThemedMediaProps = ThemeSupporting<MediaProps>;
 
-// metrika
-export interface NewMetrikaGoal {
-    name: string;
-    isCrossSite?: boolean;
-    counterName?: string;
-    params?: Record<string, string>;
-}
-
-export type MetrikaGoal = string | string[] | NewMetrikaGoal[];
-
-export interface MetrikaVideo {
-    counterName?: string;
-    play?: MetrikaGoal;
-    stop?: MetrikaGoal;
-}
-
-export interface ButtonPixelEvent {
-    name: PixelEventType;
-    data?: Object;
-}
-
-export type ButtonPixel = ButtonPixelEvent[];
-
 export interface DataLensObjectProps {
     id: string;
     theme: 'dark' | 'light';
@@ -368,8 +339,7 @@ export interface HeaderBreadCrumbsProps extends ClassNameProps {
         text: ReactNode;
     }[];
     theme?: TextTheme;
-    metrikaGoals?: MetrikaGoal;
-    pixelEvents?: ButtonPixel;
+    analyticsEvents?: AnalyticsEventsBase['analyticsEvents'];
 }
 
 export interface TitleItemProps extends Justifyable, TitleItemBaseProps {
@@ -476,9 +446,6 @@ export interface YandexFormProps extends AnalyticsEventsBase {
 
     onSubmit?: () => void;
     onLoad?: () => void;
-
-    metrikaGoals?: string | string[];
-    pixelEvents?: string | string[] | PixelEvent | PixelEvent[];
 }
 
 export interface WithBorder {
