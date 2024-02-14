@@ -10,7 +10,7 @@ import i18n from './i18n';
 
 import './FullscreenImage.scss';
 
-export interface FullscreenImageProps extends ImageProps {
+export interface FullscreenImageProps extends Omit<ImageProps, 'extraProps'> {
     imageClassName?: string;
     modalImageClass?: string;
     imageStyle?: CSSProperties;
@@ -22,7 +22,8 @@ const FULL_SCREEN_ICON_SIZE = 18;
 const CLOSE_ICON_SIZE = 30;
 
 const FullscreenImage = (props: FullscreenImageProps) => {
-    const {imageClassName, modalImageClass, imageStyle, alt = i18n('img-alt'), extraProps} = props;
+    const {imageClassName, modalImageClass, imageStyle, alt = i18n('img-alt')} = props;
+    const {extraProps, ...imageProps} = props;
     const [isOpened, setIsOpened] = useState(false);
 
     const openModal = () => setIsOpened(true);
@@ -32,7 +33,7 @@ const FullscreenImage = (props: FullscreenImageProps) => {
         <div className={b()} {...extraProps}>
             <div className={b('image-wrapper')}>
                 <Image
-                    {...props}
+                    {...imageProps}
                     alt={alt}
                     className={b('image', imageClassName)}
                     onClick={openModal}
@@ -62,7 +63,7 @@ const FullscreenImage = (props: FullscreenImageProps) => {
                                 className={b('icon', {hover: true})}
                             />
                         </button>
-                        <Image {...props} className={b('modal-image', modalImageClass)} />
+                        <Image {...imageProps} className={b('modal-image', modalImageClass)} />
                     </div>
                 </Modal>
             )}

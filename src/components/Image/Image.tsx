@@ -1,6 +1,7 @@
 import React, {
     CSSProperties,
     Fragment,
+    HTMLProps,
     MouseEventHandler,
     ReactEventHandler,
     useContext,
@@ -12,7 +13,7 @@ import {ProjectSettingsContext} from '../../context/projectSettingsContext';
 import {ImageDeviceProps, ImageObjectProps, QAProps} from '../../models';
 import {getQaAttrubutes} from '../../utils';
 import {isCompressible} from '../../utils/imageCompress';
-import ImageBase from '../ImageBase/ImageBase';
+import ImageBase, {ImageBaseProps} from '../ImageBase/ImageBase';
 
 export interface ImageProps extends Partial<ImageObjectProps>, Partial<ImageDeviceProps>, QAProps {
     style?: CSSProperties;
@@ -20,6 +21,7 @@ export interface ImageProps extends Partial<ImageObjectProps>, Partial<ImageDevi
     onClick?: MouseEventHandler;
     onLoad?: ReactEventHandler<HTMLDivElement>;
     containerClassName?: string;
+    extraProps?: Omit<HTMLProps<HTMLImageElement>, keyof ImageBaseProps>;
 }
 
 export interface DeviceSpecificFragmentProps extends QAProps {
@@ -66,6 +68,7 @@ const Image = (props: ImageProps) => {
         onLoad,
         containerClassName,
         qa,
+        extraProps,
     } = props;
     const [imgLoadingError, setImgLoadingError] = useState(false);
 
@@ -123,6 +126,7 @@ const Image = (props: ImageProps) => {
                 onClick={onClick}
                 onError={() => setImgLoadingError(true)}
                 onLoad={onLoad}
+                {...extraProps}
             />
         </picture>
     );

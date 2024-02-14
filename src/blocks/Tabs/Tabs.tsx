@@ -73,7 +73,9 @@ export const TabsBlock = ({
 
         if (activeTabData.caption && imageProps) {
             Object.assign(imageProps, {
-                'aria-describedby': captionId,
+                extraProps: {
+                    'aria-describedby': captionId,
+                },
             });
         }
     }
