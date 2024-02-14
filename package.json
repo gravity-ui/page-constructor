@@ -144,6 +144,7 @@
     "@types/sanitize-html": "2.6.1",
     "@types/uuid": "^9.0.0",
     "@types/webpack-env": "^1.18.1",
+    "@types/youtube-player": "^5.5.11",
     "autoprefixer": "^10.4.14",
     "babel-loader": "^8.3.0",
     "css-loader": "^5.2.7",

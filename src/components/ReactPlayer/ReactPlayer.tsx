@@ -37,6 +37,7 @@ import {block} from '../../utils';
 import CustomBarControls from './CustomBarControls';
 import i18n from './i18n';
 import {checkYoutubeVideos} from './utils';
+import {isYoutubePlayerInstance} from './utils/youtube';
 
 import './ReactPlayer.scss';
 
@@ -137,8 +138,14 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
                     return;
                 }
 
-                const videoInstance = playerRef.getInternalPlayer() as HTMLVideoElement;
-                const {play, pause, addEventListener} = videoInstance;
+                let play, pause, addEventListener;
+                const videoInstance = playerRef.getInternalPlayer();
+                if (isYoutubePlayerInstance(videoInstance)) {
+                    ({pauseVideo: pause, playVideo: play, addEventListener} = videoInstance);
+                } else {
+                    // it is assumed that `videoInstance` is HTMLVideoElement by default
+                    ({play, pause, addEventListener} = videoInstance);
+                }
 
                 // eslint-disable-next-line consistent-return
                 return {
