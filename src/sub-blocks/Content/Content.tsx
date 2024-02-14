@@ -43,23 +43,36 @@ function getButtonSize(size: ContentSize) {
     }
 }
 
-export type ContentProps = ContentBlockProps & ClassNameProps & QAProps;
+export type ContentProps = ContentBlockProps &
+    ClassNameProps &
+    QAProps & {
+        titleClassName?: string;
+        textClassName?: string;
+        listClassName?: string;
+        linksClassName?: string;
+        buttonsClassName?: string;
+    };
 
 const Content = (props: ContentProps) => {
     const {
         title,
         titleId: titleIdFromProps,
+        titleClassName,
         text,
         textId,
+        textClassName,
         additionalInfo,
         size = 'l',
         links,
+        linksClassName,
         buttons,
+        buttonsClassName,
         colSizes = {all: 12, sm: 8},
         centered,
         theme,
         className,
         list,
+        listClassName,
         qa,
     } = props;
     const qaAttributes = getQaAttrubutes(qa, ['links', 'link', 'buttons', 'button', 'list']);
@@ -82,14 +95,14 @@ const Content = (props: ContentProps) => {
         >
             {title && (
                 <Title
-                    className={b('title')}
+                    className={b('title', null, titleClassName)}
                     title={titleProps}
                     colSizes={{all: 12}}
                     id={titleId}
                 />
             )}
             {text && (
-                <div className={b('text', {['without-title']: !hasTitle})}>
+                <div className={b('text', {['without-title']: !hasTitle}, textClassName)}>
                     <YFMWrapper
                         content={text}
                         modifiers={{constructor: true, [`constructor-size-${size}`]: true}}
@@ -98,7 +111,7 @@ const Content = (props: ContentProps) => {
                 </div>
             )}
             {list?.length ? (
-                <div className={b('list')}>
+                <div className={b('list', null, listClassName)}>
                     <ContentList list={list} size={size} qa={qaAttributes.list} />
                 </div>
             ) : null}
@@ -115,7 +128,7 @@ const Content = (props: ContentProps) => {
                 </div>
             )}
             {links && (
-                <div className={b('links')} data-qa={qaAttributes.links}>
+                <div className={b('links', null, linksClassName)} data-qa={qaAttributes.links}>
                     {links.map((link) => (
                         <LinkBlock
                             className={b('link')}
@@ -132,7 +145,10 @@ const Content = (props: ContentProps) => {
                 </div>
             )}
             {buttons && (
-                <div className={b('buttons')} data-qa={qaAttributes.buttons}>
+                <div
+                    className={b('buttons', null, buttonsClassName)}
+                    data-qa={qaAttributes.buttons}
+                >
                     {buttons.map((item) => (
                         <Button
                             className={b('button')}

@@ -2,41 +2,42 @@
 @import '../../../styles/mixins.scss';
 
 $block: '.#{$ns}icon-wrapper';
+$iconElement: '#{$block}__icon';
+$contentElement: '#{$block}__content';
+
+$iconSizePositionTop: 32px;
+$iconSizePositionLeft: 22px;
 
 #{$block} {
-    $iconSizePositionTop: 32px;
-    $iconSizePositionLeft: 22px;
-
     display: flex;
     flex-direction: column;
 
     &_icon-position {
         &_left {
             flex-direction: row;
-        }
-    }
 
-    &__icon {
-        max-width: 100%;
-        margin-bottom: $indentXXS;
-        height: $iconSizePositionTop;
-        object-fit: contain;
-        display: block;
-
-        &_icon-position {
-            &_left {
+            #{$iconElement} {
                 height: $iconSizePositionLeft;
                 width: $iconSizePositionLeft;
                 margin: 1px $indentXXS 1px 0px;
             }
-        }
-    }
 
-    &_content {
-        &_left {
-            @include add-specificity(&) {
+            #{$contentElement} {
                 flex: 1 0 0;
             }
         }
     }
+}
+
+#{$iconElement} {
+    max-width: 100%;
+    margin-bottom: $indentXXS;
+    height: $iconSizePositionTop;
+    object-fit: contain;
+    display: block;
+}
+
+#{$contentElement} {
+    display: flex;
+    flex-direction: column;
 }

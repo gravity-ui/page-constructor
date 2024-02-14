@@ -9,8 +9,13 @@ import './IconWrapper.scss';
 
 const b = block('icon-wrapper');
 
-const IconWrapper = (props: PropsWithChildren<IconWrapperProps>) => {
-    const {icon, children} = props;
+type Props = PropsWithChildren<IconWrapperProps> & {
+    className?: string;
+    iconClassName?: string;
+    contentClassName?: string;
+};
+
+const IconWrapper = ({icon, className, iconClassName, contentClassName, children}: Props) => {
     if (!icon) {
         return <Fragment>{children}</Fragment>;
     }
@@ -19,11 +24,9 @@ const IconWrapper = (props: PropsWithChildren<IconWrapperProps>) => {
     const iconPosition = icon?.position;
 
     return (
-        <div className={b({['icon-position']: iconPosition})}>
-            {iconProps && (
-                <Image {...iconProps} className={b('icon', {['icon-position']: iconPosition})} />
-            )}
-            <div className={b({['content']: iconPosition})}>{children}</div>
+        <div className={b({['icon-position']: iconPosition}, className)}>
+            {iconProps && <Image {...iconProps} className={b('icon', null, iconClassName)} />}
+            <div className={b('content', contentClassName)}>{children}</div>
         </div>
     );
 };
