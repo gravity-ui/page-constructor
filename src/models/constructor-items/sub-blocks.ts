@@ -11,6 +11,7 @@ import {
     CardBaseProps,
     ContentTheme,
     DividerSize,
+    ImageCardMargins,
     ImageObjectProps,
     ImageProps,
     LinkProps,
@@ -41,6 +42,7 @@ export enum SubBlockType {
      */
     Card = 'card',
     PriceCard = 'price-card',
+    ImageCard = 'image-card',
 }
 
 export enum IconPosition {
@@ -55,6 +57,11 @@ export interface PositionedIcon {
 
 export interface IconWrapperProps {
     icon?: PositionedIcon;
+}
+
+export enum ImageCardDirection {
+    Direct = 'direct',
+    Reverse = 'reverse',
 }
 
 export const SubBlockTypes = Object.values(SubBlockType);
@@ -180,6 +187,14 @@ export interface LayoutItemProps extends ClassNameProps, AnalyticsEventsBase {
     icon?: PositionedIcon;
 }
 
+export interface ImageCardProps extends CardBaseProps, Pick<ContentBlockProps, 'title' | 'text'> {
+    image: ImageProps;
+    enableImageBorderRadius?: boolean;
+    margins?: ImageCardMargins;
+    direction?: ImageCardDirection;
+    backgroundColor?: string;
+}
+
 // sub-block models
 export type DividerModel = {
     type: SubBlockType.Divider;
@@ -221,6 +236,10 @@ export type PriceCardModel = {
     type: SubBlockType.PriceCard;
 } & PriceCardProps;
 
+export type ImageCardModel = {
+    type: SubBlockType.ImageCard;
+} & ImageCardProps;
+
 export type SubBlockModels =
     | DividerModel
     | QuoteModel
@@ -231,6 +250,7 @@ export type SubBlockModels =
     | BannerCardModel
     | BasicCardModel
     | PriceCardModel
-    | LayoutItemModel;
+    | LayoutItemModel
+    | ImageCardModel;
 
 export type SubBlock = SubBlockModels;

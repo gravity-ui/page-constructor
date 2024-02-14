@@ -26,6 +26,7 @@ import {
     BackgroundCard,
     BasicCard,
     Divider,
+    ImageCard,
     MediaCardBlock,
     PriceCardBlock,
     PriceDetailedBlock,
@@ -63,6 +64,7 @@ export const cardSchemas = {
     ...Quote,
     ...BasicCard,
     ...PriceCardBlock,
+    ...ImageCard,
 };
 
 export const constructorBlockSchemaNames = [
@@ -102,4 +104,5 @@ export const constructorCardSchemaNames = [
     'basic-card',
     'layout-item',
     'price-card',
+    'image-card',
 ];

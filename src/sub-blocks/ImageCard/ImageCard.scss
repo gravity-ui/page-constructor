@@ -1,0 +1,71 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins';
+
+$block: '.#{$ns}image-card';
+
+#{$block} {
+    @include card();
+    min-height: 1px;
+    $image: #{&}__image;
+    $content: #{&}__content;
+
+    #{$content} {
+        padding: $indentM;
+    }
+
+    #{$image} {
+        &_inner {
+            width: 100%;
+            display: block;
+
+            &_radius {
+                border-radius: $borderRadius;
+            }
+        }
+
+        &_margins {
+            &_s {
+                padding: 4px;
+
+                #{$image}_inner {
+                    border-radius: calc(#{$borderRadius} - #{$imagePadding});
+                }
+            }
+
+            &_m {
+                padding: $indentM;
+
+                #{$image}_inner {
+                    border-radius: initial;
+                }
+            }
+        }
+    }
+
+    &_with-content {
+        display: flex;
+        flex-direction: column;
+
+        &#{$block}_direction_direct {
+            #{$image} {
+                padding-bottom: 0;
+            }
+
+            #{$content} {
+                padding-top: $indentSM;
+            }
+        }
+
+        &#{$block}_direction_reverse {
+            flex-direction: column-reverse;
+
+            #{$image} {
+                padding-top: 0;
+            }
+
+            #{$content} {
+                padding-bottom: $indentSM;
+            }
+        }
+    }
+}
