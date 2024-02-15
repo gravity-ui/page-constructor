@@ -20,6 +20,7 @@ const BasicCard = (props: BasicCardProps) => {
         icon,
         additionalInfo,
         links,
+        list,
         buttons,
         iconPosition = IconPosition.Top,
         ...cardParams
@@ -42,6 +43,7 @@ const BasicCard = (props: BasicCardProps) => {
                         textId={descriptionId}
                         additionalInfo={additionalInfo}
                         links={links}
+                        list={list}
                         buttons={buttons}
                         size="s"
                         colSizes={{all: 12, md: 12}}
