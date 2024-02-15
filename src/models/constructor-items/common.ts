@@ -3,7 +3,7 @@ import React, {CSSProperties, HTMLProps, ReactNode} from 'react';
 import {ButtonView, ButtonProps as UikitButtonProps} from '@gravity-ui/uikit';
 
 import {ThemeSupporting} from '../../utils';
-import {AnalyticsEventsBase, ClassNameProps, QAProps} from '../common';
+import {AnalyticsEventsBase, AnalyticsEventsProp, ClassNameProps, QAProps} from '../common';
 
 // enums
 export enum AuthorType {
@@ -339,7 +339,7 @@ export interface HeaderBreadCrumbsProps extends ClassNameProps {
         text: ReactNode;
     }[];
     theme?: TextTheme;
-    analyticsEvents?: AnalyticsEventsBase['analyticsEvents'];
+    analyticsEvents?: AnalyticsEventsProp;
 }
 
 export interface TitleItemProps extends Justifyable, TitleItemBaseProps {
