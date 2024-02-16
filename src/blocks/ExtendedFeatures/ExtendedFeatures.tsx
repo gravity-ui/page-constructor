@@ -38,6 +38,7 @@ export const ExtendedFeaturesBlock = ({
                         ({
                             title: itemTitle,
                             text,
+                            list,
                             link,
                             links,
                             label,
@@ -77,6 +78,7 @@ export const ExtendedFeaturesBlock = ({
                                             text={text}
                                             links={itemLinks}
                                             size="s"
+                                            list={list}
                                             colSizes={{all: 12, md: 12}}
                                             buttons={buttons}
                                             additionalInfo={additionalInfo}
