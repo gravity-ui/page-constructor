@@ -13,6 +13,7 @@ import PriceDescription from './PriceDescription/PriceDescription';
 import PriceDetails from './PriceDetails/PriceDetails';
 import SeparatePriceDetailed from './SeparatePriceDetailed/SeparatePriceDetailed';
 
+/** @deprecated */
 const PriceDetailed = (props: PriceDetailedProps) => {
     const {
         priceType = PriceDetailsType.SETTINGS,
