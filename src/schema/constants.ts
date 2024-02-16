@@ -82,6 +82,7 @@ export const constructorBlockSchemaNames = [
     'info-block',
     'table-block',
     'tabs-block',
+    /** @deprecated */
     'price-detailed',
     'header-slider-block',
     'cards-with-image-block',
@@ -96,6 +97,7 @@ export const constructorBlockSchemaNames = [
 export const constructorCardSchemaNames = [
     'media-card',
     'banner-card',
+    /** @deprecated */
     'price-detailed',
     'background-card',
     'quote',

@@ -432,6 +432,7 @@ export interface PriceFoldableDetailsProps {
     titleColor?: PriceDescriptionColor;
 }
 
+/** @deprecated */
 export interface PriceDetailedProps extends CardBaseProps {
     items: PriceItemProps[];
     description?: {

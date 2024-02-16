@@ -179,6 +179,7 @@ const PriceItem = {
     },
 };
 
+/** @deprecated */
 export const PriceDetailedBlock = {
     'price-detailed': {
         additionalProperties: false,
