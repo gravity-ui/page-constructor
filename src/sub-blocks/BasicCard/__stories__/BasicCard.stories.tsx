@@ -1,8 +1,8 @@
 import React from 'react';
 
-import yfm from '@doc-tools/transform';
 import {Meta, StoryFn} from '@storybook/react';
 
+import {yfmTransform} from '../../../../.storybook/utils';
 import {BasicCardProps} from '../../../models';
 import {IconPosition} from '../../../models/constructor-items/sub-blocks';
 import BasicCard from '../BasicCard';
@@ -81,7 +81,7 @@ export const WithUrl = WithUrlTemplate.bind({});
 
 const DefaultArgs = {
     ...data.default.content,
-    text: yfm(data.default.content.text).result.html,
+    text: yfmTransform(data.default.content.text),
 };
 
 Default.args = {

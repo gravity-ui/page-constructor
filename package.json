@@ -105,7 +105,7 @@
     "uuid": "^9.0.0"
   },
   "peerDependencies": {
-    "@doc-tools/transform": "^3.3.2",
+    "@diplodoc/transform": "^4.10.4",
     "@gravity-ui/uikit": "^5.12.0",
     "react": "^16.0.0 || ^17.0.0 || ^18.0.0"
   },
@@ -116,7 +116,7 @@
     "@babel/preset-typescript": "^7.22.5",
     "@commitlint/cli": "^17.1.2",
     "@commitlint/config-conventional": "^17.1.0",
-    "@doc-tools/transform": "^3.3.2",
+    "@diplodoc/transform": "^4.10.4",
     "@gravity-ui/eslint-config": "^2.0.0",
     "@gravity-ui/icons": "^2.1.0",
     "@gravity-ui/prettier-config": "^1.0.1",
@@ -165,6 +165,7 @@
     "jest-transform-css": "^6.0.0",
     "js-yaml": "^4.1.0",
     "lint-staged": "^11.2.6",
+    "markdown-it": "^14.0.0",
     "markdown-loader": "^6.0.0",
     "monaco-editor-webpack-plugin": "^7.1.0",
     "move-file-cli": "^3.0.0",

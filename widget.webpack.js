@@ -32,7 +32,7 @@ module.exports = {
             {
                 test: /\.(scss|css)$/,
                 include: [
-                    path.resolve(NODE_MODULES_PATH, '@doc-tools/transform'),
+                    path.resolve(NODE_MODULES_PATH, '@diplodoc/transform'),
                     path.resolve(NODE_MODULES_PATH, '@gravity-ui/components'),
                     path.resolve(NODE_MODULES_PATH, '@gravity-ui/uikit'),
                     path.resolve(__dirname, 'styles'),
