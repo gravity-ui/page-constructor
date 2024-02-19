@@ -17,6 +17,13 @@ const transformedContentList = data.list.map((item) => {
     };
 }) as ContentItemProps[];
 
+const transformedShortContentList = data.shortList.map((item) => {
+    return {
+        ...item,
+        text: item?.text && yfmTransform(item.text),
+    };
+}) as ContentItemProps[];
+
 const getCardWithBorderTitle = (border: string) =>
     data.withBorder.title.replace('{{border}}', border);
 
@@ -74,6 +81,12 @@ const WithContentListTemplate: StoryFn<BasicCardProps> = (args) => (
     </div>
 );
 
+const WithContentListWithoutTitleTemplate: StoryFn<BasicCardProps> = (args) => (
+    <div style={{maxWidth: '400px'}}>
+        <BasicCard {...args} target="_blank" />
+    </div>
+);
+
 const WithUrlTemplate: StoryFn<BasicCardProps> = (args) => (
     <div style={{display: 'flex', padding: '40px 0'}}>
         <div style={{maxWidth: '400px', padding: '0 8px'}}>
@@ -93,6 +106,7 @@ export const WithIcon = WithIconTemplate.bind({});
 export const WithBorder = WithBorderTemplate.bind({});
 export const WithUrl = WithUrlTemplate.bind({});
 export const WithContentList = WithContentListTemplate.bind({});
+export const WithContentListWithoutTitle = WithContentListWithoutTitleTemplate.bind({});
 
 const DefaultArgs = {
     ...data.default.content,
@@ -112,5 +126,10 @@ WithUrl.args = {
 
 WithContentList.args = {
     list: transformedContentList,
+    ...DefaultArgs,
+} as BasicCardProps;
+
+WithContentListWithoutTitle.args = {
+    list: transformedShortContentList,
     ...DefaultArgs,
 } as BasicCardProps;
