@@ -1,4 +1,4 @@
-import transformYFM, {Options, Output} from '@doc-tools/transform';
+import transformYFM, {Options, Output} from '@diplodoc/transform';
 import {Lang} from '@gravity-ui/uikit';
 import sanitize from 'sanitize-html';
 import Typograf from 'typograf';

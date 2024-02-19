@@ -1,8 +1,8 @@
 import React from 'react';
 
-import yfm from '@doc-tools/transform';
 import {Meta, StoryFn} from '@storybook/react';
 
+import {yfmTransform} from '../../../../.storybook/utils';
 import CardLayout from '../../../blocks/CardLayout/CardLayout';
 import {BlockBase} from '../../../components';
 import {ConstructorRow} from '../../../containers/PageConstructor/components/ConstructorRow';
@@ -32,10 +32,7 @@ export default {
 const DefaultTemplate: StoryFn<BackgroundCardProps> = (args) => (
     <div style={{display: 'flex'}}>
         <div style={{display: 'inline-table', maxWidth: '400px', padding: '0 8px'}}>
-            <BackgroundCard
-                {...args}
-                additionalInfo={yfm(data.common.additionalInfo).result.html}
-            />
+            <BackgroundCard {...args} additionalInfo={yfmTransform(data.common.additionalInfo)} />
         </div>
         <div style={{display: 'inline-table', maxWidth: '400px', padding: '0 8px'}}>
             <BackgroundCard {...args} links={data.common.links as LinkProps[]} />
@@ -76,10 +73,7 @@ const CardThemesTemplate: StoryFn<{items: BackgroundCardProps[]}> = (args) => (
 const BackgroundColorTemplate: StoryFn<BackgroundCardProps> = (args) => (
     <div style={{display: 'flex'}}>
         <div style={{display: 'inline-table', maxWidth: '400px', padding: '0 8px'}}>
-            <BackgroundCard
-                {...args}
-                additionalInfo={yfm(data.common.additionalInfo).result.html}
-            />
+            <BackgroundCard {...args} additionalInfo={yfmTransform(data.common.additionalInfo)} />
         </div>
         <div style={{display: 'inline-table', maxWidth: '400px', padding: '0 8px'}}>
             <BackgroundCard {...args} links={data.common.links as LinkProps[]} />
@@ -149,7 +143,7 @@ export const ControlPosition = ControlPositionTemplate.bind({});
 
 const DefaultArgs = {
     title: data.common.title,
-    text: yfm(data.common.text).result.html,
+    text: yfmTransform(data.common.text),
 };
 
 Default.args = {

@@ -1,6 +1,5 @@
 import React from 'react';
 
-import yfm from '@doc-tools/transform';
 import {Meta, StoryFn} from '@storybook/react';
 
 import {yfmTransform} from '../../../../.storybook/utils';
@@ -154,7 +153,7 @@ export const ControlPosition = ControlPositionTemplate.bind({});
 
 const DefaultArgs = {
     ...data.default.content,
-    text: yfm(data.default.content.text).result.html,
+    text: yfmTransform(data.default.content.text),
 };
 
 Default.args = {
