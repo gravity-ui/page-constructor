@@ -1,6 +1,6 @@
 import React, {useMemo} from 'react';
 
-import '@doc-tools/transform/dist/js/yfm';
+import '@diplodoc/transform/dist/js/yfm';
 
 import BackgroundMedia from '../../components/BackgroundMedia/BackgroundMedia';
 import RootCn from '../../components/RootCn';
