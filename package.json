@@ -165,7 +165,6 @@
     "jest-transform-css": "^6.0.0",
     "js-yaml": "^4.1.0",
     "lint-staged": "^11.2.6",
-    "markdown-it": "^14.0.0",
     "markdown-loader": "^6.0.0",
     "monaco-editor-webpack-plugin": "^7.1.0",
     "move-file-cli": "^3.0.0",
