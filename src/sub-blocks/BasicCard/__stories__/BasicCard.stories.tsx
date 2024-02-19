@@ -76,14 +76,23 @@ const WithBorderTemplate: StoryFn<BasicCardProps> = (args) => (
 );
 
 const WithContentListTemplate: StoryFn<BasicCardProps> = (args) => (
-    <div style={{maxWidth: '400px'}}>
-        <BasicCard {...args} target="_blank" />
-    </div>
-);
-
-const WithContentListWithoutTitleTemplate: StoryFn<BasicCardProps> = (args) => (
-    <div style={{maxWidth: '400px'}}>
-        <BasicCard {...args} target="_blank" />
+    <div>
+        <div style={{maxWidth: '400px', padding: '0 8px', marginBottom: '8px', marginTop: '8px'}}>
+            <BasicCard
+                {...args}
+                target="_blank"
+                list={transformedContentList}
+                title={data.withContentList.titleForLongList}
+            />
+        </div>
+        <div style={{maxWidth: '400px', padding: '0 8px'}}>
+            <BasicCard
+                {...args}
+                target="_blank"
+                list={transformedShortContentList}
+                title={data.withContentList.titleForShortList}
+            />
+        </div>
     </div>
 );
 
@@ -106,7 +115,6 @@ export const WithIcon = WithIconTemplate.bind({});
 export const WithBorder = WithBorderTemplate.bind({});
 export const WithUrl = WithUrlTemplate.bind({});
 export const WithContentList = WithContentListTemplate.bind({});
-export const WithContentListWithoutTitle = WithContentListWithoutTitleTemplate.bind({});
 
 const DefaultArgs = {
     ...data.default.content,
@@ -125,11 +133,5 @@ WithUrl.args = {
 } as BasicCardProps;
 
 WithContentList.args = {
-    list: transformedContentList,
-    ...DefaultArgs,
-} as BasicCardProps;
-
-WithContentListWithoutTitle.args = {
-    list: transformedShortContentList,
     ...DefaultArgs,
 } as BasicCardProps;

@@ -10,6 +10,10 @@
   "withBorder": {
     "title": "Card with border {{border}}"
   },
+  "withContentList": {
+    "titleForLongList": "With content list",
+    "titleForShortList": "With content list without titles"
+  },
   "shortList": [
     {
       "icon": {
