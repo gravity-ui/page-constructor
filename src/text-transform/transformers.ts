@@ -1,6 +1,6 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-not-accumulator-reassign/no-not-accumulator-reassign */
-import {MarkdownItPluginCb} from '@doc-tools/transform/lib/plugins/typings';
+import {MarkdownItPluginCb} from '@diplodoc/transform/lib/plugins/typings';
 import {Lang} from '@gravity-ui/uikit';
 import cloneDeep from 'lodash/cloneDeep';
 import shuffle from 'lodash/shuffle';

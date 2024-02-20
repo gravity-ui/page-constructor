@@ -16,7 +16,7 @@ npm install @gravity-ui/page-constructor
 
 ## Required dependencies
 
-Please note that to start using the package, your project must also have the following installed: `@doc-tools/transform`, `@gravity-ui/uikit`, `react`. Check out the `peerDependencies` section of `package.json` for accurate information.
+Please note that to start using the package, your project must also have the following installed: `@diplodoc/transform`, `@gravity-ui/uikit`, `react`. Check out the `peerDependencies` section of `package.json` for accurate information.
 
 ### Getting started
 
