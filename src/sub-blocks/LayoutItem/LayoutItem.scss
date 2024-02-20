@@ -4,6 +4,10 @@
 $block: '.#{$ns}layout-item';
 
 #{$block} {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
     &__media {
         width: 100%;
         display: block;
@@ -19,10 +23,16 @@ $block: '.#{$ns}layout-item';
     }
 
     &__content {
+        flex: auto;
         margin: $indentXS $indentXS 0 0;
 
         &_no-media {
             margin: 0;
         }
+    }
+
+    &__links,
+    &__buttons {
+        margin-top: $indentXS;
     }
 }

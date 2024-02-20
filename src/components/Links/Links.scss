@@ -1,0 +1,23 @@
+@import '../../../styles/variables.scss';
+
+$block: '.#{$ns}links';
+
+#{$block} {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+
+    &__link {
+        margin-top: 0px;
+    }
+
+    &_size {
+        &_s {
+            gap: $indentXXXS;
+        }
+
+        &_l {
+            gap: $indentXXS;
+        }
+    }
+}

@@ -140,6 +140,7 @@ export interface BackgroundCardProps
     background?: ThemeSupporting<ImageObjectProps>;
     paddingBottom?: 's' | 'm' | 'l' | 'xl';
     backgroundColor?: string;
+    controlPosition?: 'content' | 'footer';
 }
 
 export interface BasicCardProps
@@ -151,6 +152,7 @@ export interface BasicCardProps
     icon?: ImageProps;
     target?: string;
     iconPosition?: IconPosition;
+    controlPosition?: 'content' | 'footer';
 }
 
 export interface BannerCardProps {
@@ -176,6 +178,7 @@ export interface PriceCardProps extends CardBaseProps, Pick<ContentBlockProps, '
     links?: LinkProps[];
     backgroundColor?: string;
     list?: string[];
+    controlPosition?: 'content' | 'footer';
 }
 
 export interface LayoutItemProps extends ClassNameProps, AnalyticsEventsBase {
@@ -185,6 +188,7 @@ export interface LayoutItemProps extends ClassNameProps, AnalyticsEventsBase {
     border?: boolean;
     fullscreen?: boolean;
     icon?: PositionedIcon;
+    controlPosition?: 'content' | 'footer';
 }
 
 export interface ImageCardProps extends CardBaseProps, Pick<ContentBlockProps, 'title' | 'text'> {

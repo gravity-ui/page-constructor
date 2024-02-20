@@ -108,16 +108,10 @@ $block: '.#{$ns}price-card';
     &__links,
     &__buttons {
         margin-top: $indentSM;
-
-        & > * {
-            &:not(:last-child) {
-                margin-right: $indentXS;
-            }
-        }
     }
 
-    &__link {
-        margin-top: 0;
+    &__footer {
+        margin-top: 0px;
     }
 
     @media (max-width: map-get($gridBreakpoints, 'md')) {

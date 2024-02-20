@@ -1,6 +1,8 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 
-import {BackgroundImage, CardBase} from '../../components/';
+import {useUniqId} from '@gravity-ui/uikit';
+
+import {BackgroundImage, Buttons, CardBase, Links} from '../../components/';
 import {useTheme} from '../../context/theme';
 import {BackgroundCardProps} from '../../models';
 import {block, getThemedValue} from '../../utils';
@@ -25,7 +27,10 @@ const BackgroundCard = (props: BackgroundCardProps) => {
         buttons,
         analyticsEvents,
         urlTitle,
+        controlPosition = 'content',
     } = props;
+
+    const titleId = useUniqId();
 
     const theme = useTheme();
     const hasBackgroundColor = backgroundColor || cardTheme !== 'default';
@@ -46,16 +51,30 @@ const BackgroundCard = (props: BackgroundCardProps) => {
                     style={{backgroundColor}}
                 />
                 <Content
+                    titleId={titleId}
                     title={title}
                     text={text}
                     additionalInfo={additionalInfo}
                     size="s"
                     theme={cardTheme}
-                    links={links}
-                    buttons={buttons}
+                    links={controlPosition === 'content' ? links : undefined}
+                    buttons={controlPosition === 'content' ? buttons : undefined}
                     colSizes={{all: 12, md: 12}}
                 />
             </CardBase.Content>
+            <CardBase.Footer className={b('footer')}>
+                {controlPosition === 'footer' && (
+                    <Fragment>
+                        <Links className={b('links')} size="s" links={links} titleId={titleId} />
+                        <Buttons
+                            className={b('buttons')}
+                            size="s"
+                            buttons={buttons}
+                            titleId={titleId}
+                        />
+                    </Fragment>
+                )}
+            </CardBase.Footer>
         </CardBase>
     );
 };

@@ -1,9 +1,11 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 
 import {useUniqId} from '@gravity-ui/uikit';
 
+import {Buttons} from '../../components/Buttons/Buttons';
 import CardBase from '../../components/CardBase/CardBase';
 import IconWrapper from '../../components/IconWrapper/IconWrapper';
+import {Links} from '../../components/Links/Links';
 import {BasicCardProps} from '../../models';
 import {IconPosition} from '../../models/constructor-items/sub-blocks';
 import {block} from '../../utils';
@@ -23,6 +25,7 @@ const BasicCard = (props: BasicCardProps) => {
         list,
         buttons,
         iconPosition = IconPosition.Top,
+        controlPosition = 'content',
         ...cardParams
     } = props;
     const titleId = useUniqId();
@@ -42,14 +45,27 @@ const BasicCard = (props: BasicCardProps) => {
                         text={text}
                         textId={descriptionId}
                         additionalInfo={additionalInfo}
-                        links={links}
+                        links={controlPosition === 'content' ? links : undefined}
                         list={list}
-                        buttons={buttons}
+                        buttons={controlPosition === 'content' ? buttons : undefined}
                         size="s"
                         colSizes={{all: 12, md: 12}}
                     />
                 </IconWrapper>
             </CardBase.Content>
+            <CardBase.Footer className={b('footer')}>
+                {controlPosition === 'footer' && (
+                    <Fragment>
+                        <Links className={b('links')} size="s" links={links} titleId={titleId} />
+                        <Buttons
+                            className={b('buttons')}
+                            size="s"
+                            buttons={buttons}
+                            titleId={titleId}
+                        />
+                    </Fragment>
+                )}
+            </CardBase.Footer>
         </CardBase>
     );
 };

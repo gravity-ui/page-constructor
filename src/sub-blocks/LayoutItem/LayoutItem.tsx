@@ -1,6 +1,8 @@
-import React from 'react';
+import React, {Fragment, useMemo} from 'react';
 
-import {FullscreenMedia, IconWrapper, Media, MetaInfo} from '../../components';
+import {useUniqId} from '@gravity-ui/uikit';
+
+import {Buttons, FullscreenMedia, IconWrapper, Links, Media, MetaInfo} from '../../components';
 import {ContentBlockProps, LayoutItemProps} from '../../models';
 import {block} from '../../utils';
 import Content from '../Content/Content';
@@ -12,7 +14,7 @@ import './LayoutItem.scss';
 const b = block('layout-item');
 
 const LayoutItem = ({
-    content: {links, ...content},
+    content: {links, buttons, ...content},
     metaInfo,
     media,
     border,
@@ -20,13 +22,18 @@ const LayoutItem = ({
     icon,
     className,
     analyticsEvents,
+    controlPosition = 'content',
 }: LayoutItemProps) => {
+    const normalizedLinks = useMemo(() => getLayoutItemLinks(links), [links]);
+
     const contentProps: ContentBlockProps = {
         ...content,
-        links: getLayoutItemLinks(links),
+        ...(controlPosition === 'content' ? {links: normalizedLinks, buttons} : {}),
         size: 's',
         colSizes: {all: 12, md: 12},
     };
+    const titleId = useUniqId();
+
     const renderMedia = () => {
         if (!media) {
             return null;
@@ -56,9 +63,25 @@ const LayoutItem = ({
             {metaInfo && <MetaInfo items={metaInfo} className={b('meta-info')} />}
             <div className={b('content', {'no-media': !media})}>
                 <IconWrapper icon={icon}>
-                    <Content {...contentProps} />
+                    <Content {...contentProps} titleId={titleId} />
                 </IconWrapper>
             </div>
+            {controlPosition === 'footer' && (links || buttons) && (
+                <Fragment>
+                    <Links
+                        className={b('links')}
+                        links={normalizedLinks}
+                        size="s"
+                        titleId={titleId}
+                    />
+                    <Buttons
+                        className={b('buttons')}
+                        buttons={buttons}
+                        size="s"
+                        titleId={titleId}
+                    />
+                </Fragment>
+            )}
         </div>
     );
 };

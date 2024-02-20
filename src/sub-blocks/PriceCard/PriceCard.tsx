@@ -1,15 +1,8 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 
 import Check from '@gravity-ui/icons/Check';
 
-import {
-    BackgroundImage,
-    Button,
-    CardBase,
-    ContentList,
-    HTML,
-    Link as LinkBlock,
-} from '../../components';
+import {BackgroundImage, Buttons, CardBase, ContentList, HTML, Links} from '../../components';
 import {PriceCardProps} from '../../models';
 import {block} from '../../utils';
 
@@ -30,7 +23,15 @@ const PriceCard = (props: PriceCardProps) => {
         buttons,
         links,
         backgroundColor,
+        controlPosition = 'content',
     } = props;
+    const controls = (
+        <Fragment>
+            <Buttons className={b('buttons')} buttons={buttons} size="s" />
+            <Links className={b('links')} links={links} size="s" />
+        </Fragment>
+    );
+
     return (
         <CardBase className={b({theme})} border={border}>
             <CardBase.Content>
@@ -62,27 +63,12 @@ const PriceCard = (props: PriceCardProps) => {
                             </div>
                         ) : null}
                     </div>
-                    {buttons && (
-                        <div className={b('buttons')}>
-                            {buttons.map((button) => (
-                                <Button key={button.url} {...button} />
-                            ))}
-                        </div>
-                    )}
-                    {links && (
-                        <div className={b('links')}>
-                            {links.map((link) => (
-                                <LinkBlock
-                                    className={b('link')}
-                                    key={link.url}
-                                    textSize="m"
-                                    {...link}
-                                />
-                            ))}
-                        </div>
-                    )}
+                    {controlPosition === 'content' && controls}
                 </div>
             </CardBase.Content>
+            <CardBase.Footer className={b('footer')}>
+                {controlPosition === 'footer' && controls}
+            </CardBase.Footer>
         </CardBase>
     );
 };
