@@ -74,7 +74,7 @@ const Button = (props: ButtonProps) => {
     if (theme === 'app-store' || theme === 'google-play') {
         const platform = theme === 'app-store' ? Platform.IOS : Platform.ANDROID;
 
-        return <StoreBadge className={buttonClass} platform={platform} href={url} />;
+        return <StoreBadge className={buttonClass} platform={platform} href={url as string} />;
     }
 
     let icon;

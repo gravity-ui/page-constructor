@@ -1,9 +1,10 @@
 import React, {useMemo} from 'react';
 import {addons, types} from '@storybook/addons';
 import {AddonPanel} from '@storybook/components';
+import {useGlobals} from '@storybook/manager-api';
 import {useArgs} from '@storybook/api';
 import yaml from 'js-yaml';
-import {ClipboardButton} from '@gravity-ui/uikit';
+import {ClipboardButton, ThemeProvider} from '@gravity-ui/uikit';
 
 import './AddonYaml.css';
 
@@ -12,6 +13,7 @@ const PANEL_ID = `${ADDON_ID}/panel`;
 
 const YamlPanel = () => {
     const [params] = useArgs();
+    const [globals] = useGlobals();
 
     const content = useMemo(
         () =>
@@ -25,14 +27,16 @@ const YamlPanel = () => {
     );
 
     return (
-        <div className="yaml-addon">
-            <ClipboardButton text={content} />
-            <pre>{content}</pre>
-        </div>
+        <ThemeProvider theme={globals.theme}>
+            <div className="yaml-addon">
+                <ClipboardButton text={content} />
+                <pre>{content}</pre>
+            </div>
+        </ThemeProvider>
     );
 };
 
-addons.register(ADDON_ID, () => {
+addons.register(ADDON_ID, (api) => {
     addons.add(PANEL_ID, {
         type: types.PANEL,
         title: 'YAML',
