@@ -27,7 +27,7 @@ type LinksProps = {
     linkQa?: string;
 };
 
-export const Links: React.FC<LinksProps> = ({className, titleId, links, size = 's', qa, linkQa}) =>
+const Links: React.FC<LinksProps> = ({className, titleId, links, size = 's', qa, linkQa}) =>
     links ? (
         <div className={b({size}, className)} data-qa={qa}>
             {links?.map((link) => (
@@ -45,3 +45,5 @@ export const Links: React.FC<LinksProps> = ({className, titleId, links, size = '
             ))}
         </div>
     ) : null;
+
+export default Links;

@@ -25,7 +25,8 @@ const PriceCard = (props: PriceCardProps) => {
         backgroundColor,
         controlPosition = 'content',
     } = props;
-    const controls = (
+    const areControlsInFooter = controlPosition === 'footer';
+    const controls = (buttons || links) && (
         <Fragment>
             <Buttons className={b('buttons')} buttons={buttons} size="s" />
             <Links className={b('links')} links={links} size="s" />
@@ -34,7 +35,7 @@ const PriceCard = (props: PriceCardProps) => {
 
     return (
         <CardBase className={b({theme})} border={border}>
-            <CardBase.Content>
+            <CardBase.Content key="content">
                 <BackgroundImage className={b('background')} style={{backgroundColor}} />
                 <div className={b('content', {theme})}>
                     <div className={b('info')}>
@@ -63,12 +64,14 @@ const PriceCard = (props: PriceCardProps) => {
                             </div>
                         ) : null}
                     </div>
-                    {controlPosition === 'content' && controls}
+                    {!areControlsInFooter && controls}
                 </div>
             </CardBase.Content>
-            <CardBase.Footer className={b('footer')}>
-                {controlPosition === 'footer' && controls}
-            </CardBase.Footer>
+            {areControlsInFooter && controls && (
+                <CardBase.Footer className={b('footer')} key="footer">
+                    {controls}
+                </CardBase.Footer>
+            )}
         </CardBase>
     );
 };

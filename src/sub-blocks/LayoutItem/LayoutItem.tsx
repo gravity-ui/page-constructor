@@ -25,10 +25,11 @@ const LayoutItem = ({
     controlPosition = 'content',
 }: LayoutItemProps) => {
     const normalizedLinks = useMemo(() => getLayoutItemLinks(links), [links]);
+    const areControlsInFooter = controlPosition === 'footer';
 
     const contentProps: ContentBlockProps = {
         ...content,
-        ...(controlPosition === 'content' ? {links: normalizedLinks, buttons} : {}),
+        ...(areControlsInFooter ? {} : {links: normalizedLinks, buttons}),
         size: 's',
         colSizes: {all: 12, md: 12},
     };
@@ -66,7 +67,7 @@ const LayoutItem = ({
                     <Content {...contentProps} titleId={titleId} />
                 </IconWrapper>
             </div>
-            {controlPosition === 'footer' && (links || buttons) && (
+            {areControlsInFooter && (links || buttons) && (
                 <Fragment>
                     <Links
                         className={b('links')}

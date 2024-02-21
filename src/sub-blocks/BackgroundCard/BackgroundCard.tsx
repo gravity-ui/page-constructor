@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 
 import {useUniqId} from '@gravity-ui/uikit';
 
@@ -35,6 +35,7 @@ const BackgroundCard = (props: BackgroundCardProps) => {
     const theme = useTheme();
     const hasBackgroundColor = backgroundColor || cardTheme !== 'default';
     const borderType = hasBackgroundColor ? 'none' : border;
+    const areControlsInFooter = controlPosition === 'footer';
 
     return (
         <CardBase
@@ -44,7 +45,7 @@ const BackgroundCard = (props: BackgroundCardProps) => {
             analyticsEvents={analyticsEvents}
             urlTitle={urlTitle}
         >
-            <CardBase.Content>
+            <CardBase.Content key="content">
                 <BackgroundImage
                     className={b('image')}
                     {...getThemedValue(background, theme)}
@@ -57,24 +58,22 @@ const BackgroundCard = (props: BackgroundCardProps) => {
                     additionalInfo={additionalInfo}
                     size="s"
                     theme={cardTheme}
-                    links={controlPosition === 'content' ? links : undefined}
-                    buttons={controlPosition === 'content' ? buttons : undefined}
+                    links={areControlsInFooter ? undefined : links}
+                    buttons={areControlsInFooter ? undefined : buttons}
                     colSizes={{all: 12, md: 12}}
                 />
             </CardBase.Content>
-            <CardBase.Footer className={b('footer')}>
-                {controlPosition === 'footer' && (
-                    <Fragment>
-                        <Links className={b('links')} size="s" links={links} titleId={titleId} />
-                        <Buttons
-                            className={b('buttons')}
-                            size="s"
-                            buttons={buttons}
-                            titleId={titleId}
-                        />
-                    </Fragment>
-                )}
-            </CardBase.Footer>
+            {areControlsInFooter && (links || buttons) && (
+                <CardBase.Footer className={b('footer')} key="footer">
+                    <Links className={b('links')} size="s" links={links} titleId={titleId} />
+                    <Buttons
+                        className={b('buttons')}
+                        size="s"
+                        buttons={buttons}
+                        titleId={titleId}
+                    />
+                </CardBase.Footer>
+            )}
         </CardBase>
     );
 };

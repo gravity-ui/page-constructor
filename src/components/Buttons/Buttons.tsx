@@ -27,14 +27,7 @@ function getButtonSize(size: ContentSize) {
     }
 }
 
-export const Buttons: React.FC<ButtonsProps> = ({
-    className,
-    titleId,
-    buttons,
-    size = 's',
-    qa,
-    buttonQa,
-}) =>
+const Buttons: React.FC<ButtonsProps> = ({className, titleId, buttons, size = 's', qa, buttonQa}) =>
     buttons ? (
         <div className={b({size}, className)} data-qa={qa}>
             {buttons.map((item) => (
@@ -52,3 +45,5 @@ export const Buttons: React.FC<ButtonsProps> = ({
             ))}
         </div>
     ) : null;
+
+export default Buttons;

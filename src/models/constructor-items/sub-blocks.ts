@@ -9,6 +9,7 @@ import {
     ButtonPixel,
     ButtonProps,
     CardBaseProps,
+    CardLayoutProps,
     ContentTheme,
     DividerSize,
     ImageCardMargins,
@@ -134,25 +135,25 @@ export interface QuoteProps extends Themable, CardBaseProps {
 export interface BackgroundCardProps
     extends CardBaseProps,
         AnalyticsEventsBase,
+        CardLayoutProps,
         Omit<ContentBlockProps, 'colSizes' | 'centered'> {
     url?: string;
     urlTitle?: string;
     background?: ThemeSupporting<ImageObjectProps>;
     paddingBottom?: 's' | 'm' | 'l' | 'xl';
     backgroundColor?: string;
-    controlPosition?: 'content' | 'footer';
 }
 
 export interface BasicCardProps
     extends CardBaseProps,
         AnalyticsEventsBase,
+        CardLayoutProps,
         Omit<ContentBlockProps, 'colSizes' | 'centered' | 'size' | 'theme'> {
     url: string;
     urlTitle?: string;
     icon?: ImageProps;
     target?: string;
     iconPosition?: IconPosition;
-    controlPosition?: 'content' | 'footer';
 }
 
 export interface BannerCardProps {
@@ -168,7 +169,10 @@ export interface BannerCardProps {
 
 export interface MediaCardProps extends MediaProps, AnalyticsEventsBase, CardBaseProps {}
 
-export interface PriceCardProps extends CardBaseProps, Pick<ContentBlockProps, 'theme'> {
+export interface PriceCardProps
+    extends CardBaseProps,
+        CardLayoutProps,
+        Pick<ContentBlockProps, 'theme'> {
     title: string;
     price: string;
     pricePeriod?: string;
@@ -178,17 +182,15 @@ export interface PriceCardProps extends CardBaseProps, Pick<ContentBlockProps, '
     links?: LinkProps[];
     backgroundColor?: string;
     list?: string[];
-    controlPosition?: 'content' | 'footer';
 }
 
-export interface LayoutItemProps extends ClassNameProps, AnalyticsEventsBase {
+export interface LayoutItemProps extends ClassNameProps, CardLayoutProps, AnalyticsEventsBase {
     content: Omit<ContentBlockProps, 'colSizes' | 'centered' | 'size'>;
     media?: MediaProps;
     metaInfo?: string[];
     border?: boolean;
     fullscreen?: boolean;
     icon?: PositionedIcon;
-    controlPosition?: 'content' | 'footer';
 }
 
 export interface ImageCardProps extends CardBaseProps, Pick<ContentBlockProps, 'title' | 'text'> {
