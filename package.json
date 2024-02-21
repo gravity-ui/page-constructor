@@ -83,7 +83,7 @@
     "@bem-react/classname": "^1.6.0",
     "@gravity-ui/components": "^3.0.0",
     "@gravity-ui/dynamic-forms": "^4.0.0",
-    "@gravity-ui/i18n": "^1.0.0",
+    "@gravity-ui/i18n": "^1.2.0",
     "@react-spring/web": "^9.7.3",
     "ajv": "^8.12.0",
     "ajv-keywords": "^5.1.0",
@@ -105,8 +105,8 @@
     "uuid": "^9.0.0"
   },
   "peerDependencies": {
-    "@gravity-ui/uikit": "^6.0.0",
     "@diplodoc/transform": "^4.10.4",
+    "@gravity-ui/uikit": "^6.0.0",
     "react": "^16.0.0 || ^17.0.0 || ^18.0.0"
   },
   "devDependencies": {
