@@ -1,6 +1,6 @@
 import '../styles/storybook/index.scss';
 import '@gravity-ui/uikit/styles/styles.scss';
-import {MobileProvider, Platform} from '@gravity-ui/uikit';
+import {MobileProvider, Platform, ThemeProvider} from '@gravity-ui/uikit';
 
 import React from 'react';
 import {MINIMAL_VIEWPORTS} from '@storybook/addon-viewport';
@@ -31,9 +31,11 @@ const withContextProvider: Decorator = (Story, context) => {
 
     return (
         <GlobalThemeController>
-            <MobileProvider mobile={false} platform={Platform.BROWSER}>
-                <Story {...context} />
-            </MobileProvider>
+            <ThemeProvider theme={theme}>
+                <MobileProvider mobile={false} platform={Platform.BROWSER}>
+                    <Story {...context} />
+                </MobileProvider>
+            </ThemeProvider>
         </GlobalThemeController>
     );
 };
