@@ -29,6 +29,7 @@ const config = {
         '@storybook/addon-knobs',
         './addons/yaml-addon/preset',
         './addons/theme-addon/register.tsx',
+        '@storybook/addon-mdx-gfm',
     ],
     webpackFinal: (storybookBaseConfig: any) => {
         storybookBaseConfig.plugins.push(
