@@ -59,7 +59,7 @@ describe('BackLink', () => {
     test.each(new Array<ButtonSize>('s', 'm', 'l', 'xl'))('Render with given "%s" size', (size) => {
         render(<BackLink {...backLinkProps} size={size} />);
         const backLink = screen.getByRole('button');
-        expect(backLink).toHaveClass(`yc-button_size_${size}`);
+        expect(backLink).toHaveClass(`g-button_size_${size}`);
     });
 
     test.each(new Array<Theme>('default', 'special'))('Render with given "%s" theme', (theme) => {
@@ -69,6 +69,6 @@ describe('BackLink', () => {
         };
         render(<BackLink {...backLinkProps} theme={theme} />);
         const backLink = screen.getByRole('button');
-        expect(backLink).toHaveClass(`yc-button_view_${matchView[theme]}`);
+        expect(backLink).toHaveClass(`g-button_view_${matchView[theme]}`);
     });
 });
