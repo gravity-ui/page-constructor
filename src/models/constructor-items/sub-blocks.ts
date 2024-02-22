@@ -169,10 +169,7 @@ export interface BannerCardProps {
 
 export interface MediaCardProps extends MediaProps, AnalyticsEventsBase, CardBaseProps {}
 
-export interface PriceCardProps
-    extends CardBaseProps,
-        CardLayoutProps,
-        Pick<ContentBlockProps, 'theme'> {
+export interface PriceCardProps extends CardBaseProps, Pick<ContentBlockProps, 'theme'> {
     title: string;
     price: string;
     pricePeriod?: string;

@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 
 import Check from '@gravity-ui/icons/Check';
 
@@ -23,16 +23,7 @@ const PriceCard = (props: PriceCardProps) => {
         buttons,
         links,
         backgroundColor,
-        controlPosition = 'content',
     } = props;
-    const areControlsInFooter = controlPosition === 'footer';
-    const controls = (buttons || links) && (
-        <Fragment>
-            <Buttons className={b('buttons')} buttons={buttons} size="s" />
-            <Links className={b('links')} links={links} size="s" />
-        </Fragment>
-    );
-
     return (
         <CardBase className={b({theme})} border={border}>
             <CardBase.Content key="content">
@@ -64,14 +55,10 @@ const PriceCard = (props: PriceCardProps) => {
                             </div>
                         ) : null}
                     </div>
-                    {!areControlsInFooter && controls}
+                    <Buttons className={b('buttons')} buttons={buttons} size="s" />
+                    <Links className={b('links')} links={links} size="s" />
                 </div>
             </CardBase.Content>
-            {areControlsInFooter && controls && (
-                <CardBase.Footer className={b('footer')} key="footer">
-                    {controls}
-                </CardBase.Footer>
-            )}
         </CardBase>
     );
 };

@@ -4,6 +4,10 @@ import yfm from '@doc-tools/transform';
 import {Meta, StoryFn} from '@storybook/react';
 
 import {yfmTransform} from '../../../../.storybook/utils';
+import CardLayout from '../../../blocks/CardLayout/CardLayout';
+import {BlockBase} from '../../../components';
+import {ConstructorRow} from '../../../containers/PageConstructor/components/ConstructorRow';
+import {Grid} from '../../../grid';
 import {BasicCardProps, ContentItemProps} from '../../../models';
 import {IconPosition} from '../../../models/constructor-items/sub-blocks';
 import BasicCard from '../BasicCard';
@@ -110,11 +114,43 @@ const WithUrlTemplate: StoryFn<BasicCardProps> = (args) => (
     </div>
 );
 
+const ControlPositionTemplate: StoryFn<BasicCardProps> = (args) => (
+    <Grid>
+        <ConstructorRow>
+            <BlockBase>
+                <CardLayout title="With controlPosition = content" animated={false}>
+                    {data.cardLayout.items.map((item, index) => (
+                        <BasicCard
+                            key={index}
+                            {...(item as Partial<BasicCardProps>)}
+                            {...args}
+                            controlPosition="content"
+                        />
+                    ))}
+                </CardLayout>
+            </BlockBase>
+            <BlockBase>
+                <CardLayout title="With controlPosition = footer" animated={false}>
+                    {data.cardLayout.items.map((item, index) => (
+                        <BasicCard
+                            key={index}
+                            {...(item as Partial<BasicCardProps>)}
+                            {...args}
+                            controlPosition="footer"
+                        />
+                    ))}
+                </CardLayout>
+            </BlockBase>
+        </ConstructorRow>
+    </Grid>
+);
+
 export const Default = DefaultTemplate.bind({});
 export const WithIcon = WithIconTemplate.bind({});
 export const WithBorder = WithBorderTemplate.bind({});
 export const WithUrl = WithUrlTemplate.bind({});
 export const WithContentList = WithContentListTemplate.bind({});
+export const ControlPosition = ControlPositionTemplate.bind({});
 
 const DefaultArgs = {
     ...data.default.content,
@@ -135,3 +171,19 @@ WithUrl.args = {
 WithContentList.args = {
     ...DefaultArgs,
 } as BasicCardProps;
+
+ControlPosition.argTypes = {
+    controlPosition: {table: {disable: true}},
+    url: {table: {disable: true}},
+    urlTitle: {table: {disable: true}},
+    analyticsEvents: {table: {disable: true}},
+    title: {table: {disable: true}},
+    text: {table: {disable: true}},
+    titleId: {table: {disable: true}},
+    textId: {table: {disable: true}},
+    icon: {table: {disable: true}},
+    list: {table: {disable: true}},
+    links: {table: {disable: true}},
+    buttons: {table: {disable: true}},
+    target: {table: {disable: true}},
+};

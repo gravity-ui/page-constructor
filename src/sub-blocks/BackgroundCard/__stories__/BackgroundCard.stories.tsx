@@ -3,6 +3,10 @@ import React from 'react';
 import yfm from '@doc-tools/transform';
 import {Meta, StoryFn} from '@storybook/react';
 
+import CardLayout from '../../../blocks/CardLayout/CardLayout';
+import {BlockBase} from '../../../components';
+import {ConstructorRow} from '../../../containers/PageConstructor/components/ConstructorRow';
+import {Grid} from '../../../grid';
 import {BackgroundCardProps, ButtonProps, LinkProps} from '../../../models';
 import BackgroundCard from '../BackgroundCard';
 
@@ -17,6 +21,10 @@ export default {
     argTypes: {
         backgroundColor: {
             control: {type: 'color'},
+        },
+        paddingBottom: {
+            control: {type: 'radio', labels: {undefined: 'default'}},
+            options: [undefined, 's', 'm', 'l', 'xl'],
         },
     },
 } as Meta;
@@ -95,6 +103,37 @@ const WithUrlTemplate: StoryFn<{items: BackgroundCardProps[]}> = (args) => (
     </div>
 );
 
+const ControlPositionTemplate: StoryFn<BackgroundCardProps> = (args) => (
+    <Grid>
+        <ConstructorRow>
+            <BlockBase>
+                <CardLayout title="With controlPosition = content" animated={false}>
+                    {data.cardLayout.items.map((item, index) => (
+                        <BackgroundCard
+                            key={index}
+                            {...(item as Partial<BackgroundCardProps>)}
+                            {...args}
+                            controlPosition="content"
+                        />
+                    ))}
+                </CardLayout>
+            </BlockBase>
+            <BlockBase>
+                <CardLayout title="With controlPosition = footer" animated={false}>
+                    {data.cardLayout.items.map((item, index) => (
+                        <BackgroundCard
+                            key={index}
+                            {...(item as Partial<BackgroundCardProps>)}
+                            {...args}
+                            controlPosition="footer"
+                        />
+                    ))}
+                </CardLayout>
+            </BlockBase>
+        </ConstructorRow>
+    </Grid>
+);
+
 export const Default = DefaultTemplate.bind({});
 export const WithBackgroundImage = DefaultTemplate.bind({});
 export const Paddings = PaddingsTemplate.bind({});
@@ -102,6 +141,7 @@ export const CardThemes = CardThemesTemplate.bind([]);
 export const BorderLine = DefaultTemplate.bind({});
 export const BackgroundColor = BackgroundColorTemplate.bind({});
 export const WithUrl = WithUrlTemplate.bind({});
+export const ControlPosition = ControlPositionTemplate.bind({});
 
 const DefaultArgs = {
     title: data.common.title,
@@ -153,4 +193,18 @@ WithUrl.args = {
         url: data.url,
         urlTitle: data.urlTitle,
     })) as BackgroundCardProps[],
+};
+
+ControlPosition.argTypes = {
+    controlPosition: {table: {disable: true}},
+    url: {table: {disable: true}},
+    urlTitle: {table: {disable: true}},
+    analyticsEvents: {table: {disable: true}},
+    title: {table: {disable: true}},
+    text: {table: {disable: true}},
+    titleId: {table: {disable: true}},
+    textId: {table: {disable: true}},
+    list: {table: {disable: true}},
+    links: {table: {disable: true}},
+    buttons: {table: {disable: true}},
 };
