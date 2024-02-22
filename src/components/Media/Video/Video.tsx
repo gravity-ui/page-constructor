@@ -30,7 +30,6 @@ const Video = (props: VideoAllProps) => {
     const {
         video,
         height,
-        metrika,
         analyticsEvents,
         previewImg,
         playButton: commonPlayButton,
@@ -101,7 +100,6 @@ const Video = (props: VideoAllProps) => {
                 elapsedTime={elapsedTime}
                 playButton={playButton || commonPlayButton}
                 customBarControlsClassName={customBarControlsClassName}
-                metrika={metrika}
                 analyticsEvents={analyticsEvents}
                 height={height}
                 ariaLabel={ariaLabel}
@@ -117,7 +115,6 @@ const Video = (props: VideoAllProps) => {
         playVideo,
         commonPlayButton,
         customBarControlsClassName,
-        metrika,
         analyticsEvents,
         ratio,
     ]);

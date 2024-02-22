@@ -3,7 +3,6 @@ import React, {forwardRef, useContext, useMemo} from 'react';
 import {MobileContext} from '../../context/mobileContext';
 import {useTheme} from '../../context/theme';
 import {useAnalytics, useHandleHubspotEvents} from '../../hooks';
-import {useMetrika} from '../../hooks/useMetrika';
 import {DefaultEventNames, HubspotFormProps} from '../../models';
 import {HubspotEventHandlers, block} from '../../utils';
 
@@ -23,7 +22,6 @@ const HubspotForm = forwardRef<HTMLDivElement, HubspotFormProps>((props, ref) =>
         portalId,
         region,
         formClassName,
-        pixelEvents,
         // hubspotEvents, // TODO: decide how to handle them
         analyticsEvents,
         onBeforeSubmit,
@@ -34,7 +32,6 @@ const HubspotForm = forwardRef<HTMLDivElement, HubspotFormProps>((props, ref) =>
         onSubmitError,
     } = props;
 
-    const handleMetrika = useMetrika();
     const themeValue = useTheme();
     const handleAnalytics = useAnalytics(DefaultEventNames.HubspotFormSubmit);
     const isMobileValue = useContext(MobileContext);
@@ -49,7 +46,6 @@ const HubspotForm = forwardRef<HTMLDivElement, HubspotFormProps>((props, ref) =>
             onLoad,
             onSubmitError,
             onSubmit: (event) => {
-                handleMetrika?.({pixelEvents});
                 handleAnalytics(analyticsEvents);
                 onSubmit?.(event);
             },
@@ -58,8 +54,6 @@ const HubspotForm = forwardRef<HTMLDivElement, HubspotFormProps>((props, ref) =>
             onBeforeLoad,
             onBeforeSubmit,
             onLoad,
-            handleMetrika,
-            pixelEvents,
             handleAnalytics,
             analyticsEvents,
             onSubmit,

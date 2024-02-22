@@ -16,8 +16,6 @@
 - `position?: 'left' | 'right'` — Icon position on the button relative to the text. Defaults to `'left'`.
 - `alt?: string` — Alternative text for the image.
 
-`metrikaGoals: string | string[]` — Yandex Metrica goal properties.
-
 You can see the appearance of different buttons [here](https://preview.gravity-ui.com/uikit/?path=/story/components-button--playground).
 
 **Margins:**

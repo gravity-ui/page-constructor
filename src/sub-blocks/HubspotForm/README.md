@@ -16,8 +16,6 @@
 
 `formClassName?: string` — Form class
 
-`pixelEvents: PixelEvent[]` — Goals for Facebook pixel
-
 `hubspotEvents: string[]` — An array of hubspot events
 
 `createDOMElement?` - If you put `true`, then a container will be created using `document.createElement` to insert the hubspot form. Default `false`

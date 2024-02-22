@@ -13,7 +13,6 @@ import {Icon} from '@gravity-ui/uikit';
 import debounce from 'lodash/debounce';
 import ReactPlayer from 'react-player';
 
-import {MetrikaContext} from '../../context/metrikaContext';
 import {MobileContext} from '../../context/mobileContext';
 import {VideoContext} from '../../context/videoContext';
 import {useAnalytics, useMount} from '../../hooks';
@@ -66,7 +65,6 @@ interface PlayerPropgress {
 export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactPlayerBlockProps>(
     (props, originRef) => {
         const isMobile = useContext(MobileContext);
-        const {metrika} = useContext(MetrikaContext);
         const {
             src,
             previewImgUrl,
@@ -80,7 +78,6 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
             customBarControlsClassName,
             showPreview,
             onClickPreview,
-            metrika: videoMetrika,
             analyticsEvents,
             height,
             ariaLabel,
@@ -248,15 +245,6 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
                     setPlayedPercent(0);
                 }
 
-                if (metrika && videoMetrika) {
-                    const {play, stop, counterName} = videoMetrika;
-                    const goal = isMuted ? play : stop;
-
-                    if (goal) {
-                        metrika.reachGoals(goal, counterName);
-                    }
-                }
-
                 const events = isMuted ? playEvents : stopEvents;
                 handleAnalytics(events);
 
@@ -267,32 +255,15 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
                 // In order to the progress bar to update (equals 0) before displaying
                 setTimeout(() => setMuted(!isMuted), 0);
             },
-            [
-                playerRef,
-                customControlsType,
-                metrika,
-                videoMetrika,
-                playEvents,
-                stopEvents,
-                handleAnalytics,
-                setProps,
-            ],
+            [playerRef, customControlsType, playEvents, stopEvents, handleAnalytics, setProps],
         );
 
         const handleClickPreview = useCallback(() => {
             setIsPlaying(true);
             onClickPreview?.();
 
-            if (metrika && videoMetrika) {
-                const {play, counterName} = videoMetrika;
-
-                if (play) {
-                    metrika.reachGoals(play, counterName);
-                }
-            }
-
             handleAnalytics(playEvents);
-        }, [onClickPreview, metrika, videoMetrika, handleAnalytics, playEvents]);
+        }, [onClickPreview, handleAnalytics, playEvents]);
 
         const onPause = useCallback(() => {
             // For support correct state for youtube
