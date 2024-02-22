@@ -3,7 +3,6 @@ import React, {useCallback, useContext, useEffect, useRef} from 'react';
 import {LocaleContext} from '../../context/localeContext';
 import {MobileContext} from '../../context/mobileContext';
 import {useAnalytics} from '../../hooks';
-import {useMetrika} from '../../hooks/useMetrika';
 import {YandexFormProps} from '../../models';
 import {DefaultEventNames} from '../../models/common';
 import {block} from '../../utils';
@@ -25,8 +24,6 @@ const YandexForm = (props: YandexFormProps) => {
         containerId = CONTAINER_ID,
         headerHeight = HEADER_HEIGHT,
         onSubmit,
-        metrikaGoals,
-        pixelEvents,
         analyticsEvents,
         customFormOrigin,
         customFormSection,
@@ -36,7 +33,6 @@ const YandexForm = (props: YandexFormProps) => {
     const yaFormOrigin = customFormOrigin || YANDEX_FORM_ORIGIN;
     const yaFormSection = customFormSection || YANDEX_FORM_SECTION;
 
-    const handleMetrika = useMetrika();
     const handleAnalytics = useAnalytics(DefaultEventNames.YandexFormSubmit);
     const isMobile = useContext(MobileContext);
     const locale = useContext(LocaleContext);
@@ -90,21 +86,12 @@ const YandexForm = (props: YandexFormProps) => {
             window.scrollBy(0, top - headerHeight);
         }
 
-        handleMetrika({metrikaGoals, pixelEvents});
         handleAnalytics(analyticsEvents);
 
         if (onSubmit) {
             onSubmit();
         }
-    }, [
-        handleMetrika,
-        metrikaGoals,
-        pixelEvents,
-        handleAnalytics,
-        analyticsEvents,
-        onSubmit,
-        headerHeight,
-    ]);
+    }, [handleAnalytics, analyticsEvents, onSubmit, headerHeight]);
 
     const handleMessage = useCallback(
         ({origin, data}: MessageEvent) => {

@@ -7,12 +7,6 @@
   "default": {
     "content": {
       "text": "Button",
-      "pixelEvents": [
-        {
-          "name": "Contact"
-        }
-      ],
-      "metrikaGoals": ["one", "two", "three"],
       "img": "/icons/icon.svg",
       "urlTitle": "Some button title"
     }

@@ -10,14 +10,11 @@ import React, {
 import {Link} from '@gravity-ui/uikit';
 
 import {useAnalytics} from '../../hooks';
-import {useMetrika} from '../../hooks/useMetrika';
 import {
     AnalyticsEventsBase,
-    ButtonPixel,
     CardBaseProps as CardBaseParams,
     DefaultEventNames,
     ImageProps,
-    MetrikaGoal,
     WithChildren,
 } from '../../models';
 import {block, getQaAttrubutes} from '../../utils';
@@ -33,8 +30,6 @@ export interface CardBaseProps extends AnalyticsEventsBase, CardBaseParams, Prop
     url?: string;
     urlTitle?: string;
     target?: HTMLAttributeAnchorTarget;
-    metrikaGoals?: MetrikaGoal;
-    pixelEvents?: ButtonPixel;
     qa?: string;
     extraProps?: React.HTMLAttributes<HTMLElement>;
 }
@@ -58,8 +53,6 @@ export const Layout = (props: CardBaseProps) => {
     const {
         className,
         bodyClassName,
-        metrikaGoals,
-        pixelEvents,
         analyticsEvents,
         contentClassName,
         children,
@@ -70,7 +63,6 @@ export const Layout = (props: CardBaseProps) => {
         qa,
         extraProps = {},
     } = props;
-    const handleMetrika = useMetrika();
     const handleAnalytics = useAnalytics(DefaultEventNames.CardBase, url);
     let header, content, footer, image, headerClass, footerClass;
     const qaAttributes = getQaAttrubutes(qa, 'header', 'footer', 'body', 'content');
@@ -125,7 +117,6 @@ export const Layout = (props: CardBaseProps) => {
     const fullClassName = b({border}, className);
 
     const onClick = () => {
-        handleMetrika({metrikaGoals, pixelEvents});
         handleAnalytics(analyticsEvents);
     };
 
