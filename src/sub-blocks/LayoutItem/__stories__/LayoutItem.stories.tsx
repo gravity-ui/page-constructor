@@ -68,6 +68,7 @@ const ControlPositionTemplate: StoryFn<LayoutItemProps> = (args) => (
 );
 
 export const Default = DefaultTemplate.bind({});
+export const WithContentList = DefaultTemplate.bind({});
 export const Fullscreen = DefaultTemplate.bind({});
 export const MetaInfo = DefaultTemplate.bind({});
 export const Youtube = DefaultTemplate.bind({});
@@ -83,6 +84,16 @@ const DefaultArgs = {
 };
 
 Default.args = DefaultArgs as LayoutItemProps;
+WithContentList.args = {
+    ...DefaultArgs,
+    content: {
+        ...DefaultArgs.content,
+        list: data.withList.content.list.map((listItem) => ({
+            ...listItem,
+            text: yfmTransform(listItem.text || ''),
+        })),
+    },
+} as LayoutItemProps;
 Fullscreen.args = {...DefaultArgs, ...data.fullscreen.content} as LayoutItemProps;
 MetaInfo.args = {
     ...DefaultArgs,
