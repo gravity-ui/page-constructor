@@ -28,6 +28,7 @@ const BackgroundCard = (props: BackgroundCardProps) => {
         analyticsEvents,
         urlTitle,
         controlPosition = 'content',
+        list,
     } = props;
 
     const titleId = useUniqId();
@@ -60,6 +61,7 @@ const BackgroundCard = (props: BackgroundCardProps) => {
                     theme={cardTheme}
                     links={areControlsInFooter ? undefined : links}
                     buttons={areControlsInFooter ? undefined : buttons}
+                    list={list}
                     colSizes={{all: 12, md: 12}}
                 />
             </CardBase.Content>
