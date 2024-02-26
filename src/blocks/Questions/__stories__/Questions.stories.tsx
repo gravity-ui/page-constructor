@@ -21,7 +21,9 @@ const DefaultTemplate: StoryFn<QuestionsBlockModel> = (args) => (
 export const Default = DefaultTemplate.bind({});
 export const TextWithListDash = DefaultTemplate.bind({});
 export const TextWithListBullet = DefaultTemplate.bind({});
+export const WithContentList = DefaultTemplate.bind({});
 
 Default.args = data.default.content as QuestionsProps;
+WithContentList.args = {...data.default.content, list: data.common.list} as QuestionsProps;
 TextWithListDash.args = data.textWithListDash.content as QuestionsProps;
 TextWithListBullet.args = data.textWithListBullet.content as QuestionsProps;

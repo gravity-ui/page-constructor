@@ -13,7 +13,7 @@ import './Questions.scss';
 const b = block('QuestionsBlock');
 
 const QuestionsBlock = (props: QuestionsProps) => {
-    const {title, text, additionalInfo, links, buttons, items} = props;
+    const {title, text, additionalInfo, links, buttons, items, list} = props;
     const [opened, setOpened] = useState<number[]>([0]);
 
     const toggleItem = (index: number) => {
@@ -38,6 +38,7 @@ const QuestionsBlock = (props: QuestionsProps) => {
                             text={text}
                             additionalInfo={additionalInfo}
                             links={links}
+                            list={list}
                             buttons={buttons}
                             colSizes={{all: 12, md: 12}}
                         />
