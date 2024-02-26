@@ -1,9 +1,10 @@
 import React, {Fragment, useContext} from 'react';
 
+import {ArrowUpRightFromSquare} from '@gravity-ui/icons';
+
 import {RouterLink} from '../../../../../components';
 import {getMediaImage} from '../../../../../components/Media/Image/utils';
 import {LocationContext} from '../../../../../context/locationContext';
-import {NavigationArrow} from '../../../../../icons';
 import {NavigationLinkItem} from '../../../../../models';
 import {block, getLinkProps} from '../../../../../utils';
 import {NavigationItemProps} from '../../../../models';
@@ -25,7 +26,7 @@ export const NavigationLink: React.FC<NavigationLinkProps> = (props) => {
     const content = (
         <Fragment>
             <ContentWrapper text={text} icon={iconData} iconSize={iconSize} />
-            {arrow && <NavigationArrow className={b('arrow')} />}
+            {arrow && <ArrowUpRightFromSquare className={b('arrow')} />}
         </Fragment>
     );
 

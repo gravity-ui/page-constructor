@@ -1,9 +1,9 @@
 import React, {useContext, useState} from 'react';
 
+import {ChevronsExpandUpRight, Xmark} from '@gravity-ui/icons';
 import {Button, Icon, Modal} from '@gravity-ui/uikit';
 
 import {MobileContext} from '../../context/mobileContext';
-import {Fullscreen, PreviewClose} from '../../icons';
 import {block} from '../../utils';
 import {MediaAllProps} from '../Media/Media';
 
@@ -27,7 +27,7 @@ export interface FullscreenMediaProps {
 
 const b = block('full-screen-media');
 const FULL_SCREEN_ICON_SIZE = 18;
-const CLOSE_ICON_SIZE = 30;
+const CLOSE_ICON_SIZE = 24;
 
 const getMediaClass = (type: string) => b('modal-media', {type});
 
@@ -56,7 +56,7 @@ const FullscreenMedia = ({children, showFullscreenIcon = true}: FullscreenMediaP
                         size={'l'}
                     >
                         <Icon
-                            data={Fullscreen}
+                            data={ChevronsExpandUpRight}
                             width={FULL_SCREEN_ICON_SIZE}
                             height={FULL_SCREEN_ICON_SIZE}
                             className={b('icon')}
@@ -73,7 +73,7 @@ const FullscreenMedia = ({children, showFullscreenIcon = true}: FullscreenMediaP
                             size={'l'}
                         >
                             <Icon
-                                data={PreviewClose}
+                                data={Xmark}
                                 width={CLOSE_ICON_SIZE}
                                 height={CLOSE_ICON_SIZE}
                                 className={b('icon', {hover: true})}

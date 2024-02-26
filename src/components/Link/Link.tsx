@@ -1,12 +1,12 @@
 import React, {Fragment, useContext} from 'react';
 
+import {ChevronRight} from '@gravity-ui/icons';
 import {Icon} from '@gravity-ui/uikit';
 
 import {LocaleContext} from '../../context/localeContext';
 import {LocationContext} from '../../context/locationContext';
 import {useAnalytics} from '../../hooks';
 import {useMetrika} from '../../hooks/useMetrika';
-import {Chevron} from '../../icons';
 import {
     ClassNameProps,
     DefaultEventNames,
@@ -120,7 +120,7 @@ const LinkBlock = (props: WithChildren<LinkFullProps>) => {
                                 {WORD_JOINER_SYM}
                                 <Icon
                                     className={b('arrow')}
-                                    data={Chevron}
+                                    data={ChevronRight}
                                     size={getArrowSize(textSize)}
                                 />
                             </Fragment>

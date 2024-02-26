@@ -11,7 +11,6 @@ export * from './models';
 export * from './utils';
 export * from './schema';
 export * from './hooks';
-export * from './icons';
 export * from './navigation';
 
 export {BREAKPOINTS} from './constants';
