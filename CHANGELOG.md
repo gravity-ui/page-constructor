@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [4.53.0](https://github.com/gravity-ui/page-constructor/compare/v4.52.0...v4.53.0) (2024-02-26)
+
+
+### Features
+
+* add support `ContentList` in `BasicCard` and `ExtendedFeatures` ([#819](https://github.com/gravity-ui/page-constructor/issues/819)) ([2a30037](https://github.com/gravity-ui/page-constructor/commit/2a300373ea9bee94292abc94aaf905cb67d23b1d))
+
 ## [4.52.0](https://github.com/gravity-ui/page-constructor/compare/v4.51.1...v4.52.0) (2024-02-14)
 
 
