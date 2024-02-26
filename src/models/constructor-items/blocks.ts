@@ -372,6 +372,7 @@ export interface ContentItemProps {
 export interface ContentListProps {
     list: ContentItemProps[];
     size: ContentSize;
+    theme?: ContentTheme;
 }
 
 export interface ContentBlockProps {
