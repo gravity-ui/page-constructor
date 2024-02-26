@@ -77,7 +77,7 @@ const WithBorderTemplate: StoryFn<BasicCardProps> = (args) => (
 
 const WithContentListTemplate: StoryFn<BasicCardProps> = (args) => (
     <div>
-        <div style={{maxWidth: '400px', padding: '0 8px', marginBottom: '8px', marginTop: '8px'}}>
+        <div style={{maxWidth: '400px', padding: '0 8px', marginBottom: '24px', marginTop: '8px'}}>
             <BasicCard
                 {...args}
                 target="_blank"
