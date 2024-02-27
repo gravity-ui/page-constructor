@@ -4,4 +4,8 @@ $block: '.#{$ns}media-block';
 
 #{$block} {
     @include media-border();
+
+    &__image {
+        border-radius: $borderRadius;
+    }
 }
