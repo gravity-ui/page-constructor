@@ -25,7 +25,12 @@ export const MediaBlock = (props: MediaBlockProps) => {
     return (
         <MediaBase {...props} onScroll={() => setPlay(true)}>
             <MediaBase.Card>
-                <Media {...mediaThemed} playVideo={play} className={b({border: borderSelected})} />
+                <Media
+                    imageClassName={b('image')}
+                    {...mediaThemed}
+                    playVideo={play}
+                    className={b({border: borderSelected})}
+                />
             </MediaBase.Card>
         </MediaBase>
     );
