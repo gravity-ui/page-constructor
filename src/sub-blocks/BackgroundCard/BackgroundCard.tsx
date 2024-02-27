@@ -35,7 +35,7 @@ const BackgroundCard = (props: BackgroundCardProps) => {
     const theme = useTheme();
     const hasBackgroundColor = backgroundColor || cardTheme !== 'default';
     const borderType = hasBackgroundColor ? 'none' : border;
-    const areControlsInFooter = controlPosition === 'footer';
+    const areControlsInFooter = !paddingBottom && controlPosition === 'footer';
 
     return (
         <CardBase
