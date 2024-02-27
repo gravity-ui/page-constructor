@@ -22,7 +22,7 @@ $block: '.#{$ns}file-link';
         text-transform: uppercase;
 
         //for text centering inside label
-        .yc-label__text {
+        .g-label__text {
             width: initial;
         }
     }
@@ -38,18 +38,13 @@ $block: '.#{$ns}file-link';
     }
 
     &_size {
-        &_l {
+        &_l,
+        &_m,
+        &_xs,
+        &_s {
             #{$root}__file-label {
                 @include text-size(body-2);
                 width: 52px;
-            }
-        }
-
-        &_m,
-        &_s {
-            #{$root}__file-label {
-                @include text-size(body-1);
-                width: 44px;
             }
         }
     }

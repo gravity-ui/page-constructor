@@ -26,6 +26,7 @@ $modalYoutubeWidth: min(65vw, #{$newContentWidth});
 
     &__modal-content {
         position: relative;
+        border-radius: $borderRadius;
     }
 
     &__inline-media {

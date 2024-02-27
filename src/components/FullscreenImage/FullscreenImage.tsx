@@ -48,8 +48,13 @@ const FullscreenImage = (props: FullscreenImageProps) => {
                 </button>
             </div>
             {isOpened && (
-                <Modal open={isOpened} onClose={closeModal} className={b('modal')}>
-                    <div className={b('modal-content')}>
+                <Modal
+                    open={isOpened}
+                    onClose={closeModal}
+                    className={b('modal')}
+                    contentClassName={b('modal-content')}
+                >
+                    <React.Fragment>
                         <button
                             className={b('icon-wrapper', {visible: true})}
                             onClick={closeModal}
@@ -63,7 +68,7 @@ const FullscreenImage = (props: FullscreenImageProps) => {
                             />
                         </button>
                         <Image {...props} className={b('modal-image', modalImageClass)} />
-                    </div>
+                    </React.Fragment>
                 </Modal>
             )}
         </div>

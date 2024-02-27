@@ -65,8 +65,13 @@ const FullscreenMedia = ({children, showFullscreenIcon = true}: FullscreenMediaP
                 )}
             </div>
             {isOpened && (
-                <Modal open={isOpened} onClose={closeModal} className={b('modal')}>
-                    <div className={b('modal-content')}>
+                <Modal
+                    open={isOpened}
+                    onClose={closeModal}
+                    className={b('modal')}
+                    contentClassName={b('modal-content')}
+                >
+                    <React.Fragment>
                         <Button
                             className={b('icon-wrapper', {visible: true})}
                             onClick={closeModal}
@@ -87,7 +92,7 @@ const FullscreenMedia = ({children, showFullscreenIcon = true}: FullscreenMediaP
                             previewImg: undefined,
                             autoplay: true,
                         })}
-                    </div>
+                    </React.Fragment>
                 </Modal>
             )}
         </div>
