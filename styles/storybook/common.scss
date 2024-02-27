@@ -1,3 +1,5 @@
+@import '../mixins';
+
 .demo-container {
     min-height: calc(100vh - 1px);
     padding: 50px;
@@ -34,4 +36,10 @@
     // @deprecated
     --pc-first-block-indent: 64px;
     margin-bottom: 120px;
+}
+
+.pc-layout {
+    @include add-specificity(&) {
+        min-height: auto;
+    }
 }

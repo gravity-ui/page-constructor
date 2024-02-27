@@ -24,9 +24,9 @@ const config = {
             name: '@storybook/addon-essentials',
             options: {
                 backgrounds: false,
+                actions: false,
             },
         },
-        '@storybook/addon-knobs',
         './addons/yaml-addon/preset',
         './addons/theme-addon/register.tsx',
     ],
