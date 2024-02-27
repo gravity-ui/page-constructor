@@ -31,7 +31,7 @@ $block: '.#{$ns}tabs-block';
 
     &__image,
     &__media {
-        @include image-shadow();
+        @include media-border();
     }
 
     &__caption {

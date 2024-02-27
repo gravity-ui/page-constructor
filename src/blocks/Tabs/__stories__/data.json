@@ -29,7 +29,8 @@
             "dark": {
               "image": "/story-assets/img_8-12_dark.png"
             }
-          }
+          },
+          "border": "shadow"
         },
         {
           "tabName": "Lorem ipsum",
@@ -69,7 +70,8 @@
               "theme": "normal",
               "arrow": true
             }
-          ]
+          ],
+          "border": "shadow"
         },
         {
           "tabName": "Ut enim",
@@ -111,7 +113,8 @@
               "theme": "normal",
               "arrow": true
             }
-          ]
+          ],
+          "border": "shadow"
         },
         {
           "tabName": "Consectetur adipiscing elit",
@@ -128,7 +131,8 @@
             }
           },
           "caption": "Consectetur adipiscing elit",
-          "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+          "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+          "border": "shadow"
         },
         {
           "tabName": "minim veniam",
@@ -150,7 +154,8 @@
               "theme": "normal",
               "arrow": true
             }
-          ]
+          ],
+          "border": "shadow"
         }
       ]
     }

@@ -37,6 +37,10 @@ export const tabsItem = {
         //TODO deprecated
         link: LinkProps,
         image: withTheme(ImageProps),
+        border: {
+            type: 'string',
+            enum: ['shadow', 'line', 'none'],
+        },
     },
 };
 

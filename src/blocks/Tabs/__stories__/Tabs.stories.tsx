@@ -50,6 +50,7 @@ export const TabsButtonsColSizes = ButtonsColSizesTemplate.bind({});
 export const Centered = DefaultTemplate.bind({});
 export const Direction = DirectionTemplate.bind({});
 export const Caption = DefaultTemplate.bind({});
+export const MediaBorder = DefaultTemplate.bind({});
 
 const DefaultArgs = {
     ...data.default.content,
@@ -113,5 +114,13 @@ Caption.args = {
     ...DefaultArgs,
     items: DefaultArgs.items.map((item) => ({
         ...item,
+    })),
+} as TabsBlockModel;
+
+MediaBorder.args = {
+    ...DefaultArgs,
+    items: DefaultArgs.items.map((item, index) => ({
+        ...item,
+        border: ['line', 'none', 'shadow'][index % 3],
     })),
 } as TabsBlockModel;

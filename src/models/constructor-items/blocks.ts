@@ -281,7 +281,8 @@ export interface TableBlockProps {
 }
 
 export interface TabsBlockItem
-    extends Omit<ContentBlockProps, 'size' | 'colSizes' | 'centered' | 'theme'> {
+    extends Omit<ContentBlockProps, 'size' | 'colSizes' | 'centered' | 'theme'>,
+        WithBorder {
     tabName: string;
     /**
      * @deprecated Use array links from ContentBlockProps instead
