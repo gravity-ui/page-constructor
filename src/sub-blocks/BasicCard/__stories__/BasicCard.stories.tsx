@@ -3,11 +3,7 @@ import React from 'react';
 import {Meta, StoryFn} from '@storybook/react';
 
 import {yfmTransform} from '../../../../.storybook/utils';
-<<<<<<< HEAD
 import {BasicCardProps, ContentItemProps} from '../../../models';
-=======
-import {BasicCardProps} from '../../../models';
->>>>>>> a618394a (feat: migrate from doc tools to diplodoc transform (#820))
 import {IconPosition} from '../../../models/constructor-items/sub-blocks';
 import BasicCard from '../BasicCard';
 
