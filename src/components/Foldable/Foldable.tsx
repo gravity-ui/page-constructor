@@ -1,19 +1,20 @@
 import React, {useEffect, useRef} from 'react';
 
 import useHeightCalculator from '../../hooks/useHeightCalculator';
-import {WithChildren} from '../../models';
-import {block} from '../../utils';
+import {QAProps, WithChildren} from '../../models';
+import {block, getQaAttrubutes} from '../../utils';
 
 import './Foldable.scss';
 
 const b = block('foldable-block');
 
-export interface FoldableProps {
+export interface FoldableProps extends QAProps {
     isOpened: boolean;
     className?: string;
 }
 
-const Foldable = ({isOpened, children, className}: WithChildren<FoldableProps>) => {
+const Foldable = ({isOpened, children, className, qa}: WithChildren<FoldableProps>) => {
+    const qaAttributes = getQaAttrubutes(qa);
     const blockRef = useRef<HTMLDivElement>(null);
     const contentRef = useRef<HTMLDivElement>(null);
     const contentHeight = useHeightCalculator(contentRef);
@@ -25,8 +26,16 @@ const Foldable = ({isOpened, children, className}: WithChildren<FoldableProps>) 
     }, [isOpened, contentHeight]);
 
     return (
-        <div ref={blockRef} className={b({open: isOpened}, className)}>
-            <div ref={contentRef} className={b('content-container')}>
+        <div
+            ref={blockRef}
+            className={b({open: isOpened}, className)}
+            data-qa={qaAttributes.default}
+        >
+            <div
+                ref={contentRef}
+                className={b('content-container')}
+                data-qa={qaAttributes.container}
+            >
                 {children}
             </div>
         </div>
