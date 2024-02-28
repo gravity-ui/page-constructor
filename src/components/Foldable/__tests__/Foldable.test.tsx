@@ -11,17 +11,15 @@ const foldableProps: FoldableProps = {
     qa: 'foldable-component',
 };
 
-const IS_OPENED_CLASS_NAME = 'pc-foldable-block_open';
+const IS_OPEN_CLASS_NAME = 'pc-foldable-block_open';
 
 const qaAttributes = getQaAttrubutes(foldableProps.qa);
 
-const FoldableComponent = (props: FoldableProps) => {
-    return (
-        <Foldable {...props}>
-            <div>Children</div>
-        </Foldable>
-    );
-};
+const FoldableComponent = (props: FoldableProps) => (
+    <Foldable {...props}>
+        <div>Children</div>
+    </Foldable>
+);
 
 describe('Foldable', () => {
     test('render Foldable by default', async () => {
@@ -32,7 +30,7 @@ describe('Foldable', () => {
         expect(foldable).toBeInTheDocument();
         expect(foldable).toBeVisible();
         expect(foldable).not.toBeDisabled();
-        expect(foldable).not.toHaveClass(IS_OPENED_CLASS_NAME);
+        expect(foldable).not.toHaveClass(IS_OPEN_CLASS_NAME);
 
         expect(children).toBeInTheDocument();
     });
@@ -41,14 +39,14 @@ describe('Foldable', () => {
         render(<FoldableComponent {...foldableProps} />);
         const foldable = screen.getByTestId(qaAttributes.default);
 
-        expect(foldable).not.toHaveClass(IS_OPENED_CLASS_NAME);
+        expect(foldable).not.toHaveClass(IS_OPEN_CLASS_NAME);
     });
 
     test('render Foldable with isOpened = true', async () => {
         render(<FoldableComponent {...foldableProps} isOpened={true} />);
         const foldable = screen.getByTestId(qaAttributes.default);
 
-        expect(foldable).toHaveClass(IS_OPENED_CLASS_NAME);
+        expect(foldable).toHaveClass(IS_OPEN_CLASS_NAME);
     });
 
     test('add className', () => {
