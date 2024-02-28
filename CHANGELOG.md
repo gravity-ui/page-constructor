@@ -1,6 +1,18 @@
 # Changelog
 
 
+## [4.54.0](https://github.com/gravity-ui/page-constructor/compare/v4.53.0...v4.54.0) (2024-02-28)
+
+
+### Features
+
+* remove actions, knoobs, and min-height from storybook ([#831](https://github.com/gravity-ui/page-constructor/issues/831)) ([3a9e3d3](https://github.com/gravity-ui/page-constructor/commit/3a9e3d3795e357524fe046fdce13727e15a602fa))
+
+
+### Bug Fixes
+
+* add border-radius for media block image ([#832](https://github.com/gravity-ui/page-constructor/issues/832)) ([6421ec8](https://github.com/gravity-ui/page-constructor/commit/6421ec83388df0acc3cd3924db4b63c4fb48b931))
+
 ## [4.53.0](https://github.com/gravity-ui/page-constructor/compare/v4.52.0...v4.53.0) (2024-02-26)
 
 
