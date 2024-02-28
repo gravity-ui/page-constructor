@@ -14,7 +14,7 @@ const fileLink = {
 };
 
 const TYPES: Array<FileLinkProps['type']> = ['horizontal', 'vertical'];
-const TEXT_SIZRS: Array<FileLinkProps['textSize']> = ['s', 'xs', 'm', 'l'];
+const TEXT_SIZES: Array<FileLinkProps['textSize']> = ['s', 'xs', 'm', 'l'];
 const THEMES: Array<FileLinkProps['theme']> = ['default', 'dark', 'light'];
 
 const qaAttributes = getQaAttrubutes(fileLink.qa, 'link', 'link-container');
@@ -49,7 +49,7 @@ describe('FileLink', () => {
         expect(cardBase).toHaveClass(`pc-file-link_type_${type}`);
     });
 
-    test.each(new Array<FileLinkProps['textSize']>(...TEXT_SIZRS))(
+    test.each(new Array<FileLinkProps['textSize']>(...TEXT_SIZES))(
         'render with given "%s" textSize',
         (textSize) => {
             render(<FileLink {...fileLink} textSize={textSize} />);
