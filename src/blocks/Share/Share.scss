@@ -26,7 +26,9 @@ $block: '.#{$ns}share-block';
             /* stylelint-disable-next-line declaration-no-important */
             width: 48px !important;
             height: 48px;
-            border-radius: 100%;
+            // redefine highly specific rule for button with icon from uikit
+            /* stylelint-disable-next-line declaration-no-important */
+            border-radius: 100% !important;
 
             &_type_vk {
                 background-color: var(--pc-color-vk);
