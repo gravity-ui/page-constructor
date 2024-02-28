@@ -80,6 +80,7 @@ export const TabsBlock = ({
 
     const showMedia = Boolean(activeTabData?.media || imageProps);
     const showText = Boolean(activeTabData?.text);
+    const border = activeTabData?.border || 'shadow';
 
     const textContent = activeTabData && showText && (
         <TabsTextContent
@@ -107,7 +108,7 @@ export const TabsBlock = ({
                         <Media
                             {...getThemedValue(activeTabData.media, theme)}
                             key={activeTab}
-                            className={b('media')}
+                            className={b('media', {border})}
                             playVideo={play}
                             height={mediaVideoHeight || undefined}
                             onImageLoad={handleImageHeight}
@@ -117,7 +118,7 @@ export const TabsBlock = ({
             </div>
             {imageProps && (
                 <Fragment>
-                    <FullscreenImage {...imageProps} imageClassName={b('image')} />
+                    <FullscreenImage {...imageProps} imageClassName={b('image', {border})} />
                 </Fragment>
             )}
             {activeTabData?.caption && (
