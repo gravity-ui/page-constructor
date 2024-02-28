@@ -1,12 +1,14 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 
 import {useUniqId} from '@gravity-ui/uikit';
 
-import {Buttons, CardBase, IconWrapper, Links} from '../../components';
+import {CardBase, IconWrapper} from '../../components';
 import {BasicCardProps} from '../../models';
 import {IconPosition} from '../../models/constructor-items/sub-blocks';
 import {block} from '../../utils';
+import renderContentControls from '../../utils/renderContentControls/renderContentControls';
 import Content from '../Content/Content';
+import renderCardFooterControlsContainer from '../renderCardFooterControlsContainer/renderCardFooterControlsContainer';
 
 import './BasicCard.scss';
 
@@ -28,6 +30,19 @@ const BasicCard = (props: BasicCardProps) => {
     const titleId = useUniqId();
     const descriptionId = useUniqId();
     const areControlsInFooter = controlPosition === 'footer';
+    const footerControls = useMemo(
+        () =>
+            renderContentControls(
+                {
+                    links: areControlsInFooter ? links : undefined,
+                    buttons: areControlsInFooter ? buttons : undefined,
+                    size: 's',
+                    titleId,
+                },
+                renderCardFooterControlsContainer,
+            ),
+        [areControlsInFooter, links, buttons, titleId],
+    );
 
     return (
         <CardBase
@@ -35,7 +50,7 @@ const BasicCard = (props: BasicCardProps) => {
             {...cardParams}
             extraProps={{'aria-describedby': descriptionId, 'aria-labelledby': titleId}}
         >
-            <CardBase.Content key="content">
+            <CardBase.Content>
                 <IconWrapper icon={icon ? {value: icon, position: iconPosition} : undefined}>
                     <Content
                         title={title}
@@ -51,17 +66,7 @@ const BasicCard = (props: BasicCardProps) => {
                     />
                 </IconWrapper>
             </CardBase.Content>
-            {areControlsInFooter && (links || buttons) && (
-                <CardBase.Footer className={b('footer')} key="footer">
-                    <Links className={b('links')} size="s" links={links} titleId={titleId} />
-                    <Buttons
-                        className={b('buttons')}
-                        size="s"
-                        buttons={buttons}
-                        titleId={titleId}
-                    />
-                </CardBase.Footer>
-            )}
+            {footerControls}
         </CardBase>
     );
 };

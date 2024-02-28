@@ -107,7 +107,7 @@ const ControlPositionTemplate: StoryFn<BackgroundCardProps> = (args) => (
     <Grid>
         <ConstructorRow>
             <BlockBase>
-                <CardLayout title="With controlPosition = content" animated={false}>
+                <CardLayout title={data.cardLayout.contentTitle} animated={false}>
                     {data.cardLayout.items.map((item, index) => (
                         <BackgroundCard
                             key={index}
@@ -120,8 +120,8 @@ const ControlPositionTemplate: StoryFn<BackgroundCardProps> = (args) => (
             </BlockBase>
             <BlockBase>
                 <CardLayout
-                    title="With controlPosition = footer"
-                    description="Please note that the controlPosition prop manages the position of buttons and links only when paddingBottom = default."
+                    title={data.cardLayout.footerTitle}
+                    description={data.cardLayout.footerDescription}
                     animated={false}
                 >
                     {data.cardLayout.items.map((item, index) => (

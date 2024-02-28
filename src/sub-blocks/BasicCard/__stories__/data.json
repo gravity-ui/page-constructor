@@ -72,6 +72,8 @@
     }
   },
   "cardLayout": {
+    "contentTitle": "With controlPosition = content",
+    "footerTitle": "With controlPosition = footer",
     "items": [
       {
         "icon": "/story-assets/icon_1_light.svg",

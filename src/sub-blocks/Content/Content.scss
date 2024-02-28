@@ -87,9 +87,7 @@ $darkSecondary: var(--g-color-text-dark-secondary);
                 }
             }
 
-            #{$block}__list,
-            #{$block}__links,
-            #{$block}__buttons {
+            #{$block}__list {
                 margin-top: $indentXS;
             }
         }
@@ -112,9 +110,7 @@ $darkSecondary: var(--g-color-text-dark-secondary);
                 @include text-size(body-3);
             }
 
-            #{$block}__list,
-            #{$block}__links,
-            #{$block}__buttons {
+            #{$block}__list {
                 margin-top: $indentSM;
             }
         }

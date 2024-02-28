@@ -43,6 +43,8 @@
     }
   },
   "cardLayout": {
+    "contentTitle": "With controlPosition = content",
+    "footerTitle": "With controlPosition = footer",
     "items": [
       {
         "media": {

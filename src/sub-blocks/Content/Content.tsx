@@ -1,13 +1,14 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 
 import {useUniqId} from '@gravity-ui/uikit';
 
-import {Buttons, ContentList, Links, Title, YFMWrapper} from '../../components';
+import {ContentList, Title, YFMWrapper} from '../../components';
 import {Col} from '../../grid';
 import {ClassNameProps, ContentBlockProps, ContentSize, TitleItemProps} from '../../models';
 import {QAProps} from '../../models/common';
 import {block} from '../../utils';
 import {getQaAttrubutes} from '../../utils/blocks';
+import renderContentControls from '../../utils/renderContentControls/renderContentControls';
 
 import './Content.scss';
 
@@ -53,6 +54,18 @@ const Content = (props: ContentProps) => {
     const defaultTitleId = useUniqId();
     const titleId = titleIdFromProps || defaultTitleId;
 
+    const controls = useMemo(
+        () =>
+            renderContentControls({
+                size,
+                links,
+                buttons,
+                titleId,
+                qa: qaAttributes,
+            }),
+        [size, links, buttons, titleId, qa],
+    );
+
     return (
         <Col
             className={b({size, centered, theme}, className)}
@@ -94,22 +107,7 @@ const Content = (props: ContentProps) => {
                     />
                 </div>
             )}
-            <Links
-                className={b('links')}
-                size={size}
-                links={links}
-                titleId={titleId}
-                qa={qaAttributes.links}
-                linkQa={qaAttributes.link}
-            />
-            <Buttons
-                className={b('buttons')}
-                titleId={titleId}
-                buttons={buttons}
-                size={size}
-                qa={qaAttributes.buttons}
-                buttonQa={qaAttributes.button}
-            />
+            {controls}
         </Col>
     );
 };

@@ -1,10 +1,11 @@
-import React, {Fragment, useMemo} from 'react';
+import React, {useMemo} from 'react';
 
 import {useUniqId} from '@gravity-ui/uikit';
 
-import {Buttons, FullscreenMedia, IconWrapper, Links, Media, MetaInfo} from '../../components';
+import {FullscreenMedia, IconWrapper, Media, MetaInfo} from '../../components';
 import {ContentBlockProps, LayoutItemProps} from '../../models';
 import {block} from '../../utils';
+import renderContentControls from '../../utils/renderContentControls/renderContentControls';
 import Content from '../Content/Content';
 
 import {getLayoutItemLinks, hasFullscreen, showFullscreenIcon} from './utils';
@@ -34,7 +35,16 @@ const LayoutItem = ({
         colSizes: {all: 12, md: 12},
     };
     const titleId = useUniqId();
-
+    const footerControls = useMemo(
+        () =>
+            renderContentControls({
+                links: areControlsInFooter ? links : undefined,
+                buttons: areControlsInFooter ? buttons : undefined,
+                size: 's',
+                titleId,
+            }),
+        [areControlsInFooter, links, buttons, titleId],
+    );
     const renderMedia = () => {
         if (!media) {
             return null;
@@ -67,22 +77,7 @@ const LayoutItem = ({
                     <Content {...contentProps} titleId={titleId} />
                 </IconWrapper>
             </div>
-            {areControlsInFooter && (links || buttons) && (
-                <Fragment>
-                    <Links
-                        className={b('links')}
-                        links={normalizedLinks}
-                        size="s"
-                        titleId={titleId}
-                    />
-                    <Buttons
-                        className={b('buttons')}
-                        buttons={buttons}
-                        size="s"
-                        titleId={titleId}
-                    />
-                </Fragment>
-            )}
+            {footerControls}
         </div>
     );
 };

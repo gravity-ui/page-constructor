@@ -40,7 +40,7 @@ const ControlPositionTemplate: StoryFn<LayoutItemProps> = (args) => (
     <Grid>
         <ConstructorRow>
             <BlockBase>
-                <CardLayout title="With controlPosition = content" animated={false}>
+                <CardLayout title={data.cardLayout.contentTitle} animated={false}>
                     {data.cardLayout.items.map((item, index) => (
                         <LayoutItem
                             key={index}
@@ -52,7 +52,7 @@ const ControlPositionTemplate: StoryFn<LayoutItemProps> = (args) => (
                 </CardLayout>
             </BlockBase>
             <BlockBase>
-                <CardLayout title="With controlPosition = footer" animated={false}>
+                <CardLayout title={data.cardLayout.footerTitle} animated={false}>
                     {data.cardLayout.items.map((item, index) => (
                         <LayoutItem
                             key={index}
