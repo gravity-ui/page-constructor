@@ -1,6 +1,18 @@
 # Changelog
 
 
+## [4.55.0](https://github.com/gravity-ui/page-constructor/compare/v4.54.0...v4.55.0) (2024-02-28)
+
+
+### Features
+
+* add border prop to tabs media item ([#835](https://github.com/gravity-ui/page-constructor/issues/835)) ([50e3621](https://github.com/gravity-ui/page-constructor/commit/50e3621a09476ea4ec38fab2975d12654fe2a6f4))
+
+
+### Bug Fixes
+
+* price card title ([#836](https://github.com/gravity-ui/page-constructor/issues/836)) ([b70f80d](https://github.com/gravity-ui/page-constructor/commit/b70f80d1c51607e02304dbcc9653f143abd6670c))
+
 ## [4.54.0](https://github.com/gravity-ui/page-constructor/compare/v4.53.0...v4.54.0) (2024-02-28)
 
 
