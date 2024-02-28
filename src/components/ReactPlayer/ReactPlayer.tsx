@@ -9,6 +9,7 @@ import React, {
     useState,
 } from 'react';
 
+import {PlayFill} from '@gravity-ui/icons';
 import {Icon} from '@gravity-ui/uikit';
 import debounce from 'lodash/debounce';
 import ReactPlayer from 'react-player';
@@ -16,7 +17,6 @@ import ReactPlayer from 'react-player';
 import {MobileContext} from '../../context/mobileContext';
 import {VideoContext} from '../../context/videoContext';
 import {useAnalytics, useMount} from '../../hooks';
-import {PlayVideo} from '../../icons';
 import {
     AnalyticsEvent,
     ClassNameProps,
@@ -227,7 +227,7 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
                     break;
                 case PlayButtonType.Default:
                 default:
-                    playButtonContent = <Icon className={b('icon')} data={PlayVideo} size={24} />;
+                    playButtonContent = <Icon className={b('icon')} data={PlayFill} size={24} />;
                     break;
             }
 
