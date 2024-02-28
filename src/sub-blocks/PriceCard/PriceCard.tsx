@@ -2,7 +2,14 @@ import React from 'react';
 
 import Check from '@gravity-ui/icons/Check';
 
-import {BackgroundImage, Button, CardBase, ContentList, Link as LinkBlock} from '../../components';
+import {
+    BackgroundImage,
+    Button,
+    CardBase,
+    ContentList,
+    HTML,
+    Link as LinkBlock,
+} from '../../components';
 import {PriceCardProps} from '../../models';
 import {block} from '../../utils';
 
@@ -30,7 +37,7 @@ const PriceCard = (props: PriceCardProps) => {
                 <BackgroundImage className={b('background')} style={{backgroundColor}} />
                 <div className={b('content', {theme})}>
                     <div className={b('info')}>
-                        <div className={b('title')}>{title}</div>
+                        <HTML className={b('title')}>{title}</HTML>
                         <div className={b('price')}>
                             <div>
                                 <span className={b('price-value')}>{price}</span>
