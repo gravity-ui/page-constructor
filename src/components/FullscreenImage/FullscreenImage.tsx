@@ -54,21 +54,19 @@ const FullscreenImage = (props: FullscreenImageProps) => {
                     className={b('modal')}
                     contentClassName={b('modal-content')}
                 >
-                    <React.Fragment>
-                        <button
-                            className={b('icon-wrapper', {visible: true})}
-                            onClick={closeModal}
-                            aria-label={i18n('close')}
-                        >
-                            <Icon
-                                data={PreviewClose}
-                                width={CLOSE_ICON_SIZE}
-                                height={CLOSE_ICON_SIZE}
-                                className={b('icon', {hover: true})}
-                            />
-                        </button>
-                        <Image {...props} className={b('modal-image', modalImageClass)} />
-                    </React.Fragment>
+                    <button
+                        className={b('icon-wrapper', {visible: true})}
+                        onClick={closeModal}
+                        aria-label={i18n('close')}
+                    >
+                        <Icon
+                            data={PreviewClose}
+                            width={CLOSE_ICON_SIZE}
+                            height={CLOSE_ICON_SIZE}
+                            className={b('icon', {hover: true})}
+                        />
+                    </button>
+                    <Image {...props} className={b('modal-image', modalImageClass)} />
                 </Modal>
             )}
         </div>
