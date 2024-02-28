@@ -1,8 +1,8 @@
 import React, {CSSProperties, HTMLProps, useState} from 'react';
 
+import {ChevronsExpandUpRight, Xmark} from '@gravity-ui/icons';
 import {Icon, Modal} from '@gravity-ui/uikit';
 
-import {Fullscreen, PreviewClose} from '../../icons';
 import {block} from '../../utils';
 import Image, {ImageProps} from '../Image/Image';
 
@@ -19,7 +19,7 @@ export interface FullscreenImageProps extends ImageProps {
 
 const b = block('fullscreen-image');
 const FULL_SCREEN_ICON_SIZE = 18;
-const CLOSE_ICON_SIZE = 30;
+const CLOSE_ICON_SIZE = 24;
 
 const FullscreenImage = (props: FullscreenImageProps) => {
     const {imageClassName, modalImageClass, imageStyle, alt = i18n('img-alt'), extraProps} = props;
@@ -40,7 +40,7 @@ const FullscreenImage = (props: FullscreenImageProps) => {
                 />
                 <button className={b('icon-wrapper')} onClick={openModal}>
                     <Icon
-                        data={Fullscreen}
+                        data={ChevronsExpandUpRight}
                         width={FULL_SCREEN_ICON_SIZE}
                         height={FULL_SCREEN_ICON_SIZE}
                         className={b('icon')}
@@ -60,7 +60,7 @@ const FullscreenImage = (props: FullscreenImageProps) => {
                         aria-label={i18n('close')}
                     >
                         <Icon
-                            data={PreviewClose}
+                            data={Xmark}
                             width={CLOSE_ICON_SIZE}
                             height={CLOSE_ICON_SIZE}
                             className={b('icon', {hover: true})}

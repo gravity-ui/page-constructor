@@ -40,7 +40,7 @@ $block: '.#{$ns}link-block';
 
         &:hover {
             #{$root}__arrow {
-                transform: translateX(5px) rotate(-90deg);
+                transform: translateX(5px);
             }
         }
 
@@ -55,7 +55,6 @@ $block: '.#{$ns}link-block';
         position: relative;
         top: 2px;
         transition: transform 0.3s $ease-out-cubic;
-        transform: rotate(-90deg);
     }
 
     &_size {

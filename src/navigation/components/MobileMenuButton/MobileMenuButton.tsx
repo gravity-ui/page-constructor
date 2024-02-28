@@ -1,7 +1,8 @@
 import React, {MouseEvent} from 'react';
 
+import {Bars, Xmark} from '@gravity-ui/icons';
+
 import {Control} from '../../../components';
-import {NavigationClose, NavigationOpen} from '../../../icons';
 import {block} from '../../../utils';
 import {MobileMenuButtonProps} from '../../models';
 
@@ -9,7 +10,7 @@ import './MobileMenuButton.scss';
 
 const b = block('mobile-menu-button');
 
-const ICON_SIZE = 36;
+const ICON_SIZE = 24;
 
 export const MobileMenuButton: React.FC<MobileMenuButtonProps> = ({
     isSidebarOpened,
@@ -24,7 +25,7 @@ export const MobileMenuButton: React.FC<MobileMenuButtonProps> = ({
             onSidebarOpenedChange(!isSidebarOpened);
         }}
         size="l"
-        icon={isSidebarOpened ? NavigationClose : NavigationOpen}
+        icon={isSidebarOpened ? Xmark : Bars}
         iconSize={ICON_SIZE}
     />
 );
