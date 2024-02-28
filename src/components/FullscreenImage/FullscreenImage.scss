@@ -21,6 +21,7 @@ $closeButtonSize: 36px;
 
     &__modal-content {
         position: relative;
+        border-radius: $borderRadius;
     }
 
     &__modal-image {

@@ -65,29 +65,32 @@ const FullscreenMedia = ({children, showFullscreenIcon = true}: FullscreenMediaP
                 )}
             </div>
             {isOpened && (
-                <Modal open={isOpened} onClose={closeModal} className={b('modal')}>
-                    <div className={b('modal-content')}>
-                        <Button
-                            className={b('icon-wrapper', {visible: true})}
-                            onClick={closeModal}
-                            size={'l'}
-                        >
-                            <Icon
-                                data={PreviewClose}
-                                width={CLOSE_ICON_SIZE}
-                                height={CLOSE_ICON_SIZE}
-                                className={b('icon', {hover: true})}
-                            />
-                        </Button>
-                        {children({
-                            imageClassName: getMediaClass('image'),
-                            videoClassName: getMediaClass('video'),
-                            youtubeClassName: getMediaClass('youtube'),
-                            fullscreen: true,
-                            previewImg: undefined,
-                            autoplay: true,
-                        })}
-                    </div>
+                <Modal
+                    open={isOpened}
+                    onClose={closeModal}
+                    className={b('modal')}
+                    contentClassName={b('modal-content')}
+                >
+                    <Button
+                        className={b('icon-wrapper', {visible: true})}
+                        onClick={closeModal}
+                        size={'l'}
+                    >
+                        <Icon
+                            data={PreviewClose}
+                            width={CLOSE_ICON_SIZE}
+                            height={CLOSE_ICON_SIZE}
+                            className={b('icon', {hover: true})}
+                        />
+                    </Button>
+                    {children({
+                        imageClassName: getMediaClass('image'),
+                        videoClassName: getMediaClass('video'),
+                        youtubeClassName: getMediaClass('youtube'),
+                        fullscreen: true,
+                        previewImg: undefined,
+                        autoplay: true,
+                    })}
                 </Modal>
             )}
         </div>
