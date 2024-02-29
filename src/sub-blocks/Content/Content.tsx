@@ -63,7 +63,7 @@ const Content = (props: ContentProps) => {
                 titleId,
                 qa: qaAttributes,
             }),
-        [size, links, buttons, titleId, qa],
+        [size, links, buttons, titleId, qaAttributes],
     );
 
     return (
