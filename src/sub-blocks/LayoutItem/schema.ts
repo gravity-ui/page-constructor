@@ -33,5 +33,9 @@ export const LayoutItem = {
                 },
             ],
         },
+        controlPosition: {
+            type: 'string',
+            enum: ['content', 'footer'],
+        },
     },
 };

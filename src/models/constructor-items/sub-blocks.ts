@@ -9,6 +9,7 @@ import {
     ButtonPixel,
     ButtonProps,
     CardBaseProps,
+    CardLayoutProps,
     ContentTheme,
     DividerSize,
     ImageCardMargins,
@@ -134,6 +135,7 @@ export interface QuoteProps extends Themable, CardBaseProps {
 export interface BackgroundCardProps
     extends CardBaseProps,
         AnalyticsEventsBase,
+        CardLayoutProps,
         Omit<ContentBlockProps, 'colSizes' | 'centered'> {
     url?: string;
     urlTitle?: string;
@@ -145,6 +147,7 @@ export interface BackgroundCardProps
 export interface BasicCardProps
     extends CardBaseProps,
         AnalyticsEventsBase,
+        CardLayoutProps,
         Omit<ContentBlockProps, 'colSizes' | 'centered' | 'size' | 'theme'> {
     url: string;
     urlTitle?: string;
@@ -178,7 +181,7 @@ export interface PriceCardProps extends CardBaseProps, Pick<ContentBlockProps, '
     list?: string[];
 }
 
-export interface LayoutItemProps extends ClassNameProps, AnalyticsEventsBase {
+export interface LayoutItemProps extends ClassNameProps, CardLayoutProps, AnalyticsEventsBase {
     content: Omit<ContentBlockProps, 'colSizes' | 'centered' | 'size'>;
     media?: MediaProps;
     metaInfo?: string[];

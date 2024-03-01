@@ -1,0 +1,19 @@
+@import '../../../styles/variables.scss';
+
+$block: '.#{$ns}buttons';
+
+#{$block} {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: $indentXXS;
+
+    &_size {
+        &_s {
+            row-gap: $indentXXXS;
+        }
+
+        &_l {
+            row-gap: $indentXXS;
+        }
+    }
+}

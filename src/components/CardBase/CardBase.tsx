@@ -1,4 +1,11 @@
-import React, {Children, Fragment, HTMLAttributeAnchorTarget, ReactElement} from 'react';
+import React, {
+    Children,
+    Fragment,
+    HTMLAttributeAnchorTarget,
+    PropsWithChildren,
+    ReactElement,
+    isValidElement,
+} from 'react';
 
 import {Link} from '@gravity-ui/uikit';
 
@@ -19,11 +26,10 @@ import RouterLink from '../RouterLink/RouterLink';
 
 import './CardBase.scss';
 
-export interface CardBaseProps extends AnalyticsEventsBase, CardBaseParams {
+export interface CardBaseProps extends AnalyticsEventsBase, CardBaseParams, PropsWithChildren {
     className?: string;
     bodyClassName?: string;
     contentClassName?: string;
-    children: ReactElement | ReactElement[];
     url?: string;
     urlTitle?: string;
     target?: HTMLAttributeAnchorTarget;
@@ -86,11 +92,11 @@ export const Layout = (props: CardBaseProps) => {
         }
     }
 
-    if (Children.count(children) === 1) {
-        handleChild(children as ReactElement);
-    } else {
-        Children.forEach(children, handleChild);
-    }
+    Children.toArray(children).forEach((child) => {
+        if (isValidElement(child)) {
+            handleChild(child);
+        }
+    });
 
     const cardContent = (
         <Fragment>

@@ -6,6 +6,7 @@ export {default as BackLink} from './BackLink/BackLink';
 export {default as BalancedMasonry} from './BalancedMasonry/BalancedMasonry';
 export {default as BlockBase} from './BlockBase/BlockBase';
 export {default as Button} from './Button/Button';
+export {default as Buttons} from './Buttons/Buttons';
 export {default as CardBase} from './CardBase/CardBase';
 export {default as ErrorWrapper} from './ErrorWrapper/ErrorWrapper';
 export {default as FileLink} from './FileLink/FileLink';
@@ -16,7 +17,7 @@ export {default as HeaderBreadcrumbs} from './HeaderBreadcrumbs/HeaderBreadcrumb
 export {default as Image} from './Image/Image';
 export {default as ImageBase} from './ImageBase/ImageBase';
 export {default as Link} from './Link/Link';
-export {default as Links} from './Link/Links';
+export {default as Links} from './Links/Links';
 export {default as Media} from './Media/Media';
 export {default as OutsideClick} from './OutsideClick/OutsideClick';
 export {default as ReactPlayer} from './ReactPlayer/ReactPlayer';

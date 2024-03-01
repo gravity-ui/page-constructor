@@ -1,13 +1,14 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 
 import {useUniqId} from '@gravity-ui/uikit';
 
-import {Button, ContentList, Link as LinkBlock, Title, YFMWrapper} from '../../components';
+import {ContentList, Title, YFMWrapper} from '../../components';
 import {Col} from '../../grid';
 import {ClassNameProps, ContentBlockProps, ContentSize, TitleItemProps} from '../../models';
 import {QAProps} from '../../models/common';
 import {block} from '../../utils';
 import {getQaAttrubutes} from '../../utils/blocks';
+import renderContentControls from '../../utils/renderContentControls/renderContentControls';
 
 import './Content.scss';
 
@@ -20,26 +21,6 @@ function getTextSize(size: ContentSize) {
         case 'l':
         default:
             return 'm';
-    }
-}
-
-function getLinkSize(size: ContentSize) {
-    switch (size) {
-        case 's':
-            return 'm';
-        case 'l':
-        default:
-            return 'l';
-    }
-}
-
-function getButtonSize(size: ContentSize) {
-    switch (size) {
-        case 's':
-            return 'm';
-        case 'l':
-        default:
-            return 'xl';
     }
 }
 
@@ -72,6 +53,18 @@ const Content = (props: ContentProps) => {
     const hasTitle = Boolean(title);
     const defaultTitleId = useUniqId();
     const titleId = titleIdFromProps || defaultTitleId;
+
+    const controls = useMemo(
+        () =>
+            renderContentControls({
+                size,
+                links,
+                buttons,
+                titleId,
+                qa: qaAttributes,
+            }),
+        [size, links, buttons, titleId, qaAttributes],
+    );
 
     return (
         <Col
@@ -114,40 +107,7 @@ const Content = (props: ContentProps) => {
                     />
                 </div>
             )}
-            {links && (
-                <div className={b('links')} data-qa={qaAttributes.links}>
-                    {links.map((link) => (
-                        <LinkBlock
-                            className={b('link')}
-                            {...link}
-                            textSize={getLinkSize(size)}
-                            key={link.url}
-                            qa={qaAttributes.link}
-                            extraProps={{
-                                'aria-describedby': link.urlTitle ? undefined : titleId,
-                                ...link.extraProps,
-                            }}
-                        />
-                    ))}
-                </div>
-            )}
-            {buttons && (
-                <div className={b('buttons')} data-qa={qaAttributes.buttons}>
-                    {buttons.map((item) => (
-                        <Button
-                            className={b('button')}
-                            {...item}
-                            key={item.url}
-                            size={getButtonSize(size)}
-                            qa={qaAttributes.button}
-                            extraProps={{
-                                'aria-describedby': item.urlTitle ? undefined : titleId,
-                                ...item.extraProps,
-                            }}
-                        />
-                    ))}
-                </div>
-            )}
+            {controls}
         </Col>
     );
 };

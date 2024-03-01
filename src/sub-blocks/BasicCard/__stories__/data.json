@@ -70,5 +70,62 @@
       "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       "urlTitle": "Opens in a new tab"
     }
+  },
+  "cardLayout": {
+    "contentTitle": "With controlPosition = content",
+    "footerTitle": "With controlPosition = footer",
+    "items": [
+      {
+        "icon": "/story-assets/icon_1_light.svg",
+        "title": "Lorem ipsumt",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In egestas erat imperdiet sed euismod nisi porta lorem. Amet purus gravida quis blandit turpis cursus in hac.",
+        "buttons": [
+          {
+            "text": "Button 1",
+            "theme": "action",
+            "url": "#test1"
+          },
+          {
+            "text": "Button 2",
+            "theme": "outlined",
+            "url": "#test2"
+          }
+        ]
+      },
+      {
+        "icon": "/story-assets/icon_2_light.svg",
+        "title": "Lorem ipsumt",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In egestas erat imperdiet sed euismod nisi porta lorem. Amet purus gravida quis blandit turpis cursus in hac. Pulvinar sapien et ligula ullamcorper malesuada proin libero nunc consequat.",
+        "buttons": [
+          {
+            "text": "Button 1",
+            "theme": "action",
+            "url": "#test1"
+          },
+          {
+            "text": "Button 2",
+            "theme": "outlined",
+            "url": "#test2"
+          }
+        ]
+      },
+      {
+        "icon": "/story-assets/icon_3_light.svg",
+        "title": "Lorem ipsumt",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In egestas erat imperdiet sed euismod nisi porta lorem.",
+        "buttons": [
+          {
+            "text": "Button 1",
+            "theme": "action",
+            "url": "#test1"
+          },
+          {
+            "text": "Button 2",
+            "theme": "outlined",
+            "url": "#test2"
+          }
+        ]
+      }
+    ]
   }
 }

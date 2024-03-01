@@ -2,14 +2,7 @@ import React from 'react';
 
 import Check from '@gravity-ui/icons/Check';
 
-import {
-    BackgroundImage,
-    Button,
-    CardBase,
-    ContentList,
-    HTML,
-    Link as LinkBlock,
-} from '../../components';
+import {BackgroundImage, Buttons, CardBase, ContentList, HTML, Links} from '../../components';
 import {PriceCardProps} from '../../models';
 import {block} from '../../utils';
 
@@ -33,7 +26,7 @@ const PriceCard = (props: PriceCardProps) => {
     } = props;
     return (
         <CardBase className={b({theme})} border={border}>
-            <CardBase.Content>
+            <CardBase.Content key="content">
                 <BackgroundImage className={b('background')} style={{backgroundColor}} />
                 <div className={b('content', {theme})}>
                     <div className={b('info')}>
@@ -62,25 +55,8 @@ const PriceCard = (props: PriceCardProps) => {
                             </div>
                         ) : null}
                     </div>
-                    {buttons && (
-                        <div className={b('buttons')}>
-                            {buttons.map((button) => (
-                                <Button key={button.url} {...button} />
-                            ))}
-                        </div>
-                    )}
-                    {links && (
-                        <div className={b('links')}>
-                            {links.map((link) => (
-                                <LinkBlock
-                                    className={b('link')}
-                                    key={link.url}
-                                    textSize="m"
-                                    {...link}
-                                />
-                            ))}
-                        </div>
-                    )}
+                    <Buttons className={b('buttons')} buttons={buttons} size="s" />
+                    <Links className={b('links')} links={links} size="s" />
                 </div>
             </CardBase.Content>
         </CardBase>

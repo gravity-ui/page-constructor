@@ -29,6 +29,10 @@ export const BasicCard = {
                 type: 'string',
                 enum: ['top', 'left'],
             },
+            controlPosition: {
+                type: 'string',
+                enum: ['content', 'footer'],
+            },
         },
     },
 };

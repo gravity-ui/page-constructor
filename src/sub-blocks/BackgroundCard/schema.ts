@@ -42,6 +42,10 @@ export const BackgroundCard = {
                     },
                 ],
             },
+            controlPosition: {
+                type: 'string',
+                enum: ['content', 'footer'],
+            },
         },
     },
 };

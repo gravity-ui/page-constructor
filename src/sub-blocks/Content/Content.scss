@@ -41,18 +41,6 @@ $darkSecondary: var(--g-color-text-dark-secondary);
         }
     }
 
-    &__buttons {
-        display: flex;
-        flex-wrap: wrap;
-        column-gap: $indentXXS;
-    }
-
-    &__links {
-        display: flex;
-        flex-direction: column;
-        align-items: baseline;
-    }
-
     &__link {
         display: block;
     }
@@ -99,13 +87,6 @@ $darkSecondary: var(--g-color-text-dark-secondary);
                 }
             }
 
-            #{$block}__links,
-            #{$block}__link,
-            #{$block}__buttons,
-            #{$block}__button {
-                margin-top: $indentXXXS;
-            }
-
             #{$block}__list {
                 margin-top: $indentXS;
             }
@@ -127,13 +108,6 @@ $darkSecondary: var(--g-color-text-dark-secondary);
             #{$block}__notice .yfm {
                 @extend %heading-margin-reset;
                 @include text-size(body-3);
-            }
-
-            #{$block}__links,
-            #{$block}__link,
-            #{$block}__buttons,
-            #{$block}__button {
-                margin-top: $indentXXS;
             }
 
             #{$block}__list {

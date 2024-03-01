@@ -1,10 +1,14 @@
-import React from 'react';
+import React, {useMemo} from 'react';
+
+import {useUniqId} from '@gravity-ui/uikit';
 
 import {BackgroundImage, CardBase} from '../../components/';
 import {useTheme} from '../../context/theme';
 import {BackgroundCardProps} from '../../models';
 import {block, getThemedValue} from '../../utils';
+import renderContentControls from '../../utils/renderContentControls/renderContentControls';
 import Content from '../Content/Content';
+import renderCardFooterControlsContainer from '../renderCardFooterControlsContainer/renderCardFooterControlsContainer';
 
 import './BackgroundCard.scss';
 
@@ -25,11 +29,29 @@ const BackgroundCard = (props: BackgroundCardProps) => {
         buttons,
         analyticsEvents,
         urlTitle,
+        controlPosition = 'content',
     } = props;
+
+    const titleId = useUniqId();
 
     const theme = useTheme();
     const hasBackgroundColor = backgroundColor || cardTheme !== 'default';
     const borderType = hasBackgroundColor ? 'none' : border;
+    const areControlsInFooter = !paddingBottom && controlPosition === 'footer';
+
+    const footerControls = useMemo(
+        () =>
+            renderContentControls(
+                {
+                    links: areControlsInFooter ? links : undefined,
+                    buttons: areControlsInFooter ? buttons : undefined,
+                    size: 's',
+                    titleId,
+                },
+                renderCardFooterControlsContainer,
+            ),
+        [areControlsInFooter, links, buttons, titleId],
+    );
 
     return (
         <CardBase
@@ -46,16 +68,18 @@ const BackgroundCard = (props: BackgroundCardProps) => {
                     style={{backgroundColor}}
                 />
                 <Content
+                    titleId={titleId}
                     title={title}
                     text={text}
                     additionalInfo={additionalInfo}
                     size="s"
                     theme={cardTheme}
-                    links={links}
-                    buttons={buttons}
+                    links={areControlsInFooter ? undefined : links}
+                    buttons={areControlsInFooter ? undefined : buttons}
                     colSizes={{all: 12, md: 12}}
                 />
             </CardBase.Content>
+            {footerControls}
         </CardBase>
     );
 };

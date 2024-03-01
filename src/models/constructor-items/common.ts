@@ -392,10 +392,15 @@ export type MediaView = 'fit' | 'full';
 // card
 export type MediaBorder = 'shadow' | 'line' | 'none';
 export type CardBorder = MediaBorder;
+export type ControlPosition = 'content' | 'footer';
 
 export interface CardBaseProps {
     border?: CardBorder;
 }
+
+export type CardLayoutProps = {
+    controlPosition?: ControlPosition;
+};
 
 //price
 export interface PriceDescriptionProps {

@@ -3,6 +3,10 @@ import React from 'react';
 import {Meta, StoryFn} from '@storybook/react';
 
 import {yfmTransform} from '../../../../.storybook/utils';
+import CardLayout from '../../../blocks/CardLayout/CardLayout';
+import {BlockBase} from '../../../components';
+import {ConstructorRow} from '../../../containers/PageConstructor/components/ConstructorRow';
+import {Grid} from '../../../grid';
 import {PriceCardProps} from '../../../models';
 import PriceCard from '../PriceCard';
 
@@ -56,13 +60,22 @@ const DifferentContentTemplate: StoryFn<PriceCardProps> = (args) => {
 const MultipleItemsTemplate: StoryFn<PriceCardProps> = (args) => {
     const items = data.themed.content as PriceCardProps[];
     return (
-        <div style={{display: 'flex', flexWrap: 'wrap', flexDirection: 'row'}}>
-            {items.map((itemArgs, index) => (
-                <div key={index} style={{width: 400, margin: '20px'}}>
-                    <PriceCard {...args} {...itemArgs} list={transformList(itemArgs.list)} />
-                </div>
-            ))}
-        </div>
+        <Grid>
+            <ConstructorRow>
+                <BlockBase>
+                    <CardLayout animated={false}>
+                        {items.map((itemArgs, index) => (
+                            <PriceCard
+                                key={index}
+                                {...itemArgs}
+                                {...args}
+                                list={transformList(itemArgs.list)}
+                            />
+                        ))}
+                    </CardLayout>
+                </BlockBase>
+            </ConstructorRow>
+        </Grid>
     );
 };
 
@@ -71,3 +84,7 @@ export const DifferentContent = DifferentContentTemplate.bind({});
 export const Themed = MultipleItemsTemplate.bind({});
 
 Default.args = data.default.content as PriceCardProps;
+Themed.argTypes = {
+    theme: {table: {disable: true}},
+    title: {table: {disable: true}},
+};

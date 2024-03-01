@@ -41,6 +41,10 @@ export const PriceCardBlock = {
                     type: 'string',
                 },
             },
+            controlPosition: {
+                type: 'string',
+                enum: ['content', 'footer'],
+            },
         },
     },
 };

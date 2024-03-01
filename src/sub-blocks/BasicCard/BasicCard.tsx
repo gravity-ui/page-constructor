@@ -1,13 +1,14 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 
 import {useUniqId} from '@gravity-ui/uikit';
 
-import CardBase from '../../components/CardBase/CardBase';
-import IconWrapper from '../../components/IconWrapper/IconWrapper';
+import {CardBase, IconWrapper} from '../../components';
 import {BasicCardProps} from '../../models';
 import {IconPosition} from '../../models/constructor-items/sub-blocks';
 import {block} from '../../utils';
+import renderContentControls from '../../utils/renderContentControls/renderContentControls';
 import Content from '../Content/Content';
+import renderCardFooterControlsContainer from '../renderCardFooterControlsContainer/renderCardFooterControlsContainer';
 
 import './BasicCard.scss';
 
@@ -23,10 +24,25 @@ const BasicCard = (props: BasicCardProps) => {
         list,
         buttons,
         iconPosition = IconPosition.Top,
+        controlPosition = 'content',
         ...cardParams
     } = props;
     const titleId = useUniqId();
     const descriptionId = useUniqId();
+    const areControlsInFooter = controlPosition === 'footer';
+    const footerControls = useMemo(
+        () =>
+            renderContentControls(
+                {
+                    links: areControlsInFooter ? links : undefined,
+                    buttons: areControlsInFooter ? buttons : undefined,
+                    size: 's',
+                    titleId,
+                },
+                renderCardFooterControlsContainer,
+            ),
+        [areControlsInFooter, links, buttons, titleId],
+    );
 
     return (
         <CardBase
@@ -42,14 +58,15 @@ const BasicCard = (props: BasicCardProps) => {
                         text={text}
                         textId={descriptionId}
                         additionalInfo={additionalInfo}
-                        links={links}
+                        links={areControlsInFooter ? undefined : links}
                         list={list}
-                        buttons={buttons}
+                        buttons={areControlsInFooter ? undefined : buttons}
                         size="s"
                         colSizes={{all: 12, md: 12}}
                     />
                 </IconWrapper>
             </CardBase.Content>
+            {footerControls}
         </CardBase>
     );
 };

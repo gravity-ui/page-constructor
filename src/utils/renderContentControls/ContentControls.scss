@@ -1,0 +1,17 @@
+@import '../../../styles/variables.scss';
+
+$block: '.#{$ns}content-controls';
+
+#{$block} {
+    &__links,
+    &__buttons {
+        &_size {
+            &_s {
+                margin-top: $indentXS;
+            }
+            &_l {
+                margin-top: $indentSM;
+            }
+        }
+    }
+}

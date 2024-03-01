@@ -3,6 +3,10 @@ import React from 'react';
 import {Meta, StoryFn} from '@storybook/react';
 
 import {yfmTransform} from '../../../../.storybook/utils';
+import CardLayout from '../../../blocks/CardLayout/CardLayout';
+import {BlockBase} from '../../../components';
+import {ConstructorRow} from '../../../containers/PageConstructor/components/ConstructorRow';
+import {Grid} from '../../../grid';
 import {LayoutItemProps} from '../../../models';
 import LayoutItem from '../LayoutItem';
 
@@ -32,11 +36,43 @@ const WithIconTemplate: StoryFn<LayoutItemProps> = (args) => (
     </div>
 );
 
+const ControlPositionTemplate: StoryFn<LayoutItemProps> = (args) => (
+    <Grid>
+        <ConstructorRow>
+            <BlockBase>
+                <CardLayout title={data.cardLayout.contentTitle} animated={false}>
+                    {data.cardLayout.items.map((item, index) => (
+                        <LayoutItem
+                            key={index}
+                            {...(item as Partial<LayoutItemProps>)}
+                            {...args}
+                            controlPosition="content"
+                        />
+                    ))}
+                </CardLayout>
+            </BlockBase>
+            <BlockBase>
+                <CardLayout title={data.cardLayout.footerTitle} animated={false}>
+                    {data.cardLayout.items.map((item, index) => (
+                        <LayoutItem
+                            key={index}
+                            {...(item as Partial<LayoutItemProps>)}
+                            {...args}
+                            controlPosition="footer"
+                        />
+                    ))}
+                </CardLayout>
+            </BlockBase>
+        </ConstructorRow>
+    </Grid>
+);
+
 export const Default = DefaultTemplate.bind({});
 export const Fullscreen = DefaultTemplate.bind({});
 export const MetaInfo = DefaultTemplate.bind({});
 export const Youtube = DefaultTemplate.bind({});
 export const WithIcon = WithIconTemplate.bind({});
+export const ControlPosition = ControlPositionTemplate.bind({});
 
 const DefaultArgs = {
     ...data.default.content,
@@ -58,4 +94,14 @@ WithIcon.args = {
     ...DefaultArgs,
     media: undefined,
     icon: data.withIcon.iconTop as LayoutItemProps['icon'],
+};
+
+ControlPosition.argTypes = {
+    content: {table: {disable: true}},
+    media: {table: {disable: true}},
+    metaInfo: {table: {disable: true}},
+    icon: {table: {disable: true}},
+    className: {table: {disable: true}},
+    controlPosition: {table: {disable: true}},
+    analyticsEvents: {table: {disable: true}},
 };
