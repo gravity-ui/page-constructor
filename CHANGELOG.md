@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [4.56.0](https://github.com/gravity-ui/page-constructor/compare/v4.55.0...v4.56.0) (2024-03-01)
+
+
+### Features
+
+* **SubBlocks:** add possibility to position controls within cards at footer ([#823](https://github.com/gravity-ui/page-constructor/issues/823)) ([7e3dc0b](https://github.com/gravity-ui/page-constructor/commit/7e3dc0b68ac046f29890608a8519ba3ee0d43a0f))
+
 ## [4.55.0](https://github.com/gravity-ui/page-constructor/compare/v4.54.0...v4.55.0) (2024-02-28)
 
 
