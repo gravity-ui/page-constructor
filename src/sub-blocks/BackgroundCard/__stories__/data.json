@@ -121,7 +121,7 @@
   "cardLayout": {
     "contentTitle": "With controlPosition = content",
     "footerTitle": "With controlPosition = footer",
-    "footerDescription": "Please note that the controlPosition prop manages the position of buttons and links only when paddingBottom = default.",
+    "footerDescription": "Please note that the <code>controlPosition</code> prop manages the position of buttons and links only when <code>paddingBottom = default</code>.",
     "items": [
       {
         "title": "Lorem ipsumt",
