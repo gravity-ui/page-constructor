@@ -1,6 +1,17 @@
 # Changelog
 
 
+## [5.0.0](https://github.com/gravity-ui/page-constructor/compare/v4.56.0...v5.0.0) (2024-03-04)
+
+
+### ⚠ BREAKING CHANGES
+
+* version 5 ([#808](https://github.com/gravity-ui/page-constructor/issues/808))
+
+### Features
+
+* version 5 ([#808](https://github.com/gravity-ui/page-constructor/issues/808)) ([4d63237](https://github.com/gravity-ui/page-constructor/commit/4d632370d83fb76f904ad41174cbf884f7d887a2))
+
 ## [4.56.0](https://github.com/gravity-ui/page-constructor/compare/v4.55.0...v4.56.0) (2024-03-01)
 
 
