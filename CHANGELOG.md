@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [4.56.1](https://github.com/gravity-ui/page-constructor/compare/v4.56.0...v4.56.1) (2024-03-04)
+
+
+### Bug Fixes
+
+* **BackgroundCard:** update stories data ([#847](https://github.com/gravity-ui/page-constructor/issues/847)) ([9222bcf](https://github.com/gravity-ui/page-constructor/commit/9222bcf406075dd7d1a3e50d7fff8d5a972bac15))
+* **Content:** revert renderСontentControls adding ([#840](https://github.com/gravity-ui/page-constructor/issues/840)) ([#844](https://github.com/gravity-ui/page-constructor/issues/844)) ([5168f8c](https://github.com/gravity-ui/page-constructor/commit/5168f8cfb2cfe15fe49c8e24ad72df40e8e5429e))
+
 ## [4.56.0](https://github.com/gravity-ui/page-constructor/compare/v4.55.0...v4.56.0) (2024-03-01)
 
 
