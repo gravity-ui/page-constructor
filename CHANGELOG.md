@@ -1,6 +1,30 @@
 # Changelog
 
 
+## [5.0.0](https://github.com/gravity-ui/page-constructor/compare/v4.56.0...v5.0.0) (2024-03-04)
+
+
+### ⚠ BREAKING CHANGES
+
+* now we are using the `i18n` instance from uikit instead of the internal one, you only need one installation and configuration from uikit in your application ([#804](https://github.com/gravity-ui/page-constructor/pull/804))
+* updated `uikit` up to v6 ([#824](https://github.com/gravity-ui/page-constructor/pull/824))
+* use `diplodoc-platform/transform` instead `doc-tools/transform` ([#813](https://github.com/gravity-ui/page-constructor/pull/813))
+* All the props from metrikaGoals and pixelEvents have been deleted, their helpers and lists have been deleted. Cleaned up calls to metric methods. Instead of all that, now AnalyticsEvents ([#814](https://github.com/gravity-ui/page-constructor/pull/814))
+* icons have been removed from the export and also replaced some icons with icons from gravity-ui/icons ([#830](https://github.com/gravity-ui/page-constructor/pull/830))
+
+| Component                        | /icons                            |  @gravity-ui/icons/             | 
+|:---------------------------------| :---------------------------------|:--------------------------------|
+| BackLink                         | ArrowSidebar                      | ArrowLeft                       |
+| FullscreenImage, FullscreenMedia | Fullscreen, PreviewClose          | ChevronsExpandUpRight, Xmark    |
+| Link                             | Chevron                           | ChevronRight                    |
+| ReactPlayer, VideoBlock          | VolumeFill, VolumeXmark, PlayVideo| Mute, Unmute, PlayFill          |
+| Table                            | Tick, Minus                       | Check, Minus                    |
+| navigation                       | Xmark, Bars                       | NavigationClose, NavigationOpen |
+
+### Features
+
+* now `PriceDetailed` is deprecated ([#820](https://github.com/gravity-ui/page-constructor/pull/820)
+
 ## [4.56.0](https://github.com/gravity-ui/page-constructor/compare/v4.55.0...v4.56.0) (2024-03-01)
 
 
