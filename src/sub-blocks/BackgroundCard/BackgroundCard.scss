@@ -55,6 +55,15 @@ $block: '.#{$ns}background-card';
             object-position: left;
         }
     }
+
+    &__footer {
+        margin-top: 0px;
+    }
+
+    &__links,
+    &__buttons {
+        margin-top: $indentXS;
+    }
 }
 
 a#{$block} {
