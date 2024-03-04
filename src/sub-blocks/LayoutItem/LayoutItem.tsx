@@ -1,4 +1,4 @@
-import React, {Fragment, useMemo} from 'react';
+import React, {useMemo} from 'react';
 
 import {useUniqId} from '@gravity-ui/uikit';
 
@@ -66,16 +66,11 @@ const LayoutItem = ({
                     <Content {...contentProps} titleId={titleId} />
                 </IconWrapper>
             </div>
-            {areControlsInFooter && (links || buttons) && (
-                <Fragment>
-                    <Links className={b('links')} size="s" links={links} titleId={titleId} />
-                    <Buttons
-                        className={b('buttons')}
-                        size="s"
-                        buttons={buttons}
-                        titleId={titleId}
-                    />
-                </Fragment>
+            {areControlsInFooter && links && (
+                <Links className={b('links')} size="s" links={links} titleId={titleId} />
+            )}
+            {areControlsInFooter && buttons && (
+                <Buttons className={b('buttons')} size="s" buttons={buttons} titleId={titleId} />
             )}
         </div>
     );
