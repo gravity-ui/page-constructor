@@ -1,14 +1,12 @@
-import React, {useMemo} from 'react';
+import React from 'react';
 
 import {useUniqId} from '@gravity-ui/uikit';
 
-import {BackgroundImage, CardBase} from '../../components/';
+import {BackgroundImage, Buttons, CardBase, Links} from '../../components/';
 import {useTheme} from '../../context/theme';
 import {BackgroundCardProps} from '../../models';
 import {block, getThemedValue} from '../../utils';
-import renderContentControls from '../../utils/renderContentControls/renderContentControls';
 import Content from '../Content/Content';
-import renderCardFooterControlsContainer from '../renderCardFooterControlsContainer/renderCardFooterControlsContainer';
 
 import './BackgroundCard.scss';
 
@@ -39,20 +37,6 @@ const BackgroundCard = (props: BackgroundCardProps) => {
     const borderType = hasBackgroundColor ? 'none' : border;
     const areControlsInFooter = !paddingBottom && controlPosition === 'footer';
 
-    const footerControls = useMemo(
-        () =>
-            renderContentControls(
-                {
-                    links: areControlsInFooter ? links : undefined,
-                    buttons: areControlsInFooter ? buttons : undefined,
-                    size: 's',
-                    titleId,
-                },
-                renderCardFooterControlsContainer,
-            ),
-        [areControlsInFooter, links, buttons, titleId],
-    );
-
     return (
         <CardBase
             className={b({padding: paddingBottom, theme: cardTheme})}
@@ -79,7 +63,17 @@ const BackgroundCard = (props: BackgroundCardProps) => {
                     colSizes={{all: 12, md: 12}}
                 />
             </CardBase.Content>
-            {footerControls}
+            {areControlsInFooter && (links || buttons) && (
+                <CardBase.Footer>
+                    <Links className={b('links')} size="s" links={links} titleId={titleId} />
+                    <Buttons
+                        className={b('buttons')}
+                        size="s"
+                        buttons={buttons}
+                        titleId={titleId}
+                    />
+                </CardBase.Footer>
+            )}
         </CardBase>
     );
 };
