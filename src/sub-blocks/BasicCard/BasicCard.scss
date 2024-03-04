@@ -7,4 +7,13 @@ $block: '.#{$ns}basic-card';
     @include add-specificity(&) {
         min-height: auto;
     }
+
+    &__footer {
+        margin-top: 0px;
+    }
+
+    &__links,
+    &__buttons {
+        margin-top: $indentXS;
+    }
 }
