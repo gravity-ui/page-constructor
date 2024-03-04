@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [5.0.1](https://github.com/gravity-ui/page-constructor/compare/v5.0.0...v5.0.1) (2024-03-04)
+
+
+### Bug Fixes
+
+* **Content:** revert renderСontentControls adding ([#840](https://github.com/gravity-ui/page-constructor/issues/840)) ([bce23b3](https://github.com/gravity-ui/page-constructor/commit/bce23b347623fa4a1503f75b288e31bc9f56a62a))
+
 ## [5.0.0](https://github.com/gravity-ui/page-constructor/compare/v4.56.0...v5.0.0) (2024-03-04)
 
 
