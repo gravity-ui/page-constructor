@@ -1,12 +1,11 @@
 import {ClassNameProps, QuoteType} from '../../models';
 import {ThemeSupporting} from '../../utils';
 import {HubspotEventData, HubspotEventHandlers} from '../../utils/hubspot';
-import {AnalyticsEventsBase, PixelEvent} from '../common';
+import {AnalyticsEventsBase} from '../common';
 
 import {ContentBlockProps} from './blocks';
 import {
     AuthorItem,
-    ButtonPixel,
     ButtonProps,
     CardBaseProps,
     CardLayoutProps,
@@ -101,7 +100,6 @@ export interface HubspotFormProps extends HubspotEventHandlers, AnalyticsEventsB
      * To use this handler for component that is rendered in iframe, set up useLoopBackHubspotEvents hook on top level frame
      */
     onLoad?: (arg: HubspotEventData) => void;
-    pixelEvents?: string | string[] | PixelEvent | PixelEvent[] | ButtonPixel;
     hubspotEvents?: string[];
     createDOMElement?: boolean;
 }
@@ -215,6 +213,7 @@ export type BackgroundCardModel = {
     type: SubBlockType.BackgroundCard;
 } & BackgroundCardProps;
 
+/** @deprecated */
 export type PriceDetailedModel = {
     type: SubBlockType.PriceDetailed;
 } & PriceDetailedProps;

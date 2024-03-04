@@ -1,15 +1,13 @@
 import React, {useMemo} from 'react';
 
-import {Pause, Play, VolumeLow, VolumeXmark} from '@gravity-ui/icons';
+import {Pause, Play, VolumeFill, VolumeLow, VolumeXmark} from '@gravity-ui/icons';
 import {Icon} from '@gravity-ui/uikit';
 
-import {Mute} from '../../icons/Mute';
-import {Unmute} from '../../icons/Unmute';
 import {ClassNameProps, CustomControlsOptions, CustomControlsType} from '../../models';
 import {block} from '../../utils';
 
 import CircleProgress from './CircleProgress';
-import i18n from './i18n';
+import {i18n} from './i18n';
 
 import './CustomBarControls.scss';
 
@@ -24,11 +22,11 @@ const pauseIconsMap = {
     [CustomControlsType.WithPlayPauseButton]: Pause,
 };
 const muteIconsMap = {
-    [CustomControlsType.WithMuteButton]: Mute,
+    [CustomControlsType.WithMuteButton]: VolumeFill,
     [CustomControlsType.WithPlayPauseButton]: VolumeLow,
 };
 const unmuteIconsMap = {
-    [CustomControlsType.WithMuteButton]: Unmute,
+    [CustomControlsType.WithMuteButton]: VolumeXmark,
     [CustomControlsType.WithPlayPauseButton]: VolumeXmark,
 };
 

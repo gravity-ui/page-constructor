@@ -8,7 +8,6 @@ import {
 } from '../../models';
 
 import {AnalyticsEventSchema} from './event';
-import {pixelEvents} from './pixel';
 
 export const mediaDirection = ['media-content', 'content-media'];
 export const textSize = ['s', 'm', 'l'];
@@ -422,36 +421,6 @@ export const ButtonProps = {
             },
         ],
     },
-    /**
-     * @deprecated Metrika will be deleted
-     */
-    metrikaGoals: {
-        oneOf: [
-            {type: 'string', optionName: 'single'},
-            {type: 'array', items: {type: 'string'}, optionName: 'list'},
-            {
-                type: 'array',
-                items: {
-                    type: 'object',
-                    additionalProperties: false,
-                    required: ['name'],
-                    properties: {
-                        name: {
-                            type: 'string',
-                        },
-                        isCrossSite: {
-                            type: 'boolean',
-                        },
-                    },
-                },
-                optionName: 'list-extended',
-            },
-        ],
-    },
-    /**
-     * @deprecated Pixel will be deleted
-     */
-    pixelEvents,
     analyticsEvents: {
         oneOf: [
             {...AnalyticsEventSchema, optionName: 'single'},

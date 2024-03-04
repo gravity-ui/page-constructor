@@ -1,11 +1,11 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-not-accumulator-reassign/no-not-accumulator-reassign */
-import {MarkdownItPluginCb} from '@doc-tools/transform/lib/plugins/typings';
+import {MarkdownItPluginCb} from '@diplodoc/transform/lib/plugins/typings';
+import {Lang} from '@gravity-ui/uikit';
 import cloneDeep from 'lodash/cloneDeep';
 import shuffle from 'lodash/shuffle';
 
 import {ConstructorBlock, PageContent} from '../models/constructor';
-import {Lang} from '../utils/configure';
 
 import {Transformer} from './common';
 import {BlocksConfig, config} from './config';
@@ -17,7 +17,7 @@ export type ContentTransformerProps = {
         blocks?: ConstructorBlock[];
     };
     options: {
-        lang: Lang;
+        lang: `${Lang}`;
         customConfig?: {};
         vars?: ContentVariables;
         plugins?: MarkdownItPluginCb[];
@@ -26,7 +26,7 @@ export type ContentTransformerProps = {
 
 function transformBlocks(
     blocks: ConstructorBlock[],
-    lang: Lang,
+    lang: `${Lang}`,
     customConfig = {},
     options: {plugins?: MarkdownItPluginCb[]} = {},
 ) {
@@ -39,7 +39,7 @@ function transformBlocks(
 }
 
 function transformBlock(
-    lang: Lang,
+    lang: `${Lang}`,
     blocksConfig: BlocksConfig,
     block: ConstructorBlock,
     plugins: MarkdownItPluginCb[],

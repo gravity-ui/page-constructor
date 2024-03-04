@@ -1,16 +1,16 @@
 import React, {useCallback, useEffect, useRef, useState} from 'react';
 
+import {PlayFill} from '@gravity-ui/icons';
 import {Icon} from '@gravity-ui/uikit';
 import debounce from 'lodash/debounce';
 import {v4 as uuidv4} from 'uuid';
 
 import {useAnalytics} from '../../hooks/useAnalytics';
-import {PlayVideo} from '../../icons';
 import {AnalyticsEventsBase, DefaultEventNames} from '../../models/common';
 import {block, getPageSearchParams} from '../../utils';
 import Image from '../Image/Image';
 
-import i18n from './i18n';
+import {i18n} from './i18n';
 
 import './VideoBlock.scss';
 
@@ -162,7 +162,7 @@ const VideoBlock = (props: VideoBlockProps) => {
                     />
                     {playButton || (
                         <button title="Play" className={b('button')}>
-                            <Icon className={b('icon')} data={PlayVideo} size={24} />
+                            <Icon className={b('icon')} data={PlayFill} size={24} />
                         </button>
                     )}
                 </div>

@@ -1,9 +1,9 @@
 import React from 'react';
 
+import {Check, Minus} from '@gravity-ui/icons';
 import {Icon} from '@gravity-ui/uikit';
 
 import {HTML, YFMWrapper} from '../';
-import {Minus, Tick} from '../../icons';
 import {ClassNameProps, Justify, LegendTableMarkerType, TableProps} from '../../models';
 import {block} from '../../utils';
 
@@ -63,7 +63,13 @@ export default class Table extends React.Component<TableProps & ClassNameProps> 
                 aria-labelledby={getMarkerId(Number(cell))}
                 className={b('marker', {type, index: String(cell)})}
             >
-                {type === 'tick' ? <Icon data={Number(cell) === 1 ? Tick : Minus} /> : null}
+                {type === 'tick' ? (
+                    <Icon
+                        size={20}
+                        className={b('marker_tick', {check: Number(cell) === 1})}
+                        data={Number(cell) === 1 ? Check : Minus}
+                    />
+                ) : null}
             </div>
         );
     }

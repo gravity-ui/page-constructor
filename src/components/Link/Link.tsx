@@ -1,12 +1,11 @@
 import React, {Fragment, useContext} from 'react';
 
+import {ChevronRight} from '@gravity-ui/icons';
 import {Icon} from '@gravity-ui/uikit';
 
 import {LocaleContext} from '../../context/localeContext';
 import {LocationContext} from '../../context/locationContext';
 import {useAnalytics} from '../../hooks';
-import {useMetrika} from '../../hooks/useMetrika';
-import {Chevron} from '../../icons';
 import {
     ClassNameProps,
     DefaultEventNames,
@@ -46,8 +45,6 @@ const LinkBlock = (props: WithChildren<LinkFullProps>) => {
         text,
         url,
         arrow,
-        metrikaGoals,
-        pixelEvents,
         analyticsEvents,
         theme = 'file-link',
         colorTheme = 'light',
@@ -62,7 +59,6 @@ const LinkBlock = (props: WithChildren<LinkFullProps>) => {
     } = props;
     const qaAttributes = getQaAttrubutes(qa, ['normal']);
 
-    const handleMetrika = useMetrika();
     const handleAnalytics = useAnalytics(DefaultEventNames.Link, url);
     const {hostname} = useContext(LocationContext);
     const {tld} = useContext(LocaleContext);
@@ -70,7 +66,6 @@ const LinkBlock = (props: WithChildren<LinkFullProps>) => {
     const defaultTextSize = theme === 'back' ? 'l' : 'm';
 
     const onClick = () => {
-        handleMetrika({metrikaGoals, pixelEvents});
         handleAnalytics(analyticsEvents);
     };
 
@@ -120,7 +115,7 @@ const LinkBlock = (props: WithChildren<LinkFullProps>) => {
                                 {WORD_JOINER_SYM}
                                 <Icon
                                     className={b('arrow')}
-                                    data={Chevron}
+                                    data={ChevronRight}
                                     size={getArrowSize(textSize)}
                                 />
                             </Fragment>

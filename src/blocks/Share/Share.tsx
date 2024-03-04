@@ -12,7 +12,7 @@ import {Vk} from '../../icons/Vk';
 import {DefaultEventNames, ShareBlockProps} from '../../models';
 import {block, getAbsolutePath, getShareLink} from '../../utils';
 
-import i18n from './i18n';
+import {i18n} from './i18n';
 
 import './Share.scss';
 

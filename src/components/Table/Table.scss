@@ -70,6 +70,14 @@ $block: '.#{$ns}table';
                 border: 1px solid var(--g-color-text-hint);
             }
         }
+
+        &_tick {
+            color: var(--g-color-base-generic-medium);
+
+            &_check {
+                color: var(--g-color-base-brand);
+            }
+        }
     }
 
     &__legend {

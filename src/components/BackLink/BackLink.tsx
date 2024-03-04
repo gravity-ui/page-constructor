@@ -1,10 +1,10 @@
 import React, {HTMLProps, ReactNode, useCallback, useContext} from 'react';
 
+import {ArrowLeft} from '@gravity-ui/icons';
 import {Button, ButtonSize, Icon} from '@gravity-ui/uikit';
 
 import {LocationContext} from '../../context/locationContext';
 import {useAnalytics} from '../../hooks';
-import {ArrowSidebar} from '../../icons';
 import {DefaultEventNames, Tabbable} from '../../models';
 
 export type Theme = 'default' | 'special';
@@ -63,7 +63,7 @@ export default function BackLink(props: BackLinkProps) {
             tabIndex={tabIndex}
             extraProps={extraProps}
         >
-            <Icon data={ArrowSidebar} size={24} />
+            <Icon data={ArrowLeft} size={20} />
             <span>{title}</span>
         </Button>
     );

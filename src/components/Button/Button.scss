@@ -4,7 +4,7 @@
 $block: '.#{$ns}button-block';
 
 #{$block} {
-    --yc-button-outline-color: var(--g-color-line-focus);
+    --g-button-focus-outline-color: var(--g-color-line-focus);
 
     &__content {
         display: flex;

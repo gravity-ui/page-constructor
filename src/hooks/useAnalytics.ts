@@ -2,7 +2,7 @@ import {useContext, useMemo} from 'react';
 
 import {AnalyticsContext} from '../context/analyticsContext';
 import {BlockIdContext} from '../context/blockIdContext';
-import {AnalyticsEvent, PredefinedEventTypes} from '../models';
+import {AnalyticsEvent, AnalyticsEventsProp, PredefinedEventTypes} from '../models';
 
 export const useAnalytics = (name = '', target?: string) => {
     const {sendEvents, autoEvents} = useContext(AnalyticsContext);
@@ -26,10 +26,7 @@ export const useAnalytics = (name = '', target?: string) => {
 
     const defaultEvents = defaultEvent && autoEvents ? [defaultEvent] : [];
 
-    return (
-        e?: AnalyticsEvent | AnalyticsEvent[] | null,
-        additionalContext?: Record<string, string>,
-    ) => {
+    return (e?: AnalyticsEventsProp | null, additionalContext?: Record<string, string>) => {
         let events: AnalyticsEvent[] = defaultEvents;
 
         if (e) {

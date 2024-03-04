@@ -5,7 +5,7 @@ import {SVGIconData} from '@gravity-ui/uikit/build/esm/components/Icon/types';
 
 import {block} from '../../utils';
 
-import i18n from './i18n';
+import {i18n} from './i18n';
 
 import './Control.scss';
 

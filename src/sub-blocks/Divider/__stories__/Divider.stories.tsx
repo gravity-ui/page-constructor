@@ -1,8 +1,8 @@
 import React from 'react';
 
-import yfm from '@doc-tools/transform';
 import {Meta, StoryFn} from '@storybook/react';
 
+import {yfmTransform} from '../../../../.storybook/utils';
 import {Title} from '../../../components';
 import {BasicCardProps, DividerSize} from '../../../models';
 import BasicCard from '../../BasicCard/BasicCard';
@@ -47,7 +47,7 @@ export const Sizes = SizesTemplate.bind({});
 
 const DefaultArgs = {
     ...data.default.content,
-    text: yfm(data.default.content.text).result.html,
+    text: yfmTransform(data.default.content.text),
 };
 
 Default.args = {

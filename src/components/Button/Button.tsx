@@ -5,12 +5,11 @@ import {Button as CommonButton, Icon, Platform} from '@gravity-ui/uikit';
 
 import {LocaleContext} from '../../context/localeContext/localeContext';
 import {useAnalytics} from '../../hooks';
-import {useMetrika} from '../../hooks/useMetrika';
 import {Github} from '../../icons';
 import {ButtonProps as ButtonParams, DefaultEventNames, QAProps} from '../../models';
 import {block, setUrlTld} from '../../utils';
 
-import i18n from './i18n';
+import {i18n} from './i18n';
 import {ICON_QA, OldButtonSize, OldButtonTheme, toCommonSize, toCommonView} from './utils';
 
 import './Button.scss';
@@ -24,12 +23,9 @@ export interface ButtonProps extends Omit<ButtonParams, 'url'>, QAProps {
 const b = block('button-block');
 
 const Button = (props: ButtonProps) => {
-    const handleMetrika = useMetrika();
     const {tld} = useContext(LocaleContext);
     const {
         className,
-        metrikaGoals,
-        pixelEvents,
         analyticsEvents,
         size = 'l',
         theme = 'normal',
@@ -45,14 +41,13 @@ const Button = (props: ButtonProps) => {
     const handleAnalytics = useAnalytics(DefaultEventNames.Button, url);
     const onClick = useCallback(
         (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => {
-            handleMetrika({metrikaGoals, pixelEvents});
             handleAnalytics(analyticsEvents);
 
             if (onClickOrigin) {
                 onClickOrigin(e);
             }
         },
-        [handleMetrika, metrikaGoals, pixelEvents, handleAnalytics, analyticsEvents, onClickOrigin],
+        [handleAnalytics, analyticsEvents, onClickOrigin],
     );
 
     const buttonModifiers = {size, theme, width};
@@ -74,7 +69,7 @@ const Button = (props: ButtonProps) => {
     if (theme === 'app-store' || theme === 'google-play') {
         const platform = theme === 'app-store' ? Platform.IOS : Platform.ANDROID;
 
-        return <StoreBadge className={buttonClass} platform={platform} href={url} />;
+        return <StoreBadge className={buttonClass} platform={platform} href={url as string} />;
     }
 
     let icon;

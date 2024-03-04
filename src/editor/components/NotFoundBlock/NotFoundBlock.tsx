@@ -4,7 +4,7 @@ import {BlockBase} from '../../../components';
 import {BlockDecorationProps} from '../../../models';
 import {block} from '../../../utils';
 
-import i18n from './i18n';
+import {i18n} from './i18n';
 
 import './NotFoundBlock.scss';
 
