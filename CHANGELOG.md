@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [5.1.0](https://github.com/gravity-ui/page-constructor/compare/v5.0.1...v5.1.0) (2024-03-05)
+
+
+### Features
+
+* update i18n pkg ([#849](https://github.com/gravity-ui/page-constructor/issues/849)) ([6a84f27](https://github.com/gravity-ui/page-constructor/commit/6a84f27b75a3c544d735b4770ab0bab3cb1ac4ac))
+
 ## [5.0.1](https://github.com/gravity-ui/page-constructor/compare/v5.0.0...v5.0.1) (2024-03-04)
 
 
