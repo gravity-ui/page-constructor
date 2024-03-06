@@ -7,7 +7,7 @@
 3. Writing a test:
 
    > NOTE:
-   > Add `defaultDelay` between mounting and testing routine in every test. It is necessary because of animation in our package.
+   > Add `await defaultDelay()` between mounting and testing routine in every test with animation. It is necessary because of testing during animation in progress is unstable.
 
    Capture a screenshot, by default in light theme only:
 
