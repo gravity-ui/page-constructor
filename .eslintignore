@@ -6,3 +6,5 @@ node_modules
 /configure
 /coverage
 /widget
+
+/playwright/playwright/.cache/

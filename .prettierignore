@@ -14,5 +14,7 @@ CONTRIBUTING.md
 /coverage
 /widget
 
+/playwright/playwright/.cache/
+
 # npm files
 package.json
