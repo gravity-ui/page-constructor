@@ -44,6 +44,9 @@ const BackgroundMedia = ({
                     video: isMobile ? undefined : video,
                     ...props,
                 }}
+                // ISSUE-853 https://github.com/gravity-ui/page-constructor/issues/853
+                // temporal solution for Safari 17
+                shouldPreload={false}
             />
         </AnimateBlock>
     );

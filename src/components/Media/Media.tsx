@@ -19,6 +19,9 @@ export interface MediaAllProps extends MediaProps, VideoAdditionProps, ImageAddi
     youtubeClassName?: string;
     autoplay?: boolean;
     onImageLoad?: () => void;
+    // ISSUE-853 https://github.com/gravity-ui/page-constructor/issues/853
+    // temporal solution for Safari 17
+    shouldPreload?: boolean;
 }
 
 export const Media = (props: MediaAllProps) => {
@@ -47,6 +50,9 @@ export const Media = (props: MediaAllProps) => {
         onImageLoad,
         iframe,
         margins,
+        // ISSUE-853 https://github.com/gravity-ui/page-constructor/issues/853
+        // temporal solution for Safari 17
+        shouldPreload,
     } = props;
 
     const [hasVideoFallback, setHasVideoFallback] = useState(false);
@@ -88,11 +94,16 @@ export const Media = (props: MediaAllProps) => {
                 hasVideoFallback,
                 setHasVideoFallback,
                 ratio,
+                // ISSUE-853 https://github.com/gravity-ui/page-constructor/issues/853
+                // temporal solution for Safari 17
+                shouldPreload,
             };
 
             if (fullscreen) {
                 result.push(<FullscreenVideo {...videoProps} qa={qaAttributes.video} />);
             } else {
+                // ISSUE-853 https://github.com/gravity-ui/page-constructor/issues/853
+                // temporal solution for Safari 17
                 result.push(<Video {...videoProps} qa={qaAttributes.video} />);
             }
         }
@@ -144,6 +155,9 @@ export const Media = (props: MediaAllProps) => {
         playButton,
         customBarControlsClassName,
         ratio,
+        // ISSUE-853 https://github.com/gravity-ui/page-constructor/issues/853
+        // temporal solution for Safari 17
+        shouldPreload,
         youtubeClassName,
         autoplay,
         margins,

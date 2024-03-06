@@ -16,11 +16,14 @@ interface DefaultVideoProps {
     qa?: string;
     customBarControlsClassName?: string;
     className?: string;
+    // ISSUE-853 https://github.com/gravity-ui/page-constructor/issues/853
+    // temporal solution for Safari 17
+    shouldPreload?: boolean;
 }
 
 export const DefaultVideo = React.forwardRef<DefaultVideoRefType, DefaultVideoProps>(
     (props, ref) => {
-        const {video, qa, customBarControlsClassName} = props;
+        const {video, qa, customBarControlsClassName, shouldPreload = true} = props;
         const {controls, customControlsOptions, muted: initiallyMuted = true} = video;
         const {
             muteButtonShown,
@@ -79,7 +82,9 @@ export const DefaultVideo = React.forwardRef<DefaultVideoRefType, DefaultVideoPr
                     pip="false"
                     className={b()}
                     ref={videoRef}
-                    preload="metadata"
+                    // ISSUE-853 https://github.com/gravity-ui/page-constructor/issues/853
+                    // temporal solution for Safari 17
+                    preload={shouldPreload ? 'metadata' : undefined}
                     muted={isMuted}
                     aria-label={video.ariaLabel}
                     onClick={onClick}
