@@ -57,8 +57,7 @@ const config: PlaywrightTestConfig = {
             resolve: {
                 alias: {
                     '~@gravity-ui/uikit/styles/styles.css': '@gravity-ui/uikit/styles/styles.css',
-                    '~@doc-tools/transform/dist/css/yfm.css':
-                        '@doc-tools/transform/dist/css/yfm.css',
+                    '~@diplodoc/transform/dist/css/yfm.css': '@diplodoc/transform/dist/css/yfm.css',
                 },
             },
         },
