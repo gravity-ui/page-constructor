@@ -77,7 +77,13 @@
     "prepare": "husky install",
     "test": "jest",
     "test:coverage": "jest --coverage",
-    "test:watch": "jest --watchAll"
+    "test:watch": "jest --watchAll",
+    "playwright": "playwright test --config=playwright/playwright.config.ts",
+    "playwright:update": "npm run playwright -- -u",
+    "playwright:docker": "./scripts/playwright-docker.sh 'npm run playwright'",
+    "playwright:docker:update": "./scripts/playwright-docker.sh 'npm run playwright:update'",
+    "playwright:docker:clear-cache": "./scripts/playwright-docker.sh clear-cache",
+    "playwright:install": "playwright install --with-deps"
   },
   "dependencies": {
     "@bem-react/classname": "^1.6.0",
@@ -123,6 +129,8 @@
     "@gravity-ui/stylelint-config": "^1.0.0",
     "@gravity-ui/tsconfig": "^1.0.0",
     "@gravity-ui/uikit": "^6.2.0",
+    "@playwright/experimental-ct-react": "^1.38.1",
+    "@playwright/test": "^1.38.1",
     "@storybook/addon-actions": "^7.6.17",
     "@storybook/addon-essentials": "^7.6.17",
     "@storybook/addon-knobs": "^7.0.2",

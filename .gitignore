@@ -18,3 +18,7 @@ node_modules
 *.tgz
 .env
 .env.development
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/playwright/.cache/

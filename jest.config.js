@@ -26,5 +26,6 @@ module.exports = {
         '<rootDir>/build',
         '<rootDir>/server',
         '<rootDir>/.storybook',
+        '.visual.',
     ],
 };
