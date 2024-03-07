@@ -1,5 +1,15 @@
-import React, {Fragment, useCallback, useImperativeHandle, useRef, useState} from 'react';
+import React, {
+    Fragment,
+    useCallback,
+    useContext,
+    useImperativeHandle,
+    useRef,
+    useState,
+} from 'react';
 
+// ISSUE-853 https://github.com/gravity-ui/page-constructor/issues/853
+// temporal solution for Safari 17
+import {BlockPreloadVideoMetadataContext} from '../../context/blockPreloadVideoMetadataContext';
 import {CustomControlsType, MediaVideoControlsType, MediaVideoProps} from '../../models';
 import {block} from '../../utils';
 import {getVideoTypesWithPriority} from '../Media/Video/utils';
@@ -16,11 +26,14 @@ interface DefaultVideoProps {
     qa?: string;
     customBarControlsClassName?: string;
     className?: string;
+    // ISSUE-853 https://github.com/gravity-ui/page-constructor/issues/853
+    // temporal solution for Safari 17
+    shouldPreload?: boolean;
 }
 
 export const DefaultVideo = React.forwardRef<DefaultVideoRefType, DefaultVideoProps>(
     (props, ref) => {
-        const {video, qa, customBarControlsClassName} = props;
+        const {video, qa, customBarControlsClassName, shouldPreload = true} = props;
         const {controls, customControlsOptions, muted: initiallyMuted = true} = video;
         const {
             muteButtonShown,
@@ -30,6 +43,9 @@ export const DefaultVideo = React.forwardRef<DefaultVideoRefType, DefaultVideoPr
         const [isPaused, setIsPaused] = useState(false);
         const [isMuted, setIsMuted] = useState(initiallyMuted);
         const videoRef = useRef<HTMLVideoElement>(null);
+        // ISSUE-853 https://github.com/gravity-ui/page-constructor/issues/853
+        // temporal solution for Safari 17
+        const blockPreloadVideoMetadata = useContext(BlockPreloadVideoMetadataContext);
 
         // one may not use this hook and work with `ref` variable only, but
         // in this case one should support both function type and object type,
@@ -69,6 +85,15 @@ export const DefaultVideo = React.forwardRef<DefaultVideoRefType, DefaultVideoPr
             }
         }, [onPlayToggle, customControlsType]);
 
+        // ISSUE-853 https://github.com/gravity-ui/page-constructor/issues/853
+        // temporal solution for Safari 17
+        // eslint-disable-next-line no-nested-ternary
+        const preload = blockPreloadVideoMetadata
+            ? shouldPreload
+                ? 'metadata'
+                : undefined
+            : 'metadata';
+
         return (
             <Fragment>
                 <video
@@ -79,7 +104,9 @@ export const DefaultVideo = React.forwardRef<DefaultVideoRefType, DefaultVideoPr
                     pip="false"
                     className={b()}
                     ref={videoRef}
-                    preload="metadata"
+                    // ISSUE-853 https://github.com/gravity-ui/page-constructor/issues/853
+                    // temporal solution for Safari 17
+                    preload={preload}
                     muted={isMuted}
                     aria-label={video.ariaLabel}
                     onClick={onClick}

@@ -1,6 +1,12 @@
 import React, {useEffect, useMemo, useRef} from 'react';
 
-import {MediaComponentVideoProps, MediaVideoType, PlayButtonProps, QAProps} from '../../../models';
+import {
+    LoopProps,
+    MediaComponentVideoProps,
+    MediaVideoType,
+    PlayButtonProps,
+    QAProps,
+} from '../../../models';
 import {block, getQaAttrubutes} from '../../../utils';
 import {DefaultVideo} from '../../DefaultVideo/DefaultVideo';
 import ReactPlayerBlock from '../../ReactPlayer/ReactPlayer';
@@ -19,12 +25,27 @@ export interface VideoAdditionProps {
 interface InnerVideoProps {
     setHasVideoFallback: React.Dispatch<boolean>;
     hasVideoFallback: boolean;
+    // ISSUE-853 https://github.com/gravity-ui/page-constructor/issues/853
+    // temporal solution for Safari 17
+    shouldPreload?: boolean;
 }
 
 export type VideoAllProps = VideoAdditionProps &
     MediaComponentVideoProps &
     InnerVideoProps &
     QAProps;
+
+export const getShouldPreloadMetadata = (loop: boolean | LoopProps | undefined) => {
+    if (loop === undefined) {
+        return true;
+    }
+
+    if (typeof loop === 'boolean') {
+        return !loop;
+    }
+
+    return false;
+};
 
 const Video = (props: VideoAllProps) => {
     const {
@@ -40,6 +61,7 @@ const Video = (props: VideoAllProps) => {
         hasVideoFallback,
         qa,
         ratio,
+        shouldPreload,
     } = props;
 
     const qaAttributes = getQaAttrubutes(qa, 'source');
@@ -120,13 +142,24 @@ const Video = (props: VideoAllProps) => {
     ]);
 
     const defaultVideoBlock = useMemo(() => {
+        // ISSUE-853 https://github.com/gravity-ui/page-constructor/issues/853
+        // temporal solution for Safari 17
+        const shouldPreloadLocal = getShouldPreloadMetadata(video.loop);
+
         return video.src.length && !hasVideoFallback ? (
             <div
                 className={b('wrap', videoClassName)}
                 style={{height}}
                 data-qa={qaAttributes.default}
             >
-                <DefaultVideo ref={ref} video={video} qa={qaAttributes.source} />
+                <DefaultVideo
+                    ref={ref}
+                    video={video}
+                    qa={qaAttributes.source}
+                    // ISSUE-853 https://github.com/gravity-ui/page-constructor/issues/853
+                    // temporal solution for Safari 17
+                    shouldPreload={shouldPreload ? shouldPreloadLocal : shouldPreload}
+                />
             </div>
         ) : null;
     }, [
@@ -136,6 +169,9 @@ const Video = (props: VideoAllProps) => {
         height,
         qaAttributes.default,
         qaAttributes.source,
+        // ISSUE-853 https://github.com/gravity-ui/page-constructor/issues/853
+        // temporal solution for Safari 17
+        shouldPreload,
     ]);
 
     switch (video.type) {
