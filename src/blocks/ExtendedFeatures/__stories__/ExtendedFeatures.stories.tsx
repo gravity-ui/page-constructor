@@ -32,12 +32,10 @@ const DefaultTemplate: StoryFn<ExtendedFeaturesBlockModel> = (args) => (
 const extendedFeaturesItems = (items: ExtendedFeaturesItem[]) => {
     return items.map((item) => ({
         ...item,
-        list:
-            item.list &&
-            item.list.map((listItem) => ({
-                ...listItem,
-                text: listItem?.text && yfmTransform(listItem.text),
-            })),
+        list: item.list?.map((listItem) => ({
+            ...listItem,
+            text: listItem?.text && yfmTransform(listItem.text),
+        })),
         text: item.text && yfmTransform(item.text),
         additionalInfo: item.additionalInfo && yfmTransform(item.additionalInfo),
     }));
