@@ -28,12 +28,10 @@ const InnerForm: React.FC<InnerFormProps> = (props) => {
     if (isYandexDataForm(formData)) {
         const {onLoad, ...rest} = formData.yandex;
 
-        const contextProps = formsConfig as YandexFormsContextProps;
-
         return (
             <div className={className}>
                 <YandexForm
-                    {...contextProps}
+                    {...(formsConfig.yandex as YandexFormsContextProps | undefined)}
                     {...rest}
                     onLoad={() => {
                         onContentLoad();
@@ -45,9 +43,13 @@ const InnerForm: React.FC<InnerFormProps> = (props) => {
     }
 
     if (isHubspotDataForm(formData)) {
-        const contextProps = formsConfig as HubspotFormsContextProps;
-
-        return <HubspotForm createDOMElement={true} {...contextProps} {...formData.hubspot} />;
+        return (
+            <HubspotForm
+                createDOMElement={true}
+                {...(formsConfig.hubspot as HubspotFormsContextProps | undefined)}
+                {...formData.hubspot}
+            />
+        );
     }
 
     return null;

@@ -2,7 +2,11 @@ import React, {Fragment} from 'react';
 
 import {DEFAULT_THEME} from '../../components/constants';
 import {AnalyticsContext, AnalyticsContextProps} from '../../context/analyticsContext';
-import {FormsContext, FormsContextProps} from '../../context/formsContext/FormsContext';
+import {
+    DEFAULT_FORMS_CONTEXT_VALUE,
+    FormsContext,
+    FormsContextProps,
+} from '../../context/formsContext/FormsContext';
 import {ImageContext, ImageContextProps} from '../../context/imageContext';
 import {LocaleContext, LocaleContextProps} from '../../context/localeContext';
 import {LocationContext, LocationContextProps} from '../../context/locationContext';
@@ -41,7 +45,7 @@ export const PageConstructorProvider = (props: WithChildren<PageConstructorProvi
         theme = DEFAULT_THEME,
         children,
         image = {},
-        forms,
+        forms = DEFAULT_FORMS_CONTEXT_VALUE,
     } = props;
 
     /* eslint-disable react/jsx-key */
