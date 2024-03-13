@@ -1,5 +1,6 @@
-import React from 'react';
+import React, {useContext} from 'react';
 
+import {LocaleContext} from '../../../context/localeContext';
 import {MediaComponentDataLensProps} from '../../../models';
 import {block} from '../../../utils';
 
@@ -13,11 +14,12 @@ const b = block('media-component-data-lens');
 const DataLens = (props: MediaComponentDataLensProps) => {
     const {dataLens} = props;
     const dataLensData = unifyDataLensToObject(dataLens);
+    const locale = useContext(LocaleContext);
 
     return dataLens ? (
         <div className={b('wrap')}>
             <iframe
-                src={`https://datalens.yandex/${dataLensData.id}?_embedded=1&_theme=${dataLensData.theme}`}
+                src={`https://datalens.yandex/${dataLensData.id}?_embedded=1&_theme=${dataLensData.theme}&_lang=${locale.lang}`}
                 className={b('iframe')}
                 loading="lazy"
                 title={i18n('iframe-title')}
