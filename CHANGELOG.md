@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [5.3.0](https://github.com/gravity-ui/page-constructor/compare/v5.2.0...v5.3.0) (2024-03-13)
+
+
+### Features
+
+* add _lang param for DataLens iframe ([#859](https://github.com/gravity-ui/page-constructor/issues/859)) ([5ac5922](https://github.com/gravity-ui/page-constructor/commit/5ac59225dee253060fcdbcbaccf710e10192ecb2))
+
 ## [5.2.0](https://github.com/gravity-ui/page-constructor/compare/v5.1.0...v5.2.0) (2024-03-07)
 
 
