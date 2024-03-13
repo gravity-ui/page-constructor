@@ -2,6 +2,7 @@ import React, {Fragment} from 'react';
 
 import {DEFAULT_THEME} from '../../components/constants';
 import {AnalyticsContext, AnalyticsContextProps} from '../../context/analyticsContext';
+import {FormsContext, FormsContextProps} from '../../context/formsContext/FormsContext';
 import {ImageContext, ImageContextProps} from '../../context/imageContext';
 import {LocaleContext, LocaleContextProps} from '../../context/localeContext';
 import {LocationContext, LocationContextProps} from '../../context/locationContext';
@@ -24,6 +25,7 @@ export interface PageConstructorProviderProps {
     mapsContext?: MapsContextType;
     projectSettings?: ProjectSettingsContextProps;
     analytics?: AnalyticsContextProps;
+    forms?: FormsContextProps;
     image?: ImageContextProps;
 }
 
@@ -39,6 +41,7 @@ export const PageConstructorProvider = (props: WithChildren<PageConstructorProvi
         theme = DEFAULT_THEME,
         children,
         image = {},
+        forms,
     } = props;
 
     /* eslint-disable react/jsx-key */
@@ -51,6 +54,7 @@ export const PageConstructorProvider = (props: WithChildren<PageConstructorProvi
         <MobileContext.Provider value={Boolean(isMobile)} />,
         <MapsContext.Provider value={mapsContext} />,
         <AnalyticsContext.Provider value={analytics} />,
+        <FormsContext.Provider value={forms} />,
         <SSRContext.Provider value={{isServer: ssrConfig?.isServer}} />,
     ].reduceRight((prev, provider) => React.cloneElement(provider, {}, prev), children);
     /* eslint-enable react/jsx-key */

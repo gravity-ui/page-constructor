@@ -1,6 +1,11 @@
-import React, {useEffect} from 'react';
+import React, {useContext, useEffect} from 'react';
 
 import {YandexForm} from '..';
+import {
+    FormsContext,
+    HubspotFormsContextProps,
+    YandexFormsContextProps,
+} from '../../context/formsContext/FormsContext';
 import {FormBlockData, isHubspotDataForm, isYandexDataForm} from '../../models';
 import {HubspotForm} from '../../sub-blocks';
 
@@ -12,6 +17,7 @@ interface InnerFormProps {
 
 const InnerForm: React.FC<InnerFormProps> = (props) => {
     const {formData, onContentLoad, className} = props;
+    const formsConfig = useContext(FormsContext);
 
     useEffect(() => {
         if (isHubspotDataForm(formData)) {
@@ -21,9 +27,13 @@ const InnerForm: React.FC<InnerFormProps> = (props) => {
 
     if (isYandexDataForm(formData)) {
         const {onLoad, ...rest} = formData.yandex;
+
+        const contextProps = formsConfig as YandexFormsContextProps;
+
         return (
             <div className={className}>
                 <YandexForm
+                    {...contextProps}
                     {...rest}
                     onLoad={() => {
                         onContentLoad();
@@ -35,7 +45,9 @@ const InnerForm: React.FC<InnerFormProps> = (props) => {
     }
 
     if (isHubspotDataForm(formData)) {
-        return <HubspotForm createDOMElement={true} {...formData.hubspot} />;
+        const contextProps = formsConfig as HubspotFormsContextProps;
+
+        return <HubspotForm createDOMElement={true} {...contextProps} {...formData.hubspot} />;
     }
 
     return null;
