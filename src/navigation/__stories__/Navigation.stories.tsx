@@ -32,6 +32,7 @@ NavigationWithBorder.args = {
         header: {
             ...data.navigation.header,
             withBorder: true,
+            withBorderOnScroll: true,
         },
     } as NavigationData,
 };

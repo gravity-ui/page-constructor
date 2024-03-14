@@ -92,6 +92,7 @@ export interface HeaderData {
     rightItems?: NavigationItemModel[];
     iconSize?: number;
     withBorder?: boolean;
+    withBorderOnScroll?: boolean;
 }
 
 export interface FooterColumn {
