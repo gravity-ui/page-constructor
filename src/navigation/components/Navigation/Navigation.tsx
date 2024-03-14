@@ -49,7 +49,7 @@ export const Navigation: React.FC<NavigationProps> = ({data, logo, className}) =
     const onSidebarOpenedChange = (isOpen: boolean) => setIsSidebarOpened(isOpen);
 
     useEffect(() => {
-        if (!withBorderOnScroll) return;
+        if (!withBorderOnScroll) return () => {};
 
         const showBorderOnScroll = () => {
             if (!showBorder) {
