@@ -20,7 +20,13 @@ export interface NavigationProps extends ClassNameProps {
 }
 
 export const Navigation: React.FC<NavigationProps> = ({data, logo, className}) => {
-    const {leftItems, rightItems, iconSize = 20, withBorder = false} = data;
+    const {
+        leftItems,
+        rightItems,
+        iconSize = 20,
+        withBorder = false,
+        withBorderOnScroll = true,
+    } = data;
     const [isSidebarOpened, setIsSidebarOpened] = useState(false);
     const [activeItemId, setActiveItemId] = useState<string | undefined>(undefined);
     const [showBorder, setShowBorder] = useState(withBorder);
@@ -43,6 +49,8 @@ export const Navigation: React.FC<NavigationProps> = ({data, logo, className}) =
     const onSidebarOpenedChange = (isOpen: boolean) => setIsSidebarOpened(isOpen);
 
     useEffect(() => {
+        if (!withBorderOnScroll) return () => {};
+
         const showBorderOnScroll = () => {
             if (!showBorder) {
                 setShowBorder(window.scrollY > 0);
