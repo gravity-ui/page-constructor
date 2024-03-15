@@ -22,6 +22,7 @@ export const Editor = ({
     onChange,
     providerProps,
     transformContent,
+    finalizeContent,
     deviceEmulationSettings,
     theme: editorTheme,
     ...rest
@@ -81,6 +82,7 @@ export const Editor = ({
             content: transformedContent,
             custom,
             viewMode,
+            finalizeContent,
         };
     }, [
         injectEditBlockProps,
@@ -89,6 +91,7 @@ export const Editor = ({
         viewMode,
         transformedContent,
         rest.custom,
+        finalizeContent,
     ]);
 
     const context = useMemo(

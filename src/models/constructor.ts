@@ -16,12 +16,15 @@ export interface Menu {
     title: string;
 }
 
+export type PageMetadata = Record<string, object>;
+
 export type ConstructorBlock = ConstructorItem | CustomBlock;
 
 export interface PageContent extends Animatable {
     blocks: ConstructorBlock[];
     menu?: Menu;
     background?: ThemedMediaProps;
+    meta?: PageMetadata;
 }
 
 export interface InitConstrucorState {
@@ -44,6 +47,7 @@ export type FetchLoadableData<TData = LoadableData> = (
     params: FetchLoadableDataParams,
 ) => Promise<TData>;
 export type ShouldRenderBlock = (block: ConstructorBlock, blockKey: string) => Boolean;
+export type FinalizeContent = (content: PageContent) => PageContent;
 export type OnInit = (data: InitConstrucorState) => void;
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type ComponentProps = React.ComponentProps<React.ComponentClass<any>>;

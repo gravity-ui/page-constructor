@@ -14,6 +14,7 @@ import {
     BlockTypes,
     CustomConfig,
     CustomItems,
+    FinalizeContent,
     HeaderBlockTypes,
     NavigationData,
     NavigationItemTypes,
@@ -49,16 +50,15 @@ export interface PageConstructorProps {
     custom?: CustomConfig;
     renderMenu?: () => React.ReactNode;
     navigation?: NavigationData;
+    finalizeContent?: FinalizeContent;
 }
 
 export const Constructor = (props: PageConstructorProps) => {
-    const {
-        content: {blocks = [], background} = {},
-        renderMenu,
-        shouldRenderBlock,
-        navigation,
-        custom,
-    } = props;
+    const {renderMenu, shouldRenderBlock, navigation, custom, finalizeContent} = props;
+
+    const content =
+        props.content && finalizeContent ? finalizeContent(props.content) : props.content;
+    const {blocks = [], background} = content ?? {};
 
     const {context} = useMemo(
         () => ({
