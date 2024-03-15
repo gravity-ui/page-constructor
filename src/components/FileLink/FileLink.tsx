@@ -4,7 +4,7 @@ import {Label, LabelProps} from '@gravity-ui/uikit';
 
 import {LocationContext} from '../../context/locationContext';
 import {FileLinkProps, TextSize, WithChildren} from '../../models';
-import {block, getLinkProps} from '../../utils';
+import {block, getLinkProps, getQaAttrubutes} from '../../utils';
 
 import './FileLink.scss';
 
@@ -58,17 +58,22 @@ const FileLink = (props: WithChildren<FileLinkProps>) => {
         tabIndex,
         urlTitle,
         extraProps,
+        qa,
     } = props;
+    const qaAttributes = getQaAttrubutes(qa, 'link', 'link-container');
     const fileExt = getFileExt(href) as FileExtension;
     const labelTheme = (FileExtensionThemes[fileExt] || 'unknown') as LabelProps['theme'];
     const labelSize = LabelSizeMap[textSize];
 
     return (
-        <div className={b({ext: fileExt, type, size: textSize, theme}, className)}>
+        <div
+            className={b({ext: fileExt, type, size: textSize, theme}, className)}
+            data-qa={qaAttributes.default}
+        >
             <Label className={b('file-label')} size={labelSize} theme={labelTheme}>
                 {fileExt}
             </Label>
-            <div className={b('link')}>
+            <div className={b('link')} data-qa={qaAttributes.linkContainer}>
                 <a
                     href={href}
                     onClick={onClick}
@@ -76,6 +81,7 @@ const FileLink = (props: WithChildren<FileLinkProps>) => {
                     title={urlTitle}
                     {...getLinkProps(href, hostname)}
                     {...extraProps}
+                    data-qa={qaAttributes.link}
                 >
                     {text}
                 </a>
