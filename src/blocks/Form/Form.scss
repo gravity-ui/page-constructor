@@ -18,7 +18,7 @@ $largeBorderRadius: 32px;
         margin: 0 0 $indentSM $textPadding;
 
         &_mobile {
-            margin-left: 4px;
+            margin-left: $indent4XS;
         }
     }
 

@@ -25,7 +25,7 @@ $block: '.#{$ns}image-card';
 
         &_margins {
             &_s {
-                padding: 4px;
+                padding: $indent4XS;
 
                 #{$image}_inner {
                     border-radius: calc(#{$borderRadius} - #{$imagePadding});

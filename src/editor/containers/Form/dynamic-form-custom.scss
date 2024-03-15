@@ -82,15 +82,15 @@
     }
 
     .df-use-search {
-        margin: 4px 0;
+        margin: $indent4XS 0;
     }
 
     .df-simple-vertical-accordeon__body,
     .df-group-indent > .df-use-search {
         margin-top: 0;
         margin-left: 1px;
-        padding-top: 4px;
-        padding-bottom: 4px;
+        padding-top: $indent4XS;
+        padding-bottom: $indent4XS;
         padding-left: $indentXXS;
         border-left: 1px solid var(--g-color-line-generic-accent);
     }

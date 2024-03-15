@@ -22,7 +22,7 @@ $block: '.#{$ns}one-of-custom';
         & > .#{$df-ns}use-search {
             padding-top: 11px;
             padding-left: $indentXXS;
-            margin-top: 4px;
+            margin-top: $indent4XS;
             margin-bottom: $normalOffset;
             margin-left: 5px;
             border-left: 1px solid var(--g-color-line-generic-accent);

@@ -16,8 +16,8 @@ $block: '.#{$ns}media-component-data-lens';
     }
 
     &__iframe {
-        width: calc(100% + 4px);
-        height: calc(100% + 4px);
+        width: calc(100% + $indent4XS);
+        height: calc(100% + $indent4XS);
         margin: -1px -2px 0;
     }
 
