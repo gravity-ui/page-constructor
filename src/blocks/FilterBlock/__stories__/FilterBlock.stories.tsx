@@ -64,5 +64,5 @@ WithCustomAllTag.args = createArgs({allTag: 'Custom All Tag Label'});
 export const WithThemedMedia = DefaultTemplate.bind({});
 WithThemedMedia.args = createArgs({
     allTag: false,
-    items: createItemList(6, data.themed.card, data.default.filters),
+    items: createItemList(6, data.themed.card as LayoutItemProps, data.default.filters),
 });
