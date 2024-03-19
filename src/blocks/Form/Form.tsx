@@ -28,7 +28,6 @@ const FormBlock: React.FC<FormBlockProps> = (props) => {
     const theme = useTheme();
 
     const themedBackground = getThemedValue(background, theme) || undefined;
-    console.log('🚀 ~ background:', background);
 
     const withBackground = Boolean(
         themedBackground &&

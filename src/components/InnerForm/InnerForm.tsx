@@ -29,16 +29,13 @@ const InnerForm: React.FC<InnerFormProps> = (props) => {
     }, [onContentLoad, formData]);
 
     if (isYandexDataForm(formData)) {
-        const {onLoad, ...rest} = formData.yandex;
-
-        const themedFormData = getThemedValue(rest, theme);
-        console.log('🚀 ~ themedFormData:', themedFormData);
+        const {onLoad, ...rest} = getThemedValue(formData.yandex, theme);
 
         return (
             <div className={className}>
                 <YandexForm
                     {...(formsConfig.yandex as YandexFormsContextProps | undefined)}
-                    {...themedFormData}
+                    {...rest}
                     onLoad={() => {
                         onContentLoad();
                         onLoad?.();
