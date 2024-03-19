@@ -3,6 +3,7 @@ import React, {useCallback, useContext, useState} from 'react';
 import {BackgroundImage, Title} from '../../components';
 import InnerForm from '../../components/InnerForm/InnerForm';
 import {MobileContext} from '../../context/mobileContext';
+import {useTheme} from '../../context/theme';
 import {Col, Grid, GridAlignItems, GridColumnSize, Row} from '../../grid';
 import type {FormBlockProps} from '../../models';
 import {
@@ -12,7 +13,7 @@ import {
     isYandexDataForm,
 } from '../../models';
 import {Content} from '../../sub-blocks';
-import {block} from '../../utils';
+import {block, getThemedValue} from '../../utils';
 
 import './Form.scss';
 
@@ -24,9 +25,16 @@ const FormBlock: React.FC<FormBlockProps> = (props) => {
     const {formData, title, textContent, direction = FormBlockDirection.Center, background} = props;
     const [contentLoaded, setContentLoaded] = useState(false);
     const isMobile = useContext(MobileContext);
+    const theme = useTheme();
+
+    const themedBackground = getThemedValue(background, theme) || undefined;
+    console.log('🚀 ~ background:', background);
 
     const withBackground = Boolean(
-        background && (background.src || background.desktop || background.style?.backgroundColor),
+        themedBackground &&
+            (themedBackground.src ||
+                themedBackground.desktop ||
+                themedBackground.style?.backgroundColor),
     );
     const onContentLoad = useCallback(() => {
         setContentLoaded(true);
@@ -51,9 +59,9 @@ const FormBlock: React.FC<FormBlockProps> = (props) => {
                 'form-type': formType,
             })}
         >
-            {background && (
+            {themedBackground && (
                 <BackgroundImage
-                    {...background}
+                    {...themedBackground}
                     className={b('media')}
                     imageClassName={b('image')}
                 />

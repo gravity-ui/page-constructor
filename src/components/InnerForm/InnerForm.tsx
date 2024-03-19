@@ -6,8 +6,10 @@ import {
     HubspotFormsContextProps,
     YandexFormsContextProps,
 } from '../../context/formsContext/FormsContext';
+import {useTheme} from '../../context/theme';
 import {FormBlockData, isHubspotDataForm, isYandexDataForm} from '../../models';
 import {HubspotForm} from '../../sub-blocks';
+import {getThemedValue} from '../../utils';
 
 interface InnerFormProps {
     formData: FormBlockData;
@@ -18,6 +20,7 @@ interface InnerFormProps {
 const InnerForm: React.FC<InnerFormProps> = (props) => {
     const {formData, onContentLoad, className} = props;
     const formsConfig = useContext(FormsContext);
+    const theme = useTheme();
 
     useEffect(() => {
         if (isHubspotDataForm(formData)) {
@@ -28,11 +31,14 @@ const InnerForm: React.FC<InnerFormProps> = (props) => {
     if (isYandexDataForm(formData)) {
         const {onLoad, ...rest} = formData.yandex;
 
+        const themedFormData = getThemedValue(rest, theme);
+        console.log('🚀 ~ themedFormData:', themedFormData);
+
         return (
             <div className={className}>
                 <YandexForm
                     {...(formsConfig.yandex as YandexFormsContextProps | undefined)}
-                    {...rest}
+                    {...themedFormData}
                     onLoad={() => {
                         onContentLoad();
                         onLoad?.();
@@ -43,11 +49,13 @@ const InnerForm: React.FC<InnerFormProps> = (props) => {
     }
 
     if (isHubspotDataForm(formData)) {
+        const themedFormData = getThemedValue(formData.hubspot, theme);
+
         return (
             <HubspotForm
                 createDOMElement={true}
                 {...(formsConfig.hubspot as HubspotFormsContextProps | undefined)}
-                {...formData.hubspot}
+                {...themedFormData}
             />
         );
     }

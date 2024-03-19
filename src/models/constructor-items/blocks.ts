@@ -414,11 +414,11 @@ export enum FormBlockDirection {
 }
 
 export interface FormBlockYandexData {
-    yandex: YandexFormProps;
+    yandex: ThemeSupporting<YandexFormProps>;
 }
 
 export interface FormBlockHubspotData {
-    hubspot: HubspotFormProps;
+    hubspot: ThemeSupporting<HubspotFormProps>;
 }
 
 export type FormBlockData = FormBlockYandexData | FormBlockHubspotData;
@@ -428,7 +428,7 @@ export interface FormBlockProps {
     title?: string;
     textContent?: Omit<ContentBlockProps, 'centered' | 'colSizes' | 'size'>;
     direction?: FormBlockDirection;
-    background?: BackgroundImageProps;
+    background?: ThemeSupporting<BackgroundImageProps>;
 }
 
 //block models
