@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [5.6.0](https://github.com/gravity-ui/page-constructor/compare/v5.5.0...v5.6.0) (2024-03-20)
+
+
+### Features
+
+* support themed media in LayoutItem ([#867](https://github.com/gravity-ui/page-constructor/issues/867)) ([46db9f5](https://github.com/gravity-ui/page-constructor/commit/46db9f5c669a7ae3721de6d3d60998e77c4af71d))
+
 ## [5.5.0](https://github.com/gravity-ui/page-constructor/compare/v5.4.0...v5.5.0) (2024-03-15)
 
 
