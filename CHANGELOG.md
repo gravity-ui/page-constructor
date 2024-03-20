@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [5.6.1](https://github.com/gravity-ui/page-constructor/compare/v5.6.0...v5.6.1) (2024-03-20)
+
+
+### Bug Fixes
+
+* error when using uikit in server code ([#870](https://github.com/gravity-ui/page-constructor/issues/870)) ([3ce00f7](https://github.com/gravity-ui/page-constructor/commit/3ce00f7726430cba0fba8a211c5bd20555da3616))
+
 ## [5.6.0](https://github.com/gravity-ui/page-constructor/compare/v5.5.0...v5.6.0) (2024-03-20)
 
 
