@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [5.5.0](https://github.com/gravity-ui/page-constructor/compare/v5.4.0...v5.5.0) (2024-03-15)
+
+
+### Features
+
+* add withBorderOnScroll prop for Navigation component ([#862](https://github.com/gravity-ui/page-constructor/issues/862)) ([b172089](https://github.com/gravity-ui/page-constructor/commit/b172089a07f1616b6001e756dc99e66b7ccfca35))
+
 ## [5.4.0](https://github.com/gravity-ui/page-constructor/compare/v5.3.0...v5.4.0) (2024-03-13)
 
 
