@@ -3,8 +3,9 @@ import React, {useMemo} from 'react';
 import {useUniqId} from '@gravity-ui/uikit';
 
 import {Buttons, FullscreenMedia, IconWrapper, Links, Media, MetaInfo} from '../../components';
+import {useTheme} from '../../context/theme';
 import {ContentBlockProps, LayoutItemProps} from '../../models';
-import {block} from '../../utils';
+import {block, getThemedValue} from '../../utils';
 import Content from '../Content/Content';
 
 import {getLayoutItemLinks, hasFullscreen, showFullscreenIcon} from './utils';
@@ -26,6 +27,7 @@ const LayoutItem = ({
 }: LayoutItemProps) => {
     const normalizedLinks = useMemo(() => getLayoutItemLinks(links), [links]);
     const areControlsInFooter = controlPosition === 'footer';
+    const theme = useTheme();
 
     const contentProps: ContentBlockProps = {
         ...content,
@@ -38,15 +40,17 @@ const LayoutItem = ({
         if (!media) {
             return null;
         }
-        return fullscreen && hasFullscreen(media) ? (
-            <FullscreenMedia showFullscreenIcon={showFullscreenIcon(media)}>
+        const themedMedia = getThemedValue(media, theme);
+
+        return fullscreen && hasFullscreen(themedMedia) ? (
+            <FullscreenMedia showFullscreenIcon={showFullscreenIcon(themedMedia)}>
                 {({
                     className: mediaClassName,
                     fullscreen: _fullscreen,
                     ...fullscreenMediaProps
                 } = {}) => (
                     <Media
-                        {...media}
+                        {...themedMedia}
                         {...fullscreenMediaProps}
                         className={b('media', {border}, mediaClassName)}
                         analyticsEvents={analyticsEvents}
@@ -54,7 +58,11 @@ const LayoutItem = ({
                 )}
             </FullscreenMedia>
         ) : (
-            <Media {...media} className={b('media', {border})} analyticsEvents={analyticsEvents} />
+            <Media
+                {...themedMedia}
+                className={b('media', {border})}
+                analyticsEvents={analyticsEvents}
+            />
         );
     };
     return (
