@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [5.7.1](https://github.com/gravity-ui/page-constructor/compare/v5.7.0...v5.7.1) (2024-03-21)
+
+
+### Bug Fixes
+
+* refactor minHeight calculating ([#866](https://github.com/gravity-ui/page-constructor/issues/866)) ([ab0e32a](https://github.com/gravity-ui/page-constructor/commit/ab0e32a857512dcb90f9d0cd120e3b2a87df2090))
+
 ## [5.7.0](https://github.com/gravity-ui/page-constructor/compare/v5.6.1...v5.7.0) (2024-03-21)
 
 
