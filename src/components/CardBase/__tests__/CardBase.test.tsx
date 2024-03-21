@@ -9,7 +9,7 @@ import {PageConstructorProvider} from '../../../containers/PageConstructor';
 import {AnalyticsContextProps} from '../../../context/analyticsContext';
 import {CardBorder} from '../../../models';
 import {getQaAttrubutes} from '../../../utils';
-import CardBase, {CardBaseProps} from '../CardBase';
+import CardBase, {CardBasePropsType} from '../CardBase';
 
 const qaId = 'card-base-component';
 const qaAttributes = getQaAttrubutes(qaId, 'header', 'footer', 'body', 'content');
@@ -64,7 +64,7 @@ describe('CardBase', () => {
 
     test('add className', () => {
         const children = <CardBase.Content>text</CardBase.Content>;
-        testCustomClassName<CardBaseProps>({
+        testCustomClassName<CardBasePropsType>({
             component: CardBase,
             props: {children, qa: qaId},
         });
