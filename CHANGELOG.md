@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [5.7.0](https://github.com/gravity-ui/page-constructor/compare/v5.6.1...v5.7.0) (2024-03-21)
+
+
+### Features
+
+* add indent4XS ([#864](https://github.com/gravity-ui/page-constructor/issues/864)) ([9dd5136](https://github.com/gravity-ui/page-constructor/commit/9dd5136120e5bc2e3a03661ddc537e5d8bfcde3b))
+
 ## [5.6.1](https://github.com/gravity-ui/page-constructor/compare/v5.6.0...v5.6.1) (2024-03-20)
 
 
