@@ -363,7 +363,7 @@ $block: '.#{$ns}hubspot-form';
         .hs-form-field,
         .hs_error_rollup.actions,
         .submitted-message {
-            padding: 0 4px;
+            padding: 0 $indent4XS;
         }
 
         .hs-form-field {

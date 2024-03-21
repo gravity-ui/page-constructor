@@ -64,7 +64,7 @@ $block: '.#{$ns}edit-block';
         background-color: var(--pc-editor-control-color);
 
         &:not(:first-child) {
-            margin-left: 4px;
+            margin-left: $indent4XS;
         }
     }
 }

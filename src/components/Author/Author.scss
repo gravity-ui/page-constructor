@@ -39,7 +39,7 @@ $authorBorderRadius: $indentXS;
         @include text-size(body-2);
 
         color: $secondary;
-        padding-top: 4px;
+        padding-top: $indent4XS;
     }
 
     &__label:not(:first-child) {

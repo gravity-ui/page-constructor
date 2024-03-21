@@ -45,7 +45,7 @@ $block: '.#{$ns}price-description';
     }
 
     &__detailed-title {
-        margin-left: 4px;
+        margin-left: $indent4XS;
     }
 
     &__label {
