@@ -1,4 +1,4 @@
-import React, {Fragment, useCallback, useRef, useState} from 'react';
+import React, {Fragment, useCallback, useEffect, useRef, useState} from 'react';
 
 import {useUniqId} from '@gravity-ui/uikit';
 
@@ -56,15 +56,18 @@ export const TabsBlock = ({
     const onSelectTab = useCallback(
         (id: string | null, e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => {
             setActiveTab(id);
-            handleImageHeight();
             e.currentTarget.scrollIntoView({
                 inline: 'center',
                 behavior: 'smooth',
                 block: 'nearest',
             });
         },
-        [handleImageHeight],
+        [],
     );
+
+    useEffect(() => {
+        handleImageHeight();
+    }, [activeTab, handleImageHeight]);
 
     if (activeTabData) {
         const themedImage = getThemedValue(activeTabData?.image, theme);
@@ -102,8 +105,8 @@ export const TabsBlock = ({
             }}
             className={b('col', {centered: centered})}
         >
-            <div style={{minHeight: mediaVideoHeight || minImageHeight}}>
-                {activeTabData?.media && (
+            {activeTabData?.media && (
+                <div style={{minHeight: mediaVideoHeight || minImageHeight}}>
                     <div ref={ref}>
                         <Media
                             {...getThemedValue(activeTabData.media, theme)}
@@ -114,8 +117,8 @@ export const TabsBlock = ({
                             onImageLoad={handleImageHeight}
                         />
                     </div>
-                )}
-            </div>
+                </div>
+            )}
             {imageProps && (
                 <Fragment>
                     <FullscreenImage {...imageProps} imageClassName={b('image', {border})} />
