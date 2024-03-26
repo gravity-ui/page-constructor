@@ -15,7 +15,6 @@ import {
     CardBaseProps as CardBaseParams,
     DefaultEventNames,
     ImageProps,
-    WithChildren,
 } from '../../models';
 import {block, getQaAttrubutes} from '../../utils';
 import BackgroundImage from '../BackgroundImage/BackgroundImage';
@@ -23,7 +22,7 @@ import RouterLink from '../RouterLink/RouterLink';
 
 import './CardBase.scss';
 
-export interface CardBaseProps extends AnalyticsEventsBase, CardBaseParams, PropsWithChildren {
+interface CardBaseProps extends AnalyticsEventsBase, CardBaseParams {
     className?: string;
     bodyClassName?: string;
     contentClassName?: string;
@@ -33,6 +32,8 @@ export interface CardBaseProps extends AnalyticsEventsBase, CardBaseParams, Prop
     qa?: string;
     extraProps?: React.HTMLAttributes<HTMLElement>;
 }
+
+export type CardBasePropsType = PropsWithChildren<CardBaseProps>;
 
 export interface CardHeaderBaseProps {
     className?: string;
@@ -45,11 +46,11 @@ export interface CardFooterBaseProps {
 
 const b = block('card-base-block');
 
-const Header: React.FC<WithChildren<CardHeaderBaseProps>> = () => null;
-const Content: React.FC<WithChildren<{}>> = () => null;
-const Footer: React.FC<WithChildren<CardFooterBaseProps>> = () => null;
+const Header: React.FC<PropsWithChildren<CardHeaderBaseProps>> = () => null;
+const Content: React.FC<PropsWithChildren<{}>> = () => null;
+const Footer: React.FC<PropsWithChildren<CardFooterBaseProps>> = () => null;
 
-export const Layout = (props: CardBaseProps) => {
+export const Layout = (props: CardBasePropsType) => {
     const {
         className,
         bodyClassName,
