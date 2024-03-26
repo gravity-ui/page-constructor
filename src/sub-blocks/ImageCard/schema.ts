@@ -1,10 +1,10 @@
-import pick from 'lodash/pick';
+import omit from 'lodash/omit';
 
 import {BaseProps, CardBase} from '../../schema/validators/common';
 import {ImageProps} from '../../schema/validators/components';
 import {ContentBase} from '../Content/schema';
 
-const ImageCardBlockContentProps = pick(ContentBase, ['title', 'text']);
+const ImageCardBlockContentProps = omit(ContentBase, ['centered', 'colSizes']);
 
 export const ImageCard = {
     'image-card': {
@@ -24,6 +24,12 @@ export const ImageCard = {
                 enum: ['s', 'm'],
             },
             backgroundColor: {
+                type: 'string',
+            },
+            url: {
+                type: 'string',
+            },
+            urlTitle: {
                 type: 'string',
             },
         },

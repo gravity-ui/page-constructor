@@ -188,12 +188,18 @@ export interface LayoutItemProps extends ClassNameProps, CardLayoutProps, Analyt
     icon?: PositionedIcon;
 }
 
-export interface ImageCardProps extends CardBaseProps, Pick<ContentBlockProps, 'title' | 'text'> {
+export interface ImageCardProps
+    extends CardBaseProps,
+        CardLayoutProps,
+        Omit<ContentBlockProps, 'colSizes' | 'centered'> {
     image: ImageProps;
     enableImageBorderRadius?: boolean;
     margins?: ImageCardMargins;
     direction?: ImageCardDirection;
     backgroundColor?: string;
+    url?: string;
+    urlTitle?: string;
+    target?: string;
 }
 
 // sub-block models
