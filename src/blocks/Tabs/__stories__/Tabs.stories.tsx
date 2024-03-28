@@ -57,6 +57,12 @@ const DefaultArgs = {
     items: data.default.content.items.map((item) => ({
         ...item,
         text: yfmTransform(item.text),
+        list:
+            item.list &&
+            item.list.map((listItem) => ({
+                ...listItem,
+                text: yfmTransform(listItem.text),
+            })),
         additionalInfo: item.additionalInfo && yfmTransform(item.additionalInfo),
         caption: item.caption && yfmTransform(item.caption),
     })),

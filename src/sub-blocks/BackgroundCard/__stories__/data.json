@@ -11,6 +11,30 @@
         "arrow": true
       }
     ],
+    "list": [
+      {
+        "icon": {
+          "light": "/story-assets/icon_1_light.svg",
+          "dark": "/story-assets/icon_1_dark.svg"
+        },
+        "title": "Lorem ipsum",
+        "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation."
+      },
+      {
+        "icon": {
+          "light": "/story-assets/icon_2_light.svg",
+          "dark": "/story-assets/icon_2_dark.svg"
+        },
+        "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation."
+      },
+      {
+        "icon": {
+          "light": "/story-assets/icon_3_light.svg",
+          "dark": "/story-assets/icon_3_dark.svg"
+        },
+        "title": "Lorem ipsum ipsum"
+      }
+    ],
     "buttons": [
       {
         "text": "Button\r",

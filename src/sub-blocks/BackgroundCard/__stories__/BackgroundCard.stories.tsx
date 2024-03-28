@@ -7,10 +7,17 @@ import CardLayout from '../../../blocks/CardLayout/CardLayout';
 import {BlockBase} from '../../../components';
 import {ConstructorRow} from '../../../containers/PageConstructor/components/ConstructorRow';
 import {Grid} from '../../../grid';
-import {BackgroundCardProps, ButtonProps, LinkProps} from '../../../models';
+import {BackgroundCardProps, ButtonProps, ContentItemProps, LinkProps} from '../../../models';
 import BackgroundCard from '../BackgroundCard';
 
 import data from './data.json';
+
+const transformedContentList = data.common.list.map((item) => {
+    return {
+        ...item,
+        text: item?.text && yfmTransform(item.text),
+    };
+}) as ContentItemProps[];
 
 const getPaddingBottomTitle = (padding: string) =>
     data.paddings.title.replace('{{padding}}', padding);
@@ -39,6 +46,9 @@ const DefaultTemplate: StoryFn<BackgroundCardProps> = (args) => (
         </div>
         <div style={{display: 'inline-table', maxWidth: '400px', padding: '0 8px'}}>
             <BackgroundCard {...args} buttons={data.common.buttons as ButtonProps[]} />
+        </div>
+        <div style={{display: 'inline-table', maxWidth: '400px', padding: '0 8px'}}>
+            <BackgroundCard {...args} list={transformedContentList} />
         </div>
     </div>
 );

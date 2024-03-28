@@ -4,10 +4,17 @@ import {Meta, StoryFn} from '@storybook/react';
 
 import {yfmTransform} from '../../../../.storybook/utils';
 import {PageConstructor} from '../../../containers/PageConstructor/PageConstructor';
-import {InfoBlockModel, InfoBlockProps} from '../../../models';
+import {ContentItemProps, InfoBlockModel, InfoBlockProps} from '../../../models';
 import Info from '../Info';
 
 import data from './data.json';
+
+const transformedContentList = data.common.list.map((item) => {
+    return {
+        ...item,
+        text: item?.text && yfmTransform(item.text),
+    };
+}) as ContentItemProps[];
 
 export default {
     title: 'Blocks/Info',
@@ -19,6 +26,7 @@ const DefaultTemplate: StoryFn<InfoBlockModel> = (args) => (
 );
 
 export const Default = DefaultTemplate.bind({});
+export const WithContentList = DefaultTemplate.bind({});
 export const LightTheme = DefaultTemplate.bind({});
 
 const transformedText = yfmTransform(data.common.text);
@@ -48,5 +56,21 @@ LightTheme.args = {
         title: data.common.title,
         links: data.common.links,
         text: transformedText,
+    },
+} as InfoBlockProps;
+
+WithContentList.args = {
+    ...data.light.content,
+    leftContent: {
+        ...data.dark.content.leftContent,
+        title: data.common.title,
+        text: transformedText,
+        list: transformedContentList,
+    },
+    rightContent: {
+        title: data.common.title,
+        links: data.common.links,
+        text: transformedText,
+        list: transformedContentList,
     },
 } as InfoBlockProps;

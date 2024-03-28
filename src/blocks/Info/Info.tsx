@@ -53,6 +53,7 @@ export const InfoBlock = (props: InfoBlockProps) => {
                                 title={title || leftContent?.title}
                                 text={leftContent?.text}
                                 links={leftContent?.links}
+                                list={leftContent?.list}
                                 buttons={leftButtons}
                                 additionalInfo={leftContent?.additionalInfo}
                                 {...commonProps}
@@ -63,6 +64,7 @@ export const InfoBlock = (props: InfoBlockProps) => {
                                 title={sectionsTitle || rightContent?.title}
                                 text={rightContent?.text}
                                 links={rightLinks}
+                                list={rightContent?.list}
                                 buttons={rightContent?.buttons}
                                 additionalInfo={rightContent?.additionalInfo}
                                 {...commonProps}
