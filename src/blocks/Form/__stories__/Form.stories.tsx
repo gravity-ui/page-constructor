@@ -38,10 +38,10 @@ export default {
     },
 } as Meta;
 
-const __getFormData = (formData: FormBlockModel['formData']) => {
+const __getFormData = (formData: FormBlockModel['formData']): FormBlockModel['formData'] => {
     const id = uuidv4();
     return isHubspotDataForm(formData)
-        ? {hubspot: {...formData.hubspot, formInstanceId: id}}
+        ? ({hubspot: {...formData.hubspot, formInstanceId: id}} as FormBlockModel['formData'])
         : {yandex: formData.yandex};
 };
 

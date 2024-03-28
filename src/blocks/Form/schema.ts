@@ -2,7 +2,7 @@ import omit from 'lodash/omit';
 
 import {ImageProps} from '../../components/Image/schema';
 import {YandexFormProps} from '../../components/YandexForm/schema';
-import {BlockBaseProps} from '../../schema/validators/common';
+import {BlockBaseProps, withTheme} from '../../schema/validators/common';
 import {ContentBase} from '../../sub-blocks/Content/schema';
 import {HubspotFormProps} from '../../sub-blocks/HubspotForm/schema';
 
@@ -23,14 +23,14 @@ export const FormBlock = {
                         type: 'object',
                         optionName: 'yandex',
                         properties: {
-                            yandex: YandexFormProps,
+                            yandex: withTheme(YandexFormProps),
                         },
                     },
                     {
                         type: 'object',
                         optionName: 'hubspot',
                         properties: {
-                            hubspot: HubspotFormProps,
+                            hubspot: withTheme(HubspotFormProps),
                         },
                     },
                 ],
