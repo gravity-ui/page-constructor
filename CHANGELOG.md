@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [5.8.0](https://github.com/gravity-ui/page-constructor/compare/v5.7.2...v5.8.0) (2024-03-28)
+
+
+### Features
+
+* support prop list in all content usecases ([#828](https://github.com/gravity-ui/page-constructor/issues/828)) ([d4cf0f6](https://github.com/gravity-ui/page-constructor/commit/d4cf0f616747fba91fb6e94e73df7e23eca362b2))
+* support theme at Form and InnerForm component ([#868](https://github.com/gravity-ui/page-constructor/issues/868)) ([5b16440](https://github.com/gravity-ui/page-constructor/commit/5b16440ebd104d655c6092c1220cbdd42916d699))
+
 ## [5.7.2](https://github.com/gravity-ui/page-constructor/compare/v5.7.1...v5.7.2) (2024-03-26)
 
 
