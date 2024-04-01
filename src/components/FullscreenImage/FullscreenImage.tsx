@@ -77,9 +77,7 @@ const FullscreenImage = (props: FullscreenImageProps) => {
                             className={b('icon', {hover: true})}
                         />
                     </button>
-                    {!sliderData ? (
-                        <Image {...props} className={b('modal-image', modalImageClass)} />
-                    ) : (
+                    {sliderData ? (
                         <div className={b('modal-slider')}>
                             <SliderBlock
                                 initialIndex={sliderData.index}
@@ -99,6 +97,8 @@ const FullscreenImage = (props: FullscreenImageProps) => {
                                 })}
                             </SliderBlock>
                         </div>
+                    ) : (
+                        <Image {...props} className={b('modal-image', modalImageClass)} />
                     )}
                 </Modal>
             )}
