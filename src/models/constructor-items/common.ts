@@ -252,6 +252,7 @@ export interface MediaComponentImageProps {
     video?: MediaVideoProps;
     parallax?: boolean;
     height?: number;
+    disableImageSlider?: boolean;
 }
 
 export interface MediaComponentDataLensProps {

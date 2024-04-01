@@ -34,16 +34,17 @@ export const defaultAnimatedDivQa = 'animated-div';
 const Image = (props: ImageAllProps) => {
     const {
         parallax,
-        image,
         height,
         imageClassName,
         isBackground,
         hasVideoFallback,
         video,
         fullscreen,
+        disableImageSlider,
         qa,
         onLoad,
     } = props;
+    const image = Array.isArray(props.image) && disableImageSlider ? props.image[0] : props.image;
 
     const qaAttributes = getQaAttrubutes(
         qa,
