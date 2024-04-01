@@ -40,11 +40,14 @@ const Image = (props: ImageAllProps) => {
         hasVideoFallback,
         video,
         fullscreen,
-        disableImageSlider,
+        disableImageSliderForArrayInput,
         qa,
         onLoad,
     } = props;
-    const image = Array.isArray(props.image) && disableImageSlider ? props.image[0] : props.image;
+    const image =
+        Array.isArray(props.image) && disableImageSliderForArrayInput
+            ? props.image[0]
+            : props.image;
 
     const qaAttributes = getQaAttrubutes(
         qa,

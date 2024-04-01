@@ -590,7 +590,7 @@ export const MediaProps = {
             {type: 'array', items: ImageProps, optionName: 'list'},
         ],
     },
-    disableImageSlider: {
+    disableImageSliderForArrayInput: {
         type: 'boolean',
     },
     video: VideoProps,
