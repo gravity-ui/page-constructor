@@ -38,6 +38,7 @@ export const Media = (props: MediaAllProps) => {
         imageClassName,
         videoClassName,
         youtubeClassName,
+        disableImageSliderForArrayInput,
         playVideo = true,
         isBackground,
         playButton,
@@ -63,6 +64,7 @@ export const Media = (props: MediaAllProps) => {
                     key="image"
                     parallax={parallax}
                     image={image}
+                    disableImageSliderForArrayInput={disableImageSliderForArrayInput}
                     height={height}
                     imageClassName={imageClassName}
                     isBackground={isBackground}
@@ -131,6 +133,7 @@ export const Media = (props: MediaAllProps) => {
         dataLens,
         iframe,
         parallax,
+        disableImageSliderForArrayInput,
         height,
         imageClassName,
         isBackground,
