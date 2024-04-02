@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [4.57.2](https://github.com/gravity-ui/page-constructor/compare/v4.57.1...v4.57.2) (2024-04-02)
+
+
+### Bug Fixes
+
+* make BasicCard icon unshrinkable ([#895](https://github.com/gravity-ui/page-constructor/issues/895)) ([#897](https://github.com/gravity-ui/page-constructor/issues/897)) ([416b37c](https://github.com/gravity-ui/page-constructor/commit/416b37ce5c43e3d96703226eaa3ae4e8dbbc54f9))
+
 ## [4.57.1](https://github.com/gravity-ui/page-constructor/compare/v4.57.0...v4.57.1) (2024-04-02)
 
 
