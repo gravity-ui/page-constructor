@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [4.57.0](https://github.com/gravity-ui/page-constructor/compare/v4.56.1...v4.57.0) (2024-04-02)
+
+
+### Features
+
+* allow to disable image slider inside media component ([#887](https://github.com/gravity-ui/page-constructor/issues/887)) ([#891](https://github.com/gravity-ui/page-constructor/issues/891)) ([84be439](https://github.com/gravity-ui/page-constructor/commit/84be43939a8c580bee77d8a8ea2f0500b5571b6f))
+
 ## [4.56.1](https://github.com/gravity-ui/page-constructor/compare/v4.56.0...v4.56.1) (2024-03-04)
 
 
