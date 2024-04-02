@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [4.57.1](https://github.com/gravity-ui/page-constructor/compare/v4.57.0...v4.57.1) (2024-04-02)
+
+
+### Bug Fixes
+
+* cardBasePropTypes fix ([#874](https://github.com/gravity-ui/page-constructor/issues/874)) ([#893](https://github.com/gravity-ui/page-constructor/issues/893)) ([981f78e](https://github.com/gravity-ui/page-constructor/commit/981f78e52a0496068c68f3399251ff3f34827e78))
+
 ## [4.57.0](https://github.com/gravity-ui/page-constructor/compare/v4.56.1...v4.57.0) (2024-04-02)
 
 
