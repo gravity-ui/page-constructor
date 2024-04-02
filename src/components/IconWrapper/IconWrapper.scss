@@ -16,6 +16,10 @@ $block: '.#{$ns}icon-wrapper';
         }
     }
 
+    &__icon-container {
+        flex-shrink: 0;
+    }
+
     &__icon {
         max-width: 100%;
         margin-bottom: $indentXXS;
