@@ -127,7 +127,7 @@ $darkSecondary: var(--g-color-text-dark-secondary);
             #{$block}__title *,
             #{$block}__text .yfm,
             #{$block}__text .yfm *,
-            #{$block}__link a {
+            #{$block}__links a {
                 color: $lightPrimary;
             }
 
@@ -160,7 +160,7 @@ $darkSecondary: var(--g-color-text-dark-secondary);
             #{$block}__title *,
             #{$block}__text .yfm,
             #{$block}__text .yfm *,
-            #{$block}__link a {
+            #{$block}__links a {
                 color: $darkPrimary;
             }
 
