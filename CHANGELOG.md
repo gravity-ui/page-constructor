@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [4.57.3](https://github.com/gravity-ui/page-constructor/compare/v4.57.2...v4.57.3) (2024-04-03)
+
+
+### chore
+
+* publish 4.57.3 ([#905](https://github.com/gravity-ui/page-constructor/issues/905)) ([6b28743](https://github.com/gravity-ui/page-constructor/commit/6b28743314f15df319c4d3bd5c947c5943ee2b9c))
+* publish release ([#901](https://github.com/gravity-ui/page-constructor/issues/901)) ([dedeffd](https://github.com/gravity-ui/page-constructor/commit/dedeffd47d3a2c640a0734d9060357c885cc3e5e))
+
 ## [4.57.2](https://github.com/gravity-ui/page-constructor/compare/v4.57.2...v4.57.2) (2024-04-03)
 
 
