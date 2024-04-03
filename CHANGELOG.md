@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [5.9.1](https://github.com/gravity-ui/page-constructor/compare/v5.9.0...v5.9.1) (2024-04-03)
+
+
+### Bug Fixes
+
+* fixed Content links color ([#898](https://github.com/gravity-ui/page-constructor/issues/898)) ([19acbfe](https://github.com/gravity-ui/page-constructor/commit/19acbfe3736b1c5ecfd0cd0eb4b9991948644325))
+* make BasicCard icon unshrinkable ([#895](https://github.com/gravity-ui/page-constructor/issues/895)) ([742b8b8](https://github.com/gravity-ui/page-constructor/commit/742b8b8d69cecb9e0f09b7664e7e53c7e076e339))
+
 ## [5.9.0](https://github.com/gravity-ui/page-constructor/compare/v5.8.0...v5.9.0) (2024-04-01)
 
 
