@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [4.58.0](https://github.com/gravity-ui/page-constructor/compare/v4.57.3...v4.58.0) (2024-04-05)
+
+
+### Features
+
+* ImageCard extension ([#876](https://github.com/gravity-ui/page-constructor/issues/876)) ([#909](https://github.com/gravity-ui/page-constructor/issues/909)) ([4dcf70a](https://github.com/gravity-ui/page-constructor/commit/4dcf70a3a76227a34001b3944e962d7bb3ad6083))
+
 ## [4.57.3](https://github.com/gravity-ui/page-constructor/compare/v4.57.2...v4.57.3) (2024-04-03)
 
 
