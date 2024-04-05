@@ -16,6 +16,7 @@ const b = block('Media');
 
 export interface MediaAllProps extends MediaProps, VideoAdditionProps, ImageAdditionProps, QAProps {
     className?: string;
+    fullscreenImageCover?: boolean;
     youtubeClassName?: string;
     autoplay?: boolean;
     onImageLoad?: () => void;
@@ -32,6 +33,7 @@ export const Media = (props: MediaAllProps) => {
         previewImg,
         parallax = false,
         fullscreen,
+        fullscreenImageCover,
         analyticsEvents,
         className,
         imageClassName,
@@ -66,6 +68,7 @@ export const Media = (props: MediaAllProps) => {
                     disableImageSliderForArrayInput={disableImageSliderForArrayInput}
                     height={height}
                     imageClassName={imageClassName}
+                    fullscreenClassName={b('fullscreen-image', {cover: fullscreenImageCover})}
                     isBackground={isBackground}
                     video={video}
                     hasVideoFallback={hasVideoFallback}
@@ -137,6 +140,7 @@ export const Media = (props: MediaAllProps) => {
         isBackground,
         hasVideoFallback,
         fullscreen,
+        fullscreenImageCover,
         qaAttributes.image,
         qaAttributes.video,
         onImageLoad,

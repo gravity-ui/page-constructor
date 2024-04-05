@@ -20,6 +20,7 @@ export interface ImageAdditionProps {
     imageClassName?: string;
     isBackground?: boolean;
     fullscreen?: boolean;
+    fullscreenClassName?: string;
     onLoad?: () => void;
 }
 
@@ -36,6 +37,7 @@ const Image = (props: ImageAllProps) => {
         parallax,
         height,
         imageClassName,
+        fullscreenClassName,
         isBackground,
         hasVideoFallback,
         video,
@@ -98,6 +100,7 @@ const Image = (props: ImageAllProps) => {
                 key={itemData.alt}
                 {...itemData}
                 imageClassName={imageClass}
+                modalImageClass={fullscreenClassName}
                 imageStyle={{height}}
                 qa={qaAttributes.fullscreenImage}
                 sliderData={sliderData}

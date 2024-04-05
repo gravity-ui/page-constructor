@@ -89,7 +89,10 @@ const FullscreenImage = (props: FullscreenImageProps) => {
                                     return (
                                         <div key={index} className={b('modal-slider_item')}>
                                             <Image
-                                                className={b('modal-slider_item-image')}
+                                                className={b(
+                                                    'modal-slider_item-image',
+                                                    modalImageClass,
+                                                )}
                                                 {...itemData}
                                             />
                                         </div>
