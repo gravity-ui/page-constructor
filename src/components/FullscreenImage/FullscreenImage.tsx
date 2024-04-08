@@ -18,7 +18,7 @@ export interface FullscreenImageProps extends ImageProps {
     modalImageClass?: string;
     imageStyle?: CSSProperties;
     extraProps?: HTMLProps<HTMLDivElement>;
-    sliderData?: {items: ModelImageProps[]; index: number};
+    sliderData?: {items: ModelImageProps[]; initialIndex: number};
 }
 
 const b = block('fullscreen-image');
@@ -80,24 +80,21 @@ const FullscreenImage = (props: FullscreenImageProps) => {
                     {sliderData ? (
                         <div className={b('modal-slider')}>
                             <SliderBlock
-                                initialIndex={sliderData.index}
+                                initialIndex={sliderData.initialIndex}
                                 slidesToShow={1}
                                 type={SliderType.MediaCard}
                             >
-                                {sliderData.items.map((item, index) => {
-                                    const itemData = getMediaImage(item);
-                                    return (
-                                        <div key={index} className={b('modal-slider_item')}>
-                                            <Image
-                                                className={b(
-                                                    'modal-slider_item-image',
-                                                    modalImageClass,
-                                                )}
-                                                {...itemData}
-                                            />
-                                        </div>
-                                    );
-                                })}
+                                {sliderData.items.map((item, index) => (
+                                    <div key={index} className={b('modal-slider_item')}>
+                                        <Image
+                                            className={b(
+                                                'modal-slider_item-image',
+                                                modalImageClass,
+                                            )}
+                                            {...getMediaImage(item)}
+                                        />
+                                    </div>
+                                ))}
                             </SliderBlock>
                         </div>
                     ) : (

@@ -143,7 +143,7 @@ const Image = (props: ImageAllProps) => {
                 {imageArray.map((item, index) => (
                     <Fragment key={index}>
                         {fullscreenItem
-                            ? renderFullscreenImage(item, {items: imageArray, index})
+                            ? renderFullscreenImage(item, {items: imageArray, initialIndex: index})
                             : imageOnly(item)}
                     </Fragment>
                 ))}
