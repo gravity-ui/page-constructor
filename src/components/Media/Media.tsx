@@ -142,7 +142,7 @@ export const Media = (props: MediaAllProps) => {
         isBackground,
         hasVideoFallback,
         fullscreen,
-        fullscreenImageCover,
+        isFullscreenImageCover,
         qaAttributes.image,
         qaAttributes.video,
         onImageLoad,
