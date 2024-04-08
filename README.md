@@ -2,7 +2,7 @@
 
 ## Page constructor
 
-`Page-constructor` is a library for rendering web pages or their parts based on `JSON` data (support for `YAML` format is to be added later).
+`Page-constructor` is a library for rendering web pages or their parts based on `JSON` and `YAML` data.
 
 When creating pages, component-based approach is used: a page is built using a set of ready-made blocks that can be placed in any order. Each block has a certain type and set of input data parameters.
 
