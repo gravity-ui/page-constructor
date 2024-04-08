@@ -30,6 +30,7 @@ const config = {
         './addons/yaml-addon/preset',
         './addons/theme-addon/register.tsx',
         '@storybook/addon-mdx-gfm',
+        '@storybook/addon-webpack5-compiler-babel',
     ],
     webpackFinal: (storybookBaseConfig: any) => {
         storybookBaseConfig.plugins.push(
