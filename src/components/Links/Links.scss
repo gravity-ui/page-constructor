@@ -8,7 +8,8 @@ $block: '.#{$ns}links';
     align-items: baseline;
 
     &__link {
-        margin-top: 0px;
+        /* stylelint-disable-next-line declaration-no-important */
+        margin-top: 0px !important;
     }
 
     &_size {
