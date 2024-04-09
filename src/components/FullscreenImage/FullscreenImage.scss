@@ -32,6 +32,27 @@ $closeButtonSize: 36px;
         overflow: hidden;
     }
 
+    &__modal-slider {
+        max-width: $newContentWidth;
+        width: 100%;
+        max-height: 70vh;
+        overflow: hidden;
+        border-radius: $borderRadius;
+
+        &_item {
+            height: 100%;
+
+            &-image {
+                display: block;
+                max-height: 70vh;
+                max-width: 100%;
+                width: 100%;
+                object-fit: contain;
+                object-position: center;
+            }
+        }
+    }
+
     &__modal .yc-modal__content,
     &__modal-image {
         border-radius: $borderRadius;
