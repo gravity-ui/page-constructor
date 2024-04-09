@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [5.10.1](https://github.com/gravity-ui/page-constructor/compare/v5.10.0...v5.10.1) (2024-04-09)
+
+
+### Bug Fixes
+
+* add important to Links link style override ([#912](https://github.com/gravity-ui/page-constructor/issues/912)) ([5deeddc](https://github.com/gravity-ui/page-constructor/commit/5deeddcf6e83996c835d77f8fd7ae54865158759))
+
 ## [5.10.0](https://github.com/gravity-ui/page-constructor/compare/v5.9.1...v5.10.0) (2024-04-05)
 
 
