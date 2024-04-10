@@ -23,6 +23,8 @@ $block: '.#{$ns}layout-item';
     }
 
     &__content {
+        display: flex;
+
         flex: auto;
         margin: $indentXS $indentXS 0 0;
 
@@ -31,8 +33,7 @@ $block: '.#{$ns}layout-item';
         }
     }
 
-    &__links,
-    &__buttons {
-        margin-top: $indentXS;
+    &__wrapper {
+        flex: auto;
     }
 }

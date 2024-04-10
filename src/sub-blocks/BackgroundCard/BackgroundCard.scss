@@ -43,6 +43,10 @@ $block: '.#{$ns}background-card';
         border: none;
     }
 
+    &__content {
+        display: flex;
+    }
+
     &__image {
         position: absolute;
         top: 0;
@@ -54,15 +58,6 @@ $block: '.#{$ns}background-card';
             object-fit: cover;
             object-position: left;
         }
-    }
-
-    &__footer {
-        margin-top: 0px;
-    }
-
-    &__links,
-    &__buttons {
-        margin-top: $indentXS;
     }
 }
 

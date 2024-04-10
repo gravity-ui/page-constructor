@@ -8,12 +8,11 @@ $block: '.#{$ns}basic-card';
         min-height: auto;
     }
 
-    &__footer {
-        margin-top: 0px;
+    &__content {
+        display: flex;
     }
 
-    &__links,
-    &__buttons {
-        margin-top: $indentXS;
+    &__wrapper {
+        flex: auto;
     }
 }

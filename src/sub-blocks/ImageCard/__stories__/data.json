@@ -94,5 +94,63 @@
       }
     ],
     "additionalInfo": "Duis aute irure dolor in [reprehenderit](https://example.com) n voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+  },
+  "cardLayout": {
+    "contentTitle": "With controlPosition = content",
+    "footerTitle": "With controlPosition = footer",
+    "footerDescription": "Please note that the controlPosition prop manages the position of buttons and links only when paddingBottom = default.",
+    "items": [
+      {
+        "image": "/story-assets/img_8-12_light.png",
+        "title": "Lorem ipsumt",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In egestas erat imperdiet sed euismod nisi porta lorem. Amet purus gravida quis blandit turpis cursus in hac.",
+        "buttons": [
+          {
+            "text": "Button 1",
+            "theme": "action",
+            "url": "#test1"
+          },
+          {
+            "text": "Button 2",
+            "theme": "outlined",
+            "url": "#test2"
+          }
+        ]
+      },
+      {
+        "image": "/story-assets/img_8-12_light.png",
+        "title": "Lorem ipsumt",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In egestas erat imperdiet sed euismod nisi porta lorem. Amet purus gravida quis blandit turpis cursus in hac. Pulvinar sapien et ligula ullamcorper malesuada proin libero nunc consequat.",
+        "buttons": [
+          {
+            "text": "Button 1",
+            "theme": "action",
+            "url": "#test1"
+          },
+          {
+            "text": "Button 2",
+            "theme": "outlined",
+            "url": "#test2"
+          }
+        ]
+      },
+      {
+        "image": "/story-assets/img_8-12_light.png",
+        "title": "Lorem ipsumt",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In egestas erat imperdiet sed euismod nisi porta lorem.",
+        "buttons": [
+          {
+            "text": "Button 1",
+            "theme": "action",
+            "url": "#test1"
+          },
+          {
+            "text": "Button 2",
+            "theme": "outlined",
+            "url": "#test2"
+          }
+        ]
+      }
+    ]
   }
 }

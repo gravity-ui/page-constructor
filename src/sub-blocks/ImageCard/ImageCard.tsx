@@ -4,6 +4,7 @@ import {Link, useUniqId} from '@gravity-ui/uikit';
 
 import {Image} from '../../components';
 import {getMediaImage} from '../../components/Media/Image/utils';
+import {GridColumnSizesType} from '../../grid';
 import {ImageCardDirection, ImageCardProps} from '../../models';
 import {block} from '../../utils';
 import Content from '../Content/Content';
@@ -11,6 +12,7 @@ import Content from '../Content/Content';
 import './ImageCard.scss';
 
 const b = block('image-card');
+const CONTENT_COL_SIZES: GridColumnSizesType = {all: 12, md: 12};
 
 const ImageCard = (props: ImageCardProps) => {
     const {
@@ -31,8 +33,10 @@ const ImageCard = (props: ImageCardProps) => {
         list,
         theme: cardTheme = 'default',
         size = 's',
+        controlPosition = 'content',
     } = props;
 
+    const areControlsInFooter = controlPosition === 'footer';
     const hasContent = Boolean(text || title || buttons || links || list);
     const imageProps = getMediaImage(image);
     const titleId = useUniqId();
@@ -57,7 +61,8 @@ const ImageCard = (props: ImageCardProps) => {
                         theme={cardTheme}
                         additionalInfo={additionalInfo}
                         size={size}
-                        colSizes={{all: 12, md: 12}}
+                        colSizes={CONTENT_COL_SIZES}
+                        controlPosition={areControlsInFooter ? 'bottom' : 'default'}
                     />
                 </div>
             )}

@@ -61,6 +61,10 @@ export const ContentBase = {
         enum: contentThemes,
     },
     list: filteredArray(ContentItem),
+    controlPosition: {
+        type: 'string',
+        enum: ['default', 'bottom'],
+    },
 };
 
 export const ContentBlock = {

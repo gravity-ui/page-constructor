@@ -41,6 +41,7 @@ const Content = (props: ContentProps) => {
         className,
         list,
         qa,
+        controlPosition,
     } = props;
     const qaAttributes = getQaAttrubutes(qa, ['links', 'link', 'buttons', 'button', 'list']);
 
@@ -55,7 +56,7 @@ const Content = (props: ContentProps) => {
 
     return (
         <Col
-            className={b({size, centered, theme}, className)}
+            className={b({size, centered, theme, 'control-position': controlPosition}, className)}
             reset
             sizes={colSizes}
             qa={qaAttributes.container}

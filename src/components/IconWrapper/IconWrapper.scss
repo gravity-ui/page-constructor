@@ -36,11 +36,9 @@ $block: '.#{$ns}icon-wrapper';
         }
     }
 
-    &_content {
-        &_left {
-            @include add-specificity(&) {
-                flex: 1 0 0;
-            }
-        }
+    &__content {
+        display: flex;
+        flex-direction: column;
+        flex: 1 0 auto;
     }
 }
