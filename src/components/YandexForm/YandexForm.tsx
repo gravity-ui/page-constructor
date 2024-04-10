@@ -113,6 +113,9 @@ const YandexForm = (props: YandexFormProps) => {
                 }
 
                 if (message === 'sent' || redirectUrl) {
+                    // event with redirectUrl is comming when form with redict is used
+                    // otherwise, message: 'sent' is not comming on such sort of forms
+                    // to catch this event and handle analytics redirectUrl is added to condition
                     handleSubmit();
                 }
             } catch (error) {
