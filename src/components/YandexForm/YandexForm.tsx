@@ -102,7 +102,7 @@ const YandexForm = (props: YandexFormProps) => {
             try {
                 const parsed = JSON.parse(data);
                 const height = parsed['iframe-height'];
-                const {message, name} = parsed;
+                const {message, name, redirectUrl} = parsed;
                 if (name !== `form${id}`) {
                     return;
                 }
@@ -112,7 +112,7 @@ const YandexForm = (props: YandexFormProps) => {
                     onLoad?.();
                 }
 
-                if (message === 'sent') {
+                if (message === 'sent' || redirectUrl) {
                     handleSubmit();
                 }
             } catch (error) {
