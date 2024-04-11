@@ -73,7 +73,7 @@ const FullscreenImage = (props: FullscreenImageProps) => {
                 <Modal
                     open={isOpened}
                     onClose={closeModal}
-                    className={b('modal', {slider: !!sliderData})}
+                    className={b('modal', {slider: Boolean(sliderData)})}
                     contentClassName={b('modal-content', {loaded: sliderLoaded})}
                 >
                     <button
