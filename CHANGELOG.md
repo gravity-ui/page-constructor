@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [4.60.0](https://github.com/gravity-ui/page-constructor/compare/v4.59.0...v4.60.0) (2024-04-11)
+
+
+### Features
+
+* add ImageCard to text-transform config ([#927](https://github.com/gravity-ui/page-constructor/issues/927)) ([#929](https://github.com/gravity-ui/page-constructor/issues/929)) ([98b0e7e](https://github.com/gravity-ui/page-constructor/commit/98b0e7ea3e04d184392d254647e375d8750cec0f))
+
 ## [4.59.0](https://github.com/gravity-ui/page-constructor/compare/v4.58.1...v4.59.0) (2024-04-11)
 
 
