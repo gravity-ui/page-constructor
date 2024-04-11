@@ -115,7 +115,7 @@ const YandexForm = (props: YandexFormProps) => {
             try {
                 const parsed = JSON.parse(data);
                 const height = parsed['iframe-height'];
-                const {message, name} = parsed;
+                const {message, name, redirectUrl} = parsed;
                 if (name !== `form${id}`) {
                     return;
                 }
@@ -125,7 +125,10 @@ const YandexForm = (props: YandexFormProps) => {
                     onLoad?.();
                 }
 
-                if (message === 'sent') {
+                if (message === 'sent' || redirectUrl) {
+                    // event with redirectUrl is comming when form with redirect is used
+                    // otherwise, message: 'sent' is not comming on such sort of forms
+                    // to catch this event and handle analytics redirectUrl is added to condition
                     handleSubmit();
                 }
             } catch (error) {
