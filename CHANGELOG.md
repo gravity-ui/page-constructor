@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [5.11.1](https://github.com/gravity-ui/page-constructor/compare/v5.11.0...v5.11.1) (2024-04-11)
+
+
+### Bug Fixes
+
+* update styles uikit yc prefix ([#925](https://github.com/gravity-ui/page-constructor/issues/925)) ([b6421bf](https://github.com/gravity-ui/page-constructor/commit/b6421bf12ddf0b93306fba4f52ce025238ebb5be))
+
 ## [5.11.0](https://github.com/gravity-ui/page-constructor/compare/v5.10.1...v5.11.0) (2024-04-10)
 
 
