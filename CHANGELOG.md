@@ -13,7 +13,6 @@
 
 ### Features
 
-* add media images fullscreen slider ([#889](https://github.com/gravity-ui/page-constructor/issues/889)) ([eec646d](https://github.com/gravity-ui/page-constructor/commit/eec646dd4173f37be952d477c2afc8fc8c82b41b))
 * update analyticsEvents handler conditioin: run on form redirect ([#918](https://github.com/gravity-ui/page-constructor/issues/918)) ([dea5bd3](https://github.com/gravity-ui/page-constructor/commit/dea5bd3247b28f8e8472e089160834874c3863b0))
 
 ## [5.10.1](https://github.com/gravity-ui/page-constructor/compare/v5.10.0...v5.10.1) (2024-04-09)
