@@ -23,7 +23,7 @@ $block: '.#{$ns}control-panel';
     &__radio-button {
         margin-left: $indentXXS;
         //align for icons in radio buttons
-        .yc-radio-button__option {
+        .g-radio-button__option {
             display: flex;
             align-items: center;
         }
