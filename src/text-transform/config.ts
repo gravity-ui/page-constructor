@@ -171,6 +171,16 @@ export const config: BlocksConfig = {
             transformer: typografTransformer,
         },
     ],
+    [SubBlockType.ImageCard]: [
+        {
+            fields: ['text', 'additionalInfo'],
+            transformer: yfmTransformer,
+        },
+        {
+            fields: ['title'],
+            transformer: typografTransformer,
+        },
+    ],
     [SubBlockType.LayoutItem]: [
         {
             fields: ['content'],
