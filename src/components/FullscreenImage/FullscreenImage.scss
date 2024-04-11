@@ -22,6 +22,22 @@ $closeButtonSize: 36px;
     &__modal-content {
         position: relative;
         border-radius: $borderRadius;
+
+        width: 100%;
+
+        &-wrapper {
+            width: 100%;
+        }
+
+        &_loaded {
+            max-width: fit-content;
+        }
+    }
+
+    &__modal_slider .g-modal__content-wrapper {
+        width: 100%;
+        display: flex;
+        justify-content: center;
     }
 
     &__modal-image {
@@ -30,6 +46,27 @@ $closeButtonSize: 36px;
         max-height: 70vh;
 
         overflow: hidden;
+    }
+
+    &__modal-slider {
+        max-width: $newContentWidth;
+        width: 100%;
+        max-height: 70vh;
+        overflow: hidden;
+        border-radius: $borderRadius;
+
+        &_item {
+            height: 100%;
+
+            &-image {
+                display: block;
+                max-height: 70vh;
+                max-width: 100%;
+                width: 100%;
+                object-fit: contain;
+                object-position: center;
+            }
+        }
     }
 
     &__modal .g-modal__content,
