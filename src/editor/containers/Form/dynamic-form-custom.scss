@@ -50,27 +50,27 @@
         }
     }
 
-    .df-simple-vertical-accordeon__header .yc-button,
+    .df-simple-vertical-accordeon__header .g-button,
     .df-simple-vertical-accordeon__title {
         font-size: var(--header-text-size);
         line-height: var(--header-line-height);
     }
 
     .df-simple-vertical-accordeon__header {
-        .yc-button {
+        .g-button {
             --g-button-height: var(--button-height);
 
             display: flex;
             justify-content: center;
             align-items: center;
 
-            .yc-button__icon-inner > svg {
+            .g-button__icon-inner > svg {
                 width: var(--icon-size);
                 height: var(--icon-size);
                 color: var(--g-color-text-hint);
             }
 
-            .yc-button__icon_side_right ~ .yc-button__text {
+            .g-button__icon_side_right ~ .g-button__text {
                 margin-right: var(--icon-margin);
             }
         }
@@ -100,7 +100,7 @@
     }
 
     .g-select,
-    .yc-text-input {
+    .g-text-input {
         min-width: var(--input-min-width);
         width: 100%;
     }

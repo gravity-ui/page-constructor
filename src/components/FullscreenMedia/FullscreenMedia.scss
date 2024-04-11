@@ -52,7 +52,7 @@ $modalYoutubeWidth: min(65vw, #{$newContentWidth});
         }
     }
 
-    &__modal .yc-modal__content,
+    &__modal .g-modal__content,
     &__modal-image {
         border-radius: $borderRadius;
     }
