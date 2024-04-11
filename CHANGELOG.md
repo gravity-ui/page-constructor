@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [4.59.0](https://github.com/gravity-ui/page-constructor/compare/v4.58.1...v4.59.0) (2024-04-11)
+
+
+### Features
+
+* update analyticsEvents handler conditioin: run on form redirect ([#918](https://github.com/gravity-ui/page-constructor/issues/918)) ([#921](https://github.com/gravity-ui/page-constructor/issues/921)) ([fbc29e5](https://github.com/gravity-ui/page-constructor/commit/fbc29e5c65c6b5625704f13df104c1a9a85598ce))
+
 ## [4.58.1](https://github.com/gravity-ui/page-constructor/compare/v4.58.0...v4.58.1) (2024-04-09)
 
 
