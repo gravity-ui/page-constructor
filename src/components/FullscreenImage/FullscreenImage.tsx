@@ -41,10 +41,10 @@ const FullscreenImage = (props: FullscreenImageProps) => {
     const closeModal = () => setIsOpened(false);
 
     useEffect(() => {
-        if (!isOpened) {
+        if (sliderData && !isOpened) {
             setSliderLoaded(false);
         }
-    }, [isOpened]);
+    }, [isOpened, sliderData]);
 
     const handleSliderImageLoad = () => {
         setSliderLoaded(true);
