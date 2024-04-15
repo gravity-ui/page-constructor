@@ -1,11 +1,11 @@
 import omit from 'lodash/omit';
 
 import {ImageObjectProps} from '../../components/Image/schema';
-import {BaseProps, CardBase, withTheme} from '../../schema/validators/common';
+import {BaseProps, CardBase, CardLayoutProps, withTheme} from '../../schema/validators/common';
 import {AnalyticsEventSchema} from '../../schema/validators/event';
 import {ContentBase} from '../Content/schema';
 
-const BackgroundCardContentProps = omit(ContentBase, ['size']);
+const BackgroundCardContentProps = omit(ContentBase, ['size', 'controlPosition']);
 
 export const BackgroundCard = {
     'background-card': {
@@ -14,6 +14,7 @@ export const BackgroundCard = {
         properties: {
             ...BaseProps,
             ...CardBase,
+            ...CardLayoutProps,
             ...BackgroundCardContentProps,
             url: {
                 type: 'string',

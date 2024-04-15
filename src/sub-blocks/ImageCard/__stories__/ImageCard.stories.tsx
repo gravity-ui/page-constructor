@@ -3,6 +3,10 @@ import React from 'react';
 import {Meta, StoryFn} from '@storybook/react';
 
 import {yfmTransform} from '../../../../.storybook/utils';
+import CardLayout from '../../../blocks/CardLayout/CardLayout';
+import {BlockBase} from '../../../components';
+import {ConstructorRow} from '../../../containers/PageConstructor/components/ConstructorRow';
+import {Grid} from '../../../grid';
 import {ButtonProps, ContentItemProps, ImageCardProps, LinkProps} from '../../../models';
 import ImageCard from '../ImageCard';
 
@@ -19,6 +23,10 @@ export default {
         },
         backgroundColor: {
             control: {type: 'color'},
+        },
+        direction: {
+            control: {type: 'radio'},
+            options: ['direct', 'reverse'],
         },
     },
 } as Meta;
@@ -110,6 +118,41 @@ const BorderRadiusTemplate: StoryFn<ImageCardProps> = (args) => (
     </div>
 );
 
+const ControlPositionTemplate: StoryFn<ImageCardProps> = (args) => (
+    <Grid>
+        <ConstructorRow>
+            <BlockBase>
+                <CardLayout title={data.cardLayout.contentTitle} animated={false}>
+                    {data.cardLayout.items.map((item, index) => (
+                        <ImageCard
+                            key={index}
+                            {...args}
+                            {...(item as Partial<ImageCardProps>)}
+                            controlPosition="content"
+                        />
+                    ))}
+                </CardLayout>
+            </BlockBase>
+            <BlockBase>
+                <CardLayout
+                    title={data.cardLayout.footerTitle}
+                    description={data.cardLayout.footerDescription}
+                    animated={false}
+                >
+                    {data.cardLayout.items.map((item, index) => (
+                        <ImageCard
+                            key={index}
+                            {...args}
+                            {...(item as Partial<ImageCardProps>)}
+                            controlPosition="footer"
+                        />
+                    ))}
+                </CardLayout>
+            </BlockBase>
+        </ConstructorRow>
+    </Grid>
+);
+
 export const Default = DefaultTemplate.bind({});
 export const Margins = MultipleTemplate.bind({});
 export const DirectionReverse = MultipleTemplate.bind({});
@@ -117,6 +160,23 @@ export const Content = ContentTemplate.bind({});
 export const BackgroundColor = MultipleTemplate.bind({});
 export const Border = BorderTemplate.bind({});
 export const BorderRadius = BorderRadiusTemplate.bind({});
+export const ControlPosition = ControlPositionTemplate.bind({});
 
 DirectionReverse.args = {direction: 'reverse'} as Partial<ImageCardProps>;
 BackgroundColor.args = {...data.backgroundColor.content};
+ControlPosition.args = undefined;
+ControlPosition.argTypes = {
+    title: {table: {disable: true}},
+    text: {table: {disable: true}},
+    image: {table: {disable: true}},
+    list: {table: {disable: true}},
+    links: {table: {disable: true}},
+    buttons: {table: {disable: true}},
+    backgroundColor: {table: {disable: true}},
+    url: {table: {disable: true}},
+    target: {table: {disable: true}},
+    urlTitle: {table: {disable: true}},
+    additionalInfo: {table: {disable: true}},
+    theme: {table: {disable: true}},
+    controlPosition: {table: {disable: true}},
+};

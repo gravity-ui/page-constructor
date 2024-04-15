@@ -20,6 +20,9 @@ $darkSecondary: var(--g-color-text-dark-secondary);
     --pc-monochrome-button-background-color-hover: #393939;
     --pc-monochrome-button-color: var(--g-color-text-light-primary);
 
+    display: flex;
+    flex-direction: column;
+
     &__notice,
     &__text {
         .yfm ol,
@@ -185,6 +188,20 @@ $darkSecondary: var(--g-color-text-dark-secondary);
                 a {
                     @include content-link($darkPrimary, $darkSecondary);
                     text-decoration: none;
+                }
+            }
+        }
+    }
+
+    &_control-position {
+        &_bottom {
+            #{$block}__notice,
+            #{$block}__list,
+            #{$block}__text,
+            #{$block}__title {
+                &:has(+ #{$block}__buttons),
+                &:has(+ #{$block}__link) {
+                    margin-bottom: auto;
                 }
             }
         }

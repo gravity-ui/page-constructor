@@ -1,10 +1,10 @@
 import omit from 'lodash/omit';
 
-import {BaseProps, CardBase} from '../../schema/validators/common';
+import {BaseProps, CardBase, CardLayoutProps} from '../../schema/validators/common';
 import {ImageProps} from '../../schema/validators/components';
 import {ContentBase} from '../Content/schema';
 
-const ImageCardBlockContentProps = omit(ContentBase, ['centered', 'colSizes']);
+const ImageCardBlockContentProps = omit(ContentBase, ['centered', 'colSizes', 'controlPosition']);
 
 export const ImageCard = {
     'image-card': {
@@ -13,6 +13,7 @@ export const ImageCard = {
         properties: {
             ...BaseProps,
             ...CardBase,
+            ...CardLayoutProps,
             ...ImageCardBlockContentProps,
             image: ImageProps,
             direction: {

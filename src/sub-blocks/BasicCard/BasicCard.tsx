@@ -2,7 +2,7 @@ import React from 'react';
 
 import {useUniqId} from '@gravity-ui/uikit';
 
-import {Buttons, CardBase, IconWrapper, Links} from '../../components';
+import {CardBase, IconWrapper} from '../../components';
 import {BasicCardProps} from '../../models';
 import {IconPosition} from '../../models/constructor-items/sub-blocks';
 import {block} from '../../utils';
@@ -32,36 +32,30 @@ const BasicCard = (props: BasicCardProps) => {
     return (
         <CardBase
             className={b()}
+            contentClassName={b('content')}
             {...cardParams}
             extraProps={{'aria-describedby': descriptionId, 'aria-labelledby': titleId}}
         >
             <CardBase.Content>
-                <IconWrapper icon={icon ? {value: icon, position: iconPosition} : undefined}>
+                <IconWrapper
+                    icon={icon ? {value: icon, position: iconPosition} : undefined}
+                    className={b('wrapper')}
+                >
                     <Content
                         title={title}
                         titleId={titleId}
                         text={text}
                         textId={descriptionId}
                         additionalInfo={additionalInfo}
-                        links={areControlsInFooter ? undefined : links}
+                        links={links}
                         list={list}
-                        buttons={areControlsInFooter ? undefined : buttons}
+                        buttons={buttons}
                         size="s"
                         colSizes={{all: 12, md: 12}}
+                        controlPosition={areControlsInFooter ? 'bottom' : 'default'}
                     />
                 </IconWrapper>
             </CardBase.Content>
-            {areControlsInFooter && (buttons || links) && (
-                <CardBase.Footer className={b('footer')}>
-                    <Links className={b('links')} size="s" links={links} titleId={titleId} />
-                    <Buttons
-                        className={b('buttons')}
-                        size="s"
-                        buttons={buttons}
-                        titleId={titleId}
-                    />
-                </CardBase.Footer>
-            )}
         </CardBase>
     );
 };

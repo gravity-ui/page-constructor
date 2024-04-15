@@ -10,7 +10,11 @@ $block: '.#{$ns}image-card';
     $content: #{&}__content;
 
     #{$content} {
+        display: flex;
+
         padding: $indentM;
+
+        flex: auto;
     }
 
     #{$image} {

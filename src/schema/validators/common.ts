@@ -44,6 +44,13 @@ export const BaseProps = {
     },
 };
 
+export const CardLayoutProps = {
+    controlPosition: {
+        type: 'string',
+        enum: ['content', 'footer'],
+    },
+};
+
 export const containerSizesObject = {
     type: 'object',
     additionalProperties: false,

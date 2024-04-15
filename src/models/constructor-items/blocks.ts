@@ -388,6 +388,7 @@ export interface ContentBlockProps {
     centered?: boolean;
     theme?: ContentTheme;
     list?: ContentItemProps[];
+    controlPosition?: 'default' | 'bottom';
 }
 
 export enum PCShareSocialNetwork {

@@ -2,7 +2,7 @@ import React from 'react';
 
 import {useUniqId} from '@gravity-ui/uikit';
 
-import {BackgroundImage, Buttons, CardBase, Links} from '../../components/';
+import {BackgroundImage, CardBase} from '../../components/';
 import {useTheme} from '../../context/theme';
 import {BackgroundCardProps} from '../../models';
 import {block, getThemedValue} from '../../utils';
@@ -41,6 +41,7 @@ const BackgroundCard = (props: BackgroundCardProps) => {
     return (
         <CardBase
             className={b({padding: paddingBottom, theme: cardTheme})}
+            contentClassName={b('content')}
             url={url}
             border={borderType}
             analyticsEvents={analyticsEvents}
@@ -59,23 +60,13 @@ const BackgroundCard = (props: BackgroundCardProps) => {
                     additionalInfo={additionalInfo}
                     size="s"
                     theme={cardTheme}
-                    links={areControlsInFooter ? undefined : links}
-                    buttons={areControlsInFooter ? undefined : buttons}
+                    links={links}
+                    buttons={buttons}
                     list={list}
                     colSizes={{all: 12, md: 12}}
+                    controlPosition={areControlsInFooter ? 'bottom' : 'default'}
                 />
             </CardBase.Content>
-            {areControlsInFooter && (links || buttons) && (
-                <CardBase.Footer>
-                    <Links className={b('links')} size="s" links={links} titleId={titleId} />
-                    <Buttons
-                        className={b('buttons')}
-                        size="s"
-                        buttons={buttons}
-                        titleId={titleId}
-                    />
-                </CardBase.Footer>
-            )}
         </CardBase>
     );
 };

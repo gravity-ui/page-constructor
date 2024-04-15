@@ -134,7 +134,7 @@ export interface BackgroundCardProps
     extends CardBaseProps,
         AnalyticsEventsBase,
         CardLayoutProps,
-        Omit<ContentBlockProps, 'colSizes' | 'centered'> {
+        Omit<ContentBlockProps, 'colSizes' | 'centered' | 'controlPosition'> {
     url?: string;
     urlTitle?: string;
     background?: ThemeSupporting<ImageObjectProps>;
@@ -146,7 +146,7 @@ export interface BasicCardProps
     extends CardBaseProps,
         AnalyticsEventsBase,
         CardLayoutProps,
-        Omit<ContentBlockProps, 'colSizes' | 'centered' | 'size' | 'theme'> {
+        Omit<ContentBlockProps, 'colSizes' | 'centered' | 'size' | 'theme' | 'controlPosition'> {
     url: string;
     urlTitle?: string;
     icon?: ImageProps;
@@ -191,7 +191,7 @@ export interface LayoutItemProps extends ClassNameProps, CardLayoutProps, Analyt
 export interface ImageCardProps
     extends CardBaseProps,
         CardLayoutProps,
-        Omit<ContentBlockProps, 'colSizes' | 'centered'> {
+        Omit<ContentBlockProps, 'colSizes' | 'centered' | 'controlPosition'> {
     image: ImageProps;
     enableImageBorderRadius?: boolean;
     margins?: ImageCardMargins;

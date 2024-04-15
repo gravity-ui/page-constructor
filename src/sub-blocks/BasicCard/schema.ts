@@ -1,10 +1,10 @@
 import omit from 'lodash/omit';
 
 import {ImageProps} from '../../components/Image/schema';
-import {BaseProps, CardBase} from '../../schema/validators/common';
+import {BaseProps, CardBase, CardLayoutProps} from '../../schema/validators/common';
 import {ContentBase} from '../Content/schema';
 
-const BasicCardContentProps = omit(ContentBase, ['size', 'theme']);
+const BasicCardContentProps = omit(ContentBase, ['size', 'theme', 'controlPosition']);
 
 export const BasicCard = {
     'basic-card': {
@@ -13,6 +13,7 @@ export const BasicCard = {
         properties: {
             ...BaseProps,
             ...CardBase,
+            ...CardLayoutProps,
             ...BasicCardContentProps,
             url: {
                 type: 'string',
