@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [5.13.0](https://github.com/gravity-ui/page-constructor/compare/v5.12.0...v5.13.0) (2024-04-15)
+
+
+### Features
+
+* **ImageCard:** add contentPosition ([#919](https://github.com/gravity-ui/page-constructor/issues/919)) ([7df0d3a](https://github.com/gravity-ui/page-constructor/commit/7df0d3ae1a76eb8b5c3a1e732c289fba8bc4d588))
+
 ## [5.12.0](https://github.com/gravity-ui/page-constructor/compare/v5.11.1...v5.12.0) (2024-04-11)
 
 
