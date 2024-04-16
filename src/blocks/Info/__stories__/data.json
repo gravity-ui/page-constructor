@@ -47,7 +47,10 @@
     "content": {
       "type": "info-block",
       "theme": "light",
-      "backgroundColor": "#eef3fe",
+      "backgroundColor": {
+        "dark": "#000",
+        "light": "#eef3fe"
+      },
       "leftContent": {
         "buttons": [
           {

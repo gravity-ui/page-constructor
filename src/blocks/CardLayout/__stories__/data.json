@@ -9,7 +9,12 @@
     "layoutItem": {
       "type": "layout-item",
       "media": {
-        "image": "/story-assets/img-mini_4-12_light.png"
+        "dark": {
+          "image": "/story-assets/img-mini_4-12_dark.png"
+        },
+        "light": {
+          "image": "/story-assets/img-mini_4-12_light.png"
+        }
       },
       "content": {
         "title": "Tell a story and build a narrative",
@@ -100,7 +105,12 @@
       "card": {
         "type": "layout-item",
         "media": {
-          "image": "/story-assets/img-mini_3-12_light.png"
+          "dark": {
+            "image": "/story-assets/img-mini_4-12_dark.png"
+          },
+          "light": {
+            "image": "/story-assets/img-mini_3-12_light.png"
+          }
         },
         "content": {
           "title": "Lorem&nbsp;ipsum",
@@ -118,7 +128,12 @@
       "card": {
         "type": "layout-item",
         "media": {
-          "image": "/story-assets/img-mini_6-12_light.png"
+          "dark": {
+            "image": "/story-assets/img-mini_6-12_dark.png"
+          },
+          "light": {
+            "image": "/story-assets/img-mini_6-12_light.png"
+          }
         },
         "content": {
           "title": "Lorem&nbsp;ipsum",
