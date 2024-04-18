@@ -1,9 +1,9 @@
-import React, {Children, Fragment, PropsWithChildren, ReactElement} from 'react';
+import React, {Children, Fragment, PropsWithChildren, ReactElement, useState} from 'react';
 
-import {Theme} from '../../../models';
+import {ArrowToggle} from '@gravity-ui/uikit';
+
 import {block} from '../../../utils';
-import {ViewModeItem} from '../../types';
-import ControlPanel from '../ControlPanel/ControlPanel';
+import {EditModeItem, ViewModeItem} from '../../types';
 import DeviceEmulation from '../DeviceEmulation/DeviceEmulation';
 
 import './Layout.scss';
@@ -14,21 +14,17 @@ const Left: React.FC<PropsWithChildren> = () => null;
 const Right: React.FC<PropsWithChildren> = () => null;
 
 export interface LayoutProps {
-    mode: ViewModeItem;
-    onModeChange: (mode: ViewModeItem) => void;
-    theme: Theme;
-    onThemeChange: (theme: Theme) => void;
+    editMode: EditModeItem;
+    viewMode: ViewModeItem;
 }
 
-const Layout = ({
-    children,
-    mode,
-    onModeChange,
-    theme,
-    onThemeChange,
-}: PropsWithChildren<LayoutProps>) => {
+// TODO in https://github.com/gravity-ui/page-constructor/issues/884 this component will be disappeared
+
+const Layout = ({children, editMode, viewMode}: PropsWithChildren<LayoutProps>) => {
+    const [isOpenLeft, setIsOpenLeft] = useState(true);
+
     let left, right;
-    const isEditingMode = mode === ViewModeItem.Edititng;
+    const isEditingMode = editMode === EditModeItem.Form;
 
     function handleChild(child: ReactElement) {
         switch (child?.type) {
@@ -46,24 +42,25 @@ const Layout = ({
     }
 
     return (
-        <div className={b()}>
-            <ControlPanel
-                viewMode={mode}
-                onViewModeChange={onModeChange}
-                className={b('panel')}
-                theme={theme}
-                onThemeChange={onThemeChange}
-            />
-            <div className={b('container')}>
-                <Fragment>
-                    {left && <div className={b('left')}>{left}</div>}
-                    {right && (
-                        <div className={b('right', {editing: isEditingMode})}>
-                            <DeviceEmulation mode={mode}>{right}</DeviceEmulation>
+        <div className={b('container')}>
+            <Fragment>
+                {left && (
+                    <React.Fragment>
+                        <div
+                            onClick={() => setIsOpenLeft(!isOpenLeft)}
+                            className={b('arrow-toggle')}
+                        >
+                            <ArrowToggle direction={isOpenLeft ? 'left' : 'right'} />
                         </div>
-                    )}
-                </Fragment>
-            </div>
+                        <div className={b('left', {closed: !isOpenLeft})}>{left}</div>
+                    </React.Fragment>
+                )}
+                {right && (
+                    <div className={b('right', {editing: isEditingMode})}>
+                        <DeviceEmulation mode={viewMode}>{right}</DeviceEmulation>
+                    </div>
+                )}
+            </Fragment>
         </div>
     );
 };

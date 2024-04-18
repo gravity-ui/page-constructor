@@ -21,7 +21,6 @@ $block: '.#{$ns}control-panel';
     }
 
     &__radio-button {
-        margin-left: $indentXXS;
         //align for icons in radio buttons
         .g-radio-button__option {
             display: flex;
@@ -29,10 +28,11 @@ $block: '.#{$ns}control-panel';
         }
     }
 
-    &__mode-switch {
+    &__switch-container {
         display: flex;
         align-items: center;
         place-self: center;
+        gap: 12px;
     }
 
     &__theme-switch {

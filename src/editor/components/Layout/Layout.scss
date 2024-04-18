@@ -16,12 +16,6 @@ $block: '.#{$ns}editor-layout';
 #{$block} {
     position: relative;
 
-    &__panel {
-        top: 0;
-        position: sticky;
-        z-index: 2;
-    }
-
     &__container {
         position: relative;
         display: flex;
@@ -36,10 +30,14 @@ $block: '.#{$ns}editor-layout';
 
     &__left {
         flex: 0 0 auto;
-        padding: $indentSM $indentXS;
+        padding: $indentSM;
         width: var(--pc-editor-left-column-width);
         border-right: var(--pc-editor-divider-width) solid var(--g-color-line-generic);
         overflow-x: auto;
+
+        &_closed {
+            display: none;
+        }
     }
 
     &__right {
@@ -48,5 +46,11 @@ $block: '.#{$ns}editor-layout';
         &_editing {
             padding-bottom: 200px;
         }
+    }
+
+    &__arrow-toggle {
+        padding: $indentXXS;
+        cursor: pointer;
+        border-right: 1px solid var(--g-color-line-generic);
     }
 }

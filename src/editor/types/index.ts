@@ -42,14 +42,12 @@ export interface EditBlockProps extends EditBlockEditorProps, BlockDecorationPro
 }
 
 export enum ViewModeItem {
-    Edititng = 'editing',
     Desktop = 'desktop',
     Tablet = 'tablet',
     Mobile = 'mobile',
 }
 
-export enum FormTab {
-    Blocks = 'blocks',
-    Page = 'page',
+export enum EditModeItem {
+    Form = 'form',
     Code = 'code',
 }

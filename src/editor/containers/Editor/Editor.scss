@@ -1,0 +1,15 @@
+@import '../../../../styles/variables.scss';
+@import '../../../../styles/mixins.scss';
+@import '../../styles/root.scss';
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+$block: '.#{$ns}editor';
+
+#{$block} {
+    &__panel {
+        top: 0;
+        position: sticky;
+        z-index: 2;
+    }
+}
