@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Code, Display, Smartphone, SquareDashedText} from '@gravity-ui/icons';
+import {Code, Display, Eye, Smartphone, SquareDashedText} from '@gravity-ui/icons';
 import {RadioButton, Select} from '@gravity-ui/uikit';
 
 import {ClassNameProps, Theme, themeNames} from '../../../models';
@@ -23,6 +23,7 @@ const ControlPanelViewModeIcons = {
 };
 
 const ControlPanelEditModeIcons = {
+    [EditModeItem.View]: Eye,
     [EditModeItem.Form]: SquareDashedText,
     [EditModeItem.Code]: Code,
 };

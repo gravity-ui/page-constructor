@@ -48,6 +48,7 @@ export enum ViewModeItem {
 }
 
 export enum EditModeItem {
+    View = 'view',
     Form = 'form',
     Code = 'code',
 }

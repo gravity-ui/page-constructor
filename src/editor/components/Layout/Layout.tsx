@@ -1,6 +1,4 @@
-import React, {Children, Fragment, PropsWithChildren, ReactElement, useState} from 'react';
-
-import {ArrowToggle} from '@gravity-ui/uikit';
+import React, {Children, Fragment, PropsWithChildren, ReactElement} from 'react';
 
 import {block} from '../../../utils';
 import {EditModeItem, ViewModeItem} from '../../types';
@@ -21,8 +19,6 @@ export interface LayoutProps {
 // TODO in https://github.com/gravity-ui/page-constructor/issues/884 this component will be disappeared
 
 const Layout = ({children, editMode, viewMode}: PropsWithChildren<LayoutProps>) => {
-    const [isOpenLeft, setIsOpenLeft] = useState(true);
-
     let left, right;
     const isEditingMode = editMode === EditModeItem.Form;
 
@@ -44,17 +40,7 @@ const Layout = ({children, editMode, viewMode}: PropsWithChildren<LayoutProps>) 
     return (
         <div className={b('container')}>
             <Fragment>
-                {left && (
-                    <React.Fragment>
-                        <div
-                            onClick={() => setIsOpenLeft(!isOpenLeft)}
-                            className={b('arrow-toggle')}
-                        >
-                            <ArrowToggle direction={isOpenLeft ? 'left' : 'right'} />
-                        </div>
-                        <div className={b('left', {closed: !isOpenLeft})}>{left}</div>
-                    </React.Fragment>
-                )}
+                {left && <div className={b('left')}>{left}</div>}
                 {right && (
                     <div className={b('right', {editing: isEditingMode})}>
                         <DeviceEmulation mode={viewMode}>{right}</DeviceEmulation>

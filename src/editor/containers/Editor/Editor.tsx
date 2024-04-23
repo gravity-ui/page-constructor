@@ -30,6 +30,7 @@ export const Editor = (props: EditorProps) => {
         onViewModeUpdate,
         onEditModeUpdate,
         isCodeEditMode,
+        isFormEditMode,
         isDesktopViewMode,
         content,
         schema,
@@ -57,7 +58,7 @@ export const Editor = (props: EditorProps) => {
                 className={b('panel')}
                 onThemeChange={onThemeUpdate}
             />
-            {!isCodeEditMode && isDesktopViewMode && (
+            {isFormEditMode && isDesktopViewMode && (
                 <PageSettings content={content} schema={schema} onChange={onContentUpdate} />
             )}
             {isCodeEditMode && (
@@ -70,7 +71,7 @@ export const Editor = (props: EditorProps) => {
                 />
             )}
             <Layout editMode={editMode} viewMode={viewMode}>
-                {!isCodeEditMode && isDesktopViewMode && (
+                {isFormEditMode && isDesktopViewMode && (
                     <Layout.Left>
                         <Form
                             content={content}
@@ -88,7 +89,7 @@ export const Editor = (props: EditorProps) => {
                                 <PageConstructor {...outgoingProps} />
                             </PageConstructorProvider>
                         </ErrorBoundary>
-                        {!isCodeEditMode && <AddBlock onAdd={onAdd} />}
+                        {isFormEditMode && <AddBlock onAdd={onAdd} />}
                     </Layout.Right>
                 )}
             </Layout>

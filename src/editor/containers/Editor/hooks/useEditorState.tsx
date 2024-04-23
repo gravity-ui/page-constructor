@@ -45,6 +45,8 @@ export const useEditorState = ({
     } = useSettingsState();
 
     const isCodeEditMode = editMode === EditModeItem.Code;
+    const isViewEditMode = editMode === EditModeItem.View;
+    const isFormEditMode = editMode === EditModeItem.Form;
     const isDesktopViewMode = viewMode === ViewModeItem.Desktop;
     const isCodeOnlyMode = codeFullscreeModeOn && isCodeEditMode;
 
@@ -56,24 +58,25 @@ export const useEditorState = ({
     const codeValidator = useCodeValidator(schema);
 
     const outgoingProps = useMemo(() => {
-        const custom = isCodeEditMode
-            ? rest.custom
-            : addCustomDecorator(
-                  [
-                      (props: BlockDecorationProps) => <NotFoundBlock {...props} />,
-                      (props: BlockDecorationProps) => (
-                          <EditBlock {...injectEditBlockProps(props)} />
-                      ),
-                      // need errorBoundaryState flag to reset error on content update
-                      (props: BlockDecorationProps) => (
-                          <ErrorBoundary
-                              {...props}
-                              key={`${getBlockId(props)}-${errorBoundaryState}`}
-                          />
-                      ),
-                  ],
-                  rest.custom,
-              );
+        const custom =
+            isCodeEditMode || isViewEditMode
+                ? rest.custom
+                : addCustomDecorator(
+                      [
+                          (props: BlockDecorationProps) => <NotFoundBlock {...props} />,
+                          (props: BlockDecorationProps) => (
+                              <EditBlock {...injectEditBlockProps(props)} />
+                          ),
+                          // need errorBoundaryState flag to reset error on content update
+                          (props: BlockDecorationProps) => (
+                              <ErrorBoundary
+                                  {...props}
+                                  key={`${getBlockId(props)}-${errorBoundaryState}`}
+                              />
+                          ),
+                      ],
+                      rest.custom,
+                  );
 
         return {
             content: transformedContent,
@@ -87,6 +90,7 @@ export const useEditorState = ({
         transformedContent,
         rest.custom,
         isCodeEditMode,
+        isViewEditMode,
     ]);
 
     const context = useMemo(
@@ -143,5 +147,6 @@ export const useEditorState = ({
         errorBoundaryState,
         outgoingProps,
         onAdd,
+        isFormEditMode,
     };
 };
