@@ -41,6 +41,7 @@ $block: '.#{$ns}editor-layout';
     }
 
     &__right {
+        position: relative;
         width: 100%;
 
         &_editing {
