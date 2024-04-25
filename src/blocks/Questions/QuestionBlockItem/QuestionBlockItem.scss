@@ -43,6 +43,7 @@ $block: '.#{$ns}QuestionsBlockItem';
                 border-radius: calc(
                     var(--g-focus-border-radius) + 2px
                 ); // as outline-offset is -2px
+                display: inline-block; //fixes the Link to be clickable in entire row width
             }
         }
     }
