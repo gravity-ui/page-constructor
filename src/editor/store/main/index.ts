@@ -24,7 +24,7 @@ export function useMainState({content: intialContent, custom}: Omit<EditorProps,
         activeBlockIndex: 0,
         errorBoundaryState: 0,
         content: addEditorProps(intialContent),
-        viewMode: ViewModeItem.Edititng,
+        viewMode: ViewModeItem.Desktop,
         theme: DEFAULT_THEME,
     });
 

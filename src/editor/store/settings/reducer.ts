@@ -1,23 +1,28 @@
 import {DEFAULT_THEME} from '../../../components/constants';
 import {Theme} from '../../../models';
-import {FormTab, ViewModeItem} from '../../types';
+import {EditModeItem, ViewModeItem} from '../../types';
 
 // actions
-export const UPDATE_FORM_TAB = 'UPDATE_FORM_TAB';
 export const UPDATE_CODE_FULLSCREEN_MODE_ON = 'UPDATE_CODE_FULLSCREEN_MODE_ON';
 export const UPDATE_VIEW_MODE = 'UPDATE_VIEW_MODE';
+export const UPDATE_EDIT_MODE = 'UPDATE_EDIT_MODE';
 export const UPDATE_THEME = 'UPDATE_THEME';
 
 interface EditorSettingsState {
     theme: Theme;
     viewMode: ViewModeItem;
+    editMode: EditModeItem;
     codeFullscreeModeOn: boolean;
-    formTab: FormTab;
 }
 
 interface UpdateViewMode {
     type: typeof UPDATE_VIEW_MODE;
     payload: ViewModeItem;
+}
+
+interface UpdateEditMode {
+    type: typeof UPDATE_EDIT_MODE;
+    payload: EditModeItem;
 }
 
 interface UpdateTheme {
@@ -30,16 +35,11 @@ interface UpdateCodeFullscreenModeOn {
     payload: boolean;
 }
 
-interface UpdateFormTab {
-    type: typeof UPDATE_FORM_TAB;
-    payload: FormTab;
-}
-
 export type EditorSettingsAction =
     | UpdateViewMode
+    | UpdateEditMode
     | UpdateTheme
-    | UpdateCodeFullscreenModeOn
-    | UpdateFormTab;
+    | UpdateCodeFullscreenModeOn;
 
 // reducer
 export const reducer = (
@@ -52,6 +52,11 @@ export const reducer = (
                 ...state,
                 viewMode: action.payload,
             };
+        case UPDATE_EDIT_MODE:
+            return {
+                ...state,
+                editMode: action.payload,
+            };
         case UPDATE_THEME:
             return {
                 ...state,
@@ -62,19 +67,14 @@ export const reducer = (
                 ...state,
                 codeFullscreeModeOn: action.payload,
             };
-        case UPDATE_FORM_TAB:
-            return {
-                ...state,
-                formTab: action.payload,
-            };
         default:
             return state;
     }
 };
 
 export const initialState = {
-    viewMode: ViewModeItem.Edititng,
+    viewMode: ViewModeItem.Desktop,
+    editMode: EditModeItem.Form,
     theme: DEFAULT_THEME,
     codeFullscreeModeOn: false,
-    formTab: FormTab.Blocks,
 };

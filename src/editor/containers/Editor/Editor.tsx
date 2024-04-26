@@ -1,145 +1,83 @@
-import React, {useEffect, useMemo} from 'react';
+import React from 'react';
 
 import {PageConstructor, PageConstructorProvider} from '../../../containers/PageConstructor';
-import {BlockDecorationProps} from '../../../models';
-import {generateDefaultSchema} from '../../../schema';
+import {block} from '../../../utils';
 import AddBlock from '../../components/AddBlock/AddBlock';
-import EditBlock from '../../components/EditBlock/EditBlock';
+import {CodeEditor} from '../../components/CodeEditor/CodeEditor';
+import ControlPanel from '../../components/ControlPanel/ControlPanel';
 import {ErrorBoundary} from '../../components/ErrorBoundary/ErrorBoundary';
 import Layout from '../../components/Layout/Layout';
-import {NotFoundBlock} from '../../components/NotFoundBlock/NotFoundBlock';
+import {PageSettings} from '../../components/PageSettings/PageSettings';
 import {EditorContext} from '../../context';
-import {useCodeValidator} from '../../hooks/useCodeValidator';
-import {useMainState} from '../../store/main';
-import {useSettingsState} from '../../store/settings';
-import {EditorProps, ViewModeItem} from '../../types';
-import {FormTab} from '../../types/index';
-import {addCustomDecorator, checkIsMobile, getBlockId} from '../../utils';
+import {EditorProps} from '../../types';
 import {Form} from '../Form/Form';
 
-export const Editor = ({
-    customSchema,
-    onChange,
-    providerProps,
-    transformContent,
-    deviceEmulationSettings,
-    theme: editorTheme,
-    ...rest
-}: EditorProps) => {
+import {useEditorState} from './hooks/useEditorState';
+
+import './Editor.scss';
+
+const b = block('editor');
+
+export const Editor = (props: EditorProps) => {
+    const {providerProps} = props;
+
     const {
-        content,
-        activeBlockIndex,
-        errorBoundaryState,
-        onContentUpdate,
-        onAdd,
-        onSelect,
-        injectEditBlockProps,
-    } = useMainState(rest);
-    const {
+        context,
         viewMode,
-        theme: constructorTheme,
-        onViewModeUpdate,
+        editMode,
+        constructorTheme,
         onThemeUpdate,
-        formTab,
-        onFormTabUpdate,
+        onViewModeUpdate,
+        onEditModeUpdate,
+        isCodeEditMode,
+        isFormEditMode,
+        isDesktopViewMode,
+        content,
+        schema,
+        onContentUpdate,
+        code,
+        codeValidator,
         codeFullscreeModeOn,
         onCodeFullscreeModeOnUpdate,
-    } = useSettingsState();
-
-    const isEditingMode = viewMode === ViewModeItem.Edititng;
-    const isCodeOnlyMode =
-        codeFullscreeModeOn && formTab === FormTab.Code && viewMode === ViewModeItem.Edititng;
-
-    const transformedContent = useMemo(
-        () => (transformContent ? transformContent(content, {viewMode}) : content),
-        [content, transformContent, viewMode],
-    );
-    const schema = useMemo(() => generateDefaultSchema(customSchema), [customSchema]);
-    const codeValidator = useCodeValidator(schema);
-
-    const outgoingProps = useMemo(() => {
-        const custom = isEditingMode
-            ? addCustomDecorator(
-                  [
-                      (props: BlockDecorationProps) => <NotFoundBlock {...props} />,
-                      (props: BlockDecorationProps) => (
-                          <EditBlock {...injectEditBlockProps(props)} />
-                      ),
-                      // need errorBoundaryState flag to reset error on content update
-                      (props: BlockDecorationProps) => (
-                          <ErrorBoundary
-                              {...props}
-                              key={`${getBlockId(props)}-${errorBoundaryState}`}
-                          />
-                      ),
-                  ],
-                  rest.custom,
-              )
-            : rest.custom;
-
-        return {
-            content: transformedContent,
-            custom,
-            viewMode,
-        };
-    }, [
-        injectEditBlockProps,
+        activeBlockIndex,
+        onSelect,
+        isCodeOnlyMode,
         errorBoundaryState,
-        isEditingMode,
-        viewMode,
-        transformedContent,
-        rest.custom,
-    ]);
-
-    const context = useMemo(
-        () => ({
-            constructorProps: {
-                content: transformedContent,
-                custom: rest.custom,
-            },
-            providerProps: {
-                ...providerProps,
-                isMobile: checkIsMobile(viewMode),
-                theme: constructorTheme,
-            },
-            deviceEmulationSettings,
-            theme: editorTheme,
-        }),
-        [
-            providerProps,
-            rest.custom,
-            viewMode,
-            transformedContent,
-            deviceEmulationSettings,
-            constructorTheme,
-            editorTheme,
-        ],
-    );
-
-    useEffect(() => {
-        onChange?.(content);
-    }, [content, onChange]);
+        outgoingProps,
+        onAdd,
+    } = useEditorState(props);
 
     return (
         <EditorContext.Provider value={context}>
-            <Layout
-                mode={viewMode}
-                onModeChange={onViewModeUpdate}
+            <ControlPanel
+                viewMode={viewMode}
+                onViewModeChange={onViewModeUpdate}
+                editMode={editMode}
+                onEditModeChange={onEditModeUpdate}
                 theme={constructorTheme}
+                className={b('panel')}
                 onThemeChange={onThemeUpdate}
-            >
-                {isEditingMode && (
+            />
+            {isFormEditMode && isDesktopViewMode && (
+                <PageSettings content={content} schema={schema} onChange={onContentUpdate} />
+            )}
+            {isCodeEditMode && (
+                <CodeEditor
+                    code={code}
+                    onChange={onContentUpdate}
+                    validator={codeValidator}
+                    fullscreenModeOn={codeFullscreeModeOn}
+                    onFullscreenModeOnUpdate={onCodeFullscreeModeOnUpdate}
+                />
+            )}
+            <Layout editMode={editMode} viewMode={viewMode}>
+                {isFormEditMode && isDesktopViewMode && (
                     <Layout.Left>
                         <Form
                             content={content}
                             onChange={onContentUpdate}
                             activeBlockIndex={activeBlockIndex}
-                            activeTab={formTab}
-                            codeFullscreeModeOn={codeFullscreeModeOn}
                             schema={schema}
-                            codeValidator={codeValidator}
-                            onActiveTabUpdate={onFormTabUpdate}
-                            onCodeFullscreeModeOnUpdate={onCodeFullscreeModeOnUpdate}
                             onSelect={onSelect}
                         />
                     </Layout.Left>
@@ -151,7 +89,7 @@ export const Editor = ({
                                 <PageConstructor {...outgoingProps} />
                             </PageConstructorProvider>
                         </ErrorBoundary>
-                        {isEditingMode && <AddBlock onAdd={onAdd} />}
+                        {isFormEditMode && <AddBlock onAdd={onAdd} />}
                     </Layout.Right>
                 )}
             </Layout>

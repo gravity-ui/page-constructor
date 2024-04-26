@@ -11,8 +11,7 @@ $block: '.#{$ns}add-block';
     $buttonHeight: 40px;
 
     position: absolute;
-    bottom: $indentM;
-    left: calc(50% + var(--pc-editor-left-column-width) / 2);
+    left: 50%;
     transform: translateX(-50%);
     z-index: 110;
 
