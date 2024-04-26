@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [5.14.1](https://github.com/gravity-ui/page-constructor/compare/v5.14.0...v5.14.1) (2024-04-26)
+
+
+### Bug Fixes
+
+* questionblock-link-clickable-all-rowwidth ([#934](https://github.com/gravity-ui/page-constructor/issues/934)) ([07ba599](https://github.com/gravity-ui/page-constructor/commit/07ba599ac3c495dbce48adb7f21f9ccd3c58d82f))
+
 ## [5.14.0](https://github.com/gravity-ui/page-constructor/compare/v5.13.0...v5.14.0) (2024-04-26)
 
 
