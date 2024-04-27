@@ -51,8 +51,8 @@ export const useEditorState = ({
     const isCodeOnlyMode = codeFullscreeModeOn && isCodeEditMode;
 
     const transformedContent = useMemo(
-        () => (transformContent ? transformContent(content, {viewMode}) : content),
-        [content, transformContent, viewMode],
+        () => (transformContent ? transformContent(content, {viewMode, editMode}) : content),
+        [content, transformContent, viewMode, editMode],
     );
     const schema = useMemo(() => generateDefaultSchema(customSchema), [customSchema]);
     const codeValidator = useCodeValidator(schema);

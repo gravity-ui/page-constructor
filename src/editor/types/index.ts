@@ -7,7 +7,8 @@ import {EditBlockActions} from '../components/EditBlock/EditBlock';
 export type EditorBlockId = number | string;
 
 interface ContentTransformersOptions {
-    viewMode: ViewModeItem;
+    viewMode?: ViewModeItem;
+    editMode?: EditModeItem;
 }
 
 export type ContentTransformer = (
