@@ -11,9 +11,11 @@
 ## [5.14.0](https://github.com/gravity-ui/page-constructor/compare/v5.13.0...v5.14.0) (2024-04-26)
 
 
-### Features
+### Features ⚠ BREAKING CHANGES
 
 * refactor editor: global page settings and modes ([#933](https://github.com/gravity-ui/page-constructor/issues/933)) ([909bf5a](https://github.com/gravity-ui/page-constructor/commit/909bf5adad0aaaf3729ca60c59200a02d415ca08))
+
+   Enum `FormTab` is deleted, `ViewModeItem.Edititng` option  is deleted. Use new enum `EditModeItem` combine with `ViewModeItem`
 
 ## [5.13.0](https://github.com/gravity-ui/page-constructor/compare/v5.12.0...v5.13.0) (2024-04-15)
 
