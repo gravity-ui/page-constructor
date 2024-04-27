@@ -78,9 +78,17 @@
     "content": {
       "type": "content-layout-block",
       "background": {
-        "src": "/story-assets/content-bg-img_light.png",
-        "style": {
-          "backgroundColor": "#EFF2F8"
+        "dark": {
+          "src": "/story-assets/content-bg-img_dark.png",
+          "style": {
+            "backgroundColor": "#262626"
+          }
+        },
+        "light": {
+          "src": "/story-assets/content-bg-img_light.png",
+          "style": {
+            "backgroundColor": "#EFF2F8"
+          }
         }
       }
     }
@@ -101,8 +109,15 @@
     "content": {
       "type": "content-layout-block",
       "background": {
-        "style": {
-          "backgroundColor": "#EFF2F8"
+        "dark": {
+          "style": {
+            "backgroundColor": "#262626"
+          }
+        },
+        "light": {
+          "style": {
+            "backgroundColor": "#EFF2F8"
+          }
         }
       }
     }

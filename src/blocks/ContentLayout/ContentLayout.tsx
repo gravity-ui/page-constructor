@@ -2,10 +2,11 @@ import React, {useContext, useMemo} from 'react';
 
 import {BackgroundImage, FileLink} from '../../components';
 import {MobileContext} from '../../context/mobileContext';
+import {useTheme} from '../../context/theme';
 import {Col} from '../../grid';
 import {ContentLayoutBlockProps, ContentSize, ContentTextSize} from '../../models';
 import {Content} from '../../sub-blocks';
-import {block} from '../../utils';
+import {block, getThemedValue} from '../../utils';
 
 import './ContentLayout.scss';
 
@@ -46,6 +47,8 @@ export const ContentLayoutBlock = (props: ContentLayoutBlockProps) => {
     } = props;
 
     const colSizes = useMemo(() => getTextWidth(textWidth), [textWidth]);
+    const globalTheme = useTheme();
+    const themedBackground = getThemedValue(background, globalTheme);
 
     return (
         <div className={b({size, theme, background: Boolean(background)})}>
@@ -75,7 +78,7 @@ export const ContentLayoutBlock = (props: ContentLayoutBlockProps) => {
                 <div className={b('background')}>
                     <BackgroundImage
                         className={b('background-item')}
-                        {...background}
+                        {...themedBackground}
                         hide={isMobile}
                     />
                 </div>
