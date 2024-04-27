@@ -76,6 +76,20 @@ export const ImageProps = {
             ...ImageDeviceProps,
             optionName: 'device options',
         }),
+        {
+            type: 'array',
+            items: filteredItem({
+                ...ImageObjectProps,
+            }),
+            optionName: 'options list',
+        },
+        {
+            type: 'array',
+            items: filteredItem({
+                ...ImageDeviceProps,
+            }),
+            optionName: 'device options list',
+        },
     ],
 };
 
