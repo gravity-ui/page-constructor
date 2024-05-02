@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [5.14.2](https://github.com/gravity-ui/page-constructor/compare/v5.14.1...v5.14.2) (2024-05-02)
+
+
+### Bug Fixes
+
+* video dont starts from beginning on click ([#940](https://github.com/gravity-ui/page-constructor/issues/940)) ([721b1ad](https://github.com/gravity-ui/page-constructor/commit/721b1ad085c8d419d1f8d6b12e8ade24d3b71b65))
+
 ## [5.14.1](https://github.com/gravity-ui/page-constructor/compare/v5.14.0...v5.14.1) (2024-04-26)
 
 
