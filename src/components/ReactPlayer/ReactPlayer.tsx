@@ -246,6 +246,7 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
                 if (
                     isMuted &&
                     playerRef &&
+                    controls === MediaVideoControlsType.Custom &&
                     customControlsType === CustomControlsType.WithMuteButton
                 ) {
                     playerRef.seekTo(0);
@@ -262,7 +263,15 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
                 // In order to the progress bar to update (equals 0) before displaying
                 setTimeout(() => setMuted(!isMuted), 0);
             },
-            [playerRef, customControlsType, playEvents, stopEvents, handleAnalytics, setProps],
+            [
+                playerRef,
+                customControlsType,
+                playEvents,
+                stopEvents,
+                handleAnalytics,
+                setProps,
+                controls,
+            ],
         );
 
         const handleClickPreview = useCallback(() => {
