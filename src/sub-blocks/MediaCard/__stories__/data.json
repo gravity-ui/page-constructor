@@ -1,8 +1,8 @@
 {
   "video": {
     "content": {
-      "video": {
-        "light": {
+      "light": {
+        "video": {
           "src": [
             "/story-assets/video_8-12_white.webm",
             "/story-assets/video_8-12_white.mp4",
@@ -11,8 +11,10 @@
           "loop": {
             "start": 0
           }
-        },
-        "dark": {
+        }
+      },
+      "dark": {
+        "video": {
           "src": [
             "/story-assets/video_8-12_dark.webm",
             "/story-assets/video_8-12_dark.mp4",
@@ -38,13 +40,15 @@
   },
   "imageSlider": {
     "content": {
-      "image": {
-        "light": [
+      "light": {
+        "image": [
           "/story-assets/img_6-12_light.png",
           "/story-assets/img_6-12_light.png",
           "/story-assets/img_6-12_light.png"
-        ],
-        "dark": [
+        ]
+      },
+      "dark": {
+        "image": [
           "/story-assets/img_8-12_dark.png",
           "/story-assets/img_8-12_dark.png",
           "/story-assets/img_8-12_dark.png"
@@ -54,13 +58,15 @@
   },
   "image": {
     "content": {
-      "image": {
-        "light": {
+      "light": {
+        "image": {
           "src": "/story-assets/img_6-12_white.png",
           "alt": "Picture",
           "disableCompress": true
-        },
-        "dark": {
+        }
+      },
+      "dark": {
+        "image": {
           "src": "/story-assets/img_8-12_dark.png",
           "alt": "Picture",
           "disableCompress": true

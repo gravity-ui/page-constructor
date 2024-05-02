@@ -1,8 +1,7 @@
 import React, {ReactElement, useMemo, useState} from 'react';
 
-import {useTheme} from '../../context/theme';
 import {MediaProps, QAProps} from '../../models';
-import {block, getQaAttrubutes, getThemedValue} from '../../utils';
+import {block, getQaAttrubutes} from '../../utils';
 import YoutubeBlock from '../VideoBlock/VideoBlock';
 
 import DataLens from './DataLens/DataLens';
@@ -54,18 +53,16 @@ export const Media = (props: MediaAllProps) => {
     const [hasVideoFallback, setHasVideoFallback] = useState(false);
 
     const qaAttributes = getQaAttrubutes(qa, 'video');
-    const globalTheme = useTheme();
 
     const content = useMemo(() => {
         let result: ReactElement | ReactElement[] = [];
 
         if (image) {
-            const themedImage = getThemedValue(image, globalTheme);
             result.push(
                 <Image
                     key="image"
                     parallax={parallax}
-                    image={themedImage}
+                    image={image}
                     disableImageSliderForArrayInput={disableImageSliderForArrayInput}
                     height={height}
                     imageClassName={imageClassName}
@@ -80,10 +77,9 @@ export const Media = (props: MediaAllProps) => {
         }
 
         if (video) {
-            const themedVideo = getThemedValue(video, globalTheme);
             const videoProps = {
                 key: 'video',
-                video: themedVideo,
+                video,
                 videoClassName,
                 height,
                 analyticsEvents,
@@ -134,7 +130,6 @@ export const Media = (props: MediaAllProps) => {
         youtube,
         dataLens,
         iframe,
-        globalTheme,
         parallax,
         disableImageSliderForArrayInput,
         height,
