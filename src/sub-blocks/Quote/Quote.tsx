@@ -4,7 +4,7 @@ import {Author, Button, HTML, Image, YFMWrapper} from '../../components';
 import {getMediaImage} from '../../components/Media/Image/utils';
 import {useTheme} from '../../context/theme';
 import {useAnalytics} from '../../hooks';
-import {AuthorType, DefaultEventNames, QuoteProps, QuoteType} from '../../models';
+import {AuthorItem, AuthorType, DefaultEventNames, QuoteProps, QuoteType} from '../../models';
 import {block, getThemedValue} from '../../utils';
 
 import './Quote.scss';
@@ -33,13 +33,19 @@ const Quote = (props: QuoteProps) => {
     const handleAnalytics = useAnalytics(DefaultEventNames.QuoteButton, url);
 
     const handleButtonClick = useCallback(() => handleAnalytics(), [handleAnalytics]);
+    const themedAuthor = author
+        ? ({
+              ...author,
+              avatar: getThemedValue(author.avatar, theme),
+          } as AuthorItem)
+        : author;
 
     const renderFooter = Boolean(author || url) && (
         <div className={b('author-wrapper')}>
-            {author && (
+            {themedAuthor && (
                 <Author
                     className={b('author', {theme: textTheme})}
-                    author={author}
+                    author={themedAuthor}
                     type={AuthorType.Line}
                     theme={textTheme}
                 />
