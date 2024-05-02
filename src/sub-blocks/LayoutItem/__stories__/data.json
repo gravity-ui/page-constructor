@@ -75,12 +75,24 @@
   },
   "withIcon": {
     "iconTop": {
-      "value": "/story-assets/icon_1_light.svg",
-      "position": "top"
+      "light": {
+        "value": "/story-assets/icon_1_light.svg",
+        "position": "top"
+      },
+      "dark": {
+        "value": "/story-assets/icon_1_dark.svg",
+        "position": "top"
+      }
     },
     "iconLeft": {
-      "value": "/story-assets/icon_2_light.svg",
-      "position": "left"
+      "light": {
+        "value": "/story-assets/icon_2_light.svg",
+        "position": "left"
+      },
+      "dark": {
+        "value": "/story-assets/icon_2_dark.svg",
+        "position": "left"
+      }
     }
   },
   "cardLayout": {
