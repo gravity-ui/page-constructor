@@ -2,13 +2,25 @@
   "video": {
     "content": {
       "video": {
-        "src": [
-          "/story-assets/video_8-12_white.webm",
-          "/story-assets/video_8-12_white.mp4",
-          "/story-assets/video_8-12_white.png"
-        ],
-        "loop": {
-          "start": 0
+        "light": {
+          "src": [
+            "/story-assets/video_8-12_white.webm",
+            "/story-assets/video_8-12_white.mp4",
+            "/story-assets/video_8-12_white.png"
+          ],
+          "loop": {
+            "start": 0
+          }
+        },
+        "dark": {
+          "src": [
+            "/story-assets/video_8-12_dark.webm",
+            "/story-assets/video_8-12_dark.mp4",
+            "/story-assets/video_8-12_dark.png"
+          ],
+          "loop": {
+            "start": 0
+          }
         }
       }
     }
@@ -52,9 +64,16 @@
   "image": {
     "content": {
       "image": {
-        "src": "/story-assets/img_6-12_light.png",
-        "alt": "Picture",
-        "disableCompress": true
+        "light": {
+          "src": "/story-assets/img_6-12_light.png",
+          "alt": "Picture",
+          "disableCompress": true
+        },
+        "dark": {
+          "src": "/story-assets/img_8-12_dark.png",
+          "alt": "Picture",
+          "disableCompress": true
+        }
       }
     }
   }
