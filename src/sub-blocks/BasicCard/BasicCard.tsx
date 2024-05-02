@@ -3,9 +3,10 @@ import React from 'react';
 import {useUniqId} from '@gravity-ui/uikit';
 
 import {CardBase, IconWrapper} from '../../components';
+import {useTheme} from '../../context/theme';
 import {BasicCardProps} from '../../models';
 import {IconPosition} from '../../models/constructor-items/sub-blocks';
-import {block} from '../../utils';
+import {block, getThemedValue} from '../../utils';
 import Content from '../Content/Content';
 
 import './BasicCard.scss';
@@ -28,6 +29,8 @@ const BasicCard = (props: BasicCardProps) => {
     const titleId = useUniqId();
     const descriptionId = useUniqId();
     const areControlsInFooter = controlPosition === 'footer';
+    const theme = useTheme();
+    const themedIcon = getThemedValue(icon, theme);
 
     return (
         <CardBase
@@ -38,7 +41,7 @@ const BasicCard = (props: BasicCardProps) => {
         >
             <CardBase.Content>
                 <IconWrapper
-                    icon={icon ? {value: icon, position: iconPosition} : undefined}
+                    icon={themedIcon ? {value: themedIcon, position: iconPosition} : undefined}
                     className={b('wrapper')}
                 >
                     <Content

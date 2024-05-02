@@ -2,9 +2,18 @@
   "withIcon": {
     "title": "Card with icon on {{position}}",
     "icons": [
-      "/story-assets/icon_1_light.svg",
-      "/story-assets/icon_2_light.svg",
-      "/story-assets/icon_3_light.svg"
+      {
+        "light": "/story-assets/icon_1_light.svg",
+        "dark": "/story-assets/icon_1_dark.svg"
+      },
+      {
+        "light": "/story-assets/icon_2_light.svg",
+        "dark": "/story-assets/icon_2_dark.svg"
+      },
+      {
+        "light": "/story-assets/icon_3_light.svg",
+        "dark": "/story-assets/icon_3_dark.svg"
+      }
     ]
   },
   "withBorder": {
