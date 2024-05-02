@@ -59,7 +59,8 @@ const Quote = (props: QuoteProps) => {
         </div>
     );
 
-    const logoProps = getMediaImage(logo);
+    const themedLogoProps = getThemedValue(logo, theme);
+    const logoProps = getMediaImage(themedLogoProps);
 
     return (
         <div

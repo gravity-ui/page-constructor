@@ -6,7 +6,7 @@
       "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       "image": "/story-assets/img_8-12_dark.png",
       "author": {
-        "avatar": "/story-assets/img_8-12_dark.png",
+        "avatar": "/story-assets/img-black.png",
         "firstName": "Lorem",
         "secondName": "ipsum",
         "description": "Lorem ipsum"
@@ -44,13 +44,25 @@
         "secondName": "ipsum",
         "description": "Lorem ipsum",
         "avatar": {
-          "src": "/story-assets/img_6-12_light.png",
-          "alt": "Avatar alt"
+          "light": {
+            "src": "/story-assets/img_6-12_light.png",
+            "alt": "Avatar alt"
+          },
+          "dark": {
+            "src": "/story-assets/img-black.png",
+            "alt": "Avatar alt"
+          }
         }
       },
       "logo": {
-        "src": "/story-assets/img-mini_6-12_light.png",
-        "alt": "Logo alt"
+        "light": {
+          "src": "/story-assets/img-mini_6-12_light.png",
+          "alt": "Logo alt"
+        },
+        "dark": {
+          "src": "/story-assets/img-mini_6-12_dark.png",
+          "alt": "Logo alt"
+        }
       },
       "button": {
         "text": "Button text",

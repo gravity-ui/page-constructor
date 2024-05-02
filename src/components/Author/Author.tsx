@@ -1,7 +1,8 @@
 import React from 'react';
 
+import {useTheme} from '../../context/theme';
 import {AuthorProps, AuthorType, ImageProps, WithChildren} from '../../models';
-import {block} from '../../utils';
+import {block, getThemedValue} from '../../utils';
 import {getMediaImage} from '../Media/Image/utils';
 import {Image} from '../index';
 
@@ -19,12 +20,14 @@ const Author = (props: WithChildren<AuthorProps>) => {
         theme,
     } = props;
     const {firstName, secondName, description, avatar} = author;
+    const globalTheme = useTheme();
 
     const name = secondName ? `${firstName} ${secondName}` : firstName;
     const isAvatarJSX = React.isValidElement(avatar);
     let avatarProps = {};
     if (!isAvatarJSX && avatar) {
-        avatarProps = getMediaImage(avatar as ImageProps);
+        const themedAvatar = getThemedValue(avatar, globalTheme);
+        avatarProps = getMediaImage(themedAvatar as ImageProps);
     }
 
     return (

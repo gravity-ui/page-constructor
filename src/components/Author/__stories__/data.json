@@ -5,7 +5,10 @@
         "firstName": "Lorem",
         "secondName": "Ipsum",
         "description": "Lorem Ipsum",
-        "avatar": "/story-assets/img_6-12_light.png"
+        "avatar": {
+          "light": "/story-assets/img_6-12_light.png",
+          "dark": "/story-assets/img-black.png"
+        }
       }
     }
   }
