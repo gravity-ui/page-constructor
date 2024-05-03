@@ -78,12 +78,25 @@
   },
   "backgrounds": {
     "image": {
-      "src": "/story-assets/content-bg-img_light.png",
-      "disableCompress": true
+      "light": {
+        "src": "/story-assets/content-bg-img_light.png",
+        "disableCompress": true
+      },
+      "dark": {
+        "src": "/story-assets/header-bg-img_dark.png",
+        "disableCompress": true
+      }
     },
     "backgroundColor": {
-      "style": {
-        "backgroundColor": "#EEF2F8"
+      "light": {
+        "style": {
+          "backgroundColor": "#EEF2F8"
+        }
+      },
+      "dark": {
+        "style": {
+          "backgroundColor": "#262626"
+        }
       }
     },
     "backgroundColorAndShadow": {

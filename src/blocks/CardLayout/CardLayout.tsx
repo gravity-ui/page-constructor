@@ -3,13 +3,14 @@ import React from 'react';
 import isEmpty from 'lodash/isEmpty';
 
 import {AnimateBlock, BackgroundImage, Title} from '../../components';
+import {useTheme} from '../../context/theme';
 import {Col, GridColumnSizesType, Row} from '../../grid';
 import {
     CardLayoutBlockProps as CardLayoutBlockParams,
     ClassNameProps,
     WithChildren,
 } from '../../models';
-import {block} from '../../utils';
+import {block, getThemedValue} from '../../utils';
 
 import './CardLayout.scss';
 
@@ -33,7 +34,8 @@ const CardLayout: React.FC<CardLayoutBlockProps> = ({
     titleClassName,
     background,
 }) => {
-    const {border, ...backgroundImageProps} = background || {};
+    const theme = useTheme();
+    const {border, ...backgroundImageProps} = getThemedValue(background || {}, theme);
     return (
         <AnimateBlock className={b(null, className)} animate={animated}>
             {(title || description) && (
