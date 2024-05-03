@@ -189,7 +189,7 @@ export interface PromoFeaturesItem {
     title: string;
     text: string;
     theme?: 'accent' | 'accent-light' | 'primary';
-    media?: MediaProps;
+    media?: ThemeSupporting<MediaProps>;
 }
 
 export interface PromoFeaturesProps extends Animatable {
@@ -308,9 +308,11 @@ export interface CardLayoutBlockProps extends Childable, Animatable, LoadableChi
     titleClassName?: string;
     description?: string;
     colSizes?: GridColumnSizesType;
-    background?: BackgroundImageProps & {
-        border?: CardBorder;
-    };
+    background?: ThemeSupporting<
+        BackgroundImageProps & {
+            border?: CardBorder;
+        }
+    >;
 }
 
 export type FilterTag = {
@@ -337,7 +339,7 @@ export interface FilterBlockProps extends Animatable, LoadableChildren {
 export interface IconsBlockItemProps extends AnalyticsEventsBase {
     url: string;
     text: string;
-    src: string;
+    src: ThemeSupporting<string>;
 }
 
 export interface IconsBlockProps {
@@ -350,7 +352,7 @@ export interface IconsBlockProps {
 
 interface ContentLayoutBlockParams {
     size?: ContentSize;
-    background?: BackgroundImageProps;
+    background?: ThemeSupporting<BackgroundImageProps>;
     centered?: boolean;
     theme?: ContentTheme;
     textWidth?: ContentTextSize;

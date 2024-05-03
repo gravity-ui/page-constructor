@@ -11,7 +11,7 @@ import './Icons.scss';
 
 const b = block('icons-block');
 
-const getItemContent = (item: IconsBlockProps['items'][number]) => (
+const getItemContent = (item: IconsBlockProps['items'][number] & {src: string}) => (
     <Fragment>
         <Image className={b('image')} src={item.src} />
         <p className={b('text')}>{item.text}</p>

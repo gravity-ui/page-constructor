@@ -110,7 +110,7 @@ export interface QuoteProps extends Themable, CardBaseProps {
     // for backward compatibility, yfmText will become property 'text' in major
     yfmText?: string;
     image: ThemedImage;
-    logo: ImageProps;
+    logo: ThemeSupporting<ImageProps>;
     color?: string;
     /**
      * @deprecated use property button instead
@@ -149,7 +149,7 @@ export interface BasicCardProps
         Omit<ContentBlockProps, 'colSizes' | 'centered' | 'size' | 'theme' | 'controlPosition'> {
     url: string;
     urlTitle?: string;
-    icon?: ImageProps;
+    icon?: ThemeSupporting<ImageProps>;
     target?: string;
     iconPosition?: IconPosition;
 }
@@ -181,18 +181,18 @@ export interface PriceCardProps extends CardBaseProps, Pick<ContentBlockProps, '
 
 export interface LayoutItemProps extends ClassNameProps, CardLayoutProps, AnalyticsEventsBase {
     content: Omit<ContentBlockProps, 'colSizes' | 'centered' | 'size'>;
-    media?: MediaProps;
+    media?: ThemeSupporting<MediaProps>;
     metaInfo?: string[];
     border?: boolean;
     fullscreen?: boolean;
-    icon?: PositionedIcon;
+    icon?: ThemeSupporting<PositionedIcon>;
 }
 
 export interface ImageCardProps
     extends CardBaseProps,
         CardLayoutProps,
         Omit<ContentBlockProps, 'colSizes' | 'centered' | 'controlPosition'> {
-    image: ImageProps;
+    image: ThemeSupporting<ImageProps>;
     enableImageBorderRadius?: boolean;
     margins?: ImageCardMargins;
     direction?: ImageCardDirection;
