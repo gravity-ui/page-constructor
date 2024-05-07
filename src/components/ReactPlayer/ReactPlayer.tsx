@@ -343,12 +343,14 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
         }, [isPlaying, onPlay, onPause]);
 
         const handleClick = useCallback(() => {
-            if (customControlsType === CustomControlsType.WithMuteButton) {
-                changeMute(muted);
-            } else {
-                onPlayClick();
+            if (controls === MediaVideoControlsType.Custom) {
+                if (customControlsType === CustomControlsType.WithMuteButton) {
+                    changeMute(muted);
+                } else {
+                    onPlayClick();
+                }
             }
-        }, [changeMute, customControlsType, muted, onPlayClick]);
+        }, [changeMute, customControlsType, muted, onPlayClick, controls]);
 
         const onFocusIn = useCallback(() => setHovered(true), []);
         const onFocusOut = useCallback(() => setHovered(false), []);
