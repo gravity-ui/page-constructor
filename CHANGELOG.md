@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [5.14.3](https://github.com/gravity-ui/page-constructor/compare/v5.14.2...v5.14.3) (2024-05-07)
+
+
+### Bug Fixes
+
+* video mute on video click ([#942](https://github.com/gravity-ui/page-constructor/issues/942)) ([6c5f957](https://github.com/gravity-ui/page-constructor/commit/6c5f957dc1cdb1bb18e12693960df8a883119fbe))
+
 ## [5.14.2](https://github.com/gravity-ui/page-constructor/compare/v5.14.1...v5.14.2) (2024-05-02)
 
 
