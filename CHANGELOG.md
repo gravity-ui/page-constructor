@@ -1,6 +1,18 @@
 # Changelog
 
 
+## [5.15.0](https://github.com/gravity-ui/page-constructor/compare/v5.14.3...v5.15.0) (2024-05-15)
+
+
+### Features
+
+* support themes in blocks and sub-blocks ([#932](https://github.com/gravity-ui/page-constructor/issues/932)) ([c26adf5](https://github.com/gravity-ui/page-constructor/commit/c26adf539764da4dfe1ee6071279562ae58cfa97))
+
+
+### Bug Fixes
+
+* add new option in content transform callback ([#939](https://github.com/gravity-ui/page-constructor/issues/939)) ([42a1665](https://github.com/gravity-ui/page-constructor/commit/42a16659572f1cfeaa32ec06a082fad21dbfd92e))
+
 ## [5.14.3](https://github.com/gravity-ui/page-constructor/compare/v5.14.2...v5.14.3) (2024-05-07)
 
 
