@@ -9,7 +9,12 @@
     "layoutItem": {
       "type": "layout-item",
       "media": {
-        "image": "/story-assets/img-mini_4-12_light.png"
+        "dark": {
+          "image": "/story-assets/img-mini_4-12_dark.png"
+        },
+        "light": {
+          "image": "/story-assets/img-mini_4-12_light.png"
+        }
       },
       "content": {
         "title": "Tell a story and build a narrative",
@@ -73,12 +78,25 @@
   },
   "backgrounds": {
     "image": {
-      "src": "/story-assets/content-bg-img_light.png",
-      "disableCompress": true
+      "light": {
+        "src": "/story-assets/content-bg-img_light.png",
+        "disableCompress": true
+      },
+      "dark": {
+        "src": "/story-assets/header-bg-img_dark.png",
+        "disableCompress": true
+      }
     },
     "backgroundColor": {
-      "style": {
-        "backgroundColor": "#EEF2F8"
+      "light": {
+        "style": {
+          "backgroundColor": "#EEF2F8"
+        }
+      },
+      "dark": {
+        "style": {
+          "backgroundColor": "#262626"
+        }
       }
     },
     "backgroundColorAndShadow": {
@@ -100,7 +118,12 @@
       "card": {
         "type": "layout-item",
         "media": {
-          "image": "/story-assets/img-mini_3-12_light.png"
+          "dark": {
+            "image": "/story-assets/img-mini_4-12_dark.png"
+          },
+          "light": {
+            "image": "/story-assets/img-mini_3-12_light.png"
+          }
         },
         "content": {
           "title": "Lorem&nbsp;ipsum",
@@ -118,7 +141,12 @@
       "card": {
         "type": "layout-item",
         "media": {
-          "image": "/story-assets/img-mini_6-12_light.png"
+          "dark": {
+            "image": "/story-assets/img-mini_6-12_dark.png"
+          },
+          "light": {
+            "image": "/story-assets/img-mini_6-12_light.png"
+          }
         },
         "content": {
           "title": "Lorem&nbsp;ipsum",

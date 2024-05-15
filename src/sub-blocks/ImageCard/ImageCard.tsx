@@ -4,9 +4,10 @@ import {Link, useUniqId} from '@gravity-ui/uikit';
 
 import {Image} from '../../components';
 import {getMediaImage} from '../../components/Media/Image/utils';
+import {useTheme} from '../../context/theme';
 import {GridColumnSizesType} from '../../grid';
 import {ImageCardDirection, ImageCardProps} from '../../models';
-import {block} from '../../utils';
+import {block, getThemedValue} from '../../utils';
 import Content from '../Content/Content';
 
 import './ImageCard.scss';
@@ -36,9 +37,12 @@ const ImageCard = (props: ImageCardProps) => {
         controlPosition = 'content',
     } = props;
 
+    const globalTheme = useTheme();
     const areControlsInFooter = controlPosition === 'footer';
     const hasContent = Boolean(text || title || buttons || links || list);
-    const imageProps = getMediaImage(image);
+    const themedImage = getThemedValue(image, globalTheme);
+    const imageProps = getMediaImage(themedImage);
+
     const titleId = useUniqId();
 
     const cardContent = (

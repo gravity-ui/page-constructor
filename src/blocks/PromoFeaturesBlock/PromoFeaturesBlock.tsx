@@ -7,8 +7,9 @@ import Media from '../../components/Media/Media';
 import Title from '../../components/Title/Title';
 import YFMWrapper from '../../components/YFMWrapper/YFMWrapper';
 import {BREAKPOINTS} from '../../constants';
+import {useTheme} from '../../context/theme';
 import {PromoFeaturesProps} from '../../models';
-import {block} from '../../utils';
+import {block, getThemedValue} from '../../utils';
 
 import './PromoFeaturesBlock.scss';
 
@@ -23,6 +24,7 @@ const breakpointColumns = {
 const PromoFeaturesBlock = (props: PromoFeaturesProps) => {
     const {items, title, description, theme, animated = true} = props;
     const backgroundTheme = theme || 'default';
+    const globalTheme = useTheme();
 
     return (
         <AnimateBlock className={b({[backgroundTheme]: true})} animate={animated}>
@@ -36,6 +38,7 @@ const PromoFeaturesBlock = (props: PromoFeaturesProps) => {
                 {items.map(({title: cardTitle, text, media, theme: cardTheme}, index) => {
                     const blockModifier = backgroundTheme === 'default' ? 'default' : 'light';
                     const themeMod = cardTheme || blockModifier || '';
+                    const themedMedia = getThemedValue(media, globalTheme);
 
                     return (
                         <div
@@ -51,7 +54,7 @@ const PromoFeaturesBlock = (props: PromoFeaturesProps) => {
                                     <YFMWrapper content={text} modifiers={{constructor: true}} />
                                 </div>
                             </div>
-                            {media && <Media className={b('card-media')} {...media} />}
+                            {media && <Media className={b('card-media')} {...themedMedia} />}
                         </div>
                     );
                 })}

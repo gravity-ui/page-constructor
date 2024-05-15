@@ -28,6 +28,7 @@ const LayoutItem = ({
     const normalizedLinks = useMemo(() => getLayoutItemLinks(links), [links]);
     const areControlsInFooter = controlPosition === 'footer';
     const theme = useTheme();
+    const themedIcon = getThemedValue(icon, theme);
 
     const contentProps: ContentBlockProps = {
         controlPosition: areControlsInFooter ? 'bottom' : 'default',
@@ -71,7 +72,7 @@ const LayoutItem = ({
             {renderMedia()}
             {metaInfo && <MetaInfo items={metaInfo} className={b('meta-info')} />}
             <div className={b('content', {'no-media': !media})}>
-                <IconWrapper icon={icon} className={b('wrapper')}>
+                <IconWrapper icon={themedIcon} className={b('wrapper')}>
                     <Content {...contentProps} titleId={titleId} />
                 </IconWrapper>
             </div>
