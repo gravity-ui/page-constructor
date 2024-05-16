@@ -41,7 +41,7 @@ export const CodeEditor = React.memo(
                 setMessage(validationResult);
                 onChange(parseCode(newCode));
             }, ON_CHANGE_DEBOUNCE_TIMEOUT),
-            [validator],
+            [onChange, validator],
         );
 
         return (
