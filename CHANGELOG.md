@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [5.15.1](https://github.com/gravity-ui/page-constructor/compare/v5.15.0...v5.15.1) (2024-05-23)
+
+
+### Bug Fixes
+
+* memoized code editor ([#946](https://github.com/gravity-ui/page-constructor/issues/946)) ([b490a9b](https://github.com/gravity-ui/page-constructor/commit/b490a9b4b967326b89c1b915213f8c9ef9d5d2c3))
+
 ## [5.15.0](https://github.com/gravity-ui/page-constructor/compare/v5.14.3...v5.15.0) (2024-05-15)
 
 
