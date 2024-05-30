@@ -27,7 +27,7 @@ const IconWrapper = (props: PropsWithChildren<IconWrapperProps> & ClassNameProps
                     className={b('icon', {['icon-position']: iconPosition})}
                 />
             )}
-            <div className={b('content')}>{children}</div>
+            <div className={b({['content']: iconPosition})}>{children}</div>
         </div>
     );
 };

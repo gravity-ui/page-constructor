@@ -40,5 +40,11 @@ $block: '.#{$ns}icon-wrapper';
         display: flex;
         flex-direction: column;
         flex: 1 0 auto;
+
+        &_left {
+            @include add-specificity(&) {
+                flex: 1 0 0;
+            }
+        }
     }
 }
