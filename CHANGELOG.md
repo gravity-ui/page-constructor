@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [5.15.2](https://github.com/gravity-ui/page-constructor/compare/v5.15.1...v5.15.2) (2024-05-31)
+
+
+### Bug Fixes
+
+* flex setting for content with icon in basic card ([#948](https://github.com/gravity-ui/page-constructor/issues/948)) ([eccb44f](https://github.com/gravity-ui/page-constructor/commit/eccb44f24184efcaa3263f52bf340704cda8dc33))
+
 ## [5.15.1](https://github.com/gravity-ui/page-constructor/compare/v5.15.0...v5.15.1) (2024-05-23)
 
 
