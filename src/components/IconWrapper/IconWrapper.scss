@@ -41,9 +41,11 @@ $block: '.#{$ns}icon-wrapper';
         flex-direction: column;
         flex: 1 0 auto;
 
-        &_left {
-            @include add-specificity(&) {
-                flex: 1 0 0;
+        &_icon-position {
+            &_left {
+                @include add-specificity(&) {
+                    flex: 1 0 0;
+                }
             }
         }
     }
