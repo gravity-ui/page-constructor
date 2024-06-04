@@ -175,7 +175,7 @@ $block: '.#{$ns}hubspot-form';
         .hs-form-checkbox-display {
             position: relative;
 
-            span:not(.hs-form-required) {
+            > span:not(.hs-form-required) {
                 &:before {
                     content: '';
                     position: absolute;
