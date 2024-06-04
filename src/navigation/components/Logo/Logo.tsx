@@ -17,7 +17,7 @@ export type LogoProps = ThemedNavigationLogoData & {
 };
 
 const Logo: React.FC<LogoProps> = (props) => {
-    const {hostname, Link} = useContext(LocationContext);
+    const {hostname} = useContext(LocationContext);
     const theme = useTheme();
     const themedLogoProps = getThemedValue(props, theme) || props;
     const imageData = getMediaImage(themedLogoProps.icon || props.icon);
@@ -34,18 +34,9 @@ const Logo: React.FC<LogoProps> = (props) => {
 
     return (
         <RouterLink href={url} passHref>
-            {Link ? (
-                <span className={b(null, props.className)}>{content}</span>
-            ) : (
-                <a
-                    className={b(null, props.className)}
-                    href={url}
-                    title={urlTitle}
-                    {...linkExtraProps}
-                >
-                    {content}
-                </a>
-            )}
+            <a className={b(null, props.className)} href={url} title={urlTitle} {...linkExtraProps}>
+                {content}
+            </a>
         </RouterLink>
     );
 };
