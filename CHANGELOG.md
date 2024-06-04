@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [5.15.3](https://github.com/gravity-ui/page-constructor/compare/v5.15.2...v5.15.3) (2024-06-04)
+
+
+### Bug Fixes
+
+* check checkbox, not do navigation to link if content has link ([#952](https://github.com/gravity-ui/page-constructor/issues/952)) ([bba6426](https://github.com/gravity-ui/page-constructor/commit/bba64269078c122ce2a00f3ca4cce64fc4077e5f))
+
 ## [5.15.2](https://github.com/gravity-ui/page-constructor/compare/v5.15.1...v5.15.2) (2024-05-31)
 
 
