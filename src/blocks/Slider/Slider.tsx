@@ -61,6 +61,7 @@ export interface SliderProps
     dotsClassName?: string;
     blockClassName?: string;
     arrowSize?: number;
+    initialIndex?: number;
 }
 
 export const SliderBlock = (props: WithChildren<SliderProps>) => {
@@ -83,6 +84,7 @@ export const SliderBlock = (props: WithChildren<SliderProps>) => {
         arrowSize,
         onAfterChange: handleAfterChange,
         onBeforeChange: handleBeforeChange,
+        initialIndex = 0,
     } = props;
 
     const {isServer} = useContext(SSRContext);
@@ -107,7 +109,7 @@ export const SliderBlock = (props: WithChildren<SliderProps>) => {
     const slidesToShowCount = getSlidesToShowCount(slidesToShow);
     const slidesCountByBreakpoint = getSlidesCountByBreakpoint(breakpoint, slidesToShow);
 
-    const [currentIndex, setCurrentIndex] = useState<number>(0);
+    const [currentIndex, setCurrentIndex] = useState<number>(initialIndex);
     const [childStyles, setChildStyles] = useState<Object>({});
     const [slider, setSlider] = useState<SlickSlider>();
     const autoplayTimeId = useRef<Timeout>();
@@ -346,7 +348,7 @@ export const SliderBlock = (props: WithChildren<SliderProps>) => {
             responsive: getSliderResponsiveParams(slidesToShow),
             beforeChange: onBeforeChange,
             afterChange: onAfterChange,
-            initialSlide: 0,
+            initialSlide: initialIndex,
             nextArrow: <Arrow type="right" handleClick={handleArrowClick} size={arrowSize} />,
             prevArrow: <Arrow type="left" handleClick={handleArrowClick} size={arrowSize} />,
             lazyLoad,
