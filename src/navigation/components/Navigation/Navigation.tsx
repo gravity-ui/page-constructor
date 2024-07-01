@@ -52,7 +52,7 @@ export const Navigation: React.FC<NavigationProps> = ({data, logo, className}) =
         if (!withBorderOnScroll) return () => {};
 
         const showBorderOnScroll = () => {
-            if (!showBorder) {
+            if (!withBorder) {
                 setShowBorder(window.scrollY > 0);
             }
         };
