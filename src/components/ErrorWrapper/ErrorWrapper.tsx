@@ -2,7 +2,7 @@ import React from 'react';
 
 import {Button} from '@gravity-ui/uikit';
 
-import {ClassNameProps, WithChildren} from '../../models';
+import {ClassNameProps} from '../../models';
 import {block} from '../../utils';
 
 import './ErrorWrapper.scss';
@@ -24,7 +24,7 @@ const ErrorWrapper = ({
     handler,
     isError,
     children,
-}: WithChildren<ErrorWrapperProps>) =>
+}: React.PropsWithChildren<ErrorWrapperProps>) =>
     isError ? (
         <div className={b(null, className)}>
             <div className={b('text')}>{text}</div>

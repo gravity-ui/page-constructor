@@ -9,7 +9,7 @@ import YFMWrapper from '../../components/YFMWrapper/YFMWrapper';
 import {MobileContext} from '../../context/mobileContext';
 import {useTheme} from '../../context/theme';
 import {Col, Grid, Row} from '../../grid';
-import {ClassNameProps, HeaderBlockBackground, HeaderBlockProps, WithChildren} from '../../models';
+import {ClassNameProps, HeaderBlockBackground, HeaderBlockProps} from '../../models';
 import {block, getThemedValue} from '../../utils';
 
 import {getImageSize, getTitleSizes, titleWithImageSizes} from './utils';
@@ -62,7 +62,7 @@ const FullWidthBackground = ({background}: FullWidthBackgroundProps) => (
     />
 );
 
-export const HeaderBlock = (props: WithChildren<HeaderBlockFullProps>) => {
+export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>) => {
     const {
         title,
         overtitle,

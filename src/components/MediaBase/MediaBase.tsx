@@ -2,7 +2,7 @@ import React, {ReactElement, useMemo} from 'react';
 
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
 import {Col, Grid, GridColumnSize, Row} from '../../grid';
-import {MediaBaseBlockProps, WithChildren} from '../../models';
+import {MediaBaseBlockProps} from '../../models';
 import {block} from '../../utils';
 import Title from '../Title/Title';
 
@@ -12,7 +12,7 @@ import './MediaBase.scss';
 
 const b = block('media-base');
 
-const Card: React.FC<WithChildren<{}>> = () => null;
+const Card: React.FC<React.PropsWithChildren<{}>> = () => null;
 
 interface MediaBaseProps extends MediaBaseBlockProps {
     children: ReactElement;

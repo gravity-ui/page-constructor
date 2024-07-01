@@ -100,7 +100,7 @@ To add a data-qa attribute to elements in your components and access those eleme
 1. Add data-qa attributes to elements: In your component's TSX code, add the `data-qa` attribute to the elements you want to target in your tests. Assign a meaningful value to the attribute that helps identify the purpose or role of the element.
 
 ```ts
-const BackgroundImage = (props: WithChildren<BackgroundImageProps>) => {
+const BackgroundImage = (props: React.PropsWithChildren<BackgroundImageProps>) => {
   const {qa} = props;
 
   return <div data-qa="background-image">{/* Other components */}</div>;
@@ -116,7 +116,7 @@ const submitButton = getByTestId('background-image');
 It is possible to change `data-qa` dinamically:
 
 ```ts
-const BackgroundImage = (props: WithChildren<BackgroundImageProps>) => {
+const BackgroundImage = (props: React.PropsWithChildren<BackgroundImageProps>) => {
   const {qa} = props;
 
   return <div data-qa={qa}>{/* Other components */}</div>;

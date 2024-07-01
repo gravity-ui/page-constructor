@@ -1,6 +1,5 @@
 import React from 'react';
 
-import {WithChildren} from '../../models';
 import {QAProps} from '../../models/common';
 import {hasBlockTag} from '../../utils';
 
@@ -19,7 +18,7 @@ const HTML = ({
     itemProp,
     id,
     qa,
-}: WithChildren<HTMLProps & QAProps>) => {
+}: React.PropsWithChildren<HTMLProps & QAProps>) => {
     if (!children) {
         return null;
     }

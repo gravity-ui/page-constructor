@@ -5,14 +5,14 @@ import {render, screen} from '@testing-library/react';
 import {testCustomClassName} from '../../../../test-utils/shared/common';
 import {qaIdByDefault} from '../../../components/Anchor/Anchor';
 import {GridColumnSize, IndentValue} from '../../../grid';
-import {ClassNameProps, WithChildren} from '../../../models';
+import {ClassNameProps} from '../../../models';
 import BlockBase, {BlockBaseFullProps} from '../BlockBase';
 
 const qa = 'block-base-component';
 
 const indentValues: IndentValue[] = ['0', 'xs', 's', 'm', 'l', 'xl'];
 
-type ComponentProps = WithChildren<BlockBaseFullProps & ClassNameProps>;
+type ComponentProps = React.PropsWithChildren<BlockBaseFullProps & ClassNameProps>;
 
 describe('BlockBase', () => {
     test('render component by default', async () => {

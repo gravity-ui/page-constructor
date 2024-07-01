@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {AuthorProps, AuthorType, ImageProps, WithChildren} from '../../models';
+import {AuthorProps, AuthorType, ImageProps} from '../../models';
 import {block} from '../../utils';
 import {getMediaImage} from '../Media/Image/utils';
 import {Image} from '../index';
@@ -9,7 +9,7 @@ import './Author.scss';
 
 const b = block('author');
 
-const Author = (props: WithChildren<AuthorProps>) => {
+const Author = (props: React.PropsWithChildren<AuthorProps>) => {
     const {
         author,
         className,

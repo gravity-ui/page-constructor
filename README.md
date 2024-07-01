@@ -25,7 +25,7 @@ The page constructor is imported as a React component. To make sure it runs prop
 ```jsx
 import {PageConstructor, PageConstructorProvider} from '@gravity-ui/page-constructor';
 
-const Page: WithChildren<PageProps> = ({content}) => (
+const Page: React.PropsWithChildren<PageProps> = ({content}) => (
   <PageConstructorProvider>
     <PageConstructor content={content} />
   </PageConstructorProvider>

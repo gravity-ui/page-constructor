@@ -5,11 +5,7 @@ import isEmpty from 'lodash/isEmpty';
 import {AnimateBlock, BackgroundImage, Title} from '../../components';
 import {useTheme} from '../../context/theme';
 import {Col, GridColumnSizesType, Row} from '../../grid';
-import {
-    CardLayoutBlockProps as CardLayoutBlockParams,
-    ClassNameProps,
-    WithChildren,
-} from '../../models';
+import {CardLayoutBlockProps as CardLayoutBlockParams, ClassNameProps} from '../../models';
 import {block, getThemedValue} from '../../utils';
 
 import './CardLayout.scss';
@@ -19,7 +15,9 @@ const DEFAULT_SIZES: GridColumnSizesType = {
     sm: 6,
     md: 4,
 };
-export type CardLayoutBlockProps = WithChildren<Omit<CardLayoutBlockParams, 'children'>> &
+export type CardLayoutBlockProps = React.PropsWithChildren<
+    Omit<CardLayoutBlockParams, 'children'>
+> &
     ClassNameProps;
 
 const b = block('card-layout-block');

@@ -3,7 +3,7 @@ import React, {useContext} from 'react';
 import {Label, LabelProps} from '@gravity-ui/uikit';
 
 import {LocationContext} from '../../context/locationContext';
-import {FileLinkProps, TextSize, WithChildren} from '../../models';
+import {FileLinkProps, TextSize} from '../../models';
 import {block, getLinkProps} from '../../utils';
 
 import './FileLink.scss';
@@ -45,7 +45,7 @@ const LabelSizeMap: Record<TextSize, LabelProps['size']> = {
     xs: 'xs',
 };
 
-const FileLink = (props: WithChildren<FileLinkProps>) => {
+const FileLink = (props: React.PropsWithChildren<FileLinkProps>) => {
     const {hostname} = useContext(LocationContext);
     const {
         href,
