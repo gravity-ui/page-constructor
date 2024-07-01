@@ -1,7 +1,6 @@
 import React from 'react';
 
 import {RouterLinkProps} from '../../components/RouterLink/RouterLink';
-import {WithChildren} from '../../models';
 
 export interface History {
     action: 'PUSH' | 'POP' | 'REPLACE' | '';
@@ -17,7 +16,7 @@ export interface History {
 
 export type RouterLink =
     | React.ComponentClass<RouterLinkProps>
-    | React.FC<WithChildren<RouterLinkProps>>;
+    | React.FC<React.PropsWithChildren<RouterLinkProps>>;
 
 export type LocationContextProps = {
     history?: History;

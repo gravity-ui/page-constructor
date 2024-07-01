@@ -3,7 +3,7 @@ import React, {CSSProperties, useContext, useState} from 'react';
 import {Waypoint} from 'react-waypoint';
 
 import {AnimateContext, AnimateContextProps} from '../../context/animateContext/AnimateContext';
-import {QAProps, WithChildren} from '../../models';
+import {QAProps} from '../../models';
 import {block} from '../../utils';
 
 const b = block('AnimateBlock');
@@ -16,7 +16,7 @@ export interface AnimateBlockProps extends AnimateContextProps, QAProps {
     onScroll?: () => void;
 }
 
-const AnimateBlock = (props: WithChildren<AnimateBlockProps>) => {
+const AnimateBlock = (props: React.PropsWithChildren<AnimateBlockProps>) => {
     const {animated} = useContext(AnimateContext);
     const {children, className, offset = 100, onScroll, style, animate = animated, qa} = props;
     const [playAnimation, setPlayAnimation] = useState<boolean>(false);

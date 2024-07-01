@@ -1,12 +1,6 @@
 import React, {PropsWithChildren} from 'react';
 
-import {
-    Animatable,
-    BlockDecorationProps,
-    ConstructorItem,
-    ThemedMediaProps,
-    WithChildren,
-} from './';
+import {Animatable, BlockDecorationProps, ConstructorItem, ThemedMediaProps} from './';
 
 export interface PageData {
     content: PageContent;
@@ -48,7 +42,7 @@ export type OnInit = (data: InitConstrucorState) => void;
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type ComponentProps = React.ComponentProps<React.ComponentClass<any>>;
 export type CustomItem =
-    | WithChildren<ComponentProps>
+    | React.PropsWithChildren<ComponentProps>
     | React.ComponentType<PropsWithChildren<ComponentProps>>;
 export type CustomItems = Record<string, CustomItem>;
 

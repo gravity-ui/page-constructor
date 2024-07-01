@@ -28,7 +28,6 @@ import {
     SliderProps as SliderParams,
     SliderType,
     Timeout,
-    WithChildren,
 } from '../../models';
 import {block} from '../../utils';
 
@@ -63,7 +62,7 @@ export interface SliderProps
     arrowSize?: number;
 }
 
-export const SliderBlock = (props: WithChildren<SliderProps>) => {
+export const SliderBlock = (props: React.PropsWithChildren<SliderProps>) => {
     const {
         animated,
         title,

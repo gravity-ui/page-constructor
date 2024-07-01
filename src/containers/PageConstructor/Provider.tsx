@@ -18,7 +18,7 @@ import {
 } from '../../context/projectSettingsContext';
 import {SSRContext, SSRContextProps} from '../../context/ssrContext';
 import {ThemeContext} from '../../context/theme';
-import {Theme, WithChildren} from '../../models';
+import {Theme} from '../../models';
 
 export interface PageConstructorProviderProps {
     isMobile?: boolean;
@@ -33,7 +33,9 @@ export interface PageConstructorProviderProps {
     image?: ImageContextProps;
 }
 
-export const PageConstructorProvider = (props: WithChildren<PageConstructorProviderProps>) => {
+export const PageConstructorProvider = (
+    props: React.PropsWithChildren<PageConstructorProviderProps>,
+) => {
     const {
         isMobile,
         mapsContext = initialMapValue,

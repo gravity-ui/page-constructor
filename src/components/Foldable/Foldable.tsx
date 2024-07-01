@@ -1,7 +1,7 @@
 import React, {useEffect, useRef} from 'react';
 
 import useHeightCalculator from '../../hooks/useHeightCalculator';
-import {QAProps, WithChildren} from '../../models';
+import {QAProps} from '../../models';
 import {block, getQaAttrubutes} from '../../utils';
 
 import './Foldable.scss';
@@ -13,7 +13,7 @@ export interface FoldableProps extends QAProps {
     className?: string;
 }
 
-const Foldable = ({isOpened, children, className, qa}: WithChildren<FoldableProps>) => {
+const Foldable = ({isOpened, children, className, qa}: React.PropsWithChildren<FoldableProps>) => {
     const qaAttributes = getQaAttrubutes(qa);
     const blockRef = useRef<HTMLDivElement>(null);
     const contentRef = useRef<HTMLDivElement>(null);
