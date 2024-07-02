@@ -35,6 +35,7 @@ module.exports = {
                     path.resolve(NODE_MODULES_PATH, '@diplodoc/transform'),
                     path.resolve(NODE_MODULES_PATH, '@gravity-ui/components'),
                     path.resolve(NODE_MODULES_PATH, '@gravity-ui/uikit'),
+                    path.resolve(NODE_MODULES_PATH, 'swiper'),
                     path.resolve(__dirname, 'styles'),
                     SRC_PATH,
                 ],

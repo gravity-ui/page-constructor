@@ -19,6 +19,7 @@ import {
     QuestionsBlock,
     ShareBlock,
     SliderBlock,
+    SliderNewBlock,
     TableBlock,
     TabsBlock,
 } from './validators/blocks';
@@ -54,6 +55,7 @@ export const blockSchemas: Record<BlockType, object> = {
     ...ShareBlock,
     ...FilterBlock,
     ...FormBlock,
+    ...SliderNewBlock,
 };
 
 export const cardSchemas = {
