@@ -1,17 +1,15 @@
 import React, {Fragment, useCallback, useContext, useEffect, useMemo, useState} from 'react';
 
-import debounce from 'lodash/debounce';
-import get from 'lodash/get';
 import {A11y, Autoplay} from 'swiper/modules';
 import type {SwiperClass, SwiperProps} from 'swiper/react';
 import {Swiper, SwiperSlide} from 'swiper/react';
 import 'swiper/scss';
 import 'swiper/scss/pagination';
+import type {SwiperOptions} from 'swiper/types';
 
 import Anchor from '../../components/Anchor/Anchor';
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
 import Title from '../../components/Title/Title';
-import {BREAKPOINTS} from '../../constants';
 import {MobileContext} from '../../context/mobileContext';
 import {StylesContext} from '../../context/stylesContext/StylesContext';
 import {
@@ -24,9 +22,10 @@ import {
 import {block} from '../../utils';
 
 import Arrow, {ArrowType} from './Arrow/Arrow';
-import {SliderBreakpointParams} from './models';
+import {SliderBreakpointNames, SliderBreakpointParams} from './models';
 import {
-    getSlidesCountByBreakpoint,
+    DEFAULT_SLIDE_BREAKPOINTS,
+    getSliderResponsiveParams,
     getSlidesToShowCount,
     getSlidesToShowWithDefaults,
 } from './utils';
@@ -46,6 +45,7 @@ export interface SliderNewProps
             | 'onSlideChangeTransitionStart'
             | 'onSlideChangeTransitionEnd'
             | 'onActiveIndexChange'
+            | 'onBreakpoint'
         >,
         Refable<HTMLDivElement>,
         ClassNameProps {
@@ -75,10 +75,13 @@ export const SliderNewBlock = (props: WithChildren<SliderNewProps>) => {
         onSlideChangeTransitionStart,
         onSlideChangeTransitionEnd,
         onActiveIndexChange,
+        onBreakpoint,
     } = props;
 
     const isMobile = useContext(MobileContext);
-    const [breakpoint, setBreakpoint] = useState<number>(BREAKPOINTS.xl);
+    const [slidesCountByBreakpoint, setSlidesCountByBreakpoint] = useState<number>(
+        DEFAULT_SLIDE_BREAKPOINTS[SliderBreakpointNames.Xl],
+    );
     const disclosedChildren = useMemo<React.ReactElement[]>(
         () => discloseAllNestedChildren(children as React.ReactElement[]),
         [children],
@@ -98,29 +101,28 @@ export const SliderNewBlock = (props: WithChildren<SliderNewProps>) => {
     );
 
     const slidesToShowCount = getSlidesToShowCount(slidesToShow);
-    const slidesCountByBreakpoint = getSlidesCountByBreakpoint(breakpoint, slidesToShow);
 
     const [currentIndex, setCurrentIndex] = useState<number>(0);
     const [childStyles, setChildStyles] = useState<Object>({});
     const [slider, setSlider] = useState<SwiperClass>();
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    const onResize = useCallback(
-        debounce(() => {
-            if (!slider) {
-                return;
+    const handleBreakpoint: SwiperProps['onBreakpoint'] = useCallback(
+        (slider: SwiperClass, breakpointParams: SwiperOptions) => {
+            if (onBreakpoint) {
+                onBreakpoint(slider, breakpointParams);
             }
+            const newSlidesCountByBreakpoint: number = Math.floor(
+                (breakpointParams.slidesPerView as number) ||
+                    slidesToShow[SliderBreakpointNames.Xl],
+            );
 
-            const newBreakpoint = get(slider, 'state.breakpoint') || BREAKPOINTS.xl;
-
-            if (newBreakpoint !== breakpoint) {
-                setBreakpoint(newBreakpoint);
-                setCurrentIndex(0);
-
+            if (newSlidesCountByBreakpoint !== slidesCountByBreakpoint) {
+                setSlidesCountByBreakpoint(newSlidesCountByBreakpoint);
                 slider.slideTo(0);
             }
-        }, 100),
-        [slider, breakpoint],
+        },
+        [slidesCountByBreakpoint],
     );
 
     useEffect(() => {
@@ -132,22 +134,14 @@ export const SliderNewBlock = (props: WithChildren<SliderNewProps>) => {
         }
     }, [autoplayEnabled]);
 
-    useEffect(() => {
-        onResize();
-
-        window.addEventListener('resize', onResize, {passive: true});
-
-        return () => window.removeEventListener('resize', onResize);
-    }, [onResize]);
-
-    const handleSlideChange = useCallback(
+    const handleActiveIndexChange = useCallback(
         (swiper: SwiperClass) => {
-            if (onSlideChange) {
-                onSlideChange(swiper);
+            if (onActiveIndexChange) {
+                onActiveIndexChange(swiper);
             }
             setCurrentIndex(swiper.activeIndex);
         },
-        [onSlideChange],
+        [onActiveIndexChange],
     );
 
     const handleArrowClick = useCallback(
@@ -293,11 +287,13 @@ export const SliderNewBlock = (props: WithChildren<SliderNewProps>) => {
                         }
                     }
                     initialSlide={0}
+                    breakpoints={getSliderResponsiveParams(slidesToShow)}
                     slidesPerView={slidesToShowCount}
-                    onSlideChange={handleSlideChange}
+                    onSlideChange={onSlideChange}
                     onSlideChangeTransitionStart={onSlideChangeTransitionStart}
                     onSlideChangeTransitionEnd={onSlideChangeTransitionEnd}
-                    onActiveIndexChange={onActiveIndexChange}
+                    onActiveIndexChange={handleActiveIndexChange}
+                    onBreakpoint={handleBreakpoint}
                 >
                     {disclosedChildren.map((elem, index) => (
                         <SwiperSlide className={b('slide')} key={index}>
