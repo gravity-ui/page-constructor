@@ -44,10 +44,10 @@ export function getSlidesToShowWithDefaults({
 }
 
 export function getSliderResponsiveParams(breakpoints: SliderBreakpointParams) {
-    return Object.entries(breakpoints).map(([breakpointName, slidesToShow]) => ({
-        breakpoint: BREAKPOINTS[breakpointName as SliderBreakpointNames],
-        settings: {slidesToShow},
-    }));
+    return Object.entries(breakpoints).reduce((res, [breakpointName, slidesToShow]) => {
+        res[BREAKPOINTS[breakpointName as SliderBreakpointNames]] = {slidesPerView: slidesToShow};
+        return res;
+    }, {} as Record<number, {slidesPerView: number}>);
 }
 
 export function getSlidesCountByBreakpoint(
