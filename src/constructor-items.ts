@@ -19,6 +19,7 @@ import {
     TableBlock,
     TabsBlock,
 } from './blocks';
+import {SliderNewBlock} from './blocks/unstable';
 import {BlockType, NavigationItemType, SubBlockType} from './models';
 import {
     GithubButton,
@@ -61,6 +62,8 @@ export const blockMap = {
     [BlockType.MapBlock]: MapBlock,
     [BlockType.FilterBlock]: FilterBlock,
     [BlockType.FormBlock]: FormBlock,
+    // unstable
+    [BlockType.SliderNewBlock]: SliderNewBlock,
 };
 
 export const subBlockMap = {

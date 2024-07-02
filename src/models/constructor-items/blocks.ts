@@ -61,6 +61,8 @@ export enum BlockType {
     MapBlock = 'map-block',
     FilterBlock = 'filter-block',
     FormBlock = 'form-block',
+    // unstable
+    SliderNewBlock = 'slider-new-block',
 }
 
 export const BlockTypes = Object.values(BlockType);
@@ -125,6 +127,21 @@ export interface SliderProps extends Childable, Animatable, LoadableChildren {
     //for server transforms
     randomOrder?: boolean;
     adaptive?: boolean;
+}
+
+export interface SliderNewProps extends Childable, Animatable, LoadableChildren {
+    dots?: boolean;
+    arrows?: boolean;
+    slidesToShow?: SlidesToShow;
+    disclaimer?: {
+        text: string;
+        size?: TextSize;
+    };
+    title?: TitleItemBaseProps;
+    description?: string;
+    autoplay?: number;
+    //for server transforms
+    randomOrder?: boolean;
 }
 
 export interface HeaderSliderBlockProps extends Omit<SliderProps, 'title' | 'description'> {
@@ -512,6 +529,11 @@ export type FormBlockModel = {
     type: BlockType.FormBlock;
 } & FormBlockProps;
 
+// unstable block models
+export type SliderNewBlockModel = {
+    type: BlockType.SliderNewBlock;
+} & SliderNewProps;
+
 type BlockModels =
     | SliderBlockModel
     | ExtendedFeaturesBlockModel
@@ -533,4 +555,6 @@ type BlockModels =
     | FilterBlockModel
     | FormBlockModel;
 
-export type Block = BlockModels & BlockBaseProps;
+type UnstableBlockModels = SliderNewBlockModel;
+
+export type Block = (BlockModels | UnstableBlockModels) & BlockBaseProps;
