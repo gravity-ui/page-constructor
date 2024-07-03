@@ -1,4 +1,4 @@
-import React, {Fragment, useCallback, useContext, useEffect, useMemo, useState} from 'react';
+import React, {Fragment, useCallback, useEffect, useMemo, useState} from 'react';
 
 import {A11y, Autoplay} from 'swiper/modules';
 import type {SwiperClass, SwiperProps} from 'swiper/react';
@@ -10,7 +10,6 @@ import type {SwiperOptions} from 'swiper/types';
 import Anchor from '../../components/Anchor/Anchor';
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
 import Title from '../../components/Title/Title';
-import {MobileContext} from '../../context/mobileContext';
 import {StylesContext} from '../../context/stylesContext/StylesContext';
 import {
     ClassNameProps,
@@ -78,9 +77,8 @@ export const SliderNewBlock = (props: WithChildren<SliderNewProps>) => {
         onBreakpoint,
     } = props;
 
-    const isMobile = useContext(MobileContext);
     const [slidesCountByBreakpoint, setSlidesCountByBreakpoint] = useState<number>(
-        DEFAULT_SLIDE_BREAKPOINTS[SliderBreakpointNames.Xl],
+        DEFAULT_SLIDE_BREAKPOINTS[SliderBreakpointNames.Lg],
     );
     const disclosedChildren = useMemo<React.ReactElement[]>(
         () => discloseAllNestedChildren(children as React.ReactElement[]),
@@ -114,7 +112,7 @@ export const SliderNewBlock = (props: WithChildren<SliderNewProps>) => {
             }
             const newSlidesCountByBreakpoint: number = Math.floor(
                 (breakpointParams.slidesPerView as number) ||
-                    slidesToShow[SliderBreakpointNames.Xl],
+                    slidesToShow[SliderBreakpointNames.Lg],
             );
 
             if (newSlidesCountByBreakpoint !== slidesCountByBreakpoint) {
@@ -287,7 +285,6 @@ export const SliderNewBlock = (props: WithChildren<SliderNewProps>) => {
                     }
                     initialSlide={0}
                     breakpoints={getSliderResponsiveParams(slidesToShow)}
-                    slidesPerView={slidesToShowCount}
                     onSlideChange={onSlideChange}
                     onSlideChangeTransitionStart={onSlideChangeTransitionStart}
                     onSlideChangeTransitionEnd={onSlideChangeTransitionEnd}
@@ -319,10 +316,8 @@ export const SliderNewBlock = (props: WithChildren<SliderNewProps>) => {
             <div
                 className={b(
                     {
-                        'align-left': childrenCount < slidesCountByBreakpoint,
                         'one-slide': childrenCount === 1,
                         'only-arrows': !title?.text && !description && arrows,
-                        mobile: isMobile,
                         type,
                     },
                     blockClassName,

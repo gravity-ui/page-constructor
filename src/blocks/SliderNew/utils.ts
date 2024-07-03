@@ -5,10 +5,10 @@ import {BREAKPOINTS} from '../../constants';
 import {SliderBreakpointNames, SliderBreakpointParams, SlidesToShow} from './models';
 
 export const DEFAULT_SLIDE_BREAKPOINTS = {
-    [SliderBreakpointNames.Xl]: 3,
-    [SliderBreakpointNames.Lg]: 2,
+    [SliderBreakpointNames.Lg]: 3,
     [SliderBreakpointNames.Md]: 2,
-    [SliderBreakpointNames.Sm]: 1.15,
+    [SliderBreakpointNames.Sm]: 2,
+    [SliderBreakpointNames.Xs]: 1.15,
 };
 
 const BREAKPOINT_NAMES_BY_VALUES = Object.entries(BREAKPOINTS).reduce<
@@ -39,13 +39,15 @@ export function getSlidesToShowWithDefaults({
     return {
         ...DEFAULT_SLIDE_BREAKPOINTS,
         ...pickBy(result, (value) => !isNaN(value)),
-        sm: !mobileFullscreen && contentLength > 1 ? DEFAULT_SLIDE_BREAKPOINTS.sm : 1,
+        xs: !mobileFullscreen && contentLength > 1 ? DEFAULT_SLIDE_BREAKPOINTS.xs : 1,
     };
 }
 
 export function getSliderResponsiveParams(breakpoints: SliderBreakpointParams) {
     return Object.entries(breakpoints).reduce((res, [breakpointName, slidesToShow]) => {
-        res[BREAKPOINTS[breakpointName as SliderBreakpointNames]] = {slidesPerView: slidesToShow};
+        res[BREAKPOINTS[breakpointName as SliderBreakpointNames] + 1] = {
+            slidesPerView: slidesToShow,
+        };
         return res;
     }, {} as Record<number, {slidesPerView: number}>);
 }
