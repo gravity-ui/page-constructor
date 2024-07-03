@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [5.16.0](https://github.com/gravity-ui/page-constructor/compare/v5.15.3...v5.16.0) (2024-07-03)
+
+
+### Features
+
+* remove custom generic WithChildren ([#955](https://github.com/gravity-ui/page-constructor/issues/955)) ([cbda11f](https://github.com/gravity-ui/page-constructor/commit/cbda11f50ce34721880b4403b4a19c84448fcc8d))
+
 ## [5.15.3](https://github.com/gravity-ui/page-constructor/compare/v5.15.2...v5.15.3) (2024-06-04)
 
 
