@@ -279,7 +279,6 @@ export const SliderNewBlock = (props: WithChildren<SliderNewProps>) => {
                     className={b('slider')}
                     onSwiper={setSlider}
                     modules={[Autoplay, A11y]}
-                    spaceBetween={16}
                     speed={1000}
                     autoplay={
                         autoplayEnabled && {
