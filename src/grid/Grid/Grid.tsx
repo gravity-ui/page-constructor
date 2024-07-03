@@ -1,6 +1,5 @@
 import React from 'react';
 
-import {WithChildren} from '../../models';
 import {block} from '../../utils';
 
 import '../styles/bootstrap.scss';
@@ -21,7 +20,7 @@ export const Grid = ({
     className,
     style,
     containerClass = '',
-}: WithChildren<GridProps>) => (
+}: React.PropsWithChildren<GridProps>) => (
     <div style={style} className={b({debug}, className)}>
         <div className={`container-fluid ${containerClass}`}>{children}</div>
     </div>

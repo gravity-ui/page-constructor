@@ -4,12 +4,11 @@ import {render, screen} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import {testCustomClassName, testCustomStyle} from '../../../../test-utils/shared/common';
-import {WithChildren} from '../../../models';
 import AnimateBlock, {AnimateBlockProps} from '../AnimateBlock';
 
 const qa = 'animate-block';
 
-type ComponentProps = WithChildren<AnimateBlockProps>;
+type ComponentProps = React.PropsWithChildren<AnimateBlockProps>;
 
 describe('AnimateBlock', () => {
     test('render AnimateBlock by default', async () => {

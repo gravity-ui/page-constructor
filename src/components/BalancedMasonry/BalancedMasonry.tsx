@@ -5,7 +5,7 @@ import first from 'lodash/first';
 import minBy from 'lodash/minBy';
 
 import {SSRContext} from '../../context/ssrContext';
-import {QAProps, WithChildren} from '../../models';
+import {QAProps} from '../../models';
 import {block, getQaAttrubutes} from '../../utils';
 
 import './BalancedMasonry.scss';
@@ -21,7 +21,7 @@ export interface BalancedMasonryProps extends QAProps {
     };
 }
 
-const BalancedMasonry = (props: WithChildren<BalancedMasonryProps>) => {
+const BalancedMasonry = (props: React.PropsWithChildren<BalancedMasonryProps>) => {
     const {className, columnClassName, children = [], breakpointCols, qa} = props;
     const qaAttributes = getQaAttrubutes(qa, 'column');
     const {isServer} = useContext(SSRContext);

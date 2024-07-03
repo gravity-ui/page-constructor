@@ -6,14 +6,7 @@ import {Icon} from '@gravity-ui/uikit';
 import {LocaleContext} from '../../context/localeContext';
 import {LocationContext} from '../../context/locationContext';
 import {useAnalytics} from '../../hooks';
-import {
-    ClassNameProps,
-    DefaultEventNames,
-    LinkProps,
-    Tabbable,
-    TextSize,
-    WithChildren,
-} from '../../models';
+import {ClassNameProps, DefaultEventNames, LinkProps, Tabbable, TextSize} from '../../models';
 import {QAProps} from '../../models/common';
 import {block, getLinkProps, setUrlTld} from '../../utils';
 import {getQaAttrubutes} from '../../utils/index';
@@ -40,7 +33,7 @@ function getArrowSize(size: TextSize) {
     }
 }
 
-const LinkBlock = (props: WithChildren<LinkFullProps>) => {
+const LinkBlock = (props: React.PropsWithChildren<LinkFullProps>) => {
     const {
         text,
         url,

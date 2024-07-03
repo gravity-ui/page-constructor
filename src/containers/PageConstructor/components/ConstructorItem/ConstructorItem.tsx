@@ -3,14 +3,18 @@ import React, {useContext} from 'react';
 import {BlockIdContext} from '../../../../context/blockIdContext';
 import {InnerContext} from '../../../../context/innerContext';
 import {BlockDecoration} from '../../../../customization/BlockDecoration';
-import {BlockType, ConstructorBlock, WithChildren} from '../../../../models';
+import {BlockType, ConstructorBlock} from '../../../../models';
 
 export interface ConstructorItemProps {
     data: ConstructorBlock;
     blockKey: string;
 }
 
-export const ConstructorItem = ({data, blockKey, children}: WithChildren<ConstructorItemProps>) => {
+export const ConstructorItem = ({
+    data,
+    blockKey,
+    children,
+}: React.PropsWithChildren<ConstructorItemProps>) => {
     const {itemMap} = useContext(InnerContext);
     const {type, ...rest} = data;
 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {BackgroundImageProps, WithChildren} from '../../models';
+import {BackgroundImageProps} from '../../models';
 import {block, getQaAttrubutes} from '../../utils';
 import Image from '../Image/Image';
 
@@ -10,7 +10,7 @@ export const qaIdByDefault = 'background-image';
 
 const b = block('storage-background-image');
 
-const BackgroundImage = (props: WithChildren<BackgroundImageProps>) => {
+const BackgroundImage = (props: React.PropsWithChildren<BackgroundImageProps>) => {
     const {children, src, desktop, className, imageClassName, style, hide, qa} = props;
     const qaAttributes = getQaAttrubutes(qa || qaIdByDefault);
 
