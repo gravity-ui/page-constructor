@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [5.16.1](https://github.com/gravity-ui/page-constructor/compare/v5.16.0...v5.16.1) (2024-07-04)
+
+
+### Bug Fixes
+
+* hide header border when user scroll up the page ([#956](https://github.com/gravity-ui/page-constructor/issues/956)) ([762061b](https://github.com/gravity-ui/page-constructor/commit/762061b26030d5ad898184d5fce6156b85ca2239))
+
 ## [5.16.0](https://github.com/gravity-ui/page-constructor/compare/v5.15.3...v5.16.0) (2024-07-03)
 
 
