@@ -63,6 +63,7 @@ export const SliderNewBlock = (props: WithChildren<SliderNewProps>) => {
         type,
         anchorId,
         arrows = true,
+        adaptive,
         autoplay = undefined,
         dots = true,
         dotsClassName,
@@ -283,6 +284,7 @@ export const SliderNewBlock = (props: WithChildren<SliderNewProps>) => {
                             delay: autoplay,
                         }
                     }
+                    autoHeight={adaptive}
                     initialSlide={0}
                     breakpoints={getSliderResponsiveParams(slidesToShow)}
                     onSlideChange={onSlideChange}

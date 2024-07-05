@@ -11,10 +11,6 @@ export const DEFAULT_SLIDE_BREAKPOINTS = {
     [SliderBreakpointNames.Xs]: 1.15,
 };
 
-const BREAKPOINT_NAMES_BY_VALUES = Object.entries(BREAKPOINTS).reduce<
-    Record<number, SliderBreakpointNames>
->((acc, [key, value]) => ({...acc, [value]: key as SliderBreakpointNames}), {});
-
 export interface GetSlidesToShowParams {
     contentLength: number;
     breakpoints?: SlidesToShow;
@@ -50,15 +46,6 @@ export function getSliderResponsiveParams(breakpoints: SliderBreakpointParams) {
         };
         return res;
     }, {} as Record<number, {slidesPerView: number}>);
-}
-
-export function getSlidesCountByBreakpoint(
-    breakpoint: number,
-    breakpoints: SliderBreakpointParams,
-) {
-    const breakpointName = BREAKPOINT_NAMES_BY_VALUES[breakpoint];
-
-    return Math.floor(breakpoints[breakpointName]);
 }
 
 export function getSlidesToShowCount(breakpoints: SliderBreakpointParams) {

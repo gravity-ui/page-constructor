@@ -14,11 +14,13 @@ export default {
     args: {
         dots: true,
         disclaimer: undefined,
+        adaptive: undefined,
         randomOrder: undefined,
     },
     argTypes: {
         description: {control: 'text'},
         autoplay: {control: 'number'},
+        adaptive: {control: 'boolean'},
         randomOrder: {control: 'boolean'},
     },
 } as Meta;
