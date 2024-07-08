@@ -63,6 +63,15 @@ export const SliderNewProps = {
     autoplay: {
         type: 'number',
     },
+    type: {
+        type: 'string',
+    },
+    adaptive: {
+        type: 'boolean',
+    },
+    arrowSize: {
+        type: 'number',
+    },
     animated: AnimatableProps,
     slidesToShow: sliderSizesObject,
     disclaimer: DisclaimerProps,
