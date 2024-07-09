@@ -1,4 +1,4 @@
-import React, {Fragment, useCallback, useEffect, useMemo, useState} from 'react';
+import React, {Fragment, PropsWithChildren, useCallback, useEffect, useMemo, useState} from 'react';
 
 import {A11y, Autoplay} from 'swiper/modules';
 import type {SwiperClass, SwiperProps} from 'swiper/react';
@@ -10,13 +10,7 @@ import Anchor from '../../components/Anchor/Anchor';
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
 import Title from '../../components/Title/Title';
 import {StylesContext} from '../../context/stylesContext/StylesContext';
-import {
-    ClassNameProps,
-    Refable,
-    SliderProps as SliderParams,
-    SliderType,
-    WithChildren,
-} from '../../models';
+import {ClassNameProps, Refable, SliderProps as SliderParams, SliderType} from '../../models';
 import {block} from '../../utils';
 
 import Arrow, {ArrowType} from './Arrow/Arrow';
@@ -55,7 +49,7 @@ export interface SliderNewProps
     arrowSize?: number;
 }
 
-export const SliderNewBlock = (props: WithChildren<SliderNewProps>) => {
+export const SliderNewBlock = (props: PropsWithChildren<SliderNewProps>) => {
     const {
         animated,
         title,
