@@ -265,48 +265,6 @@ export const SliderNewBlock = (props: PropsWithChildren<SliderNewProps>) => {
         ) : null;
     };
 
-    const renderSlider = () => {
-        return (
-            <div>
-                <Swiper
-                    className={b('slider')}
-                    onSwiper={setSlider}
-                    modules={[Autoplay, A11y]}
-                    speed={1000}
-                    autoplay={
-                        autoplayEnabled && {
-                            delay: autoplay,
-                        }
-                    }
-                    autoHeight={adaptive}
-                    initialSlide={0}
-                    breakpoints={getSliderResponsiveParams(slidesToShow)}
-                    onSlideChange={onSlideChange}
-                    onSlideChangeTransitionStart={onSlideChangeTransitionStart}
-                    onSlideChangeTransitionEnd={onSlideChangeTransitionEnd}
-                    onActiveIndexChange={handleActiveIndexChange}
-                    onBreakpoint={handleBreakpoint}
-                >
-                    {disclosedChildren.map((elem, index) => (
-                        <SwiperSlide className={b('slide')} key={index}>
-                            {elem}
-                        </SwiperSlide>
-                    ))}
-                </Swiper>
-                {arrows && (
-                    <div className={b('arrows')}>
-                        <Arrow type="left" handleClick={handleArrowClick} size={arrowSize} />
-                        <Arrow type="right" handleClick={handleArrowClick} size={arrowSize} />
-                    </div>
-                )}
-                <div className={b('footer')}>
-                    {renderDisclaimer()}
-                    {renderNavigation()}
-                </div>
-            </div>
-        );
-    };
-
     return (
         <StylesContext.Provider value={{...childStyles, setStyles: setChildStyles}}>
             <div
@@ -326,7 +284,51 @@ export const SliderNewBlock = (props: PropsWithChildren<SliderNewProps>) => {
                     className={b('header', {'no-description': !description})}
                 />
                 <AnimateBlock className={b('animate-slides')} animate={animated}>
-                    {renderSlider()}
+                    <Swiper
+                        className={b('slider')}
+                        onSwiper={setSlider}
+                        modules={[Autoplay, A11y]}
+                        speed={1000}
+                        autoplay={
+                            autoplayEnabled && {
+                                delay: autoplay,
+                            }
+                        }
+                        autoHeight={adaptive}
+                        initialSlide={0}
+                        breakpoints={getSliderResponsiveParams(slidesToShow)}
+                        onSlideChange={onSlideChange}
+                        onSlideChangeTransitionStart={onSlideChangeTransitionStart}
+                        onSlideChangeTransitionEnd={onSlideChangeTransitionEnd}
+                        onActiveIndexChange={handleActiveIndexChange}
+                        onBreakpoint={handleBreakpoint}
+                    >
+                        {disclosedChildren.map((elem, index) => (
+                            <SwiperSlide className={b('slide')} key={index}>
+                                {elem}
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
+                    {arrows && (
+                        <Fragment>
+                            <Arrow
+                                className={b('arrow', {prev: true})}
+                                type="left"
+                                handleClick={handleArrowClick}
+                                size={arrowSize}
+                            />
+                            <Arrow
+                                className={b('arrow', {next: true})}
+                                type="right"
+                                handleClick={handleArrowClick}
+                                size={arrowSize}
+                            />
+                        </Fragment>
+                    )}
+                    <div className={b('footer')}>
+                        {renderDisclaimer()}
+                        {renderNavigation()}
+                    </div>
                 </AnimateBlock>
             </div>
         </StylesContext.Provider>

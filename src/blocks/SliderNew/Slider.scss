@@ -20,15 +20,6 @@ $block: '.#{$ns}SliderNewBlock';
     $root: &;
     position: relative;
 
-    &__arrows {
-        position: absolute;
-        top: 0;
-        right: 0;
-        z-index: 2;
-        display: flex;
-        flex-direction: row;
-    }
-
     &__slider.swiper {
         padding: $indentSM 0 $indentS;
         margin: 0 -#{$gridGutter};
@@ -38,6 +29,18 @@ $block: '.#{$ns}SliderNewBlock';
         padding: 0 #{$gridGutter};
         box-sizing: border-box;
         flex-shrink: 0;
+    }
+
+    &__arrow {
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 2;
+
+        &_prev {
+            right: $sliderArrowSize;
+            margin-right: 16px;
+        }
     }
 
     &__header {
@@ -51,6 +54,7 @@ $block: '.#{$ns}SliderNewBlock';
         display: flex;
         justify-content: center;
         width: 100%;
+        z-index: 2;
     }
 
     &__dots-list {
@@ -155,6 +159,32 @@ $block: '.#{$ns}SliderNewBlock';
         #{$root}__slider.swiper {
             padding: 0;
         }
+
+        &:hover {
+            #{$root}__arrow {
+                display: flex;
+            }
+        }
+
+        #{$root}__arrow {
+            display: none;
+            width: 64px;
+            top: 50%;
+            transform: translate(0, -50%);
+
+            &_prev {
+                left: 0;
+                margin-right: 0;
+            }
+        }
+
+        @media (max-width: map-get($gridBreakpoints, 'md')) {
+            &:hover {
+                #{$root}__arrow {
+                    display: none;
+                }
+            }
+        }
     }
 
     &_type_header-card {
@@ -172,7 +202,7 @@ $block: '.#{$ns}SliderNewBlock';
 
         #{$root}__dots {
             position: absolute;
-            bottom: 16px;
+            bottom: 32px;
             left: 50%;
             transform: translateX(-50%);
             z-index: 100;
@@ -181,6 +211,35 @@ $block: '.#{$ns}SliderNewBlock';
         #{$root}__slider.swiper {
             padding: 0;
             margin: 0;
+        }
+
+        #{$root}__arrow {
+            top: 50%;
+            transform: translateY(-50%);
+            width: $arrowWidth;
+            height: $arrowHeight;
+
+            right: 0;
+
+            &_prev {
+                left: 0;
+                margin-right: 0;
+            }
+
+            button {
+                background-color: transparent;
+                box-shadow: none;
+
+                &:hover {
+                    box-shadow: none;
+                }
+            }
+
+            &:hover {
+                & button {
+                    box-shadow: none;
+                }
+            }
         }
 
         #{$root}__slide {
@@ -199,6 +258,28 @@ $block: '.#{$ns}SliderNewBlock';
             // fix text under video in safari
             &[aria-hidden='true'] {
                 animation: safari-fix 1000ms;
+            }
+        }
+
+        @media (max-width: map-get($gridBreakpoints, 'sm')) {
+            #{$root}__arrow {
+                display: none;
+            }
+
+            &#{$root}:not(&_one-slide) {
+                #{$root}__slider.swiper {
+                    margin-left: 0;
+                }
+
+                #{$root}__slide {
+                    // to remove the indentation between slides
+                    padding-right: 0;
+                    padding-left: 0;
+
+                    &:last-child {
+                        padding-right: 0;
+                    }
+                }
             }
         }
     }
@@ -222,10 +303,11 @@ $block: '.#{$ns}SliderNewBlock';
             width: calc(100% + #{($gridContainerMargin + $gridGutterMobile) * 2});
             overflow-x: auto;
 
-            #{$root}__slider.swiper {
+            #{$root}__slider {
                 margin-left: -($gridContainerMargin + $gridGutterMobile);
                 margin-right: 0;
             }
+
             #{$root}__slide {
                 padding: 0 $slideOffset;
             }
