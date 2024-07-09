@@ -41,6 +41,7 @@ export function getSlidesToShowWithDefaults({
 
 export function getSliderResponsiveParams(breakpoints: SliderBreakpointParams) {
     return Object.entries(breakpoints).reduce((res, [breakpointName, slidesToShow]) => {
+        // eslint-disable-next-line no-param-reassign
         res[BREAKPOINTS[breakpointName as SliderBreakpointNames] + 1] = {
             slidesPerView: slidesToShow,
         };
