@@ -13,42 +13,36 @@ export const DEFAULT_SLIDE_BREAKPOINTS = {
 
 export interface GetSlidesToShowParams {
     contentLength: number;
-    breakpoints?: SlidesToShow;
+    slidesToShow?: SlidesToShow;
     mobileFullscreen?: boolean;
 }
-export function getSlidesToShowWithDefaults({
+export function getSliderResponsiveParams({
     contentLength,
-    breakpoints,
+    slidesToShow,
     mobileFullscreen,
 }: GetSlidesToShowParams) {
     let result;
 
-    if (typeof breakpoints === 'number') {
+    if (typeof slidesToShow === 'number') {
         result = Object.keys(DEFAULT_SLIDE_BREAKPOINTS).reduce(
-            (acc, breakpointName) => ({...acc, [breakpointName]: breakpoints}),
+            (acc, breakpointName) => ({...acc, [breakpointName]: slidesToShow}),
             {} as SliderBreakpointParams,
         );
     } else {
-        result = breakpoints || DEFAULT_SLIDE_BREAKPOINTS;
+        result = slidesToShow || DEFAULT_SLIDE_BREAKPOINTS;
     }
 
-    return {
+    const showCount = {
         ...DEFAULT_SLIDE_BREAKPOINTS,
         ...pickBy(result, (value) => !isNaN(value)),
         xs: !mobileFullscreen && contentLength > 1 ? DEFAULT_SLIDE_BREAKPOINTS.xs : 1,
     };
-}
 
-export function getSliderResponsiveParams(breakpoints: SliderBreakpointParams) {
-    return Object.entries(breakpoints).reduce((res, [breakpointName, slidesToShow]) => {
+    return Object.entries(showCount).reduce((res, [breakpointName, value]) => {
         // eslint-disable-next-line no-param-reassign
         res[BREAKPOINTS[breakpointName as SliderBreakpointNames] + 1] = {
-            slidesPerView: slidesToShow,
+            slidesPerView: value,
         };
         return res;
     }, {} as Record<number, {slidesPerView: number}>);
-}
-
-export function getSlidesToShowCount(breakpoints: SliderBreakpointParams) {
-    return Math.floor(Math.max(...Object.values(breakpoints)));
 }
