@@ -1,9 +1,10 @@
 import React, {Fragment, PropsWithChildren, useCallback, useEffect, useMemo, useState} from 'react';
 
-import {A11y, Autoplay} from 'swiper/modules';
+import {A11y, Autoplay, Pagination} from 'swiper/modules';
 import type {SwiperClass, SwiperProps} from 'swiper/react';
 import {Swiper, SwiperSlide} from 'swiper/react';
 import 'swiper/scss';
+import 'swiper/scss/pagination';
 import type {SwiperOptions} from 'swiper/types/swiper-options';
 
 import Anchor from '../../components/Anchor/Anchor';
@@ -15,18 +16,11 @@ import {block} from '../../utils';
 
 import Arrow, {ArrowType} from './Arrow/Arrow';
 import {SliderBreakpointNames, SliderBreakpointParams} from './models';
-import {
-    getSliderResponsiveParams,
-    getSlidesToShowCount,
-    getSlidesToShowWithDefaults,
-} from './utils';
+import {getSliderResponsiveParams, getSlidesToShowWithDefaults} from './utils';
 
 import './Slider.scss';
 
 const b = block('SliderNewBlock');
-
-const DOT_WIDTH = 8;
-const DOT_GAP = 16;
 
 export interface SliderNewProps
     extends Omit<SliderParams, 'children'>,
@@ -93,8 +87,6 @@ export const SliderNewBlock = (props: PropsWithChildren<SliderNewProps>) => {
         slidesToShow[SliderBreakpointNames.Lg],
     );
 
-    const slidesToShowCount = getSlidesToShowCount(slidesToShow);
-
     const [currentIndex, setCurrentIndex] = useState<number>(0);
     const [childStyles, setChildStyles] = useState<Object>({});
     const [slider, setSlider] = useState<SwiperClass>();
@@ -156,109 +148,6 @@ export const SliderNewBlock = (props: PropsWithChildren<SliderNewProps>) => {
         [childrenCount, currentIndex, slider, slidesCountByBreakpoint],
     );
 
-    const handleDotClick = useCallback(
-        (index: number) => {
-            const nextIndex = index > currentIndex ? index + 1 - slidesCountByBreakpoint : index;
-
-            if (slider) {
-                slider.slideTo(nextIndex);
-            }
-        },
-        [slider, currentIndex, slidesCountByBreakpoint],
-    );
-
-    const barSlidesCount = childrenCount - slidesToShowCount + 1;
-    const barPosition = (DOT_GAP + DOT_WIDTH) * currentIndex;
-    const barWidth = DOT_WIDTH + (DOT_GAP + DOT_WIDTH) * (slidesCountByBreakpoint - 1);
-
-    const renderBar = () => {
-        return (
-            slidesCountByBreakpoint > 1 && (
-                <li
-                    className={b('bar')}
-                    style={{
-                        left: barPosition,
-                        width: barWidth,
-                    }}
-                ></li>
-            )
-        );
-    };
-
-    // renders additional bar, not visible in the layout but visible for screenreaders
-    const renderAccessibleBar = (index: number) => {
-        return (
-            // To have this key differ from keys used in renderDot function, added `-accessible-bar` part
-            <Fragment key={`${index}-accessible-bar`}>
-                {slidesCountByBreakpoint > 0 && (
-                    <li
-                        className={b('accessible-bar')}
-                        aria-current
-                        aria-label={`Slide ${currentIndex + 1} of ${barSlidesCount}`}
-                        style={{
-                            left: barPosition,
-                            width: barWidth,
-                        }}
-                    ></li>
-                )}
-            </Fragment>
-        );
-    };
-
-    const getCurrentSlideNumber = (index: number) => {
-        const currentIndexDiff = index - currentIndex;
-
-        let currentSlideNumber;
-        if (0 <= currentIndexDiff && currentIndexDiff < slidesToShowCount) {
-            currentSlideNumber = currentIndex + 1;
-        } else if (currentIndexDiff >= slidesToShowCount) {
-            currentSlideNumber = index - slidesToShowCount + 2;
-        } else {
-            currentSlideNumber = index + 1;
-        }
-        return currentSlideNumber;
-    };
-    const isVisibleSlide = (index: number) => {
-        const currentIndexDiff = index - currentIndex;
-
-        return (
-            slidesCountByBreakpoint > 0 &&
-            0 <= currentIndexDiff &&
-            currentIndexDiff < slidesToShowCount
-        );
-    };
-
-    const renderDot = (index: number) => {
-        return (
-            <li
-                key={index}
-                className={b('dot', {active: index === currentIndex})}
-                onClick={() => handleDotClick(index)}
-                aria-hidden={isVisibleSlide(index) ? true : undefined}
-                aria-label={`Slide ${getCurrentSlideNumber(index)} of ${barSlidesCount}`}
-            ></li>
-        );
-    };
-
-    const renderNavigation = () => {
-        if (childrenCount <= slidesCountByBreakpoint || !dots || childrenCount === 1) {
-            return null;
-        }
-        const dotsList = Array(childrenCount)
-            .fill(null)
-            .map((_item, index) => renderDot(index));
-        dotsList.splice(currentIndex, 0, renderAccessibleBar(currentIndex));
-
-        return (
-            <div className={b('dots', dotsClassName)}>
-                <ul className={b('dots-list')}>
-                    {renderBar()}
-                    {dotsList}
-                </ul>
-            </div>
-        );
-    };
-
     const renderDisclaimer = () => {
         return disclaimer ? (
             <div className={b('disclaimer', {size: disclaimer.size || 'm'})}>{disclaimer.text}</div>
@@ -272,6 +161,7 @@ export const SliderNewBlock = (props: PropsWithChildren<SliderNewProps>) => {
                     {
                         'one-slide': childrenCount === 1,
                         'only-arrows': !title?.text && !description && arrows,
+                        'without-dots': !dots,
                         type,
                     },
                     blockClassName,
@@ -287,7 +177,14 @@ export const SliderNewBlock = (props: PropsWithChildren<SliderNewProps>) => {
                     <Swiper
                         className={b('slider')}
                         onSwiper={setSlider}
-                        modules={[Autoplay, A11y]}
+                        modules={[Autoplay, A11y, Pagination]}
+                        pagination={{
+                            horizontalClass: b('dots'),
+                            enabled: dots,
+                            clickable: true,
+                            bulletClass: b('dot', dotsClassName),
+                            bulletActiveClass: b('dot_active'),
+                        }}
                         speed={1000}
                         autoplay={
                             autoplayEnabled && {
@@ -325,10 +222,7 @@ export const SliderNewBlock = (props: PropsWithChildren<SliderNewProps>) => {
                             />
                         </Fragment>
                     )}
-                    <div className={b('footer')}>
-                        {renderDisclaimer()}
-                        {renderNavigation()}
-                    </div>
+                    <div className={b('footer')}>{renderDisclaimer()}</div>
                 </AnimateBlock>
             </div>
         </StylesContext.Provider>

@@ -20,9 +20,15 @@ $block: '.#{$ns}SliderNewBlock';
     $root: &;
     position: relative;
 
-    &__slider.swiper {
-        padding: $indentSM 0 $indentS;
+    &__slider {
+        padding: $indentSM 0 $indentL;
         margin: 0 -#{$gridGutter};
+    }
+
+    &_without-dots {
+        #{$root}__slider {
+            padding-bottom: $indentS;
+        }
     }
 
     &__slide {
@@ -50,36 +56,14 @@ $block: '.#{$ns}SliderNewBlock';
         }
     }
 
-    &__dots {
-        display: flex;
-        justify-content: center;
-        width: 100%;
-        z-index: 2;
-    }
-
-    &__dots-list {
-        @include reset-list-style();
-
-        position: relative;
-        display: inline-flex;
-        justify-content: center;
-
-        li#{$root}__bar,
-        li#{$root}__accessible-bar,
-        li#{$root}__dot {
-            margin: calc(#{$indentXXS} / 2) $indentXXXS;
-            top: 0;
-        }
-    }
-
     &__dot {
-        margin-top: $indentXXS;
         width: 8px;
         height: 8px;
 
-        border-radius: 100%;
+        border-radius: 50%;
         background-color: var(--g-color-line-generic-accent);
         cursor: pointer;
+        display: inline-block;
 
         &:hover {
             background-color: var(--g-color-line-generic-accent-hover);
@@ -90,24 +74,9 @@ $block: '.#{$ns}SliderNewBlock';
         }
 
         &_active {
+            opacity: 1;
             background-color: var(--g-color-line-generic-active);
         }
-    }
-
-    &__bar,
-    &__accessible-bar {
-        position: absolute;
-        top: $indentXXS;
-        left: 0;
-        width: 24px;
-        height: 8px;
-        border-radius: $borderRadius;
-    }
-
-    &__bar {
-        width: 24px;
-        transition: left 0.3s;
-        background-color: var(--pc-color-line-generic-active-solid);
     }
 
     &_only-arrows {
@@ -150,13 +119,10 @@ $block: '.#{$ns}SliderNewBlock';
         padding: 0;
 
         #{$root}__dots {
-            position: absolute;
             bottom: 24px;
-            left: 0;
-            width: 100%;
         }
 
-        #{$root}__slider.swiper {
+        #{$root}__slider {
             padding: 0;
         }
 
@@ -201,14 +167,10 @@ $block: '.#{$ns}SliderNewBlock';
         }
 
         #{$root}__dots {
-            position: absolute;
             bottom: 32px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 100;
         }
 
-        #{$root}__slider.swiper {
+        #{$root}__slider {
             padding: 0;
             margin: 0;
         }
@@ -267,7 +229,7 @@ $block: '.#{$ns}SliderNewBlock';
             }
 
             &#{$root}:not(&_one-slide) {
-                #{$root}__slider.swiper {
+                #{$root}__slider {
                     margin-left: 0;
                 }
 
