@@ -1,8 +1,6 @@
 @import '../../../styles/mixins';
 @import '../../../styles/variables';
 
-$slideOffset: 8px;
-
 $block: '.#{$ns}SliderNewBlock';
 
 @mixin fullscreen-card() {
@@ -111,6 +109,7 @@ $block: '.#{$ns}SliderNewBlock';
 
     &__animate-slides {
         @include animate-slides(#{$root}__slide);
+        @include animate-slides(#{$root}__dot);
     }
 
     &_type_media-card {
@@ -271,7 +270,7 @@ $block: '.#{$ns}SliderNewBlock';
             }
 
             #{$root}__slide {
-                padding: 0 $slideOffset;
+                padding: 0 $indentXXXS;
             }
         }
     }

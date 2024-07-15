@@ -1,7 +1,7 @@
-import React, {Fragment, PropsWithChildren, useEffect, useMemo, useState} from 'react';
+import React, {Fragment, PropsWithChildren} from 'react';
 
 import {A11y, Autoplay, Pagination} from 'swiper/modules';
-import type {SwiperClass, SwiperProps} from 'swiper/react';
+import type {SwiperProps} from 'swiper/react';
 import {Swiper, SwiperSlide} from 'swiper/react';
 import 'swiper/scss';
 import 'swiper/scss/pagination';
@@ -9,11 +9,11 @@ import 'swiper/scss/pagination';
 import Anchor from '../../components/Anchor/Anchor';
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
 import Title from '../../components/Title/Title';
-import {ClassNameProps, Refable, SliderProps as SliderParams, SliderType} from '../../models';
+import {ClassNameProps, Refable, SliderProps as SliderParams} from '../../models';
 import {block} from '../../utils';
 
 import Arrow from './Arrow/Arrow';
-import {getSliderResponsiveParams} from './utils';
+import {useSlider} from './useSlider';
 
 import './Slider.scss';
 
@@ -40,53 +40,34 @@ export interface SliderNewProps
     arrowSize?: number;
 }
 
-export const SliderNewBlock = (props: PropsWithChildren<SliderNewProps>) => {
-    const {
-        animated,
-        title,
-        description,
-        type,
-        anchorId,
-        arrows = true,
-        adaptive,
-        autoplay = undefined,
-        dots = true,
-        dotsClassName,
-        disclaimer,
+export const SliderNewBlock = ({
+    animated,
+    title,
+    description,
+    type,
+    anchorId,
+    arrows = true,
+    adaptive,
+    autoplay: autoplayMs,
+    dots = true,
+    dotsClassName,
+    disclaimer,
+    children,
+    blockClassName,
+    arrowSize,
+    slidesToShow,
+    onSlideChange,
+    onSlideChangeTransitionStart,
+    onSlideChangeTransitionEnd,
+    onActiveIndexChange,
+    onBreakpoint,
+}: PropsWithChildren<SliderNewProps>) => {
+    const {childrenCount, breakpoints, slider, autoplay, onSwiper} = useSlider({
+        slidesToShow,
         children,
-        blockClassName,
-        arrowSize,
-        onSlideChange,
-        onSlideChangeTransitionStart,
-        onSlideChangeTransitionEnd,
-        onActiveIndexChange,
-        onBreakpoint,
-    } = props;
-
-    const [slider, setSlider] = useState<SwiperClass>();
-
-    const childrenCount = React.Children.count(children);
-
-    const autoplayEnabled = useMemo(() => Boolean(autoplay), [autoplay]);
-
-    const breakpoints = useMemo(() => {
-        return getSliderResponsiveParams({
-            contentLength: childrenCount,
-            slidesToShow: props.slidesToShow,
-            mobileFullscreen: Boolean(
-                props.type && Object.values(SliderType).includes(props.type as SliderType),
-            ),
-        });
-    }, [props.slidesToShow, props.type, childrenCount]);
-
-    useEffect(() => {
-        if (!slider) return;
-        if (autoplayEnabled) {
-            slider.autoplay.start();
-        } else {
-            slider.autoplay.stop();
-        }
-    }, [slider, autoplayEnabled]);
+        type,
+        autoplayMs,
+    });
 
     return (
         <div
@@ -109,7 +90,7 @@ export const SliderNewBlock = (props: PropsWithChildren<SliderNewProps>) => {
             <AnimateBlock className={b('animate-slides')} animate={animated}>
                 <Swiper
                     className={b('slider')}
-                    onSwiper={setSlider}
+                    onSwiper={onSwiper}
                     modules={[Autoplay, A11y, Pagination]}
                     pagination={{
                         horizontalClass: b('dots'),
@@ -119,11 +100,7 @@ export const SliderNewBlock = (props: PropsWithChildren<SliderNewProps>) => {
                         bulletActiveClass: b('dot_active'),
                     }}
                     speed={1000}
-                    autoplay={
-                        autoplayEnabled && {
-                            delay: autoplay,
-                        }
-                    }
+                    autoplay={autoplay}
                     autoHeight={adaptive}
                     initialSlide={0}
                     rewind

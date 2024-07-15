@@ -1,4 +1,5 @@
 import pickBy from 'lodash/pickBy';
+import type {SwiperOptions} from 'swiper/types/swiper-options';
 
 import {BREAKPOINTS} from '../../constants';
 
@@ -44,5 +45,5 @@ export function getSliderResponsiveParams({
             slidesPerView: value,
         };
         return res;
-    }, {} as Record<number, {slidesPerView: number}>);
+    }, {} as Record<number, SwiperOptions>);
 }
