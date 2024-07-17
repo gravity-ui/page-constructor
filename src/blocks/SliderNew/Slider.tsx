@@ -74,9 +74,10 @@ export const SliderNewBlock = ({
             return;
         }
         if (slider.isEnd) {
-            return slider.slideTo(0);
+            slider.slideTo(0);
+            return;
         }
-        return slider.slideNext();
+        slider.slideNext();
     };
 
     const handlePrev = () => {
@@ -84,9 +85,10 @@ export const SliderNewBlock = ({
             return;
         }
         if (slider.isBeginning) {
-            return slider.slideTo(childrenCount - 1);
+            slider.slideTo(childrenCount - 1);
+            return;
         }
-        return slider.slidePrev();
+        slider.slidePrev();
     };
 
     return (
