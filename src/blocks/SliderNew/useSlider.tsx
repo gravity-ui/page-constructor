@@ -1,6 +1,6 @@
 import React, {PropsWithChildren, useEffect, useMemo, useState} from 'react';
 
-import type {SwiperClass} from 'swiper/react';
+import type {Swiper} from 'swiper';
 
 import {SliderType, SlidesToShow} from '../../models';
 
@@ -12,7 +12,7 @@ export const useSlider = ({
     type,
     slidesToShow,
 }: PropsWithChildren<{autoplayMs?: number; type?: string; slidesToShow?: SlidesToShow}>) => {
-    const [slider, setSlider] = useState<SwiperClass>();
+    const [slider, setSlider] = useState<Swiper>();
 
     const childrenCount = React.Children.count(children);
 

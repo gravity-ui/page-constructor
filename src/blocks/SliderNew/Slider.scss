@@ -19,8 +19,10 @@ $block: '.#{$ns}SliderNewBlock';
     position: relative;
 
     &__slider {
-        padding: $indentSM 0 $indentL;
-        margin: 0 -#{$gridGutter};
+        @include add-specificity(&) {
+            padding: $indentSM 0 $indentL;
+            margin: 0 -#{$gridGutter};
+        }
     }
 
     &_without-dots {

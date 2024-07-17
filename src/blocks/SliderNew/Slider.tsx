@@ -1,10 +1,7 @@
 import React, {Fragment, PropsWithChildren} from 'react';
 
-import {A11y, Autoplay, Pagination} from 'swiper/modules';
-import type {SwiperProps} from 'swiper/react';
+import SwiperCore, {A11y, Autoplay, Pagination} from 'swiper';
 import {Swiper, SwiperSlide} from 'swiper/react';
-import 'swiper/scss';
-import 'swiper/scss/pagination';
 
 import Anchor from '../../components/Anchor/Anchor';
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
@@ -16,6 +13,7 @@ import Arrow from './Arrow/Arrow';
 import {useSlider} from './useSlider';
 
 import './Slider.scss';
+import 'swiper/swiper-bundle.css';
 
 const b = block('SliderNewBlock');
 
@@ -23,7 +21,7 @@ export interface SliderNewProps
     extends Omit<SliderParams, 'children'>,
         Partial<
             Pick<
-                SwiperProps,
+                Swiper,
                 | 'onSlideChange'
                 | 'onSlideChangeTransitionStart'
                 | 'onSlideChangeTransitionEnd'
@@ -39,6 +37,8 @@ export interface SliderNewProps
     blockClassName?: string;
     arrowSize?: number;
 }
+
+SwiperCore.use([Autoplay, A11y, Pagination]);
 
 export const SliderNewBlock = ({
     animated,
@@ -69,6 +69,26 @@ export const SliderNewBlock = ({
         autoplayMs,
     });
 
+    const handleNext = () => {
+        if (!slider) {
+            return;
+        }
+        if (slider.isEnd) {
+            return slider.slideTo(0);
+        }
+        return slider.slideNext();
+    };
+
+    const handlePrev = () => {
+        if (!slider) {
+            return;
+        }
+        if (slider.isBeginning) {
+            return slider.slideTo(childrenCount - 1);
+        }
+        return slider.slidePrev();
+    };
+
     return (
         <div
             className={b(
@@ -91,19 +111,18 @@ export const SliderNewBlock = ({
                 <Swiper
                     className={b('slider')}
                     onSwiper={onSwiper}
-                    modules={[Autoplay, A11y, Pagination]}
-                    pagination={{
-                        horizontalClass: b('dots'),
-                        enabled: dots,
-                        clickable: true,
-                        bulletClass: b('dot', dotsClassName),
-                        bulletActiveClass: b('dot_active'),
-                    }}
+                    pagination={
+                        dots && {
+                            clickable: true,
+                            bulletClass: b('dot', dotsClassName),
+                            bulletActiveClass: b('dot_active'),
+                        }
+                    }
                     speed={1000}
                     autoplay={autoplay}
                     autoHeight={adaptive}
                     initialSlide={0}
-                    rewind
+                    noSwiping={false}
                     breakpoints={breakpoints}
                     onSlideChange={onSlideChange}
                     onSlideChangeTransitionStart={onSlideChangeTransitionStart}
@@ -122,13 +141,13 @@ export const SliderNewBlock = ({
                         <Arrow
                             className={b('arrow', {prev: true})}
                             type="left"
-                            onClick={() => slider?.slidePrev()}
+                            onClick={handlePrev}
                             size={arrowSize}
                         />
                         <Arrow
                             className={b('arrow', {next: true})}
                             type="right"
-                            onClick={() => slider?.slideNext()}
+                            onClick={handleNext}
                             size={arrowSize}
                         />
                     </Fragment>
