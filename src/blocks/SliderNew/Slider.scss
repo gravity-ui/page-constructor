@@ -267,7 +267,6 @@ $block: '.#{$ns}SliderNewBlock';
             overflow-x: auto;
 
             #{$root}__slider {
-                margin-left: -($gridContainerMargin + $gridGutterMobile);
                 margin-right: 0;
             }
 

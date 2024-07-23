@@ -131,6 +131,7 @@ export const SliderNewBlock = ({
                     onSlideChangeTransitionEnd={onSlideChangeTransitionEnd}
                     onActiveIndexChange={onActiveIndexChange}
                     onBreakpoint={onBreakpoint}
+                    watchSlidesVisibility
                 >
                     {React.Children.map(children, (elem, index) => (
                         <SwiperSlide className={b('slide')} key={index}>
