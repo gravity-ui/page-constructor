@@ -207,21 +207,6 @@ $block: '.#{$ns}SliderNewBlock';
 
         #{$root}__slide {
             padding: 0;
-
-            @keyframes safari-fix {
-                from {
-                    transform: translateX(0.001px);
-                }
-
-                to {
-                    transform: translateX(0);
-                }
-            }
-
-            // fix text under video in safari
-            &[aria-hidden='true'] {
-                animation: safari-fix 1000ms;
-            }
         }
 
         @media (max-width: map-get($gridBreakpoints, 'sm')) {
