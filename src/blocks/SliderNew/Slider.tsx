@@ -152,7 +152,7 @@ export const SliderNewBlock = ({
                         </SwiperSlide>
                     ))}
                 </Swiper>
-                {arrows && (
+                {arrows && !isLocked && (
                     <Fragment>
                         <Arrow
                             className={b('arrow', {prev: true})}
