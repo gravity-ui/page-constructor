@@ -14,6 +14,8 @@ $block: '.#{$ns}SliderNewBlock';
     }
 }
 
+$dotSize: 8px;
+
 #{$block} {
     $root: &;
     position: relative;
@@ -39,13 +41,13 @@ $block: '.#{$ns}SliderNewBlock';
 
     &__arrow {
         position: absolute;
-        top: 0;
+        top: -2px;
         right: 0;
         z-index: 2;
 
         &_prev {
             right: $sliderArrowSize;
-            margin-right: 16px;
+            margin-right: $indentXS;
         }
     }
 
@@ -57,8 +59,8 @@ $block: '.#{$ns}SliderNewBlock';
     }
 
     &__dot {
-        width: 8px;
-        height: 8px;
+        width: $dotSize;
+        height: $dotSize;
 
         border-radius: 50%;
         background-color: var(--g-color-line-generic-accent);
@@ -70,7 +72,7 @@ $block: '.#{$ns}SliderNewBlock';
         }
 
         & + & {
-            margin-left: 16px;
+            margin-left: $indentXS;
         }
 
         &_active {
@@ -120,7 +122,7 @@ $block: '.#{$ns}SliderNewBlock';
         padding: 0;
 
         #{$root}__dots {
-            bottom: 24px;
+            bottom: $indentSM;
         }
 
         #{$root}__slider {
@@ -159,8 +161,6 @@ $block: '.#{$ns}SliderNewBlock';
         $arrowWidth: 68px;
         $arrowHeight: 68px;
 
-        $arrowIndent: 16px;
-
         padding-top: 0;
 
         #{$root}__wrapper {
@@ -168,7 +168,7 @@ $block: '.#{$ns}SliderNewBlock';
         }
 
         #{$root}__dots {
-            bottom: 32px;
+            bottom: $indentM;
         }
 
         #{$root}__slider {
