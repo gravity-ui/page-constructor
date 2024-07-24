@@ -1,4 +1,4 @@
-import React, {Fragment, PropsWithChildren} from 'react';
+import React, {Fragment, PropsWithChildren, useState} from 'react';
 
 import SwiperCore, {A11y, Autoplay, Pagination} from 'swiper';
 import {Swiper, SwiperSlide} from 'swiper/react';
@@ -69,6 +69,8 @@ export const SliderNewBlock = ({
         autoplayMs,
     });
 
+    const [isLocked, setIsLocked] = useState(false);
+
     const handleNext = () => {
         if (!slider) {
             return;
@@ -91,13 +93,21 @@ export const SliderNewBlock = ({
         slider.slidePrev();
     };
 
+    const handleLock = () => {
+        setIsLocked(true);
+    };
+
+    const handleUnlock = () => {
+        setIsLocked(false);
+    };
+
     return (
         <div
             className={b(
                 {
                     'one-slide': childrenCount === 1,
                     'only-arrows': !title?.text && !description && arrows,
-                    'without-dots': !dots,
+                    'without-dots': !dots || isLocked,
                     type,
                 },
                 blockClassName,
@@ -131,7 +141,10 @@ export const SliderNewBlock = ({
                     onSlideChangeTransitionEnd={onSlideChangeTransitionEnd}
                     onActiveIndexChange={onActiveIndexChange}
                     onBreakpoint={onBreakpoint}
+                    onLock={handleLock}
+                    onUnlock={handleUnlock}
                     watchSlidesVisibility
+                    watchOverflow
                 >
                     {React.Children.map(children, (elem, index) => (
                         <SwiperSlide className={b('slide')} key={index}>
