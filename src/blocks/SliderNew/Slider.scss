@@ -245,14 +245,16 @@ $dotSize: 8px;
     }
 
     @media (max-width: map-get($gridBreakpoints, 'sm')) {
+        $horizontalPadding: $gridContainerMargin + $gridGutterMobile;
         &:not(&_one-slide) {
-            margin-left: -($gridContainerMargin + $gridGutterMobile);
-            padding-left: $gridContainerMargin + $gridGutterMobile;
-            width: calc(100% + #{($gridContainerMargin + $gridGutterMobile) * 2});
+            margin-left: #{-$horizontalPadding};
+            padding-left: $horizontalPadding;
+            width: calc(100% + #{$horizontalPadding * 2});
             overflow-x: auto;
 
             #{$root}__slider {
-                margin-right: 0;
+                padding: $indentSM $horizontalPadding $indentL;
+                margin: 0 0 0 #{-$horizontalPadding};
             }
 
             #{$root}__slide {
