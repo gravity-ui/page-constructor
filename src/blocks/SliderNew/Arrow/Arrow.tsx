@@ -19,10 +19,10 @@ export interface ArrowProps {
 }
 
 const Arrow = ({type, onClick, className, size = 16, extraProps}: ArrowProps & ClassNameProps) => (
-    <div className={b({type}, className)}>
+    <div className={b({type}, className)} onClick={onClick}>
         <button
             className={b('button')}
-            onClick={onClick}
+           
             aria-label={i18n(`arrow-${type}`)}
             {...extraProps}
         >
