@@ -3,7 +3,7 @@ import React, {Fragment, useEffect, useState} from 'react';
 import {Interpolation, animated, config, useSpring} from '@react-spring/web';
 import debounce from 'lodash/debounce';
 
-import SliderBlock from '../../../blocks/Slider/Slider';
+import {SliderNewBlock} from '../../../blocks/unstable';
 import {ImageProps, MediaComponentImageProps, QAProps, SliderType} from '../../../models';
 import {block, getQaAttrubutes} from '../../../utils';
 import BackgroundImage from '../../BackgroundImage/BackgroundImage';
@@ -139,7 +139,7 @@ const Image = (props: ImageAllProps) => {
         const fullscreenItem = fullscreen === undefined || fullscreen;
 
         return (
-            <SliderBlock slidesToShow={1} type={SliderType.MediaCard}>
+            <SliderNewBlock slidesToShow={1} type={SliderType.MediaCard}>
                 {imageArray.map((item, index) => (
                     <Fragment key={index}>
                         {fullscreenItem
@@ -147,7 +147,7 @@ const Image = (props: ImageAllProps) => {
                             : imageOnly(item)}
                     </Fragment>
                 ))}
-            </SliderBlock>
+            </SliderNewBlock>
         );
     };
 

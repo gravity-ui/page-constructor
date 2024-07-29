@@ -108,6 +108,7 @@ export enum SliderBreakpointNames {
 export enum SliderType {
     MediaCard = 'media-card',
     HeaderCard = 'header-card',
+    FullscreenCard = 'fullscreen-card',
 }
 
 export type SliderBreakpointParams = Record<SliderBreakpointNames, number>;
