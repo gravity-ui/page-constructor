@@ -10,10 +10,10 @@ const SLIDER_TITLE = 'Slider title';
 const CARD_TITLE = 'Card title';
 const CARD_TEXT = 'Lorem ipsum';
 const SLIDES_TO_SHOW = 3;
-const cardCounts = [1, 3, 5, 10];
+const CARDS_COUNTS = [1, 3, 5, 10];
 
 describe('SliderNew', () => {
-    test.each(cardCounts)('Has correct slider slides', async (cardCount) => {
+    test.each(CARDS_COUNTS)('Has correct slider slides', async (cardCount) => {
         const {container} = render(
             <Slider
                 title={{text: SLIDER_TITLE, url: EXAMPLE_URL}}

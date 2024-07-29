@@ -1,4 +1,4 @@
-import React, {Fragment, PropsWithChildren, useState} from 'react';
+import React, {Fragment, PropsWithChildren} from 'react';
 
 import SwiperCore, {A11y, Autoplay, Pagination} from 'swiper';
 import {Swiper, SwiperSlide} from 'swiper/react';
@@ -62,44 +62,13 @@ export const SliderNewBlock = ({
     onActiveIndexChange,
     onBreakpoint,
 }: PropsWithChildren<SliderNewProps>) => {
-    const {childrenCount, breakpoints, slider, autoplay, onSwiper} = useSlider({
-        slidesToShow,
-        children,
-        type,
-        autoplayMs,
-    });
-
-    const [isLocked, setIsLocked] = useState(false);
-
-    const handleNext = () => {
-        if (!slider) {
-            return;
-        }
-        if (slider.isEnd) {
-            slider.slideTo(0);
-            return;
-        }
-        slider.slideNext();
-    };
-
-    const handlePrev = () => {
-        if (!slider) {
-            return;
-        }
-        if (slider.isBeginning) {
-            slider.slideTo(childrenCount - 1);
-            return;
-        }
-        slider.slidePrev();
-    };
-
-    const handleLock = () => {
-        setIsLocked(true);
-    };
-
-    const handleUnlock = () => {
-        setIsLocked(false);
-    };
+    const {childrenCount, breakpoints, autoplay, onSwiper, onPrev, onNext, isLocked, setIsLocked} =
+        useSlider({
+            slidesToShow,
+            children,
+            type,
+            autoplayMs,
+        });
 
     return (
         <div
@@ -141,8 +110,8 @@ export const SliderNewBlock = ({
                     onSlideChangeTransitionEnd={onSlideChangeTransitionEnd}
                     onActiveIndexChange={onActiveIndexChange}
                     onBreakpoint={onBreakpoint}
-                    onLock={handleLock}
-                    onUnlock={handleUnlock}
+                    onLock={() => setIsLocked(true)}
+                    onUnlock={() => setIsLocked(false)}
                     watchSlidesVisibility
                     watchOverflow
                 >
@@ -157,21 +126,21 @@ export const SliderNewBlock = ({
                         <Arrow
                             className={b('arrow', {prev: true})}
                             type="left"
-                            onClick={handlePrev}
+                            onClick={onPrev}
                             size={arrowSize}
                         />
                         <Arrow
                             className={b('arrow', {next: true})}
                             type="right"
-                            onClick={handleNext}
+                            onClick={onNext}
                             size={arrowSize}
                         />
                     </Fragment>
                 )}
                 <div className={b('footer')}>
                     {disclaimer ? (
-                        <div className={b('disclaimer', {size: disclaimer.size || 'm'})}>
-                            {disclaimer.text}
+                        <div className={b('disclaimer', {size: disclaimer?.size || 'm'})}>
+                            {disclaimer?.text}
                         </div>
                     ) : null}
                 </div>

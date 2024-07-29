@@ -13,6 +13,7 @@ export const useSlider = ({
     slidesToShow,
 }: PropsWithChildren<{autoplayMs?: number; type?: string; slidesToShow?: SlidesToShow}>) => {
     const [slider, setSlider] = useState<Swiper>();
+    const [isLocked, setIsLocked] = useState(false);
 
     const childrenCount = React.Children.count(children);
 
@@ -28,8 +29,37 @@ export const useSlider = ({
         });
     }, [slidesToShow, type, childrenCount]);
 
+    const handleNext = () => {
+        if (!slider) {
+            return;
+        }
+
+        if (slider.isEnd) {
+            slider.slideTo(0);
+            return;
+        }
+
+        slider.slideNext();
+    };
+
+    const handlePrev = () => {
+        if (!slider) {
+            return;
+        }
+
+        if (slider.isBeginning) {
+            slider.slideTo(childrenCount - 1);
+            return;
+        }
+
+        slider.slidePrev();
+    };
+
     useEffect(() => {
-        if (!slider) return;
+        if (!slider) {
+            return;
+        }
+
         if (autoplayEnabled) {
             slider.autoplay.start();
         } else {
@@ -40,8 +70,12 @@ export const useSlider = ({
     return {
         slider,
         onSwiper: setSlider,
+        onNext: handleNext,
+        onPrev: handlePrev,
         breakpoints,
         childrenCount,
+        isLocked,
+        setIsLocked,
         autoplay: autoplayEnabled && {
             delay: autoplayMs,
         },
