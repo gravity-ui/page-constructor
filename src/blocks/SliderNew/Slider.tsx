@@ -38,6 +38,7 @@ export interface SliderNewProps
     dotsClassName?: string;
     blockClassName?: string;
     arrowSize?: number;
+    initialSlide?: number;
 }
 
 SwiperCore.use([Autoplay, A11y, Pagination]);
@@ -52,6 +53,7 @@ export const SliderNewBlock = ({
     adaptive,
     autoplay: autoplayMs,
     dots = true,
+    initialSlide = 0,
     className,
     dotsClassName,
     disclaimer,
@@ -110,7 +112,7 @@ export const SliderNewBlock = ({
                     speed={1000}
                     autoplay={autoplay}
                     autoHeight={adaptive}
-                    initialSlide={0}
+                    initialSlide={initialSlide}
                     noSwiping={false}
                     breakpoints={breakpoints}
                     onSlideChange={onSlideChange}
