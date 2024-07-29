@@ -457,6 +457,11 @@ unpredictable css rules order in build */
             .slick-slide:not(.slick-active) #{$class} {
                 box-shadow: none;
             }
+
+            //fix for new slider hidden cards
+            .swiper-slide:not(.swiper-slide-visible) #{$class} {
+                box-shadow: none;
+            }
         }
     }
 }
