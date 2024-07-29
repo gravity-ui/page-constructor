@@ -2,6 +2,8 @@
 @import '../../../styles/variables';
 
 $block: '.#{$ns}SliderNewBlock';
+$fsPadding: 40px;
+$fsArrowArea: 120px;
 
 @mixin fullscreen-card() {
     @media (max-width: map-get($gridBreakpoints, 'sm')) {
@@ -243,6 +245,59 @@ $dotSize: 8px;
                     &:last-child {
                         padding-right: 0;
                     }
+                }
+            }
+        }
+    }
+
+    &_type_fullscreen-card {
+        padding-top: 0;
+
+        #{$root}__slider {
+            padding: $fsPadding 0;
+            height: 100vh;
+
+            & .swiper-pagination {
+                bottom: ($fsPadding - 18px) / 2;
+            }
+
+            #{$root}__dot {
+                background-color: var(--g-color-text-light-hint);
+
+                &_active {
+                    background-color: var(--g-color-text-light-primary);
+                }
+            }
+
+            #{$root}__slide {
+                height: 100%;
+                padding: 0 $fsArrowArea;
+            }
+        }
+
+        &:hover {
+            #{$root}__arrow {
+                display: flex;
+            }
+        }
+
+        #{$root}__arrow {
+            display: none;
+            width: $fsArrowArea;
+            top: $fsPadding;
+            bottom: $fsPadding;
+            height: calc(100% - 2 * $fsPadding);
+
+            &_prev {
+                left: 0;
+                margin-right: 0;
+            }
+        }
+
+        @media (max-width: map-get($gridBreakpoints, 'md')) {
+            &:hover {
+                #{$root}__arrow {
+                    display: none;
                 }
             }
         }

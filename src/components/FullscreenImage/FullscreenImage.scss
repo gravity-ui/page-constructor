@@ -34,10 +34,23 @@ $closeButtonSize: 36px;
         }
     }
 
-    &__modal_slider .g-modal__content-wrapper {
-        width: 100%;
-        display: flex;
-        justify-content: center;
+    &__modal_with-slider {
+        & .g-modal__content-wrapper {
+            width: 100%;
+            height: 100vh;
+            margin: 0;
+            justify-content: center;
+        }
+
+        #{$block}__modal-content {
+            background-color: transparent;
+
+            &:hover {
+                & #{$block}__icon-wrapper {
+                    opacity: 1;
+                }
+            }
+        }
     }
 
     &__modal-image {
@@ -49,20 +62,23 @@ $closeButtonSize: 36px;
     }
 
     &__modal-slider {
-        max-width: $newContentWidth;
+        max-width: 100vw;
         width: 100%;
-        max-height: 70vh;
-        overflow: hidden;
-        border-radius: $borderRadius;
+        height: 100vh;
 
         &_item {
             height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
 
             &-image {
                 display: block;
-                max-height: 70vh;
+                margin: auto;
+                border-radius: $borderRadius;
+                overflow: hidden;
+                max-height: calc(100vh - 80px);
                 max-width: 100%;
-                width: 100%;
                 object-fit: contain;
                 object-position: center;
             }
@@ -82,8 +98,9 @@ $closeButtonSize: 36px;
         align-items: center;
         justify-content: center;
         position: absolute;
-        right: $indentXS;
-        top: $indentXS;
+        z-index: 1001;
+        right: 40px;
+        top: 40px;
         width: $closeButtonSize;
         height: $closeButtonSize;
         border-radius: 8px;
@@ -111,17 +128,24 @@ $closeButtonSize: 36px;
         }
     }
 
-    @media (max-width: map-get($gridBreakpoints, 'lg')) {
-        &__image {
-            pointer-events: none;
-        }
-
+    @media (max-width: map-get($gridBreakpoints, 'md')) {
         &__icon-wrapper {
-            display: none;
-        }
-
-        &__modal {
-            display: none !important; /* stylelint-disable-line declaration-no-important */
+            right: 20px;
+            top: 50px;
         }
     }
+
+    // @media (max-width: map-get($gridBreakpoints, 'lg')) {
+    //     &__image {
+    //         pointer-events: none;
+    //     }
+
+    //     &__icon-wrapper {
+    //         display: none;
+    //     }
+
+    //     &__modal {
+    //         display: none !important; /* stylelint-disable-line declaration-no-important */
+    //     }
+    // }
 }
