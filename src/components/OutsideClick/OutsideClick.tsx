@@ -1,3 +1,7 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+// TODO fix in https://github.com/gravity-ui/page-constructor/issues/965
+
 //TODO move into cloud components?
 import React, {PropsWithChildren, createRef} from 'react';
 

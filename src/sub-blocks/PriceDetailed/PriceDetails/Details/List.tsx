@@ -20,6 +20,8 @@ const List = (props: ListProps) => {
         <Fragment>
             {items.map((item, id) => (
                 <div key={id} className={b('list-item')}>
+                    {/* TODO fix in https://github.com/gravity-ui/page-constructor/issues/964*/}
+                    {/* eslint-disable-next-line jsx-a11y/alt-text */}
                     <img className={b('img')} />
                     <div className={b('text', {size: titleSize})}>
                         <YFMWrapper content={item.text} modifiers={{constructor: true}} />

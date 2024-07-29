@@ -14,6 +14,8 @@ export interface ImageBaseProps extends Partial<ImageObjectProps> {
 export const ImageBase = (props: ImageBaseProps) => {
     const {Image} = React.useContext(ImageContext);
 
+    // TODO fix in https://github.com/gravity-ui/page-constructor/issues/964
+    // eslint-disable-next-line jsx-a11y/alt-text
     return Image ? <Image {...props} /> : <img {...props} />;
 };
 
