@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [5.17.0](https://github.com/gravity-ui/page-constructor/compare/v5.16.1...v5.17.0) (2024-07-29)
+
+
+### Features
+
+* add new slider ([#962](https://github.com/gravity-ui/page-constructor/issues/962)) ([681b2fd](https://github.com/gravity-ui/page-constructor/commit/681b2fd0c53bbd2b62f4835868a92ebf7906dc6a))
+* add new slider to unstable blocks ([681b2fd](https://github.com/gravity-ui/page-constructor/commit/681b2fd0c53bbd2b62f4835868a92ebf7906dc6a))
+
 ## [5.16.1](https://github.com/gravity-ui/page-constructor/compare/v5.16.0...v5.16.1) (2024-07-04)
 
 
