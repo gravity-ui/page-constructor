@@ -23,6 +23,7 @@ export const Navigation: React.FC<NavigationProps> = ({data, logo, className}) =
     const {
         leftItems,
         rightItems,
+        additionalClickHandler = () => {},
         iconSize = 20,
         withBorder = false,
         withBorderOnScroll = true,
@@ -46,7 +47,11 @@ export const Navigation: React.FC<NavigationProps> = ({data, logo, className}) =
         setActiveItemId(id);
     };
 
-    const onSidebarOpenedChange = (isOpen: boolean) => setIsSidebarOpened(isOpen);
+    const onSidebarOpenedChange = (isOpen: boolean) => { 
+        additionalClickHandler()
+        
+        setIsSidebarOpened(isOpen);
+    };
 
     useEffect(() => {
         if (!withBorderOnScroll) return () => {};
