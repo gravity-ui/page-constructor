@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [5.17.1](https://github.com/gravity-ui/page-constructor/compare/v5.17.0...v5.17.1) (2024-07-30)
+
+
+### Bug Fixes
+
+* update slider new md, add classname to slider ([#969](https://github.com/gravity-ui/page-constructor/issues/969)) ([800acdf](https://github.com/gravity-ui/page-constructor/commit/800acdfaebba2cff8c3076a28beabd0fecc7f05e))
+
 ## [5.17.0](https://github.com/gravity-ui/page-constructor/compare/v5.16.1...v5.17.0) (2024-07-29)
 
 
