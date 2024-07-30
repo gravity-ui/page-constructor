@@ -50,6 +50,7 @@ export const SliderNewBlock = ({
     adaptive,
     autoplay: autoplayMs,
     dots = true,
+    className,
     dotsClassName,
     disclaimer,
     children,
@@ -90,7 +91,7 @@ export const SliderNewBlock = ({
             />
             <AnimateBlock className={b('animate-slides')} animate={animated}>
                 <Swiper
-                    className={b('slider')}
+                    className={b('slider', className)}
                     onSwiper={onSwiper}
                     pagination={
                         dots && {
