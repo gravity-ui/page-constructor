@@ -90,6 +90,7 @@ export type ThemedNavigationLogoData = NavigationLogoData & ThemeSupporting<Navi
 export interface HeaderData {
     leftItems: NavigationItemModel[];
     rightItems?: NavigationItemModel[];
+    additionalClickHandler?: () => void;
     iconSize?: number;
     withBorder?: boolean;
     withBorderOnScroll?: boolean;
