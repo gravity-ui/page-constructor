@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [5.17.2](https://github.com/gravity-ui/page-constructor/compare/v5.17.1...v5.17.2) (2024-07-30)
+
+
+### Bug Fixes
+
+* price-card price font-weight ([#971](https://github.com/gravity-ui/page-constructor/issues/971)) ([ea82efa](https://github.com/gravity-ui/page-constructor/commit/ea82efa0fc439414ce981006083a391ef06e5661))
+
 ## [5.17.1](https://github.com/gravity-ui/page-constructor/compare/v5.17.0...v5.17.1) (2024-07-30)
 
 
