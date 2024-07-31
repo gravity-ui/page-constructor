@@ -1,4 +1,4 @@
-import type {ComponentFixtures} from '@playwright/experimental-ct-react';
+import type {MountOptions, MountResult} from '@playwright/experimental-ct-react';
 import type {
     Locator,
     PageScreenshotOptions,
@@ -8,6 +8,14 @@ import type {
     PlaywrightWorkerOptions,
     TestFixture,
 } from '@playwright/test';
+
+interface ComponentFixtures {
+    mount<HooksConfig extends any>(
+        component: JSX.Element,
+        options?: MountOptions<HooksConfig>,
+        style?: React.CSSProperties,
+    ): Promise<MountResult>;
+}
 
 type PlaywrightTestFixtures = PlaywrightTestArgs & PlaywrightTestOptions & ComponentFixtures;
 type PlaywrightWorkerFixtures = PlaywrightWorkerArgs & PlaywrightWorkerOptions;
