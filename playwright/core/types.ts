@@ -10,6 +10,7 @@ import type {
 } from '@playwright/test';
 
 interface ComponentFixtures {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     mount<HooksConfig extends any>(
         component: JSX.Element,
         options?: MountOptions<HooksConfig>,
