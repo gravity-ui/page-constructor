@@ -57,7 +57,9 @@ export const ExtendedFeaturesBlock = ({
 
                             return (
                                 <Col className={b('item')} key={text || itemTitle} sizes={colSizes}>
-                                    {iconData && <Image {...iconData} className={b('icon')} />}
+                                    <div className={b('icon-wrap')} aria-hidden>
+                                        {iconData && <Image {...iconData} className={b('icon')} />}
+                                    </div>
                                     <div className={b('container')}>
                                         {itemTitle &&
                                             React.createElement(
