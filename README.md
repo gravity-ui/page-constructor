@@ -100,6 +100,10 @@ interface NavigationLogo {
 interface HeaderData {
   leftItems: NavigationItem[];
   rightItems?: NavigationItem[];
+  additionalClickHandler?: () => void;
+  iconSize?: number;
+  withBorder?: boolean;
+  withBorderOnScroll?: boolean;
 }
 
 interface NavigationLogo {

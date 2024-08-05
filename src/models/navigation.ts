@@ -90,9 +90,16 @@ export type ThemedNavigationLogoData = NavigationLogoData & ThemeSupporting<Navi
 export interface HeaderData {
     leftItems: NavigationItemModel[];
     rightItems?: NavigationItemModel[];
+    mobileMenuConfig?: MobileMenuConfig;
     iconSize?: number;
     withBorder?: boolean;
     withBorderOnScroll?: boolean;
+}
+
+export interface MobileMenuConfig {
+    additionalProps?: any[];
+    additionalClickHandler?: (props?: any[]) => void;
+    disableOutsideClick?: boolean;
 }
 
 export interface FooterColumn {

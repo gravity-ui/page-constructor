@@ -10,7 +10,8 @@ import {
 
 export interface MobileMenuButtonProps {
     isSidebarOpened: boolean;
-    onSidebarOpenedChange: (arg: boolean) => void;
+    additionalProps?: any[];
+    onSidebarOpenedChange: (arg: boolean, additionalProps?: any[]) => void;
 }
 
 export enum ItemColumnName {
@@ -66,6 +67,7 @@ export interface DesktopNavigationProps extends MobileMenuButtonProps, ActiveIte
     logo: ThemedNavigationLogoData;
     leftItemsWithIconSize: NavigationItemModel[];
     rightItemsWithIconSize?: NavigationItemModel[];
+    additionalProps?: any[];
 }
 
 export interface MobileNavigationProps extends ClassNameProps, ActiveItemProps {
