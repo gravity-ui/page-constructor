@@ -19,6 +19,7 @@ const DesktopNavigation: React.FC<DesktopNavigationProps> = ({
     onSidebarOpenedChange,
     onActiveItemChange,
     activeItemId,
+    // additionalProps,
 }) => (
     <div className={b('wrapper')}>
         {logo && (
@@ -42,6 +43,7 @@ const DesktopNavigation: React.FC<DesktopNavigationProps> = ({
         <div className={b('right')}>
             <MobileMenuButton
                 isSidebarOpened={isSidebarOpened}
+                // additionalProps={additionalProps}
                 onSidebarOpenedChange={onSidebarOpenedChange}
             />
             {rightItemsWithIconSize && (

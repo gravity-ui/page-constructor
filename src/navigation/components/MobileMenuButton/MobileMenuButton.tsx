@@ -15,6 +15,7 @@ const ICON_SIZE = 24;
 export const MobileMenuButton: React.FC<MobileMenuButtonProps> = ({
     isSidebarOpened,
     onSidebarOpenedChange,
+    // additionalProps,
 }) => (
     <Control
         className={b()}
@@ -22,7 +23,7 @@ export const MobileMenuButton: React.FC<MobileMenuButtonProps> = ({
             e.stopPropagation();
             e.nativeEvent.stopImmediatePropagation();
 
-            onSidebarOpenedChange(!isSidebarOpened);
+            onSidebarOpenedChange(!isSidebarOpened); //, additionalProps);
         }}
         size="l"
         icon={isSidebarOpened ? Xmark : Bars}
