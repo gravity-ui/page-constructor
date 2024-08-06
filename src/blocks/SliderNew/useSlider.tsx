@@ -78,6 +78,7 @@ export const useSlider = ({
         setIsLocked,
         autoplay: autoplayEnabled && {
             delay: autoplayMs,
+            disableOnInteraction: false,
         },
     };
 };
