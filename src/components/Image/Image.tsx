@@ -9,12 +9,16 @@ import React, {
 
 import {BREAKPOINTS} from '../../constants';
 import {ProjectSettingsContext} from '../../context/projectSettingsContext';
-import {ImageDeviceProps, ImageObjectProps, QAProps} from '../../models';
+import {A11yProps, ImageDeviceProps, ImageObjectProps, QAProps} from '../../models';
 import {getQaAttrubutes} from '../../utils';
 import {isCompressible} from '../../utils/imageCompress';
 import ImageBase from '../ImageBase/ImageBase';
 
-export interface ImageProps extends Partial<ImageObjectProps>, Partial<ImageDeviceProps>, QAProps {
+export interface ImageProps
+    extends Partial<ImageObjectProps>,
+        Partial<ImageDeviceProps>,
+        QAProps,
+        A11yProps {
     style?: CSSProperties;
     className?: string;
     onClick?: MouseEventHandler;
@@ -66,6 +70,7 @@ const Image = (props: ImageProps) => {
         onLoad,
         containerClassName,
         qa,
+        ...a11yProps
     } = props;
     const [imgLoadingError, setImgLoadingError] = useState(false);
 
@@ -91,7 +96,7 @@ const Image = (props: ImageProps) => {
         imgLoadingError;
 
     return (
-        <picture className={containerClassName} data-qa={qa}>
+        <picture className={containerClassName} data-qa={qa} {...a11yProps}>
             {mobile && (
                 <DeviceSpecificFragment
                     src={mobile}

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {Col, GridColumnSizesType} from '../../grid';
-import {ClassNameProps, TitleItemProps, TitleProps as TitleParams} from '../../models';
+import {A11yProps, ClassNameProps, TitleItemProps, TitleProps as TitleParams} from '../../models';
 import {block} from '../../utils';
 import YFMWrapper from '../YFMWrapper/YFMWrapper';
 
@@ -22,7 +22,8 @@ const Title = ({
     className,
     colSizes = {all: 12, sm: 8},
     id,
-}: TitleProps & ClassNameProps) => {
+    ...a11yProps
+}: TitleProps & ClassNameProps & A11yProps) => {
     if (!title && !subtitle) {
         return null;
     }
@@ -31,7 +32,7 @@ const Title = ({
         !title || typeof title === 'string' ? ({text: title} as TitleItemProps) : title;
 
     return (
-        <div className={b(null, className)} id={id}>
+        <div className={b(null, className)} id={id} {...a11yProps}>
             {text && (
                 <Col reset sizes={colSizes}>
                     <TitleItem text={text} {...titleProps} />

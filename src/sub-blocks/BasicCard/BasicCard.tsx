@@ -1,7 +1,5 @@
 import React from 'react';
 
-import {useUniqId} from '@gravity-ui/uikit';
-
 import {CardBase, IconWrapper} from '../../components';
 import {useTheme} from '../../context/theme';
 import {BasicCardProps} from '../../models';
@@ -26,8 +24,6 @@ const BasicCard = (props: BasicCardProps) => {
         controlPosition = 'content',
         ...cardParams
     } = props;
-    const titleId = useUniqId();
-    const descriptionId = useUniqId();
     const areControlsInFooter = controlPosition === 'footer';
     const theme = useTheme();
     const themedIcon = getThemedValue(icon, theme);
@@ -37,7 +33,7 @@ const BasicCard = (props: BasicCardProps) => {
             className={b()}
             contentClassName={b('content')}
             {...cardParams}
-            extraProps={{'aria-describedby': descriptionId, 'aria-labelledby': titleId}}
+            extraProps={{role: 'group'}}
         >
             <CardBase.Content>
                 <IconWrapper
@@ -46,9 +42,7 @@ const BasicCard = (props: BasicCardProps) => {
                 >
                     <Content
                         title={title}
-                        titleId={titleId}
                         text={text}
-                        textId={descriptionId}
                         additionalInfo={additionalInfo}
                         links={links}
                         list={list}
@@ -56,6 +50,9 @@ const BasicCard = (props: BasicCardProps) => {
                         size="s"
                         colSizes={{all: 12, md: 12}}
                         controlPosition={areControlsInFooter ? 'bottom' : 'default'}
+                        a11yProps={{
+                            title: {role: 'link', tabIndex: 0},
+                        }}
                     />
                 </IconWrapper>
             </CardBase.Content>
