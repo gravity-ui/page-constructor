@@ -14,6 +14,8 @@ $block: '.#{$ns}SliderNewBlock';
     }
 }
 
+$dotsCn: '.swiper-container-horizontal .swiper-pagination-bullets';
+
 $dotSize: 8px;
 
 #{$block} {
@@ -33,10 +35,24 @@ $dotSize: 8px;
         }
     }
 
-    &__slide {
+    &__slide.swiper-slide {
         padding: 0 #{$gridGutter};
         box-sizing: border-box;
-        flex-shrink: 0;
+        height: auto;
+
+        @keyframes safari-fix {
+            from {
+                transform: translateX(0.001px);
+            }
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        // fix text under video in safari
+        &.swiper-slide-visible {
+            animation: safari-fix 300ms;
+        }
     }
 
     &__arrow {
@@ -121,7 +137,7 @@ $dotSize: 8px;
 
         padding: 0;
 
-        #{$root}__dots {
+        & #{$dotsCn} {
             bottom: $indentSM;
         }
 
@@ -167,7 +183,7 @@ $dotSize: 8px;
             position: relative;
         }
 
-        #{$root}__dots {
+        & #{$dotsCn} {
             bottom: $indentM;
         }
 
