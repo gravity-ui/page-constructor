@@ -36,7 +36,7 @@ describe('ButtonTabs', () => {
     test('has active tab', async () => {
         const activeTabId = 1;
         render(<ButtonTabs items={items} qa={qa} activeTab={String(activeTabId)} />);
-        const buttons = screen.getAllByRole('button');
+        const buttons = screen.getAllByRole('tab');
 
         buttons.forEach((button, index) => {
             if (index === activeTabId) {
@@ -59,7 +59,7 @@ describe('ButtonTabs', () => {
         const handleOnClick = jest.fn();
         render(<ButtonTabs items={items} qa={qa} onSelectTab={handleOnClick} />);
 
-        const buttons = screen.getAllByRole('button');
+        const buttons = screen.getAllByRole('tab');
 
         buttons.forEach(async (button, i) => {
             await user.click(button);
