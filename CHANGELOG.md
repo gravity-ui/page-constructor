@@ -1,6 +1,19 @@
 # Changelog
 
 
+## [5.18.0](https://github.com/gravity-ui/page-constructor/compare/v5.17.2...v5.18.0) (2024-08-08)
+
+
+### Features
+
+* breadcrumbs a11y ([#975](https://github.com/gravity-ui/page-constructor/issues/975)) ([1503c49](https://github.com/gravity-ui/page-constructor/commit/1503c4950aa8d4ac06f1afc1e0d8f7737d4b84b3))
+
+
+### Bug Fixes
+
+* feature icons a11y ([#974](https://github.com/gravity-ui/page-constructor/issues/974)) ([30b8cab](https://github.com/gravity-ui/page-constructor/commit/30b8cabfafeabbcd387a0aee5262ab489529f44a))
+* new slider styles ([#979](https://github.com/gravity-ui/page-constructor/issues/979)) ([d702a42](https://github.com/gravity-ui/page-constructor/commit/d702a42d9d2adde892212eead94cee3c3416365c))
+
 ## [5.17.2](https://github.com/gravity-ui/page-constructor/compare/v5.17.1...v5.17.2) (2024-07-30)
 
 
