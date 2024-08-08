@@ -8,6 +8,7 @@ import {ClassNameProps, HeaderData, ThemedNavigationLogoData} from '../../../mod
 import {block} from '../../../utils';
 import {getNavigationItemWithIconSize} from '../../utils';
 import DesktopNavigation from '../DesktopNavigation/DesktopNavigation';
+import FullscreenMobileNavigation from '../FullscreenMobileNavigation/FullscreenMobileNavigation';
 import MobileNavigation from '../MobileNavigation/MobileNavigation';
 
 import './Navigation.scss';
@@ -26,7 +27,15 @@ export const Navigation: React.FC<NavigationProps> = ({data, logo, className}) =
         iconSize = 20,
         withBorder = false,
         withBorderOnScroll = true,
+        useCustomHook = () => {
+            return {};
+        },
+        customMobileMenuData,
+        customMobileHeaderData = {},
     } = data;
+
+    const customHookData = useCustomHook();
+
     const [isSidebarOpened, setIsSidebarOpened] = useState(false);
     const [activeItemId, setActiveItemId] = useState<string | undefined>(undefined);
     const [showBorder, setShowBorder] = useState(withBorder);
@@ -63,29 +72,49 @@ export const Navigation: React.FC<NavigationProps> = ({data, logo, className}) =
         return () => window.removeEventListener('scroll', scrollHandler);
     });
 
+    const desktopNavigation = (
+        <DesktopNavigation
+            logo={logo}
+            activeItemId={activeItemId}
+            onActiveItemChange={onActiveItemChange}
+            leftItemsWithIconSize={leftItemsWithIconSize}
+            rightItemsWithIconSize={rightItemsWithIconSize}
+            isSidebarOpened={isSidebarOpened}
+            onSidebarOpenedChange={onSidebarOpenedChange}
+            customHookData={customHookData}
+            customMobileHeaderData={customMobileHeaderData}
+        />
+    );
+
+    const mobileNavigation = customMobileMenuData ? (
+        <FullscreenMobileNavigation
+            isOpened={isSidebarOpened}
+            topItems={leftItemsWithIconSize}
+            bottomItems={rightItemsWithIconSize}
+            customHookData={customHookData}
+            customMobileMenuData={customMobileMenuData}
+            activeItemId={activeItemId}
+            onActiveItemChange={onActiveItemChange}
+        />
+    ) : (
+        <OutsideClick onOutsideClick={() => onSidebarOpenedChange(false)}>
+            <MobileNavigation
+                topItems={leftItemsWithIconSize}
+                bottomItems={rightItemsWithIconSize}
+                isOpened={isSidebarOpened}
+                activeItemId={activeItemId}
+                onActiveItemChange={onActiveItemChange}
+            />
+        </OutsideClick>
+    );
+
     return (
         <Grid className={b({'with-border': showBorder}, className)}>
             <Row>
                 <Col>
                     <nav>
-                        <DesktopNavigation
-                            logo={logo}
-                            activeItemId={activeItemId}
-                            onActiveItemChange={onActiveItemChange}
-                            leftItemsWithIconSize={leftItemsWithIconSize}
-                            rightItemsWithIconSize={rightItemsWithIconSize}
-                            isSidebarOpened={isSidebarOpened}
-                            onSidebarOpenedChange={onSidebarOpenedChange}
-                        />
-                        <OutsideClick onOutsideClick={() => onSidebarOpenedChange(false)}>
-                            <MobileNavigation
-                                topItems={leftItemsWithIconSize}
-                                bottomItems={rightItemsWithIconSize}
-                                isOpened={isSidebarOpened}
-                                activeItemId={activeItemId}
-                                onActiveItemChange={onActiveItemChange}
-                            />
-                        </OutsideClick>
+                        {desktopNavigation}
+                        {mobileNavigation}
                     </nav>
                 </Col>
             </Row>

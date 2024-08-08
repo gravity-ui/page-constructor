@@ -1,5 +1,7 @@
 import React, {PropsWithChildren} from 'react';
 
+import {CustomMobileMenuButtonProps, CustomMobileMenuItemsProps} from '../navigation/models';
+
 import {Animatable, BlockDecorationProps, ConstructorItem, ThemedMediaProps} from './';
 
 export interface PageData {
@@ -41,10 +43,20 @@ export type ShouldRenderBlock = (block: ConstructorBlock, blockKey: string) => B
 export type OnInit = (data: InitConstrucorState) => void;
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type ComponentProps = React.ComponentProps<React.ComponentClass<any>>;
+
 export type CustomItem =
     | React.PropsWithChildren<ComponentProps>
     | React.ComponentType<PropsWithChildren<ComponentProps>>;
 export type CustomItems = Record<string, CustomItem>;
+
+export type CustomMobileMenuButton =
+    | React.PropsWithChildren<CustomMobileMenuButtonProps & ComponentProps>
+    | React.ComponentType<PropsWithChildren<CustomMobileMenuButtonProps & ComponentProps>>;
+export type CustomMobileMenuItem =
+    | React.PropsWithChildren<CustomMobileMenuItemsProps & ComponentProps>
+    | React.ComponentType<PropsWithChildren<CustomMobileMenuItemsProps & ComponentProps>>;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type CustomHookData = Record<string, any>;
 
 export interface LoadableConfigItem {
     fetch: FetchLoadableData;

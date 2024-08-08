@@ -2,6 +2,9 @@ import {MouseEventHandler} from 'react';
 
 import {
     ClassNameProps,
+    CustomHookData,
+    CustomMobileHeaderData,
+    CustomMobileMenuData,
     NavigationItemData,
     NavigationItemModel,
     NavigationLinkItem,
@@ -23,7 +26,15 @@ export enum ItemColumnName {
 export enum NavigationLayout {
     Desktop = 'desktop',
     Mobile = 'mobile',
+    MobileHorizontal = 'mobile-horizontal',
     Dropdown = 'dropdown',
+}
+
+export enum CustomMobileMenuAppearanceSide {
+    right = 'right',
+    left = 'left',
+    bottom = 'bottom',
+    top = 'top',
 }
 
 export interface ActiveItemProps {
@@ -66,12 +77,32 @@ export interface DesktopNavigationProps extends MobileMenuButtonProps, ActiveIte
     logo: ThemedNavigationLogoData;
     leftItemsWithIconSize: NavigationItemModel[];
     rightItemsWithIconSize?: NavigationItemModel[];
+    customHookData: CustomHookData;
+    customMobileHeaderData: CustomMobileHeaderData;
 }
 
 export interface MobileNavigationProps extends ClassNameProps, ActiveItemProps {
     isOpened?: boolean;
     topItems?: NavigationItemModel[];
     bottomItems?: NavigationItemModel[];
+}
+
+export interface CustomMobileMenuProps extends ClassNameProps, ActiveItemProps {
+    isOpened?: boolean;
+    topItems?: NavigationItemModel[];
+    bottomItems?: NavigationItemModel[];
+    customHookData: CustomHookData;
+    customMobileMenuData: CustomMobileMenuData;
+}
+
+export interface CustomMobileMenuButtonProps extends ClassNameProps {
+    isSidebarOpened: boolean;
+    onSidebarOpenedChange: (isSidebarOpened: boolean) => void;
+    customHookData?: CustomHookData;
+}
+
+export interface CustomMobileMenuItemsProps {
+    customHookData?: CustomHookData;
 }
 
 export interface NavigationProps extends MobileMenuButtonProps, ActiveItemProps {

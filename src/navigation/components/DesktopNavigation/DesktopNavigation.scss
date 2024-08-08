@@ -17,7 +17,8 @@ $block: '.#{$ns}desktop-navigation';
         z-index: 2;
     }
 
-    &__mobile-menu-button {
+    &__mobile-menu-button,
+    &__custom-mobile-menu-button {
         @include add-specificity(&) {
             @include mobile-tablet-only();
         }
@@ -28,6 +29,17 @@ $block: '.#{$ns}desktop-navigation';
     &__right {
         display: flex;
         align-items: center;
+    }
+
+    &__custom-mobile-navigation {
+        @include add-specificity(&) {
+            position: relative;
+
+            flex: 1 0 0;
+            justify-content: flex-end;
+
+            @include mobile-tablet-only();
+        }
     }
 
     &__navigation {
@@ -42,19 +54,22 @@ $block: '.#{$ns}desktop-navigation';
     }
 
     &__right {
-        flex: 0;
+        flex: 3 0 0;
         justify-content: flex-end;
 
         @include text-size(body-2);
     }
 
-    &__navigation-container {
+    &__navigation-container,
+    &__custom-mobile-navigation-container {
         display: flex;
         overflow-x: hidden;
         flex: 1 0 0;
         justify-content: space-between;
         align-items: center;
+    }
 
+    &__navigation-container {
         margin-right: $indentM;
     }
 
@@ -68,8 +83,9 @@ $block: '.#{$ns}desktop-navigation';
         cursor: pointer;
     }
 
+    &__links,
     &__buttons,
-    &__links {
+    &__mobile-buttons {
         display: flex;
         align-items: center;
 
@@ -83,6 +99,16 @@ $block: '.#{$ns}desktop-navigation';
             &:not(:last-child) {
                 margin-right: $indentXS;
             }
+        }
+    }
+
+    &__mobile-buttons {
+        @include mobile-tablet-only();
+    }
+
+    &__mobile-buttons &__item {
+        &:not(:last-child) {
+            margin-right: 0;
         }
     }
 
@@ -101,8 +127,13 @@ $block: '.#{$ns}desktop-navigation';
     }
 
     @media (max-width: map-get($gridBreakpoints, 'md') - 1) {
-        &__navigation-container {
+        &__navigation-container,
+        &__custom-mobile-navigation-container {
             justify-content: flex-end;
+        }
+
+        &__navigation-container {
+            flex: 0 0 0;
         }
 
         &__left {

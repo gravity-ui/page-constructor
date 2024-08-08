@@ -1,5 +1,7 @@
+import {CustomMobileMenuAppearanceSide} from '../navigation/models';
 import {ThemeSupporting} from '../utils';
 
+import {CustomHookData, CustomMobileMenuButton, CustomMobileMenuItem} from './constructor';
 import {ButtonProps, ImageProps} from './constructor-items';
 
 export enum NavigationItemType {
@@ -93,6 +95,22 @@ export interface HeaderData {
     iconSize?: number;
     withBorder?: boolean;
     withBorderOnScroll?: boolean;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    useCustomHook?: (...args: any[]) => CustomHookData;
+    customMobileMenuData?: CustomMobileMenuData;
+    customMobileHeaderData?: CustomMobileHeaderData;
+}
+
+export interface CustomMobileMenuData {
+    appearanceSide?: CustomMobileMenuAppearanceSide;
+    Header?: CustomMobileMenuItem;
+    Content?: CustomMobileMenuItem;
+    Footer?: CustomMobileMenuItem;
+}
+
+export interface CustomMobileHeaderData {
+    headerMobileItems?: CustomMobileMenuItem[];
+    CustomMobileMenuButton?: CustomMobileMenuButton;
 }
 
 export interface FooterColumn {
