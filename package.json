@@ -124,7 +124,7 @@
     "@commitlint/cli": "^17.1.2",
     "@commitlint/config-conventional": "^17.1.0",
     "@diplodoc/transform": "^4.10.8",
-    "@gravity-ui/eslint-config": "^2.0.0",
+    "@gravity-ui/eslint-config": "^2.2.0",
     "@gravity-ui/icons": "^2.8.1",
     "@gravity-ui/prettier-config": "^1.0.1",
     "@gravity-ui/stylelint-config": "^1.0.0",

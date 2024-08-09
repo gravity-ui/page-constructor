@@ -11,6 +11,8 @@ interface ApiKeyInputProps {
     id: string;
 }
 
+const inputID = 'apikey-input';
+
 export const ApiKeyInput = (props: ApiKeyInputProps) => {
     const {id} = props;
     const [apiKey, setApiKey] = useState<string>(localStorage?.getItem(id) || '');
@@ -31,9 +33,12 @@ export const ApiKeyInput = (props: ApiKeyInputProps) => {
 
     return (
         <div>
-            <label style={{display: 'block'}}>Api key for google maps</label>
+            <label style={{display: 'block'}} htmlFor={inputID}>
+                Api key for google maps
+            </label>
             <div style={{display: 'flex'}}>
                 <TextInput
+                    id={inputID}
                     type="text"
                     className="apikey-input"
                     value={apiKey}

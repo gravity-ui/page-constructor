@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/media-has-caption */
+// TODO fix in https://github.com/gravity-ui/page-constructor/issues/967
 import React, {Fragment, useCallback, useImperativeHandle, useRef, useState} from 'react';
 
 import {CustomControlsType, MediaVideoControlsType, MediaVideoProps} from '../../models';
