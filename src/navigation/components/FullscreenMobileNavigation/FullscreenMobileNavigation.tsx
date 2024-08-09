@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {memo} from 'react';
 
 import {Portal} from '@gravity-ui/uikit';
 
@@ -11,65 +11,62 @@ import './FullscreenMobileNavigation.scss';
 
 const b = block('fullscreen-mobile-navigation');
 
-const FullscreenMobileNavigation: React.FC<CustomMobileMenuProps> = ({
-    isOpened,
-    topItems,
-    bottomItems,
-    customHookData,
-    customMobileMenuData,
-    ...props
-}) => {
-    const {
-        appearanceSide = 'right',
-        Header = null,
-        Content = null,
-        Footer = null,
-    } = customMobileMenuData;
+const FullscreenMobileNavigation: React.FC<CustomMobileMenuProps> = memo(
+    ({isOpened, topItems, bottomItems, customHookData, customMobileMenuData, ...props}) => {
+        const {
+            appearanceSide = 'right',
+            Header = null,
+            Content = null,
+            Footer = null,
+        } = customMobileMenuData;
 
-    const [isMounted, setIsMounted] = React.useState(false);
+        const [isMounted, setIsMounted] = React.useState(false);
 
-    useMount(() => setIsMounted(true));
+        useMount(() => setIsMounted(true));
 
-    if (!isMounted) {
-        return null;
-    }
+        if (!isMounted) {
+            return null;
+        }
 
-    const header = Header ? <Header customHookData={customHookData} /> : null;
-    const footer = Footer ? <Footer customHookData={customHookData} /> : null;
-    const content = Content ? (
-        <Content customHookData={customHookData} />
-    ) : (
-        <div className={b('nav-lists')}>
-            {topItems && (
-                <NavigationList
-                    className={b('rows')}
-                    items={topItems}
-                    column={ItemColumnName.Top}
-                    menuLayout={NavigationLayout.Mobile}
-                    {...props}
-                />
-            )}
-            {bottomItems && (
-                <NavigationList
-                    className={b('rows')}
-                    items={bottomItems}
-                    column={ItemColumnName.Bottom}
-                    menuLayout={NavigationLayout.Mobile}
-                    {...props}
-                />
-            )}
-        </div>
-    );
-
-    return (
-        <Portal>
-            <div className={b({opened: isOpened, [appearanceSide]: true})}>
-                <div className={b('header')}>{header}</div>
-                <div className={b('content', {'has-custom-content': Content})}>{content}</div>
-                <div className={b('footer')}>{footer}</div>
+        const header = Header ? <Header customHookData={customHookData} /> : null;
+        const footer = Footer ? <Footer customHookData={customHookData} /> : null;
+        const content = Content ? (
+            <Content customHookData={customHookData} />
+        ) : (
+            <div className={b('nav-lists')}>
+                {topItems && (
+                    <NavigationList
+                        className={b('rows')}
+                        items={topItems}
+                        column={ItemColumnName.Top}
+                        menuLayout={NavigationLayout.Mobile}
+                        {...props}
+                    />
+                )}
+                {bottomItems && (
+                    <NavigationList
+                        className={b('rows')}
+                        items={bottomItems}
+                        column={ItemColumnName.Bottom}
+                        menuLayout={NavigationLayout.Mobile}
+                        {...props}
+                    />
+                )}
             </div>
-        </Portal>
-    );
-};
+        );
+
+        return (
+            <Portal>
+                <div className={b({opened: isOpened, [appearanceSide]: true})}>
+                    <div className={b('header')}>{header}</div>
+                    <div className={b('content', {'has-custom-content': Content})}>{content}</div>
+                    <div className={b('footer')}>{footer}</div>
+                </div>
+            </Portal>
+        );
+    },
+);
+
+FullscreenMobileNavigation.displayName = 'FullscreenMobileNavigation';
 
 export default FullscreenMobileNavigation;
