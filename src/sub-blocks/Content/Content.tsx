@@ -42,6 +42,7 @@ const Content = (props: ContentProps) => {
         list,
         qa,
         controlPosition,
+        a11yProps,
     } = props;
     const qaAttributes = getQaAttrubutes(qa, ['links', 'link', 'buttons', 'button', 'list']);
 
@@ -67,10 +68,11 @@ const Content = (props: ContentProps) => {
                     title={titleProps}
                     colSizes={{all: 12}}
                     id={titleId}
+                    {...a11yProps?.title}
                 />
             )}
             {text && (
-                <div className={b('text', {['without-title']: !hasTitle})}>
+                <div className={b('text', {['without-title']: !hasTitle})} {...a11yProps?.text}>
                     <YFMWrapper
                         content={text}
                         modifiers={{constructor: true, [`constructor-size-${size}`]: true}}
@@ -79,12 +81,12 @@ const Content = (props: ContentProps) => {
                 </div>
             )}
             {list?.length ? (
-                <div className={b('list')}>
+                <div className={b('list')} {...a11yProps?.list}>
                     <ContentList list={list} size={size} qa={qaAttributes.list} />
                 </div>
             ) : null}
             {additionalInfo && (
-                <div className={b('notice')}>
+                <div className={b('notice')} {...a11yProps?.additionalInfo}>
                     <YFMWrapper
                         content={additionalInfo}
                         modifiers={{

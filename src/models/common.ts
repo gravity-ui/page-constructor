@@ -22,6 +22,14 @@ export interface QAProps {
     qa?: string;
 }
 
+type AriaKeys = {
+    [K in keyof React.HTMLAttributes<HTMLElement>]-?: K extends `aria-${string}` ? K : never;
+}[keyof React.HTMLAttributes<HTMLElement>];
+
+export type A11yProps = {
+    [K in AriaKeys | 'role' | 'tabIndex']?: React.HTMLAttributes<HTMLElement>[K];
+};
+
 export type Timeout = ReturnType<typeof setTimeout> | undefined;
 
 export enum PredefinedEventTypes {

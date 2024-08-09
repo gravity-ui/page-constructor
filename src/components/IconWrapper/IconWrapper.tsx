@@ -25,6 +25,7 @@ const IconWrapper = (props: PropsWithChildren<IconWrapperProps> & ClassNameProps
                     {...iconProps}
                     containerClassName={b('icon-container')}
                     className={b('icon', {['icon-position']: iconPosition})}
+                    aria-hidden
                 />
             )}
             <div className={b('content', {['icon-position']: iconPosition})}>{children}</div>

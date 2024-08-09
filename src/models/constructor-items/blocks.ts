@@ -4,7 +4,7 @@ import {ButtonSize} from '@gravity-ui/uikit';
 
 import {GridColumnSize, GridColumnSizesType, IndentValue} from '../../grid/types';
 import {ThemeSupporting} from '../../utils';
-import {AnalyticsEventsBase} from '../common';
+import {A11yProps, AnalyticsEventsBase} from '../common';
 
 import {
     AnchorProps,
@@ -394,6 +394,13 @@ export interface ContentListProps {
     theme?: ContentTheme;
 }
 
+export interface ContentA11yProps {
+    title?: A11yProps;
+    text?: A11yProps;
+    list?: A11yProps;
+    additionalInfo?: A11yProps;
+}
+
 export interface ContentBlockProps {
     title?: TitleItemBaseProps | string;
     titleId?: string;
@@ -408,6 +415,7 @@ export interface ContentBlockProps {
     theme?: ContentTheme;
     list?: ContentItemProps[];
     controlPosition?: 'default' | 'bottom';
+    a11yProps?: ContentA11yProps;
 }
 
 export enum PCShareSocialNetwork {
