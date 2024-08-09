@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [5.18.1](https://github.com/gravity-ui/page-constructor/compare/v5.18.0...v5.18.1) (2024-08-09)
+
+
+### Bug Fixes
+
+* enable a11y eslint rules ([#968](https://github.com/gravity-ui/page-constructor/issues/968)) ([3bb75d9](https://github.com/gravity-ui/page-constructor/commit/3bb75d9fe4410d81d5a1e40dfc93e2171bf3db55))
+
 ## [5.18.0](https://github.com/gravity-ui/page-constructor/compare/v5.17.2...v5.18.0) (2024-08-08)
 
 
