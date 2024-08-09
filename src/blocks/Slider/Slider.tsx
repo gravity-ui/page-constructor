@@ -8,6 +8,7 @@ import React, {
     useState,
 } from 'react';
 
+import {useUniqId} from '@gravity-ui/uikit';
 import debounce from 'lodash/debounce';
 import get from 'lodash/get';
 import noop from 'lodash/noop';
@@ -32,6 +33,7 @@ import {
 import {block} from '../../utils';
 
 import Arrow, {ArrowType} from './Arrow/Arrow';
+import {i18n} from './i18n';
 import {SliderBreakpointParams} from './models';
 import {
     getSliderResponsiveParams,
@@ -87,9 +89,10 @@ export const SliderBlock = (props: React.PropsWithChildren<SliderProps>) => {
     const {isServer} = useContext(SSRContext);
     const isMobile = useContext(MobileContext);
     const [breakpoint, setBreakpoint] = useState<number>(BREAKPOINTS.xl);
+    const sliderId = useUniqId();
     const disclosedChildren = useMemo<React.ReactElement[]>(
-        () => discloseAllNestedChildren(children as React.ReactElement[]),
-        [children],
+        () => discloseAllNestedChildren(children as React.ReactElement[], sliderId),
+        [children, sliderId],
     );
     const childrenCount = disclosedChildren.length;
 
@@ -109,6 +112,7 @@ export const SliderBlock = (props: React.PropsWithChildren<SliderProps>) => {
     const [currentIndex, setCurrentIndex] = useState<number>(0);
     const [childStyles, setChildStyles] = useState<Object>({});
     const [slider, setSlider] = useState<SlickSlider>();
+    const prevIndexRef = useRef<number>(0);
     const autoplayTimeId = useRef<Timeout>();
     const {hasFocus, unsetFocus} = useFocus(slider?.innerSlider?.list);
 
@@ -194,6 +198,8 @@ export const SliderBlock = (props: React.PropsWithChildren<SliderProps>) => {
                 handleBeforeChange(current, next);
             }
 
+            prevIndexRef.current = current;
+
             setCurrentIndex(Math.ceil(next));
         },
         [handleBeforeChange],
@@ -212,8 +218,15 @@ export const SliderBlock = (props: React.PropsWithChildren<SliderProps>) => {
             if (!hasFocus) {
                 scrollLastSlide(current);
             }
+
+            const focusIndex =
+                prevIndexRef.current > current
+                    ? current
+                    : Math.max(current, prevIndexRef.current + slidesToShowCount);
+
+            document.getElementById(getSlideId(sliderId, focusIndex))?.focus();
         },
-        [handleAfterChange, hasFocus, scrollLastSlide],
+        [handleAfterChange, hasFocus, scrollLastSlide, sliderId, slidesToShowCount],
     );
 
     const handleDotClick = useCallback(
@@ -240,7 +253,7 @@ export const SliderBlock = (props: React.PropsWithChildren<SliderProps>) => {
                         left: barPosition,
                         width: barWidth,
                     }}
-                ></li>
+                />
             )
         );
     };
@@ -253,13 +266,18 @@ export const SliderBlock = (props: React.PropsWithChildren<SliderProps>) => {
                 {slidesCountByBreakpoint > 0 && (
                     <li
                         className={b('accessible-bar')}
+                        role="button"
                         aria-current
-                        aria-label={`Slide ${currentIndex + 1} of ${barSlidesCount}`}
+                        aria-label={i18n('dot-label', {
+                            index: currentIndex + 1,
+                            count: barSlidesCount,
+                        })}
+                        tabIndex={0}
                         style={{
                             left: barPosition,
                             width: barWidth,
                         }}
-                    ></li>
+                    />
                 )}
             </Fragment>
         );
@@ -289,14 +307,20 @@ export const SliderBlock = (props: React.PropsWithChildren<SliderProps>) => {
     };
 
     const renderDot = (index: number) => {
+        const isVisible = isVisibleSlide(index);
         return (
             <li
                 key={index}
                 className={b('dot', {active: index === currentIndex})}
                 onClick={() => handleDotClick(index)}
-                aria-hidden={isVisibleSlide(index) ? true : undefined}
-                aria-label={`Slide ${getCurrentSlideNumber(index)} of ${barSlidesCount}`}
-            ></li>
+                role="button"
+                aria-hidden={isVisible ? true : undefined}
+                tabIndex={isVisible ? -1 : 0}
+                aria-label={i18n('dot-label', {
+                    index: getCurrentSlideNumber(index),
+                    count: barSlidesCount,
+                })}
+            />
         );
     };
 
@@ -349,6 +373,7 @@ export const SliderBlock = (props: React.PropsWithChildren<SliderProps>) => {
             nextArrow: <Arrow type="right" handleClick={handleArrowClick} size={arrowSize} />,
             prevArrow: <Arrow type="left" handleClick={handleArrowClick} size={arrowSize} />,
             lazyLoad,
+            accessibility: false,
         };
 
         return (
@@ -390,11 +415,29 @@ export const SliderBlock = (props: React.PropsWithChildren<SliderProps>) => {
     );
 };
 
+function getSlideId(sliderId: string, index: number) {
+    return `slider-${sliderId}-child-${index}`;
+}
+
 // TODO remove this and rework PriceDetailed CLOUDFRONT-12230
-function discloseAllNestedChildren(children: React.ReactElement[]): React.ReactElement[] {
+function discloseAllNestedChildren(
+    children: React.ReactElement[],
+    sliderId: string,
+): React.ReactElement[] {
     if (!children) {
         return [];
     }
+
+    let childIndex = 0;
+    const wrapped = (child: React.ReactElement) => {
+        const id = getSlideId(sliderId, childIndex++);
+
+        return (
+            <div key={id} id={id} className={b('slide-wrap')}>
+                {child}
+            </div>
+        );
+    };
 
     return React.Children.map(children, (child) => {
         if (child) {
@@ -402,17 +445,19 @@ function discloseAllNestedChildren(children: React.ReactElement[]): React.ReactE
             const nestedChildren = child.props.data?.items;
 
             if (nestedChildren) {
-                return nestedChildren.map((nestedChild: React.ReactElement) =>
-                    React.cloneElement(child, {
-                        data: {
-                            ...child.props.data,
-                            items: [nestedChild],
-                        },
-                    }),
-                );
+                return nestedChildren.map((nestedChild: React.ReactElement) => {
+                    return wrapped(
+                        React.cloneElement(child, {
+                            data: {
+                                ...child.props.data,
+                                items: [nestedChild],
+                            },
+                        }),
+                    );
+                });
             }
         }
-        return child;
+        return child && wrapped(child);
     }).filter(Boolean);
 }
 
