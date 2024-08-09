@@ -35,7 +35,7 @@ const MobileNavigation: React.FC<MobileNavigationProps> = ({
                             className={b('rows')}
                             items={topItems}
                             column={ItemColumnName.Top}
-                            menuLayout={NavigationLayout.Mobile}
+                            menuLayout={NavigationLayout.MobileBasic}
                             {...props}
                         />
                     )}
@@ -44,7 +44,7 @@ const MobileNavigation: React.FC<MobileNavigationProps> = ({
                             className={b('rows')}
                             items={bottomItems}
                             column={ItemColumnName.Bottom}
-                            menuLayout={NavigationLayout.Mobile}
+                            menuLayout={NavigationLayout.MobileBasic}
                             {...props}
                         />
                     )}

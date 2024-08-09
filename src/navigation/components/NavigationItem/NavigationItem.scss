@@ -33,8 +33,17 @@ $block: '.#{$ns}navigation-item';
             margin-bottom: $indentSM;
         }
 
-        &_mobile-horizontal {
+        &_mobile-header {
             margin-bottom: 0;
+        }
+
+        &_mobile-fullscreen {
+            padding: $indentXXS $indentXXS $indentXXS $indentSM;
+
+            margin-bottom: 0;
+
+            font-weight: var(--g-text-accent-font-weight);
+            @include text-size(body-3);
         }
 
         &_dropdown {

@@ -73,7 +73,7 @@ const DesktopNavigation: React.FC<DesktopNavigationProps> = ({
                                 itemClassName={b('item')}
                                 column={ItemColumnName.Left}
                                 activeItemId={activeItemId}
-                                menuLayout={NavigationLayout.MobileHorizontal}
+                                menuLayout={NavigationLayout.MobileHeader}
                             />
                         </OverflowScroller>
                     </div>

@@ -39,7 +39,7 @@ const FullscreenMobileNavigation: React.FC<CustomMobileMenuProps> = memo(
                         className={b('rows')}
                         items={topItems}
                         column={ItemColumnName.Top}
-                        menuLayout={NavigationLayout.Mobile}
+                        menuLayout={NavigationLayout.MobileFullscreen}
                         {...props}
                     />
                 )}
@@ -48,7 +48,7 @@ const FullscreenMobileNavigation: React.FC<CustomMobileMenuProps> = memo(
                         className={b('rows')}
                         items={bottomItems}
                         column={ItemColumnName.Bottom}
-                        menuLayout={NavigationLayout.Mobile}
+                        menuLayout={NavigationLayout.MobileFullscreen}
                         {...props}
                     />
                 )}

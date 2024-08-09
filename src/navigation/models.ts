@@ -25,8 +25,9 @@ export enum ItemColumnName {
 
 export enum NavigationLayout {
     Desktop = 'desktop',
-    Mobile = 'mobile',
-    MobileHorizontal = 'mobile-horizontal',
+    MobileBasic = 'mobile',
+    MobileHeader = 'mobile-header',
+    MobileFullscreen = 'mobile-fullscreen',
     Dropdown = 'dropdown',
 }
 

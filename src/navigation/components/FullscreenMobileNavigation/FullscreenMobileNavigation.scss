@@ -35,8 +35,8 @@ $block: '.#{$ns}fullscreen-mobile-navigation';
     &__content {
         flex: 1 0 0;
 
-        padding-top: $indentSM;
-        padding-bottom: $indentSM;
+        padding-top: $indentXXS;
+        padding-bottom: $indentXXS;
 
         overflow-y: auto;
 
@@ -55,8 +55,8 @@ $block: '.#{$ns}fullscreen-mobile-navigation';
 
     @media (max-width: map-get($gridBreakpoints, 'md') - 1) {
         &__nav-lists {
-            padding-left: $indentSM;
-            padding-right: $indentSM;
+            padding-left: $indentXS;
+            padding-right: $indentXS;
         }
     }
 
@@ -72,7 +72,6 @@ $block: '.#{$ns}fullscreen-mobile-navigation';
 
         padding-bottom: $indentSM;
         @include reset-list-style();
-        margin-bottom: $indentSM;
     }
 
     &__rows:last-child {
