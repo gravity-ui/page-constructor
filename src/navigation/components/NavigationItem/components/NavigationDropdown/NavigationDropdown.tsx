@@ -31,8 +31,18 @@ export const NavigationDropdown = ({
 
     return (
         <Fragment>
-            <span ref={anchorRef} {...props} className={b(null, className)}>
-                <ContentWrapper text={text} icon={iconData} iconSize={iconSize} />
+            <button
+                ref={anchorRef}
+                {...props}
+                className={b(null, className)}
+                aria-expanded={isActive}
+            >
+                <ContentWrapper
+                    text={text}
+                    icon={iconData}
+                    iconSize={iconSize}
+                    aria-expanded={isActive}
+                />
                 <ToggleArrow
                     className={b('arrow')}
                     size={TOGGLE_ARROW_SIZE}
@@ -40,7 +50,7 @@ export const NavigationDropdown = ({
                     iconType="navigation"
                     open={isActive}
                 />
-            </span>
+            </button>
             <NavigationPopup
                 open={isActive}
                 onClose={hidePopup}

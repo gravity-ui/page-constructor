@@ -7,6 +7,7 @@ $block: '.#{$ns}navigation-link';
 #{$block} {
     @include navigation-item();
     @include navigation-item-display();
+    @include focusable();
 
     &__arrow {
         position: relative;
