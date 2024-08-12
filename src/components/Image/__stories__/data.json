@@ -4,6 +4,7 @@
       "src": "/story-assets/img_6-12_light.png",
       "alt": "string",
       "disableCompress": true,
+      "fetchPriority": "high",
       "style": {
         "height": "200px"
       }

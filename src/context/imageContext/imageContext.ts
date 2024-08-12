@@ -1,11 +1,9 @@
 import React from 'react';
 
-import {ImageBaseProps} from '../../components';
-
-export type Image = React.ComponentClass<ImageBaseProps> | React.FC<ImageBaseProps>;
+import type {ImageBaseProps} from '../../components';
 
 export type ImageContextProps = {
-    Image?: Image;
+    Image?: React.ComponentType<ImageBaseProps>;
 };
 
 export const ImageContext = React.createContext<ImageContextProps>({});
