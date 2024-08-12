@@ -27,13 +27,13 @@ export const NavigationDropdown = ({
     ...props
 }: NavigationDropdownProps) => {
     const iconData = icon && getMediaImage(icon);
-    const anchorRef = useRef<HTMLElement>(null);
-
+    const anchorRef = useRef<HTMLButtonElement>(null);
     return (
         <Fragment>
             <button
                 ref={anchorRef}
                 {...props}
+                type="button"
                 className={b(null, className)}
                 aria-expanded={isActive}
             >
