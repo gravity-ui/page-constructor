@@ -11,10 +11,9 @@ export interface ImageBaseProps extends Partial<ImageObjectProps> {
     onError?: () => void;
 }
 
-export const ImageBase = ({fetchPriority, alt = '', ...props}: ImageBaseProps) => {
+export const ImageBase = ({fetchPriority, ...props}: ImageBaseProps) => {
     const {Image} = React.useContext(ImageContext);
 
-    // eslint-disable-next-line jsx-a11y/alt-text
     return Image ? (
         <Image fetchPriority={fetchPriority} {...props} />
     ) : (
@@ -22,7 +21,8 @@ export const ImageBase = ({fetchPriority, alt = '', ...props}: ImageBaseProps) =
         // It is still not supported. However it's nice to have ability to manage
         // this prop is good to have to improve Core Web Vitals.
         // So, here is a workaround to assign the attr.
-        <img {...{fetchpriority: fetchPriority, alt}} {...props} />
+        // eslint-disable-next-line jsx-a11y/alt-text
+        <img {...{fetchpriority: fetchPriority}} {...props} />
     );
 };
 
