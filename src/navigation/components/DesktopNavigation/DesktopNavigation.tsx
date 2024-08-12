@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {MouseEvent, useCallback} from 'react';
 
 import OverflowScroller from '../../../components/OverflowScroller/OverflowScroller';
 import {block} from '../../../utils';
@@ -22,15 +22,26 @@ const DesktopNavigation: React.FC<DesktopNavigationProps> = ({
     onActiveItemChange,
     activeItemId,
 }) => {
-    const {headerMobileItems = [], CustomMobileMenuButton = null} = customMobileHeaderData;
+    const {mobileHeaderItems = [], CustomMobileMenuButton = null} = customMobileHeaderData;
+
+    const mobileButtonDefaultClickAction = useCallback(
+        (event: MouseEvent) => {
+            event.stopPropagation();
+            event.nativeEvent.stopImmediatePropagation();
+
+            onSidebarOpenedChange(!isSidebarOpened);
+        },
+        [isSidebarOpened, onSidebarOpenedChange],
+    );
 
     const mobileMenuButton = CustomMobileMenuButton ? (
-        <CustomMobileMenuButton
-            className={b('custom-mobile-menu-button')}
-            isSidebarOpened={isSidebarOpened}
-            onSidebarOpenedChange={onSidebarOpenedChange}
-            customHookData={customHookData}
-        />
+        <div onClick={mobileButtonDefaultClickAction}>
+            <CustomMobileMenuButton
+                className={b('custom-mobile-menu-button')}
+                isSidebarOpened={isSidebarOpened}
+                customHookData={customHookData}
+            />
+        </div>
     ) : (
         <MobileMenuButton
             isSidebarOpened={isSidebarOpened}
@@ -59,7 +70,7 @@ const DesktopNavigation: React.FC<DesktopNavigationProps> = ({
                 </OverflowScroller>
             </div>
             <div className={b('right')}>
-                {headerMobileItems && (
+                {mobileHeaderItems && (
                     <div className={b('custom-mobile-navigation-container')}>
                         <OverflowScroller
                             className={b('custom-mobile-navigation')}
@@ -67,7 +78,7 @@ const DesktopNavigation: React.FC<DesktopNavigationProps> = ({
                             arrowSize={18}
                         >
                             <NavigationList
-                                items={headerMobileItems}
+                                items={mobileHeaderItems}
                                 onActiveItemChange={onActiveItemChange}
                                 className={b('mobile-buttons')}
                                 itemClassName={b('item')}

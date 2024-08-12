@@ -59,7 +59,9 @@ const FullscreenMobileNavigation: React.FC<CustomMobileMenuProps> = memo(
             <Portal>
                 <div className={b({opened: isOpened, [appearanceSide]: true})}>
                     <div className={b('header')}>{header}</div>
-                    <div className={b('content', {'has-custom-content': Content})}>{content}</div>
+                    <div className={b('content', {'has-custom-content': Boolean(Content)})}>
+                        {content}
+                    </div>
                     <div className={b('footer')}>{footer}</div>
                 </div>
             </Portal>

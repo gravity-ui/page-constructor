@@ -41,9 +41,6 @@ $block: '.#{$ns}navigation-item';
             padding: $indentXXS $indentXXS $indentXXS $indentSM;
 
             margin-bottom: 0;
-
-            font-weight: var(--g-text-accent-font-weight);
-            @include text-size(body-3);
         }
 
         &_dropdown {

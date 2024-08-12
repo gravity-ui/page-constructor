@@ -49,10 +49,9 @@ export type CustomItem =
     | React.ComponentType<PropsWithChildren<ComponentProps>>;
 export type CustomItems = Record<string, CustomItem>;
 
-export type CustomMobileMenuButton =
-    | React.PropsWithChildren<CustomMobileMenuButtonProps & ComponentProps>
-    | React.ComponentType<PropsWithChildren<CustomMobileMenuButtonProps & ComponentProps>>;
-export type CustomMobileMenuItem =
+export type CustomMobileMenuButton = React.ComponentType<CustomMobileMenuButtonProps>;
+export type CustomMobileMenuItem = React.ComponentType<CustomMobileMenuItemsProps & ComponentProps>;
+export type CustomMobileHeaderItem =
     | React.PropsWithChildren<CustomMobileMenuItemsProps & ComponentProps>
     | React.ComponentType<PropsWithChildren<CustomMobileMenuItemsProps & ComponentProps>>;
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

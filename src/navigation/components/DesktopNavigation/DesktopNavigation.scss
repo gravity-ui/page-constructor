@@ -31,31 +31,39 @@ $block: '.#{$ns}desktop-navigation';
         align-items: center;
     }
 
+    &__navigation,
     &__custom-mobile-navigation {
         @include add-specificity(&) {
             position: relative;
-
             flex: 1 0 0;
-            justify-content: flex-end;
-
-            @include mobile-tablet-only();
         }
     }
 
     &__navigation {
         @include add-specificity(&) {
-            position: relative;
-
-            flex: 1 0 0;
             justify-content: flex-start;
 
             @include desktop-only();
         }
     }
 
+    &__custom-mobile-navigation {
+        @include add-specificity(&) {
+            justify-content: flex-end;
+
+            @include mobile-tablet-only();
+        }
+
+        &-container:has(.#{$ns}overflow-scroller__arrow) & {
+            justify-content: flex-start;
+        }
+    }
+
     &__right {
         flex: 3 0 0;
         justify-content: flex-end;
+
+        max-width: 50%;
 
         @include text-size(body-2);
     }

@@ -16,6 +16,11 @@ export interface MobileMenuButtonProps {
     onSidebarOpenedChange: (arg: boolean) => void;
 }
 
+export interface CustomMobileMenuButtonProps extends ClassNameProps {
+    isSidebarOpened: boolean;
+    customHookData?: CustomHookData;
+}
+
 export enum ItemColumnName {
     Left = 'left',
     Right = 'right',
@@ -94,12 +99,6 @@ export interface CustomMobileMenuProps extends ClassNameProps, ActiveItemProps {
     bottomItems?: NavigationItemModel[];
     customHookData: CustomHookData;
     customMobileMenuData: CustomMobileMenuData;
-}
-
-export interface CustomMobileMenuButtonProps extends ClassNameProps {
-    isSidebarOpened: boolean;
-    onSidebarOpenedChange: (isSidebarOpened: boolean) => void;
-    customHookData?: CustomHookData;
 }
 
 export interface CustomMobileMenuItemsProps {

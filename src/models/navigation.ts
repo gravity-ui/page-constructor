@@ -1,7 +1,12 @@
 import {CustomMobileMenuAppearanceSide} from '../navigation/models';
 import {ThemeSupporting} from '../utils';
 
-import {CustomHookData, CustomMobileMenuButton, CustomMobileMenuItem} from './constructor';
+import {
+    CustomHookData,
+    CustomMobileHeaderItem,
+    CustomMobileMenuButton,
+    CustomMobileMenuItem,
+} from './constructor';
 import {ButtonProps, ImageProps} from './constructor-items';
 
 export enum NavigationItemType {
@@ -109,7 +114,7 @@ export interface CustomMobileMenuData {
 }
 
 export interface CustomMobileHeaderData {
-    headerMobileItems?: CustomMobileMenuItem[];
+    mobileHeaderItems?: CustomMobileHeaderItem[];
     CustomMobileMenuButton?: CustomMobileMenuButton;
 }
 
