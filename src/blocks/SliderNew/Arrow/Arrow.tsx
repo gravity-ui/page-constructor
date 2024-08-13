@@ -18,8 +18,8 @@ export interface ArrowProps {
 }
 
 const Arrow = ({type, onClick, className, size = 16}: ArrowProps & ClassNameProps) => (
-    <div className={b({type}, className)} onClick={onClick}>
-        <button className={b('button')} aria-label={i18n(`arrow-${type}`)}>
+    <button className={b('button', className)} onClick={onClick} aria-label={i18n(`arrow-${type}`)}>
+        <div className={b('inner', {type})}>
             <span className={b('icon-wrapper')}>
                 <ToggleArrow
                     size={size}
@@ -28,8 +28,8 @@ const Arrow = ({type, onClick, className, size = 16}: ArrowProps & ClassNameProp
                     className={b('icon')}
                 />
             </span>
-        </button>
-    </div>
+        </div>
+    </button>
 );
 
 export default Arrow;
