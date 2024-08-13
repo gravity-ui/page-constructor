@@ -1,4 +1,10 @@
-import React, {CSSProperties, HTMLProps, ReactNode} from 'react';
+import React, {
+    CSSProperties,
+    DetailedHTMLProps,
+    HTMLProps,
+    ImgHTMLAttributes,
+    ReactNode,
+} from 'react';
 
 import {ButtonView, ButtonProps as UikitButtonProps} from '@gravity-ui/uikit';
 
@@ -125,8 +131,13 @@ interface LoopProps {
 
 // images
 
-export interface ImageInfoProps extends Pick<HTMLProps<HTMLImageElement>, 'aria-describedby'> {
+export interface ImageInfoProps
+    extends Pick<
+        DetailedHTMLProps<ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement>,
+        'aria-describedby' | 'loading'
+    > {
     alt?: string;
+    fetchPriority?: 'high' | 'low' | 'auto';
     disableCompress?: boolean;
 }
 

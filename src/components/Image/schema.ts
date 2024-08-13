@@ -11,6 +11,14 @@ const ImageBase = {
     disableCompress: {
         type: 'boolean',
     },
+    loading: {
+        type: 'string',
+        enum: ['eager', 'lazy'],
+    },
+    fetchPriority: {
+        type: 'string',
+        enum: ['high', 'low', 'auto'],
+    },
 };
 
 const StyleBase = {

@@ -66,6 +66,8 @@ const Image = (props: ImageProps) => {
         onLoad,
         containerClassName,
         qa,
+        fetchPriority,
+        loading,
     } = props;
     const [imgLoadingError, setImgLoadingError] = useState(false);
 
@@ -120,6 +122,8 @@ const Image = (props: ImageProps) => {
                 alt={alt}
                 src={src}
                 style={style}
+                fetchPriority={fetchPriority}
+                loading={loading}
                 onClick={onClick}
                 onError={() => setImgLoadingError(true)}
                 onLoad={onLoad}
