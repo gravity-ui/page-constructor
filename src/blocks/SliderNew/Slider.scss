@@ -256,7 +256,7 @@ $dotSize: 8px;
 
         #{$root}__slider {
             padding: $fsPadding 0;
-            height: 100vh;
+            height: calc(100vh - 2 * $fsPadding);
 
             & .swiper-pagination {
                 bottom: ($fsPadding - 18px) / 2;
@@ -287,7 +287,6 @@ $dotSize: 8px;
             width: $fsArrowArea;
             top: $fsPadding;
             bottom: $fsPadding;
-            height: calc(100% - 2 * $fsPadding);
 
             &_prev {
                 left: 0;
