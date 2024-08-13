@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [5.20.0](https://github.com/gravity-ui/page-constructor/compare/v5.19.0...v5.20.0) (2024-08-13)
+
+
+### Features
+
+* **Image:** loading optimizations ([#985](https://github.com/gravity-ui/page-constructor/issues/985)) ([7db8190](https://github.com/gravity-ui/page-constructor/commit/7db8190ef50e69556461aa73f2ed2fbf256bfe95))
+
 ## [5.19.0](https://github.com/gravity-ui/page-constructor/compare/v5.18.0...v5.19.0) (2024-08-12)
 
 
