@@ -35,7 +35,10 @@ const DesktopNavigation: React.FC<DesktopNavigationProps> = ({
     );
 
     const mobileMenuButton = CustomMobileMenuButton ? (
-        <div onClick={mobileButtonDefaultClickAction}>
+        <div
+            className={b('custom-mobile-menu-button-wrapper')}
+            onClick={mobileButtonDefaultClickAction}
+        >
             <CustomMobileMenuButton
                 className={b('custom-mobile-menu-button')}
                 isSidebarOpened={isSidebarOpened}
