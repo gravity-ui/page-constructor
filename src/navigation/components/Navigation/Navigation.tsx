@@ -27,14 +27,12 @@ export const Navigation: React.FC<NavigationProps> = ({data, logo, className}) =
         iconSize = 20,
         withBorder = false,
         withBorderOnScroll = true,
-        useCustomHook = () => {
-            return {};
-        },
+        useCustomHook = () => {},
         customMobileMenuData,
         customMobileHeaderData = {},
     } = data;
 
-    const customHookData = useCustomHook();
+    const customHookData = useCustomHook() || {};
 
     const [isSidebarOpened, setIsSidebarOpened] = useState(false);
     const [activeItemId, setActiveItemId] = useState<string | undefined>(undefined);
