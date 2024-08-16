@@ -1,5 +1,6 @@
 {
   "arrow-right": "Дальше",
   "arrow-left": "Назад",
-  "dot-label": "Слайд {{index}} из {{count}}"
+  "dot-label": "Слайд {{index}} из {{count}}",
+  "pagination-label": "Слайды"
 }

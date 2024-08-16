@@ -1,4 +1,6 @@
 {
   "arrow-right": "Next",
-  "arrow-left": "Previous"
+  "arrow-left": "Previous",
+  "dot-label": "Slide {{index}}",
+  "pagination-label": "Slides"
 }

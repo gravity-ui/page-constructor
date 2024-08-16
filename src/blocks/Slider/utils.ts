@@ -1,3 +1,5 @@
+import {useEffect, useRef, useState} from 'react';
+
 import pickBy from 'lodash/pickBy';
 
 import {BREAKPOINTS} from '../../constants';
@@ -61,4 +63,73 @@ export function getSlidesCountByBreakpoint(
 
 export function getSlidesToShowCount(breakpoints: SliderBreakpointParams) {
     return Math.floor(Math.max(...Object.values(breakpoints)));
+}
+
+const getRovingListItemId = (uniqId: string, index: number) =>
+    `${uniqId}-roving-tabindex-item-${index}`;
+export function useRovingTabIndex(props: {
+    itemCount: number;
+    activeIndex: number;
+    firstIndex?: number;
+    uniqId: string;
+}) {
+    const {itemCount, activeIndex, firstIndex = 0, uniqId} = props;
+    const [currentIndex, setCurrentIndex] = useState(firstIndex);
+    const hasFocusRef = useRef(false);
+    const lastIndex = itemCount + firstIndex - 1;
+
+    const getRovingItemProps = (
+        index: number,
+    ): Pick<React.HTMLAttributes<HTMLElement>, 'id' | 'tabIndex' | 'onFocus'> => {
+        return {
+            id: getRovingListItemId(uniqId, index),
+            tabIndex: index === currentIndex ? 0 : -1,
+            onFocus: () => {
+                setCurrentIndex(index);
+                hasFocusRef.current = true;
+            },
+        };
+    };
+
+    useEffect(() => {
+        if (!hasFocusRef.current) {
+            return;
+        }
+        document.getElementById(getRovingListItemId(uniqId, currentIndex))?.focus();
+    }, [activeIndex, currentIndex, uniqId]);
+
+    const setNextIndex = () =>
+        setCurrentIndex((prev) => (prev >= lastIndex ? firstIndex : prev + 1));
+    const setPrevIndex = () =>
+        setCurrentIndex((prev) => (prev <= firstIndex ? lastIndex : prev - 1));
+
+    const onRovingListKeyDown: React.KeyboardEventHandler<HTMLElement> = (e) => {
+        const key = e.key.toLowerCase();
+
+        if (key !== 'tab' && key !== 'enter') {
+            e.preventDefault();
+        }
+
+        switch (key) {
+            case 'arrowleft':
+            case 'arrowup':
+                setPrevIndex();
+                return;
+            case 'arrowright':
+            case 'arrowdown':
+                setNextIndex();
+                return;
+        }
+    };
+
+    const onRovingListBlur: React.FocusEventHandler<HTMLElement> = () => {
+        hasFocusRef.current = false;
+    };
+
+    const rovingListProps: React.HTMLAttributes<HTMLElement> = {
+        onKeyDown: onRovingListKeyDown,
+        onBlur: onRovingListBlur,
+    };
+
+    return {getRovingItemProps, rovingListProps};
 }

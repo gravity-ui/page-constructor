@@ -1,5 +1,6 @@
 {
   "arrow-right": "Next",
   "arrow-left": "Previous",
-  "dot-label": "Slide {{index}} of {{count}}"
+  "dot-label": "Slide {{index}} of {{count}}",
+  "pagination-label": "Slides"
 }

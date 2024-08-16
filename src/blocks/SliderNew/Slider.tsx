@@ -10,6 +10,7 @@ import {ClassNameProps, Refable, SliderProps as SliderParams} from '../../models
 import {block} from '../../utils';
 
 import Arrow from './Arrow/Arrow';
+import {i18n} from './i18n';
 import {useSlider} from './useSlider';
 
 import './Slider.scss';
@@ -40,6 +41,8 @@ export interface SliderNewProps
 
 SwiperCore.use([Autoplay, A11y, Pagination]);
 
+const ACTIVE_BULLET_CLASSNAME = b('dot_active');
+
 export const SliderNewBlock = ({
     animated,
     title,
@@ -63,13 +66,24 @@ export const SliderNewBlock = ({
     onActiveIndexChange,
     onBreakpoint,
 }: PropsWithChildren<SliderNewProps>) => {
-    const {childrenCount, breakpoints, autoplay, onSwiper, onPrev, onNext, isLocked, setIsLocked} =
-        useSlider({
-            slidesToShow,
-            children,
-            type,
-            autoplayMs,
-        });
+    const {
+        childrenCount,
+        breakpoints,
+        autoplay,
+        onSwiper,
+        onPrev,
+        onNext,
+        isLocked,
+        setIsLocked,
+        getSlideProps,
+        onPaginationRender,
+    } = useSlider({
+        slidesToShow,
+        children,
+        type,
+        autoplayMs,
+        activeBulletClassName: ACTIVE_BULLET_CLASSNAME,
+    });
 
     return (
         <div
@@ -97,7 +111,7 @@ export const SliderNewBlock = ({
                         dots && {
                             clickable: true,
                             bulletClass: b('dot', dotsClassName),
-                            bulletActiveClass: b('dot_active'),
+                            bulletActiveClass: ACTIVE_BULLET_CLASSNAME,
                         }
                     }
                     speed={1000}
@@ -113,29 +127,38 @@ export const SliderNewBlock = ({
                     onBreakpoint={onBreakpoint}
                     onLock={() => setIsLocked(true)}
                     onUnlock={() => setIsLocked(false)}
+                    onPaginationRender={onPaginationRender}
                     watchSlidesVisibility
                     watchOverflow
+                    a11y={{
+                        slideLabelMessage: '',
+                        paginationBulletMessage: i18n('dot-label', {
+                            index: '{{index}}',
+                        }),
+                    }}
                 >
                     {React.Children.map(children, (elem, index) => (
-                        <SwiperSlide className={b('slide')} key={index}>
+                        <SwiperSlide className={b('slide')} key={index} {...getSlideProps(index)}>
                             {elem}
                         </SwiperSlide>
                     ))}
                 </Swiper>
                 {arrows && !isLocked && (
                     <Fragment>
-                        <Arrow
-                            className={b('arrow', {prev: true})}
-                            type="left"
-                            onClick={onPrev}
-                            size={arrowSize}
-                        />
-                        <Arrow
-                            className={b('arrow', {next: true})}
-                            type="right"
-                            onClick={onNext}
-                            size={arrowSize}
-                        />
+                        <div aria-hidden={Boolean(autoplay)} tabIndex={autoplay ? -1 : 0}>
+                            <Arrow
+                                className={b('arrow', {prev: true})}
+                                type="left"
+                                onClick={onPrev}
+                                size={arrowSize}
+                            />
+                            <Arrow
+                                className={b('arrow', {next: true})}
+                                type="right"
+                                onClick={onNext}
+                                size={arrowSize}
+                            />
+                        </div>
                     </Fragment>
                 )}
                 <div className={b('footer')}>
