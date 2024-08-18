@@ -24,7 +24,7 @@ export const MobileMenuButton: React.FC<MobileMenuButtonProps> = ({
 
             onSidebarOpenedChange(!isSidebarOpened);
         }}
-        size="l"
+        size={'xl'}
         icon={isSidebarOpened ? Xmark : Bars}
         iconSize={ICON_SIZE}
     />

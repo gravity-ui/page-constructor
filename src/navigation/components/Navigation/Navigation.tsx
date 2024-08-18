@@ -4,7 +4,12 @@ import debounce from 'lodash/debounce';
 
 import OutsideClick from '../../../components/OutsideClick/OutsideClick';
 import {Col, Grid, Row} from '../../../grid';
-import {ClassNameProps, HeaderData, ThemedNavigationLogoData} from '../../../models';
+import {
+    ClassNameProps,
+    HeaderData,
+    NavigationItemModel,
+    ThemedNavigationLogoData,
+} from '../../../models';
 import {block} from '../../../utils';
 import {getNavigationItemWithIconSize} from '../../utils';
 import DesktopNavigation from '../DesktopNavigation/DesktopNavigation';
@@ -14,22 +19,17 @@ import './Navigation.scss';
 
 const b = block('navigation');
 
-export interface NavigationProps extends ClassNameProps {
+export interface NavigationComponentProps extends ClassNameProps {
     logo: ThemedNavigationLogoData;
     data: HeaderData;
 }
 
-export const Navigation: React.FC<NavigationProps> = ({data, logo, className}) => {
-    const {
-        leftItems,
-        rightItems,
-        iconSize = 20,
-        withBorder = false,
-        withBorderOnScroll = true,
-    } = data;
-    const [isSidebarOpened, setIsSidebarOpened] = useState(false);
+export const useActiveNavItem = (
+    iconSize: number,
+    leftItems: NavigationItemModel[],
+    rightItems?: NavigationItemModel[],
+) => {
     const [activeItemId, setActiveItemId] = useState<string | undefined>(undefined);
-    const [showBorder, setShowBorder] = useState(withBorder);
 
     const getNavigationItem = getNavigationItemWithIconSize(iconSize);
 
@@ -45,8 +45,11 @@ export const Navigation: React.FC<NavigationProps> = ({data, logo, className}) =
     const onActiveItemChange = (id?: string) => {
         setActiveItemId(id);
     };
+    return {activeItemId, leftItemsWithIconSize, rightItemsWithIconSize, onActiveItemChange};
+};
 
-    const onSidebarOpenedChange = (isOpen: boolean) => setIsSidebarOpened(isOpen);
+export const useShowBorder = (withBorder: boolean, withBorderOnScroll: boolean) => {
+    const [showBorder, setShowBorder] = useState(withBorder);
 
     useEffect(() => {
         if (!withBorderOnScroll) return () => {};
@@ -63,6 +66,26 @@ export const Navigation: React.FC<NavigationProps> = ({data, logo, className}) =
         return () => window.removeEventListener('scroll', scrollHandler);
     });
 
+    return [showBorder];
+};
+
+export const Navigation: React.FC<NavigationComponentProps> = ({data, logo, className}) => {
+    const {
+        leftItems,
+        rightItems,
+        mobileHeaderItems,
+        iconSize = 20,
+        withBorder = false,
+        withBorderOnScroll = true,
+    } = data;
+
+    const [isSidebarOpened, setIsSidebarOpened] = useState(false);
+    const [showBorder] = useShowBorder(withBorder, withBorderOnScroll);
+    const {activeItemId, leftItemsWithIconSize, rightItemsWithIconSize, onActiveItemChange} =
+        useActiveNavItem(iconSize, leftItems, rightItems);
+
+    const onSidebarOpenedChange = (isOpen: boolean) => setIsSidebarOpened(isOpen);
+
     return (
         <Grid className={b({'with-border': showBorder}, className)}>
             <Row>
@@ -74,6 +97,7 @@ export const Navigation: React.FC<NavigationProps> = ({data, logo, className}) =
                             onActiveItemChange={onActiveItemChange}
                             leftItemsWithIconSize={leftItemsWithIconSize}
                             rightItemsWithIconSize={rightItemsWithIconSize}
+                            mobileHeaderItems={mobileHeaderItems}
                             isSidebarOpened={isSidebarOpened}
                             onSidebarOpenedChange={onSidebarOpenedChange}
                         />
