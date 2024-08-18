@@ -11,10 +11,11 @@ import './DesktopNavigation.scss';
 
 const b = block('desktop-navigation');
 
-const DesktopNavigation: React.FC<DesktopNavigationProps> = ({
+export const DesktopNavigation: React.FC<DesktopNavigationProps> = ({
     logo,
     leftItemsWithIconSize,
     rightItemsWithIconSize,
+    mobileHeaderItems,
     isSidebarOpened,
     onSidebarOpenedChange,
     onActiveItemChange,
@@ -40,6 +41,25 @@ const DesktopNavigation: React.FC<DesktopNavigationProps> = ({
             </OverflowScroller>
         </div>
         <div className={b('right')}>
+            {mobileHeaderItems && (
+                <div className={b('mobile-navigation-container')}>
+                    <OverflowScroller
+                        className={b('mobile-navigation')}
+                        onScrollStart={onActiveItemChange}
+                        arrowSize={18}
+                    >
+                        <NavigationList
+                            items={mobileHeaderItems}
+                            onActiveItemChange={onActiveItemChange}
+                            className={b('mobile-buttons')}
+                            itemClassName={b('item')}
+                            column={ItemColumnName.Left}
+                            activeItemId={activeItemId}
+                            menuLayout={NavigationLayout.MobileHeader}
+                        />
+                    </OverflowScroller>
+                </div>
+            )}
             <MobileMenuButton
                 isSidebarOpened={isSidebarOpened}
                 onSidebarOpenedChange={onSidebarOpenedChange}

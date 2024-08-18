@@ -90,6 +90,7 @@ export type ThemedNavigationLogoData = NavigationLogoData & ThemeSupporting<Navi
 export interface HeaderData {
     leftItems: NavigationItemModel[];
     rightItems?: NavigationItemModel[];
+    mobileHeaderItems?: NavigationItemModel[];
     iconSize?: number;
     withBorder?: boolean;
     withBorderOnScroll?: boolean;
@@ -115,4 +116,5 @@ export interface NavigationData {
     logo: ThemedNavigationLogoData;
     header: HeaderData;
     footer?: FooterData;
+    renderNavigation?: () => React.ReactNode;
 }

@@ -33,6 +33,10 @@ $block: '.#{$ns}navigation-item';
             margin-bottom: $indentSM;
         }
 
+        &_mobile-header {
+            margin-bottom: 0;
+        }
+
         &_dropdown {
             margin-bottom: 0;
 

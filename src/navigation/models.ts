@@ -23,6 +23,7 @@ export enum ItemColumnName {
 export enum NavigationLayout {
     Desktop = 'desktop',
     Mobile = 'mobile',
+    MobileHeader = 'mobile-header',
     Dropdown = 'dropdown',
 }
 
@@ -66,6 +67,7 @@ export interface DesktopNavigationProps extends MobileMenuButtonProps, ActiveIte
     logo: ThemedNavigationLogoData;
     leftItemsWithIconSize: NavigationItemModel[];
     rightItemsWithIconSize?: NavigationItemModel[];
+    mobileHeaderItems?: NavigationItemModel[];
 }
 
 export interface MobileNavigationProps extends ClassNameProps, ActiveItemProps {
