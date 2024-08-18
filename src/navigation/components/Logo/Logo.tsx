@@ -16,7 +16,7 @@ export type LogoProps = ThemedNavigationLogoData & {
     className?: string;
 };
 
-const Logo: React.FC<LogoProps> = (props) => {
+export const Logo: React.FC<LogoProps> = (props) => {
     const {hostname, Link} = useContext(LocationContext);
     const theme = useTheme();
     const themedLogoProps = getThemedValue(props, theme) || props;
