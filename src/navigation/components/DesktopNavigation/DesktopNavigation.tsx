@@ -55,7 +55,7 @@ export const DesktopNavigation: React.FC<DesktopNavigationProps> = ({
                             itemClassName={b('item')}
                             column={ItemColumnName.Left}
                             activeItemId={activeItemId}
-                            menuLayout={NavigationLayout.MobileHeader}
+                            menuLayout={NavigationLayout.Dropdown}
                         />
                     </OverflowScroller>
                 </div>

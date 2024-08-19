@@ -23,7 +23,6 @@ export enum ItemColumnName {
 export enum NavigationLayout {
     Desktop = 'desktop',
     Mobile = 'mobile',
-    MobileHeader = 'mobile-header',
     Dropdown = 'dropdown',
 }
 
