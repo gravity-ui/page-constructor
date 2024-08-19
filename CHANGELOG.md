@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [5.20.1](https://github.com/gravity-ui/page-constructor/compare/v5.20.0...v5.20.1) (2024-08-19)
+
+
+### Bug Fixes
+
+* **Content:** apply control-position: bottom to links ([#988](https://github.com/gravity-ui/page-constructor/issues/988)) ([c9beab9](https://github.com/gravity-ui/page-constructor/commit/c9beab9f215aef11ceba92421741627f756466c9))
+
 ## [5.20.0](https://github.com/gravity-ui/page-constructor/compare/v5.19.0...v5.20.0) (2024-08-13)
 
 
