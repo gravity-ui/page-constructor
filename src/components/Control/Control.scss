@@ -24,6 +24,28 @@ $block: '.#{$ns}control';
     @include islands-focus();
     @include focusable();
 
+    &_size {
+        &_xs {
+            width: 24px;
+            height: 24px;
+        }
+
+        &_s {
+            width: 28px;
+            height: 28px;
+        }
+
+        &_m {
+            width: 32px;
+            height: 32px;
+        }
+
+        &_l {
+            width: 36px;
+            height: 36px;
+        }
+    }
+
     &_theme {
         &_primary {
             color: var(--g-color-text-complementary);

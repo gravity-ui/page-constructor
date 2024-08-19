@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Button, ButtonSize, Icon} from '@gravity-ui/uikit';
+import {Icon} from '@gravity-ui/uikit';
 import {SVGIconData} from '@gravity-ui/uikit/build/esm/components/Icon/types';
 
 import {block} from '../../utils';
@@ -16,7 +16,7 @@ export const defaultIconId = 'icon-test-id';
 export interface ControlProps {
     icon: SVGIconData;
     theme?: 'primary' | 'secondary' | 'link' | 'accent';
-    size?: ButtonSize;
+    size?: 'xs' | 's' | 'm' | 'l';
     iconSize?: number;
     disabled?: boolean;
     className?: string;
@@ -37,20 +37,16 @@ const Control = (props: ControlProps) => {
     } = props;
 
     return (
-        <Button
-            type={'button'}
+        <button
+            type="button"
             aria-label={i18n('aria-label')}
-            className={b({theme, disabled}, className)}
+            className={b({size, theme, disabled}, className)}
             onClick={disabled ? undefined : onClick}
             disabled={disabled}
             data-qa={qa}
-            size={size}
-            view={'flat'}
         >
-            <Button.Icon>
-                <Icon data={icon} size={iconSize} qa={defaultIconId} />
-            </Button.Icon>
-        </Button>
+            <Icon data={icon} size={iconSize} qa={defaultIconId} />
+        </button>
     );
 };
 
