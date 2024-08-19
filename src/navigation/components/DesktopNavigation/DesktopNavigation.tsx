@@ -15,7 +15,7 @@ export const DesktopNavigation: React.FC<DesktopNavigationProps> = ({
     logo,
     leftItemsWithIconSize,
     rightItemsWithIconSize,
-    mobileHeaderItems,
+    customMobileHeaderItems,
     isSidebarOpened,
     onSidebarOpenedChange,
     onActiveItemChange,
@@ -41,7 +41,7 @@ export const DesktopNavigation: React.FC<DesktopNavigationProps> = ({
             </OverflowScroller>
         </div>
         <div className={b('right')}>
-            {mobileHeaderItems && (
+            {customMobileHeaderItems && (
                 <div className={b('mobile-navigation-container')}>
                     <OverflowScroller
                         className={b('mobile-navigation')}
@@ -49,7 +49,7 @@ export const DesktopNavigation: React.FC<DesktopNavigationProps> = ({
                         arrowSize={18}
                     >
                         <NavigationList
-                            items={mobileHeaderItems}
+                            items={customMobileHeaderItems}
                             onActiveItemChange={onActiveItemChange}
                             className={b('mobile-buttons')}
                             itemClassName={b('item')}

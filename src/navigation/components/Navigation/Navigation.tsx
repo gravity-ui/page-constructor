@@ -73,7 +73,7 @@ export const Navigation: React.FC<NavigationComponentProps> = ({data, logo, clas
     const {
         leftItems,
         rightItems,
-        mobileHeaderItems,
+        customMobileHeaderItems,
         iconSize = 20,
         withBorder = false,
         withBorderOnScroll = true,
@@ -97,7 +97,7 @@ export const Navigation: React.FC<NavigationComponentProps> = ({data, logo, clas
                             onActiveItemChange={onActiveItemChange}
                             leftItemsWithIconSize={leftItemsWithIconSize}
                             rightItemsWithIconSize={rightItemsWithIconSize}
-                            mobileHeaderItems={mobileHeaderItems}
+                            customMobileHeaderItems={customMobileHeaderItems}
                             isSidebarOpened={isSidebarOpened}
                             onSidebarOpenedChange={onSidebarOpenedChange}
                         />
