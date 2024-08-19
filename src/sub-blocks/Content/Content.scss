@@ -200,7 +200,7 @@ $darkSecondary: var(--g-color-text-dark-secondary);
             #{$block}__text,
             #{$block}__title {
                 &:has(+ #{$block}__buttons),
-                &:has(+ #{$block}__link) {
+                &:has(+ #{$block}__links) {
                     margin-bottom: auto;
                 }
             }
