@@ -51,15 +51,21 @@ $block: '.#{$ns}desktop-navigation';
         &-container:has(.#{$ns}overflow-scroller__arrow) & {
             justify-content: flex-start;
         }
+
+        &-container:has(.#{$ns}overflow-scroller__arrow_type_right) {
+            padding-right: $indentXXXS;
+        }
     }
 
     &__right {
-        flex: 3 0 0;
         justify-content: flex-end;
 
-        max-width: 50%;
-
         @include text-size(body-2);
+
+        @media (max-width: map-get($gridBreakpoints,'md') - 1) {
+            flex: 3 0 0;
+            max-width: 50%;
+        }
     }
 
     &__navigation-container,

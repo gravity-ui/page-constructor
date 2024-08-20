@@ -10,6 +10,7 @@ export * from './components/NavigationPopup/NavigationPopup';
 export * from './components/SocialIcon/SocialIcon';
 export * from './components/Logo/Logo';
 
+export * from './hooks';
 export * from './models';
 export * from './utils';
 
