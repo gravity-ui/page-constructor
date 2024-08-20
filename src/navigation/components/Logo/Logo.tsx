@@ -8,19 +8,24 @@ import {useTheme} from '../../../context/theme';
 import {ThemedNavigationLogoData} from '../../../models';
 import {block, getLinkProps, getThemedValue} from '../../../utils';
 
+import {i18n} from './i18n';
+
 import './Logo.scss';
 
 const b = block('logo');
 
 export type LogoProps = ThemedNavigationLogoData & {
     className?: string;
+    alt?: string;
 };
 
-export const Logo: React.FC<LogoProps> = (props) => {
+export const Logo: React.FC<LogoProps> = ({alt = i18n('image-alt'), ...restProps}) => {
+    const props: LogoProps = {...restProps, alt};
     const {hostname, Link} = useContext(LocationContext);
     const theme = useTheme();
     const themedLogoProps = getThemedValue(props, theme) || props;
     const imageData = getMediaImage(themedLogoProps.icon || props.icon);
+    imageData.alt = alt;
     const textData = themedLogoProps.text || props.text;
     const url = themedLogoProps.url || props.url || '/';
     const urlTitle = themedLogoProps.urlTitle || props.urlTitle || textData;

@@ -83,6 +83,7 @@ export interface NavigationLogoData {
     text?: string;
     url?: string;
     urlTitle?: string;
+    alt?: string;
 }
 
 export type ThemedNavigationLogoData = NavigationLogoData & ThemeSupporting<NavigationLogoData>;
