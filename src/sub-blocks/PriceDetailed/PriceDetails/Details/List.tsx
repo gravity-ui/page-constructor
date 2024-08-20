@@ -20,7 +20,7 @@ const List = (props: ListProps) => {
         <Fragment>
             {items.map((item, id) => (
                 <div key={id} className={b('list-item')}>
-                    <img className={b('img')} />
+                    <img className={b('img')} alt="" />
                     <div className={b('text', {size: titleSize})}>
                         <YFMWrapper content={item.text} modifiers={{constructor: true}} />
                     </div>

@@ -69,7 +69,10 @@ $block: '.#{$ns}ExtendedFeaturesBlock';
         @include icon();
 
         display: block;
-        margin-bottom: $indentXXS;
+
+        &-wrap {
+            margin-bottom: $indentXXS;
+        }
     }
 
     @media (max-width: map-get($gridBreakpoints, 'sm')) {
