@@ -1,7 +1,7 @@
 import {useMemo, useState} from 'react';
 
-import {NavigationItemModel} from '../models';
-import {getNavigationItemWithIconSize} from '../navigation/utils';
+import {NavigationItemModel} from '../../models';
+import {getNavigationItemWithIconSize} from '../utils';
 
 const useActiveNavItem = (
     iconSize: number,
