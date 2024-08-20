@@ -21,6 +21,7 @@ const DefaultTemplate: StoryFn<{
 export const DefaultNavigation = DefaultTemplate.bind({});
 export const NavigationWithBorder = DefaultTemplate.bind({});
 export const NavigationWithCustomItems = DefaultTemplate.bind({});
+export const NavigationWithCustomMobileHeaderItems = DefaultTemplate.bind({});
 
 DefaultNavigation.args = {
     navigation: data.navigation as NavigationData,
@@ -48,6 +49,26 @@ NavigationWithCustomItems.args = {
         header: {
             ...data.navigation.header,
             rightItems: [
+                ...data.navigation.header.rightItems,
+                {
+                    type: 'custom-item',
+                },
+            ],
+        },
+    } as NavigationData,
+};
+
+NavigationWithCustomMobileHeaderItems.args = {
+    custom: {
+        navigation: {
+            'custom-item': CustomComponent,
+        },
+    },
+    navigation: {
+        ...data.navigation,
+        header: {
+            ...data.navigation.header,
+            customMobileHeaderItems: [
                 ...data.navigation.header.rightItems,
                 {
                     type: 'custom-item',
