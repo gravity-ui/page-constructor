@@ -23,27 +23,10 @@ export interface YFMWrapperProps
     id?: string;
 }
 
-const YFMWrapper = ({
-    content,
-    modifiers,
-    contentClassName,
-    className,
-    itemProp,
-    id,
-    qa,
-    children,
-    variant,
-    contentPosition,
-}: YFMWrapperProps) => (
+const YFMWrapper = ({contentClassName, modifiers, children, ...rest}: YFMWrapperProps) => (
     <HTML
         contentClassName={yfm(modifiers ? toSnakeCase(modifiers) : {}, contentClassName)}
-        itemProp={itemProp}
-        id={id}
-        qa={qa}
-        content={content}
-        className={className}
-        variant={variant}
-        contentPosition={contentPosition}
+        {...rest}
     >
         {children}
     </HTML>
