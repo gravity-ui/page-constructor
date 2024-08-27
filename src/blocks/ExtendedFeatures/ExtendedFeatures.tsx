@@ -63,27 +63,21 @@ export const ExtendedFeaturesBlock = ({
                                         </div>
                                     )}
                                     <div className={b('container')}>
-                                        {itemTitle &&
-                                            React.createElement(
-                                                itemTitleHeadingTag,
-                                                {
-                                                    className: b('item-title'),
-                                                },
-                                                <React.Fragment>
-                                                    <YFMWrapper
-                                                        content={itemTitle}
-                                                        className={b('item-title')}
-                                                        modifiers={{
-                                                            constructor: true,
-                                                        }}
-                                                    />
-                                                    {label && (
-                                                        <span className={b('item-label')}>
-                                                            {label}
-                                                        </span>
-                                                    )}
-                                                </React.Fragment>,
-                                            )}
+                                        {itemTitle && (
+                                            <YFMWrapper
+                                                variant={itemTitleHeadingTag}
+                                                content={itemTitle}
+                                                className={b('item-title-container')}
+                                                contentClassName={b('item-title')}
+                                                modifiers={{
+                                                    constructor: true,
+                                                }}
+                                            >
+                                                {label && (
+                                                    <span className={b('item-label')}>{label}</span>
+                                                )}
+                                            </YFMWrapper>
+                                        )}
                                         <Content
                                             text={text}
                                             links={itemLinks}

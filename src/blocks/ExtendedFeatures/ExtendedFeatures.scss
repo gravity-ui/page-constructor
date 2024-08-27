@@ -22,10 +22,15 @@ $block: '.#{$ns}ExtendedFeaturesBlock';
             padding-right: $indentM;
         }
 
+        &-title-container {
+            margin: inherit;
+            display: block;
+            margin-block: 0 $indentXXXS;
+        }
+
         &-title {
             @include heading4();
 
-            display: block;
             position: relative;
             margin-bottom: $indentXXXS;
 

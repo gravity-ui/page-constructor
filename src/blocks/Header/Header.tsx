@@ -145,21 +145,20 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
                                             }
                                         </div>
                                     )}
-                                    <h1 className={b('title')} id={titleId}>
+                                    <YFMWrapper
+                                        content={title}
+                                        contentClassName={b('title')}
+                                        className={b('title-container')}
+                                        modifiers={{
+                                            constructor: true,
+                                            constructorTheme: textTheme,
+                                        }}
+                                        variant="h1"
+                                        contentPosition="end"
+                                    >
                                         {status}
-                                        {renderTitle ? (
-                                            renderTitle(title)
-                                        ) : (
-                                            <YFMWrapper
-                                                content={title}
-                                                className={b('title')}
-                                                modifiers={{
-                                                    constructor: true,
-                                                    constructorTheme: textTheme,
-                                                }}
-                                            />
-                                        )}
-                                    </h1>
+                                        {renderTitle ? renderTitle(title) : null}
+                                    </YFMWrapper>
                                     {description && (
                                         <div className={b('description', {theme: textTheme})}>
                                             <YFMWrapper

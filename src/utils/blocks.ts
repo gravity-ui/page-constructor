@@ -58,7 +58,11 @@ export function getHeaderTag(size: TextSize) {
     }
 }
 
-export function hasBlockTag(content: string): boolean {
+export function hasBlockTag(content?: string): boolean {
+    if (!content) {
+        return false;
+    }
+
     const regex = new RegExp(BLOCK_ELEMENTS_REGEX, 'g');
     return regex.test(content);
 }
