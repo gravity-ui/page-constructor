@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {AnimateBlock, HTML, Title} from '../../components/';
+import {AnimateBlock, Title, YFMWrapper} from '../../components/';
 import Image from '../../components/Image/Image';
 import {getMediaImage} from '../../components/Media/Image/utils';
 import {useTheme} from '../../context/theme';
@@ -70,7 +70,13 @@ export const ExtendedFeaturesBlock = ({
                                                     className: b('item-title'),
                                                 },
                                                 <React.Fragment>
-                                                    <HTML>{itemTitle}</HTML>
+                                                    <YFMWrapper
+                                                        content={itemTitle}
+                                                        className={b('item-title')}
+                                                        modifiers={{
+                                                            constructor: true,
+                                                        }}
+                                                    />
                                                     {label && (
                                                         <span className={b('item-label')}>
                                                             {label}

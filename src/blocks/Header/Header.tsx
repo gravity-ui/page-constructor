@@ -2,7 +2,7 @@ import React, {useContext} from 'react';
 
 import {useUniqId} from '@gravity-ui/uikit';
 
-import {Button, HTML, Media, RouterLink} from '../../components';
+import {Button, Media, RouterLink} from '../../components';
 import HeaderBreadcrumbs from '../../components/HeaderBreadcrumbs/HeaderBreadcrumbs';
 import {getMediaImage} from '../../components/Media/Image/utils';
 import YFMWrapper from '../../components/YFMWrapper/YFMWrapper';
@@ -135,12 +135,30 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
                                 <Col sizes={titleSizes} className={b('content-inner')}>
                                     {overtitle && (
                                         <div className={b('overtitle')}>
-                                            <HTML>{overtitle}</HTML>
+                                            {
+                                                <YFMWrapper
+                                                    content={overtitle}
+                                                    modifiers={{
+                                                        constructor: true,
+                                                    }}
+                                                />
+                                            }
                                         </div>
                                     )}
                                     <h1 className={b('title')} id={titleId}>
                                         {status}
-                                        {renderTitle ? renderTitle(title) : <HTML>{title}</HTML>}
+                                        {renderTitle ? (
+                                            renderTitle(title)
+                                        ) : (
+                                            <YFMWrapper
+                                                content={title}
+                                                className={b('title')}
+                                                modifiers={{
+                                                    constructor: true,
+                                                    constructorTheme: textTheme,
+                                                }}
+                                            />
+                                        )}
                                     </h1>
                                     {description && (
                                         <div className={b('description', {theme: textTheme})}>

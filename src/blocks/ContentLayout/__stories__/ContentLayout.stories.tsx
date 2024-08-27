@@ -2,7 +2,7 @@ import React from 'react';
 
 import {Meta, StoryFn} from '@storybook/react';
 
-import {yfmTransform} from '../../../../.storybook/utils';
+import {yfmTransform, yfmTransformInline} from '../../../../.storybook/utils';
 import {PageConstructor} from '../../../containers/PageConstructor/PageConstructor';
 import {
     ButtonProps,
@@ -20,10 +20,13 @@ export default {
     component: Content,
 } as Meta;
 
-const getSizeTitle = (size: string) => data.size.title.replace('{{size}}', size);
-const getThemeTitle = (theme: string) => data.theme.title.replace('{{theme}}', theme);
+const getSizeTitle = (size: string) =>
+    yfmTransformInline(data.size.title.replace('{{size}}', size));
+
+const getThemeTitle = (theme: string) =>
+    yfmTransformInline(data.theme.title.replace('{{theme}}', theme));
 const getTextWidthTitle = (textWidth: string) =>
-    data.textWidth.title.replace('{{textWidth}}', textWidth);
+    yfmTransformInline(data.textWidth.title.replace('{{textWidth}}', textWidth));
 
 const DefaultTemplate: StoryFn<ContentLayoutBlockModel> = (args) => (
     <PageConstructor
