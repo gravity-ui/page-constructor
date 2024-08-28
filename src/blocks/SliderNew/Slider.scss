@@ -17,6 +17,7 @@ $fsArrowArea: 120px;
 }
 
 $dotsCn: '.swiper-container-horizontal .swiper-pagination-bullets';
+$wrapperCn: '.swiper-wrapper';
 
 $dotSize: 8px;
 
@@ -237,14 +238,14 @@ $dotSize: 8px;
                     margin-left: 0;
                 }
 
+                #{$wrapperCn} {
+                    padding-left: 0;
+                }
+
                 #{$root}__slide {
                     // to remove the indentation between slides
                     padding-right: 0;
                     padding-left: 0;
-
-                    &:last-child {
-                        padding-right: 0;
-                    }
                 }
             }
         }
@@ -303,6 +304,10 @@ $dotSize: 8px;
     }
 
     @media (max-width: map-get($gridBreakpoints, 'md')) {
+        margin-left: -$indentXXXS;
+        padding-left: 0;
+        width: calc(100% + #{$indentXXXS});
+
         &__footer {
             display: block;
 
@@ -316,15 +321,17 @@ $dotSize: 8px;
 
     @media (max-width: map-get($gridBreakpoints, 'sm')) {
         $horizontalPadding: $gridContainerMargin + $gridGutterMobile;
+
         &:not(&_one-slide) {
-            margin-left: #{-$horizontalPadding};
-            padding-left: $horizontalPadding;
-            width: calc(100% + #{$horizontalPadding * 2});
             overflow-x: auto;
 
             #{$root}__slider {
-                padding: $indentSM $horizontalPadding $indentL;
-                margin: 0 0 0 #{-$horizontalPadding};
+                margin-left: #{-$horizontalPadding};
+                margin-right: 0;
+            }
+
+            & #{$wrapperCn} {
+                padding-left: $horizontalPadding - $gridGutter;
             }
 
             #{$root}__slide {
