@@ -48,6 +48,11 @@
       "backgroundColor": "#ccf0d2"
     }
   },
+  "withUrl": {
+    "content": {
+      "url": "https://example.com"
+    }
+  },
   "content": {
     "url": "https://example.com",
     "links": [
