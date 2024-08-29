@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [5.21.0](https://github.com/gravity-ui/page-constructor/compare/v5.20.1...v5.21.0) (2024-08-29)
+
+
+### Features
+
+* update packages minor versions ([#992](https://github.com/gravity-ui/page-constructor/issues/992)) ([ddcfb9e](https://github.com/gravity-ui/page-constructor/commit/ddcfb9ee7a38c7a5979d730dfe3f9f4586bfbfed))
+
 ## [5.20.1](https://github.com/gravity-ui/page-constructor/compare/v5.20.0...v5.20.1) (2024-08-19)
 
 
