@@ -71,5 +71,5 @@ NavigationWithCustomMobileHeaderItems.args = {
             ...data.navigation.header,
             customMobileHeaderItems: [{type: 'custom-item'}],
         },
-    } as NavigationData,
+    } as unknown as NavigationData,
 };
