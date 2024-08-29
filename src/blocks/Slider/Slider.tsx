@@ -333,7 +333,7 @@ export const SliderBlock = (props: React.PropsWithChildren<SliderProps>) => {
                 role="menuitemradio"
                 aria-checked={false}
                 tabIndex={-1}
-                aria-hidden={isVisible ? true : undefined}
+                aria-hidden={isVisible}
                 aria-label={i18n('dot-label', {
                     index: currentSlideNumber,
                     count: barSlidesCount,
@@ -469,7 +469,7 @@ function discloseAllNestedChildren(
         const id = getSlideId(sliderId, childIndex++);
 
         return (
-            <div key={id} id={id} className={b('slide-wrap')}>
+            <div key={id} id={id}>
                 {child}
             </div>
         );

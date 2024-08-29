@@ -76,7 +76,8 @@ export const SliderNewBlock = ({
         isLocked,
         setIsLocked,
         getSlideProps,
-        onPaginationRender,
+        onPaginationUpdate,
+        onPaginationHide,
     } = useSlider({
         slidesToShow,
         children,
@@ -127,7 +128,8 @@ export const SliderNewBlock = ({
                     onBreakpoint={onBreakpoint}
                     onLock={() => setIsLocked(true)}
                     onUnlock={() => setIsLocked(false)}
-                    onPaginationRender={onPaginationRender}
+                    onPaginationUpdate={onPaginationUpdate}
+                    onPaginationHide={onPaginationHide}
                     watchSlidesVisibility
                     watchOverflow
                     a11y={{
@@ -145,18 +147,20 @@ export const SliderNewBlock = ({
                 </Swiper>
                 {arrows && !isLocked && (
                     <Fragment>
-                        <div aria-hidden={Boolean(autoplay)} tabIndex={autoplay ? -1 : 0}>
+                        <div aria-hidden={Boolean(autoplay)}>
                             <Arrow
                                 className={b('arrow', {prev: true})}
                                 type="left"
                                 onClick={onPrev}
                                 size={arrowSize}
+                                extraProps={{tabIndex: autoplay ? -1 : 0}}
                             />
                             <Arrow
                                 className={b('arrow', {next: true})}
                                 type="right"
                                 onClick={onNext}
                                 size={arrowSize}
+                                extraProps={{tabIndex: autoplay ? -1 : 0}}
                             />
                         </div>
                     </Fragment>

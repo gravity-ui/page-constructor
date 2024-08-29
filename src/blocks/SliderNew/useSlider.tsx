@@ -7,6 +7,30 @@ import {SliderType, SlidesToShow} from '../../models';
 
 import {getSlideId, getSliderResponsiveParams, useMemoized, useRovingTabIndex} from './utils';
 
+const isFocusable = (element: HTMLElement): boolean => {
+    const tabIndexAttr = element.getAttribute('tabindex');
+    const hasTabIndex = tabIndexAttr !== null;
+    const tabIndex = Number(tabIndexAttr);
+    if (element.ariaHidden === 'true' || (hasTabIndex && tabIndex < 0)) {
+        return false;
+    }
+    if (hasTabIndex && tabIndex >= 0) {
+        return true;
+    }
+    switch (true) {
+        case element instanceof HTMLAnchorElement:
+            return Boolean(element.href);
+        case element instanceof HTMLInputElement:
+            return element.type !== 'hidden' && !element.disabled;
+        case element instanceof HTMLSelectElement:
+        case element instanceof HTMLTextAreaElement:
+        case element instanceof HTMLButtonElement:
+            return !element.disabled;
+        default:
+            return false;
+    }
+};
+
 export const useSlider = ({
     children,
     autoplayMs,
@@ -21,6 +45,7 @@ export const useSlider = ({
 }>) => {
     const [slider, setSlider] = useState<Swiper>();
     const [activeIndex, setActiveIndex] = useState(0);
+    const [isSliding, setIsSliding] = useState(false);
     const prevIndexRef = useRef<number>(0);
     const [isLocked, setIsLocked] = useState(false);
     const slidesToShow = useMemoized(props.slidesToShow);
@@ -34,7 +59,7 @@ export const useSlider = ({
 
     const autoplayEnabled = autoplayMs !== undefined && autoplayMs > 0;
 
-    const onPaginationRender = useRovingTabIndex({
+    const {onPaginationUpdate, onPaginationHide} = useRovingTabIndex({
         uniqId,
         activeBulletClassName,
         autoplayEnabled,
@@ -84,7 +109,7 @@ export const useSlider = ({
         return {
             id: getSlideId(uniqId, index),
             'aria-hidden': !isVisible,
-            tabIndex: isVisible ? 0 : -1,
+            style: isVisible || isSliding ? undefined : {visibility: 'hidden'},
         };
     };
 
@@ -105,7 +130,12 @@ export const useSlider = ({
             setActiveIndex(s.activeIndex);
         };
 
+        const onSlideChangeTransitionStart = () => {
+            setIsSliding(true);
+        };
+
         const onSlideChangeTransitionEnd = (s: Swiper) => {
+            setIsSliding(false);
             if (autoplayEnabled) {
                 return;
             }
@@ -113,12 +143,19 @@ export const useSlider = ({
             const currentSlide = s.activeIndex;
 
             const focusIndex =
-                prevIndexRef.current > currentSlide
+                prevIndexRef.current >= currentSlide
                     ? currentSlide
                     : Math.max(currentSlide, prevIndexRef.current + slidesPerView);
 
-            document.getElementById(getSlideId(uniqId, focusIndex))?.focus();
             prevIndexRef.current = currentSlide;
+            const firstNewSlide = document.getElementById(getSlideId(uniqId, focusIndex));
+            if (!firstNewSlide) {
+                return;
+            }
+            const focusableChild = Array.from(firstNewSlide.querySelectorAll('*'))
+                .filter((element) => element instanceof HTMLElement)
+                .find(isFocusable);
+            focusableChild?.focus();
         };
 
         const onResize = (s: Swiper) => {
@@ -129,12 +166,14 @@ export const useSlider = ({
 
         slider.on('activeIndexChange', onActiveIndexChange);
         slider.on('resize', onResize);
+        slider.on('slideChangeTransitionStart', onSlideChangeTransitionStart);
         slider.on('slideChangeTransitionEnd', onSlideChangeTransitionEnd);
 
         // eslint-disable-next-line consistent-return
         return () => {
             slider.off('activeIndexChange', onActiveIndexChange);
             slider.off('resize', onResize);
+            slider.off('slideChangeTransitionStart', onSlideChangeTransitionStart);
             slider.off('slideChangeTransitionEnd', onSlideChangeTransitionEnd);
         };
     }, [autoplayEnabled, slider, slidesToShow, uniqId]);
@@ -164,6 +203,7 @@ export const useSlider = ({
             delay: autoplayMs,
         },
         getSlideProps,
-        onPaginationRender,
+        onPaginationUpdate,
+        onPaginationHide,
     };
 };

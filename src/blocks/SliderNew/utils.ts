@@ -83,13 +83,35 @@ interface UsePaginationBulletsProps {
     getOnBulletFocus: (index: number) => () => void;
 }
 
-const initBullets = (bullets: PaginationBulletData[]) => {
-    bullets.forEach(({bullet, onFocus: onFocus}) => {
+const updatePaginationBulletData = (
+    bullets: HTMLElement[],
+    oldBulletData: (PaginationBulletData | undefined)[],
+    getOnBulletFocus: UsePaginationBulletsProps['getOnBulletFocus'],
+): PaginationBulletData[] => {
+    const updatedBulletData = bullets.map((bullet, index) => {
+        const old = oldBulletData[index];
+        if (bullet === old?.bullet) {
+            return old;
+        }
+
+        old?.bullet.removeEventListener('focus', old.onFocus);
+
+        const onFocus = getOnBulletFocus(index);
         bullet.addEventListener('focus', onFocus);
+
+        return {bullet, onFocus};
     });
+
+    if (updatedBulletData.length < oldBulletData.length) {
+        oldBulletData.slice(updatedBulletData.length).forEach((old) => {
+            old?.bullet.removeEventListener('focus', old.onFocus);
+        });
+    }
+
+    return updatedBulletData;
 };
 
-const makeUpdateBullets = (
+const makeUpdateBulletAttributes = (
     activeBulletClassName: string,
     getBulletAttributes: UsePaginationBulletsProps['getBulletAttributes'],
 ) => {
@@ -100,15 +122,16 @@ const makeUpdateBullets = (
             const attributes = Object.entries(getBulletAttributes({isCurrent, isActive}, index));
             attributes.forEach(([key, value]) => {
                 const currentValue = bullet.getAttribute(key);
-                if (currentValue === value || (currentValue === null && value === undefined)) {
+                const newValue = value?.toString();
+                const shouldClearValue = newValue === undefined;
+                if (currentValue === newValue || (currentValue === null && shouldClearValue)) {
                     return;
                 }
 
-                const isEmptyAttribute = value === undefined;
-                if (isEmptyAttribute) {
+                if (shouldClearValue) {
                     bullet.removeAttribute(key);
                 } else {
-                    bullet.setAttribute(key, value.toString());
+                    bullet.setAttribute(key, newValue);
                 }
             });
         });
@@ -116,7 +139,7 @@ const makeUpdateBullets = (
 };
 
 const clearBullets = (bullets: PaginationBulletData[]) => {
-    bullets.forEach(({bullet, onFocus: onFocus}) => {
+    bullets.forEach(({bullet, onFocus}) => {
         bullet.removeEventListener('focus', onFocus);
     });
 };
@@ -129,40 +152,43 @@ const usePaginationBullets = ({
 }: UsePaginationBulletsProps) => {
     const bulletsRef = useRef<PaginationBulletData[]>([]);
     const [bulletCount, setBulletCount] = useState(0);
-    const updateBullets = useMemo(
-        () => makeUpdateBullets(activeBulletClassName, getBulletAttributes),
+    const updateBulletAttributes = useMemo(
+        () => makeUpdateBulletAttributes(activeBulletClassName, getBulletAttributes),
         [activeBulletClassName, getBulletAttributes],
     );
 
-    const onBulletsRerender = (s: Swiper) => {
-        clearBullets(bulletsRef.current);
+    const onBulletsUpdate = (s: Swiper) => {
         const bullets = s.pagination.bullets as unknown as HTMLElement[];
-        bulletsRef.current = bullets.map((bullet, index) => ({
-            bullet,
-            onFocus: getOnBulletFocus(index),
-        }));
-        initBullets(bulletsRef.current);
-        updateBullets(bulletsRef.current, currentBulletIndex);
+        bulletsRef.current = updatePaginationBulletData(
+            bullets,
+            bulletsRef.current,
+            getOnBulletFocus,
+        );
+        updateBulletAttributes(bulletsRef.current, currentBulletIndex);
         setBulletCount(bulletsRef.current.length);
     };
 
     useEffect(() => {
-        updateBullets(bulletsRef.current, currentBulletIndex);
-    }, [currentBulletIndex, updateBullets]);
+        updateBulletAttributes(bulletsRef.current, currentBulletIndex);
+    }, [currentBulletIndex, updateBulletAttributes]);
 
     useEffect(() => () => clearBullets(bulletsRef.current), []);
 
-    return {bulletCount, onBulletsRerender};
+    return {bulletCount, onBulletsUpdate};
 };
 
 const getRovingTabindexCurrentItemId = (uniqId: string) => `${uniqId}-roving-tabindex-current-item`;
 const makeGetRovingTabIndexBulletAttributes =
-    (currentItemId: string): UsePaginationBulletsProps['getBulletAttributes'] =>
-    ({isActive, isCurrent}) => ({
+    (
+        currentItemId: string,
+        autoplayEnabled: boolean,
+    ): UsePaginationBulletsProps['getBulletAttributes'] =>
+    ({isActive, isCurrent}, index) => ({
         id: isCurrent ? currentItemId : undefined,
-        tabindex: isCurrent ? 0 : -1,
+        tabindex: isActive && !autoplayEnabled ? 0 : -1,
         'aria-checked': isActive,
         role: 'menuitemradio',
+        'data-index': index,
     });
 
 export const useRovingTabIndex = (props: {
@@ -177,10 +203,10 @@ export const useRovingTabIndex = (props: {
     const rovingListElementRef = useRef<HTMLElement>();
     const currentItemId = getRovingTabindexCurrentItemId(uniqId);
     const getRovingTabIndexBulletAttributes = useMemo(
-        () => makeGetRovingTabIndexBulletAttributes(currentItemId),
-        [currentItemId],
+        () => makeGetRovingTabIndexBulletAttributes(currentItemId, autoplayEnabled),
+        [autoplayEnabled, currentItemId],
     );
-    const {bulletCount, onBulletsRerender} = usePaginationBullets({
+    const {bulletCount, onBulletsUpdate} = usePaginationBullets({
         currentBulletIndex: currentIndex,
         activeBulletClassName,
         getBulletAttributes: getRovingTabIndexBulletAttributes,
@@ -211,7 +237,7 @@ export const useRovingTabIndex = (props: {
     const onRovingListKeyDown = useCallback((e: KeyboardEvent) => {
         const key = e.key.toLowerCase();
 
-        if (key !== 'tab' && key !== 'enter') {
+        if (key.startsWith('arrow')) {
             e.preventDefault();
         }
 
@@ -231,19 +257,35 @@ export const useRovingTabIndex = (props: {
         }
     }, []);
 
-    const onPaginationRerender = (s: Swiper) => {
-        rovingListElementRef.current?.removeEventListener('keydown', onRovingListKeyDown);
+    const hasEventListenerRef = useRef(false);
+    const onPaginationUpdate = (s: Swiper) => {
+        onBulletsUpdate(s);
 
         const pagination = s.pagination.el;
-        pagination.addEventListener('keydown', onRovingListKeyDown);
+        if (pagination === rovingListElementRef.current && hasEventListenerRef.current) {
+            return;
+        }
+
         pagination.setAttribute('role', 'menu');
         pagination.setAttribute('aria-hidden', String(autoplayEnabled));
         pagination.setAttribute('aria-label', i18n('pagination-label'));
 
-        rovingListElementRef.current = pagination;
+        if (!hasEventListenerRef.current) {
+            pagination.addEventListener('keydown', onRovingListKeyDown);
+            hasEventListenerRef.current = true;
+        }
 
-        onBulletsRerender(s);
+        rovingListElementRef.current = pagination;
     };
 
-    return onPaginationRerender;
+    const onPaginationHide = useCallback(() => {
+        if (hasEventListenerRef.current) {
+            rovingListElementRef.current?.removeEventListener('keydown', onRovingListKeyDown);
+            hasEventListenerRef.current = false;
+        }
+    }, [onRovingListKeyDown]);
+
+    useEffect(() => () => onPaginationHide(), [onPaginationHide]);
+
+    return {onPaginationUpdate, onPaginationHide};
 };

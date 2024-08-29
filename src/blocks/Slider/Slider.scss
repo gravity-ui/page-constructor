@@ -70,11 +70,6 @@ $block: '.#{$ns}SliderBlock';
         }
     }
 
-    &__slide-wrap {
-        width: fit-content;
-        height: fit-content;
-    }
-
     &__header {
         &_no-description {
             position: relative;

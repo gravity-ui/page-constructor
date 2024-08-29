@@ -15,11 +15,17 @@ export interface ArrowProps {
     type: ArrowType;
     onClick?: () => void;
     size?: number;
+    extraProps?: React.ButtonHTMLAttributes<HTMLButtonElement>;
 }
 
-const Arrow = ({type, onClick, className, size = 16}: ArrowProps & ClassNameProps) => (
+const Arrow = ({type, onClick, className, size = 16, extraProps}: ArrowProps & ClassNameProps) => (
     <div className={b({type}, className)}>
-        <button className={b('button')} onClick={onClick} aria-label={i18n(`arrow-${type}`)}>
+        <button
+            className={b('button')}
+            onClick={onClick}
+            aria-label={i18n(`arrow-${type}`)}
+            {...extraProps}
+        >
             <span className={b('icon-wrapper')}>
                 <ToggleArrow
                     size={size}
