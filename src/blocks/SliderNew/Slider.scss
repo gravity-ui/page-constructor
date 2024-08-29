@@ -257,11 +257,13 @@ $dotSize: 8px;
     }
 
     &_type_fullscreen-card {
+        @include fullscreen-card();
         padding-top: 0;
 
         #{$root}__slider {
             padding: $fsPadding 0;
-            height: calc(100vh - 2 * $fsPadding);
+            height: 100vh;
+            margin: 0;
 
             & .swiper-pagination {
                 bottom: ($fsPadding - 18px) / 2;
@@ -300,9 +302,28 @@ $dotSize: 8px;
         }
 
         @media (max-width: map-get($gridBreakpoints, 'md')) {
+            margin-left: 0;
+
+            #{$root}_slider {
+                margin-left: 0;
+                width: 100%;
+            }
+
             &:hover {
                 #{$root}__arrow {
                     display: none;
+                }
+            }
+        }
+
+        @media (max-width: map-get($gridBreakpoints, 'sm')) {
+            #{$block}#{&}:not(&_one-slide) {
+                #{$root}__slider {
+                    margin-left: 0;
+                }
+
+                #{$wrapperCn} {
+                    padding-left: 0;
                 }
             }
         }
