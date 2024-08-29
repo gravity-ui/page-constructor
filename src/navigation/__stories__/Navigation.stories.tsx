@@ -5,6 +5,7 @@ import {Meta, StoryFn} from '@storybook/react';
 import {PageConstructor} from '../../containers/PageConstructor';
 import {CustomConfig, NavigationData} from '../../models';
 
+import {CustomButton} from './CustomButton/CustomButton';
 import {CustomComponent} from './CustomComponent/CustomComponent';
 
 import data from './data.json';
@@ -61,19 +62,14 @@ NavigationWithCustomItems.args = {
 NavigationWithCustomMobileHeaderItems.args = {
     custom: {
         navigation: {
-            'custom-item': CustomComponent,
+            'custom-item': CustomButton,
         },
     },
     navigation: {
         ...data.navigation,
         header: {
             ...data.navigation.header,
-            customMobileHeaderItems: [
-                ...data.navigation.header.rightItems,
-                {
-                    type: 'custom-item',
-                },
-            ],
+            customMobileHeaderItems: [{type: 'custom-item'}],
         },
     } as NavigationData,
 };

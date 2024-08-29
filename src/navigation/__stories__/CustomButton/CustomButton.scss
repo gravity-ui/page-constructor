@@ -1,0 +1,9 @@
+.custom-button {
+    white-space: nowrap;
+
+    transition: transform 300ms;
+
+    &_active {
+        transform: scale(0.9);
+    }
+}
