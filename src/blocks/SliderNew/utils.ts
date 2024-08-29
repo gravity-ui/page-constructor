@@ -183,12 +183,11 @@ const makeGetRovingTabIndexBulletAttributes =
         currentItemId: string,
         autoplayEnabled: boolean,
     ): UsePaginationBulletsProps['getBulletAttributes'] =>
-    ({isActive, isCurrent}, index) => ({
+    ({isActive, isCurrent}) => ({
         id: isCurrent ? currentItemId : undefined,
         tabindex: isActive && !autoplayEnabled ? 0 : -1,
         'aria-checked': isActive,
         role: 'menuitemradio',
-        'data-index': index,
     });
 
 export const useRovingTabIndex = (props: {
