@@ -40,6 +40,7 @@ import {
     getSlidesCountByBreakpoint,
     getSlidesToShowCount,
     getSlidesToShowWithDefaults,
+    isFocusable,
     useRovingTabIndex,
 } from './utils';
 
@@ -228,16 +229,22 @@ export const SliderBlock = (props: React.PropsWithChildren<SliderProps>) => {
 
             if (isUserInteractionRef.current) {
                 const focusIndex =
-                    prevIndexRef.current > current
+                    prevIndexRef.current >= current
                         ? current
-                        : Math.max(current, prevIndexRef.current + slidesToShowCount);
+                        : Math.max(current, prevIndexRef.current + slidesCountByBreakpoint);
 
-                document.getElementById(getSlideId(sliderId, focusIndex))?.focus();
+                const firstNewSlide = document.getElementById(getSlideId(sliderId, focusIndex));
+                if (firstNewSlide) {
+                    const focusableChild = Array.from(firstNewSlide.querySelectorAll('*'))
+                        .filter((element) => element instanceof HTMLElement)
+                        .find(isFocusable);
+                    focusableChild?.focus();
+                }
             }
 
             isUserInteractionRef.current = false;
         },
-        [handleAfterChange, hasFocus, scrollLastSlide, sliderId, slidesToShowCount],
+        [handleAfterChange, hasFocus, scrollLastSlide, sliderId, slidesCountByBreakpoint],
     );
 
     const handleDotClick = (index: number) => {
@@ -248,7 +255,7 @@ export const SliderBlock = (props: React.PropsWithChildren<SliderProps>) => {
         }
     };
 
-    const barSlidesCount = childrenCount - slidesToShowCount + 1;
+    const barSlidesCount = childrenCount - slidesCountByBreakpoint + 1;
     const barPosition = (DOT_GAP + DOT_WIDTH) * currentIndex;
     const barWidth = DOT_WIDTH + (DOT_GAP + DOT_WIDTH) * (slidesCountByBreakpoint - 1);
 
@@ -302,10 +309,10 @@ export const SliderBlock = (props: React.PropsWithChildren<SliderProps>) => {
         const currentIndexDiff = index - currentIndex;
 
         let currentSlideNumber;
-        if (0 <= currentIndexDiff && currentIndexDiff < slidesToShowCount) {
+        if (0 <= currentIndexDiff && currentIndexDiff < slidesCountByBreakpoint) {
             currentSlideNumber = currentIndex + 1;
-        } else if (currentIndexDiff >= slidesToShowCount) {
-            currentSlideNumber = index - slidesToShowCount + 2;
+        } else if (currentIndexDiff >= slidesCountByBreakpoint) {
+            currentSlideNumber = index - slidesCountByBreakpoint + 2;
         } else {
             currentSlideNumber = index + 1;
         }
@@ -314,11 +321,11 @@ export const SliderBlock = (props: React.PropsWithChildren<SliderProps>) => {
     const isVisibleSlide = (index: number) => {
         const currentIndexDiff = index - currentIndex;
 
-        return (
+        const result =
             slidesCountByBreakpoint > 0 &&
             0 <= currentIndexDiff &&
-            currentIndexDiff < slidesToShowCount
-        );
+            currentIndexDiff < slidesCountByBreakpoint;
+        return result;
     };
 
     const renderDot = (index: number) => {
@@ -330,6 +337,12 @@ export const SliderBlock = (props: React.PropsWithChildren<SliderProps>) => {
                 key={index}
                 className={b('dot', {active: index === currentIndex})}
                 onClick={asUserInteraction(() => handleDotClick(index))}
+                onKeyDown={(e) => {
+                    const key = e.key.toLowerCase();
+                    if (key === 'space' || key === 'enter') {
+                        e.currentTarget.click();
+                    }
+                }}
                 role="menuitemradio"
                 aria-checked={false}
                 tabIndex={-1}

@@ -22,6 +22,31 @@ export interface GetSlidesToShowParams {
     breakpoints?: SlidesToShow;
     mobileFullscreen?: boolean;
 }
+
+export const isFocusable = (element: HTMLElement): boolean => {
+    const tabIndexAttr = element.getAttribute('tabindex');
+    const hasTabIndex = tabIndexAttr !== null;
+    const tabIndex = Number(tabIndexAttr);
+    if (element.ariaHidden === 'true' || (hasTabIndex && tabIndex < 0)) {
+        return false;
+    }
+    if (hasTabIndex && tabIndex >= 0) {
+        return true;
+    }
+    switch (true) {
+        case element instanceof HTMLAnchorElement:
+            return Boolean(element.href);
+        case element instanceof HTMLInputElement:
+            return element.type !== 'hidden' && !element.disabled;
+        case element instanceof HTMLSelectElement:
+        case element instanceof HTMLTextAreaElement:
+        case element instanceof HTMLButtonElement:
+            return !element.disabled;
+        default:
+            return false;
+    }
+};
+
 export function getSlidesToShowWithDefaults({
     contentLength,
     breakpoints,
@@ -83,7 +108,7 @@ export function useRovingTabIndex(props: {
     ): Pick<React.HTMLAttributes<HTMLElement>, 'id' | 'tabIndex' | 'onFocus'> => {
         return {
             id: getRovingListItemId(uniqId, index),
-            tabIndex: index === currentIndex ? 0 : -1,
+            tabIndex: index === activeIndex ? 0 : -1,
             onFocus: () => {
                 setCurrentIndex(index);
                 hasFocusRef.current = true;
