@@ -304,10 +304,6 @@ $dotSize: 8px;
     }
 
     @media (max-width: map-get($gridBreakpoints, 'md')) {
-        margin-left: -$indentXXXS;
-        padding-left: 0;
-        width: calc(100% + #{$indentXXXS});
-
         &__footer {
             display: block;
 
