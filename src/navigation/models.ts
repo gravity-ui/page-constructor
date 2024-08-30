@@ -66,6 +66,7 @@ export interface DesktopNavigationProps extends MobileMenuButtonProps, ActiveIte
     logo: ThemedNavigationLogoData;
     leftItemsWithIconSize: NavigationItemModel[];
     rightItemsWithIconSize?: NavigationItemModel[];
+    customMobileHeaderItems?: NavigationItemModel[];
 }
 
 export interface MobileNavigationProps extends ClassNameProps, ActiveItemProps {

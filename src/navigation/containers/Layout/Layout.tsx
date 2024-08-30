@@ -15,13 +15,16 @@ export interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({children, navigation}) => (
     <div className={b()}>
-        {navigation && (
-            <Navigation
-                data={navigation.header}
-                logo={navigation.logo}
-                className={b('navigation')}
-            />
-        )}
+        {navigation &&
+            (navigation.renderNavigation ? (
+                navigation.renderNavigation()
+            ) : (
+                <Navigation
+                    data={navigation.header}
+                    logo={navigation.logo}
+                    className={b('navigation')}
+                />
+            ))}
         <main className={b('content')}>{children}</main>
     </div>
 );

@@ -91,6 +91,13 @@ export type ThemedNavigationLogoData = NavigationLogoData & ThemeSupporting<Navi
 export interface HeaderData {
     leftItems: NavigationItemModel[];
     rightItems?: NavigationItemModel[];
+
+    /**
+     * Items for the navigation header on mobile devices.
+     * They are located to the right of the Logo and to the left of the MobileMenuButton.
+     * @type {NavigationItemModel[]}
+     */
+    customMobileHeaderItems?: NavigationItemModel[];
     iconSize?: number;
     withBorder?: boolean;
     withBorderOnScroll?: boolean;
@@ -116,4 +123,5 @@ export interface NavigationData {
     logo: ThemedNavigationLogoData;
     header: HeaderData;
     footer?: FooterData;
+    renderNavigation?: () => React.ReactNode;
 }

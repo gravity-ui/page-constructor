@@ -12,7 +12,7 @@ import './MobileNavigation.scss';
 
 const b = block('mobile-navigation');
 
-const MobileNavigation: React.FC<MobileNavigationProps> = ({
+export const MobileNavigation: React.FC<MobileNavigationProps> = ({
     isOpened,
     topItems,
     bottomItems,
