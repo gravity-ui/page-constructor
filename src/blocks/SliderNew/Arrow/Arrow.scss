@@ -15,14 +15,9 @@ $block: '.#{$ns}slider-new-block-arrow';
 
     $root: &;
 
-    width: $sliderArrowSize;
-    height: $sliderArrowSize;
-    cursor: pointer;
-
     &__button {
         @include reset-button-style();
         @include focusable();
-        @extend %flex;
     }
 
     &__inner {
@@ -43,12 +38,19 @@ $block: '.#{$ns}slider-new-block-arrow';
                 transform: rotate(180deg);
             }
         }
-    }
 
-    &:hover {
-        #{$root}__button {
+        &:hover {
             color: var(--g-color-text-primary);
             box-shadow: 0 2px 12px var(--pc-color-sfx-shadow), 0 4px 24px var(--pc-color-sfx-shadow);
+        }
+
+        &_transparent {
+            background-color: transparent;
+            box-shadow: none;
+
+            &:hover {
+                box-shadow: none;
+            }
         }
     }
 

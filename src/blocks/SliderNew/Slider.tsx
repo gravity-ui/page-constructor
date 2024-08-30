@@ -6,7 +6,7 @@ import {Swiper, SwiperSlide} from 'swiper/react';
 import Anchor from '../../components/Anchor/Anchor';
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
 import Title from '../../components/Title/Title';
-import {ClassNameProps, Refable, SliderProps as SliderParams} from '../../models';
+import {ClassNameProps, Refable, SliderProps as SliderParams, SliderType} from '../../models';
 import {block} from '../../utils';
 
 import Arrow from './Arrow/Arrow';
@@ -144,6 +144,7 @@ export const SliderNewBlock = ({
                             <Arrow
                                 className={b('arrow', {prev: true})}
                                 type="left"
+                                transparent={type === SliderType.HeaderCard}
                                 onClick={onPrev}
                                 size={arrowSize}
                                 extraProps={{tabIndex: controlTabIndex}}
@@ -151,6 +152,7 @@ export const SliderNewBlock = ({
                             <Arrow
                                 className={b('arrow', {next: true})}
                                 type="right"
+                                transparent={type === SliderType.HeaderCard}
                                 onClick={onNext}
                                 size={arrowSize}
                                 extraProps={{tabIndex: controlTabIndex}}
