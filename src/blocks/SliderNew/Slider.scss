@@ -2,6 +2,8 @@
 @import '../../../styles/variables';
 
 $block: '.#{$ns}SliderNewBlock';
+$fsPadding: 40px;
+$fsArrowArea: 120px;
 
 @mixin fullscreen-card() {
     @media (max-width: map-get($gridBreakpoints, 'sm')) {
@@ -243,6 +245,79 @@ $dotSize: 8px;
                 #{$root}__slide {
                     // to remove the indentation between slides
                     padding-right: 0;
+                    padding-left: 0;
+                }
+            }
+        }
+    }
+
+    &_type_fullscreen-card {
+        @include fullscreen-card();
+        padding-top: 0;
+
+        #{$root}__slider {
+            padding: $fsPadding 0;
+            height: 100vh;
+            margin: 0;
+
+            & .swiper-pagination {
+                bottom: ($fsPadding - 18px) / 2;
+            }
+
+            #{$root}__dot {
+                background-color: var(--g-color-text-light-hint);
+
+                &_active {
+                    background-color: var(--g-color-text-light-primary);
+                }
+            }
+
+            #{$root}__slide {
+                height: 100%;
+                padding: 0 $fsArrowArea;
+            }
+        }
+
+        &:hover {
+            #{$root}__arrow {
+                display: flex;
+            }
+        }
+
+        #{$root}__arrow {
+            display: none;
+            width: $fsArrowArea;
+            top: $fsPadding;
+            bottom: $fsPadding;
+
+            &_prev {
+                left: 0;
+                margin-right: 0;
+            }
+        }
+
+        @media (max-width: map-get($gridBreakpoints, 'md')) {
+            margin-left: 0;
+
+            #{$root}_slider {
+                margin-left: 0;
+                width: 100%;
+            }
+
+            &:hover {
+                #{$root}__arrow {
+                    display: none;
+                }
+            }
+        }
+
+        @media (max-width: map-get($gridBreakpoints, 'sm')) {
+            #{$block}#{&}:not(&_one-slide) {
+                #{$root}__slider {
+                    margin-left: 0;
+                }
+
+                #{$wrapperCn} {
                     padding-left: 0;
                 }
             }
