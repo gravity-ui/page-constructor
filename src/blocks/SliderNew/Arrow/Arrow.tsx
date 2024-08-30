@@ -13,23 +13,26 @@ export type ArrowType = 'left' | 'right';
 
 export interface ArrowProps {
     type: ArrowType;
+    transparent?: boolean;
     onClick?: () => void;
     size?: number;
 }
 
-const Arrow = ({type, onClick, className, size = 16}: ArrowProps & ClassNameProps) => (
-    <button className={b('button', className)} onClick={onClick} aria-label={i18n(`arrow-${type}`)}>
-        <div className={b('inner', {type})}>
-            <span className={b('icon-wrapper')}>
-                <ToggleArrow
-                    size={size}
-                    type={'horizontal'}
-                    iconType="navigation"
-                    className={b('icon')}
-                />
-            </span>
-        </div>
-    </button>
+const Arrow = ({type, transparent, onClick, className, size = 16}: ArrowProps & ClassNameProps) => (
+    <div className={b(null, className)}>
+        <button className={b('button')} onClick={onClick} aria-label={i18n(`arrow-${type}`)}>
+            <div className={b('inner', {type, transparent})}>
+                <span className={b('icon-wrapper')}>
+                    <ToggleArrow
+                        size={size}
+                        type={'horizontal'}
+                        iconType="navigation"
+                        className={b('icon')}
+                    />
+                </span>
+            </div>
+        </button>
+    </div>
 );
 
 export default Arrow;
