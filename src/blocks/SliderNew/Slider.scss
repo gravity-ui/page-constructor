@@ -212,21 +212,6 @@ $dotSize: 8px;
                 left: 0;
                 margin-right: 0;
             }
-
-            button {
-                background-color: transparent;
-                box-shadow: none;
-
-                &:hover {
-                    box-shadow: none;
-                }
-            }
-
-            &:hover {
-                & button {
-                    box-shadow: none;
-                }
-            }
         }
 
         #{$root}__slide {
