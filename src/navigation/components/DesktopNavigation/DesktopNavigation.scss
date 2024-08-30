@@ -48,12 +48,16 @@ $block: '.#{$ns}desktop-navigation';
             @include mobile-tablet-only();
         }
 
+        &-container {
+            padding-right: $indentXXXS;
+        }
+
         &-container:has(.#{$ns}overflow-scroller__arrow) & {
             justify-content: flex-start;
         }
 
         &-container:has(.#{$ns}overflow-scroller__arrow_type_right) {
-            padding-right: $indentXXXS;
+            padding-right: $indentXS;
         }
     }
 
