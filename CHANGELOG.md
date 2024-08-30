@@ -1,6 +1,18 @@
 # Changelog
 
 
+## [5.22.0](https://github.com/gravity-ui/page-constructor/compare/v5.21.0...v5.22.0) (2024-08-30)
+
+
+### Features
+
+* add mobile header items and renderNavigation method ([#989](https://github.com/gravity-ui/page-constructor/issues/989)) ([6cd9289](https://github.com/gravity-ui/page-constructor/commit/6cd9289636063278a26a8cbbc28065485904705f))
+
+
+### Bug Fixes
+
+* image card link hover ([#995](https://github.com/gravity-ui/page-constructor/issues/995)) ([65b89c5](https://github.com/gravity-ui/page-constructor/commit/65b89c558f5a1c20970b953fbdb160d369eb9907))
+
 ## [5.21.0](https://github.com/gravity-ui/page-constructor/compare/v5.20.1...v5.21.0) (2024-08-29)
 
 
