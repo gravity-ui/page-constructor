@@ -235,9 +235,9 @@ export const SliderBlock = (props: React.PropsWithChildren<SliderProps>) => {
 
                 const firstNewSlide = document.getElementById(getSlideId(sliderId, focusIndex));
                 if (firstNewSlide) {
-                    const focusableChild = Array.from(firstNewSlide.querySelectorAll('*'))
-                        .filter((element) => element instanceof HTMLElement)
-                        .find(isFocusable);
+                    const focusableChild = Array.from(firstNewSlide.querySelectorAll('*')).find(
+                        isFocusable,
+                    ) as HTMLElement | undefined;
                     focusableChild?.focus();
                 }
             }

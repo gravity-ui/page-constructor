@@ -23,7 +23,10 @@ export interface GetSlidesToShowParams {
     mobileFullscreen?: boolean;
 }
 
-export const isFocusable = (element: HTMLElement): boolean => {
+export const isFocusable = (element: Element): boolean => {
+    if (!(element instanceof HTMLElement)) {
+        return false;
+    }
     const tabIndexAttr = element.getAttribute('tabindex');
     const hasTabIndex = tabIndexAttr !== null;
     const tabIndex = Number(tabIndexAttr);
@@ -33,15 +36,26 @@ export const isFocusable = (element: HTMLElement): boolean => {
     if (hasTabIndex && tabIndex >= 0) {
         return true;
     }
+
+    // without this jest fails here for some reason
+    let htmlElement:
+        | HTMLAnchorElement
+        | HTMLInputElement
+        | HTMLSelectElement
+        | HTMLTextAreaElement
+        | HTMLButtonElement;
     switch (true) {
         case element instanceof HTMLAnchorElement:
-            return Boolean(element.href);
+            htmlElement = element as HTMLAnchorElement;
+            return Boolean(htmlElement.href);
         case element instanceof HTMLInputElement:
-            return element.type !== 'hidden' && !element.disabled;
+            htmlElement = element as HTMLInputElement;
+            return htmlElement.type !== 'hidden' && !htmlElement.disabled;
         case element instanceof HTMLSelectElement:
         case element instanceof HTMLTextAreaElement:
         case element instanceof HTMLButtonElement:
-            return !element.disabled;
+            htmlElement = element as HTMLSelectElement | HTMLTextAreaElement | HTMLButtonElement;
+            return !htmlElement.disabled;
         default:
             return false;
     }
