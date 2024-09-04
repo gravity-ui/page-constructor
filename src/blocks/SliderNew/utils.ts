@@ -61,7 +61,7 @@ export const useMemoized = <T>(value: T): T => {
 
     useEffect(() => {
         setMemoizedValue((memoized) =>
-            typeof value in MEMOIZABLE_TYPES && isEqual(memoized, value) ? memoized : value,
+            MEMOIZABLE_TYPES.includes(typeof value) && isEqual(memoized, value) ? memoized : value,
         );
     }, [value]);
 
