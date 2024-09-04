@@ -2,7 +2,7 @@ import React, {ReactElement, useMemo, useState} from 'react';
 
 import {MediaProps, QAProps} from '../../models';
 import {block, getQaAttrubutes} from '../../utils';
-import YoutubeBlock from '../VideoBlock/VideoBlock';
+import IframeVideoBlock from '../VideoBlock/VideoBlock';
 
 import DataLens from './DataLens/DataLens';
 import FullscreenVideo from './FullscreenVideo/FullscreenVideo';
@@ -26,6 +26,7 @@ export const Media = (props: MediaAllProps) => {
         image,
         video,
         youtube,
+        videoIframe,
         dataLens,
         color,
         height,
@@ -99,11 +100,12 @@ export const Media = (props: MediaAllProps) => {
             }
         }
 
-        if (youtube) {
+        if (youtube || videoIframe) {
             result = (
-                <YoutubeBlock
+                <IframeVideoBlock
                     className={b('youtube', youtubeClassName)}
                     record={youtube}
+                    videoIframe={videoIframe}
                     attributes={{color: 'white', rel: '0'}}
                     previewImg={previewImg}
                     height={height}
@@ -127,6 +129,7 @@ export const Media = (props: MediaAllProps) => {
     }, [
         image,
         video,
+        videoIframe,
         youtube,
         dataLens,
         iframe,
