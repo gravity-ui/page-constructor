@@ -33,13 +33,13 @@ $block: '.#{$ns}header-breadcrumbs';
         #{$block}__text {
             color: var(--g-color-text-light-secondary);
 
-            &:after {
-                color: var(--g-color-text-light-secondary);
-            }
-
             &:hover {
                 color: var(--g-color-text-light-primary);
             }
+        }
+
+        #{$block}__separator {
+            color: var(--g-color-text-light-secondary);
         }
     }
 }

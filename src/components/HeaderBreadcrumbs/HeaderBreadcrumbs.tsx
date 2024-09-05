@@ -1,4 +1,6 @@
-import React, {useCallback} from 'react';
+import React, {useCallback, useEffect} from 'react';
+
+import {useForceUpdate} from '@react-spring/shared';
 
 import {useAnalytics} from '../../hooks';
 import {DefaultEventNames, HeaderBreadCrumbsProps} from '../../models';
@@ -10,28 +12,52 @@ import './HeaderBreadcrumbs.scss';
 
 const b = block('header-breadcrumbs');
 
+const isCurrentPage = (url: string): boolean => {
+    if (url === '' || url === '.' || url.startsWith('#')) {
+        return true;
+    }
+
+    if (typeof window === 'undefined' || url.startsWith('.')) {
+        return false;
+    }
+
+    const location = window.location;
+
+    if (url.includes('//')) {
+        return url === location.href;
+    }
+
+    if (url.startsWith('/')) {
+        return url === location.pathname + location.search;
+    }
+
+    return false;
+};
+
 export default function HeaderBreadcrumbs(props: HeaderBreadCrumbsProps) {
-    const {items, theme = 'light', className, analyticsEvents, currentPageUrl} = props;
+    const {items, theme = 'light', className, analyticsEvents} = props;
     const handleAnalytics = useAnalytics(DefaultEventNames.Breadcrumb);
+    const forceUpdate = useForceUpdate();
 
     const onClick = useCallback(() => {
         handleAnalytics(analyticsEvents);
     }, [analyticsEvents, handleAnalytics]);
 
-    const isCurrentPage = (url: string) => url === '.' || url === '#' || url === currentPageUrl;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    useEffect(() => forceUpdate(), []);
 
     return (
         <nav className={b({theme}, className)} aria-label={i18n('label')}>
             <ol className={b('list')}>
-                {items?.map((item) => (
-                    <li className={b('item')} key={item.url}>
+                {items?.map(({url, text}) => (
+                    <li className={b('item')} key={url}>
                         <a
-                            href={item.url}
+                            href={url}
                             className={b('text')}
                             onClick={onClick}
-                            aria-current={isCurrentPage(item.url) ? 'page' : undefined}
+                            aria-current={isCurrentPage(url) ? 'page' : undefined}
                         >
-                            {item.text}
+                            {text}
                         </a>
                         <span className={b('separator')} aria-hidden>
                             &nbsp;/

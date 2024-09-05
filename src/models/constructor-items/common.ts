@@ -353,7 +353,6 @@ export interface HeaderBreadCrumbsProps extends ClassNameProps {
     }[];
     theme?: TextTheme;
     analyticsEvents?: AnalyticsEventsProp;
-    currentPageUrl?: string;
 }
 
 export interface TitleItemProps extends Justifyable, TitleItemBaseProps {
