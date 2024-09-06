@@ -101,7 +101,7 @@ const VideoBlock = (props: VideoBlockProps) => {
         src && isPlaying
             ? `${src}?${getPageSearchParams({
                   ...(attributes || {}),
-                  ...(autoplay ? AUTOPLAY_ATTRIBUTES : NO_AUTOPLAY_ATTRIBUTES),
+                  ...(previewImg || autoplay ? AUTOPLAY_ATTRIBUTES : NO_AUTOPLAY_ATTRIBUTES),
               })}`
             : undefined;
 
