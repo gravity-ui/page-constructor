@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [5.23.1](https://github.com/gravity-ui/page-constructor/compare/v5.23.0...v5.23.1) (2024-09-06)
+
+
+### Bug Fixes
+
+* add autoplay to videoblock if preview is enabled ([#1005](https://github.com/gravity-ui/page-constructor/issues/1005)) ([8dc0f82](https://github.com/gravity-ui/page-constructor/commit/8dc0f8224fe516fbca12233ac11e0950461fc100))
+
 ## [5.23.0](https://github.com/gravity-ui/page-constructor/compare/v5.22.1...v5.23.0) (2024-09-06)
 
 
