@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [5.23.2](https://github.com/gravity-ui/page-constructor/compare/v5.23.1...v5.23.2) (2024-09-06)
+
+
+### Bug Fixes
+
+* use languages ​​other than ru/en for Typograf ([#1009](https://github.com/gravity-ui/page-constructor/issues/1009)) ([f990b81](https://github.com/gravity-ui/page-constructor/commit/f990b81c12e4964822b99984021a6e0a6b447fc2))
+
 ## [5.23.1](https://github.com/gravity-ui/page-constructor/compare/v5.23.0...v5.23.1) (2024-09-06)
 
 
