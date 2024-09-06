@@ -6,7 +6,7 @@
 
 ### Bug Fixes
 
-* filter block a11y ([#980](https://github.com/gravity-ui/page-constructor/issues/980)) ([41b2bc3](https://github.com/gravity-ui/page-constructor/commit/41b2bc3482d59912a22f03cbb333a66fb0860757))
+* filter block a11y refactoring ([#980](https://github.com/gravity-ui/page-constructor/issues/980)) ([41b2bc3](https://github.com/gravity-ui/page-constructor/commit/41b2bc3482d59912a22f03cbb333a66fb0860757))
 
 ## [5.22.0](https://github.com/gravity-ui/page-constructor/compare/v5.21.0...v5.22.0) (2024-08-30)
 
