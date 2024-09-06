@@ -252,6 +252,10 @@ export interface MediaComponentVideoProps extends AnalyticsEventsBase {
     previewImg?: string;
 }
 
+export interface MediaComponentVideoIframeProps {
+    videoIframe: string;
+}
+
 export interface MediaComponentYoutubeProps {
     youtube: string;
     previewImg?: string;
@@ -279,6 +283,7 @@ export interface MediaProps
     extends Animatable,
         Partial<MediaComponentDataLensProps>,
         Partial<MediaComponentYoutubeProps>,
+        Partial<MediaComponentVideoIframeProps>,
         Partial<MediaComponentImageProps>,
         Partial<MediaComponentIframeProps>,
         Partial<MediaComponentVideoProps> {

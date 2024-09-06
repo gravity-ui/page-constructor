@@ -604,6 +604,9 @@ export const MediaProps = {
     youtube: {
         type: 'string',
     },
+    videoIframe: {
+        type: 'string',
+    },
     parallax: {
         type: 'boolean',
     },

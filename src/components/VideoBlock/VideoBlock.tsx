@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 // TODO fix in https://github.com/gravity-ui/page-constructor/issues/965
 
-import React, {useCallback, useEffect, useRef, useState} from 'react';
+import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react';
 
 import {PlayFill} from '@gravity-ui/icons';
 import {Icon} from '@gravity-ui/uikit';
@@ -28,10 +28,13 @@ export const AUTOPLAY_ATTRIBUTES = {
     autoplay: 1,
     mute: 1,
 };
+const NO_AUTOPLAY_ATTRIBUTES = {
+    autoplay: 0,
+};
 
 const b = block('VideoBlock');
 
-function getVideoSrc(stream?: string, record?: string) {
+function getYoutubeVideoSrc(stream?: string, record?: string) {
     if (!stream && !record) {
         return null;
     }
@@ -57,6 +60,7 @@ export interface VideoBlockProps extends AnalyticsEventsBase {
     id?: string;
     stream?: string;
     record?: string;
+    videoIframe?: string;
     attributes?: Record<string, string>;
     className?: string;
     previewImg?: string;
@@ -71,6 +75,7 @@ const VideoBlock = (props: VideoBlockProps) => {
     const {
         stream,
         record,
+        videoIframe,
         attributes,
         className,
         id,
@@ -84,25 +89,29 @@ const VideoBlock = (props: VideoBlockProps) => {
     } = props;
     const handleAnalytics = useAnalytics(DefaultEventNames.VideoPreview);
 
-    const src = getVideoSrc(stream, record);
+    const src = videoIframe ? videoIframe : getYoutubeVideoSrc(stream, record);
     const ref = useRef<HTMLDivElement>(null);
-    const iframeRef = useRef<HTMLIFrameElement>();
     const [hidePreview, setHidePreview] = useState(false);
-    const norender = (!stream && !record) || !src;
     const [currentHeight, setCurrentHeight] = useState(height || undefined);
-    const fullId = id || uuidv4();
+    const fullId = useMemo(() => id || uuidv4(), [id]);
+
+    const [isPlaying, setIsPlaying] = useState(!previewImg);
+
+    const iframeSrc =
+        src && isPlaying
+            ? `${src}?${getPageSearchParams({
+                  ...(attributes || {}),
+                  ...(autoplay ? AUTOPLAY_ATTRIBUTES : NO_AUTOPLAY_ATTRIBUTES),
+              })}`
+            : undefined;
+
     const onPreviewClick = useCallback(() => {
         handleAnalytics(analyticsEvents);
 
-        if (iframeRef.current) {
-            iframeRef.current.src = `${src}?${getPageSearchParams({
-                ...AUTOPLAY_ATTRIBUTES,
-                ...(attributes || {}),
-            })}`;
-        }
+        setIsPlaying(true);
 
         setTimeout(() => setHidePreview(true), AUTOPLAY_DELAY);
-    }, [handleAnalytics, analyticsEvents, src, attributes]);
+    }, [handleAnalytics, analyticsEvents]);
 
     useEffect(() => {
         const updateSize = debounce(() => {
@@ -118,44 +127,33 @@ const VideoBlock = (props: VideoBlockProps) => {
         };
     }, [height]);
 
-    useEffect(() => {
-        if (norender) {
-            return;
-        }
-
-        if (ref.current && !iframeRef.current) {
-            const iframe = document.createElement('iframe');
-            iframe.id = fullId;
-
-            if (!previewImg) {
-                iframe.src = `${src}?${getPageSearchParams({
-                    ...(attributes || {}),
-                    ...(autoplay ? AUTOPLAY_ATTRIBUTES : {}),
-                })}`;
-            }
-
-            iframe.width = '100%';
-            iframe.height = '100%';
-            iframe.title = i18n('iframe-title');
-            iframe.frameBorder = '0';
-            iframe.setAttribute('allowfullscreen', 'true');
-            iframe.setAttribute('allow', 'autoplay');
-            iframe.setAttribute('loading', 'lazy');
-            ref.current.appendChild(iframe);
-            iframeRef.current = iframe;
-        }
-    }, [stream, record, norender, src, fullId, attributes, iframeRef, previewImg, autoplay]);
+    const iframeContent = useMemo(() => {
+        return (
+            <iframe
+                id={fullId}
+                src={iframeSrc}
+                width="100%"
+                height="100%"
+                title={i18n('iframe-title')}
+                frameBorder="0"
+                allowFullScreen={true}
+                allow="autoplay; fullscreen; encrypted-media; accelerometer; gyroscope; picture-in-picture; clipboard-write; web-share; screen-wake-lock"
+                loading="lazy"
+            />
+        );
+    }, [fullId, iframeSrc]);
 
     useEffect(() => {
         setHidePreview(false);
-    }, [src, setHidePreview]);
+    }, [src]);
 
-    if (norender) {
+    if (!src) {
         return null;
     }
 
     return (
-        <div className={b(null, className)} ref={ref} style={{height: currentHeight}}>
+        <div className={b(null, className)} style={{height: currentHeight}} ref={ref}>
+            {iframeContent}
             {previewImg && !hidePreview && !fullscreen && (
                 <div className={b('preview')} onClick={onPreviewClick}>
                     <Image
