@@ -97,6 +97,10 @@ const VideoBlock = (props: VideoBlockProps) => {
 
     const [isPlaying, setIsPlaying] = useState(!previewImg);
 
+    useEffect(() => {
+        setIsPlaying(!previewImg);
+    }, [previewImg]);
+
     const iframeSrc =
         src && isPlaying
             ? `${src}?${getPageSearchParams({
