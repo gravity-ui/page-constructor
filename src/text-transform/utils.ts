@@ -80,7 +80,7 @@ export function typograf(text: string, lang = Lang.Ru) {
     };
 
     const tp = new Typograf({
-        locale: localeByLang[lang],
+        locale: localeByLang[lang] || lang,
         htmlEntity: {type: 'name'},
     });
 
