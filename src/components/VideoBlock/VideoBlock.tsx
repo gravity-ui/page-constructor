@@ -92,18 +92,18 @@ const VideoBlock = (props: VideoBlockProps) => {
     const src = videoIframe ? videoIframe : getYoutubeVideoSrc(stream, record);
     const ref = useRef<HTMLDivElement>(null);
     const [hidePreview, setHidePreview] = useState(false);
-    const norender = !src;
     const [currentHeight, setCurrentHeight] = useState(height || undefined);
     const fullId = useMemo(() => id || uuidv4(), [id]);
 
     const [isPlaying, setIsPlaying] = useState(!previewImg);
 
-    const iframeSrc = isPlaying
-        ? `${src}?${getPageSearchParams({
-              ...(attributes || {}),
-              ...(autoplay ? AUTOPLAY_ATTRIBUTES : NO_AUTOPLAY_ATTRIBUTES),
-          })}`
-        : undefined;
+    const iframeSrc =
+        src && isPlaying
+            ? `${src}?${getPageSearchParams({
+                  ...(attributes || {}),
+                  ...(autoplay ? AUTOPLAY_ATTRIBUTES : NO_AUTOPLAY_ATTRIBUTES),
+              })}`
+            : undefined;
 
     const onPreviewClick = useCallback(() => {
         handleAnalytics(analyticsEvents);
@@ -145,9 +145,9 @@ const VideoBlock = (props: VideoBlockProps) => {
 
     useEffect(() => {
         setHidePreview(false);
-    }, [src, setHidePreview]);
+    }, [src]);
 
-    if (norender) {
+    if (!src) {
         return null;
     }
 
