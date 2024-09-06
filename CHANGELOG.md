@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [5.23.0](https://github.com/gravity-ui/page-constructor/compare/v5.22.1...v5.23.0) (2024-09-06)
+
+
+### Features
+
+* add videoIframe prop to media block and component ([#999](https://github.com/gravity-ui/page-constructor/issues/999)) ([13528be](https://github.com/gravity-ui/page-constructor/commit/13528bea0de5f4d21bbca21cbcf28f8f3b0a7169))
+
 ## [5.22.1](https://github.com/gravity-ui/page-constructor/compare/v5.22.0...v5.22.1) (2024-09-05)
 
 
