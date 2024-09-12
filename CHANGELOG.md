@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [5.23.3](https://github.com/gravity-ui/page-constructor/compare/v5.23.2...v5.23.3) (2024-09-12)
+
+
+### Bug Fixes
+
+* breadcrumbs a11y ([#996](https://github.com/gravity-ui/page-constructor/issues/996)) ([3a45bab](https://github.com/gravity-ui/page-constructor/commit/3a45bab33f60405cda9b33dcff613fd254afc64a))
+* resolve media has caption ([#1011](https://github.com/gravity-ui/page-constructor/issues/1011)) ([e083f0a](https://github.com/gravity-ui/page-constructor/commit/e083f0ad723fd5afb56d6ed42f61f6207d354e98))
+
 ## [5.23.2](https://github.com/gravity-ui/page-constructor/compare/v5.23.1...v5.23.2) (2024-09-06)
 
 
