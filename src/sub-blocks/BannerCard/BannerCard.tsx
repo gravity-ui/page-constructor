@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {BackgroundImage, Button, HTML, RouterLink, YFMWrapper} from '../../components';
+import {BackgroundImage, Button, RouterLink, YFMWrapper} from '../../components';
 import {useTheme} from '../../context/theme';
 import {BannerCardProps} from '../../models';
 import {block, getThemedValue} from '../../utils';
@@ -32,9 +32,15 @@ export const BannerCard = (props: BannerCardProps) => {
             <div className={b('content')} style={contentStyle}>
                 <div className={b('info')}>
                     <div className={b('text')}>
-                        <h2 className={b('title')}>
-                            <HTML>{title}</HTML>
-                        </h2>
+                        <YFMWrapper
+                            variant="h2"
+                            className={b('title')}
+                            contentClassName={b('title')}
+                            content={title}
+                            modifiers={{
+                                constructor: true,
+                            }}
+                        />
                         {subtitle && (
                             <YFMWrapper
                                 className={b('subtitle')}

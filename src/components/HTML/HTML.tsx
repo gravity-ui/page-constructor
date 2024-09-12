@@ -22,38 +22,40 @@ const HTML = ({
     block = false,
     className,
     contentClassName,
-    itemProp,
-    id,
     qa,
     contentPosition = 'start',
     variant = 'span',
     onlyContent = false,
+    ...rest
 }: HTMLProps) => {
     const renderedContent = useMemo(() => {
         return content
             ? React.createElement(block || hasBlockTag(content) ? 'div' : 'span', {
                   dangerouslySetInnerHTML: {__html: content},
                   className: contentClassName,
-                  itemProp,
-                  id,
+                  ...rest,
               })
             : null;
-    }, [block, content, contentClassName, id, itemProp]);
+    }, [block, content, contentClassName, rest]);
 
     if (onlyContent) {
         return renderedContent;
     }
 
-    return React.createElement(
-        variant,
-        {
-            className,
-            'data-qa': qa,
-        },
-        contentPosition === 'start' ? renderedContent : null,
-        children,
-        contentPosition === 'end' ? renderedContent : null,
-    );
+    if (children) {
+        return React.createElement(
+            variant,
+            {
+                className,
+                'data-qa': qa,
+            },
+            contentPosition === 'start' ? renderedContent : null,
+            children,
+            contentPosition === 'end' ? renderedContent : null,
+        );
+    }
+
+    return renderedContent;
 };
 
 export default HTML;

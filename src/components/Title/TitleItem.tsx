@@ -1,6 +1,6 @@
 import React, {Fragment, ReactNode, useContext} from 'react';
 
-import {ToggleArrow} from '../';
+import {ToggleArrow, YFMWrapper} from '../';
 import {LocationContext} from '../../context/locationContext';
 import {MobileContext} from '../../context/mobileContext';
 import {QAProps, TextSize, TitleItemProps} from '../../models';
@@ -52,7 +52,14 @@ const TitleItem = (props: TitleItemFullProps) => {
     const {hostname} = useContext(LocationContext);
     const textMarkup = (
         <React.Fragment>
-            <div className={b('text')}>{text}</div>
+            <YFMWrapper
+                className={b('text')}
+                contentClassName={b('text')}
+                content={text}
+                modifiers={{
+                    constructor: true,
+                }}
+            />
             {custom && (
                 <React.Fragment>
                     &nbsp;

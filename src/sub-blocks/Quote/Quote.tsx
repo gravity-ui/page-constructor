@@ -1,6 +1,6 @@
 import React, {useCallback} from 'react';
 
-import {Author, Button, HTML, Image, YFMWrapper} from '../../components';
+import {Author, Button, Image, YFMWrapper} from '../../components';
 import {getMediaImage} from '../../components/Media/Image/utils';
 import {useTheme} from '../../context/theme';
 import {useAnalytics} from '../../hooks';
@@ -68,6 +68,8 @@ const Quote = (props: QuoteProps) => {
     const themedLogoProps = getThemedValue(logo, theme);
     const logoProps = getMediaImage(themedLogoProps);
 
+    const textLocal = yfmText || text;
+
     return (
         <div
             className={b({theme: textTheme, border})}
@@ -77,15 +79,11 @@ const Quote = (props: QuoteProps) => {
                 <div>
                     <Image className={b('logo')} {...logoProps} />
                     <div className={b('content', {'quote-type': quoteType})}>
-                        {text && (
-                            <span className={b('text')}>
-                                <HTML>{text}</HTML>
-                            </span>
-                        )}
-                        {yfmText && (
+                        {textLocal && (
                             <YFMWrapper
+                                variant="span"
                                 className={b('text')}
-                                content={yfmText}
+                                content={textLocal}
                                 modifiers={{constructor: true}}
                             />
                         )}

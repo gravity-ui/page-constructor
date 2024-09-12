@@ -2,7 +2,7 @@ import React from 'react';
 
 import {useActionHandlers} from '@gravity-ui/uikit';
 
-import {Foldable, HTML, ToggleArrow, YFMWrapper} from '../../../components';
+import {Foldable, ToggleArrow, YFMWrapper} from '../../../components';
 import Link from '../../../components/Link/Link';
 import {QuestionBlockItemProps} from '../../../models';
 import {block} from '../../../utils';
@@ -36,14 +36,29 @@ export const QuestionBlockItem = ({
                 aria-expanded={isOpened}
                 onKeyDown={onKeyDown}
             >
-                <HTML itemProp={FaqMicrodataValues.QuestionNameProp}>{itemTitle}</HTML>
-                <ToggleArrow
-                    open={isOpened}
-                    size={16}
-                    type={'vertical'}
-                    iconType="navigation"
-                    className={b('arrow')}
-                />
+                <YFMWrapper
+                    tagName="h3"
+                    className={b('title-container')}
+                    contentClassName={b('title')}
+                    itemProp={FaqMicrodataValues.QuestionNameProp}
+                    content={itemTitle}
+                    modifiers={{
+                        constructor: true,
+                    }}
+                    onClick={onClick}
+                    role="button"
+                    aria-expanded={isOpened}
+                    tabIndex={0}
+                    onKeyDown={onKeyDown}
+                >
+                    <ToggleArrow
+                        open={isOpened}
+                        size={16}
+                        type={'vertical'}
+                        iconType="navigation"
+                        className={b('arrow')}
+                    />
+                </YFMWrapper>
             </button>
             <Foldable isOpened={isOpened}>
                 <div

@@ -16,7 +16,8 @@ export interface YFMWrapperProps
     extends PropsWithChildren,
         ClassNameProps,
         QAProps,
-        HTMLExtraProps {
+        HTMLExtraProps,
+        React.HTMLProps<{}> {
     content: string;
     modifiers?: Modifiers;
     itemProp?: string;

@@ -20,8 +20,10 @@ export default {
     component: Content,
 } as Meta;
 
-const getSizeTitle = (size: string) =>
-    yfmTransformInline(data.size.title.replace('{{size}}', size));
+const getSizeTitle = (size: string) => {
+    console.log(yfmTransformInline(data.size.title.replace('{{size}}', size)), data.size.title);
+    return yfmTransformInline(data.size.title.replace('{{size}}', size));
+};
 
 const getThemeTitle = (theme: string) =>
     yfmTransformInline(data.theme.title.replace('{{theme}}', theme));
@@ -36,17 +38,32 @@ const DefaultTemplate: StoryFn<ContentLayoutBlockModel> = (args) => (
                     ...args,
                     textContent: {
                         ...args.textContent,
+                        title:
+                            args.textContent.title && typeof args.textContent.title === 'string'
+                                ? yfmTransformInline(args.textContent.title)
+                                : undefined,
                         additionalInfo: yfmTransform(data.common.additionalInfo),
                     },
                 },
                 {
                     ...args,
-                    textContent: {...args.textContent, links: data.common.links as LinkProps[]},
+                    textContent: {
+                        ...args.textContent,
+                        title:
+                            args.textContent.title && typeof args.textContent.title === 'string'
+                                ? yfmTransformInline(args.textContent.title)
+                                : undefined,
+                        links: data.common.links as LinkProps[],
+                    },
                 },
                 {
                     ...args,
                     textContent: {
                         ...args.textContent,
+                        title:
+                            args.textContent.title && typeof args.textContent.title === 'string'
+                                ? yfmTransformInline(args.textContent.title)
+                                : undefined,
                         buttons: data.common.buttons as ButtonProps[],
                     },
                 },
@@ -54,6 +71,10 @@ const DefaultTemplate: StoryFn<ContentLayoutBlockModel> = (args) => (
                     ...args,
                     textContent: {
                         ...args.textContent,
+                        title:
+                            args.textContent.title && typeof args.textContent.title === 'string'
+                                ? yfmTransformInline(args.textContent.title)
+                                : undefined,
                         list: data.common.list.map((item) => {
                             return {
                                 ...item,
