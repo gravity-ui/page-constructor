@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/media-has-caption */
-// TODO fix in https://github.com/gravity-ui/page-constructor/issues/967
 import React, {Fragment, useCallback, useImperativeHandle, useRef, useState} from 'react';
 
 import {CustomControlsType, MediaVideoControlsType, MediaVideoProps} from '../../models';
@@ -89,6 +87,7 @@ export const DefaultVideo = React.forwardRef<DefaultVideoRefType, DefaultVideoPr
                     {getVideoTypesWithPriority(video.src).map(({src, type}, index) => (
                         <source key={index} src={src} type={type} data-qa={qa} />
                     ))}
+                    <track default kind="captions" />
                 </video>
 
                 {controls === MediaVideoControlsType.Custom && (
