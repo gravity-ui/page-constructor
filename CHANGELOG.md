@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [5.24.0](https://github.com/gravity-ui/page-constructor/compare/v5.23.3...v5.24.0) (2024-09-16)
+
+
+### Features
+
+* header slider support controls change theme ([#1015](https://github.com/gravity-ui/page-constructor/issues/1015)) ([8d3b16d](https://github.com/gravity-ui/page-constructor/commit/8d3b16dbb6ba9961c599af765648f22703dec7c4))
+
 ## [5.23.3](https://github.com/gravity-ui/page-constructor/compare/v5.23.2...v5.23.3) (2024-09-12)
 
 
