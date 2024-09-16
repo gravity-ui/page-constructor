@@ -39,7 +39,7 @@ $block: '.#{$ns}slider-block-arrow';
         background-color: var(--g-color-base-background);
         box-shadow: 0 4px 24px var(--pc-color-sfx-shadow), 0 2px 8px var(--pc-color-sfx-shadow);
 
-        transition: box-shadow 0.3s $ease-out-cubic, color 0.3s $ease-out-cubic;
+        transition: box-shadow 0.3s $ease-out-cubic, color 1s $ease-out-cubic;
 
         @include focusable();
     }
