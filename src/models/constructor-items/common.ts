@@ -176,6 +176,7 @@ export interface MediaVideoProps extends AnalyticsEventsBase {
     controls?: MediaVideoControlsType;
     customControlsOptions?: CustomControlsOptions;
     ariaLabel?: string;
+    contain?: boolean;
 }
 
 // links
@@ -248,7 +249,7 @@ export type ThemedMediaVideoProps = ThemeSupporting<MediaVideoProps>;
 export interface MediaComponentVideoProps extends AnalyticsEventsBase {
     video: MediaVideoProps;
     height?: number;
-    ratio?: number;
+    ratio?: number | 'auto';
     previewImg?: string;
 }
 
