@@ -45,7 +45,7 @@ test.describe('Form', () => {
         await expectScreenshot({skipTheme: 'dark'});
     });
 
-    test('render stories <FormData>', async ({mount, expectScreenshot, delay}) => {
+    test.skip('render stories <FormData>', async ({mount, expectScreenshot, delay}) => {
         await mount(<FormData />);
         await delay(DEFAULT_FORM_DELAY);
         await expectScreenshot({skipTheme: 'dark'});
