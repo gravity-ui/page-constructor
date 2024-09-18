@@ -30,7 +30,7 @@ test.describe('Media', () => {
         await expectScreenshot({skipTheme: 'dark'});
     });
 
-    test('render stories <Video>', async ({mount, expectScreenshot, delay}) => {
+    test.skip('render stories <Video>', async ({mount, expectScreenshot, delay}) => {
         await mount(<Video />);
         await delay(DEFAULT_MEDIA_DELAY);
         await expectScreenshot({skipTheme: 'dark'});

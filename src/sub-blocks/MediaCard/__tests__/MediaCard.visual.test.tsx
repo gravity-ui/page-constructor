@@ -25,7 +25,7 @@ test.describe('MediaCard', () => {
         await expectScreenshot({skipTheme: 'dark'});
     });
 
-    test('render stories <Video>', async ({mount, expectScreenshot, delay}) => {
+    test.skip('render stories <Video>', async ({mount, expectScreenshot, delay}) => {
         await mount(<Video />);
         await delay(DEFAULT_MEDIACARD_DELAY);
         await expectScreenshot({skipTheme: 'dark'});

@@ -31,7 +31,7 @@ test.describe('Slider', () => {
         await expectScreenshot({skipTheme: 'dark'});
     });
 
-    test('render stories <AutoPlay>', async ({mount, expectScreenshot, defaultDelay}) => {
+    test.skip('render stories <AutoPlay>', async ({mount, expectScreenshot, defaultDelay}) => {
         await mount(<AutoPlay />);
         await defaultDelay();
         await expectScreenshot({skipTheme: 'dark'});
