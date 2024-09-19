@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [5.25.0](https://github.com/gravity-ui/page-constructor/compare/v5.24.0...v5.25.0) (2024-09-19)
+
+
+### Features
+
+* allow background for image-card with url ([#1020](https://github.com/gravity-ui/page-constructor/issues/1020)) ([b5e9661](https://github.com/gravity-ui/page-constructor/commit/b5e9661f6b4052b4b1b6a286ce4b0d1476eef53a))
+
 ## [5.24.0](https://github.com/gravity-ui/page-constructor/compare/v5.23.3...v5.24.0) (2024-09-16)
 
 
