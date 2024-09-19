@@ -80,6 +80,7 @@ const ImageCard = (props: ImageCardProps) => {
             rel={target === '_blank' ? 'noopener noreferrer' : undefined}
             className={b({border, 'with-content': hasContent, direction})}
             title={urlTitle}
+            style={{backgroundColor}}
             extraProps={{
                 draggable: false,
                 onDragStart: (e: React.DragEvent<HTMLAnchorElement>) => e.preventDefault(),
