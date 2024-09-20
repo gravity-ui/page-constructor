@@ -59,6 +59,7 @@ export interface ReactPlayerBlockProps
     onClickPreview?: () => void;
     height?: number;
     ratio?: number;
+    autoRatio?: boolean;
     children?: React.ReactNode;
 }
 
@@ -87,6 +88,8 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
             height,
             ariaLabel,
             ratio,
+            autoRatio,
+            contain,
         } = props;
 
         const {
@@ -113,6 +116,7 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
         const [playedPercent, setPlayedPercent] = useState<number>(0);
         const [currentHeight, setCurrentHeight] = useState(height);
         const [width, setWidth] = useState<number>(0);
+        const [actualRatio, setActualRatio] = useState<number>();
         const [muted, setMuted] = useState<boolean>(mute);
         const [started, setStarted] = useState(autoPlay);
         const [ended, setEnded] = useState<boolean>(false);
@@ -202,7 +206,11 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
                         parseFloat(paddingRight);
 
                     setWidth(newWidth);
-                    setCurrentHeight(Math.floor(getHeight(newWidth, ratio)));
+                    setCurrentHeight(
+                        Math.floor(
+                            getHeight(newWidth, ratio ?? (autoRatio ? actualRatio : undefined)),
+                        ),
+                    );
                 }
             }, 200);
 
@@ -211,7 +219,7 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
             return () => {
                 window.removeEventListener('resize', updateSize);
             };
-        }, [ratio]);
+        }, [actualRatio, autoRatio, ratio]);
 
         const playEvents = useMemo(
             () => eventsArray?.filter((e: AnalyticsEvent) => e.type === PredefinedEventTypes.Play),
@@ -317,6 +325,16 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
             }
         }, [changeMute, controls, customControlsType, ended, isPlaying, muted]);
 
+        const onReady = useCallback((player: ReactPlayer) => {
+            setPlayerRef(player);
+            const videoElement = player.getInternalPlayer();
+            const videoWidth = videoElement.videoWidth as number | undefined;
+            const videoHeight = videoElement.videoHeight as number | undefined;
+            if (videoWidth && videoHeight) {
+                setActualRatio(videoHeight / videoWidth);
+            }
+        }, []);
+
         const onProgress = useCallback((progress: PlayerPropgress) => {
             setPlayedPercent(progress.played);
 
@@ -365,6 +383,7 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
                     {
                         wrapper: !currentHeight,
                         controls,
+                        contain,
                     },
                     className,
                 )}
@@ -390,7 +409,7 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
                             progressInterval={FPS}
                             onClickPreview={handleClickPreview}
                             onStart={onStart}
-                            onReady={setPlayerRef}
+                            onReady={onReady}
                             onPlay={onPlay}
                             onPause={
                                 autoPlay && customControlsType !== CustomControlsType.WithMuteButton

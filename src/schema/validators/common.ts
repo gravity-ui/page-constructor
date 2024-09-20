@@ -184,6 +184,9 @@ export const VideoProps = {
         ariaLabel: {
             type: 'string',
         },
+        contain: {
+            type: 'boolean',
+        },
     },
 };
 
@@ -624,7 +627,8 @@ export const MediaProps = {
         anyOf: [AnalyticsEventSchema, {type: 'array', items: AnalyticsEventSchema}],
     },
     ratio: {
-        type: 'number',
+        type: ['number', 'string'],
+        pattern: '^auto$',
     },
     iframe: {
         ...IframeProps,
