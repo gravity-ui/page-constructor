@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [5.26.1](https://github.com/gravity-ui/page-constructor/compare/v5.26.0...v5.26.1) (2024-09-23)
+
+
+### Bug Fixes
+
+* dynamic imports in vite prod build ([#1023](https://github.com/gravity-ui/page-constructor/issues/1023)) ([af055fc](https://github.com/gravity-ui/page-constructor/commit/af055fcd79bacea8a309822e7ef342a53adf159b))
+
 ## [5.26.0](https://github.com/gravity-ui/page-constructor/compare/v5.25.0...v5.26.0) (2024-09-20)
 
 
