@@ -3,6 +3,8 @@ import {resolve} from 'path';
 import type {PlaywrightTestConfig} from '@playwright/experimental-ct-react';
 import {defineConfig, devices} from '@playwright/experimental-ct-react';
 import react from '@vitejs/plugin-react';
+import commonjs from 'vite-plugin-commonjs';
+import svgrPlugin from 'vite-plugin-svgr';
 
 function pathFromRoot(p: string) {
     return resolve(__dirname, '../', p);
@@ -32,7 +34,7 @@ const config: PlaywrightTestConfig = {
         '{testDir}/{testFileDir}/../__snapshots__/{testFileName}-snapshots/{arg}{-projectName}-linux{ext}',
     /* The base directory, relative to the config file, for snapshot files created with toMatchSnapshot and toHaveScreenshot. */
     /* Maximum time one test can run for. */
-    timeout: 10 * 1000,
+    timeout: 30 * 1000,
     /* Run tests in files in parallel */
     fullyParallel: true,
     /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -47,14 +49,30 @@ const config: PlaywrightTestConfig = {
     use: {
         testIdAttribute: 'data-qa',
         /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-        trace: 'on-first-retry',
+        trace: process.env.CI ? 'on-first-retry' : 'retain-on-failure',
         headless: true,
         /* Port to use for Playwright component endpoint. */
         screenshot: 'only-on-failure',
         timezoneId: 'UTC',
         ctViteConfig: {
-            plugins: [react()],
+            publicDir: pathFromRoot('.storybook/public'),
+            json: {
+                stringify: true,
+            },
+            plugins: [
+                react(),
+                svgrPlugin({
+                    include: '**/*.svg?react',
+                    svgrOptions: {
+                        svgo: true,
+                        icon: true,
+                    },
+                }),
+
+                commonjs(),
+            ],
             resolve: {
+                preserveSymlinks: true,
                 alias: {
                     '~@gravity-ui/uikit/styles/styles.css': '@gravity-ui/uikit/styles/styles.css',
                     '~@diplodoc/transform/dist/css/yfm.css': '@diplodoc/transform/dist/css/yfm.css',

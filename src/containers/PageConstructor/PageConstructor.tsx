@@ -1,4 +1,4 @@
-import React, {useMemo} from 'react';
+import React, {useContext, useMemo} from 'react';
 
 import '@diplodoc/transform/dist/js/yfm';
 
@@ -7,6 +7,7 @@ import RootCn from '../../components/RootCn';
 import {blockMap, navItemMap, subBlockMap} from '../../constructor-items';
 import {AnimateContext} from '../../context/animateContext';
 import {InnerContext} from '../../context/innerContext';
+import {ProjectSettingsContext} from '../../context/projectSettingsContext';
 import {useTheme} from '../../context/theme';
 import {Grid} from '../../grid';
 import {
@@ -122,7 +123,8 @@ export const Constructor = (props: PageConstructorProps) => {
 };
 
 export const PageConstructor = (props: PageConstructorProps) => {
-    const {content: {animated = true} = {}, ...rest} = props;
+    const {isAnimationEnabled = true} = useContext(ProjectSettingsContext);
+    const {content: {animated = isAnimationEnabled} = {}, ...rest} = props;
 
     return (
         <AnimateContext.Provider value={{animated}}>

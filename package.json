@@ -202,6 +202,8 @@
     "ts-jest": "^29.0.3",
     "tslib": "^2.4.0",
     "typescript": "^4.9.4",
+    "vite-plugin-commonjs": "^0.10.1",
+    "vite-plugin-svgr": "^4.2.0",
     "webpack": "^5.88.2",
     "webpack-cli": "^5.1.4",
     "webpack-shell-plugin-next": "^2.3.1"
