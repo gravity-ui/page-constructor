@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [5.26.0](https://github.com/gravity-ui/page-constructor/compare/v5.25.0...v5.26.0) (2024-09-20)
+
+
+### Features
+
+* **ReactPlayer:** video aspect ratio & object-fit ([#1019](https://github.com/gravity-ui/page-constructor/issues/1019)) ([925ace9](https://github.com/gravity-ui/page-constructor/commit/925ace9b9846499aa94d7c4d34d9837b8da25cb8))
+
 ## [5.25.0](https://github.com/gravity-ui/page-constructor/compare/v5.24.0...v5.25.0) (2024-09-19)
 
 
