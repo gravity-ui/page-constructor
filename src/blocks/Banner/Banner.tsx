@@ -10,12 +10,10 @@ import './Banner.scss';
 const b = block('banner-block');
 
 export const BannerBlock = (props: BannerBlockProps) => {
-    const {animated, className, ...bannerProps} = props;
-
-    const divClassName = b(null, className);
+    const {animated, ...bannerProps} = props;
 
     return (
-        <AnimateBlock className={divClassName} animate={animated}>
+        <AnimateBlock className={b()} animate={animated}>
             <BannerCard {...bannerProps} />
         </AnimateBlock>
     );
