@@ -33,10 +33,11 @@ const HTML = ({
             ? React.createElement(selectVariant({content, block, variant, children}), {
                   dangerouslySetInnerHTML: {__html: content},
                   className: contentClassName,
+                  'data-qa': qa,
                   ...rest,
               })
             : null;
-    }, [block, children, content, contentClassName, rest, variant]);
+    }, [block, children, content, contentClassName, qa, rest, variant]);
 
     if (onlyContent) {
         return renderedContent;
@@ -47,7 +48,6 @@ const HTML = ({
             variant,
             {
                 className,
-                'data-qa': qa,
             },
             contentPosition === 'start' ? renderedContent : null,
             children,
