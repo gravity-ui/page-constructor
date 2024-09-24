@@ -12,10 +12,22 @@ $block: '.#{$ns}QuestionsBlockItem';
     }
 
     &__title {
-        @include reset-button-style();
-        @include heading4();
-        @include focusable();
+        @include add-specificity(&) {
+            @include reset-button-style();
+            @include heading4();
+            @include focusable();
 
+            cursor: pointer;
+            border-radius: var(--g-focus-border-radius);
+
+            a {
+                @include link();
+            }
+        }
+    }
+
+    &__title-container {
+        margin: 0;
         position: relative;
         display: block;
         width: 100%;

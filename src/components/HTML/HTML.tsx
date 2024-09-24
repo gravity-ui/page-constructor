@@ -1,7 +1,7 @@
 import React, {PropsWithChildren, useMemo} from 'react';
 
 import {ClassNameProps, QAProps} from '../../models/common';
-import {hasBlockTag} from '../../utils';
+import {selectVariant} from '../../utils';
 
 export interface HTMLExtraProps {
     variant?: 'span' | 'div' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'section' | 'p';
@@ -30,13 +30,13 @@ const HTML = ({
 }: HTMLProps) => {
     const renderedContent = useMemo(() => {
         return content
-            ? React.createElement(block || hasBlockTag(content) ? 'div' : 'span', {
+            ? React.createElement(selectVariant({content, block, variant, children}), {
                   dangerouslySetInnerHTML: {__html: content},
                   className: contentClassName,
                   ...rest,
               })
             : null;
-    }, [block, content, contentClassName, rest]);
+    }, [block, children, content, contentClassName, rest, variant]);
 
     if (onlyContent) {
         return renderedContent;

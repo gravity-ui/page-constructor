@@ -34,7 +34,6 @@ export const BannerCard = (props: BannerCardProps) => {
                     <div className={b('text')}>
                         <YFMWrapper
                             variant="h2"
-                            className={b('title')}
                             contentClassName={b('title')}
                             content={title}
                             modifiers={{
@@ -43,7 +42,7 @@ export const BannerCard = (props: BannerCardProps) => {
                         />
                         {subtitle && (
                             <YFMWrapper
-                                className={b('subtitle')}
+                                contentClassName={b('subtitle')}
                                 content={subtitle}
                                 modifiers={{constructor: true}}
                             />

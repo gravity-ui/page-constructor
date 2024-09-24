@@ -29,13 +29,15 @@ $block: '.#{$ns}ExtendedFeaturesBlock';
         }
 
         &-title {
-            @include heading4();
+            @include add-specificity(&) {
+                @include heading4();
 
-            position: relative;
-            margin-bottom: $indentXXXS;
+                position: relative;
+                margin-bottom: $indentXXXS;
 
-            a {
-                @include link();
+                a {
+                    @include link();
+                }
             }
         }
 

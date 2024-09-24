@@ -28,10 +28,12 @@ $block: '.#{$ns}banner-card';
     }
 
     &__title {
-        @include heading2();
+        @include add-specificity(&) {
+            @include heading2();
 
-        a {
-            @include link();
+            a {
+                @include link();
+            }
         }
     }
 
@@ -57,12 +59,14 @@ $block: '.#{$ns}banner-card';
     }
 
     &__subtitle {
-        display: inline-block;
-        margin-top: 8px;
-        @include subtitle();
-
-        & p {
+        @include add-specificity(&) {
+            display: inline-block;
+            margin-top: 8px;
             @include subtitle();
+
+            & p {
+                @include subtitle();
+            }
         }
     }
 

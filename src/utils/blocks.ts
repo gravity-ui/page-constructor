@@ -1,3 +1,5 @@
+import {ReactNode} from 'react';
+
 import camelCase from 'lodash/camelCase';
 import flatten from 'lodash/flatten';
 
@@ -58,13 +60,24 @@ export function getHeaderTag(size: TextSize) {
     }
 }
 
-export function hasBlockTag(content?: string): boolean {
+type SelectVariantArgs = {
+    block?: boolean;
+    content?: string;
+    children?: ReactNode;
+    variant?: string;
+};
+
+export function selectVariant({content, children, variant}: SelectVariantArgs): string {
+    if (!children && variant) {
+        return variant;
+    }
+
     if (!content) {
-        return false;
+        return 'span';
     }
 
     const regex = new RegExp(BLOCK_ELEMENTS_REGEX, 'g');
-    return regex.test(content);
+    return regex.test(content) ? 'div' : 'span';
 }
 
 export function getBlockKey(block: ConstructorBlock, index: number) {

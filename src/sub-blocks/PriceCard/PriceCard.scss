@@ -63,8 +63,10 @@ $block: '.#{$ns}price-card';
     }
 
     &__title {
-        @include text-size(subheader-3);
-        margin-bottom: $indentSM;
+        @include add-specificity(&) {
+            @include text-size(subheader-3);
+            margin-bottom: $indentSM;
+        }
     }
 
     &__price {

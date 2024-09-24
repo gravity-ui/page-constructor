@@ -87,7 +87,7 @@ export default class Table extends React.Component<TableProps & ClassNameProps> 
                     <div key={item} className={b('legend-item')}>
                         {this.renderMarker(marker, String(index))}
                         <YFMWrapper
-                            className={b('legent-item-text')}
+                            contentClassName={b('legent-item-text')}
                             content={item}
                             modifiers={{constructor: true}}
                             id={getMarkerId(index)}
