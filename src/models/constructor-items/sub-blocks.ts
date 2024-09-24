@@ -158,6 +158,7 @@ export interface BannerCardProps {
     title: string;
     subtitle?: string;
     image?: ThemeSupporting<string>;
+    className?: string;
     disableCompress?: boolean;
     color?: ThemeSupporting<string>;
     theme?: TextTheme;
