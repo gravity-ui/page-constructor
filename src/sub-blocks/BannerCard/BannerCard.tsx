@@ -13,7 +13,7 @@ export const BannerCard = (props: BannerCardProps) => {
     const {
         title,
         subtitle,
-        button: {url, text, target, theme: buttonTheme = 'raised'},
+        button,
         color,
         theme: textTheme = 'light',
         image,
@@ -43,16 +43,18 @@ export const BannerCard = (props: BannerCardProps) => {
                             />
                         )}
                     </div>
-                    <RouterLink href={url}>
-                        <Button
-                            className={b('button')}
-                            theme={buttonTheme}
-                            size="xl"
-                            text={text}
-                            url={url}
-                            target={target}
-                        />
-                    </RouterLink>
+                    {button && (
+                        <RouterLink href={button.url}>
+                            <Button
+                                className={b('button')}
+                                theme={button.theme}
+                                size="xl"
+                                text={button.text}
+                                url={button.url}
+                                target={button.target}
+                            />
+                        </RouterLink>
+                    )}
                 </div>
                 <BackgroundImage
                     className={b('image')}
