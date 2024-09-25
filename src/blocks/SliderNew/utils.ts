@@ -2,8 +2,6 @@ import {useEffect, useState} from 'react';
 
 import isEqual from 'lodash/isEqual';
 import pickBy from 'lodash/pickBy';
-import Swiper from 'swiper';
-import {SwiperEvents} from 'swiper/types/swiper-events';
 import type {SwiperOptions} from 'swiper/types/swiper-options';
 
 import {BREAKPOINTS} from '../../constants';
@@ -55,13 +53,12 @@ export function getSliderResponsiveParams({
 
 export const getSlideId = (sliderId: string, index: number) => `slider-${sliderId}-child-${index}`;
 
-const MEMOIZABLE_TYPES = ['object', 'function'];
 export const useMemoized = <T>(value: T): T => {
     const [memoizedValue, setMemoizedValue] = useState(value);
 
     useEffect(() => {
         setMemoizedValue((memoized) =>
-            MEMOIZABLE_TYPES.includes(typeof value) && isEqual(memoized, value) ? memoized : value,
+            value && typeof value === 'object' && isEqual(memoized, value) ? memoized : value,
         );
     }, [value]);
 
@@ -116,14 +113,6 @@ export const getFocusAnchor = (element: HTMLElement | null) => {
     }
 
     return Array.from(element.querySelectorAll('*')).find(isFocusable) as HTMLElement | undefined;
-};
-
-export const subscribeSlider = (s: Swiper, events: Partial<SwiperEvents>) => {
-    const eventList = Object.entries(events);
-    eventList.forEach(([event, handler]) => s.on(event as keyof SwiperEvents, handler));
-
-    return () =>
-        eventList.forEach(([event, handler]) => s.off(event as keyof SwiperEvents, handler));
 };
 
 export const setElementAtrributes = (element: Element, attributes: Record<string, unknown>) =>

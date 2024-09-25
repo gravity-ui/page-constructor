@@ -42,6 +42,7 @@ export interface SliderNewProps
 
 SwiperCore.use([Autoplay, A11y, Pagination]);
 
+const VISIBLE_SLIDE_CLASS = b('slide-visible');
 export const SliderNewBlock = ({
     animated,
     title,
@@ -91,11 +92,10 @@ export const SliderNewBlock = ({
         bulletActiveClass: b('dot_active'),
     });
 
-    const {getSlideProps} = useSliderA11y({
+    const {onSlideChangeTransitionEnd: handleSlideChange} = useSliderA11y({
         slider,
         withAutoplay,
-        slidesToShow,
-        childrenCount,
+        slideVisibleClass: VISIBLE_SLIDE_CLASS,
     });
 
     return (
@@ -119,6 +119,7 @@ export const SliderNewBlock = ({
             <AnimateBlock className={b('animate-slides')} animate={animated}>
                 <Swiper
                     className={b('slider', className)}
+                    slideVisibleClass={VISIBLE_SLIDE_CLASS}
                     onSwiper={onSwiper}
                     speed={1000}
                     autoplay={autoplay}
@@ -128,7 +129,10 @@ export const SliderNewBlock = ({
                     breakpoints={breakpoints}
                     onSlideChange={onSlideChange}
                     onSlideChangeTransitionStart={onSlideChangeTransitionStart}
-                    onSlideChangeTransitionEnd={onSlideChangeTransitionEnd}
+                    onSlideChangeTransitionEnd={(...args) => {
+                        handleSlideChange?.(...args);
+                        onSlideChangeTransitionEnd?.(...args);
+                    }}
                     onActiveIndexChange={onActiveIndexChange}
                     onBreakpoint={onBreakpoint}
                     onLock={() => setIsLocked(true)}
@@ -142,7 +146,7 @@ export const SliderNewBlock = ({
                     {...paginationProps}
                 >
                     {React.Children.map(children, (elem, index) => (
-                        <SwiperSlide className={b('slide')} key={index} {...getSlideProps(index)}>
+                        <SwiperSlide className={b('slide')} key={index}>
                             {elem}
                         </SwiperSlide>
                     ))}

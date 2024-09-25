@@ -104,7 +104,10 @@ export const useSliderPagination = (props: {
         },
         onPaginationUpdate: (s) => {
             const pagination = s.pagination.el;
-            setElementAtrributes(pagination, {role: 'menu'});
+            setElementAtrributes(pagination, {
+                role: 'menu',
+                'aria-hidden': withAutoplay,
+            });
             const bullets = pagination.querySelectorAll(`.${bulletClass}`);
             bullets.forEach((bullet) => {
                 const isActive = bullet.classList.contains(bulletActiveClass);
