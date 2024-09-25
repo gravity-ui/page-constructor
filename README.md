@@ -254,6 +254,12 @@ To use mixins and constructor style variables when creating custom blocks, add i
 @import '~@gravity-ui/page-constructor/styles/styles.scss';
 ```
 
+To use default font, add import in your file:
+
+```css
+@import '~@gravity-ui/page-constructor/styles/fonts.scss';
+```
+
 ### Loadable blocks
 
 It's sometimes necessary that a block renders itself based on data to be loaded. In this case, loadable blocks are used.
