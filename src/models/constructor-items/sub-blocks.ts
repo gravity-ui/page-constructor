@@ -157,7 +157,6 @@ export interface BasicCardProps
 export interface BannerCardProps {
     title: string;
     subtitle?: string;
-    className?: string;
     image?: ThemeSupporting<string>;
     className?: string;
     disableCompress?: boolean;
