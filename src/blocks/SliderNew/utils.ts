@@ -1,13 +1,13 @@
-import {useCallback, useEffect, useMemo, useRef, useState} from 'react';
+import {useEffect, useState} from 'react';
 
 import isEqual from 'lodash/isEqual';
 import pickBy from 'lodash/pickBy';
 import Swiper from 'swiper';
+import {SwiperEvents} from 'swiper/types/swiper-events';
 import type {SwiperOptions} from 'swiper/types/swiper-options';
 
 import {BREAKPOINTS} from '../../constants';
 
-import {i18n} from './i18n';
 import {SliderBreakpointNames, SliderBreakpointParams, SlidesToShow} from './models';
 
 export const DEFAULT_SLIDE_BREAKPOINTS = {
@@ -68,223 +68,65 @@ export const useMemoized = <T>(value: T): T => {
     return memoizedValue;
 };
 
-interface PaginationBulletData {
-    bullet: HTMLElement;
-    onFocus: () => void;
-}
-
-interface UsePaginationBulletsProps {
-    currentBulletIndex: number;
-    activeBulletClassName: string;
-    getBulletAttributes: (
-        flags: {isActive: boolean; isCurrent: boolean},
-        index: number,
-    ) => Record<string, string | number | boolean | undefined>;
-    getOnBulletFocus: (index: number) => () => void;
-}
-
-const updatePaginationBulletData = (
-    bullets: HTMLElement[],
-    oldBulletData: (PaginationBulletData | undefined)[],
-    getOnBulletFocus: UsePaginationBulletsProps['getOnBulletFocus'],
-): PaginationBulletData[] => {
-    const updatedBulletData = bullets.map((bullet, index) => {
-        const old = oldBulletData[index];
-        if (bullet === old?.bullet) {
-            return old;
-        }
-
-        old?.bullet.removeEventListener('focus', old.onFocus);
-
-        const onFocus = getOnBulletFocus(index);
-        bullet.addEventListener('focus', onFocus);
-
-        return {bullet, onFocus};
-    });
-
-    if (updatedBulletData.length < oldBulletData.length) {
-        oldBulletData.slice(updatedBulletData.length).forEach((old) => {
-            old?.bullet.removeEventListener('focus', old.onFocus);
-        });
+const isFocusable = (element: Element): boolean => {
+    if (!(element instanceof HTMLElement)) {
+        return false;
+    }
+    const tabIndexAttr = element.getAttribute('tabindex');
+    const hasTabIndex = tabIndexAttr !== null;
+    const tabIndex = Number(tabIndexAttr);
+    if (element.ariaHidden === 'true' || (hasTabIndex && tabIndex < 0)) {
+        return false;
+    }
+    if (hasTabIndex && tabIndex >= 0) {
+        return true;
     }
 
-    return updatedBulletData;
+    // without this jest fails here for some reason
+    let htmlElement:
+        | HTMLAnchorElement
+        | HTMLInputElement
+        | HTMLSelectElement
+        | HTMLTextAreaElement
+        | HTMLButtonElement;
+    switch (true) {
+        case element instanceof HTMLAnchorElement:
+            htmlElement = element as HTMLAnchorElement;
+            return Boolean(htmlElement.href);
+        case element instanceof HTMLInputElement:
+            htmlElement = element as HTMLInputElement;
+            return htmlElement.type !== 'hidden' && !htmlElement.disabled;
+        case element instanceof HTMLSelectElement:
+        case element instanceof HTMLTextAreaElement:
+        case element instanceof HTMLButtonElement:
+            htmlElement = element as HTMLSelectElement | HTMLTextAreaElement | HTMLButtonElement;
+            return !htmlElement.disabled;
+        default:
+            return false;
+    }
 };
 
-const makeUpdateBulletAttributes = (
-    activeBulletClassName: string,
-    getBulletAttributes: UsePaginationBulletsProps['getBulletAttributes'],
-) => {
-    return (bullets: PaginationBulletData[], currentBulletIndex: number) => {
-        bullets.forEach(({bullet}, index) => {
-            const isCurrent = index === currentBulletIndex;
-            const isActive = bullet.classList.contains(activeBulletClassName);
-            const attributes = Object.entries(getBulletAttributes({isCurrent, isActive}, index));
-            attributes.forEach(([key, value]) => {
-                const currentValue = bullet.getAttribute(key);
-                const newValue = value?.toString();
-                const shouldClearValue = newValue === undefined;
-                if (currentValue === newValue || (currentValue === null && shouldClearValue)) {
-                    return;
-                }
+export const getFocusAnchor = (element: HTMLElement | null) => {
+    if (!element) {
+        return undefined;
+    }
 
-                if (shouldClearValue) {
-                    bullet.removeAttribute(key);
-                } else {
-                    bullet.setAttribute(key, newValue);
-                }
-            });
-        });
-    };
+    if (isFocusable(element)) {
+        return element;
+    }
+
+    return Array.from(element.querySelectorAll('*')).find(isFocusable) as HTMLElement | undefined;
 };
 
-const clearBullets = (bullets: PaginationBulletData[]) => {
-    bullets.forEach(({bullet, onFocus}) => {
-        bullet.removeEventListener('focus', onFocus);
-    });
+export const subscribeSlider = (s: Swiper, events: Partial<SwiperEvents>) => {
+    const eventList = Object.entries(events);
+    eventList.forEach(([event, handler]) => s.on(event as keyof SwiperEvents, handler));
+
+    return () =>
+        eventList.forEach(([event, handler]) => s.off(event as keyof SwiperEvents, handler));
 };
 
-const usePaginationBullets = ({
-    currentBulletIndex,
-    activeBulletClassName,
-    getBulletAttributes,
-    getOnBulletFocus,
-}: UsePaginationBulletsProps) => {
-    const bulletsRef = useRef<PaginationBulletData[]>([]);
-    const [bulletCount, setBulletCount] = useState(0);
-    const updateBulletAttributes = useMemo(
-        () => makeUpdateBulletAttributes(activeBulletClassName, getBulletAttributes),
-        [activeBulletClassName, getBulletAttributes],
+export const setElementAtrributes = (element: Element, attributes: Record<string, unknown>) =>
+    Object.entries(attributes).forEach(([attribute, value]) =>
+        element.setAttribute(attribute, String(value)),
     );
-
-    const onBulletsUpdate = (s: Swiper) => {
-        const bullets = s.pagination.bullets as unknown as HTMLElement[];
-        bulletsRef.current = updatePaginationBulletData(
-            bullets,
-            bulletsRef.current,
-            getOnBulletFocus,
-        );
-        updateBulletAttributes(bulletsRef.current, currentBulletIndex);
-        setBulletCount(bulletsRef.current.length);
-    };
-
-    useEffect(() => {
-        updateBulletAttributes(bulletsRef.current, currentBulletIndex);
-    }, [currentBulletIndex, updateBulletAttributes]);
-
-    useEffect(() => () => clearBullets(bulletsRef.current), []);
-
-    return {bulletCount, onBulletsUpdate};
-};
-
-const getRovingTabindexCurrentItemId = (uniqId: string) => `${uniqId}-roving-tabindex-current-item`;
-const makeGetRovingTabIndexBulletAttributes =
-    (
-        currentItemId: string,
-        autoplayEnabled: boolean,
-    ): UsePaginationBulletsProps['getBulletAttributes'] =>
-    ({isActive, isCurrent}) => ({
-        id: isCurrent ? currentItemId : undefined,
-        tabindex: isActive && !autoplayEnabled ? 0 : -1,
-        'aria-checked': isActive,
-        role: 'menuitemradio',
-    });
-
-export const useRovingTabIndex = (props: {
-    uniqId: string;
-    activeBulletClassName: string;
-    autoplayEnabled: boolean;
-    firstIndex?: number;
-}) => {
-    const {uniqId, activeBulletClassName, autoplayEnabled, firstIndex = 0} = props;
-
-    const [currentIndex, setCurrentIndex] = useState(firstIndex);
-    const rovingListElementRef = useRef<HTMLElement>();
-    const currentItemId = getRovingTabindexCurrentItemId(uniqId);
-    const getRovingTabIndexBulletAttributes = useMemo(
-        () => makeGetRovingTabIndexBulletAttributes(currentItemId, autoplayEnabled),
-        [autoplayEnabled, currentItemId],
-    );
-    const {bulletCount, onBulletsUpdate} = usePaginationBullets({
-        currentBulletIndex: currentIndex,
-        activeBulletClassName,
-        getBulletAttributes: getRovingTabIndexBulletAttributes,
-        getOnBulletFocus: (index) => () => {
-            setCurrentIndex(index + firstIndex);
-        },
-    });
-    const lastIndex = bulletCount + firstIndex - 1;
-    const firstIndexRef = useRef(firstIndex);
-    const lastIndexRef = useRef(lastIndex);
-
-    useEffect(() => {
-        firstIndexRef.current = firstIndex;
-        lastIndexRef.current = lastIndex;
-    }, [firstIndex, lastIndex]);
-
-    const isInitialRenderRef = useRef(true);
-    useEffect(() => {
-        if (isInitialRenderRef.current) {
-            isInitialRenderRef.current = false;
-            return;
-        }
-        if (!autoplayEnabled) {
-            document.getElementById(currentItemId)?.focus();
-        }
-    }, [autoplayEnabled, currentIndex, currentItemId]);
-
-    const onRovingListKeyDown = useCallback((e: KeyboardEvent) => {
-        const key = e.key.toLowerCase();
-
-        if (key.startsWith('arrow')) {
-            e.preventDefault();
-        }
-
-        switch (key) {
-            case 'arrowleft':
-            case 'arrowup':
-                setCurrentIndex((prev) =>
-                    prev <= firstIndexRef.current ? lastIndexRef.current : prev - 1,
-                );
-                return;
-            case 'arrowright':
-            case 'arrowdown':
-                setCurrentIndex((prev) =>
-                    prev >= lastIndexRef.current ? firstIndexRef.current : prev + 1,
-                );
-                return;
-        }
-    }, []);
-
-    const hasEventListenerRef = useRef(false);
-    const onPaginationUpdate = (s: Swiper) => {
-        onBulletsUpdate(s);
-
-        const pagination = s.pagination.el;
-        if (pagination === rovingListElementRef.current && hasEventListenerRef.current) {
-            return;
-        }
-
-        pagination.setAttribute('role', 'menu');
-        pagination.setAttribute('aria-hidden', String(autoplayEnabled));
-        pagination.setAttribute('aria-label', i18n('pagination-label'));
-
-        if (!hasEventListenerRef.current) {
-            pagination.addEventListener('keydown', onRovingListKeyDown);
-            hasEventListenerRef.current = true;
-        }
-
-        rovingListElementRef.current = pagination;
-    };
-
-    const onPaginationHide = useCallback(() => {
-        if (hasEventListenerRef.current) {
-            rovingListElementRef.current?.removeEventListener('keydown', onRovingListKeyDown);
-            hasEventListenerRef.current = false;
-        }
-    }, [onRovingListKeyDown]);
-
-    useEffect(() => () => onPaginationHide(), [onPaginationHide]);
-
-    return {onPaginationUpdate, onPaginationHide};
-};

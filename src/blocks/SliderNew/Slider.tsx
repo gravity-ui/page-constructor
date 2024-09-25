@@ -11,7 +11,8 @@ import {block} from '../../utils';
 
 import Arrow from './Arrow/Arrow';
 import {i18n} from './i18n';
-import {useSlider} from './useSlider';
+import {useSlider, useSliderPagination} from './useSlider';
+import {useSliderA11y} from './useSliderA11y';
 
 import './Slider.scss';
 import 'swiper/swiper-bundle.css';
@@ -41,8 +42,6 @@ export interface SliderNewProps
 
 SwiperCore.use([Autoplay, A11y, Pagination]);
 
-const ACTIVE_BULLET_CLASSNAME = b('dot_active');
-
 export const SliderNewBlock = ({
     animated,
     title,
@@ -67,23 +66,36 @@ export const SliderNewBlock = ({
     onBreakpoint,
 }: PropsWithChildren<SliderNewProps>) => {
     const {
+        slider,
+        autoplay,
+        isLocked,
         childrenCount,
         breakpoints,
-        autoplay,
         onSwiper,
         onPrev,
         onNext,
-        isLocked,
         setIsLocked,
-        getSlideProps,
-        onPaginationUpdate,
-        onPaginationHide,
     } = useSlider({
         slidesToShow,
         children,
         type,
         autoplayMs,
-        activeBulletClassName: ACTIVE_BULLET_CLASSNAME,
+    });
+
+    const withAutoplay = Boolean(autoplay);
+
+    const paginationProps = useSliderPagination({
+        enabled: dots,
+        withAutoplay,
+        bulletClass: b('dot', dotsClassName),
+        bulletActiveClass: b('dot_active'),
+    });
+
+    const {getSlideProps} = useSliderA11y({
+        slider,
+        withAutoplay,
+        slidesToShow,
+        childrenCount,
     });
 
     return (
@@ -108,13 +120,6 @@ export const SliderNewBlock = ({
                 <Swiper
                     className={b('slider', className)}
                     onSwiper={onSwiper}
-                    pagination={
-                        dots && {
-                            clickable: true,
-                            bulletClass: b('dot', dotsClassName),
-                            bulletActiveClass: ACTIVE_BULLET_CLASSNAME,
-                        }
-                    }
                     speed={1000}
                     autoplay={autoplay}
                     autoHeight={adaptive}
@@ -128,16 +133,13 @@ export const SliderNewBlock = ({
                     onBreakpoint={onBreakpoint}
                     onLock={() => setIsLocked(true)}
                     onUnlock={() => setIsLocked(false)}
-                    onPaginationUpdate={onPaginationUpdate}
-                    onPaginationHide={onPaginationHide}
                     watchSlidesVisibility
                     watchOverflow
                     a11y={{
                         slideLabelMessage: '',
-                        paginationBulletMessage: i18n('dot-label', {
-                            index: '{{index}}',
-                        }),
+                        paginationBulletMessage: i18n('dot-label', {index: '{{index}}'}),
                     }}
+                    {...paginationProps}
                 >
                     {React.Children.map(children, (elem, index) => (
                         <SwiperSlide className={b('slide')} key={index} {...getSlideProps(index)}>
@@ -147,20 +149,20 @@ export const SliderNewBlock = ({
                 </Swiper>
                 {arrows && !isLocked && (
                     <Fragment>
-                        <div aria-hidden={Boolean(autoplay)}>
+                        <div aria-hidden={withAutoplay}>
                             <Arrow
                                 className={b('arrow', {prev: true})}
                                 type="left"
                                 onClick={onPrev}
                                 size={arrowSize}
-                                extraProps={{tabIndex: autoplay ? -1 : 0}}
+                                extraProps={{tabIndex: withAutoplay ? -1 : 0}}
                             />
                             <Arrow
                                 className={b('arrow', {next: true})}
                                 type="right"
                                 onClick={onNext}
                                 size={arrowSize}
-                                extraProps={{tabIndex: autoplay ? -1 : 0}}
+                                extraProps={{tabIndex: withAutoplay ? -1 : 0}}
                             />
                         </div>
                     </Fragment>

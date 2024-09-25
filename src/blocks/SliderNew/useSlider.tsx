@@ -1,83 +1,26 @@
-import React, {PropsWithChildren, useEffect, useMemo, useRef, useState} from 'react';
+import React, {PropsWithChildren, useEffect, useMemo, useState} from 'react';
 
-import {useUniqId} from '@gravity-ui/uikit';
 import type {Swiper} from 'swiper';
+import {Swiper as SwiperProps} from 'swiper/swiper-react';
 
 import {SliderType, SlidesToShow} from '../../models';
 
-import {getSlideId, getSliderResponsiveParams, useMemoized, useRovingTabIndex} from './utils';
+import {getSliderResponsiveParams, setElementAtrributes, useMemoized} from './utils';
 
-const isFocusable = (element: Element): boolean => {
-    if (!(element instanceof HTMLElement)) {
-        return false;
-    }
-    const tabIndexAttr = element.getAttribute('tabindex');
-    const hasTabIndex = tabIndexAttr !== null;
-    const tabIndex = Number(tabIndexAttr);
-    if (element.ariaHidden === 'true' || (hasTabIndex && tabIndex < 0)) {
-        return false;
-    }
-    if (hasTabIndex && tabIndex >= 0) {
-        return true;
-    }
-
-    // without this jest fails here for some reason
-    let htmlElement:
-        | HTMLAnchorElement
-        | HTMLInputElement
-        | HTMLSelectElement
-        | HTMLTextAreaElement
-        | HTMLButtonElement;
-    switch (true) {
-        case element instanceof HTMLAnchorElement:
-            htmlElement = element as HTMLAnchorElement;
-            return Boolean(htmlElement.href);
-        case element instanceof HTMLInputElement:
-            htmlElement = element as HTMLInputElement;
-            return htmlElement.type !== 'hidden' && !htmlElement.disabled;
-        case element instanceof HTMLSelectElement:
-        case element instanceof HTMLTextAreaElement:
-        case element instanceof HTMLButtonElement:
-            htmlElement = element as HTMLSelectElement | HTMLTextAreaElement | HTMLButtonElement;
-            return !htmlElement.disabled;
-        default:
-            return false;
-    }
-};
-
-export const useSlider = ({
-    children,
-    autoplayMs,
-    type,
-    activeBulletClassName,
-    ...props
-}: PropsWithChildren<{
+type UseSliderProps = PropsWithChildren<{
     autoplayMs?: number;
     type?: string;
     slidesToShow?: SlidesToShow;
-    activeBulletClassName: string;
-}>) => {
+}>;
+
+export const useSlider = ({children, autoplayMs, type, ...props}: UseSliderProps) => {
     const [slider, setSlider] = useState<Swiper>();
-    const [activeIndex, setActiveIndex] = useState(0);
-    const [isSliding, setIsSliding] = useState(false);
-    const prevIndexRef = useRef<number>(0);
     const [isLocked, setIsLocked] = useState(false);
     const slidesToShow = useMemoized(props.slidesToShow);
-    const uniqId = useUniqId();
 
     const childrenCount = React.Children.count(children);
 
-    const [currentSlidesToShow, setCurrentSlidesToShow] = useState(
-        typeof slidesToShow === 'number' ? slidesToShow : childrenCount,
-    );
-
     const autoplayEnabled = autoplayMs !== undefined && autoplayMs > 0;
-
-    const {onPaginationUpdate, onPaginationHide} = useRovingTabIndex({
-        uniqId,
-        activeBulletClassName,
-        autoplayEnabled,
-    });
 
     const breakpoints = useMemo(() => {
         return getSliderResponsiveParams({
@@ -115,83 +58,6 @@ export const useSlider = ({
         slider.slidePrev();
     };
 
-    const firstVisibleIndex = activeIndex;
-    const lastVisibleIndex = Math.min(activeIndex + currentSlidesToShow, childrenCount) - 1;
-    const getSlideProps = (index: number): React.HTMLAttributes<HTMLElement> => {
-        const isVisible =
-            autoplayEnabled || (firstVisibleIndex <= index && index <= lastVisibleIndex);
-        return {
-            id: getSlideId(uniqId, index),
-            'aria-hidden': !isVisible,
-            style: isVisible || isSliding ? undefined : {visibility: 'hidden'},
-        };
-    };
-
-    useEffect(() => {
-        if (!slider) {
-            return;
-        }
-
-        const getCurrentSlidesPerView = (s: Swiper) => {
-            return typeof slidesToShow === 'number'
-                ? slidesToShow
-                : (
-                      s as unknown as Swiper & {slidesPerViewDynamic: () => number}
-                  ).slidesPerViewDynamic();
-        };
-
-        const onActiveIndexChange = (s: Swiper) => {
-            setActiveIndex(s.activeIndex);
-        };
-
-        const onSlideChangeTransitionStart = () => {
-            setIsSliding(true);
-        };
-
-        const onSlideChangeTransitionEnd = (s: Swiper) => {
-            setIsSliding(false);
-            if (autoplayEnabled) {
-                return;
-            }
-            const slidesPerView = getCurrentSlidesPerView(s);
-            const currentSlide = s.activeIndex;
-
-            const focusIndex =
-                prevIndexRef.current >= currentSlide
-                    ? currentSlide
-                    : Math.max(currentSlide, prevIndexRef.current + slidesPerView);
-
-            prevIndexRef.current = currentSlide;
-            const firstNewSlide = document.getElementById(getSlideId(uniqId, focusIndex));
-            if (!firstNewSlide) {
-                return;
-            }
-            const focusableChild = Array.from(firstNewSlide.querySelectorAll('*')).find(
-                isFocusable,
-            ) as HTMLElement | undefined;
-            focusableChild?.focus();
-        };
-
-        const onResize = (s: Swiper) => {
-            setCurrentSlidesToShow(getCurrentSlidesPerView(s));
-        };
-
-        setCurrentSlidesToShow(getCurrentSlidesPerView(slider));
-
-        slider.on('activeIndexChange', onActiveIndexChange);
-        slider.on('resize', onResize);
-        slider.on('slideChangeTransitionStart', onSlideChangeTransitionStart);
-        slider.on('slideChangeTransitionEnd', onSlideChangeTransitionEnd);
-
-        // eslint-disable-next-line consistent-return
-        return () => {
-            slider.off('activeIndexChange', onActiveIndexChange);
-            slider.off('resize', onResize);
-            slider.off('slideChangeTransitionStart', onSlideChangeTransitionStart);
-            slider.off('slideChangeTransitionEnd', onSlideChangeTransitionEnd);
-        };
-    }, [autoplayEnabled, slider, slidesToShow, uniqId]);
-
     useEffect(() => {
         if (!slider) {
             return;
@@ -215,9 +81,40 @@ export const useSlider = ({
         setIsLocked,
         autoplay: autoplayEnabled && {
             delay: autoplayMs,
+            disableOnInteraction: false,
         },
-        getSlideProps,
-        onPaginationUpdate,
-        onPaginationHide,
+    };
+};
+
+export const useSliderPagination = (props: {
+    enabled: boolean;
+    withAutoplay: boolean;
+    bulletClass: string;
+    bulletActiveClass: string;
+}): Pick<SwiperProps, 'pagination' | 'onPaginationUpdate'> | undefined => {
+    if (!props.enabled) {
+        return undefined;
+    }
+    const {withAutoplay, bulletClass, bulletActiveClass} = props;
+    return {
+        pagination: {
+            clickable: true,
+            bulletClass,
+            bulletActiveClass,
+        },
+        onPaginationUpdate: (s) => {
+            const pagination = s.pagination.el;
+            setElementAtrributes(pagination, {role: 'menu'});
+            const bullets = pagination.querySelectorAll(`.${bulletClass}`);
+            bullets.forEach((bullet) => {
+                const isActive = bullet.classList.contains(bulletActiveClass);
+                setElementAtrributes(bullet, {
+                    role: 'menuitemradio',
+                    'aria-hidden': withAutoplay,
+                    'aria-checked': isActive,
+                    tabindex: withAutoplay ? -1 : 0,
+                });
+            });
+        },
     };
 };
