@@ -1,5 +1,6 @@
 import '../styles/storybook/index.scss';
 import '@gravity-ui/uikit/styles/styles.scss';
+import '@gravity-ui/uikit/styles/fonts.css';
 
 import * as React from 'react';
 import {MINIMAL_VIEWPORTS} from '@storybook/addon-viewport';
@@ -86,8 +87,6 @@ const preview: Preview = {
             },
         },
     },
-
-    tags: ['autodocs', 'autodocs', 'autodocs'],
 };
 
 export default preview;
