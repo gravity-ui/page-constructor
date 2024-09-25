@@ -48,6 +48,17 @@
       "backgroundColor": "#ccf0d2"
     }
   },
+  "withUrl": {
+    "content": {
+      "url": "https://example.com"
+    }
+  },
+  "withUrlAndBackgroundColor": {
+    "content": {
+      "url": "https://example.com",
+      "backgroundColor": "#ccf0d2"
+    }
+  },
   "content": {
     "url": "https://example.com",
     "links": [

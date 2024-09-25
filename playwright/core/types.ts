@@ -27,6 +27,7 @@ export type Fixtures = {
     mount: MountFixture;
     expectScreenshot: ExpectScreenshotFixture;
     defaultDelay: () => Promise<void>;
+    delay: (delay: number) => Promise<void>;
 };
 
 export type MountFixture = ComponentFixtures['mount'];
@@ -38,4 +39,5 @@ export interface ExpectScreenshotFixture {
 interface CaptureScreenshotParams extends PageScreenshotOptions {
     screenshotName?: string;
     component?: Locator;
+    skipTheme?: 'light' | 'dark';
 }

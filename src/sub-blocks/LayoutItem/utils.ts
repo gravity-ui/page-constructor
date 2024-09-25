@@ -11,4 +11,4 @@ export const hasFullscreen = ({dataLens, image}: MediaProps) => {
     return !(dataLens || Array.isArray(image));
 };
 
-export const showFullscreenIcon = ({youtube}: MediaProps) => !youtube;
+export const showFullscreenIcon = ({youtube, videoIframe}: MediaProps) => !(youtube || videoIframe);

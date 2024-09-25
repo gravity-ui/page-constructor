@@ -30,6 +30,12 @@ $backgroundWidth: 1440px;
             #{$block}__overtitle {
                 color: var(--g-color-text-light-primary);
             }
+
+            #{$block}__description {
+                .yfm {
+                    color: var(--g-color-text-light-primary);
+                }
+            }
         }
 
         &_vertical-offset {

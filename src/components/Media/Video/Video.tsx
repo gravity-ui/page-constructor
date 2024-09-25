@@ -85,6 +85,7 @@ const Video = (props: VideoAllProps) => {
             playButton,
             ariaLabel,
             customControlsOptions,
+            contain,
         } = video;
 
         return (
@@ -104,7 +105,9 @@ const Video = (props: VideoAllProps) => {
                 height={height}
                 ariaLabel={ariaLabel}
                 customControlsOptions={customControlsOptions}
-                ratio={ratio}
+                ratio={ratio === 'auto' ? undefined : ratio}
+                autoRatio={ratio === 'auto'}
+                contain={contain}
             />
         );
     }, [

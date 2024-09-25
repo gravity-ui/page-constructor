@@ -19,7 +19,7 @@ const nonComplexNavigationItemTypes = NavigationItemTypes.filter(
     (type) => type !== NavigationItemType.Dropdown,
 );
 
-const NavigationItem: React.FC<NavigationItemProps> = ({
+export const NavigationItem: React.FC<NavigationItemProps> = ({
     data,
     className,
     menuLayout,

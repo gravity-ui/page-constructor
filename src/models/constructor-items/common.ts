@@ -1,4 +1,10 @@
-import React, {CSSProperties, HTMLProps, ReactNode} from 'react';
+import React, {
+    CSSProperties,
+    DetailedHTMLProps,
+    HTMLProps,
+    ImgHTMLAttributes,
+    ReactNode,
+} from 'react';
 
 import {ButtonView, ButtonProps as UikitButtonProps} from '@gravity-ui/uikit';
 
@@ -125,8 +131,13 @@ interface LoopProps {
 
 // images
 
-export interface ImageInfoProps extends Pick<HTMLProps<HTMLImageElement>, 'aria-describedby'> {
+export interface ImageInfoProps
+    extends Pick<
+        DetailedHTMLProps<ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement>,
+        'aria-describedby' | 'loading'
+    > {
     alt?: string;
+    fetchPriority?: 'high' | 'low' | 'auto';
     disableCompress?: boolean;
 }
 
@@ -165,6 +176,7 @@ export interface MediaVideoProps extends AnalyticsEventsBase {
     controls?: MediaVideoControlsType;
     customControlsOptions?: CustomControlsOptions;
     ariaLabel?: string;
+    contain?: boolean;
 }
 
 // links
@@ -237,8 +249,12 @@ export type ThemedMediaVideoProps = ThemeSupporting<MediaVideoProps>;
 export interface MediaComponentVideoProps extends AnalyticsEventsBase {
     video: MediaVideoProps;
     height?: number;
-    ratio?: number;
+    ratio?: number | 'auto';
     previewImg?: string;
+}
+
+export interface MediaComponentVideoIframeProps {
+    videoIframe: string;
 }
 
 export interface MediaComponentYoutubeProps {
@@ -268,6 +284,7 @@ export interface MediaProps
     extends Animatable,
         Partial<MediaComponentDataLensProps>,
         Partial<MediaComponentYoutubeProps>,
+        Partial<MediaComponentVideoIframeProps>,
         Partial<MediaComponentImageProps>,
         Partial<MediaComponentIframeProps>,
         Partial<MediaComponentVideoProps> {

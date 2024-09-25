@@ -107,6 +107,7 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
                     ['has-media']: hasRightSideImage,
                     ['full-width']: fullWidth,
                     ['media-view']: mediaView,
+                    ['controls-view']: textTheme,
                 },
                 className,
             )}
@@ -142,7 +143,7 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
                                         {renderTitle ? renderTitle(title) : <HTML>{title}</HTML>}
                                     </h1>
                                     {description && (
-                                        <div className={b('description')}>
+                                        <div className={b('description', {theme: textTheme})}>
                                             <YFMWrapper
                                                 content={description}
                                                 modifiers={{

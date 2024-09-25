@@ -62,7 +62,7 @@ export function typograf(text: string, lang: Lang = 'ru') {
     };
 
     const tp = new Typograf({
-        locale: localeByLang[lang],
+        locale: localeByLang[lang] || lang,
         htmlEntity: {type: 'name'},
     });
 

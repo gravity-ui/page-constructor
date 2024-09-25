@@ -158,12 +158,16 @@ export const Margins = MultipleTemplate.bind({});
 export const DirectionReverse = MultipleTemplate.bind({});
 export const Content = ContentTemplate.bind({});
 export const BackgroundColor = MultipleTemplate.bind({});
+export const WithUrl = MultipleTemplate.bind({});
+export const WithUrlAndBackgroundColor = BorderTemplate.bind({});
 export const Border = BorderTemplate.bind({});
 export const BorderRadius = BorderRadiusTemplate.bind({});
 export const ControlPosition = ControlPositionTemplate.bind({});
 
 DirectionReverse.args = {direction: 'reverse'} as Partial<ImageCardProps>;
 BackgroundColor.args = {...data.backgroundColor.content};
+WithUrl.args = {...data.withUrl.content};
+WithUrlAndBackgroundColor.args = {...data.withUrlAndBackgroundColor.content};
 ControlPosition.args = undefined;
 ControlPosition.argTypes = {
     title: {table: {disable: true}},

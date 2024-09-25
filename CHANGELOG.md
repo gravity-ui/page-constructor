@@ -1,6 +1,128 @@
 # Changelog
 
 
+## [5.26.1](https://github.com/gravity-ui/page-constructor/compare/v5.26.0...v5.26.1) (2024-09-23)
+
+
+### Bug Fixes
+
+* dynamic imports in vite prod build ([#1023](https://github.com/gravity-ui/page-constructor/issues/1023)) ([af055fc](https://github.com/gravity-ui/page-constructor/commit/af055fcd79bacea8a309822e7ef342a53adf159b))
+
+## [5.26.0](https://github.com/gravity-ui/page-constructor/compare/v5.25.0...v5.26.0) (2024-09-20)
+
+
+### Features
+
+* **ReactPlayer:** video aspect ratio & object-fit ([#1019](https://github.com/gravity-ui/page-constructor/issues/1019)) ([925ace9](https://github.com/gravity-ui/page-constructor/commit/925ace9b9846499aa94d7c4d34d9837b8da25cb8))
+
+## [5.25.0](https://github.com/gravity-ui/page-constructor/compare/v5.24.0...v5.25.0) (2024-09-19)
+
+
+### Features
+
+* allow background for image-card with url ([#1020](https://github.com/gravity-ui/page-constructor/issues/1020)) ([b5e9661](https://github.com/gravity-ui/page-constructor/commit/b5e9661f6b4052b4b1b6a286ce4b0d1476eef53a))
+
+## [5.24.0](https://github.com/gravity-ui/page-constructor/compare/v5.23.3...v5.24.0) (2024-09-16)
+
+
+### Features
+
+* header slider support controls change theme ([#1015](https://github.com/gravity-ui/page-constructor/issues/1015)) ([8d3b16d](https://github.com/gravity-ui/page-constructor/commit/8d3b16dbb6ba9961c599af765648f22703dec7c4))
+
+## [5.23.3](https://github.com/gravity-ui/page-constructor/compare/v5.23.2...v5.23.3) (2024-09-12)
+
+
+### Bug Fixes
+
+* breadcrumbs a11y ([#996](https://github.com/gravity-ui/page-constructor/issues/996)) ([3a45bab](https://github.com/gravity-ui/page-constructor/commit/3a45bab33f60405cda9b33dcff613fd254afc64a))
+* resolve media has caption ([#1011](https://github.com/gravity-ui/page-constructor/issues/1011)) ([e083f0a](https://github.com/gravity-ui/page-constructor/commit/e083f0ad723fd5afb56d6ed42f61f6207d354e98))
+
+## [5.23.2](https://github.com/gravity-ui/page-constructor/compare/v5.23.1...v5.23.2) (2024-09-06)
+
+
+### Bug Fixes
+
+* use languages ​​other than ru/en for Typograf ([#1009](https://github.com/gravity-ui/page-constructor/issues/1009)) ([f990b81](https://github.com/gravity-ui/page-constructor/commit/f990b81c12e4964822b99984021a6e0a6b447fc2))
+
+## [5.23.1](https://github.com/gravity-ui/page-constructor/compare/v5.23.0...v5.23.1) (2024-09-06)
+
+
+### Bug Fixes
+
+* add autoplay to videoblock if preview is enabled ([#1005](https://github.com/gravity-ui/page-constructor/issues/1005)) ([8dc0f82](https://github.com/gravity-ui/page-constructor/commit/8dc0f8224fe516fbca12233ac11e0950461fc100))
+
+## [5.23.0](https://github.com/gravity-ui/page-constructor/compare/v5.22.1...v5.23.0) (2024-09-06)
+
+
+### Features
+
+* add videoIframe prop to media block and component ([#999](https://github.com/gravity-ui/page-constructor/issues/999)) ([13528be](https://github.com/gravity-ui/page-constructor/commit/13528bea0de5f4d21bbca21cbcf28f8f3b0a7169))
+
+## [5.22.1](https://github.com/gravity-ui/page-constructor/compare/v5.22.0...v5.22.1) (2024-09-05)
+
+
+### Bug Fixes
+
+* filter block a11y refactoring ([#980](https://github.com/gravity-ui/page-constructor/issues/980)) ([41b2bc3](https://github.com/gravity-ui/page-constructor/commit/41b2bc3482d59912a22f03cbb333a66fb0860757))
+
+## [5.22.0](https://github.com/gravity-ui/page-constructor/compare/v5.21.0...v5.22.0) (2024-08-30)
+
+
+### Features
+
+* add mobile header items and renderNavigation method ([#989](https://github.com/gravity-ui/page-constructor/issues/989)) ([6cd9289](https://github.com/gravity-ui/page-constructor/commit/6cd9289636063278a26a8cbbc28065485904705f))
+
+
+### Bug Fixes
+
+* image card link hover ([#995](https://github.com/gravity-ui/page-constructor/issues/995)) ([65b89c5](https://github.com/gravity-ui/page-constructor/commit/65b89c558f5a1c20970b953fbdb160d369eb9907))
+
+## [5.21.0](https://github.com/gravity-ui/page-constructor/compare/v5.20.1...v5.21.0) (2024-08-29)
+
+
+### Features
+
+* update packages minor versions ([#992](https://github.com/gravity-ui/page-constructor/issues/992)) ([ddcfb9e](https://github.com/gravity-ui/page-constructor/commit/ddcfb9ee7a38c7a5979d730dfe3f9f4586bfbfed))
+
+## [5.20.1](https://github.com/gravity-ui/page-constructor/compare/v5.20.0...v5.20.1) (2024-08-19)
+
+
+### Bug Fixes
+
+* **Content:** apply control-position: bottom to links ([#988](https://github.com/gravity-ui/page-constructor/issues/988)) ([c9beab9](https://github.com/gravity-ui/page-constructor/commit/c9beab9f215aef11ceba92421741627f756466c9))
+
+## [5.20.0](https://github.com/gravity-ui/page-constructor/compare/v5.19.0...v5.20.0) (2024-08-13)
+
+
+### Features
+
+* **Image:** loading optimizations ([#985](https://github.com/gravity-ui/page-constructor/issues/985)) ([7db8190](https://github.com/gravity-ui/page-constructor/commit/7db8190ef50e69556461aa73f2ed2fbf256bfe95))
+
+## [5.19.0](https://github.com/gravity-ui/page-constructor/compare/v5.18.0...v5.19.0) (2024-08-12)
+
+
+### Features
+
+* add alt for navigation logo, focusable props for dropdown and lnks  ([#977](https://github.com/gravity-ui/page-constructor/issues/977)) ([40ba3d2](https://github.com/gravity-ui/page-constructor/commit/40ba3d2ced2a92b58279e75614639faf7d76c7ec))
+
+
+### Bug Fixes
+
+* enable a11y eslint rules ([#968](https://github.com/gravity-ui/page-constructor/issues/968)) ([3bb75d9](https://github.com/gravity-ui/page-constructor/commit/3bb75d9fe4410d81d5a1e40dfc93e2171bf3db55))
+
+## [5.18.0](https://github.com/gravity-ui/page-constructor/compare/v5.17.2...v5.18.0) (2024-08-08)
+
+
+### Features
+
+* breadcrumbs a11y ([#975](https://github.com/gravity-ui/page-constructor/issues/975)) ([1503c49](https://github.com/gravity-ui/page-constructor/commit/1503c4950aa8d4ac06f1afc1e0d8f7737d4b84b3))
+
+
+### Bug Fixes
+
+* feature icons a11y ([#974](https://github.com/gravity-ui/page-constructor/issues/974)) ([30b8cab](https://github.com/gravity-ui/page-constructor/commit/30b8cabfafeabbcd387a0aee5262ab489529f44a))
+* new slider styles ([#979](https://github.com/gravity-ui/page-constructor/issues/979)) ([d702a42](https://github.com/gravity-ui/page-constructor/commit/d702a42d9d2adde892212eead94cee3c3416365c))
+
 ## [5.17.2](https://github.com/gravity-ui/page-constructor/compare/v5.17.1...v5.17.2) (2024-07-30)
 
 

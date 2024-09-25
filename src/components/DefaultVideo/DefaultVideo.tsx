@@ -87,6 +87,7 @@ export const DefaultVideo = React.forwardRef<DefaultVideoRefType, DefaultVideoPr
                     {getVideoTypesWithPriority(video.src).map(({src, type}, index) => (
                         <source key={index} src={src} type={type} data-qa={qa} />
                     ))}
+                    <track default kind="captions" />
                 </video>
 
                 {controls === MediaVideoControlsType.Custom && (

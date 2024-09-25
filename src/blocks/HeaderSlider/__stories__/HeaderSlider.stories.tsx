@@ -32,9 +32,16 @@ const AutoPlayTemplate: StoryFn<HeaderSliderBlockModel> = (args) => (
 
 export const Default = DefaultTemplate.bind({});
 export const AutoPlay = AutoPlayTemplate.bind({});
+export const WithDifferentSlidesThemes = DefaultTemplate.bind({});
+export const WithDifferentSlidesThemesAutoPlay = AutoPlayTemplate.bind({});
 
 Default.args = data.default.content as HeaderSliderBlockProps;
+WithDifferentSlidesThemes.args = data.withDifferentSlidesTheme.content as HeaderSliderBlockProps;
 AutoPlay.args = {
     ...data.autoPlay.content,
     items: data.default.content.items,
+} as HeaderSliderBlockProps;
+WithDifferentSlidesThemesAutoPlay.args = {
+    ...data.autoPlay.content,
+    items: data.withDifferentSlidesTheme.content.items,
 } as HeaderSliderBlockProps;

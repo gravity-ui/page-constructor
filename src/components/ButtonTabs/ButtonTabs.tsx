@@ -53,7 +53,7 @@ const ButtonTabs: React.FC<ButtonTabsProps> = ({
     );
 
     return (
-        <div className={b(null, className)} data-qa={qa}>
+        <div className={b(null, className)} role="tablist" data-qa={qa}>
             {items.map(({id, title}) => {
                 const isActive = id === activeTabId;
 
@@ -65,7 +65,8 @@ const ButtonTabs: React.FC<ButtonTabsProps> = ({
                         size={tabSize}
                         onClick={handleClick(id)}
                         extraProps={{
-                            'aria-current': isActive || undefined,
+                            role: 'tab',
+                            'aria-selected': isActive,
                         }}
                     />
                 );
