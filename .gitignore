@@ -19,6 +19,6 @@ node_modules
 .env
 .env.development
 /test-results/
-/playwright-report/
+playwright-report*
 /blob-report/
-/playwright/playwright/.cache/
+.cache*
