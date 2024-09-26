@@ -5,6 +5,7 @@ import {test} from '../../../../playwright/core/index';
 import {Default, Direction, MapsTypes, Size} from './helpers';
 
 test.describe('Map', () => {
+
     test('render stories <Default>', async ({mount, expectScreenshot, page}) => {
         await mount(<Default />);
 

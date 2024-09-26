@@ -1,6 +1,18 @@
 # Changelog
 
 
+## [5.27.0](https://github.com/gravity-ui/page-constructor/compare/v5.26.1...v5.27.0) (2024-09-25)
+
+
+### Features
+
+* add className property for banner block ([#1031](https://github.com/gravity-ui/page-constructor/issues/1031)) ([48ba404](https://github.com/gravity-ui/page-constructor/commit/48ba404de6970654383040fd788bab26fd6327d0))
+
+
+### Bug Fixes
+
+* button in banner block is optional ([#1033](https://github.com/gravity-ui/page-constructor/issues/1033)) ([36cb65f](https://github.com/gravity-ui/page-constructor/commit/36cb65f5b9749148bdce107efbcf27cba22bef8b))
+
 ## [5.26.1](https://github.com/gravity-ui/page-constructor/compare/v5.26.0...v5.26.1) (2024-09-23)
 
 
