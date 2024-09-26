@@ -157,11 +157,12 @@ export interface BasicCardProps
 export interface BannerCardProps {
     title: string;
     subtitle?: string;
+    className?: string;
     image?: ThemeSupporting<string>;
     disableCompress?: boolean;
     color?: ThemeSupporting<string>;
     theme?: TextTheme;
-    button: Pick<ButtonProps, 'text' | 'url' | 'target' | 'theme'>;
+    button?: Pick<ButtonProps, 'text' | 'url' | 'target' | 'theme'>;
     mediaView?: MediaView;
 }
 
