@@ -12,7 +12,6 @@ import {block} from '../../utils';
 import Arrow from './Arrow/Arrow';
 import {i18n} from './i18n';
 import {useSlider, useSliderPagination} from './useSlider';
-import {useSliderA11y} from './useSliderA11y';
 
 import './Slider.scss';
 import 'swiper/swiper-bundle.css';
@@ -42,7 +41,6 @@ export interface SliderNewProps
 
 SwiperCore.use([Autoplay, A11y, Pagination]);
 
-const VISIBLE_SLIDE_CLASS = b('slide-visible');
 export const SliderNewBlock = ({
     animated,
     title,
@@ -66,22 +64,13 @@ export const SliderNewBlock = ({
     onActiveIndexChange,
     onBreakpoint,
 }: PropsWithChildren<SliderNewProps>) => {
-    const {
-        slider,
-        autoplay,
-        isLocked,
-        childrenCount,
-        breakpoints,
-        onSwiper,
-        onPrev,
-        onNext,
-        setIsLocked,
-    } = useSlider({
-        slidesToShow,
-        children,
-        type,
-        autoplayMs,
-    });
+    const {autoplay, isLocked, childrenCount, breakpoints, onSwiper, onPrev, onNext, setIsLocked} =
+        useSlider({
+            slidesToShow,
+            children,
+            type,
+            autoplayMs,
+        });
 
     const withAutoplay = Boolean(autoplay);
 
@@ -90,12 +79,7 @@ export const SliderNewBlock = ({
         withAutoplay,
         bulletClass: b('dot', dotsClassName),
         bulletActiveClass: b('dot_active'),
-    });
-
-    const {onSlideChangeTransitionEnd: handleSlideChange} = useSliderA11y({
-        slider,
-        withAutoplay,
-        slideVisibleClass: VISIBLE_SLIDE_CLASS,
+        paginationLabel: b('pagination-label'),
     });
 
     return (
@@ -119,7 +103,6 @@ export const SliderNewBlock = ({
             <AnimateBlock className={b('animate-slides')} animate={animated}>
                 <Swiper
                     className={b('slider', className)}
-                    slideVisibleClass={VISIBLE_SLIDE_CLASS}
                     onSwiper={onSwiper}
                     speed={1000}
                     autoplay={autoplay}
@@ -129,10 +112,7 @@ export const SliderNewBlock = ({
                     breakpoints={breakpoints}
                     onSlideChange={onSlideChange}
                     onSlideChangeTransitionStart={onSlideChangeTransitionStart}
-                    onSlideChangeTransitionEnd={(...args) => {
-                        handleSlideChange?.(...args);
-                        onSlideChangeTransitionEnd?.(...args);
-                    }}
+                    onSlideChangeTransitionEnd={onSlideChangeTransitionEnd}
                     onActiveIndexChange={onActiveIndexChange}
                     onBreakpoint={onBreakpoint}
                     onLock={() => setIsLocked(true)}
@@ -147,7 +127,9 @@ export const SliderNewBlock = ({
                 >
                     {React.Children.map(children, (elem, index) => (
                         <SwiperSlide className={b('slide')} key={index}>
-                            {elem}
+                            {({isVisible}) => (
+                                <div aria-hidden={!withAutoplay && !isVisible}>{elem}</div>
+                            )}
                         </SwiperSlide>
                     ))}
                 </Swiper>

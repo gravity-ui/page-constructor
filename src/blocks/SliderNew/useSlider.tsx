@@ -91,11 +91,12 @@ export const useSliderPagination = (props: {
     withAutoplay: boolean;
     bulletClass: string;
     bulletActiveClass: string;
+    paginationLabel: string;
 }): Pick<SwiperProps, 'pagination' | 'onPaginationUpdate'> | undefined => {
     if (!props.enabled) {
         return undefined;
     }
-    const {withAutoplay, bulletClass, bulletActiveClass} = props;
+    const {withAutoplay, bulletClass, bulletActiveClass, paginationLabel} = props;
     return {
         pagination: {
             clickable: true,
@@ -107,6 +108,7 @@ export const useSliderPagination = (props: {
             setElementAtrributes(pagination, {
                 role: 'menu',
                 'aria-hidden': withAutoplay,
+                'aria-label': paginationLabel,
             });
             const bullets = pagination.querySelectorAll(`.${bulletClass}`);
             bullets.forEach((bullet) => {

@@ -1,6 +1,6 @@
 {
   "arrow-right": "Next",
   "arrow-left": "Previous",
-  "dot-label": "Slide {{index}}",
-  "pagination-label": "Slides"
+  "dot-label": "Page {{index}}",
+  "pagination-label": "Pages"
 }
