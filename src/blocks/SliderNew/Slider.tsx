@@ -11,7 +11,8 @@ import {block} from '../../utils';
 
 import Arrow from './Arrow/Arrow';
 import {i18n} from './i18n';
-import {useSlider, useSliderPagination} from './useSlider';
+import {useSlider} from './useSlider';
+import {useSliderPagination} from './useSliderPagination';
 
 import './Slider.scss';
 import 'swiper/swiper-bundle.css';
@@ -72,14 +73,16 @@ export const SliderNewBlock = ({
             autoplayMs,
         });
 
-    const withAutoplay = Boolean(autoplay);
+    const isA11yControlHidden = Boolean(autoplay);
+    const controlTabIndex = isA11yControlHidden ? -1 : 0;
 
     const paginationProps = useSliderPagination({
         enabled: dots,
-        withAutoplay,
+        isA11yControlHidden,
+        controlTabIndex,
         bulletClass: b('dot', dotsClassName),
         bulletActiveClass: b('dot_active'),
-        paginationLabel: b('pagination-label'),
+        paginationLabel: i18n('pagination-label'),
     });
 
     return (
@@ -128,27 +131,27 @@ export const SliderNewBlock = ({
                     {React.Children.map(children, (elem, index) => (
                         <SwiperSlide className={b('slide')} key={index}>
                             {({isVisible}) => (
-                                <div aria-hidden={!withAutoplay && !isVisible}>{elem}</div>
+                                <div aria-hidden={!isA11yControlHidden && !isVisible}>{elem}</div>
                             )}
                         </SwiperSlide>
                     ))}
                 </Swiper>
                 {arrows && !isLocked && (
                     <Fragment>
-                        <div aria-hidden={withAutoplay}>
+                        <div aria-hidden={isA11yControlHidden}>
                             <Arrow
                                 className={b('arrow', {prev: true})}
                                 type="left"
                                 onClick={onPrev}
                                 size={arrowSize}
-                                extraProps={{tabIndex: withAutoplay ? -1 : 0}}
+                                extraProps={{tabIndex: controlTabIndex}}
                             />
                             <Arrow
                                 className={b('arrow', {next: true})}
                                 type="right"
                                 onClick={onNext}
                                 size={arrowSize}
-                                extraProps={{tabIndex: withAutoplay ? -1 : 0}}
+                                extraProps={{tabIndex: controlTabIndex}}
                             />
                         </div>
                     </Fragment>

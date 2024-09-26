@@ -51,8 +51,6 @@ export function getSliderResponsiveParams({
     }, {} as Record<number, SwiperOptions>);
 }
 
-export const getSlideId = (sliderId: string, index: number) => `slider-${sliderId}-child-${index}`;
-
 export const useMemoized = <T>(value: T): T => {
     const [memoizedValue, setMemoizedValue] = useState(value);
 
@@ -63,56 +61,6 @@ export const useMemoized = <T>(value: T): T => {
     }, [value]);
 
     return memoizedValue;
-};
-
-const isFocusable = (element: Element): boolean => {
-    if (!(element instanceof HTMLElement)) {
-        return false;
-    }
-    const tabIndexAttr = element.getAttribute('tabindex');
-    const hasTabIndex = tabIndexAttr !== null;
-    const tabIndex = Number(tabIndexAttr);
-    if (element.ariaHidden === 'true' || (hasTabIndex && tabIndex < 0)) {
-        return false;
-    }
-    if (hasTabIndex && tabIndex >= 0) {
-        return true;
-    }
-
-    // without this jest fails here for some reason
-    let htmlElement:
-        | HTMLAnchorElement
-        | HTMLInputElement
-        | HTMLSelectElement
-        | HTMLTextAreaElement
-        | HTMLButtonElement;
-    switch (true) {
-        case element instanceof HTMLAnchorElement:
-            htmlElement = element as HTMLAnchorElement;
-            return Boolean(htmlElement.href);
-        case element instanceof HTMLInputElement:
-            htmlElement = element as HTMLInputElement;
-            return htmlElement.type !== 'hidden' && !htmlElement.disabled;
-        case element instanceof HTMLSelectElement:
-        case element instanceof HTMLTextAreaElement:
-        case element instanceof HTMLButtonElement:
-            htmlElement = element as HTMLSelectElement | HTMLTextAreaElement | HTMLButtonElement;
-            return !htmlElement.disabled;
-        default:
-            return false;
-    }
-};
-
-export const getFocusAnchor = (element: HTMLElement | null) => {
-    if (!element) {
-        return undefined;
-    }
-
-    if (isFocusable(element)) {
-        return element;
-    }
-
-    return Array.from(element.querySelectorAll('*')).find(isFocusable) as HTMLElement | undefined;
 };
 
 export const setElementAtrributes = (element: Element, attributes: Record<string, unknown>) =>

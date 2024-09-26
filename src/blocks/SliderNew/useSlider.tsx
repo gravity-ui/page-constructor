@@ -1,11 +1,10 @@
 import React, {PropsWithChildren, useEffect, useMemo, useState} from 'react';
 
 import type {Swiper} from 'swiper';
-import {Swiper as SwiperProps} from 'swiper/swiper-react';
 
 import {SliderType, SlidesToShow} from '../../models';
 
-import {getSliderResponsiveParams, setElementAtrributes, useMemoized} from './utils';
+import {getSliderResponsiveParams, useMemoized} from './utils';
 
 type UseSliderProps = PropsWithChildren<{
     autoplayMs?: number;
@@ -82,44 +81,6 @@ export const useSlider = ({children, autoplayMs, type, ...props}: UseSliderProps
         autoplay: autoplayEnabled && {
             delay: autoplayMs,
             disableOnInteraction: false,
-        },
-    };
-};
-
-export const useSliderPagination = (props: {
-    enabled: boolean;
-    withAutoplay: boolean;
-    bulletClass: string;
-    bulletActiveClass: string;
-    paginationLabel: string;
-}): Pick<SwiperProps, 'pagination' | 'onPaginationUpdate'> | undefined => {
-    if (!props.enabled) {
-        return undefined;
-    }
-    const {withAutoplay, bulletClass, bulletActiveClass, paginationLabel} = props;
-    return {
-        pagination: {
-            clickable: true,
-            bulletClass,
-            bulletActiveClass,
-        },
-        onPaginationUpdate: (s) => {
-            const pagination = s.pagination.el;
-            setElementAtrributes(pagination, {
-                role: 'menu',
-                'aria-hidden': withAutoplay,
-                'aria-label': paginationLabel,
-            });
-            const bullets = pagination.querySelectorAll(`.${bulletClass}`);
-            bullets.forEach((bullet) => {
-                const isActive = bullet.classList.contains(bulletActiveClass);
-                setElementAtrributes(bullet, {
-                    role: 'menuitemradio',
-                    'aria-hidden': withAutoplay,
-                    'aria-checked': isActive,
-                    tabindex: withAutoplay ? -1 : 0,
-                });
-            });
         },
     };
 };
