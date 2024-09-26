@@ -44,9 +44,9 @@ describe('Slider', () => {
         // There we have a bar covering `slidesToShow` dots
         // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
         const accessibleBarElement = container.querySelector('.pc-SliderBlock__accessible-bar');
-        expect(accessibleBarElement?.getAttribute('aria-label')).toBe(`Slide 1 of ${barDotsCount}`);
+        expect(accessibleBarElement?.getAttribute('aria-label')).toBe(`Page 1 of ${barDotsCount}`);
         expect(
-            queryHelpers.queryAllByAttribute('aria-label', container, `Slide 1 of ${barDotsCount}`),
+            queryHelpers.queryAllByAttribute('aria-label', container, `Page 1 of ${barDotsCount}`),
         ).toHaveLength(slidesToShow + 1);
 
         // Checking labels for the slides starting from 2
@@ -57,7 +57,7 @@ describe('Slider', () => {
                     queryHelpers.queryAllByAttribute(
                         'aria-label',
                         container,
-                        `Slide ${index + 2} of ${barDotsCount}`,
+                        `Page ${index + 2} of ${barDotsCount}`,
                     ),
                 ).toHaveLength(1);
             });
