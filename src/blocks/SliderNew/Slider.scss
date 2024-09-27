@@ -2,7 +2,6 @@
 @import '../../../styles/variables';
 
 $block: '.#{$ns}SliderNewBlock';
-$fsPadding: 40px;
 $fsArrowArea: 120px;
 
 @mixin fullscreen-card() {
@@ -241,12 +240,12 @@ $dotSize: 8px;
         padding-top: 0;
 
         #{$root}__slider {
-            padding: $fsPadding 0;
+            padding: 24px 0 40px;
             height: 100vh;
             margin: 0;
 
             & .swiper-pagination {
-                bottom: ($fsPadding - 18px) / 2;
+                bottom: (40px - 18px) / 2;
             }
 
             #{$root}__dot {
@@ -272,8 +271,8 @@ $dotSize: 8px;
         #{$root}__arrow {
             display: none;
             width: $fsArrowArea;
-            top: $fsPadding;
-            bottom: $fsPadding;
+            top: 40px;
+            bottom: 40px;
 
             &_prev {
                 left: 0;
