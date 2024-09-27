@@ -245,7 +245,7 @@ $dotSize: 8px;
             margin: 0;
 
             & .swiper-pagination {
-                bottom: (40px - 18px) / 2;
+                bottom: 11px;
             }
 
             #{$root}__dot {
@@ -324,6 +324,9 @@ $dotSize: 8px;
         $horizontalPadding: $gridContainerMargin + $gridGutterMobile;
 
         &:not(&_one-slide) {
+            margin-left: -($horizontalPadding);
+            padding-left: $horizontalPadding;
+            width: calc(100% + #{($horizontalPadding) * 2});
             overflow-x: auto;
 
             #{$root}__slider {
