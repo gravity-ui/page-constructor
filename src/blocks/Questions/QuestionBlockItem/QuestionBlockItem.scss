@@ -12,17 +12,23 @@ $block: '.#{$ns}QuestionsBlockItem';
     }
 
     &__title {
-        @include heading4();
-        @include focusable();
+        @include add-specificity(&) {
+            @include heading4();
+            @include focusable();
 
-        position: relative;
-        padding-right: 24px;
-        cursor: pointer;
-        border-radius: var(--g-focus-border-radius);
+            cursor: pointer;
+            border-radius: var(--g-focus-border-radius);
 
-        a {
-            @include link();
+            a {
+                @include link();
+            }
         }
+    }
+
+    &__title-container {
+        margin: 0;
+        position: relative;
+        padding-right: $indentSM;
     }
 
     &__arrow {

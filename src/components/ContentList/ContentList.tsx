@@ -43,7 +43,7 @@ const ContentList = ({list, size = 'l', qa}: ContentListProps & QAProps) => {
                                 )}
                             {text && (
                                 <YFMWrapper
-                                    className={b('text')}
+                                    contentClassName={b('text')}
                                     content={text}
                                     modifiers={{constructor: true}}
                                     qa={qaAttributes.text}

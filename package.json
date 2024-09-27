@@ -112,7 +112,7 @@
     "uuid": "^9.0.0"
   },
   "peerDependencies": {
-    "@diplodoc/transform": "^4.10.4",
+    "@diplodoc/transform": "^4.28.2",
     "@gravity-ui/uikit": "^6.0.0",
     "react": "^16.0.0 || ^17.0.0 || ^18.0.0"
   },

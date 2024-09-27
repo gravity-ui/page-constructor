@@ -2,7 +2,7 @@ import React from 'react';
 
 import {useActionHandlers} from '@gravity-ui/uikit';
 
-import {Foldable, HTML, ToggleArrow, YFMWrapper} from '../../../components';
+import {Foldable, ToggleArrow, YFMWrapper} from '../../../components';
 import Link from '../../../components/Link/Link';
 import {QuestionBlockItemProps} from '../../../models';
 import {block} from '../../../utils';
@@ -30,17 +30,21 @@ export const QuestionBlockItem = ({
             itemType={FaqMicrodataValues.QuestionType}
             role={'listitem'}
         >
-            <h3
-                className={b('title')}
+            <YFMWrapper
+                variant="h3"
+                className={b('title-container')}
+                contentClassName={b('title')}
+                itemProp={FaqMicrodataValues.QuestionNameProp}
+                content={itemTitle}
+                modifiers={{
+                    constructor: true,
+                }}
                 onClick={onClick}
+                role="button"
                 aria-expanded={isOpened}
-                // TODO fix in https://github.com/gravity-ui/page-constructor/issues/966
-                // eslint-disable-next-line jsx-a11y/no-noninteractive-element-to-interactive-role
-                role={'button'}
                 tabIndex={0}
                 onKeyDown={onKeyDown}
             >
-                <HTML itemProp={FaqMicrodataValues.QuestionNameProp}>{itemTitle}</HTML>
                 <ToggleArrow
                     open={isOpened}
                     size={16}
@@ -48,7 +52,7 @@ export const QuestionBlockItem = ({
                     iconType="navigation"
                     className={b('arrow')}
                 />
-            </h3>
+            </YFMWrapper>
             <Foldable isOpened={isOpened}>
                 <div
                     className={b('text')}

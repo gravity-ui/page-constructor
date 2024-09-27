@@ -64,9 +64,12 @@ $block: '.#{$ns}title-item';
     }
 
     &__text {
-        white-space: normal;
-        a {
-            @include link();
+        @include add-specificity(&) {
+            white-space: normal;
+            font-size: inherit;
+            a {
+                @include link();
+            }
         }
     }
 

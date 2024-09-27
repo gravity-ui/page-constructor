@@ -60,10 +60,6 @@ $marginIconSizeL: 1px;
             margin-right: $indentXXXS;
         }
 
-        #{$block}__text {
-            @include text-size(body-1);
-        }
-
         #{$block}__item {
             &:not(:last-child) {
                 margin-bottom: $indentXXS;
@@ -80,6 +76,14 @@ $marginIconSizeL: 1px;
                     margin-top: 0;
                     margin-bottom: 0;
                 }
+            }
+        }
+    }
+
+    &_size_s {
+        @include add-specificity(&) {
+            #{$block}__text {
+                @include text-size(body-1);
             }
         }
     }

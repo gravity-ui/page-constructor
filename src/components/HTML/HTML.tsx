@@ -1,35 +1,61 @@
-import React from 'react';
+import React, {PropsWithChildren, useMemo} from 'react';
 
-import {QAProps} from '../../models/common';
-import {hasBlockTag} from '../../utils';
+import {ClassNameProps, QAProps} from '../../models/common';
+import {selectVariant} from '../../utils';
 
-export interface HTMLProps {
-    children?: string;
+export interface HTMLExtraProps {
+    variant?: 'span' | 'div' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'section' | 'p';
+    contentPosition?: 'start' | 'end';
+    contentClassName?: string;
+    onlyContent?: boolean;
+}
+export interface HTMLProps extends HTMLExtraProps, PropsWithChildren, QAProps, ClassNameProps {
+    content?: string;
     block?: boolean;
-    className?: string;
     itemProp?: string;
     id?: string;
 }
 
 const HTML = ({
+    content,
     children,
     block = false,
     className,
-    itemProp,
-    id,
+    contentClassName,
     qa,
-}: React.PropsWithChildren<HTMLProps & QAProps>) => {
-    if (!children) {
-        return null;
+    contentPosition = 'start',
+    variant = 'span',
+    onlyContent = false,
+    ...rest
+}: HTMLProps) => {
+    const renderedContent = useMemo(() => {
+        return content
+            ? React.createElement(selectVariant({content, block, variant, children}), {
+                  dangerouslySetInnerHTML: {__html: content},
+                  className: contentClassName,
+                  'data-qa': qa,
+                  ...rest,
+              })
+            : null;
+    }, [block, children, content, contentClassName, qa, rest, variant]);
+
+    if (onlyContent) {
+        return renderedContent;
     }
 
-    return React.createElement(block || hasBlockTag(children) ? 'div' : 'span', {
-        dangerouslySetInnerHTML: {__html: children},
-        className,
-        itemProp,
-        id,
-        'data-qa': qa,
-    });
+    if (children) {
+        return React.createElement(
+            variant,
+            {
+                className,
+            },
+            contentPosition === 'start' ? renderedContent : null,
+            children,
+            contentPosition === 'end' ? renderedContent : null,
+        );
+    }
+
+    return renderedContent;
 };
 
 export default HTML;

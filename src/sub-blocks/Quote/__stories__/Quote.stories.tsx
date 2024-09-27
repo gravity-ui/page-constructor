@@ -2,7 +2,7 @@ import React from 'react';
 
 import {Meta, StoryFn} from '@storybook/react';
 
-import {yfmTransform} from '../../../../.storybook/utils';
+import {yfmTransformInline} from '../../../../.storybook/utils';
 import {QuoteProps, QuoteType} from '../../../models';
 import Quote from '../Quote';
 
@@ -36,7 +36,7 @@ export const DarkTheme = DefaultTemplate.bind({});
 
 const DefaultArgs = {
     ...data.default.content,
-    yfmText: yfmTransform(data.default.content.yfmText),
+    yfmText: yfmTransformInline(data.default.content.yfmText),
 } as QuoteProps;
 
 Default.args = DefaultArgs;
