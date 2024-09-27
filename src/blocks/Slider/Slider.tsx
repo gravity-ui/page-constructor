@@ -8,6 +8,7 @@ import React, {
     useState,
 } from 'react';
 
+import {useUniqId} from '@gravity-ui/uikit';
 import debounce from 'lodash/debounce';
 import get from 'lodash/get';
 import noop from 'lodash/noop';
@@ -32,12 +33,15 @@ import {
 import {block} from '../../utils';
 
 import Arrow, {ArrowType} from './Arrow/Arrow';
+import {i18n} from './i18n';
 import {SliderBreakpointParams} from './models';
 import {
     getSliderResponsiveParams,
     getSlidesCountByBreakpoint,
     getSlidesToShowCount,
     getSlidesToShowWithDefaults,
+    isFocusable,
+    useRovingTabIndex,
 } from './utils';
 
 import './Slider.scss';
@@ -71,7 +75,7 @@ export const SliderBlock = (props: React.PropsWithChildren<SliderProps>) => {
         anchorId,
         arrows = true,
         adaptive,
-        autoplay = undefined,
+        autoplay: autoplaySpeed,
         dots = true,
         dotsClassName,
         disclaimer,
@@ -87,11 +91,14 @@ export const SliderBlock = (props: React.PropsWithChildren<SliderProps>) => {
     const {isServer} = useContext(SSRContext);
     const isMobile = useContext(MobileContext);
     const [breakpoint, setBreakpoint] = useState<number>(BREAKPOINTS.xl);
+    const sliderId = useUniqId();
     const disclosedChildren = useMemo<React.ReactElement[]>(
-        () => discloseAllNestedChildren(children as React.ReactElement[]),
-        [children],
+        () => discloseAllNestedChildren(children as React.ReactElement[], sliderId),
+        [children, sliderId],
     );
     const childrenCount = disclosedChildren.length;
+    const isAutoplayEnabled = autoplaySpeed !== undefined && autoplaySpeed > 0;
+    const isUserInteractionRef = useRef(false);
 
     const [slidesToShow] = useState<SliderBreakpointParams>(
         getSlidesToShowWithDefaults({
@@ -109,8 +116,16 @@ export const SliderBlock = (props: React.PropsWithChildren<SliderProps>) => {
     const [currentIndex, setCurrentIndex] = useState<number>(0);
     const [childStyles, setChildStyles] = useState<Object>({});
     const [slider, setSlider] = useState<SlickSlider>();
+    const prevIndexRef = useRef<number>(0);
     const autoplayTimeId = useRef<Timeout>();
     const {hasFocus, unsetFocus} = useFocus(slider?.innerSlider?.list);
+
+    const asUserInteraction =
+        <T extends unknown[], R>(fn: (...args: T) => R) =>
+        (...args: T): R => {
+            isUserInteractionRef.current = true;
+            return fn(...args);
+        };
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
     const onResize = useCallback(
@@ -135,7 +150,7 @@ export const SliderBlock = (props: React.PropsWithChildren<SliderProps>) => {
         (current: number) => {
             const lastSlide = childrenCount - slidesToShowCount;
 
-            if (autoplay && lastSlide === current) {
+            if (isAutoplayEnabled && lastSlide === current) {
                 // Slick doesn't support autoplay with no infinity scroll
                 autoplayTimeId.current = setTimeout(() => {
                     if (slider) {
@@ -147,10 +162,10 @@ export const SliderBlock = (props: React.PropsWithChildren<SliderProps>) => {
                             slider.slickPlay();
                         }
                     }, 500);
-                }, autoplay);
+                }, autoplaySpeed);
             }
         },
-        [autoplay, childrenCount, slider, slidesToShowCount],
+        [autoplaySpeed, childrenCount, isAutoplayEnabled, slider, slidesToShowCount],
     );
 
     useEffect(() => {
@@ -169,30 +184,29 @@ export const SliderBlock = (props: React.PropsWithChildren<SliderProps>) => {
         return () => window.removeEventListener('resize', onResize);
     }, [onResize]);
 
-    const handleArrowClick = useCallback(
-        (direction: ArrowType) => {
-            let nextIndex;
+    const handleArrowClick = (direction: ArrowType) => {
+        let nextIndex;
 
-            if (direction === 'right') {
-                nextIndex =
-                    currentIndex === childrenCount - slidesCountByBreakpoint ? 0 : currentIndex + 1;
-            } else {
-                nextIndex =
-                    currentIndex === 0 ? childrenCount - slidesCountByBreakpoint : currentIndex - 1;
-            }
+        if (direction === 'right') {
+            nextIndex =
+                currentIndex === childrenCount - slidesCountByBreakpoint ? 0 : currentIndex + 1;
+        } else {
+            nextIndex =
+                currentIndex === 0 ? childrenCount - slidesCountByBreakpoint : currentIndex - 1;
+        }
 
-            if (slider) {
-                slider.slickGoTo(nextIndex);
-            }
-        },
-        [childrenCount, currentIndex, slider, slidesCountByBreakpoint],
-    );
+        if (slider) {
+            slider.slickGoTo(nextIndex);
+        }
+    };
 
     const onBeforeChange = useCallback(
         (current: number, next: number) => {
             if (handleBeforeChange) {
                 handleBeforeChange(current, next);
             }
+
+            prevIndexRef.current = current;
 
             setCurrentIndex(Math.ceil(next));
         },
@@ -212,24 +226,45 @@ export const SliderBlock = (props: React.PropsWithChildren<SliderProps>) => {
             if (!hasFocus) {
                 scrollLastSlide(current);
             }
-        },
-        [handleAfterChange, hasFocus, scrollLastSlide],
-    );
 
-    const handleDotClick = useCallback(
-        (index: number) => {
-            const nextIndex = index > currentIndex ? index + 1 - slidesCountByBreakpoint : index;
+            if (isUserInteractionRef.current) {
+                const focusIndex =
+                    prevIndexRef.current >= current
+                        ? current
+                        : Math.max(current, prevIndexRef.current + slidesCountByBreakpoint);
 
-            if (slider) {
-                slider.slickGoTo(nextIndex);
+                const firstNewSlide = document.getElementById(getSlideId(sliderId, focusIndex));
+                if (firstNewSlide) {
+                    const focusableChild = Array.from(firstNewSlide.querySelectorAll('*')).find(
+                        isFocusable,
+                    ) as HTMLElement | undefined;
+                    focusableChild?.focus();
+                }
             }
+
+            isUserInteractionRef.current = false;
         },
-        [slider, currentIndex, slidesCountByBreakpoint],
+        [handleAfterChange, hasFocus, scrollLastSlide, sliderId, slidesCountByBreakpoint],
     );
 
-    const barSlidesCount = childrenCount - slidesToShowCount + 1;
+    const handleDotClick = (index: number) => {
+        const nextIndex = index > currentIndex ? index + 1 - slidesCountByBreakpoint : index;
+
+        if (slider) {
+            slider.slickGoTo(nextIndex);
+        }
+    };
+
+    const barSlidesCount = childrenCount - slidesCountByBreakpoint + 1;
     const barPosition = (DOT_GAP + DOT_WIDTH) * currentIndex;
     const barWidth = DOT_WIDTH + (DOT_GAP + DOT_WIDTH) * (slidesCountByBreakpoint - 1);
+
+    const {getRovingItemProps, rovingListProps} = useRovingTabIndex({
+        itemCount: barSlidesCount,
+        activeIndex: currentIndex + 1,
+        firstIndex: 1,
+        uniqId: sliderId,
+    });
 
     const renderBar = () => {
         return (
@@ -240,7 +275,7 @@ export const SliderBlock = (props: React.PropsWithChildren<SliderProps>) => {
                         left: barPosition,
                         width: barWidth,
                     }}
-                ></li>
+                />
             )
         );
     };
@@ -253,13 +288,18 @@ export const SliderBlock = (props: React.PropsWithChildren<SliderProps>) => {
                 {slidesCountByBreakpoint > 0 && (
                     <li
                         className={b('accessible-bar')}
-                        aria-current
-                        aria-label={`Slide ${currentIndex + 1} of ${barSlidesCount}`}
+                        role="menuitemradio"
+                        aria-checked
+                        aria-label={i18n('dot-label', {
+                            index: currentIndex + 1,
+                            count: barSlidesCount,
+                        })}
                         style={{
                             left: barPosition,
                             width: barWidth,
                         }}
-                    ></li>
+                        {...getRovingItemProps(currentIndex + 1)}
+                    />
                 )}
             </Fragment>
         );
@@ -269,10 +309,10 @@ export const SliderBlock = (props: React.PropsWithChildren<SliderProps>) => {
         const currentIndexDiff = index - currentIndex;
 
         let currentSlideNumber;
-        if (0 <= currentIndexDiff && currentIndexDiff < slidesToShowCount) {
+        if (0 <= currentIndexDiff && currentIndexDiff < slidesCountByBreakpoint) {
             currentSlideNumber = currentIndex + 1;
-        } else if (currentIndexDiff >= slidesToShowCount) {
-            currentSlideNumber = index - slidesToShowCount + 2;
+        } else if (currentIndexDiff >= slidesCountByBreakpoint) {
+            currentSlideNumber = index - slidesCountByBreakpoint + 2;
         } else {
             currentSlideNumber = index + 1;
         }
@@ -281,22 +321,38 @@ export const SliderBlock = (props: React.PropsWithChildren<SliderProps>) => {
     const isVisibleSlide = (index: number) => {
         const currentIndexDiff = index - currentIndex;
 
-        return (
+        const result =
             slidesCountByBreakpoint > 0 &&
             0 <= currentIndexDiff &&
-            currentIndexDiff < slidesToShowCount
-        );
+            currentIndexDiff < slidesCountByBreakpoint;
+        return result;
     };
 
     const renderDot = (index: number) => {
+        const isVisible = isVisibleSlide(index);
+        const currentSlideNumber = getCurrentSlideNumber(index);
+        const rovingItemProps = isVisible ? undefined : getRovingItemProps(currentSlideNumber);
         return (
             <li
                 key={index}
                 className={b('dot', {active: index === currentIndex})}
-                onClick={() => handleDotClick(index)}
-                aria-hidden={isVisibleSlide(index) ? true : undefined}
-                aria-label={`Slide ${getCurrentSlideNumber(index)} of ${barSlidesCount}`}
-            ></li>
+                onClick={asUserInteraction(() => handleDotClick(index))}
+                onKeyDown={(e) => {
+                    const key = e.key.toLowerCase();
+                    if (key === 'space' || key === 'enter') {
+                        e.currentTarget.click();
+                    }
+                }}
+                role="menuitemradio"
+                aria-checked={false}
+                tabIndex={-1}
+                aria-hidden={isVisible}
+                aria-label={i18n('dot-label', {
+                    index: currentSlideNumber,
+                    count: barSlidesCount,
+                })}
+                {...rovingItemProps}
+            />
         );
     };
 
@@ -311,7 +367,12 @@ export const SliderBlock = (props: React.PropsWithChildren<SliderProps>) => {
 
         return (
             <div className={b('dots', dotsClassName)}>
-                <ul className={b('dots-list')}>
+                <ul
+                    className={b('dots-list')}
+                    role="menu"
+                    aria-label={i18n('pagination-label')}
+                    {...rovingListProps}
+                >
                     {renderBar()}
                     {dotsList}
                 </ul>
@@ -338,17 +399,30 @@ export const SliderBlock = (props: React.PropsWithChildren<SliderProps>) => {
             infinite: false,
             speed: 1000,
             adaptiveHeight: adaptive,
-            autoplay: Boolean(autoplay),
-            autoplaySpeed: autoplay,
+            autoplay: isAutoplayEnabled,
+            autoplaySpeed,
             slidesToShow: slidesToShowCount,
             slidesToScroll: 1,
             responsive: getSliderResponsiveParams(slidesToShow),
             beforeChange: onBeforeChange,
             afterChange: onAfterChange,
             initialSlide: 0,
-            nextArrow: <Arrow type="right" handleClick={handleArrowClick} size={arrowSize} />,
-            prevArrow: <Arrow type="left" handleClick={handleArrowClick} size={arrowSize} />,
+            nextArrow: (
+                <Arrow
+                    type="right"
+                    handleClick={asUserInteraction(handleArrowClick)}
+                    size={arrowSize}
+                />
+            ),
+            prevArrow: (
+                <Arrow
+                    type="left"
+                    handleClick={asUserInteraction(handleArrowClick)}
+                    size={arrowSize}
+                />
+            ),
             lazyLoad,
+            accessibility: false,
         };
 
         return (
@@ -390,11 +464,29 @@ export const SliderBlock = (props: React.PropsWithChildren<SliderProps>) => {
     );
 };
 
+function getSlideId(sliderId: string, index: number) {
+    return `slider-${sliderId}-child-${index}`;
+}
+
 // TODO remove this and rework PriceDetailed CLOUDFRONT-12230
-function discloseAllNestedChildren(children: React.ReactElement[]): React.ReactElement[] {
+function discloseAllNestedChildren(
+    children: React.ReactElement[],
+    sliderId: string,
+): React.ReactElement[] {
     if (!children) {
         return [];
     }
+
+    let childIndex = 0;
+    const wrapped = (child: React.ReactElement) => {
+        const id = getSlideId(sliderId, childIndex++);
+
+        return (
+            <div key={id} id={id}>
+                {child}
+            </div>
+        );
+    };
 
     return React.Children.map(children, (child) => {
         if (child) {
@@ -402,17 +494,19 @@ function discloseAllNestedChildren(children: React.ReactElement[]): React.ReactE
             const nestedChildren = child.props.data?.items;
 
             if (nestedChildren) {
-                return nestedChildren.map((nestedChild: React.ReactElement) =>
-                    React.cloneElement(child, {
-                        data: {
-                            ...child.props.data,
-                            items: [nestedChild],
-                        },
-                    }),
-                );
+                return nestedChildren.map((nestedChild: React.ReactElement) => {
+                    return wrapped(
+                        React.cloneElement(child, {
+                            data: {
+                                ...child.props.data,
+                                items: [nestedChild],
+                            },
+                        }),
+                    );
+                });
             }
         }
-        return child;
+        return child && wrapped(child);
     }).filter(Boolean);
 }
 

@@ -1,3 +1,6 @@
+import {useEffect, useState} from 'react';
+
+import isEqual from 'lodash/isEqual';
 import pickBy from 'lodash/pickBy';
 import type {SwiperOptions} from 'swiper/types/swiper-options';
 
@@ -47,3 +50,20 @@ export function getSliderResponsiveParams({
         return res;
     }, {} as Record<number, SwiperOptions>);
 }
+
+export const useMemoized = <T>(value: T): T => {
+    const [memoizedValue, setMemoizedValue] = useState(value);
+
+    useEffect(() => {
+        setMemoizedValue((memoized) =>
+            value && typeof value === 'object' && isEqual(memoized, value) ? memoized : value,
+        );
+    }, [value]);
+
+    return memoizedValue;
+};
+
+export const setElementAtrributes = (element: Element, attributes: Record<string, unknown>) =>
+    Object.entries(attributes).forEach(([attribute, value]) =>
+        element.setAttribute(attribute, String(value)),
+    );

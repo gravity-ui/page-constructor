@@ -4,20 +4,22 @@ import type {Swiper} from 'swiper';
 
 import {SliderType, SlidesToShow} from '../../models';
 
-import {getSliderResponsiveParams} from './utils';
+import {getSliderResponsiveParams, useMemoized} from './utils';
 
-export const useSlider = ({
-    children,
-    autoplayMs,
-    type,
-    slidesToShow,
-}: PropsWithChildren<{autoplayMs?: number; type?: string; slidesToShow?: SlidesToShow}>) => {
+type UseSliderProps = PropsWithChildren<{
+    autoplayMs?: number;
+    type?: string;
+    slidesToShow?: SlidesToShow;
+}>;
+
+export const useSlider = ({children, autoplayMs, type, ...props}: UseSliderProps) => {
     const [slider, setSlider] = useState<Swiper>();
     const [isLocked, setIsLocked] = useState(false);
+    const slidesToShow = useMemoized(props.slidesToShow);
 
     const childrenCount = React.Children.count(children);
 
-    const autoplayEnabled = useMemo(() => Boolean(autoplayMs), [autoplayMs]);
+    const autoplayEnabled = autoplayMs !== undefined && autoplayMs > 0;
 
     const breakpoints = useMemo(() => {
         return getSliderResponsiveParams({
