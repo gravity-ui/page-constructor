@@ -99,8 +99,8 @@ $closeButtonSize: 36px;
         justify-content: center;
         position: absolute;
         z-index: 1001;
-        right: 40px;
-        top: 40px;
+        right: 16px;
+        top: 16px;
         width: $closeButtonSize;
         height: $closeButtonSize;
         border-radius: 8px;
@@ -111,6 +111,11 @@ $closeButtonSize: 36px;
 
         &:focus {
             opacity: 1;
+        }
+
+        &_visible {
+            right: 24px;
+            top: 24px;
         }
     }
 
