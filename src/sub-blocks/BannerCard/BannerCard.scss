@@ -61,7 +61,7 @@ $block: '.#{$ns}banner-card';
     &__subtitle {
         @include add-specificity(&) {
             display: inline-block;
-            margin-top: 8px;
+            margin-top: $indentXXXS;
             @include subtitle();
 
             & p {

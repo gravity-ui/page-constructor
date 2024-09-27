@@ -5,6 +5,10 @@ export const yfmTransform = (content: string) => yfm(content).result.html;
 export const yfmTransformInline = (content: string) =>
     yfm(content, {renderInline: true}).result.html;
 export const transformTitle = (title: string | TitleItemProps) => {
+    if (!title) {
+        return undefined;
+    }
+
     if (typeof title === 'string') {
         return yfmTransformInline(title);
     }
