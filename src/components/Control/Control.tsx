@@ -43,7 +43,7 @@ const Control = (props: ControlProps) => {
             className={b({theme, disabled}, className)}
             onClick={disabled ? undefined : onClick}
             disabled={disabled}
-            data-qa={qa}
+            qa={qa}
             size={size}
             view={'flat'}
         >
