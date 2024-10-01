@@ -90,6 +90,8 @@ $dotSize: 8px;
         cursor: pointer;
         display: inline-block;
 
+        transition: background-color 1s;
+
         &:hover {
             background-color: var(--g-color-line-generic-accent-hover);
         }
@@ -210,6 +212,34 @@ $dotSize: 8px;
             &_prev {
                 left: 0;
                 margin-right: 0;
+            }
+        }
+
+        &:has(.swiper-slide-active .#{$ns}header-block_controls-view_light) {
+            .#{$ns}slider-new-block-arrow__inner {
+                color: var(--g-color-text-dark-primary);
+            }
+
+            .#{$ns}SliderNewBlock__dot {
+                background-color: var(--g-color-private-black-150);
+
+                &_active {
+                    background-color: var(--g-color-private-black-300);
+                }
+            }
+        }
+
+        &:has(.swiper-slide-active .#{$ns}header-block_controls-view_dark) {
+            .#{$ns}slider-new-block-arrow__inner {
+                color: var(--g-color-text-light-primary);
+            }
+
+            .#{$ns}SliderNewBlock__dot {
+                background-color: var(--g-color-private-white-150);
+
+                &_active {
+                    background-color: var(--g-color-private-white-300);
+                }
             }
         }
 
