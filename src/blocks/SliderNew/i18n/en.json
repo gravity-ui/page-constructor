@@ -1,4 +1,6 @@
 {
   "arrow-right": "Next",
-  "arrow-left": "Previous"
+  "arrow-left": "Previous",
+  "dot-label": "Page {{index}}",
+  "pagination-label": "Pages"
 }
