@@ -55,6 +55,11 @@ $dotSize: 8px;
         &.swiper-slide-visible {
             animation: safari-fix 300ms;
         }
+
+        #{$root}__slide-item {
+            width: 100%;
+            height: 100%;
+        }
     }
 
     &__arrow {
