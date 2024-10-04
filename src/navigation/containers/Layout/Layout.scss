@@ -6,7 +6,8 @@ $block: '.#{$ns}layout';
     display: flex;
     flex-direction: column;
 
-    min-height: 100vh;
+    // TODO: It seems not okay
+    //min-height: 100vh;
 
     &__content {
         display: flex;
