@@ -1,5 +1,6 @@
 import omit from 'lodash/omit';
 
+import {Media} from '../../blocks/Media/schema';
 import metaInfo from '../../components/MetaInfo/schema';
 import {BaseProps, CardLayoutProps, MediaProps} from '../../schema/validators/common';
 import {AnalyticsEventSchema} from '../../schema/validators/event';
@@ -12,7 +13,7 @@ export const LayoutItem = {
     properties: {
         ...BaseProps,
         ...CardLayoutProps,
-        media: MediaProps,
+        media: Media,
         content: omit(ContentBase, ['colSize', 'centered']),
         contentMargin: {
             type: 'string',

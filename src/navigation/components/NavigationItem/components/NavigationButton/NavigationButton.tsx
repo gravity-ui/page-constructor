@@ -16,7 +16,9 @@ export const NavigationButton = (props: NavigationButtonProps) => {
     const {url, target, className} = props;
     const classes = b(null, className);
     return (
-        <BlockIdContext.Provider value={ANALYTICS_ID}>
+        // TODO: fix any
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        <BlockIdContext.Provider value={ANALYTICS_ID as any}>
             {target ? (
                 <Button className={classes} {...props} url={url} />
             ) : (

@@ -78,6 +78,7 @@ export const ContentBase = {
 
 export const ContentBlock = {
     content: {
+        type: 'object',
         additionalProperties: false,
         properties: {
             ...ContentBase,
