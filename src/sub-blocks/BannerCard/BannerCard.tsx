@@ -11,7 +11,7 @@ export const BannerCard = (props: BannerCardProps) => {
     const {
         title,
         subtitle,
-        button: {url, text, target, theme: buttonTheme = 'raised'} = {},
+        button,
         color,
         theme: textTheme = 'light',
         image,
@@ -20,6 +20,8 @@ export const BannerCard = (props: BannerCardProps) => {
     } = props;
     const theme = useTheme();
     const contentStyle: Record<string, string> = {};
+
+    const {url, text, target, theme: buttonTheme = 'raised'} = button || {};
 
     if (color) {
         contentStyle.backgroundColor = getThemedValue(color, theme);

@@ -33,6 +33,17 @@ export const getBlocksCases = (blocks: Schema) => {
     );
 };
 
+export const defaultComponentsConfigurationSchema = {
+    type: 'object',
+    properties: {
+        ...AnimatableProps,
+        logo: withTheme(LogoProps),
+        header: NavigationHeaderProps,
+        menu: MenuProps,
+        background: withTheme(BackgroundProps),
+    },
+};
+
 export function generateDefaultSchema(config?: SchemaCustomConfig) {
     const {cards = {}, blocks = {}, extensions = {}} = config ?? {};
 
@@ -82,17 +93,13 @@ export function generateDefaultSchema(config?: SchemaCustomConfig) {
         additionalProperties: false,
         required: ['blocks'],
         properties: {
-            ...AnimatableProps,
-            logo: withTheme(LogoProps),
-            header: NavigationHeaderProps,
+            ...defaultComponentsConfigurationSchema.properties,
             blocks: {
                 type: 'array',
                 items: {
                     $ref: '#/definitions/children',
                 },
             },
-            menu: MenuProps,
-            background: withTheme(BackgroundProps),
             ...extensions,
         },
     } as Schema;

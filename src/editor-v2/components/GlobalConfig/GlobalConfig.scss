@@ -1,0 +1,17 @@
+@import '../../../../styles/variables.scss';
+@import '../../../../styles/mixins.scss';
+@import '../../styles/root.scss';
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+$block: '.#{$ns}global-config';
+
+#{$block} {
+    padding: 12px;
+
+    &__title {
+        margin-bottom: 16px;
+        margin-top: 8px;
+        @include text-subheader-3;
+    }
+}

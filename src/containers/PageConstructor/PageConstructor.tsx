@@ -1,18 +1,19 @@
-import * as React from 'react';
+import {ReactNode, useContext, useMemo, useState} from 'react';
 
-import '@diplodoc/transform/dist/js/yfm.js';
+import '@diplodoc/transform/dist/js/yfm';
+import {ThemeProvider} from '@gravity-ui/uikit';
 
 import BackgroundMedia from '../../components/BackgroundMedia/BackgroundMedia';
 import BrandFooter from '../../components/BrandFooter/BrandFooter';
 import RootCn from '../../components/RootCn';
 import {blockMap, navItemMap, subBlockMap} from '../../constructor-items';
 import {AnimateContext} from '../../context/animateContext';
+import {useEditorStore} from '../../context/editorContext';
 import {InnerContext} from '../../context/innerContext';
 import {ProjectSettingsContext} from '../../context/projectSettingsContext';
 import {useTheme} from '../../context/theme';
-import {Grid} from '../../grid';
+import useEditorInitialize from '../../hooks/useEditorInitialize';
 import {
-    BlockType,
     BlockTypes,
     CustomConfig,
     CustomItems,
@@ -24,17 +25,9 @@ import {
     SubBlockTypes,
 } from '../../models';
 import Layout from '../../navigation/containers/Layout/Layout';
-import {
-    block as cnBlock,
-    getCustomItems,
-    getCustomTypes,
-    getHeaderBlock,
-    getOrderedBlocks,
-    getThemedValue,
-} from '../../utils';
+import {block as cnBlock, getCustomItems, getCustomTypes, getThemedValue} from '../../utils';
 
-import {ConstructorBlocks} from './components/ConstructorBlocks';
-import {ConstructorHeader} from './components/ConstructorItem';
+import {ConstructorBlocks} from './components';
 import {ConstructorRow} from './components/ConstructorRow';
 
 import './PageConstructor.scss';
@@ -49,7 +42,7 @@ export interface PageConstructorProps {
     content?: PageContent;
     shouldRenderBlock?: ShouldRenderBlock;
     custom?: CustomConfig;
-    renderMenu?: () => React.ReactNode;
+    renderMenu?: () => ReactNode;
     navigation?: NavigationData;
     isBranded?: boolean;
     microdata?: {
@@ -68,7 +61,13 @@ export const Constructor = (props: PageConstructorProps) => {
         microdata,
     } = props;
 
-    const {context} = React.useMemo(
+    const [content, setContent] = useState<PageContent>({blocks, background});
+    const theme = useTheme();
+
+    const {initialized} = useEditorStore();
+    useEditorInitialize({content, setContent});
+
+    const {context} = useMemo(
         () => ({
             context: {
                 blockTypes: [...BlockTypes, ...getCustomTypes(['blocks', 'headers'], custom)],
@@ -98,31 +97,23 @@ export const Constructor = (props: PageConstructorProps) => {
         [custom, shouldRenderBlock, microdata],
     );
 
-    const theme = useTheme();
-
-    const header = getHeaderBlock(blocks, context.headerBlockTypes);
-    const restBlocks = getOrderedBlocks(blocks, context.headerBlockTypes);
-    const themedBackground = getThemedValue(background, theme);
+    const restBlocks = content.blocks;
+    const themedBackground = getThemedValue(content.background, theme);
 
     return (
         <InnerContext.Provider value={context}>
-            <RootCn className={b()}>
+            <RootCn className={b('', {['with-editor']: initialized})}>
                 <div className={b('wrapper')}>
                     {themedBackground && (
                         <BackgroundMedia {...themedBackground} className={b('background')} />
                     )}
                     <Layout navigation={navigation}>
                         {renderMenu && renderMenu()}
-                        {header && (
-                            <ConstructorHeader data={header} blockKey={BlockType.HeaderBlock} />
+                        {restBlocks && (
+                            <ConstructorRow>
+                                <ConstructorBlocks items={restBlocks} />
+                            </ConstructorRow>
                         )}
-                        <Grid>
-                            {restBlocks && (
-                                <ConstructorRow>
-                                    <ConstructorBlocks items={restBlocks} />
-                                </ConstructorRow>
-                            )}
-                        </Grid>
                     </Layout>
                     {isBranded && <BrandFooter />}
                 </div>
@@ -132,12 +123,14 @@ export const Constructor = (props: PageConstructorProps) => {
 };
 
 export const PageConstructor = (props: PageConstructorProps) => {
-    const {isAnimationEnabled = true} = React.useContext(ProjectSettingsContext);
+    const {isAnimationEnabled = true} = useContext(ProjectSettingsContext);
     const {content: {animated = isAnimationEnabled} = {}, ...rest} = props;
 
     return (
-        <AnimateContext.Provider value={{animated}}>
-            <Constructor content={props.content} {...rest} />
-        </AnimateContext.Provider>
+        <ThemeProvider>
+            <AnimateContext.Provider value={{animated}}>
+                <Constructor content={props.content} {...rest} />
+            </AnimateContext.Provider>
+        </ThemeProvider>
     );
 };
