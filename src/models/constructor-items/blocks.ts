@@ -2,7 +2,7 @@ import React from 'react';
 
 import {ButtonSize} from '@gravity-ui/uikit';
 
-import {GridColumnSize, GridColumnSizesType, IndentValue} from '../../grid/types';
+import {GridColumnSize, GridColumnSizesType, IndentValue} from '../../grid';
 import {ThemeSupporting} from '../../utils';
 import {AnalyticsEventsBase} from '../common';
 
@@ -61,6 +61,7 @@ export enum BlockType {
     MapBlock = 'map-block',
     FilterBlock = 'filter-block',
     FormBlock = 'form-block',
+    TestEditorBlock = 'test-editor-block',
 }
 
 export const BlockTypes = Object.values(BlockType);

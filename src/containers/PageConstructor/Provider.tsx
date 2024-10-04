@@ -2,6 +2,7 @@ import React, {Fragment} from 'react';
 
 import {DEFAULT_THEME} from '../../components/constants';
 import {AnalyticsContext, AnalyticsContextProps} from '../../context/analyticsContext';
+import {EditorProvider} from '../../context/editorContext';
 import {
     DEFAULT_FORMS_CONTEXT_VALUE,
     FormsContext,
@@ -11,6 +12,7 @@ import {ImageContext, ImageContextProps} from '../../context/imageContext';
 import {LocaleContext, LocaleContextProps} from '../../context/localeContext';
 import {LocationContext, LocationContextProps} from '../../context/locationContext';
 import {MapsContext, MapsContextType, initialMapValue} from '../../context/mapsContext/mapsContext';
+import {PostMessageProvider} from '../../context/messagesContext';
 import {MobileContext} from '../../context/mobileContext';
 import {
     ProjectSettingsContext,
@@ -60,6 +62,8 @@ export const PageConstructorProvider = (props: WithChildren<PageConstructorProvi
         <AnalyticsContext.Provider value={analytics} />,
         <FormsContext.Provider value={forms} />,
         <SSRContext.Provider value={{isServer: ssrConfig?.isServer}} />,
+        <EditorProvider />,
+        <PostMessageProvider />,
     ].reduceRight((prev, provider) => React.cloneElement(provider, {}, prev), children);
     /* eslint-enable react/jsx-key */
 

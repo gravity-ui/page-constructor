@@ -11,7 +11,7 @@ import Title from '../../components/Title/Title';
 import {getHeight} from '../../components/VideoBlock/VideoBlock';
 import YFMWrapper from '../../components/YFMWrapper/YFMWrapper';
 import {useTheme} from '../../context/theme';
-import {Col, GridColumnOrderClasses, Row} from '../../grid';
+import {Col, Grid, GridColumnOrderClasses, Row} from '../../grid';
 import {TabsBlockProps} from '../../models';
 import {block, getThemedValue} from '../../utils';
 
@@ -137,29 +137,31 @@ export const TabsBlock = ({
     );
 
     return (
-        <AnimateBlock className={b()} onScroll={() => setPlay(true)} animate={animated}>
-            <Title
-                title={title}
-                subtitle={description}
-                className={b('title', {centered: centered})}
-            />
-            <Row>
-                <Col sizes={tabsColSizes}>
-                    <ButtonTabs
-                        items={tabs}
-                        onSelectTab={onSelectTab}
-                        activeTab={activeTab}
-                        className={b('tabs', {centered: centered})}
-                    />
-                </Col>
-            </Row>
-            {activeTabData && (
-                <Row className={b('row', {reverse: isReverse})}>
-                    {mediaContent}
-                    {textContent}
+        <Grid>
+            <AnimateBlock className={b()} onScroll={() => setPlay(true)} animate={animated}>
+                <Title
+                    title={title}
+                    subtitle={description}
+                    className={b('title', {centered: centered})}
+                />
+                <Row>
+                    <Col sizes={tabsColSizes}>
+                        <ButtonTabs
+                            items={tabs}
+                            onSelectTab={onSelectTab}
+                            activeTab={activeTab}
+                            className={b('tabs', {centered: centered})}
+                        />
+                    </Col>
                 </Row>
-            )}
-        </AnimateBlock>
+                {activeTabData && (
+                    <Row className={b('row', {reverse: isReverse})}>
+                        {mediaContent}
+                        {textContent}
+                    </Row>
+                )}
+            </AnimateBlock>
+        </Grid>
     );
 };
 

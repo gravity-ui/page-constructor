@@ -1,3 +1,4 @@
+import {TestEditorBlockSchema} from '../blocks/TestEditorBlock';
 import {BlockType} from '../models';
 
 import {
@@ -54,6 +55,7 @@ export const blockSchemas: Record<BlockType, object> = {
     ...ShareBlock,
     ...FilterBlock,
     ...FormBlock,
+    ...TestEditorBlockSchema,
 };
 
 export const cardSchemas = {

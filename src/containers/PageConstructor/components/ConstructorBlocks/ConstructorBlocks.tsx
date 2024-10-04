@@ -20,10 +20,14 @@ export interface ConstructorBlocksProps {
 }
 
 export const ConstructorBlocks: React.FC<ConstructorBlocksProps> = ({items}) => {
-    const {blockTypes, loadables, itemMap, shouldRenderBlock} = useContext(InnerContext);
+    const {blockTypes, subBlockTypes, loadables, itemMap, shouldRenderBlock} =
+        useContext(InnerContext);
+
+    const allBlocks = [...blockTypes, ...subBlockTypes];
 
     const renderer = (
         parentId = '',
+        withoutConstructorBlockWrapper = false,
         item: ConstructorBlockType,
         index: number,
     ): ReactElement | null => {
@@ -63,17 +67,17 @@ export const ConstructorBlocks: React.FC<ConstructorBlocksProps> = ({items}) => 
         } else {
             let children;
             if ('children' in item && item.children) {
-                children = (item.children as SubBlock[]).map(renderer.bind(null, blockId));
+                children = (item.children as SubBlock[]).map(renderer.bind(null, blockId, true));
             }
 
             itemElement = (
-                <ConstructorItem data={item} key={blockId} blockKey={blockId}>
+                <ConstructorItem data={item} key={blockId} blockKey={index}>
                     {children}
                 </ConstructorItem>
             );
         }
 
-        return blockTypes.includes(item.type) ? (
+        return allBlocks.includes(item.type) && !withoutConstructorBlockWrapper ? (
             //TODO: replace ConstructorBlock (and delete it) with BlockBase when all
             // components relying on constructor inner structure like Slider or blog-constructor will be refactored
             <ConstructorBlock data={item} key={blockId} index={index}>
@@ -84,5 +88,5 @@ export const ConstructorBlocks: React.FC<ConstructorBlocksProps> = ({items}) => 
         );
     };
 
-    return <Fragment>{items.map(renderer.bind(null, ''))}</Fragment>;
+    return <Fragment>{items.map(renderer.bind(null, '', false))}</Fragment>;
 };
