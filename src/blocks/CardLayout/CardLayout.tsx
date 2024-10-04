@@ -3,6 +3,8 @@ import * as React from 'react';
 import isEmpty from 'lodash/isEmpty';
 
 import {AnimateBlock, BackgroundImage, Title} from '../../components';
+import ChildrenWrap from '../../components/editor/ChildrenWrap/ChildrenWrap';
+import ItemWrap from '../../components/editor/ItemWrap/ItemWrap';
 import {useTheme} from '../../context/theme';
 import {Col, GridColumnSizesType, GridJustifyContent, Row} from '../../grid';
 import {CardLayoutBlockProps as CardLayoutBlockParams, ClassNameProps} from '../../models';

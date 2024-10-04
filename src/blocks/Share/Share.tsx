@@ -52,29 +52,32 @@ const Share = ({items, title}: ShareBlockProps) => {
                 <h5 className={b('title')}>{i18n('constructor-share')}</h5>
             )}
             <div className={b('items')}>
-                {items.map((type) => {
-                    const url = getAbsolutePath(hostname, pathname);
-                    const socialUrl = getShareLink(url, type);
-                    const icon = icons[type];
-                    const urlTitle = i18n(`${type}-title`);
-                    const buttonLabel = i18n(`${type}-label`);
+                {items &&
+                    items.map((type) => {
+                        const url = getAbsolutePath(hostname, pathname);
+                        const socialUrl = getShareLink(url, type);
+                        const icon = icons[type];
+                        const urlTitle = i18n(`${type}-title`);
+                        const buttonLabel = i18n(`${type}-label`);
 
-                    return (
-                        <Button
-                            key={type}
-                            view="flat"
-                            size="l"
-                            target="_blank"
-                            href={socialUrl}
-                            className={b('item', {type: type.toLowerCase()})}
-                            onClick={handleButtonClick}
-                            title={urlTitle}
-                            aria-label={buttonLabel}
-                        >
-                            {icon && <Icon data={icon} size={24} className={b('icon', {type})} />}
-                        </Button>
-                    );
-                })}
+                        return (
+                            <Button
+                                key={type}
+                                view="flat"
+                                size="l"
+                                target="_blank"
+                                href={socialUrl}
+                                className={b('item', {type: type.toLowerCase()})}
+                                onClick={handleButtonClick}
+                                title={urlTitle}
+                                aria-label={buttonLabel}
+                            >
+                                {icon && (
+                                    <Icon data={icon} size={24} className={b('icon', {type})} />
+                                )}
+                            </Button>
+                        );
+                    })}
             </div>
         </div>
     );
