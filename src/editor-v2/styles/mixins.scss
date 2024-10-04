@@ -1,0 +1,12 @@
+@import './variables.scss';
+
+@mixin control($hoverScale: 1.05) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform $editorTransitionTime;
+
+    &:hover {
+        transform: scale($hoverScale);
+    }
+} ;

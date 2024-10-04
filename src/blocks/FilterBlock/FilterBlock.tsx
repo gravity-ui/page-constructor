@@ -4,7 +4,7 @@ import {CardLayoutBlock} from '..';
 import {AnimateBlock, Title} from '../../components';
 import ButtonTabs, {ButtonTabsItemProps} from '../../components/ButtonTabs/ButtonTabs';
 import {ConstructorItem} from '../../containers/PageConstructor/components/ConstructorItem';
-import {Col, Row} from '../../grid';
+import {Col, Grid, Row} from '../../grid';
 import {FilterBlockProps, FilterItem} from '../../models';
 import {block, getBlockKey} from '../../utils';
 
@@ -20,7 +20,7 @@ const FilterBlock: React.FC<FilterBlockProps> = ({
     tags,
     tagButtonSize,
     allTag,
-    items,
+    items = [],
     colSizes,
     centered,
     animated,
@@ -52,35 +52,37 @@ const FilterBlock: React.FC<FilterBlockProps> = ({
 
     return (
         <AnimateBlock className={b()} animate={animated}>
-            {title && (
-                <Title
-                    className={b('title', {centered: centered})}
-                    title={title}
-                    subtitle={description}
-                />
-            )}
-            {tabButtons.length && (
-                <Row>
-                    <Col>
-                        <ButtonTabs
-                            className={b('tabs', {centered: centered})}
-                            items={tabButtons}
-                            activeTab={selectedTag}
-                            onSelectTab={setSelectedTag}
-                            tabSize={tagButtonSize}
-                        />
-                    </Col>
-                </Row>
-            )}
-            <Row className={b('block-container')}>
-                <CardLayoutBlock title="" colSizes={colSizes} className={b('cards-container')}>
-                    {cards.map((card, index) => {
-                        const key = getBlockKey(card, index);
+            <Grid>
+                {title && (
+                    <Title
+                        className={b('title', {centered: centered})}
+                        title={title}
+                        subtitle={description}
+                    />
+                )}
+                {tabButtons.length && (
+                    <Row>
+                        <Col>
+                            <ButtonTabs
+                                className={b('tabs', {centered: centered})}
+                                items={tabButtons}
+                                activeTab={selectedTag}
+                                onSelectTab={setSelectedTag}
+                                tabSize={tagButtonSize}
+                            />
+                        </Col>
+                    </Row>
+                )}
+                <Row className={b('block-container')}>
+                    <CardLayoutBlock title="" colSizes={colSizes} className={b('cards-container')}>
+                        {cards.map((card, index) => {
+                            const key = getBlockKey(card, index);
 
-                        return <ConstructorItem data={card} blockKey={key} key={key} />;
-                    })}
-                </CardLayoutBlock>
-            </Row>
+                            return <ConstructorItem data={card} blockKey={index} key={key} />;
+                        })}
+                    </CardLayoutBlock>
+                </Row>
+            </Grid>
         </AnimateBlock>
     );
 };

@@ -26,6 +26,7 @@ $largeBorderRadius: 32px;
         width: 100%;
         height: 100%;
         border-radius: $largeBorderRadius;
+        pointer-events: none;
 
         img {
             object-fit: cover;

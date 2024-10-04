@@ -6,3 +6,7 @@ $block: '.#{$ns}constructor-block';
 #{$block} {
     @include indents(&);
 }
+
+.pc-page-constructor_with-editor #{$block} {
+    cursor: pointer;
+}
