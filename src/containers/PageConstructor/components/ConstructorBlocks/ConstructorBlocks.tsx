@@ -19,11 +19,15 @@ export interface ConstructorBlocksProps {
     items: ConstructorBlockType[];
 }
 
-export const ConstructorBlocks = ({items}: ConstructorBlocksProps) => {
-    const {blockTypes, loadables, itemMap, shouldRenderBlock} = React.useContext(InnerContext);
+export const ConstructorBlocks: React.FC<ConstructorBlocksProps> = ({items}) => {
+    const {blockTypes, subBlockTypes, loadables, itemMap, shouldRenderBlock} =
+        React.useContext(InnerContext);
+
+    const allBlocks = [...blockTypes, ...subBlockTypes];
 
     const renderer = (
         parentId = '',
+        withoutConstructorBlockWrapper = false,
         item: ConstructorBlockType,
         index: number,
     ): React.ReactElement | null => {
@@ -63,17 +67,17 @@ export const ConstructorBlocks = ({items}: ConstructorBlocksProps) => {
         } else {
             let children;
             if ('children' in item && item.children) {
-                children = (item.children as SubBlock[]).map(renderer.bind(null, blockId));
+                children = (item.children as SubBlock[]).map(renderer.bind(null, blockId, true));
             }
 
             itemElement = (
-                <ConstructorItem data={item} key={blockId} blockKey={blockId}>
+                <ConstructorItem data={item} key={blockId} blockKey={index}>
                     {children}
                 </ConstructorItem>
             );
         }
 
-        return blockTypes.includes(item.type) ? (
+        return allBlocks.includes(item.type) && !withoutConstructorBlockWrapper ? (
             //TODO: replace ConstructorBlock (and delete it) with BlockBase when all
             // components relying on constructor inner structure like Slider or blog-constructor will be refactored
             <ConstructorBlock data={item} key={blockId} index={index}>
@@ -84,5 +88,5 @@ export const ConstructorBlocks = ({items}: ConstructorBlocksProps) => {
         );
     };
 
-    return <React.Fragment>{items.map(renderer.bind(null, ''))}</React.Fragment>;
+    return <React.Fragment>{items.map(renderer.bind(null, '', false))}</React.Fragment>;
 };

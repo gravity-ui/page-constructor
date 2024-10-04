@@ -4,7 +4,7 @@ import {BackgroundImage, FileLink} from '../../components';
 import {BREAKPOINTS} from '../../constants';
 import {useTheme} from '../../context/theme';
 import {useWindowWidth} from '../../context/windowWidthContext';
-import {Col} from '../../grid';
+import {Col, Grid} from '../../grid';
 import {ContentLayoutBlockProps, ContentSize, ContentTextSize} from '../../models';
 import {Content} from '../../sub-blocks';
 import {block, getThemedValue} from '../../utils';
@@ -54,39 +54,41 @@ export const ContentLayoutBlock = (props: ContentLayoutBlockProps) => {
     const themedBackground = getThemedValue(background, globalTheme);
 
     return (
-        <div className={b({size, theme, background: Boolean(background)})}>
-            <Content
-                className={b('content')}
-                {...textContent}
-                size={size}
-                centered={centered}
-                colSizes={colSizes}
-                theme={theme}
-            />
-            {fileContent && (
-                <Col className={b('files', {size, centered})} reset sizes={colSizes}>
-                    {fileContent.map((file) => (
-                        <FileLink
-                            className={b('file')}
-                            {...file}
-                            key={file.href}
-                            type="horizontal"
-                            textSize={getFileTextSize(size)}
-                            theme={theme}
+        <Grid>
+            <div className={b({size, theme, background: Boolean(background)})}>
+                <Content
+                    className={b('content')}
+                    {...textContent}
+                    size={size}
+                    centered={centered}
+                    colSizes={colSizes}
+                    theme={theme}
+                />
+                {fileContent && (
+                    <Col className={b('files', {size, centered})} reset sizes={colSizes}>
+                        {fileContent.map((file) => (
+                            <FileLink
+                                className={b('file')}
+                                {...file}
+                                key={file.href}
+                                type="horizontal"
+                                textSize={getFileTextSize(size)}
+                                theme={theme}
+                            />
+                        ))}
+                    </Col>
+                )}
+                {background && (
+                    <div className={b('background')}>
+                        <BackgroundImage
+                            className={b('background-item')}
+                            {...themedBackground}
+                            hide={isMobile}
                         />
-                    ))}
-                </Col>
-            )}
-            {background && (
-                <div className={b('background')}>
-                    <BackgroundImage
-                        className={b('background-item')}
-                        {...themedBackground}
-                        hide={isMobile}
-                    />
-                </div>
-            )}
-        </div>
+                    </div>
+                )}
+            </div>
+        </Grid>
     );
 };
 export default ContentLayoutBlock;

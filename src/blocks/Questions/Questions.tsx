@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import {Col, Row} from '../../grid';
+import {Col, Grid, Row} from '../../grid';
 import {QuestionsProps} from '../../models';
 import {Content} from '../../sub-blocks';
 import {block} from '../../utils';
@@ -89,22 +89,23 @@ const QuestionsBlock = (props: QuestionsProps) => {
                             const isOpened = opened.includes(index);
                             const onClick = () => toggleItem(index, itemOnClick);
 
-                            return (
-                                <QuestionBlockItem
-                                    key={itemTitle}
-                                    title={itemTitle}
-                                    text={itemText}
-                                    link={link}
-                                    listStyle={listStyle}
-                                    isOpened={isOpened}
-                                    onClick={onClick}
-                                />
-                            );
-                        },
-                    )}
-                </Col>
-            </Row>
-        </div>
+                                    return (
+                                        <QuestionBlockItem
+                                            key={itemTitle}
+                                            title={itemTitle}
+                                            text={itemText}
+                                            link={link}
+                                            listStyle={listStyle}
+                                            isOpened={isOpened}
+                                            onClick={onClick}
+                                        />
+                                    );
+                                },
+                            )}
+                    </Col>
+                </Row>
+            </div>
+        </Grid>
     );
 };
 
