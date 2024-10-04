@@ -22,3 +22,8 @@ node_modules
 /playwright-report/
 /blob-report/
 /playwright/playwright/.cache/
+
+# Playground
+/playground/node_modules
+/playground/.next
+/playground/.env

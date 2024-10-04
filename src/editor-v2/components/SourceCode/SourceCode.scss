@@ -1,0 +1,26 @@
+@import '../../../../styles/variables.scss';
+@import '../../../../styles/mixins.scss';
+@import '../../styles/root.scss';
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+$block: '.#{$ns}source-code';
+
+#{$block} {
+    padding: 10px;
+    white-space: pre;
+
+    @include text-code-inline-1;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    &__code {
+        user-select: all;
+    }
+
+    &__textarea textarea {
+        @include text-code-inline-1;
+    }
+}

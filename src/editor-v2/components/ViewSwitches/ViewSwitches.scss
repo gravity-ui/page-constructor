@@ -1,0 +1,12 @@
+@import '../../../../styles/variables.scss';
+@import '../../../../styles/mixins.scss';
+@import '../../styles/root.scss';
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+$block: '.#{$ns}view-switches';
+
+#{$block} {
+    display: inline-flex;
+    gap: 12px;
+}

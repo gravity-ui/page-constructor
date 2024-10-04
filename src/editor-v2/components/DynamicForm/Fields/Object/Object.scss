@@ -1,0 +1,10 @@
+@import '../../../../../../styles/variables.scss';
+@import '../../../../../../styles/mixins.scss';
+
+$block: '.#{$ns}object-dynamic-field';
+
+#{$block} {
+    &__card {
+        padding: 12px;
+    }
+}

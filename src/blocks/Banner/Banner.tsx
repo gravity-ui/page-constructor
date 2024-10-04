@@ -1,6 +1,7 @@
 import React from 'react';
 
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
+import {Grid} from '../../grid';
 import {BannerBlockProps} from '../../models';
 import {BannerCard} from '../../sub-blocks';
 import {block} from '../../utils';
@@ -14,7 +15,9 @@ export const BannerBlock = (props: BannerBlockProps) => {
 
     return (
         <AnimateBlock className={b()} animate={animated}>
-            <BannerCard {...bannerProps} />
+            <Grid>
+                <BannerCard {...bannerProps} />
+            </Grid>
         </AnimateBlock>
     );
 };

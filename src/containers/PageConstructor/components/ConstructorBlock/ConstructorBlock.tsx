@@ -11,6 +11,8 @@ import {
 } from '../../../../models';
 import {block} from '../../../../utils';
 
+import useEditorBlockMouseEvents from './hooks/useEditorBlockMouseEvents';
+
 import './ConstructorBlock.scss';
 
 interface ConstructorBlockProps extends Pick<BlockDecorationProps, 'index'> {
@@ -24,6 +26,8 @@ export const ConstructorBlock: React.FC<WithChildren<ConstructorBlockProps>> = (
     data,
     children,
 }) => {
+    const adminBlockMouseEvents = useEditorBlockMouseEvents([index]);
+
     const {type} = data;
     const blockBaseProps = useMemo(
         () => pick(data, ['anchor', 'visible', 'resetPaddings', 'indent']),
@@ -31,10 +35,12 @@ export const ConstructorBlock: React.FC<WithChildren<ConstructorBlockProps>> = (
     );
 
     return (
-        <BlockDecoration type={type} index={index} {...blockBaseProps}>
-            <BlockBase className={b({type})} {...blockBaseProps}>
-                {children}
-            </BlockBase>
-        </BlockDecoration>
+        <div {...adminBlockMouseEvents}>
+            <BlockDecoration type={type} index={index} {...blockBaseProps}>
+                <BlockBase className={b({type})} {...blockBaseProps}>
+                    {children}
+                </BlockBase>
+            </BlockDecoration>
+        </div>
     );
 };

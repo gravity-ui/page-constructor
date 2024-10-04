@@ -7,7 +7,7 @@ import {BlockType, ConstructorBlock, WithChildren} from '../../../../models';
 
 export interface ConstructorItemProps {
     data: ConstructorBlock;
-    blockKey: string;
+    blockKey: number;
 }
 
 export const ConstructorItem = ({data, blockKey, children}: WithChildren<ConstructorItemProps>) => {
@@ -19,7 +19,7 @@ export const ConstructorItem = ({data, blockKey, children}: WithChildren<Constru
     >;
 
     return (
-        <BlockIdContext.Provider value={blockKey}>
+        <BlockIdContext.Provider value={blockKey} key={blockKey}>
             <Component {...rest}>{children}</Component>
         </BlockIdContext.Provider>
     );

@@ -180,12 +180,12 @@
 
 @mixin block {
     @include add-specificity(&) {
-        margin-top: $indentL;
-        padding: 0 0 $indentL;
+        //margin-top: $indentL;
+        padding: $indentL 0;
 
         &:first-child {
             // @deprecated
-            margin-top: var(--pc-first-block-indent, #{$indentXXL});
+            //margin-top: var(--pc-first-block-indent, #{$indentXXL});
         }
     }
 }
@@ -563,27 +563,27 @@ unpredictable css rules order in build */
         @include add-specificity(&) {
             &_indentTop {
                 &_0 {
-                    margin-top: 0;
+                    padding-top: 0;
                 }
 
                 &_xs {
-                    margin-top: $indentXS;
+                    padding-top: $indentXS;
                 }
 
                 &_s {
-                    margin-top: $indentSM;
+                    padding-top: $indentSM;
                 }
 
                 &_m {
-                    margin-top: $indentM;
+                    padding-top: $indentM;
                 }
 
                 &_l {
-                    margin-top: $indentL;
+                    padding-top: $indentL;
                 }
 
                 &_xl {
-                    margin-top: $indentXL;
+                    padding-top: $indentXL;
                 }
             }
 

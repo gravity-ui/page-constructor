@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-import {Col, Row} from '../../grid';
+import {Col, Grid, Row} from '../../grid';
 import {QuestionsProps} from '../../models';
 import {Content} from '../../sub-blocks';
 import {block} from '../../utils';
@@ -29,43 +29,49 @@ const QuestionsBlock = (props: QuestionsProps) => {
     };
 
     return (
-        <div className={b()} itemScope itemType={FaqMicrodataValues.PageType}>
-            <Row>
-                <Col sizes={{all: 12, md: 4}}>
-                    <div className={b('title')}>
-                        <Content
-                            title={title}
-                            text={text}
-                            additionalInfo={additionalInfo}
-                            links={links}
-                            list={list}
-                            buttons={buttons}
-                            colSizes={{all: 12, md: 12}}
-                        />
-                    </div>
-                </Col>
-                <Col sizes={{all: 12, md: 8}} role={'list'}>
-                    {items.map(
-                        ({title: itemTitle, text: itemText, link, listStyle = 'dash'}, index) => {
-                            const isOpened = opened.includes(index);
-                            const onClick = () => toggleItem(index);
+        <Grid>
+            <div className={b()} itemScope itemType={FaqMicrodataValues.PageType}>
+                <Row>
+                    <Col sizes={{all: 12, md: 4}}>
+                        <div className={b('title')}>
+                            <Content
+                                title={title}
+                                text={text}
+                                additionalInfo={additionalInfo}
+                                links={links}
+                                list={list}
+                                buttons={buttons}
+                                colSizes={{all: 12, md: 12}}
+                            />
+                        </div>
+                    </Col>
+                    <Col sizes={{all: 12, md: 8}} role={'list'}>
+                        {items &&
+                            items.map(
+                                (
+                                    {title: itemTitle, text: itemText, link, listStyle = 'dash'},
+                                    index,
+                                ) => {
+                                    const isOpened = opened.includes(index);
+                                    const onClick = () => toggleItem(index);
 
-                            return (
-                                <QuestionBlockItem
-                                    key={itemTitle}
-                                    title={itemTitle}
-                                    text={itemText}
-                                    link={link}
-                                    listStyle={listStyle}
-                                    isOpened={isOpened}
-                                    onClick={onClick}
-                                />
-                            );
-                        },
-                    )}
-                </Col>
-            </Row>
-        </div>
+                                    return (
+                                        <QuestionBlockItem
+                                            key={itemTitle}
+                                            title={itemTitle}
+                                            text={itemText}
+                                            link={link}
+                                            listStyle={listStyle}
+                                            isOpened={isOpened}
+                                            onClick={onClick}
+                                        />
+                                    );
+                                },
+                            )}
+                    </Col>
+                </Row>
+            </div>
+        </Grid>
     );
 };
 

@@ -15,7 +15,7 @@ import './LayoutItem.scss';
 const b = block('layout-item');
 
 const LayoutItem = ({
-    content: {links, ...content},
+    content: {links = [], ...content} = {},
     metaInfo,
     media,
     border,

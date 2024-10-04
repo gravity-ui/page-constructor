@@ -61,6 +61,7 @@ export enum BlockType {
     MapBlock = 'map-block',
     FilterBlock = 'filter-block',
     FormBlock = 'form-block',
+    TestEditorBlock = 'test-editor-block',
 }
 
 export const BlockTypes = Object.values(BlockType);

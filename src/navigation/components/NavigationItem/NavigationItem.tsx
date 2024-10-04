@@ -44,7 +44,9 @@ const NavigationItem: React.FC<NavigationItemProps> = ({
     }, [data, props, type, menuLayout]);
 
     return (
-        <BlockIdContext.Provider value={ANALYTICS_ID}>
+        // TODO: fix any
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        <BlockIdContext.Provider value={ANALYTICS_ID as any}>
             <li className={b({'menu-layout': menuLayout}, className)}>
                 <Component {...componentProps} className={b('content', {type})} />
             </li>

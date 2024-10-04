@@ -161,7 +161,7 @@ export interface BannerCardProps {
     disableCompress?: boolean;
     color?: ThemeSupporting<string>;
     theme?: TextTheme;
-    button: Pick<ButtonProps, 'text' | 'url' | 'target' | 'theme'>;
+    button?: Pick<ButtonProps, 'text' | 'url' | 'target' | 'theme'>;
     mediaView?: MediaView;
 }
 
