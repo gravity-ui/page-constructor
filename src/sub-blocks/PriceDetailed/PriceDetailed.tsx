@@ -18,7 +18,7 @@ import SeparatePriceDetailed from './SeparatePriceDetailed/SeparatePriceDetailed
 const PriceDetailed = (props: PriceDetailedProps) => {
     const {
         priceType = PriceDetailsType.SETTINGS,
-        items,
+        items = [],
         numberGroupItems = 1,
         description,
         details,

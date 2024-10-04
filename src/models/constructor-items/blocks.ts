@@ -62,6 +62,7 @@ export enum BlockType {
     FilterBlock = 'filter-block',
     FormBlock = 'form-block',
     // unstable
+    TestEditorBlock = 'test-editor-block',
     SliderNewBlock = 'slider-new-block',
 }
 

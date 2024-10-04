@@ -15,8 +15,8 @@ $block: '.#{$ns}Grid';
     }
 
     .row {
-        margin-right: 0;
-        margin-left: 0;
+        //margin-right: 0;
+        //margin-left: 0;
     }
 
     #{$block} {
@@ -26,7 +26,7 @@ $block: '.#{$ns}Grid';
         }
     }
 
-    .row .row {
+    .row {
         margin: 0 -#{$gutter};
     }
 
@@ -58,7 +58,7 @@ $block: '.#{$ns}Grid';
             }
         }
 
-        .row .row {
+        .row {
             margin: 0 -#{$gutterMobile};
         }
     }

@@ -20,6 +20,7 @@ export const ExtendedFeaturesItem = {
         text: {
             type: 'string',
             contentType: 'yfm',
+            inputType: 'textarea',
         },
         label: {
             type: 'string',
