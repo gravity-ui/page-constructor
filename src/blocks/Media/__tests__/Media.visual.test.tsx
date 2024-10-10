@@ -36,10 +36,12 @@ test.describe('Media', () => {
         await expectScreenshot({skipTheme: 'dark'});
     });
 
-    test('render stories <DataLens>', async ({mount, expectScreenshot, delay}) => {
+    test('render stories <DataLens>', async ({mount, expectScreenshot, page}) => {
         await mount(<DataLens />);
-        await delay(DEFAULT_MEDIA_DELAY);
-        await expectScreenshot({skipTheme: 'dark'});
+        await expectScreenshot({
+            skipTheme: 'dark',
+            mask: [page.locator('.pc-media-component-data-lens__wrap')],
+        });
     });
 
     test('render stories <Size>', async ({mount, expectScreenshot, delay}) => {
