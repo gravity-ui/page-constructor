@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [5.27.1](https://github.com/gravity-ui/page-constructor/compare/v5.27.0...v5.27.1) (2024-09-27)
+
+
+### Bug Fixes
+
+* slider a11y ([#982](https://github.com/gravity-ui/page-constructor/issues/982)) ([a1f4423](https://github.com/gravity-ui/page-constructor/commit/a1f442336cb7664c5f6360528dff9b89c1a17e75))
+
 ## [5.27.0](https://github.com/gravity-ui/page-constructor/compare/v5.26.1...v5.27.0) (2024-09-25)
 
 
