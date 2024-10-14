@@ -5,6 +5,7 @@ $block: '.#{$ns}image-card';
 
 #{$block} {
     @include card();
+    @include slider-shadow-fix(&);
     min-height: 1px;
     $image: #{&}__image;
     $content: #{&}__content;
