@@ -68,7 +68,7 @@ export const MediaBase = (props: MediaBaseProps) => {
                     </Col>
                     {card ? (
                         <Col sizes={mediaSizes}>
-                            <div>{card}</div>
+                            <div className={b('card')}>{card}</div>
                         </Col>
                     ) : null}
                 </Row>
