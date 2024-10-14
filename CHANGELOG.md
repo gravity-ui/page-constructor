@@ -1,6 +1,20 @@
 # Changelog
 
 
+## [5.28.0](https://github.com/gravity-ui/page-constructor/compare/v5.27.1...v5.28.0) (2024-10-14)
+
+
+### Features
+
+* add owner ([#1044](https://github.com/gravity-ui/page-constructor/issues/1044)) ([43880c6](https://github.com/gravity-ui/page-constructor/commit/43880c6f78ef893d08eac9d5fa831bd70f461318))
+
+
+### Bug Fixes
+
+* image-card fix shadow in slider ([#1036](https://github.com/gravity-ui/page-constructor/issues/1036)) ([52e1069](https://github.com/gravity-ui/page-constructor/commit/52e10698921507f4f95562cf36dd9d808b7df139))
+* return MediaBase card animation ([#1042](https://github.com/gravity-ui/page-constructor/issues/1042)) ([9deadf2](https://github.com/gravity-ui/page-constructor/commit/9deadf2f34307315bdcc4f60bec1b8d70febc0b1))
+* update datalens screenshots ([#1035](https://github.com/gravity-ui/page-constructor/issues/1035)) ([9875680](https://github.com/gravity-ui/page-constructor/commit/9875680176a0927333552c048d284a5ac3dcd728))
+
 ## [5.27.1](https://github.com/gravity-ui/page-constructor/compare/v5.27.0...v5.27.1) (2024-09-27)
 
 
