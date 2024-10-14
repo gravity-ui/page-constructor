@@ -7,10 +7,12 @@ import {DataLens, Image, ImageSlider, Video, Youtube} from './helpers';
 const DEFAULT_MEDIACARD_DELAY = 10 * 1000;
 
 test.describe('MediaCard', () => {
-    test('render stories <DataLens>', async ({mount, expectScreenshot, delay}) => {
+    test('render stories <DataLens>', async ({mount, expectScreenshot, page}) => {
         await mount(<DataLens />);
-        await delay(DEFAULT_MEDIACARD_DELAY);
-        await expectScreenshot({skipTheme: 'dark'});
+        await expectScreenshot({
+            skipTheme: 'dark',
+            mask: [page.locator('.pc-media-component-data-lens__wrap')],
+        });
     });
 
     test('render stories <Image>', async ({mount, expectScreenshot, delay}) => {
