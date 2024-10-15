@@ -55,6 +55,11 @@ $dotSize: 8px;
         }
     }
 
+    #{$root}__slide-item {
+        width: 100%;
+        height: 100%;
+    }
+
     &__arrow {
         position: absolute;
         top: -2px;
