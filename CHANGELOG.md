@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [5.28.1](https://github.com/gravity-ui/page-constructor/compare/v5.28.0...v5.28.1) (2024-10-15)
+
+
+### Bug Fixes
+
+* **Slider:** fix items height ([#1040](https://github.com/gravity-ui/page-constructor/issues/1040)) ([3a294ea](https://github.com/gravity-ui/page-constructor/commit/3a294eac5fb2e4eb23dc4a887da4b5c195bc5245))
+
 ## [5.28.0](https://github.com/gravity-ui/page-constructor/compare/v5.27.1...v5.28.0) (2024-10-14)
 
 
