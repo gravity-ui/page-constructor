@@ -6,11 +6,13 @@ import {Swiper, SwiperSlide} from 'swiper/react';
 import Anchor from '../../components/Anchor/Anchor';
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
 import Title from '../../components/Title/Title';
-import {ClassNameProps, Refable, SliderProps as SliderParams} from '../../models';
+import {ClassNameProps, Refable, SliderProps as SliderParams, SliderType} from '../../models';
 import {block} from '../../utils';
 
 import Arrow from './Arrow/Arrow';
+import {i18n} from './i18n';
 import {useSlider} from './useSlider';
+import {useSliderPagination} from './useSliderPagination';
 
 import './Slider.scss';
 import 'swiper/swiper-bundle.css';
@@ -36,6 +38,7 @@ export interface SliderNewProps
     dotsClassName?: string;
     blockClassName?: string;
     arrowSize?: number;
+    initialSlide?: number;
 }
 
 SwiperCore.use([Autoplay, A11y, Pagination]);
@@ -50,6 +53,7 @@ export const SliderNewBlock = ({
     adaptive,
     autoplay: autoplayMs,
     dots = true,
+    initialSlide = 0,
     className,
     dotsClassName,
     disclaimer,
@@ -63,13 +67,25 @@ export const SliderNewBlock = ({
     onActiveIndexChange,
     onBreakpoint,
 }: PropsWithChildren<SliderNewProps>) => {
-    const {childrenCount, breakpoints, autoplay, onSwiper, onPrev, onNext, isLocked, setIsLocked} =
+    const {autoplay, isLocked, childrenCount, breakpoints, onSwiper, onPrev, onNext, setIsLocked} =
         useSlider({
             slidesToShow,
             children,
             type,
             autoplayMs,
         });
+
+    const isA11yControlHidden = Boolean(autoplay);
+    const controlTabIndex = isA11yControlHidden ? -1 : 0;
+
+    const paginationProps = useSliderPagination({
+        enabled: dots,
+        isA11yControlHidden,
+        controlTabIndex,
+        bulletClass: b('dot', dotsClassName),
+        bulletActiveClass: b('dot_active'),
+        paginationLabel: i18n('pagination-label'),
+    });
 
     return (
         <div
@@ -93,17 +109,10 @@ export const SliderNewBlock = ({
                 <Swiper
                     className={b('slider', className)}
                     onSwiper={onSwiper}
-                    pagination={
-                        dots && {
-                            clickable: true,
-                            bulletClass: b('dot', dotsClassName),
-                            bulletActiveClass: b('dot_active'),
-                        }
-                    }
                     speed={1000}
                     autoplay={autoplay}
                     autoHeight={adaptive}
-                    initialSlide={0}
+                    initialSlide={initialSlide}
                     noSwiping={false}
                     breakpoints={breakpoints}
                     onSlideChange={onSlideChange}
@@ -115,27 +124,45 @@ export const SliderNewBlock = ({
                     onUnlock={() => setIsLocked(false)}
                     watchSlidesVisibility
                     watchOverflow
+                    a11y={{
+                        slideLabelMessage: '',
+                        paginationBulletMessage: i18n('dot-label', {index: '{{index}}'}),
+                    }}
+                    {...paginationProps}
                 >
                     {React.Children.map(children, (elem, index) => (
                         <SwiperSlide className={b('slide')} key={index}>
-                            {elem}
+                            {({isVisible}) => (
+                                <div
+                                    className={b('slide-item')}
+                                    aria-hidden={!isA11yControlHidden && !isVisible}
+                                >
+                                    {elem}
+                                </div>
+                            )}
                         </SwiperSlide>
                     ))}
                 </Swiper>
                 {arrows && !isLocked && (
                     <Fragment>
-                        <Arrow
-                            className={b('arrow', {prev: true})}
-                            type="left"
-                            onClick={onPrev}
-                            size={arrowSize}
-                        />
-                        <Arrow
-                            className={b('arrow', {next: true})}
-                            type="right"
-                            onClick={onNext}
-                            size={arrowSize}
-                        />
+                        <div aria-hidden={isA11yControlHidden}>
+                            <Arrow
+                                className={b('arrow', {prev: true})}
+                                type="left"
+                                transparent={type === SliderType.HeaderCard}
+                                onClick={onPrev}
+                                size={arrowSize}
+                                extraProps={{tabIndex: controlTabIndex}}
+                            />
+                            <Arrow
+                                className={b('arrow', {next: true})}
+                                type="right"
+                                transparent={type === SliderType.HeaderCard}
+                                onClick={onNext}
+                                size={arrowSize}
+                                extraProps={{tabIndex: controlTabIndex}}
+                            />
+                        </div>
                     </Fragment>
                 )}
                 <div className={b('footer')}>

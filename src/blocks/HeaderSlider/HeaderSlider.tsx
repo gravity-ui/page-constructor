@@ -4,7 +4,7 @@ import {MobileContext} from '../../context/mobileContext';
 import {HeaderSliderBlockProps, SliderType} from '../../models';
 import {block} from '../../utils';
 import Header from '../Header/Header';
-import {SliderBlock} from '../index';
+import {SliderNewBlock as SliderBlock} from '../unstable';
 
 import './HeaderSlider.scss';
 
