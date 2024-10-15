@@ -10,7 +10,7 @@ import {
 } from '../../../common/types';
 import {ClassNameProps} from '../../../models';
 import {block} from '../../../utils';
-import {IframeContext} from '../../context/iframeContext';
+import {IframeContext, useIframeStore} from '../../context/iframeContext';
 import {useMessageObserver} from '../../context/messagesContext';
 
 import './BigOverlay.scss';
@@ -20,6 +20,7 @@ const b = block('big-overlay');
 interface BigOverlayProps extends ClassNameProps {}
 
 const BigOverlay: React.FC<BigOverlayProps> = ({className}) => {
+    const {zoom} = useIframeStore();
     const {iframeElement} = useContext(IframeContext);
     const [mousePosition, setMousePosition] = useState<{x: number; y: number} | undefined>(
         undefined,
@@ -32,13 +33,15 @@ const BigOverlay: React.FC<BigOverlayProps> = ({className}) => {
                 const {x, y} = payload.cursor;
                 const iframeRect = iframeElement?.getClientRects().item(0);
                 if (iframeRect) {
-                    const newX = meta.source === 'editor' ? x : x + iframeRect.x;
-                    const newY = meta.source === 'editor' ? y : y + iframeRect.y;
+                    const zoomedX = (x * zoom) / 100;
+                    const zoomedY = (y * zoom) / 100;
+                    const newX = meta.source === 'editor' ? x : zoomedX + iframeRect.x;
+                    const newY = meta.source === 'editor' ? y : zoomedY + iframeRect.y;
                     setMousePosition({x: newX, y: newY});
                 }
             }
         },
-        [iframeElement],
+        [iframeElement, zoom],
     );
 
     useMessageObserver<InsertModeDisableAction>(ActionTypes.InsertModeDisable, () => {

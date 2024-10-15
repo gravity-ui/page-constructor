@@ -9,4 +9,13 @@ $block: '.#{$ns}view-switches';
 #{$block} {
     display: inline-flex;
     gap: 12px;
+
+    &__zoom {
+        display: flex;
+        gap: 4px;
+    }
+
+    &__zoom-input {
+        width: 40px;
+    }
 }
