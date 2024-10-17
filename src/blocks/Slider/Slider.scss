@@ -375,6 +375,8 @@ $block: '.#{$ns}SliderBlock';
     }
 
     @media (max-width: map-get($gridBreakpoints, 'sm')) {
+        overflow: hidden;
+
         &:not(&_one-slide) {
             margin-left: -($gridContainerMargin + $gridGutterMobile);
             padding-left: $gridContainerMargin + $gridGutterMobile;
