@@ -184,6 +184,16 @@ export const SliderBlock = (props: React.PropsWithChildren<SliderProps>) => {
         return () => window.removeEventListener('resize', onResize);
     }, [onResize]);
 
+    useEffect(() => {
+        window.addEventListener('touchstart', touchStart);
+        window.addEventListener('touchmove', preventTouch, {passive: false});
+
+        return () => {
+            window.removeEventListener('touchstart', touchStart);
+            window.removeEventListener('touchmove', preventTouch);
+        };
+    });
+
     const handleArrowClick = (direction: ArrowType) => {
         let nextIndex;
 
@@ -434,6 +444,26 @@ export const SliderBlock = (props: React.PropsWithChildren<SliderProps>) => {
                 </div>
             </OutsideClick>
         );
+    };
+
+    const [firstClient, setFirstClient] = useState<number | undefined>();
+    const touchStart = (e: TouchEvent) => {
+        setFirstClient(e.touches[0].clientX);
+    };
+
+    const preventTouch = (e: TouchEvent) => {
+        if (firstClient) {
+            const minValue = 5; // threshold
+            const clientX = e.touches[0].clientX - firstClient;
+
+            // Vertical scrolling does not work when you start swiping horizontally.
+            if (Math.abs(clientX) > minValue) {
+                e.preventDefault();
+                e.returnValue = false;
+                return false;
+            }
+        }
+        return true;
     };
 
     return (
