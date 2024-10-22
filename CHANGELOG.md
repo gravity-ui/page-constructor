@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [5.28.2](https://github.com/gravity-ui/page-constructor/compare/v5.28.1...v5.28.2) (2024-10-22)
+
+
+### Bug Fixes
+
+* fix import from node_modules  ([#1050](https://github.com/gravity-ui/page-constructor/issues/1050)) ([3898bb1](https://github.com/gravity-ui/page-constructor/commit/3898bb16ac0f5e0c652b2ebf7048c6ae768dc7d3))
+
 ## [5.28.1](https://github.com/gravity-ui/page-constructor/compare/v5.28.0...v5.28.1) (2024-10-15)
 
 
