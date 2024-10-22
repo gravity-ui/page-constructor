@@ -109,6 +109,42 @@ interface NavigationLogo {
 }
 ```
 
+### Server utils
+
+The package provides a set of server utilities for transforming your content.
+
+```ts
+const {fullTransform} = require('@gravity-ui/page-constructor/server');
+
+const {html} = fullTransform(content, {
+  lang,
+  extractTitle: true,
+  allowHTML: true,
+  path: __dirname,
+  plugins,
+});
+```
+
+Under the hood, a package is used to transform Yandex Flavored Markdown into HTML - `diplodoc/transfrom`, so it is also in peer dependencies
+
+You can also use useful utilities in the places you need, for example in your custom components
+
+```ts
+const {
+  typografToText,
+  typografToHTML,
+  yfmTransformer,
+} = require('@gravity-ui/page-constructor/server');
+
+const post = {
+  title: typografToText(title, lang),
+  content: typografToHTML(content, lang),
+  description: yfmTransformer(lang, description, {plugins}),
+};
+```
+
+You can find more utilities in this [section](https://github.com/gravity-ui/page-constructor/tree/main/src/text-transform)
+
 ### Custom blocks
 
 The page constructor lets you use blocks that are user-defined in their app. Blocks are regular React components.
@@ -315,6 +351,24 @@ enum PredefinedEventTypes {
 npm ci
 npm run dev
 ```
+
+#### Note about Vite
+
+```ts
+import react from '@vitejs/plugin-react-swc';
+import dynamicImport from 'vite-plugin-dynamic-import';
+
+export default defineConfig({
+  plugins: [
+    react(),
+    dynamicImport({
+      filter: (id) => id.includes('/node_modules/@gravity-ui/page-constructor'),
+    }),
+  ],
+});
+```
+
+For Vite, you need to install the `vite-plugin-dynamic-import` plugin and configure the config so that dynamic imports work
 
 ## Release flow
 
