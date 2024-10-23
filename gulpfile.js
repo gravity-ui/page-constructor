@@ -72,12 +72,22 @@ task('copy-json', () => {
 });
 
 task('styles-global', () => {
-    return src('styles/styles.scss').pipe(sass().on('error', sass.logError)).pipe(dest('styles'));
+    return src('styles/styles.scss')
+        .pipe(
+            sass({
+                includePaths: ['node_modules'],
+            }).on('error', sass.logError),
+        )
+        .pipe(dest('styles'));
 });
 
 task('styles-components', () => {
     return src([`src/**/*.scss`, `!src/**/__stories__/**/*.scss`, '!src/widget/**/*.scss'])
-        .pipe(sass().on('error', sass.logError))
+        .pipe(
+            sass({
+                includePaths: ['node_modules'],
+            }).on('error', sass.logError),
+        )
         .pipe(dest(path.resolve(BUILD_CLIENT_DIR, ESM_DIR)))
         .pipe(dest(path.resolve(BUILD_CLIENT_DIR, CJS_DIR)));
 });
