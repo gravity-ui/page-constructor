@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [5.28.3](https://github.com/gravity-ui/page-constructor/compare/v5.28.2...v5.28.3) (2024-10-23)
+
+
+### Bug Fixes
+
+* add node_modules to the sas includePaths ([#1055](https://github.com/gravity-ui/page-constructor/issues/1055)) ([fbe05ef](https://github.com/gravity-ui/page-constructor/commit/fbe05ef1b6771a85c0e610676adb02118cd3a08f))
+
 ## [5.28.2](https://github.com/gravity-ui/page-constructor/compare/v5.28.1...v5.28.2) (2024-10-22)
 
 
