@@ -89,7 +89,7 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
             ariaLabel,
             ratio,
             autoRatio,
-            contain,
+            contain = true,
         } = props;
 
         const {
