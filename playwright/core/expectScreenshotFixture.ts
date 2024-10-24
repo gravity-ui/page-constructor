@@ -1,6 +1,6 @@
 import {expect} from '@playwright/experimental-ct-react';
 import type {JSHandle, Locator, PageScreenshotOptions} from '@playwright/test';
-import {isFunction} from 'lodash';
+import isFunction from 'lodash/isFunction';
 
 import {DEFAULT_MOUNT_TEST_DELAY} from './constants';
 import type {PlaywrightFixture} from './types';
