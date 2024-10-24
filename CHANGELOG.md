@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [5.28.4](https://github.com/gravity-ui/page-constructor/compare/v5.28.3...v5.28.4) (2024-10-24)
+
+
+### Bug Fixes
+
+* refactoring lodash imports for the better tree shaking ([#1058](https://github.com/gravity-ui/page-constructor/issues/1058)) ([226ab9d](https://github.com/gravity-ui/page-constructor/commit/226ab9de5b444fc48e658feb4ceff7baf43c4278))
+
 ## [5.28.3](https://github.com/gravity-ui/page-constructor/compare/v5.28.2...v5.28.3) (2024-10-23)
 
 
