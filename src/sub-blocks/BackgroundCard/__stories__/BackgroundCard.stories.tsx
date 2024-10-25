@@ -33,6 +33,10 @@ export default {
             control: {type: 'radio', labels: {undefined: 'default'}},
             options: [undefined, 's', 'm', 'l', 'xl'],
         },
+        theme: {
+            control: {type: 'radio', labels: {undefined: 'default'}},
+            options: [undefined, 'dark', 'light'],
+        },
     },
 } as Meta;
 
