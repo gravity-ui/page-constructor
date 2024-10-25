@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [5.28.5](https://github.com/gravity-ui/page-constructor/compare/v5.28.4...v5.28.5) (2024-10-25)
+
+
+### Bug Fixes
+
+* **ReactPlayer:** change default contain behaviour ([#1057](https://github.com/gravity-ui/page-constructor/issues/1057)) ([4a376e9](https://github.com/gravity-ui/page-constructor/commit/4a376e992b0ed7717cfdc80f6f3de6b358e374f9))
+* support themes in list inside Content sub-block ([#1054](https://github.com/gravity-ui/page-constructor/issues/1054)) ([ed3dbde](https://github.com/gravity-ui/page-constructor/commit/ed3dbde88ad70c668378ff0e3ae82eb41a2ef989))
+
 ## [5.28.4](https://github.com/gravity-ui/page-constructor/compare/v5.28.3...v5.28.4) (2024-10-24)
 
 
