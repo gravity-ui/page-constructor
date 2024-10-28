@@ -6,7 +6,7 @@ $fsArrowArea: 120px;
 
 @mixin fullscreen-card() {
     @media (max-width: map-get($gridBreakpoints, 'sm')) {
-        &:not(&_one-slide) {
+        &:not(#{$block}_one-slide) {
             margin-left: 0;
             padding-left: 0;
             width: 100%;
@@ -187,7 +187,6 @@ $dotSize: 8px;
     }
 
     &_type_header-card {
-        @include fullscreen-card();
         $arrowWidth: 68px;
         $arrowHeight: 68px;
 
@@ -252,12 +251,20 @@ $dotSize: 8px;
             padding: 0;
         }
 
+        @media (max-width: map-get($gridBreakpoints, 'md')) {
+            &:not(#{$root}_one-slide) {
+                margin-left: -$indentXXXS;
+                padding-left: 0;
+                width: calc(100% + #{$indentXXXS});
+            }
+        }
+
         @media (max-width: map-get($gridBreakpoints, 'sm')) {
             #{$root}__arrow {
                 display: none;
             }
 
-            &#{$root}:not(&_one-slide) {
+            &:not(#{$root}_one-slide) {
                 #{$root}__slider {
                     margin-left: 0;
                 }
@@ -336,7 +343,7 @@ $dotSize: 8px;
         }
 
         @media (max-width: map-get($gridBreakpoints, 'sm')) {
-            #{$block}#{&}:not(&_one-slide) {
+            &:not(#{$root}_one-slide) {
                 #{$root}__slider {
                     margin-left: 0;
                 }
