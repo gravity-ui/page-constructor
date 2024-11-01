@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [5.28.6](https://github.com/gravity-ui/page-constructor/compare/v5.28.5...v5.28.6) (2024-11-01)
+
+
+### Bug Fixes
+
+* **ReactPlayer:** auto ratio fit ([#1061](https://github.com/gravity-ui/page-constructor/issues/1061)) ([986ed15](https://github.com/gravity-ui/page-constructor/commit/986ed156cc430fac296c6bf9a1a3d97de5956007))
+
 ## [5.28.5](https://github.com/gravity-ui/page-constructor/compare/v5.28.4...v5.28.5) (2024-10-25)
 
 
