@@ -384,6 +384,7 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
                         wrapper: !currentHeight,
                         controls,
                         contain,
+                        'auto-ratio': autoRatio,
                     },
                     className,
                 )}
