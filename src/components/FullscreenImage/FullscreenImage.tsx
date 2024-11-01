@@ -60,7 +60,7 @@ const FullscreenImage = (props: FullscreenImageProps) => {
                     onClick={openModal}
                     style={imageStyle}
                 />
-                <button className={b('icon-wrapper')} onClick={openModal}>
+                <button className={b('expand-icon-wrapper')} onClick={openModal}>
                     <Icon
                         data={ChevronsExpandUpRight}
                         width={FULL_SCREEN_ICON_SIZE}
@@ -77,7 +77,7 @@ const FullscreenImage = (props: FullscreenImageProps) => {
                     contentClassName={b('modal-content', {loaded: sliderLoaded})}
                 >
                     <button
-                        className={b('icon-wrapper', {visible: true})}
+                        className={b('close-icon-wrapper', {visible: true})}
                         onClick={closeModal}
                         aria-label={i18n('close')}
                     >

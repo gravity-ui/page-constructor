@@ -4,6 +4,33 @@
 $block: '.#{$ns}fullscreen-image';
 $closeButtonSize: 36px;
 
+@mixin iconWrapper {
+    @include reset-button-style();
+    @include focusable();
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1001;
+    width: $closeButtonSize;
+    height: $closeButtonSize;
+    border-radius: 8px;
+    background-color: var(--g-color-base-simple-hover-solid);
+    cursor: pointer;
+    opacity: 0;
+    transition: 0.3s;
+
+    &:focus {
+        opacity: 1;
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'md')) {
+        & {
+            opacity: 1;
+        }
+    }
+}
+
 #{$block} {
     &__image {
         cursor: pointer;
@@ -12,7 +39,7 @@ $closeButtonSize: 36px;
             position: relative;
 
             &:hover {
-                #{$block}__icon-wrapper {
+                & #{$block}__expand-icon-wrapper {
                     opacity: 1;
                 }
             }
@@ -46,7 +73,8 @@ $closeButtonSize: 36px;
             background-color: transparent;
 
             &:hover {
-                & #{$block}__icon-wrapper {
+                & #{$block}__expand-icon-wrapper,
+                & #{$block}__close-icon-wrapper {
                     opacity: 1;
                 }
             }
@@ -90,33 +118,18 @@ $closeButtonSize: 36px;
         border-radius: $borderRadius;
     }
 
-    &__icon-wrapper {
-        @include reset-button-style();
-        @include focusable();
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
+    &__expand-icon-wrapper {
+        @include iconWrapper();
         position: absolute;
-        z-index: 1001;
         right: 16px;
         top: 16px;
-        width: $closeButtonSize;
-        height: $closeButtonSize;
-        border-radius: 8px;
-        background-color: var(--g-color-base-simple-hover-solid);
-        cursor: pointer;
-        opacity: 0;
-        transition: 0.3s;
+    }
 
-        &:focus {
-            opacity: 1;
-        }
-
-        &_visible {
-            right: 24px;
-            top: 24px;
-        }
+    &__close-icon-wrapper {
+        @include iconWrapper();
+        position: absolute;
+        right: 24px;
+        top: 24px;
     }
 
     &__icon {
@@ -132,25 +145,4 @@ $closeButtonSize: 36px;
             width: 100%;
         }
     }
-
-    @media (max-width: map-get($gridBreakpoints, 'md')) {
-        &__icon-wrapper {
-            right: 20px;
-            top: 50px;
-        }
-    }
-
-    // @media (max-width: map-get($gridBreakpoints, 'lg')) {
-    //     &__image {
-    //         pointer-events: none;
-    //     }
-
-    //     &__icon-wrapper {
-    //         display: none;
-    //     }
-
-    //     &__modal {
-    //         display: none !important; /* stylelint-disable-line declaration-no-important */
-    //     }
-    // }
 }
