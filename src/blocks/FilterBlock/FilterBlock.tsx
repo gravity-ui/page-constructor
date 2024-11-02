@@ -78,7 +78,6 @@ const FilterBlock: React.FC<FilterBlockProps> = ({
                     <CardLayoutBlock title="" colSizes={colSizes} className={b('cards-container')}>
                         {cards.map((card, index) => {
                             const key = getBlockKey(card, index);
-
                             return <ConstructorItem data={card} blockKey={index} key={key} />;
                         })}
                     </CardLayoutBlock>
