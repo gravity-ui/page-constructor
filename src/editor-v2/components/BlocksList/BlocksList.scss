@@ -14,9 +14,14 @@ $block: '.#{$ns}blocks-list';
 
     &__card {
         padding: 8px;
-        cursor: pointer;
+        cursor: grab;
         user-select: none;
         margin-bottom: 8px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 4px;
 
         &:last-child {
             margin-bottom: 0;
@@ -24,12 +29,36 @@ $block: '.#{$ns}blocks-list';
 
         &:active {
             background-color: var(--g-color-base-generic-hover);
+            cursor: grabbing;
         }
+    }
+
+    &__name {
+        flex: 1;
     }
 
     &__title {
         @include text-subheader-3;
         margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    &__subtitle {
+        @include text-subheader-2;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    &__group {
+        margin-bottom: 16px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
     }
 
     &__section {

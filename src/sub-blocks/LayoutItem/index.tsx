@@ -10,11 +10,16 @@ const LayoutItemConfig: BlockData = {
     component: LayoutItem,
     schema: {
         name: 'Layout Item',
+        group: 'cards',
         inputs: generateFromAJV(LayoutItemSchema as unknown as JSONSchemaType<{}>),
         default: {
+            type: 'layout-item',
             content: {
-                title: 'Layout Item',
-                text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                title: 'Lorem ipsum',
+                text: 'Dolor sit amet',
+            },
+            media: {
+                image: 'https://storage.yandexcloud.net/yc-www-community-images/event_ecaf1ef1-bc3a-40fa-adef-827b0959e6c3.jpg',
             },
         },
     },

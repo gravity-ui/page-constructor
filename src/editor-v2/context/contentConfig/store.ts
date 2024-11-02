@@ -34,6 +34,7 @@ export interface ContentConfigMethods extends WithStoreReducer {
     duplicateBlock: (path: number[]) => void;
     reorderBlock: (path: number[], destination: number[]) => void;
     updateField: (path: string, value: DynamicFormValue) => void;
+    resetBlocks: () => void;
 }
 
 export type ContentConfigStore = ContentConfigState & ContentConfigMethods;
@@ -136,6 +137,12 @@ export const createContentConfigStore = initializeStore<ContentConfigState, Cont
             set((state) => ({
                 ...state,
                 config: {...state.config, blocks: newBlocksConfig},
+            }));
+        },
+        resetBlocks: () => {
+            set((state) => ({
+                ...state,
+                config: {...state.config, blocks: []},
             }));
         },
         reducer: function (action) {

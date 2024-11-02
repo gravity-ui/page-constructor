@@ -1,13 +1,11 @@
 import React, {useCallback} from 'react';
 
-import {Grip} from '@gravity-ui/icons';
-import {Panel, PanelGroup, PanelResizeHandle} from 'react-resizable-panels';
-
 import {ActionTypes} from '../../../common/types';
 import {PageContent} from '../../../models';
 import {block} from '../../../utils';
 import BigOverlay from '../../components/BigOverlay/BigOverlay';
 import MiddleScreen from '../../components/MiddleScreen/MiddleScreen';
+import {Panels} from '../../components/Panels/Panels';
 import {Sidebar} from '../../components/Sidebar/Sidebar';
 import {ContentConfigProvider} from '../../context/contentConfig';
 import {EditorProvider, useEditorStore} from '../../context/editorContext';
@@ -65,27 +63,11 @@ const EditorView = (_props: EditorViewProps) => {
     return (
         <div className={b()} onMouseUp={onMouseUp} onMouseMove={onMouseMove}>
             <div className={b('body')}>
-                <PanelGroup
-                    className={b('panel')}
-                    autoSaveId="page-constructor-editor"
-                    direction="horizontal"
-                >
-                    <Panel collapsible defaultSize={25} minSize={15}>
-                        <Sidebar position={'left'} />
-                    </Panel>
-                    <PanelResizeHandle className={b('draggable')}>
-                        <Grip className={b('grip')} />
-                    </PanelResizeHandle>
-                    <Panel minSize={20}>
-                        <MiddleScreen />
-                    </Panel>
-                    <PanelResizeHandle className={b('draggable')}>
-                        <Grip className={b('grip')} />
-                    </PanelResizeHandle>
-                    <Panel collapsible minSize={15} defaultSize={25}>
-                        <Sidebar position={'right'} startMenu="block-config" />
-                    </Panel>
-                </PanelGroup>
+                <Panels
+                    left={<Sidebar position={'left'} />}
+                    right={<Sidebar position={'right'} startMenu="block-config" />}
+                    middle={<MiddleScreen />}
+                />
             </div>
             <BigOverlay className={b('overlay')} />
         </div>
