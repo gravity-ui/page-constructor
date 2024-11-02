@@ -35,19 +35,6 @@ $block: '.#{$ns}editor';
         flex: 1;
     }
 
-    &__draggable {
-        width: 12px;
-        height: 100%;
-        cursor: col-resize;
-        background-color: var(--g-color-line-generic);
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        color: var(--g-color-base-background);
-    }
-
     &__overlay {
         position: absolute;
         height: 100%;

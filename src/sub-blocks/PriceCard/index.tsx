@@ -10,6 +10,7 @@ const PriceCardConfig: BlockData = {
     component: PriceCard,
     schema: {
         name: 'Price Card',
+        group: 'cards',
         inputs: generateFromAJV(PriceCardSchema['price-card'] as unknown as JSONSchemaType<{}>),
         default: {
             type: 'price-card',

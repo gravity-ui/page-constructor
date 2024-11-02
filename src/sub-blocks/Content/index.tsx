@@ -10,6 +10,7 @@ const ContentConfig: BlockData = {
     component: Content,
     schema: {
         name: 'Content',
+        group: 'cards',
         inputs: generateFromAJV(ContentBlock['content'] as unknown as JSONSchemaType<{}>),
         default: {
             title: 'Content',
