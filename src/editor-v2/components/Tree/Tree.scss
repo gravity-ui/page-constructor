@@ -9,6 +9,17 @@ $block: '.#{$ns}tree';
 #{$block} {
     padding: 12px;
 
+    &__head {
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__title {
+        @include text-subheader-3;
+    }
+
     &__item {
         padding: 8px;
         margin-bottom: 8px;

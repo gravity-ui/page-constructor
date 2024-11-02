@@ -9,6 +9,7 @@ const HeaderSliderBlockConfig = {
     component: HeaderSliderBlock,
     schema: {
         name: 'Header Slider Block',
+        group: 'card-containers',
         inputs: generateFromAJV(
             HeaderSliderBlockSchema['header-slider-block'] as unknown as JSONSchemaType<{}>,
         ),

@@ -13,10 +13,12 @@ const BackgroundCardConfig: BlockData = {
         inputs: generateFromAJV(
             BackgroundCardSchema['background-card'] as unknown as JSONSchemaType<{}>,
         ),
+        group: 'cards',
         default: {
             title: 'Background Card',
             text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
             additionalInfo: 'Additional info',
+            backgroundColor: '#F0F0F0',
         },
     },
 };

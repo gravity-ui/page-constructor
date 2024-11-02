@@ -1,6 +1,7 @@
 import React, {PropsWithChildren} from 'react';
 
-import {Card} from '@gravity-ui/uikit';
+import {TrashBin} from '@gravity-ui/icons';
+import {Button, Card, Icon} from '@gravity-ui/uikit';
 
 import {ItemConfig} from '../../../common/types';
 import {block} from '../../../utils';
@@ -35,7 +36,7 @@ const generateTree = (items: TreeItem[]): TreeItem[] => {
 };
 
 const Tree = (_p: PropsWithChildren<TreeProps>) => {
-    const {config} = useContentConfigStore();
+    const {config, resetBlocks} = useContentConfigStore();
 
     const blockTree = generateTree(config.blocks);
 
@@ -48,7 +49,21 @@ const Tree = (_p: PropsWithChildren<TreeProps>) => {
         ));
     };
 
-    return <div className={b()}>{renderTree(blockTree)}</div>;
+    return (
+        <div className={b()}>
+            <div className={b('head')}>
+                <div className={b('title')}>Tree</div>
+                <div className={b('actions')}>
+                    <Button view="outlined-danger" onClick={() => resetBlocks()}>
+                        <Icon data={TrashBin} />
+                        Clear all
+                    </Button>
+                </div>
+            </div>
+
+            <div className={b('cards')}>{renderTree(blockTree)}</div>
+        </div>
+    );
 };
 
 export default Tree;

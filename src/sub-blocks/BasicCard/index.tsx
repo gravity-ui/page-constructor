@@ -10,6 +10,7 @@ const BasicCardConfig: BlockData = {
     component: BasicCard,
     schema: {
         name: 'Basic Card',
+        group: 'cards',
         inputs: generateFromAJV(BasicCardSchema['basic-card'] as unknown as JSONSchemaType<{}>),
         default: {
             title: 'Basic Card',

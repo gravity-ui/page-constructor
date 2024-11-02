@@ -1,0 +1,40 @@
+@import '../../../../styles/variables.scss';
+@import '../../../../styles/mixins.scss';
+@import '../../styles/root.scss';
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+$block: '.#{$ns}panels';
+
+#{$block} {
+    &__button-wrap {
+        --pc-editor-panels-button-gap: 8px;
+        position: absolute;
+        z-index: 1000;
+
+        &_left {
+            bottom: var(--pc-editor-panels-button-gap);
+            left: calc(100% + var(--pc-editor-panels-button-gap));
+        }
+
+        &_right {
+            bottom: var(--pc-editor-panels-button-gap);
+            right: calc(100% + var(--pc-editor-panels-button-gap));
+        }
+    }
+
+    &__draggable {
+        position: relative;
+
+        width: 12px;
+        height: 100%;
+        cursor: col-resize;
+        background-color: var(--g-color-line-generic);
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        color: var(--g-color-base-background);
+    }
+}
