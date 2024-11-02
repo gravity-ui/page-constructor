@@ -11,6 +11,7 @@ const PriceDetailedConfig: BlockData = {
     component: PriceDetailed,
     schema: {
         name: 'Price Detailed',
+        group: 'cards',
         inputs: generateFromAJV(
             PriceDetailedSchema['price-detailed'] as unknown as JSONSchemaType<{}>,
         ),

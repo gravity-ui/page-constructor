@@ -43,7 +43,7 @@ import TableBlockConfig from './blocks/Table';
 import TabsBlockConfig from './blocks/Tabs';
 import TestEditorBlockConfig from './blocks/TestEditorBlock';
 import TestEditorBlock from './blocks/TestEditorBlock/TestEditorBlock';
-import {ConfigInput} from './common/types';
+import {BlockConfig} from './common/types';
 import {SliderNewBlock} from './blocks/unstable';
 import {BlockType, NavigationItemType, SubBlockType} from './models';
 import {
@@ -72,7 +72,7 @@ import BasicCardConfig from './sub-blocks/BasicCard';
 import ContentConfig from './sub-blocks/Content';
 import DividerConfig from './sub-blocks/Divider';
 import ImageCardConfig from './sub-blocks/ImageCard';
-import LayoutItemConfig from './sub-blocks/LayoutItem/form';
+import LayoutItemConfig from './sub-blocks/LayoutItem';
 import MediaCardConfig from './sub-blocks/MediaCard';
 import PriceCardConfig from './sub-blocks/PriceCard';
 import PriceDetailedConfig from './sub-blocks/PriceDetailed';
@@ -136,11 +136,7 @@ export interface BlockData {
     // TODO: remove any
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     component: React.ComponentType<any>;
-    schema: {
-        name: string;
-        inputs: ConfigInput[];
-        default?: object;
-    };
+    schema: BlockConfig;
 }
 
 export const blockDataMap: Record<string, BlockData> = {

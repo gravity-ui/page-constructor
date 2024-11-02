@@ -9,6 +9,7 @@ const QuestionsBlockConfig = {
     component: QuestionsBlock,
     schema: {
         name: 'Questions Block',
+        group: 'block',
         inputs: generateFromAJV(
             QuestionsBlockSchema['questions-block'] as unknown as JSONSchemaType<{}>,
         ),

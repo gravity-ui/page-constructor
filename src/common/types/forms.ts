@@ -1,6 +1,7 @@
 export interface BlockConfig {
     name: string;
     inputs: Array<ConfigInput>;
+    group?: string;
     default?: object;
 }
 

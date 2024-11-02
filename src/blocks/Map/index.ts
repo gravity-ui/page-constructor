@@ -9,6 +9,7 @@ const MapBlockConfig = {
     component: MapBlock,
     schema: {
         name: 'Map Block',
+        group: 'block',
         inputs: generateFromAJV(MapBlockSchema['map-block'] as unknown as JSONSchemaType<{}>),
         default: {
             title: 'Map Block',
