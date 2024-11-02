@@ -10,6 +10,7 @@ const CompaniesBlockConfig: BlockData = {
     component: CompaniesBlock,
     schema: {
         name: 'Companies Block',
+        group: 'block',
         inputs: generateFromAJV(
             CompaniesBlockSchema['companies-block'] as unknown as JSONSchemaType<{}>,
         ),

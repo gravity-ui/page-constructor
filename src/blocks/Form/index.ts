@@ -9,6 +9,7 @@ const FormBlockConfig = {
     component: FormBlock,
     schema: {
         name: 'Form Block',
+        group: 'block',
         inputs: generateFromAJV(FormBlockSchema['form-block'] as unknown as JSONSchemaType<{}>),
         default: {
             title: 'Form Block',

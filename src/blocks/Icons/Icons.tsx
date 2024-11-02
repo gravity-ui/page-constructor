@@ -32,8 +32,8 @@ const Icons = ({title, description, size = 's', colSizes = {all: 12}, items}: Ic
     );
 
     return (
-        <div className={b({size})}>
-            <Grid>
+        <Grid>
+            <div className={b({size})}>
                 {(title || description) && (
                     <Title
                         className={b('header')}
@@ -65,8 +65,8 @@ const Icons = ({title, description, size = 's', colSizes = {all: 12}, items}: Ic
                             </div>
                         );
                     })}
-            </Grid>
-        </div>
+            </div>
+        </Grid>
     );
 };
 

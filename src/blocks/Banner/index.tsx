@@ -10,6 +10,7 @@ const BannerBlockConfig: BlockData = {
     component: BannerBlock,
     schema: {
         name: 'Banner Block',
+        group: 'block',
         inputs: generateFromAJV(BannerCardProps as unknown as JSONSchemaType<{}>),
         default: {
             color: 'rgba(54, 151, 241, 0.4)',
