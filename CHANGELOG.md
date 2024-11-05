@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [5.28.7](https://github.com/gravity-ui/page-constructor/compare/v5.28.6...v5.28.7) (2024-11-05)
+
+
+### Bug Fixes
+
+* **QuestionBlock:** duplicate faq schema ([#1063](https://github.com/gravity-ui/page-constructor/issues/1063)) ([3b28165](https://github.com/gravity-ui/page-constructor/commit/3b2816539b120b63fb6eef3b6d09a152f5d2b4cb))
+
 ## [5.28.6](https://github.com/gravity-ui/page-constructor/compare/v5.28.5...v5.28.6) (2024-11-01)
 
 
