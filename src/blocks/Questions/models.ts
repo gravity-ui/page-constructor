@@ -1,5 +1,6 @@
 export const FaqMicrodataValues = {
     PageType: 'https://schema.org/FAQPage',
+    PageId: '/faq',
     QuestionType: 'https://schema.org/Question',
     QuestionProp: 'mainEntity',
     QuestionNameProp: 'name',
