@@ -29,7 +29,12 @@ const QuestionsBlock = (props: QuestionsProps) => {
     };
 
     return (
-        <div className={b()} itemScope itemType={FaqMicrodataValues.PageType}>
+        <div
+            className={b()}
+            itemScope
+            itemType={FaqMicrodataValues.PageType}
+            itemID={FaqMicrodataValues.PageId}
+        >
             <Row>
                 <Col sizes={{all: 12, md: 4}}>
                     <div className={b('title')}>
