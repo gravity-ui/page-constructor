@@ -19,6 +19,13 @@ const transformedContentList = data.common.list.map((item) => {
     };
 }) as ContentItemProps[];
 
+const transformedContentDarkList = data.common.darkList.map((item) => {
+    return {
+        ...item,
+        text: item?.text && yfmTransform(item.text),
+    };
+}) as ContentItemProps[];
+
 const getPaddingBottomTitle = (padding: string) =>
     data.paddings.title.replace('{{padding}}', padding);
 
@@ -78,7 +85,12 @@ const CardThemesTemplate: StoryFn<{items: BackgroundCardProps[]}> = (args) => (
     <div style={{display: 'flex'}}>
         {args.items.map((item, i) => (
             <div style={{maxWidth: '400px', padding: '0 8px'}} key={i}>
-                <BackgroundCard {...item} />
+                <BackgroundCard
+                    {...item}
+                    list={
+                        item.theme === 'dark' ? transformedContentDarkList : transformedContentList
+                    }
+                />
             </div>
         ))}
     </div>

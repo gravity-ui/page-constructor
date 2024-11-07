@@ -24,11 +24,11 @@ function getHeadingLevel(size: ContentSize) {
     }
 }
 
-const ContentList = ({list, size = 'l', qa}: ContentListProps & QAProps) => {
+const ContentList = ({list, size = 'l', qa, theme}: ContentListProps & QAProps) => {
     const qaAttributes = getQaAttrubutes(qa, ['image', 'title', 'text']);
 
     return (
-        <div className={b({size})} data-qa={qa}>
+        <div className={b({size, theme})} data-qa={qa}>
             {list?.map((item) => {
                 const {icon, title, text} = item;
                 return (
