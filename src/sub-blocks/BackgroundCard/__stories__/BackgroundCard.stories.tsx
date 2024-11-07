@@ -12,19 +12,13 @@ import BackgroundCard from '../BackgroundCard';
 
 import data from './data.json';
 
-const transformedContentList = data.common.list.map((item) => {
-    return {
-        ...item,
-        text: item?.text && yfmTransform(item.text),
-    };
-}) as ContentItemProps[];
-
-const transformedContentDarkList = data.common.darkList.map((item) => {
-    return {
-        ...item,
-        text: item?.text && yfmTransform(item.text),
-    };
-}) as ContentItemProps[];
+const transformContentList = (list: ContentItemProps[]) =>
+    list.map((item) => {
+        return {
+            ...item,
+            text: item?.text && yfmTransform(item.text),
+        };
+    }) as ContentItemProps[];
 
 const getPaddingBottomTitle = (padding: string) =>
     data.paddings.title.replace('{{padding}}', padding);
@@ -59,7 +53,7 @@ const DefaultTemplate: StoryFn<BackgroundCardProps> = (args) => (
             <BackgroundCard {...args} buttons={data.common.buttons as ButtonProps[]} />
         </div>
         <div style={{display: 'inline-table', maxWidth: '400px', padding: '0 8px'}}>
-            <BackgroundCard {...args} list={transformedContentList} />
+            <BackgroundCard {...args} list={transformContentList(data.common.list)} />
         </div>
     </div>
 );
@@ -87,9 +81,11 @@ const CardThemesTemplate: StoryFn<{items: BackgroundCardProps[]}> = (args) => (
             <div style={{maxWidth: '400px', padding: '0 8px'}} key={i}>
                 <BackgroundCard
                     {...item}
-                    list={
-                        item.theme === 'dark' ? transformedContentDarkList : transformedContentList
-                    }
+                    list={transformContentList(
+                        item.theme === 'dark'
+                            ? data.common.themed.darkList
+                            : data.common.themed.lightList,
+                    )}
                 />
             </div>
         ))}
