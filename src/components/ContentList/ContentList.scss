@@ -7,6 +7,17 @@ $iconSizeS: 20px;
 $iconSizeXS: 18px;
 $marginIconSizeS: 2px;
 $marginIconSizeL: 1px;
+$lightPrimary: var(--g-color-text-light-primary);
+$darkPrimary: var(--g-color-text-dark-primary);
+$darkSecondary: var(--g-color-text-dark-secondary);
+
+@mixin content-link($baseColor: $primary, $hoverColor: $secondary) {
+    color: $baseColor;
+    text-decoration: underline;
+    &:hover {
+        color: $hoverColor;
+    }
+}
 
 #{$block} {
     &_size_l {
@@ -80,6 +91,34 @@ $marginIconSizeL: 1px;
                     margin-top: 0;
                     margin-bottom: 0;
                 }
+            }
+        }
+    }
+
+    &_theme_light {
+        #{$block}__item {
+            *,
+            .yfm,
+            .yfm * {
+                color: $darkPrimary;
+            }
+
+            .yfm a {
+                @include content-link($darkPrimary, $darkSecondary);
+            }
+        }
+    }
+
+    &_theme_dark {
+        #{$block}__item {
+            *,
+            .yfm,
+            .yfm * {
+                color: $lightPrimary;
+            }
+
+            .yfm a {
+                @include content-link($lightPrimary, $lightSecondary);
             }
         }
     }

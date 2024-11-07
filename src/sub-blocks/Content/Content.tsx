@@ -80,7 +80,7 @@ const Content = (props: ContentProps) => {
             )}
             {list?.length ? (
                 <div className={b('list')}>
-                    <ContentList list={list} size={size} qa={qaAttributes.list} />
+                    <ContentList list={list} size={size} qa={qaAttributes.list} theme={theme} />
                 </div>
             ) : null}
             {additionalInfo && (
