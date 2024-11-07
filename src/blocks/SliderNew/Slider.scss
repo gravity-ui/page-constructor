@@ -343,7 +343,7 @@ $dotSize: 8px;
         }
 
         @media (max-width: map-get($gridBreakpoints, 'sm')) {
-            &:not(#{$root}_one-slide) {
+            &#{$root}:not(#{$root}_one-slide) {
                 #{$root}__slider {
                     margin-left: 0;
                 }
