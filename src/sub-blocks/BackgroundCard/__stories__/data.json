@@ -35,21 +35,36 @@
         "title": "Lorem ipsum ipsum"
       }
     ],
-    "darkList": [
-      {
-        "icon": "/story-assets/icon_1_dark.svg",
-        "title": "Lorem ipsum",
-        "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation."
-      },
-      {
-        "icon": "/story-assets/icon_2_dark.svg",
-        "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation."
-      },
-      {
-        "icon": "/story-assets/icon_3_dark.svg",
-        "title": "Lorem ipsum ipsum"
-      }
-    ],
+    "themed": {
+      "lightList": [
+        {
+          "icon": "/story-assets/icon_1_light.svg",
+          "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        },
+        {
+          "icon": "/story-assets/icon_2_light.svg",
+          "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        },
+        {
+          "icon": "/story-assets/icon_3_light.svg",
+          "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        }
+      ],
+      "darkList": [
+        {
+          "icon": "/story-assets/icon_1_dark.svg",
+          "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        },
+        {
+          "icon": "/story-assets/icon_2_dark.svg",
+          "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        },
+        {
+          "icon": "/story-assets/icon_3_dark.svg",
+          "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        }
+      ]
+    },
     "buttons": [
       {
         "text": "Button\r",
