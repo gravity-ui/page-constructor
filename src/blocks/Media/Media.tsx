@@ -4,10 +4,9 @@ import Media from '../../components/Media/Media';
 import MediaBase from '../../components/MediaBase/MediaBase';
 import {useTheme} from '../../context/theme';
 import {MediaBlockProps} from '../../models';
-import {sanitizeHtml} from '../../text-transform';
 import {block, getThemedValue} from '../../utils';
 import {getMediaBorder} from '../../utils/borderSelector';
-import {mergeVideoMicrodata} from '../../utils/microdata';
+import {mergeVideoMicrodata, sanitizeMicrodata} from '../../utils/microdata';
 
 import './Media.scss';
 
@@ -24,8 +23,8 @@ export const MediaBlock = (props: MediaBlockProps) => {
     const theme = useTheme();
     const mediaThemed = getThemedValue(media, theme);
     const mediaWithMicrodata = mergeVideoMicrodata(mediaThemed, {
-        name: sanitizeHtml(title),
-        description: description ? sanitizeHtml(description) : undefined,
+        name: sanitizeMicrodata(title),
+        description: description ? sanitizeMicrodata(description) : undefined,
     });
 
     return (

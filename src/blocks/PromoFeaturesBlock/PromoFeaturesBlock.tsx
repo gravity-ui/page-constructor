@@ -9,9 +9,8 @@ import YFMWrapper from '../../components/YFMWrapper/YFMWrapper';
 import {BREAKPOINTS} from '../../constants';
 import {useTheme} from '../../context/theme';
 import {PromoFeaturesProps} from '../../models';
-import {sanitizeHtml} from '../../text-transform';
 import {block, getThemedValue} from '../../utils';
-import {mergeVideoMicrodata} from '../../utils/microdata';
+import {mergeVideoMicrodata, sanitizeMicrodata} from '../../utils/microdata';
 
 import './PromoFeaturesBlock.scss';
 
@@ -42,8 +41,8 @@ const PromoFeaturesBlock = (props: PromoFeaturesProps) => {
                     const themeMod = cardTheme || blockModifier || '';
                     const themedMedia = getThemedValue(media, globalTheme);
                     const allProps = mergeVideoMicrodata(themedMedia, {
-                        name: sanitizeHtml(cardTitle),
-                        description: sanitizeHtml(text),
+                        name: sanitizeMicrodata(cardTitle),
+                        description: sanitizeMicrodata(text),
                     });
 
                     return (

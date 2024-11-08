@@ -13,9 +13,8 @@ import YFMWrapper from '../../components/YFMWrapper/YFMWrapper';
 import {useTheme} from '../../context/theme';
 import {Col, GridColumnOrderClasses, Row} from '../../grid';
 import {TabsBlockProps} from '../../models';
-import {sanitizeHtml} from '../../text-transform';
 import {block, getThemedValue} from '../../utils';
-import {mergeVideoMicrodata} from '../../utils/microdata';
+import {mergeVideoMicrodata, sanitizeMicrodata} from '../../utils/microdata';
 
 import TabsTextContent from './TabsTextContent/TabsTextContent';
 
@@ -114,7 +113,7 @@ export const TabsBlock = ({
                             {...mergeVideoMicrodata(getThemedValue(activeTabData.media, theme), {
                                 name: activeTabData.tabName,
                                 description: activeTabData.caption
-                                    ? sanitizeHtml(activeTabData.caption)
+                                    ? sanitizeMicrodata(activeTabData.caption)
                                     : undefined,
                             })}
                             key={activeTab}
