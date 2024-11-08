@@ -1,8 +1,6 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-// TODO fix in https://github.com/gravity-ui/page-constructor/issues/965
-
 import React from 'react';
+
+import {useActionHandlers} from '@gravity-ui/uikit';
 
 import {cn} from '../../../utils';
 import {NavigationItemProps} from '../../models';
@@ -18,8 +16,17 @@ type DCDropdownNavigationItemProps = Pick<
 
 export const CustomComponent: React.FC<DCDropdownNavigationItemProps> = (props) => {
     const {onClick, isActive, menuLayout} = props;
+
+    const {onKeyDown} = useActionHandlers(onClick);
+
     return (
-        <div className={b({active: isActive})} onClick={onClick}>
+        <div
+            className={b({active: isActive})}
+            onClick={onClick}
+            onKeyDown={onKeyDown}
+            tabIndex={onClick ? 0 : -1}
+            role={onClick ? 'button' : 'group'}
+        >
             {`Custom Item (${menuLayout}${isActive ? ' - active' : ''})`}
         </div>
     );

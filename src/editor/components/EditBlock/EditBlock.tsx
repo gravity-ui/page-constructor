@@ -1,10 +1,7 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-// TODO fix in https://github.com/gravity-ui/page-constructor/issues/965
-
-import React, {useEffect, useRef} from 'react';
+import React, {useEffect, useMemo, useRef} from 'react';
 
 import {ChevronDown, ChevronUp, Copy as CopyIcon, TrashBin} from '@gravity-ui/icons';
+import {useActionHandlers} from '@gravity-ui/uikit';
 
 import {block} from '../../../utils';
 import {EditBlockProps} from '../../types';
@@ -48,6 +45,13 @@ const EditBlock = ({
 }: EditBlockProps) => {
     const ref = useRef<HTMLDivElement>(null);
 
+    const stopPropagationProps = useMemo(
+        () => ({onClick: (e: React.MouseEvent) => e.stopPropagation()}),
+        [],
+    );
+
+    const {onKeyDown} = useActionHandlers(onSelect);
+
     useEffect(() => {
         if (isActive && ref.current) {
             //TODO: add behavior 'smooth' after addiiton of dynamic form layout open/close managing support
@@ -56,7 +60,15 @@ const EditBlock = ({
     }, [isActive]);
 
     return (
-        <div className={b({active: isActive})} onClick={onSelect} ref={ref}>
+        <div
+            className={b({active: isActive})}
+            onClick={onSelect}
+            onKeyDown={onKeyDown}
+            ref={ref}
+            role="button"
+            aria-current={isActive}
+            tabIndex={0}
+        >
             <div
                 className={b('controls', {
                     active: isActive,
@@ -65,18 +77,18 @@ const EditBlock = ({
                 })}
             >
                 {isActive && (
-                    <div className={b('controls-content')} onClick={(e) => e.stopPropagation()}>
+                    <div className={b('controls-content')} {...stopPropagationProps}>
                         {actionsOrder.map((action) => {
                             const Icon = editBlockControlsIcons[action];
 
                             return actions[action] ? (
-                                <div
+                                <button
                                     key={action}
                                     className={b('control')}
                                     onClick={actions[action]}
                                 >
                                     <Icon />
-                                </div>
+                                </button>
                             ) : null;
                         })}
                     </div>
