@@ -87,7 +87,7 @@ export const TabsBlock = ({
     const showText = Boolean(activeTabData?.text);
     const border = activeTabData?.border || 'shadow';
 
-    const textContent = activeTabData && showText && (
+    const textContent = showText && (
         <TabsTextContent
             showMedia={showMedia}
             data={activeTabData}
