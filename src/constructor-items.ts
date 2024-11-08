@@ -15,7 +15,7 @@ import {
     PromoFeaturesBlock,
     QuestionsBlock,
     ShareBlock,
-    SliderBlock,
+    SliderOldBlock,
     TableBlock,
     TabsBlock,
 } from './blocks';
@@ -43,7 +43,7 @@ import {
 } from './sub-blocks';
 
 export const blockMap = {
-    [BlockType.SliderBlock]: SliderBlock,
+    [BlockType.SliderOldBlock]: SliderOldBlock,
     [BlockType.ExtendedFeaturesBlock]: ExtendedFeaturesBlock,
     [BlockType.PromoFeaturesBlock]: PromoFeaturesBlock,
     [BlockType.QuestionsBlock]: QuestionsBlock,

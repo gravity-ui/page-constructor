@@ -44,7 +44,8 @@ import {BannerCardProps, HubspotFormProps, SubBlock, SubBlockModels} from './sub
 export enum BlockType {
     PromoFeaturesBlock = 'promo-features-block',
     ExtendedFeaturesBlock = 'extended-features-block',
-    SliderBlock = 'slider-block',
+    /** @deprecated */
+    SliderOldBlock = 'slider-old-block',
     QuestionsBlock = 'questions-block',
     BannerBlock = 'banner-block',
     CompaniesBlock = 'companies-block',
@@ -114,7 +115,7 @@ export enum SliderType {
 export type SliderBreakpointParams = Record<SliderBreakpointNames, number>;
 export type SlidesToShow = Partial<SliderBreakpointParams> | number;
 
-export interface SliderProps extends Childable, Animatable, LoadableChildren {
+export interface SliderOldProps extends Childable, Animatable, LoadableChildren {
     dots?: boolean;
     arrows?: boolean;
     slidesToShow?: SlidesToShow;
@@ -143,9 +144,10 @@ export interface SliderNewProps extends Childable, Animatable, LoadableChildren 
     autoplay?: number;
     //for server transforms
     randomOrder?: boolean;
+    adaptive?: boolean;
 }
 
-export interface HeaderSliderBlockProps extends Omit<SliderProps, 'title' | 'description'> {
+export interface HeaderSliderBlockProps extends Omit<SliderOldProps, 'title' | 'description'> {
     items: HeaderBlockProps[];
 }
 
@@ -458,9 +460,9 @@ export type HeaderBlockModel = {
     type: BlockType.HeaderBlock;
 } & HeaderBlockProps;
 
-export type SliderBlockModel = {
-    type: BlockType.SliderBlock;
-} & SliderProps;
+export type SliderOldBlockModel = {
+    type: BlockType.SliderOldBlock;
+} & SliderOldProps;
 
 export type ExtendedFeaturesBlockModel = {
     type: BlockType.ExtendedFeaturesBlock;
@@ -536,7 +538,7 @@ export type SliderNewBlockModel = {
 } & SliderNewProps;
 
 type BlockModels =
-    | SliderBlockModel
+    | SliderOldBlockModel
     | ExtendedFeaturesBlockModel
     | PromoFeaturesBlockModel
     | QuestionsBlockModel

@@ -50,7 +50,7 @@ const DisclaimerProps = {
     },
 };
 
-export const SliderProps = {
+export const SliderOldProps = {
     dots: {
         type: 'boolean',
     },
@@ -70,14 +70,15 @@ export const SliderProps = {
     children: ChildrenCardsProps,
 };
 
-export const SliderBlock = {
-    'slider-block': {
+/** @deprecated */
+export const SliderOldBlock = {
+    'slider-old-block': {
         additionalProperties: false,
         required: [],
         properties: {
             ...BlockBaseProps,
             ...AnimatableProps,
-            ...SliderProps,
+            ...SliderOldProps,
             ...BlockHeaderProps,
         },
     },

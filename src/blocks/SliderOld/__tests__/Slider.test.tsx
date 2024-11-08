@@ -3,7 +3,7 @@ import React from 'react';
 import {queryHelpers, render} from '@testing-library/react';
 
 import {BasicCard} from '../../../sub-blocks';
-import Slider from '../Slider';
+import Slider from '../SliderOld';
 
 const EXAMPLE_URL = 'https://example.com';
 const SLIDER_TITLE = 'Slider title';
@@ -31,7 +31,7 @@ describe('Slider', () => {
         );
 
         // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
-        const barElement = container.querySelector('.pc-SliderBlock__bar');
+        const barElement = container.querySelector('.pc-SliderOldBlock__bar');
         if (slidesToShow > 1) {
             expect(barElement).toBeTruthy();
         } else {
@@ -43,7 +43,7 @@ describe('Slider', () => {
         // Checking labels for the first slide
         // There we have a bar covering `slidesToShow` dots
         // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
-        const accessibleBarElement = container.querySelector('.pc-SliderBlock__accessible-bar');
+        const accessibleBarElement = container.querySelector('.pc-SliderOldBlock__accessible-bar');
         expect(accessibleBarElement?.getAttribute('aria-label')).toBe(`Page 1 of ${barDotsCount}`);
         expect(
             queryHelpers.queryAllByAttribute('aria-label', container, `Page 1 of ${barDotsCount}`),
