@@ -4,15 +4,17 @@ import Media from '../../components/Media/Media';
 import MediaBase from '../../components/MediaBase/MediaBase';
 import {useTheme} from '../../context/theme';
 import {MediaBlockProps} from '../../models';
+import {sanitizeHtml} from '../../text-transform';
 import {block, getThemedValue} from '../../utils';
 import {getMediaBorder} from '../../utils/borderSelector';
+import {mergeVideoMicrodata} from '../../utils/microdata';
 
 import './Media.scss';
 
 const b = block('media-block');
 
 export const MediaBlock = (props: MediaBlockProps) => {
-    const {media, border, disableShadow} = props;
+    const {media, border, disableShadow, title, description} = props;
     const borderSelected = getMediaBorder({
         border,
         disableShadow,
@@ -21,13 +23,17 @@ export const MediaBlock = (props: MediaBlockProps) => {
     const [play, setPlay] = useState<boolean>(false);
     const theme = useTheme();
     const mediaThemed = getThemedValue(media, theme);
+    const mediaWithMicrodata = mergeVideoMicrodata(mediaThemed, {
+        name: sanitizeHtml(title),
+        description: description ? sanitizeHtml(description) : undefined,
+    });
 
     return (
         <MediaBase {...props} onScroll={() => setPlay(true)}>
             <MediaBase.Card>
                 <Media
                     imageClassName={b('image')}
-                    {...mediaThemed}
+                    {...mediaWithMicrodata}
                     playVideo={play}
                     className={b({border: borderSelected})}
                 />

@@ -5,6 +5,7 @@ import {useUniqId} from '@gravity-ui/uikit';
 import {FullscreenMedia, IconWrapper, Media, MetaInfo} from '../../components';
 import {useTheme} from '../../context/theme';
 import {ContentBlockProps, LayoutItemProps} from '../../models';
+import {sanitizeHtml} from '../../text-transform';
 import {block, getThemedValue} from '../../utils';
 import {mergeVideoMicrodata} from '../../utils/microdata';
 import Content from '../Content/Content';
@@ -44,6 +45,13 @@ const LayoutItem = ({
             return null;
         }
         const themedMedia = getThemedValue(media, theme);
+        const mediaWithMicrodata = mergeVideoMicrodata(themedMedia, {
+            name:
+                typeof content.title === 'string'
+                    ? sanitizeHtml(content.title)
+                    : sanitizeHtml(content.title?.text || ''),
+            description: content.text ? sanitizeHtml(content.text) : undefined,
+        });
 
         return fullscreen && hasFullscreen(themedMedia) ? (
             <FullscreenMedia showFullscreenIcon={showFullscreenIcon(themedMedia)}>
@@ -53,13 +61,7 @@ const LayoutItem = ({
                     ...fullscreenMediaProps
                 } = {}) => (
                     <Media
-                        {...mergeVideoMicrodata(themedMedia, {
-                            name:
-                                typeof content.title === 'string'
-                                    ? content.title
-                                    : content.title?.text,
-                            description: content.text,
-                        })}
+                        {...mediaWithMicrodata}
                         {...fullscreenMediaProps}
                         className={b('media', {border}, mediaClassName)}
                         analyticsEvents={analyticsEvents}
