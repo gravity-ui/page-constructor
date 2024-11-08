@@ -1,6 +1,6 @@
 {
   "template": {
-    "type": "slider-block",
+    "type": "slider-old-block",
     "title": {
       "text": "Slider",
       "url": "https://example.com"

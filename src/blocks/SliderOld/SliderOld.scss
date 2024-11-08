@@ -4,7 +4,7 @@
 
 $slideOffset: 8px;
 
-$block: '.#{$ns}SliderBlock';
+$block: '.#{$ns}SliderOldBlock';
 
 @mixin fullscreen-card() {
     .slick-slide {
@@ -273,11 +273,11 @@ $block: '.#{$ns}SliderBlock';
         }
 
         &:has(.slick-active .#{$ns}header-block_controls-view_light) {
-            .#{$ns}slider-block-arrow__button {
+            .#{$ns}slider-old-block-arrow__button {
                 color: var(--g-color-text-dark-primary);
             }
 
-            .#{$ns}SliderBlock__dot {
+            .#{$ns}SliderOldBlock__dot {
                 background-color: var(--g-color-private-black-150);
 
                 &_active {
@@ -287,11 +287,11 @@ $block: '.#{$ns}SliderBlock';
         }
 
         &:has(.slick-active .#{$ns}header-block_controls-view_dark) {
-            .#{$ns}slider-block-arrow__button {
+            .#{$ns}slider-old-block-arrow__button {
                 color: var(--g-color-text-light-primary);
             }
 
-            .#{$ns}SliderBlock__dot {
+            .#{$ns}SliderOldBlock__dot {
                 background-color: var(--g-color-private-white-150);
 
                 &_active {

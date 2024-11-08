@@ -3,7 +3,7 @@
     "content": {
       "blocks": [
         {
-          "type": "slider-block",
+          "type": "slider-new-block",
           "title": {
             "text": "Slider",
             "url": "https://example.com"

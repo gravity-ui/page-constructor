@@ -6,7 +6,7 @@ import {Swiper, SwiperSlide} from 'swiper/react';
 import Anchor from '../../components/Anchor/Anchor';
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
 import Title from '../../components/Title/Title';
-import {ClassNameProps, Refable, SliderProps as SliderParams, SliderType} from '../../models';
+import {ClassNameProps, Refable, SliderNewProps as SliderParams, SliderType} from '../../models';
 import {block} from '../../utils';
 
 import Arrow from './Arrow/Arrow';

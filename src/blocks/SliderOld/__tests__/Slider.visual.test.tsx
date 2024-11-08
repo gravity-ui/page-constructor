@@ -12,7 +12,7 @@ import {
     WithoutDots,
 } from './helpers';
 
-test.describe('Slider', () => {
+test.describe('Slider Old', () => {
     test('render stories <Default>', async ({mount, expectScreenshot, defaultDelay}) => {
         await mount(<Default />);
         await defaultDelay();

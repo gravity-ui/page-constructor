@@ -26,7 +26,7 @@ import useFocus from '../../hooks/useFocus';
 import {
     ClassNameProps,
     Refable,
-    SliderProps as SliderParams,
+    SliderOldProps as SliderParams,
     SliderType,
     Timeout,
 } from '../../models';
@@ -44,15 +44,16 @@ import {
     useRovingTabIndex,
 } from './utils';
 
-import './Slider.scss';
+import './SliderOld.scss';
 
-const b = block('SliderBlock');
+const b = block('SliderOldBlock');
 const slick = block('slick-origin');
 
 const DOT_WIDTH = 8;
 const DOT_GAP = 16;
 
-export interface SliderProps
+/** @deprecated */
+export interface SliderOldProps
     extends Omit<SliderParams, 'children'>,
         Refable<HTMLDivElement>,
         ClassNameProps,
@@ -67,7 +68,9 @@ export interface SliderProps
     initialIndex?: number;
 }
 
-export const SliderBlock = (props: React.PropsWithChildren<SliderProps>) => {
+// eslint-disable-next-line valid-jsdoc
+/** @deprecated */
+export const SliderOldBlock = (props: React.PropsWithChildren<SliderOldProps>) => {
     const {
         animated,
         title,
@@ -512,4 +515,4 @@ function discloseAllNestedChildren(
     }).filter(Boolean);
 }
 
-export default SliderBlock;
+export default SliderOldBlock;

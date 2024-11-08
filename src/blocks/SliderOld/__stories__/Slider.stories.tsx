@@ -3,14 +3,14 @@ import React from 'react';
 import {Meta, StoryFn} from '@storybook/react';
 
 import {PageConstructor} from '../../../containers/PageConstructor';
-import {BannerCardModel, BasicCardModel, SliderBlockModel} from '../../../models';
-import Slider from '../Slider';
+import {BannerCardModel, BasicCardModel, SliderOldBlockModel} from '../../../models';
+import SliderOld from '../SliderOld';
 
 import data from './data.json';
 
 export default {
-    title: 'Blocks/Slider',
-    component: Slider,
+    title: 'Blocks/SliderOld (deprecated)',
+    component: SliderOld,
     args: {
         dots: true,
         disclaimer: undefined,
@@ -25,11 +25,11 @@ export default {
     },
 } as Meta;
 
-const DefaultTemplate: StoryFn<SliderBlockModel> = (args) => (
+const DefaultTemplate: StoryFn<SliderOldBlockModel> = (args) => (
     <PageConstructor content={{blocks: [args]}} />
 );
 
-const SlidesToShowTemplate: StoryFn<SliderBlockModel> = (args) => (
+const SlidesToShowTemplate: StoryFn<SliderOldBlockModel> = (args) => (
     <PageConstructor
         content={{
             blocks: [
@@ -70,22 +70,22 @@ export const WithoutArrows = DefaultTemplate.bind({});
 export const WithoutDots = DefaultTemplate.bind({});
 export const SlidesToShow = SlidesToShowTemplate.bind({});
 
-Default.args = data.default.content as SliderBlockModel;
-QuoteCards.args = data.quoteCards.content as SliderBlockModel;
-Banners.args = data.banners.content as SliderBlockModel;
+Default.args = data.default.content as SliderOldBlockModel;
+QuoteCards.args = data.quoteCards.content as SliderOldBlockModel;
+Banners.args = data.banners.content as SliderOldBlockModel;
 AutoPlay.args = {
     ...data.default.content,
     ...data.autoPlay.content,
-} as SliderBlockModel;
+} as SliderOldBlockModel;
 WithoutArrows.args = {
     ...data.default.content,
     ...data.withoutArrows.content,
-} as SliderBlockModel;
+} as SliderOldBlockModel;
 WithoutDots.args = {
     ...data.default.content,
     ...data.withoutDots.content,
-} as SliderBlockModel;
+} as SliderOldBlockModel;
 
 SlidesToShow.args = {
     ...data.default.content,
-} as SliderBlockModel;
+} as SliderOldBlockModel;

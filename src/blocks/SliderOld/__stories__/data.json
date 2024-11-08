@@ -2,7 +2,7 @@
   "quoteCards": {
     "content": {
       "dots": true,
-      "type": "slider-block",
+      "type": "slider-old-block",
       "title": {
         "text": "QuoteCards",
         "url": "https://example.com"
@@ -56,7 +56,7 @@
   "banners": {
     "content": {
       "dots": true,
-      "type": "slider-block",
+      "type": "slider-old-block",
       "title": {
         "text": "Banners",
         "url": "https://example.com"
@@ -105,7 +105,7 @@
   },
   "default": {
     "content": {
-      "type": "slider-block",
+      "type": "slider-old-block",
       "title": {
         "text": "Slider",
         "url": "https://example.com"
@@ -151,19 +151,19 @@
   },
   "autoPlay": {
     "content": {
-      "type": "slider-block",
+      "type": "slider-old-block",
       "autoplay": 1000
     }
   },
   "withoutArrows": {
     "content": {
-      "type": "slider-block",
+      "type": "slider-old-block",
       "arrows": false
     }
   },
   "withoutDots": {
     "content": {
-      "type": "slider-block",
+      "type": "slider-old-block",
       "dots": false
     }
   },
