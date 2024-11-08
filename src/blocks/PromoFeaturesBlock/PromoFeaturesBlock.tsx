@@ -10,6 +10,7 @@ import {BREAKPOINTS} from '../../constants';
 import {useTheme} from '../../context/theme';
 import {PromoFeaturesProps} from '../../models';
 import {block, getThemedValue} from '../../utils';
+import {mergeVideoMicrodata} from '../../utils/microdata';
 
 import './PromoFeaturesBlock.scss';
 
@@ -39,6 +40,10 @@ const PromoFeaturesBlock = (props: PromoFeaturesProps) => {
                     const blockModifier = backgroundTheme === 'default' ? 'default' : 'light';
                     const themeMod = cardTheme || blockModifier || '';
                     const themedMedia = getThemedValue(media, globalTheme);
+                    const allProps = mergeVideoMicrodata(themedMedia, {
+                        name: cardTitle,
+                        description: text,
+                    });
 
                     return (
                         <div
@@ -54,7 +59,7 @@ const PromoFeaturesBlock = (props: PromoFeaturesProps) => {
                                     <YFMWrapper content={text} modifiers={{constructor: true}} />
                                 </div>
                             </div>
-                            {media && <Media className={b('card-media')} {...themedMedia} />}
+                            {media && <Media className={b('card-media')} {...allProps} />}
                         </div>
                     );
                 })}

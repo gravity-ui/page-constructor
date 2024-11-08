@@ -289,6 +289,14 @@ export interface MediaProps
         Partial<MediaComponentIframeProps>,
         Partial<MediaComponentVideoProps> {
     color?: string;
+    videoMicrodata?: {
+        name?: string;
+        description?: string;
+        duration?: string;
+        uploadDate?: string;
+        contentUrl?: string;
+        thumbnailUrl?: string;
+    };
 }
 
 export interface BackgroundMediaProps extends MediaProps, Animatable, QAProps {

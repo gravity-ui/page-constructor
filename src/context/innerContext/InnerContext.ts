@@ -13,6 +13,9 @@ export interface InnerContextType {
     loadables?: LoadableConfig;
     shouldRenderBlock?: ShouldRenderBlock;
     customization?: Pick<CustomConfig, 'decorators'>;
+    microdata?: {
+        contentUpdatedDate?: string;
+    };
 }
 
 export const InnerContext = React.createContext<InnerContextType>({
@@ -22,4 +25,5 @@ export const InnerContext = React.createContext<InnerContextType>({
     navigationBlockTypes: [],
     itemMap: {} as ItemMap,
     navItemMap: {} as NavItemMap,
+    microdata: {},
 });

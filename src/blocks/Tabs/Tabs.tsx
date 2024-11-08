@@ -14,6 +14,7 @@ import {useTheme} from '../../context/theme';
 import {Col, GridColumnOrderClasses, Row} from '../../grid';
 import {TabsBlockProps} from '../../models';
 import {block, getThemedValue} from '../../utils';
+import {mergeVideoMicrodata} from '../../utils/microdata';
 
 import TabsTextContent from './TabsTextContent/TabsTextContent';
 
@@ -109,7 +110,10 @@ export const TabsBlock = ({
                 <div style={{minHeight: mediaVideoHeight || minImageHeight}}>
                     <div ref={ref}>
                         <Media
-                            {...getThemedValue(activeTabData.media, theme)}
+                            {...mergeVideoMicrodata(getThemedValue(activeTabData.media, theme), {
+                                name: activeTabData.tabName,
+                                description: activeTabData.caption,
+                            })}
                             key={activeTab}
                             className={b('media', {border})}
                             playVideo={play}
