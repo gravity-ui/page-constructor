@@ -51,7 +51,7 @@ export interface PageConstructorProps {
     renderMenu?: () => React.ReactNode;
     navigation?: NavigationData;
     microdata?: {
-        contentUpdatedDate: string;
+        contentUpdatedDate?: string;
     };
 }
 
