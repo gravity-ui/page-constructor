@@ -24,7 +24,8 @@
       "import": "./server/index.js"
     },
     "./styles/*": "./styles/*",
-    "./widget/*": "./widget/*"
+    "./widget/*": "./widget/*",
+    "./schema/*": "./schema/*"
   },
   "main": "./build/cjs/index.js",
   "module": "./build/esm/index.js",
@@ -72,7 +73,8 @@
     "build:client": "gulp",
     "build:server": "rimraf server && tsc -p tsconfig.server.json && move-file server/server.js server/index.js && move-file server/server.d.ts server/index.d.ts",
     "build:widget": "webpack --config widget.webpack.js",
-    "build": "run-p build:client build:server build:widget",
+    "build:schema": "webpack --config schema.webpack.js",
+    "build": "run-p build:client build:server build:widget build:schema",
     "prepublishOnly": "npm run lint && npm run build",
     "prepare": "husky install",
     "test": "jest",
