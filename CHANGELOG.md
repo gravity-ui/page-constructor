@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [5.28.8](https://github.com/gravity-ui/page-constructor/compare/v5.28.7...v5.28.8) (2024-11-11)
+
+
+### Bug Fixes
+
+* support ContentList theme prop; pass theme prop from Content to ContentList ([#1066](https://github.com/gravity-ui/page-constructor/issues/1066)) ([3de2d9e](https://github.com/gravity-ui/page-constructor/commit/3de2d9e5112b92acca7d1b5faf0ec6a6e20946da))
+
 ## [5.28.7](https://github.com/gravity-ui/page-constructor/compare/v5.28.6...v5.28.7) (2024-11-05)
 
 
