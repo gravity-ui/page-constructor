@@ -12,7 +12,7 @@ const CARD_TEXT = 'Lorem ipsum';
 const SLIDES_TO_SHOW = 3;
 const CARDS_COUNTS = [1, 3, 5, 10];
 
-describe('SliderNew', () => {
+describe('Slider', () => {
     test.each(CARDS_COUNTS)('Has correct slider slides', async (cardCount) => {
         const {container} = render(
             <Slider
@@ -34,7 +34,7 @@ describe('SliderNew', () => {
         );
 
         // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
-        const slides = container.querySelectorAll('.pc-SliderNewBlock__slide');
+        const slides = container.querySelectorAll('.pc-SliderBlock__slide');
         expect(slides.length).toEqual(cardCount);
     });
 
@@ -60,7 +60,7 @@ describe('SliderNew', () => {
         );
 
         // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
-        const arrow = container.querySelector('.pc-SliderNewBlock__arrow');
+        const arrow = container.querySelector('.pc-SliderBlock__arrow');
         expect(arrow).toBeFalsy();
     });
 });

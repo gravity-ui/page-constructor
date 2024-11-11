@@ -3,7 +3,7 @@ import React, {CSSProperties, HTMLProps, useEffect, useState} from 'react';
 import {ChevronsExpandUpRight, Xmark} from '@gravity-ui/icons';
 import {Icon, Modal} from '@gravity-ui/uikit';
 
-import {SliderNewBlock as SliderBlock} from '../../blocks/unstable';
+import {SliderBlock} from '../../blocks';
 import {ImageProps as ModelImageProps, SliderType} from '../../models';
 import {block} from '../../utils';
 import Image, {ImageProps} from '../Image/Image';

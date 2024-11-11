@@ -7,7 +7,7 @@ import {i18n} from '../i18n';
 
 import './Arrow.scss';
 
-const b = block('slider-new-block-arrow');
+const b = block('slider-block-arrow');
 
 export type ArrowType = 'left' | 'right';
 

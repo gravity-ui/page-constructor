@@ -1,7 +1,7 @@
 @import '../../../styles/mixins';
 @import '../../../styles/variables';
 
-$block: '.#{$ns}SliderNewBlock';
+$block: '.#{$ns}SliderBlock';
 $fsArrowArea: 120px;
 
 @mixin fullscreen-card() {
@@ -221,11 +221,11 @@ $dotSize: 8px;
         }
 
         &:has(.swiper-slide-active .#{$ns}header-block_controls-view_light) {
-            .#{$ns}slider-new-block-arrow__inner {
+            .#{$ns}slider-block-arrow__inner {
                 color: var(--g-color-text-dark-primary);
             }
 
-            .#{$ns}SliderNewBlock__dot {
+            .#{$ns}SliderBlock__dot {
                 background-color: var(--g-color-private-black-150);
 
                 &_active {
@@ -235,11 +235,11 @@ $dotSize: 8px;
         }
 
         &:has(.swiper-slide-active .#{$ns}header-block_controls-view_dark) {
-            .#{$ns}slider-new-block-arrow__inner {
+            .#{$ns}slider-block-arrow__inner {
                 color: var(--g-color-text-light-primary);
             }
 
-            .#{$ns}SliderNewBlock__dot {
+            .#{$ns}SliderBlock__dot {
                 background-color: var(--g-color-private-white-150);
 
                 &_active {

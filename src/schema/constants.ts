@@ -18,7 +18,7 @@ import {
     PromoFeaturesBlock,
     QuestionsBlock,
     ShareBlock,
-    SliderNewBlock,
+    SliderBlock,
     SliderOldBlock,
     TableBlock,
     TabsBlock,
@@ -55,7 +55,7 @@ export const blockSchemas: Record<BlockType, object> = {
     ...ShareBlock,
     ...FilterBlock,
     ...FormBlock,
-    ...SliderNewBlock,
+    ...SliderBlock,
 };
 
 export const cardSchemas = {
@@ -78,6 +78,7 @@ export const constructorBlockSchemaNames = [
     'promo-features-block',
     /** @deprecated */
     'slider-old-block',
+    'slider-block',
     'questions-block',
     'header-block',
     'banner-block',

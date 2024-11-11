@@ -3,13 +3,13 @@ import React from 'react';
 import {Meta, StoryFn} from '@storybook/react';
 
 import {PageConstructor} from '../../../containers/PageConstructor';
-import {BannerCardModel, BasicCardModel, SliderNewBlockModel} from '../../../models';
+import {BannerCardModel, BasicCardModel, SliderBlockModel} from '../../../models';
 import Slider from '../Slider';
 
 import data from './data.json';
 
 export default {
-    title: 'Lab/SliderNew',
+    title: 'blocks/Slider',
     component: Slider,
     args: {
         dots: true,
@@ -25,11 +25,11 @@ export default {
     },
 } as Meta;
 
-const DefaultTemplate: StoryFn<SliderNewBlockModel> = (args) => (
+const DefaultTemplate: StoryFn<SliderBlockModel> = (args) => (
     <PageConstructor content={{blocks: [args]}} />
 );
 
-const SlidesToShowTemplate: StoryFn<SliderNewBlockModel> = (args) => (
+const SlidesToShowTemplate: StoryFn<SliderBlockModel> = (args) => (
     <PageConstructor
         content={{
             blocks: [
@@ -70,22 +70,22 @@ export const WithoutArrows = DefaultTemplate.bind({});
 export const WithoutDots = DefaultTemplate.bind({});
 export const SlidesToShow = SlidesToShowTemplate.bind({});
 
-Default.args = data.default.content as SliderNewBlockModel;
-QuoteCards.args = data.quoteCards.content as SliderNewBlockModel;
-Banners.args = data.banners.content as SliderNewBlockModel;
+Default.args = data.default.content as SliderBlockModel;
+QuoteCards.args = data.quoteCards.content as SliderBlockModel;
+Banners.args = data.banners.content as SliderBlockModel;
 AutoPlay.args = {
     ...data.default.content,
     ...data.autoPlay.content,
-} as SliderNewBlockModel;
+} as SliderBlockModel;
 WithoutArrows.args = {
     ...data.default.content,
     ...data.withoutArrows.content,
-} as SliderNewBlockModel;
+} as SliderBlockModel;
 WithoutDots.args = {
     ...data.default.content,
     ...data.withoutDots.content,
-} as SliderNewBlockModel;
+} as SliderBlockModel;
 
 SlidesToShow.args = {
     ...data.default.content,
-} as SliderNewBlockModel;
+} as SliderBlockModel;
