@@ -9,5 +9,4 @@ export const {
     WithBackgroundImage,
     DarkTheme,
     FormData,
-    WithContentList,
 } = composeStories(FormStories);
