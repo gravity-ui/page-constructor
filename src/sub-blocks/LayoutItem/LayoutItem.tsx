@@ -6,7 +6,7 @@ import {FullscreenMedia, IconWrapper, Media, MetaInfo} from '../../components';
 import {useTheme} from '../../context/theme';
 import {ContentBlockProps, LayoutItemProps} from '../../models';
 import {block, getThemedValue} from '../../utils';
-import {mergeVideoMicrodata, sanitizeMicrodata} from '../../utils/microdata';
+import {mergeVideoMicrodata} from '../../utils/microdata';
 import Content from '../Content/Content';
 
 import {getLayoutItemLinks, hasFullscreen, showFullscreenIcon} from './utils';
@@ -44,12 +44,10 @@ const LayoutItem = ({
             return null;
         }
         const themedMedia = getThemedValue(media, theme);
+        const {title} = content;
         const mediaWithMicrodata = mergeVideoMicrodata(themedMedia, {
-            name:
-                typeof content.title === 'string'
-                    ? sanitizeMicrodata(content.title)
-                    : sanitizeMicrodata(content.title?.text || ''),
-            description: content.text ? sanitizeMicrodata(content.text) : undefined,
+            name: typeof title === 'string' ? title : title?.text,
+            description: content.text,
         });
 
         return fullscreen && hasFullscreen(themedMedia) ? (

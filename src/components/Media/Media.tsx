@@ -3,6 +3,7 @@ import React, {ReactElement, useContext, useMemo, useState} from 'react';
 import {InnerContext} from '../../context/innerContext';
 import {MediaProps, QAProps} from '../../models';
 import {block, getQaAttrubutes} from '../../utils';
+import {sanitizeMicrodata} from '../../utils/microdata';
 import IframeVideoBlock from '../VideoBlock/VideoBlock';
 
 import DataLens from './DataLens/DataLens';
@@ -159,13 +160,16 @@ export const Media = (props: MediaAllProps) => {
     ]);
 
     const videoMicrodataScript = useMemo(() => {
+        const {name, description} = videoMicrodata || {};
         const json = JSON.stringify({
             '@context': 'http://schema.org/',
             '@type': 'VideoObject',
             uploadDate: microdata?.contentUpdatedDate,
             contentUrl: video?.src?.[0] || videoIframe || youtube,
             thumbnailUrl: previewImg,
-            ...videoMicrodata,
+            ...(videoMicrodata || {}),
+            name: name ? sanitizeMicrodata(name) : name,
+            description: description ? sanitizeMicrodata(description) : description,
         });
 
         return video || youtube || videoIframe ? (

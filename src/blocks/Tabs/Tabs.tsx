@@ -14,7 +14,7 @@ import {useTheme} from '../../context/theme';
 import {Col, GridColumnOrderClasses, Row} from '../../grid';
 import {TabsBlockProps} from '../../models';
 import {block, getThemedValue} from '../../utils';
-import {mergeVideoMicrodata, sanitizeMicrodata} from '../../utils/microdata';
+import {mergeVideoMicrodata} from '../../utils/microdata';
 
 import TabsTextContent from './TabsTextContent/TabsTextContent';
 
@@ -113,7 +113,7 @@ export const TabsBlock = ({
                             {...mergeVideoMicrodata(getThemedValue(activeTabData.media, theme), {
                                 name: activeTabData.tabName,
                                 description: activeTabData.caption
-                                    ? sanitizeMicrodata(activeTabData.caption)
+                                    ? activeTabData.caption
                                     : undefined,
                             })}
                             key={activeTab}
