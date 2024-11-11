@@ -6,7 +6,7 @@ import {Swiper, SwiperSlide} from 'swiper/react';
 import Anchor from '../../components/Anchor/Anchor';
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
 import Title from '../../components/Title/Title';
-import {ClassNameProps, Refable, SliderNewProps as SliderParams, SliderType} from '../../models';
+import {ClassNameProps, Refable, SliderProps as SliderParams, SliderType} from '../../models';
 import {block} from '../../utils';
 
 import Arrow from './Arrow/Arrow';
@@ -17,9 +17,9 @@ import {useSliderPagination} from './useSliderPagination';
 import './Slider.scss';
 import 'swiper/swiper-bundle.css';
 
-const b = block('SliderNewBlock');
+const b = block('SliderBlock');
 
-export interface SliderNewProps
+export interface SliderProps
     extends Omit<SliderParams, 'children'>,
         Partial<
             Pick<
@@ -43,7 +43,7 @@ export interface SliderNewProps
 
 SwiperCore.use([Autoplay, A11y, Pagination]);
 
-export const SliderNewBlock = ({
+export const SliderBlock = ({
     animated,
     title,
     description,
@@ -66,7 +66,7 @@ export const SliderNewBlock = ({
     onSlideChangeTransitionEnd,
     onActiveIndexChange,
     onBreakpoint,
-}: PropsWithChildren<SliderNewProps>) => {
+}: PropsWithChildren<SliderProps>) => {
     const {autoplay, isLocked, childrenCount, breakpoints, onSwiper, onPrev, onNext, setIsLocked} =
         useSlider({
             slidesToShow,
@@ -177,4 +177,4 @@ export const SliderNewBlock = ({
     );
 };
 
-export default SliderNewBlock;
+export default SliderBlock;

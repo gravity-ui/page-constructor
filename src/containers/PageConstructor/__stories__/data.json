@@ -32,7 +32,7 @@
           ]
         },
         {
-          "type": "slider-new-block",
+          "type": "slider-block",
           "title": {
             "text": "Slider",
             "url": "https://example.com"

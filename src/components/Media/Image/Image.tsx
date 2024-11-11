@@ -3,7 +3,7 @@ import React, {Fragment, useEffect, useState} from 'react';
 import {Interpolation, animated, config, useSpring} from '@react-spring/web';
 import debounce from 'lodash/debounce';
 
-import {SliderNewBlock as SliderBlock} from '../../../blocks/unstable';
+import {SliderBlock} from '../../../blocks';
 import {ImageProps, MediaComponentImageProps, QAProps, SliderType} from '../../../models';
 import {block, getQaAttrubutes} from '../../../utils';
 import BackgroundImage from '../../BackgroundImage/BackgroundImage';

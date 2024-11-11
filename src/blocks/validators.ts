@@ -11,6 +11,6 @@ export * from './Media/schema';
 export * from './PromoFeaturesBlock/schema';
 export * from './Questions/schema';
 export * from './SliderOld/schema';
-export * from './SliderNew/schema';
+export * from './Slider/schema';
 export * from './Table/schema';
 export * from './Share/schema';

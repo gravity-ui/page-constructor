@@ -17,4 +17,4 @@ export * from '../../blocks/ContentLayout/schema';
 export * from '../../blocks/Share/schema';
 export * from '../../blocks/FilterBlock/schema';
 export * from '../../blocks/Form/schema';
-export * from '../../blocks/SliderNew/schema';
+export * from '../../blocks/Slider/schema';

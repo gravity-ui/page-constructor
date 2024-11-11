@@ -1,8 +1,8 @@
 {
   "template": {
-    "type": "slider-new-block",
+    "type": "slider-block",
     "title": {
-      "text": "Slider new",
+      "text": "Slider",
       "url": "https://example.com"
     },
     "children": [
