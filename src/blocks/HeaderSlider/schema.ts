@@ -1,6 +1,6 @@
 import omit from 'lodash/omit';
 
-import {HeaderProperties, SliderOldProps} from '../../schema/validators/blocks';
+import {HeaderProperties, SliderProps} from '../../schema/validators/blocks';
 import {BlockBaseProps} from '../../schema/validators/common';
 
 export const HeaderSliderBlock = {
@@ -9,7 +9,7 @@ export const HeaderSliderBlock = {
         required: ['items'],
         properties: {
             ...BlockBaseProps,
-            ...omit(SliderOldProps, ['loadable', 'children']),
+            ...omit(SliderProps, ['loadable', 'children']),
             items: {
                 type: 'array',
                 items: {
