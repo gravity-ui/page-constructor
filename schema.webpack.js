@@ -1,4 +1,5 @@
 /* eslint-env node */
+// Schema generation has client dependencies, to run it on the node we bundle it.
 const path = require('path');
 
 const TerserPlugin = require('terser-webpack-plugin');
