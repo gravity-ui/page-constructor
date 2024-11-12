@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [5.29.0](https://github.com/gravity-ui/page-constructor/compare/v5.28.8...v5.29.0) (2024-11-12)
+
+
+### Features
+
+* add server schema build & export ([#1072](https://github.com/gravity-ui/page-constructor/issues/1072)) ([d7e1b26](https://github.com/gravity-ui/page-constructor/commit/d7e1b266476aa5750cf608e9f62c738dd75f227c))
+
 ## [5.28.8](https://github.com/gravity-ui/page-constructor/compare/v5.28.7...v5.28.8) (2024-11-11)
 
 
