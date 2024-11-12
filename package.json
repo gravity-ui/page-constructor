@@ -47,7 +47,8 @@
     "build",
     "styles",
     "server",
-    "widget"
+    "widget",
+    "schema"
   ],
   "sideEffects": [
     "*.css",
