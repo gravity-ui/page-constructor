@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [5.29.1](https://github.com/gravity-ui/page-constructor/compare/v5.29.0...v5.29.1) (2024-11-12)
+
+
+### Bug Fixes
+
+* add schema as published file in package.json ([#1074](https://github.com/gravity-ui/page-constructor/issues/1074)) ([2b2c73b](https://github.com/gravity-ui/page-constructor/commit/2b2c73b8bd26c93f989edba3358ec93842429b2d))
+
 ## [5.29.0](https://github.com/gravity-ui/page-constructor/compare/v5.28.8...v5.29.0) (2024-11-12)
 
 
