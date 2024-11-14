@@ -22,7 +22,7 @@ export const ImageBase = ({fetchPriority, ...props}: ImageBaseProps) => {
         // this prop is good to have to improve Core Web Vitals.
         // So, here is a workaround to assign the attr.
         // eslint-disable-next-line jsx-a11y/alt-text
-        <img {...{fetchpriority: fetchPriority}} {...props} />
+        <img {...{fetchPriority: fetchPriority}} {...props} />
     );
 };
 
