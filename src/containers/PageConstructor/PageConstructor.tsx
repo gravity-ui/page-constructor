@@ -50,6 +50,9 @@ export interface PageConstructorProps {
     custom?: CustomConfig;
     renderMenu?: () => React.ReactNode;
     navigation?: NavigationData;
+    microdata?: {
+        contentUpdatedDate?: string;
+    };
 }
 
 export const Constructor = (props: PageConstructorProps) => {
@@ -59,6 +62,7 @@ export const Constructor = (props: PageConstructorProps) => {
         shouldRenderBlock,
         navigation,
         custom,
+        microdata,
     } = props;
 
     const {context} = useMemo(
@@ -85,9 +89,10 @@ export const Constructor = (props: PageConstructorProps) => {
                 customization: {
                     decorators: custom?.decorators,
                 },
+                microdata,
             },
         }),
-        [custom, shouldRenderBlock],
+        [custom, shouldRenderBlock, microdata],
     );
 
     const theme = useTheme();

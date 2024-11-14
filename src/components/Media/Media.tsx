@@ -1,7 +1,9 @@
-import React, {ReactElement, useMemo, useState} from 'react';
+import React, {ReactElement, useContext, useMemo, useState} from 'react';
 
+import {InnerContext} from '../../context/innerContext';
 import {MediaProps, QAProps} from '../../models';
 import {block, getQaAttrubutes} from '../../utils';
+import {sanitizeMicrodata} from '../../utils/microdata';
 import IframeVideoBlock from '../VideoBlock/VideoBlock';
 
 import DataLens from './DataLens/DataLens';
@@ -49,9 +51,11 @@ export const Media = (props: MediaAllProps) => {
         onImageLoad,
         iframe,
         margins,
+        videoMicrodata,
     } = props;
 
     const [hasVideoFallback, setHasVideoFallback] = useState(false);
+    const {microdata} = useContext(InnerContext);
 
     const qaAttributes = getQaAttrubutes(qa, 'video');
 
@@ -155,8 +159,27 @@ export const Media = (props: MediaAllProps) => {
         margins,
     ]);
 
+    const videoMicrodataScript = useMemo(() => {
+        const {name, description} = videoMicrodata || {};
+        const json = JSON.stringify({
+            '@context': 'http://schema.org/',
+            '@type': 'VideoObject',
+            uploadDate: microdata?.contentUpdatedDate,
+            contentUrl: video?.src?.[0] || videoIframe || youtube,
+            thumbnailUrl: previewImg,
+            ...(videoMicrodata || {}),
+            name: name ? sanitizeMicrodata(name) : name,
+            description: description ? sanitizeMicrodata(description) : description,
+        });
+
+        return video || youtube || videoIframe ? (
+            <script type="application/ld+json">{json}</script>
+        ) : null;
+    }, [microdata?.contentUpdatedDate, previewImg, video, videoIframe, videoMicrodata, youtube]);
+
     return (
         <div className={b(null, className)} style={{backgroundColor: color}} data-qa={qa}>
+            {videoMicrodataScript}
             {content}
         </div>
     );
