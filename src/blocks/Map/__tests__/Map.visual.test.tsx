@@ -8,12 +8,14 @@ test.describe('Map', () => {
     test('render stories <Default>', async ({mount, expectScreenshot, page}) => {
         await mount(<Default />);
 
+        await page.waitForSelector('.pc-map:not(.pc-map_hidden)');
         await expectScreenshot({skipTheme: 'dark', mask: [page.locator('.pc-map')]});
     });
 
     test('render stories <Size>', async ({mount, expectScreenshot, page}) => {
         await mount(<Size />);
 
+        await page.waitForSelector('.pc-map:not(.pc-map_hidden)');
         await expectScreenshot({skipTheme: 'dark', mask: [page.locator('.pc-map')]});
     });
 
