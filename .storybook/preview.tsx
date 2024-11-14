@@ -15,6 +15,7 @@ import {Theme} from '../src';
 import {GlobalThemeController} from './theme/utils/global-theme-controller';
 
 import '../styles/styles.scss';
+import '@gravity-ui/uikit/styles/fonts.css';
 
 const withContextProvider: Decorator = (Story, context) => {
     const theme = context.globals.theme;
