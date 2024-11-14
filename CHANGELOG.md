@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [5.30.0](https://github.com/gravity-ui/page-constructor/compare/v5.29.1...v5.30.0) (2024-11-14)
+
+
+### Features
+
+* add video microdata ([#1070](https://github.com/gravity-ui/page-constructor/issues/1070)) ([8ba8ca0](https://github.com/gravity-ui/page-constructor/commit/8ba8ca0770e0b437afd3fa14bc716fe179533077))
+
 ## [5.29.1](https://github.com/gravity-ui/page-constructor/compare/v5.29.0...v5.29.1) (2024-11-12)
 
 
