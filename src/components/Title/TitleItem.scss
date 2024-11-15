@@ -39,6 +39,7 @@ $block: '.#{$ns}title-item';
     }
 
     &__link {
+        @include reset-button-style();
         @include reset-link-style();
         @include reset-link-hover();
         @include focusable();

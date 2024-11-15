@@ -1,7 +1,3 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-// TODO fix in https://github.com/gravity-ui/page-constructor/issues/965
-
 import React, {
     Fragment,
     useCallback,
@@ -110,6 +106,7 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
         const {playingVideoRef, setProps} = useContext(VideoContext);
 
         const ref = useRef<HTMLDivElement>(null);
+        const buttonRef = useRef<HTMLButtonElement>(null);
 
         const [playerRef, setPlayerRef] = useState<ReactPlayer>();
         const [isPlaying, setIsPlaying] = useState(autoPlay);
@@ -247,6 +244,7 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
                 <button
                     className={b('button', {theme, text: Boolean(text)}, buttonClassName)}
                     aria-label={i18n('play')}
+                    ref={buttonRef}
                 >
                     {playButtonContent}
                 </button>
@@ -365,6 +363,8 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
         }, [isPlaying, onPlay, onPause]);
 
         const handleClick = useCallback(() => {
+            buttonRef.current?.click();
+
             if (controls === MediaVideoControlsType.Custom) {
                 if (customControlsType === CustomControlsType.WithMuteButton) {
                     changeMute(muted);
@@ -372,7 +372,15 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
                     onPlayClick();
                 }
             }
-        }, [changeMute, customControlsType, muted, onPlayClick, controls]);
+        }, [controls, customControlsType, changeMute, muted, onPlayClick]);
+
+        const handleKeyDown = useCallback((e: React.KeyboardEvent) => {
+            const key = e.key.toLowerCase();
+
+            if (key === 'enter') {
+                buttonRef.current?.click();
+            }
+        }, []);
 
         const onFocusIn = useCallback(() => setHovered(true), []);
         const onFocusOut = useCallback(() => setHovered(false), []);
@@ -394,6 +402,9 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
                 onMouseLeave={onFocusOut}
                 onFocus={onFocusIn}
                 onBlur={onFocusOut}
+                onKeyDown={handleKeyDown}
+                role="button"
+                tabIndex={0}
             >
                 {isMounted ? (
                     <Fragment>

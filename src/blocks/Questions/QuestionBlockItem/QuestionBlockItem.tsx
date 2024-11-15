@@ -30,14 +30,10 @@ export const QuestionBlockItem = ({
             itemType={FaqMicrodataValues.QuestionType}
             role={'listitem'}
         >
-            <h3
+            <button
                 className={b('title')}
                 onClick={onClick}
                 aria-expanded={isOpened}
-                // TODO fix in https://github.com/gravity-ui/page-constructor/issues/966
-                // eslint-disable-next-line jsx-a11y/no-noninteractive-element-to-interactive-role
-                role={'button'}
-                tabIndex={0}
                 onKeyDown={onKeyDown}
             >
                 <HTML itemProp={FaqMicrodataValues.QuestionNameProp}>{itemTitle}</HTML>
@@ -48,7 +44,7 @@ export const QuestionBlockItem = ({
                     iconType="navigation"
                     className={b('arrow')}
                 />
-            </h3>
+            </button>
             <Foldable isOpened={isOpened}>
                 <div
                     className={b('text')}
