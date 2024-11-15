@@ -1,11 +1,7 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-// TODO fix in https://github.com/gravity-ui/page-constructor/issues/965
-
 import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react';
 
 import {PlayFill} from '@gravity-ui/icons';
-import {Icon} from '@gravity-ui/uikit';
+import {Icon, useActionHandlers, useUniqId} from '@gravity-ui/uikit';
 import debounce from 'lodash/debounce';
 import {v4 as uuidv4} from 'uuid';
 
@@ -65,6 +61,7 @@ export interface VideoBlockProps extends AnalyticsEventsBase {
     className?: string;
     previewImg?: string;
     playButton?: React.ReactNode;
+    playButtonId?: string;
     height?: number;
     fullscreen?: boolean;
     autoplay?: boolean;
@@ -81,6 +78,7 @@ const VideoBlock = (props: VideoBlockProps) => {
         id,
         previewImg,
         playButton,
+        playButtonId,
         height,
         fullscreen,
         analyticsEvents,
@@ -94,6 +92,7 @@ const VideoBlock = (props: VideoBlockProps) => {
     const [hidePreview, setHidePreview] = useState(false);
     const [currentHeight, setCurrentHeight] = useState(height || undefined);
     const fullId = useMemo(() => id || uuidv4(), [id]);
+    const buttonId = useUniqId();
 
     const [isPlaying, setIsPlaying] = useState(!previewImg);
 
@@ -112,6 +111,8 @@ const VideoBlock = (props: VideoBlockProps) => {
 
         setTimeout(() => setHidePreview(true), AUTOPLAY_DELAY);
     }, [handleAnalytics, analyticsEvents]);
+
+    const {onKeyDown: onPreviewKeyDown} = useActionHandlers(onPreviewClick);
 
     useEffect(() => {
         const updateSize = debounce(() => {
@@ -155,7 +156,14 @@ const VideoBlock = (props: VideoBlockProps) => {
         <div className={b(null, className)} style={{height: currentHeight}} ref={ref}>
             {iframeContent}
             {previewImg && !hidePreview && !fullscreen && (
-                <div className={b('preview')} onClick={onPreviewClick}>
+                <div
+                    className={b('preview')}
+                    onClick={onPreviewClick}
+                    onKeyDown={onPreviewKeyDown}
+                    role="button"
+                    tabIndex={0}
+                    aria-labelledby={playButton ? playButtonId : buttonId}
+                >
                     <Image
                         src={previewImg}
                         className={b('image')}
@@ -163,7 +171,7 @@ const VideoBlock = (props: VideoBlockProps) => {
                         onLoad={onImageLoad}
                     />
                     {playButton || (
-                        <button title="Play" className={b('button')}>
+                        <button title="Play" id={buttonId} className={b('button')}>
                             <Icon className={b('icon')} data={PlayFill} size={24} />
                         </button>
                     )}

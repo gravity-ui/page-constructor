@@ -1,7 +1,3 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-// TODO fix in https://github.com/gravity-ui/page-constructor/issues/965
-
 import React, {Fragment, ReactNode, useContext} from 'react';
 
 import {HTML, ToggleArrow} from '../';
@@ -97,9 +93,9 @@ const TitleItem = (props: TitleItemFullProps) => {
         );
     } else if (onClick) {
         content = (
-            <span className={b('link')} onClick={onClick} title={urlTitle}>
+            <button className={b('link')} onClick={onClick} title={urlTitle}>
                 {insideClickableContent}
-            </span>
+            </button>
         );
     }
 

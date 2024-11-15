@@ -1,9 +1,7 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-// TODO fix in https://github.com/gravity-ui/page-constructor/issues/965
-
 //TODO move into cloud components?
 import React, {PropsWithChildren, createRef} from 'react';
+
+import noop from 'lodash/noop';
 
 export interface OutsideClickProps {
     onOutsideClick: () => void;
@@ -23,9 +21,17 @@ export default class OutsideClick extends React.Component<PropsWithChildren<Outs
     }
 
     render() {
-        const {className, onClick, children} = this.props;
+        const {children, className, onClick} = this.props;
+
         return (
-            <div className={className} ref={this.ref} onClick={onClick}>
+            <div
+                className={className}
+                ref={this.ref}
+                onClick={onClick}
+                onKeyDown={noop}
+                role={onClick ? 'button' : 'group'}
+                tabIndex={onClick ? 0 : -1}
+            >
                 {children}
             </div>
         );

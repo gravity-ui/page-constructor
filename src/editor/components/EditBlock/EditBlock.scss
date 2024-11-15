@@ -55,6 +55,7 @@ $block: '.#{$ns}edit-block';
     }
 
     &__control {
+        @include reset-button-style();
         @include control($hoverScale: 1.1);
 
         width: $controlIconWidth;

@@ -57,10 +57,12 @@ $block: '.#{$ns}add-block';
     }
 
     #{$block}__block {
+        @include reset-button-style();
         @include control();
 
         margin-top: $indentS;
         justify-content: flex-start;
+        text-align: start;
         cursor: pointer;
 
         &:first-child {
