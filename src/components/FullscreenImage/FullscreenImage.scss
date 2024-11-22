@@ -146,4 +146,10 @@ $closeButtonSize: 36px;
             width: 100%;
         }
     }
+
+    @media (max-width: map-get($gridBreakpoints, 'md')) {
+        &__modal .g-modal__content-wrapper {
+            margin: $fsImageMobilePadding;
+        }
+    }
 }

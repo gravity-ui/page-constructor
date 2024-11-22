@@ -335,10 +335,6 @@ $dotSize: 8px;
                 width: 100%;
             }
 
-            #{$root}__slide {
-                padding: 0 var(--g-modal-margin, 20px);
-            }
-
             &:hover {
                 #{$root}__arrow {
                     display: none;
@@ -350,10 +346,6 @@ $dotSize: 8px;
             &#{$root}:not(#{$root}_one-slide) {
                 #{$root}__slider {
                     margin-left: 0;
-                }
-
-                #{$root}__slide {
-                    padding: 0 var(--g-modal-margin, 20px);
                 }
 
                 #{$wrapperCn} {
@@ -394,7 +386,7 @@ $dotSize: 8px;
             }
 
             #{$root}__slide {
-                padding: 0 $indentXXXS;
+                padding: 0 $fsImageMobilePadding;
             }
         }
     }
