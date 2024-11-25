@@ -151,5 +151,9 @@ $closeButtonSize: 36px;
         &__modal .g-modal__content-wrapper {
             margin: $fsImageMobilePadding;
         }
+
+        &__modal_with-slider .g-modal__content-wrapper {
+            margin: 0;
+        }
     }
 }
