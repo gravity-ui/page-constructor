@@ -183,6 +183,11 @@ $dotSize: 8px;
                     display: none;
                 }
             }
+
+            & #{$dotsCn} {
+                left: $indentSM;
+                width: calc(100% - $indentSM);
+            }
         }
     }
 
