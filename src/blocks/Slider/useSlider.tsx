@@ -1,4 +1,4 @@
-import React, {PropsWithChildren, useEffect, useMemo, useState} from 'react';
+import React, {PropsWithChildren, useCallback, useEffect, useMemo, useState} from 'react';
 
 import type {Swiper} from 'swiper';
 
@@ -57,6 +57,10 @@ export const useSlider = ({children, autoplayMs, type, ...props}: UseSliderProps
         slider.slidePrev();
     };
 
+    const handleImagesReady = useCallback((slider: Swiper) => {
+        setTimeout(() => slider.update());
+    }, []);
+
     useEffect(() => {
         if (!slider) {
             return;
@@ -74,6 +78,7 @@ export const useSlider = ({children, autoplayMs, type, ...props}: UseSliderProps
         onSwiper: setSlider,
         onNext: handleNext,
         onPrev: handlePrev,
+        onImagesReady: handleImagesReady,
         breakpoints,
         childrenCount,
         isLocked,

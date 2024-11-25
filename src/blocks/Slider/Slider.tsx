@@ -67,13 +67,22 @@ export const SliderBlock = ({
     onActiveIndexChange,
     onBreakpoint,
 }: PropsWithChildren<SliderProps>) => {
-    const {autoplay, isLocked, childrenCount, breakpoints, onSwiper, onPrev, onNext, setIsLocked} =
-        useSlider({
-            slidesToShow,
-            children,
-            type,
-            autoplayMs,
-        });
+    const {
+        autoplay,
+        isLocked,
+        childrenCount,
+        breakpoints,
+        onSwiper,
+        onImagesReady,
+        onPrev,
+        onNext,
+        setIsLocked,
+    } = useSlider({
+        slidesToShow,
+        children,
+        type,
+        autoplayMs,
+    });
 
     const isA11yControlHidden = Boolean(autoplay);
     const controlTabIndex = isA11yControlHidden ? -1 : 0;
@@ -122,6 +131,7 @@ export const SliderBlock = ({
                     onBreakpoint={onBreakpoint}
                     onLock={() => setIsLocked(true)}
                     onUnlock={() => setIsLocked(false)}
+                    onImagesReady={onImagesReady}
                     watchSlidesVisibility
                     watchOverflow
                     a11y={{
