@@ -168,7 +168,7 @@ To use mixins and constructor style variables when creating custom blocks, add i
 To use default font, add import in your file:
 
 ```css
-@import '@gravity-ui/uikit/styles/fonts.css';
+@import '~@gravity-ui/page-constructor/styles/fonts.scss';
 ```
 
 ### Loadable blocks
