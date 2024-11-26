@@ -57,7 +57,7 @@ describe('Control', () => {
         render(<Control icon={icon} qa={qaId} size={size} />);
         const control = screen.getByTestId(qaId);
 
-        expect(control).toHaveClass(`pc-control_size_${size}`);
+        expect(control).toHaveClass(`g-button_size_${size}`);
     });
 
     test('add iconSize', () => {
