@@ -20,7 +20,7 @@ import {
     QuestionsBlock,
     ShareBlock,
     SliderBlock,
-    SliderNewBlock,
+    SliderOldBlock,
     TableBlock,
     TabsBlock,
 } from './validators/blocks';
@@ -39,7 +39,7 @@ export const blockSchemas: Record<BlockType, object> = {
     ...Divider,
     ...ExtendedFeaturesBlock,
     ...PromoFeaturesBlock,
-    ...SliderBlock,
+    ...SliderOldBlock,
     ...QuestionsBlock,
     ...FoldableListBlock,
     ...HeaderBlock,
@@ -57,7 +57,7 @@ export const blockSchemas: Record<BlockType, object> = {
     ...ShareBlock,
     ...FilterBlock,
     ...FormBlock,
-    ...SliderNewBlock,
+    ...SliderBlock,
 };
 
 export const cardSchemas = {
@@ -78,6 +78,8 @@ export const constructorBlockSchemaNames = [
     'post',
     'extended-features-block',
     'promo-features-block',
+    /** @deprecated */
+    'slider-old-block',
     'slider-block',
     'questions-block',
     'header-block',

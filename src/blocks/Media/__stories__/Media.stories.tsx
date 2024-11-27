@@ -49,6 +49,19 @@ const DefaultTemplate: StoryFn<MediaBlockModel> = (args) => (
                     }),
                     links: data.common.links as LinkProps[],
                 },
+                {
+                    ...args,
+                    media: {
+                        light: {
+                            ...data.default.content.media.light,
+                            fullscreen: true,
+                        },
+                        dark: {
+                            ...data.default.content.media.dark,
+                            fullscreen: true,
+                        },
+                    },
+                },
             ],
         }}
     />
