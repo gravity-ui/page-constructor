@@ -4,6 +4,32 @@
 $block: '.#{$ns}fullscreen-image';
 $closeButtonSize: 36px;
 
+@mixin iconWrapper {
+    @include reset-button-style();
+    @include focusable();
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: $closeButtonSize;
+    height: $closeButtonSize;
+    border-radius: 8px;
+    background-color: var(--g-color-base-simple-hover-solid);
+    cursor: pointer;
+    opacity: 0;
+    transition: 0.3s;
+
+    &:focus {
+        opacity: 1;
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'md')) {
+        & {
+            opacity: 1;
+        }
+    }
+}
+
 #{$block} {
     &__image {
         cursor: pointer;
@@ -12,7 +38,7 @@ $closeButtonSize: 36px;
             position: relative;
 
             &:hover {
-                #{$block}__icon-wrapper {
+                & #{$block}__expand-icon-wrapper {
                     opacity: 1;
                 }
             }
@@ -22,6 +48,36 @@ $closeButtonSize: 36px;
     &__modal-content {
         position: relative;
         border-radius: $borderRadius;
+
+        width: 100%;
+
+        &-wrapper {
+            width: 100%;
+        }
+
+        &_loaded {
+            max-width: fit-content;
+        }
+    }
+
+    &__modal_with-slider {
+        & .g-modal__content-wrapper {
+            width: 100%;
+            height: 100vh;
+            margin: 0;
+            justify-content: center;
+        }
+
+        #{$block}__modal-content {
+            background-color: transparent;
+
+            &:hover {
+                & #{$block}__expand-icon-wrapper,
+                & #{$block}__close-icon-wrapper {
+                    opacity: 1;
+                }
+            }
+        }
     }
 
     &__modal-image {
@@ -32,32 +88,53 @@ $closeButtonSize: 36px;
         overflow: hidden;
     }
 
+    &__modal-slider {
+        max-width: 100vw;
+        width: 100%;
+        height: 100vh;
+
+        &_item {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &-image {
+                display: block;
+                margin: auto;
+                border-radius: $borderRadius;
+                overflow: hidden;
+                margin-top: 40px;
+                max-height: calc(100vh - 120px);
+                max-width: 100%;
+                object-fit: contain;
+                object-position: center;
+            }
+        }
+    }
+
     &__modal .g-modal__content,
     &__modal-image {
         border-radius: $borderRadius;
     }
 
-    &__icon-wrapper {
-        @include reset-button-style();
-        @include focusable();
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
+    &__expand-icon-wrapper {
+        @include iconWrapper();
         position: absolute;
-        right: $indentXS;
-        top: $indentXS;
-        width: $closeButtonSize;
-        height: $closeButtonSize;
-        border-radius: 8px;
-        background-color: var(--g-color-base-simple-hover-solid);
-        cursor: pointer;
-        opacity: 0;
-        transition: 0.3s;
-
+        right: 16px;
+        top: 16px;
+        
         &_visible {
             opacity: 1;
         }
+    }
+
+    &__close-icon-wrapper {
+        @include iconWrapper();
+        z-index: 1001;
+        position: absolute;
+        right: 24px;
+        top: 24px;
     }
 
     &__icon {
@@ -68,23 +145,13 @@ $closeButtonSize: 36px;
         }
     }
 
-    @media (max-width: map-get($gridBreakpoints, 'xl')) {
-        &__modal-image {
-            width: 100%;
-        }
-    }
-
-    @media (max-width: map-get($gridBreakpoints, 'lg')) {
-        &__image {
-            pointer-events: none;
+    @media (max-width: map-get($gridBreakpoints, 'md')) {
+        &__modal .g-modal__content-wrapper {
+            margin: $fullscreenImageMobilePadding;
         }
 
-        &__icon-wrapper {
-            display: none;
-        }
-
-        &__modal {
-            display: none !important; /* stylelint-disable-line declaration-no-important */
+        &__modal_with-slider .g-modal__content-wrapper {
+            margin: 0;
         }
     }
 }

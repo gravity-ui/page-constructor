@@ -1,0 +1,67 @@
+@import '../../../../styles/mixins.scss';
+@import '../../../../styles/variables.scss';
+
+$block: '.#{$ns}slider-old-block-arrow';
+
+%flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#{$block} {
+    @include desktop-tablet-only();
+    @extend %flex;
+
+    $root: &;
+
+    width: $sliderArrowSize;
+    height: $sliderArrowSize;
+    cursor: pointer;
+
+    &_type_left {
+        #{$root}__icon-wrapper {
+            transform: rotate(180deg);
+        }
+        margin-right: 16px;
+    }
+
+    &__button {
+        @include reset-button-style();
+        @include shadow();
+        @extend %flex;
+
+        width: $sliderArrowSize;
+        height: $sliderArrowSize;
+
+        color: var(--g-color-text-secondary);
+        border-radius: 100%;
+        background-color: var(--g-color-base-background);
+        box-shadow:
+            0 4px 24px var(--pc-color-sfx-shadow),
+            0 2px 8px var(--pc-color-sfx-shadow);
+
+        transition:
+            box-shadow 0.3s $ease-out-cubic,
+            color 0.3s $ease-out-cubic;
+
+        @include focusable();
+    }
+
+    &:hover {
+        #{$root}__button {
+            color: var(--g-color-text-primary);
+            box-shadow:
+                0 2px 12px var(--pc-color-sfx-shadow),
+                0 4px 24px var(--pc-color-sfx-shadow);
+        }
+    }
+
+    &__icon-wrapper {
+        @extend %flex;
+    }
+
+    &__icon {
+        position: relative;
+    }
+}
