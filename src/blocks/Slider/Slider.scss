@@ -2,7 +2,7 @@
 @import '../../../styles/variables';
 
 $block: '.#{$ns}SliderBlock';
-$fsArrowArea: 120px;
+$fullscreenArrowArea: 120px;
 
 @mixin fullscreen-card() {
     @media (max-width: map-get($gridBreakpoints, 'sm')) {
@@ -310,7 +310,7 @@ $dotSize: 8px;
 
             #{$root}__slide {
                 height: 100%;
-                padding: 0 $fsArrowArea;
+                padding: 0 $fullscreenArrowArea;
             }
         }
 
@@ -322,7 +322,7 @@ $dotSize: 8px;
 
         #{$root}__arrow {
             display: none;
-            width: $fsArrowArea;
+            width: $fullscreenArrowArea;
             top: 40px;
             bottom: 40px;
 
