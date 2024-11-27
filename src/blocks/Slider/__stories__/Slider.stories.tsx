@@ -9,7 +9,7 @@ import Slider from '../Slider';
 import data from './data.json';
 
 export default {
-    title: 'blocks/Slider',
+    title: 'Blocks/Slider',
     component: Slider,
     args: {
         dots: true,

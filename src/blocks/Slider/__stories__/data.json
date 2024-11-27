@@ -107,7 +107,7 @@
     "content": {
       "type": "slider-block",
       "title": {
-        "text": "Slider New",
+        "text": "Slider",
         "url": "https://example.com"
       },
       "children": [
