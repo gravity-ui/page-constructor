@@ -57,8 +57,8 @@ export const useSlider = ({children, autoplayMs, type, ...props}: UseSliderProps
         slider.slidePrev();
     };
 
-    const handleImagesReady = useCallback((slider: Swiper) => {
-        setTimeout(() => slider.update(), 100);
+    const handleImagesReady = useCallback((localSlider: Swiper) => {
+        setTimeout(() => localSlider.update(), 100);
     }, []);
 
     useEffect(() => {
