@@ -21,7 +21,7 @@ const Arrow = ({type, handleClick, className, size = 16}: ArrowProps & ClassName
     <div className={b({type}, className)}>
         <button
             className={b('button')}
-            onClick={() => handleClick && handleClick(type)}
+            onClick={handleClick ? () => handleClick(type) : undefined}
             aria-label={i18n(`arrow-${type}`)}
         >
             <span className={b('icon-wrapper')}>
