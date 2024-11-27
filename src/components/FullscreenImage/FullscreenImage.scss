@@ -143,7 +143,7 @@ $closeButtonSize: 36px;
 
     @media (max-width: map-get($gridBreakpoints, 'md')) {
         &__modal .g-modal__content-wrapper {
-            margin: $fsImageMobilePadding;
+            margin: $fullscreenImageMobilePadding;
         }
 
         &__modal_with-slider .g-modal__content-wrapper {
