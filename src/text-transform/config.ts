@@ -241,7 +241,7 @@ export const config: BlocksConfig = {
             parser: parsePromoFeatures,
         },
     ],
-    [BlockType.SliderBlock]: blockHeaderTransformer,
+    [BlockType.SliderOldBlock]: blockHeaderTransformer,
     [BlockType.CompaniesBlock]: blockHeaderTransformer,
     [BlockType.QuestionsBlock]: [
         {
