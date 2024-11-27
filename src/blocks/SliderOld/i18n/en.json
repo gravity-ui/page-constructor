@@ -1,0 +1,6 @@
+{
+  "arrow-right": "Next",
+  "arrow-left": "Previous",
+  "dot-label": "Page {{index}} of {{count}}",
+  "pagination-label": "Pages"
+}
