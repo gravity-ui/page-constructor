@@ -3,11 +3,11 @@ import * as React from 'react';
 import {Interpolation, animated, config, useSpring} from '@react-spring/web';
 import debounce from 'lodash/debounce';
 
-import SliderBlock from '../../../blocks/Slider/Slider';
+import {SliderBlock} from '../../../blocks';
 import {ImageProps, MediaComponentImageProps, QAProps, SliderType} from '../../../models';
 import {block, getQaAttrubutes} from '../../../utils';
 import BackgroundImage from '../../BackgroundImage/BackgroundImage';
-import FullscreenImage from '../../FullscreenImage/FullscreenImage';
+import FullscreenImage, {FullscreenImageProps} from '../../FullscreenImage/FullscreenImage';
 import ImageView from '../../Image/Image';
 
 import {getMediaImage} from './utils';
@@ -20,6 +20,7 @@ export interface ImageAdditionProps {
     imageClassName?: string;
     isBackground?: boolean;
     fullscreen?: boolean;
+    fullscreenClassName?: string;
     onLoad?: () => void;
 }
 
@@ -36,6 +37,7 @@ const Image = (props: ImageAllProps) => {
         parallax,
         height,
         imageClassName,
+        fullscreenClassName,
         isBackground,
         hasVideoFallback,
         video,
@@ -87,7 +89,10 @@ const Image = (props: ImageAllProps) => {
 
     const imageClass = b('item', {withVideo: Boolean(video) && !hasVideoFallback}, imageClassName);
 
-    const renderFullscreenImage = (item: ImageProps) => {
+    const renderFullscreenImage = (
+        item: ImageProps,
+        sliderData?: FullscreenImageProps['sliderData'],
+    ) => {
         const itemData = getMediaImage(item);
 
         return (
@@ -95,8 +100,10 @@ const Image = (props: ImageAllProps) => {
                 key={itemData.alt}
                 {...itemData}
                 imageClassName={imageClass}
+                modalImageClass={fullscreenClassName}
                 imageStyle={{height}}
                 qa={qaAttributes.fullscreenImage}
+                sliderData={sliderData}
             />
         );
     };
@@ -135,7 +142,9 @@ const Image = (props: ImageAllProps) => {
             <SliderBlock slidesToShow={1} type={SliderType.MediaCard}>
                 {imageArray.map((item, index) => (
                     <React.Fragment key={index}>
-                        {fullscreenItem ? renderFullscreenImage(item) : imageOnly(item)}
+                        {fullscreenItem
+                            ? renderFullscreenImage(item, {items: imageArray, initialIndex: index})
+                            : imageOnly(item)}
                     </React.Fragment>
                 ))}
             </SliderBlock>

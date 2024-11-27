@@ -17,10 +17,10 @@ import {
     QuestionsBlock,
     ShareBlock,
     SliderBlock,
+    SliderOldBlock,
     TableBlock,
     TabsBlock,
 } from './blocks';
-import {SliderNewBlock} from './blocks/unstable';
 import {BlockType, NavigationItemType, SubBlockType} from './models';
 import {
     GithubButton,
@@ -44,7 +44,7 @@ import {
 } from './sub-blocks';
 
 export const blockMap = {
-    [BlockType.SliderBlock]: SliderBlock,
+    [BlockType.SliderOldBlock]: SliderOldBlock,
     [BlockType.ExtendedFeaturesBlock]: ExtendedFeaturesBlock,
     [BlockType.PromoFeaturesBlock]: PromoFeaturesBlock,
     [BlockType.QuestionsBlock]: QuestionsBlock,
@@ -64,8 +64,7 @@ export const blockMap = {
     [BlockType.MapBlock]: MapBlock,
     [BlockType.FilterBlock]: FilterBlock,
     [BlockType.FormBlock]: FormBlock,
-    // unstable
-    [BlockType.SliderNewBlock]: SliderNewBlock,
+    [BlockType.SliderBlock]: SliderBlock,
 };
 
 export const subBlockMap = {
