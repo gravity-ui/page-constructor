@@ -20,6 +20,7 @@ const WithFullWidthBackgroundMediaTemplate: StoryFn<PageConstructorProps> = (arg
 export const Default = DefaultTemplate.bind({});
 export const withNavigation = DefaultTemplate.bind({});
 export const WithFullWidthBackgroundMedia = WithFullWidthBackgroundMediaTemplate.bind({});
+export const Branded = DefaultTemplate.bind({});
 
 Default.args = data.default as PageConstructorProps;
 withNavigation.args = {
@@ -34,3 +35,7 @@ WithFullWidthBackgroundMedia.args = {
         background: data.withFullWidthBackgroundMedia.background,
     },
 } as PageConstructorProps;
+Branded.args = {
+    ...data.default,
+    branded: true,
+};
