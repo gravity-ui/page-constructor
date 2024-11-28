@@ -37,5 +37,5 @@ WithFullWidthBackgroundMedia.args = {
 } as PageConstructorProps;
 Branded.args = {
     ...data.default,
-    branded: true,
+    isBranded: true,
 };

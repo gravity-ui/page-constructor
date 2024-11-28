@@ -51,7 +51,7 @@ export interface PageConstructorProps {
     custom?: CustomConfig;
     renderMenu?: () => React.ReactNode;
     navigation?: NavigationData;
-    branded?: boolean;
+    isBranded?: boolean;
     microdata?: {
         contentUpdatedDate?: string;
     };
@@ -64,7 +64,7 @@ export const Constructor = (props: PageConstructorProps) => {
         shouldRenderBlock,
         navigation,
         custom,
-        branded,
+        isBranded,
         microdata,
     } = props;
 
@@ -124,7 +124,7 @@ export const Constructor = (props: PageConstructorProps) => {
                             )}
                         </Grid>
                     </Layout>
-                    {branded && <BrandFooter />}
+                    {isBranded && <BrandFooter />}
                 </div>
             </RootCn>
         </InnerContext.Provider>
