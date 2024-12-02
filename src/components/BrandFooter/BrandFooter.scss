@@ -25,12 +25,6 @@ $block: '.#{$ns}brand-footer';
         right: 0;
         left: 0;
         height: $borderHeight;
-        background: linear-gradient(
-            270deg,
-            rgba(228, 106, 68, 0.6) 0%,
-            rgba(242, 159, 85, 0.6) 46.62%,
-            rgba(255, 212, 102, 0.6) 100%
-        );
         opacity: 0;
         transition: opacity 0.5s ease-out;
         content: '';
@@ -42,6 +36,26 @@ $block: '.#{$ns}brand-footer';
 
         &::after {
             opacity: 1;
+        }
+    }
+
+    &_theme {
+        &_light::after {
+            background: linear-gradient(
+                270deg,
+                rgba(228, 106, 68, 1) 0%,
+                rgba(242, 159, 85, 1) 46.62%,
+                rgba(255, 212, 102, 1) 100%
+            );
+        }
+
+        &_dark::after {
+            background: linear-gradient(
+                270deg,
+                rgba(228, 106, 68, 0.6) 0%,
+                rgba(242, 159, 85, 0.6) 46.62%,
+                rgba(255, 212, 102, 0.6) 100%
+            );
         }
     }
 
