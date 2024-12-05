@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [5.31.1](https://github.com/gravity-ui/page-constructor/compare/v5.31.0...v5.31.1) (2024-12-05)
+
+
+### Bug Fixes
+
+* **VideoBlock:** fix add search params to src ([#1085](https://github.com/gravity-ui/page-constructor/issues/1085)) ([b0d8f52](https://github.com/gravity-ui/page-constructor/commit/b0d8f52e4809bf939991644d41bf44da853133d7))
+
 ## [5.31.0](https://github.com/gravity-ui/page-constructor/compare/v5.30.1...v5.31.0) (2024-12-04)
 
 
