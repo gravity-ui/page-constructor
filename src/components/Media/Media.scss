@@ -13,4 +13,9 @@ $block: '.#{$ns}Media';
         display: flex;
         align-items: center;
     }
+
+    &__fullscreen-image-cover {
+        object-fit: cover;
+        object-position: top;
+    }
 }
