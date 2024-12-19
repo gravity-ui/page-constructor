@@ -173,7 +173,7 @@ export const Media = (props: MediaAllProps) => {
         });
 
         return video || youtube || videoIframe ? (
-            <script type="application/ld+json">{json}</script>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{__html: json}} />
         ) : null;
     }, [microdata?.contentUpdatedDate, previewImg, video, videoIframe, videoMicrodata, youtube]);
 
