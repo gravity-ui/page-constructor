@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [5.31.2](https://github.com/gravity-ui/page-constructor/compare/v5.31.1...v5.31.2) (2024-12-19)
+
+
+### Bug Fixes
+
+* insert video microdata by dangerouslySetInnerHTML ([#1088](https://github.com/gravity-ui/page-constructor/issues/1088)) ([0cb669c](https://github.com/gravity-ui/page-constructor/commit/0cb669c9d6bee61b11249a3015679a5d8ecbffe6))
+
 ## [5.31.1](https://github.com/gravity-ui/page-constructor/compare/v5.31.0...v5.31.1) (2024-12-05)
 
 
