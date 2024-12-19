@@ -7,6 +7,8 @@ $iconSizeS: 20px;
 $iconSizeXS: 18px;
 $marginIconSizeS: 2px;
 $marginIconSizeL: 1px;
+$marginIconWithoutTitleSizeS: 1px;
+$marginIconWithoutTitleSizeL: 2px;
 $lightPrimary: var(--g-color-text-light-primary);
 $darkPrimary: var(--g-color-text-dark-primary);
 $darkSecondary: var(--g-color-text-dark-secondary);
@@ -52,9 +54,13 @@ $maxSizeS: 440px;
                 #{$block}__icon {
                     width: $iconSizeS;
                     height: $iconSizeS;
-                    margin-top: 0;
-                    margin-bottom: 0;
+                    margin-top: $marginIconWithoutTitleSizeL;
+                    margin-bottom: $marginIconWithoutTitleSizeL;
                     margin-right: $indentXXXS;
+                }
+
+                #{$block}__text {
+                    @include text-size(subheader-3);
                 }
             }
         }
@@ -94,8 +100,12 @@ $maxSizeS: 440px;
                 #{$block}__icon {
                     width: $iconSizeXS;
                     height: $iconSizeXS;
-                    margin-top: 0;
-                    margin-bottom: 0;
+                    margin-top: $marginIconWithoutTitleSizeS;
+                    margin-bottom: $marginIconWithoutTitleSizeS;
+                }
+
+                #{$block}__text {
+                    @include text-size(subheader-2);
                 }
             }
         }
