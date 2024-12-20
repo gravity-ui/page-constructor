@@ -135,7 +135,7 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
                                 <Col sizes={titleSizes} className={b('content-inner')}>
                                     {overtitle && (
                                         <YFMWrapper
-                                            variant="div"
+                                            tagName="div"
                                             className={b('overtitle')}
                                             content={overtitle}
                                             modifiers={{
@@ -151,7 +151,7 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
                                             constructor: true,
                                             constructorTheme: textTheme,
                                         }}
-                                        variant="h1"
+                                        tagName="h1"
                                         contentPosition="end"
                                     >
                                         {status}

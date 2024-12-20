@@ -1,10 +1,10 @@
 import React, {PropsWithChildren, useMemo} from 'react';
 
-import {ClassNameProps, QAProps} from '../../models/common';
-import {selectVariant} from '../../utils';
+import {ClassNameProps, QAProps, TagName} from '../../models/common';
+import {selectTagName} from '../../utils';
 
 export interface HTMLExtraProps {
-    variant?: 'span' | 'div' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'section' | 'p';
+    tagName?: TagName;
     contentPosition?: 'start' | 'end';
     contentClassName?: string;
     onlyContent?: boolean;
@@ -24,20 +24,20 @@ const HTML = ({
     contentClassName,
     qa,
     contentPosition = 'start',
-    variant = 'span',
+    tagName = 'span',
     onlyContent = false,
     ...rest
 }: HTMLProps) => {
     const renderedContent = useMemo(() => {
         return content
-            ? React.createElement(selectVariant({content, block, variant, children}), {
+            ? React.createElement(selectTagName({content, block, tagName, children}), {
                   dangerouslySetInnerHTML: {__html: content},
                   className: contentClassName,
                   'data-qa': qa,
                   ...rest,
               })
             : null;
-    }, [block, children, content, contentClassName, qa, rest, variant]);
+    }, [block, children, content, contentClassName, qa, rest, tagName]);
 
     if (onlyContent) {
         return renderedContent;
@@ -45,7 +45,7 @@ const HTML = ({
 
     if (children) {
         return React.createElement(
-            variant,
+            tagName,
             {
                 className,
             },

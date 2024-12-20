@@ -65,7 +65,7 @@ export const ExtendedFeaturesBlock = ({
                                     <div className={b('container')}>
                                         {itemTitle && (
                                             <YFMWrapper
-                                                variant={itemTitleHeadingTag}
+                                                tagName={itemTitleHeadingTag}
                                                 content={itemTitle}
                                                 className={b('item-title-container')}
                                                 contentClassName={b('item-title')}

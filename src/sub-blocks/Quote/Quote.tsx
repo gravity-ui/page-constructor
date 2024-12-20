@@ -81,7 +81,7 @@ const Quote = (props: QuoteProps) => {
                     <div className={b('content', {'quote-type': quoteType})}>
                         {textLocal && (
                             <YFMWrapper
-                                variant="span"
+                                tagName="span"
                                 contentClassName={b('text')}
                                 content={textLocal}
                                 modifiers={{constructor: true}}

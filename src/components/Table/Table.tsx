@@ -48,7 +48,7 @@ export default class Table extends React.Component<TableProps & ClassNameProps> 
                                     this.renderMarker(marker, cell)
                                 ) : (
                                     <YFMWrapper
-                                        variant="span"
+                                        tagName="span"
                                         content={cell}
                                         modifiers={{
                                             constructor: true,

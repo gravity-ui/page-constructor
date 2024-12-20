@@ -33,7 +33,7 @@ export const BannerCard = (props: BannerCardProps) => {
                 <div className={b('info')}>
                     <div className={b('text')}>
                         <YFMWrapper
-                            variant="h2"
+                            tagName="h2"
                             contentClassName={b('title')}
                             content={title}
                             modifiers={{

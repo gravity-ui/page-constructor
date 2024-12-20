@@ -3,7 +3,7 @@ import {ReactNode} from 'react';
 import camelCase from 'lodash/camelCase';
 import flatten from 'lodash/flatten';
 
-import {ConstructorBlock, CustomConfig, PCShareSocialNetwork, TextSize} from '../models';
+import {ConstructorBlock, CustomConfig, PCShareSocialNetwork, TagName, TextSize} from '../models';
 
 const BLOCK_ELEMENTS = [
     'div',
@@ -64,12 +64,12 @@ type SelectVariantArgs = {
     block?: boolean;
     content?: string;
     children?: ReactNode;
-    variant?: string;
+    tagName?: TagName;
 };
 
-export function selectVariant({content, children, variant}: SelectVariantArgs): string {
-    if (!children && variant) {
-        return variant;
+export function selectTagName({content, children, tagName}: SelectVariantArgs): string {
+    if (!children && tagName) {
+        return tagName;
     }
 
     if (!content) {
