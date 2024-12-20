@@ -7,9 +7,13 @@ $iconSizeS: 20px;
 $iconSizeXS: 18px;
 $marginIconSizeS: 2px;
 $marginIconSizeL: 1px;
+$marginIconWithoutTitleSizeS: 1px;
+$marginIconWithoutTitleSizeL: 2px;
 $lightPrimary: var(--g-color-text-light-primary);
 $darkPrimary: var(--g-color-text-dark-primary);
 $darkSecondary: var(--g-color-text-dark-secondary);
+$maxSizeL: 480px;
+$maxSizeS: 440px;
 
 @mixin content-link($baseColor: $primary, $hoverColor: $secondary) {
     color: $baseColor;
@@ -21,6 +25,8 @@ $darkSecondary: var(--g-color-text-dark-secondary);
 
 #{$block} {
     &_size_l {
+        max-width: $maxSizeL;
+
         #{$block}__title {
             @include text-size(header-1);
 
@@ -48,15 +54,21 @@ $darkSecondary: var(--g-color-text-dark-secondary);
                 #{$block}__icon {
                     width: $iconSizeS;
                     height: $iconSizeS;
-                    margin-top: 0;
-                    margin-bottom: 0;
+                    margin-top: $marginIconWithoutTitleSizeL;
+                    margin-bottom: $marginIconWithoutTitleSizeL;
                     margin-right: $indentXXXS;
+                }
+
+                #{$block}__text {
+                    @include text-size(subheader-3);
                 }
             }
         }
     }
 
     &_size_s {
+        max-width: $maxSizeS;
+
         #{$block}__title {
             @include text-size(subheader-3);
 
@@ -88,8 +100,12 @@ $darkSecondary: var(--g-color-text-dark-secondary);
                 #{$block}__icon {
                     width: $iconSizeXS;
                     height: $iconSizeXS;
-                    margin-top: 0;
-                    margin-bottom: 0;
+                    margin-top: $marginIconWithoutTitleSizeS;
+                    margin-bottom: $marginIconWithoutTitleSizeS;
+                }
+
+                #{$block}__text {
+                    @include text-size(subheader-2);
                 }
             }
         }
