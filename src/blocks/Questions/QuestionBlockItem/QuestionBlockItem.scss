@@ -13,7 +13,7 @@ $block: '.#{$ns}QuestionsBlockItem';
 
     &__title {
         @include add-specificity(&) {
-            @include reset-button-style();
+            // @include reset-button-style();
             @include heading4();
             @include focusable();
 
@@ -68,5 +68,11 @@ $block: '.#{$ns}QuestionsBlockItem';
         @include text-size(body-2);
 
         margin-top: $indentXXS;
+    }
+
+    &__button {
+        @include reset-button-style();
+
+        width: 100%;
     }
 }

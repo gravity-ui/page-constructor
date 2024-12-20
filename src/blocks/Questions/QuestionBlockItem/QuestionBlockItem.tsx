@@ -31,7 +31,7 @@ export const QuestionBlockItem = ({
             role={'listitem'}
         >
             <button
-                className={b('title')}
+                className={b('button')}
                 onClick={onClick}
                 aria-expanded={isOpened}
                 onKeyDown={onKeyDown}
@@ -46,10 +46,7 @@ export const QuestionBlockItem = ({
                         constructor: true,
                     }}
                     onClick={onClick}
-                    role="button"
-                    aria-expanded={isOpened}
                     tabIndex={0}
-                    onKeyDown={onKeyDown}
                 >
                     <ToggleArrow
                         open={isOpened}
