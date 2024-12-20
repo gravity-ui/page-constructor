@@ -3,6 +3,7 @@ import React, {useContext, useMemo} from 'react';
 import '@diplodoc/transform/dist/js/yfm';
 
 import BackgroundMedia from '../../components/BackgroundMedia/BackgroundMedia';
+import BrandFooter from '../../components/BrandFooter/BrandFooter';
 import RootCn from '../../components/RootCn';
 import {blockMap, navItemMap, subBlockMap} from '../../constructor-items';
 import {AnimateContext} from '../../context/animateContext';
@@ -50,6 +51,7 @@ export interface PageConstructorProps {
     custom?: CustomConfig;
     renderMenu?: () => React.ReactNode;
     navigation?: NavigationData;
+    isBranded?: boolean;
     microdata?: {
         contentUpdatedDate?: string;
     };
@@ -62,6 +64,7 @@ export const Constructor = (props: PageConstructorProps) => {
         shouldRenderBlock,
         navigation,
         custom,
+        isBranded,
         microdata,
     } = props;
 
@@ -121,6 +124,7 @@ export const Constructor = (props: PageConstructorProps) => {
                             )}
                         </Grid>
                     </Layout>
+                    {isBranded && <BrandFooter />}
                 </div>
             </RootCn>
         </InnerContext.Provider>

@@ -36,11 +36,12 @@ const Page: React.PropsWithChildren<PageProps> = ({content}) => (
 
 ```typescript
 interface PageConstructorProps {
-  content: PageContent; //Blocks data in JSON format.
+  content: PageContent; // Blocks data in JSON format.
   shouldRenderBlock?: ShouldRenderBlock; // A function that is invoked when rendering each block and  lets you set conditions for its display.
-  custom?: Custom; //Custom blocks (see `Customization`).
-  renderMenu?: () => React.ReactNode; //A function that renders the page menu with navigation (we plan to add rendering for the default menu version).
+  custom?: Custom; // Custom blocks (see `Customization`).
+  renderMenu?: () => React.ReactNode; // A function that renders the page menu with navigation (we plan to add rendering for the default menu version).
   navigation?: NavigationData; // Navigation data for using navigation component in JSON format
+  isBranded?: boolean; // If true, adds a footer that links to https://gravity-ui.com/. Try BrandFooter component for more customization.
 }
 
 interface PageConstructorProviderProps {

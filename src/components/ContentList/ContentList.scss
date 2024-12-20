@@ -71,10 +71,6 @@ $darkSecondary: var(--g-color-text-dark-secondary);
             margin-right: $indentXXXS;
         }
 
-        #{$block}__text {
-            @include text-size(body-1);
-        }
-
         #{$block}__item {
             &:not(:last-child) {
                 margin-bottom: $indentXXS;
@@ -119,6 +115,14 @@ $darkSecondary: var(--g-color-text-dark-secondary);
 
             .yfm a {
                 @include content-link($lightPrimary, $lightSecondary);
+            }
+        }
+    }
+
+    &_size_s {
+        @include add-specificity(&) {
+            #{$block}__text {
+                @include text-size(body-1);
             }
         }
     }

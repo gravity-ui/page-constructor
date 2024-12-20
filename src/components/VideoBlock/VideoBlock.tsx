@@ -96,13 +96,27 @@ const VideoBlock = (props: VideoBlockProps) => {
 
     const [isPlaying, setIsPlaying] = useState(!previewImg);
 
-    const iframeSrc =
-        src && isPlaying
-            ? `${src}?${getPageSearchParams({
-                  ...(attributes || {}),
-                  ...(previewImg || autoplay ? AUTOPLAY_ATTRIBUTES : NO_AUTOPLAY_ATTRIBUTES),
-              })}`
-            : undefined;
+    const iframeSrc = useMemo(() => {
+        if (src && isPlaying) {
+            try {
+                const url = new URL(src);
+                const searchParams = getPageSearchParams({
+                    ...(attributes || {}),
+                    ...(previewImg || autoplay ? AUTOPLAY_ATTRIBUTES : NO_AUTOPLAY_ATTRIBUTES),
+                });
+
+                searchParams.forEach((value, key) => {
+                    url.searchParams.set(key, value);
+                });
+
+                return url.href;
+            } catch (e) {
+                return src;
+            }
+        }
+
+        return undefined;
+    }, [attributes, autoplay, isPlaying, previewImg, src]);
 
     const onPreviewClick = useCallback(() => {
         handleAnalytics(analyticsEvents);
