@@ -5,15 +5,18 @@ $block: '.#{$ns}quote';
 
 @mixin comma-type($name, $opening, $closing, $left-offset) {
     &_#{$name} {
-        &::before {
-            position: absolute;
-            left: $left-offset;
-            content: $opening;
-        }
+        @include add-specificity(&) {
+            &::before {
+                position: absolute;
+                left: $left-offset;
+                content: $opening;
+            }
 
-        #{$block}__text {
-            &::after {
-                content: $closing;
+            #{$block}__text {
+                &::after {
+                    content: $closing;
+                    left: auto;
+                }
             }
         }
     }

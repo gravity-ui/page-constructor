@@ -1,7 +1,9 @@
+import {ReactNode} from 'react';
+
 import camelCase from 'lodash/camelCase';
 import flatten from 'lodash/flatten';
 
-import {ConstructorBlock, CustomConfig, PCShareSocialNetwork, TextSize} from '../models';
+import {ConstructorBlock, CustomConfig, PCShareSocialNetwork, TagName, TextSize} from '../models';
 
 const BLOCK_ELEMENTS = [
     'div',
@@ -59,9 +61,24 @@ export function getHeaderTag(size: TextSize) {
     }
 }
 
-export function hasBlockTag(content: string): boolean {
+type SelectVariantArgs = {
+    block?: boolean;
+    content?: string;
+    children?: ReactNode;
+    tagName?: TagName;
+};
+
+export function selectTagName({content, children, tagName}: SelectVariantArgs): string {
+    if (!children && tagName) {
+        return tagName;
+    }
+
+    if (!content) {
+        return 'span';
+    }
+
     const regex = new RegExp(BLOCK_ELEMENTS_REGEX, 'g');
-    return regex.test(content);
+    return regex.test(content) ? 'div' : 'span';
 }
 
 export function getBlockKey(block: ConstructorBlock, index: number) {

@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import {Meta, StoryFn} from '@storybook/react';
 
-import {yfmTransform} from '../../../../.storybook/utils';
+import {yfmTransform, yfmTransformInline} from '../../../../.storybook/utils';
 import {PageConstructor} from '../../../containers/PageConstructor';
 import {ButtonProps, HeaderBlockModel, HeaderBlockProps} from '../../../models';
 import Header from '../Header';
@@ -11,11 +11,14 @@ import data from './data.json';
 
 type HeaderBlockPropsNoTitle = Omit<HeaderBlockProps, 'title'>;
 
-const getSizeTitle = (size: string) => data.size.title.replace('{{size}}', size);
-const getImageTitle = (text: string) => data.image.title.replace('{{text}}', text);
+const getSizeTitle = (size: string) =>
+    yfmTransformInline(data.size.title.replace('{{size}}', size));
+const getImageTitle = (text: string) =>
+    yfmTransformInline(data.image.title.replace('{{text}}', text));
 const getVerticalOffsetTitle = (offset: string) =>
-    data.verticalOffset.title.replace('{{offset}}', offset);
-const getBreadcrumbsTitle = (theme: string) => data.breadcrumbs.title.replace('{{theme}}', theme);
+    yfmTransformInline(data.verticalOffset.title.replace('{{offset}}', offset));
+const getBreadcrumbsTitle = (theme: string) =>
+    yfmTransformInline(data.breadcrumbs.title.replace('{{theme}}', theme));
 
 export default {
     title: 'Blocks/Header',
@@ -37,6 +40,7 @@ export default {
 
 const DefaultArgs = {
     ...data.default.content,
+    title: yfmTransformInline(data.default.content.title),
     description: yfmTransform(data.default.content.description),
 };
 
@@ -101,12 +105,12 @@ const BackgroundTemplate: StoryFn<HeaderBlockModel> = (args) => (
     <React.Fragment>
         <DefaultTemplate
             {...args}
-            title={data.media.content.image.title}
+            title={yfmTransformInline(data.media.content.image.title)}
             background={data.media.content.image.background}
         />
         <DefaultTemplate
             {...args}
-            title={data.media.content.video.title}
+            title={yfmTransformInline(data.media.content.video.title)}
             background={data.media.content.video.background}
         />
     </React.Fragment>
@@ -116,7 +120,7 @@ const FullWithBackgroundTemplate: StoryFn<HeaderBlockModel> = (args) => (
     <React.Fragment>
         <DefaultTemplate
             {...args}
-            title={data.media.content.image.title}
+            title={yfmTransformInline(data.media.content.image.title)}
             background={{
                 light: {
                     ...data.media.content.image.background.light,
@@ -130,7 +134,7 @@ const FullWithBackgroundTemplate: StoryFn<HeaderBlockModel> = (args) => (
         />
         <DefaultTemplate
             {...args}
-            title={data.media.content.video.title}
+            title={yfmTransformInline(data.media.content.video.title)}
             background={{
                 light: {
                     ...data.media.content.video.background.light,
@@ -149,7 +153,7 @@ const FullWidthMediaBackgroundTemplate: StoryFn<HeaderBlockModel> = (args) => (
     <React.Fragment>
         <DefaultTemplate
             {...args}
-            title={data.media.content.image.title}
+            title={yfmTransformInline(data.media.content.image.title)}
             background={{
                 light: {
                     ...data.media.content.image.background.light,
@@ -165,7 +169,7 @@ const FullWidthMediaBackgroundTemplate: StoryFn<HeaderBlockModel> = (args) => (
         />
         <DefaultTemplate
             {...args}
-            title={data.media.content.video.title}
+            title={yfmTransformInline(data.media.content.video.title)}
             background={{
                 light: {
                     ...data.media.content.video.background.light,

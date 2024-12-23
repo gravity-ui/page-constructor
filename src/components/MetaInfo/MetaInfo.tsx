@@ -16,7 +16,7 @@ const MetaInfo = ({items, className}: MetaInfpoProps) => (
             <YFMWrapper
                 content={metaInfoItem}
                 key={metaInfoItem}
-                className={b('item')}
+                contentClassName={b('item')}
                 modifiers={{constructor: true, constructorMetaInfo: true}}
             />
         ))}

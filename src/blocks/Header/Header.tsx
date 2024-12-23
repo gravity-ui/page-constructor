@@ -2,7 +2,7 @@
 import {useUniqId} from '@gravity-ui/uikit';
 import * as React from 'react';
 
-import {Button, HTML, Media, RouterLink} from '../../components';
+import {Button, Media, RouterLink} from '../../components';
 import HeaderBreadcrumbs from '../../components/HeaderBreadcrumbs/HeaderBreadcrumbs';
 import {getMediaImage} from '../../components/Media/Image/utils';
 import YFMWrapper from '../../components/YFMWrapper/YFMWrapper';
@@ -144,16 +144,34 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
                                     {overtitle && (
                                         <div className={b('overtitle')}>
                                             {typeof overtitle === 'string' ? (
-                                                <HTML>{overtitle}</HTML>
+                                                 <YFMWrapper
+                                                    tagName="div"
+                                                    className={b('overtitle')}
+                                                    content={overtitle}
+                                                    modifiers={{
+                                                        constructor: true,
+                                                    }}
+                                                />
                                             ) : (
                                                 overtitle
                                             )}
                                         </div>
+                                       
                                     )}
-                                    <h1 className={b('title')} id={titleId}>
+                                    <YFMWrapper
+                                        content={title}
+                                        contentClassName={b('title')}
+                                        className={b('title-container')}
+                                        modifiers={{
+                                            constructor: true,
+                                            constructorTheme: textTheme,
+                                        }}
+                                        tagName="h1"
+                                        contentPosition="end"
+                                    >
                                         {status}
-                                        {renderTitle ? renderTitle(title) : <HTML>{title}</HTML>}
-                                    </h1>
+                                        {renderTitle ? renderTitle(title) : null}
+                                    </YFMWrapper>
                                     {description && (
                                         <div className={b('description', {theme: textTheme})}>
                                             <YFMWrapper
