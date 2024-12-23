@@ -75,6 +75,7 @@ const Content = (props: ContentProps) => {
                         content={text}
                         modifiers={{constructor: true, [`constructor-size-${size}`]: true}}
                         id={textId}
+                        qa={qaAttributes.list}
                     />
                 </div>
             )}

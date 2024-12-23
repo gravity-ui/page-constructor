@@ -83,10 +83,6 @@ $maxSizeS: 440px;
             margin-right: $indentXXXS;
         }
 
-        #{$block}__text {
-            @include text-size(body-1);
-        }
-
         #{$block}__item {
             &:not(:last-child) {
                 margin-bottom: $indentXXS;
@@ -135,6 +131,14 @@ $maxSizeS: 440px;
 
             .yfm a {
                 @include content-link($lightPrimary, $lightSecondary);
+            }
+        }
+    }
+
+    &_size_s {
+        @include add-specificity(&) {
+            #{$block}__text {
+                @include text-size(body-1);
             }
         }
     }
