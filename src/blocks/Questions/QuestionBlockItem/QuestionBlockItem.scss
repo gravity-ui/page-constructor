@@ -13,7 +13,6 @@ $block: '.#{$ns}QuestionsBlockItem';
 
     &__title {
         @include add-specificity(&) {
-            // @include reset-button-style();
             @include heading4();
             @include focusable();
 
