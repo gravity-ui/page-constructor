@@ -2,6 +2,7 @@ import React, {Fragment} from 'react';
 
 import {Meta, StoryFn} from '@storybook/react';
 
+import {yfmTransformInline} from '../../../../.storybook/utils';
 import {PageConstructor} from '../../../containers/PageConstructor';
 import {CardLayoutBlockModel, CardLayoutBlockProps, SubBlockModels} from '../../../models';
 import CardLayout from '../CardLayout';
@@ -43,14 +44,17 @@ const DefaultTemplate: StoryFn<CardLayoutBlockModel> = (args) => (
                     children: [
                         {
                             ...data.cards.priceCard,
+                            title: yfmTransformInline(data.cards.priceCard.title),
                             buttons: [data.buttons.outlined],
                         },
                         {
                             ...data.cards.priceCard,
+                            title: yfmTransformInline(data.cards.priceCard.title),
                             buttons: [data.buttons.action],
                         },
                         {
                             ...data.cards.priceCard,
+                            title: yfmTransformInline(data.cards.priceCard.title),
                             buttons: [data.buttons.monochrome],
                         },
                     ],

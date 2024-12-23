@@ -22,15 +22,22 @@ $block: '.#{$ns}ExtendedFeaturesBlock';
             padding-right: $indentM;
         }
 
-        &-title {
-            @include heading4();
-
+        &-title-container {
+            margin: inherit;
             display: block;
-            position: relative;
-            margin-bottom: $indentXXXS;
+            margin-block: 0 $indentXXXS;
+        }
 
-            a {
-                @include link();
+        &-title {
+            @include add-specificity(&) {
+                @include heading4();
+
+                position: relative;
+                margin-bottom: $indentXXXS;
+
+                a {
+                    @include link();
+                }
             }
         }
 

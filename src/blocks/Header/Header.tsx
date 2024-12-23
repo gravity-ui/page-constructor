@@ -2,7 +2,7 @@ import React, {useContext} from 'react';
 
 import {useUniqId} from '@gravity-ui/uikit';
 
-import {Button, HTML, Media, RouterLink} from '../../components';
+import {Button, Media, RouterLink} from '../../components';
 import HeaderBreadcrumbs from '../../components/HeaderBreadcrumbs/HeaderBreadcrumbs';
 import {getMediaImage} from '../../components/Media/Image/utils';
 import YFMWrapper from '../../components/YFMWrapper/YFMWrapper';
@@ -134,14 +134,29 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
                             >
                                 <Col sizes={titleSizes} className={b('content-inner')}>
                                     {overtitle && (
-                                        <div className={b('overtitle')}>
-                                            <HTML>{overtitle}</HTML>
-                                        </div>
+                                        <YFMWrapper
+                                            tagName="div"
+                                            className={b('overtitle')}
+                                            content={overtitle}
+                                            modifiers={{
+                                                constructor: true,
+                                            }}
+                                        />
                                     )}
-                                    <h1 className={b('title')} id={titleId}>
+                                    <YFMWrapper
+                                        content={title}
+                                        contentClassName={b('title')}
+                                        className={b('title-container')}
+                                        modifiers={{
+                                            constructor: true,
+                                            constructorTheme: textTheme,
+                                        }}
+                                        tagName="h1"
+                                        contentPosition="end"
+                                    >
                                         {status}
-                                        {renderTitle ? renderTitle(title) : <HTML>{title}</HTML>}
-                                    </h1>
+                                        {renderTitle ? renderTitle(title) : null}
+                                    </YFMWrapper>
                                     {description && (
                                         <div className={b('description', {theme: textTheme})}>
                                             <YFMWrapper
