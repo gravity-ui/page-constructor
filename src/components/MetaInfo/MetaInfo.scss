@@ -10,8 +10,10 @@ $block: '.#{$ns}meta-info';
     align-items: center;
 
     &__item {
-        &:not(:first-child) {
-            margin-left: $indentXS;
+        @include add-specificity(&) {
+            &:not(:first-child) {
+                margin-left: $indentXS;
+            }
         }
     }
 }
