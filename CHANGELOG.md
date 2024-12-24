@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [5.31.3](https://github.com/gravity-ui/page-constructor/compare/v5.31.2...v5.31.3) (2024-12-24)
+
+
+### Bug Fixes
+
+* iframe video resize ([#1091](https://github.com/gravity-ui/page-constructor/issues/1091)) ([09d7cff](https://github.com/gravity-ui/page-constructor/commit/09d7cffd692ccd4a63e10d44bf1eaad1beb16b98))
+
 ## [5.31.2](https://github.com/gravity-ui/page-constructor/compare/v5.31.1...v5.31.2) (2024-12-19)
 
 
