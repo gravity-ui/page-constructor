@@ -47,8 +47,12 @@ $modalYoutubeWidth: min(65vw, #{$newContentWidth});
         &_type_youtube {
             @extend %modal-media;
 
-            width: $modalYoutubeWidth;
-            height: calc(#{$modalYoutubeWidth} * 9 / 16);
+            max-width: $modalYoutubeWidth;
+            width: 100%;
+            aspect-ratio: 16/9;
+            height: calc(
+                #{$modalYoutubeWidth} * 9 / 16
+            ) !important; /* stylelint-disable-line declaration-no-important */
         }
     }
 
