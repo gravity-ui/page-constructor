@@ -50,7 +50,7 @@ const PriceCard = (props: PriceCardProps) => {
                                         icon: Check,
                                         text: item,
                                     }))}
-                                    size="l"
+                                    size="s"
                                 />
                             </div>
                         ) : null}
