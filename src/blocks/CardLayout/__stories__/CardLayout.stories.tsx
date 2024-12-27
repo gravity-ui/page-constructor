@@ -8,6 +8,8 @@ import CardLayout from '../CardLayout';
 
 import data from './data.json';
 
+import './CardLayout.stories.scss';
+
 export default {
     title: 'Blocks/CardLayout',
     component: CardLayout,
