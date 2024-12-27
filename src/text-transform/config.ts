@@ -23,12 +23,35 @@ import {
     yfmTransformer,
 } from './common';
 
-function parseTableBlock(transformer: Transformer, content: TableProps) {
+function parseTableBlockLegend(transformer: Transformer, content: TableProps) {
     const legend = content?.legend;
 
     return {
         ...(content || {}),
         legend: legend && legend.map((string) => transformer(string)),
+    };
+}
+
+function parseTableBlockContent(transformer: Transformer, content: TableProps) {
+    const legend = content?.legend;
+    const tableContent = content?.content;
+
+    return {
+        ...(content || {}),
+        content:
+            tableContent &&
+            tableContent.map((row, i) =>
+                row.map((cell, j) => {
+                    if (legend) {
+                        if (i === 0 || j === 0) {
+                            return transformer(cell);
+                        }
+                        return cell;
+                    } else {
+                        return transformer(cell);
+                    }
+                }),
+            ),
     };
 }
 
@@ -133,8 +156,9 @@ function parseContentLayoutTitle(transformer: Transformer, content: ContentBlock
 export const blockHeaderTransformer = [
     {
         fields: ['title'],
-        transformer: typografTransformer,
+        transformer: yfmTransformer,
         parser: parseTitle,
+        renderInline: true,
     },
     {
         fields: ['description'],
@@ -146,6 +170,7 @@ interface BlockConfig {
     transformer: TransformerRaw;
     fields?: string[];
     parser?: Parser;
+    renderInline?: boolean;
 }
 
 export type BlocksConfig = Record<string, BlockConfig | BlockConfig[]>;
@@ -200,25 +225,29 @@ export const config: BlocksConfig = {
     ],
     [SubBlockType.Quote]: [
         {
-            fields: ['text'],
-            transformer: typografTransformer,
-        },
-        {
-            fields: ['yfmText'],
+            fields: ['text', 'yfmText'],
             transformer: yfmTransformer,
+            renderInline: true,
         },
     ],
     [BlockType.ExtendedFeaturesBlock]: [
         ...blockHeaderTransformer,
         {
             fields: ['items'],
-            transformer: typografTransformer,
+            transformer: yfmTransformer,
             parser: createItemsParser(['title']),
+            renderInline: true,
         },
         {
             fields: ['items'],
             transformer: yfmTransformer,
             parser: createItemsParser(['text', 'additionalInfo']),
+        },
+        {
+            fields: ['items'],
+            transformer: yfmTransformer,
+            parser: createItemsParser(['list.text']),
+            renderInline: true,
         },
     ],
     [BlockType.PromoFeaturesBlock]: [
@@ -250,7 +279,8 @@ export const config: BlocksConfig = {
     [BlockType.BannerBlock]: [
         {
             fields: ['title'],
-            transformer: typografTransformer,
+            transformer: yfmTransformer,
+            renderInline: true,
         },
         {
             fields: ['subtitle'],
@@ -303,7 +333,13 @@ export const config: BlocksConfig = {
         {
             fields: ['table'],
             transformer: yfmTransformer,
-            parser: parseTableBlock,
+            parser: parseTableBlockLegend,
+        },
+        {
+            fields: ['table'],
+            transformer: yfmTransformer,
+            parser: parseTableBlockContent,
+            renderInline: true,
         },
     ],
     [BlockType.HeaderSliderBlock]: [
@@ -328,6 +364,11 @@ export const config: BlocksConfig = {
         {
             fields: ['description'],
             transformer: yfmTransformer,
+        },
+        {
+            fields: ['overtitle', 'title'],
+            transformer: yfmTransformer,
+            renderInline: true,
         },
     ],
     [BlockType.ContentLayoutBlock]: [
@@ -382,12 +423,19 @@ export const config: BlocksConfig = {
     [SubBlockType.PriceCard]: [
         {
             fields: ['title'],
-            transformer: typografTransformer,
+            transformer: yfmTransformer,
+            renderInline: true,
         },
         {
             fields: ['list'],
             transformer: yfmTransformer,
             parser: createItemsParser(['text']),
+        },
+        {
+            fields: ['list'],
+            transformer: yfmTransformer,
+            parser: createItemsParser(['title']),
+            renderInline: true,
         },
     ],
     [BlockType.FormBlock]: [
