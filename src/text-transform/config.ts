@@ -431,12 +431,6 @@ export const config: BlocksConfig = {
             transformer: yfmTransformer,
             parser: createItemsParser(['text']),
         },
-        {
-            fields: ['list'],
-            transformer: yfmTransformer,
-            parser: createItemsParser(['title']),
-            renderInline: true,
-        },
     ],
     [BlockType.FormBlock]: [
         {
