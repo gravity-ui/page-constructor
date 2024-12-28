@@ -58,10 +58,14 @@ $maxSizeS: 440px;
                     margin-bottom: $marginIconWithoutTitleSizeL;
                     margin-right: $indentXXXS;
                 }
+            }
+        }
 
-                #{$block}__text {
-                    @include text-size(subheader-3);
-                }
+        #{$block}__text {
+            @include text-size(subheader-2);
+
+            &_without-title {
+                @include text-size(subheader-3);
             }
         }
     }
@@ -99,10 +103,14 @@ $maxSizeS: 440px;
                     margin-top: $marginIconWithoutTitleSizeS;
                     margin-bottom: $marginIconWithoutTitleSizeS;
                 }
+            }
+        }
 
-                #{$block}__text {
-                    @include text-size(subheader-2);
-                }
+        #{$block}__text {
+            @include text-size(body-1);
+
+            &_without-title {
+                @include text-size(subheader-2);
             }
         }
     }
@@ -131,14 +139,6 @@ $maxSizeS: 440px;
 
             .yfm a {
                 @include content-link($lightPrimary, $lightSecondary);
-            }
-        }
-    }
-
-    &_size_s {
-        @include add-specificity(&) {
-            #{$block}__text {
-                @include text-size(body-1);
             }
         }
     }
