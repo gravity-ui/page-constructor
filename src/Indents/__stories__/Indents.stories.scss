@@ -1,13 +1,13 @@
-@import '../../../../styles/variables.scss';
-@import '../../../../styles/mixins';
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins';
 
 @mixin pseudo($content) {
     background: repeating-linear-gradient(
         135deg,
-        #fadae4,
-        #fadae4 10px,
-        #f0b4c6 10px,
-        #f0b4c6 20px
+        var(--g-color-base-danger-light),
+        var(--g-color-base-danger-light) 10px,
+        var(--g-color-base-danger-light-hover) 10px,
+        var(--g-color-base-danger-light-hover) 20px
     );
     content: $content;
     display: flex;
@@ -16,6 +16,8 @@
     left: 0;
     right: 0;
 }
+
+$additionalOffset: $indentL;
 
 @mixin pseudoTop($size, $textSize) {
     &::before {
