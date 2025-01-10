@@ -79,6 +79,7 @@ const preview: Preview = {
             storySort: {
                 order: [
                     'Documentation',
+                    'Block Indents',
                     'Blocks',
                     'Components',
                     ['Cards', 'Links and buttons', 'Pics, video, DataLens'],
