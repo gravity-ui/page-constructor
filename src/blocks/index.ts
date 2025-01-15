@@ -4,7 +4,14 @@ export {default as InfoBlock} from './Info/Info';
 export {default as MediaBlock} from './Media/Media';
 export {default as MapBlock} from './Map/Map';
 export {default as SliderOldBlock} from './SliderOld/SliderOld';
-export {default as SliderBlock} from './Slider/Slider';
+export {
+    default as SliderBlock,
+    OnActiveIndexChange,
+    OnBreakpoint,
+    OnSlideChange,
+    OnSlideChangeTransitionEnd,
+    OnSlideChangeTransitionStart,
+} from './Slider/Slider';
 export {default as ExtendedFeaturesBlock} from './ExtendedFeatures/ExtendedFeatures';
 export {default as PromoFeaturesBlock} from './PromoFeaturesBlock/PromoFeaturesBlock';
 export {default as QuestionsBlock} from './Questions/Questions';

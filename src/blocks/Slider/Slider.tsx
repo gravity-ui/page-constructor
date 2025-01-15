@@ -1,5 +1,6 @@
 import React, {Fragment, PropsWithChildren} from 'react';
 
+export * as SwiperCore from 'swiper';
 import SwiperCore, {A11y, Autoplay, Pagination} from 'swiper';
 import {Swiper, SwiperSlide} from 'swiper/react';
 
@@ -40,6 +41,12 @@ export interface SliderProps
     arrowSize?: number;
     initialSlide?: number;
 }
+
+export type OnSlideChange = SliderProps['onSlideChange'];
+export type OnSlideChangeTransitionStart = SliderProps['onSlideChangeTransitionStart'];
+export type OnSlideChangeTransitionEnd = SliderProps['onSlideChangeTransitionEnd'];
+export type OnActiveIndexChange = SliderProps['onActiveIndexChange'];
+export type OnBreakpoint = SliderProps['onBreakpoint'];
 
 SwiperCore.use([Autoplay, A11y, Pagination]);
 
