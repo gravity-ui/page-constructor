@@ -1,7 +1,6 @@
 import React, {Fragment, PropsWithChildren} from 'react';
 
-export type * as SwiperCore from 'swiper';
-export {SwiperOptions} from 'swiper';
+export type {Swiper as SwiperCore, SwiperOptions} from 'swiper';
 import SwiperCore, {A11y, Autoplay, Pagination} from 'swiper';
 import {Swiper, SwiperSlide} from 'swiper/react';
 
