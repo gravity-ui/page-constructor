@@ -26,7 +26,18 @@ const LoadableProps = {
             type: 'object',
             patternProperties: {
                 '.*': {
-                    type: ['string', 'number', 'boolean'],
+                    oneOf: [
+                        {
+                            type: ['string', 'number', 'boolean'],
+                        },
+                        {
+                            type: 'object',
+                            additionalProperties: true,
+                        },
+                        {
+                            type: 'array',
+                        },
+                    ],
                 },
             },
         },
