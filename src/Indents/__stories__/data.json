@@ -1,0 +1,54 @@
+{
+  "default": {
+    "type": "card-layout-block",
+    "description": "Three cards in a row on the desktop, two cards in a row on a tablet, one card in a row on a mobile phone.",
+    "animated": false,
+    "children": [
+      {
+        "type": "layout-item",
+        "media": {
+          "dark": {
+            "image": "/story-assets/img-mini_4-12_dark.png"
+          },
+          "light": {
+            "image": "/story-assets/img-mini_4-12_light.png"
+          }
+        },
+        "content": {
+          "title": "Tell a story and build a narrative",
+          "text": "We are all storytellers. Stories are a powerful way to communicate ideas and share information. The right story can lead to a better understanding of a situation, make us laugh, or even inspire us to do something in the future."
+        }
+      },
+      {
+        "type": "layout-item",
+        "media": {
+          "dark": {
+            "image": "/story-assets/img-mini_4-12_dark.png"
+          },
+          "light": {
+            "image": "/story-assets/img-mini_4-12_light.png"
+          }
+        },
+        "content": {
+          "title": "Tell a story and build a narrative",
+          "text": "We are all storytellers. Stories are a powerful way to communicate ideas and share information. The right story can lead to a better understanding of a situation, make us laugh, or even inspire us to do something in the future."
+        }
+      },
+      {
+        "type": "layout-item",
+        "media": {
+          "dark": {
+            "image": "/story-assets/img-mini_4-12_dark.png"
+          },
+          "light": {
+            "image": "/story-assets/img-mini_4-12_light.png"
+          }
+        },
+        "content": {
+          "title": "Tell a story and build a narrative",
+          "text": "We are all storytellers. Stories are a powerful way to communicate ideas and share information. The right story can lead to a better understanding of a situation, make us laugh, or even inspire us to do something in the future."
+        }
+      }
+    ]
+  }
+}
