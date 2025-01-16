@@ -1,7 +1,7 @@
 import React, {Fragment, PropsWithChildren} from 'react';
 
-import SwiperCore, {A11y, Autoplay, Pagination} from 'swiper';
-import {Swiper, SwiperSlide} from 'swiper/react';
+import Swiper, {A11y, Autoplay, Pagination} from 'swiper';
+import {Swiper as SwiperReact, SwiperSlide} from 'swiper/react';
 
 import Anchor from '../../components/Anchor/Anchor';
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
@@ -17,13 +17,15 @@ import {useSliderPagination} from './useSliderPagination';
 import './Slider.scss';
 import 'swiper/swiper-bundle.css';
 
+export type {Swiper, SwiperOptions} from 'swiper';
+
 const b = block('SliderBlock');
 
 export interface SliderProps
     extends Omit<SliderParams, 'children'>,
         Partial<
             Pick<
-                Swiper,
+                SwiperReact,
                 | 'onSlideChange'
                 | 'onSlideChangeTransitionStart'
                 | 'onSlideChangeTransitionEnd'
@@ -41,7 +43,7 @@ export interface SliderProps
     initialSlide?: number;
 }
 
-SwiperCore.use([Autoplay, A11y, Pagination]);
+Swiper.use([Autoplay, A11y, Pagination]);
 
 export const SliderBlock = ({
     animated,
@@ -115,7 +117,7 @@ export const SliderBlock = ({
                 className={b('header', {'no-description': !description})}
             />
             <AnimateBlock className={b('animate-slides')} animate={animated}>
-                <Swiper
+                <SwiperReact
                     className={b('slider', className)}
                     onSwiper={onSwiper}
                     speed={1000}
@@ -152,7 +154,7 @@ export const SliderBlock = ({
                             )}
                         </SwiperSlide>
                     ))}
-                </Swiper>
+                </SwiperReact>
                 {arrows && !isLocked && (
                     <Fragment>
                         <div aria-hidden={isA11yControlHidden}>
