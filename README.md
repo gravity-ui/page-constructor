@@ -234,6 +234,10 @@ const post = {
 
 You can find more utilities in this [section](https://github.com/gravity-ui/page-constructor/tree/main/src/text-transform)
 
+### Detailed Documentation on Server Utilities and Transformers
+
+For a comprehensive guide on using server utilities, including detailed explanations and advanced use cases, visit the [additional chapter on server utils usage](./docs/data-preparation.md).
+
 ### Custom blocks
 
 The page constructor lets you use blocks that are user-defined in their app. Blocks are regular React components.
