@@ -179,69 +179,73 @@ $darkSecondary: var(--g-color-text-dark-secondary);
 
     &_theme {
         &_dark {
-            --g-color-line-focus: var(--pc-color-line-focus-dark);
+            @include add-specificity(&) {
+                --g-color-line-focus: var(--pc-color-line-focus-dark);
 
-            #{$block}__title *,
-            #{$block}__text .yfm,
-            #{$block}__text .yfm *,
-            #{$block}__links a {
-                color: $lightPrimary;
-            }
-
-            #{$block}__notice {
-                .yfm,
-                .yfm * {
-                    color: $lightSecondary;
+                #{$block}__title *,
+                #{$block}__text .yfm,
+                #{$block}__text .yfm *,
+                #{$block}__links a {
+                    color: $lightPrimary;
                 }
 
-                .yfm a {
-                    @include content-link($lightSecondary, $lightPrimary);
-                }
-            }
+                #{$block}__notice {
+                    .yfm,
+                    .yfm * {
+                        color: $lightSecondary;
+                    }
 
-            #{$block}__text {
-                .yfm a {
-                    @include content-link($lightPrimary, $lightSecondary);
+                    .yfm a {
+                        @include content-link($lightSecondary, $lightPrimary);
+                    }
                 }
-            }
 
-            #{$block}__title {
-                a {
-                    @include content-link($lightPrimary, $lightSecondary);
-                    text-decoration: none;
+                #{$block}__text {
+                    .yfm a {
+                        @include content-link($lightPrimary, $lightSecondary);
+                    }
+                }
+
+                #{$block}__title {
+                    a {
+                        @include content-link($lightPrimary, $lightSecondary);
+                        text-decoration: none;
+                    }
                 }
             }
         }
 
         &_light {
-            #{$block}__title *,
-            #{$block}__text .yfm,
-            #{$block}__text .yfm *,
-            #{$block}__links a {
-                color: $darkPrimary;
-            }
-
-            #{$block}__notice {
-                .yfm,
-                .yfm * {
-                    color: $darkSecondary;
+            @include add-specificity(&) {
+                #{$block}__title *,
+                #{$block}__text .yfm,
+                #{$block}__text .yfm *,
+                #{$block}__links a {
+                    color: $darkPrimary;
                 }
 
-                .yfm a {
-                    @include content-link($darkSecondary, $darkPrimary);
-                }
-            }
+                #{$block}__notice {
+                    .yfm,
+                    .yfm * {
+                        color: $darkSecondary;
+                    }
 
-            #{$block}__text {
-                .yfm a {
-                    @include content-link($darkPrimary, $darkSecondary);
+                    .yfm a {
+                        @include content-link($darkSecondary, $darkPrimary);
+                    }
                 }
-            }
 
-            #{$block}__title {
-                a {
-                    @include content-link($darkPrimary, $darkSecondary);
-                    text-decoration: none;
+                #{$block}__text {
+                    .yfm a {
+                        @include content-link($darkPrimary, $darkSecondary);
+                    }
+                }
+
+                #{$block}__title {
+                    a {
+                        @include content-link($darkPrimary, $darkSecondary);
+                        text-decoration: none;
+                    }
                 }
             }
         }

@@ -16,6 +16,7 @@ CONTRIBUTING.md
 /schema
 
 /playwright/playwright/.cache/
+playwright
 
 # npm files
 package.json

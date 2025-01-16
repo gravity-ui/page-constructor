@@ -73,6 +73,8 @@ $block: '.#{$ns}title-item';
         @include add-specificity(&) {
             white-space: normal;
             font-size: inherit;
+            line-height: inherit;
+
             a {
                 @include link();
             }
