@@ -1,6 +1,5 @@
 import React, {Fragment, PropsWithChildren} from 'react';
 
-export type {Swiper, SwiperOptions} from 'swiper';
 import Swiper, {A11y, Autoplay, Pagination} from 'swiper';
 import {Swiper as SwiperReact, SwiperSlide} from 'swiper/react';
 
@@ -17,6 +16,8 @@ import {useSliderPagination} from './useSliderPagination';
 
 import './Slider.scss';
 import 'swiper/swiper-bundle.css';
+
+export type {Swiper, SwiperOptions} from 'swiper';
 
 const b = block('SliderBlock');
 
