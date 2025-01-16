@@ -9,3 +9,4 @@ node_modules
 /schema
 
 /playwright/playwright/.cache/
+playwright

@@ -5,10 +5,12 @@ $block: '.#{$ns}share-block';
 
 #{$block} {
     &__title {
-        @include heading5();
+        @include add-specificity(&) {
+            @include heading5();
 
-        text-align: center;
-        font-weight: normal;
+            text-align: center;
+            font-weight: normal;
+        }
     }
 
     &__items {
