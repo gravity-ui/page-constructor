@@ -91,7 +91,7 @@ export interface LoadableProps {
      * @deprecated Will be moved to params
      */
     serviceId?: number;
-    params?: Record<string, string | number | boolean>;
+    params?: Record<string, string | number | boolean | object>;
 }
 
 export interface LoadableChildren {
