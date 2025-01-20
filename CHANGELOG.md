@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [5.33.0](https://github.com/gravity-ui/page-constructor/compare/v5.32.0...v5.33.0) (2025-01-17)
+
+
+### Features
+
+* update params typing ([#1098](https://github.com/gravity-ui/page-constructor/issues/1098)) ([a42c72b](https://github.com/gravity-ui/page-constructor/commit/a42c72bfa248341217442c4a8c3e14f6d3ba8843))
+
 ## [5.32.0](https://github.com/gravity-ui/page-constructor/compare/v5.31.3...v5.32.0) (2024-12-27)
 
 
