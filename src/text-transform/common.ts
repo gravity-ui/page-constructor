@@ -15,60 +15,56 @@ export type TransformerRaw = (
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type Parser<T = any> = (transformer: Transformer, block: T) => T;
 
-export const createItemsParser = (fields: string[]) => (transformer: Transformer, items: Item[]) =>
-    items.map((item) => {
-        if (!item) {
-            return item;
-        } else if (typeof item === 'string') {
-            return transformer(item);
-        } else {
-            return {
-                ...item,
-                ...fields.reduce<ComplexItem>((acc, fieldName) => {
-                    if (fieldName.includes('.')) {
-                        const [firstProperty, secondProperty] = fieldName.split('.');
-                        const root = item[firstProperty] as unknown as Record<string, string>;
-                        if (!root || typeof root !== 'object') {
-                            return acc;
-                        }
+export const createItemsParser =
+    (fields: string[]) => (transformer: Transformer, items: Item[]) => {
+        const applyTransform = (itemLocal: string | object) =>
+            typeof itemLocal === 'string' ? transformer(itemLocal as string) : itemLocal;
 
-                        if (Array.isArray(root)) {
-                            if (!acc[firstProperty]) {
-                                // eslint-disable-next-line no-param-reassign
-                                acc[firstProperty] = [];
+        return items.map((item) => {
+            if (!item) {
+                return item;
+            } else if (typeof item === 'string') {
+                return transformer(item);
+            } else {
+                return {
+                    ...item,
+                    ...fields.reduce<ComplexItem>((acc, fieldName) => {
+                        if (fieldName.includes('.')) {
+                            const [firstProperty, secondProperty] = fieldName.split('.');
+                            const root = item[firstProperty] as unknown as Record<string, string>;
+                            if (!root || typeof root !== 'object') {
+                                return acc;
                             }
 
-                            // eslint-disable-next-line no-param-reassign
-                            acc[firstProperty] = root.map((subItem: ComplexItem) => ({
-                                ...subItem,
-                                [secondProperty]:
-                                    typeof subItem[secondProperty] === 'string'
-                                        ? transformer(subItem[secondProperty] as string)
-                                        : subItem[secondProperty],
-                            }));
-                        } else {
-                            // eslint-disable-next-line no-param-reassign
-                            acc[firstProperty] = {
-                                ...root,
-                                [secondProperty]:
-                                    typeof root[secondProperty] === 'string'
-                                        ? transformer(root[secondProperty])
-                                        : root[secondProperty],
-                            };
-                        }
-                    } else if (item[fieldName]) {
-                        // eslint-disable-next-line no-param-reassign
-                        acc[fieldName] =
-                            typeof item[fieldName] === 'string'
-                                ? transformer(item[fieldName] as string)
-                                : item[fieldName];
-                    }
+                            if (Array.isArray(root)) {
+                                if (!acc[firstProperty]) {
+                                    // eslint-disable-next-line no-param-reassign
+                                    acc[firstProperty] = [];
+                                }
 
-                    return acc;
-                }, {} as ComplexItem),
-            };
-        }
-    });
+                                // eslint-disable-next-line no-param-reassign
+                                acc[firstProperty] = root.map((subItem: ComplexItem) => ({
+                                    ...subItem,
+                                    [secondProperty]: applyTransform(subItem[secondProperty]),
+                                }));
+                            } else {
+                                // eslint-disable-next-line no-param-reassign
+                                acc[firstProperty] = {
+                                    ...root,
+                                    [secondProperty]: applyTransform(root[secondProperty]),
+                                };
+                            }
+                        } else if (item[fieldName]) {
+                            // eslint-disable-next-line no-param-reassign
+                            acc[fieldName] = applyTransform(item[fieldName]);
+                        }
+
+                        return acc;
+                    }, {} as ComplexItem),
+                };
+            }
+        });
+    };
 
 export function yfmTransformer(
     lang: Lang,
