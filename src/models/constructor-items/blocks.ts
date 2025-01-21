@@ -61,6 +61,7 @@ export enum BlockType {
     MapBlock = 'map-block',
     FilterBlock = 'filter-block',
     FormBlock = 'form-block',
+    MarqueeLinks = 'marquee-links-block',
     // unstable
     SliderNewBlock = 'slider-new-block',
 }
@@ -278,6 +279,19 @@ export interface InfoBlockProps {
     links?: Pick<LinkProps, 'text' | 'url'>[];
     leftContent?: Omit<ContentBlockProps, 'colSizes' | 'theme' | 'size'>;
     rightContent?: Omit<ContentBlockProps, 'colSizes' | 'theme' | 'size'>;
+}
+
+export type MarqueeLinksItem = {
+    src: string;
+    url?: string;
+};
+
+export interface MarqueeLinksBlockProps {
+    title?: string;
+    description?: string;
+    textAlign?: 'left' | 'right' | 'center';
+    speed?: number;
+    items: MarqueeLinksItem[];
 }
 
 export interface TableProps {
@@ -529,6 +543,10 @@ export type FormBlockModel = {
     type: BlockType.FormBlock;
 } & FormBlockProps;
 
+export type MarqueeLinksBlockModel = {
+    type: BlockType.MarqueeLinks;
+} & MarqueeLinksBlockProps;
+
 // unstable block models
 export type SliderNewBlockModel = {
     type: BlockType.SliderNewBlock;
@@ -553,7 +571,8 @@ type BlockModels =
     | ContentLayoutBlockModel
     | ShareBLockModel
     | FilterBlockModel
-    | FormBlockModel;
+    | FormBlockModel
+    | MarqueeLinksBlockModel;
 
 type UnstableBlockModels = SliderNewBlockModel;
 

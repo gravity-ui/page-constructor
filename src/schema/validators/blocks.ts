@@ -18,3 +18,4 @@ export * from '../../blocks/Share/schema';
 export * from '../../blocks/FilterBlock/schema';
 export * from '../../blocks/Form/schema';
 export * from '../../blocks/SliderNew/schema';
+export * from '../../blocks/MarqueeLinks/schema';
