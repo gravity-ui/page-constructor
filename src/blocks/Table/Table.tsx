@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Table} from '../../components';
+import {Table, YFMWrapper} from '../../components';
 import {Col, Grid, GridColumnSize, Row} from '../../grid';
 import {TableBlockProps} from '../../models';
 import {block} from '../../utils';
@@ -17,7 +17,14 @@ export const TableBlock = (props: TableBlockProps) => {
             <Grid className={b('content')}>
                 <Row className={b('row')}>
                     <Col sizes={{[GridColumnSize.Md]: 4, [GridColumnSize.All]: 12}}>
-                        <h2 className={b('title')}>{title}</h2>
+                        <YFMWrapper
+                            tagName="h2"
+                            contentClassName={b('title')}
+                            content={title}
+                            modifiers={{
+                                constructor: true,
+                            }}
+                        />
                     </Col>
                     <Col sizes={{[GridColumnSize.Md]: 8, [GridColumnSize.All]: 12}}>
                         <Table className={b('table')} {...table} />

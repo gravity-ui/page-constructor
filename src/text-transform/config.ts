@@ -290,7 +290,8 @@ export const config: BlocksConfig = {
     [SubBlockType.BannerCard]: [
         {
             fields: ['title'],
-            transformer: typografTransformer,
+            transformer: yfmTransformer,
+            renderInline: true,
         },
         {
             fields: ['subtitle'],
@@ -300,7 +301,7 @@ export const config: BlocksConfig = {
     [BlockType.MediaBlock]: [
         ...blockHeaderTransformer,
         {
-            fields: ['title', 'additionalInfo'],
+            fields: ['additionalInfo'],
             transformer: yfmTransformer,
         },
         {
@@ -330,6 +331,11 @@ export const config: BlocksConfig = {
         },
     ],
     [BlockType.TableBlock]: [
+        {
+            fields: ['title'],
+            transformer: yfmTransformer,
+            renderInline: true,
+        },
         {
             fields: ['table'],
             transformer: yfmTransformer,
@@ -379,8 +385,9 @@ export const config: BlocksConfig = {
         },
         {
             fields: ['textContent'],
-            transformer: typografTransformer,
+            transformer: yfmTransformer,
             parser: parseContentLayoutTitle,
+            renderInline: true,
         },
     ],
     [SubBlockType.Content]: [
@@ -390,8 +397,9 @@ export const config: BlocksConfig = {
         },
         {
             fields: ['title'],
-            transformer: typografTransformer,
+            transformer: yfmTransformer,
             parser: parseTitle,
+            renderInline: true,
         },
         {
             fields: ['list'],
@@ -400,6 +408,11 @@ export const config: BlocksConfig = {
         },
     ],
     [BlockType.InfoBlock]: [
+        {
+            fields: ['title'],
+            transformer: yfmTransformer,
+            renderInline: true,
+        },
         {
             fields: ['rightContent', 'leftContent'],
             transformer: yfmTransformer,
@@ -429,7 +442,7 @@ export const config: BlocksConfig = {
         {
             fields: ['list'],
             transformer: yfmTransformer,
-            parser: createItemsParser(['text']),
+            parser: createItemsParser(['title', 'text']),
         },
     ],
     [BlockType.FormBlock]: [
