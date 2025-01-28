@@ -84,6 +84,7 @@ export type ContentTextSize = 's' | 'm' | 'l';
 export type ContentTheme = 'default' | 'dark' | 'light';
 export type FileLinkType = 'vertical' | 'horizontal';
 export type ImageCardMargins = 's' | 'm';
+export type LayoutItemContentMargin = 'm' | 'l';
 
 // modifiers
 export interface Themable {
