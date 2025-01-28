@@ -2,6 +2,7 @@ import React, {FC, SVGProps, useCallback, useContext} from 'react';
 
 import {Button, Icon} from '@gravity-ui/uikit';
 
+import {YFMWrapper} from '../../components';
 import {LocationContext} from '../../context/locationContext';
 import {useAnalytics} from '../../hooks';
 import {Facebook} from '../../icons/Facebook';
@@ -38,7 +39,19 @@ const Share = ({items, title}: ShareBlockProps) => {
 
     return (
         <div className={b()}>
-            <h5 className={b('title')}>{title || i18n('constructor-share')}</h5>
+            <h5 className={b('title')}>
+                {title ? (
+                    <YFMWrapper
+                        content={title}
+                        modifiers={{
+                            constructor: true,
+                            // constructorTheme: textTheme,
+                        }}
+                    />
+                ) : (
+                    i18n('constructor-share')
+                )}
+            </h5>
             <div className={b('items')}>
                 {items.map((type) => {
                     const url = getAbsolutePath(hostname, pathname);

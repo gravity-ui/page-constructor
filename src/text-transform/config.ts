@@ -14,14 +14,7 @@ import {
     TitleItemProps,
 } from '../models';
 
-import {
-    Parser,
-    Transformer,
-    TransformerRaw,
-    createItemsParser,
-    typografTransformer,
-    yfmTransformer,
-} from './common';
+import {Parser, Transformer, TransformerRaw, createItemsParser, yfmTransformer} from './common';
 
 function parseTableBlockLegend(transformer: Transformer, content: TableProps) {
     const legend = content?.legend;
@@ -179,7 +172,8 @@ export const config: BlocksConfig = {
     [SubBlockType.BasicCard]: [
         {
             fields: ['title'],
-            transformer: typografTransformer,
+            transformer: yfmTransformer,
+            renderInline: true,
         },
         {
             fields: ['text', 'additionalInfo'],
@@ -188,22 +182,16 @@ export const config: BlocksConfig = {
     ],
     [SubBlockType.BackgroundCard]: [
         {
-            fields: ['text', 'additionalInfo'],
+            fields: ['title', 'text', 'additionalInfo'],
             transformer: yfmTransformer,
-        },
-        {
-            fields: ['title'],
-            transformer: typografTransformer,
+            renderInline: true,
         },
     ],
     [SubBlockType.ImageCard]: [
         {
-            fields: ['text', 'additionalInfo'],
+            fields: ['title', 'text', 'additionalInfo'],
             transformer: yfmTransformer,
-        },
-        {
-            fields: ['title'],
-            transformer: typografTransformer,
+            renderInline: true,
         },
     ],
     [SubBlockType.LayoutItem]: [
@@ -215,7 +203,8 @@ export const config: BlocksConfig = {
         {
             fields: ['content'],
             parser: parseContentLayoutTitle,
-            transformer: typografTransformer,
+            transformer: yfmTransformer,
+            renderInline: true,
         },
         {
             fields: ['metaInfo'],
@@ -259,15 +248,13 @@ export const config: BlocksConfig = {
         },
     ],
     [BlockType.SliderOldBlock]: blockHeaderTransformer,
+    [BlockType.SliderBlock]: blockHeaderTransformer,
     [BlockType.CompaniesBlock]: blockHeaderTransformer,
     [BlockType.QuestionsBlock]: [
         {
-            fields: ['title'],
-            transformer: typografTransformer,
-        },
-        {
-            fields: ['text', 'additionalInfo'],
+            fields: ['title', 'text', 'additionalInfo'],
             transformer: yfmTransformer,
+            renderInline: true,
         },
         {
             fields: ['items'],
@@ -326,8 +313,9 @@ export const config: BlocksConfig = {
         },
         {
             fields: ['items'],
-            transformer: typografTransformer,
+            transformer: yfmTransformer,
             parser: parseItemsTitle,
+            renderInline: true,
         },
     ],
     [BlockType.TableBlock]: [
@@ -351,13 +339,9 @@ export const config: BlocksConfig = {
     [BlockType.HeaderSliderBlock]: [
         {
             fields: ['items'],
-            transformer: typografTransformer,
-            parser: createItemsParser(['title', 'overtitle']),
-        },
-        {
-            fields: ['items'],
             transformer: yfmTransformer,
-            parser: createItemsParser(['description']),
+            parser: createItemsParser(['title', 'overtitle', 'description']),
+            renderInline: true,
         },
     ],
     [SubBlockType.PriceDetailed]: [
@@ -420,14 +404,16 @@ export const config: BlocksConfig = {
         },
         {
             fields: ['rightContent', 'leftContent'],
-            transformer: typografTransformer,
+            transformer: yfmTransformer,
             parser: parseContentLayoutTitle,
+            renderInline: true,
         },
     ],
     [BlockType.ShareBlock]: [
         {
             fields: ['title'],
-            transformer: typografTransformer,
+            transformer: yfmTransformer,
+            renderInline: true,
         },
     ],
     [BlockType.CardLayoutBlock]: blockHeaderTransformer,
@@ -453,8 +439,9 @@ export const config: BlocksConfig = {
         },
         {
             fields: ['textContent'],
-            transformer: typografTransformer,
+            transformer: yfmTransformer,
             parser: parseContentLayoutTitle,
+            renderInline: true,
         },
     ],
 };
