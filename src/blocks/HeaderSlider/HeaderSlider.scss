@@ -47,14 +47,6 @@ $block: '.#{$ns}header-slider-block';
         }
     }
 
-    @media (max-width: map-get($gridBreakpoints, 'md')) {
-        &.#{$ns}SliderBlock {
-            margin-left: -$indentXXXS;
-            padding-left: 0;
-            width: calc(100% + #{$indentXXXS});
-        }
-    }
-
     @media (max-width: map-get($gridBreakpoints, 'sm')) {
         &__item-content {
             .#{$ns}header-block__content {
@@ -64,12 +56,6 @@ $block: '.#{$ns}header-slider-block';
 
             .#{$ns}header-block__container-fluid {
                 padding-left: $indentXS + $indentXXXS;
-            }
-        }
-
-        .slick-track {
-            .slick-slide {
-                max-width: 100%;
             }
         }
     }

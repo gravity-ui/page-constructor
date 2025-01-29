@@ -56,10 +56,10 @@ function transformBlock(
         const configs = Array.isArray(blockConfig) ? blockConfig : [blockConfig];
 
         configs.forEach((transformConfig) => {
-            const {fields, transformer: transformerRaw, parser} = transformConfig;
+            const {fields, transformer: transformerRaw, parser, renderInline} = transformConfig;
             const transformer: Transformer = (content) =>
                 // eslint-disable-next-line no-useless-call
-                transformerRaw.call(null, lang, content, {plugins});
+                transformerRaw.call(null, lang, content, {plugins, renderInline});
 
             if (fields) {
                 (fields as (keyof typeof block)[]).forEach((field) => {

@@ -43,7 +43,7 @@ const ContentList = ({list, size = 'l', qa, theme}: ContentListProps & QAProps) 
                                 )}
                             {text && (
                                 <YFMWrapper
-                                    className={b('text')}
+                                    contentClassName={b('text', {'without-title': !title})}
                                     content={text}
                                     modifiers={{constructor: true}}
                                     qa={qaAttributes.text}

@@ -7,11 +7,13 @@ $block: '.#{$ns}table-block';
     $class: &;
 
     &__title {
-        @include heading2();
-        @include top-content-offset($offset: 0px);
+        @include add-specificity(&) {
+            @include heading2();
+            @include top-content-offset($offset: 0px);
 
-        position: sticky;
-        margin-right: $indentM;
+            position: sticky;
+            margin-right: $indentM;
+        }
     }
 
     &__table {
