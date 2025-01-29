@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [5.33.1](https://github.com/gravity-ui/page-constructor/compare/v5.33.0...v5.33.1) (2025-01-28)
+
+
+### Bug Fixes
+
+* add validator for autoplay field; add autoplay field to doc ([#1102](https://github.com/gravity-ui/page-constructor/issues/1102)) ([5e6e070](https://github.com/gravity-ui/page-constructor/commit/5e6e070940f23b04521ba24a99da3554f0d7aa08))
+
 ## [5.33.0](https://github.com/gravity-ui/page-constructor/compare/v5.32.0...v5.33.0) (2025-01-17)
 
 
