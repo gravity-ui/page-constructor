@@ -115,4 +115,5 @@ ControlPosition.argTypes = {
     className: {table: {disable: true}},
     controlPosition: {table: {disable: true}},
     analyticsEvents: {table: {disable: true}},
+    contentMargin: {table: {disable: true}},
 };
