@@ -11,7 +11,7 @@ import Title from '../../components/Title/Title';
 import {getHeight} from '../../components/VideoBlock/VideoBlock';
 import YFMWrapper from '../../components/YFMWrapper/YFMWrapper';
 import {useTheme} from '../../context/theme';
-import {Col, GridColumnOrderClasses, Row} from '../../grid';
+import {Col, GridColumnOrderClasses, GridJustifyContent, Row} from '../../grid';
 import {TabsBlockProps} from '../../models';
 import {block, getThemedValue} from '../../utils';
 import {mergeVideoMicrodata} from '../../utils/microdata';
@@ -149,7 +149,7 @@ export const TabsBlock = ({
                 subtitle={description}
                 className={b('title', {centered: centered})}
             />
-            <Row>
+            <Row justifyContent={centered ? GridJustifyContent.Center : undefined}>
                 <Col sizes={tabsColSizes}>
                     <ButtonTabs
                         items={tabs}
