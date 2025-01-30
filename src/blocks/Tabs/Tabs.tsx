@@ -22,6 +22,7 @@ import './Tabs.scss';
 
 const b = block('tabs-block');
 
+// eslint-disable-next-line complexity
 export const TabsBlock = ({
     items,
     title,
