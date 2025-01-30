@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [5.33.3](https://github.com/gravity-ui/page-constructor/compare/v5.33.2...v5.33.3) (2025-01-30)
+
+
+### Bug Fixes
+
+* tabs block centered with tabsColSizes ([#1108](https://github.com/gravity-ui/page-constructor/issues/1108)) ([24df569](https://github.com/gravity-ui/page-constructor/commit/24df5695b1adb55f5a683206b4069c2529e0ea5f))
+* up gravity-ui preview-build-action v2 ([#1109](https://github.com/gravity-ui/page-constructor/issues/1109)) ([72cb2fa](https://github.com/gravity-ui/page-constructor/commit/72cb2fad4eac121733a20fb419ed8c119ba9e7cd))
+
 ## [5.33.2](https://github.com/gravity-ui/page-constructor/compare/v5.33.1...v5.33.2) (2025-01-29)
 
 
