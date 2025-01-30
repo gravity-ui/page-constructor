@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [5.33.2](https://github.com/gravity-ui/page-constructor/compare/v5.33.1...v5.33.2) (2025-01-29)
+
+
+### Bug Fixes
+
+* layout item content margin ([#1104](https://github.com/gravity-ui/page-constructor/issues/1104)) ([fc44210](https://github.com/gravity-ui/page-constructor/commit/fc44210c8fd1853cb0e01797c791fee8df43ea50))
+* playwright actions ([#1106](https://github.com/gravity-ui/page-constructor/issues/1106)) ([dc04d43](https://github.com/gravity-ui/page-constructor/commit/dc04d43c5be1ea9c3c24e50a75e26df15a1466be))
+
 ## [5.33.1](https://github.com/gravity-ui/page-constructor/compare/v5.33.0...v5.33.1) (2025-01-28)
 
 
