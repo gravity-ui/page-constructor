@@ -53,7 +53,7 @@ export default function BackLink(props: BackLinkProps) {
         }
     }, [handleAnalytics, history, onClick, url]);
 
-    const buttonComponent = url ? 'a' : 'button';
+    const buttonComponent = url && !shouldHandleBackAction ? 'a' : 'button';
 
     return (
         <Button
