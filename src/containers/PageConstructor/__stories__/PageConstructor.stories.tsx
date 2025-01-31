@@ -1,5 +1,3 @@
-import React from 'react';
-
 import {Meta, StoryFn} from '@storybook/react';
 
 import {PageConstructor, PageConstructorProps} from '../PageConstructor';

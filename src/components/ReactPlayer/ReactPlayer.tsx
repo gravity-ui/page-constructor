@@ -1,13 +1,4 @@
-import React, {
-    Fragment,
-    useCallback,
-    useContext,
-    useEffect,
-    useImperativeHandle,
-    useMemo,
-    useRef,
-    useState,
-} from 'react';
+import * as React from 'react';
 
 import {PlayFill} from '@gravity-ui/icons';
 import {Icon} from '@gravity-ui/uikit';
@@ -66,7 +57,7 @@ interface PlayerPropgress {
 // eslint-disable-next-line react/display-name
 export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactPlayerBlockProps>(
     (props, originRef) => {
-        const isMobile = useContext(MobileContext);
+        const isMobile = React.useContext(MobileContext);
         const {
             src,
             previewImgUrl,
@@ -103,28 +94,28 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
         const autoPlay = Boolean(!isMobile && !previewImgUrl && props.autoplay);
         const mute = initiallyMuted || autoPlay;
 
-        const {playingVideoRef, setProps} = useContext(VideoContext);
+        const {playingVideoRef, setProps} = React.useContext(VideoContext);
 
-        const ref = useRef<HTMLDivElement>(null);
-        const buttonRef = useRef<HTMLButtonElement>(null);
+        const ref = React.useRef<HTMLDivElement>(null);
+        const buttonRef = React.useRef<HTMLButtonElement>(null);
 
-        const [playerRef, setPlayerRef] = useState<ReactPlayer>();
-        const [isPlaying, setIsPlaying] = useState(autoPlay);
-        const [playedPercent, setPlayedPercent] = useState<number>(0);
-        const [currentHeight, setCurrentHeight] = useState(height);
-        const [width, setWidth] = useState<number>(0);
-        const [actualRatio, setActualRatio] = useState<number>();
-        const [muted, setMuted] = useState<boolean>(mute);
-        const [started, setStarted] = useState(autoPlay);
-        const [ended, setEnded] = useState<boolean>(false);
-        const [isMounted, setIsMounted] = useState(false);
-        const [hovered, setHovered] = useState(isMobile);
+        const [playerRef, setPlayerRef] = React.useState<ReactPlayer>();
+        const [isPlaying, setIsPlaying] = React.useState(autoPlay);
+        const [playedPercent, setPlayedPercent] = React.useState<number>(0);
+        const [currentHeight, setCurrentHeight] = React.useState(height);
+        const [width, setWidth] = React.useState<number>(0);
+        const [actualRatio, setActualRatio] = React.useState<number>();
+        const [muted, setMuted] = React.useState<boolean>(mute);
+        const [started, setStarted] = React.useState(autoPlay);
+        const [ended, setEnded] = React.useState<boolean>(false);
+        const [isMounted, setIsMounted] = React.useState(false);
+        const [hovered, setHovered] = React.useState(isMobile);
 
         useMount(() => setIsMounted(true));
 
-        const videoSrc = useMemo(() => checkYoutubeVideos(src), [src]);
+        const videoSrc = React.useMemo(() => checkYoutubeVideos(src), [src]);
 
-        const eventsArray = useMemo(() => {
+        const eventsArray = React.useMemo(() => {
             if (analyticsEvents) {
                 return Array.isArray(analyticsEvents) ? analyticsEvents : [analyticsEvents];
             }
@@ -133,65 +124,61 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
         }, [analyticsEvents]);
         const handleAnalytics = useAnalytics(DefaultEventNames.ReactPlayerControls);
 
-        useImperativeHandle(
-            originRef,
-            () => {
-                if (!playerRef) {
-                    return;
-                }
+        React.useImperativeHandle(originRef, () => {
+            if (!playerRef) {
+                return;
+            }
 
-                let play, pause, addEventListener;
-                const videoInstance = playerRef.getInternalPlayer();
-                if (isYoutubePlayerInstance(videoInstance)) {
-                    ({pauseVideo: pause, playVideo: play, addEventListener} = videoInstance);
-                } else {
-                    // it is assumed that `videoInstance` is HTMLVideoElement by default
-                    ({play, pause, addEventListener} = videoInstance);
-                }
+            let play, pause, addEventListener;
+            const videoInstance = playerRef.getInternalPlayer();
+            if (isYoutubePlayerInstance(videoInstance)) {
+                ({pauseVideo: pause, playVideo: play, addEventListener} = videoInstance);
+            } else {
+                // it is assumed that `videoInstance` is HTMLVideoElement by default
+                ({play, pause, addEventListener} = videoInstance);
+            }
 
-                // eslint-disable-next-line consistent-return
-                return {
-                    play: play.bind(videoInstance),
-                    pause: pause.bind(videoInstance),
-                    addEventListener: addEventListener.bind(videoInstance),
-                };
-            },
-            [playerRef],
-        );
+            // eslint-disable-next-line consistent-return
+            return {
+                play: play.bind(videoInstance),
+                pause: pause.bind(videoInstance),
+                addEventListener: addEventListener.bind(videoInstance),
+            };
+        }, [playerRef]);
 
-        useEffect(() => {
+        React.useEffect(() => {
             if (ref.current && !playingVideoRef?.contains(ref.current)) {
                 setMuted(true);
             }
         }, [playingVideoRef]);
 
-        useEffect(() => {
+        React.useEffect(() => {
             if (showPreview) {
                 playerRef?.showPreview();
             }
         }, [showPreview, playerRef]);
 
-        useEffect(() => {
+        React.useEffect(() => {
             if (playerRef && !started) {
                 setIsPlaying(autoPlay);
             }
         }, [autoPlay, playerRef, started]);
 
-        useEffect(() => setMuted(mute), [mute]);
+        React.useEffect(() => setMuted(mute), [mute]);
 
-        useEffect(() => {
+        React.useEffect(() => {
             if (!started && isPlaying) {
                 setStarted(true);
             }
         }, [isPlaying, started]);
 
-        useEffect(() => {
+        React.useEffect(() => {
             if (started && !Number.isNaN(Number(elapsedTime))) {
                 playerRef?.seekTo(elapsedTime ?? 0, 'seconds');
             }
         }, [elapsedTime, playerRef, started]);
 
-        useEffect(() => {
+        React.useEffect(() => {
             const updateSize = debounce(() => {
                 if (ref.current) {
                     // We need to get parent's width does not equal 0
@@ -218,16 +205,16 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
             };
         }, [actualRatio, autoRatio, ratio]);
 
-        const playEvents = useMemo(
+        const playEvents = React.useMemo(
             () => eventsArray?.filter((e: AnalyticsEvent) => e.type === PredefinedEventTypes.Play),
             [eventsArray],
         );
-        const stopEvents = useMemo(
+        const stopEvents = React.useMemo(
             () => eventsArray?.filter((e: AnalyticsEvent) => e.type === PredefinedEventTypes.Stop),
             [eventsArray],
         );
 
-        const playIcon = useMemo(() => {
+        const playIcon = React.useMemo(() => {
             let playButtonContent;
 
             switch (type) {
@@ -251,7 +238,7 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
             );
         }, [type, theme, text, buttonClassName]);
 
-        const changeMute = useCallback(
+        const changeMute = React.useCallback(
             (isMuted: boolean) => {
                 if (
                     isMuted &&
@@ -284,14 +271,14 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
             ],
         );
 
-        const handleClickPreview = useCallback(() => {
+        const handleClickPreview = React.useCallback(() => {
             setIsPlaying(true);
             onClickPreview?.();
 
             handleAnalytics(playEvents);
         }, [onClickPreview, handleAnalytics, playEvents]);
 
-        const onPause = useCallback(() => {
+        const onPause = React.useCallback(() => {
             // For support correct state for youtube
             if (
                 controls !== MediaVideoControlsType.Custom ||
@@ -301,13 +288,13 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
             }
         }, [controls, customControlsType]);
 
-        const onStart = useCallback(() => {
+        const onStart = React.useCallback(() => {
             if (!autoPlay && !initiallyMuted) {
                 setMuted(false);
             }
         }, [autoPlay, initiallyMuted]);
 
-        const onPlay = useCallback(() => {
+        const onPlay = React.useCallback(() => {
             setIsPlaying(true);
 
             if (
@@ -323,7 +310,7 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
             }
         }, [changeMute, controls, customControlsType, ended, isPlaying, muted]);
 
-        const onReady = useCallback((player: ReactPlayer) => {
+        const onReady = React.useCallback((player: ReactPlayer) => {
             setPlayerRef(player);
             const videoElement = player.getInternalPlayer();
             const videoWidth = videoElement.videoWidth as number | undefined;
@@ -333,7 +320,7 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
             }
         }, []);
 
-        const onProgress = useCallback((progress: PlayerPropgress) => {
+        const onProgress = React.useCallback((progress: PlayerPropgress) => {
             setPlayedPercent(progress.played);
 
             if (progress.played === 1) {
@@ -341,7 +328,7 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
             }
         }, []);
 
-        const onEnded = useCallback(() => {
+        const onEnded = React.useCallback(() => {
             // Youtube videos not muted after finishing playing and start again.
             // 'onEnded' does not fire when 'loop' is set to true.
             // It is custom loop with muted sound after finishing playing and start again.
@@ -354,7 +341,7 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
             setEnded(true);
         }, [loop, playerRef]);
 
-        const onPlayClick = useCallback(() => {
+        const onPlayClick = React.useCallback(() => {
             if (isPlaying) {
                 onPause();
             } else {
@@ -362,7 +349,7 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
             }
         }, [isPlaying, onPlay, onPause]);
 
-        const handleClick = useCallback(() => {
+        const handleClick = React.useCallback(() => {
             buttonRef.current?.click();
 
             if (controls === MediaVideoControlsType.Custom) {
@@ -374,7 +361,7 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
             }
         }, [controls, customControlsType, changeMute, muted, onPlayClick]);
 
-        const handleKeyDown = useCallback((e: React.KeyboardEvent) => {
+        const handleKeyDown = React.useCallback((e: React.KeyboardEvent) => {
             const key = e.key.toLowerCase();
 
             if (key === 'enter') {
@@ -382,8 +369,8 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
             }
         }, []);
 
-        const onFocusIn = useCallback(() => setHovered(true), []);
-        const onFocusOut = useCallback(() => setHovered(false), []);
+        const onFocusIn = React.useCallback(() => setHovered(true), []);
+        const onFocusOut = React.useCallback(() => setHovered(false), []);
 
         return (
             <div
@@ -407,7 +394,7 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
                 tabIndex={0}
             >
                 {isMounted ? (
-                    <Fragment>
+                    <React.Fragment>
                         <ReactPlayer
                             className={b('player')}
                             url={videoSrc}
@@ -461,7 +448,7 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
                                 positioning={positioning}
                             />
                         )}
-                    </Fragment>
+                    </React.Fragment>
                 ) : null}
             </div>
         );

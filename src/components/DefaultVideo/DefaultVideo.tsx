@@ -1,4 +1,4 @@
-import React, {Fragment, useCallback, useImperativeHandle, useRef, useState} from 'react';
+import * as React from 'react';
 
 import {CustomControlsType, MediaVideoControlsType, MediaVideoProps} from '../../models';
 import {block} from '../../utils';
@@ -27,9 +27,9 @@ export const DefaultVideo = React.forwardRef<DefaultVideoRefType, DefaultVideoPr
             positioning,
             type: customControlsType,
         } = customControlsOptions || {};
-        const [isPaused, setIsPaused] = useState(false);
-        const [isMuted, setIsMuted] = useState(initiallyMuted);
-        const videoRef = useRef<HTMLVideoElement>(null);
+        const [isPaused, setIsPaused] = React.useState(false);
+        const [isMuted, setIsMuted] = React.useState(initiallyMuted);
+        const videoRef = React.useRef<HTMLVideoElement>(null);
 
         // one may not use this hook and work with `ref` variable only, but
         // in this case one should support both function type and object type,
@@ -37,18 +37,14 @@ export const DefaultVideo = React.forwardRef<DefaultVideoRefType, DefaultVideoPr
         // Currently used way with extra ref and useImperativeHandle is more
         // convenient and allows us to work with object typed ref only,
         // avoiding typeof ref === 'function' statements
-        useImperativeHandle(
-            ref,
-            () => {
-                if (!videoRef?.current) {
-                    return undefined;
-                }
+        React.useImperativeHandle(ref, () => {
+            if (!videoRef?.current) {
+                return undefined;
+            }
 
-                return videoRef.current;
-            },
-            [videoRef],
-        );
-        const onPlayToggle = useCallback(() => {
+            return videoRef.current;
+        }, [videoRef]);
+        const onPlayToggle = React.useCallback(() => {
             setIsPaused((value) => {
                 if (value) {
                     videoRef?.current?.play();
@@ -59,18 +55,18 @@ export const DefaultVideo = React.forwardRef<DefaultVideoRefType, DefaultVideoPr
                 return !value;
             });
         }, [videoRef]);
-        const onMuteToggle = useCallback(() => {
+        const onMuteToggle = React.useCallback(() => {
             setIsMuted((value) => !value);
         }, []);
 
-        const onClick = useCallback(() => {
+        const onClick = React.useCallback(() => {
             if (customControlsType === CustomControlsType.WithPlayPauseButton) {
                 onPlayToggle();
             }
         }, [onPlayToggle, customControlsType]);
 
         return (
-            <Fragment>
+            <React.Fragment>
                 <video
                     disablePictureInPicture
                     playsInline
@@ -105,7 +101,7 @@ export const DefaultVideo = React.forwardRef<DefaultVideoRefType, DefaultVideoPr
                         }}
                     />
                 )}
-            </Fragment>
+            </React.Fragment>
         );
     },
 );

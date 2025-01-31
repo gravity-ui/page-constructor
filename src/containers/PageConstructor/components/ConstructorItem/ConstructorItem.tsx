@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import * as React from 'react';
 
 import {BlockIdContext} from '../../../../context/blockIdContext';
 import {InnerContext} from '../../../../context/innerContext';
@@ -15,11 +15,11 @@ export const ConstructorItem = ({
     blockKey,
     children,
 }: React.PropsWithChildren<ConstructorItemProps>) => {
-    const {itemMap} = useContext(InnerContext);
+    const {itemMap} = React.useContext(InnerContext);
     const {type, ...rest} = data;
 
     const Component = itemMap[type] as React.ComponentType<
-        React.ComponentProps<typeof itemMap[typeof type]>
+        React.ComponentProps<(typeof itemMap)[typeof type]>
     >;
 
     return (

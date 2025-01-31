@@ -1,6 +1,4 @@
 //TODO move to cloud components
-import React from 'react';
-
 import {ClassNameProps, QAProps} from '../../models';
 import {block} from '../../utils';
 

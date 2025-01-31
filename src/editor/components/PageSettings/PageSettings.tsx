@@ -1,4 +1,4 @@
-import React, {useMemo} from 'react';
+import * as React from 'react';
 
 import {DynamicField, Spec} from '@gravity-ui/dynamic-forms';
 import {Disclosure} from '@gravity-ui/uikit';
@@ -27,7 +27,7 @@ export const PageSettings = ({schema, content, onChange}: PageSettingsProps) => 
     const spec = useFormSpec(schema);
     const {page: pageSpec} = spec || {};
 
-    const initialPage = useMemo(() => {
+    const initialPage = React.useMemo(() => {
         const {blocks: _, ...page} = content || {};
 
         return page;

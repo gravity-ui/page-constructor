@@ -1,5 +1,3 @@
-import React from 'react';
-
 import {BackgroundImage, Button, HTML, RouterLink, YFMWrapper} from '../../components';
 import {useTheme} from '../../context/theme';
 import {BannerCardProps} from '../../models';

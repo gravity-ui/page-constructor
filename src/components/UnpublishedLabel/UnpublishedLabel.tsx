@@ -1,9 +1,8 @@
-import React from 'react';
+import * as React from 'react';
 
 import {block} from '../../utils';
 
 import {i18n} from './i18n';
-
 import './UnpublishedLabel.scss';
 
 const b = block('unpublished-label');

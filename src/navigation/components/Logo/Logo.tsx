@@ -1,4 +1,4 @@
-import React, {Fragment, useContext} from 'react';
+import * as React from 'react';
 
 import {Image} from '../../../components';
 import {getMediaImage} from '../../../components/Media/Image/utils';
@@ -21,7 +21,7 @@ export type LogoProps = ThemedNavigationLogoData & {
 
 export const Logo: React.FC<LogoProps> = ({alt = i18n('image-alt'), ...restProps}) => {
     const props: LogoProps = {...restProps, alt};
-    const {hostname, Link} = useContext(LocationContext);
+    const {hostname, Link} = React.useContext(LocationContext);
     const theme = useTheme();
     const themedLogoProps = getThemedValue(props, theme) || props;
     const imageData = getMediaImage(themedLogoProps.icon || props.icon);
@@ -31,10 +31,10 @@ export const Logo: React.FC<LogoProps> = ({alt = i18n('image-alt'), ...restProps
     const urlTitle = themedLogoProps.urlTitle || props.urlTitle || textData;
     const linkExtraProps = getLinkProps(url, hostname);
     const content = (
-        <Fragment>
+        <React.Fragment>
             {imageData && <Image className={b('icon')} {...imageData} />}
             <span className={b('text')}>{textData}</span>
-        </Fragment>
+        </React.Fragment>
     );
 
     return (

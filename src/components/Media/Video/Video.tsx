@@ -1,4 +1,4 @@
-import React, {useEffect, useMemo, useRef} from 'react';
+import * as React from 'react';
 
 import {MediaComponentVideoProps, MediaVideoType, PlayButtonProps, QAProps} from '../../../models';
 import {block, getQaAttrubutes} from '../../../utils';
@@ -44,9 +44,9 @@ const Video = (props: VideoAllProps) => {
 
     const qaAttributes = getQaAttrubutes(qa, 'source');
 
-    const ref = useRef<HTMLVideoElement>(null);
+    const ref = React.useRef<HTMLVideoElement>(null);
 
-    useEffect(() => {
+    React.useEffect(() => {
         if (ref && ref.current) {
             const {loop} = video;
 
@@ -74,7 +74,7 @@ const Video = (props: VideoAllProps) => {
         }
     }, [playVideo, video, setHasVideoFallback]);
 
-    const reactPlayerBlock = useMemo(() => {
+    const reactPlayerBlock = React.useMemo(() => {
         const {
             src,
             loop,
@@ -122,7 +122,7 @@ const Video = (props: VideoAllProps) => {
         ratio,
     ]);
 
-    const defaultVideoBlock = useMemo(() => {
+    const defaultVideoBlock = React.useMemo(() => {
         return video.src.length && !hasVideoFallback ? (
             <div
                 className={b('wrap', videoClassName)}

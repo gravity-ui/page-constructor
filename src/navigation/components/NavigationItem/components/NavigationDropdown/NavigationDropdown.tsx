@@ -1,4 +1,4 @@
-import React, {Fragment, useRef} from 'react';
+import * as React from 'react';
 
 import {ToggleArrow} from '../../../../../components';
 import {getMediaImage} from '../../../../../components/Media/Image/utils';
@@ -27,9 +27,9 @@ export const NavigationDropdown = ({
     ...props
 }: NavigationDropdownProps) => {
     const iconData = icon && getMediaImage(icon);
-    const anchorRef = useRef<HTMLButtonElement>(null);
+    const anchorRef = React.useRef<HTMLButtonElement>(null);
     return (
-        <Fragment>
+        <React.Fragment>
             <button
                 ref={anchorRef}
                 {...props}
@@ -57,6 +57,6 @@ export const NavigationDropdown = ({
                 items={items}
                 anchorRef={anchorRef}
             />
-        </Fragment>
+        </React.Fragment>
     );
 };

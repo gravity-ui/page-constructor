@@ -1,5 +1,3 @@
-import React from 'react';
-
 import {Table} from '../../components';
 import {Col, Grid, GridColumnSize, Row} from '../../grid';
 import {TableBlockProps} from '../../models';

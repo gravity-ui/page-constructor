@@ -1,5 +1,4 @@
-import React from 'react';
-
+import * as React from 'react';
 import isEmpty from 'lodash/isEmpty';
 
 import {AnimateBlock, BackgroundImage, Title} from '../../components';

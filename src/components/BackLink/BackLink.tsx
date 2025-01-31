@@ -1,4 +1,4 @@
-import React, {HTMLProps, ReactNode, useCallback, useContext} from 'react';
+import * as React from 'react';
 
 import {ArrowLeft} from '@gravity-ui/icons';
 import {Button, ButtonSize, Icon} from '@gravity-ui/uikit';
@@ -11,17 +11,17 @@ export type Theme = 'default' | 'special';
 
 export interface BackLinkProps<T = HTMLElement> extends Tabbable {
     url: string;
-    title: ReactNode;
+    title: React.ReactNode;
     theme?: Theme;
     size?: ButtonSize;
     className?: string;
     shouldHandleBackAction?: boolean;
     onClick?: () => void;
-    extraProps?: HTMLProps<T>;
+    extraProps?: React.HTMLProps<T>;
 }
 
 export default function BackLink(props: BackLinkProps) {
-    const {history} = useContext(LocationContext);
+    const {history} = React.useContext(LocationContext);
     const {
         url,
         title,
@@ -35,7 +35,7 @@ export default function BackLink(props: BackLinkProps) {
     } = props;
     const handleAnalytics = useAnalytics(DefaultEventNames.ShareButton, url);
 
-    const backActionHandler = useCallback(async () => {
+    const backActionHandler = React.useCallback(async () => {
         handleAnalytics();
 
         if (!history) {
@@ -53,6 +53,8 @@ export default function BackLink(props: BackLinkProps) {
         }
     }, [handleAnalytics, history, onClick, url]);
 
+    const buttonComponent = url ? 'a' : 'button';
+
     return (
         <Button
             className={className}
@@ -62,6 +64,7 @@ export default function BackLink(props: BackLinkProps) {
             onClick={shouldHandleBackAction ? backActionHandler : undefined}
             tabIndex={tabIndex}
             extraProps={extraProps}
+            component={buttonComponent}
         >
             <Icon data={ArrowLeft} size={20} />
             <span>{title}</span>

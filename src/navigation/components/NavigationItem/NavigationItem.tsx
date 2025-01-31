@@ -1,4 +1,4 @@
-import React, {useMemo} from 'react';
+import * as React from 'react';
 
 import omit from 'lodash/omit';
 
@@ -28,13 +28,17 @@ export const NavigationItem: React.FC<NavigationItemProps> = ({
     const {type = NavigationItemType.Link} = data;
     const navItemMap = useNavigationItemMap();
     const Component = navItemMap[type] as CustomItem;
-    const componentProps = useMemo(() => {
+    const componentProps = React.useMemo(() => {
         const componentProperties = {
             ...data,
             ...props,
         };
 
-        if (nonComplexNavigationItemTypes.includes(type)) {
+        if (
+            nonComplexNavigationItemTypes.includes(
+                type as (typeof nonComplexNavigationItemTypes)[number],
+            )
+        ) {
             return omit(componentProperties, 'hidePopup', 'isActive');
         }
 

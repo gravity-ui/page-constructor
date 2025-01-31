@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import * as React from 'react';
 
 import {MobileContext} from '../../context/mobileContext';
 import {BackgroundMediaProps} from '../../models';
@@ -21,7 +21,7 @@ const BackgroundMedia = ({
     qa,
     ...props
 }: BackgroundMediaProps) => {
-    const isMobile = useContext(MobileContext);
+    const isMobile = React.useContext(MobileContext);
     const qaAttributes = getQaAttrubutes(qa, 'media');
 
     return (

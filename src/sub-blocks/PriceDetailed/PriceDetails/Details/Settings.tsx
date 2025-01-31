@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import * as React from 'react';
 
 import {YFMWrapper} from '../../../../components';
 import {PriceDetailsSettingsProps, TextSize} from '../../../../models';
@@ -18,7 +18,7 @@ const Settings = (props: SettingsComponentProps) => {
     const {items = [], titleSize = 's', descriptionSize = 'm'} = props;
 
     return (
-        <Fragment>
+        <React.Fragment>
             {items.map((item, id) => (
                 <div key={id}>
                     <div className={b('title', {size: titleSize})}>{item.title}</div>
@@ -27,7 +27,7 @@ const Settings = (props: SettingsComponentProps) => {
                     </div>
                 </div>
             ))}
-        </Fragment>
+        </React.Fragment>
     );
 };
 

@@ -1,10 +1,10 @@
 import transformYFM, {Options, Output} from '@diplodoc/transform';
 import sanitize from 'sanitize-html';
-import Typograf from 'typograf';
+import Typograf, {TypografRule} from 'typograf';
 
 import {Lang} from './types';
 
-import AddRuleOptions = typograf.AddRuleOptions;
+type AddRuleOptions = TypografRule;
 
 export enum TransformType {
     Text = 'text',
@@ -48,7 +48,7 @@ export function addTypografRules(options: AddRuleOptions[]) {
     });
 }
 
-function enableRules(tp: typograf.Typograf) {
+function enableRules(tp: Typograf) {
     const {disabled, enabled} = typografConfig;
 
     enabled.forEach((rule) => tp.enableRule(rule));

@@ -30,10 +30,7 @@ $largeBorderRadius: 32px;
 
     &__media {
         position: absolute;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
+        inset: 0;
         border-radius: $largeBorderRadius;
     }
 
@@ -62,7 +59,9 @@ $largeBorderRadius: 32px;
 
     &:not(#{$root}_with-background) {
         #{$root}__full-form {
-            box-shadow: 0 4px 24px var(--pc-color-sfx-shadow), 0 2px 8px var(--pc-color-sfx-shadow);
+            box-shadow:
+                0 4px 24px var(--pc-color-sfx-shadow),
+                0 2px 8px var(--pc-color-sfx-shadow);
         }
         #{$root}__row {
             &_direction {

@@ -1,4 +1,4 @@
-import React, {forwardRef, useContext, useMemo} from 'react';
+import * as React from 'react';
 
 import {MobileContext} from '../../context/mobileContext';
 import {useTheme} from '../../context/theme';
@@ -12,7 +12,7 @@ import './HubspotForm.scss';
 
 const b = block('hubspot-form');
 
-const HubspotForm = forwardRef<HTMLDivElement, HubspotFormProps>((props, ref) => {
+const HubspotForm = React.forwardRef<HTMLDivElement, HubspotFormProps>((props, ref) => {
     const {
         className,
         theme: themeProp,
@@ -34,12 +34,12 @@ const HubspotForm = forwardRef<HTMLDivElement, HubspotFormProps>((props, ref) =>
 
     const themeValue = useTheme();
     const handleAnalytics = useAnalytics(DefaultEventNames.HubspotFormSubmit);
-    const isMobileValue = useContext(MobileContext);
+    const isMobileValue = React.useContext(MobileContext);
 
     const theme = themeProp ?? themeValue;
     const mobile = isMobileProp ?? isMobileValue;
 
-    const handlers = useMemo<HubspotEventHandlers>(
+    const handlers = React.useMemo<HubspotEventHandlers>(
         () => ({
             onBeforeLoad,
             onBeforeSubmit,
