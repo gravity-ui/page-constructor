@@ -63,10 +63,6 @@ const config = {
 
         return storybookBaseConfig;
     },
-
-    // typescript: {
-    //     reactDocgen: 'react-docgen-typescript',
-    // },
 };
 
 export default config;
