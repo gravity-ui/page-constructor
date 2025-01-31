@@ -11,7 +11,9 @@ const customAlias = {
 const config = {
     framework: '@storybook/react-webpack5',
 
-    docs: {},
+    docs: {
+        autodocs: true,
+    },
 
     stories: ['./stories/**/*.mdx', '../src/**/__stories__/*.mdx', '../src/**/*.stories.@(ts|tsx)'],
     staticDirs: ['./public'],
@@ -62,9 +64,9 @@ const config = {
         return storybookBaseConfig;
     },
 
-    typescript: {
-        reactDocgen: 'react-docgen-typescript',
-    },
+    // typescript: {
+    //     reactDocgen: 'react-docgen-typescript',
+    // },
 };
 
 export default config;
