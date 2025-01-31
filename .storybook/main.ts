@@ -17,6 +17,7 @@ const config = {
         autodocs: true,
     },
     stories: ['./stories/**/*.mdx', '../src/**/__stories__/*.mdx', '../src/**/*.stories.@(ts|tsx)'],
+
     staticDirs: ['./public'],
     addons: [
         '@storybook/preset-scss',
