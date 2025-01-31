@@ -22,6 +22,7 @@ export interface ButtonProps extends Omit<ButtonParams, 'url'>, QAProps {
 
 const b = block('button-block');
 
+// eslint-disable-next-line complexity
 const Button = (props: ButtonProps) => {
     const {tld} = React.useContext(LocaleContext);
     const {
