@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 export interface StylesContextProps {
     setStyles: (newValues: Record<string, string>) => void;
     pricesDetailedDescriptionHeight?: string;

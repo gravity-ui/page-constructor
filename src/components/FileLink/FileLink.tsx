@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import * as React from 'react';
 
 import {Label, LabelProps} from '@gravity-ui/uikit';
 
@@ -46,7 +46,7 @@ const LabelSizeMap: Record<TextSize, LabelProps['size']> = {
 };
 
 const FileLink = (props: React.PropsWithChildren<FileLinkProps>) => {
-    const {hostname} = useContext(LocationContext);
+    const {hostname} = React.useContext(LocationContext);
     const {
         href,
         text,

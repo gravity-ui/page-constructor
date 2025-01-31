@@ -1,5 +1,3 @@
-import React from 'react';
-
 import {ButtonSize} from '@gravity-ui/uikit';
 
 import {MediaContentProps} from '../../models';

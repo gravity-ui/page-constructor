@@ -133,17 +133,20 @@ class FormSpecParser {
         const requiredProperties = this.getRequiredProperties(data);
         const properties =
             data.oneOf &&
-            data.oneOf.reduce((result: Record<string, Spec>, propertyData, index) => {
-                const propertyName = propertyData?.optionName
-                    ? propertyData?.optionName
-                    : `${name}_${index}`;
-                result[propertyName] = this.parseSchemaProperty({
-                    data: propertyData,
-                    name: propertyName,
-                    required: requiredProperties.includes(propertyName),
-                });
-                return result;
-            }, {} as Record<string, ObjectSpec>);
+            data.oneOf.reduce(
+                (result: Record<string, Spec>, propertyData, index) => {
+                    const propertyName = propertyData?.optionName
+                        ? propertyData?.optionName
+                        : `${name}_${index}`;
+                    result[propertyName] = this.parseSchemaProperty({
+                        data: propertyData,
+                        name: propertyName,
+                        required: requiredProperties.includes(propertyName),
+                    });
+                    return result;
+                },
+                {} as Record<string, ObjectSpec>,
+            );
 
         return {
             type: SpecTypes.Object,
@@ -168,15 +171,18 @@ class FormSpecParser {
         const requiredProperties = this.getRequiredProperties(data);
         const properties =
             data.properties &&
-            Object.entries(data.properties).reduce((result, [propertyName, propertyData]) => {
-                result[propertyName] = this.parseSchemaProperty({
-                    data: propertyData,
-                    name: propertyName,
-                    required: requiredProperties.includes(propertyName),
-                });
+            Object.entries(data.properties).reduce(
+                (result, [propertyName, propertyData]) => {
+                    result[propertyName] = this.parseSchemaProperty({
+                        data: propertyData,
+                        name: propertyName,
+                        required: requiredProperties.includes(propertyName),
+                    });
 
-                return result;
-            }, {} as Record<string, Spec>);
+                    return result;
+                },
+                {} as Record<string, Spec>,
+            );
 
         return {
             ...data,

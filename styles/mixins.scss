@@ -100,10 +100,7 @@
     &::#{$pseudo} {
         content: '';
         position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
+        inset: 0;
         z-index: -1;
 
         border-radius: inherit;
@@ -227,14 +224,18 @@
 }
 
 %shadow {
-    box-shadow: 0px 4px 24px var(--pc-color-sfx-shadow), 0px 2px 8px var(--pc-color-sfx-shadow);
+    box-shadow:
+        0px 4px 24px var(--pc-color-sfx-shadow),
+        0px 2px 8px var(--pc-color-sfx-shadow);
 }
 
 %shadow-hover {
     @extend %shadow;
 
     &:hover {
-        box-shadow: 0px 4px 24px var(--g-color-sfx-shadow), 0px 2px 8px var(--g-color-sfx-shadow);
+        box-shadow:
+            0px 4px 24px var(--g-color-sfx-shadow),
+            0px 2px 8px var(--g-color-sfx-shadow);
         cursor: pointer;
     }
 }
@@ -247,7 +248,9 @@
 }
 
 @mixin image-shadow() {
-    box-shadow: 0 2px 8px var(--pc-color-sfx-shadow), 0 4px 24px var(--pc-color-sfx-shadow);
+    box-shadow:
+        0 2px 8px var(--pc-color-sfx-shadow),
+        0 4px 24px var(--pc-color-sfx-shadow);
     overflow-x: hidden;
     border-radius: $borderRadius;
 }
@@ -319,7 +322,9 @@
         &.animate #{$class} {
             top: 0;
             opacity: 1;
-            transition: top $transition, opacity $transition;
+            transition:
+                top $transition,
+                opacity $transition;
             transition-delay: $delay;
         }
     }
@@ -351,7 +356,9 @@
             #{$item-class} {
                 top: 0;
                 opacity: 1;
-                transition: top $transition, opacity $transition;
+                transition:
+                    top $transition,
+                    opacity $transition;
             }
 
             @for $i from 0 through 99 {
@@ -467,7 +474,12 @@ unpredictable css rules order in build */
 }
 
 @mixin font-feature-settings {
-    font-feature-settings: 'liga', 'kern', 'pnum' on, 'lnum' on, 'ss03' on;
+    font-feature-settings:
+        'liga',
+        'kern',
+        'pnum' on,
+        'lnum' on,
+        'ss03' on;
 }
 
 @mixin navigation-popup {
@@ -563,6 +575,7 @@ unpredictable css rules order in build */
 }
 
 // indent system for blocks
+
 @mixin indents($class) {
     @include add-specificity($class) {
         @include add-specificity(&) {

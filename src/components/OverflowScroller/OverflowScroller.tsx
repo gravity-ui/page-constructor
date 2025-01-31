@@ -1,4 +1,4 @@
-import React, {PropsWithChildren, createRef} from 'react';
+import * as React from 'react';
 
 import debounce from 'lodash/debounce';
 
@@ -30,15 +30,15 @@ export interface OverflowScrollerState {
 }
 
 export default class OverflowScroller extends React.Component<
-    PropsWithChildren<OverflowScrollerProps>,
+    React.PropsWithChildren<OverflowScrollerProps>,
     OverflowScrollerState
 > {
     state = {
         arrows: [] as Arrow[],
         scrollValue: 0,
     };
-    containerRef = createRef<HTMLDivElement>();
-    wrapperRef = createRef<HTMLDivElement>();
+    containerRef = React.createRef<HTMLDivElement>();
+    wrapperRef = React.createRef<HTMLDivElement>();
 
     componentDidMount() {
         this.checkOverflow();

@@ -1,5 +1,3 @@
-import React from 'react';
-
 import {useUniqId} from '@gravity-ui/uikit';
 
 import {Buttons, ContentList, Links, Title, YFMWrapper} from '../../components';

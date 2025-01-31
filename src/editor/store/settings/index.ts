@@ -1,4 +1,4 @@
-import {useMemo, useReducer} from 'react';
+import * as React from 'react';
 
 import {Theme} from '../../../models';
 import {EditModeItem, ViewModeItem} from '../../types';
@@ -13,12 +13,12 @@ import {
 } from './reducer';
 
 export function useSettingsState() {
-    const [{viewMode, editMode, theme, codeFullscreeModeOn}, dispatch] = useReducer(
+    const [{viewMode, editMode, theme, codeFullscreeModeOn}, dispatch] = React.useReducer(
         reducer,
         initialState,
     );
 
-    return useMemo(() => {
+    return React.useMemo(() => {
         return {
             viewMode,
             editMode,

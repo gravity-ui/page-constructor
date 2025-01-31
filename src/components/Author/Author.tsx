@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import {AuthorProps, AuthorType, ImageProps} from '../../models';
 import {block} from '../../utils';

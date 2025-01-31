@@ -1,4 +1,4 @@
-import React, {Fragment, useCallback, useEffect, useState} from 'react';
+import * as React from 'react';
 
 import chunk from 'lodash/chunk';
 
@@ -47,9 +47,9 @@ const CombinedPriceDetailed = (props: CombinedPriceDetailedProps) => {
         analyticsEvents,
     } = props;
 
-    const [groupItemsSize, setGroupItemsSize] = useState<number>(numberGroupItems);
+    const [groupItemsSize, setGroupItemsSize] = React.useState<number>(numberGroupItems);
 
-    const updateGroupItemsSize = useCallback(
+    const updateGroupItemsSize = React.useCallback(
         (windowWidth: number) => {
             if (windowWidth >= BREAKPOINTS.lg) {
                 setGroupItemsSize(numberGroupItems);
@@ -64,7 +64,7 @@ const CombinedPriceDetailed = (props: CombinedPriceDetailedProps) => {
         [numberGroupItems],
     );
 
-    useEffect(() => {
+    React.useEffect(() => {
         function handleResize() {
             updateGroupItemsSize(window.innerWidth);
         }
@@ -93,12 +93,12 @@ const CombinedPriceDetailed = (props: CombinedPriceDetailedProps) => {
         }
 
         return (
-            <Fragment>
+            <React.Fragment>
                 <div>{descriptionComponents}</div>
                 <div className={b('description', {delimiter: useMixedView})}>
                     {detailsComponents}
                 </div>
-            </Fragment>
+            </React.Fragment>
         );
     };
 

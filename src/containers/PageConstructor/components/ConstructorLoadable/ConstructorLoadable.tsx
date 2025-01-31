@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import * as React from 'react';
 
 import {BlockIdContext} from '../../../../context/blockIdContext';
 import {InnerContext} from '../../../../context/innerContext';
@@ -11,12 +11,12 @@ interface ConstructorLoadableProps
 }
 
 export const ConstructorLoadable = (props: ConstructorLoadableProps) => {
-    const {itemMap} = useContext(InnerContext);
+    const {itemMap} = React.useContext(InnerContext);
     const {block, blockKey, config, serviceId, params} = props;
     const {type} = block;
     const {fetch, component: ChildComponent} = config;
     const Component = itemMap[type] as React.Component<
-        React.ComponentProps<typeof itemMap[typeof type]>
+        React.ComponentProps<(typeof itemMap)[typeof type]>
     >;
 
     return (

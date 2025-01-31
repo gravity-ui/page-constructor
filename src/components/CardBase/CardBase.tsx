@@ -1,11 +1,4 @@
-import React, {
-    Children,
-    Fragment,
-    HTMLAttributeAnchorTarget,
-    PropsWithChildren,
-    ReactElement,
-    isValidElement,
-} from 'react';
+import * as React from 'react';
 
 import {Link} from '@gravity-ui/uikit';
 
@@ -28,12 +21,12 @@ interface CardBaseProps extends AnalyticsEventsBase, CardBaseParams {
     contentClassName?: string;
     url?: string;
     urlTitle?: string;
-    target?: HTMLAttributeAnchorTarget;
+    target?: React.HTMLAttributeAnchorTarget;
     qa?: string;
     extraProps?: React.HTMLAttributes<HTMLElement>;
 }
 
-export type CardBasePropsType = PropsWithChildren<CardBaseProps>;
+export type CardBasePropsType = React.PropsWithChildren<CardBaseProps>;
 
 export interface CardHeaderBaseProps {
     className?: string;
@@ -46,9 +39,9 @@ export interface CardFooterBaseProps {
 
 const b = block('card-base-block');
 
-const Header: React.FC<PropsWithChildren<CardHeaderBaseProps>> = () => null;
-const Content: React.FC<PropsWithChildren<{}>> = () => null;
-const Footer: React.FC<PropsWithChildren<CardFooterBaseProps>> = () => null;
+const Header: React.FC<React.PropsWithChildren<CardHeaderBaseProps>> = () => null;
+const Content: React.FC<React.PropsWithChildren<{}>> = () => null;
+const Footer: React.FC<React.PropsWithChildren<CardFooterBaseProps>> = () => null;
 
 export const Layout = (props: CardBasePropsType) => {
     const {
@@ -68,7 +61,7 @@ export const Layout = (props: CardBasePropsType) => {
     let header, content, footer, image, headerClass, footerClass;
     const qaAttributes = getQaAttrubutes(qa, 'header', 'footer', 'body', 'content');
 
-    function handleChild(child: ReactElement) {
+    function handleChild(child: React.ReactElement) {
         switch (child.type) {
             case Header:
                 header = child.props.children;
@@ -85,14 +78,14 @@ export const Layout = (props: CardBasePropsType) => {
         }
     }
 
-    Children.toArray(children).forEach((child) => {
-        if (isValidElement(child)) {
+    React.Children.toArray(children).forEach((child) => {
+        if (React.isValidElement(child)) {
             handleChild(child);
         }
     });
 
     const cardContent = (
-        <Fragment>
+        <React.Fragment>
             {(header || image) && (
                 <BackgroundImage
                     className={b('header', headerClass)}
@@ -112,7 +105,7 @@ export const Layout = (props: CardBasePropsType) => {
                     </div>
                 )}
             </div>
-        </Fragment>
+        </React.Fragment>
     );
 
     const fullClassName = b({border}, className);

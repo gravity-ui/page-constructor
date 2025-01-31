@@ -1,47 +1,71 @@
 /* eslint-env node */
 const path = require('path');
 
+const utils = require('@gravity-ui/gulp-utils');
 const {task, src, dest, series, parallel} = require('gulp');
-const sass = require('gulp-dart-sass');
 const replace = require('gulp-replace');
-const alias = require('gulp-ts-alias');
-const ts = require('gulp-typescript');
-const rimraf = require('rimraf');
-
+const sass = require('gulp-sass')(require('sass'));
+const sourcemaps = require('gulp-sourcemaps');
+const {rimrafSync} = require('rimraf');
 const BUILD_CLIENT_DIR = path.resolve('build');
 const ESM_DIR = 'esm';
 const CJS_DIR = 'cjs';
 
 task('clean', (done) => {
-    rimraf.sync(BUILD_CLIENT_DIR);
-    rimraf.sync('styles/**/*.css');
+    rimrafSync(BUILD_CLIENT_DIR);
+    rimrafSync('styles/**/*.css', {glob: true});
     done();
 });
 
-function compileTs(modules = false) {
-    const tsProject = ts.createProject('tsconfig.json', {
-        declaration: true,
-        module: modules ? 'esnext' : 'commonjs',
+async function compileTs(modules = false) {
+    const tsProject = await utils.createTypescriptProject({
+        compilerOptions: {
+            declaration: true,
+            module: modules ? 'esnext' : 'nodenext',
+            moduleResolution: modules ? 'bundler' : 'nodenext',
+            ...(modules ? undefined : {verbatimModuleSyntax: false}),
+        },
     });
 
-    return src([
-        'src/**/*.{ts,tsx}',
-        '!src/stories/**/*',
-        '!src/**/__stories__/**/*',
-        '!src/**/__tests__/**/*',
-        '!src/server.ts',
-        '!src/configure.ts',
-        '!src/widget/**/*',
-        '!test-utils/**/*',
-    ])
-        .pipe(
-            replace(/import '.+\.scss';/g, (match) =>
-                modules ? match.replace('.scss', '.css') : '',
-            ),
-        )
-        .pipe(alias(tsProject.config))
-        .pipe(tsProject())
-        .pipe(dest(path.resolve(BUILD_CLIENT_DIR, modules ? ESM_DIR : CJS_DIR)));
+    const transformers = [
+        tsProject.customTransformers.transformScssImports,
+        tsProject.customTransformers.transformLocalModules,
+    ];
+    return new Promise((resolve) => {
+        src([
+            'src/**/*.{ts,tsx}',
+            '!src/stories/**/*',
+            '!src/**/__stories__/**/*',
+            '!src/**/__tests__/**/*',
+            '!src/server.ts',
+            '!src/configure.ts',
+            '!src/widget/**/*',
+            '!test-utils/**/*',
+        ])
+            .pipe(
+                replace(/import '.+\.scss';/g, (match) =>
+                    modules ? match.replace('.scss', '.css') : '',
+                ),
+            )
+            .pipe(sourcemaps.init())
+            .pipe(
+                tsProject({
+                    customTransformers: {
+                        before: transformers,
+                        afterDeclarations: transformers,
+                    },
+                }),
+            )
+            .pipe(sourcemaps.write('.', {includeContent: true, sourceRoot: '../../src'}))
+            .pipe(
+                utils.addVirtualFile({
+                    fileName: 'package.json',
+                    text: JSON.stringify({type: modules ? 'module' : 'commonjs'}),
+                }),
+            )
+            .pipe(dest(path.resolve(BUILD_CLIENT_DIR, modules ? 'esm' : 'cjs')))
+            .on('end', resolve);
+    });
 }
 
 task('compile-to-esm', () => {
@@ -74,9 +98,11 @@ task('copy-json', () => {
 task('styles-global', () => {
     return src('styles/styles.scss')
         .pipe(
-            sass({
-                includePaths: ['node_modules'],
-            }).on('error', sass.logError),
+            sass
+                .sync({
+                    loadPaths: ['node_modules'],
+                })
+                .on('error', sass.logError),
         )
         .pipe(dest('styles'));
 });
@@ -84,9 +110,10 @@ task('styles-global', () => {
 task('styles-components', () => {
     return src([`src/**/*.scss`, `!src/**/__stories__/**/*.scss`, '!src/widget/**/*.scss'])
         .pipe(
-            sass({
-                includePaths: ['node_modules'],
-            }).on('error', sass.logError),
+            sass.sync({loadPaths: ['node_modules']}).on('error', function (error) {
+                sass.logError.call(this, error);
+                process.exit(1);
+            }),
         )
         .pipe(dest(path.resolve(BUILD_CLIENT_DIR, ESM_DIR)))
         .pipe(dest(path.resolve(BUILD_CLIENT_DIR, CJS_DIR)));

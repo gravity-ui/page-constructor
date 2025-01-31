@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import {ButtonProps, ContentSize} from '../../models';
 import {block} from '../../utils';
@@ -27,7 +27,14 @@ function getButtonSize(size: ContentSize) {
     }
 }
 
-const Buttons: React.FC<ButtonsProps> = ({className, titleId, buttons, size = 's', qa, buttonQa}) =>
+const Buttons: React.FC<ButtonsProps> = ({
+    className,
+    titleId,
+    buttons,
+    size = 's',
+    qa,
+    buttonQa,
+}) =>
     buttons ? (
         <div className={b({size}, className)} data-qa={qa}>
             {buttons.map((item) => (

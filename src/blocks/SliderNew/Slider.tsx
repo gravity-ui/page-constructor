@@ -1,4 +1,4 @@
-import React, {Fragment, PropsWithChildren} from 'react';
+import * as React from 'react';
 
 import SwiperCore, {A11y, Autoplay, Pagination} from 'swiper';
 import {Swiper, SwiperSlide} from 'swiper/react';
@@ -64,7 +64,7 @@ export const SliderNewBlock = ({
     onSlideChangeTransitionEnd,
     onActiveIndexChange,
     onBreakpoint,
-}: PropsWithChildren<SliderNewProps>) => {
+}: React.PropsWithChildren<SliderNewProps>) => {
     const {autoplay, isLocked, childrenCount, breakpoints, onSwiper, onPrev, onNext, setIsLocked} =
         useSlider({
             slidesToShow,
@@ -142,7 +142,7 @@ export const SliderNewBlock = ({
                     ))}
                 </Swiper>
                 {arrows && !isLocked && (
-                    <Fragment>
+                    <React.Fragment>
                         <div aria-hidden={isA11yControlHidden}>
                             <Arrow
                                 className={b('arrow', {prev: true})}
@@ -159,7 +159,7 @@ export const SliderNewBlock = ({
                                 extraProps={{tabIndex: controlTabIndex}}
                             />
                         </div>
-                    </Fragment>
+                    </React.Fragment>
                 )}
                 <div className={b('footer')}>
                     {disclaimer ? (

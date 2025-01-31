@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import * as React from 'react';
 
 import {Col, Row} from '../../grid';
 import {QuestionsProps} from '../../models';
@@ -14,7 +14,7 @@ const b = block('QuestionsBlock');
 
 const QuestionsBlock = (props: QuestionsProps) => {
     const {title, text, additionalInfo, links, buttons, items, list} = props;
-    const [opened, setOpened] = useState<number[]>([0]);
+    const [opened, setOpened] = React.useState<number[]>([0]);
 
     const toggleItem = (index: number) => {
         let newState;

@@ -23,10 +23,16 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.[jt]sx?$/,
+                test: /\.m?[jt]sx?$/,
                 exclude: [/node_modules/],
                 use: {
                     loader: 'babel-loader',
+                },
+            },
+            {
+                test: /\.m?js/,
+                resolve: {
+                    fullySpecified: false,
                 },
             },
             {

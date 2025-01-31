@@ -1,7 +1,5 @@
-import React from 'react';
-
 import {Code, Display, Eye, Smartphone, SquareDashedText} from '@gravity-ui/icons';
-import {RadioButton, Select} from '@gravity-ui/uikit';
+import {SegmentedRadioGroup, Select} from '@gravity-ui/uikit';
 
 import {ClassNameProps, Theme, themeNames} from '../../../models';
 import {block} from '../../../utils';
@@ -49,7 +47,7 @@ const ControlPanel = ({
     <div className={b(null, className)}>
         <div className={b('switch-container')}>
             <span>{i18n('edit_mode')}</span>
-            <RadioButton
+            <SegmentedRadioGroup
                 className={b('radio-button')}
                 value={editMode}
                 onUpdate={(value) => onEditModeChange(value as EditModeItem)}
@@ -58,18 +56,18 @@ const ControlPanel = ({
                     const Icon = ControlPanelEditModeIcons[item];
 
                     return (
-                        <RadioButton.Option key={item} value={item}>
+                        <SegmentedRadioGroup.Option key={item} value={item}>
                             <span className={b('icon')}>
                                 <Icon width={ICON_SIZE} height={ICON_SIZE} />
                             </span>
-                        </RadioButton.Option>
+                        </SegmentedRadioGroup.Option>
                     );
                 })}
-            </RadioButton>
+            </SegmentedRadioGroup>
         </div>
         <div className={b('switch-container')}>
             <span>{i18n('view_mode')}</span>
-            <RadioButton
+            <SegmentedRadioGroup
                 className={b('radio-button')}
                 value={viewMode}
                 onUpdate={(value) => onViewModeChange(value as ViewModeItem)}
@@ -78,14 +76,14 @@ const ControlPanel = ({
                     const Icon = ControlPanelViewModeIcons[item];
 
                     return (
-                        <RadioButton.Option key={item} value={item}>
+                        <SegmentedRadioGroup.Option key={item} value={item}>
                             <span className={b('icon')}>
                                 <Icon width={ICON_SIZE} height={ICON_SIZE} />
                             </span>
-                        </RadioButton.Option>
+                        </SegmentedRadioGroup.Option>
                     );
                 })}
-            </RadioButton>
+            </SegmentedRadioGroup>
         </div>
         <div className={b('switch-container')}>
             <span>{i18n('theme')}</span>

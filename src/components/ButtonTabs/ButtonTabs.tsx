@@ -1,4 +1,4 @@
-import React, {useCallback, useMemo} from 'react';
+import * as React from 'react';
 
 import {ButtonSize} from '@gravity-ui/uikit';
 
@@ -35,7 +35,7 @@ const ButtonTabs: React.FC<ButtonTabsProps> = ({
     tabSize = 'l',
     qa,
 }) => {
-    const activeTabId: string | null = useMemo(() => {
+    const activeTabId: string | null = React.useMemo(() => {
         if (activeTab) {
             return activeTab;
         }
@@ -43,7 +43,7 @@ const ButtonTabs: React.FC<ButtonTabsProps> = ({
         return items[0].id;
     }, [activeTab, items]);
 
-    const handleClick = useCallback(
+    const handleClick = React.useCallback(
         (tabId: string | null) => (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => {
             if (onSelectTab) {
                 onSelectTab(tabId, e);

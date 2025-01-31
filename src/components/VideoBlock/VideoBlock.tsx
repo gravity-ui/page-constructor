@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react';
+import * as React from 'react';
 
 import {PlayFill} from '@gravity-ui/icons';
 import {Icon, useActionHandlers, useUniqId} from '@gravity-ui/uikit';
@@ -88,15 +88,15 @@ const VideoBlock = (props: VideoBlockProps) => {
     const handleAnalytics = useAnalytics(DefaultEventNames.VideoPreview);
 
     const src = videoIframe ? videoIframe : getYoutubeVideoSrc(stream, record);
-    const ref = useRef<HTMLDivElement>(null);
-    const [hidePreview, setHidePreview] = useState(false);
-    const [currentHeight, setCurrentHeight] = useState(height || undefined);
-    const fullId = useMemo(() => id || uuidv4(), [id]);
+    const ref = React.useRef<HTMLDivElement>(null);
+    const [hidePreview, setHidePreview] = React.useState(false);
+    const [currentHeight, setCurrentHeight] = React.useState(height || undefined);
+    const fullId = React.useMemo(() => id || uuidv4(), [id]);
     const buttonId = useUniqId();
 
-    const [isPlaying, setIsPlaying] = useState(!previewImg);
+    const [isPlaying, setIsPlaying] = React.useState(!previewImg);
 
-    const iframeSrc = useMemo(() => {
+    const iframeSrc = React.useMemo(() => {
         if (src && isPlaying) {
             try {
                 const url = new URL(src);
@@ -118,7 +118,7 @@ const VideoBlock = (props: VideoBlockProps) => {
         return undefined;
     }, [attributes, autoplay, isPlaying, previewImg, src]);
 
-    const onPreviewClick = useCallback(() => {
+    const onPreviewClick = React.useCallback(() => {
         handleAnalytics(analyticsEvents);
 
         setIsPlaying(true);
@@ -128,7 +128,7 @@ const VideoBlock = (props: VideoBlockProps) => {
 
     const {onKeyDown: onPreviewKeyDown} = useActionHandlers(onPreviewClick);
 
-    useEffect(() => {
+    React.useEffect(() => {
         const updateSize = debounce(() => {
             setCurrentHeight(
                 ref.current ? Math.round(getHeight(ref.current.offsetWidth)) : undefined,
@@ -142,7 +142,7 @@ const VideoBlock = (props: VideoBlockProps) => {
         };
     }, [height]);
 
-    const iframeContent = useMemo(() => {
+    const iframeContent = React.useMemo(() => {
         return (
             <iframe
                 id={fullId}
@@ -158,7 +158,7 @@ const VideoBlock = (props: VideoBlockProps) => {
         );
     }, [fullId, iframeSrc]);
 
-    useEffect(() => {
+    React.useEffect(() => {
         setHidePreview(false);
     }, [src]);
 

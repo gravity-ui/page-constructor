@@ -1,5 +1,3 @@
-import React from 'react';
-
 import {Col, GridColumnSizesType} from '../../grid';
 import {ClassNameProps, TitleItemProps, TitleProps as TitleParams} from '../../models';
 import {block} from '../../utils';

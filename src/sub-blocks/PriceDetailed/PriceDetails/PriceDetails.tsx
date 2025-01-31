@@ -1,4 +1,4 @@
-import React, {Fragment, useCallback, useState} from 'react';
+import * as React from 'react';
 
 import {Foldable, ToggleArrow} from '../../../components';
 import {
@@ -28,8 +28,8 @@ interface PriceDetailsExtendProps extends PriceDetailsProps {
 }
 
 const PriceDetails = (props: PriceDetailsExtendProps) => {
-    const [isOpened, setIsOpened] = useState<boolean>(false);
-    const toggleOpen = useCallback(() => {
+    const [isOpened, setIsOpened] = React.useState<boolean>(false);
+    const toggleOpen = React.useCallback(() => {
         setIsOpened(!isOpened);
     }, [isOpened]);
 
@@ -98,10 +98,10 @@ const PriceDetails = (props: PriceDetailsExtendProps) => {
     const getComponentMixedView = () => {
         if (foldable) {
             return (
-                <Fragment>
+                <React.Fragment>
                     {getFoldableComponent(b('foldable'))}
                     {getNonFoldableComponent(b('non_foldable'))}
-                </Fragment>
+                </React.Fragment>
             );
         }
 

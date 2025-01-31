@@ -1,4 +1,4 @@
-import React, {useMemo, useState} from 'react';
+import * as React from 'react';
 
 import {CardLayoutBlock} from '..';
 import {AnimateBlock, Title} from '../../components';
@@ -9,7 +9,6 @@ import {FilterBlockProps, FilterItem} from '../../models';
 import {block, getBlockKey} from '../../utils';
 
 import {i18n} from './i18n';
-
 import './FilterBlock.scss';
 
 const b = block('filter-block');
@@ -25,7 +24,7 @@ const FilterBlock: React.FC<FilterBlockProps> = ({
     centered,
     animated,
 }) => {
-    const tabButtons = useMemo(() => {
+    const tabButtons = React.useMemo(() => {
         const allButton: ButtonTabsItemProps | undefined = allTag
             ? {id: null, title: typeof allTag === 'boolean' ? i18n('label-all-tag') : allTag}
             : undefined;
@@ -34,15 +33,17 @@ const FilterBlock: React.FC<FilterBlockProps> = ({
         return [...(allButton ? [allButton] : []), ...(otherButtons ? otherButtons : [])];
     }, [allTag, tags]);
 
-    const [selectedTag, setSelectedTag] = useState(tabButtons.length ? tabButtons[0].id : null);
+    const [selectedTag, setSelectedTag] = React.useState(
+        tabButtons.length ? tabButtons[0].id : null,
+    );
 
-    const actualTag: string | null = useMemo(() => {
+    const actualTag: string | null = React.useMemo(() => {
         return tabButtons.length && !tabButtons.find((tab) => tab.id === selectedTag)
             ? tabButtons[0].id
             : selectedTag;
     }, [tabButtons, selectedTag]);
 
-    const cards = useMemo(() => {
+    const cards = React.useMemo(() => {
         const itemsToShow: FilterItem[] = actualTag
             ? items.filter((item) => item.tags.includes(actualTag))
             : items;

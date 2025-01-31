@@ -1,5 +1,3 @@
-import React from 'react';
-
 import {Lang as UIKitLang, configure as uikitConfigure} from '@gravity-ui/uikit';
 import {Meta, StoryFn} from '@storybook/react';
 

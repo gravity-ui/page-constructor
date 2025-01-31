@@ -1,4 +1,4 @@
-import React, {useContext, useEffect} from 'react';
+import * as React from 'react';
 
 import {YandexForm} from '..';
 import {
@@ -19,10 +19,10 @@ interface InnerFormProps {
 
 const InnerForm: React.FC<InnerFormProps> = (props) => {
     const {formData, onContentLoad, className} = props;
-    const formsConfig = useContext(FormsContext);
+    const formsConfig = React.useContext(FormsContext);
     const theme = useTheme();
 
-    useEffect(() => {
+    React.useEffect(() => {
         if (isHubspotDataForm(formData)) {
             onContentLoad();
         }

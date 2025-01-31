@@ -1,5 +1,3 @@
-import React from 'react';
-
 import Map from '../../components/Map/Map';
 import MediaBase from '../../components/MediaBase/MediaBase';
 import {MapBlockProps} from '../../models';

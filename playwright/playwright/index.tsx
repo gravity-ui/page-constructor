@@ -1,5 +1,4 @@
 import {beforeMount} from '@playwright/experimental-ct-react/hooks';
-import React from 'react';
 
 import {Providers} from './Providers';
 import './index.scss';

@@ -1,5 +1,5 @@
 import {MobileProvider, ThemeProvider, ToasterComponent, ToasterProvider} from '@gravity-ui/uikit';
-import React from 'react';
+import * as React from 'react';
 
 import {PageConstructorProvider} from '../../src/containers/PageConstructor';
 import {Theme} from '../../src/models';

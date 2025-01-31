@@ -1,4 +1,4 @@
-import {MouseEventHandler} from 'react';
+import * as React from 'react';
 
 import {
     ClassNameProps,
@@ -36,7 +36,7 @@ export interface MenuLayoutProps {
 }
 export interface NavigationItemProps extends ClassNameProps, MenuLayoutProps {
     data: NavigationItemData;
-    onClick?: MouseEventHandler;
+    onClick?: React.MouseEventHandler;
     isActive?: boolean;
     isTopLevel?: boolean;
     hidePopup?: () => void;
@@ -81,7 +81,7 @@ export interface NavigationProps extends MobileMenuButtonProps, ActiveItemProps 
     rightItemsWithIconSize?: NavigationItemModel[];
 }
 
-export interface NavigationPopupProps extends ClassNameProps {
+export interface NavigationPopupProps {
     open: boolean;
     items: NavigationLinkItem[];
     onClose: () => void;

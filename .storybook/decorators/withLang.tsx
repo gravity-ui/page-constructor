@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import type {Decorator} from '@storybook/react';
 import {configure} from '@gravity-ui/uikit';
 

@@ -1,5 +1,3 @@
-import React from 'react';
-
 import {useTheme} from '../../context/theme';
 import {ClassNameProps, ImageProps, QAProps, SVGIcon} from '../../models';
 import {ThemeSupporting, getThemedValue} from '../../utils';

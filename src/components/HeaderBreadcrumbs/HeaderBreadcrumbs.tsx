@@ -1,4 +1,4 @@
-import React, {useCallback} from 'react';
+import * as React from 'react';
 
 import {useAnalytics} from '../../hooks';
 import {DefaultEventNames, HeaderBreadCrumbsProps} from '../../models';
@@ -14,7 +14,7 @@ export default function HeaderBreadcrumbs(props: HeaderBreadCrumbsProps) {
     const {items, theme = 'light', className, analyticsEvents} = props;
     const handleAnalytics = useAnalytics(DefaultEventNames.Breadcrumb);
 
-    const onClick = useCallback(() => {
+    const onClick = React.useCallback(() => {
         handleAnalytics(analyticsEvents);
     }, [analyticsEvents, handleAnalytics]);
 

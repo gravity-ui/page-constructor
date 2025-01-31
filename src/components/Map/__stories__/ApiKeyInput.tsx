@@ -1,4 +1,4 @@
-import React, {ChangeEvent, useCallback, useState} from 'react';
+import * as React from 'react';
 
 import {TextInput} from '@gravity-ui/uikit';
 
@@ -15,17 +15,17 @@ const inputID = 'apikey-input';
 
 export const ApiKeyInput = (props: ApiKeyInputProps) => {
     const {id} = props;
-    const [apiKey, setApiKey] = useState<string>(localStorage?.getItem(id) || '');
+    const [apiKey, setApiKey] = React.useState<string>(localStorage?.getItem(id) || '');
     const [_key, setKey] = useMapApiKey();
 
-    const onChange = useCallback(
-        (event: ChangeEvent<HTMLInputElement>) => {
+    const onChange = React.useCallback(
+        (event: React.ChangeEvent<HTMLInputElement>) => {
             setApiKey(event.target.value);
         },
         [setApiKey],
     );
 
-    const onButtonClick = useCallback(() => {
+    const onButtonClick = React.useCallback(() => {
         localStorage.setItem(id, apiKey);
 
         setKey?.(apiKey);

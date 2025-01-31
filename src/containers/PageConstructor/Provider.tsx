@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import * as React from 'react';
 
 import {DEFAULT_THEME} from '../../components/constants';
 import {AnalyticsContext, AnalyticsContextProps} from '../../context/analyticsContext';
@@ -65,5 +65,5 @@ export const PageConstructorProvider = (
     ].reduceRight((prev, provider) => React.cloneElement(provider, {}, prev), children);
     /* eslint-enable react/jsx-key */
 
-    return <Fragment>{context}</Fragment>;
+    return <React.Fragment>{context}</React.Fragment>;
 };

@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import {Check, Minus} from '@gravity-ui/icons';
 import {Icon} from '@gravity-ui/uikit';

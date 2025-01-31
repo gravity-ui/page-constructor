@@ -1,4 +1,4 @@
-import React, {useCallback, useContext, useState} from 'react';
+import * as React from 'react';
 
 import {BackgroundImage, Title} from '../../components';
 import InnerForm from '../../components/InnerForm/InnerForm';
@@ -23,8 +23,8 @@ const colSizes = {[GridColumnSize.Lg]: 6, [GridColumnSize.All]: 12};
 
 const FormBlock: React.FC<FormBlockProps> = (props) => {
     const {formData, title, textContent, direction = FormBlockDirection.Center, background} = props;
-    const [contentLoaded, setContentLoaded] = useState(false);
-    const isMobile = useContext(MobileContext);
+    const [contentLoaded, setContentLoaded] = React.useState(false);
+    const isMobile = React.useContext(MobileContext);
     const theme = useTheme();
 
     const themedBackground = getThemedValue(background, theme) || undefined;
@@ -35,7 +35,7 @@ const FormBlock: React.FC<FormBlockProps> = (props) => {
                 themedBackground.desktop ||
                 themedBackground.style?.backgroundColor),
     );
-    const onContentLoad = useCallback(() => {
+    const onContentLoad = React.useCallback(() => {
         setContentLoaded(true);
     }, []);
 

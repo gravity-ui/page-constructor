@@ -9,13 +9,10 @@ const customAlias = {
     widget: resolve(__dirname, '../widget'),
 };
 const config = {
-    framework: {
-        name: '@storybook/react-webpack5',
-        options: {},
-    },
-    docs: {
-        autodocs: true,
-    },
+    framework: '@storybook/react-webpack5',
+
+    docs: {},
+
     stories: ['./stories/**/*.mdx', '../src/**/__stories__/*.mdx', '../src/**/*.stories.@(ts|tsx)'],
     staticDirs: ['./public'],
     addons: [
@@ -63,6 +60,10 @@ const config = {
         }
 
         return storybookBaseConfig;
+    },
+
+    typescript: {
+        reactDocgen: 'react-docgen-typescript',
     },
 };
 

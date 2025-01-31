@@ -1,4 +1,4 @@
-import {MouseEventHandler} from 'react';
+import * as React from 'react';
 
 import {
     NavigationButtonItem,
@@ -22,7 +22,7 @@ export const getItemClickHandler: ({
     column,
     index,
     onActiveItemChange,
-}: GetItemClickHandlerArgs) => MouseEventHandler =
+}: GetItemClickHandlerArgs) => React.MouseEventHandler =
     ({column, index, onActiveItemChange, activeItemId}) =>
     (e) => {
         const id = `${column}-${index}`;

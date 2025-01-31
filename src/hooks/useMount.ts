@@ -1,8 +1,8 @@
-import {useEffect} from 'react';
+import * as React from 'react';
 
 type Unsubscribe = () => void;
 
 export default function useMount(handler: () => Unsubscribe | void): void {
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    useEffect(handler, []);
+    React.useEffect(handler, []);
 }
