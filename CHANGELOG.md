@@ -10,6 +10,10 @@
 #### Styles
 * Remove scrollbars styling.
 
+### Features
+* Update typograf version up to 7.4.1
+* Update typescript version up to 5.7.3
+
 
 ## [5.37.0](https://github.com/gravity-ui/page-constructor/compare/v5.36.1...v5.37.0) (2025-02-19)
 
