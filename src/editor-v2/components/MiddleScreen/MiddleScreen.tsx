@@ -62,6 +62,7 @@ const MiddleScreen: React.FC<MiddleScreenProps> = ({className}) => {
                         height={`${height}px`}
                         width="100%"
                         frameBorder="0"
+                        title="Page Constructor Iframe"
                     />
                     <Overlay className={b('overlay')} />
                     {!initialized && (
