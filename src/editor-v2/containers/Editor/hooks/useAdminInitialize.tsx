@@ -1,39 +1,54 @@
-import {useContext, useEffect} from 'react';
-
-import {ActionTypes, IframeReadyAction} from '../../../../common/types';
-import {ContentConfigContext, useContentConfigStore} from '../../../context/contentConfig';
-import {useEditorStore} from '../../../context/editorContext';
-import {useMessageObserver, useMessageSender} from '../../../context/messagesContext';
+import {usePostMessageAPIListener} from '../../../../common/postMessage';
+import {useMainEditorStore} from '../../../context/editorStore';
+import {usePostMessageEvents} from '../../../hooks/usePostMessageEvents';
 
 const useAdminInitialize = () => {
-    const {state: contentConfigState} = useContext(ContentConfigContext);
-    const {config} = useContentConfigStore();
-    const {initialized} = useEditorStore();
-    const sendMessage = useMessageSender();
+    const {requestPostMessage} = usePostMessageEvents();
+    const {
+        initialize,
+        setConfig,
+        setContent,
+        manipulateOverlayMode,
+        disableMode,
+        insertBlock,
+        reorderBlock,
+        setSelectedBlock,
+        preInsertBlockType,
+        preReorderBlockPath,
+    } = useMainEditorStore();
 
-    useMessageObserver<IframeReadyAction>(
-        ActionTypes.IframeReady,
-        () => {
-            if (sendMessage && !initialized) {
-                sendMessage({type: ActionTypes.EditorReady, payload: undefined});
-                sendMessage(
-                    {type: ActionTypes.UpdateConfigs, payload: {content: config}},
-                    {direction: 'pc'},
-                );
-            }
-        },
-        [sendMessage],
-    );
+    usePostMessageAPIListener('ON_INIT', () => {
+        initialize();
+        requestPostMessage('GET_SUPPORTED_BLOCKS', {});
+        requestPostMessage('GET_CURRENT_CONTENT', {});
+    });
 
-    // Update configs for both instances on any changes
-    useEffect(
-        () =>
-            contentConfigState &&
-            contentConfigState.subscribe((state) => {
-                sendMessage({type: ActionTypes.UpdateConfigs, payload: {content: state.config}});
-            }),
-        [sendMessage, contentConfigState],
-    );
+    usePostMessageAPIListener('ON_INITIAL_CONTENT', (data) => {
+        setContent(data);
+    });
+
+    usePostMessageAPIListener('ON_SUPPORTED_BLOCKS', (data) => {
+        setConfig(data);
+    });
+
+    usePostMessageAPIListener('ON_MOUSE_UP', ({path, position}) => {
+        if (manipulateOverlayMode === 'insert' && path && position && preInsertBlockType) {
+            insertBlock(
+                path,
+                preInsertBlockType,
+                ['left', 'top'].includes(position) ? 'prepend' : 'append',
+            );
+        }
+        if (manipulateOverlayMode === 'reorder' && path && position && preReorderBlockPath) {
+            reorderBlock(
+                preReorderBlockPath,
+                path,
+                ['left', 'top'].includes(position) ? 'prepend' : 'append',
+            );
+            setSelectedBlock(path);
+        }
+        disableMode();
+    });
 };
 
 export default useAdminInitialize;

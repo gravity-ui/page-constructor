@@ -1,17 +1,14 @@
 import React, {useCallback} from 'react';
 
-import {ActionTypes} from '../../../common/types';
 import {PageContent} from '../../../models';
 import {block} from '../../../utils';
 import BigOverlay from '../../components/BigOverlay/BigOverlay';
 import MiddleScreen from '../../components/MiddleScreen/MiddleScreen';
 import {Panels} from '../../components/Panels/Panels';
 import {Sidebar} from '../../components/Sidebar/Sidebar';
-import {ContentConfigProvider} from '../../context/contentConfig';
-import {EditorProvider, useEditorStore} from '../../context/editorContext';
+import StoreViewer from '../../components/StoreViewer/StoreViewer';
+import {MainEditorStoreProvider, useMainEditorStore} from '../../context/editorStore';
 import {IframeProvider} from '../../context/iframeContext';
-import {PostMessageProvider} from '../../context/messagesContext';
-import {useMessageSender} from '../../context/messagesContext/hooks/useMessageSender';
 
 import useAdminInitialize from './hooks/useAdminInitialize';
 
@@ -20,15 +17,14 @@ import './Editor.scss';
 const b = block('editor');
 
 interface EditorViewProps {
-    content: PageContent;
     onUpdate?: (pageContent: PageContent) => void;
     initialUrl: string;
     disableUrlField?: boolean;
 }
 
 const EditorView = (_props: EditorViewProps) => {
-    const {manipulateOverlayMode} = useEditorStore();
-    const sendMessage = useMessageSender();
+    const store = useMainEditorStore();
+    const {manipulateOverlayMode, disableMode} = store;
 
     useAdminInitialize();
 
@@ -36,32 +32,16 @@ const EditorView = (_props: EditorViewProps) => {
     // Maybe should be attached to body
     const onMouseUp = useCallback(
         (e: React.MouseEvent) => {
-            if (manipulateOverlayMode === 'insert') {
-                e.preventDefault();
-                sendMessage({type: ActionTypes.InsertModeDisable, payload: undefined});
-            }
-            if (manipulateOverlayMode === 'reorder') {
-                e.preventDefault();
-                sendMessage({type: ActionTypes.ReorderModeDisable, payload: undefined});
-            }
-        },
-        [manipulateOverlayMode, sendMessage],
-    );
-
-    const onMouseMove = useCallback(
-        (e: React.MouseEvent) => {
             if (manipulateOverlayMode) {
-                sendMessage({
-                    type: ActionTypes.OverlayModeOnMove,
-                    payload: {cursor: {x: e.clientX, y: e.clientY}},
-                });
+                e.preventDefault();
+                disableMode();
             }
         },
-        [manipulateOverlayMode, sendMessage],
+        [disableMode, manipulateOverlayMode],
     );
 
     return (
-        <div className={b()} onMouseUp={onMouseUp} onMouseMove={onMouseMove}>
+        <div className={b()} onMouseUp={onMouseUp}>
             <div className={b('body')}>
                 <Panels
                     left={<Sidebar position={'left'} />}
@@ -70,20 +50,17 @@ const EditorView = (_props: EditorViewProps) => {
                 />
             </div>
             <BigOverlay className={b('overlay')} />
+            <StoreViewer className={b('debug-store')} store={store} />
         </div>
     );
 };
 
 export const Editor = (props: EditorViewProps) => {
     return (
-        <EditorProvider>
-            <IframeProvider initialUrl={props.initialUrl} disableUrlField={props.disableUrlField}>
-                <ContentConfigProvider onUpdate={props.onUpdate} content={props.content}>
-                    <PostMessageProvider>
-                        <EditorView {...props} />
-                    </PostMessageProvider>
-                </ContentConfigProvider>
-            </IframeProvider>
-        </EditorProvider>
+        <IframeProvider initialUrl={props.initialUrl} disableUrlField={props.disableUrlField}>
+            <MainEditorStoreProvider>
+                <EditorView {...props} />
+            </MainEditorStoreProvider>
+        </IframeProvider>
     );
 };
