@@ -2,10 +2,10 @@ import React, {useCallback, useMemo, useState} from 'react';
 
 import {Card, RadioButton} from '@gravity-ui/uikit';
 
-import {OneOfInput} from '../../../../../common/types';
+import {DynamicFormValue, OneOfInput} from '../../../../../common/types';
 import {ClassNameProps, PageContent} from '../../../../../models';
 import {block} from '../../../../../utils';
-import DynamicForm, {DynamicFormValue} from '../../DynamicForm';
+import DynamicForm from '../../DynamicForm';
 import FieldBase from '../../FieldBase/FieldBase';
 
 import './OneOf.scss';

@@ -5,7 +5,6 @@ import React, {useEffect, useState} from 'react';
 
 import {Editor} from '../../../src/editor-v2';
 
-import content from './content.json';
 import './page.scss';
 
 const b = block('home');
@@ -23,12 +22,7 @@ export default function Home() {
         <ThemeProvider theme={'light'}>
             <div className={b()}>
                 {initialUrl && (
-                    <Editor
-                        initialUrl={initialUrl}
-                        content={content}
-                        disableUrlField={false}
-                        onUpdate={() => {}}
-                    />
+                    <Editor initialUrl={initialUrl} disableUrlField={false} onUpdate={() => {}} />
                 )}
             </div>
         </ThemeProvider>

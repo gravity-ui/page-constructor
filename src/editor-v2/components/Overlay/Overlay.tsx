@@ -3,18 +3,10 @@ import React, {useCallback, useState} from 'react';
 import {Copy, Grip, TrashBin} from '@gravity-ui/icons';
 import {Button, Icon} from '@gravity-ui/uikit';
 
-import {
-    ActionTypes,
-    InsertModeDisableAction,
-    OverlayModeOnMoveAction,
-    ReorderModeDisableAction,
-} from '../../../common/types';
+import {usePostMessageAPIListener} from '../../../common/postMessage';
 import {ClassNameProps} from '../../../models';
 import {block} from '../../../utils';
-import {useContentConfigStore} from '../../context/contentConfig';
-import {useEditorStore} from '../../context/editorContext';
-import {useIframeStore} from '../../context/iframeContext';
-import {useMessageObserver, useMessageSender} from '../../context/messagesContext';
+import {useMainEditorStore} from '../../context/editorStore';
 
 import './Overlay.scss';
 
@@ -31,54 +23,59 @@ interface InsertLineProps {
 }
 
 const Overlay: React.FC<OverlayProps> = ({className}) => {
-    const {selectedBlock} = useEditorStore();
+    const {
+        height,
+        selectedBlock,
+        setSelectedBlock,
+        deleteBlock,
+        duplicateBlock,
+        manipulateOverlayMode,
+        enableReorderMode,
+    } = useMainEditorStore();
     const [insertLineBox, setInsertLineBox] = useState<InsertLineProps | undefined>(undefined);
-    const {height} = useIframeStore();
-    const {deleteBlock, duplicateBlock} = useContentConfigStore();
-    const sendMessage = useMessageSender();
+    const [hoverBorders, setHoverBorders] = useState<DOMRect | null>(null);
+    const [blockBorders, setBlockBorders] = useState<DOMRect | null>(null);
 
     const margin = 0;
 
-    useMessageObserver<OverlayModeOnMoveAction>(ActionTypes.OverlayModeOnMove, (payload) => {
-        if (payload && payload.block) {
-            const {rect, cursorPosition} = payload.block;
+    usePostMessageAPIListener('ON_HOVER_BLOCK', ({rect, position}) => {
+        setHoverBorders(rect || null);
+        if (rect && position) {
             setInsertLineBox({
                 left: rect.x,
                 top: rect.y,
                 height: rect.height,
                 width: rect.width,
-                position: cursorPosition,
+                position: position,
             });
         }
     });
 
-    useMessageObserver<InsertModeDisableAction>(ActionTypes.InsertModeDisable, () => {
-        setInsertLineBox(undefined);
+    usePostMessageAPIListener('ON_CLICK_BLOCK', ({rect, path}) => {
+        setSelectedBlock(path);
+        setBlockBorders(rect || null);
     });
 
-    useMessageObserver<ReorderModeDisableAction>(ActionTypes.ReorderModeDisable, () => {
-        setInsertLineBox(undefined);
+    usePostMessageAPIListener('ON_RESIZE_BLOCK', ({rect}) => {
+        setBlockBorders(rect || null);
     });
 
     const onMouseDown = useCallback(() => {
         if (selectedBlock) {
-            sendMessage({
-                type: ActionTypes.ReorderModeEnable,
-                payload: {path: selectedBlock.path},
-            });
+            enableReorderMode(selectedBlock);
         }
-    }, [selectedBlock, sendMessage]);
+    }, [enableReorderMode, selectedBlock]);
 
     return (
         <div className={b(null, className)} style={{height: `${height}px`}}>
-            {selectedBlock ? (
+            {blockBorders ? (
                 <div
                     className={b('border')}
                     style={{
-                        top: selectedBlock.rect.top - margin,
-                        left: selectedBlock.rect.left - margin,
-                        width: selectedBlock.rect.width + margin * 2,
-                        height: selectedBlock.rect.height + margin * 2,
+                        top: blockBorders.top - margin,
+                        left: blockBorders.left - margin,
+                        width: blockBorders.width + margin * 2,
+                        height: blockBorders.height + margin * 2,
                     }}
                 >
                     <div className={b('actions')}>
@@ -97,7 +94,7 @@ const Overlay: React.FC<OverlayProps> = ({className}) => {
                             className={b('action-button')}
                             size={'m'}
                             view={'action'}
-                            onClick={() => selectedBlock && deleteBlock(selectedBlock.path)}
+                            onClick={() => selectedBlock && deleteBlock(selectedBlock)}
                         >
                             <Icon data={TrashBin} size={18} />
                         </Button>
@@ -106,23 +103,34 @@ const Overlay: React.FC<OverlayProps> = ({className}) => {
                             className={b('action-button')}
                             size={'m'}
                             view={'action'}
-                            onClick={() => selectedBlock && duplicateBlock(selectedBlock.path)}
+                            onClick={() => selectedBlock && duplicateBlock(selectedBlock)}
                         >
                             <Icon data={Copy} size={18} />
                         </Button>
                     </div>
                 </div>
             ) : null}
-            {insertLineBox ? (
+            {hoverBorders ? (
+                <div
+                    className={b('border', {hover: true})}
+                    style={{
+                        top: hoverBorders.top - margin,
+                        left: hoverBorders.left - margin,
+                        width: hoverBorders.width + margin * 2,
+                        height: hoverBorders.height + margin * 2,
+                    }}
+                ></div>
+            ) : null}
+            {manipulateOverlayMode && hoverBorders && insertLineBox ? (
                 <div
                     className={b('line', {
                         position: insertLineBox.position,
                     })}
                     style={{
-                        top: insertLineBox.top,
-                        left: insertLineBox.left,
-                        width: insertLineBox.width,
-                        height: insertLineBox.height,
+                        top: hoverBorders.top,
+                        left: hoverBorders.left,
+                        width: hoverBorders.width,
+                        height: hoverBorders.height,
                     }}
                 />
             ) : null}
