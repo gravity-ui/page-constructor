@@ -41,6 +41,7 @@ const EditorView = (_props: EditorViewProps) => {
     );
 
     return (
+        // eslint-disable-next-line jsx-a11y/no-static-element-interactions
         <div className={b()} onMouseUp={onMouseUp}>
             <div className={b('body')}>
                 <Panels

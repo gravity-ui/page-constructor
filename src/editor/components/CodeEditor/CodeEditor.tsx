@@ -1,5 +1,4 @@
-import * as React from 'react';
-
+import {useCallback, useContext, useState} from 'react';
 import {ChevronsCollapseUpRight, ChevronsExpandUpRight} from '@gravity-ui/icons';
 import {Button, Icon} from '@gravity-ui/uikit';
 import debounce from 'lodash/debounce';
@@ -17,8 +16,6 @@ import './CodeEditor.scss';
 
 const b = block('code-editor');
 
-const ON_CHANGE_DEBOUNCE_TIMEOUT = 300;
-
 interface CodeEditorProps {
     code: string;
     fullscreenModeOn: boolean;
@@ -28,60 +25,57 @@ interface CodeEditorProps {
     message?: CodeEditorMessageProps;
 }
 
-export const CodeEditor = React.memo(
-    ({onChange, validator, fullscreenModeOn, onFullscreenModeOnUpdate, code}: CodeEditorProps) => {
-        const [message, setMessage] = React.useState(() => validator(code));
-        const {theme = Theme.Light} = React.useContext(EditorContext);
+export const CodeEditor = ({
+    onChange,
+    validator,
+    fullscreenModeOn,
+    onFullscreenModeOnUpdate,
+    code,
+}: CodeEditorProps) => {
+    const [message, setMessage] = useState(() => validator(code));
+    const {theme = Theme.Light} = useContext(EditorContext);
 
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-        const onChangeWithValidation = React.useCallback(
-            debounce((newCode: string) => {
-                const validationResult = validator(newCode);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    const onChangeWithValidation = useCallback(
+        debounce((newCode: string) => {
+            const validationResult = validator(newCode);
 
-                setMessage(validationResult);
-                onChange(parseCode(newCode));
-            }, ON_CHANGE_DEBOUNCE_TIMEOUT),
-            [onChange, validator],
-        );
+            setMessage(validationResult);
+            onChange(parseCode(newCode));
+        }, 200),
+        [onChange, validator],
+    );
 
-        return (
-            <div className={b({fullscreen: fullscreenModeOn})}>
-                <div className={b('header')}>
-                    <Button
-                        view="flat-secondary"
-                        onClick={() => onFullscreenModeOnUpdate(!fullscreenModeOn)}
-                    >
-                        <Icon
-                            data={
-                                fullscreenModeOn ? ChevronsCollapseUpRight : ChevronsExpandUpRight
-                            }
-                            size={16}
-                        />
-                    </Button>
-                </div>
-                <div className={b('code')}>
-                    <MonacoEditor
-                        key={String(fullscreenModeOn)}
-                        defaultValue={code}
-                        value={code}
-                        language="yaml"
-                        options={options}
-                        onChange={onChangeWithValidation}
-                        theme={theme === Theme.Dark ? 'vs-dark' : 'vs'}
+    return (
+        <div className={b({fullscreen: fullscreenModeOn})}>
+            <div className={b('header')}>
+                <Button
+                    view="flat-secondary"
+                    onClick={() => onFullscreenModeOnUpdate(!fullscreenModeOn)}
+                >
+                    <Icon
+                        data={fullscreenModeOn ? ChevronsCollapseUpRight : ChevronsExpandUpRight}
+                        size={16}
                     />
-                </div>
-                <div className={b('footer')}>
-                    {message && (
-                        <div className={b('message-container')}>
-                            <div className={b('message', {status: message.status})}>
-                                {message.text}
-                            </div>
-                        </div>
-                    )}
-                </div>
+                </Button>
             </div>
-        );
-    },
-);
-
-CodeEditor.displayName = 'CodeEditor';
+            <div className={b('code')}>
+                <MonacoEditor
+                    key={String(fullscreenModeOn)}
+                    value={code}
+                    language="yaml"
+                    options={options}
+                    onChange={onChangeWithValidation}
+                    theme={theme === Theme.Dark ? 'vs-dark' : 'vs'}
+                />
+            </div>
+            <div className={b('footer')}>
+                {message && (
+                    <div className={b('message-container')}>
+                        <div className={b('message', {status: message.status})}>{message.text}</div>
+                    </div>
+                )}
+            </div>
+        </div>
+    );
+};
