@@ -79,6 +79,7 @@ const Overlay: React.FC<OverlayProps> = ({className}) => {
                     }}
                 >
                     <div className={b('actions')}>
+                        {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
                         <div onMouseDown={onMouseDown}>
                             <Button
                                 pin={'round-clear'}

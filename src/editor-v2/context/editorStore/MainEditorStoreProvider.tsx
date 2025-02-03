@@ -23,9 +23,6 @@ export const MainEditorStoreProvider = ({children}: MainEditorProviderProps) => 
 
             if (iframeElement && iframeElement.contentWindow) {
                 iframeElement.contentWindow.postMessage(message, '*');
-            } else {
-                // eslint-disable-next-line no-console
-                console.error('No Iframe element in Editor');
             }
         },
         [iframeElement],

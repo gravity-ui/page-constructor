@@ -6,10 +6,7 @@ import ChildrenWrap from '../../components/editor/ChildrenWrap/ChildrenWrap';
 import ItemWrap from '../../components/editor/ItemWrap/ItemWrap';
 import {useTheme} from '../../context/theme';
 import {Col, Grid, GridColumnSizesType, Row} from '../../grid';
-import {
-    CardLayoutBlockProps as CardLayoutBlockParams,
-    ClassNameProps,
-} from '../../models';
+import {CardLayoutBlockProps as CardLayoutBlockParams, ClassNameProps} from '../../models';
 import {block, getThemedValue} from '../../utils';
 
 import './CardLayout.scss';
