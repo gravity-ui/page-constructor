@@ -24,6 +24,7 @@ const ChildrenWrap = (props: ChildrenWrapProps) => {
     const {onMouseUp, onMouseMove} = useEditorBlockMouseEvents([parentBlockId, 0], element);
 
     return (
+        // eslint-disable-next-line jsx-a11y/no-static-element-interactions
         <div ref={blockRef} className={b()} onMouseMove={onMouseMove} onMouseUp={onMouseUp}>
             {children}
         </div>
