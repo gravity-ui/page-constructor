@@ -5,7 +5,7 @@ import {Button, Card, Icon} from '@gravity-ui/uikit';
 
 import {ItemConfig} from '../../../common/types';
 import {block} from '../../../utils';
-import {useContentConfigStore} from '../../context/contentConfig';
+import {useMainEditorStore} from '../../context/editorStore';
 
 import './Tree.scss';
 
@@ -36,9 +36,9 @@ const generateTree = (items: TreeItem[]): TreeItem[] => {
 };
 
 const Tree = (_p: PropsWithChildren<TreeProps>) => {
-    const {config, resetBlocks} = useContentConfigStore();
+    const {content, resetBlocks} = useMainEditorStore();
 
-    const blockTree = generateTree(config.blocks);
+    const blockTree = generateTree(content.blocks);
 
     const renderTree = (items: TreeItem[], deepLevel = 0) => {
         return items.map(({type, children}, index) => (

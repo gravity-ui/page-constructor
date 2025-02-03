@@ -1,4 +1,4 @@
-import React, {PropsWithChildren, useContext} from 'react';
+import React, {PropsWithChildren, useCallback, useContext, useState} from 'react';
 
 import useEditorBlockMouseEvents from '../../../containers/PageConstructor/components/ConstructorBlock/hooks/useEditorBlockMouseEvents';
 import {BlockIdContext} from '../../../context/blockIdContext';
@@ -13,12 +13,18 @@ export interface ItemWrapProps extends PropsWithChildren {
 }
 
 const ItemWrap = (props: ItemWrapProps) => {
+    const [element, setElement] = useState<HTMLElement | undefined>();
+    const blockRef = useCallback((node: HTMLElement | null) => {
+        if (node !== null) {
+            setElement(node);
+        }
+    }, []);
     const {children, index} = props;
     const parentBlockId = useContext(BlockIdContext);
-    const adminBlockMouseEvents = useEditorBlockMouseEvents([parentBlockId, index]);
+    const adminBlockMouseEvents = useEditorBlockMouseEvents([parentBlockId, index], element);
 
     return (
-        <div className={b()} {...adminBlockMouseEvents}>
+        <div ref={blockRef} className={b()} {...adminBlockMouseEvents}>
             {children}
         </div>
     );
