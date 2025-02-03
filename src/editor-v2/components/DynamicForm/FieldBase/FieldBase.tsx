@@ -32,6 +32,7 @@ const FieldBase: React.FC<FieldBaseProps> = (props) => {
 
             if (expandable) {
                 return (
+                    // eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions
                     <div className={b('foldable')} onClick={() => setShowChildren(!showChildren)}>
                         <ArrowToggle
                             direction={showChildren ? 'bottom' : 'right'}

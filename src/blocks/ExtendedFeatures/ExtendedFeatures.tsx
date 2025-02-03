@@ -37,17 +37,20 @@ export const ExtendedFeaturesBlock = ({
                     <Row>
                         {items &&
                             items.map(
-                                ({
-                                    title: itemTitle,
-                                    text,
-                                    list,
-                                    link,
-                                    links,
-                                    label,
-                                    icon,
-                                    buttons,
-                                    additionalInfo,
-                                }) => {
+                                (
+                                    {
+                                        title: itemTitle,
+                                        text,
+                                        list,
+                                        link,
+                                        links,
+                                        label,
+                                        icon,
+                                        buttons,
+                                        additionalInfo,
+                                    },
+                                    index,
+                                ) => {
                                     const itemLinks = links || [];
 
                                     const iconThemed = icon && getThemedValue(icon, theme);
@@ -57,43 +60,43 @@ export const ExtendedFeaturesBlock = ({
                                         itemLinks.push(link);
                                     }
 
-                                return (
-                                    <Col className={b('item')} key={text || itemTitle} sizes={colSizes}>
-                                        {iconData && (
-                                            <div className={b('icon-wrap')} aria-hidden>
-                                                <Image {...iconData} className={b('icon')} />
+                                    return (
+                                        <Col className={b('item')} key={index} sizes={colSizes}>
+                                            {iconData && (
+                                                <div className={b('icon-wrap')} aria-hidden>
+                                                    <Image {...iconData} className={b('icon')} />
+                                                </div>
+                                            )}
+                                            <div className={b('container')}>
+                                                {itemTitle &&
+                                                    React.createElement(
+                                                        itemTitleHeadingTag,
+                                                        {
+                                                            className: b('item-title'),
+                                                        },
+                                                        <React.Fragment>
+                                                            <HTML>{itemTitle}</HTML>
+                                                            {label && (
+                                                                <span className={b('item-label')}>
+                                                                    {label}
+                                                                </span>
+                                                            )}
+                                                        </React.Fragment>,
+                                                    )}
+                                                <Content
+                                                    text={text}
+                                                    links={itemLinks}
+                                                    size="s"
+                                                    list={list}
+                                                    colSizes={{all: 12, md: 12}}
+                                                    buttons={buttons}
+                                                    additionalInfo={additionalInfo}
+                                                />
                                             </div>
-                                        )}
-                                        <div className={b('container')}>
-                                            {itemTitle &&
-                                                React.createElement(
-                                                    itemTitleHeadingTag,
-                                                    {
-                                                        className: b('item-title'),
-                                                    },
-                                                    <React.Fragment>
-                                                        <HTML>{itemTitle}</HTML>
-                                                        {label && (
-                                                            <span className={b('item-label')}>
-                                                                {label}
-                                                            </span>
-                                                        )}
-                                                    </React.Fragment>,
-                                                )}
-                                            <Content
-                                                text={text}
-                                                links={itemLinks}
-                                                size="s"
-                                                list={list}
-                                                colSizes={{all: 12, md: 12}}
-                                                buttons={buttons}
-                                                additionalInfo={additionalInfo}
-                                            />
-                                        </div>
-                                    </Col>
-                                );
-                            },
-                        )}
+                                        </Col>
+                                    );
+                                },
+                            )}
                     </Row>
                 </div>
             </Grid>

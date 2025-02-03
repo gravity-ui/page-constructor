@@ -42,8 +42,8 @@ import TableBlockConfig from './blocks/Table';
 import TabsBlockConfig from './blocks/Tabs';
 import TestEditorBlockConfig from './blocks/TestEditorBlock';
 import TestEditorBlock from './blocks/TestEditorBlock/TestEditorBlock';
-import {BlockConfig} from './common/types';
 import {SliderNewBlock} from './blocks/unstable';
+import {BlockConfig} from './common/types';
 import {BlockType, NavigationItemType, SubBlockType} from './models';
 import {
     GithubButton,
