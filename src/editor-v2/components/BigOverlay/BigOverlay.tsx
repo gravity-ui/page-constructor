@@ -1,17 +1,12 @@
-import React, {useContext, useState} from 'react';
+import React, {useCallback, useContext, useEffect, useMemo, useState} from 'react';
 
 import {Stop} from '@gravity-ui/icons';
 
-import {
-    ActionTypes,
-    InsertModeDisableAction,
-    OverlayModeOnMoveAction,
-    ReorderModeDisableAction,
-} from '../../../common/types';
+import {usePostMessageAPIListener} from '../../../common/postMessage';
 import {ClassNameProps} from '../../../models';
 import {block} from '../../../utils';
-import {IframeContext, useIframeStore} from '../../context/iframeContext';
-import {useMessageObserver} from '../../context/messagesContext';
+import {useMainEditorStore} from '../../context/editorStore';
+import {IframeContext} from '../../context/iframeContext';
 
 import './BigOverlay.scss';
 
@@ -20,46 +15,64 @@ const b = block('big-overlay');
 interface BigOverlayProps extends ClassNameProps {}
 
 const BigOverlay: React.FC<BigOverlayProps> = ({className}) => {
-    const {zoom} = useIframeStore();
+    const {zoom, manipulateOverlayMode} = useMainEditorStore();
     const {iframeElement} = useContext(IframeContext);
     const [mousePosition, setMousePosition] = useState<{x: number; y: number} | undefined>(
         undefined,
     );
+    const [source, setSource] = useState<'main' | 'iframe'>('main');
 
-    useMessageObserver<OverlayModeOnMoveAction>(
-        ActionTypes.OverlayModeOnMove,
-        (payload, meta) => {
-            if (payload && payload.cursor) {
-                const {x, y} = payload.cursor;
-                const iframeRect = iframeElement?.getClientRects().item(0);
-                if (iframeRect) {
-                    const zoomedX = (x * zoom) / 100;
-                    const zoomedY = (y * zoom) / 100;
-                    const newX = meta.source === 'editor' ? x : zoomedX + iframeRect.x;
-                    const newY = meta.source === 'editor' ? y : zoomedY + iframeRect.y;
-                    setMousePosition({x: newX, y: newY});
-                }
+    const onMouseUp = useCallback(() => {
+        setMousePosition(undefined);
+    }, []);
+
+    const onIframeMouseEvent = useCallback((position: {x: number; y: number}) => {
+        setMousePosition(position);
+        setSource('iframe');
+    }, []);
+
+    usePostMessageAPIListener('ON_MOUSE_UP', onMouseUp);
+    usePostMessageAPIListener('ON_MOUSE_MOVE', onIframeMouseEvent);
+
+    useEffect(() => {
+        const onEditorMouseEvent = (event: MouseEvent) => {
+            setMousePosition({x: event.clientX, y: event.clientY});
+            setSource('main');
+        };
+
+        document.addEventListener('mousemove', onEditorMouseEvent);
+        document.addEventListener('mousedown', onEditorMouseEvent);
+
+        return () => {
+            document.removeEventListener('mousemove', onEditorMouseEvent);
+            document.removeEventListener('mousedown', onEditorMouseEvent);
+        };
+    }, []);
+
+    const realPositions = useMemo(() => {
+        if (mousePosition) {
+            const {x, y} = mousePosition;
+            const iframeRect = iframeElement?.getClientRects().item(0);
+            if (iframeRect) {
+                const zoomedX = (x * zoom) / 100;
+                const zoomedY = (y * zoom) / 100;
+                const newX = source === 'main' ? x : zoomedX + iframeRect.x;
+                const newY = source === 'main' ? y : zoomedY + iframeRect.y;
+                return {x: newX, y: newY};
             }
-        },
-        [iframeElement, zoom],
-    );
+        }
 
-    useMessageObserver<InsertModeDisableAction>(ActionTypes.InsertModeDisable, () => {
-        setMousePosition(undefined);
-    });
-
-    useMessageObserver<ReorderModeDisableAction>(ActionTypes.ReorderModeDisable, () => {
-        setMousePosition(undefined);
-    });
+        return undefined;
+    }, [mousePosition, source, iframeElement, zoom]);
 
     return (
         <div className={b(null, className)}>
-            {mousePosition ? (
+            {realPositions && manipulateOverlayMode ? (
                 <div
                     className={b('border')}
                     style={{
-                        top: mousePosition.y,
-                        left: mousePosition.x,
+                        top: realPositions.y,
+                        left: realPositions.x,
                     }}
                 >
                     <Stop height={20} width={20} />

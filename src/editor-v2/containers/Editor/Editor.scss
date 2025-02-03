@@ -41,4 +41,11 @@ $block: '.#{$ns}editor';
         width: 100%;
         z-index: 100;
     }
+
+    &__debug-store {
+        position: fixed;
+        right: 8px;
+        bottom: 8px;
+        z-index: 1000;
+    }
 }

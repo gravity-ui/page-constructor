@@ -1,106 +1,71 @@
-import {useCallback, useContext, useEffect} from 'react';
+import {useCallback, useEffect} from 'react';
 
 import {JSONSchemaType} from 'ajv';
 import _ from 'lodash';
 
-import {ActionTypes, ItemConfig, UpdateConfigsAction} from '../common/types';
+import {ItemConfig} from '../common/types';
 import {blockDataMap} from '../constructor-items';
-import {EditorContext, useEditorStore} from '../context/editorContext';
-import {useMessageObserver, useMessageSender} from '../context/messagesContext';
+import {usePCEditorStore} from '../context/editorStoreContext';
 import {PageContent} from '../models';
 import {defaultComponentsConfigurationSchema} from '../schema';
 import {generateFromAJV} from '../utils/form-generator';
 
+import {sendEventPostMessage, useInternalPostMessageAPIListener} from './usePostMessageAPI';
+
 interface UseEditorInitializeProps {
-    content: PageContent;
+    initialContent: PageContent;
     setContent: (content: PageContent) => void;
 }
 
-const useEditorInitialize = ({setContent, content}: UseEditorInitializeProps) => {
-    const {manipulateOverlayMode, isSelectActive} = useEditorStore();
-    const sendMessage = useMessageSender();
-    const {activeElement} = useContext(EditorContext);
+export const useInitializeEditorEvents = ({
+    initialContent,
+    setContent,
+}: UseEditorInitializeProps) => {
+    const {manipulateOverlayMode, disableMode, initialized, content} = usePCEditorStore();
+
+    useEffect(() => {
+        if (initialized) {
+            setContent(content);
+        }
+    }, [content, initialized, setContent]);
+
+    useInternalPostMessageAPIListener('GET_CURRENT_CONTENT', () => {
+        sendEventPostMessage('ON_INITIAL_CONTENT', initialContent);
+    });
+
+    useInternalPostMessageAPIListener('GET_SUPPORTED_BLOCKS', () => {
+        sendEventPostMessage('ON_SUPPORTED_BLOCKS', {
+            blocks: Object.entries(blockDataMap).reduce((acc, [key, value]) => {
+                acc.push({type: key, schema: value.schema});
+                return acc;
+            }, [] as ItemConfig[]),
+            subBlocks: [],
+            global: generateFromAJV(
+                defaultComponentsConfigurationSchema as unknown as JSONSchemaType<{}>,
+            ),
+        });
+    });
 
     const onResize = useCallback(() => {
         const height = document.documentElement.getBoundingClientRect().height;
+        sendEventPostMessage('ON_RESIZE', {height});
+    }, []);
 
-        sendMessage({
-            type: ActionTypes.SetHeight,
-            payload: {height},
-        });
-
-        if (isSelectActive && activeElement) {
-            const rect = activeElement.getClientRects().item(0);
-
-            if (rect) {
-                sendMessage({
-                    type: ActionTypes.UpdateSelectedBlockRect,
-                    payload: {
-                        rect: rect,
-                    },
-                });
-            }
-        }
-    }, [activeElement, isSelectActive, sendMessage]);
-
-    useMessageObserver<UpdateConfigsAction>(ActionTypes.UpdateConfigs, ({content: newContent}) => {
-        setContent(newContent);
-    });
+    new ResizeObserver(onResize).observe(document.body);
 
     useEffect(() => {
-        onResize();
-    }, [content, onResize]);
-
-    // Fires only once
-    useEffect(() => {
-        const height = document.documentElement.getBoundingClientRect().height;
-
-        sendMessage(
-            {
-                type: ActionTypes.IframeReady,
-                payload: {height},
-            },
-            {direction: 'editor'},
-        );
-
-        sendMessage({
-            type: ActionTypes.BlocksConfigs,
-            payload: {
-                blocks: Object.entries(blockDataMap).reduce((acc, [key, value]) => {
-                    acc.push({type: key, schema: value.schema});
-                    return acc;
-                }, [] as ItemConfig[]),
-                subBlocks: [],
-                global: generateFromAJV(
-                    defaultComponentsConfigurationSchema as unknown as JSONSchemaType<{}>,
-                ),
-            },
-        });
-    }, [sendMessage]);
-
-    useEffect(() => {
-        const onMouseUp = (e: MouseEvent) => {
-            if (manipulateOverlayMode === 'insert') {
-                e.preventDefault();
-                sendMessage({type: ActionTypes.InsertModeDisable, payload: undefined});
-            }
-            if (manipulateOverlayMode === 'reorder') {
-                e.preventDefault();
-                sendMessage({type: ActionTypes.ReorderModeDisable, payload: undefined});
-            }
+        const onMouseUp = () => {
+            sendEventPostMessage('ON_MOUSE_UP', {});
         };
 
         const onMouseMove = (event: MouseEvent) => {
-            if (manipulateOverlayMode) {
-                sendMessage({
-                    type: ActionTypes.OverlayModeOnMove,
-                    payload: {cursor: {x: event.clientX, y: event.clientY}},
-                });
-            }
+            event.preventDefault();
+            event.stopPropagation();
+            sendEventPostMessage('ON_MOUSE_MOVE', {x: event.clientX, y: event.clientY});
         };
 
-        const throttleOnMouseMove = _.throttle(onMouseMove, 1);
-        const throttleOnMouseUp = _.throttle(onMouseUp, 1);
+        const throttleOnMouseMove = _.throttle(onMouseMove, 10);
+        const throttleOnMouseUp = _.throttle(onMouseUp, 10);
 
         document.addEventListener('mousemove', throttleOnMouseMove);
         document.addEventListener('mouseup', throttleOnMouseUp);
@@ -111,7 +76,10 @@ const useEditorInitialize = ({setContent, content}: UseEditorInitializeProps) =>
             document.removeEventListener('mouseup', throttleOnMouseUp);
             window.removeEventListener('resize', onResize);
         };
-    }, [activeElement, manipulateOverlayMode, onResize, sendMessage]);
-};
+    }, [disableMode, manipulateOverlayMode, onResize]);
 
-export default useEditorInitialize;
+    useEffect(() => {
+        const height = document.documentElement.getBoundingClientRect().height;
+        sendEventPostMessage('ON_INIT', {height});
+    }, []);
+};

@@ -4,11 +4,9 @@ import {Grip, Plus} from '@gravity-ui/icons';
 import {Button, Card, Icon} from '@gravity-ui/uikit';
 import _ from 'lodash';
 
-import {ActionTypes, ItemConfig} from '../../../common/types';
+import {ItemConfig} from '../../../common/types';
 import {block} from '../../../utils';
-import {useContentConfigStore} from '../../context/contentConfig';
-import {useEditorStore} from '../../context/editorContext';
-import {useMessageSender} from '../../context/messagesContext';
+import {useMainEditorStore} from '../../context/editorStore';
 
 import './BlocksList.scss';
 
@@ -23,20 +21,18 @@ interface BlockGroups {
 }
 
 const BlocksList = (_p: PropsWithChildren<BlocksListProps>) => {
-    const {blocks, insertBlock} = useContentConfigStore();
-    const {selectedBlock} = useEditorStore();
-    const sendMessage = useMessageSender();
+    const {blocks, selectedBlock, insertBlock, enableInsertMode} = useMainEditorStore();
 
     const onMouseDown = useCallback(
         (blockType: string) => {
-            sendMessage({type: ActionTypes.InsertModeEnable, payload: {blockType}});
+            enableInsertMode(blockType);
         },
-        [sendMessage],
+        [enableInsertMode],
     );
 
     const onAddClick = useCallback(
         (type: string) => {
-            const path = selectedBlock ? selectedBlock.path : [0];
+            const path = selectedBlock || [0];
             return insertBlock(path, type);
         },
         [insertBlock, selectedBlock],

@@ -8,11 +8,11 @@ import BrandFooter from '../../components/BrandFooter/BrandFooter';
 import RootCn from '../../components/RootCn';
 import {blockMap, navItemMap, subBlockMap} from '../../constructor-items';
 import {AnimateContext} from '../../context/animateContext';
-import {useEditorStore} from '../../context/editorContext';
+import {usePCEditorStore} from '../../context/editorStoreContext';
 import {InnerContext} from '../../context/innerContext';
 import {ProjectSettingsContext} from '../../context/projectSettingsContext';
 import {useTheme} from '../../context/theme';
-import useEditorInitialize from '../../hooks/useEditorInitialize';
+import {useInitializeEditorEvents} from '../../hooks/useEditorInitialize';
 import {
     BlockTypes,
     CustomConfig,
@@ -64,8 +64,10 @@ export const Constructor = (props: PageConstructorProps) => {
     const [content, setContent] = useState<PageContent>({blocks, background});
     const theme = useTheme();
 
-    const {initialized} = useEditorStore();
-    useEditorInitialize({content, setContent});
+    const store = usePCEditorStore();
+    const {initialized} = store;
+
+    useInitializeEditorEvents({initialContent: {blocks, background}, setContent});
 
     const {context} = useMemo(
         () => ({

@@ -1,11 +1,12 @@
-import React, {useContext} from 'react';
+import React, {useCallback, useContext, useState} from 'react';
 
 import {Loader} from '@gravity-ui/uikit';
 
+import {usePostMessageAPIListener} from '../../../common/postMessage';
 import {ClassNameProps} from '../../../models';
 import {block} from '../../../utils';
-import {useEditorStore} from '../../context/editorContext';
-import {IframeContext, useIframeStore} from '../../context/iframeContext';
+import {useMainEditorStore} from '../../context/editorStore';
+import {IframeContext} from '../../context/iframeContext';
 import Overlay from '../Overlay/Overlay';
 import TopBar from '../TopBar/TopBar';
 
@@ -16,9 +17,24 @@ const b = block('middle-screen');
 interface MiddleScreenProps extends ClassNameProps {}
 
 const MiddleScreen: React.FC<MiddleScreenProps> = ({className}) => {
-    const {url, height, zoom, decreaseZoom, increaseZoom, setZoom} = useIframeStore();
-    const {initialized} = useEditorStore();
-    const {setIframeElement} = useContext(IframeContext);
+    const {zoom, initialized, setZoom, decreaseZoom, increaseZoom} = useMainEditorStore();
+    const {url, setIframeElement} = useContext(IframeContext);
+    const [height, setHeight] = useState(0);
+
+    const onResize = useCallback(
+        (newHeight: number) => {
+            setHeight(newHeight + 500);
+        },
+        [setHeight],
+    );
+
+    usePostMessageAPIListener('ON_RESIZE', ({height: newHeight}) => {
+        onResize(newHeight);
+    });
+
+    usePostMessageAPIListener('ON_INIT', ({height: newHeight}) => {
+        onResize(newHeight);
+    });
 
     return (
         <div className={b(null, className)}>
@@ -40,11 +56,7 @@ const MiddleScreen: React.FC<MiddleScreenProps> = ({className}) => {
                     }}
                 >
                     <iframe
-                        ref={(element) => {
-                            if (element) {
-                                setIframeElement(element);
-                            }
-                        }}
+                        ref={(instance) => instance && setIframeElement(instance)}
                         className={b('iframe')}
                         src={url}
                         height={`${height}px`}

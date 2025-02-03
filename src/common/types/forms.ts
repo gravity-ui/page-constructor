@@ -1,3 +1,7 @@
+import {PageContent} from '../../models';
+
+export type DynamicFormValue = string | number | [] | object | boolean | PageContent | undefined;
+
 export interface BlockConfig {
     name: string;
     inputs: Array<ConfigInput>;
