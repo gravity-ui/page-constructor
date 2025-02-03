@@ -15,10 +15,10 @@ export interface EdiorBlockData {
     };
 }
 
-const getBlockTemplate = (blockType: BlockType): Promise<Omit<EdiorBlockData, 'preview'>> =>
-    import(`./templates/${blockType}.json`).then((data) => data.default);
+const getBlockTemplate = (blockType: BlockType) =>
+    require(`./templates/${blockType}.json`) as Omit<EdiorBlockData, 'preview'>;
 
-const getBlockPreview = (blockType: BlockType): PreviewComponent => {
+const getBlockPreview = (blockType: BlockType) => {
     try {
         if (blockType === BlockType.HeaderBlock) {
             return HeaderBlock;
@@ -32,26 +32,23 @@ const getBlockPreview = (blockType: BlockType): PreviewComponent => {
     }
 };
 
-type EditorBlocksData = Partial<Record<BlockType, EdiorBlockData>>;
-
-async function getEditorBlocksData(): Promise<EditorBlocksData> {
-    const EdiorBlockData: EditorBlocksData = {};
-
-    for (const blockType of Object.values(BlockType)) {
-        const template = await getBlockTemplate(blockType as BlockType);
-
+const EditorBlocksData = Object.values(BlockType).reduce(
+    (previewData, blockType) => {
+        const template = getBlockTemplate(blockType);
         const preview = getBlockPreview(blockType);
 
         template.meta = template.meta || {};
         template.meta.title = template.meta.title || formatBlockName(blockType);
 
-        EdiorBlockData[blockType] = {
+        /* eslint-disable no-param-reassign */
+        previewData[blockType] = {
             ...template,
             preview,
-        };
-    }
+        } as EdiorBlockData;
 
-    return EdiorBlockData;
-}
+        return previewData;
+    },
+    {} as Record<BlockType, EdiorBlockData>,
+);
 
-export {EditorBlocksData, getEditorBlocksData};
+export default EditorBlocksData;

@@ -35,17 +35,20 @@ export const ExtendedFeaturesBlock = ({
                     <Row>
                         {items &&
                             items.map(
-                                ({
-                                    title: itemTitle,
-                                    text,
-                                    list,
-                                    link,
-                                    links,
-                                    label,
-                                    icon,
-                                    buttons,
-                                    additionalInfo,
-                                }) => {
+                                (
+                                    {
+                                        title: itemTitle,
+                                        text,
+                                        list,
+                                        link,
+                                        links,
+                                        label,
+                                        icon,
+                                        buttons,
+                                        additionalInfo,
+                                    },
+                                    index,
+                                ) => {
                                     const itemLinks = links || [];
 
                                     const iconThemed = icon && getThemedValue(icon, theme);
@@ -55,45 +58,52 @@ export const ExtendedFeaturesBlock = ({
                                         itemLinks.push(link);
                                     }
 
-                            return (
-                                <Col className={b('item')} key={text || itemTitle} sizes={colSizes}>
-                                    {iconData && (
-                                        <div className={b('icon-wrap')} aria-hidden>
-                                            <Image {...iconData} className={b('icon')} />
-                                        </div>
-                                    )}
-                                    <div className={b('container')}>
-                                        {itemTitle && (
-                                            <YFMWrapper
-                                                tagName={itemTitleHeadingTag}
-                                                content={itemTitle}
-                                                className={b('item-title-container')}
-                                                contentClassName={b('item-title')}
-                                                modifiers={{
-                                                    constructor: true,
-                                                }}
-                                            >
-                                                {label && (
-                                                    <span className={b('item-label')}>{label}</span>
+                                    return (
+                                        <Col
+                                            className={b('item')}
+                                            key={text || itemTitle}
+                                            sizes={colSizes}
+                                        >
+                                            {iconData && (
+                                                <div className={b('icon-wrap')} aria-hidden>
+                                                    <Image {...iconData} className={b('icon')} />
+                                                </div>
+                                            )}
+                                            <div className={b('container')}>
+                                                {itemTitle && (
+                                                    <YFMWrapper
+                                                        tagName={itemTitleHeadingTag}
+                                                        content={itemTitle}
+                                                        className={b('item-title-container')}
+                                                        contentClassName={b('item-title')}
+                                                        modifiers={{
+                                                            constructor: true,
+                                                        }}
+                                                    >
+                                                        {label && (
+                                                            <span className={b('item-label')}>
+                                                                {label}
+                                                            </span>
+                                                        )}
+                                                    </YFMWrapper>
                                                 )}
-                                            </YFMWrapper>
-                                        )}
-                                        <Content
-                                            text={text}
-                                            links={itemLinks}
-                                            size="s"
-                                            list={list}
-                                            colSizes={{all: 12, md: 12}}
-                                            buttons={buttons}
-                                            additionalInfo={additionalInfo}
-                                        />
-                                    </div>
-                                </Col>
-                            );
-                        },
-                    )}
-                </Row>
-            </div>
+                                                <Content
+                                                    text={text}
+                                                    links={itemLinks}
+                                                    size="s"
+                                                    list={list}
+                                                    colSizes={{all: 12, md: 12}}
+                                                    buttons={buttons}
+                                                    additionalInfo={additionalInfo}
+                                                />
+                                            </div>
+                                        </Col>
+                                    );
+                                },
+                            )}
+                    </Row>
+                </div>
+            </Grid>
         </AnimateBlock>
     );
 };
