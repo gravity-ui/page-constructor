@@ -2,10 +2,10 @@ import React from 'react';
 
 import {Card} from '@gravity-ui/uikit';
 
-import {ConfigInput} from '../../../../../common/types';
+import {ConfigInput, DynamicFormValue} from '../../../../../common/types';
 import {ClassNameProps, PageContent} from '../../../../../models';
 import {block} from '../../../../../utils';
-import DynamicForm, {DynamicFormValue} from '../../DynamicForm';
+import DynamicForm from '../../DynamicForm';
 import FieldBase, {FieldBaseParams} from '../../FieldBase/FieldBase';
 
 import './Object.scss';
