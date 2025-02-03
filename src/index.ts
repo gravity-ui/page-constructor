@@ -12,5 +12,6 @@ export * from './utils';
 export * from './schema';
 export * from './hooks';
 export * from './navigation';
+export * from './common/postMessage';
 
 export {BREAKPOINTS} from './constants';

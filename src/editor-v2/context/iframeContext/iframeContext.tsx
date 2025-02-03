@@ -4,15 +4,16 @@
 
 import React from 'react';
 
-import {StoreApi} from 'zustand';
-
-import {IframeStore} from './store';
-
 export interface IframeContextProps {
-    state?: StoreApi<IframeStore>;
     iframeElement?: HTMLIFrameElement;
     setIframeElement: (element: HTMLIFrameElement) => void;
+    url: string;
+    setUrl: (url: string) => void;
     disableUrlField?: boolean;
 }
 
-export const IframeContext = React.createContext<IframeContextProps>({setIframeElement: () => {}});
+export const IframeContext = React.createContext<IframeContextProps>({
+    setIframeElement: () => {},
+    setUrl: () => {},
+    url: '',
+});

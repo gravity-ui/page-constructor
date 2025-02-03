@@ -5,8 +5,8 @@ import {Button, Icon, TextInput} from '@gravity-ui/uikit';
 
 import {ClassNameProps} from '../../../models';
 import {block} from '../../../utils';
-import {useEditorStore} from '../../context/editorContext';
-import {IframeContext, useIframeStore} from '../../context/iframeContext';
+import {useMainEditorStore} from '../../context/editorStore';
+import {IframeContext} from '../../context/iframeContext';
 
 import './Source.scss';
 
@@ -15,9 +15,8 @@ const b = block('source');
 interface SourceProps extends ClassNameProps {}
 
 const Source: React.FC<SourceProps> = ({className}) => {
-    const {url, setUrl} = useIframeStore();
-    const {resetInitialize} = useEditorStore();
-    const {disableUrlField} = useContext(IframeContext);
+    const {resetInitialize} = useMainEditorStore();
+    const {disableUrlField, url, setUrl} = useContext(IframeContext);
 
     const onUpdateUrl = useCallback(
         (value: string) => {

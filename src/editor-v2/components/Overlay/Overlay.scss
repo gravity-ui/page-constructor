@@ -22,11 +22,16 @@ $block: '.#{$ns}overlay';
         border: 3px var(--g-color-line-brand) solid;
         box-sizing: border-box;
         box-shadow: 4px 4px 8px 0 var(--g-color-sfx-shadow);
+
+        &_hover {
+            opacity: 0.5;
+        }
     }
 
     &__line {
         position: absolute;
-        border: $border-2;
+        //border: $border-2;
+        box-sizing: border-box;
 
         &_position {
             &_top {
