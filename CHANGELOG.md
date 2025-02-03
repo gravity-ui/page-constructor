@@ -7,6 +7,9 @@
 * Built JS files are now in ES2022
 * Require UIKit 7
 
+#### Styles
+* Remove scrollbars styling.
+
 
 ## [5.37.0](https://github.com/gravity-ui/page-constructor/compare/v5.36.1...v5.37.0) (2025-02-19)
 
