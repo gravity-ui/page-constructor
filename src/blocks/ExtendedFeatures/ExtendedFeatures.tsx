@@ -35,17 +35,20 @@ export const ExtendedFeaturesBlock = ({
                     <Row>
                         {items &&
                             items.map(
-                                ({
-                                    title: itemTitle,
-                                    text,
-                                    list,
-                                    link,
-                                    links,
-                                    label,
-                                    icon,
-                                    buttons,
-                                    additionalInfo,
-                                }) => {
+                                (
+                                    {
+                                        title: itemTitle,
+                                        text,
+                                        list,
+                                        link,
+                                        links,
+                                        label,
+                                        icon,
+                                        buttons,
+                                        additionalInfo,
+                                    },
+                                    index,
+                                ) => {
                                     const itemLinks = links || [];
 
                                     const iconThemed = icon && getThemedValue(icon, theme);
