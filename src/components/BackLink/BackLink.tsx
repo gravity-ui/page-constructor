@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import {ArrowLeft} from '@gravity-ui/icons';
-import {Button, ButtonSize, Icon} from '@gravity-ui/uikit';
+import {Button, ButtonSize, Icon, ButtonProps as UIKitButtonProps} from '@gravity-ui/uikit';
 
 import {LocationContext} from '../../context/locationContext';
 import {useAnalytics} from '../../hooks';
@@ -53,18 +53,19 @@ export default function BackLink(props: BackLinkProps) {
         }
     }, [handleAnalytics, history, onClick, url]);
 
-    const buttonComponent = url && !shouldHandleBackAction ? 'a' : 'button';
+    const buttonProps = {
+        href: shouldHandleBackAction ? undefined : url,
+        extraProps,
+    } as UIKitButtonProps;
 
     return (
         <Button
             className={className}
             view={theme === 'special' ? 'flat-contrast' : 'flat-secondary'}
             size={size}
-            href={shouldHandleBackAction ? undefined : url}
             onClick={shouldHandleBackAction ? backActionHandler : undefined}
             tabIndex={tabIndex}
-            extraProps={extraProps}
-            component={buttonComponent}
+            {...buttonProps}
         >
             <Icon data={ArrowLeft} size={20} />
             <span>{title}</span>

@@ -1,7 +1,12 @@
 import * as React from 'react';
 
 import {StoreBadge} from '@gravity-ui/components';
-import {Button as CommonButton, Icon, Platform} from '@gravity-ui/uikit';
+import {
+    Button as CommonButton,
+    Icon,
+    Platform,
+    ButtonProps as UIKitButtonProps,
+} from '@gravity-ui/uikit';
 
 import {LocaleContext} from '../../context/localeContext/localeContext';
 import {useAnalytics} from '../../hooks';
@@ -64,6 +69,7 @@ const Button = (props: ButtonProps) => {
 
     const buttonProps = {
         ...rest,
+        href: url ? setUrlTld(url, tld) : undefined,
         onClick,
     };
 
@@ -85,18 +91,14 @@ const Button = (props: ButtonProps) => {
 
     const buttonTheme = theme === 'scale' ? 'accent' : theme;
 
-    const buttonComponent = url ? 'a' : 'button';
-
     return (
         <CommonButton
             className={buttonClass}
             view={toCommonView(buttonTheme as OldButtonTheme)}
             size={toCommonSize(size as OldButtonSize)}
-            href={url ? setUrlTld(url, tld) : undefined}
             title={urlTitle}
             width={width}
-            component={buttonComponent}
-            {...buttonProps}
+            {...(buttonProps as UIKitButtonProps)}
         >
             {icon && buttonImg.position === 'left' ? icon : null}
             <span className={b('content')}>
