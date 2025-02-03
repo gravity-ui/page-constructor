@@ -3,11 +3,11 @@ import React, {useCallback} from 'react';
 import {Plus} from '@gravity-ui/icons';
 import {Button, Card, Icon} from '@gravity-ui/uikit';
 
-import {ArrayObjectInput, ArrayTextInput} from '../../../../../common/types';
+import {ArrayObjectInput, ArrayTextInput, DynamicFormValue} from '../../../../../common/types';
 import {ClassNameProps, PageContent} from '../../../../../models';
 import {block} from '../../../../../utils';
 import {removeFromArray, swapArrayItems} from '../../../../utils';
-import DynamicForm, {DynamicFormValue} from '../../DynamicForm';
+import DynamicForm from '../../DynamicForm';
 import FieldBase from '../../FieldBase/FieldBase';
 import Text from '../Text/Text';
 

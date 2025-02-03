@@ -2,12 +2,12 @@ import React from 'react';
 
 import _ from 'lodash';
 
+import {DynamicFormValue} from '../../../common/types';
 import {ClassNameProps} from '../../../models';
 import {block} from '../../../utils';
-import {useContentConfigStore} from '../../context/contentConfig';
-import {useEditorStore} from '../../context/editorContext';
+import {useMainEditorStore} from '../../context/editorStore';
 import {generateChildrenPathFromArray} from '../../utils';
-import DynamicForm, {DynamicFormValue} from '../DynamicForm/DynamicForm';
+import DynamicForm from '../DynamicForm/DynamicForm';
 
 import './BlockConfig.scss';
 
@@ -16,14 +16,11 @@ const b = block('block-config');
 interface BlockConfigProps extends ClassNameProps {}
 
 const BlockConfig: React.FC<BlockConfigProps> = ({className}) => {
-    const {selectedBlock} = useEditorStore();
-    const {config, blocks, subBlocks, updateField} = useContentConfigStore();
+    const {selectedBlock, content, blocks, subBlocks, updateField} = useMainEditorStore();
 
-    const currentBlockPath = selectedBlock?.path
-        ? generateChildrenPathFromArray(selectedBlock?.path)
-        : '[]';
+    const currentBlockPath = selectedBlock ? generateChildrenPathFromArray(selectedBlock) : '[]';
 
-    const currentConfig = _.get(config.blocks, currentBlockPath || '');
+    const currentConfig = _.get(content.blocks, currentBlockPath || '');
     const currentSchema = [...blocks, ...subBlocks].find(({type}) => type === currentConfig?.type);
 
     const onUpdate = (key: string, value: DynamicFormValue) => {

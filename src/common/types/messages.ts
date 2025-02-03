@@ -1,22 +1,12 @@
-import {Action} from './actions';
+import {EditorState} from '../store';
 
-export interface SendOptions {
-    direction?: MetaSource | 'both';
-    debug?: boolean;
-}
+import {MessageTypes} from './actions';
 
-export interface PostMessageArgs {
-    action: Action;
-    debug: boolean;
-}
+export type PostMessageAPIMessage<K extends keyof MessageTypes> = {
+    action: K;
+    data: MessageTypes[K];
+};
 
-export type SubscriptionFunc = <A extends Action>(
-    type: A['type'],
-    payloadCallback: (payload: A['payload'], meta: Meta) => void,
-) => void;
-
-export type MetaSource = 'pc' | 'editor';
-
-export interface Meta {
-    source: MetaSource;
-}
+export type StoreSyncMessage = {
+    state: EditorState;
+};

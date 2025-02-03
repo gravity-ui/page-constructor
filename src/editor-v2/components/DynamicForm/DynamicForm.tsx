@@ -2,7 +2,7 @@ import React, {useCallback} from 'react';
 
 import _ from 'lodash';
 
-import {ConfigInput} from '../../../common/types';
+import {ConfigInput, DynamicFormValue} from '../../../common/types';
 import {ClassNameProps, PageContent} from '../../../models';
 import {block} from '../../../utils';
 
@@ -19,8 +19,6 @@ import {getContent, getFullPath} from './utils';
 import './DynamicForm.scss';
 
 const b = block('dynamic-form');
-
-export type DynamicFormValue = string | number | [] | object | boolean | PageContent | undefined;
 
 interface DynamicFormProps extends ClassNameProps {
     blockConfig: Array<ConfigInput>;

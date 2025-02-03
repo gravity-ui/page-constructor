@@ -14,7 +14,7 @@ import yaml from 'js-yaml';
 
 import {ClassNameProps, PageContent} from '../../../models';
 import {block} from '../../../utils';
-import {useContentConfigStore} from '../../context/contentConfig/hooks/useContentConfigStore';
+import {useMainEditorStore} from '../../context/editorStore';
 
 import './SourceCode.scss';
 
@@ -23,7 +23,7 @@ const b = block('source-code');
 interface SourceCodeProps extends ClassNameProps {}
 
 const SourceCode: React.FC<SourceCodeProps> = ({className}) => {
-    const {config, setConfig} = useContentConfigStore();
+    const {content, setContent} = useMainEditorStore();
     const [isOpen, setIsOpen] = useState(false);
     const [tempConfig, setTempConfig] = useState('');
     const [format, setFormat] = useState<'yaml' | 'json'>('yaml');
@@ -43,13 +43,13 @@ const SourceCode: React.FC<SourceCodeProps> = ({className}) => {
         }
 
         if (object) {
-            setConfig(object as PageContent);
+            setContent(object as PageContent);
         }
 
         setIsOpen(false);
     };
 
-    const text = format === 'yaml' ? yaml.dump(config) : JSON.stringify(config, null, 2);
+    const text = format === 'yaml' ? yaml.dump(content) : JSON.stringify(content, null, 2);
 
     return (
         <div className={b(null, className)}>
