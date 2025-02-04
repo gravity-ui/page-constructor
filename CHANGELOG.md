@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [5.33.4](https://github.com/gravity-ui/page-constructor/compare/v5.33.3...v5.33.4) (2025-02-04)
+
+
+### Bug Fixes
+
+* **BrandFooter:** adjust styles ([#1114](https://github.com/gravity-ui/page-constructor/issues/1114)) ([da3dc08](https://github.com/gravity-ui/page-constructor/commit/da3dc08733fbc938cae51c6433d1f8ed84ed1e57))
+
 ## [5.33.3](https://github.com/gravity-ui/page-constructor/compare/v5.33.2...v5.33.3) (2025-01-30)
 
 
