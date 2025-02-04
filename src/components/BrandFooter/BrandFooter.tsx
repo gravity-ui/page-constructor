@@ -22,7 +22,7 @@ const BrandFooter = ({className}: ClassNameProps) => {
     return (
         <Link className={b({theme}, className)} href="https://gravity-ui.com">
             <div className={b('content')}>
-                <span className={b('text')}>{i18n('created-on')}</span>
+                <span>{i18n('created-on')}</span>
                 <div className={b('brand-icon')}>
                     {theme === Theme.Light ? <BrandIconLight /> : <BrandIconDark />}
                 </div>
