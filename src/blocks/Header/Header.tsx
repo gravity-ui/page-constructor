@@ -135,7 +135,11 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
                                 <Col sizes={titleSizes} className={b('content-inner')}>
                                     {overtitle && (
                                         <div className={b('overtitle')}>
-                                            <HTML>{overtitle}</HTML>
+                                            {typeof overtitle === 'string' ? (
+                                                <HTML>{overtitle}</HTML>
+                                            ) : (
+                                                overtitle
+                                            )}
                                         </div>
                                     )}
                                     <h1 className={b('title')} id={titleId}>
