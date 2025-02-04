@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [5.34.0](https://github.com/gravity-ui/page-constructor/compare/v5.33.4...v5.34.0) (2025-02-04)
+
+
+### Features
+
+* support JSX.Element type of header`s overtitle props ([#1115](https://github.com/gravity-ui/page-constructor/issues/1115)) ([39307f6](https://github.com/gravity-ui/page-constructor/commit/39307f61e2974a622474cac1997231525242ed23))
+
 ## [5.33.4](https://github.com/gravity-ui/page-constructor/compare/v5.33.3...v5.33.4) (2025-02-04)
 
 
