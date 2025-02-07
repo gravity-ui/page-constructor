@@ -97,7 +97,7 @@
   },
   "dependencies": {
     "@bem-react/classname": "^1.6.0",
-    "@gravity-ui/components": "^4.0.0-beta.5",
+    "@gravity-ui/components": "^4.0.0",
     "@gravity-ui/dynamic-forms": "^5.0.0-beta.0",
     "@gravity-ui/gulp-utils": "^1.0.0",
     "@gravity-ui/i18n": "^1.7.0",
@@ -128,7 +128,7 @@
   },
   "peerDependencies": {
     "@diplodoc/transform": "^4.10.4",
-    "@gravity-ui/uikit": "^7.0.0-beta.5",
+    "@gravity-ui/uikit": "^7.0.0",
     "react": "^16.14.0 || ^17.0.0 || ^18.0.0"
   },
   "devDependencies": {
@@ -145,7 +145,7 @@
     "@gravity-ui/prettier-config": "^1.1.0",
     "@gravity-ui/stylelint-config": "^4.0.1",
     "@gravity-ui/tsconfig": "^1.0.0",
-    "@gravity-ui/uikit": "^7.0.0-beta.6",
+    "@gravity-ui/uikit": "^7.0.0",
     "@playwright/experimental-ct-react": "^1.45.3",
     "@playwright/test": "^1.45.3",
     "@storybook/addon-actions": "8.0.5",
