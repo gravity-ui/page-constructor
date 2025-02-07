@@ -6,7 +6,14 @@ import {Icon} from '@gravity-ui/uikit';
 import {LocaleContext} from '../../context/localeContext';
 import {LocationContext} from '../../context/locationContext';
 import {useAnalytics} from '../../hooks';
-import {ClassNameProps, DefaultEventNames, LinkProps, Tabbable, TextSize} from '../../models';
+import {
+    ClassNameProps,
+    DefaultEventNames,
+    LinkProps,
+    LinkTheme,
+    Tabbable,
+    TextSize,
+} from '../../models';
 import {QAProps} from '../../models/common';
 import {block, getLinkProps, setUrlTld} from '../../utils';
 import {getQaAttrubutes} from '../../utils/index';
@@ -25,12 +32,25 @@ function getArrowSize(size: TextSize) {
         case 'l':
             return 20;
         case 'm':
+        case 'sm':
             return 18;
         case 's':
             return 14;
         default:
             return 14;
     }
+}
+
+function getTextSize({size, theme}: {size?: TextSize; theme: LinkTheme}) {
+    if (!size) {
+        return theme === 'back' ? 'l' : 'm';
+    }
+
+    if (size === 'sm') {
+        return 'm';
+    }
+
+    return size;
 }
 
 const LinkBlock = (props: React.PropsWithChildren<LinkFullProps>) => {
@@ -56,7 +76,6 @@ const LinkBlock = (props: React.PropsWithChildren<LinkFullProps>) => {
     const {hostname} = useContext(LocationContext);
     const {tld} = useContext(LocaleContext);
     const href = setUrlTld(props.url, tld);
-    const defaultTextSize = theme === 'back' ? 'l' : 'm';
 
     const onClick = () => {
         handleAnalytics(analyticsEvents);
@@ -123,7 +142,9 @@ const LinkBlock = (props: React.PropsWithChildren<LinkFullProps>) => {
         }
     };
     return (
-        <div className={b({size: textSize || defaultTextSize}, className)}>{getLinkByType()}</div>
+        <div className={b({size: getTextSize({size: textSize, theme})}, className)}>
+            {getLinkByType()}
+        </div>
     );
 };
 

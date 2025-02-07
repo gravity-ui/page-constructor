@@ -76,6 +76,11 @@ const WithFilesTemplate: StoryFn<ContentLayoutBlockModel> = (args) => (
                 },
                 {
                     ...args,
+                    size: 'm',
+                    textContent: {title: getSizeTitle('M'), ...args.textContent},
+                },
+                {
+                    ...args,
                     size: 's',
                     textContent: {title: getSizeTitle('S'), ...args.textContent},
                 },
@@ -92,6 +97,11 @@ const SizesTemplate: StoryFn<ContentLayoutBlockModel> = (args) => (
                     ...args,
                     size: 'l',
                     textContent: {title: getSizeTitle('L'), ...args.textContent},
+                },
+                {
+                    ...args,
+                    size: 'm',
+                    textContent: {title: getSizeTitle('M'), ...args.textContent},
                 },
                 {
                     ...args,

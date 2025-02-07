@@ -61,6 +61,15 @@ const SizeTemplate: StoryFn<ContentBlockProps & ClassNameProps> = (args) => (
         <div style={{paddingBottom: '64px'}}>
             <Content
                 {...args}
+                title={data.size.m.title}
+                list={transformedContentList}
+                buttons={data.default.content.buttons as ButtonProps[]}
+                size="m"
+            />
+        </div>
+        <div style={{paddingBottom: '64px'}}>
+            <Content
+                {...args}
                 title={data.size.s.title}
                 list={transformedContentList}
                 buttons={data.default.content.buttons as ButtonProps[]}

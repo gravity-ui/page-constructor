@@ -6,7 +6,7 @@ import {Swiper, SwiperSlide} from 'swiper/react';
 import Anchor from '../../components/Anchor/Anchor';
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
 import Title from '../../components/Title/Title';
-import {ClassNameProps, Refable, SliderProps as SliderParams} from '../../models';
+import {ClassNameProps, Refable, SliderProps as SliderParams, TextSize} from '../../models';
 import {block} from '../../utils';
 
 import Arrow from './Arrow/Arrow';
@@ -41,6 +41,18 @@ export interface SliderNewProps
 }
 
 SwiperCore.use([Autoplay, A11y, Pagination]);
+
+function getDisclaimerSize(size?: TextSize): Exclude<TextSize, 'sm'> {
+    if (!size) {
+        return 'm';
+    }
+
+    if (size === 'sm') {
+        return 'm';
+    }
+
+    return size;
+}
 
 export const SliderNewBlock = ({
     animated,
@@ -163,7 +175,11 @@ export const SliderNewBlock = ({
                 )}
                 <div className={b('footer')}>
                     {disclaimer ? (
-                        <div className={b('disclaimer', {size: disclaimer?.size || 'm'})}>
+                        <div
+                            className={b('disclaimer', {
+                                size: getDisclaimerSize(disclaimer?.size),
+                            })}
+                        >
                             {disclaimer?.text}
                         </div>
                     ) : null}
