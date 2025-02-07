@@ -40,6 +40,7 @@ $block: '.#{$ns}image-card';
 
             &_m {
                 padding: $indentM;
+                padding-bottom: 36px;
 
                 #{$image}_inner {
                     border-radius: initial;
