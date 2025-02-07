@@ -9,7 +9,7 @@ import {
     WithBackgroundImage,
 } from './helpers';
 
-const DEFAULT_FORM_DELAY = 20 * 1000;
+const DEFAULT_FORM_DELAY = 25 * 1000;
 
 test.describe('Form', () => {
     test.skip('render stories <Default>', async ({mount, expectScreenshot, delay}) => {
