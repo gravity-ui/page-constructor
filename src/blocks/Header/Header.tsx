@@ -11,6 +11,7 @@ import {useTheme} from '../../context/theme';
 import {Col, Grid, Row} from '../../grid';
 import {ClassNameProps, HeaderBlockBackground, HeaderBlockProps} from '../../models';
 import {block, getThemedValue} from '../../utils';
+import {mergeVideoMicrodata} from '../../utils/microdata';
 
 import {getImageSize, getTitleSizes, titleWithImageSizes} from './utils';
 
@@ -97,6 +98,10 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
     const backgroundThemed = background && getThemedValue(background, theme);
     const imageThemed = image && getThemedValue(image, theme);
     const videoThemed = video && getThemedValue(video, theme);
+    const mediaWithMicrodata = mergeVideoMicrodata(videoThemed, {
+        name: title,
+        description,
+    });
     const fullWidth = backgroundThemed?.fullWidth || backgroundThemed?.fullWidthMedia;
     const titleId = useUniqId();
 
@@ -184,7 +189,7 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
                                 className={b('media', {[curImageSize]: true})}
                                 videoClassName={b('video')}
                                 imageClassName={b('image')}
-                                video={videoThemed}
+                                {...mediaWithMicrodata}
                                 image={imageThemed}
                             />
                         )}
