@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [5.35.0](https://github.com/gravity-ui/page-constructor/compare/v5.34.0...v5.35.0) (2025-02-11)
+
+
+### Features
+
+* add video microdata to header block ([#1123](https://github.com/gravity-ui/page-constructor/issues/1123)) ([e649755](https://github.com/gravity-ui/page-constructor/commit/e6497551390916d33fd75043ef1c4c5c1bbc24bb))
+* increase card bottom padding ([#1105](https://github.com/gravity-ui/page-constructor/issues/1105)) ([447c37e](https://github.com/gravity-ui/page-constructor/commit/447c37e16b9efe6296caba205a2cbf17746741b7))
+
 ## [5.34.0](https://github.com/gravity-ui/page-constructor/compare/v5.33.4...v5.34.0) (2025-02-04)
 
 
