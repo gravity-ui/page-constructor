@@ -98,10 +98,13 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
     const backgroundThemed = background && getThemedValue(background, theme);
     const imageThemed = image && getThemedValue(image, theme);
     const videoThemed = video && getThemedValue(video, theme);
-    const mediaWithMicrodata = mergeVideoMicrodata(videoThemed, {
-        name: title,
-        description,
-    });
+    const mediaWithMicrodata = mergeVideoMicrodata(
+        {video: videoThemed, image: imageThemed},
+        {
+            name: title,
+            description,
+        },
+    );
     const fullWidth = backgroundThemed?.fullWidth || backgroundThemed?.fullWidthMedia;
     const titleId = useUniqId();
 
@@ -190,7 +193,6 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
                                 videoClassName={b('video')}
                                 imageClassName={b('image')}
                                 {...mediaWithMicrodata}
-                                image={imageThemed}
                             />
                         )}
                     </Col>
