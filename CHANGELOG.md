@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [5.35.1](https://github.com/gravity-ui/page-constructor/compare/v5.35.0...v5.35.1) (2025-02-12)
+
+
+### Bug Fixes
+
+* header block video microdata ([#1124](https://github.com/gravity-ui/page-constructor/issues/1124)) ([779cef3](https://github.com/gravity-ui/page-constructor/commit/779cef3003e98bada8e1e43e1efba2f187a42ae0))
+
 ## [5.35.0](https://github.com/gravity-ui/page-constructor/compare/v5.34.0...v5.35.0) (2025-02-11)
 
 
