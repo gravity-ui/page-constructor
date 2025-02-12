@@ -1,4 +1,4 @@
-import React, {ReactElement, useMemo} from 'react';
+import * as React from 'react';
 
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
 import {Col, Grid, GridColumnSize, Row} from '../../grid';
@@ -15,7 +15,7 @@ const b = block('media-base');
 const Card: React.FC<React.PropsWithChildren<{}>> = () => null;
 
 interface MediaBaseProps extends MediaBaseBlockProps {
-    children: ReactElement;
+    children: React.ReactElement;
     onScroll?: () => void;
 }
 
@@ -33,13 +33,13 @@ export const MediaBase = (props: MediaBaseProps) => {
     } = props;
     const {title, description} = mediaContentProps;
 
-    const mediaSizes = useMemo(() => {
+    const mediaSizes = React.useMemo(() => {
         return mediaOnly
             ? {[GridColumnSize.All]: 12}
             : {[GridColumnSize.Md]: largeMedia ? 8 : 6, [GridColumnSize.All]: 12};
     }, [mediaOnly, largeMedia]);
 
-    const contentSizes = useMemo(() => {
+    const contentSizes = React.useMemo(() => {
         return {[GridColumnSize.Md]: largeMedia ? 4 : 6, [GridColumnSize.All]: 12};
     }, [largeMedia]);
 

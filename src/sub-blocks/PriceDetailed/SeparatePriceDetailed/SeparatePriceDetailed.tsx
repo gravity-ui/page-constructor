@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import * as React from 'react';
 
 import {CardBase} from '../../../components';
 import {
@@ -27,7 +27,7 @@ const SeparatePriceDetailed = (props: SeparatePriceDetailedProps) => {
     const {items, border, getDescriptionComponent, getDetailsComponent} = props;
 
     return (
-        <Fragment>
+        <React.Fragment>
             {items.map(({analyticsEvents, ...item}: PriceItemProps, id: number) => (
                 <CardBase
                     key={id}
@@ -41,7 +41,7 @@ const SeparatePriceDetailed = (props: SeparatePriceDetailedProps) => {
                     </CardBase.Content>
                 </CardBase>
             ))}
-        </Fragment>
+        </React.Fragment>
     );
 };
 

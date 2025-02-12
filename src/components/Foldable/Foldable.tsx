@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from 'react';
+import * as React from 'react';
 
 import useHeightCalculator from '../../hooks/useHeightCalculator';
 import {QAProps} from '../../models';
@@ -15,11 +15,11 @@ export interface FoldableProps extends QAProps {
 
 const Foldable = ({isOpened, children, className, qa}: React.PropsWithChildren<FoldableProps>) => {
     const qaAttributes = getQaAttrubutes(qa);
-    const blockRef = useRef<HTMLDivElement>(null);
-    const contentRef = useRef<HTMLDivElement>(null);
+    const blockRef = React.useRef<HTMLDivElement>(null);
+    const contentRef = React.useRef<HTMLDivElement>(null);
     const contentHeight = useHeightCalculator(contentRef);
 
-    useEffect(() => {
+    React.useEffect(() => {
         if (blockRef && blockRef.current) {
             blockRef.current.style.height = isOpened && contentHeight ? `${contentHeight}px` : '0';
         }

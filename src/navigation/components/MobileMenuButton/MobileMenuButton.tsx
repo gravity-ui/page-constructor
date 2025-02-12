@@ -1,4 +1,4 @@
-import React, {MouseEvent} from 'react';
+import * as React from 'react';
 
 import {Bars, Xmark} from '@gravity-ui/icons';
 
@@ -18,7 +18,7 @@ export const MobileMenuButton: React.FC<MobileMenuButtonProps> = ({
 }) => (
     <Control
         className={b()}
-        onClick={(e: MouseEvent) => {
+        onClick={(e: React.MouseEvent) => {
             e.stopPropagation();
             e.nativeEvent.stopImmediatePropagation();
 

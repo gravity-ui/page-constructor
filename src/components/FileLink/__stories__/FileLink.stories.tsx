@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import * as React from 'react';
 
 import {Meta, StoryFn} from '@storybook/react';
 
@@ -27,7 +27,7 @@ const TypesTemplate: StoryFn<FileLinkProps> = (args) => (
 );
 
 const TypesThemesTemplate: StoryFn<FileLinkProps> = (args) => (
-    <Fragment>
+    <React.Fragment>
         <Row style={{padding: '10px'}}>
             <Col />
             <Col>horizontal</Col>
@@ -38,7 +38,7 @@ const TypesThemesTemplate: StoryFn<FileLinkProps> = (args) => (
         <section style={{color: '#3a74ff'}}>
             <TypesTemplate {...args} theme="dark" />
         </section>
-    </Fragment>
+    </React.Fragment>
 );
 
 const WithPaddingTemplate: StoryFn<FileLinkProps> = (args) => (
@@ -50,14 +50,14 @@ const WithPaddingTemplate: StoryFn<FileLinkProps> = (args) => (
 );
 
 const ExtTemplate: StoryFn<FileLinkProps> = (args) => (
-    <Fragment>
+    <React.Fragment>
         <WithPaddingTemplate {...args} href="example.pdf" />
         <WithPaddingTemplate {...args} href="example.doc" />
         <WithPaddingTemplate {...args} href="example.xls" />
         <WithPaddingTemplate {...args} href="example.ppt" />
         <WithPaddingTemplate {...args} href="example.fig" />
         <WithPaddingTemplate {...args} href="example.zip" />
-    </Fragment>
+    </React.Fragment>
 );
 
 export const Default = DefaultTemplate.bind({});

@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import * as React from 'react';
 
 import {Meta, StoryFn} from '@storybook/react';
 
@@ -17,7 +17,7 @@ const createCardArray: (
     count: number,
     shared: Omit<SubBlockModels, 'type'> & {type: string},
 ) => SubBlockModels[] = (count, shared) =>
-    Array.from({length: count}, () => ({...shared} as SubBlockModels));
+    Array.from({length: count}, () => ({...shared}) as SubBlockModels);
 
 const DefaultTemplate: StoryFn<CardLayoutBlockModel> = (args) => (
     <PageConstructor
@@ -66,7 +66,7 @@ const DefaultTemplate: StoryFn<CardLayoutBlockModel> = (args) => (
 );
 
 const ColSizeTemplate: StoryFn<CardLayoutBlockModel> = (args) => (
-    <Fragment>
+    <React.Fragment>
         <PageConstructor
             content={{
                 blocks: [
@@ -84,7 +84,7 @@ const ColSizeTemplate: StoryFn<CardLayoutBlockModel> = (args) => (
                 ],
             }}
         />
-    </Fragment>
+    </React.Fragment>
 );
 
 const WithBackgroundTemplate: StoryFn<CardLayoutBlockModel> = (args) => (

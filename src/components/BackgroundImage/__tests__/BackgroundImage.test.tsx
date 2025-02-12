@@ -1,5 +1,3 @@
-import React from 'react';
-
 import {render, screen} from '@testing-library/react';
 
 import {testCustomClassName, testCustomStyle} from '../../../../test-utils/shared/common';

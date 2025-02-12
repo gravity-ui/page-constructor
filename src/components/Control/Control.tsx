@@ -1,7 +1,4 @@
-import React from 'react';
-
-import {Icon} from '@gravity-ui/uikit';
-import {SVGIconData} from '@gravity-ui/uikit/build/esm/components/Icon/types';
+import {Icon, IconData} from '@gravity-ui/uikit';
 
 import {block} from '../../utils';
 
@@ -14,7 +11,7 @@ const b = block('control');
 export const defaultIconId = 'icon-test-id';
 
 export interface ControlProps {
-    icon: SVGIconData;
+    icon: IconData;
     theme?: 'primary' | 'secondary' | 'link' | 'accent';
     size?: 'xs' | 's' | 'm' | 'l';
     iconSize?: number;

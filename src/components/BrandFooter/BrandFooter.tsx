@@ -1,5 +1,3 @@
-import React from 'react';
-
 import {Link} from '@gravity-ui/uikit';
 
 import {useTheme} from '../../context/theme';

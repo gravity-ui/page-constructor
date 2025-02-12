@@ -1,4 +1,4 @@
-import React, {PropsWithChildren, useState} from 'react';
+import * as React from 'react';
 
 import {MapType, MapsContext} from './mapsContext';
 
@@ -10,7 +10,7 @@ interface MapProviderProps {
 
 export const gmapApiKeyIdInLS = 'gmap-api-key';
 
-export const MapProvider: React.FC<PropsWithChildren<MapProviderProps>> = ({
+export const MapProvider: React.FC<React.PropsWithChildren<MapProviderProps>> = ({
     type = MapType.Yandex,
     scriptSrc,
     apiKey,
@@ -20,7 +20,7 @@ export const MapProvider: React.FC<PropsWithChildren<MapProviderProps>> = ({
         type === MapType.Google
             ? apiKey || localStorage.getItem(gmapApiKeyIdInLS) || ''
             : apiKey || '';
-    const [currentApiKey, setKey] = useState(initialKeyValue);
+    const [currentApiKey, setKey] = React.useState(initialKeyValue);
 
     return (
         <MapsContext.Provider value={{apiKey: currentApiKey, setKey, scriptSrc, type}}>

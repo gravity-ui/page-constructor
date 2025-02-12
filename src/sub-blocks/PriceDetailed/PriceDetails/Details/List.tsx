@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import * as React from 'react';
 
 import {YFMWrapper} from '../../../../components';
 import {PriceDetailsListProps, TextSize} from '../../../../models';
@@ -17,7 +17,7 @@ const List = (props: ListProps) => {
     const {items = [], titleSize = 's'} = props;
 
     return (
-        <Fragment>
+        <React.Fragment>
             {items.map((item, id) => (
                 <div key={id} className={b('list-item')}>
                     <img className={b('img')} alt="" />
@@ -26,7 +26,7 @@ const List = (props: ListProps) => {
                     </div>
                 </div>
             ))}
-        </Fragment>
+        </React.Fragment>
     );
 };
 

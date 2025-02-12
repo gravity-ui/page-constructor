@@ -1,5 +1,3 @@
-import React from 'react';
-
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
 import {BannerBlockProps} from '../../models';
 import {BannerCard} from '../../sub-blocks';

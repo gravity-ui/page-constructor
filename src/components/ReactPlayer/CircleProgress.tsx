@@ -1,4 +1,4 @@
-import React, {useMemo} from 'react';
+import * as React from 'react';
 
 import {ClassNameProps} from '../../models';
 import {block} from '../../utils';
@@ -25,9 +25,9 @@ const CircleProgress = (props: CircleProgressProps) => {
         className,
     } = props;
 
-    const circumference = useMemo(() => 2 * Math.PI * radius, [radius]);
+    const circumference = React.useMemo(() => 2 * Math.PI * radius, [radius]);
 
-    const baseCircle = useMemo(() => {
+    const baseCircle = React.useMemo(() => {
         if (!baseColor) {
             return null;
         }

@@ -1,4 +1,4 @@
-import React, {useCallback, useContext, useState} from 'react';
+import * as React from 'react';
 
 import {ChevronsCollapseUpRight, ChevronsExpandUpRight} from '@gravity-ui/icons';
 import {Button, Icon} from '@gravity-ui/uikit';
@@ -30,11 +30,11 @@ interface CodeEditorProps {
 
 export const CodeEditor = React.memo(
     ({onChange, validator, fullscreenModeOn, onFullscreenModeOnUpdate, code}: CodeEditorProps) => {
-        const [message, setMessage] = useState(() => validator(code));
-        const {theme = Theme.Light} = useContext(EditorContext);
+        const [message, setMessage] = React.useState(() => validator(code));
+        const {theme = Theme.Light} = React.useContext(EditorContext);
 
         // eslint-disable-next-line react-hooks/exhaustive-deps
-        const onChangeWithValidation = useCallback(
+        const onChangeWithValidation = React.useCallback(
             debounce((newCode: string) => {
                 const validationResult = validator(newCode);
 

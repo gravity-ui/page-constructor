@@ -1,4 +1,4 @@
-import React, {CSSProperties, HTMLProps, useState} from 'react';
+import * as React from 'react';
 
 import {ChevronsExpandUpRight, Xmark} from '@gravity-ui/icons';
 import {Icon, Modal} from '@gravity-ui/uikit';
@@ -13,8 +13,8 @@ import './FullscreenImage.scss';
 export interface FullscreenImageProps extends ImageProps {
     imageClassName?: string;
     modalImageClass?: string;
-    imageStyle?: CSSProperties;
-    extraProps?: HTMLProps<HTMLDivElement>;
+    imageStyle?: React.CSSProperties;
+    extraProps?: React.HTMLProps<HTMLDivElement>;
 }
 
 const b = block('fullscreen-image');
@@ -23,7 +23,7 @@ const CLOSE_ICON_SIZE = 24;
 
 const FullscreenImage = (props: FullscreenImageProps) => {
     const {imageClassName, modalImageClass, imageStyle, alt = i18n('img-alt'), extraProps} = props;
-    const [isOpened, setIsOpened] = useState(false);
+    const [isOpened, setIsOpened] = React.useState(false);
 
     const openModal = () => setIsOpened(true);
     const closeModal = () => setIsOpened(false);

@@ -1,4 +1,4 @@
-import React, {useCallback, useContext, useEffect, useRef} from 'react';
+import * as React from 'react';
 
 import {LocaleContext} from '../../context/localeContext';
 import {MobileContext} from '../../context/mobileContext';
@@ -28,16 +28,16 @@ const YandexForm = (props: YandexFormProps) => {
         customFormOrigin,
         customFormSection,
     } = props;
-    const formContainerRef = useRef<HTMLDivElement>(null);
-    const iframeRef = useRef<HTMLIFrameElement>();
+    const formContainerRef = React.useRef<HTMLDivElement>(null);
+    const iframeRef = React.useRef<HTMLIFrameElement>();
     const yaFormOrigin = customFormOrigin || YANDEX_FORM_ORIGIN;
     const yaFormSection = customFormSection || YANDEX_FORM_SECTION;
 
     const handleAnalytics = useAnalytics(DefaultEventNames.YandexFormSubmit);
-    const isMobile = useContext(MobileContext);
-    const locale = useContext(LocaleContext);
+    const isMobile = React.useContext(MobileContext);
+    const locale = React.useContext(LocaleContext);
 
-    const updateFormIframe = useCallback(
+    const updateFormIframe = React.useCallback(
         (container: HTMLDivElement) => {
             const queryParams = new URLSearchParams(location.search);
             const url = location.origin + location.pathname;
@@ -80,7 +80,7 @@ const YandexForm = (props: YandexFormProps) => {
         [locale.lang, theme, isMobile, yaFormOrigin, yaFormSection, id, containerId, params],
     );
 
-    const handleSubmit = useCallback(() => {
+    const handleSubmit = React.useCallback(() => {
         if (formContainerRef && formContainerRef.current) {
             const {top} = formContainerRef.current.getBoundingClientRect();
             window.scrollBy(0, top - headerHeight);
@@ -93,7 +93,7 @@ const YandexForm = (props: YandexFormProps) => {
         }
     }, [handleAnalytics, analyticsEvents, onSubmit, headerHeight]);
 
-    const handleMessage = useCallback(
+    const handleMessage = React.useCallback(
         ({origin, data}: MessageEvent) => {
             if (origin !== yaFormOrigin) {
                 return;
@@ -125,7 +125,7 @@ const YandexForm = (props: YandexFormProps) => {
         [yaFormOrigin, id, onLoad, handleSubmit],
     );
 
-    const addIframe = useCallback(() => {
+    const addIframe = React.useCallback(() => {
         const container = formContainerRef.current;
 
         if (container) {
@@ -134,7 +134,7 @@ const YandexForm = (props: YandexFormProps) => {
         }
     }, [updateFormIframe, handleMessage]);
 
-    useEffect(() => {
+    React.useEffect(() => {
         addIframe();
         // Crunch for mobile chrome in lite mode
         // https://support.google.com/chrome/answer/2392284?co=GENIE.Platform%3DAndroid&oco=1

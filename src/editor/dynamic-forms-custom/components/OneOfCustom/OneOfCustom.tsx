@@ -1,4 +1,4 @@
-import React, {useMemo} from 'react';
+import * as React from 'react';
 
 import {
     Controller,
@@ -63,7 +63,7 @@ export const OneOfCustom: React.FC<ObjectIndependentInputProps> = (props) => {
     const {properties} = spec;
 
     //getting oneOf option type from initial value
-    const valueType = useMemo(
+    const valueType = React.useMemo(
         () =>
             (properties &&
                 Object.keys(properties)?.find((key) => {

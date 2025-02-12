@@ -1,5 +1,3 @@
-import React from 'react';
-
 import {Meta, StoryFn} from '@storybook/react';
 
 import {yfmTransform} from '../../../../.storybook/utils';
@@ -46,7 +44,7 @@ const createArgs = (overrides: Partial<FilterBlockProps>) =>
         tags: data.default.filters,
         items: createItemList(6, data.default.card, data.default.filters),
         ...overrides,
-    } as FilterBlockProps);
+    }) as FilterBlockProps;
 
 const DefaultTemplate: StoryFn<FilterBlockModel> = (args) => (
     <PageConstructor content={{blocks: [args]}} />

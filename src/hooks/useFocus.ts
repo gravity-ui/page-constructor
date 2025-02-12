@@ -1,17 +1,17 @@
-import {useCallback, useContext, useEffect, useState} from 'react';
+import * as React from 'react';
 
 import noop from 'lodash/noop';
 
 import {MobileContext} from '../context/mobileContext';
 
 export default function useFocus(element?: HTMLElement) {
-    const isMobile = useContext(MobileContext);
+    const isMobile = React.useContext(MobileContext);
 
-    const [hasFocus, setHasFocus] = useState(false);
-    const setFocus = useCallback(() => setHasFocus(true), []);
-    const unsetFocus = useCallback(() => setHasFocus(false), []);
+    const [hasFocus, setHasFocus] = React.useState(false);
+    const setFocus = React.useCallback(() => setHasFocus(true), []);
+    const unsetFocus = React.useCallback(() => setHasFocus(false), []);
 
-    useEffect(() => {
+    React.useEffect(() => {
         if (element) {
             if (isMobile) {
                 element.addEventListener('pointerdown', setFocus, {passive: true});

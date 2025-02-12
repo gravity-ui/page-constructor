@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import * as React from 'react';
 
 import {ChevronsExpandUpRight, Xmark} from '@gravity-ui/icons';
 import {Button, Icon, Modal} from '@gravity-ui/uikit';
@@ -32,8 +32,8 @@ const CLOSE_ICON_SIZE = 24;
 const getMediaClass = (type: string) => b('modal-media', {type});
 
 const FullscreenMedia = ({children, showFullscreenIcon = true}: FullscreenMediaProps) => {
-    const [isOpened, setIsOpened] = useState(false);
-    const isMobile = useContext(MobileContext);
+    const [isOpened, setIsOpened] = React.useState(false);
+    const isMobile = React.useContext(MobileContext);
 
     const openModal = (e: React.MouseEvent) => {
         e.stopPropagation();

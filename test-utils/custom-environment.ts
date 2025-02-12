@@ -7,7 +7,7 @@ const matchMedia = (query: string) =>
         matches: false,
         addListener: function () {},
         removeListener: function () {},
-    } as unknown as MediaQueryList);
+    }) as unknown as MediaQueryList;
 
 class CustomEnvironment extends JsDomEnvironmetn {
     constructor(config: JestEnvironmentConfig, context: EnvironmentContext) {

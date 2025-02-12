@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import {DEFAULT_THEME} from '../../components/constants';
 import {Theme} from '../../models';

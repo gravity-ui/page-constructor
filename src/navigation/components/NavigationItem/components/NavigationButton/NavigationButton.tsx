@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import {Button, RouterLink} from '../../../../../components';
 import {BlockIdContext} from '../../../../../context/blockIdContext';

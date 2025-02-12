@@ -1,4 +1,4 @@
-import React, {Fragment, useEffect, useState} from 'react';
+import * as React from 'react';
 
 import {Interpolation, animated, config, useSpring} from '@react-spring/web';
 import debounce from 'lodash/debounce';
@@ -57,7 +57,7 @@ const Image = (props: ImageAllProps) => {
         'image-view',
         'slider-block',
     );
-    const [scrollY, setScrollY] = useState(0);
+    const [scrollY, setScrollY] = React.useState(0);
     const [{springScrollY}, springSetScrollY] = useSpring(() => ({
         springScrollY: 0,
         config: config.molasses,
@@ -65,7 +65,7 @@ const Image = (props: ImageAllProps) => {
 
     let parallaxInterpolate: Interpolation<number, string> | string = '';
 
-    useEffect(() => {
+    React.useEffect(() => {
         if (parallax) {
             const handleScroll = () => setScrollY(window.scrollY);
             const debouncedHandler = debounce(handleScroll, 5);
@@ -134,9 +134,9 @@ const Image = (props: ImageAllProps) => {
         return (
             <SliderBlock slidesToShow={1} type={SliderType.MediaCard}>
                 {imageArray.map((item, index) => (
-                    <Fragment key={index}>
+                    <React.Fragment key={index}>
                         {fullscreenItem ? renderFullscreenImage(item) : imageOnly(item)}
-                    </Fragment>
+                    </React.Fragment>
                 ))}
             </SliderBlock>
         );

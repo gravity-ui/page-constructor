@@ -1,5 +1,3 @@
-import React from 'react';
-
 import {PageConstructor, PageConstructorProvider} from '../../../containers/PageConstructor';
 import {block} from '../../../utils';
 import AddBlock from '../../components/AddBlock/AddBlock';

@@ -1,4 +1,4 @@
-import React, {useEffect, useMemo} from 'react';
+import * as React from 'react';
 
 import {BlockDecorationProps} from '../../../../models';
 import {generateDefaultSchema} from '../../../../schema';
@@ -50,14 +50,14 @@ export const useEditorState = ({
     const isDesktopViewMode = viewMode === ViewModeItem.Desktop;
     const isCodeOnlyMode = codeFullscreeModeOn && isCodeEditMode;
 
-    const transformedContent = useMemo(
+    const transformedContent = React.useMemo(
         () => (transformContent ? transformContent(content, {viewMode, editMode}) : content),
         [content, transformContent, viewMode, editMode],
     );
-    const schema = useMemo(() => generateDefaultSchema(customSchema), [customSchema]);
+    const schema = React.useMemo(() => generateDefaultSchema(customSchema), [customSchema]);
     const codeValidator = useCodeValidator(schema);
 
-    const outgoingProps = useMemo(() => {
+    const outgoingProps = React.useMemo(() => {
         const custom =
             isCodeEditMode || isViewEditMode
                 ? rest.custom
@@ -93,7 +93,7 @@ export const useEditorState = ({
         isViewEditMode,
     ]);
 
-    const context = useMemo(
+    const context = React.useMemo(
         () => ({
             constructorProps: {
                 content: transformedContent,
@@ -118,7 +118,7 @@ export const useEditorState = ({
         ],
     );
 
-    useEffect(() => {
+    React.useEffect(() => {
         onChange?.(content);
     }, [content, onChange]);
 

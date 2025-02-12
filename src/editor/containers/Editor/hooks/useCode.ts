@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react';
+import * as React from 'react';
 
 import yaml from 'js-yaml';
 
@@ -18,12 +18,12 @@ type UseCodeProps = {
  * @returns {string} - updated code
  */
 export function useCode({content, codeFullscreeModeOn, isCodeEditMode}: UseCodeProps) {
-    const [code, setCode] = useState('');
+    const [code, setCode] = React.useState('');
 
     const prevContentLength = usePreviousValue(content.blocks?.length);
     const prevCodeFullscreeModeOn = usePreviousValue(codeFullscreeModeOn);
 
-    useEffect(() => {
+    React.useEffect(() => {
         const blocksCountChanged = prevContentLength !== content.blocks?.length;
         const codeModeSwitched = codeFullscreeModeOn !== prevCodeFullscreeModeOn;
 

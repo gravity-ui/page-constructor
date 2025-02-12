@@ -1,4 +1,4 @@
-import React, {ErrorInfo, PropsWithChildren} from 'react';
+import * as React from 'react';
 
 import {BlockDecorationProps} from '../../../models';
 import {block} from '../../../utils';
@@ -10,7 +10,7 @@ import './ErrorBoundary.scss';
 
 const b = block('error-boundary');
 
-interface ErrorBoundaryProps extends PropsWithChildren, Partial<BlockDecorationProps> {}
+interface ErrorBoundaryProps extends React.PropsWithChildren, Partial<BlockDecorationProps> {}
 interface ErrorBoundaryState {
     error?: string;
 }
@@ -18,7 +18,7 @@ interface ErrorBoundaryState {
 export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundaryState> {
     state = {} as ErrorBoundaryState;
 
-    componentDidCatch(error: Error, info: ErrorInfo) {
+    componentDidCatch(error: Error, info: React.ErrorInfo) {
         this.setState({error: `${error.message} ${info?.componentStack}`});
     }
 

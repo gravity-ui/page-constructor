@@ -1,4 +1,4 @@
-import React, {useCallback, useContext, useEffect, useMemo} from 'react';
+import * as React from 'react';
 
 import {Label, LabelProps} from '@gravity-ui/uikit';
 
@@ -53,9 +53,9 @@ const PriceDescription = (props: PriceDescriptionExtendProps) => {
     } = props;
 
     const descriptionRef = React.useRef<HTMLDivElement>(null);
-    const {pricesDetailedDescriptionHeight, setStyles} = useContext(StylesContext);
+    const {pricesDetailedDescriptionHeight, setStyles} = React.useContext(StylesContext);
 
-    const setDescriptionHeight = useCallback(() => {
+    const setDescriptionHeight = React.useCallback(() => {
         if (!descriptionRef || !descriptionRef.current) {
             return;
         }
@@ -81,14 +81,14 @@ const PriceDescription = (props: PriceDescriptionExtendProps) => {
         }
     }, [pricesDetailedDescriptionHeight, setStyles]);
 
-    useEffect(() => {
+    React.useEffect(() => {
         setDescriptionHeight();
 
         window.addEventListener('resize', setDescriptionHeight, {passive: true});
         return () => window.removeEventListener('resize', setDescriptionHeight);
     }, [setDescriptionHeight]);
 
-    const labelElement = useMemo(() => {
+    const labelElement = React.useMemo(() => {
         if (!label) {
             return null;
         }
@@ -104,7 +104,7 @@ const PriceDescription = (props: PriceDescriptionExtendProps) => {
         );
     }, [descriptionSize, label, labelsDefaultText]);
 
-    const titleElement = useMemo(() => {
+    const titleElement = React.useMemo(() => {
         return (
             <div className={b('title', {size: titleSize})}>
                 <div className={b('main-title', {color: colorTitle})}>{title}</div>
