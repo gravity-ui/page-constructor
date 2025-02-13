@@ -57,21 +57,24 @@ export interface EditorMethods {
 
 export type EditorStore = EditorState & EditorMethods;
 
-// TODO: split methods and state
+const initialStore: EditorState = {
+    height: 100,
+    zoom: 100,
+    manipulateOverlayMode: false,
+    selectedBlock: undefined,
+    initialized: false,
+    content: {blocks: []},
+    blocks: [],
+    subBlocks: [],
+    global: [],
+    preInsertBlockType: null,
+    preReorderBlockPath: null,
+};
+
+export const createPCEditorStore = initializeStore<EditorState>(initialStore, () => ({}));
+
 export const createEditorStore = initializeStore<EditorState, EditorMethods>(
-    {
-        height: 100,
-        zoom: 100,
-        manipulateOverlayMode: false,
-        selectedBlock: undefined,
-        initialized: false,
-        content: {blocks: []},
-        blocks: [],
-        subBlocks: [],
-        global: [],
-        preInsertBlockType: null,
-        preReorderBlockPath: null,
-    },
+    initialStore,
     (set, get) => ({
         setHeight(height: number) {
             // We have to add 200-500px, because of bottom padding or margin of last element
