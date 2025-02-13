@@ -1,16 +1,15 @@
 import {StoreApi, create} from 'zustand';
 import {devtools, subscribeWithSelector} from 'zustand/middleware';
 
-export function initializeStore<State, Methods>(
+export function initializeStore<State extends {}, Methods extends {} = {}>(
     initialState: State,
     methods: (
         set: StoreApi<State & Methods>['setState'],
         get: StoreApi<State & Methods>['getState'],
-        onStateUpdated?: () => void,
     ) => Methods,
 ) {
-    return (overrideInitialState?: Partial<State>, onStateUpdated?: () => void) =>
-        create<
+    return (overrideInitialState?: Partial<State>) => {
+        return create<
             State & Methods,
             [
                 ['zustand/subscribeWithSelector', State & Methods],
@@ -23,11 +22,12 @@ export function initializeStore<State, Methods>(
                     return {
                         ...initialState,
                         ...overrideInitialState,
-                        ...methods(set, get, onStateUpdated),
+                        ...methods(set, get),
                     };
                 }),
             ),
         );
+    };
 }
 
 export const removeFn = (object: object) => {
