@@ -118,7 +118,7 @@
   "peerDependencies": {
     "@diplodoc/transform": "^4.10.4",
     "@gravity-ui/uikit": "^6.0.0",
-    "react": "^16.0.0 || ^17.0.0 || ^18.0.0"
+    "react": "^16.14.0 || ^17.0.0 || ^18.0.0 || ^19.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.22.8",
