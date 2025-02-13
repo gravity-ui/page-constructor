@@ -2,7 +2,7 @@ import React, {PropsWithChildren, useCallback, useEffect, useRef} from 'react';
 
 import {StoreApi} from 'zustand';
 
-import {EditorStore, createEditorStore} from '../../common/store';
+import {EditorState, createPCEditorStore} from '../../common/store';
 import {StoreSyncMessage} from '../../common/types';
 
 import {PCEditorStoreContext} from './PCEditorStoreContext';
@@ -10,7 +10,7 @@ import {PCEditorStoreContext} from './PCEditorStoreContext';
 interface PCEditorStoreProviderProps extends PropsWithChildren {}
 
 export const PCEditorStoreProvider = ({children}: PCEditorStoreProviderProps) => {
-    const storeRef = useRef<StoreApi<EditorStore>>();
+    const storeRef = useRef<StoreApi<EditorState>>();
 
     const syncStore = useCallback((message: StoreSyncMessage) => {
         if (storeRef.current && message.state) {
@@ -32,7 +32,7 @@ export const PCEditorStoreProvider = ({children}: PCEditorStoreProviderProps) =>
     }, [syncStore]);
 
     if (!storeRef.current) {
-        storeRef.current = createEditorStore();
+        storeRef.current = createPCEditorStore();
     }
 
     return (
