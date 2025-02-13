@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [5.36.0](https://github.com/gravity-ui/page-constructor/compare/v5.35.1...v5.36.0) (2025-02-13)
+
+
+### Features
+
+* upd peer (react 19) ([#1126](https://github.com/gravity-ui/page-constructor/issues/1126)) ([25ef1bc](https://github.com/gravity-ui/page-constructor/commit/25ef1bcc304075175ef4cc1ed903b24c3054a7a2))
+
 ## [5.35.1](https://github.com/gravity-ui/page-constructor/compare/v5.35.0...v5.35.1) (2025-02-12)
 
 
