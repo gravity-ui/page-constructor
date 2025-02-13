@@ -17,6 +17,5 @@ export type EventMessageTypes = {
 
 export type ActionMessageTypes = {
     GET_SUPPORTED_BLOCKS: {};
-    GET_CURRENT_CONTENT: {};
-    SET_CONTENT: PageContent;
+    GET_INITIAL_CONTENT: {};
 };
