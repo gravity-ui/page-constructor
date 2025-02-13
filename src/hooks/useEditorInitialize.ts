@@ -21,7 +21,7 @@ export const useInitializeEditorEvents = ({
     initialContent,
     setContent,
 }: UseEditorInitializeProps) => {
-    const {manipulateOverlayMode, disableMode, initialized, content} = usePCEditorStore();
+    const {manipulateOverlayMode, initialized, content} = usePCEditorStore();
 
     useEffect(() => {
         if (initialized) {
@@ -29,7 +29,7 @@ export const useInitializeEditorEvents = ({
         }
     }, [content, initialized, setContent]);
 
-    useInternalPostMessageAPIListener('GET_CURRENT_CONTENT', () => {
+    useInternalPostMessageAPIListener('GET_INITIAL_CONTENT', () => {
         sendEventPostMessage('ON_INITIAL_CONTENT', initialContent);
     });
 
@@ -76,7 +76,7 @@ export const useInitializeEditorEvents = ({
             document.removeEventListener('mouseup', throttleOnMouseUp);
             window.removeEventListener('resize', onResize);
         };
-    }, [disableMode, manipulateOverlayMode, onResize]);
+    }, [manipulateOverlayMode, onResize]);
 
     useEffect(() => {
         const height = document.documentElement.getBoundingClientRect().height;

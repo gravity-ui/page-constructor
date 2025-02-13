@@ -35,8 +35,10 @@ export function listenPostMessageEvents<K extends keyof EventMessageTypes>(
 export function usePostMessageAPIListener<K extends keyof EventMessageTypes>(
     action: K,
     callback: (data: EventMessageTypes[K]) => void,
+    deps: unknown[] = [],
 ) {
     useEffect(() => {
         return listenPostMessageEvents(action, callback);
-    }, [action, callback]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [...deps]);
 }

@@ -17,11 +17,15 @@ const useAdminInitialize = () => {
         preReorderBlockPath,
     } = useMainEditorStore();
 
-    usePostMessageAPIListener('ON_INIT', () => {
-        initialize();
-        requestPostMessage('GET_SUPPORTED_BLOCKS', {});
-        requestPostMessage('GET_CURRENT_CONTENT', {});
-    });
+    usePostMessageAPIListener(
+        'ON_INIT',
+        () => {
+            initialize();
+            requestPostMessage('GET_SUPPORTED_BLOCKS', {});
+            requestPostMessage('GET_INITIAL_CONTENT', {});
+        },
+        [requestPostMessage],
+    );
 
     usePostMessageAPIListener('ON_INITIAL_CONTENT', (data) => {
         setContent(data);
