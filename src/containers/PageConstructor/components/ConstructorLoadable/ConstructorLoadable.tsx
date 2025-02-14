@@ -20,7 +20,7 @@ export const ConstructorLoadable = (props: ConstructorLoadableProps) => {
     >;
 
     return (
-        <BlockIdContext.Provider value={blockKey} key={blockKey}>
+        <BlockIdContext.Provider value={Number(blockKey)} key={blockKey}>
             <Loadable
                 key={blockKey}
                 block={block}

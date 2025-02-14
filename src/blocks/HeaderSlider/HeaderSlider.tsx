@@ -25,15 +25,16 @@ export const HeaderSliderBlock = ({items, arrows, ...props}: HeaderSliderBlockPr
                 blockClassName={b()}
                 arrowSize={20}
             >
-                {items.map((item, index) => (
-                    <div
-                        key={index}
-                        className={b('item')}
-                        data-qa={`header-slider-item-${index + 1}`}
-                    >
-                        <Header {...item} className={b('item-content')} />
-                    </div>
-                ))}
+                {items &&
+                    items.map((item, index) => (
+                        <div
+                            key={index}
+                            className={b('item')}
+                            data-qa={`header-slider-item-${index + 1}`}
+                        >
+                            <Header {...item} className={b('item-content')} />
+                        </div>
+                    ))}
             </SliderBlock>
         </div>
     );

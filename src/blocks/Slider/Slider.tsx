@@ -18,10 +18,13 @@ import Anchor from '../../components/Anchor/Anchor';
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
 import OutsideClick from '../../components/OutsideClick/OutsideClick';
 import Title from '../../components/Title/Title';
+import ChildrenWrap from '../../components/editor/ChildrenWrap/ChildrenWrap';
+import ItemWrap from '../../components/editor/ItemWrap/ItemWrap';
 import {BREAKPOINTS} from '../../constants';
 import {MobileContext} from '../../context/mobileContext';
 import {SSRContext} from '../../context/ssrContext';
 import {StylesContext} from '../../context/stylesContext/StylesContext';
+import {Grid} from '../../grid';
 import useFocus from '../../hooks/useFocus';
 import {
     ClassNameProps,
@@ -100,14 +103,16 @@ export const SliderBlock = (props: React.PropsWithChildren<SliderProps>) => {
     const isAutoplayEnabled = autoplaySpeed !== undefined && autoplaySpeed > 0;
     const isUserInteractionRef = useRef(false);
 
-    const [slidesToShow] = useState<SliderBreakpointParams>(
-        getSlidesToShowWithDefaults({
-            contentLength: childrenCount,
-            breakpoints: props.slidesToShow,
-            mobileFullscreen: Boolean(
-                props.type && Object.values(SliderType).includes(props.type as SliderType),
-            ),
-        }),
+    const slidesToShow = useMemo<SliderBreakpointParams>(
+        () =>
+            getSlidesToShowWithDefaults({
+                contentLength: childrenCount,
+                breakpoints: props.slidesToShow,
+                mobileFullscreen: Boolean(
+                    props.type && Object.values(SliderType).includes(props.type as SliderType),
+                ),
+            }),
+        [childrenCount, props.slidesToShow, props.type],
     );
 
     const slidesToShowCount = getSlidesToShowCount(slidesToShow);
@@ -426,40 +431,49 @@ export const SliderBlock = (props: React.PropsWithChildren<SliderProps>) => {
         };
 
         return (
-            <OutsideClick onOutsideClick={isMobile ? unsetFocus : noop}>
-                <SlickSlider {...settings}>{disclosedChildren}</SlickSlider>
-                <div className={b('footer')}>
-                    {renderDisclaimer()}
-                    {renderNavigation()}
-                </div>
-            </OutsideClick>
+            <ChildrenWrap>
+                <OutsideClick onOutsideClick={isMobile ? unsetFocus : noop}>
+                    <SlickSlider {...settings}>
+                        {React.Children.map(disclosedChildren, (child, index) => (
+                            <ItemWrap index={index}>{child}</ItemWrap>
+                        ))}
+                    </SlickSlider>
+
+                    <div className={b('footer')}>
+                        {renderDisclaimer()}
+                        {renderNavigation()}
+                    </div>
+                </OutsideClick>
+            </ChildrenWrap>
         );
     };
 
     return (
         <StylesContext.Provider value={{...childStyles, setStyles: setChildStyles}}>
-            <div
-                className={b(
-                    {
-                        'align-left': childrenCount < slidesCountByBreakpoint,
-                        'one-slide': childrenCount === 1,
-                        'only-arrows': !title?.text && !description && arrows,
-                        mobile: isMobile,
-                        type,
-                    },
-                    blockClassName,
-                )}
-            >
-                {anchorId && <Anchor id={anchorId} />}
-                <Title
-                    title={title}
-                    subtitle={description}
-                    className={b('header', {'no-description': !description})}
-                />
-                <AnimateBlock className={b('animate-slides')} animate={animated}>
-                    {renderSlider()}
-                </AnimateBlock>
-            </div>
+            <Grid>
+                <div
+                    className={b(
+                        {
+                            'align-left': childrenCount < slidesCountByBreakpoint,
+                            'one-slide': childrenCount === 1,
+                            'only-arrows': !title?.text && !description && arrows,
+                            mobile: isMobile,
+                            type,
+                        },
+                        blockClassName,
+                    )}
+                >
+                    {anchorId && <Anchor id={anchorId} />}
+                    <Title
+                        title={title}
+                        subtitle={description}
+                        className={b('header', {'no-description': !description})}
+                    />
+                    <AnimateBlock className={b('animate-slides')} animate={animated}>
+                        {renderSlider()}
+                    </AnimateBlock>
+                </div>
+            </Grid>
         </StylesContext.Provider>
     );
 };
