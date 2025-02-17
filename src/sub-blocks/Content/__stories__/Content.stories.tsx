@@ -123,6 +123,7 @@ Default.args = {
 
 Size.args = {
     ...defaultArgs,
+    additionalInfo: yfmTransform(data.default.content.additionalInfo),
 } as ContentBlockProps;
 
 Centered.args = {

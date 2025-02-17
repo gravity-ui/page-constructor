@@ -79,8 +79,7 @@ $darkSecondary: var(--g-color-text-dark-secondary);
 
     &_size {
         &_s {
-            #{$block}__text,
-            #{$block}__notice {
+            #{$block}__text {
                 margin-top: $indentXXXS;
             }
 
@@ -91,7 +90,8 @@ $darkSecondary: var(--g-color-text-dark-secondary);
             }
 
             #{$block}__list,
-            #{$block}__links {
+            #{$block}__links,
+            #{$block}__notice {
                 margin-top: $indentXS;
             }
             #{$block}__buttons {
@@ -104,8 +104,7 @@ $darkSecondary: var(--g-color-text-dark-secondary);
         }
 
         &_m {
-            #{$block}__text,
-            #{$block}__notice {
+            #{$block}__text {
                 margin-top: $indentXXS;
             }
 
@@ -129,7 +128,8 @@ $darkSecondary: var(--g-color-text-dark-secondary);
             }
 
             #{$block}__list,
-            #{$block}__links {
+            #{$block}__links,
+            #{$block}__notice {
                 margin-top: $indentS;
             }
             #{$block}__buttons {
@@ -138,8 +138,7 @@ $darkSecondary: var(--g-color-text-dark-secondary);
         }
 
         &_l {
-            #{$block}__text,
-            #{$block}__notice {
+            #{$block}__text {
                 margin-top: $indentXXS;
             }
 
@@ -164,7 +163,8 @@ $darkSecondary: var(--g-color-text-dark-secondary);
             }
 
             #{$block}__list,
-            #{$block}__links {
+            #{$block}__links,
+            #{$block}__notice {
                 margin-top: $indentS;
             }
             #{$block}__buttons {
