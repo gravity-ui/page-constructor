@@ -46,4 +46,4 @@ Landing.args = {
         ...landingData.landing.content,
     },
     navigation: landingData.landing.navigation,
-};
+} as PageConstructorProps;
