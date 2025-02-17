@@ -1,0 +1,328 @@
+{
+  "landing": {
+    "navigation": {
+      "logo": {
+        "icon": "story-assets/landing/gravity-ui-logo.svg"
+      },
+      "header": {
+        "leftItems": [
+          {
+            "type": "link",
+            "text": "Projects"
+          },
+          {
+            "type": "link",
+            "text": "Technology"
+          },
+          {
+            "type": "link",
+            "text": "Contacts"
+          }
+        ],
+        "rightItems": [
+          {
+            "type": "dropdown",
+            "text": "Language",
+            "items": [
+              {
+                "text": "Russian",
+                "type": "link"
+              },
+              {
+                "text": "English",
+                "type": "link"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "withFullWidthBackgroundMedia": {
+      "background": {
+        "light": {
+          "image": "/story-assets/header-bg-video_light.png",
+          "color": "#EFF2F8",
+          "fullWidthMedia": true,
+          "parallax": false
+        },
+        "dark": {
+          "image": "/story-assets/header-bg-video_dark.png",
+          "color": "#262626",
+          "fullWidthMedia": true,
+          "parallax": false
+        }
+      }
+    },
+    "content": {
+      "blocks": [
+        {
+          "type": "header-block",
+          "title": "Sample Service",
+          "description": "<p>The service does good and provides you with a lot of opportunities and features. With the highest tech in mind we created a solution that could you suit you the best way possible</p>",
+          "width": "s",
+          "verticalOffset": "l",
+          "offset": "default",
+          "resetPaddings": true,
+          "background": {
+            "color": "#F0F1F6",
+            "fullWidth": true,
+            "image": {
+              "desktop": "story-assets/landing/header-landing.png",
+              "mobile": "story-assets/landing/header-landing.png"
+            }
+          }
+        },
+        {
+          "type": "extended-features-block",
+          "title": {
+            "text": "Why this solution is good"
+          },
+          "items": [
+            {
+              "title": "Scalability",
+              "icon": "story-assets/landing/yandex-icon.svg",
+              "text": "<p>You can have either one or multiple instances depending on your demands including your organization size and number of emplyees. We have something both for big companies and small startups, and everything is backed by our expertise in different fields.</p>"
+            },
+            {
+              "title": "Features",
+              "icon": "story-assets/landing/users-icon.svg",
+              "text": "<p>Working in the field you are likely to use a lot of tools and we want to aknowledge that we follow all the industry stadards and even more — we can make something specifically tailored for your needs and requirements. So whatever you want, we’re likely to offer you that.</p>"
+            },
+            {
+              "title": "Price",
+              "icon": "story-assets/landing/check-mark-icon.svg",
+              "text": "<p>When thinking about the price a lot of company managers feel that they could pay less. Think no more and pay less today as our prices are lowest on the market. We offer subscription-based models as well as hour-based. Choose whichever is better for you and adjust it any time.</p>"
+            }
+          ]
+        },
+        {
+          "type": "content-layout-block",
+          "textWidth": "s",
+          "theme": "dark",
+          "textContent": {
+            "text": "",
+            "title": {
+              "text": "We have some additional content for you to discover on our knowledge database"
+            },
+            "buttons": [
+              {
+                "text": "Learn More",
+                "view": "normal-contrast"
+              }
+            ]
+          },
+          "background": {
+            "src": "story-assets/landing/layout-image.png"
+          }
+        },
+        {
+          "type": "card-layout-block",
+          "title": "Tell a story and build a narrative",
+          "description": "<p>We are all storytellers. Stories are a powerful way to communicate ideas and share information. The right story can lead to a better understanding of a situation, make us laugh, or even inspire us to do something in the future.</p>",
+          "colSizes": {
+            "all": 6,
+            "lg": 3,
+            "md": 4,
+            "sm": 6
+          },
+          "children": [
+            {
+              "type": "layout-item",
+              "content": {
+                "title": "Discover Terms",
+                "text": "<p>The very first step when you get all the information you possibly need</p>"
+              },
+              "media": {
+                "image": "story-assets/landing/timeline-1.svg"
+              }
+            },
+            {
+              "type": "layout-item",
+              "content": {
+                "title": "Create Application",
+                "text": "<p>After you’re done with the information collection, proceed to the application</p>"
+              },
+              "media": {
+                "image": "story-assets/landing/timeline-2.svg"
+              }
+            },
+            {
+              "type": "layout-item",
+              "content": {
+                "title": "Prepare all papers",
+                "text": "<p>In order to continue you’ll need to prepare everything according with the roadmap we’ll give you</p>"
+              },
+              "media": {
+                "image": "story-assets/landing/timeline-3.svg"
+              }
+            },
+            {
+              "type": "layout-item",
+              "content": {
+                "title": "Fill the Form",
+                "text": "<p>A couple more questions for you and a couple more answers for us</p>"
+              },
+              "media": {
+                "image": "story-assets/landing/timeline-4.svg"
+              }
+            },
+            {
+              "type": "layout-item",
+              "content": {
+                "title": "Meet with the manager",
+                "text": "<p>Our managers will guide you throughout the entire process</p>"
+              },
+              "media": {
+                "image": "story-assets/landing/timeline-5.svg"
+              }
+            },
+            {
+              "type": "layout-item",
+              "content": {
+                "title": "Submit the Application",
+                "text": "<p>Now everything is ready</p>"
+              },
+              "media": {
+                "image": "story-assets/landing/timeline-6.svg"
+              }
+            }
+          ]
+        },
+        {
+          "type": "card-layout-block",
+          "title": "Some more cards for your information",
+          "description": "<p>They represent both the areas we are profficient at and some of the case studies regarding the projects we participated at. Usually it’s a good starting point for a conversation</p>",
+          "colSizes": {
+            "all": 7,
+            "lg": 3,
+            "md": 4,
+            "sm": 6
+          },
+          "children": [
+            {
+              "type": "background-card",
+              "title": "The Cube",
+              "text": "<p>A simplistic yet powerful volume geometry primitive</p>",
+              "backgroundColor": "#5B768C",
+              "background": {
+                "src": "story-assets/landing/cube-bg.svg",
+                "alt": "card-background"
+              },
+              "paddingBottom": "m",
+              "theme": "dark"
+            },
+            {
+              "type": "background-card",
+              "title": "Pile of Cubes",
+              "text": "<p>If you put two cubes together and then one above them it saves the space and enhances the storage</p>",
+              "backgroundColor": "#277270",
+              "background": {
+                "src": "story-assets/landing/cubes-bg.svg",
+                "alt": "card-background"
+              },
+              "paddingBottom": "m",
+              "theme": "dark"
+            },
+            {
+              "type": "background-card",
+              "title": "Random Numbers",
+              "text": "<p>Some of the random number generators are not quite random and therefore can’t help with tough management decisions</p>",
+              "backgroundColor": "#F7AF49",
+              "background": {
+                "src": "story-assets/landing/random-numbers-bg.svg",
+                "alt": "card-background"
+              },
+              "paddingBottom": "m",
+              "theme": "light"
+            },
+            {
+              "type": "background-card",
+              "title": "Code Assistant",
+              "text": "<p>Some day it might change the way the industry operates</p>",
+              "backgroundColor": "#4761D6",
+              "background": {
+                "src": "story-assets/landing/code-bg.svg",
+                "alt": "card-background"
+              },
+              "paddingBottom": "m",
+              "theme": "dark"
+            },
+            {
+              "type": "background-card",
+              "title": "Mail List Service",
+              "text": "<p>Although every orgnization has its own sort od messenger to use, the mail still provides some great experience</p>",
+              "backgroundColor": "#77E369",
+              "background": {
+                "src": "story-assets/landing/mail-bg.svg",
+                "alt": "card-background"
+              },
+              "paddingBottom": "m",
+              "theme": "light"
+            },
+            {
+              "type": "background-card",
+              "title": "Store all the Project Data",
+              "text": "<p>Whether it’s just a file or anything different, safely share it with your team and collaborate</p>",
+              "backgroundColor": "#FAE26F",
+              "background": {
+                "src": "story-assets/landing/store-bg.svg",
+                "alt": "card-background"
+              },
+              "paddingBottom": "m",
+              "theme": "light"
+            },
+            {
+              "type": "background-card",
+              "title": "That’s not all",
+              "text": "Click the button to learn more",
+              "backgroundColor": "white",
+              "paddingBottom": "m",
+              "theme": "light",
+              "buttons": [
+                {
+                  "text": "Learn more",
+                  "theme": "monochrome"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "largeMedia": true,
+          "mediaOnly": false,
+          "size": "l",
+          "type": "media-block",
+          "direction": "content-media",
+          "anchor": {
+            "url": "1",
+            "text": "Фильм"
+          },
+          "title": "Discover our latest webinar",
+          "description": "Our managers and engineers share their expertise on the best practices",
+          "media": {
+            "image": "story-assets/landing/result.svg"
+          },
+          "disableShadow": true
+        },
+        {
+          "type": "content-layout-block",
+          "size": "l",
+          "centered": true,
+          "textContent": {
+            "title": "",
+            "text": "",
+            "additionalInfo": "",
+            "buttons": [
+              {
+                "text": "Built with GravityUI",
+                "theme": "monochrome",
+                "img": "https://storage.yandexcloud.net/cloud-www-assets/pages/open-source/open-source-gravity-ui-button.svg",
+                "url": "https://gravity-ui.com/"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
