@@ -15,6 +15,7 @@ import {Theme} from '../src';
 import {GlobalThemeController} from './theme/utils/global-theme-controller';
 
 import '../styles/styles.scss';
+import '../styles/root.scss';
 
 const withContextProvider: Decorator = (Story, context) => {
     const theme = context.globals.theme;
