@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [5.36.1](https://github.com/gravity-ui/page-constructor/compare/v5.36.0...v5.36.1) (2025-02-18)
+
+
+### Bug Fixes
+
+* fix storybook styles; add inter 500 font ([#1128](https://github.com/gravity-ui/page-constructor/issues/1128)) ([cdf5710](https://github.com/gravity-ui/page-constructor/commit/cdf571005a0e5531940266550169fa9c7fcec2d2))
+
 ## [5.36.0](https://github.com/gravity-ui/page-constructor/compare/v5.35.1...v5.36.0) (2025-02-13)
 
 
