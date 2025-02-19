@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [5.37.0](https://github.com/gravity-ui/page-constructor/compare/v5.36.1...v5.37.0) (2025-02-19)
+
+
+### Features
+
+* **HeaderBlock:** add centered prop ([#1130](https://github.com/gravity-ui/page-constructor/issues/1130)) ([c824cf4](https://github.com/gravity-ui/page-constructor/commit/c824cf47d368f7364276ebb14ff1b4e7f65b03dc))
+
 ## [5.36.1](https://github.com/gravity-ui/page-constructor/compare/v5.36.0...v5.36.1) (2025-02-18)
 
 
