@@ -28,6 +28,7 @@ export default {
         offset: 'default',
         theme: 'light',
         verticalOffset: 'm',
+        centered: undefined,
     },
     argTypes: {
         overtitle: {control: 'text'},
@@ -48,6 +49,14 @@ const SizeTemplate: StoryFn<HeaderBlockModel> = (args) => (
         <DefaultTemplate {...args} title={getSizeTitle('"L"')} width="l" />
         <DefaultTemplate {...args} title={getSizeTitle('"M"')} width="m" />
         <DefaultTemplate {...args} title={getSizeTitle('"S"')} width="s" />
+    </Fragment>
+);
+
+const CenteredTemplate: StoryFn<HeaderBlockModel> = (args) => (
+    <Fragment>
+        <DefaultTemplate {...args} title={getSizeTitle('"L"')} width="l" centered />
+        <DefaultTemplate {...args} title={getSizeTitle('"M"')} width="m" centered />
+        <DefaultTemplate {...args} title={getSizeTitle('"S"')} width="s" centered />
     </Fragment>
 );
 
@@ -193,6 +202,7 @@ const BreadCrumbsTemplate: StoryFn<HeaderBlockModel> = (args) => (
 
 export const Default = DefaultTemplate.bind({});
 export const Size = SizeTemplate.bind({});
+export const Centered = CenteredTemplate.bind({});
 export const Image = ImageTemplate.bind({});
 export const VerticalOffset = VerticalOffsetTemplate.bind({});
 export const Background = BackgroundTemplate.bind({});
@@ -205,6 +215,8 @@ export const MediaViewFit = FitTemplate.bind({});
 Default.args = {...DefaultArgs} as HeaderBlockProps;
 
 Size.args = {...DefaultArgs} as HeaderBlockPropsNoTitle;
+
+Centered.args = {...DefaultArgs} as HeaderBlockPropsNoTitle;
 
 Image.args = {
     ...DefaultArgs,
