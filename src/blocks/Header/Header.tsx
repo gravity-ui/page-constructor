@@ -1,3 +1,4 @@
+/* eslint-disable complexity */
 import React, {useContext} from 'react';
 
 import {useUniqId} from '@gravity-ui/uikit';
@@ -83,10 +84,11 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
         renderTitle,
         children,
         mediaView = 'full',
+        centered,
     } = props;
     const isMobile = useContext(MobileContext);
     const theme = useTheme();
-    const hasRightSideImage = Boolean(image || video);
+    const hasRightSideImage = Boolean((image || video) && !centered);
     const curImageSize = imageSize || getImageSize(width);
     const titleSizes = hasRightSideImage ? titleWithImageSizes(curImageSize) : getTitleSizes(width);
     let curVerticalOffset = verticalOffset;
@@ -140,7 +142,7 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
                                     'vertical-offset': curVerticalOffset,
                                 })}
                             >
-                                <Col sizes={titleSizes} className={b('content-inner')}>
+                                <Col sizes={titleSizes} className={b('content-inner', {centered})}>
                                     {overtitle && (
                                         <div className={b('overtitle')}>
                                             {typeof overtitle === 'string' ? (

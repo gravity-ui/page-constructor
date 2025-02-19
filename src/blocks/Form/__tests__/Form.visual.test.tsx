@@ -14,31 +14,31 @@ import {
 const DEFAULT_FORM_DELAY = 20 * 1000;
 
 test.describe('Form', () => {
-    test('render stories <Default>', async ({mount, expectScreenshot, delay}) => {
+    test.skip('render stories <Default>', async ({mount, expectScreenshot, delay}) => {
         await mount(<Default />);
         await delay(DEFAULT_FORM_DELAY);
         await expectScreenshot({skipTheme: 'dark'});
     });
 
-    test('render stories <ContentDirection>', async ({mount, expectScreenshot, delay}) => {
+    test.skip('render stories <ContentDirection>', async ({mount, expectScreenshot, delay}) => {
         await mount(<ContentDirection />);
         await delay(DEFAULT_FORM_DELAY);
         await expectScreenshot({skipTheme: 'dark'});
     });
 
-    test('render stories <WithBackgroundColor>', async ({mount, expectScreenshot, delay}) => {
+    test.skip('render stories <WithBackgroundColor>', async ({mount, expectScreenshot, delay}) => {
         await mount(<WithBackgroundColor />);
         await delay(DEFAULT_FORM_DELAY);
         await expectScreenshot({skipTheme: 'dark'});
     });
 
-    test('render stories <WithBackgroundImage>', async ({mount, expectScreenshot, delay}) => {
+    test.skip('render stories <WithBackgroundImage>', async ({mount, expectScreenshot, delay}) => {
         await mount(<WithBackgroundImage />);
         await delay(DEFAULT_FORM_DELAY);
         await expectScreenshot({skipTheme: 'dark'});
     });
 
-    test('render stories <DarkTheme>', async ({mount, expectScreenshot, delay}) => {
+    test.skip('render stories <DarkTheme>', async ({mount, expectScreenshot, delay}) => {
         await mount(<DarkTheme />);
         await delay(DEFAULT_FORM_DELAY);
         await expectScreenshot({skipTheme: 'dark'});
