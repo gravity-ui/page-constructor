@@ -54,6 +54,10 @@ $darkSecondary: var(--g-color-text-dark-secondary);
             text-align: center;
         }
 
+        #{$block}__list {
+            margin-inline: auto;
+        }
+
         #{$block}__buttons {
             justify-content: center;
         }
