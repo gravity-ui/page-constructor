@@ -2,11 +2,12 @@ import React, {useCallback, useEffect} from 'react';
 
 import _ from 'lodash';
 
-import {usePCEditorStore} from '../../../../../context/editorStoreContext';
-import {sendEventPostMessage} from '../../../../../hooks/usePostMessageAPI';
-import {getCursorPositionOverElement} from '../../../../../utils/editor';
+import {getCursorPositionOverElement} from '../utils/editor';
 
-const useEditorBlockMouseEvents = (arrayIndex: number[], element?: HTMLElement) => {
+import {usePCEditorStore} from './usePCEditorStore';
+import {sendEventPostMessage} from './usePostMessageAPI';
+
+const usePCEditorBlockMouseEvents = (arrayIndex: number[], element?: HTMLElement) => {
     const {selectedBlock} = usePCEditorStore();
 
     const onMouseUp = useCallback(
@@ -84,4 +85,4 @@ const useEditorBlockMouseEvents = (arrayIndex: number[], element?: HTMLElement) 
     };
 };
 
-export default useEditorBlockMouseEvents;
+export default usePCEditorBlockMouseEvents;

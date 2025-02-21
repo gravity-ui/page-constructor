@@ -44,12 +44,7 @@ import TableBlockConfig from './blocks/Table';
 import TabsBlockConfig from './blocks/Tabs';
 import {BlockConfig} from './common/types';
 import {BlockType, NavigationItemType, SubBlockType} from './models';
-import {
-    GithubButton,
-    NavigationButton,
-    NavigationDropdown,
-    NavigationLink,
-} from './navigation/components/NavigationItem';
+import {GithubButton, NavigationButton, NavigationDropdown, NavigationLink} from './navigation';
 import SocialIcon from './navigation/components/SocialIcon/SocialIcon';
 import {
     BackgroundCard,
@@ -77,6 +72,7 @@ import PriceDetailedConfig from './sub-blocks/PriceDetailed';
 import QuoteConfig from './sub-blocks/Quote';
 
 /**
+ * TODO: remove it
  * @deprecated use blockDataMap
  **/
 export const blockMap = {
@@ -104,6 +100,7 @@ export const blockMap = {
 };
 
 /**
+ * TODO: remove it
  * @deprecated use blockDataMap
  **/
 export const subBlockMap = {
