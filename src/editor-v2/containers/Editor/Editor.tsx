@@ -7,10 +7,10 @@ import MiddleScreen from '../../components/MiddleScreen/MiddleScreen';
 import {Panels} from '../../components/Panels/Panels';
 import {Sidebar} from '../../components/Sidebar/Sidebar';
 import StoreViewer from '../../components/StoreViewer/StoreViewer';
-import {MainEditorStoreProvider, useMainEditorStore} from '../../context/editorStore';
+import {MainEditorStoreProvider} from '../../context/editorStore';
 import {IframeProvider} from '../../context/iframeContext';
-
-import useAdminInitialize from './hooks/useAdminInitialize';
+import useMainEditorInitialize from '../../hooks/useMainEditorInitialize';
+import {useMainEditorStore} from '../../hooks/useMainEditorStore';
 
 import './Editor.scss';
 
@@ -26,7 +26,7 @@ const EditorView = (_props: EditorViewProps) => {
     const store = useMainEditorStore();
     const {manipulateOverlayMode, disableMode} = store;
 
-    useAdminInitialize();
+    useMainEditorInitialize();
 
     // Disable insert mode on any MouseUp event
     // Maybe should be attached to body
