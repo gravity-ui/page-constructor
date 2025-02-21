@@ -4,10 +4,9 @@ import pick from 'lodash/pick';
 
 import BlockBase from '../../../../components/BlockBase/BlockBase';
 import {BlockDecoration} from '../../../../customization/BlockDecoration';
+import usePCEditorBlockMouseEvents from '../../../../hooks/usePCEditorBlockMouseEvents';
 import {BlockDecorationProps, ConstructorBlock as ConstructorBlockType} from '../../../../models';
 import {block} from '../../../../utils';
-
-import useEditorBlockMouseEvents from './hooks/useEditorBlockMouseEvents';
 
 import './ConstructorBlock.scss';
 
@@ -28,7 +27,7 @@ export const ConstructorBlock = ({
             setElement(node);
         }
     }, []);
-    const adminBlockMouseEvents = useEditorBlockMouseEvents([index], element);
+    const adminBlockMouseEvents = usePCEditorBlockMouseEvents([index], element);
 
     const {type} = data;
     const blockBaseProps = useMemo(

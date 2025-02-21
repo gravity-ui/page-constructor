@@ -1,7 +1,7 @@
 import React, {PropsWithChildren, ReactNode, useCallback, useContext, useState} from 'react';
 
-import useEditorBlockMouseEvents from '../../../containers/PageConstructor/components/ConstructorBlock/hooks/useEditorBlockMouseEvents';
 import {BlockIdContext} from '../../../context/blockIdContext';
+import usePCEditorBlockMouseEvents from '../../../hooks/usePCEditorBlockMouseEvents';
 import {block} from '../../../utils';
 
 import './ChildrenWrap.scss';
@@ -21,7 +21,7 @@ const ChildrenWrap = (props: ChildrenWrapProps) => {
         }
     }, []);
     const parentBlockId = useContext(BlockIdContext);
-    const {onMouseUp, onMouseMove} = useEditorBlockMouseEvents([parentBlockId, 0], element);
+    const {onMouseUp, onMouseMove} = usePCEditorBlockMouseEvents([parentBlockId, 0], element);
 
     return (
         // eslint-disable-next-line jsx-a11y/no-static-element-interactions
