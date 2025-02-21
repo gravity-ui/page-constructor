@@ -2,7 +2,7 @@ import React from 'react';
 
 import {StoreApi} from 'zustand';
 
-import {EditorStore, createEditorStore} from '../../../common/store';
+import {EditorStore, createEditorStore} from '../../store';
 
 export interface MainEditorStoreContextProps {
     state: StoreApi<EditorStore>;

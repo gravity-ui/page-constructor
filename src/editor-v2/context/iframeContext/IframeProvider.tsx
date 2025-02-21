@@ -1,6 +1,6 @@
 import React, {PropsWithChildren, useState} from 'react';
 
-import {IframeContext} from './iframeContext';
+import {IframeContext} from './IframeContext';
 
 interface IframeProviderProps extends PropsWithChildren {
     initialUrl?: string;

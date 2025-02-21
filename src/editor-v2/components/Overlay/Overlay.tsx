@@ -6,7 +6,7 @@ import {Button, Icon} from '@gravity-ui/uikit';
 import {usePostMessageAPIListener} from '../../../common/postMessage';
 import {ClassNameProps} from '../../../models';
 import {block} from '../../../utils';
-import {useMainEditorStore} from '../../context/editorStore';
+import {useMainEditorStore} from '../../hooks/useMainEditorStore';
 
 import './Overlay.scss';
 
