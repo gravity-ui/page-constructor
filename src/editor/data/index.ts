@@ -2,6 +2,7 @@ import {Block, BlockType} from '../../models';
 import {formatBlockName} from '../utils';
 
 import DefaultPreview from './previews/default-preview';
+import HeaderBlock from './previews/header-block';
 
 export type PreviewComponent = React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
 
@@ -14,12 +15,16 @@ export interface EdiorBlockData {
     };
 }
 
-const getBlockTemplate = (blockType: BlockType) =>
-    require(`./templates/${blockType}.json`) as Omit<EdiorBlockData, 'preview'>;
+const getBlockTemplate = (blockType: BlockType): Promise<Omit<EdiorBlockData, 'preview'>> =>
+    import(`./templates/${blockType}.json`).then((data) => data.default);
 
-const getBlockPreview = (blockType: BlockType) => {
+const getBlockPreview = (blockType: BlockType): PreviewComponent => {
     try {
-        return require(`./previews/${blockType}.tsx`).default as PreviewComponent;
+        if (blockType === BlockType.HeaderBlock) {
+            return HeaderBlock;
+        }
+
+        return DefaultPreview;
     } catch (err) {
         /*eslint-disable no-console */
         console.warn(`Preview image for ${blockType} not found`);
@@ -27,20 +32,26 @@ const getBlockPreview = (blockType: BlockType) => {
     }
 };
 
-const EditorBlocksData = Object.values(BlockType).reduce((previewData, blockType) => {
-    const template = getBlockTemplate(blockType);
-    const preview = getBlockPreview(blockType);
+type EditorBlocksData = Partial<Record<BlockType, EdiorBlockData>>;
 
-    template.meta = template.meta || {};
-    template.meta.title = template.meta.title || formatBlockName(blockType);
+async function getEditorBlocksData(): Promise<EditorBlocksData> {
+    const EdiorBlockData: EditorBlocksData = {};
 
-    /* eslint-disable no-param-reassign */
-    previewData[blockType] = {
-        ...template,
-        preview,
-    } as EdiorBlockData;
+    for (const blockType of Object.values(BlockType)) {
+        const template = await getBlockTemplate(blockType as BlockType);
 
-    return previewData;
-}, {} as Record<BlockType, EdiorBlockData>);
+        const preview = getBlockPreview(blockType);
 
-export default EditorBlocksData;
+        template.meta = template.meta || {};
+        template.meta.title = template.meta.title || formatBlockName(blockType);
+
+        EdiorBlockData[blockType] = {
+            ...template,
+            preview,
+        };
+    }
+
+    return EdiorBlockData;
+}
+
+export {EditorBlocksData, getEditorBlocksData};

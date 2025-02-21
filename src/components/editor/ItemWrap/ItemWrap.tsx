@@ -1,7 +1,7 @@
 import React, {PropsWithChildren, useCallback, useContext, useState} from 'react';
 
-import useEditorBlockMouseEvents from '../../../containers/PageConstructor/components/ConstructorBlock/hooks/useEditorBlockMouseEvents';
 import {BlockIdContext} from '../../../context/blockIdContext';
+import usePCEditorBlockMouseEvents from '../../../hooks/usePCEditorBlockMouseEvents';
 import {block} from '../../../utils';
 
 import './ItemWrap.scss';
@@ -21,7 +21,7 @@ const ItemWrap = (props: ItemWrapProps) => {
     }, []);
     const {children, index} = props;
     const parentBlockId = useContext(BlockIdContext);
-    const adminBlockMouseEvents = useEditorBlockMouseEvents([parentBlockId, index], element);
+    const adminBlockMouseEvents = usePCEditorBlockMouseEvents([parentBlockId, index], element);
 
     return (
         <div ref={blockRef} className={b()} {...adminBlockMouseEvents}>

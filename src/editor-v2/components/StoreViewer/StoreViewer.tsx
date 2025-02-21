@@ -4,9 +4,9 @@ import {Code} from '@gravity-ui/icons';
 import {Button, Icon} from '@gravity-ui/uikit';
 import ReactJson from 'react-json-view';
 
+import {removeFn} from '../../../common/utils';
 import {ClassNameProps} from '../../../models';
 import {block} from '../../../utils';
-import {removeFn} from '../../../utils/store';
 
 import './StoreViewer.scss';
 
