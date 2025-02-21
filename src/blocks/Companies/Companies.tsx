@@ -1,5 +1,3 @@
-import React from 'react';
-
 import {Image, Title} from '../../components';
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
 import {useTheme} from '../../context/theme';

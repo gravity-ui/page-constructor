@@ -1,4 +1,4 @@
-import React, {Fragment, PropsWithChildren} from 'react';
+import * as React from 'react';
 
 import type {ClassNameProps, IconWrapperProps} from '../../models';
 import {block} from '../../utils';
@@ -9,10 +9,10 @@ import './IconWrapper.scss';
 
 const b = block('icon-wrapper');
 
-const IconWrapper = (props: PropsWithChildren<IconWrapperProps> & ClassNameProps) => {
+const IconWrapper = (props: React.PropsWithChildren<IconWrapperProps> & ClassNameProps) => {
     const {icon, children, className} = props;
     if (!icon) {
-        return <Fragment>{children}</Fragment>;
+        return <React.Fragment>{children}</React.Fragment>;
     }
 
     const iconProps = getMediaImage(icon.value);

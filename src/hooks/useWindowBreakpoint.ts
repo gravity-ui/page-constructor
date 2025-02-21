@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react';
+import * as React from 'react';
 
 import debounce from 'lodash/debounce';
 
@@ -21,9 +21,9 @@ function calculate(windowWidth: number) {
 }
 
 export default function useWindowBreakpoint() {
-    const [breakpoint, setBreakpoint] = useState(BREAKPOINTS.sm);
+    const [breakpoint, setBreakpoint] = React.useState(BREAKPOINTS.sm);
 
-    useEffect(() => {
+    React.useEffect(() => {
         setBreakpoint(calculate(window.innerWidth));
 
         const detect = debounce(() => {

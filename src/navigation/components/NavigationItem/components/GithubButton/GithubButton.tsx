@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from 'react';
+import * as React from 'react';
 
 import {NavigationGithubButton, NavigationGithubButtonIcon} from '../../../../../models';
 import {block} from '../../../../../utils';
@@ -22,10 +22,10 @@ export const GithubButton = ({
     icon,
     urlTitle,
 }: NavigationGithubButtonProps) => {
-    const containerRef = useRef<HTMLSpanElement>(null);
-    const linkRef = useRef<HTMLAnchorElement>(null);
+    const containerRef = React.useRef<HTMLSpanElement>(null);
+    const linkRef = React.useRef<HTMLAnchorElement>(null);
 
-    useEffect(() => {
+    React.useEffect(() => {
         const paint = () => {
             if (containerRef.current) {
                 const githubButton = containerRef.current.appendChild(

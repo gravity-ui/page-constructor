@@ -1,5 +1,3 @@
-import React from 'react';
-
 import {test} from '../../../../playwright/core/index';
 
 import {
@@ -14,8 +12,9 @@ import {
 const DEFAULT_FORM_DELAY = 20 * 1000;
 
 test.describe('Form', () => {
-    test.skip('render stories <Default>', async ({mount, expectScreenshot, delay}) => {
+    test.skip('render stories <Default>', async ({mount, expectScreenshot, delay, page}) => {
         await mount(<Default />);
+        await page.setViewportSize({height: 1018, width: 1264});
         await delay(DEFAULT_FORM_DELAY);
         await expectScreenshot({skipTheme: 'dark'});
     });

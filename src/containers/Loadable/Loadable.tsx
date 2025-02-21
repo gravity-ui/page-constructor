@@ -1,4 +1,4 @@
-import React, {PropsWithChildren, useCallback, useEffect, useState} from 'react';
+import * as React from 'react';
 
 import {Spin} from '@gravity-ui/uikit';
 
@@ -24,7 +24,8 @@ export interface LoadableState {
     data?: LoadableData;
 }
 
-export interface LoadableComponentsProps extends Omit<PropsWithChildren<LoadableProps>, 'source'> {
+export interface LoadableComponentsProps
+    extends Omit<React.PropsWithChildren<LoadableProps>, 'source'> {
     Component: CustomItem;
     ChildComponent: CustomItem;
     block: ConstructorBlock;
@@ -39,13 +40,13 @@ const initData = {
 
 const Loadable = (props: LoadableComponentsProps) => {
     const {Component, ChildComponent, fetch, block, blockKey, serviceId, params} = props;
-    const [dataState, setDataState] = useState<LoadableState>(initData);
-    const [refetchIndex, setRefetchIndex] = useState<number>(0);
-    const onTryAgain = useCallback(() => {
+    const [dataState, setDataState] = React.useState<LoadableState>(initData);
+    const [refetchIndex, setRefetchIndex] = React.useState<number>(0);
+    const onTryAgain = React.useCallback(() => {
         setRefetchIndex(refetchIndex + 1);
     }, [refetchIndex]);
 
-    useEffect(() => {
+    React.useEffect(() => {
         async function processData() {
             setDataState({loading: true, error: false});
 

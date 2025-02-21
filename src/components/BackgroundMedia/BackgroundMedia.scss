@@ -73,7 +73,9 @@ $block: '.#{$ns}BackgroundMedia';
 
                 bottom: 0;
                 opacity: 1;
-                transition: bottom $timing $ease-out-quadratic, opacity $timing $ease-out-quadratic;
+                transition:
+                    bottom $timing $ease-out-quadratic,
+                    opacity $timing $ease-out-quadratic;
             }
         }
     }

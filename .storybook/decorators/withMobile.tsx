@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import {StoryFn, StoryContext} from '@storybook/react';
 import {MobileProvider} from '@gravity-ui/uikit';
 

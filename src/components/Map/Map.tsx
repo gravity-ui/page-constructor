@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import * as React from 'react';
 
 import {MapType, MapsContext} from '../../context/mapsContext/mapsContext';
 import {GMapProps, MapProps, YMapProps} from '../../models';
@@ -9,7 +9,7 @@ import YandexMap from './YMap/YandexMap';
 import './Map.scss';
 
 export const Map = (props: MapProps) => {
-    const {type} = useContext(MapsContext);
+    const {type} = React.useContext(MapsContext);
 
     switch (type) {
         case MapType.Yandex:

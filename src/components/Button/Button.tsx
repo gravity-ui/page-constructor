@@ -1,7 +1,12 @@
-import React, {useCallback, useContext} from 'react';
+import * as React from 'react';
 
 import {StoreBadge} from '@gravity-ui/components';
-import {Button as CommonButton, Icon, Platform} from '@gravity-ui/uikit';
+import {
+    Button as CommonButton,
+    Icon,
+    Platform,
+    ButtonProps as UIKitButtonProps,
+} from '@gravity-ui/uikit';
 
 import {LocaleContext} from '../../context/localeContext/localeContext';
 import {useAnalytics} from '../../hooks';
@@ -22,8 +27,9 @@ export interface ButtonProps extends Omit<ButtonParams, 'url'>, QAProps {
 
 const b = block('button-block');
 
+// eslint-disable-next-line complexity
 const Button = (props: ButtonProps) => {
-    const {tld} = useContext(LocaleContext);
+    const {tld} = React.useContext(LocaleContext);
     const {
         className,
         analyticsEvents,
@@ -39,7 +45,7 @@ const Button = (props: ButtonProps) => {
     } = props;
     const defaultImgPosition = 'left';
     const handleAnalytics = useAnalytics(DefaultEventNames.Button, url);
-    const onClick = useCallback(
+    const onClick = React.useCallback(
         (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => {
             handleAnalytics(analyticsEvents);
 
@@ -63,6 +69,7 @@ const Button = (props: ButtonProps) => {
 
     const buttonProps = {
         ...rest,
+        href: url ? setUrlTld(url, tld) : undefined,
         onClick,
     };
 
@@ -89,10 +96,9 @@ const Button = (props: ButtonProps) => {
             className={buttonClass}
             view={toCommonView(buttonTheme as OldButtonTheme)}
             size={toCommonSize(size as OldButtonSize)}
-            href={url ? setUrlTld(url, tld) : undefined}
             title={urlTitle}
             width={width}
-            {...buttonProps}
+            {...(buttonProps as UIKitButtonProps)}
         >
             {icon && buttonImg.position === 'left' ? icon : null}
             <span className={b('content')}>

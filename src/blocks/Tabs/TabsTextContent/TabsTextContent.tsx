@@ -1,5 +1,3 @@
-import React from 'react';
-
 import {Col} from '../../../grid';
 import {ImageDeviceProps, ImageObjectProps, TabsBlockItem, TabsBlockProps} from '../../../models';
 import {Content} from '../../../sub-blocks';

@@ -1,5 +1,4 @@
 import type {MountOptions} from '@playwright/experimental-ct-react';
-import React from 'react';
 
 import type {MountFixture, PlaywrightFixture} from './types';
 

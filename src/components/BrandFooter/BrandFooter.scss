@@ -18,7 +18,9 @@ $block: '.#{$ns}brand-footer';
     box-sizing: content-box;
     border-top: $borderHeight solid;
     border-bottom: $borderHeight solid transparent;
-    transition: color 0.5s ease-out, border-color 0.5s ease-out;
+    transition:
+        color 0.5s ease-out,
+        border-color 0.5s ease-out;
 
     &::after {
         position: absolute;

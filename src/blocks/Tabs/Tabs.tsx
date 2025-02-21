@@ -1,6 +1,5 @@
-import React, {Fragment, useCallback, useEffect, useRef, useState} from 'react';
-
 import {useUniqId} from '@gravity-ui/uikit';
+import * as React from 'react';
 
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
 import ButtonTabs, {ButtonTabsItemProps} from '../../components/ButtonTabs/ButtonTabs';
@@ -17,7 +16,6 @@ import {block, getThemedValue} from '../../utils';
 import {mergeVideoMicrodata} from '../../utils/microdata';
 
 import TabsTextContent from './TabsTextContent/TabsTextContent';
-
 import './Tabs.scss';
 
 const b = block('tabs-block');
@@ -33,29 +31,29 @@ export const TabsBlock = ({
     direction = 'media-content',
     contentSize = 's',
 }: TabsBlockProps) => {
-    const [activeTab, setActiveTab] = useState<string | null>(items[0].tabName);
-    const [play, setPlay] = useState<boolean>(false);
+    const [activeTab, setActiveTab] = React.useState<string | null>(items[0].tabName);
+    const [play, setPlay] = React.useState<boolean>(false);
     const theme = useTheme();
     const tabs: ButtonTabsItemProps[] = items.map(({tabName}) => ({title: tabName, id: tabName}));
     const activeTabData = items.find(({tabName}) => tabName === activeTab);
     const isReverse = direction === 'content-media';
-    const ref = useRef<HTMLDivElement>(null);
+    const ref = React.useRef<HTMLDivElement>(null);
     const mediaWidth = ref?.current?.offsetWidth;
     const captionId = useUniqId();
     const themedMedia = getThemedValue(activeTabData?.media, theme);
     const hasNoImage = !themedMedia?.image && !activeTabData?.image;
     const mediaVideoHeight = hasNoImage && mediaWidth && getHeight(mediaWidth);
-    const [minImageHeight, setMinImageHeight] = useState(ref?.current?.offsetHeight);
+    const [minImageHeight, setMinImageHeight] = React.useState(ref?.current?.offsetHeight);
     // TODO remove property support activeTabData?.image. Use only activeTabData?.media?.image
     let imageProps;
 
-    const handleImageHeight = useCallback(() => {
+    const handleImageHeight = React.useCallback(() => {
         if (minImageHeight !== ref?.current?.offsetHeight) {
             setMinImageHeight(ref?.current?.offsetHeight);
         }
     }, [minImageHeight]);
 
-    const onSelectTab = useCallback(
+    const onSelectTab = React.useCallback(
         (id: string | null, e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => {
             setActiveTab(id);
             e.currentTarget.scrollIntoView({
@@ -67,7 +65,7 @@ export const TabsBlock = ({
         [],
     );
 
-    useEffect(() => {
+    React.useEffect(() => {
         handleImageHeight();
     }, [activeTab, handleImageHeight]);
 
@@ -127,9 +125,9 @@ export const TabsBlock = ({
                 </div>
             )}
             {imageProps && (
-                <Fragment>
+                <React.Fragment>
                     <FullscreenImage {...imageProps} imageClassName={b('image', {border})} />
-                </Fragment>
+                </React.Fragment>
             )}
             {activeTabData?.caption && (
                 <p className={b('caption')} id={captionId}>

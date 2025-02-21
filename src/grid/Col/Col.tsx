@@ -1,4 +1,4 @@
-import React, {CSSProperties, forwardRef} from 'react';
+import * as React from 'react';
 
 import {QAProps, Refable, Roleable} from '../../models';
 import {GridColumnClassParams} from '../types';
@@ -9,11 +9,11 @@ export interface GridColumnProps
         Refable<HTMLDivElement>,
         QAProps,
         Roleable {
-    style?: CSSProperties;
+    style?: React.CSSProperties;
     children?: React.ReactNode;
 }
 
-export const Col = forwardRef<HTMLDivElement, React.PropsWithChildren<GridColumnProps>>(
+export const Col = React.forwardRef<HTMLDivElement, React.PropsWithChildren<GridColumnProps>>(
     (props, ref) => {
         const {children, style, qa, role, ...rest} = props;
 

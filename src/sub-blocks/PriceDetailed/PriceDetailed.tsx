@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import * as React from 'react';
 
 import {
     PriceDescriptionProps,
@@ -66,7 +66,7 @@ const PriceDetailed = (props: PriceDetailedProps) => {
     };
 
     return (
-        <Fragment>
+        <React.Fragment>
             {isCombined ? (
                 <CombinedPriceDetailed
                     items={items}
@@ -84,7 +84,7 @@ const PriceDetailed = (props: PriceDetailedProps) => {
                     getDetailsComponent={getDetailsComponent}
                 />
             )}
-        </Fragment>
+        </React.Fragment>
     );
 };
 

@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import * as React from 'react';
 
 import {Meta, StoryFn} from '@storybook/react';
 
@@ -22,7 +22,7 @@ const DefaultTemplate: StoryFn<TabsBlockModel> = (args) => (
 );
 
 const ButtonsColSizesTemplate: StoryFn<TabsBlockModel> = (args) => (
-    <Fragment>
+    <React.Fragment>
         <DefaultTemplate
             {...args}
             tabsColSizes={data.buttonsColSizes.wide.colSizes}
@@ -33,14 +33,14 @@ const ButtonsColSizesTemplate: StoryFn<TabsBlockModel> = (args) => (
             tabsColSizes={data.buttonsColSizes.narrow.colSizes}
             title={data.buttonsColSizes.narrow.title}
         />
-    </Fragment>
+    </React.Fragment>
 );
 
 const DirectionTemplate: StoryFn<TabsBlockModel> = (args) => (
-    <Fragment>
+    <React.Fragment>
         <DefaultTemplate {...args} />
         <DefaultTemplate {...args} direction={'content-media'} />
-    </Fragment>
+    </React.Fragment>
 );
 
 export const Default = DefaultTemplate.bind({});

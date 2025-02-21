@@ -1,13 +1,13 @@
-import {useContext, useMemo} from 'react';
+import * as React from 'react';
 
 import {AnalyticsContext} from '../context/analyticsContext';
 import {BlockIdContext} from '../context/blockIdContext';
 import {AnalyticsEvent, AnalyticsEventsProp, PredefinedEventTypes} from '../models';
 
 export const useAnalytics = (name = '', target?: string) => {
-    const {sendEvents, autoEvents} = useContext(AnalyticsContext);
-    const context = useContext(BlockIdContext);
-    const defaultEvent = useMemo(
+    const {sendEvents, autoEvents} = React.useContext(AnalyticsContext);
+    const context = React.useContext(BlockIdContext);
+    const defaultEvent = React.useMemo(
         () =>
             name
                 ? {

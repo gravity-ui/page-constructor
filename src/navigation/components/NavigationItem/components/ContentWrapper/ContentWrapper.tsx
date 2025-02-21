@@ -1,4 +1,4 @@
-import React, {Fragment, useMemo} from 'react';
+import * as React from 'react';
 
 import {Image} from '../../../../../components';
 import {ImageProps} from '../../../../../models';
@@ -15,17 +15,17 @@ interface ContentWrapperProps {
 }
 
 export const ContentWrapper: React.FC<ContentWrapperProps> = ({text, icon, iconSize}) => {
-    const iconSizeStyle = useMemo(
+    const iconSizeStyle = React.useMemo(
         () => (iconSize ? {height: `${iconSize}px`, width: `${iconSize}px`} : {}),
         [iconSize],
     );
 
     return (
-        <Fragment>
+        <React.Fragment>
             {icon && typeof icon !== 'string' && (
                 <Image className={b('icon')} {...icon} style={iconSizeStyle} />
             )}
             <span className={b('text')}>{text}</span>
-        </Fragment>
+        </React.Fragment>
     );
 };

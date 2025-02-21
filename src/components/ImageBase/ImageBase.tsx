@@ -1,13 +1,13 @@
-import React, {CSSProperties, MouseEventHandler, ReactEventHandler} from 'react';
+import * as React from 'react';
 
 import {ImageContext} from '../../context/imageContext/imageContext';
 import {ImageObjectProps} from '../../models';
 
 export interface ImageBaseProps extends Partial<ImageObjectProps> {
-    style?: CSSProperties;
+    style?: React.CSSProperties;
     className?: string;
-    onClick?: MouseEventHandler;
-    onLoad?: ReactEventHandler<HTMLDivElement>;
+    onClick?: React.MouseEventHandler;
+    onLoad?: React.ReactEventHandler<HTMLDivElement>;
     onError?: () => void;
 }
 

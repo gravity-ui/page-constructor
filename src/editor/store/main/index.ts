@@ -1,4 +1,4 @@
-import {useMemo, useReducer} from 'react';
+import * as React from 'react';
 
 import {DEFAULT_THEME} from '../../../components/constants';
 import {Block, BlockDecorationProps, HeaderBlockTypes, PageContent} from '../../../models';
@@ -20,7 +20,7 @@ import {addEditorProps} from './utils';
 export type EditorBlockId = number | string;
 
 export function useMainState({content: intialContent, custom}: Omit<EditorProps, 'children'>) {
-    const [{activeBlockIndex, content, errorBoundaryState}, dispatch] = useReducer(reducer, {
+    const [{activeBlockIndex, content, errorBoundaryState}, dispatch] = React.useReducer(reducer, {
         activeBlockIndex: 0,
         errorBoundaryState: 0,
         content: addEditorProps(intialContent),
@@ -28,7 +28,7 @@ export function useMainState({content: intialContent, custom}: Omit<EditorProps,
         theme: DEFAULT_THEME,
     });
 
-    return useMemo(() => {
+    return React.useMemo(() => {
         const headerBlockTypes = [...HeaderBlockTypes, ...getCustomTypes(['headers'], custom)];
         const contentHasHeader = Boolean(getHeaderBlock(content.blocks, headerBlockTypes));
         const checkIsHeader = (type: string) => headerBlockTypes.includes(type);
@@ -45,8 +45,8 @@ export function useMainState({content: intialContent, custom}: Omit<EditorProps,
             const index = isHeader
                 ? 0
                 : activeBlockIndex === -1
-                ? content.blocks.length
-                : activeBlockIndex + 1;
+                  ? content.blocks.length
+                  : activeBlockIndex + 1;
 
             dispatch({type: ADD_BLOCK, payload: {block, index}});
         };

@@ -1,7 +1,7 @@
-import React, {HTMLProps, ReactNode, useCallback, useContext} from 'react';
+import * as React from 'react';
 
 import {ArrowLeft} from '@gravity-ui/icons';
-import {Button, ButtonSize, Icon} from '@gravity-ui/uikit';
+import {Button, ButtonSize, Icon, ButtonProps as UIKitButtonProps} from '@gravity-ui/uikit';
 
 import {LocationContext} from '../../context/locationContext';
 import {useAnalytics} from '../../hooks';
@@ -11,17 +11,17 @@ export type Theme = 'default' | 'special';
 
 export interface BackLinkProps<T = HTMLElement> extends Tabbable {
     url: string;
-    title: ReactNode;
+    title: React.ReactNode;
     theme?: Theme;
     size?: ButtonSize;
     className?: string;
     shouldHandleBackAction?: boolean;
     onClick?: () => void;
-    extraProps?: HTMLProps<T>;
+    extraProps?: React.HTMLProps<T>;
 }
 
 export default function BackLink(props: BackLinkProps) {
-    const {history} = useContext(LocationContext);
+    const {history} = React.useContext(LocationContext);
     const {
         url,
         title,
@@ -35,7 +35,7 @@ export default function BackLink(props: BackLinkProps) {
     } = props;
     const handleAnalytics = useAnalytics(DefaultEventNames.ShareButton, url);
 
-    const backActionHandler = useCallback(async () => {
+    const backActionHandler = React.useCallback(async () => {
         handleAnalytics();
 
         if (!history) {
@@ -53,15 +53,19 @@ export default function BackLink(props: BackLinkProps) {
         }
     }, [handleAnalytics, history, onClick, url]);
 
+    const buttonProps = {
+        href: shouldHandleBackAction ? undefined : url,
+        extraProps,
+    } as UIKitButtonProps;
+
     return (
         <Button
             className={className}
             view={theme === 'special' ? 'flat-contrast' : 'flat-secondary'}
             size={size}
-            href={shouldHandleBackAction ? undefined : url}
             onClick={shouldHandleBackAction ? backActionHandler : undefined}
             tabIndex={tabIndex}
-            extraProps={extraProps}
+            {...buttonProps}
         >
             <Icon data={ArrowLeft} size={20} />
             <span>{title}</span>

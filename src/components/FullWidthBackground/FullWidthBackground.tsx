@@ -1,4 +1,4 @@
-import React, {CSSProperties, Component, PropsWithChildren, createRef} from 'react';
+import * as React from 'react';
 
 import debounce from 'lodash/debounce';
 
@@ -11,7 +11,7 @@ import './FullWidthBackground.scss';
 const b = block('FullWidthBackground');
 
 export interface FullWidthBackgroundProps extends ClassNameProps {
-    style?: CSSProperties;
+    style?: React.CSSProperties;
     theme?: 'default' | 'rounded';
 }
 
@@ -19,10 +19,10 @@ function getPadding(width: number) {
     return width > BREAKPOINTS.sm ? 16 : 8;
 }
 
-export default class FullWidthBackground extends Component<
-    PropsWithChildren<FullWidthBackgroundProps>
+export default class FullWidthBackground extends React.Component<
+    React.PropsWithChildren<FullWidthBackgroundProps>
 > {
-    private ref = createRef<HTMLDivElement>();
+    private ref = React.createRef<HTMLDivElement>();
 
     private setBg = debounce(() => {
         if (this.ref && this.ref.current) {

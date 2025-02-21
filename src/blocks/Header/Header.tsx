@@ -1,7 +1,6 @@
 /* eslint-disable complexity */
-import React, {useContext} from 'react';
-
 import {useUniqId} from '@gravity-ui/uikit';
+import * as React from 'react';
 
 import {Button, HTML, Media, RouterLink} from '../../components';
 import HeaderBreadcrumbs from '../../components/HeaderBreadcrumbs/HeaderBreadcrumbs';
@@ -15,7 +14,6 @@ import {block, getThemedValue} from '../../utils';
 import {mergeVideoMicrodata} from '../../utils/microdata';
 
 import {getImageSize, getTitleSizes, titleWithImageSizes} from './utils';
-
 import './Header.scss';
 
 const b = block('header-block');
@@ -86,7 +84,7 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
         mediaView = 'full',
         centered,
     } = props;
-    const isMobile = useContext(MobileContext);
+    const isMobile = React.useContext(MobileContext);
     const theme = useTheme();
     const hasRightSideImage = Boolean((image || video) && !centered);
     const curImageSize = imageSize || getImageSize(width);

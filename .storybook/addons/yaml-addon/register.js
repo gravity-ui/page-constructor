@@ -1,4 +1,4 @@
-import React, {useMemo} from 'react';
+import * as React from 'react';
 import {AddonPanel} from '@storybook/components';
 import {addons, types, useGlobals, useArgs} from '@storybook/manager-api';
 import yaml from 'js-yaml';
@@ -13,7 +13,7 @@ const YamlPanel = () => {
     const [params] = useArgs();
     const [globals] = useGlobals();
 
-    const content = useMemo(
+    const content = React.useMemo(
         () =>
             yaml.dump([params], {
                 flowLevel: -1,
