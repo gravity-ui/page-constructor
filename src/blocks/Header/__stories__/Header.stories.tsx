@@ -53,11 +53,11 @@ const SizeTemplate: StoryFn<HeaderBlockModel> = (args) => (
 );
 
 const CenteredTemplate: StoryFn<HeaderBlockModel> = (args) => (
-    <Fragment>
+    <React.Fragment>
         <DefaultTemplate {...args} title={getSizeTitle('"L"')} width="l" centered />
         <DefaultTemplate {...args} title={getSizeTitle('"M"')} width="m" centered />
         <DefaultTemplate {...args} title={getSizeTitle('"S"')} width="s" centered />
-    </Fragment>
+    </React.Fragment>
 );
 
 const ImageTemplate: StoryFn<HeaderBlockModel> = (args) => (
