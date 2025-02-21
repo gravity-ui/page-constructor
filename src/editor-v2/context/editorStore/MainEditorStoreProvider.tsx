@@ -2,9 +2,10 @@ import React, {PropsWithChildren, useCallback, useContext, useEffect, useRef} fr
 
 import {StoreApi} from 'zustand';
 
-import {EditorState, EditorStore, createEditorStore} from '../../../common/store';
+import {EditorState} from '../../../common/store';
 import {StoreSyncMessage} from '../../../common/types';
-import {removeFn} from '../../../utils/store';
+import {removeFn} from '../../../common/utils';
+import {EditorStore, createEditorStore} from '../../store';
 import {IframeContext} from '../iframeContext';
 
 import {MainEditorStoreContext} from './MainEditorStoreContext';

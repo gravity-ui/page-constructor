@@ -3,7 +3,7 @@ import React from 'react';
 import {DynamicFormValue} from '../../../common/types';
 import {ClassNameProps} from '../../../models';
 import {block} from '../../../utils';
-import {useMainEditorStore} from '../../context/editorStore';
+import {useMainEditorStore} from '../../hooks/useMainEditorStore';
 import DynamicForm from '../DynamicForm/DynamicForm';
 
 import './GlobalConfig.scss';

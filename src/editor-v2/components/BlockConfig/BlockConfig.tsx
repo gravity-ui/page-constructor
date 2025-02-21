@@ -5,7 +5,7 @@ import _ from 'lodash';
 import {DynamicFormValue} from '../../../common/types';
 import {ClassNameProps} from '../../../models';
 import {block} from '../../../utils';
-import {useMainEditorStore} from '../../context/editorStore';
+import {useMainEditorStore} from '../../hooks/useMainEditorStore';
 import {generateChildrenPathFromArray} from '../../utils';
 import DynamicForm from '../DynamicForm/DynamicForm';
 

@@ -5,11 +5,11 @@ import _ from 'lodash';
 
 import {ItemConfig} from '../common/types';
 import {blockDataMap} from '../constructor-items';
-import {usePCEditorStore} from '../context/editorStoreContext';
 import {PageContent} from '../models';
 import {defaultComponentsConfigurationSchema} from '../schema';
 import {generateFromAJV} from '../utils/form-generator';
 
+import {usePCEditorStore} from './usePCEditorStore';
 import {sendEventPostMessage, useInternalPostMessageAPIListener} from './usePostMessageAPI';
 
 interface UseEditorInitializeProps {
@@ -17,7 +17,7 @@ interface UseEditorInitializeProps {
     setContent: (content: PageContent) => void;
 }
 
-export const useInitializeEditorEvents = ({
+export const usePCEditorInitializeEvents = ({
     initialContent,
     setContent,
 }: UseEditorInitializeProps) => {

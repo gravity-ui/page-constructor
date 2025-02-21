@@ -6,7 +6,7 @@ import _ from 'lodash';
 
 import {ItemConfig} from '../../../common/types';
 import {block} from '../../../utils';
-import {useMainEditorStore} from '../../context/editorStore';
+import {useMainEditorStore} from '../../hooks/useMainEditorStore';
 
 import './BlocksList.scss';
 

@@ -1,2 +1,2 @@
-export * from './iframeContext';
-export * from './iframeProvider';
+export * from './IframeContext';
+export * from './IframeProvider';

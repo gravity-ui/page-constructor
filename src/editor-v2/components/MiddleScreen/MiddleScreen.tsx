@@ -5,8 +5,8 @@ import {Loader} from '@gravity-ui/uikit';
 import {usePostMessageAPIListener} from '../../../common/postMessage';
 import {ClassNameProps} from '../../../models';
 import {block} from '../../../utils';
-import {useMainEditorStore} from '../../context/editorStore';
 import {IframeContext} from '../../context/iframeContext';
+import {useMainEditorStore} from '../../hooks/useMainEditorStore';
 import Overlay from '../Overlay/Overlay';
 import TopBar from '../TopBar/TopBar';
 

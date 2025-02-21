@@ -5,8 +5,8 @@ import {Button, Icon, TextInput} from '@gravity-ui/uikit';
 
 import {ClassNameProps} from '../../../models';
 import {block} from '../../../utils';
-import {useMainEditorStore} from '../../context/editorStore';
 import {IframeContext} from '../../context/iframeContext';
+import {useMainEditorStore} from '../../hooks/useMainEditorStore';
 
 import './Source.scss';
 
