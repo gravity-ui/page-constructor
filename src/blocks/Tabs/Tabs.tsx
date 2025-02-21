@@ -11,7 +11,7 @@ import Title from '../../components/Title/Title';
 import {getHeight} from '../../components/VideoBlock/VideoBlock';
 import YFMWrapper from '../../components/YFMWrapper/YFMWrapper';
 import {useTheme} from '../../context/theme';
-import {Col, GridColumnOrderClasses, GridJustifyContent, Row} from '../../grid';
+import {Col, Grid, GridColumnOrderClasses, GridJustifyContent, Row} from '../../grid';
 import {TabsBlockProps} from '../../models';
 import {block, getThemedValue} from '../../utils';
 import {mergeVideoMicrodata} from '../../utils/microdata';
@@ -87,7 +87,7 @@ export const TabsBlock = ({
     const showText = Boolean(activeTabData?.text);
     const border = activeTabData?.border || 'shadow';
 
-    const textContent = showText && (
+    const textContent = activeTabData && showText && (
         <TabsTextContent
             showMedia={showMedia}
             data={activeTabData}
@@ -144,29 +144,31 @@ export const TabsBlock = ({
     );
 
     return (
-        <AnimateBlock className={b()} onScroll={() => setPlay(true)} animate={animated}>
-            <Title
-                title={title}
-                subtitle={description}
-                className={b('title', {centered: centered})}
-            />
-            <Row justifyContent={centered ? GridJustifyContent.Center : undefined}>
-                <Col sizes={tabsColSizes}>
-                    <ButtonTabs
-                        items={tabs}
-                        onSelectTab={onSelectTab}
-                        activeTab={activeTab}
-                        className={b('tabs', {centered: centered})}
-                    />
-                </Col>
-            </Row>
-            {activeTabData && (
-                <Row className={b('row', {reverse: isReverse})}>
-                    {mediaContent}
-                    {textContent}
+        <Grid>
+            <AnimateBlock className={b()} onScroll={() => setPlay(true)} animate={animated}>
+                <Title
+                    title={title}
+                    subtitle={description}
+                    className={b('title', {centered: centered})}
+                />
+                <Row justifyContent={centered ? GridJustifyContent.Center : undefined}>
+                    <Col sizes={tabsColSizes}>
+                        <ButtonTabs
+                            items={tabs}
+                            onSelectTab={onSelectTab}
+                            activeTab={activeTab}
+                            className={b('tabs', {centered: centered})}
+                        />
+                    </Col>
                 </Row>
-            )}
-        </AnimateBlock>
+                {activeTabData && (
+                    <Row className={b('row', {reverse: isReverse})}>
+                        {mediaContent}
+                        {textContent}
+                    </Row>
+                )}
+            </AnimateBlock>
+        </Grid>
     );
 };
 

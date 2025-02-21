@@ -1,0 +1,8 @@
+@import '../../../../styles/mixins.scss';
+@import '../../../../styles/variables.scss';
+
+$block: '.#{$ns}children-wrap';
+
+#{$block} {
+    min-height: 50px;
+}

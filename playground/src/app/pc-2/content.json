@@ -1,0 +1,402 @@
+{
+  "meta": {
+    "title": "YDB — распределённая SQL база данных с открытым исходным кодом",
+    "description": "YDB — это открытая распределённая SQL база данных, которая сочетает высокую доступность и масштабируемость со строгой согласованностью и ACID транзакциями.",
+    "sharing": {
+      "image": "https://storage.yandexcloud.net/ydb-site-assets/share-ydb-eng.png"
+    }
+  },
+  "blocks": [
+    {
+      "type": "header-block",
+      "title": "YDB",
+      "description": "YDB — это распределённая отказоустойчивая Distributed SQL база данных с открытым исходным кодом, которая сочетает в себе высокую доступность и масштабируемость со строгой согласованностью и транзакциями ACID. Она поддерживает одновременное выполнение транзакционных (OLTP), аналитических (OLAP) и потоковых нагрузок.",
+      "width": "s",
+      "verticalOffset": "m",
+      "imageSize": "m",
+      "background": {
+        "image": {
+          "src": "https://storage.yandexcloud.net/ydb-site-assets/cover.png",
+          "disableCompress": true,
+          "alt": "Фон YDB"
+        },
+        "color": "#e2eaff",
+        "fullWidth": false
+      },
+      "buttons": [
+        {
+          "text": "Быстрый старт",
+          "theme": "accent",
+          "url": "/../docs/ru/quickstart"
+        },
+        {
+          "text": "Документация",
+          "theme": "outlined",
+          "url": "/../docs/ru/"
+        }
+      ]
+    },
+    {
+      "type": "card-layout-block",
+      "title": "Что я могу делать с YDB?",
+      "animated": false,
+      "colSizes": {
+        "all": 12,
+        "sm": 6,
+        "md": 4
+      },
+      "anchor": {
+        "url": "whatcanido",
+        "text": "Что я могу делать с YDB?"
+      },
+      "description": "",
+      "children": [
+        {
+          "type": "background-card",
+          "backgroundColor": "#CCE7FF",
+          "title": "Транзакционные нагрузки (OLTP)",
+          "text": "Вы можете использовать YDB для хранения состояния вашего приложения, независимо от объема данных или частоты их изменения. Обрабатывать петабайты при миллионах транзакций в секунду — не проблема.",
+          "controlPosition": "footer",
+          "buttons": [
+            {
+              "text": "Узнать больше",
+              "theme": "outlined",
+              "url": "/docs/ru/concepts/"
+            }
+          ]
+        },
+        {
+          "type": "background-card",
+          "backgroundColor": "rgba(107,132,153,.12)",
+          "title": "Аналитические нагрузки (OLAP)",
+          "text": "Вы можете создавать аналитические отчёты на основе хранимых в YDB данных с производительностью, сопоставимой со специализированными аналитическими СУБД. При этом никаких компромиссов по согласованности и доступности не потребуется.",
+          "controlPosition": "footer",
+          "buttons": [
+            {
+              "text": "Узнать больше",
+              "theme": "outlined",
+              "url": "/docs/ru/concepts/datamodel/table#column-oriented-tables"
+            }
+          ]
+        },
+        {
+          "type": "background-card",
+          "backgroundColor": "rgba(107,132,153,.12)",
+          "title": "Потоковые нагрузки",
+          "text": "Вы можете использовать функциональность YDB-топиков для надёжной отправки данных между вашими приложениями или отслеживания изменений в таблицах YDB. Можно выбрать как семантику доставки сообщений ровно один раз (exactly once), так и не менее одного раза (at least once).",
+          "controlPosition": "footer",
+          "buttons": [
+            {
+              "text": "Узнать больше",
+              "theme": "outlined",
+              "url": "/docs/ru/concepts/topic"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "extended-features-block",
+      "title": "Почему YDB?",
+      "animated": false,
+      "colSizes": {
+        "all": 12,
+        "sm": 6,
+        "md": 4
+      },
+      "items": [
+        {
+          "title": "Эластичность и масштабируемость",
+          "text": "Добавляйте или удаляйте узлы на лету, чтобы легко масштабировать кластер по мере необходимости. YDB имеет отдельные слои вычисления и хранения, что позволяет независимо добавлять дисковую ёмкость или вычислительные ресурсы в зависимости от того, чего не хватает при текущей нагрузке.",
+          "icon": "https://storage.yandexcloud.net/ydb-site-assets/features-icons/icon_01.svg"
+        },
+        {
+          "title": "Отказоустойчивость",
+          "text": "YDB спроектирована для работы в трёх зонах доступности и обеспечивает работоспособность даже в случае выхода из строя одной из них. Она автоматически восстанавливается после сбоя диска, сервера или датацентра с минимальной задержкой для приложений.",
+          "icon": "https://storage.yandexcloud.net/ydb-site-assets/features-icons/icon_03.svg"
+        },
+        {
+          "title": "Простота в использовании",
+          "text": "Работа с кластером YDB ощущается как работа с одноузловой СУБД с безграничными ресурсами благодаря строгой согласованности, ACID-транзакциям, высокопроизводительным запросам, возможности загрузки больших объёмов данных, а также поддержке знакомого диалекта SQL и JSON API.",
+          "icon": "https://storage.yandexcloud.net/ydb-site-assets/features-icons/icon_02.svg"
+        },
+        {
+          "title": "Универсальность",
+          "text": "Благодаря поддержке различных видов нагрузок в одной системе YDB может заменить несколько систем хранения и обработки данных или всю корпоративную экосистему данных в компании.",
+          "icon": "https://storage.yandexcloud.net/ydb-site-assets/features-icons/icon_06.svg"
+        },
+        {
+          "title": "Открытый исходный код",
+          "text": "[Исходный код YDB](https://github.com/ydb-platform/ydb) опубликован под лицензией Apache 2.0, накладывающей минимум ограничений на использование. Таким образом, нет рисков, связанных с привязкой к конкретному поставщику или провайдеру облачных услуг.",
+          "icon": "https://storage.yandexcloud.net/ydb-site-assets/features-icons/icon_05.svg"
+        },
+        {
+          "title": "Совместимость с любым окружением",
+          "text": "YDB можно развернуть в [Kubernetes](https://github.com/ydb-platform/ydb-kubernetes-operator), в любом облачном окружении или в корпоративных ЦОД. Либо можно использовать YDB как [управляемый сервис в Yandex Cloud](https://cloud.yandex.ru/services/ydb). Также возможны локальные эксперименты на любом компьютере.",
+          "icon": "https://storage.yandexcloud.net/ydb-site-assets/features-icons/icon_04.svg"
+        }
+      ]
+    },
+    {
+      "type": "banner-block",
+      "animated": false,
+      "title": "Оценка производительности PostgreSQL vs Distributed DBMS",
+      "subtitle": "TPC-C является наиболее известным набором тестов производительности для OLTP. Мы подготовили исследование производительности, сравнивающее PostgreSQL, YDB и CockroachDB в отказоустойчивых конфигурациях.",
+      "image": "https://storage.yandexcloud.net/ydb-site-assets/banner-block-pg.png",
+      "color": "#CCE7FF",
+      "button": {
+        "text": "Читать дальше",
+        "theme": "raised",
+        "url": "https://habr.com/ru/companies/ydb/articles/801587/"
+      }
+    },
+    {
+      "type": "card-layout-block",
+      "title": "Кто использует YDB?",
+      "animated": false,
+      "colSizes": {
+        "all": 12,
+        "sm": 6,
+        "md": 4
+      },
+      "anchor": {
+        "url": "whouses",
+        "text": "Кто использует YDB?"
+      },
+      "description": "",
+      "children": [
+        {
+          "type": "layout-item",
+          "media": {
+            "image": {
+              "src": "https://storage.yandexcloud.net/ydb-site-assets/clients/metrika.png",
+              "disableCompress": true
+            }
+          },
+          "content": {
+            "title": "Метрика",
+            "text": "[Метрика](https://metrika.yandex.ru/) - одна из крупнейших в мире платформ мобильной и веб-аналитики. Она полагается на YDB для создания пользовательских сессий на лету.\n\nПереход на YDB позволил Метрике расширить объём хранимых данных и бесконечно наращивать обрабатываемую нагрузку. Теперь одна из баз данных Метрики в YDB содержит более 400 ТБ данных и выдерживает нагрузку более 1 000 000 RPS."
+          },
+          "fullScreen": false,
+          "border": true
+        },
+        {
+          "type": "layout-item",
+          "media": {
+            "image": {
+              "src": "https://storage.yandexcloud.net/ydb-site-assets/clients/yandex-cloud-new.png",
+              "disableCompress": true
+            }
+          },
+          "content": {
+            "title": "Yandex Cloud",
+            "text": "YDB отвечает за слой хранения для сетевых дисков [Yandex Cloud](https://cloud.yandex.ru), используется в качестве СУБД для хранения данных и метаданных облачной инфраструктуры и сервисов платформы, а также в качестве базы данных для облачного Control Plane.\n\nИнфраструктурным и платформенным сервисам Yandex Cloud необходима высокая доступность и масштабируемость, поэтому платформа выбрала YDB в качестве ключевого компонента."
+          },
+          "fullScreen": false,
+          "border": true
+        },
+        {
+          "type": "layout-item",
+          "media": {
+            "image": {
+              "src": "https://storage.yandexcloud.net/ydb-site-assets/clients/praktikum.jpg",
+              "disableCompress": true
+            }
+          },
+          "content": {
+            "title": "Практикум",
+            "text": "[Практикум](https://practicum.yandex.ru/) - это онлайн-ориентированная образовательная платформа. Она использует YDB в качестве гибкого хранилища состояний для своих микросервисов.\n\nНативная поддержка многоарендности в YDB позволяет им избежать создания и управления выделенными базами данных для каждого компонента сервиса."
+          },
+          "fullScreen": false,
+          "border": true
+        },
+        {
+          "type": "layout-item",
+          "media": {
+            "image": {
+              "src": "https://storage.yandexcloud.net/ydb-site-assets/clients/market.png",
+              "disableCompress": true
+            }
+          },
+          "content": {
+            "title": "Яндекс Маркет",
+            "text": "[Яндекс Маркет](https://market.yandex.ru) - один из крупнейших сервисов электронной коммерции в СНГ. Многие ключевые функции сервиса, такие как корзина, скидки, и оформление заказа, используют YDB для хранения своего состояния.\n\nВыбор YDB в качестве базы данных позволил Яндекс Маркету выдержать стократное увеличение нагрузки на корзину при соблюдении строгих гарантий времени отклика."
+          },
+          "fullScreen": false,
+          "border": true
+        },
+        {
+          "type": "layout-item",
+          "media": {
+            "image": {
+              "src": "https://storage.yandexcloud.net/ydb-site-assets/clients/jaeger.png",
+              "disableCompress": true
+            }
+          },
+          "content": {
+            "title": "Auto.ru",
+            "text": "[Auto.ru](https://auto.ru) снизила потребление CPU для трассировочной базы данных [Jaeger](https://www.jaegertracing.io/) в три раза после перехода на YDB, что позволило записывать 500 000 трассировок в секунду без семплирования.\n\nУспешная реализация YDB в качестве хранилища трассировок доказала применимость и ключевые свойства, такие как масштабируемость, отказоустойчивость и строгая согласованность. В результате Auto.ru выбрала YDB в качестве реляционной базы данных для некоторых своих микросервисов."
+          },
+          "fullScreen": false,
+          "border": true
+        },
+        {
+          "type": "layout-item",
+          "media": {
+            "image": {
+              "src": "https://storage.yandexcloud.net/ydb-site-assets/clients/alice-new-speakers.png",
+              "disableCompress": "true\""
+            }
+          },
+          "content": {
+            "title": "Алиса",
+            "text": "[Алиса](https://yandex.ru/alice) - это голосовой помощник и экосистема умного дома. После перехода на YDB команда Алисы решила проблемы синхронизации между дата‑центрами, простоев при переключении основных серверов, снизила нагрузку на команду DevOps, увеличила объём хранимых данных до сотен терабайт и нагрузку до сотен тысяч запросов в секунду.\n\nПереход на YDB позволил отказаться от ручного шардинга данных и добиться строгой согласованности в кросс-датацентровом кластере. Сейчас команда Алисы использует YDB как реляционную базу данных и как базу для хранения логов и трейсов."
+          },
+          "fullScreen": false,
+          "border": true
+        }
+      ]
+    },
+    {
+      "type": "slider-block",
+      "animated": false,
+      "anchor": {
+        "url": "scenarios",
+        "text": "scenarios"
+      },
+      "title": {
+        "text": "В каких типовых сценариях стоит использовать YDB?",
+        "textSize": "m"
+      },
+      "children": [
+        {
+          "type": "basic-card",
+          "title": "Работа с внезапным ростом нагрузки",
+          "text": "Эластичность YDB позволяет быстро изменять количество ресурсов, выделенных базе данных, чтобы обеспечить необходимую пропускную способность в соответствии с нагрузкой. Вы можете легко увеличить или уменьшить количество вычислительных ресурсов в зависимости от предстоящих нагрузок, например, на «Чёрную пятницу» или для маркетинговых кампаний."
+        },
+        {
+          "type": "basic-card",
+          "title": "Хранение Observability данных",
+          "text": "[Колоночные таблицы YDB](/docs/ru/concepts/column-table) отлично подходят для хранения логов и метрик с простым доступом к ним через SQL интерфейс. Также, низкое потребление вычислительных ресурсов и масштабируемость YDB делают запись [Jaeger трейсов](https://www.jaegertracing.io/) выгодной по себестоимости и лёгкой в использовании."
+        },
+        {
+          "type": "basic-card",
+          "title": "Документоориентированная СУБД",
+          "text": "Не смотря на строгую систему типов данных YDB, поддержка [типа данных JSON и связанных с ним функций](/docs/ru/yql/reference/builtins/json), расширяет возможности YDB в роли системы хранения неструктурированных документов."
+        },
+        {
+          "type": "basic-card",
+          "title": "Кеш с SQL-интерфейсом",
+          "text": "Быстрый отклик и масштабируемость пропускной способности позволяют использовать YDB одновременно в качестве онлайн-базы данных и предварительно посчитанного кеша. Возможности SQL значительно повышают удобство использования и позволяют проводить оперативную аналитику данных в кеше. Например, сайты туроператоров и агрегаторов путешествий могут использовать базу данных для кеширования результатов поиска авиабилетов или туров, а также для пересчёта цен и проверки сезонной доступности."
+        },
+        {
+          "type": "basic-card",
+          "title": "Централизованная система учёта запасов",
+          "text": "YDB обеспечивает строгую целостность транзакций. Это позволяет предоставлять консистентные данные о запасах на всех складах и торговых объектах, и делает YDB подходящим решением для электронной коммерции, приложений складской или транспортной логистики."
+        },
+        {
+          "type": "basic-card",
+          "title": "Система хранения данных для Internet of Things (IoT) экосистемы",
+          "text": "Поддержка автоматического шардирования YDB позволяет обрабатывать потоки данных от большого количества устройств — профиль нагрузки, который встречается в проектах интернета вещей."
+        }
+      ]
+    },
+    {
+      "type": "media-block",
+      "animated": false,
+      "direction": "content-media",
+      "title": "Можете вкратце объяснить, что такое YDB, в видеоформате?",
+      "description": "Конечно, смотрите →",
+      "anchor": {
+        "url": "video",
+        "text": "Video"
+      },
+      "largeMedia": true,
+      "media": {
+        "youtube": "https://youtu.be/QVmhR__wAJg"
+      }
+    },
+    {
+      "type": "banner-block",
+      "animated": false,
+      "title": "Учебный курс по YDB от участника сообщества пользователей",
+      "subtitle": "_Сторонняя разработка - Contribution_\n\nНачальный [учебный курс по YDB](https://stepik.org/course/186264/promo), разработанный одним из наших пользователей - Владом Бурмистровым, позволяет ознакомиться с ключевыми свойствами, возможностями и архитектурой YDB, а также научиться основным приемам по работе с YDB.",
+      "color": "#CCE7FF",
+      "image": "https://storage.yandexcloud.net/ydb-site-assets/careers/img_4.png",
+      "button": {
+        "text": "Описание и программа курса",
+        "theme": "raised",
+        "url": "https://stepik.org/course/186264/promo"
+      }
+    },
+    {
+      "type": "tabs-block",
+      "title": {
+        "text": "Как начать?"
+      },
+      "anchor": {
+        "url": "howtostart",
+        "text": "Как начать?"
+      },
+      "items": [
+        {
+          "tabName": "Docker",
+          "title": "Docker",
+          "text": " Создайте рабочий каталог и запустите локальный контейнер YDB из этого каталога:\n```bash mkdir ydb-local && cd ydb-local \ndocker run -d --rm --name ydb-local -h localhost \\\n--platform linux/amd64 \\\n-p 2135:2135 -p 2136:2136 -p 8765:8765 \\\n-v $(pwd)/ydb_certs:/ydb_certs -v $(pwd)/ydb_data:/ydb_data \\\n-e GRPC_TLS_PORT=2135 -e GRPC_PORT=2136 -e MON_PORT=8765 \\\nydbplatform/local-ydb:latest\n```\nПерейдите в раздел [«Быстрый старт»](/docs/ru/quickstart) в документации YDB, чтобы получить дополнительную информацию. "
+        },
+        {
+          "tabName": "Minikube",
+          "title": "Minikube",
+          "text": " Установите Kubernetes CLI [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl) и менеджер пакетов [Helm 3](https://helm.sh/docs/intro/install/).\nУстановите и запустите [Minikube](https://kubernetes.io/ru/docs/tasks/tools/install-minikube/).\nСклонируйте репозиторий с [YDB Kubernetes Operator](https://github.com/ydb-platform/ydb-kubernetes-operator).\n```\ngit clone https://github.com/ydb-platform/ydb-kubernetes-operator && cd ydb-kubernetes-operator\n```\nУстановите контроллер YDB на кластер.\n```\nhelm upgrade --install ydb-operator deploy/ydb-operator --set metrics.enabled=false\n```\nПримените манифест для создания кластера YDB.\n```\nkubectl apply -f samples/minikube/storage.yaml\n```\nДождитесь, пока `kubectl get storages.ydb.tech` не станет `Ready`.\nПримените манифест для создания базы данных.\n```\nkubectl apply -f samples/minikube/database.yaml\n```\nДождитесь, пока `kubectl get databases.ydb.tech` не станет `Ready`.\n\nПосле обработки манифеста будет создан объект StatefulSet, описывающий набор динамических узлов. Созданная база данных будет доступна изнутри кластера Kubernetes по DNS имени `database-minikube-sample` на порту 2135.\n\nПерейдите в раздел [«Быстрый старт»](/docs/ru/quickstart) в документации YDB, чтобы получить дополнительную информацию. "
+        },
+        {
+          "tabName": "Установка вручную",
+          "title": "Установка вручную (только для Linux x86_64)",
+          "text": " Создайте рабочий каталог, запустите скрипт установки из него, а затем запустите одноузловую базу данных YDB с включенным режимом работы в оперативной памяти:\n``` mkdir ydb-local && cd ydb-local\ncurl https://install.ydb.tech | bash\n./start.sh ram\n```\nПерейдите в раздел [«Быстрый старт»](/docs/ru/quickstart) в документации YDB, чтобы получить дополнительную информацию. "
+        }
+      ]
+    },
+    {
+      "type": "icons-block",
+      "size": "s",
+      "title": "Как оставаться на связи?",
+      "items": [
+        {
+          "url": "https://github.com/ydb-platform/ydb",
+          "text": "GitHub",
+          "src": "https://storage.yandexcloud.net/ydb-site-assets/community/git.svg"
+        },
+        {
+          "url": "https://t.me/ydb_ru",
+          "text": "Telegram",
+          "src": "https://storage.yandexcloud.net/ydb-site-assets/community/telegram.svg"
+        },
+        {
+          "url": "https://habr.com/ru/companies/ydb/articles/",
+          "text": "Habr",
+          "src": "https://storage.yandexcloud.net/ydb-site-assets/community/habr.svg"
+        },
+        {
+          "url": "https://blog.ydb.tech",
+          "text": "Medium",
+          "src": "https://storage.yandexcloud.net/ydb-site-assets/community/medium.svg"
+        },
+        {
+          "url": "https://twitter.com/YDBPlatform",
+          "text": "Twitter",
+          "src": "https://storage.yandexcloud.net/ydb-site-assets/community/twitter.svg"
+        },
+        {
+          "url": "https://www.linkedin.com/company/ydb-platform/",
+          "text": "LinkedIn",
+          "src": "https://storage.yandexcloud.net/ydb-site-assets/community/linkedin.svg"
+        },
+        {
+          "url": "https://www.youtube.com/c/YDBPlatform",
+          "text": "YouTube",
+          "src": "https://storage.yandexcloud.net/ydb-site-assets/community/youtube.svg"
+        }
+      ]
+    }
+  ]
+}

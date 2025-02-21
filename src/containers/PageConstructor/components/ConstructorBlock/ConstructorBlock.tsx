@@ -1,9 +1,10 @@
-import React, {useMemo} from 'react';
+import React, {useCallback, useMemo, useState} from 'react';
 
 import pick from 'lodash/pick';
 
 import BlockBase from '../../../../components/BlockBase/BlockBase';
 import {BlockDecoration} from '../../../../customization/BlockDecoration';
+import usePCEditorBlockMouseEvents from '../../../../hooks/usePCEditorBlockMouseEvents';
 import {BlockDecorationProps, ConstructorBlock as ConstructorBlockType} from '../../../../models';
 import {block} from '../../../../utils';
 
@@ -20,6 +21,14 @@ export const ConstructorBlock = ({
     data,
     children,
 }: React.PropsWithChildren<ConstructorBlockProps>) => {
+    const [element, setElement] = useState<HTMLElement | undefined>();
+    const blockRef = useCallback((node: HTMLElement | null) => {
+        if (node !== null) {
+            setElement(node);
+        }
+    }, []);
+    const adminBlockMouseEvents = usePCEditorBlockMouseEvents([index], element);
+
     const {type} = data;
     const blockBaseProps = useMemo(
         () => pick(data, ['anchor', 'visible', 'resetPaddings', 'indent']),
@@ -27,10 +36,12 @@ export const ConstructorBlock = ({
     );
 
     return (
-        <BlockDecoration type={type} index={index} {...blockBaseProps}>
-            <BlockBase className={b({type})} {...blockBaseProps}>
-                {children}
-            </BlockBase>
-        </BlockDecoration>
+        <div ref={blockRef} {...adminBlockMouseEvents}>
+            <BlockDecoration type={type} index={index} {...blockBaseProps}>
+                <BlockBase className={b({type})} {...blockBaseProps}>
+                    {children}
+                </BlockBase>
+            </BlockDecoration>
+        </div>
     );
 };

@@ -1,6 +1,7 @@
-import React, {useContext, useMemo} from 'react';
+import React, {useContext, useMemo, useState} from 'react';
 
 import '@diplodoc/transform/dist/js/yfm';
+import {ThemeProvider} from '@gravity-ui/uikit';
 
 import BackgroundMedia from '../../components/BackgroundMedia/BackgroundMedia';
 import BrandFooter from '../../components/BrandFooter/BrandFooter';
@@ -10,9 +11,9 @@ import {AnimateContext} from '../../context/animateContext';
 import {InnerContext} from '../../context/innerContext';
 import {ProjectSettingsContext} from '../../context/projectSettingsContext';
 import {useTheme} from '../../context/theme';
-import {Grid} from '../../grid';
+import {usePCEditorInitializeEvents} from '../../hooks/usePCEditorInitializeEvents';
+import {usePCEditorStore} from '../../hooks/usePCEditorStore';
 import {
-    BlockType,
     BlockTypes,
     CustomConfig,
     CustomItems,
@@ -24,17 +25,9 @@ import {
     SubBlockTypes,
 } from '../../models';
 import Layout from '../../navigation/containers/Layout/Layout';
-import {
-    block as cnBlock,
-    getCustomItems,
-    getCustomTypes,
-    getHeaderBlock,
-    getOrderedBlocks,
-    getThemedValue,
-} from '../../utils';
+import {block as cnBlock, getCustomItems, getCustomTypes, getThemedValue} from '../../utils';
 
-import {ConstructorBlocks} from './components/ConstructorBlocks';
-import {ConstructorHeader} from './components/ConstructorItem';
+import {ConstructorBlocks} from './components';
 import {ConstructorRow} from './components/ConstructorRow';
 
 import './PageConstructor.scss';
@@ -68,6 +61,14 @@ export const Constructor = (props: PageConstructorProps) => {
         microdata,
     } = props;
 
+    const [content, setContent] = useState<PageContent>({blocks, background});
+    const theme = useTheme();
+
+    const store = usePCEditorStore();
+    const {initialized} = store;
+
+    usePCEditorInitializeEvents({initialContent: {blocks, background}, setContent});
+
     const {context} = useMemo(
         () => ({
             context: {
@@ -98,31 +99,23 @@ export const Constructor = (props: PageConstructorProps) => {
         [custom, shouldRenderBlock, microdata],
     );
 
-    const theme = useTheme();
-
-    const header = getHeaderBlock(blocks, context.headerBlockTypes);
-    const restBlocks = getOrderedBlocks(blocks, context.headerBlockTypes);
-    const themedBackground = getThemedValue(background, theme);
+    const restBlocks = content.blocks;
+    const themedBackground = getThemedValue(content.background, theme);
 
     return (
         <InnerContext.Provider value={context}>
-            <RootCn className={b()}>
+            <RootCn className={b('', {['with-editor']: initialized})}>
                 <div className={b('wrapper')}>
                     {themedBackground && (
                         <BackgroundMedia {...themedBackground} className={b('background')} />
                     )}
                     <Layout navigation={navigation}>
                         {renderMenu && renderMenu()}
-                        {header && (
-                            <ConstructorHeader data={header} blockKey={BlockType.HeaderBlock} />
+                        {restBlocks && (
+                            <ConstructorRow>
+                                <ConstructorBlocks items={restBlocks} />
+                            </ConstructorRow>
                         )}
-                        <Grid>
-                            {restBlocks && (
-                                <ConstructorRow>
-                                    <ConstructorBlocks items={restBlocks} />
-                                </ConstructorRow>
-                            )}
-                        </Grid>
                     </Layout>
                     {isBranded && <BrandFooter />}
                 </div>
@@ -136,8 +129,10 @@ export const PageConstructor = (props: PageConstructorProps) => {
     const {content: {animated = isAnimationEnabled} = {}, ...rest} = props;
 
     return (
-        <AnimateContext.Provider value={{animated}}>
-            <Constructor content={props.content} {...rest} />
-        </AnimateContext.Provider>
+        <ThemeProvider>
+            <AnimateContext.Provider value={{animated}}>
+                <Constructor content={props.content} {...rest} />
+            </AnimateContext.Provider>
+        </ThemeProvider>
     );
 };
