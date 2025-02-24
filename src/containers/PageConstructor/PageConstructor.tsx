@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import '@diplodoc/transform/dist/js/yfm';
+import '@diplodoc/transform/dist/js/yfm.js';
 
 import BackgroundMedia from '../../components/BackgroundMedia/BackgroundMedia';
 import BrandFooter from '../../components/BrandFooter/BrandFooter';
