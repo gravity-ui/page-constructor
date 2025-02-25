@@ -25,6 +25,7 @@ export const Navigation: React.FC<NavigationComponentProps> = ({data, logo, clas
         iconSize = 20,
         withBorder = false,
         withBorderOnScroll = true,
+        mobilePortalContainer,
     } = data;
 
     const [isSidebarOpened, setIsSidebarOpened] = useState(false);
@@ -56,6 +57,7 @@ export const Navigation: React.FC<NavigationComponentProps> = ({data, logo, clas
                                 isOpened={isSidebarOpened}
                                 activeItemId={activeItemId}
                                 onActiveItemChange={onActiveItemChange}
+                                portalContainer={mobilePortalContainer}
                             />
                         </OutsideClick>
                     </nav>
