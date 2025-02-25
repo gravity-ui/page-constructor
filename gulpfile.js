@@ -43,9 +43,6 @@ async function compileTs(modules = false) {
             '!test-utils/**/*',
         ])
             .pipe(
-                replace(/swiper\/react/g, () => (modules ? 'swiper/swiper-react' : 'swiper/react')),
-            )
-            .pipe(
                 replace(/import '.+\.scss';/g, (match) =>
                     modules ? match.replace('.scss', '.css') : '',
                 ),
