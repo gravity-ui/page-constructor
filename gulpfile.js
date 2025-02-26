@@ -56,6 +56,11 @@ async function compileTs(modules = false) {
                     },
                 }),
             )
+            .pipe(
+                replace(/swiper\/react/g, () =>
+                    modules ? 'swiper/swiper-react.esm.js' : 'swiper/swiper-react.cjs.js',
+                ),
+            )
             .pipe(sourcemaps.write('.', {includeContent: true, sourceRoot: '../../src'}))
             .pipe(
                 utils.addVirtualFile({
