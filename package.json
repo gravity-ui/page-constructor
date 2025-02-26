@@ -3,21 +3,15 @@
   "version": "5.37.0",
   "description": "Gravity UI Page Constructor",
   "license": "MIT",
-  "type": "commonjs",
   "repository": {
     "type": "git",
     "url": "https://github.com/gravity-ui/page-constructor"
   },
   "exports": {
     ".": {
-      "import": {
-        "types": "./build/esm/index.d.ts",
-        "default": "./build/esm/index.js"
-      },
-      "require": {
-        "types": "./build/cjs/index.d.ts",
-        "default": "./build/cjs/index.js"
-      }
+      "types": "./build/esm/index.d.ts",
+      "require": "./build/cjs/index.js",
+      "import": "./build/esm/index.js"
     },
     "./editor": {
       "types": "./build/esm/editor/index.d.ts",
@@ -35,7 +29,7 @@
   },
   "main": "./build/cjs/index.js",
   "module": "./build/esm/index.js",
-  "types": "./build/cjs/index.d.ts",
+  "types": "./build/esm/index.d.ts",
   "typesVersions": {
     "*": {
       "index.d.ts": [
