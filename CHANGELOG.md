@@ -1,8 +1,9 @@
 # Changelog
 
-## 6.0.0
+## [6.0.0](https://github.com/gravity-ui/page-constructor/compare/v5.37.0...v6.0.0) (2025-02-26)
 
-### ⚠️ Breaking Changes
+
+### ⚠ BREAKING CHANGES
 
 * Built JS files are now in ES2022
 * Require UIKit 7
