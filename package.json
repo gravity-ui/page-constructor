@@ -99,7 +99,6 @@
     "@bem-react/classname": "^1.6.0",
     "@gravity-ui/components": "^4.0.1",
     "@gravity-ui/dynamic-forms": "^5.0.0",
-    "@gravity-ui/gulp-utils": "^1.0.1",
     "@gravity-ui/i18n": "^1.7.0",
     "@react-spring/web": "^9.7.3",
     "@testing-library/dom": "^10.4.0",

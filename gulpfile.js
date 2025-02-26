@@ -1,71 +1,48 @@
 /* eslint-env node */
 const path = require('path');
 
-const utils = require('@gravity-ui/gulp-utils');
 const {task, src, dest, series, parallel} = require('gulp');
-const replace = require('gulp-replace');
 const sass = require('gulp-sass')(require('sass'));
-const sourcemaps = require('gulp-sourcemaps');
-const {rimrafSync} = require('rimraf');
+const replace = require('gulp-replace');
+const alias = require('gulp-ts-alias');
+const ts = require('gulp-typescript');
+const rimraf = require('rimraf');
+
 const BUILD_CLIENT_DIR = path.resolve('build');
 const ESM_DIR = 'esm';
 const CJS_DIR = 'cjs';
 
 task('clean', (done) => {
-    rimrafSync(BUILD_CLIENT_DIR);
-    rimrafSync('styles/**/*.css', {glob: true});
+    rimraf.sync(BUILD_CLIENT_DIR);
+    rimraf.sync('styles/**/*.css');
     done();
 });
 
-async function compileTs(modules = false) {
-    const tsProject = await utils.createTypescriptProject({
-        compilerOptions: {
-            declaration: true,
-            module: modules ? 'esnext' : 'nodenext',
-            moduleResolution: modules ? 'bundler' : 'nodenext',
-            ...(modules ? undefined : {verbatimModuleSyntax: false}),
-        },
+function compileTs(modules = false) {
+    const tsProject = ts.createProject('tsconfig.json', {
+        declaration: true,
+        module: modules ? 'esnext' : 'nodenext',
+        moduleResolution: modules ? 'bundler' : 'nodenext',
     });
 
-    const transformers = [
-        tsProject.customTransformers.transformScssImports,
-        tsProject.customTransformers.transformLocalModules,
-    ];
-    return new Promise((resolve) => {
-        src([
-            'src/**/*.{ts,tsx}',
-            '!src/stories/**/*',
-            '!src/**/__stories__/**/*',
-            '!src/**/__tests__/**/*',
-            '!src/server.ts',
-            '!src/configure.ts',
-            '!src/widget/**/*',
-            '!test-utils/**/*',
-        ])
-            .pipe(
-                replace(/import '.+\.scss';/g, (match) =>
-                    modules ? match.replace('.scss', '.css') : '',
-                ),
-            )
-            .pipe(sourcemaps.init())
-            .pipe(
-                tsProject({
-                    customTransformers: {
-                        before: transformers,
-                        afterDeclarations: transformers,
-                    },
-                }),
-            )
-            .pipe(sourcemaps.write('.', {includeContent: true, sourceRoot: '../../src'}))
-            .pipe(
-                utils.addVirtualFile({
-                    fileName: 'package.json',
-                    text: JSON.stringify({type: modules ? 'module' : 'commonjs'}),
-                }),
-            )
-            .pipe(dest(path.resolve(BUILD_CLIENT_DIR, modules ? 'esm' : 'cjs')))
-            .on('end', resolve);
-    });
+    return src([
+        'src/**/*.{ts,tsx}',
+        '!src/stories/**/*',
+        '!src/**/__stories__/**/*',
+        '!src/**/__tests__/**/*',
+        '!src/server.ts',
+        '!src/configure.ts',
+        '!src/widget/**/*',
+        '!test-utils/**/*',
+    ])
+        .pipe(
+            replace(/import '.+\.scss';/g, (match) =>
+                modules ? match.replace('.scss', '.css') : '',
+            ),
+        )
+        .pipe(alias(tsProject.config))
+        .pipe(tsProject())
+        .pipe(dest(path.resolve(BUILD_CLIENT_DIR, modules ? ESM_DIR : CJS_DIR)));
 }
 
 task('compile-to-esm', () => {
