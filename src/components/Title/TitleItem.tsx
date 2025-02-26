@@ -17,6 +17,7 @@ export function getArrowSize(size: TextSize, isMobile: boolean) {
             return 13;
         case 's':
             return 16;
+        case 'sm':
         case 'm':
             return isMobile ? 22 : 24;
         case 'l':

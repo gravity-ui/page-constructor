@@ -54,6 +54,10 @@ $darkSecondary: var(--g-color-text-dark-secondary);
             text-align: center;
         }
 
+        #{$block}__list {
+            margin-inline: auto;
+        }
+
         #{$block}__buttons {
             justify-content: center;
         }
@@ -79,8 +83,7 @@ $darkSecondary: var(--g-color-text-dark-secondary);
 
     &_size {
         &_s {
-            #{$block}__text,
-            #{$block}__notice {
+            #{$block}__text {
                 margin-top: $indentXXXS;
             }
 
@@ -92,14 +95,20 @@ $darkSecondary: var(--g-color-text-dark-secondary);
 
             #{$block}__list,
             #{$block}__links,
-            #{$block}__buttons {
+            #{$block}__notice {
                 margin-top: $indentXS;
+            }
+            #{$block}__buttons {
+                margin-top: $indentS;
+            }
+
+            #{$block}__notice .yfm {
+                @include text-size(body-1);
             }
         }
 
-        &_l {
-            #{$block}__text,
-            #{$block}__notice {
+        &_m {
+            #{$block}__text {
                 margin-top: $indentXXS;
             }
 
@@ -114,9 +123,54 @@ $darkSecondary: var(--g-color-text-dark-secondary);
                 @extend %heading-margin-reset;
                 @include text-size(body-3);
             }
+            #{$block}__text .yfm {
+                @include text-size(body-3);
+            }
+            #{$block}__notice .yfm {
+                @extend %heading-margin-reset;
+                @include text-size(body-2);
+            }
 
             #{$block}__list,
             #{$block}__links,
+            #{$block}__notice {
+                margin-top: $indentS;
+            }
+            #{$block}__buttons {
+                margin-top: $indentSM;
+            }
+        }
+
+        &_l {
+            #{$block}__text {
+                margin-top: $indentXXS;
+            }
+
+            #{$block}__text {
+                &_without-title {
+                    margin-top: 0;
+                }
+            }
+
+            #{$block}__text .yfm,
+            #{$block}__notice .yfm {
+                @extend %heading-margin-reset;
+                @include text-size(body-3);
+            }
+            #{$block}__text .yfm {
+                @include text-size(body-3);
+            }
+
+            #{$block}__notice .yfm {
+                @extend %heading-margin-reset;
+                @include text-size(body-2);
+            }
+
+            #{$block}__list,
+            #{$block}__links,
+            #{$block}__notice {
+                margin-top: $indentS;
+            }
             #{$block}__buttons {
                 margin-top: $indentSM;
             }

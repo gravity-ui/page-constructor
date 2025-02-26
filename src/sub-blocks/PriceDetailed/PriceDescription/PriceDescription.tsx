@@ -35,6 +35,7 @@ const LabelColorsMapping = {
 const LabelSizeMap: Record<TextSize, LabelProps['size']> = {
     l: 's',
     m: 's',
+    sm: 's',
     s: 'xs',
     xs: 'xs',
 };

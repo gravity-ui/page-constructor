@@ -52,6 +52,7 @@ export function getHeaderTag(size: TextSize) {
             return 'h3';
         case 'xs':
             return 'h4';
+        case 'sm':
         case 'm':
         default:
             return 'h2';

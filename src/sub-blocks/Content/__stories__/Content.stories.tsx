@@ -59,11 +59,34 @@ const SizeTemplate: StoryFn<ContentBlockProps & ClassNameProps> = (args) => (
         <div style={{paddingBottom: '64px'}}>
             <Content
                 {...args}
+                title={data.size.m.title}
+                list={transformedContentList}
+                buttons={data.default.content.buttons as ButtonProps[]}
+                size="m"
+            />
+        </div>
+        <div style={{paddingBottom: '64px'}}>
+            <Content
+                {...args}
                 title={data.size.s.title}
                 list={transformedContentList}
                 buttons={data.default.content.buttons as ButtonProps[]}
                 size="s"
             />
+        </div>
+    </div>
+);
+
+const CenteredTemplate: StoryFn<ContentBlockProps & ClassNameProps> = (args) => (
+    <div>
+        <div style={{paddingBottom: '64px'}}>
+            <Content {...args} additionalInfo={yfmTransform(data.default.content.additionalInfo)} />
+        </div>
+        <div style={{paddingBottom: '64px'}}>
+            <Content {...args} links={data.default.content.links as LinkProps[]} />
+        </div>
+        <div style={{paddingBottom: '64px'}}>
+            <Content {...args} buttons={data.default.content.buttons as ButtonProps[]} />
         </div>
     </div>
 );
@@ -98,7 +121,7 @@ const ThemeTemplate: StoryFn<ContentBlockProps & ClassNameProps> = (args) => (
 
 export const Default = DefaultTemplate.bind({});
 export const Size = SizeTemplate.bind({});
-export const Centered = DefaultTemplate.bind({});
+export const Centered = CenteredTemplate.bind({});
 export const Theme = ThemeTemplate.bind({});
 
 const defaultArgs = {
@@ -112,6 +135,7 @@ Default.args = {
 
 Size.args = {
     ...defaultArgs,
+    additionalInfo: yfmTransform(data.default.content.additionalInfo),
 } as ContentBlockProps;
 
 Centered.args = {
