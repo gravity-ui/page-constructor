@@ -1,4 +1,4 @@
-import React, {useRef} from 'react';
+import React from 'react';
 
 import {Meta, StoryFn} from '@storybook/react';
 
@@ -18,24 +18,7 @@ export default {
 const DefaultTemplate: StoryFn<{
     navigation: NavigationData;
     custom?: CustomConfig;
-}> = ({navigation, custom = {}}) => {
-    const container = useRef<HTMLDivElement>(null);
-
-    return (
-        <div className="test" ref={container}>
-            <PageConstructor
-                navigation={{
-                    ...navigation,
-                    header: {
-                        ...navigation.header,
-                        mobilePortalContainer: container,
-                    },
-                }}
-                custom={custom}
-            />
-        </div>
-    );
-};
+}> = ({navigation, custom = {}}) => <PageConstructor navigation={navigation} custom={custom} />;
 export const DefaultNavigation = DefaultTemplate.bind({});
 export const NavigationWithBorder = DefaultTemplate.bind({});
 export const NavigationWithCustomItems = DefaultTemplate.bind({});
