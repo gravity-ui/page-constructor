@@ -62,6 +62,7 @@ const AddBlock = ({onAdd, className}: React.PropsWithChildren<AddBlockProps>) =>
                     anchorRef={ref}
                     open={isOpened}
                     placement="top"
+                    className={b('popup')}
                     offset={{mainAxis: 0, crossAxis: 24}}
                     onOutsideClick={() => setIsOpened(false)}
                 >
