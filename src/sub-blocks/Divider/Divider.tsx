@@ -1,5 +1,3 @@
-import React from 'react';
-
 import {DividerProps} from '../../models';
 import {block} from '../../utils';
 

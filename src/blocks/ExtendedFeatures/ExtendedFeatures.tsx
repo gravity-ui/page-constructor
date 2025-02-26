@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import {AnimateBlock, HTML, Title} from '../../components/';
 import Image from '../../components/Image/Image';

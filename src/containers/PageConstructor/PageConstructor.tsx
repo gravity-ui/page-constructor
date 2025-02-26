@@ -1,6 +1,6 @@
-import React, {useContext, useMemo} from 'react';
+import * as React from 'react';
 
-import '@diplodoc/transform/dist/js/yfm';
+import '@diplodoc/transform/dist/js/yfm.js';
 
 import BackgroundMedia from '../../components/BackgroundMedia/BackgroundMedia';
 import BrandFooter from '../../components/BrandFooter/BrandFooter';
@@ -68,7 +68,7 @@ export const Constructor = (props: PageConstructorProps) => {
         microdata,
     } = props;
 
-    const {context} = useMemo(
+    const {context} = React.useMemo(
         () => ({
             context: {
                 blockTypes: [...BlockTypes, ...getCustomTypes(['blocks', 'headers'], custom)],
@@ -132,7 +132,7 @@ export const Constructor = (props: PageConstructorProps) => {
 };
 
 export const PageConstructor = (props: PageConstructorProps) => {
-    const {isAnimationEnabled = true} = useContext(ProjectSettingsContext);
+    const {isAnimationEnabled = true} = React.useContext(ProjectSettingsContext);
     const {content: {animated = isAnimationEnabled} = {}, ...rest} = props;
 
     return (

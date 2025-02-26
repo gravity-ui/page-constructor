@@ -1,4 +1,4 @@
-import React, {PropsWithChildren} from 'react';
+import * as React from 'react';
 
 import {Col} from '../../grid';
 import {BlockBaseProps, ClassNameProps, QAProps} from '../../models';
@@ -9,7 +9,10 @@ import './BlockBase.scss';
 
 const b = block('block-base');
 
-export type BlockBaseFullProps = BlockBaseProps & ClassNameProps & PropsWithChildren & QAProps;
+export type BlockBaseFullProps = BlockBaseProps &
+    ClassNameProps &
+    React.PropsWithChildren &
+    QAProps;
 
 const BlockBase = (props: BlockBaseFullProps) => {
     const {anchor, indent, visible, children, className, resetPaddings, qa} = props;

@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import * as React from 'react';
 
 import {Meta, StoryFn} from '@storybook/react';
 
@@ -31,7 +31,7 @@ const SizesTemplate: StoryFn<BackLinkProps> = (args) => (
     </Row>
 );
 const ThemesSizesTemplate: StoryFn<BackLinkProps> = (args) => (
-    <Fragment>
+    <React.Fragment>
         <Row>
             <Col />
             <Col>s</Col>
@@ -43,7 +43,7 @@ const ThemesSizesTemplate: StoryFn<BackLinkProps> = (args) => (
         <section style={{color: '#3a74ff'}}>
             <SizesTemplate {...args} theme="special" />
         </section>
-    </Fragment>
+    </React.Fragment>
 );
 
 export const Default = DefaultTemplate.bind({});

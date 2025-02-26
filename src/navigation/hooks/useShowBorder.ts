@@ -1,11 +1,11 @@
-import {useEffect, useState} from 'react';
+import * as React from 'react';
 
 import debounce from 'lodash/debounce';
 
 const useShowBorder = (withBorder: boolean, withBorderOnScroll: boolean) => {
-    const [showBorder, setShowBorder] = useState(withBorder);
+    const [showBorder, setShowBorder] = React.useState(withBorder);
 
-    useEffect(() => {
+    React.useEffect(() => {
         if (!withBorderOnScroll) return () => {};
 
         const showBorderOnScroll = () => {

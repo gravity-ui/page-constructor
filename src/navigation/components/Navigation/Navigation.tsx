@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import * as React from 'react';
 
 import OutsideClick from '../../../components/OutsideClick/OutsideClick';
 import {Col, Grid, Row} from '../../../grid';
@@ -27,7 +27,7 @@ export const Navigation: React.FC<NavigationComponentProps> = ({data, logo, clas
         withBorderOnScroll = true,
     } = data;
 
-    const [isSidebarOpened, setIsSidebarOpened] = useState(false);
+    const [isSidebarOpened, setIsSidebarOpened] = React.useState(false);
     const [showBorder] = useShowBorder(withBorder, withBorderOnScroll);
     const {activeItemId, leftItemsWithIconSize, rightItemsWithIconSize, onActiveItemChange} =
         useActiveNavItem(iconSize, leftItems, rightItems);

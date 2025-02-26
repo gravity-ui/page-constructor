@@ -1,5 +1,3 @@
-import React from 'react';
-
 import {useUniqId} from '@gravity-ui/uikit';
 
 import {BackgroundImage, CardBase} from '../../components/';

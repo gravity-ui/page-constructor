@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react';
+import * as React from 'react';
 
 import isEqual from 'lodash/isEqual';
 import pickBy from 'lodash/pickBy';
@@ -42,19 +42,22 @@ export function getSliderResponsiveParams({
         xs: !mobileFullscreen && contentLength > 1 ? DEFAULT_SLIDE_BREAKPOINTS.xs : 1,
     };
 
-    return Object.entries(showCount).reduce((res, [breakpointName, value]) => {
-        // eslint-disable-next-line no-param-reassign
-        res[BREAKPOINTS[breakpointName as SliderBreakpointNames] + 1] = {
-            slidesPerView: value,
-        };
-        return res;
-    }, {} as Record<number, SwiperOptions>);
+    return Object.entries(showCount).reduce(
+        (res, [breakpointName, value]) => {
+            // eslint-disable-next-line no-param-reassign
+            res[BREAKPOINTS[breakpointName as SliderBreakpointNames] + 1] = {
+                slidesPerView: value,
+            };
+            return res;
+        },
+        {} as Record<number, SwiperOptions>,
+    );
 }
 
 export const useMemoized = <T>(value: T): T => {
-    const [memoizedValue, setMemoizedValue] = useState(value);
+    const [memoizedValue, setMemoizedValue] = React.useState(value);
 
-    useEffect(() => {
+    React.useEffect(() => {
         setMemoizedValue((memoized) =>
             value && typeof value === 'object' && isEqual(memoized, value) ? memoized : value,
         );

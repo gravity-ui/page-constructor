@@ -1,4 +1,4 @@
-import {useMemo, useState} from 'react';
+import * as React from 'react';
 
 import {NavigationItemModel} from '../../models';
 import {getNavigationItemWithIconSize} from '../utils';
@@ -8,15 +8,15 @@ const useActiveNavItem = (
     leftItems: NavigationItemModel[],
     rightItems?: NavigationItemModel[],
 ) => {
-    const [activeItemId, setActiveItemId] = useState<string | undefined>(undefined);
+    const [activeItemId, setActiveItemId] = React.useState<string | undefined>(undefined);
 
     const getNavigationItem = getNavigationItemWithIconSize(iconSize);
 
-    const leftItemsWithIconSize = useMemo(
+    const leftItemsWithIconSize = React.useMemo(
         () => leftItems.map(getNavigationItem),
         [getNavigationItem, leftItems],
     );
-    const rightItemsWithIconSize = useMemo(
+    const rightItemsWithIconSize = React.useMemo(
         () => rightItems?.map(getNavigationItem),
         [getNavigationItem, rightItems],
     );

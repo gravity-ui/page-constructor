@@ -1,4 +1,4 @@
-import React, {useMemo} from 'react';
+import * as React from 'react';
 
 import {useUniqId} from '@gravity-ui/uikit';
 
@@ -27,7 +27,7 @@ const LayoutItem = ({
     analyticsEvents,
     controlPosition = 'content',
 }: LayoutItemProps) => {
-    const normalizedLinks = useMemo(() => getLayoutItemLinks(links), [links]);
+    const normalizedLinks = React.useMemo(() => getLayoutItemLinks(links), [links]);
     const areControlsInFooter = controlPosition === 'footer';
     const theme = useTheme();
     const themedIcon = getThemedValue(icon, theme);

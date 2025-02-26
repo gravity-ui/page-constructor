@@ -1,4 +1,4 @@
-import React, {Fragment, PropsWithChildren, useContext} from 'react';
+import * as React from 'react';
 
 import {InnerContext} from '../context/innerContext';
 import {BlockDecorationProps} from '../models';
@@ -6,8 +6,8 @@ import {BlockDecorationProps} from '../models';
 export const BlockDecoration = ({
     children: blockChildren,
     ...rest
-}: PropsWithChildren<BlockDecorationProps>) => {
-    const blockDecorators = useContext(InnerContext).customization?.decorators?.block;
+}: React.PropsWithChildren<BlockDecorationProps>) => {
+    const blockDecorators = React.useContext(InnerContext).customization?.decorators?.block;
 
     const content = blockDecorators
         ? blockDecorators.reduce(
@@ -16,5 +16,5 @@ export const BlockDecoration = ({
           )
         : blockChildren;
 
-    return <Fragment>{content}</Fragment>;
+    return <React.Fragment>{content}</React.Fragment>;
 };

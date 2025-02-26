@@ -1,4 +1,4 @@
-import React, {ReactElement, useContext, useMemo, useState} from 'react';
+import * as React from 'react';
 
 import {InnerContext} from '../../context/innerContext';
 import {MediaProps, QAProps} from '../../models';
@@ -54,13 +54,13 @@ export const Media = (props: MediaAllProps) => {
         videoMicrodata,
     } = props;
 
-    const [hasVideoFallback, setHasVideoFallback] = useState(false);
-    const {microdata} = useContext(InnerContext);
+    const [hasVideoFallback, setHasVideoFallback] = React.useState(false);
+    const {microdata} = React.useContext(InnerContext);
 
     const qaAttributes = getQaAttrubutes(qa, 'video');
 
-    const content = useMemo(() => {
-        let result: ReactElement | ReactElement[] = [];
+    const content = React.useMemo(() => {
+        let result: React.ReactElement | React.ReactElement[] = [];
 
         if (image) {
             result.push(
@@ -159,7 +159,7 @@ export const Media = (props: MediaAllProps) => {
         margins,
     ]);
 
-    const videoMicrodataScript = useMemo(() => {
+    const videoMicrodataScript = React.useMemo(() => {
         const {name, description} = videoMicrodata || {};
         const json = JSON.stringify({
             '@context': 'http://schema.org/',

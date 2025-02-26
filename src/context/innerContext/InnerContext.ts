@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import {ItemMap, NavItemMap} from '../../containers/PageConstructor/PageConstructor';
 import {CustomConfig, LoadableConfig, ShouldRenderBlock} from '../../models';

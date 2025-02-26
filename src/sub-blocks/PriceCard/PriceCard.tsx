@@ -1,6 +1,4 @@
-import React from 'react';
-
-import Check from '@gravity-ui/icons/Check';
+import {Check} from '@gravity-ui/icons';
 
 import {BackgroundImage, Buttons, CardBase, ContentList, HTML, Links} from '../../components';
 import {PriceCardProps} from '../../models';

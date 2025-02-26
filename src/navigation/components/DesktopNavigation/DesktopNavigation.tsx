@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import OverflowScroller from '../../../components/OverflowScroller/OverflowScroller';
 import {block} from '../../../utils';

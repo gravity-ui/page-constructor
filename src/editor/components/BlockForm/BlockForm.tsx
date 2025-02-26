@@ -1,4 +1,4 @@
-import React, {Fragment, memo, useMemo} from 'react';
+import * as React from 'react';
 
 import {DynamicField, SimpleVerticalAccordeon, Spec} from '@gravity-ui/dynamic-forms';
 import isEqual from 'lodash/isEqual';
@@ -18,11 +18,11 @@ interface BlockFormProps {
     active?: boolean;
 }
 
-export const BlockForm = memo(
+export const BlockForm = React.memo(
     ({data: {type, ...content}, onChange, onSelect, active, spec: specRaw}: BlockFormProps) => {
-        const initialValues = useMemo(() => ({content}), [content]);
+        const initialValues = React.useMemo(() => ({content}), [content]);
         const prevContent = usePreviousValue(content);
-        const spec = useMemo(
+        const spec = React.useMemo(
             () => ({
                 ...specRaw,
                 viewSpec: {
@@ -49,7 +49,7 @@ export const BlockForm = memo(
         return (
             <FinalForm initialValues={initialValues} onSubmit={noop}>
                 {() => (
-                    <Fragment>
+                    <React.Fragment>
                         <FormSpy
                             onChange={({values}) => {
                                 // fix for FormSpy onChange called twice without content changes
@@ -65,7 +65,7 @@ export const BlockForm = memo(
                             config={dynamicConfig}
                             withoutInsertFFDebounce
                         />
-                    </Fragment>
+                    </React.Fragment>
                 )}
             </FinalForm>
         );

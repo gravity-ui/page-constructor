@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import {QAProps} from '../../models/common';
 import {hasBlockTag} from '../../utils';

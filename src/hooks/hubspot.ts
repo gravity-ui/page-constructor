@@ -1,4 +1,4 @@
-import {useEffect} from 'react';
+import * as React from 'react';
 
 import {HubspotEventHandlers, handleHubspotEvents, loopBackHabspotEvents} from '../utils/hubspot';
 
@@ -9,7 +9,7 @@ import {HubspotEventHandlers, handleHubspotEvents, loopBackHabspotEvents} from '
  * @description Use this hook on top level frame to loopback hubspot forms events back to origin frame
  */
 export function useLoopBackHubspotEvents(formId: string): void {
-    useEffect(() => {
+    React.useEffect(() => {
         const topHandler = loopBackHabspotEvents(formId);
 
         window.addEventListener('message', topHandler, {passive: true});
@@ -28,7 +28,7 @@ export function useLoopBackHubspotEvents(formId: string): void {
  * @description Use this hook in any frame to handle hubspot forms events
  */
 export function useHandleHubspotEvents(handlers: HubspotEventHandlers, formId: string): void {
-    useEffect(() => {
+    React.useEffect(() => {
         const topHandler = handleHubspotEvents(handlers, formId);
 
         window.addEventListener('message', topHandler, {passive: true});

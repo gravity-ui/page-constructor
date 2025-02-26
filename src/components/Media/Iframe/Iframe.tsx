@@ -1,5 +1,3 @@
-import React from 'react';
-
 import {MediaComponentIframeProps} from '../../../models';
 import {block} from '../../../utils';
 

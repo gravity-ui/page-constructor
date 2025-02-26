@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import {BackgroundImageProps} from '../../models';
 import {block, getQaAttrubutes} from '../../utils';

@@ -196,7 +196,9 @@ $block: '.#{$ns}hubspot-form';
                     height: 18px;
                     width: 18px;
                     background-image: $checkboxIcon;
-                    transition: top 0.1s linear, opacity 0.1s linear;
+                    transition:
+                        top 0.1s linear,
+                        opacity 0.1s linear;
                     opacity: 0;
                 }
             }

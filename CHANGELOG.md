@@ -1,5 +1,19 @@
 # Changelog
 
+## 6.0.0
+
+### ⚠️ Breaking Changes
+
+* Built JS files are now in ES2022
+* Require UIKit 7
+
+#### Styles
+* Remove scrollbars styling.
+
+### Features
+* Update typograf version up to 7.4.1
+* Update typescript version up to 5.7.3
+
 
 ## [5.37.0](https://github.com/gravity-ui/page-constructor/compare/v5.36.1...v5.37.0) (2025-02-19)
 
@@ -607,7 +621,7 @@
 * All the props from metrikaGoals and pixelEvents have been deleted, their helpers and lists have been deleted. Cleaned up calls to metric methods. Instead of all that, now AnalyticsEvents ([#814](https://github.com/gravity-ui/page-constructor/pull/814))
 * icons have been removed from the export and also replaced some icons with icons from gravity-ui/icons ([#830](https://github.com/gravity-ui/page-constructor/pull/830))
 
-| Component                        | /icons                            |  @gravity-ui/icons/             | 
+| Component                        | /icons                            |  @gravity-ui/icons/             |
 |:---------------------------------| :---------------------------------|:--------------------------------|
 | BackLink                         | ArrowSidebar                      | ArrowLeft                       |
 | FullscreenImage, FullscreenMedia | Fullscreen, PreviewClose          | ChevronsExpandUpRight, Xmark    |

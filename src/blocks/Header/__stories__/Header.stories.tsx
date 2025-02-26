@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import * as React from 'react';
 
 import {Meta, StoryFn} from '@storybook/react';
 
@@ -45,30 +45,30 @@ const DefaultTemplate: StoryFn<HeaderBlockModel> = (args) => (
 );
 
 const SizeTemplate: StoryFn<HeaderBlockModel> = (args) => (
-    <Fragment>
+    <React.Fragment>
         <DefaultTemplate {...args} title={getSizeTitle('"L"')} width="l" />
         <DefaultTemplate {...args} title={getSizeTitle('"M"')} width="m" />
         <DefaultTemplate {...args} title={getSizeTitle('"S"')} width="s" />
-    </Fragment>
+    </React.Fragment>
 );
 
 const CenteredTemplate: StoryFn<HeaderBlockModel> = (args) => (
-    <Fragment>
+    <React.Fragment>
         <DefaultTemplate {...args} title={getSizeTitle('"L"')} width="l" centered />
         <DefaultTemplate {...args} title={getSizeTitle('"M"')} width="m" centered />
         <DefaultTemplate {...args} title={getSizeTitle('"S"')} width="s" centered />
-    </Fragment>
+    </React.Fragment>
 );
 
 const ImageTemplate: StoryFn<HeaderBlockModel> = (args) => (
-    <Fragment>
+    <React.Fragment>
         <DefaultTemplate {...args} title={getImageTitle('«M»')} width="m" />
         <DefaultTemplate {...args} title={getImageTitle('«S»')} width="s" />
-    </Fragment>
+    </React.Fragment>
 );
 
 const FitTemplate: StoryFn<HeaderBlockModel> = (args) => (
-    <Fragment>
+    <React.Fragment>
         <DefaultTemplate {...args} title={getImageTitle('«M»')} width="m" />
         <DefaultTemplate
             {...args}
@@ -84,21 +84,21 @@ const FitTemplate: StoryFn<HeaderBlockModel> = (args) => (
             width="s"
             description={yfmTransform(data.videoFit.description)}
         />
-    </Fragment>
+    </React.Fragment>
 );
 
 const VerticalOffsetTemplate: StoryFn<HeaderBlockModel> = (args) => (
-    <Fragment>
+    <React.Fragment>
         <DefaultTemplate {...args} title={getVerticalOffsetTitle('«0»')} verticalOffset="0" />
         <DefaultTemplate {...args} title={getVerticalOffsetTitle('«S»')} verticalOffset="s" />
         <DefaultTemplate {...args} title={getVerticalOffsetTitle('«M»')} verticalOffset="m" />
         <DefaultTemplate {...args} title={getVerticalOffsetTitle('«L»')} verticalOffset="l" />
         <DefaultTemplate {...args} title={getVerticalOffsetTitle('«XL»')} verticalOffset="xl" />
-    </Fragment>
+    </React.Fragment>
 );
 
 const BackgroundTemplate: StoryFn<HeaderBlockModel> = (args) => (
-    <Fragment>
+    <React.Fragment>
         <DefaultTemplate
             {...args}
             title={data.media.content.image.title}
@@ -109,11 +109,11 @@ const BackgroundTemplate: StoryFn<HeaderBlockModel> = (args) => (
             title={data.media.content.video.title}
             background={data.media.content.video.background}
         />
-    </Fragment>
+    </React.Fragment>
 );
 
 const FullWithBackgroundTemplate: StoryFn<HeaderBlockModel> = (args) => (
-    <Fragment>
+    <React.Fragment>
         <DefaultTemplate
             {...args}
             title={data.media.content.image.title}
@@ -142,11 +142,11 @@ const FullWithBackgroundTemplate: StoryFn<HeaderBlockModel> = (args) => (
                 },
             }}
         />
-    </Fragment>
+    </React.Fragment>
 );
 
 const FullWidthMediaBackgroundTemplate: StoryFn<HeaderBlockModel> = (args) => (
-    <Fragment>
+    <React.Fragment>
         <DefaultTemplate
             {...args}
             title={data.media.content.image.title}
@@ -179,11 +179,11 @@ const FullWidthMediaBackgroundTemplate: StoryFn<HeaderBlockModel> = (args) => (
                 },
             }}
         />
-    </Fragment>
+    </React.Fragment>
 );
 
 const BreadCrumbsTemplate: StoryFn<HeaderBlockModel> = (args) => (
-    <Fragment>
+    <React.Fragment>
         <DefaultTemplate {...args} title={getBreadcrumbsTitle('light')} />
         <DefaultTemplate
             {...args}
@@ -197,7 +197,7 @@ const BreadCrumbsTemplate: StoryFn<HeaderBlockModel> = (args) => (
                 >[]
             }
         />
-    </Fragment>
+    </React.Fragment>
 );
 
 export const Default = DefaultTemplate.bind({});

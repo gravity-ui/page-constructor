@@ -1,4 +1,4 @@
-import React, {CSSProperties, useContext, useState} from 'react';
+import * as React from 'react';
 
 import {Waypoint} from 'react-waypoint';
 
@@ -12,14 +12,14 @@ export interface AnimateBlockProps extends AnimateContextProps, QAProps {
     animate?: boolean;
     offset?: number;
     className?: string;
-    style?: CSSProperties;
+    style?: React.CSSProperties;
     onScroll?: () => void;
 }
 
 const AnimateBlock = (props: React.PropsWithChildren<AnimateBlockProps>) => {
-    const {animated} = useContext(AnimateContext);
+    const {animated} = React.useContext(AnimateContext);
     const {children, className, offset = 100, onScroll, style, animate = animated, qa} = props;
-    const [playAnimation, setPlayAnimation] = useState<boolean>(false);
+    const [playAnimation, setPlayAnimation] = React.useState<boolean>(false);
 
     const divClassName = animate
         ? b(null, `${playAnimation && 'animate'} ${className}`)

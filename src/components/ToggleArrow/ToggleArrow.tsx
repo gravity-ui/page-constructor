@@ -1,5 +1,3 @@
-import React from 'react';
-
 import {Icon} from '@gravity-ui/uikit';
 
 import {Chevron, NavigationChevron} from '../../icons';

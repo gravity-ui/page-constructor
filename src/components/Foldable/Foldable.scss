@@ -6,7 +6,9 @@ $block: '.#{$ns}foldable-block';
 #{$block} {
     height: 0;
     overflow-y: hidden;
-    transition: height $animationDuration, margin-bottom $animationDuration;
+    transition:
+        height $animationDuration,
+        margin-bottom $animationDuration;
 
     &__content-container {
         overflow: auto;

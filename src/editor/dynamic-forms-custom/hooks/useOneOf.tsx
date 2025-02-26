@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import {
     FieldObjectValue,
@@ -6,7 +6,7 @@ import {
     Spec,
     SpecTypes,
 } from '@gravity-ui/dynamic-forms';
-import {RadioButton, Select} from '@gravity-ui/uikit';
+import {SegmentedRadioGroup, Select} from '@gravity-ui/uikit';
 import isObjectLike from 'lodash/isObjectLike';
 import some from 'lodash/some';
 
@@ -104,18 +104,18 @@ export const useOneOf = ({props, onTogglerChange}: UseOneOfParams) => {
         }
 
         return (
-            <RadioButton
+            <SegmentedRadioGroup
                 value={oneOfValue}
                 onChange={(event) => onOneOfChange([event.target.value])}
                 disabled={disabled}
                 qa={name}
             >
                 {options.map(({value, title}) => (
-                    <RadioButton.Option key={value} value={value}>
+                    <SegmentedRadioGroup.Option key={value} value={value}>
                         {title}
-                    </RadioButton.Option>
+                    </SegmentedRadioGroup.Option>
                 ))}
-            </RadioButton>
+            </SegmentedRadioGroup>
         );
     }, [options, oneOfValue, onOneOfChange, name, oneOfParams?.toggler, disabled]);
 

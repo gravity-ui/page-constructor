@@ -7,7 +7,9 @@ $block: '.#{$ns}code-editor';
     height: 60vh;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 4px 24px var(--pc-color-sfx-shadow), 0 2px 8px var(--pc-color-sfx-shadow);
+    box-shadow:
+        0 4px 24px var(--pc-color-sfx-shadow),
+        0 2px 8px var(--pc-color-sfx-shadow);
 
     &_fullscreen {
         position: absolute;

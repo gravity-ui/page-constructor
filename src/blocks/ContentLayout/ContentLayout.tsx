@@ -1,4 +1,4 @@
-import React, {useContext, useMemo} from 'react';
+import * as React from 'react';
 
 import {BackgroundImage, FileLink} from '../../components';
 import {MobileContext} from '../../context/mobileContext';
@@ -35,7 +35,7 @@ function getTextWidth(size: ContentTextSize) {
 }
 
 export const ContentLayoutBlock = (props: ContentLayoutBlockProps) => {
-    const isMobile = useContext(MobileContext);
+    const isMobile = React.useContext(MobileContext);
     const {
         textContent,
         fileContent,
@@ -46,7 +46,7 @@ export const ContentLayoutBlock = (props: ContentLayoutBlockProps) => {
         textWidth = 'm',
     } = props;
 
-    const colSizes = useMemo(() => getTextWidth(textWidth), [textWidth]);
+    const colSizes = React.useMemo(() => getTextWidth(textWidth), [textWidth]);
     const globalTheme = useTheme();
     const themedBackground = getThemedValue(background, globalTheme);
 

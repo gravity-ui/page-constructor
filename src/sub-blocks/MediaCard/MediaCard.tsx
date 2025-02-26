@@ -1,5 +1,3 @@
-import React from 'react';
-
 import {CardBase, Media} from '../../components';
 import {MediaCardProps} from '../../models';
 import {block} from '../../utils';

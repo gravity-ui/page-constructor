@@ -1,4 +1,4 @@
-import React, {FC, SVGProps, useCallback, useContext} from 'react';
+import * as React from 'react';
 
 import {Button, Icon} from '@gravity-ui/uikit';
 
@@ -17,7 +17,7 @@ import {i18n} from './i18n';
 import './Share.scss';
 
 interface IconsProps {
-    [key: string]: FC<SVGProps<SVGSVGElement>>;
+    [key: string]: React.FC<React.SVGProps<SVGSVGElement>>;
 }
 
 const icons: IconsProps = {
@@ -31,10 +31,10 @@ const icons: IconsProps = {
 const b = block('share-block');
 
 const Share = ({items, title}: ShareBlockProps) => {
-    const {pathname, hostname} = useContext(LocationContext);
+    const {pathname, hostname} = React.useContext(LocationContext);
     const handleAnalytics = useAnalytics(DefaultEventNames.ShareButton);
 
-    const handleButtonClick = useCallback(() => handleAnalytics(), [handleAnalytics]);
+    const handleButtonClick = React.useCallback(() => handleAnalytics(), [handleAnalytics]);
 
     return (
         <div className={b()}>

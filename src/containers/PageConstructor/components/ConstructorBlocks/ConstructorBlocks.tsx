@@ -1,4 +1,4 @@
-import React, {Fragment, ReactElement, useContext} from 'react';
+import * as React from 'react';
 
 import get from 'lodash/get';
 
@@ -20,13 +20,13 @@ export interface ConstructorBlocksProps {
 }
 
 export const ConstructorBlocks: React.FC<ConstructorBlocksProps> = ({items}) => {
-    const {blockTypes, loadables, itemMap, shouldRenderBlock} = useContext(InnerContext);
+    const {blockTypes, loadables, itemMap, shouldRenderBlock} = React.useContext(InnerContext);
 
     const renderer = (
         parentId = '',
         item: ConstructorBlockType,
         index: number,
-    ): ReactElement | null => {
+    ): React.ReactElement | null => {
         if (!itemMap[item.type]) {
             return parentId ? null : (
                 <BlockDecoration type={item.type as BlockType} index={index}>
@@ -84,5 +84,5 @@ export const ConstructorBlocks: React.FC<ConstructorBlocksProps> = ({items}) => 
         );
     };
 
-    return <Fragment>{items.map(renderer.bind(null, ''))}</Fragment>;
+    return <React.Fragment>{items.map(renderer.bind(null, ''))}</React.Fragment>;
 };
