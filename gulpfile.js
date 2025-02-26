@@ -25,24 +25,50 @@ function compileTs(modules = false) {
         moduleResolution: modules ? 'bundler' : 'nodenext',
     });
 
-    return src([
-        'src/**/*.{ts,tsx}',
-        '!src/stories/**/*',
-        '!src/**/__stories__/**/*',
-        '!src/**/__tests__/**/*',
-        '!src/server.ts',
-        '!src/configure.ts',
-        '!src/widget/**/*',
-        '!test-utils/**/*',
-    ])
-        .pipe(
-            replace(/import '.+\.scss';/g, (match) =>
-                modules ? match.replace('.scss', '.css') : '',
-            ),
-        )
-        .pipe(alias(tsProject.config))
-        .pipe(tsProject())
-        .pipe(dest(path.resolve(BUILD_CLIENT_DIR, modules ? ESM_DIR : CJS_DIR)));
+    const transformers = [
+        tsProject.customTransformers.transformScssImports,
+        tsProject.customTransformers.transformLocalModules,
+    ];
+    return new Promise((resolve) => {
+        src([
+            'src/**/*.{ts,tsx}',
+            '!src/stories/**/*',
+            '!src/**/__stories__/**/*',
+            '!src/**/__tests__/**/*',
+            '!src/server.ts',
+            '!src/configure.ts',
+            '!src/widget/**/*',
+            '!test-utils/**/*',
+        ])
+            .pipe(
+                replace(/import '.+\.scss';/g, (match) =>
+                    modules ? match.replace('.scss', '.css') : '',
+                ),
+            )
+            .pipe(sourcemaps.init())
+            .pipe(
+                tsProject({
+                    customTransformers: {
+                        before: transformers,
+                        afterDeclarations: transformers,
+                    },
+                }),
+            )
+            .pipe(
+                replace(/swiper\/react/g, () =>
+                    modules ? 'swiper/swiper-react.esm.js' : 'swiper/swiper-react.cjs.js',
+                ),
+            )
+            .pipe(sourcemaps.write('.', {includeContent: true, sourceRoot: '../../src'}))
+            .pipe(
+                utils.addVirtualFile({
+                    fileName: 'package.json',
+                    text: JSON.stringify({type: modules ? 'module' : 'commonjs'}),
+                }),
+            )
+            .pipe(dest(path.resolve(BUILD_CLIENT_DIR, modules ? 'esm' : 'cjs')))
+            .on('end', resolve);
+    });
 }
 
 task('compile-to-esm', () => {
