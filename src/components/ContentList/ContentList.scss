@@ -24,7 +24,8 @@ $maxSizeS: 440px;
 }
 
 #{$block} {
-    &_size_l {
+    &_size_l,
+    &_size_m {
         max-width: $maxSizeL;
 
         #{$block}__title {

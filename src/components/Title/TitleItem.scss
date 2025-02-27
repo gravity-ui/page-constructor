@@ -16,6 +16,11 @@ $block: '.#{$ns}title-item';
         margin-top: $indentM;
     }
 
+    &_size_sm {
+        @include heading(display-1);
+        margin-top: $indentL;
+    }
+
     &_size_m {
         @include heading2();
         margin-top: $indentL;
