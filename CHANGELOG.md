@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.1.0](https://github.com/gravity-ui/page-constructor/compare/v6.0.0...v6.1.0) (2025-02-27)
+
+
+### Features
+
+* **Content:** add m size ([#1120](https://github.com/gravity-ui/page-constructor/issues/1120)) ([0f9e53a](https://github.com/gravity-ui/page-constructor/commit/0f9e53a9fca0517cb62ff0ef57b98aecdb9fdfbb))
+
 ## [6.0.0](https://github.com/gravity-ui/page-constructor/compare/v5.37.0...v6.0.0) (2025-02-26)
 
 
