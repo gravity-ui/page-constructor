@@ -41,9 +41,18 @@ const FileExtensionThemes = {
 const LabelSizeMap: Record<TextSize, LabelProps['size']> = {
     l: 's',
     m: 's',
+    sm: 's',
     s: 'xs',
     xs: 'xs',
 };
+
+function getTextSize(size: TextSize) {
+    if (size === 'sm') {
+        return 'm';
+    }
+
+    return size;
+}
 
 const FileLink = (props: React.PropsWithChildren<FileLinkProps>) => {
     const {hostname} = React.useContext(LocationContext);
@@ -64,7 +73,7 @@ const FileLink = (props: React.PropsWithChildren<FileLinkProps>) => {
     const labelSize = LabelSizeMap[textSize];
 
     return (
-        <div className={b({ext: fileExt, type, size: textSize, theme}, className)}>
+        <div className={b({ext: fileExt, type, size: getTextSize(textSize), theme}, className)}>
             <Label className={b('file-label')} size={labelSize} theme={labelTheme}>
                 {fileExt}
             </Label>

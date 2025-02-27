@@ -62,7 +62,7 @@ export enum QuoteType {
 
 // types
 export type TextTheme = 'light' | 'dark';
-export type TextSize = 'xs' | 's' | 'm' | 'l';
+export type TextSize = 'xs' | 's' | 'sm' | 'm' | 'l';
 export type DividerSize = '0' | 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl' | 'xxxl';
 export type HeaderWidth = 's' | 'm' | 'l';
 export type HeaderImageSize = 's' | 'm';
@@ -73,7 +73,7 @@ export type LegendTableMarkerType = 'disk' | 'tick';
 export type LinkTheme = 'file-link' | 'normal' | 'back' | 'underline';
 export type MediaDirection = 'media-content' | 'content-media';
 export type PriceDescriptionColor = 'cornflower' | 'black';
-export type ContentSize = 's' | 'l';
+export type ContentSize = 's' | 'm' | 'l';
 export type ContentTextSize = 's' | 'm' | 'l';
 export type ContentTheme = 'default' | 'dark' | 'light';
 export type FileLinkType = 'vertical' | 'horizontal';

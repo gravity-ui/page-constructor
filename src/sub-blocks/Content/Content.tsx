@@ -2,7 +2,13 @@ import {useUniqId} from '@gravity-ui/uikit';
 
 import {Buttons, ContentList, Links, Title, YFMWrapper} from '../../components';
 import {Col} from '../../grid';
-import {ClassNameProps, ContentBlockProps, ContentSize, TitleItemProps} from '../../models';
+import {
+    ClassNameProps,
+    ContentBlockProps,
+    ContentSize,
+    TextSize,
+    TitleItemProps,
+} from '../../models';
 import {QAProps} from '../../models/common';
 import {block} from '../../utils';
 import {getQaAttrubutes} from '../../utils/blocks';
@@ -11,10 +17,12 @@ import './Content.scss';
 
 const b = block('content');
 
-function getTextSize(size: ContentSize) {
+function getTextSize(size: ContentSize): TextSize {
     switch (size) {
         case 's':
             return 's';
+        case 'm':
+            return 'sm';
         case 'l':
         default:
             return 'm';
