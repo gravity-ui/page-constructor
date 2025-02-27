@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import {PageConstructorProps, PageConstructorProviderProps} from '../containers/PageConstructor';
 import {Theme} from '../models/common';

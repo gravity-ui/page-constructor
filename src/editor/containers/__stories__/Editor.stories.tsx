@@ -1,4 +1,4 @@
-import React, {useCallback, useContext} from 'react';
+import * as React from 'react';
 
 import {Meta, StoryFn} from '@storybook/react';
 
@@ -23,9 +23,9 @@ export default {
 const contentTransformerMemoized = memoizeLast(contentTransformer);
 
 const DefaultTemplate: StoryFn<EditorProps> = (args) => {
-    const {lang} = useContext(LocaleContext);
+    const {lang} = React.useContext(LocaleContext);
 
-    const transformContent = useCallback(
+    const transformContent = React.useCallback(
         (content: PageContent) => ({
             ...content,
             ...contentTransformerMemoized({content, options: {lang}}),

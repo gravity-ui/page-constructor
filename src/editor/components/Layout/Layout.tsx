@@ -1,4 +1,4 @@
-import React, {Children, Fragment, PropsWithChildren, ReactElement} from 'react';
+import * as React from 'react';
 
 import {block} from '../../../utils';
 import {EditModeItem, ViewModeItem} from '../../types';
@@ -8,8 +8,8 @@ import './Layout.scss';
 
 const b = block('editor-layout');
 
-const Left: React.FC<PropsWithChildren> = () => null;
-const Right: React.FC<PropsWithChildren> = () => null;
+const Left: React.FC<React.PropsWithChildren> = () => null;
+const Right: React.FC<React.PropsWithChildren> = () => null;
 
 export interface LayoutProps {
     editMode: EditModeItem;
@@ -18,11 +18,11 @@ export interface LayoutProps {
 
 // TODO in https://github.com/gravity-ui/page-constructor/issues/884 this component will be disappeared
 
-const Layout = ({children, editMode, viewMode}: PropsWithChildren<LayoutProps>) => {
+const Layout = ({children, editMode, viewMode}: React.PropsWithChildren<LayoutProps>) => {
     let left, right;
     const isEditingMode = editMode === EditModeItem.Form;
 
-    function handleChild(child: ReactElement) {
+    function handleChild(child: React.ReactElement) {
         switch (child?.type) {
             case Left:
                 left = child?.props.children;
@@ -34,19 +34,19 @@ const Layout = ({children, editMode, viewMode}: PropsWithChildren<LayoutProps>) 
     }
 
     if (React.Children.toArray(children).length) {
-        Children.forEach(children as ReactElement, handleChild);
+        React.Children.forEach(children as React.ReactElement, handleChild);
     }
 
     return (
         <div className={b('container')}>
-            <Fragment>
+            <React.Fragment>
                 {left && <div className={b('left')}>{left}</div>}
                 {right && (
                     <div className={b('right', {editing: isEditingMode})}>
                         <DeviceEmulation mode={viewMode}>{right}</DeviceEmulation>
                     </div>
                 )}
-            </Fragment>
+            </React.Fragment>
         </div>
     );
 };

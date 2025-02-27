@@ -1,4 +1,4 @@
-import React, {PropsWithChildren, useMemo} from 'react';
+import * as React from 'react';
 
 import {ClassNameProps, QAProps, TagName} from '../../models/common';
 import {selectTagName} from '../../utils';
@@ -9,7 +9,11 @@ export interface HTMLExtraProps {
     contentClassName?: string;
     onlyContent?: boolean;
 }
-export interface HTMLProps extends HTMLExtraProps, PropsWithChildren, QAProps, ClassNameProps {
+export interface HTMLProps
+    extends HTMLExtraProps,
+        React.PropsWithChildren,
+        QAProps,
+        ClassNameProps {
     content?: string;
     block?: boolean;
     itemProp?: string;
@@ -28,7 +32,7 @@ const HTML = ({
     onlyContent = false,
     ...rest
 }: HTMLProps) => {
-    const renderedContent = useMemo(() => {
+    const renderedContent = React.useMemo(() => {
         return content
             ? React.createElement(selectTagName({content, block, tagName, children}), {
                   dangerouslySetInnerHTML: {__html: content},

@@ -1,4 +1,4 @@
-import {useEffect, useRef, useState} from 'react';
+import * as React from 'react';
 
 import pickBy from 'lodash/pickBy';
 
@@ -113,8 +113,8 @@ export function useRovingTabIndex(props: {
     uniqId: string;
 }) {
     const {itemCount, activeIndex, firstIndex = 0, uniqId} = props;
-    const [currentIndex, setCurrentIndex] = useState(firstIndex);
-    const hasFocusRef = useRef(false);
+    const [currentIndex, setCurrentIndex] = React.useState(firstIndex);
+    const hasFocusRef = React.useRef(false);
     const lastIndex = itemCount + firstIndex - 1;
 
     const getRovingItemProps = (
@@ -130,7 +130,7 @@ export function useRovingTabIndex(props: {
         };
     };
 
-    useEffect(() => {
+    React.useEffect(() => {
         if (!hasFocusRef.current) {
             return;
         }

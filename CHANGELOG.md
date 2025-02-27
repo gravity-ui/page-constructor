@@ -1,5 +1,93 @@
 # Changelog
 
+## [6.0.0](https://github.com/gravity-ui/page-constructor/compare/v5.37.0...v6.0.0) (2025-02-26)
+
+
+### ⚠ BREAKING CHANGES
+
+* Built JS files are now in ES2022
+* Require UIKit 7
+
+#### Styles
+* Remove scrollbars styling.
+
+### Features
+* Update typograf version up to 7.4.1
+* Update typescript version up to 5.7.3
+
+
+## [5.37.0](https://github.com/gravity-ui/page-constructor/compare/v5.36.1...v5.37.0) (2025-02-19)
+
+
+### Features
+
+* **HeaderBlock:** add centered prop ([#1130](https://github.com/gravity-ui/page-constructor/issues/1130)) ([c824cf4](https://github.com/gravity-ui/page-constructor/commit/c824cf47d368f7364276ebb14ff1b4e7f65b03dc))
+
+## [5.36.1](https://github.com/gravity-ui/page-constructor/compare/v5.36.0...v5.36.1) (2025-02-18)
+
+
+### Bug Fixes
+
+* fix storybook styles; add inter 500 font ([#1128](https://github.com/gravity-ui/page-constructor/issues/1128)) ([cdf5710](https://github.com/gravity-ui/page-constructor/commit/cdf571005a0e5531940266550169fa9c7fcec2d2))
+
+## [5.36.0](https://github.com/gravity-ui/page-constructor/compare/v5.35.1...v5.36.0) (2025-02-13)
+
+
+### Features
+
+* upd peer (react 19) ([#1126](https://github.com/gravity-ui/page-constructor/issues/1126)) ([25ef1bc](https://github.com/gravity-ui/page-constructor/commit/25ef1bcc304075175ef4cc1ed903b24c3054a7a2))
+
+## [5.35.1](https://github.com/gravity-ui/page-constructor/compare/v5.35.0...v5.35.1) (2025-02-12)
+
+
+### Bug Fixes
+
+* header block video microdata ([#1124](https://github.com/gravity-ui/page-constructor/issues/1124)) ([779cef3](https://github.com/gravity-ui/page-constructor/commit/779cef3003e98bada8e1e43e1efba2f187a42ae0))
+
+## [5.35.0](https://github.com/gravity-ui/page-constructor/compare/v5.34.0...v5.35.0) (2025-02-11)
+
+
+### Features
+
+* add video microdata to header block ([#1123](https://github.com/gravity-ui/page-constructor/issues/1123)) ([e649755](https://github.com/gravity-ui/page-constructor/commit/e6497551390916d33fd75043ef1c4c5c1bbc24bb))
+* increase card bottom padding ([#1105](https://github.com/gravity-ui/page-constructor/issues/1105)) ([447c37e](https://github.com/gravity-ui/page-constructor/commit/447c37e16b9efe6296caba205a2cbf17746741b7))
+
+## [5.34.0](https://github.com/gravity-ui/page-constructor/compare/v5.33.4...v5.34.0) (2025-02-04)
+
+
+### Features
+
+* support JSX.Element type of header`s overtitle props ([#1115](https://github.com/gravity-ui/page-constructor/issues/1115)) ([39307f6](https://github.com/gravity-ui/page-constructor/commit/39307f61e2974a622474cac1997231525242ed23))
+
+## [5.33.4](https://github.com/gravity-ui/page-constructor/compare/v5.33.3...v5.33.4) (2025-02-04)
+
+
+### Bug Fixes
+
+* **BrandFooter:** adjust styles ([#1114](https://github.com/gravity-ui/page-constructor/issues/1114)) ([da3dc08](https://github.com/gravity-ui/page-constructor/commit/da3dc08733fbc938cae51c6433d1f8ed84ed1e57))
+
+## [5.33.3](https://github.com/gravity-ui/page-constructor/compare/v5.33.2...v5.33.3) (2025-01-30)
+
+
+### Bug Fixes
+
+* tabs block centered with tabsColSizes ([#1108](https://github.com/gravity-ui/page-constructor/issues/1108)) ([24df569](https://github.com/gravity-ui/page-constructor/commit/24df5695b1adb55f5a683206b4069c2529e0ea5f))
+* up gravity-ui preview-build-action v2 ([#1109](https://github.com/gravity-ui/page-constructor/issues/1109)) ([72cb2fa](https://github.com/gravity-ui/page-constructor/commit/72cb2fad4eac121733a20fb419ed8c119ba9e7cd))
+
+## [5.33.2](https://github.com/gravity-ui/page-constructor/compare/v5.33.1...v5.33.2) (2025-01-29)
+
+
+### Bug Fixes
+
+* layout item content margin ([#1104](https://github.com/gravity-ui/page-constructor/issues/1104)) ([fc44210](https://github.com/gravity-ui/page-constructor/commit/fc44210c8fd1853cb0e01797c791fee8df43ea50))
+* playwright actions ([#1106](https://github.com/gravity-ui/page-constructor/issues/1106)) ([dc04d43](https://github.com/gravity-ui/page-constructor/commit/dc04d43c5be1ea9c3c24e50a75e26df15a1466be))
+
+## [5.33.1](https://github.com/gravity-ui/page-constructor/compare/v5.33.0...v5.33.1) (2025-01-28)
+
+
+### Bug Fixes
+
+* add validator for autoplay field; add autoplay field to doc ([#1102](https://github.com/gravity-ui/page-constructor/issues/1102)) ([5e6e070](https://github.com/gravity-ui/page-constructor/commit/5e6e070940f23b04521ba24a99da3554f0d7aa08))
 
 ## [5.33.0](https://github.com/gravity-ui/page-constructor/compare/v5.32.0...v5.33.0) (2025-01-17)
 
@@ -534,7 +622,7 @@
 * All the props from metrikaGoals and pixelEvents have been deleted, their helpers and lists have been deleted. Cleaned up calls to metric methods. Instead of all that, now AnalyticsEvents ([#814](https://github.com/gravity-ui/page-constructor/pull/814))
 * icons have been removed from the export and also replaced some icons with icons from gravity-ui/icons ([#830](https://github.com/gravity-ui/page-constructor/pull/830))
 
-| Component                        | /icons                            |  @gravity-ui/icons/             | 
+| Component                        | /icons                            |  @gravity-ui/icons/             |
 |:---------------------------------| :---------------------------------|:--------------------------------|
 | BackLink                         | ArrowSidebar                      | ArrowLeft                       |
 | FullscreenImage, FullscreenMedia | Fullscreen, PreviewClose          | ChevronsExpandUpRight, Xmark    |

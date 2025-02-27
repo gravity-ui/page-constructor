@@ -1,4 +1,4 @@
-import React, {Fragment, useCallback, useContext} from 'react';
+import * as React from 'react';
 
 import {Image, Title} from '../../components';
 import {LocationContext} from '../../context/locationContext';
@@ -12,18 +12,18 @@ import './Icons.scss';
 const b = block('icons-block');
 
 const getItemContent = (item: IconsBlockProps['items'][number] & {src: string}) => (
-    <Fragment>
+    <React.Fragment>
         <Image className={b('image')} src={item.src} />
         <p className={b('text')}>{item.text}</p>
-    </Fragment>
+    </React.Fragment>
 );
 
 const Icons = ({title, description, size = 's', colSizes = {all: 12}, items}: IconsBlockProps) => {
-    const {hostname} = useContext(LocationContext);
+    const {hostname} = React.useContext(LocationContext);
     const handleAnalytics = useAnalytics();
     const theme = useTheme();
 
-    const onClick = useCallback(
+    const onClick = React.useCallback(
         ({analyticsEvents, url}: IconsBlockItemProps) => {
             handleAnalytics(analyticsEvents, {url});
         },

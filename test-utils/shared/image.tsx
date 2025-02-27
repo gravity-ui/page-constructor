@@ -1,5 +1,5 @@
 import {render, screen} from '@testing-library/react';
-import React, {ElementType} from 'react';
+import * as React from 'react';
 
 import {getQaAttrubutes} from '../../src';
 import {QAProps} from '../../src/models';
@@ -11,7 +11,7 @@ export const testSourceProps = <T,>({
     props,
     options,
 }: {
-    component: ElementType;
+    component: React.ElementType;
     props: T &
         QAProps & {
             src?: string;

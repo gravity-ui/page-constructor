@@ -1,5 +1,3 @@
-import React from 'react';
-
 import {Meta, StoryFn} from '@storybook/react';
 
 import {yfmTransform} from '../../../../.storybook/utils';
@@ -115,4 +113,5 @@ ControlPosition.argTypes = {
     className: {table: {disable: true}},
     controlPosition: {table: {disable: true}},
     analyticsEvents: {table: {disable: true}},
+    contentMargin: {table: {disable: true}},
 };

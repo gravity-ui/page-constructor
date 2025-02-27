@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import {Popup} from '@gravity-ui/uikit';
 
@@ -9,19 +9,17 @@ import NavigationItem from '../NavigationItem';
 import './NavigationPopup.scss';
 
 const b = block('navigation-popup');
-const OFFSET_RESET: [number, number] = [0, 0];
+const OFFSET_RESET: {mainAxis?: number; crossAxis?: number} = {mainAxis: 0, crossAxis: 0};
 
 export const NavigationPopup: React.FC<NavigationPopupProps> = ({
     anchorRef,
     items,
     onClose,
-    className,
     open,
 }) => (
     <Popup
         // Workaround to recalculate position on every opening. Required for valid position calculation for scrolled header links.
         anchorRef={open ? anchorRef : undefined}
-        contentClassName={b(null, className)}
         open={open}
         onClose={onClose}
         onOutsideClick={onClose}

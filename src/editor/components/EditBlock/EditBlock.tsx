@@ -1,4 +1,4 @@
-import React, {useEffect, useMemo, useRef} from 'react';
+import * as React from 'react';
 
 import {ChevronDown, ChevronUp, Copy as CopyIcon, TrashBin} from '@gravity-ui/icons';
 import {useActionHandlers} from '@gravity-ui/uikit';
@@ -43,16 +43,16 @@ const EditBlock = ({
     children,
     resetPaddings,
 }: EditBlockProps) => {
-    const ref = useRef<HTMLDivElement>(null);
+    const ref = React.useRef<HTMLDivElement>(null);
 
-    const stopPropagationProps = useMemo(
+    const stopPropagationProps = React.useMemo(
         () => ({onClick: (e: React.MouseEvent) => e.stopPropagation()}),
         [],
     );
 
     const {onKeyDown} = useActionHandlers(onSelect);
 
-    useEffect(() => {
+    React.useEffect(() => {
         if (isActive && ref.current) {
             //TODO: add behavior 'smooth' after addiiton of dynamic form layout open/close managing support
             ref.current.scrollIntoView({block: 'center'});

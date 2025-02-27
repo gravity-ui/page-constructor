@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import * as React from 'react';
 
 import {Meta, StoryFn} from '@storybook/react';
 
@@ -14,7 +14,7 @@ export default {
 
 const DefaultTemplate: StoryFn<ControlProps> = (args) => <Control {...args} />;
 const SizesTemplate: StoryFn<ControlProps> = (args) => (
-    <Fragment>
+    <React.Fragment>
         <Col>
             <Control {...args} size="xs" />
         </Col>
@@ -27,10 +27,10 @@ const SizesTemplate: StoryFn<ControlProps> = (args) => (
         <Col>
             <Control {...args} size="l" />
         </Col>
-    </Fragment>
+    </React.Fragment>
 );
 const ThemesTemplate: StoryFn<ControlProps> = (args) => (
-    <Fragment>
+    <React.Fragment>
         <Row>
             <Col />
             <Col>xs</Col>
@@ -54,7 +54,7 @@ const ThemesTemplate: StoryFn<ControlProps> = (args) => (
             <Col>accent</Col>
             <SizesTemplate {...args} theme="accent" />
         </Row>
-    </Fragment>
+    </React.Fragment>
 );
 
 export const Default = DefaultTemplate.bind({});

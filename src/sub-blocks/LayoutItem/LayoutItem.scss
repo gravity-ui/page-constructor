@@ -3,6 +3,9 @@
 
 $block: '.#{$ns}layout-item';
 
+$contentMarginM: 40px;
+$contentMarginL: 80px;
+
 #{$block} {
     display: flex;
     flex-direction: column;
@@ -26,14 +29,31 @@ $block: '.#{$ns}layout-item';
         display: flex;
 
         flex: auto;
-        margin: $indentXS $indentXS 0 0;
+        margin-top: $indentXS;
+        margin-left: 0;
+        margin-bottom: 0;
 
         &_no-media {
-            margin: 0;
+            margin-top: 0;
+        }
+
+        &_margin {
+            &_m {
+                margin-right: $contentMarginM;
+            }
+            &_l {
+                margin-right: $contentMarginL;
+            }
         }
     }
 
     &__wrapper {
         flex: auto;
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'sm') - 1) {
+        &__content {
+            margin-right: 0;
+        }
     }
 }

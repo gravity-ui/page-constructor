@@ -1,4 +1,4 @@
-import React, {useCallback, useContext, useEffect, useRef, useState} from 'react';
+import * as React from 'react';
 
 import {Spin} from '@gravity-ui/uikit';
 import debounce from 'lodash/debounce';
@@ -25,24 +25,24 @@ const INITIAL_CENTER = [0, 0];
 
 const YandexMap: React.FC<YMapProps> = (props) => {
     const {markers, zoom, id, className} = props;
-    const {apiKey, scriptSrc, nonce} = useContext(MapsContext);
-    const isMobile = useContext(MobileContext);
+    const {apiKey, scriptSrc, nonce} = React.useContext(MapsContext);
+    const isMobile = React.useContext(MobileContext);
 
-    const {lang = 'ru'} = useContext(LocaleContext);
+    const {lang = 'ru'} = React.useContext(LocaleContext);
     const containerId = `${DEFAULT_CONTAINER_ID}-${id}`;
 
-    const [ymap, setYmaps] = useState<YMap | null>(null);
-    const [height, setHeight] = useState<number | undefined>(undefined);
-    const ref = useRef<HTMLDivElement>(null);
+    const [ymap, setYmaps] = React.useState<YMap | null>(null);
+    const [height, setHeight] = React.useState<number | undefined>(undefined);
+    const ref = React.useRef<HTMLDivElement>(null);
 
-    const [loading, setLoading] = useState<boolean>(false);
-    const [ready, setReady] = useState<boolean>(false);
-    const [attemptsIndex, setAttemptsIndex] = useState<number>(0);
-    const onTryAgain = useCallback(() => {
+    const [loading, setLoading] = React.useState<boolean>(false);
+    const [ready, setReady] = React.useState<boolean>(false);
+    const [attemptsIndex, setAttemptsIndex] = React.useState<number>(0);
+    const onTryAgain = React.useCallback(() => {
         setAttemptsIndex(attemptsIndex + 1);
     }, [attemptsIndex]);
 
-    useEffect(() => {
+    React.useEffect(() => {
         (async function () {
             setLoading(true);
 
@@ -68,7 +68,7 @@ const YandexMap: React.FC<YMapProps> = (props) => {
         })();
     }, [apiKey, lang, scriptSrc, containerId, zoom, nonce, attemptsIndex, setLoading]);
 
-    useEffect(() => {
+    React.useEffect(() => {
         const updateSize = debounce(() => {
             if (ref.current) {
                 setHeight(Math.round(getMapHeight(ref.current.offsetWidth, isMobile)));
@@ -83,7 +83,7 @@ const YandexMap: React.FC<YMapProps> = (props) => {
         };
     }, [markers, ymap, setYmaps, isMobile]);
 
-    useEffect(() => {
+    React.useEffect(() => {
         if (ymap) {
             // show with computed center and placemarks
             const showPlacemarks = async () => {

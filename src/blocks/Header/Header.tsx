@@ -1,6 +1,6 @@
-import React, {useContext} from 'react';
-
+/* eslint-disable complexity */
 import {useUniqId} from '@gravity-ui/uikit';
+import * as React from 'react';
 
 import {Button, Media, RouterLink} from '../../components';
 import HeaderBreadcrumbs from '../../components/HeaderBreadcrumbs/HeaderBreadcrumbs';
@@ -11,9 +11,9 @@ import {useTheme} from '../../context/theme';
 import {Col, Grid, Row} from '../../grid';
 import {ClassNameProps, HeaderBlockBackground, HeaderBlockProps} from '../../models';
 import {block, getThemedValue} from '../../utils';
+import {mergeVideoMicrodata} from '../../utils/microdata';
 
 import {getImageSize, getTitleSizes, titleWithImageSizes} from './utils';
-
 import './Header.scss';
 
 const b = block('header-block');
@@ -82,10 +82,11 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
         renderTitle,
         children,
         mediaView = 'full',
+        centered,
     } = props;
-    const isMobile = useContext(MobileContext);
+    const isMobile = React.useContext(MobileContext);
     const theme = useTheme();
-    const hasRightSideImage = Boolean(image || video);
+    const hasRightSideImage = Boolean((image || video) && !centered);
     const curImageSize = imageSize || getImageSize(width);
     const titleSizes = hasRightSideImage ? titleWithImageSizes(curImageSize) : getTitleSizes(width);
     let curVerticalOffset = verticalOffset;
@@ -97,6 +98,13 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
     const backgroundThemed = background && getThemedValue(background, theme);
     const imageThemed = image && getThemedValue(image, theme);
     const videoThemed = video && getThemedValue(video, theme);
+    const mediaWithMicrodata = mergeVideoMicrodata(
+        {video: videoThemed, image: imageThemed},
+        {
+            name: title,
+            description,
+        },
+    );
     const fullWidth = backgroundThemed?.fullWidth || backgroundThemed?.fullWidthMedia;
     const titleId = useUniqId();
 
@@ -132,8 +140,8 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
                                     'vertical-offset': curVerticalOffset,
                                 })}
                             >
-                                <Col sizes={titleSizes} className={b('content-inner')}>
-                                    {overtitle && (
+                                <Col sizes={titleSizes} className={b('content-inner', {centered})}>
+                                    {overtitle && typeof overtitle === 'string' ? (
                                         <YFMWrapper
                                             tagName="div"
                                             className={b('overtitle')}
@@ -142,6 +150,8 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
                                                 constructor: true,
                                             }}
                                         />
+                                    ) : (
+                                        <div className={b('overtitle')}>{overtitle}</div>
                                     )}
                                     <YFMWrapper
                                         content={title}
@@ -195,8 +205,7 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
                                 className={b('media', {[curImageSize]: true})}
                                 videoClassName={b('video')}
                                 imageClassName={b('image')}
-                                video={videoThemed}
-                                image={imageThemed}
+                                {...mediaWithMicrodata}
                             />
                         )}
                     </Col>

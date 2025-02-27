@@ -1,4 +1,4 @@
-import React, {PropsWithChildren} from 'react';
+import * as React from 'react';
 
 import {Animatable, BlockDecorationProps, ConstructorItem, ThemedMediaProps} from './';
 
@@ -43,7 +43,7 @@ export type OnInit = (data: InitConstrucorState) => void;
 type ComponentProps = React.ComponentProps<React.ComponentClass<any>>;
 export type CustomItem =
     | React.PropsWithChildren<ComponentProps>
-    | React.ComponentType<PropsWithChildren<ComponentProps>>;
+    | React.ComponentType<React.PropsWithChildren<ComponentProps>>;
 export type CustomItems = Record<string, CustomItem>;
 
 export interface LoadableConfigItem {

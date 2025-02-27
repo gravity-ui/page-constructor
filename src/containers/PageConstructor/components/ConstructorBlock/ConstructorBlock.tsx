@@ -1,4 +1,4 @@
-import React, {useMemo} from 'react';
+import * as React from 'react';
 
 import pick from 'lodash/pick';
 
@@ -21,7 +21,7 @@ export const ConstructorBlock = ({
     children,
 }: React.PropsWithChildren<ConstructorBlockProps>) => {
     const {type} = data;
-    const blockBaseProps = useMemo(
+    const blockBaseProps = React.useMemo(
         () => pick(data, ['anchor', 'visible', 'resetPaddings', 'indent']),
         [data],
     );

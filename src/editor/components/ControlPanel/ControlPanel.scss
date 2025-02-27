@@ -22,7 +22,7 @@ $block: '.#{$ns}control-panel';
 
     &__radio-button {
         //align for icons in radio buttons
-        .g-radio-button__option {
+        .g-segmented-radio-group__option {
             display: flex;
             align-items: center;
         }

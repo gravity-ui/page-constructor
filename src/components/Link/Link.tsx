@@ -1,4 +1,4 @@
-import React, {Fragment, useContext} from 'react';
+import * as React from 'react';
 
 import {ChevronRight} from '@gravity-ui/icons';
 import {Icon} from '@gravity-ui/uikit';
@@ -8,8 +8,7 @@ import {LocationContext} from '../../context/locationContext';
 import {useAnalytics} from '../../hooks';
 import {ClassNameProps, DefaultEventNames, LinkProps, Tabbable, TextSize} from '../../models';
 import {QAProps} from '../../models/common';
-import {block, getLinkProps, setUrlTld} from '../../utils';
-import {getQaAttrubutes} from '../../utils/index';
+import {block, getLinkProps, getQaAttrubutes, setUrlTld} from '../../utils';
 import BackLink from '../BackLink/BackLink';
 import FileLink from '../FileLink/FileLink';
 
@@ -53,8 +52,8 @@ const LinkBlock = (props: React.PropsWithChildren<LinkFullProps>) => {
     const qaAttributes = getQaAttrubutes(qa, ['normal']);
 
     const handleAnalytics = useAnalytics(DefaultEventNames.Link, url);
-    const {hostname} = useContext(LocationContext);
-    const {tld} = useContext(LocaleContext);
+    const {hostname} = React.useContext(LocationContext);
+    const {tld} = React.useContext(LocaleContext);
     const href = setUrlTld(props.url, tld);
     const defaultTextSize = theme === 'back' ? 'l' : 'm';
 
@@ -103,7 +102,7 @@ const LinkBlock = (props: React.PropsWithChildren<LinkFullProps>) => {
                         {...extraProps}
                     >
                         {arrow ? (
-                            <Fragment>
+                            <React.Fragment>
                                 <span className={b('content')}>{content}</span>
                                 {WORD_JOINER_SYM}
                                 <Icon
@@ -111,7 +110,7 @@ const LinkBlock = (props: React.PropsWithChildren<LinkFullProps>) => {
                                     data={ChevronRight}
                                     size={getArrowSize(textSize)}
                                 />
-                            </Fragment>
+                            </React.Fragment>
                         ) : (
                             content
                         )}

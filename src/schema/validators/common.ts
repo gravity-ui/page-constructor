@@ -610,6 +610,9 @@ export const MediaProps = {
     videoIframe: {
         type: 'string',
     },
+    autoplay: {
+        type: 'boolean',
+    },
     parallax: {
         type: 'boolean',
     },

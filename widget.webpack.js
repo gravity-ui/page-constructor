@@ -17,6 +17,7 @@ module.exports = {
     },
     output: {
         path: WIDGET_RESULT_PATH,
+        publicPath: WIDGET_RESULT_PATH,
         filename: WIDGET_BUNDLE_FILENAME,
     },
     mode: 'production',

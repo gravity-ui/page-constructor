@@ -6,6 +6,7 @@ import {OneOfCustom} from './components/OneOfCustom/OneOfCustom';
 const getDynamicConfig = () => {
     const dynamicConfig: DynamicFormConfig = cloneDeep(libConfig);
 
+    // @ts-ignore
     dynamicConfig.object.inputs['oneof_custom'] = {Component: OneOfCustom, independent: true};
 
     return dynamicConfig;

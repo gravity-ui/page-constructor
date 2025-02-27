@@ -1,4 +1,4 @@
-import React, {Fragment, ReactNode, useContext} from 'react';
+import * as React from 'react';
 
 import {ToggleArrow, YFMWrapper} from '../';
 import {LocationContext} from '../../context/locationContext';
@@ -33,7 +33,7 @@ export interface TitleItemFullProps extends TitleItemProps, QAProps {
 }
 
 const TitleItem = (props: TitleItemFullProps) => {
-    const isMobile = useContext(MobileContext);
+    const isMobile = React.useContext(MobileContext);
 
     const {
         textSize = 'm',
@@ -49,7 +49,7 @@ const TitleItem = (props: TitleItemFullProps) => {
         urlTitle,
     } = props;
 
-    const {hostname} = useContext(LocationContext);
+    const {hostname} = React.useContext(LocationContext);
     const textMarkup = (
         <React.Fragment>
             <YFMWrapper
@@ -68,7 +68,7 @@ const TitleItem = (props: TitleItemFullProps) => {
             )}
         </React.Fragment>
     );
-    let content: ReactNode;
+    let content: React.ReactNode;
 
     const insideClickableContent = (
         <span className={b('wrapper')}>
@@ -107,7 +107,7 @@ const TitleItem = (props: TitleItemFullProps) => {
     }
 
     return (
-        <Fragment>
+        <React.Fragment>
             {anchor && <Anchor id={anchor} className={b('anchor')} />}
             {React.createElement(
                 getHeaderTag(textSize),
@@ -117,7 +117,7 @@ const TitleItem = (props: TitleItemFullProps) => {
                 },
                 content,
             )}
-        </Fragment>
+        </React.Fragment>
     );
 };
 

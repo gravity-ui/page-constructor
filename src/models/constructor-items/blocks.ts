@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import {ButtonSize} from '@gravity-ui/uikit';
 
@@ -166,7 +166,7 @@ export type ThemedHeaderBlockBackground = ThemeSupporting<HeaderBlockBackground>
 
 export interface HeaderBlockProps {
     title: string;
-    overtitle?: string;
+    overtitle?: string | JSX.Element;
     description?: string;
     buttons?: Pick<ButtonProps, 'url' | 'text' | 'theme' | 'primary' | 'size' | 'extraProps'>[];
     width?: HeaderWidth;
@@ -180,6 +180,7 @@ export interface HeaderBlockProps {
     image?: ThemedImage;
     video?: ThemedMediaVideoProps;
     mediaView?: MediaView;
+    centered?: boolean;
     background?: ThemedHeaderBlockBackground;
     theme?: 'light' | 'dark';
     verticalOffset?: '0' | 's' | 'm' | 'l' | 'xl';

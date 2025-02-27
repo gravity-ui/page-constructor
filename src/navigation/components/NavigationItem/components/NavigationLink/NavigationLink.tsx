@@ -1,4 +1,4 @@
-import React, {Fragment, useContext} from 'react';
+import * as React from 'react';
 
 import {RouterLink} from '../../../../../components';
 import {getMediaImage} from '../../../../../components/Media/Image/utils';
@@ -16,17 +16,17 @@ const b = block('navigation-link');
 type NavigationLinkProps = NavigationItemProps & NavigationLinkItem;
 
 export const NavigationLink: React.FC<NavigationLinkProps> = (props) => {
-    const {hostname, Link} = useContext(LocationContext);
+    const {hostname, Link} = React.useContext(LocationContext);
     const {url, text, icon, arrow, target, className, iconSize, urlTitle, ...rest} = props;
     const linkExtraProps = getLinkProps(url, hostname, target);
     const iconData = icon && getMediaImage(icon);
 
     const classes = b(null, className);
     const content = (
-        <Fragment>
+        <React.Fragment>
             <ContentWrapper text={text} icon={iconData} iconSize={iconSize} />
             {arrow && <NavigationArrow className={b('arrow')} />}
-        </Fragment>
+        </React.Fragment>
     );
 
     if (linkExtraProps?.target || !Link) {

@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import * as React from 'react';
 
 import {Meta, StoryFn} from '@storybook/react';
 
@@ -23,15 +23,15 @@ const WithDescriptionTemplate: StoryFn<IconsBlockModel> = (args) => (
 );
 
 const SizeTemplate: StoryFn<IconsBlockModel> = (args) => (
-    <Fragment>
+    <React.Fragment>
         <DefaultTemplate title="Size S" {...args} size="s" />
         <DefaultTemplate title="Size M" {...args} size="m" />
         <DefaultTemplate title="Size L" {...args} size="l" />
-    </Fragment>
+    </React.Fragment>
 );
 
 const ColSizeTemplate: StoryFn<IconsBlockModel> = (args) => (
-    <Fragment>
+    <React.Fragment>
         <PageConstructor
             content={{
                 blocks: [
@@ -52,7 +52,7 @@ const ColSizeTemplate: StoryFn<IconsBlockModel> = (args) => (
                 ],
             }}
         />
-    </Fragment>
+    </React.Fragment>
 );
 
 export const Default = DefaultTemplate.bind([]);

@@ -1,12 +1,12 @@
 import {render, screen} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import React, {ElementType} from 'react';
+import * as React from 'react';
 
 import {QAProps} from '../../src/models/common';
 import {ERROR_INPUT_DATA_MESSAGE} from '../constants';
 
 type CommonTestArgs<T> = {
-    component: ElementType;
+    component: React.ElementType;
     props: T & QAProps;
     options?: {qaId?: string; customClassNameProp?: string; role?: string};
 };

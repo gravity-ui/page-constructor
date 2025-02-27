@@ -1,8 +1,16 @@
-import {MobileProvider, ThemeProvider, ToasterComponent, ToasterProvider} from '@gravity-ui/uikit';
-import React from 'react';
+import {
+    MobileProvider,
+    ThemeProvider,
+    Toaster,
+    ToasterComponent,
+    ToasterProvider,
+} from '@gravity-ui/uikit';
+import * as React from 'react';
 
 import {PageConstructorProvider} from '../../src/containers/PageConstructor';
 import {Theme} from '../../src/models';
+
+const toaster = new Toaster();
 
 export const Providers = ({children}) => {
     const [theme, setTheme] = React.useState<Theme>(Theme.Light);
@@ -25,7 +33,7 @@ export const Providers = ({children}) => {
     return (
         <ThemeProvider>
             <MobileProvider>
-                <ToasterProvider>
+                <ToasterProvider toaster={toaster}>
                     <PageConstructorProvider
                         theme={theme}
                         projectSettings={{isAnimationEnabled: false}}

@@ -2,7 +2,7 @@ import '../styles/storybook/index.scss';
 import '@gravity-ui/uikit/styles/styles.scss';
 import {MobileProvider, Platform, ThemeProvider} from '@gravity-ui/uikit';
 
-import React from 'react';
+import * as React from 'react';
 import {MINIMAL_VIEWPORTS} from '@storybook/addon-viewport';
 import type {Decorator, Preview} from '@storybook/react';
 import {themeLight} from './theme/light';
@@ -15,6 +15,7 @@ import {Theme} from '../src';
 import {GlobalThemeController} from './theme/utils/global-theme-controller';
 
 import '../styles/styles.scss';
+import '../styles/root.scss';
 import '@gravity-ui/uikit/styles/fonts.css';
 
 const withContextProvider: Decorator = (Story, context) => {
@@ -55,6 +56,7 @@ const withPageConstructorProvider: Decorator = (Story, context) => {
 
 const preview: Preview = {
     decorators: [withLang, withMobile, withContextProvider, withPageConstructorProvider],
+
     parameters: {
         layout: 'fullscreen',
         docs: {
@@ -89,6 +91,7 @@ const preview: Preview = {
             },
         },
     },
+
     globalTypes: {
         theme: {
             name: 'Theme',
@@ -123,6 +126,8 @@ const preview: Preview = {
             },
         },
     },
+
+    tags: ['autodocs', 'autodocs'],
 };
 
 export default preview;

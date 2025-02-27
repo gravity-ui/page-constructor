@@ -1,11 +1,4 @@
-import React, {
-    CSSProperties,
-    Fragment,
-    MouseEventHandler,
-    ReactEventHandler,
-    useContext,
-    useState,
-} from 'react';
+import * as React from 'react';
 
 import {BREAKPOINTS} from '../../constants';
 import {ProjectSettingsContext} from '../../context/projectSettingsContext';
@@ -15,10 +8,10 @@ import {isCompressible} from '../../utils/imageCompress';
 import ImageBase from '../ImageBase/ImageBase';
 
 export interface ImageProps extends Partial<ImageObjectProps>, Partial<ImageDeviceProps>, QAProps {
-    style?: CSSProperties;
+    style?: React.CSSProperties;
     className?: string;
-    onClick?: MouseEventHandler;
-    onLoad?: ReactEventHandler<HTMLDivElement>;
+    onClick?: React.MouseEventHandler;
+    onLoad?: React.ReactEventHandler<HTMLDivElement>;
     containerClassName?: string;
 }
 
@@ -38,7 +31,7 @@ const DeviceSpecificFragment = ({
     breakpoint,
     qa,
 }: DeviceSpecificFragmentProps) => (
-    <Fragment>
+    <React.Fragment>
         {!disableWebp && (
             <source
                 srcSet={checkWebP(src)}
@@ -48,11 +41,11 @@ const DeviceSpecificFragment = ({
             />
         )}
         <source srcSet={src} media={`(max-width: ${breakpoint}px)`} data-qa={qa} />
-    </Fragment>
+    </React.Fragment>
 );
 
 const Image = (props: ImageProps) => {
-    const projectSettings = useContext(ProjectSettingsContext);
+    const projectSettings = React.useContext(ProjectSettingsContext);
     const {
         src: imageSrc,
         alt,
@@ -69,7 +62,7 @@ const Image = (props: ImageProps) => {
         fetchPriority,
         loading,
     } = props;
-    const [imgLoadingError, setImgLoadingError] = useState(false);
+    const [imgLoadingError, setImgLoadingError] = React.useState(false);
 
     const src = imageSrc || desktop;
 

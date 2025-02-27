@@ -1,4 +1,4 @@
-import React, {ReactNode, useCallback, useContext, useEffect, useRef, useState} from 'react';
+import * as React from 'react';
 
 import debounce from 'lodash/debounce';
 import first from 'lodash/first';
@@ -15,7 +15,7 @@ const b = block('BalancedMasonry');
 export interface BalancedMasonryProps extends QAProps {
     className: string;
     columnClassName: string;
-    children: ReactNode[];
+    children: React.ReactNode[];
     breakpointCols: {
         [key: number]: number;
     };
@@ -24,8 +24,8 @@ export interface BalancedMasonryProps extends QAProps {
 const BalancedMasonry = (props: React.PropsWithChildren<BalancedMasonryProps>) => {
     const {className, columnClassName, children = [], breakpointCols, qa} = props;
     const qaAttributes = getQaAttrubutes(qa, 'column');
-    const {isServer} = useContext(SSRContext);
-    const getCurrentColumnsCount = useCallback(() => {
+    const {isServer} = React.useContext(SSRContext);
+    const getCurrentColumnsCount = React.useCallback(() => {
         const breakpoints = Object.entries(breakpointCols).sort(
             ([firstBreakpoint], [secondBreakpoint]) => {
                 return Number(secondBreakpoint) - Number(firstBreakpoint);
@@ -50,12 +50,12 @@ const BalancedMasonry = (props: React.PropsWithChildren<BalancedMasonryProps>) =
         return result;
     }, [breakpointCols, isServer]);
 
-    const [columnCount, setColumnCount] = useState(getCurrentColumnsCount());
-    const [columns, setColumns] = useState<React.ReactNode[][]>([]);
-    const containerRef = useRef<HTMLDivElement>(null);
+    const [columnCount, setColumnCount] = React.useState(getCurrentColumnsCount());
+    const [columns, setColumns] = React.useState<React.ReactNode[][]>([]);
+    const containerRef = React.useRef<HTMLDivElement>(null);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    const balanceColumns = useCallback(
+    const balanceColumns = React.useCallback(
         debounce(() => {
             if (!containerRef.current) {
                 return;
@@ -89,18 +89,18 @@ const BalancedMasonry = (props: React.PropsWithChildren<BalancedMasonryProps>) =
         [children, columnCount],
     );
 
-    useEffect(() => {
+    React.useEffect(() => {
         balanceColumns();
     }, [balanceColumns, children, columnCount]);
 
-    useEffect(() => {
+    React.useEffect(() => {
         const updateColumnCounter = () => setColumnCount(getCurrentColumnsCount());
 
         window.addEventListener('resize', updateColumnCounter, {passive: true});
         return () => window.removeEventListener('resize', updateColumnCounter);
     }, [setColumnCount, columns, getCurrentColumnsCount]);
 
-    useEffect(() => {
+    React.useEffect(() => {
         const currentRef = containerRef.current;
         const isResizeEventsSupported = 'ResizeObserver' in window;
 

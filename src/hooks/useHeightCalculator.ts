@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useState} from 'react';
+import * as React from 'react';
 
 import debounce from 'lodash/debounce';
 
@@ -16,14 +16,14 @@ const useHeightCalculator: (
     options?: HeightCalculatorOptions,
 ) => number | undefined = (containerRef, options = DEFAULT_OPTIONS) => {
     const recalculateOnResizeDelay = options.recalculateOnResizeDelay;
-    const [containerHeight, setContainerHeight] = useState<number | undefined>(undefined);
+    const [containerHeight, setContainerHeight] = React.useState<number | undefined>(undefined);
 
-    const calculateContainerHeight = useCallback(() => {
+    const calculateContainerHeight = React.useCallback(() => {
         if (containerRef.current && containerRef.current.offsetHeight !== containerHeight)
             setContainerHeight(containerRef.current.offsetHeight);
     }, [containerRef, containerHeight, setContainerHeight]);
 
-    useEffect(() => {
+    React.useEffect(() => {
         const handleResize = debounce(calculateContainerHeight, recalculateOnResizeDelay);
 
         handleResize();

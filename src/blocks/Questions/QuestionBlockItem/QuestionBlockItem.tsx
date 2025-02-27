@@ -1,5 +1,3 @@
-import React from 'react';
-
 import {useActionHandlers} from '@gravity-ui/uikit';
 
 import {Foldable, ToggleArrow, YFMWrapper} from '../../../components';

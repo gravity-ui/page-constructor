@@ -1,4 +1,4 @@
-import React, {PropsWithChildren, useEffect, useMemo, useRef, useState} from 'react';
+import * as React from 'react';
 
 import {Plus} from '@gravity-ui/icons';
 import {Popup, TextInput} from '@gravity-ui/uikit';
@@ -18,13 +18,13 @@ export interface AddBlockProps extends ClassNameProps {
 
 const sortedBlockNames = Object.keys(blockMap).sort();
 
-const AddBlock = ({onAdd, className}: PropsWithChildren<AddBlockProps>) => {
-    const [isOpened, setIsOpened] = useState(false);
-    const [search, setSearch] = useState('');
-    const [editorBlocksData, setEditorBlocksData] = useState<EditorBlocksData | null>(null);
+const AddBlock = ({onAdd, className}: React.PropsWithChildren<AddBlockProps>) => {
+    const [isOpened, setIsOpened] = React.useState(false);
+    const [search, setSearch] = React.useState('');
+    const [editorBlocksData, setEditorBlocksData] = React.useState<EditorBlocksData | null>(null);
 
-    const ref = useRef(null);
-    const blocks = useMemo(() => {
+    const ref = React.useRef(null);
+    const blocks = React.useMemo(() => {
         if (!editorBlocksData) {
             return [];
         }
@@ -36,7 +36,7 @@ const AddBlock = ({onAdd, className}: PropsWithChildren<AddBlockProps>) => {
         );
     }, [editorBlocksData, search]);
 
-    useEffect(() => {
+    React.useEffect(() => {
         const loadEditorBlocksData = async () => {
             const data = await getEditorBlocksData();
             setEditorBlocksData(data);
@@ -61,9 +61,9 @@ const AddBlock = ({onAdd, className}: PropsWithChildren<AddBlockProps>) => {
                 <Popup
                     anchorRef={ref}
                     open={isOpened}
-                    contentClassName={b('popup')}
                     placement="top"
-                    offset={[0, 24]}
+                    className={b('popup')}
+                    offset={{mainAxis: 0, crossAxis: 24}}
                     onOutsideClick={() => setIsOpened(false)}
                 >
                     <div className={b('search')}>

@@ -36,6 +36,7 @@ $block: '.#{$ns}card-base-block';
 
         flex: 1;
         padding: $padding;
+        padding-bottom: 36px;
     }
 
     &__header + &__body {

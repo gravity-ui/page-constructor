@@ -2,7 +2,8 @@
     "extends": [
         "@gravity-ui/eslint-config",
         "@gravity-ui/eslint-config/prettier",
-        "@gravity-ui/eslint-config/a11y"
+        "@gravity-ui/eslint-config/a11y",
+        "plugin:react/jsx-runtime"
     ],
     "root": true,
     "env": {
@@ -11,11 +12,20 @@
     },
     "plugins": ["no-not-accumulator-reassign"],
     "rules": {
+        "react/jsx-fragments": ["error", "element"],
         "no-not-accumulator-reassign/no-not-accumulator-reassign": [
             "warn",
             ["reduce"],
             {"props": true}
-        ]
+        ],
+        "no-restricted-syntax": [
+            "error",
+            {
+                "selector": "ImportDeclaration[source.value='react'] :matches(ImportDefaultSpecifier, ImportSpecifier)",
+                "message": "Please use `import * as React from 'react'` instead."
+            }
+        ],
+        "import/no-extraneous-dependencies": 0
     },
     "overrides": [
         {

@@ -1,4 +1,4 @@
-import React, {CSSProperties, HTMLProps, useEffect, useState} from 'react';
+import * as React from 'react';
 
 import {ChevronsExpandUpRight, Xmark} from '@gravity-ui/icons';
 import {Icon, Modal} from '@gravity-ui/uikit';
@@ -16,8 +16,8 @@ import './FullscreenImage.scss';
 export interface FullscreenImageProps extends ImageProps {
     imageClassName?: string;
     modalImageClass?: string;
-    imageStyle?: CSSProperties;
-    extraProps?: HTMLProps<HTMLDivElement>;
+    imageStyle?: React.CSSProperties;
+    extraProps?: React.HTMLProps<HTMLDivElement>;
     sliderData?: {items: ModelImageProps[]; initialIndex: number};
 }
 
@@ -34,13 +34,13 @@ const FullscreenImage = (props: FullscreenImageProps) => {
         alt = i18n('img-alt'),
         extraProps,
     } = props;
-    const [isOpened, setIsOpened] = useState(false);
-    const [sliderLoaded, setSliderLoaded] = useState(false);
+    const [isOpened, setIsOpened] = React.useState(false);
+    const [sliderLoaded, setSliderLoaded] = React.useState(false);
 
     const openModal = () => setIsOpened(true);
     const closeModal = () => setIsOpened(false);
 
-    useEffect(() => {
+    React.useEffect(() => {
         if (sliderData && !isOpened) {
             setSliderLoaded(false);
         }

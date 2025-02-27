@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import * as React from 'react';
 
 import Media from '../../components/Media/Media';
 import MediaBase from '../../components/MediaBase/MediaBase';
@@ -19,7 +19,7 @@ export const MediaBlock = (props: MediaBlockProps) => {
         disableShadow,
     });
 
-    const [play, setPlay] = useState<boolean>(false);
+    const [play, setPlay] = React.useState<boolean>(false);
     const theme = useTheme();
     const mediaThemed = getThemedValue(media, theme);
     const mediaWithMicrodata = mergeVideoMicrodata(mediaThemed, {

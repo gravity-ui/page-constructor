@@ -1,4 +1,4 @@
-import React, {forwardRef, useCallback} from 'react';
+import * as React from 'react';
 
 import {Refable} from '../../models/common';
 import {GridAlignItems, GridJustifyContent} from '../types';
@@ -12,10 +12,10 @@ export interface RowProps extends Refable<HTMLDivElement> {
     children?: React.ReactNode;
 }
 
-export const Row = forwardRef<HTMLDivElement, RowProps>((props, ref) => {
+export const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
     const {className, justifyContent, alignItems, noGutter, style, children} = props;
 
-    const getClassName = useCallback(() => {
+    const getClassName = React.useCallback(() => {
         return ['row', className, justifyContent, alignItems, noGutter && 'no-gutter']
             .filter(Boolean)
             .join(' ');

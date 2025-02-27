@@ -1,5 +1,3 @@
-import React from 'react';
-
 import {test} from '../../../../playwright/core/index';
 
 import {ControlPosition, Default, WithBorder, WithContentList, WithIcon, WithUrl} from './helpers';

@@ -1,4 +1,4 @@
-import React, {PropsWithChildren, useContext, useEffect, useRef} from 'react';
+import * as React from 'react';
 
 import {block} from '../../../../utils';
 import {EditorContext} from '../../../context';
@@ -9,17 +9,17 @@ import './DeviceEmulationMobile.scss';
 
 const b = block('device-emulation-mobile');
 
-interface DeviceEmulationMobileProps extends PropsWithChildren {
+interface DeviceEmulationMobileProps extends React.PropsWithChildren {
     device: MobileDevice;
     active: boolean;
 }
 
 const DeviceEmulationMobile = ({device, active}: DeviceEmulationMobileProps) => {
-    const {deviceEmulationSettings, ...initialData} = useContext(EditorContext);
-    const containerRef = useRef<HTMLDivElement | null>(null);
-    const deviceIframeRef = useRef<DeviceIframe | null>(null);
+    const {deviceEmulationSettings, ...initialData} = React.useContext(EditorContext);
+    const containerRef = React.useRef<HTMLDivElement | null>(null);
+    const deviceIframeRef = React.useRef<DeviceIframe | null>(null);
 
-    useEffect(() => {
+    React.useEffect(() => {
         let iframe: DeviceIframe;
 
         if (containerRef?.current) {
@@ -38,13 +38,13 @@ const DeviceEmulationMobile = ({device, active}: DeviceEmulationMobileProps) => 
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [device]);
 
-    useEffect(() => {
+    React.useEffect(() => {
         if (deviceIframeRef.current) {
             deviceIframeRef.current.onActivenessUpdate(active);
         }
     }, [active]);
 
-    useEffect(() => {
+    React.useEffect(() => {
         if (deviceIframeRef.current && initialData) {
             deviceIframeRef.current.onDataUpdate(initialData);
         }

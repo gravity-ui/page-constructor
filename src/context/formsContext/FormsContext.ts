@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import {YandexFormProps} from '../../models/constructor-items/common';
 import {HubspotFormProps} from '../../models/constructor-items/sub-blocks';

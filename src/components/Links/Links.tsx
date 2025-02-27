@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import {ContentSize, LinkProps} from '../../models';
 import {block} from '../../utils';

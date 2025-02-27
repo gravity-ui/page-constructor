@@ -103,6 +103,9 @@ export const HeaderProperties = {
     status: {
         type: 'string',
     },
+    centered: {
+        type: 'boolean',
+    },
 };
 
 export const HeaderBlock = {

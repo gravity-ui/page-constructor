@@ -1,4 +1,4 @@
-import React, {useMemo} from 'react';
+import * as React from 'react';
 
 import {Pause, Play, VolumeFill, VolumeLow, VolumeXmark} from '@gravity-ui/icons';
 import {Icon} from '@gravity-ui/uikit';
@@ -62,7 +62,7 @@ const CustomBarControls = (props: CustomBarControlsProps) => {
     const playIcon = playIconsMap[type];
     const pauseIcon = pauseIconsMap[type];
 
-    const muteButton = useMemo(() => {
+    const muteButton = React.useMemo(() => {
         if (!mute || !isMuteButtonShown) {
             return null;
         }
@@ -83,7 +83,7 @@ const CustomBarControls = (props: CustomBarControlsProps) => {
         );
     }, [elapsedTimePercent, isMuteButtonShown, mute, muteIcon, type, unmuteIcon]);
 
-    const playPauseButton = useMemo(() => {
+    const playPauseButton = React.useMemo(() => {
         const icon = isPaused ? playIcon : pauseIcon;
 
         if (type === CustomControlsType.WithMuteButton || !icon) {

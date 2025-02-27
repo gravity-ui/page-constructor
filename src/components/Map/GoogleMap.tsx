@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useMemo, useRef, useState} from 'react';
+import * as React from 'react';
 
 import {Lang} from '@gravity-ui/uikit';
 import debounce from 'lodash/debounce';
@@ -31,18 +31,18 @@ function getScriptSrc(params: GoogleMapLinkParams) {
 
 const GoogleMap: React.FC<GMapProps> = (props) => {
     const {address, zoom, className} = props;
-    const {apiKey, scriptSrc} = useContext(MapsContext);
-    const {lang = Lang.Ru} = useContext(LocaleContext);
-    const isMobile = useContext(MobileContext);
+    const {apiKey, scriptSrc} = React.useContext(MapsContext);
+    const {lang = Lang.Ru} = React.useContext(LocaleContext);
+    const isMobile = React.useContext(MobileContext);
 
-    const [height, setHeight] = useState<number | undefined>(undefined);
-    const ref = useRef<HTMLIFrameElement>(null);
-    const src = useMemo(
+    const [height, setHeight] = React.useState<number | undefined>(undefined);
+    const ref = React.useRef<HTMLIFrameElement>(null);
+    const src = React.useMemo(
         () => getScriptSrc({apiKey, scriptSrc, address, lang, zoom}),
         [apiKey, scriptSrc, address, lang, zoom],
     );
 
-    useEffect(() => {
+    React.useEffect(() => {
         const updateSize = debounce(() => {
             if (ref.current) {
                 setHeight(Math.round(getMapHeight(ref.current.offsetWidth, isMobile)));

@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import * as React from 'react';
 
 import {Meta, StoryFn} from '@storybook/react';
 
@@ -31,7 +31,7 @@ const SizesTemplate: StoryFn<ButtonProps> = (args) => (
     </Row>
 );
 const ThemesSizesTemplate: StoryFn<ButtonProps> = (args) => (
-    <Fragment>
+    <React.Fragment>
         <Row>
             <Col />
             <Col>s</Col>
@@ -59,7 +59,7 @@ const ThemesSizesTemplate: StoryFn<ButtonProps> = (args) => (
             <SizesTemplate {...args} theme="outlined-contrast" />
             <SizesTemplate {...args} theme="flat-contrast" />
         </section>
-    </Fragment>
+    </React.Fragment>
 );
 
 const WidthTemplate: StoryFn<ButtonProps> = (args) => (

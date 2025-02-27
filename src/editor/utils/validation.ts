@@ -59,7 +59,8 @@ export function validate(content: string, validator: ValidateFunction) {
         } else {
             result = {status: CodeEditorMessageStatus.SUCCESS, text: SUCCESS_MESSAGE};
         }
-    } catch ({message}) {
+    } catch (e) {
+        const {message} = e as {message: string};
         result = {status: CodeEditorMessageStatus.ERROR, text: message as string};
     }
 

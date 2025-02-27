@@ -1,18 +1,52 @@
-name: Beta Release
+# Build and publish -beta tag for @gravity-ui/page-constructor
+# Runs manually in Actions tabs in github
+# Runs on any branch except main
+
+name: Release beta version
 
 on:
-  push:
-    branches: [beta]
+  workflow_dispatch:
+    inputs:
+      version:
+        type: string
+        required: false
+        description: 'If your build failed and the version is already exists you can set version of package manually, e.g. 3.0.0-beta.0. Use the prefix `beta` otherwise you will get error.'
 
 jobs:
-  release:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - uses: gravity-ui/release-action@v1
+      - run: |
+          if [ "${{ github.event.inputs.version }}" != "" ]; then
+            if [[ "${{ github.event.inputs.version }}" != *"beta"* ]]; then
+               echo "version set incorrectly! Check that is contains beta in it's name"
+              exit 1
+            fi
+          fi
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          github-token: ${{ secrets.GRAVITY_UI_BOT_GITHUB_TOKEN }}
-          npm-token: ${{ secrets.GRAVITY_UI_BOT_NPM_TOKEN }}
-          node-version: 18
-          npm-dist-tag: beta
-          prerelease: true
-          default-branch: beta
+          node-version: 20
+          registry-url: 'https://registry.npmjs.org'
+      - name: Install Packages
+        run: npm ci
+      - name: Lint Files
+        run: npm run lint
+      - name: Typecheck
+        run: npm run typecheck
+      - name: Test
+        run: npm test
+      - name: Bump version
+        run: |
+          echo ${{ github.event.inputs.version }}
+
+          if [ "${{ github.event.inputs.version }}" == "" ]; then
+            npm version prerelease --preid=beta --git-tag-version=false
+          else
+            npm version ${{ github.event.inputs.version }} --git-tag-version=false
+          fi
+      - name: Publish version
+        run: npm publish --tag beta --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GRAVITY_UI_BOT_NPM_TOKEN }}
+        shell: bash

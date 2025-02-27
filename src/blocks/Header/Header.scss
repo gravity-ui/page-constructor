@@ -73,6 +73,13 @@ $backgroundWidth: 1440px;
         }
     }
 
+    &__content-inner {
+        &_centered {
+            margin-inline: auto;
+            text-align: center;
+        }
+    }
+
     &__title {
         @include add-specificity(&) {
             @include heading1();
@@ -105,7 +112,10 @@ $backgroundWidth: 1440px;
     &__button {
         @include add-specificity(&) {
             margin-top: $indentXS;
-            margin-right: $indentXS;
+
+            &:not(:last-child) {
+                margin-right: $indentXS;
+            }
         }
     }
 

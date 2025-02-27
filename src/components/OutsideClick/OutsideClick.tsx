@@ -1,5 +1,5 @@
 //TODO move into cloud components?
-import React, {PropsWithChildren, createRef} from 'react';
+import * as React from 'react';
 
 import noop from 'lodash/noop';
 
@@ -9,8 +9,10 @@ export interface OutsideClickProps {
     onClick?: () => void;
 }
 
-export default class OutsideClick extends React.Component<PropsWithChildren<OutsideClickProps>> {
-    ref = createRef<HTMLDivElement>();
+export default class OutsideClick extends React.Component<
+    React.PropsWithChildren<OutsideClickProps>
+> {
+    ref = React.createRef<HTMLDivElement>();
 
     componentDidMount() {
         document.addEventListener('click', this.handleOutsideClick, {passive: true});

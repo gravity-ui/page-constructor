@@ -1,4 +1,4 @@
-import React, {Fragment, PropsWithChildren} from 'react';
+import * as React from 'react';
 
 import Swiper, {A11y, Autoplay, Pagination} from 'swiper';
 import {Swiper as SwiperReact, SwiperSlide} from 'swiper/react';
@@ -68,7 +68,7 @@ export const SliderBlock = ({
     onSlideChangeTransitionEnd,
     onActiveIndexChange,
     onBreakpoint,
-}: PropsWithChildren<SliderProps>) => {
+}: React.PropsWithChildren<SliderProps>) => {
     const {
         autoplay,
         isLocked,
@@ -156,7 +156,7 @@ export const SliderBlock = ({
                     ))}
                 </SwiperReact>
                 {arrows && !isLocked && (
-                    <Fragment>
+                    <React.Fragment>
                         <div aria-hidden={isA11yControlHidden}>
                             <Arrow
                                 className={b('arrow', {prev: true})}
@@ -175,7 +175,7 @@ export const SliderBlock = ({
                                 extraProps={{tabIndex: controlTabIndex}}
                             />
                         </div>
-                    </Fragment>
+                    </React.Fragment>
                 )}
                 <div className={b('footer')}>
                     {disclaimer ? (

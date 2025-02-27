@@ -1,10 +1,4 @@
-import React, {
-    CSSProperties,
-    DetailedHTMLProps,
-    HTMLProps,
-    ImgHTMLAttributes,
-    ReactNode,
-} from 'react';
+import * as React from 'react';
 
 import {ButtonView, ButtonProps as UikitButtonProps} from '@gravity-ui/uikit';
 
@@ -84,6 +78,7 @@ export type ContentTextSize = 's' | 'm' | 'l';
 export type ContentTheme = 'default' | 'dark' | 'light';
 export type FileLinkType = 'vertical' | 'horizontal';
 export type ImageCardMargins = 's' | 'm';
+export type LayoutItemContentMargin = 'm' | 'l';
 
 // modifiers
 export interface Themable {
@@ -133,7 +128,7 @@ interface LoopProps {
 
 export interface ImageInfoProps
     extends Pick<
-        DetailedHTMLProps<ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement>,
+        React.DetailedHTMLProps<React.ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement>,
         'aria-describedby' | 'loading'
     > {
     alt?: string;
@@ -159,7 +154,7 @@ export interface BackgroundImageProps
         Partial<ImageDeviceProps>,
         Partial<ImageObjectProps>,
         QAProps {
-    style?: CSSProperties;
+    style?: React.CSSProperties;
     imageClassName?: string;
     hide?: boolean;
 }
@@ -189,18 +184,18 @@ export interface LinkProps extends AnalyticsEventsBase, Stylable, Tabbable {
     colorTheme?: TextTheme;
     arrow?: boolean;
     target?: string;
-    extraProps?: HTMLProps<HTMLAnchorElement>;
+    extraProps?: React.HTMLProps<HTMLAnchorElement>;
 }
 
 export interface FileLinkProps extends ClassNameProps, Tabbable {
     href: string;
-    text: ReactNode;
+    text: React.ReactNode;
     type?: FileLinkType;
     textSize?: TextSize;
     theme?: ContentTheme;
     urlTitle?: string;
     onClick?: () => void;
-    extraProps?: HTMLProps<HTMLAnchorElement>;
+    extraProps?: React.HTMLProps<HTMLAnchorElement>;
 }
 
 // buttons
@@ -363,7 +358,7 @@ export interface AuthorItem {
 export interface HeaderBreadCrumbsProps extends ClassNameProps {
     items: {
         url: string;
-        text: ReactNode;
+        text: React.ReactNode;
     }[];
     theme?: TextTheme;
     analyticsEvents?: AnalyticsEventsProp;
@@ -379,7 +374,7 @@ export interface TitleItemBaseProps {
     textSize?: TextSize;
     url?: string;
     urlTitle?: string;
-    custom?: string | ReactNode;
+    custom?: string | React.ReactNode;
     onClick?: () => void;
 }
 

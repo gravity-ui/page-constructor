@@ -1,4 +1,4 @@
-import React, {Fragment, useEffect} from 'react';
+import * as React from 'react';
 import {Theme, useTheme} from '../../../src';
 import {UIKIT_ROOT_CLASS} from '../../../src/components/constants';
 
@@ -21,7 +21,7 @@ export const GlobalThemeController = ({children}: GlobalThemeControllerProps) =>
         bodyEl.classList.toggle(`${UIKIT_ROOT_CLASS}_theme_dark`, newTheme === Theme.Dark);
     };
 
-    useEffect(() => {
+    React.useEffect(() => {
         if (theme !== prevTheme) {
             updateBodyClassName(theme);
         }
@@ -33,11 +33,11 @@ export const GlobalThemeController = ({children}: GlobalThemeControllerProps) =>
         };
     }, [theme, prevTheme]);
 
-    useEffect(() => {
+    React.useEffect(() => {
         updateBodyClassName(theme);
         // need to render only once
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-    return <Fragment>{children}</Fragment>;
+    return <React.Fragment>{children}</React.Fragment>;
 };

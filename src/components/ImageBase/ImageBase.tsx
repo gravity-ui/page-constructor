@@ -1,13 +1,13 @@
-import React, {CSSProperties, MouseEventHandler, ReactEventHandler} from 'react';
+import * as React from 'react';
 
 import {ImageContext} from '../../context/imageContext/imageContext';
 import {ImageObjectProps} from '../../models';
 
 export interface ImageBaseProps extends Partial<ImageObjectProps> {
-    style?: CSSProperties;
+    style?: React.CSSProperties;
     className?: string;
-    onClick?: MouseEventHandler;
-    onLoad?: ReactEventHandler<HTMLDivElement>;
+    onClick?: React.MouseEventHandler;
+    onLoad?: React.ReactEventHandler<HTMLDivElement>;
     onError?: () => void;
 }
 
@@ -21,7 +21,7 @@ export const ImageBase = ({fetchPriority, alt, ...props}: ImageBaseProps) => {
         // It is still not supported. However it's nice to have ability to manage
         // this prop is good to have to improve Core Web Vitals.
         // So, here is a workaround to assign the attr.
-        <img {...{fetchpriority: fetchPriority}} alt={alt} {...props} />
+        <img {...{fetchPriority: fetchPriority}} alt={alt} {...props} />
     );
 };
 

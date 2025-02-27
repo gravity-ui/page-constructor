@@ -1,4 +1,4 @@
-import React, {useCallback} from 'react';
+import * as React from 'react';
 
 import {Author, Button, Image, YFMWrapper} from '../../components';
 import {getMediaImage} from '../../components/Media/Image/utils';
@@ -32,7 +32,7 @@ const Quote = (props: QuoteProps) => {
     const imageData = getMediaImage(imageThemed);
     const handleAnalytics = useAnalytics(DefaultEventNames.QuoteButton, url);
 
-    const handleButtonClick = useCallback(() => handleAnalytics(), [handleAnalytics]);
+    const handleButtonClick = React.useCallback(() => handleAnalytics(), [handleAnalytics]);
     const themedAuthor = author
         ? ({
               ...author,

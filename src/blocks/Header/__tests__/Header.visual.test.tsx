@@ -1,10 +1,9 @@
-import React from 'react';
-
 import {test} from '../../../../playwright/core/index';
 
 import {
     Background,
     Breadcrumbs,
+    Centered,
     DarkTheme,
     Default,
     FullWidthMediaBackground,
@@ -24,6 +23,12 @@ test.describe('Header', () => {
 
     test('render stories <Size>', async ({mount, expectScreenshot, defaultDelay}) => {
         await mount(<Size />);
+        await defaultDelay();
+        await expectScreenshot({skipTheme: 'dark'});
+    });
+
+    test('render stories <Centered>', async ({mount, expectScreenshot, defaultDelay}) => {
+        await mount(<Centered />);
         await defaultDelay();
         await expectScreenshot({skipTheme: 'dark'});
     });
