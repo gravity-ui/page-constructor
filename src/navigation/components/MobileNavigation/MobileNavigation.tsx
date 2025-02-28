@@ -16,6 +16,7 @@ export const MobileNavigation: React.FC<MobileNavigationProps> = ({
     isOpened,
     topItems,
     bottomItems,
+    portalContainer,
     ...props
 }) => {
     const [isMounted, setIsMounted] = React.useState(false);
@@ -27,7 +28,7 @@ export const MobileNavigation: React.FC<MobileNavigationProps> = ({
     }
 
     return (
-        <Portal>
+        <Portal container={portalContainer?.current ?? undefined}>
             <Foldable key={topItems?.length} className={b()} isOpened={Boolean(isOpened)}>
                 <div className={b('wrapper')}>
                     {topItems && (
