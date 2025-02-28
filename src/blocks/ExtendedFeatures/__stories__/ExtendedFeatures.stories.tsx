@@ -1,6 +1,6 @@
 import {Meta, StoryFn} from '@storybook/react';
 
-import {yfmTransform} from '../../../../.storybook/utils';
+import {transformOptionalTitle, yfmTransform} from '../../../../.storybook/utils';
 import {PageConstructor} from '../../../containers/PageConstructor/PageConstructor';
 import {
     ExtendedFeaturesBlockModel,
@@ -30,8 +30,10 @@ const DefaultTemplate: StoryFn<ExtendedFeaturesBlockModel> = (args) => (
 const extendedFeaturesItems = (items: ExtendedFeaturesItem[]) => {
     return items.map((item) => ({
         ...item,
+        title: transformOptionalTitle(item.title),
         list: item.list?.map((listItem) => ({
             ...listItem,
+            title: transformOptionalTitle(listItem.title),
             text: listItem?.text && yfmTransform(listItem.text),
         })),
         text: item.text && yfmTransform(item.text),
@@ -46,6 +48,7 @@ const ColSizesTemplate: StoryFn<ExtendedFeaturesBlockModel> = (args) => (
                 {
                     ...args,
                     ...data.colSizes.four,
+                    title: transformOptionalTitle(data.colSizes.four.title),
                     description: yfmTransform(data.colSizes.four.description),
                     items: extendedFeaturesItems(
                         data.colSizes.four.items as ExtendedFeaturesItem[],
@@ -54,11 +57,13 @@ const ColSizesTemplate: StoryFn<ExtendedFeaturesBlockModel> = (args) => (
                 {
                     ...args,
                     ...data.colSizes.three,
+                    title: transformOptionalTitle(data.colSizes.three.title),
                     description: yfmTransform(data.colSizes.three.description),
                 },
                 {
                     ...args,
                     ...data.colSizes.two,
+                    title: transformOptionalTitle(data.colSizes.two.title),
                     description: yfmTransform(data.colSizes.two.description),
                     items: extendedFeaturesItems(data.colSizes.two.items as ExtendedFeaturesItem[]),
                 },
@@ -73,6 +78,7 @@ export const ColSizes = ColSizesTemplate.bind({});
 
 const DefaultArgs = {
     ...data.default.content,
+    title: transformOptionalTitle(data.default.content.title),
     description: yfmTransform(data.default.content.description),
     items: extendedFeaturesItems(data.default.content.items as ExtendedFeaturesItem[]),
 };

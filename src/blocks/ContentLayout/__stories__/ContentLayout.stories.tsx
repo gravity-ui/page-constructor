@@ -1,6 +1,6 @@
 import {Meta, StoryFn} from '@storybook/react';
 
-import {yfmTransform} from '../../../../.storybook/utils';
+import {yfmTransform, yfmTransformInline} from '../../../../.storybook/utils';
 import {PageConstructor} from '../../../containers/PageConstructor/PageConstructor';
 import {
     ButtonProps,
@@ -18,10 +18,15 @@ export default {
     component: Content,
 } as Meta;
 
-const getSizeTitle = (size: string) => data.size.title.replace('{{size}}', size);
-const getThemeTitle = (theme: string) => data.theme.title.replace('{{theme}}', theme);
+const getSizeTitle = (size: string) => {
+    console.log(yfmTransformInline(data.size.title.replace('{{size}}', size)), data.size.title);
+    return yfmTransformInline(data.size.title.replace('{{size}}', size));
+};
+
+const getThemeTitle = (theme: string) =>
+    yfmTransformInline(data.theme.title.replace('{{theme}}', theme));
 const getTextWidthTitle = (textWidth: string) =>
-    data.textWidth.title.replace('{{textWidth}}', textWidth);
+    yfmTransformInline(data.textWidth.title.replace('{{textWidth}}', textWidth));
 
 const DefaultTemplate: StoryFn<ContentLayoutBlockModel> = (args) => (
     <PageConstructor
@@ -31,17 +36,32 @@ const DefaultTemplate: StoryFn<ContentLayoutBlockModel> = (args) => (
                     ...args,
                     textContent: {
                         ...args.textContent,
+                        title:
+                            args.textContent.title && typeof args.textContent.title === 'string'
+                                ? yfmTransformInline(args.textContent.title)
+                                : undefined,
                         additionalInfo: yfmTransform(data.common.additionalInfo),
                     },
                 },
                 {
                     ...args,
-                    textContent: {...args.textContent, links: data.common.links as LinkProps[]},
+                    textContent: {
+                        ...args.textContent,
+                        title:
+                            args.textContent.title && typeof args.textContent.title === 'string'
+                                ? yfmTransformInline(args.textContent.title)
+                                : undefined,
+                        links: data.common.links as LinkProps[],
+                    },
                 },
                 {
                     ...args,
                     textContent: {
                         ...args.textContent,
+                        title:
+                            args.textContent.title && typeof args.textContent.title === 'string'
+                                ? yfmTransformInline(args.textContent.title)
+                                : undefined,
                         buttons: data.common.buttons as ButtonProps[],
                     },
                 },
@@ -49,6 +69,10 @@ const DefaultTemplate: StoryFn<ContentLayoutBlockModel> = (args) => (
                     ...args,
                     textContent: {
                         ...args.textContent,
+                        title:
+                            args.textContent.title && typeof args.textContent.title === 'string'
+                                ? yfmTransformInline(args.textContent.title)
+                                : undefined,
                         list: data.common.list.map((item) => {
                             return {
                                 ...item,

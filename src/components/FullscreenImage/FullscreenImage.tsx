@@ -3,8 +3,11 @@ import * as React from 'react';
 import {ChevronsExpandUpRight, Xmark} from '@gravity-ui/icons';
 import {Icon, Modal} from '@gravity-ui/uikit';
 
+import {SliderBlock} from '../../blocks';
+import {ImageProps as ModelImageProps, SliderType} from '../../models';
 import {block} from '../../utils';
 import Image, {ImageProps} from '../Image/Image';
+import {getMediaImage} from '../Media/Image/utils';
 
 import {i18n} from './i18n';
 
@@ -15,6 +18,7 @@ export interface FullscreenImageProps extends ImageProps {
     modalImageClass?: string;
     imageStyle?: React.CSSProperties;
     extraProps?: React.HTMLProps<HTMLDivElement>;
+    sliderData?: {items: ModelImageProps[]; initialIndex: number};
 }
 
 const b = block('fullscreen-image');
@@ -22,11 +26,29 @@ const FULL_SCREEN_ICON_SIZE = 18;
 const CLOSE_ICON_SIZE = 24;
 
 const FullscreenImage = (props: FullscreenImageProps) => {
-    const {imageClassName, modalImageClass, imageStyle, alt = i18n('img-alt'), extraProps} = props;
+    const {
+        imageClassName,
+        sliderData,
+        modalImageClass,
+        imageStyle,
+        alt = i18n('img-alt'),
+        extraProps,
+    } = props;
     const [isOpened, setIsOpened] = React.useState(false);
+    const [sliderLoaded, setSliderLoaded] = React.useState(false);
 
     const openModal = () => setIsOpened(true);
     const closeModal = () => setIsOpened(false);
+
+    React.useEffect(() => {
+        if (sliderData && !isOpened) {
+            setSliderLoaded(false);
+        }
+    }, [isOpened, sliderData]);
+
+    const handleSliderImageLoad = () => {
+        setSliderLoaded(true);
+    };
 
     return (
         <div className={b()} {...extraProps}>
@@ -38,7 +60,7 @@ const FullscreenImage = (props: FullscreenImageProps) => {
                     onClick={openModal}
                     style={imageStyle}
                 />
-                <button className={b('icon-wrapper')} onClick={openModal}>
+                <button className={b('expand-icon-wrapper')} onClick={openModal}>
                     <Icon
                         data={ChevronsExpandUpRight}
                         width={FULL_SCREEN_ICON_SIZE}
@@ -51,11 +73,11 @@ const FullscreenImage = (props: FullscreenImageProps) => {
                 <Modal
                     open={isOpened}
                     onClose={closeModal}
-                    className={b('modal')}
-                    contentClassName={b('modal-content')}
+                    className={b('modal', {'with-slider': Boolean(sliderData)})}
+                    contentClassName={b('modal-content', {loaded: sliderLoaded})}
                 >
                     <button
-                        className={b('icon-wrapper', {visible: true})}
+                        className={b('close-icon-wrapper', {visible: true})}
                         onClick={closeModal}
                         aria-label={i18n('close')}
                     >
@@ -66,7 +88,33 @@ const FullscreenImage = (props: FullscreenImageProps) => {
                             className={b('icon', {hover: true})}
                         />
                     </button>
-                    <Image {...props} className={b('modal-image', modalImageClass)} />
+                    {sliderData ? (
+                        <div className={b('modal-slider')}>
+                            <SliderBlock
+                                initialSlide={sliderData.initialIndex}
+                                slidesToShow={1}
+                                type={SliderType.FullscreenCard}
+                            >
+                                {sliderData.items.map((item, index) => (
+                                    <div key={index} className={b('modal-slider_item')}>
+                                        <Image
+                                            onLoad={handleSliderImageLoad}
+                                            className={b(
+                                                'modal-slider_item-image',
+                                                modalImageClass,
+                                            )}
+                                            containerClassName={b(
+                                                'modal-slider_item-image-wrapper',
+                                            )}
+                                            {...getMediaImage(item)}
+                                        />
+                                    </div>
+                                ))}
+                            </SliderBlock>
+                        </div>
+                    ) : (
+                        <Image {...props} className={b('modal-image', modalImageClass)} />
+                    )}
                 </Modal>
             )}
         </div>

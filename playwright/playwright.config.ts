@@ -72,7 +72,6 @@ const config: PlaywrightTestConfig = {
                         icon: true,
                     },
                 }),
-
                 commonjs(),
             ],
             resolve: {
