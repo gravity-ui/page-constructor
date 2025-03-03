@@ -14,7 +14,7 @@ export function withTheme<T extends WithThemeProps>(
     return class WithThemeComponent extends React.Component<Subtract<T, WithThemeProps>> {
         static displayName = `withTheme(${componentName})`;
         static contextType = ThemeContext;
-        context!: ThemeContextProps;
+        declare context: ThemeContextProps;
 
         render() {
             return <WrappedComponent {...(this.props as T)} theme={this.context.theme} />;
