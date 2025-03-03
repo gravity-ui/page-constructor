@@ -98,7 +98,6 @@ export interface HeaderData {
      * @type {NavigationItemModel[]}
      */
     customMobileHeaderItems?: NavigationItemModel[];
-    mobilePortalContainer?: React.RefObject<HTMLElement>;
     iconSize?: number;
     withBorder?: boolean;
     withBorderOnScroll?: boolean;
