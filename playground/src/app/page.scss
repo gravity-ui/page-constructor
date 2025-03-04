@@ -2,4 +2,8 @@ $block: '.home';
 
 #{$block} {
     height: 100vh;
+
+    &__test {
+        padding: 16px;
+    }
 }

@@ -1,0 +1,49 @@
+@import '../../styles/root.scss';
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+$block: '.#{$ns}editor';
+
+#{$block} {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    position: relative;
+
+    &__header {
+        height: $headerHeight;
+        width: 100%;
+        border-bottom: 1px solid var(--g-color-line-generic);
+    }
+
+    &__body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 1;
+        width: 100%;
+        max-height: calc(100% - $headerHeight);
+    }
+
+    &__canvas {
+        flex: 1;
+    }
+
+    &__overlay {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        z-index: 100;
+    }
+
+    &__debug-store {
+        position: fixed;
+        right: 8px;
+        bottom: 8px;
+        z-index: 1000;
+    }
+}

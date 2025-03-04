@@ -1,0 +1,23 @@
+@import '../../styles/root.scss';
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+$block: '.#{$ns}block-config';
+
+#{$block} {
+    padding: 12px;
+
+    &__title {
+        margin-bottom: 16px;
+        margin-top: 8px;
+    }
+
+    &__empty {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        height: 100%;
+        width: 100%;
+    }
+}
