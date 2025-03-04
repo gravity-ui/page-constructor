@@ -1,0 +1,35 @@
+@import '../../../../../../styles/variables';
+@import '../../../../../../styles/mixins';
+@import '../../../../../../styles/root';
+@import '../../../../../../styles/yfm.scss';
+@import '../mixins.scss';
+
+.custom-card {
+    height: 100%;
+
+    code {
+        display: block;
+        white-space: pre-wrap;
+        font-size: 12px;
+        padding: 12px;
+        border-radius: 0;
+    }
+
+    &__card {
+        @include custom-block-title($selector: '.custom-card__card-header-content');
+
+        &-header {
+            margin: -16px 0;
+
+            &-content {
+                width: fit-content;
+            }
+        }
+
+        &-body {
+            @include add-specificity(&) {
+                padding: 0;
+            }
+        }
+    }
+}

@@ -3,6 +3,7 @@ import {Meta, StoryFn} from '@storybook/react';
 import {PageConstructor, PageConstructorProps} from '../PageConstructor';
 
 import data from './data.json';
+import {CustomBlocksTemplate} from './components/CustomBlocksTemplate';
 
 export default {
     title: 'Containers/PageConstructor',
@@ -19,6 +20,7 @@ export const Default = DefaultTemplate.bind({});
 export const withNavigation = DefaultTemplate.bind({});
 export const WithFullWidthBackgroundMedia = WithFullWidthBackgroundMediaTemplate.bind({});
 export const Branded = DefaultTemplate.bind({});
+export const CustomBlocks = CustomBlocksTemplate.bind({});
 
 Default.args = data.default as PageConstructorProps;
 withNavigation.args = {
@@ -37,3 +39,4 @@ Branded.args = {
     ...data.default,
     isBranded: true,
 };
+CustomBlocks.args = data.custom as unknown as PageConstructorProps;
