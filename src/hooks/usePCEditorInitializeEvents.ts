@@ -3,7 +3,7 @@ import {useCallback, useEffect} from 'react';
 import {JSONSchemaType} from 'ajv';
 import _ from 'lodash';
 
-import {ItemConfig} from '../common/types';
+import {ItemConfig} from '../../common/types';
 import {blockDataMap} from '../constructor-items';
 import {PageContent} from '../models';
 import {defaultComponentsConfigurationSchema} from '../schema';
