@@ -1,0 +1,14 @@
+@import '../../../../styles/variables.scss';
+@import '../../../../styles/mixins.scss';
+
+$block: '.#{$ns}oneof-dynamic-field';
+
+#{$block} {
+    &__card {
+        padding: 12px;
+    }
+
+    &__radio {
+        margin-bottom: 12px;
+    }
+}

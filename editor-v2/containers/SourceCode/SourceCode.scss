@@ -1,0 +1,36 @@
+@import '../../styles/root.scss';
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+$block: '.#{$ns}source-code';
+
+#{$block} {
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    &__code {
+        white-space: pre;
+        @include text-code-inline-1;
+        padding: 0 10px 10px;
+        overflow: auto;
+    }
+
+    &__head {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 8px;
+        padding: 10px 10px 0;
+    }
+
+    &__textarea textarea {
+        @include text-code-inline-1;
+    }
+
+    &__alert {
+        margin-bottom: 8px;
+    }
+}

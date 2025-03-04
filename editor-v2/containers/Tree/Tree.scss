@@ -1,0 +1,47 @@
+@import '../../styles/root.scss';
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+$block: '.#{$ns}tree';
+
+#{$block} {
+    padding: 12px;
+
+    &__head {
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__title {
+        @include text-subheader-3;
+    }
+
+    &__item {
+        padding: 8px;
+        margin-bottom: 8px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        @for $i from 1 through 9 {
+            &_deep_#{$i} {
+                position: relative;
+                margin-left: 16px * $i;
+                width: calc(100% - 16px * $i);
+
+                &:before {
+                    content: '';
+                    position: absolute;
+                    right: calc(100% + 12px);
+                    height: 100%;
+                    width: 2px;
+                    background-color: var(--g-color-line-generic-accent);
+                    top: 0;
+                }
+            }
+        }
+    }
+}

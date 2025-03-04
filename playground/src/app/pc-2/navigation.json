@@ -1,0 +1,48 @@
+{
+  "logo": {
+    "text": "",
+    "icon": "https://storage.yandexcloud.net/ydb-site-assets/ydb_icon.svg"
+  },
+  "header": {
+    "leftItems": [
+      {
+        "type": "link",
+        "text": "Документация",
+        "url": "/../docs/ru",
+        "target": "_self"
+      },
+      {
+        "type": "link",
+        "text": "Команда",
+        "url": "/careers/"
+      },
+      {
+        "type": "link",
+        "text": "Студентам",
+        "url": "/students/"
+      },
+      {
+        "type": "link",
+        "text": "Поддержка",
+        "url": "/support/"
+      },
+      {
+        "type": "link",
+        "text": "Блог",
+        "url": "/blog/"
+      }
+    ],
+    "rightItems": [
+      {
+        "type": "github-button",
+        "text": "Star",
+        "label": "Star ydb-platform/ydb on GitHub",
+        "url": "https://github.com/ydb-platform/ydb"
+      }
+    ]
+  },
+  "meta": {
+    "title": "",
+    "description": ""
+  }
+}

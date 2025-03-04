@@ -1,0 +1,22 @@
+@import '../../styles/root.scss';
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+$block: '.#{$ns}source';
+
+#{$block} {
+    width: 100%;
+    display: inline-flex;
+    box-sizing: border-box;
+    align-items: center;
+    flex-direction: row;
+    padding: 16px 12px;
+
+    &__icon {
+        flex: 0 0 auto;
+    }
+
+    &__text {
+        flex: 1;
+    }
+}
