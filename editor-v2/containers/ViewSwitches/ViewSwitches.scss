@@ -1,0 +1,21 @@
+@import '../../styles/root.scss';
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+$block: '.#{$ns}view-switches';
+
+#{$block} {
+    padding: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+
+    &__zoom {
+        display: flex;
+        gap: 4px;
+    }
+
+    &__zoom-input {
+        width: 40px;
+    }
+}
