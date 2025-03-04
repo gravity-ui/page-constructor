@@ -2,7 +2,7 @@ import React from 'react';
 
 import {StoreApi} from 'zustand';
 
-import {EditorState, createPCEditorStore} from '../../common/store';
+import {EditorState, createPCEditorStore} from '../../../common/store';
 
 export interface PCEditorStoreContextProps {
     state: StoreApi<EditorState>;
