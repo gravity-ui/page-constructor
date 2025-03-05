@@ -35,6 +35,7 @@ export const customDecorator: BlockDecorator = ({type, children}) => {
         <BlockBase className={b()}>
             <Popover
                 placement="bottom-start"
+                className={b('popover')}
                 content={
                     <Link href="https://github.com/gravity-ui/page-constructor/blob/main/src/containers/PageConstructor/__stories__/components/CustomBlocksTemplate.tsx">
                         <YFMWrapper

@@ -35,7 +35,7 @@ export const CustomBlock = ({url, title}: CustomBlockProps) => {
     return (
         <div className={b()}>
             <Title className={b('title')} title={title} />
-            <Wrapper href={url ?? ''}>
+            <Wrapper className={b('code-wrap')} href={url ?? ''}>
                 <YFMWrapper content={`<code>${CUSTOM_BLOCK_CODE}</code>`} />
             </Wrapper>
         </div>

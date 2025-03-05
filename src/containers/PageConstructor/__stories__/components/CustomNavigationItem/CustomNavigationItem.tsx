@@ -33,6 +33,7 @@ export const CustomNavigationItem = ({url, title}: CustomNavigationItemProps) =>
 
     return (
         <Popover
+            className={b('popover')}
             trigger="click"
             content={
                 <Wrapper className={b('popover-content')} href={url ?? ''}>
