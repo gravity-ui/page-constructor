@@ -14,12 +14,16 @@ const b = block('navigation');
 
 export interface NavigationComponentProps extends ClassNameProps {
     logo: ThemedNavigationLogoData;
-    data: HeaderData & {
-        mobilePortalContainer?: React.RefObject<HTMLElement>;
-    };
+    data: HeaderData;
+    mobilePortalContainer?: React.RefObject<HTMLElement>;
 }
 
-export const Navigation: React.FC<NavigationComponentProps> = ({data, logo, className}) => {
+export const Navigation: React.FC<NavigationComponentProps> = ({
+    data,
+    logo,
+    className,
+    mobilePortalContainer,
+}) => {
     const {
         leftItems,
         rightItems,
@@ -27,7 +31,6 @@ export const Navigation: React.FC<NavigationComponentProps> = ({data, logo, clas
         iconSize = 20,
         withBorder = false,
         withBorderOnScroll = true,
-        mobilePortalContainer,
     } = data;
 
     const [isSidebarOpened, setIsSidebarOpened] = useState(false);
