@@ -5,7 +5,7 @@
 
 ### Bug Fixes
 
-* add target ([#1137](https://github.com/gravity-ui/page-constructor/issues/1137)) ([58c37fa](https://github.com/gravity-ui/page-constructor/commit/58c37fa123aeb5571a2e787b3a1cebe08864e7d3))
+* add target for tsconfig and fixed build pipe for swiper ([#1137](https://github.com/gravity-ui/page-constructor/issues/1137)) ([58c37fa](https://github.com/gravity-ui/page-constructor/commit/58c37fa123aeb5571a2e787b3a1cebe08864e7d3))
 
 ## [6.1.0](https://github.com/gravity-ui/page-constructor/compare/v6.0.0...v6.1.0) (2025-02-27)
 
