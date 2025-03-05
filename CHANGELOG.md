@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.1.1](https://github.com/gravity-ui/page-constructor/compare/v6.1.0...v6.1.1) (2025-03-05)
+
+
+### Bug Fixes
+
+* add target ([#1137](https://github.com/gravity-ui/page-constructor/issues/1137)) ([58c37fa](https://github.com/gravity-ui/page-constructor/commit/58c37fa123aeb5571a2e787b3a1cebe08864e7d3))
+
 ## [6.1.0](https://github.com/gravity-ui/page-constructor/compare/v6.0.0...v6.1.0) (2025-02-27)
 
 
