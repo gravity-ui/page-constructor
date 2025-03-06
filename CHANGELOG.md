@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.2.0](https://github.com/gravity-ui/page-constructor/compare/v6.1.1...v6.2.0) (2025-03-06)
+
+
+### Features
+
+* **mobileNavigation:** added a parameter for the portal in mobile navigation ([#1132](https://github.com/gravity-ui/page-constructor/issues/1132)) ([0f54550](https://github.com/gravity-ui/page-constructor/commit/0f545508d4c6c7d23b93ec93bb8bc1f23df4aaed))
+
 ## [6.1.1](https://github.com/gravity-ui/page-constructor/compare/v6.1.0...v6.1.1) (2025-03-05)
 
 
