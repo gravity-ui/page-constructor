@@ -13,6 +13,18 @@ const b = block('home');
 
 const Test = () => <div className={b('test')}>custom test</div>;
 
+export const COMPONENTS_CONFIG = {
+    middleTop: Test,
+    leftTabs: [
+        {
+            id: 'test',
+            title: 'TEST',
+            component: Test,
+        },
+    ],
+    rightTop: [Source, ViewSwitches],
+};
+
 export default function Home() {
     const [initialUrl, setInitialUrl] = useState<string>('');
 
@@ -27,17 +39,7 @@ export default function Home() {
             <div className={b()}>
                 {initialUrl && (
                     <Editor
-                        componentsConfig={{
-                            middleTop: Test,
-                            leftTabs: [
-                                {
-                                    id: 'test',
-                                    title: 'TEST',
-                                    component: Test,
-                                },
-                            ],
-                            rightTop: [Source, ViewSwitches],
-                        }}
+                        componentsConfig={COMPONENTS_CONFIG}
                         initialUrl={initialUrl}
                         disableUrlField={false}
                         onUpdate={() => {}}
