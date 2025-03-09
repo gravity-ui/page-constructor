@@ -1,6 +1,6 @@
-import {Copy, Grip, TrashBin} from '@gravity-ui/icons';
+import {ChevronDown, ChevronUp, Copy, TrashBin} from '@gravity-ui/icons';
 import {Button, Icon} from '@gravity-ui/uikit';
-import React, {useCallback, useState} from 'react';
+import React, {useState} from 'react';
 
 import {usePostMessageAPIListener} from '../../../common/postMessage';
 import {useMainEditorStore} from '../../hooks/useMainEditorStore';
@@ -29,7 +29,7 @@ const Overlay = ({className}: OverlayProps) => {
         deleteBlock,
         duplicateBlock,
         manipulateOverlayMode,
-        enableReorderMode,
+        reorderBlock,
     } = useMainEditorStore();
     const [insertLineBox, setInsertLineBox] = useState<InsertLineProps | undefined>(undefined);
     const [hoverBorders, setHoverBorders] = useState<DOMRect | null>(null);
@@ -59,11 +59,23 @@ const Overlay = ({className}: OverlayProps) => {
         setBlockBorders(rect || null);
     });
 
-    const onMouseDown = useCallback(() => {
-        if (selectedBlock) {
-            enableReorderMode(selectedBlock);
-        }
-    }, [enableReorderMode, selectedBlock]);
+    const handleMoveUp = () => {
+        if (!selectedBlock) return;
+        const destination = [...selectedBlock];
+        destination[destination.length - 1] = destination[destination.length - 1] - 1;
+        reorderBlock(selectedBlock, destination, 'prepend');
+        setSelectedBlock(undefined);
+        setBlockBorders(null);
+    };
+
+    const handleMoveDown = () => {
+        if (!selectedBlock) return;
+        const destination = [...selectedBlock];
+        destination[destination.length - 1] = destination[destination.length - 1] + 1;
+        reorderBlock(selectedBlock, destination, 'append');
+        setSelectedBlock(undefined);
+        setBlockBorders(null);
+    };
 
     return (
         <div className={b(null, className)} style={{height: `${height}px`}}>
@@ -78,19 +90,20 @@ const Overlay = ({className}: OverlayProps) => {
                     }}
                 >
                     <div className={b('actions')}>
-                        {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
-                        <div onMouseDown={onMouseDown}>
-                            <Button
-                                pin={'round-clear'}
-                                className={`${b('action-button', {grip: true})}`}
-                                size={'m'}
-                                view={'action'}
-                            >
-                                <Icon data={Grip} size={18} />
-                            </Button>
-                        </div>
+                        <Button view="flat" size={'m'} onClick={handleMoveUp}>
+                            <Icon data={ChevronUp} size={18} />
+                        </Button>
                         <Button
-                            pin={'clear-clear'}
+                            pin={'round-clear'}
+                            className={b('action-button')}
+                            size={'m'}
+                            view={'action'}
+                            onClick={() => selectedBlock && duplicateBlock(selectedBlock)}
+                        >
+                            <Icon data={Copy} size={18} />
+                        </Button>
+                        <Button
+                            pin={'clear-round'}
                             className={b('action-button')}
                             size={'m'}
                             view={'action'}
@@ -98,14 +111,8 @@ const Overlay = ({className}: OverlayProps) => {
                         >
                             <Icon data={TrashBin} size={18} />
                         </Button>
-                        <Button
-                            pin={'clear-round'}
-                            className={b('action-button')}
-                            size={'m'}
-                            view={'action'}
-                            onClick={() => selectedBlock && duplicateBlock(selectedBlock)}
-                        >
-                            <Icon data={Copy} size={18} />
+                        <Button view="flat" size={'m'} onClick={handleMoveDown}>
+                            <Icon data={ChevronDown} size={18} />
                         </Button>
                     </div>
                 </div>
