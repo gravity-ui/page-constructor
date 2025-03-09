@@ -22,6 +22,10 @@ $block: '.#{$ns}tree';
         padding: 8px;
         margin-bottom: 8px;
 
+        &_selected {
+            border: 1.5px var(--g-color-line-brand) solid;
+        }
+
         &:last-child {
             margin-bottom: 0;
         }
