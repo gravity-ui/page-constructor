@@ -14,7 +14,7 @@ const ViewSwitches = () => {
     const {zoom, setZoom, decreaseZoom, increaseZoom} = useMainEditorStore();
     return (
         <div className={b()}>
-            <div>TBD screen sizes</div>
+            <div>TBD</div>
             <div className={b('zoom')}>
                 <Button view={'flat'} onClick={decreaseZoom}>
                     <Icon data={Minus} />
