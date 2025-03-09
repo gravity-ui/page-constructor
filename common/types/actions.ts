@@ -1,4 +1,4 @@
-import {PageContent} from '../../models';
+import {PageContent} from '../../src/models';
 import {EditorState} from '../store';
 
 export type MessageTypes = EventMessageTypes & ActionMessageTypes;

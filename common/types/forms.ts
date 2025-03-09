@@ -1,4 +1,4 @@
-import {PageContent} from '../../models';
+import {PageContent} from '../../src/models';
 
 export type DynamicFormValue = string | number | [] | object | boolean | PageContent | undefined;
 
