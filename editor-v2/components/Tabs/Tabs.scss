@@ -4,7 +4,7 @@
 $block: '.#{$ns}tabs';
 
 #{$block} {
-    overflow: auto hidden;
+    overflow: auto;
     width: 100%;
 
     &__item {
