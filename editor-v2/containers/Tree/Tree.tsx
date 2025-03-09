@@ -1,9 +1,10 @@
 import {TrashBin} from '@gravity-ui/icons';
 import {Button, Card, Icon} from '@gravity-ui/uikit';
-import React, {PropsWithChildren} from 'react';
+import React, {PropsWithChildren, useMemo} from 'react';
 
 import {ItemConfig} from '../../../common/types';
 import {useMainEditorStore} from '../../hooks/useMainEditorStore';
+import {generateChildrenPathFromArray} from '../../utils';
 import {editorCn} from '../../utils/cn';
 
 import './Tree.scss';
@@ -18,6 +19,11 @@ type TreeItem = {
     type: string;
     children?: TreeItem[];
 };
+
+interface ItemOptions {
+    deepLevel?: number;
+    parentIndex?: number;
+}
 
 const generateTree = (items: TreeItem[]): TreeItem[] => {
     return items.map((item) => {
@@ -35,17 +41,38 @@ const generateTree = (items: TreeItem[]): TreeItem[] => {
 };
 
 const Tree = (_p: PropsWithChildren<TreeProps>) => {
-    const {content, resetBlocks} = useMainEditorStore();
+    const {content, resetBlocks, selectedBlock} = useMainEditorStore();
+
+    const selectedBlockPath = useMemo(() => {
+        return generateChildrenPathFromArray(selectedBlock || []);
+    }, [selectedBlock]);
 
     const blockTree = generateTree(content.blocks);
 
-    const renderTree = (items: TreeItem[], deepLevel = 0) => {
-        return items.map(({type, children}, index) => (
-            <React.Fragment key={index}>
-                <Card className={b('item', {deep: deepLevel})}>{type}</Card>
-                {children && renderTree(children, deepLevel + 1)}
-            </React.Fragment>
-        ));
+    const renderTree = (items: TreeItem[], {deepLevel = 0, parentIndex}: ItemOptions = {}) => {
+        return items.map(({type, children}, index) => {
+            let blockPathArray;
+            if (parentIndex) {
+                blockPathArray = [parentIndex, index];
+            } else {
+                blockPathArray = [index];
+            }
+            const blockPath = generateChildrenPathFromArray(blockPathArray);
+            return (
+                <React.Fragment key={index}>
+                    <Card
+                        className={b('item', {
+                            deep: deepLevel,
+                            selected: blockPath === selectedBlockPath,
+                        })}
+                    >
+                        {type}
+                    </Card>
+                    {children &&
+                        renderTree(children, {deepLevel: deepLevel + 1, parentIndex: index})}
+                </React.Fragment>
+            );
+        });
     };
 
     return (
