@@ -31,9 +31,14 @@ export const useEditorTabs = ({
                                 component: Tree,
                             },
                             {
-                                id: 'source-code',
-                                title: 'SourceCode',
-                                component: SourceCode,
+                                id: 'source-code-yaml',
+                                title: 'YAML',
+                                component: () => <SourceCode format="yaml" />,
+                            },
+                            {
+                                id: 'source-code-json',
+                                title: 'JSON',
+                                component: () => <SourceCode format="json" />,
                             },
                         ]}
                     />
@@ -54,9 +59,14 @@ export const useEditorTabs = ({
                 position: 'right',
             },
             {
-                id: 'source-code',
-                title: 'SourceCode',
-                component: SourceCode,
+                id: 'source-code-yaml',
+                title: 'YAML',
+                component: () => <SourceCode format="yaml" />,
+            },
+            {
+                id: 'source-code-json',
+                title: 'JSON',
+                component: () => <SourceCode format="json" />,
             },
             ...rightTabs,
         ],
