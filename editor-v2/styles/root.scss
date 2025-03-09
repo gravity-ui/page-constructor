@@ -1,2 +1,7 @@
-body {
+.g-root {
+    --g-color-base-brand: var(--g-color-text-primary);
+    --g-color-base-brand-hover: var(--g-color-text-complementary);
+    --g-color-text-brand-contrast: var(--g-color-text-light-primary);
+    --g-color-line-brand: var(--g-color-text-primary);
+    --g-color-text-brand: var(--g-color-private-brand-700-solid);
 }

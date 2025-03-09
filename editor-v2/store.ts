@@ -19,7 +19,7 @@ import {
 
 export interface EditorMethods {
     initialize(): void;
-    setSelectedBlock(path: number[]): void;
+    setSelectedBlock(path?: number[]): void;
     setHeight(height: number): void;
     setZoom(zoom: number): void;
     increaseZoom(): void;
