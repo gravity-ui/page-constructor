@@ -4,7 +4,7 @@ import React, {PropsWithChildren, useMemo} from 'react';
 
 import {ItemConfig} from '../../../common/types';
 import {useMainEditorStore} from '../../hooks/useMainEditorStore';
-import {generateChildrenPathFromArray} from '../../utils';
+import {generateChildrenPathFromArray, getItemTitle} from '../../utils';
 import {editorCn} from '../../utils/cn';
 
 import './Tree.scss';
@@ -18,6 +18,7 @@ export interface TreeProps {
 type TreeItem = {
     type: string;
     children?: TreeItem[];
+    treeTitle?: string;
 };
 
 interface ItemOptions {
@@ -36,6 +37,7 @@ const generateTree = (items: TreeItem[]): TreeItem[] => {
         return {
             type: item.type,
             children,
+            treeTitle: getItemTitle(item),
         };
     });
 };
@@ -49,9 +51,9 @@ const Tree = (_p: PropsWithChildren<TreeProps>) => {
 
     const blockTree = generateTree(content.blocks);
 
-    const renderTree = (items: TreeItem[], {deepLevel = 0, parentIndex}: ItemOptions = {}) => {
-        return items.map(({type, children}, index) => {
-            let blockPathArray;
+    const renderTree = (items: TreeItem[], {parentIndex}: ItemOptions = {}) => {
+        return items.map(({type, children, treeTitle}, index) => {
+            let blockPathArray: number[];
             if (parentIndex) {
                 blockPathArray = [parentIndex, index];
             } else {
@@ -62,14 +64,17 @@ const Tree = (_p: PropsWithChildren<TreeProps>) => {
                 <React.Fragment key={index}>
                     <Card
                         className={b('item', {
-                            deep: deepLevel,
                             selected: blockPath === selectedBlockPath,
                         })}
                     >
-                        {type}
+                        <div className={b('type')}>{type}</div>
+                        <div className={b('title')}>{treeTitle}</div>
+                        {children && (
+                            <div className={b('children')}>
+                                {renderTree(children, {parentIndex: index})}
+                            </div>
+                        )}
                     </Card>
-                    {children &&
-                        renderTree(children, {deepLevel: deepLevel + 1, parentIndex: index})}
                 </React.Fragment>
             );
         });
@@ -78,7 +83,6 @@ const Tree = (_p: PropsWithChildren<TreeProps>) => {
     return (
         <div className={b()}>
             <div className={b('head')}>
-                <div className={b('title')}>Tree</div>
                 <div className={b('actions')}>
                     <Button view="outlined-danger" onClick={() => resetBlocks()}>
                         <Icon data={TrashBin} />
