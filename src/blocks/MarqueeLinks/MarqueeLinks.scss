@@ -1,0 +1,35 @@
+@import '../../../styles/mixins';
+
+$block: '.#{$ns}marquee-links-block';
+
+#{$block} {
+    &_left {
+        text-align: left;
+    }
+
+    &_right {
+        text-align: right;
+    }
+
+    &_center {
+        text-align: center;
+    }
+
+    &__items {
+        .rfm-child img {
+            margin: 0 57px;
+        }
+        .rfm-overlay::after,
+        .rfm-overlay::before {
+            --gradient-color: var(--g-color-base-background);
+        }
+    }
+
+    &__header {
+        margin-bottom: $indentXS;
+    }
+
+    &__description {
+        margin-bottom: $indentSM;
+    }
+}
