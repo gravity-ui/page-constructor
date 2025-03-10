@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-import {PageContent} from '../src/models';
+import {Content} from '../src/models';
 
 import {ConfigInput, ItemConfig} from './types';
 import {initializeStore} from './utils';
@@ -13,7 +13,7 @@ export interface EditorState {
     selectedBlock?: number[];
     initialized: boolean;
 
-    content: PageContent;
+    content: Content;
     blocks: Array<ItemConfig>;
     subBlocks: Array<ItemConfig>;
     global: Array<ConfigInput>;
