@@ -166,3 +166,12 @@ export const getUrlOrigin = (url: string) => {
         return undefined;
     }
 };
+
+export const getItemTitle = (item: object): string | undefined => {
+    return (
+        _.get(item, 'title.text') ||
+        _.get(item, 'title') ||
+        _.get(item, 'textContent.title') ||
+        _.get(item, 'content.title')
+    );
+};
