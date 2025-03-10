@@ -1,5 +1,5 @@
-import {Grip, Plus} from '@gravity-ui/icons';
-import {Button, Card, Icon} from '@gravity-ui/uikit';
+import {SquareBars} from '@gravity-ui/icons';
+import {Card, Icon} from '@gravity-ui/uikit';
 import _ from 'lodash';
 import React, {PropsWithChildren, useCallback} from 'react';
 
@@ -20,21 +20,13 @@ interface BlockGroups {
 }
 
 const BlocksList = (_p: PropsWithChildren<BlocksListProps>) => {
-    const {blocks, selectedBlock, insertBlock, enableInsertMode} = useMainEditorStore();
+    const {blocks, enableInsertMode} = useMainEditorStore();
 
     const onMouseDown = useCallback(
         (blockType: string) => {
             enableInsertMode(blockType);
         },
         [enableInsertMode],
-    );
-
-    const onAddClick = useCallback(
-        (type: string) => {
-            const path = selectedBlock || [0];
-            return insertBlock(path, type);
-        },
-        [insertBlock, selectedBlock],
     );
 
     const groups = blocks.reduce<BlockGroups>((acc, currentBlock) => {
@@ -58,27 +50,29 @@ const BlocksList = (_p: PropsWithChildren<BlocksListProps>) => {
 
     return (
         <div className={b()}>
-            <div className={b('section')}>
-                {Object.entries(groups).map(([key, groupBlocks]) => (
-                    <div className={b('group')} key={key}>
-                        <div>
-                            {groupBlocks.map(({type, schema: {name}}) => (
-                                <Card
-                                    key={type}
-                                    className={b('card')}
-                                    onMouseDown={() => onMouseDown(type)}
-                                >
-                                    <Icon data={Grip} />
-                                    <div className={b('name')}>{name}</div>
-                                    <Button onClick={() => onAddClick(type)}>
-                                        <Icon data={Plus} />
-                                    </Button>
-                                </Card>
-                            ))}
-                        </div>
+            {Object.entries(groups).map(([key, groupBlocks]) => (
+                <div className={b('group')} key={key}>
+                    <div className={b('title')}>{key}</div>
+                    <div className={b('group-items')}>
+                        {groupBlocks.map(({type, schema: {name, previewImg}}) => (
+                            <Card
+                                key={type}
+                                className={b('card')}
+                                onMouseDown={() => onMouseDown(type)}
+                            >
+                                <div>
+                                    {previewImg ? (
+                                        <img src={previewImg} alt="" />
+                                    ) : (
+                                        <Icon className={b('icon')} size={45} data={SquareBars} />
+                                    )}
+                                </div>
+                                <div className={b('name')}>{name}</div>
+                            </Card>
+                        ))}
                     </div>
-                ))}
-            </div>
+                </div>
+            ))}
         </div>
     );
 };

@@ -29,6 +29,7 @@ const HeaderBlockConfig = {
                 },
             ],
         },
+        previewImg: 'https://storage.cloud-preprod.yandex.net/qradle-test/header-block.svg',
     },
 };
 
