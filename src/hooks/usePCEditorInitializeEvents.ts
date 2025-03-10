@@ -5,7 +5,7 @@ import _ from 'lodash';
 
 import {ItemConfig} from '../../common/types';
 import {blockDataMap} from '../constructor-items';
-import {PageContent} from '../models';
+import {Content} from '../models';
 import {defaultComponentsConfigurationSchema} from '../schema';
 import {generateFromAJV} from '../utils/form-generator';
 
@@ -13,8 +13,8 @@ import {usePCEditorStore} from './usePCEditorStore';
 import {sendEventPostMessage, useInternalPostMessageAPIListener} from './usePostMessageAPI';
 
 interface UseEditorInitializeProps {
-    initialContent: PageContent;
-    setContent: (content: PageContent) => void;
+    initialContent: Content;
+    setContent: (content: Content) => void;
 }
 
 export const usePCEditorInitializeEvents = ({

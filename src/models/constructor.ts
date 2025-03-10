@@ -1,6 +1,12 @@
 import * as React from 'react';
 
-import {Animatable, BlockDecorationProps, ConstructorItem, ThemedMediaProps} from './';
+import {
+    Animatable,
+    BlockDecorationProps,
+    ConstructorItem,
+    NavigationData,
+    ThemedMediaProps,
+} from './';
 
 export interface PageData {
     content: PageContent;
@@ -16,6 +22,10 @@ export interface PageContent extends Animatable {
     blocks: ConstructorBlock[];
     menu?: Menu;
     background?: ThemedMediaProps;
+}
+
+export interface Content extends PageContent {
+    navigation?: NavigationData;
 }
 
 export interface InitConstrucorState {

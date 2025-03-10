@@ -2,7 +2,6 @@ import {Card, RadioButton} from '@gravity-ui/uikit';
 import React, {useCallback, useMemo, useState} from 'react';
 
 import {DynamicFormValue, OneOfInput} from '../../../../../common/types';
-import {PageContent} from '../../../../../src/models';
 import {editorCn} from '../../../../utils/cn';
 import DynamicForm from '../../DynamicForm';
 import FieldBase from '../../FieldBase/FieldBase';
@@ -12,7 +11,7 @@ import './OneOf.scss';
 const b = editorCn('oneof-dynamic-field');
 
 interface OneOfDynamicFieldProps {
-    contentConfig: PageContent;
+    contentConfig: DynamicFormValue;
     onUpdate: (key: string, value: DynamicFormValue) => void;
     inputConfig: OneOfInput;
     className?: string;

@@ -1,6 +1,6 @@
 import React, {ElementType, useCallback} from 'react';
 
-import {PageContent} from '../../../src/models';
+import {Content} from '../../../src/models';
 import BigOverlay from '../../components/BigOverlay/BigOverlay';
 import MiddleScreen from '../../components/MiddleScreen/MiddleScreen';
 import {Panels} from '../../components/Panels/Panels';
@@ -23,7 +23,7 @@ interface SidebarTabComponent {
     component: ElementType;
 }
 interface EditorViewProps {
-    onUpdate?: (pageContent: PageContent) => void;
+    onUpdate?: (pageContent: Content) => void;
     initialUrl: string;
     disableUrlField?: boolean;
     componentsConfig?: {
