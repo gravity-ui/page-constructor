@@ -53,6 +53,7 @@ const MediaBlockConfig = {
                 image: 'https://storage.yandexcloud.net/cloud-www-assets/constructor/main/new/media-01-01.jpg',
             },
         },
+        previewImg: 'https://storage.cloud-preprod.yandex.net/qradle-test/media-block.svg',
     },
 };
 
