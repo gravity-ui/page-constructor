@@ -17,13 +17,11 @@ $block: '.#{$ns}blocks-list';
         margin-bottom: 8px;
 
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: space-between;
+        text-align: center;
         gap: 4px;
-
-        &:last-child {
-            margin-bottom: 0;
-        }
 
         &:active {
             background-color: var(--g-color-base-generic-hover);
@@ -32,38 +30,36 @@ $block: '.#{$ns}blocks-list';
     }
 
     &__name {
-        flex: 1;
+        justify-self: flex-end;
+        color: var(--g-color-text-dark-secondary);
     }
 
     &__title {
-        @include text-subheader-3;
+        color: var(--g-color-text-dark-secondary);
         margin-bottom: 10px;
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
     }
 
-    &__subtitle {
-        @include text-subheader-2;
-        margin-bottom: 10px;
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
+    &__icon {
+        color: var(--g-color-text-dark-complementary);
     }
 
     &__group {
-        margin-bottom: 16px;
+        padding-bottom: 16px;
+        margin-top: 16px;
+        border-bottom: 1px solid var(--g-color-line-generic);
 
-        &:last-child {
-            margin-bottom: 0;
+        &:first-child {
+            margin-top: 0;
         }
-    }
-
-    &__section {
-        margin-bottom: 20px;
 
         &:last-child {
-            margin-bottom: 0;
+            border-bottom: none;
+        }
+
+        &-items {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
         }
     }
 }
