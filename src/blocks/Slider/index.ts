@@ -41,6 +41,7 @@ const SliderBlockConfig = {
                 },
             ],
         },
+        previewImg: 'https://storage.cloud-preprod.yandex.net/qradle-test/card-layout-block.svg',
     },
 };
 
