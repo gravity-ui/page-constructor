@@ -15,6 +15,7 @@ import {usePCEditorInitializeEvents} from '../../hooks/usePCEditorInitializeEven
 import {usePCEditorStore} from '../../hooks/usePCEditorStore';
 import {
     BlockTypes,
+    Content,
     CustomConfig,
     CustomItems,
     HeaderBlockTypes,
@@ -61,13 +62,14 @@ export const Constructor = (props: PageConstructorProps) => {
         microdata,
     } = props;
 
-    const [content, setContent] = useState<PageContent>({blocks, background});
+    const [content, setContent] = useState<Content>({blocks, background, navigation});
+
     const theme = useTheme();
 
     const store = usePCEditorStore();
     const {initialized} = store;
 
-    usePCEditorInitializeEvents({initialContent: {blocks, background}, setContent});
+    usePCEditorInitializeEvents({initialContent: {blocks, background, navigation}, setContent});
 
     const {context} = useMemo(
         () => ({
@@ -109,7 +111,7 @@ export const Constructor = (props: PageConstructorProps) => {
                     {themedBackground && (
                         <BackgroundMedia {...themedBackground} className={b('background')} />
                     )}
-                    <Layout navigation={navigation}>
+                    <Layout navigation={content.navigation}>
                         {renderMenu && renderMenu()}
                         {restBlocks && (
                             <ConstructorRow>

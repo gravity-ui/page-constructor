@@ -3,7 +3,6 @@ import {Button, Card, Icon} from '@gravity-ui/uikit';
 import React, {useCallback} from 'react';
 
 import {ArrayObjectInput, ArrayTextInput, DynamicFormValue} from '../../../../../common/types';
-import {PageContent} from '../../../../../src/models';
 import {removeFromArray, swapArrayItems} from '../../../../utils';
 import {editorCn} from '../../../../utils/cn';
 import DynamicForm from '../../DynamicForm';
@@ -97,7 +96,7 @@ const ArrayDynamicField = ({title, values, onUpdate, className, blockConfig}: Ar
                                 {arrayItemButton}
                             </div>
                             <DynamicForm
-                                contentConfig={value as PageContent}
+                                contentConfig={value}
                                 blockConfig={blockConfig.properties}
                                 onUpdate={(key, updateValue) =>
                                     onUpdate(`[${index}].${key}`, updateValue)
