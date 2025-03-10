@@ -1,5 +1,7 @@
 import React from 'react';
 
+import {BlockConfig} from '../common/types';
+
 import {
     BannerBlock,
     CardLayoutBlock,
@@ -43,7 +45,6 @@ import TabsBlockConfig from './blocks/Tabs';
 import TestEditorBlockConfig from './blocks/TestEditorBlock';
 import TestEditorBlock from './blocks/TestEditorBlock/TestEditorBlock';
 import {SliderNewBlock} from './blocks/unstable';
-import {BlockConfig} from './common/types';
 import {BlockType, NavigationItemType, SubBlockType} from './models';
 import {GithubButton, NavigationButton, NavigationDropdown, NavigationLink} from './navigation';
 import SocialIcon from './navigation/components/SocialIcon/SocialIcon';
