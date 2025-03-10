@@ -184,6 +184,7 @@ const CardLayoutBlockConfig: BlockData = {
             description:
                 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
         },
+        previewImg: 'https://storage.cloud-preprod.yandex.net/qradle-test/card-layout-block.svg',
     },
 };
 

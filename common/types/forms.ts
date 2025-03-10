@@ -7,6 +7,7 @@ export interface BlockConfig {
     inputs: Array<ConfigInput>;
     group?: string;
     default?: object;
+    previewImg?: string;
 }
 
 export interface TextInput {
