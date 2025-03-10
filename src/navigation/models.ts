@@ -63,7 +63,7 @@ export interface ItemsWrapperProps
         ClassNameProps {}
 
 export interface DesktopNavigationProps extends MobileMenuButtonProps, ActiveItemProps {
-    logo: ThemedNavigationLogoData;
+    logo?: ThemedNavigationLogoData;
     leftItemsWithIconSize: NavigationItemModel[];
     rightItemsWithIconSize?: NavigationItemModel[];
     customMobileHeaderItems?: NavigationItemModel[];

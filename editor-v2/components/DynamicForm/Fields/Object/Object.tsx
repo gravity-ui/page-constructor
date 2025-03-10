@@ -2,7 +2,6 @@ import {Card} from '@gravity-ui/uikit';
 import React from 'react';
 
 import {ConfigInput, DynamicFormValue} from '../../../../../common/types';
-import {PageContent} from '../../../../../src/models';
 import {editorCn} from '../../../../utils/cn';
 import DynamicForm from '../../DynamicForm';
 import FieldBase, {FieldBaseParams} from '../../FieldBase/FieldBase';
@@ -12,7 +11,7 @@ import './Object.scss';
 const b = editorCn('object-dynamic-field');
 
 interface ObjectDynamicFieldProps extends FieldBaseParams {
-    value: PageContent;
+    value: DynamicFormValue;
     onUpdate: (key: string, value: DynamicFormValue) => void;
     blockConfig: Array<ConfigInput>;
     className?: string;
