@@ -17,13 +17,17 @@ const GlobalConfig = ({className}: GlobalConfigProps) => {
     const {global, content, updateField} = useMainEditorStore();
 
     const onUpdate = (key: string, value: DynamicFormValue) => {
-        updateField(key, value);
+        updateField('navigation.' + key, value);
     };
 
     return (
         <div className={b(null, className)}>
             <div className={b('title')}>Global Config</div>
-            <DynamicForm contentConfig={content} blockConfig={global} onUpdate={onUpdate} />
+            <DynamicForm
+                contentConfig={content.navigation}
+                blockConfig={global}
+                onUpdate={onUpdate}
+            />
         </div>
     );
 };

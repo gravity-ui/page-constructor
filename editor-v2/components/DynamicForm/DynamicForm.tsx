@@ -2,7 +2,6 @@ import _ from 'lodash';
 import React, {useCallback} from 'react';
 
 import {ConfigInput, DynamicFormValue} from '../../../common/types';
-import {PageContent} from '../../../src/models';
 import {editorCn} from '../../utils/cn';
 
 import './DynamicForm.scss';
@@ -20,7 +19,7 @@ const b = editorCn('dynamic-form');
 
 interface DynamicFormProps {
     blockConfig: Array<ConfigInput>;
-    contentConfig: PageContent;
+    contentConfig?: DynamicFormValue;
     onUpdate: (key: string, value: DynamicFormValue) => void;
     className?: string;
 }

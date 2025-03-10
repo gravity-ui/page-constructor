@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-import {PageContent} from '../../../src/models';
+import {DynamicFormValue} from '../../../common/types';
 
 export const getFullPath = (path: string, name: string) => {
     if (!path && !name) {
@@ -18,6 +18,6 @@ export const getFullPath = (path: string, name: string) => {
     return path + '.' + name;
 };
 
-export const getContent = (contentConfig: PageContent, path: string) => {
+export const getContent = (contentConfig: DynamicFormValue, path: string) => {
     return path ? _.get(contentConfig, path) : contentConfig;
 };
