@@ -1,6 +1,6 @@
-import {PageContent} from '../../src/models';
+import {Content} from '../../src/models';
 
-export type DynamicFormValue = string | number | [] | object | boolean | PageContent | undefined;
+export type DynamicFormValue = string | number | [] | object | boolean | Content | undefined;
 
 export interface BlockConfig {
     name: string;

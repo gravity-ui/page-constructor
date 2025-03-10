@@ -1,4 +1,4 @@
-import {PageContent} from '../../src/models';
+import {Content} from '../../src/models';
 import {EditorState} from '../store';
 
 export type MessageTypes = EventMessageTypes & ActionMessageTypes;
@@ -12,7 +12,7 @@ export type EventMessageTypes = {
     ON_CLICK_BLOCK: {path: number[]; rect: DOMRect};
     ON_RESIZE_BLOCK: {rect: DOMRect};
     ON_SUPPORTED_BLOCKS: Pick<EditorState, 'blocks' | 'subBlocks' | 'global'>;
-    ON_INITIAL_CONTENT: PageContent;
+    ON_INITIAL_CONTENT: Content;
 };
 
 export type ActionMessageTypes = {
