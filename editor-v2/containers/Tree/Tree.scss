@@ -14,8 +14,12 @@ $block: '.#{$ns}tree';
         justify-content: space-between;
     }
 
+    &__type {
+        color: var(--g-color-text-dark-secondary);
+    }
+
     &__title {
-        @include text-subheader-3;
+        @include overflow-ellipsis();
     }
 
     &__item {
@@ -29,23 +33,9 @@ $block: '.#{$ns}tree';
         &:last-child {
             margin-bottom: 0;
         }
+    }
 
-        @for $i from 1 through 9 {
-            &_deep_#{$i} {
-                position: relative;
-                margin-left: 16px * $i;
-                width: calc(100% - 16px * $i);
-
-                &:before {
-                    content: '';
-                    position: absolute;
-                    right: calc(100% + 12px);
-                    height: 100%;
-                    width: 2px;
-                    background-color: var(--g-color-line-generic-accent);
-                    top: 0;
-                }
-            }
-        }
+    &__children {
+        margin-top: 8px;
     }
 }
