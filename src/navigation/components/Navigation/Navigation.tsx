@@ -27,13 +27,13 @@ export const Navigation = ({
     onSidebarChange,
 }: NavigationComponentProps) => {
     const {
-        leftItems,
+        leftItems = [],
         rightItems,
         customMobileHeaderItems,
         iconSize = 20,
         withBorder = false,
         withBorderOnScroll = true,
-    } = data;
+    } = data || {};
 
     const [isSidebarOpened, setIsSidebarOpened] = React.useState(false);
     const [showBorder] = useShowBorder(withBorder, withBorderOnScroll);
