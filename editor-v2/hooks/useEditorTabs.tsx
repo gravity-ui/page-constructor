@@ -19,18 +19,18 @@ export const useEditorTabs = ({
             left: [
                 {
                     id: 'page',
-                    title: 'Page',
+                    title: 'PAGE',
                     component: () => (
                         <Tabs
                             items={[
                                 {
                                     id: 'blocks-list',
-                                    title: 'Blocks',
+                                    title: 'BLOCKS',
                                     component: BlocksList,
                                 },
                                 {
-                                    id: 'tree',
-                                    title: 'Tree',
+                                    id: 'layers',
+                                    title: 'LAYERS',
                                     component: Tree,
                                 },
                                 {
@@ -48,8 +48,8 @@ export const useEditorTabs = ({
                     ),
                 },
                 {
-                    id: 'global-config',
-                    title: 'GlobalConfig',
+                    id: 'navigation',
+                    title: 'NAVIGATION',
                     component: GlobalConfig,
                 },
                 ...leftTabs,
@@ -57,7 +57,7 @@ export const useEditorTabs = ({
             right: [
                 {
                     id: 'block-config',
-                    title: 'BlockConfig',
+                    title: 'INPUTS',
                     component: BlockConfig,
                     position: 'right',
                 },
