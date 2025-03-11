@@ -26,5 +26,21 @@ $block: '.#{$ns}source-code';
         overflow: auto;
         border: 1px solid var(--g-color-line-generic);
         border-radius: 6px;
+        position: relative;
+
+        &:hover {
+            #{$block}__controls {
+                display: flex;
+                flex-direction: row;
+                gap: 8px;
+            }
+        }
+    }
+
+    &__controls {
+        display: none;
+        position: absolute;
+        top: 10px;
+        right: 10px;
     }
 }
