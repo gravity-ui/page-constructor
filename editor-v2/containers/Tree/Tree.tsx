@@ -1,6 +1,6 @@
-import {TrashBin} from '@gravity-ui/icons';
+import {Copy, TrashBin} from '@gravity-ui/icons';
 import {Button, Card, Icon} from '@gravity-ui/uikit';
-import React, {PropsWithChildren, useMemo} from 'react';
+import React, {PropsWithChildren, useCallback, useMemo} from 'react';
 
 import {ItemConfig} from '../../../common/types';
 import {useMainEditorStore} from '../../hooks/useMainEditorStore';
@@ -21,9 +21,13 @@ type TreeItem = {
     treeTitle?: string;
 };
 
-interface ItemOptions {
-    deepLevel?: number;
-    parentIndex?: number;
+interface ItemProps {
+    type: string;
+    treeTitle?: string;
+    path: number[];
+    selected: boolean;
+    onCopy(path: number[]): void;
+    onDelete(path: number[]): void;
 }
 
 const generateTree = (items: TreeItem[]): TreeItem[] => {
@@ -42,8 +46,50 @@ const generateTree = (items: TreeItem[]): TreeItem[] => {
     });
 };
 
+const Item = ({
+    type,
+    children,
+    treeTitle,
+    path,
+    selected,
+    onCopy,
+    onDelete,
+}: PropsWithChildren<ItemProps>) => {
+    const handleCopy = useCallback(() => {
+        onCopy(path);
+    }, [onCopy, path]);
+
+    const handleDelete = useCallback(() => {
+        onDelete(path);
+    }, [onDelete, path]);
+
+    return (
+        <Card
+            className={b('item', {
+                selected,
+            })}
+        >
+            <div className={b('main')}>
+                <div className={b('text')}>
+                    <div className={b('type')}>{type}</div>
+                    <div className={b('title')}>{treeTitle}</div>
+                </div>
+                <div className={b('buttons')}>
+                    <Button view="flat" size="xs" onClick={handleCopy}>
+                        <Icon size={12} data={Copy} />
+                    </Button>
+                    <Button view="flat" size="xs" onClick={handleDelete}>
+                        <Icon size={12} data={TrashBin} />
+                    </Button>
+                </div>
+            </div>
+            {children}
+        </Card>
+    );
+};
+
 const Tree = (_p: PropsWithChildren<TreeProps>) => {
-    const {content, resetBlocks, selectedBlock} = useMainEditorStore();
+    const {content, resetBlocks, selectedBlock, duplicateBlock, deleteBlock} = useMainEditorStore();
 
     const selectedBlockPath = useMemo(() => {
         return generateChildrenPathFromArray(selectedBlock || []);
@@ -51,31 +97,30 @@ const Tree = (_p: PropsWithChildren<TreeProps>) => {
 
     const blockTree = generateTree(content.blocks);
 
-    const renderTree = (items: TreeItem[], {parentIndex}: ItemOptions = {}) => {
-        return items.map(({type, children, treeTitle}, index) => {
+    const renderTree = (items: TreeItem[], parentPathArray?: number[]) => {
+        return items.map(({type, treeTitle, children}, index) => {
             let blockPathArray: number[];
-            if (parentIndex) {
-                blockPathArray = [parentIndex, index];
+            if (parentPathArray) {
+                blockPathArray = [...parentPathArray, index];
             } else {
                 blockPathArray = [index];
             }
             const blockPath = generateChildrenPathFromArray(blockPathArray);
+
             return (
-                <React.Fragment key={index}>
-                    <Card
-                        className={b('item', {
-                            selected: blockPath === selectedBlockPath,
-                        })}
-                    >
-                        <div className={b('type')}>{type}</div>
-                        <div className={b('title')}>{treeTitle}</div>
-                        {children && (
-                            <div className={b('children')}>
-                                {renderTree(children, {parentIndex: index})}
-                            </div>
-                        )}
-                    </Card>
-                </React.Fragment>
+                <Item
+                    type={type}
+                    treeTitle={treeTitle}
+                    onCopy={duplicateBlock}
+                    onDelete={deleteBlock}
+                    key={index}
+                    path={blockPathArray}
+                    selected={selectedBlockPath === blockPath}
+                >
+                    {children && (
+                        <div className={b('children')}>{renderTree(children, blockPathArray)}</div>
+                    )}
+                </Item>
             );
         });
     };
@@ -90,7 +135,6 @@ const Tree = (_p: PropsWithChildren<TreeProps>) => {
                     </Button>
                 </div>
             </div>
-
             <div className={b('cards')}>{renderTree(blockTree)}</div>
         </div>
     );
