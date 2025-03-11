@@ -56,20 +56,30 @@ export const useEditorTabs = ({
             ],
             right: [
                 {
-                    id: 'block-config',
-                    title: 'INPUTS',
-                    component: BlockConfig,
-                    position: 'right',
-                },
-                {
-                    id: 'source-code-yaml',
-                    title: 'YAML',
-                    component: () => <SourceCode format="yaml" />,
-                },
-                {
-                    id: 'source-code-json',
-                    title: 'JSON',
-                    component: () => <SourceCode format="json" />,
+                    id: 'edit',
+                    title: 'EDIT',
+                    component: () => (
+                        <Tabs
+                            items={[
+                                {
+                                    id: 'block-config',
+                                    title: 'INPUTS',
+                                    component: BlockConfig,
+                                    position: 'right',
+                                },
+                                {
+                                    id: 'source-code-yaml',
+                                    title: 'YAML',
+                                    component: () => <SourceCode format="yaml" />,
+                                },
+                                {
+                                    id: 'source-code-json',
+                                    title: 'JSON',
+                                    component: () => <SourceCode format="json" />,
+                                },
+                            ]}
+                        />
+                    ),
                 },
                 ...rightTabs,
             ],
