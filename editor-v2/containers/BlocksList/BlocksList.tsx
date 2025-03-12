@@ -1,7 +1,6 @@
-import {SquareBars} from '@gravity-ui/icons';
-import {Card, Icon} from '@gravity-ui/uikit';
-import _ from 'lodash';
-import React, {PropsWithChildren, useCallback} from 'react';
+import {Magnifier, SquareBars} from '@gravity-ui/icons';
+import {Card, Icon, TextInput} from '@gravity-ui/uikit';
+import React, {useCallback, useMemo, useState} from 'react';
 
 import {ItemConfig} from '../../../common/types';
 import {useMainEditorStore} from '../../hooks/useMainEditorStore';
@@ -11,16 +10,13 @@ import './BlocksList.scss';
 
 const b = editorCn('blocks-list');
 
-export interface BlocksListProps {
-    blocks: ItemConfig[];
-}
-
 interface BlockGroups {
     [key: string]: ItemConfig[];
 }
 
-const BlocksList = (_p: PropsWithChildren<BlocksListProps>) => {
+const BlocksList = () => {
     const {blocks, enableInsertMode} = useMainEditorStore();
+    const [search, setSearch] = useState('');
 
     const onMouseDown = useCallback(
         (blockType: string) => {
@@ -29,27 +25,41 @@ const BlocksList = (_p: PropsWithChildren<BlocksListProps>) => {
         [enableInsertMode],
     );
 
-    const groups = blocks.reduce<BlockGroups>((acc, currentBlock) => {
-        const group = currentBlock.schema.group;
-        if (group) {
-            if (!acc[group]) {
-                /* eslint-disable no-param-reassign */
-                acc[group] = [];
+    const groups = useMemo(() => {
+        return blocks.reduce<BlockGroups>((acc, currentBlock) => {
+            const group = currentBlock.schema.group;
+            if (search && currentBlock.type.indexOf(search) === -1) {
+                return acc;
             }
-            acc[group].push(currentBlock);
-        } else {
-            if (!acc['other']) {
-                /* eslint-disable no-param-reassign */
-                acc['other'] = [];
+            if (group) {
+                if (!acc[group]) {
+                    /* eslint-disable no-param-reassign */
+                    acc[group] = [];
+                }
+                acc[group].push(currentBlock);
+            } else {
+                if (!acc['other']) {
+                    /* eslint-disable no-param-reassign */
+                    acc['other'] = [];
+                }
+                acc['other'].push(currentBlock);
             }
-            acc['other'].push(currentBlock);
-        }
 
-        return acc;
-    }, {});
+            return acc;
+        }, {});
+    }, [blocks, search]);
 
     return (
         <div className={b()}>
+            <div className={b('search')}>
+                <TextInput
+                    hasClear
+                    placeholder="Search block"
+                    onUpdate={setSearch}
+                    value={search}
+                    startContent={<Icon className={b('search-icon')} data={Magnifier} />}
+                />
+            </div>
             {Object.entries(groups).map(([key, groupBlocks]) => (
                 <div className={b('group')} key={key}>
                     <div className={b('title')}>{key}</div>
