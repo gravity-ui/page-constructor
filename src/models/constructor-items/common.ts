@@ -105,6 +105,10 @@ export interface Roleable {
     role?: React.AriaRole;
 }
 
+export interface AriaProps {
+    ariaProps?: React.AriaAttributes;
+}
+
 //common props
 export interface Background {
     image?: string;
