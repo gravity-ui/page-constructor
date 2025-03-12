@@ -1,11 +1,11 @@
 import React, {ElementType, useCallback} from 'react';
 
 import {Content} from '../../../src/models';
-import BigOverlay from '../../components/BigOverlay/BigOverlay';
-import MiddleScreen from '../../components/MiddleScreen/MiddleScreen';
 import {Panels} from '../../components/Panels/Panels';
 import {Sidebar} from '../../components/Sidebar/Sidebar';
 import StoreViewer from '../../components/StoreViewer/StoreViewer';
+import BigOverlay from '../../containers/BigOverlay/BigOverlay';
+import MiddleScreen from '../../containers/MiddleScreen/MiddleScreen';
 import {MainEditorStoreProvider} from '../../context/editorStore';
 import {IframeProvider} from '../../context/iframeContext';
 import {useEditorTabs} from '../../hooks/useEditorTabs';
