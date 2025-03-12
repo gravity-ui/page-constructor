@@ -5,7 +5,7 @@
 $block: '.#{$ns}blocks-list';
 
 #{$block} {
-    padding: 12px;
+    padding: 16px 12px;
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -44,8 +44,8 @@ $block: '.#{$ns}blocks-list';
     }
 
     &__group {
-        padding-bottom: 16px;
-        margin-top: 16px;
+        padding-bottom: 12px;
+        margin-top: 12px;
         border-bottom: 1px solid var(--g-color-line-generic);
 
         &:first-child {
@@ -60,6 +60,12 @@ $block: '.#{$ns}blocks-list';
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 8px;
+        }
+    }
+
+    &__search {
+        &-icon {
+            margin-left: 8px;
         }
     }
 }
