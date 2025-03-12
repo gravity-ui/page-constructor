@@ -1,7 +1,6 @@
-import React, {PropsWithChildren, useCallback, useContext, useState} from 'react';
+import React, {PropsWithChildren} from 'react';
 
-import {BlockIdContext} from '../../../context/blockIdContext';
-import usePCEditorBlockMouseEvents from '../../../hooks/usePCEditorBlockMouseEvents';
+import {usePCEditorItemWrap} from '../../../hooks/usePCEditorItemWrap';
 import {block} from '../../../utils';
 
 import './ItemWrap.scss';
@@ -12,17 +11,8 @@ export interface ItemWrapProps extends PropsWithChildren {
     index: number;
 }
 
-const ItemWrap = (props: ItemWrapProps) => {
-    const [element, setElement] = useState<HTMLElement | undefined>();
-    const blockRef = useCallback((node: HTMLElement | null) => {
-        if (node !== null) {
-            setElement(node);
-        }
-    }, []);
-    const {children, index} = props;
-    const parentBlockId = useContext(BlockIdContext);
-    const adminBlockMouseEvents = usePCEditorBlockMouseEvents([parentBlockId, index], element);
-
+const ItemWrap = ({index, children}: ItemWrapProps) => {
+    const {blockRef, adminBlockMouseEvents} = usePCEditorItemWrap(index);
     return (
         <div ref={blockRef} className={b()} {...adminBlockMouseEvents}>
             {children}
