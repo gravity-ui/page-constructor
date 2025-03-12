@@ -1,7 +1,6 @@
-import React, {PropsWithChildren, ReactNode, useCallback, useContext, useState} from 'react';
+import React, {PropsWithChildren, ReactNode} from 'react';
 
-import {BlockIdContext} from '../../../context/blockIdContext';
-import usePCEditorBlockMouseEvents from '../../../hooks/usePCEditorBlockMouseEvents';
+import {usePCEditorItemWrap} from '../../../hooks/usePCEditorItemWrap';
 import {block} from '../../../utils';
 
 import './ChildrenWrap.scss';
@@ -12,16 +11,11 @@ export interface ChildrenWrapProps extends PropsWithChildren {
     checkChildren?: ReactNode;
 }
 
-const ChildrenWrap = (props: ChildrenWrapProps) => {
-    const {children} = props;
-    const [element, setElement] = useState<HTMLElement | undefined>();
-    const blockRef = useCallback((node: HTMLElement | null) => {
-        if (node !== null) {
-            setElement(node);
-        }
-    }, []);
-    const parentBlockId = useContext(BlockIdContext);
-    const {onMouseUp, onMouseMove} = usePCEditorBlockMouseEvents([parentBlockId, 0], element);
+const ChildrenWrap = ({children}: ChildrenWrapProps) => {
+    const {
+        blockRef,
+        adminBlockMouseEvents: {onMouseMove, onMouseUp},
+    } = usePCEditorItemWrap();
 
     return (
         // eslint-disable-next-line jsx-a11y/no-static-element-interactions

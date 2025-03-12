@@ -1,10 +1,10 @@
-import React, {useCallback, useMemo, useState} from 'react';
+import React, {useMemo} from 'react';
 
 import pick from 'lodash/pick';
 
 import BlockBase from '../../../../components/BlockBase/BlockBase';
 import {BlockDecoration} from '../../../../customization/BlockDecoration';
-import usePCEditorBlockMouseEvents from '../../../../hooks/usePCEditorBlockMouseEvents';
+import {usePCEditorItemWrap} from '../../../../hooks/usePCEditorItemWrap';
 import {BlockDecorationProps, ConstructorBlock as ConstructorBlockType} from '../../../../models';
 import {block} from '../../../../utils';
 
@@ -21,13 +21,7 @@ export const ConstructorBlock = ({
     data,
     children,
 }: React.PropsWithChildren<ConstructorBlockProps>) => {
-    const [element, setElement] = useState<HTMLElement | undefined>();
-    const blockRef = useCallback((node: HTMLElement | null) => {
-        if (node !== null) {
-            setElement(node);
-        }
-    }, []);
-    const adminBlockMouseEvents = usePCEditorBlockMouseEvents([index], element);
+    const {blockRef, adminBlockMouseEvents} = usePCEditorItemWrap(index);
 
     const {type} = data;
     const blockBaseProps = useMemo(
