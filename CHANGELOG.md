@@ -5,7 +5,7 @@
 
 ### Bug Fixes
 
-* remove some deps to devDeps ([#1141](https://github.com/gravity-ui/page-constructor/issues/1141)) ([8f78070](https://github.com/gravity-ui/page-constructor/commit/8f78070aa51df18cdee19736e4bdc31a23405337))
+* Move some deps to devDeps ([#1141](https://github.com/gravity-ui/page-constructor/issues/1141)) ([8f78070](https://github.com/gravity-ui/page-constructor/commit/8f78070aa51df18cdee19736e4bdc31a23405337))
 
 ## [6.2.0](https://github.com/gravity-ui/page-constructor/compare/v6.1.1...v6.2.0) (2025-03-06)
 
