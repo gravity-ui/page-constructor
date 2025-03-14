@@ -1,7 +1,7 @@
 import {ArrowDownToSquare} from '@gravity-ui/icons';
 import {Button, ClipboardButton, Icon} from '@gravity-ui/uikit';
 import yaml from 'js-yaml';
-import React, {useMemo, useState} from 'react';
+import * as React from 'react';
 
 import {Content} from '../../../src/models';
 import {useMainEditorStore} from '../../hooks/useMainEditorStore';
@@ -19,7 +19,7 @@ interface SourceCodeProps {
 
 const SourceCode = ({className, format}: SourceCodeProps) => {
     const {content, setContent} = useMainEditorStore();
-    const [isOpen, setIsOpen] = useState(false);
+    const [isOpen, setIsOpen] = React.useState(false);
 
     const handleUpdate = (tempConfig: string) => {
         let object: Content | undefined;
@@ -42,7 +42,7 @@ const SourceCode = ({className, format}: SourceCodeProps) => {
         setIsOpen(false);
     };
 
-    const textContent = useMemo(() => {
+    const textContent = React.useMemo(() => {
         return format === 'yaml' ? yaml.dump(content) : JSON.stringify(content, null, 2);
     }, [format, content]);
 

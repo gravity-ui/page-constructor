@@ -1,4 +1,4 @@
-import React, {ElementType, useCallback} from 'react';
+import * as React from 'react';
 
 import {Content} from '../../../src/models';
 import {Panels} from '../../components/Panels/Panels';
@@ -20,16 +20,16 @@ const b = editorCn('editor');
 interface SidebarTabComponent {
     id: string;
     title: string;
-    component: ElementType;
+    component: React.ElementType;
 }
 interface EditorViewProps {
     onUpdate?: (pageContent: Content) => void;
     initialUrl: string;
     disableUrlField?: boolean;
     componentsConfig?: {
-        middleTop?: ElementType;
-        leftTop?: ElementType[];
-        rightTop?: ElementType[];
+        middleTop?: React.ElementType;
+        leftTop?: React.ElementType[];
+        rightTop?: React.ElementType[];
         leftTabs?: SidebarTabComponent[];
         rightTabs?: SidebarTabComponent[];
     };
@@ -43,7 +43,7 @@ const EditorView = ({componentsConfig = {}}: EditorViewProps) => {
 
     // Disable insert mode on any MouseUp event
     // Maybe should be attached to body
-    const onMouseUp = useCallback(
+    const onMouseUp = React.useCallback(
         (e: React.MouseEvent) => {
             if (manipulateOverlayMode) {
                 e.preventDefault();

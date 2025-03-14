@@ -1,7 +1,7 @@
 import {ArrowRotateLeft} from '@gravity-ui/icons';
 import {ArrowToggle, Button, Icon} from '@gravity-ui/uikit';
 import _ from 'lodash';
-import React, {PropsWithChildren, useState} from 'react';
+import * as React from 'react';
 
 import {editorCn} from '../../../utils/cn';
 
@@ -16,7 +16,7 @@ export interface FieldBaseParams {
     expandable?: boolean;
 }
 
-export interface FieldBaseProps extends PropsWithChildren, FieldBaseParams {
+export interface FieldBaseProps extends React.PropsWithChildren, FieldBaseParams {
     className?: string;
 }
 
@@ -28,7 +28,7 @@ const FieldBase: React.FC<FieldBaseProps> = ({
     onRefresh,
     expandable = false,
 }) => {
-    const [showChildren, setShowChildren] = useState(!expandable);
+    const [showChildren, setShowChildren] = React.useState(!expandable);
 
     const titleComponent = React.useMemo(() => {
         if (title) {

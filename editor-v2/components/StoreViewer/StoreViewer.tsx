@@ -1,6 +1,6 @@
 import {Code} from '@gravity-ui/icons';
 import {Button, Icon} from '@gravity-ui/uikit';
-import React, {useState} from 'react';
+import * as React from 'react';
 import ReactJson from 'react-json-view';
 
 import {removeFn} from '../../../common/utils';
@@ -16,7 +16,7 @@ interface StoreViewerProps {
 }
 
 const StoreViewer = ({store, className}: StoreViewerProps) => {
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = React.useState(false);
     return (
         <div className={b({open}, className)}>
             <div className={b('head')}>

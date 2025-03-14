@@ -1,4 +1,4 @@
-import {useContext} from 'react';
+import * as React from 'react';
 
 import {requestActionPostMessage} from '../../common/postMessage';
 import {ActionMessageTypes} from '../../common/types';
@@ -12,7 +12,7 @@ interface UsePostMessageRequestReturn {
 }
 
 export function usePostMessageEvents(): UsePostMessageRequestReturn {
-    const {iframeElement} = useContext(IframeContext);
+    const {iframeElement} = React.useContext(IframeContext);
 
     return {
         requestPostMessage: (action, data) => {

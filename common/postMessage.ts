@@ -1,4 +1,4 @@
-import {useEffect} from 'react';
+import * as React from 'react';
 
 import {ActionMessageTypes, EventMessageTypes, PostMessageAPIMessage} from './types';
 
@@ -37,7 +37,7 @@ export function usePostMessageAPIListener<K extends keyof EventMessageTypes>(
     callback: (data: EventMessageTypes[K]) => void,
     deps: unknown[] = [],
 ) {
-    useEffect(() => {
+    React.useEffect(() => {
         return listenPostMessageEvents(action, callback);
     }, [...deps]);
 }

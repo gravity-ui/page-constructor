@@ -1,5 +1,3 @@
-import React from 'react';
-
 import {DynamicFormValue} from '../../../common/types';
 import DynamicForm from '../../components/DynamicForm/DynamicForm';
 import {useMainEditorStore} from '../../hooks/useMainEditorStore';

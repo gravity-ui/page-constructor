@@ -1,33 +1,37 @@
-import {Plus} from '@gravity-ui/icons';
-import {Button, Card, Icon} from '@gravity-ui/uikit';
 import * as React from 'react';
 
+import {Plus} from '@gravity-ui/icons';
+import {Button, Card, Icon} from '@gravity-ui/uikit';
+
 import {ArrayObjectInput, ArrayTextInput, DynamicFormValue} from '../../../../../common/types';
+import {ClassNameProps, PageContent} from '../../../../../models';
+import {block} from '../../../../../utils';
 import {removeFromArray, swapArrayItems} from '../../../../utils';
-import {editorCn} from '../../../../utils/cn';
 import DynamicForm from '../../DynamicForm';
 import FieldBase from '../../FieldBase/FieldBase';
 import Text from '../Text/Text';
 
-import './Array.scss';
 import ItemButton from './ItemButton/ItemButton';
 
-const b = editorCn('array-dynamic-field');
+import './Array.scss';
+
+const b = block('array-dynamic-field');
 
 type ArrayInput = ArrayTextInput | ArrayObjectInput;
 
-interface ArrayFieldProps {
+interface ArrayFieldProps extends ClassNameProps {
     title: string;
     values: Array<DynamicFormValue>;
     onUpdate: (key: string, value: DynamicFormValue) => void;
     blockConfig: ArrayInput;
-    className?: string;
 }
 
-const ArrayDynamicField = ({title, values, onUpdate, className, blockConfig}: ArrayFieldProps) => {
+const ArrayDynamicField: React.FC<ArrayFieldProps> = (props) => {
+    const {title, values, onUpdate, className, blockConfig} = props;
+
     const haveItems = values && Array.isArray(values) && values.length;
 
-    const onAddItem = React.useCallback(() => {
+    const onAddItem = useCallback(() => {
         if (blockConfig.arrayType === 'text') {
             onUpdate('', haveItems ? [...values, ''] : ['']);
         } else if (blockConfig.arrayType === 'object') {
@@ -35,7 +39,7 @@ const ArrayDynamicField = ({title, values, onUpdate, className, blockConfig}: Ar
         }
     }, [blockConfig.arrayType, haveItems, onUpdate, values]);
 
-    const onDeleteItem = React.useCallback(
+    const onDeleteItem = useCallback(
         (index: number) => {
             if (Array.isArray(values)) {
                 const newArray = removeFromArray(values, index);
@@ -45,7 +49,7 @@ const ArrayDynamicField = ({title, values, onUpdate, className, blockConfig}: Ar
         [onUpdate, values],
     );
 
-    const onReorderItem = React.useCallback(
+    const onReorderItem = useCallback(
         (index: number, placement: 'up' | 'down') => {
             if (Array.isArray(values)) {
                 const newArray = swapArrayItems(
@@ -59,7 +63,7 @@ const ArrayDynamicField = ({title, values, onUpdate, className, blockConfig}: Ar
         [onUpdate, values],
     );
 
-    const renderInput = React.useCallback(
+    const renderInput = useCallback(
         (value: DynamicFormValue, index: number) => {
             const arrayItemButton = (
                 <ItemButton
@@ -96,7 +100,7 @@ const ArrayDynamicField = ({title, values, onUpdate, className, blockConfig}: Ar
                                 {arrayItemButton}
                             </div>
                             <DynamicForm
-                                contentConfig={value}
+                                contentConfig={value as PageContent}
                                 blockConfig={blockConfig.properties}
                                 onUpdate={(key, updateValue) =>
                                     onUpdate(`[${index}].${key}`, updateValue)
@@ -113,7 +117,7 @@ const ArrayDynamicField = ({title, values, onUpdate, className, blockConfig}: Ar
         [blockConfig, haveItems, onDeleteItem, onReorderItem, onUpdate, values],
     );
 
-    const renderInputs = React.useCallback(() => {
+    const renderInputs = useCallback(() => {
         if (haveItems) {
             const renderItems = values
                 .map(renderInput)

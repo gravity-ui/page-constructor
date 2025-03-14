@@ -1,4 +1,4 @@
-import React, {PropsWithChildren} from 'react';
+import * as React from 'react';
 
 import {usePCEditorItemWrap} from '../../../hooks/usePCEditorItemWrap';
 import {block} from '../../../utils';
@@ -7,7 +7,7 @@ import './ItemWrap.scss';
 
 const b = block('item-wrap');
 
-export interface ItemWrapProps extends PropsWithChildren {
+export interface ItemWrapProps extends React.PropsWithChildren {
     index: number;
 }
 

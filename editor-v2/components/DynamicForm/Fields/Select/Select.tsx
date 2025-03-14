@@ -1,5 +1,4 @@
-import {RadioButton, Select} from '@gravity-ui/uikit';
-import React from 'react';
+import {SegmentedRadioGroup, Select} from '@gravity-ui/uikit';
 
 import {SelectMultipleInput, SelectSingleInput} from '../../../../../common/types';
 import {editorCn} from '../../../../utils/cn';
@@ -30,7 +29,7 @@ const SelectDynamicField = ({input, value, onUpdate, className}: SelectDynamicFi
                 />
             )}
             {inputView === 'radiobutton' && (
-                <RadioButton options={input.enum} value={value} onUpdate={onUpdate} />
+                <SegmentedRadioGroup options={input.enum} value={value} onUpdate={onUpdate} />
             )}
         </FieldBase>
     );

@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import React, {useCallback} from 'react';
+import * as React from 'react';
 
 import {ConfigInput, DynamicFormValue} from '../../../common/types';
 import {editorCn} from '../../utils/cn';
@@ -27,7 +27,7 @@ interface DynamicFormProps {
 const DynamicForm = ({blockConfig, onUpdate, contentConfig}: DynamicFormProps) => {
     const inputs = blockConfig;
 
-    const getData = useCallback(
+    const getData = React.useCallback(
         (variable: string) => {
             if (variable.startsWith('block.')) {
                 const purePath = variable.replace('block.', '');
@@ -47,7 +47,7 @@ const DynamicForm = ({blockConfig, onUpdate, contentConfig}: DynamicFormProps) =
         [contentConfig],
     );
 
-    const decide = useCallback(
+    const decide = React.useCallback(
         (showIf: string): boolean => {
             const parts = showIf.split(' ');
 
@@ -71,7 +71,7 @@ const DynamicForm = ({blockConfig, onUpdate, contentConfig}: DynamicFormProps) =
         [getData],
     );
 
-    const renderInput = useCallback(
+    const renderInput = React.useCallback(
         (input: ConfigInput) => {
             const fieldPath = input.name;
             const fieldValue = getContent(contentConfig, input.name);

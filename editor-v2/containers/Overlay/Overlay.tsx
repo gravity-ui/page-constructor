@@ -1,6 +1,6 @@
 import {ChevronDown, ChevronUp, Copy, TrashBin} from '@gravity-ui/icons';
 import {Button, Icon} from '@gravity-ui/uikit';
-import React, {useState} from 'react';
+import * as React from 'react';
 
 import {usePostMessageAPIListener} from '../../../common/postMessage';
 import {useMainEditorStore} from '../../hooks/useMainEditorStore';
@@ -31,9 +31,11 @@ const Overlay = ({className}: OverlayProps) => {
         manipulateOverlayMode,
         reorderBlock,
     } = useMainEditorStore();
-    const [insertLineBox, setInsertLineBox] = useState<InsertLineProps | undefined>(undefined);
-    const [hoverBorders, setHoverBorders] = useState<DOMRect | null>(null);
-    const [blockBorders, setBlockBorders] = useState<DOMRect | null>(null);
+    const [insertLineBox, setInsertLineBox] = React.useState<InsertLineProps | undefined>(
+        undefined,
+    );
+    const [hoverBorders, setHoverBorders] = React.useState<DOMRect | null>(null);
+    const [blockBorders, setBlockBorders] = React.useState<DOMRect | null>(null);
 
     const margin = 0;
 
