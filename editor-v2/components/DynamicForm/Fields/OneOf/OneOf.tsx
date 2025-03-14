@@ -1,5 +1,5 @@
-import {Card, RadioButton} from '@gravity-ui/uikit';
-import React, {useCallback, useMemo, useState} from 'react';
+import {Card, SegmentedRadioGroup} from '@gravity-ui/uikit';
+import * as React from 'react';
 
 import {DynamicFormValue, OneOfInput} from '../../../../../common/types';
 import {editorCn} from '../../../../utils/cn';
@@ -33,10 +33,10 @@ const OneOfDynamicField = ({
 }: OneOfDynamicFieldProps) => {
     const defaultValue = inputConfig.options[0].value;
 
-    const [oneOfMetaValue, setOneOfMetaValue] = useState(defaultValue);
+    const [oneOfMetaValue, setOneOfMetaValue] = React.useState(defaultValue);
 
     const oneOfContentConfig = getOneOfContentConfig(contentConfig, inputConfig.name);
-    const oneOfChosenOption = useMemo(
+    const oneOfChosenOption = React.useMemo(
         () =>
             inputConfig.options.find(
                 ({value: foundOneOfValue}) => foundOneOfValue === oneOfMetaValue,
@@ -44,7 +44,7 @@ const OneOfDynamicField = ({
         [inputConfig.options, oneOfMetaValue],
     );
 
-    const onUpdateOneOf = useCallback((value: string) => {
+    const onUpdateOneOf = React.useCallback((value: string) => {
         setOneOfMetaValue(value);
     }, []);
 
@@ -56,7 +56,7 @@ const OneOfDynamicField = ({
             expandable
         >
             <Card className={b('card')}>
-                <RadioButton
+                <SegmentedRadioGroup
                     className={b('radio')}
                     options={inputConfig.options.map((option) => ({
                         content: option.title,

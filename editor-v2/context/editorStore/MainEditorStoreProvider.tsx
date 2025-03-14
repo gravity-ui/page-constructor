@@ -1,4 +1,4 @@
-import React, {PropsWithChildren, useCallback, useContext, useEffect, useRef} from 'react';
+import * as React from 'react';
 import {StoreApi} from 'zustand';
 
 import {EditorState} from '../../../common/store';
@@ -9,13 +9,13 @@ import {IframeContext} from '../iframeContext';
 
 import {MainEditorStoreContext} from './MainEditorStoreContext';
 
-interface MainEditorProviderProps extends PropsWithChildren {}
+interface MainEditorProviderProps extends React.PropsWithChildren {}
 
 export const MainEditorStoreProvider = ({children}: MainEditorProviderProps) => {
-    const {iframeElement} = useContext(IframeContext);
-    const storeRef = useRef<StoreApi<EditorStore>>();
+    const {iframeElement} = React.useContext(IframeContext);
+    const storeRef = React.useRef<StoreApi<EditorStore>>();
 
-    const sendPostMessage = useCallback(
+    const sendPostMessage = React.useCallback(
         (data: EditorState) => {
             const message: StoreSyncMessage = {
                 state: data,
@@ -32,7 +32,7 @@ export const MainEditorStoreProvider = ({children}: MainEditorProviderProps) => 
         storeRef.current = createEditorStore();
     }
 
-    useEffect(() => {
+    React.useEffect(() => {
         storeRef.current?.subscribe((state) => {
             sendPostMessage(removeFn(state));
         });

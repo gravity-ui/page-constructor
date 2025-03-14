@@ -1,6 +1,6 @@
 import {Copy, TrashBin} from '@gravity-ui/icons';
 import {Button, Card, Icon} from '@gravity-ui/uikit';
-import React, {PropsWithChildren, useCallback, useMemo} from 'react';
+import * as React from 'react';
 
 import {ItemConfig} from '../../../common/types';
 import {useMainEditorStore} from '../../hooks/useMainEditorStore';
@@ -54,12 +54,12 @@ const Item = ({
     selected,
     onCopy,
     onDelete,
-}: PropsWithChildren<ItemProps>) => {
-    const handleCopy = useCallback(() => {
+}: React.PropsWithChildren<ItemProps>) => {
+    const handleCopy = React.useCallback(() => {
         onCopy(path);
     }, [onCopy, path]);
 
-    const handleDelete = useCallback(() => {
+    const handleDelete = React.useCallback(() => {
         onDelete(path);
     }, [onDelete, path]);
 
@@ -88,10 +88,10 @@ const Item = ({
     );
 };
 
-const Tree = (_p: PropsWithChildren<TreeProps>) => {
+const Tree = (_p: React.PropsWithChildren<TreeProps>) => {
     const {content, resetBlocks, selectedBlock, duplicateBlock, deleteBlock} = useMainEditorStore();
 
-    const selectedBlockPath = useMemo(() => {
+    const selectedBlockPath = React.useMemo(() => {
         return generateChildrenPathFromArray(selectedBlock || []);
     }, [selectedBlock]);
 

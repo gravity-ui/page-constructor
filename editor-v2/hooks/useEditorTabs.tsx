@@ -1,4 +1,4 @@
-import {useMemo} from 'react';
+import * as React from 'react';
 
 import Tabs, {TabsItemProps} from '../components/Tabs/Tabs';
 import BlockConfig from '../containers/BlockConfig/BlockConfig';
@@ -14,7 +14,7 @@ export const useEditorTabs = ({
     leftTabs?: TabsItemProps[];
     rightTabs?: TabsItemProps[];
 }) => {
-    const tabs = useMemo(
+    const tabs = React.useMemo(
         () => ({
             left: [
                 {
@@ -65,7 +65,6 @@ export const useEditorTabs = ({
                                     id: 'block-config',
                                     title: 'INPUTS',
                                     component: BlockConfig,
-                                    position: 'right',
                                 },
                                 {
                                     id: 'source-code-yaml',
