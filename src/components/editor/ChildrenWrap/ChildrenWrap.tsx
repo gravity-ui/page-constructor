@@ -1,4 +1,4 @@
-import React, {PropsWithChildren, ReactNode} from 'react';
+import * as React from 'react';
 
 import {usePCEditorItemWrap} from '../../../hooks/usePCEditorItemWrap';
 import {block} from '../../../utils';
@@ -7,8 +7,8 @@ import './ChildrenWrap.scss';
 
 const b = block('children-wrap');
 
-export interface ChildrenWrapProps extends PropsWithChildren {
-    checkChildren?: ReactNode;
+export interface ChildrenWrapProps extends React.PropsWithChildren {
+    checkChildren?: React.ReactNode;
 }
 
 const ChildrenWrap = ({children}: ChildrenWrapProps) => {

@@ -1,8 +1,8 @@
-import React, {PropsWithChildren, useState} from 'react';
+import * as React from 'react';
 
 import {IframeContext} from './IframeContext';
 
-interface IframeProviderProps extends PropsWithChildren {
+interface IframeProviderProps extends React.PropsWithChildren {
     initialUrl?: string;
     disableUrlField?: boolean;
 }
@@ -12,8 +12,8 @@ export const IframeProvider = ({
     initialUrl = '',
     disableUrlField,
 }: IframeProviderProps) => {
-    const [iframeElement, setIframeElement] = useState<HTMLIFrameElement>();
-    const [url, setUrl] = useState(initialUrl);
+    const [iframeElement, setIframeElement] = React.useState<HTMLIFrameElement>();
+    const [url, setUrl] = React.useState(initialUrl);
 
     const setIframeElementFunc = (element: HTMLIFrameElement) => setIframeElement(element);
 

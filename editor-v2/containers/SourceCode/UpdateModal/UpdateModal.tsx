@@ -1,5 +1,5 @@
 import {Alert, Dialog, TextArea} from '@gravity-ui/uikit';
-import React, {useState} from 'react';
+import * as React from 'react';
 
 import {editorCn} from '../../../utils/cn';
 
@@ -8,7 +8,7 @@ import './UpdateModal.scss';
 const b = editorCn('source-code-update-modal');
 
 export const UpdateModal = ({onClose, onApply, isOpen}) => {
-    const [tempConfig, setTempConfig] = useState('');
+    const [tempConfig, setTempConfig] = React.useState('');
     const handleApply = () => {
         onApply(tempConfig);
     };
