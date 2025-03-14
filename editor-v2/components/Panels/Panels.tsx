@@ -1,6 +1,6 @@
 import {ArrowLeftFromLine, ArrowRightFromLine, Grip} from '@gravity-ui/icons';
 import {Button, Icon} from '@gravity-ui/uikit';
-import React, {ReactElement, useRef} from 'react';
+import * as React from 'react';
 import {ImperativePanelHandle, Panel, PanelGroup, PanelResizeHandle} from 'react-resizable-panels';
 
 import {editorCn} from '../../utils/cn';
@@ -10,14 +10,14 @@ import './Panels.scss';
 const b = editorCn('panels');
 
 interface PanelsProps {
-    left: ReactElement;
-    middle: ReactElement;
-    right: ReactElement;
+    left: React.ReactElement;
+    middle: React.ReactElement;
+    right: React.ReactElement;
 }
 
 export const Panels = ({left, right, middle}: PanelsProps) => {
-    const leftPanel = useRef<ImperativePanelHandle>(null);
-    const rightPanel = useRef<ImperativePanelHandle>(null);
+    const leftPanel = React.useRef<ImperativePanelHandle>(null);
+    const rightPanel = React.useRef<ImperativePanelHandle>(null);
 
     const expandPanel = (reference: React.RefObject<ImperativePanelHandle>) => {
         const panel = reference.current;

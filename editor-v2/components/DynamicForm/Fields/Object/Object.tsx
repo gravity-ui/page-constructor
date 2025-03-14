@@ -1,5 +1,4 @@
 import {Card} from '@gravity-ui/uikit';
-import React from 'react';
 
 import {ConfigInput, DynamicFormValue} from '../../../../../common/types';
 import {editorCn} from '../../../../utils/cn';

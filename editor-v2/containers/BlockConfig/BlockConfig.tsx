@@ -1,5 +1,4 @@
 import _ from 'lodash';
-import React from 'react';
 
 import {DynamicFormValue} from '../../../common/types';
 import DynamicForm from '../../components/DynamicForm/DynamicForm';

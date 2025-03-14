@@ -1,6 +1,5 @@
 import {Minus, Plus} from '@gravity-ui/icons';
 import {Button, Icon, Select} from '@gravity-ui/uikit';
-import React from 'react';
 
 import {ZOOM_STEPS} from '../../constants';
 import {useMainEditorStore} from '../../hooks/useMainEditorStore';

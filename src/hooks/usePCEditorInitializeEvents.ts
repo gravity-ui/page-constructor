@@ -1,4 +1,4 @@
-import {useCallback, useEffect} from 'react';
+import * as React from 'react';
 
 import {JSONSchemaType} from 'ajv';
 import _ from 'lodash';
@@ -23,7 +23,7 @@ export const usePCEditorInitializeEvents = ({
 }: UseEditorInitializeProps) => {
     const {manipulateOverlayMode, initialized, content} = usePCEditorStore();
 
-    useEffect(() => {
+    React.useEffect(() => {
         if (initialized) {
             setContent(content);
         }
@@ -46,14 +46,14 @@ export const usePCEditorInitializeEvents = ({
         });
     });
 
-    const onResize = useCallback(() => {
+    const onResize = React.useCallback(() => {
         const height = document.documentElement.getBoundingClientRect().height;
         sendEventPostMessage('ON_RESIZE', {height});
     }, []);
 
     new ResizeObserver(onResize).observe(document.body);
 
-    useEffect(() => {
+    React.useEffect(() => {
         const onMouseUp = () => {
             sendEventPostMessage('ON_MOUSE_UP', {});
         };
@@ -78,7 +78,7 @@ export const usePCEditorInitializeEvents = ({
         };
     }, [manipulateOverlayMode, onResize]);
 
-    useEffect(() => {
+    React.useEffect(() => {
         const height = document.documentElement.getBoundingClientRect().height;
         sendEventPostMessage('ON_INIT', {height});
     }, []);

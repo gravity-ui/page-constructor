@@ -1,6 +1,6 @@
 import {ArrowDown, ArrowUp, EllipsisVertical, TrashBin} from '@gravity-ui/icons';
 import {Button, Icon, Menu, Popup} from '@gravity-ui/uikit';
-import React, {Fragment, useCallback, useRef, useState} from 'react';
+import * as React from 'react';
 
 import {editorCn} from '../../../../../utils/cn';
 
@@ -23,10 +23,10 @@ const ItemButton = ({
     disableReorderUp = false,
     disableReorderDown = false,
 }: ItemButtonProps) => {
-    const buttonRef = useRef(null);
-    const [isOpen, setIsOpen] = useState(false);
+    const buttonRef = React.useRef(null);
+    const [isOpen, setIsOpen] = React.useState(false);
 
-    const onMenuItemClickWrapper = useCallback((callback: () => void) => {
+    const onMenuItemClickWrapper = React.useCallback((callback: () => void) => {
         return () => {
             setIsOpen(false);
             callback();
@@ -34,7 +34,7 @@ const ItemButton = ({
     }, []);
 
     return (
-        <Fragment>
+        <React.Fragment>
             <Button className={b(null, className)} ref={buttonRef} onClick={() => setIsOpen(true)}>
                 <Icon data={EllipsisVertical} />
             </Button>
@@ -68,7 +68,7 @@ const ItemButton = ({
                     </Menu.Item>
                 </Menu>
             </Popup>
-        </Fragment>
+        </React.Fragment>
     );
 };
 

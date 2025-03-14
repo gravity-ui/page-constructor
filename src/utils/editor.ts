@@ -1,6 +1,9 @@
-import {MouseEvent} from 'react';
+import * as React from 'react';
 
-export const getCursorPositionOverElement = (elementRect: DOMRect, mouseEvent: MouseEvent) => {
+export const getCursorPositionOverElement = (
+    elementRect: DOMRect,
+    mouseEvent: React.MouseEvent,
+) => {
     const cursorPositionY = elementRect.height - (mouseEvent.clientY - elementRect.y);
     const cursorPositionX = elementRect.width - (mouseEvent.clientX - elementRect.x);
     const cursorRatioY = elementRect.height / 2 / cursorPositionY;

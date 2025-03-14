@@ -1,6 +1,6 @@
 import {ArrowRotateRight} from '@gravity-ui/icons';
 import {Button, Icon, TextInput} from '@gravity-ui/uikit';
-import React, {useCallback, useContext} from 'react';
+import * as React from 'react';
 
 import {IframeContext} from '../../context/iframeContext';
 import {useMainEditorStore} from '../../hooks/useMainEditorStore';
@@ -12,9 +12,9 @@ const b = editorCn('source');
 
 const Source = () => {
     const {resetInitialize} = useMainEditorStore();
-    const {disableUrlField, url, setUrl} = useContext(IframeContext);
+    const {disableUrlField, url, setUrl} = React.useContext(IframeContext);
 
-    const onUpdateUrl = useCallback(
+    const onUpdateUrl = React.useCallback(
         (value: string) => {
             setUrl(value);
             resetInitialize();

@@ -1,9 +1,9 @@
-import {useContext} from 'react';
+import * as React from 'react';
 import {useStore} from 'zustand';
 
 import {MainEditorStoreContext} from '../context/editorStore';
 
 export const useMainEditorStore = () => {
-    const {state} = useContext(MainEditorStoreContext);
+    const {state} = React.useContext(MainEditorStoreContext);
     return useStore(state);
 };

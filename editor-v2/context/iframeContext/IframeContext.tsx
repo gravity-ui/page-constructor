@@ -2,7 +2,7 @@
  * Context for iframe window
  **/
 
-import React from 'react';
+import * as React from 'react';
 
 export interface IframeContextProps {
     iframeElement?: HTMLIFrameElement;

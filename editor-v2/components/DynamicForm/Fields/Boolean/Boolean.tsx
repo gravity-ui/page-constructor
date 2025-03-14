@@ -1,5 +1,4 @@
 import {Switch} from '@gravity-ui/uikit';
-import React from 'react';
 
 import {editorCn} from '../../../../utils/cn';
 import FieldBase, {FieldBaseParams} from '../../FieldBase/FieldBase';

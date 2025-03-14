@@ -1,4 +1,4 @@
-import React, {ElementType} from 'react';
+import * as React from 'react';
 
 import {editorCn} from '../../utils/cn';
 import Tabs, {TabsItemProps} from '../Tabs/Tabs';
@@ -10,7 +10,7 @@ const b = editorCn('sidebar');
 interface SidebarProps {
     tabs: TabsItemProps[];
     defaultTab?: string;
-    top?: ElementType[];
+    top?: React.ElementType[];
     className?: string;
 }
 
