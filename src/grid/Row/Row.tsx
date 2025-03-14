@@ -1,10 +1,11 @@
 import * as React from 'react';
 
-import {Refable} from '../../models/common';
+import {ClassNameProps, Refable} from '../../models/common';
 import {GridAlignItems, GridJustifyContent} from '../types';
+import {AriaProps, Roleable} from '../../models';
 
-export interface RowProps extends Refable<HTMLDivElement> {
-    className?: string;
+export interface RowProps extends ClassNameProps, Refable<HTMLDivElement>, Roleable, AriaProps {
+    id?: string;
     justifyContent?: GridJustifyContent;
     alignItems?: GridAlignItems;
     noGutter?: boolean;
@@ -13,7 +14,8 @@ export interface RowProps extends Refable<HTMLDivElement> {
 }
 
 export const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
-    const {className, justifyContent, alignItems, noGutter, style, children} = props;
+    const {id, className, justifyContent, alignItems, noGutter, style, role, ariaProps, children} =
+        props;
 
     const getClassName = React.useCallback(() => {
         return ['row', className, justifyContent, alignItems, noGutter && 'no-gutter']
@@ -22,7 +24,7 @@ export const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
     }, [className, justifyContent, alignItems, noGutter]);
 
     return (
-        <div ref={ref} className={getClassName()} style={style}>
+        <div ref={ref} id={id} className={getClassName()} style={style} role={role} {...ariaProps}>
             {children}
         </div>
     );

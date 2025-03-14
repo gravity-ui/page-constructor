@@ -25,6 +25,8 @@ export interface ButtonTabsProps extends QAProps {
         e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>,
     ) => void;
     tabSize?: ButtonSize;
+    getTabElementId?: (tabId: string) => string;
+    getTabContentElementId?: (tabId: string) => string;
 }
 
 const ButtonTabs: React.FC<ButtonTabsProps> = ({
@@ -34,6 +36,8 @@ const ButtonTabs: React.FC<ButtonTabsProps> = ({
     onSelectTab,
     tabSize = 'l',
     qa,
+    getTabElementId,
+    getTabContentElementId,
 }) => {
     const activeTabId: string | null = React.useMemo(() => {
         if (activeTab) {
@@ -64,9 +68,11 @@ const ButtonTabs: React.FC<ButtonTabsProps> = ({
                         key={title}
                         size={tabSize}
                         onClick={handleClick(id)}
+                        id={getTabElementId?.(id ?? '')}
                         extraProps={{
                             role: 'tab',
                             'aria-selected': isActive,
+                            'aria-controls': getTabContentElementId?.(id ?? ''),
                         }}
                     />
                 );
