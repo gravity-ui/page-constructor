@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.2.2](https://github.com/gravity-ui/page-constructor/compare/v6.2.1...v6.2.2) (2025-03-14)
+
+
+### Bug Fixes
+
+* **VideoBlock:** disable scrolling at video iframe ([#1145](https://github.com/gravity-ui/page-constructor/issues/1145)) ([477ff9d](https://github.com/gravity-ui/page-constructor/commit/477ff9da33a75a60e8c454a2b9313f4017495596))
+
 ## [6.2.1](https://github.com/gravity-ui/page-constructor/compare/v6.2.0...v6.2.1) (2025-03-13)
 
 
