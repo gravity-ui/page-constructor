@@ -3,7 +3,7 @@ import * as React from 'react';
 import {Meta, StoryFn} from '@storybook/react';
 
 import {yfmTransform} from '../../../../.storybook/utils';
-import {PageConstructor, PageConstructorProvider} from '../../../containers/PageConstructor';
+import {PageConstructor} from '../../../containers/PageConstructor';
 import {TabsBlockModel, TabsBlockProps} from '../../../models';
 import Tabs from '../Tabs';
 
@@ -43,15 +43,6 @@ const DirectionTemplate: StoryFn<TabsBlockModel> = (args) => (
     </React.Fragment>
 );
 
-const InvisibleBlocksTemplate: StoryFn<TabsBlockModel & {renderInvisibleBlocks: boolean}> = ({
-    renderInvisibleBlocks,
-    ...args
-}) => (
-    <PageConstructorProvider projectSettings={{renderInvisibleBlocks}}>
-        <DefaultTemplate {...args} />
-    </PageConstructorProvider>
-);
-
 export const Default = DefaultTemplate.bind({});
 export const OnlyMedia = DefaultTemplate.bind({});
 export const OnlyText = DefaultTemplate.bind({});
@@ -60,7 +51,6 @@ export const Centered = DefaultTemplate.bind({});
 export const Direction = DirectionTemplate.bind({});
 export const Caption = DefaultTemplate.bind({});
 export const MediaBorder = DefaultTemplate.bind({});
-export const InvisibleBlocks = InvisibleBlocksTemplate.bind({});
 
 const DefaultArgs = {
     ...data.default.content,
@@ -140,8 +130,3 @@ MediaBorder.args = {
         border: ['line', 'none', 'shadow'][index % 3],
     })),
 } as TabsBlockModel;
-
-InvisibleBlocks.args = {
-    ...DefaultArgs,
-    renderInvisibleBlocks: true,
-} as TabsBlockModel & {renderInvisibleBlocks: boolean};
