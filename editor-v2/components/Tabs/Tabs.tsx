@@ -1,5 +1,5 @@
 import {Button} from '@gravity-ui/uikit';
-import React, {ElementType, useCallback, useMemo, useState} from 'react';
+import * as React from 'react';
 
 import {editorCn} from '../../utils/cn';
 
@@ -10,7 +10,7 @@ const b = editorCn('tabs');
 export interface TabsItemProps {
     id: string;
     title: string;
-    component: ElementType;
+    component: React.ElementType;
 }
 
 export interface TabsProps {
@@ -20,9 +20,9 @@ export interface TabsProps {
 }
 
 const Tabs = ({className, items, defaultTab}: TabsProps) => {
-    const [currentTab, setCurrentTab] = useState(defaultTab);
+    const [currentTab, setCurrentTab] = React.useState(defaultTab);
 
-    const activeTabId: string | null = useMemo(() => {
+    const activeTabId: string | null = React.useMemo(() => {
         if (currentTab) {
             return currentTab;
         }
@@ -30,14 +30,14 @@ const Tabs = ({className, items, defaultTab}: TabsProps) => {
         return items[0].id;
     }, [currentTab, items]);
 
-    const handleClick = useCallback(
+    const handleClick = React.useCallback(
         (tabId: string) => () => {
             setCurrentTab(tabId);
         },
         [],
     );
 
-    const TabComponent = useMemo(() => {
+    const TabComponent = React.useMemo(() => {
         const findTab = items.find(({id}) => id === activeTabId);
         return findTab?.component;
     }, [activeTabId, items]);

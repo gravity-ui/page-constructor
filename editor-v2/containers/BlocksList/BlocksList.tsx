@@ -1,6 +1,6 @@
 import {Magnifier, SquareBars} from '@gravity-ui/icons';
 import {Card, Icon, TextInput} from '@gravity-ui/uikit';
-import React, {useCallback, useMemo, useState} from 'react';
+import * as React from 'react';
 
 import {ItemConfig} from '../../../common/types';
 import {useMainEditorStore} from '../../hooks/useMainEditorStore';
@@ -16,16 +16,16 @@ interface BlockGroups {
 
 const BlocksList = () => {
     const {blocks, enableInsertMode} = useMainEditorStore();
-    const [search, setSearch] = useState('');
+    const [search, setSearch] = React.useState('');
 
-    const onMouseDown = useCallback(
+    const onMouseDown = React.useCallback(
         (blockType: string) => {
             enableInsertMode(blockType);
         },
         [enableInsertMode],
     );
 
-    const groups = useMemo(() => {
+    const groups = React.useMemo(() => {
         return blocks.reduce<BlockGroups>((acc, currentBlock) => {
             const group = currentBlock.schema.group;
             if (search && currentBlock.type.indexOf(search) === -1) {
@@ -46,7 +46,7 @@ const BlocksList = () => {
             }
 
             return acc;
-        }, {});
+        }, {} as BlockGroups);
     }, [blocks, search]);
 
     return (

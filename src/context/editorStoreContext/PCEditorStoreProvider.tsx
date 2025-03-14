@@ -1,4 +1,4 @@
-import React, {PropsWithChildren, useCallback, useEffect, useRef} from 'react';
+import * as React from 'react';
 
 import {StoreApi} from 'zustand';
 
@@ -7,18 +7,18 @@ import {StoreSyncMessage} from '../../../common/types';
 
 import {PCEditorStoreContext} from './PCEditorStoreContext';
 
-interface PCEditorStoreProviderProps extends PropsWithChildren {}
+interface PCEditorStoreProviderProps extends React.PropsWithChildren {}
 
 export const PCEditorStoreProvider = ({children}: PCEditorStoreProviderProps) => {
-    const storeRef = useRef<StoreApi<EditorState>>();
+    const storeRef = React.useRef<StoreApi<EditorState>>();
 
-    const syncStore = useCallback((message: StoreSyncMessage) => {
+    const syncStore = React.useCallback((message: StoreSyncMessage) => {
         if (storeRef.current && message.state) {
             storeRef.current.setState(message.state);
         }
     }, []);
 
-    useEffect(() => {
+    React.useEffect(() => {
         const onMessage = (e: MessageEvent) => {
             const message = e.data as StoreSyncMessage;
             syncStore(message);

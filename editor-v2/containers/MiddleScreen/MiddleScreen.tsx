@@ -1,5 +1,5 @@
 import {Loader} from '@gravity-ui/uikit';
-import React, {ElementType, useCallback, useContext, useState} from 'react';
+import * as React from 'react';
 
 import {usePostMessageAPIListener} from '../../../common/postMessage';
 import {IframeContext} from '../../context/iframeContext';
@@ -13,15 +13,15 @@ const b = editorCn('middle-screen');
 
 interface MiddleScreenProps {
     className?: string;
-    CustomTop?: ElementType;
+    CustomTop?: React.ElementType;
 }
 
 const MiddleScreen = ({className, CustomTop}: MiddleScreenProps) => {
     const {zoom, initialized} = useMainEditorStore();
-    const {url, setIframeElement} = useContext(IframeContext);
-    const [height, setHeight] = useState(0);
+    const {url, setIframeElement} = React.useContext(IframeContext);
+    const [height, setHeight] = React.useState(0);
 
-    const onResize = useCallback(
+    const onResize = React.useCallback(
         (newHeight: number) => {
             setHeight(newHeight + 500);
         },
