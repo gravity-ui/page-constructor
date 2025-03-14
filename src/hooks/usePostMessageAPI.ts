@@ -1,4 +1,4 @@
-import {useEffect} from 'react';
+import * as React from 'react';
 
 import {PostMessageAPIMessage} from '../../common/types';
 import {ActionMessageTypes, EventMessageTypes} from '../../common/types/actions';
@@ -36,7 +36,7 @@ export function useInternalPostMessageAPIListener<K extends keyof ActionMessageT
     action: K,
     callback: (data: ActionMessageTypes[K]) => void,
 ) {
-    useEffect(() => {
+    React.useEffect(() => {
         return listenPostMessageActions(action, callback);
     }, [action, callback]);
 }

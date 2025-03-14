@@ -1,4 +1,4 @@
-import {ReactNode, useContext, useMemo, useState} from 'react';
+import * as React from 'react';
 
 import '@diplodoc/transform/dist/js/yfm';
 import {ThemeProvider} from '@gravity-ui/uikit';
@@ -43,7 +43,7 @@ export interface PageConstructorProps {
     content?: PageContent;
     shouldRenderBlock?: ShouldRenderBlock;
     custom?: CustomConfig;
-    renderMenu?: () => ReactNode;
+    renderMenu?: () => React.ReactNode;
     navigation?: NavigationData;
     isBranded?: boolean;
     microdata?: {
@@ -62,7 +62,7 @@ export const Constructor = (props: PageConstructorProps) => {
         microdata,
     } = props;
 
-    const [content, setContent] = useState<Content>({blocks, background, navigation});
+    const [content, setContent] = React.useState<Content>({blocks, background, navigation});
 
     const theme = useTheme();
 
@@ -71,7 +71,7 @@ export const Constructor = (props: PageConstructorProps) => {
 
     usePCEditorInitializeEvents({initialContent: {blocks, background, navigation}, setContent});
 
-    const {context} = useMemo(
+    const {context} = React.useMemo(
         () => ({
             context: {
                 blockTypes: [...BlockTypes, ...getCustomTypes(['blocks', 'headers'], custom)],
@@ -127,7 +127,7 @@ export const Constructor = (props: PageConstructorProps) => {
 };
 
 export const PageConstructor = (props: PageConstructorProps) => {
-    const {isAnimationEnabled = true} = useContext(ProjectSettingsContext);
+    const {isAnimationEnabled = true} = React.useContext(ProjectSettingsContext);
     const {content: {animated = isAnimationEnabled} = {}, ...rest} = props;
 
     return (

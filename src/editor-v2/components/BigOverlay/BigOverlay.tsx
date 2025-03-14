@@ -1,28 +1,32 @@
-import {Stop} from '@gravity-ui/icons';
 import * as React from 'react';
 
+import {Stop} from '@gravity-ui/icons';
+
 import {usePostMessageAPIListener} from '../../../common/postMessage';
+import {ClassNameProps} from '../../../models';
+import {block} from '../../../utils';
 import {IframeContext} from '../../context/iframeContext';
 import {useMainEditorStore} from '../../hooks/useMainEditorStore';
-import {editorCn} from '../../utils/cn';
 
 import './BigOverlay.scss';
 
-const b = editorCn('big-overlay');
+const b = block('big-overlay');
 
-const BigOverlay = ({className}: {className?: string}) => {
+interface BigOverlayProps extends ClassNameProps {}
+
+const BigOverlay: React.FC<BigOverlayProps> = ({className}) => {
     const {zoom, manipulateOverlayMode} = useMainEditorStore();
-    const {iframeElement} = React.useContext(IframeContext);
-    const [mousePosition, setMousePosition] = React.useState<{x: number; y: number} | undefined>(
+    const {iframeElement} = useContext(IframeContext);
+    const [mousePosition, setMousePosition] = useState<{x: number; y: number} | undefined>(
         undefined,
     );
-    const [source, setSource] = React.useState<'main' | 'iframe'>('main');
+    const [source, setSource] = useState<'main' | 'iframe'>('main');
 
-    const onMouseUp = React.useCallback(() => {
+    const onMouseUp = useCallback(() => {
         setMousePosition(undefined);
     }, []);
 
-    const onIframeMouseEvent = React.useCallback((position: {x: number; y: number}) => {
+    const onIframeMouseEvent = useCallback((position: {x: number; y: number}) => {
         setMousePosition(position);
         setSource('iframe');
     }, []);
@@ -30,7 +34,7 @@ const BigOverlay = ({className}: {className?: string}) => {
     usePostMessageAPIListener('ON_MOUSE_UP', onMouseUp);
     usePostMessageAPIListener('ON_MOUSE_MOVE', onIframeMouseEvent);
 
-    React.useEffect(() => {
+    useEffect(() => {
         const onEditorMouseEvent = (event: MouseEvent) => {
             setMousePosition({x: event.clientX, y: event.clientY});
             setSource('main');
@@ -45,7 +49,7 @@ const BigOverlay = ({className}: {className?: string}) => {
         };
     }, []);
 
-    const realPositions = React.useMemo(() => {
+    const realPositions = useMemo(() => {
         if (mousePosition) {
             const {x, y} = mousePosition;
             const iframeRect = iframeElement?.getClientRects().item(0);
