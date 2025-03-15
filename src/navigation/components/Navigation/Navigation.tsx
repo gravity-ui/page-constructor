@@ -13,8 +13,8 @@ import './Navigation.scss';
 const b = block('navigation');
 
 export interface NavigationComponentProps extends ClassNameProps {
-    logo: ThemedNavigationLogoData;
-    data: HeaderData;
+    logo?: ThemedNavigationLogoData;
+    data?: HeaderData;
     mobilePortalContainer?: React.RefObject<HTMLElement>;
 }
 
