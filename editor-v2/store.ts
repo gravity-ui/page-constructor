@@ -3,7 +3,7 @@ import _ from 'lodash';
 import {EditorState, initialStore} from '../common/store';
 import {DynamicFormValue} from '../common/types';
 import {initializeStore} from '../common/utils';
-import {ConstructorBlock, Content} from '../src/models';
+import {ConstructorBlock, PageContentWithNavigation} from '../src/models';
 
 import {ZOOM_STEPS} from './constants';
 import {
@@ -25,7 +25,7 @@ export interface EditorMethods {
     increaseZoom(): void;
     decreaseZoom(): void;
     setConfig(data: Pick<EditorState, 'blocks' | 'subBlocks' | 'global'>): void;
-    setContent(data: Content): void;
+    setContent(data: PageContentWithNavigation): void;
     insertBlock(path: number[], blockType: string, position?: 'prepend' | 'append'): void;
     enableInsertMode(blockType: string): void;
     enableReorderMode(path: number[]): void;
