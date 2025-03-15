@@ -24,7 +24,7 @@ export interface PageContent extends Animatable {
     background?: ThemedMediaProps;
 }
 
-export interface Content extends PageContent {
+export interface PageContentWithNavigation extends PageContent {
     navigation?: NavigationData;
 }
 

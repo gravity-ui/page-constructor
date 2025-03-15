@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import {Content} from '../../../src/models';
+import {PageContentWithNavigation} from '../../../src/models';
 import {Panels} from '../../components/Panels/Panels';
 import {Sidebar} from '../../components/Sidebar/Sidebar';
 import StoreViewer from '../../components/StoreViewer/StoreViewer';
@@ -23,7 +23,7 @@ interface SidebarTabComponent {
     component: React.ElementType;
 }
 interface EditorViewProps {
-    onUpdate?: (pageContent: Content) => void;
+    onUpdate?: (pageContent: PageContentWithNavigation) => void;
     initialUrl: string;
     disableUrlField?: boolean;
     componentsConfig?: {

@@ -15,13 +15,13 @@ import {usePCEditorInitializeEvents} from '../../hooks/usePCEditorInitializeEven
 import {usePCEditorStore} from '../../hooks/usePCEditorStore';
 import {
     BlockTypes,
-    Content,
     CustomConfig,
     CustomItems,
     HeaderBlockTypes,
     NavigationData,
     NavigationItemTypes,
     PageContent,
+    PageContentWithNavigation,
     ShouldRenderBlock,
     SubBlockTypes,
 } from '../../models';
@@ -62,7 +62,11 @@ export const Constructor = (props: PageConstructorProps) => {
         microdata,
     } = props;
 
-    const [content, setContent] = React.useState<Content>({blocks, background, navigation});
+    const [content, setContent] = React.useState<PageContentWithNavigation>({
+        blocks,
+        background,
+        navigation,
+    });
 
     const theme = useTheme();
 

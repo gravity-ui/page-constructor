@@ -3,7 +3,7 @@ import {Button, ClipboardButton, Icon} from '@gravity-ui/uikit';
 import yaml from 'js-yaml';
 import * as React from 'react';
 
-import {Content} from '../../../src/models';
+import {PageContentWithNavigation} from '../../../src/models';
 import {useMainEditorStore} from '../../hooks/useMainEditorStore';
 import {editorCn} from '../../utils/cn';
 
@@ -22,13 +22,13 @@ const SourceCode = ({className, format}: SourceCodeProps) => {
     const [isOpen, setIsOpen] = React.useState(false);
 
     const handleUpdate = (tempConfig: string) => {
-        let object: Content | undefined;
+        let object: PageContentWithNavigation | undefined;
 
         try {
             if (tempConfig.trim().startsWith('{') && tempConfig.trim().endsWith('}')) {
                 object = JSON.parse(tempConfig);
             } else {
-                object = yaml.load(tempConfig) as Content;
+                object = yaml.load(tempConfig) as PageContentWithNavigation;
             }
         } catch {
             // eslint-disable-next-line no-console
