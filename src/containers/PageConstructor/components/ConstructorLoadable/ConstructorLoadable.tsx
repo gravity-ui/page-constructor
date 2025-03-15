@@ -18,9 +18,10 @@ export const ConstructorLoadable = (props: ConstructorLoadableProps) => {
     const Component = itemMap[type] as React.Component<
         React.ComponentProps<(typeof itemMap)[typeof type]>
     >;
+    const parentId = React.useContext(BlockIdContext);
 
     return (
-        <BlockIdContext.Provider value={blockKey} key={blockKey}>
+        <BlockIdContext.Provider value={[...parentId, Number(blockKey)]} key={blockKey}>
             <Loadable
                 key={blockKey}
                 block={block}

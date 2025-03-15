@@ -2,6 +2,7 @@ import * as React from 'react';
 
 import {DEFAULT_THEME} from '../../components/constants';
 import {AnalyticsContext, AnalyticsContextProps} from '../../context/analyticsContext';
+import {PCEditorStoreProvider} from '../../context/editorStoreContext';
 import {
     DEFAULT_FORMS_CONTEXT_VALUE,
     FormsContext,
@@ -62,6 +63,7 @@ export const PageConstructorProvider = (
         <AnalyticsContext.Provider value={analytics} />,
         <FormsContext.Provider value={forms} />,
         <SSRContext.Provider value={{isServer: ssrConfig?.isServer}} />,
+        <PCEditorStoreProvider />,
     ].reduceRight((prev, provider) => React.cloneElement(provider, {}, prev), children);
     /* eslint-enable react/jsx-key */
 

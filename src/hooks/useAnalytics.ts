@@ -12,7 +12,7 @@ export const useAnalytics = (name = '', target?: string) => {
             name
                 ? {
                       name,
-                      context,
+                      context: String(context),
                       type: PredefinedEventTypes.Default,
                       target: target,
                   }

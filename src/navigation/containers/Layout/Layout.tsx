@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import {NavigationData} from '../../../models';
-import {block} from '../../../utils';
+import {block, isHeaderSet, isLogoSet} from '../../../utils';
 import Navigation from '../../components/Navigation/Navigation';
 
 import './Layout.scss';
@@ -16,6 +16,7 @@ export interface LayoutProps {
 const Layout: React.FC<LayoutProps> = ({children, navigation}) => (
     <div className={b()}>
         {navigation &&
+            (isLogoSet(navigation.logo) || isHeaderSet(navigation.header)) &&
             (navigation.renderNavigation ? (
                 navigation.renderNavigation()
             ) : (

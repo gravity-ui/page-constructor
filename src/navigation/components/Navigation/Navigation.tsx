@@ -13,8 +13,8 @@ import './Navigation.scss';
 const b = block('navigation');
 
 export interface NavigationComponentProps extends ClassNameProps {
-    logo: ThemedNavigationLogoData;
-    data: HeaderData;
+    logo?: ThemedNavigationLogoData;
+    data?: HeaderData;
     mobilePortalContainer?: React.RefObject<HTMLElement>;
 }
 
@@ -25,13 +25,13 @@ export const Navigation: React.FC<NavigationComponentProps> = ({
     mobilePortalContainer,
 }) => {
     const {
-        leftItems,
+        leftItems = [],
         rightItems,
         customMobileHeaderItems,
         iconSize = 20,
         withBorder = false,
         withBorderOnScroll = true,
-    } = data;
+    } = data || {};
 
     const [isSidebarOpened, setIsSidebarOpened] = React.useState(false);
     const [showBorder] = useShowBorder(withBorder, withBorderOnScroll);
