@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import _ from 'lodash';
 
-import {usePCEditorStore} from '../../../../../context/editorStoreContext';
+import {usePCEditorStore} from '../../../../../hooks/usePCEditorStore';
 import {sendEventPostMessage} from '../../../../../hooks/usePostMessageAPI';
 import {getCursorPositionOverElement} from '../../../../../utils/editor';
 
