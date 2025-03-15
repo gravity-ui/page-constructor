@@ -1,6 +1,13 @@
-import {Content} from '../../src/models';
+import {PageContentWithNavigation} from '../../src/models';
 
-export type DynamicFormValue = string | number | [] | object | boolean | Content | undefined;
+export type DynamicFormValue =
+    | string
+    | number
+    | []
+    | object
+    | boolean
+    | PageContentWithNavigation
+    | undefined;
 
 export interface BlockConfig {
     name: string;
