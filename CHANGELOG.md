@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.3.0](https://github.com/gravity-ui/page-constructor/compare/v6.2.2...v6.3.0) (2025-03-17)
+
+
+### Features
+
+* **Tabs:** render inactive tabs & a11y ([#1143](https://github.com/gravity-ui/page-constructor/issues/1143)) ([a6cf257](https://github.com/gravity-ui/page-constructor/commit/a6cf257e7ac1a7181f6dddd218d27413a4e9dd6d))
+
 ## [6.2.2](https://github.com/gravity-ui/page-constructor/compare/v6.2.1...v6.2.2) (2025-03-14)
 
 
