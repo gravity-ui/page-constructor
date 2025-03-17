@@ -21,6 +21,7 @@ import './Button.scss';
 
 export interface ButtonProps extends Omit<ButtonParams, 'url'>, QAProps {
     className?: string;
+    id?: string;
     url?: string;
     onClick?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
 }
