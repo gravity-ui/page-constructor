@@ -199,20 +199,20 @@
         "light": {
           "image": "/story-assets/header-bg-video_light.png",
           "color": "#EFF2F8",
-          "height": 1020
+          "height": 1176
         },
         "dark": {
           "image": "/story-assets/header-bg-video_dark.png",
           "color": "#262626",
-          "height": 1020
+          "height": 1176
         }
       },
       "blocks": [
         {
           "type": "custom-header",
           "url": "https://github.com/gravity-ui/page-constructor/blob/main/src/containers/PageConstructor/__stories__/components/CustomBlocksTemplate.tsx",
-          "title": "CustomHeader",
-          "description": "<p> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p> ",
+          "title": "Custom Header",
+          "description": "**Custom headers let you create your own blocks that can be put at the top of a page.**\n\nTo create and use a custom header you need to:\n1. Create your own header component\n2. Give it a name and add it to your `CustomConfig`\n3. Pass this config to `<PageConstructor />`\n\n Check out this Stories' `content` control to see page data.\n\nCode below links to the current example's source.",
           "width": "m",
           "verticalOffset": "m",
           "buttons": [
@@ -239,7 +239,8 @@
             {
               "type": "custom-card",
               "url": "https://github.com/gravity-ui/page-constructor/blob/main/src/containers/PageConstructor/__stories__/components/CustomBlocksTemplate.tsx",
-              "title": "CustomCard"
+              "title": "Custom Card",
+              "description": "**Custom sub blocks can be displayed inside other blocks.**\n\nTo create and use a custom sub block you need to:\n1. Create your own sub block component\n2. Give it a name and add it to your `CustomConfig`\n3. Pass this config to `<PageConstructor />`\n\n Check out this Stories' `content` control to see page data.\n\nCode on the other side of the card links to the current example's source."
             },
             {
               "type": "basic-card",
@@ -273,8 +274,9 @@
         },
         {
           "type": "custom-block",
-          "title": "CustomBlock",
-          "url": "https://github.com/gravity-ui/page-constructor/blob/main/src/containers/PageConstructor/__stories__/components/CustomBlocksTemplate.tsx"
+          "title": "Custom Block",
+          "url": "https://github.com/gravity-ui/page-constructor/blob/main/src/containers/PageConstructor/__stories__/components/CustomBlocksTemplate.tsx",
+          "description": "**Custom blocks can be used if default blocks are not enough for your project.**\n\nTo create and use a custom block you need to:\n1. Create your own component for the new block\n2. Give it a name and add it to your `CustomConfig`\n3. Pass this config to `<PageConstructor />`\n\n Check out this Stories' `content` control to see page data.\n\nCode below links to the current example's source."
         },
         {
           "type": "slider-block",
@@ -304,7 +306,8 @@
             {
               "type": "custom-card",
               "url": "https://github.com/gravity-ui/page-constructor/blob/main/src/containers/PageConstructor/__stories__/components/CustomBlocksTemplate.tsx",
-              "title": "CustomCard"
+              "title": "Custom Card",
+              "description": "**Custom sub blocks can be displayed inside other blocks.**\n\nTo create and use a custom sub block you need to:\n1. Create your own sub block component\n2. Give it a name and add it to your `CustomConfig`\n3. Pass this config to `<PageConstructor />`\n\n Check out this Stories' `content` control to see page data.\n\nCode on the other side of the card links to the current example's source."
             },
             {
               "type": "layout-item",
@@ -422,8 +425,9 @@
         "leftItems": [
           {
             "type": "custom-navigation-item",
-            "title": "CustomNavigationItem",
-            "url": "https://github.com/gravity-ui/page-constructor/blob/main/src/containers/PageConstructor/__stories__/components/CustomBlocksTemplate.tsx"
+            "title": "Custom Navigation Item",
+            "url": "https://github.com/gravity-ui/page-constructor/blob/main/src/containers/PageConstructor/__stories__/components/CustomBlocksTemplate.tsx",
+            "description": "**Custom navigation items can be used if default navigation is not enough for your project.**\n\nTo create and use a custom navigation item you need to:\n1. Create your own component for the new navigation item\n2. Give it a name and add it to your `CustomConfig`\n3. Pass this config to `<PageConstructor />`\n\n Check out this Stories' `navigation` control to see page data.\n\nCode below links to the current example's source."
           }
         ]
       }

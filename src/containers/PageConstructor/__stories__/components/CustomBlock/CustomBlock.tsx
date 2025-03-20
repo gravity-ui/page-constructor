@@ -3,6 +3,7 @@ import {Link} from '@gravity-ui/uikit';
 import './CustomBlock.scss';
 import {cn} from '../../../../../utils';
 import {Title, YFMWrapper} from '../../../../../components';
+import {yfmTransform} from '../../../../../../.storybook/utils';
 
 const b = cn('custom-block');
 
@@ -27,14 +28,18 @@ const customConfig: CustomConfig = {
 interface CustomBlockProps {
     url?: string;
     title?: string;
+    description?: string;
 }
 
-export const CustomBlock = ({url, title}: CustomBlockProps) => {
+export const CustomBlock = ({url, title, description}: CustomBlockProps) => {
     const Wrapper = url ? Link : 'div';
 
     return (
         <div className={b()}>
             <Title className={b('title')} title={title} />
+            {description && (
+                <YFMWrapper className={b('description')} content={yfmTransform(description)} />
+            )}
             <Wrapper className={b('code-wrap')} href={url ?? ''}>
                 <YFMWrapper content={`<code>${CUSTOM_BLOCK_CODE}</code>`} />
             </Wrapper>

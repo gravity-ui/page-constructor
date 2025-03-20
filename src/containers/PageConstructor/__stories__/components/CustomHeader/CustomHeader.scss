@@ -7,12 +7,18 @@
 .custom-header {
     @include custom-block-title($selector: '.pc-header-block__title > span');
 
+    @include add-specificity(&) {
+        code {
+            color: var(--custom-code-color);
+        }
+    }
+
     &__code {
         @include image-shadow();
 
         display: flex;
         margin-top: 24px;
-        background: var(--g-color-private-white-1000-solid);
+        background: var(--g-color-base-background);
         overflow: hidden;
 
         &-yfm {

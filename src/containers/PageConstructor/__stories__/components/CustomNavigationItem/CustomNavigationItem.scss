@@ -7,14 +7,32 @@
 .custom-navigation-item {
     @include custom-block-title($selector: '.g-button__text');
 
-    &__popover {
-        background: var(--g-color-private-white-1000-solid);
+    font-weight: var(--g-text-subheader-font-weight);
 
-        code {
-            display: block;
-            white-space: pre-wrap;
-            font-size: 12px;
-            padding: 12px;
+    &__popover {
+        background: var(--g-color-base-background);
+        max-width: min(500px, 100vw);
+
+        &-content {
+            .yfm {
+                color: var(--g-color-text-primary);
+
+                code {
+                    color: var(--custom-code-color);
+                }
+            }
+
+            &-description {
+                padding: 24px;
+            }
+
+            &-code code {
+                display: block;
+                white-space: pre-wrap;
+                font-size: 12px;
+                padding: 12px;
+                border-radius: 0;
+            }
         }
     }
 }

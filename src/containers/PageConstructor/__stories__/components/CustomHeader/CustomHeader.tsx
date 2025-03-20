@@ -5,6 +5,7 @@ import {HeaderBlockProps} from '../../../../../models';
 import {cn} from '../../../../../utils';
 
 import './CustomHeader.scss';
+import {yfmTransform} from '../../../../../../.storybook/utils';
 
 const b = cn('custom-header');
 
@@ -30,11 +31,15 @@ interface CustomHeaderProps extends HeaderBlockProps {
     url?: string;
 }
 
-export const CustomHeader = ({url, ...props}: CustomHeaderProps) => {
+export const CustomHeader = ({url, description, ...props}: CustomHeaderProps) => {
     const Wrapper = url ? Link : 'div';
 
     return (
-        <HeaderBlock {...props} className={b()}>
+        <HeaderBlock
+            {...props}
+            description={description && yfmTransform(description)}
+            className={b()}
+        >
             <Wrapper className={b('code')} href={url ?? ''}>
                 <YFMWrapper
                     className={b('code-yfm')}

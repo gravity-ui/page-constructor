@@ -5,32 +5,105 @@
 @import '../mixins.scss';
 
 .custom-card {
+    @include custom-block-title($selector: '.custom-card__card-header-content-title');
+    $class: &;
+
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 200%;
     height: 100%;
+    transform: rotateY(0);
+    transform-style: preserve-3d;
+    transform-origin: 25% 50%;
+    perspective: 100px;
+    transition: all 1s;
 
     code {
-        display: block;
-        white-space: pre-wrap;
-        font-size: 12px;
-        padding: 12px;
-        border-radius: 0;
+        color: var(--custom-code-color);
+    }
+
+    &__card_bottom {
+        pointer-events: none;
+    }
+
+    &_flipped {
+        transform: rotateY(-180deg);
+
+        #{$class}__card {
+            pointer-events: none;
+
+            &_bottom {
+                pointer-events: initial;
+            }
+        }
     }
 
     &__card {
-        @include custom-block-title($selector: '.custom-card__card-header-content');
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+
+        &:not(&_bottom) {
+            position: relative;
+            left: -100%;
+        }
+
+        &_bottom {
+            flex-basis: 100%;
+            transform: rotateY(180deg);
+        }
 
         &-header {
             margin: -16px 0;
 
             &-content {
-                width: fit-content;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width: 100%;
+
+                &-flip-icon {
+                    cursor: pointer;
+                }
             }
         }
 
         &-body {
-            background: var(--g-color-private-white-1000-solid);
+            height: calc(100% - 114px);
 
             @include add-specificity(&) {
                 padding: 0;
+            }
+
+            &-link {
+                display: block;
+                height: 100%;
+
+                &-code {
+                    display: block;
+                    height: 100%;
+
+                    code {
+                        display: block;
+                        white-space: pre-wrap;
+                        height: 100%;
+                        font-size: 12px;
+                        padding: 12px;
+                        border-radius: 0;
+                    }
+                }
+            }
+
+            &-description {
+                @include text-body-1();
+
+                color: var(--g-color-text-primary);
+                padding: 0 32px 16px;
+
+                p,
+                ol {
+                    margin-bottom: 10px;
+                }
             }
         }
     }
