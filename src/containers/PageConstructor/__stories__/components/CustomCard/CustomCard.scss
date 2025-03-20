@@ -41,7 +41,6 @@
 
     &__card {
         backface-visibility: hidden;
-        -webkit-backface-visibility: hidden;
 
         &:not(&_bottom) {
             position: relative;
