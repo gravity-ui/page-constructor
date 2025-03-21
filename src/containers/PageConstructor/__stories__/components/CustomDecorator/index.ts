@@ -1,0 +1,1 @@
+export {customDecorator} from './CustomDecorator';

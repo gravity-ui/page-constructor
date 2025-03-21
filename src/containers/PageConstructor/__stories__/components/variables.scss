@@ -1,0 +1,13 @@
+.g-root {
+    &_theme_light,
+    &_theme_light-hc {
+        --custom-code-color: #3b6080;
+        --custom-decorator-bg-color: #eff2f8;
+    }
+
+    &_theme_dark,
+    &_theme_dark-hc {
+        --custom-code-color: #9fc4e4;
+        --custom-decorator-bg-color: #323238;
+    }
+}

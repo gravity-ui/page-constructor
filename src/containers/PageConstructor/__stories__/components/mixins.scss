@@ -1,0 +1,36 @@
+@import '../../../../../styles/variables';
+@import '../../../../../styles/mixins';
+@import '../../../../../styles/root';
+@import '../../../../../styles/yfm.scss';
+
+@mixin custom-block-title($selector) {
+    @keyframes custom-block-title-move-bg {
+        from {
+            background-position: -25% 0;
+        }
+        to {
+            background-position: 125% 0;
+        }
+    }
+
+    #{$selector} {
+        color: var(--pc-text-header-color);
+
+        background-image: linear-gradient(
+            -30deg,
+            var(--pc-text-header-color) 25%,
+            var(--pc-color-base-gold) 50%,
+            var(--pc-text-header-color) 75%
+        );
+        background-size: 300%;
+        background-position: 267% 0;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    &:hover {
+        #{$selector} {
+            animation: custom-block-title-move-bg 1000ms linear;
+        }
+    }
+}
