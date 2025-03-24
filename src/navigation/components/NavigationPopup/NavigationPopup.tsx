@@ -17,6 +17,9 @@ export const NavigationPopup: React.FC<NavigationPopupProps> = ({
     onClose,
     open,
 }) => {
+    // Opening and closing is controlled by the associated button,
+    // but in order to give the popup control over closing as well (e.g. on click outside or escape key press)
+    // there needs to be an awkward looking handler like this.
     const onOpenChange = (isOpen: boolean) => {
         if (!isOpen) {
             onClose();
