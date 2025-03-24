@@ -16,30 +16,37 @@ export const NavigationPopup: React.FC<NavigationPopupProps> = ({
     items,
     onClose,
     open,
-}) => (
-    <Popup
-        // Workaround to recalculate position on every opening. Required for valid position calculation for scrolled header links.
-        anchorRef={open ? anchorRef : undefined}
-        open={open}
-        onClose={onClose}
-        onOutsideClick={onClose}
-        keepMounted
-        disablePortal
-        strategy="fixed"
-        placement="bottom-start"
-        offset={OFFSET_RESET}
-    >
-        <ul className={b('list')}>
-            {items.map((item) => (
-                <NavigationItem
-                    key={item.text}
-                    className={b('link')}
-                    data={item}
-                    menuLayout={NavigationLayout.Dropdown}
-                />
-            ))}
-        </ul>
-    </Popup>
-);
+}) => {
+    const onOpenChange = (isOpen: boolean) => {
+        if (!isOpen) {
+            onClose();
+        }
+    };
+
+    return (
+        <Popup
+            className={b()}
+            // Workaround to recalculate position on every opening. Required for valid position calculation for scrolled header links.
+            anchorElement={anchorRef.current}
+            open={open}
+            onOpenChange={onOpenChange}
+            keepMounted
+            strategy="fixed"
+            placement="bottom-start"
+            offset={OFFSET_RESET}
+        >
+            <ul className={b('list')}>
+                {items.map((item) => (
+                    <NavigationItem
+                        key={item.text}
+                        className={b('link')}
+                        data={item}
+                        menuLayout={NavigationLayout.Dropdown}
+                    />
+                ))}
+            </ul>
+        </Popup>
+    );
+};
 
 export default NavigationPopup;
