@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.3.1](https://github.com/gravity-ui/page-constructor/compare/v6.3.0...v6.3.1) (2025-03-25)
+
+
+### Bug Fixes
+
+* **NavigationPopup:** placement and styles ([#1151](https://github.com/gravity-ui/page-constructor/issues/1151)) ([5b2d400](https://github.com/gravity-ui/page-constructor/commit/5b2d4005d88b0f84ee0312ebcb716e6e4de8ce89))
+
 ## [6.3.0](https://github.com/gravity-ui/page-constructor/compare/v6.2.2...v6.3.0) (2025-03-17)
 
 
