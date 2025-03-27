@@ -1,0 +1,67 @@
+@import '../../../../styles/mixins';
+@import '../../../../styles/variables';
+
+$block: '.#{$ns}tab-content';
+
+#{$block} {
+    $class: &;
+
+    &__col {
+        &_centered {
+            margin: 0 auto;
+        }
+    }
+
+    &__image {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        display: block;
+    }
+
+    &__image,
+    &__media {
+        @include media-border();
+    }
+
+    &__caption {
+        @include text-size(body-2);
+
+        margin: $indentXXS 0 0;
+
+        @include add-specificity(&) {
+            .yfm,
+            .yfm > * {
+                color: var(--g-color-text-secondary);
+            }
+
+            .yfm a {
+                color: var(--g-color-text-secondary);
+                text-decoration: underline;
+
+                &:hover {
+                    color: var(--g-color-text-primary);
+                }
+            }
+        }
+    }
+
+    &__row {
+        &_hidden {
+            display: none;
+        }
+
+        &_reverse {
+            flex-direction: row-reverse;
+        }
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'md')) {
+        &__row_reverse {
+            flex-direction: column-reverse;
+        }
+    }
+
+    @include animate(#{$class}__media);
+    @include animate(#{$class}__image);
+}

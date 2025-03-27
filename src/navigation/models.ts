@@ -73,6 +73,7 @@ export interface MobileNavigationProps extends ClassNameProps, ActiveItemProps {
     isOpened?: boolean;
     topItems?: NavigationItemModel[];
     bottomItems?: NavigationItemModel[];
+    portalContainer?: React.RefObject<HTMLElement>;
 }
 
 export interface NavigationProps extends MobileMenuButtonProps, ActiveItemProps {

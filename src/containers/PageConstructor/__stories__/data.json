@@ -193,6 +193,246 @@
       ]
     }
   },
+  "custom": {
+    "content": {
+      "background": {
+        "light": {
+          "image": "/story-assets/header-bg-video_light.png",
+          "color": "#EFF2F8",
+          "height": 1176
+        },
+        "dark": {
+          "image": "/story-assets/header-bg-video_dark.png",
+          "color": "#262626",
+          "height": 1176
+        }
+      },
+      "blocks": [
+        {
+          "type": "custom-header",
+          "url": "https://github.com/gravity-ui/page-constructor/blob/main/src/containers/PageConstructor/__stories__/components/CustomBlocksTemplate.tsx",
+          "title": "Custom Header",
+          "description": "**Custom headers let you create your own blocks that can be put at the top of a page.**\n\nTo create and use a custom header you need to:\n1. Create your own header component\n2. Give it a name and add it to your `CustomConfig`\n3. Pass this config to `<PageConstructor />`\n\n Check out this Stories' `content` control to see page data.\n\nCode below links to the current example's source.",
+          "width": "m",
+          "verticalOffset": "m",
+          "buttons": [
+            {
+              "text": "Button\r",
+              "theme": "action",
+              "url": "https://example.com"
+            },
+            {
+              "text": "Button",
+              "theme": "outlined",
+              "url": "#"
+            }
+          ]
+        },
+        {
+          "type": "slider-block",
+          "animated": true,
+          "title": {
+            "text": "Slider",
+            "url": "https://example.com"
+          },
+          "children": [
+            {
+              "type": "custom-card",
+              "url": "https://github.com/gravity-ui/page-constructor/blob/main/src/containers/PageConstructor/__stories__/components/CustomBlocksTemplate.tsx",
+              "title": "Custom Card",
+              "description": "**Custom sub blocks can be displayed inside other blocks.**\n\nTo create and use a custom sub block you need to:\n1. Create your own sub block component\n2. Give it a name and add it to your `CustomConfig`\n3. Pass this config to `<PageConstructor />`\n\n Check out this Stories' `content` control to see page data.\n\nCode on the other side of the card links to the current example's source."
+            },
+            {
+              "type": "basic-card",
+              "url": "https://example.com",
+              "title": "Lorem ipsum dolor sit amet",
+              "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+              "icon": "/story-assets/icon_1_light.svg"
+            },
+            {
+              "type": "basic-card",
+              "url": "https://example.com",
+              "title": "Lorem ipsum dolor sit amet",
+              "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+              "icon": "/story-assets/icon_2_light.svg"
+            },
+            {
+              "type": "basic-card",
+              "url": "https://example.com",
+              "title": "Lorem ipsum dolor sit amet",
+              "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+              "icon": "/story-assets/icon_3_light.svg"
+            },
+            {
+              "type": "basic-card",
+              "url": "https://example.com",
+              "title": "Lorem ipsum dolor sit amet",
+              "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+              "icon": "/story-assets/icon_4_light.svg"
+            }
+          ]
+        },
+        {
+          "type": "custom-block",
+          "title": "Custom Block",
+          "url": "https://github.com/gravity-ui/page-constructor/blob/main/src/containers/PageConstructor/__stories__/components/CustomBlocksTemplate.tsx",
+          "description": "**Custom blocks can be used if default blocks are not enough for your project.**\n\nTo create and use a custom block you need to:\n1. Create your own component for the new block\n2. Give it a name and add it to your `CustomConfig`\n3. Pass this config to `<PageConstructor />`\n\n Check out this Stories' `content` control to see page data.\n\nCode below links to the current example's source."
+        },
+        {
+          "type": "slider-block",
+          "animated": true,
+          "title": "Loadable",
+          "loadable": {
+            "source": "custom-loadable-card"
+          }
+        },
+        {
+          "type": "card-layout-block",
+          "title": "Full screen youtube test",
+          "children": [
+            {
+              "type": "layout-item",
+              "content": {
+                "title": "Lorem ipsum",
+                "text": "Dolor sit amet"
+              },
+              "media": {
+                "youtube": "https://youtu.be/0Qd3T6skprA",
+                "previewImg": "/story-assets/video_8-12_white.png"
+              },
+              "metaInfo": ["one", "two", "three"],
+              "fullscreen": true
+            },
+            {
+              "type": "custom-card",
+              "url": "https://github.com/gravity-ui/page-constructor/blob/main/src/containers/PageConstructor/__stories__/components/CustomBlocksTemplate.tsx",
+              "title": "Custom Card",
+              "description": "**Custom sub blocks can be displayed inside other blocks.**\n\nTo create and use a custom sub block you need to:\n1. Create your own sub block component\n2. Give it a name and add it to your `CustomConfig`\n3. Pass this config to `<PageConstructor />`\n\n Check out this Stories' `content` control to see page data.\n\nCode on the other side of the card links to the current example's source."
+            },
+            {
+              "type": "layout-item",
+              "content": {
+                "title": "Lorem ipsum",
+                "text": "Dolor sit amet"
+              },
+              "media": {
+                "youtube": "https://youtu.be/0Qd3T6skprA",
+                "previewImg": "/story-assets/video_8-12_white.png"
+              },
+              "metaInfo": ["one", "two", "three"],
+              "fullscreen": true
+            },
+            {
+              "type": "layout-item",
+              "content": {
+                "title": "Lorem ipsum",
+                "text": "Dolor sit amet"
+              },
+              "media": {
+                "youtube": "https://youtu.be/0Qd3T6skprA",
+                "previewImg": "/story-assets/video_8-12_white.png"
+              },
+              "metaInfo": ["one", "two", "three"],
+              "fullscreen": true
+            },
+            {
+              "type": "layout-item",
+              "content": {
+                "title": "Lorem ipsum",
+                "text": "Dolor sit amet"
+              },
+              "media": {
+                "youtube": "https://youtu.be/0Qd3T6skprA",
+                "previewImg": "/story-assets/video_8-12_white.png"
+              },
+              "metaInfo": ["one", "two", "three"],
+              "fullscreen": true
+            },
+            {
+              "type": "layout-item",
+              "content": {
+                "title": "Lorem ipsum",
+                "text": "Dolor sit amet"
+              },
+              "media": {
+                "youtube": "https://youtu.be/0Qd3T6skprA",
+                "previewImg": "/story-assets/video_8-12_white.png"
+              },
+              "metaInfo": ["one", "two", "three"],
+              "fullscreen": true
+            },
+            {
+              "type": "layout-item",
+              "content": {
+                "title": "Lorem ipsum",
+                "text": "Dolor sit amet"
+              },
+              "media": {
+                "youtube": "https://youtu.be/0Qd3T6skprA",
+                "previewImg": "/story-assets/video_8-12_white.png"
+              },
+              "metaInfo": ["one", "two", "three"],
+              "fullscreen": true
+            },
+            {
+              "type": "layout-item",
+              "content": {
+                "title": "Lorem ipsum",
+                "text": "Dolor sit amet"
+              },
+              "media": {
+                "youtube": "https://youtu.be/0Qd3T6skprA",
+                "previewImg": "/story-assets/video_8-12_white.png"
+              },
+              "metaInfo": ["one", "two", "three"],
+              "fullscreen": true
+            }
+          ]
+        },
+        {
+          "type": "banner-block",
+          "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+          "subtitle": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> ",
+          "image": {
+            "light": "/story-assets/img_8-12_light.png",
+            "dark": "/story-assets/img_8-12_dark.png"
+          },
+          "disableCompress": true,
+          "color": {
+            "light": "#EFF2F8",
+            "dark": "#262626"
+          },
+          "button": {
+            "text": "Learn more",
+            "url": "https://example.com"
+          }
+        }
+      ]
+    },
+    "navigation": {
+      "logo": {
+        "icon": "/story-assets/icon_1_light.svg",
+        "text": "Logo",
+        "dark": {
+          "text": "Logo Dark",
+          "icon": "/story-assets/icon_1_dark.svg"
+        },
+        "light": {
+          "text": "Logo Light"
+        }
+      },
+      "header": {
+        "leftItems": [
+          {
+            "type": "custom-navigation-item",
+            "title": "Custom Navigation Item",
+            "url": "https://github.com/gravity-ui/page-constructor/blob/main/src/containers/PageConstructor/__stories__/components/CustomBlocksTemplate.tsx",
+            "description": "**Custom navigation items can be used if default navigation is not enough for your project.**\n\nTo create and use a custom navigation item you need to:\n1. Create your own component for the new navigation item\n2. Give it a name and add it to your `CustomConfig`\n3. Pass this config to `<PageConstructor />`\n\n Check out this Stories' `navigation` control to see page data.\n\nCode below links to the current example's source."
+          }
+        ]
+      }
+    }
+  },
   "navigation": {
     "logo": {
       "icon": "/story-assets/icon_1_light.svg",

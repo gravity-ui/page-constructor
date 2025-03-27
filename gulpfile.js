@@ -56,6 +56,7 @@ async function compileTs(modules = false) {
                     },
                 }),
             )
+            .pipe(replace(/swiper/, () => (modules ? 'swiper/swiper.esm.js' : 'swiper')))
             .pipe(
                 replace(/swiper\/react/g, () =>
                     modules ? 'swiper/swiper-react.esm.js' : 'swiper/swiper-react.cjs.js',

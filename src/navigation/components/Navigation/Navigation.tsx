@@ -15,9 +15,15 @@ const b = block('navigation');
 export interface NavigationComponentProps extends ClassNameProps {
     logo: ThemedNavigationLogoData;
     data: HeaderData;
+    mobilePortalContainer?: React.RefObject<HTMLElement>;
 }
 
-export const Navigation: React.FC<NavigationComponentProps> = ({data, logo, className}) => {
+export const Navigation: React.FC<NavigationComponentProps> = ({
+    data,
+    logo,
+    className,
+    mobilePortalContainer,
+}) => {
     const {
         leftItems,
         rightItems,
@@ -56,6 +62,7 @@ export const Navigation: React.FC<NavigationComponentProps> = ({data, logo, clas
                                 isOpened={isSidebarOpened}
                                 activeItemId={activeItemId}
                                 onActiveItemChange={onActiveItemChange}
+                                portalContainer={mobilePortalContainer}
                             />
                         </OutsideClick>
                     </nav>

@@ -1,0 +1,35 @@
+@import '../../../../../../styles/variables';
+@import '../../../../../../styles/mixins';
+@import '../../../../../../styles/root';
+@import '../../../../../../styles/yfm.scss';
+@import '../mixins.scss';
+@import '../variables.scss';
+
+.custom-block {
+    @include custom-block-title($selector: '.pc-title-item__text');
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 24px;
+    width: 100%;
+    overflow: hidden;
+
+    code {
+        color: var(--custom-code-color);
+    }
+
+    &__description {
+        color: var(--g-color-text-primary);
+    }
+
+    &__code-wrap {
+        @include image-shadow();
+
+        code {
+            display: block;
+            white-space: pre-wrap;
+            padding: 24px;
+        }
+    }
+}

@@ -1,5 +1,54 @@
 # Changelog
 
+## [6.3.1](https://github.com/gravity-ui/page-constructor/compare/v6.3.0...v6.3.1) (2025-03-25)
+
+
+### Bug Fixes
+
+* **NavigationPopup:** placement and styles ([#1151](https://github.com/gravity-ui/page-constructor/issues/1151)) ([5b2d400](https://github.com/gravity-ui/page-constructor/commit/5b2d4005d88b0f84ee0312ebcb716e6e4de8ce89))
+
+## [6.3.0](https://github.com/gravity-ui/page-constructor/compare/v6.2.2...v6.3.0) (2025-03-17)
+
+
+### Features
+
+* **Tabs:** render inactive tabs & a11y ([#1143](https://github.com/gravity-ui/page-constructor/issues/1143)) ([a6cf257](https://github.com/gravity-ui/page-constructor/commit/a6cf257e7ac1a7181f6dddd218d27413a4e9dd6d))
+
+## [6.2.2](https://github.com/gravity-ui/page-constructor/compare/v6.2.1...v6.2.2) (2025-03-14)
+
+
+### Bug Fixes
+
+* **VideoBlock:** disable scrolling at video iframe ([#1145](https://github.com/gravity-ui/page-constructor/issues/1145)) ([477ff9d](https://github.com/gravity-ui/page-constructor/commit/477ff9da33a75a60e8c454a2b9313f4017495596))
+
+## [6.2.1](https://github.com/gravity-ui/page-constructor/compare/v6.2.0...v6.2.1) (2025-03-13)
+
+
+### Bug Fixes
+
+* Move some deps to devDeps ([#1141](https://github.com/gravity-ui/page-constructor/issues/1141)) ([8f78070](https://github.com/gravity-ui/page-constructor/commit/8f78070aa51df18cdee19736e4bdc31a23405337))
+
+## [6.2.0](https://github.com/gravity-ui/page-constructor/compare/v6.1.1...v6.2.0) (2025-03-06)
+
+
+### Features
+
+* **mobileNavigation:** added a parameter for the portal in mobile navigation ([#1132](https://github.com/gravity-ui/page-constructor/issues/1132)) ([0f54550](https://github.com/gravity-ui/page-constructor/commit/0f545508d4c6c7d23b93ec93bb8bc1f23df4aaed))
+
+## [6.1.1](https://github.com/gravity-ui/page-constructor/compare/v6.1.0...v6.1.1) (2025-03-05)
+
+
+### Bug Fixes
+
+* add target for tsconfig and fixed build pipe for swiper ([#1137](https://github.com/gravity-ui/page-constructor/issues/1137)) ([58c37fa](https://github.com/gravity-ui/page-constructor/commit/58c37fa123aeb5571a2e787b3a1cebe08864e7d3))
+
+## [6.1.0](https://github.com/gravity-ui/page-constructor/compare/v6.0.0...v6.1.0) (2025-02-27)
+
+
+### Features
+
+* **Content:** add m size ([#1120](https://github.com/gravity-ui/page-constructor/issues/1120)) ([0f9e53a](https://github.com/gravity-ui/page-constructor/commit/0f9e53a9fca0517cb62ff0ef57b98aecdb9fdfbb))
+
 ## [6.0.0](https://github.com/gravity-ui/page-constructor/compare/v5.37.0...v6.0.0) (2025-02-26)
 
 
