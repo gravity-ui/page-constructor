@@ -7,6 +7,7 @@ import {initializeStore} from './utils';
 
 export interface EditorState {
     height?: number;
+    deviceWidth?: string;
     zoom: number;
 
     manipulateOverlayMode: 'insert' | 'reorder' | false;
@@ -24,6 +25,7 @@ export interface EditorState {
 
 export const initialStore: EditorState = {
     height: 100,
+    deviceWidth: '100%',
     zoom: 100,
     manipulateOverlayMode: false,
     selectedBlock: undefined,
