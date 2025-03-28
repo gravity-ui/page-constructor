@@ -12,19 +12,26 @@ $block: '.#{$ns}middle-screen';
 
     &__topbar {
         flex: 0 0 auto;
-        // min-height: 40px;
     }
 
-    &__wrapper {
+    &__content {
         flex: 1 1 auto;
         overflow-y: auto;
         // height: 100%;
+        background-color: var(--g-color-text-dark-secondary);
+    }
+
+    &__wrapper {
+        width: 100%;
+        height: 100%;
+        margin: auto;
     }
 
     &__canvas {
         transform-origin: left top;
         overflow-y: scroll;
         position: relative;
+        height: 100%;
     }
 
     &__overlay {
