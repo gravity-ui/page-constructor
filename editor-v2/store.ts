@@ -21,6 +21,7 @@ export interface EditorMethods {
     initialize(): void;
     setSelectedBlock(path?: number[]): void;
     setHeight(height: number): void;
+    setDeviceWidth(deviceWidth: string): void;
     setZoom(zoom: number): void;
     increaseZoom(): void;
     decreaseZoom(): void;
@@ -48,6 +49,9 @@ export const createEditorStore = initializeStore<EditorState, EditorMethods>(
             // which is not taken into calculation of final height
             const newHeight = height + 500;
             set((state) => ({...state, height: newHeight}));
+        },
+        setDeviceWidth(deviceWidth: string) {
+            set((state) => ({...state, deviceWidth}));
         },
         setZoom(zoom) {
             if (zoom > 0) {
