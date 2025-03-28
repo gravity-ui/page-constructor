@@ -3,7 +3,7 @@ export interface ProjectSettingsContextProps {
     disableCompress?: boolean;
     isAnimationEnabled?: boolean;
     renderInvisibleBlocks?: boolean;
-    yandexFormTheme?: string;
+    defaultYandexFormTheme?: string;
 }
 
 export const ProjectSettingsContext = React.createContext<ProjectSettingsContextProps>({});

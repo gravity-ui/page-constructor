@@ -37,13 +37,13 @@ const YandexForm = (props: YandexFormProps) => {
     const handleAnalytics = useAnalytics(DefaultEventNames.YandexFormSubmit);
     const isMobile = React.useContext(MobileContext);
     const locale = React.useContext(LocaleContext);
-    const {yandexFormTheme} = React.useContext(ProjectSettingsContext);
+    const {defaultYandexFormTheme} = React.useContext(ProjectSettingsContext);
 
     const updateFormIframe = React.useCallback(
         (container: HTMLDivElement) => {
             const queryParams = new URLSearchParams(location.search);
             const url = location.origin + location.pathname;
-            const formTheme = theme || yandexFormTheme;
+            const formTheme = theme || defaultYandexFormTheme;
 
             queryParams.set('url', url);
             queryParams.set('iframe', '1');
