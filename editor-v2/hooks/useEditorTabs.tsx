@@ -5,7 +5,7 @@ import BlockConfig from '../containers/BlockConfig/BlockConfig';
 import BlocksList from '../containers/BlocksList/BlocksList';
 import GlobalConfig from '../containers/GlobalConfig/GlobalConfig';
 import SourceCode from '../containers/SourceCode/SourceCode';
-import Tree from '../containers/Tree/Tree';
+import Tree from '../containers/Tree';
 
 export const useEditorTabs = ({
     leftTabs = [],

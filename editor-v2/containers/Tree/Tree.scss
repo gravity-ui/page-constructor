@@ -6,60 +6,12 @@ $block: '.#{$ns}tree';
 
 #{$block} {
     padding: 12px;
+    position: relative;
 
     &__head {
         margin-bottom: 10px;
         display: flex;
         align-items: center;
         justify-content: space-between;
-    }
-
-    &__item {
-        padding: 8px;
-        margin-bottom: 8px;
-
-        &_selected {
-            border: 1.5px var(--g-color-line-brand) solid;
-        }
-
-        &:last-child {
-            margin-bottom: 0;
-        }
-    }
-
-    &__main {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-
-        &:hover {
-            #{$block}__buttons {
-                display: flex;
-            }
-        }
-    }
-
-    &__text {
-        flex: 1 1 auto;
-        min-width: 1px;
-    }
-
-    &__buttons {
-        flex: 0 0 auto;
-        flex-direction: row;
-        gap: 4px;
-        display: none;
-    }
-
-    &__type {
-        color: var(--g-color-text-dark-secondary);
-    }
-
-    &__title {
-        @include overflow-ellipsis();
-    }
-
-    &__children {
-        margin-top: 8px;
     }
 }
