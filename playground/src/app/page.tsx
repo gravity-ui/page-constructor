@@ -6,6 +6,7 @@ import * as React from 'react';
 import {Editor} from '../../../editor-v2';
 import Source from '../../../editor-v2/containers/Source/Source';
 import ViewSwitches from '../../../editor-v2/containers/ViewSwitches/ViewSwitches';
+import C9RComponent from './components/C9RComponent';
 
 import './page.scss';
 
@@ -15,6 +16,7 @@ const Test = () => <div className={b('test')}>custom test</div>;
 
 export const COMPONENTS_CONFIG = {
     middleTop: Test,
+    leftTop: [C9RComponent],
     leftTabs: [
         {
             id: 'test',

@@ -59,7 +59,7 @@ const EditorView = ({componentsConfig = {}}: EditorViewProps) => {
         <div className={b()} onMouseUp={onMouseUp}>
             <div className={b('body')}>
                 <Panels
-                    left={<Sidebar tabs={left} />}
+                    left={<Sidebar tabs={left} top={componentsConfig.leftTop} />}
                     right={
                         <Sidebar
                             tabs={right}
