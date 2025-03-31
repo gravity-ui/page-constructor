@@ -1,0 +1,24 @@
+@import '../../styles/root.scss';
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+$block: '.#{$ns}tree-content';
+
+#{$block} {
+    position: relative;
+
+    &__drop-zone {
+        height: 8px;
+        margin-bottom: 8px;
+        border-radius: 4px;
+        transition: background-color 0.2s;
+
+        &:hover {
+            background-color: var(--g-color-text-light-secondary);
+        }
+    }
+
+    &__children {
+        margin-top: 8px;
+    }
+}
