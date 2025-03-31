@@ -1,0 +1,30 @@
+$block: '.c9r-component';
+
+#{$block} {
+    width: 100%;
+    padding: 16px 12px;
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    &__title {
+        font-size: 30px;
+        line-height: 28px;
+        font-weight: 900;
+    }
+
+    &__info-bar {
+        margin-top: 16px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__editor-info {
+        font-size: 14px;
+        color: var(--g-color-private-black-300);
+    }
+}
