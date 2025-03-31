@@ -28,6 +28,7 @@ interface ItemProps {
     selected: boolean;
     onCopy(path: number[]): void;
     onDelete(path: number[]): void;
+    onSelect(path: number[]): void;
 }
 
 const generateTree = (items: TreeItem[]): TreeItem[] => {
@@ -54,6 +55,7 @@ const Item = ({
     selected,
     onCopy,
     onDelete,
+    onSelect,
 }: React.PropsWithChildren<ItemProps>) => {
     const handleCopy = React.useCallback(() => {
         onCopy(path);
@@ -63,12 +65,16 @@ const Item = ({
         onDelete(path);
     }, [onDelete, path]);
 
+    const handleSelect = React.useCallback(
+        (e: React.MouseEvent<HTMLDivElement>) => {
+            e.stopPropagation();
+            onSelect(path);
+        },
+        [onSelect, path],
+    );
+
     return (
-        <Card
-            className={b('item', {
-                selected,
-            })}
-        >
+        <Card className={b('item')} selected={selected} onClick={handleSelect} type="selection">
             <div className={b('main')}>
                 <div className={b('text')}>
                     <div className={b('type')}>{type}</div>
@@ -89,7 +95,8 @@ const Item = ({
 };
 
 const Tree = (_p: React.PropsWithChildren<TreeProps>) => {
-    const {content, resetBlocks, selectedBlock, duplicateBlock, deleteBlock} = useMainEditorStore();
+    const {content, resetBlocks, selectedBlock, duplicateBlock, deleteBlock, setSelectedBlock} =
+        useMainEditorStore();
 
     const selectedBlockPath = React.useMemo(() => {
         return generateChildrenPathFromArray(selectedBlock || []);
@@ -113,6 +120,7 @@ const Tree = (_p: React.PropsWithChildren<TreeProps>) => {
                     treeTitle={treeTitle}
                     onCopy={duplicateBlock}
                     onDelete={deleteBlock}
+                    onSelect={setSelectedBlock}
                     key={index}
                     path={blockPathArray}
                     selected={selectedBlockPath === blockPath}
