@@ -96,7 +96,9 @@ $block: '.#{$ns}table';
     }
 
     &__legent-item-text {
-        margin-left: 6px;
+        @include add-specificity(&) {
+            margin-left: 6px;
+        }
     }
 
     @media (max-width: map-get($gridBreakpoints, 'sm')) {

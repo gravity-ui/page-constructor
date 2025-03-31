@@ -3,7 +3,7 @@ import * as React from 'react';
 import {Check, Minus} from '@gravity-ui/icons';
 import {Icon} from '@gravity-ui/uikit';
 
-import {HTML, YFMWrapper} from '../';
+import {YFMWrapper} from '../';
 import {ClassNameProps, Justify, LegendTableMarkerType, TableProps} from '../../models';
 import {block} from '../../utils';
 
@@ -47,7 +47,13 @@ export default class Table extends React.Component<TableProps & ClassNameProps> 
                                 {legend && i && j ? (
                                     this.renderMarker(marker, cell)
                                 ) : (
-                                    <HTML>{cell}</HTML>
+                                    <YFMWrapper
+                                        tagName="span"
+                                        content={cell}
+                                        modifiers={{
+                                            constructor: true,
+                                        }}
+                                    />
                                 )}
                             </div>
                         ))}
@@ -81,7 +87,7 @@ export default class Table extends React.Component<TableProps & ClassNameProps> 
                     <div key={item} className={b('legend-item')}>
                         {this.renderMarker(marker, String(index))}
                         <YFMWrapper
-                            className={b('legent-item-text')}
+                            contentClassName={b('legent-item-text')}
                             content={item}
                             modifiers={{constructor: true}}
                             id={getMarkerId(index)}
