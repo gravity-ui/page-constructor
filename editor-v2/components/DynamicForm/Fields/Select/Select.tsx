@@ -4,7 +4,9 @@ import {SelectMultipleInput, SelectSingleInput} from '../../../../../common/type
 import {editorCn} from '../../../../utils/cn';
 import FieldBase, {FieldBaseParams} from '../../FieldBase/FieldBase';
 
-const b = editorCn('select-field');
+import './Select.scss';
+
+const b = editorCn('editor-select-field');
 
 type SelectInput = SelectSingleInput | SelectMultipleInput;
 
@@ -26,6 +28,7 @@ const SelectDynamicField = ({input, value, onUpdate, className}: SelectDynamicFi
                     value={value ? [value] : []}
                     onUpdate={([selectValue]) => onUpdate(selectValue)}
                     options={input.enum}
+                    className={b('select')}
                 />
             )}
             {inputView === 'radiobutton' && (
