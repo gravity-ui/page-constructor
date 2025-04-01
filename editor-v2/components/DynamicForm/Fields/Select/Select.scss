@@ -1,13 +1,9 @@
 @import '../../../../styles/variables.scss';
 @import '../../../../styles/mixins.scss';
 
-$block: '.#{$ns}oneof-dynamic-field';
+$block: '.#{$ns}editor-select-field';
 
 #{$block} {
-    &__radio {
-        margin-bottom: 12px;
-    }
-
     &__select {
         min-width: 80px;
     }

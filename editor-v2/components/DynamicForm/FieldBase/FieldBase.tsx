@@ -1,5 +1,4 @@
-import {ArrowRotateLeft} from '@gravity-ui/icons';
-import {ArrowToggle, Button, Icon} from '@gravity-ui/uikit';
+import {ArrowToggle} from '@gravity-ui/uikit';
 import _ from 'lodash';
 import * as React from 'react';
 
@@ -23,9 +22,8 @@ export interface FieldBaseProps extends React.PropsWithChildren, FieldBaseParams
 const FieldBase: React.FC<FieldBaseProps> = ({
     className,
     title,
-    textSize,
+    textSize = 's',
     children,
-    onRefresh,
     expandable = false,
 }) => {
     const [showChildren, setShowChildren] = React.useState(!expandable);
@@ -40,11 +38,11 @@ const FieldBase: React.FC<FieldBaseProps> = ({
                 return (
                     // eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions
                     <div className={b('foldable')} onClick={() => setShowChildren(!showChildren)}>
+                        {defaultTitle}
                         <ArrowToggle
                             direction={showChildren ? 'bottom' : 'right'}
                             className={b('arrow-toggle')}
                         />
-                        {defaultTitle}
                     </div>
                 );
             }
@@ -56,22 +54,8 @@ const FieldBase: React.FC<FieldBaseProps> = ({
     }, [expandable, showChildren, textSize, title]);
 
     return (
-        <div className={b(null, className)}>
-            {title && (
-                <div className={b('top')}>
-                    {titleComponent}
-                    {onRefresh && (
-                        <Button
-                            className={b('button')}
-                            onClick={() => onRefresh(undefined)}
-                            view={'flat'}
-                            size={'xs'}
-                        >
-                            <Icon data={ArrowRotateLeft} size={14} />
-                        </Button>
-                    )}
-                </div>
-            )}
+        <div className={b({expandable}, className)}>
+            {title && <div className={b('top')}>{titleComponent}</div>}
             {(!title || showChildren) && <div className={b('children')}>{children}</div>}
         </div>
     );
