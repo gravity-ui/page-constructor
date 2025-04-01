@@ -6,8 +6,14 @@ $block: '.#{$ns}field-base';
 
 #{$block} {
     $class: &;
+    padding: 16px 12px;
+    border-bottom: 1px solid var(--g-color-line-generic);
 
     position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 8px;
 
     &:hover {
         & > #{$class}__top > #{$class}__button {
@@ -15,16 +21,36 @@ $block: '.#{$ns}field-base';
         }
     }
 
+    &_expandable {
+        flex-direction: column;
+        gap: 16px;
+
+        & > #{$block}__top {
+            width: 100%;
+            flex-basis: initial;
+        }
+        & > #{$block}__children {
+            width: 100%;
+        }
+    }
+
     &__top {
         display: flex;
         align-items: center;
         gap: 4px;
-        margin-bottom: 8px;
+        flex: 0 0 64px;
+        word-break: break-all;
+    }
+
+    &__children {
+        flex: 2 1 auto;
     }
 
     &__foldable {
+        width: 100%;
         display: flex;
         align-items: center;
+        justify-content: space-between;
         cursor: pointer;
     }
 
@@ -43,28 +69,24 @@ $block: '.#{$ns}field-base';
 
     &__title {
         @include text-body-2;
+        margin: 5px 0;
 
         &_size {
             &_s {
                 @include text-body-1;
             }
+
             &_m {
                 @include text-body-2;
             }
+
             &_l {
                 @include text-body-3;
             }
         }
     }
 
-    margin-top: 20px;
-
-    &:first-child {
-        margin-top: 0;
-    }
-
-    &__arrow-toggle {
-        //position: absolute;
-        //right: calc(100%);
+    &:last-child {
+        border-bottom: none;
     }
 }
