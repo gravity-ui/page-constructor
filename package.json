@@ -101,7 +101,6 @@
     "@gravity-ui/dynamic-forms": "^5.0.0",
     "@gravity-ui/i18n": "^1.7.0",
     "@react-spring/web": "^9.7.3",
-    "@storybook/test": "^8.6.11",
     "ajv": "^8.12.0",
     "ajv-keywords": "^5.1.0",
     "final-form": "^4.20.9",
