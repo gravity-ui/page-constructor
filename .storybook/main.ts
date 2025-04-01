@@ -34,7 +34,6 @@ const config = {
         './addons/theme-addon/register.tsx',
         '@storybook/addon-mdx-gfm',
         '@storybook/addon-webpack5-compiler-babel',
-        '@chromatic-com/storybook',
     ],
 
     webpackFinal: (storybookBaseConfig: any) => {
