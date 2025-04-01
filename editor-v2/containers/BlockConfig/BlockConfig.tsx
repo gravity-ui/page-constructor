@@ -37,11 +37,13 @@ const BlockConfig = ({className}: BlockConfigProps) => {
     return (
         <div className={b(null, className)}>
             <div className={b('title')}>{currentSchema.schema.name}</div>
-            <DynamicForm
-                contentConfig={currentConfig}
-                blockConfig={currentSchema.schema.inputs}
-                onUpdate={onUpdate}
-            />
+            <div className={b('form')}>
+                <DynamicForm
+                    contentConfig={currentConfig}
+                    blockConfig={currentSchema.schema.inputs}
+                    onUpdate={onUpdate}
+                />
+            </div>
         </div>
     );
 };
