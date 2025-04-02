@@ -54,9 +54,8 @@ const Overlay = ({className}: OverlayProps) => {
         }
     });
 
-    usePostMessageAPIListener('ON_CLICK_BLOCK', ({rect, path}) => {
+    usePostMessageAPIListener('ON_CLICK_BLOCK', ({path}) => {
         setSelectedBlock(path);
-        setBlockBorders(rect || null);
     });
 
     usePostMessageAPIListener('ON_RESIZE_BLOCK', ({rect}) => {
