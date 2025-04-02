@@ -11,6 +11,7 @@ export type EventMessageTypes = {
     ON_HOVER_BLOCK: {rect?: DOMRect; position?: string};
     ON_CLICK_BLOCK: {path: number[]; rect: DOMRect};
     ON_RESIZE_BLOCK: {rect: DOMRect};
+    ON_UPDATE_SELECTED_BLOCK: {path: number[]; rect: DOMRect};
     ON_SUPPORTED_BLOCKS: Pick<EditorState, 'blocks' | 'subBlocks' | 'global'>;
     ON_INITIAL_CONTENT: PageContentWithNavigation;
 };
@@ -18,4 +19,5 @@ export type EventMessageTypes = {
 export type ActionMessageTypes = {
     GET_SUPPORTED_BLOCKS: {};
     GET_INITIAL_CONTENT: {};
+    UPDATE_SELECTED_BLOCK: {path: number[]};
 };
