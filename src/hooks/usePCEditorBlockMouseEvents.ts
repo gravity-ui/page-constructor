@@ -51,10 +51,7 @@ const usePCEditorBlockMouseEvents = (arrayIndex: number[], element?: HTMLElement
         (e: React.MouseEvent) => {
             e.stopPropagation();
             if (element) {
-                const rect = element.getClientRects().item(0);
-                if (rect) {
-                    sendEventPostMessage('ON_CLICK_BLOCK', {rect, path: arrayIndex});
-                }
+                sendEventPostMessage('ON_CLICK_BLOCK', {path: arrayIndex});
             }
         },
         [arrayIndex, element],

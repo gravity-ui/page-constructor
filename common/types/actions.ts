@@ -9,7 +9,7 @@ export type EventMessageTypes = {
     ON_MOUSE_UP: {path?: number[]; rect?: DOMRect; position?: string};
     ON_MOUSE_MOVE: {x: number; y: number};
     ON_HOVER_BLOCK: {rect?: DOMRect; position?: string};
-    ON_CLICK_BLOCK: {path: number[]; rect: DOMRect};
+    ON_CLICK_BLOCK: {path: number[]};
     ON_RESIZE_BLOCK: {rect: DOMRect};
     ON_UPDATE_SELECTED_BLOCK: {path: number[]; rect: DOMRect};
     ON_SUPPORTED_BLOCKS: Pick<EditorState, 'blocks' | 'subBlocks' | 'global'>;
