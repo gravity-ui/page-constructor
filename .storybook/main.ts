@@ -17,8 +17,10 @@ const config = {
     docs: {
         autodocs: true,
     },
+
     stories: ['./stories/**/*.mdx', '../src/**/__stories__/*.mdx', '../src/**/*.stories.@(ts|tsx)'],
     staticDirs: ['./public'],
+
     addons: [
         '@storybook/preset-scss',
         {
@@ -33,6 +35,7 @@ const config = {
         '@storybook/addon-mdx-gfm',
         '@storybook/addon-webpack5-compiler-babel',
     ],
+
     webpackFinal: (storybookBaseConfig: any) => {
         storybookBaseConfig.plugins.push(
             new MonacoWebpackPlugin(),
@@ -64,6 +67,10 @@ const config = {
         }
 
         return storybookBaseConfig;
+    },
+
+    typescript: {
+        reactDocgen: 'react-docgen-typescript',
     },
 };
 
