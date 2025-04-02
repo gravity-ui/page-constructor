@@ -4,6 +4,7 @@ import * as React from 'react';
 
 import {usePostMessageAPIListener} from '../../../common/postMessage';
 import {useMainEditorStore} from '../../hooks/useMainEditorStore';
+import {usePostMessageEvents} from '../../hooks/usePostMessageEvents';
 import {editorCn} from '../../utils/cn';
 
 import './Overlay.scss';
@@ -22,6 +23,7 @@ interface InsertLineProps {
 }
 
 const Overlay = ({className}: OverlayProps) => {
+    const {requestPostMessage} = usePostMessageEvents();
     const {
         height,
         selectedBlock,
@@ -61,13 +63,33 @@ const Overlay = ({className}: OverlayProps) => {
         setBlockBorders(rect || null);
     });
 
+    usePostMessageAPIListener(
+        'ON_UPDATE_SELECTED_BLOCK',
+        ({rect, path}) => {
+            if (selectedBlock && JSON.stringify(selectedBlock) === JSON.stringify(path)) {
+                setBlockBorders(rect || null);
+            }
+        },
+        [selectedBlock],
+    );
+
+    // Update blockBorders when selectedBlock changes
+    React.useEffect(() => {
+        if (!selectedBlock) {
+            setBlockBorders(null);
+        } else {
+            // If a block is selected, trigger the UPDATE_SELECTED_BLOCK action to update blockBorders
+            requestPostMessage('UPDATE_SELECTED_BLOCK', {path: selectedBlock});
+        }
+    }, [selectedBlock]);
+
     const handleMoveUp = () => {
         if (!selectedBlock) return;
         const destination = [...selectedBlock];
         destination[destination.length - 1] = destination[destination.length - 1] - 1;
         reorderBlock(selectedBlock, destination, 'prepend');
         setSelectedBlock(undefined);
-        setBlockBorders(null);
+        // blockBorders will be set to null by the useEffect hook
     };
 
     const handleMoveDown = () => {
@@ -76,7 +98,7 @@ const Overlay = ({className}: OverlayProps) => {
         destination[destination.length - 1] = destination[destination.length - 1] + 1;
         reorderBlock(selectedBlock, destination, 'append');
         setSelectedBlock(undefined);
-        setBlockBorders(null);
+        // blockBorders will be set to null by the useEffect hook
     };
 
     return (
