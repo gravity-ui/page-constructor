@@ -5,7 +5,7 @@ import _ from 'lodash';
 import {getCursorPositionOverElement} from '../utils/editor';
 
 import {usePCEditorStore} from './usePCEditorStore';
-import {sendEventPostMessage} from './usePostMessageAPI';
+import {sendEventPostMessage, useInternalPostMessageAPIListener} from './usePostMessageAPI';
 
 const usePCEditorBlockMouseEvents = (arrayIndex: number[], element?: HTMLElement) => {
     const {selectedBlock} = usePCEditorStore();
@@ -76,6 +76,24 @@ const usePCEditorBlockMouseEvents = (arrayIndex: number[], element?: HTMLElement
             window.removeEventListener('resize', onResize);
         };
     }, [element, onResize]);
+
+    // Listen for the UPDATE_SELECTED_BLOCK action and handle it directly
+    const handleUpdateSelectedBlock = React.useCallback(
+        (data: {path?: number[]}) => {
+            if (data && data.path && Array.isArray(data.path) && _.isEqual(data.path, arrayIndex)) {
+                // Only proceed if the path matches arrayIndex
+                if (element) {
+                    const rect = element.getClientRects().item(0);
+                    if (rect) {
+                        sendEventPostMessage('ON_UPDATE_SELECTED_BLOCK', {rect, path: arrayIndex});
+                    }
+                }
+            }
+        },
+        [arrayIndex, element],
+    );
+
+    useInternalPostMessageAPIListener('UPDATE_SELECTED_BLOCK', handleUpdateSelectedBlock);
 
     return {
         onClick,
