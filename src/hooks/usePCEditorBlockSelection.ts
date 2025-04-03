@@ -14,7 +14,7 @@ const usePCEditorBlockSelection = (arrayIndex: number[], element?: HTMLElement) 
                 sendEventPostMessage('ON_UPDATE_BLOCK_SELECTION', {rect});
             }
         }
-    }, [JSON.stringify(arrayIndex), element, JSON.stringify(selectedBlock)]);
+    }, [arrayIndex, element, selectedBlock]);
 
     React.useEffect(() => {
         window.addEventListener('resize', onResize);
@@ -24,6 +24,7 @@ const usePCEditorBlockSelection = (arrayIndex: number[], element?: HTMLElement) 
         };
     }, [element, onResize]);
 
+    // Update blockBorders when selectedBlock changes
     React.useEffect(() => {
         onResize();
     }, [onResize]);

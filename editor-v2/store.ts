@@ -19,7 +19,7 @@ import {
 
 export interface EditorMethods {
     initialize(): void;
-    setSelectedBlock(path?: number[]): void;
+    setSelectedBlock(path: number[] | null): void;
     setHeight(height: number): void;
     setDeviceWidth(deviceWidth: string): void;
     setZoom(zoom: number): void;
@@ -108,10 +108,8 @@ export const createEditorStore = initializeStore<EditorState, EditorMethods>(
             set((state) => ({
                 ...state,
                 content: {...state.content, blocks: newBlocksConfig},
+                selectedBlock: arrayPath,
             }));
-
-            // Set the inserted block as selected
-            get().setSelectedBlock(arrayPath);
         },
         enableInsertMode(blockType: string) {
             set((state) => ({
@@ -166,10 +164,10 @@ export const createEditorStore = initializeStore<EditorState, EditorMethods>(
             const blocksConfig = get().content.blocks;
 
             const newBlocksConfig = modifyObjectByPath(blocksConfig, arrayPath, removeFromArray);
-
             set((state) => ({
                 ...state,
                 content: {...state.content, blocks: newBlocksConfig},
+                selectedBlock: null,
             }));
         },
         duplicateBlock: (arrayPath) => {
@@ -234,9 +232,8 @@ export const createEditorStore = initializeStore<EditorState, EditorMethods>(
             set((state) => ({
                 ...state,
                 content: {...state.content, blocks: newBlocksConfig},
+                selectedBlock: finalDestinationPath,
             }));
-
-            get().setSelectedBlock(finalDestinationPath);
         },
         resetInitialize: () => {
             set((state) => ({
