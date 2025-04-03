@@ -65,7 +65,6 @@ const Overlay = ({className, canvasElement}: OverlayProps) => {
         const destination = [...selectedBlock];
         destination[destination.length - 1] = destination[destination.length - 1] - 1;
         reorderBlock(selectedBlock, destination, 'prepend');
-        setSelectedBlock(undefined);
     };
 
     const handleMoveDown = () => {
@@ -73,7 +72,6 @@ const Overlay = ({className, canvasElement}: OverlayProps) => {
         const destination = [...selectedBlock];
         destination[destination.length - 1] = destination[destination.length - 1] + 1;
         reorderBlock(selectedBlock, destination, 'append');
-        setSelectedBlock(undefined);
     };
 
     return (
