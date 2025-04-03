@@ -109,6 +109,9 @@ export const createEditorStore = initializeStore<EditorState, EditorMethods>(
                 ...state,
                 content: {...state.content, blocks: newBlocksConfig},
             }));
+
+            // Set the inserted block as selected
+            get().setSelectedBlock(arrayPath);
         },
         enableInsertMode(blockType: string) {
             set((state) => ({
@@ -180,6 +183,9 @@ export const createEditorStore = initializeStore<EditorState, EditorMethods>(
             }));
         },
         reorderBlock: (arrayPath, destination, position = 'append') => {
+            // Create a copy of the destination array before any modifications
+            let finalDestinationPath: number[] = _.cloneDeep(destination);
+
             if (position === 'append') {
                 // TODO: fix
                 // eslint-disable-next-line no-not-accumulator-reassign/no-not-accumulator-reassign, no-param-reassign
@@ -199,8 +205,17 @@ export const createEditorStore = initializeStore<EditorState, EditorMethods>(
                         destination[destination.length - 1],
                     );
                 });
+
+                if (
+                    position === 'append' &&
+                    destination[destination.length - 1] < arrayPath[arrayPath.length - 1]
+                ) {
+                    finalDestinationPath[finalDestinationPath.length - 1] =
+                        finalDestinationPath[finalDestinationPath.length - 1] + 1;
+                }
             } else {
                 const arrayDest = getDestinationShiftBeforeReorder(arrayPath, destination);
+                finalDestinationPath = _.cloneDeep(arrayDest);
 
                 // Delete
                 const blocksConfigWithoutBlock = modifyObjectByPath(
@@ -220,6 +235,8 @@ export const createEditorStore = initializeStore<EditorState, EditorMethods>(
                 ...state,
                 content: {...state.content, blocks: newBlocksConfig},
             }));
+
+            get().setSelectedBlock(finalDestinationPath);
         },
         resetInitialize: () => {
             set((state) => ({
