@@ -13,7 +13,6 @@ const useMainEditorInitialize = () => {
         disableMode,
         insertBlock,
         reorderBlock,
-        setSelectedBlock,
         preInsertBlockType,
         preReorderBlockPath,
     } = useMainEditorStore();
@@ -52,7 +51,6 @@ const useMainEditorInitialize = () => {
                     path,
                     ['left', 'top'].includes(position) ? 'prepend' : 'append',
                 );
-                setSelectedBlock(path);
             }
             disableMode();
         },
