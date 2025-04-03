@@ -4,7 +4,6 @@ import * as React from 'react';
 
 import {usePostMessageAPIListener} from '../../../common/postMessage';
 import {useMainEditorStore} from '../../hooks/useMainEditorStore';
-import {useSelectedBlockBorders} from '../../hooks/useSelectedBlockBorders';
 import {editorCn} from '../../utils/cn';
 
 import './Overlay.scss';
@@ -37,9 +36,34 @@ const Overlay = ({className, canvasElement}: OverlayProps) => {
         undefined,
     );
     const [hoverBorders, setHoverBorders] = React.useState<DOMRect | null>(null);
+    const [blockBorders, setBlockBorders] = React.useState<DOMRect | null>(null);
 
-    // Use the hook to get blockBorders and handle auto-scrolling
-    const blockBorders = useSelectedBlockBorders(selectedBlock, canvasElement);
+    // Listen for updates to the selected block's position
+    usePostMessageAPIListener('ON_UPDATE_BLOCK_SELECTION', ({rect}) => {
+        setBlockBorders(rect || null);
+    });
+
+    // Update blockBorders when selectedBlock changes
+    React.useEffect(() => {
+        if (!selectedBlock) {
+            setBlockBorders(null);
+        }
+    }, [selectedBlock]);
+
+    // Auto scroll to the selected block when blockBorders changes
+    React.useEffect(() => {
+        if (blockBorders && canvasElement) {
+            // Calculate the scroll position to center the block in the viewport
+            const canvasHeight = canvasElement.clientHeight;
+            const scrollPosition = blockBorders.top - canvasHeight / 2 + blockBorders.height / 2;
+
+            // Scroll the canvas element to the calculated position with smooth behavior
+            canvasElement.scrollTo({
+                top: Math.max(0, scrollPosition),
+                behavior: 'smooth',
+            });
+        }
+    }, [blockBorders, canvasElement]);
 
     const margin = 0;
 
