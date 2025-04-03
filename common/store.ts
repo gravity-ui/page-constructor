@@ -11,7 +11,7 @@ export interface EditorState {
     zoom: number;
 
     manipulateOverlayMode: 'insert' | 'reorder' | false;
-    selectedBlock?: number[];
+    selectedBlock: number[] | null;
     initialized: boolean;
 
     content: PageContentWithNavigation;
@@ -28,7 +28,7 @@ export const initialStore: EditorState = {
     deviceWidth: '100%',
     zoom: 100,
     manipulateOverlayMode: false,
-    selectedBlock: undefined,
+    selectedBlock: null,
     initialized: false,
     content: {blocks: []},
     blocks: [],
