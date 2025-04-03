@@ -19,6 +19,7 @@ interface MiddleScreenProps {
 const MiddleScreen = ({className, CustomTop}: MiddleScreenProps) => {
     const {zoom, initialized, deviceWidth} = useMainEditorStore();
     const {url, setIframeElement} = React.useContext(IframeContext);
+    const [canvasRef, setCanvasRef] = React.useState<HTMLDivElement | null>(null);
     const [height, setHeight] = React.useState(0);
 
     const onResize = React.useCallback(
@@ -46,6 +47,7 @@ const MiddleScreen = ({className, CustomTop}: MiddleScreenProps) => {
             <div className={b('content')}>
                 <div className={b('wrapper')} style={{width: deviceWidth}}>
                     <div
+                        ref={setCanvasRef}
                         className={b('canvas', {hidden: !initialized})}
                         style={{
                             transform: `scale(${zoom}%)`,
@@ -62,7 +64,7 @@ const MiddleScreen = ({className, CustomTop}: MiddleScreenProps) => {
                             frameBorder="0"
                             title="Page Constructor Iframe"
                         />
-                        <Overlay className={b('overlay')} />
+                        <Overlay className={b('overlay')} canvasElement={canvasRef} />
                         {!initialized && (
                             <div className={b('loading')}>
                                 <Loader size={'l'} />
