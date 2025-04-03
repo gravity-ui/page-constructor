@@ -7,7 +7,7 @@
   "default": {
     "content": {
       "text": "Button",
-      "img": "/icon.svg",
+      "img": "story-assets/icon.svg",
       "urlTitle": "Some button title"
     }
   }
