@@ -4,12 +4,9 @@ import _ from 'lodash';
 
 import {getCursorPositionOverElement} from '../utils/editor';
 
-import {usePCEditorStore} from './usePCEditorStore';
-import {sendEventPostMessage, useInternalPostMessageAPIListener} from './usePostMessageAPI';
+import {sendEventPostMessage} from './usePostMessageAPI';
 
 const usePCEditorBlockMouseEvents = (arrayIndex: number[], element?: HTMLElement) => {
-    const {selectedBlock} = usePCEditorStore();
-
     const onMouseUp = React.useCallback(
         (e: React.MouseEvent) => {
             e.stopPropagation();
@@ -56,41 +53,6 @@ const usePCEditorBlockMouseEvents = (arrayIndex: number[], element?: HTMLElement
         },
         [arrayIndex, element],
     );
-
-    const onResize = React.useCallback(() => {
-        if (element && _.isEqual(selectedBlock, arrayIndex)) {
-            const rect = element.getClientRects().item(0);
-            if (rect) {
-                sendEventPostMessage('ON_RESIZE_BLOCK', {rect});
-            }
-        }
-    }, [arrayIndex, element, selectedBlock]);
-
-    React.useEffect(() => {
-        window.addEventListener('resize', onResize);
-
-        return () => {
-            window.removeEventListener('resize', onResize);
-        };
-    }, [element, onResize]);
-
-    // Listen for the UPDATE_SELECTED_BLOCK action and handle it directly
-    const handleUpdateSelectedBlock = React.useCallback(
-        (data: {path?: number[]}) => {
-            if (data && data.path && Array.isArray(data.path) && _.isEqual(data.path, arrayIndex)) {
-                // Only proceed if the path matches arrayIndex
-                if (element) {
-                    const rect = element.getClientRects().item(0);
-                    if (rect) {
-                        sendEventPostMessage('ON_UPDATE_SELECTED_BLOCK', {rect, path: arrayIndex});
-                    }
-                }
-            }
-        },
-        [arrayIndex, element],
-    );
-
-    useInternalPostMessageAPIListener('UPDATE_SELECTED_BLOCK', handleUpdateSelectedBlock);
 
     return {
         onClick,
