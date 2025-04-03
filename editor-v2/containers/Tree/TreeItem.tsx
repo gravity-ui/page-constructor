@@ -40,6 +40,17 @@ export const Item = ({
     const [isDragging, setIsDragging] = React.useState(false);
     const [isDragOver, setIsDragOver] = React.useState(false);
     const [mouseDownPos, setMouseDownPos] = React.useState<{x: number; y: number} | null>(null);
+    const itemRef = React.useRef<HTMLDivElement>(null);
+
+    // Scroll into view when selected
+    React.useEffect(() => {
+        if (selected && itemRef.current) {
+            itemRef.current.scrollIntoView({
+                behavior: 'smooth',
+                block: 'nearest',
+            });
+        }
+    }, [selected]);
 
     const handleCopy = React.useCallback(() => {
         onCopy(path);
@@ -182,6 +193,7 @@ export const Item = ({
 
     return (
         <Card
+            ref={itemRef}
             className={b({
                 selected,
                 dragging: isDragging,

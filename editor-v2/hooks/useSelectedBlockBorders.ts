@@ -23,7 +23,6 @@ export const useSelectedBlockBorders = (
 
     // Update blockBorders when selectedBlock changes
     React.useEffect(() => {
-        console.log(321, selectedBlock);
         if (!selectedBlock) {
             setBlockBorders(null);
         } else {
@@ -47,8 +46,5 @@ export const useSelectedBlockBorders = (
         }
     }, [blockBorders, canvasElement]);
 
-    React.useEffect(() => {
-        console.log('blockBorders');
-    }, [blockBorders]);
     return blockBorders;
 };
