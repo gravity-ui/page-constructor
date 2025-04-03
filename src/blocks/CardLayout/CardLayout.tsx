@@ -2,7 +2,6 @@ import * as React from 'react';
 import isEmpty from 'lodash/isEmpty';
 
 import {AnimateBlock, BackgroundImage, Title} from '../../components';
-import ChildrenWrap from '../../components/editor/ChildrenWrap/ChildrenWrap';
 import ItemWrap from '../../components/editor/ItemWrap/ItemWrap';
 import {useTheme} from '../../context/theme';
 import {Col, Grid, GridColumnSizesType, Row} from '../../grid';
@@ -48,15 +47,13 @@ const CardLayout: React.FC<CardLayoutBlockProps> = ({
                 >
                     <BackgroundImage className={b('image', {border})} {...backgroundImageProps} />
 
-                    <ChildrenWrap>
-                        <Row>
-                            {React.Children.map(children, (child, index) => (
-                                <Col key={index} sizes={colSizes} className={b('item')}>
-                                    <ItemWrap index={index}>{child}</ItemWrap>
-                                </Col>
-                            ))}
-                        </Row>
-                    </ChildrenWrap>
+                    <Row>
+                        {React.Children.map(children, (child, index) => (
+                            <Col key={index} sizes={colSizes} className={b('item')}>
+                                <ItemWrap index={index}>{child}</ItemWrap>
+                            </Col>
+                        ))}
+                    </Row>
                 </div>
             </Grid>
         </AnimateBlock>
