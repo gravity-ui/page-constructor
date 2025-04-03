@@ -10,7 +10,6 @@ import Anchor from '../../components/Anchor/Anchor';
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
 import OutsideClick from '../../components/OutsideClick/OutsideClick';
 import Title from '../../components/Title/Title';
-import ChildrenWrap from '../../components/editor/ChildrenWrap/ChildrenWrap';
 import ItemWrap from '../../components/editor/ItemWrap/ItemWrap';
 import {BREAKPOINTS} from '../../constants';
 import {MobileContext} from '../../context/mobileContext';
@@ -428,20 +427,18 @@ export const SliderBlock = (props: React.PropsWithChildren<SliderProps>) => {
         };
 
         return (
-            <ChildrenWrap>
-                <OutsideClick onOutsideClick={isMobile ? unsetFocus : noop}>
-                    <SlickSlider {...settings}>
-                        {React.Children.map(disclosedChildren, (child, index) => (
-                            <ItemWrap index={index}>{child}</ItemWrap>
-                        ))}
-                    </SlickSlider>
+            <OutsideClick onOutsideClick={isMobile ? unsetFocus : noop}>
+                <SlickSlider {...settings}>
+                    {React.Children.map(disclosedChildren, (child, index) => (
+                        <ItemWrap index={index}>{child}</ItemWrap>
+                    ))}
+                </SlickSlider>
 
-                    <div className={b('footer')}>
-                        {renderDisclaimer()}
-                        {renderNavigation()}
-                    </div>
-                </OutsideClick>
-            </ChildrenWrap>
+                <div className={b('footer')}>
+                    {renderDisclaimer()}
+                    {renderNavigation()}
+                </div>
+            </OutsideClick>
         );
     };
 
