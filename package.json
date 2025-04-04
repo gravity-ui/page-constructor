@@ -1,6 +1,6 @@
 {
   "name": "@gravity-ui/page-constructor",
-  "version": "6.3.1",
+  "version": "6.3.2-alpha.0",
   "description": "Gravity UI Page Constructor",
   "license": "MIT",
   "type": "commonjs",
