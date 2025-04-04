@@ -46,13 +46,6 @@ const DEVICE_OPTIONS: DeviceOption[] = [
     },
 ];
 
-/**
- * ViewSwitches component
- *
- * Provides UI controls for:
- * 1. Switching between device viewport widths (desktop, tablet, mobile)
- * 2. Adjusting zoom level with increment/decrement buttons and dropdown
- */
 const ViewSwitches: React.FC = () => {
     const {zoom, setZoom, decreaseZoom, increaseZoom, deviceWidth, setDeviceWidth} =
         useMainEditorStore();

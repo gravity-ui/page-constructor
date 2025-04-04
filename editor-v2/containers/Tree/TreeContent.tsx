@@ -39,7 +39,7 @@ export const TreeContent = ({
     const {draggedItem, setDraggedItem, hidePreview, showPreview} = React.useContext(DragContext);
 
     const handleFirstPositionDrop = React.useCallback(
-        (e: any) => {
+        (e: React.DragEvent<HTMLDivElement>) => {
             e.preventDefault();
             e.stopPropagation();
 
@@ -56,6 +56,7 @@ export const TreeContent = ({
                     hidePreview();
                 }
             } catch (error) {
+                // eslint-disable-next-line no-console
                 console.error('Error parsing drag data:', error);
             }
         },
@@ -63,9 +64,10 @@ export const TreeContent = ({
     );
 
     const handleDragOver = React.useCallback(
-        (e: any) => {
+        (e: React.DragEvent<HTMLDivElement>) => {
             e.preventDefault();
             e.stopPropagation();
+            // eslint-disable-next-line no-not-accumulator-reassign/no-not-accumulator-reassign, no-param-reassign
             e.dataTransfer.dropEffect = 'move';
 
             // Show preview element at this position

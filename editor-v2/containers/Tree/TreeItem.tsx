@@ -60,12 +60,12 @@ export const Item = ({
         onDelete(path);
     }, [onDelete, path]);
 
-    const handleMouseDown = React.useCallback((e: any) => {
+    const handleMouseDown = React.useCallback((e: React.MouseEvent<HTMLDivElement>) => {
         setMouseDownPos({x: e.clientX, y: e.clientY});
     }, []);
 
     const handleMouseUp = React.useCallback(
-        (e: any) => {
+        (e: React.MouseEvent<HTMLDivElement>) => {
             if (mouseDownPos) {
                 // Check if the mouse has moved significantly (dragging) or just a click
                 const dx = Math.abs(e.clientX - mouseDownPos.x);
@@ -83,7 +83,7 @@ export const Item = ({
     );
 
     const handleDragStart = React.useCallback(
-        (e: any) => {
+        (e: React.DragEvent<HTMLDivElement>) => {
             e.stopPropagation();
             const dragData: DragItem = {
                 path,
@@ -91,6 +91,7 @@ export const Item = ({
                 treeTitle,
             };
             e.dataTransfer.setData('application/json', JSON.stringify(dragData));
+            // eslint-disable-next-line no-not-accumulator-reassign/no-not-accumulator-reassign, no-param-reassign
             e.dataTransfer.effectAllowed = 'move';
             setIsDragging(true);
 
@@ -109,13 +110,13 @@ export const Item = ({
     }, [setDraggedItem, hidePreview, path]);
 
     const handleDragOver = React.useCallback(
-        (e: any) => {
+        (e: React.DragEvent<HTMLDivElement>) => {
             e.preventDefault();
             e.stopPropagation();
+            // eslint-disable-next-line no-not-accumulator-reassign/no-not-accumulator-reassign, no-param-reassign
             e.dataTransfer.dropEffect = 'move';
             setIsDragOver(true);
 
-            // Show preview element at this position
             const rect = e.currentTarget.getBoundingClientRect();
             if (draggedItem) {
                 showPreview(rect, draggedItem);
@@ -130,7 +131,7 @@ export const Item = ({
     }, [hidePreview]);
 
     const handleDrop = React.useCallback(
-        (e: any) => {
+        (e: React.DragEvent<HTMLDivElement>) => {
             e.preventDefault();
             e.stopPropagation();
             setIsDragOver(false);
@@ -148,6 +149,7 @@ export const Item = ({
                     }
                 }
             } catch (error) {
+                // eslint-disable-next-line no-console
                 console.error('Error parsing drag data:', error);
             }
         },
@@ -155,7 +157,7 @@ export const Item = ({
     );
 
     const handleChildrenFirstPositionDrop = React.useCallback(
-        (e: any) => {
+        (e: React.DragEvent<HTMLDivElement>) => {
             e.preventDefault();
             e.stopPropagation();
 
@@ -173,15 +175,17 @@ export const Item = ({
                     hidePreview();
                 }
             } catch (error) {
+                // eslint-disable-next-line no-console
                 console.error('Error parsing drag data:', error);
             }
         },
         [onReorder, path, setDraggedItem, hidePreview],
     );
 
-    const handleDropZoneDragOver = (e: any) => {
+    const handleDropZoneDragOver = (e: React.DragEvent<HTMLDivElement>) => {
         e.preventDefault();
         e.stopPropagation();
+        // eslint-disable-next-line no-not-accumulator-reassign/no-not-accumulator-reassign, no-param-reassign
         e.dataTransfer.dropEffect = 'move';
 
         // Show preview element at this position
@@ -199,14 +203,14 @@ export const Item = ({
                 dragging: isDragging,
                 'drag-over': isDragOver,
             })}
-            onMouseDown={handleMouseDown}
-            onMouseUp={handleMouseUp}
+            onMouseDown={handleMouseDown as unknown as React.MouseEventHandler<'div'>}
+            onMouseUp={handleMouseUp as unknown as React.MouseEventHandler<'div'>}
             draggable
-            onDragStart={handleDragStart}
+            onDragStart={handleDragStart as unknown as React.DragEventHandler<'div'>}
             onDragEnd={handleDragEnd}
-            onDragOver={handleDragOver}
+            onDragOver={handleDragOver as unknown as React.DragEventHandler<'div'>}
             onDragLeave={handleDragLeave}
-            onDrop={handleDrop}
+            onDrop={handleDrop as unknown as React.DragEventHandler<'div'>}
         >
             <div className={b('main')}>
                 <div className={b('text')}>
