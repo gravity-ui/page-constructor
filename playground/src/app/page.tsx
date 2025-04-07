@@ -3,9 +3,9 @@ import {ThemeProvider} from '@gravity-ui/uikit';
 import block from 'bem-cn-lite';
 import * as React from 'react';
 
-import {Editor} from '../../../editor-v2';
-import Source from '../../../editor-v2/containers/Source/Source';
-import ViewSwitches from '../../../editor-v2/containers/ViewSwitches/ViewSwitches';
+import {Editor} from '../../../src/editor-v2';
+import Source from '../../../src/editor-v2/containers/Source/Source';
+import ViewSwitches from '../../../src/editor-v2/containers/ViewSwitches/ViewSwitches';
 import C9RComponent from './components/C9RComponent';
 
 import './page.scss';
