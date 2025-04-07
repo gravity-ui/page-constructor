@@ -2,8 +2,8 @@ import * as React from 'react';
 
 import {StoreApi} from 'zustand';
 
-import {EditorState, createPCEditorStore} from '../../../common/store';
-import {StoreSyncMessage} from '../../../common/types';
+import {EditorState, createPCEditorStore} from '../../common/store';
+import {StoreSyncMessage} from '../../common/types';
 
 import {PCEditorStoreContext} from './PCEditorStoreContext';
 

@@ -1,7 +1,7 @@
 import {Stop} from '@gravity-ui/icons';
 import * as React from 'react';
 
-import {usePostMessageAPIListener} from '../../../../common/postMessage';
+import {usePostMessageAPIListener} from '../../../common/postMessage';
 import {IframeContext} from '../../context/iframeContext';
 import {useMainEditorStore} from '../../hooks/useMainEditorStore';
 import {editorCn} from '../../utils/cn';

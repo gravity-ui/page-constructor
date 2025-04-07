@@ -1,9 +1,9 @@
 import * as React from 'react';
 import {StoreApi} from 'zustand';
 
-import {EditorState} from '../../../../common/store';
-import {StoreSyncMessage} from '../../../../common/types';
-import {removeFn} from '../../../../common/utils';
+import {EditorState} from '../../../common/store';
+import {StoreSyncMessage} from '../../../common/types';
+import {removeFn} from '../../../common/utils';
 import {EditorStore, createEditorStore} from '../../store';
 import {IframeContext} from '../iframeContext';
 

@@ -118,7 +118,6 @@
     "lodash": "^4.17.21",
     "monaco-editor": "^0.38.0",
     "react-final-form": "^6.5.9",
-    "react-json-view": "^1.21.3",
     "react-monaco-editor": "^0.53.0",
     "react-player": "^2.9.0",
     "react-resizable-panels": "^2.1.3",

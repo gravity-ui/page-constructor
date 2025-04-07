@@ -1,4 +1,4 @@
-import {BlockConfig, ConfigInput} from '../../../common/types';
+import {BlockConfig, ConfigInput} from '../../common/types';
 import {sliderSizesArray, textSize} from '../../schema/validators/common';
 
 const textSizeEnum = textSize.map((size) => ({value: size, content: size}));

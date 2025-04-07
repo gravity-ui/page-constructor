@@ -1,4 +1,4 @@
-import {PageContentWithNavigation} from '../../src/models';
+import {PageContentWithNavigation} from '../../models';
 
 export type DynamicFormValue =
     | string

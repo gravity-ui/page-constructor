@@ -2,7 +2,7 @@ import {Plus} from '@gravity-ui/icons';
 import {Button, Card, Icon} from '@gravity-ui/uikit';
 import * as React from 'react';
 
-import {ArrayObjectInput, ArrayTextInput, DynamicFormValue} from '../../../../../../common/types';
+import {ArrayObjectInput, ArrayTextInput, DynamicFormValue} from '../../../../../common/types';
 import {removeFromArray, swapArrayItems} from '../../../../utils';
 import {editorCn} from '../../../../utils/cn';
 import DynamicForm from '../../DynamicForm';

@@ -3,7 +3,6 @@ import * as React from 'react';
 import {PageContentWithNavigation} from '../../../models';
 import {Panels} from '../../components/Panels/Panels';
 import {Sidebar} from '../../components/Sidebar/Sidebar';
-import StoreViewer from '../../components/StoreViewer/StoreViewer';
 import BigOverlay from '../../containers/BigOverlay/BigOverlay';
 import MiddleScreen from '../../containers/MiddleScreen/MiddleScreen';
 import {MainEditorStoreProvider} from '../../context/editorStore';
@@ -71,7 +70,6 @@ const EditorView = ({componentsConfig = {}}: EditorViewProps) => {
                 />
             </div>
             <BigOverlay className={b('overlay')} />
-            <StoreViewer className={b('debug-store')} store={store} />
         </div>
     );
 };
