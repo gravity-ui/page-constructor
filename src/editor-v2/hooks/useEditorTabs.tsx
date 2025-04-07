@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import Tabs, {TabsItemProps} from '../components/Tabs/Tabs';
-import BlockConfig from '../containers/BlockConfig/BlockConfig';
+import BlockConfigForm from '../containers/BlockConfigForm/BlockConfigForm';
 import BlocksList from '../containers/BlocksList/BlocksList';
 import GlobalConfig from '../containers/GlobalConfig/GlobalConfig';
 import SourceCode from '../containers/SourceCode/SourceCode';
@@ -64,7 +64,7 @@ export const useEditorTabs = ({
                                 {
                                     id: 'block-config',
                                     title: 'INPUTS',
-                                    component: BlockConfig,
+                                    component: BlockConfigForm,
                                 },
                                 {
                                     id: 'source-code-yaml',
