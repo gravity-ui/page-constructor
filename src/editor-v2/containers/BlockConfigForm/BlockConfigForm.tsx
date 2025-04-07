@@ -6,15 +6,15 @@ import {useMainEditorStore} from '../../hooks/useMainEditorStore';
 import {generateChildrenPathFromArray} from '../../utils';
 import {editorCn} from '../../utils/cn';
 
-import './BlockConfig.scss';
+import './BlockConfigForm.scss';
 
-const b = editorCn('block-config');
+const b = editorCn('block-config-form');
 
-interface BlockConfigProps {
+interface BlockConfigFormProps {
     className?: string;
 }
 
-const BlockConfig = ({className}: BlockConfigProps) => {
+const BlockConfigForm = ({className}: BlockConfigFormProps) => {
     const {selectedBlock, content, blocks, subBlocks, updateField} = useMainEditorStore();
 
     const currentBlockPath = selectedBlock ? generateChildrenPathFromArray(selectedBlock) : '[]';
@@ -48,4 +48,4 @@ const BlockConfig = ({className}: BlockConfigProps) => {
     );
 };
 
-export default BlockConfig;
+export default BlockConfigForm;

@@ -1,7 +1,7 @@
 @import '../../styles/variables.scss';
 @import '../../styles/mixins.scss';
 
-$block: '.#{$ns}block-config';
+$block: '.#{$ns}block-config-form';
 
 #{$block} {
     &__title {
