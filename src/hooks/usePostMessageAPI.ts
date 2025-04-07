@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import {PostMessageAPIMessage} from '../../common/types';
-import {ActionMessageTypes, EventMessageTypes} from '../../common/types/actions';
+import {PostMessageAPIMessage} from '../common/types';
+import {ActionMessageTypes, EventMessageTypes} from '../common/types/actions';
 
 export function sendEventPostMessage<K extends keyof EventMessageTypes>(
     action: K,

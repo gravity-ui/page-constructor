@@ -14,7 +14,7 @@ const b = block('home');
 
 const Test = () => <div className={b('test')}>custom test</div>;
 
-export const COMPONENTS_CONFIG = {
+const COMPONENTS_CONFIG = {
     middleTop: Test,
     leftTop: [C9RComponent],
     leftTabs: [

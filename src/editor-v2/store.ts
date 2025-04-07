@@ -1,8 +1,8 @@
 import _ from 'lodash';
 
-import {EditorState, initialStore} from '../../common/store';
-import {DynamicFormValue} from '../../common/types';
-import {initializeStore} from '../../common/utils';
+import {EditorState, initialStore} from '../common/store';
+import {DynamicFormValue} from '../common/types';
+import {initializeStore} from '../common/utils';
 import {ConstructorBlock, PageContentWithNavigation} from '../models';
 
 import {ZOOM_STEPS} from './constants';

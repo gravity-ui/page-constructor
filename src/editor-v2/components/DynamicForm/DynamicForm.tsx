@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import * as React from 'react';
 
-import {ConfigInput, DynamicFormValue} from '../../../../common/types';
+import {ConfigInput, DynamicFormValue} from '../../../common/types';
 import {editorCn} from '../../utils/cn';
 
 import './DynamicForm.scss';
