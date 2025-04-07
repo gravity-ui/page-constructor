@@ -1,4 +1,3 @@
-@import '../../styles/root.scss';
 @import '../../styles/variables.scss';
 @import '../../styles/mixins.scss';
 
@@ -7,8 +6,8 @@ $block: '.#{$ns}preview';
 #{$block} {
     position: absolute;
     height: auto;
-    background-color: var(--g-color-base-brand-light);
-    border: 1px dashed var(--g-color-line-brand);
+    background-color: var(--g-color-text-hint);
+    border: 1px dashed var(--g-color-text-primary);
     border-radius: 4px;
     padding: 8px;
     z-index: 1000;
