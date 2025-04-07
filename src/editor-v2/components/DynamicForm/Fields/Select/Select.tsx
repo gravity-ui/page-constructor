@@ -1,6 +1,6 @@
 import {SegmentedRadioGroup, Select} from '@gravity-ui/uikit';
 
-import {SelectMultipleInput, SelectSingleInput} from '../../../../../../common/types';
+import {SelectMultipleInput, SelectSingleInput} from '../../../../../common/types';
 import {editorCn} from '../../../../utils/cn';
 import FieldBase, {FieldBaseParams} from '../../FieldBase/FieldBase';
 

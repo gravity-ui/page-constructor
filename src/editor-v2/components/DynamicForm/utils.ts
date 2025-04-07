@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-import {DynamicFormValue} from '../../../../common/types';
+import {DynamicFormValue} from '../../../common/types';
 
 export const getFullPath = (path: string, name: string) => {
     if (!path && !name) {

@@ -1,6 +1,6 @@
 import {JSONSchemaType} from 'ajv';
 
-import {ConfigInput} from '../../../common/types';
+import {ConfigInput} from '../../common/types';
 import {BlockData} from '../../constructor-items';
 import {sliderSizesArray, textSize} from '../../schema/validators/common';
 import {generateFromAJV} from '../../utils/form-generator';

@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-import {PageContentWithNavigation} from '../src/models';
+import {PageContentWithNavigation} from '../models';
 
 import {ConfigInput, ItemConfig} from './types';
 import {initializeStore} from './utils';

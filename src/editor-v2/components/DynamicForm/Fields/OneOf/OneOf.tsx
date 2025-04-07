@@ -1,7 +1,7 @@
 import {Card, SegmentedRadioGroup, Select} from '@gravity-ui/uikit';
 import * as React from 'react';
 
-import {DynamicFormValue, OneOfInput} from '../../../../../../common/types';
+import {DynamicFormValue, OneOfInput} from '../../../../../common/types';
 import {editorCn} from '../../../../utils/cn';
 import DynamicForm from '../../DynamicForm';
 import FieldBase from '../../FieldBase/FieldBase';
