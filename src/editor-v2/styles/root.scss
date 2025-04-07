@@ -1,12 +1,11 @@
 .g-root {
-    --g-color-base-brand: var(--g-color-private-black-550-solid);
-    --g-color-base-brand-hover: var(--g-color-private-black-600-solid);
+    --g-color-base-brand: var(--g-color-text-primary);
+    --g-color-base-brand-hover: var(--g-color-text-complementary);
     --g-color-base-selection: var(--g-color-private-black-200);
     --g-color-base-selection-hover: var(--g-color-private-black-300);
     --g-color-base-brand: var(--g-color-private-black-850-solid);
     --g-color-base-brand-hover: var(--g-color-private-black-700-solid);
     --g-color-text-brand-contrast: var(--g-color-text-light-primary);
-    --g-color-line-brand: var(--g-color-text-primary);
-    --g-color-text-brand: var(--g-color-private-brand-700-solid);
     --g-color-text-brand-heavy: var(--g-color-private-black-700-solid);
+    --g-color-line-brand: var(--g-color-text-primary);
 }
