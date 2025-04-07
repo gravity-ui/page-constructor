@@ -107,7 +107,7 @@ export const Item = ({
         // Reset drag context
         setDraggedItem(null);
         hidePreview();
-    }, [setDraggedItem, hidePreview, path]);
+    }, [setDraggedItem, hidePreview]);
 
     const handleDragOver = React.useCallback(
         (e: React.DragEvent<HTMLDivElement>) => {
