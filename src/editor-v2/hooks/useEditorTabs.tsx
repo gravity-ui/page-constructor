@@ -8,8 +8,8 @@ import SourceCode from '../containers/SourceCode/SourceCode';
 import Tree from '../containers/Tree';
 
 export const useEditorTabs = ({
-    leftTabs = [],
-    rightTabs = [],
+    leftTabs,
+    rightTabs,
 }: {
     leftTabs?: TabsItemProps[];
     rightTabs?: TabsItemProps[];
@@ -52,7 +52,7 @@ export const useEditorTabs = ({
                     title: 'NAVIGATION',
                     component: GlobalConfig,
                 },
-                ...leftTabs,
+                ...(leftTabs || []),
             ],
             right: [
                 {
@@ -80,10 +80,10 @@ export const useEditorTabs = ({
                         />
                     ),
                 },
-                ...rightTabs,
+                ...(rightTabs || []),
             ],
         }),
-        [],
+        [leftTabs, rightTabs],
     );
 
     return tabs;
