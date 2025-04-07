@@ -1,4 +1,3 @@
-@import '../../styles/root.scss';
 @import '../../styles/variables.scss';
 @import '../../styles/mixins.scss';
 
@@ -31,16 +30,16 @@ $block: '.#{$ns}blocks-list';
 
     &__name {
         justify-self: flex-end;
-        color: var(--g-color-text-dark-secondary);
+        color: var(--g-color-text-secondary);
     }
 
     &__title {
-        color: var(--g-color-text-dark-secondary);
+        color: var(--g-color-text-secondary);
         margin-bottom: 10px;
     }
 
     &__icon {
-        color: var(--g-color-text-dark-complementary);
+        color: var(--g-color-text-complementary);
     }
 
     &__group {
