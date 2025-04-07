@@ -4,8 +4,6 @@ import block from 'bem-cn-lite';
 import * as React from 'react';
 
 import {Editor} from '../../../src/editor-v2';
-import Source from '../../../src/editor-v2/containers/Source/Source';
-import ViewSwitches from '../../../src/editor-v2/containers/ViewSwitches/ViewSwitches';
 import C9RComponent from './components/C9RComponent';
 
 import './page.scss';
@@ -24,7 +22,6 @@ const COMPONENTS_CONFIG = {
             component: Test,
         },
     ],
-    rightTop: [Source, ViewSwitches],
 };
 
 export default function Home() {

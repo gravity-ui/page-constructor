@@ -11,6 +11,8 @@ import {useEditorTabs} from '../../hooks/useEditorTabs';
 import useMainEditorInitialize from '../../hooks/useMainEditorInitialize';
 import {useMainEditorStore} from '../../hooks/useMainEditorStore';
 import {editorCn} from '../../utils/cn';
+import Source from '../Source/Source';
+import ViewSwitches from '../ViewSwitches/ViewSwitches';
 
 import './Editor.scss';
 
@@ -62,7 +64,7 @@ const EditorView = ({componentsConfig = {}}: EditorViewProps) => {
                     right={
                         <Sidebar
                             tabs={right}
-                            top={componentsConfig.rightTop}
+                            top={[...(componentsConfig.rightTop || []), Source, ViewSwitches]}
                             defaultTab="block-config"
                         />
                     }
