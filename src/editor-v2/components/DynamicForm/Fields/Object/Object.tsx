@@ -1,6 +1,6 @@
 import {Card} from '@gravity-ui/uikit';
 
-import {ConfigInput, DynamicFormValue} from '../../../../../../common/types';
+import {ConfigInput, DynamicFormValue} from '../../../../../common/types';
 import DynamicForm from '../../DynamicForm';
 import FieldBase, {FieldBaseParams} from '../../FieldBase/FieldBase';
 

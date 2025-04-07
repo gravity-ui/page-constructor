@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-import {ConfigInput} from '../../../common/types';
+import {ConfigInput} from '../../common/types';
 
 const devices = ['desktop', 'tablet', 'mobile'];
 

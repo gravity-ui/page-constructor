@@ -3,7 +3,7 @@ import * as React from 'react';
 import {JSONSchemaType} from 'ajv';
 import _ from 'lodash';
 
-import {ItemConfig} from '../../common/types';
+import {ItemConfig} from '../common/types';
 import {blockDataMap} from '../constructor-items';
 import {PageContentWithNavigation} from '../models';
 import {defaultComponentsConfigurationSchema} from '../schema';

@@ -2,7 +2,7 @@ import {Magnifier, SquareBars} from '@gravity-ui/icons';
 import {Card, Icon, TextInput} from '@gravity-ui/uikit';
 import * as React from 'react';
 
-import {ItemConfig} from '../../../../common/types';
+import {ItemConfig} from '../../../common/types';
 import {useMainEditorStore} from '../../hooks/useMainEditorStore';
 import {editorCn} from '../../utils/cn';
 
