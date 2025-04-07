@@ -39,5 +39,6 @@ export function usePostMessageAPIListener<K extends keyof EventMessageTypes>(
 ) {
     React.useEffect(() => {
         return listenPostMessageEvents(action, callback);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [...deps]);
 }
