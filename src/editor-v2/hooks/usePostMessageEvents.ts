@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import {requestActionPostMessage} from '../../../common/postMessage';
-import {ActionMessageTypes} from '../../../common/types';
+import {requestActionPostMessage} from '../../common/postMessage';
+import {ActionMessageTypes} from '../../common/types';
 import {IframeContext} from '../context/iframeContext';
 
 interface UsePostMessageRequestReturn {

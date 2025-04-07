@@ -9,7 +9,7 @@ import {
     SelectSingleInput,
     TextAreaInput,
     TextInput,
-} from '../../../common/types';
+} from '../../common/types';
 
 const textInput: TextInput = {
     type: 'text',

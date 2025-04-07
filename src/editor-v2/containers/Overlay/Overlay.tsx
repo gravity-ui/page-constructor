@@ -2,7 +2,7 @@ import {ChevronDown, ChevronUp, Copy, TrashBin} from '@gravity-ui/icons';
 import {Button, Icon} from '@gravity-ui/uikit';
 import * as React from 'react';
 
-import {usePostMessageAPIListener} from '../../../../common/postMessage';
+import {usePostMessageAPIListener} from '../../../common/postMessage';
 import {useMainEditorStore} from '../../hooks/useMainEditorStore';
 import {editorCn} from '../../utils/cn';
 

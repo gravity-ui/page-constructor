@@ -1,4 +1,4 @@
-import {DynamicFormValue} from '../../../../common/types';
+import {DynamicFormValue} from '../../../common/types';
 import DynamicForm from '../../components/DynamicForm/DynamicForm';
 import {useMainEditorStore} from '../../hooks/useMainEditorStore';
 import {editorCn} from '../../utils/cn';

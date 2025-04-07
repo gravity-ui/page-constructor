@@ -1,4 +1,4 @@
-import {usePostMessageAPIListener} from '../../../common/postMessage';
+import {usePostMessageAPIListener} from '../../common/postMessage';
 
 import {useMainEditorStore} from './useMainEditorStore';
 import {usePostMessageEvents} from './usePostMessageEvents';
