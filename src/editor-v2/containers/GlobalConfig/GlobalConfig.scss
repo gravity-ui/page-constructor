@@ -4,11 +4,10 @@
 $block: '.#{$ns}global-config';
 
 #{$block} {
-    padding: 12px;
-
     &__title {
-        margin-bottom: 16px;
+        padding: 12px;
         margin-top: 8px;
         @include text-subheader-3;
+        border-bottom: 1px solid var(--g-color-line-generic);
     }
 }
