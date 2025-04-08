@@ -5,6 +5,11 @@
 $block: '.#{$ns}overlay';
 
 #{$block} {
+    $border-width: 3px;
+    $border-select: 5px var(--g-color-line-brand) solid;
+    $border: $border-width var(--g-color-line-brand) solid;
+    $border-radius: 24px;
+
     position: absolute;
     left: 0;
     top: 0;
@@ -12,18 +17,17 @@ $block: '.#{$ns}overlay';
     height: 100%;
     pointer-events: none;
 
-    $border: 5px var(--g-color-line-brand) solid;
-    $border-2: 3px var(--g-color-base-selection) solid;
-
     &__border {
         position: absolute;
-        border: 3px var(--g-color-line-brand) solid;
-        border-radius: 24px;
+        border: $border;
+        border-radius: $border-radius;
         box-sizing: border-box;
         box-shadow: 4px 4px 8px 0 var(--g-color-sfx-shadow);
+        z-index: 100;
 
         &_hover {
             opacity: 0.5;
+            z-index: 99;
         }
     }
 
@@ -31,22 +35,28 @@ $block: '.#{$ns}overlay';
         position: absolute;
         //border: $border-2;
         box-sizing: border-box;
+        border-radius: $border-radius;
+        z-index: 10;
 
         &_position {
             &_top {
-                border-top: $border;
+                border-top: $border-select;
+                border-left: $border-select;
             }
 
             &_bottom {
-                border-bottom: $border;
+                border-right: $border-select;
+                border-bottom: $border-select;
             }
 
             &_left {
-                border-left: $border;
+                border-top: $border-select;
+                border-left: $border-select;
             }
 
             &_right {
-                border-right: $border;
+                border-right: $border-select;
+                border-bottom: $border-select;
             }
         }
     }
@@ -54,18 +64,28 @@ $block: '.#{$ns}overlay';
     &__actions {
         pointer-events: auto;
         position: absolute;
-        bottom: 0;
+        bottom: -$border-width;
         left: 50%;
         transform: translate(-50%, 100%);
+        z-index: 1000;
 
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         background: transparent;
     }
 
-    &__action-button {
-        &_grip {
-            cursor: grab;
+    &__actions-box {
+        &_main {
+            display: flex;
+            gap: 2px;
+            align-items: center;
+            padding: 1px 8px 4px;
+            background-color: var(--g-color-base-brand);
+            border-radius: 0px 0px 8px 8px;
+        }
+
+        &_reorder {
+            padding: 3px 4px;
         }
     }
 }
