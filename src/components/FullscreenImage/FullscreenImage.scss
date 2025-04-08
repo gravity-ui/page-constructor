@@ -52,12 +52,8 @@ $closeButtonSize: 36px;
         border-radius: 8px;
         background-color: var(--g-color-base-simple-hover-solid);
         cursor: pointer;
-        opacity: 0;
+        opacity: 1;
         transition: 0.3s;
-
-        &:focus {
-            opacity: 1;
-        }
     }
 
     &__icon {
