@@ -1,5 +1,6 @@
 import {queryHelpers, render} from '@testing-library/react';
 
+import {PageConstructorProvider} from '../../../containers/PageConstructor';
 import {BasicCard} from '../../../sub-blocks';
 import Slider from '../Slider';
 
@@ -14,18 +15,20 @@ const slidesToShowValues = [3, 2, 1];
 describe('Slider', () => {
     test.each(slidesToShowValues)('Has correct slider labels', async (slidesToShow) => {
         const {container} = render(
-            <Slider title={{text: SLIDER_TITLE, url: EXAMPLE_URL}} slidesToShow={slidesToShow}>
-                {Array(CARDS_COUNT)
-                    .fill(null)
-                    .map((_, index) => (
-                        <BasicCard
-                            url={EXAMPLE_URL}
-                            title={CARD_TITLE}
-                            text={CARD_TEXT}
-                            key={index}
-                        />
-                    ))}
-            </Slider>,
+            <PageConstructorProvider>
+                <Slider title={{text: SLIDER_TITLE, url: EXAMPLE_URL}} slidesToShow={slidesToShow}>
+                    {Array(CARDS_COUNT)
+                        .fill(null)
+                        .map((_, index) => (
+                            <BasicCard
+                                url={EXAMPLE_URL}
+                                title={CARD_TITLE}
+                                text={CARD_TEXT}
+                                key={index}
+                            />
+                        ))}
+                </Slider>
+            </PageConstructorProvider>,
         );
 
         // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access

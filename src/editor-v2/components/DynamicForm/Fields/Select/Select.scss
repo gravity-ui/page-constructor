@@ -1,0 +1,10 @@
+@import '../../../../styles/variables.scss';
+@import '../../../../styles/mixins.scss';
+
+$block: '.#{$ns}editor-select-field';
+
+#{$block} {
+    &__select {
+        min-width: 80px;
+    }
+}

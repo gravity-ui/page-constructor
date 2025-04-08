@@ -438,7 +438,7 @@ If you want to release a new version in previous major after commit it to the ma
 7. Check your changes in CHANGELOG.md and approve robot's PR.
 8. Squash and merge PR. You can see release process on [the Actions tab](https://github.com/gravity-ui/page-constructor/actions).
 
-## Page constructor editor
+## Page Constructor Editor v1
 
 Editor provides user interface for page content management with realtime preview.
 
@@ -457,6 +457,36 @@ export const MyAppEditor = ({initialContent, onChange, transformContent}: MyAppE
   <Editor content={initialContent} onChange={onChange} transformContent={transformContent} />
 );
 ```
+
+## Page Constructor Editor v2
+
+Editor provides user interface for page content management with realtime preview.
+
+Based on Iframe postMessage communication.
+
+How to use:
+
+```tsx
+import {Editor} from '@gravity-ui/page-constructor/editor-v2';
+
+export const MyAppEditor = ({initialContent, onUpdate, disableUrlField}: MyAppEditorProps) => (
+  <Editor
+    initialUrl={'https://url-to-page-with-page-constructor.com'}
+    content={initialContent}
+    disableUrlField={disableUrlField}
+    onUpdate={onUpdate}
+  />
+);
+```
+
+### How to develop
+
+```shell
+npm run deps:install
+npm run dev:playground
+```
+
+Directory `/playground` contains NextJS service with integrated PC and Editor for development purposes.
 
 ## Tests
 

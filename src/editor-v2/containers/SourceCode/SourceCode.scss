@@ -1,0 +1,45 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+$block: '.#{$ns}source-code';
+
+#{$block} {
+    height: 100%;
+    padding: 16px 12px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    &__title {
+        font-weight: 500;
+        font-size: 13px;
+        line-height: 18px;
+        color: var(--g-color-text-secondary);
+    }
+
+    &__code {
+        white-space: pre;
+        @include text-code-inline-1;
+        padding: 6px 2px 8px;
+        overflow: auto;
+        border: 1px solid var(--g-color-line-generic);
+        border-radius: 6px;
+        position: relative;
+
+        &:hover {
+            #{$block}__controls {
+                display: flex;
+                flex-direction: row;
+                gap: 8px;
+            }
+        }
+    }
+
+    &__controls {
+        display: none;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+    }
+}

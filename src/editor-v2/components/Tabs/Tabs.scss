@@ -1,0 +1,40 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+$block: '.#{$ns}tabs';
+
+#{$block} {
+    overflow: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    &__item {
+        color: var(--g-color-text-hint);
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        cursor: pointer;
+
+        &_active {
+            pointer-events: none;
+            color: var(--g-color-text-primary);
+        }
+    }
+
+    &__tabs-wrapper {
+        width: 100%;
+        border-bottom: 1px solid var(--g-color-line-generic);
+        display: inline-flex;
+        flex-direction: row;
+        padding: 16px 4px;
+        flex: 0 0 auto;
+        box-sizing: border-box;
+        overflow-x: auto;
+    }
+
+    &__body {
+        flex: 1;
+        min-height: 1px;
+        overflow-y: auto;
+    }
+}

@@ -48,6 +48,7 @@ $block: '.#{$ns}icons-block';
         @include reset-link-style();
         margin: 0 $indentXXXS $indentSM;
     }
+
     a#{$block}__item {
         @include focusable();
         border-radius: var(--g-focus-border-radius);

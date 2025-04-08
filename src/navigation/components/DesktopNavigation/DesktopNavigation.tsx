@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import OverflowScroller from '../../../components/OverflowScroller/OverflowScroller';
-import {block} from '../../../utils';
+import {block, isLogoSet} from '../../../utils';
 import {DesktopNavigationProps, ItemColumnName, NavigationLayout} from '../../models';
 import Logo from '../Logo/Logo';
 import {MobileMenuButton} from '../MobileMenuButton/MobileMenuButton';
@@ -22,7 +22,7 @@ export const DesktopNavigation: React.FC<DesktopNavigationProps> = ({
     activeItemId,
 }) => (
     <div className={b('wrapper')}>
-        {logo && (
+        {isLogoSet(logo) && (
             <div className={b('left')}>
                 <Logo {...logo} className={b('logo')} />
             </div>
