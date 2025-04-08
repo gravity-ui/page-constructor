@@ -55,7 +55,7 @@ const FullscreenImage = (props: FullscreenImageProps) => {
                     contentClassName={b('modal-content')}
                 >
                     <button
-                        className={b('icon-wrapper')}
+                        className={b('icon-wrapper', {visible: true})}
                         onClick={closeModal}
                         aria-label={i18n('close')}
                     >
