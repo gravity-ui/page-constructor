@@ -1,0 +1,227 @@
+{
+  "common": {
+    "list": [
+      {
+        "icon": {
+          "light": "/story-assets/icon_1_light.svg",
+          "dark": "/story-assets/icon_1_dark.svg"
+        },
+        "title": "Lorem ipsum",
+        "text": "<p><b>Ut enim ad minim veniam</b> <a href='https://example.com'>quis nostrud</a> exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>"
+      },
+      {
+        "icon": {
+          "light": "/story-assets/icon_3_light.svg",
+          "dark": "/story-assets/icon_3_dark.svg"
+        },
+        "title": "Lorem ipsum ipsum",
+        "text": "<p><b>Ut enim ad minim veniam</b> <a href='https://example.com'>quis nostrud</a> exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>"
+      },
+      {
+        "icon": {
+          "light": "/story-assets/icon_2_light.svg",
+          "dark": "/story-assets/icon_2_dark.svg"
+        },
+        "title": "Lorem ipsum",
+        "text": "<p><b>Ut enim ad minim veniam</b> <a href='https://example.com'>quis nostrud</a> exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>"
+      }
+    ]
+  },
+  "default": {
+    "content": {
+      "type": "foldable-list-block",
+      "title": "Lorem ipsum",
+      "text": "<p>Dolor sit amet, consectetur adipiscing elit <a href=\"https://example.com\">sed do eiusmod</a> tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> ",
+      "additionalInfo": "<p>Dolor sit amet <a href=\"https://example.com\">consectetur adipiscing</a>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> ",
+      "links": [
+        {
+          "url": "/security",
+          "text": "Learn more",
+          "theme": "normal",
+          "arrow": true
+        }
+      ],
+      "buttons": [
+        {
+          "text": "Button\r",
+          "theme": "action",
+          "url": "https://example.com"
+        }
+      ],
+      "items": [
+        {
+          "title": "Lorem ipsum dolor sit amet 0",
+          "text": "<p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> ",
+          "link": {
+            "url": "#",
+            "text": "Documentation",
+            "theme": "normal",
+            "arrow": true
+          }
+        },
+        {
+          "title": "Ut enim ad minim veniam, quis nostrud exercitation ullamco? 1",
+          "text": "<p>laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> ",
+          "link": {
+            "url": "#",
+            "text": "Documentation",
+            "theme": "normal",
+            "arrow": true
+          }
+        },
+        {
+          "title": "Lorem ipsum dolor sit amet 2",
+          "text": "<p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> ",
+          "link": {
+            "url": "#",
+            "text": "Documentation",
+            "theme": "normal",
+            "arrow": true
+          }
+        },
+        {
+          "title": "Ut enim ad minim veniam, quis nostrud exercitation ullamco? 3",
+          "text": "<p>laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> ",
+          "link": {
+            "url": "#",
+            "text": "Documentation",
+            "theme": "normal",
+            "arrow": true
+          }
+        },
+        {
+          "title": "Lorem ipsum dolor sit amet 4",
+          "text": "<p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> ",
+          "link": {
+            "url": "#",
+            "text": "Documentation",
+            "theme": "normal",
+            "arrow": true
+          }
+        },
+        {
+          "title": "Ut enim ad minim veniam, quis nostrud exercitation ullamco? 5",
+          "text": "<p>laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> ",
+          "link": {
+            "url": "#",
+            "text": "Documentation",
+            "theme": "normal",
+            "arrow": true
+          }
+        },
+        {
+          "title": "Lorem ipsum dolor sit amet 6",
+          "text": "<p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> ",
+          "link": {
+            "url": "#",
+            "text": "Documentation",
+            "theme": "normal",
+            "arrow": true
+          }
+        },
+        {
+          "title": "Ut enim ad minim veniam, quis nostrud exercitation ullamco? 7",
+          "text": "<p>laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> ",
+          "link": {
+            "url": "#",
+            "text": "Documentation",
+            "theme": "normal",
+            "arrow": true
+          }
+        }
+      ]
+    }
+  },
+  "textWithListBullet": {
+    "content": {
+      "type": "foldable-list-block",
+      "title": "Lorem ipsum",
+      "text": "<p>Dolor sit amet, consectetur adipiscing elit <a href=\"https://example.com\">sed do eiusmod</a> corporations, medium businesses, and individual developers with a scalable <strong>infrastructure</strong>.</p> ",
+      "additionalInfo": "<p>Dolor sit amet <a href=\"https://example.com\">consectetur adipiscing</a>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> ",
+      "links": [
+        {
+          "url": "/security",
+          "text": "Learn more",
+          "theme": "normal",
+          "arrow": true
+        }
+      ],
+      "buttons": [
+        {
+          "text": "Button\r",
+          "theme": "action",
+          "url": "https://example.com"
+        }
+      ],
+      "items": [
+        {
+          "title": "1. Lorem ipsum",
+          "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit:</p> <ul> <li> <p>Lorem ipsum</p> </li> <li> <p>Lorem ipsum</p> </li> <li> <p>Lorem ipsum</p> </li> </ul> ",
+          "link": {
+            "url": "#",
+            "text": "Documentation",
+            "theme": "normal",
+            "arrow": true
+          },
+          "listStyle": "disk"
+        },
+        {
+          "title": "2. Lorem ipsum",
+          "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit:</p> <ul> <li> <p>Lorem ipsum</p> </li> <li> <p>Lorem ipsum</p> </li> <li> <p>Lorem ipsum</p> </li> </ul> ",
+          "link": {
+            "url": "#",
+            "text": "Documentation",
+            "theme": "normal",
+            "arrow": true
+          },
+          "listStyle": "disk"
+        }
+      ]
+    }
+  },
+  "textWithListDash": {
+    "content": {
+      "type": "foldable-list-block",
+      "title": "Lorem ipsum",
+      "text": "<p>Dolor sit amet, consectetur adipiscing elit <a href=\"https://example.com\">sed do eiusmod</a> corporations, medium businesses, and individual developers with a scalable <strong>infrastructure</strong>.</p> ",
+      "additionalInfo": "<p>Dolor sit amet <a href=\"https://example.com\">consectetur adipiscing</a>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> ",
+      "links": [
+        {
+          "url": "/security",
+          "text": "Learn more",
+          "theme": "normal",
+          "arrow": true
+        }
+      ],
+      "buttons": [
+        {
+          "text": "Button\r",
+          "theme": "action",
+          "url": "https://example.com"
+        }
+      ],
+      "items": [
+        {
+          "title": "1. Lorem ipsum",
+          "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit:</p> <ul> <li> <p>Lorem ipsum</p> </li> <li> <p>Lorem ipsum</p> </li> <li> <p>Lorem ipsum</p> </li> </ul> ",
+          "link": {
+            "url": "#",
+            "text": "Documentation",
+            "theme": "normal",
+            "arrow": true
+          }
+        },
+        {
+          "title": "1. Lorem ipsum",
+          "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit:</p> <ul> <li> <p>Lorem ipsum</p> </li> <li> <p>Lorem ipsum</p> </li> <li> <p>Lorem ipsum</p> </li> </ul> ",
+          "link": {
+            "url": "#",
+            "text": "Documentation",
+            "theme": "normal",
+            "arrow": true
+          }
+        }
+      ]
+    }
+  }
+}

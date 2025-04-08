@@ -1,0 +1,60 @@
+@import '../../../../styles/variables';
+@import '../../../../styles/mixins';
+
+$block: '.#{$ns}FoldableListBlockItem';
+
+#{$block} {
+    padding-bottom: $indentM;
+    border-bottom: 1px solid var(--g-color-line-generic);
+
+    & + & {
+        padding-top: $indentM;
+    }
+
+    &__title {
+        @include reset-button-style();
+        @include heading4();
+        @include focusable();
+
+        position: relative;
+        display: block;
+        width: 100%;
+        padding-right: 24px;
+        text-align: start;
+        cursor: pointer;
+        border-radius: var(--g-focus-border-radius);
+
+        a {
+            @include link();
+        }
+    }
+
+    &__arrow {
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        color: var(--g-color-text-primary);
+    }
+
+    &__link {
+        @include text-size(body-2);
+
+        @include add-specificity(&) {
+            a {
+                outline-offset: -2px; // as part of outline is hidden due to overflow: hidden from parent
+                border-radius: calc(
+                    var(--g-focus-border-radius) + 2px
+                ); // as outline-offset is -2px
+                display: inline-block; //fixes the Link to be clickable in entire row width
+            }
+        }
+    }
+
+    &__text {
+        @include text-size(body-2);
+
+        margin-top: $indentXXS;
+    }
+}
