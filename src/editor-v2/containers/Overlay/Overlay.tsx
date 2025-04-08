@@ -111,30 +111,34 @@ const Overlay = ({className, canvasElement}: OverlayProps) => {
                     }}
                 >
                     <div className={b('actions')}>
-                        <Button view="flat" size={'m'} onClick={handleMoveUp}>
-                            <Icon data={ChevronUp} size={18} />
-                        </Button>
-                        <Button
-                            pin={'round-clear'}
-                            className={b('action-button')}
-                            size={'m'}
-                            view={'action'}
-                            onClick={() => selectedBlock && duplicateBlock(selectedBlock)}
-                        >
-                            <Icon data={Copy} size={18} />
-                        </Button>
-                        <Button
-                            pin={'clear-round'}
-                            className={b('action-button')}
-                            size={'m'}
-                            view={'action'}
-                            onClick={() => selectedBlock && deleteBlock(selectedBlock)}
-                        >
-                            <Icon data={TrashBin} size={18} />
-                        </Button>
-                        <Button view="flat" size={'m'} onClick={handleMoveDown}>
-                            <Icon data={ChevronDown} size={18} />
-                        </Button>
+                        <div className={b('actions-box', {reorder: true})}>
+                            <Button view="flat" size={'m'} onClick={handleMoveUp}>
+                                <Icon data={ChevronUp} size={18} />
+                            </Button>
+                        </div>
+                        <div className={b('actions-box', {main: true})}>
+                            <Button
+                                className={b('action-button')}
+                                size={'m'}
+                                view={'action'}
+                                onClick={() => selectedBlock && duplicateBlock(selectedBlock)}
+                            >
+                                <Icon data={Copy} size={18} />
+                            </Button>
+                            <Button
+                                className={b('action-button')}
+                                size={'m'}
+                                view={'action'}
+                                onClick={() => selectedBlock && deleteBlock(selectedBlock)}
+                            >
+                                <Icon data={TrashBin} size={18} />
+                            </Button>
+                        </div>
+                        <div className={b('actions-box', {reorder: true})}>
+                            <Button view="flat" size={'m'} onClick={handleMoveDown}>
+                                <Icon data={ChevronDown} size={18} />
+                            </Button>
+                        </div>
                     </div>
                 </div>
             ) : null}
