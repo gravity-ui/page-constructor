@@ -12,5 +12,9 @@ $block: '.#{$ns}view-switches';
     &__zoom {
         display: flex;
         gap: 4px;
+
+        &-select {
+            min-width: 80px;
+        }
     }
 }

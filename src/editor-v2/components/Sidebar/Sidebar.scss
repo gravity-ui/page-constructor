@@ -13,5 +13,8 @@ $block: '.#{$ns}sidebar';
     &__block {
         width: 100%;
         border-bottom: 1px solid var(--g-color-line-generic);
+        overflow-x: scroll;
+        box-sizing: border-box;
+        flex: 0 0 auto;
     }
 }

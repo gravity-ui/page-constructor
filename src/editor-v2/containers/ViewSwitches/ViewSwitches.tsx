@@ -99,6 +99,7 @@ const ViewSwitches: React.FC = () => {
                 </Button>
 
                 <Select
+                    className={b('zoom-select')}
                     multiple={false}
                     value={currentZoomValue}
                     options={zoomOptions}
