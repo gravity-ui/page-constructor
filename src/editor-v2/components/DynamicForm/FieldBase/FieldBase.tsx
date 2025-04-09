@@ -1,4 +1,5 @@
-import {ArrowToggle} from '@gravity-ui/uikit';
+import {ArrowToggle, Button, Icon} from '@gravity-ui/uikit';
+import {ArrowRotateLeft} from '@gravity-ui/icons';
 import _ from 'lodash';
 import * as React from 'react';
 
@@ -25,13 +26,29 @@ const FieldBase: React.FC<FieldBaseProps> = ({
     textSize = 's',
     children,
     expandable = false,
+    onRefresh,
 }) => {
     const [showChildren, setShowChildren] = React.useState(!expandable);
 
     const titleComponent = React.useMemo(() => {
         if (title) {
             const defaultTitle = (
-                <div className={b('title', {size: textSize})}>{_.capitalize(title)}</div>
+                <div className={b('title', {size: textSize})}>
+                    {onRefresh && (
+                        <Button
+                            className={b('button')}
+                            onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
+                                e.stopPropagation();
+                                onRefresh(undefined);
+                            }}
+                            view={'flat'}
+                            size={'xs'}
+                        >
+                            <Icon data={ArrowRotateLeft} size={14} />
+                        </Button>
+                    )}
+                    <span>{_.capitalize(title)}</span>
+                </div>
             );
 
             if (expandable) {
@@ -51,7 +68,7 @@ const FieldBase: React.FC<FieldBaseProps> = ({
         }
 
         return null;
-    }, [expandable, showChildren, textSize, title]);
+    }, [expandable, showChildren, textSize, title, onRefresh]);
 
     return (
         <div className={b({expandable}, className)}>
