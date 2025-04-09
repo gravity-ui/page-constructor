@@ -13,3 +13,4 @@ export * from './Questions/schema';
 export * from './Slider/schema';
 export * from './Table/schema';
 export * from './Share/schema';
+export * from './MarqueeLinks/schema';

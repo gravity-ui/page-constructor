@@ -14,6 +14,7 @@ import {
     IconsBlock,
     InfoBlock,
     MapBlock,
+    MarqueeLinks,
     MediaBlock,
     PromoFeaturesBlock,
     QuestionsBlock,
@@ -56,6 +57,7 @@ export const blockSchemas: Record<BlockType, object> = {
     ...FilterBlock,
     ...FormBlock,
     ...SliderNewBlock,
+    ...MarqueeLinks,
 };
 
 export const cardSchemas = {
@@ -86,6 +88,7 @@ export const constructorBlockSchemaNames = [
     'info-block',
     'table-block',
     'tabs-block',
+    'marquee-links-block',
     /** @deprecated */
     'price-detailed',
     'header-slider-block',

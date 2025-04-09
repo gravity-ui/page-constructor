@@ -1,0 +1,26 @@
+import {Meta} from '@storybook/blocks';
+
+import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
+import * as MarqueeLinksStories from './MarqueeLinks.stories.tsx';
+
+<Meta of={MarqueeLinksStories} />
+<StoryTemplate>
+## Parameters
+
+`type: 'marquee-links-block'`
+
+`title?: string`
+
+`description?: string`
+
+`textAlign?: 'left' | 'right' | 'center'`
+
+`speed?: number` — default value 10.
+
+`items:` — Items, the block displays.
+
+- `src: string` - Link image.
+
+- `url: string` - Link
+
+</StoryTemplate>
