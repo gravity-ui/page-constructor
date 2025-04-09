@@ -12,7 +12,7 @@ $block: '.#{$ns}big-overlay';
     pointer-events: none;
     overflow: hidden;
 
-    $border: 3px var(--g-color-line-brand) solid;
+    $border: 3px var(--g-color-base-brand) solid;
 
     &__border {
         pointer-events: none;
