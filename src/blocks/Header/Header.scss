@@ -36,6 +36,10 @@ $backgroundWidth: 1440px;
                     color: var(--g-color-text-light-primary);
                 }
             }
+
+            #{$block}__additional-info {
+                color: var(--g-color-text-light-primary);
+            }
         }
 
         &_vertical-offset {
@@ -95,6 +99,13 @@ $backgroundWidth: 1440px;
             @include text-size(body-3);
             color: var(--g-color-text-primary);
         }
+    }
+
+    &__additional-info {
+        @include text-size(body-2);
+        color: var(--g-color-text-secondary);
+
+        margin-top: $indentXS;
     }
 
     &__buttons {
