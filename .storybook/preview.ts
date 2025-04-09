@@ -1,57 +1,18 @@
 import '../styles/storybook/index.scss';
 import '@gravity-ui/uikit/styles/styles.scss';
-import {MobileProvider, Platform, ThemeProvider} from '@gravity-ui/uikit';
 
 import * as React from 'react';
 import {MINIMAL_VIEWPORTS} from '@storybook/addon-viewport';
 import type {Decorator, Preview} from '@storybook/react';
 import {themeLight} from './theme/light';
-import {PageConstructorProvider} from '../src/containers/PageConstructor/Provider';
 import {withMobile} from './decorators/withMobile';
 import {withLang} from './decorators/withLang';
+import {withPageConstructorProvider} from './decorators/withPageConstructorProvider';
+import {withContextProvider} from './decorators/withContextProvider';
 import {DocsDecorator} from './decorators/docs';
-
-import {Theme} from '../src';
-import {GlobalThemeController} from './theme/utils/global-theme-controller';
 
 import '../styles/styles.scss';
 import '../styles/root.scss';
-
-const withContextProvider: Decorator = (Story, context) => {
-    const theme = context.globals.theme;
-
-    // to set theme in docs
-    context.parameters.backgrounds.default = theme;
-    context.globals.backgrounds = {
-        value: theme === Theme.Light ? 'white' : 'black',
-    };
-    context.globals.background = theme;
-
-    // TODO: to switch docs theme dynamically in the future
-    // context.parameters.docs.theme = theme === 'light' ? CommonTheme.light : CommonTheme.dark;
-
-    return (
-        <GlobalThemeController>
-            <ThemeProvider theme={theme}>
-                <MobileProvider mobile={false} platform={Platform.BROWSER}>
-                    <Story {...context} />
-                </MobileProvider>
-            </ThemeProvider>
-        </GlobalThemeController>
-    );
-};
-
-const withPageConstructorProvider: Decorator = (Story, context) => {
-    return (
-        <PageConstructorProvider
-            isMobile={context.globals.platform === 'mobile'}
-            locale={{lang: context.globals.lang}}
-            theme={context.globals.theme}
-        >
-            <Story {...context} />
-        </PageConstructorProvider>
-    );
-};
 
 const preview: Preview = {
     decorators: [withLang, withMobile, withContextProvider, withPageConstructorProvider],
@@ -126,7 +87,7 @@ const preview: Preview = {
         },
     },
 
-    tags: ['autodocs', 'autodocs'],
+    tags: ['autodocs', 'autodocs', 'autodocs'],
 };
 
 export default preview;
