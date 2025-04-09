@@ -113,7 +113,7 @@ const Overlay = ({className, canvasElement}: OverlayProps) => {
                     <div className={b('actions')}>
                         <div className={b('actions-box', {reorder: true})}>
                             <Button view="flat" size={'m'} onClick={handleMoveUp}>
-                                <Icon data={ChevronUp} size={18} />
+                                <Icon className={b('reorder-icon')} data={ChevronUp} size={18} />
                             </Button>
                         </div>
                         <div className={b('actions-box', {main: true})}>
@@ -136,7 +136,7 @@ const Overlay = ({className, canvasElement}: OverlayProps) => {
                         </div>
                         <div className={b('actions-box', {reorder: true})}>
                             <Button view="flat" size={'m'} onClick={handleMoveDown}>
-                                <Icon data={ChevronDown} size={18} />
+                                <Icon className={b('reorder-icon')} data={ChevronDown} size={18} />
                             </Button>
                         </div>
                     </div>
