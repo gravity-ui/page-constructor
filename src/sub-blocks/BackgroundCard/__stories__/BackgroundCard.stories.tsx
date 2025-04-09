@@ -30,7 +30,7 @@ const DefaultTemplate: StoryFn<BackgroundCardProps> = (args) => (
     </div>
 );
 
-const PropsTemplate: StoryFn<Record<number, {}>> = (args) => (
+const VariousContentTemplate: StoryFn<Record<number, {}>> = (args) => (
     <div style={{display: 'flex'}}>
         {Object.values(args).map((item, index) => (
             <div key={index} style={{display: 'inline-table', maxWidth: '400px', padding: '0 8px'}}>
@@ -69,19 +69,19 @@ const ControlPositionTemplate: StoryFn<
 );
 
 export const Default = DefaultTemplate.bind({});
-export const Props = PropsTemplate.bind([]);
-export const WithBackgroundImage = PropsTemplate.bind([]);
-export const Paddings = PropsTemplate.bind([]);
+export const VariousContent = VariousContentTemplate.bind([]);
+export const WithBackgroundImage = VariousContentTemplate.bind([]);
+export const Paddings = VariousContentTemplate.bind([]);
 export const CardThemes = CardThemesTemplate.bind([]);
-export const BorderLine = PropsTemplate.bind([]);
-export const BackgroundColor = PropsTemplate.bind([]);
+export const BorderLine = VariousContentTemplate.bind([]);
+export const BackgroundColor = VariousContentTemplate.bind([]);
 export const WithUrl = CardThemesTemplate.bind([]);
 export const ControlPosition = ControlPositionTemplate.bind([]);
 
 Default.args = blockTransform(data.default) as BackgroundCardProps;
 
-Props.args = blockListTransform(data.props) as BackgroundCardProps[];
-Props.parameters = {
+VariousContent.args = blockListTransform(data.props) as BackgroundCardProps[];
+VariousContent.parameters = {
     controls: {
         include: Object.keys(data.props),
     },
