@@ -45,14 +45,15 @@ const MiddleScreen = ({className, CustomTop}: MiddleScreenProps) => {
                 </div>
             ) : null}
             <div className={b('content')}>
-                <div className={b('wrapper')} style={{width: deviceWidth}}>
+                <div className={b('wrapper')}>
                     <div
                         ref={setCanvasRef}
                         className={b('canvas', {hidden: !initialized})}
                         style={{
                             transform: `scale(${zoom}%)`,
                             height: `${(100 / zoom) * 100}%`,
-                            width: `${(100 / zoom) * 100}%`,
+                            width: deviceWidth,
+                            maxWidth: `${(100 / zoom) * 100}%`,
                         }}
                     >
                         <iframe
@@ -60,7 +61,7 @@ const MiddleScreen = ({className, CustomTop}: MiddleScreenProps) => {
                             className={b('iframe')}
                             src={url}
                             height={`${height}px`}
-                            width="100%"
+                            width={deviceWidth}
                             frameBorder="0"
                             title="Page Constructor Iframe"
                         />
