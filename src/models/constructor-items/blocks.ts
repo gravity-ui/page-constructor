@@ -166,6 +166,7 @@ export interface HeaderBlockProps {
     title: string;
     overtitle?: string | JSX.Element;
     description?: string;
+    additionalInfo?: string;
     buttons?: Pick<ButtonProps, 'url' | 'text' | 'theme' | 'primary' | 'size' | 'extraProps'>[];
     width?: HeaderWidth;
     /** @deprecated imageSize now depends on width */
