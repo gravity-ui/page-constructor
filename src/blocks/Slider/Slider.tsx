@@ -4,7 +4,7 @@ import {useUniqId} from '@gravity-ui/uikit';
 import debounce from 'lodash/debounce';
 import get from 'lodash/get';
 import noop from 'lodash/noop';
-import SlickSlider, {Settings} from 'react-slick';
+import {Settings, default as SlickSlider} from 'react-slick';
 
 import Anchor from '../../components/Anchor/Anchor';
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
