@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.5.0](https://github.com/gravity-ui/page-constructor/compare/v6.4.0...v6.5.0) (2025-04-10)
+
+
+### Features
+
+* **FoldableList:** add new block ([#1157](https://github.com/gravity-ui/page-constructor/issues/1157)) ([a5dca71](https://github.com/gravity-ui/page-constructor/commit/a5dca71c76c004b891c6583362bb59b799818273))
+
 ## [6.4.0](https://github.com/gravity-ui/page-constructor/compare/v6.3.1...v6.4.0) (2025-04-09)
 
 
