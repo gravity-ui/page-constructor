@@ -1,0 +1,20 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+$block: '.#{$ns}FoldableList';
+
+#{$block} {
+    &__title {
+        @include top-content-offset($offset: $indentM);
+
+        position: sticky;
+        margin-bottom: $indentM;
+        margin-right: $indentXL;
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'md')) {
+        &__title {
+            margin-right: 0;
+        }
+    }
+}

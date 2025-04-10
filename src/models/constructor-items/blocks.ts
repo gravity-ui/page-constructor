@@ -46,6 +46,7 @@ export enum BlockType {
     ExtendedFeaturesBlock = 'extended-features-block',
     SliderBlock = 'slider-block',
     QuestionsBlock = 'questions-block',
+    FoldableListBlock = 'foldable-list-block',
     BannerBlock = 'banner-block',
     CompaniesBlock = 'companies-block',
     MediaBlock = 'media-block',
@@ -230,6 +231,23 @@ export interface QuestionsProps
 }
 
 export interface QuestionBlockItemProps extends QuestionItem {
+    isOpened: boolean;
+    onClick: () => void;
+}
+
+export interface FoldableListItem {
+    title: string;
+    text: string;
+    listStyle?: 'dash' | 'disk';
+    link?: LinkProps;
+}
+
+export interface FoldableListProps
+    extends Omit<ContentBlockProps, 'colSizes' | 'centered' | 'size' | 'theme'> {
+    items: FoldableListItem[];
+}
+
+export interface FoldableListBlockItemProps extends FoldableListItem {
     isOpened: boolean;
     onClick: () => void;
 }
@@ -474,6 +492,10 @@ export type QuestionsBlockModel = {
     type: BlockType.QuestionsBlock;
 } & QuestionsProps;
 
+export type FoldableListBlockModel = {
+    type: BlockType.FoldableListBlock;
+} & FoldableListProps;
+
 export type BannerBlockModel = {
     type: BlockType.BannerBlock;
 } & BannerBlockProps;
@@ -540,6 +562,7 @@ type BlockModels =
     | ExtendedFeaturesBlockModel
     | PromoFeaturesBlockModel
     | QuestionsBlockModel
+    | FoldableListBlockModel
     | BannerBlockModel
     | CompaniesBlockModel
     | MediaBlockModel

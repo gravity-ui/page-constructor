@@ -1,0 +1,29 @@
+import {Meta} from '@storybook/blocks';
+
+import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
+import * as FoldableListStories from './FoldableList.stories.tsx';
+
+<Meta of={FoldableListStories} />
+<StoryTemplate>
+## Parameters
+
+`type: 'foldable-list-block'`
+
+`title?: Title | string` — Block title (on the left)
+
+`text?: string` — Text (with YFM support)
+
+`additionalInfo?: string` — Gray text (with YFM support)
+
+`links?: Link[]` — An array with link objects (see [Content-blocks](?path=/docs/documentation-types--docs))
+
+`buttons?: Button[]` — An array with button objects (see [Content-blocks](?path=/docs/documentation-types--docs))
+
+`items: FoldableListItem[]`
+
+- `title: string` — Foldable list title (on the right)
+- `text: string` — Foldable item text
+- `link?: Link` — Link below the text (see [Link](?id=components-links-and-buttons-link--default&viewMode=docs))
+- `listStyle?: 'dash' | 'disk'` — If the text contains a list, it may be either with a dash (dash) or with dots (disk).
+</StoryTemplate>
+
