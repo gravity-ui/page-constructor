@@ -1,42 +1,135 @@
 {
-  "common": {
+  "default": {
+    "type": "background-card",
     "title": "Lorem ipsumt",
     "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    "additionalInfo": "Duis aute irure dolor in [reprehenderit](https://example.com) n voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-    "links": [
-      {
-        "url": "https://example.com",
-        "text": "Link",
-        "theme": "normal",
-        "arrow": true
-      }
-    ],
-    "list": [
-      {
-        "icon": {
-          "light": "/story-assets/icon_1_light.svg",
-          "dark": "/story-assets/icon_1_dark.svg"
+    "additionalInfo": "Duis aute irure dolor in [reprehenderit](https://example.com) n voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+  },
+  "props": [
+    {
+      "type": "background-card",
+      "title": "Lorem ipsumt",
+      "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "additionalInfo": "Duis aute irure dolor in [reprehenderit](https://example.com) n voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+    },
+    {
+      "type": "background-card",
+      "title": "Lorem ipsumt",
+      "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "links": [
+        {
+          "url": "https://example.com",
+          "text": "Link",
+          "theme": "normal",
+          "arrow": true
+        }
+      ]
+    },
+    {
+      "type": "background-card",
+      "title": "Lorem ipsumt",
+      "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "buttons": [
+        {
+          "text": "Button\r",
+          "theme": "action",
+          "url": "https://example.com"
         },
-        "title": "Lorem ipsum",
-        "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation."
+        {
+          "text": "Button",
+          "theme": "outlined",
+          "url": "https://example.com"
+        }
+      ]
+    },
+    {
+      "type": "background-card",
+      "title": "Lorem ipsumt",
+      "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "list": [
+        {
+          "icon": {
+            "light": "/story-assets/icon_1_light.svg",
+            "dark": "/story-assets/icon_1_dark.svg"
+          },
+          "title": "Lorem ipsum",
+          "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation."
+        },
+        {
+          "icon": {
+            "light": "/story-assets/icon_2_light.svg",
+            "dark": "/story-assets/icon_2_dark.svg"
+          },
+          "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation."
+        },
+        {
+          "icon": {
+            "light": "/story-assets/icon_3_light.svg",
+            "dark": "/story-assets/icon_3_dark.svg"
+          },
+          "title": "Lorem ipsum ipsum"
+        }
+      ]
+    }
+  ],
+  "withBackgroundImage": {
+    "background": {
+      "light": {
+        "src": "/story-assets/img-bg_nopadding_4-12_light.png",
+        "alt": "Lorem ipsumt",
+        "disableCompress": true
       },
-      {
-        "icon": {
-          "light": "/story-assets/icon_2_light.svg",
-          "dark": "/story-assets/icon_2_dark.svg"
-        },
-        "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation."
-      },
-      {
-        "icon": {
-          "light": "/story-assets/icon_3_light.svg",
-          "dark": "/story-assets/icon_3_dark.svg"
-        },
-        "title": "Lorem ipsum ipsum"
+      "dark": {
+        "src": "/story-assets/img-bg_nopadding_4-12_dark.png",
+        "alt": "Lorem ipsumt"
       }
-    ],
-    "themed": {
-      "lightList": [
+    }
+  },
+  "withPaddings": [
+    {
+      "type": "background-card",
+      "title": "Padding Bottom = S",
+      "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "paddingBottom": "s"
+    },
+    {
+      "type": "background-card",
+      "title": "Padding Bottom = M",
+      "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "paddingBottom": "m"
+    },
+    {
+      "type": "background-card",
+      "title": "Padding Bottom = L",
+      "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "paddingBottom": "l"
+    },
+    {
+      "type": "background-card",
+      "title": "Padding Bottom = XL",
+      "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "paddingBottom": "xl"
+    }
+  ],
+  "cardThemes": [
+    {
+      "title": "Default theme",
+      "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "type": "background-card",
+      "theme": "default",
+      "buttons": [
+        {
+          "text": "Button\r",
+          "theme": "action",
+          "url": "https://example.com"
+        },
+        {
+          "text": "Button",
+          "theme": "outlined",
+          "url": "https://example.com"
+        }
+      ],
+      "list": [
         {
           "icon": "/story-assets/icon_1_light.svg",
           "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
@@ -49,8 +142,27 @@
           "icon": "/story-assets/icon_3_light.svg",
           "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
         }
+      ]
+    },
+    {
+      "title": "Dark Monochrome theme",
+      "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "type": "background-card",
+      "theme": "dark",
+      "background": "src: '/story-assets/img-black.png'",
+      "buttons": [
+        {
+          "text": "Button",
+          "theme": "normal-contrast",
+          "url": "https://example.com"
+        },
+        {
+          "text": "Button",
+          "theme": "outlined-contrast",
+          "url": "https://example.com"
+        }
       ],
-      "darkList": [
+      "list": [
         {
           "icon": "/story-assets/icon_1_dark.svg",
           "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
@@ -65,32 +177,111 @@
         }
       ]
     },
-    "buttons": [
-      {
-        "text": "Button\r",
-        "theme": "action",
-        "url": "https://example.com"
-      },
-      {
-        "text": "Button",
-        "theme": "outlined",
-        "url": "https://example.com"
-      }
-    ]
+    {
+      "title": "Light Monochrome theme",
+      "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "type": "background-card",
+      "theme": "light",
+      "buttons": [
+        {
+          "text": "Button",
+          "theme": "monochrome",
+          "url": "https://example.com"
+        },
+        {
+          "text": "Button",
+          "theme": "normal",
+          "url": "https://example.com"
+        }
+      ],
+      "list": [
+        {
+          "icon": "/story-assets/icon_1_light.svg",
+          "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        },
+        {
+          "icon": "/story-assets/icon_2_light.svg",
+          "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        },
+        {
+          "icon": "/story-assets/icon_3_light.svg",
+          "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        }
+      ]
+    }
+  ],
+  "borderLine": {
+    "border": "line"
   },
-  "backgroundColor": {
-    "content": {
+  "backgroundColor": [
+    {
+      "type": "background-card",
+      "title": "Lorem ipsumt",
+      "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "additionalInfo": "Duis aute irure dolor in [reprehenderit](https://example.com) n voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+      "backgroundColor": "#7ccea0",
+      "theme": "dark"
+    },
+    {
+      "type": "background-card",
+      "title": "Lorem ipsumt",
+      "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "links": [
+        {
+          "url": "https://example.com",
+          "text": "Link",
+          "theme": "normal",
+          "arrow": true
+        }
+      ],
+      "backgroundColor": "#7ccea0",
+      "theme": "dark"
+    },
+    {
+      "type": "background-card",
+      "title": "Lorem ipsumt",
+      "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "buttons": [
+        {
+          "text": "Button\r",
+          "theme": "normal-contrast",
+          "url": "https://example.com"
+        },
+        {
+          "text": "Button",
+          "theme": "outlined-contrast",
+          "url": "https://example.com"
+        }
+      ],
       "backgroundColor": "#7ccea0",
       "theme": "dark"
     }
-  },
-  "default": {
-    "content": {
-      "url": "https://example.com"
-    }
-  },
-  "withBackgroundImage": {
-    "content": {
+  ],
+  "withUrl": [
+    {
+      "title": "Dark Monochrome theme",
+      "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "type": "background-card",
+      "theme": "dark",
+      "buttons": [
+        {
+          "text": "Button",
+          "theme": "normal-contrast",
+          "url": "https://example.com"
+        },
+        {
+          "text": "Button",
+          "theme": "outlined-contrast",
+          "url": "https://example.com"
+        }
+      ],
+      "url": "https://example.com",
+      "urlTitle": "Example website. Opens in a new window"
+    },
+    {
+      "title": "Lorem ipsumt",
+      "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "type": "background-card",
       "background": {
         "light": {
           "src": "/story-assets/img-bg_nopadding_4-12_light.png",
@@ -101,130 +292,153 @@
           "src": "/story-assets/img-bg_nopadding_4-12_dark.png",
           "alt": "Lorem ipsumt"
         }
-      }
+      },
+      "url": "https://example.com",
+      "urlTitle": "Example website. Opens in a new window"
+    },
+    {
+      "title": "Lorem ipsumt",
+      "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "type": "background-card",
+      "border": "line",
+      "url": "https://example.com",
+      "urlTitle": "Example website. Opens in a new window"
+    },
+    {
+      "type": "background-card",
+      "title": "Lorem ipsumt",
+      "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "backgroundColor": "#7ccea0",
+      "theme": "dark",
+      "url": "https://example.com",
+      "urlTitle": "Example website. Opens in a new window"
+    },
+    {
+      "type": "background-card",
+      "title": "Lorem ipsumt",
+      "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "url": "https://example.com",
+      "border": "none",
+      "urlTitle": "Example website. Opens in a new window"
     }
-  },
-  "borderLine": {
-    "content": {
-      "border": "line"
+  ],
+  "controlPosition": [
+    {
+      "title": "With controlPosition = content",
+      "animated": false,
+      "type": "card-layout-block",
+      "children": [
+        {
+          "title": "Lorem ipsumt",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In egestas erat imperdiet sed euismod nisi porta lorem. Amet purus gravida quis blandit turpis cursus in hac.",
+          "buttons": [
+            {
+              "text": "Button 1",
+              "theme": "action",
+              "url": "#test1"
+            },
+            {
+              "text": "Button 2",
+              "theme": "outlined",
+              "url": "#test2"
+            }
+          ],
+          "controlPosition": "content"
+        },
+        {
+          "title": "Lorem ipsumt",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In egestas erat imperdiet sed euismod nisi porta lorem. Amet purus gravida quis blandit turpis cursus in hac. Pulvinar sapien et ligula ullamcorper malesuada proin libero nunc consequat.",
+          "buttons": [
+            {
+              "text": "Button 1",
+              "theme": "action",
+              "url": "#test1"
+            },
+            {
+              "text": "Button 2",
+              "theme": "outlined",
+              "url": "#test2"
+            }
+          ],
+          "controlPosition": "content"
+        },
+        {
+          "title": "Lorem ipsumt",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In egestas erat imperdiet sed euismod nisi porta lorem.",
+          "buttons": [
+            {
+              "text": "Button 1",
+              "theme": "action",
+              "url": "#test1"
+            },
+            {
+              "text": "Button 2",
+              "theme": "outlined",
+              "url": "#test2"
+            }
+          ],
+          "controlPosition": "content"
+        }
+      ]
+    },
+    {
+      "title": "With controlPosition = footer",
+      "description": "Please note that the controlPosition prop manages the position of buttons and links only when paddingBottom = default.",
+      "animated": false,
+      "type": "card-layout-block",
+      "children": [
+        {
+          "title": "Lorem ipsumt",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In egestas erat imperdiet sed euismod nisi porta lorem. Amet purus gravida quis blandit turpis cursus in hac.",
+          "buttons": [
+            {
+              "text": "Button 1",
+              "theme": "action",
+              "url": "#test1"
+            },
+            {
+              "text": "Button 2",
+              "theme": "outlined",
+              "url": "#test2"
+            }
+          ],
+          "controlPosition": "footer"
+        },
+        {
+          "title": "Lorem ipsumt",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In egestas erat imperdiet sed euismod nisi porta lorem. Amet purus gravida quis blandit turpis cursus in hac. Pulvinar sapien et ligula ullamcorper malesuada proin libero nunc consequat.",
+          "buttons": [
+            {
+              "text": "Button 1",
+              "theme": "action",
+              "url": "#test1"
+            },
+            {
+              "text": "Button 2",
+              "theme": "outlined",
+              "url": "#test2"
+            }
+          ],
+          "controlPosition": "footer"
+        },
+        {
+          "title": "Lorem ipsumt",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In egestas erat imperdiet sed euismod nisi porta lorem.",
+          "buttons": [
+            {
+              "text": "Button 1",
+              "theme": "action",
+              "url": "#test1"
+            },
+            {
+              "text": "Button 2",
+              "theme": "outlined",
+              "url": "#test2"
+            }
+          ],
+          "controlPosition": "footer"
+        }
+      ]
     }
-  },
-  "borderNone": {
-    "content": {
-      "border": "none"
-    }
-  },
-  "url": "https://example.com",
-  "urlTitle": "Example website. Opens in a new window",
-  "paddings": {
-    "title": "Padding Bottom = {{padding}}"
-  },
-  "cardThemes": {
-    "content": [
-      {
-        "title": "Default theme",
-        "theme": "default",
-        "buttons": [
-          {
-            "text": "Button\r",
-            "theme": "action",
-            "url": "https://example.com"
-          },
-          {
-            "text": "Button",
-            "theme": "outlined",
-            "url": "https://example.com"
-          }
-        ]
-      },
-      {
-        "title": "Dark Monochrome theme",
-        "theme": "dark",
-        "background": "src: '/story-assets/img-black.png'",
-        "buttons": [
-          {
-            "text": "Button",
-            "theme": "normal-contrast",
-            "url": "https://example.com"
-          },
-          {
-            "text": "Button",
-            "theme": "outlined-contrast",
-            "url": "https://example.com"
-          }
-        ]
-      },
-      {
-        "title": "Light Monochrome theme",
-        "theme": "light",
-        "buttons": [
-          {
-            "text": "Button",
-            "theme": "monochrome",
-            "url": "https://example.com"
-          },
-          {
-            "text": "Button",
-            "theme": "normal",
-            "url": "https://example.com"
-          }
-        ]
-      }
-    ]
-  },
-  "cardLayout": {
-    "contentTitle": "With controlPosition = content",
-    "footerTitle": "With controlPosition = footer",
-    "footerDescription": "Please note that the controlPosition prop manages the position of buttons and links only when paddingBottom = default.",
-    "items": [
-      {
-        "title": "Lorem ipsumt",
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In egestas erat imperdiet sed euismod nisi porta lorem. Amet purus gravida quis blandit turpis cursus in hac.",
-        "buttons": [
-          {
-            "text": "Button 1",
-            "theme": "action",
-            "url": "#test1"
-          },
-          {
-            "text": "Button 2",
-            "theme": "outlined",
-            "url": "#test2"
-          }
-        ]
-      },
-      {
-        "title": "Lorem ipsumt",
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In egestas erat imperdiet sed euismod nisi porta lorem. Amet purus gravida quis blandit turpis cursus in hac. Pulvinar sapien et ligula ullamcorper malesuada proin libero nunc consequat.",
-        "buttons": [
-          {
-            "text": "Button 1",
-            "theme": "action",
-            "url": "#test1"
-          },
-          {
-            "text": "Button 2",
-            "theme": "outlined",
-            "url": "#test2"
-          }
-        ]
-      },
-      {
-        "title": "Lorem ipsumt",
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In egestas erat imperdiet sed euismod nisi porta lorem.",
-        "buttons": [
-          {
-            "text": "Button 1",
-            "theme": "action",
-            "url": "#test1"
-          },
-          {
-            "text": "Button 2",
-            "theme": "outlined",
-            "url": "#test2"
-          }
-        ]
-      }
-    ]
-  }
+  ]
 }
