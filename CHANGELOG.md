@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.5.1](https://github.com/gravity-ui/page-constructor/compare/v6.5.0...v6.5.1) (2025-04-10)
+
+
+### Bug Fixes
+
+* **FullscreenImage:** fix close button ([#1158](https://github.com/gravity-ui/page-constructor/issues/1158)) ([d8dffe8](https://github.com/gravity-ui/page-constructor/commit/d8dffe86d5c72fa78de4b76f37e8a8010500cddc))
+
 ## [6.5.0](https://github.com/gravity-ui/page-constructor/compare/v6.4.0...v6.5.0) (2025-04-10)
 
 
