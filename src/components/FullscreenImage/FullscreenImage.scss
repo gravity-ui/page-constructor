@@ -55,7 +55,7 @@ $closeButtonSize: 36px;
         opacity: 0;
         transition: 0.3s;
 
-        &:focus {
+        &_visible {
             opacity: 1;
         }
     }
