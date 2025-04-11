@@ -1,6 +1,10 @@
 import {ClassNameProps, QuoteType} from '../../models';
 import {ThemeSupporting} from '../../utils';
-import {HubspotEventData, HubspotEventHandlers} from '../../utils/hubspot';
+import {
+    HubspotEventData,
+    HubspotEventHandlers,
+    HubspotFormDefaultValues,
+} from '../../utils/hubspot';
 import {AnalyticsEventsBase} from '../common';
 
 import {ContentBlockProps} from './blocks';
@@ -103,6 +107,7 @@ export interface HubspotFormProps extends HubspotEventHandlers, AnalyticsEventsB
     onLoad?: (arg: HubspotEventData) => void;
     hubspotEvents?: string[];
     createDOMElement?: boolean;
+    defaultValues?: HubspotFormDefaultValues;
 }
 
 //cards

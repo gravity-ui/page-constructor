@@ -4,6 +4,7 @@ import {useMount} from '../../hooks';
 import {HubspotFormProps} from '../../models';
 
 import loadHubspotScript from './loadHubspotScript';
+import {setHubspotDefaultValues} from './setHubspotDefaultValues';
 
 type HubspotFormContainerPropsKeys =
     | 'className'
@@ -12,7 +13,8 @@ type HubspotFormContainerPropsKeys =
     | 'portalId'
     | 'region'
     | 'formClassName'
-    | 'createDOMElement';
+    | 'createDOMElement'
+    | 'defaultValues';
 
 type HubspotFormContainerProps = Pick<HubspotFormProps, HubspotFormContainerPropsKeys>;
 
@@ -27,6 +29,7 @@ const HubspotFormContainer = React.forwardRef<HTMLDivElement, HubspotFormContain
             region,
             formClassName,
             createDOMElement,
+            defaultValues,
         } = props;
 
         const containerRef = React.useRef<HTMLDivElement>(null);
@@ -56,6 +59,9 @@ const HubspotFormContainer = React.forwardRef<HTMLDivElement, HubspotFormContain
                         target: `#${containerId}`,
                         cssClass: formClassName,
                         formInstanceId,
+                        onFormReady: defaultValues
+                            ? (form) => setHubspotDefaultValues(form, defaultValues)
+                            : undefined,
                     });
                 }
             }
