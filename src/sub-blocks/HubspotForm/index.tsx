@@ -30,6 +30,7 @@ const HubspotForm = React.forwardRef<HTMLDivElement, HubspotFormProps>((props, r
         onLoad,
         createDOMElement,
         onSubmitError,
+        defaultValues,
     } = props;
 
     const themeValue = useTheme();
@@ -72,6 +73,7 @@ const HubspotForm = React.forwardRef<HTMLDivElement, HubspotFormProps>((props, r
             portalId={portalId}
             formInstanceId={formInstanceId}
             region={region}
+            defaultValues={defaultValues}
             ref={ref}
         />
     );

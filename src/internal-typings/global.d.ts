@@ -20,6 +20,7 @@ declare namespace Hbspt {
         target?: string;
         cssClass?: string;
         formInstanceId?: string;
+        onFormReady?: (form: HTMLFormElement) => void;
     }
 }
 
