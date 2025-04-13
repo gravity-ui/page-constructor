@@ -1,8 +1,8 @@
 `type: "layout-item"`
 
-`media: Media` — media props (see [Media](?path=/story/blocks-media--default))
+`media: Media` — media props (see [Media](?path=/docs/blocks-media--default))
 
-`content: Partial<Content>` - `Content` props (size and justify props like `colSizes`, `centered`, `size` are omitted) (see [Content](?path=/story/components-content--default))
+`content: Partial<Content>` - `Content` props (size and justify props like `colSizes`, `centered`, `size` are omitted) (see [Content](?path=/docs/components-content--default))
 
 `contentMargin?: 'm' | 'l'` — Content right margin ('m' by default)
 
