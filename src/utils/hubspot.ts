@@ -13,6 +13,8 @@ export interface HubspotEventData {
     data?: unknown;
 }
 
+export type HubspotFormDefaultValues = Record<string, string | number | boolean>;
+
 export function isHubspotEventData(maybeData: unknown): maybeData is HubspotEventData {
     return (
         typeof maybeData === 'object' &&
