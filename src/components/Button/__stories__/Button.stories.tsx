@@ -1,11 +1,11 @@
-import * as React from 'react';
-
 import {Meta, StoryFn} from '@storybook/react';
 
-import {Col, Row} from '../../../grid';
+import {Col, Grid, Row} from '../../../grid';
 import Button, {ButtonProps} from '../Button';
 
 import data from './data.json';
+
+import './Button.stories.scss';
 
 export default {
     component: Button,
@@ -31,7 +31,7 @@ const SizesTemplate: StoryFn<ButtonProps> = (args) => (
     </Row>
 );
 const ThemesSizesTemplate: StoryFn<ButtonProps> = (args) => (
-    <React.Fragment>
+    <Grid>
         <Row>
             <Col />
             <Col>s</Col>
@@ -55,11 +55,11 @@ const ThemesSizesTemplate: StoryFn<ButtonProps> = (args) => (
         <SizesTemplate {...args} theme="flat-danger" />
         <SizesTemplate {...args} theme="flat-secondary" />
         <SizesTemplate {...args} theme="normal-contrast" />
-        <section style={{color: '#3a74ff'}}>
+        <section style={{color: '#fff', background: '#3a74ff'}}>
             <SizesTemplate {...args} theme="outlined-contrast" />
             <SizesTemplate {...args} theme="flat-contrast" />
         </section>
-    </React.Fragment>
+    </Grid>
 );
 
 const WidthTemplate: StoryFn<ButtonProps> = (args) => (

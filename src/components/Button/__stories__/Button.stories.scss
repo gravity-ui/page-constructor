@@ -1,0 +1,12 @@
+@import '../../../../styles/variables.scss';
+
+.pc-Grid {
+    section {
+        border-radius: $indentXXS;
+    }
+
+    .col {
+        display: flex;
+        align-items: center;
+    }
+}

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {AddonPanel} from '@storybook/components';
 import {addons, types, useGlobals, useArgs} from '@storybook/manager-api';
-import yaml from 'js-yaml';
+import yaml, {JSON_SCHEMA} from 'js-yaml';
 import {ClipboardButton, ThemeProvider} from '@gravity-ui/uikit';
 
 import './AddonYaml.css';
@@ -20,6 +20,7 @@ const YamlPanel = () => {
                 lineWidth: -1,
                 forceQuotes: true,
                 skipInvalid: true,
+                noRefs: true,
             }),
         [params],
     );
