@@ -25,21 +25,25 @@
     }
   },
   "sizes": {
-    "xs": {
-      "text": "Size XS",
-      "textSize": "xs"
-    },
-    "s": {
-      "text": "Size S",
-      "textSize": "s"
+    "l": {
+      "text": "Size L",
+      "textSize": "l"
     },
     "m": {
       "text": "Size M",
       "textSize": "m"
     },
-    "l": {
-      "text": "Size L",
-      "textSize": "l"
+    "sm": {
+      "text": "Size SM",
+      "textSize": "sm"
+    },
+    "s": {
+      "text": "Size S",
+      "textSize": "s"
+    },
+    "xs": {
+      "text": "Size XS",
+      "textSize": "xs"
     }
   }
 }

@@ -18,50 +18,19 @@ const SizesTemplate: StoryFn<TitleProps & ClassNameProps> = (args) => {
 
     return (
         <div>
-            <div style={{paddingBottom: '64px'}}>
-                <Title
-                    {...args}
-                    title={
-                        {
-                            ...data.sizes.l,
-                            ...titleItemObjectProps,
-                        } as TitleItemProps
-                    }
-                />
-            </div>
-            <div style={{paddingBottom: '64px'}}>
-                <Title
-                    {...args}
-                    title={
-                        {
-                            ...data.sizes.m,
-                            ...titleItemObjectProps,
-                        } as TitleItemProps
-                    }
-                />
-            </div>
-            <div style={{paddingBottom: '64px'}}>
-                <Title
-                    {...args}
-                    title={
-                        {
-                            ...data.sizes.s,
-                            ...titleItemObjectProps,
-                        } as TitleItemProps
-                    }
-                />
-            </div>
-            <div style={{paddingBottom: '64px'}}>
-                <Title
-                    {...args}
-                    title={
-                        {
-                            ...data.sizes.xs,
-                            ...titleItemObjectProps,
-                        } as TitleItemProps
-                    }
-                />
-            </div>
+            {Object.entries(data.sizes).map(([size, props]) => (
+                <div key={size} style={{paddingBottom: '64px'}}>
+                    <Title
+                        {...args}
+                        title={
+                            {
+                                ...props,
+                                ...titleItemObjectProps,
+                            } as TitleItemProps
+                        }
+                    />
+                </div>
+            ))}
         </div>
     );
 };
