@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.6.0](https://github.com/gravity-ui/page-constructor/compare/v6.5.1...v6.6.0) (2025-04-14)
+
+
+### Features
+
+* **HubspotForm:** default values ([#1166](https://github.com/gravity-ui/page-constructor/issues/1166)) ([8483642](https://github.com/gravity-ui/page-constructor/commit/8483642c668c4728e14e77e650c8ad059a6cab0a))
+
 ## [6.5.1](https://github.com/gravity-ui/page-constructor/compare/v6.5.0...v6.5.1) (2025-04-10)
 
 
