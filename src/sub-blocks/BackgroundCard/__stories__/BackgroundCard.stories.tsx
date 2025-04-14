@@ -10,10 +10,6 @@ import BackgroundCard from '../BackgroundCard';
 
 import data from './data.json';
 
-interface BackgroundCardStoryProps {
-    items: BackgroundCardProps[];
-}
-
 const transformContentList = (list: ContentItemProps[]) =>
     list.map((item) => {
         return {
@@ -24,28 +20,6 @@ const transformContentList = (list: ContentItemProps[]) =>
 
 const getPaddingBottomTitle = (padding: string) =>
     data.paddings.title.replace('{{padding}}', padding);
-
-const getStoryArgs = (
-    count: number,
-    args: BackgroundCardProps,
-    getExtra: (index: number) => Partial<BackgroundCardProps>,
-): BackgroundCardStoryProps => ({
-    items: new Array(count).fill(null).map((_, index) => ({...args, ...getExtra(index)})),
-});
-
-const getDefaultExtraArgs: Parameters<typeof getStoryArgs>[2] = (index) => {
-    switch (index) {
-        case 0:
-            return {additionalInfo: yfmTransform(data.common.additionalInfo)};
-        case 1:
-            return {links: data.common.links as LinkProps[]};
-        case 2:
-            return {buttons: data.common.buttons as ButtonProps[]};
-        case 3:
-        default:
-            return {list: transformContentList(data.common.list)};
-    }
-};
 
 export default {
     component: BackgroundCard,
@@ -65,20 +39,41 @@ export default {
     },
 } as Meta;
 
-const DefaultTemplate: StoryFn<BackgroundCardStoryProps & BackgroundCardProps> = ({
-    items,
-    ...props
-}) => (
+const DefaultTemplate: StoryFn<BackgroundCardProps> = (args) => (
     <div style={{display: 'flex'}}>
-        {items.map((item, index) => (
-            <div key={index} style={{display: 'inline-table', maxWidth: '400px', padding: '0 8px'}}>
-                <BackgroundCard {...item} {...props} />
-            </div>
-        ))}
+        <div style={{display: 'inline-table', maxWidth: '400px', padding: '0 8px'}}>
+            <BackgroundCard {...args} additionalInfo={yfmTransform(data.common.additionalInfo)} />
+        </div>
+        <div style={{display: 'inline-table', maxWidth: '400px', padding: '0 8px'}}>
+            <BackgroundCard {...args} links={data.common.links as LinkProps[]} />
+        </div>
+        <div style={{display: 'inline-table', maxWidth: '400px', padding: '0 8px'}}>
+            <BackgroundCard {...args} buttons={data.common.buttons as ButtonProps[]} />
+        </div>
+        <div style={{display: 'inline-table', maxWidth: '400px', padding: '0 8px'}}>
+            <BackgroundCard {...args} list={transformContentList(data.common.list)} />
+        </div>
     </div>
 );
 
-const CardThemesTemplate: StoryFn<BackgroundCardStoryProps> = (args) => (
+const PaddingsTemplate: StoryFn<BackgroundCardProps> = (args) => (
+    <div style={{display: 'flex'}}>
+        <div style={{display: 'inline-table', maxWidth: '400px', padding: '0 8px'}}>
+            <BackgroundCard {...args} title={getPaddingBottomTitle('S')} paddingBottom="s" />
+        </div>
+        <div style={{display: 'inline-table', maxWidth: '400px', padding: '0 8px'}}>
+            <BackgroundCard {...args} title={getPaddingBottomTitle('M')} paddingBottom="m" />
+        </div>
+        <div style={{display: 'inline-table', maxWidth: '400px', padding: '0 8px'}}>
+            <BackgroundCard {...args} title={getPaddingBottomTitle('L')} paddingBottom="l" />
+        </div>
+        <div style={{display: 'inline-table', maxWidth: '400px', padding: '0 8px'}}>
+            <BackgroundCard {...args} title={getPaddingBottomTitle('XL')} paddingBottom="xl" />
+        </div>
+    </div>
+);
+
+const CardThemesTemplate: StoryFn<{items: BackgroundCardProps[]}> = (args) => (
     <div style={{display: 'flex'}}>
         {args.items.map((item, i) => (
             <div style={{maxWidth: '400px', padding: '0 8px'}} key={i}>
@@ -90,6 +85,33 @@ const CardThemesTemplate: StoryFn<BackgroundCardStoryProps> = (args) => (
                             : data.common.themed.lightList,
                     )}
                 />
+            </div>
+        ))}
+    </div>
+);
+
+const BackgroundColorTemplate: StoryFn<BackgroundCardProps> = (args) => (
+    <div style={{display: 'flex'}}>
+        <div style={{display: 'inline-table', maxWidth: '400px', padding: '0 8px'}}>
+            <BackgroundCard {...args} additionalInfo={yfmTransform(data.common.additionalInfo)} />
+        </div>
+        <div style={{display: 'inline-table', maxWidth: '400px', padding: '0 8px'}}>
+            <BackgroundCard {...args} links={data.common.links as LinkProps[]} />
+        </div>
+        <div style={{display: 'inline-table', maxWidth: '400px', padding: '0 8px'}}>
+            <BackgroundCard
+                {...args}
+                buttons={data.cardThemes.content[1].buttons as ButtonProps[]}
+            />
+        </div>
+    </div>
+);
+
+const WithUrlTemplate: StoryFn<{items: BackgroundCardProps[]}> = (args) => (
+    <div style={{display: 'flex'}}>
+        {args.items.map((item, i) => (
+            <div style={{maxWidth: '400px', padding: '0 8px'}} key={i}>
+                <BackgroundCard {...item} />
             </div>
         ))}
     </div>
@@ -132,11 +154,11 @@ const ControlPositionTemplate: StoryFn<BackgroundCardProps> = (args) => (
 
 export const Default = DefaultTemplate.bind({});
 export const WithBackgroundImage = DefaultTemplate.bind({});
-export const Paddings = DefaultTemplate.bind({});
+export const Paddings = PaddingsTemplate.bind({});
 export const CardThemes = CardThemesTemplate.bind([]);
 export const BorderLine = DefaultTemplate.bind({});
-export const BackgroundColor = DefaultTemplate.bind({});
-export const WithUrl = DefaultTemplate.bind({});
+export const BackgroundColor = BackgroundColorTemplate.bind({});
+export const WithUrl = WithUrlTemplate.bind({});
 export const ControlPosition = ControlPositionTemplate.bind({});
 
 const DefaultArgs = {
@@ -144,37 +166,19 @@ const DefaultArgs = {
     text: yfmTransform(data.common.text),
 };
 
-Default.args = getStoryArgs(4, DefaultArgs, getDefaultExtraArgs);
+Default.args = {
+    ...DefaultArgs,
+} as BackgroundCardProps;
 
-WithBackgroundImage.args = getStoryArgs(
-    4,
-    {
-        ...DefaultArgs,
-        ...data.withBackgroundImage.content,
-    },
-    getDefaultExtraArgs,
-);
+WithBackgroundImage.args = {
+    ...DefaultArgs,
+    ...data.withBackgroundImage.content,
+} as BackgroundCardProps;
 
-Paddings.args = getStoryArgs(
-    4,
-    {
-        ...DefaultArgs,
-        ...data.withBackgroundImage.content,
-    },
-    (index) => {
-        switch (index) {
-            case 0:
-                return {title: getPaddingBottomTitle('S'), paddingBottom: 's'};
-            case 1:
-                return {title: getPaddingBottomTitle('M'), paddingBottom: 'm'};
-            case 2:
-                return {title: getPaddingBottomTitle('L'), paddingBottom: 'l'};
-            case 3:
-            default:
-                return {title: getPaddingBottomTitle('XL'), paddingBottom: 'xl'};
-        }
-    },
-);
+Paddings.args = {
+    ...DefaultArgs,
+    ...data.withBackgroundImage.content,
+} as BackgroundCardProps;
 
 CardThemes.args = {
     items: [...data.cardThemes.content].map((item) => ({
@@ -183,34 +187,16 @@ CardThemes.args = {
     })) as BackgroundCardProps[],
 };
 
-BorderLine.args = getStoryArgs(
-    4,
-    {
-        ...DefaultArgs,
-        ...data.borderLine.content,
-        ...data.withBackgroundImage.content,
-    } as BackgroundCardProps,
-    getDefaultExtraArgs,
-);
+BorderLine.args = {
+    ...DefaultArgs,
+    ...data.borderLine.content,
+    ...data.withBackgroundImage.content,
+} as BackgroundCardProps;
 
-BackgroundColor.args = getStoryArgs(
-    3,
-    {
-        ...DefaultArgs,
-        ...data.backgroundColor.content,
-    } as BackgroundCardProps,
-    (index) => {
-        switch (index) {
-            case 0:
-                return {additionalInfo: yfmTransform(data.common.additionalInfo)};
-            case 1:
-                return {links: data.common.links as LinkProps[]};
-            case 2:
-            default:
-                return {buttons: data.cardThemes.content[1].buttons as ButtonProps[]};
-        }
-    },
-);
+BackgroundColor.args = {
+    ...DefaultArgs,
+    ...data.backgroundColor.content,
+} as BackgroundCardProps;
 
 WithUrl.args = {
     items: [
