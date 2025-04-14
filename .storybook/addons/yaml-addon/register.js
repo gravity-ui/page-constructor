@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {AddonPanel} from '@storybook/components';
 import {addons, types, useGlobals, useArgs} from '@storybook/manager-api';
-import yaml, {JSON_SCHEMA} from 'js-yaml';
+import yaml from 'js-yaml';
 import {ClipboardButton, ThemeProvider} from '@gravity-ui/uikit';
 
 import './AddonYaml.css';
