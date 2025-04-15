@@ -1,9 +1,11 @@
+import * as React from 'react';
 import {usePostMessageAPIListener} from '../../common/postMessage';
+import {PageContentWithNavigation} from '../../models';
 
 import {useMainEditorStore} from './useMainEditorStore';
 import {usePostMessageEvents} from './usePostMessageEvents';
 
-const useMainEditorInitialize = () => {
+const useMainEditorInitialize = (initialContent?: PageContentWithNavigation) => {
     const {requestPostMessage} = usePostMessageEvents();
     const {
         initialize,
@@ -22,10 +24,19 @@ const useMainEditorInitialize = () => {
         () => {
             initialize();
             requestPostMessage('GET_SUPPORTED_BLOCKS', {});
-            requestPostMessage('GET_INITIAL_CONTENT', {});
+
+            if (!initialContent) {
+                requestPostMessage('GET_INITIAL_CONTENT', {});
+            }
         },
         [requestPostMessage],
     );
+
+    React.useEffect(() => {
+        if (initialContent) {
+            setContent(initialContent);
+        }
+    }, [initialContent]);
 
     usePostMessageAPIListener('ON_INITIAL_CONTENT', (data) => {
         setContent(data);

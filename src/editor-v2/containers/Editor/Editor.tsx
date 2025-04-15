@@ -26,6 +26,7 @@ interface SidebarTabComponent {
 interface EditorViewProps {
     onUpdate?: (pageContent: PageContentWithNavigation) => void;
     initialUrl: string;
+    initialContent?: PageContentWithNavigation;
     disableUrlField?: boolean;
     componentsConfig?: {
         middleTop?: React.ElementType;
@@ -36,11 +37,11 @@ interface EditorViewProps {
     };
 }
 
-const EditorView = ({componentsConfig = {}}: EditorViewProps) => {
+const EditorView = ({componentsConfig = {}, initialContent}: EditorViewProps) => {
     const store = useMainEditorStore();
     const {manipulateOverlayMode, disableMode} = store;
 
-    useMainEditorInitialize();
+    useMainEditorInitialize(initialContent);
 
     // Disable insert mode on any MouseUp event
     // Maybe should be attached to body
