@@ -1,4 +1,4 @@
-![PriceDetailed](https://img.shields.io/static/v1?label=Status&message=Deprecated&color=red) Use [PriceCard](?path=/story/components-cards-pricecard--default) instead.
+![PriceDetailed](https://img.shields.io/static/v1?label=Status&message=Deprecated&color=red) Use [PriceCard](?path=/docs/components-cards-pricecard--default) instead.
 
 `type: 'price-detailed'`
 
