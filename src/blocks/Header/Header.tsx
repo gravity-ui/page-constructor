@@ -168,7 +168,13 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
                                     )}
                                     {additionalInfo && (
                                         <div className={b('additional-info', {theme: textTheme})}>
-                                            {additionalInfo}
+                                            <YFMWrapper
+                                                content={additionalInfo}
+                                                modifiers={{
+                                                    constructor: true,
+                                                    constructorTheme: textTheme,
+                                                }}
+                                            />
                                         </div>
                                     )}
                                     {buttons && (
