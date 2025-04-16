@@ -36,6 +36,7 @@ const useMainEditorInitialize = (initialContent?: PageContentWithNavigation) => 
         if (initialContent) {
             setContent(initialContent);
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [initialContent]);
 
     usePostMessageAPIListener('ON_INITIAL_CONTENT', (data) => {
