@@ -4,7 +4,7 @@ import {useUniqId} from '@gravity-ui/uikit';
 import debounce from 'lodash/debounce';
 import get from 'lodash/get';
 import noop from 'lodash/noop';
-import SlickSlider, {Settings} from 'react-slick';
+import _SlickSlider, {Settings} from 'react-slick';
 
 import Anchor from '../../components/Anchor/Anchor';
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
@@ -43,6 +43,11 @@ const slick = block('slick-origin');
 
 const DOT_WIDTH = 8;
 const DOT_GAP = 16;
+
+const SlickSlider =
+    'default' in _SlickSlider && _SlickSlider.default
+        ? (_SlickSlider.default as typeof _SlickSlider)
+        : _SlickSlider;
 
 export interface SliderProps
     extends Omit<SliderParams, 'children'>,
@@ -107,7 +112,7 @@ export const SliderBlock = (props: React.PropsWithChildren<SliderProps>) => {
 
     const [currentIndex, setCurrentIndex] = React.useState<number>(0);
     const [childStyles, setChildStyles] = React.useState<Object>({});
-    const [slider, setSlider] = React.useState<SlickSlider>();
+    const [slider, setSlider] = React.useState<_SlickSlider>();
     const prevIndexRef = React.useRef<number>(0);
     const autoplayTimeId = React.useRef<Timeout>();
     const {hasFocus, unsetFocus} = useFocus(slider?.innerSlider?.list);
@@ -384,7 +389,7 @@ export const SliderBlock = (props: React.PropsWithChildren<SliderProps>) => {
         const variableWidth = isServer && isMobile;
 
         const settings = {
-            ref: (slickSlider: SlickSlider) => setSlider(slickSlider),
+            ref: (slickSlider: _SlickSlider) => setSlider(slickSlider),
             className: slick(null, className),
             arrows,
             variableWidth,
