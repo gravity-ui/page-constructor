@@ -3,7 +3,7 @@ import * as React from 'react';
 import {PlayFill} from '@gravity-ui/icons';
 import {Icon} from '@gravity-ui/uikit';
 import debounce from 'lodash/debounce';
-import ReactPlayer from 'react-player';
+import _ReactPlayer from 'react-player';
 
 import {MobileContext} from '../../context/mobileContext';
 import {VideoContext} from '../../context/videoContext';
@@ -34,6 +34,11 @@ import './ReactPlayer.scss';
 const b = block('ReactPlayer');
 
 const FPS = 60;
+
+const ReactPlayer =
+    'default' in _ReactPlayer && _ReactPlayer.default
+        ? (_ReactPlayer.default as typeof _ReactPlayer)
+        : _ReactPlayer;
 
 export interface ReactPlayerBlockProps
     extends Omit<MediaVideoProps, 'loop' | 'src'>,
@@ -99,7 +104,7 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
         const ref = React.useRef<HTMLDivElement>(null);
         const buttonRef = React.useRef<HTMLButtonElement>(null);
 
-        const [playerRef, setPlayerRef] = React.useState<ReactPlayer>();
+        const [playerRef, setPlayerRef] = React.useState<_ReactPlayer>();
         const [isPlaying, setIsPlaying] = React.useState(autoPlay);
         const [playedPercent, setPlayedPercent] = React.useState<number>(0);
         const [currentHeight, setCurrentHeight] = React.useState(height);
@@ -310,7 +315,7 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
             }
         }, [changeMute, controls, customControlsType, ended, isPlaying, muted]);
 
-        const onReady = React.useCallback((player: ReactPlayer) => {
+        const onReady = React.useCallback((player: _ReactPlayer) => {
             setPlayerRef(player);
             const videoElement = player.getInternalPlayer();
             const videoWidth = videoElement.videoWidth as number | undefined;
