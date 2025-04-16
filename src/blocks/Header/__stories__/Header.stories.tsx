@@ -38,6 +38,7 @@ export default {
 const DefaultArgs = {
     ...data.default.content,
     description: yfmTransform(data.default.content.description),
+    additionalInfo: yfmTransform(data.default.content.additionalInfo),
 };
 
 const DefaultTemplate: StoryFn<HeaderBlockModel> = (args) => (
