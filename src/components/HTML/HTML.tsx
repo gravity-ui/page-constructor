@@ -9,7 +9,11 @@ export interface HTMLExtraProps {
     contentClassName?: string;
     onlyContent?: boolean;
 }
-export interface HTMLProps extends HTMLExtraProps, React.PropsWithChildren, QAProps, ClassNameProps {
+export interface HTMLProps
+    extends HTMLExtraProps,
+        React.PropsWithChildren,
+        QAProps,
+        ClassNameProps {
     content?: string;
     block?: boolean;
     itemProp?: string;
