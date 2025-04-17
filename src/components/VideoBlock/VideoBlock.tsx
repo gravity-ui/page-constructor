@@ -110,7 +110,7 @@ const VideoBlock = (props: VideoBlockProps) => {
                 });
 
                 return url.href;
-            } catch (e) {
+            } catch {
                 return src;
             }
         }

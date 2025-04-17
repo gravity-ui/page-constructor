@@ -118,7 +118,7 @@ const YandexForm = (props: YandexFormProps) => {
                     // to catch this event and handle analytics redirectUrl is added to condition
                     handleSubmit();
                 }
-            } catch (error) {
+            } catch {
                 return;
             }
         },

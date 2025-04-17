@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import * as React from 'react';
 
 import camelCase from 'lodash/camelCase';
 import flatten from 'lodash/flatten';
@@ -64,7 +64,7 @@ export function getHeaderTag(size: TextSize) {
 type SelectVariantArgs = {
     block?: boolean;
     content?: string;
-    children?: ReactNode;
+    children?: React.ReactNode;
     tagName?: TagName;
 };
 
