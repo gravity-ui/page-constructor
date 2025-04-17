@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.6.1](https://github.com/gravity-ui/page-constructor/compare/v6.6.0...v6.6.1) (2025-04-17)
+
+
+### Bug Fixes
+
+* **Slider:** fix react-slick and react-player import ([#1165](https://github.com/gravity-ui/page-constructor/issues/1165)) ([13aee28](https://github.com/gravity-ui/page-constructor/commit/13aee282ce4d716d7848c7da67e429f3d407c528))
+
 ## [6.6.0](https://github.com/gravity-ui/page-constructor/compare/v6.5.1...v6.6.0) (2025-04-14)
 
 
