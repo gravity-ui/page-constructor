@@ -1,5 +1,3 @@
-import * as React from 'react';
-
 import {AnimateBlock, Title, YFMWrapper} from '../../components/';
 import Image from '../../components/Image/Image';
 import {getMediaImage} from '../../components/Media/Image/utils';
