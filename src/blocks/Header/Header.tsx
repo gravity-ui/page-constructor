@@ -83,6 +83,7 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
         children,
         mediaView = 'full',
         centered,
+        additionalInfo,
     } = props;
     const isMobile = React.useContext(MobileContext);
     const theme = useTheme();
@@ -158,6 +159,17 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
                                         <div className={b('description', {theme: textTheme})}>
                                             <YFMWrapper
                                                 content={description}
+                                                modifiers={{
+                                                    constructor: true,
+                                                    constructorTheme: textTheme,
+                                                }}
+                                            />
+                                        </div>
+                                    )}
+                                    {additionalInfo && (
+                                        <div className={b('additional-info', {theme: textTheme})}>
+                                            <YFMWrapper
+                                                content={additionalInfo}
                                                 modifiers={{
                                                     constructor: true,
                                                     constructorTheme: textTheme,
