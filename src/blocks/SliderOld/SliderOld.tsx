@@ -1,12 +1,4 @@
-import React, {
-    Fragment,
-    useCallback,
-    useContext,
-    useEffect,
-    useMemo,
-    useRef,
-    useState,
-} from 'react';
+import * as React from 'react';
 
 import {useUniqId} from '@gravity-ui/uikit';
 import debounce from 'lodash/debounce';
@@ -93,19 +85,19 @@ export const SliderOldBlock = (props: React.PropsWithChildren<SliderOldProps>) =
         initialIndex = 0,
     } = props;
 
-    const {isServer} = useContext(SSRContext);
-    const isMobile = useContext(MobileContext);
-    const [breakpoint, setBreakpoint] = useState<number>(BREAKPOINTS.xl);
+    const {isServer} = React.useContext(SSRContext);
+    const isMobile = React.useContext(MobileContext);
+    const [breakpoint, setBreakpoint] = React.useState<number>(BREAKPOINTS.xl);
     const sliderId = useUniqId();
-    const disclosedChildren = useMemo<React.ReactElement[]>(
+    const disclosedChildren = React.useMemo<React.ReactElement[]>(
         () => discloseAllNestedChildren(children as React.ReactElement[], sliderId),
         [children, sliderId],
     );
     const childrenCount = disclosedChildren.length;
     const isAutoplayEnabled = autoplaySpeed !== undefined && autoplaySpeed > 0;
-    const isUserInteractionRef = useRef(false);
+    const isUserInteractionRef = React.useRef(false);
 
-    const [slidesToShow] = useState<SliderBreakpointParams>(
+    const [slidesToShow] = React.useState<SliderBreakpointParams>(
         getSlidesToShowWithDefaults({
             contentLength: childrenCount,
             breakpoints: props.slidesToShow,
@@ -118,11 +110,11 @@ export const SliderOldBlock = (props: React.PropsWithChildren<SliderOldProps>) =
     const slidesToShowCount = getSlidesToShowCount(slidesToShow);
     const slidesCountByBreakpoint = getSlidesCountByBreakpoint(breakpoint, slidesToShow);
 
-    const [currentIndex, setCurrentIndex] = useState<number>(initialIndex);
-    const [childStyles, setChildStyles] = useState<Object>({});
-    const [slider, setSlider] = useState<SlickSlider>();
-    const prevIndexRef = useRef<number>(0);
-    const autoplayTimeId = useRef<Timeout>();
+    const [currentIndex, setCurrentIndex] = React.useState<number>(initialIndex);
+    const [childStyles, setChildStyles] = React.useState<Object>({});
+    const [slider, setSlider] = React.useState<SlickSlider>();
+    const prevIndexRef = React.useRef<number>(0);
+    const autoplayTimeId = React.useRef<Timeout>();
     const {hasFocus, unsetFocus} = useFocus(slider?.innerSlider?.list);
 
     const asUserInteraction =
@@ -133,7 +125,7 @@ export const SliderOldBlock = (props: React.PropsWithChildren<SliderOldProps>) =
         };
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    const onResize = useCallback(
+    const onResize = React.useCallback(
         debounce(() => {
             if (!slider) {
                 return;
@@ -151,7 +143,7 @@ export const SliderOldBlock = (props: React.PropsWithChildren<SliderOldProps>) =
         [slider, breakpoint],
     );
 
-    const scrollLastSlide = useCallback(
+    const scrollLastSlide = React.useCallback(
         (current: number) => {
             const lastSlide = childrenCount - slidesToShowCount;
 
@@ -173,7 +165,7 @@ export const SliderOldBlock = (props: React.PropsWithChildren<SliderOldProps>) =
         [autoplaySpeed, childrenCount, isAutoplayEnabled, slider, slidesToShowCount],
     );
 
-    useEffect(() => {
+    React.useEffect(() => {
         if (hasFocus && autoplayTimeId.current) {
             clearTimeout(autoplayTimeId.current);
         } else {
@@ -181,7 +173,7 @@ export const SliderOldBlock = (props: React.PropsWithChildren<SliderOldProps>) =
         }
     }, [currentIndex, hasFocus, scrollLastSlide]);
 
-    useEffect(() => {
+    React.useEffect(() => {
         onResize();
 
         window.addEventListener('resize', onResize, {passive: true});
@@ -205,7 +197,7 @@ export const SliderOldBlock = (props: React.PropsWithChildren<SliderOldProps>) =
         }
     };
 
-    const onBeforeChange = useCallback(
+    const onBeforeChange = React.useCallback(
         (current: number, next: number) => {
             if (handleBeforeChange) {
                 handleBeforeChange(current, next);
@@ -218,7 +210,7 @@ export const SliderOldBlock = (props: React.PropsWithChildren<SliderOldProps>) =
         [handleBeforeChange],
     );
 
-    const onAfterChange = useCallback(
+    const onAfterChange = React.useCallback(
         (current: number) => {
             if (handleAfterChange) {
                 handleAfterChange(current);
@@ -289,7 +281,7 @@ export const SliderOldBlock = (props: React.PropsWithChildren<SliderOldProps>) =
     const renderAccessibleBar = (index: number) => {
         return (
             // To have this key differ from keys used in renderDot function, added `-accessible-bar` part
-            <Fragment key={`${index}-accessible-bar`}>
+            <React.Fragment key={`${index}-accessible-bar`}>
                 {slidesCountByBreakpoint > 0 && (
                     <li
                         className={b('accessible-bar')}
@@ -306,7 +298,7 @@ export const SliderOldBlock = (props: React.PropsWithChildren<SliderOldProps>) =
                         {...getRovingItemProps(currentIndex + 1)}
                     />
                 )}
-            </Fragment>
+            </React.Fragment>
         );
     };
 

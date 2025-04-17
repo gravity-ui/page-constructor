@@ -43,6 +43,7 @@ export interface SliderProps
     initialSlide?: number;
 }
 
+// eslint-disable-next-line react-hooks/rules-of-hooks
 Swiper.use([Autoplay, A11y, Pagination]);
 
 export const SliderBlock = ({
