@@ -3,7 +3,7 @@ export const getHostStyles = () => {
         .map((styleSheet) => {
             try {
                 return [...styleSheet.cssRules].map((rule) => rule.cssText).join('');
-            } catch (e) {
+            } catch {
                 //eslint-disable-next-line no-console
                 console.log(`Access to stylesheet  ${styleSheet.href} is denied. Ignoring...`);
 
