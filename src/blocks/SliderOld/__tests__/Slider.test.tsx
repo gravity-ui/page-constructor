@@ -1,5 +1,3 @@
-import React from 'react';
-
 import {queryHelpers, render} from '@testing-library/react';
 
 import {BasicCard} from '../../../sub-blocks';
