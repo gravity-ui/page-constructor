@@ -41,10 +41,9 @@ $backgroundWidth: 1440px;
 
             #{$block}__additional-info {
                 .yfm p {
-                    /* stylelint-disable-next-line declaration-no-important */
                     color: var(
                         --g-color-text-light-secondary
-                    ) !important; // the selector that interrupts this color is too big;
+                    ) !important; /* stylelint-disable-line declaration-no-important */ // the selector that interrupts this color is too big;
                 }
             }
         }
@@ -113,10 +112,9 @@ $backgroundWidth: 1440px;
 
         .yfm p {
             @include text-size(body-2);
-            /* stylelint-disable-next-line declaration-no-important */
             color: var(
                 --g-color-text-secondary
-            ) !important; // the selector that interrupts this color is too big
+            ) !important; /* stylelint-disable-line declaration-no-important */ // the selector that interrupts this color is too big
         }
     }
 
