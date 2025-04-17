@@ -144,7 +144,7 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
                                     {overtitle && (
                                         <div className={b('overtitle')}>
                                             {typeof overtitle === 'string' ? (
-                                                 <YFMWrapper
+                                                <YFMWrapper
                                                     tagName="div"
                                                     className={b('overtitle')}
                                                     content={overtitle}
@@ -156,7 +156,6 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
                                                 overtitle
                                             )}
                                         </div>
-                                       
                                     )}
                                     <YFMWrapper
                                         content={title}
