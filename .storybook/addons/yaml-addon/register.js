@@ -20,6 +20,7 @@ const YamlPanel = () => {
                 lineWidth: -1,
                 forceQuotes: true,
                 skipInvalid: true,
+                noRefs: true,
             }),
         [params],
     );
