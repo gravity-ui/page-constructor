@@ -38,7 +38,7 @@ export const GithubButton = ({
                                 if (githubButton.parentNode) {
                                     githubButton.parentNode.replaceChild(el, githubButton);
                                 }
-                            } catch (_) {}
+                            } catch {}
                         });
                     }
                 });

@@ -25,7 +25,7 @@ const getBlockPreview = (blockType: BlockType): PreviewComponent => {
         }
 
         return DefaultPreview;
-    } catch (err) {
+    } catch {
         /*eslint-disable no-console */
         console.warn(`Preview image for ${blockType} not found`);
         return DefaultPreview;
