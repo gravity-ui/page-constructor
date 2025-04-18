@@ -62,3 +62,5 @@ export type AnalyticsEventsProp = AnalyticsEvent | AnalyticsEvent[];
 export interface AnalyticsEventsBase {
     analyticsEvents?: AnalyticsEventsProp;
 }
+
+export type TagName = 'span' | 'div' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'section' | 'p';

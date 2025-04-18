@@ -1,0 +1,56 @@
+import {Meta} from '@storybook/blocks';
+
+import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
+import * as SliderStories from './Slider.stories.tsx';
+
+<Meta of={SliderStories} />
+<StoryTemplate>
+
+For any reason you can still use old Slider block. By default prefer to use new one [Slider](?path=/story/blocks-slider--docs&viewMode=docs).
+
+## Parameters
+
+The slider supports two types of content: loadable and from a config. Loadable content is loaded via the `loadable` property and content from a config via the `children` property.
+
+`type: "slider-old-block"`
+
+`animated?: bool` — Enables/disables animation for the block (enabled by default).
+
+`dots?: bool` — A flag that indicates whether to show navigation dots.
+
+`arrows? bool` — A flag that indicates whether to show navigation arrows.
+
+`title: Title`: Title.
+
+`description?: string`: Description.
+
+`randomOrder?: bool`: Enables a random slide order.
+
+`slidesToShow?: Record<'all' | 'sm' | 'md' | 'lg' | 'xl', number> | number`: How many slides to show on screens of different width. Overrides the default values. They can be overridden for each screen width. You can also set a single numeric value so that the number of slides is always the same (except for mobiles, where the value is always 1).
+
+Default values:
+
+- `xl`: 3
+- `lg`: 3
+- `md`: 2
+- `sm`: 1
+
+`loadable: Loadable` — Loadable content, the following data sources are currently supported:
+
+- `events` — Events.
+- `blog` — Blog posts.
+
+`children: Block[]` — You can add child blocks to the slider that will be displayed as its cards. You can also add a component with nested child blocks to the slider. To make each nested child block displayed in a separate card, a child must have the items field which is the nested child.
+
+The following blocks are currently supported:
+
+- `Quote` — Quote
+- [`BasicCard` — Basic card](?path=/docs/components-cards-basiccard--default)
+- [`Banner` — Banner](?path=/docs/блоки-banner--default)
+- <s>Price Detailed</s> (Deprecated, use PriceCard instead)
+- [`BackgroundCard` — Background card](?path=/docs/components-cards-backgroundcard--default)
+- [`LayoutItem` — `Media` + `Content` components in one card-like view](?path=/docs/components-cards-layoutitem--default)
+- [`MediaCard` — Card with an image](?path=/docs/blocks-media--default)
+- [`PriceCard` — Price card](?path=/docs/components-cards-pricecard--default)
+
+</StoryTemplate>
