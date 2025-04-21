@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.6.2](https://github.com/gravity-ui/page-constructor/compare/v6.6.1...v6.6.2) (2025-04-21)
+
+
+### Bug Fixes
+
+* **FoldableListBlock:** add transformers ([#1174](https://github.com/gravity-ui/page-constructor/issues/1174)) ([53e5648](https://github.com/gravity-ui/page-constructor/commit/53e564819018f5c728d7c6dbca86bb9326888f27))
+
 ## [6.6.1](https://github.com/gravity-ui/page-constructor/compare/v6.6.0...v6.6.1) (2025-04-17)
 
 
