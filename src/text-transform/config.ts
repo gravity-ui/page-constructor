@@ -137,7 +137,7 @@ export const blockHeaderTransformer = [
         parser: parseTitle,
     },
     {
-        fields: ['description'],
+        fields: ['description', 'additionalInfo'],
         transformer: yfmTransformer,
     },
 ];

@@ -5,6 +5,8 @@ $block: '.#{$ns}header-block';
 $backgroundWidth: 1440px;
 
 #{$block} {
+    $root: &;
+
     position: relative;
 
     &_full-width {
@@ -34,6 +36,14 @@ $backgroundWidth: 1440px;
             #{$block}__description {
                 .yfm {
                     color: var(--g-color-text-light-primary);
+                }
+            }
+
+            #{$block}__additional-info {
+                .yfm p {
+                    color: var(
+                        --g-color-text-light-secondary
+                    ) !important; /* stylelint-disable-line declaration-no-important */ // the selector that interrupts this color is too big;
                 }
             }
         }
@@ -97,6 +107,17 @@ $backgroundWidth: 1440px;
         }
     }
 
+    &__additional-info {
+        margin-top: $indentXS;
+
+        .yfm p {
+            @include text-size(body-2);
+            color: var(
+                --g-color-text-secondary
+            ) !important; /* stylelint-disable-line declaration-no-important */ // the selector that interrupts this color is too big
+        }
+    }
+
     &__buttons {
         margin-top: $indentXS;
     }
@@ -106,7 +127,7 @@ $backgroundWidth: 1440px;
             margin-top: $indentXS;
 
             &:not(:last-child) {
-                margin-right: $indentXS;
+                margin-right: $indentXXS;
             }
         }
     }
