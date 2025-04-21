@@ -114,10 +114,6 @@ const App = () => {
 export default App;
 ```
 
-## Необходимые зависимости
-
-Для начала работы с пакетом в проекте необходимо предварительно установить следующие зависимости: `@diplodoc/transform`, `@gravity-ui/uikit`, `react`. Подробную информацию можно найти в разделе `peerDependencies` файла `package.json`.
-
 ### Параметры
 
 ```typescript
