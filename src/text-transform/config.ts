@@ -246,6 +246,21 @@ export const config: BlocksConfig = {
             parser: parseFeatures,
         },
     ],
+    [BlockType.FoldableListBlock]: [
+        {
+            fields: ['title'],
+            transformer: typografTransformer,
+        },
+        {
+            fields: ['text', 'additionalInfo'],
+            transformer: yfmTransformer,
+        },
+        {
+            fields: ['items'],
+            transformer: yfmTransformer,
+            parser: parseFeatures,
+        },
+    ],
 
     [BlockType.BannerBlock]: [
         {
