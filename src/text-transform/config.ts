@@ -297,7 +297,7 @@ export const config: BlocksConfig = {
     [BlockType.MediaBlock]: [
         ...blockHeaderTransformer,
         {
-            fields: ['title'],
+            fields: ['title', 'additionalInfo'],
             transformer: yfmTransformer,
         },
         {
