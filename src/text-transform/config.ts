@@ -144,7 +144,7 @@ export const blockHeaderTransformer = [
         parser: parseTitle,
     },
     {
-        fields: ['description', 'additionalInfo'],
+        fields: ['description'],
         transformer: yfmTransformer,
     },
 ];
@@ -297,7 +297,7 @@ export const config: BlocksConfig = {
     [BlockType.MediaBlock]: [
         ...blockHeaderTransformer,
         {
-            fields: ['title', 'additionalInfo'],
+            fields: ['title'],
             transformer: yfmTransformer,
         },
         {
@@ -353,7 +353,7 @@ export const config: BlocksConfig = {
     ],
     [BlockType.HeaderBlock]: [
         {
-            fields: ['description'],
+            fields: ['description', 'additionalInfo'],
             transformer: yfmTransformer,
         },
     ],
