@@ -114,6 +114,12 @@ const App = () => {
 export default App;
 ```
 
+### Готовый шаблон
+
+Чтобы начачать новый проект с нуля можно использовать [готовый шаблон на Next.js](https://github.com/gravity-ui/page-constructor-website-template) который мы подготовили.
+
+## Документация
+
 ### Параметры
 
 ```typescript

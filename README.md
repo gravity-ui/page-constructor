@@ -114,6 +114,12 @@ const App = () => {
 export default App;
 ```
 
+### Ready-made template
+
+To start a new project, you can use the [ready-made template on Next.js ](https://github.com/gravity-ui/page-constructor-website-template) which we have prepared.
+
+## Documentation
+
 ### Parameters
 
 ```typescript
