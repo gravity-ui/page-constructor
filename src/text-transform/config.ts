@@ -4,6 +4,7 @@
 import {
     BlockType,
     ContentBlockProps,
+    ContentItemProps,
     ExtendedFeaturesItem,
     PriceDetailedProps,
     PriceDetailsListProps,
@@ -130,6 +131,12 @@ function parseContentLayoutTitle(transformer: Transformer, content: ContentBlock
     return content;
 }
 
+const parseBackgroundCardItems = (transformer: Transformer, items: ContentItemProps[]) =>
+    items.map(({text, ...rest}) => ({
+        text: text && parseTitle(transformer, text),
+        ...rest,
+    }));
+
 export const blockHeaderTransformer = [
     {
         fields: ['title'],
@@ -168,6 +175,11 @@ export const config: BlocksConfig = {
         },
         {
             fields: ['title'],
+            transformer: typografTransformer,
+        },
+        {
+            fields: ['list'],
+            parser: parseBackgroundCardItems,
             transformer: typografTransformer,
         },
     ],
