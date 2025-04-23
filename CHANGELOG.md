@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.8.0](https://github.com/gravity-ui/page-constructor/compare/v6.7.0...v6.8.0) (2025-04-23)
+
+
+### Features
+
+* **BackgroundCard:** add typograf to list ([#1178](https://github.com/gravity-ui/page-constructor/issues/1178)) ([414ae08](https://github.com/gravity-ui/page-constructor/commit/414ae08127b0ee3dfed03524cbf96ca29c236c02))
+
 ## [6.7.0](https://github.com/gravity-ui/page-constructor/compare/v6.6.2...v6.7.0) (2025-04-21)
 
 
