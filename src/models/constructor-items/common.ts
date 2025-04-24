@@ -130,11 +130,18 @@ interface LoopProps {
 
 // images
 
+export enum Device {
+    Desktop = 'desktop',
+    Mobile = 'mobile',
+    Tablet = 'tablet',
+}
+
 export interface ImageInfoProps
     extends Pick<
-        React.DetailedHTMLProps<React.ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement>,
-        'aria-describedby' | 'loading'
-    > {
+            React.DetailedHTMLProps<React.ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement>,
+            'aria-describedby' | 'loading'
+        >,
+        ImageDevicesVisibleProps {
     alt?: string;
     fetchPriority?: 'high' | 'low' | 'auto';
     disableCompress?: boolean;
@@ -145,9 +152,13 @@ export interface ImageObjectProps extends ImageInfoProps {
 }
 
 export interface ImageDeviceProps extends ImageInfoProps {
-    desktop: string;
-    mobile: string;
-    tablet?: string;
+    [Device.Desktop]: string;
+    [Device.Mobile]: string;
+    [Device.Tablet]?: string;
+}
+
+export interface ImageDevicesVisibleProps {
+    hide?: boolean | Record<Device, boolean>;
 }
 
 export type ImageProps = string | ImageObjectProps | ImageDeviceProps;
@@ -157,10 +168,10 @@ export interface BackgroundImageProps
     extends React.HTMLProps<HTMLDivElement>,
         Partial<ImageDeviceProps>,
         Partial<ImageObjectProps>,
-        QAProps {
+        QAProps,
+        ImageDevicesVisibleProps {
     style?: React.CSSProperties;
     imageClassName?: string;
-    hide?: boolean;
 }
 
 //components props
