@@ -34,6 +34,11 @@ export const HeaderProperties = {
         contentType: 'yfm',
         inputType: 'textarea',
     },
+    additionalInfo: {
+        type: 'string',
+        contentType: 'yfm',
+        inputType: 'textarea',
+    },
     width: {
         type: 'string',
         enum: ['s', 'm', 'l'],
