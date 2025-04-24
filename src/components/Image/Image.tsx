@@ -26,7 +26,7 @@ const checkWebP = (src: string) => {
     return src.endsWith('.webp') ? src : src + '.webp';
 };
 
-const EMPTY_IMG =
+export const EMPTY_IMG =
     'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxIiBoZWlnaHQ9IjEiPjwvc3ZnPg==';
 
 const DeviceSpecificFragment = ({
@@ -100,13 +100,15 @@ const Image = (props: ImageProps) => {
         'mobile-source',
         'tablet-webp-source',
         'tablet-source',
+        'desktop-source',
         'desktop-source-compressed',
     );
 
     const disableWebp =
+        !src ||
         projectSettings.disableCompress ||
         disableCompress ||
-        !isCompressible(src || '') ||
+        !isCompressible(src) ||
         imgLoadingError;
 
     return (
@@ -133,6 +135,7 @@ const Image = (props: ImageProps) => {
                     src={EMPTY_IMG}
                     disableWebp={disableWebp}
                     minBreakpoint={BREAKPOINTS.md}
+                    qa={qaAttributes.desktopSource}
                 />
             )}
             {src && !disableWebp && (
