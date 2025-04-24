@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.8.1](https://github.com/gravity-ui/page-constructor/compare/v6.8.0...v6.8.1) (2025-04-24)
+
+
+### Bug Fixes
+
+* **HeaderBlock:** transformer and schema ([#1180](https://github.com/gravity-ui/page-constructor/issues/1180)) ([1a9a014](https://github.com/gravity-ui/page-constructor/commit/1a9a014f034471ce12dcb1e0d23c2c8e8ffb2916))
+
 ## [6.8.0](https://github.com/gravity-ui/page-constructor/compare/v6.7.0...v6.8.0) (2025-04-23)
 
 
