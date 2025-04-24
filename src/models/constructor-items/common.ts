@@ -158,7 +158,7 @@ export interface ImageDeviceProps extends ImageInfoProps {
 }
 
 export interface ImageDevicesVisibleProps {
-    hide?: boolean | Record<Device, boolean>;
+    hide?: boolean | Partial<Record<Device, boolean>>;
 }
 
 export type ImageProps = string | ImageObjectProps | ImageDeviceProps;
