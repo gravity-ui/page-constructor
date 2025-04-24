@@ -116,7 +116,7 @@ const Image = (props: ImageProps) => {
             {(mobile || hideDevices.mobile) && (
                 <DeviceSpecificFragment
                     src={mobile || EMPTY_IMG}
-                    disableWebp={disableWebp}
+                    disableWebp={disableWebp || Boolean(hideDevices.mobile)}
                     maxBreakpoint={BREAKPOINTS.sm}
                     qa={qaAttributes.mobileSource}
                 />
@@ -124,7 +124,7 @@ const Image = (props: ImageProps) => {
             {(tablet || hideDevices.tablet) && (
                 <DeviceSpecificFragment
                     src={tablet || EMPTY_IMG}
-                    disableWebp={disableWebp}
+                    disableWebp={disableWebp || Boolean(hideDevices.tablet)}
                     maxBreakpoint={BREAKPOINTS.md}
                     minBreakpoint={BREAKPOINTS.sm}
                     qa={qaAttributes.tabletSource}
@@ -133,7 +133,7 @@ const Image = (props: ImageProps) => {
             {hideDevices.desktop && (
                 <DeviceSpecificFragment
                     src={EMPTY_IMG}
-                    disableWebp={disableWebp}
+                    disableWebp
                     minBreakpoint={BREAKPOINTS.md}
                     qa={qaAttributes.desktopSource}
                 />
