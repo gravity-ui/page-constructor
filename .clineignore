@@ -1,0 +1,21 @@
+npm-debug.log
+
+.idea/
+.DS_Store
+.vscode
+.history
+
+node_modules
+
+#env
+env/*
+.env
+.envrc
+
+# dist folder (except favicon)
+dist/*
+
+# build
+build/*
+
+*.tgz
