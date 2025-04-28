@@ -15,7 +15,14 @@ import {
     TitleItemProps,
 } from '../models';
 
-import {Parser, Transformer, TransformerRaw, createItemsParser, yfmTransformer} from './common';
+import {
+    Parser,
+    Transformer,
+    TransformerRaw,
+    createItemsParser,
+    typografTransformer,
+    yfmTransformer,
+} from './common';
 
 function parseTableBlockLegend(transformer: Transformer, content: TableProps) {
     const legend = content?.legend;
