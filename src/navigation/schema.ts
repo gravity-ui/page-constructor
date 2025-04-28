@@ -86,9 +86,18 @@ const NavigationDropdownItemProps = {
 
 const NavigationItemProps = {
     oneOf: [
-        filteredArray(NavigationLinkItemProps),
-        filteredArray(NavigationButtonItemProps),
-        filteredArray(NavigationDropdownItemProps),
+        {
+            optionName: 'link',
+            ...filteredArray(NavigationLinkItemProps),
+        },
+        {
+            optionName: 'button',
+            ...filteredArray(NavigationButtonItemProps),
+        },
+        {
+            optionName: 'dropdown',
+            ...filteredArray(NavigationDropdownItemProps),
+        },
     ],
 };
 
