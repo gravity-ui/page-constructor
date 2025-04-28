@@ -44,7 +44,6 @@ const Share = ({items, title}: ShareBlockProps) => {
                     content={title}
                     modifiers={{
                         constructor: true,
-                        // constructorTheme: textTheme,
                     }}
                     contentClassName={b('title')}
                     tagName="h5"
