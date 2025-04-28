@@ -104,6 +104,18 @@ export interface OneOfInput {
     }[];
 }
 
+export interface AnyOfInput {
+    type: 'anyOf';
+    name: string;
+    key?: string;
+    title: string;
+    options: {
+        value: string;
+        title: string;
+        properties: Array<ConfigInput>;
+    }[];
+}
+
 export interface GeneralProps {
     showIf?: string;
 }
@@ -119,5 +131,6 @@ export type ConfigInput = (
     | ArrayTextInput
     | ArrayObjectInput
     | OneOfInput
+    | AnyOfInput
 ) &
     GeneralProps;

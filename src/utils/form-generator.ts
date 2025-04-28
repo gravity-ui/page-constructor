@@ -68,6 +68,34 @@ export const generateSingleEntity = (key: string, schema: JSONSchemaType<{}>) =>
         };
     }
 
+    if (schema.anyOf) {
+        return {
+            type: 'anyOf',
+            name: key,
+            title: key,
+            options: schema.anyOf.map((item: JSONSchemaType<{}>) => {
+                let properties;
+                if (item.properties) {
+                    properties = generateFromAJV(item);
+                } else {
+                    properties = [
+                        generateSingleEntity('', {
+                            ...item,
+                            name: '',
+                            title: item.optionName,
+                        }),
+                    ];
+                }
+
+                return {
+                    value: item.optionName,
+                    title: item.optionName,
+                    properties: properties,
+                };
+            }),
+        };
+    }
+
     switch (type) {
         case 'string': {
             if (schema.inputType === 'textarea') {
