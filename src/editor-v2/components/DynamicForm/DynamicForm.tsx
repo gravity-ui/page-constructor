@@ -9,6 +9,7 @@ import ArrayDynamicField from './Fields/Array/Array';
 import BooleanDynamicField from './Fields/Boolean/Boolean';
 import NumberDynamicField from './Fields/Number/Number';
 import ObjectDynamicField from './Fields/Object/Object';
+import AnyOfDynamicField from './Fields/AnyOf/AnyOf';
 import OneOfDynamicField from './Fields/OneOf/OneOf';
 import SelectDynamicField from './Fields/Select/Select';
 import TextDynamicField from './Fields/Text/Text';
@@ -183,6 +184,19 @@ const DynamicForm = ({blockConfig, onUpdate, contentConfig}: DynamicFormProps) =
                         />
                     );
                 }
+                case 'anyOf': {
+                    if (!input || !('options' in input)) {
+                        return null;
+                    }
+
+                    return (
+                        <AnyOfDynamicField
+                            inputConfig={input}
+                            contentConfig={contentConfig}
+                            onUpdate={onComplexDynamicFieldUpdate}
+                        />
+                    );
+                }
                 default: {
                     return <div>Ignore {JSON.stringify(input)}</div>;
                 }
@@ -192,7 +206,7 @@ const DynamicForm = ({blockConfig, onUpdate, contentConfig}: DynamicFormProps) =
     );
 
     const sortedInputs = inputs.sort((x, y) => {
-        const nestingFieldTypes = ['object', 'array', 'oneOf'];
+        const nestingFieldTypes = ['object', 'array', 'oneOf', 'anyOf'];
         if (nestingFieldTypes.includes(x.type)) {
             return 1;
         }
