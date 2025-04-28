@@ -82,6 +82,7 @@ $block: '.#{$ns}title-item';
     }
 
     &__wrapper {
+        display: inline-flex;
         white-space: nowrap;
     }
 
