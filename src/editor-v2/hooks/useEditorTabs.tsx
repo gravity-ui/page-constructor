@@ -69,12 +69,16 @@ export const useEditorTabs = ({
                                 {
                                     id: 'source-code-yaml',
                                     title: 'YAML',
-                                    component: () => <SourceCode format="yaml" />,
+                                    component: () => (
+                                        <SourceCode format="yaml" showSelectedBlockOnly={true} />
+                                    ),
                                 },
                                 {
                                     id: 'source-code-json',
                                     title: 'JSON',
-                                    component: () => <SourceCode format="json" />,
+                                    component: () => (
+                                        <SourceCode format="json" showSelectedBlockOnly={true} />
+                                    ),
                                 },
                             ]}
                         />
