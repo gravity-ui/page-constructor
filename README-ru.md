@@ -14,23 +14,111 @@
 npm install @gravity-ui/page-constructor
 ```
 
-## Необходимые зависимости
+## Быстрый старт
 
-Для начала работы с пакетом в проекте необходимо предварительно установить следующие зависимости: `@diplodoc/transform`, `@gravity-ui/uikit`, `react`. Подробную информацию можно найти в разделе `peerDependencies` файла `package.json`.
+Для начала нам понадобится проект на react и какой-нибудь сервер. Например, можно сделать react проект с использованием Vite и сервер на express или можно создать Next.js приложение - в нем сразу будет клиентская и серверная часть.
 
-### Начало работы
+Устанавливаем необходимые зависимости:
 
-Конструктор страниц импортируется в виде React-компонента. Для корректной работы его необходимо обернуть в `PageConstructorProvider`:
-
-```jsx
-import {PageConstructor, PageConstructorProvider} from '@gravity-ui/page-constructor';
-
-const Page: React.PropsWithChildren<PageProps> = ({content}) => (
-  <PageConstructorProvider>
-    <PageConstructor content={content} />
-  </PageConstructorProvider>
-);
+```shell
+npm install @gravity-ui/page-constructor @diplodoc/transform @gravity-ui/uikit
 ```
+
+Подключаем `PageConstructor` на страницу. Для корректной работы его необходимо обернуть в `PageConstructorProvider`:
+
+```tsx
+import {PageConstructor, PageConstructorProvider} from '@gravity-ui/page-constructor';
+import '@gravity-ui/page-constructor/styles/styles.scss';
+
+const App = () => {
+  const content = {
+    blocks: [
+      {
+        type: 'header-block',
+        title: 'Hello world',
+        background: {color: '#f0f0f0'},
+        description:
+          '**Congratulations!** Have you built a [page-constructor](https://github.com/gravity-ui/page-constructor) into your website',
+      },
+    ],
+  };
+
+  return (
+    <PageConstructorProvider>
+      <PageConstructor content={content} />
+    </PageConstructorProvider>
+  );
+};
+
+export default App;
+```
+
+Это был самый простой пример подключения. Чтобы заработала YFM разметка, нужно обрабатывать content на сервере и получать его на клиенте.
+
+Если ваш сервер это отдельное приложение, то нужно установить page-constructor:
+
+```shell
+npm install @gravity-ui/page-constructor
+```
+
+Для обработки YFM во всех базовых блоках вызовите `contentTransformer` и передайте туда контент и опции:
+
+```ts
+const express = require('express');
+const app = express();
+const {contentTransformer} = require('@gravity-ui/page-constructor/server');
+
+const content = {
+  blocks: [
+    {
+      type: 'header-block',
+      title: 'Hello world',
+      background: {color: '#f0f0f0'},
+      description:
+        '**Congratulations!** Have you built a [page-constructor](https://github.com/gravity-ui/page-constructor) into your website',
+    },
+  ],
+};
+
+app.get('/content', (req, res) => {
+  res.send({content: contentTransformer({content, options: {lang: 'en'}})});
+});
+
+app.listen(3000);
+```
+
+На клиенте добавляем вызов эндпоинта для получения контента:
+
+```tsx
+import {PageConstructor, PageConstructorProvider} from '@gravity-ui/page-constructor';
+import '@gravity-ui/page-constructor/styles/styles.scss';
+import {useEffect, useState} from 'react';
+
+const App = () => {
+  const [content, setContent] = useState();
+
+  useEffect(() => {
+    (async () => {
+      const response = await fetch('http://localhost:3000/content').then((r) => r.json());
+      setContent(response.content);
+    })();
+  }, []);
+
+  return (
+    <PageConstructorProvider>
+      <PageConstructor content={content} />
+    </PageConstructorProvider>
+  );
+};
+
+export default App;
+```
+
+### Готовый шаблон
+
+Чтобы начачать новый проект с нуля можно использовать [готовый шаблон на Next.js](https://github.com/gravity-ui/page-constructor-website-template) который мы подготовили.
+
+## Документация
 
 ### Параметры
 
