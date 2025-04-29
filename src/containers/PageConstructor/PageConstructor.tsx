@@ -121,6 +121,7 @@ export const Constructor = (props: PageConstructorProps) => {
                 document.body.removeEventListener('click', handler);
             };
         }
+        return;
     }, [initialized, isPreviewMode]);
 
     return (
