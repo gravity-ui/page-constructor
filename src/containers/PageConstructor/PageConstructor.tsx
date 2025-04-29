@@ -110,18 +110,21 @@ export const Constructor = (props: PageConstructorProps) => {
 
     // disable click events
     React.useEffect(() => {
-        if (initialized && !isPreviewMode) {
-            const handler: React.EventHandler<any> = (e) => {
-                e?.preventDefault();
-                const blockElement = e.target.closest('[data-editor-item]');
-                blockElement.click(e);
-            };
-            document.body.addEventListener('click', handler);
-            return () => {
-                document.body.removeEventListener('click', handler);
-            };
+        if (!initialized || isPreviewMode) {
+            return;
         }
-        return;
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const handler: React.EventHandler<any> = (e) => {
+            e?.preventDefault();
+            const blockElement = e.target.closest('[data-editor-item]');
+            blockElement.click(e);
+        };
+        document.body.addEventListener('click', handler);
+
+        // eslint-disable-next-line consistent-return
+        return () => {
+            document.body.removeEventListener('click', handler);
+        };
     }, [initialized, isPreviewMode]);
 
     return (
