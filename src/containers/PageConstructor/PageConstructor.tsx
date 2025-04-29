@@ -71,7 +71,7 @@ export const Constructor = (props: PageConstructorProps) => {
     const theme = useTheme();
 
     const store = usePCEditorStore();
-    const {initialized} = store;
+    const {initialized, isPreviewMode} = store;
 
     usePCEditorInitializeEvents({initialContent: {blocks, background, navigation}, setContent});
 
@@ -107,6 +107,21 @@ export const Constructor = (props: PageConstructorProps) => {
 
     const restBlocks = content.blocks;
     const themedBackground = getThemedValue(content.background, theme);
+
+    // disable click events
+    React.useEffect(() => {
+        if (initialized && !isPreviewMode) {
+            const handler: React.EventHandler<any> = (e) => {
+                e?.preventDefault();
+                const blockElement = e.target.closest('[data-editor-item]');
+                blockElement.click(e);
+            };
+            document.body.addEventListener('click', handler);
+            return () => {
+                document.body.removeEventListener('click', handler);
+            };
+        }
+    }, [initialized, isPreviewMode]);
 
     return (
         <InnerContext.Provider value={context}>

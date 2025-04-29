@@ -59,6 +59,7 @@ const usePCEditorBlockMouseEvents = (arrayIndex: number[], element?: HTMLElement
         onMouseMove,
         onMouseUp,
         onMouseLeave,
+        'data-editor-item': true,
     };
 };
 

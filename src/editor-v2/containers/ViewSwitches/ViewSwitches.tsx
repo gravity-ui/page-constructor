@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Display, Minus, Plus, Smartphone} from '@gravity-ui/icons';
+import {Display, Eye, Minus, Plus, Smartphone} from '@gravity-ui/icons';
 import {Button, Icon, SegmentedRadioGroup, Select} from '@gravity-ui/uikit';
 
 import {ZOOM_STEPS} from '../../constants';
@@ -47,8 +47,15 @@ const DEVICE_OPTIONS: DeviceOption[] = [
 ];
 
 const ViewSwitches: React.FC = () => {
-    const {zoom, setZoom, decreaseZoom, increaseZoom, deviceWidth, setDeviceWidth} =
-        useMainEditorStore();
+    const {
+        zoom,
+        setZoom,
+        decreaseZoom,
+        increaseZoom,
+        deviceWidth,
+        setDeviceWidth,
+        togglePreviewMode,
+    } = useMainEditorStore();
 
     // Memoize zoom options to prevent unnecessary recalculations
     const zoomOptions = React.useMemo(
@@ -87,6 +94,15 @@ const ViewSwitches: React.FC = () => {
                     </SegmentedRadioGroup.Option>
                 ))}
             </SegmentedRadioGroup>
+
+            <Button
+                view="flat"
+                onClick={togglePreviewMode}
+                aria-label="Switch to preview mode"
+                title="Switch to preview mode"
+            >
+                <Icon data={Eye} />
+            </Button>
 
             <div className={b('zoom')} role="group" aria-label="Zoom controls">
                 <Button
