@@ -7,6 +7,7 @@ import {YandexFormProps} from '../../models';
 import {DefaultEventNames} from '../../models/common';
 import {block} from '../../utils';
 import {HEADER_HEIGHT} from '../constants';
+import {ProjectSettingsContext} from '../../context/projectSettingsContext';
 
 export const YANDEX_FORM_ORIGIN = 'https://forms.yandex.ru';
 export const YANDEX_FORM_SECTION = 'surveys';
@@ -36,11 +37,13 @@ const YandexForm = (props: YandexFormProps) => {
     const handleAnalytics = useAnalytics(DefaultEventNames.YandexFormSubmit);
     const isMobile = React.useContext(MobileContext);
     const locale = React.useContext(LocaleContext);
+    const {defaultYandexFormTheme} = React.useContext(ProjectSettingsContext);
 
     const updateFormIframe = React.useCallback(
         (container: HTMLDivElement) => {
             const queryParams = new URLSearchParams(location.search);
             const url = location.origin + location.pathname;
+            const formTheme = theme || defaultYandexFormTheme;
 
             queryParams.set('url', url);
             queryParams.set('iframe', '1');
@@ -49,7 +52,9 @@ const YandexForm = (props: YandexFormProps) => {
                 queryParams.set('lang', locale.lang);
             }
 
-            queryParams.set('theme', theme || 'cloud-www');
+            if (formTheme) {
+                queryParams.set('theme', formTheme);
+            }
 
             if (isMobile) {
                 queryParams.set('media-type', 'mobile');
