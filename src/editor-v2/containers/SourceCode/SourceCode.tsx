@@ -25,6 +25,7 @@ const SourceCode = ({className, format, showSelectedBlockOnly = false}: SourceCo
     const [isOpen, setIsOpen] = React.useState(false);
 
     const handleUpdate = (tempConfig: string) => {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         let object: any;
 
         try {
