@@ -25,6 +25,7 @@ export interface EditorMethods {
     setZoom(zoom: number): void;
     increaseZoom(): void;
     decreaseZoom(): void;
+    togglePreviewMode(): void;
     setConfig(data: Pick<EditorState, 'blocks' | 'subBlocks' | 'global'>): void;
     setContent(data: PageContentWithNavigation): void;
     insertBlock(path: number[], blockType: string, position?: 'prepend' | 'append'): void;
@@ -78,6 +79,9 @@ export const createEditorStore = initializeStore<EditorState, EditorMethods>(
                     break;
                 }
             }
+        },
+        togglePreviewMode() {
+            set((state) => ({...state, isPreviewMode: !state.isPreviewMode}));
         },
         setConfig(data) {
             set((state) => ({...state, ...data}));

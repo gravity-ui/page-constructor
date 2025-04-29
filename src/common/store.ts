@@ -13,6 +13,7 @@ export interface EditorState {
     manipulateOverlayMode: 'insert' | 'reorder' | false;
     selectedBlock: number[] | null;
     initialized: boolean;
+    isPreviewMode: boolean;
 
     content: PageContentWithNavigation;
     blocks: Array<ItemConfig>;
@@ -30,6 +31,7 @@ export const initialStore: EditorState = {
     manipulateOverlayMode: false,
     selectedBlock: null,
     initialized: false,
+    isPreviewMode: false,
     content: {blocks: []},
     blocks: [],
     subBlocks: [],
