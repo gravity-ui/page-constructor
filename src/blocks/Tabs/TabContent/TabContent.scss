@@ -47,12 +47,14 @@ $block: '.#{$ns}tab-content';
     }
 
     &__row {
-        &_hidden {
-            display: none;
-        }
+        @include add-specificity(&) {
+            &_hidden {
+                display: none;
+            }
 
-        &_reverse {
-            flex-direction: row-reverse;
+            &_reverse {
+                flex-direction: row-reverse;
+            }
         }
     }
 
