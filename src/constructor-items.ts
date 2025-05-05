@@ -29,7 +29,7 @@ import CardLayoutBlockConfig from './blocks/CardLayout';
 import CompaniesBlockConfig from './blocks/Companies';
 import ContentLayoutBlockConfig from './blocks/ContentLayout';
 import ExtendedFeaturesBlockConfig from './blocks/ExtendedFeatures';
-import FilterBlockConfig from './blocks/FilterBlock';
+// import FilterBlockConfig from './blocks/FilterBlock';
 import FormBlockConfig from './blocks/Form';
 import HeaderBlockConfig from './blocks/Header';
 import HeaderSliderBlockConfig from './blocks/HeaderSlider';
@@ -71,7 +71,6 @@ import ImageCardConfig from './sub-blocks/ImageCard';
 import LayoutItemConfig from './sub-blocks/LayoutItem';
 import MediaCardConfig from './sub-blocks/MediaCard';
 import PriceCardConfig from './sub-blocks/PriceCard';
-import PriceDetailedConfig from './sub-blocks/PriceDetailed';
 import QuoteConfig from './sub-blocks/Quote';
 
 /**
@@ -154,13 +153,13 @@ export const blockDataMap: Record<string, BlockData> = {
     [BlockType.ContentLayoutBlock]: ContentLayoutBlockConfig,
     [BlockType.ShareBlock]: ShareBlockConfig,
     [BlockType.MapBlock]: MapBlockConfig,
-    [BlockType.FilterBlock]: FilterBlockConfig,
+    // TODO: fix items prop for editor compatibility
+    // [BlockType.FilterBlock]: FilterBlockConfig,
     [BlockType.FormBlock]: FormBlockConfig,
     [BlockType.TestEditorBlock]: TestEditorBlockConfig,
     [BlockType.SliderBlock]: SliderBlockConfig,
 
     [SubBlockType.Divider]: DividerConfig,
-    [SubBlockType.PriceDetailed]: PriceDetailedConfig,
     [SubBlockType.MediaCard]: MediaCardConfig,
     [SubBlockType.BannerCard]: BannerCardConfig,
     [SubBlockType.LayoutItem]: LayoutItemConfig,
