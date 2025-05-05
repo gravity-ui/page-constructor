@@ -1,0 +1,27 @@
+import {Meta} from '@storybook/blocks';
+
+import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
+import * as AnimateBlockStories from './AnimateBlock.stories.tsx';
+
+<Meta of={AnimateBlockStories} />
+<StoryTemplate>
+
+## Dependencies
+
+For a detailed usage guide of the AnimateBlock component, see [AnimateBlock Usage](https://github.com/gravity-ui/page-constructor/blob/main/memory-bank/usage/animateBlock.md).
+
+## Parameters
+
+`animate?: boolean` — Enables/disables animations (defaults to value from AnimateContext)
+
+`offset?: number` — Number of pixels before the element enters the viewport to trigger the animation (defaults to 100)
+
+`className?: string` — Optional CSS class name
+
+`style?: React.CSSProperties` — Optional inline styles
+
+`onScroll?: () => void` — Optional callback function triggered when the element enters the viewport
+
+`qa?: string` — Optional QA attribute for testing
+
+</StoryTemplate>
