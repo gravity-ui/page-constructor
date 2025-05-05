@@ -104,7 +104,10 @@ export const SliderBlock = ({
             className={b(
                 {
                     'one-slide': childrenCount === 1,
-                    'only-arrows': !title?.text && !description && arrows,
+                    'only-arrows':
+                        (!title || (typeof title !== 'string' && !title?.text)) &&
+                        !description &&
+                        arrows,
                     'without-dots': !dots || isLocked,
                     type,
                 },

@@ -123,7 +123,7 @@ export interface SliderOldProps extends Childable, Animatable, LoadableChildren 
         text: string;
         size?: TextSize;
     };
-    title?: TitleItemBaseProps;
+    title?: TitleItemBaseProps | string;
     description?: string;
     autoplay?: number;
     //for server transforms
@@ -139,7 +139,7 @@ export interface SliderProps extends Childable, Animatable, LoadableChildren {
         text: string;
         size?: TextSize;
     };
-    title?: TitleItemBaseProps;
+    title?: TitleItemBaseProps | string;
     description?: string;
     autoplay?: number;
     //for server transforms
