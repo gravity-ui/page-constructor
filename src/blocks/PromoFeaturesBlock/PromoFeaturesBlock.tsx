@@ -6,6 +6,7 @@ import Title from '../../components/Title/Title';
 import YFMWrapper from '../../components/YFMWrapper/YFMWrapper';
 import {BREAKPOINTS} from '../../constants';
 import {useTheme} from '../../context/theme';
+import {Grid} from '../../grid';
 import {PromoFeaturesProps} from '../../models';
 import {block, getThemedValue} from '../../utils';
 import {mergeVideoMicrodata} from '../../utils/microdata';
@@ -26,43 +27,50 @@ const PromoFeaturesBlock = (props: PromoFeaturesProps) => {
     const globalTheme = useTheme();
 
     return (
-        <AnimateBlock className={b({[backgroundTheme]: true})} animate={animated}>
-            <FullWidthBackground className={b('background', {[backgroundTheme]: true})} />
-            <Title title={title} subtitle={description} className={b('header')} />
-            <BalancedMasonry
-                breakpointCols={breakpointColumns}
-                className={b('card-container')}
-                columnClassName={b('card-container-column')}
-            >
-                {items.map(({title: cardTitle, text, media, theme: cardTheme}, index) => {
-                    const blockModifier = backgroundTheme === 'default' ? 'default' : 'light';
-                    const themeMod = cardTheme || blockModifier || '';
-                    const themedMedia = getThemedValue(media, globalTheme);
-                    const allProps = mergeVideoMicrodata(themedMedia, {
-                        name: cardTitle,
-                        description: text,
-                    });
+        <Grid>
+            <AnimateBlock className={b({[backgroundTheme]: true})} animate={animated}>
+                <FullWidthBackground className={b('background', {[backgroundTheme]: true})} />
+                <Title title={title} subtitle={description} className={b('header')} />
+                <BalancedMasonry
+                    breakpointCols={breakpointColumns}
+                    className={b('card-container')}
+                    columnClassName={b('card-container-column')}
+                >
+                    {items &&
+                        items.map(({title: cardTitle, text, media, theme: cardTheme}, index) => {
+                            const blockModifier =
+                                backgroundTheme === 'default' ? 'default' : 'light';
+                            const themeMod = cardTheme || blockModifier || '';
+                            const themedMedia = getThemedValue(media, globalTheme);
+                            const allProps = mergeVideoMicrodata(themedMedia, {
+                                name: cardTitle,
+                                description: text,
+                            });
 
-                    return (
-                        <div
-                            key={index}
-                            className={b('card', {
-                                'no-media': !media,
-                                [themeMod]: Boolean(themeMod),
-                            })}
-                        >
-                            <div className={b('card-info')}>
-                                <h3 className={b('card-title')}>{cardTitle}</h3>
-                                <div className={b('card-text')}>
-                                    <YFMWrapper content={text} modifiers={{constructor: true}} />
+                            return (
+                                <div
+                                    key={index}
+                                    className={b('card', {
+                                        'no-media': !media,
+                                        [themeMod]: Boolean(themeMod),
+                                    })}
+                                >
+                                    <div className={b('card-info')}>
+                                        <h3 className={b('card-title')}>{cardTitle}</h3>
+                                        <div className={b('card-text')}>
+                                            <YFMWrapper
+                                                content={text}
+                                                modifiers={{constructor: true}}
+                                            />
+                                        </div>
+                                    </div>
+                                    {media && <Media className={b('card-media')} {...allProps} />}
                                 </div>
-                            </div>
-                            {media && <Media className={b('card-media')} {...allProps} />}
-                        </div>
-                    );
-                })}
-            </BalancedMasonry>
-        </AnimateBlock>
+                            );
+                        })}
+                </BalancedMasonry>
+            </AnimateBlock>
+        </Grid>
     );
 };
 

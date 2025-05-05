@@ -120,8 +120,8 @@ export interface FooterData {
 }
 
 export interface NavigationData {
-    logo: ThemedNavigationLogoData;
-    header: HeaderData;
+    logo?: ThemedNavigationLogoData;
+    header?: HeaderData;
     footer?: FooterData;
     renderNavigation?: () => React.ReactNode;
 }

@@ -1,0 +1,31 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+$block: '.#{$ns}preview';
+
+#{$block} {
+    position: absolute;
+    height: auto;
+    background-color: var(--g-color-text-hint);
+    border: 1px dashed var(--g-color-text-primary);
+    border-radius: 4px;
+    padding: 8px;
+    z-index: 1000;
+    pointer-events: none;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+
+    &-content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &-type {
+        color: var(--g-color-text-dark-secondary);
+        font-size: 12px;
+    }
+
+    &-title {
+        @include overflow-ellipsis();
+        font-size: 14px;
+    }
+}

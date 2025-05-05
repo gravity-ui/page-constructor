@@ -1,0 +1,106 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+$block: '.#{$ns}middle-screen';
+
+#{$block} {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    &__topbar {
+        flex: 0 0 auto;
+    }
+
+    &__content {
+        flex: 1 1 auto;
+        overflow-y: auto;
+        // height: 100%;
+        background-color: var(--g-color-text-secondary);
+
+        &_fullscreen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 1000;
+            background-color: #000;
+        }
+    }
+
+    &__wrapper {
+        width: 100%;
+        height: 100%;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        overflow: hidden;
+    }
+
+    &__canvas {
+        transform-origin: center top;
+        overflow-y: scroll;
+        position: relative;
+        height: 100%;
+        max-width: 100%;
+
+        &_fullscreen {
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+            max-width: 100%;
+        }
+    }
+
+    &__iframe {
+        display: block;
+        margin: 0 auto;
+
+        &_fullscreen {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    &__exit-preview {
+        position: fixed;
+        opacity: 0.5;
+        top: 16px;
+        right: 16px;
+        z-index: 1001;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__overlay {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+    }
+
+    &__border {
+        position: absolute;
+        border: 3px var(--g-color-line-brand) solid;
+        border-radius: 10px;
+    }
+
+    &__loading {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--g-color-base-background);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

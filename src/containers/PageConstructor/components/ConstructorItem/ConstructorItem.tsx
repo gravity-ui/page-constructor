@@ -7,7 +7,7 @@ import {BlockType, ConstructorBlock} from '../../../../models';
 
 export interface ConstructorItemProps {
     data: ConstructorBlock;
-    blockKey: string;
+    blockKey: number;
 }
 
 export const ConstructorItem = ({
@@ -16,6 +16,7 @@ export const ConstructorItem = ({
     children,
 }: React.PropsWithChildren<ConstructorItemProps>) => {
     const {itemMap} = React.useContext(InnerContext);
+    const parentId = React.useContext(BlockIdContext);
     const {type, ...rest} = data;
 
     const Component = itemMap[type] as React.ComponentType<
@@ -23,7 +24,7 @@ export const ConstructorItem = ({
     >;
 
     return (
-        <BlockIdContext.Provider value={blockKey}>
+        <BlockIdContext.Provider value={[...parentId, blockKey]} key={blockKey}>
             <Component {...rest}>{children}</Component>
         </BlockIdContext.Provider>
     );

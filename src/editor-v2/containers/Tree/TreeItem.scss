@@ -1,0 +1,66 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+$block: '.#{$ns}tree-item';
+
+#{$block} {
+    padding: 8px;
+    margin-bottom: 8px;
+    cursor: pointer;
+
+    &_selected {
+        border: 1.5px var(--g-color-line-brand) solid;
+    }
+
+    &_dragging {
+        opacity: 0.5;
+    }
+
+    &_drag-over {
+        border: 1.5px var(--g-color-line-generic) dashed;
+    }
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    &__main {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        &:hover {
+            #{$block}__buttons {
+                display: flex;
+            }
+        }
+    }
+
+    &__text {
+        flex: 1 1 auto;
+        min-width: 1px;
+    }
+
+    &__buttons {
+        flex: 0 0 auto;
+        flex-direction: row;
+        gap: 4px;
+        display: none;
+    }
+
+    &__type {
+        color: var(--g-color-text-secondary);
+    }
+
+    &__title {
+        @include overflow-ellipsis();
+    }
+
+    &__children-drop-zone {
+        height: 8px;
+        margin-top: 8px;
+        margin-bottom: 0;
+        border-radius: 4px;
+        transition: background-color 0.2s;
+    }
+}

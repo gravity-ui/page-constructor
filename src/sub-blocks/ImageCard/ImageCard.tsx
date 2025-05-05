@@ -47,12 +47,14 @@ const ImageCard = (props: ImageCardProps) => {
 
     const cardContent = (
         <React.Fragment>
-            <div className={b('image', {margins})}>
-                <Image
-                    className={b('image_inner', {radius: enableImageBorderRadius})}
-                    {...imageProps}
-                />
-            </div>
+            {image && (
+                <div className={b('image', {margins})}>
+                    <Image
+                        className={b('image_inner', {radius: enableImageBorderRadius})}
+                        {...imageProps}
+                    />
+                </div>
+            )}
             {hasContent && (
                 <div className={b('content')}>
                     <Content

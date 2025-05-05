@@ -3,7 +3,7 @@ import * as React from 'react';
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
 import ButtonTabs, {ButtonTabsItemProps} from '../../components/ButtonTabs/ButtonTabs';
 import Title from '../../components/Title/Title';
-import {Col, GridJustifyContent, Row} from '../../grid';
+import {Col, Grid, GridJustifyContent, Row} from '../../grid';
 import {TabsBlockProps} from '../../models';
 import {block} from '../../utils';
 import './Tabs.scss';
@@ -53,42 +53,44 @@ export const TabsBlock = ({
     );
 
     return (
-        <AnimateBlock className={b()} onScroll={() => setPlay(true)} animate={animated}>
-            <Title
-                title={title}
-                subtitle={description}
-                className={b('title', {centered: centered})}
-            />
-            <Row justifyContent={centered ? GridJustifyContent.Center : undefined}>
-                <Col sizes={tabsColSizes}>
-                    <ButtonTabs
-                        items={tabs}
-                        onSelectTab={onSelectTab}
-                        activeTab={activeTab}
-                        className={b('tabs', {centered: centered})}
-                        getTabElementId={getTabElementId}
-                        getTabContentElementId={getTabContentElementId}
-                    />
-                </Col>
-            </Row>
-            {items.map((tabData) => {
-                const {tabName} = tabData;
+        <Grid>
+            <AnimateBlock className={b()} onScroll={() => setPlay(true)} animate={animated}>
+                <Title
+                    title={title}
+                    subtitle={description}
+                    className={b('title', {centered: centered})}
+                />
+                <Row justifyContent={centered ? GridJustifyContent.Center : undefined}>
+                    <Col sizes={tabsColSizes}>
+                        <ButtonTabs
+                            items={tabs}
+                            onSelectTab={onSelectTab}
+                            activeTab={activeTab}
+                            className={b('tabs', {centered: centered})}
+                            getTabElementId={getTabElementId}
+                            getTabContentElementId={getTabContentElementId}
+                        />
+                    </Col>
+                </Row>
+                {items.map((tabData) => {
+                    const {tabName} = tabData;
 
-                return (
-                    <TabContent
-                        key={tabName}
-                        tabData={tabData}
-                        isActive={tabName === activeTab}
-                        isReverse={isReverse}
-                        contentSize={contentSize}
-                        centered={centered}
-                        play={play}
-                        getTabElementId={getTabElementId}
-                        getTabContentElementId={getTabContentElementId}
-                    />
-                );
-            })}
-        </AnimateBlock>
+                    return (
+                        <TabContent
+                            key={tabName}
+                            tabData={tabData}
+                            isActive={tabName === activeTab}
+                            isReverse={isReverse}
+                            contentSize={contentSize}
+                            centered={centered}
+                            play={play}
+                            getTabElementId={getTabElementId}
+                            getTabContentElementId={getTabContentElementId}
+                        />
+                    );
+                })}
+            </AnimateBlock>
+        </Grid>
     );
 };
 

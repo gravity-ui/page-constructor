@@ -1,6 +1,7 @@
 import * as React from 'react';
 
-import '@diplodoc/transform/dist/js/yfm.js';
+import '@diplodoc/transform/dist/js/yfm';
+import {ThemeProvider} from '@gravity-ui/uikit';
 
 import BackgroundMedia from '../../components/BackgroundMedia/BackgroundMedia';
 import BrandFooter from '../../components/BrandFooter/BrandFooter';
@@ -10,9 +11,9 @@ import {AnimateContext} from '../../context/animateContext';
 import {InnerContext} from '../../context/innerContext';
 import {ProjectSettingsContext} from '../../context/projectSettingsContext';
 import {useTheme} from '../../context/theme';
-import {Grid} from '../../grid';
+import {usePCEditorInitializeEvents} from '../../hooks/usePCEditorInitializeEvents';
+import {usePCEditorStore} from '../../hooks/usePCEditorStore';
 import {
-    BlockType,
     BlockTypes,
     CustomConfig,
     CustomItems,
@@ -20,21 +21,14 @@ import {
     NavigationData,
     NavigationItemTypes,
     PageContent,
+    PageContentWithNavigation,
     ShouldRenderBlock,
     SubBlockTypes,
 } from '../../models';
 import Layout from '../../navigation/containers/Layout/Layout';
-import {
-    block as cnBlock,
-    getCustomItems,
-    getCustomTypes,
-    getHeaderBlock,
-    getOrderedBlocks,
-    getThemedValue,
-} from '../../utils';
+import {block as cnBlock, getCustomItems, getCustomTypes, getThemedValue} from '../../utils';
 
-import {ConstructorBlocks} from './components/ConstructorBlocks';
-import {ConstructorHeader} from './components/ConstructorItem';
+import {ConstructorBlocks} from './components';
 import {ConstructorRow} from './components/ConstructorRow';
 
 import './PageConstructor.scss';
@@ -68,6 +62,19 @@ export const Constructor = (props: PageConstructorProps) => {
         microdata,
     } = props;
 
+    const [content, setContent] = React.useState<PageContentWithNavigation>({
+        blocks,
+        background,
+        navigation,
+    });
+
+    const theme = useTheme();
+
+    const store = usePCEditorStore();
+    const {initialized, isPreviewMode} = store;
+
+    usePCEditorInitializeEvents({initialContent: {blocks, background, navigation}, setContent});
+
     const {context} = React.useMemo(
         () => ({
             context: {
@@ -98,31 +105,42 @@ export const Constructor = (props: PageConstructorProps) => {
         [custom, shouldRenderBlock, microdata],
     );
 
-    const theme = useTheme();
+    const restBlocks = content.blocks;
+    const themedBackground = getThemedValue(content.background, theme);
 
-    const header = getHeaderBlock(blocks, context.headerBlockTypes);
-    const restBlocks = getOrderedBlocks(blocks, context.headerBlockTypes);
-    const themedBackground = getThemedValue(background, theme);
+    // disable click events
+    React.useEffect(() => {
+        if (!initialized || isPreviewMode) {
+            return;
+        }
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const handler: React.EventHandler<any> = (e) => {
+            e?.preventDefault();
+            const blockElement = e.target.closest('[data-editor-item]');
+            blockElement.click(e);
+        };
+        document.body.addEventListener('click', handler);
+
+        // eslint-disable-next-line consistent-return
+        return () => {
+            document.body.removeEventListener('click', handler);
+        };
+    }, [initialized, isPreviewMode]);
 
     return (
         <InnerContext.Provider value={context}>
-            <RootCn className={b()}>
+            <RootCn className={b('', {['with-editor']: initialized})}>
                 <div className={b('wrapper')}>
                     {themedBackground && (
                         <BackgroundMedia {...themedBackground} className={b('background')} />
                     )}
-                    <Layout navigation={navigation}>
+                    <Layout navigation={content.navigation}>
                         {renderMenu && renderMenu()}
-                        {header && (
-                            <ConstructorHeader data={header} blockKey={BlockType.HeaderBlock} />
+                        {restBlocks && (
+                            <ConstructorRow>
+                                <ConstructorBlocks items={restBlocks} />
+                            </ConstructorRow>
                         )}
-                        <Grid>
-                            {restBlocks && (
-                                <ConstructorRow>
-                                    <ConstructorBlocks items={restBlocks} />
-                                </ConstructorRow>
-                            )}
-                        </Grid>
                     </Layout>
                     {isBranded && <BrandFooter />}
                 </div>
@@ -136,8 +154,10 @@ export const PageConstructor = (props: PageConstructorProps) => {
     const {content: {animated = isAnimationEnabled} = {}, ...rest} = props;
 
     return (
-        <AnimateContext.Provider value={{animated}}>
-            <Constructor content={props.content} {...rest} />
-        </AnimateContext.Provider>
+        <ThemeProvider>
+            <AnimateContext.Provider value={{animated}}>
+                <Constructor content={props.content} {...rest} />
+            </AnimateContext.Provider>
+        </ThemeProvider>
     );
 };

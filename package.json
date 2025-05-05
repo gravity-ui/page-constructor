@@ -1,6 +1,6 @@
 {
   "name": "@gravity-ui/page-constructor",
-  "version": "6.8.1",
+  "version": "6.3.2-alpha.5",
   "description": "Gravity UI Page Constructor",
   "license": "MIT",
   "type": "commonjs",
@@ -23,6 +23,11 @@
       "types": "./build/esm/editor/index.d.ts",
       "require": "./build/cjs/editor/index.js",
       "import": "./build/esm/editor/index.js"
+    },
+    "./editor-v2": {
+      "types": "./build/esm/editor-v2/index.d.ts",
+      "require": "./build/cjs/editor-v2/index.js",
+      "import": "./build/esm/editor-v2/index.js"
     },
     "./server": {
       "types": "./server/index.d.ts",
@@ -61,7 +66,9 @@
     "*.scss"
   ],
   "scripts": {
-    "deps:install": "npm ci",
+    "deps:install:playground": "cd playground && npm ci",
+    "deps:install:package": "npm ci",
+    "deps:install": "run-p deps:install:playground deps:install:package",
     "deps:truncate": "npm prune --production",
     "lint:fix": "run-s lint:js:fix lint:styles:fix lint:prettier:fix typecheck",
     "lint:js": "eslint '**/*.{js,jsx,ts,tsx}' --max-warnings=0",
@@ -103,14 +110,17 @@
     "@react-spring/web": "^9.7.3",
     "ajv": "^8.12.0",
     "ajv-keywords": "^5.1.0",
+    "deep-object-diff": "^1.1.9",
     "final-form": "^4.20.9",
     "github-buttons": "2.23.0",
+    "immutable": "^4.3.7",
     "js-yaml-source-map": "^0.2.2",
     "lodash": "^4.17.21",
     "monaco-editor": "^0.38.0",
     "react-final-form": "^6.5.9",
     "react-monaco-editor": "^0.53.0",
     "react-player": "^2.9.0",
+    "react-resizable-panels": "^2.1.3",
     "react-slick": "^0.29.0",
     "react-transition-group": "^4.4.2",
     "react-waypoint": "^10.1.0",
@@ -119,7 +129,8 @@
     "swiper": "^6.8.4",
     "typograf": "^7.4.1",
     "utility-types": "^3.10.0",
-    "uuid": "^9.0.0"
+    "uuid": "^9.0.0",
+    "zustand": "^4.5.2"
   },
   "peerDependencies": {
     "@diplodoc/transform": "^4.10.4",
