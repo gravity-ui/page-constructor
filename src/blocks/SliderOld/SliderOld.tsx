@@ -440,7 +440,10 @@ export const SliderOldBlock = (props: React.PropsWithChildren<SliderOldProps>) =
                     {
                         'align-left': childrenCount < slidesCountByBreakpoint,
                         'one-slide': childrenCount === 1,
-                        'only-arrows': !title?.text && !description && arrows,
+                        'only-arrows':
+                            (!title || (typeof title !== 'string' && !title?.text)) &&
+                            !description &&
+                            arrows,
                         mobile: isMobile,
                         type,
                     },
