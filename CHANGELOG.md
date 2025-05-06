@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.9.0](https://github.com/gravity-ui/page-constructor/compare/v6.8.1...v6.9.0) (2025-05-06)
+
+
+### Features
+
+* header anchor buttons ([#1186](https://github.com/gravity-ui/page-constructor/issues/1186)) ([d0ea61b](https://github.com/gravity-ui/page-constructor/commit/d0ea61b1c93285a359b9aff63e719e7513ebe8c1))
+
 ## [6.8.1](https://github.com/gravity-ui/page-constructor/compare/v6.8.0...v6.8.1) (2025-04-24)
 
 
