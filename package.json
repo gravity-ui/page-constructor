@@ -133,7 +133,7 @@
     "@babel/preset-typescript": "^7.26.0",
     "@commitlint/cli": "^19.6.1",
     "@commitlint/config-conventional": "^19.6.0",
-    "@diplodoc/transform": "^4.10.8",
+    "@diplodoc/transform": "^4.57.1",
     "@gravity-ui/eslint-config": "^3.2.0",
     "@gravity-ui/gulp-utils": "^1.0.3",
     "@gravity-ui/icons": "^2.11.0",
