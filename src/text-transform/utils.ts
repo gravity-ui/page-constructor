@@ -83,8 +83,12 @@ export function typografToText(text: string, lang: Lang) {
     return text && sanitizeHtml(typograf(text, lang));
 }
 
+const DEFAULT_MARKDOWN_OPTIONS: Partial<TransformOptions> = {
+    useCommonAnchorButtons: true,
+};
+
 export const transformMarkdown = (input: string, options: TransformOptions): Output['result'] => {
-    const {result} = transformYFM(input ?? '', options);
+    const {result} = transformYFM(input ?? '', {...DEFAULT_MARKDOWN_OPTIONS, ...options});
     return result;
 };
 
