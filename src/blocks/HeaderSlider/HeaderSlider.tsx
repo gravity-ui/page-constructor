@@ -1,10 +1,10 @@
 import * as React from 'react';
 
+import {SliderBlock} from '../../blocks';
 import {MobileContext} from '../../context/mobileContext';
 import {HeaderSliderBlockProps, SliderType} from '../../models';
 import {block} from '../../utils';
 import Header from '../Header/Header';
-import {SliderBlock} from '../index';
 
 import './HeaderSlider.scss';
 
