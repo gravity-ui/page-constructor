@@ -1,7 +1,7 @@
 @import '../../../../styles/mixins.scss';
 @import '../../../../styles/variables.scss';
 
-$block: '.#{$ns}slider-block-arrow';
+$block: '.#{$ns}slider-arrow';
 
 %flex {
     display: flex;

@@ -226,7 +226,7 @@ $dotSize: 8px;
         }
 
         &:has(.swiper-slide-active .#{$ns}header-block_controls-view_light) {
-            .#{$ns}slider-block-arrow__inner {
+            .#{$ns}slider-arrow__inner {
                 color: var(--g-color-text-dark-primary);
             }
 
@@ -240,7 +240,7 @@ $dotSize: 8px;
         }
 
         &:has(.swiper-slide-active .#{$ns}header-block_controls-view_dark) {
-            .#{$ns}slider-block-arrow__inner {
+            .#{$ns}slider-arrow__inner {
                 color: var(--g-color-text-light-primary);
             }
 
