@@ -3,7 +3,7 @@
     "title": "Card with icon on {{position}}",
     "icons": [
       {
-        "light": "/story-assets/icon_1_light.svg",
+        "light": "Rocket",
         "dark": "/story-assets/icon_1_dark.svg"
       },
       {
