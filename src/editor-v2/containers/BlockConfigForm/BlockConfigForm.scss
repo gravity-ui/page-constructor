@@ -9,7 +9,6 @@ $padding: 12px;
     &__title {
         @include text-subheader-3;
         padding: $padding;
-        border-bottom: 1px solid var(--g-color-line-generic);
     }
 
     &__form {

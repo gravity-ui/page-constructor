@@ -8,6 +8,5 @@ $block: '.#{$ns}global-config';
         padding: 12px;
         margin-top: 8px;
         @include text-subheader-3;
-        border-bottom: 1px solid var(--g-color-line-generic);
     }
 }
