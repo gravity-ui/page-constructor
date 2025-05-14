@@ -6,7 +6,6 @@ $block: '.#{$ns}field-base';
 #{$block} {
     $class: &;
     padding: 16px 12px 16px 0;
-    border-bottom: 1px solid var(--g-color-line-generic);
 
     position: relative;
     display: flex;

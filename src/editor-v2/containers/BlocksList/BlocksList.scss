@@ -21,6 +21,7 @@ $block: '.#{$ns}blocks-list';
         justify-content: space-between;
         text-align: center;
         gap: 4px;
+        max-width: 192px;
 
         &:active {
             background-color: var(--g-color-base-generic-hover);
@@ -57,7 +58,7 @@ $block: '.#{$ns}blocks-list';
 
         &-items {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(auto-fill, minmax(98px, 1fr));
             gap: 8px;
         }
     }

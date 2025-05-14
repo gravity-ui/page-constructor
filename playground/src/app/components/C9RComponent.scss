@@ -3,6 +3,7 @@ $block: '.c9r-component';
 #{$block} {
     width: 100%;
     padding: 16px 12px;
+    box-sizing: border-box;
 
     &__header {
         display: flex;
