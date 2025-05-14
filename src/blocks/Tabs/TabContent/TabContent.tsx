@@ -132,13 +132,13 @@ export const TabContent = ({
                 </React.Fragment>
             )}
             {tabData.caption && (
-                <p className={b('caption')} id={captionId}>
+                <div className={b('caption')} id={captionId}>
                     <YFMWrapper
                         content={tabData.caption}
                         modifiers={{constructor: true}}
                         id={captionId}
                     />
-                </p>
+                </div>
             )}
         </Col>
     );
