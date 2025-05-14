@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Display, Eye, Minus, Plus, Smartphone} from '@gravity-ui/icons';
+import {Display, Minus, Plus, Smartphone, SquareDashed} from '@gravity-ui/icons';
 import {Button, Icon, SegmentedRadioGroup, Select} from '@gravity-ui/uikit';
 
 import {ZOOM_STEPS} from '../../constants';
@@ -26,7 +26,7 @@ interface DeviceOption {
  * Available device viewport options
  * - Desktop: 100% width
  * - Tablet: 768px width
- * - Mobile: 576px width
+ * - Mobile: 375px width
  */
 const DEVICE_OPTIONS: DeviceOption[] = [
     {
@@ -41,7 +41,7 @@ const DEVICE_OPTIONS: DeviceOption[] = [
     },
     {
         label: <Icon width={14} data={Smartphone} />,
-        value: '576px',
+        value: '375px',
         ariaLabel: 'Mobile view',
     },
 ];
@@ -101,7 +101,7 @@ const ViewSwitches: React.FC = () => {
                 aria-label="Switch to preview mode"
                 title="Switch to preview mode"
             >
-                <Icon data={Eye} />
+                <Icon data={SquareDashed} />
             </Button>
 
             <div className={b('zoom')} role="group" aria-label="Zoom controls">
