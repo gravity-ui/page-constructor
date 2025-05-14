@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.9.1](https://github.com/gravity-ui/page-constructor/compare/v6.9.0...v6.9.1) (2025-05-14)
+
+
+### Bug Fixes
+
+* hydration tab caption ([#1188](https://github.com/gravity-ui/page-constructor/issues/1188)) ([8f077ab](https://github.com/gravity-ui/page-constructor/commit/8f077abfa8b239b1c446df05a9700d48c4596df7))
+
 ## [6.9.0](https://github.com/gravity-ui/page-constructor/compare/v6.8.1...v6.9.0) (2025-05-06)
 
 
