@@ -19,6 +19,21 @@ const ImageBase = {
         type: 'string',
         enum: ['high', 'low', 'auto'],
     },
+    hide: {
+        oneOf: [
+            {
+                type: 'boolean',
+            },
+            {
+                type: 'object',
+                properties: {
+                    mobile: {type: 'boolean'},
+                    tablet: {type: 'boolean'},
+                    desktop: {type: 'boolean'},
+                },
+            },
+        ],
+    },
 };
 
 const StyleBase = {

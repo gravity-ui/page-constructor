@@ -2,9 +2,10 @@ import {render, screen} from '@testing-library/react';
 
 import {testCustomClassName, testCustomStyle} from '../../../../test-utils/shared/common';
 import {testSourceProps} from '../../../../test-utils/shared/image';
-import {BackgroundImageProps} from '../../../models';
+import {BackgroundImageProps, Device} from '../../../models';
 import {getQaAttrubutes} from '../../../utils';
 import BackgroundImage from '../BackgroundImage';
+import {EMPTY_IMG} from '../../Image/Image';
 
 const qa = 'background-image-component';
 
@@ -39,12 +40,33 @@ describe('BackgroundImage', () => {
 
     test('should hide image', () => {
         render(<BackgroundImage src={imageSrc} hide qa={qa} />);
+        const qaAttrubutes = getQaAttrubutes(
+            qa,
+            'image-mobile-source',
+            'image-tablet-source',
+            'image-desktop-source',
+        );
         const component = screen.getByTestId(qa);
-        const imageComponent = screen.queryByRole('img');
+        const mobileSourceComponent = screen.getByTestId(qaAttrubutes.imageMobileSource);
+        const tabletSourceComponent = screen.getByTestId(qaAttrubutes.imageTabletSource);
+        const desktopSourceComponent = screen.getByTestId(qaAttrubutes.imageDesktopSource);
 
         expect(component).toBeInTheDocument();
         expect(component).toBeVisible();
-        expect(imageComponent).not.toBeInTheDocument();
+        expect(mobileSourceComponent).toHaveAttribute('srcset', EMPTY_IMG);
+        expect(tabletSourceComponent).toHaveAttribute('srcset', EMPTY_IMG);
+        expect(desktopSourceComponent).toHaveAttribute('srcset', EMPTY_IMG);
+    });
+
+    test('should hide tablet image', () => {
+        render(<BackgroundImage src={imageSrc} hide={{[Device.Tablet]: true}} qa={qa} />);
+        const qaAttrubutes = getQaAttrubutes(qa, 'image-tablet-source');
+        const component = screen.getByTestId(qa);
+        const tabletSourceComponent = screen.getByTestId(qaAttrubutes.imageTabletSource);
+
+        expect(component).toBeInTheDocument();
+        expect(component).toBeVisible();
+        expect(tabletSourceComponent).toHaveAttribute('srcset', EMPTY_IMG);
     });
 
     test('should render children', () => {
