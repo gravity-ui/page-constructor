@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import {BREAKPOINTS} from '../../constants';
 import {ProjectSettingsContext} from '../../context/projectSettingsContext';
-import {ImageDeviceProps, ImageObjectProps, QAProps} from '../../models';
+import {Device, ImageDeviceProps, ImageObjectProps, QAProps} from '../../models';
 import {getQaAttrubutes} from '../../utils';
 import {isCompressible} from '../../utils/imageCompress';
 import ImageBase from '../ImageBase/ImageBase';
@@ -18,31 +18,50 @@ export interface ImageProps extends Partial<ImageObjectProps>, Partial<ImageDevi
 export interface DeviceSpecificFragmentProps extends QAProps {
     disableWebp: boolean;
     src: string;
-    breakpoint: number;
+    maxBreakpoint?: number;
+    minBreakpoint?: number;
 }
 
 const checkWebP = (src: string) => {
     return src.endsWith('.webp') ? src : src + '.webp';
 };
 
+export const EMPTY_IMG =
+    'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxIiBoZWlnaHQ9IjEiPjwvc3ZnPg==';
+
 const DeviceSpecificFragment = ({
     disableWebp,
     src,
-    breakpoint,
+    maxBreakpoint,
+    minBreakpoint,
     qa,
-}: DeviceSpecificFragmentProps) => (
-    <React.Fragment>
-        {!disableWebp && (
-            <source
-                srcSet={checkWebP(src)}
-                type="image/webp"
-                media={`(max-width: ${breakpoint}px)`}
-                data-qa={`${qa}-compressed`}
-            />
-        )}
-        <source srcSet={src} media={`(max-width: ${breakpoint}px)`} data-qa={qa} />
-    </React.Fragment>
-);
+}: DeviceSpecificFragmentProps) => {
+    const media: string[] = [];
+
+    if (maxBreakpoint) {
+        media.push(`(max-width: ${maxBreakpoint}px)`);
+    }
+
+    if (minBreakpoint) {
+        media.push(`(min-width: ${minBreakpoint}px)`);
+    }
+
+    const mediaString = media.join(' and ');
+
+    return (
+        <React.Fragment>
+            {!disableWebp && (
+                <source
+                    srcSet={checkWebP(src)}
+                    type="image/webp"
+                    media={mediaString}
+                    data-qa={`${qa}-compressed`}
+                />
+            )}
+            <source srcSet={src} media={mediaString} data-qa={qa} />
+        </React.Fragment>
+    );
+};
 
 const Image = (props: ImageProps) => {
     const projectSettings = React.useContext(ProjectSettingsContext);
@@ -61,14 +80,19 @@ const Image = (props: ImageProps) => {
         qa,
         fetchPriority,
         loading,
+        hide,
     } = props;
     const [imgLoadingError, setImgLoadingError] = React.useState(false);
 
     const src = imageSrc || desktop;
 
-    if (!src) {
-        return null;
-    }
+    const hideDevices =
+        typeof hide === 'boolean' || !hide
+            ? Object.values(Device).reduce(
+                  (acc, device) => ({...acc, [device]: Boolean(hide)}),
+                  {} as Record<Device, boolean>,
+              )
+            : hide;
 
     const qaAttributes = getQaAttrubutes(
         qa,
@@ -76,10 +100,12 @@ const Image = (props: ImageProps) => {
         'mobile-source',
         'tablet-webp-source',
         'tablet-source',
+        'desktop-source',
         'desktop-source-compressed',
     );
 
     const disableWebp =
+        !src ||
         projectSettings.disableCompress ||
         disableCompress ||
         !isCompressible(src) ||
@@ -87,20 +113,29 @@ const Image = (props: ImageProps) => {
 
     return (
         <picture className={containerClassName} data-qa={qa}>
-            {mobile && (
+            {(mobile || hideDevices.mobile) && (
                 <DeviceSpecificFragment
-                    src={mobile}
-                    disableWebp={disableWebp}
-                    breakpoint={BREAKPOINTS.sm}
+                    src={mobile || EMPTY_IMG}
+                    disableWebp={disableWebp || Boolean(hideDevices.mobile)}
+                    maxBreakpoint={BREAKPOINTS.sm}
                     qa={qaAttributes.mobileSource}
                 />
             )}
-            {tablet && (
+            {(tablet || hideDevices.tablet) && (
                 <DeviceSpecificFragment
-                    src={tablet}
-                    disableWebp={disableWebp}
-                    breakpoint={BREAKPOINTS.md}
+                    src={tablet || EMPTY_IMG}
+                    disableWebp={disableWebp || Boolean(hideDevices.tablet)}
+                    maxBreakpoint={BREAKPOINTS.md}
+                    minBreakpoint={BREAKPOINTS.sm}
                     qa={qaAttributes.tabletSource}
+                />
+            )}
+            {hideDevices.desktop && (
+                <DeviceSpecificFragment
+                    src={EMPTY_IMG}
+                    disableWebp
+                    minBreakpoint={BREAKPOINTS.md}
+                    qa={qaAttributes.desktopSource}
                 />
             )}
             {src && !disableWebp && (
