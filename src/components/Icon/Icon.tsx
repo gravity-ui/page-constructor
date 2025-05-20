@@ -6,6 +6,7 @@ import {getMediaImage} from '../Media/Image/utils';
 import {useTheme} from '../../context/theme';
 
 type IconParams = ThemeSupporting<
+    // @ts-ignore
     | ImageComponentProps['image']
     | {name: keyof typeof icons; theme: 'default' | 'white' | 'black'}
     | string
