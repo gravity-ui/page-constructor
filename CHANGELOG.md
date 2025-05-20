@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.10.0](https://github.com/gravity-ui/page-constructor/compare/v6.9.1...v6.10.0) (2025-05-20)
+
+
+### Features
+
+* **Image:** add hide param ([#1182](https://github.com/gravity-ui/page-constructor/issues/1182)) ([1b969a2](https://github.com/gravity-ui/page-constructor/commit/1b969a29cc1eb487d0dd983166d76c5918e7b306))
+
 ## [6.9.1](https://github.com/gravity-ui/page-constructor/compare/v6.9.0...v6.9.1) (2025-05-14)
 
 
