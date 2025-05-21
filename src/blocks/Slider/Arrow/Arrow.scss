@@ -1,7 +1,7 @@
 @import '../../../../styles/mixins.scss';
 @import '../../../../styles/variables.scss';
 
-$block: '.#{$ns}slider-block-arrow';
+$block: '.#{$ns}slider-arrow';
 
 %flex {
     display: flex;
@@ -15,25 +15,17 @@ $block: '.#{$ns}slider-block-arrow';
 
     $root: &;
 
-    width: $sliderArrowSize;
-    height: $sliderArrowSize;
-    cursor: pointer;
-
-    &_type_left {
-        #{$root}__icon-wrapper {
-            transform: rotate(180deg);
-        }
-        margin-right: 16px;
-    }
-
     &__button {
         @include reset-button-style();
+        @include focusable();
+    }
+
+    &__inner {
         @include shadow();
         @extend %flex;
 
         width: $sliderArrowSize;
         height: $sliderArrowSize;
-
         color: var(--g-color-text-secondary);
         border-radius: 100%;
         background-color: var(--g-color-base-background);
@@ -45,15 +37,26 @@ $block: '.#{$ns}slider-block-arrow';
             box-shadow 0.3s $ease-out-cubic,
             color 1s $ease-out-cubic;
 
-        @include focusable();
-    }
+        &_type_left {
+            #{$root}__icon-wrapper {
+                transform: rotate(180deg);
+            }
+        }
 
-    &:hover {
-        #{$root}__button {
+        &:hover {
             color: var(--g-color-text-primary);
             box-shadow:
                 0 2px 12px var(--pc-color-sfx-shadow),
                 0 4px 24px var(--pc-color-sfx-shadow);
+        }
+
+        &_transparent {
+            background-color: transparent;
+            box-shadow: none;
+
+            &:hover {
+                box-shadow: none;
+            }
         }
     }
 

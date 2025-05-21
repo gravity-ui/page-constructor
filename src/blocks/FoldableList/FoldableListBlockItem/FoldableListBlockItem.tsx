@@ -1,6 +1,6 @@
 import {useActionHandlers} from '@gravity-ui/uikit';
 
-import {Foldable, HTML, ToggleArrow, YFMWrapper} from '../../../components';
+import {Foldable, ToggleArrow, YFMWrapper} from '../../../components';
 import Link from '../../../components/Link/Link';
 import {FoldableListBlockItemProps} from '../../../models';
 import {block} from '../../../utils';
@@ -22,19 +22,30 @@ export const FoldableListBlockItem = ({
     return (
         <div className={b()} itemScope role={'listitem'}>
             <button
-                className={b('title')}
+                className={b('button')}
                 onClick={onClick}
                 aria-expanded={isOpened}
                 onKeyDown={onKeyDown}
             >
-                <HTML>{itemTitle}</HTML>
-                <ToggleArrow
-                    open={isOpened}
-                    size={16}
-                    type={'vertical'}
-                    iconType="navigation"
-                    className={b('arrow')}
-                />
+                <YFMWrapper
+                    tagName="h3"
+                    className={b('title-container')}
+                    contentClassName={b('title')}
+                    content={itemTitle}
+                    modifiers={{
+                        constructor: true,
+                    }}
+                    onClick={onClick}
+                    tabIndex={0}
+                >
+                    <ToggleArrow
+                        open={isOpened}
+                        size={16}
+                        type={'vertical'}
+                        iconType="navigation"
+                        className={b('arrow')}
+                    />
+                </YFMWrapper>
             </button>
             <Foldable isOpened={isOpened}>
                 <div className={b('text')} aria-hidden={!isOpened}>
