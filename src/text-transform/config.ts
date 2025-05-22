@@ -182,6 +182,11 @@ export const config: BlocksConfig = {
             parser: parseBackgroundCardItems,
             transformer: typografTransformer,
         },
+        {
+            fields: ['list'],
+            transformer: yfmTransformer,
+            parser: createItemsParser(['text']),
+        },
     ],
     [SubBlockType.ImageCard]: [
         {
