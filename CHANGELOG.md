@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.10.1](https://github.com/gravity-ui/page-constructor/compare/v6.10.0...v6.10.1) (2025-05-22)
+
+
+### Bug Fixes
+
+* add yfmTransformer to background card list ([#1192](https://github.com/gravity-ui/page-constructor/issues/1192)) ([c9ffcf5](https://github.com/gravity-ui/page-constructor/commit/c9ffcf505d25d508bc1809aae38989f0fb0197e4))
+
 ## [6.10.0](https://github.com/gravity-ui/page-constructor/compare/v6.9.1...v6.10.0) (2025-05-20)
 
 
