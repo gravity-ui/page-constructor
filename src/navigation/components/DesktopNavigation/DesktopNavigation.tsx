@@ -11,7 +11,7 @@ import './DesktopNavigation.scss';
 
 const b = block('desktop-navigation');
 
-export const DesktopNavigation: React.FC<DesktopNavigationProps> = ({
+export const DesktopNavigation = ({
     logo,
     leftItemsWithIconSize,
     rightItemsWithIconSize,
@@ -20,7 +20,7 @@ export const DesktopNavigation: React.FC<DesktopNavigationProps> = ({
     onSidebarOpenedChange,
     onActiveItemChange,
     activeItemId,
-}) => (
+}: React.PropsWithChildren<DesktopNavigationProps>) => (
     <div className={b('wrapper')}>
         {logo && (
             <div className={b('left')}>

@@ -12,7 +12,7 @@ import './MediaBase.scss';
 
 const b = block('media-base');
 
-const Card: React.FC<React.PropsWithChildren<{}>> = () => null;
+const Card: (props: React.PropsWithChildren<{}>) => React.ReactNode = () => null;
 
 interface MediaBaseProps extends MediaBaseBlockProps {
     children: React.ReactElement;

@@ -83,8 +83,9 @@ const AddBlock = ({onAdd, className}: React.PropsWithChildren<AddBlockProps>) =>
                                 return null;
                             }
 
-                            const Preview: React.FC<React.SVGProps<SVGSVGElement>> =
-                                blockData.preview;
+                            const Preview: (
+                                props: React.SVGProps<SVGSVGElement>,
+                            ) => React.ReactNode = blockData.preview;
 
                             return (
                                 <button

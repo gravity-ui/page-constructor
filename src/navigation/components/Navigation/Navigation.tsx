@@ -18,12 +18,12 @@ export interface NavigationComponentProps extends ClassNameProps {
     mobilePortalContainer?: React.RefObject<HTMLElement>;
 }
 
-export const Navigation: React.FC<NavigationComponentProps> = ({
+export const Navigation = ({
     data,
     logo,
     className,
     mobilePortalContainer,
-}) => {
+}: React.PropsWithChildren<NavigationComponentProps>) => {
     const {
         leftItems,
         rightItems,

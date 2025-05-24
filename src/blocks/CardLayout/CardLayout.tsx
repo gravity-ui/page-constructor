@@ -21,7 +21,7 @@ export type CardLayoutBlockProps = React.PropsWithChildren<
 
 const b = block('card-layout-block');
 
-const CardLayout: React.FC<CardLayoutBlockProps> = ({
+const CardLayout = ({
     title,
     description,
     animated,
@@ -30,7 +30,7 @@ const CardLayout: React.FC<CardLayoutBlockProps> = ({
     className,
     titleClassName,
     background,
-}) => {
+}: CardLayoutBlockProps) => {
     const theme = useTheme();
     const {border, ...backgroundImageProps} = getThemedValue(background || {}, theme);
     return (

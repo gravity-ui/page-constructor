@@ -13,7 +13,12 @@ export interface NavigationSocialItemOwnProps extends NavigationSocialItem {
     className?: string;
 }
 
-const SocialIcon: React.FC<NavigationSocialItemOwnProps> = ({icon, url, className, urlTitle}) => {
+const SocialIcon = ({
+    icon,
+    url,
+    className,
+    urlTitle,
+}: React.PropsWithChildren<NavigationSocialItemOwnProps>) => {
     const iconData = getMediaImage(icon);
     const {alt} = iconData;
 

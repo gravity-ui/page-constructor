@@ -16,7 +16,7 @@ export interface History {
 
 export type RouterLink =
     | React.ComponentClass<RouterLinkProps>
-    | React.FC<React.PropsWithChildren<RouterLinkProps>>;
+    | ((props: React.PropsWithChildren<RouterLinkProps>) => React.ReactNode);
 
 export type LocationContextProps = {
     history?: History;

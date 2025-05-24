@@ -21,7 +21,7 @@ const b = block('form-block');
 
 const colSizes = {[GridColumnSize.Lg]: 6, [GridColumnSize.All]: 12};
 
-const FormBlock: React.FC<FormBlockProps> = (props) => {
+const FormBlock = (props: React.PropsWithChildren<FormBlockProps>) => {
     const {formData, title, textContent, direction = FormBlockDirection.Center, background} = props;
     const [contentLoaded, setContentLoaded] = React.useState(false);
     const isMobile = React.useContext(MobileContext);
