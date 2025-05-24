@@ -27,14 +27,14 @@ function getButtonSize(size: ContentSize) {
     }
 }
 
-const Buttons: React.FC<ButtonsProps> = ({
+const Buttons = ({
     className,
     titleId,
     buttons,
     size = 's',
     qa,
     buttonQa,
-}) =>
+}: React.PropsWithChildren<ButtonsProps>) =>
     buttons ? (
         <div className={b({size}, className)} data-qa={qa}>
             {buttons.map((item) => (

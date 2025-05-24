@@ -29,7 +29,7 @@ export interface ButtonTabsProps extends QAProps {
     getTabContentElementId?: (tabId: string) => string;
 }
 
-const ButtonTabs: React.FC<ButtonTabsProps> = ({
+const ButtonTabs = ({
     className,
     items,
     activeTab,
@@ -38,7 +38,7 @@ const ButtonTabs: React.FC<ButtonTabsProps> = ({
     qa,
     getTabElementId,
     getTabContentElementId,
-}) => {
+}: React.PropsWithChildren<ButtonTabsProps>) => {
     const activeTabId: string | null = React.useMemo(() => {
         if (activeTab) {
             return activeTab;

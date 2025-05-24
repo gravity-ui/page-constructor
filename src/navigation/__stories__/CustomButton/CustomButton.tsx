@@ -12,7 +12,7 @@ const b = cn('custom-button');
 
 type DCDropdownNavigationItemProps = Pick<NavigationItemProps, 'onClick' | 'isActive'>;
 
-export const CustomButton: React.FC<DCDropdownNavigationItemProps> = (props) => {
+export const CustomButton = (props: React.PropsWithChildren<DCDropdownNavigationItemProps>) => {
     const {onClick, isActive} = props;
 
     return (

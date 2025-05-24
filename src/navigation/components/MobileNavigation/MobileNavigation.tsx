@@ -12,13 +12,13 @@ import './MobileNavigation.scss';
 
 const b = block('mobile-navigation');
 
-export const MobileNavigation: React.FC<MobileNavigationProps> = ({
+export const MobileNavigation = ({
     isOpened,
     topItems,
     bottomItems,
     portalContainer,
     ...props
-}) => {
+}: React.PropsWithChildren<MobileNavigationProps>) => {
     const [isMounted, setIsMounted] = React.useState(false);
 
     useMount(() => setIsMounted(true));

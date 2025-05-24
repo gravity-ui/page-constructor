@@ -12,10 +12,10 @@ const b = block('mobile-menu-button');
 
 const ICON_SIZE = 24;
 
-export const MobileMenuButton: React.FC<MobileMenuButtonProps> = ({
+export const MobileMenuButton = ({
     isSidebarOpened,
     onSidebarOpenedChange,
-}) => (
+}: React.PropsWithChildren<MobileMenuButtonProps>) => (
     <Control
         className={b()}
         onClick={(e: React.MouseEvent) => {

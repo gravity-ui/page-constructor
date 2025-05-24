@@ -17,7 +17,9 @@ import {i18n} from './i18n';
 import './Share.scss';
 
 interface IconsProps {
-    [key: string]: React.FC<React.SVGProps<SVGSVGElement>>;
+    [key: string]: (
+        props: React.PropsWithChildren<React.SVGProps<SVGSVGElement>>,
+    ) => React.ReactNode;
 }
 
 const icons: IconsProps = {

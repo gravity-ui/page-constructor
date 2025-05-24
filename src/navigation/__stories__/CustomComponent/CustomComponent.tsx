@@ -14,7 +14,7 @@ type DCDropdownNavigationItemProps = Pick<
     'onClick' | 'isActive' | 'menuLayout'
 >;
 
-export const CustomComponent: React.FC<DCDropdownNavigationItemProps> = (props) => {
+export const CustomComponent = (props: React.PropsWithChildren<DCDropdownNavigationItemProps>) => {
     const {onClick, isActive, menuLayout} = props;
 
     const {onKeyDown} = useActionHandlers(onClick);

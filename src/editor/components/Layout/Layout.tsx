@@ -8,8 +8,8 @@ import './Layout.scss';
 
 const b = block('editor-layout');
 
-const Left: React.FC<React.PropsWithChildren> = () => null;
-const Right: React.FC<React.PropsWithChildren> = () => null;
+const Left: (props: React.PropsWithChildren) => React.ReactNode = () => null;
+const Right: (props: React.PropsWithChildren) => React.ReactNode = () => null;
 
 export interface LayoutProps {
     editMode: EditModeItem;

@@ -19,7 +19,7 @@ export interface ConstructorBlocksProps {
     items: ConstructorBlockType[];
 }
 
-export const ConstructorBlocks: React.FC<ConstructorBlocksProps> = ({items}) => {
+export const ConstructorBlocks = ({items}: React.PropsWithChildren<ConstructorBlocksProps>) => {
     const {blockTypes, loadables, itemMap, shouldRenderBlock} = React.useContext(InnerContext);
 
     const renderer = (

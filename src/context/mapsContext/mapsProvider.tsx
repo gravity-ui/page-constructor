@@ -10,7 +10,7 @@ interface MapProviderProps {
 
 export const gmapApiKeyIdInLS = 'gmap-api-key';
 
-export const MapProvider: React.FC<React.PropsWithChildren<MapProviderProps>> = ({
+export const MapProvider: (props: React.PropsWithChildren<MapProviderProps>) => React.ReactNode = ({
     type = MapType.Yandex,
     scriptSrc,
     apiKey,
