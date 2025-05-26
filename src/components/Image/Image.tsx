@@ -111,6 +111,10 @@ const Image = (props: ImageProps) => {
         !isCompressible(src) ||
         imgLoadingError;
 
+    if (!src) {
+        return null;
+    }
+
     return (
         <picture className={containerClassName} data-qa={qa}>
             {(mobile || hideDevices.mobile) && (
