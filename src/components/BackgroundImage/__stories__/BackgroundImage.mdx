@@ -1,0 +1,33 @@
+import {Meta} from '@storybook/blocks';
+
+import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
+import * as BackgroundImageStories from './BackgroundImage.stories.tsx';
+
+<Meta of={BackgroundImageStories} />
+<StoryTemplate>
+
+## Dependencies
+
+For a detailed usage guide of the BackgroundImage component, see [BackgroundImage Usage](https://github.com/gravity-ui/page-constructor/blob/main/memory-bank/usage/backgroundImage.md).
+
+## Parameters
+
+`src?: string` — Image source URL
+
+`desktop?: string` — Desktop-specific image URL
+
+`className?: string` — Optional CSS class name for the container
+
+`imageClassName?: string` — Optional CSS class name for the image element
+
+`style?: React.CSSProperties` — Optional inline styles for the container
+
+`qa?: string` — Optional QA attribute for testing (defaults to 'background-image')
+
+`children?: React.ReactNode` — Optional child content to overlay on the background
+
+`hide?: boolean | Partial<Record<Device, boolean>>` — Visibility controls for different devices
+
+Additional props from `ImageDeviceProps` and `ImageObjectProps` interfaces are also supported.
+
+</StoryTemplate>

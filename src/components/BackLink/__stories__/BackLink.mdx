@@ -1,0 +1,33 @@
+import {Meta} from '@storybook/blocks';
+
+import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
+import * as BackLinkStories from './BackLink.stories.tsx';
+
+<Meta of={BackLinkStories} />
+<StoryTemplate>
+
+## Dependencies
+
+For a detailed usage guide of the BackLink component, see [BackLink Usage](https://github.com/gravity-ui/page-constructor/blob/main/memory-bank/usage/backLink.md).
+
+## Parameters
+
+`url: string` — Target URL for navigation (required)
+
+`title: React.ReactNode` — Button text content, can be ReactNode (required)
+
+`theme?: Theme` — Visual theme - `'default'` or `'special'` (default: `'default'`)
+
+`size?: ButtonSize` — Button size - `'s'`, `'m'`, `'l'`, or `'xl'` (default: `'l'`)
+
+`className?: string` — Optional CSS class name for styling
+
+`shouldHandleBackAction?: boolean` — Whether to use programmatic navigation instead of direct URL (default: `false`)
+
+`onClick?: () => void` — Optional click handler function
+
+`tabIndex?: number` — Tab index for accessibility
+
+`extraProps?: React.HTMLProps<T>` — Additional HTML props to pass to the underlying element
+
+</StoryTemplate>

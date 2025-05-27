@@ -1,0 +1,27 @@
+import {Meta} from '@storybook/blocks';
+
+import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
+import * as AuthorStories from './Author.stories.tsx';
+
+<Meta of={AuthorStories} />
+<StoryTemplate>
+
+## Dependencies
+
+For a detailed usage guide of the Author component, see [Author Usage](https://github.com/gravity-ui/page-constructor/blob/main/memory-bank/usage/author.md).
+
+## Parameters
+
+`author: AuthorItem` — Author information object containing firstName, secondName, description, and avatar (required)
+
+`className?: string` — Optional CSS class name for the container
+
+`authorContainerClassName?: string` — Optional CSS class name for the avatar container
+
+`type?: AuthorType` — Layout type - `AuthorType.Column` (default) or `AuthorType.Line`
+
+`theme?: ContentTheme` — Content theme - `'default'`, `'dark'`, or `'light'`
+
+`qa?: string` — Optional QA attribute for testing
+
+</StoryTemplate>
