@@ -34,14 +34,9 @@ $block: '.#{$ns}ExtendedFeaturesBlock';
 
                 position: relative;
                 margin-bottom: $indentXXXS;
-                display: inline;
 
                 a {
                     @include link();
-                }
-
-                p {
-                    display: inline;
                 }
             }
         }

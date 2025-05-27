@@ -198,7 +198,6 @@ export const config: BlocksConfig = {
         {
             fields: ['title', 'text', 'additionalInfo'],
             transformer: yfmTransformer,
-            renderInline: true,
         },
         {
             fields: ['list'],

@@ -69,10 +69,9 @@ export const createItemsParser =
 export function yfmTransformer(
     lang: Lang,
     content: string,
-    options: {plugins?: MarkdownItPluginCb[]} = {},
-    renderInline = false,
+    options: {plugins?: MarkdownItPluginCb[]; renderInline?: boolean} = {},
 ) {
-    const {plugins = []} = options;
+    const {plugins = [], renderInline = false} = options;
     const {html} = fullTransform(content, {
         lang,
         plugins: [...defaultPlugins, ...plugins],
