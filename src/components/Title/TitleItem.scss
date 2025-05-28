@@ -70,13 +70,19 @@ $block: '.#{$ns}title-item';
     }
 
     &__text {
-        white-space: normal;
-        a {
-            @include link();
+        @include add-specificity(&) {
+            white-space: normal;
+            font-size: inherit;
+            line-height: inherit;
+
+            a {
+                @include link();
+            }
         }
     }
 
     &__wrapper {
+        display: inline-flex;
         white-space: nowrap;
     }
 

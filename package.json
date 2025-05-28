@@ -1,6 +1,6 @@
 {
   "name": "@gravity-ui/page-constructor",
-  "version": "6.10.1",
+  "version": "7.0.0-alpha.8",
   "description": "Gravity UI Page Constructor",
   "license": "MIT",
   "type": "commonjs",
@@ -90,7 +90,7 @@
     "playwright": "playwright test --config=playwright/playwright.config.ts",
     "playwright:update": "npm run playwright -- -u",
     "playwright:clear-cache": "rm -rf ./playwright/.cache",
-    "playwright:docker": "./scripts/playwright-docker.sh 'npm run playwright'",
+    "playwright:docker": "./scripts/playwright-docker.sh 'npm run playwright' -- --grep BackgroundCard",
     "playwright:docker:update": "./scripts/playwright-docker.sh 'npm run playwright:update'",
     "playwright:docker:clear-cache": "./scripts/playwright-docker.sh clear-cache",
     "playwright:install": "playwright install --with-deps"
@@ -122,7 +122,7 @@
     "uuid": "^9.0.0"
   },
   "peerDependencies": {
-    "@diplodoc/transform": "^4.10.4",
+    "@diplodoc/transform": "^4.28.2",
     "@gravity-ui/uikit": "^7.1.1",
     "react": "^16.14.0 || ^17.0.0 || ^18.0.0 || ^19.0.0"
   },

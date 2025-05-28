@@ -3,8 +3,7 @@
     "content": {
       "type": "extended-features-block",
       "title": {
-        "text": "Lorem ipsum dolor sit amet",
-        "textSize": "m"
+        "text": "Lorem ipsum dolor sit amet"
       },
       "description": "Three **cards in a row on the desktop**, two cards in a row on a tablet, one card in a row on a mobile phone.",
       "items": [

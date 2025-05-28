@@ -44,6 +44,8 @@ import {BannerCardProps, HubspotFormProps, SubBlock, SubBlockModels} from './sub
 export enum BlockType {
     PromoFeaturesBlock = 'promo-features-block',
     ExtendedFeaturesBlock = 'extended-features-block',
+    /** @deprecated */
+    SliderOldBlock = 'slider-old-block',
     SliderBlock = 'slider-block',
     QuestionsBlock = 'questions-block',
     FoldableListBlock = 'foldable-list-block',
@@ -62,8 +64,6 @@ export enum BlockType {
     MapBlock = 'map-block',
     FilterBlock = 'filter-block',
     FormBlock = 'form-block',
-    // unstable
-    SliderNewBlock = 'slider-new-block',
 }
 
 export const BlockTypes = Object.values(BlockType);
@@ -109,10 +109,27 @@ export enum SliderBreakpointNames {
 export enum SliderType {
     MediaCard = 'media-card',
     HeaderCard = 'header-card',
+    FullscreenCard = 'fullscreen-card',
 }
 
 export type SliderBreakpointParams = Record<SliderBreakpointNames, number>;
 export type SlidesToShow = Partial<SliderBreakpointParams> | number;
+
+export interface SliderOldProps extends Childable, Animatable, LoadableChildren {
+    dots?: boolean;
+    arrows?: boolean;
+    slidesToShow?: SlidesToShow;
+    disclaimer?: {
+        text: string;
+        size?: TextSize;
+    };
+    title?: TitleItemBaseProps | string;
+    description?: string;
+    autoplay?: number;
+    //for server transforms
+    randomOrder?: boolean;
+    adaptive?: boolean;
+}
 
 export interface SliderProps extends Childable, Animatable, LoadableChildren {
     dots?: boolean;
@@ -122,7 +139,7 @@ export interface SliderProps extends Childable, Animatable, LoadableChildren {
         text: string;
         size?: TextSize;
     };
-    title?: TitleItemBaseProps;
+    title?: TitleItemBaseProps | string;
     description?: string;
     autoplay?: number;
     //for server transforms
@@ -130,22 +147,7 @@ export interface SliderProps extends Childable, Animatable, LoadableChildren {
     adaptive?: boolean;
 }
 
-export interface SliderNewProps extends Childable, Animatable, LoadableChildren {
-    dots?: boolean;
-    arrows?: boolean;
-    slidesToShow?: SlidesToShow;
-    disclaimer?: {
-        text: string;
-        size?: TextSize;
-    };
-    title?: TitleItemBaseProps;
-    description?: string;
-    autoplay?: number;
-    //for server transforms
-    randomOrder?: boolean;
-}
-
-export interface HeaderSliderBlockProps extends Omit<SliderProps, 'title' | 'description'> {
+export interface HeaderSliderBlockProps extends Omit<SliderOldProps, 'title' | 'description'> {
     items: HeaderBlockProps[];
 }
 
@@ -477,9 +479,9 @@ export type HeaderBlockModel = {
     type: BlockType.HeaderBlock;
 } & HeaderBlockProps;
 
-export type SliderBlockModel = {
-    type: BlockType.SliderBlock;
-} & SliderProps;
+export type SliderOldBlockModel = {
+    type: BlockType.SliderOldBlock;
+} & SliderOldProps;
 
 export type ExtendedFeaturesBlockModel = {
     type: BlockType.ExtendedFeaturesBlock;
@@ -553,12 +555,12 @@ export type FormBlockModel = {
     type: BlockType.FormBlock;
 } & FormBlockProps;
 
-// unstable block models
-export type SliderNewBlockModel = {
-    type: BlockType.SliderNewBlock;
-} & SliderNewProps;
+export type SliderBlockModel = {
+    type: BlockType.SliderBlock;
+} & SliderProps;
 
 type BlockModels =
+    | SliderOldBlockModel
     | SliderBlockModel
     | ExtendedFeaturesBlockModel
     | PromoFeaturesBlockModel
@@ -580,6 +582,4 @@ type BlockModels =
     | FilterBlockModel
     | FormBlockModel;
 
-type UnstableBlockModels = SliderNewBlockModel;
-
-export type Block = (BlockModels | UnstableBlockModels) & BlockBaseProps;
+export type Block = BlockModels & BlockBaseProps;

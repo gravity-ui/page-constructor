@@ -57,7 +57,7 @@ const Loadable = (props: LoadableComponentsProps) => {
                 error = false;
 
                 setDataState({data, loading: false, error});
-            } catch (ex) {
+            } catch {
                 error = true;
                 setDataState({loading: false, error});
             }
