@@ -1,5 +1,30 @@
 # Changelog
 
+## [7.0.0](https://github.com/gravity-ui/page-constructor/compare/v6.10.1...v7.0.0) (2025-05-28)
+
+
+### ⚠ BREAKING CHANGES
+
+- **Slider**
+  - The old SlickSlider moved to `SliderOld`
+  - New Slider is now based on Swiper
+  - Migrated tests, stories, i18n, and styles for both new and old sliders
+
+- **YFM (Yandex Flavored Markdown)**
+  - All components with HTML content now use YFM
+  - Block transformers updated for YFM
+  - **Components:** `MetaInfo`, `Table`, `ContentList`, `Title`, `TitleItem`
+  - **Blocks:** `Header`, `Share`, `Questions/QuestionBlockItem`, `ExtendedFeatures`, `FoldableList/FoldableListBlockItem`, `PromoFeaturesBlock`, `Tabs/TabContent`
+  - **Sub-blocks:** `PriceCard`, `BannerCard`, `Content`, `Quote`, `PriceDetailed/PriceDescription`, `PriceDetailed/PriceDetails/Details/List`, `PriceDetailed/PriceDetails/Details/Settings`
+
+- **YandexForm**
+  - Default theme removed from the form
+  - Cleaned up and simplified theme logic
+
+- **General**
+  - Code migration and refactoring, removed deprecated files
+  - Updated dependencies and documentation
+
 ## [6.10.1](https://github.com/gravity-ui/page-constructor/compare/v6.10.0...v6.10.1) (2025-05-26)
 
 
