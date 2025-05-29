@@ -4,7 +4,7 @@ import {a11yHiddenSvgProps} from '../utils/svg';
 
 export const BRAND_NAME_RATIO = 72 / 16;
 
-export const BrandName = (props: React.PropsWithChildren<React.SVGProps<SVGSVGElement>>) => (
+export const BrandName = (props: React.SVGProps<SVGSVGElement>) => (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         width="72"

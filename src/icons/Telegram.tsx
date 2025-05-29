@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import {a11yHiddenSvgProps} from '../utils/svg';
 
-export const Telegram = (props: React.PropsWithChildren<React.SVGProps<SVGSVGElement>>) => (
+export const Telegram = (props: React.SVGProps<SVGSVGElement>) => (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"

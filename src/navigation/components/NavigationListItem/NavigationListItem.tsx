@@ -1,5 +1,3 @@
-import * as React from 'react';
-
 import {NavigationListItemProps} from '../../models';
 import {getItemClickHandler} from '../../utils';
 import NavigationItem from '../NavigationItem';
@@ -10,7 +8,7 @@ export const NavigationListItem = ({
     activeItemId,
     onActiveItemChange,
     ...props
-}: React.PropsWithChildren<NavigationListItemProps>) => {
+}: NavigationListItemProps) => {
     const id = `${column}-${index}`;
     const isActive = id === activeItemId;
     const onClick = getItemClickHandler({

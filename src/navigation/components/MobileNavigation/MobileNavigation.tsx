@@ -18,7 +18,7 @@ export const MobileNavigation = ({
     bottomItems,
     portalContainer,
     ...props
-}: React.PropsWithChildren<MobileNavigationProps>) => {
+}: MobileNavigationProps) => {
     const [isMounted, setIsMounted] = React.useState(false);
 
     useMount(() => setIsMounted(true));

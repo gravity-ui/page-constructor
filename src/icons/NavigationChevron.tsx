@@ -2,9 +2,7 @@ import * as React from 'react';
 
 import {a11yHiddenSvgProps} from '../utils/svg';
 
-export const NavigationChevron = (
-    props: React.PropsWithChildren<React.SVGProps<SVGSVGElement>>,
-) => (
+export const NavigationChevron = (props: React.SVGProps<SVGSVGElement>) => (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         width="12"

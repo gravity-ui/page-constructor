@@ -19,10 +19,7 @@ export type LogoProps = ThemedNavigationLogoData & {
     alt?: string;
 };
 
-export const Logo = ({
-    alt = i18n('image-alt'),
-    ...restProps
-}: React.PropsWithChildren<LogoProps>) => {
+export const Logo = ({alt = i18n('image-alt'), ...restProps}: LogoProps) => {
     const props: LogoProps = {...restProps, alt};
     const {hostname, Link} = React.useContext(LocationContext);
     const theme = useTheme();

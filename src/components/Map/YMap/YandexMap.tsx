@@ -23,7 +23,7 @@ const DEFAULT_ZOOM = 9;
 // The real center of the map will be calculated later, using the coordinates of the markers
 const INITIAL_CENTER = [0, 0];
 
-const YandexMap = (props: React.PropsWithChildren<YMapProps>) => {
+const YandexMap = (props: YMapProps) => {
     const {markers, zoom, id, className} = props;
     const {apiKey, scriptSrc, nonce} = React.useContext(MapsContext);
     const isMobile = React.useContext(MobileContext);

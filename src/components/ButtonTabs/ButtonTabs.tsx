@@ -38,7 +38,7 @@ const ButtonTabs = ({
     qa,
     getTabElementId,
     getTabContentElementId,
-}: React.PropsWithChildren<ButtonTabsProps>) => {
+}: ButtonTabsProps) => {
     const activeTabId: string | null = React.useMemo(() => {
         if (activeTab) {
             return activeTab;

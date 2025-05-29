@@ -59,7 +59,7 @@ const getControllerDefautValue = (value: FieldValue, valueSpecType?: SpecTypes) 
  * @returns {React.ReactNode}
  */
 
-export const OneOfCustom = (props: React.PropsWithChildren<ObjectIndependentInputProps>) => {
+export const OneOfCustom = (props: ObjectIndependentInputProps) => {
     const {spec, input, name} = props;
     const {properties} = spec;
 

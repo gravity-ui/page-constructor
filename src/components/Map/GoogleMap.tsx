@@ -29,7 +29,7 @@ function getScriptSrc(params: GoogleMapLinkParams) {
     )}`;
 }
 
-const GoogleMap = (props: React.PropsWithChildren<GMapProps>) => {
+const GoogleMap = (props: GMapProps) => {
     const {address, zoom, className} = props;
     const {apiKey, scriptSrc} = React.useContext(MapsContext);
     const {lang = Lang.Ru} = React.useContext(LocaleContext);

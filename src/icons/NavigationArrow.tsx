@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import {a11yHiddenSvgProps} from '../utils/svg';
 
-export const NavigationArrow = (props: React.PropsWithChildren<React.SVGProps<SVGSVGElement>>) => (
+export const NavigationArrow = (props: React.SVGProps<SVGSVGElement>) => (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         width="9"

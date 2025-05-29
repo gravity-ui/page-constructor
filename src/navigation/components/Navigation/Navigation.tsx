@@ -23,7 +23,7 @@ export const Navigation = ({
     logo,
     className,
     mobilePortalContainer,
-}: React.PropsWithChildren<NavigationComponentProps>) => {
+}: NavigationComponentProps) => {
     const {
         leftItems,
         rightItems,

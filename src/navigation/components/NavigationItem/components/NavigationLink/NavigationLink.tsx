@@ -15,7 +15,7 @@ const b = block('navigation-link');
 
 type NavigationLinkProps = NavigationItemProps & NavigationLinkItem;
 
-export const NavigationLink = (props: React.PropsWithChildren<NavigationLinkProps>) => {
+export const NavigationLink = (props: NavigationLinkProps) => {
     const {hostname, Link} = React.useContext(LocationContext);
     const {url, text, icon, arrow, target, className, iconSize, urlTitle, ...rest} = props;
     const linkExtraProps = getLinkProps(url, hostname, target);

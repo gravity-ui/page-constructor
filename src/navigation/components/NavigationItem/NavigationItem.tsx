@@ -19,12 +19,7 @@ const nonComplexNavigationItemTypes = NavigationItemTypes.filter(
     (type) => type !== NavigationItemType.Dropdown,
 );
 
-export const NavigationItem = ({
-    data,
-    className,
-    menuLayout,
-    ...props
-}: React.PropsWithChildren<NavigationItemProps>) => {
+export const NavigationItem = ({data, className, menuLayout, ...props}: NavigationItemProps) => {
     const {type = NavigationItemType.Link} = data;
     const navItemMap = useNavigationItemMap();
     const Component = navItemMap[type] as CustomItem;

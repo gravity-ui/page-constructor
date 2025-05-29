@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import {a11yHiddenSvgProps} from '../../../utils/svg';
 
-const DefaultPreview = (props: React.PropsWithChildren<React.SVGProps<SVGSVGElement>>) => (
+const DefaultPreview = (props: React.SVGProps<SVGSVGElement>) => (
     <svg
         width="150"
         height="76"

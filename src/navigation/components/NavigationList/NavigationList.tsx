@@ -1,5 +1,3 @@
-import * as React from 'react';
-
 import {NavigationListProps} from '../../models';
 import NavigationListItem from '../NavigationListItem/NavigationListItem';
 
@@ -8,7 +6,7 @@ export const NavigationList = ({
     itemClassName,
     items,
     ...props
-}: React.PropsWithChildren<NavigationListProps>) => (
+}: NavigationListProps) => (
     <ul className={className}>
         {items.map((item, index) => (
             <NavigationListItem

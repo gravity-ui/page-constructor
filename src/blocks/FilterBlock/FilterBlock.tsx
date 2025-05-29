@@ -23,7 +23,7 @@ const FilterBlock = ({
     colSizes,
     centered,
     animated,
-}: React.PropsWithChildren<FilterBlockProps>) => {
+}: FilterBlockProps) => {
     const tabButtons = React.useMemo(() => {
         const allButton: ButtonTabsItemProps | undefined = allTag
             ? {id: null, title: typeof allTag === 'boolean' ? i18n('label-all-tag') : allTag}
