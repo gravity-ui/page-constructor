@@ -1,0 +1,31 @@
+import {Meta} from '@storybook/blocks';
+
+import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
+import * as ControlStories from './Control.stories.tsx';
+
+<Meta of={ControlStories} />
+<StoryTemplate>
+
+## Usage
+
+For a detailed usage guide of the Control component, see [Control Usage](https://github.com/gravity-ui/page-constructor/blob/main/memory-bank/usage/control.md).
+
+## Parameters
+
+`icon: IconData` — Icon data from Gravity UI (required) - The icon to display in the button
+
+`theme?: 'primary' | 'secondary' | 'link' | 'accent'` — Button theme (defaults to 'primary')
+
+`size?: 'xs' | 's' | 'm' | 'l'` — Button size (defaults to 's')
+
+`iconSize?: number` — Icon size in pixels (defaults to 16)
+
+`disabled?: boolean` — Boolean to disable the button (defaults to false)
+
+`className?: string` — Optional CSS class name for the button
+
+`onClick?: (event: React.MouseEvent) => void` — Optional click handler function
+
+`qa?: string` — Optional QA attribute for testing
+
+</StoryTemplate>

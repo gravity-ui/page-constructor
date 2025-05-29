@@ -1,0 +1,27 @@
+import {Meta} from '@storybook/blocks';
+
+import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
+import * as ErrorWrapperStories from './ErrorWrapper.stories.tsx';
+
+<Meta of={ErrorWrapperStories} />
+<StoryTemplate>
+
+## Usage
+
+For a detailed usage guide of the ErrorWrapper component, see [ErrorWrapper Usage](https://github.com/gravity-ui/page-constructor/blob/main/memory-bank/usage/errorWrapper.md).
+
+## Parameters
+
+`text: string` — Error message text to display (required)
+
+`buttonText: string` — Text for the retry button (required)
+
+`handler: () => void` — Callback function for the retry button click (required)
+
+`isError: boolean` — Boolean flag indicating whether to show error state (required)
+
+`children: React.ReactNode` — React nodes to render when no error occurs (required)
+
+`className?: string` — Optional CSS class name for the error container
+
+</StoryTemplate>

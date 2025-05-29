@@ -20,10 +20,10 @@ The following components in the src/components directory have Storybook stories:
 6. **BalancedMasonry**: Creates a balanced masonry layout. ✅ [Usage documented](usage/balancedMasonry.md)
 7. **BrandFooter**: Displays a branded footer. ✅ [Usage documented](usage/brandFooter.md)
 8. **Button**: Renders styled buttons with various themes and sizes. ✅ [Usage documented](usage/button.md)
-9. **ContentList**: Displays a list of content items.
-10. **Control**: Provides form control elements.
-11. **ErrorWrapper**: Handles error display and fallbacks.
-12. **FileLink**: Renders links to files with appropriate icons.
+9. **ContentList**: Displays a list of content items. ✅ [Usage documented](usage/contentList.md)
+10. **Control**: Provides form control elements. ✅ [Usage documented](usage/control.md)
+11. **ErrorWrapper**: Handles error display and fallbacks. ✅ [Usage documented](usage/errorWrapper.md)
+12. **FileLink**: Renders links to files with appropriate icons. ✅ [Usage documented](usage/fileLink.md)
 13. **FullscreenImage**: Displays images in fullscreen mode.
 14. **FullscreenMedia**: Handles fullscreen media display.
 15. **FullWidthBackground**: Creates full-width background elements.
