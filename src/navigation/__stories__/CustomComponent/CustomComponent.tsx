@@ -1,5 +1,3 @@
-import * as React from 'react';
-
 import {useActionHandlers} from '@gravity-ui/uikit';
 
 import {cn} from '../../../utils';
@@ -14,7 +12,7 @@ type DCDropdownNavigationItemProps = Pick<
     'onClick' | 'isActive' | 'menuLayout'
 >;
 
-export const CustomComponent: React.FC<DCDropdownNavigationItemProps> = (props) => {
+export const CustomComponent = (props: DCDropdownNavigationItemProps) => {
     const {onClick, isActive, menuLayout} = props;
 
     const {onKeyDown} = useActionHandlers(onClick);

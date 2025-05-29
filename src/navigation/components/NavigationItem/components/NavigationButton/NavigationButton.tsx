@@ -1,5 +1,3 @@
-import * as React from 'react';
-
 import {Button, RouterLink} from '../../../../../components';
 import {BlockIdContext} from '../../../../../context/blockIdContext';
 import {ButtonProps} from '../../../../../models';
@@ -14,7 +12,7 @@ const ANALYTICS_ID = 'navigation';
 
 type NavigationButtonProps = Pick<NavigationItemProps, 'className'> & ButtonProps;
 
-export const NavigationButton: React.FC<NavigationButtonProps> = (props) => {
+export const NavigationButton = (props: NavigationButtonProps) => {
     const {url, target, className} = props;
     const classes = b(null, className);
     return (

@@ -14,7 +14,7 @@ interface ContentWrapperProps {
     iconSize?: number;
 }
 
-export const ContentWrapper: React.FC<ContentWrapperProps> = ({text, icon, iconSize}) => {
+export const ContentWrapper = ({text, icon, iconSize}: ContentWrapperProps) => {
     const iconSizeStyle = React.useMemo(
         () => (iconSize ? {height: `${iconSize}px`, width: `${iconSize}px`} : {}),
         [iconSize],

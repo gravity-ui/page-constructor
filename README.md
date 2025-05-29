@@ -288,7 +288,7 @@ Usage example:
 ```jsx
 import {Grid, Row, Col} from '@gravity-ui/page-constructor';
 
-const Page: React.FC<PageProps> = ({children}) => (
+const Page = ({children}: PropsWithChildren<PageProps>) => (
   <Grid>
     <Row>
       <Col sizes={{lg: 4, sm: 6, all: 12}}>{children}</Col>
@@ -304,7 +304,7 @@ Page navigation can also be used separately from the constructor:
 ```jsx
 import {Navigation} from '@gravity-ui/page-constructor';
 
-const Page: React.FC<PageProps> = ({data, logo}) => <Navigation data={data} logo={logo} />;
+const Page= ({data, logo}: React.PropsWithChildren<PageProps>) => <Navigation data={data} logo={logo} />;
 ```
 
 ### Blocks
