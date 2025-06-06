@@ -3,8 +3,9 @@ import * as React from 'react';
 import {RouterLink} from '../../../../../components';
 import {getMediaImage} from '../../../../../components/Media/Image/utils';
 import {LocationContext} from '../../../../../context/locationContext';
+import {useAnalytics} from '../../../../../hooks';
 import {NavigationArrow} from '../../../../../icons';
-import {NavigationLinkItem} from '../../../../../models';
+import {DefaultEventNames, NavigationLinkItem} from '../../../../../models';
 import {block, getLinkProps} from '../../../../../utils';
 import {NavigationItemProps} from '../../../../models';
 import {ContentWrapper} from '../ContentWrapper/ContentWrapper';
@@ -17,9 +18,26 @@ type NavigationLinkProps = NavigationItemProps & NavigationLinkItem;
 
 export const NavigationLink: React.FC<NavigationLinkProps> = (props) => {
     const {hostname, Link} = React.useContext(LocationContext);
-    const {url, text, icon, arrow, target, className, iconSize, urlTitle, ...rest} = props;
+    const {
+        url,
+        text,
+        icon,
+        arrow,
+        target,
+        className,
+        iconSize,
+        urlTitle,
+        analyticsEvents,
+        ...rest
+    } = props;
+
     const linkExtraProps = getLinkProps(url, hostname, target);
     const iconData = icon && getMediaImage(icon);
+    const handleAnalytics = useAnalytics(DefaultEventNames.Link, url);
+
+    const onClick = () => {
+        handleAnalytics(analyticsEvents);
+    };
 
     const classes = b(null, className);
     const content = (
@@ -35,6 +53,7 @@ export const NavigationLink: React.FC<NavigationLinkProps> = (props) => {
                 href={url}
                 title={urlTitle || text}
                 className={classes}
+                onClick={onClick}
                 {...rest}
                 {...linkExtraProps}
             >
@@ -44,7 +63,15 @@ export const NavigationLink: React.FC<NavigationLinkProps> = (props) => {
     } else {
         return (
             <RouterLink href={url} passHref>
-                <a title={urlTitle || text} {...rest} className={classes}>
+                <a
+                    role="link"
+                    title={urlTitle || text}
+                    {...rest}
+                    className={classes}
+                    tabIndex={0}
+                    onClick={onClick}
+                    onKeyDown={(e) => e.key === 'Enter' && onClick()}
+                >
                     {content}
                 </a>
             </RouterLink>
