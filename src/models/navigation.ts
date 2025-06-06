@@ -1,6 +1,7 @@
 import {ThemeSupporting} from '../utils';
 
 import {ButtonProps, ImageProps} from './constructor-items';
+import {AnalyticsEventsBase} from './common';
 
 export enum NavigationItemType {
     Link = 'link',
@@ -41,7 +42,7 @@ export interface NavigationGithubButton extends Omit<NavigationItemBase, 'icon'>
     size?: string;
 }
 
-export interface NavigationLinkItem extends Omit<NavigationItemBase, 'url'> {
+export interface NavigationLinkItem extends Omit<NavigationItemBase, 'url'>, AnalyticsEventsBase {
     type: NavigationItemType.Link;
     url: string;
     urlTitle?: string;
