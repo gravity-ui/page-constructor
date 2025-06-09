@@ -1,0 +1,17 @@
+.field-card {
+    padding: 16px;
+
+    &__config {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    &__nested-field {
+        margin-top: 8px;
+        padding: 12px;
+        background-color: var(--g-color-base-generic);
+        border-radius: 6px;
+        border: 1px solid var(--g-color-line-generic);
+    }
+}

@@ -1,0 +1,13 @@
+.form-output {
+    margin-top: 24px;
+
+    &__content {
+        background-color: var(--g-color-base-generic);
+        padding: 12px;
+        border-radius: 6px;
+        border: 1px solid var(--g-color-line-generic);
+        font-family: monospace;
+        font-size: 12px;
+        white-space: pre-wrap;
+    }
+}
