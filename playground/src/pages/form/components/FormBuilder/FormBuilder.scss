@@ -1,0 +1,110 @@
+.form-builder {
+    width: 100%;
+
+    &__field {
+        margin-bottom: 16px;
+    }
+
+    &__fields-list {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    &__field-card {
+        padding: 16px;
+        border: 1px solid #d1d5db;
+        border-radius: 8px;
+        background-color: #ffffff;
+    }
+
+    &__field-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 12px;
+    }
+
+    &__field-config {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    &__config-row {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        & > span {
+            min-width: 90px;
+            font-weight: 500;
+        }
+
+        & > div {
+            flex: 1;
+        }
+    }
+
+    &__nested-fields {
+        margin-top: 12px;
+        margin-left: 16px;
+        padding-left: 12px;
+        border-left: 2px solid #e5e7eb;
+    }
+
+    &__nested-field {
+        margin-top: 8px;
+        padding: 12px;
+        background-color: #f9fafb;
+        border-radius: 6px;
+        border: 1px solid #e5e7eb;
+    }
+
+    &__nested-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 8px;
+    }
+
+    &__option {
+        margin-top: 12px;
+        padding: 12px;
+        background-color: #f9fafb;
+        border-radius: 6px;
+        border: 1px solid #e5e7eb;
+    }
+
+    &__option-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 8px;
+    }
+
+    &__add-field-button {
+        margin-top: 8px;
+    }
+
+    &__enum-option {
+        margin-top: 8px;
+        padding: 12px;
+        background-color: #f3f4f6;
+        border-radius: 6px;
+        border: 1px solid #e5e7eb;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        .forms__config-row {
+            margin-bottom: 4px;
+        }
+
+        button {
+            align-self: flex-end;
+            margin-top: 4px;
+        }
+    }
+}

@@ -1,7 +1,7 @@
-@import '../../../styles/styles.scss';
-@import '../../../src/editor-v2/styles/root.scss';
-
 html,
-body {
+body,
+#root {
+    height: 100%;
+    min-width: 320px;
     margin: 0;
 }

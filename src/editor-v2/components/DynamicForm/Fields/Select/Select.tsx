@@ -12,27 +12,36 @@ type SelectInput = SelectSingleInput | SelectMultipleInput;
 
 interface SelectDynamicFieldProps extends FieldBaseParams {
     input: SelectInput;
-    value: string;
-    onUpdate: (value: string | undefined) => void;
+    value: string | string[];
+    onUpdate: (value: string | string[] | undefined) => void;
     className?: string;
 }
 
 const SelectDynamicField = ({input, value, onUpdate, className}: SelectDynamicFieldProps) => {
     const inputView = input.view || 'radiobutton';
+    const isMultiple = input.mode === 'multiple';
+    const currentValue = Array.isArray(value) ? value : [value];
 
     return (
         <FieldBase title={input.title} className={b(null, className)} onRefresh={onUpdate}>
-            {inputView === 'select' && (
+            {(inputView === 'select' || isMultiple) && (
                 <Select
                     placeholder={'Value'}
-                    value={value ? [value] : []}
-                    onUpdate={([selectValue]) => onUpdate(selectValue)}
+                    value={value ? currentValue : []}
+                    onUpdate={(selectValues) =>
+                        isMultiple ? onUpdate(selectValues) : onUpdate(selectValues[0])
+                    }
                     options={input.enum}
                     className={b('select')}
+                    multiple={isMultiple}
                 />
             )}
-            {inputView === 'radiobutton' && (
-                <SegmentedRadioGroup options={input.enum} value={value} onUpdate={onUpdate} />
+            {inputView === 'radiobutton' && !isMultiple && (
+                <SegmentedRadioGroup
+                    options={input.enum}
+                    value={Array.isArray(value) ? value[0] : value}
+                    onUpdate={onUpdate}
+                />
             )}
         </FieldBase>
     );

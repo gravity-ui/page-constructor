@@ -1,32 +1,26 @@
 {
-  "extends": "@gravity-ui/tsconfig/tsconfig.json",
+  "extends": "@gravity-ui/tsconfig/tsconfig",
   "compilerOptions": {
-    "allowJs": true,
-    "outDir": "build/esm",
-    "module": "esnext",
-    "jsx": "preserve",
-    "baseUrl": ".",
-    "target": "ES2020",
-    "resolveJsonModule": true,
-    "importHelpers": true,
+    "target": "es2022",
     "lib": ["dom", "dom.iterable", "esnext"],
+    "types": ["vite-plugin-svgr/client"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
     "noEmit": true,
-    "incremental": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
     "isolatedModules": true,
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ]
+    "jsx": "react-jsx",
+    "incremental": true,
+    "allowSyntheticDefaultImports": true,
+    "paths": {
+      "@/*": ["./src/*"],
+      "*": ["../src/internal-typings/*"]
+    }
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    "src/typings/*.d.ts",
-    ".next/types/**/*.ts",
-    "../src",
-    "../styles"
-  ],
+  "include": ["**/*.ts", "**/*.tsx", "vite.config.mts", "../src/internal-typings/*"],
   "exclude": ["node_modules"]
 }
