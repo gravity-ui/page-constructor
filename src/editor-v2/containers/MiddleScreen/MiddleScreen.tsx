@@ -63,7 +63,11 @@ const MiddleScreen = ({className, CustomTop}: MiddleScreenProps) => {
                         style={canvasStyle}
                     >
                         <iframe
-                            ref={(instance) => instance && setIframeElement(instance)}
+                            ref={(instance) => {
+                                if (instance) {
+                                    setIframeElement(instance);
+                                }
+                            }}
                             className={b('iframe', {fullscreen: isPreviewMode})}
                             src={url}
                             height={isPreviewMode ? '100%' : `${height}px`}

@@ -1,0 +1,29 @@
+.array-field-renderer {
+    &__config {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    &__config-row {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        & > span {
+            min-width: 90px;
+            font-weight: 500;
+        }
+
+        & > div {
+            flex: 1;
+        }
+    }
+
+    &__nested-fields {
+        margin-top: 12px;
+        margin-left: 16px;
+        padding-left: 12px;
+        border-left: 2px solid var(--g-color-line-generic);
+    }
+}
