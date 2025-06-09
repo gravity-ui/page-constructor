@@ -60,7 +60,7 @@ export function insertByPath<T extends object>(object: T, path: string, value: a
 export function splitPathAndIndex(path: string) {
     // Match blocks[3], blocks[0].children[12], blocks[0], blocks[999999]
     const bracketsRegExp = /(.*)\[(\d+)]$/g;
-    const regexpMatches = [...path.matchAll(bracketsRegExp)];
+    const regexpMatches = Array.from(path.matchAll(bracketsRegExp));
     if (regexpMatches.length) {
         return {
             // blocks, blocks[0].children
