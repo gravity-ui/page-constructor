@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.1.0](https://github.com/gravity-ui/page-constructor/compare/v7.0.0...v7.1.0) (2025-06-11)
+
+
+### Features
+
+* **NavigationLink:** add handleAnalytics ([#1198](https://github.com/gravity-ui/page-constructor/issues/1198)) ([d409b65](https://github.com/gravity-ui/page-constructor/commit/d409b65ff2cb970d21521f56de57d009991898e7))
+
 ## [7.0.0](https://github.com/gravity-ui/page-constructor/compare/v6.10.1...v7.0.0) (2025-05-28)
 
 
