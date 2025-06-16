@@ -1,5 +1,13 @@
 # Changelog
 
+## [7.2.0](https://github.com/gravity-ui/page-constructor/compare/v7.1.0...v7.2.0) (2025-06-16)
+
+
+### Features
+
+* added HeaderBlockFullProps to export ([#1203](https://github.com/gravity-ui/page-constructor/issues/1203)) ([f145c79](https://github.com/gravity-ui/page-constructor/commit/f145c79b2b49de2a3b51a0c38248f7554ac0a347))
+* bump @gravity-ui/uikit from 7.11.0 to 7.13.1 ([#1200](https://github.com/gravity-ui/page-constructor/issues/1200)) ([043e889](https://github.com/gravity-ui/page-constructor/commit/043e8897504f81dc1d56a05a2f7da755d9fcaa87))
+
 ## [7.1.0](https://github.com/gravity-ui/page-constructor/compare/v7.0.0...v7.1.0) (2025-06-11)
 
 
