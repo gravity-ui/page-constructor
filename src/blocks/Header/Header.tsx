@@ -18,7 +18,7 @@ import './Header.scss';
 
 const b = block('header-block');
 
-type HeaderBlockFullProps = HeaderBlockProps & ClassNameProps;
+export type HeaderBlockFullProps = HeaderBlockProps & ClassNameProps;
 
 interface BackgroundProps {
     background: HeaderBlockBackground;
