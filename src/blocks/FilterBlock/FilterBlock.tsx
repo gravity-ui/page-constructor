@@ -13,7 +13,7 @@ import './FilterBlock.scss';
 
 const b = block('filter-block');
 
-const FilterBlock: React.FC<FilterBlockProps> = ({
+const FilterBlock = ({
     title,
     description,
     tags,
@@ -23,7 +23,7 @@ const FilterBlock: React.FC<FilterBlockProps> = ({
     colSizes,
     centered,
     animated,
-}) => {
+}: FilterBlockProps) => {
     const tabButtons = React.useMemo(() => {
         const allButton: ButtonTabsItemProps | undefined = allTag
             ? {id: null, title: typeof allTag === 'boolean' ? i18n('label-all-tag') : allTag}

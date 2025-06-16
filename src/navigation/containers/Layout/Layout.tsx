@@ -13,7 +13,7 @@ export interface LayoutProps {
     children?: React.ReactNode;
 }
 
-const Layout: React.FC<LayoutProps> = ({children, navigation}) => (
+const Layout = ({children, navigation}: React.PropsWithChildren<LayoutProps>) => (
     <div className={b()}>
         {navigation &&
             (navigation.renderNavigation ? (

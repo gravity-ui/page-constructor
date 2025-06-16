@@ -1,5 +1,3 @@
-import * as React from 'react';
-
 import {TriangleUp} from '@gravity-ui/icons';
 import {Button} from '@gravity-ui/uikit';
 
@@ -12,7 +10,7 @@ const b = cn('custom-button');
 
 type DCDropdownNavigationItemProps = Pick<NavigationItemProps, 'onClick' | 'isActive'>;
 
-export const CustomButton: React.FC<DCDropdownNavigationItemProps> = (props) => {
+export const CustomButton = (props: DCDropdownNavigationItemProps) => {
     const {onClick, isActive} = props;
 
     return (

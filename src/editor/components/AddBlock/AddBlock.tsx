@@ -18,7 +18,7 @@ export interface AddBlockProps extends ClassNameProps {
 
 const sortedBlockNames = Object.keys(blockMap).sort();
 
-const AddBlock = ({onAdd, className}: React.PropsWithChildren<AddBlockProps>) => {
+const AddBlock = ({onAdd, className}: AddBlockProps) => {
     const [isOpened, setIsOpened] = React.useState(false);
     const [search, setSearch] = React.useState('');
     const [editorBlocksData, setEditorBlocksData] = React.useState<EditorBlocksData | null>(null);
@@ -83,8 +83,9 @@ const AddBlock = ({onAdd, className}: React.PropsWithChildren<AddBlockProps>) =>
                                 return null;
                             }
 
-                            const Preview: React.FC<React.SVGProps<SVGSVGElement>> =
-                                blockData.preview;
+                            const Preview: (
+                                props: React.SVGProps<SVGSVGElement>,
+                            ) => React.ReactNode = blockData.preview;
 
                             return (
                                 <button

@@ -1,10 +1,8 @@
-import * as React from 'react';
-
 import {NavigationListItemProps} from '../../models';
 import {getItemClickHandler} from '../../utils';
 import NavigationItem from '../NavigationItem';
 
-export const NavigationListItem: React.FC<NavigationListItemProps> = ({
+export const NavigationListItem = ({
     column,
     index,
     activeItemId,

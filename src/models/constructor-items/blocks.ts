@@ -402,7 +402,7 @@ export interface ContentLayoutBlockProps extends ContentLayoutBlockParams {
     fileContent?: FileLinkProps[];
 }
 
-export type SVGIcon = React.FC<React.SVGProps<SVGSVGElement>>;
+export type SVGIcon = (props: React.SVGProps<SVGSVGElement>) => React.ReactNode;
 
 export interface ContentItemProps {
     title?: string;

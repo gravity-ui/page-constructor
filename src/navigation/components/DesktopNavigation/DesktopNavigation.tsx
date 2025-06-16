@@ -1,5 +1,3 @@
-import * as React from 'react';
-
 import OverflowScroller from '../../../components/OverflowScroller/OverflowScroller';
 import {block} from '../../../utils';
 import {DesktopNavigationProps, ItemColumnName, NavigationLayout} from '../../models';
@@ -11,7 +9,7 @@ import './DesktopNavigation.scss';
 
 const b = block('desktop-navigation');
 
-export const DesktopNavigation: React.FC<DesktopNavigationProps> = ({
+export const DesktopNavigation = ({
     logo,
     leftItemsWithIconSize,
     rightItemsWithIconSize,
@@ -20,7 +18,7 @@ export const DesktopNavigation: React.FC<DesktopNavigationProps> = ({
     onSidebarOpenedChange,
     onActiveItemChange,
     activeItemId,
-}) => (
+}: DesktopNavigationProps) => (
     <div className={b('wrapper')}>
         {logo && (
             <div className={b('left')}>

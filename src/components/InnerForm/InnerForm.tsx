@@ -17,7 +17,7 @@ interface InnerFormProps {
     className?: string;
 }
 
-const InnerForm: React.FC<InnerFormProps> = (props) => {
+const InnerForm = (props: InnerFormProps) => {
     const {formData, onContentLoad, className} = props;
     const formsConfig = React.useContext(FormsContext);
     const theme = useTheme();

@@ -27,7 +27,14 @@ type LinksProps = {
     linkQa?: string;
 };
 
-const Links: React.FC<LinksProps> = ({className, titleId, links, size = 's', qa, linkQa}) =>
+const Links = ({
+    className,
+    titleId,
+    links,
+    size = 's',
+    qa,
+    linkQa,
+}: React.PropsWithChildren<LinksProps>) =>
     links ? (
         <div className={b({size}, className)} data-qa={qa}>
             {links?.map((link) => (
