@@ -24,24 +24,25 @@ The following components in the src/components directory have Storybook stories:
 10. **Control**: Provides form control elements. ✅ [Usage documented](usage/control.md)
 11. **ErrorWrapper**: Handles error display and fallbacks. ✅ [Usage documented](usage/errorWrapper.md)
 12. **FileLink**: Renders links to files with appropriate icons. ✅ [Usage documented](usage/fileLink.md)
-13. **FullscreenImage**: Displays images in fullscreen mode.
-14. **FullscreenMedia**: Handles fullscreen media display.
-15. **FullWidthBackground**: Creates full-width background elements.
-16. **HeaderBreadcrumbs**: Displays breadcrumb navigation in headers.
-17. **Image**: Renders images with various options.
-18. **Link**: Provides styled link components.
-19. **Map**: Integrates map functionality.
-20. **Media**: Handles various media types.
-21. **MetaInfo**: Displays metadata information.
-22. **OverflowScroller**: Creates scrollable containers for overflowing content.
-23. **ReactPlayer**: Wraps the react-player library for video playback.
-24. **Table**: Renders table components.
-25. **Title**: Displays styled title elements.
-26. **ToggleArrow**: Provides toggle functionality with arrow indicators.
-27. **UnpublishedLabel**: Displays a label for unpublished content.
-28. **VideoBlock**: Handles video content display.
-29. **YandexForm**: Integrates with Yandex Forms.
-30. **YFMWrapper**: Renders Yandex Flavored Markdown content.
+13. **FullscreenImage**: Displays images in fullscreen mode. ✅ [Usage documented](usage/fullscreenImage.md)
+14. **FullscreenMedia**: Handles fullscreen media display. ✅ [Usage documented](usage/fullscreenMedia.md)
+15. **FullWidthBackground**: Creates full-width background elements. ✅ [Usage documented](usage/fullWidthBackground.md)
+16. **HeaderBreadcrumbs**: Displays breadcrumb navigation in headers. ✅ [Usage documented](usage/headerBreadcrumbs.md)
+17. **Image**: Renders images with various options. ✅ [Usage documented](usage/image.md)
+18. **MediaImage**: Advanced image component with parallax, fullscreen, and slider capabilities. ✅ [Usage documented](usage/mediaImage.md)
+19. **Link**: Provides styled link components. ✅ [Usage documented](usage/link.md)
+20. **Map**: Integrates map functionality.
+21. **Media**: Handles various media types.
+22. **MetaInfo**: Displays metadata information.
+23. **OverflowScroller**: Creates scrollable containers for overflowing content.
+24. **ReactPlayer**: Wraps the react-player library for video playbook.
+25. **Table**: Renders table components.
+26. **Title**: Displays styled title elements.
+27. **ToggleArrow**: Provides toggle functionality with arrow indicators.
+28. **UnpublishedLabel**: Displays a label for unpublished content.
+29. **VideoBlock**: Handles video content display.
+30. **YandexForm**: Integrates with Yandex Forms.
+31. **YFMWrapper**: Renders Yandex Flavored Markdown content.
 
 ### Blocks
 
