@@ -29,20 +29,19 @@ The following components in the src/components directory have Storybook stories:
 15. **FullWidthBackground**: Creates full-width background elements. ✅ [Usage documented](usage/fullWidthBackground.md)
 16. **HeaderBreadcrumbs**: Displays breadcrumb navigation in headers. ✅ [Usage documented](usage/headerBreadcrumbs.md)
 17. **Image**: Renders images with various options. ✅ [Usage documented](usage/image.md)
-18. **MediaImage**: Advanced image component with parallax, fullscreen, and slider capabilities. ✅ [Usage documented](usage/mediaImage.md)
-19. **Link**: Provides styled link components. ✅ [Usage documented](usage/link.md)
-20. **Map**: Integrates map functionality.
-21. **Media**: Handles various media types.
-22. **MetaInfo**: Displays metadata information.
-23. **OverflowScroller**: Creates scrollable containers for overflowing content.
-24. **ReactPlayer**: Wraps the react-player library for video playbook.
-25. **Table**: Renders table components.
-26. **Title**: Displays styled title elements.
-27. **ToggleArrow**: Provides toggle functionality with arrow indicators.
-28. **UnpublishedLabel**: Displays a label for unpublished content.
-29. **VideoBlock**: Handles video content display.
-30. **YandexForm**: Integrates with Yandex Forms.
-31. **YFMWrapper**: Renders Yandex Flavored Markdown content.
+18. **Link**: Provides styled link components. ✅ [Usage documented](usage/link.md)
+19. **Map**: Integrates map functionality. ✅ [Usage documented](usage/map.md)
+20. **Media**: Handles various media types. ✅ [Usage documented](usage/media.md)
+21. **MetaInfo**: Displays metadata information. ✅ [Usage documented](usage/metaInfo.md)
+22. **OverflowScroller**: Creates scrollable containers for overflowing content. ✅ [Usage documented](usage/overflowScroller.md)
+23. **ReactPlayer**: Wraps the react-player library for video playback. ✅ [Usage documented](usage/reactPlayer.md)
+24. **Table**: Renders table components. ✅ [Usage documented](usage/table.md)
+25. **Title**: Displays styled title elements. ✅ [Usage documented](usage/title.md)
+26. **ToggleArrow**: Provides toggle functionality with arrow indicators. ✅ [Usage documented](usage/toggleArrow.md)
+27. **UnpublishedLabel**: Displays a label for unpublished content.
+28. **VideoBlock**: Handles video content display.
+29. **YandexForm**: Integrates with Yandex Forms.
+30. **YFMWrapper**: Renders Yandex Flavored Markdown content.
 
 ### Blocks
 

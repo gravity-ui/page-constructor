@@ -1,0 +1,47 @@
+import {Meta} from '@storybook/blocks';
+
+import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
+import * as TitleStories from './Title.stories.tsx';
+
+<Meta of={TitleStories} />
+<StoryTemplate>
+
+## Usage
+
+For a detailed usage guide of the Title component, see [Title Usage](https://github.com/gravity-ui/page-constructor/blob/main/memory-bank/usage/title.md).
+
+## Parameters
+
+`title?: TitleItemProps | string` — Title content. Can be a simple string or a TitleItemProps object with advanced configuration (optional)
+
+`subtitle?: string` — Optional subtitle text that supports YFM (Yandex Flavored Markdown) formatting
+
+`className?: string` — Optional CSS class name for the container
+
+`colSizes?: GridColumnSizesType` — Grid column sizes configuration (default: `{all: 12, sm: 8}`)
+
+`id?: string` — Optional HTML id attribute
+
+### TitleItemProps
+
+When using an object for the `title` prop, the following properties are available:
+
+`text: string` — Title text content (required)
+
+`textSize?: TextSize` — Text size: `'xs'`, `'s'`, `'sm'`, `'m'`, `'l'` (default: `'m'`)
+
+`anchor?: string` — Optional anchor ID for navigation
+
+`justify?: Justify` — Text alignment: `'start'`, `'center'`, `'end'`
+
+`url?: string` — Optional URL to make title clickable
+
+`urlTitle?: string` — Optional title attribute for links (accessibility)
+
+`onClick?: () => void` — Optional click handler
+
+`custom?: string | React.ReactNode` — Optional custom content to append to title
+
+`navTitle?: string` — Optional navigation title for table of contents
+
+</StoryTemplate>
