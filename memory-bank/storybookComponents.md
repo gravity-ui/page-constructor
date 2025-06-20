@@ -38,10 +38,10 @@ The following components in the src/components directory have Storybook stories:
 24. **Table**: Renders table components. ✅ [Usage documented](usage/table.md)
 25. **Title**: Displays styled title elements. ✅ [Usage documented](usage/title.md)
 26. **ToggleArrow**: Provides toggle functionality with arrow indicators. ✅ [Usage documented](usage/toggleArrow.md)
-27. **UnpublishedLabel**: Displays a label for unpublished content.
-28. **VideoBlock**: Handles video content display.
-29. **YandexForm**: Integrates with Yandex Forms.
-30. **YFMWrapper**: Renders Yandex Flavored Markdown content.
+27. **UnpublishedLabel**: Displays a label for unpublished content. ✅ [Usage documented](usage/unpublishedLabel.md)
+28. **VideoBlock**: Handles video content display. ✅ [Usage documented](usage/videoBlock.md)
+29. **YandexForm**: Integrates with Yandex Forms. ✅ [Usage documented](usage/yandexForm.md)
+30. **YFMWrapper**: Renders Yandex Flavored Markdown content. ✅ [Usage documented](usage/yfmWrapper.md)
 
 ### Blocks
 
