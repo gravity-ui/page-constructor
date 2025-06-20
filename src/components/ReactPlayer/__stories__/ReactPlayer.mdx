@@ -1,0 +1,53 @@
+import {Meta} from '@storybook/blocks';
+
+import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
+import * as ReactPlayerStories from './ReactPlayer.stories.tsx';
+
+<Meta of={ReactPlayerStories} />
+<StoryTemplate>
+
+## Usage
+
+For a detailed usage guide of the ReactPlayer component, see [ReactPlayer Usage](https://github.com/gravity-ui/page-constructor/blob/main/memory-bank/usage/reactPlayer.md).
+
+## Parameters
+
+`src: string | string[]` — Video source URL or array of URLs (required)
+
+`previewImgUrl?: string` — Optional preview image URL
+
+`loop?: boolean` — Boolean to enable video looping (defaults to false)
+
+`controls?: MediaVideoControlsType` — Video controls type - `MediaVideoControlsType.Default` or `MediaVideoControlsType.Custom`
+
+`customControlsOptions?: CustomControlsOptions` — Configuration for custom controls
+
+`muted?: boolean` — Boolean to start video muted (defaults to false)
+
+`elapsedTime?: number` — Time in seconds to start playback from
+
+`playButton?: PlayButtonProps` — Configuration for the play button
+
+`className?: string` — Optional CSS class name
+
+`customBarControlsClassName?: string` — CSS class for custom control bar
+
+`showPreview?: boolean` — Boolean to show preview image
+
+`onClickPreview?: () => void` — Callback when preview is clicked
+
+`analyticsEvents?: AnalyticsEvent | AnalyticsEvent[]` — Analytics events configuration
+
+`height?: number` — Fixed height in pixels
+
+`ratio?: number` — Aspect ratio (number)
+
+`autoRatio?: boolean` — Boolean to automatically calculate ratio
+
+`ariaLabel?: string` — Accessibility label
+
+`contain?: boolean` — Boolean for object-fit contain behavior (defaults to true)
+
+`autoplay?: boolean` — Boolean to enable autoplay (disabled on mobile)
+
+</StoryTemplate>

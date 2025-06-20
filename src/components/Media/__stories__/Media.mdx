@@ -1,0 +1,65 @@
+import {Meta} from '@storybook/blocks';
+
+import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
+import * as MediaStories from './Media.stories.tsx';
+
+<Meta of={MediaStories} />
+<StoryTemplate>
+
+## Usage
+
+For a detailed usage guide of the Media component, see [Media Usage](https://github.com/gravity-ui/page-constructor/blob/main/memory-bank/usage/media.md).
+
+## Parameters
+
+The Media component supports various media types including images, videos, YouTube embeds, DataLens, and iframes.
+
+### Image-specific Parameters
+
+`image?: ImageProps | ImageProps[]` — Image data, can be a single image or array for slider
+
+`parallax?: boolean` — Enables parallax scrolling effect for images
+
+`fullscreen?: boolean` — Enables fullscreen functionality for images
+
+`imageClassName?: string` — Optional CSS class name for image elements
+
+`isBackground?: boolean` — Renders image as background
+
+`disableImageSliderForArrayInput?: boolean` — Disables slider for image arrays
+
+`onImageLoad?: () => void` — Callback when image loads
+
+### Video Parameters
+
+`video?: VideoProps` — Video data for video playback
+
+`videoClassName?: string` — Optional CSS class name for video elements
+
+`previewImg?: string` — Preview image for videos
+
+`playVideo?: boolean` — Controls video autoplay
+
+`playButton?: boolean` — Shows/hides play button
+
+### Other Media Parameters
+
+`youtube?: string` — YouTube video ID
+
+`videoIframe?: string` — Video iframe URL
+
+`dataLens?: DataLensProps` — DataLens configuration
+
+`iframe?: IframeProps` — Iframe configuration
+
+### Common Parameters
+
+`height?: number` — Fixed height for media elements
+
+`color?: string` — Background color
+
+`analyticsEvents?: AnalyticsEvents` — Analytics tracking configuration
+
+`qa?: string` — QA attribute for testing
+
+</StoryTemplate>

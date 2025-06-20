@@ -1,0 +1,25 @@
+import {Meta} from '@storybook/blocks';
+
+import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
+import * as BalancedMasonryStories from './BalancedMasonry.stories.tsx';
+
+<Meta of={BalancedMasonryStories} />
+<StoryTemplate>
+
+## Usage
+
+For a detailed usage guide of the BalancedMasonry component, see [BalancedMasonry Usage](https://github.com/gravity-ui/page-constructor/blob/main/memory-bank/usage/balancedMasonry.md).
+
+## Parameters
+
+`className: string` — CSS class name for the main container (required)
+
+`columnClassName: string` — CSS class name for individual columns (required)
+
+`children: React.ReactNode[]` — Array of React nodes to be distributed across columns (required)
+
+`breakpointCols: { [key: number]: number }` — Object mapping breakpoint widths to column counts (required)
+
+`qa?: string` — Optional QA attribute for testing
+
+</StoryTemplate>

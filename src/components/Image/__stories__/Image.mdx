@@ -1,0 +1,66 @@
+import {Meta} from '@storybook/blocks';
+
+import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
+import * as ImageStories from './Image.stories.tsx';
+
+<Meta of={ImageStories} />
+<StoryTemplate>
+
+## Usage
+
+For a detailed usage guide of the Image component, see [Image Usage](https://github.com/gravity-ui/page-constructor/blob/main/memory-bank/usage/image.md).
+
+## Parameters
+
+The Image component provides responsive image rendering with device-specific sources and WebP compression.
+
+### Image Sources
+
+`src?: string` — Main image source (desktop fallback)
+
+`desktop?: string` — Desktop-specific image source
+
+`tablet?: string` — Tablet-specific image source  
+
+`mobile?: string` — Mobile-specific image source
+
+### Accessibility & SEO
+
+`alt?: string` — Alternative text for accessibility (required)
+
+`fetchPriority?: 'high' | 'low' | 'auto'` — Fetch priority hint for performance
+
+`loading?: 'lazy' | 'eager'` — Loading behavior (lazy loading support)
+
+### Styling & Behavior
+
+`className?: string` — CSS class for the img element
+
+`containerClassName?: string` — CSS class for the picture container
+
+`style?: React.CSSProperties` — Inline styles for the img element
+
+`onClick?: React.MouseEventHandler` — Click event handler
+
+`onLoad?: React.ReactEventHandler` — Load event handler
+
+### Compression & Performance
+
+`disableCompress?: boolean` — Disables automatic WebP compression
+
+`hide?: boolean | Record<Device, boolean>` — Hides image on specific devices
+
+### Testing
+
+`qa?: string` — QA attribute for testing purposes
+
+## Features
+
+- **Responsive Design**: Automatically serves different images for desktop, tablet, and mobile
+- **WebP Compression**: Automatic WebP source generation with fallbacks
+- **Performance Optimization**: Lazy loading and fetch priority support
+- **Device Hiding**: Ability to hide images on specific devices
+- **Error Handling**: Automatic fallback when WebP fails to load
+- **Accessibility**: Proper semantic HTML structure with alt text support
+
+</StoryTemplate>

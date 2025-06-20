@@ -1,0 +1,43 @@
+import {Meta} from '@storybook/blocks';
+
+import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
+import * as ButtonStories from './Button.stories.tsx';
+
+<Meta of={ButtonStories} />
+<StoryTemplate>
+
+## Usage
+
+For a detailed usage guide of the Button component, see [Button Usage](https://github.com/gravity-ui/page-constructor/blob/main/memory-bank/usage/button.md).
+
+## Parameters
+
+`text: string` — Button text content (required)
+
+`url?: string` — Button URL for navigation (optional)
+
+`urlTitle?: string` — Title attribute for the button link
+
+`theme?: ButtonTheme` — Button theme/appearance (defaults to 'normal')
+
+`size?: ButtonSize` — Button size (defaults to 'l')
+
+`width?: 'auto' | 'max'` — Button width
+
+`img?: ButtonImageProps | string` — Button image/icon (string URL or ButtonImageProps object)
+
+`target?: string` — Link target attribute
+
+`primary?: boolean` — Boolean flag for primary button styling
+
+`onClick?: React.MouseEventHandler` — Click event handler
+
+`analyticsEvents?: AnalyticsEventsProp` — Analytics tracking configuration
+
+`className?: string` — Optional CSS class name
+
+`id?: string` — Optional HTML id attribute
+
+`qa?: string` — Optional QA attribute for testing
+
+</StoryTemplate>

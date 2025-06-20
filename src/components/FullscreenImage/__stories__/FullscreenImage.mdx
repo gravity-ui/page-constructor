@@ -1,0 +1,25 @@
+import {Meta} from '@storybook/blocks';
+
+import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
+import * as FullscreenImageStories from './FullScreenImage.stories.tsx';
+
+<Meta of={FullscreenImageStories} />
+<StoryTemplate>
+
+## Usage
+
+For a detailed usage guide of the FullscreenImage component, see [FullscreenImage Usage](https://github.com/gravity-ui/page-constructor/blob/main/memory-bank/usage/fullscreenImage.md).
+
+## Parameters
+
+`imageClassName?: string` — Optional CSS class name for the main image
+
+`modalImageClass?: string` — Optional CSS class name for the modal image
+
+`imageStyle?: React.CSSProperties` — Optional inline styles for the main image
+
+`extraProps?: React.HTMLProps<HTMLDivElement>` — Optional additional HTML div props for the container
+
+All standard ImageProps are also supported (src, alt, etc.)
+
+</StoryTemplate>

@@ -1,0 +1,33 @@
+import {Meta} from '@storybook/blocks';
+
+import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
+import * as BackgroundMediaStories from './BackgroundMedia.stories.tsx';
+
+<Meta of={BackgroundMediaStories} />
+<StoryTemplate>
+
+## Usage
+
+For a detailed usage guide of the BackgroundMedia component, see [BackgroundMedia Usage](https://github.com/gravity-ui/page-constructor/blob/main/memory-bank/usage/backgroundMedia.md).
+
+## Parameters
+
+`className?: string` — Optional CSS class name for the container
+
+`color?: string` — Background color for the media container
+
+`animated?: boolean` — Boolean to enable/disable animations
+
+`parallax?: boolean` — Boolean to enable/disable parallax effects (defaults to true)
+
+`video?: MediaVideoProps` — Video configuration object
+
+`mediaClassName?: string` — Optional CSS class name for the media element
+
+`fullWidthMedia?: boolean` — Boolean to enable full-width media display
+
+`qa?: string` — Optional QA attribute for testing
+
+Additional props from `MediaProps` interface are also supported (image, iframe, dataLens, youtube, etc.).
+
+</StoryTemplate>

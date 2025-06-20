@@ -1,0 +1,21 @@
+import {Meta} from '@storybook/blocks';
+
+import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
+import * as UnpublishedLabelStories from './UnpublishedLabel.stories.tsx';
+
+<Meta of={UnpublishedLabelStories} />
+<StoryTemplate>
+
+## Usage
+
+For a detailed usage guide of the UnpublishedLabel component, see [UnpublishedLabel Usage](https://github.com/gravity-ui/page-constructor/blob/main/memory-bank/usage/unpublishedLabel.md).
+
+## Parameters
+
+`type?: LabeLType` — Display type - `'label'` or `'line'` (defaults to `'line'`)
+
+`className?: string` — Optional CSS class name for the container
+
+`children?: React.ReactNode` — Optional custom content to display instead of the default internationalized text
+
+</StoryTemplate>

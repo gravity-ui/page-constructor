@@ -556,6 +556,39 @@ export const MyAppEditor = ({initialContent, onChange, transformContent}: MyAppE
 );
 ```
 
+## Memory Bank
+
+This project includes a comprehensive **Memory Bank** - a collection of Markdown documentation files that provide detailed information about the project's architecture, components, and usage patterns. The Memory Bank is particularly useful when working with AI agents, as it contains structured information about:
+
+- **Project Overview**: Core requirements, goals, and context
+- **Component Documentation**: Detailed usage guides for all components
+- **System Architecture**: Technical patterns and design decisions
+- **Development Progress**: Current status and implementation details
+
+### Using the Memory Bank
+
+The Memory Bank is located in the `memory-bank/` directory and consists of regular Markdown files that can be read like any other documentation:
+
+- `projectbrief.md` - Foundation document with core requirements
+- `productContext.md` - Project purpose and user experience goals
+- `systemPatterns.md` - Architecture and technical decisions
+- `techContext.md` - Technologies, setup, and constraints
+- `activeContext.md` - Current work focus and recent changes
+- `progress.md` - Implementation status and known issues
+- `usage/` - Component-specific usage documentation
+- `storybookComponents.md` - Storybook integration details
+
+### For AI Agents
+
+When working with AI agents on this project, the Memory Bank serves as a comprehensive knowledge base that helps agents understand:
+
+- Project structure and patterns
+- Component APIs and usage examples
+- Development workflows and best practices
+- Current implementation status and next steps
+
+AI agents can read these files to quickly get up to speed with the project context and make more informed decisions about code changes and implementations.
+
 ## Tests
 
 Comprehensive documentation is available at the provided [link](./test-utils/docs/README.md).

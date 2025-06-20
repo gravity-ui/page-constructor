@@ -1,0 +1,49 @@
+import {Meta} from '@storybook/blocks';
+
+import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
+import * as MapStories from './Map.stories.tsx';
+
+<Meta of={MapStories} />
+<StoryTemplate>
+
+## Usage
+
+For a detailed usage guide of the Map component, see [Map Usage](https://github.com/gravity-ui/page-constructor/blob/main/memory-bank/usage/map.md).
+
+## Parameters
+
+### Common Parameters
+
+`zoom?: number` — Map zoom level (optional)
+
+`className?: string` — Optional CSS class name
+
+### Google Maps (GMapProps)
+
+`address: string` — Target address to display on the map (required)
+
+### Yandex Maps (YMapProps)
+
+`markers: YMapMarker[]` — Array of markers to display on the map (required)
+
+`id: string` — Unique identifier for the map instance (required)
+
+#### YMapMarker Interface
+
+`address?: string` — Optional string address for the marker
+
+`coordinate?: Coordinate` — Optional coordinate array [longitude, latitude]
+
+`label?: YMapMarkerLabel` — Optional marker label configuration
+
+#### YMapMarkerLabel Interface
+
+`iconCaption?: string` — Optional caption text for the marker
+
+`iconContent?: string` — Optional content text for the marker
+
+`iconColor?: string` — Optional color for the marker icon
+
+`preset?: string` — Optional preset style for the marker
+
+</StoryTemplate>

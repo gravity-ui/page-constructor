@@ -1,0 +1,43 @@
+import {Meta} from '@storybook/blocks';
+
+import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
+import * as VideoBlockStories from './VideoBlock.stories.tsx';
+
+<Meta of={VideoBlockStories} />
+<StoryTemplate>
+
+## Usage
+
+For a detailed usage guide of the VideoBlock component, see [VideoBlock Usage](https://github.com/gravity-ui/page-constructor/blob/main/memory-bank/usage/videoBlock.md).
+
+## Parameters
+
+`id?: string` — Optional unique identifier for the video element
+
+`stream?: string` — YouTube live stream ID (23-25 characters)
+
+`record?: string` — YouTube video ID (11 characters)
+
+`videoIframe?: string` — Custom iframe URL for video content
+
+`attributes?: Record<string, string>` — Additional URL parameters for the video (e.g., color, rel)
+
+`className?: string` — Optional CSS class name for the container
+
+`previewImg?: string` — Preview image URL shown before video plays
+
+`playButton?: React.ReactNode` — Custom play button component (optional)
+
+`playButtonId?: string` — ID for the play button element
+
+`height?: number` — Fixed height for the video container
+
+`fullscreen?: boolean` — Boolean to enable fullscreen mode
+
+`autoplay?: boolean` — Boolean to enable autoplay functionality
+
+`analyticsEvents?: AnalyticsEventsBase` — Analytics event configuration
+
+`onImageLoad?: () => void` — Callback function triggered when preview image loads
+
+</StoryTemplate>

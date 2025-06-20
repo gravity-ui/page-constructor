@@ -1,0 +1,29 @@
+import {Meta} from '@storybook/blocks';
+
+import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
+import * as ToggleArrowStories from './ToggleArrow.stories.tsx';
+
+<Meta of={ToggleArrowStories} />
+<StoryTemplate>
+
+## Usage
+
+For a detailed usage guide of the ToggleArrow component, see [ToggleArrow Usage](https://github.com/gravity-ui/page-constructor/blob/main/memory-bank/usage/toggleArrow.md).
+
+## Parameters
+
+`type?: 'horizontal' | 'vertical'` — Arrow orientation (default: 'horizontal')
+
+`iconType?: 'default' | 'navigation'` — Icon variant (default: 'default')
+
+`open?: boolean` — Boolean indicating if the toggle is in open state (default: false)
+
+`size?: number` — Icon size in pixels (default: 16)
+
+`thin?: boolean` — Boolean for thinner stroke width (default: false)
+
+`slow?: boolean` — Boolean for slower animation duration (default: false)
+
+`className?: string` — Optional CSS class name
+
+</StoryTemplate>

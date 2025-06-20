@@ -1,0 +1,35 @@
+import {Meta} from '@storybook/blocks';
+
+import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
+import * as FullscreenMediaStories from './FullscreenMedia.stories.tsx';
+
+<Meta of={FullscreenMediaStories} />
+<StoryTemplate>
+
+## Usage
+
+For a detailed usage guide of the FullscreenMedia component, see [FullscreenMedia Usage](https://github.com/gravity-ui/page-constructor/blob/main/memory-bank/usage/fullscreenMedia.md).
+
+## Parameters
+
+`showFullscreenIcon?: boolean` — Show/hide the fullscreen expand icon (defaults to true)
+
+`children: (props?: ChildMediaRenderProps) => JSX.Element` — Function that receives ChildMediaRenderProps and returns JSX.Element (required)
+
+### ChildMediaRenderProps
+
+`fullscreen?: boolean` — Boolean indicating if the media is in fullscreen mode
+
+`imageClassName?: string` — Optional CSS class name for images in fullscreen
+
+`videoClassName?: string` — Optional CSS class name for videos in fullscreen
+
+`youtubeClassName?: string` — Optional CSS class name for YouTube videos in fullscreen
+
+`className?: string` — Optional CSS class name for the media container
+
+`previewImg?: undefined` — Preview image (undefined in fullscreen mode)
+
+`autoplay?: boolean` — Boolean to enable autoplay in fullscreen mode
+
+</StoryTemplate>

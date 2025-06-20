@@ -1,0 +1,27 @@
+import {Meta} from '@storybook/blocks';
+
+import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
+import * as YFMWrapperStories from './YFMWrapper.stories.tsx';
+
+<Meta of={YFMWrapperStories} />
+<StoryTemplate>
+
+## Usage
+
+For a detailed usage guide of the YFMWrapper component, see [YFMWrapper Usage](https://github.com/gravity-ui/page-constructor/blob/main/memory-bank/usage/yfmWrapper.md).
+
+## Parameters
+
+`content: string` — HTML string content to render (required)
+
+`modifiers?: Modifiers` — Optional modifiers object for BEM-style class generation
+
+`className?: string` — Optional CSS class name for additional styling
+
+`itemProp?: string` — Optional microdata itemProp attribute
+
+`id?: string` — Optional HTML id attribute
+
+`qa?: string` — Optional QA attribute for testing
+
+</StoryTemplate>

@@ -1,0 +1,25 @@
+import {Meta} from '@storybook/blocks';
+
+import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
+import * as HeaderBreadcrumbsStories from './HeaderBreadcrumbs.stories.tsx';
+
+<Meta of={HeaderBreadcrumbsStories} />
+<StoryTemplate>
+
+## Usage
+
+For a detailed usage guide of the HeaderBreadcrumbs component, see [HeaderBreadcrumbs Usage](https://github.com/gravity-ui/page-constructor/blob/main/memory-bank/usage/headerBreadcrumbs.md).
+
+## Parameters
+
+`items: Array` — Array of breadcrumb items (required)
+- `url: string` — URL for the breadcrumb link (required)
+- `text: React.ReactNode` — Content for the breadcrumb text (required)
+
+`theme?: 'light' | 'dark'` — Text theme ('light' by default)
+
+`className?: string` — Optional CSS class name for the container
+
+`analyticsEvents?: AnalyticsEventsProp` — Optional analytics events configuration for tracking clicks
+
+</StoryTemplate>

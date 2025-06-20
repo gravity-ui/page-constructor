@@ -1,0 +1,43 @@
+import {Meta} from '@storybook/blocks';
+
+import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
+import * as LinkStories from './Link.stories.tsx';
+
+<Meta of={LinkStories} />
+<StoryTemplate>
+
+## Usage
+
+For a detailed usage guide of the Link component, see [Link Usage](https://github.com/gravity-ui/page-constructor/blob/main/memory-bank/usage/link.md).
+
+## Parameters
+
+`url: string` — Target URL for the link (required)
+
+`text?: string` — Link text content (optional if children provided)
+
+`theme?: LinkTheme` — Link theme - `'normal'`, `'file-link'`, `'back'`, or `'underline'` (defaults to `'file-link'`)
+
+`colorTheme?: TextTheme` — Color theme - `'light'` or `'dark'` (defaults to `'light'`)
+
+`textSize?: TextSize` — Text size - `'xs'`, `'s'`, `'sm'`, `'m'`, or `'l'` (defaults to `'m'`)
+
+`arrow?: boolean` — Boolean to show arrow icon (only for `'normal'` theme)
+
+`target?: string` — Link target attribute (e.g., `'_blank'`)
+
+`urlTitle?: string` — Title attribute for the link
+
+`analyticsEvents?: AnalyticsEventsProp` — Analytics events configuration
+
+`className?: string` — Optional CSS class name
+
+`tabIndex?: number` — Tab index for accessibility
+
+`qa?: string` — Optional QA attribute for testing
+
+`extraProps?: React.HTMLProps<HTMLAnchorElement>` — Additional HTML anchor element props
+
+`children?: React.ReactNode` — React children to render instead of text
+
+</StoryTemplate>

@@ -1,0 +1,27 @@
+import {Meta} from '@storybook/blocks';
+
+import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
+import * as OverflowScrollerStories from './OverflowScroller.stories.tsx';
+
+<Meta of={OverflowScrollerStories} />
+<StoryTemplate>
+
+## Usage
+
+For a detailed usage guide of the OverflowScroller component, see [OverflowScroller Usage](https://github.com/gravity-ui/page-constructor/blob/main/memory-bank/usage/overflowScroller.md).
+
+## Parameters
+
+`className?: string` — Optional CSS class name for the main container
+
+`onScrollStart?: () => void` — Optional callback function triggered when scrolling starts
+
+`onScrollEnd?: () => void` — Optional callback function triggered when scrolling ends (after transition)
+
+`arrowSize?: number` — Size of the navigation arrows in pixels (defaults to 18)
+
+`arrowClassName?: string` — Optional CSS class name for the arrow buttons
+
+`children: React.ReactNode` — React children to be rendered inside the scrollable container
+
+</StoryTemplate>

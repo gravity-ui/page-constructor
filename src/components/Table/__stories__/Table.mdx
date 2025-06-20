@@ -1,0 +1,29 @@
+import {Meta} from '@storybook/blocks';
+
+import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
+import * as TableStories from './Table.stories.tsx';
+
+<Meta of={TableStories} />
+<StoryTemplate>
+
+## Usage
+
+For a detailed usage guide of the Table component, see [Table Usage](https://github.com/gravity-ui/page-constructor/blob/main/memory-bank/usage/table.md).
+
+## Parameters
+
+`content: string[][]` — 2D array of table cell content (required)
+
+`legend?: string[]` — Optional array of legend items
+
+`hideLegend?: boolean` — Optional boolean to hide the legend even if provided
+
+`marker?: LegendTableMarkerType` — Marker type - `'disk'` (default) or `'tick'`
+
+`className?: string` — Optional CSS class name for the container
+
+`caption?: string` — Optional caption for accessibility (used as aria-label)
+
+`justify?: Justify[]` — Optional array of justification values for each column (`'start'` | `'center'` | `'end'`)
+
+</StoryTemplate>

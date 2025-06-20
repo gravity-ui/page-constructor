@@ -1,0 +1,37 @@
+import {Meta} from '@storybook/blocks';
+
+import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
+import * as YandexFormStories from './YandexForm.stories.tsx';
+
+<Meta of={YandexFormStories} />
+<StoryTemplate>
+
+## Usage
+
+For a detailed usage guide of the YandexForm component, see [YandexForm Usage](https://github.com/gravity-ui/page-constructor/blob/main/memory-bank/usage/yandexForm.md).
+
+## Parameters
+
+`id: number | string` — Form ID from Yandex Forms (required)
+
+`containerId?: string` — Custom container ID for the iframe (defaults to 'pc-yandex-form-container')
+
+`theme?: string` — Form theme (defaults to 'cloud-www')
+
+`className?: string` — Optional CSS class name for the container
+
+`headerHeight?: number` — Height offset for scroll positioning (defaults to HEADER_HEIGHT constant)
+
+`customFormOrigin?: string` — Custom form origin URL (defaults to 'https://forms.yandex.ru')
+
+`customFormSection?: string` — Custom form section (defaults to 'surveys')
+
+`params?: {[key: string]: string}` — Additional query parameters to pass to the form
+
+`onSubmit?: () => void` — Callback function triggered when form is submitted
+
+`onLoad?: () => void` — Callback function triggered when form is loaded
+
+`analyticsEvents?: AnalyticsEventsProp` — Analytics events configuration
+
+</StoryTemplate>
