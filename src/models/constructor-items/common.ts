@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import {ButtonView, ButtonProps as UikitButtonProps} from '@gravity-ui/uikit';
+import {ButtonView, IconData, ButtonProps as UikitButtonProps} from '@gravity-ui/uikit';
 
 import {ThemeSupporting} from '../../utils';
 import {AnalyticsEventsBase, AnalyticsEventsProp, ClassNameProps, QAProps} from '../common';
@@ -237,9 +237,12 @@ export interface ButtonProps
 export type ButtonImagePosition = 'left' | 'right';
 
 export interface ButtonImageProps {
-    url: string;
+    url?: string;
     position?: ButtonImagePosition;
     alt?: string;
+    data?: IconData;
+    size?: number;
+    className?: string;
 }
 
 export interface CustomControlsOptions {

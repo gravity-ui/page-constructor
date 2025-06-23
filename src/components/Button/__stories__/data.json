@@ -10,5 +10,23 @@
       "img": "story-assets/icon.svg",
       "urlTitle": "Some button title"
     }
+  },
+  "withIcon": {
+    "content": {
+      "text": "Button with Icon",
+      "urlTitle": "Button with icon"
+    }
+  },
+  "iconExamples": {
+    "starSvg": "<svg viewBox=\"0 0 16 16\" fill=\"currentColor\"><path d=\"M8 0L10.5 5H16L11.5 8L13 13L8 10L3 13L4.5 8L0 5H5.5L8 0Z\"/></svg>",
+    "diamondSvg": "<svg viewBox=\"0 0 24 24\" fill=\"currentColor\"><path d=\"M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z\"/></svg>",
+    "customUrl": "https://gravity-ui.com/favicon.ico",
+    "sizes": [14, 16, 18, 20],
+    "positions": ["left", "right"],
+    "classes": {
+      "green": "color-green",
+      "red": "color-red",
+      "blue": "color-blue"
+    }
   }
 }
