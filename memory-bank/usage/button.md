@@ -96,11 +96,14 @@ graph TD
 
 ### ButtonImageProps Interface
 
-- **Description**: Defines the structure for button images.
+- **Description**: Defines the structure for button images and icons.
 - **Properties**:
-  - `url`: Image URL (required)
-  - `position`: Image position ('left' or 'right', defaults to 'left')
+  - `url`: Image URL (optional, for image-based icons)
+  - `position`: Image/icon position ('left' or 'right', defaults to 'left')
   - `alt`: Alternative text for the image
+  - `iconData`: Icon data from Gravity UI or custom icons (optional)
+  - `iconSize`: Icon size in pixels (optional)
+  - `className`: CSS class for styling the icon (optional)
 
 ### Button Themes
 
@@ -255,15 +258,15 @@ Legacy sizes are automatically mapped to modern equivalents:
 
 ## Image/Icon Support
 
-The Button component supports images and icons:
+The Button component supports both images and icons with flexible configuration:
 
-### Image URL
+### Simple Image URL
 
 ```tsx
 <Button text="Download" img="/path/to/icon.png" />
 ```
 
-### Image Object
+### Image Object with Configuration
 
 ```tsx
 <Button
@@ -274,6 +277,22 @@ The Button component supports images and icons:
     alt: 'Download icon',
   }}
 />
+```
+
+### Gravity UI Icons
+
+```tsx
+import {Check} from '@gravity-ui/icons';
+
+<Button
+  text="Confirm"
+  img={{
+    iconData: Check,
+    iconSize: 16,
+    position: 'left',
+    className: 'custom-icon-class',
+  }}
+/>;
 ```
 
 ### GitHub Theme (Special Icon)

@@ -63,8 +63,8 @@ const Button = (props: ButtonProps) => {
         img instanceof Object
             ? {
                   url: img.url,
-                  data: img.data,
-                  size: img.size,
+                  iconData: img.iconData,
+                  iconSize: img.iconSize,
                   className: img.className,
                   position: img.position || defaultImgPosition,
                   alt: img.alt,
@@ -90,11 +90,16 @@ const Button = (props: ButtonProps) => {
     let icon;
     let image;
 
-    if (img && buttonImg.data) {
-        const iconSize = buttonImg.size || 16;
+    if (img && buttonImg.iconData) {
+        const iconSize = buttonImg.iconSize;
         const iconClassName = buttonImg.className ? b('icon', buttonImg.className) : b('icon');
         icon = (
-            <Icon className={iconClassName} data={buttonImg.data} size={iconSize} qa={ICON_QA} />
+            <Icon
+                className={iconClassName}
+                data={buttonImg.iconData}
+                size={iconSize}
+                qa={ICON_QA}
+            />
         );
     } else if (img && buttonImg.url) {
         image = (

@@ -240,8 +240,8 @@ export interface ButtonImageProps {
     url?: string;
     position?: ButtonImagePosition;
     alt?: string;
-    data?: IconData;
-    size?: number;
+    iconData?: IconData;
+    iconSize?: number;
     className?: string;
 }
 

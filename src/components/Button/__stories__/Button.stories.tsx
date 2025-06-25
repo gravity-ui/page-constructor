@@ -15,10 +15,10 @@ export default {
 
 const createIconConfig = (
     iconData: IconData,
-    position: 'left' | 'right',
-    size: number,
+    position?: 'left' | 'right',
+    iconSize?: number,
     className?: string,
-) => ({data: iconData, position, size, className});
+) => ({iconData, position, iconSize, className});
 
 const createButtonRow = (label: string, buttons: React.ReactNode[]) => (
     <Row>
@@ -86,16 +86,11 @@ const IconTemplate: StoryFn<ButtonProps> = (args) => {
             </Row>
 
             {createButtonRow('Gravity UI', [
-                <Button
-                    key="check-left"
-                    {...args}
-                    img={createIconConfig(Check, 'left', 16)}
-                    text="Check"
-                />,
+                <Button key="check-left" {...args} img={createIconConfig(Check)} text="Check" />,
                 <Button
                     key="arrow-right"
                     {...args}
-                    img={createIconConfig(ArrowDown, 'right', 16)}
+                    img={createIconConfig(ArrowDown, 'right')}
                     text="Download"
                 />,
                 <Button
@@ -116,13 +111,13 @@ const IconTemplate: StoryFn<ButtonProps> = (args) => {
                 <Button
                     key="star-left"
                     {...args}
-                    img={createIconConfig(iconExamples.starSvg, 'left', 16)}
+                    img={createIconConfig(iconExamples.starSvg)}
                     text="Star"
                 />,
                 <Button
                     key="diamond-right"
                     {...args}
-                    img={createIconConfig(iconExamples.diamondSvg, 'right', 16)}
+                    img={createIconConfig(iconExamples.diamondSvg, 'right')}
                     text="Diamond"
                 />,
                 <Button
