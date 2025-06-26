@@ -107,7 +107,7 @@
     "github-buttons": "2.23.0",
     "js-yaml-source-map": "^0.2.2",
     "lodash": "^4.17.21",
-    "monaco-editor": "^0.38.0",
+    "monaco-editor": "^0.52.2",
     "react-final-form": "^6.5.9",
     "react-monaco-editor": "^0.53.0",
     "react-player": "^2.9.0",
