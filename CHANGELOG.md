@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.3.0](https://github.com/gravity-ui/page-constructor/compare/v7.2.0...v7.3.0) (2025-06-26)
+
+
+### Features
+
+* **deps:** bump monaco-editor from 0.38.0 to 0.52.2 ([#1211](https://github.com/gravity-ui/page-constructor/issues/1211)) ([97c999f](https://github.com/gravity-ui/page-constructor/commit/97c999fcfbbb07bcb2a9568aee502aca24751fa1))
+
 ## [7.2.0](https://github.com/gravity-ui/page-constructor/compare/v7.1.0...v7.2.0) (2025-06-16)
 
 
