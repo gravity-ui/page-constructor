@@ -52,7 +52,7 @@ function getTextSize({size, theme}: {size?: TextSize; theme: LinkTheme}) {
     return size;
 }
 
-const LinkBlock = (props: React.PropsWithChildren<LinkFullProps>) => {
+const Link = (props: React.PropsWithChildren<LinkFullProps>) => {
     const {
         text,
         url,
@@ -147,4 +147,4 @@ const LinkBlock = (props: React.PropsWithChildren<LinkFullProps>) => {
     );
 };
 
-export default LinkBlock;
+export default Link;
