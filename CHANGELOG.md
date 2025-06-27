@@ -1,7 +1,6 @@
 # Changelog
 
-## [7.3.0](https://github.com/gravity-ui/page-constructor/compare/v7.2.0...v7.3.0) (2025-06-26)
-
+## [7.3.0](https://github.com/gravity-ui/page-constructor/compare/v7.3.0...v7.3.0) (2025-06-27)
 
 ### Features
 
