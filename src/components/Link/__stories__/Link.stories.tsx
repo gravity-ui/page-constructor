@@ -2,18 +2,23 @@ import * as React from 'react';
 
 import {Meta, StoryFn} from '@storybook/react';
 
-import {Col, Row} from '../../../grid';
-import {LinkProps} from '../../../models';
+import {Col, GridAlignItems, Row} from '../../../grid';
 import Link, {LinkFullProps} from '../Link';
 
 import data from './data.json';
-
-const getSizesTitle = (size: string) => data.themesSizes.title.replace('{{size}}', size);
 
 export default {
     component: Link,
     title: 'Components/Links and buttons/Link',
 } as Meta;
+
+const THEMES_SIZES = ['normal', 'underline', 'back', 'file-link'].map((theme) =>
+    ['s', 'm', 'l'].map((textSize) => ({
+        theme,
+        textSize,
+        ...data.themesSizes,
+    })),
+);
 
 const DefaultTemplate: StoryFn<LinkFullProps> = (args) => <Link {...args} />;
 const DarkTemplate: StoryFn<LinkFullProps> = (args) => (
@@ -21,32 +26,28 @@ const DarkTemplate: StoryFn<LinkFullProps> = (args) => (
         <Link {...args} />
     </section>
 );
-const SizesTemplate: StoryFn<LinkFullProps> = (args) => (
-    <Row>
-        <Col>{args.theme}</Col>
-        <Col>
-            <Link text={getSizesTitle('s')} {...args} textSize="s" />
-        </Col>
-        <Col>
-            <Link text={getSizesTitle('m')} {...args} textSize="m" />
-        </Col>
-        <Col>
-            <Link text={getSizesTitle('l')} {...args} textSize="l" />
-        </Col>
+const SizesTemplate: StoryFn<Record<number, LinkFullProps>> = (args) => (
+    <Row alignItems={GridAlignItems.End}>
+        <Col>{args[0].theme}</Col>
+        {Object.values(args).map((itemArgs, index) => (
+            <Col key={index}>
+                <Link {...itemArgs} />
+            </Col>
+        ))}
     </Row>
 );
-const ThemesSizesTemplate: StoryFn<LinkFullProps> = (args) => (
+const ThemesSizesTemplate: StoryFn<Record<number, Record<number, LinkFullProps>>> = (args) => (
     <React.Fragment>
         <Row>
             <Col />
-            <Col>s</Col>
-            <Col>m</Col>
-            <Col>l</Col>
+            <Col>{args[0][0].textSize}</Col>
+            <Col>{args[0][1].textSize}</Col>
+            <Col>{args[0][2].textSize}</Col>
         </Row>
-        <SizesTemplate {...args} theme="normal" />
-        <SizesTemplate {...args} theme="underline" />
-        <SizesTemplate {...args} theme="back" />
-        <SizesTemplate {...args} theme="file-link" />
+        <SizesTemplate {...args[0]} />
+        <SizesTemplate {...args[1]} />
+        <SizesTemplate {...args[2]} />
+        <SizesTemplate {...args[3]} />
     </React.Fragment>
 );
 
@@ -72,17 +73,28 @@ const WithChildrenTemplate: StoryFn<LinkFullProps> = (args) => (
 );
 
 export const Default = DefaultTemplate.bind({});
-export const ThemesSizes = ThemesSizesTemplate.bind({});
+export const ThemesSizes = ThemesSizesTemplate.bind([[]]);
+ThemesSizes.parameters = {
+    controls: {
+        include: Object.keys(THEMES_SIZES),
+    },
+};
 export const NormalWithChildren = WithChildrenTemplate.bind({});
-export const NormalArrow = SizesTemplate.bind({});
+export const NormalArrow = SizesTemplate.bind([]);
+NormalArrow.parameters = {
+    controls: {
+        include: Object.keys(data.normalArrows),
+    },
+};
+
 export const NormalForDarkTheme = DarkTemplate.bind({});
 export const UnderlineWithChildren = WithChildrenTemplate.bind({});
 export const BackWithChildren = WithChildrenTemplate.bind({});
 
 Default.args = data.default.content;
-ThemesSizes.args = data.themesSizes.content;
-NormalWithChildren.args = data.normalWithChildren.content as LinkProps;
-NormalArrow.args = data.normalArrow.content as LinkProps;
-NormalForDarkTheme.args = data.normalForDarkTheme.content as LinkProps;
-UnderlineWithChildren.args = data.underlineWithChildren.content as LinkProps;
-BackWithChildren.args = data.backWithChildren.content as LinkProps;
+ThemesSizes.args = THEMES_SIZES as LinkFullProps[][];
+NormalWithChildren.args = data.normalWithChildren.content as LinkFullProps;
+NormalArrow.args = data.normalArrows as LinkFullProps[];
+NormalForDarkTheme.args = data.normalForDarkTheme.content as LinkFullProps;
+UnderlineWithChildren.args = data.underlineWithChildren.content as LinkFullProps;
+BackWithChildren.args = data.backWithChildren.content as LinkFullProps;
