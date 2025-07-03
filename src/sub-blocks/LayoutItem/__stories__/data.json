@@ -29,6 +29,7 @@
   },
   "default": {
     "content": {
+      "type": "layout-item",
       "content": {
         "title": "Lorem&nbsp;ipsum",
         "text": "Dolor sit *amet*"

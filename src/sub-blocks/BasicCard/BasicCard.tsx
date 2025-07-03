@@ -22,6 +22,7 @@ const BasicCard = (props: BasicCardProps) => {
         buttons,
         iconPosition = IconPosition.Top,
         controlPosition = 'content',
+        size = 's',
         ...cardParams
     } = props;
     const titleId = useUniqId();
@@ -51,7 +52,7 @@ const BasicCard = (props: BasicCardProps) => {
                         links={links}
                         list={list}
                         buttons={buttons}
-                        size="s"
+                        size={size}
                         colSizes={{all: 12, md: 12}}
                         controlPosition={areControlsInFooter ? 'bottom' : 'default'}
                     />

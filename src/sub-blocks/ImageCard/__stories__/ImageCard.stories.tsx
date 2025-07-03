@@ -107,6 +107,20 @@ const BorderTemplate: StoryFn<ImageCardProps> = (args) => (
     </div>
 );
 
+const SizeTemplate: StoryFn<ImageCardProps> = (args) => (
+    <div style={{display: 'flex', flexWrap: 'wrap', flexDirection: 'row'}}>
+        <div style={{width: 400, margin: 20}}>
+            <ImageCard {...args} {...(data.size.s as Partial<ImageCardProps>)} />
+        </div>
+        <div style={{width: 400, margin: 20}}>
+            <ImageCard {...args} {...(data.size.m as Partial<ImageCardProps>)} />
+        </div>
+        <div style={{width: 400, margin: 20}}>
+            <ImageCard {...args} {...(data.size.l as Partial<ImageCardProps>)} />
+        </div>
+    </div>
+);
+
 const BorderRadiusTemplate: StoryFn<ImageCardProps> = (args) => (
     <div style={{margin: 20}}>
         <h2>Default</h2>
@@ -161,6 +175,7 @@ export const WithUrlAndBackgroundColor = BorderTemplate.bind({});
 export const Border = BorderTemplate.bind({});
 export const BorderRadius = BorderRadiusTemplate.bind({});
 export const ControlPosition = ControlPositionTemplate.bind({});
+export const Size = SizeTemplate.bind({});
 
 DirectionReverse.args = {direction: 'reverse'} as Partial<ImageCardProps>;
 BackgroundColor.args = {...data.backgroundColor.content};

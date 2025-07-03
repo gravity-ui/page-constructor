@@ -78,6 +78,7 @@ export const Paddings = VariousContentTemplate.bind([]);
 export const CardThemes = CardThemesTemplate.bind([]);
 export const BorderLine = VariousContentTemplate.bind([]);
 export const BackgroundColor = VariousContentTemplate.bind([]);
+export const Sizes = VariousContentTemplate.bind([]);
 export const WithUrl = CardThemesTemplate.bind([]);
 export const ControlPosition = ControlPositionTemplate.bind([]);
 
@@ -148,5 +149,12 @@ ControlPosition.args = data.controlPosition as unknown as (CardLayoutBlockModel 
 ControlPosition.parameters = {
     controls: {
         include: Object.keys(data.controlPosition),
+    },
+};
+
+Sizes.args = blockListTransform(['s', 'm', 'l'].map((size) => ({...data.default, size})));
+Sizes.parameters = {
+    controls: {
+        include: Object.keys(['s', 'm', 'l']),
     },
 };

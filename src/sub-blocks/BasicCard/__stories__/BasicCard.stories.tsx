@@ -28,6 +28,8 @@ const transformedShortContentList = data.shortList.map((item) => {
 const getCardWithBorderTitle = (border: string) =>
     data.withBorder.title.replace('{{border}}', border);
 
+const getCardWithSizeTitle = (size: string) => data.withSize.title.replace('{{size}}', size);
+
 const getCardWithIconTitle = (border: string) =>
     data.withIcon.title.replace('{{position}}', border);
 
@@ -111,6 +113,20 @@ const WithUrlTemplate: StoryFn<BasicCardProps> = (args) => (
     </div>
 );
 
+const WithSizeTemplate: StoryFn<BasicCardProps> = (args) => (
+    <div style={{display: 'flex', padding: '40px 0'}}>
+        <div style={{maxWidth: '400px', padding: '0 8px'}}>
+            <BasicCard {...args} title={getCardWithSizeTitle('s')} />
+        </div>
+        <div style={{maxWidth: '400px', padding: '0 8px'}}>
+            <BasicCard {...args} size="m" title={getCardWithSizeTitle('m')} />
+        </div>
+        <div style={{maxWidth: '400px', padding: '0 8px'}}>
+            <BasicCard {...args} size="l" title={getCardWithSizeTitle('l')} />
+        </div>
+    </div>
+);
+
 const ControlPositionTemplate: StoryFn<BasicCardProps> = (args) => (
     <Grid>
         <ConstructorRow>
@@ -148,6 +164,7 @@ export const WithBorder = WithBorderTemplate.bind({});
 export const WithUrl = WithUrlTemplate.bind({});
 export const WithContentList = WithContentListTemplate.bind({});
 export const ControlPosition = ControlPositionTemplate.bind({});
+export const WithSize = WithSizeTemplate.bind({});
 
 const DefaultArgs = {
     ...data.default.content,
@@ -184,3 +201,5 @@ ControlPosition.argTypes = {
     buttons: {table: {disable: true}},
     target: {table: {disable: true}},
 };
+
+WithSize.args = DefaultArgs as BasicCardProps;

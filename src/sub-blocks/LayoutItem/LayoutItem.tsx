@@ -36,7 +36,7 @@ const LayoutItem = ({
         controlPosition: areControlsInFooter ? 'bottom' : 'default',
         ...content,
         links: normalizedLinks,
-        size: 's',
+        size: content.size || 's',
         colSizes: {all: 12, md: 12},
     };
     const titleId = useUniqId();

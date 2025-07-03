@@ -43,6 +43,20 @@
       "title": "border: 'none'"
     }
   },
+  "size": {
+    "s": {
+      "size": "s",
+      "title": "size: 's'"
+    },
+    "m": {
+      "size": "m",
+      "title": "size: 'm'"
+    },
+    "l": {
+      "size": "l",
+      "title": "size: 'l'"
+    }
+  },
   "backgroundColor": {
     "content": {
       "backgroundColor": "#ccf0d2"

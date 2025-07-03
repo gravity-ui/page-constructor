@@ -1,11 +1,11 @@
 import {Meta, StoryFn} from '@storybook/react';
 
-import {yfmTransform} from '../../../../.storybook/utils';
+import {blockTransform, yfmTransform} from '../../../../.storybook/utils';
 import CardLayout from '../../../blocks/CardLayout/CardLayout';
 import {BlockBase} from '../../../components';
 import {ConstructorRow} from '../../../containers/PageConstructor/components/ConstructorRow';
 import {Grid} from '../../../grid';
-import {LayoutItemProps} from '../../../models';
+import {LayoutItemModel, LayoutItemProps} from '../../../models';
 import LayoutItem from '../LayoutItem';
 
 import data from './data.json';
@@ -31,6 +31,16 @@ const WithIconTemplate: StoryFn<LayoutItemProps> = (args) => (
             <h1>Icon: Left</h1>
             <DefaultTemplate {...args} icon={data.withIcon.iconLeft as LayoutItemProps['icon']} />
         </div>
+    </div>
+);
+
+const VariousContentTemplate: StoryFn<Record<number, LayoutItemModel>> = (args) => (
+    <div style={{display: 'flex'}}>
+        {Object.values(args).map((item, index) => (
+            <div key={index} style={{display: 'inline-table', maxWidth: '400px', padding: '0 8px'}}>
+                <LayoutItem {...(blockTransform(item) as LayoutItemProps)} />
+            </div>
+        ))}
     </div>
 );
 
@@ -72,6 +82,7 @@ export const MetaInfo = DefaultTemplate.bind({});
 export const Youtube = DefaultTemplate.bind({});
 export const WithIcon = WithIconTemplate.bind({});
 export const ControlPosition = ControlPositionTemplate.bind({});
+export const Sizes = VariousContentTemplate.bind([]);
 
 const DefaultArgs = {
     ...data.default.content,
@@ -115,3 +126,5 @@ ControlPosition.argTypes = {
     analyticsEvents: {table: {disable: true}},
     contentMargin: {table: {disable: true}},
 };
+
+Sizes.args = ['s', 'm', 'l'].map((size) => ({size, ...data.default.content})) as LayoutItemModel[];

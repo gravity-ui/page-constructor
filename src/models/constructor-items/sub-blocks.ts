@@ -152,7 +152,7 @@ export interface BasicCardProps
     extends CardBaseProps,
         AnalyticsEventsBase,
         CardLayoutProps,
-        Omit<ContentBlockProps, 'colSizes' | 'centered' | 'size' | 'theme' | 'controlPosition'> {
+        Omit<ContentBlockProps, 'colSizes' | 'centered' | 'theme' | 'controlPosition'> {
     url: string;
     urlTitle?: string;
     icon?: ThemeSupporting<ImageProps>;
@@ -187,7 +187,7 @@ export interface PriceCardProps extends CardBaseProps, Pick<ContentBlockProps, '
 }
 
 export interface LayoutItemProps extends ClassNameProps, CardLayoutProps, AnalyticsEventsBase {
-    content: Omit<ContentBlockProps, 'colSizes' | 'centered' | 'size'>;
+    content: Omit<ContentBlockProps, 'colSizes' | 'centered'>;
     contentMargin?: LayoutItemContentMargin;
     media?: ThemeSupporting<MediaProps>;
     metaInfo?: string[];

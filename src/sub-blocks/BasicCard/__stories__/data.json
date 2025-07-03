@@ -19,6 +19,9 @@
   "withBorder": {
     "title": "Card with border {{border}}"
   },
+  "withSize": {
+    "title": "Card with size {{size}}"
+  },
   "withContentList": {
     "titleForLongList": "With content list",
     "titleForShortList": "With content list without titles"
