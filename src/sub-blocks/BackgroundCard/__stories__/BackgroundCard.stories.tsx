@@ -1,11 +1,11 @@
 import {Meta, StoryFn} from '@storybook/react';
 
-import {blockListTransform, blockTransform} from '../../../../.storybook/utils';
+import {blockTransform} from '../../../../.storybook/utils';
 import CardLayout, {CardLayoutBlockProps} from '../../../blocks/CardLayout/CardLayout';
 import {BlockBase} from '../../../components';
 import {ConstructorRow} from '../../../containers/PageConstructor/components/ConstructorRow';
 import {Grid} from '../../../grid';
-import {BackgroundCardProps} from '../../../models';
+import {BackgroundCardModel, BackgroundCardProps} from '../../../models';
 import BackgroundCard from '../BackgroundCard';
 
 import data from './data.json';
@@ -24,34 +24,34 @@ export default {
     },
 } as Meta;
 
-const DefaultTemplate: StoryFn<BackgroundCardProps> = (args) => (
+const DefaultTemplate: StoryFn<BackgroundCardModel> = (args) => (
     <div style={{maxWidth: '400px'}}>
-        <BackgroundCard {...args} />
+        <BackgroundCard {...(blockTransform(args) as BackgroundCardProps)} />
     </div>
 );
 
-const VariousContentTemplate: StoryFn<Record<number, {}>> = (args) => (
+const VariousContentTemplate: StoryFn<Record<number, BackgroundCardModel>> = (args) => (
     <div style={{display: 'flex'}}>
         {Object.values(args).map((item, index) => (
             <div key={index} style={{display: 'inline-table', maxWidth: '400px', padding: '0 8px'}}>
-                <BackgroundCard {...item} />
+                <BackgroundCard {...(blockTransform(item) as BackgroundCardProps)} />
             </div>
         ))}
     </div>
 );
 
-const CardThemesTemplate: StoryFn<Record<number, BackgroundCardProps>> = (args) => (
+const CardThemesTemplate: StoryFn<Record<number, BackgroundCardModel>> = (args) => (
     <div style={{display: 'flex'}}>
         {Object.values(args).map((item, index) => (
             <div style={{maxWidth: '400px', padding: '0 8px'}} key={index}>
-                <BackgroundCard {...item} />
+                <BackgroundCard {...(blockTransform(item) as BackgroundCardProps)} />
             </div>
         ))}
     </div>
 );
 
 const ControlPositionTemplate: StoryFn<
-    Record<number, CardLayoutBlockProps & {children: BackgroundCardProps[]}>
+    Record<number, CardLayoutBlockProps & {children: BackgroundCardModel[]}>
 > = (args) => (
     <Grid>
         <ConstructorRow>
@@ -59,7 +59,10 @@ const ControlPositionTemplate: StoryFn<
                 <BlockBase key={contentLayoutIndex}>
                     <CardLayout {...rest}>
                         {children.map((item, index) => (
-                            <BackgroundCard key={index} {...item} />
+                            <BackgroundCard
+                                key={index}
+                                {...(blockTransform(item) as BackgroundCardProps)}
+                            />
                         ))}
                     </CardLayout>
                 </BlockBase>
@@ -78,69 +81,69 @@ export const BackgroundColor = VariousContentTemplate.bind([]);
 export const WithUrl = CardThemesTemplate.bind([]);
 export const ControlPosition = ControlPositionTemplate.bind([]);
 
-Default.args = blockTransform(data.default) as BackgroundCardProps;
+Default.args = data.default as BackgroundCardProps;
 
-VariousContent.args = blockListTransform(data.props) as BackgroundCardProps[];
+VariousContent.args = data.props as BackgroundCardModel[];
 VariousContent.parameters = {
     controls: {
         include: Object.keys(data.props),
     },
 };
 
-WithBackgroundImage.args = blockListTransform(
-    data.props.map((item) => ({...item, ...data.withBackgroundImage})),
-) as BackgroundCardProps[];
+WithBackgroundImage.args = data.props.map((item) => ({
+    ...item,
+    ...data.withBackgroundImage,
+})) as BackgroundCardModel[];
 WithBackgroundImage.parameters = {
     controls: {
         include: Object.keys(data.props),
     },
 };
 
-Paddings.args = blockListTransform(
-    data.withPaddings.map((item) => ({...item, ...data.withBackgroundImage})),
-) as BackgroundCardProps[];
+Paddings.args = data.withPaddings.map((item) => ({
+    ...item,
+    ...data.withBackgroundImage,
+})) as BackgroundCardModel[];
 Paddings.parameters = {
     controls: {
         include: Object.keys(data.withPaddings),
     },
 };
 
-CardThemes.args = blockListTransform(data.cardThemes) as BackgroundCardProps[];
+CardThemes.args = data.cardThemes as BackgroundCardModel[];
 CardThemes.parameters = {
     controls: {
         include: Object.keys(data.cardThemes),
     },
 };
 
-BorderLine.args = blockListTransform(
-    data.props.map((item) => ({
-        ...item,
-        ...data.withBackgroundImage,
-        ...data.borderLine,
-    })),
-) as BackgroundCardProps[];
+BorderLine.args = data.props.map((item) => ({
+    ...item,
+    ...data.withBackgroundImage,
+    ...data.borderLine,
+})) as BackgroundCardModel[];
 BorderLine.parameters = {
     controls: {
         include: Object.keys(data.props),
     },
 };
 
-BackgroundColor.args = blockListTransform(data.backgroundColor) as BackgroundCardProps[];
+BackgroundColor.args = data.backgroundColor as BackgroundCardModel[];
 BackgroundColor.parameters = {
     controls: {
         include: Object.keys(data.backgroundColor),
     },
 };
 
-WithUrl.args = blockListTransform(data.withUrl) as BackgroundCardProps[];
+WithUrl.args = data.withUrl as BackgroundCardModel[];
 WithUrl.parameters = {
     controls: {
         include: Object.keys(data.withUrl),
     },
 };
 
-ControlPosition.args = blockListTransform(data.controlPosition) as (CardLayoutBlockProps & {
-    children: BackgroundCardProps[];
+ControlPosition.args = data.controlPosition as unknown as (CardLayoutBlockProps & {
+    children: BackgroundCardModel[];
 })[];
 ControlPosition.parameters = {
     controls: {
