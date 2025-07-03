@@ -5,7 +5,7 @@ import CardLayout, {CardLayoutBlockProps} from '../../../blocks/CardLayout/CardL
 import {BlockBase} from '../../../components';
 import {ConstructorRow} from '../../../containers/PageConstructor/components/ConstructorRow';
 import {Grid} from '../../../grid';
-import {BackgroundCardModel, BackgroundCardProps} from '../../../models';
+import {BackgroundCardModel, BackgroundCardProps, CardLayoutBlockModel} from '../../../models';
 import BackgroundCard from '../BackgroundCard';
 
 import data from './data.json';
@@ -51,13 +51,13 @@ const CardThemesTemplate: StoryFn<Record<number, BackgroundCardModel>> = (args) 
 );
 
 const ControlPositionTemplate: StoryFn<
-    Record<number, CardLayoutBlockProps & {children: BackgroundCardModel[]}>
+    Record<number, CardLayoutBlockModel & {children: BackgroundCardModel[]}>
 > = (args) => (
     <Grid>
         <ConstructorRow>
             {Object.values(args).map(({children, ...rest}, contentLayoutIndex) => (
                 <BlockBase key={contentLayoutIndex}>
-                    <CardLayout {...rest}>
+                    <CardLayout {...(blockTransform(rest) as CardLayoutBlockProps)}>
                         {children.map((item, index) => (
                             <BackgroundCard
                                 key={index}
@@ -142,7 +142,7 @@ WithUrl.parameters = {
     },
 };
 
-ControlPosition.args = data.controlPosition as unknown as (CardLayoutBlockProps & {
+ControlPosition.args = data.controlPosition as unknown as (CardLayoutBlockModel & {
     children: BackgroundCardModel[];
 })[];
 ControlPosition.parameters = {
