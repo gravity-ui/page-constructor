@@ -1,0 +1,37 @@
+import {Meta} from '@storybook/blocks';
+
+import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
+import * as PriceCardStories from './PriceCard.stories.tsx';
+
+<Meta of={PriceCardStories} />
+<StoryTemplate>
+
+## Usage
+
+For a detailed usage guide of the PriceCard component, see [PriceCard Usage](https://github.com/gravity-ui/page-constructor/blob/main/memory-bank/usage/priceCard.md).
+
+## Parameters
+
+`title: string` — Card title with YFM support (required)
+
+`price: string` — Price value as a string (required)
+
+`pricePeriod?: string` — Optional period for the price (e.g., "month", "year")
+
+`priceDetails?: string` — Optional additional details about the price
+
+`theme?: 'light' | 'dark'` — Visual theme - default, 'light', or 'dark'
+
+`description?: string` — Optional description text
+
+`list?: string[]` — Optional array of feature items with Check icon
+
+`buttons?: ButtonProps[]` — Optional array of button objects
+
+`links?: LinkProps[]` — Optional array of link objects
+
+`backgroundColor?: string` — Optional background color (useful with light/dark themes)
+
+`border?: 'line' | 'shadow' | 'none'` — Border style (inherited from CardBase)
+
+</StoryTemplate>

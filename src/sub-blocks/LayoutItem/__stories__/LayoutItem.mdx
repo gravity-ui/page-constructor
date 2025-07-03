@@ -1,0 +1,37 @@
+import {Meta} from '@storybook/blocks';
+
+import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
+import * as LayoutItemStories from './LayoutItem.stories.tsx';
+
+<Meta of={LayoutItemStories} />
+<StoryTemplate>
+
+## Usage
+
+For a detailed usage guide of the LayoutItem sub-block, see [LayoutItem Usage](https://github.com/gravity-ui/page-constructor/blob/main/memory-bank/usage/layoutItem.md).
+
+## Parameters
+
+`type: "layout-item"`
+
+`content: ContentBlockProps` — Content block properties including title, text, links, buttons, etc.
+
+`contentMargin?: 's' | 'm' | 'l' | 'xl'` — Margin around the content
+
+`media?: ThemeSupporting<MediaProps>` — Media properties with theme support
+
+`metaInfo?: string[]` — Array of metadata strings
+
+`border?: boolean` — Enable/disable border around media
+
+`fullscreen?: boolean` — Enable/disable fullscreen media viewing
+
+`icon?: ThemeSupporting<PositionedIcon>` — Icon with theme support and position
+
+`className?: string` — Optional CSS class name
+
+`analyticsEvents?: AnalyticsEventsBase` — Analytics events to track
+
+`controlPosition?: 'content' | 'footer'` — Position of controls (links and buttons)
+
+</StoryTemplate>

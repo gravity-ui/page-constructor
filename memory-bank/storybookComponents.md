@@ -76,17 +76,17 @@ The following component in the src/Indents directory has Storybook stories:
 
 The following sub-blocks in the src/sub-blocks directory have Storybook stories:
 
-1. **BackgroundCard**: A sub-block for displaying content with a background.
-2. **BasicCard**: A simple card sub-block for displaying content.
-3. **Content**: A sub-block for displaying content in a structured format.
-4. **Divider**: A sub-block for creating visual dividers between content.
-5. **HubspotForm**: A sub-block for integrating Hubspot forms.
-6. **ImageCard**: A sub-block for displaying images with card-like styling.
-7. **LayoutItem**: A sub-block for creating layout structures.
-8. **MediaCard**: A sub-block for displaying media content in a card format.
-9. **PriceCard**: A sub-block for displaying pricing information.
-10. **PriceDetailed**: A sub-block for displaying detailed pricing information.
-11. **Quote**: A sub-block for displaying quotations.
+1. **BackgroundCard**: A sub-block for displaying content with a background. ✅ [Usage documented](usage/backgroundCard.md)
+2. **BasicCard**: A simple card sub-block for displaying content. ✅ [Usage documented](usage/basicCard.md)
+3. **Content**: A sub-block for displaying content in a structured format. ✅ [Usage documented](usage/content.md)
+4. **Divider**: A sub-block for creating visual dividers between content. ✅ [Usage documented](usage/divider.md)
+5. **HubspotForm**: A sub-block for integrating Hubspot forms. ✅ [Usage documented](usage/hubspotForm.md)
+6. **ImageCard**: A sub-block for displaying images with card-like styling. ✅ [Usage documented](usage/imageCard.md)
+7. **LayoutItem**: A sub-block for creating layout structures. ✅ [Usage documented](usage/layoutItem.md)
+8. **MediaCard**: A sub-block for displaying media content in a card format. ✅ [Usage documented](usage/mediaCard.md)
+9. **PriceCard**: A sub-block for displaying pricing information. ✅ [Usage documented](usage/priceCard.md)
+10. **PriceDetailed**: A sub-block for displaying detailed pricing information (deprecated). ✅ [Usage documented](usage/priceDetailed.md)
+11. **Quote**: A sub-block for displaying quotations. ✅ [Usage documented](usage/quote.md)
 
 ### Containers
 

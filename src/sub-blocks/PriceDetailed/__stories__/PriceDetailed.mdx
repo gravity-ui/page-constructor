@@ -1,0 +1,50 @@
+import {Meta} from '@storybook/blocks';
+
+import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
+import * as PriceDetailedStories from './PriceDetailed.stories.tsx';
+
+<Meta of={PriceDetailedStories} />
+<StoryTemplate>
+
+## Usage
+
+For a detailed usage guide of the PriceDetailed component, see [PriceDetailed Usage](https://github.com/gravity-ui/page-constructor/blob/main/memory-bank/usage/priceDetailed.md).
+
+> **IMPORTANT**: The PriceDetailed component is officially deprecated and should not be used for new implementations.
+
+## Parameters
+
+`items: PriceItemProps[]` — Array of price items (required)
+
+`priceType?: 'settings' | 'marked-list'` — Type of price details (default: 'settings')
+
+`numberGroupItems?: 1 | 3 | 4 | 5` — Number of items to group together (default: 1)
+
+`description?: object` — Configuration for description display
+- `titleSize?: 'xs' | 's' | 'sm' | 'm' | 'l'` — Size of the title (default: 'l')
+- `descriptionSize?: 'xs' | 's' | 'sm' | 'm' | 'l'` — Size of the description (default: 'm')
+- `titleColor?: 'cornflower' | 'black'` — Color of the title (default: 'cornflower')
+
+`details?: object` — Configuration for details display
+- `titleSize?: 'xs' | 's' | 'sm' | 'm' | 'l'` — Size of the title (default: 's')
+- `descriptionSize?: 'xs' | 's' | 'sm' | 'm' | 'l'` — Size of the description (default: 'm')
+
+`foldable?: object` — Configuration for foldable details
+- `title: string` — Title for the foldable toggle (required)
+- `size?: 'xs' | 's' | 'sm' | 'm' | 'l'` — Size of the title (default: 's')
+- `titleColor?: 'cornflower' | 'black'` — Color of the title
+
+`labelsDefaultText?: object` — Default text for labels by color
+- `blue?: string` — Default text for blue labels
+- `green?: string` — Default text for green labels
+- `yellow?: string` — Default text for yellow labels
+- `purple?: string` — Default text for purple labels
+- `red?: string` — Default text for red labels
+
+`isCombined?: boolean` — Whether to use combined layout (default: false)
+
+`useMixedView?: boolean` — Whether to use mixed view (default: false)
+
+`border?: 'shadow' | 'line' | 'none'` — Border style for the component
+
+</StoryTemplate>
