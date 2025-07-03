@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.3.1](https://github.com/gravity-ui/page-constructor/compare/v7.3.0...v7.3.1) (2025-07-03)
+
+
+### Bug Fixes
+
+* sass version  and add memory bank for sub-blocks ([#1225](https://github.com/gravity-ui/page-constructor/issues/1225)) ([7978f71](https://github.com/gravity-ui/page-constructor/commit/7978f71c87f0c3ca214edc935476c98d6ad72a31))
+
 ## [7.3.0](https://github.com/gravity-ui/page-constructor/compare/v7.3.0...v7.3.0) (2025-06-27)
 
 ### Features
