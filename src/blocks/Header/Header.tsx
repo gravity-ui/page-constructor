@@ -6,7 +6,6 @@ import {Button, Media, RouterLink} from '../../components';
 import HeaderBreadcrumbs from '../../components/HeaderBreadcrumbs/HeaderBreadcrumbs';
 import {getMediaImage} from '../../components/Media/Image/utils';
 import YFMWrapper from '../../components/YFMWrapper/YFMWrapper';
-import {MobileContext} from '../../context/mobileContext';
 import {useTheme} from '../../context/theme';
 import {Col, Grid, Row} from '../../grid';
 import {ClassNameProps, HeaderBlockBackground, HeaderBlockProps} from '../../models';
@@ -15,6 +14,8 @@ import {mergeVideoMicrodata} from '../../utils/microdata';
 
 import {getImageSize, getTitleSizes, titleWithImageSizes} from './utils';
 import './Header.scss';
+import {useWindowWidth} from '../../context/windowWidthContext';
+import {BREAKPOINTS} from '../../constants';
 
 const b = block('header-block');
 
@@ -85,7 +86,8 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
         centered,
         additionalInfo,
     } = props;
-    const isMobile = React.useContext(MobileContext);
+    const windowWidth = useWindowWidth();
+    const isMobile = windowWidth <= BREAKPOINTS.sm;
     const theme = useTheme();
     const hasRightSideImage = Boolean((image || video) && !centered);
     const curImageSize = imageSize || getImageSize(width);
@@ -101,10 +103,7 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
     const videoThemed = video && getThemedValue(video, theme);
     const mediaWithMicrodata = mergeVideoMicrodata(
         {video: videoThemed, image: imageThemed},
-        {
-            name: title,
-            description,
-        },
+        {name: title, description},
     );
     const fullWidth = backgroundThemed?.fullWidth || backgroundThemed?.fullWidthMedia;
     const titleId = useUniqId();
@@ -149,9 +148,7 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
                                                     tagName="div"
                                                     className={b('overtitle')}
                                                     content={overtitle}
-                                                    modifiers={{
-                                                        constructor: true,
-                                                    }}
+                                                    modifiers={{constructor: true}}
                                                 />
                                             ) : (
                                                 overtitle
@@ -162,10 +159,7 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
                                         content={title}
                                         contentClassName={b('title')}
                                         className={b('title-container')}
-                                        modifiers={{
-                                            constructor: true,
-                                            constructorTheme: textTheme,
-                                        }}
+                                        modifiers={{constructor: true, constructorTheme: textTheme}}
                                         tagName="h1"
                                         contentPosition="end"
                                     >

@@ -19,6 +19,7 @@ import {
 import {SSRContext, SSRContextProps} from '../../context/ssrContext';
 import {ThemeContext} from '../../context/theme';
 import {Theme} from '../../models';
+import {WindowWidthProvider} from '../../context/windowWidthContext';
 
 export interface PageConstructorProviderProps {
     isMobile?: boolean;
@@ -62,6 +63,7 @@ export const PageConstructorProvider = (
         <AnalyticsContext.Provider value={analytics} />,
         <FormsContext.Provider value={forms} />,
         <SSRContext.Provider value={{isServer: ssrConfig?.isServer}} />,
+        <WindowWidthProvider />,
     ].reduceRight((prev, provider) => React.cloneElement(provider, {}, prev), children);
     /* eslint-enable react/jsx-key */
 

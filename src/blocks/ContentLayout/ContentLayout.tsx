@@ -1,7 +1,6 @@
 import * as React from 'react';
 
 import {BackgroundImage, FileLink} from '../../components';
-import {MobileContext} from '../../context/mobileContext';
 import {useTheme} from '../../context/theme';
 import {Col} from '../../grid';
 import {ContentLayoutBlockProps, ContentSize, ContentTextSize} from '../../models';
@@ -9,6 +8,8 @@ import {Content} from '../../sub-blocks';
 import {block, getThemedValue} from '../../utils';
 
 import './ContentLayout.scss';
+import {useWindowWidth} from '../../context/windowWidthContext';
+import {BREAKPOINTS} from '../../constants';
 
 const b = block('content-layout-block');
 
@@ -35,7 +36,9 @@ function getTextWidth(size: ContentTextSize) {
 }
 
 export const ContentLayoutBlock = (props: ContentLayoutBlockProps) => {
-    const isMobile = React.useContext(MobileContext);
+    const windowWidth = useWindowWidth();
+    const isMobile = windowWidth <= BREAKPOINTS.sm;
+
     const {
         textContent,
         fileContent,
