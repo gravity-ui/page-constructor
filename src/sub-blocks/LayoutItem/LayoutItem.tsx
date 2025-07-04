@@ -79,7 +79,7 @@ const LayoutItem = ({
             {renderMedia()}
             {metaInfo && <MetaInfo items={metaInfo} className={b('meta-info')} />}
             <div className={b('content', {'no-media': !media, margin: contentMargin})}>
-                <IconWrapper icon={themedIcon} className={b('wrapper')}>
+                <IconWrapper icon={themedIcon} className={b('wrapper')} size={contentProps.size}>
                     <Content {...contentProps} titleId={titleId} />
                 </IconWrapper>
             </div>

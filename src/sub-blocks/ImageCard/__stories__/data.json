@@ -1,78 +1,77 @@
 {
   "default": {
-    "content": {
-      "title": "Tell a story and build a narrative",
-      "text": "We are all storytellers. Stories are a powerful way to communicate ideas and share information. The right story can lead to a better understanding of a situation, make us laugh, or even inspire us to do something in the future.",
-      "image": {
-        "dark": "/story-assets/img_8-12_dark.png",
-        "light": "/story-assets/img_8-12_light.png"
-      },
-      "direction": "direct",
-      "border": "shadow"
-    }
+    "type": "image-card",
+    "title": "Tell a story and build a narrative",
+    "text": "We are all storytellers. Stories are a powerful way to communicate ideas and share information. The right story can lead to a better understanding of a situation, make us laugh, or even inspire us to do something in the future.",
+    "image": {
+      "dark": "/story-assets/img_8-12_dark.png",
+      "light": "/story-assets/img_8-12_light.png"
+    },
+    "direction": "direct",
+    "border": "shadow"
   },
-  "margins": {
-    "none": {
+  "margins": [
+    {
       "title": "Default"
     },
-    "small": {
+    {
       "margins": "s",
       "title": "margins: 's'"
     },
-    "medium": {
+    {
       "margins": "m",
       "title": "margins: 'm'"
     }
-  },
+  ],
   "direction": {
-    "content": {
-      "direction": "reverse"
-    }
+    "direction": "reverse"
   },
-  "border": {
-    "shadow": {
+  "border": [
+    {
       "border": "shadow (default)",
       "title": "border: 'shadow'"
     },
-    "line": {
+    {
       "border": "line",
       "title": "border: 'line'"
     },
-    "none": {
+    {
       "border": "none",
       "title": "border: 'none'"
     }
-  },
-  "size": {
-    "s": {
-      "size": "s",
-      "title": "size: 's'"
-    },
-    "m": {
-      "size": "m",
-      "title": "size: 'm'"
-    },
-    "l": {
+  ],
+  "size": [
+    {
       "size": "l",
-      "title": "size: 'l'"
+      "title": "Content size L"
+    },
+    {
+      "size": "m",
+      "title": "Content size M"
+    },
+    {
+      "size": "s",
+      "title": "Content size S"
     }
-  },
+  ],
   "backgroundColor": {
-    "content": {
-      "backgroundColor": "#ccf0d2"
-    }
+    "backgroundColor": "#ccf0d2"
   },
   "withUrl": {
-    "content": {
-      "url": "https://example.com"
-    }
+    "url": "https://example.com"
   },
   "withUrlAndBackgroundColor": {
-    "content": {
-      "url": "https://example.com",
-      "backgroundColor": "#ccf0d2"
-    }
+    "url": "https://example.com",
+    "backgroundColor": "#ccf0d2"
   },
+  "borderRadius": [
+    {
+      "enableImageBorderRadius": false
+    },
+    {
+      "enableImageBorderRadius": true
+    }
+  ],
   "content": {
     "url": "https://example.com",
     "links": [
@@ -102,7 +101,7 @@
           "dark": "/story-assets/icon_1_dark.svg"
         },
         "title": "Lorem ipsum",
-        "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor"
+        "text": "Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor"
       },
       {
         "icon": {
@@ -110,7 +109,7 @@
           "dark": "/story-assets/icon_3_dark.svg"
         },
         "title": "Lorem ipsum ipsum",
-        "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor"
+        "text": "Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor"
       },
       {
         "icon": {
@@ -118,67 +117,132 @@
           "dark": "/story-assets/icon_2_dark.svg"
         },
         "title": "Lorem ipsum",
-        "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor"
+        "text": "Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor"
       }
     ],
     "additionalInfo": "Duis aute irure dolor in [reprehenderit](https://example.com) n voluptate velit esse cillum dolore eu fugiat nulla pariatur."
   },
-  "cardLayout": {
-    "contentTitle": "With controlPosition = content",
-    "footerTitle": "With controlPosition = footer",
-    "footerDescription": "Please note that the controlPosition prop manages the position of buttons and links only when paddingBottom = default.",
-    "items": [
-      {
-        "image": "/story-assets/img_8-12_light.png",
-        "title": "Lorem ipsumt",
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In egestas erat imperdiet sed euismod nisi porta lorem. Amet purus gravida quis blandit turpis cursus in hac.",
-        "buttons": [
-          {
-            "text": "Button 1",
-            "theme": "action",
-            "url": "#test1"
-          },
-          {
-            "text": "Button 2",
-            "theme": "outlined",
-            "url": "#test2"
-          }
-        ]
-      },
-      {
-        "image": "/story-assets/img_8-12_light.png",
-        "title": "Lorem ipsumt",
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In egestas erat imperdiet sed euismod nisi porta lorem. Amet purus gravida quis blandit turpis cursus in hac. Pulvinar sapien et ligula ullamcorper malesuada proin libero nunc consequat.",
-        "buttons": [
-          {
-            "text": "Button 1",
-            "theme": "action",
-            "url": "#test1"
-          },
-          {
-            "text": "Button 2",
-            "theme": "outlined",
-            "url": "#test2"
-          }
-        ]
-      },
-      {
-        "image": "/story-assets/img_8-12_light.png",
-        "title": "Lorem ipsumt",
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In egestas erat imperdiet sed euismod nisi porta lorem.",
-        "buttons": [
-          {
-            "text": "Button 1",
-            "theme": "action",
-            "url": "#test1"
-          },
-          {
-            "text": "Button 2",
-            "theme": "outlined",
-            "url": "#test2"
-          }
-        ]
-      }
-    ]
-  }
+  "cardLayout": [
+    {
+      "type": "card-layout-block",
+      "title": "With controlPosition = content",
+      "children": [
+        {
+          "controlPosition": "content",
+          "image": "/story-assets/img_8-12_light.png",
+          "title": "Lorem ipsumt",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In egestas erat imperdiet sed euismod nisi porta lorem. Amet purus gravida quis blandit turpis cursus in hac.",
+          "buttons": [
+            {
+              "text": "Button 1",
+              "theme": "action",
+              "url": "#test1"
+            },
+            {
+              "text": "Button 2",
+              "theme": "outlined",
+              "url": "#test2"
+            }
+          ]
+        },
+        {
+          "controlPosition": "content",
+          "image": "/story-assets/img_8-12_light.png",
+          "title": "Lorem ipsumt",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In egestas erat imperdiet sed euismod nisi porta lorem. Amet purus gravida quis blandit turpis cursus in hac. Pulvinar sapien et ligula ullamcorper malesuada proin libero nunc consequat.",
+          "buttons": [
+            {
+              "text": "Button 1",
+              "theme": "action",
+              "url": "#test1"
+            },
+            {
+              "text": "Button 2",
+              "theme": "outlined",
+              "url": "#test2"
+            }
+          ]
+        },
+        {
+          "controlPosition": "content",
+          "image": "/story-assets/img_8-12_light.png",
+          "title": "Lorem ipsumt",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In egestas erat imperdiet sed euismod nisi porta lorem.",
+          "buttons": [
+            {
+              "text": "Button 1",
+              "theme": "action",
+              "url": "#test1"
+            },
+            {
+              "text": "Button 2",
+              "theme": "outlined",
+              "url": "#test2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "card-layout-block",
+      "title": "With controlPosition = footer",
+      "description": "Please note that the controlPosition prop manages the position of buttons and links only when paddingBottom = default.",
+      "children": [
+        {
+          "controlPosition": "footer",
+          "image": "/story-assets/img_8-12_light.png",
+          "title": "Lorem ipsumt",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In egestas erat imperdiet sed euismod nisi porta lorem. Amet purus gravida quis blandit turpis cursus in hac.",
+          "buttons": [
+            {
+              "text": "Button 1",
+              "theme": "action",
+              "url": "#test1"
+            },
+            {
+              "text": "Button 2",
+              "theme": "outlined",
+              "url": "#test2"
+            }
+          ]
+        },
+        {
+          "controlPosition": "footer",
+          "image": "/story-assets/img_8-12_light.png",
+          "title": "Lorem ipsumt",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In egestas erat imperdiet sed euismod nisi porta lorem. Amet purus gravida quis blandit turpis cursus in hac. Pulvinar sapien et ligula ullamcorper malesuada proin libero nunc consequat.",
+          "buttons": [
+            {
+              "text": "Button 1",
+              "theme": "action",
+              "url": "#test1"
+            },
+            {
+              "text": "Button 2",
+              "theme": "outlined",
+              "url": "#test2"
+            }
+          ]
+        },
+        {
+          "controlPosition": "footer",
+          "image": "/story-assets/img_8-12_light.png",
+          "title": "Lorem ipsumt",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In egestas erat imperdiet sed euismod nisi porta lorem.",
+          "buttons": [
+            {
+              "text": "Button 1",
+              "theme": "action",
+              "url": "#test1"
+            },
+            {
+              "text": "Button 2",
+              "theme": "outlined",
+              "url": "#test2"
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }

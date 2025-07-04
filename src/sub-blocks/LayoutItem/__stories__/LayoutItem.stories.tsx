@@ -127,4 +127,7 @@ ControlPosition.argTypes = {
     contentMargin: {table: {disable: true}},
 };
 
-Sizes.args = ['s', 'm', 'l'].map((size) => ({size, ...data.default.content})) as LayoutItemModel[];
+Sizes.args = ['s', 'm', 'l'].map((size) => ({
+    icon: data.withIcon.iconLeft,
+    ...{...data.default.content, content: {...data.default.content.content, size}},
+})) as LayoutItemModel[];

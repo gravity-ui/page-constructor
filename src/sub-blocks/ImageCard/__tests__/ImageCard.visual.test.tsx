@@ -9,6 +9,7 @@ import {
     Default,
     DirectionReverse,
     Margins,
+    Size,
     WithUrl,
 } from './helpers';
 
@@ -63,6 +64,12 @@ test.describe('ImageCard', () => {
 
     test('render stories <ControlPosition>', async ({mount, expectScreenshot, defaultDelay}) => {
         await mount(<ControlPosition />);
+        await defaultDelay();
+        await expectScreenshot({skipTheme: 'dark'});
+    });
+
+    test('render stories <Size>', async ({mount, expectScreenshot, defaultDelay}) => {
+        await mount(<Size />);
         await defaultDelay();
         await expectScreenshot({skipTheme: 'dark'});
     });

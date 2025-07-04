@@ -4,8 +4,11 @@
 $block: '.#{$ns}icon-wrapper';
 
 #{$block} {
+    $root: &;
     $iconSizePositionTop: 32px;
-    $iconSizePositionLeft: 22px;
+    $iconSizePositionLeftSizeS: 22px;
+    $iconSizePositionLeftSizeM: 28px;
+    $iconSizePositionLeftSizeL: 30px;
 
     display: flex;
     flex-direction: column;
@@ -29,9 +32,27 @@ $block: '.#{$ns}icon-wrapper';
 
         &_icon-position {
             &_left {
-                height: $iconSizePositionLeft;
-                width: $iconSizePositionLeft;
-                margin: 1px $indentXXS 1px 0px;
+                height: $iconSizePositionLeftSizeS;
+                width: $iconSizePositionLeftSizeS;
+                margin: 1px $indentXXS 1px 0;
+
+                &#{$root}__icon_size {
+                    &_m {
+                        height: $iconSizePositionLeftSizeM;
+                        width: $iconSizePositionLeftSizeM;
+
+                        margin-bottom: $indent4XS;
+                        margin-top: $indent4XS;
+                    }
+
+                    &_l {
+                        height: $iconSizePositionLeftSizeL;
+                        width: $iconSizePositionLeftSizeL;
+
+                        margin-bottom: $indent4XS;
+                        margin-top: $indent4XS;
+                    }
+                }
             }
         }
     }

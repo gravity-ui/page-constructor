@@ -42,6 +42,7 @@ const BasicCard = (props: BasicCardProps) => {
                 <IconWrapper
                     icon={themedIcon ? {value: themedIcon, position: iconPosition} : undefined}
                     className={b('wrapper')}
+                    size={size}
                 >
                     <Content
                         title={title}

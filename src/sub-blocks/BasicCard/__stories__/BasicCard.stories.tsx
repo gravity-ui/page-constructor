@@ -202,4 +202,4 @@ ControlPosition.argTypes = {
     target: {table: {disable: true}},
 };
 
-WithSize.args = DefaultArgs as BasicCardProps;
+WithSize.args = {...DefaultArgs, url: '#', icon: data.withIcon.icons[0]} as BasicCardProps;
