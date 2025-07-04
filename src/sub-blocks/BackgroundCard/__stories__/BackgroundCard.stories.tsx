@@ -152,7 +152,7 @@ ControlPosition.parameters = {
     },
 };
 
-Sizes.args = blockListTransform(['s', 'm', 'l'].map((size) => ({...data.default, size})));
+Sizes.args = data.sizes.map((size) => ({...data.default, ...size})) as BackgroundCardModel[];
 Sizes.parameters = {
     controls: {
         include: Object.keys(['s', 'm', 'l']),

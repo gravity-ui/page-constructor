@@ -440,5 +440,103 @@
         }
       ]
     }
+  ],
+  "sizes": [
+    {
+      "size": "s",
+      "buttons": [
+        {
+          "text": "Button 1",
+          "theme": "action",
+          "url": "#test1"
+        },
+        {
+          "text": "Button 2",
+          "theme": "outlined",
+          "url": "#test2"
+        }
+      ],
+      "list": [
+        {
+          "icon": {
+            "light": "/story-assets/icon_1_light.svg",
+            "dark": "/story-assets/icon_1_dark.svg"
+          },
+          "title": "Lorem ipsum",
+          "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation."
+        },
+        {
+          "icon": {
+            "light": "/story-assets/icon_2_light.svg",
+            "dark": "/story-assets/icon_2_dark.svg"
+          },
+          "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation."
+        }
+      ]
+    },
+    {
+      "size": "m",
+      "buttons": [
+        {
+          "text": "Button 1",
+          "theme": "action",
+          "url": "#test1"
+        },
+        {
+          "text": "Button 2",
+          "theme": "outlined",
+          "url": "#test2"
+        }
+      ],
+      "list": [
+        {
+          "icon": {
+            "light": "/story-assets/icon_1_light.svg",
+            "dark": "/story-assets/icon_1_dark.svg"
+          },
+          "title": "Lorem ipsum",
+          "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation."
+        },
+        {
+          "icon": {
+            "light": "/story-assets/icon_2_light.svg",
+            "dark": "/story-assets/icon_2_dark.svg"
+          },
+          "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation."
+        }
+      ]
+    },
+    {
+      "size": "l",
+      "buttons": [
+        {
+          "text": "Button 1",
+          "theme": "action",
+          "url": "#test1"
+        },
+        {
+          "text": "Button 2",
+          "theme": "outlined",
+          "url": "#test2"
+        }
+      ],
+      "list": [
+        {
+          "icon": {
+            "light": "/story-assets/icon_1_light.svg",
+            "dark": "/story-assets/icon_1_dark.svg"
+          },
+          "title": "Lorem ipsum",
+          "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation."
+        },
+        {
+          "icon": {
+            "light": "/story-assets/icon_2_light.svg",
+            "dark": "/story-assets/icon_2_dark.svg"
+          },
+          "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation."
+        }
+      ]
+    }
   ]
 }
