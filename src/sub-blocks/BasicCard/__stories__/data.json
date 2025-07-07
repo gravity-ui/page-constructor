@@ -143,15 +143,18 @@
   "sizes": [
     {
       "size": "s",
-      "type": "basic-card"
+      "type": "basic-card",
+      "title": "Content size S"
     },
     {
       "size": "m",
-      "type": "basic-card"
+      "type": "basic-card",
+      "title": "Content size M"
     },
     {
       "size": "l",
-      "type": "basic-card"
+      "type": "basic-card",
+      "title": "Content size L"
     }
   ],
   "sizesContent": [

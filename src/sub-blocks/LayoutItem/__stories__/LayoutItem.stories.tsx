@@ -139,14 +139,17 @@ ControlPosition.argTypes = {
 Sizes.args = data.sizesContent.reduce(
     (acc, sizeContent) => [
         ...acc,
-        ...data.sizes.map((size) => ({
-            ...size,
-            ...sizeContent,
-            content: {...size.content, ...sizeContent.content},
-        })),
+        ...data.sizes.map(
+            (size) =>
+                ({
+                    ...size,
+                    ...sizeContent,
+                    content: {...size.content, ...sizeContent.content},
+                }) as LayoutItemModel,
+        ),
     ],
-    [],
-) as LayoutItemModel[];
+    [] as LayoutItemModel[],
+);
 Sizes.parameters = {
     controls: {
         include: Object.keys([0, 1, 2, 3, 4, 5, 6, 7, 8]),

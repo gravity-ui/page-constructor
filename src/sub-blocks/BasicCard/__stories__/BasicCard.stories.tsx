@@ -202,13 +202,16 @@ ControlPosition.argTypes = {
 Sizes.args = data.sizesContent.reduce(
     (acc, sizeContent) => [
         ...acc,
-        ...data.sizes.map((size) => ({
-            ...size,
-            ...sizeContent,
-        })),
+        ...data.sizes.map(
+            (size) =>
+                ({
+                    ...size,
+                    ...sizeContent,
+                }) as unknown as BasicCardModel,
+        ),
     ],
-    [],
-) as Record<number, BasicCardProps>;
+    [] as BasicCardModel[],
+);
 Sizes.parameters = {
     controls: {
         include: Object.keys([0, 1, 2, 3, 4, 5, 6, 7, 8]),
