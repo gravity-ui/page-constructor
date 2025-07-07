@@ -32,7 +32,9 @@ const DefaultTemplate: StoryFn<ImageCardModel> = (args) => (
 );
 
 const VariousTemplate: StoryFn<Record<number, ImageCardModel>> = (args) => (
-    <div style={{display: 'flex', flexWrap: 'wrap', flexDirection: 'row'}}>
+    <div
+        style={{display: 'flex', flexWrap: 'wrap', flexDirection: 'row', alignItems: 'flex-start'}}
+    >
         {Object.values(args).map((arg, i) => (
             <div key={i} style={{width: 400, margin: 20}}>
                 <ImageCard {...(blockTransform(arg) as ImageCardProps)} />
@@ -143,6 +145,11 @@ Content.args = [
         text: data.default.text,
         image: data.default.image,
         url: data.content.url,
+        list: data.content.list,
+    },
+    {
+        type: data.default.type,
+        image: data.default.image,
         list: data.content.list,
     },
 ] as ImageCardModel[];
