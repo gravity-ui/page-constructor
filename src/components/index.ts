@@ -33,6 +33,7 @@ export {default as OverflowScroller} from './OverflowScroller/OverflowScroller';
 export {default as ReactPlayer} from './ReactPlayer/ReactPlayer';
 export {default as RouterLink} from './RouterLink/RouterLink';
 export {default as Table} from './Table/Table';
+export {default as ButtonTabs} from './ButtonTabs/ButtonTabs';
 export {default as Title} from './Title/Title';
 export {default as ToggleArrow} from './ToggleArrow/ToggleArrow';
 export {default as UnpublishedLabel} from './UnpublishedLabel/UnpublishedLabel';
