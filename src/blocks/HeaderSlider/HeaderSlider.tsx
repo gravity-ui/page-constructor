@@ -12,7 +12,7 @@ const b = block('header-slider-block');
 
 export const HeaderSliderBlock = ({items, arrows, ...props}: HeaderSliderBlockProps) => {
     const isMobile = React.useContext(MobileContext);
-    const showArrows = !isMobile && arrows;
+    const showArrows = isMobile ? false : arrows;
 
     return (
         <div className={b('wrapper')} data-qa="header-slider">
