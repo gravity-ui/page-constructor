@@ -126,6 +126,7 @@
     {
       "type": "card-layout-block",
       "title": "With controlPosition = content",
+      "animated": false,
       "children": [
         {
           "controlPosition": "content",
@@ -186,6 +187,7 @@
     {
       "type": "card-layout-block",
       "title": "With controlPosition = footer",
+      "animated": false,
       "description": "Please note that the controlPosition prop manages the position of buttons and links only when paddingBottom = default.",
       "children": [
         {
