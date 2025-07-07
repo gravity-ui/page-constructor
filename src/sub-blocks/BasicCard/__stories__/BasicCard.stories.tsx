@@ -1,11 +1,11 @@
 import {Meta, StoryFn} from '@storybook/react';
 
-import {yfmTransform} from '../../../../.storybook/utils';
+import {blockTransform, yfmTransform} from '../../../../.storybook/utils';
 import CardLayout from '../../../blocks/CardLayout/CardLayout';
 import {BlockBase} from '../../../components';
 import {ConstructorRow} from '../../../containers/PageConstructor/components/ConstructorRow';
 import {Grid} from '../../../grid';
-import {BasicCardProps, ContentItemProps} from '../../../models';
+import {BasicCardModel, BasicCardProps, ContentItemProps} from '../../../models';
 import {IconPosition} from '../../../models/constructor-items/sub-blocks';
 import BasicCard from '../BasicCard';
 
@@ -27,8 +27,6 @@ const transformedShortContentList = data.shortList.map((item) => {
 
 const getCardWithBorderTitle = (border: string) =>
     data.withBorder.title.replace('{{border}}', border);
-
-const getCardWithSizeTitle = (size: string) => data.withSize.title.replace('{{size}}', size);
 
 const getCardWithIconTitle = (border: string) =>
     data.withIcon.title.replace('{{position}}', border);
@@ -113,17 +111,16 @@ const WithUrlTemplate: StoryFn<BasicCardProps> = (args) => (
     </div>
 );
 
-const WithSizeTemplate: StoryFn<BasicCardProps> = (args) => (
-    <div style={{display: 'flex', padding: '40px 0'}}>
-        <div style={{maxWidth: '400px', padding: '0 8px'}}>
-            <BasicCard {...args} title={getCardWithSizeTitle('s')} />
-        </div>
-        <div style={{maxWidth: '400px', padding: '0 8px'}}>
-            <BasicCard {...args} size="m" title={getCardWithSizeTitle('m')} />
-        </div>
-        <div style={{maxWidth: '400px', padding: '0 8px'}}>
-            <BasicCard {...args} size="l" title={getCardWithSizeTitle('l')} />
-        </div>
+const VariousTemplate: StoryFn<Record<number, BasicCardModel>> = (args) => (
+    <div style={{display: 'flex', padding: '40px 0', flexWrap: 'wrap'}}>
+        {Object.values(args).map((arg, index) => (
+            <div
+                key={index}
+                style={{maxWidth: '33%', padding: '0 8px', flexGrow: 1, marginBottom: '100px'}}
+            >
+                <BasicCard {...(blockTransform(arg) as BasicCardProps)} />
+            </div>
+        ))}
     </div>
 );
 
@@ -164,7 +161,7 @@ export const WithBorder = WithBorderTemplate.bind({});
 export const WithUrl = WithUrlTemplate.bind({});
 export const WithContentList = WithContentListTemplate.bind({});
 export const ControlPosition = ControlPositionTemplate.bind({});
-export const WithSize = WithSizeTemplate.bind({});
+export const Sizes = VariousTemplate.bind([]);
 
 const DefaultArgs = {
     ...data.default.content,
@@ -202,4 +199,18 @@ ControlPosition.argTypes = {
     target: {table: {disable: true}},
 };
 
-WithSize.args = {...DefaultArgs, url: '#', icon: data.withIcon.icons[0]} as BasicCardProps;
+Sizes.args = data.sizesContent.reduce(
+    (acc, sizeContent) => [
+        ...acc,
+        ...data.sizes.map((size) => ({
+            ...size,
+            ...sizeContent,
+        })),
+    ],
+    [],
+) as Record<number, BasicCardProps>;
+Sizes.parameters = {
+    controls: {
+        include: Object.keys([0, 1, 2, 3, 4, 5, 6, 7, 8]),
+    },
+};

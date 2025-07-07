@@ -1,6 +1,14 @@
 import {test} from '../../../../playwright/core/index';
 
-import {ControlPosition, Default, WithBorder, WithContentList, WithIcon, WithUrl} from './helpers';
+import {
+    ControlPosition,
+    Default,
+    Sizes,
+    WithBorder,
+    WithContentList,
+    WithIcon,
+    WithUrl,
+} from './helpers';
 
 test.describe('BasicCard', () => {
     test('render stories <Default>', async ({mount, expectScreenshot, defaultDelay}) => {
@@ -35,6 +43,12 @@ test.describe('BasicCard', () => {
 
     test('render stories <ControlPosition>', async ({mount, expectScreenshot, defaultDelay}) => {
         await mount(<ControlPosition />);
+        await defaultDelay();
+        await expectScreenshot({skipTheme: 'dark'});
+    });
+
+    test('render stories <Sizes>', async ({mount, expectScreenshot, defaultDelay}) => {
+        await mount(<Sizes />);
         await defaultDelay();
         await expectScreenshot({skipTheme: 'dark'});
     });

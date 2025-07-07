@@ -35,9 +35,18 @@ const WithIconTemplate: StoryFn<LayoutItemProps> = (args) => (
 );
 
 const VariousContentTemplate: StoryFn<Record<number, LayoutItemModel>> = (args) => (
-    <div style={{display: 'flex'}}>
+    <div style={{display: 'flex', flexWrap: 'wrap'}}>
         {Object.values(args).map((item, index) => (
-            <div key={index} style={{display: 'inline-table', maxWidth: '400px', padding: '0 8px'}}>
+            <div
+                key={index}
+                style={{
+                    display: 'inline-table',
+                    maxWidth: '33%',
+                    padding: '0 8px',
+                    flexGrow: 1,
+                    marginBottom: '100px',
+                }}
+            >
                 <LayoutItem {...(blockTransform(item) as LayoutItemProps)} />
             </div>
         ))}
@@ -127,7 +136,19 @@ ControlPosition.argTypes = {
     contentMargin: {table: {disable: true}},
 };
 
-Sizes.args = ['s', 'm', 'l'].map((size) => ({
-    icon: data.withIcon.iconLeft,
-    ...{...data.default.content, content: {...data.default.content.content, size}},
-})) as LayoutItemModel[];
+Sizes.args = data.sizesContent.reduce(
+    (acc, sizeContent) => [
+        ...acc,
+        ...data.sizes.map((size) => ({
+            ...size,
+            ...sizeContent,
+            content: {...size.content, ...sizeContent.content},
+        })),
+    ],
+    [],
+) as LayoutItemModel[];
+Sizes.parameters = {
+    controls: {
+        include: Object.keys([0, 1, 2, 3, 4, 5, 6, 7, 8]),
+    },
+};
