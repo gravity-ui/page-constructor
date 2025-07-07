@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.4.0](https://github.com/gravity-ui/page-constructor/compare/v7.3.1...v7.4.0) (2025-07-07)
+
+
+### Features
+
+* **ButtonTabs:** add export ([#1230](https://github.com/gravity-ui/page-constructor/issues/1230)) ([08962eb](https://github.com/gravity-ui/page-constructor/commit/08962eba99fa99c754920b30f1fb7fa3cbff2250))
+
 ## [7.3.1](https://github.com/gravity-ui/page-constructor/compare/v7.3.0...v7.3.1) (2025-07-03)
 
 
