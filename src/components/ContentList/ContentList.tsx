@@ -11,6 +11,7 @@ import YFMWrapper from '../YFMWrapper/YFMWrapper';
 import ItemIcon from './ContentListItemIcon';
 
 import './ContentList.scss';
+import Icon from '../Icon/Icon';
 
 const b = block('content-list');
 
@@ -30,10 +31,13 @@ const ContentList = ({list, size = 'l', qa, theme}: ContentListProps & QAProps) 
     return (
         <div className={b({size, theme})} data-qa={qa}>
             {list?.map((item) => {
-                const {icon, title, text} = item;
+                const {icon, title, text, gravityIcon} = item;
                 return (
                     <div className={b('item', {'without-title': !title})} key={uuidv4()}>
-                        <ItemIcon icon={icon} className={b('icon')} qa={qaAttributes.image} />
+                        {icon && (
+                            <ItemIcon icon={icon} className={b('icon')} qa={qaAttributes.image} />
+                        )}
+                        {gravityIcon && <Icon className={b('icon')} icon={gravityIcon} />}
                         <div>
                             {title &&
                                 React.createElement(

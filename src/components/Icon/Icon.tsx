@@ -1,41 +1,35 @@
-import {ThemeSupporting, getThemedValue} from '../../utils';
+import {ThemeSupporting, block, getThemedValue} from '../../utils';
 import * as icons from '@gravity-ui/icons';
 import {Icon as UiKitIcon} from '@gravity-ui/uikit';
-import Image, {ImageProps as ImageComponentProps} from '../Image/Image';
-import {getMediaImage} from '../Media/Image/utils';
 import {useTheme} from '../../context/theme';
+import './Icon.scss';
+import {GravityIconProps} from '../../models';
 
-type IconParams = ThemeSupporting<
-    // @ts-ignore
-    | ImageComponentProps['image']
-    | {name: keyof typeof icons; theme: 'default' | 'white' | 'black'}
-    | string
->;
+const b = block('icon');
 
 type Props = {
-    icon: IconParams;
-    imageProps: Omit<ImageComponentProps, 'image'>;
+    icon: ThemeSupporting<GravityIconProps>;
+    className?: string;
 };
 
-const Icon = ({icon, imageProps}: Props) => {
+const Icon = ({icon, className}: Props) => {
     const theme = useTheme();
-    const themedIcon = getThemedValue(icon, theme);
 
-    const isUikitIcon =
-        (typeof themedIcon === 'string' && themedIcon in icons) ||
-        (typeof themedIcon === 'object' && themedIcon && 'name' in themedIcon);
-
-    if (isUikitIcon) {
-        const data = (
-            typeof themedIcon === 'string' ? themedIcon : themedIcon.name
-        ) as keyof typeof icons;
-
-        return <UiKitIcon data={icons[data]} className={imageProps.className} />;
+    if (!icon) {
+        return null;
     }
 
-    const iconProps = getMediaImage(themedIcon);
+    const themedIcon = getThemedValue(icon, theme);
+    const data = (
+        typeof themedIcon === 'string' ? themedIcon : themedIcon.name
+    ) as keyof typeof icons;
+    const color = typeof themedIcon === 'string' ? 'brand' : themedIcon.color;
 
-    return <Image {...iconProps} {...imageProps} />;
+    return (
+        <div className={b({color}, className)}>
+            <UiKitIcon data={icons[data]} />
+        </div>
+    );
 };
 
 export default Icon;

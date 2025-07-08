@@ -142,12 +142,23 @@ const ControlPositionTemplate: StoryFn<BasicCardProps> = (args) => (
     </Grid>
 );
 
+const IconSourcesTemplate: StoryFn<Record<number, BasicCardProps>> = (args) => (
+    <div style={{display: 'flex', padding: '40px 0'}}>
+        {Object.values(args).map((arg, i) => (
+            <div key={i} style={{maxWidth: '400px', padding: '0 8px'}}>
+                <BasicCard {...arg} />
+            </div>
+        ))}
+    </div>
+);
+
 export const Default = DefaultTemplate.bind({});
 export const WithIcon = WithIconTemplate.bind({});
 export const WithBorder = WithBorderTemplate.bind({});
 export const WithUrl = WithUrlTemplate.bind({});
 export const WithContentList = WithContentListTemplate.bind({});
 export const ControlPosition = ControlPositionTemplate.bind({});
+export const IconSources = IconSourcesTemplate.bind([]);
 
 const DefaultArgs = {
     ...data.default.content,
@@ -184,3 +195,5 @@ ControlPosition.argTypes = {
     buttons: {table: {disable: true}},
     target: {table: {disable: true}},
 };
+
+IconSources.args = data.iconSources as BasicCardProps[];

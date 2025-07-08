@@ -4,6 +4,7 @@ import {ButtonView, ButtonProps as UikitButtonProps} from '@gravity-ui/uikit';
 
 import {ThemeSupporting} from '../../utils';
 import {AnalyticsEventsBase, AnalyticsEventsProp, ClassNameProps, QAProps} from '../common';
+import * as icons from '@gravity-ui/icons';
 
 // enums
 export enum AuthorType {
@@ -151,6 +152,7 @@ export interface ImageDeviceProps extends ImageInfoProps {
 }
 
 export type ImageProps = string | ImageObjectProps | ImageDeviceProps;
+export type GravityIconProps = string | {name: keyof typeof icons; color: 'brand' | 'text-color'};
 export type ThemedImage = ThemeSupporting<ImageProps>;
 
 export interface BackgroundImageProps

@@ -31,27 +31,24 @@
       ],
       "list": [
         {
-          "icon": {
-            "light": "/story-assets/icon_1_light.svg",
-            "dark": "/story-assets/icon_1_dark.svg"
-          },
-          "title": "Lorem ipsum",
+          "gravityIcon": "Rocket",
+          "title": "Brand gravity icon",
           "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
         },
         {
-          "icon": {
-            "light": "/story-assets/icon_3_light.svg",
-            "dark": "/story-assets/icon_3_dark.svg"
+          "gravityIcon": {
+            "name": "Rocket",
+            "color": "text-color"
           },
-          "title": "Lorem ipsum ipsum",
+          "title": "Text-color gravity icon",
           "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
         },
         {
-          "icon": {
-            "light": "/story-assets/icon_2_light.svg",
-            "dark": "/story-assets/icon_2_dark.svg"
+          "gravityIcon": {
+            "light": "Rocket",
+            "dark": "PinFill"
           },
-          "title": "Lorem ipsum",
+          "title": "Different icon in themes",
           "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
         }
       ]
