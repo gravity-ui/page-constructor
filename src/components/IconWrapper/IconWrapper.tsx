@@ -2,21 +2,22 @@ import * as React from 'react';
 
 import type {ClassNameProps, IconWrapperProps} from '../../models';
 import {block} from '../../utils';
-import Image from '../Image/Image';
-import {getMediaImage} from '../Media/Image/utils';
 
+import Icon from '../Icon/Icon';
 import './IconWrapper.scss';
+import {getMediaImage} from '../Media/Image/utils';
+import Image from '../Image/Image';
 
 const b = block('icon-wrapper');
 
 const IconWrapper = (props: React.PropsWithChildren<IconWrapperProps> & ClassNameProps) => {
-    const {icon, children, className} = props;
-    if (!icon) {
+    const {icon, children, className, gravityIcon} = props;
+    if (!icon && !gravityIcon) {
         return <React.Fragment>{children}</React.Fragment>;
     }
 
-    const iconProps = getMediaImage(icon.value);
     const iconPosition = icon?.position;
+    const iconProps = icon ? getMediaImage(icon.value) : undefined;
 
     return (
         <div className={b({['icon-position']: iconPosition}, className)}>
@@ -24,6 +25,12 @@ const IconWrapper = (props: React.PropsWithChildren<IconWrapperProps> & ClassNam
                 <Image
                     {...iconProps}
                     containerClassName={b('icon-container')}
+                    className={b('icon', {['icon-position']: iconPosition})}
+                />
+            )}
+            {gravityIcon?.value && (
+                <Icon
+                    icon={gravityIcon?.value}
                     className={b('icon', {['icon-position']: iconPosition})}
                 />
             )}
