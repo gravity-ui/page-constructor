@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.5.0](https://github.com/gravity-ui/page-constructor/compare/v7.4.0...v7.5.0) (2025-07-08)
+
+
+### Features
+
+* **Header, ContentLayout:** calculate isMobile by screen size ([#1228](https://github.com/gravity-ui/page-constructor/issues/1228)) ([da24b7d](https://github.com/gravity-ui/page-constructor/commit/da24b7d291dc2e6adff200e5b62ba1244d525203))
+
 ## [7.4.0](https://github.com/gravity-ui/page-constructor/compare/v7.3.1...v7.4.0) (2025-07-07)
 
 
