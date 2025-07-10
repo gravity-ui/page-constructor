@@ -31,7 +31,7 @@ const DefaultTemplate: StoryFn<BackgroundCardModel> = (args) => (
 );
 
 const VariousContentTemplate: StoryFn<Record<number, BackgroundCardModel>> = (args) => (
-    <div style={{display: 'flex'}}>
+    <div style={{display: 'flex', flexWrap: 'wrap'}}>
         {Object.values(args).map((item, index) => (
             <div key={index} style={{display: 'inline-table', maxWidth: '400px', padding: '0 8px'}}>
                 <BackgroundCard {...(blockTransform(item) as BackgroundCardProps)} />

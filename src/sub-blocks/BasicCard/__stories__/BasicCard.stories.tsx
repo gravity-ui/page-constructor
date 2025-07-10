@@ -77,7 +77,7 @@ const WithBorderTemplate: StoryFn<BasicCardProps> = (args) => (
 );
 
 const WithContentListTemplate: StoryFn<BasicCardProps> = (args) => (
-    <div>
+    <div style={{display: 'flex', flexWrap: 'wrap'}}>
         <div style={{maxWidth: '400px', padding: '0 8px', marginBottom: '24px', marginTop: '8px'}}>
             <BasicCard
                 {...args}
@@ -116,7 +116,11 @@ const VariousTemplate: StoryFn<Record<number, BasicCardModel>> = (args) => (
         {Object.values(args).map((arg, index) => (
             <div
                 key={index}
-                style={{maxWidth: '33%', padding: '0 8px', flexGrow: 1, marginBottom: '100px'}}
+                style={{
+                    display: 'inline-table',
+                    maxWidth: '400px',
+                    padding: '8px',
+                }}
             >
                 <BasicCard {...(blockTransform(arg) as BasicCardProps)} />
             </div>

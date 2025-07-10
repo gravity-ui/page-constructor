@@ -42,16 +42,16 @@
   ],
   "size": [
     {
-      "size": "l",
-      "title": "Content size L"
+      "size": "s",
+      "title": "Content size S"
     },
     {
       "size": "m",
       "title": "Content size M"
     },
     {
-      "size": "s",
-      "title": "Content size S"
+      "size": "l",
+      "title": "Content size L"
     }
   ],
   "backgroundColor": {
@@ -109,14 +109,6 @@
           "dark": "/story-assets/icon_3_dark.svg"
         },
         "title": "Lorem ipsum ipsum",
-        "text": "Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor"
-      },
-      {
-        "icon": {
-          "light": "/story-assets/icon_2_light.svg",
-          "dark": "/story-assets/icon_2_dark.svg"
-        },
-        "title": "Lorem ipsum",
         "text": "Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor"
       }
     ],
