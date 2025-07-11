@@ -41,8 +41,10 @@ const VariousContentTemplate: StoryFn<Record<number, LayoutItemModel>> = (args) 
                 key={index}
                 style={{
                     display: 'inline-table',
-                    maxWidth: '400px',
+                    minWidth: '300px',
                     padding: '8px',
+                    width: '33%',
+                    flexGrow: 1,
                 }}
             >
                 <LayoutItem {...(blockTransform(item) as LayoutItemProps)} />

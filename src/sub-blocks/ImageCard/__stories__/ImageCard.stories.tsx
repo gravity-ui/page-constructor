@@ -36,7 +36,16 @@ const VariousTemplate: StoryFn<Record<number, ImageCardModel>> = (args) => (
         style={{display: 'flex', flexWrap: 'wrap', flexDirection: 'row', alignItems: 'flex-start'}}
     >
         {Object.values(args).map((arg, i) => (
-            <div key={i} style={{display: 'inline-table', maxWidth: '400px', padding: '8px'}}>
+            <div
+                key={i}
+                style={{
+                    display: 'inline-table',
+                    minWidth: '300px',
+                    padding: '8px',
+                    width: '33%',
+                    flexGrow: 1,
+                }}
+            >
                 <ImageCard {...(blockTransform(arg) as ImageCardProps)} />
             </div>
         ))}
