@@ -1,55 +1,47 @@
 import {Meta, StoryFn} from '@storybook/react';
 
-import {yfmTransform} from '../../../../.storybook/utils';
-import {Title} from '../../../components';
-import {BasicCardProps, DividerSize} from '../../../models';
-import BasicCard from '../../BasicCard/BasicCard';
+import {DividerProps} from '../../../models';
 import Divider from '../Divider';
 
 import data from './data.json';
+import './styles.scss';
 
 export default {
-    component: BasicCard,
+    component: Divider,
     title: 'Components/Divider',
 } as Meta;
 
-const getSizeTitle = (size: string) => data.sizes.title.replace('{{size}}', size);
-const DefaultTemplate: StoryFn<BasicCardProps> = (args) => (
+const DefaultTemplate: StoryFn<DividerProps> = (args) => (
     <div>
-        <Title title={data.default.title} />
-        <div style={{maxWidth: '400px', marginTop: '10px'}}>
-            <BasicCard {...args} />
-            <Divider />
-            <BasicCard {...args} />
+        <div className="divider-story_indent">
+            <Divider {...args} />
         </div>
     </div>
 );
 
-const SizesTemplate: StoryFn<BasicCardProps> = (args) => (
+const SizesTemplate: StoryFn<Record<number, DividerProps>> = (args) => (
     <div>
-        {data.sizes.items.map((item) => (
-            <div key={item}>
-                <Title title={getSizeTitle(item.toUpperCase())} />
-                <div style={{maxWidth: '400px', marginTop: '10px', marginBottom: '24px'}}>
-                    <BasicCard {...args} />
-                    <Divider size={item as DividerSize} />
-                    <BasicCard {...args} />
+        {Object.values(args).map((arg, index) => (
+            <div
+                key={index}
+                style={{display: 'flex', marginBottom: '50px', alignItems: 'flex-start'}}
+            >
+                <div className="divider-story_indent" style={{width: '90%'}}>
+                    <Divider {...arg} />
                 </div>
+                <div style={{alignSelf: 'center', marginLeft: '10px'}}>{arg.size}</div>
             </div>
         ))}
     </div>
 );
 
 export const Default = DefaultTemplate.bind({});
-export const Sizes = SizesTemplate.bind({});
+export const Sizes = SizesTemplate.bind([]);
 
-const DefaultArgs = {
-    ...data.default.content,
-    text: yfmTransform(data.default.content.text),
+Default.args = data.default as DividerProps;
+Sizes.args = data.sizes as DividerProps[];
+Sizes.parameters = {
+    controls: {
+        include: Object.keys(data.sizes),
+    },
 };
-
-Default.args = {
-    ...data.default.content,
-    ...DefaultArgs,
-} as BasicCardProps;
-Sizes.args = DefaultArgs as BasicCardProps;
