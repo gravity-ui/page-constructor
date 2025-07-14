@@ -9,7 +9,7 @@ const ExtendedFeaturesBlockConfig = {
     component: ExtendedFeaturesBlock,
     schema: {
         name: 'Extended Features Block',
-        group: 'block',
+        group: '@gravity-ui/page-constructor/Blocks',
         inputs: generateFromAJV(
             ExtendedFeaturesBlockSchema['extended-features-block'] as unknown as JSONSchemaType<{}>,
         ),

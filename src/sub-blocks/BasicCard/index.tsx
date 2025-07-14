@@ -10,7 +10,7 @@ const BasicCardConfig: BlockData = {
     component: BasicCard,
     schema: {
         name: 'Basic Card',
-        group: 'cards',
+        group: '@gravity-ui/page-constructor/Cards',
         inputs: generateFromAJV(BasicCardSchema['basic-card'] as unknown as JSONSchemaType<{}>),
         default: {
             title: 'Basic Card',

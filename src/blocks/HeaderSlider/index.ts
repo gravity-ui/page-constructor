@@ -9,7 +9,7 @@ const HeaderSliderBlockConfig = {
     component: HeaderSliderBlock,
     schema: {
         name: 'Header Slider Block',
-        group: 'card-containers',
+        group: '@gravity-ui/page-constructor/Card Containers',
         inputs: generateFromAJV(
             HeaderSliderBlockSchema['header-slider-block'] as unknown as JSONSchemaType<{}>,
         ),

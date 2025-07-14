@@ -23,7 +23,7 @@ $block: '.#{$ns}panels';
     &__draggable {
         position: relative;
 
-        width: 12px;
+        width: 8px;
         height: 100%;
         cursor: col-resize;
         background-color: var(--g-color-line-generic);

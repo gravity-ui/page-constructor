@@ -7,9 +7,10 @@ $block: '.#{$ns}array-dynamic-field';
     &__card {
         padding: 12px;
         margin-top: 12px;
+        border-left: 3px solid var(--g-color-line-generic);
 
         &:first-child {
-            margin-bottom: 0;
+            margin-top: 0;
         }
     }
 

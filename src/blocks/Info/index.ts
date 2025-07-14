@@ -9,7 +9,7 @@ const InfoBlockConfig = {
     component: InfoBlock,
     schema: {
         name: 'Info Block',
-        group: 'block',
+        group: '@gravity-ui/page-constructor/Blocks',
         inputs: generateFromAJV(InfoBlockSchema['info-block'] as unknown as JSONSchemaType<{}>),
         default: {
             type: 'info-block',

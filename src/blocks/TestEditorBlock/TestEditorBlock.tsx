@@ -2,6 +2,8 @@ import * as React from 'react';
 
 import {block} from '../../utils';
 
+import './TestEditorBlock.scss';
+
 const b = block('test-editor-block');
 
 export interface TestEditorBlockProps extends React.PropsWithChildren {}

@@ -1,5 +1,3 @@
-import {Card} from '@gravity-ui/uikit';
-
 import {ConfigInput, DynamicFormValue} from '../../../../../common/types';
 import DynamicForm from '../../DynamicForm';
 import FieldBase, {FieldBaseParams} from '../../FieldBase/FieldBase';
@@ -25,9 +23,7 @@ const ObjectDynamicField = ({
             onRefresh={(updatedValue) => onUpdate('', updatedValue)}
             expandable
         >
-            <Card>
-                <DynamicForm contentConfig={value} blockConfig={blockConfig} onUpdate={onUpdate} />
-            </Card>
+            <DynamicForm contentConfig={value} blockConfig={blockConfig} onUpdate={onUpdate} />
         </FieldBase>
     );
 };

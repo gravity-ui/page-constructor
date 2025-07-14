@@ -9,7 +9,7 @@ const MapBlockConfig = {
     component: MapBlock,
     schema: {
         name: 'Map Block',
-        group: 'block',
+        group: '@gravity-ui/page-constructor/Blocks',
         inputs: generateFromAJV(MapBlockSchema['map-block'] as unknown as JSONSchemaType<{}>),
         default: {
             title: 'Map Block',

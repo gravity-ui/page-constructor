@@ -1,0 +1,39 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+$block: '.#{$ns}block-card';
+
+#{$block} {
+    padding: 8px;
+    cursor: grab;
+    user-select: none;
+    margin-bottom: 8px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    gap: 4px;
+    max-width: 300px;
+
+    &:active {
+        background-color: var(--g-color-base-generic-hover);
+        cursor: grabbing;
+    }
+
+    &__image {
+        &-img {
+            pointer-events: none;
+        }
+    }
+
+    &__name {
+        justify-self: flex-end;
+        color: var(--g-color-text-secondary);
+    }
+
+    &__icon {
+        color: var(--g-color-text-complementary);
+    }
+}

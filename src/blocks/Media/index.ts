@@ -9,7 +9,7 @@ const MediaBlockConfig = {
     component: MediaBlock,
     schema: {
         name: 'Media Block',
-        group: 'block',
+        group: '@gravity-ui/page-constructor/Blocks',
         inputs: generateFromAJV(MediaBlockSchema['media-block'] as unknown as JSONSchemaType<{}>),
         default: {
             title: 'Lorem ipsum dolor sit',
