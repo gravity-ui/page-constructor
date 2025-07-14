@@ -60,8 +60,8 @@
 - **Sub-blocks**: Components used within blocks (Cards, Quotes, etc.)
 - **Components**: Basic UI elements (Button, Link, Image, etc.)
 - **Grid**: Responsive layout system
-- **Context**: React context providers for various features
-- **Utils**: Utility functions and helpers
+- **Context**: React context providers for various features (including WindowWidthContext for responsive design)
+- **Utils**: Utility functions and helpers (including responsive breakpoint constants)
 
 ### Server-Side
 
@@ -80,6 +80,16 @@
 
 - **iframe**: Isolated environment for rendering pages
 - **Messaging**: Communication between editor and preview
+
+## Recent Technical Enhancements
+
+### HeaderBlock Technical Improvements
+
+- **Responsive Design Integration**: Enhanced use of `useWindowWidth` hook and `BREAKPOINTS` constants for better mobile adaptation
+- **Component Composition**: Refactored background rendering into separate `Background` and `FullWidthBackground` components for better maintainability
+- **Accessibility Enhancement**: Improved ARIA support with `useUniqId()` hook for proper ID management and labeling
+- **Media Integration**: Enhanced microdata support for video content with `mergeVideoMicrodata` utility
+- **Type Safety**: Extended TypeScript interfaces with new properties (`additionalInfo`, `overtitle`, `status`, `renderTitle`, `mediaView`, `mediaClassName`)
 
 ## Technical Constraints
 

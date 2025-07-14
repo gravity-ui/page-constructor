@@ -13,13 +13,15 @@ The Page Constructor library is currently focused on providing a comprehensive s
 
 Recent development has focused on:
 
-1. **Text Size Enhancement**: Updated `textSize` constant in `src/schema/validators/common.ts`:
+1. **HeaderBlock Enhancements**: Significant updates to HeaderBlock with new functionality:
 
-   - **Previous values**: `['s', 'm', 'l']`
-   - **Current values**: `['xs', 's', 'sm', 'm', 'l']`
-   - Added new smaller sizes: `'xs'` (extra small) and `'sm'` (small-medium)
-   - This affects all components that use text sizing: Links, FileLinkProps, TitleProps, and various blocks
-   - Updated TypeScript type `TextSize` to include new values
+   - **New Content Properties**: Added `additionalInfo`, `overtitle`, and `status` for richer content structure
+   - **Custom Rendering**: Added `renderTitle` function prop for custom title rendering
+   - **Enhanced Background Support**: New `fullWidthMedia` property for full-width media backgrounds
+   - **Improved Media Control**: Added `mediaView` and `mediaClassName` for better media customization
+   - **Accessibility Improvements**: Enhanced ARIA support with `useUniqId()` and proper labeling
+   - **Context Integration**: Better integration with `useWindowWidth` and responsive breakpoints
+   - **Component Architecture**: Refactored background rendering into separate `Background` and `FullWidthBackground` components
 
 2. **Card Component Standardization**: Updated BasicCard, LayoutItem, BackgroundCard, and ImageCard with consistent patterns:
 
@@ -41,6 +43,8 @@ Recent development has focused on:
 - **Component Structure**: The library follows a hierarchical component structure with blocks, sub-blocks, and base components
 - **Context Providers**: Multiple context providers manage different aspects of the application (theme, mobile detection, analytics, etc.)
 - **Type System**: A comprehensive TypeScript type system ensures type safety and developer experience
+- **Responsive Design**: Enhanced integration with window width context and breakpoint constants for better mobile adaptation
+- **Component Composition**: Complex blocks like HeaderBlock use internal component composition (Background, FullWidthBackground) for better maintainability
 
 ### Block System
 
@@ -102,10 +106,19 @@ The following areas are being considered for future development:
 
 ### Recent Achievements
 
-1. **Accessibility Enhancement**: Improved ARIA support across card components with proper ID management
-2. **Control Positioning Flexibility**: New `controlPosition` prop provides better layout control
-3. **Theme Integration**: Consistent theme support using `getThemedValue` utility
-4. **Component Consistency**: Standardized patterns across card components improve maintainability
+1. **HeaderBlock Enhancement**: Significant improvements to HeaderBlock functionality:
+
+   - Added rich content structure with `overtitle`, `additionalInfo`, and `status` support
+   - Implemented custom title rendering with `renderTitle` function prop
+   - Enhanced background support with `fullWidthMedia` property
+   - Improved media control with `mediaView` and `mediaClassName` props
+   - Better responsive design integration with `useWindowWidth` hook
+   - Refactored component architecture with separate Background components
+
+2. **Accessibility Enhancement**: Improved ARIA support across components with proper ID management
+3. **Control Positioning Flexibility**: New `controlPosition` prop provides better layout control
+4. **Theme Integration**: Consistent theme support using `getThemedValue` utility
+5. **Component Consistency**: Standardized patterns across card components improve maintainability
 
 ### Documentation Updates
 
