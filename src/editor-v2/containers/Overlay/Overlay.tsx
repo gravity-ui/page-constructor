@@ -1,6 +1,7 @@
 import {ChevronDown, ChevronUp, Copy, TrashBin} from '@gravity-ui/icons';
 import {Button, Icon} from '@gravity-ui/uikit';
 import * as React from 'react';
+import _ from 'lodash';
 
 import {usePostMessageAPIListener} from '../../../common/postMessage';
 import {useMainEditorStore} from '../../hooks/useMainEditorStore';
@@ -39,9 +40,13 @@ const Overlay = ({className, canvasElement}: OverlayProps) => {
     const [blockBorders, setBlockBorders] = React.useState<DOMRect | null>(null);
 
     // Listen for updates to the selected block's position
-    usePostMessageAPIListener('ON_UPDATE_BLOCK_SELECTION', ({rect}) => {
-        setBlockBorders(rect || null);
-    });
+    usePostMessageAPIListener(
+        'ON_UPDATE_BLOCK_SELECTION',
+        ({rect}) => {
+            setBlockBorders(selectedBlock && rect ? rect : null);
+        },
+        [selectedBlock],
+    );
 
     // Update blockBorders when selectedBlock changes
     React.useEffect(() => {
@@ -80,9 +85,20 @@ const Overlay = ({className, canvasElement}: OverlayProps) => {
         }
     });
 
-    usePostMessageAPIListener('ON_CLICK_BLOCK', ({path}) => {
-        setSelectedBlock(path);
-    });
+    usePostMessageAPIListener(
+        'ON_CLICK_BLOCK',
+        ({path}) => {
+            if (!selectedBlock && path) {
+                setSelectedBlock(path);
+            } else if (selectedBlock && _.isEqual(selectedBlock, path)) {
+                setSelectedBlock(null);
+                setBlockBorders(null);
+            } else {
+                setSelectedBlock(path);
+            }
+        },
+        [selectedBlock],
+    );
 
     const handleMoveUp = () => {
         if (!selectedBlock) return;

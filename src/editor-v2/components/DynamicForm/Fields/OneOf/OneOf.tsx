@@ -1,4 +1,4 @@
-import {Card, SegmentedRadioGroup, Select} from '@gravity-ui/uikit';
+import {SegmentedRadioGroup, Select} from '@gravity-ui/uikit';
 import * as React from 'react';
 
 import {DynamicFormValue, OneOfInput} from '../../../../../common/types';
@@ -55,36 +55,34 @@ const OneOfDynamicField = ({
             onRefresh={(value) => onUpdate('', value)}
             expandable
         >
-            <Card>
-                {inputConfig.options.length < 4 ? (
-                    <SegmentedRadioGroup
-                        className={b('radio')}
-                        options={inputConfig.options.map((option) => ({
-                            content: option.title,
-                            value: option.value,
-                        }))}
-                        value={oneOfMetaValue}
-                        onUpdate={onUpdateOneOf}
-                    />
-                ) : (
-                    <Select
-                        options={inputConfig.options.map((option) => ({
-                            content: option.title,
-                            value: option.value,
-                        }))}
-                        value={oneOfMetaValue ? [oneOfMetaValue] : []}
-                        onUpdate={([selectValue]) => onUpdateOneOf(selectValue)}
-                        className={b('select')}
-                    />
-                )}
-                {oneOfChosenOption && (
-                    <DynamicForm
-                        blockConfig={oneOfChosenOption.properties}
-                        contentConfig={oneOfContentConfig}
-                        onUpdate={onUpdate}
-                    />
-                )}
-            </Card>
+            {inputConfig.options.length < 4 ? (
+                <SegmentedRadioGroup
+                    className={b('radio')}
+                    options={inputConfig.options.map((option) => ({
+                        content: option.title,
+                        value: option.value,
+                    }))}
+                    value={oneOfMetaValue}
+                    onUpdate={onUpdateOneOf}
+                />
+            ) : (
+                <Select
+                    options={inputConfig.options.map((option) => ({
+                        content: option.title,
+                        value: option.value,
+                    }))}
+                    value={oneOfMetaValue ? [oneOfMetaValue] : []}
+                    onUpdate={([selectValue]) => onUpdateOneOf(selectValue)}
+                    className={b('select')}
+                />
+            )}
+            {oneOfChosenOption && (
+                <DynamicForm
+                    blockConfig={oneOfChosenOption.properties}
+                    contentConfig={oneOfContentConfig}
+                    onUpdate={onUpdate}
+                />
+            )}
         </FieldBase>
     );
 };

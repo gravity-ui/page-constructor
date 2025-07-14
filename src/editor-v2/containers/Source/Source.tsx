@@ -37,7 +37,7 @@ const Source = () => {
             <TextInput
                 disabled={disableUrlField}
                 className={b('text')}
-                size="s"
+                size="m"
                 value={url}
                 onUpdate={onUpdateUrl}
             />

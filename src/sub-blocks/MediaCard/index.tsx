@@ -10,7 +10,7 @@ const MediaCardConfig: BlockData = {
     component: MediaCard,
     schema: {
         name: 'Media Card',
-        group: 'cards',
+        group: '@gravity-ui/page-constructor/Cards',
         inputs: generateFromAJV(MediaCardSchema['media-card'] as unknown as JSONSchemaType<{}>),
         default: {
             content: {

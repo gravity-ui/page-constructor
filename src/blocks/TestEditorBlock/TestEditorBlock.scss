@@ -1,0 +1,58 @@
+@import '../../../styles/mixins.scss';
+@import '../../../styles/variables.scss';
+
+$block: '.#{$ns}test-editor-block';
+
+#{$block} {
+    @include card(true);
+
+    padding: $indentL;
+    margin-bottom: $indentM;
+
+    @include text-size(code-2);
+    font-family: var(--g-font-family-monospace);
+    color: var(--g-color-text-primary);
+
+    background-color: var(--g-color-base-float);
+    border-radius: $borderRadius;
+
+    @include focusable(0, 'box-shadow');
+    transition: all 0.3s $ease-out-cubic;
+
+    &:hover {
+        background-color: var(--pc-color-base-float-hover);
+        transform: translateY(-2px);
+    }
+
+    white-space: pre-wrap;
+    word-break: break-word;
+    line-height: 1.5;
+
+    max-height: 400px;
+    overflow-y: auto;
+
+    scrollbar-width: thin;
+    scrollbar-color: var(--g-color-scroll-handle) var(--g-color-scroll-track);
+
+    &::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: var(--g-color-scroll-track);
+        border-radius: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: var(--g-color-scroll-handle);
+        border-radius: 4px;
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'sm')) {
+        padding: $indentM;
+        @include text-size(code-3);
+        max-height: 300px;
+    }
+
+    @include animate-fade();
+}

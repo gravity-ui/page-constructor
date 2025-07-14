@@ -11,7 +11,7 @@ const PriceDetailedConfig: BlockData = {
     component: PriceDetailed,
     schema: {
         name: 'Price Detailed',
-        group: 'cards',
+        group: '@gravity-ui/page-constructor/Cards',
         inputs: generateFromAJV(
             PriceDetailedSchema['price-detailed'] as unknown as JSONSchemaType<{}>,
         ),

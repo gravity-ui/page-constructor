@@ -10,7 +10,7 @@ const ImageCardConfig: BlockData = {
     component: ImageCard,
     schema: {
         name: 'Image Card',
-        group: 'cards',
+        group: '@gravity-ui/page-constructor/Cards',
         inputs: generateFromAJV(ImageCardSchema['image-card'] as unknown as JSONSchemaType<{}>),
         default: {
             title: 'Image Card',

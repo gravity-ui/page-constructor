@@ -9,7 +9,7 @@ const IconsBlockConfig = {
     component: IconsBlock,
     schema: {
         name: 'Icons Block',
-        group: 'block',
+        group: '@gravity-ui/page-constructor/Blocks',
         inputs: generateFromAJV(IconsProps as unknown as JSONSchemaType<{}>),
         default: {
             type: 'icons-block',
