@@ -12,4 +12,5 @@ export const {
     Border,
     BorderRadius,
     ControlPosition,
+    Size,
 } = composeStories(ImageCardStories);

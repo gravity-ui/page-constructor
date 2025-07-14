@@ -1,11 +1,16 @@
 import {Meta, StoryFn} from '@storybook/react';
 
-import {yfmTransform} from '../../../../.storybook/utils';
+import {blockTransform} from '../../../../.storybook/utils';
 import CardLayout from '../../../blocks/CardLayout/CardLayout';
 import {BlockBase} from '../../../components';
 import {ConstructorRow} from '../../../containers/PageConstructor/components/ConstructorRow';
 import {Grid} from '../../../grid';
-import {ButtonProps, ContentItemProps, ImageCardProps, LinkProps} from '../../../models';
+import {
+    CardLayoutBlockModel,
+    CardLayoutBlockProps,
+    ImageCardModel,
+    ImageCardProps,
+} from '../../../models';
 import ImageCard from '../ImageCard';
 
 import data from './data.json';
@@ -13,172 +18,212 @@ import data from './data.json';
 export default {
     component: ImageCard,
     title: 'Components/Cards/ImageCard',
-    args: data.default.content,
     argTypes: {
-        margins: {
-            control: {type: 'radio'},
-            options: [undefined, 's', 'm'],
-        },
         backgroundColor: {
             control: {type: 'color'},
-        },
-        direction: {
-            control: {type: 'radio'},
-            options: ['direct', 'reverse'],
         },
     },
 } as Meta;
 
-const DefaultTemplate: StoryFn<ImageCardProps> = (args) => (
+const DefaultTemplate: StoryFn<ImageCardModel> = (args) => (
     <div style={{width: 400, margin: 20}}>
-        <ImageCard {...args} />
+        <ImageCard {...(blockTransform(args) as ImageCardProps)} />
     </div>
 );
 
-const MultipleTemplate: StoryFn<ImageCardProps> = (args) => (
-    <div style={{display: 'flex', flexWrap: 'wrap', flexDirection: 'row'}}>
-        <div style={{width: 400, margin: 20}}>
-            <ImageCard {...args} {...(data.margins.none as Partial<ImageCardProps>)} />
-        </div>
-        <div style={{width: 400, margin: 20}}>
-            <ImageCard {...args} {...(data.margins.small as Partial<ImageCardProps>)} />
-        </div>
-        <div style={{width: 400, margin: 20}}>
-            <ImageCard {...args} {...(data.margins.medium as Partial<ImageCardProps>)} />
-        </div>
-    </div>
-);
-
-const transformedContentList = data.content.list.map((item) => {
-    return {
-        ...item,
-        text: item?.text && yfmTransform(item.text),
-    };
-}) as ContentItemProps[];
-
-const ContentTemplate: StoryFn<ImageCardProps> = (args) => (
+const VariousTemplate: StoryFn<Record<number, ImageCardModel>> = (args) => (
     <div
         style={{display: 'flex', flexWrap: 'wrap', flexDirection: 'row', alignItems: 'flex-start'}}
     >
-        <div style={{width: 400, margin: 20}}>
-            <ImageCard {...args} />
-        </div>
-        <div style={{width: 400, margin: 20}}>
-            <ImageCard {...args} text="" />
-        </div>
-        <div style={{width: 400, margin: 20}}>
-            <ImageCard {...args} text="" title="" />
-        </div>
-        <div style={{width: 400, margin: 20}}>
-            <ImageCard
-                {...args}
-                title="With buttons"
-                buttons={data.content.buttons as ButtonProps[]}
-            />
-        </div>
-        <div style={{width: 400, margin: 20}}>
-            <ImageCard {...args} title="With links" links={data.content.links as LinkProps[]} />
-        </div>
-        <div style={{width: 400, margin: 20}}>
-            <ImageCard
-                {...args}
-                title="With url and list"
-                url={data.content.url}
-                list={transformedContentList}
-            />
-        </div>
-        <div style={{width: 400, margin: 20}}>
-            <ImageCard {...args} text="" title="" size="l" list={transformedContentList} />
-        </div>
+        {Object.values(args).map((arg, i) => (
+            <div
+                key={i}
+                style={{
+                    display: 'inline-table',
+                    minWidth: '300px',
+                    padding: '8px',
+                    width: '33%',
+                    flexGrow: 1,
+                }}
+            >
+                <ImageCard {...(blockTransform(arg) as ImageCardProps)} />
+            </div>
+        ))}
     </div>
 );
 
-const BorderTemplate: StoryFn<ImageCardProps> = (args) => (
-    <div style={{display: 'flex', flexWrap: 'wrap', flexDirection: 'row'}}>
-        <div style={{width: 400, margin: 20}}>
-            <ImageCard {...args} {...(data.border.shadow as Partial<ImageCardProps>)} />
-        </div>
-        <div style={{width: 400, margin: 20}}>
-            <ImageCard {...args} {...(data.border.line as Partial<ImageCardProps>)} />
-        </div>
-        <div style={{width: 400, margin: 20}}>
-            <ImageCard {...args} {...(data.border.none as Partial<ImageCardProps>)} />
-        </div>
-    </div>
-);
-
-const BorderRadiusTemplate: StoryFn<ImageCardProps> = (args) => (
-    <div style={{margin: 20}}>
-        <h2>Default</h2>
-        <MultipleTemplate {...args} />
-        <h2>enableImageBorderRadius: true</h2>
-        <MultipleTemplate {...args} enableImageBorderRadius />
-    </div>
-);
-
-const ControlPositionTemplate: StoryFn<ImageCardProps> = (args) => (
+const ControlPositionTemplate: StoryFn<
+    Record<number, CardLayoutBlockModel & {children: ImageCardModel[]}>
+> = (args) => (
     <Grid>
         <ConstructorRow>
-            <BlockBase>
-                <CardLayout title={data.cardLayout.contentTitle} animated={false}>
-                    {data.cardLayout.items.map((item, index) => (
-                        <ImageCard
-                            key={index}
-                            {...args}
-                            {...(item as Partial<ImageCardProps>)}
-                            controlPosition="content"
-                        />
-                    ))}
-                </CardLayout>
-            </BlockBase>
-            <BlockBase>
-                <CardLayout
-                    title={data.cardLayout.footerTitle}
-                    description={data.cardLayout.footerDescription}
-                    animated={false}
-                >
-                    {data.cardLayout.items.map((item, index) => (
-                        <ImageCard
-                            key={index}
-                            {...args}
-                            {...(item as Partial<ImageCardProps>)}
-                            controlPosition="footer"
-                        />
-                    ))}
-                </CardLayout>
-            </BlockBase>
+            {Object.values(args).map((cardLayout, i) => (
+                <BlockBase key={i}>
+                    <CardLayout {...(blockTransform(cardLayout) as CardLayoutBlockProps)}>
+                        {cardLayout.children.map((item, index) => (
+                            <ImageCard key={index} {...(blockTransform(item) as ImageCardProps)} />
+                        ))}
+                    </CardLayout>
+                </BlockBase>
+            ))}
         </ConstructorRow>
     </Grid>
 );
 
 export const Default = DefaultTemplate.bind({});
-export const Margins = MultipleTemplate.bind({});
-export const DirectionReverse = MultipleTemplate.bind({});
-export const Content = ContentTemplate.bind({});
-export const BackgroundColor = MultipleTemplate.bind({});
-export const WithUrl = MultipleTemplate.bind({});
-export const WithUrlAndBackgroundColor = BorderTemplate.bind({});
-export const Border = BorderTemplate.bind({});
-export const BorderRadius = BorderRadiusTemplate.bind({});
-export const ControlPosition = ControlPositionTemplate.bind({});
+export const Margins = VariousTemplate.bind([]);
+export const DirectionReverse = VariousTemplate.bind({});
+export const Content = VariousTemplate.bind({});
+export const BackgroundColor = VariousTemplate.bind({});
+export const WithUrl = VariousTemplate.bind({});
+export const WithUrlAndBackgroundColor = VariousTemplate.bind({});
+export const Border = VariousTemplate.bind({});
+export const BorderRadius = VariousTemplate.bind({});
+export const ControlPosition = ControlPositionTemplate.bind([]);
+export const Size = VariousTemplate.bind([]);
 
-DirectionReverse.args = {direction: 'reverse'} as Partial<ImageCardProps>;
-BackgroundColor.args = {...data.backgroundColor.content};
-WithUrl.args = {...data.withUrl.content};
-WithUrlAndBackgroundColor.args = {...data.withUrlAndBackgroundColor.content};
-ControlPosition.args = undefined;
-ControlPosition.argTypes = {
-    title: {table: {disable: true}},
-    text: {table: {disable: true}},
-    image: {table: {disable: true}},
-    list: {table: {disable: true}},
-    links: {table: {disable: true}},
-    buttons: {table: {disable: true}},
-    backgroundColor: {table: {disable: true}},
-    url: {table: {disable: true}},
-    target: {table: {disable: true}},
-    urlTitle: {table: {disable: true}},
-    additionalInfo: {table: {disable: true}},
-    theme: {table: {disable: true}},
-    controlPosition: {table: {disable: true}},
+Default.args = data.default as ImageCardModel;
+
+Margins.args = data.margins.map((marginData) => ({
+    ...data.default,
+    ...marginData,
+})) as ImageCardModel[];
+Margins.parameters = {
+    controls: {
+        include: Object.keys(Margins.args),
+    },
+};
+
+Size.args = data.size.map((sizeData) => ({
+    ...data.default,
+    additionalInfo: data.content.additionalInfo,
+    list: data.content.list,
+    buttons: data.content.buttons,
+    ...sizeData,
+})) as ImageCardModel[];
+Size.parameters = {
+    controls: {
+        include: Object.keys(Size.args),
+    },
+};
+
+DirectionReverse.args = data.margins.map((marginData) => ({
+    ...data.default,
+    ...marginData,
+    ...data.direction,
+})) as ImageCardModel[];
+DirectionReverse.parameters = {
+    controls: {
+        include: Object.keys(DirectionReverse.args),
+    },
+};
+
+Content.args = [
+    {
+        title: data.default.title,
+        type: data.default.type,
+        text: data.default.text,
+        image: data.default.image,
+    },
+    {
+        title: data.default.title,
+        type: data.default.type,
+        image: data.default.image,
+    },
+    {
+        image: data.default.image,
+        type: data.default.type,
+    },
+    {
+        title: 'With buttons',
+        type: data.default.type,
+        text: data.default.text,
+        image: data.default.image,
+        buttons: data.content.buttons,
+    },
+    {
+        title: 'With links',
+        type: data.default.type,
+        text: data.default.text,
+        image: data.default.image,
+        links: data.content.links,
+    },
+    {
+        title: 'With url and list',
+        type: data.default.type,
+        text: data.default.text,
+        image: data.default.image,
+        url: data.content.url,
+        list: data.content.list,
+    },
+    {
+        type: data.default.type,
+        image: data.default.image,
+        list: data.content.list,
+    },
+] as ImageCardModel[];
+Content.parameters = {
+    controls: {
+        include: Object.keys(Content.args),
+    },
+};
+
+BackgroundColor.args = data.margins.map((marginData) => ({
+    ...data.default,
+    ...marginData,
+    ...data.backgroundColor,
+})) as ImageCardModel[];
+BackgroundColor.parameters = {
+    controls: {
+        include: Object.keys(BackgroundColor.args),
+    },
+};
+
+WithUrl.args = data.margins.map((marginData) => ({
+    ...data.default,
+    ...marginData,
+    ...data.withUrl,
+})) as ImageCardModel[];
+WithUrl.parameters = {
+    controls: {
+        include: Object.keys(WithUrl.args),
+    },
+};
+
+WithUrlAndBackgroundColor.args = data.border.map((borderData) => ({
+    ...data.default,
+    ...borderData,
+    ...data.withUrlAndBackgroundColor,
+})) as ImageCardModel[];
+WithUrlAndBackgroundColor.parameters = {
+    controls: {
+        include: Object.keys(WithUrlAndBackgroundColor.args),
+    },
+};
+
+Border.args = data.border.map((borderData) => ({
+    ...data.default,
+    ...borderData,
+})) as ImageCardModel[];
+Border.parameters = {
+    controls: {
+        include: Object.keys(Border.args),
+    },
+};
+
+BorderRadius.args = data.borderRadius.map((borderData) => ({
+    ...data.default,
+    ...borderData,
+})) as ImageCardModel[];
+BorderRadius.parameters = {
+    controls: {
+        include: Object.keys(BorderRadius.args),
+    },
+};
+
+ControlPosition.args = data.cardLayout as (CardLayoutBlockModel & {children: ImageCardModel[]})[];
+ControlPosition.parameters = {
+    controls: {
+        include: Object.keys(ControlPosition.args),
+    },
 };

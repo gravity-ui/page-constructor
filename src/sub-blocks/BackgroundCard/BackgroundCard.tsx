@@ -27,6 +27,7 @@ const BackgroundCard = (props: BackgroundCardProps) => {
         urlTitle,
         controlPosition = 'content',
         list,
+        size = 's',
     } = props;
 
     const titleId = useUniqId();
@@ -56,7 +57,7 @@ const BackgroundCard = (props: BackgroundCardProps) => {
                     title={title}
                     text={text}
                     additionalInfo={additionalInfo}
-                    size="s"
+                    size={size}
                     theme={cardTheme}
                     links={links}
                     buttons={buttons}

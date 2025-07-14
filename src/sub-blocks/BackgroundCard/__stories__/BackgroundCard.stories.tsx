@@ -31,9 +31,18 @@ const DefaultTemplate: StoryFn<BackgroundCardModel> = (args) => (
 );
 
 const VariousContentTemplate: StoryFn<Record<number, BackgroundCardModel>> = (args) => (
-    <div style={{display: 'flex'}}>
+    <div style={{display: 'flex', flexWrap: 'wrap'}}>
         {Object.values(args).map((item, index) => (
-            <div key={index} style={{display: 'inline-table', maxWidth: '400px', padding: '0 8px'}}>
+            <div
+                key={index}
+                style={{
+                    display: 'inline-table',
+                    minWidth: '300px',
+                    padding: '8px',
+                    width: '33%',
+                    flexGrow: 1,
+                }}
+            >
                 <BackgroundCard {...(blockTransform(item) as BackgroundCardProps)} />
             </div>
         ))}
@@ -78,6 +87,7 @@ export const Paddings = VariousContentTemplate.bind([]);
 export const CardThemes = CardThemesTemplate.bind([]);
 export const BorderLine = VariousContentTemplate.bind([]);
 export const BackgroundColor = VariousContentTemplate.bind([]);
+export const Sizes = VariousContentTemplate.bind([]);
 export const WithUrl = CardThemesTemplate.bind([]);
 export const ControlPosition = ControlPositionTemplate.bind([]);
 
@@ -148,5 +158,12 @@ ControlPosition.args = data.controlPosition as unknown as (CardLayoutBlockModel 
 ControlPosition.parameters = {
     controls: {
         include: Object.keys(data.controlPosition),
+    },
+};
+
+Sizes.args = data.sizes.map((size) => ({...data.default, ...size})) as BackgroundCardModel[];
+Sizes.parameters = {
+    controls: {
+        include: Object.keys(['s', 'm', 'l']),
     },
 };

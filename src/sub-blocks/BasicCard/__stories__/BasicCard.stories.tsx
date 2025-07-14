@@ -1,11 +1,11 @@
 import {Meta, StoryFn} from '@storybook/react';
 
-import {yfmTransform} from '../../../../.storybook/utils';
+import {blockTransform, yfmTransform} from '../../../../.storybook/utils';
 import CardLayout from '../../../blocks/CardLayout/CardLayout';
 import {BlockBase} from '../../../components';
 import {ConstructorRow} from '../../../containers/PageConstructor/components/ConstructorRow';
 import {Grid} from '../../../grid';
-import {BasicCardProps, ContentItemProps} from '../../../models';
+import {BasicCardModel, BasicCardProps, ContentItemProps} from '../../../models';
 import {IconPosition} from '../../../models/constructor-items/sub-blocks';
 import BasicCard from '../BasicCard';
 
@@ -77,7 +77,7 @@ const WithBorderTemplate: StoryFn<BasicCardProps> = (args) => (
 );
 
 const WithContentListTemplate: StoryFn<BasicCardProps> = (args) => (
-    <div>
+    <div style={{display: 'flex', flexWrap: 'wrap', alignItems: 'flex-start'}}>
         <div style={{maxWidth: '400px', padding: '0 8px', marginBottom: '24px', marginTop: '8px'}}>
             <BasicCard
                 {...args}
@@ -108,6 +108,25 @@ const WithUrlTemplate: StoryFn<BasicCardProps> = (args) => (
         <div style={{maxWidth: '400px', padding: '0 8px'}}>
             <BasicCard {...args} border="none" title={getCardWithBorderTitle('none')} />
         </div>
+    </div>
+);
+
+const VariousTemplate: StoryFn<Record<number, BasicCardModel>> = (args) => (
+    <div style={{display: 'flex', padding: '40px 0', flexWrap: 'wrap'}}>
+        {Object.values(args).map((arg, index) => (
+            <div
+                key={index}
+                style={{
+                    display: 'inline-table',
+                    minWidth: '300px',
+                    padding: '8px',
+                    width: '33%',
+                    flexGrow: 1,
+                }}
+            >
+                <BasicCard {...(blockTransform(arg) as BasicCardProps)} />
+            </div>
+        ))}
     </div>
 );
 
@@ -148,6 +167,7 @@ export const WithBorder = WithBorderTemplate.bind({});
 export const WithUrl = WithUrlTemplate.bind({});
 export const WithContentList = WithContentListTemplate.bind({});
 export const ControlPosition = ControlPositionTemplate.bind({});
+export const Sizes = VariousTemplate.bind([]);
 
 const DefaultArgs = {
     ...data.default.content,
@@ -183,4 +203,23 @@ ControlPosition.argTypes = {
     links: {table: {disable: true}},
     buttons: {table: {disable: true}},
     target: {table: {disable: true}},
+};
+
+Sizes.args = data.sizesContent.reduce(
+    (acc, sizeContent) => [
+        ...acc,
+        ...data.sizes.map(
+            (size) =>
+                ({
+                    ...size,
+                    ...sizeContent,
+                }) as unknown as BasicCardModel,
+        ),
+    ],
+    [] as BasicCardModel[],
+);
+Sizes.parameters = {
+    controls: {
+        include: Object.keys([0, 1, 2, 3, 4, 5, 6, 7, 8]),
+    },
 };

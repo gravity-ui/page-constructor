@@ -29,6 +29,7 @@
   },
   "default": {
     "content": {
+      "type": "layout-item",
       "content": {
         "title": "Lorem&nbsp;ipsum",
         "text": "Dolor sit *amet*"
@@ -178,5 +179,120 @@
         }
       }
     ]
-  }
+  },
+  "sizes": [
+    {
+      "type": "layout-item",
+      "content": {
+        "title": "Content size S",
+        "size": "s"
+      }
+    },
+    {
+      "type": "layout-item",
+      "content": {
+        "title": "Content size M",
+        "size": "m"
+      }
+    },
+    {
+      "type": "layout-item",
+      "content": {
+        "title": "Content size L",
+        "size": "l"
+      }
+    }
+  ],
+  "sizesContent": [
+    {
+      "content": {
+        "text": "Lorem ipsum dolor sit amet, consectetur [quis nostrud](https://example.com) tempor incididunt ut labore et dolore magna.",
+        "additionalInfo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
+        "buttons": [
+          {
+            "text": "Button 1",
+            "theme": "action",
+            "url": "#test1"
+          },
+          {
+            "text": "Button 2",
+            "theme": "outlined",
+            "url": "#test2"
+          }
+        ],
+        "list": [
+          {
+            "icon": {
+              "light": "/story-assets/icon_1_light.svg",
+              "dark": "/story-assets/icon_1_dark.svg"
+            },
+            "title": "Lorem ipsum",
+            "text": "Nisi ut aliquip ex ea commodo consequat. Duis aute irure."
+          },
+          {
+            "icon": {
+              "light": "/story-assets/icon_3_light.svg",
+              "dark": "/story-assets/icon_3_dark.svg"
+            },
+            "title": "Lorem ipsum ipsum",
+            "text": "Nisi ut aliquip ex ea commodo consequat. Duis aute irure."
+          }
+        ]
+      }
+    },
+    {
+      "icon": {
+        "light": {
+          "value": "/story-assets/icon_2_light.svg",
+          "position": "left"
+        },
+        "dark": {
+          "value": "/story-assets/icon_2_dark.svg",
+          "position": "left"
+        }
+      },
+      "content": {
+        "text": "Lorem ipsum dolor sit amet, consectetur [quis nostrud](https://example.com) tempor incididunt ut labore et dolore magna.",
+        "buttons": [
+          {
+            "text": "Button 1",
+            "theme": "action",
+            "url": "#test1"
+          },
+          {
+            "text": "Button 2",
+            "theme": "outlined",
+            "url": "#test2"
+          }
+        ]
+      }
+    },
+    {
+      "icon": {
+        "light": {
+          "value": "/story-assets/icon_2_light.svg",
+          "position": "top"
+        },
+        "dark": {
+          "value": "/story-assets/icon_2_dark.svg",
+          "position": "top"
+        }
+      },
+      "content": {
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing [quis nostrud](https://example.com) incididunt ut labore et dolore magna.",
+        "buttons": [
+          {
+            "text": "Button 1",
+            "theme": "action",
+            "url": "#test1"
+          },
+          {
+            "text": "Button 2",
+            "theme": "outlined",
+            "url": "#test2"
+          }
+        ]
+      }
+    }
+  ]
 }

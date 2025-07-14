@@ -5,6 +5,7 @@ import {
     Default,
     Fullscreen,
     MetaInfo,
+    Sizes,
     WithContentList,
     WithIcon,
     Youtube,
@@ -49,6 +50,12 @@ test.describe('LayoutItem', () => {
 
     test('render stories <Youtube>', async ({mount, expectScreenshot, defaultDelay}) => {
         await mount(<Youtube />);
+        await defaultDelay();
+        await expectScreenshot({skipTheme: 'dark'});
+    });
+
+    test('render stories <Sizes>', async ({mount, expectScreenshot, defaultDelay}) => {
+        await mount(<Sizes />);
         await defaultDelay();
         await expectScreenshot({skipTheme: 'dark'});
     });
