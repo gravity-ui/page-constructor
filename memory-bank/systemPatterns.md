@@ -74,6 +74,40 @@ Blocks are composed of smaller components and sub-blocks:
 └───────────────────────────────┘
 ```
 
+### HeaderBlock Architecture
+
+HeaderBlock follows an enhanced architectural pattern with component composition:
+
+```
+┌─────────────────────────────────────┐
+│           HeaderBlock               │
+├─────────────────────────────────────┤
+│  • useUniqId() for accessibility    │
+│  • useWindowWidth() for responsive  │
+│  • Theme support via getThemedValue │
+│  • Component composition pattern    │
+├─────────────────────────────────────┤
+│     Background Components           │
+│  • Background (media backgrounds)   │
+│  • FullWidthBackground (full width) │
+├─────────────────────────────────────┤
+│        Content Structure            │
+│  • overtitle (above title)          │
+│  • title with custom rendering      │
+│  • description and additionalInfo   │
+│  • status element support           │
+│  • buttons with ARIA labeling       │
+└─────────────────────────────────────┘
+```
+
+Key HeaderBlock patterns:
+
+- **Component Composition**: Separate Background and FullWidthBackground components
+- **Enhanced Content**: Support for overtitle, additionalInfo, status, and custom title rendering
+- **Responsive Integration**: useWindowWidth hook and BREAKPOINTS constants
+- **Media Flexibility**: mediaView and mediaClassName for customization
+- **Accessibility**: Proper ARIA labeling with titleId for button descriptions
+
 ### Card Component Architecture
 
 Card components follow a consistent architectural pattern:

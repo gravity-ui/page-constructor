@@ -13,7 +13,17 @@ The Page Constructor library is currently focused on providing a comprehensive s
 
 Recent development has focused on:
 
-1. **Card Component Standardization**: Updated BasicCard, LayoutItem, BackgroundCard, and ImageCard with consistent patterns:
+1. **HeaderBlock Enhancements**: Significant updates to HeaderBlock with new functionality:
+
+   - **New Content Properties**: Added `additionalInfo`, `overtitle`, and `status` for richer content structure
+   - **Custom Rendering**: Added `renderTitle` function prop for custom title rendering
+   - **Enhanced Background Support**: New `fullWidthMedia` property for full-width media backgrounds
+   - **Improved Media Control**: Added `mediaView` and `mediaClassName` for better media customization
+   - **Accessibility Improvements**: Enhanced ARIA support with `useUniqId()` and proper labeling
+   - **Context Integration**: Better integration with `useWindowWidth` and responsive breakpoints
+   - **Component Architecture**: Refactored background rendering into separate `Background` and `FullWidthBackground` components
+
+2. **Card Component Standardization**: Updated BasicCard, LayoutItem, BackgroundCard, and ImageCard with consistent patterns:
 
    - Standardized `controlPosition` prop for flexible control placement ('content' vs 'footer')
    - Enhanced accessibility with `useUniqId()` for proper ARIA labeling
@@ -21,10 +31,10 @@ Recent development has focused on:
    - Unified theme support using `getThemedValue` utility
    - Improved integration with the Content sub-block
 
-2. **Accessibility Improvements**: Enhanced ARIA attributes and ID management across card components
-3. **Control Positioning**: New flexible control positioning system allowing buttons/links in footer area
-4. **Performance Optimization**: Reducing bundle size and improving rendering performance
-5. **Documentation**: Expanding Storybook examples and documentation
+3. **Accessibility Improvements**: Enhanced ARIA attributes and ID management across components
+4. **Control Positioning**: New flexible control positioning system allowing buttons/links in footer area
+5. **Performance Optimization**: Reducing bundle size and improving rendering performance
+6. **Documentation**: Expanding Storybook examples and documentation
 
 ## Active Decisions and Considerations
 
@@ -33,6 +43,8 @@ Recent development has focused on:
 - **Component Structure**: The library follows a hierarchical component structure with blocks, sub-blocks, and base components
 - **Context Providers**: Multiple context providers manage different aspects of the application (theme, mobile detection, analytics, etc.)
 - **Type System**: A comprehensive TypeScript type system ensures type safety and developer experience
+- **Responsive Design**: Enhanced integration with window width context and breakpoint constants for better mobile adaptation
+- **Component Composition**: Complex blocks like HeaderBlock use internal component composition (Background, FullWidthBackground) for better maintainability
 
 ### Block System
 
@@ -94,10 +106,19 @@ The following areas are being considered for future development:
 
 ### Recent Achievements
 
-1. **Accessibility Enhancement**: Improved ARIA support across card components with proper ID management
-2. **Control Positioning Flexibility**: New `controlPosition` prop provides better layout control
-3. **Theme Integration**: Consistent theme support using `getThemedValue` utility
-4. **Component Consistency**: Standardized patterns across card components improve maintainability
+1. **HeaderBlock Enhancement**: Significant improvements to HeaderBlock functionality:
+
+   - Added rich content structure with `overtitle`, `additionalInfo`, and `status` support
+   - Implemented custom title rendering with `renderTitle` function prop
+   - Enhanced background support with `fullWidthMedia` property
+   - Improved media control with `mediaView` and `mediaClassName` props
+   - Better responsive design integration with `useWindowWidth` hook
+   - Refactored component architecture with separate Background components
+
+2. **Accessibility Enhancement**: Improved ARIA support across components with proper ID management
+3. **Control Positioning Flexibility**: New `controlPosition` prop provides better layout control
+4. **Theme Integration**: Consistent theme support using `getThemedValue` utility
+5. **Component Consistency**: Standardized patterns across card components improve maintainability
 
 ### Documentation Updates
 
