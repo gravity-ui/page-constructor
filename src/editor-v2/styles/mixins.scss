@@ -11,3 +11,50 @@
         transform: scale($hoverScale);
     }
 }
+
+@mixin custom-scrollbar($width: 8px, $track-radius: 4px, $thumb-radius: 4px) {
+    scrollbar-width: thin;
+    scrollbar-color: var(--g-color-scroll-handle) transparent;
+    overflow: auto;
+
+    &::-webkit-scrollbar {
+        width: $width;
+        height: $width;
+        background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: transparent;
+        border-radius: $track-radius;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: var(--g-color-scroll-handle);
+        border-radius: $thumb-radius;
+        transition: background-color $editorTransitionTime;
+        opacity: 0;
+
+        &:hover {
+            background: var(--g-color-scroll-handle-hover);
+            opacity: 1;
+        }
+
+        &:active {
+            background: var(--g-color-scroll-handle-hover);
+            opacity: 1;
+        }
+    }
+
+    &::-webkit-scrollbar-corner {
+        background: transparent;
+    }
+
+    &:hover::-webkit-scrollbar-thumb {
+        opacity: 0.7;
+    }
+
+    &:not(:hover)::-webkit-scrollbar-thumb {
+        opacity: 0;
+        transition: opacity 0.5s ease-out;
+    }
+}

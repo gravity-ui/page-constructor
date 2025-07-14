@@ -9,7 +9,7 @@ const QuestionsBlockConfig = {
     component: QuestionsBlock,
     schema: {
         name: 'Questions Block',
-        group: 'block',
+        group: '@gravity-ui/page-constructor/Blocks',
         inputs: generateFromAJV(
             QuestionsBlockSchema['questions-block'] as unknown as JSONSchemaType<{}>,
         ),

@@ -9,7 +9,7 @@ const FormBlockConfig = {
     component: FormBlock,
     schema: {
         name: 'Form Block',
-        group: 'block',
+        group: '@gravity-ui/page-constructor/Blocks',
         inputs: generateFromAJV(FormBlockSchema['form-block'] as unknown as JSONSchemaType<{}>),
         default: {
             title: 'Form Block',

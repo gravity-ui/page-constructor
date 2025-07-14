@@ -9,7 +9,7 @@ const TableBlockConfig = {
     component: TableBlock,
     schema: {
         name: 'Table Block',
-        group: 'block',
+        group: '@gravity-ui/page-constructor/Blocks',
         inputs: generateFromAJV(TableBlockSchema['table-block'] as unknown as JSONSchemaType<{}>),
         default: {
             type: 'table-block',

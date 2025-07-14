@@ -9,7 +9,7 @@ const PromoFeaturesBlockConfig = {
     component: PromoFeaturesBlock,
     schema: {
         name: 'Promo Features Block',
-        group: 'block',
+        group: '@gravity-ui/page-constructor/Blocks',
         inputs: generateFromAJV(
             PromoFeaturesBlockSchema['promo-features-block'] as unknown as JSONSchemaType<{}>,
         ),

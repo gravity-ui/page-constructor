@@ -8,13 +8,21 @@ import './UpdateModal.scss';
 const b = editorCn('source-code-update-modal');
 
 interface UpdateModalProps {
+    initialConfig?: string;
     onClose(): void;
     onApply(tempConfig?: string): void;
     isOpen: boolean;
 }
 
-export const UpdateModal = ({onClose, onApply, isOpen}: UpdateModalProps) => {
-    const [tempConfig, setTempConfig] = React.useState('');
+export const UpdateModal = ({onClose, onApply, isOpen, initialConfig}: UpdateModalProps) => {
+    const [tempConfig, setTempConfig] = React.useState(initialConfig || '');
+
+    React.useEffect(() => {
+        if (isOpen && initialConfig) {
+            setTempConfig(initialConfig);
+        }
+    }, [isOpen, initialConfig]);
+
     const handleApply = () => {
         onApply(tempConfig);
     };
@@ -28,7 +36,12 @@ export const UpdateModal = ({onClose, onApply, isOpen}: UpdateModalProps) => {
                     message={'The editor will automatically understand which format is needed.'}
                     className={b('alert')}
                 ></Alert>
-                <TextArea value={tempConfig} onUpdate={setTempConfig} rows={25} />
+                <TextArea
+                    value={tempConfig}
+                    onUpdate={setTempConfig}
+                    rows={25}
+                    className={b('textarea')}
+                />
             </Dialog.Body>
             <Dialog.Footer
                 showError={false}

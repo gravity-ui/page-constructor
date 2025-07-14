@@ -5,11 +5,16 @@ $block: '.#{$ns}source-code';
 
 #{$block} {
     height: 100%;
-    padding: 16px 12px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     gap: 12px;
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 
     &__title {
         font-weight: 500;
@@ -19,27 +24,35 @@ $block: '.#{$ns}source-code';
     }
 
     &__code {
+        @include custom-scrollbar();
         white-space: pre;
         @include text-code-inline-1;
-        padding: 6px 2px 8px;
+        padding: 6px 8px;
         overflow: auto;
         border: 1px solid var(--g-color-line-generic);
         border-radius: 6px;
         position: relative;
+        flex: 1;
+    }
 
-        &:hover {
-            #{$block}__controls {
-                display: flex;
-                flex-direction: row;
-                gap: 8px;
-            }
-        }
+    &__content {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        background: transparent;
+        border: none;
+        outline: none;
+        resize: none;
+        font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
+        color: inherit;
     }
 
     &__controls {
-        display: none;
-        position: absolute;
-        top: 10px;
-        right: 10px;
+        display: flex;
+        flex-direction: row;
+        gap: 8px;
+        align-items: center;
     }
 }

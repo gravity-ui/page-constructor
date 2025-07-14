@@ -10,7 +10,7 @@ const ContentConfig: BlockData = {
     component: Content,
     schema: {
         name: 'Content',
-        group: 'cards',
+        group: '@gravity-ui/page-constructor/Cards',
         inputs: generateFromAJV(ContentBlock['content'] as unknown as JSONSchemaType<{}>),
         default: {
             title: 'Content',
