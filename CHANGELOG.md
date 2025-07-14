@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.6.0](https://github.com/gravity-ui/page-constructor/compare/v7.5.0...v7.6.0) (2025-07-14)
+
+
+### chore
+
+* bump release ([#1236](https://github.com/gravity-ui/page-constructor/issues/1236)) ([0458d20](https://github.com/gravity-ui/page-constructor/commit/0458d20cc613db744dd436b81f21cc26d58f7754))
+
 ## [7.5.0](https://github.com/gravity-ui/page-constructor/compare/v7.4.0...v7.5.0) (2025-07-08)
 
 
