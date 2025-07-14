@@ -3,9 +3,9 @@
 ## [7.6.0](https://github.com/gravity-ui/page-constructor/compare/v7.5.0...v7.6.0) (2025-07-14)
 
 
-### chore
+### Features
 
-* bump release ([#1236](https://github.com/gravity-ui/page-constructor/issues/1236)) ([0458d20](https://github.com/gravity-ui/page-constructor/commit/0458d20cc613db744dd436b81f21cc26d58f7754))
+* **ВasicCard, LayoutItem, BackgroundCard, ImageCard:** add size prop ([#1229](https://github.com/gravity-ui/page-constructor/issues/1229)) ([59f91e8](https://github.com/gravity-ui/page-constructor/commit/59f91e823e857f87f0f441291a81501bc1985066))
 
 ## [7.5.0](https://github.com/gravity-ui/page-constructor/compare/v7.4.0...v7.5.0) (2025-07-08)
 
