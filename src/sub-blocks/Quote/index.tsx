@@ -10,7 +10,7 @@ const QuoteConfig: BlockData = {
     component: Quote,
     schema: {
         name: 'Quote',
-        group: 'cards',
+        group: '@gravity-ui/page-constructor/Cards',
         inputs: generateFromAJV(QuoteSchema['quote'] as unknown as JSONSchemaType<{}>),
         default: {
             text: 'A good decision is based on knowledge and not on numbers.',

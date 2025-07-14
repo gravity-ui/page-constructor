@@ -5,8 +5,6 @@ $block: '.#{$ns}global-config';
 
 #{$block} {
     &__title {
-        padding: 12px;
-        margin-top: 8px;
         @include text-subheader-3;
     }
 }

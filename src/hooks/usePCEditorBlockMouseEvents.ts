@@ -29,6 +29,7 @@ const usePCEditorBlockMouseEvents = (arrayIndex: number[], element?: HTMLElement
                 if (rect) {
                     const position = getCursorPositionOverElement(rect, e);
                     sendEventPostMessage('ON_HOVER_BLOCK', {rect, position});
+                    sendEventPostMessage('ON_MOUSE_MOVE', {x: e.clientX, y: e.clientY});
                 }
             }
         },

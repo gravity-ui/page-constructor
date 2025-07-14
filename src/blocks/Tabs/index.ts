@@ -9,7 +9,7 @@ const TabsBlockConfig = {
     component: TabsBlock,
     schema: {
         name: 'Tabs Block',
-        group: 'block',
+        group: '@gravity-ui/page-constructor/Blocks',
         inputs: generateFromAJV(TabsBlockSchema['tabs-block'] as unknown as JSONSchemaType<{}>),
         default: {
             title: 'Tabs Block',

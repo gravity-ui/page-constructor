@@ -1,5 +1,5 @@
 import {Plus} from '@gravity-ui/icons';
-import {Button, Card, Icon} from '@gravity-ui/uikit';
+import {Button, Icon} from '@gravity-ui/uikit';
 import * as React from 'react';
 
 import {ArrayObjectInput, ArrayTextInput, DynamicFormValue} from '../../../../../common/types';
@@ -90,9 +90,9 @@ const ArrayDynamicField = ({title, values, onUpdate, className, blockConfig}: Ar
                         return null;
                     }
                     return (
-                        <Card key={index} className={b('card')}>
+                        <div key={index} className={b('card')}>
                             <div className={`${b('row')} ${b('card-head')}`}>
-                                <div className={b('row-title')}>#{index}</div>
+                                <div className={b('row-title')}>Item {index + 1}</div>
                                 {arrayItemButton}
                             </div>
                             <DynamicForm
@@ -102,7 +102,7 @@ const ArrayDynamicField = ({title, values, onUpdate, className, blockConfig}: Ar
                                     onUpdate(`[${index}].${key}`, updateValue)
                                 }
                             />
-                        </Card>
+                        </div>
                     );
                 }
                 default: {
@@ -146,7 +146,7 @@ const ArrayDynamicField = ({title, values, onUpdate, className, blockConfig}: Ar
             onRefresh={(value) => onUpdate('', value)}
             expandable
         >
-            <Card className={b('card')}>{renderInputs()}</Card>
+            {renderInputs()}
         </FieldBase>
     );
 };

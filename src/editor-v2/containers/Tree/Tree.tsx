@@ -8,6 +8,7 @@ import {useMainEditorStore} from '../../hooks/useMainEditorStore';
 import {Button, Icon} from '@gravity-ui/uikit';
 import {TrashBin} from '@gravity-ui/icons';
 import {generateChildrenPathFromArray, getItemTitle} from '../../utils';
+import {ClassNameProps} from '../../../models';
 
 import './Tree.scss';
 
@@ -29,8 +30,9 @@ const generateTree = (items: TreeItem[]): TreeItem[] => {
     });
 };
 
-// Main Tree component with context provider
-const Tree = () => {
+interface TreeProps extends ClassNameProps {}
+
+const Tree = ({className}: TreeProps) => {
     const {
         content,
         resetBlocks,
@@ -47,7 +49,7 @@ const Tree = () => {
 
     return (
         <DragContextProvider>
-            <div className={b()}>
+            <div className={b(null, className)}>
                 <div className={b('head')}>
                     <Button view="outlined-danger" onClick={() => resetBlocks()}>
                         <Icon data={TrashBin} />

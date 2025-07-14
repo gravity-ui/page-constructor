@@ -3,20 +3,21 @@
 
 $block: '.#{$ns}block-config-form';
 
-$padding: 12px;
-
 #{$block} {
+    &_empty {
+        padding: 16px 12px;
+    }
+
     &__title {
         @include text-subheader-3;
-        padding: $padding;
     }
 
     &__form {
-        padding: $padding 0;
+        padding: 12px 0;
     }
 
     &__empty {
-        padding: $padding;
+        padding: 12px;
         display: flex;
         justify-content: center;
         align-items: center;

@@ -10,7 +10,7 @@ const LayoutItemConfig: BlockData = {
     component: LayoutItem,
     schema: {
         name: 'Layout Item',
-        group: 'cards',
+        group: '@gravity-ui/page-constructor/Cards',
         inputs: generateFromAJV(LayoutItemSchema as unknown as JSONSchemaType<{}>),
         default: {
             type: 'layout-item',

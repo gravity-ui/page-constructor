@@ -9,7 +9,7 @@ const HeaderBlockConfig = {
     component: HeaderBlock,
     schema: {
         name: 'Header Block',
-        group: 'block',
+        group: '@gravity-ui/page-constructor/Blocks',
         inputs: generateFromAJV(HeaderBlockSchema['header-block'] as unknown as JSONSchemaType<{}>),
         default: {
             type: 'header-block',

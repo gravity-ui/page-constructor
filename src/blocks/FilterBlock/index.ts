@@ -9,7 +9,7 @@ const FilterBlockConfig = {
     component: FilterBlock,
     schema: {
         name: 'Filter Block',
-        group: 'block',
+        group: '@gravity-ui/page-constructor/Blocks',
         inputs: generateFromAJV(FilterProps as unknown as JSONSchemaType<{}>),
         default: {
             allTag: true,

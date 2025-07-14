@@ -34,6 +34,7 @@ const FieldBase: React.FC<FieldBaseProps> = ({
         if (title) {
             const defaultTitle = (
                 <div className={b('title', {size: textSize})}>
+                    <span>{_.capitalize(title)}</span>
                     {onRefresh && (
                         <Button
                             className={b('button')}
@@ -47,7 +48,6 @@ const FieldBase: React.FC<FieldBaseProps> = ({
                             <Icon data={ArrowRotateLeft} size={14} />
                         </Button>
                     )}
-                    <span>{_.capitalize(title)}</span>
                 </div>
             );
 
@@ -73,7 +73,9 @@ const FieldBase: React.FC<FieldBaseProps> = ({
     return (
         <div className={b({expandable}, className)}>
             {title && <div className={b('top')}>{titleComponent}</div>}
-            {(!title || showChildren) && <div className={b('children')}>{children}</div>}
+            {(!title || showChildren) && (
+                <div className={b('children', {expandable})}>{children}</div>
+            )}
         </div>
     );
 };

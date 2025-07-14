@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import Tabs, {TabsItemProps} from '../components/Tabs/Tabs';
+import Tabs, {TabItemProps} from '../components/Tabs/Tabs';
 import BlockConfigForm from '../containers/BlockConfigForm/BlockConfigForm';
 import BlocksList from '../containers/BlocksList/BlocksList';
 import GlobalConfig from '../containers/GlobalConfig/GlobalConfig';
@@ -11,8 +11,8 @@ export const useEditorTabs = ({
     leftTabs,
     rightTabs,
 }: {
-    leftTabs?: TabsItemProps[];
-    rightTabs?: TabsItemProps[];
+    leftTabs?: TabItemProps[];
+    rightTabs?: TabItemProps[];
 }) => {
     const tabs = React.useMemo(
         () => ({
@@ -27,30 +27,31 @@ export const useEditorTabs = ({
                                     id: 'blocks-list',
                                     title: 'BLOCKS',
                                     component: BlocksList,
+                                    withPadding: true,
                                 },
                                 {
                                     id: 'layers',
                                     title: 'LAYERS',
                                     component: Tree,
+                                    withPadding: true,
                                 },
                                 {
-                                    id: 'source-code-yaml',
-                                    title: 'YAML',
-                                    component: () => <SourceCode format="yaml" />,
-                                },
-                                {
-                                    id: 'source-code-json',
-                                    title: 'JSON',
-                                    component: () => <SourceCode format="json" />,
+                                    id: 'source-code',
+                                    title: 'RAW',
+                                    component: ({className}) => (
+                                        <SourceCode className={className} />
+                                    ),
+                                    withPadding: true,
                                 },
                             ]}
                         />
                     ),
                 },
                 {
-                    id: 'navigation',
-                    title: 'NAVIGATION',
+                    id: 'global',
+                    title: 'GLOBAL',
                     component: GlobalConfig,
+                    withPadding: true,
                 },
                 ...(leftTabs || []),
             ],
@@ -65,20 +66,18 @@ export const useEditorTabs = ({
                                     id: 'block-config',
                                     title: 'INPUTS',
                                     component: BlockConfigForm,
+                                    withPadding: true,
                                 },
                                 {
-                                    id: 'source-code-yaml',
-                                    title: 'YAML',
-                                    component: () => (
-                                        <SourceCode format="yaml" showSelectedBlockOnly={true} />
+                                    id: 'source-code',
+                                    title: 'RAW',
+                                    component: ({className}) => (
+                                        <SourceCode
+                                            className={className}
+                                            showSelectedBlockOnly={true}
+                                        />
                                     ),
-                                },
-                                {
-                                    id: 'source-code-json',
-                                    title: 'JSON',
-                                    component: () => (
-                                        <SourceCode format="json" showSelectedBlockOnly={true} />
-                                    ),
+                                    withPadding: true,
                                 },
                             ]}
                         />

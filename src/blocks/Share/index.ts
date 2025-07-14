@@ -9,7 +9,7 @@ const ShareBlockConfig = {
     component: ShareBlock,
     schema: {
         name: 'Share Block',
-        group: 'block',
+        group: '@gravity-ui/page-constructor/Blocks',
         inputs: generateFromAJV(ShareBlockSchema['share-block'] as unknown as JSONSchemaType<{}>),
         default: {
             items: ['vk', 'telegram', 'facebook'],

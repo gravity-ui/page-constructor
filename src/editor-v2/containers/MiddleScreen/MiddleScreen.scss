@@ -38,12 +38,14 @@ $block: '.#{$ns}middle-screen';
         justify-content: center;
         align-items: flex-start;
         overflow: hidden;
+        position: relative;
     }
 
     &__canvas {
+        @include custom-scrollbar();
+        background-color: var(--g-color-base-background);
         transform-origin: center top;
-        overflow-y: scroll;
-        position: relative;
+        position: absolute;
         height: 100%;
         max-width: 100%;
 

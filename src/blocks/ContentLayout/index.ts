@@ -9,7 +9,7 @@ const ContentLayoutBlockConfig = {
     component: ContentLayoutBlock,
     schema: {
         name: 'Content Layout Block',
-        group: 'block',
+        group: '@gravity-ui/page-constructor/Blocks',
         inputs: generateFromAJV(
             ContentLayoutBlockSchema['content-layout-block'] as unknown as JSONSchemaType<{}>,
         ),

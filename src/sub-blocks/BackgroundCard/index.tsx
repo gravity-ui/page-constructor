@@ -13,7 +13,7 @@ const BackgroundCardConfig: BlockData = {
         inputs: generateFromAJV(
             BackgroundCardSchema['background-card'] as unknown as JSONSchemaType<{}>,
         ),
-        group: 'cards',
+        group: '@gravity-ui/page-constructor/Cards',
         default: {
             title: 'Background Card',
             text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',

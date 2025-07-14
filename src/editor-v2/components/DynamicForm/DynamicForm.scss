@@ -4,5 +4,7 @@
 $block: '.#{$ns}dynamic-form';
 
 #{$block} {
-    //padding-left: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }

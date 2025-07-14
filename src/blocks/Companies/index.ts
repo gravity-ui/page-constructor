@@ -10,7 +10,7 @@ const CompaniesBlockConfig: BlockData = {
     component: CompaniesBlock,
     schema: {
         name: 'Companies Block',
-        group: 'block',
+        group: '@gravity-ui/page-constructor/Blocks',
         inputs: generateFromAJV(
             CompaniesBlockSchema['companies-block'] as unknown as JSONSchemaType<{}>,
         ),

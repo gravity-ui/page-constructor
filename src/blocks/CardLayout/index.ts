@@ -159,7 +159,7 @@ const CardLayoutBlockConfig: BlockData = {
     component: CardLayout,
     schema: {
         name: 'Card Layout Block',
-        group: 'card-containers',
+        group: '@gravity-ui/page-constructor/Card Containers',
         inputs: generateFromAJV(CardLayoutProps as unknown as JSONSchemaType<{}>),
         default: {
             type: 'card-layout-block',

@@ -9,7 +9,7 @@ const SliderBlockConfig = {
     component: SliderBlock,
     schema: {
         name: 'Slider Block',
-        group: 'card-containers',
+        group: '@gravity-ui/page-constructor/Card Containers',
         inputs: generateFromAJV(SliderBlockSchema['slider-block'] as unknown as JSONSchemaType<{}>),
         default: {
             dots: true,

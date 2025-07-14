@@ -4,12 +4,12 @@
 $block: '.#{$ns}tabs';
 
 #{$block} {
-    overflow: auto;
-    width: 100%;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
+    height: 100%;
 
-    &__item {
+    .g-button#{$block}__item {
         color: var(--g-color-text-hint);
         font-weight: 500;
         letter-spacing: 0.5px;
@@ -49,7 +49,6 @@ $block: '.#{$ns}tabs';
         /* This selector specifically targets tabs-wrapper elements inside a nested tabs component */
         #{$block} &__tabs-wrapper {
             position: sticky;
-            top: 48.5px;
             /* Position below parent tabs-wrapper */
             z-index: 1;
             background-color: var(--g-color-base-background);
@@ -59,5 +58,16 @@ $block: '.#{$ns}tabs';
     &__body {
         flex: 1;
         min-height: 1px;
+        height: 100%;
+    }
+
+    &__item {
+        @include custom-scrollbar();
+        overflow-y: auto;
+        max-height: 100%;
+
+        &_padding {
+            padding: 16px 12px;
+        }
     }
 }

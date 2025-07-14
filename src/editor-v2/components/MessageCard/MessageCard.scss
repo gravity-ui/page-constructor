@@ -1,0 +1,68 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+$block: '.#{$ns}message-card';
+
+#{$block} {
+    padding: 16px;
+    border-radius: 8px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+
+    &__icon {
+        flex-shrink: 0;
+        margin-top: 2px;
+    }
+
+    &__content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    &__title {
+        margin: 0;
+    }
+
+    &__description {
+        margin: 0;
+    }
+
+    &_theme_success {
+        border: 1px solid var(--g-color-text-positive);
+        background-color: var(--g-color-base-positive-light);
+
+        #{$block}__icon {
+            color: var(--g-color-text-positive);
+        }
+    }
+
+    &_theme_error {
+        border: 1px solid var(--g-color-text-danger);
+        background-color: var(--g-color-base-danger-light);
+
+        #{$block}__icon {
+            color: var(--g-color-text-danger);
+        }
+    }
+
+    &_theme_warning {
+        border: 1px solid var(--g-color-text-warning);
+        background-color: var(--g-color-base-warning-light);
+
+        #{$block}__icon {
+            color: var(--g-color-text-warning);
+        }
+    }
+
+    &_theme_info {
+        border: 1px solid var(--g-color-text-info);
+        background-color: var(--g-color-base-info-light);
+
+        #{$block}__icon {
+            color: var(--g-color-text-info);
+        }
+    }
+}

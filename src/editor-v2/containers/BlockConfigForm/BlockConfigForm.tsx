@@ -2,6 +2,8 @@ import _ from 'lodash';
 
 import {DynamicFormValue} from '../../../common/types';
 import DynamicForm from '../../components/DynamicForm/DynamicForm';
+import {MessageCard} from '../../components/MessageCard';
+import {MESSAGES} from '../../constants/messages';
 import {useMainEditorStore} from '../../hooks/useMainEditorStore';
 import {generateChildrenPathFromArray} from '../../utils';
 import {editorCn} from '../../utils/cn';
@@ -27,11 +29,27 @@ const BlockConfigForm = ({className}: BlockConfigFormProps) => {
     };
 
     if (!currentConfig) {
-        return <div className={b('empty')}>Select block for start</div>;
+        return (
+            <div className={b({empty: true}, className)}>
+                <MessageCard
+                    title={MESSAGES.NO_BLOCK_SELECTED.title}
+                    description={MESSAGES.NO_BLOCK_SELECTED.description}
+                    theme="info"
+                />
+            </div>
+        );
     }
 
     if (!currentSchema) {
-        return <div className={b('empty')}>Not supported: {currentConfig.type}</div>;
+        return (
+            <div className={b({empty: true}, className)}>
+                <MessageCard
+                    title={MESSAGES.UNSUPPORTED_BLOCK.title}
+                    description={MESSAGES.UNSUPPORTED_BLOCK.description}
+                    theme="warning"
+                />
+            </div>
+        );
     }
 
     return (

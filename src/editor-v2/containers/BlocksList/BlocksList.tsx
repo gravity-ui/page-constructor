@@ -1,8 +1,10 @@
-import {Magnifier, SquareBars} from '@gravity-ui/icons';
-import {Card, Icon, TextInput} from '@gravity-ui/uikit';
+import {ChevronDown, ChevronRight, Folder, FolderOpen, Magnifier} from '@gravity-ui/icons';
+import {DropdownMenu, Icon, TextInput} from '@gravity-ui/uikit';
 import * as React from 'react';
 
 import {ItemConfig} from '../../../common/types';
+import {ClassNameProps} from '../../../models';
+import BlockCard from '../../components/BlockCard/BlockCard';
 import {useMainEditorStore} from '../../hooks/useMainEditorStore';
 import {editorCn} from '../../utils/cn';
 
@@ -14,9 +16,12 @@ interface BlockGroups {
     [key: string]: ItemConfig[];
 }
 
-const BlocksList = () => {
+interface BlockListProps extends ClassNameProps {}
+
+const BlocksList = ({className}: BlockListProps) => {
     const {blocks, enableInsertMode} = useMainEditorStore();
     const [search, setSearch] = React.useState('');
+    const [collapsedGroups, setCollapsedGroups] = React.useState<Set<string>>(new Set());
 
     const onMouseDown = React.useCallback(
         (blockType: string) => {
@@ -25,10 +30,30 @@ const BlocksList = () => {
         [enableInsertMode],
     );
 
+    const toggleGroup = React.useCallback((groupKey: string) => {
+        setCollapsedGroups((prev) => {
+            const newSet = new Set(prev);
+            if (newSet.has(groupKey)) {
+                newSet.delete(groupKey);
+            } else {
+                newSet.add(groupKey);
+            }
+            return newSet;
+        });
+    }, []);
+
+    const expandAll = React.useCallback(() => {
+        setCollapsedGroups(new Set());
+    }, []);
+
     const groups = React.useMemo(() => {
         return blocks.reduce<BlockGroups>((acc, currentBlock) => {
             const group = currentBlock.schema.group;
-            if (search && currentBlock.type.indexOf(search) === -1) {
+            if (
+                search &&
+                currentBlock.type.toLowerCase().indexOf(search.toLowerCase()) === -1 &&
+                currentBlock.schema.name.toLowerCase().indexOf(search.toLowerCase()) === -1
+            ) {
                 return acc;
             }
             if (group) {
@@ -38,51 +63,84 @@ const BlocksList = () => {
                 }
                 acc[group].push(currentBlock);
             } else {
-                if (!acc['other']) {
+                if (!acc['Other']) {
                     /* eslint-disable no-param-reassign */
-                    acc['other'] = [];
+                    acc['Other'] = [];
                 }
-                acc['other'].push(currentBlock);
+                acc['Other'].push(currentBlock);
             }
 
             return acc;
         }, {} as BlockGroups);
     }, [blocks, search]);
 
+    const collapseAll = React.useCallback(() => {
+        setCollapsedGroups(new Set(Object.keys(groups)));
+    }, [groups]);
+
+    const allGroupsExpanded = collapsedGroups.size === 0;
+    const allGroupsCollapsed = collapsedGroups.size === Object.keys(groups).length;
+
     return (
-        <div className={b()}>
+        <div className={b(null, className)}>
             <div className={b('search')}>
                 <TextInput
+                    size="m"
                     hasClear
                     placeholder="Search block"
                     onUpdate={setSearch}
                     value={search}
                     startContent={<Icon className={b('search-icon')} data={Magnifier} />}
                 />
+                <DropdownMenu
+                    items={[
+                        {
+                            action: expandAll,
+                            text: 'Раскрыть все',
+                            iconStart: <Icon data={FolderOpen} />,
+                            disabled: allGroupsExpanded,
+                        },
+                        {
+                            action: collapseAll,
+                            text: 'Свернуть все',
+                            iconStart: <Icon data={Folder} />,
+                            disabled: allGroupsCollapsed,
+                        },
+                    ]}
+                />
             </div>
-            {Object.entries(groups).map(([key, groupBlocks]) => (
-                <div className={b('group')} key={key}>
-                    <div className={b('title')}>{key}</div>
-                    <div className={b('group-items')}>
-                        {groupBlocks.map(({type, schema: {name, previewImg}}) => (
-                            <Card
-                                key={type}
-                                className={b('card')}
-                                onMouseDown={() => onMouseDown(type)}
-                            >
-                                <div>
-                                    {previewImg ? (
-                                        <img src={previewImg} alt="" />
-                                    ) : (
-                                        <Icon className={b('icon')} size={45} data={SquareBars} />
-                                    )}
-                                </div>
-                                <div className={b('name')}>{name}</div>
-                            </Card>
-                        ))}
+            {Object.entries(groups).map(([key, groupBlocks]) => {
+                const isCollapsed = collapsedGroups.has(key);
+                return (
+                    <div className={b('group', {collapsed: isCollapsed})} key={key}>
+                        <button
+                            className={b('title')}
+                            onClick={() => toggleGroup(key)}
+                            type="button"
+                        >
+                            <Icon
+                                className={b('title-icon')}
+                                data={isCollapsed ? ChevronRight : ChevronDown}
+                                size={14}
+                            />
+                            {key}
+                        </button>
+                        {!isCollapsed && (
+                            <div className={b('group-items')}>
+                                {groupBlocks.map(({type, schema: {name, previewImg}}) => (
+                                    <BlockCard
+                                        key={type}
+                                        type={type}
+                                        name={name}
+                                        previewImg={previewImg}
+                                        onMouseDown={onMouseDown}
+                                    />
+                                ))}
+                            </div>
+                        )}
                     </div>
-                </div>
-            ))}
+                );
+            })}
         </div>
     );
 };
