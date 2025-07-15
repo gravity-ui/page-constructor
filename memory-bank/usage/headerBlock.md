@@ -69,6 +69,12 @@ HeaderBlock is a versatile layout block that serves as the main header section o
 - **Description**: Additional CSS class for media elements
 - **Usage**: For custom styling of media content
 
+#### `containerFluidClassName`
+
+- **Type**: `string`
+- **Description**: Additional CSS class for the container-fluid element
+- **Usage**: For custom styling of the main container that wraps the header content
+
 ### Background Enhancements
 
 #### `fullWidthMedia`
@@ -228,3 +234,4 @@ The HeaderBlock schema includes all enhanced properties with proper validation:
 - `renderTitle`: Function prop (not in schema, runtime only)
 - `status`: JSX element (not in schema, runtime only)
 - `mediaClassName`: String for custom styling
+- `containerFluidClassName`: String for custom styling (not in schema, runtime only)

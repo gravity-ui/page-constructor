@@ -19,6 +19,7 @@ Recent development has focused on:
    - **Custom Rendering**: Added `renderTitle` function prop for custom title rendering
    - **Enhanced Background Support**: New `fullWidthMedia` property for full-width media backgrounds
    - **Improved Media Control**: Added `mediaView` and `mediaClassName` for better media customization
+   - **Layout Customization**: Added `containerFluidClassName` for custom styling of the container-fluid element
    - **Accessibility Improvements**: Enhanced ARIA support with `useUniqId()` and proper labeling
    - **Context Integration**: Better integration with `useWindowWidth` and responsive breakpoints
    - **Component Architecture**: Refactored background rendering into separate `Background` and `FullWidthBackground` components
@@ -108,8 +109,8 @@ The following areas are being considered for future development:
 
 1. **HeaderBlock Enhancement**: Significant improvements to HeaderBlock functionality:
 
-   - Improved media control with `mediaClassName` prop
-   - Improved grid control with `gridClassName` prop
+   - Improved media control with `mediaClassName` props
+   - Added layout customization with `containerFluidClassName` prop
 
 2. **Accessibility Enhancement**: Improved ARIA support across components with proper ID management
 3. **Control Positioning Flexibility**: New `controlPosition` prop provides better layout control
