@@ -108,12 +108,8 @@ The following areas are being considered for future development:
 
 1. **HeaderBlock Enhancement**: Significant improvements to HeaderBlock functionality:
 
-   - Added rich content structure with `overtitle`, `additionalInfo`, and `status` support
-   - Implemented custom title rendering with `renderTitle` function prop
-   - Enhanced background support with `fullWidthMedia` property
-   - Improved media control with `mediaView` and `mediaClassName` props
-   - Better responsive design integration with `useWindowWidth` hook
-   - Refactored component architecture with separate Background components
+   - Improved media control with `mediaClassName` prop
+   - Improved grid control with `gridClassName` prop
 
 2. **Accessibility Enhancement**: Improved ARIA support across components with proper ID management
 3. **Control Positioning Flexibility**: New `controlPosition` prop provides better layout control
