@@ -22,6 +22,7 @@ const b = block('header-block');
 type ElementsClassName = {
     gridClassName?: string;
     mediaClassName?: string;
+    containerFluidClassName?: string;
 };
 
 export type HeaderBlockFullProps = HeaderBlockProps & ClassNameProps & ElementsClassName;
@@ -92,6 +93,7 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
         centered,
         additionalInfo,
         mediaClassName,
+        containerFluidClassName,
     } = props;
     const windowWidth = useWindowWidth();
     const isMobile = windowWidth <= BREAKPOINTS.sm;
@@ -129,7 +131,10 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
         >
             {backgroundThemed && fullWidth && <FullWidthBackground background={backgroundThemed} />}
             {backgroundThemed && <Background background={backgroundThemed} isMobile={isMobile} />}
-            <Grid containerClass={b('container-fluid')} className={b(null, gridClassName)}>
+            <Grid
+                containerClass={b('container-fluid', containerFluidClassName)}
+                className={b(null, gridClassName)}
+            >
                 {breadcrumbs && (
                     <Row className={b('breadcrumbs')}>
                         <Col>
