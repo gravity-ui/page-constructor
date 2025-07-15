@@ -60,8 +60,8 @@
 - **Sub-blocks**: Components used within blocks (Cards, Quotes, etc.)
 - **Components**: Basic UI elements (Button, Link, Image, etc.)
 - **Grid**: Responsive layout system
-- **Context**: React context providers for various features
-- **Utils**: Utility functions and helpers
+- **Context**: React context providers for various features (including WindowWidthContext for responsive design)
+- **Utils**: Utility functions and helpers (including responsive breakpoint constants)
 
 ### Server-Side
 
@@ -80,6 +80,12 @@
 
 - **iframe**: Isolated environment for rendering pages
 - **Messaging**: Communication between editor and preview
+
+## Recent Technical Enhancements
+
+### HeaderBlock Technical Improvements
+
+- **Type Safety**: Extended TypeScript interfaces with new properties (`mediaClassName`, `gridClassName`)
 
 ## Technical Constraints
 

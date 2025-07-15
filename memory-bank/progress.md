@@ -19,11 +19,17 @@ The Page Constructor library is a mature and stable project that provides a comp
 
 The library includes a comprehensive set of blocks for various use cases:
 
-- **Layout Blocks**: Header, ContentLayout, CardLayout
+- **Layout Blocks**: Header (with enhanced features), ContentLayout, CardLayout
 - **Content Blocks**: Media, Banner, Info, Table, Tabs
 - **Interactive Blocks**: Slider, Questions, FoldableList, Form
 - **Feature Blocks**: PromoFeatures, ExtendedFeatures, Icons
 - **Integration Blocks**: Map, Share, Companies
+
+#### HeaderBlock Enhanced Features
+
+The HeaderBlock has been significantly enhanced with new capabilities:
+
+- **Media Customization**: `mediaView` and `mediaClassName` props for better media control
 
 ### Sub-block Components
 
