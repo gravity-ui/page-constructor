@@ -85,11 +85,7 @@
 
 ### HeaderBlock Technical Improvements
 
-- **Responsive Design Integration**: Enhanced use of `useWindowWidth` hook and `BREAKPOINTS` constants for better mobile adaptation
-- **Component Composition**: Refactored background rendering into separate `Background` and `FullWidthBackground` components for better maintainability
-- **Accessibility Enhancement**: Improved ARIA support with `useUniqId()` hook for proper ID management and labeling
-- **Media Integration**: Enhanced microdata support for video content with `mergeVideoMicrodata` utility
-- **Type Safety**: Extended TypeScript interfaces with new properties (`additionalInfo`, `overtitle`, `status`, `renderTitle`, `mediaView`, `mediaClassName`)
+- **Type Safety**: Extended TypeScript interfaces with new properties (`mediaClassName`, `gridClassName`)
 
 ## Technical Constraints
 
