@@ -29,13 +29,7 @@ The library includes a comprehensive set of blocks for various use cases:
 
 The HeaderBlock has been significantly enhanced with new capabilities:
 
-- **Rich Content Structure**: Support for `overtitle`, `additionalInfo`, and `status` elements
-- **Custom Rendering**: `renderTitle` function prop for custom title rendering
-- **Advanced Background Support**: `fullWidthMedia` property for full-width media backgrounds
 - **Media Customization**: `mediaView` and `mediaClassName` props for better media control
-- **Responsive Design**: Integration with `useWindowWidth` hook and responsive breakpoints
-- **Component Architecture**: Refactored with separate `Background` and `FullWidthBackground` components
-- **Enhanced Accessibility**: Improved ARIA support with proper ID management and labeling
 
 ### Sub-block Components
 
