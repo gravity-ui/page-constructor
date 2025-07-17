@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.6.1](https://github.com/gravity-ui/page-constructor/compare/v7.6.0...v7.6.1) (2025-07-17)
+
+
+### Bug Fixes
+
+* add all text sizes to validator ([#1239](https://github.com/gravity-ui/page-constructor/issues/1239)) ([a11eff1](https://github.com/gravity-ui/page-constructor/commit/a11eff1eb95515728e44638b2253a85ec5cd2581))
+
 ## [7.6.0](https://github.com/gravity-ui/page-constructor/compare/v7.5.0...v7.6.0) (2025-07-14)
 
 
