@@ -26,7 +26,15 @@ Recent development has focused on:
    - **Component Architecture**: Refactored background rendering into separate `Background` and `FullWidthBackground` components
    - **Props Refactoring**: Renamed `containerFluidClassName` to `contentWrapperClassName` for better clarity
 
-2. **Card Component Standardization**: Updated BasicCard, LayoutItem, BackgroundCard, and ImageCard with consistent patterns:
+2. **Text Size Enhancement**: Updated `textSize` constant in `src/schema/validators/common.ts`:
+
+    - **Previous values**: `['s', 'm', 'l']`
+    - **Current values**: `['xs', 's', 'sm', 'm', 'l']`
+    - Added new smaller sizes: `'xs'` (extra small) and `'sm'` (small-medium)
+    - This affects all components that use text sizing: Links, FileLinkProps, TitleProps, and various blocks
+    - Updated TypeScript type `TextSize` to include new values
+
+3. **Card Component Standardization**: Updated BasicCard, LayoutItem, BackgroundCard, and ImageCard with consistent patterns:
 
    - Standardized `controlPosition` prop for flexible control placement ('content' vs 'footer')
    - Enhanced accessibility with `useUniqId()` for proper ARIA labeling
@@ -34,10 +42,10 @@ Recent development has focused on:
    - Unified theme support using `getThemedValue` utility
    - Improved integration with the Content sub-block
 
-3. **Accessibility Improvements**: Enhanced ARIA attributes and ID management across card components
-4. **Control Positioning**: New flexible control positioning system allowing buttons/links in footer area
-5. **Performance Optimization**: Reducing bundle size and improving rendering performance
-6. **Documentation**: Expanding Storybook examples and documentation
+4. **Accessibility Improvements**: Enhanced ARIA attributes and ID management across card components
+5. **Control Positioning**: New flexible control positioning system allowing buttons/links in footer area
+6. **Performance Optimization**: Reducing bundle size and improving rendering performance
+7. **Documentation**: Expanding Storybook examples and documentation
 
 ## Active Decisions and Considerations
 
