@@ -35,6 +35,15 @@ Recently updated sub-block components with enhanced consistency:
 - **ImageCard**: Image-focused card with directional layout options
 - **Content**: Shared content component used across all card types for consistent rendering
 
+### Text Sizing System
+
+Enhanced text sizing capabilities:
+
+- **TextSize Type**: Updated from `['s', 'm', 'l']` to `['xs', 's', 'sm', 'm', 'l']`
+- **New Sizes**: Added `'xs'` (extra small) and `'sm'` (small-medium) for finer typography control
+- **Affected Components**: Links, FileLink, Title, and various blocks now support extended size range
+- **Schema Validation**: Updated JSON schemas to include new text size options
+
 ### Editor
 
 - **Visual Editing**: WYSIWYG editor for creating and modifying pages

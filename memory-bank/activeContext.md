@@ -13,7 +13,15 @@ The Page Constructor library is currently focused on providing a comprehensive s
 
 Recent development has focused on:
 
-1. **Card Component Standardization**: Updated BasicCard, LayoutItem, BackgroundCard, and ImageCard with consistent patterns:
+1. **Text Size Enhancement**: Updated `textSize` constant in `src/schema/validators/common.ts`:
+
+   - **Previous values**: `['s', 'm', 'l']`
+   - **Current values**: `['xs', 's', 'sm', 'm', 'l']`
+   - Added new smaller sizes: `'xs'` (extra small) and `'sm'` (small-medium)
+   - This affects all components that use text sizing: Links, FileLinkProps, TitleProps, and various blocks
+   - Updated TypeScript type `TextSize` to include new values
+
+2. **Card Component Standardization**: Updated BasicCard, LayoutItem, BackgroundCard, and ImageCard with consistent patterns:
 
    - Standardized `controlPosition` prop for flexible control placement ('content' vs 'footer')
    - Enhanced accessibility with `useUniqId()` for proper ARIA labeling
@@ -21,10 +29,10 @@ Recent development has focused on:
    - Unified theme support using `getThemedValue` utility
    - Improved integration with the Content sub-block
 
-2. **Accessibility Improvements**: Enhanced ARIA attributes and ID management across card components
-3. **Control Positioning**: New flexible control positioning system allowing buttons/links in footer area
-4. **Performance Optimization**: Reducing bundle size and improving rendering performance
-5. **Documentation**: Expanding Storybook examples and documentation
+3. **Accessibility Improvements**: Enhanced ARIA attributes and ID management across card components
+4. **Control Positioning**: New flexible control positioning system allowing buttons/links in footer area
+5. **Performance Optimization**: Reducing bundle size and improving rendering performance
+6. **Documentation**: Expanding Storybook examples and documentation
 
 ## Active Decisions and Considerations
 

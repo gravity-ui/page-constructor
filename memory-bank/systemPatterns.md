@@ -126,6 +126,7 @@ A comprehensive type system using TypeScript ensures:
 - **Sub-block Types**: Enum of available sub-block types
 - **Sub-block Models**: Interface for each sub-block's properties
 - **Common Types**: Shared types across components
+- **Text Sizing**: Enhanced `TextSize` type with values `'xs' | 's' | 'sm' | 'm' | 'l'` for finer typography control
 
 ### Schema Validation
 

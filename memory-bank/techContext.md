@@ -170,6 +170,16 @@ const MyCustomBlock = (props) => {
 - **Release Branches**: For maintaining multiple major versions
 - **Storybook Deployment**: For documentation and examples
 
+## Recent Technical Updates
+
+### Text Sizing System Enhancement
+
+- **Updated TextSize Type**: Extended from `['s', 'm', 'l']` to `['xs', 's', 'sm', 'm', 'l']`
+- **New Size Options**: Added `'xs'` (extra small) and `'sm'` (small-medium) for finer typography control
+- **Affected Components**: Links, FileLink, Title, and various blocks now support extended size range
+- **Schema Updates**: JSON schemas updated to validate new text size options
+- **Type Safety**: TypeScript `TextSize` type updated to include new values
+
 ## Technical Debt and Limitations
 
 1. **Legacy Support**:
