@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.6.2](https://github.com/gravity-ui/page-constructor/compare/v7.6.1...v7.6.2) (2025-07-18)
+
+
+### Bug Fixes
+
+* add buttons margin for size m ([#1241](https://github.com/gravity-ui/page-constructor/issues/1241)) ([1f8de66](https://github.com/gravity-ui/page-constructor/commit/1f8de6677e8efe16107ab0540d81b4d1fab439da))
+
 ## [7.6.1](https://github.com/gravity-ui/page-constructor/compare/v7.6.0...v7.6.1) (2025-07-17)
 
 
