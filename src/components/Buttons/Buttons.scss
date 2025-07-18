@@ -15,5 +15,9 @@ $block: '.#{$ns}buttons';
         &_l {
             row-gap: $indentXXS;
         }
+
+        &_m {
+            row-gap: $indentXXS;
+        }
     }
 }
