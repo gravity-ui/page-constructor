@@ -13,7 +13,8 @@ export const CompaniesBlock = {
             },
             description: {
                 type: 'string',
-                contentType: 'text',
+                contentType: 'yfm',
+                inputType: 'textarea',
             },
             images: withTheme({
                 type: 'object',
