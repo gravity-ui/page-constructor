@@ -13,7 +13,17 @@ The Page Constructor library is currently focused on providing a comprehensive s
 
 Recent development has focused on:
 
-1. **Button Component Enhancement**: Added support for icons through the `img` prop
+1. **Gravity Icons Integration** (Коммиты a72c3f3 и 8a8aa02):
+
+    - **Новый компонент Icon**: Создан универсальный компонент `src/components/Icon/Icon.tsx` для работы с иконками
+    - **Поддержка Gravity UI Icons**: Интеграция с библиотекой `@gravity-ui/icons` для использования готовых иконок
+    - **Новый тип GravityIconProps**: Добавлен тип для конфигурации gravity иконок с поддержкой цветов ('brand' | 'text-color')
+    - **Обновление BasicCard**: Добавлена поддержка `gravityIcon` пропа в BasicCard компоненте
+    - **Обновление ContentList**: Добавлена поддержка gravity иконок в списках контента
+    - **Обновление IconWrapper**: Расширена поддержка gravity иконок в IconWrapper компоненте
+    - **Schema валидация**: Добавлена валидация для GravityIconProps в схемах BasicCard и Content
+    - **Storybook примеры**: Добавлены новые истории для демонстрации gravity иконок
+2. **Button Component Enhancement**: Added support for icons through the `img` prop
 
    - Support for Gravity UI icons (React components)
    - Support for custom SVG strings
@@ -32,6 +42,14 @@ Recent development has focused on:
    - **Context Integration**: Better integration with `useWindowWidth` and responsive breakpoints
    - **Component Architecture**: Refactored background rendering into separate `Background` and `FullWidthBackground` components
    - **Props Refactoring**: Renamed `containerFluidClassName` to `contentWrapperClassName` for better clarity
+
+3.**Text Size Enhancement**: Updated `textSize` constant in `src/schema/validators/common.ts`:
+
+    - **Previous values**: `['s', 'm', 'l']`
+    - **Current values**: `['xs', 's', 'sm', 'm', 'l']`
+    - Added new smaller sizes: `'xs'` (extra small) and `'sm'` (small-medium)
+    - This affects all components that use text sizing: Links, FileLinkProps, TitleProps, and various blocks
+    - Updated TypeScript type `TextSize` to include new values
 
 3. **Card Component Standardization**: Updated BasicCard, LayoutItem, BackgroundCard, and ImageCard with consistent patterns:
 
@@ -129,8 +147,9 @@ The following areas are being considered for future development:
 ### Documentation Updates
 
 - Created detailed documentation of card component updates in [`cardComponentUpdates.md`](cardComponentUpdates.md)
-- Updated system patterns to reflect new card architecture
-- Enhanced progress tracking to include sub-block component improvements
+- Created comprehensive documentation of Gravity Icons integration in [`gravityIconsIntegration.md`](gravityIconsIntegration.md)
+- Updated system patterns to reflect new card architecture and icon system
+- Enhanced progress tracking to include sub-block component improvements and icon system enhancements
 
 ### Challenges
 
