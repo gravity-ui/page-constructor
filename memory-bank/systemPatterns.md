@@ -86,12 +86,14 @@ Card components follow a consistent architectural pattern:
 │  • controlPosition prop             │
 │  • Theme support via getThemedValue │
 │  • Size standardization (default='s')│
+│  • Gravity Icons support            │
 ├─────────────────────────────────────┤
 │           Content Sub-block         │
 │  • Title with proper ARIA labeling  │
 │  • Text content with YFM support    │
 │  • Links and Buttons positioning    │
 │  • List and AdditionalInfo support  │
+│  • Icon/GravityIcon integration     │
 └─────────────────────────────────────┘
 ```
 
@@ -101,6 +103,7 @@ Key patterns implemented across BasicCard, LayoutItem, BackgroundCard, and Image
 - **Accessibility**: Proper ARIA labeling with `titleId` and `descriptionId`
 - **Content Delegation**: Shared `Content` component for consistent rendering
 - **Theme Integration**: `getThemedValue` utility for theme-aware properties
+- **Icon Support**: Both traditional image icons and Gravity UI icons supported
 
 ### Context Providers
 
@@ -127,6 +130,7 @@ A comprehensive type system using TypeScript ensures:
 - **Sub-block Models**: Interface for each sub-block's properties
 - **Common Types**: Shared types across components
 - **Text Sizing**: Enhanced `TextSize` type with values `'xs' | 's' | 'sm' | 'm' | 'l'` for finer typography control
+- **Icon Types**: `GravityIconProps` type supporting string names or objects with name and color configuration
 
 ### Schema Validation
 
