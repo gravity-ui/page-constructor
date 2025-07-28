@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import {ButtonView, IconData, ButtonProps as UikitButtonProps} from '@gravity-ui/uikit';
+import * as icons from '@gravity-ui/icons';
 
 import {ThemeSupporting} from '../../utils';
 import {AnalyticsEventsBase, AnalyticsEventsProp, ClassNameProps, QAProps} from '../common';
@@ -79,6 +80,7 @@ export type ContentTheme = 'default' | 'dark' | 'light';
 export type FileLinkType = 'vertical' | 'horizontal';
 export type ImageCardMargins = 's' | 'm';
 export type LayoutItemContentMargin = 'm' | 'l';
+export type GravityIconProps = string | {name: keyof typeof icons; color: 'brand' | 'text-color'};
 
 // modifiers
 export interface Themable {
