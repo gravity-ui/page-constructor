@@ -720,3 +720,25 @@ export const BlockHeaderProps = {
         inputType: 'textarea',
     },
 };
+
+export const GravityIconProps = {
+    oneOf: [
+        {
+            type: 'string',
+        },
+        {
+            type: 'object',
+            additionalProperties: false,
+            required: ['name'],
+            properties: {
+                name: {
+                    type: 'string',
+                },
+                color: {
+                    type: 'string',
+                    enum: ['brand', 'text-color'],
+                },
+            },
+        },
+    ],
+};
