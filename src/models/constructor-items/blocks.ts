@@ -16,6 +16,7 @@ import {
     ContentTextSize,
     ContentTheme,
     FileLinkProps,
+    GravityIconProps,
     HeaderBreadCrumbsProps,
     HeaderImageSize,
     HeaderOffset,
@@ -407,7 +408,8 @@ export type SVGIcon = (props: React.SVGProps<SVGSVGElement>) => React.ReactNode;
 export interface ContentItemProps {
     title?: string;
     text?: string;
-    icon: ThemeSupporting<ImageProps | SVGIcon>;
+    icon?: ThemeSupporting<ImageProps | SVGIcon>;
+    gravityIcon?: ThemeSupporting<GravityIconProps>;
 }
 
 export interface ContentListProps {
