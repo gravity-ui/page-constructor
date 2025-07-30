@@ -85,7 +85,13 @@
 
 ### HeaderBlock Technical Improvements
 
-- **Type Safety**: Extended TypeScript interfaces with new properties (`mediaClassName`, `gridClassName`)
+- **Type Safety**: Extended TypeScript interfaces with new properties:
+  - `mediaClassName` for media element styling
+  - `gridClassName` for Grid component styling
+  - `contentWrapperClassName` for content wrapper styling
+  - `contentInnerClassName` for content inner element styling
+- **Props Refactoring**: Renamed `containerFluidClassName` to `contentWrapperClassName` for better semantic clarity
+- **Enhanced Layout Control**: Multiple className props provide fine-grained styling control over different HeaderBlock elements
 
 ## Technical Constraints
 

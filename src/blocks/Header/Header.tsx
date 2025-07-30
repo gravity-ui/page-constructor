@@ -23,6 +23,7 @@ type ElementsClassName = {
     gridClassName?: string;
     mediaClassName?: string;
     contentWrapperClassName?: string;
+    contentInnerClassName?: string;
 };
 
 export type HeaderBlockFullProps = HeaderBlockProps & ClassNameProps & ElementsClassName;
@@ -94,6 +95,7 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
         additionalInfo,
         mediaClassName,
         contentWrapperClassName,
+        contentInnerClassName,
     } = props;
     const windowWidth = useWindowWidth();
     const isMobile = windowWidth <= BREAKPOINTS.sm;
@@ -149,7 +151,14 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
                                     'vertical-offset': curVerticalOffset,
                                 })}
                             >
-                                <Col sizes={titleSizes} className={b('content-inner', {centered})}>
+                                <Col
+                                    sizes={titleSizes}
+                                    className={b(
+                                        'content-inner',
+                                        {centered},
+                                        contentInnerClassName,
+                                    )}
+                                >
                                     {overtitle && (
                                         <div className={b('overtitle')}>
                                             {typeof overtitle === 'string' ? (

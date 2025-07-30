@@ -1,237 +1,332 @@
-# HeaderBlock Usage Documentation
+# HeaderBlock Usage
+
+This document outlines how the HeaderBlock is used and its recent enhancements in the page-constructor project.
 
 ## Overview
 
-HeaderBlock is a versatile layout block that serves as the main header section of a page. It has been significantly enhanced with new content structure options, improved accessibility, and better responsive design integration.
+The HeaderBlock is a versatile block component that serves as a page header with support for titles, descriptions, media, backgrounds, and call-to-action buttons. It provides extensive customization options for layout, styling, and content presentation.
 
-## Enhanced Properties
+## Recent Enhancements
 
-### Content Structure
+The HeaderBlock has been significantly enhanced with new functionality:
 
-#### `overtitle`
+### Layout Customization Props
 
-- **Type**: `string | JSX.Element`
-- **Description**: Text or JSX element displayed above the main title
-- **Usage**: For category labels, breadcrumb-like navigation, or contextual information
+The HeaderBlock now supports multiple className props for fine-grained styling control:
 
-```json
-{
-  "type": "header-block",
-  "overtitle": "Product Category",
-  "title": "Main Product Title"
-}
+- **`gridClassName`**: Custom styling for the Grid component
+- **`contentWrapperClassName`**: Custom styling for the content wrapper element
+- **`contentInnerClassName`**: Custom styling for the content inner element
+- **`mediaClassName`**: Custom styling for media elements
+
+### Props Evolution
+
+- **Props Refactoring**: Renamed `containerFluidClassName` to `contentWrapperClassName` for better semantic clarity
+
+### Enhanced Content Structure
+
+- **`overtitle`**: Content displayed above the main title
+- **`additionalInfo`**: Additional information displayed after the description
+- **`status`**: Status element support within the title area
+- **`renderTitle`**: Custom function for rendering the title
+
+### Background and Media Features
+
+- **`fullWidthMedia`**: Support for full-width media backgrounds
+- **`mediaView`**: Control over media display mode ('full' by default)
+- **Component Composition**: Separate `Background` and `FullWidthBackground` components for better maintainability
+
+## Component Architecture
+
+```tsx
+type ElementsClassName = {
+  gridClassName?: string;
+  mediaClassName?: string;
+  contentWrapperClassName?: string;
+  contentInnerClassName?: string;
+};
+
+export type HeaderBlockFullProps = HeaderBlockProps & ClassNameProps & ElementsClassName;
 ```
 
-#### `additionalInfo`
+### Internal Structure
 
-- **Type**: `string`
-- **Description**: Additional information displayed after the description
-- **Content Type**: YFM (Yandex Flavored Markdown)
-- **Usage**: For supplementary details, disclaimers, or extended descriptions
+The HeaderBlock uses a sophisticated layout structure:
 
-```json
-{
-  "type": "header-block",
-  "title": "Product Title",
-  "description": "Main product description",
-  "additionalInfo": "**Note**: Additional details about the product"
-}
+```tsx
+<header className={b({...})}>
+    {/* Full width background */}
+    {backgroundThemed && fullWidth && <FullWidthBackground background={backgroundThemed} />}
+
+    {/* Media background */}
+    {backgroundThemed && <Background background={backgroundThemed} isMobile={isMobile} />}
+
+    <Grid containerClass={b('container-fluid')} className={b(null, gridClassName)}>
+        {/* Breadcrumbs */}
+        {breadcrumbs && (
+            <Row className={b('breadcrumbs')}>
+                <Col>
+                    <HeaderBreadcrumbs {...breadcrumbs} theme={textTheme} />
+                </Col>
+            </Row>
+        )}
+
+        <Row>
+            <Col reset className={b('content-wrapper', contentWrapperClassName)}>
+                <Row>
+                    <Col className={b('content', {...})}>
+                        <Col
+                            sizes={titleSizes}
+                            className={b('content-inner', {centered}, contentInnerClassName)}
+                        >
+                            {/* Content: overtitle, title, description, additionalInfo, buttons */}
+                        </Col>
+                    </Col>
+                </Row>
+
+                {/* Right-side media */}
+                {hasRightSideImage && (
+                    <Media className={b('media', {[curImageSize]: true}, mediaClassName)} />
+                )}
+            </Col>
+        </Row>
+    </Grid>
+</header>
 ```
 
-#### `status`
+## Key Features
 
-- **Type**: `JSX.Element`
-- **Description**: Status element displayed next to the title
-- **Usage**: For badges, labels, or status indicators
+### Responsive Design Integration
 
-### Custom Rendering
+- **`useWindowWidth()`**: Hook for responsive behavior
+- **`BREAKPOINTS`**: Constants for consistent breakpoint handling
+- **Mobile Detection**: Automatic mobile detection for media rendering
 
-#### `renderTitle`
+### Accessibility
 
-- **Type**: `(title: string) => React.ReactNode`
-- **Description**: Function for custom title rendering
-- **Usage**: When you need custom title formatting or additional elements within the title
+- **`useUniqId()`**: Generates unique IDs for accessibility
+- **ARIA Labeling**: Proper ARIA attributes for buttons with `titleId`
+- **Semantic HTML**: Uses proper `<header>` element
 
-### Media Enhancements
+### Theme Support
 
-#### `mediaView`
-
-- **Type**: `'full' | 'fit'`
-- **Default**: `'full'`
-- **Description**: Controls how media content is displayed
-- **Usage**:
-  - `'full'`: Media fills the available space
-  - `'fit'`: Media maintains aspect ratio within bounds
-
-#### `mediaClassName`
-
-- **Type**: `string`
-- **Description**: Additional CSS class for media elements
-- **Usage**: For custom styling of media content
-
-#### `contentWrapperClassName`
-
-- **Type**: `string`
-- **Description**: Additional CSS class for the content-wrapper element
-- **Usage**: For custom styling of the content wrapper that contains the header layout
-
-### Background Enhancements
-
-#### `fullWidthMedia`
-
-- **Type**: `boolean`
-- **Description**: Allows media backgrounds to extend to full viewport width
-- **Usage**: For immersive background experiences
-
-```json
-{
-  "type": "header-block",
-  "title": "Immersive Header",
-  "background": {
-    "image": "background.jpg",
-    "fullWidthMedia": true
-  }
-}
-```
-
-## Technical Implementation
-
-### Component Architecture
-
-The HeaderBlock now uses a component composition pattern:
-
-```
-HeaderBlock
-├── Background (for media backgrounds)
-├── FullWidthBackground (for full-width backgrounds)
-└── Content Structure
-    ├── overtitle
-    ├── title (with custom rendering support)
-    ├── description
-    ├── additionalInfo
-    └── buttons
-```
-
-### Responsive Design
-
-- **WindowWidth Integration**: Uses `useWindowWidth` hook for responsive behavior
-- **Breakpoint Constants**: Leverages `BREAKPOINTS` constants for consistent responsive design
-- **Mobile Adaptation**: Enhanced mobile experience with conditional media rendering
-
-### Accessibility Features
-
-- **Unique IDs**: Uses `useUniqId()` hook for proper ARIA labeling
-- **ARIA Relationships**: Buttons are properly associated with titles using `aria-describedby`
-- **Screen Reader Support**: Improved content structure for better screen reader navigation
-
-### Background Components
-
-#### Background Component
-
-- Handles media backgrounds with video and image support
-- Mobile-responsive media rendering
-- Parallax support (disabled by default)
-
-#### FullWidthBackground Component
-
-- Renders full-width background colors
-- Used when `fullWidth` or `fullWidthMedia` is enabled
+- **`getThemedValue()`**: Utility for theme-aware properties
+- **Theme Context**: Integration with the global theme system
+- **Themed Properties**: Support for light/dark theme variations
 
 ## Usage Examples
 
-### Basic Enhanced Header
+### Basic HeaderBlock
 
-```json
-{
-  "type": "header-block",
-  "overtitle": "New Release",
-  "title": "Product Launch 2024",
-  "description": "Introducing our latest innovation",
-  "additionalInfo": "Available in **limited quantities**",
-  "buttons": [
+```tsx
+<HeaderBlock
+  title="Welcome to Our Platform"
+  description="Build amazing web experiences with our component library"
+  buttons={[
     {
-      "text": "Learn More",
-      "url": "/product",
-      "theme": "action"
-    }
-  ]
-}
-```
-
-### Header with Full-Width Media Background
-
-```json
-{
-  "type": "header-block",
-  "title": "Immersive Experience",
-  "description": "Full-width background showcase",
-  "background": {
-    "image": {
-      "src": "hero-background.jpg",
-      "alt": "Hero background"
+      text: 'Get Started',
+      theme: 'action',
+      url: '/getting-started',
     },
-    "fullWidthMedia": true,
-    "color": "#1a1a1a"
-  },
-  "theme": "dark"
-}
+  ]}
+/>
 ```
 
-### Header with Custom Media View
+### With Custom Layout Styling
 
-```json
-{
-  "type": "header-block",
-  "title": "Product Showcase",
-  "description": "Featured product display",
-  "image": {
-    "src": "product-image.jpg",
-    "alt": "Product showcase"
-  },
-  "mediaView": "fit",
-  "mediaClassName": "custom-media-style"
-}
+```tsx
+<HeaderBlock
+  title="Custom Styled Header"
+  description="This header uses custom styling for different elements"
+  gridClassName="custom-grid"
+  contentWrapperClassName="custom-wrapper"
+  contentInnerClassName="custom-inner"
+  mediaClassName="custom-media"
+  image="/path/to/image.jpg"
+/>
 ```
 
-## Migration Notes
+### With Enhanced Content
 
-### New Properties
+```tsx
+<HeaderBlock
+  overtitle="New Feature"
+  title="Advanced HeaderBlock"
+  description="Enhanced with additional content options"
+  additionalInfo="Learn more about our latest updates"
+  status={<Badge>Beta</Badge>}
+  renderTitle={(title) => <CustomTitleComponent title={title} />}
+/>
+```
 
-- All new properties are optional and backward compatible
-- Existing HeaderBlock configurations will continue to work unchanged
+### With Full-Width Background
 
-### Enhanced Features
+```tsx
+<HeaderBlock
+  title="Full Width Experience"
+  description="Header with full-width media background"
+  background={{
+    fullWidthMedia: true,
+    image: '/path/to/background.jpg',
+    color: '#f0f0f0',
+  }}
+/>
+```
 
-- Improved accessibility is automatically applied
-- Responsive design enhancements are enabled by default
-- Background rendering improvements are transparent to existing usage
+### With Media and Custom View
 
-### Deprecated Properties
+```tsx
+<HeaderBlock
+  title="Media Header"
+  description="Header with right-side media"
+  image="/path/to/image.jpg"
+  mediaView="full"
+  mediaClassName="custom-media-style"
+/>
+```
 
-- Some legacy properties may be deprecated in future versions
-- Check the schema for current property status
+## Background Components
+
+### Background Component
+
+Handles media backgrounds with responsive behavior:
+
+```tsx
+const Background = ({background, isMobile}: BackgroundProps) => {
+  const {url, image, fullWidthMedia, video, color} = background;
+  const imageObject = url ? getMediaImage(url) : image;
+  const renderMedia = !isMobile || (typeof image === 'object' && 'mobile' in image);
+
+  return (
+    <div
+      className={b('background', {media: true, 'full-width-media': fullWidthMedia})}
+      style={{backgroundColor: color}}
+    >
+      {renderMedia && (
+        <Media
+          {...background}
+          className={b('background-media')}
+          isBackground={true}
+          parallax={false}
+          video={isMobile ? undefined : video}
+          image={imageObject}
+        />
+      )}
+    </div>
+  );
+};
+```
+
+### FullWidthBackground Component
+
+Handles full-width background colors:
+
+```tsx
+const FullWidthBackground = ({background}: FullWidthBackgroundProps) => (
+  <div
+    className={b('background', {['full-width']: true})}
+    style={{backgroundColor: background?.color}}
+  />
+);
+```
+
+## Integration Patterns
+
+### With Breadcrumbs
+
+```tsx
+<HeaderBlock
+  title="Page with Navigation"
+  breadcrumbs={{
+    items: [{text: 'Home', url: '/'}, {text: 'Products', url: '/products'}, {text: 'Current Page'}],
+  }}
+/>
+```
+
+### With Custom Buttons
+
+```tsx
+<HeaderBlock
+  title="Action Header"
+  buttons={[
+    {
+      text: 'Primary Action',
+      theme: 'action',
+      url: '/action',
+      extraProps: {
+        'data-analytics': 'header-cta',
+      },
+    },
+    {
+      text: 'Secondary Action',
+      theme: 'outlined',
+      url: '/secondary',
+    },
+  ]}
+/>
+```
 
 ## Best Practices
 
-1. **Content Hierarchy**: Use `overtitle` for contextual information, `title` for main heading, `description` for primary details, and `additionalInfo` for supplementary content
+### Layout Customization
 
-2. **Accessibility**: Always provide meaningful `alt` text for images and ensure proper content structure
+1. **Use Semantic Class Names**: When providing custom className props, use semantic names that describe the purpose
+2. **Maintain Consistency**: Keep styling consistent with the overall design system
+3. **Responsive Considerations**: Ensure custom styles work across different screen sizes
 
-3. **Responsive Design**: Test headers across different screen sizes, especially when using custom media configurations
+### Content Structure
 
-4. **Performance**: Use appropriate image sizes and formats for background media
+1. **Hierarchy**: Use overtitle for context, title for main message, description for details
+2. **Accessibility**: Ensure proper heading hierarchy and ARIA labeling
+3. **Content Length**: Keep titles concise and descriptions informative but not overwhelming
 
-5. **Theme Consistency**: Ensure theme settings work well with background colors and media content
+### Media Usage
 
-## Schema Reference
+1. **Image Optimization**: Use appropriately sized and optimized images
+2. **Theme Support**: Provide both light and dark theme variants when needed
+3. **Mobile Adaptation**: Consider how media displays on mobile devices
 
-The HeaderBlock schema includes all enhanced properties with proper validation:
+### Background Implementation
 
-- `overtitle`: String or JSX content type
-- `additionalInfo`: YFM content with textarea input
-- `mediaView`: Enum with 'full' and 'fit' options
-- `fullWidthMedia`: Boolean for background configuration
-- `renderTitle`: Function prop (not in schema, runtime only)
-- `status`: JSX element (not in schema, runtime only)
-- `mediaClassName`: String for custom styling
-- `contentWrapperClassName`: String for custom styling (not in schema, runtime only)
+1. **Performance**: Use appropriate image formats and sizes for backgrounds
+2. **Contrast**: Ensure sufficient contrast between background and text
+3. **Fallbacks**: Provide fallback colors for when images fail to load
+
+## Technical Implementation
+
+### Type Safety
+
+The HeaderBlock uses comprehensive TypeScript types:
+
+```tsx
+interface BackgroundProps {
+  background: HeaderBlockBackground;
+  isMobile: boolean;
+}
+
+interface FullWidthBackgroundProps {
+  background: HeaderBlockBackground;
+}
+
+type ElementsClassName = {
+  gridClassName?: string;
+  mediaClassName?: string;
+  contentWrapperClassName?: string;
+  contentInnerClassName?: string;
+};
+```
+
+### Context Integration
+
+- **Theme Context**: `useTheme()` for theme-aware rendering
+- **Window Width Context**: `useWindowWidth()` for responsive behavior
+- **Breakpoints**: `BREAKPOINTS` constants for consistent responsive design
+
+### Utility Functions
+
+- **`getThemedValue()`**: Resolves themed properties
+- **`getMediaImage()`**: Processes media URLs
+- **`mergeVideoMicrodata()`**: Adds structured data for videos
+- **`useUniqId()`**: Generates unique IDs for accessibility
+
+This enhanced HeaderBlock provides a powerful and flexible foundation for creating compelling page headers with extensive customization options while maintaining accessibility and performance standards.

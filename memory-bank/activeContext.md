@@ -20,9 +20,11 @@ Recent development has focused on:
    - **Enhanced Background Support**: New `fullWidthMedia` property for full-width media backgrounds
    - **Improved Media Control**: Added `mediaView` and `mediaClassName` for better media customization
    - **Layout Customization**: Added `contentWrapperClassName` for custom styling of the content-wrapper element
+   - **Content Inner Customization**: Added `contentInnerClassName` for custom styling of the content-inner element
    - **Accessibility Improvements**: Enhanced ARIA support with `useUniqId()` and proper labeling
    - **Context Integration**: Better integration with `useWindowWidth` and responsive breakpoints
    - **Component Architecture**: Refactored background rendering into separate `Background` and `FullWidthBackground` components
+   - **Props Refactoring**: Renamed `containerFluidClassName` to `contentWrapperClassName` for better clarity
 
 2. **Card Component Standardization**: Updated BasicCard, LayoutItem, BackgroundCard, and ImageCard with consistent patterns:
 

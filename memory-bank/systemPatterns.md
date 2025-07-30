@@ -97,6 +97,12 @@ HeaderBlock follows an enhanced architectural pattern with component composition
 │  • description and additionalInfo   │
 │  • status element support           │
 │  • buttons with ARIA labeling       │
+├─────────────────────────────────────┤
+│      Layout Customization           │
+│  • gridClassName for Grid styling   │
+│  • contentWrapperClassName          │
+│  • contentInnerClassName            │
+│  • mediaClassName for media styling │
 └─────────────────────────────────────┘
 ```
 
@@ -106,6 +112,7 @@ Key HeaderBlock patterns:
 - **Enhanced Content**: Support for overtitle, additionalInfo, status, and custom title rendering
 - **Responsive Integration**: useWindowWidth hook and BREAKPOINTS constants
 - **Media Flexibility**: mediaView and mediaClassName for customization
+- **Layout Customization**: Multiple className props for fine-grained styling control
 - **Accessibility**: Proper ARIA labeling with titleId for button descriptions
 
 ### Card Component Architecture
