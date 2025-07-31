@@ -1,0 +1,41 @@
+import {Meta} from '@storybook/blocks';
+
+import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
+import * as QuoteStories from './Quote.stories.tsx';
+
+<Meta of={QuoteStories} />
+<StoryTemplate>
+
+## Usage
+
+For a detailed usage guide of the Quote component, see [Quote Usage](https://github.com/gravity-ui/page-constructor/blob/main/memory-bank/usage/quote.md).
+
+## Parameters
+
+`text?: string` — Quote text (plain text)
+
+`yfmText?: string` — Quote text with YFM support (for backward compatibility)
+
+`image: ThemedImage` — Themed image for the quote (required)
+
+`logo: ThemeSupporting<ImageProps>` — Company logo image (required)
+
+`color?: string` — Optional background color
+
+`border?: 'shadow' | 'line' | 'none'` — Border style (default: 'shadow')
+
+`theme?: 'light' | 'dark'` — Text theme (default: 'light')
+
+`author?: AuthorItem` — Optional author information
+
+`quoteType?: QuoteType` — Quote style - Chevron (default) or EnglishDouble
+
+`url?: string` — Optional URL for the button (deprecated, use button prop)
+
+`urlTitle?: string` — Optional URL title for the button (deprecated)
+
+`buttonText?: string` — Optional button text (deprecated)
+
+`button?: ButtonProps` — Optional button configuration
+
+</StoryTemplate>

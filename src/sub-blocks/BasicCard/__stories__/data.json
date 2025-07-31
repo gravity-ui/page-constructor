@@ -19,6 +19,9 @@
   "withBorder": {
     "title": "Card with border {{border}}"
   },
+  "withSize": {
+    "title": "Card with size {{size}}"
+  },
   "withContentList": {
     "titleForLongList": "With content list",
     "titleForShortList": "With content list without titles"
@@ -136,5 +139,98 @@
         ]
       }
     ]
-  }
+  },
+  "sizes": [
+    {
+      "size": "s",
+      "type": "basic-card",
+      "title": "Content size S"
+    },
+    {
+      "size": "m",
+      "type": "basic-card",
+      "title": "Content size M"
+    },
+    {
+      "size": "l",
+      "type": "basic-card",
+      "title": "Content size L"
+    }
+  ],
+  "sizesContent": [
+    {
+      "text": "Lorem ipsum dolor sit amet, consectetur [quis nostrud](https://example.com) tempor incididunt ut labore et dolore magna.",
+      "additionalInfo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
+      "buttons": [
+        {
+          "text": "Button 1",
+          "theme": "action",
+          "url": "#test1"
+        },
+        {
+          "text": "Button 2",
+          "theme": "outlined",
+          "url": "#test2"
+        }
+      ],
+      "list": [
+        {
+          "icon": {
+            "light": "/story-assets/icon_1_light.svg",
+            "dark": "/story-assets/icon_1_dark.svg"
+          },
+          "title": "Lorem ipsum",
+          "text": "Nisi ut aliquip ex ea commodo consequat. Duis aute irure."
+        },
+        {
+          "icon": {
+            "light": "/story-assets/icon_3_light.svg",
+            "dark": "/story-assets/icon_3_dark.svg"
+          },
+          "title": "Lorem ipsum ipsum",
+          "text": "Nisi ut aliquip ex ea commodo consequat. Duis aute irure."
+        }
+      ]
+    },
+    {
+      "icon": {
+        "light": "/story-assets/icon_2_light.svg",
+        "dark": "/story-assets/icon_2_dark.svg"
+      },
+      "iconPosition": "left",
+      "text": "Lorem ipsum dolor sit amet, consectetur [quis nostrud](https://example.com) tempor incididunt ut labore et dolore magna.",
+      "buttons": [
+        {
+          "text": "Button 1",
+          "theme": "action",
+          "url": "#test1"
+        },
+        {
+          "text": "Button 2",
+          "theme": "outlined",
+          "url": "#test2"
+        }
+      ]
+    },
+    {
+      "icon": {
+        "light": "/story-assets/icon_2_light.svg",
+        "dark": "/story-assets/icon_2_dark.svg"
+      },
+      "iconPosition": "top",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing [quis nostrud](https://example.com) incididunt ut labore et dolore magna.",
+      "buttons": [
+        {
+          "text": "Button 1",
+          "theme": "action",
+          "url": "#test1"
+        },
+        {
+          "text": "Button 2",
+          "theme": "outlined",
+          "url": "#test2"
+        }
+      ]
+    }
+  ]
 }

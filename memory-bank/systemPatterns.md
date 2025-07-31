@@ -74,6 +74,34 @@ Blocks are composed of smaller components and sub-blocks:
 └───────────────────────────────┘
 ```
 
+### Card Component Architecture
+
+Card components follow a consistent architectural pattern:
+
+```
+┌─────────────────────────────────────┐
+│            Card Component           │
+├─────────────────────────────────────┤
+│  • useUniqId() for accessibility    │
+│  • controlPosition prop             │
+│  • Theme support via getThemedValue │
+│  • Size standardization (default='s')│
+├─────────────────────────────────────┤
+│           Content Sub-block         │
+│  • Title with proper ARIA labeling  │
+│  • Text content with YFM support    │
+│  • Links and Buttons positioning    │
+│  • List and AdditionalInfo support  │
+└─────────────────────────────────────┘
+```
+
+Key patterns implemented across BasicCard, LayoutItem, BackgroundCard, and ImageCard:
+
+- **Consistent Props**: All cards support `controlPosition`, `size`, theme properties
+- **Accessibility**: Proper ARIA labeling with `titleId` and `descriptionId`
+- **Content Delegation**: Shared `Content` component for consistent rendering
+- **Theme Integration**: `getThemedValue` utility for theme-aware properties
+
 ### Context Providers
 
 Multiple context providers manage different aspects of the application:
@@ -98,6 +126,7 @@ A comprehensive type system using TypeScript ensures:
 - **Sub-block Types**: Enum of available sub-block types
 - **Sub-block Models**: Interface for each sub-block's properties
 - **Common Types**: Shared types across components
+- **Text Sizing**: Enhanced `TextSize` type with values `'xs' | 's' | 'sm' | 'm' | 'l'` for finer typography control
 
 ### Schema Validation
 

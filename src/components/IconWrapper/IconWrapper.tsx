@@ -10,7 +10,7 @@ import './IconWrapper.scss';
 const b = block('icon-wrapper');
 
 const IconWrapper = (props: React.PropsWithChildren<IconWrapperProps> & ClassNameProps) => {
-    const {icon, children, className} = props;
+    const {icon, children, className, size} = props;
     if (!icon) {
         return <React.Fragment>{children}</React.Fragment>;
     }
@@ -24,7 +24,7 @@ const IconWrapper = (props: React.PropsWithChildren<IconWrapperProps> & ClassNam
                 <Image
                     {...iconProps}
                     containerClassName={b('icon-container')}
-                    className={b('icon', {['icon-position']: iconPosition})}
+                    className={b('icon', {['icon-position']: iconPosition, size})}
                 />
             )}
             <div className={b('content', {['icon-position']: iconPosition})}>{children}</div>

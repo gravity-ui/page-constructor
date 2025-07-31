@@ -1,0 +1,47 @@
+import {Meta} from '@storybook/blocks';
+
+import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
+import * as MediaCardStories from './MediaCard.stories.tsx';
+
+<Meta of={MediaCardStories} />
+<StoryTemplate>
+
+## Usage
+
+For a detailed usage guide of the MediaCard component, see [MediaCard Usage](https://github.com/gravity-ui/page-constructor/blob/main/memory-bank/usage/mediaCard.md).
+
+## Parameters
+
+`type: "media-card"`
+
+`border?: 'shadow' | 'line' | 'none'` — Select border of the card.
+
+`analyticsEvents?: AnalyticsEvent | AnalyticsEvent[]` — Analytics events to track interactions with the card.
+
+### Media Props
+
+`image?: string | ImageObjectProps | ImageDeviceProps | (string | ImageObjectProps | ImageDeviceProps)[]` — Image or array of images to display.
+
+`video?: MediaVideoProps` — Video configuration.
+
+`youtube?: string` — YouTube video URL.
+
+`dataLens?: string | DataLensObjectProps` — DataLens visualization ID or configuration.
+
+`videoIframe?: string` — Video iframe URL.
+
+`iframe?: IframeProps` — Iframe configuration.
+
+`color?: string` — Background color.
+
+`height?: number` — Fixed height for the media content.
+
+`previewImg?: string` — Preview image for video content.
+
+`parallax?: boolean` — Enable parallax effect for images.
+
+`fullscreen?: boolean` — Enable fullscreen mode for media.
+
+`videoMicrodata?: object` — Metadata for video content.
+
+</StoryTemplate>

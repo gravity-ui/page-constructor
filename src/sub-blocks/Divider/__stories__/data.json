@@ -1,14 +1,34 @@
 {
   "default": {
-    "title": "Default divider between cards, size M",
-    "content": {
-      "url": "https://example.com",
-      "title": "Lorem ipsum",
-      "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-    }
+    "size": "s"
   },
-  "sizes": {
-    "title": "Divider between cards, size {{size}}",
-    "items": ["0", "xxs", "xs", "s", "m", "l", "xl", "xxl", "xxxl"]
-  }
+  "sizes": [
+    {
+      "size": "0"
+    },
+    {
+      "size": "xxs"
+    },
+    {
+      "size": "xs"
+    },
+    {
+      "size": "s"
+    },
+    {
+      "size": "m"
+    },
+    {
+      "size": "l"
+    },
+    {
+      "size": "xl"
+    },
+    {
+      "size": "xxl"
+    },
+    {
+      "size": "xxxl"
+    }
+  ]
 }

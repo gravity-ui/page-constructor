@@ -21,6 +21,7 @@ Page Constructor is a React-based library for rendering web pages or their parts
 - Component-based page construction
 - Theming support (light/dark)
 - Customizable blocks and sub-blocks
+- Enhanced typography system with 5 text sizes (xs, s, sm, m, l)
 - Responsive grid system
 - Navigation components
 - Internationalization support

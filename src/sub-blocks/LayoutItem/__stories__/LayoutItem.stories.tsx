@@ -1,11 +1,11 @@
 import {Meta, StoryFn} from '@storybook/react';
 
-import {yfmTransform} from '../../../../.storybook/utils';
+import {blockTransform, yfmTransform} from '../../../../.storybook/utils';
 import CardLayout from '../../../blocks/CardLayout/CardLayout';
 import {BlockBase} from '../../../components';
 import {ConstructorRow} from '../../../containers/PageConstructor/components/ConstructorRow';
 import {Grid} from '../../../grid';
-import {LayoutItemProps} from '../../../models';
+import {LayoutItemModel, LayoutItemProps} from '../../../models';
 import LayoutItem from '../LayoutItem';
 
 import data from './data.json';
@@ -31,6 +31,25 @@ const WithIconTemplate: StoryFn<LayoutItemProps> = (args) => (
             <h1>Icon: Left</h1>
             <DefaultTemplate {...args} icon={data.withIcon.iconLeft as LayoutItemProps['icon']} />
         </div>
+    </div>
+);
+
+const VariousContentTemplate: StoryFn<Record<number, LayoutItemModel>> = (args) => (
+    <div style={{display: 'flex', flexWrap: 'wrap'}}>
+        {Object.values(args).map((item, index) => (
+            <div
+                key={index}
+                style={{
+                    display: 'inline-table',
+                    minWidth: '300px',
+                    padding: '8px',
+                    width: '33%',
+                    flexGrow: 1,
+                }}
+            >
+                <LayoutItem {...(blockTransform(item) as LayoutItemProps)} />
+            </div>
+        ))}
     </div>
 );
 
@@ -72,6 +91,7 @@ export const MetaInfo = DefaultTemplate.bind({});
 export const Youtube = DefaultTemplate.bind({});
 export const WithIcon = WithIconTemplate.bind({});
 export const ControlPosition = ControlPositionTemplate.bind({});
+export const Sizes = VariousContentTemplate.bind([]);
 
 const DefaultArgs = {
     ...data.default.content,
@@ -114,4 +134,24 @@ ControlPosition.argTypes = {
     controlPosition: {table: {disable: true}},
     analyticsEvents: {table: {disable: true}},
     contentMargin: {table: {disable: true}},
+};
+
+Sizes.args = data.sizesContent.reduce(
+    (acc, sizeContent) => [
+        ...acc,
+        ...data.sizes.map(
+            (size) =>
+                ({
+                    ...size,
+                    ...sizeContent,
+                    content: {...size.content, ...sizeContent.content},
+                }) as LayoutItemModel,
+        ),
+    ],
+    [] as LayoutItemModel[],
+);
+Sizes.parameters = {
+    controls: {
+        include: Object.keys([0, 1, 2, 3, 4, 5, 6, 7, 8]),
+    },
 };

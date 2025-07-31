@@ -22,6 +22,7 @@ const BasicCard = (props: BasicCardProps) => {
         buttons,
         iconPosition = IconPosition.Top,
         controlPosition = 'content',
+        size = 's',
         ...cardParams
     } = props;
     const titleId = useUniqId();
@@ -41,6 +42,7 @@ const BasicCard = (props: BasicCardProps) => {
                 <IconWrapper
                     icon={themedIcon ? {value: themedIcon, position: iconPosition} : undefined}
                     className={b('wrapper')}
+                    size={size}
                 >
                     <Content
                         title={title}
@@ -51,7 +53,7 @@ const BasicCard = (props: BasicCardProps) => {
                         links={links}
                         list={list}
                         buttons={buttons}
-                        size="s"
+                        size={size}
                         colSizes={{all: 12, md: 12}}
                         controlPosition={areControlsInFooter ? 'bottom' : 'default'}
                     />

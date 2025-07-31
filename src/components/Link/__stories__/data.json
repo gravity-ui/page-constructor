@@ -1,14 +1,14 @@
 {
-  "backWithChildren": {
-    "content": {
-      "url": "#",
-      "theme": "back"
-    }
-  },
   "default": {
     "content": {
       "text": "Default link",
       "url": "#"
+    }
+  },
+  "backWithChildren": {
+    "content": {
+      "url": "#",
+      "theme": "back"
     }
   },
   "underlineWithChildren": {
@@ -24,14 +24,29 @@
       "theme": "normal"
     }
   },
-  "normalArrow": {
-    "content": {
-      "text": "Normal link with an arrow",
+  "normalArrows": [
+    {
+      "text": "Normal link with an arrow. Size s",
       "url": "#",
       "arrow": true,
-      "theme": "normal"
+      "theme": "normal",
+      "textSize": "s"
+    },
+    {
+      "text": "Normal link with an arrow. Size m",
+      "url": "#",
+      "arrow": true,
+      "theme": "normal",
+      "textSize": "m"
+    },
+    {
+      "text": "Normal link with an arrow. Size l",
+      "url": "#",
+      "arrow": true,
+      "theme": "normal",
+      "textSize": "l"
     }
-  },
+  ],
   "normalForDarkTheme": {
     "content": {
       "text": "Normal link",
@@ -41,10 +56,7 @@
     }
   },
   "themesSizes": {
-    "title": "Link size {{size}}",
-    "content": {
-      "text": "Link",
-      "url": "#"
-    }
+    "text": "Link",
+    "url": "#"
   }
 }

@@ -1,0 +1,43 @@
+import {Meta} from '@storybook/blocks';
+
+import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
+import * as BasicCardStories from './BasicCard.stories.tsx';
+
+<Meta of={BasicCardStories} />
+<StoryTemplate>
+
+## Usage
+
+For a detailed usage guide of the BasicCard sub-block, see [BasicCard Usage](https://github.com/gravity-ui/page-constructor/blob/main/memory-bank/usage/basicCard.md).
+
+## Parameters
+
+`title: string` — Card title (required)
+
+`text: string` — Card description with YFM support (required)
+
+`url?: string` — URL that opens when clicking the card
+
+`urlTitle?: string` — Accessible title for the URL
+
+`border?: 'line' | 'shadow' | 'none'` — Border style
+
+`icon?: ThemeSupporting<ImageObjectProps>` — Icon with theme support
+
+`iconPosition?: 'top' | 'left'` — Position of the icon
+
+`additionalInfo?: string` — Additional information text with YFM support
+
+`links?: LinkProps[]` — Array of link objects
+
+`buttons?: ButtonProps[]` — Array of button objects
+
+`analyticsEvents?: AnalyticsEventsBase` — Analytics events to track
+
+`controlPosition?: 'content' | 'footer'` — Position of controls (links and buttons)
+
+`list?: ContentItemProps[]` — Array of content list items
+
+`target?: '_blank' | '_parent' | '_top' | '_self'` — Target for the URL
+
+</StoryTemplate>

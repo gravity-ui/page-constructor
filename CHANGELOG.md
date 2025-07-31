@@ -1,5 +1,53 @@
 # Changelog
 
+## [7.6.2](https://github.com/gravity-ui/page-constructor/compare/v7.6.1...v7.6.2) (2025-07-18)
+
+
+### Bug Fixes
+
+* add buttons margin for size m ([#1241](https://github.com/gravity-ui/page-constructor/issues/1241)) ([1f8de66](https://github.com/gravity-ui/page-constructor/commit/1f8de6677e8efe16107ab0540d81b4d1fab439da))
+
+## [7.6.1](https://github.com/gravity-ui/page-constructor/compare/v7.6.0...v7.6.1) (2025-07-17)
+
+
+### Bug Fixes
+
+* add all text sizes to validator ([#1239](https://github.com/gravity-ui/page-constructor/issues/1239)) ([a11eff1](https://github.com/gravity-ui/page-constructor/commit/a11eff1eb95515728e44638b2253a85ec5cd2581))
+
+## [7.6.0](https://github.com/gravity-ui/page-constructor/compare/v7.5.0...v7.6.0) (2025-07-14)
+
+
+### Features
+
+* **ВasicCard, LayoutItem, BackgroundCard, ImageCard:** add size prop ([#1229](https://github.com/gravity-ui/page-constructor/issues/1229)) ([59f91e8](https://github.com/gravity-ui/page-constructor/commit/59f91e823e857f87f0f441291a81501bc1985066))
+
+## [7.5.0](https://github.com/gravity-ui/page-constructor/compare/v7.4.0...v7.5.0) (2025-07-08)
+
+
+### Features
+
+* **Header, ContentLayout:** calculate isMobile by screen size ([#1228](https://github.com/gravity-ui/page-constructor/issues/1228)) ([da24b7d](https://github.com/gravity-ui/page-constructor/commit/da24b7d291dc2e6adff200e5b62ba1244d525203))
+
+## [7.4.0](https://github.com/gravity-ui/page-constructor/compare/v7.3.1...v7.4.0) (2025-07-07)
+
+
+### Features
+
+* **ButtonTabs:** add export ([#1230](https://github.com/gravity-ui/page-constructor/issues/1230)) ([08962eb](https://github.com/gravity-ui/page-constructor/commit/08962eba99fa99c754920b30f1fb7fa3cbff2250))
+
+## [7.3.1](https://github.com/gravity-ui/page-constructor/compare/v7.3.0...v7.3.1) (2025-07-03)
+
+
+### Bug Fixes
+
+* sass version  and add memory bank for sub-blocks ([#1225](https://github.com/gravity-ui/page-constructor/issues/1225)) ([7978f71](https://github.com/gravity-ui/page-constructor/commit/7978f71c87f0c3ca214edc935476c98d6ad72a31))
+
+## [7.3.0](https://github.com/gravity-ui/page-constructor/compare/v7.3.0...v7.3.0) (2025-06-27)
+
+### Features
+
+* **deps:** bump monaco-editor from 0.38.0 to 0.52.2 ([#1211](https://github.com/gravity-ui/page-constructor/issues/1211)) ([97c999f](https://github.com/gravity-ui/page-constructor/commit/97c999fcfbbb07bcb2a9568aee502aca24751fa1))
+
 ## [7.2.0](https://github.com/gravity-ui/page-constructor/compare/v7.1.0...v7.2.0) (2025-06-16)
 
 

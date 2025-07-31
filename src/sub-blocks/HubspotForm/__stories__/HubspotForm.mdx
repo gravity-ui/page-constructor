@@ -1,0 +1,49 @@
+import {Meta} from '@storybook/blocks';
+
+import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
+import * as HubspotFormStories from './HubspotForm.stories.tsx';
+
+<Meta of={HubspotFormStories} />
+<StoryTemplate>
+
+## Usage
+
+For a detailed usage guide of the HubspotForm sub-block, see [HubspotForm Usage](https://github.com/gravity-ui/page-constructor/blob/main/memory-bank/usage/hubspotForm.md).
+
+## Parameters
+
+`className?: string` — Form wrapper class
+
+`theme?: ContentTheme` — Theme for the form ('default', 'dark', or 'light')
+
+`isMobile?: boolean` — Whether the form is displayed on a mobile device
+
+`region?: string` — Hubspot region (e.g., 'eu1', 'na1')
+
+`portalId: string` — Hubspot portal ID (required)
+
+`formId: string` — Hubspot form ID (required)
+
+`formInstanceId?: string` — Unique ID for the form instance (used when multiple instances of the same form are on a page)
+
+`formClassName?: string` — Class name for the form element
+
+`analyticsEvents?: AnalyticsEventsBase` — Analytics events to track
+
+`onBeforeLoad?: (arg: HubspotEventData) => void` — Callback for the 'onBeforeFormInit' event
+
+`onBeforeSubmit?: (arg: HubspotEventData) => void` — Callback for the 'onFormSubmit' event
+
+`onSubmit?: (arg: HubspotEventData) => void` — Callback for the 'onFormSubmitted' event
+
+`onLoad?: (arg: HubspotEventData) => void` — Callback for the 'onFormReady' event
+
+`onSubmitError?: (arg: HubspotEventData) => void` — Callback for the 'onFormError' event
+
+`hubspotEvents?: string[]` — An array of Hubspot events to listen for
+
+`createDOMElement?: boolean` — If true, a container will be created using `document.createElement` to insert the Hubspot form (default is false)
+
+`defaultValues?: HubspotFormDefaultValues` — Default values for form fields
+
+</StoryTemplate>

@@ -25,6 +25,25 @@ The library includes a comprehensive set of blocks for various use cases:
 - **Feature Blocks**: PromoFeatures, ExtendedFeatures, Icons
 - **Integration Blocks**: Map, Share, Companies
 
+### Sub-block Components
+
+Recently updated sub-block components with enhanced consistency:
+
+- **BasicCard**: Simple card component with icon support and flexible control positioning
+- **LayoutItem**: Layout component with media support and fullscreen capabilities
+- **BackgroundCard**: Card with background image/color support and theme variations
+- **ImageCard**: Image-focused card with directional layout options
+- **Content**: Shared content component used across all card types for consistent rendering
+
+### Text Sizing System
+
+Enhanced text sizing capabilities:
+
+- **TextSize Type**: Updated from `['s', 'm', 'l']` to `['xs', 's', 'sm', 'm', 'l']`
+- **New Sizes**: Added `'xs'` (extra small) and `'sm'` (small-medium) for finer typography control
+- **Affected Components**: Links, FileLink, Title, and various blocks now support extended size range
+- **Schema Validation**: Updated JSON schemas to include new text size options
+
 ### Editor
 
 - **Visual Editing**: WYSIWYG editor for creating and modifying pages
