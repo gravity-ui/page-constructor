@@ -1,5 +1,5 @@
 import {Meta, StoryFn} from '@storybook/react';
-import {ArrowDown, Check, Plus} from '@gravity-ui/icons';
+import {Plus} from '@gravity-ui/icons';
 import {IconData} from '@gravity-ui/uikit';
 
 import {Col, Grid, Row} from '../../../grid';
@@ -86,83 +86,78 @@ const IconTemplate: StoryFn<ButtonProps> = (args) => {
             </Row>
 
             {createButtonRow('Gravity UI', [
-                <Button key="check-left" {...args} img={createIconConfig(Check)} text="Check" />,
+                <Button key="plus-left" {...args} img={createIconConfig(Plus)} text="Button" />,
                 <Button
-                    key="arrow-right"
+                    key="plus-right"
                     {...args}
-                    img={createIconConfig(ArrowDown, 'right')}
-                    text="Download"
+                    img={createIconConfig(Plus, 'right')}
+                    text="Button"
                 />,
                 <Button
-                    key="check-small"
+                    key="plus-small"
                     {...args}
-                    img={createIconConfig(Check, 'left', 14)}
-                    text="Check"
+                    img={createIconConfig(Plus, 'left', 14)}
+                    text="Button"
                 />,
                 <Button
-                    key="check-large"
+                    key="plus-large"
                     {...args}
-                    img={createIconConfig(Check, 'left', 20)}
-                    text="Check"
+                    img={createIconConfig(Plus, 'left', 20)}
+                    text="Button"
                 />,
             ])}
 
             {createButtonRow('Custom SVG', [
                 <Button
-                    key="star-left"
+                    key="signature-left"
                     {...args}
-                    img={createIconConfig(iconExamples.starSvg)}
-                    text="Star"
+                    img={createIconConfig(iconExamples.signatureSvg)}
+                    text="Button"
                 />,
                 <Button
-                    key="diamond-right"
+                    key="signature-right"
                     {...args}
-                    img={createIconConfig(iconExamples.diamondSvg, 'right')}
-                    text="Diamond"
+                    img={createIconConfig(iconExamples.signatureSvg, 'right')}
+                    text="Button"
                 />,
                 <Button
-                    key="star-small"
+                    key="signature-small"
                     {...args}
-                    img={createIconConfig(iconExamples.starSvg, 'left', 14)}
-                    text="Star"
+                    img={createIconConfig(iconExamples.signatureSvg, 'left', 14)}
+                    text="Button"
                 />,
                 <Button
-                    key="star-large"
+                    key="signature-large"
                     {...args}
-                    img={createIconConfig(iconExamples.starSvg, 'left', 20)}
-                    text="Star"
+                    img={createIconConfig(iconExamples.signatureSvg, 'left', 20)}
+                    text="Button"
                 />,
             ])}
 
-            {createButtonRow('Styled Icons', [
+            {createButtonRow('Img URL', [
                 <Button
-                    key="green-check"
-                    {...args}
-                    img={createIconConfig(
-                        iconExamples.starSvg,
-                        'left',
-                        16,
-                        iconExamples.classes.green,
-                    )}
-                    text="Green"
-                />,
-                <Button
-                    key="red-plus"
-                    {...args}
-                    img={createIconConfig(Plus, 'right', 16, iconExamples.classes.red)}
-                    text="Red Plus"
-                />,
-                <Button
-                    key="blue-arrow"
-                    {...args}
-                    img={createIconConfig(ArrowDown, 'left', 16, iconExamples.classes.blue)}
-                    text="Blue"
-                />,
-                <Button
-                    key="url-icon"
+                    key="gravity-left"
                     {...args}
                     img={{url: iconExamples.customUrl, position: 'left'}}
-                    text="URL"
+                    text="Button"
+                />,
+                <Button
+                    key="gravity-right"
+                    {...args}
+                    img={{url: iconExamples.customUrl, position: 'right'}}
+                    text="Button"
+                />,
+                <Button
+                    key="gravity-small"
+                    {...args}
+                    img={{url: iconExamples.customUrl, position: 'left', iconSize: 14}}
+                    text="Button"
+                />,
+                <Button
+                    key="gravity-large"
+                    {...args}
+                    img={{url: iconExamples.customUrl, position: 'left', iconSize: 24}}
+                    text="Button"
                 />,
             ])}
         </Grid>
