@@ -13,7 +13,12 @@ The Page Constructor library is currently focused on providing a comprehensive s
 
 Recent development has focused on:
 
-1. **Text Size Enhancement**: Updated `textSize` constant in `src/schema/validators/common.ts`:
+1. **Button Component Enhancement**: Added support for icons through the `img` prop
+   - Support for Gravity UI icons (React components)
+   - Support for custom SVG strings
+   - Configurable icon positioning (left/right)
+   - Configurable icon size
+2. **Text Size Enhancement**: Updated `textSize` constant in `src/schema/validators/common.ts`:
 
    - **Previous values**: `['s', 'm', 'l']`
    - **Current values**: `['xs', 's', 'sm', 'm', 'l']`
@@ -21,7 +26,7 @@ Recent development has focused on:
    - This affects all components that use text sizing: Links, FileLinkProps, TitleProps, and various blocks
    - Updated TypeScript type `TextSize` to include new values
 
-2. **Card Component Standardization**: Updated BasicCard, LayoutItem, BackgroundCard, and ImageCard with consistent patterns:
+3. **Card Component Standardization**: Updated BasicCard, LayoutItem, BackgroundCard, and ImageCard with consistent patterns:
 
    - Standardized `controlPosition` prop for flexible control placement ('content' vs 'footer')
    - Enhanced accessibility with `useUniqId()` for proper ARIA labeling
@@ -29,10 +34,10 @@ Recent development has focused on:
    - Unified theme support using `getThemedValue` utility
    - Improved integration with the Content sub-block
 
-3. **Accessibility Improvements**: Enhanced ARIA attributes and ID management across card components
-4. **Control Positioning**: New flexible control positioning system allowing buttons/links in footer area
-5. **Performance Optimization**: Reducing bundle size and improving rendering performance
-6. **Documentation**: Expanding Storybook examples and documentation
+4. **Accessibility Improvements**: Enhanced ARIA attributes and ID management across card components
+5. **Control Positioning**: New flexible control positioning system allowing buttons/links in footer area
+6. **Performance Optimization**: Reducing bundle size and improving rendering performance
+7. **Documentation**: Expanding Storybook examples and documentation
 
 ## Active Decisions and Considerations
 
@@ -126,3 +131,4 @@ The following areas are being considered for future development:
 2. **Performance Considerations**: Optimizing performance for large pages with many blocks
 3. **Integration Challenges**: Addressing challenges when integrating with different applications
 4. **User Experience**: Focusing on both developer and end-user experience
+5. **Icon Integration**: Successfully extended Button component to support both Gravity UI icons and custom SVG strings while maintaining backward compatibility
