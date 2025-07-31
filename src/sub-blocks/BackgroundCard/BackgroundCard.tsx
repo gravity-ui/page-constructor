@@ -25,6 +25,7 @@ const BackgroundCard = (props: BackgroundCardProps) => {
         buttons,
         analyticsEvents,
         urlTitle,
+        colSizes = {all: 12, md: 12},
         controlPosition = 'content',
         list,
         size = 's',
@@ -62,7 +63,7 @@ const BackgroundCard = (props: BackgroundCardProps) => {
                     links={links}
                     buttons={buttons}
                     list={list}
-                    colSizes={{all: 12, md: 12}}
+                    colSizes={colSizes}
                     controlPosition={areControlsInFooter ? 'bottom' : 'default'}
                 />
             </CardBase.Content>

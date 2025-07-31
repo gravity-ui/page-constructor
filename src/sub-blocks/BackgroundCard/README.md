@@ -15,3 +15,5 @@
 `links?: Link[]` — An array with link objects (see [Content blocks](?path=/docs/documentation-types--docs))
 
 `buttons?: Button[]` — An array with button objects (see [Content blocks](?path=/docs/documentation-types--docs))
+
+`colSizes?: Object` — more info [Content blocks](?path=/docs/documentation-types--docs#colsizes).

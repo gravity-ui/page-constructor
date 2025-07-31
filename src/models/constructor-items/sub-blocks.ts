@@ -141,7 +141,7 @@ export interface BackgroundCardProps
     extends CardBaseProps,
         AnalyticsEventsBase,
         CardLayoutProps,
-        Omit<ContentBlockProps, 'colSizes' | 'centered' | 'controlPosition'> {
+        Omit<ContentBlockProps, 'centered' | 'controlPosition'> {
     url?: string;
     urlTitle?: string;
     background?: ThemeSupporting<ImageObjectProps>;
