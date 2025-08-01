@@ -1,7 +1,12 @@
 import omit from 'lodash/omit';
 
 import {ImageProps} from '../../components/Image/schema';
-import {BaseProps, CardBase, CardLayoutProps} from '../../schema/validators/common';
+import {
+    BaseProps,
+    CardBase,
+    CardLayoutProps,
+    GravityIconProps,
+} from '../../schema/validators/common';
 import {ContentBase} from '../Content/schema';
 
 const BasicCardContentProps = omit(ContentBase, ['size', 'theme', 'controlPosition']);
@@ -22,6 +27,7 @@ export const BasicCard = {
                 type: 'string',
             },
             icon: ImageProps,
+            gravityIcon: GravityIconProps,
             target: {
                 type: 'string',
                 enum: ['_blank', '_parent', '_top', '_self'],

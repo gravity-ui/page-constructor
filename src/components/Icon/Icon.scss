@@ -1,0 +1,22 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
+
+$block: '.#{$ns}icon';
+
+#{$block} {
+    &_color {
+        &_brand {
+            /* stylelint-disable-next-line declaration-no-important */
+            color: var(--g-color-base-brand) !important;
+
+            & * {
+                /* stylelint-disable-next-line declaration-no-important */
+                color: var(--g-color-base-brand) !important;
+            }
+        }
+
+        &_text-color {
+            // as in nearest text
+        }
+    }
+}
