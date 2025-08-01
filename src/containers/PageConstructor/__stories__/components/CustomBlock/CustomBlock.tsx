@@ -1,9 +1,10 @@
 import {Link} from '@gravity-ui/uikit';
 
-import './CustomBlock.scss';
-import {cn} from '../../../../../utils';
-import {Title, YFMWrapper} from '../../../../../components';
 import {yfmTransform} from '../../../../../../.storybook/utils';
+import {Title, YFMWrapper} from '../../../../../components';
+import {cn} from '../../../../../utils';
+
+import './CustomBlock.scss';
 
 const b = cn('custom-block');
 

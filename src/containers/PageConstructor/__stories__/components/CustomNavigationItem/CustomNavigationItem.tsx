@@ -1,8 +1,10 @@
 import {Button, Link, Popover} from '@gravity-ui/uikit';
-import {cn} from '../../../../../utils';
-import './CustomNavigationItem.scss';
-import {YFMWrapper} from '../../../../../components';
+
 import {yfmTransform} from '../../../../../../.storybook/utils';
+import {YFMWrapper} from '../../../../../components';
+import {cn} from '../../../../../utils';
+
+import './CustomNavigationItem.scss';
 
 const b = cn('custom-navigation-item');
 

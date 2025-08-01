@@ -1,7 +1,7 @@
 import {ThemeSupporting} from '../utils';
 
-import {ButtonProps, ImageProps} from './constructor-items';
 import {AnalyticsEventsBase} from './common';
+import {ButtonProps, ImageProps} from './constructor-items';
 
 export enum NavigationItemType {
     Link = 'link',
