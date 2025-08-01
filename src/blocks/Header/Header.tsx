@@ -1,21 +1,23 @@
 /* eslint-disable complexity */
-import {useUniqId} from '@gravity-ui/uikit';
 import * as React from 'react';
+
+import {useUniqId} from '@gravity-ui/uikit';
 
 import {Button, Media, RouterLink} from '../../components';
 import HeaderBreadcrumbs from '../../components/HeaderBreadcrumbs/HeaderBreadcrumbs';
 import {getMediaImage} from '../../components/Media/Image/utils';
 import YFMWrapper from '../../components/YFMWrapper/YFMWrapper';
+import {BREAKPOINTS} from '../../constants';
 import {useTheme} from '../../context/theme';
+import {useWindowWidth} from '../../context/windowWidthContext';
 import {Col, Grid, Row} from '../../grid';
 import {ClassNameProps, HeaderBlockBackground, HeaderBlockProps} from '../../models';
 import {block, getThemedValue} from '../../utils';
 import {mergeVideoMicrodata} from '../../utils/microdata';
 
 import {getImageSize, getTitleSizes, titleWithImageSizes} from './utils';
+
 import './Header.scss';
-import {useWindowWidth} from '../../context/windowWidthContext';
-import {BREAKPOINTS} from '../../constants';
 
 const b = block('header-block');
 

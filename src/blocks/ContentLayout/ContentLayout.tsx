@@ -1,15 +1,15 @@
 import * as React from 'react';
 
 import {BackgroundImage, FileLink} from '../../components';
+import {BREAKPOINTS} from '../../constants';
 import {useTheme} from '../../context/theme';
+import {useWindowWidth} from '../../context/windowWidthContext';
 import {Col} from '../../grid';
 import {ContentLayoutBlockProps, ContentSize, ContentTextSize} from '../../models';
 import {Content} from '../../sub-blocks';
 import {block, getThemedValue} from '../../utils';
 
 import './ContentLayout.scss';
-import {useWindowWidth} from '../../context/windowWidthContext';
-import {BREAKPOINTS} from '../../constants';
 
 const b = block('content-layout-block');
 

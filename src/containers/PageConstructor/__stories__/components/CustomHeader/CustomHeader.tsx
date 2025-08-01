@@ -1,11 +1,12 @@
 import {Link} from '@gravity-ui/uikit';
+
+import {yfmTransform} from '../../../../../../.storybook/utils';
 import {HeaderBlock} from '../../../../../blocks';
 import {YFMWrapper} from '../../../../../components';
 import {HeaderBlockProps} from '../../../../../models';
 import {cn} from '../../../../../utils';
 
 import './CustomHeader.scss';
-import {yfmTransform} from '../../../../../../.storybook/utils';
 
 const b = cn('custom-header');
 

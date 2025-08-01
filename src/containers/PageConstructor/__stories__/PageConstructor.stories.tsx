@@ -2,8 +2,9 @@ import {Meta, StoryFn} from '@storybook/react';
 
 import {PageConstructor, PageConstructorProps} from '../PageConstructor';
 
-import data from './data.json';
 import {CustomBlocksTemplate} from './components/CustomBlocksTemplate';
+
+import data from './data.json';
 
 export default {
     title: 'Containers/PageConstructor',

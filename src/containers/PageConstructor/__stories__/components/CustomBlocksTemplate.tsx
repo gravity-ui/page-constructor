@@ -1,12 +1,14 @@
 import {StoryFn} from '@storybook/react';
+
 import {CustomConfig} from '../../../../models';
 import {PageConstructor, PageConstructorProps} from '../../PageConstructor';
+
 import {CustomBlock} from './CustomBlock';
 import {CustomCard} from './CustomCard';
-import {CustomHeader} from './CustomHeader';
-import {CustomNavigationItem} from './CustomNavigationItem';
-import {CustomLoadableCard, loadCustomCardData} from './CustomLoadableCard';
 import {customDecorator} from './CustomDecorator';
+import {CustomHeader} from './CustomHeader';
+import {CustomLoadableCard, loadCustomCardData} from './CustomLoadableCard';
+import {CustomNavigationItem} from './CustomNavigationItem';
 
 const customConfig: CustomConfig = {
     blocks: {

@@ -1,16 +1,18 @@
 import * as React from 'react';
-import {ContentSize, TabsBlockItem} from '../../../models';
-import {ProjectSettingsContext} from '../../../context/projectSettingsContext';
-import {block, getThemedValue} from '../../../utils';
-import {useTheme} from '../../../context/theme';
-import {getHeight} from '../../../components/VideoBlock/VideoBlock';
-import {getMediaImage} from '../../../components/Media/Image/utils';
-import TabsTextContent from '../TabsTextContent/TabsTextContent';
-import {Col, GridColumnOrderClasses, Row} from '../../../grid';
-import Media from '../../../components/Media/Media';
-import {mergeVideoMicrodata} from '../../../utils/microdata';
-import {FullscreenImage, YFMWrapper} from '../../../components';
+
 import {useUniqId} from '@gravity-ui/uikit';
+
+import {FullscreenImage, YFMWrapper} from '../../../components';
+import {getMediaImage} from '../../../components/Media/Image/utils';
+import Media from '../../../components/Media/Media';
+import {getHeight} from '../../../components/VideoBlock/VideoBlock';
+import {ProjectSettingsContext} from '../../../context/projectSettingsContext';
+import {useTheme} from '../../../context/theme';
+import {Col, GridColumnOrderClasses, Row} from '../../../grid';
+import {ContentSize, TabsBlockItem} from '../../../models';
+import {block, getThemedValue} from '../../../utils';
+import {mergeVideoMicrodata} from '../../../utils/microdata';
+import TabsTextContent from '../TabsTextContent/TabsTextContent';
 
 import './TabContent.scss';
 

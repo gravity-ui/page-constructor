@@ -1,8 +1,8 @@
 import * as React from 'react';
 
+import {AriaProps, Roleable} from '../../models';
 import {ClassNameProps, Refable} from '../../models/common';
 import {GridAlignItems, GridJustifyContent} from '../types';
-import {AriaProps, Roleable} from '../../models';
 
 export interface RowProps extends ClassNameProps, Refable<HTMLDivElement>, Roleable, AriaProps {
     id?: string;

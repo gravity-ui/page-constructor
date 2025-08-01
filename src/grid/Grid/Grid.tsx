@@ -2,8 +2,8 @@ import * as React from 'react';
 
 import {block} from '../../utils';
 
-import '../styles/bootstrap.scss';
 import './Grid.scss';
+import '../styles/bootstrap.scss';
 
 const b = block('Grid');
 

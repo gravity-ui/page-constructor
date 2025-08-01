@@ -1,14 +1,17 @@
 import * as React from 'react';
 
+import {getUniqId} from '@gravity-ui/uikit';
+
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
 import ButtonTabs, {ButtonTabsItemProps} from '../../components/ButtonTabs/ButtonTabs';
 import Title from '../../components/Title/Title';
 import {Col, GridJustifyContent, Row} from '../../grid';
 import {TabsBlockProps} from '../../models';
 import {block} from '../../utils';
-import './Tabs.scss';
+
 import {TabContent} from './TabContent/TabContent';
-import {getUniqId} from '@gravity-ui/uikit';
+
+import './Tabs.scss';
 
 const b = block('tabs-block');
 

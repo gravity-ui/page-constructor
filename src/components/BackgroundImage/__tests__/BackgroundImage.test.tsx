@@ -4,8 +4,8 @@ import {testCustomClassName, testCustomStyle} from '../../../../test-utils/share
 import {testSourceProps} from '../../../../test-utils/shared/image';
 import {BackgroundImageProps, Device} from '../../../models';
 import {getQaAttrubutes} from '../../../utils';
-import BackgroundImage from '../BackgroundImage';
 import {EMPTY_IMG} from '../../Image/Image';
+import BackgroundImage from '../BackgroundImage';
 
 const qa = 'background-image-component';
 

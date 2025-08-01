@@ -9,6 +9,7 @@ import {FilterBlockProps, FilterItem} from '../../models';
 import {block, getBlockKey} from '../../utils';
 
 import {i18n} from './i18n';
+
 import './FilterBlock.scss';
 
 const b = block('filter-block');
