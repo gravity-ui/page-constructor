@@ -1,7 +1,9 @@
 import * as React from 'react';
+
 import throttle from 'lodash/throttle';
-import {SSRContext} from '../ssrContext';
+
 import {BREAKPOINTS} from '../../constants';
+import {SSRContext} from '../ssrContext';
 
 const DEFAULT_WIDTH = BREAKPOINTS.xl;
 const UPDATE_FREQUENCY_MS = 100;

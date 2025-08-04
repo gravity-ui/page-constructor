@@ -1,11 +1,13 @@
 import * as React from 'react';
+
+import {Link} from '@gravity-ui/uikit';
+
+import {yfmTransform} from '../../../../../../.storybook/utils';
+import {BlockBase, YFMWrapper} from '../../../../../components';
 import {BlockDecorator} from '../../../../../models';
 import {cn} from '../../../../../utils';
 
 import './CustomDecorator.scss';
-import {BlockBase, YFMWrapper} from '../../../../../components';
-import {Link} from '@gravity-ui/uikit';
-import {yfmTransform} from '../../../../../../.storybook/utils';
 
 const b = cn('custom-decorator');
 

@@ -1,13 +1,15 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import * as React from 'react';
+
 import {ArrowUturnCcwLeft} from '@gravity-ui/icons';
+import {Link} from '@gravity-ui/uikit';
+
+import {yfmTransform} from '../../../../../../.storybook/utils';
 import {CardBase, YFMWrapper} from '../../../../../components';
 import {cn} from '../../../../../utils';
 
 import './CustomCard.scss';
-import {Link} from '@gravity-ui/uikit';
-import {yfmTransform} from '../../../../../../.storybook/utils';
 
 const b = cn('custom-card');
 
