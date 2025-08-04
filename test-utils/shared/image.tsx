@@ -1,5 +1,6 @@
-import {render, screen} from '@testing-library/react';
 import * as React from 'react';
+
+import {render, screen} from '@testing-library/react';
 
 import {getQaAttrubutes} from '../../src';
 import {QAProps} from '../../src/models';

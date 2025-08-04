@@ -18,8 +18,8 @@ import {
 } from '../../context/projectSettingsContext';
 import {SSRContext, SSRContextProps} from '../../context/ssrContext';
 import {ThemeContext} from '../../context/theme';
-import {Theme} from '../../models';
 import {WindowWidthProvider} from '../../context/windowWidthContext';
+import {Theme} from '../../models';
 
 export interface PageConstructorProviderProps {
     isMobile?: boolean;
