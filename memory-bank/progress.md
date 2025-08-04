@@ -2,7 +2,7 @@
 
 ## Current Status
 
-The Page Constructor library is a mature and stable project that provides a comprehensive solution for building web pages using a component-based approach. It is currently at version 7.5.1-alpha.1 and follows semantic versioning for releases.
+The Page Constructor library is a mature and stable project that provides a comprehensive solution for building web pages using a component-based approach. It is currently at version 7.6.2 and follows semantic versioning for releases.
 
 ## What Works
 
