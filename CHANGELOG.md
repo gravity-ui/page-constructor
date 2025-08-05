@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.7.1](https://github.com/gravity-ui/page-constructor/compare/v7.7.0...v7.7.1) (2025-08-05)
+
+
+### Bug Fixes
+
+* add content colSizes option to background card ([#1247](https://github.com/gravity-ui/page-constructor/issues/1247)) ([c742284](https://github.com/gravity-ui/page-constructor/commit/c742284abfadec1fe0214fd8d65e80e829160b69))
+
 ## [7.7.0](https://github.com/gravity-ui/page-constructor/compare/v7.6.2...v7.7.0) (2025-08-05)
 
 
