@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.7.0](https://github.com/gravity-ui/page-constructor/compare/v7.6.2...v7.7.0) (2025-08-05)
+
+
+### Features
+
+* **Header:** add props for elements className ([#1238](https://github.com/gravity-ui/page-constructor/issues/1238)) ([aa3e9d3](https://github.com/gravity-ui/page-constructor/commit/aa3e9d3fd8f0eb904e285072e6488ccf4c8b5ad9))
+
 ## [7.6.2](https://github.com/gravity-ui/page-constructor/compare/v7.6.1...v7.6.2) (2025-07-18)
 
 
