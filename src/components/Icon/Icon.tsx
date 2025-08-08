@@ -1,7 +1,8 @@
-import {block} from '../../utils';
 import * as icons from '@gravity-ui/icons';
 import {Icon as UiKitIcon} from '@gravity-ui/uikit';
+
 import {GravityIconProps, ImageProps, QAProps} from '../../models';
+import {block} from '../../utils';
 import Image, {ImageProps as ImageComponentProps} from '../Image/Image';
 import {getMediaImage} from '../Media/Image/utils';
 
