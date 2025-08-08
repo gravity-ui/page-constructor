@@ -13,16 +13,17 @@ The Page Constructor library is currently focused on providing a comprehensive s
 
 Recent development has focused on:
 
-1. **Gravity Icons Integration** (Коммиты a72c3f3 и 8a8aa02):
+1. **Gravity Icons Integration** (Commits a72c3f3 and 8a8aa02):
 
-    - **Новый компонент Icon**: Создан универсальный компонент `src/components/Icon/Icon.tsx` для работы с иконками
-    - **Поддержка Gravity UI Icons**: Интеграция с библиотекой `@gravity-ui/icons` для использования готовых иконок
-    - **Новый тип GravityIconProps**: Добавлен тип для конфигурации gravity иконок с поддержкой цветов ('brand' | 'text-color')
-    - **Обновление BasicCard**: Добавлена поддержка `gravityIcon` пропа в BasicCard компоненте
-    - **Обновление ContentList**: Добавлена поддержка gravity иконок в списках контента
-    - **Обновление IconWrapper**: Расширена поддержка gravity иконок в IconWrapper компоненте
-    - **Schema валидация**: Добавлена валидация для GravityIconProps в схемах BasicCard и Content
-    - **Storybook примеры**: Добавлены новые истории для демонстрации gravity иконок
+   - **New Icon Component**: Created universal component `src/components/Icon/Icon.tsx` for working with icons
+   - **Gravity UI Icons Support**: Integration with `@gravity-ui/icons` library for using ready-made icons
+   - **New GravityIconProps Type**: Added type for gravity icons configuration with color support ('brand' | 'text-color')
+   - **BasicCard Update**: Added support for `gravityIcon` prop in BasicCard component
+   - **ContentList Update**: Added support for gravity icons in content lists
+   - **IconWrapper Update**: Extended support for gravity icons in IconWrapper component
+   - **Schema Validation**: Added validation for GravityIconProps in BasicCard and Content schemas
+   - **Storybook Examples**: Added new stories to demonstrate gravity icons
+
 2. **Button Component Enhancement**: Added support for icons through the `img` prop
 
    - Support for Gravity UI icons (React components)
