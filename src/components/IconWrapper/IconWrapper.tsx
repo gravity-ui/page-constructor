@@ -2,10 +2,9 @@ import * as React from 'react';
 
 import type {ClassNameProps, IconWrapperProps} from '../../models';
 import {block} from '../../utils';
-
-import './IconWrapper.scss';
 import Icon from '../Icon/Icon';
 
+import './IconWrapper.scss';
 const b = block('icon-wrapper');
 
 const IconWrapper = (props: React.PropsWithChildren<IconWrapperProps> & ClassNameProps) => {
