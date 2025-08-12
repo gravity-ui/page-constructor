@@ -1,4 +1,8 @@
-.config-row {
+@import '../../styles/variables.scss';
+
+$block: '.#{$ns}config-row';
+
+#{$block} {
     display: flex;
     align-items: center;
     gap: 8px;

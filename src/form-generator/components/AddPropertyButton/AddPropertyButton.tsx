@@ -1,11 +1,11 @@
 import * as React from 'react';
 import {Button, DropdownMenu} from '@gravity-ui/uikit';
-import block from 'bem-cn-lite';
 import {ConfigInput} from '../../../editor-v2';
+import {formGeneratorCn} from '../../utils/cn';
 
 import './AddPropertyButton.scss';
 
-const b = block('add-property-button');
+const b = formGeneratorCn('add-property-button');
 
 interface AddPropertyButtonProps {
     inputTypeMenuItems: Array<{action: () => void; text: string; type: string}>;

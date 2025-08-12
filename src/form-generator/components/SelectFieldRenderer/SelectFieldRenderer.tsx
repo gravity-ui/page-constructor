@@ -1,12 +1,12 @@
 import * as React from 'react';
 import {Button, DropdownMenu, Text, TextInput} from '@gravity-ui/uikit';
-import block from 'bem-cn-lite';
+import {formGeneratorCn} from '../../utils/cn';
 import {FormField} from '../../hooks/types';
 import {useFormContext} from '../../hooks/FormContext';
 
 import './SelectFieldRenderer.scss';
 
-const b = block('select-field-renderer');
+const b = formGeneratorCn('select-field-renderer');
 
 interface SelectFieldRendererProps {
     field: FormField;
