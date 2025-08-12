@@ -1,7 +1,7 @@
 import * as React from 'react';
 import block from 'bem-cn-lite';
 import {Button} from '@gravity-ui/uikit';
-import {ConfigInput} from '../../../../../../src/editor-v2';
+import {ConfigInput} from '../../../editor-v2';
 import {AddPropertyButton} from '../AddPropertyButton/AddPropertyButton';
 import {OptionHeader} from '../OptionHeader/OptionHeader';
 import {SectionHeader} from '../SectionHeader/SectionHeader';
@@ -32,7 +32,6 @@ export const OptionsRenderer: React.FC<OptionsRendererProps> = ({
 }) => {
     const {addOptionProperty, addOption, removeOption} = useFormContext();
 
-    // Отладочный вывод для проверки поля
     console.log('OptionsRenderer rendering field:', field);
     console.log('OptionsRenderer options:', field.options);
 

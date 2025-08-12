@@ -20,12 +20,10 @@ interface SelectFieldOption {
 export const SelectFieldRenderer: React.FC<SelectFieldRendererProps> = ({field}) => {
     const {updateField} = useFormContext();
 
-    // Проверяем, что поле имеет тип 'select'
     if (field.type !== 'select') {
         return null;
     }
 
-    // Безопасное приведение типа для доступа к специфичным полям
     const view = field.view as 'select' | 'radiobutton';
     const mode = field.mode as 'single' | 'multiple';
     const enumValues = (field.enum || []) as SelectFieldOption[];

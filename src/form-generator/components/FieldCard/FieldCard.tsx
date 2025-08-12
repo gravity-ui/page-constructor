@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {Card} from '@gravity-ui/uikit';
 import block from 'bem-cn-lite';
-import {ConfigInput} from '../../../../../../src/editor-v2';
+import {ConfigInput} from '../../../editor-v2';
 import {ConfigRow} from '../ConfigRow/ConfigRow';
 import {FieldHeader} from '../FieldHeader/FieldHeader';
 import {ArrayFieldRenderer} from '../ArrayFieldRenderer/ArrayFieldRenderer';
@@ -37,7 +37,6 @@ export const FieldCard: React.FC<FieldCardProps> = ({field, inputTypeMenuItems})
         updateOptionProperty,
     } = useFormContext();
 
-    // Render a nested field (for object properties and oneOf/anyOf options)
     const renderNestedField = (
         nestedField: ConfigInput,
         index: number,
@@ -89,7 +88,6 @@ export const FieldCard: React.FC<FieldCardProps> = ({field, inputTypeMenuItems})
         );
     };
 
-    // Render field-type specific content using switch/case
     const renderFieldTypeSpecificContent = (fieldConfig: ConfigInput, parentId: string) => {
         switch (fieldConfig.type) {
             case 'object':

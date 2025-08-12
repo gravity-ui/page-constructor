@@ -3,7 +3,7 @@ import DynamicForm from '../../DynamicForm';
 import FieldBase, {FieldBaseParams} from '../../FieldBase/FieldBase';
 
 interface ObjectDynamicFieldProps extends FieldBaseParams {
-    value: DynamicFormValue;
+    value: object;
     onUpdate: (key: string, value: DynamicFormValue) => void;
     blockConfig: Array<ConfigInput>;
     className?: string;
@@ -23,7 +23,7 @@ const ObjectDynamicField = ({
             onRefresh={(updatedValue) => onUpdate('', updatedValue)}
             expandable
         >
-            <DynamicForm contentConfig={value} blockConfig={blockConfig} onUpdate={onUpdate} />
+            <DynamicForm contentConfig={value} blockConfig={blockConfig} onUpdateByKey={onUpdate} />
         </FieldBase>
     );
 };
