@@ -1,7 +1,7 @@
 import * as React from 'react';
 import block from 'bem-cn-lite';
 import {Button} from '@gravity-ui/uikit';
-import {ConfigInput} from '../../../../../../src/editor-v2';
+import {ConfigInput} from '../../../editor-v2';
 import {AddPropertyButton} from '../AddPropertyButton/AddPropertyButton';
 import {OptionHeader} from '../OptionHeader/OptionHeader';
 import {SectionHeader} from '../SectionHeader/SectionHeader';
@@ -32,10 +32,6 @@ export const OptionsRenderer: React.FC<OptionsRendererProps> = ({
 }) => {
     const {addOptionProperty, addOption, removeOption} = useFormContext();
 
-    // Отладочный вывод для проверки поля
-    console.log('OptionsRenderer rendering field:', field);
-    console.log('OptionsRenderer options:', field.options);
-
     return (
         <div className={b('nested-fields')}>
             <div className={b('header')}>
@@ -44,7 +40,6 @@ export const OptionsRenderer: React.FC<OptionsRendererProps> = ({
                     view="normal"
                     size="s"
                     onClick={() => {
-                        console.log('Add Option button clicked for field ID:', field.id);
                         addOption(field.id);
                     }}
                     className={b('add-option-button')}
@@ -62,12 +57,6 @@ export const OptionsRenderer: React.FC<OptionsRendererProps> = ({
                                 view="normal"
                                 size="xs"
                                 onClick={() => {
-                                    console.log(
-                                        'Remove Option button clicked for field ID:',
-                                        field.id,
-                                        'optionIndex:',
-                                        optionIndex,
-                                    );
                                     removeOption(field.id, optionIndex);
                                 }}
                                 className={b('remove-option-button')}
@@ -87,19 +76,7 @@ export const OptionsRenderer: React.FC<OptionsRendererProps> = ({
                         <AddPropertyButton
                             inputTypeMenuItems={inputTypeMenuItems}
                             onAdd={(type) => {
-                                console.log('AddPropertyButton onAdd called with:', {
-                                    fieldId: field.id,
-                                    optionIndex,
-                                    isOneOf: field.type === 'oneOf',
-                                    type,
-                                    currentProperties: option.properties,
-                                });
-                                addOptionProperty(
-                                    field.id,
-                                    optionIndex,
-                                    field.type === 'oneOf',
-                                    type,
-                                );
+                                addOptionProperty(field.id, optionIndex, type);
                             }}
                         />
                     </div>

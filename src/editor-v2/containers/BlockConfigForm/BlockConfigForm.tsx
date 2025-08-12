@@ -59,7 +59,7 @@ const BlockConfigForm = ({className}: BlockConfigFormProps) => {
                 <DynamicForm
                     contentConfig={currentConfig}
                     blockConfig={currentSchema.schema.inputs}
-                    onUpdate={onUpdate}
+                    onUpdateByKey={onUpdate}
                 />
             </div>
         </div>

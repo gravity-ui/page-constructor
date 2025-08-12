@@ -69,6 +69,16 @@ export const FormBuilder: React.FC<FormBuilderProps> = ({className, formFields})
 
     return (
         <div className={b(null, className)}>
+            <div className={b('fields-list')}>
+                {formFields.map((field) => (
+                    <FieldCard
+                        key={field.id}
+                        field={field}
+                        inputTypeMenuItems={inputTypeMenuItems}
+                    />
+                ))}
+            </div>
+
             <div className={b('field')}>
                 <DropdownMenu
                     items={inputTypeMenuItems}
@@ -78,16 +88,6 @@ export const FormBuilder: React.FC<FormBuilderProps> = ({className, formFields})
                         </Button>
                     )}
                 />
-            </div>
-
-            <div className={b('fields-list')}>
-                {formFields.map((field) => (
-                    <FieldCard
-                        key={field.id}
-                        field={field}
-                        inputTypeMenuItems={inputTypeMenuItems}
-                    />
-                ))}
             </div>
         </div>
     );

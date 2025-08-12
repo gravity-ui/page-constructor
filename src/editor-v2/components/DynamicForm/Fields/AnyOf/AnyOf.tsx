@@ -81,7 +81,7 @@ const AnyOfDynamicField = ({
                     <DynamicForm
                         blockConfig={anyOfChosenOption.properties}
                         contentConfig={anyOfContentConfig}
-                        onUpdate={onUpdate}
+                        onUpdateByKey={onUpdate}
                     />
                 )}
             </Card>

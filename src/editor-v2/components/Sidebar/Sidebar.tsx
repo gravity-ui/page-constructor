@@ -1,14 +1,14 @@
 import * as React from 'react';
 
 import {editorCn} from '../../utils/cn';
-import Tabs, {TabsItemProps} from '../Tabs/Tabs';
+import Tabs, {TabItemProps} from '../Tabs/Tabs';
 
 import './Sidebar.scss';
 
 const b = editorCn('sidebar');
 
 interface SidebarProps {
-    tabs: TabsItemProps[];
+    tabs: TabItemProps[];
     defaultTab?: string;
     top?: React.ElementType[];
     className?: string;
