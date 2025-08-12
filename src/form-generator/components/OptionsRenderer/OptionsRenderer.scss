@@ -1,4 +1,8 @@
-.options-renderer {
+@import '../../styles/variables.scss';
+
+$block: '.#{$ns}options-renderer';
+
+#{$block} {
     &__header {
         display: flex;
         justify-content: space-between;
