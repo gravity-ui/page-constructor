@@ -82,6 +82,7 @@ export const FieldCard: React.FC<FieldCardProps> = ({field, inputTypeMenuItems})
                         onUpdate={(value) => handleUpdate({title: value})}
                     />
 
+                    {/* eslint-disable-next-line @typescript-eslint/no-use-before-define */}
                     {renderFieldTypeSpecificContent(nestedField, parentId)}
                 </div>
             </div>
