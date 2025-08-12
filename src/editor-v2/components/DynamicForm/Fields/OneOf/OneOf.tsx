@@ -80,7 +80,7 @@ const OneOfDynamicField = ({
                 <DynamicForm
                     blockConfig={oneOfChosenOption.properties}
                     contentConfig={oneOfContentConfig}
-                    onUpdate={onUpdate}
+                    onUpdateByKey={onUpdate}
                 />
             )}
         </FieldBase>

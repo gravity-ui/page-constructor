@@ -96,9 +96,9 @@ const ArrayDynamicField = ({title, values, onUpdate, className, blockConfig}: Ar
                                 {arrayItemButton}
                             </div>
                             <DynamicForm
-                                contentConfig={value}
+                                contentConfig={value as object}
                                 blockConfig={blockConfig.properties}
-                                onUpdate={(key, updateValue) =>
+                                onUpdateByKey={(key, updateValue) =>
                                     onUpdate(`[${index}].${key}`, updateValue)
                                 }
                             />

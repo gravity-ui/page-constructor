@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {Button, DropdownMenu, Text} from '@gravity-ui/uikit';
 import block from 'bem-cn-lite';
-import {ArrayObjectInput, ConfigInput} from '../../../../../../src/editor-v2';
+import {ArrayObjectInput, ConfigInput} from '../../../editor-v2';
 import {ConfigRow} from '../ConfigRow/ConfigRow';
 import {AddPropertyButton} from '../AddPropertyButton/AddPropertyButton';
 import {SectionHeader} from '../SectionHeader/SectionHeader';
