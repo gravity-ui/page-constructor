@@ -30,7 +30,7 @@ const MiddleScreen = ({className, CustomTop}: MiddleScreenProps) => {
             width: isPreviewMode ? '100%' : `${(100 / zoom) * 100}%`,
             maxWidth: isPreviewMode ? '100%' : `${(100 / zoom) * 100}%`,
         }),
-        [isPreviewMode, zoom, deviceWidth],
+        [isPreviewMode, zoom],
     );
 
     const onResize = React.useCallback(
