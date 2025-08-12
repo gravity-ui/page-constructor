@@ -1,6 +1,6 @@
 import * as React from 'react';
 import block from 'bem-cn-lite';
-import {ConfigInput} from '../../../../../../src/editor-v2';
+import {ConfigInput} from '../../../editor-v2';
 import {AddPropertyButton} from '../AddPropertyButton/AddPropertyButton';
 import {SectionHeader} from '../SectionHeader/SectionHeader';
 import {useFormContext} from '../../hooks/FormContext';

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {Button, DropdownMenu} from '@gravity-ui/uikit';
 import block from 'bem-cn-lite';
-import {ConfigInput} from '../../../../../../src/editor-v2';
+import {ConfigInput} from '../../../editor-v2';
 
 import './AddPropertyButton.scss';
 

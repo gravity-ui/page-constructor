@@ -1,19 +1,19 @@
+import * as React from 'react';
 import {Button, Text, ThemeProvider} from '@gravity-ui/uikit';
 import block from 'bem-cn-lite';
 import {Panel, PanelGroup, PanelResizeHandle} from 'react-resizable-panels';
 import {useNavigate} from 'react-router';
 import DynamicForm from '../../../../src/editor-v2/components/DynamicForm/DynamicForm';
-import {FormBuilder} from './components/FormBuilder/FormBuilder';
 import {FormOutput} from './components/FormOutput/FormOutput';
-import {FormProvider, useFormContext} from './hooks/FormContext';
+import {FormBuilder, FormProvider, useFormContext} from '../../../../src/form-generator';
 
 import './form.scss';
 
 const b = block('form');
 
-// Компонент содержимого формы, использующий контекст
 const FormContent = () => {
-    const {formFields, contentConfig, handleFormUpdate, resetForm} = useFormContext();
+    const {formFields, resetForm} = useFormContext();
+    const [contentConfig, setContentConfig] = React.useState({});
 
     const navigate = useNavigate();
 
@@ -72,7 +72,7 @@ const FormContent = () => {
                                 <DynamicForm
                                     contentConfig={contentConfig}
                                     blockConfig={formFields}
-                                    onUpdate={handleFormUpdate}
+                                    onUpdate={setContentConfig}
                                 />
                             </div>
                         </Panel>

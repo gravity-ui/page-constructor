@@ -1,101 +1,24 @@
 import * as React from 'react';
-import {set} from 'lodash';
-import {AnyOfInput, ConfigInput, ObjectInput, OneOfInput} from '../../../../../src/editor-v2';
-import {ContentConfig, FormArrayField, FormField} from './types';
-
-// Key for storing form data in localStorage
-const FORM_STORAGE_KEY = 'formBuilder_fields';
-const FORM_ID_COUNTER_KEY = 'formBuilder_nextId';
+import {AnyOfInput, ConfigInput, ObjectInput, OneOfInput} from '../../editor-v2';
+import {FormArrayField, FormField} from './types';
 
 export const useFormFields = () => {
-    // Initialize state from localStorage if available
-    const [formFields, setFormFields] = React.useState<FormField[]>(() => {
-        try {
-            const savedFields = localStorage.getItem(FORM_STORAGE_KEY);
-            return savedFields ? JSON.parse(savedFields) : [];
-        } catch (error) {
-            console.error('Error loading form fields from localStorage:', error);
-            return [];
-        }
-    });
+    const [formFields, setFormFields] = React.useState<FormField[]>([]);
 
-    // Отслеживаем изменения formFields
-    React.useEffect(() => {
-        console.log('formFields updated:', formFields);
-    }, [formFields]);
+    const [nextId, setNextId] = React.useState<number>(1);
 
-    const [nextId, setNextId] = React.useState<number>(() => {
-        try {
-            const savedNextId = localStorage.getItem(FORM_ID_COUNTER_KEY);
-            return savedNextId ? parseInt(savedNextId, 10) : 1;
-        } catch (error) {
-            console.error('Error loading next ID from localStorage:', error);
-            return 1;
-        }
-    });
-
-    const [contentConfig, setContentConfig] = React.useState<ContentConfig>({});
-
-    // Save form fields to localStorage whenever they change
-    React.useEffect(() => {
-        try {
-            localStorage.setItem(FORM_STORAGE_KEY, JSON.stringify(formFields));
-        } catch (error) {
-            console.error('Error saving form fields to localStorage:', error);
-        }
-    }, [formFields]);
-
-    // Save next ID to localStorage whenever it changes
-    React.useEffect(() => {
-        try {
-            localStorage.setItem(FORM_ID_COUNTER_KEY, nextId.toString());
-        } catch (error) {
-            console.error('Error saving next ID to localStorage:', error);
-        }
-    }, [nextId]);
-
-    // Helper function to set nested object properties using dot notation
-    /**
-     * Sets a value at a nested path within an object using dot notation.
-     * Uses lodash's set method for reliable deep property setting.
-     *
-     * @param obj - The source object to modify
-     * @param path - Dot-separated path to the target property
-     * @param value - The value to set at the specified path
-     * @returns The modified object
-     */
-    const setNestedProperty = <T extends Record<string, unknown>>(
-        obj: T,
-        path: string,
-        value: unknown,
-    ): T => {
-        return set({...obj}, path, value);
-    };
-
-    const handleFormUpdate = (key: string, value: unknown) => {
-        setContentConfig((prev) => {
-            const newConfig = JSON.parse(JSON.stringify(prev)); // Deep clone
-            return setNestedProperty(newConfig, key, value);
-        });
-    };
-
-    // Generate a unique ID for new fields
     const generateId = () => {
         const id = `field_id_${nextId}`;
         setNextId((prev) => prev + 1);
         return id;
     };
 
-    // Generate a unique name for new fields
     const generateName = () => {
         const name = `field_${nextId}`;
         return name;
     };
 
-    // Create a new field configuration based on type
     const createField = (type: ConfigInput['type'], name = ''): FormField => {
-        console.log('createField called with:', {type, name});
-
         const fieldName = name || generateName();
         const fieldId = generateId();
         let newField: FormField;
@@ -245,23 +168,19 @@ export const useFormFields = () => {
                 return createField('text', fieldName);
         }
 
-        console.log('Created new field:', newField);
         return newField;
     };
 
-    // Helper function to update a field by ID in a nested structure
     const updateFieldById = (
         fields: FormField[],
         fieldId: string,
         updates: Partial<ConfigInput>,
     ): FormField[] => {
         return fields.map((field) => {
-            // If this is the field we're looking for, update it
             if (field.id === fieldId) {
                 return {...field, ...updates} as FormField;
             }
 
-            // Check if this field has properties (for object type)
             if (field.type === 'object' && (field as ObjectInput).properties) {
                 const objectField = field as ObjectInput;
                 return {
@@ -274,7 +193,6 @@ export const useFormFields = () => {
                 } as FormField;
             }
 
-            // Check if this field has options (for oneOf/anyOf types)
             if (
                 (field.type === 'oneOf' || field.type === 'anyOf') &&
                 (field as OneOfInput | AnyOfInput).options
@@ -293,7 +211,6 @@ export const useFormFields = () => {
                 } as FormField;
             }
 
-            // Check if this field has array items with properties
             if (field.type === 'array' && field.arrayType === 'object') {
                 const arrayField = field as FormArrayField;
                 return {
@@ -310,30 +227,25 @@ export const useFormFields = () => {
         });
     };
 
-    // Add a top-level field
     const addField = (type: ConfigInput['type']) => {
         const newField = createField(type);
         setFormFields((prev) => [...prev, newField] as FormField[]);
     };
 
-    // Remove a field
     const removeField = (fieldId: string) => {
         setFormFields((prev) => prev.filter((field) => field.id !== fieldId) as FormField[]);
     };
 
-    // Update a field - now using the field's ID for stability and supporting nested fields
     const updateField = (fieldId: string, updates: Partial<ConfigInput>) => {
         setFormFields((prev) => updateFieldById(prev, fieldId, updates));
     };
 
-    // Helper function to add a property to an object field by ID
     const addPropertyToObjectById = (
         fields: FormField[],
         objectId: string,
         type: ConfigInput['type'] = 'text',
     ): FormField[] => {
         return fields.map((field) => {
-            // If this is the object field we're looking for, add the property to it
             if (field.id === objectId && field.type === 'object') {
                 const objectField = field as ObjectInput;
                 const propertyName = `property${(objectField.properties?.length || 0) + 1}`;
@@ -345,7 +257,6 @@ export const useFormFields = () => {
                 } as FormField;
             }
 
-            // Check if this field has properties (for object type)
             if (field.type === 'object' && (field as ObjectInput).properties) {
                 const objectField = field as ObjectInput;
                 return {
@@ -358,7 +269,6 @@ export const useFormFields = () => {
                 } as FormField;
             }
 
-            // Check if this field has options (for oneOf/anyOf types)
             if (
                 (field.type === 'oneOf' || field.type === 'anyOf') &&
                 (field as OneOfInput | AnyOfInput).options
@@ -377,11 +287,9 @@ export const useFormFields = () => {
                 } as FormField;
             }
 
-            // Check if this field has array items with properties
             if (field.type === 'array' && field.arrayType === 'object') {
                 const arrayField = field as FormArrayField;
 
-                // If this is the array field we're looking for, add the property to it
                 if (field.id === objectId) {
                     const propertyName = `property${(arrayField.properties?.length || 0) + 1}`;
                     const newProperty = createField(type, propertyName);
@@ -392,7 +300,6 @@ export const useFormFields = () => {
                     } as FormField;
                 }
 
-                // Otherwise, recursively search through existing properties if they exist
                 if (arrayField.properties && arrayField.properties.length > 0) {
                     return {
                         ...field,
@@ -405,28 +312,21 @@ export const useFormFields = () => {
         });
     };
 
-    // Add a field to an object's properties - now using the object's ID
     const addObjectProperty = (objectId: string, type: ConfigInput['type'] = 'text') => {
         setFormFields((prev) => addPropertyToObjectById(prev, objectId, type));
     };
 
-    // Add a field to a oneOf/anyOf option's properties
     const addOptionProperty = (
         fieldId: string,
         optionIndex: number,
-        isOneOf: boolean,
         type: ConfigInput['type'] = 'text',
     ) => {
-        console.log('addOptionProperty called with:', {fieldId, optionIndex, isOneOf, type});
-
-        // Функция для рекурсивного поиска и обновления поля
         const addPropertyToOptionRecursive = (
             fields: FormField[],
             targetFieldId: string,
             targetOptionIndex: number,
         ): FormField[] => {
             return fields.map((field) => {
-                // Если это искомое поле, добавляем свойство к указанной опции
                 if (
                     field.id === targetFieldId &&
                     (field.type === 'oneOf' || field.type === 'anyOf')
@@ -441,18 +341,15 @@ export const useFormFields = () => {
                         targetOptionIndex < options.length &&
                         options[targetOptionIndex].properties
                     ) {
-                        // Создаем новое свойство
                         const propertyName = `property${options[targetOptionIndex].properties.length + 1}`;
                         const newProperty = createField(type, propertyName);
 
-                        // Добавляем свойство в опцию
                         options[targetOptionIndex].properties.push(newProperty);
                     }
 
                     return updatedField;
                 }
 
-                // Проверяем вложенные объекты
                 if (field.type === 'object' && (field as ObjectInput).properties) {
                     const objectField = field as ObjectInput;
                     return {
@@ -465,7 +362,6 @@ export const useFormFields = () => {
                     } as FormField;
                 }
 
-                // Проверяем вложенные oneOf/anyOf
                 if (
                     (field.type === 'oneOf' || field.type === 'anyOf') &&
                     (field as OneOfInput | AnyOfInput).options
@@ -484,7 +380,6 @@ export const useFormFields = () => {
                     } as FormField;
                 }
 
-                // Проверяем массивы с объектными свойствами
                 if (
                     field.type === 'array' &&
                     field.arrayType === 'object' &&
@@ -505,20 +400,17 @@ export const useFormFields = () => {
             });
         };
 
-        // Применяем рекурсивную функцию ко всем полям формы
         setFormFields((prev) => addPropertyToOptionRecursive(prev, fieldId, optionIndex));
     };
 
-    // Remove a property from an object
     const removeObjectProperty = (fieldId: string, propertyIndex: number) => {
         setFormFields((prev) => {
             return prev.map((field) => {
                 if (field.id !== fieldId) return field;
 
-                const updatedField = JSON.parse(JSON.stringify(field)); // Deep clone
+                const updatedField = JSON.parse(JSON.stringify(field));
                 const objectInput = updatedField as ObjectInput;
 
-                // Remove the property at the specified index
                 objectInput.properties.splice(propertyIndex, 1);
 
                 return updatedField;
@@ -526,9 +418,7 @@ export const useFormFields = () => {
         });
     };
 
-    // Remove a property from a oneOf/anyOf option
     const removeOptionProperty = (fieldId: string, optionIndex: number, propertyIndex: number) => {
-        // Функция для рекурсивного поиска и удаления свойства
         const removePropertyFromOptionRecursive = (
             fields: FormField[],
             targetFieldId: string,
@@ -536,7 +426,6 @@ export const useFormFields = () => {
             targetPropertyIndex: number,
         ): FormField[] => {
             return fields.map((field) => {
-                // Если это искомое поле, удаляем свойство из указанной опции
                 if (
                     field.id === targetFieldId &&
                     (field.type === 'oneOf' || field.type === 'anyOf')
@@ -553,14 +442,12 @@ export const useFormFields = () => {
                         targetPropertyIndex >= 0 &&
                         targetPropertyIndex < options[targetOptionIndex].properties.length
                     ) {
-                        // Удаляем свойство из опции
                         options[targetOptionIndex].properties.splice(targetPropertyIndex, 1);
                     }
 
                     return updatedField;
                 }
 
-                // Проверяем вложенные объекты
                 if (field.type === 'object' && (field as ObjectInput).properties) {
                     const objectField = field as ObjectInput;
                     return {
@@ -574,7 +461,6 @@ export const useFormFields = () => {
                     } as FormField;
                 }
 
-                // Проверяем вложенные oneOf/anyOf
                 if (
                     (field.type === 'oneOf' || field.type === 'anyOf') &&
                     (field as OneOfInput | AnyOfInput).options
@@ -594,7 +480,6 @@ export const useFormFields = () => {
                     } as FormField;
                 }
 
-                // Проверяем массивы с объектными свойствами
                 if (
                     field.type === 'array' &&
                     field.arrayType === 'object' &&
@@ -616,13 +501,11 @@ export const useFormFields = () => {
             });
         };
 
-        // Применяем рекурсивную функцию ко всем полям формы
         setFormFields((prev) =>
             removePropertyFromOptionRecursive(prev, fieldId, optionIndex, propertyIndex),
         );
     };
 
-    // Update a property in an object
     const updateObjectProperty = (
         fieldId: string,
         propertyIndex: number,
@@ -632,10 +515,9 @@ export const useFormFields = () => {
             return prev.map((field) => {
                 if (field.id !== fieldId) return field;
 
-                const updatedField = JSON.parse(JSON.stringify(field)); // Deep clone
+                const updatedField = JSON.parse(JSON.stringify(field));
                 const objectInput = updatedField as ObjectInput;
 
-                // Update the property at the specified index
                 objectInput.properties[propertyIndex] = {
                     ...objectInput.properties[propertyIndex],
                     ...updates,
@@ -646,14 +528,12 @@ export const useFormFields = () => {
         });
     };
 
-    // Update a property in a oneOf/anyOf option
     const updateOptionProperty = (
         fieldId: string,
         optionIndex: number,
         propertyIndex: number,
         updates: Partial<ConfigInput>,
     ) => {
-        // Функция для рекурсивного поиска и обновления свойства
         const updatePropertyInOptionRecursive = (
             fields: FormField[],
             targetFieldId: string,
@@ -662,7 +542,6 @@ export const useFormFields = () => {
             propertyUpdates: Partial<ConfigInput>,
         ): FormField[] => {
             return fields.map((field) => {
-                // Если это искомое поле, обновляем свойство в указанной опции
                 if (
                     field.id === targetFieldId &&
                     (field.type === 'oneOf' || field.type === 'anyOf')
@@ -679,7 +558,6 @@ export const useFormFields = () => {
                         targetPropertyIndex >= 0 &&
                         targetPropertyIndex < options[targetOptionIndex].properties.length
                     ) {
-                        // Обновляем свойство в опции
                         options[targetOptionIndex].properties[targetPropertyIndex] = {
                             ...options[targetOptionIndex].properties[targetPropertyIndex],
                             ...propertyUpdates,
@@ -689,7 +567,6 @@ export const useFormFields = () => {
                     return updatedField;
                 }
 
-                // Проверяем вложенные объекты
                 if (field.type === 'object' && (field as ObjectInput).properties) {
                     const objectField = field as ObjectInput;
                     return {
@@ -704,7 +581,6 @@ export const useFormFields = () => {
                     } as FormField;
                 }
 
-                // Проверяем вложенные oneOf/anyOf
                 if (
                     (field.type === 'oneOf' || field.type === 'anyOf') &&
                     (field as OneOfInput | AnyOfInput).options
@@ -725,7 +601,6 @@ export const useFormFields = () => {
                     } as FormField;
                 }
 
-                // Проверяем массивы с объектными свойствами
                 if (
                     field.type === 'array' &&
                     field.arrayType === 'object' &&
@@ -748,20 +623,14 @@ export const useFormFields = () => {
             });
         };
 
-        // Применяем рекурсивную функцию ко всем полям формы
         setFormFields((prev) =>
             updatePropertyInOptionRecursive(prev, fieldId, optionIndex, propertyIndex, updates),
         );
     };
 
-    // Add a new option to a oneOf/anyOf field
     const addOption = (fieldId: string) => {
-        console.log('addOption called with fieldId:', fieldId);
-
-        // Функция для рекурсивного поиска и добавления опции
         const addOptionRecursive = (fields: FormField[], targetFieldId: string): FormField[] => {
             return fields.map((field) => {
-                // Если это искомое поле, добавляем новую опцию
                 if (
                     field.id === targetFieldId &&
                     (field.type === 'oneOf' || field.type === 'anyOf')
@@ -770,8 +639,7 @@ export const useFormFields = () => {
                     const options = updatedField.options;
 
                     if (options && Array.isArray(options)) {
-                        // Создаем новую опцию с дефолтным свойством
-                        const optionLetter = String.fromCharCode(65 + options.length); // A, B, C, etc.
+                        const optionLetter = String.fromCharCode(65 + options.length);
                         const newOption = {
                             title: `Option ${optionLetter}`,
                             value: `option${optionLetter.toLowerCase()}`,
@@ -785,14 +653,12 @@ export const useFormFields = () => {
                             ],
                         };
 
-                        // Добавляем новую опцию
                         options.push(newOption);
                     }
 
                     return updatedField;
                 }
 
-                // Проверяем вложенные объекты
                 if (field.type === 'object' && (field as ObjectInput).properties) {
                     const objectField = field as ObjectInput;
                     return {
@@ -804,7 +670,6 @@ export const useFormFields = () => {
                     } as FormField;
                 }
 
-                // Проверяем вложенные oneOf/anyOf
                 if (
                     (field.type === 'oneOf' || field.type === 'anyOf') &&
                     (field as OneOfInput | AnyOfInput).options
@@ -822,7 +687,6 @@ export const useFormFields = () => {
                     } as FormField;
                 }
 
-                // Проверяем массивы с объектными свойствами
                 if (
                     field.type === 'array' &&
                     field.arrayType === 'object' &&
@@ -842,22 +706,16 @@ export const useFormFields = () => {
             });
         };
 
-        // Применяем рекурсивную функцию ко всем полям формы
         setFormFields((prev) => addOptionRecursive(prev, fieldId));
     };
 
-    // Remove an option from a oneOf/anyOf field
     const removeOption = (fieldId: string, optionIndex: number) => {
-        console.log('removeOption called with:', {fieldId, optionIndex});
-
-        // Функция для рекурсивного поиска и удаления опции
         const removeOptionRecursive = (
             fields: FormField[],
             targetFieldId: string,
             targetOptionIndex: number,
         ): FormField[] => {
             return fields.map((field) => {
-                // Если это искомое поле, удаляем опцию
                 if (
                     field.id === targetFieldId &&
                     (field.type === 'oneOf' || field.type === 'anyOf')
@@ -871,9 +729,7 @@ export const useFormFields = () => {
                         targetOptionIndex >= 0 &&
                         targetOptionIndex < options.length
                     ) {
-                        // Проверяем, что можно удалить опцию (должна остаться хотя бы одна)
                         if (options.length > 1) {
-                            // Удаляем опцию по индексу
                             options.splice(targetOptionIndex, 1);
                         }
                     }
@@ -881,7 +737,6 @@ export const useFormFields = () => {
                     return updatedField;
                 }
 
-                // Проверяем вложенные объекты
                 if (field.type === 'object' && (field as ObjectInput).properties) {
                     const objectField = field as ObjectInput;
                     return {
@@ -894,7 +749,6 @@ export const useFormFields = () => {
                     } as FormField;
                 }
 
-                // Проверяем вложенные oneOf/anyOf
                 if (
                     (field.type === 'oneOf' || field.type === 'anyOf') &&
                     (field as OneOfInput | AnyOfInput).options
@@ -913,7 +767,6 @@ export const useFormFields = () => {
                     } as FormField;
                 }
 
-                // Проверяем массивы с объектными свойствами
                 if (
                     field.type === 'array' &&
                     field.arrayType === 'object' &&
@@ -934,20 +787,15 @@ export const useFormFields = () => {
             });
         };
 
-        // Применяем рекурсивную функцию ко всем полям формы
         setFormFields((prev) => removeOptionRecursive(prev, fieldId, optionIndex));
     };
 
-    // Reset the form
     const resetForm = () => {
         setFormFields([]);
-        setContentConfig({});
     };
 
     return {
         formFields,
-        contentConfig,
-        handleFormUpdate,
         createField,
         addField,
         removeField,

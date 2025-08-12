@@ -13,7 +13,6 @@ interface ConfigRowProps {
 }
 
 const ConfigRowComponent: React.FC<ConfigRowProps> = ({label, value, onUpdate}) => {
-    // Memoize the onUpdate callback to prevent unnecessary rerenders
     const handleUpdate = React.useCallback(
         (newValue: string) => {
             onUpdate(newValue);
@@ -29,5 +28,4 @@ const ConfigRowComponent: React.FC<ConfigRowProps> = ({label, value, onUpdate}) 
     );
 };
 
-// Use React.memo to prevent unnecessary rerenders
 export const ConfigRow = React.memo(ConfigRowComponent);

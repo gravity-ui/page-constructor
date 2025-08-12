@@ -4,7 +4,6 @@ import * as React from 'react';
 import {ConfigInput, DynamicFormValue} from '../../../common/types';
 import {editorCn} from '../../utils/cn';
 
-import './DynamicForm.scss';
 import ArrayDynamicField from './Fields/Array/Array';
 import BooleanDynamicField from './Fields/Boolean/Boolean';
 import NumberDynamicField from './Fields/Number/Number';
@@ -16,17 +15,34 @@ import TextDynamicField from './Fields/Text/Text';
 import TextAreaDynamicField from './Fields/TextArea/TextArea';
 import {getContent, getFullPath} from './utils';
 
+import './DynamicForm.scss';
+
 const b = editorCn('dynamic-form');
 
 interface DynamicFormProps {
     blockConfig: Array<ConfigInput>;
-    contentConfig?: DynamicFormValue;
-    onUpdate: (key: string, value: DynamicFormValue) => void;
+    contentConfig?: object;
+    onUpdateByKey?: (key: string, value: DynamicFormValue) => void;
+    onUpdate?: (value: object) => void;
     className?: string;
 }
 
-const DynamicForm = ({blockConfig, onUpdate, contentConfig}: DynamicFormProps) => {
+const DynamicForm = ({blockConfig, onUpdateByKey, onUpdate, contentConfig}: DynamicFormProps) => {
     const inputs = blockConfig;
+
+    const onDataUpdate = React.useCallback(
+        (key: string, value: DynamicFormValue) => {
+            if (onUpdateByKey) {
+                onUpdateByKey(key, value);
+            }
+            if (onUpdate && contentConfig) {
+                const newContentConfig = _.cloneDeep(contentConfig);
+                _.set(newContentConfig, key, value);
+                onUpdate(newContentConfig);
+            }
+        },
+        [onUpdateByKey, onUpdate, contentConfig],
+    );
 
     const getData = React.useCallback(
         (variable: string) => {
@@ -87,19 +103,19 @@ const DynamicForm = ({blockConfig, onUpdate, contentConfig}: DynamicFormProps) =
 
             // Text, Select, Boolean and etc
             const onSimpleDynamicFieldUpdate = (value: DynamicFormValue) => {
-                onUpdate(fieldPath, value);
+                onDataUpdate(fieldPath, value);
             };
 
             // Array and Objects
             const onComplexDynamicFieldUpdate = (key: string, value: DynamicFormValue) => {
-                onUpdate(getFullPath(fieldPath, key), value);
+                onDataUpdate(getFullPath(fieldPath, key), value);
             };
 
             switch (input.type) {
                 case 'text': {
                     return (
                         <TextDynamicField
-                            onRefresh={(value) => onUpdate(fieldPath, value)}
+                            onRefresh={(value) => onDataUpdate(fieldPath, value)}
                             title={input.title}
                             value={fieldValue}
                             onUpdate={onSimpleDynamicFieldUpdate}
@@ -109,7 +125,7 @@ const DynamicForm = ({blockConfig, onUpdate, contentConfig}: DynamicFormProps) =
                 case 'boolean': {
                     return (
                         <BooleanDynamicField
-                            onRefresh={(value) => onUpdate(fieldPath, value)}
+                            onRefresh={(value) => onDataUpdate(fieldPath, value)}
                             title={input.title}
                             value={fieldValue}
                             onUpdate={onSimpleDynamicFieldUpdate}
@@ -119,7 +135,7 @@ const DynamicForm = ({blockConfig, onUpdate, contentConfig}: DynamicFormProps) =
                 case 'textarea': {
                     return (
                         <TextAreaDynamicField
-                            onRefresh={(value) => onUpdate(fieldPath, value)}
+                            onRefresh={(value) => onDataUpdate(fieldPath, value)}
                             title={input.title}
                             value={fieldValue}
                             onUpdate={onSimpleDynamicFieldUpdate}
@@ -129,7 +145,7 @@ const DynamicForm = ({blockConfig, onUpdate, contentConfig}: DynamicFormProps) =
                 case 'select': {
                     return (
                         <SelectDynamicField
-                            onRefresh={(value) => onUpdate(fieldPath, value)}
+                            onRefresh={(value) => onDataUpdate(fieldPath, value)}
                             input={input}
                             value={fieldValue}
                             onUpdate={onSimpleDynamicFieldUpdate}
@@ -139,7 +155,7 @@ const DynamicForm = ({blockConfig, onUpdate, contentConfig}: DynamicFormProps) =
                 case 'number': {
                     return (
                         <NumberDynamicField
-                            onRefresh={(value) => onUpdate(fieldPath, value)}
+                            onRefresh={(value) => onDataUpdate(fieldPath, value)}
                             title={input.title}
                             value={fieldValue}
                             onUpdate={onSimpleDynamicFieldUpdate}
@@ -153,7 +169,7 @@ const DynamicForm = ({blockConfig, onUpdate, contentConfig}: DynamicFormProps) =
 
                     return (
                         <ObjectDynamicField
-                            onRefresh={(value) => onUpdate(fieldPath, value)}
+                            onRefresh={(value) => onDataUpdate(fieldPath, value)}
                             blockConfig={input.properties}
                             title={input.title}
                             value={fieldValue}
@@ -202,7 +218,7 @@ const DynamicForm = ({blockConfig, onUpdate, contentConfig}: DynamicFormProps) =
                 }
             }
         },
-        [contentConfig, decide, onUpdate],
+        [contentConfig, decide, onDataUpdate],
     );
 
     const sortedInputs = inputs.sort((x, y) => {

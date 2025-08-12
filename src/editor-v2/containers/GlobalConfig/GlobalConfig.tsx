@@ -24,7 +24,7 @@ const GlobalConfig = ({className}: GlobalConfigProps) => {
             <DynamicForm
                 contentConfig={content.navigation}
                 blockConfig={global}
-                onUpdate={onUpdate}
+                onUpdateByKey={onUpdate}
             />
         </div>
     );
