@@ -1,4 +1,8 @@
-.field-card {
+@import '../../styles/variables.scss';
+
+$block: '.#{$ns}field-card';
+
+#{$block} {
     padding: 16px;
 
     &__config {

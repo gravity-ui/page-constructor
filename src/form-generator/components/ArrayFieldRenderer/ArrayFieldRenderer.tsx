@@ -1,16 +1,16 @@
 import * as React from 'react';
 import {Button, DropdownMenu, Text} from '@gravity-ui/uikit';
-import block from 'bem-cn-lite';
 import {ArrayObjectInput, ConfigInput} from '../../../editor-v2';
 import {ConfigRow} from '../ConfigRow/ConfigRow';
 import {AddPropertyButton} from '../AddPropertyButton/AddPropertyButton';
 import {SectionHeader} from '../SectionHeader/SectionHeader';
 import {useFormContext} from '../../hooks/FormContext';
 import {FormArrayField, InputTypeMenuItem} from '../../hooks/types';
+import {formGeneratorCn} from '../../utils/cn';
 
 import './ArrayFieldRenderer.scss';
 
-const b = block('array-field-renderer');
+const b = formGeneratorCn('array-field-renderer');
 
 interface ArrayFieldRendererProps {
     field: FormArrayField;

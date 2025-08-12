@@ -1,10 +1,10 @@
 import * as React from 'react';
 import {Text, TextInput} from '@gravity-ui/uikit';
-import block from 'bem-cn-lite';
+import {formGeneratorCn} from '../../utils/cn';
 
 import './ConfigRow.scss';
 
-const b = block('config-row');
+const b = formGeneratorCn('config-row');
 
 interface ConfigRowProps {
     label: string;

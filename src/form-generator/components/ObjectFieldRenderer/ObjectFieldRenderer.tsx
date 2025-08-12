@@ -1,5 +1,5 @@
 import * as React from 'react';
-import block from 'bem-cn-lite';
+import {formGeneratorCn} from '../../utils/cn';
 import {ConfigInput} from '../../../editor-v2';
 import {AddPropertyButton} from '../AddPropertyButton/AddPropertyButton';
 import {SectionHeader} from '../SectionHeader/SectionHeader';
@@ -8,7 +8,7 @@ import {FormObjectField, InputTypeMenuItem} from '../../hooks/types';
 
 import './ObjectFieldRenderer.scss';
 
-const b = block('object-field-renderer');
+const b = formGeneratorCn('object-field-renderer');
 
 interface ObjectFieldRendererProps {
     field: FormObjectField;

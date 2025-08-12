@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {Card} from '@gravity-ui/uikit';
-import block from 'bem-cn-lite';
+import {formGeneratorCn} from '../../utils/cn';
 import {ConfigInput} from '../../../editor-v2';
 import {ConfigRow} from '../ConfigRow/ConfigRow';
 import {FieldHeader} from '../FieldHeader/FieldHeader';
@@ -20,7 +20,7 @@ import {
 
 import './FieldCard.scss';
 
-const b = block('field-card');
+const b = formGeneratorCn('field-card');
 
 interface FieldCardProps {
     field: FormField;

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import block from 'bem-cn-lite';
+import {formGeneratorCn} from '../../utils/cn';
 import {Button} from '@gravity-ui/uikit';
 import {ConfigInput} from '../../../editor-v2';
 import {AddPropertyButton} from '../AddPropertyButton/AddPropertyButton';
@@ -10,7 +10,7 @@ import {FormOptionsField, InputTypeMenuItem} from '../../hooks/types';
 
 import './OptionsRenderer.scss';
 
-const b = block('options-renderer');
+const b = formGeneratorCn('options-renderer');
 
 interface OptionsRendererProps {
     field: FormOptionsField;

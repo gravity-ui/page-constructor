@@ -1,10 +1,10 @@
 import * as React from 'react';
 import {Text} from '@gravity-ui/uikit';
-import block from 'bem-cn-lite';
+import {formGeneratorCn} from '../../utils/cn';
 
 import './SectionHeader.scss';
 
-const b = block('section-header');
+const b = formGeneratorCn('section-header');
 
 interface SectionHeaderProps {
     title: string;

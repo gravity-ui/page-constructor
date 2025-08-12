@@ -1,10 +1,10 @@
 import * as React from 'react';
 import {Text} from '@gravity-ui/uikit';
-import block from 'bem-cn-lite';
+import {formGeneratorCn} from '../../utils/cn';
 
 import './OptionHeader.scss';
 
-const b = block('option-header');
+const b = formGeneratorCn('option-header');
 
 interface OptionHeaderProps {
     title: string;
