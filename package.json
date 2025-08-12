@@ -29,6 +29,11 @@
       "require": "./build/cjs/editor-v2/index.js",
       "import": "./build/esm/editor-v2/index.js"
     },
+    "./form-generator": {
+      "types": "./build/esm/form-generator/index.d.ts",
+      "require": "./build/cjs/form-generator/index.js",
+      "import": "./build/esm/form-generator/index.js"
+    },
     "./server": {
       "types": "./server/index.d.ts",
       "require": "./server/index.js",
@@ -48,6 +53,12 @@
       ],
       "editor": [
         "./build/esm/editor/index.d.ts"
+      ],
+      "editor-v2": [
+        "./build/esm/editor-v2/index.d.ts"
+      ],
+      "form-generator": [
+        "./build/esm/form-generator/index.d.ts"
       ],
       "server": [
         "./server/index.d.ts"
