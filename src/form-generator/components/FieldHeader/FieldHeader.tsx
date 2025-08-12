@@ -1,10 +1,10 @@
 import * as React from 'react';
 import {Button, Text} from '@gravity-ui/uikit';
-import block from 'bem-cn-lite';
+import {formGeneratorCn} from '../../utils/cn';
 
 import './FieldHeader.scss';
 
-const b = block('field-header');
+const b = formGeneratorCn('field-header');
 
 interface FieldHeaderProps {
     title: string;

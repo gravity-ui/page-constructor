@@ -1,4 +1,8 @@
-.array-field-renderer {
+@import '../../styles/variables.scss';
+
+$block: '.#{$ns}array-field-renderer';
+
+#{$block} {
     &__config {
         display: flex;
         flex-direction: column;

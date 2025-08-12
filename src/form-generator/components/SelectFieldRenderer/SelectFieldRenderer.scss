@@ -1,4 +1,8 @@
-.select-field-renderer {
+@import '../../styles/variables.scss';
+
+$block: '.#{$ns}select-field-renderer';
+
+#{$block} {
     &__config-row {
         display: flex;
         align-items: center;

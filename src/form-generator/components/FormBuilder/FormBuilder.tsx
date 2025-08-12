@@ -2,14 +2,14 @@
 
 import * as React from 'react';
 import {Button, DropdownMenu} from '@gravity-ui/uikit';
-import block from 'bem-cn-lite';
+import {formGeneratorCn} from '../../utils/cn';
 import {FieldCard} from '../FieldCard/FieldCard';
 import {useFormContext} from '../../hooks/FormContext';
 import {FormField, InputTypeMenuItem} from '../../hooks/types';
 
 import './FormBuilder.scss';
 
-const b = block('form-builder');
+const b = formGeneratorCn('form-builder');
 
 interface FormBuilderProps {
     className?: string;
