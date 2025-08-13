@@ -3,17 +3,21 @@ import {Button, Text, ThemeProvider} from '@gravity-ui/uikit';
 import block from 'bem-cn-lite';
 import {Panel, PanelGroup, PanelResizeHandle} from 'react-resizable-panels';
 import {useNavigate} from 'react-router';
-import DynamicForm from '../../../../src/editor-v2/components/DynamicForm/DynamicForm';
+import DynamicForm from '../../../../src/form-generator/FormGenerator';
 import {FormOutput} from './components/FormOutput/FormOutput';
-import {FormBuilder, FormProvider, useFormContext} from '../../../../src/form-generator';
+import {FormBuilder, FormField} from '../../../../src/form-builder';
 
 import './form.scss';
 
 const b = block('form');
 
 const FormContent = () => {
-    const {formFields, resetForm} = useFormContext();
+    const [formFields, setFormFields] = React.useState<FormField[]>([]);
     const [contentConfig, setContentConfig] = React.useState({});
+
+    const resetForm = React.useCallback(() => {
+        setFormFields([]);
+    }, []);
 
     const navigate = useNavigate();
 
@@ -38,7 +42,7 @@ const FormContent = () => {
                                     </div>
                                 </div>
                                 <div className={b('form')}>
-                                    <FormBuilder formFields={formFields} />
+                                    <FormBuilder formFields={formFields} onChange={setFormFields} />
                                 </div>
                             </div>
                         </Panel>
@@ -49,7 +53,6 @@ const FormContent = () => {
                         {/* Form Output Panel */}
                         <Panel minSize={20} defaultSize={20}>
                             <div className={b('panel-content')}>
-                                <Button onClick={() => navigate('/')}>Go to Editor</Button>
                                 <FormOutput
                                     title="Form Output:"
                                     data={formFields.map(({id: _id, ...rest}) => rest)}
@@ -97,9 +100,7 @@ const FormContent = () => {
 export default function FormPage() {
     return (
         <ThemeProvider>
-            <FormProvider>
-                <FormContent />
-            </FormProvider>
+            <FormContent />
         </ThemeProvider>
     );
 }

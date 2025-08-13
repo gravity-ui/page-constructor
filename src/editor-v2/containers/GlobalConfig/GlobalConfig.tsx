@@ -1,5 +1,4 @@
-import {DynamicFormValue} from '../../../common/types';
-import DynamicForm from '../../components/DynamicForm/DynamicForm';
+import {DynamicFormValue, FormGenerator} from '../../../form-generator';
 import {useMainEditorStore} from '../../hooks/useMainEditorStore';
 import {editorCn} from '../../utils/cn';
 
@@ -21,7 +20,7 @@ const GlobalConfig = ({className}: GlobalConfigProps) => {
     return (
         <div className={b(null, className)}>
             <div className={b('title')}>Global Config</div>
-            <DynamicForm
+            <FormGenerator
                 contentConfig={content.navigation}
                 blockConfig={global}
                 onUpdateByKey={onUpdate}

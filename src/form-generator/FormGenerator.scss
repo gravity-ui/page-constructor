@@ -1,0 +1,10 @@
+@import './styles/variables.scss';
+@import './styles/mixins.scss';
+
+$block: '.#{$ns-form-generator}form-generator';
+
+#{$block} {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}

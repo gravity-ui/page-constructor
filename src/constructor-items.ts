@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import {BlockConfig} from './common/types';
+import {BlockConfig} from './form-generator';
 
 import {
     BannerBlock,

@@ -1,7 +1,6 @@
 import _ from 'lodash';
 
-import {DynamicFormValue} from '../../../common/types';
-import DynamicForm from '../../components/DynamicForm/DynamicForm';
+import {DynamicFormValue, FormGenerator} from '../../../form-generator';
 import {MessageCard} from '../../components/MessageCard';
 import {MESSAGES} from '../../constants/messages';
 import {useMainEditorStore} from '../../hooks/useMainEditorStore';
@@ -56,7 +55,7 @@ const BlockConfigForm = ({className}: BlockConfigFormProps) => {
         <div className={b(null, className)}>
             <div className={b('title')}>{currentSchema.schema.name}</div>
             <div className={b('form')}>
-                <DynamicForm
+                <FormGenerator
                     contentConfig={currentConfig}
                     blockConfig={currentSchema.schema.inputs}
                     onUpdateByKey={onUpdate}

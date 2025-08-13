@@ -9,7 +9,7 @@ import {
     SelectSingleInput,
     TextAreaInput,
     TextInput,
-} from '../../common/types';
+} from '../../form-generator';
 
 const textInput: TextInput = {
     type: 'text',

@@ -1,0 +1,18 @@
+@import '../../styles/variables.scss';
+
+$block: '.#{$ns-form-builder}config-row';
+
+#{$block} {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    & > span {
+        min-width: 90px;
+        font-weight: 500;
+    }
+
+    & > div {
+        flex: 1;
+    }
+}

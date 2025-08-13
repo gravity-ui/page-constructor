@@ -2,7 +2,8 @@ import _ from 'lodash';
 
 import {PageContentWithNavigation} from '../models';
 
-import {ConfigInput, ItemConfig} from './types';
+import {ConfigInput} from '../form-generator';
+import {ItemConfig} from './types';
 import {initializeStore} from './utils';
 
 export interface EditorState {

@@ -1,4 +1,4 @@
-import {BlockConfig, ConfigInput} from '../../common/types';
+import {BlockConfig, ConfigInput} from '../../form-generator';
 import {imageInputs} from '../../components/Image/dynamic-form';
 import {Theme} from '../../models';
 

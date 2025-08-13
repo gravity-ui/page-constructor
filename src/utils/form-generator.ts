@@ -9,7 +9,7 @@ import {
     SelectBaseInput,
     TextAreaInput,
     TextInput,
-} from '../common/types';
+} from '../form-generator';
 
 export const generateFromAJV = (schema: JSONSchemaType<{}>): ConfigInput[] => {
     if (schema && schema.properties) {
