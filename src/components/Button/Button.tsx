@@ -19,6 +19,8 @@ import {ICON_QA, OldButtonSize, OldButtonTheme, toCommonSize, toCommonView} from
 
 import './Button.scss';
 
+const DEFAULT_IMG_SIZE = 16;
+
 export interface ButtonProps extends Omit<ButtonParams, 'url'>, QAProps {
     className?: string;
     id?: string;
@@ -105,6 +107,8 @@ const Button = (props: ButtonProps) => {
         image = (
             <img
                 className={b('image')}
+                width={buttonImg.iconSize || DEFAULT_IMG_SIZE}
+                height={buttonImg.iconSize || DEFAULT_IMG_SIZE}
                 src={buttonImg.url}
                 alt={buttonImg.alt || i18n('image-alt')}
             />

@@ -11,6 +11,18 @@ import './Button.stories.scss';
 export default {
     component: Button,
     title: 'Components/Links and buttons/Button',
+    args: {
+        text: 'Button',
+        size: 'l',
+    },
+    argTypes: {
+        size: {
+            control: {
+                type: 'select',
+            },
+            options: SIZES,
+        },
+    },
 } as Meta;
 
 const createIconConfig = (
@@ -156,7 +168,7 @@ const IconTemplate: StoryFn<ButtonProps> = (args) => {
                 <Button
                     key="gravity-large"
                     {...args}
-                    img={{url: iconExamples.customUrl, position: 'left', iconSize: 24}}
+                    img={{url: iconExamples.customUrl, position: 'left', iconSize: 20}}
                     text="Button"
                 />,
             ])}

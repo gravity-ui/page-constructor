@@ -13,11 +13,6 @@ $block: '.#{$ns}button-block';
         gap: var(--g-spacing-2);
     }
 
-    &__image {
-        width: 18px;
-        height: 18px;
-    }
-
     &_theme {
         &_github {
             &#{&} {
