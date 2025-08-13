@@ -1,7 +1,7 @@
 import _ from 'lodash';
 
 import {EditorState, initialStore} from '../common/store';
-import {DynamicFormValue} from '../common/types';
+import {DynamicFormValue} from '../form-generator';
 import {initializeStore} from '../common/utils';
 import {ConstructorBlock, PageContentWithNavigation} from '../models';
 
