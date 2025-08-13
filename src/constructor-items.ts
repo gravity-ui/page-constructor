@@ -1,5 +1,7 @@
 import * as React from 'react';
 
+import {BlockConfig} from './form-generator';
+
 import {
     BannerBlock,
     CardLayoutBlock,
@@ -43,7 +45,6 @@ import ShareBlockConfig from './blocks/Share';
 import SliderBlockConfig from './blocks/Slider';
 import TableBlockConfig from './blocks/Table';
 import TabsBlockConfig from './blocks/Tabs';
-import {BlockConfig} from './common/types';
 import {BlockType, NavigationItemType, SubBlockType} from './models';
 import {GithubButton, NavigationButton, NavigationDropdown, NavigationLink} from './navigation';
 import SocialIcon from './navigation/components/SocialIcon/SocialIcon';

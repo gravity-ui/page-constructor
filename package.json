@@ -34,6 +34,11 @@
       "require": "./build/cjs/form-generator/index.js",
       "import": "./build/esm/form-generator/index.js"
     },
+    "./form-builder": {
+      "types": "./build/esm/form-builder/index.d.ts",
+      "require": "./build/cjs/form-builder/index.js",
+      "import": "./build/esm/form-builder/index.js"
+    },
     "./server": {
       "types": "./server/index.d.ts",
       "require": "./server/index.js",
@@ -59,6 +64,9 @@
       ],
       "form-generator": [
         "./build/esm/form-generator/index.d.ts"
+      ],
+      "form-builder": [
+        "./build/esm/form-builder/index.d.ts"
       ],
       "server": [
         "./server/index.d.ts"

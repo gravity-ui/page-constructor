@@ -1,4 +1,4 @@
-import {BlockConfig} from '../../common/types';
+import {BlockConfig} from '../../form-generator';
 import {contentThemes, textSize} from '../../schema/validators/common';
 
 const textSizeEnum = textSize.map((size) => ({value: size, content: size}));
