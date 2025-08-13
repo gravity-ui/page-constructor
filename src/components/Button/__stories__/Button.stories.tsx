@@ -1,11 +1,14 @@
-import {Meta, StoryFn} from '@storybook/react';
 import {Plus} from '@gravity-ui/icons';
 import {IconData} from '@gravity-ui/uikit';
+import {Meta, StoryFn} from '@storybook/react';
 
 import {Col, Grid, Row} from '../../../grid';
 import Button, {ButtonProps} from '../Button';
+
 import {CONTRAST_THEMES, SIZES, THEMES} from './constants';
+
 import data from './data.json';
+
 import './Button.stories.scss';
 
 export default {
