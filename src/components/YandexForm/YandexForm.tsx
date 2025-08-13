@@ -2,12 +2,12 @@ import * as React from 'react';
 
 import {LocaleContext} from '../../context/localeContext';
 import {MobileContext} from '../../context/mobileContext';
+import {ProjectSettingsContext} from '../../context/projectSettingsContext';
 import {useAnalytics} from '../../hooks';
 import {YandexFormProps} from '../../models';
 import {DefaultEventNames} from '../../models/common';
 import {block} from '../../utils';
 import {HEADER_HEIGHT} from '../constants';
-import {ProjectSettingsContext} from '../../context/projectSettingsContext';
 
 export const YANDEX_FORM_ORIGIN = 'https://forms.yandex.ru';
 export const YANDEX_FORM_SECTION = 'surveys';

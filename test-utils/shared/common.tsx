@@ -1,6 +1,7 @@
+import * as React from 'react';
+
 import {render, screen} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import * as React from 'react';
 
 import {QAProps} from '../../src/models/common';
 import {ERROR_INPUT_DATA_MESSAGE} from '../constants';

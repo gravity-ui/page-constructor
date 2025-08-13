@@ -118,6 +118,10 @@ export default App;
 
 Чтобы начачать новый проект с нуля можно использовать [готовый шаблон на Next.js](https://github.com/gravity-ui/page-constructor-website-template) который мы подготовили.
 
+### Сборщик статических сайтов
+
+[Page Constructor Builder](https://github.com/gravity-ui/page-constructor-builder) - утилита командной строки для создания статических страниц на основе YAML-конфигураций с использованием @gravity-ui/page-constructor
+
 ## Документация
 
 ### Параметры

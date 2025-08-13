@@ -2,7 +2,7 @@
 
 ## Current Status
 
-The Page Constructor library is a mature and stable project that provides a comprehensive solution for building web pages using a component-based approach. It is currently at version 6.8.1 and follows semantic versioning for releases.
+The Page Constructor library is a mature and stable project that provides a comprehensive solution for building web pages using a component-based approach. It is currently at version 7.6.2 and follows semantic versioning for releases.
 
 ## What Works
 
@@ -19,11 +19,23 @@ The Page Constructor library is a mature and stable project that provides a comp
 
 The library includes a comprehensive set of blocks for various use cases:
 
-- **Layout Blocks**: Header, ContentLayout, CardLayout
+- **Layout Blocks**: Header (with enhanced features), ContentLayout, CardLayout
 - **Content Blocks**: Media, Banner, Info, Table, Tabs
 - **Interactive Blocks**: Slider, Questions, FoldableList, Form
 - **Feature Blocks**: PromoFeatures, ExtendedFeatures, Icons
 - **Integration Blocks**: Map, Share, Companies
+
+#### HeaderBlock Enhanced Features
+
+The HeaderBlock has been significantly enhanced with new capabilities:
+
+- **Media Customization**: `mediaView` and `mediaClassName` props for better media control
+- **Layout Customization**: Multiple className props for fine-grained styling control:
+  - `gridClassName` for Grid component styling
+  - `contentWrapperClassName` for content wrapper styling
+  - `contentInnerClassName` for content inner element styling
+  - `mediaClassName` for media element styling
+- **Props Evolution**: Renamed `containerFluidClassName` to `contentWrapperClassName` for better clarity
 
 ### Sub-block Components
 

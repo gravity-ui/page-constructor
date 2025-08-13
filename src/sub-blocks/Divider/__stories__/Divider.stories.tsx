@@ -4,6 +4,7 @@ import {DividerProps} from '../../../models';
 import Divider from '../Divider';
 
 import data from './data.json';
+
 import './styles.scss';
 
 export default {

@@ -14,17 +14,24 @@ The Page Constructor library is currently focused on providing a comprehensive s
 Recent development has focused on:
 
 1. **Button Component Enhancement**: Added support for icons through the `img` prop
+
    - Support for Gravity UI icons (React components)
    - Support for custom SVG strings
    - Configurable icon positioning (left/right)
    - Configurable icon size
-2. **Text Size Enhancement**: Updated `textSize` constant in `src/schema/validators/common.ts`:
 
-   - **Previous values**: `['s', 'm', 'l']`
-   - **Current values**: `['xs', 's', 'sm', 'm', 'l']`
-   - Added new smaller sizes: `'xs'` (extra small) and `'sm'` (small-medium)
-   - This affects all components that use text sizing: Links, FileLinkProps, TitleProps, and various blocks
-   - Updated TypeScript type `TextSize` to include new values
+2. **HeaderBlock Enhancements**: Significant updates to HeaderBlock with new functionality:
+
+   - **New Content Properties**: Added `additionalInfo`, `overtitle`, and `status` for richer content structure
+   - **Custom Rendering**: Added `renderTitle` function prop for custom title rendering
+   - **Enhanced Background Support**: New `fullWidthMedia` property for full-width media backgrounds
+   - **Improved Media Control**: Added `mediaView` and `mediaClassName` for better media customization
+   - **Layout Customization**: Added `contentWrapperClassName` for custom styling of the content-wrapper element
+   - **Content Inner Customization**: Added `contentInnerClassName` for custom styling of the content-inner element
+   - **Accessibility Improvements**: Enhanced ARIA support with `useUniqId()` and proper labeling
+   - **Context Integration**: Better integration with `useWindowWidth` and responsive breakpoints
+   - **Component Architecture**: Refactored background rendering into separate `Background` and `FullWidthBackground` components
+   - **Props Refactoring**: Renamed `containerFluidClassName` to `contentWrapperClassName` for better clarity
 
 3. **Card Component Standardization**: Updated BasicCard, LayoutItem, BackgroundCard, and ImageCard with consistent patterns:
 
@@ -46,6 +53,8 @@ Recent development has focused on:
 - **Component Structure**: The library follows a hierarchical component structure with blocks, sub-blocks, and base components
 - **Context Providers**: Multiple context providers manage different aspects of the application (theme, mobile detection, analytics, etc.)
 - **Type System**: A comprehensive TypeScript type system ensures type safety and developer experience
+- **Responsive Design**: Enhanced integration with window width context and breakpoint constants for better mobile adaptation
+- **Component Composition**: Complex blocks like HeaderBlock use internal component composition (Background, FullWidthBackground) for better maintainability
 
 ### Block System
 
@@ -107,10 +116,15 @@ The following areas are being considered for future development:
 
 ### Recent Achievements
 
-1. **Accessibility Enhancement**: Improved ARIA support across card components with proper ID management
-2. **Control Positioning Flexibility**: New `controlPosition` prop provides better layout control
-3. **Theme Integration**: Consistent theme support using `getThemedValue` utility
-4. **Component Consistency**: Standardized patterns across card components improve maintainability
+1. **HeaderBlock Enhancement**: Significant improvements to HeaderBlock functionality:
+
+   - Improved media control with `mediaClassName` props
+   - Added layout customization with `contentWrapperClassName` prop
+
+2. **Accessibility Enhancement**: Improved ARIA support across components with proper ID management
+3. **Control Positioning Flexibility**: New `controlPosition` prop provides better layout control
+4. **Theme Integration**: Consistent theme support using `getThemedValue` utility
+5. **Component Consistency**: Standardized patterns across card components improve maintainability
 
 ### Documentation Updates
 

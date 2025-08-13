@@ -1,25 +1,34 @@
 /* eslint-disable complexity */
-import {useUniqId} from '@gravity-ui/uikit';
 import * as React from 'react';
+
+import {useUniqId} from '@gravity-ui/uikit';
 
 import {Button, Media, RouterLink} from '../../components';
 import HeaderBreadcrumbs from '../../components/HeaderBreadcrumbs/HeaderBreadcrumbs';
 import {getMediaImage} from '../../components/Media/Image/utils';
 import YFMWrapper from '../../components/YFMWrapper/YFMWrapper';
+import {BREAKPOINTS} from '../../constants';
 import {useTheme} from '../../context/theme';
+import {useWindowWidth} from '../../context/windowWidthContext';
 import {Col, Grid, Row} from '../../grid';
 import {ClassNameProps, HeaderBlockBackground, HeaderBlockProps} from '../../models';
 import {block, getThemedValue} from '../../utils';
 import {mergeVideoMicrodata} from '../../utils/microdata';
 
 import {getImageSize, getTitleSizes, titleWithImageSizes} from './utils';
+
 import './Header.scss';
-import {useWindowWidth} from '../../context/windowWidthContext';
-import {BREAKPOINTS} from '../../constants';
 
 const b = block('header-block');
 
-export type HeaderBlockFullProps = HeaderBlockProps & ClassNameProps;
+type ElementsClassName = {
+    gridClassName?: string;
+    mediaClassName?: string;
+    contentWrapperClassName?: string;
+    contentInnerClassName?: string;
+};
+
+export type HeaderBlockFullProps = HeaderBlockProps & ClassNameProps & ElementsClassName;
 
 interface BackgroundProps {
     background: HeaderBlockBackground;
@@ -78,6 +87,7 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
         theme: textTheme = 'light',
         verticalOffset = 'm',
         className,
+        gridClassName,
         breadcrumbs,
         status,
         renderTitle,
@@ -85,6 +95,9 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
         mediaView = 'full',
         centered,
         additionalInfo,
+        mediaClassName,
+        contentWrapperClassName,
+        contentInnerClassName,
     } = props;
     const windowWidth = useWindowWidth();
     const isMobile = windowWidth <= BREAKPOINTS.sm;
@@ -122,7 +135,7 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
         >
             {backgroundThemed && fullWidth && <FullWidthBackground background={backgroundThemed} />}
             {backgroundThemed && <Background background={backgroundThemed} isMobile={isMobile} />}
-            <Grid containerClass={b('container-fluid')}>
+            <Grid containerClass={b('container-fluid')} className={b(null, gridClassName)}>
                 {breadcrumbs && (
                     <Row className={b('breadcrumbs')}>
                         <Col>
@@ -131,7 +144,7 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
                     </Row>
                 )}
                 <Row>
-                    <Col reset className={b('content-wrapper')}>
+                    <Col reset className={b('content-wrapper', contentWrapperClassName)}>
                         <Row>
                             <Col
                                 className={b('content', {
@@ -140,7 +153,14 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
                                     'vertical-offset': curVerticalOffset,
                                 })}
                             >
-                                <Col sizes={titleSizes} className={b('content-inner', {centered})}>
+                                <Col
+                                    sizes={titleSizes}
+                                    className={b(
+                                        'content-inner',
+                                        {centered},
+                                        contentInnerClassName,
+                                    )}
+                                >
                                     {overtitle && (
                                         <div className={b('overtitle')}>
                                             {typeof overtitle === 'string' ? (
@@ -212,7 +232,7 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
                         </Row>
                         {hasRightSideImage && (
                             <Media
-                                className={b('media', {[curImageSize]: true})}
+                                className={b('media', {[curImageSize]: true}, mediaClassName)}
                                 videoClassName={b('video')}
                                 imageClassName={b('image')}
                                 {...mediaWithMicrodata}
