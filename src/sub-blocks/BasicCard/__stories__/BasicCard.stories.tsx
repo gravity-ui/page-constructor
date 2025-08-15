@@ -168,6 +168,7 @@ export const WithUrl = WithUrlTemplate.bind({});
 export const WithContentList = WithContentListTemplate.bind({});
 export const ControlPosition = ControlPositionTemplate.bind({});
 export const Sizes = VariousTemplate.bind([]);
+export const GravityIcons = VariousTemplate.bind([]);
 
 const DefaultArgs = {
     ...data.default.content,
@@ -219,6 +220,25 @@ Sizes.args = data.sizesContent.reduce(
     [] as BasicCardModel[],
 );
 Sizes.parameters = {
+    controls: {
+        include: Object.keys([0, 1, 2, 3, 4, 5, 6, 7, 8]),
+    },
+};
+
+GravityIcons.args = data.gravityIcons.reduce(
+    (acc, sizeContent) => [
+        ...acc,
+        ...data.sizes.map(
+            (size) =>
+                ({
+                    ...size,
+                    ...sizeContent,
+                }) as unknown as BasicCardModel,
+        ),
+    ],
+    [] as BasicCardModel[],
+);
+GravityIcons.parameters = {
     controls: {
         include: Object.keys([0, 1, 2, 3, 4, 5, 6, 7, 8]),
     },
