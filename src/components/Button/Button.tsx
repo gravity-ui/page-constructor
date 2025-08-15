@@ -19,6 +19,8 @@ import {ICON_QA, OldButtonSize, OldButtonTheme, toCommonSize, toCommonView} from
 
 import './Button.scss';
 
+const DEFAULT_IMG_SIZE = 16;
+
 export interface ButtonProps extends Omit<ButtonParams, 'url'>, QAProps {
     className?: string;
     id?: string;
@@ -61,7 +63,14 @@ const Button = (props: ButtonProps) => {
 
     const buttonImg =
         img instanceof Object
-            ? {url: img.url, position: img.position || defaultImgPosition, alt: img.alt}
+            ? {
+                  url: img.url,
+                  iconData: img.iconData,
+                  iconSize: img.iconSize,
+                  className: img.className,
+                  position: img.position || defaultImgPosition,
+                  alt: img.alt,
+              }
             : {url: img, position: defaultImgPosition};
 
     const buttonClass = img
@@ -81,10 +90,32 @@ const Button = (props: ButtonProps) => {
     }
 
     let icon;
-    let image = img && (
-        <img className={b('image')} src={buttonImg.url} alt={buttonImg.alt || i18n('image-alt')} />
-    );
+    let image;
 
+    if (img && buttonImg.iconData) {
+        const iconSize = buttonImg.iconSize;
+        const iconClassName = buttonImg.className ? b('icon', buttonImg.className) : b('icon');
+        icon = (
+            <Icon
+                className={iconClassName}
+                data={buttonImg.iconData}
+                size={iconSize}
+                qa={ICON_QA}
+            />
+        );
+    } else if (img && buttonImg.url) {
+        image = (
+            <img
+                className={b('image')}
+                width={buttonImg.iconSize || DEFAULT_IMG_SIZE}
+                height={buttonImg.iconSize || DEFAULT_IMG_SIZE}
+                src={buttonImg.url}
+                alt={buttonImg.alt || i18n('image-alt')}
+            />
+        );
+    }
+
+    // Special handling for github theme (for backwards compatibility)
     if (theme === 'github') {
         icon = <Icon className={b('icon')} data={Github} size={24} qa={ICON_QA} />;
         image = undefined;

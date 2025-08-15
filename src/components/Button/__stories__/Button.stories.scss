@@ -10,3 +10,17 @@
         align-items: center;
     }
 }
+
+.color {
+    &-red {
+        color: #ff0000;
+    }
+
+    &-green {
+        color: #00aa00;
+    }
+
+    &-blue {
+        color: #0066cc;
+    }
+}
