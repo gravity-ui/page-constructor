@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import {ButtonView, IconData, ButtonProps as UikitButtonProps} from '@gravity-ui/uikit';
 import * as icons from '@gravity-ui/icons';
+import {ButtonView, IconData, ButtonProps as UikitButtonProps} from '@gravity-ui/uikit';
 
 import {ThemeSupporting} from '../../utils';
 import {AnalyticsEventsBase, AnalyticsEventsProp, ClassNameProps, QAProps} from '../common';
