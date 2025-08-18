@@ -31,7 +31,7 @@ Recent development has focused on:
    - Configurable icon positioning (left/right)
    - Configurable icon size
 
-2. **HeaderBlock Enhancements**: Significant updates to HeaderBlock with new functionality:
+3. **HeaderBlock Enhancements**: Significant updates to HeaderBlock with new functionality:
 
    - **New Content Properties**: Added `additionalInfo`, `overtitle`, and `status` for richer content structure
    - **Custom Rendering**: Added `renderTitle` function prop for custom title rendering
