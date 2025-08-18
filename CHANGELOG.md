@@ -1,5 +1,17 @@
 # Changelog
 
+## [7.8.0](https://github.com/gravity-ui/page-constructor/compare/v7.7.1...v7.8.0) (2025-08-18)
+
+
+### Features
+
+* **Button:** add svg icon to button ([#1208](https://github.com/gravity-ui/page-constructor/issues/1208)) ([f9ebc5c](https://github.com/gravity-ui/page-constructor/commit/f9ebc5c39a816f08355312bdfd70f3e16a25f4e3))
+
+
+### Bug Fixes
+
+* double transform in bg card ([#1255](https://github.com/gravity-ui/page-constructor/issues/1255)) ([92829c1](https://github.com/gravity-ui/page-constructor/commit/92829c15ff69def770a04da0ef7e0937a6b9aa61))
+
 ## [7.7.1](https://github.com/gravity-ui/page-constructor/compare/v7.7.0...v7.7.1) (2025-08-05)
 
 
