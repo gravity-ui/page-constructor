@@ -30,10 +30,15 @@ const ContentList = ({list, size = 'l', qa, theme}: ContentListProps & QAProps) 
     return (
         <div className={b({size, theme})} data-qa={qa}>
             {list?.map((item) => {
-                const {icon, title, text} = item;
+                const {icon, title, text, gravityIcon} = item;
                 return (
                     <div className={b('item', {'without-title': !title})} key={uuidv4()}>
-                        <ItemIcon icon={icon} className={b('icon')} qa={qaAttributes.image} />
+                        <ItemIcon
+                            icon={icon}
+                            className={b('icon')}
+                            qa={qaAttributes.image}
+                            gravityIcon={gravityIcon}
+                        />
                         <div>
                             {title &&
                                 React.createElement(

@@ -232,5 +232,79 @@
         }
       ]
     }
+  ],
+  "gravityIcons": [
+    {
+      "text": "Icon in content list",
+      "list": [
+        {
+          "gravityIcon": "ChartColumn",
+          "title": "Brand icon color",
+          "text": "Nisi ut aliquip ex ea commodo consequat. Duis aute irure."
+        },
+        {
+          "gravityIcon": {
+            "name": "ChartColumn",
+            "color": "text-color"
+          },
+          "title": "Text icon color",
+          "text": "Nisi ut aliquip ex ea commodo consequat. Duis aute irure."
+        }
+      ]
+    },
+    {
+      "gravityIcon": "ChartColumn",
+      "iconPosition": "left",
+      "text": "Default brand color",
+      "buttons": [
+        {
+          "text": "Button 1",
+          "theme": "action",
+          "url": "#test1"
+        }
+      ]
+    },
+    {
+      "gravityIcon": "ChartColumn",
+      "iconPosition": "top",
+      "text": "Default brand color",
+      "buttons": [
+        {
+          "text": "Button 1",
+          "theme": "action",
+          "url": "#test1"
+        }
+      ]
+    },
+    {
+      "gravityIcon": {
+        "name": "ChartColumn",
+        "color": "text-color"
+      },
+      "iconPosition": "left",
+      "text": "Icon color as text color",
+      "buttons": [
+        {
+          "text": "Button 1",
+          "theme": "action",
+          "url": "#test1"
+        }
+      ]
+    },
+    {
+      "gravityIcon": {
+        "name": "ChartColumn",
+        "color": "text-color"
+      },
+      "iconPosition": "top",
+      "text": "Icon color as text color",
+      "buttons": [
+        {
+          "text": "Button 1",
+          "theme": "action",
+          "url": "#test1"
+        }
+      ]
+    }
   ]
 }

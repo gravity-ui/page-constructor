@@ -23,6 +23,7 @@ const BasicCard = (props: BasicCardProps) => {
         iconPosition = IconPosition.Top,
         controlPosition = 'content',
         size = 's',
+        gravityIcon,
         ...cardParams
     } = props;
     const titleId = useUniqId();
@@ -30,6 +31,7 @@ const BasicCard = (props: BasicCardProps) => {
     const areControlsInFooter = controlPosition === 'footer';
     const theme = useTheme();
     const themedIcon = getThemedValue(icon, theme);
+    const themedGravityIcon = getThemedValue(gravityIcon, theme);
 
     return (
         <CardBase
@@ -41,6 +43,11 @@ const BasicCard = (props: BasicCardProps) => {
             <CardBase.Content>
                 <IconWrapper
                     icon={themedIcon ? {value: themedIcon, position: iconPosition} : undefined}
+                    gravityIcon={
+                        themedGravityIcon
+                            ? {value: themedGravityIcon, position: iconPosition}
+                            : undefined
+                    }
                     className={b('wrapper')}
                     size={size}
                 >

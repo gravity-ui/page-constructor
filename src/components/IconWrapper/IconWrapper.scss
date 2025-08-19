@@ -8,7 +8,7 @@ $block: '.#{$ns}icon-wrapper';
     $iconSizePositionTop: 32px;
     $iconSizePositionLeftSizeS: 22px;
     $iconSizePositionLeftSizeM: 28px;
-    $iconSizePositionLeftSizeL: 30px;
+    $iconSizePositionLeftSizeL: 32px;
 
     display: flex;
     flex-direction: column;
@@ -27,6 +27,7 @@ $block: '.#{$ns}icon-wrapper';
         max-width: 100%;
         margin-bottom: $indentXXS;
         height: $iconSizePositionTop;
+        width: $iconSizePositionTop;
         object-fit: contain;
         display: block;
 

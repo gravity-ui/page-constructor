@@ -1,6 +1,7 @@
 import {ImageProps} from '../../components/Image/schema';
 import {
     ButtonBlock,
+    GravityIconProps,
     LinkProps,
     TitleProps,
     containerSizesArray,
@@ -24,6 +25,7 @@ export const ContentItem = {
             contentType: 'yfm',
         },
         icon: withTheme(ImageProps),
+        gravityIcon: withTheme(GravityIconProps),
     },
 };
 
