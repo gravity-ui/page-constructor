@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.9.0](https://github.com/gravity-ui/page-constructor/compare/v7.8.0...v7.9.0) (2025-08-19)
+
+
+### Features
+
+**ВasicCard, ContentList:** add gravity icon ([#1246](https://github.com/gravity-ui/page-constructor/issues/1246)) ([ab95422](https://github.com/gravity-ui/page-constructor/commit/ab95422bbfcbb1824dd86dd236dc681d201aed77))
+
 ## [7.8.0](https://github.com/gravity-ui/page-constructor/compare/v7.7.1...v7.8.0) (2025-08-18)
 
 
