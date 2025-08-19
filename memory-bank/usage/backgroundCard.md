@@ -46,6 +46,7 @@ graph TD
   - `analyticsEvents`: Analytics events to track
   - `controlPosition`: Position of controls (links and buttons) - 'content' or 'footer'
   - `list`: Array of content list items
+  - `colSizes`: Grid column sizes configuration (default: `{all: 12, sm: 12}`)
 
 ## Usage Patterns
 
@@ -114,7 +115,7 @@ The BackgroundCard component is composed of several key parts:
       links={links}
       buttons={buttons}
       list={list}
-      colSizes={{all: 12, md: 12}}
+      colSizes={colSizes}
       controlPosition={areControlsInFooter ? 'bottom' : 'default'}
     />
   </CardBase.Content>
@@ -221,6 +222,25 @@ The BackgroundCard component integrates with the page-constructor theme system:
 6. **Control Position**:
    - Use `content` position for standard layout
    - Use `footer` position for cards where controls should be aligned at the bottom
+
+## Column Sizing
+
+The BackgroundCard component supports responsive column sizing through the `colSizes` prop:
+
+```tsx
+// Default column sizing
+colSizes = {all: 12, md: 12};
+```
+
+This prop allows you to control how much of the available grid space the card's content should occupy at different breakpoints:
+
+- `all`: Base size for all viewport widths
+- `sm`: Size for small viewports
+- `md`: Size for medium viewports
+- `lg`: Size for large viewports
+- `xl`: Size for extra large viewports
+
+Each value is a number between 1-12, representing the number of columns in a 12-column grid system.
 
 ## Example Usage
 

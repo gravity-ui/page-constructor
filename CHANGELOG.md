@@ -1,5 +1,31 @@
 # Changelog
 
+## [7.8.0](https://github.com/gravity-ui/page-constructor/compare/v7.7.1...v7.8.0) (2025-08-18)
+
+
+### Features
+
+* **Button:** add svg icon to button ([#1208](https://github.com/gravity-ui/page-constructor/issues/1208)) ([f9ebc5c](https://github.com/gravity-ui/page-constructor/commit/f9ebc5c39a816f08355312bdfd70f3e16a25f4e3))
+
+
+### Bug Fixes
+
+* double transform in bg card ([#1255](https://github.com/gravity-ui/page-constructor/issues/1255)) ([92829c1](https://github.com/gravity-ui/page-constructor/commit/92829c15ff69def770a04da0ef7e0937a6b9aa61))
+
+## [7.7.1](https://github.com/gravity-ui/page-constructor/compare/v7.7.0...v7.7.1) (2025-08-05)
+
+
+### Bug Fixes
+
+* add content colSizes option to background card ([#1247](https://github.com/gravity-ui/page-constructor/issues/1247)) ([c742284](https://github.com/gravity-ui/page-constructor/commit/c742284abfadec1fe0214fd8d65e80e829160b69))
+
+## [7.7.0](https://github.com/gravity-ui/page-constructor/compare/v7.6.2...v7.7.0) (2025-08-05)
+
+
+### Features
+
+* **Header:** add props for elements className ([#1238](https://github.com/gravity-ui/page-constructor/issues/1238)) ([aa3e9d3](https://github.com/gravity-ui/page-constructor/commit/aa3e9d3fd8f0eb904e285072e6488ccf4c8b5ad9))
+
 ## [7.6.2](https://github.com/gravity-ui/page-constructor/compare/v7.6.1...v7.6.2) (2025-07-18)
 
 

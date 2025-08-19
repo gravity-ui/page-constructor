@@ -1,31 +1,32 @@
 import {useTheme} from '../../context/theme';
-import {ClassNameProps, ImageProps, QAProps, SVGIcon} from '../../models';
+import {ClassNameProps, GravityIconProps, ImageProps, QAProps, SVGIcon} from '../../models';
 import {ThemeSupporting, getThemedValue} from '../../utils';
-import Image from '../Image/Image';
-import {getMediaImage} from '../Media/Image/utils';
+import Icon from '../Icon/Icon';
 
 interface ListItemProps extends QAProps, ClassNameProps {
-    icon: ThemeSupporting<ImageProps | SVGIcon>;
+    icon?: ThemeSupporting<ImageProps | SVGIcon>;
+    gravityIcon?: ThemeSupporting<GravityIconProps>;
 }
 
 function isIconSvg(icon: ImageProps | SVGIcon): icon is SVGIcon {
     return typeof icon === 'function';
 }
 
-const ContentListItemIcon = ({icon, className, qa}: ListItemProps) => {
+const ContentListItemIcon = ({icon, className, qa, gravityIcon}: ListItemProps) => {
     const theme = useTheme();
     const iconThemed = getThemedValue(icon, theme);
+    const gravityIconThemed = getThemedValue(gravityIcon, theme);
 
-    if (isIconSvg(iconThemed)) {
-        const Icon = iconThemed;
+    if (iconThemed && isIconSvg(iconThemed)) {
+        const IconComponent = iconThemed;
         return (
             <div>
-                <Icon className={className} />
+                <IconComponent className={className} />
             </div>
         );
     }
-    const iconData = getMediaImage(iconThemed);
-    return <Image {...iconData} className={className} qa={qa} />;
+
+    return <Icon icon={iconThemed} gravityIcon={gravityIconThemed} className={className} qa={qa} />;
 };
 
 export default ContentListItemIcon;

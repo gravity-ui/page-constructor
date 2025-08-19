@@ -96,11 +96,14 @@ graph TD
 
 ### ButtonImageProps Interface
 
-- **Description**: Defines the structure for button images.
+- **Description**: Defines the structure for button images and icons.
 - **Properties**:
-  - `url`: Image URL (required)
-  - `position`: Image position ('left' or 'right', defaults to 'left')
+  - `url`: Image URL (optional, for image-based icons)
+  - `position`: Image/icon position ('left' or 'right', defaults to 'left')
   - `alt`: Alternative text for the image
+  - `iconData`: Icon data from Gravity UI or custom icons (optional)
+  - `iconSize`: Icon size in pixels (optional)
+  - `className`: CSS class for styling the icon (optional)
 
 ### Button Themes
 
@@ -255,32 +258,188 @@ Legacy sizes are automatically mapped to modern equivalents:
 
 ## Image/Icon Support
 
-The Button component supports images and icons:
+The Button component supports both images and icons with flexible configuration through the `img` prop. This prop can accept either a simple string URL or a comprehensive configuration object.
 
-### Image URL
+### Prop `img` Types
+
+The `img` prop can be:
+
+- `string`: Simple image URL
+- `ButtonImageProps`: Configuration object with advanced options
+
+### ButtonImageProps Interface
+
+```typescript
+interface ButtonImageProps {
+  url?: string;
+  position?: 'left' | 'right';
+  alt?: string;
+  iconData?: IconData;
+  iconSize?: number;
+  className?: string;
+}
+```
+
+### Usage Examples
+
+#### 1. Simple Image URL
 
 ```tsx
 <Button text="Download" img="/path/to/icon.png" />
 ```
 
-### Image Object
+#### 2. Image Object with Configuration
 
 ```tsx
 <Button
   text="Download"
   img={{
     url: '/path/to/icon.png',
-    position: 'left',
+    position: 'right',
     alt: 'Download icon',
+  }}
+/>
+```
+
+#### 3. Gravity UI Icons
+
+```tsx
+import {Check, Plus, Download} from '@gravity-ui/icons';
+
+<Button
+  text="Confirm"
+  img={{
+    iconData: Check,
+    position: 'left',
+  }}
+/>
+
+<Button
+  text="Add Item"
+  img={{
+    iconData: Plus,
+    iconSize: 20,
+    position: 'left',
+  }}
+/>
+
+<Button
+  text="Download"
+  img={{
+    iconData: Download,
+    iconSize: 16,
+    position: 'right',
+    className: 'custom-download-icon',
+  }}
+/>
+```
+
+#### 4. Custom SVG Strings
+
+```tsx
+const customSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <path d="M8 0L10.5 5H16L11.5 8L13 13L8 10L3 13L4.5 8L0 5H5.5L8 0Z" fill="currentColor"/>
+</svg>`;
+
+<Button
+  text="Star"
+  img={{
+    iconData: customSvg,
+    iconSize: 18,
+    position: 'left',
+  }}
+/>;
+```
+
+#### 5. External Image URLs
+
+```tsx
+<Button
+  text="Visit Site"
+  img={{
+    url: 'https://example.com/favicon.ico',
+    position: 'left',
+    alt: 'Site favicon',
+  }}
+/>
+```
+
+### Icon Positioning
+
+Icons and images can be positioned on either side of the button text:
+
+```tsx
+<Button text="Save" img={{iconData: SaveIcon, position: 'left'}} />
+
+<Button text="Next" img={{iconData: ArrowRight, position: 'right'}} />
+```
+
+### Icon Sizing
+
+Control icon size with the `iconSize` property:
+
+```tsx
+<Button text="Small" img={{iconData: Icon, iconSize: 14}} />
+
+<Button text="Default" img={{iconData: Icon}} />
+
+<Button text="Large" img={{iconData: Icon, iconSize: 24}} />
+```
+
+### Custom Icon Styling
+
+Apply custom CSS classes to icons:
+
+```tsx
+<Button
+  text="Styled Icon"
+  img={{
+    iconData: CustomIcon,
+    className: 'my-custom-icon-class',
   }}
 />
 ```
 
 ### GitHub Theme (Special Icon)
 
+The GitHub theme automatically includes a GitHub icon:
+
 ```tsx
 <Button text="View on GitHub" theme="github" />
 ```
+
+### Mixed Usage Patterns
+
+You can combine different image types and configurations:
+
+```tsx
+<Button
+  text="Settings"
+  img={{
+    iconData: GearIcon,
+    iconSize: 18,
+    position: 'right',
+    className: 'settings-icon',
+  }}
+/>
+
+<Button
+  text="Partner Site"
+  img={{
+    url: 'https://partner.com/logo.png',
+    alt: 'Partner logo',
+    position: 'left',
+  }}
+/>
+```
+
+### Best Practices for Images/Icons
+
+1. **Accessibility**: Always provide `alt` text for images
+2. **Size Consistency**: Use consistent icon sizes within the same interface
+3. **Position Logic**: Place icons logically (e.g., arrows on the direction side)
+4. **Performance**: Prefer Gravity UI icons over external images when possible
+5. **Fallbacks**: Ensure buttons work without icons if images fail to load
 
 ## Analytics Integration
 

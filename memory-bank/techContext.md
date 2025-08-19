@@ -25,6 +25,7 @@
 - **@bem-react/classname**: For BEM-style class naming
 - **@gravity-ui/uikit**: UI component library
 - **@gravity-ui/components**: Additional UI components
+- **@gravity-ui/icons**: Icon library for Gravity UI icons
 - **@gravity-ui/dynamic-forms**: For form generation
 - **@gravity-ui/i18n**: For internationalization
 - **@diplodoc/transform**: For Yandex Flavored Markdown transformation
@@ -60,8 +61,8 @@
 - **Sub-blocks**: Components used within blocks (Cards, Quotes, etc.)
 - **Components**: Basic UI elements (Button, Link, Image, etc.)
 - **Grid**: Responsive layout system
-- **Context**: React context providers for various features
-- **Utils**: Utility functions and helpers
+- **Context**: React context providers for various features (including WindowWidthContext for responsive design)
+- **Utils**: Utility functions and helpers (including responsive breakpoint constants)
 
 ### Server-Side
 
@@ -80,6 +81,18 @@
 
 - **iframe**: Isolated environment for rendering pages
 - **Messaging**: Communication between editor and preview
+
+## Recent Technical Enhancements
+
+### HeaderBlock Technical Improvements
+
+- **Type Safety**: Extended TypeScript interfaces with new properties:
+  - `mediaClassName` for media element styling
+  - `gridClassName` for Grid component styling
+  - `contentWrapperClassName` for content wrapper styling
+  - `contentInnerClassName` for content inner element styling
+- **Props Refactoring**: Renamed `containerFluidClassName` to `contentWrapperClassName` for better semantic clarity
+- **Enhanced Layout Control**: Multiple className props provide fine-grained styling control over different HeaderBlock elements
 
 ## Technical Constraints
 
@@ -171,6 +184,16 @@ const MyCustomBlock = (props) => {
 - **Storybook Deployment**: For documentation and examples
 
 ## Recent Technical Updates
+
+### Gravity Icons Integration
+
+- **New Icon Component**: Created universal `Icon` component (`src/components/Icon/Icon.tsx`) for handling both image and Gravity UI icons
+- **Gravity UI Icons Support**: Integration with `@gravity-ui/icons` library for using pre-built icons
+- **GravityIconProps Type**: New type supporting string icon names or objects with name and color configuration
+- **Color Theming**: Support for 'brand' and 'text-color' icon colors with CSS variable integration
+- **Component Updates**: Enhanced BasicCard, ContentList, and IconWrapper with Gravity icons support
+- **Schema Validation**: Added JSON schema validation for GravityIconProps in relevant components
+- **Backward Compatibility**: Maintained support for existing image-based icons alongside new Gravity icons
 
 ### Text Sizing System Enhancement
 

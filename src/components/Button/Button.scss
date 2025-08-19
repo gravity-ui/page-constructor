@@ -9,16 +9,8 @@ $block: '.#{$ns}button-block';
     &__content {
         display: flex;
         align-items: center;
-    }
-
-    &__image {
-        width: 18px;
-        height: 18px;
-    }
-
-    &__image + &__text,
-    &__text + &__image {
-        margin-left: var(--btn-image-margin);
+        justify-content: center;
+        gap: var(--g-spacing-2);
     }
 
     &_theme {

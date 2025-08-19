@@ -1,4 +1,4 @@
-import {ClassNameProps, QuoteType} from '../../models';
+import {ClassNameProps, GravityIconProps, QuoteType} from '../../models';
 import {ThemeSupporting} from '../../utils';
 import {
     HubspotEventData,
@@ -60,8 +60,14 @@ export interface PositionedIcon {
     position?: IconPosition;
 }
 
+export interface PositionedGravityIcon {
+    value: GravityIconProps;
+    position?: IconPosition;
+}
+
 export interface IconWrapperProps {
     icon?: PositionedIcon;
+    gravityIcon?: PositionedGravityIcon;
     size?: 's' | 'm' | 'l';
 }
 
@@ -141,7 +147,7 @@ export interface BackgroundCardProps
     extends CardBaseProps,
         AnalyticsEventsBase,
         CardLayoutProps,
-        Omit<ContentBlockProps, 'colSizes' | 'centered' | 'controlPosition'> {
+        Omit<ContentBlockProps, 'centered' | 'controlPosition'> {
     url?: string;
     urlTitle?: string;
     background?: ThemeSupporting<ImageObjectProps>;
@@ -157,6 +163,7 @@ export interface BasicCardProps
     url: string;
     urlTitle?: string;
     icon?: ThemeSupporting<ImageProps>;
+    gravityIcon?: ThemeSupporting<GravityIconProps>;
     target?: string;
     iconPosition?: IconPosition;
 }

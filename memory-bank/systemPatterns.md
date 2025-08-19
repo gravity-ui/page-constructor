@@ -74,6 +74,47 @@ Blocks are composed of smaller components and sub-blocks:
 └───────────────────────────────┘
 ```
 
+### HeaderBlock Architecture
+
+HeaderBlock follows an enhanced architectural pattern with component composition:
+
+```
+┌─────────────────────────────────────┐
+│           HeaderBlock               │
+├─────────────────────────────────────┤
+│  • useUniqId() for accessibility    │
+│  • useWindowWidth() for responsive  │
+│  • Theme support via getThemedValue │
+│  • Component composition pattern    │
+├─────────────────────────────────────┤
+│     Background Components           │
+│  • Background (media backgrounds)   │
+│  • FullWidthBackground (full width) │
+├─────────────────────────────────────┤
+│        Content Structure            │
+│  • overtitle (above title)          │
+│  • title with custom rendering      │
+│  • description and additionalInfo   │
+│  • status element support           │
+│  • buttons with ARIA labeling       │
+├─────────────────────────────────────┤
+│      Layout Customization           │
+│  • gridClassName for Grid styling   │
+│  • contentWrapperClassName          │
+│  • contentInnerClassName            │
+│  • mediaClassName for media styling │
+└─────────────────────────────────────┘
+```
+
+Key HeaderBlock patterns:
+
+- **Component Composition**: Separate Background and FullWidthBackground components
+- **Enhanced Content**: Support for overtitle, additionalInfo, status, and custom title rendering
+- **Responsive Integration**: useWindowWidth hook and BREAKPOINTS constants
+- **Media Flexibility**: mediaView and mediaClassName for customization
+- **Layout Customization**: Multiple className props for fine-grained styling control
+- **Accessibility**: Proper ARIA labeling with titleId for button descriptions
+
 ### Card Component Architecture
 
 Card components follow a consistent architectural pattern:
@@ -86,12 +127,14 @@ Card components follow a consistent architectural pattern:
 │  • controlPosition prop             │
 │  • Theme support via getThemedValue │
 │  • Size standardization (default='s')│
+│  • Gravity Icons support            │
 ├─────────────────────────────────────┤
 │           Content Sub-block         │
 │  • Title with proper ARIA labeling  │
 │  • Text content with YFM support    │
 │  • Links and Buttons positioning    │
 │  • List and AdditionalInfo support  │
+│  • Icon/GravityIcon integration     │
 └─────────────────────────────────────┘
 ```
 
@@ -101,6 +144,7 @@ Key patterns implemented across BasicCard, LayoutItem, BackgroundCard, and Image
 - **Accessibility**: Proper ARIA labeling with `titleId` and `descriptionId`
 - **Content Delegation**: Shared `Content` component for consistent rendering
 - **Theme Integration**: `getThemedValue` utility for theme-aware properties
+- **Icon Support**: Both traditional image icons and Gravity UI icons supported
 
 ### Context Providers
 
@@ -127,6 +171,7 @@ A comprehensive type system using TypeScript ensures:
 - **Sub-block Models**: Interface for each sub-block's properties
 - **Common Types**: Shared types across components
 - **Text Sizing**: Enhanced `TextSize` type with values `'xs' | 's' | 'sm' | 'm' | 'l'` for finer typography control
+- **Icon Types**: `GravityIconProps` type supporting string names or objects with name and color configuration
 
 ### Schema Validation
 
