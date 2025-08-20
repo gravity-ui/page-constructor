@@ -27,9 +27,12 @@ $block: '.#{$ns}icon-wrapper';
         max-width: 100%;
         margin-bottom: $indentXXS;
         height: $iconSizePositionTop;
-        width: $iconSizePositionTop;
         object-fit: contain;
         display: block;
+
+        &_gravity-icon {
+            width: $iconSizePositionTop;
+        }
 
         &_icon-position {
             &_left {
