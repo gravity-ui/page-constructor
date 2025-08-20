@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.10.0](https://github.com/gravity-ui/page-constructor/compare/v7.9.0...v7.10.0) (2025-08-20)
+
+
+### Features
+
+* **Button:** add support for string icon names from @gravity-ui/icons ([#1260](https://github.com/gravity-ui/page-constructor/issues/1260)) ([2516b1e](https://github.com/gravity-ui/page-constructor/commit/2516b1e1fe243bb08fdc4b00a9a5fe77faf04d04))
+
 ## [7.9.0](https://github.com/gravity-ui/page-constructor/compare/v7.8.0...v7.9.0) (2025-08-19)
 
 
