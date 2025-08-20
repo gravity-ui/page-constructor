@@ -13,14 +13,25 @@ The Page Constructor library is currently focused on providing a comprehensive s
 
 Recent development has focused on:
 
-1. **Button Component Enhancement**: Added support for icons through the `img` prop
+1. **Gravity Icons Integration** (Commits a72c3f3 and 8a8aa02):
+
+   - **New Icon Component**: Created universal component `src/components/Icon/Icon.tsx` for working with icons
+   - **Gravity UI Icons Support**: Integration with `@gravity-ui/icons` library for using ready-made icons
+   - **New GravityIconProps Type**: Added type for gravity icons configuration with color support ('brand' | 'text-color')
+   - **BasicCard Update**: Added support for `gravityIcon` prop in BasicCard component
+   - **ContentList Update**: Added support for gravity icons in content lists
+   - **IconWrapper Update**: Extended support for gravity icons in IconWrapper component
+   - **Schema Validation**: Added validation for GravityIconProps in BasicCard and Content schemas
+   - **Storybook Examples**: Added new stories to demonstrate gravity icons
+
+2. **Button Component Enhancement**: Added support for icons through the `img` prop
 
    - Support for Gravity UI icons (React components)
    - Support for custom SVG strings
    - Configurable icon positioning (left/right)
    - Configurable icon size
 
-2. **HeaderBlock Enhancements**: Significant updates to HeaderBlock with new functionality:
+3. **HeaderBlock Enhancements**: Significant updates to HeaderBlock with new functionality:
 
    - **New Content Properties**: Added `additionalInfo`, `overtitle`, and `status` for richer content structure
    - **Custom Rendering**: Added `renderTitle` function prop for custom title rendering
@@ -33,7 +44,15 @@ Recent development has focused on:
    - **Component Architecture**: Refactored background rendering into separate `Background` and `FullWidthBackground` components
    - **Props Refactoring**: Renamed `containerFluidClassName` to `contentWrapperClassName` for better clarity
 
-3. **Card Component Standardization**: Updated BasicCard, LayoutItem, BackgroundCard, and ImageCard with consistent patterns:
+4. **Text Size Enhancement**: Updated `textSize` constant in `src/schema/validators/common.ts`:
+
+   - **Previous values**: `['s', 'm', 'l']`
+   - **Current values**: `['xs', 's', 'sm', 'm', 'l']`
+   - Added new smaller sizes: `'xs'` (extra small) and `'sm'` (small-medium)
+   - This affects all components that use text sizing: Links, FileLinkProps, TitleProps, and various blocks
+   - Updated TypeScript type `TextSize` to include new values
+
+5. **Card Component Standardization**: Updated BasicCard, LayoutItem, BackgroundCard, and ImageCard with consistent patterns:
 
    - Standardized `controlPosition` prop for flexible control placement ('content' vs 'footer')
    - Enhanced accessibility with `useUniqId()` for proper ARIA labeling
@@ -41,10 +60,10 @@ Recent development has focused on:
    - Unified theme support using `getThemedValue` utility
    - Improved integration with the Content sub-block
 
-4. **Accessibility Improvements**: Enhanced ARIA attributes and ID management across card components
-5. **Control Positioning**: New flexible control positioning system allowing buttons/links in footer area
-6. **Performance Optimization**: Reducing bundle size and improving rendering performance
-7. **Documentation**: Expanding Storybook examples and documentation
+6. **Accessibility Improvements**: Enhanced ARIA attributes and ID management across card components
+7. **Control Positioning**: New flexible control positioning system allowing buttons/links in footer area
+8. **Performance Optimization**: Reducing bundle size and improving rendering performance
+9. **Documentation**: Expanding Storybook examples and documentation
 
 ## Active Decisions and Considerations
 
@@ -129,8 +148,9 @@ The following areas are being considered for future development:
 ### Documentation Updates
 
 - Created detailed documentation of card component updates in [`cardComponentUpdates.md`](cardComponentUpdates.md)
-- Updated system patterns to reflect new card architecture
-- Enhanced progress tracking to include sub-block component improvements
+- Created comprehensive documentation of Gravity Icons integration in [`gravityIconsIntegration.md`](gravityIconsIntegration.md)
+- Updated system patterns to reflect new card architecture and icon system
+- Enhanced progress tracking to include sub-block component improvements and icon system enhancements
 
 ### Challenges
 

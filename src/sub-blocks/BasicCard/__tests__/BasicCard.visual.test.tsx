@@ -3,6 +3,7 @@ import {test} from '../../../../playwright/core/index';
 import {
     ControlPosition,
     Default,
+    GravityIcons,
     Sizes,
     WithBorder,
     WithContentList,
@@ -49,6 +50,12 @@ test.describe('BasicCard', () => {
 
     test('render stories <Sizes>', async ({mount, expectScreenshot, defaultDelay}) => {
         await mount(<Sizes />);
+        await defaultDelay();
+        await expectScreenshot({skipTheme: 'dark'});
+    });
+
+    test('render stories <GravityIcons>', async ({mount, expectScreenshot, defaultDelay}) => {
+        await mount(<GravityIcons />);
         await defaultDelay();
         await expectScreenshot({skipTheme: 'dark'});
     });
