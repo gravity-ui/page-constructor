@@ -1,4 +1,3 @@
-import {Plus} from '@gravity-ui/icons';
 import {IconData} from '@gravity-ui/uikit';
 import {Meta, StoryFn} from '@storybook/react';
 
@@ -101,23 +100,23 @@ const IconTemplate: StoryFn<ButtonProps> = (args) => {
             </Row>
 
             {createButtonRow('Gravity UI', [
-                <Button key="plus-left" {...args} img={createIconConfig(Plus)} text="Button" />,
+                <Button key="plus-left" {...args} img={createIconConfig('Plus')} text="Button" />,
                 <Button
                     key="plus-right"
                     {...args}
-                    img={createIconConfig(Plus, 'right')}
+                    img={createIconConfig('Plus', 'right')}
                     text="Button"
                 />,
                 <Button
                     key="plus-small"
                     {...args}
-                    img={createIconConfig(Plus, 'left', 14)}
+                    img={createIconConfig('Plus', 'left', 14)}
                     text="Button"
                 />,
                 <Button
                     key="plus-large"
                     {...args}
-                    img={createIconConfig(Plus, 'left', 20)}
+                    img={createIconConfig('Plus', 'left', 20)}
                     text="Button"
                 />,
             ])}
