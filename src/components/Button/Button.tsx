@@ -13,6 +13,7 @@ import {useAnalytics} from '../../hooks';
 import {Github} from '../../icons';
 import {ButtonProps as ButtonParams, DefaultEventNames, QAProps} from '../../models';
 import {block, setUrlTld} from '../../utils';
+import {getGravityIcon} from '../../utils/icons';
 
 import {i18n} from './i18n';
 import {ICON_QA, OldButtonSize, OldButtonTheme, toCommonSize, toCommonView} from './utils';
@@ -73,8 +74,10 @@ const Button = (props: ButtonProps) => {
               }
             : {url: img, position: defaultImgPosition};
 
+    const {position, iconData, iconSize, className: iconClassName, url: imgUrl, alt} = buttonImg;
+
     const buttonClass = img
-        ? b({position: buttonImg.position, ...buttonModifiers}, className)
+        ? b({position, ...buttonModifiers}, className)
         : b({...buttonModifiers}, className);
 
     const buttonProps = {
@@ -92,25 +95,33 @@ const Button = (props: ButtonProps) => {
     let icon;
     let image;
 
-    if (img && buttonImg.iconData) {
-        const iconSize = buttonImg.iconSize;
-        const iconClassName = buttonImg.className ? b('icon', buttonImg.className) : b('icon');
+    if (img && iconData) {
+        let finalIconData = iconData;
+
+        if (typeof iconData === 'string') {
+            const gravityIcon = getGravityIcon(iconData);
+            if (gravityIcon) {
+                finalIconData = gravityIcon;
+            }
+        }
+
+        const finalIconClassName = iconClassName ? b('icon', iconClassName) : b('icon');
         icon = (
             <Icon
-                className={iconClassName}
-                data={buttonImg.iconData}
+                className={finalIconClassName}
+                data={finalIconData}
                 size={iconSize}
                 qa={ICON_QA}
             />
         );
-    } else if (img && buttonImg.url) {
+    } else if (img && imgUrl) {
         image = (
             <img
                 className={b('image')}
-                width={buttonImg.iconSize || DEFAULT_IMG_SIZE}
-                height={buttonImg.iconSize || DEFAULT_IMG_SIZE}
-                src={buttonImg.url}
-                alt={buttonImg.alt || i18n('image-alt')}
+                width={iconSize || DEFAULT_IMG_SIZE}
+                height={iconSize || DEFAULT_IMG_SIZE}
+                src={imgUrl}
+                alt={alt || i18n('image-alt')}
             />
         );
     }
@@ -132,13 +143,13 @@ const Button = (props: ButtonProps) => {
             width={width}
             {...(buttonProps as UIKitButtonProps)}
         >
-            {icon && buttonImg.position === 'left' ? icon : null}
+            {icon && position === 'left' ? icon : null}
             <span className={b('content')}>
-                {image && buttonImg.position === 'left' ? image : null}
+                {image && position === 'left' ? image : null}
                 <span className={b('text')}>{text}</span>
-                {image && buttonImg.position === 'right' ? image : null}
+                {image && position === 'right' ? image : null}
             </span>
-            {icon && buttonImg.position === 'right' ? icon : null}
+            {icon && position === 'right' ? icon : null}
         </CommonButton>
     );
 };
