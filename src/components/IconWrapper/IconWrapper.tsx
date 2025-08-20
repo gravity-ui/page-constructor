@@ -25,7 +25,11 @@ const IconWrapper = (props: React.PropsWithChildren<IconWrapperProps> & ClassNam
                 icon={icon?.value}
                 gravityIcon={gravityIcon?.value}
                 containerClassName={b('icon-container')}
-                className={b('icon', {['icon-position']: position, size})}
+                className={b('icon', {
+                    ['icon-position']: position,
+                    size,
+                    ['gravity-icon']: Boolean(gravityIcon),
+                })}
             />
             <div className={b('content', {['icon-position']: position})}>{children}</div>
         </div>
