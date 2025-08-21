@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.10.1](https://github.com/gravity-ui/page-constructor/compare/v7.10.0...v7.10.1) (2025-08-21)
+
+
+### Bug Fixes
+
+* icon width ([#1262](https://github.com/gravity-ui/page-constructor/issues/1262)) ([78f70cf](https://github.com/gravity-ui/page-constructor/commit/78f70cf71bce9108f1505c3ec2e78f69c6775428))
+
 ## [7.10.0](https://github.com/gravity-ui/page-constructor/compare/v7.9.0...v7.10.0) (2025-08-20)
 
 
