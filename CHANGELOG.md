@@ -6,7 +6,6 @@
 ### Bug Fixes
 
 * icon width ([#1262](https://github.com/gravity-ui/page-constructor/issues/1262)) ([78f70cf](https://github.com/gravity-ui/page-constructor/commit/78f70cf71bce9108f1505c3ec2e78f69c6775428))
-* last commit ([#1263](https://github.com/gravity-ui/page-constructor/issues/1263)) ([b50d058](https://github.com/gravity-ui/page-constructor/commit/b50d058b4b214b18fcfa36e7d6bef3e49fff556b))
 
 ## [7.10.0](https://github.com/gravity-ui/page-constructor/compare/v7.9.0...v7.10.0) (2025-08-20)
 
