@@ -16,6 +16,7 @@ export interface NavigationComponentProps extends ClassNameProps {
     logo: ThemedNavigationLogoData;
     data: HeaderData;
     mobilePortalContainer?: React.RefObject<HTMLElement>;
+    onSidebarChange?: (isOpen: boolean) => void;
 }
 
 export const Navigation = ({
@@ -23,6 +24,7 @@ export const Navigation = ({
     logo,
     className,
     mobilePortalContainer,
+    onSidebarChange,
 }: NavigationComponentProps) => {
     const {
         leftItems,
@@ -38,7 +40,10 @@ export const Navigation = ({
     const {activeItemId, leftItemsWithIconSize, rightItemsWithIconSize, onActiveItemChange} =
         useActiveNavItem(iconSize, leftItems, rightItems);
 
-    const onSidebarOpenedChange = (isOpen: boolean) => setIsSidebarOpened(isOpen);
+    const onSidebarOpenedChange = (isOpen: boolean) => {
+        onSidebarChange?.(isOpen);
+        setIsSidebarOpened(isOpen);
+    };
 
     return (
         <Grid className={b({'with-border': showBorder}, className)}>
