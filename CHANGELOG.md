@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.11.0](https://github.com/gravity-ui/page-constructor/compare/v7.10.1...v7.11.0) (2025-08-25)
+
+
+### Features
+
+* **Navigation:** add onSidebarChange prop ([#1265](https://github.com/gravity-ui/page-constructor/issues/1265)) ([3f3734a](https://github.com/gravity-ui/page-constructor/commit/3f3734a77a4a22f5f2380672a99d8740b1cde601))
+
 ## [7.10.1](https://github.com/gravity-ui/page-constructor/compare/v7.10.0...v7.10.1) (2025-08-21)
 
 
