@@ -39,9 +39,13 @@ export interface CardFooterBaseProps {
 
 const b = block('card-base-block');
 
-const Header: (props: React.PropsWithChildren<CardHeaderBaseProps>) => React.ReactNode = () => null;
-const Content: (props: React.PropsWithChildren<{}>) => React.ReactNode = () => null;
-const Footer: (props: React.PropsWithChildren<CardFooterBaseProps>) => React.ReactNode = () => null;
+const Header: (
+    props: React.PropsWithChildren<CardHeaderBaseProps>,
+) => React.ReactElement | null = () => null;
+const Content: (props: React.PropsWithChildren<{}>) => React.ReactElement | null = () => null;
+const Footer: (
+    props: React.PropsWithChildren<CardFooterBaseProps>,
+) => React.ReactElement | null = () => null;
 
 export const Layout = (props: CardBasePropsType) => {
     const {
