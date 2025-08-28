@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.11.1](https://github.com/gravity-ui/page-constructor/compare/v7.11.0...v7.11.1) (2025-08-27)
+
+
+### Bug Fixes
+
+* support compatible types for compound components ([#1267](https://github.com/gravity-ui/page-constructor/issues/1267)) ([dc3d9ef](https://github.com/gravity-ui/page-constructor/commit/dc3d9efd1c8e5d00ebbdb93e47ff79d86a5dbee1))
+
 ## [7.11.0](https://github.com/gravity-ui/page-constructor/compare/v7.10.1...v7.11.0) (2025-08-25)
 
 
