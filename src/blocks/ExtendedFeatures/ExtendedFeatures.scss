@@ -24,8 +24,9 @@ $block: '.#{$ns}ExtendedFeaturesBlock';
 
         &-title-container {
             margin: inherit;
-            display: block;
-            margin-block: 0 $indentXXXS;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
         }
 
         &-title {
@@ -46,6 +47,8 @@ $block: '.#{$ns}ExtendedFeaturesBlock';
 
             position: relative;
             top: -3px;
+            display: inline-flex;
+            align-items: center;
             height: 16px;
             margin-left: 8px;
             padding: 1.5px 5px 2px;
