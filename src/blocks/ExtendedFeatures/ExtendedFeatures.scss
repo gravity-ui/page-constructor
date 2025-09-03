@@ -24,9 +24,9 @@ $block: '.#{$ns}ExtendedFeaturesBlock';
 
         &-title-container {
             margin: inherit;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: baseline;
+            display: block;
+            margin-block: 0 $indentXXXS;
+            @include heading4();
         }
 
         &-title {
