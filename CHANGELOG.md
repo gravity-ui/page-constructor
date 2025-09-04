@@ -1,5 +1,13 @@
 # Changelog
 
+## [7.11.2](https://github.com/gravity-ui/page-constructor/compare/v7.11.1...v7.11.2) (2025-09-04)
+
+
+### Bug Fixes
+
+* playwright docker script remove accidental param ([#1272](https://github.com/gravity-ui/page-constructor/issues/1272)) ([15d0e59](https://github.com/gravity-ui/page-constructor/commit/15d0e5961ddaed5a9e10c45e4f28f441e8d4f9a8))
+* update extended features title with label alignment ([#1271](https://github.com/gravity-ui/page-constructor/issues/1271)) ([befe769](https://github.com/gravity-ui/page-constructor/commit/befe769be24087912236eab72bf3e3a1f00174c2))
+
 ## [7.11.1](https://github.com/gravity-ui/page-constructor/compare/v7.11.0...v7.11.1) (2025-08-27)
 
 
