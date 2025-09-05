@@ -44,9 +44,8 @@
     "textContent": {
       "theme": "dark",
       "title": "Black form background color",
-      "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit:</p> <ul> <li> <p>Lorem ipsum</p> </li> <li> <p>Lorem ipsum</p> </li> <li> <p>Lorem ipsum</p> </li> </ul>"
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit: \n* Lorem ipsum \n* Lorem ipsum \n* Lorem ipsum"
     },
-    "direction": "form-content",
     "background": {
       "style": {
         "backgroundColor": "#262626"
@@ -54,6 +53,11 @@
     }
   },
   "yandexForm": {
+    "type": "form-block",
+    "textContent": {
+      "title": "Lorem ipsum dolor sit amet",
+      "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    },
     "title": "Yandex Form",
     "formData": {
       "yandex": {
@@ -62,31 +66,5 @@
         "customFormSection": "cloud"
       }
     }
-  },
-  "list": [
-    {
-      "icon": {
-        "light": "/story-assets/icon_1_light.svg",
-        "dark": "/story-assets/icon_1_dark.svg"
-      },
-      "title": "Lorem ipsum",
-      "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-    },
-    {
-      "icon": {
-        "light": "/story-assets/icon_3_light.svg",
-        "dark": "/story-assets/icon_3_dark.svg"
-      },
-      "title": "Lorem ipsum ipsum",
-      "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-    },
-    {
-      "icon": {
-        "light": "/story-assets/icon_2_light.svg",
-        "dark": "/story-assets/icon_2_dark.svg"
-      },
-      "title": "Lorem ipsum",
-      "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-    }
-  ]
+  }
 }
