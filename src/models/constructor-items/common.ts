@@ -232,9 +232,9 @@ export interface ButtonProps extends AnalyticsEventsBase {
     theme?: ButtonTheme;
     img?: ButtonImageProps | string;
     target?: string;
-    size: UikitButtonProps['size'];
-    width: UikitButtonProps['width'];
-    extraProps: UikitButtonProps['extraProps'];
+    size?: UikitButtonProps['size'];
+    width?: UikitButtonProps['width'];
+    extraProps?: UikitButtonProps['extraProps'];
 }
 
 export type ButtonImagePosition = 'left' | 'right';
