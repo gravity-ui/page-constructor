@@ -1,11 +1,8 @@
-import * as React from 'react';
-
 import {Meta, StoryFn} from '@storybook/react';
 import {v4 as uuidv4} from 'uuid';
 
-import {yfmTransform} from '../../../../.storybook/utils';
-import {PageConstructor} from '../../../containers/PageConstructor';
-import {FormBlockDirection, FormBlockModel, isHubspotDataForm} from '../../../models';
+import {blockTransform} from '../../../../.storybook/utils';
+import {FormBlockDirection, FormBlockModel, FormBlockProps} from '../../../models';
 import FormBlock from '../Form';
 
 import data from './data.json';
@@ -13,91 +10,81 @@ import data from './data.json';
 export default {
     title: 'Blocks/Form',
     component: FormBlock,
-    args: {
-        ...data.default,
-        textContent: {
-            ...data.default.textContent,
-            text: yfmTransform(data.default.textContent.text),
-        },
-    },
-    argTypes: {
-        type: {control: false},
-        direction: {options: Object.values(FormBlockDirection), control: {type: 'select'}},
-    },
 } as Meta;
 
-const __getFormData = (formData: FormBlockModel['formData']): FormBlockModel['formData'] => {
-    const id = uuidv4();
-    return isHubspotDataForm(formData)
-        ? ({hubspot: {...formData.hubspot, formInstanceId: id}} as FormBlockModel['formData'])
-        : {yandex: formData.yandex};
-};
+const DIRECTIONS_VARIANTS = [
+    FormBlockDirection.FormContent,
+    FormBlockDirection.ContentForm,
+    FormBlockDirection.Center,
+].map((direction) => ({
+    ...data.default,
+    direction,
+    formData: {hubspot: {...data.default.formData.hubspot, formInstanceId: uuidv4()}},
+}));
 
 const DefaultTemplate: StoryFn<FormBlockModel> = (args) => (
-    <PageConstructor
-        content={{
-            blocks: [
-                {
-                    ...args,
-                    formData: __getFormData(args.formData),
-                },
-            ],
-        }}
-    />
+    <FormBlock {...(blockTransform(args) as FormBlockProps)} />
 );
 
-const ContentDirectionTemplate: StoryFn<FormBlockModel> = (args) => (
-    <PageConstructor
-        content={{
-            blocks: [
-                {
-                    ...args,
-                    direction: FormBlockDirection.FormContent,
-                    textContent: {...args.textContent, title: 'FormContent'},
-                    formData: __getFormData(args.formData),
-                },
-                {
-                    ...args,
-                    direction: FormBlockDirection.ContentForm,
-                    textContent: {
-                        ...args.textContent,
-                        title: 'ContentForm',
-                    },
-                    formData: __getFormData(args.formData),
-                },
-                {
-                    ...args,
-                    direction: FormBlockDirection.Center,
-                    textContent: {...args.textContent, title: 'Center'},
-                    formData: __getFormData(args.formData),
-                },
-            ],
-        }}
-    />
-);
-
-const FormDataTemplate: StoryFn<FormBlockModel> = (args) => (
-    <React.Fragment>
-        <ContentDirectionTemplate {...args} />
-        <ContentDirectionTemplate
-            {...args}
-            {...(data.default as FormBlockModel)}
-            {...data.withBackground}
-        />
-    </React.Fragment>
+const VariantsTemplate: StoryFn<Record<number, FormBlockModel>> = (args) => (
+    <div>
+        {Object.values(args).map((arg, index) => (
+            <div key={index} style={{marginBottom: '96px'}}>
+                <FormBlock {...(blockTransform(arg) as FormBlockProps)} />
+            </div>
+        ))}
+    </div>
 );
 
 export const Default = DefaultTemplate.bind({});
-export const ContentDirection = ContentDirectionTemplate.bind({});
-export const WithBackgroundColor = ContentDirectionTemplate.bind({});
-export const WithBackgroundImage = ContentDirectionTemplate.bind({});
-export const DarkTheme = ContentDirectionTemplate.bind({});
-export const FormData = FormDataTemplate.bind({});
+export const ContentDirection = VariantsTemplate.bind([]);
+export const WithBackgroundColor = VariantsTemplate.bind([]);
+export const WithBackgroundImage = VariantsTemplate.bind([]);
+export const DarkTheme = VariantsTemplate.bind([]);
+export const FormData = VariantsTemplate.bind([]);
 
-WithBackgroundColor.args = data.withBackground;
+Default.args = data.default as FormBlockModel;
 
-WithBackgroundImage.args = data.withBackgroundImage;
+ContentDirection.args = DIRECTIONS_VARIANTS as FormBlockModel[];
+ContentDirection.parameters = {
+    controls: {
+        include: Object.keys(DIRECTIONS_VARIANTS),
+    },
+};
 
-DarkTheme.args = data.darkTheme as FormBlockModel;
+WithBackgroundColor.args = DIRECTIONS_VARIANTS.map((variant) => ({
+    ...variant,
+    ...data.withBackground,
+})) as FormBlockModel[];
+WithBackgroundColor.parameters = {
+    controls: {
+        include: Object.keys(DIRECTIONS_VARIANTS),
+    },
+};
 
-FormData.args = {...data.yandexForm, ...data.withBackgroundImage};
+WithBackgroundImage.args = DIRECTIONS_VARIANTS.map((variant) => ({
+    ...variant,
+    ...data.withBackgroundImage,
+})) as FormBlockModel[];
+WithBackgroundImage.parameters = {
+    controls: {
+        include: Object.keys(DIRECTIONS_VARIANTS),
+    },
+};
+
+DarkTheme.args = DIRECTIONS_VARIANTS.map((variant) => ({
+    ...variant,
+    ...data.darkTheme,
+})) as FormBlockModel[];
+DarkTheme.parameters = {
+    controls: {
+        include: Object.keys(DIRECTIONS_VARIANTS),
+    },
+};
+
+FormData.args = [data.default, data.yandexForm] as FormBlockModel[];
+FormData.parameters = {
+    controls: {
+        include: Object.keys(FormData.args),
+    },
+};

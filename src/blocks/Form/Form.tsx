@@ -21,7 +21,7 @@ const b = block('form-block');
 
 const colSizes = {[GridColumnSize.Lg]: 6, [GridColumnSize.All]: 12};
 
-const FormBlock = (props: FormBlockProps) => {
+const Form = (props: FormBlockProps) => {
     const {formData, title, textContent, direction = FormBlockDirection.Center, background} = props;
     const [contentLoaded, setContentLoaded] = React.useState(false);
     const isMobile = React.useContext(MobileContext);
@@ -120,4 +120,4 @@ const FormBlock = (props: FormBlockProps) => {
     );
 };
 
-export default FormBlock;
+export default Form;
