@@ -224,9 +224,7 @@ export type ButtonTheme =
     | 'scale'
     | 'monochrome';
 
-export interface ButtonProps
-    extends AnalyticsEventsBase,
-        Pick<UikitButtonProps, 'size' | 'width' | 'extraProps'> {
+export interface ButtonProps extends AnalyticsEventsBase {
     text: string;
     url: string;
     urlTitle?: string;
@@ -234,6 +232,9 @@ export interface ButtonProps
     theme?: ButtonTheme;
     img?: ButtonImageProps | string;
     target?: string;
+    size?: UikitButtonProps['size'];
+    width?: UikitButtonProps['width'];
+    extraProps?: UikitButtonProps['extraProps'];
 }
 
 export type ButtonImagePosition = 'left' | 'right';
