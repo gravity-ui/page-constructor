@@ -216,6 +216,7 @@ export const FullWidthMediaBackground = FullWidthMediaBackgroundTemplate.bind({}
 export const DarkTheme = DefaultTemplate.bind({});
 export const Breadcrumbs = BreadCrumbsTemplate.bind({});
 export const MediaViewFit = FitTemplate.bind({});
+export const VideoIframe = DefaultTemplate.bind([]);
 
 Default.args = {...DefaultArgs} as HeaderBlockProps;
 
@@ -259,4 +260,9 @@ MediaViewFit.args = {
     ...DefaultArgs,
     ...data.image.content,
     mediaView: 'fit',
+} as HeaderBlockProps;
+
+VideoIframe.args = {
+    ...DefaultArgs,
+    ...data.videoIframe.content,
 } as HeaderBlockProps;
