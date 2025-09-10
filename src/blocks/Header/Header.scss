@@ -175,6 +175,14 @@ $backgroundWidth: 1440px;
         border-radius: $borderRadius;
     }
 
+    &__video-iframe {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        left: 0;
+        transform: translateY(-50%);
+    }
+
     &__breadcrumbs {
         position: absolute;
         top: $indentXS;
@@ -252,6 +260,15 @@ $backgroundWidth: 1440px;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
+        }
+    }
+
+    &_media-view_full {
+        #{$block}__video-iframe {
+            top: 0;
+            bottom: 0;
+            height: auto !important; /* stylelint-disable-line declaration-no-important */ // we have to override contents of the style tag
+            transform: none;
         }
     }
 

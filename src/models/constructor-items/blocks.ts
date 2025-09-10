@@ -166,6 +166,13 @@ export interface HeaderBlockBackground extends Partial<HeaderBackgroundProps>, P
 
 export type ThemedHeaderBlockBackground = ThemeSupporting<HeaderBlockBackground>;
 
+export interface HeaderBlockVideoIframe {
+    src: string;
+    autoplay?: boolean;
+    previewImg?: string;
+    height?: number;
+}
+
 export interface HeaderBlockProps {
     title: string;
     overtitle?: string | JSX.Element;
@@ -182,6 +189,7 @@ export interface HeaderBlockProps {
     offset?: HeaderOffset;
     image?: ThemedImage;
     video?: ThemedMediaVideoProps;
+    videoIframe?: HeaderBlockVideoIframe;
     mediaView?: MediaView;
     centered?: boolean;
     background?: ThemedHeaderBlockBackground;
