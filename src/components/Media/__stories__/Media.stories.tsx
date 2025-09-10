@@ -35,7 +35,15 @@ export const Iframe = IframeTemplate.bind({});
 
 Image.args = data.image.content;
 ImageSlider.args = data.imageSlider.content;
-Video.args = data.video.content;
+Video.args = {
+    ...data.video.content,
+    video: {
+        ...data.video.content.video,
+        onVideoEnd: () => {
+            console.log('Video has ended, onVideoEnd callback has fired');
+        },
+    },
+};
 Youtube.args = data.youtube.content;
 DataLens.args = data.dataLens.content;
 DataLensDarkTheme.args = data.dataLensDarkTheme.content as MediaProps;

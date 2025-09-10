@@ -189,6 +189,7 @@ export interface MediaVideoProps extends AnalyticsEventsBase {
     customControlsOptions?: CustomControlsOptions;
     ariaLabel?: string;
     contain?: boolean;
+    onVideoEnd?: () => void;
 }
 
 // links
