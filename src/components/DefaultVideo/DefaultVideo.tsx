@@ -48,7 +48,7 @@ export const DefaultVideo = React.forwardRef<DefaultVideoRefType, DefaultVideoPr
         React.useEffect(() => {
             const videoElement = videoRef.current;
             if (!videoElement || !onVideoEnd) {
-                return;
+                return undefined;
             }
 
             const handleVideoEnd = () => {
