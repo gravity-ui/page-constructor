@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.12.0](https://github.com/gravity-ui/page-constructor/compare/v7.11.2...v7.12.0) (2025-09-11)
+
+
+### Features
+
+* **DefaultVideo:** add onVideoEnd callback ([#1282](https://github.com/gravity-ui/page-constructor/issues/1282)) ([9563d35](https://github.com/gravity-ui/page-constructor/commit/9563d351997e67878b2fead09a89cff689c9f3ff))
+
 ## [7.11.2](https://github.com/gravity-ui/page-constructor/compare/v7.11.1...v7.11.2) (2025-09-04)
 
 
