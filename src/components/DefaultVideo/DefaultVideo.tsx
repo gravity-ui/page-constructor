@@ -21,7 +21,7 @@ interface DefaultVideoProps {
 export const DefaultVideo = React.forwardRef<DefaultVideoRefType, DefaultVideoProps>(
     (props, ref) => {
         const {video, qa, customBarControlsClassName} = props;
-        const {controls, customControlsOptions, muted: initiallyMuted = true} = video;
+        const {controls, customControlsOptions, muted: initiallyMuted = true, onVideoEnd} = video;
         const {
             muteButtonShown,
             positioning,
@@ -44,6 +44,23 @@ export const DefaultVideo = React.forwardRef<DefaultVideoRefType, DefaultVideoPr
 
             return videoRef.current;
         }, [videoRef]);
+
+        React.useEffect(() => {
+            const videoElement = videoRef.current;
+            if (!videoElement || !onVideoEnd) {
+                return undefined;
+            }
+
+            const handleVideoEnd = () => {
+                onVideoEnd?.();
+            };
+
+            videoElement.addEventListener('ended', handleVideoEnd);
+            return () => {
+                videoElement.removeEventListener('ended', handleVideoEnd);
+            };
+        }, [videoRef, onVideoEnd]);
+
         const onPlayToggle = React.useCallback(() => {
             setIsPaused((value) => {
                 if (value) {
