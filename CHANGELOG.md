@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.13.0](https://github.com/gravity-ui/page-constructor/compare/v7.12.0...v7.13.0) (2025-09-11)
+
+
+### Features
+
+* **HeaderBlock:** support video iframe ([#1281](https://github.com/gravity-ui/page-constructor/issues/1281)) ([dc6379e](https://github.com/gravity-ui/page-constructor/commit/dc6379e58eb27beb0c8d2c9c950f4fcc2bde38f1))
+
 ## [7.12.0](https://github.com/gravity-ui/page-constructor/compare/v7.11.2...v7.12.0) (2025-09-11)
 
 
