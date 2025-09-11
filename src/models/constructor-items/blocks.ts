@@ -273,8 +273,7 @@ export interface MediaBaseBlockProps extends Animatable, MediaContentProps {
 }
 
 export interface MediaContentProps
-    extends Omit<ContentBlockProps, 'colSizes' | 'text' | 'title' | 'theme' | 'centered'> {
-    title: string;
+    extends Omit<ContentBlockProps, 'colSizes' | 'text' | 'theme' | 'centered'> {
     description?: string;
     /** @deprecated  Use array of buttons from ContentBlockProps instead**/
     button?: ButtonProps;
