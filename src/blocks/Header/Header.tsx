@@ -80,6 +80,7 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
         buttons,
         image,
         video,
+        videoIframe,
         width = 'm',
         imageSize,
         offset = 'default',
@@ -102,7 +103,7 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
     const windowWidth = useWindowWidth();
     const isMobile = windowWidth <= BREAKPOINTS.sm;
     const theme = useTheme();
-    const hasRightSideImage = Boolean((image || video) && !centered);
+    const hasRightSideImage = Boolean((image || video || videoIframe) && !centered);
     const curImageSize = imageSize || getImageSize(width);
     const titleSizes = hasRightSideImage ? titleWithImageSizes(curImageSize) : getTitleSizes(width);
     let curVerticalOffset = verticalOffset;
@@ -114,8 +115,9 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
     const backgroundThemed = background && getThemedValue(background, theme);
     const imageThemed = image && getThemedValue(image, theme);
     const videoThemed = video && getThemedValue(video, theme);
+    const {src: videoIframeSrc, ...videoIframeProps} = videoIframe ?? {};
     const mediaWithMicrodata = mergeVideoMicrodata(
-        {video: videoThemed, image: imageThemed},
+        {video: videoThemed, image: imageThemed, videoIframe: videoIframeSrc, ...videoIframeProps},
         {name: title, description},
     );
     const fullWidth = backgroundThemed?.fullWidth || backgroundThemed?.fullWidthMedia;
@@ -235,6 +237,7 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
                                 className={b('media', {[curImageSize]: true}, mediaClassName)}
                                 videoClassName={b('video')}
                                 imageClassName={b('image')}
+                                youtubeClassName={b('video-iframe')}
                                 {...mediaWithMicrodata}
                             />
                         )}

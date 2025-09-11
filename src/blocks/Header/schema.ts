@@ -9,6 +9,18 @@ import {
 } from '../../schema/validators/common';
 import {filteredArray} from '../../schema/validators/utils';
 
+export const HeaderVideoIframeProps = {
+    type: 'object',
+    additionalProperties: false,
+    required: ['src'],
+    properties: {
+        src: {type: 'string'},
+        autoplay: {type: 'boolean'},
+        previewImg: {type: 'string'},
+        height: {type: 'number'},
+    },
+};
+
 export const HeaderBackgroundProps = {
     type: 'object',
     additionalProperties: false,
@@ -50,6 +62,7 @@ export const HeaderProperties = {
     },
     image: withTheme(ImageProps),
     video: withTheme(VideoProps),
+    videoIframe: withTheme(HeaderVideoIframeProps),
     mediaView: {
         type: 'string',
         enum: mediaView,

@@ -22,6 +22,7 @@ The HeaderBlock now supports multiple className props for fine-grained styling c
 ### Props Evolution
 
 - **Props Refactoring**: Renamed `containerFluidClassName` to `contentWrapperClassName` for better semantic clarity
+- **Props Added/Modified**: Added option to use `videoIframe` to embed iframe-based video content as media
 
 ### Enhanced Content Structure
 
@@ -33,6 +34,7 @@ The HeaderBlock now supports multiple className props for fine-grained styling c
 ### Background and Media Features
 
 - **`fullWidthMedia`**: Support for full-width media backgrounds
+- **`videoIframe`**: Support for embedding iframe-based video content as media
 - **`mediaView`**: Control over media display mode ('full' by default)
 - **Component Composition**: Separate `Background` and `FullWidthBackground` components for better maintainability
 
@@ -156,6 +158,18 @@ The HeaderBlock uses a sophisticated layout structure:
   additionalInfo="Learn more about our latest updates"
   status={<Badge>Beta</Badge>}
   renderTitle={(title) => <CustomTitleComponent title={title} />}
+/>
+```
+
+### With Iframe Video
+
+```tsx
+<HeaderBlock
+  title="Video Header"
+  description="Header with iframe video"
+  videoIframe={{
+    src: 'https://example.com/video-iframe',
+  }}
 />
 ```
 
@@ -285,6 +299,7 @@ const FullWidthBackground = ({background}: FullWidthBackgroundProps) => (
 1. **Image Optimization**: Use appropriately sized and optimized images
 2. **Theme Support**: Provide both light and dark theme variants when needed
 3. **Mobile Adaptation**: Consider how media displays on mobile devices
+4. **Video Iframe**: When using videoIframe, ensure the source URL is properly formatted and accessible
 
 ### Background Implementation
 

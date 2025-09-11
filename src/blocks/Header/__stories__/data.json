@@ -180,6 +180,15 @@
       }
     }
   },
+  "videoIframe": {
+    "content": {
+      "videoIframe": {
+        "src": "https://runtime.video.cloud.yandex.net/player/video/vplvmyqsxi7dlwndvb4y",
+        "autoplay": false,
+        "previewImg": "/story-assets/header-img_0-12_light.png"
+      }
+    }
+  },
   "size": {
     "title": "Header size {{size}}"
   }
