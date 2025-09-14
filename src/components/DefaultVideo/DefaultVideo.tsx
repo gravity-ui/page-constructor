@@ -21,7 +21,13 @@ interface DefaultVideoProps {
 export const DefaultVideo = React.forwardRef<DefaultVideoRefType, DefaultVideoProps>(
     (props, ref) => {
         const {video, qa, customBarControlsClassName} = props;
-        const {controls, customControlsOptions, muted: initiallyMuted = true, onVideoEnd} = video;
+        const {
+            controls,
+            customControlsOptions,
+            muted: initiallyMuted = true,
+            onVideoEnd,
+            loop,
+        } = video;
         const {
             muteButtonShown,
             positioning,
@@ -94,6 +100,7 @@ export const DefaultVideo = React.forwardRef<DefaultVideoRefType, DefaultVideoPr
                     ref={videoRef}
                     preload="metadata"
                     muted={isMuted}
+                    loop={Boolean(loop)}
                     aria-label={video.ariaLabel}
                     onClick={onClick}
                 >
