@@ -198,6 +198,27 @@ const IframeTemplate: StoryFn<MediaBlockModel> = (args) => (
     />
 );
 
+const EnhancedTitleTemplate: StoryFn<MediaBlockModel> = (args) => (
+    <PageConstructor
+        content={{
+            blocks: [
+                {
+                    ...args,
+                    ...data.enhancedTitle.largeClickable,
+                },
+                {
+                    ...args,
+                    ...data.enhancedTitle.interactiveWithIcon,
+                    title: {
+                        ...data.enhancedTitle.interactiveWithIcon.title,
+                        onClick: () => alert('Media title clicked!'),
+                    },
+                },
+            ],
+        }}
+    />
+);
+
 export const Default = DefaultTemplate.bind({});
 export const ImageSlider = ImageSliderTemplate.bind({});
 export const Video = VideoTemplate.bind({});
@@ -208,6 +229,7 @@ export const WithoutShadowDeprecated = ImageSliderTemplate.bind({});
 export const WithoutShadow = ImageSliderTemplate.bind({});
 export const WithBorder = ImageSliderTemplate.bind({});
 export const Iframe = IframeTemplate.bind({});
+export const EnhancedTitle = EnhancedTitleTemplate.bind({});
 
 const DefaultArgs = {
     ...data.default.content,
@@ -244,4 +266,8 @@ WithBorder.args = {
 } as MediaBlockProps;
 Iframe.args = {
     ...DefaultArgs,
+} as MediaBlockProps;
+EnhancedTitle.args = {
+    ...DefaultArgs,
+    ...data.enhancedTitle.largeClickable,
 } as MediaBlockProps;
