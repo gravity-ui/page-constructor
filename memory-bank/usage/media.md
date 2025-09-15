@@ -96,6 +96,69 @@ graph TD
   - Supports `color` for background color
   - Includes `videoMicrodata` for SEO structured data
 
+### MediaContentProps Interface
+
+- **Description**: Defines the content properties for Media and Map blocks, extending ContentBlockProps with media-specific properties.
+- **File**: `src/models/constructor-items/blocks.ts`
+- **Key Properties**:
+  - `title`: TitleItemBaseProps | string - Enhanced title support with object or string format
+  - `description`: string - Optional description text with YFM support
+  - `button`: ButtonProps - Deprecated, use buttons array from ContentBlockProps instead
+  - Inherits from ContentBlockProps: `additionalInfo`, `links`, `buttons`, `size`, `list`, `controlPosition`
+
+#### Enhanced Title Support
+
+The `title` property in MediaContentProps now supports both simple strings and rich title objects:
+
+**String Format (Legacy)**:
+
+```typescript
+title: 'Simple Title Text';
+```
+
+**Object Format (Enhanced)**:
+
+```typescript
+title: {
+  text: "Title Text",           // Required: The title text
+  textSize?: TextSize,          // Optional: 'xs' | 's' | 'sm' | 'm' | 'l'
+  url?: string,                 // Optional: Makes title clickable
+  urlTitle?: string,            // Optional: Link title attribute
+  custom?: string | ReactNode,  // Optional: Custom content (e.g., emoji)
+  onClick?: () => void,         // Optional: Click handler
+}
+```
+
+**Usage Examples**:
+
+```typescript
+// Title with custom size
+title: {
+  text: 'Large Title',
+  textSize: 'l'
+}
+
+// Clickable title
+title: {
+  text: 'Visit Our Site',
+  url: 'https://example.com',
+  urlTitle: 'Open example.com'
+}
+
+// Interactive title
+title: {
+  text: 'Click Me',
+  onClick: () => alert('Title clicked!')
+}
+
+// Title with custom content
+title: {
+  text: 'Featured Content',
+  custom: '⭐',
+  textSize: 'm'
+}
+```
+
 ### Media Sub-components
 
 The Media component internally uses specialized sub-components:
@@ -569,6 +632,7 @@ The Media component includes comprehensive Storybook stories demonstrating:
 - Theme variations
 - Analytics integration
 - Responsive behavior
+- Enhanced title support
 
 Stories are located in `src/components/Media/__stories__/Media.stories.tsx` with example data in `data.json`.
 

@@ -61,5 +61,24 @@
   "direction": {
     "defaultDirectionTitle": "Default Direction",
     "ReverseDirectionTitle": "Reverse Direction"
+  },
+  "enhancedTitle": {
+    "largeClickable": {
+      "title": {
+        "text": "Large Clickable Media Title",
+        "textSize": "l",
+        "url": "https://example.com",
+        "urlTitle": "Open media example"
+      },
+      "description": "Example with title object using custom size and clickable link"
+    },
+    "interactiveWithIcon": {
+      "title": {
+        "text": "Interactive Media Title",
+        "textSize": "m",
+        "custom": "🗺️"
+      },
+      "description": "Example with title object using onClick handler and custom content (emoji)"
+    }
   }
 }

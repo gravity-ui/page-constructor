@@ -95,6 +95,58 @@ graph TD
 - **Properties**:
   - `type`: MapType enum value (Yandex or Google)
 
+## MapBlockProps Interface
+
+Map blocks use the same enhanced title support as Media blocks through MediaContentProps:
+
+- **Description**: Map blocks extend MediaBaseBlockProps, which includes MediaContentProps with enhanced title support.
+- **File**: `src/models/constructor-items/blocks.ts`
+- **Key Properties**:
+  - `title`: TitleItemBaseProps | string - Enhanced title support with object or string format
+  - `description`: string - Optional description text with YFM support
+  - `map`: MapProps - Map configuration (required)
+  - Inherits all MediaContentProps properties: `additionalInfo`, `links`, `buttons`, `size`, `list`, `controlPosition`
+
+### Enhanced Title Support for Maps
+
+Map blocks support the same enhanced title functionality as Media blocks:
+
+**Usage Examples**:
+
+```typescript
+// Map with custom title size
+{
+  type: 'map-block',
+  title: {
+    text: 'Our Location',
+    textSize: 'l'
+  },
+  map: { /* map config */ }
+}
+
+// Map with clickable title
+{
+  type: 'map-block',
+  title: {
+    text: 'View on Google Maps',
+    url: 'https://maps.google.com/...',
+    urlTitle: 'Open in Google Maps'
+  },
+  map: { /* map config */ }
+}
+
+// Map with custom content
+{
+  type: 'map-block',
+  title: {
+    text: 'Office Location',
+    custom: '📍',
+    textSize: 'm'
+  },
+  map: { /* map config */ }
+}
+```
+
 ## Usage Patterns
 
 > **Note**: In the code examples below, `b()` is a utility function used throughout the page-constructor project for BEM (Block Element Modifier) class naming. It generates CSS class names following the BEM methodology, making the code more maintainable and consistent.
@@ -249,6 +301,7 @@ The Map component includes Storybook stories demonstrating:
 - Yandex Maps integration with coordinate-based markers
 - Different zoom levels and configurations
 - API key input for development/testing
+- Enhanced title support
 
 Stories are located in `src/components/Map/__stories__/Map.stories.tsx` with example data in `data.json`.
 

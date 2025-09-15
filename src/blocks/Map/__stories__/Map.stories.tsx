@@ -183,10 +183,43 @@ const MapsTypesTemplate: StoryFn<MapBlockModel> = (args) => (
     </React.Fragment>
 );
 
+const EnhancedTitleTemplate: StoryFn<MapBlockModel> = (args) => (
+    <MapProvider
+        scriptSrc={scriptsSrc[MapType.Yandex]}
+        apiKey={ymapApiKeyForStorybook}
+        type={MapType.Yandex}
+    >
+        <PageConstructor
+            content={{
+                blocks: [
+                    {
+                        ...args,
+                        ...data.enhancedTitle.largeClickable,
+                        map: data.ymap,
+                    },
+                    {
+                        ...args,
+                        ...data.enhancedTitle.interactiveWithIcon,
+                        title: {
+                            ...data.enhancedTitle.interactiveWithIcon.title,
+                            onClick: () => alert('Map title clicked!'),
+                        },
+                        map: {
+                            ...data.ymap,
+                            id: 'interactive-title-map',
+                        },
+                    },
+                ],
+            }}
+        />
+    </MapProvider>
+);
+
 export const Default = DefaultTemplate.bind({});
 export const Size = SizeTemplate.bind({});
 export const Direction = DirectionTemplate.bind({});
 export const MapsTypes = MapsTypesTemplate.bind({});
+export const EnhancedTitle = EnhancedTitleTemplate.bind({});
 
 const DefaultArgs = {
     ...data.default.content,
@@ -201,3 +234,8 @@ Size.args = DefaultArgs as MapBlockProps;
 Direction.args = DefaultArgs as MapBlockProps;
 
 MapsTypes.args = DefaultArgs as MapBlockProps;
+
+EnhancedTitle.args = {
+    ...DefaultArgs,
+    ...data.enhancedTitle.largeClickable,
+} as MapBlockProps;
