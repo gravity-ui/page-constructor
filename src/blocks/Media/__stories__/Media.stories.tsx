@@ -209,6 +209,10 @@ const EnhancedTitleTemplate: StoryFn<MediaBlockModel> = (args) => (
                 {
                     ...args,
                     ...data.enhancedTitle.interactiveWithIcon,
+                    title: {
+                        ...data.enhancedTitle.interactiveWithIcon.title,
+                        onClick: () => alert('Media title clicked!'),
+                    },
                 },
             ],
         }}
