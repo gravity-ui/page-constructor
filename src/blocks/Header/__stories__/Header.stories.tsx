@@ -11,7 +11,7 @@ import data from './data.json';
 const SIZES = ['l', 'm', 's'].map((width) => ({
     width,
     ...data.default,
-    title: data.size.title.replace('{{size}}', width.toUpperCase()),
+    title: data.size.title.replace('{{size}}', width),
 }));
 
 export default {
@@ -26,7 +26,7 @@ const DefaultTemplate: StoryFn<HeaderBlockModel> = (args) => (
 const VariantsTemplate: StoryFn<Record<number, HeaderBlockModel>> = (args) => (
     <React.Fragment>
         {Object.values(args).map((arg, index) => (
-            <div key={index} style={{marginBottom: '48px'}}>
+            <div key={index} style={{marginBottom: '120px'}}>
                 <Header {...(blockTransform(arg) as HeaderBlockProps)} />
             </div>
         ))}
@@ -87,9 +87,12 @@ VerticalOffset.parameters = {
     },
 };
 
-Background.args = [data.media.image.background, data.media.video.background].map((background) => ({
-    background,
+Background.args = [
+    {background: data.media.image.background, title: 'Block with image'},
+    {background: data.media.video.background, title: 'Block with video'},
+].map((background) => ({
     ...data.default,
+    ...background,
 })) as HeaderBlockModel[];
 Background.parameters = {
     controls: {
