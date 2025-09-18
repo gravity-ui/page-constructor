@@ -1,27 +1,40 @@
 {
   "themeDark": {
-    "content": {
-      "background": {
-        "color": "#262626"
+    "background": {
+      "color": "#262626"
+    },
+    "theme": "dark",
+    "buttons": [
+      {
+        "text": "Button\r",
+        "theme": "normal-contrast",
+        "url": "https://example.com"
       },
-      "theme": "dark",
+      {
+        "text": "Button",
+        "theme": "outlined-contrast",
+        "url": "https://example.com"
+      }
+    ]
+  },
+  "breadcrumbs": [
+    {
+      "type": "header-block",
+      "description": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+      "additionalInfo": "**Ut enim ad minim veniam** ut aliquip ex ea commodo consequat. Duis aute irure  [quis nostrud](https://example.com) dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
       "buttons": [
         {
           "text": "Button\r",
-          "theme": "normal-contrast",
+          "theme": "action",
           "url": "https://example.com"
         },
         {
           "text": "Button",
-          "theme": "outlined-contrast",
+          "theme": "outlined",
           "url": "https://example.com"
         }
-      ]
-    }
-  },
-  "breadcrumbs": {
-    "title": "Breadcumbs with {{theme}} theme",
-    "content": {
+      ],
+      "title": "Breadcrumbs with light theme",
       "background": {
         "light": {
           "image": "/story-assets/img-gray.png"
@@ -42,98 +55,126 @@
           }
         ]
       }
-    }
-  },
-  "verticalOffset": {
-    "title": "Vertical offset {{offset}}"
-  },
-  "default": {
-    "content": {
+    },
+    {
       "type": "header-block",
-      "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
       "description": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
       "additionalInfo": "**Ut enim ad minim veniam** ut aliquip ex ea commodo consequat. Duis aute irure  [quis nostrud](https://example.com) dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
       "buttons": [
         {
           "text": "Button\r",
-          "theme": "action",
+          "theme": "normal-contrast",
           "url": "https://example.com"
         },
         {
           "text": "Button",
-          "theme": "outlined",
+          "theme": "outlined-contrast",
           "url": "https://example.com"
         }
-      ]
+      ],
+      "theme": "dark",
+      "title": "Breadcrumbs with dark theme",
+      "background": {
+        "color": "#262626"
+      },
+      "breadcrumbs": {
+        "items": [
+          {
+            "text": "Lorem",
+            "url": "#1"
+          },
+          {
+            "text": "Ipsum",
+            "url": "#2"
+          }
+        ]
+      }
     }
+  ],
+  "verticalOffset": {
+    "title": "Vertical offset {{offset}}"
+  },
+  "default": {
+    "type": "header-block",
+    "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+    "description": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+    "additionalInfo": "**Ut enim ad minim veniam** ut aliquip ex ea commodo consequat. Duis aute irure  [quis nostrud](https://example.com) dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+    "buttons": [
+      {
+        "text": "Button\r",
+        "theme": "action",
+        "url": "https://example.com"
+      },
+      {
+        "text": "Button",
+        "theme": "outlined",
+        "url": "https://example.com"
+      }
+    ]
   },
   "media": {
-    "content": {
-      "image": {
-        "title": "Block with image",
-        "background": {
-          "light": {
-            "image": {
-              "desktop": "/story-assets/header-bg-img_light.png",
-              "mobile": "/story-assets/img-bg_nopadding_4-12_light.png"
-            },
-            "color": "#EFF2F8"
+    "image": {
+      "title": "Block with image",
+      "background": {
+        "light": {
+          "image": {
+            "desktop": "/story-assets/header-bg-img_light.png",
+            "mobile": "/story-assets/img-bg_nopadding_4-12_light.png"
           },
-          "dark": {
-            "image": {
-              "desktop": "/story-assets/header-bg-img_dark.png",
-              "mobile": "/story-assets/img-bg_nopadding_4-12_dark.png"
-            },
-            "color": "#262626"
-          }
+          "color": "#EFF2F8"
+        },
+        "dark": {
+          "image": {
+            "desktop": "/story-assets/header-bg-img_dark.png",
+            "mobile": "/story-assets/img-bg_nopadding_4-12_dark.png"
+          },
+          "color": "#262626"
         }
-      },
-      "video": {
-        "title": "Block with video",
-        "background": {
-          "light": {
-            "image": {
-              "desktop": "/story-assets/header-bg-img_light.png",
-              "mobile": "/story-assets/img-bg_nopadding_4-12_light.png"
-            },
-            "video": {
-              "src": [
-                "/story-assets/header-bg-video_light.webm",
-                "/story-assets/header-bg-video_light.mp4",
-                "/story-assets/header-bg-video_light.png"
-              ]
-            },
-            "color": "#EFF2F8"
+      }
+    },
+    "video": {
+      "title": "Block with video",
+      "background": {
+        "light": {
+          "image": {
+            "desktop": "/story-assets/header-bg-img_light.png",
+            "mobile": "/story-assets/img-bg_nopadding_4-12_light.png"
           },
-          "dark": {
-            "image": {
-              "desktop": "/story-assets/header-bg-img_dark.png",
-              "mobile": "/story-assets/img-bg_nopadding_4-12_dark.png"
-            },
-            "video": {
-              "src": [
-                "/story-assets/header-bg-video_dark.webm",
-                "/story-assets/header-bg-video_dark.mp4",
-                "/story-assets/header-bg-video_dark.png"
-              ]
-            },
-            "color": "#262626"
-          }
+          "video": {
+            "src": [
+              "/story-assets/header-bg-video_light.webm",
+              "/story-assets/header-bg-video_light.mp4",
+              "/story-assets/header-bg-video_light.png"
+            ]
+          },
+          "color": "#EFF2F8"
+        },
+        "dark": {
+          "image": {
+            "desktop": "/story-assets/header-bg-img_dark.png",
+            "mobile": "/story-assets/img-bg_nopadding_4-12_dark.png"
+          },
+          "video": {
+            "src": [
+              "/story-assets/header-bg-video_dark.webm",
+              "/story-assets/header-bg-video_dark.mp4",
+              "/story-assets/header-bg-video_dark.png"
+            ]
+          },
+          "color": "#262626"
         }
       }
     }
   },
   "image": {
-    "title": "Text size {{text}}",
-    "content": {
-      "width": "s",
-      "image": {
-        "light": {
-          "src": "/story-assets/header-img_0-12_light.png"
-        },
-        "dark": {
-          "src": "/story-assets/header-img_0-12_dark.png"
-        }
+    "type": "header-block",
+    "title": "Text size {{width}}",
+    "image": {
+      "light": {
+        "src": "/story-assets/header-img_0-12_light.png"
+      },
+      "dark": {
+        "src": "/story-assets/header-img_0-12_dark.png"
       }
     }
   },
@@ -181,15 +222,119 @@
     }
   },
   "videoIframe": {
-    "content": {
-      "videoIframe": {
-        "src": "https://runtime.video.cloud.yandex.net/player/video/vplvmyqsxi7dlwndvb4y",
-        "autoplay": false,
-        "previewImg": "/story-assets/header-img_0-12_light.png"
-      }
+    "videoIframe": {
+      "src": "https://runtime.video.cloud.yandex.net/player/video/vplvmyqsxi7dlwndvb4y",
+      "autoplay": false,
+      "previewImg": "/story-assets/header-img_0-12_light.png"
     }
   },
   "size": {
     "title": "Header size {{size}}"
-  }
+  },
+  "fit": [
+    {
+      "mediaView": "fit",
+      "type": "header-block",
+      "description": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+      "additionalInfo": "**Ut enim ad minim veniam** ut aliquip ex ea commodo consequat. Duis aute irure  [quis nostrud](https://example.com) dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+      "buttons": [
+        {
+          "text": "Button\r",
+          "theme": "action",
+          "url": "https://example.com"
+        },
+        {
+          "text": "Button",
+          "theme": "outlined",
+          "url": "https://example.com"
+        }
+      ],
+      "title": "Text size m",
+      "width": "m"
+    },
+    {
+      "mediaView": "fit",
+      "type": "header-block",
+      "description": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+      "additionalInfo": "**Ut enim ad minim veniam** ut aliquip ex ea commodo consequat. Duis aute irure  [quis nostrud](https://example.com) dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+      "buttons": [
+        {
+          "text": "Button\r",
+          "theme": "action",
+          "url": "https://example.com"
+        },
+        {
+          "text": "Button",
+          "theme": "outlined",
+          "url": "https://example.com"
+        }
+      ],
+      "title": "Text size s",
+      "width": "s",
+      "image": {
+        "light": {
+          "src": "/story-assets/header-img_6-12_light.png"
+        },
+        "dark": {
+          "src": "/story-assets/header-img_6-12_dark.png"
+        }
+      }
+    },
+    {
+      "mediaView": "fit",
+      "type": "header-block",
+      "description": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+      "additionalInfo": "**Ut enim ad minim veniam** ut aliquip ex ea commodo consequat. Duis aute irure  [quis nostrud](https://example.com) dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+      "buttons": [
+        {
+          "text": "Button\r",
+          "theme": "action",
+          "url": "https://example.com"
+        },
+        {
+          "text": "Button",
+          "theme": "outlined",
+          "url": "https://example.com"
+        }
+      ],
+      "title": "Text size s",
+      "width": "s",
+      "video": {
+        "light": {
+          "src": ["/story-assets/video_8-12_white_v.mp4"]
+        },
+        "dark": {
+          "src": ["/story-assets/video_8-12_white_v.mp4"]
+        }
+      }
+    },
+    {
+      "mediaView": "fit",
+      "type": "header-block",
+      "additionalInfo": "**Ut enim ad minim veniam** ut aliquip ex ea commodo consequat. Duis aute irure  [quis nostrud](https://example.com) dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+      "buttons": [
+        {
+          "text": "Button\r",
+          "theme": "action",
+          "url": "https://example.com"
+        },
+        {
+          "text": "Button",
+          "theme": "outlined",
+          "url": "https://example.com"
+        }
+      ],
+      "title": "Text size s",
+      "width": "s",
+      "description": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. **Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. **Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. **Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+      "video": {
+        "light": {
+          "src": ["/story-assets/video_8-12_light.mp4"]
+        },
+        "dark": {
+          "src": ["/story-assets/video_8-12_dark.mp4"]
+        }
+      }
+    }
+  ]
 }
