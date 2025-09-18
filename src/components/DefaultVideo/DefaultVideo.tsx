@@ -61,6 +61,15 @@ export const DefaultVideo = React.forwardRef<DefaultVideoRefType, DefaultVideoPr
             };
         }, [videoRef, onVideoEnd]);
 
+        // to guarantee setting a muted attribute in HTML. https://github.com/facebook/react/issues/10389
+        React.useEffect(() => {
+            const videoElement = videoRef.current;
+
+            if (videoElement && initiallyMuted) {
+                videoElement.defaultMuted = true;
+            }
+        }, [videoRef, initiallyMuted]);
+
         const onPlayToggle = React.useCallback(() => {
             setIsPaused((value) => {
                 if (value) {
