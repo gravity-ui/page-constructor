@@ -16,7 +16,31 @@ The Media component supports various media types including images, videos, YouTu
 
 ### Image-specific Parameters
 
-`image?: ImageProps | ImageProps[]` — Image data, can be a single image or array for slider
+`image?: ImageProps | ImageProps[] | ImageDeviceProps` — Image data, can be:
+- `string` — Simple image URL
+- `ImageObjectProps` — Object with src, alt, and other properties
+- `ImageDeviceProps` — Device-specific images (desktop, mobile, tablet)
+- `ImageProps[]` — Array of images for slider functionality
+
+#### ImageObjectProps
+- `src: string` — Image source URL
+- `alt?: string` — Alternative text for accessibility
+- `disableCompress?: boolean` — Disable image compression (default: false)
+- `hide?: boolean | Partial<Record<'desktop' | 'mobile' | 'tablet', boolean>>` — Hide on specific devices
+- `fetchPriority?: 'high' | 'low' | 'auto'` — Fetch priority hint
+- `loading?: 'eager' | 'lazy'` — Loading behavior
+- `aria-describedby?: string` — ARIA describedby attribute
+
+#### ImageDeviceProps
+- `desktop: string` — Desktop image URL
+- `mobile: string` — Mobile image URL
+- `tablet?: string` — Tablet image URL (optional)
+- `alt?: string` — Alternative text for accessibility
+- `disableCompress?: boolean` — Disable image compression (default: false)
+- `hide?: boolean | Partial<Record<'desktop' | 'mobile' | 'tablet', boolean>>` — Hide on specific devices
+- `fetchPriority?: 'high' | 'low' | 'auto'` — Fetch priority hint
+- `loading?: 'eager' | 'lazy'` — Loading behavior
+- `aria-describedby?: string` — ARIA describedby attribute
 
 `parallax?: boolean` — Enables parallax scrolling effect for images
 
@@ -32,15 +56,46 @@ The Media component supports various media types including images, videos, YouTu
 
 ### Video Parameters
 
-`video?: VideoProps` — Video data for video playback
+`video?: MediaVideoProps` — Video configuration object with the following properties:
+
+#### MediaVideoProps
+- `src: string[]` — Array of video source URLs in different formats
+- `type?: 'default' | 'player'` — Video player type (default: 'default')
+- `loop?: boolean | LoopProps` — Video looping behavior
+  - `boolean` — Simple loop on/off
+  - `LoopProps` — Advanced loop with start/end times: `{start: number, end?: number}`
+- `muted?: boolean` — Whether video is muted by default
+- `autoplay?: boolean` — Whether video autoplays (default: true)
+- `elapsedTime?: number` — Starting elapsed time in seconds
+- `playButton?: PlayButtonProps` — Custom play button configuration
+- `controls?: 'default' | 'custom'` — Video controls type
+- `customControlsOptions?: CustomControlsOptions` — Custom controls configuration
+- `ariaLabel?: string` — ARIA label for accessibility
+- `contain?: boolean` — Whether video should be contained within bounds
+- `onVideoEnd?: () => void` — Callback when video ends
+
+#### PlayButtonProps
+- `type?: 'default' | 'text'` — Play button type
+- `theme?: 'blue' | 'grey'` — Play button theme
+- `text?: string` — Custom text for text-type button
+- `className?: string` — CSS class for styling
+
+#### CustomControlsOptions
+- `type?: 'with-mute-button' | 'with-play-pause-button'` — Custom controls type
+- `muteButtonShown?: boolean` — Whether to show mute button
+- `positioning?: 'left' | 'right' | 'center'` — Button positioning
 
 `videoClassName?: string` — Optional CSS class name for video elements
 
 `previewImg?: string` — Preview image for videos
 
-`playVideo?: boolean` — Controls video autoplay
+`playVideo?: boolean` — Controls video autoplay (default: true)
 
-`playButton?: boolean` — Shows/hides play button
+`playButton?: PlayButtonProps` — Custom play button configuration
+
+`customBarControlsClassName?: string` — CSS class for custom video controls
+
+`ratio?: number | 'auto'` — Aspect ratio for videos
 
 ### Other Media Parameters
 

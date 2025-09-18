@@ -41,27 +41,42 @@ import { Meta } from '@storybook/blocks';
 
 ---
 
-# <a name="Video">`Video`</a>
+# <a name="Video">`MediaVideoProps`</a>
 
-- `src: url[]` — Links to video files in different formats
-- `loop?:` `start: number` — Video loop start. `end?: number` — Video loop end.
+- `src: string[]` — Array of video source URLs in different formats
+- `type?: 'default' | 'player'` — Video player type (default: 'default')
+- `loop?: boolean | LoopProps` — Video looping behavior
+  - `boolean` — Simple loop on/off
+  - `LoopProps` — Advanced loop with start/end times: `{start: number, end?: number}`
+- `muted?: boolean` — Whether video is muted by default
+- `autoplay?: boolean` — Whether video autoplays (default: true)
+- `elapsedTime?: number` — Starting elapsed time in seconds
+- `playButton?: PlayButtonProps` — Custom play button configuration
+- `controls?: 'default' | 'custom'` — Video controls type
+- `customControlsOptions?: CustomControlsOptions` — Custom controls configuration
+- `ariaLabel?: string` — ARIA label for accessibility
+- `contain?: boolean` — Whether video should be contained within bounds
+- `onVideoEnd?: () => void` — Callback when video ends
 
 ---
 
 # <a name="Media">`Media`</a> — Image/video/DataLens/Youtube
 
 - `color?: string` — Background color
-- [`image?: ImageObjectProps | ImageObjectProps[] | ImageDeviceProps` — Background image](#ImageObjectProps). If you pass an array, the full-screen mode is automatically turned on.
+- [`image?: ImageProps | ImageProps[] | ImageDeviceProps` — Image data](#ImageObjectProps). Can be string, object, device-specific, or array for slider
 - `parallax?: boolean` — Enable/disable the parallax effect
-- [`video?: Video` — Video](#Video)
-- `youtube?: url` — Link to a video on YouTube
-- `videoIframe?: url` — Link to a video iframe
+- [`video?: MediaVideoProps` — Video configuration](#Video)
+- `youtube?: string` — YouTube video ID
+- `videoIframe?: string` — Video iframe URL
 - `autoplay?: boolean` — Enabling autoplay for videoIframe or youtube. Default false
 - `height?: number` — Block height
-- `previewImg?: string`
+- `previewImg?: string` — Preview image for videos
 - `dataLens?: string |` [DataLens](#DataLens)
 - `fullscreen?: boolean` — Enabling full-screen mode for image or video. Default true - for multiple images, false - for single image, video. It doesn't work with dataLens and youtube
 - `iframe?: [Iframe](#Iframe)`
+- `playVideo?: boolean` — Controls video autoplay (default: true)
+- `ratio?: number | 'auto'` — Aspect ratio for videos
+- `videoMicrodata?: object` — Structured data for videos (SEO)
 
 
 ---
@@ -93,22 +108,39 @@ You can add all attributes which `<iframe>` can take. See more info [here](https
 
 # <a name="ImageObjectProps">`ImageObjectProps`</a>  — Image property
 
-- `src: string`
-- `alt?: string`
-- `disableCompress?: true | false` — If true, image compression is disabled. If false (default), it's enabled.
-- `hide?: boolean | Record<'mobile' | 'tablet' | 'desktop', boolean>`
+- `src: string` — Image source URL
+- `alt?: string` — Alternative text for accessibility
+- `disableCompress?: boolean` — If true, image compression is disabled. If false (default), it's enabled.
+- `hide?: boolean | Partial<Record<'desktop' | 'mobile' | 'tablet', boolean>>` — Hide on specific devices
+- `fetchPriority?: 'high' | 'low' | 'auto'` — Fetch priority hint
+- `loading?: 'eager' | 'lazy'` — Loading behavior
+- `aria-describedby?: string` — ARIA describedby attribute
 
 ---
 
 # <a name="ImageDeviceProps">`ImageDeviceProps`</a>
 Image property with device support
 
-- `mobile: string`
-- `tablet?: string`
-- `desktop: string`
-- `alt?: string`
-- `disableCompress?: true | false` — If true, image compression is disabled. If false (default), it's enabled.
-- `hide?: boolean | Record<'mobile' | 'tablet' | 'desktop', boolean>`
+- `desktop: string` — Desktop image URL
+- `mobile: string` — Mobile image URL
+- `tablet?: string` — Tablet image URL (optional)
+- `alt?: string` — Alternative text for accessibility
+- `disableCompress?: boolean` — If true, image compression is disabled. If false (default), it's enabled.
+- `hide?: boolean | Partial<Record<'desktop' | 'mobile' | 'tablet', boolean>>` — Hide on specific devices
+- `fetchPriority?: 'high' | 'low' | 'auto'` — Fetch priority hint
+- `loading?: 'eager' | 'lazy'` — Loading behavior
+- `aria-describedby?: string` — ARIA describedby attribute
+
+---
+
+# <a name="ImageProps">`ImageProps`</a>
+Union type for all image formats
+
+`ImageProps = string | ImageObjectProps | ImageDeviceProps`
+
+- `string` — Simple image URL
+- `ImageObjectProps` — Object with src, alt, and other properties
+- `ImageDeviceProps` — Device-specific images (desktop, mobile, tablet)
 
 ---
 
@@ -123,7 +155,6 @@ grid width, the value ranges from 1 to 12 columns. If 12 columns, block takes up
 
 ---
 
-###### <a name="TextSize">`TextSize = s | m | l` — Text size</a>
+###### <a name="TextSize">`TextSize = xs | s | sm | m | l` — Text size</a>
 
 ###### <a name="Target">`Target = _blank | _parent | _top | _self` — Where to display</a>
-

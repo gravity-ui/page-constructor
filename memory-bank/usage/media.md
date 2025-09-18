@@ -60,11 +60,19 @@ graph TD
 - **Description**: Unified multimedia component that handles images, videos, YouTube videos, DataLens charts, and iframes with advanced features.
 - **Props**:
   - `image`: ImageProps | ImageProps[] | ImageDeviceProps - image data
+    - `ImageProps = string | ImageObjectProps | ImageDeviceProps`
+    - `ImageObjectProps`: `{src: string, alt?: string, disableCompress?: boolean, hide?: boolean | Partial<Record<'desktop' | 'mobile' | 'tablet', boolean>>, fetchPriority?: 'high' | 'low' | 'auto', loading?: 'eager' | 'lazy', 'aria-describedby'?: string}`
+    - `ImageDeviceProps`: `{desktop: string, mobile: string, tablet?: string, alt?: string, disableCompress?: boolean, hide?: boolean | Partial<Record<'desktop' | 'mobile' | 'tablet', boolean>>, fetchPriority?: 'high' | 'low' | 'auto', loading?: 'eager' | 'lazy', 'aria-describedby'?: string}`
   - `video`: MediaVideoProps - video configuration
+    - `{src: string[], type?: 'default' | 'player', loop?: boolean | {start: number, end?: number}, muted?: boolean, autoplay?: boolean, elapsedTime?: number, playButton?: PlayButtonProps, controls?: 'default' | 'custom', customControlsOptions?: CustomControlsOptions, ariaLabel?: string, contain?: boolean, onVideoEnd?: () => void}`
+    - `PlayButtonProps`: `{type?: 'default' | 'text', theme?: 'blue' | 'grey', text?: string, className?: string}`
+    - `CustomControlsOptions`: `{type?: 'with-mute-button' | 'with-play-pause-button', muteButtonShown?: boolean, positioning?: 'left' | 'right' | 'center'}`
   - `youtube`: string - YouTube video ID
   - `videoIframe`: string - video iframe URL
   - `dataLens`: DataLensProps - DataLens chart configuration
+    - `DataLensProps = string | {id: string, theme: 'dark' | 'light'}`
   - `iframe`: IframeProps - iframe configuration
+    - `{src: string, width?: number, height?: number, title?: string, name?: string}`
   - `color`: string - background color
   - `height`: number - fixed height for media
   - `previewImg`: string - preview image for videos
@@ -86,6 +94,7 @@ graph TD
   - `onImageLoad`: () => void - callback when image loads
   - `margins`: boolean - controls iframe margins
   - `videoMicrodata`: object - structured data for videos
+    - `{name?: string, description?: string, duration?: string, uploadDate?: string, contentUrl?: string, thumbnailUrl?: string}`
 
 ### MediaProps Interface
 
