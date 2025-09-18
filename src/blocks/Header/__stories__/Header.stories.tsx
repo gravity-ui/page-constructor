@@ -153,8 +153,3 @@ VideoIframe.args = {
     ...data.default,
     ...data.videoIframe,
 } as HeaderBlockModel;
-VideoIframe.parameters = {
-    controls: {
-        include: Object.keys(VideoIframe.args),
-    },
-};
