@@ -1,5 +1,17 @@
 # Changelog
 
+## [7.14.0](https://github.com/gravity-ui/page-constructor/compare/v7.13.0...v7.14.0) (2025-09-18)
+
+
+### Features
+
+* **Media,Map:** expand title prop type ([#1280](https://github.com/gravity-ui/page-constructor/issues/1280)) ([3115ece](https://github.com/gravity-ui/page-constructor/commit/3115ece1e109077ab35d5dc9f6552cbe93898418))
+
+
+### Bug Fixes
+
+* **Video:** set muted attribute in HTML of DefaultVideo ([#1289](https://github.com/gravity-ui/page-constructor/issues/1289)) ([05e4174](https://github.com/gravity-ui/page-constructor/commit/05e41745806eace2ee7575b55f1530834c2b9ef0))
+
 ## [7.13.0](https://github.com/gravity-ui/page-constructor/compare/v7.12.0...v7.13.0) (2025-09-11)
 
 
