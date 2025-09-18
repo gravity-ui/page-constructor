@@ -53,16 +53,31 @@ Default.args = {
 ContentVariables.args = {
     ...data.contentVariables,
 } as ContentLayoutBlockModel[];
+ContentVariables.parameters = {
+    controls: {
+        include: Object.keys(ContentVariables.args),
+    },
+};
 
 WithFiles.args = SIZES.map((size) => ({
     ...size,
     fileContent: data.common.fileContent,
 })) as ContentLayoutBlockModel[];
+WithFiles.parameters = {
+    controls: {
+        include: Object.keys(WithFiles.args),
+    },
+};
 
 Size.args = SIZES.map((size) => ({
     ...size,
     textContent: {...size.textContent, buttons: data.common.buttons},
 })) as ContentLayoutBlockModel[];
+Size.parameters = {
+    controls: {
+        include: Object.keys(Size.args),
+    },
+};
 
 WithBackgroundColor.args = data.withBackgroundColor as ContentLayoutBlockModel;
 
@@ -71,6 +86,11 @@ WithBackgroundImageAndColor.args = data.withImageAndBackgroundColor as ContentLa
 TextAlignCenter.args = data.textAlignCenter as ContentLayoutBlockModel;
 
 Theme.args = data.theme as ContentLayoutBlockModel[];
+Theme.parameters = {
+    controls: {
+        include: Object.keys(Theme.args),
+    },
+};
 
 TextWidth.args = ['l', 'm', 's'].map((textWidth) => ({
     ...data.default,
@@ -81,3 +101,8 @@ TextWidth.args = ['l', 'm', 's'].map((textWidth) => ({
         buttons: data.common.buttons,
     },
 })) as ContentLayoutBlockModel[];
+TextWidth.parameters = {
+    controls: {
+        include: Object.keys(TextWidth.args),
+    },
+};
