@@ -73,7 +73,7 @@
         }
       ],
       "theme": "dark",
-      "title": "Breadcrumbs with light theme",
+      "title": "Breadcrumbs with dark theme",
       "background": {
         "color": "#262626"
       },
@@ -168,7 +168,7 @@
   },
   "image": {
     "type": "header-block",
-    "title": "Image width {{width}}",
+    "title": "Text size {{width}}",
     "image": {
       "light": {
         "src": "/story-assets/header-img_0-12_light.png"
