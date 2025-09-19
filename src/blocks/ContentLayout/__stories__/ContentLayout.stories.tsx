@@ -1,14 +1,9 @@
+import * as React from 'react';
+
 import {Meta, StoryFn} from '@storybook/react';
 
-import {yfmTransform, yfmTransformInline} from '../../../../.storybook/utils';
-import {PageConstructor} from '../../../containers/PageConstructor/PageConstructor';
-import {
-    ButtonProps,
-    ContentLayoutBlockModel,
-    ContentLayoutBlockProps,
-    ContentTheme,
-    LinkProps,
-} from '../../../models';
+import {blockTransform} from '../../../../.storybook/utils';
+import {ContentLayoutBlockModel, ContentLayoutBlockProps} from '../../../models';
 import Content from '../ContentLayout';
 
 import data from './data.json';
@@ -18,253 +13,96 @@ export default {
     component: Content,
 } as Meta;
 
-const getSizeTitle = (size: string) => {
-    console.log(yfmTransformInline(data.size.title.replace('{{size}}', size)), data.size.title);
-    return yfmTransformInline(data.size.title.replace('{{size}}', size));
-};
-
-const getThemeTitle = (theme: string) =>
-    yfmTransformInline(data.theme.title.replace('{{theme}}', theme));
-const getTextWidthTitle = (textWidth: string) =>
-    yfmTransformInline(data.textWidth.title.replace('{{textWidth}}', textWidth));
+const SIZES = ['l', 'm', 's'].map((size) => ({
+    ...data.default,
+    size,
+    textContent: {
+        ...data.default.textContent,
+        title: data.size.title.replace('{{size}}', size),
+    },
+}));
 
 const DefaultTemplate: StoryFn<ContentLayoutBlockModel> = (args) => (
-    <PageConstructor
-        content={{
-            blocks: [
-                {
-                    ...args,
-                    textContent: {
-                        ...args.textContent,
-                        title:
-                            args.textContent.title && typeof args.textContent.title === 'string'
-                                ? yfmTransformInline(args.textContent.title)
-                                : undefined,
-                        additionalInfo: yfmTransform(data.common.additionalInfo),
-                    },
-                },
-                {
-                    ...args,
-                    textContent: {
-                        ...args.textContent,
-                        title:
-                            args.textContent.title && typeof args.textContent.title === 'string'
-                                ? yfmTransformInline(args.textContent.title)
-                                : undefined,
-                        links: data.common.links as LinkProps[],
-                    },
-                },
-                {
-                    ...args,
-                    textContent: {
-                        ...args.textContent,
-                        title:
-                            args.textContent.title && typeof args.textContent.title === 'string'
-                                ? yfmTransformInline(args.textContent.title)
-                                : undefined,
-                        buttons: data.common.buttons as ButtonProps[],
-                    },
-                },
-                {
-                    ...args,
-                    textContent: {
-                        ...args.textContent,
-                        title:
-                            args.textContent.title && typeof args.textContent.title === 'string'
-                                ? yfmTransformInline(args.textContent.title)
-                                : undefined,
-                        list: data.common.list.map((item) => {
-                            return {
-                                ...item,
-                                text: item?.text && yfmTransform(item.text),
-                            };
-                        }),
-                        links: data.common.links as LinkProps[],
-                    },
-                },
-            ],
-        }}
-    />
+    <Content {...(blockTransform(args) as ContentLayoutBlockProps)} />
 );
 
-const WithFilesTemplate: StoryFn<ContentLayoutBlockModel> = (args) => (
-    <PageConstructor
-        content={{
-            blocks: [
-                {
-                    ...args,
-                    size: 'l',
-                    textContent: {title: getSizeTitle('L'), ...args.textContent},
-                },
-                {
-                    ...args,
-                    size: 'm',
-                    textContent: {title: getSizeTitle('M'), ...args.textContent},
-                },
-                {
-                    ...args,
-                    size: 's',
-                    textContent: {title: getSizeTitle('S'), ...args.textContent},
-                },
-            ],
-        }}
-    />
+const VariablesTemplate: StoryFn<Record<number, ContentLayoutBlockModel>> = (args) => (
+    <React.Fragment>
+        {Object.values(args).map((arg, index) => (
+            <div key={index} style={{marginBottom: '120px'}}>
+                <Content {...(blockTransform(arg) as ContentLayoutBlockProps)} />
+            </div>
+        ))}
+    </React.Fragment>
 );
 
-const SizesTemplate: StoryFn<ContentLayoutBlockModel> = (args) => (
-    <PageConstructor
-        content={{
-            blocks: [
-                {
-                    ...args,
-                    size: 'l',
-                    textContent: {title: getSizeTitle('L'), ...args.textContent},
-                },
-                {
-                    ...args,
-                    size: 'm',
-                    textContent: {title: getSizeTitle('M'), ...args.textContent},
-                },
-                {
-                    ...args,
-                    size: 's',
-                    textContent: {title: getSizeTitle('S'), ...args.textContent},
-                },
-            ],
-        }}
-    />
-);
-
-const BackgroundTemplate: StoryFn<ContentLayoutBlockModel> = (args) => (
-    <PageConstructor content={{blocks: [args]}} />
-);
-
-const ThemesTemplate: StoryFn<ContentLayoutBlockModel> = (args) => (
-    <PageConstructor
-        content={{
-            blocks: [
-                {
-                    ...args,
-                    ...data.theme.darkProperties,
-                    theme: data.theme.darkProperties.theme as ContentTheme,
-                    textContent: {
-                        ...args.textContent,
-                        title: getThemeTitle('dark'),
-                        buttons: data.theme.darkProperties.buttons as ButtonProps[],
-                    },
-                },
-                {
-                    ...args,
-                    ...data.theme.lightProperties,
-                    theme: data.theme.lightProperties.theme as ContentTheme,
-                    textContent: {
-                        ...args.textContent,
-                        title: getThemeTitle('light'),
-                        buttons: data.theme.lightProperties.buttons as ButtonProps[],
-                    },
-                },
-            ],
-        }}
-    />
-);
-
-const TextWidthTemplate: StoryFn<ContentLayoutBlockModel> = (args) => (
-    <PageConstructor
-        content={{
-            blocks: [
-                {
-                    ...args,
-                    textContent: {title: getTextWidthTitle('L'), ...args.textContent},
-                    textWidth: 'l',
-                },
-                {
-                    ...args,
-                    textWidth: 'm',
-                    textContent: {title: getTextWidthTitle('M'), ...args.textContent},
-                },
-                {
-                    ...args,
-                    textWidth: 's',
-                    textContent: {title: getTextWidthTitle('S'), ...args.textContent},
-                },
-            ],
-        }}
-    />
-);
-
-export const Default = DefaultTemplate.bind([]);
-export const WithFiles = WithFilesTemplate.bind([]);
-export const Size = SizesTemplate.bind([]);
-export const WithBackgroundColor = BackgroundTemplate.bind({});
-export const WithBackgroundImageAndColor = BackgroundTemplate.bind({});
-export const TextAlignCenter = BackgroundTemplate.bind({});
-export const Theme = ThemesTemplate.bind([]);
-export const TextWidth = TextWidthTemplate.bind([]);
-
-const transformedText = yfmTransform(data.common.text);
+export const Default = DefaultTemplate.bind({});
+export const ContentVariables = VariablesTemplate.bind([]);
+export const WithFiles = VariablesTemplate.bind([]);
+export const Size = VariablesTemplate.bind([]);
+export const WithBackgroundColor = DefaultTemplate.bind({});
+export const WithBackgroundImageAndColor = DefaultTemplate.bind({});
+export const TextAlignCenter = DefaultTemplate.bind({});
+export const Theme = VariablesTemplate.bind([]);
+export const TextWidth = VariablesTemplate.bind([]);
 
 Default.args = {
-    ...data.default.content,
-    textContent: {
-        title: data.common.title,
-        text: transformedText,
-    },
-} as ContentLayoutBlockProps;
+    ...data.default,
+} as ContentLayoutBlockModel;
 
-WithFiles.args = {
-    ...data.default.content,
-    textContent: {
-        text: transformedText,
+ContentVariables.args = {
+    ...data.contentVariables,
+} as ContentLayoutBlockModel[];
+ContentVariables.parameters = {
+    controls: {
+        include: Object.keys(ContentVariables.args),
     },
+};
+
+WithFiles.args = SIZES.map((size) => ({
+    ...size,
     fileContent: data.common.fileContent,
-} as ContentLayoutBlockProps;
+})) as ContentLayoutBlockModel[];
+WithFiles.parameters = {
+    controls: {
+        include: Object.keys(WithFiles.args),
+    },
+};
 
-Size.args = {
-    ...data.size.content,
+Size.args = SIZES.map((size) => ({
+    ...size,
+    textContent: {...size.textContent, buttons: data.common.buttons},
+})) as ContentLayoutBlockModel[];
+Size.parameters = {
+    controls: {
+        include: Object.keys(Size.args),
+    },
+};
+
+WithBackgroundColor.args = data.withBackgroundColor as ContentLayoutBlockModel;
+
+WithBackgroundImageAndColor.args = data.withImageAndBackgroundColor as ContentLayoutBlockModel;
+
+TextAlignCenter.args = data.textAlignCenter as ContentLayoutBlockModel;
+
+Theme.args = data.theme as ContentLayoutBlockModel[];
+Theme.parameters = {
+    controls: {
+        include: Object.keys(Theme.args),
+    },
+};
+
+TextWidth.args = ['l', 'm', 's'].map((textWidth) => ({
+    ...data.default,
+    textWidth,
     textContent: {
-        text: transformedText,
+        ...data.default.textContent,
+        title: data.textWidth.title.replace('{{textWidth}}', textWidth),
         buttons: data.common.buttons,
     },
-} as ContentLayoutBlockProps;
-
-WithBackgroundColor.args = {
-    ...data.withBackgroundColor.content,
-    textContent: {
-        title: data.common.title,
-        text: transformedText,
-        buttons: data.common.buttons,
+})) as ContentLayoutBlockModel[];
+TextWidth.parameters = {
+    controls: {
+        include: Object.keys(TextWidth.args),
     },
-} as ContentLayoutBlockProps;
-
-WithBackgroundImageAndColor.args = {
-    ...data.withImageAndBackgroundColor.content,
-    textContent: {
-        title: data.common.title,
-        text: transformedText,
-        buttons: data.common.buttons,
-    },
-} as ContentLayoutBlockProps;
-
-TextAlignCenter.args = {
-    ...data.textAlignCenter.content,
-    textContent: {
-        title: data.common.title,
-        text: transformedText,
-        buttons: data.common.buttons,
-    },
-} as ContentLayoutBlockProps;
-
-Theme.args = {
-    ...data.theme.content,
-    textContent: {
-        text: transformedText,
-    },
-} as ContentLayoutBlockProps;
-
-TextWidth.args = {
-    ...data.textWidth.content,
-    textContent: {
-        text: transformedText,
-        buttons: data.common.buttons,
-    },
-} as ContentLayoutBlockProps;
+};

@@ -1,4 +1,94 @@
 {
+  "default": {
+    "type": "content-layout-block",
+    "textContent": {
+      "title": "Lorem ipsum dolor sit amet",
+      "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    }
+  },
+  "contentVariables": [
+    {
+      "type": "content-layout-block",
+      "textContent": {
+        "title": "Lorem ipsum dolor sit amet",
+        "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "additionalInfo": "Duis aute irure dolor in [reprehenderit](https://example.com) n voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+      }
+    },
+    {
+      "type": "content-layout-block",
+      "textContent": {
+        "title": "Lorem ipsum dolor sit amet",
+        "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "links": [
+          {
+            "url": "https://example.com",
+            "text": "Link",
+            "theme": "normal",
+            "arrow": true
+          }
+        ]
+      }
+    },
+    {
+      "type": "content-layout-block",
+      "textContent": {
+        "title": "Lorem ipsum dolor sit amet",
+        "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "buttons": [
+          {
+            "text": "Button\r",
+            "theme": "action",
+            "url": "https://example.com"
+          },
+          {
+            "text": "Button",
+            "theme": "outlined",
+            "url": "https://example.com"
+          }
+        ]
+      }
+    },
+    {
+      "type": "content-layout-block",
+      "textContent": {
+        "title": "Lorem ipsum dolor sit amet",
+        "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "links": [
+          {
+            "url": "https://example.com",
+            "text": "Link",
+            "theme": "normal",
+            "arrow": true
+          }
+        ],
+        "list": [
+          {
+            "icon": {
+              "light": "/story-assets/icon_1_light.svg",
+              "dark": "/story-assets/icon_1_dark.svg"
+            },
+            "title": "Lorem ipsum",
+            "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+          },
+          {
+            "icon": {
+              "light": "/story-assets/icon_2_light.svg",
+              "dark": "/story-assets/icon_2_dark.svg"
+            },
+            "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+          },
+          {
+            "icon": {
+              "light": "/story-assets/icon_3_light.svg",
+              "dark": "/story-assets/icon_3_dark.svg"
+            },
+            "title": "Lorem ipsum ipsum"
+          }
+        ]
+      }
+    }
+  ],
   "common": {
     "title": "Lorem ipsum dolor sit amet",
     "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
@@ -75,22 +165,36 @@
     ]
   },
   "withImageAndBackgroundColor": {
-    "content": {
-      "type": "content-layout-block",
-      "background": {
-        "dark": {
-          "src": "/story-assets/content-bg-img_dark.png",
-          "style": {
-            "backgroundColor": "#262626"
-          }
-        },
-        "light": {
-          "src": "/story-assets/content-bg-img_light.png",
-          "style": {
-            "backgroundColor": "#EFF2F8"
-          }
+    "type": "content-layout-block",
+    "background": {
+      "dark": {
+        "src": "/story-assets/content-bg-img_dark.png",
+        "style": {
+          "backgroundColor": "#262626"
+        }
+      },
+      "light": {
+        "src": "/story-assets/content-bg-img_light.png",
+        "style": {
+          "backgroundColor": "#EFF2F8"
         }
       }
+    },
+    "textContent": {
+      "title": "Lorem ipsum dolor sit amet",
+      "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "buttons": [
+        {
+          "text": "Button\r",
+          "theme": "action",
+          "url": "https://example.com"
+        },
+        {
+          "text": "Button",
+          "theme": "outlined",
+          "url": "https://example.com"
+        }
+      ]
     }
   },
   "textWidth": {
@@ -106,78 +210,106 @@
     }
   },
   "withBackgroundColor": {
-    "content": {
-      "type": "content-layout-block",
-      "background": {
-        "dark": {
-          "style": {
-            "backgroundColor": "#262626"
-          }
-        },
-        "light": {
-          "style": {
-            "backgroundColor": "#EFF2F8"
-          }
+    "type": "content-layout-block",
+    "background": {
+      "dark": {
+        "style": {
+          "backgroundColor": "#262626"
+        }
+      },
+      "light": {
+        "style": {
+          "backgroundColor": "#EFF2F8"
         }
       }
+    },
+    "textContent": {
+      "title": "Lorem ipsum dolor sit amet",
+      "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "buttons": [
+        {
+          "text": "Button\r",
+          "theme": "action",
+          "url": "https://example.com"
+        },
+        {
+          "text": "Button",
+          "theme": "outlined",
+          "url": "https://example.com"
+        }
+      ]
     }
   },
   "textAlignCenter": {
-    "content": {
+    "type": "content-layout-block",
+    "centered": true,
+    "textContent": {
+      "title": "Lorem ipsum dolor sit amet",
+      "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "buttons": [
+        {
+          "text": "Button\r",
+          "theme": "action",
+          "url": "https://example.com"
+        },
+        {
+          "text": "Button",
+          "theme": "outlined",
+          "url": "https://example.com"
+        }
+      ]
+    }
+  },
+  "theme": [
+    {
       "type": "content-layout-block",
-      "centered": true
-    }
-  },
-  "default": {
-    "content": {
-      "type": "content-layout-block"
-    }
-  },
-  "theme": {
-    "title": "A cube with {{theme}} monochrome theme",
-    "getStartedButtonTitle": "Get Started",
-    "darkProperties": {
+      "textContent": {
+        "title": "A cube with dark monochrome theme",
+        "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "buttons": [
+          {
+            "text": "Get Started",
+            "theme": "normal-contrast",
+            "url": "https://example.com"
+          },
+          {
+            "text": "Contact us",
+            "theme": "outlined-contrast",
+            "url": "https://example.com"
+          }
+        ]
+      },
       "theme": "dark",
       "background": {
         "style": {
           "backgroundColor": "#262626"
         }
-      },
-      "buttons": [
-        {
-          "text": "Get Started",
-          "theme": "normal-contrast",
-          "url": "https://example.com"
-        },
-        {
-          "text": "Contact us",
-          "theme": "outlined-contrast",
-          "url": "https://example.com"
-        }
-      ]
+      }
     },
-    "lightProperties": {
+    {
+      "type": "content-layout-block",
+      "textContent": {
+        "title": "A cube with light monochrome theme",
+        "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "buttons": [
+          {
+            "text": "Get Started",
+            "theme": "monochrome",
+            "url": "https://example.com"
+          },
+          {
+            "text": "Contact us",
+            "theme": "outlined",
+            "url": "https://example.com"
+          }
+        ]
+      },
       "theme": "light",
       "background": {
         "style": {
           "backgroundColor": "#ccf0d2"
         }
-      },
-      "buttons": [
-        {
-          "text": "Get Started",
-          "theme": "monochrome",
-          "url": "https://example.com"
-        },
-        {
-          "text": "Contact us",
-          "theme": "outlined",
-          "url": "https://example.com"
-        }
-      ]
-    },
-    "content": {
-      "type": "content-layout-block"
+      }
     }
-  }
+  ]
 }
