@@ -127,6 +127,7 @@ export const GravityIcons = VariousTemplate.bind([]);
 const DefaultArgs = data.default as BasicCardModel;
 
 Default.args = DefaultArgs;
+
 WithIcon.args = [
     {
         ...DefaultArgs,
@@ -140,6 +141,12 @@ WithIcon.args = [
         title: getCardWithIconTitle('left'),
     },
 ];
+WithIcon.parameters = {
+    controls: {
+        include: Object.keys(WithIcon.args),
+    },
+};
+
 WithBorder.args = [
     {
         ...DefaultArgs,
@@ -156,6 +163,12 @@ WithBorder.args = [
         title: getCardWithBorderTitle('none'),
     },
 ];
+WithBorder.parameters = {
+    controls: {
+        include: Object.keys(WithBorder.args),
+    },
+};
+
 WithUrl.args = [
     {
         ...DefaultArgs,
@@ -175,6 +188,11 @@ WithUrl.args = [
         url: data.url,
     },
 ];
+WithUrl.parameters = {
+    controls: {
+        include: Object.keys(WithUrl.args),
+    },
+};
 
 WithContentList.args = [
     {
@@ -186,9 +204,13 @@ WithContentList.args = [
         ...data.withContentListShort,
     },
 ];
+WithContentList.parameters = {
+    controls: {
+        include: Object.keys(WithContentList.args),
+    },
+};
 
 ControlPosition.args = data.cardLayout as LayoutItemWithCards[];
-
 ControlPosition.parameters = {
     controls: {
         include: Object.keys(ControlPosition.args),
