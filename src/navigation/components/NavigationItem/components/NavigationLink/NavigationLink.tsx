@@ -28,6 +28,7 @@ export const NavigationLink = (props: NavigationLinkProps) => {
         iconSize,
         urlTitle,
         analyticsEvents,
+        onClick: onClickOrigin,
         ...rest
     } = props;
 
@@ -35,8 +36,11 @@ export const NavigationLink = (props: NavigationLinkProps) => {
     const iconData = icon && getMediaImage(icon);
     const handleAnalytics = useAnalytics(DefaultEventNames.Link, url);
 
-    const onClick = () => {
+    const onClick = (e?: React.MouseEvent) => {
         handleAnalytics(analyticsEvents);
+        if (onClickOrigin && e) {
+            onClickOrigin?.(e);
+        }
     };
 
     const classes = b(null, className);
