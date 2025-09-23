@@ -1,14 +1,9 @@
+import * as React from 'react';
+
 import {Meta, StoryFn} from '@storybook/react';
 
-import {yfmTransform} from '../../../../.storybook/utils';
-import {
-    ButtonProps,
-    ClassNameProps,
-    ContentBlockProps,
-    ContentItemProps,
-    ContentTheme,
-    LinkProps,
-} from '../../../models';
+import {blockTransform} from '../../../../.storybook/utils';
+import {ContentBlockProps, CustomBlock} from '../../../models';
 import Content from '../Content';
 
 import data from './data.json';
@@ -18,132 +13,101 @@ export default {
     title: 'Components/Content',
 } as Meta;
 
-const transformedContentList = data.default.content.list.map((item) => {
-    return {
-        ...item,
-        text: item?.text && yfmTransform(item.text),
-    };
-}) as ContentItemProps[];
-
-const DefaultTemplate: StoryFn<ContentBlockProps & ClassNameProps> = (args) => (
-    <div>
-        <div style={{paddingBottom: '64px'}}>
-            <Content {...args} additionalInfo={yfmTransform(data.default.content.additionalInfo)} />
-        </div>
-        <div style={{paddingBottom: '64px'}}>
-            <Content {...args} links={data.default.content.links as LinkProps[]} />
-        </div>
-        <div style={{paddingBottom: '64px'}}>
-            <Content {...args} buttons={data.default.content.buttons as ButtonProps[]} />
-        </div>
-        <div style={{paddingBottom: '64px'}}>
-            <Content
-                {...args}
-                list={transformedContentList}
-                links={data.default.content.links as LinkProps[]}
-            />
-        </div>
-    </div>
+const DefaultTemplate: StoryFn<ContentBlockProps> = (args) => (
+    <Content {...(blockTransform(args as CustomBlock) as ContentBlockProps)} />
 );
 
-const SizeTemplate: StoryFn<ContentBlockProps & ClassNameProps> = (args) => (
-    <div>
-        <div style={{paddingBottom: '64px'}}>
-            <Content
-                {...args}
-                title={data.size.l.title}
-                list={transformedContentList}
-                buttons={data.default.content.buttons as ButtonProps[]}
-            />
-        </div>
-        <div style={{paddingBottom: '64px'}}>
-            <Content
-                {...args}
-                title={data.size.m.title}
-                list={transformedContentList}
-                buttons={data.default.content.buttons as ButtonProps[]}
-                size="m"
-            />
-        </div>
-        <div style={{paddingBottom: '64px'}}>
-            <Content
-                {...args}
-                title={data.size.s.title}
-                list={transformedContentList}
-                buttons={data.default.content.buttons as ButtonProps[]}
-                size="s"
-            />
-        </div>
-    </div>
+const VariantsTemplate: StoryFn<Record<number, ContentBlockProps>> = (args) => (
+    <React.Fragment>
+        {Object.values(args).map((arg, index) => (
+            <div key={index} style={{marginBottom: '64px'}}>
+                <Content {...(blockTransform(arg as CustomBlock) as ContentBlockProps)} />
+            </div>
+        ))}
+    </React.Fragment>
 );
 
-const CenteredTemplate: StoryFn<ContentBlockProps & ClassNameProps> = (args) => (
-    <div>
-        <div style={{paddingBottom: '64px'}}>
-            <Content {...args} additionalInfo={yfmTransform(data.default.content.additionalInfo)} />
-        </div>
-        <div style={{paddingBottom: '64px'}}>
-            <Content {...args} links={data.default.content.links as LinkProps[]} />
-        </div>
-        <div style={{paddingBottom: '64px'}}>
-            <Content {...args} buttons={data.default.content.buttons as ButtonProps[]} />
-        </div>
-    </div>
-);
-
-const ThemeTemplate: StoryFn<ContentBlockProps & ClassNameProps> = (args) => (
-    <div>
-        <div
-            style={{
-                paddingBottom: '64px',
-                paddingTop: '64px',
-                backgroundColor: '#ccf0d2',
-                marginBottom: '64px',
-            }}
-        >
-            <Content
-                {...args}
-                title={data.theme.light.title}
-                theme={data.theme.light.theme as ContentTheme}
-                buttons={data.theme.light.buttons as ButtonProps[]}
-            />
-        </div>
-        <div style={{paddingBottom: '64px', paddingTop: '64px', backgroundColor: '#262626'}}>
-            <Content
-                {...args}
-                title={data.theme.dark.title}
-                theme={data.theme.dark.theme as ContentTheme}
-                buttons={data.theme.dark.buttons as ButtonProps[]}
-            />
-        </div>
-    </div>
+const BACKGROUND_COLORS = ['#ccf0d2', '#262626'];
+const ThemeTemplate: StoryFn<Record<number, ContentBlockProps>> = (args) => (
+    <React.Fragment>
+        {Object.values(args).map((arg, index) => (
+            <div
+                key={index}
+                style={{
+                    marginBottom: '64px',
+                    padding: '64px 0',
+                    background: BACKGROUND_COLORS[index],
+                }}
+            >
+                <Content {...(blockTransform(arg as CustomBlock) as ContentBlockProps)} />
+            </div>
+        ))}
+    </React.Fragment>
 );
 
 export const Default = DefaultTemplate.bind({});
-export const Size = SizeTemplate.bind({});
-export const Centered = CenteredTemplate.bind({});
-export const Theme = ThemeTemplate.bind({});
+export const ContentVariables = VariantsTemplate.bind([]);
+export const Size = VariantsTemplate.bind([]);
+export const Centered = VariantsTemplate.bind([]);
+export const Theme = ThemeTemplate.bind([]);
 
-const defaultArgs = {
-    title: data.default.content.title,
-    text: yfmTransform(data.default.content.text),
+Default.args = data.default as ContentBlockProps;
+
+ContentVariables.args = [
+    {additionalInfo: data.default.additionalInfo},
+    {links: data.default.links},
+    {buttons: data.default.buttons},
+    {links: data.default.links, list: data.default.list},
+].map((content) => ({
+    ...content,
+    title: data.default.title,
+    text: data.default.text,
+    type: data.default.type,
+})) as ContentBlockProps[];
+ContentVariables.parameters = {
+    controls: {
+        include: Object.keys(ContentVariables.args),
+    },
 };
 
-Default.args = {
-    ...defaultArgs,
-} as ContentBlockProps;
+Size.args = data.size.map((content) => ({
+    ...content,
+    additionalInfo: data.default.additionalInfo,
+    text: data.default.text,
+    buttons: data.default.buttons,
+    list: data.default.list,
+    type: data.default.type,
+})) as ContentBlockProps[];
+Size.parameters = {
+    controls: {
+        include: Object.keys(Size.args),
+    },
+};
 
-Size.args = {
-    ...defaultArgs,
-    additionalInfo: yfmTransform(data.default.content.additionalInfo),
-} as ContentBlockProps;
+Centered.args = [
+    {additionalInfo: data.default.additionalInfo},
+    {links: data.default.links},
+    {buttons: data.default.buttons},
+].map((content) => ({
+    ...content,
+    ...data.centered,
+    title: data.default.title,
+    text: data.default.text,
+    type: data.default.type,
+})) as ContentBlockProps[];
+Centered.parameters = {
+    controls: {
+        include: Object.keys(Centered.args),
+    },
+};
 
-Centered.args = {
-    ...defaultArgs,
-    ...data.centered.content,
-} as ContentBlockProps;
-
-Theme.args = {
-    ...defaultArgs,
-    additionalInfo: yfmTransform(data.default.content.additionalInfo),
-} as ContentBlockProps;
+Theme.args = data.theme.map((content) => ({
+    ...content,
+    text: data.default.text,
+    additionalInfo: data.default.additionalInfo,
+})) as ContentBlockProps[];
+Theme.parameters = {
+    controls: {
+        include: Object.keys(Theme.args),
+    },
+};

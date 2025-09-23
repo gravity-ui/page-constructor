@@ -1,64 +1,62 @@
 {
   "centered": {
-    "content": {
-      "centered": true
-    }
+    "centered": true
   },
   "default": {
-    "content": {
-      "title": "Lorem ipsum",
-      "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      "additionalInfo": "Duis aute irure dolor in [reprehenderit](https://example.com) n voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-      "links": [
-        {
-          "url": "#",
-          "text": "Link",
-          "theme": "normal",
-          "arrow": true
-        }
-      ],
-      "buttons": [
-        {
-          "text": "Button\r",
-          "theme": "action",
-          "url": "https://example.com"
+    "type": "content",
+    "title": "Lorem ipsum",
+    "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "additionalInfo": "Duis aute irure dolor in [reprehenderit](https://example.com) n voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+    "links": [
+      {
+        "url": "#",
+        "text": "Link",
+        "theme": "normal",
+        "arrow": true
+      }
+    ],
+    "buttons": [
+      {
+        "text": "Button\r",
+        "theme": "action",
+        "url": "https://example.com"
+      },
+      {
+        "text": "Button",
+        "theme": "outlined",
+        "url": "#"
+      }
+    ],
+    "list": [
+      {
+        "icon": {
+          "light": "/story-assets/icon_1_light.svg",
+          "dark": "/story-assets/icon_1_dark.svg"
         },
-        {
-          "text": "Button",
-          "theme": "outlined",
-          "url": "#"
-        }
-      ],
-      "list": [
-        {
-          "icon": {
-            "light": "/story-assets/icon_1_light.svg",
-            "dark": "/story-assets/icon_1_dark.svg"
-          },
-          "title": "Lorem ipsum",
-          "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        "title": "Lorem ipsum",
+        "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+      },
+      {
+        "icon": {
+          "light": "/story-assets/icon_3_light.svg",
+          "dark": "/story-assets/icon_3_dark.svg"
         },
-        {
-          "icon": {
-            "light": "/story-assets/icon_3_light.svg",
-            "dark": "/story-assets/icon_3_dark.svg"
-          },
-          "title": "Lorem ipsum ipsum",
-          "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        "title": "Lorem ipsum ipsum",
+        "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+      },
+      {
+        "icon": {
+          "light": "/story-assets/icon_2_light.svg",
+          "dark": "/story-assets/icon_2_dark.svg"
         },
-        {
-          "icon": {
-            "light": "/story-assets/icon_2_light.svg",
-            "dark": "/story-assets/icon_2_dark.svg"
-          },
-          "title": "Lorem ipsum",
-          "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-        }
-      ]
-    }
+        "title": "Lorem ipsum",
+        "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+      }
+    ]
   },
-  "theme": {
-    "light": {
+  "theme": [
+    {
+      "type": "content",
       "title": "Light monochrome theme",
       "theme": "light",
       "buttons": [
@@ -74,7 +72,8 @@
         }
       ]
     },
-    "dark": {
+    {
+      "type": "content",
       "title": "Dark monochrome theme",
       "theme": "dark",
       "buttons": [
@@ -90,33 +89,19 @@
         }
       ]
     }
-  },
-  "dark": {
-    "content": {
-      "theme": "dark",
-      "buttons": [
-        {
-          "text": "Button\r",
-          "theme": "normal-contrast",
-          "url": "https://example.com"
-        },
-        {
-          "text": "Button",
-          "theme": "outlined-contrast",
-          "url": "#"
-        }
-      ]
-    }
-  },
-  "size": {
-    "l": {
-      "title": "Size L"
+  ],
+  "size": [
+    {
+      "title": "Size L",
+      "size": "l"
     },
-    "m": {
-      "title": "Size M"
+    {
+      "title": "Size M",
+      "size": "m"
     },
-    "s": {
-      "title": "Size S"
+    {
+      "title": "Size S",
+      "size": "s"
     }
-  }
+  ]
 }
