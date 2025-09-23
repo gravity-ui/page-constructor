@@ -93,9 +93,7 @@
               "/story-assets/video_8-12_white.mp4",
               "/story-assets/video_8-12_white.png"
             ],
-            "loop": {
-              "start": 0
-            },
+            "loop": true,
             "ariaLabel": "Video accessible name example"
           }
         },
