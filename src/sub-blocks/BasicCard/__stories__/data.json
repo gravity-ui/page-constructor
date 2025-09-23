@@ -23,123 +23,199 @@
     "title": "Card with size {{size}}"
   },
   "withContentList": {
-    "titleForLongList": "With content list",
-    "titleForShortList": "With content list without titles"
-  },
-  "shortList": [
-    {
-      "icon": {
-        "light": "/story-assets/icon_1_light.svg",
-        "dark": "/story-assets/icon_1_dark.svg"
-      },
-      "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-    },
-    {
-      "icon": {
-        "light": "/story-assets/icon_3_light.svg",
-        "dark": "/story-assets/icon_3_dark.svg"
-      },
-      "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-    },
-    {
-      "icon": {
-        "light": "/story-assets/icon_2_light.svg",
-        "dark": "/story-assets/icon_2_dark.svg"
-      },
-      "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-    }
-  ],
-  "list": [
-    {
-      "icon": {
-        "light": "/story-assets/icon_1_light.svg",
-        "dark": "/story-assets/icon_1_dark.svg"
-      },
-      "title": "Lorem ipsum",
-      "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-    },
-    {
-      "icon": {
-        "light": "/story-assets/icon_3_light.svg",
-        "dark": "/story-assets/icon_3_dark.svg"
-      },
-      "title": "Lorem ipsum ipsum",
-      "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-    },
-    {
-      "icon": {
-        "light": "/story-assets/icon_2_light.svg",
-        "dark": "/story-assets/icon_2_dark.svg"
-      },
-      "title": "Lorem ipsum",
-      "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-    }
-  ],
-  "url": "https://example.com",
-  "default": {
-    "content": {
-      "title": "Lorem ipsum",
-      "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      "urlTitle": "Opens in a new tab"
-    }
-  },
-  "cardLayout": {
-    "contentTitle": "With controlPosition = content",
-    "footerTitle": "With controlPosition = footer",
-    "items": [
+    "title": "With content list",
+    "target": "_blank",
+    "list": [
       {
-        "icon": "/story-assets/icon_1_light.svg",
-        "title": "Lorem ipsumt",
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In egestas erat imperdiet sed euismod nisi porta lorem. Amet purus gravida quis blandit turpis cursus in hac.",
-        "buttons": [
-          {
-            "text": "Button 1",
-            "theme": "action",
-            "url": "#test1"
-          },
-          {
-            "text": "Button 2",
-            "theme": "outlined",
-            "url": "#test2"
-          }
-        ]
+        "icon": {
+          "light": "/story-assets/icon_1_light.svg",
+          "dark": "/story-assets/icon_1_dark.svg"
+        },
+        "title": "Lorem ipsum",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In egestas erat imperdiet sed euismod nisi porta lorem."
       },
       {
-        "icon": "/story-assets/icon_2_light.svg",
-        "title": "Lorem ipsumt",
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In egestas erat imperdiet sed euismod nisi porta lorem. Amet purus gravida quis blandit turpis cursus in hac. Pulvinar sapien et ligula ullamcorper malesuada proin libero nunc consequat.",
-        "buttons": [
-          {
-            "text": "Button 1",
-            "theme": "action",
-            "url": "#test1"
-          },
-          {
-            "text": "Button 2",
-            "theme": "outlined",
-            "url": "#test2"
-          }
-        ]
+        "icon": {
+          "light": "/story-assets/icon_3_light.svg",
+          "dark": "/story-assets/icon_3_dark.svg"
+        },
+        "title": "Lorem ipsum ipsum",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In egestas erat imperdiet sed euismod nisi porta lorem."
       },
       {
-        "icon": "/story-assets/icon_3_light.svg",
-        "title": "Lorem ipsumt",
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In egestas erat imperdiet sed euismod nisi porta lorem.",
-        "buttons": [
-          {
-            "text": "Button 1",
-            "theme": "action",
-            "url": "#test1"
-          },
-          {
-            "text": "Button 2",
-            "theme": "outlined",
-            "url": "#test2"
-          }
-        ]
+        "icon": {
+          "light": "/story-assets/icon_2_light.svg",
+          "dark": "/story-assets/icon_2_dark.svg"
+        },
+        "title": "Lorem ipsum",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In egestas erat imperdiet sed euismod nisi porta lorem."
       }
     ]
   },
+  "withContentListShort": {
+    "title": "With content list without titles",
+    "target": "_blank",
+    "list": [
+      {
+        "icon": {
+          "light": "/story-assets/icon_1_light.svg",
+          "dark": "/story-assets/icon_1_dark.svg"
+        },
+        "text": "Lorem ipsum dolor sit amet, consectetur quis nostrud tempor incididunt ut labore et dolore magna."
+      },
+      {
+        "icon": {
+          "light": "/story-assets/icon_3_light.svg",
+          "dark": "/story-assets/icon_3_dark.svg"
+        },
+        "text": "Lorem ipsum dolor sit amet, consectetur quis nostrud tempor incididunt ut labore et dolore magna."
+      },
+      {
+        "icon": {
+          "light": "/story-assets/icon_2_light.svg",
+          "dark": "/story-assets/icon_2_dark.svg"
+        },
+        "text": "Lorem ipsum dolor sit amet, consectetur quis nostrud tempor incididunt ut labore et dolore magna."
+      }
+    ]
+  },
+  "url": "https://example.com",
+  "default": {
+    "type": "basic-card",
+    "title": "Lorem ipsum",
+    "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "urlTitle": "Opens in a new tab"
+  },
+  "cardLayout": [
+    {
+      "type": "card-layout-block",
+      "title": "With controlPosition = content",
+      "animated": false,
+      "children": [
+        {
+          "type": "basic-card",
+          "icon": "/story-assets/icon_1_light.svg",
+          "title": "Lorem ipsumt",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In egestas erat imperdiet sed euismod nisi porta lorem. Amet purus gravida quis blandit turpis cursus in hac.",
+          "controlPosition": "content",
+          "buttons": [
+            {
+              "text": "Button 1",
+              "theme": "action",
+              "url": "#test1"
+            },
+            {
+              "text": "Button 2",
+              "theme": "outlined",
+              "url": "#test2"
+            }
+          ]
+        },
+        {
+          "type": "basic-card",
+          "icon": "/story-assets/icon_2_light.svg",
+          "title": "Lorem ipsumt",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In egestas erat imperdiet sed euismod nisi porta lorem. Amet purus gravida quis blandit turpis cursus in hac. Pulvinar sapien et ligula ullamcorper malesuada proin libero nunc consequat.",
+          "controlPosition": "content",
+          "buttons": [
+            {
+              "text": "Button 1",
+              "theme": "action",
+              "url": "#test1"
+            },
+            {
+              "text": "Button 2",
+              "theme": "outlined",
+              "url": "#test2"
+            }
+          ]
+        },
+        {
+          "type": "basic-card",
+          "icon": "/story-assets/icon_3_light.svg",
+          "title": "Lorem ipsumt",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In egestas erat imperdiet sed euismod nisi porta lorem.",
+          "controlPosition": "content",
+          "buttons": [
+            {
+              "text": "Button 1",
+              "theme": "action",
+              "url": "#test1"
+            },
+            {
+              "text": "Button 2",
+              "theme": "outlined",
+              "url": "#test2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "card-layout-block",
+      "title": "With controlPosition = footer",
+      "animated": false,
+      "children": [
+        {
+          "type": "basic-card",
+          "icon": "/story-assets/icon_1_light.svg",
+          "title": "Lorem ipsumt",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In egestas erat imperdiet sed euismod nisi porta lorem. Amet purus gravida quis blandit turpis cursus in hac.",
+          "controlPosition": "footer",
+          "buttons": [
+            {
+              "text": "Button 1",
+              "theme": "action",
+              "url": "#test1"
+            },
+            {
+              "text": "Button 2",
+              "theme": "outlined",
+              "url": "#test2"
+            }
+          ]
+        },
+        {
+          "type": "basic-card",
+          "icon": "/story-assets/icon_2_light.svg",
+          "title": "Lorem ipsumt",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In egestas erat imperdiet sed euismod nisi porta lorem. Amet purus gravida quis blandit turpis cursus in hac. Pulvinar sapien et ligula ullamcorper malesuada proin libero nunc consequat.",
+          "controlPosition": "footer",
+          "buttons": [
+            {
+              "text": "Button 1",
+              "theme": "action",
+              "url": "#test1"
+            },
+            {
+              "text": "Button 2",
+              "theme": "outlined",
+              "url": "#test2"
+            }
+          ]
+        },
+        {
+          "type": "basic-card",
+          "icon": "/story-assets/icon_3_light.svg",
+          "title": "Lorem ipsumt",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In egestas erat imperdiet sed euismod nisi porta lorem.",
+          "controlPosition": "footer",
+          "buttons": [
+            {
+              "text": "Button 1",
+              "theme": "action",
+              "url": "#test1"
+            },
+            {
+              "text": "Button 2",
+              "theme": "outlined",
+              "url": "#test2"
+            }
+          ]
+        }
+      ]
+    }
+  ],
   "sizes": [
     {
       "size": "s",

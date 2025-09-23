@@ -1,29 +1,15 @@
 import {Meta, StoryFn} from '@storybook/react';
 
-import {blockTransform, yfmTransform} from '../../../../.storybook/utils';
+import {blockListTransform, blockTransform} from '../../../../.storybook/utils';
 import CardLayout from '../../../blocks/CardLayout/CardLayout';
 import {BlockBase} from '../../../components';
 import {ConstructorRow} from '../../../containers/PageConstructor/components/ConstructorRow';
 import {Grid} from '../../../grid';
-import {BasicCardModel, BasicCardProps, ContentItemProps} from '../../../models';
+import {BasicCardModel, BasicCardProps, CardLayoutBlockModel} from '../../../models';
 import {IconPosition} from '../../../models/constructor-items/sub-blocks';
 import BasicCard from '../BasicCard';
 
 import data from './data.json';
-
-const transformedContentList = data.list.map((item) => {
-    return {
-        ...item,
-        text: item?.text && yfmTransform(item.text),
-    };
-}) as ContentItemProps[];
-
-const transformedShortContentList = data.shortList.map((item) => {
-    return {
-        ...item,
-        text: item?.text && yfmTransform(item.text),
-    };
-}) as ContentItemProps[];
 
 const getCardWithBorderTitle = (border: string) =>
     data.withBorder.title.replace('{{border}}', border);
@@ -36,80 +22,51 @@ export default {
     title: 'Components/Cards/BasicCard',
 } as Meta;
 
-const DefaultTemplate: StoryFn<BasicCardProps> = (args) => (
-    <div style={{maxWidth: '400px'}}>
-        <BasicCard {...args} target="_blank" />
-    </div>
-);
+const DefaultTemplate: StoryFn<BasicCardModel> = (args) => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const {type, ...props} = blockTransform(args);
+    return (
+        <div style={{maxWidth: '400px'}}>
+            <BasicCard {...(props as BasicCardProps)} target="_blank" />
+        </div>
+    );
+};
 
-const WithIconTemplate: StoryFn<BasicCardProps> = (args) => (
-    <div style={{display: 'flex'}}>
-        <div style={{maxWidth: '400px', padding: '0 8px'}}>
-            <BasicCard
-                {...args}
-                icon={data.withIcon.icons[0]}
-                title={getCardWithIconTitle('top')}
-            />
+const ListTemplate: StoryFn<Record<number, BasicCardModel>> = (args) => {
+    const items = blockListTransform(Object.values(args)) as BasicCardModel[];
+    return (
+        <div style={{display: 'flex'}}>
+            {/* eslint-disable-next-line @typescript-eslint/no-unused-vars */}
+            {items.map(({type, ...itemArgs}, index) => (
+                <div key={index} style={{maxWidth: '400px', padding: '0 8px'}}>
+                    <BasicCard {...itemArgs} />
+                </div>
+            ))}
         </div>
-        <div style={{maxWidth: '400px', padding: '0 8px'}}>
-            <BasicCard
-                {...args}
-                icon={data.withIcon.icons[1]}
-                iconPosition={IconPosition.Left}
-                title={getCardWithIconTitle('left')}
-            />
-        </div>
-    </div>
-);
+    );
+};
 
-const WithBorderTemplate: StoryFn<BasicCardProps> = (args) => (
-    <div style={{display: 'flex'}}>
-        <div style={{maxWidth: '400px', padding: '0 8px'}}>
-            <BasicCard {...args} title={getCardWithBorderTitle('shadow')} />
+const WithContentListTemplate: StoryFn<Record<number, BasicCardModel>> = (args) => {
+    const items = blockListTransform(Object.values(args)) as BasicCardModel[];
+    return (
+        <div style={{display: 'flex', flexWrap: 'wrap', alignItems: 'flex-start'}}>
+            {/* eslint-disable-next-line @typescript-eslint/no-unused-vars */}
+            {items.map(({type, ...itemArgs}, index) => (
+                <div
+                    key={index}
+                    style={{
+                        maxWidth: '400px',
+                        padding: '0 8px',
+                        marginBottom: '24px',
+                        marginTop: '8px',
+                    }}
+                >
+                    <BasicCard {...itemArgs} />
+                </div>
+            ))}
         </div>
-        <div style={{maxWidth: '400px', padding: '0 8px'}}>
-            <BasicCard {...args} border="line" title={getCardWithBorderTitle('line')} />
-        </div>
-        <div style={{maxWidth: '400px', padding: '0 8px'}}>
-            <BasicCard {...args} border="none" title={getCardWithBorderTitle('none')} />
-        </div>
-    </div>
-);
-
-const WithContentListTemplate: StoryFn<BasicCardProps> = (args) => (
-    <div style={{display: 'flex', flexWrap: 'wrap', alignItems: 'flex-start'}}>
-        <div style={{maxWidth: '400px', padding: '0 8px', marginBottom: '24px', marginTop: '8px'}}>
-            <BasicCard
-                {...args}
-                target="_blank"
-                list={transformedContentList}
-                title={data.withContentList.titleForLongList}
-            />
-        </div>
-        <div style={{maxWidth: '400px', padding: '0 8px'}}>
-            <BasicCard
-                {...args}
-                target="_blank"
-                list={transformedShortContentList}
-                title={data.withContentList.titleForShortList}
-            />
-        </div>
-    </div>
-);
-
-const WithUrlTemplate: StoryFn<BasicCardProps> = (args) => (
-    <div style={{display: 'flex', padding: '40px 0'}}>
-        <div style={{maxWidth: '400px', padding: '0 8px'}}>
-            <BasicCard {...args} title={getCardWithBorderTitle('shadow')} />
-        </div>
-        <div style={{maxWidth: '400px', padding: '0 8px'}}>
-            <BasicCard {...args} border="line" title={getCardWithBorderTitle('line')} />
-        </div>
-        <div style={{maxWidth: '400px', padding: '0 8px'}}>
-            <BasicCard {...args} border="none" title={getCardWithBorderTitle('none')} />
-        </div>
-    </div>
-);
+    );
+};
 
 const VariousTemplate: StoryFn<Record<number, BasicCardModel>> = (args) => (
     <div style={{display: 'flex', padding: '40px 0', flexWrap: 'wrap'}}>
@@ -130,80 +87,134 @@ const VariousTemplate: StoryFn<Record<number, BasicCardModel>> = (args) => (
     </div>
 );
 
-const ControlPositionTemplate: StoryFn<BasicCardProps> = (args) => (
-    <Grid>
-        <ConstructorRow>
-            <BlockBase>
-                <CardLayout title={data.cardLayout.contentTitle} animated={false}>
-                    {data.cardLayout.items.map((item, index) => (
-                        <BasicCard
-                            key={index}
-                            {...(item as Partial<BasicCardProps>)}
-                            {...args}
-                            controlPosition="content"
-                        />
-                    ))}
-                </CardLayout>
-            </BlockBase>
-            <BlockBase>
-                <CardLayout title={data.cardLayout.footerTitle} animated={false}>
-                    {data.cardLayout.items.map((item, index) => (
-                        <BasicCard
-                            key={index}
-                            {...(item as Partial<BasicCardProps>)}
-                            {...args}
-                            controlPosition="footer"
-                        />
-                    ))}
-                </CardLayout>
-            </BlockBase>
-        </ConstructorRow>
-    </Grid>
-);
+interface LayoutItemWithCards extends CardLayoutBlockModel {
+    children: BasicCardModel[];
+}
+
+const ControlPositionTemplate: StoryFn<Record<number, LayoutItemWithCards>> = (args) => {
+    const cardLayouts = Object.values(args);
+
+    return (
+        <Grid>
+            <ConstructorRow>
+                {/* eslint-disable-next-line @typescript-eslint/no-unused-vars */}
+                {cardLayouts.map(({type, children, ...cardLayoutProps}, index) => (
+                    <BlockBase key={index}>
+                        <CardLayout {...cardLayoutProps}>
+                            {children.map((itemArgs, itemIndex) => (
+                                <BasicCard
+                                    key={itemIndex}
+                                    {...(blockTransform(itemArgs) as BasicCardProps)}
+                                />
+                            ))}
+                        </CardLayout>
+                    </BlockBase>
+                ))}
+            </ConstructorRow>
+        </Grid>
+    );
+};
 
 export const Default = DefaultTemplate.bind({});
-export const WithIcon = WithIconTemplate.bind({});
-export const WithBorder = WithBorderTemplate.bind({});
-export const WithUrl = WithUrlTemplate.bind({});
+export const WithIcon = ListTemplate.bind({});
+export const WithBorder = ListTemplate.bind({});
+export const WithUrl = ListTemplate.bind({});
 export const WithContentList = WithContentListTemplate.bind({});
 export const ControlPosition = ControlPositionTemplate.bind({});
 export const Sizes = VariousTemplate.bind([]);
 export const GravityIcons = VariousTemplate.bind([]);
 
-const DefaultArgs = {
-    ...data.default.content,
-    text: yfmTransform(data.default.content.text),
+const DefaultArgs = data.default as BasicCardModel;
+
+Default.args = DefaultArgs;
+
+WithIcon.args = [
+    {
+        ...DefaultArgs,
+        icon: data.withIcon.icons[0],
+        title: getCardWithIconTitle('top'),
+    },
+    {
+        ...DefaultArgs,
+        icon: data.withIcon.icons[1],
+        iconPosition: IconPosition.Left,
+        title: getCardWithIconTitle('left'),
+    },
+];
+WithIcon.parameters = {
+    controls: {
+        include: Object.keys(WithIcon.args),
+    },
 };
 
-Default.args = {
-    ...data.default.content,
-    ...DefaultArgs,
-} as BasicCardProps;
-WithIcon.args = DefaultArgs as BasicCardProps;
-WithBorder.args = DefaultArgs as BasicCardProps;
-WithUrl.args = {
-    url: data.url,
-    ...DefaultArgs,
-} as BasicCardProps;
+WithBorder.args = [
+    {
+        ...DefaultArgs,
+        title: getCardWithBorderTitle('shadow'),
+    },
+    {
+        ...DefaultArgs,
+        border: 'line',
+        title: getCardWithBorderTitle('line'),
+    },
+    {
+        ...DefaultArgs,
+        border: 'none',
+        title: getCardWithBorderTitle('none'),
+    },
+];
+WithBorder.parameters = {
+    controls: {
+        include: Object.keys(WithBorder.args),
+    },
+};
 
-WithContentList.args = {
-    ...DefaultArgs,
-} as BasicCardProps;
+WithUrl.args = [
+    {
+        ...DefaultArgs,
+        url: data.url,
+        title: getCardWithBorderTitle('shadow'),
+    },
+    {
+        ...DefaultArgs,
+        border: 'line',
+        title: getCardWithBorderTitle('line'),
+        url: data.url,
+    },
+    {
+        ...DefaultArgs,
+        border: 'none',
+        title: getCardWithBorderTitle('none'),
+        url: data.url,
+    },
+];
+WithUrl.parameters = {
+    controls: {
+        include: Object.keys(WithUrl.args),
+    },
+};
 
-ControlPosition.argTypes = {
-    controlPosition: {table: {disable: true}},
-    url: {table: {disable: true}},
-    urlTitle: {table: {disable: true}},
-    analyticsEvents: {table: {disable: true}},
-    title: {table: {disable: true}},
-    text: {table: {disable: true}},
-    titleId: {table: {disable: true}},
-    textId: {table: {disable: true}},
-    icon: {table: {disable: true}},
-    list: {table: {disable: true}},
-    links: {table: {disable: true}},
-    buttons: {table: {disable: true}},
-    target: {table: {disable: true}},
+WithContentList.args = [
+    {
+        ...DefaultArgs,
+        ...data.withContentList,
+    },
+    {
+        ...DefaultArgs,
+        ...data.withContentListShort,
+    },
+];
+WithContentList.parameters = {
+    controls: {
+        include: Object.keys(WithContentList.args),
+    },
+};
+
+ControlPosition.args = data.cardLayout as LayoutItemWithCards[];
+ControlPosition.parameters = {
+    controls: {
+        include: Object.keys(ControlPosition.args),
+    },
 };
 
 Sizes.args = data.sizesContent.reduce(
@@ -221,7 +232,7 @@ Sizes.args = data.sizesContent.reduce(
 );
 Sizes.parameters = {
     controls: {
-        include: Object.keys([0, 1, 2, 3, 4, 5, 6, 7, 8]),
+        include: Object.keys(Sizes.args),
     },
 };
 
@@ -240,6 +251,6 @@ GravityIcons.args = data.gravityIcons.reduce(
 );
 GravityIcons.parameters = {
     controls: {
-        include: Object.keys([0, 1, 2, 3, 4, 5, 6, 7, 8]),
+        include: Object.keys(GravityIcons.args),
     },
 };
