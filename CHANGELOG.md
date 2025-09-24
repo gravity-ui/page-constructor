@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.14.1](https://github.com/gravity-ui/page-constructor/compare/v7.14.0...v7.14.1) (2025-09-23)
+
+
+### Bug Fixes
+
+* **NavigationLink:** rewrite onClick ([#1296](https://github.com/gravity-ui/page-constructor/issues/1296)) ([166338f](https://github.com/gravity-ui/page-constructor/commit/166338fa47a3517a9ab09760c529040ea074a2fd))
+
 ## [7.14.0](https://github.com/gravity-ui/page-constructor/compare/v7.13.0...v7.14.0) (2025-09-18)
 
 
