@@ -41,7 +41,7 @@ const ReactPlayer =
         : _ReactPlayer;
 
 export interface ReactPlayerBlockProps
-    extends Omit<MediaVideoProps, 'loop' | 'src'>,
+    extends Omit<MediaVideoProps, 'loop' | 'src' | 'ref'>,
         ClassNameProps {
     src: string | string[];
     previewImgUrl?: string;

@@ -190,6 +190,7 @@ export interface MediaVideoProps extends AnalyticsEventsBase {
     ariaLabel?: string;
     contain?: boolean;
     onVideoEnd?: () => void;
+    ref?: React.Ref<HTMLVideoElement | null>;
 }
 
 // links

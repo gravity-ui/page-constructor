@@ -46,6 +46,8 @@ const Video = (props: VideoAllProps) => {
 
     const ref = React.useRef<HTMLVideoElement>(null);
 
+    React.useImperativeHandle(video.ref, () => ref.current, []);
+
     React.useEffect(() => {
         if (ref && ref.current) {
             const {loop} = video;
