@@ -1,5 +1,13 @@
 # Changelog
 
+## [7.15.0](https://github.com/gravity-ui/page-constructor/compare/v7.14.1...v7.15.0) (2025-09-26)
+
+
+### Features
+
+* **Media:** support ref for video element ([#1297](https://github.com/gravity-ui/page-constructor/issues/1297)) ([bbb8f68](https://github.com/gravity-ui/page-constructor/commit/bbb8f68f284b20f043e23a19528d9fae4e63c440))
+* separate loading google font in root ([#1295](https://github.com/gravity-ui/page-constructor/issues/1295)) ([77ea4c4](https://github.com/gravity-ui/page-constructor/commit/77ea4c4279a3f8b205b325a8a80b363b9bfaf87f))
+
 ## [7.14.1](https://github.com/gravity-ui/page-constructor/compare/v7.14.0...v7.14.1) (2025-09-23)
 
 
