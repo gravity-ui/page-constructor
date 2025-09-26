@@ -1,6 +1,7 @@
 import {test} from '../../../../playwright/core/index';
 
 import {
+    ContentVariables,
     DataLens,
     Default,
     Direction,
@@ -75,6 +76,12 @@ test.describe('Media', () => {
     // skip this test, because it is unstable
     test.skip('render stories <Iframe>', async ({mount, expectScreenshot, delay}) => {
         await mount(<Iframe />);
+        await delay(DEFAULT_MEDIA_DELAY);
+        await expectScreenshot({skipTheme: 'dark'});
+    });
+
+    test('render stories <ContentVariables>', async ({mount, expectScreenshot, delay}) => {
+        await mount(<ContentVariables />);
         await delay(DEFAULT_MEDIA_DELAY);
         await expectScreenshot({skipTheme: 'dark'});
     });

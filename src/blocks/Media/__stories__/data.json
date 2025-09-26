@@ -1,7 +1,5 @@
 {
   "common": {
-    "title": "Lorem ipsum dolor sit",
-    "description": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
     "additionalInfo": "Duis aute irure dolor in [reprehenderit](https://example.com) n voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
     "links": [
       {
@@ -49,38 +47,37 @@
     ]
   },
   "imageSlider": {
-    "content": {
-      "type": "media-block",
-      "media": {
-        "light": {
-          "image": [
-            "/story-assets/img_8-12_white.png",
-            "/story-assets/img_8-12_white.png",
-            "/story-assets/img_8-12_white.png"
-          ]
-        },
-        "dark": {
-          "image": [
-            "/story-assets/img_8-12_dark.png",
-            "/story-assets/img_8-12_dark.png",
-            "/story-assets/img_8-12_dark.png"
-          ]
-        }
+    "type": "media-block",
+    "media": {
+      "light": {
+        "image": [
+          "/story-assets/img_8-12_white.png",
+          "/story-assets/img_8-12_white.png",
+          "/story-assets/img_8-12_white.png"
+        ]
+      },
+      "dark": {
+        "image": [
+          "/story-assets/img_8-12_dark.png",
+          "/story-assets/img_8-12_dark.png",
+          "/story-assets/img_8-12_dark.png"
+        ]
       }
     }
   },
   "default": {
-    "content": {
-      "type": "media-block",
-      "media": {
-        "light": {
-          "image": "/story-assets/img_8-12_white.png"
-        },
-        "dark": {
-          "image": "/story-assets/img_8-12_dark.png"
-        }
+    "type": "media-block",
+    "size": "l",
+    "media": {
+      "light": {
+        "image": "/story-assets/img_8-12_white.png"
+      },
+      "dark": {
+        "image": "/story-assets/img_8-12_dark.png"
       }
-    }
+    },
+    "title": "Lorem ipsum dolor sit",
+    "description": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
   },
   "video": {
     "staticWithAutoPlay": {
