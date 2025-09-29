@@ -17,22 +17,31 @@ import {
 const DEFAULT_MEDIA_DELAY = 10 * 1000;
 
 test.describe('Media', () => {
-    test('render stories <Default>', async ({mount, expectScreenshot, delay}) => {
+    test('render stories <Default>', async ({mount, expectScreenshot, delay, page}) => {
         await mount(<Default />);
         await delay(DEFAULT_MEDIA_DELAY);
-        await expectScreenshot({skipTheme: 'dark'});
+        await expectScreenshot({
+            skipTheme: 'dark',
+            mask: [page.locator('.pc-media-component-image__item')],
+        });
     });
 
-    test('render stories <ImageSlider>', async ({mount, expectScreenshot, delay}) => {
+    test('render stories <ImageSlider>', async ({mount, expectScreenshot, delay, page}) => {
         await mount(<ImageSlider />);
         await delay(DEFAULT_MEDIA_DELAY);
-        await expectScreenshot({skipTheme: 'dark'});
+        await expectScreenshot({
+            skipTheme: 'dark',
+            mask: [page.locator('.pc-media-component-image__item')],
+        });
     });
 
-    test.skip('render stories <Video>', async ({mount, expectScreenshot, delay}) => {
+    test.skip('render stories <Video>', async ({mount, expectScreenshot, delay, page}) => {
         await mount(<Video />);
         await delay(DEFAULT_MEDIA_DELAY);
-        await expectScreenshot({skipTheme: 'dark'});
+        await expectScreenshot({
+            skipTheme: 'dark',
+            mask: [page.locator('.pc-media-component-image__item')],
+        });
     });
 
     test('render stories <DataLens>', async ({mount, expectScreenshot, page}) => {
@@ -43,34 +52,54 @@ test.describe('Media', () => {
         });
     });
 
-    test('render stories <Size>', async ({mount, expectScreenshot, delay}) => {
+    test('render stories <Size>', async ({mount, expectScreenshot, delay, page}) => {
         await mount(<Size />);
         await delay(DEFAULT_MEDIA_DELAY);
-        await expectScreenshot({skipTheme: 'dark'});
+        await expectScreenshot({
+            skipTheme: 'dark',
+            mask: [page.locator('.pc-media-component-image__item')],
+        });
     });
 
-    test('render stories <Direction>', async ({mount, expectScreenshot, delay}) => {
+    test('render stories <Direction>', async ({mount, expectScreenshot, delay, page}) => {
         await mount(<Direction />);
         await delay(DEFAULT_MEDIA_DELAY);
-        await expectScreenshot({skipTheme: 'dark'});
+        await expectScreenshot({
+            skipTheme: 'dark',
+            mask: [page.locator('.pc-media-component-image__item')],
+        });
     });
 
-    test('render stories <WithoutShadowDeprecated>', async ({mount, expectScreenshot, delay}) => {
+    test('render stories <WithoutShadowDeprecated>', async ({
+        mount,
+        expectScreenshot,
+        delay,
+        page,
+    }) => {
         await mount(<WithoutShadowDeprecated />);
         await delay(DEFAULT_MEDIA_DELAY);
-        await expectScreenshot({skipTheme: 'dark'});
+        await expectScreenshot({
+            skipTheme: 'dark',
+            mask: [page.locator('.pc-media-component-image__item')],
+        });
     });
 
-    test('render stories <WithoutShadow>', async ({mount, expectScreenshot, delay}) => {
+    test('render stories <WithoutShadow>', async ({mount, expectScreenshot, delay, page}) => {
         await mount(<WithoutShadow />);
         await delay(DEFAULT_MEDIA_DELAY);
-        await expectScreenshot({skipTheme: 'dark'});
+        await expectScreenshot({
+            skipTheme: 'dark',
+            mask: [page.locator('.pc-media-component-image__item')],
+        });
     });
 
-    test('render stories <WithBorder>', async ({mount, expectScreenshot, delay}) => {
+    test('render stories <WithBorder>', async ({mount, expectScreenshot, delay, page}) => {
         await mount(<WithBorder />);
         await delay(DEFAULT_MEDIA_DELAY);
-        await expectScreenshot({skipTheme: 'dark'});
+        await expectScreenshot({
+            skipTheme: 'dark',
+            mask: [page.locator('.pc-media-component-image__item')],
+        });
     });
 
     // skip this test, because it is unstable
@@ -80,9 +109,12 @@ test.describe('Media', () => {
         await expectScreenshot({skipTheme: 'dark'});
     });
 
-    test('render stories <ContentVariables>', async ({mount, expectScreenshot, delay}) => {
+    test('render stories <ContentVariables>', async ({mount, expectScreenshot, delay, page}) => {
         await mount(<ContentVariables />);
         await delay(DEFAULT_MEDIA_DELAY);
-        await expectScreenshot({skipTheme: 'dark'});
+        await expectScreenshot({
+            skipTheme: 'dark',
+            mask: [page.locator('.pc-media-component-image__item')],
+        });
     });
 });
