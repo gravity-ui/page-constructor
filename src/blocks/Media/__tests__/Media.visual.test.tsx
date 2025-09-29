@@ -17,21 +17,19 @@ import {
 const DEFAULT_MEDIA_DELAY = 10 * 1000;
 
 test.describe('Media', () => {
-    test('render stories <Default>', async ({mount, expectScreenshot, delay, page}) => {
+    test('render stories <Default>', async ({mount, expectScreenshot, delay}) => {
         await mount(<Default />);
         await delay(DEFAULT_MEDIA_DELAY);
         await expectScreenshot({
             skipTheme: 'dark',
-            mask: [page.locator('.pc-media-component-image__item')],
         });
     });
 
-    test('render stories <ImageSlider>', async ({mount, expectScreenshot, delay, page}) => {
+    test('render stories <ImageSlider>', async ({mount, expectScreenshot, delay}) => {
         await mount(<ImageSlider />);
         await delay(DEFAULT_MEDIA_DELAY);
         await expectScreenshot({
             skipTheme: 'dark',
-            mask: [page.locator('.pc-media-component-image__item')],
         });
     });
 
@@ -70,35 +68,27 @@ test.describe('Media', () => {
         });
     });
 
-    test('render stories <WithoutShadowDeprecated>', async ({
-        mount,
-        expectScreenshot,
-        delay,
-        page,
-    }) => {
+    test('render stories <WithoutShadowDeprecated>', async ({mount, expectScreenshot, delay}) => {
         await mount(<WithoutShadowDeprecated />);
         await delay(DEFAULT_MEDIA_DELAY);
         await expectScreenshot({
             skipTheme: 'dark',
-            mask: [page.locator('.pc-media-component-image__item')],
         });
     });
 
-    test('render stories <WithoutShadow>', async ({mount, expectScreenshot, delay, page}) => {
+    test('render stories <WithoutShadow>', async ({mount, expectScreenshot, delay}) => {
         await mount(<WithoutShadow />);
         await delay(DEFAULT_MEDIA_DELAY);
         await expectScreenshot({
             skipTheme: 'dark',
-            mask: [page.locator('.pc-media-component-image__item')],
         });
     });
 
-    test('render stories <WithBorder>', async ({mount, expectScreenshot, delay, page}) => {
+    test('render stories <WithBorder>', async ({mount, expectScreenshot, delay}) => {
         await mount(<WithBorder />);
         await delay(DEFAULT_MEDIA_DELAY);
         await expectScreenshot({
             skipTheme: 'dark',
-            mask: [page.locator('.pc-media-component-image__item')],
         });
     });
 
