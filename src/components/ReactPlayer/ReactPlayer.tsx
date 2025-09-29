@@ -4,6 +4,7 @@ import {PlayFill} from '@gravity-ui/icons';
 import {Icon} from '@gravity-ui/uikit';
 import debounce from 'lodash/debounce';
 import _ReactPlayer from 'react-player';
+import type {ReactPlayerProps} from 'react-player';
 
 import {MobileContext} from '../../context/mobileContext';
 import {VideoContext} from '../../context/videoContext';
@@ -41,11 +42,10 @@ const ReactPlayer =
         : _ReactPlayer;
 
 export interface ReactPlayerBlockProps
-    extends Omit<MediaVideoProps, 'loop' | 'src' | 'ref'>,
+    extends Omit<MediaVideoProps, 'src' | 'ref'>,
         ClassNameProps {
     src: string | string[];
     previewImgUrl?: string;
-    loop?: boolean;
     customBarControlsClassName?: string;
     showPreview?: boolean;
     onClickPreview?: () => void;
@@ -57,6 +57,7 @@ export interface ReactPlayerBlockProps
 
 interface PlayerPropgress {
     played: number;
+    playedSeconds: number;
 }
 
 // eslint-disable-next-line react/display-name
@@ -108,6 +109,7 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
         const [isPlaying, setIsPlaying] = React.useState(autoPlay);
         const [playedPercent, setPlayedPercent] = React.useState<number>(0);
         const [currentHeight, setCurrentHeight] = React.useState(height);
+        const [duration, setDuration] = React.useState<null | number>(null);
         const [width, setWidth] = React.useState<number>(0);
         const [actualRatio, setActualRatio] = React.useState<number>();
         const [muted, setMuted] = React.useState<boolean>(mute);
@@ -325,26 +327,36 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
             }
         }, []);
 
-        const onProgress = React.useCallback((progress: PlayerPropgress) => {
-            setPlayedPercent(progress.played);
+        const onProgress: ReactPlayerProps['onProgress'] = React.useCallback(
+            ({played, playedSeconds}: PlayerPropgress) => {
+                setPlayedPercent(played);
 
-            if (progress.played === 1) {
-                setMuted(true);
-            }
+                if (loop) {
+                    const {start = 0, end = duration} = typeof loop === 'boolean' ? {} : loop;
+
+                    // Youtube videos not muted after finishing playing and start again.
+                    // 'onEnded' does not fire when 'loop' is set to true.
+                    // It is custom loop with muted sound after finishing playing and start again.
+                    if (end !== null && playedSeconds >= end) {
+                        setIsPlaying(true);
+                        playerRef?.seekTo(start);
+                    }
+                }
+
+                if (played === 1) {
+                    setMuted(true);
+                }
+            },
+            [duration, loop, playerRef],
+        );
+
+        const onDuration = React.useCallback((duration: number) => {
+            setDuration(duration);
         }, []);
 
         const onEnded = React.useCallback(() => {
-            // Youtube videos not muted after finishing playing and start again.
-            // 'onEnded' does not fire when 'loop' is set to true.
-            // It is custom loop with muted sound after finishing playing and start again.
-            if (loop) {
-                setPlayedPercent(0);
-                setIsPlaying(true);
-                playerRef?.seekTo(0);
-            }
-
             setEnded(true);
-        }, [loop, playerRef]);
+        }, []);
 
         const onPlayClick = React.useCallback(() => {
             if (isPlaying) {
@@ -422,6 +434,7 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
                             } // to prevent pause icon flickering when autoplayed video ends
                             onProgress={onProgress}
                             onEnded={onEnded}
+                            onDuration={onDuration}
                             aria-label={ariaLabel}
                             previewTabIndex={-1}
                             config={{

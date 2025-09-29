@@ -50,26 +50,6 @@ const Video = (props: VideoAllProps) => {
 
     React.useEffect(() => {
         if (ref && ref.current) {
-            const {loop} = video;
-
-            if (loop && typeof loop !== 'boolean') {
-                const {start = 0, end} = loop;
-
-                ref.current.addEventListener(
-                    'timeupdate',
-                    () => {
-                        const videoRef = ref.current;
-                        const endTime = end || (videoRef && videoRef.duration);
-
-                        if (videoRef && videoRef.currentTime === endTime) {
-                            videoRef.currentTime = start;
-                            videoRef.play().catch(() => setHasVideoFallback(true));
-                        }
-                    },
-                    {passive: true},
-                );
-            }
-
             if (playVideo) {
                 ref.current.play().catch(() => setHasVideoFallback(true));
             }
@@ -96,7 +76,7 @@ const Video = (props: VideoAllProps) => {
                 className={b('react-player', videoClassName)}
                 src={src}
                 previewImgUrl={previewImg}
-                loop={Boolean(loop)}
+                loop={loop}
                 controls={controls}
                 muted={muted}
                 autoplay={autoplay && playVideo}

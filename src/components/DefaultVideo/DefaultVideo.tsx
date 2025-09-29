@@ -89,8 +89,13 @@ export const DefaultVideo = React.forwardRef<DefaultVideoRefType, DefaultVideoPr
             }
 
             if (loop) {
-                videoElement.currentTime = 0;
-                videoElement.play();
+                const {start = 0, end = videoElement.duration} =
+                    typeof loop === 'boolean' ? {} : loop;
+
+                if (videoElement.currentTime >= end) {
+                    videoElement.currentTime = start;
+                    videoElement.play();
+                }
             }
 
             onVideoEnd?.();
