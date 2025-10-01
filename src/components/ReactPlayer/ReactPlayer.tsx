@@ -350,8 +350,8 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
             [duration, loop, playerRef],
         );
 
-        const onDuration = React.useCallback((duration: number) => {
-            setDuration(duration);
+        const onDuration = React.useCallback((currentDuration: number) => {
+            setDuration(currentDuration);
         }, []);
 
         const onEnded = React.useCallback(() => {
