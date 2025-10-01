@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.15.1](https://github.com/gravity-ui/page-constructor/compare/v7.15.0...v7.15.1) (2025-10-01)
+
+
+### Bug Fixes
+
+* **Media:** support boolean and parameterized loop for both video types ([#1298](https://github.com/gravity-ui/page-constructor/issues/1298)) ([9370b5d](https://github.com/gravity-ui/page-constructor/commit/9370b5d52598a081a646a222d4fb803bf8ad4340))
+
 ## [7.15.0](https://github.com/gravity-ui/page-constructor/compare/v7.14.1...v7.15.0) (2025-09-26)
 
 
