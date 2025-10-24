@@ -328,6 +328,7 @@ export type Coordinate = number[];
 export interface MapBaseProps {
     zoom?: number;
     className?: string;
+    forceAspectRatio?: boolean;
 }
 
 export interface GMapProps extends MapBaseProps {
@@ -336,6 +337,8 @@ export interface GMapProps extends MapBaseProps {
 
 export interface YMapProps extends MapBaseProps {
     markers: YMapMarker[];
+    disableControls?: boolean;
+    disableBalloons?: boolean;
     id: string;
 }
 
@@ -349,7 +352,23 @@ export interface YMapMarkerLabel {
     iconCaption?: string;
     iconContent?: string;
     iconColor?: string;
+    iconImageHref?: string;
+    iconImageSize?: [number, number];
+    iconImageOffset?: [number, number];
+    iconImageClipRect?: [[number, number], [number, number]];
+    iconLayout?: 'default#image';
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    iconShape?: Record<string, any>;
     preset?: string;
+}
+
+export interface YMapMarkerPrivate extends YMapMarker {
+    label?: YMapMarkerLabelPrivate;
+}
+
+export interface YMapMarkerLabelPrivate extends YMapMarkerLabel {
+    cursor?: string;
+    interactivityModel?: string;
 }
 
 export type MapProps = GMapProps | YMapProps;

@@ -61,15 +61,27 @@ graph TD
   - `address`: String address to display on the map (required)
   - `zoom`: Optional zoom level (inherited from MapBaseProps)
   - `className`: Optional CSS class name (inherited from MapBaseProps)
+  - `forceAspectRatio`: Optional boolean to force aspect ratio (16:9 for Desktop, 4:3 for Mobile), `true` by default (inherited from MapBaseProps)
 
 #### YMapProps (Yandex Maps)
 
 - **Description**: Props for Yandex Maps implementation
+- **File**: `src/components/Map/YMap/YMap.tsx`
 - **Properties**:
   - `markers`: Array of YMapMarker objects to display on the map (required)
   - `id`: Unique identifier for the map instance (required)
   - `zoom`: Optional zoom level (inherited from MapBaseProps)
   - `className`: Optional CSS class name (inherited from MapBaseProps)
+  - `disableControls`: Optional boolean to hide map controls (Yandex Maps only), `false` by default
+  - `disableBalloons`: Optional boolean to disable info balloons (Yandex Maps only), `false` by default
+
+#### MapBaseProps (Common Props)
+
+- **Description**: Common props available for both Google Maps and Yandex Maps
+- **Properties**:
+  - `zoom`: Optional zoom level for the map
+  - `className`: Optional CSS class name for styling
+  - `forceAspectRatio`: Optional boolean to force aspect ratio (16:9 for Desktop, 4:3 for Mobile), `true` by default
 
 ### YMapMarker Interface
 
@@ -86,6 +98,12 @@ graph TD
   - `iconCaption`: Optional caption text for the marker
   - `iconContent`: Optional content text for the marker
   - `iconColor`: Optional color for the marker icon
+  - `iconImageHref`: Optional URL of geo object's custom icon image file
+  - `iconImageSize`: Optional dimensions of custom icon image [width, height]
+  - `iconImageOffset`: Optional custom icon image's offset relative to it's anchor point [x, y]
+  - `iconImageClipRect`: Optional coordinates of custom icon image's displayed rectangular area [[x1, y1], [x2, y2]]
+  - `iconLayout`: Optional layout for icon (e.g., 'default#image' for custom icons)
+  - `iconShape`: Optional icon's active area shape
   - `preset`: Optional preset style for the marker
 
 ### MapsContext

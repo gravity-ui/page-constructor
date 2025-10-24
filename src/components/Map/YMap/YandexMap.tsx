@@ -6,7 +6,7 @@ import debounce from 'lodash/debounce';
 import {LocaleContext} from '../../../context/localeContext/localeContext';
 import {MapsContext} from '../../../context/mapsContext/mapsContext';
 import {MobileContext} from '../../../context/mobileContext';
-import {YMapProps} from '../../../models';
+import {YMapMarkerLabelPrivate, YMapMarkerPrivate, YMapProps} from '../../../models';
 import {block} from '../../../utils';
 import ErrorWrapper from '../../ErrorWrapper/ErrorWrapper';
 import {getMapHeight} from '../helpers';
@@ -23,8 +23,21 @@ const DEFAULT_ZOOM = 9;
 // The real center of the map will be calculated later, using the coordinates of the markers
 const INITIAL_CENTER = [0, 0];
 
+const BALLOON_DISABLING_MARKER_OPTIONS: YMapMarkerLabelPrivate = {
+    cursor: 'drag',
+    interactivityModel: 'default#silent',
+};
+
 const YandexMap = (props: YMapProps) => {
-    const {markers, zoom, id, className} = props;
+    const {
+        markers,
+        zoom,
+        id,
+        disableControls = false,
+        disableBalloons = false,
+        className,
+        forceAspectRatio = true,
+    } = props;
     const {apiKey, scriptSrc, nonce} = React.useContext(MapsContext);
     const isMobile = React.useContext(MobileContext);
 
@@ -56,8 +69,13 @@ const YandexMap = (props: YMapProps) => {
                             {
                                 center: INITIAL_CENTER,
                                 zoom: zoom || DEFAULT_ZOOM,
+                                controls: disableControls ? [] : undefined,
                             },
-                            {autoFitToViewport: 'always'},
+                            {
+                                autoFitToViewport: 'always',
+                                suppressMapOpenBlock: disableControls,
+                                yandexMapDisablePoiInteractivity: disableControls,
+                            },
                         ),
                         ref.current,
                     ),
@@ -66,9 +84,23 @@ const YandexMap = (props: YMapProps) => {
 
             setLoading(false);
         })();
-    }, [apiKey, lang, scriptSrc, containerId, zoom, nonce, attemptsIndex, setLoading]);
+    }, [
+        apiKey,
+        lang,
+        scriptSrc,
+        containerId,
+        zoom,
+        nonce,
+        attemptsIndex,
+        setLoading,
+        disableControls,
+    ]);
 
     React.useEffect(() => {
+        if (!forceAspectRatio) {
+            return;
+        }
+
         const updateSize = debounce(() => {
             if (ref.current) {
                 setHeight(Math.round(getMapHeight(ref.current.offsetWidth, isMobile)));
@@ -78,23 +110,31 @@ const YandexMap = (props: YMapProps) => {
         updateSize();
         window.addEventListener('resize', updateSize, {passive: true});
 
+        // eslint-disable-next-line consistent-return
         return () => {
             window.removeEventListener('resize', updateSize);
         };
-    }, [markers, ymap, setYmaps, isMobile]);
+    }, [isMobile, forceAspectRatio]);
 
     React.useEffect(() => {
         if (ymap) {
             // show with computed center and placemarks
             const showPlacemarks = async () => {
-                await ymap.showPlacemarks({markers, zoom});
+                const privateMarkers: YMapMarkerPrivate[] = disableBalloons
+                    ? markers.map(({label, ...marker}) => ({
+                          ...marker,
+                          label: {...label, ...BALLOON_DISABLING_MARKER_OPTIONS},
+                      }))
+                    : markers;
+
+                await ymap.showPlacemarks({markers: privateMarkers, zoom});
 
                 setReady(true);
             };
 
             showPlacemarks();
         }
-    });
+    }, [ymap, markers, zoom, disableBalloons]);
 
     if (!markers) return null;
 

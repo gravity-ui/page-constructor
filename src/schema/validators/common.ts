@@ -641,6 +641,13 @@ export const MediaProps = {
     },
 };
 
+const YMapXY = {
+    type: 'array',
+    items: {type: 'number'},
+    minItems: 2,
+    maxItems: 2,
+};
+
 export const YMapMarkerLabel = {
     type: 'object',
     required: [],
@@ -653,6 +660,24 @@ export const YMapMarkerLabel = {
         },
         iconColor: {
             type: 'string',
+        },
+        iconImageHref: {
+            type: 'string',
+        },
+        iconImageSize: YMapXY,
+        iconImageOffset: YMapXY,
+        iconImageClipRect: {
+            type: 'array',
+            items: YMapXY,
+            minItems: 2,
+            maxItems: 2,
+        },
+        iconLayout: {
+            type: 'string',
+        },
+        iconShape: {
+            type: 'object',
+            additionalProperties: true,
         },
         preset: {
             type: 'string',
@@ -689,6 +714,15 @@ export const MapProps = {
     markers: {
         type: 'array',
         items: YMapMarker,
+    },
+    forceAspectRatio: {
+        type: 'boolean',
+    },
+    disableControls: {
+        type: 'boolean',
+    },
+    disableBalloons: {
+        type: 'boolean',
     },
 };
 
