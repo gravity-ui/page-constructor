@@ -26,6 +26,7 @@ export {default as ImageBase} from './ImageBase/ImageBase';
 export {default as InnerForm} from './InnerForm/InnerForm';
 export {default as Link} from './Link/Link';
 export {default as Links} from './Links/Links';
+export {default as Map} from './Map/Map';
 export {default as Media} from './Media/Media';
 export {default as MetaInfo} from './MetaInfo/MetaInfo';
 export {default as OutsideClick} from './OutsideClick/OutsideClick';

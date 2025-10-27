@@ -45,10 +45,12 @@ declare namespace Ymaps {
 
     export class GeoObject {
         properties: {
-            set: (objectName: string, value: string) => void;
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            set: (objectName: string, value: any) => void;
         };
         options: {
-            set: (objectName: string, value: string) => void;
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            set: (objectName: string, value: any) => void;
         };
     }
 

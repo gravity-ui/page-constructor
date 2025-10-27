@@ -1,6 +1,6 @@
 import Map from '../../components/Map/Map';
 import MediaBase from '../../components/MediaBase/MediaBase';
-import {MapBlockProps} from '../../models';
+import {MapBlockProps, MapProps} from '../../models';
 import {block} from '../../utils';
 import {getMediaBorder} from '../../utils/borderSelector';
 
@@ -17,7 +17,7 @@ export const MapBlock = ({map, border, disableShadow, ...props}: MapBlockProps) 
     return (
         <MediaBase {...props}>
             <MediaBase.Card>
-                <Map {...map} className={b({border: borderSelected})} />
+                <Map {...(map as MapProps)} className={b({border: borderSelected})} />
             </MediaBase.Card>
         </MediaBase>
     );

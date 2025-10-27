@@ -18,6 +18,8 @@ For a detailed usage guide of the Map component, see [Map Usage](https://github.
 
 `className?: string` — Optional CSS class name
 
+`forceAspectRatio?: boolean` — Determines whether map's aspect ratio is forced autmatically (16:9 for Desktop, 4:3 for Mobile) (`true` by default)
+
 ### Google Maps (GMapProps)
 
 `address: string` — Target address to display on the map (required)
@@ -27,6 +29,10 @@ For a detailed usage guide of the Map component, see [Map Usage](https://github.
 `markers: YMapMarker[]` — Array of markers to display on the map (required)
 
 `id: string` — Unique identifier for the map instance (required)
+
+`disableControls?: boolean` - If `true`, hides map's default controls (`false` by default)
+
+`disableBalloons?: boolean` - If `true`, disables info ballon opening when clicking on a marker (`false` by default)
 
 #### YMapMarker Interface
 
@@ -43,6 +49,18 @@ For a detailed usage guide of the Map component, see [Map Usage](https://github.
 `iconContent?: string` — Optional content text for the marker
 
 `iconColor?: string` — Optional color for the marker icon
+
+`iconImageHref?: string` - Optional URL for marker's custom icon image file
+
+`iconImageSize?: [number, number]` - Optional dimensions of custom icon
+
+`iconImageOffset?: [number, number]` - Optional custom icon's offset relative to it's anchor point
+
+`iconImageClipRect?: [[number, number], [number, number]]` - Optional coordinates of custom icon's displayed rectangular area, in pixels
+
+`iconLayout?: 'default#image'` - Required to use custom icons for a marker, otherwise optional
+
+`iconShape?: Record<string, any>` - Optional active area shape for custom icon. Refer to documentation [e.g. Circle](https://yandex.ru/dev/jsapi-v2-1/doc/ru/v2-1/ref/reference/shape.Circle)
 
 `preset?: string` — Optional preset style for the marker
 

@@ -292,7 +292,7 @@ export interface MediaBlockProps extends MediaBaseBlockProps, WithBorder {
 }
 
 export interface MapBlockProps extends MediaBaseBlockProps, WithBorder {
-    map: MapProps;
+    map: Omit<MapProps, 'forceAspectRatio'>;
 }
 
 export interface InfoBlockProps {

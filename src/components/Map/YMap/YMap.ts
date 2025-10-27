@@ -1,4 +1,4 @@
-import {YMapMarker, YMapMarkerLabel, YMapProps} from '../../../models';
+import {YMapMarkerLabelPrivate, YMapMarkerPrivate, YMapProps} from '../../../models';
 import {Coordinate} from '../../../models/constructor-items/common';
 
 enum GeoObjectTypes {
@@ -11,10 +11,18 @@ const DEFAULT_PLACEMARKS_COLOR = '#dc534b';
 const DEFAULT_PLACEMARKS_PRESET = 'islands#dotIcon';
 const DEFAULT_MAP_CONTROL_BUTTON_HEIGHT = 30;
 
-const geoObjectPropsAndOptions = {
+const geoObjectPropsAndOptions: Record<keyof YMapMarkerLabelPrivate, GeoObjectTypes> = {
+    cursor: GeoObjectTypes.Options,
     iconCaption: GeoObjectTypes.Properties,
     iconContent: GeoObjectTypes.Properties,
     iconColor: GeoObjectTypes.Options,
+    iconImageHref: GeoObjectTypes.Options,
+    iconImageSize: GeoObjectTypes.Options,
+    iconImageOffset: GeoObjectTypes.Options,
+    iconImageClipRect: GeoObjectTypes.Options,
+    iconLayout: GeoObjectTypes.Options,
+    iconShape: GeoObjectTypes.Options,
+    interactivityModel: GeoObjectTypes.Options,
     preset: GeoObjectTypes.Options,
 };
 
@@ -44,7 +52,7 @@ export class YMap {
         this.recalcZoomAndCenter(props);
     }
 
-    async findAddress(marker: YMapMarker) {
+    async findAddress(marker: YMapMarkerPrivate) {
         try {
             const res = await window.ymaps.geocode(marker.address, {results: 1});
             const geoObject = res.geoObjects.get(0);
@@ -58,7 +66,7 @@ export class YMap {
         } catch {} // If error - placemark will not be displayed
     }
 
-    findCoordinate(marker: YMapMarker) {
+    findCoordinate(marker: YMapMarkerPrivate) {
         const geoObject = new window.ymaps.Placemark(marker.coordinate, {});
 
         this.coords.push(marker.coordinate as Coordinate);
@@ -66,7 +74,7 @@ export class YMap {
         this.ymap.geoObjects.add(geoObject);
     }
 
-    private drawPlaceMarkStyle(geoObject: Ymaps.GeoObject, marker: YMapMarker) {
+    private drawPlaceMarkStyle(geoObject: Ymaps.GeoObject, marker: YMapMarkerPrivate) {
         const {iconColor, preset = DEFAULT_PLACEMARKS_PRESET} = marker.label || {};
         let localIconColor: string | undefined = iconColor;
 
@@ -75,16 +83,18 @@ export class YMap {
             localIconColor = DEFAULT_PLACEMARKS_COLOR;
         }
 
-        Object.entries({...marker.label, iconColor: localIconColor, preset}).forEach(
-            ([key, value]) => {
-                const geoObjectParamType: GeoObjectTypes | undefined =
-                    geoObjectPropsAndOptions[key as keyof YMapMarkerLabel];
+        Object.entries({
+            ...marker.label,
+            iconColor: localIconColor,
+            preset,
+        }).forEach(([key, value]) => {
+            const geoObjectParamType: GeoObjectTypes | undefined =
+                geoObjectPropsAndOptions[key as keyof YMapMarkerLabelPrivate];
 
-                if (value && geoObjectParamType) {
-                    geoObject[geoObjectParamType].set(key, value);
-                }
-            },
-        );
+            if (value && geoObjectParamType) {
+                geoObject[geoObjectParamType].set(key, value);
+            }
+        });
     }
 
     private recalcZoomAndCenter(props: PlacemarksProps) {

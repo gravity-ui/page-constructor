@@ -24,6 +24,38 @@
       }
     ]
   },
+  "ymapCustomMarkers": {
+    "id": "common-places",
+    "markers": [
+      {
+        "address": "Moscow Arbat",
+        "label": {
+          "iconLayout": "default#image",
+          "iconImageHref": "/story-assets/map-mark.svg",
+          "iconImageSize": [24, 24],
+          "iconImageOffset": [-12, -24]
+        }
+      },
+      {
+        "address": "Moscow, Red square",
+        "label": {
+          "iconLayout": "default#image",
+          "iconImageHref": "/story-assets/map-mark.svg",
+          "iconImageSize": [24, 24],
+          "iconImageOffset": [-12, -24]
+        }
+      },
+      {
+        "coordinate": [55.733974, 37.587093],
+        "label": {
+          "iconLayout": "default#image",
+          "iconImageHref": "/story-assets/map-mark.svg",
+          "iconImageSize": [24, 24],
+          "iconImageOffset": [-12, -24]
+        }
+      }
+    ]
+  },
   "gmap": {
     "address": "Anthony Fokkerweg 1, 1059 CM Amsterdam"
   }
