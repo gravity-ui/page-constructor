@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.16.0](https://github.com/gravity-ui/page-constructor/compare/v7.15.1...v7.16.0) (2025-10-27)
+
+
+### Features
+
+* **Map:** export component, update YandexMap ([#1305](https://github.com/gravity-ui/page-constructor/issues/1305)) ([54302b2](https://github.com/gravity-ui/page-constructor/commit/54302b2c4a3eb92bd3cc0fd3db6a18bb36e46aa8))
+
 ## [7.15.1](https://github.com/gravity-ui/page-constructor/compare/v7.15.0...v7.15.1) (2025-10-01)
 
 
