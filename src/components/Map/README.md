@@ -14,6 +14,8 @@ Map
 
 `disableBalloons?: boolean` - If `true`, disables info ballon opening when clicking on a marker. Only for `Yandex maps`. `false` by default
 
+`areaMargin?: number | [number, number] | [number, number, number]` - Offset (in pixels) for the marked area of the map relative to the map's container. Only for `Yandex maps`. `30` by default
+
 `markers?: object[]` - Description for placemarkers. You need to use it for `Yandex maps`. Specify the parameters given below.
 
 - `address?: string` — Place name, address

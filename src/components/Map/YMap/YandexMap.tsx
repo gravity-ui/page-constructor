@@ -35,6 +35,7 @@ const YandexMap = (props: YMapProps) => {
         id,
         disableControls = false,
         disableBalloons = false,
+        areaMargin,
         className,
         forceAspectRatio = true,
     } = props;
@@ -127,14 +128,14 @@ const YandexMap = (props: YMapProps) => {
                       }))
                     : markers;
 
-                await ymap.showPlacemarks({markers: privateMarkers, zoom});
+                await ymap.showPlacemarks({markers: privateMarkers, zoom, areaMargin});
 
                 setReady(true);
             };
 
             showPlacemarks();
         }
-    }, [ymap, markers, zoom, disableBalloons]);
+    }, [ymap, markers, zoom, disableBalloons, areaMargin]);
 
     if (!markers) return null;
 

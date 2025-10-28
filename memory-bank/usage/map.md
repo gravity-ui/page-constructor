@@ -72,8 +72,10 @@ graph TD
   - `id`: Unique identifier for the map instance (required)
   - `zoom`: Optional zoom level (inherited from MapBaseProps)
   - `className`: Optional CSS class name (inherited from MapBaseProps)
+  - `forceAspectRatio`: Optional boolean to force aspect ratio (16:9 for Desktop, 4:3 for Mobile), `true` by default (inherited from MapBaseProps)
   - `disableControls`: Optional boolean to hide map controls (Yandex Maps only), `false` by default
   - `disableBalloons`: Optional boolean to disable info balloons (Yandex Maps only), `false` by default
+  - `areaMargin:` - Optional offset (in pixels) for the marked area of the map relative to the map's container (`30` by default)
 
 #### MapBaseProps (Common Props)
 

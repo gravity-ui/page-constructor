@@ -715,9 +715,6 @@ export const MapProps = {
         type: 'array',
         items: YMapMarker,
     },
-    forceAspectRatio: {
-        type: 'boolean',
-    },
     disableControls: {
         type: 'boolean',
     },
