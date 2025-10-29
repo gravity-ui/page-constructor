@@ -10,8 +10,6 @@ import {ApiKeyInput} from './ApiKeyInput';
 
 import data from './data.json';
 
-import './Map.stories.scss';
-
 const maxMapWidth = 500;
 
 export default {
@@ -47,22 +45,29 @@ export const YMap = YMapTemplate.bind({});
 export const YMapHiddenControls = YMapTemplate.bind({});
 export const YMapHiddenBalloons = YMapTemplate.bind({});
 export const YMapCustomMarkers = YMapTemplate.bind({});
+export const YMapAreaOffset = YMapTemplate.bind({});
 
 YMapHiddenControls.storyName = 'Y Map (Hidden Controls)';
 YMapHiddenBalloons.storyName = 'Y Map (Hidden Balloons)';
 YMapCustomMarkers.storyName = 'Y Map (Custom Markers)';
+YMapAreaOffset.storyName = 'Y Map (Area Margin)';
 
 GoogleMap.args = data.gmap;
-YMap.args = data.ymap;
+YMap.args = data.ymap as MapProps;
 
 YMapHiddenControls.args = {
     ...data.ymap,
     disableControls: true,
-};
+} as MapProps;
 
 YMapHiddenBalloons.args = {
     ...data.ymap,
     disableBalloons: true,
-};
+} as MapProps;
 
 YMapCustomMarkers.args = data.ymapCustomMarkers as MapProps;
+
+YMapAreaOffset.args = {
+    ...data.ymap,
+    areaMargin: [0, 0, 0, 200],
+} as MapProps;

@@ -323,7 +323,7 @@ export interface BackgroundMediaProps extends MediaProps, Animatable, QAProps {
     mediaClassName?: string;
 }
 
-export type Coordinate = number[];
+export type Coordinate = [number, number];
 
 export interface MapBaseProps {
     zoom?: number;
@@ -335,10 +335,16 @@ export interface GMapProps extends MapBaseProps {
     address: string;
 }
 
+export type YMapMargin =
+    | number
+    | [vertical: number, horizontal: number]
+    | [top: number, right: number, bottom: number, left: number];
+
 export interface YMapProps extends MapBaseProps {
     markers: YMapMarker[];
     disableControls?: boolean;
     disableBalloons?: boolean;
+    areaMargin?: YMapMargin;
     id: string;
 }
 

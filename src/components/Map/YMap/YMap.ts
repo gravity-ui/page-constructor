@@ -1,6 +1,8 @@
 import {YMapMarkerLabelPrivate, YMapMarkerPrivate, YMapProps} from '../../../models';
 import {Coordinate} from '../../../models/constructor-items/common';
 
+import {ParsedMargin, calculateMapParamsWithMarginAndZoom, parseMargin} from './utils';
+
 enum GeoObjectTypes {
     Properties = 'properties',
     Options = 'options',
@@ -26,7 +28,7 @@ const geoObjectPropsAndOptions: Record<keyof YMapMarkerLabelPrivate, GeoObjectTy
     preset: GeoObjectTypes.Options,
 };
 
-type PlacemarksProps = Pick<YMapProps, 'zoom' | 'markers'>;
+type PlacemarksProps = Pick<YMapProps, 'zoom' | 'markers' | 'areaMargin'>;
 
 export class YMap {
     private ymap: Ymaps.Map;
@@ -97,45 +99,76 @@ export class YMap {
         });
     }
 
+    // eslint-disable-next-line complexity
     private recalcZoomAndCenter(props: PlacemarksProps) {
         const coordsLength = this.coords.length;
-        const {zoom = 0} = props;
+        const {zoom = 0, areaMargin} = props;
 
         if (!coordsLength) {
             return;
         }
 
-        let leftBottom = [Infinity, Infinity],
-            rightTop = [-Infinity, -Infinity];
+        const utils = window.ymaps.util.bounds;
 
-        this.coords.forEach((point) => {
-            leftBottom = [Math.min(leftBottom[0], point[0]), Math.min(leftBottom[1], point[1])];
-            rightTop = [Math.max(rightTop[0], point[0]), Math.max(rightTop[1], point[1])];
-        });
+        const [leftTop, rightBottom] = utils.fromPoints(this.coords);
 
         let newMapParams = {
             zoom,
             center: [],
         };
 
-        if (zoom) {
-            // compute only the center
-            newMapParams.center = window.ymaps.util.bounds.getCenter([leftBottom, rightTop]);
-        } else {
-            newMapParams = window.ymaps.util.bounds.getCenterAndZoom(
-                [leftBottom, rightTop],
-                [this.mapRef?.clientWidth, this.mapRef?.clientHeight],
-                undefined,
-                {margin: DEFAULT_MAP_CONTROL_BUTTON_HEIGHT},
-            );
+        const parsedAreaMargin = areaMargin
+            ? parseMargin(areaMargin)
+            : ([0, 0, 0, 0] as ParsedMargin);
+
+        const hasZoom = Boolean(zoom);
+        const hasAreaMargin = parsedAreaMargin.some(Boolean);
+        const containerSize = [
+            this.mapRef?.clientWidth ?? 0,
+            this.mapRef?.clientHeight ?? 0,
+        ] as Coordinate;
+
+        switch (true) {
+            case hasAreaMargin && hasZoom:
+                // calculate center and zoom in accordace with current zoom and margin
+                newMapParams = calculateMapParamsWithMarginAndZoom(
+                    [leftTop, rightBottom],
+                    zoom,
+                    parsedAreaMargin,
+                    containerSize,
+                );
+                break;
+            case hasAreaMargin:
+                // calculate center and zoom with custom margin
+                newMapParams = utils.getCenterAndZoom(
+                    [leftTop, rightBottom],
+                    containerSize,
+                    undefined,
+                    {margin: areaMargin, preciseZoom: true},
+                );
+                break;
+            case hasZoom:
+                // calculate only center
+                newMapParams.center = utils.getCenter([leftTop, rightBottom]);
+                break;
+            default:
+                // calculate center and zoom with default margin
+                newMapParams = utils.getCenterAndZoom(
+                    [leftTop, rightBottom],
+                    containerSize,
+                    undefined,
+                    {margin: DEFAULT_MAP_CONTROL_BUTTON_HEIGHT},
+                );
         }
 
         this.ymap.setCenter(newMapParams.center);
 
         // Use default zoom for one placemark
-        if (coordsLength > 1 && !zoom) {
-            this.ymap.setZoom(newMapParams.zoom);
+        if (coordsLength <= 1 && !hasAreaMargin && hasZoom) {
+            return;
         }
+
+        this.ymap.setZoom(newMapParams.zoom);
     }
 
     private clearOldPlacemarks() {
