@@ -5,7 +5,7 @@
 
 ### Features
 
-* **Map:** add margins ([#1307](https://github.com/gravity-ui/page-constructor/issues/1307)) ([7b39602](https://github.com/gravity-ui/page-constructor/commit/7b39602c9a3b87495161a411bd11451d39e99e19))
+* **YMap:** add margins ([#1307](https://github.com/gravity-ui/page-constructor/issues/1307)) ([7b39602](https://github.com/gravity-ui/page-constructor/commit/7b39602c9a3b87495161a411bd11451d39e99e19))
 
 ## [7.16.0](https://github.com/gravity-ui/page-constructor/compare/v7.15.1...v7.16.0) (2025-10-27)
 
