@@ -16,6 +16,8 @@ Map
 
 `areaMargin?: number | [number, number] | [number, number, number]` - Offset (in pixels) for the marked area of the map relative to the map's container. Only for `Yandex maps`. `30` by default
 
+`copyrightPosition?: { top?: number; right?: number; bottom?: number; left?: number }` - Position of the copyright text (in pixels). Only for `Yandex maps`
+
 `markers?: object[]` - Description for placemarkers. You need to use it for `Yandex maps`. Specify the parameters given below.
 
 - `address?: string` — Place name, address
