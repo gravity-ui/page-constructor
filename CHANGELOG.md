@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.18.0](https://github.com/gravity-ui/page-constructor/compare/v7.17.0...v7.18.0) (2025-10-30)
+
+
+### Features
+
+* **Ymap:** copyright position ([#1311](https://github.com/gravity-ui/page-constructor/issues/1311)) ([81e0dfb](https://github.com/gravity-ui/page-constructor/commit/81e0dfb9868f50c6d2bf3d989263f91d6dc09795))
+
 ## [7.17.0](https://github.com/gravity-ui/page-constructor/compare/v7.16.0...v7.17.0) (2025-10-29)
 
 
