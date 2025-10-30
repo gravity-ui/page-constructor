@@ -75,7 +75,8 @@ graph TD
   - `forceAspectRatio`: Optional boolean to force aspect ratio (16:9 for Desktop, 4:3 for Mobile), `true` by default (inherited from MapBaseProps)
   - `disableControls`: Optional boolean to hide map controls (Yandex Maps only), `false` by default
   - `disableBalloons`: Optional boolean to disable info balloons (Yandex Maps only), `false` by default
-  - `areaMargin:` - Optional offset (in pixels) for the marked area of the map relative to the map's container (`30` by default)
+  - `areaMargin:`: Optional offset (in pixels) for the marked area of the map relative to the map's container (`30` by default)
+  - `copyrightPosition`: Optional position of the copyright text (in pixels)
 
 #### MapBaseProps (Common Props)
 

@@ -46,11 +46,13 @@ export const YMapHiddenControls = YMapTemplate.bind({});
 export const YMapHiddenBalloons = YMapTemplate.bind({});
 export const YMapCustomMarkers = YMapTemplate.bind({});
 export const YMapAreaOffset = YMapTemplate.bind({});
+export const YMapCopyrightPosition = YMapTemplate.bind({});
 
 YMapHiddenControls.storyName = 'Y Map (Hidden Controls)';
 YMapHiddenBalloons.storyName = 'Y Map (Hidden Balloons)';
 YMapCustomMarkers.storyName = 'Y Map (Custom Markers)';
 YMapAreaOffset.storyName = 'Y Map (Area Margin)';
+YMapCopyrightPosition.storyName = 'Y Map (Copyright Position)';
 
 GoogleMap.args = data.gmap;
 YMap.args = data.ymap as MapProps;
@@ -70,4 +72,12 @@ YMapCustomMarkers.args = data.ymapCustomMarkers as MapProps;
 YMapAreaOffset.args = {
     ...data.ymap,
     areaMargin: [0, 0, 0, 200],
+} as MapProps;
+
+YMapCopyrightPosition.args = {
+    ...data.ymap,
+    copyrightPosition: {
+        top: 150,
+        right: 250,
+    },
 } as MapProps;

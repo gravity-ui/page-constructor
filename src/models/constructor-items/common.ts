@@ -340,11 +340,19 @@ export type YMapMargin =
     | [vertical: number, horizontal: number]
     | [top: number, right: number, bottom: number, left: number];
 
+export interface YMapCopyrightPosition {
+    top?: number;
+    right?: number;
+    bottom?: number;
+    left?: number;
+}
+
 export interface YMapProps extends MapBaseProps {
     markers: YMapMarker[];
     disableControls?: boolean;
     disableBalloons?: boolean;
     areaMargin?: YMapMargin;
+    copyrightPosition?: YMapCopyrightPosition;
     id: string;
 }
 

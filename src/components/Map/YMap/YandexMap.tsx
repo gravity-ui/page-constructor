@@ -36,6 +36,7 @@ const YandexMap = (props: YMapProps) => {
         disableControls = false,
         disableBalloons = false,
         areaMargin,
+        copyrightPosition,
         className,
         forceAspectRatio = true,
     } = props;
@@ -76,6 +77,7 @@ const YandexMap = (props: YMapProps) => {
                                 autoFitToViewport: 'always',
                                 suppressMapOpenBlock: disableControls,
                                 yandexMapDisablePoiInteractivity: disableControls,
+                                copyrightPosition,
                             },
                         ),
                         ref.current,
@@ -95,6 +97,7 @@ const YandexMap = (props: YMapProps) => {
         attemptsIndex,
         setLoading,
         disableControls,
+        copyrightPosition,
     ]);
 
     React.useEffect(() => {
