@@ -187,10 +187,10 @@ task('bundle-esm-deps-for-cjs', async () => {
 
     // Module CSS files
     ['pagination.css', 'a11y.css', 'autoplay.css'].forEach((file) => {
-        const src = path.join(swiperNodeModules, 'modules', file);
-        const dest = path.join(modulesDir, file);
-        if (fs.existsSync(src)) {
-            fs.copyFileSync(src, dest);
+        const srcPath = path.join(swiperNodeModules, 'modules', file);
+        const destPath = path.join(modulesDir, file);
+        if (fs.existsSync(srcPath)) {
+            fs.copyFileSync(srcPath, destPath);
         }
     });
 
