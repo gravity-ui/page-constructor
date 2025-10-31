@@ -57,19 +57,15 @@ export const useSlider = ({children, autoplayMs, type, ...props}: UseSliderProps
         slider.slidePrev();
     };
 
-    const handleImagesReady = React.useCallback((localSlider: Swiper) => {
-        setTimeout(() => localSlider.update(), 100);
-    }, []);
-
     React.useEffect(() => {
-        if (!slider) {
+        if (!slider || !slider.autoplay) {
             return;
         }
 
         if (autoplayEnabled) {
-            slider.autoplay.start();
+            slider?.autoplay?.start();
         } else {
-            slider.autoplay.stop();
+            slider?.autoplay?.stop();
         }
     }, [slider, autoplayEnabled]);
 
@@ -78,7 +74,6 @@ export const useSlider = ({children, autoplayMs, type, ...props}: UseSliderProps
         onSwiper: setSlider,
         onNext: handleNext,
         onPrev: handlePrev,
-        onImagesReady: handleImagesReady,
         breakpoints,
         childrenCount,
         isLocked,
