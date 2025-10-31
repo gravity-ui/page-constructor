@@ -116,7 +116,7 @@
     "react-waypoint": "^10.1.0",
     "sanitize-html": "2.12.1",
     "snakecase-keys": "^5.1.0",
-    "swiper": "^6.8.4",
+    "swiper": "^10.2.0",
     "typograf": "^7.4.1",
     "utility-types": "^3.10.0",
     "uuid": "^9.0.0"
@@ -173,6 +173,7 @@
     "babel-loader": "^8.3.0",
     "css-loader": "^5.2.7",
     "es5-ext": "0.10.53",
+    "esbuild": "^0.25.11",
     "eslint": "^8.57.1",
     "eslint-plugin-no-not-accumulator-reassign": "^0.1.0",
     "eslint-plugin-react": "^7.37.4",
