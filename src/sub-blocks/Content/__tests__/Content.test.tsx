@@ -5,6 +5,7 @@ import {
     testContentWithButtons,
     testContentWithCentered,
     testContentWithColSize,
+    testContentWithLabels,
     testContentWithLinks,
     testContentWithList,
     testContentWithSize,
@@ -29,6 +30,12 @@ const contentData: ContentProps = {
             icon: '/mock.png',
             title: 'list title',
             text: 'list text',
+        },
+    ],
+    labels: [
+        {
+            icon: '/mock.png',
+            text: 'label text',
         },
     ],
     qa: 'content',
@@ -128,6 +135,13 @@ describe('Content', () => {
         testContentWithList({
             props: contentData,
             options: {qaId: qaAttributes.list},
+        });
+    });
+
+    test('Render with labels', async () => {
+        testContentWithLabels({
+            props: contentData,
+            options: {qaId: qaAttributes.labels},
         });
     });
 });
