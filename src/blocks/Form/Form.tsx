@@ -22,7 +22,14 @@ const b = block('form-block');
 const colSizes = {[GridColumnSize.Lg]: 6, [GridColumnSize.All]: 12};
 
 const Form = (props: FormBlockProps) => {
-    const {formData, title, textContent, direction = FormBlockDirection.Center, background} = props;
+    const {
+        formData,
+        title,
+        textContent,
+        direction = FormBlockDirection.Center,
+        background,
+        stub,
+    } = props;
     const [contentLoaded, setContentLoaded] = React.useState(false);
     const isMobile = React.useContext(MobileContext);
     const theme = useTheme();
@@ -39,7 +46,7 @@ const Form = (props: FormBlockProps) => {
         setContentLoaded(true);
     }, []);
 
-    if (!formData) {
+    if (!formData && !stub) {
         return null;
     }
 
@@ -96,21 +103,25 @@ const Form = (props: FormBlockProps) => {
                                     hidden: !contentLoaded,
                                 })}
                             >
-                                {title && (
-                                    <Title
-                                        title={{
-                                            text: title,
-                                            textSize: 's',
-                                        }}
-                                        className={b('title', {mobile: isMobile})}
-                                        colSizes={{all: 12}}
-                                    />
+                                {stub || (
+                                    <React.Fragment>
+                                        {title && (
+                                            <Title
+                                                title={{
+                                                    text: title,
+                                                    textSize: 's',
+                                                }}
+                                                className={b('title', {mobile: isMobile})}
+                                                colSizes={{all: 12}}
+                                            />
+                                        )}
+                                        <InnerForm
+                                            className={b('form')}
+                                            formData={formData}
+                                            onContentLoad={onContentLoad}
+                                        />
+                                    </React.Fragment>
                                 )}
-                                <InnerForm
-                                    className={b('form')}
-                                    formData={formData}
-                                    onContentLoad={onContentLoad}
-                                />
                             </div>
                         </div>
                     </Col>

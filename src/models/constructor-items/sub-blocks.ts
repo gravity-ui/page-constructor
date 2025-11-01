@@ -147,7 +147,7 @@ export interface BackgroundCardProps
     extends CardBaseProps,
         AnalyticsEventsBase,
         CardLayoutProps,
-        Omit<ContentBlockProps, 'centered' | 'controlPosition'> {
+        Omit<ContentBlockProps, 'centered' | 'controlPosition' | 'labels'> {
     url?: string;
     urlTitle?: string;
     background?: ThemeSupporting<ImageObjectProps>;
@@ -159,7 +159,7 @@ export interface BasicCardProps
     extends CardBaseProps,
         AnalyticsEventsBase,
         CardLayoutProps,
-        Omit<ContentBlockProps, 'colSizes' | 'centered' | 'theme' | 'controlPosition'> {
+        Omit<ContentBlockProps, 'colSizes' | 'centered' | 'theme' | 'controlPosition' | 'labels'> {
     url: string;
     urlTitle?: string;
     icon?: ThemeSupporting<ImageProps>;
@@ -182,7 +182,7 @@ export interface BannerCardProps {
 
 export interface MediaCardProps extends MediaProps, AnalyticsEventsBase, CardBaseProps {}
 
-export interface PriceCardProps extends CardBaseProps, Pick<ContentBlockProps, 'theme'> {
+export interface PriceCardProps extends CardBaseProps, Pick<ContentBlockProps, 'theme' | 'labels'> {
     title: string;
     price: string;
     pricePeriod?: string;
@@ -195,7 +195,7 @@ export interface PriceCardProps extends CardBaseProps, Pick<ContentBlockProps, '
 }
 
 export interface LayoutItemProps extends ClassNameProps, CardLayoutProps, AnalyticsEventsBase {
-    content: Omit<ContentBlockProps, 'colSizes' | 'centered'>;
+    content: Omit<ContentBlockProps, 'colSizes' | 'centered' | 'labels'>;
     contentMargin?: LayoutItemContentMargin;
     media?: ThemeSupporting<MediaProps>;
     metaInfo?: string[];
@@ -207,7 +207,7 @@ export interface LayoutItemProps extends ClassNameProps, CardLayoutProps, Analyt
 export interface ImageCardProps
     extends CardBaseProps,
         CardLayoutProps,
-        Omit<ContentBlockProps, 'colSizes' | 'centered' | 'controlPosition'> {
+        Omit<ContentBlockProps, 'colSizes' | 'centered' | 'controlPosition' | 'labels'> {
     image: ThemeSupporting<ImageProps>;
     enableImageBorderRadius?: boolean;
     margins?: ImageCardMargins;

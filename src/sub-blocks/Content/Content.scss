@@ -54,6 +54,11 @@ $darkSecondary: var(--g-color-text-dark-secondary);
             text-align: center;
         }
 
+        #{$block}__labels {
+            justify-content: center;
+            margin-inline: auto;
+        }
+
         #{$block}__list {
             margin-inline: auto;
         }
@@ -93,6 +98,7 @@ $darkSecondary: var(--g-color-text-dark-secondary);
                 }
             }
 
+            #{$block}__labels,
             #{$block}__list,
             #{$block}__links,
             #{$block}__notice {
@@ -131,6 +137,7 @@ $darkSecondary: var(--g-color-text-dark-secondary);
                 @include text-size(body-2);
             }
 
+            #{$block}__labels,
             #{$block}__list,
             #{$block}__links,
             #{$block}__notice {
@@ -164,6 +171,10 @@ $darkSecondary: var(--g-color-text-dark-secondary);
             #{$block}__notice .yfm {
                 @extend %heading-margin-reset;
                 @include text-size(body-2);
+            }
+
+            #{$block}__labels {
+                margin-top: $indentSM;
             }
 
             #{$block}__list,
