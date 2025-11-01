@@ -46,7 +46,7 @@ const colSizesArray: GridColumnSizesType[] = [
     {all: 5, lg: 4, md: 3, sm: 2},
 ];
 
-const qaAttributes = getQaAttrubutes(contentData.qa, ['link', 'list']);
+const qaAttributes = getQaAttrubutes(contentData.qa, ['link', 'list', 'labels']);
 
 describe('Content', () => {
     test('Render by default', async () => {
