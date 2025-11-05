@@ -1,11 +1,8 @@
 {
-  "centered": {
-    "content": {
-      "centered": true
-    }
-  },
   "default": {
-    "content": [
+    "size": "l",
+    "type": "content",
+    "list": [
       {
         "icon": {
           "light": "/story-assets/icon_1_light.svg",
@@ -33,7 +30,9 @@
     ]
   },
   "withoutText": {
-    "content": [
+    "size": "l",
+    "type": "content",
+    "list": [
       {
         "icon": {
           "light": "/story-assets/icon_3_light.svg",
@@ -58,7 +57,9 @@
     ]
   },
   "withoutTitle": {
-    "content": [
+    "size": "l",
+    "type": "content",
+    "list": [
       {
         "icon": {
           "light": "/story-assets/icon_2_light.svg",
@@ -78,6 +79,115 @@
           "light": "/story-assets/icon_2_light.svg",
           "dark": "/story-assets/icon_2_dark.svg"
         },
+        "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+      }
+    ]
+  },
+  "sizes": [
+    {
+      "size": "s",
+      "type": "content",
+      "list": [
+        {
+          "icon": {
+            "light": "/story-assets/icon_1_light.svg",
+            "dark": "/story-assets/icon_1_dark.svg"
+          },
+          "title": "Size S",
+          "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        }
+      ]
+    },
+    {
+      "size": "m",
+      "type": "content",
+      "list": [
+        {
+          "icon": {
+            "light": "/story-assets/icon_1_light.svg",
+            "dark": "/story-assets/icon_1_dark.svg"
+          },
+          "title": "Size M",
+          "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        }
+      ]
+    },
+    {
+      "size": "l",
+      "type": "content",
+      "list": [
+        {
+          "icon": {
+            "light": "/story-assets/icon_1_light.svg",
+            "dark": "/story-assets/icon_1_dark.svg"
+          },
+          "title": "Size L",
+          "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        }
+      ]
+    }
+  ],
+  "themes": [
+    {
+      "size": "l",
+      "type": "content",
+      "theme": "default",
+      "list": [
+        {
+          "icon": {
+            "light": "/story-assets/icon_1_light.svg",
+            "dark": "/story-assets/icon_1_dark.svg"
+          },
+          "title": "Lorem ipsum [quis nostrud](https://example.com)",
+          "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        }
+      ]
+    },
+    {
+      "size": "l",
+      "type": "content",
+      "theme": "dark",
+      "list": [
+        {
+          "icon": {
+            "light": "/story-assets/icon_1_light.svg",
+            "dark": "/story-assets/icon_1_dark.svg"
+          },
+          "title": "Lorem ipsum [quis nostrud](https://example.com)",
+          "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        }
+      ]
+    },
+    {
+      "size": "l",
+      "type": "content",
+      "theme": "light",
+      "list": [
+        {
+          "icon": {
+            "light": "/story-assets/icon_1_light.svg",
+            "dark": "/story-assets/icon_1_dark.svg"
+          },
+          "title": "Lorem ipsum [quis nostrud](https://example.com)",
+          "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        }
+      ]
+    }
+  ],
+  "withoutIcon": {
+    "size": "l",
+    "type": "content",
+    "list": [
+      {
+        "title": "Lorem ipsum [quis nostrud](https://example.com)",
+        "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+      },
+      {
+        "title": "Lorem ipsum [quis nostrud](https://example.com)",
+        "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+      },
+      {
+        "title": "Lorem ipsum [quis nostrud](https://example.com)",
         "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
       }
     ]
