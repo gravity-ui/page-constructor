@@ -436,6 +436,7 @@ export interface ContentLabelProps {
 
 export interface ContentLabelsProps {
     labels: ContentLabelProps[];
+    size?: ContentSize;
     theme?: ContentTheme;
 }
 

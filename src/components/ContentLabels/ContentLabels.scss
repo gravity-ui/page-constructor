@@ -9,8 +9,6 @@ $block: '.#{$ns}content-labels';
     flex-wrap: wrap;
 
     &__label {
-        @include text-body-3();
-
         display: flex;
         align-items: center;
         flex-wrap: nowrap;
@@ -53,6 +51,21 @@ $block: '.#{$ns}content-labels';
                 #{$label}-text {
                     color: var(--g-color-text-light-primary);
                 }
+            }
+        }
+    }
+
+    &_size {
+        &_l,
+        &_m {
+            #{$block}__label {
+                @include text-body-3();
+            }
+        }
+
+        &_s {
+            #{$block}__label {
+                @include text-body-2();
             }
         }
     }

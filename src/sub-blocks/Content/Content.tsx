@@ -96,7 +96,12 @@ const Content = (props: ContentProps) => {
             )}
             {labels?.length ? (
                 <div className={b('labels')}>
-                    <ContentLabels labels={labels} theme={theme} qa={qaAttributes.labels} />
+                    <ContentLabels
+                        labels={labels}
+                        theme={theme}
+                        size={size}
+                        qa={qaAttributes.labels}
+                    />
                 </div>
             ) : null}
             {list?.length ? (

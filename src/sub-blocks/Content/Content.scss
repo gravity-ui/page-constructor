@@ -104,6 +104,15 @@ $darkSecondary: var(--g-color-text-dark-secondary);
             #{$block}__notice {
                 margin-top: $indentXS;
             }
+
+            #{$block}__labels {
+                & + #{$block}__list,
+                & + #{$block}__link,
+                & + #{$block}__notice {
+                    margin-top: $indentS;
+                }
+            }
+
             #{$block}__buttons {
                 margin-top: $indentS;
             }
@@ -143,6 +152,15 @@ $darkSecondary: var(--g-color-text-dark-secondary);
             #{$block}__notice {
                 margin-top: $indentS;
             }
+
+            #{$block}__labels {
+                & + #{$block}__list,
+                & + #{$block}__link,
+                & + #{$block}__notice {
+                    margin-top: $indentSM;
+                }
+            }
+
             #{$block}__buttons {
                 margin-top: $indentSM;
             }
@@ -173,15 +191,21 @@ $darkSecondary: var(--g-color-text-dark-secondary);
                 @include text-size(body-2);
             }
 
-            #{$block}__labels {
-                margin-top: $indentSM;
-            }
-
+            #{$block}__labels,
             #{$block}__list,
             #{$block}__links,
             #{$block}__notice {
                 margin-top: $indentS;
             }
+
+            #{$block}__labels {
+                & + #{$block}__list,
+                & + #{$block}__link,
+                & + #{$block}__notice {
+                    margin-top: $indentSM;
+                }
+            }
+
             #{$block}__buttons {
                 margin-top: $indentSM;
             }

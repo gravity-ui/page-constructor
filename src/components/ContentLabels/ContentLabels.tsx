@@ -10,12 +10,13 @@ const ContentLabels = ({
     className,
     labels,
     theme,
+    size = 'l',
     qa,
 }: ContentLabelsProps & ClassNameProps & QAProps) => {
     const qaAttributes = getQaAttrubutes(qa, ['icon', 'text']);
 
     return (
-        <div className={b(null, className)}>
+        <div className={b({size}, className)}>
             {labels.map((label) => {
                 const {text, icon, gravityIcon} = label;
 
