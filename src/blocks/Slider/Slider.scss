@@ -38,7 +38,10 @@ $dotSize: 8px;
     }
 
     &__slide.swiper-slide {
-        padding: 0 #{$gridGutter};
+        @include add-specificity(&) {
+            padding: 0 #{$gridGutter};
+        }
+
         box-sizing: border-box;
         height: auto;
 
@@ -394,5 +397,11 @@ $dotSize: 8px;
                 padding: 0 $fullscreenImageMobilePadding;
             }
         }
+
+        // #{$block}_one-slide {
+        //     #{$root}__slide {
+        //         padding: 0 $fullscreenImageMobilePadding;
+        //     }
+        // }
     }
 }
