@@ -42,10 +42,7 @@ export const FormBlock = {
             direction: {
                 enum: ['content-form', 'form-content', 'center'],
             },
-            image: ImageProps,
-            backgroundColor: {
-                type: 'string',
-            },
+            background: ImageProps,
         },
     },
 };

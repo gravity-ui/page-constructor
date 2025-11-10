@@ -134,6 +134,7 @@ interface LoopProps {
 
 export enum Device {
     Desktop = 'desktop',
+    DesktopSmall = 'desktopSm',
     Mobile = 'mobile',
     Tablet = 'tablet',
 }

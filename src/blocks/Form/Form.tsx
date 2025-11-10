@@ -5,6 +5,7 @@ import InnerForm from '../../components/InnerForm/InnerForm';
 import {MobileContext} from '../../context/mobileContext';
 import {useTheme} from '../../context/theme';
 import {Col, Grid, GridAlignItems, GridColumnSize, Row} from '../../grid';
+import {useDeviceValue} from '../../hooks/useDeviceValue';
 import type {FormBlockProps} from '../../models';
 import {
     FormBlockDataTypes,
@@ -14,6 +15,8 @@ import {
 } from '../../models';
 import {Content} from '../../sub-blocks';
 import {block, getThemedValue} from '../../utils';
+
+import {hasBackgroundCSS} from './utils';
 
 import './Form.scss';
 
@@ -35,13 +38,15 @@ const Form = (props: FormBlockProps) => {
     const theme = useTheme();
 
     const themedBackground = getThemedValue(background, theme) || undefined;
+    const themedBackgroundStyle = useDeviceValue(themedBackground?.style) || undefined;
 
     const withBackground = Boolean(
         themedBackground &&
             (themedBackground.src ||
                 themedBackground.desktop ||
-                themedBackground.style?.backgroundColor),
+                hasBackgroundCSS(themedBackgroundStyle ?? {})),
     );
+
     const onContentLoad = React.useCallback(() => {
         setContentLoaded(true);
     }, []);
@@ -68,6 +73,7 @@ const Form = (props: FormBlockProps) => {
             {themedBackground && (
                 <BackgroundImage
                     {...themedBackground}
+                    style={themedBackgroundStyle}
                     className={b('media')}
                     imageClassName={b('image')}
                 />

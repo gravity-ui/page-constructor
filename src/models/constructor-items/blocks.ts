@@ -4,6 +4,7 @@ import {ButtonSize} from '@gravity-ui/uikit';
 
 import {GridColumnSize, GridColumnSizesType, IndentValue} from '../../grid/types';
 import {ThemeSupporting} from '../../utils';
+import {DeviceSupporting} from '../../utils/breakpoint';
 import {AnalyticsEventsBase} from '../common';
 
 import {
@@ -491,12 +492,16 @@ export interface FormBlockHubspotData {
 
 export type FormBlockData = FormBlockYandexData | FormBlockHubspotData;
 
+export interface FormBlockBackgroundProps extends Omit<BackgroundImageProps, 'style'> {
+    style?: DeviceSupporting<React.CSSProperties>;
+}
+
 export interface FormBlockProps {
     formData: FormBlockData;
     title?: string;
     textContent?: Omit<ContentBlockProps, 'centered' | 'colSizes' | 'size'>;
     direction?: FormBlockDirection;
-    background?: ThemeSupporting<BackgroundImageProps>;
+    background?: ThemeSupporting<FormBlockBackgroundProps>;
     stub?: React.ReactNode;
 }
 

@@ -17,7 +17,20 @@ import * as FormBlockStories from './Form.stories.tsx';
 
 `direction?: 'form-content' | 'content-form' | 'center'` - Direction.
 
-`background?: BackgroundImage` — See [background](?path=/docs/components-pics-video-datalens-backgroundimage--docs) properties.
+`background?: FormBlockBackgroundProps` — Same as `BackgroundImage` (see [background](?path=/docs/components-pics-video-datalens-backgroundimage--docs) properties), but the `style` prop supports `Device` breakpoints, for example:
+
+```ts
+{
+    style: {
+        desktop: {
+            background: 'red',
+        },
+        mobile: {
+            background: 'blue',
+        },
+    }
+}
+```
 
 `stub?: React.ReactNode` - A stub that will be rendered instead of the form.
 
