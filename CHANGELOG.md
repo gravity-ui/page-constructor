@@ -1,5 +1,13 @@
 # Changelog
 
+## [7.18.1](https://github.com/gravity-ui/page-constructor/compare/v7.18.0...v7.18.1) (2025-11-10)
+
+
+### Bug Fixes
+
+* **Media:** check if title not null object ([#1318](https://github.com/gravity-ui/page-constructor/issues/1318)) ([2b2e881](https://github.com/gravity-ui/page-constructor/commit/2b2e88127102c1d1f6c476a78ab9066861650ffe))
+* one slide paddings adjustments ([#1321](https://github.com/gravity-ui/page-constructor/issues/1321)) ([c15d0bb](https://github.com/gravity-ui/page-constructor/commit/c15d0bb2290c07699240884eddb68e73ce8bb836))
+
 ## [7.18.0](https://github.com/gravity-ui/page-constructor/compare/v7.17.0...v7.18.0) (2025-10-30)
 
 
