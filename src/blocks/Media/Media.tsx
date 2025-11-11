@@ -23,7 +23,7 @@ export const MediaBlock = (props: MediaBlockProps) => {
     const theme = useTheme();
     const mediaThemed = getThemedValue(media, theme);
     const mediaWithMicrodata = mergeVideoMicrodata(mediaThemed, {
-        name: typeof title === 'object' ? title.text : title,
+        name: typeof title === 'object' && 'text' in title ? title.text : title,
         description,
     });
 

@@ -1,5 +1,7 @@
-import {YMapMarker, YMapMarkerLabel, YMapProps} from '../../../models';
+import {YMapMarkerLabelPrivate, YMapMarkerPrivate, YMapProps} from '../../../models';
 import {Coordinate} from '../../../models/constructor-items/common';
+
+import {ParsedMargin, calculateMapParamsWithMarginAndZoom, parseMargin} from './utils';
 
 enum GeoObjectTypes {
     Properties = 'properties',
@@ -11,14 +13,22 @@ const DEFAULT_PLACEMARKS_COLOR = '#dc534b';
 const DEFAULT_PLACEMARKS_PRESET = 'islands#dotIcon';
 const DEFAULT_MAP_CONTROL_BUTTON_HEIGHT = 30;
 
-const geoObjectPropsAndOptions = {
+const geoObjectPropsAndOptions: Record<keyof YMapMarkerLabelPrivate, GeoObjectTypes> = {
+    cursor: GeoObjectTypes.Options,
     iconCaption: GeoObjectTypes.Properties,
     iconContent: GeoObjectTypes.Properties,
     iconColor: GeoObjectTypes.Options,
+    iconImageHref: GeoObjectTypes.Options,
+    iconImageSize: GeoObjectTypes.Options,
+    iconImageOffset: GeoObjectTypes.Options,
+    iconImageClipRect: GeoObjectTypes.Options,
+    iconLayout: GeoObjectTypes.Options,
+    iconShape: GeoObjectTypes.Options,
+    interactivityModel: GeoObjectTypes.Options,
     preset: GeoObjectTypes.Options,
 };
 
-type PlacemarksProps = Pick<YMapProps, 'zoom' | 'markers'>;
+type PlacemarksProps = Pick<YMapProps, 'zoom' | 'markers' | 'areaMargin'>;
 
 export class YMap {
     private ymap: Ymaps.Map;
@@ -44,7 +54,7 @@ export class YMap {
         this.recalcZoomAndCenter(props);
     }
 
-    async findAddress(marker: YMapMarker) {
+    async findAddress(marker: YMapMarkerPrivate) {
         try {
             const res = await window.ymaps.geocode(marker.address, {results: 1});
             const geoObject = res.geoObjects.get(0);
@@ -58,7 +68,7 @@ export class YMap {
         } catch {} // If error - placemark will not be displayed
     }
 
-    findCoordinate(marker: YMapMarker) {
+    findCoordinate(marker: YMapMarkerPrivate) {
         const geoObject = new window.ymaps.Placemark(marker.coordinate, {});
 
         this.coords.push(marker.coordinate as Coordinate);
@@ -66,7 +76,7 @@ export class YMap {
         this.ymap.geoObjects.add(geoObject);
     }
 
-    private drawPlaceMarkStyle(geoObject: Ymaps.GeoObject, marker: YMapMarker) {
+    private drawPlaceMarkStyle(geoObject: Ymaps.GeoObject, marker: YMapMarkerPrivate) {
         const {iconColor, preset = DEFAULT_PLACEMARKS_PRESET} = marker.label || {};
         let localIconColor: string | undefined = iconColor;
 
@@ -75,57 +85,90 @@ export class YMap {
             localIconColor = DEFAULT_PLACEMARKS_COLOR;
         }
 
-        Object.entries({...marker.label, iconColor: localIconColor, preset}).forEach(
-            ([key, value]) => {
-                const geoObjectParamType: GeoObjectTypes | undefined =
-                    geoObjectPropsAndOptions[key as keyof YMapMarkerLabel];
+        Object.entries({
+            ...marker.label,
+            iconColor: localIconColor,
+            preset,
+        }).forEach(([key, value]) => {
+            const geoObjectParamType: GeoObjectTypes | undefined =
+                geoObjectPropsAndOptions[key as keyof YMapMarkerLabelPrivate];
 
-                if (value && geoObjectParamType) {
-                    geoObject[geoObjectParamType].set(key, value);
-                }
-            },
-        );
+            if (value && geoObjectParamType) {
+                geoObject[geoObjectParamType].set(key, value);
+            }
+        });
     }
 
+    // eslint-disable-next-line complexity
     private recalcZoomAndCenter(props: PlacemarksProps) {
         const coordsLength = this.coords.length;
-        const {zoom = 0} = props;
+        const {zoom = 0, areaMargin} = props;
 
         if (!coordsLength) {
             return;
         }
 
-        let leftBottom = [Infinity, Infinity],
-            rightTop = [-Infinity, -Infinity];
+        const utils = window.ymaps.util.bounds;
 
-        this.coords.forEach((point) => {
-            leftBottom = [Math.min(leftBottom[0], point[0]), Math.min(leftBottom[1], point[1])];
-            rightTop = [Math.max(rightTop[0], point[0]), Math.max(rightTop[1], point[1])];
-        });
+        const [leftTop, rightBottom] = utils.fromPoints(this.coords);
 
         let newMapParams = {
             zoom,
             center: [],
         };
 
-        if (zoom) {
-            // compute only the center
-            newMapParams.center = window.ymaps.util.bounds.getCenter([leftBottom, rightTop]);
-        } else {
-            newMapParams = window.ymaps.util.bounds.getCenterAndZoom(
-                [leftBottom, rightTop],
-                [this.mapRef?.clientWidth, this.mapRef?.clientHeight],
-                undefined,
-                {margin: DEFAULT_MAP_CONTROL_BUTTON_HEIGHT},
-            );
+        const parsedAreaMargin = areaMargin
+            ? parseMargin(areaMargin)
+            : ([0, 0, 0, 0] as ParsedMargin);
+
+        const hasZoom = Boolean(zoom);
+        const hasAreaMargin = parsedAreaMargin.some(Boolean);
+        const containerSize = [
+            this.mapRef?.clientWidth ?? 0,
+            this.mapRef?.clientHeight ?? 0,
+        ] as Coordinate;
+
+        switch (true) {
+            case hasAreaMargin && hasZoom:
+                // calculate center and zoom in accordace with current zoom and margin
+                newMapParams = calculateMapParamsWithMarginAndZoom(
+                    [leftTop, rightBottom],
+                    zoom,
+                    parsedAreaMargin,
+                    containerSize,
+                );
+                break;
+            case hasAreaMargin:
+                // calculate center and zoom with custom margin
+                newMapParams = utils.getCenterAndZoom(
+                    [leftTop, rightBottom],
+                    containerSize,
+                    undefined,
+                    {margin: areaMargin, preciseZoom: true},
+                );
+                break;
+            case hasZoom:
+                // calculate only center
+                newMapParams.center = utils.getCenter([leftTop, rightBottom]);
+                break;
+            default:
+                // calculate center and zoom with default margin
+                newMapParams = utils.getCenterAndZoom(
+                    [leftTop, rightBottom],
+                    containerSize,
+                    undefined,
+                    {margin: DEFAULT_MAP_CONTROL_BUTTON_HEIGHT},
+                );
         }
 
         this.ymap.setCenter(newMapParams.center);
 
         // Use default zoom for one placemark
-        if (coordsLength > 1 && !zoom) {
-            this.ymap.setZoom(newMapParams.zoom);
+        if (coordsLength <= 1 && !hasAreaMargin && hasZoom) {
+            return;
         }
+
+        this.ymap.setZoom(newMapParams.zoom);
     }
 
     private clearOldPlacemarks() {

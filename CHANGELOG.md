@@ -1,5 +1,49 @@
 # Changelog
 
+## [7.18.1](https://github.com/gravity-ui/page-constructor/compare/v7.18.0...v7.18.1) (2025-11-10)
+
+
+### Bug Fixes
+
+* **Media:** check if title not null object ([#1318](https://github.com/gravity-ui/page-constructor/issues/1318)) ([2b2e881](https://github.com/gravity-ui/page-constructor/commit/2b2e88127102c1d1f6c476a78ab9066861650ffe))
+* one slide paddings adjustments ([#1321](https://github.com/gravity-ui/page-constructor/issues/1321)) ([c15d0bb](https://github.com/gravity-ui/page-constructor/commit/c15d0bb2290c07699240884eddb68e73ce8bb836))
+
+## [7.18.0](https://github.com/gravity-ui/page-constructor/compare/v7.17.0...v7.18.0) (2025-10-30)
+
+
+### Features
+
+* **Ymap:** copyright position ([#1311](https://github.com/gravity-ui/page-constructor/issues/1311)) ([81e0dfb](https://github.com/gravity-ui/page-constructor/commit/81e0dfb9868f50c6d2bf3d989263f91d6dc09795))
+
+## [7.17.0](https://github.com/gravity-ui/page-constructor/compare/v7.16.0...v7.17.0) (2025-10-29)
+
+
+### Features
+
+* **YMap:** add margins ([#1307](https://github.com/gravity-ui/page-constructor/issues/1307)) ([7b39602](https://github.com/gravity-ui/page-constructor/commit/7b39602c9a3b87495161a411bd11451d39e99e19))
+
+## [7.16.0](https://github.com/gravity-ui/page-constructor/compare/v7.15.1...v7.16.0) (2025-10-27)
+
+
+### Features
+
+* **Map:** export component, update YandexMap ([#1305](https://github.com/gravity-ui/page-constructor/issues/1305)) ([54302b2](https://github.com/gravity-ui/page-constructor/commit/54302b2c4a3eb92bd3cc0fd3db6a18bb36e46aa8))
+
+## [7.15.1](https://github.com/gravity-ui/page-constructor/compare/v7.15.0...v7.15.1) (2025-10-01)
+
+
+### Bug Fixes
+
+* **Media:** support boolean and parameterized loop for both video types ([#1298](https://github.com/gravity-ui/page-constructor/issues/1298)) ([9370b5d](https://github.com/gravity-ui/page-constructor/commit/9370b5d52598a081a646a222d4fb803bf8ad4340))
+
+## [7.15.0](https://github.com/gravity-ui/page-constructor/compare/v7.14.1...v7.15.0) (2025-09-26)
+
+
+### Features
+
+* **Media:** support ref for video element ([#1297](https://github.com/gravity-ui/page-constructor/issues/1297)) ([bbb8f68](https://github.com/gravity-ui/page-constructor/commit/bbb8f68f284b20f043e23a19528d9fae4e63c440))
+* separate loading google font in root ([#1295](https://github.com/gravity-ui/page-constructor/issues/1295)) ([77ea4c4](https://github.com/gravity-ui/page-constructor/commit/77ea4c4279a3f8b205b325a8a80b363b9bfaf87f))
+
 ## [7.14.1](https://github.com/gravity-ui/page-constructor/compare/v7.14.0...v7.14.1) (2025-09-23)
 
 

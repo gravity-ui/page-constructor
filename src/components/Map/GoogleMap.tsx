@@ -30,7 +30,7 @@ function getScriptSrc(params: GoogleMapLinkParams) {
 }
 
 const GoogleMap = (props: GMapProps) => {
-    const {address, zoom, className} = props;
+    const {address, zoom, className, forceAspectRatio = true} = props;
     const {apiKey, scriptSrc} = React.useContext(MapsContext);
     const {lang = Lang.Ru} = React.useContext(LocaleContext);
     const isMobile = React.useContext(MobileContext);
@@ -43,6 +43,10 @@ const GoogleMap = (props: GMapProps) => {
     );
 
     React.useEffect(() => {
+        if (!forceAspectRatio) {
+            return;
+        }
+
         const updateSize = debounce(() => {
             if (ref.current) {
                 setHeight(Math.round(getMapHeight(ref.current.offsetWidth, isMobile)));
@@ -52,10 +56,11 @@ const GoogleMap = (props: GMapProps) => {
         updateSize();
         window.addEventListener('resize', updateSize, {passive: true});
 
+        // eslint-disable-next-line consistent-return
         return () => {
             window.removeEventListener('resize', updateSize);
         };
-    }, [isMobile]);
+    }, [forceAspectRatio, isMobile]);
 
     if (!apiKey || !address) {
         return null;

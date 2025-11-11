@@ -10,7 +10,7 @@ import {ApiKeyInput} from './ApiKeyInput';
 
 import data from './data.json';
 
-const maxMapWidth = '500px';
+const maxMapWidth = 500;
 
 export default {
     component: Map,
@@ -42,6 +42,42 @@ const GoogleMapTemplate: StoryFn<MapProps> = (args: MapProps) => (
 
 export const GoogleMap = GoogleMapTemplate.bind({});
 export const YMap = YMapTemplate.bind({});
+export const YMapHiddenControls = YMapTemplate.bind({});
+export const YMapHiddenBalloons = YMapTemplate.bind({});
+export const YMapCustomMarkers = YMapTemplate.bind({});
+export const YMapAreaOffset = YMapTemplate.bind({});
+export const YMapCopyrightPosition = YMapTemplate.bind({});
 
-YMap.args = data.ymap;
+YMapHiddenControls.storyName = 'Y Map (Hidden Controls)';
+YMapHiddenBalloons.storyName = 'Y Map (Hidden Balloons)';
+YMapCustomMarkers.storyName = 'Y Map (Custom Markers)';
+YMapAreaOffset.storyName = 'Y Map (Area Margin)';
+YMapCopyrightPosition.storyName = 'Y Map (Copyright Position)';
+
 GoogleMap.args = data.gmap;
+YMap.args = data.ymap as MapProps;
+
+YMapHiddenControls.args = {
+    ...data.ymap,
+    disableControls: true,
+} as MapProps;
+
+YMapHiddenBalloons.args = {
+    ...data.ymap,
+    disableBalloons: true,
+} as MapProps;
+
+YMapCustomMarkers.args = data.ymapCustomMarkers as MapProps;
+
+YMapAreaOffset.args = {
+    ...data.ymap,
+    areaMargin: [0, 0, 0, 200],
+} as MapProps;
+
+YMapCopyrightPosition.args = {
+    ...data.ymap,
+    copyrightPosition: {
+        top: 150,
+        right: 250,
+    },
+} as MapProps;

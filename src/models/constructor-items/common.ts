@@ -190,6 +190,7 @@ export interface MediaVideoProps extends AnalyticsEventsBase {
     ariaLabel?: string;
     contain?: boolean;
     onVideoEnd?: () => void;
+    ref?: React.Ref<HTMLVideoElement | null>;
 }
 
 // links
@@ -322,19 +323,36 @@ export interface BackgroundMediaProps extends MediaProps, Animatable, QAProps {
     mediaClassName?: string;
 }
 
-export type Coordinate = number[];
+export type Coordinate = [number, number];
 
 export interface MapBaseProps {
     zoom?: number;
     className?: string;
+    forceAspectRatio?: boolean;
 }
 
 export interface GMapProps extends MapBaseProps {
     address: string;
 }
 
+export type YMapMargin =
+    | number
+    | [vertical: number, horizontal: number]
+    | [top: number, right: number, bottom: number, left: number];
+
+export interface YMapCopyrightPosition {
+    top?: number;
+    right?: number;
+    bottom?: number;
+    left?: number;
+}
+
 export interface YMapProps extends MapBaseProps {
     markers: YMapMarker[];
+    disableControls?: boolean;
+    disableBalloons?: boolean;
+    areaMargin?: YMapMargin;
+    copyrightPosition?: YMapCopyrightPosition;
     id: string;
 }
 
@@ -348,7 +366,23 @@ export interface YMapMarkerLabel {
     iconCaption?: string;
     iconContent?: string;
     iconColor?: string;
+    iconImageHref?: string;
+    iconImageSize?: [number, number];
+    iconImageOffset?: [number, number];
+    iconImageClipRect?: [[number, number], [number, number]];
+    iconLayout?: 'default#image';
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    iconShape?: Record<string, any>;
     preset?: string;
+}
+
+export interface YMapMarkerPrivate extends YMapMarker {
+    label?: YMapMarkerLabelPrivate;
+}
+
+export interface YMapMarkerLabelPrivate extends YMapMarkerLabel {
+    cursor?: string;
+    interactivityModel?: string;
 }
 
 export type MapProps = GMapProps | YMapProps;

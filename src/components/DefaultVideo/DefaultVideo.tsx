@@ -21,7 +21,13 @@ interface DefaultVideoProps {
 export const DefaultVideo = React.forwardRef<DefaultVideoRefType, DefaultVideoProps>(
     (props, ref) => {
         const {video, qa, customBarControlsClassName} = props;
-        const {controls, customControlsOptions, muted: initiallyMuted = true, onVideoEnd} = video;
+        const {
+            controls,
+            customControlsOptions,
+            muted: initiallyMuted = true,
+            onVideoEnd,
+            loop,
+        } = video;
         const {
             muteButtonShown,
             positioning,
@@ -45,22 +51,6 @@ export const DefaultVideo = React.forwardRef<DefaultVideoRefType, DefaultVideoPr
             return videoRef.current;
         }, [videoRef]);
 
-        React.useEffect(() => {
-            const videoElement = videoRef.current;
-            if (!videoElement || !onVideoEnd) {
-                return undefined;
-            }
-
-            const handleVideoEnd = () => {
-                onVideoEnd?.();
-            };
-
-            videoElement.addEventListener('ended', handleVideoEnd);
-            return () => {
-                videoElement.removeEventListener('ended', handleVideoEnd);
-            };
-        }, [videoRef, onVideoEnd]);
-
         // to guarantee setting a muted attribute in HTML. https://github.com/facebook/react/issues/10389
         React.useEffect(() => {
             const videoElement = videoRef.current;
@@ -81,6 +71,7 @@ export const DefaultVideo = React.forwardRef<DefaultVideoRefType, DefaultVideoPr
                 return !value;
             });
         }, [videoRef]);
+
         const onMuteToggle = React.useCallback(() => {
             setIsMuted((value) => !value);
         }, []);
@@ -90,6 +81,25 @@ export const DefaultVideo = React.forwardRef<DefaultVideoRefType, DefaultVideoPr
                 onPlayToggle();
             }
         }, [onPlayToggle, customControlsType]);
+
+        const onEnded = React.useCallback(() => {
+            const videoElement = videoRef.current;
+            if (!videoElement) {
+                return;
+            }
+
+            if (loop) {
+                const {start = 0, end = videoElement.duration} =
+                    typeof loop === 'boolean' ? {} : loop;
+
+                if (videoElement.currentTime >= end) {
+                    videoElement.currentTime = start;
+                    videoElement.play();
+                }
+            }
+
+            onVideoEnd?.();
+        }, [loop, onVideoEnd]);
 
         return (
             <React.Fragment>
@@ -105,6 +115,7 @@ export const DefaultVideo = React.forwardRef<DefaultVideoRefType, DefaultVideoPr
                     muted={isMuted}
                     aria-label={video.ariaLabel}
                     onClick={onClick}
+                    onEnded={onEnded}
                 >
                     {getVideoTypesWithPriority(video.src).map(({src, type}, index) => (
                         <source key={index} src={src} type={type} data-qa={qa} />
