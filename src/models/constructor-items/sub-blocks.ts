@@ -166,6 +166,7 @@ export interface BasicCardProps
     gravityIcon?: ThemeSupporting<GravityIconProps>;
     target?: string;
     iconPosition?: IconPosition;
+    hoverBackgroundColor?: string;
 }
 
 export interface BannerCardProps {
