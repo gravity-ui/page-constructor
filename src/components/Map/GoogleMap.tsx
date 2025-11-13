@@ -68,7 +68,20 @@ const GoogleMap = (props: GMapProps) => {
     }
 
     return (
-        <div itemScope itemType={GeoCoordinatesMicrodataValues.PlaceType}>
+        <iframe
+            className={b(null, className)}
+            ref={ref}
+            style={{
+                height,
+            }}
+            title="Google Map"
+            loading="lazy"
+            allowFullScreen
+            referrerPolicy="no-referrer-when-downgrade"
+            src={src}
+            itemScope
+            itemType={GeoCoordinatesMicrodataValues.PlaceType}
+        >
             {address && (
                 <meta
                     itemProp={GeoCoordinatesMicrodataValues.AddressProp}
@@ -76,19 +89,7 @@ const GoogleMap = (props: GMapProps) => {
                     itemType={GeoCoordinatesMicrodataValues.TextType}
                 />
             )}
-            <iframe
-                className={b(null, className)}
-                ref={ref}
-                style={{
-                    height,
-                }}
-                title="Google Map"
-                loading="lazy"
-                allowFullScreen
-                referrerPolicy="no-referrer-when-downgrade"
-                src={src}
-            />
-        </div>
+        </iframe>
     );
 };
 
