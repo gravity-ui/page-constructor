@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.19.0](https://github.com/gravity-ui/page-constructor/compare/v7.18.1...v7.19.0) (2025-11-12)
+
+
+### Features
+
+* add background color hover property for BasicCard ([#1324](https://github.com/gravity-ui/page-constructor/issues/1324)) ([659df2d](https://github.com/gravity-ui/page-constructor/commit/659df2dd0ccb546dd80d91ecb6f5be70fdc47cde))
+
 ## [7.18.1](https://github.com/gravity-ui/page-constructor/compare/v7.18.0...v7.18.1) (2025-11-10)
 
 
