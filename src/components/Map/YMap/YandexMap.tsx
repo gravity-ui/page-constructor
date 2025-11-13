@@ -10,6 +10,7 @@ import {YMapMarkerLabelPrivate, YMapMarkerPrivate, YMapProps} from '../../../mod
 import {block} from '../../../utils';
 import ErrorWrapper from '../../ErrorWrapper/ErrorWrapper';
 import {getMapHeight} from '../helpers';
+import {GeoCoordinatesMicrodataValues} from '../models';
 
 import {YMap} from './YMap';
 import {MapApiStatus, YMapsApiLoader} from './YandexMapApiLoader';
@@ -150,14 +151,48 @@ const YandexMap = (props: YMapProps) => {
             handler={onTryAgain}
             className={b('wrapper')}
         >
-            <div className={b('wrapper')}>
+            <div
+                className={b('wrapper')}
+                itemScope
+                itemType={GeoCoordinatesMicrodataValues.PlaceType}
+            >
                 {/* hidden - to show the map after calculating the center */}
                 <div
                     id={containerId}
                     className={b({hidden: !ready}, className)}
                     ref={ref}
                     style={{height}}
-                />
+                    itemProp={GeoCoordinatesMicrodataValues.GeoProp}
+                    itemScope
+                    itemType={GeoCoordinatesMicrodataValues.GeoCoordinatesType}
+                >
+                    {markers.map((marker, index) => (
+                        <React.Fragment key={index}>
+                            {marker.coordinate && (
+                                <React.Fragment
+                                    key={marker.address ?? marker.coordinate.join(',') ?? index}
+                                >
+                                    <meta
+                                        itemProp={GeoCoordinatesMicrodataValues.LongitudeProp}
+                                        content={String(marker.coordinate[0])}
+                                    />
+                                    <meta
+                                        itemProp={GeoCoordinatesMicrodataValues.LatitudeProp}
+                                        content={String(marker.coordinate[1])}
+                                    />
+                                </React.Fragment>
+                            )}
+                            {marker.address && (
+                                <meta
+                                    itemProp={GeoCoordinatesMicrodataValues.AddressProp}
+                                    content={marker.address}
+                                    itemType={GeoCoordinatesMicrodataValues.TextType}
+                                />
+                            )}
+                        </React.Fragment>
+                    ))}
+                </div>
+
                 {loading ? <Spin size="xl" className={b('spinner')} /> : null}
             </div>
         </ErrorWrapper>
