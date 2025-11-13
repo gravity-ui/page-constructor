@@ -69,9 +69,7 @@ const Share = ({items, title}: ShareBlockProps) => {
                             className={b('item', {type: type.toLowerCase()})}
                             onClick={handleButtonClick}
                             title={urlTitle}
-                            extraProps={{
-                                'aria-label': buttonLabel,
-                            }}
+                            aria-label={buttonLabel}
                         >
                             {icon && <Icon data={icon} size={24} className={b('icon', {type})} />}
                         </Button>

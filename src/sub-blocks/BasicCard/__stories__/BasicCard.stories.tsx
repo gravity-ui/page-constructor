@@ -123,6 +123,7 @@ export const WithContentList = WithContentListTemplate.bind({});
 export const ControlPosition = ControlPositionTemplate.bind({});
 export const Sizes = VariousTemplate.bind([]);
 export const GravityIcons = VariousTemplate.bind([]);
+export const HoverEffects = ListTemplate.bind({});
 
 const DefaultArgs = data.default as BasicCardModel;
 
@@ -252,5 +253,12 @@ GravityIcons.args = data.gravityIcons.reduce(
 GravityIcons.parameters = {
     controls: {
         include: Object.keys(GravityIcons.args),
+    },
+};
+
+HoverEffects.args = data.hoverEffects as BasicCardModel[];
+HoverEffects.parameters = {
+    controls: {
+        include: Object.keys(HoverEffects.args),
     },
 };

@@ -24,6 +24,7 @@ const BasicCard = (props: BasicCardProps) => {
         controlPosition = 'content',
         size = 's',
         gravityIcon,
+        hoverBackgroundColor,
         ...cardParams
     } = props;
     const titleId = useUniqId();
@@ -38,7 +39,15 @@ const BasicCard = (props: BasicCardProps) => {
             className={b()}
             contentClassName={b('content')}
             {...cardParams}
-            extraProps={{'aria-describedby': descriptionId, 'aria-labelledby': titleId}}
+            extraProps={{
+                'aria-describedby': descriptionId,
+                'aria-labelledby': titleId,
+                ...(hoverBackgroundColor && {
+                    style: {
+                        '--hover-background-color': hoverBackgroundColor,
+                    } as React.CSSProperties,
+                }),
+            }}
         >
             <CardBase.Content>
                 <IconWrapper

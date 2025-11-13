@@ -382,5 +382,30 @@
         }
       ]
     }
+  ],
+  "hoverEffects": [
+    {
+      "type": "basic-card",
+      "title": "Hover: Gradient Background",
+      "text": "Hover over this card to see gradient background effect",
+      "url": "/test",
+      "urlTitle": "Opens in a new tab",
+      "hoverBackgroundColor": "linear-gradient(180deg, rgba(255, 255, 255, 0.00) 36%, #DCC7FF 100%)"
+    },
+    {
+      "type": "basic-card",
+      "title": "Hover: Solid Color",
+      "text": "Hover over this card to see solid color background effect",
+      "url": "/test",
+      "urlTitle": "Opens in a new tab",
+      "hoverBackgroundColor": "#DCC7FF"
+    },
+    {
+      "type": "basic-card",
+      "title": "No Hover Effect",
+      "text": "This card has no hover background effect",
+      "url": "/test",
+      "urlTitle": "Opens in a new tab"
+    }
   ]
 }
