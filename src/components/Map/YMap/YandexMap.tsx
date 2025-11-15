@@ -10,7 +10,6 @@ import {YMapMarkerLabelPrivate, YMapMarkerPrivate, YMapProps} from '../../../mod
 import {block} from '../../../utils';
 import ErrorWrapper from '../../ErrorWrapper/ErrorWrapper';
 import {getMapHeight} from '../helpers';
-import {GeoCoordinatesMicrodataValues} from '../models';
 
 import {YMap} from './YMap';
 import {MapApiStatus, YMapsApiLoader} from './YandexMapApiLoader';
@@ -141,6 +140,42 @@ const YandexMap = (props: YMapProps) => {
         }
     }, [ymap, markers, zoom, disableBalloons, areaMargin]);
 
+    const mapMicrodataScript = React.useMemo(() => {
+        const places = markers
+            .filter((marker) => marker.address || marker.coordinate)
+            .map((marker) => {
+                const place: any = {
+                    '@type': 'Place',
+                };
+
+                if (marker.address) {
+                    place.address = {
+                        '@type': 'Text',
+                        '@value': marker.address,
+                    };
+                }
+
+                if (marker.coordinate && marker.coordinate.length === 2) {
+                    place.geo = {
+                        '@type': 'GeoCoordinates',
+                        latitude: marker.coordinate[0],
+                        longitude: marker.coordinate[1],
+                    };
+                }
+
+                return place;
+            });
+
+        const json = JSON.stringify({
+            '@context': 'https://schema.org',
+            '@graph': places,
+        });
+
+        return places.length > 0 ? (
+            <script type="application/ld+json" dangerouslySetInnerHTML={{__html: json}} />
+        ) : null;
+    }, [markers]);
+
     if (!markers) return null;
 
     return (
@@ -151,48 +186,15 @@ const YandexMap = (props: YMapProps) => {
             handler={onTryAgain}
             className={b('wrapper')}
         >
-            <div
-                className={b('wrapper')}
-                itemScope
-                itemType={GeoCoordinatesMicrodataValues.PlaceType}
-            >
+            <div className={b('wrapper')}>
+                {mapMicrodataScript}
                 {/* hidden - to show the map after calculating the center */}
                 <div
                     id={containerId}
                     className={b({hidden: !ready}, className)}
                     ref={ref}
                     style={{height}}
-                    itemProp={GeoCoordinatesMicrodataValues.GeoProp}
-                    itemScope
-                    itemType={GeoCoordinatesMicrodataValues.GeoCoordinatesType}
-                >
-                    {markers.map((marker, index) => (
-                        <React.Fragment key={index}>
-                            {marker.coordinate && (
-                                <React.Fragment
-                                    key={marker.address ?? marker.coordinate.join(',') ?? index}
-                                >
-                                    <meta
-                                        itemProp={GeoCoordinatesMicrodataValues.LongitudeProp}
-                                        content={String(marker.coordinate[0])}
-                                    />
-                                    <meta
-                                        itemProp={GeoCoordinatesMicrodataValues.LatitudeProp}
-                                        content={String(marker.coordinate[1])}
-                                    />
-                                </React.Fragment>
-                            )}
-                            {marker.address && (
-                                <meta
-                                    itemProp={GeoCoordinatesMicrodataValues.AddressProp}
-                                    content={marker.address}
-                                    itemType={GeoCoordinatesMicrodataValues.TextType}
-                                />
-                            )}
-                        </React.Fragment>
-                    ))}
-                </div>
-
+                />
                 {loading ? <Spin size="xl" className={b('spinner')} /> : null}
             </div>
         </ErrorWrapper>
