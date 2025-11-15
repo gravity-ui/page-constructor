@@ -11,16 +11,6 @@ const BACKGROUND_COLOR = '#313538';
 export default {
     component: ContentList,
     title: 'Components/ContentList',
-    argTypes: {
-        size: {
-            control: {type: 'radio'},
-            options: ['s', 'm', 'l'],
-        },
-        theme: {
-            control: {type: 'radio', labels: {undefined: 'default'}},
-            options: [undefined, 'dark', 'light'],
-        },
-    },
 } as Meta;
 
 const DefaultTemplate: StoryFn<ContentListProps> = (args) => (
