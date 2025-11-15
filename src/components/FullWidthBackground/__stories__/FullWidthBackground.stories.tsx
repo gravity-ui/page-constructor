@@ -7,14 +7,6 @@ import data from './data.json';
 export default {
     title: 'Components/FullWidthBackground',
     component: FullWidthBackground,
-    parameters: {
-        argTypes: {
-            theme: {
-                control: {type: 'radio'},
-                options: ['default', 'rounded'],
-            },
-        },
-    },
 } as Meta;
 
 const DefaultTemplate: StoryFn<FullWidthBackgroundProps> = (args) => {
