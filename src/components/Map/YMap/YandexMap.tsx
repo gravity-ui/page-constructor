@@ -6,7 +6,7 @@ import debounce from 'lodash/debounce';
 import {LocaleContext} from '../../../context/localeContext/localeContext';
 import {MapsContext} from '../../../context/mapsContext/mapsContext';
 import {MobileContext} from '../../../context/mobileContext';
-import {YMapMarkerLabelPrivate, YMapMarkerPrivate, YMapProps} from '../../../models';
+import {YMapMarker, YMapMarkerLabelPrivate, YMapMarkerPrivate, YMapProps} from '../../../models';
 import {block} from '../../../utils';
 import ErrorWrapper from '../../ErrorWrapper/ErrorWrapper';
 import {getMapHeight} from '../helpers';
@@ -26,6 +26,27 @@ const INITIAL_CENTER = [0, 0];
 const BALLOON_DISABLING_MARKER_OPTIONS: YMapMarkerLabelPrivate = {
     cursor: 'drag',
     interactivityModel: 'default#silent',
+};
+
+// Helper function to convert YMapMarker to Schema.org Place object
+const markerToSchemaPlace = (marker: YMapMarker) => {
+    return {
+        '@type': 'Place',
+        address: marker.address
+            ? {
+                  '@type': 'Text',
+                  '@value': marker.address,
+              }
+            : undefined,
+        geo:
+            marker.coordinate && marker.coordinate.length === 2
+                ? {
+                      '@type': 'GeoCoordinates',
+                      latitude: marker.coordinate[0],
+                      longitude: marker.coordinate[1],
+                  }
+                : undefined,
+    };
 };
 
 const YandexMap = (props: YMapProps) => {
@@ -141,39 +162,24 @@ const YandexMap = (props: YMapProps) => {
     }, [ymap, markers, zoom, disableBalloons, areaMargin]);
 
     const mapMicrodataScript = React.useMemo(() => {
+        if (!markers.length) {
+            return null;
+        }
+
         const places = markers
             .filter((marker) => marker.address || marker.coordinate)
-            .map((marker) => {
-                const place: any = {
-                    '@type': 'Place',
-                };
+            .map(markerToSchemaPlace);
 
-                if (marker.address) {
-                    place.address = {
-                        '@type': 'Text',
-                        '@value': marker.address,
-                    };
-                }
-
-                if (marker.coordinate && marker.coordinate.length === 2) {
-                    place.geo = {
-                        '@type': 'GeoCoordinates',
-                        latitude: marker.coordinate[0],
-                        longitude: marker.coordinate[1],
-                    };
-                }
-
-                return place;
-            });
+        if (places.length === 0) {
+            return null;
+        }
 
         const json = JSON.stringify({
             '@context': 'https://schema.org',
             '@graph': places,
         });
 
-        return places.length > 0 ? (
-            <script type="application/ld+json" dangerouslySetInnerHTML={{__html: json}} />
-        ) : null;
+        return <script type="application/ld+json" dangerouslySetInnerHTML={{__html: json}} />;
     }, [markers]);
 
     if (!markers) return null;
