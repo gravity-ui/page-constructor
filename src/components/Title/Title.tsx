@@ -9,18 +9,12 @@ import './Title.scss';
 
 const b = block('title');
 
-export interface TitleProps extends TitleParams {
+export interface TitleProps extends TitleParams, ClassNameProps {
     colSizes?: GridColumnSizesType;
     id?: string;
 }
 
-const Title = ({
-    title,
-    subtitle,
-    className,
-    colSizes = {all: 12, sm: 8},
-    id,
-}: TitleProps & ClassNameProps) => {
+const Title = ({title, subtitle, className, colSizes = {all: 12, sm: 8}, id}: TitleProps) => {
     if (!title && !subtitle) {
         return null;
     }
