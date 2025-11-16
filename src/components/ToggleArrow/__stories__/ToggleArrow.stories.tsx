@@ -1,5 +1,7 @@
-import {Meta, StoryFn} from '@storybook/react';
+import {Meta, StoryFn, StoryObj} from '@storybook/react';
 
+import {blockTransform} from '../../../../.storybook/utils';
+import {CustomBlock} from '../../../models';
 import ToggleArrow, {ToggleArrowProps} from '../ToggleArrow';
 
 import data from './data.json';
@@ -11,29 +13,22 @@ export default {
         layout: 'centered',
         controls: {expanded: true},
     },
-    argTypes: {
-        type: {control: 'inline-radio', options: ['horizontal', 'vertical']},
-        iconType: {control: 'inline-radio', options: ['default', 'navigation']},
-        open: {control: 'boolean'},
-        thin: {control: 'boolean'},
-        slow: {control: 'boolean'},
-        size: {control: 'number'},
-        className: {control: 'text'},
-    },
-} as Meta<ToggleArrowProps>;
+} as Meta<typeof ToggleArrow>;
 
-const Template: StoryFn<ToggleArrowProps> = (args) => <ToggleArrow {...args} />;
+const Template: StoryFn<ToggleArrowProps> = (args) => (
+    <ToggleArrow {...(blockTransform(args as unknown as CustomBlock) as ToggleArrowProps)} />
+);
 
-export const Default = Template.bind({});
-export const Horizontal = Template.bind({});
-export const Vertical = Template.bind({});
-export const OpenHorizontal = Template.bind({});
-export const OpenVertical = Template.bind({});
-export const Thin = Template.bind({});
-export const Slow = Template.bind({});
-export const ThinSlow = Template.bind({});
-export const NavigationIcon = Template.bind({});
-export const AllVariants = Template.bind({});
+export const Default: StoryObj<typeof ToggleArrow> = Template.bind({});
+export const Horizontal: StoryObj<typeof ToggleArrow> = Template.bind({});
+export const Vertical: StoryObj<typeof ToggleArrow> = Template.bind({});
+export const OpenHorizontal: StoryObj<typeof ToggleArrow> = Template.bind({});
+export const OpenVertical: StoryObj<typeof ToggleArrow> = Template.bind({});
+export const Thin: StoryObj<typeof ToggleArrow> = Template.bind({});
+export const Slow: StoryObj<typeof ToggleArrow> = Template.bind({});
+export const ThinSlow: StoryObj<typeof ToggleArrow> = Template.bind({});
+export const NavigationIcon: StoryObj<typeof ToggleArrow> = Template.bind({});
+export const AllVariants: StoryObj<typeof ToggleArrow> = Template.bind({});
 
 Default.args = {type: 'horizontal', iconType: 'default', size: 24};
 Horizontal.args = data.horizontal.content as ToggleArrowProps;

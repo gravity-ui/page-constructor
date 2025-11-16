@@ -1,17 +1,20 @@
-import {test} from '../../../../playwright/core/index';
+import {composeStories} from '@storybook/react';
 
-import {
-    AllVariants,
+import {test} from '../../../../playwright/core/index';
+import * as ToggleArrowStories from '../__stories__/ToggleArrow.stories';
+
+const {
     Default,
     Horizontal,
-    NavigationIcon,
+    Vertical,
     OpenHorizontal,
     OpenVertical,
-    Slow,
     Thin,
+    Slow,
     ThinSlow,
-    Vertical,
-} from './helpers';
+    NavigationIcon,
+    AllVariants,
+} = composeStories(ToggleArrowStories);
 
 test.describe('ToggleArrow', () => {
     test('render <Default>', async ({mount, expectScreenshot, defaultDelay}) => {
