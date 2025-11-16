@@ -2,7 +2,7 @@ import {composeStories} from '@storybook/react';
 
 import * as TitleStories from '../__stories__/Title.stories';
 
-const composed = composeStories(TitleStories) as Record<string, React.ComponentType<any>>;
+const composed = composeStories(TitleStories);
 
 export const {
     CustomTitle,

@@ -1,7 +1,7 @@
-import {Meta, StoryFn} from '@storybook/react';
+import {Meta, StoryFn, StoryObj} from '@storybook/react';
 
-import {yfmTransform} from '../../../../.storybook/utils';
-import {ClassNameProps, TitleItemProps} from '../../../models';
+import {blockTransform, yfmTransform} from '../../../../.storybook/utils';
+import {CustomBlock, TitleItemProps} from '../../../models';
 import Title, {TitleProps} from '../Title';
 
 import data from './data.json';
@@ -13,18 +13,13 @@ export default {
         layout: 'centered',
         controls: {expanded: true},
     },
-    argTypes: {
-        title: {control: 'object'},
-        subtitle: {control: 'text'},
-        className: {control: 'text'},
-        id: {control: 'text'},
-        colSizes: {control: 'object'},
-    },
-} as Meta<TitleProps & ClassNameProps>;
+} as Meta<TitleProps>;
 
-const DefaultTemplate: StoryFn<TitleProps & ClassNameProps> = (args) => <Title {...args} />;
+const DefaultTemplate: StoryFn<TitleProps> = (args) => (
+    <Title {...(blockTransform(args as unknown as CustomBlock) as TitleProps)} />
+);
 
-const SizesTemplate: StoryFn<TitleProps & ClassNameProps> = (args) => {
+const SizesTemplate: StoryFn<TitleProps> = (args) => {
     const titleItemObjectProps = typeof args.title === 'object' ? args.title : {};
     return (
         <div>
@@ -50,13 +45,13 @@ const DefaultArgs = {
     subtitle: yfmTransform(data.default.content.subtitle),
 };
 
-export const Default = DefaultTemplate.bind({});
-export const TitleLink = DefaultTemplate.bind({});
-export const CustomTitle = DefaultTemplate.bind({});
-export const Sizes = SizesTemplate.bind({});
-export const SizesWithLinks = SizesTemplate.bind({});
-export const TitleWithoutDescription = SizesTemplate.bind({});
-export const WithCustomColSizes = DefaultTemplate.bind({});
+export const Default: StoryObj<typeof Title> = DefaultTemplate.bind({});
+export const TitleLink: StoryObj<typeof Title> = DefaultTemplate.bind({});
+export const CustomTitle: StoryObj<typeof Title> = DefaultTemplate.bind({});
+export const Sizes: StoryObj<typeof Title> = SizesTemplate.bind({});
+export const SizesWithLinks: StoryObj<typeof Title> = SizesTemplate.bind({});
+export const TitleWithoutDescription: StoryObj<typeof Title> = SizesTemplate.bind({});
+export const WithCustomColSizes: StoryObj<typeof Title> = DefaultTemplate.bind({});
 
 Default.args = {...DefaultArgs} as TitleProps;
 TitleLink.args = {
