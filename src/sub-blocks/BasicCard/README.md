@@ -15,3 +15,5 @@
 `buttons?: Button[]` — An array with button objects (see [Content blocks](?path=/docs/documentation-types--docs))
 
 `border: 'shadow' | 'line' | 'none'` — Card border properties (defaults to `'shadow'`).
+
+`hoverBackgroundColor?: string` - Card hover background color
