@@ -62,6 +62,21 @@ const GoogleMap = (props: GMapProps) => {
         };
     }, [forceAspectRatio, isMobile]);
 
+    // Generate Schema.org JSON-LD for Google Map
+    const mapMicrodataScript = React.useMemo(() => {
+        if (!address) {
+            return null;
+        }
+
+        const json = JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Place',
+            address,
+        });
+
+        return <script type="application/ld+json" dangerouslySetInnerHTML={{__html: json}} />;
+    }, [address]);
+
     if (!apiKey || !address) {
         return null;
     }
@@ -78,7 +93,9 @@ const GoogleMap = (props: GMapProps) => {
             allowFullScreen
             referrerPolicy="no-referrer-when-downgrade"
             src={src}
-        />
+        >
+            {mapMicrodataScript}
+        </iframe>
     );
 };
 
