@@ -43,7 +43,7 @@ export const CustomHeader = ({url, description, ...props}: CustomHeaderProps) =>
         >
             <Wrapper className={b('code')} href={url ?? ''}>
                 <YFMWrapper
-                    className={b('code-yfm')}
+                    contentClassName={b('code-yfm')}
                     content={`<code>${CUSTOM_HEADER_CODE}</code>`}
                 />
             </Wrapper>
