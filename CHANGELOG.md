@@ -3,9 +3,9 @@
 ## [7.21.0](https://github.com/gravity-ui/page-constructor/compare/v7.20.0...v7.21.0) (2025-11-18)
 
 
-### chore
+### Features
 
-* bump release ([#1331](https://github.com/gravity-ui/page-constructor/issues/1331)) ([d282431](https://github.com/gravity-ui/page-constructor/commit/d282431729a008bd6f1dafd9e0d1218097606390))
+* **BasicCard** update tests and schema for BasicCard components ([#1327](https://github.com/gravity-ui/page-constructor/issues/1327)) ([08c5f86](https://github.com/gravity-ui/page-constructor/commit/08c5f8669bead152f7f1dfd087c41a5607d6c47b))
 
 ## [7.20.0](https://github.com/gravity-ui/page-constructor/compare/v7.19.0...v7.20.0) (2025-11-17)
 
