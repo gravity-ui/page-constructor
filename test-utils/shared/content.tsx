@@ -130,3 +130,17 @@ export const testContentWithList = ({props, options}: ContentTestFunction) => {
     expect(title).toHaveTextContent(props.list?.[0]?.title);
     expect(text).toHaveTextContent(props.list?.[0]?.text);
 };
+
+export const testContentWithLabels = ({props, options}: ContentTestFunction) => {
+    if (!options?.qaId || !props.labels?.[0]?.icon || !props.labels?.[0]?.text) {
+        throw new Error(ERROR_INPUT_DATA_MESSAGE);
+    }
+
+    const labelsQa = getQaAttrubutes(options.qaId, ['text']);
+
+    render(<Content {...pick(props, 'labels', 'qa')} />);
+    const image = screen.getByRole('img');
+    const text = screen.getByTestId(labelsQa.text);
+    expect(image).toHaveAttribute('src', props.labels?.[0]?.icon);
+    expect(text).toHaveTextContent(props.labels?.[0]?.text);
+};

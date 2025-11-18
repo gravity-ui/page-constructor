@@ -57,6 +57,7 @@ ContentVariables.args = [
     {additionalInfo: data.default.additionalInfo},
     {links: data.default.links},
     {buttons: data.default.buttons},
+    {labels: data.default.labels},
     {links: data.default.links, list: data.default.list},
 ].map((content) => ({
     ...content,
@@ -76,8 +77,10 @@ Size.args = data.size.map((content) => ({
     text: data.default.text,
     buttons: data.default.buttons,
     list: data.default.list,
+    labels: data.default.labels,
     type: data.default.type,
 })) as ContentBlockProps[];
+
 Size.parameters = {
     controls: {
         include: Object.keys(Size.args),
@@ -88,6 +91,7 @@ Centered.args = [
     {additionalInfo: data.default.additionalInfo},
     {links: data.default.links},
     {buttons: data.default.buttons},
+    {labels: data.default.labels},
 ].map((content) => ({
     ...content,
     ...data.centered,
@@ -105,6 +109,7 @@ Theme.args = data.theme.map((content) => ({
     ...content,
     text: data.default.text,
     additionalInfo: data.default.additionalInfo,
+    labels: data.default.labels,
 })) as ContentBlockProps[];
 Theme.parameters = {
     controls: {

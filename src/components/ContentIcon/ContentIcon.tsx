@@ -3,7 +3,7 @@ import {ClassNameProps, GravityIconProps, ImageProps, QAProps, SVGIcon} from '..
 import {ThemeSupporting, getThemedValue} from '../../utils';
 import Icon from '../Icon/Icon';
 
-interface ListItemProps extends QAProps, ClassNameProps {
+interface ContentIconProps extends QAProps, ClassNameProps {
     icon?: ThemeSupporting<ImageProps | SVGIcon>;
     gravityIcon?: ThemeSupporting<GravityIconProps>;
 }
@@ -12,7 +12,7 @@ function isIconSvg(icon: ImageProps | SVGIcon): icon is SVGIcon {
     return typeof icon === 'function';
 }
 
-const ContentListItemIcon = ({icon, className, qa, gravityIcon}: ListItemProps) => {
+const ContentIcon = ({icon, className, qa, gravityIcon}: ContentIconProps) => {
     const theme = useTheme();
     const iconThemed = getThemedValue(icon, theme);
     const gravityIconThemed = getThemedValue(gravityIcon, theme);
@@ -29,4 +29,4 @@ const ContentListItemIcon = ({icon, className, qa, gravityIcon}: ListItemProps) 
     return <Icon icon={iconThemed} gravityIcon={gravityIconThemed} className={className} qa={qa} />;
 };
 
-export default ContentListItemIcon;
+export default ContentIcon;
