@@ -65,6 +65,14 @@ Recent development has focused on:
 8. **Performance Optimization**: Reducing bundle size and improving rendering performance
 9. **Documentation**: Expanding Storybook examples and documentation
 
+10. **Hover Background Color Enhancement**: Added support for customizable hover background colors in BasicCard component:
+
+    - **Schema Support**: Added `hoverBackgroundColor` property to BasicCard schema as optional string field
+    - **Component Implementation**: BasicCard component now accepts `hoverBackgroundColor` prop and applies it as CSS custom property `--hover-background-color`
+    - **CSS Integration**: Uses existing `background-hover()` mixin in CardBase component that applies the custom property on hover
+    - **Flexible Styling**: Allows any valid CSS color value (hex, rgb, rgba, named colors, etc.)
+    - **Backward Compatibility**: Optional property that doesn't affect existing implementations
+
 ## Active Decisions and Considerations
 
 ### Architecture

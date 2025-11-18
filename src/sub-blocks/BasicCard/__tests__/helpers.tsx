@@ -11,4 +11,5 @@ export const {
     ControlPosition,
     Sizes,
     GravityIcons,
+    HoverEffects,
 } = composeStories(BasicCardStories);

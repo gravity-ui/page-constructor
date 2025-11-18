@@ -5,18 +5,40 @@ import FullWidthBackground, {FullWidthBackgroundProps} from '../FullWidthBackgro
 import data from './data.json';
 
 export default {
-    component: FullWidthBackground,
     title: 'Components/FullWidthBackground',
+    component: FullWidthBackground,
 } as Meta;
 
-const DefaultTemplate: StoryFn<FullWidthBackgroundProps> = (args) => (
-    <div style={{height: '100px'}}>
-        <FullWidthBackground {...args}>Children</FullWidthBackground>
-    </div>
-);
+const DefaultTemplate: StoryFn<FullWidthBackgroundProps> = (args) => {
+    return (
+        <div
+            style={{
+                height: '100px',
+            }}
+            key={args.theme}
+        >
+            <FullWidthBackground {...args}>
+                <div
+                    style={{
+                        padding: '20px',
+                        margin: '20px',
+                    }}
+                >
+                    Children
+                </div>
+            </FullWidthBackground>
+        </div>
+    );
+};
 
 export const Default = DefaultTemplate.bind({});
 export const Rounded = DefaultTemplate.bind({});
 
-Default.args = data.default.content as FullWidthBackgroundProps;
-Rounded.args = data.rounded.content as FullWidthBackgroundProps;
+Default.args = data.default as FullWidthBackgroundProps;
+
+Rounded.args = data.rounded as FullWidthBackgroundProps;
+Rounded.parameters = {
+    controls: {
+        include: Object.keys(data.rounded),
+    },
+};

@@ -1,5 +1,26 @@
 # Changelog
 
+## [7.21.0](https://github.com/gravity-ui/page-constructor/compare/v7.20.0...v7.21.0) (2025-11-18)
+
+
+### Features
+
+* **BasicCard** update tests and schema for BasicCard components ([#1327](https://github.com/gravity-ui/page-constructor/issues/1327)) ([08c5f86](https://github.com/gravity-ui/page-constructor/commit/08c5f8669bead152f7f1dfd087c41a5607d6c47b))
+
+## [7.20.0](https://github.com/gravity-ui/page-constructor/compare/v7.19.0...v7.20.0) (2025-11-17)
+
+
+### Features
+
+* **Map:** integrate Schema.org microdata for Map components ([#1326](https://github.com/gravity-ui/page-constructor/issues/1326)) ([40b079a](https://github.com/gravity-ui/page-constructor/commit/40b079a9d280c0164bd21503a947848426ca83cb))
+
+## [7.19.0](https://github.com/gravity-ui/page-constructor/compare/v7.18.1...v7.19.0) (2025-11-12)
+
+
+### Features
+
+* add background color hover property for BasicCard ([#1324](https://github.com/gravity-ui/page-constructor/issues/1324)) ([659df2d](https://github.com/gravity-ui/page-constructor/commit/659df2dd0ccb546dd80d91ecb6f5be70fdc47cde))
+
 ## [7.18.1](https://github.com/gravity-ui/page-constructor/compare/v7.18.0...v7.18.1) (2025-11-10)
 
 

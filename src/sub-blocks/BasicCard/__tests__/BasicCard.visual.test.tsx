@@ -4,6 +4,7 @@ import {
     ControlPosition,
     Default,
     GravityIcons,
+    HoverEffects,
     Sizes,
     WithBorder,
     WithContentList,
@@ -56,6 +57,12 @@ test.describe('BasicCard', () => {
 
     test('render stories <GravityIcons>', async ({mount, expectScreenshot, defaultDelay}) => {
         await mount(<GravityIcons />);
+        await defaultDelay();
+        await expectScreenshot({skipTheme: 'dark'});
+    });
+
+    test('render stories <HoverEffects>', async ({mount, expectScreenshot, defaultDelay}) => {
+        await mount(<HoverEffects />);
         await defaultDelay();
         await expectScreenshot({skipTheme: 'dark'});
     });
