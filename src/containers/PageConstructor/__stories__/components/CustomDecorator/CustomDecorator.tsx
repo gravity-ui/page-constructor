@@ -55,7 +55,7 @@ export const customDecorator: BlockDecorator = ({type, children}) => {
                     <YFMWrapper content={yfmTransform(CUSTOM_DECORATOR_DESCRIPTION)} />
                     <Link href="https://github.com/gravity-ui/page-constructor/blob/main/src/containers/PageConstructor/__stories__/components/CustomBlocksTemplate.tsx">
                         <YFMWrapper
-                            className={b('code')}
+                            contentClassName={b('code')}
                             content={`<code>${CUSTOM_DECORATOR_CODE}</code>`}
                         />
                     </Link>
