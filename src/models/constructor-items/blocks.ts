@@ -372,11 +372,11 @@ export type FilterItem = {
     card: SubBlockModels;
 };
 
-export interface FilterBlockProps extends Animatable, LoadableChildren {
-    title?: TitleItemProps | string;
-    description?: string;
+export interface FilterBlockProps extends Animatable {
     tags: FilterTag[];
     items: FilterItem[];
+    title?: TitleItemProps | string;
+    description?: string;
     tagButtonSize?: ButtonSize;
     allTag?: boolean | string;
     colSizes?: GridColumnSizesType;
