@@ -248,6 +248,8 @@
 }
 
 @mixin background-hover($property: background) {
+    transition: #{$property} 240ms ease-in;
+
     &:hover {
         #{$property}: var(--hover-background-color);
     }
