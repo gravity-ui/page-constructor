@@ -248,10 +248,25 @@
 }
 
 @mixin background-hover($property: background) {
-    transition: #{$property} 240ms ease-in;
+    position: relative;
+    overflow: hidden;
 
-    &:hover {
-        #{$property}: var(--hover-background-color);
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: var(--hover-background-color);
+        opacity: 0;
+        transition: opacity 240ms ease-in;
+        pointer-events: none;
+        z-index: -1;
+    }
+
+    &:hover::before {
+        opacity: 1;
     }
 }
 
