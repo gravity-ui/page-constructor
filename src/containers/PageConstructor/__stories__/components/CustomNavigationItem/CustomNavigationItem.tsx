@@ -43,8 +43,9 @@ export const CustomNavigationItem = ({url, title, description}: CustomNavigation
                 <div className={b('popover-content')}>
                     {description && (
                         <YFMWrapper
-                            className={b('popover-content-description')}
+                            contentClassName={b('popover-content-description')}
                             content={yfmTransform(description)}
+                            tagName="div"
                         />
                     )}
                     <Wrapper className={b('popover-content-code')} href={url ?? ''}>
