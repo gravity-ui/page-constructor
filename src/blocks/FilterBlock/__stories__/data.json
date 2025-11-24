@@ -1,26 +1,12 @@
 {
   "default": {
-    "card": {
-      "type": "layout-item",
-      "media": {
-        "dark": {
-          "image": "/story-assets/img-mini_4-12_dark.png"
-        },
-        "light": {
-          "image": "/story-assets/img-mini_4-12_light.png"
-        }
-      },
-      "content": {
-        "title": "Lorem&nbsp;ipsum",
-        "text": "Dolor sit amet"
-      }
-    },
-    "content": {
-      "type": "card-layout-block",
-      "title": "Card Layout",
-      "description": "Three **cards in a row on the desktop**, two cards in a row on a tablet, one card in a row on a mobile phone."
-    },
-    "filters": [
+    "type": "filter-block",
+    "title": "Filter Block Example",
+    "description": "Three **cards in a row on the desktop**, two cards in a row on a tablet, one card in a row on a mobile phone.",
+    "allTag": false,
+    "tagButtonSize": "l",
+    "centered": false,
+    "tags": [
       {
         "id": "one",
         "label": "First very long label"
@@ -33,6 +19,123 @@
         "id": "three",
         "label": "Third very long label"
       }
-    ]
+    ],
+    "items": [
+      {
+        "tags": ["one"],
+        "card": {
+          "type": "layout-item",
+          "media": {
+            "dark": {
+              "image": "/story-assets/img-mini_4-12_dark.png"
+            },
+            "light": {
+              "image": "/story-assets/img-mini_4-12_light.png"
+            }
+          },
+          "content": {
+            "title": "Card 1",
+            "text": "Dolor sit amet consectetur adipiscing elit"
+          }
+        }
+      },
+      {
+        "tags": ["one"],
+        "card": {
+          "type": "layout-item",
+          "media": {
+            "dark": {
+              "image": "/story-assets/img-mini_4-12_dark.png"
+            },
+            "light": {
+              "image": "/story-assets/img-mini_4-12_light.png"
+            }
+          },
+          "content": {
+            "title": "Card 2",
+            "text": "Sed do eiusmod tempor incididunt ut labore"
+          }
+        }
+      },
+      {
+        "tags": ["two"],
+        "card": {
+          "type": "layout-item",
+          "media": {
+            "dark": {
+              "image": "/story-assets/img-mini_4-12_dark.png"
+            },
+            "light": {
+              "image": "/story-assets/img-mini_4-12_light.png"
+            }
+          },
+          "content": {
+            "title": "Card 3",
+            "text": "Et dolore magna aliqua ut enim ad minim"
+          }
+        }
+      },
+      {
+        "tags": ["two"],
+        "card": {
+          "type": "layout-item",
+          "media": {
+            "dark": {
+              "image": "/story-assets/img-mini_4-12_dark.png"
+            },
+            "light": {
+              "image": "/story-assets/img-mini_4-12_light.png"
+            }
+          },
+          "content": {
+            "title": "Card 4",
+            "text": "Veniam quis nostrud exercitation ullamco"
+          }
+        }
+      },
+      {
+        "tags": ["three"],
+        "card": {
+          "type": "layout-item",
+          "media": {
+            "dark": {
+              "image": "/story-assets/img-mini_4-12_dark.png"
+            },
+            "light": {
+              "image": "/story-assets/img-mini_4-12_light.png"
+            }
+          },
+          "content": {
+            "title": "Card 5",
+            "text": "Laboris nisi ut aliquip ex ea commodo"
+          }
+        }
+      },
+      {
+        "tags": ["three"],
+        "card": {
+          "type": "layout-item",
+          "media": {
+            "dark": {
+              "image": "/story-assets/img-mini_4-12_dark.png"
+            },
+            "light": {
+              "image": "/story-assets/img-mini_4-12_light.png"
+            }
+          },
+          "content": {
+            "title": "Card 6",
+            "text": "Consequat duis aute irure dolor in reprehenderit"
+          }
+        }
+      }
+    ],
+    "colSizes": {
+      "all": 12,
+      "xl": 4,
+      "lg": 4,
+      "md": 6,
+      "sm": 12
+    }
   }
 }
