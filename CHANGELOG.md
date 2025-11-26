@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.21.1](https://github.com/gravity-ui/page-constructor/compare/v7.21.0...v7.21.1) (2025-11-26)
+
+
+### Bug Fixes
+
+* **BasicCard:** add animation for hover background color ([#1334](https://github.com/gravity-ui/page-constructor/issues/1334)) ([7ebabde](https://github.com/gravity-ui/page-constructor/commit/7ebabde30b5fb1030814bd0c05e910a2350a2a23))
+
 ## [7.21.0](https://github.com/gravity-ui/page-constructor/compare/v7.20.0...v7.21.0) (2025-11-18)
 
 
