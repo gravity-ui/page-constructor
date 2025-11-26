@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.22.0](https://github.com/gravity-ui/page-constructor/compare/v7.21.1...v7.22.0) (2025-11-26)
+
+
+### Features
+
+* **FormBlock:** add content labels, stub, update background ([#1314](https://github.com/gravity-ui/page-constructor/issues/1314)) ([044ced8](https://github.com/gravity-ui/page-constructor/commit/044ced812937014597307a8b056fbfef4ad3a295))
+
 ## [7.21.1](https://github.com/gravity-ui/page-constructor/compare/v7.21.0...v7.21.1) (2025-11-26)
 
 
