@@ -1,1 +1,1 @@
-export * from './BreakpointContext';
+export * from './WindowWidthContext';

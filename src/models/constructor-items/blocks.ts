@@ -4,6 +4,7 @@ import {ButtonSize} from '@gravity-ui/uikit';
 
 import {GridColumnSize, GridColumnSizesType, IndentValue} from '../../grid/types';
 import {ThemeSupporting} from '../../utils';
+import {DeviceSupporting} from '../../utils/breakpoint';
 import {AnalyticsEventsBase} from '../common';
 
 import {
@@ -201,7 +202,10 @@ export interface HeaderBlockProps {
 }
 
 export interface ExtendedFeaturesItem
-    extends Omit<ContentBlockProps, 'theme' | 'centered' | 'colSizes' | 'size' | 'title'> {
+    extends Omit<
+        ContentBlockProps,
+        'theme' | 'centered' | 'colSizes' | 'size' | 'title' | 'labels'
+    > {
     title: string;
     label?: string;
     icon?: ThemedImage;
@@ -238,7 +242,7 @@ export interface QuestionItem {
 }
 
 export interface QuestionsProps
-    extends Omit<ContentBlockProps, 'colSizes' | 'centered' | 'size' | 'theme'> {
+    extends Omit<ContentBlockProps, 'colSizes' | 'centered' | 'size' | 'theme' | 'labels'> {
     items: QuestionItem[];
 }
 
@@ -255,7 +259,7 @@ export interface FoldableListItem {
 }
 
 export interface FoldableListProps
-    extends Omit<ContentBlockProps, 'colSizes' | 'centered' | 'size' | 'theme'> {
+    extends Omit<ContentBlockProps, 'colSizes' | 'centered' | 'size' | 'theme' | 'labels'> {
     items: FoldableListItem[];
 }
 
@@ -281,7 +285,7 @@ export interface MediaBaseBlockProps extends Animatable, MediaContentProps {
 }
 
 export interface MediaContentProps
-    extends Omit<ContentBlockProps, 'colSizes' | 'text' | 'theme' | 'centered'> {
+    extends Omit<ContentBlockProps, 'colSizes' | 'text' | 'theme' | 'centered' | 'labels'> {
     description?: string;
     /** @deprecated  Use array of buttons from ContentBlockProps instead**/
     button?: ButtonProps;
@@ -306,8 +310,8 @@ export interface InfoBlockProps {
     sectionsTitle?: string;
     /** @deprecated **/
     links?: Pick<LinkProps, 'text' | 'url'>[];
-    leftContent?: Omit<ContentBlockProps, 'colSizes' | 'theme' | 'size'>;
-    rightContent?: Omit<ContentBlockProps, 'colSizes' | 'theme' | 'size'>;
+    leftContent?: Omit<ContentBlockProps, 'colSizes' | 'theme' | 'size' | 'labels'>;
+    rightContent?: Omit<ContentBlockProps, 'colSizes' | 'theme' | 'size' | 'labels'>;
 }
 
 export interface TableProps {
@@ -328,7 +332,7 @@ export interface TableBlockProps {
 }
 
 export interface TabsBlockItem
-    extends Omit<ContentBlockProps, 'size' | 'colSizes' | 'centered' | 'theme'>,
+    extends Omit<ContentBlockProps, 'size' | 'colSizes' | 'centered' | 'theme' | 'labels'>,
         WithBorder {
     tabName: string;
     /**
@@ -406,7 +410,7 @@ interface ContentLayoutBlockParams {
 }
 
 export interface ContentLayoutBlockProps extends ContentLayoutBlockParams {
-    textContent: ContentBlockProps;
+    textContent: Omit<ContentBlockProps, 'labels'>;
     fileContent?: FileLinkProps[];
 }
 
@@ -425,6 +429,18 @@ export interface ContentListProps {
     theme?: ContentTheme;
 }
 
+export interface ContentLabelProps {
+    text: string;
+    icon?: ThemeSupporting<ImageProps | SVGIcon>;
+    gravityIcon?: ThemeSupporting<GravityIconProps>;
+}
+
+export interface ContentLabelsProps {
+    labels: ContentLabelProps[];
+    size?: ContentSize;
+    theme?: ContentTheme;
+}
+
 export interface ContentBlockProps {
     title?: TitleItemBaseProps | string;
     titleId?: string;
@@ -438,6 +454,7 @@ export interface ContentBlockProps {
     centered?: boolean;
     theme?: ContentTheme;
     list?: ContentItemProps[];
+    labels?: ContentLabelProps[];
     controlPosition?: 'default' | 'bottom';
 }
 
@@ -475,12 +492,17 @@ export interface FormBlockHubspotData {
 
 export type FormBlockData = FormBlockYandexData | FormBlockHubspotData;
 
+export interface FormBlockBackgroundProps extends Omit<BackgroundImageProps, 'style'> {
+    style?: DeviceSupporting<React.CSSProperties>;
+}
+
 export interface FormBlockProps {
     formData: FormBlockData;
     title?: string;
     textContent?: Omit<ContentBlockProps, 'centered' | 'colSizes' | 'size'>;
     direction?: FormBlockDirection;
-    background?: ThemeSupporting<BackgroundImageProps>;
+    background?: ThemeSupporting<FormBlockBackgroundProps>;
+    customFormNode?: React.ReactNode;
 }
 
 //block models

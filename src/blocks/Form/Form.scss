@@ -106,6 +106,7 @@ $largeBorderRadius: 32px;
         }
     }
 
+    $labelsBlock: '.#{$ns}content-labels';
     @media (min-width: map-get($gridBreakpoints, 'lg')) {
         &_form-type_yandex {
             #{$root}__row {
@@ -133,7 +134,7 @@ $largeBorderRadius: 32px;
         }
     }
 
-    @media (max-width: map-get($gridBreakpoints, 'lg')) and (min-width: map-get($gridBreakpoints, 'md')) {
+    @media (max-width: calc(map-get($gridBreakpoints, 'lg') - 1px)) and (min-width: map-get($gridBreakpoints, 'md')) {
         &__row {
             flex-direction: column;
         }
@@ -161,6 +162,10 @@ $largeBorderRadius: 32px;
                 #{$root}__content-wrapper {
                     text-align: center;
                     padding-bottom: $indentM;
+
+                    #{$labelsBlock} {
+                        justify-content: center;
+                    }
                 }
             }
         }
@@ -172,7 +177,7 @@ $largeBorderRadius: 32px;
         }
     }
 
-    @media (max-width: map-get($gridBreakpoints, 'md')) {
+    @media (max-width: calc(map-get($gridBreakpoints, 'md') - 1px)) {
         &__full-form {
             padding: $indentM;
         }
