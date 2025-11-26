@@ -44,7 +44,7 @@ export const WithBackgroundColor = VariantsTemplate.bind([]);
 export const WithBackgroundImage = VariantsTemplate.bind([]);
 export const DarkTheme = VariantsTemplate.bind([]);
 export const FormData = VariantsTemplate.bind([]);
-export const WithStub = DefaultTemplate.bind([]);
+export const WithCustomFormNode = DefaultTemplate.bind([]);
 
 Default.args = data.default as FormBlockModel;
 
@@ -92,4 +92,4 @@ FormData.parameters = {
     },
 };
 
-WithStub.args = {...data.default, stub: <ExampleStub />} as FormBlockModel;
+WithCustomFormNode.args = {...data.default, customFormNode: <ExampleStub />} as FormBlockModel;

@@ -502,7 +502,7 @@ export interface FormBlockProps {
     textContent?: Omit<ContentBlockProps, 'centered' | 'colSizes' | 'size'>;
     direction?: FormBlockDirection;
     background?: ThemeSupporting<FormBlockBackgroundProps>;
-    stub?: React.ReactNode;
+    customFormNode?: React.ReactNode;
 }
 
 //block models

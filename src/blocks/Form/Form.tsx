@@ -31,7 +31,7 @@ const Form = (props: FormBlockProps) => {
         textContent,
         direction = FormBlockDirection.Center,
         background,
-        stub,
+        customFormNode,
     } = props;
     const [contentLoaded, setContentLoaded] = React.useState(false);
     const isMobile = React.useContext(MobileContext);
@@ -51,7 +51,7 @@ const Form = (props: FormBlockProps) => {
         setContentLoaded(true);
     }, []);
 
-    if (!formData && !stub) {
+    if (!formData && !customFormNode) {
         return null;
     }
 
@@ -109,7 +109,7 @@ const Form = (props: FormBlockProps) => {
                                     hidden: !contentLoaded,
                                 })}
                             >
-                                {stub || (
+                                {customFormNode || (
                                     <React.Fragment>
                                         {title && (
                                             <Title

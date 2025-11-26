@@ -7,7 +7,7 @@ import {
     FormData,
     WithBackgroundColor,
     WithBackgroundImage,
-    WithStub,
+    WithCustomFormNode,
 } from './helpers';
 
 const DEFAULT_FORM_DELAY = 20 * 1000;
@@ -50,8 +50,8 @@ test.describe('Form', () => {
         await expectScreenshot({skipTheme: 'dark'});
     });
 
-    test.skip('render stories <WithStub>', async ({mount, expectScreenshot, delay}) => {
-        await mount(<WithStub />);
+    test.skip('render stories <WithCustomFormNode>', async ({mount, expectScreenshot, delay}) => {
+        await mount(<WithCustomFormNode />);
         await delay(DEFAULT_FORM_DELAY);
         await expectScreenshot({skipTheme: 'dark'});
     });

@@ -11,7 +11,7 @@ const ExampleStub = () => {
                 gap: 24,
             }}
         >
-            <h1>This is an example stub</h1>
+            <h1>This is an example form component</h1>
             <p>It can be anything</p>
             <Button size="xl" view="action">
                 Got it!
