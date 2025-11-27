@@ -73,6 +73,17 @@ Recent development has focused on:
     - **Flexible Styling**: Allows any valid CSS color value (hex, rgb, rgba, named colors, etc.)
     - **Backward Compatibility**: Optional property that doesn't affect existing implementations
 
+11. **CardLayout Title Centering Enhancement**: Added title centering support for CardLayout block:
+
+    - **New Prop**: Added `centered?: boolean` prop to `CardLayoutBlockProps` for centering title and subtitle
+    - **Default Behavior**: Default value is `false`, maintaining backward compatibility (left-aligned by default)
+    - **Title Component Enhancement**: Extended `Title` component with `colJustifyContent?: GridJustifyContent` prop for controlling title and subtitle alignment
+    - **Responsive Behavior**: Dynamic `colSizes` based on `centered` prop:
+      - When `centered === false`: `sm: 8` (allows left-aligned title with narrower column)
+      - When `centered === true`: `sm: 12` (full width for centered title)
+    - **Implementation Logic**: Uses conditional check `centered ? GridJustifyContent.Center : GridJustifyContent.Start` for alignment and `centered ? 12 : 8` for column size
+    - **No Breaking Changes**: All changes are backward compatible with default `centered: false` value
+
 ## Active Decisions and Considerations
 
 ### Architecture

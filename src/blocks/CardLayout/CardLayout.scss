@@ -19,6 +19,12 @@ $largeBorderRadius: 32px;
         }
     }
 
+    &__title {
+        &_centered {
+            text-align: center;
+        }
+    }
+
     &__image {
         position: absolute;
         top: 0;
