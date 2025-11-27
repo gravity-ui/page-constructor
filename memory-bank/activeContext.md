@@ -73,6 +73,18 @@ Recent development has focused on:
     - **Flexible Styling**: Allows any valid CSS color value (hex, rgb, rgba, named colors, etc.)
     - **Backward Compatibility**: Optional property that doesn't affect existing implementations
 
+11. **CardLayout Title Positioning Enhancement**: Added flexible title positioning for CardLayout block:
+
+    - **New Prop**: Added `titlePosition?: CardLayoutTitlePosition` prop to `CardLayoutBlockProps` with values `'start' | 'center' | 'end'`
+    - **Default Behavior**: Default value is `'start'`, maintaining backward compatibility
+    - **Title Component Enhancement**: Extended `Title` component with `colJustifyContent?: GridJustifyContent` prop for controlling title and subtitle alignment
+    - **Responsive Behavior**: Dynamic `colSizes` based on position:
+      - For `'start'` position: `sm: 8` (allows left-aligned title with narrower column)
+      - For `'center'` and `'end'` positions: `sm: 12` (full width for centered/right-aligned titles)
+    - **Implementation Logic**: Uses conditional check `TITLE_POSITION_TO_JUSTIFY_CONTENT[titlePosition] === GridJustifyContent.Start ? 8 : 12` to determine column size
+    - **Type Safety**: New `CardLayoutTitlePosition` type exported from models
+    - **No Breaking Changes**: All changes are backward compatible with default `'start'` position
+
 ## Active Decisions and Considerations
 
 ### Architecture

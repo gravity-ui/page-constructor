@@ -49,6 +49,17 @@ Recently updated sub-block components with enhanced consistency:
 - **ContentList**: Enhanced with Gravity icons support for list items
 - **IconWrapper**: Updated to support both traditional image icons and Gravity UI icons
 
+### Layout Blocks Enhancement
+
+- **CardLayout Block**: Enhanced with flexible title positioning:
+  - **Title Position Control**: New `titlePosition` prop allows positioning title at `'start'`, `'center'`, or `'end'`
+  - **Title Component**: Extended with `colJustifyContent` prop for alignment control
+  - **Responsive Layout**: Dynamic column sizes adapt based on title position:
+    - `'start'` position uses `sm: 8` for narrower left-aligned title column
+    - `'center'` and `'end'` positions use `sm: 12` for full-width centered/right-aligned titles
+  - **Implementation**: Conditional logic checks if position equals `GridJustifyContent.Start` to determine column size
+  - **Backward Compatible**: Default `'start'` position maintains existing behavior
+
 ### Icon System
 
 Enhanced icon capabilities with Gravity UI integration:

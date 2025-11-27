@@ -110,7 +110,8 @@
     "content": {
       "type": "card-layout-block",
       "title": "Card layout with basic cards",
-      "description": "Three cards in a row on the desktop, two cards in a row on a tablet, one card in a row on a mobile phone."
+      "description": "Three cards in a row on the desktop, two cards in a row on a tablet, one card in a row on a mobile phone.",
+      "titlePosition": "start"
     }
   },
   "colSizes": {
@@ -172,6 +173,7 @@
       "type": "card-layout-block",
       "title": "Card layout with background image (basic cards)",
       "description": "Four cards in a row on the desktop, three cards in a row on the mini-desktop, two cards in a row on a tablet, one card in a row on a mobile phone.",
+      "titlePosition": "start",
       "colSizes": {
         "all": 12,
         "sm": 6,

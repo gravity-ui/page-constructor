@@ -354,9 +354,12 @@ export interface TabsBlockProps extends Animatable {
     contentSize?: ContentSize;
 }
 
+export type CardLayoutTitlePosition = 'start' | 'center' | 'end';
+
 export interface CardLayoutBlockProps extends Childable, Animatable, LoadableChildren {
     title?: TitleItemProps | string;
     titleClassName?: string;
+    titlePosition?: CardLayoutTitlePosition;
     description?: string;
     colSizes?: GridColumnSizesType;
     background?: ThemeSupporting<
