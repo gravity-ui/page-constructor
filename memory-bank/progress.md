@@ -51,14 +51,14 @@ Recently updated sub-block components with enhanced consistency:
 
 ### Layout Blocks Enhancement
 
-- **CardLayout Block**: Enhanced with flexible title positioning:
-  - **Title Position Control**: New `titlePosition` prop allows positioning title at `'start'`, `'center'`, or `'end'`
+- **CardLayout Block**: Enhanced with title centering support:
+  - **Title Centering Control**: New `centered?: boolean` prop allows centering title and subtitle
   - **Title Component**: Extended with `colJustifyContent` prop for alignment control
-  - **Responsive Layout**: Dynamic column sizes adapt based on title position:
-    - `'start'` position uses `sm: 8` for narrower left-aligned title column
-    - `'center'` and `'end'` positions use `sm: 12` for full-width centered/right-aligned titles
-  - **Implementation**: Conditional logic checks if position equals `GridJustifyContent.Start` to determine column size
-  - **Backward Compatible**: Default `'start'` position maintains existing behavior
+  - **Responsive Layout**: Dynamic column sizes adapt based on `centered` prop:
+    - When `centered === false`: uses `sm: 8` for narrower left-aligned title column
+    - When `centered === true`: uses `sm: 12` for full-width centered title
+  - **Implementation**: Conditional logic `centered ? GridJustifyContent.Center : GridJustifyContent.Start` for alignment and `centered ? 12 : 8` for column size
+  - **Backward Compatible**: Default `centered: false` maintains existing left-aligned behavior
 
 ### Icon System
 

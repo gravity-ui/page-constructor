@@ -73,17 +73,16 @@ Recent development has focused on:
     - **Flexible Styling**: Allows any valid CSS color value (hex, rgb, rgba, named colors, etc.)
     - **Backward Compatibility**: Optional property that doesn't affect existing implementations
 
-11. **CardLayout Title Positioning Enhancement**: Added flexible title positioning for CardLayout block:
+11. **CardLayout Title Centering Enhancement**: Added title centering support for CardLayout block:
 
-    - **New Prop**: Added `titlePosition?: CardLayoutTitlePosition` prop to `CardLayoutBlockProps` with values `'start' | 'center' | 'end'`
-    - **Default Behavior**: Default value is `'start'`, maintaining backward compatibility
+    - **New Prop**: Added `centered?: boolean` prop to `CardLayoutBlockProps` for centering title and subtitle
+    - **Default Behavior**: Default value is `false`, maintaining backward compatibility (left-aligned by default)
     - **Title Component Enhancement**: Extended `Title` component with `colJustifyContent?: GridJustifyContent` prop for controlling title and subtitle alignment
-    - **Responsive Behavior**: Dynamic `colSizes` based on position:
-      - For `'start'` position: `sm: 8` (allows left-aligned title with narrower column)
-      - For `'center'` and `'end'` positions: `sm: 12` (full width for centered/right-aligned titles)
-    - **Implementation Logic**: Uses conditional check `TITLE_POSITION_TO_JUSTIFY_CONTENT[titlePosition] === GridJustifyContent.Start ? 8 : 12` to determine column size
-    - **Type Safety**: New `CardLayoutTitlePosition` type exported from models
-    - **No Breaking Changes**: All changes are backward compatible with default `'start'` position
+    - **Responsive Behavior**: Dynamic `colSizes` based on `centered` prop:
+      - When `centered === false`: `sm: 8` (allows left-aligned title with narrower column)
+      - When `centered === true`: `sm: 12` (full width for centered title)
+    - **Implementation Logic**: Uses conditional check `centered ? GridJustifyContent.Center : GridJustifyContent.Start` for alignment and `centered ? 12 : 8` for column size
+    - **No Breaking Changes**: All changes are backward compatible with default `centered: false` value
 
 ## Active Decisions and Considerations
 
