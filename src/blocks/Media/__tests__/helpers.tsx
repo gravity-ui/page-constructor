@@ -13,4 +13,5 @@ export const {
     WithoutShadow,
     WithBorder,
     Iframe,
+    ContentVariables,
 } = composeStories(MediaStories);
