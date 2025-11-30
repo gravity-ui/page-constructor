@@ -10,13 +10,6 @@ export default {
     parameters: {
         layout: 'centered',
     },
-    argTypes: {
-        isError: {control: 'boolean'},
-        text: {control: 'text'},
-        buttonText: {control: 'text'},
-        className: {control: 'text'},
-        handler: {action: 'onRetry'},
-    },
 } as Meta<ErrorWrapperProps>;
 
 const Template: StoryFn<ErrorWrapperProps> = (args) => <ErrorWrapper {...args} />;
