@@ -6,5 +6,30 @@
       "buttonText": "Try again",
       "children": "These are children"
     }
+  },
+  "noError": {
+    "content": {
+      "text": "Something went wrong",
+      "isError": false,
+      "buttonText": "Try again",
+      "children": "Everything is fine, rendering content."
+    }
+  },
+  "customClass": {
+    "content": {
+      "text": "Custom styled error",
+      "isError": true,
+      "buttonText": "Retry",
+      "className": "custom-error",
+      "children": "Child content"
+    }
+  },
+  "noHandler": {
+    "content": {
+      "text": "Error without handler",
+      "isError": true,
+      "buttonText": "No action",
+      "children": "No handler provided"
+    }
   }
 }
