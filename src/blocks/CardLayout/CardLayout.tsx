@@ -46,10 +46,6 @@ const CardLayout = ({
                     colJustifyContent={
                         centered ? GridJustifyContent.Center : GridJustifyContent.Start
                     }
-                    colSizes={{
-                        all: 12,
-                        sm: centered ? 12 : 8,
-                    }}
                 />
             )}
             <div
