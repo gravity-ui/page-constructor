@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.23.0](https://github.com/gravity-ui/page-constructor/compare/v7.22.0...v7.23.0) (2025-12-03)
+
+
+### Features
+
+* add ability to centered title in cardLayoutBlock ([#1337](https://github.com/gravity-ui/page-constructor/issues/1337)) ([bb51c0e](https://github.com/gravity-ui/page-constructor/commit/bb51c0e3d7acd326baa6b32a99a2243a2718aaff))
+
 ## [7.22.0](https://github.com/gravity-ui/page-constructor/compare/v7.21.1...v7.22.0) (2025-11-26)
 
 
