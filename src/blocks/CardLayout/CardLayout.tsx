@@ -4,7 +4,7 @@ import isEmpty from 'lodash/isEmpty';
 
 import {AnimateBlock, BackgroundImage, Title} from '../../components';
 import {useTheme} from '../../context/theme';
-import {Col, GridColumnSizesType, Row} from '../../grid';
+import {Col, GridColumnSizesType, GridJustifyContent, Row} from '../../grid';
 import {CardLayoutBlockProps as CardLayoutBlockParams, ClassNameProps} from '../../models';
 import {block, getThemedValue} from '../../utils';
 
@@ -15,6 +15,7 @@ const DEFAULT_SIZES: GridColumnSizesType = {
     sm: 6,
     md: 4,
 };
+
 export type CardLayoutBlockProps = React.PropsWithChildren<
     Omit<CardLayoutBlockParams, 'children'>
 > &
@@ -31,13 +32,21 @@ const CardLayout = ({
     className,
     titleClassName,
     background,
+    centered = false,
 }: CardLayoutBlockProps) => {
     const theme = useTheme();
     const {border, ...backgroundImageProps} = getThemedValue(background || {}, theme);
     return (
         <AnimateBlock className={b(null, className)} animate={animated}>
             {(title || description) && (
-                <Title title={title} subtitle={description} className={titleClassName} />
+                <Title
+                    title={title}
+                    subtitle={description}
+                    className={b('title', {centered}, titleClassName)}
+                    colJustifyContent={
+                        centered ? GridJustifyContent.Center : GridJustifyContent.Start
+                    }
+                />
             )}
             <div
                 className={b('content', {
