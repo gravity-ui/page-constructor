@@ -1,5 +1,6 @@
 import {Meta, StoryFn} from '@storybook/react';
 
+import {yfmTransform} from '../../../../.storybook/utils';
 import {ClassNameProps} from '../../../models';
 import YFMWrapper, {YFMWrapperProps} from '../YFMWrapper';
 
@@ -16,4 +17,4 @@ const DefaultTemplate: StoryFn<YFMWrapperProps & ClassNameProps> = (args) => (
 
 export const Default = DefaultTemplate.bind({});
 
-Default.args = data.default.content;
+Default.args = {...data.default.content, content: yfmTransform(data.default.content.content)};
