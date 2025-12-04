@@ -1,4 +1,4 @@
-import {Swiper as SwiperProps} from 'swiper/swiper-react';
+import type {SwiperProps} from 'swiper/react';
 
 import {setElementAtrributes} from './utils';
 
