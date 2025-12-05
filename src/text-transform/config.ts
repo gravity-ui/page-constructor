@@ -272,6 +272,11 @@ export const config: BlocksConfig = {
             transformer: yfmTransformer,
             parser: parseFeatures,
         },
+        {
+            fields: ['list'],
+            transformer: yfmTransformer,
+            parser: parseFeatures,
+        },
     ],
     [BlockType.FoldableListBlock]: [
         {
