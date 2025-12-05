@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.24.0](https://github.com/gravity-ui/page-constructor/compare/v7.23.0...v7.24.0) (2025-12-05)
+
+
+### Features
+
+* **FoldableList:** add yfm support for list prop ([#1342](https://github.com/gravity-ui/page-constructor/issues/1342)) ([7e36ea8](https://github.com/gravity-ui/page-constructor/commit/7e36ea85582ba47483ae9dbac1480560708efb8c))
+
 ## [7.23.0](https://github.com/gravity-ui/page-constructor/compare/v7.22.0...v7.23.0) (2025-12-03)
 
 
