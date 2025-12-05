@@ -1,8 +1,8 @@
 import {Meta, StoryFn} from '@storybook/react';
 
-import {PageConstructor} from '../../../containers/PageConstructor';
+import {blockTransform} from '../../../../.storybook/utils';
 import {BannerCardModel, BasicCardModel, SliderBlockModel} from '../../../models';
-import Slider from '../Slider';
+import Slider, {SliderBlock, SliderProps} from '../Slider';
 
 import data from './data.json';
 
@@ -15,50 +15,56 @@ export default {
         adaptive: undefined,
         randomOrder: undefined,
     },
-    argTypes: {
-        description: {control: 'text'},
-        autoplay: {control: 'number'},
-        adaptive: {control: 'boolean'},
-        randomOrder: {control: 'boolean'},
-    },
 } as Meta;
 
-const DefaultTemplate: StoryFn<SliderBlockModel> = (args) => (
-    <PageConstructor content={{blocks: [args]}} />
-);
+const DefaultTemplate: StoryFn<SliderBlockModel> = (args) => {
+    const transformedArgs = blockTransform(args) as SliderProps;
 
-const SlidesToShowTemplate: StoryFn<SliderBlockModel> = (args) => (
-    <PageConstructor
-        content={{
-            blocks: [
-                {
-                    ...args,
-                    title: data.slidesToShow.one.title,
-                    slidesToShow: data.slidesToShow.one.slidesToShow,
-                    children: data.banners.content.children as BannerCardModel[],
-                },
-                {
-                    ...args,
-                    title: data.slidesToShow.two.title,
-                    slidesToShow: data.slidesToShow.two.slidesToShow,
-                    children: data.default.content.children as BasicCardModel[],
-                },
-                {
-                    ...args,
-                    title: data.slidesToShow.three.title,
-                    slidesToShow: data.slidesToShow.three.slidesToShow,
-                    children: data.default.content.children as BasicCardModel[],
-                },
-                {
-                    ...args,
-                    title: data.slidesToShow.four.title,
-                    slidesToShow: data.slidesToShow.four.slidesToShow,
-                    children: data.default.content.children as BasicCardModel[],
-                },
-            ],
-        }}
-    />
-);
+    return (
+        <div style={{padding: '64px'}}>
+            <SliderBlock {...transformedArgs} />
+        </div>
+    );
+};
+
+const SlidesToShowTemplate: StoryFn<SliderBlockModel> = (args) => {
+    const transformedArgs1 = blockTransform({
+        ...args,
+        title: data.slidesToShow.one.title,
+        slidesToShow: data.slidesToShow.one.slidesToShow,
+        children: data.banners.content.children as BannerCardModel[],
+    }) as SliderProps;
+
+    const transformedArgs2 = blockTransform({
+        ...args,
+        title: data.slidesToShow.two.title,
+        slidesToShow: data.slidesToShow.two.slidesToShow,
+        children: data.default.content.children as BasicCardModel[],
+    }) as SliderProps;
+
+    const transformedArgs3 = blockTransform({
+        ...args,
+        title: data.slidesToShow.three.title,
+        slidesToShow: data.slidesToShow.three.slidesToShow,
+        children: data.default.content.children as BasicCardModel[],
+    }) as SliderProps;
+
+    const transformedArgs4 = blockTransform({
+        ...args,
+        title: data.slidesToShow.four.title,
+        slidesToShow: data.slidesToShow.four.slidesToShow,
+        children: data.default.content.children as BasicCardModel[],
+    }) as SliderProps;
+
+    return (
+        <div style={{padding: 64, display: 'flex', gap: 20, flexDirection: 'column'}}>
+            <SliderBlock {...transformedArgs1} />
+            <SliderBlock {...transformedArgs2} />
+            <SliderBlock {...transformedArgs3} />
+            <SliderBlock {...transformedArgs4} />
+        </div>
+    );
+};
 
 export const Default = DefaultTemplate.bind({});
 export const QuoteCards = DefaultTemplate.bind({});
