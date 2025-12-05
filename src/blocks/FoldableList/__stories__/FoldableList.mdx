@@ -9,7 +9,14 @@ import * as FoldableListStories from './FoldableList.stories.tsx';
 
 `type: 'foldable-list-block'`
 
-`title?: Title | string` — Block title (on the left)
+`items: FoldableListItem[]`
+
+- `title: string` — Foldable list title (on the right)
+- `text: string` — Foldable item text
+- `link?: Link` — Link below the text (see [Link](?path=/docs/documentation-types--docs#link))
+- `listStyle?: 'dash' | 'disk'` — If the text contains a list, it may be either with a dash (dash) or with dots (disk).
+
+`title?: Title | string` — Block title on the left (see [Title](?path=/docs/documentation-types--docs#title-block-title))
 
 `text?: string` — Text (with YFM support)
 
@@ -18,12 +25,5 @@ import * as FoldableListStories from './FoldableList.stories.tsx';
 `links?: Link[]` — An array with link objects (see [Content-blocks](?path=/docs/documentation-types--docs))
 
 `buttons?: Button[]` — An array with button objects (see [Content-blocks](?path=/docs/documentation-types--docs))
-
-`items: FoldableListItem[]`
-
-- `title: string` — Foldable list title (on the right)
-- `text: string` — Foldable item text
-- `link?: Link` — Link below the text (see [Link](?path=/docs/documentation-types--docs#link))
-- `listStyle?: 'dash' | 'disk'` — If the text contains a list, it may be either with a dash (dash) or with dots (disk).
 </StoryTemplate>
 
