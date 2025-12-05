@@ -1,7 +1,6 @@
 import {Meta, StoryFn} from '@storybook/react';
 
-import {yfmTransform} from '../../../../.storybook/utils';
-import {PageConstructor} from '../../../containers/PageConstructor';
+import {blockTransform} from '../../../../.storybook/utils';
 import {PromoFeaturesBlockModel, PromoFeaturesProps} from '../../../models';
 import PromoFeaturesBlock from '../PromoFeaturesBlock';
 
@@ -15,35 +14,25 @@ export default {
     },
 } as Meta;
 
-const DefaultTemplate: StoryFn<PromoFeaturesBlockModel> = (args) => (
-    <PageConstructor content={{blocks: [args]}} />
-);
+const DefaultTemplate: StoryFn<PromoFeaturesBlockModel> = (args) => {
+    const transformedArgs = blockTransform(args) as PromoFeaturesProps;
+    return (
+        <div style={{padding: '64px'}}>
+            <PromoFeaturesBlock {...transformedArgs} />
+        </div>
+    );
+};
 
 export const DefaultTheme = DefaultTemplate.bind({});
 export const GreyTheme = DefaultTemplate.bind({});
 
-const DefaultArgs = {
-    ...data.common,
-    description: yfmTransform(data.common.description),
-};
+const DefaultArgs = data.common;
 
 DefaultTheme.args = {
     ...DefaultArgs,
     ...data.defaultTheme.content,
-    items: data.defaultTheme.content.items.map((item) => {
-        return {
-            ...item,
-            text: yfmTransform(item.text),
-        };
-    }),
 } as PromoFeaturesProps;
 GreyTheme.args = {
     ...DefaultArgs,
     ...data.greyTheme.content,
-    items: data.greyTheme.content.items.map((item) => {
-        return {
-            ...item,
-            text: yfmTransform(item.text),
-        };
-    }),
 } as PromoFeaturesProps;
