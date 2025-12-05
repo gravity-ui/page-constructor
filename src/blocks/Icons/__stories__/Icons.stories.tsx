@@ -2,8 +2,8 @@ import * as React from 'react';
 
 import {Meta, StoryFn} from '@storybook/react';
 
-import {yfmTransform} from '../../../../.storybook/utils';
-import {PageConstructor} from '../../../containers/PageConstructor/PageConstructor';
+import {IconsBlock} from '../..';
+import {blockTransform} from '../../../../.storybook/utils';
 import {IconsBlockModel, IconsBlockProps} from '../../../models';
 import Icons from '../Icons';
 
@@ -14,13 +14,23 @@ export default {
     component: Icons,
 } as Meta;
 
-const DefaultTemplate: StoryFn<IconsBlockModel> = (args) => (
-    <PageConstructor content={{blocks: [args]}} />
-);
+const DefaultTemplate: StoryFn<IconsBlockModel> = (args) => {
+    const transformedArgs = blockTransform(args) as IconsBlockProps;
+    return (
+        <div style={{padding: '64px'}}>
+            <IconsBlock {...transformedArgs} />
+        </div>
+    );
+};
 
-const WithDescriptionTemplate: StoryFn<IconsBlockModel> = (args) => (
-    <PageConstructor content={{blocks: [args]}} />
-);
+const WithDescriptionTemplate: StoryFn<IconsBlockModel> = (args) => {
+    const transformedArgs = blockTransform(args) as IconsBlockProps;
+    return (
+        <div style={{padding: '64px'}}>
+            <IconsBlock {...transformedArgs} />
+        </div>
+    );
+};
 
 const SizeTemplate: StoryFn<IconsBlockModel> = (args) => (
     <React.Fragment>
@@ -30,45 +40,36 @@ const SizeTemplate: StoryFn<IconsBlockModel> = (args) => (
     </React.Fragment>
 );
 
-const ColSizeTemplate: StoryFn<IconsBlockModel> = (args) => (
-    <React.Fragment>
-        <PageConstructor
-            content={{
-                blocks: [
-                    {
-                        ...args,
-                        title: 'ColSize 12',
-                    },
-                    {
-                        ...args,
-                        title: 'ColSize 8',
-                        colSizes: {all: 8},
-                    },
-                    {
-                        ...args,
-                        title: 'ColSize 4',
-                        colSizes: {all: 4},
-                    },
-                ],
-            }}
-        />
-    </React.Fragment>
-);
+const ColSizeTemplate: StoryFn<IconsBlockModel> = (args) => {
+    const transformedArgs12 = blockTransform({
+        ...args,
+        title: 'ColSize 12',
+    }) as IconsBlockProps;
+    const transformedArgs8 = blockTransform({
+        ...args,
+        title: 'ColSize 8',
+        colSizes: {all: 8},
+    }) as IconsBlockProps;
+    const transformedArgs4 = blockTransform({
+        ...args,
+        title: 'ColSize 4',
+        colSizes: {all: 4},
+    }) as IconsBlockProps;
+    return (
+        <div style={{padding: '64px'}}>
+            <IconsBlock {...transformedArgs12} />
+            <IconsBlock {...transformedArgs8} />
+            <IconsBlock {...transformedArgs4} />
+        </div>
+    );
+};
 
 export const Default = DefaultTemplate.bind([]);
 export const Size = SizeTemplate.bind([]);
 export const WithText = WithDescriptionTemplate.bind({});
 export const HeaderColSize = ColSizeTemplate.bind({});
 
-const transformedText = yfmTransform(data.withDescription.content.description);
-
 Default.args = data.default.content as IconsBlockProps;
 Size.args = data.size.content as Omit<IconsBlockProps, 'size'>;
-WithText.args = {
-    ...data.withDescription.content,
-    description: transformedText,
-} as IconsBlockProps;
-HeaderColSize.args = {
-    ...data.withDescription.content,
-    description: transformedText,
-} as IconsBlockProps;
+WithText.args = data.withDescription.content as IconsBlockProps;
+HeaderColSize.args = data.withDescription.content as IconsBlockProps;
