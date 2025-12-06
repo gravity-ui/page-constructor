@@ -1,8 +1,8 @@
 import {Meta, StoryFn} from '@storybook/react';
 
-import {PageConstructor} from '../../../containers/PageConstructor';
-import {TableBlockModel} from '../../../models';
-import Table from '../Table';
+import {blockTransform} from '../../../../.storybook/utils';
+import {TableBlockModel, TableBlockProps} from '../../../models';
+import Table, {TableBlock} from '../Table';
 
 import data from './data.json';
 
@@ -12,7 +12,7 @@ export default {
 } as Meta;
 
 const DefaultTemplate: StoryFn<TableBlockModel> = (args) => (
-    <PageConstructor content={{blocks: [args]}} />
+    <TableBlock {...(blockTransform(args) as TableBlockProps)} />
 );
 
 export const Default = DefaultTemplate.bind({});
