@@ -1,6 +1,7 @@
 import {Meta, StoryFn} from '@storybook/react';
 
-import {MediaCardProps} from '../../../models';
+import {blockTransform} from '../../../../.storybook/utils';
+import {MediaCardModel, MediaCardProps} from '../../../models';
 import MediaCard from '../MediaCard';
 
 import data from './data.json';
@@ -15,11 +16,14 @@ export default {
     },
 } as Meta;
 
-const DefaultTemplate: StoryFn<MediaCardProps> = (args) => (
-    <div style={{maxWidth: '500px'}}>
-        <MediaCard {...args} />
-    </div>
-);
+const DefaultTemplate: StoryFn<MediaCardModel> = (args) => {
+    const transformedArgs = blockTransform(args) as MediaCardProps;
+    return (
+        <div style={{maxWidth: '500px'}}>
+            <MediaCard {...transformedArgs} />
+        </div>
+    );
+};
 
 export const Image = DefaultTemplate.bind({});
 export const ImageSlider = DefaultTemplate.bind({});
