@@ -2,10 +2,9 @@ import * as React from 'react';
 
 import {Meta, StoryFn} from '@storybook/react';
 
-import {yfmTransform} from '../../../../.storybook/utils';
-import {PageConstructor} from '../../../containers/PageConstructor';
+import {blockTransform} from '../../../../.storybook/utils';
 import {TabsBlockModel, TabsBlockProps} from '../../../models';
-import Tabs from '../Tabs';
+import Tabs, {TabsBlock} from '../Tabs';
 
 import data from './data.json';
 
@@ -18,7 +17,9 @@ export default {
 } as Meta;
 
 const DefaultTemplate: StoryFn<TabsBlockModel> = (args) => (
-    <PageConstructor content={{blocks: [args]}} />
+    <div style={{padding: 64, display: 'flex', gap: 20, flexDirection: 'column'}}>
+        <TabsBlock {...(blockTransform(args) as TabsBlockProps)} />
+    </div>
 );
 
 const ButtonsColSizesTemplate: StoryFn<TabsBlockModel> = (args) => (
@@ -52,25 +53,11 @@ export const Direction = DirectionTemplate.bind({});
 export const Caption = DefaultTemplate.bind({});
 export const MediaBorder = DefaultTemplate.bind({});
 
-const DefaultArgs = {
-    ...data.default.content,
-    items: data.default.content.items.map((item) => ({
-        ...item,
-        text: yfmTransform(item.text),
-        list:
-            item.list &&
-            item.list.map((listItem) => ({
-                ...listItem,
-                text: yfmTransform(listItem.text),
-            })),
-        additionalInfo: item.additionalInfo && yfmTransform(item.additionalInfo),
-        caption: item.caption && yfmTransform(item.caption),
-    })),
-};
+const DefaultArgs = data.default.content;
 
 Default.args = {
     ...DefaultArgs,
-    description: yfmTransform(data.description),
+    description: data.description,
 } as TabsBlockProps;
 
 OnlyMedia.args = {
@@ -110,7 +97,7 @@ TabsButtonsColSizes.args = {
 
 Centered.args = {
     ...DefaultArgs,
-    description: yfmTransform(data.description),
+    description: data.description,
     centered: true,
 } as TabsBlockModel;
 
