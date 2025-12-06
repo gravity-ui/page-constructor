@@ -1,6 +1,6 @@
 import {Meta, StoryFn} from '@storybook/react';
 
-import {blockTransform, yfmTransform} from '../../../../.storybook/utils';
+import {blockTransform} from '../../../../.storybook/utils';
 import CardLayout from '../../../blocks/CardLayout/CardLayout';
 import {BlockBase} from '../../../components';
 import {ConstructorRow} from '../../../containers/PageConstructor/components/ConstructorRow';
@@ -15,14 +15,14 @@ export default {
     component: LayoutItem,
 } as Meta;
 
-const DefaultTemplate: StoryFn<LayoutItemProps> = (args) => (
-    <div style={{maxWidth: '500px'}}>
-        <LayoutItem {...args} />
+const DefaultTemplate: StoryFn<LayoutItemModel> = (args) => (
+    <div style={{maxWidth: '500px', padding: 64}}>
+        <LayoutItem {...(blockTransform(args) as LayoutItemProps)} />
     </div>
 );
 
-const WithIconTemplate: StoryFn<LayoutItemProps> = (args) => (
-    <div>
+const WithIconTemplate: StoryFn<LayoutItemModel> = (args) => (
+    <div style={{padding: 64}}>
         <div style={{marginBottom: '100px'}}>
             <h1>Icon: Top</h1>
             <DefaultTemplate {...args} />
@@ -35,7 +35,7 @@ const WithIconTemplate: StoryFn<LayoutItemProps> = (args) => (
 );
 
 const VariousContentTemplate: StoryFn<Record<number, LayoutItemModel>> = (args) => (
-    <div style={{display: 'flex', flexWrap: 'wrap'}}>
+    <div style={{display: 'flex', flexWrap: 'wrap', padding: 64}}>
         {Object.values(args).map((item, index) => (
             <div
                 key={index}
@@ -97,7 +97,6 @@ const DefaultArgs = {
     ...data.default.content,
     content: {
         ...data.default.content.content,
-        text: yfmTransform(data.default.content.content.text),
     },
 };
 
@@ -106,24 +105,20 @@ WithContentList.args = {
     ...DefaultArgs,
     content: {
         ...DefaultArgs.content,
-        list: data.withList.content.list.map((listItem) => ({
-            ...listItem,
-            text: yfmTransform(listItem.text || ''),
-        })),
+        list: data.withList.content.list,
     },
 } as LayoutItemProps;
-Fullscreen.args = {...DefaultArgs, ...data.fullscreen.content} as LayoutItemProps;
+Fullscreen.args = {...DefaultArgs, ...data.fullscreen.content} as LayoutItemModel;
 MetaInfo.args = {
     ...DefaultArgs,
     ...data.metaInfo.content,
-    metaInfo: data.metaInfo.content.metaInfo.map((item) => yfmTransform(item)),
 } as LayoutItemProps;
-Youtube.args = {...DefaultArgs, ...data.youtube.content} as LayoutItemProps;
+Youtube.args = {...DefaultArgs, ...data.youtube.content} as LayoutItemModel;
 WithIcon.args = {
     ...DefaultArgs,
     media: undefined,
-    icon: data.withIcon.iconTop as LayoutItemProps['icon'],
-};
+    icon: data.withIcon.iconTop as LayoutItemModel['icon'],
+} as LayoutItemModel;
 
 ControlPosition.argTypes = {
     content: {table: {disable: true}},
