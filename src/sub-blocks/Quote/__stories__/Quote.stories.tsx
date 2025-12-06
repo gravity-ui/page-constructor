@@ -1,7 +1,7 @@
 import {Meta, StoryFn} from '@storybook/react';
 
-import {yfmTransformInline} from '../../../../.storybook/utils';
-import {QuoteProps, QuoteType} from '../../../models';
+import {blockTransform} from '../../../../.storybook/utils';
+import {QuoteModel, QuoteProps, QuoteType} from '../../../models';
 import Quote from '../Quote';
 
 import data from './data.json';
@@ -16,29 +16,30 @@ export default {
     argTypes: {color: {control: 'color'}},
 } as Meta;
 
-const DefaultTemplate: StoryFn<QuoteProps> = (args) => (
+const DefaultTemplate: StoryFn<QuoteModel> = (args) => (
     <div style={{maxWidth: '1248px'}}>
-        <Quote {...args} />
+        <Quote {...(blockTransform(args) as QuoteProps)} />
     </div>
 );
-const QuoteTypesTemplate: StoryFn<QuoteProps> = (args) => (
-    <div style={{maxWidth: '1248px', display: 'flex', flexDirection: 'column', gap: '24px'}}>
-        <Quote {...args} quoteType={QuoteType.Chevron} />
-        <Quote {...args} quoteType={QuoteType.EnglishDouble} />
-    </div>
-);
+const QuoteTypesTemplate: StoryFn<QuoteModel> = (args) => {
+    const transformedArgs = blockTransform(args) as QuoteProps;
+    return (
+        <div style={{maxWidth: '1248px', display: 'flex', flexDirection: 'column', gap: '24px'}}>
+            <Quote {...transformedArgs} quoteType={QuoteType.Chevron} />
+            <Quote {...transformedArgs} quoteType={QuoteType.EnglishDouble} />
+        </div>
+    );
+};
+
 export const Default = DefaultTemplate.bind({});
 export const QuoteTypes = QuoteTypesTemplate.bind({});
 export const BorderLine = DefaultTemplate.bind({});
 export const DarkTheme = DefaultTemplate.bind({});
 
-const DefaultArgs = {
-    ...data.default.content,
-    yfmText: yfmTransformInline(data.default.content.yfmText),
-} as QuoteProps;
+const DefaultArgs = data.default.content;
 
-Default.args = DefaultArgs;
-QuoteTypes.args = DefaultArgs;
+Default.args = DefaultArgs as QuoteModel;
+QuoteTypes.args = DefaultArgs as QuoteModel;
 BorderLine.args = {
     ...DefaultArgs,
     ...data.borderLine.content,
