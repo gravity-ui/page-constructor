@@ -1,76 +1,66 @@
 import {Meta, StoryFn} from '@storybook/react';
 
 import {blockTransform} from '../../../../.storybook/utils';
-import {
-    ExtendedFeaturesBlockModel,
-    ExtendedFeaturesItem,
-    ExtendedFeaturesProps,
-} from '../../../models';
+import {ExtendedFeaturesBlockModel, ExtendedFeaturesProps} from '../../../models';
 import ExtendedFeatures, {ExtendedFeaturesBlock} from '../ExtendedFeatures';
 
 import data from './data.json';
 
 export default {
-    title: 'Blocks/ExtendedFeatures',
     component: ExtendedFeatures,
-    args: {
-        colSizes: {
-            all: 12,
-            sm: 6,
-            md: 4,
-        },
-    },
+    title: 'Blocks/ExtendedFeatures',
 } as Meta;
 
 const DefaultTemplate: StoryFn<ExtendedFeaturesBlockModel> = (args) => {
-    const transformedArgs = blockTransform(args) as ExtendedFeaturesProps;
+    const transformed = blockTransform(args) as ExtendedFeaturesProps;
     return (
         <div style={{padding: '64px'}}>
-            <ExtendedFeaturesBlock {...transformedArgs} />
+            <ExtendedFeaturesBlock {...transformed} />
         </div>
     );
 };
 
-const ColSizesTemplate: StoryFn<ExtendedFeaturesBlockModel> = (args) => {
-    const transformedArgsFour = blockTransform({
-        ...args,
-        ...data.colSizes.four,
-    }) as ExtendedFeaturesProps;
-
-    const transformedArgsThree = blockTransform({
-        ...args,
-        ...data.colSizes.three,
-    }) as ExtendedFeaturesProps;
-
-    const transformedArgsTwo = blockTransform({
-        ...args,
-        ...data.colSizes.two,
-    }) as ExtendedFeaturesProps;
-
-    return (
-        <div style={{padding: '64px', display: 'flex', gap: 20, flexDirection: 'column'}}>
-            <ExtendedFeaturesBlock {...transformedArgsFour} />
-            <ExtendedFeaturesBlock {...transformedArgsThree} />
-            <ExtendedFeaturesBlock {...transformedArgsTwo} />
-        </div>
-    );
-};
+const ColSizesTemplate: StoryFn<Record<number, ExtendedFeaturesBlockModel>> = (args) => (
+    <div style={{padding: '64px', display: 'flex', flexDirection: 'column', gap: 20}}>
+        {Object.values(args).map((itemArgs, index) => {
+            const transformed = blockTransform(itemArgs) as ExtendedFeaturesProps;
+            return <ExtendedFeaturesBlock key={index} {...transformed} />;
+        })}
+    </div>
+);
 
 export const Default = DefaultTemplate.bind({});
 export const WithLabel = DefaultTemplate.bind({});
 export const ColSizes = ColSizesTemplate.bind({});
 
-const DefaultArgs = {
+const DEFAULT_BLOCK = data.default.content as unknown as ExtendedFeaturesBlockModel;
+
+const WITH_LABEL_BLOCK = {
     ...data.default.content,
-    items: data.default.content.items,
+    items: data.withLabel?.content?.items,
+} as unknown as ExtendedFeaturesBlockModel;
+
+const COL_SIZES: Record<number, ExtendedFeaturesBlockModel> = {
+    0: {
+        ...data.default.content,
+        ...data.colSizes?.four,
+    } as unknown as ExtendedFeaturesBlockModel,
+    1: {
+        ...data.default.content,
+        ...data.colSizes?.three,
+    } as unknown as ExtendedFeaturesBlockModel,
+    2: {
+        ...data.default.content,
+        ...data.colSizes?.two,
+    } as unknown as ExtendedFeaturesBlockModel,
 };
 
-Default.args = {...DefaultArgs} as ExtendedFeaturesProps;
-WithLabel.args = {
-    ...DefaultArgs,
-    items: data.withLabel.content.items as ExtendedFeaturesItem[],
-} as ExtendedFeaturesProps;
-ColSizes.args = {
-    ...data.default.content,
-    items: data.default.content.items as ExtendedFeaturesItem[],
-} as ExtendedFeaturesProps;
+Default.args = DEFAULT_BLOCK;
+WithLabel.args = WITH_LABEL_BLOCK;
+ColSizes.args = COL_SIZES;
+
+ColSizes.parameters = {
+    controls: {
+        include: Object.keys(COL_SIZES),
+    },
+};
