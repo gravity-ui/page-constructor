@@ -1,5 +1,6 @@
 {
   "common": {
+    "type": "info-block",
     "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     "links": [
       {
