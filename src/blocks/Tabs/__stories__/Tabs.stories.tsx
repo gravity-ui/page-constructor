@@ -1,5 +1,3 @@
-import * as React from 'react';
-
 import {Meta, StoryFn} from '@storybook/react';
 
 import {blockTransform} from '../../../../.storybook/utils';
@@ -11,9 +9,6 @@ import data from './data.json';
 export default {
     title: 'Blocks/Tabs',
     component: Tabs,
-    argTypes: {
-        description: {control: 'text'},
-    },
 } as Meta;
 
 const DefaultTemplate: StoryFn<TabsBlockModel> = (args) => (
@@ -22,26 +17,24 @@ const DefaultTemplate: StoryFn<TabsBlockModel> = (args) => (
     </div>
 );
 
-const ButtonsColSizesTemplate: StoryFn<TabsBlockModel> = (args) => (
-    <React.Fragment>
-        <DefaultTemplate
-            {...args}
-            tabsColSizes={data.buttonsColSizes.wide.colSizes}
-            title={data.buttonsColSizes.wide.title}
-        />
-        <DefaultTemplate
-            {...args}
-            tabsColSizes={data.buttonsColSizes.narrow.colSizes}
-            title={data.buttonsColSizes.narrow.title}
-        />
-    </React.Fragment>
+const ButtonsColSizesTemplate: StoryFn<Record<string, TabsBlockModel>> = (args) => (
+    <div style={{padding: 64, display: 'flex', gap: 20, flexDirection: 'column'}}>
+        {Object.entries(args)
+            .map(([key, item]) => {
+                return <TabsBlock key={key} {...(blockTransform(item) as TabsBlockProps)} />;
+            })
+            .filter(Boolean)}
+    </div>
 );
 
-const DirectionTemplate: StoryFn<TabsBlockModel> = (args) => (
-    <React.Fragment>
-        <DefaultTemplate {...args} />
-        <DefaultTemplate {...args} direction={'content-media'} />
-    </React.Fragment>
+const DirectionTemplate: StoryFn<Record<string, TabsBlockModel>> = (args) => (
+    <div style={{padding: 64, display: 'flex', gap: 20, flexDirection: 'column'}}>
+        {Object.entries(args)
+            .map(([key, item]) => {
+                return <TabsBlock key={key} {...(blockTransform(item) as TabsBlockProps)} />;
+            })
+            .filter(Boolean)}
+    </div>
 );
 
 export const Default = DefaultTemplate.bind({});
@@ -58,7 +51,7 @@ const DefaultArgs = data.default.content;
 Default.args = {
     ...DefaultArgs,
     description: data.description,
-} as TabsBlockProps;
+} as TabsBlockModel;
 
 OnlyMedia.args = {
     ...DefaultArgs,
@@ -77,37 +70,15 @@ OnlyText.args = {
     })),
 } as TabsBlockModel;
 
-TabsButtonsColSizes.args = {
-    ...data.default.content,
-    items: DefaultArgs.items.concat(
-        DefaultArgs.items.map((item, index) => {
-            return {
-                ...item,
-                tabName: `${item.tabName} ${index}`,
-            };
-        }),
-        DefaultArgs.items.map((item, index) => {
-            return {
-                ...item,
-                tabName: `${item.tabName} ${index} ${index}`,
-            };
-        }),
-    ),
-} as TabsBlockModel;
-
 Centered.args = {
     ...DefaultArgs,
     description: data.description,
     centered: true,
 } as TabsBlockModel;
 
-Direction.args = {...DefaultArgs} as TabsBlockModel;
-
 Caption.args = {
     ...DefaultArgs,
-    items: DefaultArgs.items.map((item) => ({
-        ...item,
-    })),
+    items: DefaultArgs.items.map((item) => ({...item})),
 } as TabsBlockModel;
 
 MediaBorder.args = {
@@ -117,3 +88,60 @@ MediaBorder.args = {
         border: ['line', 'none', 'shadow'][index % 3],
     })),
 } as TabsBlockModel;
+
+const TABS_COL_SIZES: Record<string, TabsBlockModel> = {
+    wide: {
+        ...DefaultArgs,
+        tabsColSizes: data.buttonsColSizes.wide.colSizes,
+        title: data.buttonsColSizes.wide.title,
+        items: DefaultArgs.items.concat(
+            DefaultArgs.items.map((item, index) => ({
+                ...item,
+                tabName: `${item.tabName} ${index}`,
+            })),
+            DefaultArgs.items.map((item, index) => ({
+                ...item,
+                tabName: `${item.tabName} ${index} ${index}`,
+            })),
+        ),
+    } as TabsBlockModel,
+    narrow: {
+        ...DefaultArgs,
+        tabsColSizes: data.buttonsColSizes.narrow.colSizes,
+        title: data.buttonsColSizes.narrow.title,
+        items: DefaultArgs.items.concat(
+            DefaultArgs.items.map((item, index) => ({
+                ...item,
+                tabName: `${item.tabName} ${index}`,
+            })),
+            DefaultArgs.items.map((item, index) => ({
+                ...item,
+                tabName: `${item.tabName} ${index} ${index}`,
+            })),
+        ),
+    } as TabsBlockModel,
+};
+
+TabsButtonsColSizes.args = TABS_COL_SIZES;
+TabsButtonsColSizes.parameters = {
+    controls: {
+        include: Object.keys(TABS_COL_SIZES),
+    },
+};
+
+const DIRECTIONS: Record<string, TabsBlockModel> = {
+    media_content: {
+        ...DefaultArgs,
+    } as TabsBlockModel,
+    content_media: {
+        ...DefaultArgs,
+        direction: 'content-media',
+    } as TabsBlockModel,
+};
+
+Direction.args = DIRECTIONS;
+Direction.parameters = {
+    controls: {
+        include: Object.keys(DIRECTIONS),
+    },
+};
