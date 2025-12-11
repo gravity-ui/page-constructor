@@ -20,12 +20,14 @@ const DefaultTemplate: StoryFn<ExtendedFeaturesBlockModel> = (args) => {
     );
 };
 
-const ColSizesTemplate: StoryFn<Record<number, ExtendedFeaturesBlockModel>> = (args) => (
+const ColSizesTemplate: StoryFn<Record<string, ExtendedFeaturesBlockModel>> = (args) => (
     <div style={{padding: '64px', display: 'flex', flexDirection: 'column', gap: 20}}>
-        {Object.values(args).map((itemArgs, index) => {
-            const transformed = blockTransform(itemArgs) as ExtendedFeaturesProps;
-            return <ExtendedFeaturesBlock key={index} {...transformed} />;
-        })}
+        {Object.entries(args)
+            .map(([key, item]) => {
+                const transformed = blockTransform(item) as ExtendedFeaturesProps;
+                return <ExtendedFeaturesBlock key={key} {...transformed} />;
+            })
+            .filter(Boolean)}
     </div>
 );
 
@@ -33,32 +35,29 @@ export const Default = DefaultTemplate.bind({});
 export const WithLabel = DefaultTemplate.bind({});
 export const ColSizes = ColSizesTemplate.bind({});
 
-const DEFAULT_BLOCK = data.default.content as unknown as ExtendedFeaturesBlockModel;
+Default.args = data.default.content as ExtendedFeaturesBlockModel;
 
-const WITH_LABEL_BLOCK = {
+WithLabel.args = {
     ...data.default.content,
     items: data.withLabel?.content?.items,
-} as unknown as ExtendedFeaturesBlockModel;
+} as ExtendedFeaturesBlockModel;
 
-const COL_SIZES: Record<number, ExtendedFeaturesBlockModel> = {
-    0: {
+const COL_SIZES: Record<string, ExtendedFeaturesBlockModel> = {
+    four_columns: {
         ...data.default.content,
         ...data.colSizes?.four,
-    } as unknown as ExtendedFeaturesBlockModel,
-    1: {
+    } as ExtendedFeaturesBlockModel,
+    three_columns: {
         ...data.default.content,
         ...data.colSizes?.three,
-    } as unknown as ExtendedFeaturesBlockModel,
-    2: {
+    } as ExtendedFeaturesBlockModel,
+    two_columns: {
         ...data.default.content,
         ...data.colSizes?.two,
-    } as unknown as ExtendedFeaturesBlockModel,
+    } as ExtendedFeaturesBlockModel,
 };
 
-Default.args = DEFAULT_BLOCK;
-WithLabel.args = WITH_LABEL_BLOCK;
 ColSizes.args = COL_SIZES;
-
 ColSizes.parameters = {
     controls: {
         include: Object.keys(COL_SIZES),
