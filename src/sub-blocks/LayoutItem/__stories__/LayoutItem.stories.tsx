@@ -1,6 +1,6 @@
 import {Meta, StoryFn} from '@storybook/react';
 
-import {blockTransform, yfmTransform} from '../../../../.storybook/utils';
+import {blockTransform} from '../../../../.storybook/utils';
 import CardLayout from '../../../blocks/CardLayout/CardLayout';
 import {BlockBase} from '../../../components';
 import {ConstructorRow} from '../../../containers/PageConstructor/components/ConstructorRow';
@@ -15,74 +15,95 @@ export default {
     component: LayoutItem,
 } as Meta;
 
-const DefaultTemplate: StoryFn<LayoutItemProps> = (args) => (
-    <div style={{maxWidth: '500px'}}>
-        <LayoutItem {...args} />
+const DefaultTemplate: StoryFn<LayoutItemModel> = (args) => (
+    <div style={{maxWidth: '500px', padding: 64}}>
+        <LayoutItem {...(blockTransform(args) as LayoutItemProps)} />
     </div>
 );
 
-const WithIconTemplate: StoryFn<LayoutItemProps> = (args) => (
-    <div>
-        <div style={{marginBottom: '100px'}}>
-            <h1>Icon: Top</h1>
-            <DefaultTemplate {...args} />
+const WithIconTemplate: StoryFn<Record<string, LayoutItemModel>> = (args) => {
+    return (
+        <div style={{padding: 64}}>
+            {Object.entries(args)
+                .map(([key, item]) => {
+                    if (typeof item !== 'object' || item === null) {
+                        return null;
+                    }
+                    const title = key === 'iconTop' ? 'Icon: Top' : 'Icon: Left';
+                    return (
+                        <div key={key} style={{marginBottom: '100px'}}>
+                            <h1>{title}</h1>
+                            <div style={{maxWidth: '500px'}}>
+                                <LayoutItem {...(blockTransform(item) as LayoutItemProps)} />
+                            </div>
+                        </div>
+                    );
+                })
+                .filter(Boolean)}
         </div>
-        <div>
-            <h1>Icon: Left</h1>
-            <DefaultTemplate {...args} icon={data.withIcon.iconLeft as LayoutItemProps['icon']} />
-        </div>
+    );
+};
+
+const VariousContentTemplate: StoryFn<Record<string, LayoutItemModel>> = (args) => (
+    <div style={{display: 'flex', flexWrap: 'wrap', padding: 64}}>
+        {Object.entries(args)
+            .map(([key, item]) => {
+                if (typeof item !== 'object' || item === null) {
+                    return null;
+                }
+                return (
+                    <div
+                        key={key}
+                        style={{
+                            display: 'inline-table',
+                            minWidth: '300px',
+                            padding: '8px',
+                            width: '33%',
+                            flexGrow: 1,
+                        }}
+                    >
+                        <LayoutItem {...(blockTransform(item) as LayoutItemProps)} />
+                    </div>
+                );
+            })
+            .filter(Boolean)}
     </div>
 );
 
-const VariousContentTemplate: StoryFn<Record<number, LayoutItemModel>> = (args) => (
-    <div style={{display: 'flex', flexWrap: 'wrap'}}>
-        {Object.values(args).map((item, index) => (
-            <div
-                key={index}
-                style={{
-                    display: 'inline-table',
-                    minWidth: '300px',
-                    padding: '8px',
-                    width: '33%',
-                    flexGrow: 1,
-                }}
-            >
-                <LayoutItem {...(blockTransform(item) as LayoutItemProps)} />
-            </div>
-        ))}
-    </div>
-);
+const ControlPositionTemplate: StoryFn<Record<string, LayoutItemModel>> = (args) => {
+    const items = Object.entries(args)
+        .filter(([_, item]) => typeof item === 'object' && item !== null)
+        .map(([_, item]) => item as LayoutItemModel);
 
-const ControlPositionTemplate: StoryFn<LayoutItemProps> = (args) => (
-    <Grid>
-        <ConstructorRow>
-            <BlockBase>
-                <CardLayout title={data.cardLayout.contentTitle} animated={false}>
-                    {data.cardLayout.items.map((item, index) => (
-                        <LayoutItem
-                            key={index}
-                            {...(item as Partial<LayoutItemProps>)}
-                            {...args}
-                            controlPosition="content"
-                        />
-                    ))}
-                </CardLayout>
-            </BlockBase>
-            <BlockBase>
-                <CardLayout title={data.cardLayout.footerTitle} animated={false}>
-                    {data.cardLayout.items.map((item, index) => (
-                        <LayoutItem
-                            key={index}
-                            {...(item as Partial<LayoutItemProps>)}
-                            {...args}
-                            controlPosition="footer"
-                        />
-                    ))}
-                </CardLayout>
-            </BlockBase>
-        </ConstructorRow>
-    </Grid>
-);
+    return (
+        <Grid>
+            <ConstructorRow>
+                <BlockBase>
+                    <CardLayout title={data.cardLayout.contentTitle} animated={false}>
+                        {items.map((item, index) => (
+                            <LayoutItem
+                                key={index}
+                                {...(blockTransform(item) as LayoutItemProps)}
+                                controlPosition="content"
+                            />
+                        ))}
+                    </CardLayout>
+                </BlockBase>
+                <BlockBase>
+                    <CardLayout title={data.cardLayout.footerTitle} animated={false}>
+                        {items.map((item, index) => (
+                            <LayoutItem
+                                key={index}
+                                {...(blockTransform(item) as LayoutItemProps)}
+                                controlPosition="footer"
+                            />
+                        ))}
+                    </CardLayout>
+                </BlockBase>
+            </ConstructorRow>
+        </Grid>
+    );
+};
 
 export const Default = DefaultTemplate.bind({});
 export const WithContentList = DefaultTemplate.bind({});
@@ -91,67 +112,86 @@ export const MetaInfo = DefaultTemplate.bind({});
 export const Youtube = DefaultTemplate.bind({});
 export const WithIcon = WithIconTemplate.bind({});
 export const ControlPosition = ControlPositionTemplate.bind({});
-export const Sizes = VariousContentTemplate.bind([]);
+export const Sizes = VariousContentTemplate.bind({});
 
-const DefaultArgs = {
+Default.args = data.default.content as unknown as LayoutItemModel;
+
+WithContentList.args = {
     ...data.default.content,
     content: {
         ...data.default.content.content,
-        text: yfmTransform(data.default.content.content.text),
+        list: data.withList.content.list,
     },
-};
+} as unknown as LayoutItemModel;
 
-Default.args = DefaultArgs as LayoutItemProps;
-WithContentList.args = {
-    ...DefaultArgs,
-    content: {
-        ...DefaultArgs.content,
-        list: data.withList.content.list.map((listItem) => ({
-            ...listItem,
-            text: yfmTransform(listItem.text || ''),
-        })),
-    },
-} as LayoutItemProps;
-Fullscreen.args = {...DefaultArgs, ...data.fullscreen.content} as LayoutItemProps;
+Fullscreen.args = {
+    ...data.default.content,
+    ...data.fullscreen.content,
+} as unknown as LayoutItemModel;
+
 MetaInfo.args = {
-    ...DefaultArgs,
+    ...data.default.content,
     ...data.metaInfo.content,
-    metaInfo: data.metaInfo.content.metaInfo.map((item) => yfmTransform(item)),
-} as LayoutItemProps;
-Youtube.args = {...DefaultArgs, ...data.youtube.content} as LayoutItemProps;
-WithIcon.args = {
-    ...DefaultArgs,
-    media: undefined,
-    icon: data.withIcon.iconTop as LayoutItemProps['icon'],
+} as unknown as LayoutItemModel;
+
+Youtube.args = {
+    ...data.default.content,
+    ...data.youtube.content,
+} as unknown as LayoutItemModel;
+
+const WITH_ICON_ITEMS: Record<string, LayoutItemModel> = {
+    iconTop: {
+        ...data.default.content,
+        media: undefined,
+        icon: data.withIcon.iconTop,
+    } as unknown as LayoutItemModel,
+    iconLeft: {
+        ...data.default.content,
+        media: undefined,
+        icon: data.withIcon.iconLeft,
+    } as unknown as LayoutItemModel,
 };
 
-ControlPosition.argTypes = {
-    content: {table: {disable: true}},
-    media: {table: {disable: true}},
-    metaInfo: {table: {disable: true}},
-    icon: {table: {disable: true}},
-    className: {table: {disable: true}},
-    controlPosition: {table: {disable: true}},
-    analyticsEvents: {table: {disable: true}},
-    contentMargin: {table: {disable: true}},
+WithIcon.args = WITH_ICON_ITEMS;
+WithIcon.parameters = {
+    controls: {
+        include: Object.keys(WITH_ICON_ITEMS),
+    },
 };
 
-Sizes.args = data.sizesContent.reduce(
-    (acc, sizeContent) => [
-        ...acc,
-        ...data.sizes.map(
-            (size) =>
-                ({
-                    ...size,
-                    ...sizeContent,
-                    content: {...size.content, ...sizeContent.content},
-                }) as LayoutItemModel,
-        ),
-    ],
-    [] as LayoutItemModel[],
-);
+const CONTROL_POSITION_ITEMS: Record<string, LayoutItemModel> = {};
+data.cardLayout.items.forEach((item, index) => {
+    CONTROL_POSITION_ITEMS[`item_${index}`] = item as unknown as LayoutItemModel;
+});
+
+ControlPosition.args = CONTROL_POSITION_ITEMS;
+ControlPosition.parameters = {
+    controls: {
+        include: Object.keys(CONTROL_POSITION_ITEMS),
+    },
+};
+
+const SIZES_ITEMS: Record<string, LayoutItemModel> = {};
+let sizeIndex = 0;
+
+data.sizesContent.forEach((sizeContent) => {
+    data.sizes.forEach((size) => {
+        const key = `size_${sizeIndex}`;
+        SIZES_ITEMS[key] = {
+            ...size,
+            ...sizeContent,
+            content: {
+                ...size.content,
+                ...sizeContent.content,
+            },
+        } as unknown as LayoutItemModel;
+        sizeIndex++;
+    });
+});
+
+Sizes.args = SIZES_ITEMS;
 Sizes.parameters = {
     controls: {
-        include: Object.keys([0, 1, 2, 3, 4, 5, 6, 7, 8]),
+        include: Object.keys(SIZES_ITEMS),
     },
 };
