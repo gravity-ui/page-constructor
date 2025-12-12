@@ -1,7 +1,6 @@
 import {Meta, StoryFn} from '@storybook/react';
 
-import {PageConstructor} from '../../../containers/PageConstructor/PageConstructor';
-import {HeaderSliderBlockModel, HeaderSliderBlockProps} from '../../../models';
+import {HeaderSliderBlockProps} from '../../../models';
 import HeaderSlider from '../HeaderSlider';
 
 import data from './data.json';
@@ -9,37 +8,45 @@ import data from './data.json';
 export default {
     title: 'Blocks/HeaderSlider',
     component: HeaderSlider,
-    args: {
-        dots: true,
-        disclaimer: undefined,
-        randomOrder: false,
-        adaptive: true,
-    },
-    argTypes: {
-        autoplay: {control: 'number'},
-    },
 } as Meta;
 
-const DefaultTemplate: StoryFn<HeaderSliderBlockModel> = (args) => (
-    <PageConstructor content={{blocks: [args]}} />
-);
+const DefaultTemplate: StoryFn<HeaderSliderBlockProps> = (args) => {
+    const {items: _items, ...config} = args;
+    const configKey = JSON.stringify(config);
 
-const AutoPlayTemplate: StoryFn<HeaderSliderBlockModel> = (args) => (
-    <PageConstructor content={{blocks: [args]}} />
-);
+    return <HeaderSlider {...args} key={configKey} />;
+};
 
 export const Default = DefaultTemplate.bind({});
-export const AutoPlay = AutoPlayTemplate.bind({});
+export const AutoPlay = DefaultTemplate.bind({});
 export const WithDifferentSlidesThemes = DefaultTemplate.bind({});
-export const WithDifferentSlidesThemesAutoPlay = AutoPlayTemplate.bind({});
+export const WithDifferentSlidesThemesAutoPlay = DefaultTemplate.bind({});
 
-Default.args = data.default.content as HeaderSliderBlockProps;
-WithDifferentSlidesThemes.args = data.withDifferentSlidesTheme.content as HeaderSliderBlockProps;
+Default.args = data.default as HeaderSliderBlockProps;
+
+WithDifferentSlidesThemes.args = data.withDifferentSlidesTheme as HeaderSliderBlockProps;
+WithDifferentSlidesThemes.parameters = {
+    controls: {
+        include: Object.keys(data.withDifferentSlidesTheme),
+    },
+};
+
 AutoPlay.args = {
-    ...data.autoPlay.content,
-    items: data.default.content.items,
+    ...data.autoPlay,
+    items: data.default.items,
 } as HeaderSliderBlockProps;
+AutoPlay.parameters = {
+    controls: {
+        include: [...Object.keys(data.autoPlay), 'items'],
+    },
+};
+
 WithDifferentSlidesThemesAutoPlay.args = {
-    ...data.autoPlay.content,
-    items: data.withDifferentSlidesTheme.content.items,
+    ...data.withDifferentSlidesTheme,
+    autoplay: data.autoPlay.autoplay,
 } as HeaderSliderBlockProps;
+WithDifferentSlidesThemesAutoPlay.parameters = {
+    controls: {
+        include: [...Object.keys(data.withDifferentSlidesTheme), 'autoplay'],
+    },
+};
