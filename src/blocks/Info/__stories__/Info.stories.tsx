@@ -1,8 +1,7 @@
 import {Meta, StoryFn} from '@storybook/react';
 
 import {blockTransform} from '../../../../.storybook/utils';
-import {PageConstructor} from '../../../containers/PageConstructor/PageConstructor';
-import {InfoBlockModel} from '../../../models';
+import {CustomBlock, InfoBlockModel, InfoBlockProps} from '../../../models';
 import Info from '../Info';
 
 import data from './data.json';
@@ -12,49 +11,19 @@ export default {
     component: Info,
 } as Meta;
 
-const DefaultTemplate: StoryFn<InfoBlockModel> = (args) => (
-    <PageConstructor
-        content={{
-            blocks: [blockTransform(args)],
-        }}
-    />
+const DefaultTemplate: StoryFn<InfoBlockProps> = (args) => (
+    <Info {...(blockTransform(args as CustomBlock) as InfoBlockProps)} />
 );
 
 export const Default = DefaultTemplate.bind({});
-export const WithContentList = DefaultTemplate.bind({});
 export const LightTheme = DefaultTemplate.bind({});
+export const WithContentList = DefaultTemplate.bind({});
 
-Default.args = {
-    ...data.dark.content,
-    leftContent: {
-        ...data.dark.content.leftContent,
-        title: data.common.title,
-        text: data.common.text,
-    },
-    rightContent: {
-        title: data.common.title,
-        links: data.common.links,
-        text: data.common.text,
-    },
-} as InfoBlockModel;
-Default.parameters = {
-    controls: {
-        include: Object.keys(Default.args),
-    },
-};
+Default.args = data.default as InfoBlockModel;
 
 LightTheme.args = {
-    ...data.light.content,
-    leftContent: {
-        ...data.light.content.leftContent,
-        title: data.common.title,
-        text: data.common.text,
-    },
-    rightContent: {
-        title: data.common.title,
-        links: data.common.links,
-        text: data.common.text,
-    },
+    ...data.default,
+    ...data.light,
 } as InfoBlockModel;
 LightTheme.parameters = {
     controls: {
@@ -63,18 +32,16 @@ LightTheme.parameters = {
 };
 
 WithContentList.args = {
-    ...data.light.content,
+    type: data.default.type,
+    theme: data.light.theme,
+    backgroundColor: data.light.backgroundColor,
     leftContent: {
-        ...data.dark.content.leftContent,
-        title: data.common.title,
-        text: data.common.text,
-        list: data.common.list,
+        ...data.default.leftContent,
+        list: data.list,
     },
     rightContent: {
-        title: data.common.title,
-        links: data.common.links,
-        text: data.common.text,
-        list: data.common.list,
+        ...data.default.rightContent,
+        list: data.list,
     },
 } as InfoBlockModel;
 WithContentList.parameters = {
