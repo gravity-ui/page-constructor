@@ -40,6 +40,9 @@ export const BasicCard = {
                 type: 'string',
                 enum: ['content', 'footer'],
             },
+            /**
+             * @deprecated This property will be removed in future versions
+             */
             hoverBackgroundColor: {
                 type: 'string',
             },
