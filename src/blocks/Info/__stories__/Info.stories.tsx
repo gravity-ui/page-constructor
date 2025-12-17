@@ -1,74 +1,51 @@
 import {Meta, StoryFn} from '@storybook/react';
 
-import {yfmTransform} from '../../../../.storybook/utils';
-import {PageConstructor} from '../../../containers/PageConstructor/PageConstructor';
-import {ContentItemProps, InfoBlockModel, InfoBlockProps} from '../../../models';
+import {blockTransform} from '../../../../.storybook/utils';
+import {CustomBlock, InfoBlockModel, InfoBlockProps} from '../../../models';
 import Info from '../Info';
 
 import data from './data.json';
-
-const transformedContentList = data.common.list.map((item) => {
-    return {
-        ...item,
-        text: item?.text && yfmTransform(item.text),
-    };
-}) as ContentItemProps[];
 
 export default {
     title: 'Blocks/Info',
     component: Info,
 } as Meta;
 
-const DefaultTemplate: StoryFn<InfoBlockModel> = (args) => (
-    <PageConstructor content={{blocks: [args]}} />
+const DefaultTemplate: StoryFn<InfoBlockProps> = (args) => (
+    <Info {...(blockTransform(args as CustomBlock) as InfoBlockProps)} />
 );
 
 export const Default = DefaultTemplate.bind({});
-export const WithContentList = DefaultTemplate.bind({});
 export const LightTheme = DefaultTemplate.bind({});
+export const WithContentList = DefaultTemplate.bind({});
 
-const transformedText = yfmTransform(data.common.text);
-
-Default.args = {
-    ...data.dark.content,
-    leftContent: {
-        ...data.dark.content.leftContent,
-        title: data.common.title,
-        text: transformedText,
-    },
-    rightContent: {
-        title: data.common.title,
-        links: data.common.links,
-        text: transformedText,
-    },
-} as InfoBlockProps;
+Default.args = data.default as InfoBlockModel;
 
 LightTheme.args = {
-    ...data.light.content,
-    leftContent: {
-        ...data.light.content.leftContent,
-        title: data.common.title,
-        text: transformedText,
+    ...data.default,
+    ...data.light,
+} as InfoBlockModel;
+LightTheme.parameters = {
+    controls: {
+        include: Object.keys(LightTheme.args),
     },
-    rightContent: {
-        title: data.common.title,
-        links: data.common.links,
-        text: transformedText,
-    },
-} as InfoBlockProps;
+};
 
 WithContentList.args = {
-    ...data.light.content,
+    type: data.default.type,
+    theme: data.light.theme,
+    backgroundColor: data.light.backgroundColor,
     leftContent: {
-        ...data.dark.content.leftContent,
-        title: data.common.title,
-        text: transformedText,
-        list: transformedContentList,
+        ...data.default.leftContent,
+        list: data.list,
     },
     rightContent: {
-        title: data.common.title,
-        links: data.common.links,
-        text: transformedText,
-        list: transformedContentList,
+        ...data.default.rightContent,
+        list: data.list,
     },
-} as InfoBlockProps;
+} as InfoBlockModel;
+WithContentList.parameters = {
+    controls: {
+        include: Object.keys(WithContentList.args),
+    },
+};
