@@ -3,8 +3,8 @@ import * as React from 'react';
 import {Col, Row} from '../../grid';
 import {QuestionsProps} from '../../models';
 import {Content} from '../../sub-blocks';
-import {sanitizeHtml} from '../../text-transform/utils';
 import {block} from '../../utils';
+import {sanitizeMicrodata} from '../../utils/microdata';
 
 import {QuestionBlockItem} from './QuestionBlockItem/QuestionBlockItem';
 
@@ -35,10 +35,10 @@ const QuestionsBlock = (props: QuestionsProps) => {
                 '@type': 'FAQPage',
                 mainEntity: items.map((item) => ({
                     '@type': 'Question',
-                    name: sanitizeHtml(item.title),
+                    name: sanitizeMicrodata(item.title),
                     acceptedAnswer: {
                         '@type': 'Answer',
-                        text: sanitizeHtml(item.text),
+                        text: sanitizeMicrodata(item.text),
                     },
                 })),
             });
