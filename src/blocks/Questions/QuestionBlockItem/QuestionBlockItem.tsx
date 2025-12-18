@@ -4,7 +4,6 @@ import {Foldable, ToggleArrow, YFMWrapper} from '../../../components';
 import Link from '../../../components/Link/Link';
 import {QuestionBlockItemProps} from '../../../models';
 import {block} from '../../../utils';
-import {FaqMicrodataValues} from '../models';
 
 import './QuestionBlockItem.scss';
 
@@ -21,13 +20,7 @@ export const QuestionBlockItem = ({
     const {onKeyDown} = useActionHandlers(onClick);
 
     return (
-        <div
-            className={b()}
-            itemScope
-            itemProp={FaqMicrodataValues.QuestionProp}
-            itemType={FaqMicrodataValues.QuestionType}
-            role={'listitem'}
-        >
+        <div className={b()} role={'listitem'}>
             <button
                 className={b('button')}
                 onClick={onClick}
@@ -38,7 +31,6 @@ export const QuestionBlockItem = ({
                     tagName="h3"
                     className={b('title-container')}
                     contentClassName={b('title')}
-                    itemProp={FaqMicrodataValues.QuestionNameProp}
                     content={itemTitle}
                     modifiers={{
                         constructor: true,
@@ -56,13 +48,7 @@ export const QuestionBlockItem = ({
                 </YFMWrapper>
             </button>
             <Foldable isOpened={isOpened}>
-                <div
-                    className={b('text')}
-                    itemScope
-                    itemProp={FaqMicrodataValues.AnswerProp}
-                    itemType={FaqMicrodataValues.AnswerType}
-                    aria-hidden={!isOpened}
-                >
+                <div className={b('text')} aria-hidden={!isOpened}>
                     <YFMWrapper
                         content={itemText}
                         modifiers={{
@@ -70,7 +56,6 @@ export const QuestionBlockItem = ({
                             constructorListStyle: true,
                             constructorListStyleDash: listStyle === 'dash',
                         }}
-                        itemProp={FaqMicrodataValues.QuestionTextProp}
                     />
                     {link && <Link {...link} tabIndex={isOpened ? 0 : -1} className={b('link')} />}
                 </div>
