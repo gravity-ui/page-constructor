@@ -44,6 +44,7 @@ const QuestionsBlock = (props: QuestionsProps) => {
             });
             return <script type="application/ld+json" dangerouslySetInnerHTML={{__html: json}} />;
         } catch (error) {
+            /*eslint-disable no-console */
             console.warn('Problem with FAQ microdata', error);
             return null;
         }
