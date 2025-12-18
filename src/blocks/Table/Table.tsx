@@ -1,9 +1,9 @@
+import * as React from 'react';
+
 import {Table, YFMWrapper} from '../../components';
 import {Col, Grid, GridColumnSize, Row} from '../../grid';
 import {TableBlockProps} from '../../models';
 import {block} from '../../utils';
-
-import {TableMicrodataValues} from './models';
 
 import './Table.scss';
 
@@ -12,16 +12,27 @@ const b = block('table-block');
 export const TableBlock = (props: TableBlockProps) => {
     const {title, table} = props;
 
+    const tableMicrodataScript = React.useMemo(() => {
+        const json = JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Table',
+            name: title,
+            description: table.caption,
+            accessMode: 'textual',
+            accessibilityFeature: 'tableOfContents',
+        });
+        return <script type="application/ld+json" dangerouslySetInnerHTML={{__html: json}} />;
+    }, [title, table.caption]);
+
     return (
-        <div className={b()} itemScope itemType={TableMicrodataValues.TableType}>
-            <meta itemProp={TableMicrodataValues.accessModeProp} content="textual" />
+        <div className={b()}>
+            {tableMicrodataScript}
             <Grid className={b('content')}>
                 <Row className={b('row')}>
                     <Col sizes={{[GridColumnSize.Md]: 4, [GridColumnSize.All]: 12}}>
                         <YFMWrapper
                             tagName="h2"
                             contentClassName={b('title')}
-                            itemProp={TableMicrodataValues.AboutProp}
                             content={title}
                             modifiers={{
                                 constructor: true,
