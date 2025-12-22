@@ -24,6 +24,7 @@ const BasicCard = (props: BasicCardProps) => {
         controlPosition = 'content',
         size = 's',
         gravityIcon,
+        /** @deprecated This property will be removed in future versions */
         hoverBackgroundColor,
         ...cardParams
     } = props;
