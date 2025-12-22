@@ -1,5 +1,19 @@
 # Changelog
 
+## [7.24.0](https://github.com/gravity-ui/page-constructor/compare/v7.23.0...v7.24.0) (2025-12-22)
+
+
+### Features
+
+* **FoldableList:** add yfm support for list prop ([#1342](https://github.com/gravity-ui/page-constructor/issues/1342)) ([7e36ea8](https://github.com/gravity-ui/page-constructor/commit/7e36ea85582ba47483ae9dbac1480560708efb8c))
+* **questions:** update storybook and add yfm support ([#1341](https://github.com/gravity-ui/page-constructor/issues/1341)) ([67414dd](https://github.com/gravity-ui/page-constructor/commit/67414dd15d551e272e07dd9b3c49201091633cbd))
+
+
+### Bug Fixes
+
+* **BasicCard:** mark property hoverBackgroundColor as deprecated ([#1356](https://github.com/gravity-ui/page-constructor/issues/1356)) ([18d71f8](https://github.com/gravity-ui/page-constructor/commit/18d71f848ed99a3789a5568b295f9e9f25adfe69))
+* **Questions:** use sanitaze for faq miqrodata ([#1358](https://github.com/gravity-ui/page-constructor/issues/1358)) ([38a50ed](https://github.com/gravity-ui/page-constructor/commit/38a50ed77b410fddf124196dc7889b28d6adbebb))
+
 ## [7.23.0](https://github.com/gravity-ui/page-constructor/compare/v7.22.0...v7.23.0) (2025-12-03)
 
 
