@@ -4,6 +4,7 @@ import {Col, Row} from '../../grid';
 import {QuestionsProps} from '../../models';
 import {Content} from '../../sub-blocks';
 import {block} from '../../utils';
+import {sanitizeMicrodata} from '../../utils/microdata';
 
 import {QuestionBlockItem} from './QuestionBlockItem/QuestionBlockItem';
 
@@ -28,19 +29,25 @@ const QuestionsBlock = (props: QuestionsProps) => {
     };
 
     const faqMicrodataScript = React.useMemo(() => {
-        const json = JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'FAQPage',
-            mainEntity: items.map((item) => ({
-                '@type': 'Question',
-                name: item.title,
-                acceptedAnswer: {
-                    '@type': 'Answer',
-                    text: item.text,
-                },
-            })),
-        });
-        return <script type="application/ld+json" dangerouslySetInnerHTML={{__html: json}} />;
+        try {
+            const json = JSON.stringify({
+                '@context': 'https://schema.org',
+                '@type': 'FAQPage',
+                mainEntity: items.map((item) => ({
+                    '@type': 'Question',
+                    name: sanitizeMicrodata(item.title),
+                    acceptedAnswer: {
+                        '@type': 'Answer',
+                        text: sanitizeMicrodata(item.text),
+                    },
+                })),
+            });
+            return <script type="application/ld+json" dangerouslySetInnerHTML={{__html: json}} />;
+        } catch (error) {
+            /*eslint-disable no-console */
+            console.warn('Problem with FAQ microdata', error);
+            return null;
+        }
     }, [items]);
 
     return (
