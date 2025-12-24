@@ -67,7 +67,7 @@
         {
           "type": "banner-card",
           "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-          "subtitle": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> ",
+          "subtitle": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
           "image": {
             "light": "/story-assets/img_8-12_light.png",
             "dark": "/story-assets/img_8-12_dark.png"
@@ -85,7 +85,7 @@
         {
           "type": "banner-card",
           "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-          "subtitle": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> ",
+          "subtitle": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
           "image": {
             "light": "/story-assets/img_8-12_light.png",
             "dark": "/story-assets/img_8-12_dark.png"
