@@ -69,7 +69,7 @@ export const CustomCard = ({
                             onClick={(e) => e.stopPropagation()}
                         >
                             <YFMWrapper
-                                className={b('card-body-link-code')}
+                                contentClassName={b('card-body-link-code')}
                                 content={`<code>${content}</code>`}
                             />
                         </Link>
@@ -91,8 +91,9 @@ export const CustomCard = ({
                     <CardBase.Content>
                         {description && (
                             <YFMWrapper
-                                className={b('card-body-description')}
+                                contentClassName={b('card-body-description')}
                                 content={yfmTransform(description)}
+                                tagName="div"
                             />
                         )}
                     </CardBase.Content>

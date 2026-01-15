@@ -16,4 +16,4 @@
 
 `border: 'shadow' | 'line' | 'none'` — Card border properties (defaults to `'shadow'`).
 
-`hoverBackgroundColor?: string` - Card hover background color
+`hoverBackgroundColor?: string` - Card hover background color (**deprecated**, will be removed in future versions)

@@ -14,7 +14,14 @@ import {filteredArray} from '../../schema/validators/utils';
 
 export const ContentItem = {
     additionalProperties: false,
-    required: ['icon'],
+    oneOf: [
+        {
+            required: ['icon'],
+        },
+        {
+            required: ['gravityIcon'],
+        },
+    ],
     properties: {
         title: {
             type: 'string',
@@ -23,6 +30,19 @@ export const ContentItem = {
         text: {
             type: 'string',
             contentType: 'yfm',
+        },
+        icon: withTheme(ImageProps),
+        gravityIcon: withTheme(GravityIconProps),
+    },
+};
+
+export const ContentLabel = {
+    additionalProperties: false,
+    required: ['text'],
+    properties: {
+        text: {
+            type: 'string',
+            contentType: 'text',
         },
         icon: withTheme(ImageProps),
         gravityIcon: withTheme(GravityIconProps),
@@ -63,6 +83,7 @@ export const ContentBase = {
         enum: contentThemes,
     },
     list: filteredArray(ContentItem),
+    labels: filteredArray(ContentLabel),
     controlPosition: {
         type: 'string',
         enum: ['default', 'bottom'],

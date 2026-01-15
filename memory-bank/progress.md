@@ -49,6 +49,17 @@ Recently updated sub-block components with enhanced consistency:
 - **ContentList**: Enhanced with Gravity icons support for list items
 - **IconWrapper**: Updated to support both traditional image icons and Gravity UI icons
 
+### Layout Blocks Enhancement
+
+- **CardLayout Block**: Enhanced with title centering support:
+  - **Title Centering Control**: New `centered?: boolean` prop allows centering title and subtitle
+  - **Title Component**: Extended with `colJustifyContent` prop for alignment control
+  - **Responsive Layout**: Dynamic column sizes adapt based on `centered` prop:
+    - When `centered === false`: uses `sm: 8` for narrower left-aligned title column
+    - When `centered === true`: uses `sm: 12` for full-width centered title
+  - **Implementation**: Conditional logic `centered ? GridJustifyContent.Center : GridJustifyContent.Start` for alignment and `centered ? 12 : 8` for column size
+  - **Backward Compatible**: Default `centered: false` maintains existing left-aligned behavior
+
 ### Icon System
 
 Enhanced icon capabilities with Gravity UI integration:

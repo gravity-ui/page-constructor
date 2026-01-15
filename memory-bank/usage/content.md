@@ -444,10 +444,11 @@ The Content component is composed of several key parts:
 
 1. **Title**: Displays the content title using the Title component
 2. **Text**: Displays the main text content using the YFMWrapper component
-3. **Content List**: Displays a list of content items using the ContentList component
-4. **Additional Info**: Displays additional information using the YFMWrapper component
-5. **Links**: Displays links using the Links component
-6. **Buttons**: Displays buttons using the Buttons component
+3. **Labels**: Displays labels using the ContentLabels component
+4. **Content List**: Displays a list of content items using the ContentList component
+5. **Additional Info**: Displays additional information using the YFMWrapper component
+6. **Links**: Displays links using the Links component
+7. **Buttons**: Displays buttons using the Buttons component
 
 ### Internal Structure
 
@@ -469,6 +470,11 @@ The Content component is composed of several key parts:
       />
     </div>
   )}
+  {labels?.length ? (
+    <div className={b('labels')}>
+      <ContentLabels labels={labels} theme={theme} />
+    </div>
+  ) : null}
   {list?.length ? (
     <div className={b('list')}>
       <ContentList list={list} size={size} qa={qaAttributes.list} theme={theme} />

@@ -1,94 +1,65 @@
 import {Meta, StoryFn} from '@storybook/react';
 
-import {transformOptionalTitle, yfmTransform} from '../../../../.storybook/utils';
-import {PageConstructor} from '../../../containers/PageConstructor/PageConstructor';
-import {
-    ExtendedFeaturesBlockModel,
-    ExtendedFeaturesItem,
-    ExtendedFeaturesProps,
-} from '../../../models';
-import ExtendedFeatures from '../ExtendedFeatures';
+import {blockTransform} from '../../../../.storybook/utils';
+import {ExtendedFeaturesBlockModel, ExtendedFeaturesProps} from '../../../models';
+import ExtendedFeatures, {ExtendedFeaturesBlock} from '../ExtendedFeatures';
 
 import data from './data.json';
 
 export default {
-    title: 'Blocks/ExtendedFeatures',
     component: ExtendedFeatures,
-    args: {
-        colSizes: {
-            all: 12,
-            sm: 6,
-            md: 4,
-        },
-    },
+    title: 'Blocks/ExtendedFeatures',
 } as Meta;
 
-const DefaultTemplate: StoryFn<ExtendedFeaturesBlockModel> = (args) => (
-    <PageConstructor content={{blocks: [args]}} />
-);
-
-const extendedFeaturesItems = (items: ExtendedFeaturesItem[]) => {
-    return items.map((item) => ({
-        ...item,
-        title: transformOptionalTitle(item.title),
-        list: item.list?.map((listItem) => ({
-            ...listItem,
-            title: transformOptionalTitle(listItem.title),
-            text: listItem?.text && yfmTransform(listItem.text),
-        })),
-        text: item.text && yfmTransform(item.text),
-        additionalInfo: item.additionalInfo && yfmTransform(item.additionalInfo),
-    }));
+const DefaultTemplate: StoryFn<ExtendedFeaturesBlockModel> = (args) => {
+    const transformed = blockTransform(args) as ExtendedFeaturesProps;
+    return (
+        <div style={{padding: '64px'}}>
+            <ExtendedFeaturesBlock {...transformed} />
+        </div>
+    );
 };
 
-const ColSizesTemplate: StoryFn<ExtendedFeaturesBlockModel> = (args) => (
-    <PageConstructor
-        content={{
-            blocks: [
-                {
-                    ...args,
-                    ...data.colSizes.four,
-                    title: transformOptionalTitle(data.colSizes.four.title),
-                    description: yfmTransform(data.colSizes.four.description),
-                    items: extendedFeaturesItems(
-                        data.colSizes.four.items as ExtendedFeaturesItem[],
-                    ),
-                },
-                {
-                    ...args,
-                    ...data.colSizes.three,
-                    title: transformOptionalTitle(data.colSizes.three.title),
-                    description: yfmTransform(data.colSizes.three.description),
-                },
-                {
-                    ...args,
-                    ...data.colSizes.two,
-                    title: transformOptionalTitle(data.colSizes.two.title),
-                    description: yfmTransform(data.colSizes.two.description),
-                    items: extendedFeaturesItems(data.colSizes.two.items as ExtendedFeaturesItem[]),
-                },
-            ],
-        }}
-    />
+const ColSizesTemplate: StoryFn<Record<string, ExtendedFeaturesBlockModel>> = (args) => (
+    <div style={{padding: '64px', display: 'flex', flexDirection: 'column', gap: 20}}>
+        {Object.entries(args)
+            .map(([key, item]) => {
+                const transformed = blockTransform(item) as ExtendedFeaturesProps;
+                return <ExtendedFeaturesBlock key={key} {...transformed} />;
+            })
+            .filter(Boolean)}
+    </div>
 );
 
 export const Default = DefaultTemplate.bind({});
 export const WithLabel = DefaultTemplate.bind({});
 export const ColSizes = ColSizesTemplate.bind({});
 
-const DefaultArgs = {
+Default.args = data.default.content as ExtendedFeaturesBlockModel;
+
+WithLabel.args = {
     ...data.default.content,
-    title: transformOptionalTitle(data.default.content.title),
-    description: yfmTransform(data.default.content.description),
-    items: extendedFeaturesItems(data.default.content.items as ExtendedFeaturesItem[]),
+    items: data.withLabel?.content?.items,
+} as ExtendedFeaturesBlockModel;
+
+const COL_SIZES: Record<string, ExtendedFeaturesBlockModel> = {
+    four_columns: {
+        ...data.default.content,
+        ...data.colSizes?.four,
+    } as ExtendedFeaturesBlockModel,
+    three_columns: {
+        ...data.default.content,
+        ...data.colSizes?.three,
+    } as ExtendedFeaturesBlockModel,
+    two_columns: {
+        ...data.default.content,
+        ...data.colSizes?.two,
+    } as ExtendedFeaturesBlockModel,
 };
 
-Default.args = {...DefaultArgs} as ExtendedFeaturesProps;
-WithLabel.args = {
-    ...DefaultArgs,
-    items: extendedFeaturesItems(data.withLabel.content.items as ExtendedFeaturesItem[]),
-} as ExtendedFeaturesProps;
-ColSizes.args = {
-    ...data.default.content,
-    items: extendedFeaturesItems(data.default.content.items as ExtendedFeaturesItem[]),
-} as ExtendedFeaturesProps;
+ColSizes.args = COL_SIZES;
+ColSizes.parameters = {
+    controls: {
+        include: Object.keys(COL_SIZES),
+    },
+};

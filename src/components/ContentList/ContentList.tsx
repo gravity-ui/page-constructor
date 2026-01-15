@@ -6,9 +6,8 @@ import {ContentListProps, ContentSize} from '../../models';
 import {QAProps} from '../../models/common';
 import {block} from '../../utils';
 import {getQaAttrubutes} from '../../utils/blocks';
+import ContentIcon from '../ContentIcon/ContentIcon';
 import YFMWrapper from '../YFMWrapper/YFMWrapper';
-
-import ItemIcon from './ContentListItemIcon';
 
 import './ContentList.scss';
 
@@ -33,7 +32,7 @@ const ContentList = ({list, size = 'l', qa, theme}: ContentListProps & QAProps) 
                 const {icon, title, text, gravityIcon} = item;
                 return (
                     <div className={b('item', {'without-title': !title})} key={uuidv4()}>
-                        <ItemIcon
+                        <ContentIcon
                             icon={icon}
                             className={b('icon')}
                             qa={qaAttributes.image}

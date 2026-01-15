@@ -1,5 +1,40 @@
 # Changelog
 
+## [7.24.0](https://github.com/gravity-ui/page-constructor/compare/v7.23.0...v7.24.0) (2025-12-22)
+
+
+### Features
+
+* **FoldableList:** add yfm support for list prop ([#1342](https://github.com/gravity-ui/page-constructor/issues/1342)) ([7e36ea8](https://github.com/gravity-ui/page-constructor/commit/7e36ea85582ba47483ae9dbac1480560708efb8c))
+* **questions:** update storybook and add yfm support ([#1341](https://github.com/gravity-ui/page-constructor/issues/1341)) ([67414dd](https://github.com/gravity-ui/page-constructor/commit/67414dd15d551e272e07dd9b3c49201091633cbd))
+
+
+### Bug Fixes
+
+* **BasicCard:** mark property hoverBackgroundColor as deprecated ([#1356](https://github.com/gravity-ui/page-constructor/issues/1356)) ([18d71f8](https://github.com/gravity-ui/page-constructor/commit/18d71f848ed99a3789a5568b295f9e9f25adfe69))
+* **Questions:** use sanitaze for faq miqrodata ([#1358](https://github.com/gravity-ui/page-constructor/issues/1358)) ([38a50ed](https://github.com/gravity-ui/page-constructor/commit/38a50ed77b410fddf124196dc7889b28d6adbebb))
+
+## [7.23.0](https://github.com/gravity-ui/page-constructor/compare/v7.22.0...v7.23.0) (2025-12-03)
+
+
+### Features
+
+* add ability to centered title in cardLayoutBlock ([#1337](https://github.com/gravity-ui/page-constructor/issues/1337)) ([bb51c0e](https://github.com/gravity-ui/page-constructor/commit/bb51c0e3d7acd326baa6b32a99a2243a2718aaff))
+
+## [7.22.0](https://github.com/gravity-ui/page-constructor/compare/v7.21.1...v7.22.0) (2025-11-26)
+
+
+### Features
+
+* **FormBlock:** add content labels, stub, update background ([#1314](https://github.com/gravity-ui/page-constructor/issues/1314)) ([044ced8](https://github.com/gravity-ui/page-constructor/commit/044ced812937014597307a8b056fbfef4ad3a295))
+
+## [7.21.1](https://github.com/gravity-ui/page-constructor/compare/v7.21.0...v7.21.1) (2025-11-26)
+
+
+### Bug Fixes
+
+* **BasicCard:** add animation for hover background color ([#1334](https://github.com/gravity-ui/page-constructor/issues/1334)) ([7ebabde](https://github.com/gravity-ui/page-constructor/commit/7ebabde30b5fb1030814bd0c05e910a2350a2a23))
+
 ## [7.21.0](https://github.com/gravity-ui/page-constructor/compare/v7.20.0...v7.21.0) (2025-11-18)
 
 

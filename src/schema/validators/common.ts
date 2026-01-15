@@ -2,6 +2,7 @@ import {ImageProps} from '../../components/Image/schema';
 import {
     CustomControlsButtonPositioning,
     CustomControlsType,
+    Device,
     MediaVideoControlsType,
     QuoteType,
     Theme,
@@ -477,6 +478,30 @@ export function withTheme<T extends object>(value: T) {
                     {},
                 ),
                 optionName: 'themes',
+            },
+        ],
+    };
+}
+
+export function withDevice<T extends object>(value: T) {
+    return {
+        oneOf: [
+            {
+                ...value,
+                optionName: 'no device',
+            },
+            {
+                type: 'object',
+                additionalProperties: false,
+                required: [Device.Desktop, Device.Mobile],
+                properties: Object.values(Device).reduce(
+                    (result, deviceName) => ({
+                        ...result,
+                        [deviceName]: value,
+                    }),
+                    {},
+                ),
+                optionName: 'devices',
             },
         ],
     };

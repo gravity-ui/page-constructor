@@ -5,6 +5,7 @@ import InnerForm from '../../components/InnerForm/InnerForm';
 import {MobileContext} from '../../context/mobileContext';
 import {useTheme} from '../../context/theme';
 import {Col, Grid, GridAlignItems, GridColumnSize, Row} from '../../grid';
+import {useDeviceValue} from '../../hooks/useDeviceValue';
 import type {FormBlockProps} from '../../models';
 import {
     FormBlockDataTypes,
@@ -15,6 +16,8 @@ import {
 import {Content} from '../../sub-blocks';
 import {block, getThemedValue} from '../../utils';
 
+import {hasBackgroundCSS} from './utils';
+
 import './Form.scss';
 
 const b = block('form-block');
@@ -22,24 +25,33 @@ const b = block('form-block');
 const colSizes = {[GridColumnSize.Lg]: 6, [GridColumnSize.All]: 12};
 
 const Form = (props: FormBlockProps) => {
-    const {formData, title, textContent, direction = FormBlockDirection.Center, background} = props;
+    const {
+        formData,
+        title,
+        textContent,
+        direction = FormBlockDirection.Center,
+        background,
+        customFormNode,
+    } = props;
     const [contentLoaded, setContentLoaded] = React.useState(false);
     const isMobile = React.useContext(MobileContext);
     const theme = useTheme();
 
     const themedBackground = getThemedValue(background, theme) || undefined;
+    const themedBackgroundStyle = useDeviceValue(themedBackground?.style) || undefined;
 
     const withBackground = Boolean(
         themedBackground &&
             (themedBackground.src ||
                 themedBackground.desktop ||
-                themedBackground.style?.backgroundColor),
+                hasBackgroundCSS(themedBackgroundStyle ?? {})),
     );
+
     const onContentLoad = React.useCallback(() => {
         setContentLoaded(true);
     }, []);
 
-    if (!formData) {
+    if (!formData && !customFormNode) {
         return null;
     }
 
@@ -61,6 +73,7 @@ const Form = (props: FormBlockProps) => {
             {themedBackground && (
                 <BackgroundImage
                     {...themedBackground}
+                    style={themedBackgroundStyle}
                     className={b('media')}
                     imageClassName={b('image')}
                 />
@@ -96,21 +109,25 @@ const Form = (props: FormBlockProps) => {
                                     hidden: !contentLoaded,
                                 })}
                             >
-                                {title && (
-                                    <Title
-                                        title={{
-                                            text: title,
-                                            textSize: 's',
-                                        }}
-                                        className={b('title', {mobile: isMobile})}
-                                        colSizes={{all: 12}}
-                                    />
+                                {customFormNode || (
+                                    <React.Fragment>
+                                        {title && (
+                                            <Title
+                                                title={{
+                                                    text: title,
+                                                    textSize: 's',
+                                                }}
+                                                className={b('title', {mobile: isMobile})}
+                                                colSizes={{all: 12}}
+                                            />
+                                        )}
+                                        <InnerForm
+                                            className={b('form')}
+                                            formData={formData}
+                                            onContentLoad={onContentLoad}
+                                        />
+                                    </React.Fragment>
                                 )}
-                                <InnerForm
-                                    className={b('form')}
-                                    formData={formData}
-                                    onContentLoad={onContentLoad}
-                                />
                             </div>
                         </div>
                     </Col>

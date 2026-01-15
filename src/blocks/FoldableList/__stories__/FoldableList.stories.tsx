@@ -1,6 +1,6 @@
 import {Meta, StoryFn} from '@storybook/react';
 
-import {PageConstructor} from '../../../containers/PageConstructor/PageConstructor';
+import {blockTransform} from '../../../../.storybook/utils';
 import {FoldableListBlockModel, FoldableListProps} from '../../../models';
 import FoldableListBlock from '../FoldableList';
 
@@ -11,17 +11,21 @@ export default {
     component: FoldableListBlock,
 } as Meta;
 
-const DefaultTemplate: StoryFn<FoldableListBlockModel> = (args) => (
-    <div style={{padding: '64px 0px'}}>
-        <PageConstructor content={{blocks: [args]}} />
-    </div>
-);
+const DefaultTemplate: StoryFn<FoldableListBlockModel> = (args) => {
+    const transformedArgs = blockTransform(args) as FoldableListProps;
+    return (
+        <div style={{padding: '64px 64px'}}>
+            <FoldableListBlock {...transformedArgs} />
+        </div>
+    );
+};
+
 export const Default = DefaultTemplate.bind({});
 export const TextWithListDash = DefaultTemplate.bind({});
 export const TextWithListBullet = DefaultTemplate.bind({});
 export const WithContentList = DefaultTemplate.bind({});
 
-Default.args = data.default.content as FoldableListProps;
-WithContentList.args = {...data.default.content, list: data.common.list} as FoldableListProps;
-TextWithListDash.args = data.textWithListDash.content as FoldableListProps;
-TextWithListBullet.args = data.textWithListBullet.content as FoldableListProps;
+Default.args = data.default as FoldableListBlockModel;
+WithContentList.args = {...data.default, list: data.common.list} as FoldableListBlockModel;
+TextWithListDash.args = data.textWithListDash as FoldableListBlockModel;
+TextWithListBullet.args = data.textWithListBullet as FoldableListBlockModel;

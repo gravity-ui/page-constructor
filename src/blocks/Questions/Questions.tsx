@@ -4,9 +4,9 @@ import {Col, Row} from '../../grid';
 import {QuestionsProps} from '../../models';
 import {Content} from '../../sub-blocks';
 import {block} from '../../utils';
+import {sanitizeMicrodata} from '../../utils/microdata';
 
 import {QuestionBlockItem} from './QuestionBlockItem/QuestionBlockItem';
-import {FaqMicrodataValues} from './models';
 
 import './Questions.scss';
 
@@ -28,13 +28,31 @@ const QuestionsBlock = (props: QuestionsProps) => {
         setOpened(newState);
     };
 
+    const faqMicrodataScript = React.useMemo(() => {
+        try {
+            const json = JSON.stringify({
+                '@context': 'https://schema.org',
+                '@type': 'FAQPage',
+                mainEntity: items.map((item) => ({
+                    '@type': 'Question',
+                    name: sanitizeMicrodata(item.title),
+                    acceptedAnswer: {
+                        '@type': 'Answer',
+                        text: sanitizeMicrodata(item.text),
+                    },
+                })),
+            });
+            return <script type="application/ld+json" dangerouslySetInnerHTML={{__html: json}} />;
+        } catch (error) {
+            /*eslint-disable no-console */
+            console.warn('Problem with FAQ microdata', error);
+            return null;
+        }
+    }, [items]);
+
     return (
-        <div
-            className={b()}
-            itemScope
-            itemType={FaqMicrodataValues.PageType}
-            itemID={FaqMicrodataValues.PageId}
-        >
+        <div className={b()}>
+            {faqMicrodataScript}
             <Row>
                 <Col sizes={{all: 12, md: 4}}>
                     <div className={b('title')}>
