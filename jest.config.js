@@ -34,7 +34,7 @@ module.exports = {
     setupFiles: ['<rootDir>/test-utils/setup-tests.ts'],
     setupFilesAfterEnv: ['<rootDir>/test-utils/setup-tests-after.ts'],
     moduleNameMapper: {
-        // Мокаем CSS импорты
+        // Mock CSS imports
         '^swiper/css.*': 'jest-transform-css',
         '\\.(css|less|scss|sass)$': 'jest-transform-css',
     },
