@@ -98,6 +98,42 @@ task('copy-json', () => {
         .pipe(dest(path.resolve(BUILD_CLIENT_DIR, CJS_DIR)));
 });
 
+/**
+ * Get swiper version from installed package or fallback to package.json
+ * @returns {string} Swiper version without prefix (^, ~, etc.)
+ */
+function getSwiperVersion() {
+    // Try to read from node_modules/swiper/package.json (actual installed version)
+    const swiperPackagePath = path.join('node_modules', 'swiper', 'package.json');
+    if (fs.existsSync(swiperPackagePath)) {
+        try {
+            const swiperPackage = JSON.parse(fs.readFileSync(swiperPackagePath, 'utf8'));
+            if (swiperPackage.version) {
+                return swiperPackage.version;
+            }
+        } catch (error) {
+            // If reading fails, fallback to package.json
+        }
+    }
+
+    // Fallback: read from project's package.json and remove version prefix
+    const projectPackagePath = path.join(process.cwd(), 'package.json');
+    try {
+        const projectPackage = JSON.parse(fs.readFileSync(projectPackagePath, 'utf8'));
+        const swiperVersion =
+            projectPackage.dependencies?.swiper || projectPackage.devDependencies?.swiper;
+        if (swiperVersion) {
+            // Remove version prefixes (^, ~, >=, <=, etc.)
+            return swiperVersion.replace(/^[\^~>=<]+/, '');
+        }
+    } catch (error) {
+        // If all fails, throw error
+        throw new Error('Failed to determine swiper version');
+    }
+
+    throw new Error('Swiper version not found in package.json');
+}
+
 // Transpile ESM-only packages (swiper) to CJS for compatibility
 task('bundle-esm-deps-for-cjs', async () => {
     const cjsDir = path.resolve(BUILD_CLIENT_DIR, CJS_DIR);
@@ -141,13 +177,16 @@ task('bundle-esm-deps-for-cjs', async () => {
     const swiperCjsDir = path.join(cjsDir, 'node_modules', 'swiper');
     fs.mkdirSync(swiperCjsDir, {recursive: true});
 
+    // Get swiper version dynamically
+    const swiperVersion = getSwiperVersion();
+
     // Create package.json for CJS version of swiper
     fs.writeFileSync(
         path.join(swiperCjsDir, 'package.json'),
         JSON.stringify(
             {
                 name: 'swiper',
-                version: '10.2.0',
+                version: swiperVersion,
                 type: 'commonjs',
                 main: './swiper.js',
                 exports: {
