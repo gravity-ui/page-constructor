@@ -239,7 +239,7 @@ export interface QuestionItem {
     text: string;
     listStyle?: 'dash' | 'disk';
     link?: LinkProps;
-    onClick?: (index: number, newState: boolean) => void;
+    onClick?: (index: number, newOpenState: boolean) => void;
 }
 
 export interface QuestionsProps
