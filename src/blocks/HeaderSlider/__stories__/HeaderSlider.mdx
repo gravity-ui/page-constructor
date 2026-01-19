@@ -1,0 +1,40 @@
+import {Meta} from '@storybook/blocks';
+
+import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
+import * as HeaderSliderStories from './HeaderSlider.stories.tsx';
+
+<Meta of={HeaderSliderStories} />
+<StoryTemplate>
+
+## Usage
+
+The HeaderSlider block displays a carousel of header slides with navigation controls.
+
+## Parameters
+
+`items: Array<HeaderBlockProps>` — (required) Array of header items to display in the slider
+
+`arrows?: boolean` — Show/hide navigation arrows
+
+`dots?: boolean` — Show/hide navigation dots
+
+`autoplay?: number` — Enable autoplay with specified interval in milliseconds
+
+`slidesToShow?: number | Partial<SliderBreakpointParams>` — Number of slides to show simultaneously
+
+`adaptive?: boolean` — Enable adaptive height based on slide content
+
+`randomOrder?: boolean` — Randomize slide order
+
+`disclaimer?: object` — Disclaimer configuration
+- `text: string`
+- `size?: TextSize`
+
+`children?: SubBlock[]` — Array of sub-blocks
+
+`animated?: boolean` — Enable slide animations
+
+`loadable?: LoadableProps` — Dynamic content loading configuration
+
+</StoryTemplate>
+

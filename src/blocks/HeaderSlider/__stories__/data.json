@@ -1,137 +1,128 @@
 {
   "autoPlay": {
-    "content": {
-      "dots": true,
-      "randomOrder": false,
-      "adaptive": true,
-      "type": "header-slider-block",
-      "autoplay": 3000
-    }
+    "dots": true,
+    "randomOrder": false,
+    "adaptive": true,
+    "autoplay": 3000
   },
   "default": {
-    "content": {
-      "dots": true,
-      "randomOrder": false,
-      "adaptive": true,
-      "type": "header-slider-block",
-      "arrows": true,
-      "items": [
-        {
-          "title": "Lorem ipsum dolor sit amet",
-          "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident",
-          "width": "s",
-          "background": {
-            "light": {
-              "image": "/story-assets/header-bg-img_light.png",
-              "color": "#EFF2F8",
-              "fullWidth": true
-            },
-            "dark": {
-              "image": "/story-assets/header-bg-img_dark.png",
-              "color": "#262626",
-              "fullWidth": true
-            }
-          },
-          "buttons": [
-            {
-              "text": "Button\r",
-              "theme": "action",
-              "url": "https://example.com"
-            },
-            {
-              "text": "Buttom",
-              "theme": "outlined",
-              "url": "https://example.com"
-            }
-          ]
-        },
-        {
-          "title": "Lorem ipsum dolor sit amet",
-          "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident",
-          "width": "s",
-          "background": {
-            "light": {
-              "image": "/story-assets/header-bg-img_light.png",
-              "color": "#EFF2F8",
-              "fullWidth": true
-            },
-            "dark": {
-              "image": "/story-assets/header-bg-img_dark.png",
-              "color": "#262626",
-              "fullWidth": true
-            }
-          },
-          "buttons": [
-            {
-              "text": "Button\r",
-              "theme": "action",
-              "url": "https://example.com"
-            },
-            {
-              "text": "Buttom",
-              "theme": "outlined",
-              "url": "https://example.com"
-            }
-          ]
-        }
-      ]
-    }
-  },
-  "withDifferentSlidesTheme": {
-    "content": {
-      "dots": true,
-      "randomOrder": false,
-      "adaptive": true,
-      "type": "header-slider-block",
-      "arrows": true,
-      "items": [
-        {
-          "theme": "light",
-          "title": "Lorem ipsum dolor sit amet",
-          "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident",
-          "width": "s",
-          "background": {
+    "dots": true,
+    "randomOrder": false,
+    "adaptive": true,
+    "arrows": true,
+    "items": [
+      {
+        "title": "Lorem ipsum dolor sit amet",
+        "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident",
+        "width": "s",
+        "background": {
+          "light": {
             "image": "/story-assets/header-bg-img_light.png",
             "color": "#EFF2F8",
             "fullWidth": true
           },
-          "buttons": [
-            {
-              "text": "Button\r",
-              "theme": "action",
-              "url": "https://example.com"
-            },
-            {
-              "text": "Buttom",
-              "theme": "outlined",
-              "url": "https://example.com"
-            }
-          ]
-        },
-        {
-          "theme": "dark",
-          "title": "Lorem ipsum dolor sit amet",
-          "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident",
-          "width": "s",
-          "background": {
+          "dark": {
             "image": "/story-assets/header-bg-img_dark.png",
             "color": "#262626",
             "fullWidth": true
+          }
+        },
+        "buttons": [
+          {
+            "text": "Button\r",
+            "theme": "action",
+            "url": "https://example.com"
           },
-          "buttons": [
-            {
-              "text": "Button\r",
-              "theme": "action",
-              "url": "https://example.com"
-            },
-            {
-              "text": "Buttom",
-              "theme": "normal-contrast",
-              "url": "https://example.com"
-            }
-          ]
-        }
-      ]
-    }
+          {
+            "text": "Buttom",
+            "theme": "outlined",
+            "url": "https://example.com"
+          }
+        ]
+      },
+      {
+        "title": "Lorem ipsum dolor sit amet",
+        "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident",
+        "width": "s",
+        "background": {
+          "light": {
+            "image": "/story-assets/header-bg-img_light.png",
+            "color": "#EFF2F8",
+            "fullWidth": true
+          },
+          "dark": {
+            "image": "/story-assets/header-bg-img_dark.png",
+            "color": "#262626",
+            "fullWidth": true
+          }
+        },
+        "buttons": [
+          {
+            "text": "Button\r",
+            "theme": "action",
+            "url": "https://example.com"
+          },
+          {
+            "text": "Buttom",
+            "theme": "outlined",
+            "url": "https://example.com"
+          }
+        ]
+      }
+    ]
+  },
+  "withDifferentSlidesTheme": {
+    "dots": true,
+    "randomOrder": false,
+    "adaptive": true,
+    "arrows": true,
+    "items": [
+      {
+        "theme": "light",
+        "title": "Lorem ipsum dolor sit amet",
+        "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident",
+        "width": "s",
+        "background": {
+          "image": "/story-assets/header-bg-img_light.png",
+          "color": "#EFF2F8",
+          "fullWidth": true
+        },
+        "buttons": [
+          {
+            "text": "Button\r",
+            "theme": "action",
+            "url": "https://example.com"
+          },
+          {
+            "text": "Buttom",
+            "theme": "outlined",
+            "url": "https://example.com"
+          }
+        ]
+      },
+      {
+        "theme": "dark",
+        "title": "Lorem ipsum dolor sit amet",
+        "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident",
+        "width": "s",
+        "background": {
+          "image": "/story-assets/header-bg-img_dark.png",
+          "color": "#262626",
+          "fullWidth": true
+        },
+        "buttons": [
+          {
+            "text": "Button\r",
+            "theme": "action",
+            "url": "https://example.com"
+          },
+          {
+            "text": "Buttom",
+            "theme": "normal-contrast",
+            "url": "https://example.com"
+          }
+        ]
+      }
+    ]
   }
 }
