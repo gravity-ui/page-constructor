@@ -16,13 +16,20 @@ const QuestionsBlock = (props: QuestionsProps) => {
     const {title, text, additionalInfo, links, buttons, items, list} = props;
     const [opened, setOpened] = React.useState<number[]>([0]);
 
-    const toggleItem = (index: number) => {
+    const toggleItem = (
+        index: number,
+        itemOnClick?: QuestionsProps['items'][number]['onClick'],
+    ) => {
         let newState;
 
         if (opened.includes(index)) {
             newState = opened.filter((itemIndex: number) => itemIndex !== index);
         } else {
             newState = [...opened, index];
+        }
+
+        if (itemOnClick) {
+            itemOnClick(index, !opened.includes(index));
         }
 
         setOpened(newState);
@@ -69,9 +76,18 @@ const QuestionsBlock = (props: QuestionsProps) => {
                 </Col>
                 <Col sizes={{all: 12, md: 8}} role={'list'}>
                     {items.map(
-                        ({title: itemTitle, text: itemText, link, listStyle = 'dash'}, index) => {
+                        (
+                            {
+                                title: itemTitle,
+                                text: itemText,
+                                link,
+                                listStyle = 'dash',
+                                onClick: itemOnClick,
+                            },
+                            index,
+                        ) => {
                             const isOpened = opened.includes(index);
-                            const onClick = () => toggleItem(index);
+                            const onClick = () => toggleItem(index, itemOnClick);
 
                             return (
                                 <QuestionBlockItem
