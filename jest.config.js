@@ -3,7 +3,7 @@ module.exports = {
     moduleFileExtensions: ['js', 'json', 'ts', 'tsx', 'mjs'],
     rootDir: '.',
     transform: {
-        '^.+\\.tsx?$': ['ts-jest', {tsconfig: './tsconfig.test.json'}],
+        '^.+\\.tsx?$': ['ts-jest', {tsconfig: './tsconfig.test.json', isolatedModules: true}],
         '^.+\\.m?js$': [
             'babel-jest',
             {

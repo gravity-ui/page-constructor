@@ -130,6 +130,13 @@ export const SliderBlock = ({
                     onUnlock={() => setIsLocked(false)}
                     watchOverflow
                     watchSlidesProgress
+                    touchStartPreventDefault={false}
+                    touchAngle={45}
+                    threshold={10}
+                    longSwipes={true}
+                    longSwipesRatio={0.5}
+                    resistance={true}
+                    resistanceRatio={0.5}
                     a11y={{
                         slideLabelMessage: '',
                         paginationBulletMessage: i18n('dot-label', {index: '{{index}}'}),
