@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.25.0](https://github.com/gravity-ui/page-constructor/compare/v7.24.0...v7.25.0) (2026-01-19)
+
+
+### Features
+
+* **Questions:** add onClick question ([#1360](https://github.com/gravity-ui/page-constructor/issues/1360)) ([74d4aad](https://github.com/gravity-ui/page-constructor/commit/74d4aadafd10ec0749270a4089737355b18a6448))
+
 ## [7.24.0](https://github.com/gravity-ui/page-constructor/compare/v7.23.0...v7.24.0) (2025-12-22)
 
 
