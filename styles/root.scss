@@ -9,7 +9,7 @@
 .g-root {
     @include pc-colors-social;
 
-    --g-text-accent-font-weight: 500;
+    --pc-text-accent-font-weight: 500;
 
     // cross-browser transparent color
     --pc-transparent: rgba(255, 255, 255, 0);
@@ -38,16 +38,6 @@
     // focus color
     --pc-color-line-focus-light: var(--g-color-text-brand);
     --pc-color-line-focus-dark: var(--g-color-text-light-primary);
-
-    &_theme_light {
-        @include pc-colors-light;
-        --g-color-line-focus: var(--pc-color-line-focus-light);
-    }
-
-    &_theme_dark {
-        @include pc-colors-dark;
-        --g-color-line-focus: var(--pc-color-line-focus-dark);
-    }
 
     &.g-root_theme_dark {
         --pc-color-sfx-shadow: var(--g-color-sfx-shadow);

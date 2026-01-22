@@ -74,7 +74,7 @@ $block: '.#{$ns}price-card';
 
         &-value {
             @include text-size(display-1);
-            font-weight: var(--g-text-accent-font-weight);
+            font-weight: var(--pc-text-accent-font-weight);
         }
 
         &-period {

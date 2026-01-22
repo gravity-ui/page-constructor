@@ -37,7 +37,7 @@
         &_meta_info {
             p {
                 color: var(--pc-media-card-meta-info-color);
-                font-weight: var(--g-text-accent-font-weight);
+                font-weight: var(--pc-text-accent-font-weight);
             }
         }
 
@@ -49,7 +49,7 @@
         }
 
         p strong {
-            font-weight: var(--g-text-accent-font-weight);
+            font-weight: var(--pc-text-accent-font-weight);
         }
 
         &_size_s {
