@@ -2,8 +2,6 @@
 
 ## [8.0.0](https://github.com/gravity-ui/page-constructor/compare/v7.25.0...v8.0.0) (2026-01-28)
 
-## [8.0.0](https://github.com/gravity-ui/page-constructor/compare/v7.25.0...v8.0.0) (2026-01-28)
-
 
 ### ⚠ BREAKING CHANGES
 
