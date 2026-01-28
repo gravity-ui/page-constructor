@@ -2,19 +2,16 @@
 
 ## [8.0.0](https://github.com/gravity-ui/page-constructor/compare/v7.25.0...v8.0.0) (2026-01-28)
 
+## [8.0.0](https://github.com/gravity-ui/page-constructor/compare/v7.25.0...v8.0.0) (2026-01-28)
+
 
 ### ⚠ BREAKING CHANGES
 
-* release 8 ([#1370](https://github.com/gravity-ui/page-constructor/issues/1370))
+- **Slider**
+  - Update swiper version on ^10.2.0
 
-### Features
-
-* release 8 ([#1370](https://github.com/gravity-ui/page-constructor/issues/1370)) ([8046e39](https://github.com/gravity-ui/page-constructor/commit/8046e398a297b88b7a05dd72cbf8bd5b984f1fa0))
-
-
-### Bug Fixes
-
-* trigger release ([#1368](https://github.com/gravity-ui/page-constructor/issues/1368)) ([1a72dd9](https://github.com/gravity-ui/page-constructor/commit/1a72dd9201f780194d4ef01d36f5e628471f183a))
+- **ImageCard**
+  - update text-transform config, now `renderInline` is not true for yfm trnsform for fields: ['title', 'text', 'additionalInfo']
 
 ## [7.25.0](https://github.com/gravity-ui/page-constructor/compare/v7.24.0...v7.25.0) (2026-01-19)
 
