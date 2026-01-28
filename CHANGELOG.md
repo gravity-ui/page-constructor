@@ -9,7 +9,7 @@
   - Update swiper version on ^10.2.0
 
 - **ImageCard**
-  - update text-transform config, now `renderInline` is not true for yfm trnsform for fields: ['title', 'text', 'additionalInfo']
+  - update text-transform config, now `renderInline` is not true for yfm transform for fields: ['title', 'text', 'additionalInfo']
 
 ## [7.25.0](https://github.com/gravity-ui/page-constructor/compare/v7.24.0...v7.25.0) (2026-01-19)
 
