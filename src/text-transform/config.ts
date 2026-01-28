@@ -202,7 +202,6 @@ export const config: BlocksConfig = {
         {
             fields: ['title', 'text', 'additionalInfo'],
             transformer: yfmTransformer,
-            renderInline: true,
         },
     ],
     [SubBlockType.LayoutItem]: [
