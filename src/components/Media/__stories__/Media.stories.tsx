@@ -33,8 +33,10 @@ export const DataLens = DefaultTemplate.bind({});
 export const DataLensDarkTheme = DefaultTemplate.bind({});
 export const Iframe = IframeTemplate.bind({});
 
-Image.args = data.image.content;
-ImageSlider.args = data.imageSlider.content;
+Image.args = data.image.content as MediaAllProps;
+
+ImageSlider.args = data.imageSlider.content as MediaAllProps;
+
 Video.args = {
     ...data.video.content,
     video: {
@@ -43,8 +45,12 @@ Video.args = {
             console.log('Video has ended, onVideoEnd callback has fired');
         },
     },
-};
-Youtube.args = data.youtube.content;
-DataLens.args = data.dataLens.content;
+} as MediaAllProps;
+
+Youtube.args = data.youtube.content as MediaAllProps;
+
+DataLens.args = data.dataLens.content as MediaAllProps;
+
 DataLensDarkTheme.args = data.dataLensDarkTheme.content as MediaProps;
+
 Iframe.args = data.iframe.content as MediaProps;
