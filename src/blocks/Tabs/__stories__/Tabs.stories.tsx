@@ -17,17 +17,7 @@ const DefaultTemplate: StoryFn<TabsBlockModel> = (args) => (
     </div>
 );
 
-const ButtonsColSizesTemplate: StoryFn<Record<string, TabsBlockModel>> = (args) => (
-    <div style={{padding: 64, display: 'flex', gap: 20, flexDirection: 'column'}}>
-        {Object.entries(args)
-            .map(([key, item]) => {
-                return <TabsBlock key={key} {...(blockTransform(item) as TabsBlockProps)} />;
-            })
-            .filter(Boolean)}
-    </div>
-);
-
-const DirectionTemplate: StoryFn<Record<string, TabsBlockModel>> = (args) => (
+const MultipleTemplate: StoryFn<Record<string, TabsBlockModel>> = (args) => (
     <div style={{padding: 64, display: 'flex', gap: 20, flexDirection: 'column'}}>
         {Object.entries(args)
             .map(([key, item]) => {
@@ -40,9 +30,9 @@ const DirectionTemplate: StoryFn<Record<string, TabsBlockModel>> = (args) => (
 export const Default = DefaultTemplate.bind({});
 export const OnlyMedia = DefaultTemplate.bind({});
 export const OnlyText = DefaultTemplate.bind({});
-export const TabsButtonsColSizes = ButtonsColSizesTemplate.bind({});
+export const TabsButtonsColSizes = MultipleTemplate.bind({});
 export const Centered = DefaultTemplate.bind({});
-export const Direction = DirectionTemplate.bind({});
+export const Direction = MultipleTemplate.bind({});
 export const Caption = DefaultTemplate.bind({});
 export const MediaBorder = DefaultTemplate.bind({});
 
