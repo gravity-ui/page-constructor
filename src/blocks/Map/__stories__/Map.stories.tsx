@@ -29,69 +29,26 @@ const DefaultTemplate: StoryFn<MapBlockModel> = (args) => (
     </MapProvider>
 );
 
-const ControlsTemplate: StoryFn<Record<string, MapBlockModel>> = (args) => (
+const MultipleTemplate: StoryFn<Record<number, MapBlockModel>> = (args) => (
     <MapProvider
         scriptSrc={scriptsSrc[MapType.Yandex]}
         apiKey={ymapApiKeyForStorybook}
         type={MapType.Yandex}
     >
         <div style={{padding: '64px', display: 'flex', gap: 20, flexDirection: 'column'}}>
-            {Object.entries(args)
-                .map(([key, item]) => {
-                    if (typeof item !== 'object' || item === null) {
-                        return null;
-                    }
-                    return <MapBlock key={key} {...(blockTransform(item) as MapBlockProps)} />;
-                })
-                .filter(Boolean)}
-        </div>
-    </MapProvider>
-);
-
-const SizeTemplate: StoryFn<Record<string, MapBlockModel>> = (args) => (
-    <MapProvider
-        scriptSrc={scriptsSrc[MapType.Yandex]}
-        apiKey={ymapApiKeyForStorybook}
-        type={MapType.Yandex}
-    >
-        <div style={{padding: '64px', display: 'flex', gap: 20, flexDirection: 'column'}}>
-            {Object.entries(args)
-                .map(([key, item]) => {
-                    if (typeof item !== 'object' || item === null) {
-                        return null;
-                    }
-                    return <MapBlock key={key} {...(blockTransform(item) as MapBlockProps)} />;
-                })
-                .filter(Boolean)}
-        </div>
-    </MapProvider>
-);
-
-const DirectionTemplate: StoryFn<Record<string, MapBlockModel>> = (args) => (
-    <MapProvider
-        scriptSrc={scriptsSrc[MapType.Yandex]}
-        apiKey={ymapApiKeyForStorybook}
-        type={MapType.Yandex}
-    >
-        <div style={{padding: '64px', display: 'flex', gap: 20, flexDirection: 'column'}}>
-            {Object.entries(args)
-                .map(([key, item]) => {
-                    if (typeof item !== 'object' || item === null) {
-                        return null;
-                    }
-                    return <MapBlock key={key} {...(blockTransform(item) as MapBlockProps)} />;
-                })
-                .filter(Boolean)}
+            {Object.values(args).map((item, index) => (
+                <MapBlock key={index} {...(blockTransform(item) as MapBlockProps)} />
+            ))}
         </div>
     </MapProvider>
 );
 
 const GMAP_API_KEY = process.env.STORYBOOK_GMAP_API_KEY;
 
-const MapsTypesTemplate: StoryFn<Record<string, MapBlockModel>> = (args) => {
-    const entries = Object.entries(args);
-    const yandexMap = entries[0];
-    const googleMap = entries[1];
+const MapsTypesTemplate: StoryFn<Record<number, MapBlockModel>> = (args) => {
+    const items = Object.values(args);
+    const yandexMap = items[0];
+    const googleMap = items[1];
 
     return (
         <React.Fragment>
@@ -101,7 +58,7 @@ const MapsTypesTemplate: StoryFn<Record<string, MapBlockModel>> = (args) => {
                     apiKey={ymapApiKeyForStorybook}
                     type={MapType.Yandex}
                 >
-                    <MapBlock {...(blockTransform(yandexMap[1]) as MapBlockProps)} />
+                    <MapBlock {...(blockTransform(yandexMap) as MapBlockProps)} />
                 </MapProvider>
             )}
             {googleMap && (
@@ -115,56 +72,48 @@ const MapsTypesTemplate: StoryFn<Record<string, MapBlockModel>> = (args) => {
                             <ApiKeyInput id={gmapApiKeyIdInLS} />
                         </div>
                     )}
-                    <MapBlock {...(blockTransform(googleMap[1]) as MapBlockProps)} />
+                    <MapBlock {...(blockTransform(googleMap) as MapBlockProps)} />
                 </MapProvider>
             )}
         </React.Fragment>
     );
 };
 
-const EnhancedTitleTemplate: StoryFn<Record<string, MapBlockModel>> = (args) => (
+const EnhancedTitleTemplate: StoryFn<Record<number, MapBlockModel>> = (args) => (
     <MapProvider
         scriptSrc={scriptsSrc[MapType.Yandex]}
         apiKey={ymapApiKeyForStorybook}
         type={MapType.Yandex}
     >
         <div style={{padding: '64px', display: 'flex', gap: 20, flexDirection: 'column'}}>
-            {Object.entries(args)
-                .map(([key, item]) => {
-                    if (typeof item !== 'object' || item === null) {
-                        return null;
-                    }
-                    const transformedItem =
-                        key === 'interactive'
-                            ? {
-                                  ...item,
-                                  title: {
-                                      ...(typeof item.title === 'object' && item.title !== null
-                                          ? item.title
-                                          : {}),
-                                      onClick: () => alert('Map title clicked!'),
-                                  },
-                              }
-                            : item;
+            {Object.values(args).map((item, index) => {
+                const transformedItem =
+                    index === 1
+                        ? {
+                              ...item,
+                              title: {
+                                  ...(typeof item.title === 'object' && item.title !== null
+                                      ? item.title
+                                      : {}),
+                                  onClick: () => alert('Map title clicked!'),
+                              },
+                          }
+                        : item;
 
-                    return (
-                        <MapBlock
-                            key={key}
-                            {...(blockTransform(transformedItem) as MapBlockProps)}
-                        />
-                    );
-                })
-                .filter(Boolean)}
+                return (
+                    <MapBlock key={index} {...(blockTransform(transformedItem) as MapBlockProps)} />
+                );
+            })}
         </div>
     </MapProvider>
 );
 
 export const Default = DefaultTemplate.bind({});
-export const WithControls = ControlsTemplate.bind({});
-export const Size = SizeTemplate.bind({});
-export const Direction = DirectionTemplate.bind({});
-export const MapsTypes = MapsTypesTemplate.bind({});
-export const EnhancedTitle = EnhancedTitleTemplate.bind({});
+export const WithControls = MultipleTemplate.bind([]);
+export const Size = MultipleTemplate.bind([]);
+export const Direction = MultipleTemplate.bind([]);
+export const MapsTypes = MapsTypesTemplate.bind([]);
+export const EnhancedTitle = EnhancedTitleTemplate.bind([]);
 
 Default.args = {
     ...data.default.content,
@@ -173,15 +122,15 @@ Default.args = {
     map: data.ymap,
 } as MapBlockModel;
 
-const CONTROLS_MAPS: Record<string, MapBlockModel> = {
-    with_additional_info: {
+const CONTROLS_MAPS: MapBlockModel[] = [
+    {
         ...data.default.content,
         title: data.common.title,
         description: data.common.description,
         additionalInfo: data.common.additionalInfo,
         map: data.ymap,
     } as MapBlockModel,
-    with_links: {
+    {
         ...data.default.content,
         title: data.common.title,
         description: data.common.description,
@@ -191,7 +140,7 @@ const CONTROLS_MAPS: Record<string, MapBlockModel> = {
             id: 'common-places-2',
         },
     } as MapBlockModel,
-    with_buttons: {
+    {
         ...data.default.content,
         title: data.common.title,
         description: data.common.description,
@@ -201,7 +150,7 @@ const CONTROLS_MAPS: Record<string, MapBlockModel> = {
             id: 'common-places-3',
         },
     } as MapBlockModel,
-};
+];
 
 WithControls.args = CONTROLS_MAPS;
 WithControls.parameters = {
@@ -210,14 +159,14 @@ WithControls.parameters = {
     },
 };
 
-const SIZE_MAPS: Record<string, MapBlockModel> = {
-    default_media: {
+const SIZE_MAPS: MapBlockModel[] = [
+    {
         ...data.default.content,
         title: data.size.defaultMediaTitle,
         description: data.common.description,
         map: data.ymap,
     } as MapBlockModel,
-    large_media: {
+    {
         ...data.default.content,
         largeMedia: true,
         title: data.size.largeMediaTitle,
@@ -227,7 +176,7 @@ const SIZE_MAPS: Record<string, MapBlockModel> = {
             id: 'common-places-2',
         },
     } as MapBlockModel,
-    media_only: {
+    {
         ...data.default.content,
         mediaOnly: true,
         description: undefined,
@@ -237,7 +186,7 @@ const SIZE_MAPS: Record<string, MapBlockModel> = {
             id: 'common-places-3',
         },
     } as MapBlockModel,
-};
+];
 
 Size.args = SIZE_MAPS;
 Size.parameters = {
@@ -246,14 +195,14 @@ Size.parameters = {
     },
 };
 
-const DIRECTION_MAPS: Record<string, MapBlockModel> = {
-    default_direction: {
+const DIRECTION_MAPS: MapBlockModel[] = [
+    {
         ...data.default.content,
         title: data.direction.defaultDirectionTitle,
         description: data.common.description,
         map: data.ymap,
     } as MapBlockModel,
-    reverse_direction: {
+    {
         ...data.default.content,
         title: data.direction.ReverseDirectionTitle,
         description: data.common.description,
@@ -263,7 +212,7 @@ const DIRECTION_MAPS: Record<string, MapBlockModel> = {
             id: 'common-places-2',
         },
     } as MapBlockModel,
-    mobile_reverse_direction: {
+    {
         ...data.default.content,
         title: data.direction.ReverseDirectionTitle,
         description: data.common.description,
@@ -273,7 +222,7 @@ const DIRECTION_MAPS: Record<string, MapBlockModel> = {
             id: 'common-places-3',
         },
     } as MapBlockModel,
-};
+];
 
 Direction.args = DIRECTION_MAPS;
 Direction.parameters = {
@@ -282,21 +231,21 @@ Direction.parameters = {
     },
 };
 
-const MAPS_TYPES: Record<string, MapBlockModel> = {
-    yandex_map: {
+const MAPS_TYPES: MapBlockModel[] = [
+    {
         ...data.default.content,
         title: data.direction.defaultDirectionTitle,
         description: data.common.description,
         map: data.ymap,
     } as MapBlockModel,
-    google_map: {
+    {
         ...data.default.content,
         title: data.direction.ReverseDirectionTitle,
         description: data.common.description,
         direction: 'media-content',
         map: data.gmap,
     } as MapBlockModel,
-};
+];
 
 MapsTypes.args = MAPS_TYPES;
 MapsTypes.parameters = {
@@ -305,14 +254,14 @@ MapsTypes.parameters = {
     },
 };
 
-const ENHANCED_TITLE_MAPS: Record<string, MapBlockModel> = {
-    large_clickable: {
+const ENHANCED_TITLE_MAPS: MapBlockModel[] = [
+    {
         ...data.default.content,
         ...data.enhancedTitle.largeClickable,
         description: data.common.description,
         map: data.ymap,
     } as MapBlockModel,
-    interactive: {
+    {
         ...data.default.content,
         ...data.enhancedTitle.interactiveWithIcon,
         description: data.common.description,
@@ -321,7 +270,7 @@ const ENHANCED_TITLE_MAPS: Record<string, MapBlockModel> = {
             id: 'interactive-title-map',
         },
     } as MapBlockModel,
-};
+];
 
 EnhancedTitle.args = ENHANCED_TITLE_MAPS;
 EnhancedTitle.parameters = {
