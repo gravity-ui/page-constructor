@@ -213,6 +213,32 @@
   "borderLine": {
     "border": "line"
   },
+  "borderWithBackground": [
+    {
+      "type": "background-card",
+      "title": "Border line + backgroundColor",
+      "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "backgroundColor": "#7ccea0",
+      "border": "line",
+      "forceBorder": true
+    },
+    {
+      "type": "background-card",
+      "title": "Border shadow + backgroundColor",
+      "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "backgroundColor": "#7ccea0",
+      "border": "shadow",
+      "forceBorder": true
+    },
+    {
+      "type": "background-card",
+      "title": "Border line + dark theme",
+      "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "theme": "dark",
+      "border": "line",
+      "forceBorder": true
+    }
+  ],
   "backgroundColor": [
     {
       "type": "background-card",
