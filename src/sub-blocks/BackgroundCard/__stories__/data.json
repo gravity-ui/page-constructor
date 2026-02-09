@@ -219,6 +219,7 @@
       "title": "Border line + backgroundColor",
       "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       "backgroundColor": "#7ccea0",
+      "theme": "dark",
       "border": "line",
       "forceBorder": true
     },
@@ -227,6 +228,7 @@
       "title": "Border shadow + backgroundColor",
       "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       "backgroundColor": "#7ccea0",
+      "theme": "dark",
       "border": "shadow",
       "forceBorder": true
     },
