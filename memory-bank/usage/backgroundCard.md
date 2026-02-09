@@ -35,7 +35,8 @@ graph TD
   - `text`: Card description with YFM support (required)
   - `url`: URL that opens when clicking the card
   - `urlTitle`: Accessible title for the URL
-  - `border`: Border style - 'line', 'shadow', or 'none'
+  - `border`: Border style - 'line', 'shadow', or 'none'. Note: automatically reset to 'none' when `backgroundColor` or non-default `theme` is set, unless `forceBorder` is enabled
+  - `forceBorder`: Boolean (default: `false`). When `true`, the `border` value is applied as-is even if `backgroundColor` or a non-default `theme` is set
   - `background`: Background image with theme support
   - `backgroundColor`: Background color
   - `paddingBottom`: Space between the text and the bottom of the card - 's', 'm', 'l', or 'xl'
@@ -213,6 +214,7 @@ The BackgroundCard component integrates with the page-constructor theme system:
    - Use `line` border for subtle separation
    - Use `shadow` border for elevated appearance
    - Use `none` border for seamless integration
+   - To use borders together with `backgroundColor` or a non-default `theme`, set `forceBorder: true`
 
 5. **Padding Selection**:
 
@@ -337,6 +339,33 @@ Each value is a number between 1-12, representing the number of columns in a 12-
   text="**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
   backgroundColor="#7ccea0"
   theme="dark"
+  buttons={[
+    {
+      text: 'Button',
+      theme: 'normal-contrast',
+      url: 'https://example.com',
+    },
+    {
+      text: 'Button',
+      theme: 'outlined-contrast',
+      url: 'https://example.com',
+    },
+  ]}
+/>
+```
+
+### With Background Color and Border (forceBorder)
+
+By default, `border` is reset to `'none'` when `backgroundColor` or a non-default `theme` is set. Use `forceBorder: true` to keep the border visible.
+
+```tsx
+<BackgroundCard
+  title="Lorem ipsum"
+  text="**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+  backgroundColor="#7ccea0"
+  theme="dark"
+  border="line"
+  forceBorder
   buttons={[
     {
       text: 'Button',
