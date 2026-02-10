@@ -1,90 +1,89 @@
 {
-  "common": {
-    "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    "links": [
-      {
-        "url": "#",
-        "text": "Link",
-        "theme": "normal",
-        "arrow": true
-      },
-      {
-        "url": "#",
-        "text": "Link",
-        "theme": "normal",
-        "arrow": true
-      }
-    ],
-    "list": [
-      {
-        "icon": {
-          "light": "/story-assets/icon_1_light.svg",
-          "dark": "/story-assets/icon_1_dark.svg"
+  "default": {
+    "type": "info-block",
+    "theme": "dark",
+    "leftContent": {
+      "title": "Lorem ipsum dolor sit amet",
+      "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "buttons": [
+        {
+          "text": "Button",
+          "theme": "raised",
+          "url": "#"
         },
-        "title": "Lorem ipsum",
-        "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-      },
-      {
-        "icon": {
-          "light": "/story-assets/icon_3_light.svg",
-          "dark": "/story-assets/icon_3_dark.svg"
+        {
+          "text": "Button",
+          "theme": "outlined-contrast",
+          "url": "#"
+        }
+      ]
+    },
+    "rightContent": {
+      "title": "Lorem ipsum dolor sit amet",
+      "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "links": [
+        {
+          "url": "#",
+          "text": "Link",
+          "theme": "normal",
+          "arrow": true
         },
-        "title": "Lorem ipsum ipsum",
-        "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-      },
-      {
-        "icon": {
-          "light": "/story-assets/icon_2_light.svg",
-          "dark": "/story-assets/icon_2_dark.svg"
-        },
-        "title": "Lorem ipsum",
-        "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-      }
-    ],
-    "title": "Lorem ipsum dolor sit amet"
+        {
+          "url": "#",
+          "text": "Link",
+          "theme": "normal",
+          "arrow": true
+        }
+      ]
+    }
   },
   "light": {
-    "content": {
-      "type": "info-block",
-      "theme": "light",
-      "backgroundColor": {
-        "dark": "#000",
-        "light": "#eef3fe"
-      },
-      "leftContent": {
-        "buttons": [
-          {
-            "text": "Button",
-            "theme": "action",
-            "url": "#"
-          },
-          {
-            "text": "Button",
-            "theme": "outlined",
-            "url": "#"
-          }
-        ]
-      }
+    "theme": "light",
+    "backgroundColor": {
+      "dark": "#000",
+      "light": "#eef3fe"
+    },
+    "leftContent": {
+      "title": "Lorem ipsum dolor sit amet",
+      "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "buttons": [
+        {
+          "text": "Button",
+          "theme": "action",
+          "url": "#"
+        },
+        {
+          "text": "Button",
+          "theme": "outlined",
+          "url": "#"
+        }
+      ]
     }
   },
-  "dark": {
-    "content": {
-      "type": "info-block",
-      "theme": "dark",
-      "leftContent": {
-        "buttons": [
-          {
-            "text": "Button",
-            "theme": "raised",
-            "url": "#"
-          },
-          {
-            "text": "Button",
-            "theme": "outlined-contrast",
-            "url": "#"
-          }
-        ]
-      }
+  "list": [
+    {
+      "icon": {
+        "light": "/story-assets/icon_1_light.svg",
+        "dark": "/story-assets/icon_1_dark.svg"
+      },
+      "title": "Lorem ipsum",
+      "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    },
+    {
+      "icon": {
+        "light": "/story-assets/icon_3_light.svg",
+        "dark": "/story-assets/icon_3_dark.svg"
+      },
+      "title": "Lorem ipsum ipsum",
+      "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    },
+    {
+      "icon": {
+        "light": "/story-assets/icon_2_light.svg",
+        "dark": "/story-assets/icon_2_dark.svg"
+      },
+      "title": "Lorem ipsum",
+      "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
     }
-  }
+  ]
 }
