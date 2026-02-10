@@ -352,6 +352,12 @@ export const config: BlocksConfig = {
             parser: parseItemsTitle,
             renderInline: true,
         },
+        {
+            fields: ['items'],
+            transformer: yfmTransformer,
+            parser: createItemsParser(['list.text']),
+            renderInline: true,
+        },
     ],
     [BlockType.TableBlock]: [
         {
