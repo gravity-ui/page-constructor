@@ -1,5 +1,17 @@
 # Changelog
 
+## [8.1.0](https://github.com/gravity-ui/page-constructor/compare/v8.0.0...v8.1.0) (2026-02-12)
+
+
+### Features
+
+* **Tabs:** update config, story and screenshots ([#1350](https://github.com/gravity-ui/page-constructor/issues/1350)) ([2c856e9](https://github.com/gravity-ui/page-constructor/commit/2c856e901625a2f2d7d38ae6269acf66bc57d605))
+
+
+### Bug Fixes
+
+* delete unneccecery redefenitions of monochrome variables in content block ([#1379](https://github.com/gravity-ui/page-constructor/issues/1379)) ([e66382e](https://github.com/gravity-ui/page-constructor/commit/e66382eb7d60ca45869652d27a388be32d801062))
+
 ## [8.0.0](https://github.com/gravity-ui/page-constructor/compare/v7.25.0...v8.0.0) (2026-01-28)
 
 
