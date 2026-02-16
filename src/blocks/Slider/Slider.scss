@@ -15,7 +15,6 @@ $fullscreenArrowArea: 120px;
     }
 }
 
-$dotsCn: '.swiper-container-horizontal .swiper-pagination-bullets';
 $wrapperCn: '.swiper-wrapper';
 
 $dotSize: 8px;
@@ -191,7 +190,7 @@ $dotSize: 8px;
 
         padding: 0;
 
-        & #{$dotsCn} {
+        #{$root}__dots {
             bottom: $indentSM;
         }
 
@@ -224,7 +223,7 @@ $dotSize: 8px;
                 }
             }
 
-            & #{$dotsCn} {
+            #{$root}__dots {
                 left: $indentSM;
                 width: calc(100% - $indentSM);
             }
@@ -242,7 +241,7 @@ $dotSize: 8px;
             position: relative;
         }
 
-        & #{$dotsCn} {
+        #{$root}__dots {
             bottom: $indentM;
         }
 
@@ -336,7 +335,7 @@ $dotSize: 8px;
             height: 100vh;
             margin: 0;
 
-            & .swiper-pagination {
+            #{$root}__dots {
                 bottom: 11px;
             }
 
