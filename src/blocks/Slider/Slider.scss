@@ -11,6 +11,10 @@ $fullscreenArrowArea: 120px;
             padding-left: 0;
             width: 100%;
             overflow: inherit;
+
+            #{$block}__slider {
+                padding-right: 0;
+            }
         }
     }
 }
@@ -424,6 +428,7 @@ $dotSize: 8px;
             #{$root}__slider {
                 margin-left: #{-$horizontalPadding};
                 margin-right: 0;
+                padding-right: $horizontalPadding;
             }
 
             & #{$wrapperCn} {
