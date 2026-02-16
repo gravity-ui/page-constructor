@@ -3,6 +3,7 @@ import {test} from '../../../../playwright/core/index';
 import {
     BackgroundColor,
     BorderLine,
+    BorderWithBackground,
     CardThemes,
     ControlPosition,
     Default,
@@ -48,6 +49,16 @@ test.describe('BackgroundCard', () => {
 
     test('render stories <BackgroundColor>', async ({mount, expectScreenshot, defaultDelay}) => {
         await mount(<BackgroundColor />);
+        await defaultDelay();
+        await expectScreenshot({skipTheme: 'dark'});
+    });
+
+    test('render stories <BorderWithBackground>', async ({
+        mount,
+        expectScreenshot,
+        defaultDelay,
+    }) => {
+        await mount(<BorderWithBackground />);
         await defaultDelay();
         await expectScreenshot({skipTheme: 'dark'});
     });

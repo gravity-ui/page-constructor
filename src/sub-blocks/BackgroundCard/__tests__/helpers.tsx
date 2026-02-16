@@ -9,6 +9,7 @@ export const {
     CardThemes,
     BorderLine,
     BackgroundColor,
+    BorderWithBackground,
     WithUrl,
     ControlPosition,
 } = composeStories(BackgroundCardStories);
