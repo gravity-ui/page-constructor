@@ -22,7 +22,7 @@
         {
           "title": "Free",
           "detailedTitle": "",
-          "description": "<p>For use by individuals and small teams</p> ",
+          "description": "For use by individuals and small teams",
           "label": {
             "color": "blue",
             "text": "Free",
@@ -31,14 +31,14 @@
           "items": [
             {
               "title": "up to 5 users",
-              "description": "<p>up to 5 users</p> "
+              "description": "up to 5 users"
             }
           ]
         },
         {
           "title": "100$",
           "detailedTitle": "/ month*",
-          "description": "<p>The rate applies to the first 100 users.</p> ",
+          "description": "The rate applies to the first 100 users.",
           "label": {
             "color": "green",
             "text": "Small companies",
@@ -47,14 +47,14 @@
           "items": [
             {
               "title": "up to 5 users",
-              "description": "<p>up to 5 users</p> "
+              "description": "up to 5 users"
             }
           ]
         },
         {
           "title": "100$",
           "detailedTitle": "/ month*",
-          "description": "<p>The rate applies to the first 100 users.</p> ",
+          "description": "The rate applies to the first 100 users.",
           "label": {
             "color": "green",
             "size": "s"
@@ -62,7 +62,7 @@
           "items": [
             {
               "title": "up to 5 users",
-              "description": "<p>up to 5 users</p> "
+              "description": "up to 5 users"
             }
           ]
         }
@@ -95,7 +95,7 @@
         {
           "title": "Free",
           "detailedTitle": "",
-          "description": "<p>For use by individuals and small teams</p> ",
+          "description": "For use by individuals and small teams",
           "label": {
             "color": "blue",
             "text": "Free",
@@ -103,14 +103,14 @@
           },
           "items": [
             {
-              "text": "<p>up to 5 users</p> "
+              "text": "up to 5 users"
             }
           ]
         },
         {
           "title": "100$",
           "detailedTitle": "/ month*",
-          "description": "<p>The rate applies to the first 100 users.</p> ",
+          "description": "The rate applies to the first 100 users.",
           "label": {
             "color": "green",
             "text": "Small companies",
@@ -118,21 +118,21 @@
           },
           "items": [
             {
-              "text": "<p>up to 100 users</p> "
+              "text": "up to 100 users"
             }
           ]
         },
         {
           "title": "100$",
           "detailedTitle": "/ month*",
-          "description": "<p>The rate applies to the first 100 users.</p> ",
+          "description": "The rate applies to the first 100 users.",
           "label": {
             "color": "green",
             "size": "s"
           },
           "items": [
             {
-              "text": "<p>up to 100 users</p> "
+              "text": "up to 100 users"
             }
           ]
         }
@@ -167,7 +167,7 @@
         {
           "title": "Free",
           "detailedTitle": "",
-          "description": "<p>For use by individuals and small teams</p> ",
+          "description": "For use by individuals and small teams",
           "label": {
             "color": "blue",
             "text": "Free",
@@ -175,14 +175,14 @@
           },
           "items": [
             {
-              "text": "<p>up to 5 users</p> "
+              "text": "up to 5 users"
             }
           ]
         },
         {
           "title": "100$",
           "detailedTitle": "/ month*",
-          "description": "<p>The rate applies to the first 100 users.</p> ",
+          "description": "The rate applies to the first 100 users.",
           "label": {
             "color": "green",
             "text": "Small companies",
@@ -190,21 +190,21 @@
           },
           "items": [
             {
-              "text": "<p>up to 100 users</p> "
+              "text": "up to 100 users"
             }
           ]
         },
         {
           "title": "100$",
           "detailedTitle": "/ month*",
-          "description": "<p>The rate applies to the first 100 users.</p> ",
+          "description": "The rate applies to the first 100 users.",
           "label": {
             "color": "green",
             "size": "s"
           },
           "items": [
             {
-              "text": "<p>up to 100 users</p> "
+              "text": "up to 100 users"
             }
           ]
         }

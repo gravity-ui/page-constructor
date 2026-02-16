@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import isEqual from 'lodash/isEqual';
 import pickBy from 'lodash/pickBy';
-import type {SwiperOptions} from 'swiper/types/swiper-options';
+import type {SwiperOptions} from 'swiper/types';
 
 import {BREAKPOINTS} from '../../constants';
 

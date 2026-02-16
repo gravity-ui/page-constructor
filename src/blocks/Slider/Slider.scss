@@ -29,6 +29,10 @@ $dotSize: 8px;
             padding: $indentSM 0 $indentL;
             margin: 0 -#{$gridGutter};
         }
+
+        // Optimization for touch events on mobile devices
+        touch-action: pan-y pinch-zoom;
+        -webkit-overflow-scrolling: touch;
     }
 
     &_without-dots {
@@ -62,6 +66,39 @@ $dotSize: 8px;
         #{$root}__slide-item {
             width: 100%;
             height: 100%;
+        }
+
+        // Optimization for all cards: allow touch events for swipe
+        // Images and links should not block horizontal swipe
+        .#{$ns}image-card,
+        .#{$ns}basic-card,
+        .#{$ns}card-base-block,
+        .#{$ns}quote,
+        .#{$ns}price-card,
+        .#{$ns}banner-card,
+        .#{$ns}background-card {
+            touch-action: pan-y pinch-zoom;
+
+            img,
+            picture,
+            picture img {
+                -webkit-user-drag: none;
+                touch-action: pan-y pinch-zoom;
+            }
+
+            a,
+            button {
+                touch-action: pan-y pinch-zoom;
+            }
+        }
+
+        // Specific for image-card: images may intercept events
+        .#{$ns}image-card {
+            img,
+            picture,
+            picture img {
+                pointer-events: auto;
+            }
         }
     }
 
