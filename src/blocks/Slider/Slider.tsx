@@ -84,6 +84,7 @@ export const SliderBlock = ({
         enabled: dots,
         isA11yControlHidden,
         controlTabIndex,
+        horizontalClass: b('dots'),
         bulletClass: b('dot', dotsClassName),
         bulletActiveClass: b('dot_active'),
         paginationLabel: i18n('pagination-label'),

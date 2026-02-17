@@ -6,6 +6,7 @@ export const useSliderPagination = (props: {
     enabled: boolean;
     isA11yControlHidden: boolean;
     controlTabIndex: number;
+    horizontalClass: string;
     bulletClass: string;
     bulletActiveClass: string;
     paginationLabel: string;
@@ -14,14 +15,21 @@ export const useSliderPagination = (props: {
         return undefined;
     }
 
-    const {isA11yControlHidden, controlTabIndex, bulletClass, bulletActiveClass, paginationLabel} =
-        props;
+    const {
+        isA11yControlHidden,
+        controlTabIndex,
+        bulletClass,
+        bulletActiveClass,
+        horizontalClass,
+        paginationLabel,
+    } = props;
 
     return {
         pagination: {
             clickable: true,
             bulletClass,
             bulletActiveClass,
+            horizontalClass,
         },
         onPaginationUpdate: (slider) => {
             const pagination = slider.pagination.el;
