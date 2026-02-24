@@ -63,6 +63,7 @@ export const SliderBlock = ({
     blockClassName,
     arrowSize,
     slidesToShow,
+    centeredSlides,
     onSlideChange,
     onSlideChangeTransitionStart,
     onSlideChangeTransitionEnd,
@@ -121,6 +122,7 @@ export const SliderBlock = ({
                     autoHeight={adaptive}
                     initialSlide={initialSlide}
                     noSwiping={false}
+                    centeredSlides={centeredSlides}
                     breakpoints={breakpoints}
                     onSlideChange={onSlideChange}
                     onSlideChangeTransitionStart={onSlideChangeTransitionStart}
