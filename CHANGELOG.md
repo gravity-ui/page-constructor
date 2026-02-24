@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.2.0](https://github.com/gravity-ui/page-constructor/compare/v8.1.1...v8.2.0) (2026-02-24)
+
+
+### Features
+
+* **hooks:** add export for useDeviceValue ([#1383](https://github.com/gravity-ui/page-constructor/issues/1383)) ([aa96b68](https://github.com/gravity-ui/page-constructor/commit/aa96b68892617f27dde09975c70fead6bda4027c))
+
 ## [8.1.1](https://github.com/gravity-ui/page-constructor/compare/v8.1.0...v8.1.1) (2026-02-17)
 
 
