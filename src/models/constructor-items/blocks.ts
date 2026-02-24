@@ -147,6 +147,7 @@ export interface SliderProps extends Childable, Animatable, LoadableChildren {
     //for server transforms
     randomOrder?: boolean;
     adaptive?: boolean;
+    centeredSlides?: boolean;
 }
 
 export interface HeaderSliderBlockProps extends Omit<SliderOldProps, 'title' | 'description'> {
