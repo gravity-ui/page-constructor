@@ -1,0 +1,136 @@
+{
+  "variants": [
+    {
+      "type": "footer-block",
+      "navigation": {
+        "columns": [
+          {
+            "title": "Product",
+            "links": [
+              {"text": "Overview", "url": "#overview"},
+              {"text": "Features", "url": "#features"},
+              {"text": "Pricing", "url": "#pricing"}
+            ]
+          },
+          {
+            "title": "Developers",
+            "links": [
+              {"text": "Documentation", "url": "#docs"},
+              {"text": "API", "url": "#api"},
+              {"text": "SDKs", "url": "#sdks"}
+            ]
+          },
+          {
+            "title": "Company",
+            "links": [
+              {"text": "About", "url": "#about"},
+              {"text": "Blog", "url": "#blog"},
+              {"text": "Careers", "url": "#careers"}
+            ]
+          },
+          {
+            "title": "Support",
+            "links": [
+              {"text": "Help Center", "url": "#help"},
+              {"text": "Status", "url": "#status"},
+              {"text": "Contact", "url": "#contact"}
+            ]
+          }
+        ],
+        "colSizes": {
+          "sm": 6,
+          "md": 6,
+          "lg": 3
+        }
+      }
+    },
+    {
+      "type": "footer-block",
+      "navigation": {
+        "columns": [
+          {
+            "title": "Product",
+            "links": [
+              {"text": "Overview", "url": "#overview"},
+              {"text": "Features", "url": "#features"},
+              {"text": "Pricing", "url": "#pricing"}
+            ]
+          },
+          {
+            "title": "Developers",
+            "links": [
+              {"text": "Documentation", "url": "#docs"},
+              {"text": "API", "url": "#api"},
+              {"text": "SDKs", "url": "#sdks"}
+            ]
+          },
+          {
+            "title": "Company",
+            "links": [
+              {"text": "About", "url": "#about"},
+              {"text": "Blog", "url": "#blog"},
+              {"text": "Careers", "url": "#careers"}
+            ]
+          },
+          {
+            "title": "Support",
+            "links": [
+              {"text": "Help Center", "url": "#help"},
+              {"text": "Status", "url": "#status"},
+              {"text": "Contact", "url": "#contact"}
+            ]
+          }
+        ],
+        "colSizes": {
+          "sm": 12,
+          "md": 4,
+          "lg": 2
+        }
+      }
+    },
+    {
+      "type": "footer-block",
+      "navigation": {
+        "columns": [
+          {
+            "title": "Product",
+            "links": [
+              {"text": "Overview", "url": "#overview"},
+              {"text": "Features", "url": "#features"},
+              {"text": "Pricing", "url": "#pricing"}
+            ]
+          },
+          {
+            "title": "Developers",
+            "links": [
+              {"text": "Documentation", "url": "#docs"},
+              {"text": "API", "url": "#api"},
+              {"text": "SDKs", "url": "#sdks"}
+            ]
+          },
+          {
+            "title": "Company",
+            "links": [
+              {"text": "About", "url": "#about"},
+              {"text": "Blog", "url": "#blog"},
+              {"text": "Careers", "url": "#careers"}
+            ]
+          },
+          {
+            "title": "Support",
+            "links": [
+              {"text": "Help Center", "url": "#help"},
+              {"text": "Status", "url": "#status"},
+              {"text": "Contact", "url": "#contact"}
+            ]
+          }
+        ],
+        "colSizes": {
+          "sm": 12,
+          "md": 3,
+          "lg": 4
+        }
+      }
+    }
+  ]
+}

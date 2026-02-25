@@ -1,0 +1,69 @@
+@import '../../../../../styles/mixins.scss';
+@import '../../../../../styles/variables.scss';
+
+$block: '.#{$ns}footer-block';
+
+#{$block} {
+    &__floor_navigation {
+        padding: $indentM 0 40px;
+        border: none;
+    }
+
+    &__logo-col.col {
+        padding: 0 $indentXS $indentM;
+    }
+
+    &__column {
+        min-width: 0;
+        margin-bottom: $indentL;
+    }
+
+    &__column-inner {
+        display: flex;
+        flex-direction: column;
+        gap: $indentS;
+    }
+
+    &__nav-row {
+        min-width: 0;
+    }
+
+    &__column-title {
+        @include text-size(subheader-3);
+        font-weight: var(--g-text-accent-font-weight);
+        color: var(--g-color-text-primary);
+        margin: 0;
+    }
+
+    &__links {
+        list-style: none;
+        margin: 0;
+        padding: 0 $indentXXXS 0 0;
+    }
+
+    &__link-item {
+        margin: 0;
+
+        &:not(:last-child) {
+            margin-bottom: $indentXXXS;
+        }
+    }
+
+    &__link {
+        @include text-size(body-2);
+        @include link();
+        color: var(--g-color-text-primary);
+        text-decoration: none;
+        line-height: 20px;
+
+        &:hover {
+            color: var(--g-color-text-secondary);
+        }
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'md')) {
+        &__floor_navigation &__logo {
+            height: 48px;
+        }
+    }
+}

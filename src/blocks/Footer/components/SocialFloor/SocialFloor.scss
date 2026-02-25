@@ -1,0 +1,99 @@
+@import '../../../../../styles/mixins.scss';
+@import '../../../../../styles/variables.scss';
+
+$block: '.#{$ns}footer-block';
+
+#{$block} {
+    &__social-floor-inner {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: $indentSM;
+
+        &_title-position_top {
+            flex-direction: column;
+            align-items: unset;
+        }
+
+        &_links-position_center {
+            align-items: center;
+        }
+
+        &_size_m {
+            #{$block}__social-icons-list {
+                gap: $indentSM;
+            }
+
+            #{$block}__social-icon-item {
+                width: 32px;
+                height: 32px;
+            }
+        }
+
+        &_size_l {
+            #{$block}__social-icons-list {
+                gap: 40px;
+            }
+
+            #{$block}__social-icon-item {
+                width: 48px;
+                height: 48px;
+            }
+        }
+    }
+
+    &__social-icon-item {
+        margin-right: 0;
+    }
+
+    &__social-floor-title {
+        @include text-size(body-3);
+        font-weight: 500;
+        margin: 0;
+        color: var(--g-color-text-primary);
+    }
+
+    &__social-icons-list {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    &__social-icons-item {
+        margin: 0;
+        transition: transform 200ms ease-in-out;
+
+        &:hover {
+            transform: translateY(-4px);
+        }
+    }
+
+    &__social-icon-link,
+    &__social-icon-link:hover {
+        text-decoration: none;
+        color: var(--g-color-text-primary);
+    }
+
+    &__social-icon-item {
+        margin-right: 0;
+
+        &_size_m {
+            width: 32px;
+            height: 32px;
+        }
+
+        &_size_l {
+            width: 48px;
+            height: 48px;
+        }
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'sm')) {
+        &__floor_social.col {
+            padding: $indentSM 0;
+        }
+    }
+}

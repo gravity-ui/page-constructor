@@ -1,0 +1,38 @@
+@import '../../../../../styles/mixins.scss';
+@import '../../../../../styles/variables.scss';
+
+$block: '.#{$ns}footer-block';
+
+#{$block} {
+    &__disclaimer-floor-content {
+        @include text-size(body-2);
+        color: var(--g-color-text-secondary);
+
+        .yfm {
+            margin: 0;
+        }
+
+        .yfm a {
+            color: var(--g-color-text-secondary);
+            text-decoration: underline;
+
+            &:hover {
+                color: var(--g-color-text-primary);
+            }
+        }
+
+        &_align_center {
+            text-align: center;
+        }
+
+        &_align_left {
+            text-align: left;
+        }
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'sm')) {
+        &__floor_disclaimer.col {
+            padding: $indentSM 0;
+        }
+    }
+}
