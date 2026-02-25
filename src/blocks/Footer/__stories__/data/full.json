@@ -1,0 +1,144 @@
+{
+  "type": "footer-block",
+  "navigation": {
+    "logo": {
+      "image": {
+        "light": {"src": "/story-assets/logo-ytsuarus_light.svg"},
+        "dark": {"src": "/story-assets/logo-ytsuarus_dark.svg"}
+      },
+      "href": "/",
+      "alt": "YTsaurus"
+    },
+    "columns": [
+      {
+        "title": "Для работы",
+        "links": [
+          {"text": "Мероприятия и вебинары", "url": "#events"},
+          {"text": "Контент-программа", "url": "#content"},
+          {"text": "Блог", "url": "#blog"},
+          {"text": "Все решения", "url": "#solutions"},
+          {"text": "Все решения", "url": "#solutions"},
+          {"text": "Все решения", "url": "#solutions"}
+        ]
+      },
+      {
+        "title": "Ресурсы",
+        "links": [
+          {"text": "Документация", "url": "#docs"},
+          {"text": "API", "url": "#api"},
+          {"text": "Примеры", "url": "#examples"},
+          {"text": "Чат сообщества", "url": "#chat"}
+        ]
+      },
+      {
+        "title": "Компания",
+        "links": [
+          {"text": "О нас", "url": "#about"},
+          {"text": "Контакты", "url": "#contacts"},
+          {"text": "Вакансии", "url": "#careers"},
+          {"text": "Партнёрам", "url": "#partners"}
+        ]
+      },
+      {
+        "title": "Поддержка",
+        "links": [
+          {"text": "Помощь", "url": "#help"},
+          {"text": "Сообщество", "url": "#community"},
+          {"text": "Статус", "url": "#status"}
+        ]
+      },
+      {
+        "title": "Еще один заголовок",
+        "links": [
+          {"text": "Раз пункт", "url": "#help"},
+          {"text": "Два пункт", "url": "#community"},
+          {"text": "Статус", "url": "#status"}
+        ]
+      }
+    ]
+  },
+  "contacts": {
+    "title": "Join Us",
+    "iconsSize": "l",
+    "linksPosition": "left",
+    "titlePosition": "top",
+    "links": [
+      {
+        "icon": {
+          "light": {"src": "/story-assets/icons-github_light.svg"},
+          "dark": {"src": "/story-assets/icons-github_dark.svg"}
+        },
+        "url": "https://example.com",
+        "urlTitle": "GitHub"
+      },
+      {
+        "icon": {
+          "light": {"src": "/story-assets/icons-medium_light.svg"},
+          "dark": {"src": "/story-assets/icons-medium_dark.svg"}
+        },
+        "url": "https://example.com",
+        "urlTitle": "Medium"
+      },
+      {
+        "icon": {
+          "light": {"src": "/story-assets/icons-discord_light.svg"},
+          "dark": {"src": "/story-assets/icons-discord_dark.svg"}
+        },
+        "url": "https://example.com",
+        "urlTitle": "Discord"
+      },
+      {
+        "icon": {
+          "light": {"src": "/story-assets/icons-x_light.svg"},
+          "dark": {"src": "/story-assets/icons-x_dark.svg"}
+        },
+        "url": "https://example.com",
+        "urlTitle": "X"
+      },
+      {
+        "icon": {
+          "light": {"src": "/story-assets/icons-linkedin_light.svg"},
+          "dark": {"src": "/story-assets/icons-linkedin_dark.svg"}
+        },
+        "url": "https://example.com",
+        "urlTitle": "Linkedin"
+      },
+      {
+        "icon": {
+          "light": {"src": "/story-assets/icons-youtube_light.svg"},
+          "dark": {"src": "/story-assets/icons-youtube_dark.svg"}
+        },
+        "url": "https://example.com",
+        "urlTitle": "YouTube"
+      },
+      {
+        "icon": {
+          "light": {"src": "/story-assets/icons-telegram_light.svg"},
+          "dark": {"src": "/story-assets/icons-telegram_dark.svg"}
+        },
+        "url": "https://example.com",
+        "urlTitle": "Telegram"
+      }
+    ]
+  },
+  "disclaimer": {
+    "text": "YTsaurus is a software distributed under the Apache License, Version 2.0. Feel free to contact the **YTsaurus** team at [info@ytsaurus.tech](mailto:info@ytsaurus.tech). Apache®, Apache Spark™ and their logos are either registered trademarks or trademarks of the Apache Software Foundation. [Trademarks](https://trademarks.apache.org). ClickHouse® is a trademark of ClickHouse, Inc. [clickhouse.com](https://clickhouse.com).",
+    "align": "left"
+  },
+  "copyright": {
+    "links": [
+      {"text": "Политика конфиденциальности", "url": "#privacy"},
+      {"text": "Условия использования", "url": "#terms"},
+      {"text": "Длинный пункт меню 1", "url": "#terms"},
+      {"text": "Длинный пункт меню 2", "url": "#terms"}
+    ],
+    "linksOverflowStrategy": "dropdown",
+    "languageSwitcher": [
+      {"text": "Русский", "href": "/ru"},
+      {"text": "English", "href": "/en"}
+    ],
+    "copyrightText": "© 2025 ООО \"Яндекс.Облако\"",
+    "mobileHorizontalAlignment": "center"
+  },
+  "attribution": true
+}

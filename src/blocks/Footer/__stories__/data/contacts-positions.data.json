@@ -1,0 +1,133 @@
+{
+  "variants": [
+    {
+      "type": "footer-block",
+      "contacts": {
+        "title": "TitlePosition: top, LinksPosition: left",
+        "iconsSize": "l",
+        "linksPosition": "left",
+        "titlePosition": "top",
+        "links": [
+          {
+            "icon": {
+              "light": {"src": "/story-assets/icons-github_light.svg"},
+              "dark": {"src": "/story-assets/icons-github_dark.svg"}
+            },
+            "url": "https://example.com",
+            "urlTitle": "GitHub"
+          },
+          {
+            "icon": {
+              "light": {"src": "/story-assets/icons-medium_light.svg"},
+              "dark": {"src": "/story-assets/icons-medium_dark.svg"}
+            },
+            "url": "https://example.com",
+            "urlTitle": "Medium"
+          },
+          {
+            "icon": {
+              "light": {"src": "/story-assets/icons-discord_light.svg"},
+              "dark": {"src": "/story-assets/icons-discord_dark.svg"}
+            },
+            "url": "https://example.com",
+            "urlTitle": "Discord"
+          },
+          {
+            "icon": {
+              "light": {"src": "/story-assets/icons-x_light.svg"},
+              "dark": {"src": "/story-assets/icons-x_dark.svg"}
+            },
+            "url": "https://example.com",
+            "urlTitle": "X"
+          }
+        ]
+      }
+    },
+    {
+      "type": "footer-block",
+      "contacts": {
+        "title": "TitlePosition: top, LinksPosition: center",
+        "iconsSize": "l",
+        "linksPosition": "center",
+        "titlePosition": "top",
+        "links": [
+          {
+            "icon": {
+              "light": {"src": "/story-assets/icons-github_light.svg"},
+              "dark": {"src": "/story-assets/icons-github_dark.svg"}
+            },
+            "url": "https://example.com",
+            "urlTitle": "GitHub"
+          },
+          {
+            "icon": {
+              "light": {"src": "/story-assets/icons-medium_light.svg"},
+              "dark": {"src": "/story-assets/icons-medium_dark.svg"}
+            },
+            "url": "https://example.com",
+            "urlTitle": "Medium"
+          },
+          {
+            "icon": {
+              "light": {"src": "/story-assets/icons-discord_light.svg"},
+              "dark": {"src": "/story-assets/icons-discord_dark.svg"}
+            },
+            "url": "https://example.com",
+            "urlTitle": "Discord"
+          },
+          {
+            "icon": {
+              "light": {"src": "/story-assets/icons-x_light.svg"},
+              "dark": {"src": "/story-assets/icons-x_dark.svg"}
+            },
+            "url": "https://example.com",
+            "urlTitle": "X"
+          }
+        ]
+      }
+    },
+    {
+      "type": "footer-block",
+      "contacts": {
+        "title": "TitlePosition: near, LinksPosition: left",
+        "iconsSize": "l",
+        "linksPosition": "left",
+        "titlePosition": "near",
+        "links": [
+          {
+            "icon": {
+              "light": {"src": "/story-assets/icons-github_light.svg"},
+              "dark": {"src": "/story-assets/icons-github_dark.svg"}
+            },
+            "url": "https://example.com",
+            "urlTitle": "GitHub"
+          },
+          {
+            "icon": {
+              "light": {"src": "/story-assets/icons-medium_light.svg"},
+              "dark": {"src": "/story-assets/icons-medium_dark.svg"}
+            },
+            "url": "https://example.com",
+            "urlTitle": "Medium"
+          },
+          {
+            "icon": {
+              "light": {"src": "/story-assets/icons-discord_light.svg"},
+              "dark": {"src": "/story-assets/icons-discord_dark.svg"}
+            },
+            "url": "https://example.com",
+            "urlTitle": "Discord"
+          },
+          {
+            "icon": {
+              "light": {"src": "/story-assets/icons-x_light.svg"},
+              "dark": {"src": "/story-assets/icons-x_dark.svg"}
+            },
+            "url": "https://example.com",
+            "urlTitle": "X"
+          }
+        ]
+      }
+    }
+  ]
+}
