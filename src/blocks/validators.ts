@@ -4,6 +4,7 @@ export * from './Companies/schema';
 export * from './ContentLayout/schema';
 export * from './ExtendedFeatures/schema';
 export * from './Header/schema';
+export * from './Footer/schema';
 export * from './HeaderSlider/schema';
 export * from './Icons/schema';
 export * from './Info/schema';

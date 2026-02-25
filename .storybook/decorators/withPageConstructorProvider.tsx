@@ -1,6 +1,7 @@
 import * as React from 'react';
 import type {Decorator} from '@storybook/react';
 import {PageConstructorProvider} from '../../src/containers/PageConstructor/Provider';
+import { Link } from '@gravity-ui/uikit';
 
 export const withPageConstructorProvider: Decorator = (Story, context) => {
     return (

@@ -1,0 +1,41 @@
+import {Meta} from '@storybook/blocks';
+
+import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
+import * as FooterStories from './Footer.stories.tsx';
+
+<Meta of={FooterStories} />
+<StoryTemplate>
+## Overview
+
+Footer block for page bottom with up to **five** configurable floors:
+
+1. **Floor 1** — Logo + link columns; `additionalSections` for more column rows.
+2. **Floor 2** — Social row: title (e.g. "Join Us") + social icons (`socialFloor`).
+3. **Floor 3** — Legal disclaimer, full-width YFM (`disclaimerFloor`).
+4. **Floor 4** — Links + language + copyright (`linksFloor`) or legacy `secondFloor`.
+5. **Floor 5** — Attribution: "Created with …" + optional logo (`attributionFloor`).
+
+Use the **Full** story to see all five floors.
+
+## Parameters
+
+`type: 'footer-block'`
+
+`columns` — (required) First row: array of link columns. Each column: `title: string`, `links: Array<{ text: string, url: string }>`.
+
+`logo?` — Optional logo: `image` (themed image), `href?`, `alt?`, `title?` (text label next to logo, e.g. "YTsaurus").
+
+`additionalSections?` — Optional rows of link columns. Each: `{ columns: FooterLinkColumn[] }`.
+
+`socialFloor?` — Floor 2: `{ title?: string, socialLinks: FooterSocialLink[] }`.
+
+`disclaimerFloor?` — Floor 3: `{ content: string }` (YFM).
+
+`linksFloor?` — Floor 4: `{ links?: LinkProps[], language?: { label?, url? }, copyright?: string }`.
+
+`secondFloor?` — (Deprecated) Floor 4 combined: copyright, links, socialLinks. Prefer `socialFloor` + `linksFloor`.
+
+`attributionFloor?` — Floor 5: `{ text: string, logo?: ThemeSupporting<ImageProps>, href?: string }`.
+
+`backgroundColor?` — Optional themed background color.
+</StoryTemplate>

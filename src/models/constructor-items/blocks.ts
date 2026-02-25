@@ -66,6 +66,7 @@ export enum BlockType {
     MapBlock = 'map-block',
     FilterBlock = 'filter-block',
     FormBlock = 'form-block',
+    FooterBlock = 'footer-block',
 }
 
 export const BlockTypes = Object.values(BlockType);
@@ -507,6 +508,84 @@ export interface FormBlockProps {
     customFormNode?: React.ReactNode;
 }
 
+export interface FooterLinkColumn {
+    title: string;
+    links: LinkProps[];
+}
+
+export interface FooterLogoProps {
+    image: ThemeSupporting<ImageProps>;
+    href?: string;
+    alt?: string;
+    /** Text label shown next to the logo (e.g. "YTsaurus") */
+    title?: string;
+}
+
+export interface FooterSection {
+    columns: FooterLinkColumn[];
+}
+
+/** Social link with icon (e.g. Telegram, GitHub) */
+export interface FooterSocialLink {
+    icon: ThemeSupporting<ImageProps>;
+    url: string;
+    urlTitle?: string;
+}
+
+/** Floor 2: "Join Us" + social icons row */
+export interface FooterSocialFloor {
+    title?: string;
+    socialLinks: FooterSocialLink[];
+}
+
+/** Floor 3: Legal disclaimer block (full-width text) */
+export interface FooterDisclaimerFloor {
+    content: string;
+}
+
+/** Floor 4: Privacy/terms links, optional language, copyright */
+export interface FooterLinksFloor {
+    links?: LinkProps[];
+    language?: {
+        label?: string;
+        url?: string;
+    };
+    copyright?: string;
+}
+
+/** Floor 5: "Created with" / powered-by attribution */
+export interface FooterAttributionFloor {
+    text: string;
+    logo?: ThemeSupporting<ImageProps>;
+    href?: string;
+}
+
+/** Bottom bar (Floor 4): kept for backward compatibility; prefer linksFloor */
+export interface FooterSecondFloor {
+    copyright?: string;
+    links?: LinkProps[];
+    socialLinks?: FooterSocialLink[];
+}
+
+export interface FooterBlockProps {
+    logo?: FooterLogoProps;
+    /** Floor 1: first row — logo (if present) + these columns */
+    columns: FooterLinkColumn[];
+    /** Floor 1: additional rows of link columns */
+    additionalSections?: FooterSection[];
+    /** Floor 2: social row (title + social icons) */
+    socialFloor?: FooterSocialFloor;
+    /** Floor 3: legal disclaimer (YFM) */
+    disclaimerFloor?: FooterDisclaimerFloor;
+    /** Floor 4: privacy/terms links, language, copyright */
+    linksFloor?: FooterLinksFloor;
+    /** @deprecated Use socialFloor + linksFloor instead. Floor 4 when no linksFloor. */
+    secondFloor?: FooterSecondFloor;
+    /** Floor 5: attribution ("Created with ...") */
+    attributionFloor?: FooterAttributionFloor;
+    backgroundColor?: ThemeSupporting<string>;
+}
+
 //block models
 export type HeaderBlockModel = {
     type: BlockType.HeaderBlock;
@@ -588,6 +667,10 @@ export type FormBlockModel = {
     type: BlockType.FormBlock;
 } & FormBlockProps;
 
+export type FooterBlockModel = {
+    type: BlockType.FooterBlock;
+} & FooterBlockProps;
+
 export type SliderBlockModel = {
     type: BlockType.SliderBlock;
 } & SliderProps;
@@ -613,6 +696,7 @@ type BlockModels =
     | ContentLayoutBlockModel
     | ShareBLockModel
     | FilterBlockModel
-    | FormBlockModel;
+    | FormBlockModel
+    | FooterBlockModel;
 
 export type Block = BlockModels & BlockBaseProps;

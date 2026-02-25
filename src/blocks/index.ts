@@ -13,6 +13,7 @@ export {default as FoldableListBlock} from './FoldableList/FoldableList';
 export {default as TableBlock} from './Table/Table';
 export {default as TabsBlock} from './Tabs/Tabs';
 export {default as HeaderBlock} from './Header/Header';
+export {default as FooterBlock} from './Footer/Footer';
 export {default as IconsBlock} from './Icons/Icons';
 export {default as HeaderSliderBlock} from './HeaderSlider/HeaderSlider';
 export {default as CardLayoutBlock} from './CardLayout/CardLayout';
