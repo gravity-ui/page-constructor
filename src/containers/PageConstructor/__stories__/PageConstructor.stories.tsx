@@ -13,31 +13,31 @@ export default {
 
 const DefaultTemplate: StoryFn<PageConstructorProps> = (args) => <PageConstructor {...args} />;
 
-const WithFullWidthBackgroundMediaTemplate: StoryFn<PageConstructorProps> = (args) => (
-    <PageConstructor {...args} />
-);
-
 export const Default = DefaultTemplate.bind({});
-export const withNavigation = DefaultTemplate.bind({});
-export const WithFullWidthBackgroundMedia = WithFullWidthBackgroundMediaTemplate.bind({});
+export const WithNavigation = DefaultTemplate.bind({});
+export const WithFullWidthBackgroundMedia = DefaultTemplate.bind({});
 export const Branded = DefaultTemplate.bind({});
 export const CustomBlocks = CustomBlocksTemplate.bind({});
 
 Default.args = data.default as PageConstructorProps;
-withNavigation.args = {
+
+WithNavigation.args = {
     content: {
         blocks: data.default.content.blocks,
     },
     navigation: data.navigation,
 } as PageConstructorProps;
+
 WithFullWidthBackgroundMedia.args = {
     content: {
         blocks: data.default.content.blocks,
         background: data.withFullWidthBackgroundMedia.background,
     },
 } as PageConstructorProps;
+
 Branded.args = {
     ...data.default,
     isBranded: true,
-};
+} as PageConstructorProps;
+
 CustomBlocks.args = data.custom as unknown as PageConstructorProps;

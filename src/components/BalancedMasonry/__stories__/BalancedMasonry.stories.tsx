@@ -13,54 +13,41 @@ export default {
     title: 'Components/BalancedMasonry',
 } as Meta;
 
-const DefaultTemplate: StoryFn<BalancedMasonryProps> = (args) => <BalancedMasonry {...args} />;
+const DefaultTemplate: StoryFn<BalancedMasonryProps> = ({children, ...args}) => (
+    <BalancedMasonry {...args}>
+        {children.map((text, index) => (
+            <CardBase key={index} className="balanced-masonry-stories__card-base">
+                <CardBase.Content>{text}</CardBase.Content>
+            </CardBase>
+        ))}
+    </BalancedMasonry>
+);
 
 export const Default = DefaultTemplate.bind({});
+export const DifferentBreakpoints = DefaultTemplate.bind({});
 
 Default.args = {
     className: 'balanced-masonry-stories__class-name',
     columnClassName: 'balanced-masonry-stories__column-class-name',
-    children: [
-        <CardBase key="1" className="balanced-masonry-stories__card-base">
-            <CardBase.Content>{data.default.content.children[0]}</CardBase.Content>
-        </CardBase>,
-        <CardBase key="2" className="balanced-masonry-stories__card-base">
-            <CardBase.Content>{data.default.content.children[1]}</CardBase.Content>
-        </CardBase>,
-        <CardBase key="3" className="balanced-masonry-stories__card-base">
-            <CardBase.Content>{data.default.content.children[2]}</CardBase.Content>
-        </CardBase>,
-        <CardBase key="4" className="balanced-masonry-stories__card-base">
-            <CardBase.Content>{data.default.content.children[3]}</CardBase.Content>
-        </CardBase>,
-        <CardBase key="5" className="balanced-masonry-stories__card-base">
-            <CardBase.Content>{data.default.content.children[4]}</CardBase.Content>
-        </CardBase>,
-        <CardBase key="6" className="balanced-masonry-stories__card-base">
-            <CardBase.Content>
-                {data.default.content.children[5]}
-                на дашбордах.
-            </CardBase.Content>
-        </CardBase>,
-        <CardBase key="7" className="balanced-masonry-stories__card-base">
-            <CardBase.Content>{data.default.content.children[6]}</CardBase.Content>
-        </CardBase>,
-        <CardBase key="8" className="balanced-masonry-stories__card-base">
-            <CardBase.Content>{data.default.content.children[7]}</CardBase.Content>
-        </CardBase>,
-        <CardBase key="9" className="balanced-masonry-stories__card-base">
-            <CardBase.Content>{data.default.content.children[8]}</CardBase.Content>
-        </CardBase>,
-        <CardBase key="10" className="balanced-masonry-stories__card-base">
-            <CardBase.Content>{data.default.content.children[9]}</CardBase.Content>
-        </CardBase>,
-        <CardBase key="11" className="balanced-masonry-stories__card-base">
-            <CardBase.Content>{data.default.content.children[10]}</CardBase.Content>
-        </CardBase>,
-    ],
     breakpointCols: {
-        [BREAKPOINTS.lg]: 3,
+        [BREAKPOINTS.xs]: 1,
+        [BREAKPOINTS.sm]: 2,
         [BREAKPOINTS.md]: 2,
-        [BREAKPOINTS.sm]: 1,
+        [BREAKPOINTS.lg]: 3,
+        [BREAKPOINTS.xl]: 3,
     },
+    children: data.default.content.children,
+};
+
+DifferentBreakpoints.args = {
+    className: 'balanced-masonry-stories__class-name',
+    columnClassName: 'balanced-masonry-stories__column-class-name',
+    breakpointCols: {
+        [BREAKPOINTS.xs]: 1,
+        [BREAKPOINTS.sm]: 1,
+        [BREAKPOINTS.md]: 3,
+        [BREAKPOINTS.lg]: 4,
+        [BREAKPOINTS.xl]: 5,
+    },
+    children: data.default.content.children,
 };

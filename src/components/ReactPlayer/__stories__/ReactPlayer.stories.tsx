@@ -17,4 +17,4 @@ const DefaultTemplate: StoryFn<ReactPlayerBlockProps> = (args) => (
 
 export const Default = DefaultTemplate.bind({});
 
-Default.args = data.default.content;
+Default.args = data.default.content as ReactPlayerBlockProps;

@@ -4,9 +4,9 @@ import {Col, Row} from '../../grid';
 import {QuestionsProps} from '../../models';
 import {Content} from '../../sub-blocks';
 import {block} from '../../utils';
+import {sanitizeMicrodata} from '../../utils/microdata';
 
 import {QuestionBlockItem} from './QuestionBlockItem/QuestionBlockItem';
-import {FaqMicrodataValues} from './models';
 
 import './Questions.scss';
 
@@ -16,7 +16,10 @@ const QuestionsBlock = (props: QuestionsProps) => {
     const {title, text, additionalInfo, links, buttons, items, list} = props;
     const [opened, setOpened] = React.useState<number[]>([0]);
 
-    const toggleItem = (index: number) => {
+    const toggleItem = (
+        index: number,
+        itemOnClick?: QuestionsProps['items'][number]['onClick'],
+    ) => {
         let newState;
 
         if (opened.includes(index)) {
@@ -25,16 +28,38 @@ const QuestionsBlock = (props: QuestionsProps) => {
             newState = [...opened, index];
         }
 
+        if (itemOnClick) {
+            itemOnClick(index, !opened.includes(index));
+        }
+
         setOpened(newState);
     };
 
+    const faqMicrodataScript = React.useMemo(() => {
+        try {
+            const json = JSON.stringify({
+                '@context': 'https://schema.org',
+                '@type': 'FAQPage',
+                mainEntity: items.map((item) => ({
+                    '@type': 'Question',
+                    name: sanitizeMicrodata(item.title),
+                    acceptedAnswer: {
+                        '@type': 'Answer',
+                        text: sanitizeMicrodata(item.text),
+                    },
+                })),
+            });
+            return <script type="application/ld+json" dangerouslySetInnerHTML={{__html: json}} />;
+        } catch (error) {
+            /*eslint-disable no-console */
+            console.warn('Problem with FAQ microdata', error);
+            return null;
+        }
+    }, [items]);
+
     return (
-        <div
-            className={b()}
-            itemScope
-            itemType={FaqMicrodataValues.PageType}
-            itemID={FaqMicrodataValues.PageId}
-        >
+        <div className={b()}>
+            {faqMicrodataScript}
             <Row>
                 <Col sizes={{all: 12, md: 4}}>
                     <div className={b('title')}>
@@ -51,9 +76,18 @@ const QuestionsBlock = (props: QuestionsProps) => {
                 </Col>
                 <Col sizes={{all: 12, md: 8}} role={'list'}>
                     {items.map(
-                        ({title: itemTitle, text: itemText, link, listStyle = 'dash'}, index) => {
+                        (
+                            {
+                                title: itemTitle,
+                                text: itemText,
+                                link,
+                                listStyle = 'dash',
+                                onClick: itemOnClick,
+                            },
+                            index,
+                        ) => {
                             const isOpened = opened.includes(index);
-                            const onClick = () => toggleItem(index);
+                            const onClick = () => toggleItem(index, itemOnClick);
 
                             return (
                                 <QuestionBlockItem

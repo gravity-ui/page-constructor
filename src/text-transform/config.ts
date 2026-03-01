@@ -202,7 +202,6 @@ export const config: BlocksConfig = {
         {
             fields: ['title', 'text', 'additionalInfo'],
             transformer: yfmTransformer,
-            renderInline: true,
         },
     ],
     [SubBlockType.LayoutItem]: [
@@ -272,6 +271,11 @@ export const config: BlocksConfig = {
             transformer: yfmTransformer,
             parser: parseFeatures,
         },
+        {
+            fields: ['list'],
+            transformer: yfmTransformer,
+            parser: parseFeatures,
+        },
     ],
     [BlockType.FoldableListBlock]: [
         {
@@ -284,6 +288,11 @@ export const config: BlocksConfig = {
         },
         {
             fields: ['items'],
+            transformer: yfmTransformer,
+            parser: parseFeatures,
+        },
+        {
+            fields: ['list'],
             transformer: yfmTransformer,
             parser: parseFeatures,
         },
@@ -341,6 +350,12 @@ export const config: BlocksConfig = {
             fields: ['items'],
             transformer: yfmTransformer,
             parser: parseItemsTitle,
+            renderInline: true,
+        },
+        {
+            fields: ['items'],
+            transformer: yfmTransformer,
+            parser: createItemsParser(['list.text']),
             renderInline: true,
         },
     ],

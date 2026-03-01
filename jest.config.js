@@ -1,11 +1,27 @@
 module.exports = {
     verbose: true,
-    moduleFileExtensions: ['js', 'json', 'ts', 'tsx'],
+    moduleFileExtensions: ['js', 'json', 'ts', 'tsx', 'mjs'],
     rootDir: '.',
     transform: {
-        '^.+\\.tsx?$': ['ts-jest', {tsconfig: './tsconfig.test.json'}],
+        '^.+\\.tsx?$': ['ts-jest', {tsconfig: './tsconfig.test.json', isolatedModules: true}],
+        '^.+\\.m?js$': [
+            'babel-jest',
+            {
+                presets: [
+                    [
+                        '@babel/preset-env',
+                        {
+                            targets: {node: 'current'},
+                            modules: 'commonjs',
+                        },
+                    ],
+                ],
+            },
+        ],
     },
-    transformIgnorePatterns: ['node_modules/(?!(@gravity-ui|react-github-btn|tinygesture)/)'],
+    transformIgnorePatterns: [
+        'node_modules/(?!(@gravity-ui|react-github-btn|tinygesture|swiper)/)',
+    ],
     coverageDirectory: './coverage',
     collectCoverageFrom: [
         'src/blocks/**/*.{ts,tsx,js,jsx}',
@@ -18,6 +34,8 @@ module.exports = {
     setupFiles: ['<rootDir>/test-utils/setup-tests.ts'],
     setupFilesAfterEnv: ['<rootDir>/test-utils/setup-tests-after.ts'],
     moduleNameMapper: {
+        // Mock CSS imports
+        '^swiper/css.*': 'jest-transform-css',
         '\\.(css|less|scss|sass)$': 'jest-transform-css',
     },
     testMatch: ['**/*.test.[jt]s?(x)'],

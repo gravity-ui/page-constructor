@@ -166,6 +166,9 @@ export interface BasicCardProps
     gravityIcon?: ThemeSupporting<GravityIconProps>;
     target?: string;
     iconPosition?: IconPosition;
+    /**
+     * @deprecated This property will be removed in future versions
+     */
     hoverBackgroundColor?: string;
 }
 

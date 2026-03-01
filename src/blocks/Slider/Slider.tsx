@@ -1,6 +1,9 @@
 import * as React from 'react';
 
-import Swiper, {A11y, Autoplay, Pagination} from 'swiper';
+import 'swiper/css';
+import 'swiper/css/a11y';
+import 'swiper/css/pagination';
+import {A11y, Autoplay, Pagination} from 'swiper/modules';
 import {Swiper as SwiperReact, SwiperSlide} from 'swiper/react';
 
 import Anchor from '../../components/Anchor/Anchor';
@@ -15,9 +18,8 @@ import {useSlider} from './useSlider';
 import {useSliderPagination} from './useSliderPagination';
 
 import './Slider.scss';
-import 'swiper/swiper-bundle.css';
 
-export type {Swiper, SwiperOptions} from 'swiper';
+export type {Swiper, SwiperOptions} from 'swiper/types';
 
 const b = block('SliderBlock');
 
@@ -25,7 +27,7 @@ export interface SliderProps
     extends Omit<SliderParams, 'children'>,
         Partial<
             Pick<
-                SwiperReact,
+                React.ComponentProps<typeof SwiperReact>,
                 | 'onSlideChange'
                 | 'onSlideChangeTransitionStart'
                 | 'onSlideChangeTransitionEnd'
@@ -42,9 +44,6 @@ export interface SliderProps
     arrowSize?: number;
     initialSlide?: number;
 }
-
-// eslint-disable-next-line react-hooks/rules-of-hooks
-Swiper.use([Autoplay, A11y, Pagination]);
 
 export const SliderBlock = ({
     animated,
@@ -70,22 +69,13 @@ export const SliderBlock = ({
     onActiveIndexChange,
     onBreakpoint,
 }: React.PropsWithChildren<SliderProps>) => {
-    const {
-        autoplay,
-        isLocked,
-        childrenCount,
-        breakpoints,
-        onSwiper,
-        onImagesReady,
-        onPrev,
-        onNext,
-        setIsLocked,
-    } = useSlider({
-        slidesToShow,
-        children,
-        type,
-        autoplayMs,
-    });
+    const {autoplay, isLocked, childrenCount, breakpoints, onSwiper, onPrev, onNext, setIsLocked} =
+        useSlider({
+            slidesToShow,
+            children,
+            type,
+            autoplayMs,
+        });
 
     const isA11yControlHidden = Boolean(autoplay);
     const controlTabIndex = isA11yControlHidden ? -1 : 0;
@@ -94,6 +84,7 @@ export const SliderBlock = ({
         enabled: dots,
         isA11yControlHidden,
         controlTabIndex,
+        horizontalClass: b('dots'),
         bulletClass: b('dot', dotsClassName),
         bulletActiveClass: b('dot_active'),
         paginationLabel: i18n('pagination-label'),
@@ -122,6 +113,7 @@ export const SliderBlock = ({
             />
             <AnimateBlock className={b('animate-slides')} animate={animated}>
                 <SwiperReact
+                    modules={[Autoplay, A11y, Pagination]}
                     className={b('slider', className)}
                     onSwiper={onSwiper}
                     speed={1000}
@@ -137,9 +129,15 @@ export const SliderBlock = ({
                     onBreakpoint={onBreakpoint}
                     onLock={() => setIsLocked(true)}
                     onUnlock={() => setIsLocked(false)}
-                    onImagesReady={onImagesReady}
-                    watchSlidesVisibility
                     watchOverflow
+                    watchSlidesProgress
+                    touchStartPreventDefault={false}
+                    touchAngle={45}
+                    threshold={10}
+                    longSwipes={true}
+                    longSwipesRatio={0.5}
+                    resistance={true}
+                    resistanceRatio={0.5}
                     a11y={{
                         slideLabelMessage: '',
                         paginationBulletMessage: i18n('dot-label', {index: '{{index}}'}),

@@ -16,8 +16,6 @@ $darkSecondary: var(--g-color-text-dark-secondary);
 }
 
 #{$block} {
-    --pc-monochrome-button-background-color: #262626;
-    --pc-monochrome-button-background-color-hover: #393939;
     --pc-monochrome-button-color: var(--g-color-text-light-primary);
 
     display: flex;

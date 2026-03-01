@@ -1,5 +1,57 @@
 # Changelog
 
+## [8.1.1](https://github.com/gravity-ui/page-constructor/compare/v8.1.0...v8.1.1) (2026-02-17)
+
+
+### Bug Fixes
+
+* slider dots classname ([#1380](https://github.com/gravity-ui/page-constructor/issues/1380)) ([beb8182](https://github.com/gravity-ui/page-constructor/commit/beb8182222920d32b5d419beadcf31f3a311f4b8))
+* slider mobile add margin right ([#1381](https://github.com/gravity-ui/page-constructor/issues/1381)) ([756c6bf](https://github.com/gravity-ui/page-constructor/commit/756c6bf8ccaeb6c338c63856aa9b3dd3903171a4))
+
+## [8.1.0](https://github.com/gravity-ui/page-constructor/compare/v8.0.0...v8.1.0) (2026-02-12)
+
+
+### Features
+
+* **Tabs:** update config, story and screenshots ([#1350](https://github.com/gravity-ui/page-constructor/issues/1350)) ([2c856e9](https://github.com/gravity-ui/page-constructor/commit/2c856e901625a2f2d7d38ae6269acf66bc57d605))
+
+
+### Bug Fixes
+
+* delete unneccecery redefenitions of monochrome variables in content block ([#1379](https://github.com/gravity-ui/page-constructor/issues/1379)) ([e66382e](https://github.com/gravity-ui/page-constructor/commit/e66382eb7d60ca45869652d27a388be32d801062))
+
+## [8.0.0](https://github.com/gravity-ui/page-constructor/compare/v7.25.0...v8.0.0) (2026-01-28)
+
+
+### ⚠ BREAKING CHANGES
+
+- **Slider**
+  - Update swiper version on ^10.2.0
+
+- **ImageCard**
+  - update text-transform config, now `renderInline` is not true for yfm transform for fields: ['title', 'text', 'additionalInfo']
+
+## [7.25.0](https://github.com/gravity-ui/page-constructor/compare/v7.24.0...v7.25.0) (2026-01-19)
+
+
+### Features
+
+* **Questions:** add onClick question ([#1360](https://github.com/gravity-ui/page-constructor/issues/1360)) ([74d4aad](https://github.com/gravity-ui/page-constructor/commit/74d4aadafd10ec0749270a4089737355b18a6448))
+
+## [7.24.0](https://github.com/gravity-ui/page-constructor/compare/v7.23.0...v7.24.0) (2025-12-22)
+
+
+### Features
+
+* **FoldableList:** add yfm support for list prop ([#1342](https://github.com/gravity-ui/page-constructor/issues/1342)) ([7e36ea8](https://github.com/gravity-ui/page-constructor/commit/7e36ea85582ba47483ae9dbac1480560708efb8c))
+* **questions:** update storybook and add yfm support ([#1341](https://github.com/gravity-ui/page-constructor/issues/1341)) ([67414dd](https://github.com/gravity-ui/page-constructor/commit/67414dd15d551e272e07dd9b3c49201091633cbd))
+
+
+### Bug Fixes
+
+* **BasicCard:** mark property hoverBackgroundColor as deprecated ([#1356](https://github.com/gravity-ui/page-constructor/issues/1356)) ([18d71f8](https://github.com/gravity-ui/page-constructor/commit/18d71f848ed99a3789a5568b295f9e9f25adfe69))
+* **Questions:** use sanitaze for faq miqrodata ([#1358](https://github.com/gravity-ui/page-constructor/issues/1358)) ([38a50ed](https://github.com/gravity-ui/page-constructor/commit/38a50ed77b410fddf124196dc7889b28d6adbebb))
+
 ## [7.23.0](https://github.com/gravity-ui/page-constructor/compare/v7.22.0...v7.23.0) (2025-12-03)
 
 
