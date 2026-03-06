@@ -47,6 +47,7 @@ const preview: Preview = {
                     'Blocks',
                     'Components',
                     ['Cards', 'Links and buttons', 'Pics, video, DataLens'],
+                    'Lab',
                 ],
                 method: 'alphabetical',
             },
