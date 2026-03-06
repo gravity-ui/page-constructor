@@ -576,7 +576,7 @@ export interface FooterBlockProps {
     /** Floor 2: social row (title + social icons) */
     socialFloor?: FooterSocialFloor;
     /** Floor 3: legal disclaimer (YFM) */
-    disclaimerFloor?: FooterDisclaimerFloor;
+    disclaimerContent?: string;
     /** Floor 4: privacy/terms links, language, copyright */
     linksFloor?: FooterLinksFloor;
     /** @deprecated Use socialFloor + linksFloor instead. Floor 4 when no linksFloor. */

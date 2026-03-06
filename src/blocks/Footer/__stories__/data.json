@@ -74,13 +74,13 @@
                 {"icon": {"light": {"src": "/story-assets/icons-telegram_light.svg"}, "dark": {"src": "/story-assets/icons-telegram_dark.svg"}}, "url": "https://example.com", "urlTitle": "Telegram"}
             ]
         },
-        "disclaimerFloor": {
-            "content": "YTsaurus is a software distributed under the Apache License, Version 2.0. Feel free to contact the YTsaurus team at [info@ytsaurus.tech](mailto:info@ytsaurus.tech). Apache®, Apache Spark™ and their logos are either registered trademarks or trademarks of the Apache Software Foundation. [Trademarks](https://trademarks.apache.org). ClickHouse® is a trademark of ClickHouse, Inc. [clickhouse.com](https://clickhouse.com)."
-        },
+        "disclaimerContent": "YTsaurus is a software distributed under the Apache License, Version 2.0. Feel free to contact the **YTsaurus** team at [info@ytsaurus.tech](mailto:info@ytsaurus.tech). Apache®, Apache Spark™ and their logos are either registered trademarks or trademarks of the Apache Software Foundation. [Trademarks](https://trademarks.apache.org). ClickHouse® is a trademark of ClickHouse, Inc. [clickhouse.com](https://clickhouse.com).",
         "linksFloor": {
             "links": [
                 {"text": "Политика конфиденциальности", "url": "#privacy"},
-                {"text": "Условия использования", "url": "#terms"}
+                {"text": "Условия использования", "url": "#terms"},
+                {"text": "Длинный пункт меню 1", "url": "#terms"},
+                {"text": "Длинный пункт меню 2", "url": "#terms"}
             ],
             "language": {"label": "Language", "url": "#language"},
             "copyright": "© 2025 ООО \"Яндекс.Облако\""

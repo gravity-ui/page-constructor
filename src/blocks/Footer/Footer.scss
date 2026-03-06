@@ -139,7 +139,7 @@ $block: '.#{$ns}footer-block';
 
     // Generic floor (2–5)
     &__floor {
-        padding: $indentM 0;
+        padding: $indentSM 0;
         border-top: 1px solid var(--g-color-line-generic-solid);
 
         &_social,
@@ -180,6 +180,7 @@ $block: '.#{$ns}footer-block';
 
     &__social-icons-item {
         margin: 0;
+        transition: transform 200ms ease-in-out;
 
         &:hover {
             transform: translateY(-4px);
@@ -192,22 +193,26 @@ $block: '.#{$ns}footer-block';
 
     // Floor 3: Disclaimer
     &__disclaimer-floor-content {
-        @include text-size(body-3);
+        @include text-size(body-2);
         color: var(--g-color-text-secondary);
 
         .yfm {
             margin: 0;
         }
 
-        a {
-            @include link();
+        .yfm a {
+            color: var(--g-color-text-secondary);
+            text-decoration: underline;
+
+            &:hover {
+                color: var(--g-color-text-primary);
+            }
         }
     }
 
     // Floor 4: Links + language + copyright
     &__links-floor-inner {
         display: flex;
-        flex-wrap: wrap;
         align-items: center;
         justify-content: space-between;
         gap: $indentM $indentL;
@@ -215,30 +220,39 @@ $block: '.#{$ns}footer-block';
 
     &__links-floor-left {
         display: flex;
-        flex-wrap: wrap;
+        flex-grow: 1;
         align-items: center;
-        gap: $indentM $indentL;
+        gap: $indentXS;
+        min-width: 0;
+        visibility: hidden;
+
+        &_measured {
+            visibility: visible;
+        }
     }
 
     &__links-floor-right {
         display: flex;
-        flex-wrap: wrap;
         align-items: center;
         gap: $indentM $indentL;
+        flex-shrink: 0;
     }
 
     &__links-floor-list {
         display: flex;
-        flex-wrap: wrap;
         align-items: center;
-        gap: $indentM $indentL;
-        list-style: none;
-        margin: 0;
         padding: 0;
     }
 
     &__links-floor-item {
+        @include text-size(body-1);
         margin: 0;
+        white-space: nowrap;
+
+        &:hover {
+            color: var(--g-color-text-secondary);
+            background-color: transparent;
+        }
     }
 
     &__links-floor-link {
@@ -264,7 +278,7 @@ $block: '.#{$ns}footer-block';
     }
 
     &__links-floor-copyright {
-        @include text-size(body-3);
+        @include text-size(body-2);
         color: var(--g-color-text-secondary);
     }
 
@@ -272,13 +286,14 @@ $block: '.#{$ns}footer-block';
     &__attribution-floor-inner {
         display: flex;
         justify-content: center;
+        gap: $indentXXXS;
         align-items: center;
         text-align: center;
     }
 
     &__attribution-floor-link,
     &__attribution-floor-text {
-        @include text-size(body-3);
+        @include text-size(body-2);
         display: inline-flex;
         align-items: center;
         gap: $indentXXS;
@@ -286,12 +301,21 @@ $block: '.#{$ns}footer-block';
     }
 
     &__attribution-floor-link {
-        @include link();
         text-decoration: none;
+        cursor: pointer;
 
         &:hover {
             color: var(--g-color-text-primary);
         }
+    }
+
+    &__attribution-floor-brand {
+        @include text-size(body-3);
+        font-weight: var(--g-text-accent-font-weight);
+        display: inline-flex;
+        align-items: center;
+        gap: $indentXXS;
+        color: var(--g-color-text-secondary);
     }
 
     &__attribution-floor-logo {

@@ -54,13 +54,8 @@ const FooterSocialFloor = {
     },
 };
 
-const FooterDisclaimerFloor = {
-    type: 'object',
-    additionalProperties: false,
-    required: ['content'],
-    properties: {
-        content: {type: 'string', contentType: 'yfm', inputType: 'textarea'},
-    },
+const FooterDisclaimerContent = {
+    type: 'string', contentType: 'yfm', inputType: 'textarea'
 };
 
 const FooterLanguage = {
@@ -116,7 +111,7 @@ export const FooterBlock = {
             columns: filteredArray(FooterLinkColumn),
             additionalSections: filteredArray(FooterSection),
             socialFloor: FooterSocialFloor,
-            disclaimerFloor: FooterDisclaimerFloor,
+            disclaimerContent: FooterDisclaimerContent,
             linksFloor: FooterLinksFloor,
             secondFloor: FooterSecondFloor,
             attributionFloor: FooterAttributionFloor,
