@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import {DropdownMenu, DropdownMenuItem, Link, Menu, MenuItem} from '@gravity-ui/uikit';
+import {DropdownMenu, Link, Menu, MenuItem} from '@gravity-ui/uikit';
 
 import {Image, RouterLink, YFMWrapper} from '../../components';
 import {getMediaImage} from '../../components/Media/Image/utils';
@@ -13,6 +13,7 @@ import {ClassNameProps, FooterBlockProps, Theme} from '../../models';
 import type {ImageProps as ModelImageProps} from '../../models';
 import {block, getThemedValue} from '../../utils';
 
+import {LangSwitcher} from './components/LangSwitcher';
 import {useOverflowiListItems} from './hooks/useOverflowListItems';
 
 import './Footer.scss';
@@ -225,12 +226,12 @@ export const FooterBlock = (props: React.PropsWithChildren<FooterBlockFullProps>
                                     </div>
                                     <div className={b('links-floor-right')}>
                                         {linksFloor.language && (
-                                            <RouterLink
-                                                href={linksFloor.language.url ?? '#'}
-                                                className={b('links-floor-language')}
-                                            >
-                                                {linksFloor.language.label ?? 'Language'}
-                                            </RouterLink>
+                                            <LangSwitcher
+                                                items={[
+                                                    {text: 'Russian', href: '/ru'},
+                                                    {text: 'English', href: '/en'},
+                                                ]}
+                                            />
                                         )}
                                         {linksFloor.copyright && (
                                             <span className={b('links-floor-copyright')}>

@@ -234,7 +234,7 @@ $block: '.#{$ns}footer-block';
     &__links-floor-right {
         display: flex;
         align-items: center;
-        gap: $indentM $indentL;
+        gap: $indentXS;
         flex-shrink: 0;
     }
 
@@ -280,6 +280,10 @@ $block: '.#{$ns}footer-block';
     &__links-floor-copyright {
         @include text-size(body-2);
         color: var(--g-color-text-secondary);
+    }
+
+    &__links-floor-language-list {
+        list-style: none;
     }
 
     // Floor 5: Attribution
