@@ -526,16 +526,16 @@ export interface FooterSection {
 }
 
 /** Social link with icon (e.g. Telegram, GitHub) */
-export interface FooterSocialLink {
+export interface FooterContactItem {
     icon: ThemeSupporting<ImageProps>;
     url: string;
     urlTitle?: string;
 }
 
 /** Floor 2: "Join Us" + social icons row */
-export interface FooterSocialFloor {
+export interface FooterContacts {
     title?: string;
-    socialLinks: FooterSocialLink[];
+    links: FooterContactItem[];
 }
 
 /** Floor 3: Legal disclaimer block (full-width text) */
@@ -544,45 +544,39 @@ export interface FooterDisclaimerFloor {
 }
 
 /** Floor 4: Privacy/terms links, optional language, copyright */
-export interface FooterLinksFloor {
+export interface FooterCopyright {
     links?: LinkProps[];
-    language?: {
-        label?: string;
-        url?: string;
-    };
-    copyright?: string;
+    languageSwitcher?: {
+        text: string;
+        href: string;
+    }[];
+    copyrightText?: string;
 }
 
 /** Floor 5: "Created with" / powered-by attribution */
 export interface FooterAttributionFloor {
     text: string;
-    logo?: ThemeSupporting<ImageProps>;
-    href?: string;
 }
 
 /** Bottom bar (Floor 4): kept for backward compatibility; prefer linksFloor */
 export interface FooterSecondFloor {
     copyright?: string;
     links?: LinkProps[];
-    socialLinks?: FooterSocialLink[];
+    contacts?: FooterContactItem[];
 }
 
 export interface FooterBlockProps {
     logo?: FooterLogoProps;
     /** Floor 1: first row — logo (if present) + these columns */
     columns: FooterLinkColumn[];
-    /** Floor 1: additional rows of link columns */
-    additionalSections?: FooterSection[];
     /** Floor 2: social row (title + social icons) */
-    socialFloor?: FooterSocialFloor;
+    contacts?: FooterContacts;
     /** Floor 3: legal disclaimer (YFM) */
-    disclaimerContent?: string;
+    disclaimer?: string;
     /** Floor 4: privacy/terms links, language, copyright */
-    linksFloor?: FooterLinksFloor;
-    /** @deprecated Use socialFloor + linksFloor instead. Floor 4 when no linksFloor. */
-    secondFloor?: FooterSecondFloor;
+    copyright?: FooterCopyright;
     /** Floor 5: attribution ("Created with ...") */
-    attributionFloor?: FooterAttributionFloor;
+    attribution?: boolean;
     backgroundColor?: ThemeSupporting<string>;
 }
 

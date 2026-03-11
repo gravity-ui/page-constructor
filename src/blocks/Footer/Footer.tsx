@@ -1,20 +1,17 @@
 import * as React from 'react';
 
-import {DropdownMenu, Link, Menu, MenuItem} from '@gravity-ui/uikit';
+import {DropdownMenu, Link, LinkProps, Menu, MenuItem} from '@gravity-ui/uikit';
 
-import {Image, RouterLink, YFMWrapper} from '../../components';
+import {BrandFooter, Image, YFMWrapper} from '../../components';
 import {getMediaImage} from '../../components/Media/Image/utils';
 import {useTheme} from '../../context/theme';
 import {Col, Grid, Row} from '../../grid';
-import {BrandIconDark} from '../../icons/BrandIconDark';
-import {BrandIconLight} from '../../icons/BrandIconLight';
-import {BrandName} from '../../icons/BrandName';
-import {ClassNameProps, FooterBlockProps, Theme} from '../../models';
+import {ClassNameProps, FooterBlockProps} from '../../models';
 import type {ImageProps as ModelImageProps} from '../../models';
 import {block, getThemedValue} from '../../utils';
 
 import {LangSwitcher} from './components/LangSwitcher';
-import {useOverflowiListItems} from './hooks/useOverflowListItems';
+import {useOverflowListItems} from './hooks/useOverflowListItems';
 
 import './Footer.scss';
 
@@ -64,22 +61,23 @@ function renderColumns(
 }
 
 function renderSocialIcons(
-    socialLinks: NonNullable<FooterBlockProps['socialFloor']>['socialLinks'],
+    contacts: NonNullable<FooterBlockProps['contacts']>['links'],
     theme: ReturnType<typeof useTheme>,
 ) {
-    if (!socialLinks?.length) return null;
+    if (!contacts?.length) return null;
+
     return (
         <ul className={b('social-icons-list')}>
-            {socialLinks.map((social, index) => {
-                const iconResolved = social.icon && getThemedValue(social.icon, theme);
+            {contacts.map((contact, index) => {
+                const iconResolved = contact.icon && getThemedValue(contact.icon, theme);
                 const iconProps = iconResolved && getLogoImageProps(iconResolved);
                 if (!iconProps) return null;
                 return (
                     <li key={index} className={b('social-icons-item')}>
-                        <a href={social.url} target="_blank" rel="noopener noreferrer">
+                        <a href={contact.url} target="_blank" rel="noopener noreferrer">
                             <Image
                                 {...iconProps}
-                                alt={social.urlTitle ?? ''}
+                                alt={contact.urlTitle ?? ''}
                                 className={b('social-icon-item')}
                             />
                         </a>
@@ -95,12 +93,10 @@ export const FooterBlock = (props: React.PropsWithChildren<FooterBlockFullProps>
     const {
         logo,
         columns,
-        additionalSections = [],
-        socialFloor,
-        disclaimerContent,
-        linksFloor,
-        secondFloor,
-        attributionFloor,
+        contacts,
+        disclaimer,
+        copyright,
+        attribution,
         backgroundColor,
         className,
     } = props;
@@ -125,9 +121,9 @@ export const FooterBlock = (props: React.PropsWithChildren<FooterBlockFullProps>
     );
 
     const menuContainerRef = React.useRef<HTMLDivElement>(null);
-    const {visibleItems, hiddenItems, measured} = useOverflowiListItems({
+    const {visibleItems, hiddenItems, measured} = useOverflowListItems({
         containerRef: menuContainerRef,
-        items: linksFloor?.links,
+        items: copyright?.links,
         itemSelector: `.${b('links-floor-item')}`,
         moreButtonWidth: 28,
     });
@@ -147,36 +143,27 @@ export const FooterBlock = (props: React.PropsWithChildren<FooterBlockFullProps>
                     )}
                     {renderColumns(columns, hasLogo, 0)}
                 </Row>
-                {/* Additional rows: spacer (align with logo) + section columns */}
-                {additionalSections.map((section, sectionIndex) => (
-                    <Row key={sectionIndex} className={b('row', {additional: true})}>
-                        {hasLogo && (
-                            <Col className={b('logo-col', {spacer: true})} sizes={LOGO_COL_SIZES} />
-                        )}
-                        {renderColumns(section.columns, hasLogo, sectionIndex + 1)}
-                    </Row>
-                ))}
             </Grid>
             {/* Floor 2: Social row (Join Us + icons) */}
-            {socialFloor && socialFloor.socialLinks.length > 0 && (
+            {contacts && contacts.links.length > 0 && (
                 <div className={b('floor', 'social')}>
                     <Grid containerClass={b('container')}>
                         <div className={b('social-floor-inner')}>
-                            {socialFloor.title && (
-                                <h3 className={b('social-floor-title')}>{socialFloor.title}</h3>
+                            {contacts.title && (
+                                <h3 className={b('social-floor-title')}>{contacts.title}</h3>
                             )}
-                            {renderSocialIcons(socialFloor.socialLinks, theme)}
+                            {renderSocialIcons(contacts.links, theme)}
                         </div>
                     </Grid>
                 </div>
             )}
             {/* Floor 3: Legal disclaimer */}
-            {disclaimerContent && (
+            {disclaimer && (
                 <div className={b('floor', 'disclaimer')}>
                     <Grid containerClass={b('container')}>
                         <div className={b('disclaimer-floor-content')}>
                             <YFMWrapper
-                                content={disclaimerContent}
+                                content={disclaimer}
                                 modifiers={{
                                     constructor: true,
                                     'constructor-notice': true,
@@ -186,80 +173,57 @@ export const FooterBlock = (props: React.PropsWithChildren<FooterBlockFullProps>
                     </Grid>
                 </div>
             )}
-            {/* Floor 4: Links + language + copyright (linksFloor or legacy secondFloor) */}
-            {(linksFloor || secondFloor) &&
-                (linksFloor
-                    ? linksFloor.links?.length || linksFloor.language || linksFloor.copyright
-                    : secondFloor?.copyright ||
-                      (secondFloor?.links && secondFloor.links.length > 0) ||
-                      (secondFloor?.socialLinks && secondFloor.socialLinks.length > 0)) && (
-                    <div className={b('floor', 'links')}>
-                        <Grid containerClass={b('container')}>
-                            <div className={b('links-floor-inner')}>
-                                <React.Fragment>
-                                    <div
-                                        className={b('links-floor-left', {measured})}
-                                        ref={menuContainerRef}
-                                    >
-                                        {visibleItems.length > 0 && (
-                                            <Menu className={b('links-floor-list')}>
-                                                {visibleItems.map((item, index) => (
-                                                    <MenuItem
-                                                        key={index}
-                                                        href={item.url}
-                                                        className={b(
-                                                            'links-floor-item',
-                                                            item.className,
-                                                        )}
-                                                    >
-                                                        {item.text}
-                                                    </MenuItem>
-                                                ))}
-                                            </Menu>
-                                        )}
-                                        {hiddenItems.length > 0 && (
-                                            <DropdownMenu
-                                                items={hiddenItems}
-                                                switcherWrapperClassName={b('more-button')}
-                                                size="l"
-                                            />
-                                        )}
-                                    </div>
-                                    <div className={b('links-floor-right')}>
-                                        {linksFloor.language && (
-                                            <LangSwitcher
-                                                items={[
-                                                    {text: 'Russian', href: '/ru'},
-                                                    {text: 'English', href: '/en'},
-                                                ]}
-                                            />
-                                        )}
-                                        {linksFloor.copyright && (
-                                            <span className={b('links-floor-copyright')}>
-                                                {linksFloor.copyright}
-                                            </span>
-                                        )}
-                                    </div>
-                                </React.Fragment>
-                            </div>
-                        </Grid>
-                    </div>
-                )}
+            {/* Floor 4: Links + language + copyright */}
+            {copyright && (
+                <div className={b('floor', 'links')}>
+                    <Grid containerClass={b('container')}>
+                        <div className={b('links-floor-inner')}>
+                            <React.Fragment>
+                                <div
+                                    className={b('links-floor-left', {measured})}
+                                    ref={menuContainerRef}
+                                >
+                                    {visibleItems.length > 0 && (
+                                        <Menu className={b('links-floor-list')}>
+                                            {visibleItems.map((item, index) => (
+                                                <MenuItem
+                                                    key={index}
+                                                    href={item.url}
+                                                    className={b('links-floor-item')}
+                                                >
+                                                    {item.text}
+                                                </MenuItem>
+                                            ))}
+                                        </Menu>
+                                    )}
+                                    {hiddenItems.length > 0 && (
+                                        <DropdownMenu
+                                            items={hiddenItems}
+                                            switcherWrapperClassName={b('more-button')}
+                                            size="l"
+                                        />
+                                    )}
+                                </div>
+                                <div className={b('links-floor-right')}>
+                                    {copyright.languageSwitcher && (
+                                        <LangSwitcher items={copyright.languageSwitcher} />
+                                    )}
+                                    {copyright.copyrightText && (
+                                        <span className={b('links-floor-copyright')}>
+                                            {copyright.copyrightText}
+                                        </span>
+                                    )}
+                                </div>
+                            </React.Fragment>
+                        </div>
+                    </Grid>
+                </div>
+            )}
             {/* Floor 5: Attribution */}
-            {attributionFloor && attributionFloor.text && (
+            {attribution && (
                 <div className={b('floor', 'attribution')}>
                     <Grid containerClass={b('container')}>
-                        <div className={b('attribution-floor-inner')}>
-                            <RouterLink href={attributionFloor.href}>
-                                <div className={b('attribution-floor-link')}>Создано на</div>
-                                {theme === Theme.Light ? <BrandIconLight /> : <BrandIconDark />}
-                                <BrandName
-                                    width="90"
-                                    height="20"
-                                    color="var(--g-color-text-secondary)"
-                                />
-                            </RouterLink>
-                        </div>
+                        <BrandFooter className={b('attribution-block')} />
                     </Grid>
                 </div>
             )}

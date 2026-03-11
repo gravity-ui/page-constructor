@@ -3,19 +3,30 @@ import * as React from 'react';
 import {DropdownMenuItem, useResizeObserver} from '@gravity-ui/uikit';
 import debounceFn from 'lodash/debounce';
 
-type UseOverflowListItemsProps<ItemType extends unknown> = {
+type LinkItem = {
+    text: string;
+    url: string;
+};
+
+type UseOverflowListItemsProps = {
     containerRef: React.RefObject<HTMLElement>;
-    items?: ItemType[];
+    items?: LinkItem[];
     itemSelector: string;
     moreButtonWidth?: number;
 };
 
-export function useOverflowiListItems<ItemType extends {text: string; url: string}>({
+type OverflowListItemsResult = {
+    visibleItems: LinkItem[];
+    hiddenItems: DropdownMenuItem[];
+    measured: boolean;
+};
+
+export function useOverflowListItems({
     containerRef,
     items,
     itemSelector,
     moreButtonWidth = 0,
-}: UseOverflowListItemsProps<ItemType>) {
+}: UseOverflowListItemsProps): OverflowListItemsResult {
     const [containerWidth, setContainerWidth] = React.useState<number>(0);
     const [itemWidths, setItemWidths] = React.useState<number[]>([]);
 
@@ -27,7 +38,7 @@ export function useOverflowiListItems<ItemType extends {text: string; url: strin
         const measureItemSizes = () => {
             const itemElements = Array.from(
                 containerRef.current?.querySelectorAll(itemSelector) ?? [],
-            );
+            ) as HTMLElement[];
             setItemWidths(itemElements.map((item) => item.clientWidth));
         };
 
@@ -76,9 +87,7 @@ export function useOverflowiListItems<ItemType extends {text: string; url: strin
         }
 
         return {
-            visibleItems: transformItemsToDropdownMenuItems(
-                items?.slice(0, visibleItemsCount) ?? [],
-            ),
+            visibleItems: items?.slice(0, visibleItemsCount) ?? [],
             hiddenItems: transformItemsToDropdownMenuItems(items?.slice(visibleItemsCount) ?? []),
         };
     }, [containerWidth, isMeasured, itemWidths, items, moreButtonWidth]);

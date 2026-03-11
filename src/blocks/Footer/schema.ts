@@ -10,7 +10,6 @@ const FooterLogoProps = {
         image: withTheme(ImageProps),
         href: {type: 'string'},
         alt: {type: 'string', contentType: 'text'},
-        title: {type: 'string', contentType: 'text'},
     },
 };
 
@@ -24,16 +23,7 @@ const FooterLinkColumn = {
     },
 };
 
-const FooterSection = {
-    type: 'object',
-    additionalProperties: false,
-    required: ['columns'],
-    properties: {
-        columns: filteredArray(FooterLinkColumn),
-    },
-};
-
-const FooterSocialLink = {
+const FooterlContactItem = {
     type: 'object',
     additionalProperties: false,
     required: ['icon', 'url'],
@@ -44,78 +34,59 @@ const FooterSocialLink = {
     },
 };
 
-const FooterSocialFloor = {
+const FooterContactsBlock = {
     type: 'object',
     additionalProperties: false,
-    required: ['socialLinks'],
+    required: ['title', 'contacts'],
     properties: {
         title: {type: 'string', contentType: 'text'},
-        socialLinks: filteredArray(FooterSocialLink),
+        links: filteredArray(FooterlContactItem),
     },
 };
 
 const FooterDisclaimerContent = {
-    type: 'string', contentType: 'yfm', inputType: 'textarea'
+    type: 'string',
+    contentType: 'yfm',
+    inputType: 'textarea',
 };
 
-const FooterLanguage = {
+const FooterLanguageSwitcherItem = {
     type: 'object',
     additionalProperties: false,
-    required: [],
-    properties: {
-        label: {type: 'string', contentType: 'text'},
-        url: {type: 'string'},
-    },
-};
-
-const FooterLinksFloor = {
-    type: 'object',
-    additionalProperties: false,
-    required: [],
-    properties: {
-        links: filteredArray(LinkProps),
-        language: FooterLanguage,
-        copyright: {type: 'string', contentType: 'text'},
-    },
-};
-
-const FooterAttributionFloor = {
-    type: 'object',
-    additionalProperties: false,
-    required: ['text'],
+    required: ['languageLabel', 'url'],
     properties: {
         text: {type: 'string', contentType: 'text'},
-        logo: withTheme(ImageProps),
         href: {type: 'string'},
     },
 };
 
-const FooterSecondFloor = {
+const FooterCopyrightBlock = {
     type: 'object',
     additionalProperties: false,
     required: [],
     properties: {
-        copyright: {type: 'string', contentType: 'text'},
         links: filteredArray(LinkProps),
-        socialLinks: filteredArray(FooterSocialLink),
+        languageSwitcher: filteredArray(FooterLanguageSwitcherItem),
+        copyrightText: {type: 'string', contentType: 'text'},
     },
+};
+
+const FooterAttributionBlock = {
+    type: 'boolean',
 };
 
 export const FooterBlock = {
     'footer-block': {
         additionalProperties: false,
-        required: ['columns'],
         properties: {
             ...BlockBaseProps,
             logo: FooterLogoProps,
             columns: filteredArray(FooterLinkColumn),
-            additionalSections: filteredArray(FooterSection),
-            socialFloor: FooterSocialFloor,
-            disclaimerContent: FooterDisclaimerContent,
-            linksFloor: FooterLinksFloor,
-            secondFloor: FooterSecondFloor,
-            attributionFloor: FooterAttributionFloor,
+            contacts: FooterContactsBlock,
+            disclaimer: FooterDisclaimerContent,
+            copyright: FooterCopyrightBlock,
             backgroundColor: withTheme({type: 'string'}),
+            attribution: FooterAttributionBlock,
         },
     },
 };

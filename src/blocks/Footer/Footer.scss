@@ -261,28 +261,12 @@ $block: '.#{$ns}footer-block';
     }
 
     // Floor 5: Attribution
-    &__attribution-floor-inner {
-        display: flex;
-        justify-content: center;
-        gap: $indentXXXS;
-        align-items: center;
-        text-align: center;
+    .pc-footer-block__floor.attribution {
+        border: none;
+        padding: 0;
     }
 
-    &__attribution-floor-link {
-        @include text-size(body-2);
-        display: inline-flex;
-        align-items: center;
-        gap: $indentXXS;
-        color: var(--g-color-text-secondary);
-    }
-
-    &__attribution-floor-link {
-        text-decoration: none;
-        cursor: pointer;
-
-        &:hover {
-            color: var(--g-color-text-primary);
-        }
+    &__attribution-block {
+        margin-top: 0;
     }
 }

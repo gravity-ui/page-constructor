@@ -402,10 +402,12 @@ export const config: BlocksConfig = {
             renderInline: true,
         },
     ],
-    [BlockType.FooterBlock]: [{
-        fields: ['disclaimerContent'],
-        transformer: yfmTransformer,
-    }],
+    [BlockType.FooterBlock]: [
+        {
+            fields: ['disclaimer'],
+            transformer: yfmTransformer,
+        },
+    ],
     [BlockType.ContentLayoutBlock]: [
         {
             fields: ['textContent'],
