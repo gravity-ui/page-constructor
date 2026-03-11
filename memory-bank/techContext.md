@@ -185,6 +185,16 @@ const MyCustomBlock = (props) => {
 
 ## Recent Technical Updates
 
+### Title Component Analytics Enhancement
+
+- **Analytics Events Integration**: Added `analyticsEvents?: AnalyticsEventsBase` prop to TitleItem component
+- **Hook Integration**: Utilizes `useAnalytics` hook from `src/hooks` for consistent analytics handling
+- **Type System Enhancement**: Extended `TitleItemFullProps` and `TitleItemProps` interfaces with `AnalyticsEventsBase`
+- **Event Handler Composition**: New `handleClick` function combines analytics tracking with existing onClick functionality
+- **Import Updates**: Added `useAnalytics` and `AnalyticsEventsBase` imports to TitleItem component
+- **Documentation**: Updated component README with analytics parameter description
+- **Backward Compatibility**: Maintains existing onClick behavior while adding optional analytics layer
+
 ### Gravity Icons Integration
 
 - **New Icon Component**: Created universal `Icon` component (`src/components/Icon/Icon.tsx`) for handling both image and Gravity UI icons

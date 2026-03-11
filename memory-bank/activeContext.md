@@ -13,7 +13,17 @@ The Page Constructor library is currently focused on providing a comprehensive s
 
 Recent development has focused on:
 
-1. **Gravity Icons Integration** (Commits a72c3f3 and 8a8aa02):
+1. **Title Component Analytics Enhancement** (Commit f0f0c970):
+
+   - **Analytics Events Support**: Added `analyticsEvents?: AnalyticsEventsBase` prop to TitleItem component
+   - **Enhanced Click Handling**: New `handleClick` function combines analytics tracking with existing onClick functionality
+   - **Type System Updates**: Extended `TitleItemFullProps` and `TitleItemProps` interfaces to inherit from `AnalyticsEventsBase`
+   - **Documentation Updates**: Updated README.md with description of new `analyticsEvents` parameter
+   - **Hook Integration**: Uses `useAnalytics` hook for consistent analytics event handling
+   - **Backward Compatibility**: Maintains existing onClick behavior while adding optional analytics tracking
+   - **Event Flow**: Analytics events are triggered before existing onClick handlers for proper event sequencing
+
+2. **Gravity Icons Integration** (Commits a72c3f3 and 8a8aa02):
 
    - **New Icon Component**: Created universal component `src/components/Icon/Icon.tsx` for working with icons
    - **Gravity UI Icons Support**: Integration with `@gravity-ui/icons` library for using ready-made icons
@@ -24,14 +34,14 @@ Recent development has focused on:
    - **Schema Validation**: Added validation for GravityIconProps in BasicCard and Content schemas
    - **Storybook Examples**: Added new stories to demonstrate gravity icons
 
-2. **Button Component Enhancement**: Added support for icons through the `img` prop
+3. **Button Component Enhancement**: Added support for icons through the `img` prop
 
    - Support for Gravity UI icons (React components)
    - Support for custom SVG strings
    - Configurable icon positioning (left/right)
    - Configurable icon size
 
-3. **HeaderBlock Enhancements**: Significant updates to HeaderBlock with new functionality:
+4. **HeaderBlock Enhancements**: Significant updates to HeaderBlock with new functionality:
 
    - **New Content Properties**: Added `additionalInfo`, `overtitle`, and `status` for richer content structure
    - **Custom Rendering**: Added `renderTitle` function prop for custom title rendering
@@ -44,7 +54,7 @@ Recent development has focused on:
    - **Component Architecture**: Refactored background rendering into separate `Background` and `FullWidthBackground` components
    - **Props Refactoring**: Renamed `containerFluidClassName` to `contentWrapperClassName` for better clarity
 
-4. **Text Size Enhancement**: Updated `textSize` constant in `src/schema/validators/common.ts`:
+5. **Text Size Enhancement**: Updated `textSize` constant in `src/schema/validators/common.ts`:
 
    - **Previous values**: `['s', 'm', 'l']`
    - **Current values**: `['xs', 's', 'sm', 'm', 'l']`
@@ -52,7 +62,7 @@ Recent development has focused on:
    - This affects all components that use text sizing: Links, FileLinkProps, TitleProps, and various blocks
    - Updated TypeScript type `TextSize` to include new values
 
-5. **Card Component Standardization**: Updated BasicCard, LayoutItem, BackgroundCard, and ImageCard with consistent patterns:
+6. **Card Component Standardization**: Updated BasicCard, LayoutItem, BackgroundCard, and ImageCard with consistent patterns:
 
    - Standardized `controlPosition` prop for flexible control placement ('content' vs 'footer')
    - Enhanced accessibility with `useUniqId()` for proper ARIA labeling
@@ -60,12 +70,12 @@ Recent development has focused on:
    - Unified theme support using `getThemedValue` utility
    - Improved integration with the Content sub-block
 
-6. **Accessibility Improvements**: Enhanced ARIA attributes and ID management across card components
-7. **Control Positioning**: New flexible control positioning system allowing buttons/links in footer area
-8. **Performance Optimization**: Reducing bundle size and improving rendering performance
-9. **Documentation**: Expanding Storybook examples and documentation
+7. **Accessibility Improvements**: Enhanced ARIA attributes and ID management across card components
+8. **Control Positioning**: New flexible control positioning system allowing buttons/links in footer area
+9. **Performance Optimization**: Reducing bundle size and improving rendering performance
+10. **Documentation**: Expanding Storybook examples and documentation
 
-10. **Hover Background Color Enhancement**: Added support for customizable hover background colors in BasicCard component:
+11. **Hover Background Color Enhancement**: Added support for customizable hover background colors in BasicCard component:
 
     - **Schema Support**: Added `hoverBackgroundColor` property to BasicCard schema as optional string field (**deprecated**)
     - **Component Implementation**: BasicCard component now accepts `hoverBackgroundColor` prop and applies it as CSS custom property `--hover-background-color` (**deprecated**)
@@ -73,7 +83,7 @@ Recent development has focused on:
     - **Flexible Styling**: Allows any valid CSS color value (hex, rgb, rgba, named colors, etc.)
     - **Backward Compatibility**: Optional property that doesn't affect existing implementations
 
-11. **CardLayout Title Centering Enhancement**: Added title centering support for CardLayout block:
+12. **CardLayout Title Centering Enhancement**: Added title centering support for CardLayout block:
 
     - **New Prop**: Added `centered?: boolean` prop to `CardLayoutBlockProps` for centering title and subtitle
     - **Default Behavior**: Default value is `false`, maintaining backward compatibility (left-aligned by default)
@@ -112,8 +122,9 @@ Recent development has focused on:
 
 - **Custom Blocks**: Applications can register custom blocks
 - **Server Transformation**: Content can be transformed on the server side
-- **Analytics Integration**: Hooks for tracking user interactions
+- **Analytics Integration**: Hooks for tracking user interactions with enhanced Title component analytics support
 - **Internationalization**: Support for multiple languages
+- **Analytics Event Flow**: Consistent analytics handling through `useAnalytics` hook across components
 
 ## Next Steps
 
@@ -185,3 +196,4 @@ The following areas are being considered for future development:
 3. **Integration Challenges**: Addressing challenges when integrating with different applications
 4. **User Experience**: Focusing on both developer and end-user experience
 5. **Icon Integration**: Successfully extended Button component to support both Gravity UI icons and custom SVG strings while maintaining backward compatibility
+6. **Analytics Integration**: Successfully added analytics support to Title component with proper event sequencing and backward compatibility
