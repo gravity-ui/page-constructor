@@ -420,7 +420,7 @@ export interface HeaderBreadCrumbsProps extends ClassNameProps {
     analyticsEvents?: AnalyticsEventsProp;
 }
 
-export interface TitleItemProps extends Justifyable, TitleItemBaseProps {
+export interface TitleItemProps extends Justifyable, TitleItemBaseProps, AnalyticsEventsBase {
     navTitle?: string;
     anchor?: string;
 }
