@@ -10,6 +10,10 @@ $block: '.#{$ns}footer-block';
         padding: $indentM 0 40px;
     }
 
+    &__floor {
+        border-top: 1px solid var(--g-color-line-generic-solid);
+    }
+
     &__row {
         display: flex;
         flex-wrap: wrap;
@@ -18,19 +22,6 @@ $block: '.#{$ns}footer-block';
 
         &_additional {
             margin-top: $indentXXL;
-        }
-    }
-
-    &__logo-col {
-        flex-shrink: 0;
-
-        &_spacer {
-            visibility: hidden;
-            pointer-events: none;
-
-            @media (max-width: map-get($gridBreakpoints, 'md')) {
-                display: none;
-            }
         }
     }
 
@@ -109,11 +100,6 @@ $block: '.#{$ns}footer-block';
             gap: $indentXL $indentM;
         }
 
-        &__logo-col {
-            width: 100%;
-            margin-bottom: $indentS;
-        }
-
         &__logo-image {
             max-height: 28px;
 
@@ -139,6 +125,8 @@ $block: '.#{$ns}footer-block';
 
     // Generic floor (2–5)
     &__floor {
+        max-width: 1233px;
+        margin: 0 auto;
         padding: $indentSM 0;
         border-top: 1px solid var(--g-color-line-generic-solid);
 

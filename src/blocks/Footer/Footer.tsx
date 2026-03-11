@@ -38,7 +38,11 @@ function renderColumns(
 ) {
     const sizes = hasLogo ? COL_COL_SIZES : COL_COL_SIZES_NO_LOGO;
     return columns.map((column, columnIndex) => (
-        <Col key={`${sectionIndex}-${columnIndex}`} className={b('column')} sizes={sizes}>
+        <Col
+            key={`${sectionIndex}-${columnIndex}`}
+            className={b('column')}
+            sizes={{all: 6, sm: 3, md: 2}}
+        >
             <div className={b('column-inner')}>
                 <h6 className={b('column-title')}>{column.title}</h6>
                 <ul className={b('links')}>
@@ -134,99 +138,91 @@ export const FooterBlock = (props: React.PropsWithChildren<FooterBlockFullProps>
             style={themedBackground ? {backgroundColor: themedBackground} : undefined}
         >
             <Grid className={b('main-container')}>
-                {/* First row: logo + columns */}
                 <Row className={b('row')}>
+                    {/* First row: logo + columns */}
                     {hasLogo && (
-                        <Col className={b('logo-col')} sizes={LOGO_COL_SIZES}>
+                        <Col className={b('logo-col')} sizes={{all: 12, md: 4}}>
                             {logoContent}
                         </Col>
                     )}
                     {renderColumns(columns, hasLogo, 0)}
+                    {/* Floor 2: Social row (Join Us + icons) */}
+                    {contacts && contacts.links.length > 0 && (
+                        <Col sizes={{all: 12}} className={b('floor')}>
+                            <div className={b('social-floor-inner')}>
+                                {contacts.title && (
+                                    <h3 className={b('social-floor-title')}>{contacts.title}</h3>
+                                )}
+                                {renderSocialIcons(contacts.links, theme)}
+                            </div>
+                        </Col>
+                    )}
+                    {/* Floor 3: Legal disclaimer */}
+                    {disclaimer && (
+                        <Col sizes={{all: 12}} className={b('floor')}>
+                            <div className={b('disclaimer-floor-content')}>
+                                <YFMWrapper
+                                    content={disclaimer}
+                                    modifiers={{
+                                        constructor: true,
+                                        'constructor-notice': true,
+                                    }}
+                                />
+                            </div>
+                        </Col>
+                    )}
+                    {/* Floor 4: Links + language + copyright */}
+                    {copyright && (
+                        <Col sizes={{all: 12}} className={b('floor')}>
+                            <div className={b('links-floor-inner')}>
+                                <React.Fragment>
+                                    <div
+                                        className={b('links-floor-left', {measured})}
+                                        ref={menuContainerRef}
+                                    >
+                                        {visibleItems.length > 0 && (
+                                            <Menu className={b('links-floor-list')}>
+                                                {visibleItems.map((item, index) => (
+                                                    <MenuItem
+                                                        key={index}
+                                                        href={item.url}
+                                                        className={b('links-floor-item')}
+                                                    >
+                                                        {item.text}
+                                                    </MenuItem>
+                                                ))}
+                                            </Menu>
+                                        )}
+                                        {hiddenItems.length > 0 && (
+                                            <DropdownMenu
+                                                items={hiddenItems}
+                                                switcherWrapperClassName={b('more-button')}
+                                                size="l"
+                                            />
+                                        )}
+                                    </div>
+                                    <div className={b('links-floor-right')}>
+                                        {copyright.languageSwitcher && (
+                                            <LangSwitcher items={copyright.languageSwitcher} />
+                                        )}
+                                        {copyright.copyrightText && (
+                                            <span className={b('links-floor-copyright')}>
+                                                {copyright.copyrightText}
+                                            </span>
+                                        )}
+                                    </div>
+                                </React.Fragment>
+                            </div>
+                        </Col>
+                    )}
+                    {/* Floor 5: Attribution */}
+                    {attribution && (
+                        <Col sizes={{all: 12}} className={b('floor')}>
+                            <BrandFooter className={b('attribution-block')} />
+                        </Col>
+                    )}
                 </Row>
             </Grid>
-            {/* Floor 2: Social row (Join Us + icons) */}
-            {contacts && contacts.links.length > 0 && (
-                <div className={b('floor', 'social')}>
-                    <Grid containerClass={b('container')}>
-                        <div className={b('social-floor-inner')}>
-                            {contacts.title && (
-                                <h3 className={b('social-floor-title')}>{contacts.title}</h3>
-                            )}
-                            {renderSocialIcons(contacts.links, theme)}
-                        </div>
-                    </Grid>
-                </div>
-            )}
-            {/* Floor 3: Legal disclaimer */}
-            {disclaimer && (
-                <div className={b('floor', 'disclaimer')}>
-                    <Grid containerClass={b('container')}>
-                        <div className={b('disclaimer-floor-content')}>
-                            <YFMWrapper
-                                content={disclaimer}
-                                modifiers={{
-                                    constructor: true,
-                                    'constructor-notice': true,
-                                }}
-                            />
-                        </div>
-                    </Grid>
-                </div>
-            )}
-            {/* Floor 4: Links + language + copyright */}
-            {copyright && (
-                <div className={b('floor', 'links')}>
-                    <Grid containerClass={b('container')}>
-                        <div className={b('links-floor-inner')}>
-                            <React.Fragment>
-                                <div
-                                    className={b('links-floor-left', {measured})}
-                                    ref={menuContainerRef}
-                                >
-                                    {visibleItems.length > 0 && (
-                                        <Menu className={b('links-floor-list')}>
-                                            {visibleItems.map((item, index) => (
-                                                <MenuItem
-                                                    key={index}
-                                                    href={item.url}
-                                                    className={b('links-floor-item')}
-                                                >
-                                                    {item.text}
-                                                </MenuItem>
-                                            ))}
-                                        </Menu>
-                                    )}
-                                    {hiddenItems.length > 0 && (
-                                        <DropdownMenu
-                                            items={hiddenItems}
-                                            switcherWrapperClassName={b('more-button')}
-                                            size="l"
-                                        />
-                                    )}
-                                </div>
-                                <div className={b('links-floor-right')}>
-                                    {copyright.languageSwitcher && (
-                                        <LangSwitcher items={copyright.languageSwitcher} />
-                                    )}
-                                    {copyright.copyrightText && (
-                                        <span className={b('links-floor-copyright')}>
-                                            {copyright.copyrightText}
-                                        </span>
-                                    )}
-                                </div>
-                            </React.Fragment>
-                        </div>
-                    </Grid>
-                </div>
-            )}
-            {/* Floor 5: Attribution */}
-            {attribution && (
-                <div className={b('floor', 'attribution')}>
-                    <Grid containerClass={b('container')}>
-                        <BrandFooter className={b('attribution-block')} />
-                    </Grid>
-                </div>
-            )}
         </footer>
     );
 };
