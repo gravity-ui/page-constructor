@@ -221,6 +221,7 @@ export const FooterBlock = (props: React.PropsWithChildren<FooterBlockFullProps>
                                             <DropdownMenu
                                                 items={hiddenItems}
                                                 switcherWrapperClassName={b('more-button')}
+                                                size="l"
                                             />
                                         )}
                                     </div>
