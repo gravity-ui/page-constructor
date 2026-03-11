@@ -255,35 +255,9 @@ $block: '.#{$ns}footer-block';
         }
     }
 
-    &__links-floor-link {
-        @include text-size(body-3);
-        @include link();
-        color: var(--g-color-text-secondary);
-        text-decoration: none;
-
-        &:hover {
-            color: var(--g-color-text-primary);
-        }
-    }
-
-    &__links-floor-language {
-        @include text-size(body-3);
-        @include link();
-        color: var(--g-color-text-secondary);
-        text-decoration: none;
-
-        &:hover {
-            color: var(--g-color-text-primary);
-        }
-    }
-
     &__links-floor-copyright {
         @include text-size(body-2);
         color: var(--g-color-text-secondary);
-    }
-
-    &__links-floor-language-list {
-        list-style: none;
     }
 
     // Floor 5: Attribution
@@ -295,8 +269,7 @@ $block: '.#{$ns}footer-block';
         text-align: center;
     }
 
-    &__attribution-floor-link,
-    &__attribution-floor-text {
+    &__attribution-floor-link {
         @include text-size(body-2);
         display: inline-flex;
         align-items: center;
@@ -310,92 +283,6 @@ $block: '.#{$ns}footer-block';
 
         &:hover {
             color: var(--g-color-text-primary);
-        }
-    }
-
-    &__attribution-floor-brand {
-        @include text-size(body-3);
-        font-weight: var(--g-text-accent-font-weight);
-        display: inline-flex;
-        align-items: center;
-        gap: $indentXXS;
-        color: var(--g-color-text-secondary);
-    }
-
-    &__attribution-floor-logo {
-        display: block;
-        height: 20px;
-        width: auto;
-        object-fit: contain;
-    }
-
-    &__second-floor-inner {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: space-between;
-        gap: $indentM $indentL;
-    }
-
-    &__second-floor-left {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: $indentM $indentL;
-    }
-
-    &__second-floor-copyright {
-        @include text-size(body-3);
-        color: var(--g-color-text-secondary);
-    }
-
-    &__second-floor-links {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: $indentM $indentL;
-        list-style: none;
-        margin: 0;
-        padding: 0;
-    }
-
-    &__second-floor-link-item {
-        margin: 0;
-    }
-
-    &__second-floor-link {
-        @include text-size(body-3);
-        @include link();
-        color: var(--g-color-text-secondary);
-        text-decoration: none;
-
-        &:hover {
-            color: var(--g-color-text-primary);
-        }
-    }
-
-    &__second-floor-social {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: $indentXXS;
-        list-style: none;
-        margin: 0;
-        padding: 0;
-    }
-
-    &__second-floor-social-item {
-        margin: 0;
-    }
-
-    &__second-floor-social-icon {
-        margin-right: 0;
-    }
-
-    @media (max-width: map-get($gridBreakpoints, 'sm')) {
-        &__second-floor-inner {
-            flex-direction: column;
-            align-items: flex-start;
         }
     }
 }

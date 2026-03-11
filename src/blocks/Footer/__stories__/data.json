@@ -90,55 +90,5 @@
             "href": "https://gravity-ui.com",
             "logo": {"light": {"src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/logo_light.svg"}, "dark": {"src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/logo_dark.svg"}}
         }
-    },
-    "default": {
-        "type": "footer-block",
-        "logo": {
-            "image": {
-                "light": {"src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/logo_light.svg"},
-                "dark": {"src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/logo_dark.svg"}
-            },
-            "href": "/",
-            "alt": "YTsaurus"
-        },
-        "columns": [
-            {"title": "Для работы", "links": [{"text": "Мероприятия и вебинары", "url": "#events"}, {"text": "Контент-программа", "url": "#content"}, {"text": "Блог", "url": "#blog"}, {"text": "Все решения", "url": "#solutions"}, {"text": "Все решения", "url": "#solutions"}, {"text": "Все решения", "url": "#solutions"}]},
-            {"title": "Для работы", "links": [{"text": "Мероприятия и вебинары", "url": "#events"}, {"text": "Контент-программа", "url": "#content"}, {"text": "Блог", "url": "#blog"}, {"text": "Все решения", "url": "#solutions"}, {"text": "Все решения", "url": "#solutions"}, {"text": "Все решения", "url": "#solutions"}]},
-            {"title": "Для работы", "links": [{"text": "Мероприятия и вебинары", "url": "#events"}, {"text": "Контент-программа", "url": "#content"}, {"text": "Блог", "url": "#blog"}, {"text": "Все решения", "url": "#solutions"}, {"text": "Все решения", "url": "#solutions"}, {"text": "Все решения", "url": "#solutions"}]}
-        ],
-        "additionalSections": [
-            {"columns": [{"title": "Для работы", "links": [{"text": "Мероприятия и вебинары", "url": "#events"}, {"text": "Контент-программа", "url": "#content"}, {"text": "Блог", "url": "#blog"}, {"text": "Все решения", "url": "#solutions"}, {"text": "Все решения", "url": "#solutions"}, {"text": "Все решения", "url": "#solutions"}]}, {"title": "Для работы", "links": [{"text": "Мероприятия и вебинары", "url": "#events"}, {"text": "Контент-программа", "url": "#content"}, {"text": "Блог", "url": "#blog"}, {"text": "Все решения", "url": "#solutions"}, {"text": "Все решения", "url": "#solutions"}, {"text": "Все решения", "url": "#solutions"}]}]}
-        ],
-        "secondFloor": {
-            "copyright": "© 2025 YTsaurus",
-            "links": [{"text": "Политика конфиденциальности", "url": "#privacy"}, {"text": "Условия использования", "url": "#terms"}],
-            "socialLinks": [{"icon": {"light": {"src": "/story-assets/icon_1_light.svg"}, "dark": {"src": "/story-assets/icon_1_dark.svg"}}, "url": "https://t.me/ytsaurus", "urlTitle": "Telegram"}, {"icon": {"light": {"src": "/story-assets/icon_2_light.svg"}, "dark": {"src": "/story-assets/icon_2_dark.svg"}}, "url": "https://github.com/ytsaurus", "urlTitle": "GitHub"}, {"icon": {"light": {"src": "/story-assets/icon_3_light.svg"}, "dark": {"src": "/story-assets/icon_3_dark.svg"}}, "url": "https://twitter.com/ytsaurus", "urlTitle": "Twitter"}]
-        }
-    },
-    "withBackground": {
-        "type": "footer-block",
-        "backgroundColor": {"light": "#f5f5f5", "dark": "#262626"},
-        "logo": {
-            "image": {"src": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/logo_light.svg"},
-            "href": "/",
-            "alt": "YTsaurus"
-        },
-        "columns": [
-            {"title": "Для работы", "links": [{"text": "Мероприятия и вебинары", "url": "#events"}, {"text": "Контент-программа", "url": "#content"}, {"text": "Блог", "url": "#blog"}, {"text": "Все решения", "url": "#solutions"}]},
-            {"title": "Ресурсы", "links": [{"text": "Документация", "url": "#docs"}, {"text": "API", "url": "#api"}]}
-        ],
-        "additionalSections": [{"columns": [{"title": "Поддержка", "links": [{"text": "Помощь", "url": "#help"}, {"text": "Сообщество", "url": "#community"}]}]}],
-        "secondFloor": {
-            "copyright": "© 2025",
-            "links": [{"text": "Конфиденциальность", "url": "#privacy"}, {"text": "Условия", "url": "#terms"}],
-            "socialLinks": [{"icon": {"src": "/story-assets/icon_1_light.svg"}, "url": "https://t.me/example", "urlTitle": "Telegram"}, {"icon": {"src": "/story-assets/icon_2_light.svg"}, "url": "https://github.com/example", "urlTitle": "GitHub"}]
-        }
-    },
-    "columnsOnly": {
-        "type": "footer-block",
-        "columns": [
-            {"title": "Для работы", "links": [{"text": "Мероприятия и вебинары", "url": "#events"}, {"text": "Контент-программа", "url": "#content"}, {"text": "Блог", "url": "#blog"}, {"text": "Все решения", "url": "#solutions"}]},
-            {"title": "Ресурсы", "links": [{"text": "Документация", "url": "#docs"}, {"text": "API", "url": "#api"}]}
-        ]
     }
 }
