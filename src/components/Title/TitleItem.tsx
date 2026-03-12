@@ -89,7 +89,7 @@ const TitleItem = (props: TitleItemFullProps) => {
         </span>
     );
 
-    const handleClick = () => {
+    const handleClick = React.useCallback(() => {
         if (analyticsEvents) {
             handleAnalytics(analyticsEvents);
         }
@@ -97,7 +97,7 @@ const TitleItem = (props: TitleItemFullProps) => {
         if (onClick) {
             onClick();
         }
-    };
+    }, [analyticsEvents, handleAnalytics, onClick]);
 
     if (!url && !onClick) {
         content = textMarkup;
