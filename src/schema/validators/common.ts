@@ -570,6 +570,9 @@ export const TitleProps = {
         resetMargin: {
             type: 'boolean',
         },
+        analyticsEvents: {
+            anyOf: [AnalyticsEventSchema, {type: 'array', items: AnalyticsEventSchema}],
+        },
     },
 };
 

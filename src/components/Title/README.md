@@ -10,6 +10,8 @@
 
 - `resetMargin?: boolean` - default `true`. Without this property `margin-top` will be proportional to `textSize` (see section _Margins_ below)
 
+- `analyticsEvents?: AnalyticsEventsBase` - Analytics events to track click
+
 `description: string` - text (with YFM support)
 
 **Margins for title without reset:**

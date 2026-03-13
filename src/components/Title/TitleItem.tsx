@@ -3,7 +3,8 @@ import * as React from 'react';
 import {ToggleArrow, YFMWrapper} from '../';
 import {LocationContext} from '../../context/locationContext';
 import {MobileContext} from '../../context/mobileContext';
-import {QAProps, TextSize, TitleItemProps} from '../../models';
+import {useAnalytics} from '../../hooks';
+import {AnalyticsEventsBase, QAProps, TextSize, TitleItemProps} from '../../models';
 import {block, getHeaderTag, getLinkProps} from '../../utils';
 import Anchor from '../Anchor/Anchor';
 
@@ -27,7 +28,7 @@ export function getArrowSize(size: TextSize, isMobile: boolean) {
     }
 }
 
-export interface TitleItemFullProps extends TitleItemProps, QAProps {
+export interface TitleItemFullProps extends TitleItemProps, QAProps, AnalyticsEventsBase {
     className?: string;
     onClick?: () => void;
     resetMargin?: boolean;
@@ -48,7 +49,10 @@ const TitleItem = (props: TitleItemFullProps) => {
         qa,
         resetMargin = true,
         urlTitle,
+        analyticsEvents,
     } = props;
+
+    const handleAnalytics = useAnalytics();
 
     const {hostname} = React.useContext(LocationContext);
     const textMarkup = (
@@ -85,6 +89,16 @@ const TitleItem = (props: TitleItemFullProps) => {
         </span>
     );
 
+    const handleClick = React.useCallback(() => {
+        if (analyticsEvents) {
+            handleAnalytics(analyticsEvents);
+        }
+
+        if (onClick) {
+            onClick();
+        }
+    }, [analyticsEvents, handleAnalytics, onClick]);
+
     if (!url && !onClick) {
         content = textMarkup;
     } else if (url) {
@@ -93,7 +107,7 @@ const TitleItem = (props: TitleItemFullProps) => {
                 className={b('link')}
                 href={url}
                 {...getLinkProps(url, hostname)}
-                onClick={onClick}
+                onClick={handleClick}
                 title={urlTitle}
             >
                 {insideClickableContent}
@@ -101,7 +115,7 @@ const TitleItem = (props: TitleItemFullProps) => {
         );
     } else if (onClick) {
         content = (
-            <button className={b('link')} onClick={onClick} title={urlTitle}>
+            <button className={b('link')} onClick={handleClick} title={urlTitle}>
                 {insideClickableContent}
             </button>
         );

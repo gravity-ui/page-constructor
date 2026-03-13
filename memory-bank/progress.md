@@ -80,6 +80,16 @@ Enhanced text sizing capabilities:
 - **Affected Components**: Links, FileLink, Title, and various blocks now support extended size range
 - **Schema Validation**: Updated JSON schemas to include new text size options
 
+### Analytics Integration
+
+Enhanced analytics capabilities across components:
+
+- **Title Component Analytics**: Added `analyticsEvents` support to Title component for tracking user interactions
+- **useAnalytics Hook**: Consistent analytics handling through dedicated hook
+- **Event Sequencing**: Proper event flow with analytics triggered before existing onClick handlers
+- **Type Safety**: `AnalyticsEventsBase` interface ensures structured analytics events
+- **Backward Compatibility**: Optional analytics support maintains existing functionality
+
 ### Editor
 
 - **Visual Editing**: WYSIWYG editor for creating and modifying pages

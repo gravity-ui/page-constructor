@@ -154,12 +154,41 @@ Multiple context providers manage different aspects of the application:
 - **MobileContext**: Detects and provides mobile state
 - **LocaleContext**: Manages internationalization
 - **LocationContext**: Provides URL and routing information
-- **AnalyticsContext**: Handles analytics events
+- **AnalyticsContext**: Handles analytics events with enhanced Title component support
 - **MapsContext**: Configures map integration
 - **FormsContext**: Manages form state and submission
 - **SSRContext**: Handles server-side rendering configuration
 - **AnimateContext**: Controls animation settings
 - **InnerContext**: Provides internal configuration to blocks
+
+### Analytics Integration Pattern
+
+Components with analytics support follow a consistent pattern:
+
+```
+┌─────────────────────────────────────┐
+│        Component with Analytics     │
+├─────────────────────────────────────┤
+│  • analyticsEvents?: AnalyticsEventsBase │
+│  • useAnalytics() hook integration  │
+│  • handleClick() wrapper function   │
+│  • Event sequencing (analytics first) │
+├─────────────────────────────────────┤
+│           Event Flow                │
+│  1. User interaction (click)        │
+│  2. Analytics event triggered       │
+│  3. Original onClick handler called │
+│  4. Component-specific logic        │
+└─────────────────────────────────────┘
+```
+
+Key analytics patterns implemented in Title component:
+
+- **Optional Analytics**: `analyticsEvents` prop is optional, maintaining backward compatibility
+- **Hook Integration**: Uses `useAnalytics` hook for consistent event handling
+- **Event Sequencing**: Analytics events are processed before existing onClick handlers
+- **Type Safety**: `AnalyticsEventsBase` interface ensures proper event structure
+- **Unified Handler**: Single `handleClick` function manages both analytics and existing functionality
 
 ### Type System
 
