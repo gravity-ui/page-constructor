@@ -32,6 +32,9 @@ export const BackgroundCard = {
             backgroundColor: {
                 type: 'string',
             },
+            forceBorder: {
+                type: 'boolean',
+            },
             paddingBottom: {
                 type: 'string',
                 enum: ['s', 'm', 'l', 'xl'],
