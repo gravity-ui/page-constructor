@@ -1,6 +1,5 @@
 import {render} from '@testing-library/react';
 
-import {PageConstructorProvider} from '../../../containers/PageConstructor';
 import {BasicCard} from '../../../sub-blocks';
 import Slider from '../Slider';
 
