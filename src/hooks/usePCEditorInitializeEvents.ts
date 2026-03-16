@@ -3,8 +3,7 @@ import * as React from 'react';
 import {JSONSchemaType} from 'ajv';
 import _ from 'lodash';
 
-import {ItemConfig} from '../common/types';
-import {blockDataMap} from '../constructor-items';
+import {BlockData} from '../constructor-items';
 import {PageContentWithNavigation} from '../models';
 import {defaultComponentsConfigurationSchema} from '../schema';
 import {generateFromAJV} from '../utils/form-generator';
@@ -15,11 +14,13 @@ import {sendEventPostMessage, useInternalPostMessageAPIListener} from './usePost
 interface UseEditorInitializeProps {
     initialContent: PageContentWithNavigation;
     setContent: (content: PageContentWithNavigation) => void;
+    blocks: Array<BlockData>;
 }
 
 export const usePCEditorInitializeEvents = ({
     initialContent,
     setContent,
+    blocks,
 }: UseEditorInitializeProps) => {
     const {manipulateOverlayMode, initialized, content} = usePCEditorStore();
 
@@ -35,10 +36,7 @@ export const usePCEditorInitializeEvents = ({
 
     useInternalPostMessageAPIListener('GET_SUPPORTED_BLOCKS', () => {
         sendEventPostMessage('ON_SUPPORTED_BLOCKS', {
-            blocks: Object.entries(blockDataMap).reduce((acc, [key, value]) => {
-                acc.push({type: key, schema: value.schema});
-                return acc;
-            }, [] as ItemConfig[]),
+            blocks: blocks.map((block) => ({type: block.type, schema: block.schema})),
             subBlocks: [],
             global: generateFromAJV(
                 defaultComponentsConfigurationSchema as unknown as JSONSchemaType<{}>,

@@ -47,7 +47,7 @@ const BlocksList = ({className}: BlockListProps) => {
     }, []);
 
     const groups = React.useMemo(() => {
-        return blocks.reduce<BlockGroups>((acc, currentBlock) => {
+        const blocksGroups = blocks.reduce<BlockGroups>((acc, currentBlock) => {
             const group = currentBlock.schema.group;
             if (
                 search &&
@@ -72,6 +72,13 @@ const BlocksList = ({className}: BlockListProps) => {
 
             return acc;
         }, {} as BlockGroups);
+
+        return Object.keys(blocksGroups)
+            .sort()
+            .reduce((sortedGroups, key) => {
+                sortedGroups[key] = blocksGroups[key];
+                return sortedGroups;
+            }, {} as BlockGroups);
     }, [blocks, search]);
 
     const collapseAll = React.useCallback(() => {

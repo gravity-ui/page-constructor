@@ -6,6 +6,7 @@ import TabsBlock from './Tabs';
 import {TabsBlock as TabsBlockSchema} from './schema';
 
 const TabsBlockConfig = {
+    type: '@gravity-ui/page-constructor/tabs-block',
     component: TabsBlock,
     schema: {
         name: 'Tabs Block',

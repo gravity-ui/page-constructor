@@ -7,10 +7,12 @@ import Content from './Content';
 import {ContentBlock} from './schema';
 
 const ContentConfig: BlockData = {
+    type: '@gravity-ui/page-constructor/content',
     component: Content,
     schema: {
         name: 'Content',
         group: '@gravity-ui/page-constructor/Cards',
+        // TODO: change to custom block schema
         inputs: generateFromAJV(ContentBlock['content'] as unknown as JSONSchemaType<{}>),
         default: {
             title: 'Content',

@@ -6,10 +6,12 @@ import SliderBlock from './Slider';
 import {SliderBlock as SliderBlockSchema} from './schema';
 
 const SliderBlockConfig = {
+    type: '@gravity-ui/page-constructor/slider-block',
     component: SliderBlock,
     schema: {
         name: 'Slider Block',
-        group: '@gravity-ui/page-constructor/Card Containers',
+        group: '@gravity-ui/page-constructor/CardContainers',
+        // TODO: change to custom block schema
         inputs: generateFromAJV(SliderBlockSchema['slider-block'] as unknown as JSONSchemaType<{}>),
         default: {
             dots: true,

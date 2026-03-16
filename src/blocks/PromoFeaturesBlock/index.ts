@@ -4,12 +4,15 @@ import {generateFromAJV} from '../../utils/form-generator';
 
 import PromoFeaturesBlock from './PromoFeaturesBlock';
 import {PromoFeaturesBlock as PromoFeaturesBlockSchema} from './schema';
+import {BlockData} from '../../constructor-items';
 
-const PromoFeaturesBlockConfig = {
+const PromoFeaturesBlockConfig: BlockData = {
+    type: '@gravity-ui/page-constructor/promo-features-block',
     component: PromoFeaturesBlock,
     schema: {
         name: 'Promo Features Block',
         group: '@gravity-ui/page-constructor/Blocks',
+        // TODO: change to custom block schema
         inputs: generateFromAJV(
             PromoFeaturesBlockSchema['promo-features-block'] as unknown as JSONSchemaType<{}>,
         ),

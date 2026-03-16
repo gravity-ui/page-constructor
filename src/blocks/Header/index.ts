@@ -4,12 +4,15 @@ import {generateFromAJV} from '../../utils/form-generator';
 
 import HeaderBlock from './Header';
 import {HeaderBlock as HeaderBlockSchema} from './schema';
+import {BlockData} from '../../constructor-items';
 
-const HeaderBlockConfig = {
+const HeaderBlockConfig: BlockData = {
+    type: '@gravity-ui/page-constructor/header-block',
     component: HeaderBlock,
     schema: {
         name: 'Header Block',
         group: '@gravity-ui/page-constructor/Blocks',
+        // TODO: change to custom block schema
         inputs: generateFromAJV(HeaderBlockSchema['header-block'] as unknown as JSONSchemaType<{}>),
         default: {
             type: 'header-block',

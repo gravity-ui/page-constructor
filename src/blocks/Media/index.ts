@@ -3,13 +3,16 @@ import {JSONSchemaType} from 'ajv';
 import {generateFromAJV} from '../../utils/form-generator';
 
 import MediaBlock from './Media';
+import svgIcon from './icon.svg';
 import {MediaBlock as MediaBlockSchema} from './schema';
 
 const MediaBlockConfig = {
+    type: '@gravity-ui/page-constructor/media-block',
     component: MediaBlock,
     schema: {
         name: 'Media Block',
         group: '@gravity-ui/page-constructor/Blocks',
+        // TODO: change to custom block schema
         inputs: generateFromAJV(MediaBlockSchema['media-block'] as unknown as JSONSchemaType<{}>),
         default: {
             title: 'Lorem ipsum dolor sit',
@@ -53,7 +56,7 @@ const MediaBlockConfig = {
                 image: 'https://storage.yandexcloud.net/cloud-www-assets/constructor/main/new/media-01-01.jpg',
             },
         },
-        previewImg: 'https://storage.cloud-preprod.yandex.net/qradle-test/media-block.svg',
+        previewImg: svgIcon,
     },
 };
 

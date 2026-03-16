@@ -6,7 +6,7 @@ import {ThemeProvider} from '@gravity-ui/uikit';
 import BackgroundMedia from '../../components/BackgroundMedia/BackgroundMedia';
 import BrandFooter from '../../components/BrandFooter/BrandFooter';
 import RootCn from '../../components/RootCn';
-import {blockMap, navItemMap, subBlockMap} from '../../constructor-items';
+import {BlockData, blockMap, navItemMap, subBlockMap} from '../../constructor-items';
 import {AnimateContext} from '../../context/animateContext';
 import {InnerContext} from '../../context/innerContext';
 import {ProjectSettingsContext} from '../../context/projectSettingsContext';
@@ -32,6 +32,7 @@ import {ConstructorBlocks} from './components';
 import {ConstructorRow} from './components/ConstructorRow';
 
 import './PageConstructor.scss';
+import {BlocksContext} from '../../context/blocksContext';
 
 const b = cnBlock('page-constructor');
 
@@ -49,6 +50,7 @@ export interface PageConstructorProps {
     microdata?: {
         contentUpdatedDate?: string;
     };
+    blocks?: Array<BlockData>;
 }
 
 export const Constructor = (props: PageConstructorProps) => {
@@ -60,7 +62,15 @@ export const Constructor = (props: PageConstructorProps) => {
         custom,
         isBranded,
         microdata,
+        blocks: availableLocalBlocks = [],
     } = props;
+
+    const {blocks: availableGlobalBlocks} = React.useContext(BlocksContext);
+
+    const availableBlocks = React.useMemo(
+        () => [...availableGlobalBlocks, ...availableLocalBlocks],
+        [availableGlobalBlocks, availableLocalBlocks],
+    );
 
     const [content, setContent] = React.useState<PageContentWithNavigation>({
         blocks,
@@ -73,23 +83,29 @@ export const Constructor = (props: PageConstructorProps) => {
     const store = usePCEditorStore();
     const {initialized, isPreviewMode} = store;
 
-    usePCEditorInitializeEvents({initialContent: {blocks, background, navigation}, setContent});
+    usePCEditorInitializeEvents({
+        initialContent: {blocks, background, navigation},
+        setContent,
+        blocks: availableBlocks,
+    });
 
     const {context} = React.useMemo(
         () => ({
             context: {
+                // TODO: delete blockTypes, subBlockTypes, headerBlockTypes
                 blockTypes: [...BlockTypes, ...getCustomTypes(['blocks', 'headers'], custom)],
                 subBlockTypes: [...SubBlockTypes, ...getCustomTypes(['subBlocks'], custom)],
                 headerBlockTypes: [...HeaderBlockTypes, ...getCustomTypes(['headers'], custom)],
-                navigationBlockTypes: [
-                    ...NavigationItemTypes,
-                    ...getCustomTypes(['navigation'], custom),
-                ],
                 itemMap: {
                     ...blockMap,
                     ...subBlockMap,
                     ...getCustomItems(['blocks', 'headers', 'subBlocks'], custom),
                 },
+
+                navigationBlockTypes: [
+                    ...NavigationItemTypes,
+                    ...getCustomTypes(['navigation'], custom),
+                ],
                 navItemMap: {
                     ...navItemMap,
                     ...getCustomItems(['navigation'], custom),
@@ -100,9 +116,10 @@ export const Constructor = (props: PageConstructorProps) => {
                     decorators: custom?.decorators,
                 },
                 microdata,
+                blocks: availableBlocks,
             },
         }),
-        [custom, shouldRenderBlock, microdata],
+        [custom, shouldRenderBlock, microdata, availableBlocks],
     );
 
     const restBlocks = content.blocks;
