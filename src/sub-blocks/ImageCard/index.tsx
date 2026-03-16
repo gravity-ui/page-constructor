@@ -7,10 +7,12 @@ import ImageCard from './ImageCard';
 import {ImageCard as ImageCardSchema} from './schema';
 
 const ImageCardConfig: BlockData = {
+    type: '@gravity-ui/page-constructor/image-card',
     component: ImageCard,
     schema: {
         name: 'Image Card',
         group: '@gravity-ui/page-constructor/Cards',
+        // TODO: change to custom block schema
         inputs: generateFromAJV(ImageCardSchema['image-card'] as unknown as JSONSchemaType<{}>),
         default: {
             title: 'Image Card',

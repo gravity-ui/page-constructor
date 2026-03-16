@@ -6,10 +6,12 @@ import TableBlock from './Table';
 import {TableBlock as TableBlockSchema} from './schema';
 
 const TableBlockConfig = {
+    type: 'table-block',
     component: TableBlock,
     schema: {
         name: 'Table Block',
         group: '@gravity-ui/page-constructor/Blocks',
+        // TODO: change to custom block schema
         inputs: generateFromAJV(TableBlockSchema['table-block'] as unknown as JSONSchemaType<{}>),
         default: {
             type: 'table-block',

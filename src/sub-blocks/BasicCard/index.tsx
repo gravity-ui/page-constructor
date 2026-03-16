@@ -7,10 +7,12 @@ import BasicCard from './BasicCard';
 import {BasicCard as BasicCardSchema} from './schema';
 
 const BasicCardConfig: BlockData = {
+    type: '@gravity-ui/page-constructor/basic-card',
     component: BasicCard,
     schema: {
         name: 'Basic Card',
         group: '@gravity-ui/page-constructor/Cards',
+        // TODO: change to custom block schema
         inputs: generateFromAJV(BasicCardSchema['basic-card'] as unknown as JSONSchemaType<{}>),
         default: {
             title: 'Basic Card',

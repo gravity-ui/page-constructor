@@ -4,7 +4,7 @@ import pick from 'lodash/pick';
 
 import BlockBase from '../../../../components/BlockBase/BlockBase';
 import {BlockDecoration} from '../../../../customization/BlockDecoration';
-import {usePCEditorItemWrap} from '../../../../hooks/usePCEditorItemWrap';
+import {usePCEditorChildrenItemWrap} from '../../../../hooks/usePCEditorChildrenItemWrap';
 import {BlockDecorationProps, ConstructorBlock as ConstructorBlockType} from '../../../../models';
 import {block} from '../../../../utils';
 
@@ -21,7 +21,7 @@ export const ConstructorBlock = ({
     data,
     children,
 }: React.PropsWithChildren<ConstructorBlockProps>) => {
-    const {blockRef, adminBlockMouseEvents} = usePCEditorItemWrap(index);
+    const {blockRef, adminBlockMouseEvents} = usePCEditorChildrenItemWrap(index);
 
     const {type} = data;
     const blockBaseProps = React.useMemo(

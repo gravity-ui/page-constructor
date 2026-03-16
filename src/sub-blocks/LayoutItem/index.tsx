@@ -7,10 +7,12 @@ import LayoutItem from './LayoutItem';
 import {LayoutItem as LayoutItemSchema} from './schema';
 
 const LayoutItemConfig: BlockData = {
+    type: '@gravity-ui/page-constructor/layout-item',
     component: LayoutItem,
     schema: {
         name: 'Layout Item',
         group: '@gravity-ui/page-constructor/Cards',
+        // TODO: change to custom block schema
         inputs: generateFromAJV(LayoutItemSchema as unknown as JSONSchemaType<{}>),
         default: {
             type: 'layout-item',

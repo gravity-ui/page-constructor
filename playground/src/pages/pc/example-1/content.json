@@ -52,6 +52,54 @@
       ]
     },
     {
+      "type": "custom-parent-block",
+      "title": "Custom Grid Block",
+      "description": "A configurable grid with 3, 4, or 5 cards per row. Change perRow to try different layouts.",
+      "perRow": 4,
+      "children": [
+        {
+          "type": "custom-children-block",
+          "title": "Design Systems",
+          "description": "Building consistent UI components across all products."
+        },
+        {
+          "type": "custom-children-block",
+          "title": "Open Source",
+          "description": "Contributing to and maintaining public repositories."
+        },
+        {
+          "type": "custom-children-block",
+          "title": "Performance",
+          "description": "Optimizing load times and runtime efficiency."
+        },
+        {
+          "type": "custom-children-block",
+          "title": "Accessibility",
+          "description": "Making products usable for everyone, including assistive tech users."
+        },
+        {
+          "type": "custom-children-block",
+          "title": "Developer Tools",
+          "description": "CLIs, plugins, and extensions that improve dev workflows."
+        },
+        {
+          "type": "custom-children-block",
+          "title": "Documentation",
+          "description": "Clear and up-to-date guides for every project."
+        },
+        {
+          "type": "custom-children-block",
+          "title": "Testing",
+          "description": "Unit, integration, and end-to-end test coverage."
+        },
+        {
+          "type": "custom-children-block",
+          "title": "Security",
+          "description": "Audits, dependency scanning, and secure coding practices."
+        }
+      ]
+    },
+    {
       "type": "card-layout-block",
       "animated": false,
       "title": "Краткая история опенсорса в&nbsp;Яндексе",

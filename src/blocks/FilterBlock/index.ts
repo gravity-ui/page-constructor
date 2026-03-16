@@ -6,10 +6,12 @@ import FilterBlock from './FilterBlock';
 import {FilterProps} from './schema';
 
 const FilterBlockConfig = {
+    type: '@gravity-ui/page-constructor/filter-block',
     component: FilterBlock,
     schema: {
         name: 'Filter Block',
         group: '@gravity-ui/page-constructor/Blocks',
+        // TODO: change to custom block schema
         inputs: generateFromAJV(FilterProps as unknown as JSONSchemaType<{}>),
         default: {
             allTag: true,

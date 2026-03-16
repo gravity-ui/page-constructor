@@ -6,10 +6,12 @@ import IconsBlock from './Icons';
 import {IconsProps} from './schema';
 
 const IconsBlockConfig = {
+    type: '@gravity-ui/page-constructor/icons-block',
     component: IconsBlock,
     schema: {
         name: 'Icons Block',
         group: '@gravity-ui/page-constructor/Blocks',
+        // TODO: change to custom block schema
         inputs: generateFromAJV(IconsProps as unknown as JSONSchemaType<{}>),
         default: {
             type: 'icons-block',

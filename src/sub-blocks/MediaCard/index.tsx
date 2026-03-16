@@ -7,10 +7,12 @@ import MediaCard from './MediaCard';
 import {MediaCardBlock as MediaCardSchema} from './schema';
 
 const MediaCardConfig: BlockData = {
+    type: '@gravity-ui/page-constructor/media-card',
     component: MediaCard,
     schema: {
         name: 'Media Card',
         group: '@gravity-ui/page-constructor/Cards',
+        // TODO: change to custom block schema
         inputs: generateFromAJV(MediaCardSchema['media-card'] as unknown as JSONSchemaType<{}>),
         default: {
             content: {

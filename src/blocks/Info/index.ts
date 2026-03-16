@@ -6,10 +6,12 @@ import InfoBlock from './Info';
 import {InfoBlock as InfoBlockSchema} from './schema';
 
 const InfoBlockConfig = {
+    type: '@gravity-ui/page-constructor/info-block',
     component: InfoBlock,
     schema: {
         name: 'Info Block',
         group: '@gravity-ui/page-constructor/Blocks',
+        // TODO: change to custom block schema
         inputs: generateFromAJV(InfoBlockSchema['info-block'] as unknown as JSONSchemaType<{}>),
         default: {
             type: 'info-block',
