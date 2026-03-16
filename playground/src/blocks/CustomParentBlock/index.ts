@@ -30,17 +30,17 @@ const CustomParentBlockConfig: BlockData = {
             perRow: 3,
             children: [
                 {
-                    type: 'custom-children-block',
+                    type: 'custom/custom-children-block',
                     title: 'Card One',
                     description: 'First card description.',
                 },
                 {
-                    type: 'custom-children-block',
+                    type: 'custom/custom-children-block',
                     title: 'Card Two',
                     description: 'Second card description.',
                 },
                 {
-                    type: 'custom-children-block',
+                    type: 'custom/custom-children-block',
                     title: 'Card Three',
                     description: 'Third card description.',
                 },

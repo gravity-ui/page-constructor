@@ -208,6 +208,7 @@
     "css-loader": "^5.2.7",
     "es5-ext": "0.10.53",
     "esbuild": "^0.25.11",
+    "esbuild-sass-plugin": "^3.7.0",
     "eslint": "^8.57.1",
     "eslint-plugin-no-not-accumulator-reassign": "^0.1.0",
     "eslint-plugin-react": "^7.37.4",
