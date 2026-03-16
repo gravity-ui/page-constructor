@@ -535,7 +535,10 @@ export interface FooterContactItem {
 /** Floor 2: "Join Us" + social icons row */
 export interface FooterContacts {
     title?: string;
+    iconsSize?: 'm' | 'l';
     links: FooterContactItem[];
+    linksPosition: 'left' | 'center';
+    titlePosition: 'top' | 'near';
 }
 
 /** Floor 3: Legal disclaimer block (full-width text) */

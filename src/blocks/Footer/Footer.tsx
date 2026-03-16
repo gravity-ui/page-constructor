@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import {DropdownMenu, Link, LinkProps, Menu, MenuItem} from '@gravity-ui/uikit';
+import {DropdownMenu, Flex, Link, Menu, MenuItem, Text} from '@gravity-ui/uikit';
 
 import {BrandFooter, Image, YFMWrapper} from '../../components';
 import {getMediaImage} from '../../components/Media/Image/utils';
@@ -27,7 +27,6 @@ function getLogoImageProps(logoImage: ModelImageProps): Record<string, unknown> 
     return resolved && typeof resolved === 'object' ? (resolved as Record<string, unknown>) : null;
 }
 
-const LOGO_COL_SIZES = {md: 3, sm: 12, all: 12} as const;
 const COL_COL_SIZES = {md: 2, sm: 6, all: 12} as const;
 const COL_COL_SIZES_NO_LOGO = {md: 3, sm: 6, all: 12} as const;
 
@@ -65,26 +64,40 @@ function renderColumns(
 }
 
 function renderSocialIcons(
-    contacts: NonNullable<FooterBlockProps['contacts']>['links'],
+    contactsProps: NonNullable<FooterBlockProps['contacts']>,
     theme: ReturnType<typeof useTheme>,
 ) {
-    if (!contacts?.length) return null;
+    const links = contactsProps.links;
+
+    if (!links?.length) return null;
 
     return (
         <ul className={b('social-icons-list')}>
-            {contacts.map((contact, index) => {
+            {links.map((contact, index) => {
                 const iconResolved = contact.icon && getThemedValue(contact.icon, theme);
                 const iconProps = iconResolved && getLogoImageProps(iconResolved);
+
                 if (!iconProps) return null;
+
                 return (
                     <li key={index} className={b('social-icons-item')}>
-                        <a href={contact.url} target="_blank" rel="noopener noreferrer">
-                            <Image
-                                {...iconProps}
-                                alt={contact.urlTitle ?? ''}
-                                className={b('social-icon-item')}
-                            />
-                        </a>
+                        <Link
+                            className={b('social-icon-link')}
+                            href={contact.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <Flex direction="column" alignItems="center" gap={2}>
+                                <Image
+                                    {...iconProps}
+                                    alt={contact.urlTitle ?? ''}
+                                    className={b('social-icon-item')}
+                                />
+                                {contact.urlTitle && (
+                                    <Text variant="body-2">{contact.urlTitle}</Text>
+                                )}
+                            </Flex>
+                        </Link>
                     </li>
                 );
             })}
@@ -139,21 +152,29 @@ export const FooterBlock = (props: React.PropsWithChildren<FooterBlockFullProps>
         >
             <Grid className={b('main-container')}>
                 <Row className={b('row')}>
-                    {/* First row: logo + columns */}
-                    {hasLogo && (
-                        <Col className={b('logo-col')} sizes={{all: 12, md: 4}}>
-                            {logoContent}
-                        </Col>
-                    )}
-                    {renderColumns(columns, hasLogo, 0)}
+                    <Row className={b('floor', {navigation: true})}>
+                        {/* First row: logo + columns */}
+                        {hasLogo && (
+                            <Col className={b('logo-col')} sizes={{all: 12, md: 4}}>
+                                <Row>{logoContent}</Row>
+                            </Col>
+                        )}
+                        {renderColumns(columns, hasLogo, 0)}
+                    </Row>
                     {/* Floor 2: Social row (Join Us + icons) */}
                     {contacts && contacts.links.length > 0 && (
                         <Col sizes={{all: 12}} className={b('floor')}>
-                            <div className={b('social-floor-inner')}>
+                            <div
+                                className={b('social-floor-inner', {
+                                    'title-position': contacts.titlePosition || 'top',
+                                    'links-position': contacts.linksPosition || 'left',
+                                    size: contacts.iconsSize ?? 'l',
+                                })}
+                            >
                                 {contacts.title && (
                                     <h3 className={b('social-floor-title')}>{contacts.title}</h3>
                                 )}
-                                {renderSocialIcons(contacts.links, theme)}
+                                {renderSocialIcons(contacts, theme)}
                             </div>
                         </Col>
                     )}
@@ -217,7 +238,7 @@ export const FooterBlock = (props: React.PropsWithChildren<FooterBlockFullProps>
                     )}
                     {/* Floor 5: Attribution */}
                     {attribution && (
-                        <Col sizes={{all: 12}} className={b('floor')}>
+                        <Col sizes={{all: 12}} className={b('floor', 'attribution')}>
                             <BrandFooter className={b('attribution-block')} />
                         </Col>
                     )}

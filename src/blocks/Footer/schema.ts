@@ -37,10 +37,13 @@ const FooterlContactItem = {
 const FooterContactsBlock = {
     type: 'object',
     additionalProperties: false,
-    required: ['title', 'contacts'],
+    required: ['title', 'links'],
     properties: {
         title: {type: 'string', contentType: 'text'},
+        iconsSize: {type: 'string', enum: ['m', 'l']},
         links: filteredArray(FooterlContactItem),
+        linksPosition: {type: 'string', enum: ['left', 'center']},
+        titlePosition: {type: 'string', enum: ['top', 'near']},
     },
 };
 

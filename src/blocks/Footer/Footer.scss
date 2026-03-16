@@ -6,20 +6,17 @@ $block: '.#{$ns}footer-block';
 #{$block} {
     color: var(--g-color-text-primary);
 
-    &__main-container {
-        padding: $indentM 0 40px;
-    }
-
     &__floor {
+        width: 100%;
         border-top: 1px solid var(--g-color-line-generic-solid);
     }
 
-    &__row {
-        display: flex;
-        flex-wrap: wrap;
-        gap: $indentL $indentXL;
-        align-items: flex-start;
+    & &__floor_navigation {
+        padding: $indentM 0 40px;
+        border: none;
+    }
 
+    &__row {
         &_additional {
             margin-top: $indentXXL;
         }
@@ -132,8 +129,7 @@ $block: '.#{$ns}footer-block';
 
         &_social,
         &_disclaimer,
-        &_links,
-        &_attribution {
+        &_links {
             margin-top: $indentL;
             padding-top: $indentL;
         }
@@ -142,11 +138,44 @@ $block: '.#{$ns}footer-block';
     // Floor 2: Social (Join Us + icons)
     &__social-floor-inner {
         display: flex;
-        flex-direction: column;
         flex-wrap: wrap;
-        align-items: start;
+        align-items: center;
         gap: $indentSM;
-        justify-content: space-between;
+
+        &_title-position_top {
+            flex-direction: column;
+            align-items: unset;
+        }
+
+        &_links-position_center {
+            align-items: center;
+        }
+
+        &_size_m {
+            #{$block}__social-icons-list {
+                gap: $indentSM;
+            }
+
+            #{$block}__social-icon-item {
+                width: 32px;
+                height: 32px;
+            }
+        }
+
+        &_size_l {
+            #{$block}__social-icons-list {
+                gap: 40px;
+            }
+
+            #{$block}__social-icon-item {
+                width: 48px;
+                height: 48px;
+            }
+        }
+    }
+
+    &__social-icon-item {
+        margin-right: 0;
     }
 
     &__social-floor-title {
@@ -160,7 +189,6 @@ $block: '.#{$ns}footer-block';
         display: flex;
         flex-wrap: wrap;
         align-items: center;
-        gap: 40px;
         list-style: none;
         margin: 0;
         padding: 0;
@@ -175,8 +203,24 @@ $block: '.#{$ns}footer-block';
         }
     }
 
+    &__social-icon-link,
+    &__social-icon-link:hover {
+        text-decoration: none;
+        color: var(--g-color-text-primary);
+    }
+
     &__social-icon-item {
         margin-right: 0;
+
+        &_size_m {
+            width: 32px;
+            height: 32px;
+        }
+
+        &_size_l {
+            width: 48px;
+            height: 48px;
+        }
     }
 
     // Floor 3: Disclaimer
@@ -249,7 +293,7 @@ $block: '.#{$ns}footer-block';
     }
 
     // Floor 5: Attribution
-    .pc-footer-block__floor.attribution {
+    &__floor.attribution {
         border: none;
         padding: 0;
     }

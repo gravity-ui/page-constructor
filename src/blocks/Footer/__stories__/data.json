@@ -46,18 +46,13 @@
                     {"text": "Сообщество", "url": "#community"},
                     {"text": "Статус", "url": "#status"}
                 ]
-            },
-            {
-                "title": "Документация",
-                "links": [
-                    {"text": "Руководства", "url": "#guides"},
-                    {"text": "API Reference", "url": "#api-ref"},
-                    {"text": "Changelog", "url": "#changelog"}
-                ]
             }
         ],
         "contacts": {
             "title": "Join Us",
+            "iconsSize": "l",
+            "linksPosition": "center",
+            "titlePosition": "top",
             "links": [
                 {"icon": {"light": {"src": "/story-assets/icons-github_light.svg"}, "dark": {"src": "/story-assets/icons-github_dark.svg"}}, "url": "https://example.com", "urlTitle": "GitHub"},
                 {"icon": {"light": {"src": "/story-assets/icons-medium_light.svg"}, "dark": {"src": "/story-assets/icons-medium_dark.svg"}}, "url": "https://example.com", "urlTitle": "Medium"},
