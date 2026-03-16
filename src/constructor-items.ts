@@ -126,6 +126,7 @@ export const navItemMap = {
 };
 
 export interface BlockData {
+    type: string;
     // TODO: remove any
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     component: React.ComponentType<any>;

@@ -9,7 +9,6 @@ export default function Router() {
     const page = searchParams.get('page');
     const id = searchParams.get('id');
 
-    // Route based on query parameters
     switch (page) {
         case 'form':
             return <FormPage />;

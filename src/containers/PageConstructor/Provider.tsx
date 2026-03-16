@@ -20,7 +20,9 @@ import {
 import {SSRContext, SSRContextProps} from '../../context/ssrContext';
 import {ThemeContext} from '../../context/theme';
 import {WindowWidthProvider} from '../../context/windowWidthContext';
+import {BlocksContext} from '../../context/blocksContext';
 import {Theme} from '../../models';
+import {BlockData} from '../../constructor-items';
 
 export interface PageConstructorProviderProps {
     isMobile?: boolean;
@@ -33,6 +35,7 @@ export interface PageConstructorProviderProps {
     analytics?: AnalyticsContextProps;
     forms?: FormsContextProps;
     image?: ImageContextProps;
+    blocks?: Array<BlockData>;
 }
 
 export const PageConstructorProvider = (
@@ -50,10 +53,12 @@ export const PageConstructorProvider = (
         children,
         image = {},
         forms = DEFAULT_FORMS_CONTEXT_VALUE,
+        blocks = [],
     } = props;
 
     /* eslint-disable react/jsx-key */
     const context = [
+        <BlocksContext.Provider value={{blocks}} />,
         <ThemeContext.Provider value={{theme}} />,
         <ProjectSettingsContext.Provider value={projectSettings} />,
         <LocaleContext.Provider value={locale} />,

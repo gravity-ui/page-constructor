@@ -1,3 +1,13 @@
+import {BlockData} from '../constructor-items';
+import BannerBlockConfig from './Banner';
+import CompaniesBlockConfig from './Companies';
+import ExtendedFeaturesBlockConfig from './ExtendedFeatures';
+import HeaderBlockConfig from './Header';
+import HeaderBlockConfigDeprecated from './Header/index_deprecated';
+import PromoFeaturesBlockConfig from './PromoFeaturesBlock';
+import QuestionsBlockConfig from './Questions';
+import CardLayoutBlockConfig from './CardLayout';
+
 export {default as BannerBlock} from './Banner/Banner';
 export {default as CompaniesBlock} from './Companies/Companies';
 export {default as InfoBlock} from './Info/Info';
@@ -20,3 +30,41 @@ export {default as ContentLayoutBlock} from './ContentLayout/ContentLayout';
 export {default as ShareBlock} from './Share/Share';
 export {default as FilterBlock} from './FilterBlock/FilterBlock';
 export {default as FormBlock} from './Form/Form';
+
+export const blocks: Array<BlockData> = [
+    ExtendedFeaturesBlockConfig,
+    PromoFeaturesBlockConfig,
+    QuestionsBlockConfig,
+    BannerBlockConfig,
+    CompaniesBlockConfig,
+    HeaderBlockConfig,
+    HeaderBlockConfigDeprecated,
+    CardLayoutBlockConfig,
+    // [BlockType.MediaBlock]: MediaBlockConfig,
+    // [BlockType.InfoBlock]: InfoBlockConfig,
+    // [BlockType.TableBlock]: TableBlockConfig,
+    // [BlockType.TabsBlock]: TabsBlockConfig,
+    // [BlockType.HeaderBlock]: HeaderBlockConfig,
+    // [BlockType.IconsBlock]: IconsBlockConfig,
+    // [BlockType.HeaderSliderBlock]: HeaderSliderBlockConfig,
+    // [BlockType.CardLayoutBlock]: CardLayoutBlockConfig,
+    // [BlockType.ContentLayoutBlock]: ContentLayoutBlockConfig,
+    // [BlockType.ShareBlock]: ShareBlockConfig,
+    // [BlockType.MapBlock]: MapBlockConfig,
+    // // TODO: fix items prop for editor compatibility
+    // // [BlockType.FilterBlock]: FilterBlockConfig,
+    // [BlockType.FormBlock]: FormBlockConfig,
+    // [BlockType.TestEditorBlock]: TestEditorBlockConfig,
+    // [BlockType.SliderBlock]: SliderBlockConfig,
+
+    // [SubBlockType.Divider]: DividerConfig,
+    // [SubBlockType.MediaCard]: MediaCardConfig,
+    // [SubBlockType.BannerCard]: BannerCardConfig,
+    // [SubBlockType.LayoutItem]: LayoutItemConfig,
+    // [SubBlockType.BackgroundCard]: BackgroundCardConfig,
+    // [SubBlockType.BasicCard]: BasicCardConfig,
+    // [SubBlockType.Content]: ContentConfig,
+    // [SubBlockType.Quote]: QuoteConfig,
+    // [SubBlockType.PriceCard]: PriceCardConfig,
+    // [SubBlockType.ImageCard]: ImageCardConfig,
+];

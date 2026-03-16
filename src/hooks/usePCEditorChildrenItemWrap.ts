@@ -5,7 +5,7 @@ import {BlockIdContext} from '../context/blockIdContext';
 import usePCEditorBlockMouseEvents from './usePCEditorBlockMouseEvents';
 import usePCEditorBlockSelection from './usePCEditorBlockSelection';
 
-export function usePCEditorItemWrap(index = 0) {
+export function usePCEditorChildrenItemWrap(index = 0) {
     const [element, setElement] = React.useState<HTMLElement | undefined>();
 
     const blockRef = React.useCallback((node: HTMLElement | null) => {

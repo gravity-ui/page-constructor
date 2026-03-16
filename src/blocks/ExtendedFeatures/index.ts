@@ -4,12 +4,15 @@ import {generateFromAJV} from '../../utils/form-generator';
 
 import ExtendedFeaturesBlock from './ExtendedFeatures';
 import {ExtendedFeaturesBlock as ExtendedFeaturesBlockSchema} from './schema';
+import {BlockData} from '../../constructor-items';
 
-const ExtendedFeaturesBlockConfig = {
+const ExtendedFeaturesBlockConfig: BlockData = {
+    type: '@gravity-ui/page-constructor/extended-features-block',
     component: ExtendedFeaturesBlock,
     schema: {
         name: 'Extended Features Block',
         group: '@gravity-ui/page-constructor/Blocks',
+        // TODO: change to custom block schema
         inputs: generateFromAJV(
             ExtendedFeaturesBlockSchema['extended-features-block'] as unknown as JSONSchemaType<{}>,
         ),

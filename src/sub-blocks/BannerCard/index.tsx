@@ -7,10 +7,12 @@ import {generateFromAJV} from '../../utils/form-generator';
 import BannerCard from './BannerCard';
 
 const BannerCardConfig: BlockData = {
+    type: '@gravity-ui/page-constructor/banner-card',
     component: BannerCard,
     schema: {
         name: 'Banner Card',
         group: '@gravity-ui/page-constructor/Cards',
+        // TODO: change to custom block schema
         inputs: generateFromAJV(BannerCardProps as unknown as JSONSchemaType<{}>),
         default: {
             color: 'rgba(54, 151, 241, 0.4)',

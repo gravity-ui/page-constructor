@@ -20,10 +20,7 @@ export interface ConstructorBlocksProps {
 }
 
 export const ConstructorBlocks: React.FC<ConstructorBlocksProps> = ({items}) => {
-    const {blockTypes, subBlockTypes, loadables, itemMap, shouldRenderBlock} =
-        React.useContext(InnerContext);
-
-    const allBlocks = [...blockTypes, ...subBlockTypes];
+    const {loadables, shouldRenderBlock, blocks} = React.useContext(InnerContext);
 
     const renderer = (
         parentId = '',
@@ -31,7 +28,9 @@ export const ConstructorBlocks: React.FC<ConstructorBlocksProps> = ({items}) => 
         item: ConstructorBlockType,
         index: number,
     ): React.ReactElement | null => {
-        if (!itemMap[item.type]) {
+        const blockData = blocks.find(({type}) => item.type === type);
+
+        if (!blockData) {
             return parentId ? null : (
                 <BlockDecoration type={item.type as BlockType} index={index}>
                     {null}
@@ -77,14 +76,14 @@ export const ConstructorBlocks: React.FC<ConstructorBlocksProps> = ({items}) => 
             );
         }
 
-        return allBlocks.includes(item.type) && !withoutConstructorBlockWrapper ? (
+        return withoutConstructorBlockWrapper ? (
+            itemElement
+        ) : (
             //TODO: replace ConstructorBlock (and delete it) with BlockBase when all
             // components relying on constructor inner structure like Slider or blog-constructor will be refactored
             <ConstructorBlock data={item} key={blockId} index={index}>
                 {itemElement}
             </ConstructorBlock>
-        ) : (
-            itemElement
         );
     };
 

@@ -6,10 +6,12 @@ import HeaderSliderBlock from './HeaderSlider';
 import {HeaderSliderBlock as HeaderSliderBlockSchema} from './schema';
 
 const HeaderSliderBlockConfig = {
+    type: '@gravity-ui/page-constructor/header-slider-block',
     component: HeaderSliderBlock,
     schema: {
         name: 'Header Slider Block',
-        group: '@gravity-ui/page-constructor/Card Containers',
+        group: '@gravity-ui/page-constructor/CardContainers',
+        // TODO: change to custom block schema
         inputs: generateFromAJV(
             HeaderSliderBlockSchema['header-slider-block'] as unknown as JSONSchemaType<{}>,
         ),

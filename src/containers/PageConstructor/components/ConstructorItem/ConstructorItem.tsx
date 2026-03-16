@@ -15,12 +15,18 @@ export const ConstructorItem = ({
     blockKey,
     children,
 }: React.PropsWithChildren<ConstructorItemProps>) => {
-    const {itemMap} = React.useContext(InnerContext);
+    const {blocks} = React.useContext(InnerContext);
     const parentId = React.useContext(BlockIdContext);
     const {type, ...rest} = data;
 
-    const Component = itemMap[type] as React.ComponentType<
-        React.ComponentProps<(typeof itemMap)[typeof type]>
+    const blockData = blocks.find(({type: blockType}) => blockType === type);
+
+    if (!blockData) {
+        return null;
+    }
+
+    const Component = blockData.component as React.ComponentType<
+        React.ComponentProps<(typeof blockData)['component']>
     >;
 
     return (
