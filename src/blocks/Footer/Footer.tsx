@@ -196,43 +196,54 @@ export const FooterBlock = (props: React.PropsWithChildren<FooterBlockFullProps>
                     {copyright && (
                         <Col sizes={{all: 12}} className={b('floor')}>
                             <div className={b('links-floor-inner')}>
-                                <React.Fragment>
-                                    <div
-                                        className={b('links-floor-left', {measured})}
-                                        ref={menuContainerRef}
-                                    >
-                                        {visibleItems.length > 0 && (
-                                            <Menu className={b('links-floor-list')}>
-                                                {visibleItems.map((item, index) => (
-                                                    <MenuItem
-                                                        key={index}
-                                                        href={item.url}
-                                                        className={b('links-floor-item')}
-                                                    >
-                                                        {item.text}
-                                                    </MenuItem>
-                                                ))}
-                                            </Menu>
-                                        )}
-                                        {hiddenItems.length > 0 && (
-                                            <DropdownMenu
-                                                items={hiddenItems}
-                                                switcherWrapperClassName={b('more-button')}
-                                                size="l"
+                                {copyright.logo && (
+                                    <div className={b('logo')}>
+                                        <Link href={copyright.logo.href}>
+                                            <Image
+                                                {...getLogoImageProps(
+                                                    getThemedValue(copyright.logo.image, theme),
+                                                )}
+                                                alt={copyright.logo.alt ?? ''}
+                                                className={b('logo-image')}
                                             />
-                                        )}
+                                        </Link>
                                     </div>
-                                    <div className={b('links-floor-right')}>
-                                        {copyright.languageSwitcher && (
-                                            <LangSwitcher items={copyright.languageSwitcher} />
-                                        )}
-                                        {copyright.copyrightText && (
-                                            <span className={b('links-floor-copyright')}>
-                                                {copyright.copyrightText}
-                                            </span>
-                                        )}
-                                    </div>
-                                </React.Fragment>
+                                )}
+                                <div
+                                    className={b('links-floor-left', {measured})}
+                                    ref={menuContainerRef}
+                                >
+                                    {visibleItems.length > 0 && (
+                                        <Menu className={b('links-floor-list')}>
+                                            {visibleItems.map((item, index) => (
+                                                <MenuItem
+                                                    key={index}
+                                                    href={item.url}
+                                                    className={b('links-floor-item')}
+                                                >
+                                                    {item.text}
+                                                </MenuItem>
+                                            ))}
+                                        </Menu>
+                                    )}
+                                    {hiddenItems.length > 0 && (
+                                        <DropdownMenu
+                                            items={hiddenItems}
+                                            switcherWrapperClassName={b('more-button')}
+                                            size="l"
+                                        />
+                                    )}
+                                </div>
+                                <div className={b('links-floor-right')}>
+                                    {copyright.languageSwitcher && (
+                                        <LangSwitcher items={copyright.languageSwitcher} />
+                                    )}
+                                    {copyright.copyrightText && (
+                                        <span className={b('links-floor-copyright')}>
+                                            {copyright.copyrightText}
+                                        </span>
+                                    )}
+                                </div>
                             </div>
                         </Col>
                     )}

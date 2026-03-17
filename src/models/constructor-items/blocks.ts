@@ -553,6 +553,7 @@ export interface FooterCopyright {
         text: string;
         href: string;
     }[];
+    logo?: FooterLogoProps;
     copyrightText?: string;
 }
 

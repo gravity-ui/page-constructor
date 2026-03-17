@@ -252,7 +252,6 @@ $block: '.#{$ns}footer-block';
 
     &__links-floor-left {
         display: flex;
-        flex-grow: 1;
         align-items: center;
         gap: $indentXS;
         min-width: 0;

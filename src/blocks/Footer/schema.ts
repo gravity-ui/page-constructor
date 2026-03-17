@@ -71,6 +71,7 @@ const FooterCopyrightBlock = {
         links: filteredArray(LinkProps),
         languageSwitcher: filteredArray(FooterLanguageSwitcherItem),
         copyrightText: {type: 'string', contentType: 'text'},
+        logo: FooterLogoProps,
     },
 };
 
@@ -83,12 +84,12 @@ export const FooterBlock = {
         additionalProperties: false,
         properties: {
             ...BlockBaseProps,
+            backgroundColor: withTheme({type: 'string'}),
             logo: FooterLogoProps,
             columns: filteredArray(FooterLinkColumn),
             contacts: FooterContactsBlock,
             disclaimer: FooterDisclaimerContent,
             copyright: FooterCopyrightBlock,
-            backgroundColor: withTheme({type: 'string'}),
             attribution: FooterAttributionBlock,
         },
     },
