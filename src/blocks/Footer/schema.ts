@@ -69,6 +69,7 @@ const FooterCopyrightBlock = {
     required: [],
     properties: {
         links: filteredArray(LinkProps),
+        linksOverflowStrategy: {type: 'string', enum: ['dropdown', 'line-wrap']},
         languageSwitcher: filteredArray(FooterLanguageSwitcherItem),
         copyrightText: {type: 'string', contentType: 'text'},
         logo: FooterLogoProps,

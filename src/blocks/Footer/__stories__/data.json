@@ -79,6 +79,7 @@
                 {"text": "Длинный пункт меню 1", "url": "#terms"},
                 {"text": "Длинный пункт меню 2", "url": "#terms"}
             ],
+            "linksOverflowStrategy": "line-wrap",
             "languageSwitcher1": [
                 {"text": "Русский", "href": "/ru"},
                 {"text": "English", "href": "/en"}

@@ -9,6 +9,7 @@ type LinkItem = {
 };
 
 type UseOverflowListItemsProps = {
+    isDropdown?: boolean;
     containerRef: React.RefObject<HTMLElement>;
     items?: LinkItem[];
     itemSelector: string;
@@ -22,6 +23,7 @@ type OverflowListItemsResult = {
 };
 
 export function useOverflowListItems({
+    isDropdown = false,
     containerRef,
     items,
     itemSelector,
@@ -62,6 +64,13 @@ export function useOverflowListItems({
     const isMeasured = containerWidth > 0;
 
     const {visibleItems, hiddenItems} = React.useMemo(() => {
+        if (!isDropdown) {
+            return {
+                visibleItems: items ?? [],
+                hiddenItems: [],
+            };
+        }
+
         if (!isMeasured) {
             return {
                 visibleItems: items ?? [],
@@ -90,7 +99,7 @@ export function useOverflowListItems({
             visibleItems: items?.slice(0, visibleItemsCount) ?? [],
             hiddenItems: transformItemsToDropdownMenuItems(items?.slice(visibleItemsCount) ?? []),
         };
-    }, [containerWidth, isMeasured, itemWidths, items, moreButtonWidth]);
+    }, [containerWidth, isMeasured, itemWidths, items, moreButtonWidth, isDropdown]);
 
     return {visibleItems, hiddenItems, measured: isMeasured};
 }

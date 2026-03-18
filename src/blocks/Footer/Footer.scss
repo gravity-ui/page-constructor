@@ -265,6 +265,7 @@ $block: '.#{$ns}footer-block';
     &__links-floor-right {
         display: flex;
         align-items: center;
+        align-self: end;
         gap: $indentXS;
         flex-shrink: 0;
     }
@@ -273,6 +274,11 @@ $block: '.#{$ns}footer-block';
         display: flex;
         align-items: center;
         padding: 0;
+        gap: $indentXXS $indentXS;
+
+        &_wrap {
+            flex-wrap: wrap;
+        }
     }
 
     &__links-floor-item {

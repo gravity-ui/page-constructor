@@ -138,7 +138,9 @@ export const FooterBlock = (props: React.PropsWithChildren<FooterBlockFullProps>
     );
 
     const menuContainerRef = React.useRef<HTMLDivElement>(null);
+    const isCopyrightLinksOverflowDropdown = copyright?.linksOverflowStrategy === 'dropdown';
     const {visibleItems, hiddenItems, measured} = useOverflowListItems({
+        isDropdown: isCopyrightLinksOverflowDropdown,
         containerRef: menuContainerRef,
         items: copyright?.links,
         itemSelector: `.${b('links-floor-item')}`,
@@ -214,7 +216,11 @@ export const FooterBlock = (props: React.PropsWithChildren<FooterBlockFullProps>
                                     ref={menuContainerRef}
                                 >
                                     {visibleItems.length > 0 && (
-                                        <Menu className={b('links-floor-list')}>
+                                        <Menu
+                                            className={b('links-floor-list', {
+                                                wrap: !isCopyrightLinksOverflowDropdown,
+                                            })}
+                                        >
                                             {visibleItems.map((item, index) => (
                                                 <MenuItem
                                                     key={index}
@@ -226,7 +232,7 @@ export const FooterBlock = (props: React.PropsWithChildren<FooterBlockFullProps>
                                             ))}
                                         </Menu>
                                     )}
-                                    {hiddenItems.length > 0 && (
+                                    {isCopyrightLinksOverflowDropdown && hiddenItems.length > 0 && (
                                         <DropdownMenu
                                             items={hiddenItems}
                                             switcherWrapperClassName={b('more-button')}

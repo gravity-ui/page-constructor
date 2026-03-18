@@ -549,6 +549,7 @@ export interface FooterDisclaimerFloor {
 /** Floor 4: Privacy/terms links, optional language, copyright */
 export interface FooterCopyright {
     links?: Required<Pick<LinkProps, 'text' | 'url'>>[];
+    linksOverflowStrategy?: 'dropdown' | 'line-wrap';
     languageSwitcher?: {
         text: string;
         href: string;
