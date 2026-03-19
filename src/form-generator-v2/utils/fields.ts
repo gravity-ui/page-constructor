@@ -25,6 +25,39 @@ const getSegmentsFromTemplate = (templateName: string): NamePathSegment[] => {
     return segments;
 };
 
+/**
+ * Lodash-путь к массиву элементов OneTypeGroup по шаблону `name`
+ * (фиксированные `prop[n]` уже подставлены, остаётся целевой `{{placeholder}}`).
+ */
+export const getArrayPathForPlaceholder = (
+    templateName: string,
+    placeholder: string,
+): string | undefined => {
+    const segments = getSegmentsFromTemplate(templateName);
+    const placeholderIdx = segments.findIndex(
+        (s) => s.type === 'placeholder' && s.placeholder === placeholder,
+    );
+    if (placeholderIdx < 0) {
+        return undefined;
+    }
+
+    for (let i = 0; i < placeholderIdx; i++) {
+        if (segments[i]!.type !== 'fixed') {
+            return undefined;
+        }
+    }
+
+    const prefixParts: string[] = [];
+    for (let i = 0; i < placeholderIdx; i++) {
+        const s = segments[i] as {type: 'fixed'; prop: string; index: number};
+        prefixParts.push(`${s.prop}[${s.index}]`);
+    }
+
+    const at = segments[placeholderIdx] as {type: 'placeholder'; prop: string};
+    const prefix = prefixParts.join('.');
+    return prefix ? `${prefix}.${at.prop}` : at.prop;
+};
+
 const getResolvedBrackets = (resolvedName: string): Array<{prop: string; index: number}> =>
     [...resolvedName.matchAll(/(\w+)\[(\d+)\]/g)].map((m) => ({
         prop: m[1]!,
@@ -130,4 +163,17 @@ export const findAllNames = (fields) => {
     }
 
     return names;
+};
+
+export const getValueByPath = (obj, path, defaultValue = undefined) => {
+    try {
+        const keys = path.match(/[^.\[\]]+/g);
+        return (
+            keys.reduce((acc, key) => {
+                return acc !== null && acc !== undefined ? acc[key] : undefined;
+            }, obj) ?? defaultValue
+        );
+    } catch (e) {
+        return defaultValue;
+    }
 };

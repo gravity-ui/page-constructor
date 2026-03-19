@@ -150,6 +150,13 @@ const hconfig = [
     },
     {
         type: 'section',
+        when: [
+            {
+                field: 'headerType',
+                operator: '!==',
+                value: 'full-width-media-bg',
+            },
+        ],
         title: 'Background',
         when: [
             {
@@ -185,7 +192,12 @@ const hconfig = [
 
 const FormContent = () => {
     const [formFields, setFormFields] = React.useState<FormField[]>(hconfig);
-    const [contentConfig, setContentConfig] = React.useState({});
+    const [contentConfig, setContentConfig] = React.useState(() => ({
+        headerType: 'full-width-media-bg',
+        buttons: [{text: 'conatct'}, {text: 'right'}],
+        overtitle: 'over',
+        theme: 'dark',
+    }));
 
     const resetForm = React.useCallback(() => {
         setFormFields([]);
