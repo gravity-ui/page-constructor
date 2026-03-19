@@ -17,17 +17,19 @@ const Section = ({title, opened, fields, when, content, onUpdate}) => {
                     {title}
                 </Text>
             </div>
-            <DropdownMenu
-                icon={<Icon data={EllipsisVertical} width={16} height={16} />}
-                items={[
-                    {
-                        text: 'Clear all fields',
-                        action: () => {
-                            console.log(123);
+            {isOpened && (
+                <DropdownMenu
+                    icon={<Icon data={EllipsisVertical} width={16} height={16} />}
+                    items={[
+                        {
+                            text: 'Clear all fields',
+                            action: () => {
+                                console.log(123);
+                            },
                         },
-                    },
-                ]}
-            />
+                    ]}
+                />
+            )}
         </div>
     );
 
