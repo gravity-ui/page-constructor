@@ -146,6 +146,11 @@ export const FooterBlock = (props: React.PropsWithChildren<FooterBlockFullProps>
         itemSelector: `.${b('links-floor-item')}`,
         moreButtonWidth: 28,
     });
+    const shouldCenterLinks = Boolean(
+        copyright?.logo &&
+            copyright?.linksOverflowStrategy === 'line-wrap' &&
+            (copyright?.languageSwitcher || copyright?.copyrightText),
+    );
 
     return (
         <footer
@@ -219,6 +224,7 @@ export const FooterBlock = (props: React.PropsWithChildren<FooterBlockFullProps>
                                         <Menu
                                             className={b('links-floor-list', {
                                                 wrap: !isCopyrightLinksOverflowDropdown,
+                                                centered: shouldCenterLinks,
                                             })}
                                         >
                                             {visibleItems.map((item, index) => (

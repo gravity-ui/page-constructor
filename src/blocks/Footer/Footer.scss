@@ -279,6 +279,10 @@ $block: '.#{$ns}footer-block';
         &_wrap {
             flex-wrap: wrap;
         }
+
+        &_centered {
+            justify-content: center;
+        }
     }
 
     &__links-floor-item {
