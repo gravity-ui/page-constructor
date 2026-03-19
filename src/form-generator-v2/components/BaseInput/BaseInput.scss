@@ -1,0 +1,10 @@
+.pc-fg-base-input {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+
+    &__title {
+        margin-right: 8px;
+        min-width: 64px;
+    }
+}
