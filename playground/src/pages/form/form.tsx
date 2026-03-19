@@ -3,7 +3,7 @@ import {Button, Text, ThemeProvider} from '@gravity-ui/uikit';
 import block from 'bem-cn-lite';
 import {Panel, PanelGroup, PanelResizeHandle} from 'react-resizable-panels';
 import {useNavigate} from 'react-router';
-import DynamicForm from '../../../../src/form-generator/FormGenerator';
+import DynamicForm from '../../../../src/form-generator-v2/FormGenerator';
 import {FormOutput} from './components/FormOutput/FormOutput';
 import {FormBuilder, FormField} from '../../../../src/form-builder';
 
@@ -11,8 +11,180 @@ import './form.scss';
 
 const b = block('form');
 
+const hconfig = [
+    {
+        type: 'section',
+        title: 'Main settings',
+        opened: true,
+        fields: [
+            {
+                title: 'Header type',
+                name: 'headerType',
+                type: 'select',
+                options: [
+                    {
+                        value: 'full-width-media-bg',
+                    },
+                    {
+                        value: 'full-width-bg',
+                    },
+                    {
+                        value: 'bg',
+                    },
+                    {
+                        value: 'image',
+                    },
+                    {
+                        value: 'without-image',
+                    },
+                ],
+            },
+            {
+                title: 'Vertical offset',
+                name: 'verticalOffset',
+                type: 'select',
+                options: [
+                    {content: 'S', value: 's'},
+                    {content: 'M', value: 'm'},
+                ],
+            },
+        ],
+    },
+    {
+        type: 'section',
+        title: 'Breadcrumbs',
+        fields: [
+            {
+                title: 'Item {{index}}',
+                withAddButton: true,
+                type: 'oneTypeGroup',
+                index: 'index',
+                fields: [
+                    {
+                        title: 'Text',
+                        name: 'breadcrumbs[{{index}}].text',
+                        type: 'textInput',
+                    },
+                    {
+                        title: 'URL',
+                        name: 'breadcrumbs[{{index}}].url',
+                        type: 'textInput',
+                    },
+                ],
+            },
+        ],
+    },
+    {
+        type: 'section',
+        title: 'Text',
+        fields: [
+            {
+                title: 'Overtitle',
+                name: 'overtitle',
+                type: 'textInput',
+            },
+            {
+                title: 'Width',
+                name: 'width',
+                options: [
+                    {content: 'S', value: 's'},
+                    {content: 'M', value: 'm'},
+                ],
+                type: 'select',
+            },
+            {
+                title: 'Theme',
+                name: 'theme',
+                options: [
+                    {content: 'Light', value: 'light'},
+                    {content: 'Dark', value: 'dark'},
+                ],
+                type: 'segmentedRadioGroup',
+            },
+        ],
+    },
+    {
+        type: 'section',
+        title: 'Buttons',
+        fields: [
+            {
+                title: 'Button {{index}}',
+                withAddButton: true,
+                type: 'oneTypeGroup',
+                index: 'index',
+                fields: [
+                    {
+                        type: 'section',
+                        title: 'Main settings',
+                        opened: true,
+                        fields: [
+                            {
+                                title: 'Text',
+                                type: 'textInput',
+                                name: 'buttons[{{index}}].text',
+                            },
+                        ],
+                    },
+                    {
+                        type: 'section',
+                        title: 'Analytics tracking',
+                        fields: [
+                            {
+                                title: 'Analytics event {{index2}}',
+                                type: 'oneTypeGroup',
+                                withAddButton: true,
+                                index: 'index2',
+                                fields: [
+                                    {
+                                        title: 'Name',
+                                        type: 'textInput',
+                                        name: 'buttons[{{index}}].analyticsEvents[{{index2}}].name',
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                ],
+            },
+        ],
+    },
+    {
+        type: 'section',
+        title: 'Background',
+        when: [
+            {
+                field: 'headerType',
+                operator: '!=',
+                value: 'without-image',
+            },
+        ],
+        fields: [
+            {
+                title: 'Color HEX',
+                type: 'textInput',
+                name: 'background.color',
+                when: [
+                    {
+                        field: 'headerType',
+                        operator: '===',
+                        value: 'full-width-media-bg',
+                    },
+                    {
+                        operator: '||',
+                    },
+                    {
+                        field: 'headerType',
+                        operator: '===',
+                        value: 'full-width-bg',
+                    },
+                ],
+            },
+        ],
+    },
+];
+
 const FormContent = () => {
-    const [formFields, setFormFields] = React.useState<FormField[]>([]);
+    const [formFields, setFormFields] = React.useState<FormField[]>(hconfig);
     const [contentConfig, setContentConfig] = React.useState({});
 
     const resetForm = React.useCallback(() => {

@@ -36,24 +36,39 @@ export const HeaderProperties = {
     title: {
         type: 'string',
         contentType: 'text',
+        _formGenerator: {
+            root: 'Text',
+        },
     },
     overtitle: {
         type: 'string',
         contentType: 'text',
+        _formGenerator: {
+            root: 'Text',
+        },
     },
     description: {
         type: 'string',
         contentType: 'yfm',
         inputType: 'textarea',
+        _formGenerator: {
+            root: 'Text',
+        },
     },
     additionalInfo: {
         type: 'string',
         contentType: 'yfm',
         inputType: 'textarea',
+        _formGenerator: {
+            root: 'Text',
+        },
     },
     width: {
         type: 'string',
         enum: ['s', 'm', 'l'],
+        _formGenerator: {
+            root: 'Text',
+        },
     },
     buttons: filteredArray(ButtonBlock),
     offset: {
@@ -87,11 +102,17 @@ export const HeaderProperties = {
     verticalOffset: {
         type: 'string',
         enum: ['0', 's', 'm', 'l', 'xl'],
+        _formGenerator: {
+            root: 'Main settings',
+        },
     },
     background: withTheme(HeaderBackgroundProps),
     theme: {
         type: 'string',
         enum: ['default', 'dark'],
+        _formGenerator: {
+            root: 'Text',
+        },
     },
     breadcrumbs: {
         type: 'object',

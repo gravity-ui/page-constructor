@@ -1,0 +1,30 @@
+.pc-fg-section {
+    border-top: 1px solid var(--g-color-line-generic);
+
+    &__header {
+        display: flex;
+        align-items: center;
+        margin-top: 12px;
+        margin-bottom: 16px;
+    }
+
+    &__header-button {
+        flex-grow: 1;
+        cursor: pointer;
+    }
+
+    &__arrow {
+        margin-right: 4px;
+        color: var(--g-color-text-hint);
+    }
+
+    &__children {
+        max-height: 0;
+        overflow: hidden;
+
+        &_opened {
+            max-height: 10000px;
+            margin-bottom: 16px;
+        }
+    }
+}
