@@ -13,13 +13,27 @@ import {
 
 export const generateFromAJV = (schema: JSONSchemaType<{}>): ConfigInput[] => {
     if (schema && schema.properties) {
+        const roots: Record<string, ReturnType<typeof generateSingleEntity>[]> = {};
         const obj = Object.entries(schema.properties).map(([key, value]) => {
             const innerSchema = value as JSONSchemaType<{}>;
-            // eslint-disable-next-line @typescript-eslint/no-use-before-define
-            return generateSingleEntity(key, innerSchema);
+            const entity = generateSingleEntity(key, innerSchema);
+            const root = innerSchema._formGenerator?.root;
+
+            if (root) {
+                if (!roots[root]) {
+                    roots[root] = [];
+                }
+                roots[root].push(entity);
+                return false;
+            }
+
+            return entity;
         });
 
-        return obj.filter(Boolean) as ConfigInput[];
+        return [
+            ...Object.entries(roots).map(([key, value]) => ({...value, section: key})),
+            ...obj.filter(Boolean),
+        ] as ConfigInput[];
     }
     return [];
 };

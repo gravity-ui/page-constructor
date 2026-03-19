@@ -1,0 +1,21 @@
+.pc-fg-one-type-group {
+    padding: 12px;
+
+    &:not(&:nth-last-child(1)) {
+        margin-bottom: 12px;
+    }
+
+    .pc-fg-section {
+        border-top: none;
+    }
+
+    &__card-header {
+        display: flex;
+    }
+
+    &__title {
+        margin-bottom: 12px;
+        display: block;
+        flex-grow: 1;
+    }
+}
