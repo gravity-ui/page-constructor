@@ -100,6 +100,7 @@ const hconfig = [
                     {content: 'Dark', value: 'dark'},
                 ],
                 type: 'segmentedRadioGroup',
+                defaultValue: 'light',
             },
         ],
     },

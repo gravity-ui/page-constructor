@@ -4,6 +4,7 @@ import Base from '../Base/Base';
 import {Button, Card, Icon, Text} from '@gravity-ui/uikit';
 import './OneTypeGroup.scss';
 import Fields from '../Fields/Fields';
+import {SectionOpenContext} from '../Section/SectionOpenContext';
 import {formGeneratorCn} from '../../utils/cn';
 import {TrashBin} from '@gravity-ui/icons';
 import {
@@ -22,6 +23,8 @@ const makeRowKey = (): string =>
 
 const OneTypeGroup = ({title, index, withAddButton, fields, when, content, onUpdate}) => {
     const [rowKeys, setRowKeys] = React.useState<string[]>([]);
+    const sectionIsOpen = React.useContext(SectionOpenContext);
+    const prevSectionOpenRef = React.useRef(false);
 
     const templateName = React.useMemo(
         () => findNameWithPlaceholder(fields, index),
@@ -32,6 +35,25 @@ const OneTypeGroup = ({title, index, withAddButton, fields, when, content, onUpd
         () => (templateName ? getArrayPathForPlaceholder(templateName, index) : undefined),
         [templateName, index],
     );
+
+    /** При первом открытии родительской Section — один элемент в пустом массиве (кнопка Add не считается). */
+    React.useEffect(() => {
+        const open = sectionIsOpen === true;
+        const justOpened = open && !prevSectionOpenRef.current;
+        prevSectionOpenRef.current = open;
+
+        if (!justOpened || !arrayPath || !onUpdate) {
+            return;
+        }
+
+        const raw = _.get(content, arrayPath);
+        const len = Array.isArray(raw) ? raw.length : 0;
+        if (len > 0) {
+            return;
+        }
+
+        onUpdate(arrayPath, [{}]);
+    }, [sectionIsOpen, arrayPath, content, onUpdate]);
 
     React.useEffect(() => {
         if (!templateName || !arrayPath) {
