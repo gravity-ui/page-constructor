@@ -11,6 +11,19 @@
     &__header-button {
         flex-grow: 1;
         cursor: pointer;
+
+        &_with-hover {
+
+            & > * {
+                transition: color 0.4s;
+            }
+
+            &:hover {
+                & > * {
+                    color: var(--g-color-text-primary);
+                }
+            }
+        }
     }
 
     &__arrow {

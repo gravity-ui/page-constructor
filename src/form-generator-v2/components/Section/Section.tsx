@@ -35,7 +35,10 @@ const Section = ({title, opened, fields, when, content, onUpdate}) => {
 
     const Summary = () => (
         <div className={b('header')}>
-            <div className={b('header-button')} onClick={() => setOpened((prev) => !prev)}>
+            <div
+                className={b('header-button', {'with-hover': !showArrowTogler})}
+                onClick={() => setOpened((prev) => !prev)}
+            >
                 {showArrowTogler && (
                     <ArrowToggle direction={isOpened ? 'top' : 'bottom'} className={b('arrow')} />
                 )}
@@ -57,9 +60,29 @@ const Section = ({title, opened, fields, when, content, onUpdate}) => {
         </div>
     );
 
+    const confirmDialog = React.useMemo(
+        () => (
+            <Dialog open={clearConfirmOpen} onClose={() => setClearConfirmOpen(false)} size="s">
+                <Dialog.Header caption="Clear all fields in this block?" />
+                <Dialog.Body>
+                    <Text variant="body-1">
+                        All field values will be deleted, and the block settings will be reset to their default state.
+                    </Text>
+                </Dialog.Body>
+                <Dialog.Footer
+                    textButtonApply="Approve"
+                    textButtonCancel="Cancel"
+                    onClickButtonApply={handleConfirmClear}
+                    onClickButtonCancel={() => setClearConfirmOpen(false)}
+                />
+            </Dialog>
+        ),
+        [clearConfirmOpen, handleConfirmClear],
+    );
+
     return (
         <Base when={when} content={content}>
-            <>
+            <React.Fragment>
                 <div className={b({opened: isOpened})}>
                     <Summary />
                     <div className={b('children', {opened: isOpened})}>
@@ -68,26 +91,8 @@ const Section = ({title, opened, fields, when, content, onUpdate}) => {
                         </SectionOpenContext.Provider>
                     </div>
                 </div>
-                <Dialog
-                    open={clearConfirmOpen}
-                    onClose={() => setClearConfirmOpen(false)}
-                    size="s"
-                >
-                    <Dialog.Header caption="Очистить все поля секции?" />
-                    <Dialog.Body>
-                        <Text variant="body-1">
-                            Все данные в этой секции будут удалены. Отменить действие будет нельзя.
-                        </Text>
-                    </Dialog.Body>
-                    <Dialog.Footer
-                        preset="danger"
-                        textButtonApply="Очистить"
-                        textButtonCancel="Отмена"
-                        onClickButtonApply={handleConfirmClear}
-                        onClickButtonCancel={() => setClearConfirmOpen(false)}
-                    />
-                </Dialog>
-            </>
+                {confirmDialog}
+            </React.Fragment>
         </Base>
     );
 };
