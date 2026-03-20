@@ -1,57 +1,47 @@
-import './Base.scss';
-import {formGeneratorCn} from '../../utils/cn';
 import * as React from 'react';
 import {getValueByPath} from '../../utils/fields';
+import {Content, OnUpdate, When} from '../../types';
 
-const b = formGeneratorCn('base');
+type BaseProps = {
+    when?: When;
+    content: Content;
+    name?: string;
+    onUpdate?: OnUpdate;
+    children: React.ReactNode;
+};
 
-const Base = ({when, content, children, clearPath, onUpdate}) => {
-    const evaluateConditions = (conditions, data) => {
+const Base = ({when, content, children, name, onUpdate}: BaseProps) => {
+    const verifiedConditions = React.useMemo(() => {
+        if (!when) {
+            return;
+        }
+
         let result = null;
         let currentOperator = null;
 
-        for (let i = 0; i < conditions.length; i++) {
-            const condition = conditions[i];
+        for (let i = 0; i < when.length; i++) {
+            const condition = when[i];
 
-            // Логический оператор
             if (condition.operator && !condition.field) {
                 currentOperator = condition.operator;
                 continue;
             }
 
-            // Вычисляем условие
-            const fieldValue = getValueByPath(data, condition.field);
-            const value = condition.value;
             let currentResult = false;
+            if (condition.field) {
+                const fieldValue = getValueByPath(content, condition.field);
+                const value = condition.value;
 
-            switch (condition.operator) {
-                case '===':
-                    currentResult = fieldValue === value;
-                    break;
-                case '!==':
-                    currentResult = fieldValue !== value;
-                    break;
-                case '==':
-                    currentResult = fieldValue == value;
-                    break;
-                case '!=':
-                    currentResult = fieldValue != value;
-                    break;
-                case '>':
-                    currentResult = fieldValue > value;
-                    break;
-                case '<':
-                    currentResult = fieldValue < value;
-                    break;
-                case '>=':
-                    currentResult = fieldValue >= value;
-                    break;
-                case '<=':
-                    currentResult = fieldValue <= value;
-                    break;
+                switch (condition.operator) {
+                    case '===':
+                        currentResult = fieldValue === value;
+                        break;
+                    case '!==':
+                        currentResult = fieldValue !== value;
+                        break;
+                }
             }
 
-            // Первое условие
             if (result === null) {
                 result = currentResult;
             } else if (currentOperator === '||') {
@@ -64,24 +54,21 @@ const Base = ({when, content, children, clearPath, onUpdate}) => {
         }
 
         return Boolean(result);
-    };
+    }, [content, when]);
 
-    const isShow = !when || !content || evaluateConditions(when, content);
+    const isShow = React.useMemo(
+        () => !when || !content || verifiedConditions,
+        [content, verifiedConditions, when],
+    );
+
     const wasVisibleRef = React.useRef(isShow);
 
     React.useEffect(() => {
-        const wasVisible = wasVisibleRef.current;
-        if (
-            wasVisible &&
-            !isShow &&
-            typeof clearPath === 'string' &&
-            clearPath.length > 0 &&
-            onUpdate
-        ) {
-            onUpdate(clearPath, undefined, {unset: true});
+        if (wasVisibleRef.current && !isShow && onUpdate && name) {
+            onUpdate(name, undefined, {unset: true});
         }
         wasVisibleRef.current = isShow;
-    }, [isShow, clearPath, onUpdate]);
+    }, [isShow, name, onUpdate]);
 
     return isShow ? children : null;
 };

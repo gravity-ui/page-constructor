@@ -1,9 +1,17 @@
 import * as React from 'react';
 import {DynamicFormValue} from '../form-generator/types';
-import _ from 'lodash';
+import {cloneDeep, set, unset} from 'lodash';
 import Fields from './components/Fields/Fields';
+import {Content, Fields as FieldsType} from './types';
+import {getValueByPath} from './utils/fields';
 
-const FormGenerator = ({blockConfig, contentConfig, onUpdate}) => {
+type FormGeneratorProps = {
+    blockConfig: FieldsType;
+    contentConfig: Content;
+    onUpdate: (content: Content) => void;
+};
+
+const FormGenerator = ({blockConfig, contentConfig, onUpdate}: FormGeneratorProps) => {
     const contentRef = React.useRef(contentConfig);
 
     React.useEffect(() => {
@@ -20,18 +28,18 @@ const FormGenerator = ({blockConfig, contentConfig, onUpdate}) => {
                 return;
             }
 
-            const newContentConfig = _.cloneDeep(contentRef.current ?? {});
+            const newContentConfig = cloneDeep(contentRef.current ?? {});
 
             const removeAt = options?.removeArrayItemAt;
             if (typeof removeAt === 'number') {
-                const arr = _.get(newContentConfig, key);
+                const arr = getValueByPath(newContentConfig, key);
                 if (Array.isArray(arr) && removeAt >= 0 && removeAt < arr.length) {
                     arr.splice(removeAt, 1);
                 }
             } else if (options?.unset) {
-                _.unset(newContentConfig, key);
+                unset(newContentConfig, key);
             } else {
-                _.set(newContentConfig, key, value);
+                set(newContentConfig, key, value);
             }
 
             contentRef.current = newContentConfig;

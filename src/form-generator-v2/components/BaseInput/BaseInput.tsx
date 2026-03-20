@@ -1,14 +1,21 @@
-import * as React from 'react';
 import {Text} from '@gravity-ui/uikit';
 import {formGeneratorCn} from '../../utils/cn';
 import './BaseInput.scss';
+import * as React from 'react';
 
 const b = formGeneratorCn('base-input');
 
-const BaseInput = ({children, title}) => {
+type BaseInputProps = {
+    title: string;
+    children: React.ReactNode;
+};
+
+const BaseInput = ({children, title}: BaseInputProps) => {
     return (
         <div className={b()}>
-            <Text variant="body-1" className={b('title')}>{title}</Text>
+            <Text variant="body-1" className={b('title')}>
+                {title}
+            </Text>
             <div className={b('input')}>{children}</div>
         </div>
     );

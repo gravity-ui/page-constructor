@@ -1,5 +1,4 @@
 import * as React from 'react';
-import _ from 'lodash';
 import Base from '../Base/Base';
 import {Button, Card, Icon, Text} from '@gravity-ui/uikit';
 import './OneTypeGroup.scss';
@@ -9,10 +8,12 @@ import {formGeneratorCn} from '../../utils/cn';
 import {TrashBin} from '@gravity-ui/icons';
 import {
     findAllNames,
-    findNameWithPlaceholder,
-    getArrayPathForPlaceholder,
+    findNameWithIndexName,
+    getArrayPathForNameWithIndexName,
     getSpliceTarget,
+    getValueByPath,
 } from '../../utils/fields';
+import {CommonProps, OneTypeGroupField} from '../../types';
 
 const b = formGeneratorCn('one-type-group');
 
@@ -21,115 +22,128 @@ const makeRowKey = (): string =>
         ? crypto.randomUUID()
         : `row-${Math.random().toString(36).slice(2, 11)}`;
 
-const OneTypeGroup = ({title, index, withAddButton, fields, when, content, onUpdate}) => {
+type OneTypeGroupProps = CommonProps & OneTypeGroupField;
+
+const OneTypeGroup = ({
+    title,
+    index,
+    withAddButton,
+    fields,
+    when,
+    content,
+    onUpdate,
+}: OneTypeGroupProps) => {
     const [rowKeys, setRowKeys] = React.useState<string[]>([]);
     const sectionIsOpen = React.useContext(SectionOpenContext);
     const prevSectionOpenRef = React.useRef(false);
 
-    const templateName = React.useMemo(
-        () => findNameWithPlaceholder(fields, index),
+    const nameWithIndexName = React.useMemo(
+        () => findNameWithIndexName(fields, index),
         [fields, index],
     );
 
     const arrayPath = React.useMemo(
-        () => (templateName ? getArrayPathForPlaceholder(templateName, index) : undefined),
-        [templateName, index],
+        () =>
+            nameWithIndexName
+                ? getArrayPathForNameWithIndexName(nameWithIndexName, index)
+                : undefined,
+        [nameWithIndexName, index],
     );
 
-    /** При первом открытии родительской Section — один элемент в пустом массиве (кнопка Add не считается). */
+    const valuesInside = React.useMemo(
+        () => (arrayPath ? getValueByPath(content, arrayPath) : undefined),
+        [arrayPath, content],
+    );
+    const valuesInsideLength = Array.isArray(valuesInside) ? valuesInside.length : 0;
+
     React.useEffect(() => {
-        const open = sectionIsOpen === true;
-        const justOpened = open && !prevSectionOpenRef.current;
-        prevSectionOpenRef.current = open;
+        const justOpened = Boolean(sectionIsOpen) && !prevSectionOpenRef.current;
+        prevSectionOpenRef.current = Boolean(sectionIsOpen);
 
         if (!justOpened || !arrayPath || !onUpdate) {
             return;
         }
 
-        const raw = _.get(content, arrayPath);
-        const len = Array.isArray(raw) ? raw.length : 0;
-        if (len > 0) {
+        if (valuesInsideLength > 0) {
             return;
         }
 
         onUpdate(arrayPath, [{}]);
-    }, [sectionIsOpen, arrayPath, content, onUpdate]);
+    }, [sectionIsOpen, arrayPath, content, onUpdate, valuesInside]);
 
     React.useEffect(() => {
-        if (!templateName || !arrayPath) {
+        if (!nameWithIndexName || !arrayPath) {
             setRowKeys((prev) => (prev.length === 0 ? [makeRowKey()] : prev));
             return;
         }
-        if (content === undefined || content === null) {
+        if (!content) {
             return;
         }
 
-        const raw = _.get(content, arrayPath);
-        const len = Array.isArray(raw) ? raw.length : 0;
-
         setRowKeys((prev) => {
-            if (prev.length === len) {
+            if (prev.length === valuesInsideLength) {
                 return prev;
             }
-            if (len > prev.length) {
-                return [...prev, ...Array.from({length: len - prev.length}, makeRowKey)];
+            if (valuesInsideLength > prev.length) {
+                return [
+                    ...prev,
+                    ...Array.from({length: valuesInsideLength - prev.length}, makeRowKey),
+                ];
             }
-            return prev.slice(0, len);
+            return prev.slice(0, valuesInsideLength);
         });
-    }, [content, arrayPath, templateName]);
+    }, [content, arrayPath, nameWithIndexName, valuesInside, valuesInsideLength]);
 
     const replaceIndex = (i: number) =>
         fields ? JSON.parse(JSON.stringify(fields).replaceAll(`{{${index}}}`, String(i))) : fields;
 
     const handleAdd = () => {
         if (arrayPath && onUpdate) {
-            const arr = _.get(content, arrayPath);
-            const next = Array.isArray(arr) ? [...arr, {}] : [{}];
+            const next = Array.isArray(valuesInside) ? [...valuesInside, {}] : [{}];
             onUpdate(arrayPath, next);
             return;
         }
         setRowKeys((prev) => [...prev, makeRowKey()]);
     };
 
-    const deleteItem = (i: number) => () => {
-        const templateName = findNameWithPlaceholder(fields, index);
-        if (!templateName || !onUpdate) {
+    const deleteItem = (itemIndex: number) => () => {
+        if (!nameWithIndexName || !onUpdate) {
             return;
         }
 
-        const names = findAllNames(replaceIndex(i));
+        const names = findAllNames(replaceIndex(itemIndex));
         const resolvedName =
-            names.find((n) => {
-                const splice = getSpliceTarget(templateName, n, index);
-                return splice !== undefined && splice.itemIndex === i;
+            names.find((name) => {
+                const splice = getSpliceTarget(nameWithIndexName, name, index);
+                return splice !== undefined && splice.itemIndex === itemIndex;
             }) ?? names[0];
 
         if (!resolvedName) {
             return;
         }
 
-        const spliceTarget = getSpliceTarget(templateName, resolvedName, index);
+        const spliceTarget = getSpliceTarget(nameWithIndexName, resolvedName, index);
         if (!spliceTarget) {
             return;
         }
 
         onUpdate(spliceTarget.arrayPath, undefined, {removeArrayItemAt: spliceTarget.itemIndex});
-        setRowKeys((prev) => prev.filter((_, ind) => ind !== i));
+        setRowKeys((prev) => prev.filter((_key, keyIndex) => keyIndex !== itemIndex));
     };
 
     return (
         <Base when={when} content={content}>
-            {rowKeys.map((rowKey, i) => (
+            {rowKeys.map((rowKey, rowIndex) => (
                 <Card key={rowKey} className={b()}>
                     <div className={b('card-header')}>
                         <Text variant="subheader-2" className={b('title')}>
-                            {title.replaceAll(`{{${index}}}`, String(i))}
+                            {title.replaceAll(`{{${index}}}`, String(rowIndex))}
                         </Text>
-                        <Button view="flat" onClick={deleteItem(i)}>
+                        <Button view="flat" onClick={deleteItem(rowIndex)}>
                             <Icon width={16} height={16} data={TrashBin} />
                         </Button>
                     </div>
-                    <Fields fields={replaceIndex(i)} content={content} onUpdate={onUpdate} />
+                    <Fields fields={replaceIndex(rowIndex)} content={content} onUpdate={onUpdate} />
                 </Card>
             ))}
             {withAddButton && <Button onClick={handleAdd}>Add</Button>}

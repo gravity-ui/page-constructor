@@ -1,19 +1,24 @@
 import Base from '../Base/Base';
 import BaseInput from '../BaseInput/BaseInput';
 import {Select as SelectUIKIT} from '@gravity-ui/uikit';
-import { getValueByPath } from "../../utils/fields";
+import {getValueByPath} from '../../utils/fields';
+import {CommonProps, SelectField} from '../../types';
 
-const Select = ({title, name, options, when, content, onUpdate}) => {
+type SelectProps = CommonProps & SelectField;
+
+const Select = ({title, name, options, when, content, onUpdate}: SelectProps) => {
     const selected = getValueByPath(content, name);
-    const value =
-        selected !== undefined && selected !== null && selected !== '' ? [selected] : [];
+    const value = selected ? [selected] : [];
 
     return (
-        <Base when={when} content={content} clearPath={name} onUpdate={onUpdate}>
+        <Base when={when} content={content} name={name} onUpdate={onUpdate}>
             <BaseInput title={title}>
                 <SelectUIKIT
                     name={name}
-                    options={options.map(({value, content}) => ({value, content: content || value}))}
+                    options={options.map((option) => ({
+                        value: option.value,
+                        content: option.content || option.value,
+                    }))}
                     placeholder="Not selected"
                     onUpdate={(v) => onUpdate(name, v[0])}
                     value={value}
