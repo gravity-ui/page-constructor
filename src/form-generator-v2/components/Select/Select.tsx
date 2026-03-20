@@ -9,7 +9,7 @@ const Select = ({title, name, options, when, content, onUpdate}) => {
         selected !== undefined && selected !== null && selected !== '' ? [selected] : [];
 
     return (
-        <Base when={when} content={content}>
+        <Base when={when} content={content} clearPath={name} onUpdate={onUpdate}>
             <BaseInput title={title}>
                 <SelectUIKIT
                     name={name}

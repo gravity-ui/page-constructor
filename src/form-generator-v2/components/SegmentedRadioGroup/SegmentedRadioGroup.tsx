@@ -44,7 +44,7 @@ const SegmentedRadioGroup = ({
               : null;
 
     return (
-        <Base when={when} content={content}>
+        <Base when={when} content={content} clearPath={name} onUpdate={onUpdate}>
             <BaseInput title={title}>
                 <SegmentedRadioGroupUIKIT
                     name={name}
