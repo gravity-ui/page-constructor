@@ -18,28 +18,6 @@ const hconfig = [
         opened: true,
         fields: [
             {
-                title: 'Header type',
-                name: 'headerType',
-                type: 'select',
-                options: [
-                    {
-                        value: 'full-width-media-bg',
-                    },
-                    {
-                        value: 'full-width-bg',
-                    },
-                    {
-                        value: 'bg',
-                    },
-                    {
-                        value: 'image',
-                    },
-                    {
-                        value: 'without-image',
-                    },
-                ],
-            },
-            {
                 title: 'Vertical offset',
                 name: 'verticalOffset',
                 type: 'select',
@@ -84,6 +62,16 @@ const hconfig = [
                 type: 'textInput',
             },
             {
+                title: 'Title',
+                name: 'title',
+                type: 'textInput',
+            },
+            {
+                title: 'Description',
+                name: 'description',
+                type: 'textArea',
+            },
+            {
                 title: 'Width',
                 name: 'width',
                 options: [
@@ -124,11 +112,38 @@ const hconfig = [
                                 type: 'textInput',
                                 name: 'buttons[{{index}}].text',
                             },
+                            {
+                                title: 'URL',
+                                type: 'textInput',
+                                name: 'buttons[{{index}}].url',
+                            },
+                            {
+                                title: 'URL title',
+                                type: 'textInput',
+                                name: 'buttons[{{index}}].urlTitle',
+                            },
+                            {
+                                title: 'Style',
+                                type: 'select',
+                                name: 'buttons[{{index}}].theme',
+                                options: [{value: 'accent', content: 'Accent'}],
+                            },
+                            {
+                                title: 'Target',
+                                type: 'select',
+                                name: 'buttons[{{index}}].target',
+                                options: [{value: '_blank'}],
+                                hasClear: true,
+                            },
                         ],
                     },
                     {
                         type: 'section',
                         title: 'Analytics tracking',
+                        note: {
+                            text: 'Only events for the counters listed in the input field will be sent.',
+                            level: '',
+                        },
                         fields: [
                             {
                                 title: 'Analytics event {{index2}}',
@@ -141,6 +156,24 @@ const hconfig = [
                                         type: 'textInput',
                                         name: 'buttons[{{index}}].analyticsEvents[{{index2}}].name',
                                     },
+                                    {
+                                        title: 'Target',
+                                        type: 'textInput',
+                                        name: 'buttons[{{index}}].analyticsEvents[{{index2}}].target',
+                                    },
+                                    {
+                                        title: 'Counter {{indexgoal}}',
+                                        withAddButton: true,
+                                        type: 'oneTypeGroup',
+                                        index: 'indexgoal',
+                                        fields: [
+                                            {
+                                                title: 'Counter',
+                                                type: 'textInput',
+                                                name: 'buttons[{{index}}].analyticsEvents[{{index2}}].counters[{{indexgoal}}].includes',
+                                            },
+                                        ],
+                                    },
                                 ],
                             },
                         ],
@@ -151,39 +184,137 @@ const hconfig = [
     },
     {
         type: 'section',
-        when: [
-            {
-                field: 'headerType',
-                operator: '!==',
-                value: 'full-width-media-bg',
-            },
-        ],
         title: 'Background',
-        when: [
-            {
-                field: 'headerType',
-                operator: '!=',
-                value: 'without-image',
-            },
-        ],
         fields: [
             {
                 title: 'Color HEX',
                 type: 'textInput',
                 name: 'background.color',
+            },
+            {
+                title: 'Type',
+                name: '_mediaType',
+                options: [
+                    {content: 'Image', value: 'image'},
+                    {content: 'Video', value: 'video'},
+                ],
+                type: 'segmentedRadioGroup',
+            },
+            {
+                type: 'text',
+                text: 'Light theme',
                 when: [
                     {
-                        field: 'headerType',
-                        operator: '===',
-                        value: 'full-width-media-bg',
+                        field: '_mediaType',
+                        operator: '!==',
+                        value: undefined,
                     },
+                ],
+            },
+            {
+                title: 'Desktop',
+                type: 'textInput',
+                name: 'background.light.image.desktop',
+                when: [
                     {
-                        operator: '||',
-                    },
-                    {
-                        field: 'headerType',
+                        field: '_mediaType',
                         operator: '===',
-                        value: 'full-width-bg',
+                        value: 'image',
+                    },
+                ],
+            },
+            {
+                title: 'Tablet',
+                type: 'textInput',
+                name: 'background.light.image.tablet',
+                when: [
+                    {
+                        field: '_mediaType',
+                        operator: '===',
+                        value: 'image',
+                    },
+                ],
+            },
+            {
+                title: 'Mobile',
+                type: 'textInput',
+                name: 'background.light.image.mobile',
+                when: [
+                    {
+                        field: '_mediaType',
+                        operator: '===',
+                        value: 'image',
+                    },
+                ],
+            },
+            {
+                title: 'URL',
+                type: 'textInput',
+                name: 'background.light.video.src',
+                when: [
+                    {
+                        field: '_mediaType',
+                        operator: '===',
+                        value: 'video',
+                    },
+                ],
+            },
+            {
+                type: 'text',
+                text: 'Dark theme',
+                when: [
+                    {
+                        field: '_mediaType',
+                        operator: '!==',
+                        value: undefined,
+                    },
+                ],
+            },
+            {
+                title: 'Desktop',
+                type: 'textInput',
+                name: 'background.dark.image.desktop',
+                when: [
+                    {
+                        field: '_mediaType',
+                        operator: '===',
+                        value: 'image',
+                    },
+                ],
+            },
+            {
+                title: 'Tablet',
+                type: 'textInput',
+                name: 'background.dark.image.tablet',
+                when: [
+                    {
+                        field: '_mediaType',
+                        operator: '===',
+                        value: 'image',
+                    },
+                ],
+            },
+            {
+                title: 'Mobile',
+                type: 'textInput',
+                name: 'background.dark.image.mobile',
+                when: [
+                    {
+                        field: '_mediaType',
+                        operator: '===',
+                        value: 'image',
+                    },
+                ],
+            },
+            {
+                title: 'URL',
+                type: 'textInput',
+                name: 'background.dark.video.src',
+                when: [
+                    {
+                        field: '_mediaType',
+                        operator: '===',
+                        value: 'video',
                     },
                 ],
             },
@@ -194,7 +325,6 @@ const hconfig = [
 const FormContent = () => {
     const [formFields, setFormFields] = React.useState<FormField[]>(hconfig);
     const [contentConfig, setContentConfig] = React.useState(() => ({
-        headerType: 'full-width-media-bg',
         buttons: [{text: 'conatct'}, {text: 'right'}],
         overtitle: 'over',
         theme: 'dark',
