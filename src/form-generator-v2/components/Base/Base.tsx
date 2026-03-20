@@ -1,9 +1,11 @@
 import './Base.scss';
 import {formGeneratorCn} from '../../utils/cn';
+import * as React from 'react';
+import {getValueByPath} from '../../utils/fields';
 
 const b = formGeneratorCn('base');
 
-const Base = ({when, content, children}) => {
+const Base = ({when, content, children, clearPath, onUpdate}) => {
     const evaluateConditions = (conditions, data) => {
         let result = null;
         let currentOperator = null;
@@ -18,7 +20,7 @@ const Base = ({when, content, children}) => {
             }
 
             // Вычисляем условие
-            const fieldValue = data[condition.field];
+            const fieldValue = getValueByPath(data, condition.field);
             const value = condition.value;
             let currentResult = false;
 
@@ -65,6 +67,21 @@ const Base = ({when, content, children}) => {
     };
 
     const isShow = !when || !content || evaluateConditions(when, content);
+    const wasVisibleRef = React.useRef(isShow);
+
+    React.useEffect(() => {
+        const wasVisible = wasVisibleRef.current;
+        if (
+            wasVisible &&
+            !isShow &&
+            typeof clearPath === 'string' &&
+            clearPath.length > 0 &&
+            onUpdate
+        ) {
+            onUpdate(clearPath, undefined, {unset: true});
+        }
+        wasVisibleRef.current = isShow;
+    }, [isShow, clearPath, onUpdate]);
 
     return isShow ? children : null;
 };

@@ -55,6 +55,7 @@ const hconfig = [
     {
         type: 'section',
         title: 'Text',
+        opened: true,
         fields: [
             {
                 title: 'Overtitle',
@@ -185,6 +186,7 @@ const hconfig = [
     {
         type: 'section',
         title: 'Background',
+        opened: true,
         fields: [
             {
                 title: 'Color HEX',
