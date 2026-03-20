@@ -2,27 +2,17 @@ import Base from '../Base/Base';
 import BaseInput from '../BaseInput/BaseInput';
 import {TextInput as TextInputUIKIT} from '@gravity-ui/uikit';
 import {getValueByPath} from '../../utils/fields';
+import {CommonProps, TextField} from '../../types';
 
-type TextInputProps = {
-    title: string;
-    name: string;
-    when?: unknown;
-    content?: unknown;
-    onUpdate: (name: string, value: unknown) => void;
-};
+type TextInputProps = CommonProps & TextField;
 
 const TextInput = ({title, name, when, content, onUpdate}: TextInputProps) => {
-    const raw = getValueByPath(content, name);
-    const value = raw == null ? '' : String(raw);
+    const value = getValueByPath(content, name) || '';
 
     return (
-        <Base when={when} content={content} clearPath={name} onUpdate={onUpdate}>
+        <Base when={when} content={content} name={name} onUpdate={onUpdate}>
             <BaseInput title={title}>
-                <TextInputUIKIT
-                    name={name}
-                    onUpdate={(value) => onUpdate(name, value)}
-                    value={value}
-                />
+                <TextInputUIKIT name={name} onUpdate={(v) => onUpdate(name, v)} value={value} />
             </BaseInput>
         </Base>
     );

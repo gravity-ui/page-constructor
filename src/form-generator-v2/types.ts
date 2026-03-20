@@ -1,0 +1,72 @@
+export type Content = Record<any, any>;
+
+export type When = {
+    field?: string;
+    operator: '===' | '!==' | '||' | '&&';
+    value?: string | boolean;
+}[];
+
+export type Option = {
+    content?: string;
+    value: string;
+};
+
+export type SectionField = {
+    type: 'section';
+    title: string;
+    opened?: boolean;
+    fields: Fields;
+    when?: When;
+};
+
+export type SelectField = {
+    type: 'select';
+    name: string;
+    title: string;
+    options: Option[];
+    when?: When;
+};
+
+export type OneTypeGroupField = {
+    type: 'oneTypeGroup';
+    index: string;
+    withAddButton?: boolean;
+    title: string;
+    fields: Fields;
+    when?: When;
+};
+
+export type TextField = {
+    type: 'textInput' | 'textArea';
+    name: string;
+    title: string;
+    when?: When;
+};
+
+export type SegmentedRadioGroupField = {
+    type: 'segmentedRadioGroup';
+    name: string;
+    title: string;
+    options: Option[];
+    defaultValue?: string;
+    when?: When;
+};
+
+export type Fields = (
+    | SectionField
+    | SelectField
+    | OneTypeGroupField
+    | TextField
+    | SegmentedRadioGroupField
+)[];
+
+export type OnUpdate = (
+    name: string,
+    value: any,
+    options?: {unset?: boolean; removeArrayItemAt?: number},
+) => void;
+
+export type CommonProps = {
+    content: Content;
+    onUpdate: OnUpdate;
+};

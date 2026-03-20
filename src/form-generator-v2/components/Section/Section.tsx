@@ -7,34 +7,38 @@ import './Section.scss';
 import * as React from 'react';
 import {clearSectionFormContent, sectionHasContentData} from '../../utils/fields';
 import {SectionOpenContext} from './SectionOpenContext';
+import {CommonProps, SectionField} from '../../types';
 
 const b = formGeneratorCn('section');
 
-const Section = ({title, opened, fields, when, content, onUpdate}) => {
+type SectionProp = CommonProps & SectionField;
+
+const Section = ({title, opened, fields, when, content, onUpdate}: SectionProp) => {
     const [isOpened, setOpened] = React.useState(opened);
-    const [clearConfirmOpen, setClearConfirmOpen] = React.useState(false);
+    const [confirmDialogOpen, setConfirmDialogOpen] = React.useState(false);
     const hasData = sectionHasContentData(fields, content);
     const showArrowTogler = hasData || isOpened;
-    const prevHadDataRef = React.useRef<boolean | null>(null);
+    const prevHasDataRef = React.useRef<boolean | null>(null);
 
     React.useEffect(() => {
-        const hadData = prevHadDataRef.current;
+        const hadData = prevHasDataRef.current;
         if (hadData === true && !hasData) {
             setOpened(false);
         }
-        prevHadDataRef.current = hasData;
+        prevHasDataRef.current = hasData;
     }, [hasData]);
 
     const handleConfirmClear = () => {
         if (onUpdate) {
             clearSectionFormContent(fields, onUpdate);
         }
-        setClearConfirmOpen(false);
+        setConfirmDialogOpen(false);
         setOpened(false);
     };
 
     const Summary = () => (
         <div className={b('header')}>
+            {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions,jsx-a11y/click-events-have-key-events */}
             <div
                 className={b('header-button', {'with-hover': !showArrowTogler})}
                 onClick={() => setOpened((prev) => !prev)}
@@ -53,7 +57,7 @@ const Section = ({title, opened, fields, when, content, onUpdate}) => {
                     items={[
                         {
                             text: 'Clear all fields',
-                            action: () => setClearConfirmOpen(true),
+                            action: () => setConfirmDialogOpen(true),
                         },
                     ]}
                 />
@@ -63,7 +67,7 @@ const Section = ({title, opened, fields, when, content, onUpdate}) => {
 
     const confirmDialog = React.useMemo(
         () => (
-            <Dialog open={clearConfirmOpen} onClose={() => setClearConfirmOpen(false)} size="s">
+            <Dialog open={confirmDialogOpen} onClose={() => setConfirmDialogOpen(false)} size="s">
                 <Dialog.Header caption="Clear all fields in this block?" />
                 <Dialog.Body>
                     <Text variant="body-1">
@@ -75,11 +79,11 @@ const Section = ({title, opened, fields, when, content, onUpdate}) => {
                     textButtonApply="Approve"
                     textButtonCancel="Cancel"
                     onClickButtonApply={handleConfirmClear}
-                    onClickButtonCancel={() => setClearConfirmOpen(false)}
+                    onClickButtonCancel={() => setConfirmDialogOpen(false)}
                 />
             </Dialog>
         ),
-        [clearConfirmOpen, handleConfirmClear],
+        [confirmDialogOpen, handleConfirmClear],
     );
 
     return (
