@@ -312,7 +312,7 @@ export const clearSectionFormContent = (fields: unknown[] | undefined | null, on
     const {arrayPaths, scalarResets} = collectSectionClearTargets(fields);
     const arraySorted = [...arrayPaths].sort((a, b) => b.length - a.length);
     for (const path of arraySorted) {
-        onUpdate(path, []);
+        onUpdate(path, undefined, {unset: true});
     }
     for (const item of scalarResets) {
         if (item.mode === 'set') {

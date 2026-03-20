@@ -2,7 +2,7 @@ import Base from '../Base/Base';
 import {ArrowToggle, Dialog, DropdownMenu, Icon, Text} from '@gravity-ui/uikit';
 import Fields from '../Fields/Fields';
 import {formGeneratorCn} from '../../utils/cn';
-import {EllipsisVertical} from '@gravity-ui/icons';
+import {EllipsisVertical, Plus} from '@gravity-ui/icons';
 import './Section.scss';
 import * as React from 'react';
 import {clearSectionFormContent, sectionHasContentData} from '../../utils/fields';
@@ -45,6 +45,7 @@ const Section = ({title, opened, fields, when, content, onUpdate}) => {
                 <Text variant="subheader-1" color="hint">
                     {title}
                 </Text>
+                {!showArrowTogler && <Plus width={16} height={16} className={b('plus')} />}
             </div>
             {isOpened && (
                 <DropdownMenu
@@ -66,7 +67,8 @@ const Section = ({title, opened, fields, when, content, onUpdate}) => {
                 <Dialog.Header caption="Clear all fields in this block?" />
                 <Dialog.Body>
                     <Text variant="body-1">
-                        All field values will be deleted, and the block settings will be reset to their default state.
+                        All field values will be deleted, and the block settings will be reset to
+                        their default state.
                     </Text>
                 </Dialog.Body>
                 <Dialog.Footer

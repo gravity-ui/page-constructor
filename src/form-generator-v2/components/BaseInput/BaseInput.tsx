@@ -9,7 +9,7 @@ const BaseInput = ({children, title}) => {
     return (
         <div className={b()}>
             <Text variant="body-1" className={b('title')}>{title}</Text>
-            {children}
+            <div className={b('input')}>{children}</div>
         </div>
     );
 };
