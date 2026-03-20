@@ -3,17 +3,9 @@ import Base from '../Base/Base';
 import BaseInput from '../BaseInput/BaseInput';
 import {SegmentedRadioGroup as SegmentedRadioGroupUIKIT} from '@gravity-ui/uikit';
 import {getValueByPath} from '../../utils/fields';
+import {CommonProps, SegmentedRadioGroupField} from '../../types';
 
-type SegmentedRadioGroupProps = {
-    title: string;
-    name: string;
-    options: {value: string; content?: string}[];
-    when?: unknown;
-    content?: unknown;
-    onUpdate: (name: string, value: unknown) => void;
-    /** Пишется в `content` при первом рендере, если значения ещё нет; при Clear all fields секции — см. `collectSectionClearTargets`. */
-    defaultValue?: unknown;
-};
+type SegmentedRadioGroupProps = CommonProps & SegmentedRadioGroupField;
 
 const SegmentedRadioGroup = ({
     title,
@@ -24,27 +16,24 @@ const SegmentedRadioGroup = ({
     onUpdate,
     defaultValue,
 }: SegmentedRadioGroupProps) => {
-    const selected = getValueByPath(content, name);
+    const selected = content ? getValueByPath(content, name) : undefined;
 
     React.useEffect(() => {
-        if (defaultValue === undefined) {
+        if (!defaultValue) {
             return;
         }
-        if (selected !== undefined && selected !== null) {
+
+        if (selected) {
             return;
         }
+
         onUpdate(name, defaultValue);
     }, [defaultValue, name, onUpdate, selected]);
 
-    const value =
-        selected !== undefined && selected !== null
-            ? selected
-            : defaultValue !== undefined
-              ? defaultValue
-              : null;
+    const value = selected || defaultValue || null;
 
     return (
-        <Base when={when} content={content} clearPath={name} onUpdate={onUpdate}>
+        <Base when={when} content={content} name={name} onUpdate={onUpdate}>
             <BaseInput title={title}>
                 <SegmentedRadioGroupUIKIT
                     name={name}

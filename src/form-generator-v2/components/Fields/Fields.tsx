@@ -1,9 +1,16 @@
 import {componentMap} from '../constants';
+import {Content, Fields as FieldsType, OnUpdate} from '../../types';
+import * as React from 'react';
 
-const Fields = ({fields, content, onUpdate}) => (
+type FieldsProps = {
+    fields: FieldsType;
+    content: Content;
+    onUpdate: OnUpdate;
+};
+const Fields = ({fields, content, onUpdate}: FieldsProps) => (
     <div>
         {fields.map((field, index) => {
-            const Component = componentMap[field.type];
+            const Component = componentMap[field.type] as React.ComponentType<any>;
 
             if (!Component) {
                 // eslint-disable-next-line

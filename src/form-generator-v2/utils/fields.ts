@@ -1,4 +1,5 @@
 import {get} from 'lodash';
+import {Content, Fields} from '../types';
 
 type NamePathSegment =
     | {type: 'fixed'; prop: string; index: number}
@@ -27,7 +28,7 @@ const getSegmentsFromTemplate = (templateName: string): NamePathSegment[] => {
     return segments;
 };
 
-export const getArrayPathForPlaceholder = (
+export const getArrayPathForNameWithIndexName = (
     templateName: string,
     placeholder: string,
 ): string | undefined => {
@@ -62,16 +63,14 @@ const getResolvedBrackets = (resolvedName: string): Array<{prop: string; index: 
         index: parseInt(m[2]!, 10),
     }));
 
-export const findNameWithPlaceholder = (
-    fields: unknown,
-    placeholder: string,
-): string | undefined => {
-    const needle = `{{${placeholder}}}`;
-    const stack: unknown[] = Array.isArray(fields) ? [...fields] : [fields];
+export const findNameWithIndexName = (fields: Fields, indexName: string) => {
+    const indexNameWithBrackets = `{{${indexName}}}`;
+    const stack = [...fields];
 
     while (stack.length > 0) {
         const current = stack.pop();
-        if (current === undefined || current === null) {
+
+        if (!current) {
             continue;
         }
 
@@ -80,12 +79,9 @@ export const findNameWithPlaceholder = (
             continue;
         }
 
-        if (typeof current !== 'object') {
-            continue;
-        }
+        const name = 'name' in current ? current.name : undefined;
 
-        const name = (current as {name?: unknown}).name;
-        if (typeof name === 'string' && name.includes(needle)) {
+        if (name && name.includes(indexNameWithBrackets)) {
             return name;
         }
 
@@ -96,18 +92,18 @@ export const findNameWithPlaceholder = (
 };
 
 export const getSpliceTarget = (
-    templateName: string,
+    nameWithIndexName: string,
     resolvedName: string,
-    placeholder: string,
+    indexName: string,
 ):
     | {
           arrayPath: string;
           itemIndex: number;
       }
     | undefined => {
-    const templateSegments = getSegmentsFromTemplate(templateName);
+    const templateSegments = getSegmentsFromTemplate(nameWithIndexName);
     const placeholderIdx = templateSegments.findIndex(
-        (s) => s.type === 'placeholder' && s.placeholder === placeholder,
+        (s) => s.type === 'placeholder' && s.placeholder === indexName,
     );
     if (placeholderIdx < 0) {
         return undefined;
@@ -136,9 +132,9 @@ export const getSpliceTarget = (
     };
 };
 
-export const findAllNames = (fields: unknown): string[] => {
+export const findAllNames = (fields: Fields) => {
     const names: string[] = [];
-    const stack = [fields];
+    const stack: (Fields | Fields[number])[] = [fields];
 
     while (stack.length > 0) {
         const current = stack.pop();
@@ -146,9 +142,9 @@ export const findAllNames = (fields: unknown): string[] => {
         if (Array.isArray(current)) {
             stack.push(...current);
         } else if (current && typeof current === 'object') {
-            const n = (current as {name?: unknown}).name;
-            if (typeof n === 'string') {
-                names.push(n);
+            const name = 'name' in current && current.name;
+            if (typeof name === 'string') {
+                names.push(name);
             }
             stack.push(...Object.values(current));
         }
@@ -157,84 +153,60 @@ export const findAllNames = (fields: unknown): string[] => {
     return names;
 };
 
-
-export const getValueByPath = (obj: unknown, path: string, defaultValue?: unknown) => {
-    if (path == null || path === '') {
-        return defaultValue;
-    }
-    return get(obj, path, defaultValue);
+export const getValueByPath = (content: Content, path: string | string[]) => {
+    return get(content, path);
 };
 
-const isMeaningfulContentValue = (value: unknown): boolean => {
-    if (value === null || value === undefined) {
-        return false;
-    }
-    if (typeof value === 'string') {
-        return value.trim() !== '';
-    }
-    if (typeof value === 'boolean') {
-        return true;
-    }
-    if (typeof value === 'number') {
-        return !Number.isNaN(value);
-    }
-    if (Array.isArray(value)) {
-        return value.length > 0;
-    }
-    if (typeof value === 'object') {
-        return Object.keys(value as object).length > 0;
-    }
+const isValueNotEmpty = (value?: string | boolean | object | number) => {
+    if (value === null) return false;
+    if (typeof value === 'string') return value.trim() !== '';
+    if (typeof value === 'boolean') return true;
+    if (typeof value === 'number') return !Number.isNaN(value);
+    if (Array.isArray(value)) return value.length > 0;
+    if (typeof value === 'object') return Object.keys(value as object).length > 0;
     return true;
 };
 
-export const sectionHasContentData = (
-    fields: unknown[] | undefined | null,
-    content: unknown,
-): boolean => {
-    if (!fields?.length) {
+export const sectionHasContentData = (fields: Fields, content: Content) => {
+    if (!fields.length) {
         return false;
     }
 
     for (const field of fields) {
-        if (!field || typeof field !== 'object') {
+        if (typeof field !== 'object') {
             continue;
         }
 
-        const f = field as Record<string, unknown>;
-        const type = f.type;
-
-        if (type === 'section') {
-            if (sectionHasContentData(f.fields as unknown[] | undefined, content)) {
+        if (field.type === 'section') {
+            if (sectionHasContentData(field.fields, content)) {
                 return true;
             }
             continue;
         }
 
-        if (type === 'oneTypeGroup') {
-            const groupFields = f.fields;
-            const placeholder = f.index;
-            if (!Array.isArray(groupFields) || typeof placeholder !== 'string') {
+        if (field.type === 'oneTypeGroup') {
+            if (!Array.isArray(field.fields) || !field.index) {
                 continue;
             }
-            const templateName = findNameWithPlaceholder(groupFields, placeholder);
-            if (!templateName) {
+            const nameWithIndexName = findNameWithIndexName(field.fields, field.index);
+            if (!nameWithIndexName) {
                 continue;
             }
-            const arrayPath = getArrayPathForPlaceholder(templateName, placeholder);
+
+            const arrayPath = getArrayPathForNameWithIndexName(nameWithIndexName, field.index);
             if (!arrayPath) {
                 continue;
             }
-            const arr = get(content, arrayPath);
+
+            const arr = getValueByPath(content, arrayPath);
             if (Array.isArray(arr) && arr.length > 0) {
                 return true;
             }
             continue;
         }
 
-        if (typeof f.name === 'string' && f.name.length > 0) {
-            if (isMeaningfulContentValue(get(content, f.name))) {
-                return true;
-            }
+        if (field.name) {
+            return isValueNotEmpty(getValueByPath(content, field.name));
         }
     }
 
@@ -250,7 +222,6 @@ export type SectionClearOnUpdate = (
 export type SectionScalarReset =
     | {path: string; mode: 'unset'}
     | {path: string; mode: 'set'; value: unknown};
-
 
 export const collectSectionClearTargets = (
     fields: unknown[] | undefined | null,
@@ -278,9 +249,12 @@ export const collectSectionClearTargets = (
                 const groupFields = f.fields;
                 const placeholder = f.index;
                 if (Array.isArray(groupFields) && typeof placeholder === 'string') {
-                    const templateName = findNameWithPlaceholder(groupFields, placeholder);
+                    const templateName = findNameWithIndexName(groupFields, placeholder);
                     if (templateName) {
-                        const arrayPath = getArrayPathForPlaceholder(templateName, placeholder);
+                        const arrayPath = getArrayPathForNameWithIndexName(
+                            templateName,
+                            placeholder,
+                        );
                         if (arrayPath) {
                             arrayPaths.add(arrayPath);
                         }
@@ -308,7 +282,10 @@ export const collectSectionClearTargets = (
     };
 };
 
-export const clearSectionFormContent = (fields: unknown[] | undefined | null, onUpdate: SectionClearOnUpdate) => {
+export const clearSectionFormContent = (
+    fields: unknown[] | undefined | null,
+    onUpdate: SectionClearOnUpdate,
+) => {
     const {arrayPaths, scalarResets} = collectSectionClearTargets(fields);
     const arraySorted = [...arrayPaths].sort((a, b) => b.length - a.length);
     for (const path of arraySorted) {
