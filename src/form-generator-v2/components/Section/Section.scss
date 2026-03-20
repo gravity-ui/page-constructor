@@ -9,6 +9,8 @@
     }
 
     &__header-button {
+        display: flex;
+        align-items: center;
         flex-grow: 1;
         cursor: pointer;
 
@@ -29,6 +31,11 @@
     &__arrow {
         margin-right: 4px;
         color: var(--g-color-text-hint);
+    }
+
+    &__plus {
+        color: var(--g-color-text-hint);
+        margin-left: auto;
     }
 
     &__children {

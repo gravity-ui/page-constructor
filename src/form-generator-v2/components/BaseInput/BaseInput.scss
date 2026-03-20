@@ -4,7 +4,12 @@
     margin-bottom: 8px;
 
     &__title {
-        margin-right: 8px;
-        min-width: 64px;
+        max-width: 64px;
+        width: 100%;
+        line-break: anywhere;
+    }
+
+    &__input {
+        margin-left: 8px;
     }
 }
