@@ -1,10 +1,10 @@
 import OneTypeGroup from './OneTypeGroup/OneTypeGroup';
 import Section from './Section/Section';
-import Select from './Select/Select';
-import TextInput from './TextInput/TextInput';
 import SegmentedRadioGroup from './SegmentedRadioGroup/SegmentedRadioGroup';
+import Select from './Select/Select';
 import Text from './Text/Text';
 import TextArea from './TextArea/TextArea';
+import TextInput from './TextInput/TextInput';
 
 export const componentMap = {
     section: Section,

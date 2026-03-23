@@ -1,4 +1,5 @@
 import {get} from 'lodash';
+
 import {Content, Fields} from '../types';
 
 type NamePathSegment =

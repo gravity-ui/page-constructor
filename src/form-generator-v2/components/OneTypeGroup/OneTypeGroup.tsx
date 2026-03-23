@@ -1,11 +1,10 @@
 import * as React from 'react';
-import Base from '../Base/Base';
-import {Button, Card, Icon, Text} from '@gravity-ui/uikit';
-import './OneTypeGroup.scss';
-import Fields from '../Fields/Fields';
-import {SectionOpenContext} from '../Section/SectionOpenContext';
-import {formGeneratorCn} from '../../utils/cn';
+
 import {TrashBin} from '@gravity-ui/icons';
+import {Button, Card, Icon, Text} from '@gravity-ui/uikit';
+
+import {CommonProps, OneTypeGroupField} from '../../types';
+import {formGeneratorCn} from '../../utils/cn';
 import {
     findAllNames,
     findNameWithIndexName,
@@ -13,7 +12,11 @@ import {
     getSpliceTarget,
     getValueByPath,
 } from '../../utils/fields';
-import {CommonProps, OneTypeGroupField} from '../../types';
+import Base from '../Base/Base';
+import Fields from '../Fields/Fields';
+import {SectionOpenContext} from '../Section/SectionOpenContext';
+
+import './OneTypeGroup.scss';
 
 const b = formGeneratorCn('one-type-group');
 

@@ -1,8 +1,9 @@
 import {TextArea as TextAreaUIKIT} from '@gravity-ui/uikit';
+
+import {CommonProps, TextField} from '../../types';
+import {getValueByPath} from '../../utils/fields';
 import Base from '../Base/Base';
 import BaseInput from '../BaseInput/BaseInput';
-import {getValueByPath} from '../../utils/fields';
-import {CommonProps, TextField} from '../../types';
 
 type TextAreaProps = CommonProps & TextField;
 

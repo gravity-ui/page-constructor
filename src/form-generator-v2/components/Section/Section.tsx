@@ -1,13 +1,17 @@
-import Base from '../Base/Base';
-import {ArrowToggle, Dialog, DropdownMenu, Icon, Text} from '@gravity-ui/uikit';
-import Fields from '../Fields/Fields';
-import {formGeneratorCn} from '../../utils/cn';
-import {EllipsisVertical, Plus} from '@gravity-ui/icons';
-import './Section.scss';
 import * as React from 'react';
-import {clearSectionFormContent, sectionHasContentData} from '../../utils/fields';
-import {SectionOpenContext} from './SectionOpenContext';
+
+import {EllipsisVertical, Plus} from '@gravity-ui/icons';
+import {ArrowToggle, Dialog, DropdownMenu, Icon, Text} from '@gravity-ui/uikit';
+
 import {CommonProps, SectionField} from '../../types';
+import {formGeneratorCn} from '../../utils/cn';
+import {clearSectionFormContent, sectionHasContentData} from '../../utils/fields';
+import Base from '../Base/Base';
+import Fields from '../Fields/Fields';
+
+import {SectionOpenContext} from './SectionOpenContext';
+
+import './Section.scss';
 
 const b = formGeneratorCn('section');
 
@@ -92,9 +96,11 @@ const Section = ({title, opened, fields, when, content, onUpdate}: SectionProp) 
                 <div className={b({opened: isOpened})}>
                     <Summary />
                     <div className={b('children', {opened: isOpened})}>
-                        <SectionOpenContext.Provider value={isOpened}>
-                            <Fields fields={fields} content={content} onUpdate={onUpdate} />
-                        </SectionOpenContext.Provider>
+                        <div className={b('children-inner')}>
+                            <SectionOpenContext.Provider value={isOpened}>
+                                <Fields fields={fields} content={content} onUpdate={onUpdate} />
+                            </SectionOpenContext.Provider>
+                        </div>
                     </div>
                 </div>
                 {confirmDialog}
