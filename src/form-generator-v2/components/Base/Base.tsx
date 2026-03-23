@@ -1,6 +1,7 @@
 import * as React from 'react';
-import {getValueByPath} from '../../utils/fields';
+
 import {Content, OnUpdate, When} from '../../types';
+import {getValueByPath} from '../../utils/fields';
 
 type BaseProps = {
     when?: When;

@@ -1,6 +1,7 @@
-import {componentMap} from '../constants';
-import {Content, Fields as FieldsType, OnUpdate} from '../../types';
 import * as React from 'react';
+
+import {Content, Fields as FieldsType, OnUpdate} from '../../types';
+import {componentMap} from '../constants';
 
 type FieldsProps = {
     fields: FieldsType;

@@ -15,7 +15,6 @@
         cursor: pointer;
 
         &_with-hover {
-
             & > * {
                 transition: color 0.4s;
             }
@@ -39,12 +38,22 @@
     }
 
     &__children {
-        max-height: 0;
+        display: grid;
+        grid-template-rows: 0fr;
         overflow: hidden;
+        margin-bottom: 0;
+        transition:
+            grid-template-rows 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+            margin-bottom 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 
         &_opened {
-            max-height: 10000px;
+            grid-template-rows: 1fr;
             margin-bottom: 16px;
         }
+    }
+
+    &__children-inner {
+        min-height: 0;
+        overflow: hidden;
     }
 }

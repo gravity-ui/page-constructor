@@ -1,6 +1,9 @@
 import * as React from 'react';
-import {DynamicFormValue} from '../form-generator/types';
+
 import {cloneDeep, set, unset} from 'lodash';
+
+import {DynamicFormValue} from '../form-generator/types';
+
 import Fields from './components/Fields/Fields';
 import {Content, Fields as FieldsType} from './types';
 import {getValueByPath} from './utils/fields';

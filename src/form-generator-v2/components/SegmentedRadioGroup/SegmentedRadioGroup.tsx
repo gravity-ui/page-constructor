@@ -1,9 +1,11 @@
 import * as React from 'react';
+
+import {SegmentedRadioGroup as SegmentedRadioGroupUIKIT} from '@gravity-ui/uikit';
+
+import {CommonProps, SegmentedRadioGroupField} from '../../types';
+import {getValueByPath} from '../../utils/fields';
 import Base from '../Base/Base';
 import BaseInput from '../BaseInput/BaseInput';
-import {SegmentedRadioGroup as SegmentedRadioGroupUIKIT} from '@gravity-ui/uikit';
-import {getValueByPath} from '../../utils/fields';
-import {CommonProps, SegmentedRadioGroupField} from '../../types';
 
 type SegmentedRadioGroupProps = CommonProps & SegmentedRadioGroupField;
 

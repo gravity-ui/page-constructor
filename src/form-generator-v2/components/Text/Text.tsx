@@ -1,8 +1,10 @@
-import Base from '../Base/Base';
 import {Text as TextUIKIT} from '@gravity-ui/uikit';
-import './Text.scss';
-import {formGeneratorCn} from '../../utils/cn';
+
 import {Content, When} from '../../types';
+import {formGeneratorCn} from '../../utils/cn';
+import Base from '../Base/Base';
+
+import './Text.scss';
 
 const b = formGeneratorCn('text');
 

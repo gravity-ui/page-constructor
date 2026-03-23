@@ -1,8 +1,9 @@
+import {TextInput as TextInputUIKIT} from '@gravity-ui/uikit';
+
+import {CommonProps, TextField} from '../../types';
+import {getValueByPath} from '../../utils/fields';
 import Base from '../Base/Base';
 import BaseInput from '../BaseInput/BaseInput';
-import {TextInput as TextInputUIKIT} from '@gravity-ui/uikit';
-import {getValueByPath} from '../../utils/fields';
-import {CommonProps, TextField} from '../../types';
 
 type TextInputProps = CommonProps & TextField;
 

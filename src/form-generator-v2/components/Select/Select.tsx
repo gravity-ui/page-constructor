@@ -1,8 +1,9 @@
+import {Select as SelectUIKIT} from '@gravity-ui/uikit';
+
+import {CommonProps, SelectField} from '../../types';
+import {getValueByPath} from '../../utils/fields';
 import Base from '../Base/Base';
 import BaseInput from '../BaseInput/BaseInput';
-import {Select as SelectUIKIT} from '@gravity-ui/uikit';
-import {getValueByPath} from '../../utils/fields';
-import {CommonProps, SelectField} from '../../types';
 
 type SelectProps = CommonProps & SelectField;
 
