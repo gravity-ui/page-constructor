@@ -16,7 +16,7 @@ const b = block('form');
 
 const FormContent = () => {
     const [formFields, setFormFields] = React.useState<FormField[]>([]);
-    const [contentConfig, setContentConfig] = React.useState(() => ({}));
+    const [contentConfig, setContentConfig] = React.useState({});
 
     const resetForm = React.useCallback(() => {
         setFormFields([]);
