@@ -1,11 +1,14 @@
 import * as React from 'react';
+
 import {Button, Text, ThemeProvider} from '@gravity-ui/uikit';
 import block from 'bem-cn-lite';
 import {Panel, PanelGroup, PanelResizeHandle} from 'react-resizable-panels';
 import {useNavigate} from 'react-router';
-import DynamicForm from '../../../../src/form-generator-v2/FormGenerator';
-import {FormOutput} from './components/FormOutput/FormOutput';
+
 import {FormBuilder, FormField} from '../../../../src/form-builder';
+import DynamicForm from '../../../../src/form-generator-v2/FormGenerator';
+
+import {FormOutput} from './components/FormOutput/FormOutput';
 
 import './form.scss';
 
@@ -325,6 +328,7 @@ const hconfig = [
 ];
 
 const FormContent = () => {
+    // @ts-ignore
     const [formFields, setFormFields] = React.useState<FormField[]>(hconfig);
     const [contentConfig, setContentConfig] = React.useState(() => ({
         buttons: [{text: 'conatct'}, {text: 'right'}],
@@ -391,7 +395,9 @@ const FormContent = () => {
                                 <Text variant="header-1">Form Preview</Text>
                                 <DynamicForm
                                     contentConfig={contentConfig}
+                                    // @ts-ignore
                                     blockConfig={formFields}
+                                    // @ts-ignore
                                     onUpdate={setContentConfig}
                                 />
                             </div>
