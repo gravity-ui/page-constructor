@@ -7,7 +7,7 @@ import BaseInput from '../BaseInput/BaseInput';
 
 type SelectProps = CommonProps & SelectField;
 
-const Select = ({title, name, options, when, content, onUpdate}: SelectProps) => {
+const Select = ({title, name, options, when, content, onUpdate, hasClear}: SelectProps) => {
     const selected = getValueByPath(content, name);
     const value = selected ? [selected] : [];
 
@@ -23,6 +23,7 @@ const Select = ({title, name, options, when, content, onUpdate}: SelectProps) =>
                     placeholder="Not selected"
                     onUpdate={(v) => onUpdate(name, v[0])}
                     value={value}
+                    hasClear={hasClear}
                 />
             </BaseInput>
         </Base>

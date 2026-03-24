@@ -25,6 +25,7 @@ export type SelectField = {
     title: string;
     options: Option[];
     when?: When;
+    hasClear?: boolean;
 };
 
 export type OneTypeGroupField = {
