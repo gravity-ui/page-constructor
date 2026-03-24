@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.2.1](https://github.com/gravity-ui/page-constructor/compare/v8.2.0...v8.2.1) (2026-03-24)
+
+
+### Bug Fixes
+
+* **Header:** overtitle in dark theme ([#1393](https://github.com/gravity-ui/page-constructor/issues/1393)) ([a4ca6a2](https://github.com/gravity-ui/page-constructor/commit/a4ca6a246c138104b8a711b17cbc113304121b02))
+
 ## [8.2.0](https://github.com/gravity-ui/page-constructor/compare/v8.1.1...v8.2.0) (2026-03-13)
 
 
