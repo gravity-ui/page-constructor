@@ -10,7 +10,7 @@ const Switch = ({title, when, name, content, onUpdate}: SwitchProps) => {
     return (
         <Base content={content} when={when} onUpdate={onUpdate}>
             <BaseInput title={title}>
-                <SwitchUIKIT name={name} />
+                <SwitchUIKIT name={name} onUpdate={(v) => onUpdate(name, v)} />
             </BaseInput>
         </Base>
     );
