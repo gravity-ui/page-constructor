@@ -127,7 +127,17 @@ const HeaderBlockConfig: BlockData = {
                                         title: 'Style',
                                         type: 'select',
                                         name: 'buttons[{{index}}].theme',
-                                        options: [{value: 'accent', content: 'Accent'}],
+                                        options: [
+                                            {value: 'action', content: 'Action'},
+                                            {value: 'outlined', content: 'Outlined'},
+                                            {value: 'normal', content: 'Normal'},
+                                            {value: 'monochrome', content: 'Monochrome'},
+                                            {
+                                                value: 'outlined-contrast',
+                                                content: 'Outlined-contrast',
+                                            },
+                                            {value: 'normal-contrast', content: 'Normal-contrast'},
+                                        ],
                                     },
                                     {
                                         title: 'Target',
