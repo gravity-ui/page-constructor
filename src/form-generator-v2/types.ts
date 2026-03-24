@@ -53,12 +53,27 @@ export type SegmentedRadioGroupField = {
     when?: When;
 };
 
+export type Text = {
+    type: 'text';
+    text: string;
+    when?: When;
+};
+
+export type SwitchField = {
+    type: 'switch';
+    name: string;
+    title: string;
+    when?: When;
+};
+
 export type Fields = (
     | SectionField
     | SelectField
     | OneTypeGroupField
     | TextField
     | SegmentedRadioGroupField
+    | Text
+    | SwitchField
 )[];
 
 export type OnUpdate = (

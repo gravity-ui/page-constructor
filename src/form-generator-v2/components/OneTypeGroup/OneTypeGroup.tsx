@@ -139,9 +139,11 @@ const OneTypeGroup = ({
             {rowKeys.map((rowKey, rowIndex) => (
                 <Card key={rowKey} className={b()}>
                     <div className={b('card-header')}>
-                        <Text variant="subheader-2" className={b('title')}>
-                            {title.replaceAll(`{{${index}}}`, String(rowIndex))}
-                        </Text>
+                        {title && (
+                            <Text variant="subheader-2" className={b('title')}>
+                                {title.replaceAll(`{{${index}}}`, String(rowIndex))}
+                            </Text>
+                        )}
                         <Button view="flat" onClick={deleteItem(rowIndex)}>
                             <Icon width={16} height={16} data={TrashBin} />
                         </Button>

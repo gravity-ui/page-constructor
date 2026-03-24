@@ -6,6 +6,21 @@ type NamePathSegment =
     | {type: 'fixed'; prop: string; index: number}
     | {type: 'placeholder'; prop: string; placeholder: string};
 
+const getStaticPrefixBeforeArrayProp = (templateName: string): string => {
+    const firstBracketIndex = templateName.indexOf('[');
+    if (firstBracketIndex < 0) {
+        return '';
+    }
+
+    const beforeFirstBracket = templateName.slice(0, firstBracketIndex);
+    const lastDotIndex = beforeFirstBracket.lastIndexOf('.');
+    if (lastDotIndex < 0) {
+        return '';
+    }
+
+    return beforeFirstBracket.slice(0, lastDotIndex);
+};
+
 const getSegmentsFromTemplate = (templateName: string): NamePathSegment[] => {
     const re = /(\w+)\[(?:\{\{(\w+)\}\}|(\d+))\]/g;
     const segments: NamePathSegment[] = [];
@@ -33,6 +48,7 @@ export const getArrayPathForNameWithIndexName = (
     templateName: string,
     placeholder: string,
 ): string | undefined => {
+    const staticPrefix = getStaticPrefixBeforeArrayProp(templateName);
     const segments = getSegmentsFromTemplate(templateName);
     const placeholderIdx = segments.findIndex(
         (s) => s.type === 'placeholder' && s.placeholder === placeholder,
@@ -54,8 +70,9 @@ export const getArrayPathForNameWithIndexName = (
     }
 
     const at = segments[placeholderIdx] as {type: 'placeholder'; prop: string};
-    const prefix = prefixParts.join('.');
-    return prefix ? `${prefix}.${at.prop}` : at.prop;
+    const dynamicPrefix = prefixParts.join('.');
+    const combinedPrefix = [staticPrefix, dynamicPrefix].filter(Boolean).join('.');
+    return combinedPrefix ? `${combinedPrefix}.${at.prop}` : at.prop;
 };
 
 const getResolvedBrackets = (resolvedName: string): Array<{prop: string; index: number}> =>
@@ -102,6 +119,7 @@ export const getSpliceTarget = (
           itemIndex: number;
       }
     | undefined => {
+    const staticPrefix = getStaticPrefixBeforeArrayProp(nameWithIndexName);
     const templateSegments = getSegmentsFromTemplate(nameWithIndexName);
     const placeholderIdx = templateSegments.findIndex(
         (s) => s.type === 'placeholder' && s.placeholder === indexName,
@@ -125,7 +143,9 @@ export const getSpliceTarget = (
         prefix.push(`${part.prop}[${part.index}]`);
     }
 
-    const arrayPath = prefix.length > 0 ? `${prefix.join('.')}.${at.prop}` : at.prop;
+    const dynamicPrefix = prefix.join('.');
+    const combinedPrefix = [staticPrefix, dynamicPrefix].filter(Boolean).join('.');
+    const arrayPath = combinedPrefix ? `${combinedPrefix}.${at.prop}` : at.prop;
 
     return {
         arrayPath,
@@ -206,7 +226,7 @@ export const sectionHasContentData = (fields: Fields, content: Content) => {
             continue;
         }
 
-        if (field.name) {
+        if ('name' in field && field.name) {
             return isValueNotEmpty(getValueByPath(content, field.name));
         }
     }
