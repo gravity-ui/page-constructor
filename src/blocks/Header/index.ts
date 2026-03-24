@@ -143,7 +143,12 @@ const HeaderBlockConfig: BlockData = {
                                         title: 'Target',
                                         type: 'select',
                                         name: 'buttons[{{index}}].target',
-                                        options: [{value: '_blank'}],
+                                        options: [
+                                            {value: '_blank'},
+                                            {value: '_self'},
+                                            {value: '_parent'},
+                                            {value: '_top'},
+                                        ],
                                         hasClear: true,
                                     },
                                 ],
