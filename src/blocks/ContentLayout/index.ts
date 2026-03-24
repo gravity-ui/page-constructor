@@ -84,6 +84,7 @@ const ContentLayoutBlockConfig = {
                         options: [
                             {content: 'Light', value: 'light'},
                             {content: 'Dark', value: 'dark'},
+                            {content: 'Default', value: 'default'},
                         ],
                         name: 'theme',
                     },

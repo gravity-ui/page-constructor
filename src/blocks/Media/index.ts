@@ -1,10 +1,6 @@
-import {JSONSchemaType} from 'ajv';
-
-import {generateFromAJV} from '../../utils/form-generator';
-
 import MediaBlock from './Media';
+
 import svgIcon from './icon.svg';
-import {MediaBlock as MediaBlockSchema} from './schema';
 
 const MediaBlockConfig = {
     type: '@gravity-ui/page-constructor/media-block',
@@ -13,7 +9,467 @@ const MediaBlockConfig = {
         name: 'Media Block',
         group: '@gravity-ui/page-constructor/Blocks',
         // TODO: change to custom block schema
-        inputs: generateFromAJV(MediaBlockSchema['media-block'] as unknown as JSONSchemaType<{}>),
+        inputsV2: [
+            {
+                type: 'section',
+                title: 'Main settings',
+                opened: true,
+                fields: [
+                    {
+                        type: 'select',
+                        title: 'Direction',
+                        name: 'direction',
+                        options: [
+                            {content: 'Media-content', value: 'media-content'},
+                            {content: 'Content-media', value: 'content-media'},
+                        ],
+                    },
+                    {
+                        type: 'select',
+                        title: 'Mobile direction',
+                        name: 'mobileDirection',
+                        options: [
+                            {content: 'Media-content', value: 'media-content'},
+                            {content: 'Content-media', value: 'content-media'},
+                        ],
+                    },
+                    {
+                        type: 'select',
+                        title: 'Top indent',
+                        name: 'indent.top',
+                        options: [
+                            {value: '0'},
+                            {value: 'xs'},
+                            {value: 's'},
+                            {value: 'm'},
+                            {value: 'l'},
+                            {value: 'xl'},
+                        ],
+                    },
+                    {
+                        type: 'select',
+                        title: 'Bottom indent',
+                        name: 'indent.bottom',
+                        options: [
+                            {value: '0'},
+                            {value: 'xs'},
+                            {value: 's'},
+                            {value: 'm'},
+                            {value: 'l'},
+                            {value: 'xl'},
+                        ],
+                    },
+                    {
+                        type: 'switch',
+                        title: 'Large media',
+                        name: 'largeMedia',
+                    },
+                    {
+                        type: 'switch',
+                        title: 'Media only',
+                        name: 'mediaOnly',
+                    },
+                ],
+            },
+            {
+                type: 'section',
+                opened: true,
+                title: 'Text',
+                fields: [
+                    {
+                        type: 'textInput',
+                        title: 'Title',
+                        name: 'title',
+                    },
+                    {
+                        type: 'textArea',
+                        title: 'Description',
+                        name: 'description',
+                    },
+                    {
+                        type: 'textArea',
+                        title: 'Additional info',
+                        name: 'additionalInfo',
+                    },
+                    {
+                        type: 'select',
+                        title: 'Text size',
+                        name: 'size',
+                        options: [{value: 's'}, {value: 'm'}, {value: 'l'}],
+                    },
+                    {
+                        type: 'segmentedRadioGroup',
+                        title: 'Theme',
+                        options: [
+                            {content: 'Light', value: 'light'},
+                            {content: 'Dark', value: 'dark'},
+                        ],
+                        name: 'theme',
+                    },
+                ],
+            },
+            {
+                type: 'section',
+                title: 'Content list',
+                fields: [
+                    {
+                        type: 'oneTypeGroup',
+                        withAddButton: true,
+                        title: 'Item {{index1}}',
+                        index: 'index1',
+                        fields: [
+                            {
+                                type: 'textInput',
+                                title: 'Title',
+                                name: 'list[{{index1}}].title',
+                            },
+                            {
+                                type: 'textArea',
+                                title: 'Description',
+                                name: 'list[{{index1}}].text',
+                            },
+                            {
+                                type: 'textInput',
+                                title: 'URL icon',
+                                name: 'list[{{index1}}].icon',
+                            },
+                        ],
+                    },
+                ],
+            },
+            {
+                type: 'section',
+                title: 'Buttons',
+                fields: [
+                    {
+                        title: 'Button {{index}}',
+                        withAddButton: true,
+                        type: 'oneTypeGroup',
+                        index: 'index',
+                        fields: [
+                            {
+                                type: 'section',
+                                title: 'Main settings',
+                                opened: true,
+                                fields: [
+                                    {
+                                        title: 'Text',
+                                        type: 'textInput',
+                                        name: 'buttons[{{index}}].text',
+                                    },
+                                    {
+                                        title: 'URL',
+                                        type: 'textInput',
+                                        name: 'buttons[{{index}}].url',
+                                    },
+                                    {
+                                        title: 'URL title',
+                                        type: 'textInput',
+                                        name: 'buttons[{{index}}].urlTitle',
+                                    },
+                                    {
+                                        title: 'Style',
+                                        type: 'select',
+                                        name: 'buttons[{{index}}].theme',
+                                        options: [
+                                            {value: 'action', content: 'Action'},
+                                            {value: 'outlined', content: 'Outlined'},
+                                            {value: 'normal', content: 'Normal'},
+                                            {value: 'monochrome', content: 'Monochrome'},
+                                            {
+                                                value: 'outlined-contrast',
+                                                content: 'Outlined-contrast',
+                                            },
+                                            {value: 'normal-contrast', content: 'Normal-contrast'},
+                                        ],
+                                    },
+                                    {
+                                        title: 'Target',
+                                        type: 'select',
+                                        name: 'buttons[{{index}}].target',
+                                        options: [
+                                            {value: '_blank'},
+                                            {value: '_self'},
+                                            {value: '_parent'},
+                                            {value: '_top'},
+                                        ],
+                                        hasClear: true,
+                                    },
+                                ],
+                            },
+                            {
+                                type: 'section',
+                                title: 'Analytics tracking',
+                                note: {
+                                    text: 'Only events for the counters listed in the input field will be sent.',
+                                    level: '',
+                                },
+                                fields: [
+                                    {
+                                        title: 'Analytics event {{index2}}',
+                                        type: 'oneTypeGroup',
+                                        withAddButton: true,
+                                        index: 'index2',
+                                        fields: [
+                                            {
+                                                title: 'Name',
+                                                type: 'textInput',
+                                                name: 'buttons[{{index}}].analyticsEvents[{{index2}}].name',
+                                            },
+                                            {
+                                                title: 'Target',
+                                                type: 'textInput',
+                                                name: 'buttons[{{index}}].analyticsEvents[{{index2}}].target',
+                                            },
+                                            {
+                                                title: 'Counter {{indexgoal}}',
+                                                withAddButton: true,
+                                                type: 'oneTypeGroup',
+                                                index: 'indexgoal',
+                                                fields: [
+                                                    {
+                                                        title: 'Counter',
+                                                        type: 'textInput',
+                                                        name: 'buttons[{{index}}].analyticsEvents[{{index2}}].counters[{{indexgoal}}].includes',
+                                                    },
+                                                ],
+                                            },
+                                        ],
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                ],
+            },
+            {
+                type: 'section',
+                title: 'Link',
+                fields: [
+                    {
+                        type: 'oneTypeGroup',
+                        title: 'Link {{index1}}',
+                        index: 'index1',
+                        withAddButton: true,
+                        fields: [
+                            {
+                                type: 'textInput',
+                                title: 'Text',
+                                name: 'links[{{index1}}].text',
+                            },
+                            {
+                                type: 'textInput',
+                                title: 'URL',
+                                name: 'links[{{index1}}].url',
+                            },
+                            {
+                                type: 'textInput',
+                                title: 'URL title',
+                                name: 'links[{{index1}}].urlTitle',
+                            },
+                            {
+                                type: 'select',
+                                title: 'Style',
+                                name: 'links[{{index1}}].theme',
+                                options: [
+                                    {content: 'File-link', value: 'file-link'},
+                                    {content: 'Normal', value: 'normal'},
+                                    {content: 'Back', value: 'back'},
+                                    {content: 'Underline', value: 'underline'},
+                                ],
+                            },
+                            {
+                                title: 'Target',
+                                type: 'select',
+                                name: 'links[{{index1}}].target',
+                                options: [
+                                    {value: '_blank'},
+                                    {value: '_self'},
+                                    {value: '_parent'},
+                                    {value: '_top'},
+                                ],
+                                hasClear: true,
+                            },
+                            {
+                                type: 'section',
+                                title: 'Analytics tracking',
+                                note: {
+                                    text: 'Only events for the counters listed in the input field will be sent.',
+                                    level: '',
+                                },
+                                fields: [
+                                    {
+                                        title: 'Analytics event {{index2}}',
+                                        type: 'oneTypeGroup',
+                                        withAddButton: true,
+                                        index: 'index2',
+                                        fields: [
+                                            {
+                                                title: 'Name',
+                                                type: 'textInput',
+                                                name: 'links[{{index1}}].analyticsEvents[{{index2}}].name',
+                                            },
+                                            {
+                                                title: 'Target',
+                                                type: 'textInput',
+                                                name: 'links[{{index1}}].analyticsEvents[{{index2}}].target',
+                                            },
+                                            {
+                                                title: 'Counter {{indexgoal}}',
+                                                withAddButton: true,
+                                                type: 'oneTypeGroup',
+                                                index: 'indexgoal',
+                                                fields: [
+                                                    {
+                                                        title: 'Counter',
+                                                        type: 'textInput',
+                                                        name: 'links[{{index1}}].analyticsEvents[{{index2}}].counters[{{indexgoal}}].includes',
+                                                    },
+                                                ],
+                                            },
+                                        ],
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                ],
+            },
+            {
+                type: 'section',
+                title: 'Media',
+                opened: true,
+                fields: [
+                    {
+                        title: 'Type',
+                        name: '_mediaType',
+                        options: [
+                            {content: 'Image', value: 'image'},
+                            {content: 'Video', value: 'video'},
+                        ],
+                        type: 'segmentedRadioGroup',
+                    },
+                    {
+                        type: 'text',
+                        text: 'Light theme',
+                        when: [
+                            {
+                                field: '_mediaType',
+                                operator: '!==',
+                                value: undefined,
+                            },
+                        ],
+                    },
+                    {
+                        title: 'Desktop',
+                        type: 'textInput',
+                        name: 'media.light.image.desktop',
+                        when: [
+                            {
+                                field: '_mediaType',
+                                operator: '===',
+                                value: 'image',
+                            },
+                        ],
+                    },
+                    {
+                        title: 'Tablet',
+                        type: 'textInput',
+                        name: 'media.light.image.tablet',
+                        when: [
+                            {
+                                field: '_mediaType',
+                                operator: '===',
+                                value: 'image',
+                            },
+                        ],
+                    },
+                    {
+                        title: 'Mobile',
+                        type: 'textInput',
+                        name: 'media.light.image.mobile',
+                        when: [
+                            {
+                                field: '_mediaType',
+                                operator: '===',
+                                value: 'image',
+                            },
+                        ],
+                    },
+                    {
+                        title: 'URL',
+                        type: 'textInput',
+                        name: 'media.light.video.src',
+                        when: [
+                            {
+                                field: '_mediaType',
+                                operator: '===',
+                                value: 'video',
+                            },
+                        ],
+                    },
+                    {
+                        type: 'text',
+                        text: 'Dark theme',
+                        when: [
+                            {
+                                field: '_mediaType',
+                                operator: '!==',
+                                value: undefined,
+                            },
+                        ],
+                    },
+                    {
+                        title: 'Desktop',
+                        type: 'textInput',
+                        name: 'media.dark.image.desktop',
+                        when: [
+                            {
+                                field: '_mediaType',
+                                operator: '===',
+                                value: 'image',
+                            },
+                        ],
+                    },
+                    {
+                        title: 'Tablet',
+                        type: 'textInput',
+                        name: 'media.dark.image.tablet',
+                        when: [
+                            {
+                                field: '_mediaType',
+                                operator: '===',
+                                value: 'image',
+                            },
+                        ],
+                    },
+                    {
+                        title: 'Mobile',
+                        type: 'textInput',
+                        name: 'media.dark.image.mobile',
+                        when: [
+                            {
+                                field: '_mediaType',
+                                operator: '===',
+                                value: 'image',
+                            },
+                        ],
+                    },
+                    {
+                        title: 'URL',
+                        type: 'textInput',
+                        name: 'media.dark.video.src',
+                        when: [
+                            {
+                                field: '_mediaType',
+                                operator: '===',
+                                value: 'video',
+                            },
+                        ],
+                    },
+                ],
+            },
+        ],
         default: {
             title: 'Lorem ipsum dolor sit',
             description:
