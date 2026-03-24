@@ -29,12 +29,12 @@ $backgroundWidth: 1440px;
             @include add-specificity(&) {
                 --g-color-line-focus: var(--pc-color-line-focus-dark);
 
-                #{$block}__title,
-                #{$block}__overtitle {
+                #{$block}__title {
                     color: var(--g-color-text-light-primary);
                 }
 
-                #{$block}__description {
+                #{$block}__description,
+                #{$block}__overtitle {
                     .yfm {
                         color: var(--g-color-text-light-primary);
                     }
