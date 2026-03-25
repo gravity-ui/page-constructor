@@ -14,8 +14,8 @@ export type DynamicFormValue =
 
 export interface BlockConfig {
     name: string;
-    inputs: Array<ConfigInput>;
-    inputsV2: Fields;
+    inputs?: Array<ConfigInput>;
+    inputsV2?: Fields;
     group?: string;
     hidden?: boolean;
     default?: object;

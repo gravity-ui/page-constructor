@@ -61,13 +61,14 @@ const BlockConfigForm = ({className}: BlockConfigFormProps) => {
         <div className={b(null, className)}>
             <div className={b('title')}>{currentSchema.schema.name}</div>
             <div className={b('form')}>
-                {currentSchema.schema.inputsV2 ? (
+                {currentSchema.schema.inputsV2 && (
                     <FormGeneratorV2
                         contentConfig={currentConfig}
                         blockConfig={currentSchema.schema.inputsV2}
                         onUpdate={onUpdate}
                     />
-                ) : (
+                )}
+                {currentSchema.schema.inputs && (
                     <FormGenerator
                         contentConfig={currentConfig}
                         blockConfig={currentSchema.schema.inputs}

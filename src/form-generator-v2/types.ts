@@ -17,6 +17,10 @@ export type SectionField = {
     opened?: boolean;
     fields: Fields;
     when?: When;
+    note?: {
+        text: string;
+        level: 'danger' | 'info';
+    };
 };
 
 export type SelectField = {

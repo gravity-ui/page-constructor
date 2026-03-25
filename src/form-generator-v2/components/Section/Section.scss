@@ -56,4 +56,14 @@
         min-height: 0;
         overflow: hidden;
     }
+
+    &__note {
+        display: flex;
+    }
+
+    &__note-icon {
+        margin-right: 4px;
+        min-width: 14px;
+        min-height: 14px;
+    }
 }
