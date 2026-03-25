@@ -1,3 +1,5 @@
+import {Fields} from '../../form-generator-v2/types';
+
 import ContentLayoutBlock from './ContentLayout';
 
 const ContentLayoutBlockConfig = {
@@ -6,7 +8,6 @@ const ContentLayoutBlockConfig = {
     schema: {
         name: 'Content Layout Block',
         group: '@gravity-ui/page-constructor/Blocks',
-        // TODO: change to custom block schema
         inputsV2: [
             {
                 type: 'section',
@@ -480,7 +481,7 @@ const ContentLayoutBlockConfig = {
                     },
                 ],
             },
-        ],
+        ] as Fields,
         default: {
             textContent: {
                 title: 'Lorem ipsum dolor sit amet',
