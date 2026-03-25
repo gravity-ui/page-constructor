@@ -70,6 +70,13 @@ export type SwitchField = {
     when?: When;
 };
 
+export type ColorField = {
+    type: 'colorInput';
+    name: string;
+    title: string;
+    when?: When;
+};
+
 export type Fields = (
     | SectionField
     | SelectField
@@ -78,6 +85,7 @@ export type Fields = (
     | SegmentedRadioGroupField
     | Text
     | SwitchField
+    | ColorField
 )[];
 
 export type OnUpdate = (
