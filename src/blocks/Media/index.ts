@@ -1,3 +1,5 @@
+import {Fields} from '../../form-generator-v2/types';
+
 import MediaBlock from './Media';
 
 import svgIcon from './icon.svg';
@@ -8,7 +10,6 @@ const MediaBlockConfig = {
     schema: {
         name: 'Media Block',
         group: '@gravity-ui/page-constructor/Blocks',
-        // TODO: change to custom block schema
         inputsV2: [
             {
                 type: 'section',
@@ -469,7 +470,7 @@ const MediaBlockConfig = {
                     },
                 ],
             },
-        ],
+        ] as Fields,
         default: {
             title: 'Lorem ipsum dolor sit',
             description:

@@ -1,4 +1,5 @@
 import {BlockData} from '../../constructor-items';
+import {Fields} from '../../form-generator-v2/types';
 
 import HeaderBlock from './Header';
 
@@ -337,7 +338,7 @@ const HeaderBlockConfig: BlockData = {
                     },
                 ],
             },
-        ],
+        ] as Fields,
         default: {
             type: 'header-block',
             title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
