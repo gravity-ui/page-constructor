@@ -1,3 +1,4 @@
+import ColorInput from './ColorInput/ColorInput';
 import OneTypeGroup from './OneTypeGroup/OneTypeGroup';
 import Section from './Section/Section';
 import SegmentedRadioGroup from './SegmentedRadioGroup/SegmentedRadioGroup';
@@ -13,7 +14,7 @@ export const componentMap = {
     oneTypeGroup: OneTypeGroup,
     textInput: TextInput,
     segmentedRadioGroup: SegmentedRadioGroup,
-    // colorInput: ColorInput,
+    colorInput: ColorInput,
     text: Text,
     textArea: TextArea,
     switch: Switch,

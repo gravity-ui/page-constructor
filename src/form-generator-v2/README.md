@@ -106,6 +106,19 @@ Boolean toggle.
 
 ---
 
+## `colorInput`
+
+Color picker (Gravity UI `unstable_ColorPicker`).
+
+| Property | Type           | Required | Description        |
+| -------- | -------------- | -------- | ------------------ |
+| `type`   | `'colorInput'` | yes      | Discriminator.     |
+| `name`   | `string`       | yes      | Path in `content`. |
+| `title`  | `string`       | yes      | Label.             |
+| `when`   | `When`         | no       | Visibility.        |
+
+---
+
 ## `text`
 
 Static hint text.
