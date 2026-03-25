@@ -158,7 +158,7 @@ const HeaderBlockConfig: BlockData = {
                                 title: 'Analytics tracking',
                                 note: {
                                     text: 'Only events for the counters listed in the input field will be sent.',
-                                    level: '',
+                                    level: 'info',
                                 },
                                 fields: [
                                     {

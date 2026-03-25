@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import {EllipsisVertical, Plus} from '@gravity-ui/icons';
+import {CircleInfoFill, EllipsisVertical, Plus} from '@gravity-ui/icons';
 import {ArrowToggle, Dialog, DropdownMenu, Icon, Text} from '@gravity-ui/uikit';
 
 import {CommonProps, SectionField} from '../../types';
@@ -17,7 +17,7 @@ const b = formGeneratorCn('section');
 
 type SectionProp = CommonProps & SectionField;
 
-const Section = ({title, opened, fields, when, content, onUpdate}: SectionProp) => {
+const Section = ({title, opened, fields, when, content, onUpdate, note}: SectionProp) => {
     const [isOpened, setOpened] = React.useState(opened);
     const [confirmDialogOpen, setConfirmDialogOpen] = React.useState(false);
     const hasData = sectionHasContentData(fields, content);
@@ -102,6 +102,16 @@ const Section = ({title, opened, fields, when, content, onUpdate}: SectionProp) 
                             </SectionOpenContext.Provider>
                         </div>
                     </div>
+                    {note && (
+                        <div className={b('note')}>
+                            <Icon
+                                className={b('note-icon')}
+                                data={CircleInfoFill}
+                                color={note.level}
+                            />
+                            <Text variant="body-1">{note.text}</Text>
+                        </div>
+                    )}
                 </div>
                 {confirmDialog}
             </React.Fragment>
