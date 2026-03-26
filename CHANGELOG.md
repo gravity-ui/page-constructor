@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.2.2](https://github.com/gravity-ui/page-constructor/compare/v8.2.1...v8.2.2) (2026-03-26)
+
+
+### Bug Fixes
+
+* **Header:** overtitle theme ([#1399](https://github.com/gravity-ui/page-constructor/issues/1399)) ([4b6f39b](https://github.com/gravity-ui/page-constructor/commit/4b6f39b5021eba74fe108861fc2ff3b289fed9e5))
+
 ## [8.2.1](https://github.com/gravity-ui/page-constructor/compare/v8.2.0...v8.2.1) (2026-03-24)
 
 
