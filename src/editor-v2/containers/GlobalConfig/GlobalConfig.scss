@@ -1,0 +1,10 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+$block: '.#{$ns}global-config';
+
+#{$block} {
+    &__title {
+        @include text-subheader-3;
+    }
+}

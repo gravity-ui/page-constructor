@@ -1,0 +1,7 @@
+@import '../../styles/variables.scss';
+
+$block: '.#{$ns-form-builder}add-property-button';
+
+#{$block} {
+    margin-top: 8px;
+}

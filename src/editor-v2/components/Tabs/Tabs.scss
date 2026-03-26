@@ -1,0 +1,73 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+$block: '.#{$ns}tabs';
+
+#{$block} {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    height: 100%;
+
+    .g-button#{$block}__item {
+        color: var(--g-color-text-hint);
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        cursor: pointer;
+        font-size: var(--g-text-code-inline-1-font-size);
+        line-height: var(--g-text-code-inline-2-line-height);
+        align-items: center;
+
+        &_active {
+            pointer-events: none;
+            color: var(--g-color-text-primary);
+        }
+    }
+
+    &__tabs-wrapper {
+        width: 100%;
+        border-bottom: 1px solid var(--g-color-line-generic);
+        display: inline-flex;
+        flex-direction: row;
+        padding: 12px 4px;
+        flex: 0 0 auto;
+        box-sizing: border-box;
+        overflow-x: auto;
+        position: sticky;
+        top: 0;
+        background-color: var(--g-color-base-background);
+        /* This ensures the background is visible when sticky */
+        z-index: 2;
+        /* Higher z-index for parent tabs-wrapper */
+    }
+
+    /* Make sure any nested tabs component also has proper overflow behavior */
+    #{$block} {
+        overflow: visible;
+
+        /* Ensure nested tabs-wrapper elements are also sticky but positioned below parent tabs-wrapper */
+        /* This selector specifically targets tabs-wrapper elements inside a nested tabs component */
+        #{$block} &__tabs-wrapper {
+            position: sticky;
+            /* Position below parent tabs-wrapper */
+            z-index: 1;
+            background-color: var(--g-color-base-background);
+        }
+    }
+
+    &__body {
+        flex: 1;
+        min-height: 1px;
+        height: 100%;
+    }
+
+    &__item {
+        @include custom-scrollbar();
+        overflow-y: auto;
+        max-height: 100%;
+
+        &_padding {
+            padding: 16px 12px;
+        }
+    }
+}

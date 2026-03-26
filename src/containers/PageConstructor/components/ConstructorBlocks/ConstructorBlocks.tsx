@@ -19,15 +19,18 @@ export interface ConstructorBlocksProps {
     items: ConstructorBlockType[];
 }
 
-export const ConstructorBlocks = ({items}: ConstructorBlocksProps) => {
-    const {blockTypes, loadables, itemMap, shouldRenderBlock} = React.useContext(InnerContext);
+export const ConstructorBlocks: React.FC<ConstructorBlocksProps> = ({items}) => {
+    const {loadables, shouldRenderBlock, blocks} = React.useContext(InnerContext);
 
     const renderer = (
         parentId = '',
+        withoutConstructorBlockWrapper = false,
         item: ConstructorBlockType,
         index: number,
     ): React.ReactElement | null => {
-        if (!itemMap[item.type]) {
+        const blockData = blocks.find(({type}) => item.type === type);
+
+        if (!blockData) {
             return parentId ? null : (
                 <BlockDecoration type={item.type as BlockType} index={index}>
                     {null}
@@ -63,26 +66,26 @@ export const ConstructorBlocks = ({items}: ConstructorBlocksProps) => {
         } else {
             let children;
             if ('children' in item && item.children) {
-                children = (item.children as SubBlock[]).map(renderer.bind(null, blockId));
+                children = (item.children as SubBlock[]).map(renderer.bind(null, blockId, true));
             }
 
             itemElement = (
-                <ConstructorItem data={item} key={blockId} blockKey={blockId}>
+                <ConstructorItem data={item} key={blockId} blockKey={index}>
                     {children}
                 </ConstructorItem>
             );
         }
 
-        return blockTypes.includes(item.type) ? (
+        return withoutConstructorBlockWrapper ? (
+            itemElement
+        ) : (
             //TODO: replace ConstructorBlock (and delete it) with BlockBase when all
             // components relying on constructor inner structure like Slider or blog-constructor will be refactored
             <ConstructorBlock data={item} key={blockId} index={index}>
                 {itemElement}
             </ConstructorBlock>
-        ) : (
-            itemElement
         );
     };
 
-    return <React.Fragment>{items.map(renderer.bind(null, ''))}</React.Fragment>;
+    return <React.Fragment>{items.map(renderer.bind(null, '', false))}</React.Fragment>;
 };

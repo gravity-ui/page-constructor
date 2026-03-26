@@ -1,0 +1,16 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+$block: '.#{$ns}tree';
+
+#{$block} {
+    padding: 12px;
+    position: relative;
+
+    &__head {
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+}

@@ -1,0 +1,20 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+$block: '.#{$ns}sidebar';
+
+#{$block} {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    height: 100%;
+
+    &__block {
+        width: 100%;
+        border-bottom: 1px solid var(--g-color-line-generic);
+    }
+
+    &__tabs {
+        @include custom-scrollbar();
+    }
+}

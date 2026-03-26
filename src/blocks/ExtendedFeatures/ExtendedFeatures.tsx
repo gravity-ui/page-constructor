@@ -2,7 +2,7 @@ import {AnimateBlock, Title, YFMWrapper} from '../../components/';
 import Image from '../../components/Image/Image';
 import {getMediaImage} from '../../components/Media/Image/utils';
 import {useTheme} from '../../context/theme';
-import {Col, Row} from '../../grid';
+import {Col, Grid, Row} from '../../grid';
 import {ExtendedFeaturesProps} from '../../models';
 import {Content} from '../../sub-blocks';
 import {block, getThemedValue} from '../../utils';
@@ -29,69 +29,81 @@ export const ExtendedFeaturesBlock = ({
 
     return (
         <AnimateBlock className={b()} animate={animated}>
-            <Title title={title} subtitle={description} className={b('header')} />
-            <div className={b('items')}>
-                <Row>
-                    {items.map(
-                        ({
-                            title: itemTitle,
-                            text,
-                            list,
-                            link,
-                            links,
-                            label,
-                            icon,
-                            buttons,
-                            additionalInfo,
-                        }) => {
-                            const itemLinks = links || [];
+            <Grid>
+                <Title title={title} subtitle={description} className={b('header')} />
+                <div className={b('items')}>
+                    <Row>
+                        {items &&
+                            items.map(
+                                (
+                                    {
+                                        title: itemTitle,
+                                        text,
+                                        list,
+                                        link,
+                                        links,
+                                        label,
+                                        icon,
+                                        buttons,
+                                        additionalInfo,
+                                    },
+                                    index,
+                                ) => {
+                                    const itemLinks = links || [];
 
-                            const iconThemed = icon && getThemedValue(icon, theme);
-                            const iconData = iconThemed && getMediaImage(iconThemed);
+                                    const iconThemed = icon && getThemedValue(icon, theme);
+                                    const iconData = iconThemed && getMediaImage(iconThemed);
 
-                            if (link) {
-                                itemLinks.push(link);
-                            }
+                                    if (link) {
+                                        itemLinks.push(link);
+                                    }
 
-                            return (
-                                <Col className={b('item')} key={text || itemTitle} sizes={colSizes}>
-                                    {iconData && (
-                                        <div className={b('icon-wrap')} aria-hidden>
-                                            <Image {...iconData} className={b('icon')} />
-                                        </div>
-                                    )}
-                                    <div className={b('container')}>
-                                        {itemTitle && (
-                                            <YFMWrapper
-                                                tagName={itemTitleHeadingTag}
-                                                content={itemTitle}
-                                                className={b('item-title-container')}
-                                                contentClassName={b('item-title')}
-                                                modifiers={{
-                                                    constructor: true,
-                                                }}
-                                            >
-                                                {label && (
-                                                    <span className={b('item-label')}>{label}</span>
+                                    return (
+                                        <Col
+                                            className={b('item')}
+                                            key={text || itemTitle}
+                                            sizes={colSizes}
+                                        >
+                                            {iconData && (
+                                                <div className={b('icon-wrap')} aria-hidden>
+                                                    <Image {...iconData} className={b('icon')} />
+                                                </div>
+                                            )}
+                                            <div className={b('container')}>
+                                                {itemTitle && (
+                                                    <YFMWrapper
+                                                        tagName={itemTitleHeadingTag}
+                                                        content={itemTitle}
+                                                        className={b('item-title-container')}
+                                                        contentClassName={b('item-title')}
+                                                        modifiers={{
+                                                            constructor: true,
+                                                        }}
+                                                    >
+                                                        {label && (
+                                                            <span className={b('item-label')}>
+                                                                {label}
+                                                            </span>
+                                                        )}
+                                                    </YFMWrapper>
                                                 )}
-                                            </YFMWrapper>
-                                        )}
-                                        <Content
-                                            text={text}
-                                            links={itemLinks}
-                                            size="s"
-                                            list={list}
-                                            colSizes={{all: 12, md: 12}}
-                                            buttons={buttons}
-                                            additionalInfo={additionalInfo}
-                                        />
-                                    </div>
-                                </Col>
-                            );
-                        },
-                    )}
-                </Row>
-            </div>
+                                                <Content
+                                                    text={text}
+                                                    links={itemLinks}
+                                                    size="s"
+                                                    list={list}
+                                                    colSizes={{all: 12, md: 12}}
+                                                    buttons={buttons}
+                                                    additionalInfo={additionalInfo}
+                                                />
+                                            </div>
+                                        </Col>
+                                    );
+                                },
+                            )}
+                    </Row>
+                </div>
+            </Grid>
         </AnimateBlock>
     );
 };
