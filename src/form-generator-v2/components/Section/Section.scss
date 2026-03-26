@@ -1,5 +1,12 @@
 .pc-fg-section {
-    border-top: 1px solid var(--g-color-line-generic);
+    &:before {
+        content: '';
+        height: 1px;
+        width: calc(100% + 16px * 2);
+        background: var(--g-color-line-generic);
+        display: block;
+        margin-left: -16px;
+    }
 
     &__header {
         display: flex;
