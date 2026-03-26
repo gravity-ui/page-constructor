@@ -510,7 +510,12 @@ const MediaBlockConfig = {
                 },
             ],
             media: {
-                image: 'https://storage.yandexcloud.net/cloud-www-assets/constructor/main/new/media-01-01.jpg',
+                light: {
+                    image: {
+                        desktop:
+                            'https://storage.yandexcloud.net/cloud-www-assets/constructor/main/new/media-01-01.jpg',
+                    },
+                },
             },
         },
         previewImg: svgIcon,
