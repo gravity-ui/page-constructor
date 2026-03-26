@@ -170,7 +170,10 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
                                                     tagName="div"
                                                     className={b('overtitle')}
                                                     content={overtitle}
-                                                    modifiers={{constructor: true}}
+                                                    modifiers={{
+                                                        constructor: true,
+                                                        constructorTheme: textTheme,
+                                                    }}
                                                 />
                                             ) : (
                                                 overtitle
