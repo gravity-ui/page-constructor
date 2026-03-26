@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import {usePostMessageAPIListener} from '../../../common/postMessage';
 import {PageContentWithNavigation} from '../../../models';
 import {Panels} from '../../components/Panels/Panels';
 import {Sidebar} from '../../components/Sidebar/Sidebar';
@@ -39,9 +40,53 @@ interface EditorViewProps {
 
 const EditorView = ({componentsConfig = {}, initialContent}: EditorViewProps) => {
     const store = useMainEditorStore();
-    const {manipulateOverlayMode, disableMode} = store;
+    const {manipulateOverlayMode, disableMode, undo, redo} = store;
 
     useMainEditorInitialize(initialContent);
+
+    usePostMessageAPIListener(
+        'ON_EDITOR_UNDO',
+        () => {
+            undo();
+        },
+        [undo],
+    );
+    usePostMessageAPIListener(
+        'ON_EDITOR_REDO',
+        () => {
+            redo();
+        },
+        [redo],
+    );
+
+    React.useEffect(() => {
+        const onKeyDown = (e: KeyboardEvent) => {
+            if (!(e.metaKey || e.ctrlKey)) {
+                return;
+            }
+
+            if (e.key.toLowerCase() !== 'z') {
+                return;
+            }
+
+            const target = e.target as HTMLElement | null;
+            if (target?.closest('input, textarea, select, [contenteditable="true"]')) {
+                return;
+            }
+
+            e.preventDefault();
+
+            if (e.shiftKey) {
+                redo();
+            } else {
+                undo();
+            }
+        };
+
+        window.addEventListener('keydown', onKeyDown, true);
+
+        return () => window.removeEventListener('keydown', onKeyDown, true);
+    }, [redo, undo]);
 
     // Disable insert mode on any MouseUp event
     // Maybe should be attached to body

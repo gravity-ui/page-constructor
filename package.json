@@ -149,6 +149,7 @@
     "typograf": "^7.4.1",
     "utility-types": "^3.10.0",
     "uuid": "^9.0.0",
+    "zundo": "^2.3.0",
     "zustand": "^4.5.2"
   },
   "peerDependencies": {
