@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import {StoreApi} from 'zustand';
 
 import {EditorState} from '../../../common/store';
@@ -34,7 +35,8 @@ export const MainEditorStoreProvider = ({children}: MainEditorProviderProps) => 
 
     React.useEffect(() => {
         storeRef.current?.subscribe((state) => {
-            sendPostMessage(removeFn(state));
+            const {historyPast: _historyPast, historyFuture: _historyFuture, ...syncable} = state;
+            sendPostMessage(removeFn({...syncable, historyPast: [], historyFuture: []}));
         });
     }, [sendPostMessage]);
 

@@ -4,6 +4,7 @@ import {StoreApi} from 'zustand';
 
 import {EditorState, createPCEditorStore} from '../../common/store';
 import {StoreSyncMessage} from '../../common/types';
+import {sendEventPostMessage} from '../../hooks/usePostMessageAPI';
 
 import {PCEditorStoreContext} from './PCEditorStoreContext';
 
@@ -30,6 +31,34 @@ export const PCEditorStoreProvider = ({children}: PCEditorStoreProviderProps) =>
             window.removeEventListener('message', onMessage);
         };
     }, [syncStore]);
+
+    // When Page Constructor runs inside the editor preview iframe, keyboard focus stays in the iframe
+    // after clicking the canvas — parent window never receives Cmd+Z. Forward to parent via postMessage.
+    React.useEffect(() => {
+        if (typeof window === 'undefined' || window.parent === window) {
+            return undefined;
+        }
+        const onKeyDown = (e: KeyboardEvent) => {
+            if (!(e.metaKey || e.ctrlKey) || e.key.toLowerCase() !== 'z') {
+                return;
+            }
+
+            const target = e.target as HTMLElement | null;
+            if (target?.closest('input, textarea, select, [contenteditable="true"]')) {
+                return;
+            }
+
+            e.preventDefault();
+
+            if (e.shiftKey) {
+                sendEventPostMessage('ON_EDITOR_REDO', {});
+            } else {
+                sendEventPostMessage('ON_EDITOR_UNDO', {});
+            }
+        };
+        window.addEventListener('keydown', onKeyDown, true);
+        return () => window.removeEventListener('keydown', onKeyDown, true);
+    }, []);
 
     if (!storeRef.current) {
         storeRef.current = createPCEditorStore();

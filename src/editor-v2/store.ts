@@ -1,8 +1,8 @@
 import _ from 'lodash';
 
-import {EditorState, initialStore} from '../common/store';
-import {DynamicFormValue} from '../form-generator';
+import {EditorHistorySnapshot, EditorState, initialStore} from '../common/store';
 import {initializeStore} from '../common/utils';
+import {DynamicFormValue} from '../form-generator';
 import {ConstructorBlock, PageContentWithNavigation} from '../models';
 
 import {ZOOM_STEPS} from './constants';
@@ -17,6 +17,22 @@ import {
     reorderArrayItems,
 } from './utils';
 
+const MAX_EDITOR_HISTORY = 50;
+
+function snapshotEditorHistory(state: EditorState): EditorHistorySnapshot {
+    return {
+        content: _.cloneDeep(state.content),
+        selectedBlock: state.selectedBlock ? [...state.selectedBlock] : null,
+    };
+}
+
+function appendHistoryPast(
+    past: EditorHistorySnapshot[],
+    snapshot: EditorHistorySnapshot,
+): EditorHistorySnapshot[] {
+    return [...past.slice(-(MAX_EDITOR_HISTORY - 1)), snapshot];
+}
+
 export interface EditorMethods {
     initialize(): void;
     setSelectedBlock(path: number[] | null): void;
@@ -27,7 +43,7 @@ export interface EditorMethods {
     decreaseZoom(): void;
     togglePreviewMode(): void;
     setConfig(data: Pick<EditorState, 'blocks' | 'subBlocks' | 'global'>): void;
-    setContent(data: PageContentWithNavigation): void;
+    setContent(data: PageContentWithNavigation, skipHistory?: boolean): void;
     insertBlock(path: number[], blockType: string, position?: 'prepend' | 'append'): void;
     enableInsertMode(blockType: string): void;
     enableReorderMode(path: number[]): void;
@@ -38,6 +54,8 @@ export interface EditorMethods {
     reorderBlock(path: number[], destination: number[], position?: 'prepend' | 'append'): void;
     resetInitialize(): void;
     resetBlocks(): void;
+    undo(): void;
+    redo(): void;
 }
 
 export type EditorStore = EditorState & EditorMethods;
@@ -86,6 +104,52 @@ export const createEditorStore = initializeStore<EditorState, EditorMethods>(
         setConfig(data) {
             set((state) => ({...state, ...data}));
         },
+        undo() {
+            set((state) => {
+                if (state.historyPast.length === 0) {
+                    return state;
+                }
+
+                const past = [...state.historyPast];
+                const previous = past.pop();
+                if (previous === undefined) {
+                    return state;
+                }
+
+                const currentSnap = snapshotEditorHistory(state);
+
+                return {
+                    ...state,
+                    content: previous.content,
+                    selectedBlock: previous.selectedBlock,
+                    historyPast: past,
+                    historyFuture: [currentSnap, ...state.historyFuture],
+                };
+            });
+        },
+        redo() {
+            set((state) => {
+                if (state.historyFuture.length === 0) {
+                    return state;
+                }
+
+                const future = [...state.historyFuture];
+                const next = future.shift();
+                if (next === undefined) {
+                    return state;
+                }
+
+                const currentSnap = snapshotEditorHistory(state);
+
+                return {
+                    ...state,
+                    content: next.content,
+                    selectedBlock: next.selectedBlock,
+                    historyPast: appendHistoryPast(state.historyPast, currentSnap),
+                    historyFuture: future,
+                };
+            });
+        },
         insertBlock: (arrayPath, blockType, position = 'append') => {
             if (position === 'append') {
                 // TODO: fix
@@ -109,11 +173,17 @@ export const createEditorStore = initializeStore<EditorState, EditorMethods>(
                     insert(parentBlocks, index, defaultValue as ConstructorBlock),
             );
 
-            set((state) => ({
-                ...state,
-                content: {...state.content, blocks: newBlocksConfig},
-                selectedBlock: arrayPath,
-            }));
+            set((state) => {
+                const before = snapshotEditorHistory(state);
+
+                return {
+                    ...state,
+                    historyPast: appendHistoryPast(state.historyPast, before),
+                    historyFuture: [],
+                    content: {...state.content, blocks: newBlocksConfig},
+                    selectedBlock: arrayPath,
+                };
+            });
         },
         enableInsertMode(blockType: string) {
             set((state) => ({
@@ -137,11 +207,26 @@ export const createEditorStore = initializeStore<EditorState, EditorMethods>(
                 preReorderBlockPath: path,
             }));
         },
-        setContent(content) {
-            set((state) => ({
-                ...state,
-                content: content,
-            }));
+        setContent(content, skipHistory = false) {
+            set((state) => {
+                if (skipHistory) {
+                    return {
+                        ...state,
+                        historyPast: state.historyPast,
+                        historyFuture: [],
+                        content,
+                    };
+                }
+
+                const before = snapshotEditorHistory(state);
+
+                return {
+                    ...state,
+                    historyPast: appendHistoryPast(state.historyPast, before),
+                    historyFuture: [],
+                    content,
+                };
+            });
         },
         initialize() {
             set((state) => ({
@@ -157,9 +242,13 @@ export const createEditorStore = initializeStore<EditorState, EditorMethods>(
         },
         updateField(path, value) {
             set((state) => {
-                const newConfig = _.set(state.content, path, value);
+                const before = snapshotEditorHistory(state);
+                const newConfig = _.set(_.cloneDeep(state.content), path, value);
+
                 return {
                     ...state,
+                    historyPast: appendHistoryPast(state.historyPast, before),
+                    historyFuture: [],
                     content: newConfig,
                 };
             });
@@ -168,21 +257,33 @@ export const createEditorStore = initializeStore<EditorState, EditorMethods>(
             const blocksConfig = get().content.blocks;
 
             const newBlocksConfig = modifyObjectByPath(blocksConfig, arrayPath, removeFromArray);
-            set((state) => ({
-                ...state,
-                content: {...state.content, blocks: newBlocksConfig},
-                selectedBlock: null,
-            }));
+            set((state) => {
+                const before = snapshotEditorHistory(state);
+
+                return {
+                    ...state,
+                    historyPast: appendHistoryPast(state.historyPast, before),
+                    historyFuture: [],
+                    content: {...state.content, blocks: newBlocksConfig},
+                    selectedBlock: null,
+                };
+            });
         },
         duplicateBlock: (arrayPath) => {
             const blocksConfig = get().content.blocks;
 
             const newBlocksConfig = modifyObjectByPath(blocksConfig, arrayPath, duplicateArrayItem);
 
-            set((state) => ({
-                ...state,
-                content: {...state.content, blocks: newBlocksConfig},
-            }));
+            set((state) => {
+                const before = snapshotEditorHistory(state);
+
+                return {
+                    ...state,
+                    historyPast: appendHistoryPast(state.historyPast, before),
+                    historyFuture: [],
+                    content: {...state.content, blocks: newBlocksConfig},
+                };
+            });
         },
         reorderBlock: (arrayPath, destination, position = 'append') => {
             // Create a copy of the destination array before any modifications
@@ -233,11 +334,17 @@ export const createEditorStore = initializeStore<EditorState, EditorMethods>(
                 );
             }
 
-            set((state) => ({
-                ...state,
-                content: {...state.content, blocks: newBlocksConfig},
-                selectedBlock: finalDestinationPath,
-            }));
+            set((state) => {
+                const before = snapshotEditorHistory(state);
+
+                return {
+                    ...state,
+                    historyPast: appendHistoryPast(state.historyPast, before),
+                    historyFuture: [],
+                    content: {...state.content, blocks: newBlocksConfig},
+                    selectedBlock: finalDestinationPath,
+                };
+            });
         },
         resetInitialize: () => {
             set((state) => ({
@@ -246,10 +353,16 @@ export const createEditorStore = initializeStore<EditorState, EditorMethods>(
             }));
         },
         resetBlocks: () => {
-            set((state) => ({
-                ...state,
-                content: {...state.content, blocks: []},
-            }));
+            set((state) => {
+                const before = snapshotEditorHistory(state);
+
+                return {
+                    ...state,
+                    historyPast: appendHistoryPast(state.historyPast, before),
+                    historyFuture: [],
+                    content: {...state.content, blocks: []},
+                };
+            });
         },
     }),
 );
