@@ -43,7 +43,7 @@ export interface EditorMethods {
     decreaseZoom(): void;
     togglePreviewMode(): void;
     setConfig(data: Pick<EditorState, 'blocks' | 'subBlocks' | 'global'>): void;
-    setContent(data: PageContentWithNavigation): void;
+    setContent(data: PageContentWithNavigation, skipHistory?: boolean): void;
     insertBlock(path: number[], blockType: string, position?: 'prepend' | 'append'): void;
     enableInsertMode(blockType: string): void;
     enableReorderMode(path: number[]): void;
@@ -207,8 +207,17 @@ export const createEditorStore = initializeStore<EditorState, EditorMethods>(
                 preReorderBlockPath: path,
             }));
         },
-        setContent(content) {
+        setContent(content, skipHistory = false) {
             set((state) => {
+                if (skipHistory) {
+                    return {
+                        ...state,
+                        historyPast: state.historyPast,
+                        historyFuture: [],
+                        content,
+                    };
+                }
+
                 const before = snapshotEditorHistory(state);
 
                 return {

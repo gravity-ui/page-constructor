@@ -8,6 +8,7 @@ $block: '.#{$ns}view-switches';
     display: inline-flex;
     align-items: center;
     gap: 12px;
+    flex-wrap: wrap;
 
     &__zoom {
         display: flex;
@@ -16,5 +17,9 @@ $block: '.#{$ns}view-switches';
         &-select {
             min-width: 80px;
         }
+    }
+
+    &__history-buttons {
+        width: max-content;
     }
 }
