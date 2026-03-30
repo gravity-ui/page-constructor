@@ -1,7 +1,6 @@
 import {useUniqId} from '@gravity-ui/uikit';
 
 import {Buttons, ContentList, Links, Title, YFMWrapper} from '../../components';
-import ContentLabels from '../../components/ContentLabels/ContentLabels';
 import {Col} from '../../grid';
 import {
     ClassNameProps,
@@ -47,18 +46,10 @@ const Content = (props: ContentProps) => {
         theme,
         className,
         list,
-        labels,
         qa,
         controlPosition,
     } = props;
-    const qaAttributes = getQaAttrubutes(qa, [
-        'links',
-        'link',
-        'buttons',
-        'button',
-        'list',
-        'labels',
-    ]);
+    const qaAttributes = getQaAttrubutes(qa, ['links', 'link', 'buttons', 'button', 'list']);
 
     const titleProps =
         !title || typeof title === 'string'
@@ -94,16 +85,6 @@ const Content = (props: ContentProps) => {
                     />
                 </div>
             )}
-            {labels?.length ? (
-                <div className={b('labels')}>
-                    <ContentLabels
-                        labels={labels}
-                        theme={theme}
-                        size={size}
-                        qa={qaAttributes.labels}
-                    />
-                </div>
-            ) : null}
             {list?.length ? (
                 <div className={b('list')}>
                     <ContentList list={list} size={size} qa={qaAttributes.list} theme={theme} />
