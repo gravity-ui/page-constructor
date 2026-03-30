@@ -15,6 +15,14 @@
         margin-bottom: 16px;
     }
 
+    &__title {
+        display: inline-block;
+
+        &::first-letter {
+            text-transform: uppercase;
+        }
+    }
+
     &__header-button {
         display: flex;
         align-items: center;

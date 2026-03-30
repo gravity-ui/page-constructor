@@ -65,11 +65,17 @@ const Base = ({when, content, children, name, onUpdate}: BaseProps) => {
     const wasVisibleRef = React.useRef(isShow);
 
     React.useEffect(() => {
-        if (wasVisibleRef.current && !isShow && onUpdate && name) {
+        if (
+            wasVisibleRef.current &&
+            !isShow &&
+            onUpdate &&
+            name &&
+            getValueByPath(content, name) !== undefined
+        ) {
             onUpdate(name, undefined, {unset: true});
         }
         wasVisibleRef.current = isShow;
-    }, [isShow, name, onUpdate]);
+    }, [content, isShow, name, onUpdate]);
 
     return isShow ? children : null;
 };

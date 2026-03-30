@@ -21,18 +21,18 @@ const SegmentedRadioGroup = ({
     const selected = content ? getValueByPath(content, name) : undefined;
 
     React.useEffect(() => {
-        if (!defaultValue) {
+        if (defaultValue === undefined) {
             return;
         }
 
-        if (selected) {
+        if (selected !== undefined && selected !== null) {
             return;
         }
 
         onUpdate(name, defaultValue);
     }, [defaultValue, name, onUpdate, selected]);
 
-    const value = selected || defaultValue || null;
+    const value = selected ?? defaultValue ?? null;
 
     return (
         <Base when={when} content={content} name={name} onUpdate={onUpdate}>

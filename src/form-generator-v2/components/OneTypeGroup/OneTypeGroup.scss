@@ -17,5 +17,9 @@
         margin-bottom: 12px;
         display: block;
         flex-grow: 1;
+
+        &::first-letter {
+            text-transform: uppercase;
+        }
     }
 }

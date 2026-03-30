@@ -50,7 +50,7 @@ const Section = ({title, opened, fields, when, content, onUpdate, note}: Section
                 {showArrowTogler && (
                     <ArrowToggle direction={isOpened ? 'top' : 'bottom'} className={b('arrow')} />
                 )}
-                <Text variant="subheader-1" color="hint">
+                <Text variant="subheader-1" color="hint" className={b('title')}>
                     {title}
                 </Text>
                 {!showArrowTogler && <Plus width={16} height={16} className={b('plus')} />}
