@@ -1,7 +1,7 @@
 import {JSONSchemaType} from 'ajv';
 
 import {BlockData} from '../../constructor-items';
-import {generateFromAJV} from '../../utils/form-generator';
+import {generateFormFieldsFromAjvSchema} from '../../form-generator-v2/utils/generateFormFieldsFromAjv';
 
 import MediaCard from './MediaCard';
 import {MediaCardBlock as MediaCardSchema} from './schema';
@@ -13,7 +13,9 @@ const MediaCardConfig: BlockData = {
         name: 'Media Card',
         group: '@gravity-ui/page-constructor/Cards',
         // TODO: change to custom block schema
-        inputs: generateFromAJV(MediaCardSchema['media-card'] as unknown as JSONSchemaType<{}>),
+        inputs: generateFormFieldsFromAjvSchema(
+            MediaCardSchema['media-card'] as unknown as JSONSchemaType<{}>,
+        ),
         default: {
             content: {
                 title: 'Media Card',
