@@ -1,6 +1,5 @@
 import {IconProps} from '@gravity-ui/uikit';
 
-import {Fields} from '../form-generator-v2/types';
 import {PageContentWithNavigation} from '../models';
 
 export type DynamicFormValue =
@@ -15,7 +14,6 @@ export type DynamicFormValue =
 export interface BlockConfig {
     name: string;
     inputs?: Array<ConfigInput>;
-    inputsV2?: Fields;
     group?: string;
     hidden?: boolean;
     default?: object;

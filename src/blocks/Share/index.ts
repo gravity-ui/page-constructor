@@ -1,6 +1,6 @@
 import {JSONSchemaType} from 'ajv';
 
-import {generateFromAJV} from '../../utils/form-generator';
+import {generateFormFieldsFromAjvSchema} from '../../form-generator-v2/utils/generateFormFieldsFromAjv';
 
 import ShareBlock from './Share';
 import {ShareBlock as ShareBlockSchema} from './schema';
@@ -12,7 +12,9 @@ const ShareBlockConfig = {
         name: 'Share Block',
         group: '@gravity-ui/page-constructor/Blocks',
         // TODO: change to custom block schema
-        inputs: generateFromAJV(ShareBlockSchema['share-block'] as unknown as JSONSchemaType<{}>),
+        inputs: generateFormFieldsFromAjvSchema(
+            ShareBlockSchema['share-block'] as unknown as JSONSchemaType<{}>,
+        ),
         default: {
             items: ['vk', 'telegram', 'facebook'],
             title: 'Share Block',

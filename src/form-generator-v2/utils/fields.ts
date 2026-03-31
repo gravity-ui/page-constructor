@@ -88,7 +88,7 @@ export const findNameWithIndexName = (fields: Fields, indexName: string) => {
     while (stack.length > 0) {
         const current = stack.pop();
 
-        if (!current) {
+        if (current === null) {
             continue;
         }
 
@@ -97,13 +97,21 @@ export const findNameWithIndexName = (fields: Fields, indexName: string) => {
             continue;
         }
 
-        const name = 'name' in current ? current.name : undefined;
+        if (typeof current !== 'object') {
+            continue;
+        }
+
+        const name = 'name' in current ? (current as {name?: string}).name : undefined;
 
         if (name && name.includes(indexNameWithBrackets)) {
             return name;
         }
 
-        stack.push(...Object.values(current));
+        stack.push(
+            ...Object.values(current).filter(
+                (v): v is Fields[number] => v !== null && typeof v === 'object',
+            ),
+        );
     }
 
     return undefined;

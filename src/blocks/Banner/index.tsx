@@ -13,7 +13,7 @@ const BannerBlockConfig: BlockData = {
         name: 'Banner Block',
         group: '@gravity-ui/page-constructor/Blocks',
         // TODO: change to custom block schema
-        inputsV2: generateFormFieldsFromAjvSchema(BannerCardProps as unknown as JSONSchemaType<{}>),
+        inputs: generateFormFieldsFromAjvSchema(BannerCardProps as unknown as JSONSchemaType<{}>),
         default: {
             color: 'rgba(54, 151, 241, 0.4)',
             title: 'Banner Block',

@@ -9,7 +9,7 @@ const HeaderBlockConfig: BlockData = {
     schema: {
         name: 'Header Block',
         group: '@gravity-ui/page-constructor/Blocks',
-        inputsV2: [
+        inputs: [
             {
                 type: 'section',
                 title: 'Main settings',

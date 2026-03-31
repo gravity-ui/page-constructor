@@ -1,3 +1,5 @@
+import {IconProps} from '@gravity-ui/uikit';
+
 export type Content = Record<any, any>;
 
 export type When = {
@@ -98,3 +100,13 @@ export type CommonProps = {
     content: Content;
     onUpdate: OnUpdate;
 };
+
+export interface BlockConfig {
+    name: string;
+    inputs: Fields;
+    group?: string;
+    hidden?: boolean;
+    default?: object;
+    previewImg?: string;
+    previewIcon?: IconProps;
+}

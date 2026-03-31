@@ -6,7 +6,9 @@
     }
 
     .pc-fg-section {
-        border-top: none;
+        &:before {
+            content: none;
+        }
     }
 
     &__card-header {

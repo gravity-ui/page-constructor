@@ -8,7 +8,7 @@ const ContentLayoutBlockConfig = {
     schema: {
         name: 'Content Layout Block',
         group: '@gravity-ui/page-constructor/Blocks',
-        inputsV2: [
+        inputs: [
             {
                 type: 'section',
                 title: 'Main settings',

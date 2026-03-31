@@ -32,14 +32,62 @@ const isArrayObject = (input: ConfigInput): input is ArrayObjectInput =>
 const isArrayText = (input: ConfigInput): input is ArrayTextInput =>
     input.type === 'array' && input.arrayType === 'text';
 
+const makeArrayIndexPlaceholder = (
+    pathPrefix: string,
+    fieldName: string,
+    arrayDepth: number,
+    placeholder: (d: number) => string,
+): string => {
+    const base = placeholder(arrayDepth);
+    const fullPath = joinPath(pathPrefix, fieldName);
+    const safeSuffix = fullPath.replace(/[^\w]/g, '_');
+    return safeSuffix ? `${base}_${safeSuffix}` : base;
+};
+
+function sanitizeWhen(when: When | undefined): When | undefined {
+    if (!when?.length) {
+        return undefined;
+    }
+
+    const result: When = [];
+    for (const token of when) {
+        // Keep only fully-defined comparisons: `field` + comparison operator + `value`.
+        if (token.field) {
+            if (
+                (token.operator === '===' || token.operator === '!==') &&
+                token.value !== undefined
+            ) {
+                result.push(token);
+            }
+            continue;
+        }
+
+        // Keep logical operators only when they connect two valid conditions.
+        if ((token.operator === '&&' || token.operator === '||') && result.length > 0) {
+            result.push(token);
+        }
+    }
+
+    // Remove dangling operator at the end, if any.
+    while (result.length > 0 && !result[result.length - 1]!.field) {
+        result.pop();
+    }
+
+    return result.length > 0 ? result : undefined;
+}
+
 function mergeWhen(existing: When | undefined, extra: When | undefined): When | undefined {
-    if (!extra?.length) {
-        return existing;
+    const left = sanitizeWhen(existing);
+    const right = sanitizeWhen(extra);
+
+    if (!right?.length) {
+        return left;
     }
-    if (!existing?.length) {
-        return extra;
+    if (!left?.length) {
+        return right;
     }
-    return [...existing, {operator: '&&' as const}, ...extra];
+
+    return sanitizeWhen([...left, {operator: '&&' as const}, ...right]);
 }
 
 function parseShowIfToWhen(showIf?: string): When | undefined {
@@ -80,39 +128,9 @@ function attachShowIf<T extends Record<string, unknown>>(field: T, input: Config
 /** Same `when` as the former per-branch section had (discriminator only; parent `showIf` stays on outer section). */
 function branchWhenForOption(metaKey: string, optValue: string, optionIndex: number): When {
     if (optionIndex === 0) {
-        return [
-            {field: metaKey, operator: '===', value: String(optValue)},
-            {operator: '||'},
-            {field: metaKey, operator: '===', value: undefined},
-        ];
+        return [{field: metaKey, operator: '===', value: String(optValue)}];
     }
     return [{field: metaKey, operator: '===', value: String(optValue)}];
-}
-
-/** Merge parent object `showIf` onto leaves (when nested object is flattened without a section). */
-function applyParentShowIfToFields(fields: Fields, parentInput: ConfigInput): Fields {
-    const w = parseShowIfToWhen(parentInput.showIf);
-    if (!w?.length) {
-        return fields;
-    }
-    return fields.map((field) => {
-        if (field.type === 'section' && 'fields' in field) {
-            return {
-                ...field,
-                fields: applyParentShowIfToFields(field.fields, parentInput),
-            };
-        }
-        if (field.type === 'oneTypeGroup' && 'fields' in field) {
-            return {
-                ...field,
-                fields: applyParentShowIfToFields(field.fields, parentInput),
-            };
-        }
-        return {
-            ...field,
-            when: mergeWhen(field.when, w),
-        };
-    });
 }
 
 function applyBranchWhenToFields(fields: Fields, branchWhen: When | undefined): Fields {
@@ -123,12 +141,14 @@ function applyBranchWhenToFields(fields: Fields, branchWhen: When | undefined): 
         if (field.type === 'section' && 'fields' in field) {
             return {
                 ...field,
+                when: mergeWhen(field.when, branchWhen),
                 fields: applyBranchWhenToFields(field.fields, branchWhen),
             };
         }
         if (field.type === 'oneTypeGroup' && 'fields' in field) {
             return {
                 ...field,
+                when: mergeWhen(field.when, branchWhen),
                 fields: applyBranchWhenToFields(field.fields, branchWhen),
             };
         }
@@ -144,16 +164,43 @@ function oneOfDiscriminatorKey(pathPrefix: string, fieldName: string): string {
     return joinPath(pathPrefix, `__oneOf_${safeName}`);
 }
 
+/** AJV-generated forms only: `section` siblings go after other field types at every nesting level. */
+function sortGeneratedFieldsSectionsLast(fields: Fields): Fields {
+    const withSortedChildren = fields.map((field) => {
+        if (field.type === 'section') {
+            return {
+                ...field,
+                fields: sortGeneratedFieldsSectionsLast(field.fields),
+            };
+        }
+        if (field.type === 'oneTypeGroup') {
+            return {
+                ...field,
+                fields: sortGeneratedFieldsSectionsLast(field.fields),
+            };
+        }
+        return field;
+    });
+
+    const nonSection: Fields = [];
+    const sectionsOnly: Fields = [];
+    for (const field of withSortedChildren) {
+        if (field.type === 'section') {
+            sectionsOnly.push(field);
+        } else {
+            nonSection.push(field);
+        }
+    }
+    return [...nonSection, ...sectionsOnly];
+}
+
 function convertInputs(
     inputs: ConfigInput[],
     pathPrefix: string,
     arrayDepth: number,
     placeholder: (d: number) => string,
-    objectDepth: number,
 ): Fields {
-    return inputs.flatMap((input) =>
-        convertOne(input, pathPrefix, arrayDepth, placeholder, objectDepth),
-    );
+    return inputs.flatMap((input) => convertOne(input, pathPrefix, arrayDepth, placeholder));
 }
 
 function convertOne(
@@ -161,7 +208,6 @@ function convertOne(
     pathPrefix: string,
     arrayDepth: number,
     placeholder: (d: number) => string,
-    objectDepth: number,
 ): Fields {
     const name = joinPath(pathPrefix, input.name);
 
@@ -193,37 +239,25 @@ function convertOne(
             ];
             const nested = (input as {properties?: ConfigInput[]}).properties;
             if (Array.isArray(nested) && nested.length) {
-                fields.push(...convertInputs(nested, name, arrayDepth, placeholder, objectDepth));
+                fields.push(...convertInputs(nested, name, arrayDepth, placeholder));
             }
             return fields;
         }
         case 'object': {
             const obj = input as ObjectInput;
-            const childObjectDepth = objectDepth + 1;
-            const nestedFields = convertInputs(
-                obj.properties,
-                name,
-                arrayDepth,
-                placeholder,
-                childObjectDepth,
-            );
-            if (objectDepth >= 1) {
-                return applyParentShowIfToFields(nestedFields, input);
-            }
             return [
                 attachShowIf(
                     {
                         type: 'section',
                         title: obj.title,
-                        opened: true,
-                        fields: nestedFields,
+                        fields: convertInputs(obj.properties, name, arrayDepth, placeholder),
                     },
                     input,
                 ),
             ];
         }
         case 'array': {
-            const ph = placeholder(arrayDepth);
+            const ph = makeArrayIndexPlaceholder(pathPrefix, input.name, arrayDepth, placeholder);
             const itemPath = `${name}[{{${ph}}}]`;
             if (isArrayText(input)) {
                 return [
@@ -232,7 +266,7 @@ function convertOne(
                             type: 'oneTypeGroup',
                             index: ph,
                             withAddButton: true,
-                            title: `Item {{${ph}}}`,
+                            title: `${input.title} {{${ph}}}`,
                             fields: [{type: 'textInput', name: itemPath, title: input.title}],
                         },
                         input,
@@ -246,13 +280,12 @@ function convertOne(
                             type: 'oneTypeGroup',
                             index: ph,
                             withAddButton: true,
-                            title: `Item {{${ph}}}`,
+                            title: `${input.title} {{${ph}}}`,
                             fields: convertInputs(
                                 input.properties ?? [],
                                 itemPath,
                                 arrayDepth + 1,
                                 placeholder,
-                                0,
                             ),
                         },
                         input,
@@ -278,13 +311,7 @@ function convertOne(
             };
             const branchFields = o.options.flatMap((opt, optionIndex) => {
                 const branchWhen = branchWhenForOption(metaKey, String(opt.value), optionIndex);
-                const converted = convertInputs(
-                    opt.properties,
-                    name,
-                    arrayDepth,
-                    placeholder,
-                    objectDepth,
-                );
+                const converted = convertInputs(opt.properties, name, arrayDepth, placeholder);
                 return applyBranchWhenToFields(converted, branchWhen);
             });
             return [
@@ -292,7 +319,6 @@ function convertOne(
                     {
                         type: 'section',
                         title: o.title,
-                        opened: true,
                         fields: [variantSwitcher, ...branchFields],
                     },
                     input,
@@ -313,13 +339,12 @@ export function generateFormFieldsFromAjvSchema(
 ): Fields {
     const placeholder = options?.arrayIndexPlaceholder ?? defaultArrayPlaceholder;
     const inputs = generateFromAJV(schema);
-    const inner = convertInputs(inputs, '', 0, placeholder, 0);
+    const inner = sortGeneratedFieldsSectionsLast(convertInputs(inputs, '', 0, placeholder));
     if (options?.wrapInRootSection) {
         return [
             {
                 type: 'section',
                 title: options.rootSectionTitle ?? 'Settings',
-                opened: true,
                 fields: inner,
             },
         ];

@@ -1,6 +1,6 @@
 import {JSONSchemaType} from 'ajv';
 
-import {generateFromAJV} from '../../utils/form-generator';
+import {generateFormFieldsFromAjvSchema} from '../../form-generator-v2/utils/generateFormFieldsFromAjv';
 
 import TableBlock from './Table';
 import {TableBlock as TableBlockSchema} from './schema';
@@ -12,7 +12,9 @@ const TableBlockConfig = {
         name: 'Table Block',
         group: '@gravity-ui/page-constructor/Blocks',
         // TODO: change to custom block schema
-        inputs: generateFromAJV(TableBlockSchema['table-block'] as unknown as JSONSchemaType<{}>),
+        inputs: generateFormFieldsFromAjvSchema(
+            TableBlockSchema['table-block'] as unknown as JSONSchemaType<{}>,
+        ),
         default: {
             type: 'table-block',
             title: 'Lorem ipsum dolor sit amet',
