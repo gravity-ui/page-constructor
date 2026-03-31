@@ -1,0 +1,56 @@
+$block: '.form';
+
+#{$block} {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+
+    &__header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 4px;
+        margin-bottom: 16px;
+    }
+
+    &__header-buttons {
+        display: flex;
+        gap: 8px;
+    }
+
+    &__panel-group {
+        width: 100%;
+        height: 100%;
+    }
+
+    &__panel-content {
+        padding: 20px;
+        height: 100%;
+        overflow: auto;
+        background-color: var(--g-color-base-background);
+        box-sizing: border-box;
+    }
+
+    &__resize-handle {
+        background-color: var(--g-color-line-generic);
+        transition: background-color 0.2s;
+
+        &:hover {
+            background-color: var(--g-color-line-generic-hover);
+        }
+
+        &_horizontal {
+            height: 8px;
+            cursor: row-resize;
+        }
+
+        &_vertical {
+            width: 8px;
+            cursor: col-resize;
+        }
+    }
+
+    &__form {
+        margin-top: 20px;
+    }
+}

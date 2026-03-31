@@ -31,7 +31,6 @@ const getBlockPreview = (blockType: BlockType): PreviewComponent => {
         return DefaultPreview;
     }
 };
-
 type EditorBlocksData = Partial<Record<BlockType, EdiorBlockData>>;
 
 async function getEditorBlocksData(): Promise<EditorBlocksData> {

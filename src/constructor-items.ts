@@ -1,3 +1,5 @@
+import * as React from 'react';
+
 import {
     BannerBlock,
     CardLayoutBlock,
@@ -21,13 +23,28 @@ import {
     TableBlock,
     TabsBlock,
 } from './blocks';
+import BannerBlockConfig from './blocks/Banner';
+import CardLayoutBlockConfig from './blocks/CardLayout';
+import CompaniesBlockConfig from './blocks/Companies';
+import ContentLayoutBlockConfig from './blocks/ContentLayout';
+import ExtendedFeaturesBlockConfig from './blocks/ExtendedFeatures';
+// import FilterBlockConfig from './blocks/FilterBlock';
+import FormBlockConfig from './blocks/Form';
+import HeaderBlockConfig from './blocks/Header';
+import HeaderSliderBlockConfig from './blocks/HeaderSlider';
+import IconsBlockConfig from './blocks/Icons';
+import InfoBlockConfig from './blocks/Info';
+import MapBlockConfig from './blocks/Map';
+import MediaBlockConfig from './blocks/Media';
+import PromoFeaturesBlockConfig from './blocks/PromoFeaturesBlock';
+import QuestionsBlockConfig from './blocks/Questions';
+import ShareBlockConfig from './blocks/Share';
+import SliderBlockConfig from './blocks/Slider';
+import TableBlockConfig from './blocks/Table';
+import TabsBlockConfig from './blocks/Tabs';
+import {BlockConfig} from './form-generator-v2/types';
 import {BlockType, NavigationItemType, SubBlockType} from './models';
-import {
-    GithubButton,
-    NavigationButton,
-    NavigationDropdown,
-    NavigationLink,
-} from './navigation/components/NavigationItem';
+import {GithubButton, NavigationButton, NavigationDropdown, NavigationLink} from './navigation';
 import SocialIcon from './navigation/components/SocialIcon/SocialIcon';
 import {
     BackgroundCard,
@@ -42,7 +59,21 @@ import {
     PriceDetailed,
     Quote,
 } from './sub-blocks';
+import BackgroundCardConfig from './sub-blocks/BackgroundCard';
+import BannerCardConfig from './sub-blocks/BannerCard';
+import BasicCardConfig from './sub-blocks/BasicCard';
+import ContentConfig from './sub-blocks/Content';
+import DividerConfig from './sub-blocks/Divider';
+import ImageCardConfig from './sub-blocks/ImageCard';
+import LayoutItemConfig from './sub-blocks/LayoutItem';
+import MediaCardConfig from './sub-blocks/MediaCard';
+import PriceCardConfig from './sub-blocks/PriceCard';
+import QuoteConfig from './sub-blocks/Quote';
 
+/**
+ * TODO: remove it
+ * @deprecated use blockDataMap
+ **/
 export const blockMap = {
     [BlockType.SliderOldBlock]: SliderOldBlock,
     [BlockType.ExtendedFeaturesBlock]: ExtendedFeaturesBlock,
@@ -67,6 +98,10 @@ export const blockMap = {
     [BlockType.SliderBlock]: SliderBlock,
 };
 
+/**
+ * TODO: remove it
+ * @deprecated use blockDataMap
+ **/
 export const subBlockMap = {
     [SubBlockType.Divider]: Divider,
     [SubBlockType.PriceDetailed]: PriceDetailed,
@@ -87,4 +122,46 @@ export const navItemMap = {
     [NavigationItemType.Dropdown]: NavigationDropdown,
     [NavigationItemType.Link]: NavigationLink,
     [NavigationItemType.GithubButton]: GithubButton,
+};
+
+export interface BlockData {
+    type: string;
+    // TODO: remove any
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    component: React.ComponentType<any>;
+    schema: BlockConfig;
+}
+
+export const blockDataMap: Record<string, BlockData> = {
+    [BlockType.ExtendedFeaturesBlock]: ExtendedFeaturesBlockConfig,
+    [BlockType.PromoFeaturesBlock]: PromoFeaturesBlockConfig,
+    [BlockType.QuestionsBlock]: QuestionsBlockConfig,
+    [BlockType.BannerBlock]: BannerBlockConfig,
+    [BlockType.CompaniesBlock]: CompaniesBlockConfig,
+    [BlockType.MediaBlock]: MediaBlockConfig,
+    [BlockType.InfoBlock]: InfoBlockConfig,
+    [BlockType.TableBlock]: TableBlockConfig,
+    [BlockType.TabsBlock]: TabsBlockConfig,
+    [BlockType.HeaderBlock]: HeaderBlockConfig,
+    [BlockType.IconsBlock]: IconsBlockConfig,
+    [BlockType.HeaderSliderBlock]: HeaderSliderBlockConfig,
+    [BlockType.CardLayoutBlock]: CardLayoutBlockConfig,
+    [BlockType.ContentLayoutBlock]: ContentLayoutBlockConfig,
+    [BlockType.ShareBlock]: ShareBlockConfig,
+    [BlockType.MapBlock]: MapBlockConfig,
+    // TODO: fix items prop for editor compatibility
+    // [BlockType.FilterBlock]: FilterBlockConfig,
+    [BlockType.FormBlock]: FormBlockConfig,
+    [BlockType.SliderBlock]: SliderBlockConfig,
+
+    [SubBlockType.Divider]: DividerConfig,
+    [SubBlockType.MediaCard]: MediaCardConfig,
+    [SubBlockType.BannerCard]: BannerCardConfig,
+    [SubBlockType.LayoutItem]: LayoutItemConfig,
+    [SubBlockType.BackgroundCard]: BackgroundCardConfig,
+    [SubBlockType.BasicCard]: BasicCardConfig,
+    [SubBlockType.Content]: ContentConfig,
+    [SubBlockType.Quote]: QuoteConfig,
+    [SubBlockType.PriceCard]: PriceCardConfig,
+    [SubBlockType.ImageCard]: ImageCardConfig,
 };

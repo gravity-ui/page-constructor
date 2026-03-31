@@ -2,6 +2,7 @@ import * as React from 'react';
 
 import {ItemMap, NavItemMap} from '../../containers/PageConstructor/PageConstructor';
 import {CustomConfig, LoadableConfig, ShouldRenderBlock} from '../../models';
+import {BlockData} from '../../constructor-items';
 
 export interface InnerContextType {
     blockTypes: string[];
@@ -16,6 +17,7 @@ export interface InnerContextType {
     microdata?: {
         contentUpdatedDate?: string;
     };
+    blocks: Array<BlockData>;
 }
 
 export const InnerContext = React.createContext<InnerContextType>({
@@ -26,4 +28,5 @@ export const InnerContext = React.createContext<InnerContextType>({
     itemMap: {} as ItemMap,
     navItemMap: {} as NavItemMap,
     microdata: {},
+    blocks: [],
 });

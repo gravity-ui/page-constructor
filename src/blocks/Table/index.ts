@@ -1,0 +1,37 @@
+import {JSONSchemaType} from 'ajv';
+
+import {generateFormFieldsFromAjvSchema} from '../../form-generator-v2/utils/generateFormFieldsFromAjv';
+
+import TableBlock from './Table';
+import {TableBlock as TableBlockSchema} from './schema';
+
+const TableBlockConfig = {
+    type: 'table-block',
+    component: TableBlock,
+    schema: {
+        name: 'Table Block',
+        group: '@gravity-ui/page-constructor/Blocks',
+        // TODO: change to custom block schema
+        inputs: generateFormFieldsFromAjvSchema(
+            TableBlockSchema['table-block'] as unknown as JSONSchemaType<{}>,
+        ),
+        default: {
+            type: 'table-block',
+            title: 'Lorem ipsum dolor sit amet',
+            table: {
+                content: [
+                    ['Lorem', 'ipsum 1', 'dolor 2', 'sit 3'],
+                    ['Lorem 1', '0', '0', '0'],
+                    ['Lorem 2', '0', '0', '1'],
+                    ['Lorem 3', '0', '0', '1'],
+                    ['Lorem 4', '0', '1', '1'],
+                    ['Lorem 5', '1', '1', '1'],
+                ],
+                legend: ['ipsum 1', 'ipsum 2'],
+                justify: ['start', 'center', 'center', 'center'],
+            },
+        },
+    },
+};
+
+export default TableBlockConfig;

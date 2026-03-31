@@ -1,0 +1,14 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
+
+$block: '.#{$ns}source-code-update-modal';
+
+#{$block} {
+    &__alert {
+        margin-bottom: 8px;
+    }
+
+    &__textarea textarea.g-text-area__control {
+        @include text-code-inline-1;
+    }
+}

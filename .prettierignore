@@ -15,8 +15,12 @@ CONTRIBUTING.md
 /widget
 /schema
 
+
 /playwright/playwright/.cache/
 playwright
 
 # npm files
 package.json
+
+# Playground
+/playground/.next
