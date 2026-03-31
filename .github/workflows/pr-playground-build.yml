@@ -2,6 +2,12 @@ name: playground-preview-build-action
 
 description: Builds and creates Playground artifacts
 
+on:
+  pull_request:
+
+env:
+  PREVIEW_DEST_PATH: /page-constructor/${{ github.event.pull_request.number }}-playground
+
 runs:
   using: composite
   steps:
