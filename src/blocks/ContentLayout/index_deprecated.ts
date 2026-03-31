@@ -1,6 +1,6 @@
 import {JSONSchemaType} from 'ajv';
 
-import {generateFromAJV} from '../../utils/form-generator';
+import {generateFormFieldsFromAjvSchema} from '../../form-generator-v2/utils/generateFormFieldsFromAjv';
 
 import ContentLayoutBlock from './ContentLayout';
 import {ContentLayoutBlock as ContentLayoutBlockSchema} from './schema';
@@ -12,7 +12,7 @@ const ContentLayoutBlockConfig = {
         name: 'Content Layout Block',
         group: '@deprecated',
         hidden: true,
-        inputs: generateFromAJV(
+        inputs: generateFormFieldsFromAjvSchema(
             ContentLayoutBlockSchema['content-layout-block'] as unknown as JSONSchemaType<{}>,
         ),
         default: {

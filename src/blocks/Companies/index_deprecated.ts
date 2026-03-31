@@ -1,7 +1,7 @@
 import {JSONSchemaType} from 'ajv';
 
 import {BlockData} from '../../constructor-items';
-import {generateFromAJV} from '../../utils/form-generator';
+import {generateFormFieldsFromAjvSchema} from '../../form-generator-v2/utils/generateFormFieldsFromAjv';
 
 import CompaniesBlock from './Companies';
 import {CompaniesBlock as CompaniesBlockSchema} from './schema';
@@ -13,7 +13,7 @@ const CompaniesBlockConfig: BlockData = {
         name: 'Companies Block',
         group: '@deprecated',
         hidden: true,
-        inputs: generateFromAJV(
+        inputs: generateFormFieldsFromAjvSchema(
             CompaniesBlockSchema['companies-block'] as unknown as JSONSchemaType<{}>,
         ),
         default: {
