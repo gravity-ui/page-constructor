@@ -13,6 +13,10 @@ export type EventMessageTypes = {
     ON_UPDATE_BLOCK_SELECTION: {rect: DOMRect};
     ON_SUPPORTED_BLOCKS: Pick<EditorState, 'blocks' | 'subBlocks' | 'global'>;
     ON_INITIAL_CONTENT: PageContentWithNavigation;
+    /** Iframe → parent: user pressed Cmd/Ctrl+Z while preview had focus (parent runs editor undo). */
+    ON_EDITOR_UNDO: {};
+    /** Iframe → parent: Cmd/Ctrl+Shift+Z */
+    ON_EDITOR_REDO: {};
 };
 
 export type ActionMessageTypes = {

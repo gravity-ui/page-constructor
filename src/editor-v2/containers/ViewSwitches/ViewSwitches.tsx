@@ -1,5 +1,14 @@
 import * as React from 'react';
-import {Display, Minus, Plus, Smartphone, SquareDashed} from '@gravity-ui/icons';
+
+import {
+    ArrowLeft,
+    ArrowRight,
+    Display,
+    Minus,
+    Plus,
+    Smartphone,
+    SquareDashed,
+} from '@gravity-ui/icons';
 import {Button, Icon, SegmentedRadioGroup, Select} from '@gravity-ui/uikit';
 
 import {ZOOM_STEPS} from '../../constants';
@@ -56,6 +65,12 @@ const ViewSwitches: React.FC = () => {
         setDeviceWidth,
         togglePreviewMode,
     } = useMainEditorStore();
+
+    const store = useMainEditorStore();
+    const {undo, redo, historyFuture, historyPast} = store;
+
+    const canUndo = historyPast.length > 0;
+    const canRedo = historyFuture.length > 0;
 
     // Memoize zoom options to prevent unnecessary recalculations
     const zoomOptions = React.useMemo(
@@ -131,6 +146,14 @@ const ViewSwitches: React.FC = () => {
                     disabled={zoom >= Math.max(...ZOOM_STEPS)}
                 >
                     <Icon data={Plus} />
+                </Button>
+            </div>
+            <div className={b('history-buttons')}>
+                <Button view="flat" aria-label="Undo" onClick={undo} disabled={!canUndo}>
+                    <Icon data={ArrowLeft} />
+                </Button>
+                <Button view="flat" aria-label="Redo" onClick={redo} disabled={!canRedo}>
+                    <Icon data={ArrowRight} />
                 </Button>
             </div>
         </div>
