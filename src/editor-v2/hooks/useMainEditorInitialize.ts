@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import {usePostMessageAPIListener} from '../../common/postMessage';
 import {PageContentWithNavigation} from '../../models';
 
@@ -34,13 +35,13 @@ const useMainEditorInitialize = (initialContent?: PageContentWithNavigation) => 
 
     React.useEffect(() => {
         if (initialContent) {
-            setContent(initialContent);
+            setContent(initialContent, true);
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [initialContent]);
 
     usePostMessageAPIListener('ON_INITIAL_CONTENT', (data) => {
-        setContent(data);
+        setContent(data, true);
     });
 
     usePostMessageAPIListener('ON_SUPPORTED_BLOCKS', (data) => {
