@@ -1,0 +1,37 @@
+name: playground-preview-build-action
+
+description: Builds and creates Playground artifacts
+
+runs:
+  using: composite
+  steps:
+    - name: Checkout
+      uses: actions/checkout@v5
+      with:
+        fetch-depth: 0
+    - name: Setup Node
+      uses: actions/setup-node@v6
+      with:
+        node-version-file: ${{ inputs.node-version-file }}
+        node-version: ${{ inputs.node-version }}
+    - name: Install Packages
+      run: npm ci
+      shell: bash
+    - name: Build Playground
+      run: 'npm run build:playground'
+      shell: bash
+    - name: Create Static Artifact
+      uses: actions/upload-artifact@v5
+      with:
+        name: static
+        path: ./playground-static
+    - name: Save PR ID
+      run: |
+        pr="${{ github.event.pull_request.number }}-playground"
+        echo $pr > ./pr-id.txt
+      shell: bash
+    - name: Create PR Artifact
+      uses: actions/upload-artifact@v5
+      with:
+        name: pr
+        path: ./pr-id.txt
