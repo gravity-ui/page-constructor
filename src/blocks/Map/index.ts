@@ -1,6 +1,6 @@
 import {JSONSchemaType} from 'ajv';
 
-import {generateFromAJV} from '../../utils/form-generator';
+import {generateFormFieldsFromAjvSchema} from '../../form-generator-v2/utils/generateFormFieldsFromAjv';
 
 import MapBlock from './Map';
 import {MapBlock as MapBlockSchema} from './schema';
@@ -12,7 +12,9 @@ const MapBlockConfig = {
         name: 'Map Block',
         group: '@gravity-ui/page-constructor/Blocks',
         // TODO: change to custom block schema
-        inputs: generateFromAJV(MapBlockSchema['map-block'] as unknown as JSONSchemaType<{}>),
+        inputs: generateFormFieldsFromAjvSchema(
+            MapBlockSchema['map-block'] as unknown as JSONSchemaType<{}>,
+        ),
         default: {
             title: 'Map Block',
         },

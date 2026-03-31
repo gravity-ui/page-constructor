@@ -1,7 +1,7 @@
 import {JSONSchemaType} from 'ajv';
 
 import {BlockData} from '../../constructor-items';
-import {generateFromAJV} from '../../utils/form-generator';
+import {generateFormFieldsFromAjvSchema} from '../../form-generator-v2/utils/generateFormFieldsFromAjv';
 
 import LayoutItem from './LayoutItem';
 import {LayoutItem as LayoutItemSchema} from './schema';
@@ -13,7 +13,7 @@ const LayoutItemConfig: BlockData = {
         name: 'Layout Item',
         group: '@gravity-ui/page-constructor/Cards',
         // TODO: change to custom block schema
-        inputs: generateFromAJV(LayoutItemSchema as unknown as JSONSchemaType<{}>),
+        inputs: generateFormFieldsFromAjvSchema(LayoutItemSchema as unknown as JSONSchemaType<{}>),
         default: {
             type: 'layout-item',
             content: {

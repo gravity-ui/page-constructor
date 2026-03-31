@@ -1,18 +1,22 @@
 import * as React from 'react';
+
 import {Button, Text, ThemeProvider} from '@gravity-ui/uikit';
 import block from 'bem-cn-lite';
 import {Panel, PanelGroup, PanelResizeHandle} from 'react-resizable-panels';
 import {useNavigate} from 'react-router';
-import DynamicForm from '../../../../src/form-generator/FormGenerator';
+
+import {FormBuilder} from '../../../../src/form-builder';
+import DynamicForm from '../../../../src/form-generator-v2/FormGenerator';
+import {Fields} from '../../../../src/form-generator-v2/types';
+
 import {FormOutput} from './components/FormOutput/FormOutput';
-import {FormBuilder, FormField} from '../../../../src/form-builder';
 
 import './form.scss';
 
 const b = block('form');
 
 const FormContent = () => {
-    const [formFields, setFormFields] = React.useState<FormField[]>([]);
+    const [formFields, setFormFields] = React.useState<Fields>([]);
     const [contentConfig, setContentConfig] = React.useState({});
 
     const resetForm = React.useCallback(() => {
@@ -42,6 +46,7 @@ const FormContent = () => {
                                     </div>
                                 </div>
                                 <div className={b('form')}>
+                                    {/*@ts-ignore fix after upgrade form builder*/}
                                     <FormBuilder formFields={formFields} onChange={setFormFields} />
                                 </div>
                             </div>
@@ -53,10 +58,7 @@ const FormContent = () => {
                         {/* Form Output Panel */}
                         <Panel minSize={20} defaultSize={20}>
                             <div className={b('panel-content')}>
-                                <FormOutput
-                                    title="Form Output:"
-                                    data={formFields.map(({id: _id, ...rest}) => rest)}
-                                />
+                                <FormOutput title="Form Output:" data={formFields} />
                             </div>
                         </Panel>
                     </PanelGroup>

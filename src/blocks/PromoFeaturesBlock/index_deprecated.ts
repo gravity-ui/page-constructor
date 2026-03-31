@@ -1,6 +1,6 @@
 import {JSONSchemaType} from 'ajv';
 
-import {generateFromAJV} from '../../utils/form-generator';
+import {generateFormFieldsFromAjvSchema} from '../../form-generator-v2/utils/generateFormFieldsFromAjv';
 
 import PromoFeaturesBlock from './PromoFeaturesBlock';
 import {PromoFeaturesBlock as PromoFeaturesBlockSchema} from './schema';
@@ -12,7 +12,7 @@ const PromoFeaturesBlockConfig = {
         name: 'Promo Features Block',
         group: '@deprecated',
         hidden: true,
-        inputs: generateFromAJV(
+        inputs: generateFormFieldsFromAjvSchema(
             PromoFeaturesBlockSchema['promo-features-block'] as unknown as JSONSchemaType<{}>,
         ),
         default: {

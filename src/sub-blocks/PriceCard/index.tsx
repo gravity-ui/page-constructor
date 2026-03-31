@@ -1,7 +1,7 @@
 import {JSONSchemaType} from 'ajv';
 
 import {BlockData} from '../../constructor-items';
-import {generateFromAJV} from '../../utils/form-generator';
+import {generateFormFieldsFromAjvSchema} from '../../form-generator-v2/utils/generateFormFieldsFromAjv';
 
 import PriceCard from './PriceCard';
 import {PriceCardBlock as PriceCardSchema} from './schema';
@@ -13,7 +13,9 @@ const PriceCardConfig: BlockData = {
         name: 'Price Card',
         group: '@gravity-ui/page-constructor/Cards',
         // TODO: change to custom block schema
-        inputs: generateFromAJV(PriceCardSchema['price-card'] as unknown as JSONSchemaType<{}>),
+        inputs: generateFormFieldsFromAjvSchema(
+            PriceCardSchema['price-card'] as unknown as JSONSchemaType<{}>,
+        ),
         default: {
             type: 'price-card',
             border: 'line',

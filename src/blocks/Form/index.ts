@@ -1,6 +1,6 @@
 import {JSONSchemaType} from 'ajv';
 
-import {generateFromAJV} from '../../utils/form-generator';
+import {generateFormFieldsFromAjvSchema} from '../../form-generator-v2/utils/generateFormFieldsFromAjv';
 
 import FormBlock from './Form';
 import {FormBlock as FormBlockSchema} from './schema';
@@ -12,7 +12,9 @@ const FormBlockConfig = {
         name: 'Form Block',
         group: '@gravity-ui/page-constructor/Blocks',
         // TODO: change to custom block schema
-        inputs: generateFromAJV(FormBlockSchema['form-block'] as unknown as JSONSchemaType<{}>),
+        inputs: generateFormFieldsFromAjvSchema(
+            FormBlockSchema['form-block'] as unknown as JSONSchemaType<{}>,
+        ),
         default: {
             title: 'Form Block',
             formData: {},

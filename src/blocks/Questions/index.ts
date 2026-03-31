@@ -1,10 +1,10 @@
 import {JSONSchemaType} from 'ajv';
 
-import {generateFromAJV} from '../../utils/form-generator';
+import {BlockData} from '../../constructor-items';
+import {generateFormFieldsFromAjvSchema} from '../../form-generator-v2/utils/generateFormFieldsFromAjv';
 
 import QuestionsBlock from './Questions';
 import {QuestionsBlock as QuestionsBlockSchema} from './schema';
-import {BlockData} from '../../constructor-items';
 
 const QuestionsBlockConfig: BlockData = {
     type: '@gravity-ui/page-constructor/questions-block',
@@ -13,7 +13,7 @@ const QuestionsBlockConfig: BlockData = {
         name: 'Questions Block',
         group: '@gravity-ui/page-constructor/Blocks',
         // TODO: change to custom block schema
-        inputs: generateFromAJV(
+        inputs: generateFormFieldsFromAjvSchema(
             QuestionsBlockSchema['questions-block'] as unknown as JSONSchemaType<{}>,
         ),
         default: {

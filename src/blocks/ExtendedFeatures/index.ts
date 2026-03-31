@@ -1,10 +1,10 @@
 import {JSONSchemaType} from 'ajv';
 
-import {generateFromAJV} from '../../utils/form-generator';
+import {BlockData} from '../../constructor-items';
+import {generateFormFieldsFromAjvSchema} from '../../form-generator-v2/utils/generateFormFieldsFromAjv';
 
 import ExtendedFeaturesBlock from './ExtendedFeatures';
 import {ExtendedFeaturesBlock as ExtendedFeaturesBlockSchema} from './schema';
-import {BlockData} from '../../constructor-items';
 
 const ExtendedFeaturesBlockConfig: BlockData = {
     type: '@gravity-ui/page-constructor/extended-features-block',
@@ -13,7 +13,7 @@ const ExtendedFeaturesBlockConfig: BlockData = {
         name: 'Extended Features Block',
         group: '@gravity-ui/page-constructor/Blocks',
         // TODO: change to custom block schema
-        inputs: generateFromAJV(
+        inputs: generateFormFieldsFromAjvSchema(
             ExtendedFeaturesBlockSchema['extended-features-block'] as unknown as JSONSchemaType<{}>,
         ),
         default: {
