@@ -13,7 +13,7 @@ export default {
     component: Content,
 } as Meta;
 
-const SIZES = ['l', 'm', 's'].map((size) => ({
+const SIZES = ['xl', 'l', 'm', 's'].map((size) => ({
     ...data.default,
     size,
     textContent: {

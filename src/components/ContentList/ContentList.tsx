@@ -17,7 +17,9 @@ function getHeadingLevel(size: ContentSize) {
     switch (size) {
         case 's':
             return 'h4';
+        case 'm':
         case 'l':
+        case 'xl':
         default:
             return 'h3';
     }

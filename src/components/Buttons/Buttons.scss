@@ -12,11 +12,12 @@ $block: '.#{$ns}buttons';
             row-gap: $indentXXXS;
         }
 
-        &_l {
+        &_m {
             row-gap: $indentXXS;
         }
 
-        &_m {
+        &_l,
+        &_xl {
             row-gap: $indentXXS;
         }
     }

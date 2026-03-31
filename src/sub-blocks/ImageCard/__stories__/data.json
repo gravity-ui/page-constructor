@@ -52,6 +52,10 @@
     {
       "size": "l",
       "title": "Content size L"
+    },
+    {
+      "size": "xl",
+      "title": "Content size XL"
     }
   ],
   "backgroundColor": {

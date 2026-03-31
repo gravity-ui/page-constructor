@@ -13,7 +13,7 @@ export const LayoutItem = {
         ...BaseProps,
         ...CardLayoutProps,
         media: MediaProps,
-        content: omit(ContentBase, ['colSize', 'size', 'centered']),
+        content: omit(ContentBase, ['colSize', 'centered']),
         contentMargin: {
             type: 'string',
             enum: ['m', 'l'],

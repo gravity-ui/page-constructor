@@ -201,6 +201,13 @@
         "title": "Content size L",
         "size": "l"
       }
+    },
+    {
+      "type": "layout-item",
+      "content": {
+        "title": "Content size XL",
+        "size": "xl"
+      }
     }
   ],
   "sizesContent": [

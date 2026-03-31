@@ -68,7 +68,7 @@ export interface PositionedGravityIcon {
 export interface IconWrapperProps {
     icon?: PositionedIcon;
     gravityIcon?: PositionedGravityIcon;
-    size?: 's' | 'm' | 'l';
+    size?: 's' | 'm' | 'l' | 'xl';
 }
 
 export enum ImageCardDirection {

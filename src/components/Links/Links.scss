@@ -17,7 +17,9 @@ $block: '.#{$ns}links';
             gap: $indentXXXS;
         }
 
-        &_l {
+        &_m,
+        &_l,
+        &_xl {
             gap: $indentXXS;
         }
     }
