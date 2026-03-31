@@ -1,6 +1,6 @@
 import {JSONSchemaType} from 'ajv';
 
-import {generateFromAJV} from '../../utils/form-generator';
+import {generateFormFieldsFromAjvSchema} from '../../form-generator-v2/utils/generateFormFieldsFromAjv';
 
 import IconsBlock from './Icons';
 import {IconsProps} from './schema';
@@ -12,7 +12,7 @@ const IconsBlockConfig = {
         name: 'Icons Block',
         group: '@gravity-ui/page-constructor/Blocks',
         // TODO: change to custom block schema
-        inputs: generateFromAJV(IconsProps as unknown as JSONSchemaType<{}>),
+        inputs: generateFormFieldsFromAjvSchema(IconsProps as unknown as JSONSchemaType<{}>),
         default: {
             type: 'icons-block',
             title: 'Icons Block',

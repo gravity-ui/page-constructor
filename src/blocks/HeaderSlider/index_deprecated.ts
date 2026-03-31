@@ -1,6 +1,6 @@
 import {JSONSchemaType} from 'ajv';
 
-import {generateFromAJV} from '../../utils/form-generator';
+import {generateFormFieldsFromAjvSchema} from '../../form-generator-v2/utils/generateFormFieldsFromAjv';
 
 import HeaderSliderBlock from './HeaderSlider';
 import {HeaderSliderBlock as HeaderSliderBlockSchema} from './schema';
@@ -12,7 +12,7 @@ const HeaderSliderBlockConfig = {
         name: 'Header Slider Block',
         group: '@deprecated',
         hidden: true,
-        inputs: generateFromAJV(
+        inputs: generateFormFieldsFromAjvSchema(
             HeaderSliderBlockSchema['header-slider-block'] as unknown as JSONSchemaType<{}>,
         ),
         default: {

@@ -1,6 +1,7 @@
 import _ from 'lodash';
 
-import {DynamicFormValue, FormGenerator} from '../../../form-generator';
+import FormGenerator from '../../../form-generator-v2/FormGenerator';
+import {Content} from '../../../form-generator-v2/types';
 import {MessageCard} from '../../components/MessageCard';
 import {MESSAGES} from '../../constants/messages';
 import {useMainEditorStore} from '../../hooks/useMainEditorStore';
@@ -23,8 +24,8 @@ const BlockConfigForm = ({className}: BlockConfigFormProps) => {
     const currentConfig = _.get(content.blocks, currentBlockPath || '');
     const currentSchema = [...blocks, ...subBlocks].find(({type}) => type === currentConfig?.type);
 
-    const onUpdate = (key: string, value: DynamicFormValue) => {
-        updateField('blocks' + currentBlockPath + '.' + key, value);
+    const onUpdate = (value: Content) => {
+        updateField('blocks' + currentBlockPath, value);
     };
 
     if (!currentConfig) {
@@ -55,11 +56,13 @@ const BlockConfigForm = ({className}: BlockConfigFormProps) => {
         <div className={b(null, className)}>
             <div className={b('title')}>{currentSchema.schema.name}</div>
             <div className={b('form')}>
-                <FormGenerator
-                    contentConfig={currentConfig}
-                    blockConfig={currentSchema.schema.inputs}
-                    onUpdateByKey={onUpdate}
-                />
+                {currentSchema.schema.inputs && (
+                    <FormGenerator
+                        contentConfig={currentConfig}
+                        blockConfig={currentSchema.schema.inputs}
+                        onUpdate={onUpdate}
+                    />
+                )}
             </div>
         </div>
     );

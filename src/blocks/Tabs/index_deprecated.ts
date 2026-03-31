@@ -1,6 +1,6 @@
 import {JSONSchemaType} from 'ajv';
 
-import {generateFromAJV} from '../../utils/form-generator';
+import {generateFormFieldsFromAjvSchema} from '../../form-generator-v2/utils/generateFormFieldsFromAjv';
 
 import TabsBlock from './Tabs';
 import {TabsBlock as TabsBlockSchema} from './schema';
@@ -12,7 +12,9 @@ const TabsBlockConfig = {
         name: 'Tabs Block',
         group: '@deprecated',
         hidden: true,
-        inputs: generateFromAJV(TabsBlockSchema['tabs-block'] as unknown as JSONSchemaType<{}>),
+        inputs: generateFormFieldsFromAjvSchema(
+            TabsBlockSchema['tabs-block'] as unknown as JSONSchemaType<{}>,
+        ),
         default: {
             title: 'Tabs Block',
             items: [

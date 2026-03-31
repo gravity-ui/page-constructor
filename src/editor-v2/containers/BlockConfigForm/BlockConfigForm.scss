@@ -4,6 +4,8 @@
 $block: '.#{$ns}block-config-form';
 
 #{$block} {
+    height: 100%;
+
     &_empty {
         padding: 16px 12px;
     }

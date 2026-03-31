@@ -1,6 +1,6 @@
 import {JSONSchemaType} from 'ajv';
 
-import {generateFromAJV} from '../../utils/form-generator';
+import {generateFormFieldsFromAjvSchema} from '../../form-generator-v2/utils/generateFormFieldsFromAjv';
 
 import ExtendedFeaturesBlock from './ExtendedFeatures';
 import {ExtendedFeaturesBlock as ExtendedFeaturesBlockSchema} from './schema';
@@ -12,7 +12,7 @@ const ExtendedFeaturesBlockConfig = {
         name: 'Extended Features Block',
         group: '@deprecated',
         hidden: true,
-        inputs: generateFromAJV(
+        inputs: generateFormFieldsFromAjvSchema(
             ExtendedFeaturesBlockSchema['extended-features-block'] as unknown as JSONSchemaType<{}>,
         ),
         default: {

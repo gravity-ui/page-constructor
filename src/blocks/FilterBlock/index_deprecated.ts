@@ -1,6 +1,6 @@
 import {JSONSchemaType} from 'ajv';
 
-import {generateFromAJV} from '../../utils/form-generator';
+import {generateFormFieldsFromAjvSchema} from '../../form-generator-v2/utils/generateFormFieldsFromAjv';
 
 import FilterBlock from './FilterBlock';
 import {FilterProps} from './schema';
@@ -12,7 +12,7 @@ const FilterBlockConfig = {
         name: 'Filter Block',
         group: '@deprecated',
         hidden: true,
-        inputs: generateFromAJV(FilterProps as unknown as JSONSchemaType<{}>),
+        inputs: generateFormFieldsFromAjvSchema(FilterProps as unknown as JSONSchemaType<{}>),
         default: {
             allTag: true,
             description:

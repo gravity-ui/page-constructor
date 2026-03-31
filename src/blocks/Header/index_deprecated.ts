@@ -1,7 +1,7 @@
 import {JSONSchemaType} from 'ajv';
 
 import {BlockData} from '../../constructor-items';
-import {generateFromAJV} from '../../utils/form-generator';
+import {generateFormFieldsFromAjvSchema} from '../../form-generator-v2/utils/generateFormFieldsFromAjv';
 
 import HeaderBlock from './Header';
 import {HeaderBlock as HeaderBlockSchema} from './schema';
@@ -13,7 +13,9 @@ const HeaderBlockConfig: BlockData = {
         name: 'Header Block',
         group: '@deprecated',
         hidden: true,
-        inputs: generateFromAJV(HeaderBlockSchema['header-block'] as unknown as JSONSchemaType<{}>),
+        inputs: generateFormFieldsFromAjvSchema(
+            HeaderBlockSchema['header-block'] as unknown as JSONSchemaType<{}>,
+        ),
         default: {
             type: 'header-block',
             title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',

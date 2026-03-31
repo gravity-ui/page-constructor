@@ -1,10 +1,11 @@
 import {JSONSchemaType} from 'ajv';
 
-import {generateFromAJV} from '../../utils/form-generator';
+import {generateFormFieldsFromAjvSchema} from '../../form-generator-v2/utils/generateFormFieldsFromAjv';
 
 import MediaBlock from './Media';
-import svgIcon from './icon.svg';
 import {MediaBlock as MediaBlockSchema} from './schema';
+
+import svgIcon from './icon.svg';
 
 const MediaBlockConfig = {
     type: 'media-block',
@@ -13,7 +14,9 @@ const MediaBlockConfig = {
         name: 'Media Block',
         group: '@deprecated',
         hidden: true,
-        inputs: generateFromAJV(MediaBlockSchema['media-block'] as unknown as JSONSchemaType<{}>),
+        inputs: generateFormFieldsFromAjvSchema(
+            MediaBlockSchema['media-block'] as unknown as JSONSchemaType<{}>,
+        ),
         default: {
             title: 'Lorem ipsum dolor sit',
             description:

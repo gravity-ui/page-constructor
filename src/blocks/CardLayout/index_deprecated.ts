@@ -1,7 +1,7 @@
 import {JSONSchemaType} from 'ajv';
 
 import {BlockData} from '../../constructor-items';
-import {generateFromAJV} from '../../utils/form-generator';
+import {generateFormFieldsFromAjvSchema} from '../../form-generator-v2/utils/generateFormFieldsFromAjv';
 
 import CardLayout from './CardLayout';
 import {CardLayoutProps} from './schema';
@@ -13,7 +13,7 @@ const CardLayoutBlockConfig: BlockData = {
         name: 'Card Layout Block',
         group: '@deprecated',
         hidden: true,
-        inputs: generateFromAJV(CardLayoutProps as unknown as JSONSchemaType<{}>),
+        inputs: generateFormFieldsFromAjvSchema(CardLayoutProps as unknown as JSONSchemaType<{}>),
         default: {
             type: 'card-layout-block',
             children: [
