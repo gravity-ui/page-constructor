@@ -23,7 +23,7 @@ jobs:
           cache: npm
 
       - name: Install Packages
-        run: npm ci
+        run: npm ci --include=optional
         shell: bash
 
       - name: Build Playground
