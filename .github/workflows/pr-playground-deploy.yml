@@ -1,0 +1,146 @@
+name: PR Playground Deploy
+
+on:
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      pr_number:
+        description: 'PR number for sticky comment'
+        required: true
+        type: string
+  workflow_run:
+    workflows: ['PR Playground Build']
+    types:
+      - completed
+
+jobs:
+  build_for_pr:
+    name: Build Playground (PR/Manual)
+    if: github.event_name != 'workflow_run'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install Packages
+        run: npm ci --include=optional
+        shell: bash
+
+      - name: Build Playground
+        run: npm run build:playground
+        shell: bash
+
+      - name: Upload Playground Static
+        uses: actions/upload-artifact@v4
+        with:
+          name: static
+          path: playground/dist
+
+      - name: Save PR ID
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            pr_id="${{ github.event.pull_request.number }}-playground"
+          else
+            pr_id="${{ inputs.pr_number }}-playground"
+          fi
+          echo "$pr_id" > pr-id.txt
+        shell: bash
+
+      - name: Upload PR Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: pr
+          path: pr-id.txt
+
+  deploy_from_workflow_run:
+    name: Deploy Playground Preview (workflow_run)
+    if: >
+      github.event_name == 'workflow_run' &&
+      github.event.workflow_run.event == 'pull_request' &&
+      github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Artifacts from workflow_run
+        uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ secrets.GRAVITY_UI_BOT_GITHUB_TOKEN }}
+          run-id: ${{ github.event.workflow_run.id }}
+
+      - name: Read preview id
+        id: preview
+        run: |
+          preview_id="$(<pr/pr-id.txt)"
+          echo "id=$preview_id" >> "$GITHUB_OUTPUT"
+        shell: bash
+
+      - name: Upload to S3
+        uses: gravity-ui/upload-to-s3-action@v1
+        with:
+          src-path: static
+          dest-path: /page-constructor/pulls/${{ steps.preview.outputs.id }}/
+          bucket: storybook-static
+          endpoint-url: https://storage.yandexcloud.net
+          s3-key-id: ${{ secrets.STORYBOOK_S3_KEY_ID }}
+          s3-secret-key: ${{ secrets.STORYBOOK_S3_SECRET_KEY }}
+          region: ru-central1
+
+      - name: Create Comment
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          GITHUB_TOKEN: ${{ secrets.GRAVITY_UI_BOT_GITHUB_TOKEN }}
+          header: playground-preview
+          number: ${{ github.event.workflow_run.pull_requests[0].number }}
+          message: '[Playground preview](https://preview.gravity-ui.com/page-constructor/${{ steps.preview.outputs.id }}/) is ready.'
+
+  deploy_from_current_run:
+    name: Deploy Playground Preview (PR/Manual)
+    if: github.event_name != 'workflow_run'
+    needs: [build_for_pr]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Artifacts from current run
+        uses: actions/download-artifact@v4
+
+      - name: Read preview id
+        id: preview
+        run: |
+          preview_id="$(<pr/pr-id.txt)"
+          echo "id=$preview_id" >> "$GITHUB_OUTPUT"
+        shell: bash
+
+      - name: Resolve PR number
+        id: pr
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            echo "number=${{ github.event.pull_request.number }}" >> "$GITHUB_OUTPUT"
+          else
+            echo "number=${{ inputs.pr_number }}" >> "$GITHUB_OUTPUT"
+          fi
+        shell: bash
+
+      - name: Upload to S3
+        uses: gravity-ui/upload-to-s3-action@v1
+        with:
+          src-path: static
+          dest-path: /page-constructor/pulls/${{ steps.preview.outputs.id }}/
+          bucket: storybook-static
+          endpoint-url: https://storage.yandexcloud.net
+          s3-key-id: ${{ secrets.STORYBOOK_S3_KEY_ID }}
+          s3-secret-key: ${{ secrets.STORYBOOK_S3_SECRET_KEY }}
+          region: ru-central1
+
+      - name: Create Comment
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          GITHUB_TOKEN: ${{ secrets.GRAVITY_UI_BOT_GITHUB_TOKEN }}
+          header: playground-preview
+          number: ${{ steps.pr.outputs.number }}
+          message: '[Playground preview](https://preview.gravity-ui.com/page-constructor/${{ steps.preview.outputs.id }}/) is ready.'

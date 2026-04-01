@@ -9,8 +9,8 @@ const CustomChildrenBlockConfig: BlockData = {
         name: 'Custom Children Block',
         group: 'custom',
         inputs: [
-            {type: 'text', name: 'title', title: 'Title'},
-            {type: 'textarea', name: 'description', title: 'Description'},
+            {type: 'textInput', name: 'title', title: 'Title'},
+            {type: 'textArea', name: 'description', title: 'Description'},
         ],
         default: {
             title: 'Card Title',

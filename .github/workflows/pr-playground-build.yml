@@ -1,0 +1,49 @@
+name: PR Playground Build
+
+on:
+  pull_request:
+
+env:
+  PREVIEW_DEST_PATH: /page-constructor/${{ github.event.pull_request.number }}/playground
+
+jobs:
+  build:
+    name: Build Playground
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install Packages
+        run: npm ci --include=optional
+        shell: bash
+
+      - name: Build Playground
+        run: npm run build:playground
+        shell: bash
+
+      - name: Upload Playground Static
+        uses: actions/upload-artifact@v4
+        with:
+          name: static
+          path: playground/dist
+
+      - name: Save PR ID
+        run: |
+          pr="${{ github.event.pull_request.number }}/playground"
+          echo "$pr" > pr-id.txt
+        shell: bash
+
+      - name: Upload PR Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: pr
+          path: pr-id.txt
