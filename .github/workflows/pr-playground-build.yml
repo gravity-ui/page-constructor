@@ -4,7 +4,7 @@ on:
   pull_request:
 
 env:
-  PREVIEW_DEST_PATH: /page-constructor/${{ github.event.pull_request.number }}-playground
+  PREVIEW_DEST_PATH: /page-constructor/${{ github.event.pull_request.number }}/playground
 
 jobs:
   build:
@@ -38,7 +38,7 @@ jobs:
 
       - name: Save PR ID
         run: |
-          pr="${{ github.event.pull_request.number }}-playground"
+          pr="${{ github.event.pull_request.number }}/playground"
           echo "$pr" > pr-id.txt
         shell: bash
 
