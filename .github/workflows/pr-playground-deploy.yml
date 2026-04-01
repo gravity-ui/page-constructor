@@ -1,0 +1,47 @@
+name: PR Playground Deploy
+
+on:
+  workflow_run:
+    workflows: ['PR Playground Build']
+    types:
+      - completed
+
+jobs:
+  deploy:
+    name: Deploy Playground Preview
+    if: >
+      github.event.workflow_run.event == 'pull_request' &&
+      github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Artifacts
+        uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ secrets.GRAVITY_UI_BOT_GITHUB_TOKEN }}
+          run-id: ${{ github.event.workflow_run.id }}
+
+      - name: Read preview id
+        id: preview
+        run: |
+          preview_id="$(<pr/pr-id.txt)"
+          echo "id=$preview_id" >> "$GITHUB_OUTPUT"
+        shell: bash
+
+      - name: Upload to S3
+        uses: gravity-ui/upload-to-s3-action@v1
+        with:
+          src-path: static
+          dest-path: /page-constructor/pulls/${{ steps.preview.outputs.id }}/
+          bucket: storybook-static
+          endpoint-url: https://storage.yandexcloud.net
+          s3-key-id: ${{ secrets.STORYBOOK_S3_KEY_ID }}
+          s3-secret-key: ${{ secrets.STORYBOOK_S3_SECRET_KEY }}
+          region: ru-central1
+
+      - name: Create Comment
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          GITHUB_TOKEN: ${{ secrets.GRAVITY_UI_BOT_GITHUB_TOKEN }}
+          header: playground-preview
+          number: ${{ github.event.workflow_run.pull_requests[0].number }}
+          message: '[Playground preview](https://preview.gravity-ui.com/page-constructor/${{ steps.preview.outputs.id }}/) is ready.'
