@@ -202,10 +202,7 @@ export interface HeaderBlockProps {
 }
 
 export interface ExtendedFeaturesItem
-    extends Omit<
-        ContentBlockProps,
-        'theme' | 'centered' | 'colSizes' | 'size' | 'title' | 'labels'
-    > {
+    extends Omit<ContentBlockProps, 'theme' | 'centered' | 'colSizes' | 'size' | 'title'> {
     title: string;
     label?: string;
     icon?: ThemedImage;
@@ -243,7 +240,7 @@ export interface QuestionItem {
 }
 
 export interface QuestionsProps
-    extends Omit<ContentBlockProps, 'colSizes' | 'centered' | 'size' | 'theme' | 'labels'> {
+    extends Omit<ContentBlockProps, 'colSizes' | 'centered' | 'size' | 'theme'> {
     items: QuestionItem[];
 }
 
@@ -260,7 +257,7 @@ export interface FoldableListItem {
 }
 
 export interface FoldableListProps
-    extends Omit<ContentBlockProps, 'colSizes' | 'centered' | 'size' | 'theme' | 'labels'> {
+    extends Omit<ContentBlockProps, 'colSizes' | 'centered' | 'size' | 'theme'> {
     items: FoldableListItem[];
 }
 
@@ -286,7 +283,7 @@ export interface MediaBaseBlockProps extends Animatable, MediaContentProps {
 }
 
 export interface MediaContentProps
-    extends Omit<ContentBlockProps, 'colSizes' | 'text' | 'theme' | 'centered' | 'labels'> {
+    extends Omit<ContentBlockProps, 'colSizes' | 'text' | 'theme' | 'centered'> {
     description?: string;
     /** @deprecated  Use array of buttons from ContentBlockProps instead**/
     button?: ButtonProps;
@@ -311,8 +308,8 @@ export interface InfoBlockProps {
     sectionsTitle?: string;
     /** @deprecated **/
     links?: Pick<LinkProps, 'text' | 'url'>[];
-    leftContent?: Omit<ContentBlockProps, 'colSizes' | 'theme' | 'size' | 'labels'>;
-    rightContent?: Omit<ContentBlockProps, 'colSizes' | 'theme' | 'size' | 'labels'>;
+    leftContent?: Omit<ContentBlockProps, 'colSizes' | 'theme' | 'size'>;
+    rightContent?: Omit<ContentBlockProps, 'colSizes' | 'theme' | 'size'>;
 }
 
 export interface TableProps {
@@ -333,7 +330,7 @@ export interface TableBlockProps {
 }
 
 export interface TabsBlockItem
-    extends Omit<ContentBlockProps, 'size' | 'colSizes' | 'centered' | 'theme' | 'labels'>,
+    extends Omit<ContentBlockProps, 'size' | 'colSizes' | 'centered' | 'theme'>,
         WithBorder {
     tabName: string;
     /**
@@ -412,7 +409,7 @@ interface ContentLayoutBlockParams {
 }
 
 export interface ContentLayoutBlockProps extends ContentLayoutBlockParams {
-    textContent: Omit<ContentBlockProps, 'labels'>;
+    textContent: ContentBlockProps;
     fileContent?: FileLinkProps[];
 }
 
@@ -431,18 +428,6 @@ export interface ContentListProps {
     theme?: ContentTheme;
 }
 
-export interface ContentLabelProps {
-    text: string;
-    icon?: ThemeSupporting<ImageProps | SVGIcon>;
-    gravityIcon?: ThemeSupporting<GravityIconProps>;
-}
-
-export interface ContentLabelsProps {
-    labels: ContentLabelProps[];
-    size?: ContentSize;
-    theme?: ContentTheme;
-}
-
 export interface ContentBlockProps {
     title?: TitleItemBaseProps | string;
     titleId?: string;
@@ -456,7 +441,6 @@ export interface ContentBlockProps {
     centered?: boolean;
     theme?: ContentTheme;
     list?: ContentItemProps[];
-    labels?: ContentLabelProps[];
     controlPosition?: 'default' | 'bottom';
 }
 

@@ -23,5 +23,3 @@
 - `xl: number` — On a screen wider than 1185px.
 
 `list?: Array` - An Array of items with icon - [ContentList](?path=/docs/components-contentlist--docs)
-
-`labels?: Array` - An Array of labels with icons `{text: string; icon?: ImageProps; gravityIcon?: GravityIconProps}`

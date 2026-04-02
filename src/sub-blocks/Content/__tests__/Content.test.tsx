@@ -5,7 +5,6 @@ import {
     testContentWithButtons,
     testContentWithCentered,
     testContentWithColSize,
-    testContentWithLabels,
     testContentWithLinks,
     testContentWithList,
     testContentWithSize,
@@ -32,12 +31,6 @@ const contentData: ContentProps = {
             text: 'list text',
         },
     ],
-    labels: [
-        {
-            icon: '/mock.png',
-            text: 'label text',
-        },
-    ],
     qa: 'content',
 };
 
@@ -46,7 +39,7 @@ const colSizesArray: GridColumnSizesType[] = [
     {all: 5, lg: 4, md: 3, sm: 2},
 ];
 
-const qaAttributes = getQaAttrubutes(contentData.qa, ['link', 'list', 'labels']);
+const qaAttributes = getQaAttrubutes(contentData.qa, ['link', 'list']);
 
 describe('Content', () => {
     test('Render by default', async () => {
@@ -135,13 +128,6 @@ describe('Content', () => {
         testContentWithList({
             props: contentData,
             options: {qaId: qaAttributes.list},
-        });
-    });
-
-    test('Render with labels', async () => {
-        testContentWithLabels({
-            props: contentData,
-            options: {qaId: qaAttributes.labels},
         });
     });
 });
