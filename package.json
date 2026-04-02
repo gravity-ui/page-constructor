@@ -123,6 +123,8 @@
   },
   "dependencies": {
     "@bem-react/classname": "^1.6.0",
+    "@dnd-kit/helpers": "^0.3.2",
+    "@dnd-kit/react": "^0.3.2",
     "@gravity-ui/components": "^4.0.1",
     "@gravity-ui/dynamic-forms": "^5.0.0",
     "@gravity-ui/i18n": "^1.7.0",

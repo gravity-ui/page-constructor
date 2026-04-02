@@ -286,13 +286,11 @@ export const createEditorStore = initializeStore<EditorState, EditorMethods>(
             });
         },
         reorderBlock: (arrayPath, destination, position = 'append') => {
-            // Create a copy of the destination array before any modifications
+            const dest = _.cloneDeep(destination);
             let finalDestinationPath: number[] = _.cloneDeep(destination);
 
             if (position === 'append') {
-                // TODO: fix
-                // eslint-disable-next-line no-not-accumulator-reassign/no-not-accumulator-reassign, no-param-reassign
-                destination[destination.length - 1] = destination[destination.length - 1] + 1;
+                dest[dest.length - 1] = dest[dest.length - 1] + 1;
             }
 
             let newBlocksConfig: ConstructorBlock[];
@@ -300,24 +298,24 @@ export const createEditorStore = initializeStore<EditorState, EditorMethods>(
             // Copy
             const copiedBlock = _.get(blocksConfig, generateChildrenPathFromArray(arrayPath));
 
-            if (isItemsNeighbours(arrayPath, destination)) {
+            if (isItemsNeighbours(arrayPath, dest)) {
                 newBlocksConfig = modifyObjectByPath(blocksConfig, arrayPath, (parentBlocks) => {
                     return reorderArrayItems(
                         parentBlocks,
                         arrayPath[arrayPath.length - 1],
-                        destination[destination.length - 1],
+                        dest[dest.length - 1],
                     );
                 });
 
                 if (
                     position === 'append' &&
-                    destination[destination.length - 1] < arrayPath[arrayPath.length - 1]
+                    dest[dest.length - 1] < arrayPath[arrayPath.length - 1]
                 ) {
                     finalDestinationPath[finalDestinationPath.length - 1] =
                         finalDestinationPath[finalDestinationPath.length - 1] + 1;
                 }
             } else {
-                const arrayDest = getDestinationShiftBeforeReorder(arrayPath, destination);
+                const arrayDest = getDestinationShiftBeforeReorder(arrayPath, dest);
                 finalDestinationPath = _.cloneDeep(arrayDest);
 
                 // Delete

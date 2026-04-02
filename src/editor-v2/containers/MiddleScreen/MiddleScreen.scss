@@ -57,9 +57,17 @@ $block: '.#{$ns}middle-screen';
         }
     }
 
+    &__iframe-container {
+        position: relative;
+        margin: 0 auto;
+
+        &_fullscreen {
+            height: 100%;
+        }
+    }
+
     &__iframe {
         display: block;
-        margin: 0 auto;
 
         &_fullscreen {
             width: 100%;
@@ -67,7 +75,7 @@ $block: '.#{$ns}middle-screen';
         }
     }
 
-    &__exit-preview {
+    &__exit-preview.g-button {
         position: fixed;
         opacity: 0.5;
         top: 16px;
