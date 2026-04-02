@@ -176,6 +176,42 @@ $darkSecondary: var(--g-color-text-dark-secondary);
                 margin-top: $indentSM;
             }
         }
+
+        &_xl {
+            #{$block}__text {
+                margin-top: $indentXS;
+            }
+
+            #{$block}__text {
+                &_without-title {
+                    margin-top: 0;
+                }
+            }
+
+            #{$block}__text .yfm,
+            #{$block}__notice .yfm {
+                @extend %heading-margin-reset;
+                @include text-size(body-3);
+            }
+            #{$block}__text .yfm {
+                @include text-size(body-3);
+            }
+
+            #{$block}__notice .yfm {
+                @extend %heading-margin-reset;
+                @include text-size(body-2);
+            }
+
+            #{$block}__list,
+            #{$block}__links,
+            #{$block}__notice {
+                margin-top: $indentS;
+            }
+
+            #{$block}__buttons {
+                margin-top: $indentM;
+            }
+        }
     }
 
     &_theme {

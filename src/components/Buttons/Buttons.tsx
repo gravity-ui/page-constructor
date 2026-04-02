@@ -19,7 +19,9 @@ function getButtonSize(size: ContentSize) {
     switch (size) {
         case 's':
             return 'm';
+        case 'm':
         case 'l':
+        case 'xl':
         default:
             return 'xl';
     }

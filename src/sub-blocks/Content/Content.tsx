@@ -24,6 +24,9 @@ function getTextSize(size: ContentSize): TextSize {
         case 'm':
             return 'sm';
         case 'l':
+            return 'm';
+        case 'xl':
+            return 'l';
         default:
             return 'm';
     }
@@ -104,7 +107,7 @@ const Content = (props: ContentProps) => {
             )}
             {links && (
                 <Links
-                    className={b('links', {size})}
+                    className={b('links')}
                     size={size}
                     links={links}
                     titleId={titleId}
@@ -114,7 +117,7 @@ const Content = (props: ContentProps) => {
             )}
             {buttons && (
                 <Buttons
-                    className={b('buttons', {size})}
+                    className={b('buttons')}
                     size={size}
                     buttons={buttons}
                     titleId={titleId}

@@ -92,6 +92,10 @@
   ],
   "size": [
     {
+      "title": "Size XL",
+      "size": "xl"
+    },
+    {
       "title": "Size L",
       "size": "l"
     },

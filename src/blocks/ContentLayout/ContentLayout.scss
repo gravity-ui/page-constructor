@@ -20,7 +20,8 @@ $block: '.#{$ns}content-layout-block';
             @include text-size(body-2);
         }
 
-        &_size_l {
+        &_size_l,
+        &_size_xl {
             @extend %heading-margin-reset;
             @include text-size(body-3);
         }

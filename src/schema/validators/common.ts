@@ -14,7 +14,7 @@ export const mediaDirection = ['media-content', 'content-media'];
 export const textSize = ['xs', 's', 'sm', 'm', 'l'];
 export const containerSizesArray = ['sm', 'md', 'lg', 'xl', 'all'];
 export const sliderSizesArray = ['sm', 'md', 'lg', 'xl'];
-export const contentSizes = ['s', 'm', 'l'];
+export const contentSizes = ['s', 'm', 'l', 'xl'];
 export const contentTextWidth = ['s', 'm', 'l'];
 
 export const videoTypes = ['default', 'player'];
