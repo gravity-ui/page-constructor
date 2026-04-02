@@ -5,6 +5,7 @@ import {blockTransform} from '../../../../.storybook/utils';
 import {FormBlockDirection, FormBlockModel, FormBlockProps} from '../../../models';
 import FormBlock from '../Form';
 
+import AdditionContent from './components/AdditionalContent';
 import ExampleStub from './components/ExmapleStub';
 
 import data from './data.json';
@@ -45,6 +46,7 @@ export const WithBackgroundImage = VariantsTemplate.bind([]);
 export const DarkTheme = VariantsTemplate.bind([]);
 export const FormData = VariantsTemplate.bind([]);
 export const WithCustomFormNode = DefaultTemplate.bind([]);
+export const WithAdditionalContentNode = DefaultTemplate.bind([]);
 
 Default.args = data.default as FormBlockModel;
 
@@ -93,3 +95,9 @@ FormData.parameters = {
 };
 
 WithCustomFormNode.args = {...data.default, customFormNode: <ExampleStub />} as FormBlockModel;
+
+WithAdditionalContentNode.args = {
+    ...data.default,
+    direction: FormBlockDirection.FormContent,
+    additionalContentNode: <AdditionContent />,
+} as FormBlockModel;

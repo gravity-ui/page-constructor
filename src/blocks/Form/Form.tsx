@@ -32,6 +32,7 @@ const Form = (props: FormBlockProps) => {
         direction = FormBlockDirection.Center,
         background,
         customFormNode,
+        additionalContentNode,
     } = props;
     const [contentLoaded, setContentLoaded] = React.useState(false);
     const isMobile = React.useContext(MobileContext);
@@ -99,6 +100,7 @@ const Form = (props: FormBlockProps) => {
                                     colSizes={{all: 12}}
                                     className={b('content')}
                                 />
+                                {additionalContentNode}
                             </div>
                         )}
                     </Col>
