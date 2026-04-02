@@ -106,7 +106,6 @@ $largeBorderRadius: 32px;
         }
     }
 
-    $labelsBlock: '.#{$ns}content-labels';
     @media (min-width: map-get($gridBreakpoints, 'lg')) {
         &_form-type_yandex {
             #{$root}__row {
@@ -162,10 +161,6 @@ $largeBorderRadius: 32px;
                 #{$root}__content-wrapper {
                     text-align: center;
                     padding-bottom: $indentM;
-
-                    #{$labelsBlock} {
-                        justify-content: center;
-                    }
                 }
             }
         }
