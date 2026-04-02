@@ -62,22 +62,27 @@ const MiddleScreen = ({className, CustomTop}: MiddleScreenProps) => {
                         className={b('canvas', {hidden: !initialized, fullscreen: isPreviewMode})}
                         style={canvasStyle}
                     >
-                        <iframe
-                            ref={(instance) => {
-                                if (instance) {
-                                    setIframeElement(instance);
-                                }
-                            }}
-                            className={b('iframe', {fullscreen: isPreviewMode})}
-                            src={url}
-                            height={isPreviewMode ? '100%' : `${height}px`}
-                            width={isPreviewMode ? '100%' : deviceWidth}
-                            frameBorder="0"
-                            title="Page Constructor Iframe"
-                        />
-                        {!isPreviewMode && (
-                            <Overlay className={b('overlay')} canvasElement={canvasRef} />
-                        )}
+                        <div
+                            className={b('iframe-container', {fullscreen: isPreviewMode})}
+                            style={{width: isPreviewMode ? '100%' : deviceWidth}}
+                        >
+                            <iframe
+                                ref={(instance) => {
+                                    if (instance) {
+                                        setIframeElement(instance);
+                                    }
+                                }}
+                                className={b('iframe', {fullscreen: isPreviewMode})}
+                                src={url}
+                                height={isPreviewMode ? '100%' : `${height}px`}
+                                width={isPreviewMode ? '100%' : deviceWidth}
+                                frameBorder="0"
+                                title="Page Constructor Iframe"
+                            />
+                            {!isPreviewMode && (
+                                <Overlay className={b('overlay')} canvasElement={canvasRef} />
+                            )}
+                        </div>
                         {isPreviewMode && (
                             <Button
                                 view="action"
