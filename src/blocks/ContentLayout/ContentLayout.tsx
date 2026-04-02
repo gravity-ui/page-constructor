@@ -17,7 +17,9 @@ function getFileTextSize(size: ContentSize) {
     switch (size) {
         case 's':
             return 's';
+        case 'm':
         case 'l':
+        case 'xl':
         default:
             return 'l';
     }

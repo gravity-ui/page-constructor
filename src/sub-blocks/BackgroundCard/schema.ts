@@ -11,7 +11,7 @@ import {
 import {AnalyticsEventSchema} from '../../gravity-blocks/schema/validators/event';
 import {ContentBase} from '../Content/schema';
 
-const BackgroundCardContentProps = omit(ContentBase, ['size', 'controlPosition']);
+const BackgroundCardContentProps = omit(ContentBase, ['controlPosition']);
 
 export const BackgroundCard = {
     'background-card': {
