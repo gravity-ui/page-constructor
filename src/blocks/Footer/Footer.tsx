@@ -27,40 +27,40 @@ function getLogoImageProps(logoImage: ModelImageProps): Record<string, unknown> 
     return resolved && typeof resolved === 'object' ? (resolved as Record<string, unknown>) : null;
 }
 
-const COL_COL_SIZES = {md: 2, sm: 6, all: 12} as const;
-const COL_COL_SIZES_NO_LOGO = {md: 3, sm: 6, all: 12} as const;
-
 function renderColumns(
     columns: FooterBlockProps['columns'],
     hasLogo: boolean,
     sectionIndex: number,
 ) {
-    const sizes = hasLogo ? COL_COL_SIZES : COL_COL_SIZES_NO_LOGO;
-    return columns.map((column, columnIndex) => (
-        <Col
-            key={`${sectionIndex}-${columnIndex}`}
-            className={b('column')}
-            sizes={{all: 6, sm: 3, md: 2}}
-        >
-            <div className={b('column-inner')}>
-                <h6 className={b('column-title')}>{column.title}</h6>
-                <ul className={b('links')}>
-                    {column.links.map((link, linkIndex) => (
-                        <li key={linkIndex} className={b('link-item')}>
-                            <Link
-                                href={link.url}
-                                className={b('link')}
-                                title={link.urlTitle}
-                                target={link.target}
-                            >
-                                {link.text}
-                            </Link>
-                        </li>
-                    ))}
-                </ul>
+    const navigationSizes = hasLogo ? {all: 12, md: 8} : {all: 12};
+
+    return (
+        <Col sizes={navigationSizes}>
+            <div className={b('nav-columns', {'no-logo': !hasLogo})}>
+                {columns.map((column, columnIndex) => (
+                    <div key={`${sectionIndex}-${columnIndex}`} className={b('column')}>
+                        <div className={b('column-inner')}>
+                            <h6 className={b('column-title')}>{column.title}</h6>
+                            <ul className={b('links')}>
+                                {column.links.map((link, linkIndex) => (
+                                    <li key={linkIndex} className={b('link-item')}>
+                                        <Link
+                                            href={link.url}
+                                            className={b('link')}
+                                            title={link.urlTitle}
+                                            target={link.target}
+                                        >
+                                            {link.text}
+                                        </Link>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </div>
+                ))}
             </div>
         </Col>
-    ));
+    );
 }
 
 function renderSocialIcons(

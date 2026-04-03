@@ -50,12 +50,38 @@ $block: '.#{$ns}footer-block';
 
     &__column {
         min-width: 0;
+        display: block;
+        margin-bottom: $indentL;
+        break-inside: avoid;
+        -moz-column-break-inside: avoid;
+        -webkit-column-break-inside: avoid;
+        page-break-inside: avoid;
     }
 
     &__column-inner {
         display: flex;
         flex-direction: column;
         gap: $indentS;
+    }
+
+    &__nav-columns {
+        column-count: 3;
+        column-gap: $indentXS;
+        column-fill: balance;
+
+        &_no-logo {
+            column-count: 4;
+        }
+    }
+
+    @media (min-width: map-get($gridBreakpoints, 'lg')) {
+        &__nav-columns {
+            column-count: 4;
+
+            &_no-logo {
+                column-count: 5;
+            }
+        }
     }
 
     &__column-title {
@@ -84,6 +110,7 @@ $block: '.#{$ns}footer-block';
         @include link();
         color: var(--g-color-text-primary);
         text-decoration: none;
+        line-height: 20px;
 
         &:hover {
             color: var(--g-color-text-secondary);
@@ -107,16 +134,15 @@ $block: '.#{$ns}footer-block';
         }
 
         &__column {
-            flex: 1 1 calc(50% - #{$indentM});
-            min-width: 140px;
+            margin-bottom: $indentL;
         }
     }
 
     @media (max-width: map-get($gridBreakpoints, 'sm')) {
         padding: $indentL 0 $indentM;
 
-        &__column {
-            flex: 1 1 100%;
+        &__nav-columns {
+            column-count: 1;
         }
     }
 

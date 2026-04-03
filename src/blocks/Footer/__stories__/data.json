@@ -46,6 +46,14 @@
                     {"text": "Сообщество", "url": "#community"},
                     {"text": "Статус", "url": "#status"}
                 ]
+            },
+            {
+                "title": "Еще один заголовок",
+                "links": [
+                    {"text": "Раз пункт", "url": "#help"},
+                    {"text": "Два пункт", "url": "#community"},
+                    {"text": "Три пункт", "url": "#status"}
+                ]
             }
         ],
         "contacts": {
