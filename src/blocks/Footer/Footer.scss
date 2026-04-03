@@ -162,50 +162,6 @@ $block: '.#{$ns}footer-block';
         }
     }
 
-    @media (max-width: map-get($gridBreakpoints, 'md')) {
-        padding: 0 0 $indentL;
-
-        &__floor_navigation &__logo {
-            height: 48px;
-        }
-
-        &__logo-image {
-            max-height: 28px;
-
-            picture,
-            img {
-                max-height: 28px;
-            }
-        }
-
-        &__nav-layout-column {
-            gap: $indentL;
-        }
-    }
-
-    @media (max-width: map-get($gridBreakpoints, 'sm')) {
-        &__nav-layout {
-            &_count_2 {
-                display: flex;
-            }
-
-            &_count_3,
-            &_count_4,
-            &_count_5 {
-                display: none;
-            }
-        }
-
-        & .pc-Grid .container-fluid {
-            padding: 0 $indentSM;
-        }
-
-        &__floor_social.col,
-        &__floor_disclaimer.col {
-            padding: $indentSM 0;
-        }
-    }
-
     // Generic floor (2–5)
     &__floor {
         max-width: 1233px;
@@ -402,5 +358,54 @@ $block: '.#{$ns}footer-block';
 
     &__attribution-block {
         margin-top: 0;
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'md')) {
+        padding: 0 0 $indentL;
+
+        &__floor_navigation &__logo {
+            height: 48px;
+        }
+
+        &__logo-image {
+            max-height: 28px;
+
+            picture,
+            img {
+                max-height: 28px;
+            }
+        }
+
+        &__nav-layout-column {
+            gap: $indentL;
+        }
+
+        &__links-floor-inner {
+            flex-wrap: wrap;
+            gap: var(--g-spacing-1);
+        }
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'sm')) {
+        &__nav-layout {
+            &_count_2 {
+                display: flex;
+            }
+
+            &_count_3,
+            &_count_4,
+            &_count_5 {
+                display: none;
+            }
+        }
+
+        & .pc-Grid .container-fluid {
+            padding: 0 $indentSM;
+        }
+
+        &__floor_social.col,
+        &__floor_disclaimer.col {
+            padding: $indentSM 0;
+        }
     }
 }

@@ -73,7 +73,7 @@
         },
         "disclaimer": "YTsaurus is a software distributed under the Apache License, Version 2.0. Feel free to contact the **YTsaurus** team at [info@ytsaurus.tech](mailto:info@ytsaurus.tech). Apache®, Apache Spark™ and their logos are either registered trademarks or trademarks of the Apache Software Foundation. [Trademarks](https://trademarks.apache.org). ClickHouse® is a trademark of ClickHouse, Inc. [clickhouse.com](https://clickhouse.com).",
         "copyright": {
-            "logo": {
+            "logo1": {
                 "image": {
                     "light": {"src": "/story-assets/logo-ytsuarus_light.svg"},
                     "dark": {"src": "/story-assets/logo-ytsuarus_dark.svg"}
@@ -89,7 +89,7 @@
             ],
             "linksOverflowStrategy": "line-wrap",
             "linksOverflowStrategy1": "dropdown",
-            "languageSwitcher1": [
+            "languageSwitcher": [
                 {"text": "Русский", "href": "/ru"},
                 {"text": "English", "href": "/en"}
             ],
