@@ -27,6 +27,10 @@ $block: '.#{$ns}footer-block';
         align-items: center;
     }
 
+    &__logo-col.col {
+        padding: 0 $indentXS $indentM;
+    }
+
     &__logo-wrapper {
         display: inline-flex;
         align-items: center;
@@ -118,10 +122,10 @@ $block: '.#{$ns}footer-block';
     }
 
     @media (max-width: map-get($gridBreakpoints, 'md')) {
-        padding: $indentXL 0 $indentL;
+        padding: 0 0 $indentL;
 
-        &__row {
-            gap: $indentXL $indentM;
+        &__floor_navigation &__logo {
+            height: 48px;
         }
 
         &__logo-image {
@@ -139,10 +143,12 @@ $block: '.#{$ns}footer-block';
     }
 
     @media (max-width: map-get($gridBreakpoints, 'sm')) {
-        padding: $indentL 0 $indentM;
-
         &__nav-columns {
-            column-count: 1;
+            column-count: 2;
+        }
+
+        & .pc-Grid .container-fluid {
+            padding: 0 $indentSM;
         }
     }
 
