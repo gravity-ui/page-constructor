@@ -351,7 +351,7 @@ $block: '.#{$ns}footer-block';
     }
 
     // Floor 5: Attribution
-    &__floor.attribution {
+    &__floor_attribution {
         border: none;
         padding: 0;
     }
@@ -361,8 +361,6 @@ $block: '.#{$ns}footer-block';
     }
 
     @media (max-width: map-get($gridBreakpoints, 'md')) {
-        padding: 0 0 $indentL;
-
         &__floor_navigation &__logo {
             height: 48px;
         }
@@ -404,8 +402,13 @@ $block: '.#{$ns}footer-block';
         }
 
         &__floor_social.col,
-        &__floor_disclaimer.col {
+        &__floor_disclaimer.col,
+        &__floor_copyright.col {
             padding: $indentSM 0;
+        }
+
+        &__floor_attribution {
+            height: 64px;
         }
     }
 }

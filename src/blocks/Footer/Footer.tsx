@@ -239,7 +239,7 @@ export const FooterBlock = (props: React.PropsWithChildren<FooterBlockFullProps>
                     )}
                     {/* Floor 4: Links + language + copyright */}
                     {copyright && (
-                        <Col sizes={{all: 12}} className={b('floor')}>
+                        <Col sizes={{all: 12}} className={b('floor', {copyright: true})}>
                             <div className={b('links-floor-inner')}>
                                 {copyright.logo && (
                                     <div className={b('logo')}>
@@ -299,7 +299,7 @@ export const FooterBlock = (props: React.PropsWithChildren<FooterBlockFullProps>
                     )}
                     {/* Floor 5: Attribution */}
                     {attribution && (
-                        <Col sizes={{all: 12}} className={b('floor', 'attribution')}>
+                        <Col sizes={{all: 12}} className={b('floor', {attribution: true})}>
                             <BrandFooter className={b('attribution-block')} />
                         </Col>
                     )}

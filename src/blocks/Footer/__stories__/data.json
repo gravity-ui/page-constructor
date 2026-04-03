@@ -59,7 +59,7 @@
         "contacts": {
             "title": "Join Us",
             "iconsSize": "l",
-            "linksPosition": "center",
+            "linksPosition": "left",
             "titlePosition": "top",
             "links": [
                 {"icon": {"light": {"src": "/story-assets/icons-github_light.svg"}, "dark": {"src": "/story-assets/icons-github_dark.svg"}}, "url": "https://example.com", "urlTitle": "GitHub"},
