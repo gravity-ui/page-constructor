@@ -54,12 +54,6 @@ $block: '.#{$ns}footer-block';
 
     &__column {
         min-width: 0;
-        display: block;
-        margin-bottom: $indentL;
-        break-inside: avoid;
-        -moz-column-break-inside: avoid;
-        -webkit-column-break-inside: avoid;
-        page-break-inside: avoid;
     }
 
     &__column-inner {
@@ -69,21 +63,68 @@ $block: '.#{$ns}footer-block';
     }
 
     &__nav-columns {
-        column-count: 3;
-        column-gap: $indentXS;
-        column-fill: balance;
+        min-width: 0;
+    }
 
-        &_no-logo {
-            column-count: 4;
+    &__nav-layout {
+        display: none;
+        gap: $indentXS;
+
+        &_count_2 {
+            display: flex;
+        }
+    }
+
+    &__nav-layout-column {
+        min-width: 0;
+        flex: 1 1 0;
+        display: flex;
+        flex-direction: column;
+        gap: $indentL;
+    }
+
+    @media (min-width: #{map-get($gridBreakpoints, 'sm') + 1px}) {
+        &__nav-layout {
+            &_count_2 {
+                display: none;
+            }
+
+            &_count_3 {
+                display: flex;
+            }
+        }
+    }
+
+    @media (min-width: map-get($gridBreakpoints, 'md')) {
+        &__nav-columns_no-logo {
+            #{$block}__nav-layout_count_3 {
+                display: none;
+            }
+
+            #{$block}__nav-layout_count_4 {
+                display: flex;
+            }
         }
     }
 
     @media (min-width: map-get($gridBreakpoints, 'lg')) {
-        &__nav-columns {
-            column-count: 4;
+        &__nav-layout {
+            &_count_3 {
+                display: none;
+            }
 
-            &_no-logo {
-                column-count: 5;
+            &_count_4 {
+                display: flex;
+            }
+        }
+
+        &__nav-columns_no-logo {
+            #{$block}__nav-layout_count_4 {
+                display: none;
+            }
+
+            #{$block}__nav-layout_count_5 {
+                display: flex;
             }
         }
     }
@@ -137,18 +178,31 @@ $block: '.#{$ns}footer-block';
             }
         }
 
-        &__column {
-            margin-bottom: $indentL;
+        &__nav-layout-column {
+            gap: $indentL;
         }
     }
 
     @media (max-width: map-get($gridBreakpoints, 'sm')) {
-        &__nav-columns {
-            column-count: 2;
+        &__nav-layout {
+            &_count_2 {
+                display: flex;
+            }
+
+            &_count_3,
+            &_count_4,
+            &_count_5 {
+                display: none;
+            }
         }
 
         & .pc-Grid .container-fluid {
             padding: 0 $indentSM;
+        }
+
+        &__floor_social.col,
+        &__floor_disclaimer.col {
+            padding: $indentSM 0;
         }
     }
 
@@ -162,7 +216,6 @@ $block: '.#{$ns}footer-block';
         &_social,
         &_disclaimer,
         &_links {
-            margin-top: $indentL;
             padding-top: $indentL;
         }
     }

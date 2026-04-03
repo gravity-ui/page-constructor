@@ -52,7 +52,7 @@
                 "links": [
                     {"text": "Раз пункт", "url": "#help"},
                     {"text": "Два пункт", "url": "#community"},
-                    {"text": "Три пункт", "url": "#status"}
+                    {"text": "Статус", "url": "#status"}
                 ]
             }
         ],

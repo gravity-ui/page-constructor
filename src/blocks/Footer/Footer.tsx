@@ -33,12 +33,30 @@ function renderColumns(
     sectionIndex: number,
 ) {
     const navigationSizes = hasLogo ? {all: 12, md: 8} : {all: 12};
+    const splitIntoColumns = (targetColumnCount: number) => {
+        const safeCount = Math.min(targetColumnCount, columns.length);
+        const grouped: FooterBlockProps['columns'][] = [];
+        let start = 0;
 
-    return (
-        <Col sizes={navigationSizes}>
-            <div className={b('nav-columns', {'no-logo': !hasLogo})}>
-                {columns.map((column, columnIndex) => (
-                    <div key={`${sectionIndex}-${columnIndex}`} className={b('column')}>
+        for (let columnIndex = 0; columnIndex < safeCount; columnIndex += 1) {
+            const columnsLeft = safeCount - columnIndex;
+            const remainingItems = columns.length - start;
+            const currentColumnSize = Math.ceil(remainingItems / columnsLeft);
+            grouped.push(columns.slice(start, start + currentColumnSize));
+            start += currentColumnSize;
+        }
+
+        return grouped;
+    };
+
+    const renderColumnContent = (groupedColumns: FooterBlockProps['columns'][]) =>
+        groupedColumns.map((group, groupIndex) => (
+            <div key={`${sectionIndex}-group-${groupIndex}`} className={b('nav-layout-column')}>
+                {group.map((column, columnIndex) => (
+                    <div
+                        key={`${sectionIndex}-${groupIndex}-${columnIndex}`}
+                        className={b('column')}
+                    >
                         <div className={b('column-inner')}>
                             <h6 className={b('column-title')}>{column.title}</h6>
                             <ul className={b('links')}>
@@ -58,6 +76,26 @@ function renderColumns(
                         </div>
                     </div>
                 ))}
+            </div>
+        ));
+
+    return (
+        <Col sizes={navigationSizes}>
+            <div className={b('nav-columns', {'no-logo': !hasLogo})}>
+                <div className={b('nav-layout', {count: 2})}>
+                    {renderColumnContent(splitIntoColumns(2))}
+                </div>
+                <div className={b('nav-layout', {count: 3})}>
+                    {renderColumnContent(splitIntoColumns(3))}
+                </div>
+                <div className={b('nav-layout', {count: 4})}>
+                    {renderColumnContent(splitIntoColumns(4))}
+                </div>
+                {!hasLogo && (
+                    <div className={b('nav-layout', {count: 5})}>
+                        {renderColumnContent(splitIntoColumns(5))}
+                    </div>
+                )}
             </div>
         </Col>
     );
@@ -170,7 +208,7 @@ export const FooterBlock = (props: React.PropsWithChildren<FooterBlockFullProps>
                     </Row>
                     {/* Floor 2: Social row (Join Us + icons) */}
                     {contacts && contacts.links.length > 0 && (
-                        <Col sizes={{all: 12}} className={b('floor')}>
+                        <Col sizes={{all: 12}} className={b('floor', {social: true})}>
                             <div
                                 className={b('social-floor-inner', {
                                     'title-position': contacts.titlePosition || 'top',
@@ -187,7 +225,7 @@ export const FooterBlock = (props: React.PropsWithChildren<FooterBlockFullProps>
                     )}
                     {/* Floor 3: Legal disclaimer */}
                     {disclaimer && (
-                        <Col sizes={{all: 12}} className={b('floor')}>
+                        <Col sizes={{all: 12}} className={b('floor', {disclaimer: true})}>
                             <div className={b('disclaimer-floor-content')}>
                                 <YFMWrapper
                                     content={disclaimer}
