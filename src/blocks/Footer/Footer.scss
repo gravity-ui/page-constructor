@@ -248,6 +248,12 @@ $block: '.#{$ns}footer-block';
         align-items: center;
         justify-content: space-between;
         gap: $indentM $indentL;
+
+        #{$block}__logo {
+            align-self: end;
+
+            height: 36px;
+        }
     }
 
     &__links-floor-left {
@@ -268,6 +274,8 @@ $block: '.#{$ns}footer-block';
         align-self: end;
         gap: $indentXS;
         flex-shrink: 0;
+
+        height: 36px;
     }
 
     &__links-floor-list {

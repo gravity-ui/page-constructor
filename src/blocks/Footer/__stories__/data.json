@@ -80,6 +80,7 @@
                 {"text": "Длинный пункт меню 2", "url": "#terms"}
             ],
             "linksOverflowStrategy": "line-wrap",
+            "linksOverflowStrategy1": "dropdown",
             "languageSwitcher1": [
                 {"text": "Русский", "href": "/ru"},
                 {"text": "English", "href": "/en"}
