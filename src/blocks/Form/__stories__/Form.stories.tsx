@@ -5,7 +5,7 @@ import {blockTransform} from '../../../../.storybook/utils';
 import {FormBlockDirection, FormBlockModel, FormBlockProps} from '../../../models';
 import FormBlock from '../Form';
 
-import AdditionContent from './components/AdditionalContent';
+import ExampleAdditionContent, {ContentLabelProps} from './components/ExampleAdditionalContent';
 import ExampleStub from './components/ExmapleStub';
 
 import data from './data.json';
@@ -99,5 +99,7 @@ WithCustomFormNode.args = {...data.default, customFormNode: <ExampleStub />} as 
 WithAdditionalContentNode.args = {
     ...data.default,
     direction: FormBlockDirection.FormContent,
-    additionalContentNode: <AdditionContent />,
+    additionalContentNode: (
+        <ExampleAdditionContent labels={data.withAdditionalContent.labels as ContentLabelProps[]} />
+    ),
 } as FormBlockModel;
