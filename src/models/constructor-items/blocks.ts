@@ -3,9 +3,10 @@ import * as React from 'react';
 import {ButtonSize} from '@gravity-ui/uikit';
 
 import {GridColumnSize, GridColumnSizesType, IndentValue} from '../../grid/types';
+import {ContentProps} from '../../sub-blocks/Content/Content';
 import {ThemeSupporting} from '../../utils';
 import {DeviceSupporting} from '../../utils/breakpoint';
-import {AnalyticsEventsBase} from '../common';
+import {AnalyticsEventsBase, Theme} from '../common';
 
 import {
     AnchorProps,
@@ -28,6 +29,8 @@ import {
     LegendTableMarkerType,
     LinkProps,
     MapProps,
+    MediaComponentImageProps,
+    MediaComponentVideoProps,
     MediaDirection,
     MediaProps,
     MediaView,
@@ -59,6 +62,7 @@ export enum BlockType {
     TabsBlock = 'tabs-block',
     HeaderSliderBlock = 'header-slider-block',
     HeaderBlock = 'header-block',
+    HeroBlock = 'hero-block',
     IconsBlock = 'icons-block',
     CardLayoutBlock = 'card-layout-block',
     ContentLayoutBlock = 'content-layout-block',
@@ -69,7 +73,11 @@ export enum BlockType {
 }
 
 export const BlockTypes = Object.values(BlockType);
-export const HeaderBlockTypes = [BlockType.HeaderBlock, BlockType.HeaderSliderBlock];
+export const HeaderBlockTypes = [
+    BlockType.HeaderBlock,
+    BlockType.HeaderSliderBlock,
+    BlockType.HeroBlock,
+];
 
 export interface Childable {
     children?: SubBlock[];
@@ -199,6 +207,30 @@ export interface HeaderBlockProps {
     breadcrumbs?: HeaderBreadCrumbsProps;
     status?: JSX.Element;
     renderTitle?: (title: string) => React.ReactNode;
+}
+
+export interface HeroBlockBackground
+    extends Partial<MediaComponentImageProps>,
+        Partial<MediaComponentVideoProps> {
+    color?: string;
+}
+
+export interface HeroBlockMedia extends Partial<MediaProps> {
+    roundCorners?: boolean;
+}
+
+export interface HeroBlockProps extends Pick<ContentProps, 'title' | 'text'> {
+    breadcrumbs?: Omit<HeaderBreadCrumbsProps, 'theme'>;
+    // TODO: add overtitle to ContentProps
+    overtitle?: string | JSX.Element;
+    buttons?: ThemeSupporting<
+        Pick<ButtonProps, 'url' | 'text' | 'theme' | 'primary' | 'extraProps'>
+    >[];
+    media?: ThemeSupporting<HeroBlockMedia>;
+    fullWidth?: boolean;
+    verticalOffset?: 's' | 'm' | 'l' | 'xl';
+    theme?: Theme;
+    background?: ThemeSupporting<HeroBlockBackground>;
 }
 
 export interface ExtendedFeaturesItem
@@ -496,6 +528,10 @@ export type HeaderBlockModel = {
     type: BlockType.HeaderBlock;
 } & HeaderBlockProps;
 
+export type HeroBlockModel = {
+    type: BlockType.HeroBlock;
+} & HeroBlockProps;
+
 export type SliderOldBlockModel = {
     type: BlockType.SliderOldBlock;
 } & SliderOldProps;
@@ -591,6 +627,7 @@ type BlockModels =
     | TableBlockModel
     | TabsBlockModel
     | HeaderBlockModel
+    | HeroBlockModel
     | IconsBlockModel
     | HeaderSliderBlockModel
     | CardLayoutBlockModel

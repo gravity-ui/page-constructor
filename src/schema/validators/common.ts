@@ -801,3 +801,29 @@ export const GravityIconProps = {
         },
     ],
 };
+
+export const HeaderBreadcrumbsProps = {
+    type: 'object',
+    additionalProperties: false,
+    required: ['items'],
+    properties: {
+        items: {
+            type: 'array',
+            items: {
+                type: 'object',
+                additionalProperties: false,
+                required: ['url', 'text'],
+                properties: {
+                    url: {
+                        type: 'string',
+                    },
+                    text: {
+                        type: 'string',
+                        contentType: 'text',
+                    },
+                },
+            },
+        },
+        theme: {type: 'string', enum: ['light', 'dark']},
+    },
+};

@@ -21,6 +21,7 @@ import {
     TableBlock,
     TabsBlock,
 } from './blocks';
+import HeroBlock from './blocks/Hero/Hero';
 import {BlockType, NavigationItemType, SubBlockType} from './models';
 import {
     GithubButton,
@@ -56,6 +57,7 @@ export const blockMap = {
     [BlockType.TableBlock]: TableBlock,
     [BlockType.TabsBlock]: TabsBlock,
     [BlockType.HeaderBlock]: HeaderBlock,
+    [BlockType.HeroBlock]: HeroBlock,
     [BlockType.IconsBlock]: IconsBlock,
     [BlockType.HeaderSliderBlock]: HeaderSliderBlock,
     [BlockType.CardLayoutBlock]: CardLayoutBlock,
