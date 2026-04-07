@@ -220,7 +220,7 @@ export interface HeroBlockMedia extends Partial<MediaProps> {
 }
 
 export interface HeroBlockProps extends Pick<ContentProps, 'title' | 'text'> {
-    breadcrumbs?: Omit<HeaderBreadCrumbsProps, 'theme'>;
+    breadcrumbs?: HeaderBreadCrumbsProps;
     // TODO: add overtitle to ContentProps
     overtitle?: string | JSX.Element;
     buttons?: ThemeSupporting<
