@@ -70,4 +70,8 @@ $block: '.#{$ns}content-labels';
             }
         }
     }
+
+    @media (max-width: calc(map-get($gridBreakpoints, 'lg') - 1px)) and (min-width: map-get($gridBreakpoints, 'md')) {
+        justify-content: center;
+    }
 }
