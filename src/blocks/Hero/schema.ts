@@ -57,10 +57,6 @@ export const HeroBlockProps = {
         type: 'string',
         enum: ['s', 'm', 'l', 'xl'],
     },
-    theme: {
-        type: 'string',
-        enum: ['light', 'dark'],
-    },
     background: withTheme(HeroBlockBackground),
 };
 
