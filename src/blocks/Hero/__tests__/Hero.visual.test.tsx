@@ -1,6 +1,15 @@
 import {test} from '../../../../playwright/core/index';
 
-import {Background, Breadcrumbs, Default, Full, Image, VerticalOffset} from './helpers';
+import {
+    Background,
+    Breadcrumbs,
+    ContentList,
+    Default,
+    MediaFit,
+    RoundCorners,
+    Theme,
+    VerticalOffset,
+} from './helpers';
 
 test.describe('Hero', () => {
     test('render stories <Default>', async ({mount, expectScreenshot, defaultDelay}) => {
@@ -15,10 +24,22 @@ test.describe('Hero', () => {
         await expectScreenshot();
     });
 
+    test('render stories <ContentList>', async ({mount, expectScreenshot, defaultDelay}) => {
+        await mount(<ContentList />);
+        await defaultDelay();
+        await expectScreenshot();
+    });
+
     test('render stories <Background>', async ({mount, expectScreenshot, defaultDelay}) => {
         await mount(<Background />);
         await defaultDelay();
         await expectScreenshot();
+    });
+
+    test('render stories <RoundCorners>', async ({mount, expectScreenshot, defaultDelay}) => {
+        await mount(<RoundCorners />);
+        await defaultDelay();
+        await expectScreenshot({skipTheme: 'dark'});
     });
 
     test('render stories <VerticalOffset>', async ({mount, expectScreenshot, defaultDelay}) => {
@@ -27,15 +48,15 @@ test.describe('Hero', () => {
         await expectScreenshot({skipTheme: 'dark'});
     });
 
-    test('render stories <Image>', async ({mount, expectScreenshot, defaultDelay}) => {
-        await mount(<Image />);
+    test('render stories <Theme>', async ({mount, expectScreenshot, defaultDelay}) => {
+        await mount(<Theme />);
         await defaultDelay();
-        await expectScreenshot();
+        await expectScreenshot({skipTheme: 'dark'});
     });
 
-    test('render stories <Full>', async ({mount, expectScreenshot, defaultDelay}) => {
-        await mount(<Full />);
+    test('render stories <MediaFit>', async ({mount, expectScreenshot, defaultDelay}) => {
+        await mount(<MediaFit />);
         await defaultDelay();
-        await expectScreenshot();
+        await expectScreenshot({skipTheme: 'dark'});
     });
 });

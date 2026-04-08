@@ -8,7 +8,7 @@ import type {ReactPlayerProps} from 'react-player';
 
 import {MobileContext} from '../../context/mobileContext';
 import {VideoContext} from '../../context/videoContext';
-import {useAnalytics, useMount} from '../../hooks';
+import {useAnalytics, useImageSize, useMount} from '../../hooks';
 import {
     AnalyticsEvent,
     ClassNameProps,
@@ -52,6 +52,8 @@ export interface ReactPlayerBlockProps
     height?: number;
     ratio?: number;
     autoRatio?: boolean;
+    disableAutoSizing?: boolean;
+    onIntrinsicSizeChange?: (size: {width: number; height: number}) => void;
     children?: React.ReactNode;
 }
 
@@ -77,6 +79,8 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
             customBarControlsClassName,
             showPreview,
             onClickPreview,
+            onIntrinsicSizeChange,
+            disableAutoSizing,
             analyticsEvents,
             height,
             ariaLabel,
@@ -104,6 +108,7 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
 
         const ref = React.useRef<HTMLDivElement>(null);
         const buttonRef = React.useRef<HTMLButtonElement>(null);
+        const hasInitializedRef = React.useRef(false);
 
         const [playerRef, setPlayerRef] = React.useState<_ReactPlayer>();
         const [isPlaying, setIsPlaying] = React.useState(autoPlay);
@@ -121,6 +126,10 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
         useMount(() => setIsMounted(true));
 
         const videoSrc = React.useMemo(() => checkYoutubeVideos(src), [src]);
+
+        const {imageRef: previewImgRef, onLoad: onPreviewImgLoad} = useImageSize({
+            onIntrinsicSizeChange,
+        });
 
         const eventsArray = React.useMemo(() => {
             if (analyticsEvents) {
@@ -186,6 +195,10 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
         }, [elapsedTime, playerRef, started]);
 
         React.useEffect(() => {
+            if (disableAutoSizing) {
+                return;
+            }
+
             const updateSize = debounce(() => {
                 if (ref.current) {
                     // We need to get parent's width does not equal 0
@@ -207,10 +220,11 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
 
             updateSize();
             window.addEventListener('resize', updateSize, {passive: true});
+            // eslint-disable-next-line consistent-return
             return () => {
                 window.removeEventListener('resize', updateSize);
             };
-        }, [actualRatio, autoRatio, ratio]);
+        }, [actualRatio, autoRatio, disableAutoSizing, playerRef, ratio]);
 
         const playEvents = React.useMemo(
             () => eventsArray?.filter((e: AnalyticsEvent) => e.type === PredefinedEventTypes.Play),
@@ -317,15 +331,20 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
             }
         }, [changeMute, controls, customControlsType, ended, isPlaying, muted]);
 
-        const onReady = React.useCallback((player: _ReactPlayer) => {
-            setPlayerRef(player);
-            const videoElement = player.getInternalPlayer();
-            const videoWidth = videoElement.videoWidth as number | undefined;
-            const videoHeight = videoElement.videoHeight as number | undefined;
-            if (videoWidth && videoHeight) {
-                setActualRatio(videoHeight / videoWidth);
-            }
-        }, []);
+        const onReady = React.useCallback(
+            (player: _ReactPlayer) => {
+                setPlayerRef(player);
+                hasInitializedRef.current = true;
+                const videoElement = player.getInternalPlayer();
+                const videoWidth = videoElement.videoWidth as number | undefined;
+                const videoHeight = videoElement.videoHeight as number | undefined;
+                if (videoWidth && videoHeight) {
+                    setActualRatio(videoHeight / videoWidth);
+                    onIntrinsicSizeChange?.({width: videoWidth, height: videoHeight});
+                }
+            },
+            [onIntrinsicSizeChange],
+        );
 
         const onProgress: ReactPlayerProps['onProgress'] = React.useCallback(
             ({played, playedSeconds}: PlayerPropgress) => {
@@ -419,7 +438,18 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
                             controls={controls === MediaVideoControlsType.Default}
                             height={currentHeight || '100%'}
                             width={width || '100%'}
-                            light={previewImgUrl}
+                            light={
+                                previewImgUrl && (
+                                    <img
+                                        className={b('preview-img')}
+                                        src={previewImgUrl}
+                                        onLoad={onPreviewImgLoad}
+                                        alt=""
+                                        aria-hidden={true}
+                                        ref={previewImgRef}
+                                    />
+                                )
+                            }
                             playing={isPlaying}
                             playIcon={playIcon}
                             progressInterval={FPS}

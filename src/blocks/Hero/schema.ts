@@ -29,7 +29,7 @@ export const HeroBlockBackground = {
 };
 
 export const HeroBlockProps = {
-    ...pick(ContentBase, ['title', 'text']),
+    ...pick(ContentBase, ['title', 'text', 'list', 'additionalInfo', 'links', 'theme']),
     breadcrumbs: HeaderBreadcrumbsProps,
     overtitle: {
         type: 'string',

@@ -6,11 +6,38 @@ $block: '.#{$ns}hero-block';
 $backgroundMaxWidth: 1440px;
 $intermediateBreakpoint: 993px;
 
-$gridSize: 12;
-$gridGap: $indentXS;
+@mixin media-content-styles($orientation: 'horizontal') {
+    &,
+    .pc-media-component-image__item,
+    .pc-fullscreen-image,
+    .pc-fullscreen-image__image-wrapper,
+    .pc-media-component-video__wrap,
+    .pc-media-component-video__react-player,
+    .pc-default-video,
+    .pc-ReactPlayer__preview-img,
+    .pc-full-screen-media,
+    .pc-full-screen-media__media-wrapper {
+        @if $orientation == 'vertical' {
+            width: auto;
+            height: 100%;
+        } @else {
+            width: 100%;
+            height: auto;
+        }
+    }
 
-@mixin cols($count, $gap: $gridGap) {
-    width: calc((100% - ($gridSize - 1) * $gap) / $gridSize * $count + $gap * ($count - 1));
+    .pc-ReactPlayer__player,
+    .react-player__preview {
+        /* stylelint-disable declaration-no-important */
+        @if $orientation == 'vertical' {
+            width: auto !important;
+            height: 100% !important;
+        } @else {
+            width: 100% !important;
+            height: auto !important;
+        }
+        /* stylelint-enable declaration-no-important */
+    }
 }
 
 #{$block} {
@@ -57,21 +84,23 @@ $gridGap: $indentXS;
 
     &__wrapper {
         position: relative;
-        display: flex;
-        gap: $gridGap;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: 1fr;
+        gap: $indentXS;
+        padding-inline: $indentXXXS;
     }
 
     &__breadcrumbs {
         position: absolute;
         top: $indentXS;
-        left: $indentL;
+        left: $indentXXXS;
         max-width: 100%;
     }
 
     &__content {
-        @include cols(6);
-
-        padding-inline: $indentXXXS $indentL;
+        grid-column: span 6;
+        padding-inline-end: $indentL;
 
         &_vertical-offset {
             &_s {
@@ -118,65 +147,87 @@ $gridGap: $indentXS;
     }
 
     &__media {
-        @include cols(6);
-
-        display: flex;
-        align-items: center;
+        position: relative;
+        grid-column: span 6;
         padding-block: $indentXS;
-        padding-inline-end: $indentXXXS;
 
-        &-content {
-            width: 100%;
+        &-container {
+            position: absolute;
+            inset: $indentXS 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
-            &_round-corners {
-                border-radius: var(--pc-border-radius);
-            }
+            &-content {
+                @include media-content-styles('horizontal');
 
-            .pc-media-component-data-lens__wrap,
-            .pc-media-component-iframe {
-                margin: 0;
+                &_vertical {
+                    @include media-content-styles('vertical');
+                }
+
+                &_round-corners {
+                    border-radius: var(--pc-border-radius);
+                }
+
+                .pc-Media__youtube {
+                    border-radius: initial;
+                }
+
+                .pc-media-component-data-lens__wrap,
+                .pc-media-component-iframe {
+                    margin: 0;
+                }
             }
         }
     }
 
     @media (max-width: $intermediateBreakpoint) {
         &__content {
-            @include cols(7);
+            grid-column: span 7;
 
             &_no-media {
-                width: 100%;
+                grid-column: span 12;
             }
         }
 
         &__media {
-            @include cols(5);
+            grid-column: span 5;
         }
     }
 
     @media (max-width: map-get($gridBreakpoints, 'md')) {
         &__wrapper {
-            @include add-specificity(&) {
-                flex-direction: column;
-                padding-block: $indentS $indentSM;
-            }
+            padding-block: $indentS $indentSM;
         }
 
         &__breadcrumbs {
+            grid-column: span 12;
             order: 1;
             position: initial;
-            padding-inline: $indentXXXS;
         }
 
         &__content {
+            grid-column: span 12;
             order: 3;
             width: 100%;
-            padding: 0 $indentXXXS $indentXS;
+            padding-block: 0 $indentXS;
+            padding-inline: 0;
         }
 
         &__media {
+            grid-column: span 12;
             order: 2;
             width: 100%;
-            padding: 0 $indentXXXS;
+            padding-block: 0;
+
+            &-container {
+                position: initial;
+                inset: 0;
+
+                &-content_vertical {
+                    @include media-content-styles('horizontal');
+                }
+            }
         }
     }
 }

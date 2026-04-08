@@ -3,10 +3,9 @@ import * as React from 'react';
 import {ButtonSize} from '@gravity-ui/uikit';
 
 import {GridColumnSize, GridColumnSizesType, IndentValue} from '../../grid/types';
-import {ContentProps} from '../../sub-blocks/Content/Content';
 import {ThemeSupporting} from '../../utils';
 import {DeviceSupporting} from '../../utils/breakpoint';
-import {AnalyticsEventsBase, Theme} from '../common';
+import {AnalyticsEventsBase} from '../common';
 
 import {
     AnchorProps,
@@ -219,7 +218,11 @@ export interface HeroBlockMedia extends Partial<MediaProps> {
     roundCorners?: boolean;
 }
 
-export interface HeroBlockProps extends Pick<ContentProps, 'title' | 'text'> {
+export interface HeroBlockProps
+    extends Pick<
+        ContentBlockProps,
+        'title' | 'text' | 'list' | 'additionalInfo' | 'links' | 'theme'
+    > {
     breadcrumbs?: HeaderBreadCrumbsProps;
     // TODO: add overtitle to ContentProps
     overtitle?: string | JSX.Element;
@@ -229,7 +232,6 @@ export interface HeroBlockProps extends Pick<ContentProps, 'title' | 'text'> {
     media?: ThemeSupporting<HeroBlockMedia>;
     fullWidth?: boolean;
     verticalOffset?: 's' | 'm' | 'l' | 'xl';
-    theme?: Theme;
     background?: ThemeSupporting<HeroBlockBackground>;
 }
 
