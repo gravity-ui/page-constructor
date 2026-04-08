@@ -100,7 +100,15 @@ const Form = (props: FormBlockProps) => {
                                     colSizes={{all: 12}}
                                     className={b('content')}
                                 />
-                                {additionalContentNode}
+                                {additionalContentNode && (
+                                    <div
+                                        className={b('additional-content', {
+                                            centered: direction === FormBlockDirection.Center,
+                                        })}
+                                    >
+                                        {additionalContentNode}
+                                    </div>
+                                )}
                             </div>
                         )}
                     </Col>

@@ -7,7 +7,6 @@ $block: '.#{$ns}content-labels';
     display: flex;
     gap: 10px;
     flex-wrap: wrap;
-    margin-top: $indentS;
 
     &__label {
         display: flex;
@@ -69,9 +68,5 @@ $block: '.#{$ns}content-labels';
                 @include text-body-2();
             }
         }
-    }
-
-    @media (max-width: calc(map-get($gridBreakpoints, 'lg') - 1px)) and (min-width: map-get($gridBreakpoints, 'md')) {
-        justify-content: center;
     }
 }

@@ -46,7 +46,7 @@ export const WithBackgroundImage = VariantsTemplate.bind([]);
 export const DarkTheme = VariantsTemplate.bind([]);
 export const FormData = VariantsTemplate.bind([]);
 export const WithCustomFormNode = DefaultTemplate.bind([]);
-export const WithAdditionalContentNode = DefaultTemplate.bind([]);
+export const WithAdditionalContentNode = VariantsTemplate.bind([]);
 
 Default.args = data.default as FormBlockModel;
 
@@ -96,10 +96,9 @@ FormData.parameters = {
 
 WithCustomFormNode.args = {...data.default, customFormNode: <ExampleStub />} as FormBlockModel;
 
-WithAdditionalContentNode.args = {
-    ...data.default,
-    direction: FormBlockDirection.FormContent,
+WithAdditionalContentNode.args = DIRECTIONS_VARIANTS.map((variant) => ({
+    ...variant,
     additionalContentNode: (
         <ExampleAdditionContent labels={data.withAdditionalContent.labels as ContentLabelProps[]} />
     ),
-} as FormBlockModel;
+})) as FormBlockModel[];
