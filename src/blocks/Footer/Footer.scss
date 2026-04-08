@@ -249,6 +249,10 @@ $block: '.#{$ns}footer-block';
         &_measured {
             visibility: visible;
         }
+
+        &_centered {
+            justify-content: center;
+        }
     }
 
     &__links-floor-right {
@@ -270,10 +274,6 @@ $block: '.#{$ns}footer-block';
 
         &_wrap {
             flex-wrap: wrap;
-        }
-
-        &_centered {
-            justify-content: center;
         }
     }
 

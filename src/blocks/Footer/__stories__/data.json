@@ -81,7 +81,7 @@
             "align": "left"
         },
         "copyright": {
-            "logo1": {
+            "logo": {
                 "image": {
                     "light": {"src": "/story-assets/logo-ytsuarus_light.svg"},
                     "dark": {"src": "/story-assets/logo-ytsuarus_dark.svg"}
