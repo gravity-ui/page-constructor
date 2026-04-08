@@ -1,7 +1,7 @@
 {
     "full": {
         "type": "footer-block",
-        "logo1": {
+        "logo": {
             "image": {
                 "light": {"src": "/story-assets/logo-ytsuarus_light.svg"},
                 "dark": {"src": "/story-assets/logo-ytsuarus_dark.svg"}
@@ -76,7 +76,10 @@
                 {"icon": {"light": {"src": "/story-assets/icons-telegram_light.svg"}, "dark": {"src": "/story-assets/icons-telegram_dark.svg"}}, "url": "https://example.com", "urlTitle": "Telegram"}
             ]
         },
-        "disclaimer": "YTsaurus is a software distributed under the Apache License, Version 2.0. Feel free to contact the **YTsaurus** team at [info@ytsaurus.tech](mailto:info@ytsaurus.tech). Apache®, Apache Spark™ and their logos are either registered trademarks or trademarks of the Apache Software Foundation. [Trademarks](https://trademarks.apache.org). ClickHouse® is a trademark of ClickHouse, Inc. [clickhouse.com](https://clickhouse.com).",
+        "disclaimer": {
+            "text": "YTsaurus is a software distributed under the Apache License, Version 2.0. Feel free to contact the **YTsaurus** team at [info@ytsaurus.tech](mailto:info@ytsaurus.tech). Apache®, Apache Spark™ and their logos are either registered trademarks or trademarks of the Apache Software Foundation. [Trademarks](https://trademarks.apache.org). ClickHouse® is a trademark of ClickHouse, Inc. [clickhouse.com](https://clickhouse.com).",
+            "align": "left"
+        },
         "copyright": {
             "logo1": {
                 "image": {
@@ -92,8 +95,8 @@
                 {"text": "Длинный пункт меню 1", "url": "#terms"},
                 {"text": "Длинный пункт меню 2", "url": "#terms"}
             ],
-            "linksOverflowStrategy": "line-wrap",
-            "linksOverflowStrategy1": "dropdown",
+            "linksOverflowStrategy1": "line-wrap",
+            "linksOverflowStrategy": "dropdown",
             "languageSwitcher": [
                 {"text": "Русский", "href": "/ru"},
                 {"text": "English", "href": "/en"}

@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import {DropdownMenuItem, useResizeObserver} from '@gravity-ui/uikit';
-import debounceFn from 'lodash/debounce';
+import throttleFn from 'lodash/throttle';
 
 type LinkItem = {
     text: string;
@@ -37,19 +37,15 @@ export function useOverflowListItems({
             return;
         }
 
-        const measureItemSizes = () => {
-            const itemElements = Array.from(
-                containerRef.current?.querySelectorAll(itemSelector) ?? [],
-            ) as HTMLElement[];
-            setItemWidths(itemElements.map((item) => item.clientWidth));
-        };
-
-        measureItemSizes();
+        const itemElements = Array.from(
+            containerRef.current?.querySelectorAll(itemSelector) ?? [],
+        ) as HTMLElement[];
+        setItemWidths(itemElements.map((item) => item.clientWidth));
     }, [containerRef, itemSelector]);
 
     const updateContainerSize = React.useMemo(
         () =>
-            debounceFn(() => {
+            throttleFn(() => {
                 if (!containerRef.current) {
                     return;
                 }
@@ -83,13 +79,15 @@ export function useOverflowListItems({
         let remainingContainerWidth = containerWidth;
 
         for (const width of itemWidths) {
+            const isMoreThanOneItemLeft = itemsCount !== visibleItemsCount + 1;
             remainingContainerWidth -= width;
-            if (remainingContainerWidth < moreButtonWidth) {
-                const isMoreThanOneItemLeft = itemsCount !== visibleItemsCount + 1;
-                const hasNoSpaceForTheLastItem = remainingContainerWidth < 0;
-                if (isMoreThanOneItemLeft || hasNoSpaceForTheLastItem) {
-                    break;
-                }
+
+            const hasNoSpaceForTheLastItem = remainingContainerWidth < 0;
+            if (
+                remainingContainerWidth < moreButtonWidth &&
+                (isMoreThanOneItemLeft || hasNoSpaceForTheLastItem)
+            ) {
+                break;
             }
 
             visibleItemsCount++;

@@ -543,7 +543,8 @@ export interface FooterContacts {
 
 /** Floor 3: Legal disclaimer block (full-width text) */
 export interface FooterDisclaimerFloor {
-    content: string;
+    text: string;
+    align: 'left' | 'center' | 'right';
 }
 
 /** Floor 4: Privacy/terms links, optional language, copyright */
@@ -579,7 +580,7 @@ export interface FooterBlockProps {
     /** Floor 2: social row (title + social icons) */
     contacts?: FooterContacts;
     /** Floor 3: legal disclaimer (YFM) */
-    disclaimer?: string;
+    disclaimer?: FooterDisclaimerFloor;
     /** Floor 4: privacy/terms links, language, copyright */
     copyright?: FooterCopyright;
     /** Floor 5: attribution ("Created with ...") */

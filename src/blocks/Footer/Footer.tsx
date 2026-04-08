@@ -210,9 +210,13 @@ export const FooterBlock = (props: React.PropsWithChildren<FooterBlockFullProps>
                     {/* Floor 3: Legal disclaimer */}
                     {disclaimer && (
                         <Col sizes={{all: 12}} className={b('floor', {disclaimer: true})}>
-                            <div className={b('disclaimer-floor-content')}>
+                            <div
+                                className={b('disclaimer-floor-content', {
+                                    align: disclaimer.align || 'left',
+                                })}
+                            >
                                 <YFMWrapper
-                                    content={disclaimer}
+                                    content={disclaimer.text}
                                     modifiers={{
                                         constructor: true,
                                         'constructor-notice': true,
@@ -263,7 +267,11 @@ export const FooterBlock = (props: React.PropsWithChildren<FooterBlockFullProps>
                                     {isCopyrightLinksOverflowDropdown && hiddenItems.length > 0 && (
                                         <DropdownMenu
                                             items={hiddenItems}
-                                            switcherWrapperClassName={b('more-button')}
+                                            switcherWrapperClassName={b('more-button', {
+                                                visible:
+                                                    isCopyrightLinksOverflowDropdown &&
+                                                    hiddenItems.length > 0,
+                                            })}
                                             size="l"
                                         />
                                     )}

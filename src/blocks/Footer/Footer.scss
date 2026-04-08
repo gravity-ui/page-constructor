@@ -106,12 +106,6 @@ $block: '.#{$ns}footer-block';
         margin: 0 auto;
         padding: $indentSM 0;
         border-top: 1px solid var(--g-color-line-generic-solid);
-
-        &_social,
-        &_disclaimer,
-        &_links {
-            padding-top: $indentL;
-        }
     }
 
     // Floor 2: Social (Join Us + icons)
@@ -219,6 +213,14 @@ $block: '.#{$ns}footer-block';
                 color: var(--g-color-text-primary);
             }
         }
+
+        &_align_center {
+            text-align: center;
+        }
+
+        &_align_left {
+            text-align: left;
+        }
     }
 
     // Floor 4: Links + language + copyright
@@ -236,7 +238,9 @@ $block: '.#{$ns}footer-block';
     }
 
     &__links-floor-left {
+        position: relative;
         display: flex;
+        flex-grow: 1;
         align-items: center;
         gap: $indentXS;
         min-width: 0;
@@ -261,7 +265,8 @@ $block: '.#{$ns}footer-block';
         display: flex;
         align-items: center;
         padding: 0;
-        gap: $indentXXS $indentXS;
+        gap: $indentXXS 0;
+        overflow: visible;
 
         &_wrap {
             flex-wrap: wrap;
@@ -276,6 +281,7 @@ $block: '.#{$ns}footer-block';
         @include text-size(body-1);
         margin: 0;
         white-space: nowrap;
+        padding-right: 16px;
 
         &:hover {
             color: var(--g-color-text-secondary);

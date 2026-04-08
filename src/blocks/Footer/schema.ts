@@ -53,9 +53,13 @@ const FooterContactsBlock = {
 };
 
 const FooterDisclaimerContent = {
-    type: 'string',
-    contentType: 'yfm',
-    inputType: 'textarea',
+    type: 'object',
+    additionalProperties: false,
+    required: ['text', 'align'],
+    properties: {
+        text: {type: 'string', contentType: 'text'},
+        align: {type: 'string', enum: ['left', 'center', 'right']},
+    },
 };
 
 const FooterLanguageSwitcherItem = {
