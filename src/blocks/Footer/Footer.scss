@@ -54,6 +54,7 @@ $block: '.#{$ns}footer-block';
 
     &__column {
         min-width: 0;
+        margin-bottom: $indentL;
     }
 
     &__column-inner {
@@ -62,71 +63,8 @@ $block: '.#{$ns}footer-block';
         gap: $indentS;
     }
 
-    &__nav-columns {
+    &__nav-row {
         min-width: 0;
-    }
-
-    &__nav-layout {
-        display: none;
-        gap: $indentXS;
-
-        &_count_2 {
-            display: flex;
-        }
-    }
-
-    &__nav-layout-column {
-        min-width: 0;
-        flex: 1 1 0;
-        display: flex;
-        flex-direction: column;
-        gap: $indentL;
-    }
-
-    @media (min-width: #{map-get($gridBreakpoints, 'sm') + 1px}) {
-        &__nav-layout {
-            &_count_2 {
-                display: none;
-            }
-
-            &_count_3 {
-                display: flex;
-            }
-        }
-    }
-
-    @media (min-width: map-get($gridBreakpoints, 'md')) {
-        &__nav-columns_no-logo {
-            #{$block}__nav-layout_count_3 {
-                display: none;
-            }
-
-            #{$block}__nav-layout_count_4 {
-                display: flex;
-            }
-        }
-    }
-
-    @media (min-width: map-get($gridBreakpoints, 'lg')) {
-        &__nav-layout {
-            &_count_3 {
-                display: none;
-            }
-
-            &_count_4 {
-                display: flex;
-            }
-        }
-
-        &__nav-columns_no-logo {
-            #{$block}__nav-layout_count_4 {
-                display: none;
-            }
-
-            #{$block}__nav-layout_count_5 {
-                display: flex;
-            }
-        }
     }
 
     &__column-title {
@@ -374,10 +312,6 @@ $block: '.#{$ns}footer-block';
             }
         }
 
-        &__nav-layout-column {
-            gap: $indentL;
-        }
-
         &__links-floor-inner {
             flex-wrap: wrap;
             gap: var(--g-spacing-1);
@@ -385,18 +319,6 @@ $block: '.#{$ns}footer-block';
     }
 
     @media (max-width: map-get($gridBreakpoints, 'sm')) {
-        &__nav-layout {
-            &_count_2 {
-                display: flex;
-            }
-
-            &_count_3,
-            &_count_4,
-            &_count_5 {
-                display: none;
-            }
-        }
-
         & .pc-Grid .container-fluid {
             padding: 0 $indentSM;
         }

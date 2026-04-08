@@ -5,6 +5,7 @@ import {DropdownMenu, Flex, Link, Menu, MenuItem, Text} from '@gravity-ui/uikit'
 import {BrandFooter, Image, YFMWrapper} from '../../components';
 import {getMediaImage} from '../../components/Media/Image/utils';
 import {useTheme} from '../../context/theme';
+import type {GridColumnSizesType} from '../../grid';
 import {Col, Grid, Row} from '../../grid';
 import {ClassNameProps, FooterBlockProps} from '../../models';
 import type {ImageProps as ModelImageProps} from '../../models';
@@ -17,7 +18,11 @@ import './Footer.scss';
 
 const b = block('footer-block');
 
-export type FooterBlockFullProps = FooterBlockProps & ClassNameProps;
+type FooterColumnSettings = {
+    colSizes?: GridColumnSizesType;
+};
+
+export type FooterBlockFullProps = FooterBlockProps & FooterColumnSettings & ClassNameProps;
 
 function getLogoImageProps(logoImage: ModelImageProps): Record<string, unknown> | null {
     const resolved = getMediaImage(logoImage);
@@ -27,35 +32,33 @@ function getLogoImageProps(logoImage: ModelImageProps): Record<string, unknown> 
     return resolved && typeof resolved === 'object' ? (resolved as Record<string, unknown>) : null;
 }
 
+const DEFAULT_COL_SIZES_WITH_LOGO: GridColumnSizesType = {all: 6, sm: 3, md: 3, lg: 3};
+const DEFAULT_COL_SIZES_WITHOUT_LOGO: GridColumnSizesType = {all: 6, sm: 4, md: 3, lg: 0};
+
 function renderColumns(
     columns: FooterBlockProps['columns'],
     hasLogo: boolean,
     sectionIndex: number,
+    colSizes?: GridColumnSizesType,
 ) {
-    const navigationSizes = hasLogo ? {all: 12, md: 8} : {all: 12};
-    const splitIntoColumns = (targetColumnCount: number) => {
-        const safeCount = Math.min(targetColumnCount, columns.length);
-        const grouped: FooterBlockProps['columns'][] = [];
-        let start = 0;
-
-        for (let columnIndex = 0; columnIndex < safeCount; columnIndex += 1) {
-            const columnsLeft = safeCount - columnIndex;
-            const remainingItems = columns.length - start;
-            const currentColumnSize = Math.ceil(remainingItems / columnsLeft);
-            grouped.push(columns.slice(start, start + currentColumnSize));
-            start += currentColumnSize;
-        }
-
-        return grouped;
+    const defaultColSizes: GridColumnSizesType = hasLogo
+        ? DEFAULT_COL_SIZES_WITH_LOGO
+        : DEFAULT_COL_SIZES_WITHOUT_LOGO;
+    const resolvedColSizes: GridColumnSizesType = {
+        all: colSizes?.all ?? defaultColSizes.all,
+        sm: colSizes?.sm ?? defaultColSizes.sm,
+        md: colSizes?.md ?? defaultColSizes.md,
+        lg: colSizes?.lg ?? defaultColSizes.lg,
     };
 
-    const renderColumnContent = (groupedColumns: FooterBlockProps['columns'][]) =>
-        groupedColumns.map((group, groupIndex) => (
-            <div key={`${sectionIndex}-group-${groupIndex}`} className={b('nav-layout-column')}>
-                {group.map((column, columnIndex) => (
-                    <div
-                        key={`${sectionIndex}-${groupIndex}-${columnIndex}`}
+    return (
+        <Col>
+            <Row className={b('nav-row')}>
+                {columns.map((column, columnIndex) => (
+                    <Col
+                        key={`${sectionIndex}-${columnIndex}`}
                         className={b('column')}
+                        sizes={resolvedColSizes}
                     >
                         <div className={b('column-inner')}>
                             <h6 className={b('column-title')}>{column.title}</h6>
@@ -74,29 +77,9 @@ function renderColumns(
                                 ))}
                             </ul>
                         </div>
-                    </div>
+                    </Col>
                 ))}
-            </div>
-        ));
-
-    return (
-        <Col sizes={navigationSizes}>
-            <div className={b('nav-columns', {'no-logo': !hasLogo})}>
-                <div className={b('nav-layout', {count: 2})}>
-                    {renderColumnContent(splitIntoColumns(2))}
-                </div>
-                <div className={b('nav-layout', {count: 3})}>
-                    {renderColumnContent(splitIntoColumns(3))}
-                </div>
-                <div className={b('nav-layout', {count: 4})}>
-                    {renderColumnContent(splitIntoColumns(4))}
-                </div>
-                {!hasLogo && (
-                    <div className={b('nav-layout', {count: 5})}>
-                        {renderColumnContent(splitIntoColumns(5))}
-                    </div>
-                )}
-            </div>
+            </Row>
         </Col>
     );
 }
@@ -148,6 +131,7 @@ export const FooterBlock = (props: React.PropsWithChildren<FooterBlockFullProps>
     const {
         logo,
         columns,
+        colSizes,
         contacts,
         disclaimer,
         copyright,
@@ -204,7 +188,7 @@ export const FooterBlock = (props: React.PropsWithChildren<FooterBlockFullProps>
                                 <Row>{logoContent}</Row>
                             </Col>
                         )}
-                        {renderColumns(columns, hasLogo, 0)}
+                        {renderColumns(columns, hasLogo, 0, colSizes)}
                     </Row>
                     {/* Floor 2: Social row (Join Us + icons) */}
                     {contacts && contacts.links.length > 0 && (

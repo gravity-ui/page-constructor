@@ -574,6 +574,8 @@ export interface FooterBlockProps {
     logo?: FooterLogoProps;
     /** Floor 1: first row — logo (if present) + these columns */
     columns: FooterLinkColumn[];
+    /** Optional nav columns customization by breakpoints */
+    colSizes?: GridColumnSizesType;
     /** Floor 2: social row (title + social icons) */
     contacts?: FooterContacts;
     /** Floor 3: legal disclaimer (YFM) */

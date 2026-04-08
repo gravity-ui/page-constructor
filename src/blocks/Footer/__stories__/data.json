@@ -1,7 +1,7 @@
 {
     "full": {
         "type": "footer-block",
-        "logo": {
+        "logo1": {
             "image": {
                 "light": {"src": "/story-assets/logo-ytsuarus_light.svg"},
                 "dark": {"src": "/story-assets/logo-ytsuarus_dark.svg"}
@@ -56,6 +56,11 @@
                 ]
             }
         ],
+        "colSizes1": {
+            "lg": 3,
+            "sm": 4,
+            "md": 4
+        },
         "contacts": {
             "title": "Join Us",
             "iconsSize": "l",

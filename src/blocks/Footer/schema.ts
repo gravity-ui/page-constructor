@@ -1,5 +1,10 @@
 import {ImageProps} from '../../components/Image/schema';
-import {BlockBaseProps, LinkProps, withTheme} from '../../schema/validators/common';
+import {
+    BlockBaseProps,
+    LinkProps,
+    containerSizesObject,
+    withTheme,
+} from '../../schema/validators/common';
 import {filteredArray} from '../../schema/validators/utils';
 
 const FooterLogoProps = {
@@ -88,6 +93,7 @@ export const FooterBlock = {
             backgroundColor: withTheme({type: 'string'}),
             logo: FooterLogoProps,
             columns: filteredArray(FooterLinkColumn),
+            colSizes: containerSizesObject,
             contacts: FooterContactsBlock,
             disclaimer: FooterDisclaimerContent,
             copyright: FooterCopyrightBlock,
