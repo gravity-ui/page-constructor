@@ -489,6 +489,7 @@ export interface FormBlockProps {
     direction?: FormBlockDirection;
     background?: ThemeSupporting<FormBlockBackgroundProps>;
     customFormNode?: React.ReactNode;
+    additionalContentNode?: React.ReactNode;
 }
 
 //block models
