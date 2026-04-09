@@ -108,7 +108,6 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
 
         const ref = React.useRef<HTMLDivElement>(null);
         const buttonRef = React.useRef<HTMLButtonElement>(null);
-        const hasInitializedRef = React.useRef(false);
 
         const [playerRef, setPlayerRef] = React.useState<_ReactPlayer>();
         const [isPlaying, setIsPlaying] = React.useState(autoPlay);
@@ -334,7 +333,6 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
         const onReady = React.useCallback(
             (player: _ReactPlayer) => {
                 setPlayerRef(player);
-                hasInitializedRef.current = true;
                 const videoElement = player.getInternalPlayer();
                 const videoWidth = videoElement.videoWidth as number | undefined;
                 const videoHeight = videoElement.videoHeight as number | undefined;
