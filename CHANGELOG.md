@@ -1,5 +1,14 @@
 # Changelog
 
+## [8.3.0](https://github.com/gravity-ui/page-constructor/compare/v8.2.2...v8.3.0) (2026-04-09)
+
+
+### Features
+
+* add additionalContentNode props for Form ([#1410](https://github.com/gravity-ui/page-constructor/issues/1410)) ([7b06be7](https://github.com/gravity-ui/page-constructor/commit/7b06be77422417fb06a34e43786c64cad6e587b8))
+* **content:** remove ContentLabels and content labels API ([#1404](https://github.com/gravity-ui/page-constructor/issues/1404)) ([787862c](https://github.com/gravity-ui/page-constructor/commit/787862ce8b4c7c3cc543902e37b61f166cbac6ec))
+* **Content:** size xl ([#1405](https://github.com/gravity-ui/page-constructor/issues/1405)) ([66435ac](https://github.com/gravity-ui/page-constructor/commit/66435acdc1a85adbebc83308bd87f703a692d902))
+
 ## [8.2.2](https://github.com/gravity-ui/page-constructor/compare/v8.2.1...v8.2.2) (2026-03-26)
 
 
