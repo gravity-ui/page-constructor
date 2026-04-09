@@ -7,6 +7,7 @@ $block: '.#{$ns}content-labels';
     display: flex;
     gap: 10px;
     flex-wrap: wrap;
+    justify-content: inherit;
 
     &__label {
         display: flex;
