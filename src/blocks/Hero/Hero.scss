@@ -27,6 +27,7 @@ $intermediateBreakpoint: 993px;
     }
 
     .pc-ReactPlayer__player,
+    .pc-ReactPlayer__player > video,
     .react-player__preview {
         /* stylelint-disable declaration-no-important */
         @if $orientation == 'vertical' {
