@@ -1,7 +1,9 @@
 import * as React from 'react';
 
 import {HeaderBreadcrumbs, Media, YFMWrapper} from '../../components';
+import {BREAKPOINTS} from '../../constants';
 import {useTheme} from '../../context/theme';
+import {useWindowWidth} from '../../context/windowWidthContext';
 import {Grid} from '../../grid';
 import {ButtonProps, HeroBlockProps, Theme} from '../../models';
 import {Content} from '../../sub-blocks';
@@ -31,6 +33,7 @@ const HeroBlock = (props: HeroBlockProps) => {
     const {aspectRatio: mediaContainerAspectRatio, ref: mediaContainerRef} =
         useContainerAspectRatio();
 
+    const isDesktop = useWindowWidth() > BREAKPOINTS.md;
     const isMediaVertical = mediaAspectRatio < mediaContainerAspectRatio;
 
     const contextTheme = useTheme();
@@ -85,20 +88,22 @@ const HeroBlock = (props: HeroBlockProps) => {
                             ['no-media']: !media,
                         })}
                     >
-                        <div className={b('content-overtitle', {theme})}>
-                            {overtitle && typeof overtitle === 'string' ? (
-                                <YFMWrapper
-                                    tagName="span"
-                                    content={overtitle}
-                                    modifiers={{
-                                        constructor: true,
-                                        constructorTheme: theme,
-                                    }}
-                                />
-                            ) : (
-                                overtitle
-                            )}
-                        </div>
+                        {overtitle && (
+                            <div className={b('content-overtitle', {theme})}>
+                                {typeof overtitle === 'string' ? (
+                                    <YFMWrapper
+                                        tagName="span"
+                                        content={overtitle}
+                                        modifiers={{
+                                            constructor: true,
+                                            constructorTheme: theme,
+                                        }}
+                                    />
+                                ) : (
+                                    overtitle
+                                )}
+                            </div>
+                        )}
                         <Content
                             size="xl"
                             colSizes={{all: 12}}
@@ -113,7 +118,7 @@ const HeroBlock = (props: HeroBlockProps) => {
                                 <Media
                                     className={b('media-container-content', {
                                         ['round-corners']: media.roundCorners ?? true,
-                                        vertical: isMediaVertical,
+                                        vertical: isDesktop && isMediaVertical,
                                     })}
                                     {...media}
                                     disablePlayerAutoSizing
