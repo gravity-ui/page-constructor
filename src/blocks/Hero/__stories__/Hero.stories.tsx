@@ -219,8 +219,9 @@ Video.args = {
     ...data.default,
     variants: [
         data.videoVariants.media,
-        data.videoVariants.background,
         data.videoVariants.mediaIframe,
+        data.videoVariants.background,
+        data.videoVariants.backgroundFullWidth,
     ],
 } as VariantsTemplateModel;
 Video.parameters = {
