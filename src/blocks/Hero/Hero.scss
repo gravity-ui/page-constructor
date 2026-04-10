@@ -169,6 +169,10 @@ $intermediateBreakpoint: 993px;
                     border-radius: var(--pc-border-radius);
                 }
 
+                .pc-ReactPlayer__player {
+                    display: flex;
+                }
+
                 .pc-Media__youtube {
                     border-radius: initial;
                 }
