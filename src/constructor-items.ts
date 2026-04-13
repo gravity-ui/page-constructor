@@ -9,6 +9,7 @@ import {
     FormBlock,
     HeaderBlock,
     HeaderSliderBlock,
+    HeroBlock,
     IconsBlock,
     InfoBlock,
     MapBlock,
@@ -21,7 +22,6 @@ import {
     TableBlock,
     TabsBlock,
 } from './blocks';
-import HeroBlock from './blocks/Hero/Hero';
 import {BlockType, NavigationItemType, SubBlockType} from './models';
 import {
     GithubButton,

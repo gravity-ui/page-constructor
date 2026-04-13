@@ -15,7 +15,7 @@ import './Hero.scss';
 
 const b = block('hero-block');
 
-const HeroBlock = (props: HeroBlockProps) => {
+const Hero = (props: HeroBlockProps) => {
     const {
         breadcrumbs,
         overtitle,
@@ -133,4 +133,4 @@ const HeroBlock = (props: HeroBlockProps) => {
     );
 };
 
-export default HeroBlock;
+export default Hero;

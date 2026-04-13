@@ -17,49 +17,8 @@ export default {
         },
     },
     argTypes: {
-        breadcrumbs: {
-            control: 'object',
-        },
-        overtitle: {
-            control: 'text',
-        },
-        title: {
-            control: 'text',
-        },
-        text: {
-            control: 'text',
-        },
-        theme: {
-            control: 'radio',
-            options: ['default', 'light', 'dark'],
-        },
-        list: {
-            control: 'object',
-        },
-        additionalInfo: {
-            control: 'text',
-        },
-        links: {
-            control: 'object',
-        },
-        buttons: {
-            control: 'object',
-        },
-        media: {
-            control: 'object',
-        },
         'media.roundCorners': {
             control: 'boolean',
-        },
-        fullWidth: {
-            control: 'boolean',
-        },
-        verticalOffset: {
-            control: 'radio',
-            options: ['s', 'm', 'l', 'xl'],
-        },
-        background: {
-            control: 'object',
         },
     },
 } as Meta;
@@ -115,28 +74,12 @@ const DefaultTemplate: StoryFn<WithRoundCornersArgs<HeroBlockModel>> = (args) =>
     <Hero {...(blockTransform(injectRoundCorners(args)) as HeroBlockProps)} />
 );
 
-type VariantsTemplateModel = WithRoundCornersArgs<
-    HeroBlockModel & {
-        variants: Partial<HeroBlockModel>[];
-    }
->;
-const VariantsTemplate: StoryFn<VariantsTemplateModel> = ({
-    variants,
-    'media.roundCorners': roundCorners,
-    ...args
-}) => (
+type VariantsTemplateModel = Record<number, HeroBlockModel>;
+const VariantsTemplate: StoryFn<VariantsTemplateModel> = (args) => (
     <React.Fragment>
-        {variants.map((variant, index) => (
+        {Object.values(args).map((variant, index) => (
             <div key={index} style={{marginBottom: '120px'}}>
-                <Hero
-                    {...(blockTransform(
-                        injectRoundCorners({
-                            ...args,
-                            ...variant,
-                            'media.roundCorners': roundCorners,
-                        }),
-                    ) as HeroBlockProps)}
-                />
+                <Hero {...(blockTransform(variant) as HeroBlockProps)} />
             </div>
         ))}
     </React.Fragment>
@@ -164,77 +107,83 @@ ContentList.args = {
     ...data.contentList,
 } as HeroBlockModel;
 
-Background.args = {
+Background.args = [
+    data.backgroundVariants.color,
+    data.backgroundVariants.fullWidth,
+    data.backgroundVariants.image,
+    data.backgroundVariants.imageFullWidth,
+].map((variant) => ({
     ...data.default,
-    variants: [
-        data.backgroundVariants.color,
-        data.backgroundVariants.fullWidth,
-        data.backgroundVariants.image,
-        data.backgroundVariants.imageFullWidth,
-    ],
-} as VariantsTemplateModel;
+    ...variant,
+})) as VariantsTemplateModel;
 Background.parameters = {
     controls: {
-        exclude: ['background'],
+        include: Object.keys(Background.args),
     },
 };
 
-RoundCorners.args = {
-    ...data.default,
-    variants: [data.roundCornersVariants.true, data.roundCornersVariants.false],
-} as VariantsTemplateModel;
+RoundCorners.args = [data.roundCornersVariants.true, data.roundCornersVariants.false].map(
+    (variant) => ({
+        ...data.default,
+        ...variant,
+    }),
+) as VariantsTemplateModel;
 RoundCorners.parameters = {
     controls: {
-        exclude: ['media.roundCorners'],
+        include: Object.keys(RoundCorners.args),
     },
 };
 
-VerticalOffset.args = {
+VerticalOffset.args = [
+    data.verticalOffsetVariants.s,
+    data.verticalOffsetVariants.m,
+    data.verticalOffsetVariants.l,
+    data.verticalOffsetVariants.xl,
+].map((variant) => ({
     ...data.default,
-    ...data.backgroundVariants.color,
-    variants: [
-        data.verticalOffsetVariants.s,
-        data.verticalOffsetVariants.m,
-        data.verticalOffsetVariants.l,
-        data.verticalOffsetVariants.xl,
-    ],
-} as VariantsTemplateModel;
+    ...variant,
+})) as VariantsTemplateModel;
 VerticalOffset.parameters = {
     controls: {
-        exclude: ['verticalOffset'],
+        include: Object.keys(VerticalOffset.args),
     },
 };
 
-Theme.args = {
+Theme.args = [data.themeVariants.light, data.themeVariants.dark].map((variant) => ({
     ...data.default,
-    variants: [data.themeVariants.light, data.themeVariants.dark],
-} as VariantsTemplateModel;
+    ...variant,
+})) as VariantsTemplateModel;
 Theme.parameters = {
     controls: {
-        exclude: ['theme'],
+        include: Object.keys(Theme.args),
     },
 };
 
-Video.args = {
+Video.args = [
+    data.videoVariants.media,
+    data.videoVariants.mediaIframe,
+    data.videoVariants.background,
+    data.videoVariants.backgroundFullWidth,
+].map((variant) => ({
     ...data.default,
-    variants: [
-        data.videoVariants.media,
-        data.videoVariants.mediaIframe,
-        data.videoVariants.background,
-        data.videoVariants.backgroundFullWidth,
-    ],
-} as VariantsTemplateModel;
+    ...variant,
+})) as VariantsTemplateModel;
 Video.parameters = {
     controls: {
-        exclude: ['media', 'background'],
+        include: Object.keys(Video.args),
     },
 };
 
-MediaFit.args = {
+MediaFit.args = [
+    data.mediaFitVariants.wide,
+    data.mediaFitVariants.square,
+    data.mediaFitVariants.tall,
+].map((variant) => ({
     ...data.default,
-    variants: [
-        data.mediaFitVariants.wide,
-        data.mediaFitVariants.square,
-        data.mediaFitVariants.tall,
-    ],
-} as VariantsTemplateModel;
+    ...variant,
+})) as VariantsTemplateModel;
+MediaFit.parameters = {
+    controls: {
+        include: Object.keys(MediaFit.args),
+    },
+};
