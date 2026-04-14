@@ -227,7 +227,7 @@ export interface HeroBlockProps
     // TODO: add overtitle to ContentProps
     overtitle?: string | JSX.Element;
     buttons?: ThemeSupporting<
-        Pick<ButtonProps, 'url' | 'text' | 'theme' | 'primary' | 'extraProps'>
+        Pick<ButtonProps, 'url' | 'text' | 'theme' | 'primary' | 'extraProps'> | React.ReactNode
     >[];
     media?: ThemeSupporting<HeroBlockMedia>;
     fullWidth?: boolean;
@@ -469,7 +469,7 @@ export interface ContentBlockProps {
     textId?: string;
     additionalInfo?: string;
     links?: LinkProps[];
-    buttons?: ButtonProps[];
+    buttons?: (ButtonProps | React.ReactNode)[];
     size?: ContentSize;
     colSizes?: GridColumnSizesType;
     centered?: boolean;

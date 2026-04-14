@@ -42,10 +42,14 @@ const Hero = (props: HeroBlockProps) => {
     const background = getThemedValue(themedBackground, theme);
     const media = getThemedValue(themedMedia, theme);
 
-    const buttonProps = React.useMemo<ButtonProps[] | undefined>(
+    const buttonProps = React.useMemo<(ButtonProps | React.ReactNode)[] | undefined>(
         () =>
             buttons?.map((buttonThemed) => {
-                const button = getThemedValue(buttonThemed, theme);
+                if (React.isValidElement(buttonThemed)) {
+                    return buttonThemed;
+                }
+
+                const button = getThemedValue(buttonThemed, theme) as ButtonProps;
 
                 return {
                     size: 'xl',
