@@ -95,13 +95,15 @@
                 {"text": "Длинный пункт меню 1", "url": "#terms"},
                 {"text": "Длинный пункт меню 2", "url": "#terms"}
             ],
-            "linksOverflowStrategy1": "line-wrap",
-            "linksOverflowStrategy": "dropdown",
-            "languageSwitcher": [
+            "linksOverflowStrategy": "line-wrap",
+            "linksOverflowStrategy1": "dropdown",
+            "languageSwitcher1": [
                 {"text": "Русский", "href": "/ru"},
                 {"text": "English", "href": "/en"}
             ],
-            "copyrightText": "© 2025 ООО \"Яндекс.Облако\""
+            "copyrightText": "© 2025 ООО \"Яндекс.Облако\"",
+            "mobileHorizontalAlignment1": "left",
+            "mobileHorizontalAlignment": "center"
         },
         "attribution": true
     }

@@ -93,7 +93,8 @@ export function useOverflowListItems({
             visibleItemsCount++;
         }
 
-        visibleItemsCount = Math.max(visibleItemsCount, 2);
+        visibleItemsCount = Math.max(visibleItemsCount, 1);
+
         return {
             visibleItems: items?.slice(0, visibleItemsCount) ?? [],
             hiddenItems: transformItemsToDropdownMenuItems(items?.slice(visibleItemsCount) ?? []),

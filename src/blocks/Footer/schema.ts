@@ -82,6 +82,7 @@ const FooterCopyrightBlock = {
         languageSwitcher: filteredArray(FooterLanguageSwitcherItem),
         copyrightText: {type: 'string', contentType: 'text'},
         logo: FooterLogoProps,
+        mobileHorizontalAlignment: {type: 'string', enum: ['left', 'center']},
     },
 };
 

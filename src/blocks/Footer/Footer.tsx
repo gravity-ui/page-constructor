@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import {DropdownMenu, Flex, Link, Menu, MenuItem, Text} from '@gravity-ui/uikit';
+import {DropdownMenu, Flex, Link, Menu, MenuItem, Text, useResizeObserver} from '@gravity-ui/uikit';
 
 import {BrandFooter, Image, YFMWrapper} from '../../components';
 import {getMediaImage} from '../../components/Media/Image/utils';
@@ -159,10 +159,22 @@ export const FooterBlock = (props: React.PropsWithChildren<FooterBlockFullProps>
         </div>
     );
 
+    const [isSmallWidth, setIsSmallWidth] = React.useState(false);
+    const footerRef = React.useRef<HTMLDivElement>(null);
+    const updateFooterSize = React.useCallback(() => {
+        if (!footerRef.current) {
+            return;
+        }
+
+        const footerWidth = footerRef.current.clientWidth;
+        setIsSmallWidth(footerWidth <= 768);
+    }, []);
+    useResizeObserver({ref: footerRef, onResize: updateFooterSize});
+
     const menuContainerRef = React.useRef<HTMLDivElement>(null);
     const isCopyrightLinksOverflowDropdown = copyright?.linksOverflowStrategy === 'dropdown';
     const {visibleItems, hiddenItems, measured} = useOverflowListItems({
-        isDropdown: isCopyrightLinksOverflowDropdown,
+        isDropdown: isCopyrightLinksOverflowDropdown && !isSmallWidth,
         containerRef: menuContainerRef,
         items: copyright?.links,
         itemSelector: `.${b('links-floor-item')}`,
@@ -180,11 +192,13 @@ export const FooterBlock = (props: React.PropsWithChildren<FooterBlockFullProps>
             (copyright?.languageSwitcher || copyright?.copyrightText),
     );
     const shouldCenterLinks = areLinksInTheMiddle || hasOnlyLinks;
+    const mobileHorizontalAlignment = copyright?.mobileHorizontalAlignment || 'left';
 
     return (
         <footer
             className={b(null, className)}
             style={themedBackground ? {backgroundColor: themedBackground} : undefined}
+            ref={footerRef}
         >
             <Grid className={b('main-container')}>
                 <Row className={b('row')}>
@@ -235,7 +249,7 @@ export const FooterBlock = (props: React.PropsWithChildren<FooterBlockFullProps>
                     {/* Floor 4: Links + language + copyright */}
                     {copyright && (
                         <Col sizes={{all: 12}} className={b('floor', {copyright: true})}>
-                            <div className={b('links-floor-inner')}>
+                            <div className={b('links-floor-inner', {mobileHorizontalAlignment})}>
                                 {copyright.logo && (
                                     <div className={b('logo')}>
                                         <Link href={copyright.logo.href}>

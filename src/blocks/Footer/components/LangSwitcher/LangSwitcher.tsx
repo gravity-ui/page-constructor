@@ -17,6 +17,7 @@ export const LangSwitcher = ({items}: LangSwitcherProps) => {
     return (
         <DropdownMenu
             items={items}
+            popupProps={{placement: 'top-start'}}
             switcherWrapperClassName={b('switcher-wrapper')}
             renderSwitcher={(props) => (
                 <Button view="flat" size="m" className={b('switcher-button')} {...props}>
