@@ -9,7 +9,7 @@ import {ButtonProps, HeroBlockProps, Theme} from '../../models';
 import {Content} from '../../sub-blocks';
 import {block, getThemedValue} from '../../utils';
 
-import {useContainerAspectRatio} from './utils';
+import {useContainerAspectRatio} from './hooks';
 
 import './Hero.scss';
 
