@@ -56,15 +56,16 @@ The following blocks in the src/blocks directory have Storybook stories:
 7. **FoldableList**: Displays a list that can be expanded or collapsed.
 8. **Form**: Handles form display and submission.
 9. **Header**: Displays a page header with navigation.
-10. **Info**: Displays information in a structured format.
-11. **Map**: Integrates map functionality into a block.
-12. **Media**: Handles various media types in a block format.
-13. **Questions**: Displays a list of questions and answers (FAQ).
-14. **Share**: Provides social media sharing functionality.
-15. **Slider**: Creates a carousel/slider for content.
-16. **SliderNew**: An updated version of the Slider block.
-17. **Table**: Displays tabular data in a block format.
-18. **Tabs**: Provides tabbed navigation for content.
+10. **Hero**: A hero section block with content area, optional right-side media, themed background, and breadcrumb navigation. ✅ [Usage documented](usage/heroBlock.md) | [Dependencies](blockDeps/hero.md)
+11. **Info**: Displays information in a structured format.
+12. **Map**: Integrates map functionality into a block.
+13. **Media**: Handles various media types in a block format.
+14. **Questions**: Displays a list of questions and answers (FAQ).
+15. **Share**: Provides social media sharing functionality.
+16. **Slider**: Creates a carousel/slider for content.
+17. **SliderNew**: An updated version of the Slider block.
+18. **Table**: Displays tabular data in a block format.
+19. **Tabs**: Provides tabbed navigation for content.
 
 ### Indents
 
