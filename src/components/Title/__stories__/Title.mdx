@@ -12,13 +12,15 @@ For a detailed usage guide of the Title component, see [Title Usage](https://git
 
 ## Parameters
 
-`title?: TitleItemProps | string` — Title content. Can be a simple string or a TitleItemProps object with advanced configuration (optional)
+`title?: TitleItemProps | string` — Title content. Can be a simple string or a TitleItemProps object with advanced configuration
 
 `subtitle?: string` — Optional subtitle text that supports YFM (Yandex Flavored Markdown) formatting
 
 `className?: string` — Optional CSS class name for the container
 
 `colSizes?: GridColumnSizesType` — Grid column sizes configuration (default: `{all: 12, sm: 8}`)
+
+`colJustifyContent?: GridJustifyContent` — Justify content for the grid column (`'justify-content-start'`, `'justify-content-center'`, `'justify-content-end'`, `'justify-content-around'`, `'justify-content-between'`)
 
 `id?: string` — Optional HTML id attribute
 
@@ -38,10 +40,18 @@ When using an object for the `title` prop, the following properties are availabl
 
 `urlTitle?: string` — Optional title attribute for links (accessibility)
 
-`onClick?: () => void` — Optional click handler
-
 `custom?: string | React.ReactNode` — Optional custom content to append to title
 
 `navTitle?: string` — Optional navigation title for table of contents
+
+`className?: string` — Optional CSS class name for the title element
+
+`qa?: string` — Optional QA attribute for testing
+
+`resetMargin?: boolean` — Whether to reset default margins (default: `true`)
+
+`onClick?: () => void` — Optional click handler (function prop, not configurable via Controls)
+
+`analyticsEvents?: AnalyticsEventsProp` — Analytics events to track on click (complex object, not configurable via Controls)
 
 </StoryTemplate>

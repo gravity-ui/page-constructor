@@ -1,49 +1,77 @@
 {
   "default": {
-    "content": {
-      "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-      "subtitle": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
-    }
+    "title": {
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      "textSize": "m"
+    },
+    "subtitle": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
   },
   "customTitle": {
-    "content": {
-      "title": {
-        "text": "Lorem ipsum",
-        "url": "https://example.com",
-        "custom": "Some react node",
-        "urlTitle": "Example website. Opens in a new window"
-      }
-    }
+    "title": {
+      "text": "Lorem ipsum",
+      "textSize": "m",
+      "url": "https://example.com",
+      "custom": "Some react node",
+      "urlTitle": "Example website. Opens in a new window"
+    },
+    "subtitle": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
   },
   "titleLink": {
-    "content": {
-      "title": {
-        "text": "Lorem ipsum",
-        "url": "https://example.com",
-        "urlTitle": "Example website. Opens in a new window"
-      }
-    }
+    "title": {
+      "text": "Lorem ipsum dolor sit amet",
+      "textSize": "m",
+      "url": "https://example.com",
+      "urlTitle": "Example website. Opens in a new window"
+    },
+    "subtitle": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
   },
   "sizes": {
     "l": {
-      "text": "Size L",
+      "text": "Size L — Lorem ipsum dolor sit amet",
       "textSize": "l"
     },
     "m": {
-      "text": "Size M",
+      "text": "Size M — Lorem ipsum dolor sit amet",
       "textSize": "m"
     },
     "sm": {
-      "text": "Size SM",
+      "text": "Size SM — Lorem ipsum dolor sit amet",
       "textSize": "sm"
     },
     "s": {
-      "text": "Size S",
+      "text": "Size S — Lorem ipsum dolor sit amet",
       "textSize": "s"
     },
     "xs": {
-      "text": "Size XS",
+      "text": "Size XS — Lorem ipsum dolor sit amet",
       "textSize": "xs"
+    }
+  },
+  "sizesWithSubtitle": {
+    "l": {
+      "text": "Size L — Lorem ipsum dolor sit amet",
+      "textSize": "l",
+      "subtitle": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris."
+    },
+    "m": {
+      "text": "Size M — Lorem ipsum dolor sit amet",
+      "textSize": "m",
+      "subtitle": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris."
+    },
+    "sm": {
+      "text": "Size SM — Lorem ipsum dolor sit amet",
+      "textSize": "sm",
+      "subtitle": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris."
+    },
+    "s": {
+      "text": "Size S — Lorem ipsum dolor sit amet",
+      "textSize": "s",
+      "subtitle": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris."
+    },
+    "xs": {
+      "text": "Size XS — Lorem ipsum dolor sit amet",
+      "textSize": "xs",
+      "subtitle": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris."
     }
   }
 }
