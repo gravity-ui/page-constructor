@@ -1,5 +1,18 @@
 # Changelog
 
+## [8.4.0](https://github.com/gravity-ui/page-constructor/compare/v8.3.0...v8.4.0) (2026-04-15)
+
+
+### Features
+
+* **Hero:** add block ([#1411](https://github.com/gravity-ui/page-constructor/issues/1411)) ([69f2c60](https://github.com/gravity-ui/page-constructor/commit/69f2c60b6517c8afc9d2042c2db6f8cb8cc4a3d0))
+
+
+### Bug Fixes
+
+* **HubspotForm:** improve storybook story controls ([#1413](https://github.com/gravity-ui/page-constructor/issues/1413)) ([a7c605f](https://github.com/gravity-ui/page-constructor/commit/a7c605f938c9dc7f520b997a8f9e08bedbd1f1be))
+* **Title:** improve storybook story controls ([#1412](https://github.com/gravity-ui/page-constructor/issues/1412)) ([1270903](https://github.com/gravity-ui/page-constructor/commit/1270903102502a936d2d318547a3132250eac701))
+
 ## [8.3.0](https://github.com/gravity-ui/page-constructor/compare/v8.2.2...v8.3.0) (2026-04-09)
 
 
