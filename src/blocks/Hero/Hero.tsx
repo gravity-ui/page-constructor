@@ -89,7 +89,6 @@ const Hero = (props: HeroBlockProps) => {
                     <div
                         className={b('content', {
                             ['vertical-offset']: verticalOffset,
-                            ['no-media']: !media,
                         })}
                     >
                         {overtitle && (

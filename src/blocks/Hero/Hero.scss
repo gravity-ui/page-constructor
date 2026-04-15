@@ -120,10 +120,6 @@ $intermediateBreakpoint: 993px;
             }
         }
 
-        &_no-media {
-            width: 100%;
-        }
-
         &-overtitle {
             $overtitle: &;
             margin-bottom: $indentXXXS;
@@ -188,10 +184,6 @@ $intermediateBreakpoint: 993px;
     @media (max-width: $intermediateBreakpoint) {
         &__content {
             grid-column: span 7;
-
-            &_no-media {
-                grid-column: span 12;
-            }
         }
 
         &__media {
