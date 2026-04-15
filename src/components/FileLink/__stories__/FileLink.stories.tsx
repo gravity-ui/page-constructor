@@ -14,6 +14,7 @@ export default {
 } as Meta;
 
 const DefaultTemplate: StoryFn<FileLinkProps> = (args) => <FileLink {...args} />;
+
 const TypesTemplate: StoryFn<FileLinkProps> = (args) => (
     <Row style={{padding: '10px'}}>
         <Col>{args.theme}</Col>
@@ -26,44 +27,89 @@ const TypesTemplate: StoryFn<FileLinkProps> = (args) => (
     </Row>
 );
 
-const TypesThemesTemplate: StoryFn<FileLinkProps> = (args) => (
+const TypesThemesTemplate: StoryFn<Record<string, FileLinkProps>> = (args) => (
     <React.Fragment>
         <Row style={{padding: '10px'}}>
             <Col />
             <Col>horizontal</Col>
             <Col>vertical</Col>
         </Row>
-        <TypesTemplate {...args} theme="default" />
-        <TypesTemplate {...args} theme="light" />
-        <section style={{color: '#3a74ff'}}>
-            <TypesTemplate {...args} theme="dark" />
-        </section>
+        {Object.entries(args).map(([key, item]) => (
+            <TypesTemplate key={key} {...item} />
+        ))}
     </React.Fragment>
 );
 
-const WithPaddingTemplate: StoryFn<FileLinkProps> = (args) => (
-    <Row style={{padding: '10px'}}>
-        <Col>
-            <FileLink {...args} />
-        </Col>
-    </Row>
-);
-
-const ExtTemplate: StoryFn<FileLinkProps> = (args) => (
+const ExtensionsTemplate: StoryFn<Record<string, FileLinkProps>> = (args) => (
     <React.Fragment>
-        <WithPaddingTemplate {...args} href="example.pdf" />
-        <WithPaddingTemplate {...args} href="example.doc" />
-        <WithPaddingTemplate {...args} href="example.xls" />
-        <WithPaddingTemplate {...args} href="example.ppt" />
-        <WithPaddingTemplate {...args} href="example.fig" />
-        <WithPaddingTemplate {...args} href="example.zip" />
+        {Object.entries(args).map(([key, item]) => (
+            <Row key={key} style={{padding: '10px'}}>
+                <Col>
+                    <FileLink {...item} />
+                </Col>
+            </Row>
+        ))}
     </React.Fragment>
 );
 
 export const Default = DefaultTemplate.bind({});
 export const TypesThemes = TypesThemesTemplate.bind({});
-export const Extensions = ExtTemplate.bind({});
+export const Extensions = ExtensionsTemplate.bind({});
 
-Default.args = data.default.content;
-TypesThemes.args = data.typesThemes.content;
-Extensions.args = data.extensions.content;
+Default.args = data.default.content as FileLinkProps;
+
+const TYPES_THEMES: Record<string, FileLinkProps> = {
+    default: {
+        ...data.typesThemes.content,
+        theme: 'default',
+    } as FileLinkProps,
+    light: {
+        ...data.typesThemes.content,
+        theme: 'light',
+    } as FileLinkProps,
+    dark: {
+        ...data.typesThemes.content,
+        theme: 'dark',
+    } as FileLinkProps,
+};
+
+TypesThemes.args = TYPES_THEMES;
+TypesThemes.parameters = {
+    controls: {
+        include: Object.keys(TYPES_THEMES),
+    },
+};
+
+const EXTENSIONS: Record<string, FileLinkProps> = {
+    pdf: {
+        ...data.extensions.content,
+        href: 'example.pdf',
+    } as FileLinkProps,
+    doc: {
+        ...data.extensions.content,
+        href: 'example.doc',
+    } as FileLinkProps,
+    xls: {
+        ...data.extensions.content,
+        href: 'example.xls',
+    } as FileLinkProps,
+    ppt: {
+        ...data.extensions.content,
+        href: 'example.ppt',
+    } as FileLinkProps,
+    fig: {
+        ...data.extensions.content,
+        href: 'example.fig',
+    } as FileLinkProps,
+    zip: {
+        ...data.extensions.content,
+        href: 'example.zip',
+    } as FileLinkProps,
+};
+
+Extensions.args = EXTENSIONS;
+Extensions.parameters = {
+    controls: {
+        include: Object.keys(EXTENSIONS),
+    },
+};
