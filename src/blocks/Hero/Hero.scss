@@ -121,7 +121,6 @@ $intermediateBreakpoint: 993px;
         }
 
         &-overtitle {
-            $overtitle: &;
             margin-bottom: $indentXXXS;
 
             &_theme {
@@ -193,20 +192,22 @@ $intermediateBreakpoint: 993px;
 
     @media (max-width: map-get($gridBreakpoints, 'md')) {
         &__wrapper {
+            gap: 0;
             padding-block: $indentS $indentSM;
         }
 
         &__breadcrumbs {
+            position: initial;
             grid-column: span 12;
             order: 1;
-            position: initial;
+            margin-bottom: $indentXS;
         }
 
         &__content {
             grid-column: span 12;
             order: 3;
             width: 100%;
-            padding-block: 0 $indentXS;
+            padding-block: $indentXS;
             padding-inline: 0;
         }
 
