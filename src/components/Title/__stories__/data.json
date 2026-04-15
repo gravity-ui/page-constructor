@@ -46,5 +46,32 @@
       "text": "Size XS — Lorem ipsum dolor sit amet",
       "textSize": "xs"
     }
+  },
+  "sizesWithSubtitle": {
+    "l": {
+      "text": "Size L — Lorem ipsum dolor sit amet",
+      "textSize": "l",
+      "subtitle": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris."
+    },
+    "m": {
+      "text": "Size M — Lorem ipsum dolor sit amet",
+      "textSize": "m",
+      "subtitle": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris."
+    },
+    "sm": {
+      "text": "Size SM — Lorem ipsum dolor sit amet",
+      "textSize": "sm",
+      "subtitle": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris."
+    },
+    "s": {
+      "text": "Size S — Lorem ipsum dolor sit amet",
+      "textSize": "s",
+      "subtitle": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris."
+    },
+    "xs": {
+      "text": "Size XS — Lorem ipsum dolor sit amet",
+      "textSize": "xs",
+      "subtitle": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris."
+    }
   }
 }

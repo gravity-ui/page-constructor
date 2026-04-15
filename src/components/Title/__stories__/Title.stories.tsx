@@ -6,6 +6,8 @@ import Title, {TitleProps} from '../Title';
 
 import data from './data.json';
 
+type SizeWithSubtitleProps = TitleItemProps & {subtitle: string};
+
 export default {
     component: Title,
     title: 'Components/Title',
@@ -27,15 +29,13 @@ const SizesTemplate: StoryFn<Record<string, TitleItemProps>> = (args) => (
     </div>
 );
 
-const SizesWithSubtitleTemplate: StoryFn<Record<string, TitleItemProps>> = (args) => (
+const SizesWithSubtitleTemplate: StoryFn<Record<string, SizeWithSubtitleProps>> = (args) => (
     <div>
-        {Object.values(args).map((titleProps, index) => (
+        {Object.values(args).map(({subtitle, ...titleProps}, index) => (
             <div key={index} style={{paddingBottom: '64px'}}>
                 <Title
                     title={titleProps as TitleItemProps}
-                    subtitle={yfmTransform(
-                        '**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris.',
-                    )}
+                    subtitle={subtitle ? yfmTransform(subtitle) : undefined}
                 />
             </div>
         ))}
@@ -81,10 +81,10 @@ SizesWithLinks.parameters = {
     },
 };
 
-SizesWithSubtitle.args = data.sizes as Record<string, TitleItemProps>;
+SizesWithSubtitle.args = data.sizesWithSubtitle as Record<string, SizeWithSubtitleProps>;
 SizesWithSubtitle.parameters = {
     controls: {
-        include: Object.keys(data.sizes),
+        include: Object.keys(data.sizesWithSubtitle),
     },
 };
 
