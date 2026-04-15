@@ -206,7 +206,6 @@ $intermediateBreakpoint: 993px;
         &__content {
             grid-column: span 12;
             order: 3;
-            width: 100%;
             padding-block: $indentXS;
             padding-inline: 0;
         }
@@ -214,7 +213,6 @@ $intermediateBreakpoint: 993px;
         &__media {
             grid-column: span 12;
             order: 2;
-            width: 100%;
             padding-block: 0;
 
             &-container {
