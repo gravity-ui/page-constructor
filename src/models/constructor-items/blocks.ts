@@ -28,6 +28,8 @@ import {
     LegendTableMarkerType,
     LinkProps,
     MapProps,
+    MediaComponentImageProps,
+    MediaComponentVideoProps,
     MediaDirection,
     MediaProps,
     MediaView,
@@ -59,6 +61,7 @@ export enum BlockType {
     TabsBlock = 'tabs-block',
     HeaderSliderBlock = 'header-slider-block',
     HeaderBlock = 'header-block',
+    HeroBlock = 'hero-block',
     IconsBlock = 'icons-block',
     CardLayoutBlock = 'card-layout-block',
     ContentLayoutBlock = 'content-layout-block',
@@ -69,7 +72,11 @@ export enum BlockType {
 }
 
 export const BlockTypes = Object.values(BlockType);
-export const HeaderBlockTypes = [BlockType.HeaderBlock, BlockType.HeaderSliderBlock];
+export const HeaderBlockTypes = [
+    BlockType.HeaderBlock,
+    BlockType.HeaderSliderBlock,
+    BlockType.HeroBlock,
+];
 
 export interface Childable {
     children?: SubBlock[];
@@ -199,6 +206,33 @@ export interface HeaderBlockProps {
     breadcrumbs?: HeaderBreadCrumbsProps;
     status?: JSX.Element;
     renderTitle?: (title: string) => React.ReactNode;
+}
+
+export interface HeroBlockBackground
+    extends Partial<MediaComponentImageProps>,
+        Partial<MediaComponentVideoProps> {
+    color?: string;
+}
+
+export interface HeroBlockMedia extends Partial<MediaProps> {
+    roundCorners?: boolean;
+}
+
+export interface HeroBlockProps
+    extends Pick<
+        ContentBlockProps,
+        'title' | 'text' | 'list' | 'additionalInfo' | 'links' | 'theme'
+    > {
+    breadcrumbs?: HeaderBreadCrumbsProps;
+    // TODO: add overtitle to ContentProps
+    overtitle?: string | JSX.Element;
+    buttons?: ThemeSupporting<
+        Pick<ButtonProps, 'url' | 'text' | 'theme' | 'primary' | 'extraProps'> | React.ReactNode
+    >[];
+    media?: ThemeSupporting<HeroBlockMedia>;
+    fullWidth?: boolean;
+    verticalOffset?: 's' | 'm' | 'l' | 'xl';
+    background?: ThemeSupporting<HeroBlockBackground>;
 }
 
 export interface ExtendedFeaturesItem
@@ -435,7 +469,7 @@ export interface ContentBlockProps {
     textId?: string;
     additionalInfo?: string;
     links?: LinkProps[];
-    buttons?: ButtonProps[];
+    buttons?: (ButtonProps | React.ReactNode)[];
     size?: ContentSize;
     colSizes?: GridColumnSizesType;
     centered?: boolean;
@@ -496,6 +530,10 @@ export interface FormBlockProps {
 export type HeaderBlockModel = {
     type: BlockType.HeaderBlock;
 } & HeaderBlockProps;
+
+export type HeroBlockModel = {
+    type: BlockType.HeroBlock;
+} & HeroBlockProps;
 
 export type SliderOldBlockModel = {
     type: BlockType.SliderOldBlock;
@@ -592,6 +630,7 @@ type BlockModels =
     | TableBlockModel
     | TabsBlockModel
     | HeaderBlockModel
+    | HeroBlockModel
     | IconsBlockModel
     | HeaderSliderBlockModel
     | CardLayoutBlockModel
