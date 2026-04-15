@@ -2,6 +2,7 @@ import {ImageProps} from '../../components/Image/schema';
 import {
     BlockBaseProps,
     ButtonBlock,
+    HeaderBreadcrumbsProps,
     MediaProps,
     VideoProps,
     mediaView,
@@ -93,31 +94,7 @@ export const HeaderProperties = {
         type: 'string',
         enum: ['default', 'dark'],
     },
-    breadcrumbs: {
-        type: 'object',
-        additionalProperties: false,
-        required: ['items'],
-        properties: {
-            items: {
-                type: 'array',
-                items: {
-                    type: 'object',
-                    additionalProperties: false,
-                    required: ['url', 'text'],
-                    properties: {
-                        url: {
-                            type: 'string',
-                        },
-                        text: {
-                            type: 'string',
-                            contentType: 'text',
-                        },
-                    },
-                },
-            },
-            theme: {type: 'string', enum: ['light', 'dark']},
-        },
-    },
+    breadcrumbs: HeaderBreadcrumbsProps,
     status: {
         type: 'string',
     },

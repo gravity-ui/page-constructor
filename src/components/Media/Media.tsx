@@ -51,6 +51,8 @@ export const Media = (props: MediaAllProps) => {
         ratio,
         autoplay,
         onImageLoad,
+        onIntrinsicSizeChange,
+        disablePlayerAutoSizing,
         iframe,
         margins,
         videoMicrodata,
@@ -82,6 +84,7 @@ export const Media = (props: MediaAllProps) => {
                     fullscreen={fullscreen}
                     qa={qaAttributes.image}
                     onLoad={onImageLoad}
+                    onIntrinsicSizeChange={onIntrinsicSizeChange}
                 />,
             );
         }
@@ -99,6 +102,8 @@ export const Media = (props: MediaAllProps) => {
                 customBarControlsClassName,
                 hasVideoFallback,
                 setHasVideoFallback,
+                disablePlayerAutoSizing,
+                onIntrinsicSizeChange,
                 ratio,
             };
 
@@ -138,27 +143,29 @@ export const Media = (props: MediaAllProps) => {
     }, [
         image,
         video,
-        videoIframe,
         youtube,
+        videoIframe,
         dataLens,
         iframe,
         parallax,
         disableImageSliderForArrayInput,
         height,
         imageClassName,
+        isFullscreenImageCover,
         isBackground,
         hasVideoFallback,
         fullscreen,
-        isFullscreenImageCover,
         qaAttributes.image,
         qaAttributes.video,
         onImageLoad,
+        onIntrinsicSizeChange,
         videoClassName,
         analyticsEvents,
         playVideo,
         previewImg,
         playButton,
         customBarControlsClassName,
+        disablePlayerAutoSizing,
         ratio,
         youtubeClassName,
         autoplay,

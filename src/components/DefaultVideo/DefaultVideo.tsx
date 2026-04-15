@@ -16,11 +16,12 @@ interface DefaultVideoProps {
     qa?: string;
     customBarControlsClassName?: string;
     className?: string;
+    onLoadedMetadata?: React.ReactEventHandler<HTMLVideoElement>;
 }
 
 export const DefaultVideo = React.forwardRef<DefaultVideoRefType, DefaultVideoProps>(
     (props, ref) => {
-        const {video, qa, customBarControlsClassName} = props;
+        const {video, qa, customBarControlsClassName, onLoadedMetadata} = props;
         const {
             controls,
             customControlsOptions,
@@ -116,6 +117,7 @@ export const DefaultVideo = React.forwardRef<DefaultVideoRefType, DefaultVideoPr
                     aria-label={video.ariaLabel}
                     onClick={onClick}
                     onEnded={onEnded}
+                    onLoadedMetadata={onLoadedMetadata}
                 >
                     {getVideoTypesWithPriority(video.src).map(({src, type}, index) => (
                         <source key={index} src={src} type={type} data-qa={qa} />

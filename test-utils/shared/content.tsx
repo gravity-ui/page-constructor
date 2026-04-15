@@ -1,7 +1,7 @@
 import {render, screen} from '@testing-library/react';
 import pick from 'lodash/pick';
 
-import {getColClass} from '../../src';
+import {ButtonProps, getColClass} from '../../src';
 import {QAProps} from '../../src/models/common';
 import Content, {ContentProps} from '../../src/sub-blocks/Content/Content';
 import {getQaAttrubutes} from '../../src/utils/blocks';
@@ -67,13 +67,13 @@ export const testContentWithLinks = ({props, options}: ContentTestFunction) => {
 };
 
 export const testContentWithButtons = ({props, options}: ContentTestFunction) => {
-    if (!options?.qaId || !props?.buttons?.[0]?.url) {
+    if (!options?.qaId || !(props?.buttons?.[0] as ButtonProps)?.url) {
         throw new Error(ERROR_INPUT_DATA_MESSAGE);
     }
 
     render(<Content {...pick(props, 'buttons', 'qa')} />);
     const link = screen.getByTestId(options.qaId);
-    expect(link).toHaveAttribute('href', props.buttons[0].url);
+    expect(link).toHaveAttribute('href', (props.buttons?.[0] as ButtonProps)?.url);
 };
 
 export const testContentWithColSize = ({props, options}: ContentTestFunction) => {

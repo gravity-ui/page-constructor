@@ -1,0 +1,40 @@
+import {Meta} from '@storybook/blocks';
+
+import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
+import * as HeroStories from './Hero.stories.tsx';
+
+<Meta of={HeroStories} />
+<StoryTemplate>
+## Parameters
+
+There could be only one Hero block on the page.
+
+`type: 'hero-block'`
+
+`breadcrubms?: HeaderBreadCrumbsProps` — Breadcrumbs props (refer to `HeaderBreadcrumbs` component).
+
+`overtitle?: string | JSX.Element` — Overtitle text that is shown above the title.
+
+`title: string` — Title.
+
+`text?: string` — Subtitle text.
+
+`list?: ContentItemProps[]` - An array of items with icons (refer to `Content` component).
+
+`additionalInfo?: string` - Additional gray text under main content (refer to `Content` component).
+
+`links?: LinkProps[]` - An array of link objects (refer to `Content` component).
+
+`buttons?: ThemeSupporting<Pick<ButtonProps, 'url' | 'text' | 'theme' | 'primary' | 'extraProps'>>[]` — An array of button objects (refer to `Button` component).
+
+`media?: MediaProps & {roundCorners?: boolean}` — Displayed media properties (refer to `Media` component).
+
+`fullWidth?: boolean` — Whether block background takes up all the screen width or not (default `false`)
+
+`verticalOffset?: 's' | 'm' | 'l' | 'xl` — The size of top and bottom paddings around the block's text content (default `'m'`).
+
+`theme?: 'default' | 'light' | 'dark'` — Color theme (refer to `Content` component) (default `'default'`).
+
+`background?: ThemeSupporting<HeroBlockBackground>` — Block background properties (refer to `Media` component; only color, image and video properties apply)
+
+</StoryTemplate>

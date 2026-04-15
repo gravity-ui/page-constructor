@@ -429,6 +429,10 @@
 @mixin heading1 {
     @include heading(display-4);
 
+    @media (max-width: map-get($gridBreakpoints, 'md')) {
+        @include text-size(display-3);
+    }
+
     @media (max-width: map-get($gridBreakpoints, 'sm')) {
         @include text-size(display-2);
     }
