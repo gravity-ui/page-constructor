@@ -120,12 +120,7 @@ $intermediateBreakpoint: 993px;
             }
         }
 
-        &_no-media {
-            width: 100%;
-        }
-
         &-overtitle {
-            $overtitle: &;
             margin-bottom: $indentXXXS;
 
             &_theme {
@@ -188,10 +183,6 @@ $intermediateBreakpoint: 993px;
     @media (max-width: $intermediateBreakpoint) {
         &__content {
             grid-column: span 7;
-
-            &_no-media {
-                grid-column: span 12;
-            }
         }
 
         &__media {
@@ -201,27 +192,27 @@ $intermediateBreakpoint: 993px;
 
     @media (max-width: map-get($gridBreakpoints, 'md')) {
         &__wrapper {
+            gap: 0;
             padding-block: $indentS $indentSM;
         }
 
         &__breadcrumbs {
+            position: initial;
             grid-column: span 12;
             order: 1;
-            position: initial;
+            margin-bottom: $indentXS;
         }
 
         &__content {
             grid-column: span 12;
             order: 3;
-            width: 100%;
-            padding-block: 0 $indentXS;
+            padding-block: $indentXS;
             padding-inline: 0;
         }
 
         &__media {
             grid-column: span 12;
             order: 2;
-            width: 100%;
             padding-block: 0;
 
             &-container {
