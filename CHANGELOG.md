@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.4.1](https://github.com/gravity-ui/page-constructor/compare/v8.4.0...v8.4.1) (2026-04-15)
+
+
+### Bug Fixes
+
+* **Hero:** content width with no media ([#1415](https://github.com/gravity-ui/page-constructor/issues/1415)) ([09c26d5](https://github.com/gravity-ui/page-constructor/commit/09c26d56702b16bbe8bfb7aaf4c21c00594f2f91))
+
 ## [8.4.0](https://github.com/gravity-ui/page-constructor/compare/v8.3.0...v8.4.0) (2026-04-15)
 
 
