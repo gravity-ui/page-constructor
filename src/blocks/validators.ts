@@ -5,6 +5,7 @@ export * from './ContentLayout/schema';
 export * from './ExtendedFeatures/schema';
 export * from './Header/schema';
 export * from './HeaderSlider/schema';
+export * from './Hero/schema';
 export * from './Icons/schema';
 export * from './Info/schema';
 export * from './Media/schema';
