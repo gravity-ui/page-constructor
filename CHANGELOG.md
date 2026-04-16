@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.4.2](https://github.com/gravity-ui/page-constructor/compare/v8.4.1...v8.4.2) (2026-04-16)
+
+
+### Bug Fixes
+
+* **Hero:** schema exports ([#1417](https://github.com/gravity-ui/page-constructor/issues/1417)) ([31b294b](https://github.com/gravity-ui/page-constructor/commit/31b294b5acf6c28426105c2a582f10fc82cd6a5b))
+
 ## [8.4.1](https://github.com/gravity-ui/page-constructor/compare/v8.4.0...v8.4.1) (2026-04-15)
 
 
