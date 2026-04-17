@@ -58,3 +58,9 @@
         transition: opacity 0.5s ease-out;
     }
 }
+
+@mixin title-styles() {
+    @include overflow-ellipsis();
+    margin: 0;
+    display: inherit;
+}

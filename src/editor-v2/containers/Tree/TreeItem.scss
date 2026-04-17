@@ -1,33 +1,46 @@
 @import '../../styles/variables.scss';
+@import '../../../../styles/variables.scss';
 @import '../../styles/mixins.scss';
 
 $block: '.#{$ns}tree-item';
 
 #{$block} {
-    padding: 8px;
-    margin-bottom: 8px;
+    padding: $indentXXXS;
+    margin-bottom: 0;
     cursor: pointer;
 
-    &_selected {
+    &_selected.g-card:not(#{$block}_drag-over.g-card) {
         border: 1.5px var(--g-color-line-brand) solid;
     }
 
-    &_dragging {
-        opacity: 0.5;
+    &_dragging.g-card {
+        opacity: 0.85;
     }
 
-    &_drag-over {
-        border: 1.5px var(--g-color-line-generic) dashed;
+    &_drag-over.g-card {
+        outline: 1.5px dashed var(--g-color-line-brand);
+        outline-offset: -1px;
     }
 
-    &:last-child {
-        margin-bottom: 0;
+    &_overlay.g-card {
+        position: relative;
+        display: flex;
+        align-items: center;
+        min-width: 220px;
+        max-width: min(100vw - 32px, 420px);
+        cursor: grabbing;
+        background-color: var(--g-color-base-background);
+        opacity: 1;
+        box-shadow: 0 4px 12px var(--g-color-private-black-150);
     }
 
     &__main {
         display: flex;
         flex-direction: row;
         align-items: center;
+        flex: 1;
+        min-width: 0;
+        min-height: 20px;
 
         &:hover {
             #{$block}__buttons {
@@ -53,14 +66,27 @@ $block: '.#{$ns}tree-item';
     }
 
     &__title {
-        @include overflow-ellipsis();
+        @include title-styles();
+
+        & * {
+            @include title-styles();
+        }
     }
 
-    &__children-drop-zone {
-        height: 8px;
-        margin-top: 8px;
-        margin-bottom: 0;
-        border-radius: 4px;
-        transition: background-color 0.2s;
+    &__badge {
+        position: absolute;
+        top: -8px;
+        right: -8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 22px;
+        height: 22px;
+        padding: 0 6px;
+        border-radius: 50%;
+        background-color: var(--g-color-base-brand);
+        font-size: 12px;
+        font-weight: 500;
+        color: var(--g-color-text-brand-contrast);
     }
 }
