@@ -2,48 +2,66 @@ import {Copy, TrashBin} from '@gravity-ui/icons';
 import {Button, Card, Icon} from '@gravity-ui/uikit';
 import * as React from 'react';
 
+import {useSortable} from '@dnd-kit/react/sortable';
+
 import {editorCn} from '../../utils/cn';
-import {DragContext, DragItem} from './DragContext';
+
+import type {FlattenedTreeItem} from './types';
+import {HTML} from '../../../components';
 
 import './TreeItem.scss';
 
 const b = editorCn('tree-item');
 
-export interface ItemProps {
+const sortableConfig = {
+    alignment: {
+        x: 'start' as const,
+        y: 'center' as const,
+    },
+    transition: null,
+} as const;
+
+export interface TreeItemProps {
+    item: FlattenedTreeItem;
+    sortableIndex: number;
+    indentLeft: number;
+    selected: boolean;
     type: string;
     treeTitle?: string;
     path: number[];
-    selected: boolean;
     onCopy(path: number[]): void;
     onDelete(path: number[]): void;
     onSelect(path: number[]): void;
-    onReorder(
-        sourcePath: number[],
-        destinationPath: number[],
-        position?: 'prepend' | 'append',
-    ): void;
-    children?: React.ReactNode;
 }
 
-export const Item = ({
+export function TreeItem({
+    item,
+    sortableIndex,
+    indentLeft,
+    selected,
     type,
-    children,
     treeTitle,
     path,
-    selected,
     onCopy,
     onDelete,
     onSelect,
-    onReorder,
-}: ItemProps) => {
-    const {draggedItem, setDraggedItem, showPreview, hidePreview} = React.useContext(DragContext);
-    const [isDragging, setIsDragging] = React.useState(false);
-    const [isDragOver, setIsDragOver] = React.useState(false);
+}: TreeItemProps) {
+    const {depth, parentId, id} = item;
+
+    const {ref, isDragSource, isDropTarget} = useSortable({
+        ...sortableConfig,
+        id,
+        index: sortableIndex,
+        data: {
+            depth,
+            parentId,
+        },
+    });
+
     const [mouseDownPos, setMouseDownPos] = React.useState<{x: number; y: number} | null>(null);
     const itemRef = React.useRef<HTMLDivElement>(null);
 
-    // Scroll into view when selected
-    React.useEffect(() => {
+    React.useLayoutEffect(() => {
         if (selected && itemRef.current) {
             itemRef.current.scrollIntoView({
                 behavior: 'smooth',
@@ -52,13 +70,14 @@ export const Item = ({
         }
     }, [selected]);
 
-    const handleCopy = React.useCallback(() => {
-        onCopy(path);
-    }, [onCopy, path]);
-
-    const handleDelete = React.useCallback(() => {
-        onDelete(path);
-    }, [onDelete, path]);
+    const setNodeRef = React.useCallback(
+        (node: Element | null) => {
+            ref(node);
+            (itemRef as React.MutableRefObject<HTMLDivElement | null>).current =
+                node as HTMLDivElement | null;
+        },
+        [ref],
+    );
 
     const handleMouseDown = React.useCallback((e: React.MouseEvent<HTMLDivElement>) => {
         setMouseDownPos({x: e.clientX, y: e.clientY});
@@ -67,11 +86,9 @@ export const Item = ({
     const handleMouseUp = React.useCallback(
         (e: React.MouseEvent<HTMLDivElement>) => {
             if (mouseDownPos) {
-                // Check if the mouse has moved significantly (dragging) or just a click
                 const dx = Math.abs(e.clientX - mouseDownPos.x);
                 const dy = Math.abs(e.clientY - mouseDownPos.y);
 
-                // If the mouse hasn't moved much, consider it a click for selection
                 if (dx < 5 && dy < 5) {
                     e.stopPropagation();
                     onSelect(path);
@@ -82,161 +99,32 @@ export const Item = ({
         [mouseDownPos, onSelect, path],
     );
 
-    const handleDragStart = React.useCallback(
-        (e: React.DragEvent<HTMLDivElement>) => {
-            e.stopPropagation();
-            const dragData: DragItem = {
-                path,
-                type,
-                treeTitle,
-            };
-            e.dataTransfer.setData('application/json', JSON.stringify(dragData));
-            // eslint-disable-next-line no-not-accumulator-reassign/no-not-accumulator-reassign, no-param-reassign
-            e.dataTransfer.effectAllowed = 'move';
-            setIsDragging(true);
-
-            // Update drag context
-            setDraggedItem(dragData);
-        },
-        [path, type, treeTitle, setDraggedItem],
-    );
-
-    const handleDragEnd = React.useCallback(() => {
-        setIsDragging(false);
-
-        // Reset drag context
-        setDraggedItem(null);
-        hidePreview();
-    }, [setDraggedItem, hidePreview]);
-
-    const handleDragOver = React.useCallback(
-        (e: React.DragEvent<HTMLDivElement>) => {
-            e.preventDefault();
-            e.stopPropagation();
-            // eslint-disable-next-line no-not-accumulator-reassign/no-not-accumulator-reassign, no-param-reassign
-            e.dataTransfer.dropEffect = 'move';
-            setIsDragOver(true);
-
-            const rect = e.currentTarget.getBoundingClientRect();
-            if (draggedItem) {
-                showPreview(rect, draggedItem);
-            }
-        },
-        [showPreview, draggedItem],
-    );
-
-    const handleDragLeave = React.useCallback(() => {
-        setIsDragOver(false);
-        hidePreview();
-    }, [hidePreview]);
-
-    const handleDrop = React.useCallback(
-        (e: React.DragEvent<HTMLDivElement>) => {
-            e.preventDefault();
-            e.stopPropagation();
-            setIsDragOver(false);
-
-            try {
-                const data = e.dataTransfer.getData('application/json');
-                if (data) {
-                    const dragItem: DragItem = JSON.parse(data);
-                    if (dragItem.path.join(',') !== path.join(',')) {
-                        onReorder(dragItem.path, path);
-
-                        // Reset drag context
-                        setDraggedItem(null);
-                        hidePreview();
-                    }
-                }
-            } catch (error) {
-                // eslint-disable-next-line no-console
-                console.error('Error parsing drag data:', error);
-            }
-        },
-        [onReorder, path, setDraggedItem, hidePreview],
-    );
-
-    const handleChildrenFirstPositionDrop = React.useCallback(
-        (e: React.DragEvent<HTMLDivElement>) => {
-            e.preventDefault();
-            e.stopPropagation();
-
-            try {
-                const data = e.dataTransfer.getData('application/json');
-                if (data) {
-                    const dragItem: DragItem = JSON.parse(data);
-                    // Create a path for the first child position
-                    const firstChildPath = [...path, 0];
-                    // Reorder to the first position within children
-                    onReorder(dragItem.path, firstChildPath, 'prepend');
-
-                    // Reset drag context
-                    setDraggedItem(null);
-                    hidePreview();
-                }
-            } catch (error) {
-                // eslint-disable-next-line no-console
-                console.error('Error parsing drag data:', error);
-            }
-        },
-        [onReorder, path, setDraggedItem, hidePreview],
-    );
-
-    const handleDropZoneDragOver = (e: React.DragEvent<HTMLDivElement>) => {
-        e.preventDefault();
-        e.stopPropagation();
-        // eslint-disable-next-line no-not-accumulator-reassign/no-not-accumulator-reassign, no-param-reassign
-        e.dataTransfer.dropEffect = 'move';
-
-        // Show preview element at this position
-        const rect = e.currentTarget.getBoundingClientRect();
-        if (draggedItem) {
-            showPreview(rect, draggedItem);
-        }
-    };
-
     return (
         <Card
-            ref={itemRef}
+            ref={setNodeRef}
             className={b({
                 selected,
-                dragging: isDragging,
-                'drag-over': isDragOver,
+                dragging: isDragSource,
+                'drag-over': isDropTarget,
             })}
+            style={{marginLeft: indentLeft}}
             onMouseDown={handleMouseDown as unknown as React.MouseEventHandler<'div'>}
             onMouseUp={handleMouseUp as unknown as React.MouseEventHandler<'div'>}
-            draggable
-            onDragStart={handleDragStart as unknown as React.DragEventHandler<'div'>}
-            onDragEnd={handleDragEnd}
-            onDragOver={handleDragOver as unknown as React.DragEventHandler<'div'>}
-            onDragLeave={handleDragLeave}
-            onDrop={handleDrop as unknown as React.DragEventHandler<'div'>}
         >
             <div className={b('main')}>
                 <div className={b('text')}>
                     <div className={b('type')}>{type}</div>
-                    <div className={b('title')}>{treeTitle}</div>
+                    <HTML className={b('title')}>{treeTitle}</HTML>
                 </div>
                 <div className={b('buttons')}>
-                    <Button view="flat" size="xs" onClick={handleCopy}>
+                    <Button view="flat" size="xs" onClick={() => onCopy(path)}>
                         <Icon size={12} data={Copy} />
                     </Button>
-                    <Button view="flat" size="xs" onClick={handleDelete}>
+                    <Button view="flat" size="xs" onClick={() => onDelete(path)}>
                         <Icon size={12} data={TrashBin} />
                     </Button>
                 </div>
             </div>
-            {children && (
-                <React.Fragment>
-                    <div
-                        className={b('children-drop-zone')}
-                        onDragOver={handleDropZoneDragOver}
-                        onDragLeave={hidePreview}
-                        onDrop={handleChildrenFirstPositionDrop}
-                    ></div>
-                    {children}
-                </React.Fragment>
-            )}
         </Card>
     );
-};
+}
