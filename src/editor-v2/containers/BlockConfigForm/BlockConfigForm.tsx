@@ -1,7 +1,6 @@
 import _ from 'lodash';
 
 import FormGenerator from '../../../form-generator-v2/FormGenerator';
-import {Content} from '../../../form-generator-v2/types';
 import {MessageCard} from '../../components/MessageCard';
 import {MESSAGES} from '../../constants/messages';
 import {useMainEditorStore} from '../../hooks/useMainEditorStore';
@@ -24,8 +23,8 @@ const BlockConfigForm = ({className}: BlockConfigFormProps) => {
     const currentConfig = _.get(content.blocks, currentBlockPath || '');
     const currentSchema = [...blocks, ...subBlocks].find(({type}) => type === currentConfig?.type);
 
-    const onUpdate = (value: Content) => {
-        updateField('blocks' + currentBlockPath, value);
+    const onUpdateByKey = (key: string, value: unknown) => {
+        updateField('blocks' + currentBlockPath + '.' + key, value as any);
     };
 
     if (!currentConfig) {
@@ -60,7 +59,7 @@ const BlockConfigForm = ({className}: BlockConfigFormProps) => {
                     <FormGenerator
                         contentConfig={currentConfig}
                         blockConfig={currentSchema.schema.inputs}
-                        onUpdate={onUpdate}
+                        onUpdateByKey={onUpdateByKey}
                     />
                 )}
             </div>

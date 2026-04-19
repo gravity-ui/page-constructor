@@ -25,12 +25,19 @@ $block: '.#{$ns}block-card';
     &__image {
         &-img {
             pointer-events: none;
+            height: 45px;
+            object-fit: contain;
+            object-position: center;
         }
     }
 
     &__name {
         justify-self: flex-end;
         color: var(--g-color-text-secondary);
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        width: 100%;
     }
 
     &__icon {

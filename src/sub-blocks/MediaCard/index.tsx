@@ -5,6 +5,7 @@ import {generateFormFieldsFromAjvSchema} from '../../form-generator-v2/utils/gen
 
 import MediaCard from './MediaCard';
 import {MediaCardBlock as MediaCardSchema} from './schema';
+import icon from './icon.svg';
 
 const MediaCardConfig: BlockData = {
     type: '@gravity-ui/page-constructor/media-card',
@@ -23,6 +24,7 @@ const MediaCardConfig: BlockData = {
             },
             image: 'https://storage.yandexcloud.net/yc-www-community-images/event_ecaf1ef1-bc3a-40fa-adef-827b0959e6c3.jpg',
         },
+        previewImg: icon,
     },
 };
 

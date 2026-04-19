@@ -1,15 +1,8 @@
 import {IconProps} from '@gravity-ui/uikit';
 
-import {PageContentWithNavigation} from '../models';
+import {PageContent} from '../models';
 
-export type DynamicFormValue =
-    | string
-    | number
-    | []
-    | object
-    | boolean
-    | PageContentWithNavigation
-    | undefined;
+export type DynamicFormValue = string | number | [] | object | boolean | PageContent | undefined;
 
 export interface BlockConfig {
     name: string;

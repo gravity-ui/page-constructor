@@ -1,8 +1,7 @@
 import {Fields} from '../../form-generator-v2/types';
 
 import MediaBlock from './Media';
-
-import svgIcon from './icon.svg';
+import icon from './icon.svg';
 
 const MediaBlockConfig = {
     type: '@gravity-ui/page-constructor/media-block',
@@ -112,130 +111,116 @@ const MediaBlockConfig = {
             {
                 type: 'section',
                 title: 'Content list',
+                withAddButton: true,
+                index: 'index1',
+                itemTitle: 'Item {{index1}}',
+                itemView: 'card',
                 fields: [
                     {
-                        type: 'oneTypeGroup',
-                        withAddButton: true,
-                        title: 'Item {{index1}}',
-                        index: 'index1',
-                        fields: [
-                            {
-                                type: 'textInput',
-                                title: 'Title',
-                                name: 'list[{{index1}}].title',
-                            },
-                            {
-                                type: 'textArea',
-                                title: 'Description',
-                                name: 'list[{{index1}}].text',
-                            },
-                            {
-                                type: 'textInput',
-                                title: 'URL icon',
-                                name: 'list[{{index1}}].icon',
-                            },
-                        ],
+                        type: 'textInput',
+                        title: 'Title',
+                        name: 'list[{{index1}}].title',
+                    },
+                    {
+                        type: 'textArea',
+                        title: 'Description',
+                        name: 'list[{{index1}}].text',
+                    },
+                    {
+                        type: 'textInput',
+                        title: 'URL icon',
+                        name: 'list[{{index1}}].icon',
                     },
                 ],
             },
             {
                 type: 'section',
                 title: 'Buttons',
+                withAddButton: true,
+                index: 'index',
+                itemTitle: 'Button {{index}}',
+                itemView: 'card',
                 fields: [
                     {
-                        title: 'Button {{index}}',
-                        withAddButton: true,
-                        type: 'oneTypeGroup',
-                        index: 'index',
+                        type: 'section',
+                        title: 'Main settings',
+                        opened: true,
                         fields: [
                             {
-                                type: 'section',
-                                title: 'Main settings',
-                                opened: true,
-                                fields: [
+                                title: 'Text',
+                                type: 'textInput',
+                                name: 'buttons[{{index}}].text',
+                            },
+                            {
+                                title: 'URL',
+                                type: 'textInput',
+                                name: 'buttons[{{index}}].url',
+                            },
+                            {
+                                title: 'URL title',
+                                type: 'textInput',
+                                name: 'buttons[{{index}}].urlTitle',
+                            },
+                            {
+                                title: 'Style',
+                                type: 'select',
+                                name: 'buttons[{{index}}].theme',
+                                options: [
+                                    {value: 'action', content: 'Action'},
+                                    {value: 'outlined', content: 'Outlined'},
+                                    {value: 'normal', content: 'Normal'},
+                                    {value: 'monochrome', content: 'Monochrome'},
                                     {
-                                        title: 'Text',
-                                        type: 'textInput',
-                                        name: 'buttons[{{index}}].text',
+                                        value: 'outlined-contrast',
+                                        content: 'Outlined-contrast',
                                     },
-                                    {
-                                        title: 'URL',
-                                        type: 'textInput',
-                                        name: 'buttons[{{index}}].url',
-                                    },
-                                    {
-                                        title: 'URL title',
-                                        type: 'textInput',
-                                        name: 'buttons[{{index}}].urlTitle',
-                                    },
-                                    {
-                                        title: 'Style',
-                                        type: 'select',
-                                        name: 'buttons[{{index}}].theme',
-                                        options: [
-                                            {value: 'action', content: 'Action'},
-                                            {value: 'outlined', content: 'Outlined'},
-                                            {value: 'normal', content: 'Normal'},
-                                            {value: 'monochrome', content: 'Monochrome'},
-                                            {
-                                                value: 'outlined-contrast',
-                                                content: 'Outlined-contrast',
-                                            },
-                                            {value: 'normal-contrast', content: 'Normal-contrast'},
-                                        ],
-                                    },
-                                    {
-                                        title: 'Target',
-                                        type: 'select',
-                                        name: 'buttons[{{index}}].target',
-                                        options: [
-                                            {value: '_blank'},
-                                            {value: '_self'},
-                                            {value: '_parent'},
-                                            {value: '_top'},
-                                        ],
-                                        hasClear: true,
-                                    },
+                                    {value: 'normal-contrast', content: 'Normal-contrast'},
                                 ],
                             },
                             {
+                                title: 'Target',
+                                type: 'select',
+                                name: 'buttons[{{index}}].target',
+                                options: [
+                                    {value: '_blank'},
+                                    {value: '_self'},
+                                    {value: '_parent'},
+                                    {value: '_top'},
+                                ],
+                                hasClear: true,
+                            },
+                        ],
+                    },
+                    {
+                        type: 'section',
+                        title: 'Analytics tracking',
+                        withAddButton: true,
+                        index: 'index2',
+                        itemTitle: 'Analytics event {{index2}}',
+                        itemView: 'card',
+                        fields: [
+                            {
+                                title: 'Name',
+                                type: 'textInput',
+                                name: 'buttons[{{index}}].analyticsEvents[{{index2}}].name',
+                            },
+                            {
+                                title: 'Target',
+                                type: 'textInput',
+                                name: 'buttons[{{index}}].analyticsEvents[{{index2}}].target',
+                            },
+                            {
+                                title: 'Counters',
+                                withAddButton: true,
                                 type: 'section',
-                                title: 'Analytics tracking',
-                                note: {
-                                    text: 'Only events for the counters listed in the input field will be sent.',
-                                    level: '',
-                                },
+                                index: 'indexgoal',
+                                itemTitle: 'Counter {{indexgoal}}',
+                                itemView: 'card',
                                 fields: [
                                     {
-                                        title: 'Analytics event {{index2}}',
-                                        type: 'oneTypeGroup',
-                                        withAddButton: true,
-                                        index: 'index2',
-                                        fields: [
-                                            {
-                                                title: 'Name',
-                                                type: 'textInput',
-                                                name: 'buttons[{{index}}].analyticsEvents[{{index2}}].name',
-                                            },
-                                            {
-                                                title: 'Target',
-                                                type: 'textInput',
-                                                name: 'buttons[{{index}}].analyticsEvents[{{index2}}].target',
-                                            },
-                                            {
-                                                title: 'Counter {{indexgoal}}',
-                                                withAddButton: true,
-                                                type: 'oneTypeGroup',
-                                                index: 'indexgoal',
-                                                fields: [
-                                                    {
-                                                        title: 'Counter',
-                                                        type: 'textInput',
-                                                        name: 'buttons[{{index}}].analyticsEvents[{{index2}}].counters[{{indexgoal}}].includes',
-                                                    },
-                                                ],
-                                            },
-                                        ],
+                                        title: 'Counter',
+                                        type: 'textInput',
+                                        name: 'buttons[{{index}}].analyticsEvents[{{index2}}].counters[{{indexgoal}}].includes',
                                     },
                                 ],
                             },
@@ -246,89 +231,79 @@ const MediaBlockConfig = {
             {
                 type: 'section',
                 title: 'Link',
+                index: 'index1',
+                withAddButton: true,
+                itemTitle: 'Link {{index1}}',
+                itemView: 'card',
                 fields: [
                     {
-                        type: 'oneTypeGroup',
-                        title: 'Link {{index1}}',
-                        index: 'index1',
+                        type: 'textInput',
+                        title: 'Text',
+                        name: 'links[{{index1}}].text',
+                    },
+                    {
+                        type: 'textInput',
+                        title: 'URL',
+                        name: 'links[{{index1}}].url',
+                    },
+                    {
+                        type: 'textInput',
+                        title: 'URL title',
+                        name: 'links[{{index1}}].urlTitle',
+                    },
+                    {
+                        type: 'select',
+                        title: 'Style',
+                        name: 'links[{{index1}}].theme',
+                        options: [
+                            {content: 'File-link', value: 'file-link'},
+                            {content: 'Normal', value: 'normal'},
+                            {content: 'Back', value: 'back'},
+                            {content: 'Underline', value: 'underline'},
+                        ],
+                    },
+                    {
+                        title: 'Target',
+                        type: 'select',
+                        name: 'links[{{index1}}].target',
+                        options: [
+                            {value: '_blank'},
+                            {value: '_self'},
+                            {value: '_parent'},
+                            {value: '_top'},
+                        ],
+                        hasClear: true,
+                    },
+                    {
+                        type: 'section',
+                        title: 'Analytics tracking',
                         withAddButton: true,
+                        index: 'index2',
+                        itemTitle: 'Analytics event {{index2}}',
+                        itemView: 'card',
                         fields: [
                             {
+                                title: 'Name',
                                 type: 'textInput',
-                                title: 'Text',
-                                name: 'links[{{index1}}].text',
-                            },
-                            {
-                                type: 'textInput',
-                                title: 'URL',
-                                name: 'links[{{index1}}].url',
-                            },
-                            {
-                                type: 'textInput',
-                                title: 'URL title',
-                                name: 'links[{{index1}}].urlTitle',
-                            },
-                            {
-                                type: 'select',
-                                title: 'Style',
-                                name: 'links[{{index1}}].theme',
-                                options: [
-                                    {content: 'File-link', value: 'file-link'},
-                                    {content: 'Normal', value: 'normal'},
-                                    {content: 'Back', value: 'back'},
-                                    {content: 'Underline', value: 'underline'},
-                                ],
+                                name: 'links[{{index1}}].analyticsEvents[{{index2}}].name',
                             },
                             {
                                 title: 'Target',
-                                type: 'select',
-                                name: 'links[{{index1}}].target',
-                                options: [
-                                    {value: '_blank'},
-                                    {value: '_self'},
-                                    {value: '_parent'},
-                                    {value: '_top'},
-                                ],
-                                hasClear: true,
+                                type: 'textInput',
+                                name: 'links[{{index1}}].analyticsEvents[{{index2}}].target',
                             },
                             {
+                                title: 'Counters',
+                                withAddButton: true,
                                 type: 'section',
-                                title: 'Analytics tracking',
-                                note: {
-                                    text: 'Only events for the counters listed in the input field will be sent.',
-                                    level: '',
-                                },
+                                index: 'indexgoal',
+                                itemTitle: 'Counter {{indexgoal}}',
+                                itemView: 'card',
                                 fields: [
                                     {
-                                        title: 'Analytics event {{index2}}',
-                                        type: 'oneTypeGroup',
-                                        withAddButton: true,
-                                        index: 'index2',
-                                        fields: [
-                                            {
-                                                title: 'Name',
-                                                type: 'textInput',
-                                                name: 'links[{{index1}}].analyticsEvents[{{index2}}].name',
-                                            },
-                                            {
-                                                title: 'Target',
-                                                type: 'textInput',
-                                                name: 'links[{{index1}}].analyticsEvents[{{index2}}].target',
-                                            },
-                                            {
-                                                title: 'Counter {{indexgoal}}',
-                                                withAddButton: true,
-                                                type: 'oneTypeGroup',
-                                                index: 'indexgoal',
-                                                fields: [
-                                                    {
-                                                        title: 'Counter',
-                                                        type: 'textInput',
-                                                        name: 'links[{{index1}}].analyticsEvents[{{index2}}].counters[{{indexgoal}}].includes',
-                                                    },
-                                                ],
-                                            },
-                                        ],
+                                        title: 'Counter',
+                                        type: 'textInput',
+                                        name: 'links[{{index1}}].analyticsEvents[{{index2}}].counters[{{indexgoal}}].includes',
                                     },
                                 ],
                             },
@@ -518,7 +493,7 @@ const MediaBlockConfig = {
                 },
             },
         },
-        previewImg: svgIcon,
+        previewImg: icon,
     },
 };
 

@@ -1,12 +1,12 @@
 import * as React from 'react';
 
 import {usePostMessageAPIListener} from '../../common/postMessage';
-import {PageContentWithNavigation} from '../../models';
+import {PageContent} from '../../models';
 
 import {useMainEditorStore} from './useMainEditorStore';
 import {usePostMessageEvents} from './usePostMessageEvents';
 
-const useMainEditorInitialize = (initialContent?: PageContentWithNavigation) => {
+const useMainEditorInitialize = (initialContent?: PageContent) => {
     const {requestPostMessage} = usePostMessageEvents();
     const {
         initialize,
@@ -51,18 +51,18 @@ const useMainEditorInitialize = (initialContent?: PageContentWithNavigation) => 
     usePostMessageAPIListener(
         'ON_MOUSE_UP',
         ({path, position}) => {
-            if (manipulateOverlayMode === 'insert' && path && position && preInsertBlockType) {
+            if (manipulateOverlayMode === 'insert' && path && preInsertBlockType) {
                 insertBlock(
                     path,
                     preInsertBlockType,
-                    ['left', 'top'].includes(position) ? 'prepend' : 'append',
+                    ['left', 'top'].includes(position || '') ? 'prepend' : 'append',
                 );
             }
-            if (manipulateOverlayMode === 'reorder' && path && position && preReorderBlockPath) {
+            if (manipulateOverlayMode === 'reorder' && path && preReorderBlockPath) {
                 reorderBlock(
                     preReorderBlockPath,
                     path,
-                    ['left', 'top'].includes(position) ? 'prepend' : 'append',
+                    ['left', 'top'].includes(position || '') ? 'prepend' : 'append',
                 );
             }
             disableMode();

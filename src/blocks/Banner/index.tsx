@@ -5,6 +5,7 @@ import {generateFormFieldsFromAjvSchema} from '../../form-generator-v2/utils/gen
 
 import BannerBlock from './Banner';
 import {BannerCardProps} from './schema';
+import icon from './icon.svg';
 
 const BannerBlockConfig: BlockData = {
     type: '@gravity-ui/page-constructor/banner-block',
@@ -22,6 +23,7 @@ const BannerBlockConfig: BlockData = {
                 text: 'Read more',
             },
         },
+        previewImg: icon,
     },
 };
 

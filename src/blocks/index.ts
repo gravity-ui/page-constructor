@@ -44,6 +44,10 @@ import TableBlockConfig from './Table';
 import TableBlockConfigDeprecated from './Table/index_deprecated';
 import TabsBlockConfig from './Tabs';
 import TabsBlockConfigDeprecated from './Tabs/index_deprecated';
+import MediaCardConfig from '../sub-blocks/MediaCard';
+import MediaCardConfigDeprecated from '../sub-blocks/MediaCard/index_deprecated';
+import LayoutItemConfig from '../sub-blocks/LayoutItem';
+import LayoutItemConfigDeprecated from '../sub-blocks/LayoutItem/index_deprecated';
 
 export {default as BannerBlock} from './Banner/Banner';
 export {default as CompaniesBlock} from './Companies/Companies';
@@ -67,52 +71,53 @@ export {default as ContentLayoutBlock} from './ContentLayout/ContentLayout';
 export {default as ShareBlock} from './Share/Share';
 export {default as FilterBlock} from './FilterBlock/FilterBlock';
 export {default as FormBlock} from './Form/Form';
+export {default as MediaCardConfig} from '../sub-blocks/MediaCard';
+export {default as MediaCardConfigDeprecated} from '../sub-blocks/MediaCard/index_deprecated';
 
 export const blocks: Array<BlockData> = [
     BannerBlockConfig,
     BannerBlockConfigDeprecated,
     CardLayoutBlockConfig,
     CardLayoutBlockConfigDeprecated,
-    CompaniesBlockConfig,
+    // CompaniesBlockConfig,
     CompaniesBlockConfigDeprecated,
     ContentLayoutBlockConfig,
     ContentLayoutBlockConfigDeprecated,
     ExtendedFeaturesBlockConfig,
     ExtendedFeaturesBlockConfigDeprecated,
-    PromoFeaturesBlockConfig,
+    // PromoFeaturesBlockConfig,
     PromoFeaturesBlockConfigDeprecated,
     QuestionsBlockConfig,
     QuestionsBlockConfigDeprecated,
     MediaBlockConfig,
     MediaBlockConfigDeprecated,
-    MapBlockConfig,
+    // MapBlockConfig,
     MapBlockConfigDeprecated,
     InfoBlockConfig,
     InfoBlockConfigDeprecated,
     HeaderBlockConfig,
     HeaderBlockConfigDeprecated,
-    FilterBlockConfig,
+    // FilterBlockConfig,
     FilterBlockConfigDeprecated,
-    FormBlockConfig,
+    // FormBlockConfig,
     FormBlockConfigDeprecated,
-    HeaderBlockConfig,
-    HeaderBlockConfigDeprecated,
-    HeaderSliderBlockConfig,
+    // HeaderSliderBlockConfig,
     HeaderSliderBlockConfigDeprecated,
-    IconsBlockConfig,
+    // IconsBlockConfig,
     IconsBlockConfigDeprecated,
-    InfoBlockConfig,
-    InfoBlockConfigDeprecated,
-    PromoFeaturesBlockConfig,
-    PromoFeaturesBlockConfigDeprecated,
-    ShareBlockConfig,
+    // ShareBlockConfig,
     ShareBlockConfigDeprecated,
     SliderBlockConfig,
     SliderBlockConfigDeprecated,
-    TableBlockConfig,
+    // TableBlockConfig,
     TableBlockConfigDeprecated,
     TabsBlockConfig,
     TabsBlockConfigDeprecated,
+
+    MediaCardConfig,
+    MediaCardConfigDeprecated,
+    LayoutItemConfig,
+    LayoutItemConfigDeprecated,
 
     // [SubBlockType.Divider]: DividerConfig,
     // [SubBlockType.MediaCard]: MediaCardConfig,

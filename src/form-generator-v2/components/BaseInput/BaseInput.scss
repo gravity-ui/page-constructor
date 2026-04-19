@@ -1,13 +1,28 @@
 .pc-fg-base-input {
     display: flex;
-    align-items: baseline;
+    align-items: flex-start;
+
     margin-bottom: 8px;
 
+    &:not(:first-child) {
+        margin-top: 8px;
+    }
+
+    &:last-child {
+        margin-bottom: 0px;
+    }
+
     &__title {
-        max-width: 64px;
+        padding: 5px 0;
+        min-width: 64px;
+        max-width: 128px;
         width: 100%;
         line-break: anywhere;
         display: inline-block;
+
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
 
         &::first-letter {
             text-transform: uppercase;
@@ -17,5 +32,8 @@
     &__input {
         margin-left: 8px;
         flex-grow: 1;
+        min-height: 28px;
+        display: flex;
+        align-items: center;
     }
 }

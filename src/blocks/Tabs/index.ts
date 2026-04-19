@@ -4,6 +4,7 @@ import {generateFormFieldsFromAjvSchema} from '../../form-generator-v2/utils/gen
 
 import TabsBlock from './Tabs';
 import {TabsBlock as TabsBlockSchema} from './schema';
+import icon from './icon.svg';
 
 const TabsBlockConfig = {
     type: '@gravity-ui/page-constructor/tabs-block',
@@ -29,6 +30,7 @@ const TabsBlockConfig = {
                 },
             ],
         },
+        previewImg: icon,
     },
 };
 

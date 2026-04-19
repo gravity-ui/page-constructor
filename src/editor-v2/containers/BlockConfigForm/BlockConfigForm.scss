@@ -12,10 +12,11 @@ $block: '.#{$ns}block-config-form';
 
     &__title {
         @include text-subheader-3;
+        padding: 16px 12px;
     }
 
     &__form {
-        padding: 12px 0;
+        padding: 0 0 12px;
     }
 
     &__empty {

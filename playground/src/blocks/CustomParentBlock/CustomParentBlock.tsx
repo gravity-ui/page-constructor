@@ -1,5 +1,6 @@
 import * as React from 'react';
 import ChildrenItemWrap from '../../../../src/components/editor/ChildrenItemWrap/ChildrenItemWrap';
+import ChildrensWrap from '../../../../src/components/editor/ChildrensWrap/ChildrensWrap';
 
 export type PerRow = 3 | 4 | 5;
 
@@ -63,25 +64,27 @@ const CustomParentBlock: React.FC<CustomParentBlockProps> = ({
                 </div>
             )}
 
-            <div
-                style={{
-                    display: 'flex',
-                    flexWrap: 'wrap',
-                    gap: 16,
-                }}
-            >
-                {React.Children.map(children, (child, index) => (
-                    <div
-                        style={{
-                            width: colWidth,
-                            minWidth: 160,
-                            flexShrink: 0,
-                        }}
-                    >
-                        <ChildrenItemWrap index={index}>{child}</ChildrenItemWrap>
-                    </div>
-                ))}
-            </div>
+            <ChildrensWrap>
+                <div
+                    style={{
+                        display: 'flex',
+                        flexWrap: 'wrap',
+                        gap: 16,
+                    }}
+                >
+                    {React.Children.map(children, (child, index) => (
+                        <div
+                            style={{
+                                width: colWidth,
+                                minWidth: 160,
+                                flexShrink: 0,
+                            }}
+                        >
+                            <ChildrenItemWrap index={index}>{child}</ChildrenItemWrap>
+                        </div>
+                    ))}
+                </div>
+            </ChildrensWrap>
         </div>
     );
 };

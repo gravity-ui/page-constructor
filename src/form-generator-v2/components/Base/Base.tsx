@@ -2,16 +2,22 @@ import * as React from 'react';
 
 import {Content, OnUpdate, When} from '../../types';
 import {getValueByPath} from '../../utils/fields';
+import {formGeneratorCn} from '../../utils/cn';
+
+import './Base.scss';
+
+const b = formGeneratorCn('base');
 
 type BaseProps = {
     when?: When;
     content: Content;
     name?: string;
     onUpdate?: OnUpdate;
+    defaultValue?: unknown;
     children: React.ReactNode;
 };
 
-const Base = ({when, content, children, name, onUpdate}: BaseProps) => {
+const Base = ({when, content, children, name, onUpdate, defaultValue}: BaseProps) => {
     const verifiedConditions = React.useMemo(() => {
         if (!when) {
             return;
@@ -58,24 +64,22 @@ const Base = ({when, content, children, name, onUpdate}: BaseProps) => {
     }, [content, when]);
 
     const isShow = React.useMemo(
-        () => !when || !content || verifiedConditions,
+        () => Boolean(!when || !content || verifiedConditions),
         [content, verifiedConditions, when],
     );
 
-    const wasVisibleRef = React.useRef(isShow);
+    const wasVisibleRef = React.useRef(false);
 
     React.useEffect(() => {
-        if (
-            wasVisibleRef.current &&
-            !isShow &&
-            onUpdate &&
-            name &&
-            getValueByPath(content, name) !== undefined
-        ) {
-            onUpdate(name, undefined, {unset: true});
-        }
+        const wasVisible = wasVisibleRef.current;
         wasVisibleRef.current = isShow;
-    }, [content, isShow, name, onUpdate]);
+
+        if (wasVisible && !isShow && onUpdate && name && getValueByPath(content, name) !== undefined) {
+            onUpdate(name, undefined, {unset: true});
+        } else if (!wasVisible && isShow && onUpdate && name && defaultValue !== undefined && getValueByPath(content, name) === undefined) {
+            onUpdate(name, defaultValue);
+        }
+    }, [content, isShow, name, onUpdate, defaultValue]);
 
     return isShow ? children : null;
 };

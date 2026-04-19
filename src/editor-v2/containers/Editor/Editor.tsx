@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import {usePostMessageAPIListener} from '../../../common/postMessage';
-import {PageContentWithNavigation} from '../../../models';
+import {PageContent} from '../../../models';
 import {Panels} from '../../components/Panels/Panels';
 import {Sidebar} from '../../components/Sidebar/Sidebar';
 import BigOverlay from '../../containers/BigOverlay/BigOverlay';
@@ -25,9 +25,9 @@ interface SidebarTabComponent {
     component: React.ElementType;
 }
 interface EditorViewProps {
-    onUpdate?: (pageContent: PageContentWithNavigation) => void;
+    onUpdate?: (pageContent: PageContent) => void;
     initialUrl: string;
-    initialContent?: PageContentWithNavigation;
+    initialContent?: PageContent;
     disableUrlField?: boolean;
     componentsConfig?: {
         middleTop?: React.ElementType;

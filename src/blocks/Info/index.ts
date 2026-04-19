@@ -4,6 +4,7 @@ import {generateFormFieldsFromAjvSchema} from '../../form-generator-v2/utils/gen
 
 import InfoBlock from './Info';
 import {InfoBlock as InfoBlockSchema} from './schema';
+import icon from './icon.svg';
 
 const InfoBlockConfig = {
     type: '@gravity-ui/page-constructor/info-block',
@@ -42,6 +43,7 @@ const InfoBlockConfig = {
                 },
             ],
         },
+        previewImg: icon,
     },
 };
 

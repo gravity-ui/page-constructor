@@ -5,6 +5,7 @@ import {generateFormFieldsFromAjvSchema} from '../../form-generator-v2/utils/gen
 
 import CardLayout from './CardLayout';
 import {CardLayoutProps} from './schema';
+import icon from './icon.svg';
 
 const CardLayoutBlockConfig: BlockData = {
     type: 'card-layout-block',
@@ -37,7 +38,7 @@ const CardLayoutBlockConfig: BlockData = {
             description:
                 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
         },
-        previewImg: 'https://storage.cloud-preprod.yandex.net/qradle-test/card-layout-block.svg',
+        previewImg: icon,
     },
 };
 

@@ -34,7 +34,7 @@ export function reorderArrayItems<T>(array: Array<T>, index: number, destination
         result.push(array[index]);
     }
     result.push(...array.slice(firstOperationRemove ? max : max + 1, array.length));
-    return result;
+    return result.filter((item) => item !== undefined);
 }
 
 export function duplicateArrayItem<T>(array: Array<T>, index: number) {

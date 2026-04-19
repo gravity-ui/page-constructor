@@ -2,8 +2,7 @@ import _ from 'lodash';
 
 import {EditorHistorySnapshot, EditorState, initialStore} from '../common/store';
 import {initializeStore} from '../common/utils';
-import {DynamicFormValue} from '../form-generator';
-import {ConstructorBlock, PageContentWithNavigation} from '../models';
+import {ConstructorBlock, PageContent} from '../models';
 
 import {ZOOM_STEPS} from './constants';
 import {
@@ -43,12 +42,12 @@ export interface EditorMethods {
     decreaseZoom(): void;
     togglePreviewMode(): void;
     setConfig(data: Pick<EditorState, 'blocks' | 'subBlocks' | 'global'>): void;
-    setContent(data: PageContentWithNavigation, skipHistory?: boolean): void;
+    setContent(data: PageContent, skipHistory?: boolean): void;
     insertBlock(path: number[], blockType: string, position?: 'prepend' | 'append'): void;
     enableInsertMode(blockType: string): void;
     enableReorderMode(path: number[]): void;
     disableMode(): void;
-    updateField(path: string, value: DynamicFormValue): void;
+    updateField(path: string, value: unknown): void;
     deleteBlock(path: number[]): void;
     duplicateBlock(path: number[]): void;
     reorderBlock(path: number[], destination: number[], position?: 'prepend' | 'append'): void;

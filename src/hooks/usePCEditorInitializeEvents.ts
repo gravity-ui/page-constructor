@@ -1,26 +1,26 @@
 import * as React from 'react';
 
-import {JSONSchemaType} from 'ajv';
 import _ from 'lodash';
 
 import {BlockData} from '../constructor-items';
-import {PageContentWithNavigation} from '../models';
-import {defaultComponentsConfigurationSchema} from '../schema';
-import {generateFromAJV} from '../utils/form-generator';
+import {PageContent} from '../models';
 
 import {usePCEditorStore} from './usePCEditorStore';
 import {sendEventPostMessage, useInternalPostMessageAPIListener} from './usePostMessageAPI';
+import {Fields} from '../form-generator-v2/types';
 
 interface UseEditorInitializeProps {
-    initialContent: PageContentWithNavigation;
-    setContent: (content: PageContentWithNavigation) => void;
+    initialContent: PageContent;
+    setContent: (content: PageContent) => void;
     blocks: Array<BlockData>;
+    global?: Fields;
 }
 
 export const usePCEditorInitializeEvents = ({
     initialContent,
     setContent,
     blocks,
+    global,
 }: UseEditorInitializeProps) => {
     const {manipulateOverlayMode, initialized, content} = usePCEditorStore();
 
@@ -38,9 +38,7 @@ export const usePCEditorInitializeEvents = ({
         sendEventPostMessage('ON_SUPPORTED_BLOCKS', {
             blocks: blocks.map((block) => ({type: block.type, schema: block.schema})),
             subBlocks: [],
-            global: generateFromAJV(
-                defaultComponentsConfigurationSchema as unknown as JSONSchemaType<{}>,
-            ),
+            global: global || [],
         });
     });
 

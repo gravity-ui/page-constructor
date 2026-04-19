@@ -1,4 +1,12 @@
-import {ChevronDown, ChevronRight, Folder, FolderOpen, Magnifier} from '@gravity-ui/icons';
+import {
+    ChevronDown,
+    ChevronRight,
+    Eye,
+    EyeSlash,
+    Folder,
+    FolderOpen,
+    Magnifier,
+} from '@gravity-ui/icons';
 import {DropdownMenu, Icon, TextInput} from '@gravity-ui/uikit';
 import * as React from 'react';
 
@@ -22,6 +30,7 @@ const BlocksList = ({className}: BlockListProps) => {
     const {blocks, enableInsertMode} = useMainEditorStore();
     const [search, setSearch] = React.useState('');
     const [collapsedGroups, setCollapsedGroups] = React.useState<Set<string>>(new Set());
+    const [showHidden, setShowHidden] = React.useState(false);
 
     const onMouseDown = React.useCallback(
         (blockType: string) => {
@@ -49,6 +58,11 @@ const BlocksList = ({className}: BlockListProps) => {
     const groups = React.useMemo(() => {
         const blocksGroups = blocks.reduce<BlockGroups>((acc, currentBlock) => {
             const group = currentBlock.schema.group;
+
+            if (!showHidden && currentBlock.schema.hidden) {
+                return acc;
+            }
+
             if (
                 search &&
                 currentBlock.type.toLowerCase().indexOf(search.toLowerCase()) === -1 &&
@@ -79,7 +93,7 @@ const BlocksList = ({className}: BlockListProps) => {
                 sortedGroups[key] = blocksGroups[key];
                 return sortedGroups;
             }, {} as BlockGroups);
-    }, [blocks, search]);
+    }, [blocks, search, showHidden]);
 
     const collapseAll = React.useCallback(() => {
         setCollapsedGroups(new Set(Object.keys(groups)));
@@ -112,6 +126,11 @@ const BlocksList = ({className}: BlockListProps) => {
                             text: 'Свернуть все',
                             iconStart: <Icon data={Folder} />,
                             disabled: allGroupsCollapsed,
+                        },
+                        {
+                            action: () => setShowHidden(!showHidden),
+                            text: showHidden ? 'Скрыть скрытые' : 'Показать скрытые',
+                            iconStart: <Icon data={showHidden ? EyeSlash : Eye} />,
                         },
                     ]}
                 />

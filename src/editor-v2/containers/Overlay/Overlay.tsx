@@ -20,7 +20,7 @@ interface InsertLineProps {
     left: number;
     height: number;
     width: number;
-    position: string;
+    position?: 'top' | 'bottom' | 'left' | 'right';
 }
 
 const Overlay = ({className, canvasElement}: OverlayProps) => {
@@ -74,14 +74,20 @@ const Overlay = ({className, canvasElement}: OverlayProps) => {
 
     usePostMessageAPIListener('ON_HOVER_BLOCK', ({rect, position}) => {
         setHoverBorders(rect || null);
-        if (rect && position) {
+        if (rect) {
             setInsertLineBox({
                 left: rect.x,
                 top: rect.y,
                 height: rect.height,
                 width: rect.width,
-                position: position,
+                position: position as InsertLineProps['position'],
             });
+        }
+    });
+
+    usePostMessageAPIListener('ON_MOUSE_UP', ({path}) => {
+        if (path) {
+            setHoverBorders(null);
         }
     });
 
@@ -103,14 +109,30 @@ const Overlay = ({className, canvasElement}: OverlayProps) => {
     const handleMoveUp = () => {
         if (!selectedBlock) return;
         const destination = [...selectedBlock];
-        destination[destination.length - 1] = destination[destination.length - 1] - 1;
+        const newLastDestination = destination[destination.length - 1] - 1;
+
+        console.log(newLastDestination, destination.length);
+
+        if (newLastDestination < 0) {
+            return;
+        }
+
+        destination[destination.length - 1] = newLastDestination;
         reorderBlock(selectedBlock, destination, 'prepend');
     };
 
     const handleMoveDown = () => {
         if (!selectedBlock) return;
         const destination = [...selectedBlock];
-        destination[destination.length - 1] = destination[destination.length - 1] + 1;
+        const newLastDestination = destination[destination.length - 1] + 1;
+
+        console.log(newLastDestination, destination.length);
+
+        if (newLastDestination >= destination.length) {
+            return;
+        }
+
+        destination[destination.length - 1] = newLastDestination;
         reorderBlock(selectedBlock, destination, 'append');
     };
 

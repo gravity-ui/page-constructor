@@ -207,28 +207,21 @@ export const sectionHasContentData = (fields: Fields, content: Content) => {
         }
 
         if (field.type === 'section') {
-            if (sectionHasContentData(field.fields, content)) {
-                return true;
-            }
-            continue;
-        }
-
-        if (field.type === 'oneTypeGroup') {
-            if (!Array.isArray(field.fields) || !field.index) {
-                continue;
-            }
-            const nameWithIndexName = findNameWithIndexName(field.fields, field.index);
-            if (!nameWithIndexName) {
-                continue;
-            }
-
-            const arrayPath = getArrayPathForNameWithIndexName(nameWithIndexName, field.index);
-            if (!arrayPath) {
-                continue;
-            }
-
-            const arr = getValueByPath(content, arrayPath);
-            if (Array.isArray(arr) && arr.length > 0) {
+            if (field.index !== undefined) {
+                const nameWithIndexName = findNameWithIndexName(field.fields, field.index);
+                if (nameWithIndexName) {
+                    const arrayPath = getArrayPathForNameWithIndexName(
+                        nameWithIndexName,
+                        field.index,
+                    );
+                    if (arrayPath) {
+                        const arr = getValueByPath(content, arrayPath);
+                        if (Array.isArray(arr) && arr.length > 0) {
+                            return true;
+                        }
+                    }
+                }
+            } else if (sectionHasContentData(field.fields, content)) {
                 return true;
             }
             continue;
@@ -270,14 +263,9 @@ export const collectSectionClearTargets = (
             const type = f.type;
 
             if (type === 'section') {
-                walk(f.fields as unknown[]);
-                continue;
-            }
-
-            if (type === 'oneTypeGroup') {
                 const groupFields = f.fields;
                 const placeholder = f.index;
-                if (Array.isArray(groupFields) && typeof placeholder === 'string') {
+                if (typeof placeholder === 'string' && Array.isArray(groupFields)) {
                     const templateName = findNameWithIndexName(groupFields, placeholder);
                     if (templateName) {
                         const arrayPath = getArrayPathForNameWithIndexName(
@@ -289,6 +277,8 @@ export const collectSectionClearTargets = (
                         }
                     }
                     walk(groupFields);
+                } else {
+                    walk(f.fields as unknown[]);
                 }
                 continue;
             }

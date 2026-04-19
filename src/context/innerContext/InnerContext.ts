@@ -1,15 +1,10 @@
 import * as React from 'react';
 
-import {ItemMap, NavItemMap} from '../../containers/PageConstructor/PageConstructor';
-import {CustomConfig, LoadableConfig, ShouldRenderBlock} from '../../models';
+import {NavItemMap} from '../../containers/PageConstructor/PageConstructor';
+import {CustomConfig, LoadableConfig, PageContent, ShouldRenderBlock} from '../../models';
 import {BlockData} from '../../constructor-items';
 
 export interface InnerContextType {
-    blockTypes: string[];
-    subBlockTypes: string[];
-    headerBlockTypes: string[];
-    navigationBlockTypes: string[];
-    itemMap: ItemMap;
     navItemMap: NavItemMap;
     loadables?: LoadableConfig;
     shouldRenderBlock?: ShouldRenderBlock;
@@ -18,15 +13,15 @@ export interface InnerContextType {
         contentUpdatedDate?: string;
     };
     blocks: Array<BlockData>;
+    content: PageContent;
+    setContent: React.Dispatch<React.SetStateAction<PageContent>>;
 }
 
 export const InnerContext = React.createContext<InnerContextType>({
-    blockTypes: [],
-    subBlockTypes: [],
-    headerBlockTypes: [],
-    navigationBlockTypes: [],
-    itemMap: {} as ItemMap,
     navItemMap: {} as NavItemMap,
     microdata: {},
     blocks: [],
+    content: {blocks: []},
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
+    setContent: () => {},
 });
