@@ -129,6 +129,7 @@
     "@gravity-ui/components": "^4.0.1",
     "@gravity-ui/dynamic-forms": "^5.0.0",
     "@gravity-ui/i18n": "^1.7.0",
+    "@gravity-ui/navigation": "^3.11.1",
     "@react-spring/web": "^9.7.3",
     "ajv": "^8.12.0",
     "ajv-keywords": "^5.1.0",

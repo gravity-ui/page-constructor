@@ -1,5 +1,3 @@
-import * as React from 'react';
-
 import {SegmentedRadioGroup as SegmentedRadioGroupUIKIT} from '@gravity-ui/uikit';
 
 import {CommonProps, SegmentedRadioGroupField} from '../../types';
@@ -20,22 +18,10 @@ const SegmentedRadioGroup = ({
 }: SegmentedRadioGroupProps) => {
     const selected = content ? getValueByPath(content, name) : undefined;
 
-    React.useEffect(() => {
-        if (defaultValue === undefined) {
-            return;
-        }
-
-        if (selected !== undefined && selected !== null) {
-            return;
-        }
-
-        onUpdate(name, defaultValue);
-    }, [defaultValue, name, onUpdate, selected]);
-
     const value = selected ?? defaultValue ?? null;
 
     return (
-        <Base when={when} content={content} name={name} onUpdate={onUpdate}>
+        <Base when={when} content={content} name={name} onUpdate={onUpdate} defaultValue={defaultValue}>
             <BaseInput title={title}>
                 <SegmentedRadioGroupUIKIT
                     name={name}

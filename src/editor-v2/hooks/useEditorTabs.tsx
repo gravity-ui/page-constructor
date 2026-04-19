@@ -51,7 +51,6 @@ export const useEditorTabs = ({
                     id: 'global',
                     title: 'GLOBAL',
                     component: GlobalConfig,
-                    withPadding: true,
                 },
                 ...(leftTabs || []),
             ],
@@ -66,7 +65,6 @@ export const useEditorTabs = ({
                                     id: 'block-config',
                                     title: 'INPUTS',
                                     component: BlockConfigForm,
-                                    withPadding: true,
                                 },
                                 {
                                     id: 'source-code',

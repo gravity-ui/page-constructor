@@ -1,4 +1,4 @@
-import {PageContentWithNavigation} from '../../models';
+import {PageContent} from '../../models';
 import {EditorState} from '../store';
 
 export type MessageTypes = EventMessageTypes & ActionMessageTypes;
@@ -12,7 +12,7 @@ export type EventMessageTypes = {
     ON_CLICK_BLOCK: {path: number[]};
     ON_UPDATE_BLOCK_SELECTION: {rect: DOMRect};
     ON_SUPPORTED_BLOCKS: Pick<EditorState, 'blocks' | 'subBlocks' | 'global'>;
-    ON_INITIAL_CONTENT: PageContentWithNavigation;
+    ON_INITIAL_CONTENT: PageContent;
     /** Iframe → parent: user pressed Cmd/Ctrl+Z while preview had focus (parent runs editor undo). */
     ON_EDITOR_UNDO: {};
     /** Iframe → parent: Cmd/Ctrl+Shift+Z */

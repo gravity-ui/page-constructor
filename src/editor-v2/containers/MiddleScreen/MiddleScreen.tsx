@@ -48,6 +48,10 @@ const MiddleScreen = ({className, CustomTop}: MiddleScreenProps) => {
         onResize(newHeight);
     });
 
+    const isWithBackground = React.useMemo(() => {
+        return deviceWidth !== '100%';
+    }, [deviceWidth]);
+
     return (
         <div className={b(null, className)}>
             {CustomTop && !isPreviewMode ? (
@@ -59,7 +63,11 @@ const MiddleScreen = ({className, CustomTop}: MiddleScreenProps) => {
                 <div className={b('wrapper')}>
                     <div
                         ref={setCanvasRef}
-                        className={b('canvas', {hidden: !initialized, fullscreen: isPreviewMode})}
+                        className={b('canvas', {
+                            hidden: !initialized,
+                            fullscreen: isPreviewMode,
+                            withBackground: isWithBackground,
+                        })}
                         style={canvasStyle}
                     >
                         <div

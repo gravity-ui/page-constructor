@@ -4,28 +4,22 @@ import {
     Animatable,
     BlockDecorationProps,
     ConstructorItem,
-    NavigationData,
-    ThemedMediaProps,
 } from './';
 
 export interface PageData {
     content: PageContent;
 }
 
-export interface Menu {
-    title: string;
-}
-
 export type ConstructorBlock = ConstructorItem | CustomBlock;
 
+/**
+ * Core PageContent type - minimal fields that the engine needs.
+ * Plugins can extend this with their own fields using the index signature.
+ */
 export interface PageContent extends Animatable {
     blocks: ConstructorBlock[];
-    menu?: Menu;
-    background?: ThemedMediaProps;
-}
-
-export interface PageContentWithNavigation extends PageContent {
-    navigation?: NavigationData;
+    // Allow plugin-specific fields to pass through
+    [key: string]: unknown;
 }
 
 export interface InitConstrucorState {

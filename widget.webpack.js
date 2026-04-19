@@ -50,7 +50,14 @@ module.exports = {
                         },
                     },
                     'resolve-url-loader',
-                    'sass-loader',
+                    {
+                        loader: 'sass-loader',
+                        options: {
+                            sassOptions: {
+                                silenceDeprecations: ['legacy-js-api', 'import', 'global-builtin'],
+                            },
+                        },
+                    },
                 ],
             },
             {

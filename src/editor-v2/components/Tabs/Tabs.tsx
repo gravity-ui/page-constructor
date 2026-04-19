@@ -34,20 +34,19 @@ const Tabs = ({className, items, defaultTab}: TabsProps) => {
         return items[0] || null;
     }, [currentTab, items]);
 
-    const [isPaddingEnabled, setIsPaddingEnabled] = React.useState<boolean>(
-        activeTab?.withPadding || true,
-    );
-
     const handleClick = React.useCallback(
         (tabItem: TabItemProps) => () => {
             setCurrentTab(tabItem.id);
-            setIsPaddingEnabled(tabItem.withPadding || false);
         },
         [],
     );
 
     const TabComponent = React.useMemo(() => {
         return activeTab?.component;
+    }, [activeTab]);
+
+    const isPaddingEnabled = React.useMemo(() => {
+        return activeTab?.withPadding || false;
     }, [activeTab]);
 
     return (

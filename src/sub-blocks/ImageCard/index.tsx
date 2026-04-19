@@ -5,6 +5,7 @@ import {generateFormFieldsFromAjvSchema} from '../../form-generator-v2/utils/gen
 
 import ImageCard from './ImageCard';
 import {ImageCard as ImageCardSchema} from './schema';
+import icon from './icon.svg';
 
 const ImageCardConfig: BlockData = {
     type: '@gravity-ui/page-constructor/image-card',
@@ -20,6 +21,7 @@ const ImageCardConfig: BlockData = {
             title: 'Image Card',
             text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
         },
+        previewImg: icon,
     },
 };
 

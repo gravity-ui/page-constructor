@@ -6,3 +6,4 @@ export * from './useImageSize';
 export * from './useAnalytics';
 export * from './hubspot';
 export * from './useDeviceValue';
+export * from './useContent';

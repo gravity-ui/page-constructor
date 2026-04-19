@@ -2,6 +2,7 @@ import {BlockData} from '../../constructor-items';
 import {Fields} from '../../form-generator-v2/types';
 
 import HeaderBlock from './Header';
+import icon from './icon.svg';
 
 const HeaderBlockConfig: BlockData = {
     type: '@gravity-ui/page-constructor/header-block',
@@ -32,24 +33,20 @@ const HeaderBlockConfig: BlockData = {
             {
                 type: 'section',
                 title: 'Breadcrumbs',
+                withAddButton: true,
+                index: 'index',
+                itemTitle: 'Item {{index}}',
+                itemView: 'card',
                 fields: [
                     {
-                        title: 'Item {{index}}',
-                        withAddButton: true,
-                        type: 'oneTypeGroup',
-                        index: 'index',
-                        fields: [
-                            {
-                                title: 'Text',
-                                name: 'breadcrumbs.items[{{index}}].text',
-                                type: 'textInput',
-                            },
-                            {
-                                title: 'URL',
-                                name: 'breadcrumbs.items[{{index}}].url',
-                                type: 'textInput',
-                            },
-                        ],
+                        title: 'Text',
+                        name: 'breadcrumbs.items[{{index}}].text',
+                        type: 'textInput',
+                    },
+                    {
+                        title: 'URL',
+                        name: 'breadcrumbs.items[{{index}}].url',
+                        type: 'textInput',
                     },
                 ],
             },
@@ -97,101 +94,91 @@ const HeaderBlockConfig: BlockData = {
             {
                 type: 'section',
                 title: 'Buttons',
+                withAddButton: true,
+                index: 'index',
+                itemTitle: 'Button {{index}}',
+                itemView: 'card',
                 fields: [
                     {
-                        title: 'Button {{index}}',
-                        withAddButton: true,
-                        type: 'oneTypeGroup',
-                        index: 'index',
+                        type: 'section',
+                        title: 'Main settings',
+                        opened: true,
                         fields: [
                             {
-                                type: 'section',
-                                title: 'Main settings',
-                                opened: true,
-                                fields: [
+                                title: 'Text',
+                                type: 'textInput',
+                                name: 'buttons[{{index}}].text',
+                            },
+                            {
+                                title: 'URL',
+                                type: 'textInput',
+                                name: 'buttons[{{index}}].url',
+                            },
+                            {
+                                title: 'URL title',
+                                type: 'textInput',
+                                name: 'buttons[{{index}}].urlTitle',
+                            },
+                            {
+                                title: 'Style',
+                                type: 'select',
+                                name: 'buttons[{{index}}].theme',
+                                options: [
+                                    {value: 'action', content: 'Action'},
+                                    {value: 'outlined', content: 'Outlined'},
+                                    {value: 'normal', content: 'Normal'},
+                                    {value: 'monochrome', content: 'Monochrome'},
                                     {
-                                        title: 'Text',
-                                        type: 'textInput',
-                                        name: 'buttons[{{index}}].text',
+                                        value: 'outlined-contrast',
+                                        content: 'Outlined-contrast',
                                     },
-                                    {
-                                        title: 'URL',
-                                        type: 'textInput',
-                                        name: 'buttons[{{index}}].url',
-                                    },
-                                    {
-                                        title: 'URL title',
-                                        type: 'textInput',
-                                        name: 'buttons[{{index}}].urlTitle',
-                                    },
-                                    {
-                                        title: 'Style',
-                                        type: 'select',
-                                        name: 'buttons[{{index}}].theme',
-                                        options: [
-                                            {value: 'action', content: 'Action'},
-                                            {value: 'outlined', content: 'Outlined'},
-                                            {value: 'normal', content: 'Normal'},
-                                            {value: 'monochrome', content: 'Monochrome'},
-                                            {
-                                                value: 'outlined-contrast',
-                                                content: 'Outlined-contrast',
-                                            },
-                                            {value: 'normal-contrast', content: 'Normal-contrast'},
-                                        ],
-                                    },
-                                    {
-                                        title: 'Target',
-                                        type: 'select',
-                                        name: 'buttons[{{index}}].target',
-                                        options: [
-                                            {value: '_blank'},
-                                            {value: '_self'},
-                                            {value: '_parent'},
-                                            {value: '_top'},
-                                        ],
-                                        hasClear: true,
-                                    },
+                                    {value: 'normal-contrast', content: 'Normal-contrast'},
                                 ],
                             },
                             {
+                                title: 'Target',
+                                type: 'select',
+                                name: 'buttons[{{index}}].target',
+                                options: [
+                                    {value: '_blank'},
+                                    {value: '_self'},
+                                    {value: '_parent'},
+                                    {value: '_top'},
+                                ],
+                                hasClear: true,
+                            },
+                        ],
+                    },
+                    {
+                        type: 'section',
+                        title: 'Analytics tracking',
+                        withAddButton: true,
+                        index: 'index2',
+                        itemTitle: 'Analytics event {{index2}}',
+                        itemView: 'card',
+                        fields: [
+                            {
+                                title: 'Name',
+                                type: 'textInput',
+                                name: 'buttons[{{index}}].analyticsEvents[{{index2}}].name',
+                            },
+                            {
+                                title: 'Target',
+                                type: 'textInput',
+                                name: 'buttons[{{index}}].analyticsEvents[{{index2}}].target',
+                            },
+                            {
+                                title: 'Counters',
+                                withAddButton: true,
                                 type: 'section',
-                                title: 'Analytics tracking',
-                                note: {
-                                    text: 'Only events for the counters listed in the input field will be sent.',
-                                    level: 'info',
-                                },
+                                index: 'indexgoal',
+                                itemTitle: 'Counter {{indexgoal}}',
+                                itemView: 'card',
                                 fields: [
                                     {
-                                        title: 'Analytics event {{index2}}',
-                                        type: 'oneTypeGroup',
-                                        withAddButton: true,
-                                        index: 'index2',
-                                        fields: [
-                                            {
-                                                title: 'Name',
-                                                type: 'textInput',
-                                                name: 'buttons[{{index}}].analyticsEvents[{{index2}}].name',
-                                            },
-                                            {
-                                                title: 'Target',
-                                                type: 'textInput',
-                                                name: 'buttons[{{index}}].analyticsEvents[{{index2}}].target',
-                                            },
-                                            {
-                                                title: 'Counter {{indexgoal}}',
-                                                withAddButton: true,
-                                                type: 'oneTypeGroup',
-                                                index: 'indexgoal',
-                                                fields: [
-                                                    {
-                                                        title: 'Counter',
-                                                        type: 'textInput',
-                                                        name: 'buttons[{{index}}].analyticsEvents[{{index2}}].counters[{{indexgoal}}].includes',
-                                                    },
-                                                ],
-                                            },
-                                        ],
+                                        title: 'Counter',
+                                        type: 'textInput',
+                                        name: 'buttons[{{index}}].analyticsEvents[{{index2}}].counters[{{indexgoal}}].includes',
                                     },
                                 ],
                             },
@@ -357,7 +344,7 @@ const HeaderBlockConfig: BlockData = {
                 },
             ],
         },
-        previewImg: 'https://storage.cloud-preprod.yandex.net/qradle-test/header-block.svg',
+        previewImg: icon,
     },
 };
 

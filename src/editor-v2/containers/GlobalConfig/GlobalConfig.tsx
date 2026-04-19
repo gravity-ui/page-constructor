@@ -1,4 +1,4 @@
-import {DynamicFormValue, FormGenerator} from '../../../form-generator';
+import FormGenerator from '../../../form-generator-v2/FormGenerator';
 import {useMainEditorStore} from '../../hooks/useMainEditorStore';
 import {editorCn} from '../../utils/cn';
 
@@ -13,18 +13,14 @@ export interface GlobalConfigProps {
 const GlobalConfig = ({className}: GlobalConfigProps) => {
     const {global, content, updateField} = useMainEditorStore();
 
-    const onUpdate = (key: string, value: DynamicFormValue) => {
-        updateField('navigation.' + key, value);
+    const onUpdate = (key: string, value: unknown) => {
+        updateField(key, value);
     };
 
     return (
         <div className={b(null, className)}>
             <div className={b('title')}>Global Config</div>
-            <FormGenerator
-                contentConfig={content.navigation}
-                blockConfig={global}
-                onUpdateByKey={onUpdate}
-            />
+            <FormGenerator contentConfig={content} blockConfig={global} onUpdateByKey={onUpdate} />
         </div>
     );
 };

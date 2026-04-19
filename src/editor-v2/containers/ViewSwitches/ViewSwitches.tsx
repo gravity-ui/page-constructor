@@ -1,8 +1,8 @@
 import * as React from 'react';
 
 import {
-    ArrowLeft,
-    ArrowRight,
+    ArrowUturnCcwLeft,
+    ArrowUturnCwRight,
     Display,
     Minus,
     Plus,
@@ -150,10 +150,10 @@ const ViewSwitches: React.FC = () => {
             </div>
             <div className={b('history-buttons')}>
                 <Button view="flat" aria-label="Undo" onClick={undo} disabled={!canUndo}>
-                    <Icon data={ArrowLeft} />
+                    <Icon data={ArrowUturnCcwLeft} />
                 </Button>
                 <Button view="flat" aria-label="Redo" onClick={redo} disabled={!canRedo}>
-                    <Icon data={ArrowRight} />
+                    <Icon data={ArrowUturnCwRight} />
                 </Button>
             </div>
         </div>

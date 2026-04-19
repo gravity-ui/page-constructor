@@ -1,6 +1,6 @@
 import {IconProps} from '@gravity-ui/uikit';
 
-export type Content = Record<any, any>;
+export type Content = Record<string, unknown>;
 
 export type When = {
     field?: string;
@@ -16,13 +16,15 @@ export type Option = {
 export type SectionField = {
     type: 'section';
     title: string;
-    opened?: boolean;
     fields: Fields;
     when?: When;
-    note?: {
-        text: string;
-        level: 'danger' | 'info';
-    };
+    // Static section props
+    opened?: boolean;
+    // Repeating group props — presence of `index` activates array mode
+    index?: string;
+    withAddButton?: boolean;
+    itemTitle?: string; // header text on each repeated item card
+    itemView?: 'card' | 'clear'; // card = Card with borders/padding; clear = flat div
 };
 
 export type SelectField = {
@@ -30,23 +32,16 @@ export type SelectField = {
     name: string;
     title: string;
     options: Option[];
+    defaultValue?: string;
     when?: When;
     hasClear?: boolean;
-};
-
-export type OneTypeGroupField = {
-    type: 'oneTypeGroup';
-    index: string;
-    withAddButton?: boolean;
-    title: string;
-    fields: Fields;
-    when?: When;
 };
 
 export type TextField = {
     type: 'textInput' | 'textArea';
     name: string;
     title: string;
+    defaultValue?: string;
     when?: When;
 };
 
@@ -59,9 +54,22 @@ export type SegmentedRadioGroupField = {
     when?: When;
 };
 
+export type TextColor =
+    | 'primary'
+    | 'secondary'
+    | 'hint'
+    | 'info'
+    | 'positive'
+    | 'warning'
+    | 'danger'
+    | 'utility'
+    | 'misc';
+
 export type Text = {
     type: 'text';
     text: string;
+    level?: 'danger' | 'info';
+    color?: TextColor;
     when?: When;
 };
 
@@ -69,6 +77,7 @@ export type SwitchField = {
     type: 'switch';
     name: string;
     title: string;
+    defaultValue?: boolean;
     when?: When;
 };
 
@@ -76,13 +85,13 @@ export type ColorField = {
     type: 'colorInput';
     name: string;
     title: string;
+    defaultValue?: string;
     when?: When;
 };
 
 export type Fields = (
     | SectionField
     | SelectField
-    | OneTypeGroupField
     | TextField
     | SegmentedRadioGroupField
     | Text
@@ -92,7 +101,7 @@ export type Fields = (
 
 export type OnUpdate = (
     name: string,
-    value: any,
+    value: unknown,
     options?: {unset?: boolean; removeArrayItemAt?: number},
 ) => void;
 

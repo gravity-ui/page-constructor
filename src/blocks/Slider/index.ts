@@ -4,6 +4,7 @@ import {generateFormFieldsFromAjvSchema} from '../../form-generator-v2/utils/gen
 
 import SliderBlock from './Slider';
 import {SliderBlock as SliderBlockSchema} from './schema';
+import icon from './icon.svg';
 
 const SliderBlockConfig = {
     type: '@gravity-ui/page-constructor/slider-block',
@@ -45,7 +46,7 @@ const SliderBlockConfig = {
                 },
             ],
         },
-        previewImg: 'https://storage.cloud-preprod.yandex.net/qradle-test/card-layout-block.svg',
+        previewImg: icon,
     },
 };
 

@@ -9,6 +9,8 @@ import {CardLayoutBlockProps as CardLayoutBlockParams, ClassNameProps} from '../
 import {block, getThemedValue} from '../../utils';
 
 import './CardLayout.scss';
+import ChildrensWrap from '../../components/editor/ChildrensWrap/ChildrensWrap';
+import ChildrenItemWrap from '../../components/editor/ChildrenItemWrap/ChildrenItemWrap';
 
 const DEFAULT_SIZES: GridColumnSizesType = {
     all: 12,
@@ -55,13 +57,15 @@ const CardLayout = ({
                     })}
                 >
                     <BackgroundImage className={b('image', {border})} {...backgroundImageProps} />
-                    <Row>
-                        {React.Children.map(children, (child, index) => (
-                            <Col key={index} sizes={colSizes} className={b('item')}>
-                                {child}
-                            </Col>
-                        ))}
-                    </Row>
+                    <ChildrensWrap>
+                        <Row>
+                            {React.Children.map(children, (child, index) => (
+                                <Col key={index} sizes={colSizes} className={b('item')}>
+                                    <ChildrenItemWrap index={index}>{child}</ChildrenItemWrap>
+                                </Col>
+                            ))}
+                        </Row>
+                    </ChildrensWrap>
                 </div>
             </Grid>
         </AnimateBlock>

@@ -1,0 +1,41 @@
+{
+  "blocks": [
+    {
+      "type": "custom/definition-list-block",
+      "title": "Definition List Block",
+      "items": [
+        {
+          "name": "Item 1",
+          "value": "Value 1"
+        }
+      ]
+    },
+    {
+      "title": "System Specifications",
+      "direction": "horizontal",
+      "responsive": false,
+      "items": [
+        {
+          "name": "CPU",
+          "value": "Intel Core i9-13900K",
+          "copyText": "Intel Core i9-13900K"
+        },
+        {
+          "name": "RAM",
+          "value": "64GB DDR5-5600",
+          "note": "Maximum supported memory"
+        },
+        {
+          "name": "Storage",
+          "value": "2TB NVMe SSD"
+        },
+        {
+          "name": "GPU",
+          "value": "NVIDIA RTX 4090 24GB",
+          "copyText": "NVIDIA RTX 4090 24GB"
+        }
+      ],
+      "type": "custom/definition-list-block"
+    }
+  ]
+}

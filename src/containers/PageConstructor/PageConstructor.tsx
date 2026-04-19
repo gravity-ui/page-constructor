@@ -1,38 +1,46 @@
 import * as React from 'react';
 
 import '@diplodoc/transform/dist/js/yfm';
-import {ThemeProvider} from '@gravity-ui/uikit';
 
-import BackgroundMedia from '../../components/BackgroundMedia/BackgroundMedia';
-import BrandFooter from '../../components/BrandFooter/BrandFooter';
 import RootCn from '../../components/RootCn';
 import {BlockData, blockMap, navItemMap, subBlockMap} from '../../constructor-items';
-import {AnimateContext} from '../../context/animateContext';
 import {InnerContext} from '../../context/innerContext';
-import {ProjectSettingsContext} from '../../context/projectSettingsContext';
-import {useTheme} from '../../context/theme';
 import {usePCEditorInitializeEvents} from '../../hooks/usePCEditorInitializeEvents';
 import {usePCEditorStore} from '../../hooks/usePCEditorStore';
-import {
-    BlockTypes,
-    CustomConfig,
-    CustomItems,
-    HeaderBlockTypes,
-    NavigationData,
-    NavigationItemTypes,
-    PageContent,
-    PageContentWithNavigation,
-    ShouldRenderBlock,
-    SubBlockTypes,
-} from '../../models';
-import Layout from '../../navigation/containers/Layout/Layout';
-import {block as cnBlock, getCustomItems, getCustomTypes, getThemedValue} from '../../utils';
+import {CustomConfig, CustomItems, PageContent, ShouldRenderBlock} from '../../models';
+import type {PageConstructorWrapper} from '../../common/types';
+import {block as cnBlock, getCustomItems} from '../../utils';
+
+export interface PageConstructorExtension<
+    GlobalConfig extends Object = {},
+    WrapperProps extends Object = {},
+> {
+    name: string;
+    id: string;
+    settings: {
+        ContentWrapper?: PageConstructorWrapper<WrapperProps>;
+        contentWrapperProps?: WrapperProps;
+        globalInputs?: Fields;
+        globalDefaults?: GlobalConfig;
+    };
+}
+
+/**
+ * @deprecated Use PageConstructorExtension instead
+ */
+export type PageConstructorPlugin<
+    GlobalConfig extends Object = {},
+    WrapperProps extends Object = {},
+> = PageConstructorExtension<GlobalConfig, WrapperProps>;
 
 import {ConstructorBlocks} from './components';
 import {ConstructorRow} from './components/ConstructorRow';
 
 import './PageConstructor.scss';
 import {BlocksContext} from '../../context/blocksContext';
+import {ConfigInput} from '../../form-generator';
+import EmptyBlocksWrapper from '../../components/editor/EmptyBlocksWrapper/EmptyBlocksWrapper';
+import {Fields} from '../../form-generator-v2/types';
 
 const b = cnBlock('page-constructor');
 
@@ -44,26 +52,30 @@ export interface PageConstructorProps {
     content?: PageContent;
     shouldRenderBlock?: ShouldRenderBlock;
     custom?: CustomConfig;
-    renderMenu?: () => React.ReactNode;
-    navigation?: NavigationData;
-    isBranded?: boolean;
     microdata?: {
         contentUpdatedDate?: string;
     };
     blocks?: Array<BlockData>;
+    extensions?: Array<PageConstructorExtension>;
+    /**
+     * @deprecated Use extensions instead
+     */
+    plugins?: Array<PageConstructorExtension>;
 }
 
-export const Constructor = (props: PageConstructorProps) => {
+export const PageConstructor = (props: PageConstructorProps) => {
     const {
-        content: {blocks = [], background} = {},
-        renderMenu,
+        content: {blocks = []} = {},
         shouldRenderBlock,
-        navigation,
         custom,
-        isBranded,
         microdata,
         blocks: availableLocalBlocks = [],
+        extensions: extensionsProp,
+        plugins: pluginsProp,
     } = props;
+
+    // Support both extensions (new) and plugins (deprecated) for backward compatibility
+    const extensions = extensionsProp ?? pluginsProp ?? [];
 
     const {blocks: availableGlobalBlocks} = React.useContext(BlocksContext);
 
@@ -72,60 +84,56 @@ export const Constructor = (props: PageConstructorProps) => {
         [availableGlobalBlocks, availableLocalBlocks],
     );
 
-    const [content, setContent] = React.useState<PageContentWithNavigation>({
-        blocks,
-        background,
-        navigation,
-    });
+    const globalDefaults = extensions.reduce(
+        (acc, extension) => ({
+            ...acc,
+            ...(extension.settings.globalDefaults || {}),
+        }),
+        {},
+    );
 
-    const theme = useTheme();
+    const initialContent = {
+        ...globalDefaults,
+        blocks,
+    };
+
+    const [content, setContent] = React.useState<PageContent>(initialContent);
 
     const store = usePCEditorStore();
     const {initialized, isPreviewMode} = store;
 
     usePCEditorInitializeEvents({
-        initialContent: {blocks, background, navigation},
+        initialContent: content,
         setContent,
         blocks: availableBlocks,
+        global: extensions.reduce<Fields>(
+            (acc, extension) => [...acc, ...((extension.settings.globalInputs || []) as Fields)],
+            [],
+        ),
     });
 
-    const {context} = React.useMemo(
+    const context = React.useMemo(
         () => ({
-            context: {
-                // TODO: delete blockTypes, subBlockTypes, headerBlockTypes
-                blockTypes: [...BlockTypes, ...getCustomTypes(['blocks', 'headers'], custom)],
-                subBlockTypes: [...SubBlockTypes, ...getCustomTypes(['subBlocks'], custom)],
-                headerBlockTypes: [...HeaderBlockTypes, ...getCustomTypes(['headers'], custom)],
-                itemMap: {
-                    ...blockMap,
-                    ...subBlockMap,
-                    ...getCustomItems(['blocks', 'headers', 'subBlocks'], custom),
-                },
-
-                navigationBlockTypes: [
-                    ...NavigationItemTypes,
-                    ...getCustomTypes(['navigation'], custom),
-                ],
-                navItemMap: {
-                    ...navItemMap,
-                    ...getCustomItems(['navigation'], custom),
-                },
-                loadables: custom?.loadable,
-                shouldRenderBlock,
-                customization: {
-                    decorators: custom?.decorators,
-                },
-                microdata,
-                blocks: availableBlocks,
+            blocks: availableBlocks,
+            navItemMap: {
+                ...navItemMap,
+                ...getCustomItems(['navigation'], custom),
             },
+            loadables: custom?.loadable,
+            shouldRenderBlock,
+            customization: {
+                decorators: custom?.decorators,
+            },
+            microdata,
+            content,
+            setContent,
         }),
-        [custom, shouldRenderBlock, microdata, availableBlocks],
+        [custom, shouldRenderBlock, microdata, availableBlocks, content, setContent],
     );
 
     const restBlocks = content.blocks;
-    const themedBackground = getThemedValue(content.background, theme);
 
-    // disable click events
+    // disable click events (WTF? why we need this?)
     React.useEffect(() => {
         if (!initialized || isPreviewMode) {
             return;
@@ -144,37 +152,30 @@ export const Constructor = (props: PageConstructorProps) => {
         };
     }, [initialized, isPreviewMode]);
 
+    const blocksContent = restBlocks && (
+        <ConstructorRow>
+            <ConstructorBlocks items={restBlocks} />
+        </ConstructorRow>
+    );
+
+    // Apply extensions (wrappers) from outermost to innermost
+    const wrappedContent = extensions.reduceRight<React.ReactNode>(
+        (children, extension) =>
+            extension.settings.ContentWrapper ? (
+                <extension.settings.ContentWrapper
+                    {...(extension.settings.contentWrapperProps || {})}
+                >
+                    {children}
+                </extension.settings.ContentWrapper>
+            ) : (
+                children
+            ),
+        blocksContent || null,
+    );
+
     return (
         <InnerContext.Provider value={context}>
-            <RootCn className={b('', {['with-editor']: initialized})}>
-                <div className={b('wrapper')}>
-                    {themedBackground && (
-                        <BackgroundMedia {...themedBackground} className={b('background')} />
-                    )}
-                    <Layout navigation={content.navigation}>
-                        {renderMenu && renderMenu()}
-                        {restBlocks && (
-                            <ConstructorRow>
-                                <ConstructorBlocks items={restBlocks} />
-                            </ConstructorRow>
-                        )}
-                    </Layout>
-                    {isBranded && <BrandFooter />}
-                </div>
-            </RootCn>
+            <RootCn className={b('', {['with-editor']: initialized})}>{wrappedContent}</RootCn>
         </InnerContext.Provider>
-    );
-};
-
-export const PageConstructor = (props: PageConstructorProps) => {
-    const {isAnimationEnabled = true} = React.useContext(ProjectSettingsContext);
-    const {content: {animated = isAnimationEnabled} = {}, ...rest} = props;
-
-    return (
-        <ThemeProvider>
-            <AnimateContext.Provider value={{animated}}>
-                <Constructor content={props.content} {...rest} />
-            </AnimateContext.Provider>
-        </ThemeProvider>
     );
 };

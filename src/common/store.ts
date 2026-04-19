@@ -1,14 +1,15 @@
 import _ from 'lodash';
 
 import {ConfigInput} from '../form-generator';
-import {PageContentWithNavigation} from '../models';
+import {PageContent} from '../models';
 
 import {ItemConfig} from './types';
 import {initializeStore} from './utils';
+import {Fields} from '../form-generator-v2/types';
 
 /** Undo/redo slice for editor-v2 (not synced to preview iframe payload). */
 export interface EditorHistorySnapshot {
-    content: PageContentWithNavigation;
+    content: PageContent;
     selectedBlock: number[] | null;
 }
 
@@ -22,10 +23,10 @@ export interface EditorState {
     initialized: boolean;
     isPreviewMode: boolean;
 
-    content: PageContentWithNavigation;
+    content: PageContent;
     blocks: Array<ItemConfig>;
     subBlocks: Array<ItemConfig>;
-    global: Array<ConfigInput>;
+    global: Fields;
 
     preInsertBlockType: string | null;
     preReorderBlockPath: number[] | null;

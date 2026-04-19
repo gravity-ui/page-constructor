@@ -1,18 +1,84 @@
+@import '../../../../styles/mixins';
+
 .pc-fg-section {
+    $class: &;
+
+    position: relative;
+    // margin: 16px 0;
+
     &:before {
-        content: '';
+        position: absolute;
+        top: 0;
+        left: -24px;
+        width: calc(100% + (12px * 2));
         height: 1px;
-        width: calc(100% + 16px * 2);
         background: var(--g-color-line-generic);
+        content: '';
         display: block;
-        margin-left: -16px;
+        margin-left: 12px;
+    }
+
+    &:after {
+        position: absolute;
+        bottom: 0;
+        left: -24px;
+        width: calc(100% + (12px * 2));
+        height: 1px;
+        background: var(--g-color-line-generic);
+        content: '';
+        display: block;
+        margin-left: 12px;
+    }
+
+    & + & {
+        &:before {
+            display: none;
+        }
+    }
+
+    &:last-child {
+        &#{$class}:after {
+            content: none;
+        }
+    }
+
+    &_nested {
+        margin-top: 8px;
+        margin-bottom: 8px;
+
+        &:first-child {
+            margin-top: 0;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        &:before,
+        &:after {
+            display: none;
+        }
+
+        #{$class}__header {
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+
+        #{$class}__fields {
+            // TODO: maybe we need this
+            // margin-top: 8px;
+        }
+
+        #{$class}__children_opened > #{$class}__children-inner {
+            padding-top: 8px;
+        }
     }
 
     &__header {
         display: flex;
         align-items: center;
-        margin-top: 12px;
-        margin-bottom: 16px;
+        padding-top: 16px;
+        padding-bottom: 16px;
     }
 
     &__title {
@@ -24,10 +90,12 @@
     }
 
     &__header-button {
+        @include reset-button-style();
+
+        min-height: 28px;
         display: flex;
         align-items: center;
         flex-grow: 1;
-        cursor: pointer;
 
         &_with-hover {
             & > * {
@@ -48,8 +116,12 @@
     }
 
     &__plus {
+        width: 28px;
+        height: 28px;
+        padding: 6px;
         color: var(--g-color-text-hint);
         margin-left: auto;
+        box-sizing: border-box;
     }
 
     &__children {
@@ -63,22 +135,77 @@
 
         &_opened {
             grid-template-rows: 1fr;
-            margin-bottom: 16px;
+            padding-bottom: 16px;
+
+            & & {
+                padding-bottom: 0;
+            }
         }
     }
 
     &__children-inner {
         min-height: 0;
         overflow: hidden;
+        transition: padding-top 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    &__note {
+    &__card {
+        padding: 12px;
+
+        &:not(&:nth-last-child(1)) {
+            margin-bottom: 12px;
+        }
+
+        .pc-fg-section {
+            &:before {
+                content: none;
+            }
+        }
+    }
+
+    &__item-clear {
+        margin-top: 12px;
+
+        &:first-child {
+            margin-top: 0;
+        }
+
+        &:not(&:nth-last-child(1)) {
+            margin-bottom: 12px;
+        }
+
+        .pc-fg-section {
+            &:before {
+                content: none;
+            }
+        }
+    }
+
+    &__card-header {
         display: flex;
+        align-items: center;
+        margin-bottom: 12px;
     }
 
-    &__note-icon {
-        margin-right: 4px;
-        min-width: 14px;
-        min-height: 14px;
+    &__card-title {
+        display: block;
+        flex-grow: 1;
+
+        &::first-letter {
+            text-transform: uppercase;
+        }
+    }
+
+    &__dropdown {
+        opacity: 0;
+        transition: opacity 0.2s ease;
+
+        &_opened {
+            opacity: 1;
+        }
+    }
+
+    &__header:hover > &__dropdown {
+        opacity: 1;
     }
 }

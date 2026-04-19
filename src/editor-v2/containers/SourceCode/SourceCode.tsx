@@ -4,7 +4,7 @@ import yaml from 'js-yaml';
 import _ from 'lodash';
 import * as React from 'react';
 
-import {PageContentWithNavigation} from '../../../models';
+import {PageContent} from '../../../models';
 import {useMainEditorStore} from '../../hooks/useMainEditorStore';
 import {generateChildrenPathFromArray} from '../../utils';
 import {editorCn} from '../../utils/cn';
@@ -55,7 +55,7 @@ const SourceCode = ({className, showSelectedBlockOnly = false}: SourceCodeProps)
             setContent(newContent);
         } else if (object) {
             // Update the entire content
-            setContent(object as PageContentWithNavigation);
+            setContent(object as PageContent);
         }
 
         setIsOpen(false);

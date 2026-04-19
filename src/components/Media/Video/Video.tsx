@@ -141,7 +141,7 @@ const Video = (props: VideoAllProps) => {
                 });
             });
 
-        return video.src.length && !hasVideoFallback ? (
+        return video.src?.length && !hasVideoFallback ? (
             <div
                 className={b('wrap', videoClassName)}
                 style={{height}}

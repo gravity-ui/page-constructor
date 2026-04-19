@@ -7,7 +7,7 @@ $block: '.#{$ns}overlay';
     $border-width: 3px;
     $border-select: 5px var(--g-color-base-brand) solid;
     $border: $border-width var(--g-color-base-brand) solid;
-    $border-radius: 24px;
+    $border-radius: 8px;
 
     position: absolute;
     left: 0;
@@ -32,30 +32,27 @@ $block: '.#{$ns}overlay';
 
     &__line {
         position: absolute;
-        //border: $border-2;
         box-sizing: border-box;
         border-radius: $border-radius;
         z-index: 10;
 
         &_position {
+            border: $border-select;
+
+            &_left,
             &_top {
                 border-top: $border-select;
                 border-left: $border-select;
+                border-right: none;
+                border-bottom: none;
             }
 
+            &_right,
             &_bottom {
                 border-right: $border-select;
                 border-bottom: $border-select;
-            }
-
-            &_left {
-                border-top: $border-select;
-                border-left: $border-select;
-            }
-
-            &_right {
-                border-right: $border-select;
-                border-bottom: $border-select;
+                border-top: none;
+                border-left: none;
             }
         }
     }

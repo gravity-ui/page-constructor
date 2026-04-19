@@ -2,6 +2,7 @@ import * as React from 'react';
 
 import get from 'lodash/get';
 
+import EmptyBlocksWrapper from '../../../../components/editor/EmptyBlocksWrapper/EmptyBlocksWrapper';
 import {InnerContext} from '../../../../context/innerContext';
 import {BlockDecoration} from '../../../../customization/BlockDecoration';
 import {
@@ -86,6 +87,11 @@ export const ConstructorBlocks: React.FC<ConstructorBlocksProps> = ({items}) => 
             </ConstructorBlock>
         );
     };
+
+    // Показываем EmptyBlocksWrapper когда нет блоков (только в режиме редактора)
+    if (items.length === 0) {
+        return <EmptyBlocksWrapper />;
+    }
 
     return <React.Fragment>{items.map(renderer.bind(null, '', false))}</React.Fragment>;
 };

@@ -261,6 +261,7 @@ task('styles-global', () => {
             sass
                 .sync({
                     loadPaths: ['node_modules'],
+                    silenceDeprecations: ['legacy-js-api', 'import', 'global-builtin'],
                 })
                 .on('error', sass.logError),
         )
@@ -270,10 +271,15 @@ task('styles-global', () => {
 task('styles-components', () => {
     return src([`src/**/*.scss`, `!src/**/__stories__/**/*.scss`, '!src/widget/**/*.scss'])
         .pipe(
-            sass.sync({loadPaths: ['node_modules']}).on('error', function (error) {
-                sass.logError.call(this, error);
-                process.exit(1);
-            }),
+            sass
+                .sync({
+                    loadPaths: ['node_modules'],
+                    silenceDeprecations: ['legacy-js-api', 'import'],
+                })
+                .on('error', function (error) {
+                    sass.logError.call(this, error);
+                    process.exit(1);
+                }),
         )
         .pipe(dest(path.resolve(BUILD_CLIENT_DIR, ESM_DIR)))
         .pipe(dest(path.resolve(BUILD_CLIENT_DIR, CJS_DIR)));

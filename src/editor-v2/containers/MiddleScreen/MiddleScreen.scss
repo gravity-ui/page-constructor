@@ -55,6 +55,10 @@ $block: '.#{$ns}middle-screen';
             height: 100%;
             max-width: 100%;
         }
+
+        &_withBackground {
+            background-color: var(--g-color-base-generic-accent);
+        }
     }
 
     &__iframe-container {

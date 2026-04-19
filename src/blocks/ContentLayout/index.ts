@@ -2,6 +2,8 @@ import {Fields} from '../../form-generator-v2/types';
 
 import ContentLayoutBlock from './ContentLayout';
 
+import icon from './icon.svg';
+
 const ContentLayoutBlockConfig = {
     type: '@gravity-ui/page-constructor/content-layout-block',
     component: ContentLayoutBlock,
@@ -94,130 +96,116 @@ const ContentLayoutBlockConfig = {
             {
                 type: 'section',
                 title: 'Content list',
+                withAddButton: true,
+                index: 'index1',
+                itemTitle: 'Item {{index1}}',
+                itemView: 'card',
                 fields: [
                     {
-                        type: 'oneTypeGroup',
-                        withAddButton: true,
-                        title: 'Item {{index1}}',
-                        index: 'index1',
-                        fields: [
-                            {
-                                type: 'textInput',
-                                title: 'Title',
-                                name: 'textContent.list[{{index1}}].title',
-                            },
-                            {
-                                type: 'textArea',
-                                title: 'Description',
-                                name: 'textContent.list[{{index1}}].text',
-                            },
-                            {
-                                type: 'textInput',
-                                title: 'URL icon',
-                                name: 'textContent.list[{{index1}}].icon',
-                            },
-                        ],
+                        type: 'textInput',
+                        title: 'Title',
+                        name: 'textContent.list[{{index1}}].title',
+                    },
+                    {
+                        type: 'textArea',
+                        title: 'Description',
+                        name: 'textContent.list[{{index1}}].text',
+                    },
+                    {
+                        type: 'textInput',
+                        title: 'URL icon',
+                        name: 'textContent.list[{{index1}}].icon',
                     },
                 ],
             },
             {
                 type: 'section',
                 title: 'Buttons',
+                withAddButton: true,
+                index: 'index',
+                itemTitle: 'Button {{index}}',
+                itemView: 'card',
                 fields: [
                     {
-                        title: 'Button {{index}}',
-                        withAddButton: true,
-                        type: 'oneTypeGroup',
-                        index: 'index',
+                        type: 'section',
+                        title: 'Main settings',
+                        opened: true,
                         fields: [
                             {
-                                type: 'section',
-                                title: 'Main settings',
-                                opened: true,
-                                fields: [
+                                title: 'Text',
+                                type: 'textInput',
+                                name: 'textContent.buttons[{{index}}].text',
+                            },
+                            {
+                                title: 'URL',
+                                type: 'textInput',
+                                name: 'textContent.buttons[{{index}}].url',
+                            },
+                            {
+                                title: 'URL title',
+                                type: 'textInput',
+                                name: 'textContent.buttons[{{index}}].urlTitle',
+                            },
+                            {
+                                title: 'Style',
+                                type: 'select',
+                                name: 'textContent.buttons[{{index}}].theme',
+                                options: [
+                                    {value: 'action', content: 'Action'},
+                                    {value: 'outlined', content: 'Outlined'},
+                                    {value: 'normal', content: 'Normal'},
+                                    {value: 'monochrome', content: 'Monochrome'},
                                     {
-                                        title: 'Text',
-                                        type: 'textInput',
-                                        name: 'textContent.buttons[{{index}}].text',
+                                        value: 'outlined-contrast',
+                                        content: 'Outlined-contrast',
                                     },
-                                    {
-                                        title: 'URL',
-                                        type: 'textInput',
-                                        name: 'textContent.buttons[{{index}}].url',
-                                    },
-                                    {
-                                        title: 'URL title',
-                                        type: 'textInput',
-                                        name: 'textContent.buttons[{{index}}].urlTitle',
-                                    },
-                                    {
-                                        title: 'Style',
-                                        type: 'select',
-                                        name: 'textContent.buttons[{{index}}].theme',
-                                        options: [
-                                            {value: 'action', content: 'Action'},
-                                            {value: 'outlined', content: 'Outlined'},
-                                            {value: 'normal', content: 'Normal'},
-                                            {value: 'monochrome', content: 'Monochrome'},
-                                            {
-                                                value: 'outlined-contrast',
-                                                content: 'Outlined-contrast',
-                                            },
-                                            {value: 'normal-contrast', content: 'Normal-contrast'},
-                                        ],
-                                    },
-                                    {
-                                        title: 'Target',
-                                        type: 'select',
-                                        name: 'textContent.buttons[{{index}}].target',
-                                        options: [
-                                            {value: '_blank'},
-                                            {value: '_self'},
-                                            {value: '_parent'},
-                                            {value: '_top'},
-                                        ],
-                                        hasClear: true,
-                                    },
+                                    {value: 'normal-contrast', content: 'Normal-contrast'},
                                 ],
                             },
                             {
+                                title: 'Target',
+                                type: 'select',
+                                name: 'textContent.buttons[{{index}}].target',
+                                options: [
+                                    {value: '_blank'},
+                                    {value: '_self'},
+                                    {value: '_parent'},
+                                    {value: '_top'},
+                                ],
+                                hasClear: true,
+                            },
+                        ],
+                    },
+                    {
+                        type: 'section',
+                        title: 'Analytics tracking',
+                        withAddButton: true,
+                        index: 'index2',
+                        itemTitle: 'Analytics event {{index2}}',
+                        itemView: 'card',
+                        fields: [
+                            {
+                                title: 'Name',
+                                type: 'textInput',
+                                name: 'textContent.buttons[{{index}}].analyticsEvents[{{index2}}].name',
+                            },
+                            {
+                                title: 'Target',
+                                type: 'textInput',
+                                name: 'textContent.buttons[{{index}}].analyticsEvents[{{index2}}].target',
+                            },
+                            {
+                                title: 'Counters',
+                                withAddButton: true,
                                 type: 'section',
-                                title: 'Analytics tracking',
-                                note: {
-                                    text: 'Only events for the counters listed in the input field will be sent.',
-                                    level: '',
-                                },
+                                index: 'indexgoal',
+                                itemTitle: 'Counter {{indexgoal}}',
+                                itemView: 'card',
                                 fields: [
                                     {
-                                        title: 'Analytics event {{index2}}',
-                                        type: 'oneTypeGroup',
-                                        withAddButton: true,
-                                        index: 'index2',
-                                        fields: [
-                                            {
-                                                title: 'Name',
-                                                type: 'textInput',
-                                                name: 'textContent.buttons[{{index}}].analyticsEvents[{{index2}}].name',
-                                            },
-                                            {
-                                                title: 'Target',
-                                                type: 'textInput',
-                                                name: 'textContent.buttons[{{index}}].analyticsEvents[{{index2}}].target',
-                                            },
-                                            {
-                                                title: 'Counter {{indexgoal}}',
-                                                withAddButton: true,
-                                                type: 'oneTypeGroup',
-                                                index: 'indexgoal',
-                                                fields: [
-                                                    {
-                                                        title: 'Counter',
-                                                        type: 'textInput',
-                                                        name: 'textContent.buttons[{{index}}].analyticsEvents[{{index2}}].counters[{{indexgoal}}].includes',
-                                                    },
-                                                ],
-                                            },
-                                        ],
+                                        title: 'Counter',
+                                        type: 'textInput',
+                                        name: 'textContent.buttons[{{index}}].analyticsEvents[{{index2}}].counters[{{indexgoal}}].includes',
                                     },
                                 ],
                             },
@@ -228,89 +216,79 @@ const ContentLayoutBlockConfig = {
             {
                 type: 'section',
                 title: 'Link',
+                index: 'index1',
+                withAddButton: true,
+                itemTitle: 'Link {{index1}}',
+                itemView: 'card',
                 fields: [
                     {
-                        type: 'oneTypeGroup',
-                        title: 'Link {{index1}}',
-                        index: 'index1',
+                        type: 'textInput',
+                        title: 'Text',
+                        name: 'textContent.links[{{index1}}].text',
+                    },
+                    {
+                        type: 'textInput',
+                        title: 'URL',
+                        name: 'textContent.links[{{index1}}].url',
+                    },
+                    {
+                        type: 'textInput',
+                        title: 'URL title',
+                        name: 'textContent.links[{{index1}}].urlTitle',
+                    },
+                    {
+                        type: 'select',
+                        title: 'Style',
+                        name: 'textContent.links[{{index1}}].theme',
+                        options: [
+                            {content: 'File-link', value: 'file-link'},
+                            {content: 'Normal', value: 'normal'},
+                            {content: 'Back', value: 'back'},
+                            {content: 'Underline', value: 'underline'},
+                        ],
+                    },
+                    {
+                        title: 'Target',
+                        type: 'select',
+                        name: 'textContent.links[{{index1}}].target',
+                        options: [
+                            {value: '_blank'},
+                            {value: '_self'},
+                            {value: '_parent'},
+                            {value: '_top'},
+                        ],
+                        hasClear: true,
+                    },
+                    {
+                        type: 'section',
+                        title: 'Analytics tracking',
                         withAddButton: true,
+                        index: 'index2',
+                        itemTitle: 'Analytics event {{index2}}',
+                        itemView: 'card',
                         fields: [
                             {
+                                title: 'Name',
                                 type: 'textInput',
-                                title: 'Text',
-                                name: 'textContent.links[{{index1}}].text',
-                            },
-                            {
-                                type: 'textInput',
-                                title: 'URL',
-                                name: 'textContent.links[{{index1}}].url',
-                            },
-                            {
-                                type: 'textInput',
-                                title: 'URL title',
-                                name: 'textContent.links[{{index1}}].urlTitle',
-                            },
-                            {
-                                type: 'select',
-                                title: 'Style',
-                                name: 'textContent.links[{{index1}}].theme',
-                                options: [
-                                    {content: 'File-link', value: 'file-link'},
-                                    {content: 'Normal', value: 'normal'},
-                                    {content: 'Back', value: 'back'},
-                                    {content: 'Underline', value: 'underline'},
-                                ],
+                                name: 'textContent.links[{{index1}}].analyticsEvents[{{index2}}].name',
                             },
                             {
                                 title: 'Target',
-                                type: 'select',
-                                name: 'textContent.links[{{index1}}].target',
-                                options: [
-                                    {value: '_blank'},
-                                    {value: '_self'},
-                                    {value: '_parent'},
-                                    {value: '_top'},
-                                ],
-                                hasClear: true,
+                                type: 'textInput',
+                                name: 'textContent.links[{{index1}}].analyticsEvents[{{index2}}].target',
                             },
                             {
+                                title: 'Counters',
+                                withAddButton: true,
                                 type: 'section',
-                                title: 'Analytics tracking',
-                                note: {
-                                    text: 'Only events for the counters listed in the input field will be sent.',
-                                    level: '',
-                                },
+                                index: 'indexgoal',
+                                itemTitle: 'Counter {{indexgoal}}',
+                                itemView: 'card',
                                 fields: [
                                     {
-                                        title: 'Analytics event {{index2}}',
-                                        type: 'oneTypeGroup',
-                                        withAddButton: true,
-                                        index: 'index2',
-                                        fields: [
-                                            {
-                                                title: 'Name',
-                                                type: 'textInput',
-                                                name: 'textContent.links[{{index1}}].analyticsEvents[{{index2}}].name',
-                                            },
-                                            {
-                                                title: 'Target',
-                                                type: 'textInput',
-                                                name: 'textContent.links[{{index1}}].analyticsEvents[{{index2}}].target',
-                                            },
-                                            {
-                                                title: 'Counter {{indexgoal}}',
-                                                withAddButton: true,
-                                                type: 'oneTypeGroup',
-                                                index: 'indexgoal',
-                                                fields: [
-                                                    {
-                                                        title: 'Counter',
-                                                        type: 'textInput',
-                                                        name: 'textContent.links[{{index1}}].analyticsEvents[{{index2}}].counters[{{indexgoal}}].includes',
-                                                    },
-                                                ],
-                                            },
-                                        ],
+                                        title: 'Counter',
+                                        type: 'textInput',
+                                        name: 'textContent.links[{{index1}}].analyticsEvents[{{index2}}].counters[{{indexgoal}}].includes',
                                     },
                                 ],
                             },
@@ -321,24 +299,20 @@ const ContentLayoutBlockConfig = {
             {
                 type: 'section',
                 title: 'File',
+                withAddButton: true,
+                index: 'index1',
+                itemTitle: 'File {{index1}}',
+                itemView: 'card',
                 fields: [
                     {
-                        type: 'oneTypeGroup',
-                        withAddButton: true,
-                        title: 'File {{index1}}',
-                        index: 'index1',
-                        fields: [
-                            {
-                                type: 'textInput',
-                                title: 'Href',
-                                name: 'fileContent[{{index1}}].href',
-                            },
-                            {
-                                type: 'textInput',
-                                title: 'Name',
-                                name: 'fileContent[{{index1}}].text',
-                            },
-                        ],
+                        type: 'textInput',
+                        title: 'Href',
+                        name: 'fileContent[{{index1}}].href',
+                    },
+                    {
+                        type: 'textInput',
+                        title: 'Name',
+                        name: 'fileContent[{{index1}}].text',
                     },
                 ],
             },
@@ -349,7 +323,7 @@ const ContentLayoutBlockConfig = {
                 fields: [
                     {
                         title: 'Color HEX',
-                        type: 'textInput',
+                        type: 'colorInput',
                         name: 'background.style.background',
                     },
                     {
@@ -548,6 +522,7 @@ const ContentLayoutBlockConfig = {
                 },
             ],
         },
+        previewImg: icon,
     },
 };
 
