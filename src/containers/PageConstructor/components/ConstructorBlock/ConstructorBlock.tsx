@@ -21,7 +21,7 @@ export const ConstructorBlock = ({
     data,
     children,
 }: React.PropsWithChildren<ConstructorBlockProps>) => {
-    const {blockRef, adminBlockMouseEvents} = usePCEditorChildrenItemWrap(index);
+    const {blockRef} = usePCEditorChildrenItemWrap(index);
 
     const {type} = data;
     const blockBaseProps = React.useMemo(
@@ -30,7 +30,7 @@ export const ConstructorBlock = ({
     );
 
     return (
-        <div ref={blockRef} {...adminBlockMouseEvents}>
+        <div ref={blockRef}>
             <BlockDecoration type={type} index={index} {...blockBaseProps}>
                 <BlockBase className={b({type})} {...blockBaseProps}>
                     {children}

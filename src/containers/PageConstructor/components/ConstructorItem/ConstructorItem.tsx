@@ -3,6 +3,7 @@ import * as React from 'react';
 import {BlockIdContext} from '../../../../context/blockIdContext';
 import {InnerContext} from '../../../../context/innerContext';
 import {BlockDecoration} from '../../../../customization/BlockDecoration';
+import {usePCEditorBlockRegister} from '../../../../hooks/usePCEditorBlockRegister';
 import {BlockType, ConstructorBlock} from '../../../../models';
 
 export interface ConstructorItemProps {
@@ -19,6 +20,9 @@ export const ConstructorItem = ({
     const parentId = React.useContext(BlockIdContext);
     const {type, ...rest} = data;
 
+    const path = React.useMemo(() => [...parentId, blockKey], [parentId, blockKey]);
+    const blockRef = usePCEditorBlockRegister(path);
+
     const blockData = blocks.find(({type: blockType}) => blockType === type);
 
     if (!blockData) {
@@ -30,8 +34,10 @@ export const ConstructorItem = ({
     >;
 
     return (
-        <BlockIdContext.Provider value={[...parentId, blockKey]} key={blockKey}>
-            <Component {...rest}>{children}</Component>
+        <BlockIdContext.Provider value={path} key={blockKey}>
+            <div ref={blockRef}>
+                <Component {...rest}>{children}</Component>
+            </div>
         </BlockIdContext.Provider>
     );
 };

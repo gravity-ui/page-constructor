@@ -2,18 +2,28 @@ import * as React from 'react';
 
 import _ from 'lodash';
 
+import {toSerializableRect} from '../common/types/rect';
 import {BlockData} from '../constructor-items';
+import {BlockRegistry} from '../context/blockRegistryContext';
+import {Fields} from '../form-generator-v2/types';
 import {PageContent} from '../models';
 
 import {usePCEditorStore} from './usePCEditorStore';
 import {sendEventPostMessage, useInternalPostMessageAPIListener} from './usePostMessageAPI';
-import {Fields} from '../form-generator-v2/types';
 
 interface UseEditorInitializeProps {
     initialContent: PageContent;
     setContent: (content: PageContent) => void;
     blocks: Array<BlockData>;
     global?: Fields;
+    registry: BlockRegistry | null;
+}
+
+function collectRectMap(registry: BlockRegistry) {
+    return registry.getEntries().map(({path, element, dropZone}) => {
+        const rect = element.getClientRects().item(0) ?? element.getBoundingClientRect();
+        return {path, rect: toSerializableRect(rect), dropZone};
+    });
 }
 
 export const usePCEditorInitializeEvents = ({
@@ -21,8 +31,9 @@ export const usePCEditorInitializeEvents = ({
     setContent,
     blocks,
     global,
+    registry,
 }: UseEditorInitializeProps) => {
-    const {manipulateOverlayMode, initialized, content} = usePCEditorStore();
+    const {initialized, content} = usePCEditorStore();
 
     React.useEffect(() => {
         if (initialized) {
@@ -44,35 +55,59 @@ export const usePCEditorInitializeEvents = ({
 
     const onResize = React.useCallback(() => {
         const height = document.documentElement.getBoundingClientRect().height;
+        console.log('height', height);
         sendEventPostMessage('ON_RESIZE', {height});
     }, []);
 
-    new ResizeObserver(onResize).observe(document.body);
-
     React.useEffect(() => {
-        const onMouseUp = () => {
-            sendEventPostMessage('ON_MOUSE_UP', {});
+        if (!registry) {
+            return undefined;
+        }
+
+        let frame: number | null = null;
+
+        const sendRectMap = () => {
+            frame = null;
+            sendEventPostMessage('ON_UPDATE_RECT_MAP', {rects: collectRectMap(registry)});
         };
 
-        const onMouseMove = (event: MouseEvent) => {
-            event.preventDefault();
-            event.stopPropagation();
-            sendEventPostMessage('ON_MOUSE_MOVE', {x: event.clientX, y: event.clientY});
+        const scheduleSend = () => {
+            if (frame !== null) {
+                return;
+            }
+            frame = requestAnimationFrame(sendRectMap);
         };
 
-        const throttleOnMouseMove = _.throttle(onMouseMove, 10);
-        const throttleOnMouseUp = _.throttle(onMouseUp, 10);
+        const throttledSchedule = _.throttle(scheduleSend, 100, {leading: true, trailing: true});
 
-        document.addEventListener('mousemove', throttleOnMouseMove);
-        document.addEventListener('mouseup', throttleOnMouseUp);
-        window.addEventListener('resize', onResize);
+        const unsubscribe = registry.subscribe(throttledSchedule);
+        const observer = new ResizeObserver(throttledSchedule);
+        observer.observe(document.body);
+
+        // Initial push once registry is ready.
+        throttledSchedule();
 
         return () => {
-            document.removeEventListener('mousemove', throttleOnMouseMove);
-            document.removeEventListener('mouseup', throttleOnMouseUp);
-            window.removeEventListener('resize', onResize);
+            throttledSchedule.cancel();
+            unsubscribe();
+            observer.disconnect();
+            if (frame !== null) {
+                cancelAnimationFrame(frame);
+            }
         };
-    }, [manipulateOverlayMode, onResize]);
+    }, [registry]);
+
+    React.useEffect(() => {
+        window.addEventListener('resize', onResize);
+        const observer = new ResizeObserver(onResize);
+        observer.observe(document.documentElement);
+        observer.observe(document.body);
+
+        return () => {
+            window.removeEventListener('resize', onResize);
+            observer.disconnect();
+        };
+    }, [onResize]);
 
     React.useEffect(() => {
         const height = document.documentElement.getBoundingClientRect().height;

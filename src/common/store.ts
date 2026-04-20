@@ -1,11 +1,9 @@
-import _ from 'lodash';
-
-import {ConfigInput} from '../form-generator';
+import {Fields} from '../form-generator-v2/types';
 import {PageContent} from '../models';
 
 import {ItemConfig} from './types';
+import {RectMapEntry} from './types/rect';
 import {initializeStore} from './utils';
-import {Fields} from '../form-generator-v2/types';
 
 /** Undo/redo slice for editor-v2 (not synced to preview iframe payload). */
 export interface EditorHistorySnapshot {
@@ -31,6 +29,8 @@ export interface EditorState {
     preInsertBlockType: string | null;
     preReorderBlockPath: number[] | null;
 
+    rectMap: RectMapEntry[];
+
     historyPast: EditorHistorySnapshot[];
     historyFuture: EditorHistorySnapshot[];
 }
@@ -49,6 +49,8 @@ export const initialStore: EditorState = {
     global: [],
     preInsertBlockType: null,
     preReorderBlockPath: null,
+
+    rectMap: [],
 
     historyPast: [],
     historyFuture: [],

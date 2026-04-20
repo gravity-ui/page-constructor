@@ -1,8 +1,7 @@
-import {Stop} from '@gravity-ui/icons';
 import * as React from 'react';
 
-import {usePostMessageAPIListener} from '../../../common/postMessage';
-import {IframeContext} from '../../context/iframeContext';
+import {Stop} from '@gravity-ui/icons';
+
 import {useMainEditorStore} from '../../hooks/useMainEditorStore';
 import {editorCn} from '../../utils/cn';
 
@@ -11,64 +10,39 @@ import './BigOverlay.scss';
 const b = editorCn('big-overlay');
 
 const BigOverlay = ({className}: {className?: string}) => {
-    const {zoom, manipulateOverlayMode} = useMainEditorStore();
-    const {iframeElement} = React.useContext(IframeContext);
+    const {manipulateOverlayMode} = useMainEditorStore();
     const [mousePosition, setMousePosition] = React.useState<{x: number; y: number} | undefined>(
         undefined,
     );
-    const [source, setSource] = React.useState<'main' | 'iframe'>('main');
-
-    const onMouseUp = React.useCallback(() => {
-        setMousePosition(undefined);
-    }, []);
-
-    const onIframeMouseEvent = React.useCallback((position: {x: number; y: number}) => {
-        setMousePosition(position);
-        setSource('iframe');
-    }, []);
-
-    usePostMessageAPIListener('ON_MOUSE_UP', onMouseUp);
-    usePostMessageAPIListener('ON_MOUSE_MOVE', onIframeMouseEvent);
 
     React.useEffect(() => {
-        const onEditorMouseEvent = (event: MouseEvent) => {
+        const onMouseMove = (event: MouseEvent) => {
             setMousePosition({x: event.clientX, y: event.clientY});
-            setSource('main');
         };
 
-        document.addEventListener('mousemove', onEditorMouseEvent);
-        document.addEventListener('mousedown', onEditorMouseEvent);
+        const onMouseUp = () => {
+            setMousePosition(undefined);
+        };
+
+        document.addEventListener('mousemove', onMouseMove);
+        document.addEventListener('mousedown', onMouseMove);
+        document.addEventListener('mouseup', onMouseUp);
 
         return () => {
-            document.removeEventListener('mousemove', onEditorMouseEvent);
-            document.removeEventListener('mousedown', onEditorMouseEvent);
+            document.removeEventListener('mousemove', onMouseMove);
+            document.removeEventListener('mousedown', onMouseMove);
+            document.removeEventListener('mouseup', onMouseUp);
         };
     }, []);
-
-    const realPositions = React.useMemo(() => {
-        if (mousePosition) {
-            const {x, y} = mousePosition;
-            const iframeRect = iframeElement?.getClientRects().item(0);
-            if (iframeRect) {
-                const zoomedX = (x * zoom) / 100;
-                const zoomedY = (y * zoom) / 100;
-                const newX = source === 'main' ? x : zoomedX + iframeRect.x;
-                const newY = source === 'main' ? y : zoomedY + iframeRect.y;
-                return {x: newX, y: newY};
-            }
-        }
-
-        return undefined;
-    }, [mousePosition, source, iframeElement, zoom]);
 
     return (
         <div className={b(null, className)}>
-            {realPositions && manipulateOverlayMode ? (
+            {mousePosition && manipulateOverlayMode ? (
                 <div
                     className={b('border')}
                     style={{
-                        top: realPositions.y,
-                        left: realPositions.x,
+                        top: mousePosition.y,
+                        left: mousePosition.x,
                     }}
                 >
                     <Stop height={20} width={20} />

@@ -2,13 +2,16 @@ import * as React from 'react';
 
 import '@diplodoc/transform/dist/js/yfm';
 
+import type {PageConstructorWrapper} from '../../common/types';
 import RootCn from '../../components/RootCn';
 import {BlockData, blockMap, navItemMap, subBlockMap} from '../../constructor-items';
+import {BlockRegistryContext, useBlockRegistryProvider} from '../../context/blockRegistryContext';
+import {BlocksContext} from '../../context/blocksContext';
 import {InnerContext} from '../../context/innerContext';
+import {Fields} from '../../form-generator-v2/types';
 import {usePCEditorInitializeEvents} from '../../hooks/usePCEditorInitializeEvents';
 import {usePCEditorStore} from '../../hooks/usePCEditorStore';
 import {CustomConfig, CustomItems, PageContent, ShouldRenderBlock} from '../../models';
-import type {PageConstructorWrapper} from '../../common/types';
 import {block as cnBlock, getCustomItems} from '../../utils';
 
 export interface PageConstructorExtension<
@@ -37,10 +40,6 @@ import {ConstructorBlocks} from './components';
 import {ConstructorRow} from './components/ConstructorRow';
 
 import './PageConstructor.scss';
-import {BlocksContext} from '../../context/blocksContext';
-import {ConfigInput} from '../../form-generator';
-import EmptyBlocksWrapper from '../../components/editor/EmptyBlocksWrapper/EmptyBlocksWrapper';
-import {Fields} from '../../form-generator-v2/types';
 
 const b = cnBlock('page-constructor');
 
@@ -100,7 +99,9 @@ export const PageConstructor = (props: PageConstructorProps) => {
     const [content, setContent] = React.useState<PageContent>(initialContent);
 
     const store = usePCEditorStore();
-    const {initialized, isPreviewMode} = store;
+    const {initialized} = store;
+
+    const blockRegistry = useBlockRegistryProvider();
 
     usePCEditorInitializeEvents({
         initialContent: content,
@@ -110,6 +111,7 @@ export const PageConstructor = (props: PageConstructorProps) => {
             (acc, extension) => [...acc, ...((extension.settings.globalInputs || []) as Fields)],
             [],
         ),
+        registry: blockRegistry,
     });
 
     const context = React.useMemo(
@@ -133,25 +135,6 @@ export const PageConstructor = (props: PageConstructorProps) => {
 
     const restBlocks = content.blocks;
 
-    // disable click events (WTF? why we need this?)
-    React.useEffect(() => {
-        if (!initialized || isPreviewMode) {
-            return;
-        }
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const handler: React.EventHandler<any> = (e) => {
-            e?.preventDefault();
-            const blockElement = e.target.closest('[data-editor-item]');
-            blockElement.click(e);
-        };
-        document.body.addEventListener('click', handler);
-
-        // eslint-disable-next-line consistent-return
-        return () => {
-            document.body.removeEventListener('click', handler);
-        };
-    }, [initialized, isPreviewMode]);
-
     const blocksContent = restBlocks && (
         <ConstructorRow>
             <ConstructorBlocks items={restBlocks} />
@@ -174,8 +157,10 @@ export const PageConstructor = (props: PageConstructorProps) => {
     );
 
     return (
-        <InnerContext.Provider value={context}>
-            <RootCn className={b('', {['with-editor']: initialized})}>{wrappedContent}</RootCn>
-        </InnerContext.Provider>
+        <BlockRegistryContext.Provider value={blockRegistry}>
+            <InnerContext.Provider value={context}>
+                <RootCn className={b('', {['with-editor']: initialized})}>{wrappedContent}</RootCn>
+            </InnerContext.Provider>
+        </BlockRegistryContext.Provider>
     );
 };

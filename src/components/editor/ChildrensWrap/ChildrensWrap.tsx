@@ -1,13 +1,14 @@
 import * as React from 'react';
+
 import _ from 'lodash';
 
+import {BlockIdContext} from '../../../context/blockIdContext';
+import {generateChildrenPathFromArray} from '../../../editor-v2';
+import {usePCEditorBlockRegister} from '../../../hooks/usePCEditorBlockRegister';
 import {usePCEditorStore} from '../../../hooks/usePCEditorStore';
-import usePCEditorBlockMouseEvents from '../../../hooks/usePCEditorBlockMouseEvents';
 import {block} from '../../../utils';
 
 import './ChildrensWrap.scss';
-import {BlockIdContext} from '../../../context/blockIdContext';
-import {generateChildrenPathFromArray} from '../../../editor-v2';
 
 const b = block('childrens-wrap');
 
@@ -15,37 +16,28 @@ export interface ChildrensWrapProps extends React.PropsWithChildren {}
 
 const ChildrensWrap = ({children}: ChildrensWrapProps) => {
     const {manipulateOverlayMode, content} = usePCEditorStore();
-    const [element, setElement] = React.useState<HTMLElement | undefined>();
-    const blockRef = React.useCallback((node: HTMLElement | null) => {
-        if (node !== null) {
-            setElement(node);
-        }
-    }, []);
 
     const parentBlockId = React.useContext(BlockIdContext);
 
     const newBlockIndex = React.useMemo(() => {
         const contentConfig = _.get(content.blocks, generateChildrenPathFromArray(parentBlockId));
-        return contentConfig?.children?.length ? contentConfig.children.length - 1 : -1;
-    }, [content.blocks]);
+        return contentConfig?.children?.length ?? 0;
+    }, [content.blocks, parentBlockId]);
 
-    const adminBlockMouseEvents = usePCEditorBlockMouseEvents(
-        [...parentBlockId, newBlockIndex],
-        element,
-        true,
+    const path = React.useMemo(
+        () => [...parentBlockId, newBlockIndex],
+        [parentBlockId, newBlockIndex],
     );
 
-    if (manipulateOverlayMode === 'insert' && newBlockIndex === -1) {
-        return (
-            <div ref={blockRef} className={b({'drop-zone': true})} {...adminBlockMouseEvents}>
-                DROP HERE
-            </div>
-        );
+    const blockRef = usePCEditorBlockRegister(path, true);
+
+    if (manipulateOverlayMode === 'insert' && newBlockIndex === 0) {
+        return <div ref={blockRef} className={b({'drop-zone': true})}></div>;
     }
 
     if (manipulateOverlayMode === 'insert') {
         return (
-            <div ref={blockRef} className={b()} {...adminBlockMouseEvents}>
+            <div ref={blockRef} className={b()}>
                 {children}
             </div>
         );

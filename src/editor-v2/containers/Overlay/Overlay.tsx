@@ -1,9 +1,12 @@
+import * as React from 'react';
+
 import {ChevronDown, ChevronUp, Copy, TrashBin} from '@gravity-ui/icons';
 import {Button, Icon} from '@gravity-ui/uikit';
-import * as React from 'react';
 import _ from 'lodash';
 
 import {usePostMessageAPIListener} from '../../../common/postMessage';
+import {SerializableRect} from '../../../common/types/rect';
+import {getCursorPositionOverElement} from '../../../utils/editor';
 import {useMainEditorStore} from '../../hooks/useMainEditorStore';
 import {editorCn} from '../../utils/cn';
 
@@ -11,107 +14,135 @@ import './Overlay.scss';
 
 const b = editorCn('overlay');
 
+type InsertPosition = 'top' | 'bottom' | 'left' | 'right';
+
 interface OverlayProps {
     className?: string;
     canvasElement?: HTMLDivElement | null;
 }
-interface InsertLineProps {
-    top: number;
-    left: number;
-    height: number;
-    width: number;
-    position?: 'top' | 'bottom' | 'left' | 'right';
-}
+
+const findRectByPath = (
+    rectMap: Array<{path: number[]; rect: SerializableRect}>,
+    path: number[] | null,
+): SerializableRect | null => {
+    if (!path) return null;
+    return rectMap.find((entry) => _.isEqual(entry.path, path))?.rect ?? null;
+};
 
 const Overlay = ({className, canvasElement}: OverlayProps) => {
     const {
         height,
+        rectMap,
+        setRectMap,
         selectedBlock,
         setSelectedBlock,
         deleteBlock,
         duplicateBlock,
         manipulateOverlayMode,
+        preInsertBlockType,
+        preReorderBlockPath,
+        insertBlock,
         reorderBlock,
+        disableMode,
     } = useMainEditorStore();
-    const [insertLineBox, setInsertLineBox] = React.useState<InsertLineProps | undefined>(
-        undefined,
-    );
-    const [hoverBorders, setHoverBorders] = React.useState<DOMRect | null>(null);
-    const [blockBorders, setBlockBorders] = React.useState<DOMRect | null>(null);
 
-    // Listen for updates to the selected block's position
+    const [hoveredPath, setHoveredPath] = React.useState<number[] | null>(null);
+    const [insertPosition, setInsertPosition] = React.useState<InsertPosition | null>(null);
+
     usePostMessageAPIListener(
-        'ON_UPDATE_BLOCK_SELECTION',
-        ({rect}) => {
-            setBlockBorders(selectedBlock && rect ? rect : null);
+        'ON_UPDATE_RECT_MAP',
+        ({rects}) => {
+            setRectMap(rects);
         },
-        [selectedBlock],
+        [setRectMap],
     );
 
-    // Update blockBorders when selectedBlock changes
-    React.useEffect(() => {
-        if (!selectedBlock) {
-            setBlockBorders(null);
-        }
-    }, [selectedBlock]);
+    const selectedRect = React.useMemo(
+        () => findRectByPath(rectMap, selectedBlock),
+        [rectMap, selectedBlock],
+    );
+    const hoveredRect = React.useMemo(
+        () => findRectByPath(rectMap, hoveredPath),
+        [rectMap, hoveredPath],
+    );
 
-    // Auto scroll to the selected block when blockBorders changes
+    // Auto-scroll to selected block when it changes
     React.useEffect(() => {
-        if (blockBorders && canvasElement) {
-            // Calculate the scroll position to center the block in the viewport
+        if (selectedRect && canvasElement) {
             const canvasHeight = canvasElement.clientHeight;
-            const scrollPosition = blockBorders.top - canvasHeight / 2 + blockBorders.height / 2;
-
-            // Scroll the canvas element to the calculated position with smooth behavior
+            const scrollPosition = selectedRect.top - canvasHeight / 2 + selectedRect.height / 2;
             canvasElement.scrollTo({
                 top: Math.max(0, scrollPosition),
                 behavior: 'smooth',
             });
         }
-    }, [blockBorders, canvasElement]);
+        // Intentionally depends on selectedBlock identity (path), not rect value, to avoid scroll jitter on rect updates.
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [selectedBlock, canvasElement]);
 
-    const margin = 0;
-
-    usePostMessageAPIListener('ON_HOVER_BLOCK', ({rect, position}) => {
-        setHoverBorders(rect || null);
-        if (rect) {
-            setInsertLineBox({
-                left: rect.x,
-                top: rect.y,
-                height: rect.height,
-                width: rect.width,
-                position: position as InsertLineProps['position'],
-            });
-        }
-    });
-
-    usePostMessageAPIListener('ON_MOUSE_UP', ({path}) => {
-        if (path) {
-            setHoverBorders(null);
-        }
-    });
-
-    usePostMessageAPIListener(
-        'ON_CLICK_BLOCK',
-        ({path}) => {
-            if (!selectedBlock && path) {
-                setSelectedBlock(path);
-            } else if (selectedBlock && _.isEqual(selectedBlock, path)) {
+    const handleClick = React.useCallback(
+        (path: number[]) => {
+            if (selectedBlock && _.isEqual(selectedBlock, path)) {
                 setSelectedBlock(null);
-                setBlockBorders(null);
             } else {
                 setSelectedBlock(path);
             }
         },
-        [selectedBlock],
+        [selectedBlock, setSelectedBlock],
+    );
+
+    const handleMouseEnter = React.useCallback((path: number[]) => {
+        setHoveredPath(path);
+    }, []);
+
+    const handleMouseLeave = React.useCallback((path: number[]) => {
+        setHoveredPath((current) => (_.isEqual(current, path) ? null : current));
+    }, []);
+
+    const handleMouseMove = React.useCallback(
+        (e: React.MouseEvent) => {
+            if (!manipulateOverlayMode) {
+                return;
+            }
+
+            const domRect = e.currentTarget.getBoundingClientRect();
+            const position = getCursorPositionOverElement(domRect, e);
+            setInsertPosition(position as InsertPosition);
+        },
+        [manipulateOverlayMode],
+    );
+
+    const handleMouseUp = React.useCallback(
+        (path: number[]) => {
+            if (!manipulateOverlayMode) return;
+
+            const position = insertPosition;
+            const prepend = position === 'left' || position === 'top';
+
+            if (manipulateOverlayMode === 'insert' && preInsertBlockType) {
+                insertBlock(path, preInsertBlockType, prepend ? 'prepend' : 'append');
+            } else if (manipulateOverlayMode === 'reorder' && preReorderBlockPath) {
+                reorderBlock(preReorderBlockPath, path, prepend ? 'prepend' : 'append');
+            }
+
+            disableMode();
+            setInsertPosition(null);
+        },
+        [
+            manipulateOverlayMode,
+            preInsertBlockType,
+            preReorderBlockPath,
+            insertBlock,
+            reorderBlock,
+            disableMode,
+            insertPosition,
+        ],
     );
 
     const handleMoveUp = () => {
         if (!selectedBlock) return;
         const destination = [...selectedBlock];
         const newLastDestination = destination[destination.length - 1] - 1;
-
-        console.log(newLastDestination, destination.length);
 
         if (newLastDestination < 0) {
             return;
@@ -126,26 +157,51 @@ const Overlay = ({className, canvasElement}: OverlayProps) => {
         const destination = [...selectedBlock];
         const newLastDestination = destination[destination.length - 1] + 1;
 
-        console.log(newLastDestination, destination.length);
-
-        if (newLastDestination >= destination.length) {
-            return;
-        }
-
         destination[destination.length - 1] = newLastDestination;
         reorderBlock(selectedBlock, destination, 'append');
     };
 
+    const showHoverBorder =
+        hoveredRect && (!selectedBlock || !_.isEqual(hoveredPath, selectedBlock));
+
     return (
         <div className={b(null, className)} style={{height: `${height}px`}}>
-            {blockBorders ? (
+            {rectMap.map(({path, rect, dropZone}) => {
+                const key = path.join('.');
+                return (
+                    <div
+                        key={key}
+                        className={b('hit')}
+                        style={{
+                            top: rect.top,
+                            left: rect.left,
+                            width: rect.width,
+                            height: rect.height,
+                            zIndex: 10 * (path.length + (dropZone ? 0 : 1)),
+                        }}
+                        onClick={
+                            dropZone
+                                ? undefined
+                                : (e) => {
+                                      e.stopPropagation();
+                                      handleClick(path);
+                                  }
+                        }
+                        onMouseEnter={() => handleMouseEnter(path)}
+                        onMouseLeave={() => handleMouseLeave(path)}
+                        onMouseMove={(e) => handleMouseMove(e)}
+                        onMouseUp={() => handleMouseUp(path)}
+                    />
+                );
+            })}
+            {selectedRect ? (
                 <div
                     className={b('border')}
                     style={{
-                        top: blockBorders.top - margin,
-                        left: blockBorders.left - margin,
-                        width: blockBorders.width + margin * 2,
-                        height: blockBorders.height + margin * 2,
+                        top: selectedRect.top,
+                        left: selectedRect.left,
+                        width: selectedRect.width,
+                        height: selectedRect.height,
                     }}
                 >
                     <div className={b('actions')}>
@@ -180,27 +236,25 @@ const Overlay = ({className, canvasElement}: OverlayProps) => {
                     </div>
                 </div>
             ) : null}
-            {hoverBorders ? (
+            {showHoverBorder ? (
                 <div
                     className={b('border', {hover: true})}
                     style={{
-                        top: hoverBorders.top - margin,
-                        left: hoverBorders.left - margin,
-                        width: hoverBorders.width + margin * 2,
-                        height: hoverBorders.height + margin * 2,
+                        top: hoveredRect.top,
+                        left: hoveredRect.left,
+                        width: hoveredRect.width,
+                        height: hoveredRect.height,
                     }}
-                ></div>
+                />
             ) : null}
-            {manipulateOverlayMode && hoverBorders && insertLineBox ? (
+            {manipulateOverlayMode && hoveredRect && insertPosition ? (
                 <div
-                    className={b('line', {
-                        position: insertLineBox.position,
-                    })}
+                    className={b('line', {position: insertPosition})}
                     style={{
-                        top: hoverBorders.top,
-                        left: hoverBorders.left,
-                        width: hoverBorders.width,
-                        height: hoverBorders.height,
+                        top: hoveredRect.top,
+                        left: hoveredRect.left,
+                        width: hoveredRect.width,
+                        height: hoveredRect.height,
                     }}
                 />
             ) : null}
