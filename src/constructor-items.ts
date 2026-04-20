@@ -45,8 +45,8 @@ import TableBlockConfig from './blocks/Table';
 import TabsBlockConfig from './blocks/Tabs';
 import {BlockConfig} from './form-generator-v2/types';
 import {BlockType, NavigationItemType, SubBlockType} from './models';
-import {GithubButton, NavigationButton, NavigationDropdown, NavigationLink} from './navigation';
-import SocialIcon from './navigation/components/SocialIcon/SocialIcon';
+import {GithubButton, NavigationButton, NavigationDropdown, NavigationLink} from './gravity-blocks/navigation';
+import SocialIcon from './gravity-blocks/navigation/components/SocialIcon/SocialIcon';
 import {
     BackgroundCard,
     BannerCard,

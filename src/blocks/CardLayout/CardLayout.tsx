@@ -3,8 +3,8 @@ import * as React from 'react';
 import isEmpty from 'lodash/isEmpty';
 
 import {AnimateBlock, BackgroundImage, Title} from '../../components';
-import {useTheme} from '../../context/theme';
-import {Col, Grid, GridColumnSizesType, GridJustifyContent, Row} from '../../grid';
+import {useTheme} from '../../gravity-blocks/context/theme';
+import {Col, Grid, GridColumnSizesType, GridJustifyContent, Row} from '../../gravity-blocks/grid';
 import {CardLayoutBlockProps as CardLayoutBlockParams, ClassNameProps} from '../../models';
 import {block, getThemedValue} from '../../utils';
 

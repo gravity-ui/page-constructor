@@ -1,5 +1,10 @@
-import {AnimatableProps, BaseProps, CardBase, MediaProps} from '../../schema/validators/common';
-import {AnalyticsEventSchema} from '../../schema/validators/event';
+import {
+    AnimatableProps,
+    BaseProps,
+    CardBase,
+    MediaProps,
+} from '../../gravity-blocks/schema/validators/common';
+import {AnalyticsEventSchema} from '../../gravity-blocks/schema/validators/event';
 
 export const MediaCardBlock = {
     'media-card': {

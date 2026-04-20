@@ -1,6 +1,6 @@
 import yfm from '@diplodoc/transform';
 import {ConstructorBlock} from '../src';
-import {contentTransformer} from '../src/text-transform';
+import {contentTransformer} from '../src/gravity-blocks/text-transform';
 
 export const yfmTransform = (content: string) => yfm(content).result.html;
 

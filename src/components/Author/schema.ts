@@ -1,4 +1,4 @@
-import {BaseProps, authorItem} from '../../schema/validators/common';
+import {BaseProps, authorItem} from '../../gravity-blocks/schema/validators/common';
 
 export const author = {
     author: {

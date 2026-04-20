@@ -1,10 +1,13 @@
 import React from 'react';
 
 import type {PageConstructorExtension} from '../containers/PageConstructor/PageConstructor';
-import {MediaProps, NavigationData, PageContent} from '../models';
+import {MediaProps, NavigationData, PageContent, Theme} from '../models';
 
 // Re-export GravityBlocksProvider and its props
-export {GravityBlocksProvider, type GravityBlocksProviderProps} from './GravityBlocksProvider';
+export {
+    GravityBlocksProvider,
+    type GravityBlocksProviderProps,
+} from '../gravity-blocks/context/GravityBlocksProvider';
 
 // Import extensions for internal use (before re-export)
 import {
@@ -14,7 +17,8 @@ import {
     BackgroundExtensionContentWrapper,
     NavigationExtension,
     NavigationExtensionContentWrapper,
-} from './extensions';
+    BlockBaseExtension,
+} from '../gravity-blocks/extensions';
 
 // Re-export all extensions
 export {
@@ -33,9 +37,11 @@ export {
     type NavigationExtensionGlobalConfig,
     type NavigationExtensionWrapperProps,
     type NavigationPageContent,
-} from './extensions';
+} from '../gravity-blocks/extensions';
 
 interface GravityBlocksWrapperProps {
+    isBranded?: boolean;
+    animated?: boolean;
     renderMenu?: () => React.ReactNode;
     microdata?: {
         contentUpdatedDate?: string;
@@ -67,6 +73,7 @@ export const GravityBlocksExtension = ({
 
     return [
         GeneralExtension({
+            wrapperProps: {theme: Theme.Dark},
             globalDefaults: {isBranded, animated},
         }),
         BackgroundExtension({
@@ -76,6 +83,7 @@ export const GravityBlocksExtension = ({
             wrapperProps,
             globalDefaults: {navigation},
         }),
+        BlockBaseExtension(),
     ];
 };
 

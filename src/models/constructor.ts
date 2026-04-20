@@ -1,10 +1,6 @@
 import * as React from 'react';
 
-import {
-    Animatable,
-    BlockDecorationProps,
-    ConstructorItem,
-} from './';
+import {Animatable, ConstructorItem} from './';
 
 export interface PageData {
     content: PageContent;
@@ -63,7 +59,4 @@ export interface CustomConfig {
     headers?: CustomItems;
     navigation?: CustomItems;
     loadable?: LoadableConfig;
-    decorators?: {
-        block?: ((props: BlockDecorationProps) => React.ReactElement)[];
-    };
 }

@@ -2,9 +2,9 @@ import * as React from 'react';
 
 import {BackgroundImage, FileLink} from '../../components';
 import {BREAKPOINTS} from '../../constants';
-import {useTheme} from '../../context/theme';
-import {useWindowWidth} from '../../context/windowWidthContext';
-import {Col, Grid} from '../../grid';
+import {useTheme} from '../../gravity-blocks/context/theme';
+import {useWindowWidth} from '../../gravity-blocks/context/windowWidthContext';
+import {Col, Grid} from '../../gravity-blocks/grid';
 import {ContentLayoutBlockProps, ContentSize, ContentTextSize} from '../../models';
 import {Content} from '../../sub-blocks';
 import {block, getThemedValue} from '../../utils';

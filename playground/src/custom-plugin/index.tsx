@@ -29,7 +29,6 @@ export const ExperementalBlocksContentWrapper: React.FC<
         content: {logo, menuItems},
     } = useContent<ExperementalPageContent>();
 
-    console.log('content', logo, menuItems);
     const [compact, setCompact] = React.useState(false);
 
     return (
@@ -63,7 +62,10 @@ export const ExperementalBlocksExtension = ({
 }: {
     wrapperProps?: ExperementalBlocksWrapperProps;
     globalDefaults?: ExperementalBlocksGlobalConfig;
-} = {}): PageConstructorExtension<ExperementalBlocksGlobalConfig, ExperementalBlocksWrapperProps> => {
+} = {}): PageConstructorExtension<
+    ExperementalBlocksGlobalConfig,
+    ExperementalBlocksWrapperProps
+> => {
     return {
         name: 'Experemental Blocks Extension',
         id: '@Experemental-ui/page-constructor/Experemental-blocks-extension',

@@ -6,7 +6,7 @@ import userEvent from '@testing-library/user-event';
 import {TARGETS} from '../../../../test-utils/constants';
 import {testCustomClassName} from '../../../../test-utils/shared/common';
 import {PageConstructorProvider} from '../../../containers/PageConstructor';
-import {AnalyticsContextProps} from '../../../context/analyticsContext';
+import {AnalyticsContextProps} from '../../../gravity-blocks/context/analyticsContext';
 import {CardBorder} from '../../../models';
 import {getQaAttrubutes} from '../../../utils';
 import CardBase, {CardBasePropsType} from '../CardBase';

@@ -6,9 +6,9 @@ import debounce from 'lodash/debounce';
 import _ReactPlayer from 'react-player';
 import type {ReactPlayerProps} from 'react-player';
 
-import {MobileContext} from '../../context/mobileContext';
-import {VideoContext} from '../../context/videoContext';
-import {useAnalytics, useImageSize, useMount} from '../../hooks';
+import {MobileContext} from '../../gravity-blocks/context/mobileContext';
+import {VideoContext} from '../../gravity-blocks/context/videoContext';
+import {useAnalytics, useImageSize, useMount} from '../../gravity-blocks/hooks';
 import {
     AnalyticsEvent,
     ClassNameProps,

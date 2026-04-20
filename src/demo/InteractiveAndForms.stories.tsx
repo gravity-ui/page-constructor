@@ -3,10 +3,10 @@ import {Meta, StoryFn} from '@storybook/react';
 import {scriptsSrc, ymapApiKeyForStorybook} from '../../.storybook/maps';
 import {blockTransform} from '../../.storybook/utils';
 import {PageConstructorProvider, PageConstructor} from '../containers/PageConstructor';
-import {MapType} from '../context/mapsContext/mapsContext';
-import {MapProvider} from '../context/mapsContext/mapsProvider';
+import {MapType} from '../gravity-blocks/context/mapsContext/mapsContext';
+import {MapProvider} from '../gravity-blocks/context/mapsContext/mapsProvider';
 import {CustomConfig, NavigationData, PageContent} from '../models';
-import {CustomButton} from '../navigation/__stories__/CustomButton/CustomButton';
+import {CustomButton} from '../gravity-blocks/navigation/__stories__/CustomButton/CustomButton';
 import {GravityBlocksProvider, GravityBlocksExtension} from '../blocks/settings';
 
 import filterData from '../blocks/FilterBlock/__stories__/data.json';
@@ -14,7 +14,7 @@ import formData from '../blocks/Form/__stories__/data.json';
 import iconsData from '../blocks/Icons/__stories__/data.json';
 import mapData from '../blocks/Map/__stories__/data.json';
 import shareData from '../blocks/Share/__stories__/data.json';
-import navData from '../navigation/__stories__/data.json';
+import navData from '../gravity-blocks/navigation/__stories__/data.json';
 
 export default {
     title: 'Lab/Tokenization/Blocks/InteractiveAndForms',

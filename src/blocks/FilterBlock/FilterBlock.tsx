@@ -4,8 +4,8 @@ import {CardLayoutBlock} from '..';
 import {AnimateBlock, Title} from '../../components';
 import ButtonTabs, {ButtonTabsItemProps} from '../../components/ButtonTabs/ButtonTabs';
 import {ConstructorItem} from '../../containers/PageConstructor/components/ConstructorItem';
+import {Col, Grid, Row} from '../../gravity-blocks/grid';
 import {useAnalytics} from '../../hooks';
-import {Col, Grid, Row} from '../../grid';
 import {FilterBlockProps, FilterItem} from '../../models';
 import {block, getBlockKey} from '../../utils';
 

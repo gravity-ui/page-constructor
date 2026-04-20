@@ -1,0 +1,85 @@
+import * as React from 'react';
+
+import BlockBase from '../../components/BlockBase/BlockBase';
+import type {BlockBaseProps, BlockWrapperDataProps} from '../../models';
+import type {PageConstructorExtension} from '../../containers/PageConstructor/PageConstructor';
+
+export const BlockBaseExtensionBlockWrapper: React.FC<
+    BlockWrapperDataProps<BlockBaseProps> & React.PropsWithChildren
+> = ({props, content, children}) => (
+    <BlockBase
+        anchor={content.anchor || props?.anchor}
+        indent={content.indent || props?.indent}
+        visible={content?.visible || props?.visible}
+        resetPaddings={content?.resetPaddings || props?.resetPaddings}
+        qa={content?.qa || props?.qa}
+    >
+        {children}
+    </BlockBase>
+);
+
+export const BlockBaseExtension = (): PageConstructorExtension<{}, {}, BlockBaseProps> => ({
+    name: 'Block Base',
+    id: '@gravity-ui/page-constructor/block-base',
+    settings: {
+        blockWrapper: BlockBaseExtensionBlockWrapper,
+        blockInputs: [
+            {
+                type: 'section',
+                title: 'Block Base',
+                fields: [
+                    {
+                        type: 'textInput',
+                        title: 'Anchor',
+                        name: 'anchor.url',
+                    },
+                    {
+                        type: 'textInput',
+                        title: 'Anchor text',
+                        name: 'anchor.text',
+                    },
+                    {
+                        type: 'select',
+                        title: 'Top indent',
+                        name: 'indent.top',
+                        hasClear: true,
+                        options: [
+                            {value: '0'},
+                            {value: 'xs'},
+                            {value: 's'},
+                            {value: 'm'},
+                            {value: 'l'},
+                            {value: 'xl'},
+                        ],
+                    },
+                    {
+                        type: 'select',
+                        title: 'Bottom indent',
+                        name: 'indent.bottom',
+                        hasClear: true,
+                        options: [
+                            {value: '0'},
+                            {value: 'xs'},
+                            {value: 's'},
+                            {value: 'm'},
+                            {value: 'l'},
+                            {value: 'xl'},
+                        ],
+                    },
+                    {
+                        type: 'select',
+                        title: 'Hide on breakpoint',
+                        name: 'visible',
+                        hasClear: true,
+                        options: [
+                            {value: 'sm', content: 'SM only'},
+                            {value: 'md', content: 'MD and down'},
+                            {value: 'lg', content: 'LG and down'},
+                            {value: 'xl', content: 'XL and down'},
+                        ],
+                    },
+                ],
+            },
+        ],
+    },
+});

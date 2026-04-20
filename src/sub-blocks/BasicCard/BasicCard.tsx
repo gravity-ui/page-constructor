@@ -1,7 +1,7 @@
 import {useUniqId} from '@gravity-ui/uikit';
 
 import {CardBase, IconWrapper} from '../../components';
-import {useTheme} from '../../context/theme';
+import {useTheme} from '../../gravity-blocks/context/theme';
 import {BasicCardProps} from '../../models';
 import {IconPosition} from '../../models/constructor-items/sub-blocks';
 import {block, getThemedValue} from '../../utils';

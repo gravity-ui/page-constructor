@@ -5,7 +5,7 @@ import {
     ChildrenCardsProps,
     sliderSizesObject,
     textSize,
-} from '../../schema/validators/common';
+} from '../../gravity-blocks/schema/validators/common';
 
 const LoadableProps = {
     additionalProperties: false,

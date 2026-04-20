@@ -11,12 +11,23 @@ import {InnerContext} from '../../context/innerContext';
 import {Fields} from '../../form-generator-v2/types';
 import {usePCEditorInitializeEvents} from '../../hooks/usePCEditorInitializeEvents';
 import {usePCEditorStore} from '../../hooks/usePCEditorStore';
-import {CustomConfig, CustomItems, PageContent, ShouldRenderBlock} from '../../models';
+import {
+    BlockWrapperDataProps,
+    CustomConfig,
+    CustomItems,
+    PageContent,
+    ShouldRenderBlock,
+} from '../../models';
 import {block as cnBlock, getCustomItems} from '../../utils';
+import {ConstructorBlocks} from './components';
+import {ConstructorRow} from './components/ConstructorRow';
+
+import './PageConstructor.scss';
 
 export interface PageConstructorExtension<
     GlobalConfig extends Object = {},
     WrapperProps extends Object = {},
+    BlockWrapperProps extends Object = {},
 > {
     name: string;
     id: string;
@@ -25,21 +36,13 @@ export interface PageConstructorExtension<
         contentWrapperProps?: WrapperProps;
         globalInputs?: Fields;
         globalDefaults?: GlobalConfig;
+        blockWrapper?: React.ComponentType<
+            BlockWrapperDataProps<BlockWrapperProps> & React.PropsWithChildren
+        >;
+        blockWrapperProps?: BlockWrapperProps;
+        blockInputs?: Fields;
     };
 }
-
-/**
- * @deprecated Use PageConstructorExtension instead
- */
-export type PageConstructorPlugin<
-    GlobalConfig extends Object = {},
-    WrapperProps extends Object = {},
-> = PageConstructorExtension<GlobalConfig, WrapperProps>;
-
-import {ConstructorBlocks} from './components';
-import {ConstructorRow} from './components/ConstructorRow';
-
-import './PageConstructor.scss';
 
 const b = cnBlock('page-constructor');
 
@@ -51,15 +54,8 @@ export interface PageConstructorProps {
     content?: PageContent;
     shouldRenderBlock?: ShouldRenderBlock;
     custom?: CustomConfig;
-    microdata?: {
-        contentUpdatedDate?: string;
-    };
     blocks?: Array<BlockData>;
     extensions?: Array<PageConstructorExtension>;
-    /**
-     * @deprecated Use extensions instead
-     */
-    plugins?: Array<PageConstructorExtension>;
 }
 
 export const PageConstructor = (props: PageConstructorProps) => {
@@ -67,14 +63,11 @@ export const PageConstructor = (props: PageConstructorProps) => {
         content: {blocks = []} = {},
         shouldRenderBlock,
         custom,
-        microdata,
         blocks: availableLocalBlocks = [],
         extensions: extensionsProp,
-        plugins: pluginsProp,
     } = props;
 
-    // Support both extensions (new) and plugins (deprecated) for backward compatibility
-    const extensions = extensionsProp ?? pluginsProp ?? [];
+    const extensions = extensionsProp ?? [];
 
     const {blocks: availableGlobalBlocks} = React.useContext(BlocksContext);
 
@@ -103,6 +96,26 @@ export const PageConstructor = (props: PageConstructorProps) => {
 
     const blockRegistry = useBlockRegistryProvider();
 
+    const blockWrappers = React.useMemo(
+        () =>
+            extensions
+                .filter((ext) => ext.settings.blockWrapper)
+                .map((ext) => ({
+                    wrapper: ext.settings.blockWrapper!,
+                    props: ext.settings.blockWrapperProps ?? {},
+                })),
+        [extensions],
+    );
+
+    const blockInputs = React.useMemo(
+        () =>
+            extensions.reduce<Fields>(
+                (acc, ext) => [...acc, ...((ext.settings.blockInputs || []) as Fields)],
+                [],
+            ),
+        [extensions],
+    );
+
     usePCEditorInitializeEvents({
         initialContent: content,
         setContent,
@@ -111,6 +124,7 @@ export const PageConstructor = (props: PageConstructorProps) => {
             (acc, extension) => [...acc, ...((extension.settings.globalInputs || []) as Fields)],
             [],
         ),
+        blockInputs,
         registry: blockRegistry,
     });
 
@@ -123,14 +137,11 @@ export const PageConstructor = (props: PageConstructorProps) => {
             },
             loadables: custom?.loadable,
             shouldRenderBlock,
-            customization: {
-                decorators: custom?.decorators,
-            },
-            microdata,
+            blockWrappers,
             content,
             setContent,
         }),
-        [custom, shouldRenderBlock, microdata, availableBlocks, content, setContent],
+        [custom, shouldRenderBlock, availableBlocks, content, setContent, blockWrappers],
     );
 
     const restBlocks = content.blocks;

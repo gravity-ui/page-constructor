@@ -1,5 +1,5 @@
 import {BackgroundImage, Button, RouterLink, YFMWrapper} from '../../components';
-import {useTheme} from '../../context/theme';
+import {useTheme} from '../../gravity-blocks/context/theme';
 import {BannerCardProps} from '../../models';
 import {block, getThemedValue} from '../../utils';
 

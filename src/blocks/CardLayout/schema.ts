@@ -6,7 +6,7 @@ import {
     BorderProps,
     ChildrenCardsProps,
     containerSizesObject,
-} from '../../schema/validators/common';
+} from '../../gravity-blocks/schema/validators/common';
 
 export const CardLayoutProps = {
     additionalProperties: false,

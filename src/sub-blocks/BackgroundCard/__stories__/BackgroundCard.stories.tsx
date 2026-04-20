@@ -4,7 +4,7 @@ import {blockTransform} from '../../../../.storybook/utils';
 import CardLayout, {CardLayoutBlockProps} from '../../../blocks/CardLayout/CardLayout';
 import {BlockBase} from '../../../components';
 import {ConstructorRow} from '../../../containers/PageConstructor/components/ConstructorRow';
-import {Grid} from '../../../grid';
+import {Grid} from '../../../gravity-blocks/grid';
 import {BackgroundCardModel, BackgroundCardProps, CardLayoutBlockModel} from '../../../models';
 import BackgroundCard from '../BackgroundCard';
 

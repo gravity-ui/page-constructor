@@ -45,6 +45,10 @@ export default function PCPage({id}: PCPageProps) {
                 <PageConstructor
                     content={page.content}
                     extensions={GravityBlocksExtension({
+                        wrapperProps: {
+                            isBranded: true,
+                            animated: true,
+                        },
                         globalDefaults: {
                             isBranded: true,
                             navigation: page.navigation,

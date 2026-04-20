@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import {Waypoint} from 'react-waypoint';
 
-import {AnimateContext, AnimateContextProps} from '../../context/animateContext/AnimateContext';
+import {AnimateContext, AnimateContextProps} from '../../gravity-blocks/context/animateContext';
 import {QAProps} from '../../models';
 import {block} from '../../utils';
 

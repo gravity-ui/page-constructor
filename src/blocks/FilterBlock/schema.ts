@@ -3,9 +3,9 @@ import {
     BlockBaseProps,
     BlockHeaderProps,
     containerSizesObject,
-} from '../../schema/validators/common';
-import {AnalyticsEventSchema} from '../../schema/validators/event';
-import {filteredArray} from '../../schema/validators/utils';
+} from '../../gravity-blocks/schema/validators/common';
+import {AnalyticsEventSchema} from '../../gravity-blocks/schema/validators/event';
+import {filteredArray} from '../../gravity-blocks/schema/validators/utils';
 
 export const FilterTagProps = {
     type: 'object',

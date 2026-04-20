@@ -1,0 +1,12 @@
+@import '../../../../../../../styles/variables';
+
+$block: '.#{$ns}content-wrapper';
+
+#{$block} {
+    &__icon {
+        display: flex;
+        margin-right: $navigationIconIndent;
+
+        object-fit: cover;
+    }
+}

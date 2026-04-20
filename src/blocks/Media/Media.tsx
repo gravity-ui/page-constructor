@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import Media from '../../components/Media/Media';
 import MediaBase from '../../components/MediaBase/MediaBase';
-import {useTheme} from '../../context/theme';
+import {useTheme} from '../../gravity-blocks/context/theme';
 import {MediaBlockProps} from '../../models';
 import {block, getThemedValue} from '../../utils';
 import {getMediaBorder} from '../../utils/borderSelector';

@@ -5,7 +5,7 @@ import {Icon, useActionHandlers, useUniqId} from '@gravity-ui/uikit';
 import debounce from 'lodash/debounce';
 import {v4 as uuidv4} from 'uuid';
 
-import {useAnalytics} from '../../hooks/useAnalytics';
+import {useAnalytics} from '../../gravity-blocks/hooks/useAnalytics';
 import {AnalyticsEventsBase, DefaultEventNames} from '../../models/common';
 import {block, getPageSearchParams} from '../../utils';
 import Image from '../Image/Image';

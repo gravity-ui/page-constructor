@@ -4,8 +4,8 @@ import {Link, useUniqId} from '@gravity-ui/uikit';
 
 import {Image} from '../../components';
 import {getMediaImage} from '../../components/Media/Image/utils';
-import {useTheme} from '../../context/theme';
-import {GridColumnSizesType} from '../../grid';
+import {useTheme} from '../../gravity-blocks/context/theme';
+import {GridColumnSizesType} from '../../gravity-blocks/grid';
 import {ImageCardDirection, ImageCardProps} from '../../models';
 import {block, getThemedValue} from '../../utils';
 import Content from '../Content/Content';

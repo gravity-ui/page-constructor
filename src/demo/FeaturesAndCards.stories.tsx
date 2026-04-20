@@ -10,7 +10,7 @@ import extendedFeaturesData from '../blocks/ExtendedFeatures/__stories__/data.js
 import headerSliderData from '../blocks/HeaderSlider/__stories__/data.json';
 import promoFeaturesData from '../blocks/PromoFeaturesBlock/__stories__/data.json';
 import sliderData from '../blocks/Slider/__stories__/data.json';
-import navData from '../navigation/__stories__/data.json';
+import navData from '../gravity-blocks/navigation/__stories__/data.json';
 
 export default {
     title: 'Lab/Tokenization/Blocks/FeaturesAndCards',

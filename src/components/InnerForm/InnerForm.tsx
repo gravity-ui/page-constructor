@@ -5,8 +5,8 @@ import {
     FormsContext,
     HubspotFormsContextProps,
     YandexFormsContextProps,
-} from '../../context/formsContext/FormsContext';
-import {useTheme} from '../../context/theme';
+} from '../../gravity-blocks/context/formsContext/FormsContext';
+import {useTheme} from '../../gravity-blocks/context/theme';
 import {FormBlockData, isHubspotDataForm, isYandexDataForm} from '../../models';
 import {HubspotForm} from '../../sub-blocks';
 import {getThemedValue} from '../../utils';
