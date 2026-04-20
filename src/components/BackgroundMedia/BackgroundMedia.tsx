@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import {MobileContext} from '../../context/mobileContext';
+import {MobileContext} from '../../gravity-blocks/context/mobileContext';
 import {BackgroundMediaProps} from '../../models';
 import {block, getQaAttrubutes} from '../../utils';
 import AnimateBlock from '../AnimateBlock/AnimateBlock';

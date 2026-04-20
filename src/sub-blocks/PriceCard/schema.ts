@@ -1,4 +1,9 @@
-import {BaseProps, ButtonBlock, CardBase, LinkProps} from '../../schema/validators/common';
+import {
+    BaseProps,
+    ButtonBlock,
+    CardBase,
+    LinkProps,
+} from '../../gravity-blocks/schema/validators/common';
 import {ContentBase} from '../Content/schema';
 
 export const PriceCardBlock = {

@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import {LocationContext} from '../../context/locationContext';
+import {LocationContext} from '../../gravity-blocks/context/locationContext';
 
 export interface RouterLinkProps {
     href: string;

@@ -3,10 +3,10 @@ import React from 'react';
 import {ThemeProvider} from '@gravity-ui/uikit';
 
 import BrandFooter from '../../components/BrandFooter/BrandFooter';
-import {AnimateContext} from '../../context/animateContext';
+import {AnimateContext} from '../../gravity-blocks/context/animateContext';
 import type {PageConstructorExtension} from '../../containers/PageConstructor/PageConstructor';
 import type {PageConstructorWrapperProps} from '../../common/types';
-import {useContent} from '../../hooks';
+import {useContent} from '../../gravity-blocks/hooks';
 import {block} from '../../utils';
 
 const b = block('page-constructor');

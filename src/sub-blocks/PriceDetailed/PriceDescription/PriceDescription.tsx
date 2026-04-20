@@ -3,7 +3,7 @@ import * as React from 'react';
 import {Label, LabelProps} from '@gravity-ui/uikit';
 
 import {YFMWrapper} from '../../../components';
-import {StylesContext} from '../../../context/stylesContext';
+import {StylesContext} from '../../../gravity-blocks/context/stylesContext';
 import {
     PriceDescriptionColor,
     PriceDescriptionProps,

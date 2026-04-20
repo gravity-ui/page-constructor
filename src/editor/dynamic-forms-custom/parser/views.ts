@@ -1,4 +1,4 @@
-import {Schema} from '../../../schema';
+import {Schema} from '../../../gravity-blocks/schema';
 
 import {CustomObjectSpec, CustomSpec} from './types';
 

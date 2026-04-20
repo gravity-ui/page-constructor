@@ -11,7 +11,6 @@ type SwitchProps = ClassNameProps & SwitchField & CommonProps;
 const Switch = ({title, when, name, content, onUpdate, className, defaultValue}: SwitchProps) => {
     const value = getValueByPath(content, name) ?? defaultValue ?? false;
 
-    console.log('value', value);
     return (
         <Base content={content} when={when} onUpdate={onUpdate}>
             <BaseInput title={title} className={className}>

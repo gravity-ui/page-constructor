@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import {InnerContext} from '../../context/innerContext';
+import {useMicrodata} from '../../gravity-blocks/context/microdataContext';
 import {MediaProps, QAProps} from '../../models';
 import {block, getQaAttrubutes} from '../../utils';
 import {sanitizeMicrodata} from '../../utils/microdata';
@@ -57,7 +57,7 @@ export const Media = (props: MediaAllProps) => {
     } = props;
 
     const [hasVideoFallback, setHasVideoFallback] = React.useState(false);
-    const {microdata} = React.useContext(InnerContext);
+    const microdata = useMicrodata();
 
     const qaAttributes = getQaAttrubutes(qa, 'video');
 

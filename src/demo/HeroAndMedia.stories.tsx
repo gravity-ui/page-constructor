@@ -10,7 +10,7 @@ import companiesData from '../blocks/Companies/__stories__/data.json';
 import headerData from '../blocks/Header/__stories__/data.json';
 import infoData from '../blocks/Info/__stories__/data.json';
 import mediaData from '../blocks/Media/__stories__/data.json';
-import navData from '../navigation/__stories__/data.json';
+import navData from '../gravity-blocks/navigation/__stories__/data.json';
 
 export default {
     title: 'Lab/Tokenization/Blocks/HeroAndMedia',

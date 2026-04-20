@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import {Table, YFMWrapper} from '../../components';
-import {Col, Grid, GridColumnSize, Row} from '../../grid';
+import {Col, Grid, GridColumnSize, Row} from '../../gravity-blocks/grid';
 import {TableBlockProps} from '../../models';
 import {block} from '../../utils';
 

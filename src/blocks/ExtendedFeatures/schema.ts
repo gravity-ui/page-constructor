@@ -5,9 +5,9 @@ import {
     LinkProps,
     containerSizesObject,
     withTheme,
-} from '../../schema/validators/common';
-import {ImageProps} from '../../schema/validators/components';
-import {filteredArray} from '../../schema/validators/utils';
+} from '../../gravity-blocks/schema/validators/common';
+import {ImageProps} from '../../gravity-blocks/schema/validators/components';
+import {filteredArray} from '../../gravity-blocks/schema/validators/utils';
 
 export const ExtendedFeaturesItem = {
     additionalProperties: false,

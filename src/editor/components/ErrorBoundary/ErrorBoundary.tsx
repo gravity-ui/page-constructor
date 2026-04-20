@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import {BlockDecorationProps} from '../../../models';
+import {BlockWrapperDataProps} from '../../../models';
 import {block} from '../../../utils';
 import {getBlockId} from '../../utils';
 
@@ -10,7 +10,7 @@ import './ErrorBoundary.scss';
 
 const b = block('error-boundary');
 
-interface ErrorBoundaryProps extends React.PropsWithChildren, Partial<BlockDecorationProps> {}
+interface ErrorBoundaryProps extends React.PropsWithChildren, Partial<BlockWrapperDataProps> {}
 interface ErrorBoundaryState {
     error?: string;
 }

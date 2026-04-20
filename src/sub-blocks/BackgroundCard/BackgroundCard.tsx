@@ -1,7 +1,7 @@
 import {useUniqId} from '@gravity-ui/uikit';
 
 import {BackgroundImage, CardBase} from '../../components/';
-import {useTheme} from '../../context/theme';
+import {useTheme} from '../../gravity-blocks/context/theme';
 import {BackgroundCardProps} from '../../models';
 import {block, getThemedValue} from '../../utils';
 import Content from '../Content/Content';

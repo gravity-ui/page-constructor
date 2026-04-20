@@ -3,13 +3,13 @@ import * as React from 'react';
 import {Button, Icon} from '@gravity-ui/uikit';
 
 import {YFMWrapper} from '../../components';
-import {LocationContext} from '../../context/locationContext';
-import {useAnalytics} from '../../hooks';
-import {Facebook} from '../../icons/Facebook';
-import {Linkedin} from '../../icons/Linkedin';
-import {Telegram} from '../../icons/Telegram';
-import {Twitter} from '../../icons/Twitter';
-import {Vk} from '../../icons/Vk';
+import {LocationContext} from '../../gravity-blocks/context/locationContext';
+import {useAnalytics} from '../../gravity-blocks/hooks';
+import {Facebook} from '../../gravity-blocks/icons/Facebook';
+import {Linkedin} from '../../gravity-blocks/icons/Linkedin';
+import {Telegram} from '../../gravity-blocks/icons/Telegram';
+import {Twitter} from '../../gravity-blocks/icons/Twitter';
+import {Vk} from '../../gravity-blocks/icons/Vk';
 import {DefaultEventNames, ShareBlockProps} from '../../models';
 import {block, getAbsolutePath, getShareLink} from '../../utils';
 

@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
-import {Col, Grid, GridColumnSize, Row} from '../../grid';
+import {Col, Grid, GridColumnSize, Row} from '../../gravity-blocks/grid';
 import {MediaBaseBlockProps} from '../../models';
 import {block} from '../../utils';
 import Title from '../Title/Title';

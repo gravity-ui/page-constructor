@@ -1,6 +1,6 @@
 import {Spec as DynamicFormSpec, ObjectSpec} from '@gravity-ui/dynamic-forms';
 
-import {Schema} from '../../../schema';
+import {Schema} from '../../../gravity-blocks/schema';
 
 export type OneOfSpec = {
     oneOf: DynamicFormSpec[];

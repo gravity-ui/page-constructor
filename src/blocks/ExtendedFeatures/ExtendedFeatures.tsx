@@ -1,8 +1,8 @@
 import {AnimateBlock, Title, YFMWrapper} from '../../components/';
 import Image from '../../components/Image/Image';
 import {getMediaImage} from '../../components/Media/Image/utils';
-import {useTheme} from '../../context/theme';
-import {Col, Grid, Row} from '../../grid';
+import {useTheme} from '../../gravity-blocks/context/theme';
+import {Col, Grid, Row} from '../../gravity-blocks/grid';
 import {ExtendedFeaturesProps} from '../../models';
 import {Content} from '../../sub-blocks';
 import {block, getThemedValue} from '../../utils';

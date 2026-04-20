@@ -1,9 +1,9 @@
 import * as React from 'react';
 
-import {LocaleContext} from '../../context/localeContext';
-import {MobileContext} from '../../context/mobileContext';
-import {ProjectSettingsContext} from '../../context/projectSettingsContext';
-import {useAnalytics} from '../../hooks';
+import {LocaleContext} from '../../gravity-blocks/context/localeContext';
+import {MobileContext} from '../../gravity-blocks/context/mobileContext';
+import {ProjectSettingsContext} from '../../gravity-blocks/context/projectSettingsContext';
+import {useAnalytics} from '../../gravity-blocks/hooks';
 import {YandexFormProps} from '../../models';
 import {DefaultEventNames} from '../../models/common';
 import {block} from '../../utils';

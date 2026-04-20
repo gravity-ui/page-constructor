@@ -5,7 +5,7 @@ import {getUniqId} from '@gravity-ui/uikit';
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
 import ButtonTabs, {ButtonTabsItemProps} from '../../components/ButtonTabs/ButtonTabs';
 import Title from '../../components/Title/Title';
-import {Col, Grid, GridJustifyContent, Row} from '../../grid';
+import {Col, Grid, GridJustifyContent, Row} from '../../gravity-blocks/grid';
 import {TabsBlockProps} from '../../models';
 import {block} from '../../utils';
 

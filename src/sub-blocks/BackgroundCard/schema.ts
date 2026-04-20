@@ -7,8 +7,8 @@ import {
     CardLayoutProps,
     containerSizesObject,
     withTheme,
-} from '../../schema/validators/common';
-import {AnalyticsEventSchema} from '../../schema/validators/event';
+} from '../../gravity-blocks/schema/validators/common';
+import {AnalyticsEventSchema} from '../../gravity-blocks/schema/validators/event';
 import {ContentBase} from '../Content/schema';
 
 const BackgroundCardContentProps = omit(ContentBase, ['size', 'controlPosition']);

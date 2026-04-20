@@ -1,4 +1,8 @@
-import {BaseProps, BlockBaseProps, JustifyProps} from '../../schema/validators/common';
+import {
+    BaseProps,
+    BlockBaseProps,
+    JustifyProps,
+} from '../../gravity-blocks/schema/validators/common';
 
 export const TableBlock = {
     'table-block': {

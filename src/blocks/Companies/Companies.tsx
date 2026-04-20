@@ -1,7 +1,7 @@
 import {Image, Title} from '../../components';
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
-import {useTheme} from '../../context/theme';
-import {Grid} from '../../grid';
+import {useTheme} from '../../gravity-blocks/context/theme';
+import {Grid} from '../../gravity-blocks/grid';
 import {CompaniesBlockProps} from '../../models';
 import {block, getThemedValue} from '../../utils';
 

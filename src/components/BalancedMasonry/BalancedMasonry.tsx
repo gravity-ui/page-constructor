@@ -4,7 +4,7 @@ import debounce from 'lodash/debounce';
 import first from 'lodash/first';
 import minBy from 'lodash/minBy';
 
-import {SSRContext} from '../../context/ssrContext';
+import {SSRContext} from '../../gravity-blocks/context/ssrContext';
 import {QAProps} from '../../models';
 import {block, getQaAttrubutes} from '../../utils';
 

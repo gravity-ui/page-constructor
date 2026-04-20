@@ -2,8 +2,8 @@ import * as React from 'react';
 
 import {Author, Button, Image, YFMWrapper} from '../../components';
 import {getMediaImage} from '../../components/Media/Image/utils';
-import {useTheme} from '../../context/theme';
-import {useAnalytics} from '../../hooks';
+import {useTheme} from '../../gravity-blocks/context/theme';
+import {useAnalytics} from '../../gravity-blocks/hooks';
 import {AuthorItem, AuthorType, DefaultEventNames, QuoteProps, QuoteType} from '../../models';
 import {block, getThemedValue} from '../../utils';
 

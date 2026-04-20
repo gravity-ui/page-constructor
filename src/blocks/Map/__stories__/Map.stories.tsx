@@ -5,8 +5,11 @@ import {Meta, StoryFn} from '@storybook/react';
 import {scriptsSrc, ymapApiKeyForStorybook} from '../../../../.storybook/maps';
 import {blockTransform} from '../../../../.storybook/utils';
 import {ApiKeyInput} from '../../../components/Map/__stories__/ApiKeyInput';
-import {MapType} from '../../../context/mapsContext/mapsContext';
-import {MapProvider, gmapApiKeyIdInLS} from '../../../context/mapsContext/mapsProvider';
+import {MapType} from '../../../gravity-blocks/context/mapsContext/mapsContext';
+import {
+    MapProvider,
+    gmapApiKeyIdInLS,
+} from '../../../gravity-blocks/context/mapsContext/mapsProvider';
 import {MapBlockModel, MapBlockProps} from '../../../models';
 import MapBlock from '../Map';
 

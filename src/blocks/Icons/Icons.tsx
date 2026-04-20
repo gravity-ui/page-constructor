@@ -1,10 +1,10 @@
 import * as React from 'react';
 
 import {Image, Title} from '../../components';
-import {LocationContext} from '../../context/locationContext';
-import {useTheme} from '../../context/theme';
-import {Grid} from '../../grid';
-import {useAnalytics} from '../../hooks';
+import {LocationContext} from '../../gravity-blocks/context/locationContext';
+import {useTheme} from '../../gravity-blocks/context/theme';
+import {Grid} from '../../gravity-blocks/grid';
+import {useAnalytics} from '../../gravity-blocks/hooks';
 import {IconsBlockItemProps, IconsBlockProps} from '../../models';
 import {block, getLinkProps, getThemedValue} from '../../utils';
 

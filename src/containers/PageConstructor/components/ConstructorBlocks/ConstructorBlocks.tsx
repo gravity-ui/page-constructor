@@ -4,9 +4,7 @@ import get from 'lodash/get';
 
 import EmptyBlocksWrapper from '../../../../components/editor/EmptyBlocksWrapper/EmptyBlocksWrapper';
 import {InnerContext} from '../../../../context/innerContext';
-import {BlockDecoration} from '../../../../customization/BlockDecoration';
 import {
-    BlockType,
     ConstructorBlock as ConstructorBlockType,
     LoadableProps,
     SubBlock,
@@ -32,11 +30,7 @@ export const ConstructorBlocks: React.FC<ConstructorBlocksProps> = ({items}) => 
         const blockData = blocks.find(({type}) => item.type === type);
 
         if (!blockData) {
-            return parentId ? null : (
-                <BlockDecoration type={item.type as BlockType} index={index}>
-                    {null}
-                </BlockDecoration>
-            );
+            return null;
         }
 
         let itemElement;

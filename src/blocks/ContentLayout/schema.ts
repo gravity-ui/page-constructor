@@ -5,8 +5,8 @@ import {
     contentSizes,
     contentTextWidth,
     contentThemes,
-} from '../../schema/validators/common';
-import {filteredArray} from '../../schema/validators/utils';
+} from '../../gravity-blocks/schema/validators/common';
+import {filteredArray} from '../../gravity-blocks/schema/validators/utils';
 import {ContentBlock} from '../../sub-blocks/Content/schema';
 
 const ContentLayoutBlockProperties = {

@@ -3,7 +3,7 @@ import {Meta, StoryFn} from '@storybook/react';
 import {blockTransform} from '../../.storybook/utils';
 import {PageConstructorProvider, PageConstructor} from '../containers/PageConstructor';
 import {CustomConfig, NavigationData, PageContent} from '../models';
-import {CustomComponent} from '../navigation/__stories__/CustomComponent/CustomComponent';
+import {CustomComponent} from '../gravity-blocks/navigation/__stories__/CustomComponent/CustomComponent';
 import {GravityBlocksProvider, GravityBlocksExtension} from '../blocks/settings';
 
 import contentLayoutData from '../blocks/ContentLayout/__stories__/data.json';
@@ -11,7 +11,7 @@ import foldableListData from '../blocks/FoldableList/__stories__/data.json';
 import questionsData from '../blocks/Questions/__stories__/data.json';
 import tableData from '../blocks/Table/__stories__/data.json';
 import tabsData from '../blocks/Tabs/__stories__/data.json';
-import navData from '../navigation/__stories__/data.json';
+import navData from '../gravity-blocks/navigation/__stories__/data.json';
 
 export default {
     title: 'Lab/Tokenization/Blocks/ContentAndData',

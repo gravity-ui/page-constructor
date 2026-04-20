@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import {useAnalytics} from '../../hooks';
+import {useAnalytics} from '../../gravity-blocks/hooks';
 import {DefaultEventNames, HeaderBreadCrumbsProps} from '../../models';
 import {block} from '../../utils';
 

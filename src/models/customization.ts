@@ -1,9 +1,25 @@
 import * as React from 'react';
 
-import {BlockBaseProps, BlockType} from './constructor-items';
+import {BlockType, ConstructorItem} from './constructor-items';
 
-export interface BlockDecorationProps extends React.PropsWithChildren, BlockBaseProps {
-    type: BlockType | string;
+export interface BlockWrapperDataProps<T = Record<string, unknown>> {
+    type: string;
     index?: number;
+    props: T;
+    content: ConstructorItem & T;
 }
+
+/**
+ * @deprecated Use BlockWrapperDataProps instead.
+ * BlockDecorationProps will be removed in the next major version.
+ */
+export interface BlockDecorationProps
+    extends React.PropsWithChildren,
+        Omit<BlockWrapperDataProps, 'type'> {
+    type: BlockType | string;
+}
+
+/**
+ * @deprecated Use PageConstructorExtension with blockWrapper instead.
+ */
 export type BlockDecorator = (props: BlockDecorationProps) => React.ReactElement;

@@ -2,8 +2,8 @@ import omit from 'lodash/omit';
 
 import {Media} from '../../blocks/Media/schema';
 import metaInfo from '../../components/MetaInfo/schema';
-import {BaseProps, CardLayoutProps} from '../../schema/validators/common';
-import {AnalyticsEventSchema} from '../../schema/validators/event';
+import {BaseProps, CardLayoutProps} from '../../gravity-blocks/schema/validators/common';
+import {AnalyticsEventSchema} from '../../gravity-blocks/schema/validators/event';
 import {ContentBase} from '../../sub-blocks/Content/schema';
 
 export const LayoutItem = {

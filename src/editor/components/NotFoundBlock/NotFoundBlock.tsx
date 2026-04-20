@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import {BlockBase} from '../../../components';
-import {BlockDecorationProps} from '../../../models';
+import {BlockWrapperDataProps} from '../../../models';
 import {block} from '../../../utils';
 
 import {i18n} from './i18n';
@@ -10,7 +10,7 @@ import './NotFoundBlock.scss';
 
 const b = block('not-found-block');
 
-export const NotFoundBlock = ({type, children}: BlockDecorationProps) =>
+export const NotFoundBlock = ({type, children}: BlockWrapperDataProps & React.PropsWithChildren) =>
     children ? (
         <React.Fragment>{children}</React.Fragment>
     ) : (

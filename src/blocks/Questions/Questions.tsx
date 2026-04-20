@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import {Col, Grid, Row} from '../../grid';
+import {Col, Grid, Row} from '../../gravity-blocks/grid';
 import {QuestionsProps} from '../../models';
 import {Content} from '../../sub-blocks';
 import {block} from '../../utils';

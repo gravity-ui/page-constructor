@@ -16,6 +16,7 @@ interface UseEditorInitializeProps {
     setContent: (content: PageContent) => void;
     blocks: Array<BlockData>;
     global?: Fields;
+    blockInputs?: Fields;
     registry: BlockRegistry | null;
 }
 
@@ -31,6 +32,7 @@ export const usePCEditorInitializeEvents = ({
     setContent,
     blocks,
     global,
+    blockInputs,
     registry,
 }: UseEditorInitializeProps) => {
     const {initialized, content} = usePCEditorStore();
@@ -47,7 +49,16 @@ export const usePCEditorInitializeEvents = ({
 
     useInternalPostMessageAPIListener('GET_SUPPORTED_BLOCKS', () => {
         sendEventPostMessage('ON_SUPPORTED_BLOCKS', {
-            blocks: blocks.map((block) => ({type: block.type, schema: block.schema})),
+            blocks: blocks.map((block) => ({
+                type: block.type,
+                schema:
+                    blockInputs?.length
+                        ? {
+                              ...block.schema,
+                              inputs: [...blockInputs, ...(block.schema?.inputs || [])],
+                          }
+                        : block.schema,
+            })),
             subBlocks: [],
             global: global || [],
         });
@@ -55,7 +66,6 @@ export const usePCEditorInitializeEvents = ({
 
     const onResize = React.useCallback(() => {
         const height = document.documentElement.getBoundingClientRect().height;
-        console.log('height', height);
         sendEventPostMessage('ON_RESIZE', {height});
     }, []);
 

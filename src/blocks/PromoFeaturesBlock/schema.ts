@@ -1,5 +1,9 @@
-import {AnimatableProps, BlockBaseProps, BlockHeaderProps} from '../../schema/validators/common';
-import {filteredArray} from '../../schema/validators/utils';
+import {
+    AnimatableProps,
+    BlockBaseProps,
+    BlockHeaderProps,
+} from '../../gravity-blocks/schema/validators/common';
+import {filteredArray} from '../../gravity-blocks/schema/validators/utils';
 import {Media} from '../Media/schema';
 
 export const PromoFeaturesItem = {

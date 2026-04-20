@@ -1,6 +1,6 @@
-import {AnimatableProps, BaseProps, textSize} from '../../schema/validators/common';
-import {AnalyticsEventSchema} from '../../schema/validators/event';
-import {filteredArray} from '../../schema/validators/utils';
+import {AnimatableProps, BaseProps, textSize} from '../../gravity-blocks/schema/validators/common';
+import {AnalyticsEventSchema} from '../../gravity-blocks/schema/validators/event';
+import {filteredArray} from '../../gravity-blocks/schema/validators/utils';
 
 const PriceDetailedDetailsType = ['marked-list', 'settings'];
 const PriceDetailedDescriptionColor = ['cornflower', 'black'];

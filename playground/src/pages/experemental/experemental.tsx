@@ -14,7 +14,11 @@ import contentExample2 from './example-2/content.json';
 import navigationExample2 from './example-2/navigation.json';
 import {ExperementalBlocksExtension} from '../../custom-plugin';
 
-const customBlocks = [CustomParentBlockConfig, CustomChildrenBlockConfig, DefinitionListBlockConfig];
+const customBlocks = [
+    CustomParentBlockConfig,
+    CustomChildrenBlockConfig,
+    DefinitionListBlockConfig,
+];
 
 interface PCPageProps {
     id?: string | null;
@@ -39,8 +43,6 @@ export default function PCPage({id}: PCPageProps) {
                 };
         }
     }, [pageId]);
-
-    console.log(page);
 
     return (
         <PageConstructorProvider blocks={customBlocks}>
