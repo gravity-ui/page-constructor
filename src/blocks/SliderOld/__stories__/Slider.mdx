@@ -26,6 +26,12 @@ The slider supports two types of content: loadable and from a config. Loadable c
 
 `randomOrder?: bool`: Enables a random slide order.
 
+`adaptive?: bool`: Enables adaptive height for slides.
+
+`autoplay?: number`: Autoplay speed in milliseconds. Set to 0 or leave undefined to disable.
+
+`disclaimer?: { text: string; size?: TextSize }` — Disclaimer text displayed below the slider.
+
 `slidesToShow?: Record<'all' | 'sm' | 'md' | 'lg' | 'xl', number> | number`: How many slides to show on screens of different width. Overrides the default values. They can be overridden for each screen width. You can also set a single numeric value so that the number of slides is always the same (except for mobiles, where the value is always 1).
 
 Default values:
