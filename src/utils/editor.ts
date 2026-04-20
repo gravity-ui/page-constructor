@@ -13,11 +13,11 @@ export const getCursorPositionOverElement = (
         if (cursorRatioY >= 1) {
             return 'bottom';
         } else {
-            return 'left';
+            return 'top';
         }
     } else if (cursorRatioX >= 1) {
         return 'right';
     } else {
-        return 'top';
+        return 'left';
     }
 };

@@ -93,7 +93,7 @@ const MiddleScreen = ({className, CustomTop}: MiddleScreenProps) => {
                         </div>
                         {isPreviewMode && (
                             <Button
-                                view="action"
+                                view="normal-contrast"
                                 className={b('exit-preview')}
                                 onClick={togglePreviewMode}
                                 aria-label="Exit preview mode"

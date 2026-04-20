@@ -8,17 +8,7 @@ import {usePostMessageEvents} from './usePostMessageEvents';
 
 const useMainEditorInitialize = (initialContent?: PageContent) => {
     const {requestPostMessage} = usePostMessageEvents();
-    const {
-        initialize,
-        setConfig,
-        setContent,
-        manipulateOverlayMode,
-        disableMode,
-        insertBlock,
-        reorderBlock,
-        preInsertBlockType,
-        preReorderBlockPath,
-    } = useMainEditorStore();
+    const {initialize, setConfig, setContent} = useMainEditorStore();
 
     usePostMessageAPIListener(
         'ON_INIT',
@@ -47,28 +37,6 @@ const useMainEditorInitialize = (initialContent?: PageContent) => {
     usePostMessageAPIListener('ON_SUPPORTED_BLOCKS', (data) => {
         setConfig(data);
     });
-
-    usePostMessageAPIListener(
-        'ON_MOUSE_UP',
-        ({path, position}) => {
-            if (manipulateOverlayMode === 'insert' && path && preInsertBlockType) {
-                insertBlock(
-                    path,
-                    preInsertBlockType,
-                    ['left', 'top'].includes(position || '') ? 'prepend' : 'append',
-                );
-            }
-            if (manipulateOverlayMode === 'reorder' && path && preReorderBlockPath) {
-                reorderBlock(
-                    preReorderBlockPath,
-                    path,
-                    ['left', 'top'].includes(position || '') ? 'prepend' : 'append',
-                );
-            }
-            disableMode();
-        },
-        [preInsertBlockType, preReorderBlockPath],
-    );
 };
 
 export default useMainEditorInitialize;

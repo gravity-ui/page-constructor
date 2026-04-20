@@ -12,9 +12,9 @@ export interface ChildrenItemWrapProps extends React.PropsWithChildren {
 }
 
 const ChildrenItemWrap = ({index, children}: ChildrenItemWrapProps) => {
-    const {blockRef, adminBlockMouseEvents} = usePCEditorChildrenItemWrap(index);
+    const {blockRef} = usePCEditorChildrenItemWrap(index);
     return (
-        <div ref={blockRef} className={b()} {...adminBlockMouseEvents}>
+        <div ref={blockRef} className={b()}>
             {children}
         </div>
     );
