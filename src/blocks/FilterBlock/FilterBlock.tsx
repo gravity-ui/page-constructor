@@ -5,6 +5,7 @@ import {AnimateBlock, Title} from '../../components';
 import ButtonTabs, {ButtonTabsItemProps} from '../../components/ButtonTabs/ButtonTabs';
 import {ConstructorItem} from '../../containers/PageConstructor/components/ConstructorItem';
 import {Col, Row} from '../../grid';
+import {useAnalytics} from '../../hooks';
 import {FilterBlockProps, FilterItem} from '../../models';
 import {block, getBlockKey} from '../../utils';
 
@@ -20,19 +21,30 @@ const FilterBlock = ({
     tags,
     tagButtonSize,
     allTag,
+    allTagAnalyticsEvent,
     items,
     colSizes,
     centered,
     animated,
 }: FilterBlockProps) => {
+    const handleAnalytics = useAnalytics();
     const tabButtons = React.useMemo(() => {
         const allButton: ButtonTabsItemProps | undefined = allTag
-            ? {id: null, title: typeof allTag === 'boolean' ? i18n('label-all-tag') : allTag}
+            ? {
+                  id: null,
+                  title: typeof allTag === 'boolean' ? i18n('label-all-tag') : allTag,
+                  analyticsEvent: allTagAnalyticsEvent,
+              }
             : undefined;
         const otherButtons: ButtonTabsItemProps[] | undefined =
-            tags && tags.map((tag) => ({id: tag.id, title: tag.label}));
+            tags &&
+            tags.map((tag) => ({
+                id: tag.id,
+                title: tag.label,
+                analyticsEvent: tag.analyticsEvent,
+            }));
         return [...(allButton ? [allButton] : []), ...(otherButtons ? otherButtons : [])];
-    }, [allTag, tags]);
+    }, [allTag, allTagAnalyticsEvent, tags]);
 
     const [selectedTag, setSelectedTag] = React.useState(
         tabButtons.length ? tabButtons[0].id : null,
@@ -52,6 +64,18 @@ const FilterBlock = ({
         return itemsToShow.map((item) => item.card);
     }, [actualTag, items]);
 
+    const handleSelectTab = React.useCallback(
+        (tabId: string | null) => {
+            setSelectedTag(tabId);
+
+            const tabButton = tabButtons.find((tab) => tab.id === tabId);
+            if (tabButton?.analyticsEvent) {
+                handleAnalytics(tabButton.analyticsEvent);
+            }
+        },
+        [tabButtons, handleAnalytics],
+    );
+
     return (
         <AnimateBlock className={b()} animate={animated}>
             {title && (
@@ -68,7 +92,7 @@ const FilterBlock = ({
                             className={b('tabs', {centered: centered})}
                             items={tabButtons}
                             activeTab={selectedTag}
-                            onSelectTab={setSelectedTag}
+                            onSelectTab={handleSelectTab}
                             tabSize={tagButtonSize}
                         />
                     </Col>

@@ -5,7 +5,7 @@ import {ButtonSize} from '@gravity-ui/uikit';
 import {GridColumnSize, GridColumnSizesType, IndentValue} from '../../grid/types';
 import {ThemeSupporting} from '../../utils';
 import {DeviceSupporting} from '../../utils/breakpoint';
-import {AnalyticsEventsBase} from '../common';
+import {AnalyticsEventsBase, AnalyticsEventsProp} from '../common';
 
 import {
     AnchorProps,
@@ -402,6 +402,7 @@ export interface CardLayoutBlockProps extends Childable, Animatable, LoadableChi
 export type FilterTag = {
     id: string;
     label: string;
+    analyticsEvent?: AnalyticsEventsProp;
 };
 
 export type FilterItem = {
@@ -416,6 +417,7 @@ export interface FilterBlockProps extends Animatable {
     description?: string;
     tagButtonSize?: ButtonSize;
     allTag?: boolean | string;
+    allTagAnalyticsEvent?: AnalyticsEventsProp;
     colSizes?: GridColumnSizesType;
     centered?: boolean;
 }

@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import {ButtonSize} from '@gravity-ui/uikit';
 
-import {ButtonProps, QAProps} from '../../models';
+import {AnalyticsEventsProp, ButtonProps, QAProps} from '../../models';
 import {block} from '../../utils';
 import {Button} from '../index';
 
@@ -14,6 +14,7 @@ export interface ButtonTabsItemProps
     extends Omit<ButtonProps, 'url' | 'primary' | 'target' | 'text'> {
     id: string | null;
     title: string;
+    analyticsEvent?: AnalyticsEventsProp;
 }
 
 export interface ButtonTabsProps extends QAProps {
