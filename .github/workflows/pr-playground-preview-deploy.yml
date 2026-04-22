@@ -2,7 +2,7 @@ name: PR Playground Deploy
 
 on:
   workflow_run:
-    workflows: ['PR Preview Build']
+    workflows: ['PR Playground Build']
     types:
       - completed
 
