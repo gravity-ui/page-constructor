@@ -1,4 +1,4 @@
-name: PR Preview Deploy
+name: PR Playground Deploy
 
 on:
   workflow_run:
