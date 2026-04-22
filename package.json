@@ -272,5 +272,9 @@
     "*.{json,yaml,yml,md}": [
       "prettier --write"
     ]
+  },
+  "optionalDependencies": {
+    "@rollup/rollup-linux-x64-gnu": "^4.60.1",
+    "@rollup/rollup-darwin-arm64": "^4.60.1"
   }
 }
