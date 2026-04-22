@@ -47,9 +47,9 @@ jobs:
       - name: Save PR ID
         run: |
           if [ "${{ github.event_name }}" = "pull_request" ]; then
-            pr_id="${{ github.event.pull_request.number }}-playground"
+            pr_id="${{ github.event.pull_request.number }}"
           else
-            pr_id="${{ inputs.pr_number }}-playground"
+            pr_id="${{ inputs.pr_number }}"
           fi
           echo "$pr_id" > pr-id.txt
         shell: bash
@@ -85,7 +85,7 @@ jobs:
         uses: gravity-ui/upload-to-s3-action@v1
         with:
           src-path: static
-          dest-path: /page-constructor/pulls/${{ steps.preview.outputs.id }}/
+          dest-path: /page-constructor-playground/pulls/${{ steps.preview.outputs.id }}/
           bucket: storybook-static
           endpoint-url: https://storage.yandexcloud.net
           s3-key-id: ${{ secrets.STORYBOOK_S3_KEY_ID }}
@@ -98,7 +98,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GRAVITY_UI_BOT_GITHUB_TOKEN }}
           header: playground-preview
           number: ${{ github.event.workflow_run.pull_requests[0].number }}
-          message: '[Playground preview](https://preview.gravity-ui.com/page-constructor/${{ steps.preview.outputs.id }}/) is ready.'
+          message: '[Playground preview](https://preview.gravity-ui.com/page-constructor-playground/${{ steps.preview.outputs.id }}/) is ready.'
 
   deploy_from_current_run:
     name: Deploy Playground Preview (PR/Manual)
@@ -130,7 +130,7 @@ jobs:
         uses: gravity-ui/upload-to-s3-action@v1
         with:
           src-path: static
-          dest-path: /page-constructor/pulls/${{ steps.preview.outputs.id }}/
+          dest-path: /page-constructor-playground/pulls/${{ steps.preview.outputs.id }}/
           bucket: storybook-static
           endpoint-url: https://storage.yandexcloud.net
           s3-key-id: ${{ secrets.STORYBOOK_S3_KEY_ID }}
@@ -143,4 +143,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GRAVITY_UI_BOT_GITHUB_TOKEN }}
           header: playground-preview
           number: ${{ steps.pr.outputs.number }}
-          message: '[Playground preview](https://preview.gravity-ui.com/page-constructor/${{ steps.preview.outputs.id }}/) is ready.'
+          message: '[Playground preview](https://preview.gravity-ui.com/page-constructor-playground/${{ steps.preview.outputs.id }}/) is ready.'
