@@ -49,7 +49,6 @@ const FooterContactsBlock = {
         links: filteredArray(FooterlContactItem),
         linksPosition: {type: 'string', enum: ['left', 'center']},
         titlePosition: {type: 'string', enum: ['top', 'near']},
-        colSizes: containerSizesObject,
     },
 };
 
@@ -66,10 +65,20 @@ const FooterDisclaimerContent = {
 const FooterLanguageSwitcherItem = {
     type: 'object',
     additionalProperties: false,
-    required: ['languageLabel', 'url'],
+    required: ['text', 'href'],
     properties: {
         text: {type: 'string', contentType: 'text'},
         href: {type: 'string'},
+    },
+};
+
+const FooterLanguageSwitcher = {
+    type: 'object',
+    additionalProperties: false,
+    required: ['items'],
+    properties: {
+        items: filteredArray(FooterLanguageSwitcherItem),
+        buttonText: {type: 'string', contentType: 'text'},
     },
 };
 
@@ -80,10 +89,7 @@ const FooterCopyrightBlock = {
     properties: {
         links: filteredArray(LinkProps),
         linksOverflowStrategy: {type: 'string', enum: ['dropdown', 'line-wrap']},
-        languageSwitcher: {
-            items: filteredArray(FooterLanguageSwitcherItem),
-            buttonText: {type: 'string', contentType: 'text'},
-        },
+        languageSwitcher: FooterLanguageSwitcher,
         copyrightText: {type: 'string', contentType: 'text'},
         logo: FooterLogoProps,
         mobileHorizontalAlignment: {type: 'string', enum: ['left', 'center']},

@@ -537,8 +537,6 @@ export interface FooterLogoProps {
     image: ThemeSupporting<ImageProps>;
     href?: string;
     alt?: string;
-    /** Text label shown next to the logo (e.g. "YTsaurus") */
-    title?: string;
 }
 
 export interface FooterSection {
