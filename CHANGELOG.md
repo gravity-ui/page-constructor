@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.5.0](https://github.com/gravity-ui/page-constructor/compare/v8.4.2...v8.5.0) (2026-04-22)
+
+
+### Features
+
+* add analytics events to FilterBlock ([#1420](https://github.com/gravity-ui/page-constructor/issues/1420)) ([8e89c2b](https://github.com/gravity-ui/page-constructor/commit/8e89c2b75509ecc6c788146d3735d3f5510a3fd0))
+
 ## [8.4.2](https://github.com/gravity-ui/page-constructor/compare/v8.4.1...v8.4.2) (2026-04-16)
 
 
