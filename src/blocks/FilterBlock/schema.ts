@@ -4,9 +4,11 @@ import {
     BlockHeaderProps,
     containerSizesObject,
 } from '../../schema/validators/common';
+import {AnalyticsEventSchema} from '../../schema/validators/event';
 import {filteredArray} from '../../schema/validators/utils';
 
 export const FilterTagProps = {
+    type: 'object',
     additionalProperties: false,
     required: ['id', 'label'],
     properties: {
@@ -16,6 +18,7 @@ export const FilterTagProps = {
         label: {
             type: 'string',
         },
+        analyticsEvent: AnalyticsEventSchema,
     },
 };
 
@@ -49,6 +52,9 @@ export const FilterProps = {
                 {
                     type: 'string',
                     optionName: 'cutom',
+                },
+                {
+                    ...FilterTagProps,
                 },
             ],
         },
