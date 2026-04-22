@@ -8,7 +8,7 @@ import contentExample1 from './example-1/content.json';
 // Example 2
 import contentExample2 from './example-2/content.json';
 import navigationExample2 from './example-2/navigation.json';
-import {GravityBlocksExtension, GravityBlocksProvider} from '../../../../src/blocks/settings';
+import {GravityBlocksExtension} from '../../../../src/blocks/settings';
 
 const customBlocks = [...blocks];
 
