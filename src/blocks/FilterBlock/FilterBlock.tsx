@@ -21,7 +21,6 @@ const FilterBlock = ({
     tags,
     tagButtonSize,
     allTag,
-    allTagAnalyticsEvent,
     items,
     colSizes,
     centered,
@@ -29,13 +28,26 @@ const FilterBlock = ({
 }: FilterBlockProps) => {
     const handleAnalytics = useAnalytics();
     const tabButtons = React.useMemo(() => {
-        const allButton: ButtonTabsItemProps | undefined = allTag
-            ? {
-                  id: null,
-                  title: typeof allTag === 'boolean' ? i18n('label-all-tag') : allTag,
-                  analyticsEvent: allTagAnalyticsEvent,
-              }
-            : undefined;
+        let allButton: ButtonTabsItemProps | undefined;
+        if (allTag) {
+            if (typeof allTag === 'boolean') {
+                allButton = {
+                    id: null,
+                    title: i18n('label-all-tag'),
+                };
+            } else if (typeof allTag === 'string') {
+                allButton = {
+                    id: null,
+                    title: allTag,
+                };
+            } else if (typeof allTag === 'object') {
+                allButton = {
+                    id: null,
+                    title: allTag.label,
+                    analyticsEvent: allTag.analyticsEvent,
+                };
+            }
+        }
         const otherButtons: ButtonTabsItemProps[] | undefined =
             tags &&
             tags.map((tag) => ({
@@ -44,7 +56,7 @@ const FilterBlock = ({
                 analyticsEvent: tag.analyticsEvent,
             }));
         return [...(allButton ? [allButton] : []), ...(otherButtons ? otherButtons : [])];
-    }, [allTag, allTagAnalyticsEvent, tags]);
+    }, [allTag, tags]);
 
     const [selectedTag, setSelectedTag] = React.useState(
         tabButtons.length ? tabButtons[0].id : null,

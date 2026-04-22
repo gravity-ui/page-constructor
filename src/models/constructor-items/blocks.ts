@@ -416,8 +416,7 @@ export interface FilterBlockProps extends Animatable {
     title?: TitleItemProps | string;
     description?: string;
     tagButtonSize?: ButtonSize;
-    allTag?: boolean | string;
-    allTagAnalyticsEvent?: AnalyticsEventsProp;
+    allTag?: boolean | string | FilterTag;
     colSizes?: GridColumnSizesType;
     centered?: boolean;
 }
