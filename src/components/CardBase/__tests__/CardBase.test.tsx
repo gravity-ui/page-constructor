@@ -180,7 +180,7 @@ describe('CardBase', () => {
         const user = userEvent.setup();
 
         render(
-            <PageConstructorProvider analytics={analyticsContext}>
+            <PageConstructorProvider>
                 <CardBase url={url} target={'_blank'} qa={qaId} analyticsEvents={[{name: 'click'}]}>
                     <CardBase.Content>Content</CardBase.Content>
                 </CardBase>

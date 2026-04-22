@@ -1,7 +1,7 @@
 import {JSONSchemaType} from 'ajv';
 
 import {BlockData} from '../../constructor-items';
-import {generateFromAJV} from '../../utils/form-generator';
+import {generateFormFieldsFromAjvSchema} from '../../form-generator-v2/utils/generateFormFieldsFromAjv';
 
 import BackgroundCard from './BackgroundCard';
 import {BackgroundCard as BackgroundCardSchema} from './schema';
@@ -13,7 +13,7 @@ const BackgroundCardConfig: BlockData = {
         name: 'Background Card',
         group: '@deprecated',
         hidden: true,
-        inputs: generateFromAJV(
+        inputs: generateFormFieldsFromAjvSchema(
             BackgroundCardSchema['background-card'] as unknown as JSONSchemaType<{}>,
         ),
         default: {

@@ -1,4 +1,4 @@
-import {ArrowLeftFromLine, ArrowRightFromLine, Grip} from '@gravity-ui/icons';
+import {Grip, LayoutSideContentLeft, LayoutSideContentRight} from '@gravity-ui/icons';
 import {Button, Icon} from '@gravity-ui/uikit';
 import * as React from 'react';
 import {ImperativePanelHandle, Panel, PanelGroup, PanelResizeHandle} from 'react-resizable-panels';
@@ -49,7 +49,7 @@ export const Panels = ({left, right, middle}: PanelsProps) => {
                             view="action"
                             onClick={() => expandPanel(leftPanel)}
                         >
-                            <Icon data={ArrowRightFromLine} />
+                            <Icon data={LayoutSideContentLeft} />
                         </Button>
                     </div>
                 )}
@@ -64,7 +64,7 @@ export const Panels = ({left, right, middle}: PanelsProps) => {
                             view="action"
                             onClick={() => expandPanel(rightPanel)}
                         >
-                            <Icon data={ArrowLeftFromLine} />
+                            <Icon data={LayoutSideContentRight} />
                         </Button>
                     </div>
                 )}

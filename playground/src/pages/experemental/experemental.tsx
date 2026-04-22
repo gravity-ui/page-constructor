@@ -1,11 +1,20 @@
 import * as React from 'react';
 // @gravity-ui/page-constructor
 import {NavigationData, PageConstructor, PageConstructorProvider} from '../../../../src';
-// @gravity-ui/page-constructor/blocks
-import {blocks} from '../../../../src/blocks';
-// Custom blocks
-import CustomChildrenBlockConfig from '../../blocks/CustomChildrenBlock';
-import CustomParentBlockConfig from '../../blocks/CustomParentBlock';
+// Custom blocks — atoms
+import AccordionBlockConfig from '../../blocks/AccordionBlock';
+import AlertBlockConfig from '../../blocks/AlertBlock';
+import AvatarBlockConfig from '../../blocks/AvatarBlock';
+import BreadcrumbsBlockConfig from '../../blocks/BreadcrumbsBlock';
+import ButtonBlockConfig from '../../blocks/ButtonBlock';
+import LabelBlockConfig from '../../blocks/LabelBlock';
+import ProgressBlockConfig from '../../blocks/ProgressBlock';
+import TabsAtomBlockConfig from '../../blocks/TabsAtomBlock';
+import UserBlockConfig from '../../blocks/UserBlock';
+// Custom blocks — containers
+import CardContainerConfig from '../../blocks/CardContainer';
+import ColumnsContainerConfig from '../../blocks/ColumnsContainer';
+import SectionContainerConfig from '../../blocks/SectionContainer';
 import DefinitionListBlockConfig from '../../blocks/DefinitionListBlock';
 // Example 1
 import contentExample1 from './example-1/content.json';
@@ -15,9 +24,21 @@ import navigationExample2 from './example-2/navigation.json';
 import {ExperementalBlocksExtension} from '../../custom-plugin';
 
 const customBlocks = [
-    CustomParentBlockConfig,
-    CustomChildrenBlockConfig,
+    // Atoms
+    ButtonBlockConfig,
+    AlertBlockConfig,
+    LabelBlockConfig,
+    ProgressBlockConfig,
+    AccordionBlockConfig,
+    TabsAtomBlockConfig,
+    UserBlockConfig,
+    BreadcrumbsBlockConfig,
+    AvatarBlockConfig,
     DefinitionListBlockConfig,
+    // Containers
+    ColumnsContainerConfig,
+    CardContainerConfig,
+    SectionContainerConfig,
 ];
 
 interface PCPageProps {

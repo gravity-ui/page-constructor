@@ -2,7 +2,6 @@ import {useSearchParams} from 'react-router';
 
 import EditorPage from './pages/editor/editor';
 import PCPage from './pages/pc/pc';
-import FormPage from './pages/form/form';
 import ExperimentalPage from './pages/experemental/experemental';
 
 export default function Router() {
@@ -11,9 +10,7 @@ export default function Router() {
     const id = searchParams.get('id');
 
     switch (page) {
-        case 'form':
-            return <FormPage />;
-        case 'pc':
+        case 'gravity-blocks':
             return <PCPage id={id} />;
         case 'experemental':
             return <ExperimentalPage id={id} />;

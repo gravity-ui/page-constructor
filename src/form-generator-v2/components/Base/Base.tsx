@@ -2,11 +2,8 @@ import * as React from 'react';
 
 import {Content, OnUpdate, When} from '../../types';
 import {getValueByPath} from '../../utils/fields';
-import {formGeneratorCn} from '../../utils/cn';
 
 import './Base.scss';
-
-const b = formGeneratorCn('base');
 
 type BaseProps = {
     when?: When;
@@ -74,9 +71,22 @@ const Base = ({when, content, children, name, onUpdate, defaultValue}: BaseProps
         const wasVisible = wasVisibleRef.current;
         wasVisibleRef.current = isShow;
 
-        if (wasVisible && !isShow && onUpdate && name && getValueByPath(content, name) !== undefined) {
+        if (
+            wasVisible &&
+            !isShow &&
+            onUpdate &&
+            name &&
+            getValueByPath(content, name) !== undefined
+        ) {
             onUpdate(name, undefined, {unset: true});
-        } else if (!wasVisible && isShow && onUpdate && name && defaultValue !== undefined && getValueByPath(content, name) === undefined) {
+        } else if (
+            !wasVisible &&
+            isShow &&
+            onUpdate &&
+            name &&
+            defaultValue !== undefined &&
+            getValueByPath(content, name) === undefined
+        ) {
             onUpdate(name, defaultValue);
         }
     }, [content, isShow, name, onUpdate, defaultValue]);

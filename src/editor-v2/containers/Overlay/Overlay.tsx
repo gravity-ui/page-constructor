@@ -31,7 +31,6 @@ const findRectByPath = (
 
 const Overlay = ({className, canvasElement}: OverlayProps) => {
     const {
-        height,
         rectMap,
         setRectMap,
         selectedBlock,
@@ -165,7 +164,7 @@ const Overlay = ({className, canvasElement}: OverlayProps) => {
         hoveredRect && (!selectedBlock || !_.isEqual(hoveredPath, selectedBlock));
 
     return (
-        <div className={b(null, className)} style={{height: `${height}px`}}>
+        <div className={b(null, className)}>
             {rectMap.map(({path, rect, dropZone}) => {
                 const key = path.join('.');
                 return (

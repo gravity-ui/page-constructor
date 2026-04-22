@@ -10,12 +10,12 @@ $block: '.#{$ns}panels';
         z-index: 1000;
 
         &_left {
-            bottom: var(--pceditor-panels-button-gap);
+            top: var(--pceditor-panels-button-gap);
             left: calc(100% + var(--pceditor-panels-button-gap));
         }
 
         &_right {
-            bottom: var(--pceditor-panels-button-gap);
+            top: var(--pceditor-panels-button-gap);
             right: calc(100% + var(--pceditor-panels-button-gap));
         }
     }

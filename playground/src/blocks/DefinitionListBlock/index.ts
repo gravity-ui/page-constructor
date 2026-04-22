@@ -1,4 +1,5 @@
 import {BlockData} from '../../../../src/constructor-items';
+import {Fields} from '../../../../src/form-generator-v2/types';
 
 import DefinitionListBlock from './DefinitionListBlock';
 
@@ -7,69 +8,45 @@ const DefinitionListBlockConfig: BlockData = {
     component: DefinitionListBlock,
     schema: {
         name: 'Definition List Block',
-        group: 'custom',
+        group: 'custom/atoms',
         inputs: [
+            {type: 'textInput', name: 'title', title: 'Block Title'},
             {
-                type: 'text',
-                name: 'title',
-                title: 'Block Title',
-            },
-            {
-                type: 'select',
+                type: 'segmentedRadioGroup',
                 name: 'direction',
                 title: 'Direction',
-                view: 'radiobutton',
-                mode: 'single',
-                enum: [
+                options: [
                     {value: 'horizontal', content: 'Horizontal'},
                     {value: 'vertical', content: 'Vertical'},
                 ],
+                defaultValue: 'horizontal',
             },
+            {type: 'switch', name: 'responsive', title: 'Responsive (100% width)'},
+            {type: 'textInput', name: 'nameMaxWidth', title: 'Name Max Width (px)'},
+            {type: 'textInput', name: 'contentMaxWidth', title: 'Content Max Width (px)'},
             {
-                type: 'boolean',
-                name: 'responsive',
-                title: 'Responsive (100% width)',
-            },
-            {
-                type: 'number',
-                name: 'nameMaxWidth',
-                title: 'Name Max Width (px)',
-            },
-            {
-                type: 'number',
-                name: 'contentMaxWidth',
-                title: 'Content Max Width (px)',
-            },
-            {
-                type: 'array',
-                name: 'items',
+                type: 'section',
                 title: 'Definition Items',
-                arrayType: 'object',
-                buttonText: 'Add Item',
-                properties: [
+                index: 'index',
+                withAddButton: true,
+                itemTitle: 'Item {{index}}',
+                itemView: 'card',
+                fields: [
+                    {type: 'textInput', name: 'items[{{index}}].name', title: 'Term Name'},
+                    {type: 'textInput', name: 'items[{{index}}].value', title: 'Definition Value'},
                     {
-                        type: 'text',
-                        name: 'name',
-                        title: 'Term Name',
-                    },
-                    {
-                        type: 'text',
-                        name: 'value',
-                        title: 'Definition Value',
-                    },
-                    {
-                        type: 'text',
-                        name: 'copyText',
+                        type: 'textInput',
+                        name: 'items[{{index}}].copyText',
                         title: 'Copy Text (optional)',
                     },
                     {
-                        type: 'text',
-                        name: 'note',
+                        type: 'textInput',
+                        name: 'items[{{index}}].note',
                         title: 'Note/Help Text (optional)',
                     },
                 ],
             },
-        ],
+        ] as Fields,
         default: {
             title: 'System Specifications',
             direction: 'horizontal',

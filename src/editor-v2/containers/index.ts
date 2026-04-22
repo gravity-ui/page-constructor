@@ -1,4 +1,5 @@
-export {Editor} from './Editor/Editor';
+export {Editor, EditorProvider, EditorView} from './Editor/Editor';
+export type {EditorProviderProps, EditorViewProps} from './Editor/Editor';
 export {default as BlockConfigForm} from './BlockConfigForm/BlockConfigForm';
 export {default as BlocksList} from './BlocksList/BlocksList';
 export {default as Source} from './Source/Source';

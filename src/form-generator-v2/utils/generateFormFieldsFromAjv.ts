@@ -6,13 +6,17 @@ export type GenerateFormFieldsFromAjvSchemaOptions = {
     arrayIndexPlaceholder?: (arrayDepth: number) => string;
     wrapInRootSection?: boolean;
     rootSectionTitle?: string;
+    generalSectionTitle?: string;
     skipProperties?: string[];
 };
 
 type ResolvedOptions = Required<
     Pick<GenerateFormFieldsFromAjvSchemaOptions, 'arrayIndexPlaceholder' | 'skipProperties'>
 > &
-    Pick<GenerateFormFieldsFromAjvSchemaOptions, 'wrapInRootSection' | 'rootSectionTitle'>;
+    Pick<
+        GenerateFormFieldsFromAjvSchemaOptions,
+        'wrapInRootSection' | 'rootSectionTitle' | 'generalSectionTitle'
+    >;
 
 const defaultArrayPlaceholder = (arrayDepth: number): string => `index${arrayDepth + 1}`;
 
@@ -24,6 +28,7 @@ function resolveOptions(options?: GenerateFormFieldsFromAjvSchemaOptions): Resol
         skipProperties: options?.skipProperties ?? DEFAULT_SKIP_PROPERTIES,
         wrapInRootSection: options?.wrapInRootSection,
         rootSectionTitle: options?.rootSectionTitle,
+        generalSectionTitle: options?.generalSectionTitle,
     };
 }
 
@@ -479,5 +484,16 @@ export function generateFormFieldsFromAjvSchema(
         ];
     }
 
-    return inner;
+    const nonSections = inner.filter((f) => f.type !== 'section');
+    const sections = inner.filter((f) => f.type === 'section');
+
+    if (nonSections.length === 0) return sections;
+
+    const generalSection: SectionField = {
+        type: 'section',
+        title: opts.generalSectionTitle ?? 'General',
+        fields: nonSections,
+    };
+
+    return [generalSection, ...sections];
 }
