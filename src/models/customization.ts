@@ -2,11 +2,11 @@ import * as React from 'react';
 
 import {BlockType, ConstructorItem} from './constructor-items';
 
-export interface BlockWrapperDataProps<T = Record<string, unknown>> {
+export interface BlockWrapperDataProps<T = object> {
     type: string;
     index?: number;
-    props: T;
-    content: ConstructorItem & T;
+    props?: T;
+    content?: ConstructorItem & T;
 }
 
 /**

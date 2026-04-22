@@ -8,11 +8,11 @@ export const BlockBaseExtensionBlockWrapper: React.FC<
     BlockWrapperDataProps<BlockBaseProps> & React.PropsWithChildren
 > = ({props, content, children}) => (
     <BlockBase
-        anchor={content.anchor || props?.anchor}
-        indent={content.indent || props?.indent}
-        visible={content?.visible || props?.visible}
-        resetPaddings={content?.resetPaddings || props?.resetPaddings}
-        qa={content?.qa || props?.qa}
+        anchor={content?.anchor ?? props?.anchor}
+        indent={content?.indent ?? props?.indent}
+        visible={content?.visible ?? props?.visible}
+        resetPaddings={content?.resetPaddings ?? props?.resetPaddings}
+        qa={content?.qa ?? props?.qa}
     >
         {children}
     </BlockBase>

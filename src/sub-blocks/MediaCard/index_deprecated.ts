@@ -1,10 +1,10 @@
 import {JSONSchemaType} from 'ajv';
 
-import {BlockData} from '../../constructor-items';
-import {generateFromAJV} from '../../utils/form-generator';
-
 import MediaCard from './MediaCard';
 import {MediaCardBlock as MediaCardSchema} from './schema';
+
+import {BlockData} from '../../constructor-items';
+import {generateFormFieldsFromAjvSchema} from '../../form-generator-v2/utils/generateFormFieldsFromAjv';
 
 const MediaCardConfig: BlockData = {
     type: 'media-card',
@@ -13,7 +13,9 @@ const MediaCardConfig: BlockData = {
         name: 'Media Card',
         group: '@deprecated',
         hidden: true,
-        inputs: generateFromAJV(MediaCardSchema['media-card'] as unknown as JSONSchemaType<{}>),
+        inputs: generateFormFieldsFromAjvSchema(
+            MediaCardSchema['media-card'] as unknown as JSONSchemaType<{}>,
+        ),
         default: {
             content: {
                 title: 'Media Card',

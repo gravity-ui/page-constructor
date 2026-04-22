@@ -60,7 +60,7 @@ export interface PageConstructorProps {
 
 export const PageConstructor = (props: PageConstructorProps) => {
     const {
-        content: {blocks = []} = {},
+        content: initialContent = {blocks: []},
         shouldRenderBlock,
         custom,
         blocks: availableLocalBlocks = [],
@@ -84,12 +84,10 @@ export const PageConstructor = (props: PageConstructorProps) => {
         {},
     );
 
-    const initialContent = {
+    const [content, setContent] = React.useState<PageContent>({
         ...globalDefaults,
-        blocks,
-    };
-
-    const [content, setContent] = React.useState<PageContent>(initialContent);
+        ...initialContent,
+    });
 
     const store = usePCEditorStore();
     const {initialized} = store;

@@ -5,7 +5,7 @@ const path = require('path');
 const TerserPlugin = require('terser-webpack-plugin');
 
 const SRC_PATH = path.resolve('src');
-const SCHEMA_SRC_PATH = path.resolve(SRC_PATH, 'schema');
+const SCHEMA_SRC_PATH = path.resolve(SRC_PATH, 'gravity-blocks/schema');
 const SCHEMA_RESULT_PATH = path.resolve(__dirname, 'schema');
 const SCHEMA_BUNDLE_FILENAME = 'index.js';
 

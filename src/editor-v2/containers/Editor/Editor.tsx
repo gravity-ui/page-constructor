@@ -24,21 +24,30 @@ interface SidebarTabComponent {
     title: string;
     component: React.ElementType;
 }
-interface EditorViewProps {
-    onUpdate?: (pageContent: PageContent) => void;
-    initialUrl: string;
-    initialContent?: PageContent;
-    disableUrlField?: boolean;
-    componentsConfig?: {
-        middleTop?: React.ElementType;
-        leftTop?: React.ElementType[];
-        rightTop?: React.ElementType[];
-        leftTabs?: SidebarTabComponent[];
-        rightTabs?: SidebarTabComponent[];
-    };
+
+interface ComponentsConfig {
+    middleTop?: React.ElementType;
+    leftTop?: React.ElementType[];
+    rightTop?: React.ElementType[];
+    leftTabs?: SidebarTabComponent[];
+    rightTabs?: SidebarTabComponent[];
 }
 
-const EditorView = ({componentsConfig = {}, initialContent}: EditorViewProps) => {
+export interface EditorProviderProps {
+    initialUrl: string;
+    disableUrlField?: boolean;
+    children: React.ReactNode;
+}
+
+export interface EditorViewProps {
+    onUpdate?: (pageContent: PageContent) => void;
+    initialContent?: PageContent;
+    componentsConfig?: ComponentsConfig;
+}
+
+type EditorProps = Omit<EditorProviderProps, 'children'> & EditorViewProps;
+
+const EditorViewInternal = ({componentsConfig = {}, initialContent}: EditorViewProps) => {
     const store = useMainEditorStore();
     const {manipulateOverlayMode, disableMode, undo, redo} = store;
 
@@ -122,12 +131,20 @@ const EditorView = ({componentsConfig = {}, initialContent}: EditorViewProps) =>
     );
 };
 
-export const Editor = (props: EditorViewProps) => {
+export const EditorProvider = ({initialUrl, disableUrlField, children}: EditorProviderProps) => {
     return (
-        <IframeProvider initialUrl={props.initialUrl} disableUrlField={props.disableUrlField}>
-            <MainEditorStoreProvider>
-                <EditorView {...props} />
-            </MainEditorStoreProvider>
+        <IframeProvider initialUrl={initialUrl} disableUrlField={disableUrlField}>
+            <MainEditorStoreProvider>{children}</MainEditorStoreProvider>
         </IframeProvider>
+    );
+};
+
+export const EditorView = (props: EditorViewProps) => <EditorViewInternal {...props} />;
+
+export const Editor = (props: EditorProps) => {
+    return (
+        <EditorProvider initialUrl={props.initialUrl} disableUrlField={props.disableUrlField}>
+            <EditorView {...props} />
+        </EditorProvider>
     );
 };

@@ -5,6 +5,7 @@ import {BlockRegistryContext, pathKey} from '../context/blockRegistryContext';
 export function usePCEditorBlockRegister(path: number[], dropZone?: boolean) {
     const registry = React.useContext(BlockRegistryContext);
     const elementRef = React.useRef<HTMLElement | null>(null);
+    const observerRef = React.useRef<ResizeObserver | null>(null);
     const key = React.useMemo(() => pathKey(path), [path]);
 
     const blockRef = React.useCallback(
@@ -17,10 +18,18 @@ export function usePCEditorBlockRegister(path: number[], dropZone?: boolean) {
                 registry.unregister(key);
             }
 
+            observerRef.current?.disconnect();
+            observerRef.current = null;
             elementRef.current = node;
 
             if (node && registry) {
                 registry.register(key, path, node, dropZone);
+
+                const observer = new ResizeObserver(() => {
+                    registry.register(key, path, node, dropZone);
+                });
+                observer.observe(node);
+                observerRef.current = observer;
             }
         },
         // `path` is stable per render but identity may change; `key` captures content.

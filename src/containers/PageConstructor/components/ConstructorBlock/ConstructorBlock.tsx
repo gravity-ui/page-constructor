@@ -21,7 +21,7 @@ export const ConstructorBlock = ({
 
     const wrappedContent = blockWrappers.reduce<React.ReactNode>(
         (content, {wrapper: Wrapper, props}) => (
-            <Wrapper {...props} content={data} index={index}>
+            <Wrapper type={data.type} props={props} content={data as any} index={index}>
                 {content}
             </Wrapper>
         ),

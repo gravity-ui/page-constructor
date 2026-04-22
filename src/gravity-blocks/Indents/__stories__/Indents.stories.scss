@@ -1,5 +1,5 @@
-@import '../../../styles/variables.scss';
-@import '../../../styles/mixins';
+@import '../../../../styles/variables.scss';
+@import '../../../../styles/mixins';
 
 @mixin pseudo($content) {
     background: repeating-linear-gradient(

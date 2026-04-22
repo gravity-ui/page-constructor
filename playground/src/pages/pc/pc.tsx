@@ -3,9 +3,6 @@ import * as React from 'react';
 import {NavigationData, PageConstructor, PageConstructorProvider} from '../../../../src';
 // @gravity-ui/page-constructor/blocks
 import {blocks} from '../../../../src/blocks';
-// Custom blocks
-import CustomChildrenBlockConfig from '../../blocks/CustomChildrenBlock';
-import CustomParentBlockConfig from '../../blocks/CustomParentBlock';
 // Example 1
 import contentExample1 from './example-1/content.json';
 // Example 2
@@ -13,7 +10,7 @@ import contentExample2 from './example-2/content.json';
 import navigationExample2 from './example-2/navigation.json';
 import {GravityBlocksExtension, GravityBlocksProvider} from '../../../../src/blocks/settings';
 
-const customBlocks = [...blocks, CustomParentBlockConfig, CustomChildrenBlockConfig];
+const customBlocks = [...blocks];
 
 interface PCPageProps {
     id?: string | null;
@@ -41,22 +38,16 @@ export default function PCPage({id}: PCPageProps) {
 
     return (
         <PageConstructorProvider blocks={customBlocks}>
-            <GravityBlocksProvider projectSettings={{disableCompress: true}}>
-                <PageConstructor
-                    content={page.content}
-                    extensions={GravityBlocksExtension({
-                        wrapperProps: {
-                            isBranded: true,
-                            animated: true,
-                        },
-                        globalDefaults: {
-                            isBranded: true,
-                            navigation: page.navigation,
-                            animated: true,
-                        },
-                    })}
-                />
-            </GravityBlocksProvider>
+            <PageConstructor
+                content={page.content}
+                extensions={GravityBlocksExtension({
+                    globalDefaults: {
+                        isBranded: true,
+                        navigation: page.navigation,
+                        animated: true,
+                    },
+                })}
+            />
         </PageConstructorProvider>
     );
 }
