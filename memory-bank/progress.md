@@ -96,6 +96,11 @@ Enhanced text sizing capabilities:
 Enhanced analytics capabilities across components:
 
 - **Title Component Analytics**: Added `analyticsEvents` support to Title component for tracking user interactions
+- **FilterBlock Analytics**: Each tag and the "all" button now support per-tab analytics events:
+  - `FilterTag.analyticsEvent?: AnalyticsEventsProp` — fires when a tag tab is selected
+  - `allTag` object form (`{label, analyticsEvent}`) fires analytics on "all" tab selection
+  - `handleSelectTab` callback in `FilterBlock` triggers `useAnalytics` with the relevant event
+  - `ButtonTabsItemProps.analyticsEvent` carries events through the tab component layer
 - **useAnalytics Hook**: Consistent analytics handling through dedicated hook
 - **Event Sequencing**: Proper event flow with analytics triggered before existing onClick handlers
 - **Type Safety**: `AnalyticsEventsBase` interface ensures structured analytics events
