@@ -39,12 +39,12 @@ export const InfoBlock = (props: InfoBlockProps) => {
     };
 
     return (
-        <div className={b()}>
-            <div
-                className={b('container')}
-                style={{backgroundColor: getThemedValue(backgroundColor, theme)}}
-            >
-                <Grid>
+        <Grid>
+            <div className={b()}>
+                <div
+                    className={b('container')}
+                    style={{backgroundColor: getThemedValue(backgroundColor, theme)}}
+                >
                     <Row>
                         <Col sizes={sizes} className={b('left')}>
                             <Content
@@ -69,9 +69,9 @@ export const InfoBlock = (props: InfoBlockProps) => {
                             />
                         </Col>
                     </Row>
-                </Grid>
+                </div>
             </div>
-        </div>
+        </Grid>
     );
 };
 

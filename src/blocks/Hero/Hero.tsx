@@ -2,9 +2,9 @@ import * as React from 'react';
 
 import {HeaderBreadcrumbs, Media, YFMWrapper} from '../../components';
 import {BREAKPOINTS} from '../../constants';
-import {useTheme} from '../../context/theme';
-import {useWindowWidth} from '../../context/windowWidthContext';
-import {Grid} from '../../grid';
+import {useTheme} from '../../gravity-blocks/context/theme';
+import {useWindowWidth} from '../../gravity-blocks/context/windowWidthContext';
+import {Grid} from '../../gravity-blocks/grid';
 import {ButtonProps, HeroBlockProps, Theme} from '../../models';
 import {Content} from '../../sub-blocks';
 import {block, getThemedValue} from '../../utils';

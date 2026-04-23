@@ -1,29 +1,5 @@
 import * as React from 'react';
 
-import {
-    BannerBlock,
-    CardLayoutBlock,
-    CompaniesBlock,
-    ContentLayoutBlock,
-    ExtendedFeaturesBlock,
-    FilterBlock,
-    FoldableListBlock,
-    FormBlock,
-    HeaderBlock,
-    HeaderSliderBlock,
-    HeroBlock,
-    IconsBlock,
-    InfoBlock,
-    MapBlock,
-    MediaBlock,
-    PromoFeaturesBlock,
-    QuestionsBlock,
-    ShareBlock,
-    SliderBlock,
-    SliderOldBlock,
-    TableBlock,
-    TabsBlock,
-} from './blocks';
 import BannerBlockConfig from './blocks/Banner';
 import CardLayoutBlockConfig from './blocks/CardLayout';
 import CompaniesBlockConfig from './blocks/Companies';
@@ -52,19 +28,6 @@ import {
 } from './gravity-blocks/navigation';
 import SocialIcon from './gravity-blocks/navigation/components/SocialIcon/SocialIcon';
 import {BlockType, NavigationItemType, SubBlockType} from './models';
-import {
-    BackgroundCard,
-    BannerCard,
-    BasicCard,
-    Content,
-    Divider,
-    ImageCard,
-    LayoutItem,
-    MediaCard,
-    PriceCard,
-    PriceDetailed,
-    Quote,
-} from './sub-blocks';
 import BackgroundCardConfig from './sub-blocks/BackgroundCard';
 import BannerCardConfig from './sub-blocks/BannerCard';
 import BasicCardConfig from './sub-blocks/BasicCard';
@@ -80,48 +43,13 @@ import QuoteConfig from './sub-blocks/Quote';
  * TODO: remove it
  * @deprecated use blockDataMap
  **/
-export const blockMap = {
-    [BlockType.SliderOldBlock]: SliderOldBlock,
-    [BlockType.ExtendedFeaturesBlock]: ExtendedFeaturesBlock,
-    [BlockType.PromoFeaturesBlock]: PromoFeaturesBlock,
-    [BlockType.QuestionsBlock]: QuestionsBlock,
-    [BlockType.FoldableListBlock]: FoldableListBlock,
-    [BlockType.BannerBlock]: BannerBlock,
-    [BlockType.CompaniesBlock]: CompaniesBlock,
-    [BlockType.MediaBlock]: MediaBlock,
-    [BlockType.InfoBlock]: InfoBlock,
-    [BlockType.TableBlock]: TableBlock,
-    [BlockType.TabsBlock]: TabsBlock,
-    [BlockType.HeaderBlock]: HeaderBlock,
-    [BlockType.HeroBlock]: HeroBlock,
-    [BlockType.IconsBlock]: IconsBlock,
-    [BlockType.HeaderSliderBlock]: HeaderSliderBlock,
-    [BlockType.CardLayoutBlock]: CardLayoutBlock,
-    [BlockType.ContentLayoutBlock]: ContentLayoutBlock,
-    [BlockType.ShareBlock]: ShareBlock,
-    [BlockType.MapBlock]: MapBlock,
-    [BlockType.FilterBlock]: FilterBlock,
-    [BlockType.FormBlock]: FormBlock,
-    [BlockType.SliderBlock]: SliderBlock,
-};
+export const blockMap = {};
 
 /**
  * TODO: remove it
  * @deprecated use blockDataMap
  **/
-export const subBlockMap = {
-    [SubBlockType.Divider]: Divider,
-    [SubBlockType.PriceDetailed]: PriceDetailed,
-    [SubBlockType.MediaCard]: MediaCard,
-    [SubBlockType.BannerCard]: BannerCard,
-    [SubBlockType.LayoutItem]: LayoutItem,
-    [SubBlockType.BackgroundCard]: BackgroundCard,
-    [SubBlockType.BasicCard]: BasicCard,
-    [SubBlockType.Content]: Content,
-    [SubBlockType.Quote]: Quote,
-    [SubBlockType.PriceCard]: PriceCard,
-    [SubBlockType.ImageCard]: ImageCard,
-};
+export const subBlockMap = {};
 
 export const navItemMap = {
     [NavigationItemType.Button]: NavigationButton,

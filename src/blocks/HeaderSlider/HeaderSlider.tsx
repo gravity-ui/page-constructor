@@ -1,10 +1,10 @@
 import * as React from 'react';
 
-import {SliderBlock} from '../../blocks';
 import {MobileContext} from '../../gravity-blocks/context/mobileContext';
 import {HeaderSliderBlockProps, SliderType} from '../../models';
 import {block} from '../../utils';
 import Header from '../Header/Header';
+import {default as SliderBlock} from '../Slider/Slider';
 
 import './HeaderSlider.scss';
 

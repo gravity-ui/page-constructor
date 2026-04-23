@@ -1,6 +1,6 @@
 import {Meta, StoryFn} from '@storybook/react';
 
-import {CardLayoutBlock} from '../../../blocks';
+import {default as CardLayoutBlock} from '../../../blocks/CardLayout/CardLayout';
 import {PageConstructor} from '../../../containers/PageConstructor';
 import {CardLayoutBlockModel, CardLayoutBlockProps} from '../../../models';
 import {block} from '../../../utils';

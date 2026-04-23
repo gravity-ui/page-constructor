@@ -2,10 +2,9 @@ import * as React from 'react';
 
 import {Meta, StoryFn} from '@storybook/react';
 
-import {IconsBlock} from '../..';
 import {blockTransform} from '../../../../.storybook/utils';
 import {IconsBlockModel, IconsBlockProps} from '../../../models';
-import Icons from '../Icons';
+import Icons, {default as IconsBlock} from '../../Icons/Icons';
 
 import data from './data.json';
 

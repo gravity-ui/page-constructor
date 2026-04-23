@@ -1,6 +1,5 @@
 import * as React from 'react';
 
-import {CardLayoutBlock} from '..';
 import {AnimateBlock, Title} from '../../components';
 import ButtonTabs, {ButtonTabsItemProps} from '../../components/ButtonTabs/ButtonTabs';
 import {ConstructorItem} from '../../containers/PageConstructor/components/ConstructorItem';
@@ -8,6 +7,7 @@ import {Col, Grid, Row} from '../../gravity-blocks/grid';
 import {useAnalytics} from '../../gravity-blocks/hooks';
 import {FilterBlockProps, FilterItem} from '../../models';
 import {block, getBlockKey} from '../../utils';
+import {default as CardLayoutBlock} from '../CardLayout/CardLayout';
 
 import {i18n} from './i18n';
 

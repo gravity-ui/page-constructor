@@ -3,6 +3,7 @@ import * as React from 'react';
 import {EllipsisVertical, Plus, TrashBin} from '@gravity-ui/icons';
 import {ArrowToggle, Button, Card, Dialog, DropdownMenu, Icon, Text} from '@gravity-ui/uikit';
 
+import {ClassNameProps} from '../../../models/common';
 import {CommonProps, SectionField} from '../../types';
 import {formGeneratorCn} from '../../utils/cn';
 import {
@@ -16,7 +17,6 @@ import {
 } from '../../utils/fields';
 import Base from '../Base/Base';
 import Fields from '../Fields/Fields';
-import {ClassNameProps} from '../../../models/common';
 
 import {SectionOpenContext} from './SectionOpenContext';
 
@@ -249,7 +249,7 @@ const Section = ({
     // --- Static section render ---
     return (
         <Base when={when} content={content}>
-            <>
+            <React.Fragment>
                 <div className={b({opened: isOpened, nested: nestingLevel > 0}, className)}>
                     <div className={b('header')}>
                         <button
@@ -268,9 +268,6 @@ const Section = ({
                             <Text variant="subheader-1" color="hint" className={b('title')}>
                                 {title}
                             </Text>
-                            {!showArrowTogler && (
-                                <Plus width={16} height={16} className={b('plus')} />
-                            )}
                         </button>
                         <div className={b('dropdown', {opened: isOpened})}>
                             <DropdownMenu
@@ -318,7 +315,7 @@ const Section = ({
                         onClickButtonCancel={() => setConfirmDialogOpen(false)}
                     />
                 </Dialog>
-            </>
+            </React.Fragment>
         </Base>
     );
 };

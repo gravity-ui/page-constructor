@@ -9,6 +9,7 @@ import {Swiper as SwiperReact, SwiperSlide} from 'swiper/react';
 import Anchor from '../../components/Anchor/Anchor';
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
 import Title from '../../components/Title/Title';
+import {Grid} from '../../gravity-blocks/grid';
 import {ClassNameProps, Refable, SliderProps as SliderParams, SliderType} from '../../models';
 import {block} from '../../utils';
 
@@ -91,103 +92,105 @@ export const SliderBlock = ({
     });
 
     return (
-        <div
-            className={b(
-                {
-                    'one-slide': childrenCount === 1,
-                    'only-arrows':
-                        (!title || (typeof title !== 'string' && !title?.text)) &&
-                        !description &&
-                        arrows,
-                    'without-dots': !dots || isLocked,
-                    type,
-                },
-                blockClassName,
-            )}
-        >
-            {anchorId && <Anchor id={anchorId} />}
-            <Title
-                title={title}
-                subtitle={description}
-                className={b('header', {'no-description': !description})}
-            />
-            <AnimateBlock className={b('animate-slides')} animate={animated}>
-                <SwiperReact
-                    modules={[Autoplay, A11y, Pagination]}
-                    className={b('slider', className)}
-                    onSwiper={onSwiper}
-                    speed={1000}
-                    autoplay={autoplay}
-                    autoHeight={adaptive}
-                    initialSlide={initialSlide}
-                    noSwiping={false}
-                    breakpoints={breakpoints}
-                    onSlideChange={onSlideChange}
-                    onSlideChangeTransitionStart={onSlideChangeTransitionStart}
-                    onSlideChangeTransitionEnd={onSlideChangeTransitionEnd}
-                    onActiveIndexChange={onActiveIndexChange}
-                    onBreakpoint={onBreakpoint}
-                    onLock={() => setIsLocked(true)}
-                    onUnlock={() => setIsLocked(false)}
-                    watchOverflow
-                    watchSlidesProgress
-                    touchStartPreventDefault={false}
-                    touchAngle={45}
-                    threshold={10}
-                    longSwipes={true}
-                    longSwipesRatio={0.5}
-                    resistance={true}
-                    resistanceRatio={0.5}
-                    a11y={{
-                        slideLabelMessage: '',
-                        paginationBulletMessage: i18n('dot-label', {index: '{{index}}'}),
-                    }}
-                    {...paginationProps}
-                >
-                    {React.Children.map(children, (elem, index) => (
-                        <SwiperSlide className={b('slide')} key={index}>
-                            {({isVisible}) => (
-                                <div
-                                    className={b('slide-item')}
-                                    aria-hidden={!isA11yControlHidden && !isVisible}
-                                >
-                                    {elem}
-                                </div>
-                            )}
-                        </SwiperSlide>
-                    ))}
-                </SwiperReact>
-                {arrows && !isLocked && (
-                    <React.Fragment>
-                        <div aria-hidden={isA11yControlHidden}>
-                            <Arrow
-                                className={b('arrow', {prev: true})}
-                                type="left"
-                                transparent={type === SliderType.HeaderCard}
-                                onClick={onPrev}
-                                size={arrowSize}
-                                extraProps={{tabIndex: controlTabIndex}}
-                            />
-                            <Arrow
-                                className={b('arrow', {next: true})}
-                                type="right"
-                                transparent={type === SliderType.HeaderCard}
-                                onClick={onNext}
-                                size={arrowSize}
-                                extraProps={{tabIndex: controlTabIndex}}
-                            />
-                        </div>
-                    </React.Fragment>
+        <Grid>
+            <div
+                className={b(
+                    {
+                        'one-slide': childrenCount === 1,
+                        'only-arrows':
+                            (!title || (typeof title !== 'string' && !title?.text)) &&
+                            !description &&
+                            arrows,
+                        'without-dots': !dots || isLocked,
+                        type,
+                    },
+                    blockClassName,
                 )}
-                <div className={b('footer')}>
-                    {disclaimer ? (
-                        <div className={b('disclaimer', {size: disclaimer?.size || 'm'})}>
-                            {disclaimer?.text}
-                        </div>
-                    ) : null}
-                </div>
-            </AnimateBlock>
-        </div>
+            >
+                {anchorId && <Anchor id={anchorId} />}
+                <Title
+                    title={title}
+                    subtitle={description}
+                    className={b('header', {'no-description': !description})}
+                />
+                <AnimateBlock className={b('animate-slides')} animate={animated}>
+                    <SwiperReact
+                        modules={[Autoplay, A11y, Pagination]}
+                        className={b('slider', className)}
+                        onSwiper={onSwiper}
+                        speed={1000}
+                        autoplay={autoplay}
+                        autoHeight={adaptive}
+                        initialSlide={initialSlide}
+                        noSwiping={false}
+                        breakpoints={breakpoints}
+                        onSlideChange={onSlideChange}
+                        onSlideChangeTransitionStart={onSlideChangeTransitionStart}
+                        onSlideChangeTransitionEnd={onSlideChangeTransitionEnd}
+                        onActiveIndexChange={onActiveIndexChange}
+                        onBreakpoint={onBreakpoint}
+                        onLock={() => setIsLocked(true)}
+                        onUnlock={() => setIsLocked(false)}
+                        watchOverflow
+                        watchSlidesProgress
+                        touchStartPreventDefault={false}
+                        touchAngle={45}
+                        threshold={10}
+                        longSwipes={true}
+                        longSwipesRatio={0.5}
+                        resistance={true}
+                        resistanceRatio={0.5}
+                        a11y={{
+                            slideLabelMessage: '',
+                            paginationBulletMessage: i18n('dot-label', {index: '{{index}}'}),
+                        }}
+                        {...paginationProps}
+                    >
+                        {React.Children.map(children, (elem, index) => (
+                            <SwiperSlide className={b('slide')} key={index}>
+                                {({isVisible}) => (
+                                    <div
+                                        className={b('slide-item')}
+                                        aria-hidden={!isA11yControlHidden && !isVisible}
+                                    >
+                                        {elem}
+                                    </div>
+                                )}
+                            </SwiperSlide>
+                        ))}
+                    </SwiperReact>
+                    {arrows && !isLocked && (
+                        <React.Fragment>
+                            <div aria-hidden={isA11yControlHidden}>
+                                <Arrow
+                                    className={b('arrow', {prev: true})}
+                                    type="left"
+                                    transparent={type === SliderType.HeaderCard}
+                                    onClick={onPrev}
+                                    size={arrowSize}
+                                    extraProps={{tabIndex: controlTabIndex}}
+                                />
+                                <Arrow
+                                    className={b('arrow', {next: true})}
+                                    type="right"
+                                    transparent={type === SliderType.HeaderCard}
+                                    onClick={onNext}
+                                    size={arrowSize}
+                                    extraProps={{tabIndex: controlTabIndex}}
+                                />
+                            </div>
+                        </React.Fragment>
+                    )}
+                    <div className={b('footer')}>
+                        {disclaimer ? (
+                            <div className={b('disclaimer', {size: disclaimer?.size || 'm'})}>
+                                {disclaimer?.text}
+                            </div>
+                        ) : null}
+                    </div>
+                </AnimateBlock>
+            </div>
+        </Grid>
     );
 };
 
